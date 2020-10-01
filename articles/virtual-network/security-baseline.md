@@ -4,7 +4,7 @@ description: The Virtual Network security baseline provides procedural guidance 
 author: msmbaldwin
 ms.service: virtual-network
 ms.topic: conceptual
-ms.date: 01/01/2000
+ms.date: 09/30/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
 
@@ -14,19 +14,15 @@ ms.custom: subject-security-benchmark
 
 # Azure security baseline for Virtual Network
 
-This security baseline applies guidance from the [Azure Security Benchmark](https://docs.microsoft.com/azure/security/benchmarks/overview) to Azure Virtual Network. The Azure Security Benchmark provides recommendations on how you can secure your cloud solutions on Azure. The content is grouped by the **security controls** defined by the Azure Security Benchmark and the related guidance applicable to Azure Virtual Network. **Controls** not applicable to Azure Virtual Network have been excluded. To see how Azure Virtual Network completely maps to the Azure Security Benchmark, see the [full Azure Virtual Network security baseline mapping file](https://github.com/MicrosoftDocs/SecurityBenchmarks/tree/master/Azure%20Offer%20Security%20Baselines).
+This security baseline applies guidance from the [Azure Security Benchmark version 1.0](https://docs.microsoft.com/azure/security/benchmarks/overview) to Azure Virtual Network. The Azure Security Benchmark provides recommendations on how you can secure your cloud solutions on Azure. The content is grouped by the **security controls** defined by the Azure Security Benchmark and the related guidance applicable to Azure Virtual Network. **Controls** not applicable to Azure Virtual Network have been excluded.
 
->[!WARNING]
->This preview version of the article is for review only. **DO NOT MERGE INTO MASTER!**
+To see how Azure Virtual Network completely maps to the Azure Security Benchmark, see the [full Azure Virtual Network security baseline mapping file](https://github.com/MicrosoftDocs/SecurityBenchmarks/tree/master/Azure%20Offer%20Security%20Baselines).
 
 ## Network security
 
 *For more information, see the [Azure Security Benchmark: Network security](https://docs.microsoft.com/azure/security/benchmarks/security-control-network-security).*
 
 ### 1.2: Monitor and log the configuration and traffic of virtual networks, subnets, and network interfaces
-
->[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/9766).
 
 **Guidance**: Use Security Center and follow network protection recommendations to help secure your network resources in Azure. 
 
@@ -47,9 +43,6 @@ Choose resource logs to send to an Azure storage account or an event hub. A diff
 **Responsibility**: Customer
 
 ### 1.4: Deny communications with known-malicious IP addresses
-
->[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/9768).
 
 **Guidance**: Enable distributed denial of service (DDoS) Standard protection on your Azure Virtual Network to guard against DDoS attacks.
 
@@ -73,11 +66,8 @@ Apply Security Center's Adaptive Network Hardening recommendations for network s
 
 ### 1.5: Record network packets
 
->[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/9769).
-
 **Guidance**: 
-Use a VPN gateway packet capture in addition to commonly available packet capture tools to record network packets. 
+Use VPN Gateway's packet capture in addition to commonly available packet capture tools to record network packets. 
 
 You can also review agent based or NVA solutions that provide Terminal Access Point (TAP) or Network Visibility functionality through Packet Broker partner solutions available in Azure Marketplace Offerings.
 
@@ -90,9 +80,6 @@ You can also review agent based or NVA solutions that provide Terminal Access Po
 **Responsibility**: Customer
 
 ### 1.6: Deploy network-based intrusion detection/intrusion prevention systems (IDS/IPS)
-
->[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/9770).
 
 **Guidance**: Use an Azure Firewall deployed on your virtual network with Threat Intelligence enabled. Use Azure Firewall Threat intelligence-based filtering to alert or to deny traffic to and from known malicious IP addresses and domains. The IP addresses and domains are sourced from the Microsoft Threat Intelligence feed. 
 
@@ -112,13 +99,10 @@ Deploy the firewall solution of your choice at each of your organization's netwo
 
 ### 1.8: Minimize complexity and administrative overhead of network security rules
 
->[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/9772).
-
 **Guidance**: Use Virtual Network service tags to define network access controls on network security groups or Azure Firewall. Service tags can be used in place of specific IP addresses when creating security rules. 
 Allow or deny the traffic for the corresponding service by specifying the service tag name (for example, ApiManagement) in the appropriate source or destination field of a rule. Microsoft manages the address prefixes encompassed by the service tag and automatically updates the service tag as addresses change.
 
-Use Application Security Groups to help simplify complex security configuration. Application security groups allows you to configure network security as a natural extension of an application's structure. This enables you to group virtual machines and define network security policies based on those groups.
+Use Application Security Groups to help simplify complex security configuration. Application security groups allow you to configure network security as a natural extension of an application's structure. This enables you to group virtual machines and define network security policies based on those groups.
 
 - [Understand and use Service tags](https://docs.microsoft.com/azure/virtual-network/service-tags-overview)
 
@@ -130,14 +114,11 @@ Use Application Security Groups to help simplify complex security configuration.
 
 ### 1.9: Maintain standard security configurations for network devices
 
->[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/9773).
-
 **Guidance**: Define and implement standard security configurations for network resources with Azure Policy and review the built-in network policy definitions for implementation.
 
-Refer to the default policy for Security Center which contains available security recommendations.
+Refer to the default policy for Security Center which contains available security recommendations related to your virtual networks.
 
-Use Azure Blueprints to simplify large scale Azure deployments by packaging key environment artifacts, such as Azure Resource Manager templates, role-based access control (Azure RBAC) assignments, and policies, in a single blueprint definition. Azure Blueprint can be applied to new subscriptions for fine-tuned control and management through versioning. 
+Use Azure Blueprints to simplify large-scale Azure deployments by packaging key environment artifacts, such as Azure Resource Manager templates, role-based access control (Azure RBAC) assignments, and policies, in a single blueprint definition. Azure Blueprint can be applied to new subscriptions for fine-tuned control and management through versioning. 
 
 - [How to configure and manage Azure Policy](https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage)
 
@@ -153,13 +134,10 @@ Use Azure Blueprints to simplify large scale Azure deployments by packaging key 
 
 ### 1.10: Document traffic configuration rules
 
->[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/9774).
-
-**Guidance**: Use tags for network security groups and other resources related to network security and traffic flow. Use the "Description" field to specify business need, duration and so on, for any rules that allow traffic to/from a network for individual network security group rules.
+**Guidance**: Use tags for network security groups and other resources related to network security and traffic flow. Use the "Description" field to specify business need, duration, and other information for any rules that allow traffic to/from a network for individual network security group rules.
 Use any of the built-in Azure Policy definitions related to tagging, such as "Require tag and its value" to ensure that all resources are created with tags and to notify you of existing untagged resources.
 
-Choose Azure PowerShell or Azure CLI to look-up or perform actions on resources based on their tags.
+Choose Azure PowerShell or Azure CLI to look up or perform actions on resources based on their tags.
 
 - [How to create and use Tags](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags)
 
@@ -172,9 +150,6 @@ Choose Azure PowerShell or Azure CLI to look-up or perform actions on resources 
 **Responsibility**: Customer
 
 ### 1.11: Use automated tools to monitor network resource configurations and detect changes
-
->[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/9775).
 
 **Guidance**: 
 Use Azure Activity Log to monitor resource configurations and detect changes to your virtual network. Create alerts within Azure Monitor which will trigger when changes to critical resources take place.
@@ -193,13 +168,10 @@ Use Azure Activity Log to monitor resource configurations and detect changes to 
 
 ### 2.2: Configure central security log management
 
->[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/9777).
-
 **Guidance**: Enable Azure Monitor for access to your audit and activity logs which includes event source, date, user, timestamp, source addresses, destination addresses, and other useful elements. 
 
 In Azure Monitor, use Log Analytics Workspaces to query and perform analytics, and use Azure Storage Accounts for long-term/archival storage.
-Alternatively, you may enable and on-board data to Azure Sentinel or a third party SIEM. 
+Alternatively, you may enable and on-board data to Azure Sentinel or a third-party SIEM. 
 
 - [How to collect platform logs and metrics with Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-settings) 
 
@@ -213,9 +185,6 @@ Alternatively, you may enable and on-board data to Azure Sentinel or a third par
 
 ### 2.3: Enable audit logging for Azure resources
 
->[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/9778).
-
 **Guidance**: Enable Azure Monitor for access to your audit and activity logs which includes event source, date, user, timestamp, source addresses, destination addresses, and other useful elements.
 
 - [How to collect platform logs and metrics with Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-settings) 
@@ -227,9 +196,6 @@ Alternatively, you may enable and on-board data to Azure Sentinel or a third par
 **Responsibility**: Customer
 
 ### 2.5: Configure security log storage retention
-
->[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/9780).
 
 **Guidance**: Within Azure Monitor, set your Log Analytics Workspace retention period
 according to your organization's compliance regulations. Use Azure Storage accounts for long-term/archival storage of security log storage retention.
@@ -244,12 +210,9 @@ according to your organization's compliance regulations. Use Azure Storage accou
 
 ### 2.6: Monitor and review logs
 
->[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/9781).
-
 **Guidance**: Analyze and monitor logs for anomalous behavior and regularly review results. Use Azure Monitor's Log Analytics Workspace to query and perform analytics, and use Azure Storage Accounts for long-term/archival storage. 
 
-Alternatively, you may enable and on-board data to Azure Sentinel or a third party SIEM. 
+Alternatively, you may enable and on-board data to Azure Sentinel or a third-party SIEM. 
 
 - [Understand Log Analytics Workspace](https://docs.microsoft.com/azure/azure-monitor/log-query/get-started-portal)
 
@@ -265,12 +228,9 @@ Alternatively, you may enable and on-board data to Azure Sentinel or a third par
 
 ### 2.7: Enable alerts for anomalous activities
 
->[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/9782).
-
 **Guidance**: Use Security Center with Log Analytics Workspace for monitoring and alerting on anomalous activity found in security logs and events.
 
-Alternatively, you may enable and on-board data to Azure Sentinel. or a 3rd party SIEM for alerting.
+Alternatively, you may enable and onboard data to Azure Sentinel or a third-party SIEM for alerting.
 
 - [How to manage alerts in Security Center](https://docs.microsoft.com/azure/security-center/security-center-managing-and-responding-alerts)
 
@@ -284,9 +244,6 @@ Alternatively, you may enable and on-board data to Azure Sentinel. or a 3rd part
 
 ### 2.9: Enable DNS query logging
 
->[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/9784).
-
 **Guidance**: Implement a third-party solution from Azure Marketplace for DNS logging solution as per your organizational need.
 
 **Azure Security Center monitoring**: Currently not available
@@ -298,9 +255,6 @@ Alternatively, you may enable and on-board data to Azure Sentinel. or a 3rd part
 *For more information, see the [Azure Security Benchmark: Identity and access control](https://docs.microsoft.com/azure/security/benchmarks/security-control-identity-access-control).*
 
 ### 3.1: Maintain an inventory of administrative accounts
-
->[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/9786).
 
 **Guidance**: Use Azure Active Directory (Azure AD) built-in administrator roles that can be explicitly assigned and are queryable. 
 
@@ -316,9 +270,6 @@ Use the Azure AD PowerShell module to perform ad hoc queries to discover account
 
 ### 3.3: Use dedicated administrative accounts
 
->[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/9788).
-
 **Guidance**: Create standard operating procedures around the use of dedicated administrative accounts. Use Security Center's Identity and Access Management to monitor the number of administrative accounts.
 
 Enable Just-In-Time / Just-Enough-Access by using Azure AD Privileged Identity Management Privileged Roles for Microsoft Services and Azure Resource Manager. 
@@ -330,9 +281,6 @@ Enable Just-In-Time / Just-Enough-Access by using Azure AD Privileged Identity M
 **Responsibility**: Customer
 
 ### 3.4: Use Azure Active Directory single sign-on (SSO)
-
->[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/9789).
 
 **Guidance**: Use SSO with Azure Active Directory (Azure AD) rather than configuring individual stand-alone credentials per-service. Use Security Center's Identity and Access Management recommendations.
 
@@ -346,9 +294,6 @@ Enable Just-In-Time / Just-Enough-Access by using Azure AD Privileged Identity M
 
 ### 3.5: Use multi-factor authentication for all Azure Active Directory-based access
 
->[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/9790).
-
 **Guidance**: Enable Azure Active Directory (Azure AD) Multi-Factor Authentication (MFA) and follow Security Center's Identity and Access Management recommendations.
 
 - [How to enable MFA in Azure](https://docs.microsoft.com/azure/active-directory/authentication/howto-mfa-getstarted) 
@@ -361,9 +306,6 @@ Enable Just-In-Time / Just-Enough-Access by using Azure AD Privileged Identity M
 
 ### 3.6: Use secure, Azure-managed workstations for administrative tasks
 
->[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/9791).
-
 **Guidance**: Use Privileged Access Workstations (PAW) with Multi-Factor Authentication (MFA) configured to log into and access Azure network resources.
 
 - [Learn about Privileged Access Workstations](https://docs.microsoft.com/windows-server/identity/securing-privileged-access/privileged-access-workstations) 
@@ -375,9 +317,6 @@ Enable Just-In-Time / Just-Enough-Access by using Azure AD Privileged Identity M
 **Responsibility**: Customer
 
 ### 3.7: Log and alert on suspicious activities from administrative accounts
-
->[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/9792).
 
 **Guidance**: Utilize Azure Active Directory (Azure AD) Risk Detections to view alerts and reports on risky user behavior. 
 
@@ -395,9 +334,6 @@ Ingest Security Center Risk Detection alerts into Azure Monitor and configure cu
 
 ### 3.8: Manage Azure resources from only approved locations
 
->[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/9793).
-
 **Guidance**: Use Conditional Access named locations to allow access from only specific logical groupings of IP address ranges or countries/regions.
 
 - [How to configure named locations in Azure](https://docs.microsoft.com/azure/active-directory/reports-monitoring/quickstart-configure-named-locations)
@@ -408,9 +344,6 @@ Ingest Security Center Risk Detection alerts into Azure Monitor and configure cu
 
 ### 3.9: Use Azure Active Directory
 
->[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/9794).
-
 **Guidance**: Use Azure Active Directory (Azure AD) as a central authentication and authorization system for your services. Azure AD protects data by using strong encryption for data at rest and in transit and also salts, hashes, and securely stores user credentials.  
 
 - [How to create and configure an Azure AD instance](https://docs.microsoft.com/azure/active-directory-domain-services/tutorial-create-instance)
@@ -420,9 +353,6 @@ Ingest Security Center Risk Detection alerts into Azure Monitor and configure cu
 **Responsibility**: Customer
 
 ### 3.10: Regularly review and reconcile user access
-
->[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/9795).
 
 **Guidance**: Use Azure Active Directory (Azure AD) to provide logs to help discover stale accounts. 
 
@@ -438,9 +368,6 @@ Azure Identity Access Reviews can be performed to efficiently manage group membe
 
 ### 3.11: Monitor attempts to access deactivated credentials
 
->[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/9796).
-
 **Guidance**: Integrate Azure Active Directory (Azure AD) Sign-in Activity, Audit and Risk Event log sources, with any SIEM or Monitoring tool based on your access. 
 
 Streamline this process by creating Diagnostic Settings for Azure Active Directory user accounts and sending the audit logs and sign-in logs to a Log Analytics Workspace. Any desired alerts can be configured within Log Analytics Workspace.
@@ -452,9 +379,6 @@ Streamline this process by creating Diagnostic Settings for Azure Active Directo
 **Responsibility**: Customer
 
 ### 3.12: Alert on account sign-in behavior deviation
-
->[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/9797).
 
 **Guidance**: Use Azure Active Directory's  (Azure AD) Risk and Identity Protection features to configure automated responses to detected suspicious actions related to user identities for your Virtual network. Ingest data into Azure Sentinel for any further investigations.
 
@@ -474,14 +398,11 @@ Streamline this process by creating Diagnostic Settings for Azure Active Directo
 
 ### 4.4: Encrypt all sensitive information in transit
 
->[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/9802).
-
 **Guidance**: Encrypt all sensitive information in transit. Ensure that any clients connecting to your Azure resources in your virtual networks are able to negotiate TLS 1.2 or greater. Follow Security Center recommendations for encryption at rest and encryption in transit. 
 
 Microsoft provides several options which can be utilized by customers for securing data in transit internally within the Azure network and externally across the Internet to the end user. These include communication through Virtual Private Networks (utilizing IPsec/IKE encryption), Transport Layer Security (TLS) 1.2 or later (via Azure components such as Application Gateway or Azure Front Door), protocols directly on the Azure virtual machines (such as Windows IPsec or SMB), and more.
 
-Additionally, "encryption by default" using MACsec (an IEEE standard at the data-link layer) is enabled for all Azure traffic travelling between Azure datacenters to ensure confidentiality and integrity of customer data.
+Additionally, "encryption by default" using MACsec (an IEEE standard at the data-link layer) is enabled for all Azure traffic traveling between Azure datacenters to ensure confidentiality and integrity of customer data.
 
 - [Understand encryption in transit with Azure](https://docs.microsoft.com/azure/security/fundamentals/encryption-overview#encryption-of-data-in-transit)
 
@@ -491,10 +412,7 @@ Additionally, "encryption by default" using MACsec (an IEEE standard at the data
 
 ### 4.6: Use Role-based access control to manage access to resources 
 
->[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/9804).
-
-**Guidance**: Use Azure role-based access control (Azure RBAC) to manage access to data and resources. Otherwise use service specific access-control methods. 
+**Guidance**: Use Azure role-based access control (Azure RBAC) to manage access to data and resources. Otherwise use service-specific access-control methods. 
 
 Choose built-in roles like Owner, Contributor, or Network contributor and assign the role to the appropriate scope. For example, you can assign a subset of virtual network capabilities with the specific permissions required for virtual networks to any of these roles. 
 
@@ -509,9 +427,6 @@ Choose built-in roles like Owner, Contributor, or Network contributor and assign
 **Responsibility**: Customer
 
 ### 4.9: Log and alert on changes to critical Azure resources
-
->[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/9807).
 
 **Guidance**: Use Azure Monitor with the Azure Activity Logs to create alerts for when changes take place to critical Azure resources like Virtual Networks and network security groups.
 
@@ -529,9 +444,6 @@ Choose built-in roles like Owner, Contributor, or Network contributor and assign
 
 ### 6.1: Use automated asset discovery solution
 
->[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/9813).
-
 **Guidance**: Use Azure Resource Graph to query and discover all networking resources like Virtual Networks, subnets within your subscriptions. Ensure you have appropriate (read) permissions in your tenant and are able to enumerate all Azure subscriptions as well as resources within your subscriptions.
 
 - [How to create queries with Azure Graph](https://docs.microsoft.com/azure/governance/resource-graph/first-query-portal) 
@@ -546,9 +458,6 @@ Choose built-in roles like Owner, Contributor, or Network contributor and assign
 
 ### 6.2: Maintain asset metadata
 
->[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/9814).
-
 **Guidance**: Apply tags to Azure resources giving metadata to logically organize them into a taxonomy.
 
 - [How to create and use Tags](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags)
@@ -558,9 +467,6 @@ Choose built-in roles like Owner, Contributor, or Network contributor and assign
 **Responsibility**: Customer
 
 ### 6.3: Delete unauthorized Azure resources
-
->[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/9815).
 
 **Guidance**: Use tagging, management groups, and separate subscriptions, where appropriate, to organize and track Virtual network and related resources. Reconcile inventory on a regular basis and ensure unauthorized resources are deleted from the subscription in a timely manner.
 
@@ -576,9 +482,6 @@ Choose built-in roles like Owner, Contributor, or Network contributor and assign
 
 ### 6.4: Define and maintain inventory of approved Azure resources
 
->[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/9816).
-
 **Guidance**: You will need to create an inventory of approved Azure resources and approved software for compute resources as per your organizational needs.
 
 **Azure Security Center monitoring**: Not applicable
@@ -587,15 +490,12 @@ Choose built-in roles like Owner, Contributor, or Network contributor and assign
 
 ### 6.5: Monitor for unapproved Azure resources
 
->[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/9817).
-
 **Guidance**: Use Azure Policy to put restrictions on the type of resources that can be created in customer subscriptions using the following built-in policy definitions:
 - Not allowed resource types 
 
 - Allowed resource types 
 
-Query or discover resources within the subscriptions with Azure Resource Graph in high security based environments, such as those with Azure Storage accounts. 
+Query or discover resources within the subscriptions with Azure Resource Graph in high security-based environments, such as those with Azure Storage accounts. 
 
 - [How to configure and manage Azure Policy](https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage) 
 
@@ -609,9 +509,6 @@ Query or discover resources within the subscriptions with Azure Resource Graph i
 
 ### 6.7: Remove unapproved Azure resources and software applications
 
->[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/9819).
-
 **Guidance**: Prevent resource creation or usage with Azure Policy as required by the organization's policies. Implement processes for removing unauthorized resources.
 
 - [How to configure and manage Azure Policy](https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage)
@@ -621,9 +518,6 @@ Query or discover resources within the subscriptions with Azure Resource Graph i
 **Responsibility**: Customer
 
 ### 6.9: Use only approved Azure services
-
->[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/9821).
 
 **Guidance**: Use Azure Policy to put restrictions on the type of resources that can be created in customer subscriptions using the following built-in policy definitions:
 - Not allowed resource types 
@@ -642,9 +536,6 @@ Query or discover resources within the subscriptions with Azure Resource Graph i
 
 ### 6.11: Limit users' ability to interact with Azure Resource Manager
 
->[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/9822).
-
 **Guidance**: Use Azure Conditional Access to limit user's ability to interact with Azure Resource Manager by configuring "Block access" for the "Microsoft Azure Management" App.
 
 - [How to configure Conditional Access to block access to Azure Resource Manager](https://docs.microsoft.com/azure/role-based-access-control/conditional-access-azure-management)
@@ -658,9 +549,6 @@ Query or discover resources within the subscriptions with Azure Resource Graph i
 *For more information, see the [Azure Security Benchmark: Secure configuration](https://docs.microsoft.com/azure/security/benchmarks/security-control-secure-configuration).*
 
 ### 7.1: Establish secure configurations for all Azure resources
-
->[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/9825).
 
 **Guidance**: Use Azure Policy aliases to create custom policies to audit or enforce the configuration of your Azure network resources and also use built-in Azure Policy definitions.
 
@@ -684,9 +572,6 @@ Implement recommendations from Security Center as a secure configuration baselin
 
 ### 7.3: Maintain secure Azure resource configurations
 
->[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/9827).
-
 **Guidance**: Use Azure Resource Manager templates and Azure Policies to securely configure Azure resources associated with the Virtual network and related resources.  Azure Resource Manager templates are JSON (JavaScript Object Notation) based files used to deploy virtual machines along with Azure resources. Microsoft performs the maintenance on the base templates.  
 
 Use Azure Policy [deny] and [deploy if not exist] effects to enforce secure settings across your Azure resources.
@@ -707,9 +592,6 @@ Use Azure Policy [deny] and [deploy if not exist] effects to enforce secure sett
 
 ### 7.5: Securely store configuration of Azure resources
 
->[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/9829).
-
 **Guidance**: Use Azure DevOps to securely store and manage your code like custom Azure policies, Azure Resource Manager templates, desired state configuration scripts. and so on.
 
 You must have permissions to access the resources you wish to manage in Azure DevOps, such as your code, builds, and work tracking. Most permissions are granted through built-in security groups. You can grant or deny permissions to specific users, built-in security groups, or groups defined in Azure Active Directory (Azure AD) if integrated with Azure DevOps, or Active Directory if integrated with Team Foundation Server.
@@ -723,9 +605,6 @@ You must have permissions to access the resources you wish to manage in Azure De
 **Responsibility**: Customer
 
 ### 7.7: Deploy configuration management tools for Azure resources
-
->[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/9831).
 
 **Guidance**: Define and implement standard security configurations for Azure resources using Azure Policy. Use Azure Policy aliases to create custom policies to audit or enforce the network configuration of your Azure resources and any built-in policy definitions related to  specific resources. 
 
@@ -741,9 +620,6 @@ You must have permissions to access the resources you wish to manage in Azure De
 
 ### 7.9: Implement automated configuration monitoring for Azure resources
 
->[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/9833).
-
 **Guidance**: Use Security Center to perform baseline scans for your Azure Virtual Network and related resources. Use Azure Policy to alert and audit Azure resource configurations.
 
 - [How to remediate recommendations in Security Center](https://docs.microsoft.com/azure/security-center/security-center-remediate-recommendations)
@@ -758,10 +634,7 @@ You must have permissions to access the resources you wish to manage in Azure De
 
 ### 7.11: Manage Azure secrets securely
 
->[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/9835).
-
-**Guidance**: Use Managed Service Identity in conjunction with Azure Key Vault to simplify and secure secret management for your Azure resources hosted in an Azure Virtual Network .
+**Guidance**: Use Managed Service Identity in conjunction with Azure Key Vault to simplify and secure secret management for your Azure resources hosted in an Azure Virtual Network.
 
 - [How to integrate with Azure Managed Identities](https://docs.microsoft.com/azure/azure-app-configuration/howto-integrate-azure-managed-service-identity) 
 
@@ -774,9 +647,6 @@ You must have permissions to access the resources you wish to manage in Azure De
 **Responsibility**: Customer
 
 ### 7.13: Eliminate unintended credential exposure
-
->[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/9837).
 
 **Guidance**: Implement Credential Scanner to identify credentials within code. Credential Scanner will also encourage moving discovered credentials to more secure locations such as Azure Key Vault.
 
@@ -791,9 +661,6 @@ You must have permissions to access the resources you wish to manage in Azure De
 *For more information, see the [Azure Security Benchmark: Data recovery](https://docs.microsoft.com/azure/security/benchmarks/security-control-data-recovery).*
 
 ### 9.1: Ensure regular automated back-ups
-
->[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/9841).
 
 **Guidance**: Use Azure Resource Manager to deploy a virtual network and related resources. Azure Resource Manager provides ability to export templates which can be used as backups to restore Virtual network and related resources.  Use Azure Automation to call the Azure Resource Manager template export API on a regular basis.
 
@@ -813,10 +680,7 @@ You must have permissions to access the resources you wish to manage in Azure De
 
 ### 9.2: Perform complete system backups and backup any customer-managed keys
 
->[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/9842).
-
-**Guidance**: Use Azure Resource Manager to deploy a virtual network and related resources. Azure Resource Manager provides ability to export templates which can be used as backups to restore Virtual network and related resources.  Use Azure Automation to call the Azure Resource Manager template export API on a regular basis.  Back up customer managed keys within Azure Key Vault.
+**Guidance**: Use Azure Resource Manager to deploy a virtual network and related resources. Azure Resource Manager provides ability to export templates which can be used as backups to restore Virtual network and related resources. Use Azure Automation to call the Azure Resource Manager template export API on a regular basis. Back up customer-managed keys within Azure Key Vault.
 
 - [Overview of Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/management/overview)
 
@@ -836,10 +700,7 @@ You must have permissions to access the resources you wish to manage in Azure De
 
 ### 9.3: Validate all backups including customer-managed keys
 
->[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/9843).
-
-**Guidance**: Periodically perform deployment of Azure Resource Manager templates to an isolated subscription and test restoration of backed up customer managed keys.
+**Guidance**: Periodically perform deployment of Azure Resource Manager templates to an isolated subscription and test restoration of backed up customer-managed keys.
 
 - [Deploy resources with ARM templates and Azure portal](https://docs.microsoft.com/azure/azure-resource-manager/templates/deploy-portal)
 
@@ -849,14 +710,11 @@ You must have permissions to access the resources you wish to manage in Azure De
 
 ### 9.4: Ensure protection of backups and customer-managed keys
 
->[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/9844).
-
-**Guidance**: Use Azure DevOps to securely store and manage your code like custom Azure policies, Azure Resource Manager templates. 
+**Guidance**: Use Azure DevOps to securely store and manage your code like custom Azure Policy definitions and Azure Resource Manager templates. 
 
 Grant or deny permissions to specific users, built-in security groups, or groups defined in Azure Active Directory (Azure AD) if integrated with Azure DevOps, or Active Directory if integrated with Team Foundation Server.  
 
-Use role-based access control (Azure RBAC) to protect customer managed keys.   
+Use Azure role-based access control (Azure RBAC) to protect customer-managed keys.   
 
 Enable Soft-Delete and purge protection in Key Vault to protect keys against accidental or malicious deletion.  
 
@@ -878,9 +736,6 @@ Enable Soft-Delete and purge protection in Key Vault to protect keys against acc
 
 ### 10.1: Create an incident response guide
 
->[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/9845).
-
 **Guidance**: Build out an incident response guide for your organization. Ensure that there are written incident response plans that define all roles of personnel as well as phases of incident handling/management from detection to post-incident review.  
 
 - [Guidance on building your own security incident response process](https://msrc-blog.microsoft.com/2019/07/01/inside-the-msrc-building-your-own-security-incident-response-process/)
@@ -894,9 +749,6 @@ Enable Soft-Delete and purge protection in Key Vault to protect keys against acc
 **Responsibility**: Customer
 
 ### 10.2: Create an incident scoring and prioritization procedure
-
->[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/9846).
 
 **Guidance**: Security Center assigns a severity to each alert to help you prioritize which alerts should be investigated first. The severity is based on how confident Security Center is in the finding or the analytic used to issue the alert as well as the confidence level that there was malicious intent behind the activity that led to the alert.
 
@@ -912,9 +764,6 @@ Clearly mark subscriptions (for example, production or non-production) using tag
 
 ### 10.3: Test security response procedures
 
->[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/9847).
-
 **Guidance**: Conduct exercises to test your systems’ incident response capabilities on a regular cadence to help protect your Azure resources. Identify weak points and gaps and revise plan as needed.
 
 - [NIST's publication - Guide to Test, Training, and Exercise Programs for IT Plans and Capabilities](https://csrc.nist.gov/publications/detail/sp/800-84/final)
@@ -925,9 +774,6 @@ Clearly mark subscriptions (for example, production or non-production) using tag
 
 ### 10.4: Provide security incident contact details and configure alert notifications for security incidents
 
->[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/9848).
-
 **Guidance**: Security incident contact information will be used by Microsoft to contact you if the Microsoft Security Response Center (MSRC) discovers that your data has been accessed by an unlawful or unauthorized party. Review incidents after the fact to ensure that issues are resolved.
 
 - [How to set the Security Center Security Contact](https://docs.microsoft.com/azure/security-center/security-center-provide-security-contact-details)
@@ -937,9 +783,6 @@ Clearly mark subscriptions (for example, production or non-production) using tag
 **Responsibility**: Customer
 
 ### 10.5: Incorporate security alerts into your incident response system
-
->[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/9849).
 
 **Guidance**: Export your Security Center alerts and recommendations using the Continuous Export feature to help identify risks to Azure resources. Continuous Export allows you to export alerts and recommendations either manually or in an ongoing, continuous fashion. 
 
@@ -955,9 +798,6 @@ You can also use the Security Center data connector to stream the alerts to Azur
 
 ### 10.6: Automate the response to security alerts
 
->[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/9850).
-
 **Guidance**: Use the Workflow Automation feature in Security Center to automatically trigger responses via "Logic Apps" on security alerts and recommendations to protect your Azure resources.
 
 - [How to configure Workflow Automation and Logic Apps](https://docs.microsoft.com/azure/security-center/workflow-automation)
@@ -971,9 +811,6 @@ You can also use the Security Center data connector to stream the alerts to Azur
 *For more information, see the [Azure Security Benchmark: Penetration tests and red team exercises](https://docs.microsoft.com/azure/security/benchmarks/security-control-penetration-tests-red-team-exercises).*
 
 ### 11.1: Conduct regular penetration testing of your Azure resources and ensure remediation of all critical security findings
-
->[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/9851).
 
 **Guidance**: Follow the Microsoft Rules of Engagement to ensure your Penetration Tests are not in violation of Microsoft policies. Use Microsoft’s strategy and execution of Red Teaming and live site penetration testing against Microsoft-managed cloud infrastructure, services, and applications.
 
