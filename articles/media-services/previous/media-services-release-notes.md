@@ -45,6 +45,13 @@ We want to hear from our customers so that we can focus on fixing problems that 
 ## <a name="rest_version_history"></a>REST API version history
 For information about the Media Services REST API version history, see the [Azure Media Services REST API reference].
 
+## September 2020
+
+The following v2 properties will no longer be populated with historical job progress data:
+
+* [HistoricalEvents](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.mediaservices.client.itask.historicalevents)
+* [PerfMessage](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.mediaservices.client.itask.perfmessage)
+
 ## February 2020
 
 Some analytics media processors will be retired. For the retirement dates, see the [legacy components](legacy-components.md) topic.
