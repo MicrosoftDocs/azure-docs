@@ -23,6 +23,7 @@ Export rules can be disabled to let you stop the export when you don’t need to
 ## Other export options
 Log Analytics data export continuously exports data from a Log Analytics workspace. Other options to export data for particular scenarios include the following:
 
+- One time or scheduled export from a log query [using Logic App](../log-query/logicapp-export.md).
 - One time export to local machine using [PowerShell script](https://www.powershellgallery.com/packages/Invoke-AzOperationalInsightsQueryExport).
 - One time batch export using [Logic App connector](logicapp-flow-connector.md).
 
