@@ -22,6 +22,8 @@ ms.author: inhenkel
 
 Azure Media Services enables you to scale media processing by managing Media Reserved Units (MRUs). An MRU provides additional computing capacity required for encoding media. The number of MRUs determine the speed with which your media tasks are processed and how many media tasks can be processed concurrently in an account. For example, if your account has five MRUs and there are tasks to be processed, then five media tasks can be running concurrently. Any remaining tasks will be queued up and can be picked up for processing sequentially when a running task finishes. Each MRU that you provision results in a capacity reservation but does not provide you with dedicated resource. During times of extremely high demand, all of your MRUs may not start processing immediately.
 
+A task is an individual operation of work on an Asset e.g. adaptive streaming encoding. When you submit a job, Media Services will take care of breaking out the job into individual operations (i.e. tasks) that will then be associated with separate MRUs.
+
 ## Choosing between different reserved unit types
 
 The following table helps you make a decision when choosing between different encoding speeds.  It shows the duration of encoding for a 7 minute, 1080p video depending on the MRU used.
