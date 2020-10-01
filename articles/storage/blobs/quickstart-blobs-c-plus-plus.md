@@ -52,11 +52,15 @@ If you haven't already, install the LibCurl and LibXML2 packages by using the `v
 vcpkg.exe install libxml2:x64-windows curl:x64-windows
 ```
 
-Follow the instructions at [Azure SDK for C++](https://github.com/Azure/azure-sdk-for-cpp/) to acquire and build the Azure SDK for C++.
+Follow the instructions on GitHub to acquire and build the [Azure SDK for C++](https://github.com/Azure/azure-sdk-for-cpp/).
 
 ### Create the project
 
-In Visual Studio, create a C++ console application called *BlobQuickstartV12*. Add the following libraries to the project:
+In Visual Studio, create a new C++ console application for Windows called *BlobQuickstartV12*.
+
+:::image type="content" source="./media/quickstart-blobs-c-plus-plus/vs-create-project.jpg" alt-text="Visual Studio dialog for configuring a new C++ Windows console app":::
+
+Add the following libraries to the project:
 
 - libcurl.lib
 - libxml2.lib
