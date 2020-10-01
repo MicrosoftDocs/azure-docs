@@ -76,9 +76,9 @@ from azureml.core import Workspace
                location='eastus2'
                )
 ```
-Set create_resource_group to False if you have an existing Azure resource group that you want to use for the workspace.
+Set `create_resource_group` to False if you have an existing Azure resource group that you want to use for the workspace.
 
-The following example shows how to reuse existing Azure resources utilizing the Azure resource ID format. The specific Azure resource IDs can be retrieved through the Azure Portal or SDK. This assumes that the resource group, storage account, key vault, App Insights and container registry already exist.
+You can also reuse existing Azure resources with the Azure resource ID format. The specific Azure resource IDs can be retrieved through the Azure Portal or SDK. This assumes that the resource group, storage account, key vault, App Insights and container registry already exist.
 
 ```python
 import os
@@ -128,24 +128,25 @@ For more information, see [Workspace SDK reference](https://docs.microsoft.com/p
 
 1. When you are finished configuring networking, you can select __Review + Create__, or advance to the optional __Advanced__ configuration.
 
+
+# [Python](#tab/python)
+
+The Azure Machine Learning Python SDK provides the [PrivateEndpointConfig](https://docs.microsoft.com/python/api/azureml-core/azureml.core.privateendpointconfig?view=azure-ml-py) class, which can be used with [Workspace.create()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace.workspace?view=azure-ml-py#create-name--auth-none--subscription-id-none--resource-group-none--location-none--create-resource-group-true--sku--basic---tags-none--friendly-name-none--storage-account-none--key-vault-none--app-insights-none--container-registry-none--adb-workspace-none--cmk-keyvault-none--resource-cmk-uri-none--hbi-workspace-false--default-cpu-compute-target-none--default-gpu-compute-target-none--private-endpoint-config-none--private-endpoint-auto-approval-true--exist-ok-false--show-output-true-) to create a workspace with a private endpoint. This class requires an existing virtual network.
+
+---
 > [!IMPORTANT]	
 > Using a private endpoint with Azure Machine Learning workspace is currently in public preview. This preview is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 	
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-# [Python](#tab/python)
+### Multiple workspaces with private endpoint
 
-Example goes here
+When you create a private endpoint, a new Private DNS Zone named __privatelink.api.azureml.ms__ is created. This contains a link to the virtual network. If you create multiple workspaces with private endpoints in the same resource group, only the virtual network for the first private endpoint may be added to the DNS zone. To add entries for the virtual networks used by the additional workspaces/private endpoints, use the following steps:	
 
----
+1. In the [Azure portal](https://portal.azure.com), select the resource group that contains the workspace. Then select the Private DNS Zone resource named __privatelink.api.azureml.ms__.	
+2. In the __Settings__, select __Virtual network links__.	
+3. Select __Add__. From the __Add virtual network link__ page, provide a unique __Link name__, and then select the __Virtual network__ to be added. Select __OK__ to add the network link.	
 
-> [!WARNING]	
-> When you create a private endpoint, a new Private DNS Zone named __privatelink.api.azureml.ms__ is created. This contains a link to the virtual network. If you create multiple workspaces with private endpoints in the same resource group, only the virtual network for the first private endpoint may be added to the DNS zone. To add entries for the virtual networks used by the additional workspaces/private endpoints, use the following steps:	
-> 	
-> 1. In the [Azure portal](https://portal.azure.com), select the resource group that contains the workspace. Then select the Private DNS Zone resource named __privatelink.api.azureml.ms__.	
-> 2. In the __Settings__, select __Virtual network links__.	
-> 3. Select __Add__. From the __Add virtual network link__ page, provide a unique __Link name__, and then select the __Virtual network__ to be added. Select __OK__ to add the network link.	
->	
-> For more information, see [Azure Private Endpoint DNS configuration](/azure/private-link/private-endpoint-dns).	
+For more information, see [Azure Private Endpoint DNS configuration](/azure/private-link/private-endpoint-dns).	
 
 ### Vulnerability scanning
 
@@ -153,26 +154,30 @@ Azure Security Center provides unified security management and advanced threat p
 
 ### Advanced
 
-By default, metrics and metadata for the workspace is stored in an Azure Cosmos DB instance that Microsoft maintains. This data is encrypted using Microsoft-managed keys. 	
+By default, metrics and metadata for the workspace is stored in an Azure Cosmos DB instance that Microsoft maintains. This data is encrypted using Microsoft-managed keys.
 
 To limit the data that Microsoft collects on your workspace, select __High business impact workspace__. For more information on this setting, see [Encryption at rest](concept-enterprise-security.md#encryption-at-rest).
 
 > [!IMPORTANT]	
 > Selecting high business impact can only be done when creating a workspace. You cannot change this setting after workspace creation.	
-If you are using the __Enterprise__ version of Azure Machine Learning, you can instead provide your own key. Doing so creates the Azure Cosmos DB instance that stores metrics and metadata in your Azure subscription. Use the following steps to use your own key:	
+
+#### Use your own key
+
+you can instead provide your own key. Doing so creates the Azure Cosmos DB instance that stores metrics and metadata in your Azure subscription. Use the following steps to use your own key:
 
 > [!IMPORTANT]	
 > Before following these steps, you must first perform the following actions:	
->	
+>
 > 1. Authorize the __Machine Learning App__ (in Identity and Access Management) with contributor permissions on your subscription.	
-> 1. Follow the steps in [Configure customer-managed keys](/azure/cosmos-db/how-to-setup-cmk) to:	
+> 1. Follow the steps in [Configure customer-managed keys](/azure/cosmos-db/how-to-setup-cmk) to:
 >     * Register the Azure Cosmos DB provider	
 >     * Create and configure an Azure Key Vault	
 >     * Generate a key	
 >	
 >     You do not need to manually create the Azure Cosmos DB instance, one will be created for you during workspace creation. This Azure Cosmos DB instance will be created in a separate resource group using a name based on this pattern: `<your-workspace-resource-name>_<GUID>`.	
 >	
-> You cannot change this setting after workspace creation. If you delete the Azure Cosmos DB used by your workspace, you must also delete the workspace that is using it.	
+> You cannot change this setting after workspace creation. If you delete the Azure Cosmos DB used by your workspace, you must also delete the workspace that is using it.
+
 1. Select __Customer-managed keys__, and then select __Click to select key__.	
 
     :::image type="content" source="media/how-to-manage-workspace/advanced-workspace.png" alt-text="Customer-managed keys":::	
@@ -183,32 +188,27 @@ If you are using the __Enterprise__ version of Azure Machine Learning, you can i
 
 ### Download a configuration file
 
-If you will be creating a [compute instance](tutorial-1st-experiment-sdk-setup.md#azure), skip this step.  The compute instance will have the configuration file already stored for you.
+If you will be creating a [compute instance](tutorial-1st-experiment-sdk-setup.md#azure), skip this step.  The compute instance has already created a copy of this file for you.
 
 
 # [Portal](#tab/azure-portal)
 
-1. If you plan to use code on your local environment that references this workspace, select  **Download config.json** from the **Overview** section of the workspace.  
+If you plan to use code on your local environment that references this workspace, select  **Download config.json** from the **Overview** section of the workspace.  
 
    ![Download config.json](./media/how-to-manage-workspace/configure.png)
 
 # [Python](#tab/python)
+
+If you plan to use code on your local environment that references this workspace (`ws`), write the configuration file:
    
 ```python
-from azureml.core import Workspace
-
-try:
-    ws = Workspace(subscription_id = subscription_id, resource_group = resource_group, workspace_name = workspace_name)
-    # write the details of the workspace to a configuration file to the notebook library
-    ws.write_config()
-    print("Workspace configuration succeeded. Skip the workspace creation steps below")
-except:
-    print("Workspace not accessible. Change your parameters or create a new workspace below")
+ws.write_config()
 ```
+
+---
 
 Place the file into  the directory structure with your Python scripts or Jupyter Notebooks. It can be in the same directory, a subdirectory named *.azureml*, or in a parent directory. When you create a compute instance, this file is added to the correct directory on the VM for you.
 
----
 
 ## <a name="view"></a>Find a workspace
 
@@ -273,9 +273,12 @@ The Azure Machine Learning workspace uses Azure Container Registry (ACR) for som
 
 [!INCLUDE [machine-learning-delete-acr](../../includes/machine-learning-delete-acr.md)]
 
+## Examples
+
+Examples of creating a workspace:
+* Use Azure portal to [create a workspace and compute instance](tutorial-1st-experiment-sdk-setup.md)
+* Use Python SDK to [create a workspace in your own environment](tutorial-1st-experiment-sdk-setup-local.md)
+
 ## Next steps
 
-Follow the full-length tutorial to learn how to use a workspace to build, train, and deploy models with Azure Machine Learning.
-
-> [!div class="nextstepaction"]
-> [Tutorial: Train models](tutorial-train-models-with-aml.md)
+Once you have a workspace, learn how to [Train and deploy a model](tutorial-train-models-with-aml.md).
