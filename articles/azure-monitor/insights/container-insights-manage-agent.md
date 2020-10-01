@@ -80,7 +80,7 @@ See **Using service principal** in [Enable monitoring of Azure Arc enabled Kuber
 
 ### Upgrade agent on Azure Arc enabled Kubernetes
 
-Perform the following command to upgrade the agent on an Azure Arc enabled Kubernetes cluster without a proxy endpoint.
+Perform the following command to upgrade the agent on an Azure Arc enabled Kubernetes cluster.
 
 ```console
 curl -o upgrade-monitoring.sh -L https://aka.ms/upgrade-monitoring-bash-script
@@ -90,11 +90,6 @@ bash upgrade-monitoring.sh --resource-id $azureArcClusterResourceId
 
 See **Using service principal** in [Enable monitoring of Azure Arc enabled Kubernetes cluster](container-insights-enable-arc-enabled-clusters.md#enable-using-bash-script) for details on using a service principal with this command.
 
-Perform the following command to upgrade the agent when a proxy endpoint is specified. For more information about the proxy endpoint, see [Configure proxy endpoint](container-insights-enable-arc-enabled-clusters.md#configure-proxy-endpoint).
-
-```console
-$ helm upgrade –name azmon-containers-release-1 –set omsagent.proxy=<proxyEndpoint>,omsagent.secret.wsid=<your_workspace_id>,omsagent.secret.key=<your_workspace_key>,omsagent.env.clusterId=<resourceIdOfAzureArcK8sCluster>
-```
 
 ## How to disable environment variable collection on a container
 
