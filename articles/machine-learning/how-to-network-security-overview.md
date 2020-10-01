@@ -6,11 +6,11 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.reviewer: larryfr
-ms.author: aashishb
-author: aashishb
+ms.author: peterlu
+author: peterclu
 ms.date: 09/25/2020
 ms.topic: conceptual
-ms.custom: how-to, devx-track-python, references_regions
+ms.custom: how-to, devx-track-python, references_regions, contperfq1
 
 ---
 

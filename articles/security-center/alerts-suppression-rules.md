@@ -7,7 +7,7 @@ services: security-center
 ms.author: memildin
 ms.date: 09/10/2020
 ms.service: security-center
-ms.topic: conceptual
+ms.topic: how-to
 ---
 
 # Suppress alerts from Azure Defender

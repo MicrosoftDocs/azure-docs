@@ -12,7 +12,8 @@ In many event streaming and messaging scenarios, the event or message payload co
 The **Azure Schema Registry** is a feature of Event Hubs, which provides a central repository for schema documents for event-driven and messaging-centric applications. It provides the flexibility for your producer and consumer applications to exchange data without having to manage and share the schema between them and also to evolve at different rates. The Schema Registry also provides a simple governance framework for reusable schemas and defines the relationship between schemas through a grouping construct (schema groups).
 
 > [!NOTE]
-> - The **Schema Registry** feature is currently in **preview** and is available only in **standard** and **dedicated** tiers, not in the **basic** tier.
+> - The **Schema Registry** feature is currently in **preview**, and is not recommended for production workloads.
+> - The feature is available only in **standard** and **dedicated** tiers, not in the **basic** tier.
 > - This preview is currently available only in the **West Central US** region. 
 
 With schema-driven serialization frameworks like Apache Avro, externalizing serialization metadata into shared schemas can also help with dramatically reducing the per-message overhead of type information and field names included with every data set as it's the case with tagged formats such as JSON. Having schemas stored alongside the events and inside the eventing infrastructure ensures that the metadata required for serialization/de-serialization is always in reach and schemas can't be misplaced. 
@@ -50,8 +51,10 @@ When accessing the schema registry programmatically, you need to register an app
 
 | Role | Description | 
 | ---- | ----------- | 
-| Schema Registry Reader (Preview) | Read and list Schema Registry groups and schemas. |
-| Schema Registry Contributor (Preview) | Read, write, and delete Schema Registry groups and schemas. |
+| Owner | Read, write, and delete Schema Registry groups and schemas. |
+| Contributor | Read, write, and delete Schema Registry groups and schemas. |
+| [Schema Registry Reader (Preview)](../role-based-access-control/built-in-roles.md#schema-registry-reader-preview) | Read and list Schema Registry groups and schemas. |
+| [Schema Registry Contributor (Preview)](../role-based-access-control/built-in-roles.md#schema-registry-reader-preview) | Read, write, and delete Schema Registry groups and schemas. |
 
 For instructions on creating registering an application using the Azure portal, see [Register an app with Azure AD](../active-directory/develop/quickstart-register-app.md). Note down the client ID (application ID), tenant ID, and the secret to use in the code. 
 

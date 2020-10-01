@@ -69,8 +69,10 @@
     href: load-balancer-tcp-reset.md
   - name: Standard Load Balancer and Availability Zones
     href: load-balancer-standard-availability-zones.md
-  - name: Built-in security controls
-    href: load-balancer-security-controls.md
+  - name: Security
+    items: 
+    - name: Security baseline
+      href: security-baseline.md
   - name: Backend Pool management
     href: backend-pool-management.md
   - name: Standard Load Balancer and Virtual Machine Scale Sets

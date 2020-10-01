@@ -82,10 +82,10 @@ az cosmosdb update --name $accountName --resource-group $resourceGroupName \
 
 ### Enable multiple write regions
 
-Enable multi-master for a Cosmos account
+Enable multi-region writes for a Cosmos account
 
 ```azurecli-interactive
-# Update an Azure Cosmos account from single to multi-master
+# Update an Azure Cosmos account from single write region to multiple write regions
 resourceGroupName='myResourceGroup'
 accountName='mycosmosaccount'
 

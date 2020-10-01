@@ -10,6 +10,10 @@
     href: language-support.md
   - name: Region support
     href: regions.md
+  - name: Pricing
+    href: https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/
+  - name: Quotas and limits
+    href: speech-services-quotas-and-limits.md
   - name: What's new in docs? 
     href: whats-new.md
 - name: Speech-to-text
@@ -347,6 +351,8 @@
       items:
         - name: What is a voice assistant?
           href: voice-assistants.md
+        - name: Voice Assistant samples (GitHub)
+          href: https://github.com/Azure-Samples/Cognitive-Services-Voice-Assistant
     - name: Custom Commands
       items:
         - name: What is Custom Commands?
@@ -459,11 +465,58 @@
       items:
         - name: Speaker Recognition REST API
           href: https://docs.microsoft.com/rest/api/speakerrecognition/
-- name: Hosting
+- name: Tools
   items:
-    - name: Hosting documentation
-      href: index-hosting.yml
-    - name: How-to guides
+  - name: Speech SDK
+    items:
+      - name: Speech SDK overview
+        href: speech-sdk.md
+      - name: Setup Speech SDK
+        href: quickstarts/setup-platform.md
+      - name: Speech SDK Release notes
+        href: releasenotes.md
+      - name: Reference
+        items:
+          - name: C++
+            href: 'https://aka.ms/csspeech/cppref'
+          - name: 'C#'
+            href: 'https://aka.ms/csspeech/csharpref'
+          - name: Java
+            href: 'https://aka.ms/csspeech/javaref'
+          - name: JavaScript
+            href: 'https://aka.ms/csspeech/javascriptref'
+          - name: Objective-C
+            href: 'https://aka.ms/csspeech/objectivecref'
+          - name: Python
+            href: 'https://aka.ms/csspeech/pythonref'
+  - name: Speech CLI
+    displayName: SPX
+    items:
+      - name: Speech CLI overview
+        displayName: What is SPX?
+        href: spx-overview.md
+      - name: Speech CLI Basics
+        displayName: SPX basics
+        href: spx-basics.md
+  - name: Speech Studio
+    items:
+      - name: Speech Studio overview
+        href: https://speech.microsoft.com
+      - name: Create a Custom Commands app with Speech Studio
+        href: quickstart-custom-speech-commands-create-new.md
+- name: Deploy
+  items:
+    - name: Enable logging
+      href: how-to-use-logging.md
+    - name: Track memory usage
+      href: how-to-track-speech-sdk-memory-usage.md
+    - name: Configure OpenSSL for Linux
+      displayName: memory usage, memory consumption, object logging, object tracking, memory, openssl
+      href: how-to-configure-openssl-linux.md
+    - name: Configure RHEL/CentOS 7
+      href: how-to-configure-rhel-centos-7.md
+      displayName: RHEL, CentOS 7, CentOS, Configure RHEL, Configure CentO
+    - name: Containers
       items:
         - name: Install and run Speech containers
           displayName: 'containers,install container,run container'
@@ -479,53 +532,8 @@
         - name: Speech containers on Azure container instances
           displayName: 'ACI,azure container instances,container instances,containers'
           href: deploy-speech-on-container-instances.md
-    - name: Resources
-      items:
-      - name: Containers FAQ
-        href: speech-container-faq.md
-- name: Speech SDK
-  items:
-    - name: Speech SDK overview
-      href: speech-sdk.md
-    - name: Setup Speech SDK
-      displayName: install the speech sdk, install the speech sdk java, install the speech sdk C#, install the speech sdk python, install the speech sdk C++, setup speech sdk, install, install C#, install C++, install Python, install Java, install Javascript
-      href: quickstarts/setup-platform.md
-    - name: How-to guides
-      items:
-        - name: Enable logging
-          href: how-to-use-logging.md
-        - name: Track memory usage
-          href: how-to-track-speech-sdk-memory-usage.md
-        - name: Configure OpenSSL for Linux
-          displayName: memory usage, memory consumption, object logging, object tracking, memory, openssl
-          href: how-to-configure-openssl-linux.md
-        - name: Configure RHEL/CentOS 7
-          href: how-to-configure-rhel-centos-7.md
-          displayName: RHEL, CentOS 7, CentOS, Configure RHEL, Configure CentOS
-    - name: Samples
-      items:
-        - name: Speech SDK samples (GitHub)
-          href: 'https://github.com/Azure-Samples/cognitive-services-speech-sdk'
-        - name: Speech devices SDK samples (GitHub)
-          href: https://github.com/Azure-Samples/Cognitive-Services-Speech-Devices-SDK
-        - name: Voice Assistant samples (GitHub)
-          href: https://github.com/Azure-Samples/Cognitive-Services-Voice-Assistant
-    - name: Reference
-      items:
-        - name: C++
-          href: 'https://aka.ms/csspeech/cppref'
-        - name: 'C#'
-          href: 'https://aka.ms/csspeech/csharpref'
-        - name: Java
-          href: 'https://aka.ms/csspeech/javaref'
-        - name: JavaScript
-          href: 'https://aka.ms/csspeech/javascriptref'
-        - name: Objective-C
-          href: 'https://aka.ms/csspeech/objectivecref'
-        - name: Python
-          href: 'https://aka.ms/csspeech/pythonref'
-        - name: Speech SDK Release notes
-          href: releasenotes.md
+        - name: Containers FAQ
+          href: speech-container-faq.md
 - name: Devices
   items:
     - name: Speech devices documentation
@@ -536,6 +544,8 @@
           href: speech-devices-sdk.md
         - name: Get the Speech devices SDK
           href: get-speech-devices-sdk.md
+        - name: Speech devices SDK samples (GitHub)
+          href: https://github.com/Azure-Samples/Cognitive-Services-Speech-Devices-SDK
     - name: Hardware
       items:
         - name: Microphone array recommendations
@@ -560,23 +570,6 @@
       items:
         - name: Speech devices SDK release notes
           href: devices-sdk-release-notes.md
-- name: Tools
-  items:
-  - name: Speech CLI
-    displayName: SPX
-    items:
-      - name: What is the Speech CLI?
-        displayName: What is SPX?
-        href: spx-overview.md
-      - name: Speech CLI Basics
-        displayName: SPX basics
-        href: spx-basics.md
-  - name: Speech Studio
-    items:
-      - name: What is Speech Studio?
-        href: https://speech.microsoft.com
-      - name: Create a Custom Commands app with Speech Studio
-        href: quickstart-custom-speech-commands-create-new.md
 - name: Migration
   items:
   - name: From Bing Speech
@@ -595,12 +588,8 @@
     - name: Sovereign Clouds
       displayName: fairfax,mooncake,compliant,secret,compliance,government,government cloud,dod,china
       href: sovereign-clouds.md
-    - name: Pricing
-      href: https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/
     - name: Pricing calculator
       href: https://azure.microsoft.com/pricing/calculator/#cognitive-services
-    - name: Quotas and Limits
-      href: speech-services-quotas-and-limits.md
     - name: Compliance
       href: https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/
     - name: Encryption

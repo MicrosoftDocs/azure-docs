@@ -8,7 +8,7 @@ ms.workload: big-data
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
-ms.date: 09/15/2020
+ms.date: 09/28/2020
 ms.custom: seodec18
 ---
 
@@ -21,15 +21,14 @@ This article describes data storage in Azure Time Series Insights Gen2. It cover
 When you create an Azure Time Series Insights Gen2 environment, you have the following options:
 
 * Cold data storage:
-   * Create a new Azure Storage resource in the subscription and region you’ve chosen for your environment.
-   * Attach a pre-existing Azure Storage account. This option is only available by deploying from an Azure Resource Manager [template](https://docs.microsoft.com/azure/templates/microsoft.timeseriesinsights/allversions), and is not visible in the Azure portal.
+  * Create a new Azure Storage resource in the subscription and region you’ve chosen for your environment.
+  * Attach a pre-existing Azure Storage account. This option is only available by deploying from an Azure Resource Manager [template](https://docs.microsoft.com/azure/templates/microsoft.timeseriesinsights/allversions), and is not visible in the Azure portal.
 * Warm data storage:
-   * A warm store is optional, and can be enabled or disabled during or after time of provisioning. If you decide to enable warm store at a later time and there is already data in your cold store, review [this](concepts-storage.md#warm-store-behavior) section below to understand the expected behavior. The warm store data retention time can be configured for 7 to 31 days, and this can also be adjusted as needed.
+  * A warm store is optional, and can be enabled or disabled during or after time of provisioning. If you decide to enable warm store at a later time and there is already data in your cold store, review [this](concepts-storage.md#warm-store-behavior) section below to understand the expected behavior. The warm store data retention time can be configured for 7 to 31 days, and this can also be adjusted as needed.
 
 When an event is ingested, it is indexed in both warm store (if enabled) and cold store.
 
 [![Storage overview](media/concepts-storage/pipeline-to-storage.png)](media/concepts-storage/pipeline-to-storage.png#lightbox)
-
 
 > [!WARNING]
 > As the owner of the Azure Blob storage account where cold store data resides, you have full access to all data in the account. This access includes write and delete permissions. Don't edit or delete the data that Azure Time Series Insights Gen2 writes because that can cause data loss.
@@ -45,11 +44,11 @@ Azure Time Series Insights Gen2 partitions and indexes data for optimum query pe
 
 Data in your warm store is available only via the [Time Series Query APIs](./time-series-insights-update-tsq.md), the [Azure Time Series Insights TSI Explorer](./time-series-insights-update-explorer.md), or the [Power BI Connector](./how-to-connect-power-bi.md). Warm store queries are free and there is no quota, but there is a [limit of 30](https://docs.microsoft.com/rest/api/time-series-insights/reference-api-limits#query-apis---limits) concurrent requests.
 
-### Warm store behavior 
+### Warm store behavior
 
 * When enabled, all data streamed into your environment will be routed to your warm store, regardless of the event timestamp. Note that the streaming ingestion pipeline is built for near-real time streaming and ingesting historical events is [not supported](./concepts-streaming-ingestion-event-sources.md#historical-data-ingestion).
 * The retention period is calculated based on when the event was indexed in warm store, not the event timestamp. This means that data is no longer available in warm store after the retention period has elapsed, even if the event timestamp is for the future.
-  - Example: an event with 10-day weather forecasts is ingested and indexed in a warm storage container configured with a 7 day retention period. After 7 days time, the prediction is no longer accessible in warm store, but can be queried from cold. 
+  * Example: an event with 10-day weather forecasts is ingested and indexed in a warm storage container configured with a 7-day retention period. After 7 days time, the prediction is no longer accessible in warm store, but can be queried from cold.
 * If you enable warm store on an existing environment that already has recent data indexed in cold storage, note that your warm store will not be back-filled with this data.
 * If you just enabled warm store and are experiencing issues viewing your recent data in the Explorer, you can temporarily toggle warm store queries off:
 

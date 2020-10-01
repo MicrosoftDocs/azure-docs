@@ -225,6 +225,8 @@
       href: troubleshoot-performance-virtual-machine-linux-windows.md
     - name: Performance diagnostics
       href: performance-diagnostics.md
+    - name: Troubleshoot high CPU issues for Azure Windows Virtual Machine
+      href: troubleshoot-high-cpu-issues-azure-windows-vm.md
   - name: PerfInsights
     items:
     - name: Windows

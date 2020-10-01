@@ -31,8 +31,6 @@ If, however, you do want to manually acquire a token, the following code shows a
 
 The controller methods are protected by an `[Authorize]` attribute that ensures only authenticated users can use the web app.
 
-Here's the code that calls Microsoft Graph:
-
 ```csharp
 [Authorize]
 public class HomeController : Controller

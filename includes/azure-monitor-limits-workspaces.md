@@ -71,25 +71,25 @@ To be notified on approaching or reaching ingestion volume rate limit in your wo
 Ingestion volume rate crossed the threshold
 ```Kusto
 Operation
-| where Category == "Ingestion"
+| where OperationCategory == "Ingestion"
 | where OperationKey == "Ingestion rate limit"
-| where Level == "Error"
+| where OperationStatus == "Error"
 ```
 
 Ingestion volume rate crossed 80% of the threshold
 ```Kusto
 Operation
-| where Category == "Ingestion"
+| where OperationCategory == "Ingestion"
 | where OperationKey == "Ingestion rate limit"
-| where Level == "Warning"
+| where OperationStatus == "Warning"
 ```
 
 Ingestion volume rate crossed 70% of the threshold
 ```Kusto
 Operation
-| where Category == "Ingestion"
+| where OperationCategory == "Ingestion"
 | where OperationKey == "Ingestion rate limit"
-| where Level == "Info"
+| where OperationStatus == "Info"
 ```
 
 >[!NOTE]

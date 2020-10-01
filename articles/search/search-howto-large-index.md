@@ -8,7 +8,7 @@ author: dereklegenzoff
 ms.author: delegenz
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 05/05/2020
+ms.date: 09/25/2020
 ---
 
 # How to index large data sets in Azure Cognitive Search
@@ -21,34 +21,37 @@ The same techniques also apply to long-running processes. In particular, the ste
 
 The following sections explore techniques for indexing large amounts of data using both the push API and indexers.
 
-## Push API
+## Use the push API
 
-When pushing data into an index, there's several key considerations that impact indexing speeds for the push API. These factors are outlined in the section below. 
+When pushing data into an index using the [Add Documents REST API](/rest/api/searchservice/addupdate-or-delete-documents) or the [Index method](/dotnet/api/microsoft.azure.search.documentsoperationsextensions.index), there are several key considerations that impact indexing speed. Those factors are outlined in the section below, and range from setting service capacity to code optimizations.
 
-In addition to the information in this article, you can also take advantage of the code samples in the [optimizing indexing speeds tutorial](tutorial-optimize-indexing-push-api.md) to learn more.
+For more information and code samples that illustrate push model indexing, see [Tutorial: Optimize indexing speeds](tutorial-optimize-indexing-push-api.md).
 
-### Service tier and number of partitions/replicas
+### Capacity of your service
 
-Adding partitions or increasing the tier of your search service will both increase indexing speeds.
+As a first step, review the characteristics and [limits](search-limits-quotas-capacity.md) of the tier at which you provisioned the service. One of the key differentiating factors among the pricing tiers is the size and speed of partitions, which has a direct impact on indexing speed. If you provisioned your search service at a tier that is insufficient for the workload, upgrading to a new tier might be the easiest and most effective solution for increasing indexing throughput.
 
-Adding additional replicas may also increase indexing speeds but it isn't guaranteed. On the other hand, additional replicas will increase the query volume your search service can handle. Replicas are also a key component for getting an [SLA](https://azure.microsoft.com/support/legal/sla/search/v1_0/).
+Once you are satisfied with the tier, your next step might be to increase the number of partitions. Partition allocation can be readjusted downwards after an initial indexing run to reduce the overall cost of running the service.
 
-Before adding partition/replicas or upgrading to a higher tier, consider the monetary cost and allocation time. Adding partitions can significantly increase indexing speed but adding/removing them can take anywhere from 15 minutes to several hours. For more information, see the documentation on [adjusting capacity](search-capacity-planning.md).
+> [!NOTE]
+> Adding additional replicas may also increase indexing speeds but it isn't guaranteed. On the other hand, additional replicas will increase the query volume your search service can handle. Replicas are also a key component for getting an [SLA](https://azure.microsoft.com/support/legal/sla/search/v1_0/).
+>
+> Before adding partition/replicas or upgrading to a higher tier, consider the monetary cost and allocation time. Adding partitions can significantly increase indexing speed but adding/removing them can take anywhere from 15 minutes to several hours. For more information, see the documentation on [adjusting capacity](search-capacity-planning.md).
+>
 
-### Index Schema
+### Review index schema
 
-The schema of your index plays an important role in indexing data. Adding fields and adding additional properties to those fields (such as *searchable*, *facetable*, or *filterable*) both reduce indexing speeds.
-
-In general, we recommend only adding additional properties to fields if you intend to use them.
+The schema of your index plays an important role in indexing data. The more fields you have, and the more properties you set (such as *searchable*, *facetable*, or *filterable*) all contribute to increased indexing time. In general, you should only create and specify the fields that you actually need in a search index.
 
 > [!NOTE]
 > To keep document size down, avoid adding non-queryable data to an index. Images and other binary data are not directly searchable and shouldn't be stored in the index. To integrate non-queryable data into search results, you should define a non-searchable field that stores a URL reference to the resource.
 
-### Batch Size
+### Check the batch size
 
-One of the simplest mechanisms for indexing a larger data set is to submit multiple documents or records in a single request. As long as the entire payload is under 16 MB, a request can handle up to 1000 documents in a bulk upload operation. These limits apply whether you're using the [Add Documents REST API](/rest/api/searchservice/addupdate-or-delete-documents) or the [Index method](/dotnet/api/microsoft.azure.search.documentsoperationsextensions.index?view=azure-dotnet) in the .NET SDK. For either API, you would package 1000 documents in the body of each request.
+One of the simplest mechanisms for indexing a larger data set is to submit multiple documents or records in a single request. As long as the entire payload is under 16 MB, a request can handle up to 1000 documents in a bulk upload operation. These limits apply whether you're using the [Add Documents REST API](/rest/api/searchservice/addupdate-or-delete-documents) or the [Index method](/dotnet/api/microsoft.azure.search.documentsoperationsextensions.index) in the .NET SDK. For either API, you would package 1000 documents in the body of each request.
 
 Using batches to index documents will significantly improve indexing performance. Determining the optimal batch size for your data is a key component of optimizing indexing speeds. The two primary factors influencing the optimal batch size are:
+
 + The schema of your index
 + The size of your data
 
@@ -75,7 +78,7 @@ As you ramp up the requests hitting the search service, you may encounter [HTTP 
 + **503 Service Unavailable** - This error means that the system is under heavy load and your request can't be processed at this time.
 + **207 Multi-Status** - This error means that some documents succeeded, but at least one failed.
 
-### Retry strategy 
+### Retry strategy
 
 If a failure happens, requests should be retried using an [exponential backoff retry strategy](/dotnet/architecture/microservices/implement-resilient-applications/implement-retries-exponential-backoff).
 
@@ -85,7 +88,7 @@ Azure Cognitive Search's .NET SDK automatically retries 503s and other failed re
 
 Network data transfer speeds can be a limiting factor when indexing data. Indexing data from within your Azure environment is an easy way to speed up indexing.
 
-## Indexers
+## Use indexers (pull API)
 
 [Indexers](search-indexer-overview.md) are used to crawl supported Azure data sources for searchable content. While not specifically intended for large-scale indexing, several indexer capabilities are particularly useful for accommodating larger data sets:
 
@@ -96,7 +99,7 @@ Network data transfer speeds can be a limiting factor when indexing data. Indexi
 > [!NOTE]
 > Indexers are data-source-specific, so using an indexer approach is only viable for selected data sources on Azure: [SQL Database](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md), [Blob storage](search-howto-indexing-azure-blob-storage.md), [Table storage](search-howto-indexing-azure-tables.md), [Cosmos DB](search-howto-index-cosmosdb.md).
 
-### Batch Size
+### Check the batchSize argument on Create Indexer
 
 As with the push API, indexers allow you to configure the number of items per batch. For indexers based on the [Create Indexer REST API](/rest/api/searchservice/Create-Indexer), you can set the `batchSize` argument to customize this setting to better match the characteristics of your data. 
 
@@ -108,7 +111,7 @@ Indexer scheduling is an important mechanism for processing large data sets, as 
 
 By design, scheduled indexing starts at specific intervals, with a job typically completing before resuming at the next scheduled interval. However, if processing does not complete within the interval, the indexer stops (because it ran out of time). At the next interval, processing resumes where it last left off, with the system keeping track of where that occurs. 
 
-In practical terms, for index loads spanning several days, you can put the indexer on a 24-hour schedule. When indexing resumes for the next 24-hour cycle, it restarts at the last known good document. In this way, an indexer can work its way through a document backlog over a series of days until all unprocessed documents are processed. For more information about this approach, see [Indexing large datasets in Azure Blob storage](search-howto-indexing-azure-blob-storage.md#indexing-large-datasets). For more information about setting schedules in general, see [Create Indexer REST API](/rest/api/searchservice/Create-Indexer) or see [How to schedule indexers for Azure Cognitive Search](search-howto-schedule-indexers.md).
+In practical terms, for index loads spanning several days, you can put the indexer on a 24-hour schedule. When indexing resumes for the next 24-hour cycle, it restarts at the last known good document. In this way, an indexer can work its way through a document backlog over a series of days until all unprocessed documents are processed. For more information about setting schedules in general, see [Create Indexer REST API](/rest/api/searchservice/Create-Indexer) or see [How to schedule indexers for Azure Cognitive Search](search-howto-schedule-indexers.md).
 
 <a name="parallel-indexing"></a>
 

@@ -26,10 +26,6 @@ In Azure Data Factory, continuous integration and delivery (CI/CD) means moving 
 -    Automated deployment using Data Factory's integration with [Azure Pipelines](https://docs.microsoft.com/azure/devops/pipelines/get-started/what-is-azure-pipelines?view=azure-devops)
 -    Manually upload a Resource Manager template using Data Factory UX integration with Azure Resource Manager.
 
-For a nine-minute introduction to this feature and a demonstration, watch this video:
-
-> [!VIDEO https://channel9.msdn.com/Shows/Azure-Friday/Continuous-integration-and-deployment-using-Azure-Data-Factory/player]
-
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## CI/CD lifecycle

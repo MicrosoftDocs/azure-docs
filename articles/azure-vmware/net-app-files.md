@@ -147,4 +147,4 @@ Azure NetApp Files supports Server Message Block (SMB) and Network File System (
 ## Next steps
 - Learn more about the [Storage hierarchy of Azure NetApp Files](../azure-netapp-files/azure-netapp-files-understand-storage-hierarchy.md).
 - See [Lifecycle management of Azure VMware Solution VMs](lifecycle-management-of-azure-vmware-solution-vms.md)
-- See [Integrate Azure VMware Solution in a hub and spoke architecture](concepts-avs-hub-and-spoke-integration.md)
+- See [Integrate Azure VMware Solution in a hub and spoke architecture](concepts-hub-and-spoke.md)

@@ -7,7 +7,7 @@ author: memildin
 manager: rkarlin
 ms.service: security-center
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/24/2020
@@ -387,11 +387,30 @@ At the bottom of this page, there's a table describing the Azure Security Center
 
 [Further details and notes](other-threat-protections.md#azure-ddos)
 
-| Alert                                   | Description                                                          | Intent ([Learn more](#intentions)) | Severity |
+| Alert                                   | Description                                                          | Intent<br>([Learn more](#intentions)) | Severity |
 |-----------------------------------------|----------------------------------------------------------------------|:----------------------------------:|----------|
 | **DDoS Attack detected for Public IP**  | DDoS Attack detected for Public IP (IP address) and being mitigated. | Probing                            | High     |
 | **DDoS Attack mitigated for Public IP** | DDoS Attack mitigated for Public IP (IP address).                    | Probing                            | Low      |
 |                                         |                                                                      |                                    |          |
+
+
+
+
+
+## <a name="alerts-fusion"></a>Security incident alerts
+
+[Further details and notes](security-center-alerts-cloud-smart.md)
+
+
+| Alert                                   | Description                                                          | Intent<br>([Learn more](#intentions)) | Severity |
+|-----------------------------------------|----------------------------------------------------------------------|:----------------------------------:|----------|
+|**Security incident with shared process detected**|The incident which started on {Start Time (UTC)} and recently detected on {Detected Time (UTC)} indicates that an attacker has {Action taken} your resource {Host}|-|High|
+|**Security incident detected on multiple resources**|The incident which started on {Start Time (UTC)} and recently detected on {Detected Time (UTC)} indicates that similar attack methods were performed on your cloud resources {Host}|-|Medium|
+|**Security incident detected from same source**|The incident which started on {Start Time (UTC)} and recently detected on {Detected Time (UTC)} indicates that an attacker has {Action taken} your resource {Host}|-|High|
+|**Security incident detected on multiple machines**|The incident which started on {Start Time (UTC)} and recently detected on {Detected Time (UTC)} indicates that an attacker has {Action taken} your resources {Host}|-|Medium|
+
+
+
 
 ## Intentions
 

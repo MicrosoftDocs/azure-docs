@@ -41,6 +41,7 @@ There are several prerequisites to consider before trying to enable Azure Automa
 - VMs must be in a supported region
 - User must have correct permissions
 - VMs must not link to a log analytics workspace in a different subscription
+- Automanage does not support Sandbox subscriptions at this time
 
 You need to have the **Contributor** role to enable Automanage using an existing Automanage Account. If you are enabling Automanage with a new Automanage Account, you need the following permissions: **Owner** role or **Contributor** along with **User Access Administrator** roles.
 
