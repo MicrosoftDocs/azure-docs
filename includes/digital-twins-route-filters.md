@@ -17,6 +17,15 @@ ms.author: baanders
 | Content type | Content type of data value | `datacontenttype = '<contentType>'` | The content type is `application/json` |
 | Spec version | The version of the event schema you are using | `specversion = '<version>'` | The version must be `1.0`. This indicates the CloudEvents schema version 1.0 |
 
+The following data types and comparison operators are supported for the above operations:
+| Data Type | Supported Comparisons | Example |
+|-|-|-|
+|**String**|= != <br>STARTS_WITH(input,text) ENDS_WITH(input,text)<br> CONTAINS(input,text)| `STARTS_WITH($body.$dtId, 'dtmi:example:com:floor4')` <br> `CONTAINS(subject, 'room')`|
+|**Integers**|< <= > >= = !=|`$body.$metadata.room.desiredVersion > 1`|
+|**Doubles**|< <= > >= = !=|`$body.value <= 5.5`|
+|**Bools**|= !=|`$body.isEnabled = true`|
+|**Null**|= !=|`$body.prop != null`|
+
 It is also possible to combine filters using the following operations:
 
 | Filter name | Filter text schema | Example | 
@@ -24,8 +33,5 @@ It is also possible to combine filters using the following operations:
 | AND / OR | `<filter1> AND <filter2>` | `type != 'microsoft.iot.telemetry' AND datacontenttype = 'application/json'` |
 | AND / OR | `<filter1> OR <filter2>` | `type != 'microsoft.iot.telemetry' OR datacontenttype = 'application/json'` |
 | Nested operations | `(<Comparison1>) AND (<Comparison2>)` | `(type != 'microsoft.iot.telemetry' OR datacontenttype = 'application/json') OR (specversion != '1.0')` |
-
-> [!NOTE]
-> During preview, only string equality is supported (=, !=).
 
 When you implement or update a filter, the change may take a few minutes to be reflected in the data pipeline.
