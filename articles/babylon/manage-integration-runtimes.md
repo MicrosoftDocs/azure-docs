@@ -5,7 +5,7 @@ author: viseshag
 ms.author: viseshag
 ms.service: data-catalog
 ms.subservice: data-catalog-gen2
-ms.topic: Tutorial
+ms.topic: how-to
 ms.date: 09/11/2020
 ---
 
