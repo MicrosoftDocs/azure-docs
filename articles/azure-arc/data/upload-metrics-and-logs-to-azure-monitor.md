@@ -22,18 +22,18 @@ During the preview period, there is no cost for using Azure Arc enabled data ser
 
 You will need the Azure CLI (az) and the Azure Data CLI (azdata) installed.  [Install tools](./install-client-tools.md).
 
-Prior to uploading data to Azure, you need to ensure that your Azure subscription has the Microsoft.HybridData resource provider registered.
+Prior to uploading data to Azure, you need to ensure that your Azure subscription has the Microsoft.AzureData resource provider registered.
 
 You can verify this by running the following command:
 
 ```console
-az provider show -n Microsoft.HybridData -o table
+az provider show -n Microsoft.AzureData -o table
 ```
 
 If the resource provider is not currently registered in your subscription, you can register it by running the following command.  This command make take a minute or two to complete.
 
 ```console
-az provider register -n Microsoft.HybridData --wait
+az provider register -n Microsoft.AzureData --wait
 ```
 
 ## Upload usage data
