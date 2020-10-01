@@ -44,7 +44,7 @@ You can use the Azure portal to [create a Front Door](quickstart-create-front-do
 
 1. Select the Backend Host Type as _App service_. Select the subscription where your web app is hosted and then select the specific web app from the dropdown for **Backend host name**.
 
-    :::image type="content" source="./media/front-door-url-redirect/front-door-create-backendpool.png" alt-text="Add a backend in a backend pool":::
+    :::image type="content" source="./media/front-door-url-redirect/front-door-create-backend-pool.png" alt-text="Add a backend in a backend pool":::
 
 1. Select **Add** to save the backend and select **Add** again to save the backend pool config. 
 
