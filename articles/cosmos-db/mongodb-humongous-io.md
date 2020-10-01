@@ -16,7 +16,7 @@ It is commonly used to perform CRUD operations, create custom forms and views, i
 Cosmos DB is Microsoft's globally distributed multi-model database service.
 You can quickly create and query document, key/value, and graph databases, all of which benefit from the global distribution and horizontal scale capabilities at the core of Cosmos DB.
 
-Cosmos DB offers an API MongoDB which allows HumongouS.io to connect to it. Let’s see how we can do with just two simple steps.
+Cosmos DB offers a MongoDB API which allows HumongouS.io to connect to it. Let’s see how we can do that with just a few simple steps.
 
 ## Pre-requisites
 
