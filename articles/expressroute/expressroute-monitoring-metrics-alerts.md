@@ -151,6 +151,19 @@ You can view packets per second traversing the gateway.
 In the **Alert Criteria**, you can select **Activity Log** for the Signal Type and select the Signal.
 
 :::image type="content" source="./media/expressroute-monitoring-metrics-alerts/alertshowto6activitylog.jpg" alt-text="activity logs":::
+
+## Additional metrics in Log Analytics
+
+You can also view ExpressRoute metrics by navigating to your ExpressRoute circuit resource and selecting the *Logs* tab. For any metrics you query, the output will contain the columns below.
+
+|**Column**|**Type**|**Description**|
+| --- | --- | --- |
+|TimeGrain|string|PT1M (metric values are pushed every minute)|
+|Count|real|Usually equal to 2 (each MSEE pushes a single metric value every minute)|
+|Minimum|real|The minimum of the two metric values pushed by the two MSEEs|
+|Maximum|real|The maxiumum of the two metric values pushed by the two MSEEs|
+|Average|real|Equal to (Minimum + Maximum)/2|
+|Total|real|Sum of the two metric values from both MSEEs (the main value to focus on for the metric queried)|
   
 ## Next steps
 

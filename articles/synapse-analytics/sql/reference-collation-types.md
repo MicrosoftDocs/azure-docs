@@ -12,14 +12,14 @@ ms.reviewer: jrasnick
 
 # Database collation support for Synapse SQL
 
-Collations provide the locale, code page, sort order and character sensitivity rules for character-based data types. Once chosen, all columns and expressions requiring collation information inherit the chosen collation from the database setting. The default inheritance can be overridden by explicitly stating a different collation for a character-based data type.
+Collations provide the locale, code page, sort order, and character sensitivity rules for character-based data types. Once chosen, all columns and expressions requiring collation information inherit the chosen collation from the database setting. The default inheritance can be overridden by explicitly stating a different collation for a character-based data type.
 
 You can change the default database collation from the Azure portal when you create a new SQL pool database. This capability makes it even easier to create a new database using one of the 3800 supported database collations.
 
 You can specify the default Synapse SQL on-demand database collation at creation time using CREATE DATABASE statement.
 
 ## Change collation
-To change the default collation for SQL pool database, you simple update to the Collation field in the provisioning experience. For example, if you wanted to change the default collation to case sensitive, you would simply rename the Collation from SQL_Latin1_General_CP1_CI_AS to SQL_Latin1_General_CP1_CS_AS. 
+To change the default collation for SQL pool database, update to the Collation field in the provisioning experience. For example, if you wanted to change the default collation to case sensitive, you would rename the Collation from SQL_Latin1_General_CP1_CI_AS to SQL_Latin1_General_CP1_CS_AS. 
 
 To change the default collation for SQL on-demand database, you can use ALTER DATABASE statement.
 
@@ -93,7 +93,7 @@ To change the default collation for SQL on-demand database, you can use ALTER DA
 *    Japanese_XJIS_140_CS_AS_KS
 *    Japanese_XJIS_140_CS_AS_KS_WS
 
-Additionally, SQL pool does not support following collation types:
+Additionally, SQL pool doesn't support following collation types:
 
 *    SQL_EBCDIC1141_CP1_CS_AS
 *    SQL_EBCDIC277_2_CP1_CS_AS

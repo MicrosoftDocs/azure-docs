@@ -1,6 +1,6 @@
 ---
-title: Supported features of Azure SQL Edge (Preview) 
-description: Learn about details of features supported by Azure SQL Edge (Preview).
+title: Supported features of Azure SQL Edge 
+description: Learn about details of features supported by Azure SQL Edge.
 keywords: introduction to SQL Edge, what is SQL Edge, SQL Edge overview
 services: sql-edge
 ms.service: sql-edge
@@ -11,14 +11,11 @@ ms.reviewer: sstein
 ms.date: 09/03/2020
 ---
 
-# Supported features of Azure SQL Edge (Preview) 
+# Supported features of Azure SQL Edge 
 
-Azure SQL Edge is built on the latest version of the Microsoft SQL Server Database Engine on Linux. It supports a subset of the features supported in SQL Server 2019 on Linux, in addition to some features that are currently not supported or available in SQL Server 2019 on Linux (or in SQL Server on Windows).
+Azure SQL Edge is built on the latest version of the SQL Database Engine. It supports a subset of the features supported in SQL Server 2019 on Linux, in addition to some features that are currently not supported or available in SQL Server 2019 on Linux (or in SQL Server on Windows).
 
 For a complete list of the features supported in SQL Server on Linux, see [Editions and supported features of SQL Server 2019 on Linux](https://docs.microsoft.com/sql/linux/sql-server-linux-editions-and-components-2019). For editions and supported features of SQL Server on Windows, see [Editions and supported features of SQL Server 2019 (15.x)](https://docs.microsoft.com/sql/sql-server/editions-and-components-of-sql-server-version-15).
-
-> [!NOTE]
-> Azure SQL Edge is currently in preview, and as such shouldn't be used in production environments. Microsoft might recommend running Azure SQL Edge in production environments, depending on validation of the deployment and your use case scenarios.
 
 ## Azure SQL Edge editions
 
@@ -31,9 +28,7 @@ Azure SQL Edge is available with two different editions or software plans. These
 
 ## Operating system
 
-Azure SQL Edge containers are currently based on Ubuntu 16.04, and as such are only supported to run on Docker hosts running either Ubuntu 16.04 LTS (recommended) or Ubuntu 18.04 LTS. It's possible to run Azure SQL Edge containers on other operating system hosts, for example, it can run on other distributions of Linux or on Windows (using Docker CE or Docker EE), however Microsoft does not recommend that you do this, as this configuration may not be extensively tested.
-
-Azure SQL Edge is currently only supported for deployment through Azure IoT Edge. For more information, see [Azure IoT Edge supported systems](https://docs.microsoft.com/azure/iot-edge/support).
+Azure SQL Edge containers are based on Ubuntu 18.04, and as such are only supported to run on Docker hosts running either Ubuntu 18.04 LTS (recommended) or Ubuntu 20.04 LTS. It's possible to run Azure SQL Edge containers on other operating system hosts, for example, it can run on other distributions of Linux or on Windows (using Docker CE or Docker EE), however Microsoft does not recommend that you do this, as this configuration may not be extensively tested.
 
 The recommended configuration for running Azure SQL Edge on Windows is to configure an Ubuntu VM on the Windows host, and then run Azure SQL Edge inside the Linux VM.
 
@@ -41,7 +36,7 @@ The recommended and supported file system for Azure SQL Edge is EXT4 and XFS. If
 
 ## Hardware support
 
-Azure SQL Edge requires a 64-bit processor (either x64 or ARM64), with a minimum of one processor and one GB RAM on the host. While the startup memory footprint of Azure SQL Edge is close to 500 MB, the additional memory is needed for other IoT Edge modules running on the edge device. The actual memory and CPU requirements for Azure SQL Edge will vary based on the complexity of the workload and volume of data being processed. When choosing a hardware for your solution, Microsoft recommends that you run extensive performance tests to ensure that the required performance characteristics for your solution are met.  
+Azure SQL Edge requires a 64-bit processor (either x64 or ARM64), with a minimum of one processor and one GB RAM on the host. While the startup memory footprint of Azure SQL Edge is close to 450MB, the additional memory is needed for other IoT Edge modules or processes running on the edge device. The actual memory and CPU requirements for Azure SQL Edge will vary based on the complexity of the workload and volume of data being processed. When choosing a hardware for your solution, Microsoft recommends that you run extensive performance tests to ensure that the required performance characteristics for your solution are met.  
 
 ## Azure SQL Edge components
 
@@ -71,6 +66,7 @@ The following list includes the SQL Server 2019 on Linux features that aren't cu
 | &nbsp; | Polybase. Note that you can configure Azure SQL Edge as a target for external tables in Polybase. |
 | &nbsp; | Language extensibility through Java and Spark. |
 | &nbsp; | Active Directory integration. |
+| &nbsp; | Database Auto Shrink. The Auto shrink property for a database can be set using the `ALTER DATABASE <database_name> SET AUTO_SHRINK ON` command, however that change has no effect. The automatic shrink task will not run against the database. Users can still shrink the database files using the 'DBCC' commands. |
 | &nbsp; | Database snapshots. |
 | &nbsp; | Support for persistent memory. |
 | &nbsp; | Microsoft Distributed Transaction Coordinator. |
