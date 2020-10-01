@@ -1,5 +1,5 @@
 ---
-title: Lead management questions and troubleshooting -Microsoft Partner Center
+title: Lead management questions and troubleshooting - Microsoft Partner Center
 description: Read about common errors and questions when configuring commercial marketplace leads in Partner Center 
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
@@ -9,7 +9,7 @@ ms.author: keferna
 ms.date: 10/01/2020
 ---
 
-# Common questions and troubleshooting for lead management in Partner Center
+# Common questions and troubleshooting for lead configuration
 
 This article answers some common questions about lead management for your commercial marketplace offers. It also addresses errors you might encounter when configuring leads to your customer relationship management (CRM) system in Partner Center.
 
@@ -65,7 +65,7 @@ You can access the lead data stored in the Azure table from the Azure portal. Yo
 
 #### I configured an Azure table as my lead destination. Can I get notified whenever a new commercial marketplace lead is sent?
 
-Yes. Follow the instructions in [Configure lead management by using an Azure table](./commercial-marketplace-lead-management-instructions-azure-table.md) to set up a Microsoft flow that sends an email if a lead is added to the Azure table.
+Yes. Follow the instructions in [Configure lead management by using an Azure table](partner-center-portal/commercial-marketplace-lead-management-instructions-azure-table.md) to set up a Microsoft flow that sends an email if a lead is added to the Azure table.
 
 #### I configured Salesforce as my lead destination, but why can't I find the leads?
 
@@ -85,7 +85,7 @@ If your question isn't answered, contact Microsoft Support through [Partner Cent
 
 Access your offer in Partner Center, and go to the **Offer setup** page > **Lead Management** > **Edit**. Update the email addresses under the **Contact email** field.
 
-## <a id="publishing-config-errors"></a> Troubleshooting common lead configuration errors
+## <a id="publishing-config-errors"></a> Troubleshooting lead configuration errors
 
 **Could not save the lead to Dynamics CRM. Check the Dynamics CRM account settings. LastCRMError: Unable to sign in to Dynamics CRM, LastCRMException:** 
 

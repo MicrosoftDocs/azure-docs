@@ -203,26 +203,6 @@
     href: review-publish-offer.md
   - name: Update existing offers
     href: partner-center-portal/update-existing-offer.md   
-- name: Analyze your offers
-  items:
-  - name: Commercial marketplace analytics 
-    href: partner-center-portal/analytics.md
-  - name: Summary dashboard
-    href: partner-center-portal/summary-dashboard.md
-  - name: Orders dashboard
-    href: partner-center-portal/orders-dashboard.md
-  - name: Usage dashboard
-    href: partner-center-portal/usage-dashboard.md
-  - name: Customer dashboard
-    href: partner-center-portal/customer-dashboard.md
-  - name: Marketplace Insights dashboard
-    href: partner-center-portal/insights-dashboard.md
-  - name: Downloads dashboard
-    href: partner-center-portal/downloads-dashboard.md
-  - name: Ratings and reviews dashboard
-    href: partner-center-portal/ratings-reviews.md
-  - name: Partner Center analytics terminology 
-    href: partner-center-portal/faq-terminology.md 
 - name: Sell and market your offers
   items: 
   - name: Marketing best practices
@@ -245,9 +225,29 @@
       href: partner-center-portal/commercial-marketplace-lead-management-instructions-marketo.md
     - name: Salesforce
       href: partner-center-portal/commercial-marketplace-lead-management-instructions-salesforce.md  
-    - name: Lead management FAQ and troubleshooting 
+    - name: Lead management FAQ 
       href: lead-management-faq.md
-- name: Policies and terms
+- name: Data and analytics
+  items:
+  - name: Commercial marketplace analytics 
+    href: partner-center-portal/analytics.md
+  - name: Summary dashboard
+    href: partner-center-portal/summary-dashboard.md
+  - name: Orders dashboard
+    href: partner-center-portal/orders-dashboard.md
+  - name: Usage dashboard
+    href: partner-center-portal/usage-dashboard.md
+  - name: Customer dashboard
+    href: partner-center-portal/customer-dashboard.md
+  - name: Marketplace Insights dashboard
+    href: partner-center-portal/insights-dashboard.md
+  - name: Downloads dashboard
+    href: partner-center-portal/downloads-dashboard.md
+  - name: Ratings and reviews dashboard
+    href: partner-center-portal/ratings-reviews.md
+  - name: Partner Center analytics terminology 
+    href: partner-center-portal/faq-terminology.md 
+      - name: Policies and terms
   items:    
   - name: About our policies and terms
     href: policies-terms.md

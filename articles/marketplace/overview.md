@@ -11,9 +11,9 @@ ms.date: 10/01/2020
 
 # What is the Microsoft commercial marketplace?
 
-The Microsoft commercial marketplace is a catalog of solutions from our independent software vendor (ISV) partners. As an ISV member of the Microsoft Partner Network, you can create, publish, and manage your commercial marketplace offers in Partner Center. Your solutions are listed in our online stores, alongside our own Microsoft solutions, connecting you with businesses, organizations, and government agencies around the world. You can reach additional customers through the [Cloud Solution Provider](https://partner.microsoft.com/cloud-solution-provider) (CSP) program, the [co-sell](marketplace-co-sell.md) program, and Microsoft Sales teams.
+The Microsoft commercial marketplace is a catalog of solutions from our independent software vendor (ISV) partners. As an ISV member of the Microsoft Partner Network, you can create, publish, and manage your commercial marketplace offers in Partner Center. Your solutions are listed in our online stores, alongside our own Microsoft solutions, connecting you with businesses, organizations, and government agencies around the world.
 
-The commercial marketplace is available in more than 100 countries and regions, and we manage tax payment in many of them. You can use a customer's Microsoft Customer Agreement or Enterprise Agreement to sell to organizations without having to create a new buying relationship.
+The commercial marketplace is available in more than 100 countries and regions, and we manage tax payment in many of them. If you sell to established Microsoft customers, they have the added benefit of including commercial marketplace purchases in their existing Microsoft purchase agreements to receive a consolidated invoice from Microsoft.
 
 ## Commercial marketplace online stores
 
@@ -47,11 +47,11 @@ Our goal is to help you accelerate your business in partnership with Microsoft, 
 - Market your solutions for specific workloads and industry scenarios to reduce sales cycles, accelerate projects, and increase deal profitability.
 - Get actionable insights on your listing performance and orders to learn how to maximize campaign activities for your solution.
 
-Partners who list with the commercial marketplace are eligible for a diverse set of free benefits to help grow your business. These benefits fall into the following categories:
+Partners who list with the commercial marketplace are eligible for a diverse set of free technical, marketing, and sales benefits to help grow your business:
 
-- Technical: Everything you need to get your application ready for launch. From technical support, application design, and architecture design, to Azure credits for development and testing.
-- Co-marketing: Everything you need to launch your offer. Access free Microsoft Go-To-Market Launch Fundamentals to help you launch and promote your solution. You might also be eligible for additional Microsoft marketing campaign inclusion and opportunities to be featured in the commercial marketplace.
-- Co-selling: Begin or accelerate your journey to selling jointly with Microsoft teams through the OCP program.
+- Leverage the technical resources you need to get your application ready for launch, from technical support, application design, and architecture design, to Azure credits for development and testing.
+- Access free Microsoft Go-To-Market Launch Fundamentals to help you launch and promote your solution. You might also be eligible for additional Microsoft marketing campaign inclusion and opportunities to be featured in the commercial marketplace.
+- Reach additional customers and expand your sales opportunities with the [Cloud Solution Provider](https://partner.microsoft.com/cloud-solution-provider) (CSP) program, the [co-sell](marketplace-co-sell.md) program, and Microsoft Sales teams.
 
 To learn about these benefits in more detail, see [Your commercial marketplace benefits](gtm-your-marketplace-benefits.md).
 
