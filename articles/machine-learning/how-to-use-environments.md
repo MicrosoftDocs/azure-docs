@@ -179,6 +179,12 @@ For a registered environment, you can retrieve image details using the following
 details = environment.get_image_details(workspace=ws)
 ```
 
+To obtain the image details from an environment autosaved from the execution of a run, use the following code:
+
+```python
+details = run.get_environment().get_image_details(workspace=ws)
+```
+
 ### Use existing environments
 
 If you have an existing Conda environment on your local computer, then you can use the service to create an environment object. By using this strategy, you can reuse your local interactive environment on remote runs.
