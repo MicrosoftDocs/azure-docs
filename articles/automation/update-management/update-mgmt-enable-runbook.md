@@ -8,17 +8,23 @@ ms.custom: mvc
 ---
 # Enable Update Management from a runbook
 
-This article describes how you can use a runbook to enable the [Update Management](update-mgmt-overview.md) feature for VMs in your environment. To enable Azure VMs at scale, you must enable an existing VM using Update Management.
+This article describes how you can use a runbook to enable the [Update Management](update-mgmt-overview.md) feature for VMs in your environment. To enable Azure VMs at scale, you must enable an existing VM with Update Management. 
 
 > [!NOTE]
 > When enabling Update Management, only certain regions are supported for linking a Log Analytics workspace and an Automation account. For a list of the supported mapping pairs, see [Region mapping for Automation account and Log Analytics workspace](../how-to/region-mappings.md).
 
+This method uses two runbooks:
+
+* Enable-MultipleSolution - The primary runbook that prompts for configuration information, queries the specified VM and performs other validation checks, and then invokes the **Enable-AutomationSolution** runbook to configure Update Management for each VM within the specified resource group.
+* Enable-AutomationSolution - Enables Update Management for one or more VMs specified in the target resource group. It verifies prerequisites are met, verifies the Log Analytics VM extension is installed and installs if not found, and adds the VMs to the scope configuration in the specified Log Analytics worskpace linked to the Automation account.
+
 ## Prerequisites
 
 * Azure subscription. If you don't have one yet, you can [activate your MSDN subscriber benefits](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) or sign up for a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-* [Automation account](../index.yml) to manage machines.
+* [Automation account](../automation-security-overview.md) to manage machines.
+* [Log Analytics workspace](../../azure-monitor/platform/design-logs-deployment.md)
 * A [virtual machine](../../virtual-machines/windows/quick-create-portal.md).
-* Create two Automation assets, which are used by the **Enable-AutomationSolution** runbook and is automatically imported into the account if it doesn't exist:
+* Two Automation assets, which are used by the **Enable-AutomationSolution** runbook. This runbook, if it doesn't already exist in your Automation account, is automatically imported by the **Enable-MultipleSolution** runbook during its first run.
     * *LASolutionSubscriptionId*: Subscription ID of where the Log Analytics workspace is located.
     * *LASolutionWorkspaceId*: Workspace ID of the Log Analytics workspace linked to your Automation account.
 
@@ -91,7 +97,7 @@ With Update Management enabled, you can add an Azure VM to receive updates.
 
 ## Start the runbook
 
-You must have enabled Update Management for an Azure VM to start this runbook. It requires an existing VM and resource group with the feature enabled in order to properly configure the runbook parameters.
+You must have enabled Update Management for an Azure VM to start this runbook. It requires an existing VM and resource group with the feature enabled in order to configure one or more VMs in the target resource group.
 
 1. Open the **Enable-MultipleSolution** runbook.
 
