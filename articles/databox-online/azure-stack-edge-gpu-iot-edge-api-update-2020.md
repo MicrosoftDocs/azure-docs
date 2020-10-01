@@ -78,7 +78,6 @@ If you were performing IoT Edge Role management via API, you should use the new 
             "roleStatus": "Enabled"
         }
     }
-    
     ```
 
 #### Upcoming http request 
@@ -238,15 +237,66 @@ If you are using the SDK and have installed the December 2020 device update, the
 
 ### Current SDK sample
 
-```
-var role = new IoTRole(roleStatus, hostPlatform, shareMappings,ioTDeviceDetails, ioTEdgeDeviceDetails, ioTEdgeAgentInfo, id, name,type); 
-DataBoxEdgeManagementClient.Roles.CreateOrUpdate(deviceName, iotrole, role, resourceGroup);
-```
+    ```csharp
+    var iotRoleStatus = "Enabled";
+    var iotHostPlatform = "Linux";
+    var id = $@"/subscriptions/546ec571-2d7f-426f-9cd8-0d695fa7edba/resourceGroups/resourceGroup/providers/Microsoft.DataBoxEdge/dataBoxEdgeDevices/deviceName/roles/iotrole"; 
+    var name = "iotrole";
+    var type = "Microsoft.DataBoxEdge/dataBoxEdgeDevices/role";
+    var iotRoleName = "iotrole";
+    var ioTDeviceDetails = new IoTDeviceInfo(...);
+    var ioTEdgeDeviceDetails = new IoTDeviceInfo(...);
+    var ioTEdgeAgentInfo = new IoTEdgeAgentInfo(...);
+    var shareMappings = new List<MountPointMap>(...);
+    
+    var role = new IoTRole(roleStatus, 
+        hostPlatform, 
+        shareMappings, 
+        ioTDeviceDetails, 
+        ioTEdgeDeviceDetails, 
+        ioTEdgeAgentInfo, 
+        id, 
+        name, 
+        type);
+    
+    DataBoxEdgeManagementClient.Roles.CreateOrUpdate(deviceName, iotRoleName, role, resourceGroup);
+    ```
+
 
 ### New SDK sample
 
-<!-- still waiting to get this sample from engg-->
+```csharp
+var k8sRoleStatus = "Enabled";
+var k8sHostPlatform = "Linux";
+var k8sId = $@"/subscriptions/546ec571-2d7f-426f-9cd8-0d695fa7edba/resourceGroups/resourceGroup/providers/Microsoft.DataBoxEdge/dataBoxEdgeDevices/deviceName/roles/KubernetesRole"; 
+var k8sRoleName = "KubernetesRole";
+var k8sClusterVersion = "v1.17.3"; //Final values will be updated here around December 2020
+var k8sVmProfile = "DS1_v2"; //Final values will be updated here around December 2020
+var type = "Microsoft.DataBoxEdge/dataBoxEdgeDevices/role";
+var k8sRole = new KubernetesRole(
+    roleStatus,
+    hostPlatform,
+    shareMappings,
+    k8sClusterVersion,
+    k8sVmProfile,
+    k8sId,
+    k8sRoleName,
+    type
+);
+DataBoxEdgeManagementClient.Roles.CreateOrUpdate(deviceName, k8sRoleName, k8sRole, resourceGroup); //Final usage will be updated here around December 2020
 
+var ioTId = $@"/subscriptions/546ec571-2d7f-426f-9cd8-0d695fa7edba/resourceGroups/resourceGroup/providers/Microsoft.DataBoxEdge/dataBoxEdgeDevices/deviceName/roles/KubernetesRole/addons/iotaddon";
+var ioTAddonName = "iotaddon";
+var ioTAddonType = "Microsoft.DataBoxEdge/dataBoxEdgeDevices/roles/addons";
+var addon = new IoTAddon(
+    ioTDeviceDetails, 
+    ioTEdgeDeviceDetails, 
+    ioTEdgeAgentInfo, 
+    ioTId, 
+    ioTAddonName, 
+    ioTAddonType);
+DataBoxEdgeManagementClient.AddOns.CreateOrUpdate(deviceName, k8sRoleName, addonName, addon, resourceGroup); //Final usage will be updated here around December 2020
+```
 
 ## Cmdlet usage
 
