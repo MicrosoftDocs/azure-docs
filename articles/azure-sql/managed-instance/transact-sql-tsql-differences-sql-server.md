@@ -5,7 +5,7 @@ services: sql-database
 ms.service: sql-managed-instance
 ms.subservice: operations
 ms.devlang: 
-ms.topic: conceptual
+ms.topic: reference
 author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: sstein, bonova, danil
