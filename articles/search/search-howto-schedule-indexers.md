@@ -106,10 +106,10 @@ If the **schedule** parameter is omitted, the indexer will only run once immedia
 
 The **startTime** parameter can be set to a time in the past. In that case, the first execution is scheduled as if the indexer has been running continuously since the given **startTime**.
 
-The schedule is defined using the [IndexingSchedule](/dotnet/api/microsoft.azure.search.models.indexingschedule?view=azure-dotnet) class. The **IndexingSchedule** constructor requires an **interval** parameter specified using a **TimeSpan** object. The smallest interval value allowed is 5 minutes, and the largest is 24 hours. The second **startTime** parameter, specified as a **DateTimeOffset** object, is optional.
+The schedule is defined using the [IndexingSchedule](/dotnet/api/microsoft.azure.search.models.indexingschedule) class. The **IndexingSchedule** constructor requires an **interval** parameter specified using a **TimeSpan** object. The smallest interval value allowed is 5 minutes, and the largest is 24 hours. The second **startTime** parameter, specified as a **DateTimeOffset** object, is optional.
 
 The .NET SDK lets you control indexer operations using the [SearchServiceClient](/dotnet/api/microsoft.azure.search.searchserviceclient) class and its [Indexers](/dotnet/api/microsoft.azure.search.searchserviceclient.indexers) property, which implements methods from the **IIndexersOperations** interface. 
 
 You can run an indexer on demand at any time using one of the [Run](/dotnet/api/microsoft.azure.search.indexersoperationsextensions.run), [RunAsync](/dotnet/api/microsoft.azure.search.indexersoperationsextensions.runasync), or [RunWithHttpMessagesAsync](/dotnet/api/microsoft.azure.search.iindexersoperations.runwithhttpmessagesasync) methods.
 
-For more information about creating, updating, and running indexers, see [IIindexersOperations](/dotnet/api/microsoft.azure.search.iindexersoperations?view=azure-dotnet).
+For more information about creating, updating, and running indexers, see [IIindexersOperations](/dotnet/api/microsoft.azure.search.iindexersoperations).
