@@ -1,0 +1,80 @@
+---
+title: Egress to internet with Azure Load Balancer
+description: Describes how Azure Load Balancer is used for outbound internet connectivity
+services: load-balancer
+author: asudbring
+ms.service: load-balancer
+ms.topic: conceptual
+ms.date: 10/01/2020
+ms.author: allensu
+---
+
+# Egress to internet with Azure Load Balancer
+
+The load balancer (LB) can be used for egress of internet connections. This configuration enables **IP masquerading** of the backend instance. This masquerading prevents outside sources from having a direct address to the backend instances. 
+
+Sharing an IP address between backend instances also reduces the cost of static public IPs and supports scenarios such as simplifying IP allow lists with traffic from known public IPs. 
+
+## Sharing ports across resources
+
+If the backend resources of a load balancer don't have instance-level public IP (ILPIP) addresses, they establish outbound connectivity via the public IP or IPs of the LB. 
+
+Ports are used to generate unique identifiers used to maintain distinct flows. The internet uses a five-tuple to provide this distinction.
+
+The five-tuple consists of:
+
+* Destination IP
+* Destination port
+* Source IP
+* Source port and protocol to provide this distinction. 
+
+Each IP address has 65,535 ports. The first 1024 ports are reserved as **system ports**. Each port can either be used for inbound or outbound connections for TCP and UDP. 
+
+Of the remaining ports, Azure gives 64,000 for use as **ephemeral ports** for **SNAT (source network access translation)**. 
+
+Through outbound rules, these SNAT ports can be distributed to backend instances to enable them to share the public IP(s) of the load balancer for outbound connections.
+
+Networking on the host for each backend instance will do SNAT. The host rewrites the source IP to one of the public IPs. The host rewrites the source port of each outbound packet to one of the SNAT ports.
+
+## Exhausting ports
+
+Every connection to the same destination IP and destination port will use a SNAT port. This connection maintains a distinct **traffic flow** from the backend instance or **client** to a **server**. This process gives the server a distinct port on which to address traffic. Without this process, the client machine is unaware of which flow a packet is part of. 
+
+Imagine having multiple browsers going to https://www.microsoft.com, which is:
+
+* Destination IP = 23.53.254.142
+* Destination Port = 443
+* Protocol = TCP. 
+
+Without different destination ports for the return traffic (the SNAT port used to establish the connection), the client will have no way to separate one query result from another.
+
+When **connection reuse** isn't enabled and outbound connections burst, SNAT port exhaustion can occur.
+
+New outbound connections to a destination IP will fail when port exhaustion occurs. Connections will succeed when a port becomes available. This exhaustion occurs when the 64,000 ports from an IP address are spread thin across many backend instances. For guidance on mitigation of SNAT port exhaustion, see the troubleshooting guide.  
+
+For TCP connections, the LB will use a single SNAT port for every destination IP and port. This multiuse enables multiple connections to the same destination IP with the same SNAT port. This multiuse is limited if the connection isn't to different destination ports.
+
+For UDP connections, the LB uses a **port-restricted cone NAT** algorithm, which consumes one SNAT port per destination IP whatever the destination port. 
+
+A port is reused for an unlimited number of connections. The port is only reused if the destination IP or port is different. This reuse is limited by factors such as NIC (Network interface card) performance.
+
+A single SNAT port is needed to maintain many outbound connections. Avoid SNAT exhaustion by connecting from the backend instance via the private IP address. Connections via the private IP address allow for multiple connections to a service.
+
+## Constraints
+
+*	Ports will be released after 15 seconds if a **TCP RST** is received or sent
+*	Ports will be released after 240 seconds if a **FINACK** is received or sent
+*	When a connection is idle with no new packets being sent, the ports will be released after 4 – 120 minutes.
+  *	This threshold can be configured via outbound rules.
+*	Each IP address provides 64,000 ports that can be used for SNAT.
+*	Each port can be used for both TCP and UDP connections to a destination IP address
+  *	A UDP SNAT port is needed whether the destination port is unique or not. For every UDP connection to a destination IP, one UDP SNAT port is used.
+  *	A TCP SNAT port can be used for multiple connections to the same destination IP provided the destination ports are different.
+*	SNAT exhaustion occurs when a backend instance runs out of given SNAT Ports. A load balancer can still have unused SNAT ports. If a backend instance’s used SNAT ports exceed its given SNAT ports, it will be unable to establish new outbound connections.
+
+## Next Steps
+
+*	[Learn more about using Outbound Rules to define SNAT allocation](https://docs.microsoft.com/azure/load-balancer/load-balancer-outbound-connections#outboundrules)
+*	[Troubleshoot outbound connection failures because of SNAT exhaustion](https://docs.microsoft.com/azure/load-balancer/troubleshoot-outbound-connection)
+*	[Review SNAT metrics](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-diagnostics#how-do-i-check-my-snat-port-usage-and-allocation) and familiarize yourself with the correct way to filter, split, and view them.
+
