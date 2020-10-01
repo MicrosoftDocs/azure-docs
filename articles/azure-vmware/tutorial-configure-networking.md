@@ -80,7 +80,7 @@ Now that you've created a virtual network, you'll create a virtual network gatew
 
 Now that you've deployed a virtual network gateway, you'll add a connection between it and your Azure VMware Solution private cloud.
 
-[!INCLUDE [connect-expressroute-to-vnet](includes/connect-expressroute-to-vnet.md)]
+[!INCLUDE [connect-expressroute-to-vnet](includes/connect-expressroute-vnet.md)]
 
 
 ## Locate the URLs for vCenter and NSX Manager
