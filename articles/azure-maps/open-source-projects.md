@@ -34,6 +34,7 @@ The following is a list of open-source projects that extend the capabilities of 
 |-|-|
 | [Azure Maps Animation module](https://github.com/Azure-Samples/azure-maps-animations) | A rich library of animations for use with the Azure Maps Web SDK. |
 | [Azure Maps Geolocation Control module](https://github.com/Azure-Samples/azure-maps-geolocation-control) | An Azure Maps Web SDK module that provides a control that uses the browser's geolocation API to locate the user on the map. |
+| [Azure Maps Gridded Data Source module](https://github.com/Azure-Samples/azure-maps-gridded-data-source) | A module for the Azure Maps Web SDK that provides a data source that clusters data points into cells of a grid area. This operation is also known by many names such as tessellations, data binning, or hex bins.  |
 | [Azure Maps Fullscreen Control module](https://github.com/Azure-Samples/azure-maps-fullscreen-control) | An Azure Maps Web SDK module that provides a control to display the map in fullscreen mode. |
 | [Azure Maps Selection Control module](https://github.com/Azure-Samples/azure-maps-selection-control) | An Azure Maps Web SDK module that provides controls for selecting data in a data source using drawing tools or by requesting a route range polygon. |
 | [Azure Maps Sync Map module](https://github.com/Azure-Samples/azure-maps-sync-maps) | An Azure Maps Web SDK module that synchronizes the cameras of two or more maps. |
