@@ -35,7 +35,7 @@ az functionapp config appsettings set --name <myFunctionApp> \
 
 ## Use the Portal
 
-You can also use the **Enable** and **Disable** buttons on the function's **Overview** page. These buttons work by creating and deleting the `AzureWebJobs.<FUNCTION_NAME>.Disabled` app setting.
+You can also use the **Enable** and **Disable** buttons on the function's **Overview** page. These buttons work by changing the value (0/1) of the `AzureWebJobs.<FUNCTION_NAME>.Disabled` app setting. [*This setting is created for the function, the first time it is disabled*]
 
 ![Function state switch](media/disable-function/function-state-switch.png)
 
