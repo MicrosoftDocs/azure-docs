@@ -129,8 +129,8 @@ v3 JobOutput replaces v2 Task, and is now part of a Job. Inputs and outputs are 
 
 The following v2 properties will no longer be populated with historical job progress data:
 
-* [HistoricalEvents](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.mediaservices.client.itask.historicalevents?view=azure-dotnet)
-* [PerfMessage](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.mediaservices.client.itask.perfmessage?view=azure-dotnet)
+* [HistoricalEvents](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.mediaservices.client.itask.historicalevents)
+* [PerfMessage](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.mediaservices.client.itask.perfmessage)
 
 You should now get the history of job progress by listening to the EventGrid events. For more information, see [Handling Event Grid events](reacting-to-media-services-events.md).
 
