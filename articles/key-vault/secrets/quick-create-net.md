@@ -30,8 +30,6 @@ Azure Key Vault helps safeguard cryptographic keys and secrets used by cloud app
 * [.NET Core 3.1 SDK or later](https://dotnet.microsoft.com/download/dotnet-core)
 * [Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest) or [Azure PowerShell](/powershell/azure/)
 
-This quickstart assumes you're running the necessary commands in a Windows terminal (such as [PowerShell Core](/powershell/scripting/install/installing-powershell-core-on-windows?view=powershell-6), [Windows PowerShell](/powershell/scripting/install/installing-windows-powershell?view=powershell-6), or the [Azure Cloud Shell](https://shell.azure.com)).
-
 ## Set up
 
 ### Create a new console app
@@ -58,7 +56,7 @@ Complete the following steps to create and compile a .NET Core console app.
      0 Error(s)
     ```
 
-### Install the package
+### Install the packages
 
 From the command shell, install the Azure Key Vault client library for .NET:
 
@@ -82,6 +80,7 @@ dotnet add package Azure.Identity
 
 #### Give the service principal access to your key vault
 
+<!-- TODO: need to pass -g myResourceGroup to this command too -->
 [!INCLUDE[Give the service principal access to your key vault](../../../includes/key-vault-sp-kv-access.md)]
 
 #### Set environment variables
@@ -98,7 +97,7 @@ The entire console app is available at https://github.com/Azure-Samples/key-vaul
 
 ### Add directives
 
-Add the following directives to the top of your code:
+Add the following directives to the top of *Program.cs*:
 
 [!code-csharp[](~/samples-key-vault-dotnet-quickstart/key-vault-console-app/Program.cs?name=directives)]
 
@@ -184,53 +183,70 @@ Remove-AzResourceGroup -Name "myResourceGroup"
 
 ## Sample code
 
-```csharp
-using System;
-using Azure.Identity;
-using Azure.Security.KeyVault.Secrets;
+Modify the .NET Core console app to interact with the Key Vault by completing the following steps:
 
-namespace key_vault_console_app
-{
-    class Program
+1. Replace the code in *Program.cs* with the following code:
+
+    ```csharp
+    using System;
+    using Azure.Identity;
+    using Azure.Security.KeyVault.Secrets;
+    
+    namespace key_vault_console_app
     {
-        static void Main(string[] args)
+        class Program
         {
-            string secretName = "mySecret";
-
-            string keyVaultName = Environment.GetEnvironmentVariable("KEY_VAULT_NAME");
-            var kvUri = "https://" + keyVaultName + ".vault.azure.net";
-
-            var client = new SecretClient(new Uri(kvUri), new DefaultAzureCredential());
-
-            Console.Write("Input the value of your secret > ");
-            string secretValue = Console.ReadLine();
-
-            Console.Write("Creating a secret in " + keyVaultName + " called '" + secretName + "' with the value '" + secretValue + "` ...");
-
-            client.SetSecret(secretName, secretValue);
-
-            Console.WriteLine(" done.");
-
-            Console.WriteLine("Forgetting your secret.");
-            secretValue = "";
-            Console.WriteLine("Your secret is '" + secretValue + "'.");
-
-            Console.WriteLine("Retrieving your secret from " + keyVaultName + ".");
-
-            KeyVaultSecret secret = client.GetSecret(secretName);
-
-            Console.WriteLine("Your secret is '" + secret.Value + "'.");
-
-            Console.Write("Deleting your secret from " + keyVaultName + " ...");
-
-            client.StartDeleteSecret(secretName);
-
-            System.Threading.Thread.Sleep(5000);
-            Console.WriteLine(" done.");
+            static void Main(string[] args)
+            {
+                const string secretName = "mySecret";
+                var keyVaultName = Environment.GetEnvironmentVariable("KEY_VAULT_NAME");
+                var kvUri = $"https://{keyVaultName}.vault.azure.net";
+    
+                var client = new SecretClient(new Uri(kvUri), new DefaultAzureCredential());
+    
+                Console.Write("Input the value of your secret > ");
+                var secretValue = Console.ReadLine();
+    
+                Console.Write($"Creating a secret in {keyVaultName} called '{secretName}' with the value '{secretValue}' ...");
+                client.SetSecret(secretName, secretValue);
+                Console.WriteLine(" done.");
+    
+                Console.WriteLine("Forgetting your secret.");
+                secretValue = string.Empty;
+                Console.WriteLine($"Your secret is '{secretValue}'.");
+    
+                Console.WriteLine($"Retrieving your secret from {keyVaultName}.");
+                KeyVaultSecret secret = client.GetSecret(secretName);
+                Console.WriteLine($"Your secret is '{secret.Value}'.");
+    
+                Console.Write($"Deleting your secret from {keyVaultName} ...");
+                client.StartDeleteSecret(secretName);
+                System.Threading.Thread.Sleep(5000);
+                Console.WriteLine(" done.");
+            }
         }
     }
-}
-```
+    ```
+
+1. Execute the following command to run the app.
+
+    ```dotnetcli
+    dotnet run
+    ```
+
+1. When prompted, enter a secret value. For example, mySecretPassword.
+
+    A variation of the following output appears:
+
+    ```console
+    Input the value of your secret > mySecretPassword
+    Creating a secret in <your-unique-keyvault-name> called 'mySecret' with the value 'mySecretPassword' ... done.
+    Forgetting your secret.
+    Your secret is ''.
+    Retrieving your secret from <your-unique-keyvault-name>.
+    Your secret is 'mySecretPassword'.
+    Deleting your secret from <your-unique-keyvault-name> ... done.    
+    ```
 
 ## Next steps
 
