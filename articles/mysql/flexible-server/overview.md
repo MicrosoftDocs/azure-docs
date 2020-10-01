@@ -87,7 +87,7 @@ The flexible server service uses the FIPS 140-2 validated cryptographic module f
 
 The service encrypts data in-motion with transport layer security enforced by default. Flexible Servers only supports encrypted connections using Transport Layer Security (TLS 1.2) and all incoming connections with TLS 1.0 and TLS 1.1 will be denied. 
 
-See [how to use encrypted connections to flexible servers](/articles/mysql/flexible-server/how-to-connect-tls-ssl.md) to learn more.
+See [how to use encrypted connections to flexible servers](https://docs.mongodb.com/manual/tutorial/configure-ssl) to learn more.
 
 Flexible servers allows full private access to the servers using [Azure virtual network](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview) (VNet) integration. Servers in Azure virtual network can only be reached and connected through private IP addresses. With VNet integration, public access is denied and servers cannot be reached using public endpoints. 
 

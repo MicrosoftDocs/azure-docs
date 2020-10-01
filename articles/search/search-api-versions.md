@@ -75,7 +75,7 @@ Create and configure a search service, and manage API keys.
 | Management 2020-03-13  | Stable | Adds [private endpoint](service-create-private-endpoint.md) through private link, and [network IP rules](service-configure-firewall.md) for new  services. For more information, see this [swagger specification](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/search/resource-manager/Microsoft.Search/stable/2020-08-01). |
 | Management 2019-10-01-Preview | Preview  | There were no preview features introduced in this list. This preview is functionally equivalent to 2020-03-13. For more information, see this [swagger specification](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/search/resource-manager/Microsoft.Search/preview/2019-10-01-preview). |
 | Management 2015-08-19  | Stable | The first generally available version of the Management REST APIs. Provides service provisioning, scale up, and api-key management. For more information, see this [swagger specification](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/search/resource-manager/Microsoft.Search/stable/2015-08-19). |
-| Management 2015-08-19-Preview  | Preview | The first preview version of the Management REST APIs. For more information, see this [swagger specification](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/search/resource-manager/Microsoft.Search/stable/2015-08-19-preview). |
+| Management 2015-08-19-Preview  | Preview | The first preview version of the Management REST APIs. For more information, see this [swagger specification](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/search/resource-manager/Microsoft.Search/stable/2015-08-19). |
 
 ## Azure SDK for .NET
 
@@ -92,7 +92,7 @@ The following  table provides links to more recent SDK versions.
 
 | SDK version | Status | Description  |
 |-------------|--------|------------------------------|
-| [Java azure-search-documents 11](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-search-documents) | Stable | New client library from Azure .NET SDK, released July 2020. Targets the Search REST api-version=2019-05-06. |
+| [Java azure-search-documents 11](https://newreleases.io/project/github/Azure/azure-sdk-for-java/release/azure-search-documents_11.1.0) | Stable | New client library from Azure .NET SDK, released July 2020. Targets the Search REST api-version=2019-05-06. |
 | [Java Management Client 1.35.0](/java/api/overview/azure/search/management) | Stable | Targets the Management REST api-version=2015-08-19. |
 
 ## Azure SDK for JavaScript
@@ -106,5 +106,5 @@ The following  table provides links to more recent SDK versions.
 
 | SDK version | Status | Description  |
 |-------------|--------|------------------------------|
-| [Python azure-search-documents 11.0](https://azuresdkdocs.blob.core.windows.net/$web/python/azure-search-documents) | Stable | New client library from Azure .NET SDK, released July 2020. Targets the Search REST api-version=2019-05-06. |
+| [Python azure-search-documents 11.0](https://azuresdkdocs.blob.core.windows.net/$web/python/azure-search-documents/11.0.0/index.html) | Stable | New client library from Azure .NET SDK, released July 2020. Targets the Search REST api-version=2019-05-06. |
 | [Python azure-mgmt-search 1.0](/python/api/overview/azure/search) | Stable | Targets the Management REST api-version=2015-08-19. |
