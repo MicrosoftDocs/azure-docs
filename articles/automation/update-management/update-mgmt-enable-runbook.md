@@ -8,7 +8,7 @@ ms.custom: mvc
 ---
 # Enable Update Management from a runbook
 
-This article describes how you can use a runbook to enable the [Update Management](update-mgmt-overview.md) feature for VMs in your environment. To enable Azure VMs at scale, you must enable an existing VM with Update Management. 
+This article describes how you can use a runbook to enable the [Update Management](update-mgmt-overview.md) feature for VMs in your environment. To enable Azure VMs at scale, you must enable an existing VM with Update Management.
 
 > [!NOTE]
 > When enabling Update Management, only certain regions are supported for linking a Log Analytics workspace and an Automation account. For a list of the supported mapping pairs, see [Region mapping for Automation account and Log Analytics workspace](../how-to/region-mappings.md).
@@ -27,6 +27,8 @@ This method uses two runbooks:
 * Two Automation assets, which are used by the **Enable-AutomationSolution** runbook. This runbook, if it doesn't already exist in your Automation account, is automatically imported by the **Enable-MultipleSolution** runbook during its first run.
     * *LASolutionSubscriptionId*: Subscription ID of where the Log Analytics workspace is located.
     * *LASolutionWorkspaceId*: Workspace ID of the Log Analytics workspace linked to your Automation account.
+
+    These variables are used to configure the workspace on the onboarding VM. If these are not specified, the script first searches for any VM onboarded to Update Management in its subscription, followed by the subscription the Automation account is in, followed by all other subscriptions your user account has access to. If not properly configured, this may result in your machines getting onboarded to some random Log Analytics workspace.
 
 ## Sign in to Azure
 
