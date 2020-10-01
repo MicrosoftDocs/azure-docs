@@ -614,7 +614,7 @@ Azure AD is recommended because it allows you to leverage managed identities.
 
 - [Configure a tenant](openvpn-azure-ad-tenant.md)
 
-- [Configure a tenant with multiple client apps](openvpn-azure-ad-tenant.md-multi-app)
+- [Configure a tenant with multiple client apps](openvpn-azure-ad-tenant-multi-app.md)
 
 - [Configure Multi-Factor Authentication](openvpn-azure-ad-mfa.md)
 
