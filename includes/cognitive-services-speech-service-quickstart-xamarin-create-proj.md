@@ -31,13 +31,13 @@ To start, make sure you're set up correctly in Visual Studio for cross-platform 
 
 1. On the Visual Studio menu bar, select **File** > **New** > **Project** to display the **Create a new project** window.
 
-   ![Create a new project - Visual Studio](../articles/cognitive-services/Speech-Service/media/sdk/vs-enable-xamarin-create-new-project.png)
+   ![Screenshot that shows how to create a new project in Visual Studio.](../articles/cognitive-services/Speech-Service/media/sdk/vs-enable-xamarin-create-new-project.png)
 
 1. Find and select **Mobile App (Xamarin.Forms)**.
 
 1. Select **Next** to display the **Configure your new project** screen.
 
-   ![Configure your new project - Visual Studio](../articles/cognitive-services/Speech-Service/media/sdk/vs-enable-xamarin-configure-your-new-project.png)
+   ![Screenshot that shows how to configure your new project in Visual Studio.](../articles/cognitive-services/Speech-Service/media/sdk/vs-enable-xamarin-configure-your-new-project.png)
 
 1. In **Project name**, enter *helloworld*.
 
@@ -45,7 +45,7 @@ To start, make sure you're set up correctly in Visual Studio for cross-platform 
 
 1. Select **Create** to go to the **New Mobile App Xamarin Forms Project** window.
 
-   ![New Universal Windows Platform Project dialog box - Visual Studio](../articles/cognitive-services/Speech-Service/media/sdk/qs-csharp-xamarin-new-xamarin-project.png)
+   ![Screenshot that shows the New Universal Windows Platform Project dialog box in Visual Studio.](../articles/cognitive-services/Speech-Service/media/sdk/qs-csharp-xamarin-new-xamarin-project.png)
 
 1. Select the **Blank** template.
 
@@ -65,7 +65,7 @@ Install the [Speech SDK NuGet package](https://aka.ms/csspeech/nuget), and refer
 
 1. Select **Browse**.
 
-   ![Screenshot of Manage Packages for Solution dialog box](../articles/cognitive-services/Speech-Service/media/sdk/vs-enable-uwp-nuget-solution-browse.png)
+   ![Screenshot of Manage Packages for Solution dialog box when installing the Speech SDK.](../articles/cognitive-services/Speech-Service/media/sdk/vs-enable-uwp-nuget-solution-browse.png)
 
 1. In **Package source**, select nuget.org.
 
