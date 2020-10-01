@@ -60,7 +60,7 @@ The [Performance Recommendations](concepts-performance-recommendations.md) featu
 During planned maintenance, you can expect your server to restart and [transient errors](concepts-connectivity.md#transient-errors) can occur. Most of these events are automatically mitigated by the system in less than 60 seconds. 
 
 > [!IMPORTANT]
-> Planned maintenance notifications are currently available in preview in all regions **except** West Central US
+> Planned maintenance notifications are currently available in preview in all regions **except** West Central US.
 
 ### To receive planned maintenance notification
 
