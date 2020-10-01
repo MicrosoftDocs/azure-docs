@@ -28,17 +28,17 @@ You can use the Azure portal to [create a Front Door](quickstart-create-front-do
 
     :::image type="content" source="./media/front-door-url-redirect/front-door-create-basics.png" alt-text="Configure basics for new Front Door":::
 
-1. The configuration for Front Door happens in three steps - adding a default frontend host, adding backends in a backend pool and then creating routing rules to map the routing behavior for frontend host. Select the '**+**' icon on the _Frontend hosts_ to create a frontend host,
+1. The configuration for Front Door happens in three steps - adding a default frontend host, adding backends in a backend pool and then creating routing rules to map the routing behavior for frontend host. Select the '**+**' icon on the _Frontend hosts_ to create a frontend host.
 
     :::image type="content" source="./media/front-door-url-redirect/front-door-designer.png" alt-text="Front Door configuration designer":::
 
 1. Enter a globally unique name for your default frontend host for your Front Door. Select **Add** to continue to the next step.
 
-    :::image type="content" source="./media/front-door-url-redirect/front-door-create-fehost.png" alt-text="Add a frontend host":::
+    :::image type="content" source="./media/front-door-url-redirect/front-door-create-frontend-host.png" alt-text="Add a frontend host":::
 
 ### Create Backend Pool
 
-1. Select the '**+**' icon on the _Backend pools_ to create a backend pool. Provide a name for the backend pool and then select '**Add a backend**'.
+1. Select the '**+**' icon on the _Backend pools_ to create a backend pool. Provide a name for the backend pool and then select **Add a backend**.
 
     :::image type="content" source="./media/front-door-url-redirect/front-door-designer-backend-pool.png" alt-text="Front Door configuration designer backend pool":::
 
@@ -62,7 +62,7 @@ You can use the Azure portal to [create a Front Door](quickstart-create-front-do
 
 ## Create forwarding rule
 
-1. Add another routing rule to handle the HTTPS traffic. Select the '**+**' sign on the *Routing rules* and provide a name for the route, for example 'DefaultForwardingRoute'. Then set the *Accepted Protocols* field to **'HTTPS only'**. Ensure that the appropriate *Frontend/domains* is selected.
+1. Add another routing rule to handle the HTTPS traffic. Select the '**+**' sign on the *Routing rules* and provide a name for the route, for example 'DefaultForwardingRoute'. Then set the *Accepted Protocols* field to **HTTPS only**. Ensure that the appropriate *Frontend/domains* is selected.
 
 1. On the Route Details section, set the *Route Type* to **Forward**. Ensure that the right backend pool gets selected and the *Forwarding Protocol* is set to **HTTPS only**. 
 
