@@ -94,7 +94,7 @@ Choose to allow or deny traffic based on settings such as assigned labels, names
 
 **Guidance**: Use Network Watcher packet capture as required for investigating anomalous activity. 
 
-Network Watcher is enabled automatically in your virtual network's region when you create or update a virtual network in your subscription. You can also create new instances of Network Watcher using PowerShell, the Azure CLI, the REST API, or ARMClient method
+Network Watcher is enabled automatically in your virtual network's region when you create or update a virtual network in your subscription. You can also create new instances of Network Watcher using PowerShell, the Azure CLI, the REST API, or the Azure Resource Manager Client method
 
 - [How to enable Network Watcher](https://docs.microsoft.com/azure/network-watcher/network-watcher-create)
 
@@ -695,7 +695,7 @@ Use Azure Activity Log to monitor your AKS clusters and related resources at a h
 
 **Guidance**: Use Security Center to monitor your Azure Container Registry including Azure Kubernetes Service (AKS) instances for vulnerabilities. Enable the Container Registries bundle in Security Center to ensure that Security Center is ready to scan images that get pushed to the registry.
 
-Get notified in the Security Center dashboard when issues are found after Security Center scans the image using Qualys. The Container Registries bundle feature provides deeper visibility into  vulnerabilities of the images used in Azure Resource Manager (ARM) based registries. 
+Get notified in the Security Center dashboard when issues are found after Security Center scans the image using Qualys. The Container Registries bundle feature provides deeper visibility into  vulnerabilities of the images used in Azure Resource Manager based registries. 
 
 Use Security Center for actionable recommendations for every vulnerability. These recommendations include a severity classification and guidance for remediation. 
 
@@ -918,8 +918,8 @@ Use Azure Resource Graph to query/discover resources within your subscriptions. 
 
 ### 6.11: Limit users' ability to interact with Azure Resource Manager
 
-**Guidance**: Use Azure Conditional Access to limit users' ability to interact with Azure Resource Manager (ARM) by configuring "Block access" for the "Microsoft Azure Management" App.
-- [How to configure Conditional Access to block access to ARM](https://docs.microsoft.com/azure/role-based-access-control/conditional-access-azure-management)
+**Guidance**: Use Azure Conditional Access to limit users' ability to interact with Azure Resource Manager by configuring "Block access" for the "Microsoft Azure Management" App.
+- [How to configure Conditional Access to block access to Azure Resource Manager](https://docs.microsoft.com/azure/role-based-access-control/conditional-access-azure-management)
 
 **Azure Security Center monitoring**: Not applicable
 
