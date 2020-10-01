@@ -54,20 +54,10 @@ Extend your application logic with telephony functionality.
 Add this code to **client.js**:
 
 ```javascript
-import { PhoneNumber } from "@azure/communication-calling"
-
 const calleePhoneInput = document.getElementById("callee-phone-input");
 const callPhoneButton = document.getElementById("call-phone-button");
 const hangUpPhoneButton = document.getElementById("hang-up-phone-button");
 ```
-
-## Object model
-
-The following classes and interfaces handle some of the major features of the Azure Communication Services Calling client library for JavaScript.
-
-| Name                                           | Description                                                                                          |
-| ---------------------------------------------- | ---------------------------------------------------------------------------------------------------- |
-| [PhoneNumber](../../../overview.md) | This class is needed to initialize a phone number you would like to use for telephony functionality. |
 
 ## Start a call to phone
 
@@ -80,11 +70,10 @@ Add an event handler to initiate a call to phone you provided when the `callPhon
 ```javascript
 callPhoneButton.addEventListener("click", () => {
   // start a call to phone
-  const phoneToCall = new PhoneNumber(calleePhoneInput.value);
+  const phoneToCall = calleePhoneInput.value;
   call = callAgent.call(
-    [phoneToCall],
-    { alternateCallerId: new PhoneNumber('+12223334444') }
-  );
+    [{phoneNumber: phoneToCall}], { alternateCallerId: {phoneNumber: '+18336528005'}
+  });
 
   // toggle button states
   hangUpPhoneButton.disabled = false;
