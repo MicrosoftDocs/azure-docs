@@ -17,7 +17,7 @@ The Dv2 and Dsv2-series, a follow-on to the original D-series, feature a more po
 
 Dv2-series sizes run on Intel® Xeon® Platinum 8272CL (Cascade Lake), Intel® Xeon® 8171M 2.1GHz (Skylake) or the the Intel® Xeon® E5-2673 v4 2.3 GHz (Broadwell) or the Intel® Xeon® E5-2673 v3 2.4 GHz (Haswell) processors with Intel Turbo Boost Technology 2.0.
 
-[ACU](acu.md): 210-250
+[ACU](acu.md): 210-250<br>
 [Premium Storage](premium-storage-performance.md): Not Supported<br>
 [Premium Storage caching](premium-storage-performance.md): Not Supported<br>
 [Live Migration](maintenance-and-updates.md): Supported<br>
