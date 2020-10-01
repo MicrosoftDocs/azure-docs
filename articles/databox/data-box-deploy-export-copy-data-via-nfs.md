@@ -41,14 +41,14 @@ Before you begin, make sure that:
 
 [!INCLUDE [data-box-shares](../../includes/data-box-shares.md)]
 
-If you are using a Linux host computer, perform the following steps to configure Data Box to allow access to NFS clients. You can allow access for as many as five NFS clients.
+If you are using a Linux host computer, perform the following steps to configure Data Box to allow access to NFS clients. Data Box can connect as many as five NFS clients at a time.
 
 1. Supply the IP addresses of the allowed clients that can access the share:
     1.  In the local web UI, go to **Connect and copy** page. Under **NFS settings**, click **NFS client access**. 
 
         ![Open NFS client access](media/data-box-deploy-export-copy-data/nfs-client-access-1.png)
 
-    2. To add an NFS client, supply the client's IP address and click **Add**. You can add as many as five NFS clients. When you finish, click **OK**.
+    2. To add an NFS client, supply the client's IP address and click **Add**. Data Box can connect as many as five NFS clients at a time. When you finish, click **OK**.
 
          ![Add an NFS client](media/data-box-deploy-export-copy-data/nfs-client-access-2.png)
 
