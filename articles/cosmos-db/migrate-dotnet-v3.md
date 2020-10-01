@@ -14,7 +14,7 @@ ms.date: 09/23/2020
 > To learn about the Azure Cosmos DB .NET SDK v3, see the [Release notes](sql-api-sdk-dotnet-standard.md), the [.NET GitHub repository](https://github.com/Azure/azure-cosmos-dotnet-v3), .NET SDK v3 [Performance Tips](performance-tips-dotnet-sdk-v3-sql.md), and the [Troubleshooting guide](troubleshoot-dot-net-sdk.md).
 >
 
-This article highlights some of the considerations in upgrading your existing .NET application that is using an older Azure Cosmos DB .NET SDK to the newer Azure Cosmos DB .NET SDK v3 for Core (SQL) API. Azure Cosmos DB .NET SDK v3 corresponds to the Microsoft.Azure.Cosmos namespace. You can use the information provided in this doc if you are migrating your application from any of the following Azure Cosmos DB .NET SDKs:
+This article highlights some of the considerations of upgrading your existing .NET application to the newer Azure Cosmos DB .NET SDK v3 for Core (SQL) API. Azure Cosmos DB .NET SDK v3 corresponds to the Microsoft.Azure.Cosmos namespace. You can use the information provided in this doc if you are migrating your application from any of the following Azure Cosmos DB .NET SDKs:
 
 * Azure Cosmos DB .NET Framework SDK v2 for SQL API
 * Azure Cosmos DB .NET Core SDK v2 for SQL API
@@ -26,7 +26,7 @@ The instructions in this article also help you to migrate the following external
 
 ## What's new in the .NET V3 SDK
 
-The v3 SDK contains numerous usability and performance improvements, including:
+The v3 SDK contains many usability and performance improvements, including:
 
 * Intuitive programming model naming
 * .NET Standard 2.0 **
@@ -39,17 +39,17 @@ The v3 SDK contains numerous usability and performance improvements, including:
 * Pluggable serializers
 * Scale non-partitioned and autoscale containers
 
-** The SDK targets .NET Standard 2.0 and in doing so it unifies the existing Azure Cosmos DB .NET Framework and .NET Core SDKs into a single .NET SDK. You can use the .NET SDK in any platform that implements .NET Standard 2.0, including your .NET Framework 4.6.1+ and .NET Core 2.0+ applications.
+** The SDK targets .NET Standard 2.0 that unifies the existing Azure Cosmos DB .NET Framework and .NET Core SDKs into a single .NET SDK. You can use the .NET SDK in any platform that implements .NET Standard 2.0, including your .NET Framework 4.6.1+ and .NET Core 2.0+ applications.
 
 Most of the networking, retry logic, and lower levels of the SDK remain largely unchanged.
 
-**The Azure Cosmos DB .NET SDK v3 is now open source.** We welcome any pull requests and will be logging issues and tracking feedback on [GitHub.](https://github.com/Azure/azure-cosmos-dotnet-v3/) We will work on taking on any features that will improve customer experience.
+**The Azure Cosmos DB .NET SDK v3 is now open source.** We welcome any pull requests and will be logging issues and tracking feedback on [GitHub.](https://github.com/Azure/azure-cosmos-dotnet-v3/) We'll work on taking on any features that will improve customer experience.
 
 ## Why migrate to the .NET v3 SDK
 
 In addition to the numerous usability and performance improvements, new feature investments made in the latest SDK will not be back ported to older versions.
 
-While there are no immediate plans to [retire, support for the 2.0 SDKs](https://docs.microsoft.com/en-us/azure/cosmos-db/sql-api-sdk-dotnet#release--retirement-dates), the SDKs will be replaced by newer versions in the future and support for older versions will be retired. For the best development experience, we recommend always starting with the latest supported version of SDK.
+While there are no immediate plans to [retire support for the 2.0 SDKs](https://docs.microsoft.com/en-us/azure/cosmos-db/sql-api-sdk-dotnet#release--retirement-dates), the SDKs will be replaced by newer versions in the future and the SDK will go into maintenance mode. For the best development experience, we recommend always starting with the latest supported version of SDK.
 
 ## Major name changes from v2 SDK to v3 SDK
 
@@ -59,13 +59,13 @@ The following name changes have been applied throughout the .NET 3.0 SDK to alig
 * `Collection` is renamed to `Container`
 * `Document` is renamed to `Item`
 
-All the resource objects are renamed with additional properties which, includes the resource name for clarity.
+All the resource objects are renamed with additional properties, which, includes the resource name for clarity.
 
 The following are some of the main class name changes:
 
 | .NET v3 SDK | .NET v2 SDK |
 |-------------|-------------|
-|`Microsoft.Azure.Documents.Client.DocumentClient`|`Microsoft.Azure.Cosmos`|
+|`Microsoft.Azure.Documents.Client.DocumentClient`|`Microsoft.Azure.CosmosClient`|
 |`Microsoft.Azure.Documents.Client.ConnectionPolicy`|`Microsoft.Azure.Cosmos.CosmosClientOptions`|
 |`Microsoft.Azure.Documents.Client.DocumentClientException` |`Microsoft.Azure.Cosmos.CosmosException`|
 |`Microsoft.Azure.Documents.Client.Database`|`Microsoft.Azure.Cosmos.DatabaseProperties`|
@@ -87,9 +87,9 @@ The following classes have been replaced on the 3.0 SDK:
 
 The Microsoft.Azure.Documents.UriFactory class has been replaced by the fluent design. The fluent design builds URLs internally and allows a single `Container` object to be passed around instead of a `DocumentClient`, `DatabaseName`, and `DocumentCollection`.
 
-### Changes to item Id generation
+### Changes to item ID generation
 
-Item Id is no longer auto populated in the .NET v3 SDK. Therefore the Item Id must specifically include a generated Id. View an example below:
+Item ID is no longer auto populated in the .NET v3 SDK. Therefore, the Item ID must specifically include a generated ID. View the following example:
 
 ```csharp
 [JsonProperty(PropertyName = "id")]
@@ -128,7 +128,7 @@ The following properties have been removed:
 
 The .NET SDK v3 provides a fluent `CosmosClientBuilder` class that replaces the need for the SDK v2 URI Factory.
 
-The example below creates a new `CosmosClientBuilder` with a strong ConsistencyLevel and a list of preferred locations:
+The following example creates a new `CosmosClientBuilder` with a strong ConsistencyLevel and a list of preferred locations:
 
 ```csharp
 CosmosClientBuilder cosmosClientBuilder = new CosmosClientBuilder(
@@ -147,7 +147,7 @@ For more information, see [how to migrate from the change feed processor library
 
 ### Using the bulk executor library directly from the V3 SDK
 
-The v3 SDK has built-in support for the bulk executor library, allowing you to use the same SDK for building your application and using bulk executor library to perform bulk operations. Previously, you were required to use a separate bulk executor library.
+The v3 SDK has built-in support for the bulk executor library, allowing you to use the same SDK for building your application and performing bulk operations. Previously, you were required to use a separate bulk executor library.
 
 For more information, see [how to migrate from the bulk executor library to  bulk support in Azure Cosmos DB .NET V3 SDK](how-to-migrate-from-bulk-executor-library.md)
 
