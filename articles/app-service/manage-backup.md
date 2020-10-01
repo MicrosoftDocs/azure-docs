@@ -88,7 +88,7 @@ The following database solutions are supported with backup feature:
 
     You see a progress message during the backup process.
 
-Once the storage account and container is configured, you can initiate a manual backup at any time.
+Once the storage account and container is configured, you can initiate a manual backup at any time. Manual backups are retained indefinitely.
 
 <a name="automatedbackups"></a>
 
