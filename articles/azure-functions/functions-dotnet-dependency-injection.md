@@ -177,6 +177,8 @@ The following example `host.json` file adds the log filter.
 }
 ```
 
+Log filter rules in Azure Functions work the same way as in ASP.NET Core. For more information, refer to the [How filtering rules are applied](https://docs.microsoft.com/aspnet/core/fundamentals/logging/?view=aspnetcore-3.1#how-filtering-rules-are-applied) document.
+
 ## Function app provided services
 
 The function host registers many services. The following services are safe to take as a dependency in your application:
