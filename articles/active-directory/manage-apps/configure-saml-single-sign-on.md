@@ -1,33 +1,33 @@
 ---
-title: Configure SAML-based single sign-on (SSO) for apps in Azure AD
-description: Configure SAML-based single sign-on (SSO) for apps in Azure AD
+title: Understand SAML-based single sign-on (SSO) for apps in Azure Active Directory
+description: Understand SAML-based single sign-on (SSO) for apps in Azure Active Directory
 services: active-directory
 author: kenwith
 manager: celestedg
 ms.service: active-directory
 ms.subservice: app-mgmt
-ms.topic: how-to
+ms.topic: conceptual
 ms.workload: identity
 ms.date: 07/28/2020
 ms.author: kenwith
 ms.reviewer: arvinh,luleon
 ---
 
-# Configure SAML-based single sign-on
+# Understand SAML-based single sign-on
 
 In the [quickstart series](view-applications-portal.md) on application management, you learned how to use Azure AD as the Identity Provider (IdP) for an application. This article goes into more detail about the SAML-based option for single sign-on. 
 
 
 ## Before you begin
 
-Using Azure AD as your Identity Provider (IdP) and setting up single sign-on (SSO) can be simple or complex depending on the application being used. Some applications can be set up with just a few actions. Others require in-depth configuration. To ramp up quickly, walk through the [quickstart series](view-applications-portal.md) on application management. If the application you're adding is simple, then you probably don't need to read this article. If the application you're adding requires custom configuration for SAML-based SSO, then this article is for you.
+Using Azure AD as your Identity Provider (IdP) and configuring single sign-on (SSO) can be simple or complex depending on the application being used. Some applications can be configured with just a few actions. Others require in-depth configuration. To ramp knowledge quickly, walk through the [quickstart series](view-applications-portal.md) on application management. If the application you're adding is simple, then you probably don't need to read this article. If the application you're adding requires custom configuration for SAML-based SSO, then this article is for you.
 
 In the [quickstart series](add-application-portal-setup-sso.md), there's an article on configuring single sign-on. In it, you learn how to access the SAML configuration page for an app. The SAML configuration page includes five sections. These sections are discussed in detail in this article.
 
 > [!IMPORTANT] 
 > There are some scenarios where the **Single sign-on** option will not be present in the navigation for an application in **Enterprise applications**. 
 >
-> If the application was registered using **App registrations** then the single sign-on capability is set up to use OIDC OAuth by default. In this case, the **Single sign-on** option won't show up in the navigation under **Enterprise applications**. When you use **App registrations** to add your custom app, you configure options in the manifest file. To learn more about the manifest file, see [Azure Active Directory app manifest](https://docs.microsoft.com/azure/active-directory/develop/reference-app-manifest). To learn more about SSO standards, see [Authentication and authorization using Microsoft identity platform](https://docs.microsoft.com/azure/active-directory/develop/authentication-vs-authorization#authentication-and-authorization-using-microsoft-identity-platform). 
+> If the application was registered using **App registrations** then the single sign-on capability is configured to use OIDC OAuth by default. In this case, the **Single sign-on** option won't show in the navigation under **Enterprise applications**. When you use **App registrations** to add your custom app, you configure options in the manifest file. To learn more about the manifest file, see [Azure Active Directory app manifest](https://docs.microsoft.com/azure/active-directory/develop/reference-app-manifest). To learn more about SSO standards, see [Authentication and authorization using Microsoft identity platform](https://docs.microsoft.com/azure/active-directory/develop/authentication-vs-authorization#authentication-and-authorization-using-microsoft-identity-platform). 
 >
 > Other scenarios where **Single sign-on** will be missing from the navigation include when an application is hosted in another tenant or if your account does not have the required permissions (Global Administrator, Cloud Application Administrator, Application Administrator, or owner of the service principal). Permissions can also cause a scenario where you can open **Single sign-on** but won't be able to save. To learn more about Azure AD administrative roles, see (https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-assign-admin-roles).
 
@@ -37,7 +37,7 @@ In the [quickstart series](add-application-portal-setup-sso.md), there's an arti
 You should get the values from the application vendor. You can manually enter the values or upload a metadata file to extract the value of the fields.
 
 > [!TIP]
-> Many apps have already been pre-configured to work with Azure AD. These apps are listed in the gallery of apps that you can browse when you add an app to your Azure AD tenant. The [quickstart series](add-application-portal-setup-sso.md) walks you through the process. For the apps in the gallery you will find detailed, step-by-step, set up instructions. To access the steps you can click the link on the SAML configuration page for the app as described in the quickstart series or you can browse a list of all app configuration tutorials at [SaaS app configuration tutorials](../saas-apps/tutorial-list.md).
+> Many apps have already been pre-configured to work with Azure AD. These apps are listed in the gallery of apps that you can browse when you add an app to your Azure AD tenant. The [quickstart series](add-application-portal-setup-sso.md) walks you through the process. For the apps in the gallery you will find detailed, step-by-step, instructions. To access the steps you can click the link on the SAML configuration page for the app as described in the quickstart series or you can browse a list of all app configuration tutorials at [SaaS app configuration tutorials](../saas-apps/tutorial-list.md).
 
 | Basic SAML Configuration setting | SP-Initiated | idP-Initiated | Description |
 |:--|:--|:--|:--|
@@ -71,7 +71,7 @@ You can add new claims, for details see [Adding application-specific claims](../
 
 ## SAML signing certificate
 
-Azure AD uses a certificate to sign the SAML tokens it sends to the application. You need this certificate to set up the trust between Azure AD and the application. For details on the certificate format, see the application’s SAML documentation. For more information, see [Manage certificates for federated single sign-on](manage-certificates-for-federated-single-sign-on.md) and [Advanced certificate signing options in the SAML token](certificate-signing-options.md).
+Azure AD uses a certificate to sign the SAML tokens it sends to the application. You need this certificate to configure the trust between Azure AD and the application. For details on the certificate format, see the application’s SAML documentation. For more information, see [Manage certificates for federated single sign-on](manage-certificates-for-federated-single-sign-on.md) and [Advanced certificate signing options in the SAML token](certificate-signing-options.md).
 
 > [!IMPORTANT]
 > Many apps are already pre-configured and in the app gallery and you don't need to dive into certificates. The [quickstart series](add-application-portal.md) walks you through adding and configuring apps.
@@ -94,7 +94,7 @@ To make certificate changes, select the Edit button. There are several things yo
 
 ## Set up the application to use Azure AD
 
-The **Set up \<applicationName>** section lists the values that need to be configured in the application so it will use Azure AD as a SAML identity provider. You set the values on the configuration page on the applications website. For example, if you are setting up GitHub then you would go to the github.com site and set the values. If the application is already pre-configured and in the Azure AD gallery, then you will find a link to **View step-by-step instructions**. Otherwise, you will need to find the documentation for the application you are setting up. 
+The **Set up \<applicationName>** section lists the values that need to be configured in the application so it will use Azure AD as a SAML identity provider. You set the values on the configuration page on the applications website. For example, if you are configuring GitHub then you would go to the github.com site and set the values. If the application is already pre-configured and in the Azure AD gallery, then you will find a link to **View step-by-step instructions**. Otherwise, you will need to find the documentation for the application you are configuring. 
 
 The **Login URL** and **Logout URL** values both resolve to the same endpoint, which is the SAML request-handling endpoint for Azure AD tenant. 
 
