@@ -89,8 +89,6 @@ Where:
 - __server-name__ indicates a server group
 - __no-wait__ indicates that the command line will not wait for the backup to complete for you to be able to continue to use this command-line window
 
->**Note**: The command that allows you to list the backups that are available to restore does not show yet, the date/time at which the backup was taken. So it is recommended you give a name to the backup (using the --name parameter) that includes the date/time information.
-
 This command will coordinate a distributed full backup across all the nodes that constitute your Azure Arc enabled PostgreSQL Hyperscale server group. In other words, it will backup all data in your Coordinator and Worker nodes.
 
 For example:
