@@ -3,6 +3,7 @@ title: Configure monitoring for ASP.NET with Azure Application Insights | Micros
 description: Configure performance, availability, and user behavior analytics tools for your ASP.NET website, hosted on-premises or in Azure.
 ms.topic: conceptual
 ms.date: 09/30/2020
+ms.custom: contperfq1
 
 ---
 
