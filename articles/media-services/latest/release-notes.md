@@ -269,7 +269,7 @@ Updates from the GA release of the V3 API include:
 
 ## November 2018
 
-The CLI 2.0 module is now available for [Azure Media Services v3 GA](/cli/azure/ams?view=azure-cli-latest) – v 2.0.50.
+The CLI 2.0 module is now available for [Azure Media Services v3 GA](/cli/azure/ams?view=azure-cli-latest&preserve-view=true) – v 2.0.50.
 
 ### New commands
 
