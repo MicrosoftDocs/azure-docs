@@ -20,16 +20,17 @@ Azure Stream Analytics persists the following metadata and data in order to run:
 
 * User-defined functions or aggregates  
 
-* Checkpoints needed by the Stream Analytics runtime (stored in single region by default)
+* Checkpoints needed by the Stream Analytics runtime
 
-* Snapshots of reference data (stored in single region by default)
+* Snapshots of reference data 
 
-* Connection details of the resources used by your Stream Analytics job (stored in single region by default)
+* Connection details of the resources used by your Stream Analytics job
 
 To help you meet your compliance obligations in any regulated industry or environment, you can read more about [Microsoft's compliance offerings](https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942). 
 
 ## In-Region Data Residency
-Azure Stream Analytics stores customer data. This data is automatically stored by Azure Stream Analytics in a single region, so this service automatically satisfies in region data residency requirements including those specified in the [Trust Center](https://azuredatacentermap.azurewebsites.net/).
+Azure Stream Analytics stores customer data and other metadata described above. Customer data is stored by Azure Stream Analytics in a single region by default, so this service automatically satisfies in region data residency requirements including those specified in the [Trust Center](https://azuredatacentermap.azurewebsites.net/).
+Additionaly, you can choose to store all data assets (customer data and other metadata) related to your stream analytics job in a single region by encrypting them in a storage account of your choice.
 
 ## Encrypt your data
 
@@ -70,7 +71,7 @@ Use the following steps to configure your storage account for private data asset
 
 
 ### Known issues
-There is a known issue where a job using customer managed key runs into failures when using managed identity to authenticate to any inputs or outputs. A fix for this issue is being worked on and will become available in the near future. 
+There is a known limitation where a job using customer managed key runs into failures when using managed identity to authenticate to any inputs or outputs. We are working on removing this limitation in the near future.
 
 ## Next steps
 
