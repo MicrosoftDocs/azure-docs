@@ -190,7 +190,7 @@ All commands must use relative paths to the project root folder.
 
 To specify a startup command or command file:
 
-- **Azure portal**: select the app's **Configuration** page, then select **General settings**. In the **Startup Command** field, place either the full text of your startup command or the name of your startup command file. Then select **Save** to apply the changes.
+- **Azure portal**: select the app's **Configuration** page, then select **General settings**. In the **Startup Command** field, place either the full text of your startup command or the name of your startup command file. Then select **Save** to apply the changes. See [Configure general settings](configure-common.md#configure-general-settings) for Linux containers.
 
 - **Azure CLI**: use the [az webapp config set](/cli/azure/webapp/config#az_webapp_config_set) command with the `--startup-file` parameter to set the startup command or file:
 
