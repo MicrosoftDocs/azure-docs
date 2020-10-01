@@ -13,7 +13,28 @@ ms.topic: how-to
 
 # Upload usage data, metrics, and logs to Azure Monitor
 
-Monitoring is one of the many built-in capabilities that Azure Arc enabled data services brings with it. 
+Periodically you can export out usage information for billing purposes, monitoring metrics, and logs and then upload it to Azure.  The export and upload of any of these three types of data will also create and update the data controller, SQL managed instance, and PostgreSQL Hyperscale server group resources in Azure.
+
+> [!NOTE] 
+During the preview period, there is no cost for using Azure Arc enabled data services.
+
+## Prerequisites
+
+You will need the Azure CLI (az) and the Azure Data CLI (azdata) installed.  [Install tools](./install-client-tools.md).
+
+Prior to uploading data to Azure, you need to ensure that your Azure subscription has the Microsoft.HybridData resource provider registered.
+
+You can verify this by running the following command:
+
+```console
+az provider show -n Microsoft.HybridData -o table
+```
+
+If the resource provider is not currently registered in your subscription, you can register it by running the following command.  This command make take a minute or two to complete.
+
+```console
+az provider register -n Microsoft.HybridData --wait
+```
 
 ## Upload usage data
 
