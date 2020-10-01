@@ -43,19 +43,19 @@ Now that you have registered your application, you'll need to select which API p
 
     ![Confidential client. API Permissions](media/how-to-aad/portal-aad-register-new-app-registration-CONF-CLIENT-API-Permissions.png)
 
-2. Select **Add a permission**.
+1. Select **Add a permission**.
 
     If you are using the Azure API for FHIR, you will add a permission to the Azure Healthcare APIs by searching for **Azure Healthcare APIs** under **APIs my organization uses**. 
 
     If you are referencing a different Resource Application, select your [FHIR API Resource Application Registration](register-resource-azure-ad-client-app.md) that you created previously under **My APIs**.
 
 
-:::image type="content" source="media/conf-client-app/confidential-app-org-api.png" alt-text="Confidential client. My Org APIs":::
+:::image type="content" source="media/conf-client-app/confidential-client-org-api.png" alt-text="Confidential client. My Org APIs" lightbox="media/conf-client-app/confidential-client-org-api-expanded.png":::
     
 
-4. Select scopes (permissions) that the confidential application should be able to ask for on behalf of a user:
+3. Select scopes (permissions) that the confidential application should be able to ask for on behalf of a user:
 
-:::image type="content" source="media/conf-client-app/confidential-app-add-permission.png" alt-text="Confidential client. Delegated Permissions":::
+:::image type="content" source="media/conf-client-app/confidential-client-add-permission.png" alt-text="Confidential client. Delegated Permissions":::
 
 ## Application secret
 
