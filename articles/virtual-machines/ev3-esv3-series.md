@@ -23,13 +23,11 @@ Ev3-series VM’s feature Intel® Hyper-Threading Technology.
 
 ACU: 160 - 190
 
-Premium Storage:  Not Supported
-
-Premium Storage caching:  Not Supported
-
-Live Migration: Supported
-
-Memory Preserving Updates: Supported
+[Premium Storage](premium-storage-performance.md): Not Supported
+[Premium Storage caching](premium-storage-performance): Not Supported
+[Live Migration](maintenance-and-updates.md): Supported
+[Memory Preserving Updates](maintenance-and-updates.md): Supported
+[VM Generation Support](generation-2.md): Generation 1
 
 | Size | vCPU | Memory: GiB | Temp storage (SSD) GiB | Max data disks | Max temp storage throughput: IOPS / Read MBps / Write MBps | Max NICs / Network bandwidth |
 |---|---|---|---|---|---|---|
@@ -55,13 +53,11 @@ Esv3-series VM’s feature Intel® Hyper-Threading Technology.
 
 ACU: 160-190
 
-Premium Storage:  Supported
-
-Premium Storage caching:  Supported
-
-Live Migration: Supported
-
-Memory Preserving Updates: Supported
+[Premium Storage](premium-storage-performance.md): Supported
+[Premium Storage caching](premium-storage-performance): Supported
+[Live Migration](maintenance-and-updates.md): Supported
+[Memory Preserving Updates](maintenance-and-updates.md): Supported
+[VM Generation Support](generation-2.md): Generation 1 and 2
 
 | Size | vCPU | Memory: GiB | Temp storage (SSD) GiB | Max data disks | Max cached and temp storage throughput: IOPS/MBps (cache size in GiB) | Burst cached and temp storage throughput: IOPS/MBps<sup>3</sup> | Max uncached disk throughput: IOPS/MBps |  Burst uncached disk throughput: IOPS/MBps<sup>3</sup>| Max NICs/Expected network bandwidth (Mbps) |
 |---|---|---|---|---|---|---|---|---|---|

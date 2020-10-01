@@ -17,13 +17,11 @@ The Dav4-series and Dasv4-series are new sizes utilizing AMD's 2.35Ghz EPYC<sup>
 
 ACU: 230-260
 
-Premium Storage: Not Supported
-
-Premium Storage caching: Not Supported
-
-Live Migration: Supported
-
-Memory Preserving Updates: Supported
+[Premium Storage](premium-storage-performance.md):  Not Supported
+[Premium Storage caching](premium-storage-performance):  Not Supported
+[Live Migration](maintenance-and-updates.md): Supported
+[Memory Preserving Updates](maintenance-and-updates.md): Supported
+[VM Generation Support](generation-2.md): Generation 1
 
 Dav4-series sizes are based on the 2.35Ghz AMD EPYC<sup>TM</sup> 7452 processor that can achieve a boosted maximum frequency of 3.35GHz. The Dav4-series sizes offer a combination of vCPU, memory and temporary storage for most production workloads. Data disk storage is billed separately from virtual machines. To use premium SSD, use the Dasv4 sizes. The pricing and billing meters for Dasv4 sizes are the same as the Dav4-series.
 
@@ -42,13 +40,11 @@ Dav4-series sizes are based on the 2.35Ghz AMD EPYC<sup>TM</sup> 7452 processor 
 
 ACU:  230-260
 
-Premium Storage: Supported
-
-Premium Storage caching: Supported
-
-Live Migration: Supported
-
-Memory Preserving Updates: Supported
+[Premium Storage](premium-storage-performance.md): Supported
+[Premium Storage caching](premium-storage-performance): Supported
+[Live Migration](maintenance-and-updates.md): Supported
+[Memory Preserving Updates](maintenance-and-updates.md): Supported
+[VM Generation Support](generation-2.md): Generation 1 and 2
 
 Dasv4-series sizes are based on the 2.35Ghz AMD EPYC<sup>TM</sup> 7452 processor that can achieve a boosted maximum frequency of 3.35GHz and use premium SSD. The Dasv4-series sizes offer a combination of vCPU, memory and temporary storage for most production workloads.
 

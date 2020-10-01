@@ -18,13 +18,11 @@ HB-series VMs feature 100 Gb/sec Mellanox EDR InfiniBand. These VMs are connecte
 
 ACU: 199-216
 
-Premium Storage: Supported
-
-Premium Storage Caching: Supported
-
-Live Migration: Not Supported
-
-Memory Preserving Updates: Not Supported
+[Premium Storage](premium-storage-performance.md): Supported
+[Premium Storage caching](premium-storage-performance): Supported
+[Live Migration](maintenance-and-updates.md): Not Supported
+[Memory Preserving Updates](maintenance-and-updates.md): Not Supported
+[VM Generation Support](generation-2.md): Generation 1 and 2
 
 | Size | vCPU | Processor | Memory (GB) | Memory bandwidth GB/s | Base CPU frequency (GHz) | All-cores frequency (GHz, peak) | Single-core frequency (GHz, peak) | RDMA performance (Gb/s) | MPI support | Temp storage (GB) | Max data disks | Max Ethernet NICs |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |

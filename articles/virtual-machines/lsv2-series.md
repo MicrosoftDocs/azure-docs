@@ -23,14 +23,11 @@ The Lsv2-series features high throughput, low latency, directly mapped local NVM
 ACU: 150-175
 
 Bursting: Supported
-
-Premium Storage: Supported
-
-Premium Storage caching: Not Supported
-
-Live Migration: Not Supported
-
-Memory Preserving Updates: Not Supported
+[Premium Storage](premium-storage-performance.md): Supported
+[Premium Storage caching](premium-storage-performance): Not Supported
+[Live Migration](maintenance-and-updates.md): Not Supported
+[Memory Preserving Updates](maintenance-and-updates.md): Not Supported
+[VM Generation Support](generation-2.md): Generation 1 and 2
 
 | Size | vCPU | Memory (GiB) | Temp disk<sup>1</sup> (GiB) | NVMe Disks<sup>2</sup> | NVMe Disk throughput<sup>3</sup> (Read IOPS/MBps) | Uncached data disk throughput (IOPs/MBps)<sup>4</sup> | Max burst uncached data disk throughput (IOPs/MBps)<sup>5</sup>| Max Data Disks | Max NICs | Expected network bandwidth (Mbps) |
 |---|---|---|---|---|---|---|---|---|---|---|

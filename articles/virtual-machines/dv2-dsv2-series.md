@@ -19,13 +19,11 @@ Dv2-series sizes run on Intel® Xeon® Platinum 8272CL (Cascade Lake), Intel® X
 
 ACU: 210-250
 
-Premium Storage:  Not Supported
-
-Premium Storage caching:  Not Supported
-
-Live Migration: Supported
-
-Memory Preserving Updates: Supported
+[Premium Storage](premium-storage-performance.md):  Not Supported
+[Premium Storage caching](premium-storage-performance):  Not Supported
+[Live Migration](maintenance-and-updates.md): Supported
+[Memory Preserving Updates](maintenance-and-updates.md): Supported
+[VM Generation Support](generation-2.md): Generation 1
 
 | Size | vCPU | Memory: GiB | Temp storage (SSD) GiB | Max temp storage throughput: IOPS/Read MBps/Write MBps | Max data disks | Throughput: IOPS | Max NICs | Expected network bandwidth (Mbps) |
 |---|---|---|---|---|---|---|---|---|
@@ -41,13 +39,11 @@ DSv2-series sizes run on Intel® Xeon® Platinum 8272CL (Cascade Lake), Intel® 
 
 ACU: 210-250
 
-Premium Storage:  Supported
-
-Premium Storage caching:  Supported
-
-Live Migration: Supported
-
-Memory Preserving Updates: Supported
+[Premium Storage](premium-storage-performance.md): Supported
+[Premium Storage caching](premium-storage-performance): Supported
+[Live Migration](maintenance-and-updates.md): Supported
+[Memory Preserving Updates](maintenance-and-updates.md): Supported
+[VM Generation Support](generation-2.md): Generation 1 and 2
 
 | Size | vCPU | Memory: GiB | Temp storage (SSD) GiB | Max data disks | Max cached and temp storage throughput: IOPS/MBps (cache size in GiB) | Max uncached disk throughput: IOPS/MBps | Max NICs|Expected network bandwidth (Mbps) |
 |---|---|---|---|---|---|---|---|---|

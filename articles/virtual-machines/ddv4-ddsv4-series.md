@@ -25,13 +25,11 @@ The new Ddv4 VM sizes include fast, larger local SSD storage (up to 2,400 GiB) a
 
 ACU: 195-210
 
-Premium Storage:  Not Supported
-
-Premium Storage caching:  Not Supported
-
-Live Migration: Supported
-
-Memory Preserving Updates: Supported
+[Premium Storage](premium-storage-performance.md):  Not Supported
+[Premium Storage caching](premium-storage-performance):  Not Supported
+[Live Migration](maintenance-and-updates.md): Supported
+[Memory Preserving Updates](maintenance-and-updates.md): Supported
+[VM Generation Support](generation-2.md): Generation 1
 
 | Size | vCPU | Memory: GiB | Temp storage (SSD) GiB | Max data disks | Max cached and temp storage throughput: IOPS/MBps | Max NICs|Expected Network bandwidth (Mbps) |
 |---|---|---|---|---|---|---|---|
@@ -54,13 +52,11 @@ The new Ddsv4 VM sizes include fast, larger local SSD storage (up to 2,400 GiB) 
 
 ACU: 195-210
 
-Premium Storage:  Supported
-
-Premium Storage caching:  Supported
-
-Live Migration: Supported
-
-Memory Preserving Updates: Supported
+[Premium Storage](premium-storage-performance.md): Supported
+[Premium Storage caching](premium-storage-performance): Supported
+[Live Migration](maintenance-and-updates.md): Supported
+[Memory Preserving Updates](maintenance-and-updates.md): Supported
+[VM Generation Support](generation-2.md): Generation 1 and 2
 
 | Size | vCPU | Memory: GiB | Temp storage (SSD) GiB | Max data disks | Max cached and temp storage throughput: IOPS/MBps (cache size in GiB) | Max uncached disk throughput: IOPS/MBps | Max NICs|Expected Network bandwidth (Mbps) |
 |---|---|---|---|---|---|---|---|---|

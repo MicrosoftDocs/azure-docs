@@ -27,14 +27,11 @@ Critically, the NDv2 is built for both computationally intense scale-up (harness
 
 <br>
 
-Premium Storage:  Supported
-
-Premium Storage caching:  Supported
-
-Live Migration: Not Supported
-
-Memory Preserving Updates: Not Supported
-
+[Premium Storage](premium-storage-performance.md): Supported
+[Premium Storage caching](premium-storage-performance): Supported
+[Live Migration](maintenance-and-updates.md): Not Supported
+[Memory Preserving Updates](maintenance-and-updates.md): Not Supported
+[VM Generation Support](generation-2.md): Generation 1
 InfiniBand: Supported
 
 | Size | vCPU | Memory: GiB | Temp Storage (SSD): GiB | GPU | GPU Memory: GiB | Max data disks | Max uncached disk throughput: IOPS / MBps | Max network bandwidth | Max NICs |
