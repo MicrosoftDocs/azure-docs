@@ -15,15 +15,14 @@ The M-series offers a high vCPU count (up to 128 vCPUs) and a large amount of me
 
 M-series VM's feature Intel&reg; Hyper-Threading Technology.
 
-ACU: 160-180
-
+[ACU](acu.md): 160-180<br>
 [Premium Storage](premium-storage-performance.md): Supported<br>
 [Premium Storage caching](premium-storage-performance.md): Supported<br>
 [Live Migration](maintenance-and-updates.md): Not Supported<br>
 [Memory Preserving Updates](maintenance-and-updates.md): Not Supported<br>
 [VM Generation Support](generation-2.md): Generation 1 and 2<br>
-
-Write Accelerator:  [Supported](./how-to-enable-write-accelerator.md)
+Write Accelerator:  [Supported](./how-to-enable-write-accelerator.md)<br>
+<br>
 
 | Size | vCPU | Memory: GiB | Temp storage (SSD) GiB | Max data disks | Max cached and temp storage throughput: IOPS/MBps (cache size in GiB) | Max uncached disk throughput: IOPS/MBps | Max NICs|Expected network bandwidth (Mbps) |
 |---|---|---|---|---|---|---|---|---|

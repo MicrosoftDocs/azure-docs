@@ -20,8 +20,8 @@ Mv2-series VM’s feature Intel® Hyper-Threading Technology
 [Live Migration](maintenance-and-updates.md): Not Supported<br>
 [Memory Preserving Updates](maintenance-and-updates.md): Not Supported<br>
 [VM Generation Support](generation-2.md): Generation 1 and 2<br>
-
-Write Accelerator: [Supported](./how-to-enable-write-accelerator.md)
+Write Accelerator: [Supported](./how-to-enable-write-accelerator.md)<br>
+<br>
 
 |Size | vCPU | Memory: GiB | Temp storage (SSD) GiB | Max data disks | Max cached and temp storage throughput: IOPS / MBps (cache size in GiB) | Max uncached disk throughput: IOPS / MBps | Max NICs | Expected network bandwidth (Mbps) |
 |---|---|---|---|---|---|---|---|---|
