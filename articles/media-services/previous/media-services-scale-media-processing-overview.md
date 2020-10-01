@@ -1,6 +1,6 @@
 ---
-title: Media Reserved Units overview | Microsoft Docs
-description: This topic is an overview of scaling Media Processing with Azure Media Services.
+title: Media reserved units overview | Microsoft Docs
+description: This article is an overview of scaling Media Processing with Azure Media Services.
 services: media-services
 documentationcenter: ''
 author: IngridAtMicrosoft
@@ -16,7 +16,7 @@ ms.date: 09/30/2020
 ms.author: inhenkel
 
 ---
-# Media Reserved Units (MRUs)
+# Media reserved units
 
 [!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
 
