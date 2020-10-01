@@ -85,7 +85,7 @@ You will retrieve the volcano data from the Azure Cosmos DB account and visualiz
    
 7. If you are connecting to this endpoint for the first time, you are prompted for the account key. For your own account, retrieve the key from the **Primary Key** box in the **Read-only Keys** blade of the Azure portal. Enter the appropriate key and then click **Connect**.
    
-   We recommend that you use the read-only key when building reports. This prevents unnecessary exposure of the master key to potential security risks. The read-only key is available from the **Keys** blade of the Azure portal. 
+   We recommend that you use the read-only key when building reports. This prevents unnecessary exposure of the primary key to potential security risks. The read-only key is available from the **Keys** blade of the Azure portal. 
     
 8. When the account is successfully connected, the **Navigator** pane appears. The **Navigator** shows a list of databases under the account.
 
@@ -153,7 +153,7 @@ You will retrieve the volcano data from the Azure Cosmos DB account and visualiz
 
 Power BI Desktop Report view is where you can start creating reports to visualize data.  You can create reports by dragging and dropping fields into the **Report** canvas.
 
-:::image type="content" source="./media/powerbi-visualize/power_bi_connector_pbireportview2.png" alt-text="Power BI Desktop Report View - Power BI connector":::
+:::image type="content" source="./media/powerbi-visualize/power_bi_connector_pbireportview2.png" alt-text="Power BI Desktop Report View - drag and drop the required fields":::
 
 In the Report view, you should find:
 
@@ -192,7 +192,7 @@ When you publish your report from Power BI Desktop to PowerBI.com, it generates 
 
 To create a sharable dashboard, click the **Pin Live Page** button on your PowerBI.com report.
 
-   :::image type="content" source="./media/powerbi-visualize/power-bi-pin-live-tile.png" alt-text="Screenshot of the new Report and Dataset in PowerBI.com":::
+   :::image type="content" source="./media/powerbi-visualize/power-bi-pin-live-tile.png" alt-text="Screenshot of how to pin a report to PowerBI.com":::
 
 Then follow the instructions in [Pin a tile from a report](https://powerbi.microsoft.com/documentation/powerbi-service-pin-a-tile-to-a-dashboard-from-a-report/#pin-a-tile-from-a-report) to create a new dashboard. 
 

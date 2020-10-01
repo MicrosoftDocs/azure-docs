@@ -9,11 +9,14 @@ manager: diviso
 ms.reviewer: jasonh, kfile
 ms.workload: big-data
 ms.topic: conceptual
-ms.date: 07/07/2020
+ms.date: 09/29/2020
 ms.custom: seodec18
 ---
 
 # Understand data retention in Azure Time Series Insights Gen1
+
+> [!CAUTION]
+> This is a Gen1 article.
 
 This article describes two primary settings that impact data retention in your Azure Time Series Insights environment.
 
@@ -32,7 +35,8 @@ Additionally, your Azure Time Series Insights environment has a **Storage limit 
 
 > [!NOTE]
 > By default, when creating a new environment, the retention is configured to **Purge old data**. This setting can be toggled as needed after creation time using the Azure portal, on the **Configure** page of the Azure Time Series Insights environment.
-> * For information on how to configure retention policies, read [Configuring retention in Azure Time Series Insights](time-series-insights-how-to-configure-retention.md).
+>
+> - For information on how to configure retention policies, read [Configuring retention in Azure Time Series Insights](time-series-insights-how-to-configure-retention.md).
 
 Both data retention policies are described in greater detail below.
 
@@ -64,8 +68,8 @@ Whenever this environment's daily ingress rate exceeds of 0.166 GB per day, data
 - It helps protect you from data loss but can create an opportunity for the loss of your most recent data if ingress is paused beyond the retention period of your event source.
 - However, once an environment's maximum capacity is reached, the environment pauses data ingress until the following additional actions occur:
 
-   - You increase the environment's maximum capacity to add more scale units as described in [How to scale your Azure Time Series Insights environment](time-series-insights-how-to-scale-your-environment.md).
-   - The data retention period is reached and data is purged, bringing the environment below its maximum capacity.
+  - You increase the environment's maximum capacity to add more scale units as described in [How to scale your Azure Time Series Insights environment](time-series-insights-how-to-scale-your-environment.md).
+  - The data retention period is reached and data is purged, bringing the environment below its maximum capacity.
 
 ### Example three
 
