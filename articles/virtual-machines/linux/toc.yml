@@ -60,6 +60,8 @@
     href: tutorial-lamp-stack.md
   - name: 17 - Secure web server with SSL
     href: tutorial-secure-web-server.md
+  - name: 18 - Enable disaster recovery for a VM
+    href: tutorial-disaster-recovery.md
 - name: Samples
   items:
   - name: Azure CLI

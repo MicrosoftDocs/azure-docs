@@ -49,6 +49,8 @@
     href: tutorial-iis-sql.md
   - name: 15 - Secure web server with SSL
     href: tutorial-secure-web-server.md
+  - name: 16 - Enable disaster recovery for a VM
+    href: tutorial-disaster-recovery.md
 - name: Samples
   items:
   - name: PowerShell index
