@@ -6,7 +6,7 @@ ms.service: virtual-machines
 ms.subservice: imaging
 ms.topic: how-to
 ms.workload: infrastructure
-ms.date: 09/28/2020
+ms.date: 10/01/2020
 ms.author: cynthn
 ms.reviewer: olayemio
 
@@ -19,7 +19,19 @@ If you need to, you can make a managed disk from an image version stored in a Sh
 
 ## CLI
 
-Set the `source` variable to the ID of the image version, then use [az disk create](/cli/azure/disk.md#az_disk_create) to create the managed disk. You can see a list image versions using [az sig image-version list](/cli/azure/sig/image-version.md#az_sig_image_version_list).
+Set the `source` variable to the ID of the image version, then use [az disk create](/cli/azure/disk.md#az_disk_create) to create the managed disk. 
+
+
+You can see a list image versions using [az sig image-version list](/cli/azure/sig/image-version.md#az_sig_image_version_list). In this example, we are looking for all of the image versions that are part of the *myImageDefinition* image definition in the *myGallery* image gallery.
+
+```azurecli-interactive
+az sig image-version list \
+   --resource-group myResourceGroup\
+   --gallery-name myGallery \
+   --gallery-image-definition myImageDefinition \
+   -o table
+```
+
 
 In this example, we create a managed disk named *myManagedDisk*, in the *EastUS* region, in a resource group named *myResourceGroup*.
 
@@ -58,7 +70,7 @@ $diskName = "myDisk"
 Create a disk configuration and then the disk, using the source image version ID.
 
 ```azurepowershell-interactive
-$diskConfig = New-AzDiskConfig -Location $location -CreateOption Copy -SourceResourceId $sourceImgVer.Id
+$diskConfig = New-AzDiskConfig -Location $location -CreateOption FromImage -SourceResourceId $sourceImgVer.Id
  
 New-AzDisk -Disk $diskConfig -ResourceGroupName $resourceGroup -DiskName $diskName
 ```
