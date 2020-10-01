@@ -34,7 +34,7 @@ When you provision a Metrics Advisor instance, you can use the APIs and web-base
 
 This document uses a SQL Database as an example for creating your first monitor.
 
-## Login to your workspace
+## Sign in to your workspace
 
 After your resource is deployed created, sign in to [Metrics Advisor portal](https://go.microsoft.com/fwlink/?linkid=2143774). Select your workspace to start monitoring your metrics. 
  
