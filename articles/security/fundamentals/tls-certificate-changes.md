@@ -15,7 +15,7 @@ ms.author: mbaldwin
 
 ---
 
-# Azure TLS Certificate Changes  
+# Azure TLS certificate changes  
 
 Microsoft is updating Azure services to use TLS certificates from a different set of Root Certificate Authorities (CAs). This change is being made because the current CA certificates do not comply with one of the CA/Browser Forum Baseline requirements.
 
@@ -28,7 +28,7 @@ Microsoft is updating Azure services to use TLS certificates from a different se
 - [Azure Storage](/azure/storage) will remain on Baltimore CyberTrust Root CA but their intermediate CAs will change. [Click here for details](https://techcommunity.microsoft.com/t5/azure-storage/azure-storage-tls-changes-are-coming-and-why-you-care/ba-p/1705518).
 
 > [!IMPORTANT]
-> Customers may need to update their application(s) after this change to prevent connectivity failures when attempting to connect to Azure services. \
+> Customers may need to update their application(s) after this change to prevent connectivity failures when attempting to connect to Azure services.
 
 ## What is changing?
 
