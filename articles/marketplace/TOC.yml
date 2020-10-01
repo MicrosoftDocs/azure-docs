@@ -3,18 +3,18 @@
   items:
 - name: About the commercial marketplace
   href: overview.md
-- name: Quickstarts
+- name: Account management
   items:
-  - name: CONTEXTUAL? Create a new Partner Center account
+  - name: Create a new Partner Center account
     href: partner-center-portal/create-account.md
-  - name: Enroll in the commercial marketplace
-    href: partner-center-portal/create-account.md
-  - name: TBD
-    href: partner-center-portal/create-account.md
+  - name: Manage your account
+    href: partner-center-portal/manage-account.md
+  - name: Find or create a company work account
+    href: partner-center-portal/company-work-accounts.md  
+  - name: Account migration from CPP to Partner Center
+    href: partner-center-portal/account-migration-from-cpp-to-pc.md 
 - name: Concepts
-  items:
-  - name: NEED Offer previews
-    href: overview.md    
+  items: 
   - name: Private offers
     href: private-offers.md
   - name: Plans and pricing
@@ -25,8 +25,6 @@
     href: marketplace-criteria-content-validation.md
   - name: Lead management
     href: partner-center-portal/commercial-marketplace-get-customer-leads.md
-  - name: ANOTHER lead management?
-    href: lead-management-for-cloud-marketplace.md
   - name: Test drives
     items:
       - name: What is a test drive?
@@ -42,23 +40,21 @@
   - name: Go-to-market options
     items:
     - name: Your marketplace benefits
-      href: gtm-your-marketplace-benefits.md
-    - name: NEED Direct marketplace for customers
-      href: overview.md    
+      href: gtm-your-marketplace-benefits.md 
     - name: Co-sell with Microsoft
       href: partner-center-portal/commercial-marketplace-co-sell.md 
     - name: Resell through CSP Partners
       href: cloud-solution-providers.md  
     - name: Connect Program onboarding guide  
       href: business-applications-isv-program.md
-    - name: REWORK Azure consumption commitment benefit
+    - name: Azure consumption commitment benefit
       href: azure-consumption-commitment-benefit.md
-    - name: REWORK Preferred solutions
+    - name: Preferred solutions
       href: preferred-solutions.md
     - name: Integrated solutions
       href: integrated-solutions-for-publishers.md
-    - name: ANOTHER Integrated solutions?
-      href: integrated-solutions.md   
+  - name: Activate marketplace rewards
+    href: partner-center-portal/marketplace-rewards.md
   - name: Payouts
     items:   
     - name: Transacting in the commercial marketplace
@@ -77,7 +73,7 @@
       href: partner-center-portal/payout-policy-details.md
     - name: Tax details
       href: partner-center-portal/tax-details-paid-transactions.md
-- name: Onboarding offers
+- name: Create and manage offers
   items:
   - name: Enable offer authentication with Azure AD
     href: enable-appsource-marketplace-using-azure-ad.md
@@ -95,8 +91,8 @@
       href: partner-center-portal/azure-app-metered-billing.md
     - name: Handling review feedback
       href: partner-center-portal/azure-apps-review-feedback.md
-  - name: Azure application APIs
-    href: partner-center-portal/azure-app-apis.md
+    - name: Azure application APIs
+      href: partner-center-portal/azure-app-apis.md
   - name: Azure Container offers
     items: 
     - name: Plan an Azure Container offer
@@ -165,13 +161,11 @@
         href: partner-center-portal/create-iot-edge-module-asset.md
   - name: Managed Service offers
     items:
-    - name: NEED? Plan a managed service offer
-      href: partner-center-portal/create-new-managed-service-offer.md 
     - name: Create a Managed Service offer
       href: partner-center-portal/create-new-managed-service-offer.md
   - name: Power BI app offers
     items:
-    - name: REWORK Plan a Power BI app offer
+    - name: Plan a Power BI app offer
       href: partner-center-portal/create-power-bi-app-overview.md
     - name: Create a Power BI app offer
       href: partner-center-portal/create-power-bi-app-offer.md
@@ -209,20 +203,36 @@
       href: create-new-saas-offer-marketing.md 
   - name: Review and publish
     href: review-publish-offer.md
-- name: How-to guides
+  - name: Update existing offers
+    href: partner-center-portal/update-existing-offer.md   
+- name: Analyze your offers
   items:
-  - name: Account management
-    items:
-    - name: MOVE Create a new Partner Center account
-      href: partner-center-portal/create-account.md
-    - name: Manage your account
-      href: partner-center-portal/company-work-accounts.md
-    - name: NEED Manage users
-      href: partner-center-portal/company-work-accounts.md  
-    - name: REMOVE? Account migration from CPP to Partner Center
-      href: partner-center-portal/account-migration-from-cpp-to-pc.md 
-  - name: BREAK UP? Update existing offers
-    href: partner-center-portal/update-existing-offer.md    
+  - name: Commercial marketplace analytics 
+    href: partner-center-portal/analytics.md
+  - name: Summary dashboard
+    href: partner-center-portal/summary-dashboard.md
+  - name: Orders dashboard
+    href: partner-center-portal/orders-dashboard.md
+  - name: Usage dashboard
+    href: partner-center-portal/usage-dashboard.md
+  - name: Customer dashboard
+    href: partner-center-portal/customer-dashboard.md
+  - name: Marketplace Insights dashboard
+    href: partner-center-portal/insights-dashboard.md
+  - name: Downloads dashboard
+    href: partner-center-portal/downloads-dashboard.md
+  - name: Ratings and reviews dashboard
+    href: partner-center-portal/ratings-reviews.md
+  - name: Partner Center analytics terminology 
+    href: partner-center-portal/faq-terminology.md 
+- name: Sell and market your offers
+  items: 
+  - name: Marketing best practices
+    href: gtm-marketing-best-practices.md
+  - name: Offer listing best practices
+    href: gtm-offer-listing-best-practices.md
+  - name: Get featured
+    href: gtm-how-to-get-featured.md
   - name: Configure lead management
     items:    
     - name: Azure Blob
@@ -236,43 +246,13 @@
     - name: Marketo
       href: partner-center-portal/commercial-marketplace-lead-management-instructions-marketo.md
     - name: Salesforce
-      href: partner-center-portal/commercial-marketplace-lead-management-instructions-salesforce.md    
-  - name: Activate marketplace rewards
-    href: partner-center-portal/marketplace-rewards.md
-  - name: Analyze your offers
-    items:
-    - name: Commercial marketplace analytics 
-      href: partner-center-portal/analytics.md
-    - name: Summary dashboard
-      href: partner-center-portal/summary-dashboard.md
-    - name: Orders dashboard
-      href: partner-center-portal/orders-dashboard.md
-    - name: Usage dashboard
-      href: partner-center-portal/usage-dashboard.md
-    - name: Customer dashboard
-      href: partner-center-portal/customer-dashboard.md
-    - name: Marketplace Insights dashboard
-      href: partner-center-portal/insights-dashboard.md
-    - name: Downloads dashboard
-      href: partner-center-portal/downloads-dashboard.md
-    - name: Ratings and reviews dashboard
-      href: partner-center-portal/ratings-reviews.md
-    - name: Partner Center analytics terminology  #article needs a rename
-      href: partner-center-portal/faq-terminology.md 
-- name: Marketing your offers
-  items: 
-  - name: REWORK Marketing best practices
-    href: gtm-marketing-best-practices.md
-  - name: Offer listing best practices
-    href: gtm-offer-listing-best-practices.md
-  - name: Get featured
-    href: gtm-how-to-get-featured.md
+      href: partner-center-portal/commercial-marketplace-lead-management-instructions-salesforce.md   
 - name: Policies and terms
   items:    
   - name: About our policies and terms
     href: policies-terms.md
   - name: Commercial marketplace certification policies
-    href: https://docs.microsoft.com/legal/marketplace/offer-policies-change-history?context=/azure/marketplace/context/context
+    href: https://docs.microsoft.com/legal/marketplace/certification-policies?context=/azure/marketplace/context/context
   - name: Commercial marketplace review policies
     href: https://docs.microsoft.com/legal/marketplace/rating-review-policies?context=/azure/marketplace/context/context
   - name: Azure Marketplace participation policies
