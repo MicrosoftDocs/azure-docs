@@ -42,10 +42,10 @@ This tutorial helps you visualize your data in Azure Sentinel.
   ![go to workbooks](./media/tutorial-monitor-data/access-workbooks.png)
 1. Click **View template** to see the template populated with your data.
   
-1. To edit the workbook, select **Save**, and then select the location where you want to save the json file for the template. 
+1. To edit the workbook, select **Save**, and then select the location where you want to save the JSON file for the template. 
 
    > [!NOTE]
-   > This creates an Azure resource based on the relevant template and saves the template Json file of the workbook and not the data.
+   > This creates an Azure resource based on the relevant template and saves the JSON file of the workbook and not the data.
 
 
 1. Select **View saved workbook**. Then, click the **Edit** button at the top. You can now edit the workbook and customize it according to your needs. For more information on how to customize the workbook, see how to [Create interactive reports with Azure Monitor Workbooks](../azure-monitor/platform/workbooks-overview.md).
@@ -62,7 +62,7 @@ This tutorial helps you visualize your data in Azure Sentinel.
 
 1. To edit the workbook, select **Edit**, and then add text, queries, and parameters as necessary. For more information on how to customize the workbook, see how to [Create interactive reports with Azure Monitor Workbooks](../azure-monitor/platform/workbooks-overview.md). 
 
-1. When building a query, make sure the **Data source** is set to **Logs**, the **Resource type** is set to **Log Analytics** and then choose the relevant workspace(s). 
+1. When building a query, make sure the **Data source** is set to **Logs** and **Resource type** is set to **Log Analytics**, and then choose the relevant workspace(s). 
 
 1. After you create your workbook, save the workbook, making sure you save it under the subscription and resource group of your Azure Sentinel workspace.
 
