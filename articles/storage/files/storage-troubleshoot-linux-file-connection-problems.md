@@ -293,6 +293,32 @@ This error is logged because Azure Files [does not currently support SMB multich
 ### Solution
 This error can be ignored.
 
+
+### Unable to access folders or files which name has a space or a dot at the end
+
+You are unable to access folders or files from the Azure file share while mounted on Linux, commands like du and ls and/or third-party applications may fail with a "No such file or directory" error while accessing the share, however you are able to upload files to said folders via the portal.
+
+### Cause
+
+The folders or files were uploaded from a system that encodes the characters at the end of the name to a different character, files uploaded from a Macintosh computer may have a "0xF028" or "0xF029" character instead of 0x20 (space) or 0X2E (dot).
+
+### Solution
+
+Use the mapchars option on the share while mounting the share on Linux: 
+
+instead of :
+
+```bash
+sudo mount -t cifs $smbPath $mntPath -o vers=3.0,username=$storageAccountName,password=$storageAccountKey,serverino
+```
+
+use:
+
+```bash
+sudo mount -t cifs $smbPath $mntPath -o vers=3.0,username=$storageAccountName,password=$storageAccountKey,serverino,mapchars
+```
+
+
 ## Need help? Contact support.
 
 If you still need help, [contact support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) to get your problem resolved quickly.
