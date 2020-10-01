@@ -1,5 +1,6 @@
 ---
-title: Call an ASP.NET web API that is protected by Microsoft identity platform
+title: "Quickstart: Call an ASP.NET web API that is protected by Microsoft identity platform | Azure"
+titleSuffix: Microsoft identity platform
 description: In this quickstart, learn how to call an ASP.NET web API that's protected by Microsoft identity platform from a Windows Desktop (WPF) application.
 services: active-directory
 author: jmprieur
@@ -30,12 +31,12 @@ To run the sample code in this article, you need:
 
 ## Clone or download the sample
 
-You can obtain the sample in either of two ways:  
+You can obtain the sample in either of two ways:
 
 * Clone it from your shell or command line:
    ```console
    git clone https://github.com/AzureADQuickStarts/AppModelv2-NativeClient-DotNet.git
-   ```  
+   ```
 * [Download it as a ZIP file](https://github.com/AzureADQuickStarts/AppModelv2-NativeClient-DotNet/archive/complete.zip).
 
 ## Register your web API
@@ -57,20 +58,20 @@ To register your apps manually, choose the Azure Active Directory (Azure AD) ten
 1. Select **New registration**.
 1. When the **Register an application page** opens, enter your application's registration information:
 
-   a. In the **Name** section, enter a meaningful application name that will be displayed to app users. For example, enter **AppModelv2-NativeClient-DotNet-TodoListService**.  
-   b. For **Supported account types**, select **Accounts in any organizational directory**.  
+   a. In the **Name** section, enter a meaningful application name that will be displayed to app users. For example, enter **AppModelv2-NativeClient-DotNet-TodoListService**.
+   b. For **Supported account types**, select **Accounts in any organizational directory**.
    c. Select **Register** to create the application.
 
 1. On the app **Overview** page, look for the **Application (client) ID** value, and then record it for later use. You'll need it to configure the Visual Studio configuration file for this project (that is, `ClientId` in the *TodoListService\Web.config* file).
 1. In the **Expose an API** section, select **Add a scope**, accept the proposed Application ID URI (api://{clientId}) by selecting **Save and Continue**, and then enter the following information:
- 
-   a. For **Scope name**, enter **access_as_user**.  
-   b. For **Who can consent**, ensure that the **Admins and users** option is selected.  
-   c. In the **Admin consent display name** box, enter **Access TodoListService as a user**.  
-   d. In the **Admin consent description** box, enter **Accesses the TodoListService web API as a user**.  
-   e. In the **User consent display name** box, enter **Access TodoListService as a user**.  
-   f. In the **User consent description** box, enter **Accesses the TodoListService web API as a user**.  
-   g. For **State**, keep **Enabled**.  
+
+   a. For **Scope name**, enter **access_as_user**.
+   b. For **Who can consent**, ensure that the **Admins and users** option is selected.
+   c. In the **Admin consent display name** box, enter **Access TodoListService as a user**.
+   d. In the **Admin consent description** box, enter **Accesses the TodoListService web API as a user**.
+   e. In the **User consent display name** box, enter **Access TodoListService as a user**.
+   f. In the **User consent description** box, enter **Accesses the TodoListService web API as a user**.
+   g. For **State**, keep **Enabled**.
    h. Select **Add scope**.
 
 ### Configure the service project
@@ -104,29 +105,29 @@ To register the TodoListClient app, do the following:
 1. Select **New registration**.
 1. When the **Register an application page** opens, enter your application's registration information:
 
-   a. In the **Name** section, enter a meaningful application name that will be displayed to users of the app (for example, **NativeClient-DotNet-TodoListClient**).  
-   b. For **Supported account types**, select **Accounts in any organizational directory**.  
+   a. In the **Name** section, enter a meaningful application name that will be displayed to users of the app (for example, **NativeClient-DotNet-TodoListClient**).
+   b. For **Supported account types**, select **Accounts in any organizational directory**.
    c. Select **Register** to create the application.
-   
+
    > [!NOTE]
    > In the TodoListClient project *app.config* file, the default value of `ida:Tenant` is set to `common`. The possible values are:
    > - `common`: You can sign in by using a work or school account or a Microsoft personal account (because you selected **Accounts in any organizational directory** in step 3b).
    > - `organizations`: You can sign in by using a work or school account.
    > - `consumers`: You can sign in only by using a Microsoft personal account.
    >
-   
+
 1. On the app **Overview** page, select **Authentication**, and then do the following:
 
-   a. Under **Platform configurations**, select the **Add a platform** button.  
-   b. For **Mobile and desktop applications**, select **Mobile and desktop applications**.  
-   c. For **Redirect URIs**, select the **https://login.microsoftonline.com/common/oauth2/nativeclient** check box.  
-   d. Select **Configure**.   
+   a. Under **Platform configurations**, select the **Add a platform** button.
+   b. For **Mobile and desktop applications**, select **Mobile and desktop applications**.
+   c. For **Redirect URIs**, select the **https://login.microsoftonline.com/common/oauth2/nativeclient** check box.
+   d. Select **Configure**.
 1. Select **API permissions**, and then do the following:
 
-   a. Select the **Add a permission** button.  
-   b. Select the **My APIs** tab.  
-   c. In the list of APIs, select **AppModelv2-NativeClient-DotNet-TodoListService API** or the name you entered for the web API.  
-   d. Select the **access_as_user** permission check box if it's not already selected. Use the Search box if necessary.  
+   a. Select the **Add a permission** button.
+   b. Select the **My APIs** tab.
+   c. In the list of APIs, select **AppModelv2-NativeClient-DotNet-TodoListService API** or the name you entered for the web API.
+   d. Select the **access_as_user** permission check box if it's not already selected. Use the Search box if necessary.
    e. Select the **Add permissions** button.
 
 ### Configure your project
