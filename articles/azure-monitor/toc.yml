@@ -1325,7 +1325,7 @@
   - name: Feature and API Retirement 
     items:
     - name: OperationalInsights API
-      href: operationalinsights-api-retirement.md
+      href: platform/operationalinsights-api-retirement.md
     - name: Classic autoscale & metrics API
       href: ./platform/classic-api-retirement-metrics-autoscale.md 
     - name: Classic alerting & monitoring 
