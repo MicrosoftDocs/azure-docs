@@ -37,7 +37,7 @@ In this article, you'll learn how to use managed identities to:
 - To assign roles, the login for your Azure subscription must have the [Managed Identity Operator](/azure/role-based-access-control/built-in-roles#managed-identity-operator) role, or other role that grants the required actions (such as __Owner__).
 - You must be familiar with creating and working with [Managed Identities](/azure/active-directory/managed-identities-azure-resources/overview).
 
-## Configure managed identities for your workspace
+## Configure managed identities
 
 In some situations, it's necessary to disallow admin user access to Azure Container Registry. For example, the ACR may be shared and you need to disallow admin access by other users. Or, creating ACR with admin user enabled is disallowed by a subscription level policy.
 
@@ -218,7 +218,7 @@ env.docker.base_image_registry.registry_identity=identity
 env.docker.base_image = "my-acr.azurecr.io/my-repo/my-image:latest"
 ```
 
-## Use managed identities to access training data
+## Access training data
 
 Once you've created a machine learning compute cluster with managed identity as described earlier, you can use that identity to access training data without storage account keys. You can use either system- or user-assigned managed identity for this scenario.
 
@@ -243,7 +243,7 @@ blob_dstore = Datastore.register_azure_blob_container(workspace=workspace,
 
 When you submit a training run using the data store, the machine learning compute uses its managed identity to access data.
 
-## Use Docker images for inference on Azure Kubernetes service without ACR admin user
+## Use Docker images for inference
 
 Once you've configured ACR without admin user as described earlier, you can access Docker images for inference without admin keys from your Azure Kubernetes service (AKS). When you create or attach AKS to workspace, the cluster's service principal is automatically assigned ACRPull access to workspace ACR.
 
