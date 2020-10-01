@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 08/31/2020
 ms.author: inhenkel
-ms.custom: devx-track-javascript
+ms.custom: devx-track-js
 ---
 # Connect to Media Services v3 API - Node.js
 

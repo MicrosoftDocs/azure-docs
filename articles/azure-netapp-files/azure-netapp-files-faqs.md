@@ -13,7 +13,7 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 09/09/2020
+ms.date: 09/22/2020
 ms.author: b-juche
 ---
 # FAQs About Azure NetApp Files
@@ -127,6 +127,12 @@ Azure NetApp Files supports NFSv3 and NFSv4.1. You can [create a volume](azure-n
 
 You can specify whether the root account can access the volume or not by using the volume’s export policy. See [Configure export policy for an NFS volume](azure-netapp-files-configure-export-policy.md) for details.
 
+### Can I use the same file path (volume creation token) for multiple volumes?
+
+Yes, you can. However, the file path must be used in either a different subscription or a different region.   
+
+For example, you create a volume called `vol1`. And then you create another volume also called `vol1` in a different capacity pool but in the same subscription and region. In this case, using the same volume name `vol1` will cause an error. To use the same file path, the name must be in a different region or subscription.
+
 ## SMB FAQs
 
 ### Which SMB versions are supported by Azure NetApp Files?
@@ -156,12 +162,6 @@ Azure NetApp Files supports Windows Server 2008r2SP1-2019 versions of Active Dir
 ### Why does the available space on my SMB client not show the provisioned size?
 
 The volume size reported by the SMB client is the maximum size the Azure NetApp Files volume can grow to. The size of the Azure NetApp Files volume as shown on the SMB client is not reflective of the quota or size of the volume. You can get the Azure NetApp Files volume size or quota through the Azure portal or the API.
-
-<!--
-### Does Azure NetApp Files support Kerberos encryption?
-
-Yes, by default, Azure NetApp Files supports both AES-128 and AES-256 encryption for traffic between the service and the targeted Active Directory domain controllers. See [Create an SMB volume for Azure NetApp Files](azure-netapp-files-create-volumes-smb.md) for requirements. 
--->
 
 <!--
 ### Does Azure NetApp Files support LDAP signing? 

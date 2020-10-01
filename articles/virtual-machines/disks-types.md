@@ -3,7 +3,7 @@ title: Select a disk type for Azure IaaS VMs - managed disks
 description: Learn about the available Azure disk types for virtual machines, including ultra disks, premium SSDs, standard SSDs, and Standard HDDs.
 author: roygara
 ms.author: rogarana
-ms.date: 06/03/2020
+ms.date: 09/30/2020
 ms.topic: conceptual
 ms.service: virtual-machines
 ms.subservice: disks
@@ -52,7 +52,7 @@ Some key capabilities of ultra disks are:
 |64     |19,200         |2,000         |
 |128     |38,400         |2,000         |
 |256     |76,800         |2,000         |
-|512     |80,000         |2,000         |
+|512     |153,600         |2,000         |
 |1,024-65,536 (sizes in this range increasing in increments of 1 TiB)     |160,000         |2,000         |
 
 ### GA scope and limitations
@@ -66,7 +66,7 @@ If you would like to start using ultra disks, see our article on the subject: [U
 
 Azure premium SSDs deliver high-performance and low-latency disk support for virtual machines (VMs) with input/output (IO)-intensive workloads. To take advantage of the speed and performance of premium storage disks, you can migrate existing VM disks to Premium SSDs. Premium SSDs are suitable for mission-critical production applications. Premium SSDs can only be used with VM series that are premium storage-compatible.
 
-To learn more about individual VM types and sizes in Azure for Windows or Linux, including which sizes are premium storage-compatible, see [Sizes for virtual machines in Azure](sizes.md). To learn more about individual VM types and sizes in Azure for Linux, including which sizes are premium storage-compatible, see [Sizes for virtual machines in Azure](sizes.md). From either of those articles, you need to check each individual VM size article to determine if it is premium storage-compatible.
+To learn more about individual VM types and sizes in Azure for Windows or Linux, including which sizes are premium storage-compatible, see [Sizes for virtual machines in Azure](sizes.md). From this article, you need to check each individual VM size article to determine if it is premium storage-compatible.
 
 ### Disk size
 [!INCLUDE [disk-storage-premium-ssd-sizes](../../includes/disk-storage-premium-ssd-sizes.md)]

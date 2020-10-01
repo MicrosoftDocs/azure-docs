@@ -4,6 +4,8 @@
   items:
   - name: About AKS
     href: intro-kubernetes.md
+  - name: Solution architectures
+    href: /azure/architecture/reference-architectures/containers/aks-start-here?bc=%2fazure%2faks%2fbreadcrumb%2ftoc.json&toc=%2fazure%2faks%2ftoc.json
 - name: Quickstarts
   expanded: true
   items:
@@ -48,6 +50,8 @@
     href: concepts-identity.md
   - name: Security
     items:
+    - name: Security Baseline
+      href: security-baseline.md
     - name: Security for applications and clusters
       href: concepts-security.md
     - name: Security controls by Azure Policy
@@ -132,6 +136,8 @@
     items:
     - name: Scale an AKS cluster
       href: scale-cluster.md
+    - name: Stop an AKS cluster (preview)
+      href: start-stop-cluster.md
     - name: Upgrade an AKS cluster
       href: upgrade-cluster.md
     - name: Use Uptime SLA
@@ -248,7 +254,7 @@
       href: control-kubeconfig-access.md
     - name: Secure pod traffic with network policies
       href: use-network-policies.md
-    - name: Secure pods with Azure Policy (preview)
+    - name: Secure pods with Azure Policy
       href: use-pod-security-on-azure-policy.md
     - name: Use pod security policies (preview)
       href: use-pod-security-policies.md
@@ -307,8 +313,10 @@
       href: /virtualization/windowscontainers/manage-docker/optimize-windows-dockerfile?context=/azure/aks/context/aks-context
   - name: Develop and run applications
     items:
-    - name: Use Local Process with Kubernetes with Visual Studio Code (preview)
-      href: https://code.visualstudio.com/docs/containers/local-process-kubernetes
+    - name: Use Bridge to Kubernetes with Visual Studio Code
+      href: https://code.visualstudio.com/docs/containers/bridge-to-kubernetes
+    - name: Use Bridge to Kubernetes with Visual Studio
+      href: /visualstudio/containers/bridge-to-kubernetes
     - name: Install existing applications with Helm
       href: kubernetes-helm.md
     - name: Use OpenFaaS

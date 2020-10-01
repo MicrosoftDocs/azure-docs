@@ -64,15 +64,15 @@ Before configuring Smartsheet for automatic user provisioning with Azure AD, you
 
 5. Generate the **Secret Token** required to configure automatic user provisioning with Azure AD by navigating to **Apps and Integrations**.
 
-	![Smartsheet Install](media/smartsheet-provisioning-tutorial/Smartsheet05.png)
+	![Screenshot of the Smartsheet Admin page with the user avatar and the Apps & Integrations option called out.](media/smartsheet-provisioning-tutorial/Smartsheet05.png)
 
 6. Choose **API Access**. Click **Generate new access token**.
 
-	![Smartsheet Install](media/smartsheet-provisioning-tutorial/Smartsheet06.png)
+	![Screenshot of the Personal Settings dialog box with the API Access and Generate new access token options called out.](media/smartsheet-provisioning-tutorial/Smartsheet06.png)
 
 7. Define the name of the API Access Token. Click **OK**.
 
-	![Smartsheet Install](media/smartsheet-provisioning-tutorial/Smartsheet07.png)
+	![Screenshot of the Step 1 of 2: Generate API Access Token with the OK option called out.](media/smartsheet-provisioning-tutorial/Smartsheet07.png)
 
 8. Copy the API Access Token and save it as this will be the only time you can view it. This is required in the **Secret Token** field in Azure AD.
 
@@ -112,11 +112,11 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 3. Select the **Provisioning** tab.
 
-	![Provisioning tab](common/provisioning.png)
+	![Screenshot of the Manage options with the Provisioning option called out.](common/provisioning.png)
 
 4. Set the **Provisioning Mode** to **Automatic**.
 
-	![Provisioning tab](common/provisioning-automatic.png)
+	![Screenshot of the Provisioning Mode dropdown list with the Automatic option called out.](common/provisioning-automatic.png)
 
 5. Under the **Admin Credentials** section, input the **SCIM 2.0 base URL and Access Token** values retrieved earlier from Smartsheet in **Tenant URL** and **Secret Token** respectively.. Click **Test Connection** to ensure Azure AD can connect to Smartsheet. If the connection fails, ensure your Smartsheet account has SysAdmin permissions and try again.
 

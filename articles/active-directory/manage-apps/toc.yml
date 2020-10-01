@@ -18,13 +18,15 @@
       href: add-application-portal-configure.md
     - name: Assign users to an app
       href: add-application-portal-assign-users.md
-    - name: Set up single sign-on
+    - name: Setup SAML-based single sign-on
       href: add-application-portal-setup-sso.md
+    - name: Setup OIDC-based single sign-on
+      href: add-application-portal-setup-oidc-sso.md
     - name: Delete an app
       href: delete-application-portal.md
   - name: Tutorials
     items:
-    - name: Integrated gallery apps (e.g. ServiceNow, Salesforce, Dropbox)
+    - name: List of pre-configured apps
       href: /azure/active-directory/saas-apps/
     - name: Add an on-premises app with Application Proxy
       href: application-proxy-add-on-premises-application.md
@@ -55,10 +57,16 @@
         href: developer-guidance-for-integrating-applications.md
     - name: Single sign-on
       items:
-      - name: Single sign-on options 
-        href: sso-options.md
       - name: Plan a single sign-on deployment
         href: plan-sso-deployment.md
+      - name: Single sign-on options 
+        href: sso-options.md
+      - name: SAML-based SSO
+        href: configure-saml-single-sign-on.md
+      - name: Password-based SSO
+        href: configure-password-single-sign-on-non-gallery-applications.md
+      - name: Linked-based SSO
+        href: configure-linked-sign-on.md
       - name: One-click SSO
         href: one-click-sso-tutorial.md
     - name: Application security
@@ -100,14 +108,6 @@
   - name: How-to guides
     expanded: false
     items:
-    - name: Configure single sign-on
-      items:
-      - name: Configure SAML-based single sign-on
-        href: configure-saml-single-sign-on.md
-      - name: Configure password-based sign-on
-        href: configure-password-single-sign-on-non-gallery-applications.md
-      - name: Configure linked sign-on
-        href: configure-linked-sign-on.md
     - name: Assign users and manage access to apps
       items:
       - name: Configure user consent
@@ -140,7 +140,7 @@
       items:
       - name: Migration resources
         href: migration-resources.md
-      - name: Migrate an ADFS app to Azure
+      - name: Migrate an AD FS app to Azure
         href: migrate-adfs-apps-to-azure.md
       - name: Use the AD FS application activity report (preview)
         href: migrate-adfs-application-activity.md
@@ -258,7 +258,7 @@
           href: application-proxy-sign-in-bad-gateway-timeout-error.md
         - name: Problem installing the Application Proxy Agent Connector
           href: application-proxy-connector-installation-problem.md
-        - name: Sign-in problem
+        - name: Sign in problem
           href: application-sign-in-problem-on-premises-application-proxy.md
         - name: CORS issues in Application Proxy
           href: application-proxy-understand-cors-issues.md

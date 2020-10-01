@@ -2,7 +2,7 @@
 title: Enable Azure Automation Update Management from an Azure VM
 description: This article tells how to enable Update Management from an Azure VM.
 services: automation
-ms.date: 07/28/2020
+ms.date: 09/16/2020
 ms.topic: conceptual
 ms.custom: mvc
 ---
@@ -30,13 +30,15 @@ Sign in to the [Azure portal](https://portal.azure.com).
 
 2. Select the VM for which you want to enable Update Management. VMs can exist in any region, no matter the location of your Automation account. You
 
-3. On the VM page, under **Operations**, select **Update Management**.
+3. On the VM page, under **Operations**, select **Guest + host updates**.
+
+    ![Select Guest + host updates from left-hand pane](media/update-mgmt-enable-vm/select-guest-and-os-updates.png)
 
 4. You must have the `Microsoft.OperationalInsights/workspaces/read` permission to determine if the VM is enabled for a workspace. To learn about additional permissions that are required, see [Permissions needed to enable machines](../automation-role-based-access-control.md#feature-setup-permissions). To learn how to enable multiple machines at once, see [Enable Update Management from an Automation account](update-mgmt-enable-automation-account.md).
 
-5. Choose the Log Analytics workspace and Automation account and click **Enable** to enable Update Management. After you've enabled Update Management, it might take about 15 minutes before you can view the update assessment from the VM.
+5. On the enable Update Management page, choose the Log Analytics workspace and Automation account and click **Enable** to enable Update Management. After you've enabled Update Management, it might take about 15 minutes before you can view the update assessment from the VM.
 
-    ![Enable Update Management](media/update-mgmt-enable-vm/manageupdates-update-enable.png)
+    ![Enable Update Management](media/update-mgmt-enable-vm/enable-update-management.png)
 
 ## Next steps
 

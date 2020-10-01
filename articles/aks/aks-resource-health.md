@@ -28,7 +28,7 @@ When running your container workloads on AKS, you want to ensure you can trouble
 - Select **Resource health** in the left navigation.
 - Select your subscription and set the resource type to Azure Kubernetes Service (AKS).
 
-![resource-health-check](./media/aks-resource-health/resource-health-check.png)
+![Screenshot shows the Resource health for your A K S clusters.](./media/aks-resource-health/resource-health-check.png)
 
 ## Check the health status
 

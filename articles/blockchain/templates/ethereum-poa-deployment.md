@@ -4,7 +4,7 @@ description: Use the Ethereum Proof-of-Authority consortium solution to deploy a
 ms.date: 07/23/2020
 ms.topic: how-to
 ms.reviewer: ravastra
-ms.custom: devx-track-javascript
+ms.custom: devx-track-js
 ---
 # Deploy Ethereum proof-of-authority consortium solution template on Azure
 
@@ -323,7 +323,7 @@ For security reasons, the SSH port access is denied by a network group security 
 
 1. Select the **allow-ssh** rule.
 
-    ![ssh-allow](./media/ethereum-poa-deployment/ssh-allow.png)
+    ![Screen capture shows an overview window the the ssh-allow selected.](./media/ethereum-poa-deployment/ssh-allow.png)
 
 1. Change **Action** to **Allow**
 

@@ -7,7 +7,7 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 03/19/2020
-ms.custom: devx-track-javascript
+ms.custom: devx-track-js
 ---
 # Integrate Azure Stream Analytics with Azure Machine Learning (Preview)
 
@@ -27,23 +27,39 @@ Complete the following steps before you add a machine learning model as a functi
 
 ## Add a machine learning model to your job
 
-You can add Azure Machine Learning functions to your Stream Analytics job directly from the Azure portal.
+You can add Azure Machine Learning functions to your Stream Analytics job directly from the Azure portal or Visual Studio Code.
 
-1. Navigate to your Stream Analytics job in the Azure portal, and select **Functions** under **Job topology**. Then, select **Azure ML Service** from the **+ Add** dropdown menu.
+### Azure portal
 
-   ![Add Azure ML UDF](./media/machine-learning-udf/add-azureml-udf.png)
+1. Navigate to your Stream Analytics job in the Azure portal, and select **Functions** under **Job topology**. Then, select **Azure Machine Learning Service** from the **+ Add** dropdown menu.
+
+   ![Add Azure Machine Learning UDF](./media/machine-learning-udf/add-azure-machine-learning-udf.png)
 
 2. Fill in the **Azure Machine Learning Service function** form with the following property values:
 
-   ![Configure Azure ML UDF](./media/machine-learning-udf/configure-azureml-udf.png)
+   ![Configure Azure Machine Learning UDF](./media/machine-learning-udf/configure-azure-machine-learning-udf.png)
 
-The following table describes each property of Azure ML Service functions in Stream Analytics.
+### Visual Studio Code
+
+1. Open your Stream Analytics project in Visual Studio Code and right-click the **Functions** folder. Then, choose **Add Function**. Select **Machine Learning UDF** from the dropdown list.
+
+   :::image type="content" source="media/machine-learning-udf/visual-studio-code-machine-learning-udf-add-function.png" alt-text="Add UDF in VS Code":::
+
+   :::image type="content" source="media/machine-learning-udf/visual-studio-code-machine-learning-udf-add-function-2.png" alt-text="Add Azure Machine Learning UDF in VS Code":::
+
+2. Enter the function name and and fill in the settings in the configuration file by using **Select from your subscriptions** in CodeLens.
+
+   :::image type="content" source="media/machine-learning-udf/visual-studio-code-machine-learning-udf-function-name.png" alt-text="Select Azure Machine Learning UDF in VS Code":::
+
+   :::image type="content" source="media/machine-learning-udf/visual-studio-code-machine-learning-udf-configure-settings.png" alt-text="Configure Azure Machine Learning UDF in VS Code":::
+
+The following table describes each property of Azure Machine Learning Service functions in Stream Analytics.
 
 |Property|Description|
 |--------|-----------|
 |Function alias|Enter a name to invoke the function in your query.|
 |Subscription|Your Azure subscription..|
-|Azure ML workspace|The Azure Machine Learning workspace you used to deploy your model as a web service.|
+|Azure Machine Learning workspace|The Azure Machine Learning workspace you used to deploy your model as a web service.|
 |Deployments|The web service hosting your model.|
 |Function signature|The signature of your web service inferred from the API's schema specification. If your signature fails to load, check that you have provided sample input and output in your scoring script to automatically generate the schema.|
 |Number of parallel requests per partition|This is an advanced configuration to optimize high-scale throughput. This number represents the concurrent requests sent from each partition of your job to the web service. Jobs with six streaming units (SU) and lower have one partition. Jobs with 12 SUs have two partitions, 18 SUs have three partitions and so on.<br><br> For example, if your job has two partitions and you set this parameter to four, there will be eight concurrent requests from your job to your web service. At this time of public preview, this value defaults to 20 and cannot be updated.|
@@ -115,7 +131,7 @@ FROM input
 
 SELECT udf.score(Dataframe)
 INTO output
-FROM input
+FROM Dataframe
 ```
 
 The following JSON is an example request from the previous query:
@@ -162,4 +178,3 @@ To prevent such latency, ensure that your Azure Kubernetes Service (AKS) cluster
 
 * [Tutorial: Azure Stream Analytics JavaScript user-defined functions](stream-analytics-javascript-user-defined-functions.md)
 * [Scale your Stream Analytics job with Azure Machine Learning Studio (classic) function](stream-analytics-scale-with-machine-learning-functions.md)
-

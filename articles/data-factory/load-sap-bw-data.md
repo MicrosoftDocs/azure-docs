@@ -212,7 +212,7 @@ If you need both historical copy and incremental copy or only incremental copy, 
 
    You might increase the number of parallel running SAP work processes for the DTP:
 
-   ![create-sap-bw-ohd-delta3](media/load-sap-bw-data/create-sap-bw-ohd-delta3.png)
+   ![Screenshot shows Settings for Parallel Processing where you can select the number of parallel processes for the D T P.](media/load-sap-bw-data/create-sap-bw-ohd-delta3.png)
 
 2. Schedule the DTP in process chains.
 

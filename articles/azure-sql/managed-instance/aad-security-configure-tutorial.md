@@ -98,7 +98,7 @@ See the following articles for examples of connecting to SQL Managed Instance:
     GO
     ```
 
-    ![native-login.png](./media/aad-security-configure-tutorial/native-login.png)
+    ![Screenshot of the Results tab in the S S M S Object Explorer showing the name, principal_id, sid, type, and type_desc of the newly added login.](./media/aad-security-configure-tutorial/native-login.png)
 
 For more information, see [CREATE LOGIN](/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current).
 
@@ -147,13 +147,13 @@ Once the Azure AD server principal (login) has been created, and provided with `
    - Active Directory - Password
    - Active Directory - Integrated </br>
 
-     ![ssms-login-prompt.png](./media/aad-security-configure-tutorial/ssms-login-prompt.png)
+     ![Screenshot of the Connect to Server dialog in S S M S with Active Directory - Universal with MFA support selected in the Authentication dropdown.](./media/aad-security-configure-tutorial/ssms-login-prompt.png)
 
      For more information, see [Universal Authentication (SSMS support for Multi-Factor Authentication)](../database/authentication-mfa-ssms-overview.md).
 
 1. Select **Active Directory - Universal with MFA support**. This brings up a Multi-Factor Authentication login window. Sign in with your Azure AD password.
 
-    ![mfa-login-prompt.png](./media/aad-security-configure-tutorial/mfa-login-prompt.png)
+    ![Screenshot of the Multi-Factor Authentication login window with the cursor in the Enter password field.](./media/aad-security-configure-tutorial/mfa-login-prompt.png)
 
 1. In SSMS **Object Explorer**, right-click the server and choose **New Query**.
 1. In the query window, use the following syntax to create a login for another Azure AD account:
@@ -216,7 +216,7 @@ Authorization to individual databases works much in the same way in SQL Managed 
 
 Now that we've created a database called **MyMITestDB**, and a login that only has default permissions, the next step is to create a user from that login. At the moment, the login can connect to the managed instance, and see all the databases, but can't interact with the databases. If you sign in with the Azure AD account that has the default permissions, and try to expand the newly created database, you'll see the following error:
 
-![ssms-db-not-accessible.png](./media/aad-security-configure-tutorial/ssms-db-not-accessible.png)
+![Screenshot of an error message from the the S S M S Object Explorer that reads "The database MyMITestDB is not accessible. (ObjectExplorer)".](./media/aad-security-configure-tutorial/ssms-db-not-accessible.png)
 
 For more information on granting database permissions, see [Getting Started with Database Engine Permissions](/sql/relational-databases/security/authentication-access/getting-started-with-database-engine-permissions).
 
@@ -320,7 +320,7 @@ For the user to see data in the database, we can provide [database-level roles](
 1. Create a new connection to the managed instance with the user that has been added to the `db_datareader` role.
 1. Expand the database in **Object Explorer** to see the table.
 
-    ![ssms-test-table.png](./media/aad-security-configure-tutorial/ssms-test-table.png)
+    ![Screenshot from Object Explorer in S S M S showing the folder structure for Tables in MyMITestDB. The dbo.TestTable folder is highlighted.](./media/aad-security-configure-tutorial/ssms-test-table.png)
 
 1. Open a new query window and execute the following SELECT statement:
 
@@ -331,7 +331,7 @@ For the user to see data in the database, we can provide [database-level roles](
 
     Are you able to see data from the table? You should see the columns being returned.
 
-    ![ssms-test-table-query.png](./media/aad-security-configure-tutorial/ssms-test-table-query.png)
+    ![Screenshot of the Results tab in the S S M S Object Explorer showing the table column headers AccountNum, City, Name, and State.](./media/aad-security-configure-tutorial/ssms-test-table-query.png)
 
 ## Impersonate Azure AD server-level principals (logins)
 

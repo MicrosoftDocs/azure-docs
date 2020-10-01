@@ -8,7 +8,7 @@ tags: azure-resource-manager
 ms.service: key-vault
 ms.subservice: general
 ms.topic: how-to
-ms.date: 09/25/2019
+ms.date: 10/01/2020
 ms.author: mbaldwin
 #Customer intent: As an Azure Key Vault administrator, I want to enable logging so I can monitor how my key vaults are accessed.
 ---
@@ -91,6 +91,8 @@ The **operationName** field values are in *ObjectVerb* format. For example:
 
 The following table lists the **operationName** values and corresponding REST API commands:
 
+### Operation names table
+
 | operationName | REST API command |
 | --- | --- |
 | **Authentication** |Authenticate via Azure Active Directory endpoint |
@@ -120,6 +122,13 @@ The following table lists the **operationName** values and corresponding REST AP
 | **SecretDelete** |[Delete a secret](https://msdn.microsoft.com/library/azure/dn903613.aspx) |
 | **SecretList** |[List secrets in a vault](https://msdn.microsoft.com/library/azure/dn903614.aspx) |
 | **SecretListVersions** |[List versions of a secret](https://msdn.microsoft.com/library/azure/dn986824.aspx) |
+| **VaultAccessPolicyChangedEventGridNotification** | Vault access policy changed event published |
+| **SecretNearExpiryEventGridNotification** |Secret near expiry event published |
+| **SecretExpiredEventGridNotification** |Secret expired event published |
+| **KeyNearExpiryEventGridNotification** |Key near expiry event published |
+| **KeyExpiredEventGridNotification** |Key expired event published |
+| **CertificateNearExpiryEventGridNotification** |Certificate near expiry event published |
+| **CertificateExpiredEventGridNotification** |Certificate expired event published |
 
 ## Use Azure Monitor logs
 

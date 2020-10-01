@@ -1,6 +1,8 @@
 ---
 title: "Tutorial: Predict intentions - LUIS"
 description: Create a custom app that predicts a user's intention based on the utterance (text) in this tutorial.
+ms.service: cognitive-services
+ms.subservice: language-understanding
 ms.topic: tutorial
 ms.date: 05/05/2020
 ---

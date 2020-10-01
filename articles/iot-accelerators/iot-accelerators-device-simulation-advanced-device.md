@@ -8,7 +8,7 @@ services: iot-accelerators
 ms.topic: conceptual
 ms.date: 03/18/2019
 ms.author: troyhop
-ms.custom:  [mvc, amqp, mqtt, devx-track-javascript]
+ms.custom:  [mvc, amqp, mqtt, devx-track-js]
 
 # As an IT Pro, I need to create advanced custom simulated devices to test my IoT solution.
 ---

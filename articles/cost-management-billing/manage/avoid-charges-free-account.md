@@ -26,7 +26,7 @@ You get a limited quantity of free services each month with your Azure free acco
 
 ## You used some services that aren't free
 
-Once you've upgraded your account, you get charged pay-as-you-go rates for using services that aren't included for free with your Azure free account. To learn about services included with your free account, see the [Azure free account FAQ](https://azure.microsoft.com/free/free-account-faq/). You can check your service usage in the Azure portal. To learn more, see [Regularly check the portal for cost breakdown and burn rate](getting-started.md#costs).
+Once you've upgraded your account, you get charged pay-as-you-go rates for using services that aren't included for free with your Azure free account. To learn about services included with your free account, see the [Azure free account FAQ](https://azure.microsoft.com/free/free-account-faq/). You can check your service usage in the Azure portal. To learn more, see [Analyze unexpected charges](../understand/analyze-unexpected-charges.md).
 
 ## You reached the end of your free 12 months
 

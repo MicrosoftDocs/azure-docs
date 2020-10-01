@@ -84,7 +84,7 @@ To solve this problem, you need to make sure that the required plan is still ass
 
 ## Usage location isn't allowed
 
-**Problem:** Some Microsoft services aren't available in all locations because of local laws and regulations. Before you can assign a license to a user, you must specify the **Usage location** property for the user. You can specify the location under the **User** > **Profile** > **Settings** section in the Azure portal.
+**Problem:** Some Microsoft services aren't available in all locations because of local laws and regulations. Before you can assign a license to a user, you must specify the **Usage location** property for the user. You can specify the location under the **User** > **Profile** > **Edit** section in the Azure portal.
 
 When Azure AD attempts to assign a group license to a user whose usage location isn't supported, it fails and records an error on the user.
 

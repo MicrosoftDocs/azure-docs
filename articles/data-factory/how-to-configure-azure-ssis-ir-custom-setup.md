@@ -11,7 +11,7 @@ ms.author: sawinark
 manager: mflasko
 ms.reviewer: douglasl
 ms.custom: seo-lt-2019
-ms.date: 08/11/2020
+ms.date: 09/28/2020
 ---
 
 # Customize the setup for an Azure-SSIS Integration Runtime
@@ -35,7 +35,7 @@ You can install both free (unlicensed) and paid (licensed) components with stand
 
 The following limitations apply only to standard custom setups:
 
-- If you want to use *gacutil.exe* in your script to install assemblies in the global assembly cache (GAC), you need to provide *gacutil.exe* as part of your custom setup. Or you can use the copy that's provided in our *Public Preview* container, discussed later in the "Instructions" section.
+- If you want to use *gacutil.exe* in your script to install assemblies in the global assembly cache (GAC), you need to provide *gacutil.exe* as part of your custom setup. Or you can use the copy that's provided in the *Sample* folder of our *Public Preview* container, see the **Standard custom setup samples** section below.
 
 - If you want to reference a subfolder in your script, *msiexec.exe* doesn't support the `.\` notation to reference the root folder. Use a command such as `msiexec /i "MySubfolder\MyInstallerx64.msi" ...` instead of `msiexec /i ".\MySubfolder\MyInstallerx64.msi" ...`.
 
@@ -149,6 +149,10 @@ If you select the **Install licensed component** type for your express custom se
    * If you select the **Theobald Software's Xtract IS** component, you can install the [Xtract IS](https://theobald-software.com/en/xtract-is/) suite of connectors for SAP systems (ERP, S/4HANA, BW) from Theobald Software on your Azure-SSIS IR. To do so, drag & drop/upload the product license file that you purchased from them beforehand into the **License file** input box. The current integrated version is **6.1.1.3**.
 
    * If you select the **AecorSoft's Integration Service** component, you can install the [Integration Service](https://www.aecorsoft.com/en/products/integrationservice) suite of connectors for SAP and Salesforce systems from AecorSoft on your Azure-SSIS IR. To do so, enter the product license key that you purchased from them beforehand in the **License key** text box. The current integrated version is **3.0.00**.
+
+   * If you select the **CData's SSIS Standard Package** component, you can install the [SSIS Standard Package](https://www.cdata.com/kb/entries/ssis-adf-packages.rst#standard) suite of most popular components from CData, such as Microsoft SharePoint connectors, on your Azure-SSIS IR. To do so, enter the product license key that you purchased from them beforehand in the **License key** text box. The current integrated version is **19.7354**.
+
+   * If you select the **CData's SSIS Extended Package** component, you can install the [SSIS Extended Package](https://www.cdata.com/kb/entries/ssis-adf-packages.rst#extended) suite of all components from CData, such as Microsoft Dynamics 365 Business Central connectors and other components in their **SSIS Standard Package**, on your Azure-SSIS IR. To do so, enter the product license key that you purchased from them beforehand in the **License key** text box. The current integrated version is **19.7354**. Due to its large size, to avoid installation timeout, please ensure that your Azure-SSIS IR has at least 4 CPU cores per node.
 
 Your added express custom setups will appear on the **Advanced settings** page. To remove them, select their check boxes, and then select **Delete**.
 

@@ -37,6 +37,8 @@ landingContent:
             url: get-started-create-service-instance.md
           - text: Azure PowerShell
             url: powershell-create-service-instance.md
+          - text: Visual Studio Code 
+            url: vscode-create-service-instance.md
 
   # Card
   - title: Manage API Management

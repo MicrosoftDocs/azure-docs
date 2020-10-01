@@ -1,7 +1,7 @@
 ---
-title: Add sign-in with Microsoft to ASP.NET Core web apps | Azure
+title: "Quickstart: Add sign-in with Microsoft to an ASP.NET Core web app | Azure"
 titleSuffix: Microsoft identity platform
-description: Learn how to implement Microsoft sign-in on an ASP.NET Core web app using OpenID Connect
+description: In this quickstart, you learn how an app implements Microsoft sign-in on an ASP.NET Core web app using OpenID Connect
 services: active-directory
 author: jmprieur
 manager: CelesteDG
@@ -21,6 +21,11 @@ ms.custom: "devx-track-csharp, aaddev, identityplatformtop40, scenarios:getting-
 In this quickstart, you use a code sample to learn how an ASP.NET Core web app can sign in personal accounts (hotmail.com, outlook.com, others) and work and school accounts from any Azure Active Directory (Azure AD) instance. (See [How the sample works](#how-the-sample-works) for an illustration.)
 
 > [!div renderon="docs"]
+> ## Prerequisites
+>
+> * [Visual Studio 2019](https://visualstudio.microsoft.com/vs/) or [Visual Studio Code](https://code.visualstudio.com/)
+> * [.NET Core SDK 3.1+](https://dotnet.microsoft.com/download)
+>
 > ## Register and download your quickstart app
 > You have two options to start your quickstart application:
 > * [Express] [Option 1: Register and auto configure your app and then download your code sample](#option-1-register-and-auto-configure-your-app-and-then-download-your-code-sample)
@@ -93,18 +98,18 @@ In this quickstart, you use a code sample to learn how an ASP.NET Core web app c
 >       - If your application supports **Accounts in any organizational directory**, replace this value with `organizations`
 >       - If your application supports **All Microsoft account users**, leave this value as `common`
 >
-> For this quickstart, do not alter any other values in the *appsettings.json* file.
+> For this quickstart, don't change any other values in the *appsettings.json* file.
 >
 > #### Step 4: Build and run the application
-> 
+>
 > Build and run the app in Visual Studio by selecting the **Debug** menu > **Start Debugging**, or by pressing the `F5` key.
-> 
+>
 > You're prompted for your credentials, and then asked to consent to the permissions your app requires. Select **Accept** on the consent prompt.
-> 
+>
 > :::image type="content" source="media/quickstart-v2-aspnet-core-webapp/webapp-01-consent.png" alt-text="Consent dialog showing the permissions the app is requesting from the > user":::
-> 
+>
 > After consenting to the requested permissions, the app displays that you've successfully logged in using your Azure Active Directory credentials.
-> 
+>
 > :::image type="content" source="media/quickstart-v2-aspnet-core-webapp/webapp-02-signed-in.png" alt-text="Web browser displaying the running web app and the user signed in":::
 
 ## More information
