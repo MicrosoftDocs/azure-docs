@@ -1,20 +1,20 @@
 ---
-title: Tutorial - Set up disaster recovery for Azure VMs with Azure Site Recovery
-description: Learn how to enable disaster recovery for Azure VMs to a different Azure region, using the Azure Site Recovery service.
+title: Tutorial - Set up disaster recovery for Windows VMs with Azure Site Recovery
+description: Learn how to enable disaster recovery for Windows VMs to a different Azure region, using the Azure Site Recovery service.
 author: rayne-wiselman
-ms.service: virtual-machines
+ms.service: virtual-machines-windows
 ms.subservice: recovery
 ms.topic: tutorial
 ms.date: 09/30/2020
 ms.author: raynew
 ms.custom: mvc
-#Customer intent: As an Azure admin, I want to prepare for disaster recovery by replicating my Azure VMs to another Azure region.
+#Customer intent: As an Azure admin, I want to prepare for disaster recovery by replicating my Windows VMs to another Azure region.
 ---
 
 
-# Tutorial: Enable disaster recovery for Azure VMs
+# Tutorial: Enable disaster recovery for Windows VMs
 
-In this tutorial, you replicate an Azure virtual machine (VM) to a secondary Azure region, using the Azure Site Recovery service. Site Recovery contributes to your disaster recovery strategy by managing and orchestrating replication, failover, and failback of VMs between Azure regions.
+In this tutorial, you replicate an Azure Windows virtual machine (VM) to a secondary Azure region, using the Azure Site Recovery service. Site Recovery contributes to your disaster recovery strategy by managing and orchestrating replication, failover, and failback of VMs between Azure regions.
 
 In this article, learn how to:
 
