@@ -27,7 +27,7 @@ Azure Key Vault helps safeguard cryptographic keys and secrets used by cloud app
 ## Prerequisites
 
 * An Azure subscription - [create one for free](https://azure.microsoft.com/free/dotnet)
-* The [.NET Core 3.1 SDK or later](https://dotnet.microsoft.com/download/dotnet-core)
+* [.NET Core 3.1 SDK or later](https://dotnet.microsoft.com/download/dotnet-core)
 * [Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest) or [Azure PowerShell](/powershell/azure/)
 
 This quickstart assumes you're running the necessary commands in a Windows terminal (such as [PowerShell Core](/powershell/scripting/install/installing-powershell-core-on-windows?view=powershell-6), [Windows PowerShell](/powershell/scripting/install/installing-windows-powershell?view=powershell-6), or the [Azure Cloud Shell](https://shell.azure.com)).
@@ -36,7 +36,9 @@ This quickstart assumes you're running the necessary commands in a Windows termi
 
 ### Create a new console app
 
-1. In a command shell, run the following command to create a .NET Core console app project named `key-vault-console-app`:
+Complete the following steps to create and compile a .NET Core console app.
+
+1. In a command shell, run the following command to create a project named `key-vault-console-app`:
 
     ```dotnetcli
     dotnet new console --name key-vault-console-app
@@ -84,7 +86,7 @@ dotnet add package Azure.Identity
 
 #### Set environment variables
 
-[!INCLUDE[Set environmental variables](../../../includes/key-vault-set-environmental-variables.md)]
+[!INCLUDE[Set environment variables](../../../includes/key-vault-set-environmental-variables.md)]
 
 ## Object model
 
