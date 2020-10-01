@@ -7,7 +7,7 @@ ms.topic: how-to
 ms.date: 08/17/2020
 ms.author: rogarana
 ms.subservice: files 
-ms.custom: devx-track-azurecli, devx-track-azurepowershell
+ms.custom: devx-track-azurepowershell
 ---
 
 # Configuring Azure Files network endpoints
