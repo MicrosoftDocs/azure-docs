@@ -7,8 +7,7 @@ author: lgayhardt
 ms.author: lagayhar
 ms.date: 09/30/2020
 
-ms.custom: mvc
-ms.custom: contperfq1
+ms.custom: mvc, contperfq1
 ---
 
 # Create custom KPI dashboards using Azure Application Insights
