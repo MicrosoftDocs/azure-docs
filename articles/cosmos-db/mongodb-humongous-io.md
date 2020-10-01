@@ -48,6 +48,6 @@ Now that we have everything we need to get started, let's head over to [Humongou
 
 :::image type="content" source="./media/humongous-io/create-new-project.png" alt-text="Screenshot of Create HumongouS.io project":::
 
-Paste the connection string you copied previously into the form field and click on the Create button.
+Paste the connection string you copied previously into the form field and click on the **Create** button.
 
 That's it 👏! HumongouS.io will import your database and autmatically create your views, forms and dashboards. Relax 😌 and enjoy.
