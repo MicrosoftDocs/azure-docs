@@ -19,8 +19,8 @@ Dv2-series sizes run on Intel® Xeon® Platinum 8272CL (Cascade Lake), Intel® X
 
 ACU: 210 - 250
 
-[Premium Storage](premium-storage-performance.md):  Not Supported
-[Premium Storage caching](premium-storage-performance):  Not Supported
+[Premium Storage](premium-storage-performance.md): Not Supported
+[Premium Storage caching](premium-storage-performance.md): Not Supported
 [Live Migration](maintenance-and-updates.md): Supported
 [Memory Preserving Updates](maintenance-and-updates.md): Supported
 [VM Generation Support](generation-2.md): Generation 1
@@ -43,7 +43,7 @@ DSv2-series sizes run on Intel® Xeon® Platinum 8272CL (Cascade Lake), Intel® 
 ACU: 210 - 250 <sup>1</sup>
 
 [Premium Storage](premium-storage-performance.md): Supported
-[Premium Storage caching](premium-storage-performance): Supported
+[Premium Storage caching](premium-storage-performance.md): Supported
 [Live Migration](maintenance-and-updates.md): Supported
 [Memory Preserving Updates](maintenance-and-updates.md): Supported
 [VM Generation Support](generation-2.md): Generation 1 and 2

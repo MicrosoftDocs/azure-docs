@@ -25,8 +25,8 @@ Remote Data disk storage is billed separately from virtual machines. To use prem
 
 ACU: 195-210
 
-[Premium Storage](premium-storage-performance.md):  Not Supported
-[Premium Storage caching](premium-storage-performance):  Not Supported
+[Premium Storage](premium-storage-performance.md): Not Supported
+[Premium Storage caching](premium-storage-performance.md): Not Supported
 [Live Migration](maintenance-and-updates.md): Supported
 [Memory Preserving Updates](maintenance-and-updates.md): Supported
 [VM Generation Support](generation-2.md): Generation 1
@@ -48,7 +48,7 @@ Dsv4-series sizes run on the Intel&reg; Xeon&reg; Platinum 8272CL (Cascade Lake)
 ACU: 195-210
 
 [Premium Storage](premium-storage-performance.md): Supported
-[Premium Storage caching](premium-storage-performance): Supported
+[Premium Storage caching](premium-storage-performance.md): Supported
 [Live Migration](maintenance-and-updates.md): Supported
 [Memory Preserving Updates](maintenance-and-updates.md): Supported
 [VM Generation Support](generation-2.md): Generation 1 and 2

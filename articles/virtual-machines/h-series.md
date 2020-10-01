@@ -17,7 +17,7 @@ H-series VMs are optimized for applications driven by high CPU frequencies or la
 ACU: 290-300
 
 [Premium Storage](premium-storage-performance.md): Not Supported
-[Premium Storage caching](premium-storage-performance): Not Supported
+[Premium Storage caching](premium-storage-performance.md): Not Supported
 [Live Migration](maintenance-and-updates.md): Not Supported
 [Memory Preserving Updates](maintenance-and-updates.md): Not Supported
 [VM Generation Support](generation-2.md): Generation 1

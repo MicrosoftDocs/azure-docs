@@ -14,7 +14,7 @@ ms.author: jushiman
 NCv3-series VMs are powered by NVIDIA Tesla V100 GPUs. These GPUs can provide 1.5x the computational performance of the NCv2-series. Customers can take advantage of these updated GPUs for traditional HPC workloads such as reservoir modeling, DNA sequencing, protein analysis, Monte Carlo simulations, and others. The NC24rs v3 configuration provides a low latency, high-throughput network interface optimized for tightly coupled parallel computing workloads. In addition to the GPUs, the NCv3-series VMs are also powered by Intel Xeon E5-2690 v4 (Broadwell) CPUs.
 
 [Premium Storage](premium-storage-performance.md): Supported
-[Premium Storage caching](premium-storage-performance): Supported
+[Premium Storage caching](premium-storage-performance.md): Supported
 [Live Migration](maintenance-and-updates.md): Not Supported
 [Memory Preserving Updates](maintenance-and-updates.md): Not Supported
 [VM Generation Support](generation-2.md): Generation 1 and 2

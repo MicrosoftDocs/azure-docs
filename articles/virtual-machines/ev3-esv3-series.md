@@ -24,7 +24,7 @@ Ev3-series VM’s feature Intel® Hyper-Threading Technology.
 ACU: 160 - 190
 
 [Premium Storage](premium-storage-performance.md): Not Supported
-[Premium Storage caching](premium-storage-performance): Not Supported
+[Premium Storage caching](premium-storage-performance.md): Not Supported
 [Live Migration](maintenance-and-updates.md): Supported
 [Memory Preserving Updates](maintenance-and-updates.md): Supported
 [VM Generation Support](generation-2.md): Generation 1
@@ -54,7 +54,7 @@ Esv3-series VM’s feature Intel® Hyper-Threading Technology.
 ACU: 160-190
 
 [Premium Storage](premium-storage-performance.md): Supported
-[Premium Storage caching](premium-storage-performance): Supported
+[Premium Storage caching](premium-storage-performance.md): Supported
 [Live Migration](maintenance-and-updates.md): Supported
 [Memory Preserving Updates](maintenance-and-updates.md): Supported
 [VM Generation Support](generation-2.md): Generation 1 and 2

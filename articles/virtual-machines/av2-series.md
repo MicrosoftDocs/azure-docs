@@ -15,8 +15,8 @@ The Av2-series VMs can be deployed on a variety of hardware types and processors
 
 ACU: 100
 
-[Premium Storage](premium-storage-performance.md):  Not Supported
-[Premium Storage caching](premium-storage-performance):  Not Supported
+[Premium Storage](premium-storage-performance.md): Not Supported
+[Premium Storage caching](premium-storage-performance.md): Not Supported
 [Live Migration](maintenance-and-updates.md): Supported
 [Memory Preserving Updates](maintenance-and-updates.md): Supported
 [VM Generation Support](generation-2.md): Generation 1

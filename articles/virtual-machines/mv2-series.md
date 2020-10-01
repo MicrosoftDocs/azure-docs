@@ -16,7 +16,7 @@ The Mv2-series features high throughput, low latency platform running on a hyper
 Mv2-series VM’s feature Intel® Hyper-Threading Technology
 
 [Premium Storage](premium-storage-performance.md): Supported
-[Premium Storage caching](premium-storage-performance): Supported
+[Premium Storage caching](premium-storage-performance.md): Supported
 [Live Migration](maintenance-and-updates.md): Not Supported
 [Memory Preserving Updates](maintenance-and-updates.md): Not Supported
 [VM Generation Support](generation-2.md): Generation 1 and 2

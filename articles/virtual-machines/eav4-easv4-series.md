@@ -18,7 +18,7 @@ The Eav4-series and Easv4-series utilize AMD's 2.35Ghz EPYC<sup>TM</sup> 7452 pr
 ACU: 230 - 260
 
 [Premium Storage](premium-storage-performance.md): Not Supported
-[Premium Storage caching](premium-storage-performance): Not Supported
+[Premium Storage caching](premium-storage-performance.md): Not Supported
 [Live Migration](maintenance-and-updates.md): Supported
 [Memory Preserving Updates](maintenance-and-updates.md): Supported
 [VM Generation Support](generation-2.md): Generation 1
@@ -42,7 +42,7 @@ Eav4-series sizes are based on the 2.35Ghz AMD EPYC<sup>TM</sup> 7452 processor 
 ACU: 230 - 260
 
 [Premium Storage](premium-storage-performance.md): Supported
-[Premium Storage caching](premium-storage-performance): Supported
+[Premium Storage caching](premium-storage-performance.md): Supported
 [Live Migration](maintenance-and-updates.md): Supported
 [Memory Preserving Updates](maintenance-and-updates.md): Supported
 [VM Generation Support](generation-2.md): Generation 1
