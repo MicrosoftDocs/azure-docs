@@ -230,7 +230,7 @@ Configure a policy for the key vault so that the identity can access it.
 1. In the **Add role assignment** window:
     1. Select **Key Vault Crypto Service Encryption (preview)** role. 
     1. Assign access to **User assigned managed identity**.
-    1. Select the select the resource name of your user-assigned managed identity, and select **Save
+    1. Select the resource name of your user-assigned managed identity, and select **Save**.
 
 ### Create key
 
