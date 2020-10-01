@@ -83,8 +83,8 @@ Use the following C++ classes to interact with these resources:
 
 - [BlobServiceClient](https://azuresdkdocs.blob.core.windows.net/$web/cpp/azure-storage-blobs/1.0.0-beta.2/class_azure_1_1_storage_1_1_blobs_1_1_blob_service_client.html): The `BlobServiceClient` class allows you to manipulate Azure Storage resources and blob containers.
 - [BlobContainerClient](https://azuresdkdocs.blob.core.windows.net/$web/cpp/azure-storage-blobs/1.0.0-beta.2/class_azure_1_1_storage_1_1_blobs_1_1_blob_container_client.html): The `BlobContainerClient` class allows you to manipulate Azure Storage containers and their blobs.
-- [BlobClient](https://azuresdkdocs.blob.core.windows.net/$web/cpp/azure-storage-blobs/1.0.0-beta.2/class_azure_1_1_storage_1_1_blobs_1_1_blob_client.html): The `BlobClient` class allows you to manipulate Azure Storage blobs.
-- [BlockBlobClient](https://azuresdkdocs.blob.core.windows.net/$web/cpp/azure-storage-blobs/1.0.0-beta.2/class_azure_1_1_storage_1_1_blobs_1_1_block_blob_client.html): The `BlockBlobClient` class 
+- [BlobClient](https://azuresdkdocs.blob.core.windows.net/$web/cpp/azure-storage-blobs/1.0.0-beta.2/class_azure_1_1_storage_1_1_blobs_1_1_blob_client.html): The `BlobClient` class allows you to manipulate Azure Storage blobs. It is the base class for all specialized blob classes.
+- [BlockBlobClient](https://azuresdkdocs.blob.core.windows.net/$web/cpp/azure-storage-blobs/1.0.0-beta.2/class_azure_1_1_storage_1_1_blobs_1_1_block_blob_client.html): The `BlockBlobClient` class allows you to manipulate Azure Storage block blobs.
 
 ## Code examples
 
