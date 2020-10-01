@@ -35,7 +35,7 @@ Outbound rules allow you to control:
 * **Whether to send a TCP Reset on idle timeout.**
      * when timing out idle connections, do we send a TCP RST to the client and server so they know the flow is abandoned?
 
-### <a name="scenarios"></a>Outbound rule definition
+## <a name="scenarios"></a>Outbound rule definition
 
 Outbound rules follow the same familiar syntax as load balancing and inbound NAT rules: **frontend** + **parameters** + **backend pool**. 
 
@@ -43,7 +43,7 @@ An outbound rule configures outbound NAT for _all virtual machines identified by
 
 The _parameters_ provide additional fine grained control over the outbound NAT algorithm.
 
-### <a name="scale"></a> Scale outbound NAT with multiple IP addresses
+## <a name="scale"></a> Scale outbound NAT with multiple IP addresses
 
 Each additional IP address provided by a frontend provides additional 64,000 ephemeral ports for load balancer to use as SNAT ports. 
 
@@ -57,7 +57,7 @@ The load balancer has control over the public IP prefix. The outbound rule will 
 
 Each of the IP addresses within public IP prefix provides an additional 64,000 ephemeral ports per IP address for load balancer to use as SNAT ports.
 
-### <a name="idletimeout"></a> Outbound flow idle timeout and TCP reset
+## <a name="idletimeout"></a> Outbound flow idle timeout and TCP reset
 
 Outbound rules provide a configuration parameter to control the outbound flow idle timeout and match it to the needs of your application. Outbound idle timeouts default to 4 minutes. For more information, see [configure idle timeouts](load-balancer-tcp-idle-timeout.md#tcp-idle-timeout). 
 
@@ -65,7 +65,7 @@ The default behavior of load balancer is to drop the flow silently when the outb
 
 Review [TCP Reset on idle timeout](https://aka.ms/lbtcpreset) for details including region availability.
 
-### <a name="preventoutbound"></a>Securing and controlling outbound connectivity explicitly
+## <a name="preventoutbound"></a>Securing and controlling outbound connectivity explicitly
 
 Load-balancing rules provide automatic programming of outbound NAT. Some scenarios benefit or require you to disable the automatic programming of outbound NAT by the load-balancing rule. Disabling via the rule allows you to control or refine the behavior.  
 
@@ -101,8 +101,6 @@ The following <a name="snatporttable"></a>table shows the SNAT port <a name="pre
 | 401-800 | 64 |
 | 801-1,000 | 32 | 
 
-
-
 >[!NOTE]
 > If you have a backend pool with a max size of 6, each instance can have 64,000/10 = 6,400 ports if you define an explicit outbound rule. According to the below table each will only have 1,024 if you choose automatic allocation.
 
@@ -112,7 +110,6 @@ The following <a name="snatporttable"></a>table shows the SNAT port <a name="pre
 - The range of the configurable outbound idle timeout is 4 to 120 minutes (240 to 7200 seconds).
 - Load balancer doesn't support ICMP for outbound NAT.
 - Outbound rules can only be applied to primary IP configuration of a NIC.  You can't create an outbound rule for the secondary IP of a VM or NVA. Multiple NICs are supported.
-
 
 ## Next steps
 
