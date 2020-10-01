@@ -17,7 +17,7 @@ May include one or more of the following:
 * Unable to push or pull images and you receive Azure CLI error `Could not connect to the registry login server`
 * Unable to pull images from registry to Azure Kubernetes Service or another Azure service
 * Unable to access a registry behind an HTTPS proxy and you receive error `Error response from daemon: login attempt failed with status: 403 Forbidden`
-* Unable to configure virtual network rules and you receive error `Failed to save firewall and virtual network settings for container registry`
+* Unable to configure virtual network settings and you receive error `Failed to save firewall and virtual network settings for container registry`
 * Unable to access or view registry settings in Azure portal or manage registry using the Azure CLI
 * Unable to add or modify virtual network settings or public access rules
 * ACR Tasks is unable to push or pull images
