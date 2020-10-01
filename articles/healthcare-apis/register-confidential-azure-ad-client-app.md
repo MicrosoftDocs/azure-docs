@@ -50,7 +50,7 @@ Now that you have registered your application, you'll need to select which API p
     If you are referencing a different Resource Application, select your [FHIR API Resource Application Registration](register-resource-azure-ad-client-app.md) that you created previously under **My APIs**.
 
 
-:::image type="content" source="media/conf-client-app/confidential-client-org-api.png" alt-text="Confidential client. My Org APIs" lightbox="media/conf-client-app/confidential-client-org-api-expanded.png":::
+:::image type="content" source="media/conf-client-app/confidential-client-org-api.png" alt-text="Confidential client. My Org APIs" lightbox="media/conf-client-app/confidential-app-org-api-expanded.png":::
     
 
 3. Select scopes (permissions) that the confidential application should be able to ask for on behalf of a user:
