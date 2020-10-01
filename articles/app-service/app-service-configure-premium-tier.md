@@ -21,7 +21,9 @@ To scale-up an app to **PremiumV3**, you need to have an Azure App Service app t
 
 ## PremiumV3 availability
 
-The **PremiumV3** tier is available for App Service on both _Windows_ as well as _Linux_.
+The **PremiumV3** tier is available for both native and container apps, including both Windows containers and Linux containers.
+
+> [!NOTE] Any Windows containers running in the **Premium Container** tier during the preview period continue to function as is, but the **Premium Container** tier will continue to remain in preview. The **PremiumV3** tier is the official replacement for the **Premium Container** tier. 
 
 **PremiumV3** is available in some Azure regions and availability in additional regions is being added continually. To see if it's available in your region, run the following Azure CLI command in the [Azure Cloud Shell](../cloud-shell/overview.md):
 
