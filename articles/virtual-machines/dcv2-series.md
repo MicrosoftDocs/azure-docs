@@ -16,11 +16,11 @@ The DCsv2-series can help protect the confidentiality and integrity of your data
 
 Example use cases include: confidential multiparty data sharing, fraud detection, anti-money laundering, blockchain, confidential usage analytics, intelligence analysis and confidential machine learning.
 
-[Premium Storage](premium-storage-performance.md): Supported*
-[Premium Storage caching](premium-storage-performance.md): Supported
-[Live Migration](maintenance-and-updates.md): Not Supported
-[Memory Preserving Updates](maintenance-and-updates.md): Not Supported
-[VM Generation Support](generation-2.md): Generation 1 and 2
+[Premium Storage](premium-storage-performance.md): Supported*<br>
+[Premium Storage caching](premium-storage-performance.md): Supported<br>
+[Live Migration](maintenance-and-updates.md): Not Supported<br>
+[Memory Preserving Updates](maintenance-and-updates.md): Not Supported<br>
+[VM Generation Support](generation-2.md): Generation 1 and 2<br>
 
 *Except for Standard_DC8_v2
 

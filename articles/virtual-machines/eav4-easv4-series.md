@@ -17,11 +17,11 @@ The Eav4-series and Easv4-series utilize AMD's 2.35Ghz EPYC<sup>TM</sup> 7452 pr
 
 ACU: 230 - 260
 
-[Premium Storage](premium-storage-performance.md): Not Supported
-[Premium Storage caching](premium-storage-performance.md): Not Supported
-[Live Migration](maintenance-and-updates.md): Supported
-[Memory Preserving Updates](maintenance-and-updates.md): Supported
-[VM Generation Support](generation-2.md): Generation 1
+[Premium Storage](premium-storage-performance.md): Not Supported<br>
+[Premium Storage caching](premium-storage-performance.md): Not Supported<br>
+[Live Migration](maintenance-and-updates.md): Supported<br>
+[Memory Preserving Updates](maintenance-and-updates.md): Supported<br>
+[VM Generation Support](generation-2.md): Generation 1<br>
 
 Eav4-series sizes are based on the 2.35Ghz AMD EPYC<sup>TM</sup> 7452 processor that can achieve a boosted maximum frequency of 3.35GHz and use premium SSD. The Eav4-series sizes are ideal for memory-intensive enterprise applications. Data disk storage is billed separately from virtual machines. To use premium SSD, use the Easv4-series sizes. The pricing and billing meters for Easv4 sizes are the same as the Eav3-series.
 
@@ -41,11 +41,11 @@ Eav4-series sizes are based on the 2.35Ghz AMD EPYC<sup>TM</sup> 7452 processor 
 
 ACU: 230 - 260
 
-[Premium Storage](premium-storage-performance.md): Supported
-[Premium Storage caching](premium-storage-performance.md): Supported
-[Live Migration](maintenance-and-updates.md): Supported
-[Memory Preserving Updates](maintenance-and-updates.md): Supported
-[VM Generation Support](generation-2.md): Generation 1
+[Premium Storage](premium-storage-performance.md): Supported<br>
+[Premium Storage caching](premium-storage-performance.md): Supported<br>
+[Live Migration](maintenance-and-updates.md): Supported<br>
+[Memory Preserving Updates](maintenance-and-updates.md): Supported<br>
+[VM Generation Support](generation-2.md): Generation 1<br>
 
 Easv4-series sizes are based on the 2.35Ghz AMD EPYC<sup>TM</sup> 7452 processor that can achieve a boosted maximum frequency of 3.35GHz and use premium SSD. The Easv4-series sizes are ideal for memory-intensive enterprise applications.
 

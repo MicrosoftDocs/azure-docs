@@ -25,11 +25,11 @@ Dv3-series VMs feature Intel® Hyper-Threading Technology.
 
 ACU: 160-190
 
-[Premium Storage](premium-storage-performance.md): Not Supported
-[Premium Storage caching](premium-storage-performance.md): Not Supported
-[Live Migration](maintenance-and-updates.md): Supported
-[Memory Preserving Updates](maintenance-and-updates.md): Supported
-[VM Generation Support](generation-2.md): Generation 1
+[Premium Storage](premium-storage-performance.md): Not Supported<br>
+[Premium Storage caching](premium-storage-performance.md): Not Supported<br>
+[Live Migration](maintenance-and-updates.md): Supported<br>
+[Memory Preserving Updates](maintenance-and-updates.md): Supported<br>
+[VM Generation Support](generation-2.md): Generation 1<br>
 
 | Size | vCPU | Memory: GiB | Temp storage (SSD) GiB | Max data disks | Max temp storage throughput: IOPS/Read MBps/Write MBps | Max NICs/Network bandwidth |
 |---|---|---|---|---|---|---|
@@ -49,11 +49,11 @@ Dsv3-series VMs feature Intel® Hyper-Threading Technology.
 
 ACU: 160-190
 
-[Premium Storage](premium-storage-performance.md): Supported
-[Premium Storage caching](premium-storage-performance.md): Supported
-[Live Migration](maintenance-and-updates.md): Supported
-[Memory Preserving Updates](maintenance-and-updates.md): Supported
-[VM Generation Support](generation-2.md): Generation 1 and 2
+[Premium Storage](premium-storage-performance.md): Supported<br>
+[Premium Storage caching](premium-storage-performance.md): Supported<br>
+[Live Migration](maintenance-and-updates.md): Supported<br>
+[Memory Preserving Updates](maintenance-and-updates.md): Supported<br>
+[VM Generation Support](generation-2.md): Generation 1 and 2<br>
 
 | Size | vCPU | Memory: GiB | Temp storage (SSD) GiB | Max data disks | Max cached and temp storage throughput: IOPS/MBps (cache size in GiB) | Max burst cached and temp storage throughput: IOPS/MBps<sup>1</sup> | Max uncached disk throughput: IOPS/MBps | Max burst uncached disk throughput: IOPS/MBps<sup>1</sup> | Max NICs/Expected network bandwidth (Mbps) |
 |---|---|---|---|---|---|---|---|---|---|

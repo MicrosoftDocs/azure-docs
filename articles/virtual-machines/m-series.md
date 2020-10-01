@@ -17,11 +17,11 @@ M-series VM's feature Intel&reg; Hyper-Threading Technology.
 
 ACU: 160-180
 
-[Premium Storage](premium-storage-performance.md): Supported
-[Premium Storage caching](premium-storage-performance.md): Supported
-[Live Migration](maintenance-and-updates.md): Not Supported
-[Memory Preserving Updates](maintenance-and-updates.md): Not Supported
-[VM Generation Support](generation-2.md): Generation 1 and 2
+[Premium Storage](premium-storage-performance.md): Supported<br>
+[Premium Storage caching](premium-storage-performance.md): Supported<br>
+[Live Migration](maintenance-and-updates.md): Not Supported<br>
+[Memory Preserving Updates](maintenance-and-updates.md): Not Supported<br>
+[VM Generation Support](generation-2.md): Generation 1 and 2<br>
 
 Write Accelerator:  [Supported](./how-to-enable-write-accelerator.md)
 
