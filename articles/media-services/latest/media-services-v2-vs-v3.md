@@ -34,9 +34,9 @@ This article describes changes that were introduced in Azure Media Services v3 a
 * Event Grid support replaces NotificationEndpoints.
 * The following entities were renamed:
 
-    * JobOutput replaces Task and is now part of a Job.
-    
-        * For more information, see [v3 JobOutput vs v2 Task](#v3-joboutput-vs-v2-task).
+   * v3 JobOutput replaces v2 Task and is now part of a Job. Inputs and outputs are now at the Job level. For more information, see [Create a job input from a local file](job-input-from-local-file-how-to.md). 
+
+   To get the history of job progress, listen to the EventGrid events. For more information, see [Handling Event Grid events](reacting-to-media-services-events.md).
     * Streaming Locator replaces Locator.
     * Live Event replaces Channel.<br/>Live Events billing is based on Live Channel meters. For more information, see [billing](live-event-states-billing.md) and [pricing](https://azure.microsoft.com/pricing/details/media-services/).
     * Live Output replaces Program.
@@ -120,19 +120,6 @@ To protect your Assets at rest, the assets should be encrypted by the storage si
 <sup>1</sup> While Media Services does support handling of content in the clear/without any form of encryption, doing so isn't recommended.
 
 <sup>2</sup> In Media Services v3, storage encryption (AES-256 encryption) is only supported for backwards compatibility when your Assets were created with Media Services v2. Meaning v3 works with existing storage encrypted assets but won't allow creation of new ones.
-
-## v3 JobOutput vs v2 Task
-
-v3 JobOutput replaces v2 Task and is now part of a Job. Inputs and outputs are now at the Job level. For more information, see [Create a job input from a local file](job-input-from-local-file-how-to.md). 
-
-### Getting history of job progress
-
-The following v2 properties will no longer be populated with historical job progress data:
-
-* [HistoricalEvents](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.mediaservices.client.itask.historicalevents)
-* [PerfMessage](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.mediaservices.client.itask.perfmessage)
-
-You should now get the history of job progress by listening to the EventGrid events. For more information, see [Handling Event Grid events](reacting-to-media-services-events.md).
 
 ## Code differences
 
