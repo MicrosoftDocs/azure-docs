@@ -32,7 +32,7 @@ To set up a storage account:
 4. Enter the following information into the  **Create storage account** page:
 
     - Create a new resource group.
-    - Enter a unique name for your storage account.
+    - Enter a unique name for your storage account (must be no longer than 15 characters).
     - For **Location**, we recommend you choose the same location as the Windows Virtual Desktop host pool.
     - For **Performance**, select **Standard**. (Depending on your IOPS requirements. For more information, see [Storage options for FSLogix profile containers in Windows Virtual Desktop](store-fslogix-profile.md).)
     - For **Account type**, select **StorageV2** or **FileStorage** (only available if Performance tier is Premium).
