@@ -23,7 +23,7 @@ Recall that Text Analytics is stateless so there are no data assets to manage. Y
 
 [!INCLUDE [text-analytics-api-references](../includes/text-analytics-api-references.md)]
 
-[!INCLUDE [v3 region availability](includes/v3-region-availability.md)]
+[!INCLUDE [v3 region availability](../includes/v3-region-availability.md)]
 
 ## Prerequisites
 
