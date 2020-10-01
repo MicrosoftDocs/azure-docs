@@ -80,8 +80,6 @@
       href: protect-azure-vmware-solution-with-application-gateway.md
     - name: Traffic Manager
       href: deploy-traffic-manager-balance-workloads.md
-    - name: NetApp Files
-      href: net-app-files.md
   - name: VMware solutions
     items:
     - name: Set up vRealize Operations

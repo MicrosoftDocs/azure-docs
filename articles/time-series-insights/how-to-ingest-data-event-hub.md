@@ -9,7 +9,7 @@ manager: diviso
 ms.reviewer: v-mamcge, jasonh, kfile
 ms.workload: big-data
 ms.topic: conceptual
-ms.date: 06/30/2020
+ms.date: 09/30/2020
 ms.custom: seodec18
 ---
 
@@ -22,7 +22,7 @@ This article describes how to use the Azure portal to add an event source that r
 
 ## Prerequisites
 
-- Create a Azure Time Series Insights environment as described in [Create an Azure Time Series Insights environment](./time-series-insights-update-create-environment.md).
+- Create an Azure Time Series Insights environment as described in [Create an Azure Time Series Insights environment](./time-series-insights-update-create-environment.md).
 - Create an event hub. Read [Create an Event Hubs namespace and an event hub by using the Azure portal](../event-hubs/event-hubs-create.md).
 - The event hub must have active message events sent to it. Learn how to [Send events to Azure Event Hubs by using the .NET Framework](../event-hubs/event-hubs-dotnet-framework-getstarted-send.md).
 - Create a dedicated consumer group in the event hub that the Azure Time Series Insights environment can consume from. Each Azure Time Series Insights event source must have its own dedicated consumer group that isn't shared with any other consumer. If multiple readers consume events from the same consumer group, all readers are likely to exhibit failures. There's a limit of 20 consumer groups per event hub. For details, read the [Event Hubs programming guide](../event-hubs/event-hubs-programming-guide.md).
@@ -37,7 +37,7 @@ To add a new consumer group in your event hub:
 
     [![Open your event hub namespace](media/time-series-insights-how-to-add-an-event-source-eventhub/tsi-connect-event-hub-namespace.png)](media/time-series-insights-how-to-add-an-event-source-eventhub/tsi-connect-event-hub-namespace.png#lightbox)
 
-1. In your event hub instance, select **Entities > Consumer groups**. Then, select **+ Consumer group** to add a new consumer group. 
+1. In your event hub instance, select **Entities > Consumer groups**. Then, select **+ Consumer group** to add a new consumer group.
 
    [![Event hub - Add a consumer group](media/time-series-insights-how-to-add-an-event-source-eventhub/add-event-hub-consumer-group.png)](media/time-series-insights-how-to-add-an-event-source-eventhub/add-event-hub-consumer-group.png#lightbox)
 
@@ -63,11 +63,11 @@ To add a new consumer group in your event hub:
 
 1. Select the appropriate values for **Import option**:
 
-   * If you have an existing event hub in one of your subscriptions, select **Use Event Hub from available subscriptions**. This option is the easiest approach.
+   - If you have an existing event hub in one of your subscriptions, select **Use Event Hub from available subscriptions**. This option is the easiest approach.
 
      [![Select an Event Source import option](media/time-series-insights-how-to-add-an-event-source-eventhub/tsi-event-hub-select-import-option.png)](media/time-series-insights-how-to-add-an-event-source-eventhub/tsi-event-hub-select-import-option.png#lightbox)
 
-    *  The following table describes the required properties for the **Use Event Hub from available subscriptions** option:
+   - The following table describes the required properties for the **Use Event Hub from available subscriptions** option:
 
        [![Subscription and event hub details](media/time-series-insights-how-to-add-an-event-source-eventhub/tsi-configure-create-confirm.png)](media/time-series-insights-how-to-add-an-event-source-eventhub/tsi-configure-create-confirm.png#lightbox)
 
@@ -79,10 +79,10 @@ To add a new consumer group in your event hub:
        | Event Hub policy value | Select the desired shared access policy. You can create the shared access policy on the event hub **Configure** tab. Each shared access policy has a name, permissions that you set, and access keys. The shared access policy for your event source *must* have **read** permissions. |
        | Event Hub policy key | Pre-populated from the selected Event Hub policy value. |
 
-    * If the event hub is external to your subscriptions or if you want to select advanced options, select **Provide Event Hub settings manually**.
+   - If the event hub is external to your subscriptions or if you want to select advanced options, select **Provide Event Hub settings manually**.
 
        The following table describes the required properties for the **Provide Event Hub settings manually** option:
- 
+
        | Property | Description |
        | --- | --- |
        | Subscription ID | The subscription the desired event hub instance and namespace belongs to. |
@@ -92,7 +92,7 @@ To add a new consumer group in your event hub:
        | Event Hub policy value | Select the desired shared access policy. You can create the shared access policy on the event hub **Configure** tab. Each shared access policy has a name, permissions that you set, and access keys. The shared access policy for your event source *must* have **read** permissions. |
        | Event Hub policy key | The shared access key that's used to authenticate access to the Service Bus namespace. Enter the primary or secondary key here. |
 
-    * Both options share the following configuration options:
+   - Both options share the following configuration options:
 
        | Property | Description |
        | --- | --- |
@@ -108,8 +108,8 @@ To add a new consumer group in your event hub:
 
 ## Next steps
 
-* [Define data access policies](time-series-insights-data-access.md) to secure the data.
+- [Define data access policies](time-series-insights-data-access.md) to secure the data.
 
-* [Send events](time-series-insights-send-events.md) to the event source.
+- [Send events](time-series-insights-send-events.md) to the event source.
 
-* Access your environment in the [Azure Time Series Insights Explorer](https://insights.timeseries.azure.com).
+- Access your environment in the [Azure Time Series Insights Explorer](https://insights.timeseries.azure.com).

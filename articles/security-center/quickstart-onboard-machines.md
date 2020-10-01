@@ -3,7 +3,7 @@ title: Connect your non-Azure machines to Azure Security Center
 description: Learn how to connect your non-Azure machines to Security Center
 author: memildin
 ms.author: memildin
-ms.date: 9/30/2020
+ms.date: 10/01/2020
 ms.topic: quickstart
 ms.service: security-center
 manager: rkarlin
