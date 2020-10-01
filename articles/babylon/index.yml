@@ -65,6 +65,12 @@ landingContent:
           url: starter-kit-tutorial-1.md # update link
         - text: Scan AWS S3
           url: starter-kit-tutorial-1.md # update link
+  - title: Understand your data estate 
+    linkLists:
+    - linkListType: how-to-guide
+      links:
+        - text: Create labels in M365 and scan with Babylon
+          url: starter-kit-tutorial-1.md # update link
   - title: Curate data 
     linkLists:
     - linkListType: tutorial
@@ -91,9 +97,4 @@ landingContent:
           url: starter-kit-tutorial-1.md # update link
         - text: Search for assets, terms, annotations, and contacts
           url: starter-kit-tutorial-1.md # update link
-  - title: Understand your data estate 
-    linkLists:
-    - linkListType: how-to-guide
-      links:
-        - text: Create labels in M365 and scan with Babylon
-          url: starter-kit-tutorial-1.md # update link
+  
