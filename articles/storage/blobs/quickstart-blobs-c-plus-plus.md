@@ -178,7 +178,7 @@ Add this code to the end of `main()`:
 
 ## Run the code
 
-This app creates a container if it doesn't already exist, and uploads a text file to the container in Azure Blob storage. The example then lists the blobs in the container, downloads the file, and displays the file contents.
+This app creates a container if it doesn't already exist, and uploads a text file to the container in Azure Blob storage. The example then lists the blobs in the container, downloads the file, and displays the file contents. Finally, the app deletes the blob and the container.
 
 The output of the app is similar to the following example:
 
