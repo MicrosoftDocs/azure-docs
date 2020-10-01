@@ -141,10 +141,7 @@ In this tutorial, you upgraded Kubernetes in an AKS cluster. You learned how to:
 > * Upgrade the Kubernetes nodes
 > * Validate a successful upgrade
 
-Follow this link to learn more about AKS.
-
-> [!div class="nextstepaction"]
-> [AKS overview][aks-intro]
+For more information on AKS, see [AKS overview][aks-intro]. For guidance on a creating full solutions with AKS, see [AKS solution guidance][aks-solution-guidance].
 
 <!-- LINKS - external -->
 [kubernetes-drain]: https://kubernetes.io/docs/tasks/administer-cluster/safely-drain-node/
@@ -158,3 +155,4 @@ Follow this link to learn more about AKS.
 [azure-cli-install]: /cli/azure/install-azure-cli
 [az-group-delete]: /cli/azure/group#az-group-delete
 [sp-delete]: kubernetes-service-principal.md#additional-considerations
+[aks-solution-guidance]: /azure/architecture/reference-architectures/containers/aks-start-here
