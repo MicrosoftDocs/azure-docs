@@ -69,8 +69,8 @@ The Rapid7 Metasploitable image is an image purposely configured with security v
     1. Navigate to [https://information.rapid7.com/download-metasploitable-2017.html](https://information.rapid7.com/download-metasploitable-2017.html). Fill out the form to download the image and select the **Submit** button.
     2. Select the **Download Metasploitable Now** button.
     3. When the zip file is downloaded, extract the zip file, and remember the location of the Metasploitable.vmdk file.
-1. Convert the extracted vmdk file to a vhdx file so that you can use the vhdx file with Hyper-V. There are several tools available to convert VMWare images to Hyper-V images and vice versa.  We'll be using the [Starwind V2V Converter](https://www.starwindsoftware.com/starwind-v2v-converter).  To download, see [Starwind V2V Converter download page](https://www.starwindsoftware.com/starwind-v2v-converter#download).
-    1. Start **Starwind V2V Converter**.
+1. Convert the extracted vmdk file to a vhdx file so that you can use the vhdx file with Hyper-V. There are several tools available to convert VMWare images to Hyper-V images and vice versa.  We'll be using the [StarWind V2V Converter](https://www.starwindsoftware.com/starwind-v2v-converter).  To download, see [StarWind V2V Converter download page](https://www.starwindsoftware.com/starwind-v2v-converter#download).
+    1. Start **StarWind V2V Converter**.
     1. On the **Select location of image to convert** page, choose **Local file**.  Select **Next**.
     1. On the **Source image** page, navigate to and select the Metasploitable.vmdk extracted in the previous step for the **File name** setting.  Select **Next**.
     1. On the **Select location of destination image**, choose **Local file**.  Select **Next**.
