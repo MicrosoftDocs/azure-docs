@@ -45,7 +45,7 @@ If you are using a Linux host computer, perform the following steps to configure
 
 1. Supply the IP addresses of the allowed clients that can access the share:
 
-    1.  In the local web UI, go to **Connect and copy** page. Under **NFS settings**, click **NFS client access**. 
+    1.  In the local web UI, go to the **Connect and copy** page. Under **NFS settings**, click **NFS client access**. 
 
         ![Open NFS client access](media/data-box-deploy-export-copy-data/nfs-client-access-1.png)
 
