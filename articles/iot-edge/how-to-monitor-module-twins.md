@@ -207,7 +207,7 @@ If you make changes, select **Update Module Twin** above the code in the editor 
 
 To see if IoT Edge is running, use the [az iot hub invoke-module-method](how-to-edgeagent-direct-method.md#ping) to ping the IoT Edge agent.
 
-The [az iot hub module-twin](https://docs.microsoft.com/cli/azure/ext/azure-cli-iot-ext/iot/hub/module-twin) structure provides these commands:
+The [az iot hub module-twin](/cli/azure/ext/azure-cli-iot-ext/iot/hub/module-twin) structure provides these commands:
 
 * **az iot hub module-twin show** - Show a module twin definition.
 * **az iot hub module-twin update** - Update a module twin definition.
