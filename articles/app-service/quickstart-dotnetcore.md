@@ -3,8 +3,8 @@ title: "Quickstart: Create a C# ASP.NET Core app"
 description: Learn how to run web apps in Azure App Service by deploying your first ASP.NET core app.
 ms.assetid: b1e6bd58-48d1-4007-9d6c-53fd6db061e3
 ms.topic: quickstart
-ms.date: 08/01/2020
-ms.custom: "devx-track-csharp, mvc, devcenter, vs-azure, seodec18"
+ms.date: 09/24/2020
+ms.custom: "devx-track-csharp, mvc, devcenter, vs-azure, seodec18, contperfq1"
 zone_pivot_groups: app-service-platform-windows-linux
 ---
 
