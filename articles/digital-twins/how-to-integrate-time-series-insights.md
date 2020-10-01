@@ -179,7 +179,7 @@ Next, you'll need to set environment variables in your function app from earlier
 2. Use the connection string you get as a result to create an app setting in your function app that contains your connection string:
 
     ```azurecli
-    az functionapp config appsettings set --settings "EventHubAppSetting-Twins=<Twins event hub connection string> -g <resource group> -n <your App Service (function app) name>"
+    az functionapp config appsettings set --settings "EventHubAppSetting-Twins=<Twins event hub connection string>" -g <resource group> -n <your App Service (function app) name>
     ```
 
 ### Set the Time Series Insights event hub connection string
@@ -193,7 +193,7 @@ Next, you'll need to set environment variables in your function app from earlier
 2. In your function app, create an app setting containing your connection string:
 
     ```azurecli
-    az functionapp config appsettings set --settings "EventHubAppSetting-TSI=<TSI event hub connection string> -g <resource group> -n <your App Service (function app) name>"
+    az functionapp config appsettings set --settings "EventHubAppSetting-TSI=<TSI event hub connection string>" -g <resource group> -n <your App Service (function app) name>
     ```
 
 ## Create and connect a Time Series Insights instance
