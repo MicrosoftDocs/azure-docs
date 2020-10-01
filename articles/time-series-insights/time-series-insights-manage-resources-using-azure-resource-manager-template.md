@@ -9,11 +9,14 @@ manager: diviso
 ms.devlang: csharp
 ms.workload: big-data
 ms.topic: conceptual
-ms.date: 06/30/2020
+ms.date: 09/30/2020
 ms.custom: seodec18
 ---
 
 # Create Azure Time Series Insights Gen 1 resources using Azure Resource Manager templates
+
+> [!CAUTION]
+> This is a Gen1 article.
 
 This article describes how to create and deploy Azure Time Series Insights resources using [Azure Resource Manager templates](https://docs.microsoft.com/azure/azure-resource-manager/), PowerShell, and the Azure Time Series Insights resource provider.
 
@@ -21,10 +24,10 @@ Azure Time Series Insights supports the following resources:
 
    | Resource | Description |
    | --- | --- |
-   | Environment | A Azure Time Series Insights environment is a logical grouping of events that are read from event brokers, stored, and made available for query. For more information, read [Plan your Azure Time Series Insights environment](time-series-insights-environment-planning.md) |
+   | Environment | An Azure Time Series Insights environment is a logical grouping of events that are read from event brokers, stored, and made available for query. For more information, read [Plan your Azure Time Series Insights environment](time-series-insights-environment-planning.md) |
    | Event Source | An event source is a connection to an event broker from which Azure Time Series Insights reads and ingests events into the environment. Currently supported event sources are IoT Hub and Event Hub. |
    | Reference Data Set | Reference data sets provide metadata about the events in the environment. Metadata in the reference data sets will be joined with events during ingress. Reference data sets are defined as resources by their event key properties. The actual metadata that makes up the reference data set is uploaded or modified through data plane APIs. |
-   | Access Policy | Access policies grant permissions to issue data queries, manipulate reference data in the environment, and share saved queries and perspectives associated with the environment. For more information, read [Grant data access to a Azure Time Series Insights environment using Azure portal](time-series-insights-data-access.md) |
+   | Access Policy | Access policies grant permissions to issue data queries, manipulate reference data in the environment, and share saved queries and perspectives associated with the environment. For more information, read [Grant data access to an Azure Time Series Insights environment using Azure portal](time-series-insights-data-access.md) |
 
 A Resource Manager template is a JSON file that defines the infrastructure and configuration of resources in a resource group. The following documents describe template files in greater detail:
 
@@ -32,19 +35,19 @@ A Resource Manager template is a JSON file that defines the infrastructure and c
 - [Deploy resources with Resource Manager templates and Azure PowerShell](../azure-resource-manager/templates/deploy-powershell.md)
 - [Microsoft.TimeSeriesInsights resource types](/azure/templates/microsoft.timeseriesinsights/allversions)
 
-The [201-timeseriesinsights-environment-with-eventhub](https://github.com/Azure/azure-quickstart-templates/tree/master/201-timeseriesinsights-environment-with-eventhub) quickstart template is published on GitHub. This template creates a Azure Time Series Insights environment, a child event source configured to consume events from an Event Hub, and access policies that grant access to the environment's data. If an existing Event Hub isn't specified, one will be created with the deployment.
+The [201-timeseriesinsights-environment-with-eventhub](https://github.com/Azure/azure-quickstart-templates/tree/master/201-timeseriesinsights-environment-with-eventhub) quickstart template is published on GitHub. This template creates an Azure Time Series Insights environment, a child event source configured to consume events from an Event Hub, and access policies that grant access to the environment's data. If an existing Event Hub isn't specified, one will be created with the deployment.
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## Specify deployment template and parameters
 
-The following procedure describes how to use PowerShell to deploy an Azure Resource Manager template that creates a Azure Time Series Insights environment, a child event source configured to consume events from an Event Hub, and access policies that grant access to the environment's data. If an existing Event Hub isn't specified, one will be created with the deployment.
+The following procedure describes how to use PowerShell to deploy an Azure Resource Manager template that creates an Azure Time Series Insights environment, a child event source configured to consume events from an Event Hub, and access policies that grant access to the environment's data. If an existing Event Hub isn't specified, one will be created with the deployment.
 
 1. Install Azure PowerShell by following the instructions in [Getting started with Azure PowerShell](https://docs.microsoft.com/powershell/azure/get-started-azureps).
 
 1. Clone or copy the [201-timeseriesinsights-environment-with-eventhub](https://github.com/Azure/azure-quickstart-templates/blob/master/201-timeseriesinsights-environment-with-eventhub/azuredeploy.json) template from GitHub.
 
-   * Create a parameters file
+   - Create a parameters file
 
      To create a parameters file, copy the [201-timeseriesinsights-environment-with-eventhub](https://github.com/Azure/azure-quickstart-templates/blob/master/201-timeseriesinsights-environment-with-eventhub/azuredeploy.parameters.json) file.
 
@@ -52,7 +55,7 @@ The following procedure describes how to use PowerShell to deploy an Azure Resou
 
     <div id="required-parameters"></div>
 
-   * Required Parameters
+   - Required Parameters
 
      | Parameter | Description |
      | --- | --- |
@@ -64,7 +67,7 @@ The following procedure describes how to use PowerShell to deploy an Azure Resou
 
     <div id="optional-parameters"></div>
 
-   * Optional Parameters
+   - Optional Parameters
 
      | Parameter | Description |
      | --- | --- |
@@ -79,7 +82,7 @@ The following procedure describes how to use PowerShell to deploy an Azure Resou
      | accessPolicyReaderObjectIds | A list of object IDs of the users or applications in Azure AD that should have Reader access to the environment. The service principal objectId can be obtained by calling the **Get-AzADUser** or the **Get-AzADServicePrincipal** cmdlets. Creating an access policy for Azure AD groups is not yet supported. |
      | accessPolicyContributorObjectIds | A list of object IDs of the users or applications in Azure AD that should have Contributor access to the environment. The service principal objectId can be obtained by calling the **Get-AzADUser** or the **Get-AzADServicePrincipal** cmdlets. Creating an access policy for Azure AD groups is not yet supported. |
 
-   * As an example, the following parameters file would be used to create an environment and an event source that reads events from an existing event hub. It also creates two access policies that grant Contributor access to the environment.
+   - As an example, the following parameters file would be used to create an environment and an event source that reads events from an existing event hub. It also creates two access policies that grant Contributor access to the environment.
 
      ```JSON
      {
@@ -109,12 +112,12 @@ The following procedure describes how to use PowerShell to deploy an Azure Resou
                      "AGUID001-0000-0000-0000-000000000000",
                      "AGUID002-0000-0000-0000-000000000000"
                  ]
-             }    
+             }
          }
      }
      ```
 
-    * For more information, read the [Parameters](../azure-resource-manager/templates/parameter-files.md) article.
+   - For more information, read the [Parameters](../azure-resource-manager/templates/parameter-files.md) article.
 
 ## Deploy the quickstart template locally using PowerShell
 
@@ -123,19 +126,19 @@ The following procedure describes how to use PowerShell to deploy an Azure Resou
 
 1. In PowerShell, log in to your Azure account.
 
-    * From a PowerShell prompt, run the following command:
+    - From a PowerShell prompt, run the following command:
 
       ```powershell
       Connect-AzAccount
       ```
 
-    * You are prompted to log on to your Azure account. After logging on, run the following command to view your available subscriptions:
+    - You are prompted to log on to your Azure account. After logging on, run the following command to view your available subscriptions:
 
       ```powershell
       Get-AzSubscription
       ```
 
-    * This command returns a list of available Azure subscriptions. Choose a subscription for the current session by running the following command. Replace `<YourSubscriptionId>` with the GUID for the Azure subscription you want to use:
+    - This command returns a list of available Azure subscriptions. Choose a subscription for the current session by running the following command. Replace `<YourSubscriptionId>` with the GUID for the Azure subscription you want to use:
 
       ```powershell
       Set-AzContext -SubscriptionID <YourSubscriptionId>
@@ -143,13 +146,13 @@ The following procedure describes how to use PowerShell to deploy an Azure Resou
 
 1. Create a new resource group if one does not exist.
 
-   * If you do not have an existing resource group, create a new resource group with the **New-AzResourceGroup** command. Provide the name of the resource group and location you want to use. For example:
+   - If you do not have an existing resource group, create a new resource group with the **New-AzResourceGroup** command. Provide the name of the resource group and location you want to use. For example:
 
      ```powershell
      New-AzResourceGroup -Name MyDemoRG -Location "West US"
      ```
 
-   * If successful, a summary of the new resource group is displayed.
+   - If successful, a summary of the new resource group is displayed.
 
      ```powershell
      ResourceGroupName : MyDemoRG
@@ -161,7 +164,7 @@ The following procedure describes how to use PowerShell to deploy an Azure Resou
 
 1. Test the deployment.
 
-   * Validate your deployment by running the `Test-AzResourceGroupDeployment` cmdlet. When testing the deployment, provide parameters exactly as you would when executing the deployment.
+   - Validate your deployment by running the `Test-AzResourceGroupDeployment` cmdlet. When testing the deployment, provide parameters exactly as you would when executing the deployment.
 
      ```powershell
      Test-AzResourceGroupDeployment -ResourceGroupName MyDemoRG -TemplateFile <path to template file>\azuredeploy.json -TemplateParameterFile <path to parameters file>\azuredeploy.parameters.json
@@ -169,27 +172,27 @@ The following procedure describes how to use PowerShell to deploy an Azure Resou
 
 1. Create the deployment
 
-    * To create the new deployment, run the `New-AzResourceGroupDeployment` cmdlet, and provide the necessary parameters when prompted. The parameters include a name for your deployment, the name of your resource group, and the path or URL to the template file. If the **Mode** parameter is not specified, the default value of **Incremental** is used. For more information, read [Incremental and complete deployments](../azure-resource-manager/templates/deployment-modes.md).
+    - To create the new deployment, run the `New-AzResourceGroupDeployment` cmdlet, and provide the necessary parameters when prompted. The parameters include a name for your deployment, the name of your resource group, and the path or URL to the template file. If the **Mode** parameter is not specified, the default value of **Incremental** is used. For more information, read [Incremental and complete deployments](../azure-resource-manager/templates/deployment-modes.md).
 
-    * The following command prompts you for the five required parameters in the PowerShell window:
+    - The following command prompts you for the five required parameters in the PowerShell window:
 
       ```powershell
       New-AzResourceGroupDeployment -Name MyDemoDeployment -ResourceGroupName MyDemoRG -TemplateFile <path to template file>\azuredeploy.json
       ```
 
-    * To specify a parameters file instead, use the following command:
+    - To specify a parameters file instead, use the following command:
 
       ```powershell
       New-AzResourceGroupDeployment -Name MyDemoDeployment -ResourceGroupName MyDemoRG -TemplateFile <path to template file>\azuredeploy.json -TemplateParameterFile <path to parameters file>\azuredeploy.parameters.json
       ```
 
-    * You can also use inline parameters when you run the deployment cmdlet. The command is as follows:
+    - You can also use inline parameters when you run the deployment cmdlet. The command is as follows:
 
       ```powershell
       New-AzResourceGroupDeployment -Name MyDemoDeployment -ResourceGroupName MyDemoRG -TemplateFile <path to template file>\azuredeploy.json -parameterName "parameterValue"
       ```
 
-    * To run a [complete](../azure-resource-manager/templates/deployment-modes.md) deployment, set the **Mode** parameter to **Complete**:
+    - To run a [complete](../azure-resource-manager/templates/deployment-modes.md) deployment, set the **Mode** parameter to **Complete**:
 
       ```powershell
       New-AzResourceGroupDeployment -Name MyDemoDeployment -Mode Complete -ResourceGroupName MyDemoRG -TemplateFile <path to template file>\azuredeploy.json
@@ -197,7 +200,7 @@ The following procedure describes how to use PowerShell to deploy an Azure Resou
 
 1. Verify the deployment
 
-    * If the resources are deployed successfully, a summary of the deployment is displayed in the PowerShell window:
+    - If the resources are deployed successfully, a summary of the deployment is displayed in the PowerShell window:
 
       ```powershell
        DeploymentName          : MyDemoDeployment
@@ -238,7 +241,7 @@ The following procedure describes how to use PowerShell to deploy an Azure Resou
 
 1. Deploy the quickstart template through the Azure portal
 
-   * The quickstart template's home page on GitHub also includes a **Deploy to Azure** button. Clicking it opens a Custom Deployment page in the Azure portal. From this page, you can enter or select values for each of the parameters from the [required parameters](#required-parameters) or [optional parameters](#optional-parameters) tables. After filling out the settings, clicking the **Purchase** button will initiate the template deployment.
+   - The quickstart template's home page on GitHub also includes a **Deploy to Azure** button. Clicking it opens a Custom Deployment page in the Azure portal. From this page, you can enter or select values for each of the parameters from the [required parameters](#required-parameters) or [optional parameters](#optional-parameters) tables. After filling out the settings, clicking the **Purchase** button will initiate the template deployment.
     </br>
     </br>
     <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-timeseriesinsights-environment-with-eventhub%2Fazuredeploy.json" target="_blank">

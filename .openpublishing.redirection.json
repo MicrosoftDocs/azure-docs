@@ -14653,6 +14653,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/azure-vmware/net-app-files.md",
+      "redirect_url": "/azure/azure-vmware/introduction",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/azure-vmware/vrealize-operations-for-avs.md",
       "redirect_url": "/azure/azure-vmware/vrealize-operations-for-azure-vmware-solution",
       "redirect_document_id": false
@@ -20725,6 +20730,11 @@
     {
       "source_path": "articles/vpn-gateway/virtual-networks-configure-vnet-to-vnet-connection.md",
       "redirect_url": "/azure/vpn-gateway/vpn-gateway-howto-vnet-vnet-portal-classic",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/vpn-gateway/vpn-gateway-security-controls.md",
+      "redirect_url": "/azure/vpn-gateway/security-baseline",
       "redirect_document_id": false
     },
     {
@@ -41704,8 +41714,8 @@
     },
     {
       "source_path": "articles/log-analytics/query-language/useful-operators.md",
-      "redirect_url": "/azure/azure-monitor/log-query/useful-operators",
-      "redirect_document_id": true
+      "redirect_url": "/azure/data-explorer/kusto/query/",
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/log-analytics/query-language/advanced-aggregations.md",
@@ -41759,8 +41769,8 @@
     },
     {
       "source_path": "articles/log-analytics/query-language/query-language.md",
-      "redirect_url": "/azure/azure-monitor/log-query/query-language",
-      "redirect_document_id": true
+      "redirect_url": "/azure/data-explorer/kusto/query/",
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/log-analytics/query-language/workspace-expression.md",
@@ -42309,7 +42319,7 @@
     },
     {
       "source_path": "articles/azure-monitor/platform/diagnostic-logs-stream-template.md",
-      "redirect_url": "/azure/azure-monitor/platform/diagnostic-settings-template",
+      "redirect_url": "/azure/azure-monitor/samples/resource-manager-diagnostic-settings",
       "redirect_document_id": true
     },
     {
@@ -43490,6 +43500,41 @@
     {
       "source_path": "articles/azure-monitor/insights/container-insights-health-monitors-config.md",
       "redirect_url": "/azure/azure-monitor/insights/container-insights-overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-monitor/insights/container-insights-alerts.md",
+      "redirect_url": "/azure/azure-monitor/insights/container-insights-log-alerts",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-monitor/platform/diagnostic-settings-template.md",
+      "redirect_url": "/azure/azure-monitor/samples/resource-manager-diagnostic-settings",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-monitor/log-query/useful-operators.md",
+      "redirect_url": "/azure/data-explorer/kusto/query/",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-monitor/log-query/log-search-transition.md",
+      "redirect_url": "/azure/data-explorer/kusto/query/",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-monitor/log-query/query-language.md",
+      "redirect_url": "/azure/data-explorer/kusto/query/",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-monitor/platform/data-locations.md",
+      "redirect_url": "/azure/azure-monitor/monitor-reference/",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-monitor/platform/activity-log-collect-tenants.md",
+      "redirect_url": "/azure/azure-monitor/platform/activity-log",
       "redirect_document_id": false
     },
     {
@@ -48786,13 +48831,21 @@
       "redirect_url": "/azure/iot-pnp/howto-use-iot-explorer",
       "redirect_document_id": true
     },
-
     {
       "source_path": "articles/iot-pnp/howto-manage-models.md",
       "redirect_url": "/azure/iot-pnp/concepts-model-discovery",
       "redirect_document_id": true
     },
-
+    {
+      "source_path": "articles/iot-pnp/overview-iot-plug-and-play-preview-updates.md",
+      "redirect_url": "/azure/iot-pnp/overview-iot-plug-and-play",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/iot-pnp/concepts-developer-guide.md",
+      "redirect_url": "/azure/iot-pnp/concepts-developer-guide-device-csharp",
+      "redirect_document_id": false
+    },
     {
       "source_path": "articles/iot-central/core/overview-iot-options.md",
       "redirect_url": "/azure/iot-fundamentals/iot-services-and-technologies/",
@@ -52715,7 +52768,7 @@
     },
     {
       "source_path": "articles/cognitive-services/Face/Face-API-How-to-Topics/HowtoIdentifyFacesinImage.md",
-      "redirect_url": "/azure/cognitive-services/face/QuickStarts/client-libraries.md",
+      "redirect_url": "/azure/cognitive-services/face/QuickStarts/client-libraries",
       "redirect_document_id": false
     },
     {
