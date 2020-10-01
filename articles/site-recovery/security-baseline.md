@@ -47,7 +47,7 @@ Recovery security baseline mapping file](https://github.com/MicrosoftDocs/Securi
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/33687.).
 
-**Guidance**: Site Recovery service supports service tags, which allow customers to open traffic to only specific services and ports. Customers have to whitelist "AzureSiteRecovery" service tag on their firewall or network security group to allow outbound access to Site Recovery service.
+**Guidance**: Site Recovery service supports service tags, which allow customers to open traffic to only specific services and ports. Customers have to allow "AzureSiteRecovery" service tag on their firewall or network security group to allow outbound access to Site Recovery service.
 
 - [Outbound connectivity using Service Tags](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-about-networking#outbound-connectivity-using-service-tags)
 
@@ -60,8 +60,7 @@ Recovery security baseline mapping file](https://github.com/MicrosoftDocs/Securi
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/33689.).
 
-**Guidance**: Use Site Recovery to protect or enable Disaster Recovery on Azure Virtual Machine and associate that Virtual Machine with a network security group.  
-Add a description to specify the business need for the rule for traffic documentation.
+**Guidance**: Use Site Recovery to protect or enable Disaster Recovery on Azure Virtual Machines and associate the virtual machines with a network security group.  Add a description to specify the business need for the rule for traffic documentation.
 
 **Azure Security Center monitoring**: Not Applicable
 
@@ -78,9 +77,9 @@ Add a description to specify the business need for the rule for traffic document
 
 - [Create, view, and manage activity log alerts by using Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-activity-log)
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
+**Azure Security Center monitoring**: Not applicable
 
-**Responsibility**: Unset. Please provide a value in the work item.
+**Responsibility**: Customer
 
 ## Logging and monitoring
 
@@ -91,17 +90,17 @@ Add a description to specify the business need for the rule for traffic document
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/33692.).
 
-**Guidance**: Enable Azure Activity Log diagnostic settings for audit logging and send the logs to a Log Analytics workspace, Azure Storage account or Azure Event Hub for archiving. 
+**Guidance**: Enable Azure Activity Log diagnostic settings for audit logging and send the logs to a Log Analytics workspace, Azure Storage account or an Azure Event Hub for archiving. 
 
-Use Azure Activity Log data to determine the "what, who, and when" for any write operations (PUT, POST, DELETE) performed for your Azure resources.
+Use Azure Activity Log data to determine the "what, who, and when" for any write operations (PUT, POST, DELETE) performed on your Azure resources.
 
-Ingest logs related to Site Recovery via Azure Monitor to aggregate security data generated. Within the Azure Monitor, use Log Analytics workspaces to query and perform analytics, and use storage accounts for long-term/archival storage. Also, you may enable and on-board data to Azure Sentinel or a third-party Security Incident and Event Management (SIEM).
+Ingest Site Recovery logs with Azure Monitor to aggregate generated security data . Within Azure Monitor, use Log Analytics workspaces to query and perform analytics, and use storage accounts for long-term/archival storage. Also, you may enable and on-board data to Azure Sentinel or a third-party Security Incident and Event Management (SIEM) solution.
 
 - [How to enable Diagnostic Settings for Azure Activity Log](https://docs.microsoft.com/azure/azure-monitor/platform/activity-log)
 
-- [How to onboard Azure Sentinel](https://docs.microsoft.com/azure/sentinel/quickstart-onboard)
-
 - [Monitor Site Recovery with Azure Monitor Logs](https://docs.microsoft.com/azure/site-recovery/monitor-log-analytics)
+
+- [How to onboard Azure Sentinel](https://docs.microsoft.com/azure/sentinel/quickstart-onboard)
 
 **Azure Security Center monitoring**: Currently not available
 
@@ -112,13 +111,17 @@ Ingest logs related to Site Recovery via Azure Monitor to aggregate security dat
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/33693.).
 
-**Guidance**: For audit logging, enable Azure Activity Log diagnostic settings and send the logs to a Log Analytics workspace, Azure storage account or Azure event hub for archive. Using Azure Activity Log data, you can determine the "what, who, and when" for any write operations (PUT, POST, DELETE) performed for your Azure resources.
+**Guidance**: Enable Azure Activity Log diagnostic settings for audit logging and send the logs to a Log Analytics workspace, Azure Storage account or an Azure Event Hub for archiving. 
 
-Also, ingest logs related to Site Recovery via Azure Monitor to aggregate security data generated. Within the Azure Monitor, use Log Analytics workspaces to query and perform analytics, and use storage accounts for long-term/archival storage.
+Use Azure Activity Log data to determine the "what, who, and when" for any write operations (PUT, POST, DELETE) performed on your Azure resources.
+
+Ingest Site Recovery logs with Azure Monitor to aggregate generated security data . Within Azure Monitor, use Log Analytics workspaces to query and perform analytics, and use storage accounts for long-term/archival storage. Also, you may enable and on-board data to Azure Sentinel or a third-party Security Incident and Event Management (SIEM) solution.
 
 - [How to enable Diagnostic Settings for Azure Activity Log](https://docs.microsoft.com/azure/azure-monitor/platform/activity-log)
 
 - [Monitor Site Recovery with Azure Monitor Logs](https://docs.microsoft.com/azure/site-recovery/monitor-log-analytics)
+
+- [How to onboard Azure Sentinel](https://docs.microsoft.com/azure/sentinel/quickstart-onboard)
 
 **Azure Security Center monitoring**: Currently not available
 
@@ -140,7 +143,7 @@ Also, ingest logs related to Site Recovery via Azure Monitor to aggregate securi
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/33695.).
 
-**Guidance**: Using Azure Monitor, set log retention period for Log Analytics work-spaces associated with your Azure Recovery Services vaults according to your organization's compliance regulations. 
+**Guidance**: Using Azure Monitor, set log retention period for Log Analytics workspaces associated with your Azure Recovery Services vaults according to your organization's compliance regulations. 
 
 - [How to set log retention parameters](https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage#change-the-data-retention-period)
 
@@ -153,9 +156,9 @@ Also, ingest logs related to Site Recovery via Azure Monitor to aggregate securi
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/33696.).
 
-**Guidance**: Site Recovery offers built-in monitoring and alerting capabilities without any additional management infrastructure in Recovery Services vault. You can also increase the scale of your monitoring and reporting by using Azure Monitor.
+**Guidance**: Site Recovery offers built-in monitoring and alerting capabilities without using any additional management infrastructure in Recovery Services vault. You can also increase the scale of your monitoring and reporting with Azure Monitor.
 
-Enable Azure Activity Log diagnostic settings and send the logs to a Log Analytics workspace. Perform queries in Log Analytics to search terms, identify trends, analyze patterns, and provide many other insights based on the Activity Log Data that may have been collected for Recovery Services vaults.
+Enable Azure Activity Log diagnostic settings and send the logs to a Log Analytics workspace. Perform queries in Log Analytics to search terms, identify trends, analyze patterns, and provide many other insights based on the Activity Log Data that may have been collected for Recovery Services Vaults.
 
 - [Monitor Site Recovery](https://docs.microsoft.com/azure/site-recovery/site-recovery-monitor-and-troubleshoot)
 
@@ -224,11 +227,10 @@ You can also onboard a Log Analytics workspace to Azure Sentinel as it provides 
 **Guidance**: Create standard operating procedures around the use of dedicated administrative accounts. Use Security Center's Identity and Access Management features to monitor the number of administrative accounts.
 
 Additionally, to help you keep track of dedicated administrative accounts, you may use recommendations from Security Center or built-in Azure policies, such as: 
-- There should be more than one owner assigned to your subscription 
 
-- Deprecated accounts with owner permissions should be removed from your subscription 
-
-- External accounts with owner permissions should be removed from your subscription
+-- There should be more than one owner assigned to your subscription 
+-- Deprecated accounts with owner permissions should be removed from your subscription 
+-- External accounts with owner permissions should be removed from your subscription
 
 - [How to use Azure Security Center to monitor identity and access](https://docs.microsoft.com/azure/security-center/security-center-identity-access)
 
@@ -243,7 +245,7 @@ Additionally, to help you keep track of dedicated administrative accounts, you m
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/33704.).
 
-**Guidance**: Use an Azure app registration (Service Principal) to retrieve a token that can be used to interact with your Recovery Services vaults through API calls.
+**Guidance**: Use Azure app registration (with a Service Principal) to retrieve a token to be used to interact with your Recovery Services vaults through API calls.
 
 - [How to call Azure REST APIs](https://docs.microsoft.com/rest/api/azure/#how-to-call-azure-rest-apis-with-postman)
 
@@ -261,7 +263,7 @@ Additionally, to help you keep track of dedicated administrative accounts, you m
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/33705.).
 
 **Guidance**: Enable Azure Active
-Directory (Azure AD),  Multi-Factor Authentication (MFA) and follow Security Center's Identity and Access recommendations. 
+Directory (Azure AD), Multi-Factor Authentication (MFA) and follow Security Center's Identity and Access recommendations. 
 - [Plan an Azure Multi-Factor Authentication deployment](https://docs.microsoft.com/azure/active-directory/authentication/howto-mfa-getstarted)
 
 - [Monitor identity and access](https://docs.microsoft.com/azure/security-center/security-center-identity-access)
@@ -275,7 +277,7 @@ Directory (Azure AD),  Multi-Factor Authentication (MFA) and follow Security Cen
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/33706.).
 
-**Guidance**: Use a secure, Azure-managed workstation (also known as a Privileged Access Workstation (PAW)) with Azure Multi-Factor Authentication (MFA) for administrative tasks to run privileged actions on Site Recovery resources.
+**Guidance**: Use a secure, Azure-managed workstation (also known as a Privileged Access Workstation (PAW)) with Azure Multi-Factor Authentication (MFA) for administrative tasks and run privileged actions on Site Recovery resources.
 
 - [Privileged Access Workstations](https://docs.microsoft.com/windows-server/identity/securing-privileged-access/privileged-access-workstations)
 
@@ -292,7 +294,7 @@ Directory (Azure AD),  Multi-Factor Authentication (MFA) and follow Security Cen
 
 **Guidance**: Use Azure Active Directory (Azure AD) Privileged Identity Management (PIM) for generation of logs and alerts when suspicious or unsafe activity occurs in the environment.
 
-In addition, use Azure Active Directory (Azure AD) risk detections to view alerts and reports on risky user behavior.
+In addition, use Azure AD risk detections to view alerts and reports on risky user behavior.
 
 - [How to deploy Privileged Identity Management (PIM)](https://docs.microsoft.com/azure/active-directory/privileged-identity-management/pim-deployment-plan)
 
@@ -307,7 +309,7 @@ In addition, use Azure Active Directory (Azure AD) risk detections to view alert
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/33708.).
 
-**Guidance**: Use Conditional Access Named Locations to allow access to the Azure Portal from only specific logical groupings of IP address ranges or countries/regions.
+**Guidance**: Use Conditional Access Named Locations to allow access to the Azure portal from only specific logical groupings of IP address ranges, regions or countries.
 - [How to configure Named Locations in Azure](https://docs.microsoft.com/azure/active-directory/reports-monitoring/quickstart-configure-named-locations)
 
 **Azure Security Center monitoring**: Not applicable
@@ -371,7 +373,7 @@ Further streamline this process by creating diagnostic settings for Azure AD use
 
 **Guidance**: Use Azure Active Directory (Azure AD) as the central authentication and authorization system for your Recovery Services vaults. 
 
-Employ Azure AD Identity Protection features For account login behavior detection, to configure automated responses to detected suspicious actions related to user identities. You can also ingest data into Azure Sentinel for further investigation.
+Employ Azure AD's Identity Protection features For account login behavior detection, to configure automated responses to detected suspicious actions related to user identities. You can also ingest data into Azure Sentinel for further investigation.
 
 - [How to view Azure AD risky sign-in](https://docs.microsoft.com/azure/active-directory/identity-protection/overview-identity-protection)
 
@@ -422,7 +424,7 @@ All of Site Recovery's Disaster Recovery data is transferred or stored in custom
 
 Site Recovery helps ensure business continuity by keeping business apps and workloads running during outages by maintaining Recovery Time Objectives (RTO) and Recovery Point Objectives (RPO) within organizational limits.
 
-Turn off Virtual Machines which are storing or processing sensitive data. Implement policy and procedures to create this as a recurring process. 
+Turn off Virtual Machines, which store or process sensitive data, when not in use. Implement policy and procedures to create this as a recurring process. 
 
 - [How to create additional Azure subscriptions](https://docs.microsoft.com/azure/cost-management-billing/manage/create-subscription)
 
@@ -458,7 +460,7 @@ Microsoft manages the underlying platform used by Site Recovery and treats all c
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/33717.).
 
-**Guidance**: Site Recovery uses a secure https channel which is is encrypted using Advanced Encryption Standard (AES 256) from on-premises or Azure workload servers to Site Recovery PaaS services hosted behind a Recovery Services Vault.
+**Guidance**: Site Recovery uses a secure https channel which is is encrypted using Advanced Encryption Standard (AES 256) from on-premises or Azure workload servers to Site Recovery services hosted behind a Recovery Services Vault.
 
 Current TLS versions supported for Site Recovery are TLS 1.0, TLS 1.1, TLS 1.2 in regions which were live by the end of 2019. TLS1.2 is the only supported TLS version for any new regions.
 
@@ -490,8 +492,7 @@ Microsoft manages the underlying platform used by Site Recovery and treats all c
 
 **Guidance**: Use Azure role-based access control (Azure RBAC) to manage access to data and resources related to Site Recovery resources. 
 
-Separate work duties with Azure RBAC and grant appropriate access required for them. 
-Site Recovery provides 3 built-in roles to control Site Recovery management operations.
+Separate work duties with Azure RBAC and grant appropriate access required for them. Use the built-in Site Recovery roles to control Site Recovery management operations.
 
 - [How to configure Azure RBAC](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal)
 
@@ -599,7 +600,7 @@ Although classic Azure resources may be discovered via Resource Graph, it is hig
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/33729.).
 
-**Guidance**: Apply tags to Recovery Services vaults and other related resources used by Site Recovery giving metadata to logically organize them into a taxonomy.
+**Guidance**: Apply tags to Recovery Services Vaults and other related resources used by Site Recovery using metadata to logically organize them into a taxonomy.
 - [How to create and use Tags](https://docs.microsoft.com/azure/azure-resource-manager/management/tag-resources)
 
 **Azure Security Center monitoring**: Not applicable
@@ -633,7 +634,7 @@ In addition, use Azure Policy to put restrictions on the type of resources that 
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/33731.).
 
-**Guidance**: Create an inventory of approved Azure resources and approved software for compute resources based on customer's organizational needs.
+**Guidance**: Create an inventory of approved Azure resources and approved software for compute resources based on customer's organizational requirements.
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -727,7 +728,7 @@ Use Azure Policy aliases in the "Microsoft.RecoveryServices" namespace to create
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/33745.).
 
-**Guidance**: Use Azure Repos to securely store and manage your code, if you are using custom Azure Policy definitions for your Recovery Services vaults and related resources, 
+**Guidance**: Use Azure Repos to securely store and manage your code if using custom Azure Policy definitions for your Recovery Services Vaults and related resources, 
 - [How to store code in Azure DevOps](https://docs.microsoft.com/azure/devops/repos/git/gitworkflow?view=azure-devops)
 
 - [Azure Repos Documentation](https://docs.microsoft.com/azure/devops/repos/?view=azure-devops)
