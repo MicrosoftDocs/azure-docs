@@ -34,7 +34,7 @@ Now, let's review the phone number types and capabilities available through Comm
 
 Azure Communication Services provides excellent flexibility for developers. On most phone numbers, we allow you to configure an "a la carte" set of plans. Some developers only need an inbound calling plan; some might opt for inbound calling and outbound SMS plans. These plans can be selected as you lease and/or port your telephone numbers within Communication Services.
 
-The available plans depend on the country and phone number type that you're operating within.The diagram below represents the decision flow:	The available plans depend on the country and phone number type that you're operating within.
+The available plans depend on the country, use case and phone number type that you're operating within. The diagram below represents the decision flow:	
 
 :::image type="content" source="../media/plan-solution/SampleDecisionFlow1.PNG" alt-text="Diagram showing sample decision flow.":::
 
@@ -87,16 +87,16 @@ The table below summarizes these phone number types:
 
 | Phone number type | Example                              | Country availability    | Phone Number Capability |Common use case                                                                                                     |
 | ----------------- | ------------------------------------ | ----------------------- | ------------------------|------------------------------------------------------------------------------------------------------------------- |
-| Regional          | +1 (geographic area code) XXX XX XX  | US                      | PSTN Calling            | Assigning phone numbers to users in your applications or assigning to Interactive Voice Response (IVR) systems/Bots |
-| Toll-Free         | +1 (toll-free area *code*) XXX XX XX | US                      | PSTN Calling, SMS       | Assigning to Interactive Voice Response (IVR) systems/Bots, SMS applications                                        |
+| Regional          | +1 (geographic area code) XXX XX XX  | US                      | PSTN Calling (Outbound) | Assigning phone numbers to users in your applications or assigning to Interactive Voice Response (IVR) systems/Bots |
+| Toll-Free         | +1 (toll-free area *code*) XXX XX XX | US                      | PSTN Calling (Outbound), SMS (Inbound/Outbound)| Assigning to Interactive Voice Response (IVR) systems/Bots, SMS applications                                        |
 
 ## Plans 
 
 Let’s look at the capabilities you can enable for your phone numbers. These capabilities vary by country due to regulatory requirements. Azure Communication Services offers the following capabilities:
 
-- **One-way outbound SMS**, useful for notification and two-factor authentication scenarios. 
-- **Two-way inbound and outbound SMS**, a predefined package which allows the SMS to be sent and received as part of one plan. 
-- **PSTN calling**, you can select an inbound calling and use the Caller ID to place outbound calls. 
+- **One-way outbound SMS** This plan allows you to send SMS to your users using phone numbers acquired in your Azure Communication Services resource. This plan is useful for scenarios like notifications and two-factor authentication alerts. 
+- **Two-way inbound and outbound SMS** This plan allows you to send and receive messages from your users using phone numbers acquired in your Azure Communication Services resource. This plan is useful scenarios like customer service.
+- **One-way outbound PSTN calling** This plan allows you to make calls to your users. This plan enables scenarios like customer service.
 
 ## Country/Region Availability
 
