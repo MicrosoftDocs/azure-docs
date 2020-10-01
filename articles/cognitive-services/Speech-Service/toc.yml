@@ -581,8 +581,6 @@
     - name: Support
       displayName: support,help,release notes,search,scoped search,azure support,github support,stack overflow,github issues,bugs,feedback,uservoice
       href: support.md
-    - name: Regions
-      href: regions.md
     - name: Swagger documentation
       href: swagger-documentation.md
     - name: Sovereign Clouds
