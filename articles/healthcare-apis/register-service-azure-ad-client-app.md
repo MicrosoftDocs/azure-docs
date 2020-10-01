@@ -1,6 +1,6 @@
 ---
 title: Register a service app in Azure AD - Azure API for FHIR
-description: Learn how to register a service client application in Azure Active Directory that can be used to authenticate and obtain tokens. 
+description: Learn how to register a service client application in Azure Active Directory. 
 services: healthcare-apis
 author: matjazl
 ms.service: healthcare-apis
@@ -14,7 +14,7 @@ ms.author: matjazl
 
 In this article, you'll learn how to register a service client application in Azure Active Directory. Client application registrations are Azure Active Directory representations of applications that can be used to authenticate and obtain tokens. A service client is intended to be used by an application to obtain an access token without interactive authentication of a user. It will have certain application permissions and use an application secret (password) when obtaining access tokens.
 
-Follow the steps below to create a new service client.
+Follow these steps to create a new service client.
 
 ## App registrations in Azure portal
 
@@ -55,7 +55,7 @@ Now that you have registered your application, you'll need to select which API p
 
 ## Application secret
 
-The service client needs a secret (password), which you will used when obtaining tokens.
+The service client needs a secret (password) to obtain a token.
 
 1. Select **Certificates & secrets**.
 2. Select **New client secret**.
