@@ -3,13 +3,12 @@ title: Azure Key Vault security
 description: Manage access permissions for Azure Key Vault, keys, and secrets. Covers the authentication and authorization model for Key Vault, and how to secure your key vault.
 services: key-vault
 author: msmbaldwin
-manager: rkarlin
 tags: azure-resource-manager
 
 ms.service: key-vault
 ms.subservice: general
 ms.topic: conceptual
-ms.date: 04/18/2019
+ms.date: 09/30/2020
 ms.author: mbaldwin
 #Customer intent: As a key vault administrator, I want to learn the options available to secure my vaults
 ---
@@ -73,21 +72,9 @@ After firewall rules are in effect, users can only read data from Key Vault when
 
 For more information on Azure Key Vault network address review [Virtual network service endpoints for Azure Key Vault](overview-vnet-service-endpoints.md))
 
-## Monitoring
+## Logging and monitoring
 
-Key Vault logging saves information about the activities performed on your vault. Key Vault logs:
-
-- All authenticated REST API requests, including failed requests
-  - Operations on the key vault itself. These operations include creation, deletion, setting access policies, and updating key vault attributes such as tags.
-  - Operations on keys and secrets in the key vault, including:
-    - Creating, modifying, or deleting these keys or secrets.
-    - Signing, verifying, encrypting, decrypting, wrapping and unwrapping keys, getting secrets, and listing keys and secrets (and their versions).
-- Unauthenticated requests that result in a 401 response. Examples are requests that don't have a bearer token, that are malformed or expired, or that have an invalid token.
-
-Logging information can be accessed within 10 minutes after the key vault operation. It's up to you to manage your logs in your storage account.
-
-- Use standard Azure access control methods to secure your logs by restricting who can access them.
-- Delete logs that you no longer want to keep in your storage account.
+Key Vault logging saves information about the activities performed on your vault. For full details, see [Key Vault logging](logging.md).
 
 For recommendation on securely managing storage accounts, review the [Azure Storage security guide](../../storage/blobs/security-recommendations.md)
 
@@ -95,4 +82,3 @@ For recommendation on securely managing storage accounts, review the [Azure Stor
 
 - [Virtual network service endpoints for Azure Key Vault](overview-vnet-service-endpoints.md)
 - [RBAC: Built-in roles](../../role-based-access-control/built-in-roles.md)
-
