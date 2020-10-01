@@ -93,6 +93,82 @@ Additionally, the service recognizes relations between the different concepts in
   +	**UNIT_OF_EXAMINATION**
   +	**VALUE_OF_EXAMINATION**
 
+## GENOMICS
+### Entities
+  + **GENE** – All mentions of genes. For example, MTRR, F2.
+> [!div class="mx-imgBorder"]
+> ![GENOMICS_GENE](../media/ta-for-health/genomics_entities.png)
+  + **VARIANT** – All mentions of gene variations. For example, c.524C>T, (MTRR):r.1462_1557del96
+  
+## HEALTHCARE
+### Entities
+  + **ADMINISTRATIVE_EVENT** – Events that relate to the healthcare system but of an administrative/semi-administrative nature. For example, registration, admission, trial, study entry, transfer, discharge, hospitalization, hospital stay. 
+> [!div class="mx-imgBorder"]
+> ![HC_EVENT](../media/ta-for-health/healthcare_entities_1.png)
+  + **CARE_ENVIRONMENT** – An environment or location where patients are given care. For example, emergency room, physician’s office, cardio unit, hospice, hospital.
+> [!div class="mx-imgBorder"]
+> ![HC_ENV](../media/ta-for-health/healthcare_entities_2.png)
+  + **HEALTHCARE_PROFESSION** – A healthcare practitioner licensed or non-licensed. For example, dentist, pathologist, neurologist, radiologist, pharmacist, nutritionist, physical therapist, chiropractor.
+> [!div class="mx-imgBorder"]
+> ![HC_PROFESS1](../media/ta-for-health/healthcare_entities_3.png)
 
+> ![HC_PROFESS2](../media/ta-for-health/healthcare_entities_4.png)
 
+## MEDICAL CONDITION
+### Entities
+  + **DIAGNOSIS** – Disease, syndrome, poisoning. For example, breast cancer, Alzheimer’s, HTN, CHF, spinal cord injury.
+> [!div class="mx-imgBorder"]
+> ![MEDCON_DIAG1](../media/ta-for-health/medcond_entities_diag_1.png)
 
+> ![MEDCON_DIAG2](../media/ta-for-health/medcond_entities_diag_2.png)
+  + **SYMPTOM_OR_SIGN** – Subjective or objective evidence of disease or other diagnoses. For example, chest pain, headache, dizziness, rash, SOB, abdomen was soft, good bowel sounds, well nourished.
+> [!div class="mx-imgBorder"]
+> ![MEDCON_SYM1](../media/ta-for-health/medcond_entities_sym_1.png)
+
+> ![MEDCON_SYM2](../media/ta-for-health/medcond_entities_sym_2.png)
+### Attributes
+  + **CONDITION_QUALIFIER** - Quality terms that are used to describe a medical condition. All the following sub-categories are considered qualifiers:
+    1.	Time-related expressions: those are terms that describe the time dimension qualitatively, such as sudden, acute, chronic, longstanding. 
+    2.	Quality expressions:  Those are terms that describe the “nature” of the medical condition, such as burning, sharp.
+    3.	Severity expressions: severe, mild, a bit, uncontrolled.
+    4.	Extensivity expressions: local, focal, diffuse.
+    5.	Radiation expressions: radiates, radiation.
+    6.	Condition scale: In some cases, a condition is characterized by a scale, which is a finite ordered list of values. For example, Patients with stage III pancreatic cancer.
+    7.	Condition course: A term that relates to the course or progression of a condition, such as improvement, worsening, resolution, remission. 
+> [!div class="mx-imgBorder"]
+> ![MEDCON_CONDQUAL1](../media/ta-for-health/medcond_attr_condqual_1.png)
+
+> ![MEDCON_CONDQUAL2](../media/ta-for-health/medcond_attr_condqual_2.png)
+
+> ![MEDCON_CONDQUAL3](../media/ta-for-health/medcond_attr_condqual_3.png)
+
+> ![MEDCON_CONDQUAL4](../media/ta-for-health/medcond_attr_condqual_4.png)
+
+> ![MEDCON_CONDQUAL5](../media/ta-for-health/medcond_attr_condqual_5.png)
+  + **DIRECTION** - Directional terms that characterizes a body medical condition.
+> [!div class="mx-imgBorder"]
+> ![MEDCON_DIRECT](../media/ta-for-health/medcond_attr_directions.png)
+  + **FREQUENCY** - How often a medical condition occurred, occurs, or should occur.
+> [!div class="mx-imgBorder"]
+> ![MEDCON_FREQ1](../media/ta-for-health/medcond_attr_freq_1.png)
+
+> ![MEDCON_FREQ2](../media/ta-for-health/medcond_attr_freq_2.png)
+  + **MEASUREMENT_UNIT** - The unit that characterizes a medical condition. For example, in *1.5x2x1 cm tumor*, the term *cm* is the measurement unit for the *tumor*. 
+> [!div class="mx-imgBorder"]
+> ![MEDCON_UNIT](../media/ta-for-health/medcond_attr_measure_unit.png)
+  + **MEASUREMENT_VALUE** - The value that characterizes a medical condition. For example, in *1.5x2x1 cm tumor*, the term *1.5x2x1* is the measurement value for the *tumor*. 
+> [!div class="mx-imgBorder"]
+> ![MEDCON_VALUE](../media/ta-for-health/medcond_attr_measure_value.png)
+  + **RELATIONAL_OPERATOR** - Phrases that express the relation between medical condition additional information. For example, time or measurement value. 
+> [!div class="mx-imgBorder"]
+> ![MEDCON_REL_OPR](../media/ta-for-health/medcond_attr_rel_opr.png)
+  + **TIME** - Temporal terms relating to the beginning and/or length (duration) of a medical condition. For example, when a symptom started (onset) or when a disease occurred.
+> [!div class="mx-imgBorder"]
+> ![MEDCON_TIME](../media/ta-for-health/medcond_attr_time.png)
+
+### Supported Relations
+  + **DIRECTION_OF_CONDITION**
+  +	**QUALIFIER_OF_CONDITION**
+  +	**TIME_OF_CONDITION**
+  +	**UNIT_OF_CONDITION**
+  +	**VALUE_OF_CONDITION**
