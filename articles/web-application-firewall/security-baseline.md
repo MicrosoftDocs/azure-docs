@@ -30,13 +30,12 @@ This security baseline applies guidance from the [Azure Security Benchmark versi
 
 **Guidance**: Use Microsoft Azure Web Application Firewall (WAF) for centralized protection of web applications from common exploits and vulnerabilities such as SQL injection and cross-site scripting. 
 
-•	Detection mode: Use this mode for learning the network traffic, understand and review false positives. It monitors and logs all threat alerts. Make sure that Diagnostics and WAF log are selected and turned on. Note that the WAF does not block incoming requests when it's operating in Detection mode.
+- Detection mode: Use this mode for learning the network traffic, understand and review false positives. It monitors and logs all threat alerts. Make sure that Diagnostics and WAF log are selected and turned on. Note that the WAF does not block incoming requests when it's operating in Detection mode.
+- Prevention mode: Blocks intrusions and attacks detected by the rules. An attacker receives a "403 unauthorized access" exception, and the connection is closed. Prevention mode records such attacks in the WAF logs.
 
-•	Prevention mode: Blocks intrusions and attacks detected by the rules. An attacker receives a "403 unauthorized access" exception, and the connection is closed. Prevention mode records such attacks in the WAF logs.
+Baseline your network traffic with the WAF's Detection mode. After determining your traffic needs, configure the WAF in Prevention mode to bock unwanted traffic.
 
-Baseline your network traffic with the WAF's Detection mode. After determining your traffic needs, configure the WAF in Prevention mode to bock unwanted traffic. 
-
-Follow-up on high severity recommendations from Security Center for any web-enabled resources which are not protected by WAF.  
+Follow up on high severity recommendations from Security Center for any web-enabled resources which are not protected by WAF.  
 
 - [Web Application Firewall CRS rule groups and rules](https://docs.microsoft.com/azure/web-application-firewall/ag/application-gateway-crs-rulegroups-rules) 
 
@@ -172,8 +171,8 @@ Choose Azure PowerShell or Azure CLI to look-up or perform actions on resources 
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/22649).
 
-**Guidance**: Send Azure Web Application Firewall (WAF) logs to a central security log management solution such as Azure Sentinel, or a third-party SIEM such as Barracuda. The logs include Activity, Diagnostic and real-time WAF logs and can be extracted from Azure Blob storage and viewed in different tools, such as Azure Monitor logs, Excel, and Power BI.
-Configure logging diagnostics by choosing the Diagnostic section on Azure Portal for Azure WAF offerings. Logs are additionally captured for WAF operating modes,  Diagnostic and Prevention. Firewall logs give insight to what data the Azure WAF is evaluating, matching, and blocking. 
+**Guidance**: Send Azure Web Application Firewall (WAF) logs to a central security log management solution such as Azure Sentinel, or a third-party SIEM such as Barracuda. The logs include Activity, Diagnostic, and real-time WAF logs and can be extracted from Azure Blob storage and viewed in different tools, such as Azure Monitor logs, Excel, and Power BI.
+Configure logging diagnostics by choosing the Diagnostic section on Azure portal for Azure WAF offerings. Logs are additionally captured for WAF operating modes,  Diagnostic and Prevention. Firewall logs give insight to what data the Azure WAF is evaluating, matching, and blocking. 
 
 Azure Sentinel has a built-in Azure WAF - firewall events workbook, which provides an overview of the security events on the Azure WAF. This includes events, matched and blocked rules, and everything else that gets logged in the firewall logs.
 
@@ -244,13 +243,7 @@ Azure Sentinel has a built-in WAF - firewall events workbook, which provides an 
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/22654).
 
-**Guidance**: Deploy Azure Web Application Firewall (WAF) in front of critical web applications for additional inspection of incoming traffic. 
-
-Enable Azure Activity Log diagnostic settings, as well as the diagnostic settings for your Azure WAF, and send the logs to a Log Analytics workspace. Perform queries in Log Analytics to search terms, identify trends, analyze patterns, and provide many other insights based on the collected data. 
-
-Create alerts based on your Log Analytics workspace queries. Alerts based on WAF metrics can be setup. For example, if blocked number of requests exceeding 'X,' do 'Y'. Customers are offered web application protection with OWASP rules, and can also create custom rules with Azure Monitor.
-
-- [How to deploy Azure WAF](https://docs.microsoft.com/azure/web-application-firewall/ag/create-waf-policy-ag)
+**Guidance**: Enable Azure Activity Log diagnostic settings, as well as the diagnostic settings for your Azure WAF, and send the logs to a Log Analytics workspace. Perform queries in Log Analytics to search terms, identify trends, analyze patterns, and provide many other insights based on the collected data. Create alerts for anomalous activity based on WAF metrics. For example, if blocked number of requests exceeding 'X,' do 'Y'.
 
 - [How to enable diagnostic settings for Azure Activity Log](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-settings-legacy)
 
