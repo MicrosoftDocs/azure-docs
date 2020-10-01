@@ -27,7 +27,7 @@ Selecting any of the definitions allows you to [assign the policy](https://docs.
 
 ![Select Azure Policy definitions](./media/backup-center-govern-environment/azure-policy-definitions.png)
 
-## Backup Compliance
+## Backup compliance
 
 Clicking on the Backup Compliance menu item helps you view the [compliance](https://docs.microsoft.com/azure/governance/policy/how-to/get-compliance-data) of your resources according to the various built-in policies that you've assigned to your Azure environment. You can view the percentage of resources that are compliant on all policies, as well as the policies that have one or more non-compliant resources.
 

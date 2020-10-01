@@ -34,11 +34,11 @@ In the **Jobs** tile, you get a summarized view of all backup and restore relate
 
 In the **Backup Instances** tile, you get a summarized view of all backup instances across your backup estate. For example, you can see the number of backup instances that are in soft-deleted state compared to the number of instances that are still configured for protection. Selecting any of the numbers in this tile allows you to view more information on backup instances for a particular datasource type and protection state.
 
-Watch the video below to understand the capabilities of Backup Center:
+Watch the following video to understand the capabilities of Backup Center:
 
-[!VIDEO https://youtu.be/pFRMBSXZcUk?t=497]
+> [!VIDEO https://www.youtube.com/embed/pFRMBSXZcUk?t=497]
 
-Follow the steps below to understand the different capabilities that Backup Center provides, and how you can use these capabilities to manage your backup estate efficiently.
+Follow the [next steps](#next-steps) to understand the different capabilities that Backup Center provides, and how you can use these capabilities to manage your backup estate efficiently.
 
 ## Next steps
 
