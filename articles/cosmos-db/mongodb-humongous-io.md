@@ -25,6 +25,8 @@ In order to connect your Cosmos database to HumongouS.io, you must:
 -   Create a [HumongouS.io](https://www.humongous.io/app/signup) account
 -   Have your Cosmos DB [connection string](connect-mongodb-account.md) information
 
+## Connect to Cosmos DB's API for MongoDB
+
 The first step is to head over to your [Azure Cosmos DB portal](https://portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.DocumentDb%2FdatabaseAccounts) and select your database.
 
 :::image type="content" source="./media/humongous-io/select-cosmos-db.png" alt-text="Screenshot of Cosmos DB project":::
