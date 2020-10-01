@@ -1,9 +1,9 @@
-p---
+---
 title: Connect your non-Azure machines to Azure Security Center
 description: Learn how to connect your non-Azure machines to Security Center
 author: memildin
 ms.author: memildin
-ms.date: 9/30/2020
+ms.date: 10/01/2020
 ms.topic: quickstart
 ms.service: security-center
 manager: rkarlin
@@ -12,9 +12,9 @@ manager: rkarlin
 
 #  Connect your non-Azure machines to Security Center
 
-Security Center can monitor the security posture of your non-Azure machines but you need to first onboard these resources. 
+Security Center can monitor the security posture of your non-Azure computers but you need to first onboard these resources. 
 
-You can add non-Azure machines in either of the following ways:
+You can add non-Azure computers in any of the following ways:
 
 - Using Azure Arc (**recommended**)
 - From Security Center's pages in the Azure portal (**Getting started** and **Inventory**)
@@ -37,7 +37,7 @@ In addition, Azure Arc provides enhanced capabilities such as the option to enab
 Learn more about [Azure Arc](../azure-arc/servers/overview.md).
 
 > [!TIP]
-u> If you're onboarding AWS machines, Security Center's connector for AWS transparently handles the Azure Arc deployment for you. Learn more in [Connect your AWS accounts to Azure Security Center](quickstart-onboard-aws.md).
+> If you're onboarding AWS machines, Security Center's connector for AWS transparently handles the Azure Arc deployment for you. Learn more in [Connect your AWS accounts to Azure Security Center](quickstart-onboard-aws.md).
 
 ## Add non-Azure machines from Security Center's portal pages
 
@@ -55,7 +55,7 @@ u> If you're onboarding AWS machines, Security Center's connector for AWS transp
 
     A list of your Log Analytics workspaces is shown. The list includes, if applicable, the default workspace created for you by Security Center when automatic provisioning was enabled. Select this workspace or another workspace you want to use.
 
-    You can add machines to an existing workspace or create a new workspace. 
+    You can add computers to an existing workspace or create a new workspace. 
 
 1. Optionally, to create a new workspace, select  **Create new workspace**.
 
@@ -87,38 +87,29 @@ To add Azure Stack VMs, you need the information on the **Agents management** pa
 
 ### Onboard your Linux machines
 To add Linux machines, you need the WGET command from the **Agents management** page.
-1. From the **Agents management** page, copy the **WGET** command into Notepad. Save this file to a location that can be accessible from your Linux machine.
-
-1. On your Linux machine:
-    1. Open the file with the WGET command.
-    1. Select the entire contents and copy and paste it into a terminal console.
-
-1. When the installation completes, you can validate that the `omsagent` is installed by running the `pgrep` command. The command will return the `omsagent` PID.
-
-    The logs for the Agent can be found at `/var/opt/microsoft/omsagent/\<workspace id>/log/`
-
+1. From the **Agents management** page, copy the **WGET** command into Notepad. Save this file to a location that can be accessible from your Linux computer.
+1. On your Linux computer, open the file with the WGET command. Select the entire content and copy and paste it into a terminal console.
+1. When the installation completes, you can validate that the *omsagent* is installed by running the *pgrep* command. The command will return the *omsagent* PID.
+    The logs for the Agent can be found at: */var/opt/microsoft/omsagent/\<workspace id>/log/*
     It might take up to 30 minutes for the new Linux machine to appear in Security Center.
 
-> [!TIP]
-> Learn more about the supported environments and options in [Install Log Analytics agent on Linux computers](../azure-monitor/platform/agent-linux.md).
 
 ### Onboard your Windows machines
 To add Windows machines, you need the information on the **Agents management** page and to download the appropriate agent file (32/64-bit).
-1. Select the **Download Windows Agent** link applicable to your machine's processor type.
+1. Select the **Download Windows Agent** link applicable to your computer processor type to download the setup file.
 1. From the **Agents management** page, copy the **Workspace ID** and **Primary Key** into Notepad.
-1. Copy the downloaded setup file to the target machine and run it.
+1. Copy the downloaded setup file to the target computer and run it.
 1. Follow the installation wizard (**Next**, **I Agree**, **Next**, **Next**).
     1. On the **Azure Log Analytics** page, paste the **Workspace ID** and **Workspace Key (Primary Key)** that you copied into Notepad.
-    1. If the machine should report to a Log Analytics workspace in Azure Government cloud, select **Azure US Government** from the **Azure Cloud** dropdown list.
-    1. If the machine needs to communicate through a proxy server to the Log Analytics service, select **Advanced** and provide the URL and port number of the proxy server.
+    1. If the computer should report to a Log Analytics workspace in Azure Government cloud, select **Azure US Government** from the **Azure Cloud** dropdown list.
+    1. If the computer needs to communicate through a proxy server to the Log Analytics service, select **Advanced** and provide the URL and port number of the proxy server.
     1. When you've entered all of the configuration settings, select **Next**.
     1. From the **Ready to Install** page, review the settings to be applied and select **Install**.
     1. On the **Configuration completed successfully** page, select **Finish**.
 
 When complete, the **Log Analytics agent** appears in **Control Panel**. You can review your configuration there and verify that the agent is connected.
 
-> [!TIP]
-> Learn more about installing and configuring the agent, see [Connect Windows machines](../azure-monitor/platform/agent-windows.md#install-agent-using-setup-wizard).
+For further information on installing and configuring the agent, see [Connect Windows machines](../azure-monitor/platform/agent-windows.md#install-agent-using-setup-wizard).
 
 
 ## Verifying
