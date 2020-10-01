@@ -24,8 +24,6 @@ For more information about Azure Key Vault, see [What is Azure Key Vault?](../..
 > [!NOTE]
 > Azure Key Vault and Azure Key Vault Managed HSM support the same APIs and management interfaces for configuration.
 
-[!INCLUDE [storage-data-lake-gen2-support](../../../includes/storage-data-lake-gen2-support.md)]
-
 ## About customer-managed keys
 
 The following diagram shows how Azure Storage uses Azure Active Directory and a key vault or managed HSM to make requests using the customer-managed key:
