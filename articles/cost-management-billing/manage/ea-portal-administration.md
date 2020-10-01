@@ -432,7 +432,7 @@ Yes. All Azure subscriptions for which you're the account owner will be converte
 
 ### How many Azure account owners can you have per subscription?
 
-Only one account owner is permitted per subscription.  Additional roles can be added using Role-Based Access or (Access Control (IAM)) in the subscription tab in the upper left corner of the page of the [Azure portal](https://portal.azure.com).
+Only one account owner is permitted per subscription.  Additional roles can be added using Azure role-based access control (Azure RBAC) in the subscription tab in the upper left corner of the page of the [Azure portal](https://portal.azure.com).
 
 ### Is it possible to transfer subscription ownership to another account?
 
@@ -457,7 +457,7 @@ An Azure account owner can create and manage an unlimited number of subscription
 
 ### How can I access/view all my organization's subscriptions?
 
-Today this must be done by policy; meaning you would need to require that for every subscription created, your account is added to a subscription role using role-based access.
+Today this must be done by policy; meaning you would need to require that for every subscription created, your account is added to a subscription role using Azure role-based access control (Azure RBAC).
 
 ### Where do I go to create a subscription?
 

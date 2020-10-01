@@ -12,10 +12,9 @@ ms.subservice: hybrid
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
+ms.date: 09/24/2020
 ms.topic: how-to
-ms.date: 07/18/2017
 ms.author: billmath
-
 ms.collection: M365-identity-device-management 
 ms.custom: devx-track-azurepowershell
 ---
@@ -24,6 +23,10 @@ ms.custom: devx-track-azurepowershell
 This document walks you through installing and configuring the Azure AD Connect Health Agents. You can download the agents from [here](how-to-connect-install-roadmap.md#download-and-install-azure-ad-connect-health-agent).
 
 ## Requirements
+
+
+> [!IMPORTANT]
+> Installing the Azure AD Connect Health agent on Windows Server Core is not supported.
 
 The following table is a list of requirements for using Azure AD Connect Health.
 
@@ -43,7 +46,7 @@ The following table is a list of requirements for using Azure AD Connect Health.
 
 > [!NOTE]
 > If you have a highly locked-down and extremely restricted environment, you would require to add the URLs mentioned in the Service endpoint lists below in addition to the ones listed in the Allowed IE enhanced Security configuration above. 
->
+
 
 ### Outbound connectivity to the Azure service endpoints
 

@@ -132,7 +132,7 @@
       items:
       - name: Account administrator tasks
         href: manage/account-admin-tasks.md
-      - name: Edit profile
+      - name: Edit billing contact information
         href: manage/change-azure-account-profile.md
       - name: Resolve past due balance
         href: manage/resolve-past-due-balance.md

@@ -6,10 +6,10 @@ ms.service: sql-database
 ms.subservice: performance
 ms.custom: sqldbrb=1
 ms.devlang: 
-ms.topic: conceptual
+ms.topic: how-to
 author: danimir
 ms.author: danil
-ms.reviewer: jrasnik, carlrab
+ms.reviewer: jrasnik, sstein
 ms.date: 12/19/2018
 ---
 # Find and apply performance recommendations
@@ -97,7 +97,7 @@ You can set your database to implement recommendations automatically. As recomme
    ![Advisor settings](./media/database-advisor-find-recommendations-portal/settings.png)
 2. Select actions to automate:
 
-   ![Recommended Indexes](./media/database-advisor-find-recommendations-portal/server.png)
+   ![Screenshot that shows where to select the actions to automate.](./media/database-advisor-find-recommendations-portal/server.png)
 
 > [!NOTE]
 > Please note that **DROP_INDEX** option is currently not compatible with applications using partition switching and index hints.
@@ -133,7 +133,7 @@ Applying a recommendation might not happen instantaneously. The portal provides 
 
 Click an in-process recommendation from the list to see more information:
 
-![Recommended Indexes](./media/database-advisor-find-recommendations-portal/operations.png)
+![Screenshot that shows the list of in-process recommendations.](./media/database-advisor-find-recommendations-portal/operations.png)
 
 ### Reverting a recommendation
 

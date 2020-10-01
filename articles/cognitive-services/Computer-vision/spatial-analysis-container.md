@@ -25,7 +25,7 @@ The spatial analysis container enables you to analyze real-time streaming video 
 
 ### Spatial analysis container requirements
 
-To run the spatial analysis container, you need a compute device with a [NVIDIA Tesla T4 GPU](https://www.nvidia.com/data-center/tesla-t4/). We recommend that you use [Azure Stack Edge](https://azure.microsoft.com/products/azure-stack/edge/) with GPU acceleration, however the container runs on any other desktop machine that meets the minimum requirements. We will refer to this device as the host computer.
+To run the spatial analysis container, you need a compute device with a [NVIDIA Tesla T4 GPU](https://www.nvidia.com/en-us/data-center/tesla-t4/). We recommend that you use [Azure Stack Edge](https://azure.microsoft.com/products/azure-stack/edge/) with GPU acceleration, however the container runs on any other desktop machine that meets the minimum requirements. We will refer to this device as the host computer.
 
 #### [Azure Stack Edge device](#tab/azure-stack-edge)
 

@@ -5,7 +5,7 @@ author: vhorne
 ms.service: firewall-manager
 services: firewall-manager
 ms.topic: overview
-ms.date: 09/23/2020
+ms.date: 09/30/2020
 ms.author: victorh
 ---
 
@@ -73,7 +73,7 @@ Azure Firewall Manager has the following known issues:
 
 |Issue  |Description  |Mitigation  |
 |---------|---------|---------|
-|Traffic splitting|Office 365 and Azure Public PaaS traffic splitting isn't currently supported. As such, selecting a third-party provider for V2I or B2I also sends all Azure Public PaaS and Office 365 traffic via the partner service.|Investigating traffic splitting at the hub.
+|Traffic splitting|Microsoft 365 and Azure Public PaaS traffic splitting isn't currently supported. As such, selecting a third-party provider for V2I or B2I also sends all Azure Public PaaS and Microsoft 365 traffic via the partner service.|Investigating traffic splitting at the hub.
 |One secured virtual hub per region|You can't have more than one secured virtual hub per region.|Create multiple virtual WANs in a region.|
 |Base policies must be in same region as local policy|Create all your local policies in the same region as the base policy. You can still apply a policy that was created in one region on a secured hub from another region.|Investigating|
 |Filtering inter-hub traffic in secure virtual hub deployments|Secured Virtual Hub to Secured Virtual Hub communication filtering isn't yet supported. However, hub to hub communication still works if private traffic filtering via Azure Firewall isn't enabled.|Investigating|
@@ -84,6 +84,7 @@ Azure Firewall Manager has the following known issues:
 |Application rules fail in a secure hub with custom DNS (preview) configured.|Custom DNS (preview) doesn’t work in  secure hub deployments and Hub virtual network deployments where forced tunneling is enabled.|Fix under investigation.|
 |DDoS Protection Standard not supported with secured virtual hubs|DDoS Protection Standard is not integrated with vWANs.|Investigating|
 |Activity logs not fully supported|Firewall policy does not currently support Activity logs.|Investigating|
+|Configuring SNAT private IP address ranges|[Private IP range settings](../firewall/snat-private-range.md) are ignored if Azure Firewall policy is configured. The default Azure Firewall behavior is used, where it doesn’t SNAT Network rules when the destination IP address is in a private IP address range per [IANA RFC 1918](https://tools.ietf.org/html/rfc1918).|Investigating
 
 ## Next steps
 

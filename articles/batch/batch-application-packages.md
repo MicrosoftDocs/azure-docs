@@ -2,61 +2,58 @@
 title: Deploy application packages to compute nodes
 description: Use the application packages feature of Azure Batch to easily manage multiple applications and versions for installation on Batch compute nodes.
 ms.topic: how-to
-ms.date: 09/16/2020
-ms.custom: "H1Hack27Feb2017, devx-track-csharp"
+ms.date: 09/24/2020
+ms.custom: 
+   - H1Hack27Feb2017
+   - devx-track-csharp
+   - contperfq1
 
 ---
 # Deploy applications to compute nodes with Batch application packages
 
-The application packages feature of Azure Batch helps you manage task applications and their deployment to compute nodes in your pools. Application packages can simplify the code in your Batch solution and lower the overhead required to manage the applications that your tasks run. With application packages, you can upload and manage multiple versions of the applications your tasks run, including their supporting files. You can then automatically deploy one or more of these applications to the compute nodes in your pool.
-
-Application packages can help your customers select applications for their jobs, specifying the exact version to use when processing jobs with your Batch-enabled service. You can also provide the ability for your customers to upload and track their own applications in your service.
+Application packages can simplify the code in your Azure Batch solution and make it easier to manage the applications that your tasks run. With application packages, you can upload and manage multiple versions of applications your tasks run, including their supporting files. You can then automatically deploy one or more of these applications to the compute nodes in your pool.
 
 The APIs for creating and managing application packages are part of the [Batch Management .NET](/dotnet/api/overview/azure/batch/management) library. The APIs for installing application packages on a compute node are part of the [Batch .NET](/dotnet/api/overview/azure/batch/client) library. Comparable features are in the available Batch APIs for other languages.
 
-This article explains how to upload and manage application packages in the Azure portal, and how to install them on a pool's compute nodes with the [Batch .NET](/dotnet/api/overview/azure/batch/client) library.
+This article explains how to upload and manage application packages in the Azure portal. It also shows how to install them on a pool's compute nodes with the [Batch .NET](/dotnet/api/overview/azure/batch/client) library.
 
 ## Application package requirements
 
 To use application packages, you need to [link an Azure Storage account](#link-a-storage-account) to your Batch account.
 
-There are restrictions on the number of applications and application packages within a Batch account and on the maximum application package size. See [Quotas and limits for the Azure Batch service](batch-quota-limit.md) for details about these limits.
+There are restrictions on the number of applications and application packages within a Batch account and on the maximum application package size. For more information, see [Quotas and limits for the Azure Batch service](batch-quota-limit.md).
 
 > [!NOTE]
-> Batch pools created prior to July 5, 2017 do not support application packages (unless they were created after March 10, 2016 using Cloud Services Configuration).
->
-> The application packages feature described here supersedes the Batch Apps feature available in previous versions of the service.
+> Batch pools created prior to July 5, 2017 do not support application packages (unless they were created after March 10, 2016 using Cloud Services Configuration). The application packages feature described here supersedes the Batch Apps feature available in previous versions of the service.
 
-## About applications and application packages
+## Understand applications and application packages
 
-Within Azure Batch, an *application* refers to a set of versioned binaries that can be automatically downloaded to the compute nodes in your pool. An *application package* refers to a specific set of those binaries, representing a given version of the application.
+Within Azure Batch, an *application* refers to a set of versioned binaries that can be automatically downloaded to the compute nodes in your pool. An application contains one or more *application packages*, which represent different versions of the application.
+
+Each *application package* is a .zip file that contains the application binaries and any supporting files. Only the .zip format is supported.
 
 :::image type="content" source="media/batch-application-packages/app_pkg_01.png" alt-text="Diagram showing a high-level view of applications and application packages.":::
 
-An *application* in Batch contains one or more application packages and specifies configuration options for the application. For example, an application can specify the default application package version to install on compute nodes and whether its packages can be updated or deleted.
-
-An *application package* is a .zip file that contains the application binaries and supporting files that are required for your tasks to run the application. Each application package represents a specific version of the application. Only the .zip format is supported.
-
-You can specify application packages at the pool or task levels. You can specify one or more of these packages and (optionally) a version when you create a pool or task.
+You can specify application packages at the pool or task level.
 
 - **Pool application packages** are deployed to every node in the pool. Applications are deployed when a node joins a pool, and when it is rebooted or reimaged.
   
-    Pool application packages are appropriate when all nodes in a pool execute a job's tasks. You can specify one or more application packages when you create a pool, and you can add or update an existing pool's packages. If you update an existing pool's application packages, you must restart its nodes to install the new package.
+    Pool application packages are appropriate when all nodes in a pool will execute a job's tasks. You can specify one or more application packages to deploy when you create a pool. You can also add or update an existing pool's packages. To install a new package to an existing pool, you must restart its nodes.
 
 - **Task application packages** are deployed only to a compute node scheduled to run a task, just before running the task's command line. If the specified application package and version is already on the node, it is not redeployed and the existing package is used.
   
-    Task application packages are useful in shared-pool environments, where different jobs are run on one pool, and the pool is not deleted when a job is completed. If your job has fewer tasks than nodes in the pool, task application packages can minimize data transfer since your application is deployed only to the nodes that run tasks.
+    Task application packages are useful in shared-pool environments, where different jobs run on one pool, and the pool isn't deleted when a job completes. If your job has fewer tasks than nodes in the pool, task application packages can minimize data transfer, since your application is deployed only to the nodes that run tasks.
   
-    Other scenarios that can benefit from task application packages are jobs that run a large application, but for only a few tasks. For example, a pre-processing stage or a merge task, where the pre-processing or merge application is heavyweight, may benefit from using task application packages.
+    Other scenarios that can benefit from task application packages are jobs that run a large application, but for only a few tasks. For example, task applications may be useful for a heavyweight pre-processing stage or a merge task.
 
-With application packages, your pool's start task doesn't have to specify a long list of individual resource files to install on the nodes. You don't have to manually manage multiple versions of your application files in Azure Storage, or on your nodes. And, you don't need to worry about generating [SAS URLs](../storage/common/storage-sas-overview.md) to provide access to the files in your Storage account. Batch works in the background with Azure Storage to store application packages and deploy them to compute nodes.
+With application packages, your pool's start task doesn't have to specify a long list of individual resource files to install on the nodes. You don't have to manually manage multiple versions of your application files in Azure Storage, or on your nodes. And you don't need to worry about generating [SAS URLs](../storage/common/storage-sas-overview.md) to provide access to the files in your Storage account. Batch works in the background with Azure Storage to store application packages and deploy them to compute nodes.
 
 > [!NOTE]
-> The total size of a start task must be less than or equal to 32768 characters, including resource files and environment variables. If your start task exceeds this limit, then using application packages is another option. You can also create a .zip file containing your resource files, upload it as a blob to Azure Storage, and then unzip it from the command line of your start task.
+> The total size of a start task must be less than or equal to 32768 characters, including resource files and environment variables. If your start task exceeds this limit, using application packages is another option. You can also create a .zip file containing your resource files, upload it as a blob to Azure Storage, and then unzip it from the command line of your start task.
 
 ## Upload and manage applications
 
-You can use the [Azure portal](https://portal.azure.com) or the Batch Management APIs to manage the application packages in your Batch account. In the next few sections, we first show how to link a Storage account, then discuss adding applications and packages and managing them with the portal.
+You can use the [Azure portal](https://portal.azure.com) or the Batch Management APIs to manage the application packages in your Batch account. The following sections explain how to link a storage account, and how to add and manage applications and application packages in the Azure portal.
 
 ### Link a storage account
 
@@ -69,7 +66,7 @@ After you've linked the two accounts, Batch can automatically deploy the package
 > [!IMPORTANT]
 > You can't use application packages with Azure Storage accounts configured with [firewall rules](../storage/common/storage-network-security.md), or with **Hierarchical namespace** set to **Enabled**.
 
-The Batch service uses Azure Storage to store your application packages as block blobs. You are [charged as normal](https://azure.microsoft.com/pricing/details/storage/) for the block blob data, and the size of each package can't exceed the maximum block blob size. For more information, see [Azure Storage scalability and performance targets for storage accounts](../storage/blobs/scalability-targets.md). To minimize costs, bee sure to consider the size and number of your application packages, and periodically remove deprecated packages.
+The Batch service uses Azure Storage to store your application packages as block blobs. You are [charged as normal](https://azure.microsoft.com/pricing/details/storage/) for the block blob data, and the size of each package can't exceed the maximum block blob size. For more information, see [Azure Storage scalability and performance targets for storage accounts](../storage/blobs/scalability-targets.md). To minimize costs, be sure to consider the size and number of your application packages, and periodically remove deprecated packages.
 
 ### View current applications
 
@@ -83,19 +80,19 @@ Selecting this menu option opens the **Applications** window. This window displa
 - **Default version**: If applicable, the application version that will be installed if no version is specified when deploying the application.
 - **Allow updates**: Specifies whether package updates and deletions are allowed.
 
-To see the [file structure](files-and-directories.md) of the application package on your compute node, navigate to your Batch account in the Azure portal. Select **Pools** and then select the pool that contains the compute node you're interested in. Then select the compute node on which the application package is installed and open the **applications** folder.
+To see the [file structure](files-and-directories.md) of the application package on a compute node, navigate to your Batch account in the Azure portal. Select **Pools**. then select the pool that contains the compute node. Select the compute node on which the application package is installed and open the **applications** folder.
 
 ### View application details
 
 To see the details for an application, select it in the **Applications** window. You can configure the following settings for your application.
 
-- **Allow updates**: Indicates whether application packages can be [updated or deleted](#update-or-delete-an-application-package). The default is **Yes**. If set to **No**, package updates and deletions won't be allowed for the application, though new application package versions can be added.
+- **Allow updates**: Indicates whether application packages can be [updated or deleted](#update-or-delete-an-application-package). The default is **Yes**. If set to **No**, existing application packages can't be updated or deleted, but new application package versions can still be added.
 - **Default version**: The default application package to use when the application is deployed, if no version is specified.
 - **Display name**: A friendly name that your Batch solution can use when it displays information about the application. For example, this name can be used in the UI of a service that you provide to your customers through Batch.
 
 ### Add a new application
 
-To create a new application, you add an application package and specify a new, unique application ID.
+To create a new application, you add an application package and specify a unique application ID.
 
 In your Batch account, select **Applications** and then select **Add**.
 
@@ -138,7 +135,7 @@ Now that you've learned how to manage application packages in the Azure portal, 
 
 ### Install pool application packages
 
-To install an application package on all compute nodes in a pool, specify one or more application package references for the pool. The application packages that you specify for a pool are installed on each compute node when that node joins the pool, and when the node is rebooted or reimaged.
+To install an application package on all compute nodes in a pool, specify one or more application package references for the pool. The application packages that you specify for a pool are installed on each compute node that joins the pool, and on any node that is rebooted or reimaged.
 
 In Batch .NET, specify one or more [CloudPool.ApplicationPackageReferences](/dotnet/api/microsoft.azure.batch.cloudpool.applicationpackagereferences) when you create a new pool, or for an existing pool. The [ApplicationPackageReference](/dotnet/api/microsoft.azure.batch.applicationpackagereference) class specifies an application ID and version to install on a pool's compute nodes.
 
@@ -165,7 +162,7 @@ await myCloudPool.CommitAsync();
 ```
 
 > [!IMPORTANT]
-> If an application package deployment fails for any reason, the Batch service marks the node [unusable](/dotnet/api/microsoft.azure.batch.computenode.state), and no tasks are scheduled for execution on that node. In this case, you should restart the node to reinitiate the package deployment. Restarting the node also enables task scheduling again on the node.
+> If an application package deployment fails, the Batch service marks the node [unusable](/dotnet/api/microsoft.azure.batch.computenode.state), and no tasks are scheduled for execution on that node. If this happens, restart the node to reinitiate the package deployment. Restarting the node also enables task scheduling again on the node.
 
 ### Install task application packages
 
@@ -241,7 +238,7 @@ CloudTask blenderTask = new CloudTask(taskId, commandLine);
 
 ## Update a pool's application packages
 
-If an existing pool has already been configured with an application package, you can specify a new package for the pool. If you specify a new package reference for a pool, the following apply:
+If an existing pool has already been configured with an application package, you can specify a new package for the pool. This means:
 
 - The Batch service installs the newly specified package on all new nodes that join the pool and on any existing node that is rebooted or reimaged.
 - Compute nodes that are already in the pool when you update the package references do not automatically install the new application package. These compute nodes must be rebooted or reimaged to receive the new package.

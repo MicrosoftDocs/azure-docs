@@ -3,7 +3,7 @@ title: Quickstart - Enroll TPM device to Azure Device Provisioning Service using
 description: Quickstart - Enroll TPM device to Azure IoT Hub Device Provisioning Service (DPS) using C# service SDK. This quickstart uses individual enrollments.
 author: wesmc7777
 ms.author: wesmc
-ms.date: 11/08/2019
+ms.date: 09/28/2020
 ms.topic: quickstart
 ms.service: iot-dps
 services: iot-dps
@@ -123,12 +123,15 @@ This section shows how to create a .NET Core console app that adds an individual
    }
    ```
 
-1. Finally, replace the body of the `Main` method with the following lines:
+1. Finally, replace the `Main` method with the following lines:
 
    ```csharp
-   RunSample().GetAwaiter().GetResult();
-   Console.WriteLine("\nHit <Enter> to exit ...");
-   Console.ReadLine();
+    static async Task Main(string[] args)
+    {
+        await RunSample();
+        Console.WriteLine("\nHit <Enter> to exit ...");
+        Console.ReadLine();
+    }
    ```
 
 1. Build the solution.
