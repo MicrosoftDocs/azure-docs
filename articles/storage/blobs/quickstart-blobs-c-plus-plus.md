@@ -4,7 +4,7 @@ description: In this quickstart, you learn how to use the Azure Blob storage cli
 author: mhopkins-msft
 
 ms.author: mhopkins
-ms.date: 09/30/2020
+ms.date: 10/01/2020
 ms.service: storage
 ms.subservice: blobs
 ms.topic: quickstart
@@ -178,7 +178,7 @@ Add this code to the end of `main()`:
 
 ## Run the code
 
-This app creates a string in memory and uploads it to a text file in Blob storage. The example then lists the blobs in the container, downloads the file, and displays the file contents.
+This app creates a container if it doesn't already exist, and uploads a text file to the container in Azure Blob storage. The example then lists the blobs in the container, downloads the file, and displays the file contents.
 
 The output of the app is similar to the following example:
 
@@ -197,7 +197,7 @@ Deleting container: myblobcontainer
 
 In this quickstart, you learned how to upload, download, and list blobs using C++.
 
-To see Blob storage sample apps, continue to:
+To see a C++ Blob storage sample, continue to:
 
 > [!div class="nextstepaction"]
 > [Azure Blob storage SDK v12 for C++ sample](https://github.com/Azure/azure-sdk-for-cpp/tree/master/sdk/storage/azure-storage-blobs/sample)
