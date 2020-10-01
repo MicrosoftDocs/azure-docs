@@ -50,6 +50,8 @@
     href: concepts-identity.md
   - name: Security
     items:
+    - name: Security Baseline
+      href: security-baseline.md
     - name: Security for applications and clusters
       href: concepts-security.md
     - name: Security controls by Azure Policy

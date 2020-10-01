@@ -21,7 +21,7 @@ The Speech service offers a Swagger specification to interact with a handful of 
 
 ## Generating code from the Swagger specification
 
-The [Swagger specification](https://cris.ai/swagger/ui/index) has options that allow you to quickly test for various paths. However, sometimes it's desirable to generate code for all paths, creating a single library of calls that you can base future solutions on. Let's take a look at the process to generate a Python library.
+The [Swagger specification](https://westus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0) has options that allow you to quickly test for various paths. However, sometimes it's desirable to generate code for all paths, creating a single library of calls that you can base future solutions on. Let's take a look at the process to generate a Python library.
 
 You'll need to set Swagger to the same region as your Speech service subscription. You can confirm your region in the Azure portal under your Speech service resource. For a complete list of supported regions, see [regions](regions.md).
 
@@ -35,7 +35,7 @@ You can use the Python library that you generated with the [Speech service sampl
 
 ## Reference docs
 
-* [REST (Swagger): Batch transcription and customization](https://westus.cris.ai/swagger/ui/index)
+* [REST (Swagger): Batch transcription and customization](https://westus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0)
 * [REST API: Speech-to-text](rest-speech-to-text.md)
 * [REST API: Text-to-speech](rest-text-to-speech.md)
 

@@ -19,6 +19,9 @@
   - name: Create a management group - Azure PowerShell
     displayName: hierarchy
     href: ./create-management-group-powershell.md
+  - name: Create a management group - .NET
+    displayName: hierarchy
+    href: ./create-management-group-dotnet.md
   - name: Create a management group - JavaScript
     displayName: hierarchy
     href: ./create-management-group-javascript.md

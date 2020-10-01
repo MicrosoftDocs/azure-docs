@@ -126,7 +126,7 @@ You can run the Azure Cosmos emulator on the Windows Docker container. See the [
    ```bash
    Starting emulator
    Emulator Endpoint: https://172.20.229.193:8081/
-   Master Key: C2y6yDjf5/R+ob0N8A7Cgv30VRDJIWEHLM+4QDU5DE2nQ9nDuVTqobD4b8mGGyPMbIZnqyMsEcaGQy67XIw/Jw==
+   Primary Key: C2y6yDjf5/R+ob0N8A7Cgv30VRDJIWEHLM+4QDU5DE2nQ9nDuVTqobD4b8mGGyPMbIZnqyMsEcaGQy67XIw/Jw==
    Exporting SSL Certificate
    You can import the SSL certificate from an administrator command prompt on the host by running:
    cd /d %LOCALAPPDATA%\CosmosDBEmulatorCert

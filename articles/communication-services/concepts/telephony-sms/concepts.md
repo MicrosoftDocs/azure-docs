@@ -25,10 +25,11 @@ Key features of Azure Communication Services SMS client libraries include:
 - **Two-way** conversations to support scenarios like customer support, alerts, and appointment reminders.
 - **Reliable Delivery** with real-time delivery reports for messages sent from your application.
 - **Analytics** to track your usage patterns and customer engagement.
-- **Opt-Out** handling support to automatically detect and respect opt-outs for toll-free numbers. Communication Services detects STOP and START messages and sends the following default responses to end-users: 
-  - STOP - *"You have successfully been unsubscribed to messages from this number. Reply START to resubscribe."*
-  - START- *“You have successfully been re-subscribed to messages from this number. Reply STOP to unsubscribe.”*
-  - The STOP and START messages will be relayed back to you. Azure Communication Services encourages you to monitor and implement these opt-outs to ensure that no further messages are sent to recipients who have opted out of your communications.
+- **Opt-Out** handling support to automatically detect and respect opt-outs for toll-free numbers. Opt-outs for US toll-free numbers are mandated and enforced by US carriers.
+  - STOP - If a text message recipient wishes to opt-out, they can send ‘STOP’ to the toll-free number. The carrier sends the following default response for STOP: *"NETWORK MSG: You replied with the word "stop" which blocks all texts sent from this number. Text back "unstop" to receive messages again."*
+  - START/UNSTOP - If the recipient wishes to resubscribe to text messages from a toll-free number, they can send ‘START’ or ‘UNSTOP to the toll-free number. The carrier sends the following default response for START/UNSTOP: *“NETWORK MSG: You have replied “unstop” and will begin receiving messages again from this number.”*
+  - Azure Communication Services will detect the STOP message and block all further messages to the recipient. The delivery report will indicate a failed delivery with status message as “Sender blocked for given recipient.”
+  - The STOP, UNSTOP and START messages will be relayed back to you. Azure Communication Services encourages you to monitor and implement these opt-outs to ensure that no further message send attempts are made to recipients who have opted out of your communications.
 
 
 ## Next steps

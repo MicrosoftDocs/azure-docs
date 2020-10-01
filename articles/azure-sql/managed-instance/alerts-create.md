@@ -6,7 +6,7 @@ ms.service: sql-managed-instance
 ms.subservice: performance
 ms.custom: 
 ms.devlang: 
-ms.topic: conceptual
+ms.topic: how-to
 author: danimir
 ms.author: danil
 ms.reviewer: jrasnik, sstein
