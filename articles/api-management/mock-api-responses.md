@@ -90,8 +90,8 @@ Although not required for this example, additional settings for an API operation
 1. In the window on the right, ensure that the **Design** tab is selected.
 1. In the **Inbound processing** window, select **+ Add policy**.
 
-   :::image type="content" source="media/mock-api-responses/03-
-mock-api-responses-03-enable-mocking.png" alt-text="Add processing policy" border="false":::
+    :::image type="content" source="media/mock-api-responses/03-mock-api-responses-03-enable-mocking.png" alt-text="Add processing policy" border="false":::
+
 1. Select **Mock responses**  from the gallery.
 
     :::image type="content" source="media/mock-api-responses/mock-responses-policy-tile.png" alt-text="Mock responses policy tile" border="false":::
