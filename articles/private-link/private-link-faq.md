@@ -61,7 +61,7 @@ Yes. One Private Link service can receive connections from multiple Private Endp
 You can control the exposure using the visibility configuration on Private Link service. Visibility supports three settings:
 
 - **None** - Only subscriptions with RBAC access can locate the service. 
-- **Restrictive** - Only subscriptions that are whitelisted and with RBAC access can locate the service. 
+- **Restrictive** - Only subscriptions that are approved and with RBAC access can locate the service. 
 - **All** - Everyone can locate the service. 
  
 ### Can I create a Private Link service with Basic Load Balancer? 

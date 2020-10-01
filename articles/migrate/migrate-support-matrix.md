@@ -92,7 +92,7 @@ United Kingdom | UK South or UK West
 United States | Central US or West US 2
 
 > [!NOTE]
-> For Switzerland geography, Switzerland West is only available for REST API users and need a whitelisted subscription.
+> For Switzerland geography, Switzerland West is only available for REST API users and need an approved subscription.
 
 ## Supported geographies (Azure Government)
 
