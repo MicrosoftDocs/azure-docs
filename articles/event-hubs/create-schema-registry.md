@@ -10,7 +10,8 @@ ms.custom: references_regions
 This article shows you how to create a schema group with schemas in a schema registry hosted by Azure Event Hubs. For an overview of the Schema Registry feature of Azure Event Hubs, see [Azure Schema Registry in Event Hubs](schema-registry-overview.md).
 
 > [!NOTE]
-> - The **Schema Registry** feature is currently in **preview** and is available only in **standard** and **dedicated** tiers, not in the **basic** tier.
+> - The **Schema Registry** feature is currently in **preview**, and is not recommended for production workloads.
+> - The feature is available only in **standard** and **dedicated** tiers, not in the **basic** tier.
 > - This preview is currently available only in the **West Central US** region. 
 
 ## Prerequisites

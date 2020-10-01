@@ -33,7 +33,7 @@ Follow the steps in this article to investigate security alerts for Azure AD rol
 
 # [New version](#tab/new)
 
-![Azure AD roles - Alert pane listing alerts and the severity](./media/pim-how-to-configure-security-alerts/view-alerts.png)
+![Screenshot that shows the "Alerts" page with a list of alerts and their severity.](./media/pim-how-to-configure-security-alerts/view-alerts.png)
 
 ## Security alerts
 

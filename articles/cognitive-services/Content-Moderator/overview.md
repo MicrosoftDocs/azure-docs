@@ -12,7 +12,7 @@ ms.topic: overview
 ms.date: 09/15/2020
 ms.author: pafarley
 ms.custom: cog-serv-seo-aug-2020
-keywords: content moderator, azure content moderator, online moderator, content filtering software, content moderation service
+keywords: content moderator, azure content moderator, online moderator, content filtering software, content moderation service, content moderation
 
 #Customer intent: As a developer of content management software, I want to find out whether Azure Content Moderator is the right solution for my moderation needs.
 ---
