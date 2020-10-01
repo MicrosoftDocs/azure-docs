@@ -23,7 +23,7 @@ Use the Azure IoT Service SDKs in your solution to interact with devices and mod
 
 The service SDKs let you access device information from a solution, such as a desktop or web application. The service SDKs include two namespaces and object models that you can use to retrieve the model ID:
 
-- Iot Hub service client. This service exposes the model Id as a device twin property.
+- Iot Hub service client. This service exposes the model ID as a device twin property.
 
 - Digital Twins service client. The new Digital Twins API operate on high-level constructs such as components, properties, and commands that are defined a Digital Twins Definition language model. The Digital Twin APIs make it easier for solution builders to create IoT Plug and Play solutions.
 
