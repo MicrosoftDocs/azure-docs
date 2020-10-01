@@ -89,6 +89,8 @@ Or you can access a terminal window in any of these ways:
 * Jupyter:  Select **New>Terminal** on top right in the Files tab.
 * SSH to the machine.  Then install Python packages into the **Python 3.6 - AzureML** environment.  Install R packages into the **R** environment.
 
+While customizing the compute instance please ensure that you don't delete the azureml_py36 conda environment or Python 3.6 - AzureML kernel. This is needed for Jupyter/JupyterLab functionality.
+
 ### Add new kernels
 
 To add a new Jupyter kernel to the compute instance:
