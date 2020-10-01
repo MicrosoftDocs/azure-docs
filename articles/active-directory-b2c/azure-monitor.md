@@ -54,7 +54,7 @@ Next, gather the following information:
 
 **Directory ID** of your Azure AD B2C directory (also known as the tenant ID).
 
-1. Sign in to the [Azure portal](https://portal.azure.com/) as a user with the *User administrator* role (or higher).
+1. Sign in to the [Azure portal](https://portal.azure.com/) as a user with the *User administrator* Azure AD role (or higher) and the **Owner** RBAC role on the targeted subscription.
 1. Select the **Directory + Subscription** icon in the portal toolbar, and then select the directory that contains your Azure AD B2C tenant.
 1. Select **Azure Active Directory**, select **Properties**.
 1. Record the **Directory ID**.
@@ -120,6 +120,9 @@ Next, update the parameters file with the values you recorded earlier. The follo
 Once you've updated your parameters file, deploy the Azure Resource Manager template into the Azure tenant as a subscription-level deployment. Because this is a subscription-level deployment, it cannot be initiated in the Azure portal. You can deploy by using the Azure PowerShell module or the Azure CLI. The Azure PowerShell method is shown below.
 
 Sign in to the directory containing your subscription by using [Connect-AzAccount](/powershell/azure/authenticate-azureps). Use the `-tenant` flag to force authentication to the correct directory.
+
+>[!NOTE]
+> The account used to run the ARM deployment needs to have the **Owner** RBAC role to the targeted subscription
 
 ```PowerShell
 Connect-AzAccount -tenant contoso.onmicrosoft.com
