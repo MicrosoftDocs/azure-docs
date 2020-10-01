@@ -59,7 +59,7 @@ This section provides information on whether the user that was imported to Azure
 
 Using this information, you can see additional information about the scope of your users.
 
-![User scope details](media/how-to-on-demand-provision/on-demand10.png)
+![User scope details](media/how-to-on-demand-provision/on-demand10a.png)
 
 ## Match user between source and target system details
 This section provides information on whether the user already exists in Azure AD and should a join occur instead of provisioning a new user.  Click the **View details** link to display this information.
