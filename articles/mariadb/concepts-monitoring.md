@@ -5,6 +5,7 @@ author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
+ms.custom: references_regions
 ms.date: 8/13/2020
 ---
 # Monitoring in Azure Database for MariaDB
