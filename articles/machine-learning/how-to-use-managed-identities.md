@@ -102,7 +102,7 @@ To access the workspace ACR, create machine learning compute cluster with system
 
 # [Python](#tab/python)
 
-When creating a compute cluster with the [AmlComputeProvisioningConfiguration](https://docs.microsoft.com/en-us/python/api/azureml-core/azureml.core.compute.amlcompute.amlcomputeprovisioningconfiguration?view=azure-ml-py), use the `identity_type` parameter to set the managed identity type.
+When creating a compute cluster with the [AmlComputeProvisioningConfiguration](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.amlcompute.amlcomputeprovisioningconfiguration?view=azure-ml-py), use the `identity_type` parameter to set the managed identity type.
 
 # [Azure CLI](#tab/azure-cli)
 
