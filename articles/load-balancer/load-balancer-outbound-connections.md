@@ -113,6 +113,6 @@ The following <a name="snatporttable"></a>table shows the SNAT port <a name="pre
 
 ## Next steps
 
-- Learn more about [Standard Load Balancer](load-balancer-standard-overview.md)
+- Learn more about [Azure Standard Load Balancer](load-balancer-overview.md)
 - See our [frequently asked questions about Azure Load Balancer](load-balancer-faqs.md)
 
