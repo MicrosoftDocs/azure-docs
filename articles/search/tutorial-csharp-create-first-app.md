@@ -39,13 +39,13 @@ var searchResult = await _searchClient.SearchAsync<Hotel>(model.searchText, opti
 model.resultList = searchResult.Value.GetResults().ToList();
 ```
 
-This one call initiates a search and returns the results.
+Just one call queries the index and returns results.
 
 :::image type="content" source="media/tutorial-csharp-create-first-app/azure-search-pool.png" alt-text="Searching for *pool*" border="true":::
 
 ## Overview
 
-This tutorial uses an existing, hosted sample index so that you can focus on building a search page that accepts a query string and returns results. The index contains fictitious hotel data. Once you have a basic page, you can enhance it in subsequent lessons to include paging, facets, and a type-ahead experience.
+This tutorial uses an existing, hosted sample index so that you can focus on building a search page that collects a query string for the request and returns results. The index contains fictitious hotel data. Once you have a basic page, you can enhance it in subsequent lessons to include paging, facets, and a type-ahead experience.
 
 ## Prerequisites
 
@@ -53,7 +53,7 @@ This tutorial uses an existing, hosted sample index so that you can focus on bui
 
 * [Azure Cognitive Search client library (version 11)](https://www.nuget.org/packages/Azure.Search.Documents/)
 
-The tutorial has been updated to use the Azure.Search.Documents (version 11) package. For an earlier version of the .NET SDK, see [Microsoft.Azure.Search (version 10) code sample on GitHub](https://github.com/Azure-Samples/azure-search-dotnet-samples/tree/master/create-first-app/v10).
+This tutorial has been updated to use the Azure.Search.Documents (version 11) package. For an earlier version of the .NET SDK, see [Microsoft.Azure.Search (version 10) code sample](https://github.com/Azure-Samples/azure-search-dotnet-samples/tree/master/create-first-app/v10).
 
 Because you are using a public sample hosted by Microsoft, you don't need a search service or an Azure account for this tutorial.
 
