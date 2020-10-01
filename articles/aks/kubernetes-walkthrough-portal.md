@@ -67,7 +67,7 @@ Open Cloud Shell using the `>_` button on the top of the Azure portal.
 
 ![Open the Azure Cloud Shell in the portal](media/kubernetes-walkthrough-portal/aks-cloud-shell.png)
 
-To configure `kubectl` to connect to your Kubernetes cluster, use the [az aks get-credentials][az-aks-get-credentials] command. This command downloads credentials and configures the Kubernetes CLI to use them. The following example gets credentials for the cluster name *myAKSCluster* in the resource group named *myResourceGroup*:
+To configure `kubectl` to connect to your Kubernetes cluster from a client machine, use the [az aks get-credentials][az-aks-get-credentials] command. Connect to your Azure account using `az login`. Then use this command to download credentials and configure the Kubernetes CLI to use them. The following example gets credentials for the cluster name *myAKSCluster* in the resource group named *myResourceGroup*:
 
 ```azurecli
 az aks get-credentials --resource-group myResourceGroup --name myAKSCluster
