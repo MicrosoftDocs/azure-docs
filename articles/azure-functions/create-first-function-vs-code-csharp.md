@@ -85,8 +85,6 @@ In this section, you create a function app and related resources in your Azure s
 
     + **Enter a globally unique name for the function app**: Type a name that is valid in a URL path. The name you type is validated to make sure that it's unique in Azure Functions. 
 
-    + **Select a runtime**: Choose the version of Node.js you've been running on locally. You can use the `node --version` command to check your version.
-
     + **Select a location for new resources**:  For better performance, choose a [region](https://azure.microsoft.com/regions/) near you. 
 
 1. When completed, the following Azure resources are created in your subscription, using names based on your function app name:
@@ -103,22 +101,7 @@ In this section, you create a function app and related resources in your Azure s
 
     ![Create complete notification](./media/functions-create-first-function-vs-code/function-create-notifications.png)
 
-
-## Run the function in Azure
-
-1. Back in the **Azure: Functions** area in the side bar, expand the new function app under your subscription. Expand **Functions**, right-click (Windows) or Ctrl + click (macOS) on **HttpExample**, and then choose **Copy function URL**.
-
-    ![Copy the function URL for the new HTTP trigger](./media/functions-create-first-function-vs-code/function-copy-endpoint-url.png)
-
-1. Paste this URL for the HTTP request into your browser's address bar, add the `name` query string as `?name=Functions` to the end of this URL, and then execute the request. The URL that calls your HTTP-triggered function should be in the following format:
-
-    ```http
-    http://<functionappname>.azurewebsites.net/api/httpexample?name=Functions
-    ```
-
-    The following example shows the response in the browser to the remote GET request returned by the function:
-
-    ![Function response in the browser](./media/functions-create-first-function-vs-code/functions-test-remote-browser.png)
+[!INCLUDE [functions-vs-code-run-remote](../../includes/functions-vs-code-run-remote.md)]
 
 ## Clean up resources
 
