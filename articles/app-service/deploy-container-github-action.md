@@ -11,16 +11,16 @@ ms.reviewer: ushan
 
 # Deploy a custom container to App Service using GitHub Actions
 
-[GitHub Actions](https://help.github.com/en/articles/about-github-actions) gives you the flexibility to build an automated software development lifecycle workflow. With the [Azure Web Deploy action](https://github.com/Azure/webapps-deploy), you can automate your workflow to deploy custom containers to [App Service](overview.md) using GitHub Actions.
+[GitHub Actions](https://help.github.com/en/articles/about-github-actions) gives you the flexibility to build an automated software development workflow. With the [Azure Web Deploy action](https://github.com/Azure/webapps-deploy), you can automate your workflow to deploy custom containers to [App Service](overview.md) using GitHub Actions.
 
-A workflow is defined by a YAML (.yml) file in the `/.github/workflows/` path in your repository. This definition contains the various steps and parameters that make up the workflow.
+A workflow is defined by a YAML (.yml) file in the `/.github/workflows/` path in your repository. This definition contains the various steps and parameters that are in the workflow.
 
 For an Azure App Service container workflow, the file has three sections:
 
 |Section  |Tasks  |
 |---------|---------|
 |**Authentication** | 1.  service principal or publish profile. <br /> 2. Create a GitHub secret. |
-|**Build** | 1. Set up the environment. <br /> 2. Build the container image. |
+|**Build** | 1. Create the environment. <br /> 2. Build the container image. |
 |**Deploy** | 1. Deploy the container image. |
 
 ## Prerequisites
@@ -56,7 +56,7 @@ az ad sp create-for-rbac --name "myApp" --role contributor \
                             --sdk-auth
 ```
 
-In the example above, replace the placeholders with your subscription ID, resource group name, and app name. The output is a JSON object with the role assignment credentials that provide access to your App Service app similar to below. Copy this JSON object for later.
+In the example, replace the placeholders with your subscription ID, resource group name, and app name. The output is a JSON object with the role assignment credentials that provide access to your App Service app. Copy this JSON object for later.
 
 ```output 
   {
@@ -123,7 +123,7 @@ When you configure the workflow file later, you use the secret for the input `cr
 
 Define secrets to use with the Docker Login action. 
 
-1. Go to your container in the Azure Portal or Docker and copy the username and password. 
+1. Go to your container in the Azure portal or Docker and copy the username and password. 
 
 2. Define a new secret for the registry username named `REGISTRY_USERNAME`. 
 
