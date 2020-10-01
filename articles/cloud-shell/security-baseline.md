@@ -797,7 +797,7 @@ Customers are responsible to maintain an inventory of approved software running 
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/33568.).
 
-**Guidance**: Not applicable; Azure Cloud Shell doesn't have any resource configurations.
+**Guidance**: Not applicable; this guideline is intended for compute resources.
 
 **Azure Security Center monitoring**: Unset. Please provide a value in the work item.
 
@@ -819,7 +819,7 @@ Customers are responsible to maintain an inventory of approved software running 
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/33570.).
 
-**Guidance**: Not applicable; Azure Cloud Shell doesn't have any resource configurations.
+**Guidance**: Not applicable; this guideline is intended for compute resources.
 
 **Azure Security Center monitoring**: Unset. Please provide a value in the work item.
 
@@ -841,7 +841,7 @@ Customers are responsible to maintain an inventory of approved software running 
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/33572.).
 
-**Guidance**: Not applicable; Azure Cloud Shell doesn't have any resource configurations.
+**Guidance**: Not applicable; this guideline is intended for compute resources.
 
 **Azure Security Center monitoring**: Unset. Please provide a value in the work item.
 
@@ -863,7 +863,7 @@ Customers are responsible to maintain an inventory of approved software running 
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/33574.).
 
-**Guidance**: Not applicable; Azure Cloud Shell doesn't have any resource configurations.
+**Guidance**: Not applicable; this guideline is intended for compute resources.
 
 **Azure Security Center monitoring**: Unset. Please provide a value in the work item.
 
