@@ -8,7 +8,7 @@ ms.topic: quickstart
 ms.subservice: 
 ms.date: 04/29/2020
 ms.author: jocaplan
-ms.reviewer: jrasnick, carlrab
+ms.reviewer: jrasnick 
 ---
 
 # Quickstart: Linking a Power BI workspace to a Synapse workspace

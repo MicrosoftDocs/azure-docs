@@ -6,9 +6,10 @@ services: cognitive-services
 author: dylankil
 manager: guillasi
 ms.service: cognitive-services
+ms.subservice: immersive-reader
 ms.topic: include
 ms.date: 09/14/2020
-ms.custom: devx-track-java, devx-track-javascript
+ms.custom: devx-track-java, devx-track-js
 ms.author: dylankil
 ---
 

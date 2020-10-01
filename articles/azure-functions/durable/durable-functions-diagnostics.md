@@ -430,7 +430,7 @@ GET /runtime/webhooks/durabletask/instances/instance123?code=XYZ
 
 Clients will get the following response:
 
-```http
+```json
 {
   "runtimeStatus": "Running",
   "input": null,

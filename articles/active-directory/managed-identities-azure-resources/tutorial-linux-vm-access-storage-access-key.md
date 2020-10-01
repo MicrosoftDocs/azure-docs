@@ -1,6 +1,6 @@
 ---
 title: Tutorial`:` Use a managed identity to access Azure Storage via access key - Linux - Azure AD
-description: A tutorial that walks you through the process of using a Linux VM system-assigned managed identity to access Azure Storage.
+description: A tutorial that walks you through the process of using a Linux VM system-assigned managed identity to access Azure Storage via an access key.
 services: active-directory
 documentationcenter: ''
 author: barclayn

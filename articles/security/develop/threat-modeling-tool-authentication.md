@@ -16,7 +16,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
-ms.custom: "has-adal-ref, devx-track-javascript, devx-track-csharp"
+ms.custom: "has-adal-ref, devx-track-js, devx-track-csharp"
 ---
 
 # Security Frame: Authentication | Mitigations

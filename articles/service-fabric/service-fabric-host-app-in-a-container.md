@@ -35,7 +35,7 @@ In this tutorial, you learn how to:
 
 2. Verify that the Fabrikam Fiber CallCenter application builds and runs without error.  Launch Visual Studio as an **administrator** and open the [FabrikamFiber.CallCenter.sln][link-fabrikam-github] file.  Press F5 to debug and run the application.
 
-   ![Fabrikam web sample][fabrikam-web-page]
+   ![Screenshot of the Fabrikam Fiber CallCenter application home page running on the local host. The page shows a dashboard with a list of support calls.][fabrikam-web-page]
 
 ## Containerize the application
 
@@ -105,7 +105,7 @@ Write-Host "Server name is $servername"
 
 ## Update the web config
 
-Back in the **FabrikamFiber.Web** project, update the connection string in the **web.config** file, to point to the SQL Server in the container.  Update the *Server* part of the connection string to be the server name created by the previous script. It should be something like "fab-fiber-751718376.database.windows.net".
+Back in the **FabrikamFiber.Web** project, update the connection string in the **web.config** file, to point to the SQL Server in the container.  Update the *Server* part of the connection string to be the server name created by the previous script. It should be something like "fab-fiber-751718376.database.windows.net". In the following XML, you need to update only the `connectionString` attribute; the `providerName` and `name` attributes don't need to be changed.
 
 ```xml
 <add name="FabrikamFiber-Express" connectionString="Server=<server name>,1433;Initial Catalog=call-center-db;Persist Security Info=False;User ID=ServerAdmin;Password=Password@123;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;" providerName="System.Data.SqlClient" />
@@ -231,7 +231,7 @@ Now that the application is ready, you can deploy it to the cluster in Azure dir
 
 Follow the deployment progress in the output window. When the application is deployed, open a browser and type in the cluster address and application port. For example, `https://fabrikamfibercallcenter.southcentralus.cloudapp.azure.com:8659/`.
 
-![Fabrikam web sample][fabrikam-web-page-deployed]
+![Screenshot of the Fabrikam Fiber CallCenter application home page running on azure.com. The page shows a dashboard with a list of support calls.][fabrikam-web-page-deployed]
 
 ## Set up Continuous Integration and Deployment (CI/CD) with a Service Fabric cluster
 

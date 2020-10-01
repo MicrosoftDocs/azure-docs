@@ -108,11 +108,11 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 3. Select the **Provisioning** tab.
 
-	![Provisioning tab](common/provisioning.png)
+	![Screenshot of the Manage options with the Provisioning option called out.](common/provisioning.png)
 
 4. Set the **Provisioning Mode** to **Automatic**.
 
-	![Provisioning tab](common/provisioning-automatic.png)
+	![Screenshot of the Provisioning Mode dropdown list with the Automatic option called out.](common/provisioning-automatic.png)
 
 5. Under the **Admin Credentials** section, input `https://<organisation_domain>.looop.co/scim/v2` in **Tenant URL**. For example `https://demo.looop.co/scim/v2`. Input the value that you retrieved and saved earlier from Looop in **Secret Token**. Click **Test Connection** to ensure Azure AD can connect to Looop. If the connection fails, ensure your Looop account has Admin permissions and try again.
 
