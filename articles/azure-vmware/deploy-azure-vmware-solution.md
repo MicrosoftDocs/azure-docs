@@ -35,7 +35,7 @@ Use the information you gathered in the [Planning the Azure VMware Solution depl
 After deploying Azure VMware Solution, you'll create the virtual network's jump box that connects to vCenter and NSX. Once you've configured ExpressRoute circuits and ExpressRoute Global Reach, the jump box isn't needed.  But it's handy to reach vCenter and NSX in your Azure VMware Solution.  
 
 
-:::image type="content" source="media/pre-deployment/jump-box-diagram.png" alt-text="Create the Azure VMware Solution jump box":::
+:::image type="content" source="media/pre-deployment/jump-box-diagram.png" alt-text="Create the Azure VMware Solution jump box" border="false" lightbox="media/pre-deployment/jump-box-diagram.png":::
 
 To create a virtual machine (VM) in the virtual network you [identified or created as part of the deployment process](production-ready-deployment-steps.md#azure-virtual-network-to-attach-azure-vmware-solution), follow these instructions: 
 
@@ -55,7 +55,7 @@ The jump box is in the virtual network where Azure VMware Solution connects via 
 
 In the effective routes list, you should see the networks created as part of the Azure VMware Solution deployment. You'll see multiple networks that were derived from the [`/22` network you defined](production-ready-deployment-steps.md#ip-address-segment) during the [deployment step](#deploy-azure-vmware-solution) earlier in this article.
 
-:::image type="content" source="media/pre-deployment/azure-vmware-solution-effective-routes.png" alt-text="Verify network routes advertised from Azure VMware Solution to Azure Virtual Network":::
+:::image type="content" source="media/pre-deployment/azure-vmware-solution-effective-routes.png" alt-text="Verify network routes advertised from Azure VMware Solution to Azure Virtual Network" lightbox="media/pre-deployment/azure-vmware-solution-effective-routes.png":::
 
 In this example, the 10.74.72.0/22 network was input during deployment derives the /24 networks.  If you see something similar, you can connect to vCenter in Azure VMware Solution.
 
