@@ -237,30 +237,30 @@ If you are using the SDK and have installed the December 2020 device update, the
 
 ### Current SDK sample
 
-    ```csharp
-    var iotRoleStatus = "Enabled";
-    var iotHostPlatform = "Linux";
-    var id = $@"/subscriptions/546ec571-2d7f-426f-9cd8-0d695fa7edba/resourceGroups/resourceGroup/providers/Microsoft.DataBoxEdge/dataBoxEdgeDevices/deviceName/roles/iotrole"; 
-    var name = "iotrole";
-    var type = "Microsoft.DataBoxEdge/dataBoxEdgeDevices/role";
-    var iotRoleName = "iotrole";
-    var ioTDeviceDetails = new IoTDeviceInfo(...);
-    var ioTEdgeDeviceDetails = new IoTDeviceInfo(...);
-    var ioTEdgeAgentInfo = new IoTEdgeAgentInfo(...);
-    var shareMappings = new List<MountPointMap>(...);
-    
-    var role = new IoTRole(roleStatus, 
-        hostPlatform, 
-        shareMappings, 
-        ioTDeviceDetails, 
-        ioTEdgeDeviceDetails, 
-        ioTEdgeAgentInfo, 
-        id, 
-        name, 
-        type);
-    
-    DataBoxEdgeManagementClient.Roles.CreateOrUpdate(deviceName, iotRoleName, role, resourceGroup);
-    ```
+```csharp
+var iotRoleStatus = "Enabled";
+var iotHostPlatform = "Linux";
+var id = $@"/subscriptions/546ec571-2d7f-426f-9cd8-0d695fa7edba/resourceGroups/resourceGroup/providers/Microsoft.DataBoxEdge/dataBoxEdgeDevices/deviceName/roles/iotrole"; 
+var name = "iotrole";
+var type = "Microsoft.DataBoxEdge/dataBoxEdgeDevices/role";
+var iotRoleName = "iotrole";
+var ioTDeviceDetails = new IoTDeviceInfo(...);
+var ioTEdgeDeviceDetails = new IoTDeviceInfo(...);
+var ioTEdgeAgentInfo = new IoTEdgeAgentInfo(...);
+var shareMappings = new List<MountPointMap>(...);
+
+var role = new IoTRole(roleStatus, 
+    hostPlatform, 
+    shareMappings, 
+    ioTDeviceDetails, 
+    ioTEdgeDeviceDetails, 
+    ioTEdgeAgentInfo, 
+    id, 
+    name, 
+    type);
+
+DataBoxEdgeManagementClient.Roles.CreateOrUpdate(deviceName, iotRoleName, role, resourceGroup);
+```
 
 
 ### New SDK sample
