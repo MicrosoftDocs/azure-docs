@@ -46,11 +46,11 @@ The required network rules and IP address dependencies are:
 
 | Destination Endpoint                                                             | Protocol | Port    | Use  |
 |----------------------------------------------------------------------------------|----------|---------|------|
-| **`*:1194`** <br/> *Or* <br/> [ServiceTag](../virtual-network/service-tags-overview.md#available-service-tags) - **`AzureCloud.<Region>:1194`** <br/> *Or* <br/> [Regional CIDRs](../virtual-network/service-tags-overview.md#discover-service-tags-by-using-downloadable-json-files) - **`RegionCIDRs:1194`** <br/> *Or* <br/> **`APIServerIP:1194`** `(only known after cluster creation)`  | UDP           | 1194      | For tunneled secure communication between the nodes and the control plane. |
-| **`*:9000`** <br/> *Or* <br/> [ServiceTag](../virtual-network/service-tags-overview.md#available-service-tags) - **`AzureCloud.<Region>:9000`** <br/> *Or* <br/> [Regional CIDRs](../virtual-network/service-tags-overview.md#discover-service-tags-by-using-downloadable-json-files) - **`RegionCIDRs:9000`** <br/> *Or* <br/> **`APIServerIP:9000`** `(only known after cluster creation)`  | TCP           | 9000      | For tunneled secure communication between the nodes and the control plane. |
+| **`*:1194`** <br/> *Or* <br/> [ServiceTag](../virtual-network/service-tags-overview.md#available-service-tags) - **`AzureCloud.<Region>:1194`** <br/> *Or* <br/> [Regional CIDRs](../virtual-network/service-tags-overview.md#discover-service-tags-by-using-downloadable-json-files) - **`RegionCIDRs:1194`** <br/> *Or* <br/> **`APIServerIP:1194`** `(only known after cluster creation)`  | UDP           | 1194      | For tunneled secure communication between the nodes and the control plane. This is not required for [private clusters](private-clusters.md)|
+| **`*:9000`** <br/> *Or* <br/> [ServiceTag](../virtual-network/service-tags-overview.md#available-service-tags) - **`AzureCloud.<Region>:9000`** <br/> *Or* <br/> [Regional CIDRs](../virtual-network/service-tags-overview.md#discover-service-tags-by-using-downloadable-json-files) - **`RegionCIDRs:9000`** <br/> *Or* <br/> **`APIServerIP:9000`** `(only known after cluster creation)`  | TCP           | 9000      | For tunneled secure communication between the nodes and the control plane. This is not required for [private clusters](private-clusters.md) |
 | **`*:123`** or **`ntp.ubuntu.com:123`** (if using Azure Firewall network rules)  | UDP      | 123     | Required for Network Time Protocol (NTP) time synchronization on Linux nodes.                 |
 | **`CustomDNSIP:53`** `(if using custom DNS servers)`                             | UDP      | 53      | If you're using custom DNS servers, you must ensure they're accessible by the cluster nodes. |
-| **`APIServerIP:443`** `(if running pods/deployments that access the API Server)` | TCP      | 443     | Required if running pods/deployments that access the API Server, those pods/deployments would use the API IP.  |
+| **`APIServerIP:443`** `(if running pods/deployments that access the API Server)` | TCP      | 443     | Required if running pods/deployments that access the API Server, those pods/deployments would use the API IP. This is not required for [private clusters](private-clusters.md)  |
 
 ### Azure Global required FQDN / application rules 
 
@@ -202,10 +202,7 @@ The following FQDN / application rules are required for AKS clusters that have t
 | `storage.googleapis.com` | **`HTTPS:443`** | This address is used to pull helm/tiller images |
 
 
-### Azure Policy (preview)
-
-> [!CAUTION]
-> Some of the features below are in preview.  The suggestions in this article are subject to change as the feature moves to public preview and future release stages.
+### Azure Policy
 
 #### Required FQDN / application rules 
 
@@ -216,7 +213,6 @@ The following FQDN / application rules are required for AKS clusters that have t
 | **`gov-prod-policy-data.trafficmanager.net`** | **`HTTPS:443`** | This address is used for correct operation of Azure Policy. (currently in preview in AKS) |
 | **`raw.githubusercontent.com`**               | **`HTTPS:443`** | This address is used to pull the built-in policies from GitHub to ensure correct operation of Azure Policy. (currently in preview in AKS) |
 | **`dc.services.visualstudio.com`**            | **`HTTPS:443`** | Azure Policy add-on that sends telemetry data to applications insights endpoint. |
-
 
 ## Restrict egress traffic using Azure firewall
 
