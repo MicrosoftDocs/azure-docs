@@ -71,7 +71,7 @@ Install the [Speech SDK NuGet package](https://aka.ms/csspeech/nuget), and refer
 
 1. In the **Search** box, enter *Microsoft.CognitiveServices.Speech*. Then select that package after it appears in the search results.
 
-   ![Screenshot of Manage Packages for Solution dialog box](../articles/cognitive-services/Speech-Service/media/sdk/qs-csharp-xamarin-nuget-install.png)
+   ![Screenshot that highlights the Microsoft.CognitiveServices.Speech package.](../articles/cognitive-services/Speech-Service/media/sdk/qs-csharp-xamarin-nuget-install.png)
 
    > [!NOTE] 
    > The iOS library inside `Microsoft.CognitiveServices.Speech` NuGet doesn't have bitcode enabled. If you need the bitcode library enabled for your application, use `Microsoft.CognitiveServices.Speech.Xamarin.iOS` NuGet for the iOS project specifically.

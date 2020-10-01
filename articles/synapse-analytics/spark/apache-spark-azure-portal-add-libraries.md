@@ -79,7 +79,7 @@ To install a library onto a Spark pool (preview) directly from the Azure portal:
 
  4. Upload the environment configuration file using the file selector.
 
-![Add Python libraries](./media/apache-spark-azure-portal-add-libraries/apache-spark-add-library-azure.png "Add Python libraries")
+![Screenshot that highlights the Upload environment config file button.](./media/apache-spark-azure-portal-add-libraries/apache-spark-add-library-azure.png "Add Python libraries")
 
 ### Verify installed libraries
 
