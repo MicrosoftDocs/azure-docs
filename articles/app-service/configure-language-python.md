@@ -15,11 +15,11 @@ The App Service deployment engine automatically activates a virtual environment 
 
 This guide provides key concepts and instructions for Python developers who use a built-in Linux container in App Service. If you've never used Azure App Service, first follow the [Python quickstart](quickstart-python.md) and [Python with PostgreSQL tutorial](tutorial-python-postgresql-app.md).
 
-You can use either the Azure portal or the Azure CLI for configuration:
+You can use either the [Azure portal](https://portal.azure.com) or the Azure CLI for configuration:
 
-- To configure through the [Azure portal](https://portal.azure.com), use the app's **Settings** > **Configuration** page as described on [Configure an App Service app in the Azure portal](configure-common.md).
+- **Azure portal**, use the app's **Settings** > **Configuration** page as described on [Configure an App Service app in the Azure portal](configure-common.md).
 
-- To configure your app through CLI commands, you have two options:
+- **Azure CLI**: you have two options.
 
     - Run commands in the [Azure Cloud Shell](../cloud-shell/overview.md), which you can open using the **Try It** button on the top right corner of code blocks.
     - Run commands locally by installing the latest version of the [Azure CLI](/cli/azure/install-azure-cli), then sign in to Azure using [az login](/cli/azure/reference-index#az-login).
@@ -29,30 +29,30 @@ You can use either the Azure portal or the Azure CLI for configuration:
 
 ## Configure Python version
 
-In the Azure portal, use the **General settings** tab on the **Configuration** page as described on [Configure general settings](configure-common.md#configure-general-settings) for Linux containers.
+- **Azure portal**: use the **General settings** tab on the **Configuration** page as described on [Configure general settings](configure-common.md#configure-general-settings) for Linux containers.
 
-With the Azure CLI:
+- **Azure CLI**:
 
--  Show the current Python version with [az webapp config show](/cli/azure/webapp/config#az_webapp_config_show):
-
-    ```azurecli-interactive
-    az webapp config show --resource-group <resource-group-name> --name <app-name> --query linuxFxVersion
-    ```
+    -  Show the current Python version with [az webapp config show](/cli/azure/webapp/config#az_webapp_config_show):
     
-    Replace `<resource-group-name>` and `<app-name>` with the names appropriate for your web app.
-
-- Set the Python version with [az webapp config set](/cli/azure/webapp/config#az_webapp_config_set)
+        ```azurecli-interactive
+        az webapp config show --resource-group <resource-group-name> --name <app-name> --query linuxFxVersion
+        ```
+        
+        Replace `<resource-group-name>` and `<app-name>` with the names appropriate for your web app.
     
-    ```azurecli-interactive
-    az webapp config set --resource-group <resource-group-name> --name <app-name> --linux-fx-version "PYTHON|3.7"
-    ```
-
-- Show all Python versions that are supported in Azure App Service with [az webapp list-runtimes](/cli/azure/webapp#az_webapp_list_runtimes):
-
-    ```azurecli-interactive
-    az webapp list-runtimes --linux | grep PYTHON
-    ```
-
+    - Set the Python version with [az webapp config set](/cli/azure/webapp/config#az_webapp_config_set)
+        
+        ```azurecli-interactive
+        az webapp config set --resource-group <resource-group-name> --name <app-name> --linux-fx-version "PYTHON|3.7"
+        ```
+    
+    - Show all Python versions that are supported in Azure App Service with [az webapp list-runtimes](/cli/azure/webapp#az_webapp_list_runtimes):
+    
+        ```azurecli-interactive
+        az webapp list-runtimes --linux | grep PYTHON
+        ```
+    
 You can run an unsupported version of Python by building your own container image instead. For more information, see [use a custom Docker image](tutorial-custom-container.md?pivots=container-linux).
 
 <!-- <a> element here to preserve external links-->
@@ -68,30 +68,30 @@ For example, use the following code to access an app setting called `DATABASE_SE
 os.environ['DATABASE_SERVER']
 ```
 
-To create and manage settings through the Azure portal, see [Configure app settings](configure-common.md#configure-app-settings).
+- **Azure portal**: see [Configure app settings](configure-common.md#configure-app-settings).
 
-With the Azure CLI, use the [az webapp config app settings set](/cli/azure/webapp/config/appsettings#az_webapp_config_appsettings_set) command to assign a value to a setting:
+- **Azure CLI**: use the [az webapp config app settings set](/cli/azure/webapp/config/appsettings#az_webapp_config_appsettings_set) command to assign a value to a setting:
 
-```azurecli-interactive
-az webapp config appsettings set --name <app-name> --resource-group <resource-group-name> --settings <setting-name>="<value>"
-```
-
-Replace `<setting-name>` with the name of the setting, and `<value>` with the value to assign to it. This command creates the setting if it doesn't already exist.
-
-Use [az webapp config appsettings list](/cli/azure/webapp/config/appsettings#az_webapp_config_appsettings_list) to show all settings with their values
-
-```azurecli-interactive
-az webapp config appsettings list --name <app-name> --resource-group <resource-group-name>
-```
-
-You can also use [az webapp config app settings delete](/cli/azure/webapp/config/appsettings#az_webapp_config_appsettings_delete) to remove one or more settings:
-
-```azurecli-interactive
-az webapp config appsettings delete --name <app-name> --resource-group <resource-group-name> --setting-names {<names>}
-```
-
-Replace `<names>` with a space-separated list of setting names.
-
+    ```azurecli-interactive
+    az webapp config appsettings set --name <app-name> --resource-group <resource-group-name> --settings <setting-name>="<value>"
+    ```
+    
+    Replace `<setting-name>` with the name of the setting, and `<value>` with the value to assign to it. This command creates the setting if it doesn't already exist.
+    
+    Use [az webapp config appsettings list](/cli/azure/webapp/config/appsettings#az_webapp_config_appsettings_list) to show all settings with their values
+    
+    ```azurecli-interactive
+    az webapp config appsettings list --name <app-name> --resource-group <resource-group-name>
+    ```
+    
+    You can also use [az webapp config app settings delete](/cli/azure/webapp/config/appsettings#az_webapp_config_appsettings_delete) to remove one or more settings:
+    
+    ```azurecli-interactive
+    az webapp config appsettings delete --name <app-name> --resource-group <resource-group-name> --setting-names {<names>}
+    ```
+    
+    Replace `<names>` with a space-separated list of setting names.
+    
 ## Customize build automation
 
 App Service's build system, called Oryx, performs the following steps when you deploy your app using Git or zip packages:
@@ -190,16 +190,16 @@ A startup command file can use whatever name you choose, such as *startup.sh*, *
 
 All commands must use relative paths to the project root folder.
 
-To set a startup command or command file in the Azure portal, select the app's **Configuration** page, then select **General settings**. In the **Startup Command** field, place either the full text of your startup command or the name of your startup command file. Then select **Save** to apply the changes.
+- **Azure portal**: select the app's **Configuration** page, then select **General settings**. In the **Startup Command** field, place either the full text of your startup command or the name of your startup command file. Then select **Save** to apply the changes.
 
-With the Azure CLI, use the [az webapp config set](/cli/azure/webapp/config#az_webapp_config_set) command with the `--startup-file` parameter to set the startup command or file:
+- **Azure CLI**: use the [az webapp config set](/cli/azure/webapp/config#az_webapp_config_set) command with the `--startup-file` parameter to set the startup command or file:
 
-```azurecli-interactive
-az webapp config set --resource-group <resource-group-name> --name <app-name> --startup-file "<custom-command>"
-```
-    
-Replace `<custom-command>` with either the full text of your startup command or the name of your startup command file.
-    
+    ```azurecli-interactive
+    az webapp config set --resource-group <resource-group-name> --name <app-name> --startup-file "<custom-command>"
+    ```
+        
+    Replace `<custom-command>` with either the full text of your startup command or the name of your startup command file.
+        
 > [!IMPORTANT]
 > App Service ignores any errors that occur when processing a custom startup command or file, then continues its startup process by looking for Django and Flask apps. If you don't see the behavior you expect, check that your startup command or file is error-free and that a startup command file is deployed to App Service along with your app code.
 
