@@ -175,7 +175,7 @@
 - name: Reference
   items:
   - name: Monitoring Azure Table storage reference
-    href: storage-tables-monitoring-reference.md
+    href: monitor-table-storage-reference.md
   - name: Scalability and performance targets
     items:
     - name: Table storage
