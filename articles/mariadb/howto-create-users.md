@@ -25,7 +25,8 @@ SELECT, INSERT, UPDATE, DELETE, CREATE, DROP, RELOAD, PROCESS, REFERENCES, INDEX
 Once the Azure Database for MariaDB server is created, you can use the first server admin user account to create additional users and grant admin access to them. Also, the server admin account can be used to create less privileged users that have access to individual database schemas.
 
 > [!NOTE]
-> The SUPER privilege and DBA role are not supported. Review the [privileges](concepts-limits.md#privilege-support) in the limitations article to understand what's not supported in the service.
+> The SUPER privilege and DBA role are not supported. Review the [privileges](concepts-limits.md#privileges--data-manipulation-support) in the limitations article to understand what's not supported in the service.<br><br>
+> Password plugins such as "validate_password" and "caching_sha2_password" are not supported by the service.
 
 ## Create additional admin users
 1. Get the connection information and admin user name.
