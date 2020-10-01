@@ -142,7 +142,7 @@ The following images show the usage of Data Management Gateway for moving data b
 
 ![IPSec VPN with gateway](media/data-factory-data-movement-security-considerations/ipsec-vpn-for-gateway.png)
 
-### Firewall configurations and whitelisting IP address of gateway
+### Firewall configurations and filtering IP address of gateway
 
 #### Firewall requirements for on-premises/private network	
 In an enterprise, a **corporate firewall** runs on the central router of the organization. And, **Windows firewall** runs as a daemon on the local machine on which the gateway is installed. 
@@ -158,7 +158,7 @@ The following table provides **outbound port** and domain requirements for the *
 | `*.azuredatalakestore.net` | 443 | (OPTIONAL) needed when your destination is Azure Data Lake store | 
 
 > [!NOTE] 
-> You may have to manage ports/ whitelisting domains at the corporate firewall level as required by respective data sources. This table only uses Azure SQL Database, Azure Synapse Analytics, Azure Data Lake Store as examples.   
+> You may have to manage ports/filtering domains at the corporate firewall level as required by respective data sources. This table only uses Azure SQL Database, Azure Synapse Analytics, Azure Data Lake Store as examples.   
 
 The following table provides **inbound port** requirements for the **windows firewall**.
 
@@ -168,10 +168,10 @@ The following table provides **inbound port** requirements for the **windows fir
 
 ![Gateway port requirements](media/data-factory-data-movement-security-considerations/gateway-port-requirements.png)
 
-#### IP configurations/ whitelisting in data store
-Some data stores in the cloud also require whitelisting of IP address of the machine accessing them. Ensure that the IP address of the gateway machine is whitelisted/ configured in firewall appropriately.
+#### IP configurations/filtering in data store
+Some data stores in the cloud also require approving of IP address of the machine accessing them. Ensure that the IP address of the gateway machine is approved/configured in firewall appropriately.
 
-The following cloud data stores require whitelisting of IP address of the gateway machine. Some of these data stores, by default, may not require whitelisting of the IP address. 
+The following cloud data stores require approving of IP address of the gateway machine. Some of these data stores, by default, may not require approving of the IP address. 
 
 - [Azure SQL Database](../../azure-sql/database/firewall-configure.md) 
 - [Azure Synapse Analytics](../../sql-data-warehouse/sql-data-warehouse-get-started-provision.md)
@@ -185,12 +185,10 @@ The following cloud data stores require whitelisting of IP address of the gatewa
 **Answer:** We do not support this feature yet. We are actively working on it.
 
 **Question:** What are the port requirements for the gateway to work?
-**Answer:** Gateway makes HTTP-based connections to open internet. The **outbound ports 443 and 80** must be opened for gateway to make this connection. Open **Inbound Port 8050** only at the machine level (not at corporate firewall level) for Credential Manager application. If Azure SQL Database or Azure Synapse Analytics is used as source/ destination, then you need to open **1433** port as well. For more information, see [Firewall configurations and whitelisting IP addresses](#firewall-configurations-and-whitelisting-ip-address-of gateway) section. 
+**Answer:** Gateway makes HTTP-based connections to open internet. The **outbound ports 443 and 80** must be opened for gateway to make this connection. Open **Inbound Port 8050** only at the machine level (not at corporate firewall level) for Credential Manager application. If Azure SQL Database or Azure Synapse Analytics is used as source/ destination, then you need to open **1433** port as well. For more information, see [Firewall configurations and filtering IP addresses](#firewall-configurations-and-filtering-ip-address-of gateway) section. 
 
 **Question:** What are certificate requirements for Gateway?
 **Answer:** Current gateway requires a certificate that is used by the credential manager application for securely setting data store credentials. This certificate is a self-signed certificate created and configured by the gateway setup. You can use your own TLS/SSL certificate instead. For more information, see [click-once credential manager application](#click-once-credentials-manager-app) section. 
 
 ## Next steps
 For information about performance of copy activity, see [Copy activity performance and tuning guide](data-factory-copy-activity-performance.md).
-
- 
