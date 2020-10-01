@@ -98,7 +98,7 @@ The Logic App includes the following:
 - A [Compose action](../../logic-apps/logic-apps-workflow-actions-triggers.md#compose-action) to convert the JSON to an object.
 - A [Log Analytics send data connector](/connectors/azureloganalyticsdatacollector/) to post the data to the Log Analytics workspace.
 
-   ![image of adding event hub trigger in logic apps](media/collect-activity-logs-subscriptions/log-analytics-logic-apps-activity-log-overview.png)
+   ![Screenshot of the Logic App Designer showing the steps to collect activity logs from the event hub and write them to the Log Analytics workspace.](media/collect-activity-logs-subscriptions/log-analytics-logic-apps-activity-log-overview.png)
 
 ### Logic App Requirements
 Before creating your Logic App, make sure you have the following information from previous steps:
@@ -141,7 +141,7 @@ The Logic Apps Designer now shows you available connectors and their triggers, w
 
 1. In the search box for the Logic App Designer, type *event hubs* for your filter. Select the trigger **Event Hubs - When events are available in Event Hub**.
 
-   ![image of adding event hub trigger in logic apps](media/collect-activity-logs-subscriptions/logic-apps-event-hub-add-trigger.png)
+   ![Screenshot of the Logic App Designer with the "Event Hubs - When events are available in Event Hub" trigger selected for the Event Hubs service.](media/collect-activity-logs-subscriptions/logic-apps-event-hub-add-trigger.png)
 
 2. When you're prompted for credentials, connect to your Event Hubs namespace. Enter a name for your connection and then the connection string that you copied.  Select **Create**.
 
@@ -311,7 +311,7 @@ With the workflow complete, you can test in the designer to verify that it's wor
 
 In the Logic App Designer, click **Run** to test the Logic App. Each step in the Logic App shows a status icon, with a white check mark in a green circle indicating success.
 
-   ![Test logic app](media/collect-activity-logs-subscriptions/test-logic-app.png)
+   ![Screenshot of the Logic App Designer after a test has been run. Each step of the Logic App has a check mark indicating success.](media/collect-activity-logs-subscriptions/test-logic-app.png)
 
 To see detailed information on each step, click on the step name to expand it. Click on **Show raw inputs** and **Show raw outputs** to see more information on the data received and sent at each step.
 
@@ -329,7 +329,7 @@ The final step is to check the Log Analytics workspace to make sure that data is
 > The activity logs are written to a custom table and do not appear in the [Activity Log solution](./activity-log.md).
 
 
-![Test logic app](media/collect-activity-logs-subscriptions/log-analytics-results.png)
+![Screenshot of a search for AzureActivity_CL in the Log Search pane showing a Table of results with one result expanded to show activity detail.](media/collect-activity-logs-subscriptions/log-analytics-results.png)
 
 ## Next steps
 

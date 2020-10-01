@@ -1,10 +1,10 @@
 ---
-title: Boost Azure managed disk performance
-description: Learn about performance tiers for managed disks, as well as how to upgrade performance tiers for your managed disks.
+title: Change the performance of Azure managed disks
+description: Learn about performance tiers for managed disks, as well as how to change performance tiers for existing managed disks.
 author: roygara
 ms.service: virtual-machines
 ms.topic: how-to
-ms.date: 09/22/2020
+ms.date: 09/24/2020
 ms.author: rogarana
 ms.subservice: disks
 ms.custom: references_regions
@@ -16,7 +16,9 @@ Azure Disk Storage currently offers built-in bursting capabilities to achieve hi
 
 ## How it works
 
-When you first deploy or provision a disk, the baseline performance tier for that disk is set based on the provisioned disk size. A higher performance tier can be selected to meet higher demand and, when that performance is no longer required, you can return to the initial baseline performance tier. For example, if you provision a P10 disk (128 GiB), your baseline performance tier is set as P10 (500 IOPS and 100 MB/s). You can update the tier to match the performance of P50 (7500 IOPS and 250 MB/s) without increasing the disk size and return to P10 when the higher performance is no longer needed.
+When you first deploy or provision a disk, the baseline performance tier for that disk is set based on the provisioned disk size. A higher performance tier can be selected to meet higher demand and, when that performance is no longer required, you can return to the initial baseline performance tier.
+
+Your billing changes as your tier changes. For example, if you provision a P10 disk (128 GiB), your baseline performance tier is set as P10 (500 IOPS and 100 MB/s) and you will be billed at the P10 rate. You can update the tier to match the performance of P50 (7500 IOPS and 250 MB/s) without increasing the disk size, during which time you will be billed at the P50 rate. When the higher performance is no longer necessary, you can return to the P10 tier and the disk will once again be billed at the P10 rate.
 
 | Disk size | Baseline performance tier | Can be upgraded to |
 |----------------|-----|-------------------------------------|
@@ -35,11 +37,14 @@ When you first deploy or provision a disk, the baseline performance tier for tha
 | 16 TiB | P70 | P80 |
 | 32 TiB | P80 | None |
 
+For billing information, see [Managed disk pricing](https://azure.microsoft.com/pricing/details/managed-disks/).
+
 ## Restrictions
 
 - Currently only supported for premium SSDs.
 - Disks must be detached from a running VM before changing tiers.
 - Use of the P60, P70, and P80 performance tiers is restricted to disks of 4096 GiB or greater.
+- A disks performance tier can only be changed once every 24 hours.
 
 ## Regional availability
 

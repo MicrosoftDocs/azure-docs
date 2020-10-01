@@ -105,6 +105,9 @@ If you do want to set up an explicit field mapping, make sure that the _sourceFi
 > [!NOTE]
 > The approach used by `AzureSearch_DocumentKey` of ensuring uniqueness per extracted entity is subject to change and therefore you should not rely on it's value for your application's needs.
 
+## Help us make Azure Cognitive Search better
+If you have feature requests or ideas for improvements, provide your input on [UserVoice](https://feedback.azure.com/forums/263029-azure-search/). If you need help using the existing feature, post your question on [Stack Overflow](https://stackoverflow.microsoft.com/questions/tagged/18870).
+
 ## Next steps
 
 If you aren't already familiar with the basic structure and workflow of blob indexing, you should review [Indexing Azure Blob Storage with Azure Cognitive Search](search-howto-index-json-blobs.md) first. For more information about parsing modes for different blob content types, review the following articles.

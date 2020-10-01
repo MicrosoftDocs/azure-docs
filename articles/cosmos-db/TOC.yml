@@ -21,6 +21,8 @@
         href: create-sql-api-dotnet.md
       - name: Java app
         href: create-sql-api-java.md
+      - name: Spring Data app
+        href: create-sql-api-spring-data.md        
       - name: Node.js app
         href: create-sql-api-nodejs.md
       - name: Python app
@@ -73,6 +75,8 @@
       href: sql-api-dotnet-v3sdk-samples.md
     - name: Java SDK v4 samples
       href: sql-api-java-sdk-samples.md
+    - name: Spring Data v3 samples
+      href: sql-api-spring-data-sdk-samples.md      
     - name: Node.js samples
       href: sql-api-nodejs-samples.md
     - name: Python samples
@@ -1074,7 +1078,7 @@
           href: troubleshoot-not-found.md
         - name : Troubleshoot unauthorized
           href: troubleshoot-unauthorized.md
-        - name : SDK Availability in multiregional environments
+        - name : Availability issues in multiregional environments
           href: troubleshoot-sdk-availability.md
       - name: .NET
         items: 

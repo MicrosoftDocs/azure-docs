@@ -1,6 +1,8 @@
 ---
 title: Best practices for building your LUIS app
 description: Learn the best practices to get the best results from your LUIS app's model.
+ms.service: cognitive-services
+ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 05/17/2020
 ms.author: diberry

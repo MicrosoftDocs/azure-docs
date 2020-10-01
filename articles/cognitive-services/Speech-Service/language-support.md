@@ -188,7 +188,7 @@ For more information about regional availability, see [regions](regions.md#stand
 | `pt-PT` | Portuguese  (Portugal) | Female | `pt-PT-FernandaNeural` | General |
 | `ro-RO` <sup>New</sup> | Romanian (Romania) | Female | `ro-RO-AlinaNeural` | General |
 | `ru-RU` | Russian  (Russia) | Female | `ru-RU-DariyaNeural` | General |
-| `sk-SK` <sup>New</sup> | Skovanian (Skovania) | Female | `sk-SK-ViktoriaNeural` | General |
+| `sk-SK` <sup>New</sup> | Slovak (Slovakia) | Female | `sk-SK-ViktoriaNeural` | General |
 | `sl-SI` <sup>New</sup> | Slovenian (Slovenia) | Female | `sl-SI-PetraNeural` | General |
 | `sv-SE` | Swedish  (Sweden) | Female | `sv-SE-HilleviNeural` | General |
 | `ta-IN` <sup>New</sup> | Tamil (India) | Female | `ta-IN-PallaviNeural` | General |

@@ -64,15 +64,15 @@ Before configuring Smartsheet for automatic user provisioning with Azure AD, you
 
 5. Generate the **Secret Token** required to configure automatic user provisioning with Azure AD by navigating to **Apps and Integrations**.
 
-	![Smartsheet Install](media/smartsheet-provisioning-tutorial/Smartsheet05.png)
+	![Screenshot of the Smartsheet Admin page with the user avatar and the Apps & Integrations option called out.](media/smartsheet-provisioning-tutorial/Smartsheet05.png)
 
 6. Choose **API Access**. Click **Generate new access token**.
 
-	![Smartsheet Install](media/smartsheet-provisioning-tutorial/Smartsheet06.png)
+	![Screenshot of the Personal Settings dialog box with the API Access and Generate new access token options called out.](media/smartsheet-provisioning-tutorial/Smartsheet06.png)
 
 7. Define the name of the API Access Token. Click **OK**.
 
-	![Smartsheet Install](media/smartsheet-provisioning-tutorial/Smartsheet07.png)
+	![Screenshot of the Step 1 of 2: Generate API Access Token with the OK option called out.](media/smartsheet-provisioning-tutorial/Smartsheet07.png)
 
 8. Copy the API Access Token and save it as this will be the only time you can view it. This is required in the **Secret Token** field in Azure AD.
 

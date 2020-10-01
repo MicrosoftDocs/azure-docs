@@ -10,7 +10,7 @@ ms.author: daperlov
 ms.reviewer: maghan
 manager: jroth
 ms.topic: conceptual
-ms.date: 08/31/2020
+ms.date: 09/23/2020
 ---
 
 # Continuous integration and delivery in Azure Data Factory
@@ -207,13 +207,17 @@ If your development factory has an associated git repository, you can override t
 * You use automated CI/CD and you want to change some properties during Resource Manager deployment, but the properties aren't parameterized by default.
 * Your factory is so large that the default Resource Manager template is invalid because it has more than the maximum allowed parameters (256).
 
-To override the default parameterization template, create a file named **arm-template-parameters-definition.json** in the root folder of your git branch. You must use that exact file name.
+To override the default parameterization template, go to the management hub and select **Parameterization template** in the source control section. Select **Edit template** to open the parameterization template code editor. 
 
-   ![Custom parameters file](media/continuous-integration-deployment/custom-parameters.png)
+![Manage custom parameters](media/author-management-hub/management-hub-custom-parameters.png)
+
+Creating a custom parameterization template creates a file named **arm-template-parameters-definition.json** in the root folder of your git branch. You must use that exact file name.
+
+![Custom parameters file](media/continuous-integration-deployment/custom-parameters.png)
 
 When publishing from the collaboration branch, Data Factory will read this file and use its configuration to generate which properties get parameterized. If no file is found, the default template is used.
 
-When exporting a Resource Manager template, Data Factory reads this file from whichever branch you're currently working on, not just from the collaboration branch. You can create or edit the file from a private branch, where you can test your changes by selecting **Export ARM Template** in the UI. You can then merge the file into the collaboration branch.
+When exporting a Resource Manager template, Data Factory reads this file from whichever branch you're currently working on, not the collaboration branch. You can create or edit the file from a private branch, where you can test your changes by selecting **Export ARM Template** in the UI. You can then merge the file into the collaboration branch.
 
 > [!NOTE]
 > A custom parameterization template doesn't change the ARM template parameter limit of 256. It lets you choose and decrease the number of parameterized properties.

@@ -4,7 +4,7 @@ description: Learn about the steps necessary for responding to alerts from Azure
 author: memildin
 ms.author: memildin
 ms.date: 9/22/2020
-ms.topic: conceptual
+ms.topic: how-to
 ms.service: security-center
 manager: rkarlin
 

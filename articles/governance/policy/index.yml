@@ -11,7 +11,7 @@ metadata:
   ms.collection: collection
   author: DCtheGeek
   ms.author: dacoulte
-  ms.date: 09/22/2020
+  ms.date: 09/24/2020
 
 landingContent:
   - title: About Azure Policy
@@ -45,6 +45,8 @@ landingContent:
             url: ./assign-policy-azurecli.md
           - text: Assign a policy (Azure PowerShell)
             url: ./assign-policy-powershell.md
+          - text: Assign a policy (JavaScript)
+            url: ./assign-policy-javascript.md
           - text: Assign a policy (Python)
             url: ./assign-policy-python.md
           - text: Assign a policy (REST)

@@ -48,15 +48,15 @@ Before configuring Reward Gateway for automatic user provisioning with Azure AD,
 
 1. Sign in to your [Reward Gateway Admin Console](https://rewardgateway.photoshelter.com/login/). Click **Integrations**.
 
-	![Reward Gateway Admin Console](media/reward-gateway-provisioning-tutorial/image00.png)
+	![Screenshot of the Reward Gateway Admin Console with the Integrations option called out.](media/reward-gateway-provisioning-tutorial/image00.png)
 
 2.	Select **My Integration**.
 
-	![Reward Gateway Admin Console](media/reward-gateway-provisioning-tutorial/image001.png)
+	![Screenshot of the two Integrations options with the My Integrations option called out.](media/reward-gateway-provisioning-tutorial/image001.png)
 
 3.	Copy the values of **SCIM URL (v2)** and **OAuth Bearer Token**. These values will be entered in the Tenant URL and Secret Token field in the Provisioning tab of your Reward Gateway application in the Azure portal.
 
-	![Reward Gateway Admin Console](media/reward-gateway-provisioning-tutorial/image03.png)
+	![Screenshot of the My Integrations panel with the OAuth Bearer Token text box called out.](media/reward-gateway-provisioning-tutorial/image03.png)
 
 ## Add Reward Gateway from the gallery
 
@@ -117,11 +117,11 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 8. Under the **Mappings** section, select **Synchronize Azure Active Directory Users to Reward Gateway**.
 
-	![Reward Gateway Admin Console](media/reward-gateway-provisioning-tutorial/user-mappings.png)
+	![Screenshot of the Mappings section with the Synchronize Azure Active Directory Users to Reward Gateway option called out.](media/reward-gateway-provisioning-tutorial/user-mappings.png)
 
 9. Review the user attributes that are synchronized from Azure AD to Reward Gateway in the **Attribute-Mapping** section. The attributes selected as **Matching** properties are used to match the user accounts in Reward Gateway for update operations. Select the **Save** button to commit any changes.
 
-	![Reward Gateway Admin Console](media/reward-gateway-provisioning-tutorial/user-attributes.png)
+	![Screenshot of the Attribute Mappings section with six mappings displayed.](media/reward-gateway-provisioning-tutorial/user-attributes.png)
 
 10. To configure scoping filters, refer to the following instructions provided in the [Scoping filter tutorial](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
 

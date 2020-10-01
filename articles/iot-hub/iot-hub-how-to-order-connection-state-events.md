@@ -222,11 +222,11 @@ In your logic app workflow, conditions help run specific actions after passing t
 
 5. Select **Add new parameter**. In the dropdown that appears, check the boxes next to **Partition key** and **Parameters for the stored procedure**, then click anywhere else on the screen; it adds a field for partition key value and a field for parameters for the stored procedure.
 
-   ![populate logic app action](./media/iot-hub-how-to-order-connection-state-events/logicapp-stored-procedure.png)
+   ![Screenshot shows an Execute stored procedure item with Add new parameter selected.](./media/iot-hub-how-to-order-connection-state-events/logicapp-stored-procedure.png)
 
 6. Now enter the partition key value and parameters as shown below. Be sure to put in the brackets and double-quotes as shown. You may have to click **Add dynamic content** to get the valid values you can use here.
 
-   ![populate logic app action](./media/iot-hub-how-to-order-connection-state-events/logicapp-stored-procedure-2.png)
+   ![Screenshot shows an Execute stored procedure item with parameters entered.](./media/iot-hub-how-to-order-connection-state-events/logicapp-stored-procedure-2.png)
 
 7. At the top of the pane where it says **For Each**, under **Select an output from previous steps**, make sure it  **Body** is selected.
 

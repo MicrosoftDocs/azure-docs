@@ -42,11 +42,7 @@ To assign an Azure role to an Azure AD identity, using the [Azure portal](https:
 1. In the Azure portal, go to your file share, or [create a file share](storage-how-to-create-file-share.md).
 1. Select **Access Control (IAM)**.
 1. Select **Add a role assignment**
-1. In the **Add role assignment** blade, select the appropriate built-in role (Storage File Data SMB Share Reader, Storage File Data SMB Share Contributor) from the **Role** list. Leave **Assign access to** at the default setting: **Azure AD user, group, or service principal**. Select the target Azure AD identity by name or email address. 
-
-    > [!IMPORTANT]
-    > The selected Azure AD identity must be a hybrid identity and cannot be a cloud only identity.This means that the same identity is also represented in AD DS.
-
+1. In the **Add role assignment** blade, select the appropriate built-in role (Storage File Data SMB Share Reader, Storage File Data SMB Share Contributor) from the **Role** list. Leave **Assign access to** at the default setting: **Azure AD user, group, or service principal**. Select the target Azure AD identity by name or email address. **The selected Azure AD identity must be a hybrid identity and cannot be a cloud only identity.** This means that the same identity is also represented in AD DS.
 1. Select **Save** to complete the role assignment operation.
 
 ### PowerShell

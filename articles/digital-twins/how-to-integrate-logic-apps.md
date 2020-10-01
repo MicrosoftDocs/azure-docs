@@ -28,7 +28,7 @@ In this article, you will use the [Azure portal](https://portal.azure.com) to **
 If you don't have an Azure subscription, **create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)** before you begin.
 Sign in to the [Azure portal](https://portal.azure.com) with this account. 
 
-The rest of this section will walk you through these steps:
+You also need to complete the following items as part of prerequisite setup. The remainder of this section will walk you through these steps:
 - Set up an Azure Digital Twins instance
 - Get app registration client secret
 - Add a digital twin
@@ -161,13 +161,13 @@ You are now done setting up a custom connector that can access the Azure Digital
 
 Next, you'll create a logic app that will use your new connector to automate Azure Digital Twins updates.
 
-Navigate to the [Logic apps (consumption)](https://portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Logic%2Fworkflows) page in the Azure portal (you can use this link or look for it in the portal search bar). Hit *Add* button to create a logic app.
+In the [Azure portal](https://portal.azure.com), search for *Logic apps* in the portal search bar. Selecting it should take you to the *Logic apps* page. Hit the *Create logic app* button to create a new logic app.
 
-:::image type="content" source="media/how-to-integrate-logic-apps/create-logic-app.png" alt-text="The 'Logic Apps (consumption)' page in the Azure portal. Hit 'Add' button":::
+:::image type="content" source="media/how-to-integrate-logic-apps/create-logic-app.png" alt-text="The 'Logic Apps' page in the Azure portal. Hit 'Add' button":::
 
-In the *Logic apps (consumption)* page that follows, enter your subscription, resource group. Also, choose a name for your logic app and select the location.
+In the *Logic App* page that follows, enter your subscription and resource group. Also, choose a name for your logic app and select the deployment location.
 
-Select _Review + create_ button.
+Hit the _Review + create_ button.
 
 This will take you to the *Review + create* tab, where you can review your details and hit *Create* at the bottom to create your resource.
 

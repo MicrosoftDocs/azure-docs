@@ -7,7 +7,7 @@ ms.service: sql-database
 ms.subservice: security
 ms.custom: sqldbrb=1
 ms.devlang: 
-ms.topic: conceptual
+ms.topic: how-to
 author: VanMSFT
 ms.author: vanto
 ms.reviwer: 
@@ -122,7 +122,7 @@ You can encrypt the columns now or save a PowerShell script to run later. For th
 
 Verify that the settings are all correct and click **Finish** to complete the setup for Always Encrypted.
 
-![Summary](./media/always-encrypted-certificate-store-configure/summary.png)
+![Screenshot shows the results page with tasks marked as passed.](./media/always-encrypted-certificate-store-configure/summary.png)
 
 ### Verify the wizard's actions
 

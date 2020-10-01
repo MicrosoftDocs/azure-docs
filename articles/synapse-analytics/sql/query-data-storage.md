@@ -8,7 +8,7 @@ ms.topic: overview
 ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: v-stazar
-ms.reviewer: jrasnick, carlrab
+ms.reviewer: jrasnick 
 ---
 # Query storage files using SQL on-demand (preview) resources within Synapse SQL
 

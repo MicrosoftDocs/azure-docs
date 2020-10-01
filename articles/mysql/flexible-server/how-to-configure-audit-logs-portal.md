@@ -46,9 +46,6 @@ Enable and configure audit logging.
 
 ## Set up diagnostics
 
-> [!NOTE]
-> Integration with Azure Monitor diagnostic settings to access logs is in the process of deploying and full functionality will be available soon.
-
 Audit logs are integrated with Azure Monitor diagnostic settings to allow you to pipe your logs to Azure Monitor logs, Event Hubs, or Azure Storage.
 
 1. Under the **Monitoring** section in the sidebar, select **Diagnostic settings**.

@@ -7,15 +7,17 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 08/31/2020
+ms.date: 09/24/2020
 ms.author: alkohli
 ---
-# Update your Azure Stack Edge Pro with GPU 
+# Update your Azure Stack Edge Pro GPU 
 
-This article describes the steps required to install update on your Azure Stack Edge Pro with GPU via the local web UI and via the Azure portal. You apply the software updates or hotfixes to keep your Azure Stack Edge Pro device and the associated Kubernetes cluaster on the device up-to-date. 
+This article describes the steps required to install update on your Azure Stack Edge Pro with GPU via the local web UI and via the Azure portal. You apply the software updates or hotfixes to keep your Azure Stack Edge Pro device and the associated Kubernetes cluster on the device up-to-date. 
+
+The procedure described in this article was performed using a different version of software, but the process remains the same for the current software version.
 
 > [!IMPORTANT]
-> - Update **2008** corresponds to **2.1.1328.1904** software version on your device. For information on this update, go to [Release notes](azure-stack-edge-gpu-2008-release-notes.md).
+> - Update **2009** corresponds to **2.1.1358.2075** software version on your device. For information on this update, go to [Release notes](azure-stack-edge-gpu-2009-release-notes.md).
 >
 > - Keep in mind that installing an update or hotfix restarts your device. This update requires you to apply two updates sequentially. First you apply the device software updates and then Kubernetes updates. Given that the Azure Stack Edge Pro is a single node device, any I/O in progress is disrupted and your device experiences a downtime of up to 30 minutes for the device software update.
 

@@ -58,5 +58,3 @@ Shared premium SSDs are only supported in the following regions:
 - East Asia
 - US Gov Virginia
 - US Gov Arizona
-
-If you're interested in trying shared premium SSDs, [sign up for access](https://aka.ms/AzureSharedDiskGASignUp).

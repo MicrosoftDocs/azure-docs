@@ -58,7 +58,7 @@ The resource will be listed as not applicable and the reason will be shown as "e
 
     :::image type="content" source="./media/exempt-resource/modifying-exemption.png" alt-text="Modifying an exemption":::
 
-    The reason for each exemption is included in the table. 
+    The reason for each exemption is included in the table (1).
 
     To modify or delete an exemption, select the ellipsis menu ("...") as shown (2).
 
