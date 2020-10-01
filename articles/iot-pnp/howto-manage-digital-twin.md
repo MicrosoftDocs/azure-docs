@@ -174,11 +174,11 @@ All map keys should be valid DTDL v2 names.
 
 ## Troubleshoot update digital twin API errors
 
-During public preview, the update digital twin API throws the following generic error message:
+The digital twin API throws the following generic error message:
 
 `ErrorCode:ArgumentInvalid;'{propertyName}' exists within the device twin and is not digital twin conformant property. Please refer to aka.ms/dtpatch to update this to be conformant.`
 
-Make sure the update patch follows the [rules for setting desired value of a digital twin property](#rules-for-setting-the-desired-value-of-a-digital-twin-property)
+If you see this error, make sure the update patch follows the [rules for setting desired value of a digital twin property](#rules-for-setting-the-desired-value-of-a-digital-twin-property)
 
 When you update a component, make sure that the [empty object $metadata marker](#add-replace-or-remove-a-component) is set.
 
