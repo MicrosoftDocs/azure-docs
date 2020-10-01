@@ -122,8 +122,8 @@
       href: understand/subscription-transfer.md
     - name: Transfer subscriptions between partners (Preview)
       href: manage/azure-plan-subscription-transfer-partners.md
-    - name: Enterprise Agreement onboarding guide
-      href: manage/ea-onboarding-guide.md
+    - name: Get started in the Azure EA portal
+      href: manage/ea-portal-get-started.md
 - name: How-to guides
   items:
   - name: Configure Cost Management + Billing
@@ -202,8 +202,6 @@
         href: manage/cancel-azure-subscription.md
     - name: Manage Enterprise Agreement subscriptions
       items:
-      - name: Get started in the Azure EA portal
-        href: manage/ea-portal-get-started.md
       - name: EA roles in Azure
         href: manage/understand-ea-roles.md
       - name: Azure EA portal administration
