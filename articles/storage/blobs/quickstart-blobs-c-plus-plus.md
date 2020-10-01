@@ -35,6 +35,7 @@ Additional resources:
 
 - [Azure subscription](https://azure.microsoft.com/free/)
 - [Azure storage account](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account)
+- [CMake](https://cmake.org/)
 - [Vcpkg - C and C++ package manager](https://github.com/microsoft/vcpkg/blob/master/docs/index.md)
 - [LibCurl](https://curl.haxx.se/libcurl/)
 - [LibXML2](http://www.xmlsoft.org/)
@@ -45,25 +46,26 @@ This section walks you through preparing a project to work with the Azure Blob s
 
 ### Install the packages
 
-Install the Azure Blob storage client library for C++ package by using the `vcpkg install` command.
+If you haven't already, install the LibCurl and LibXML2 packages by using the `vcpkg install` commmand.
 
 ```console
-vcpkg install azure-storage-blobs:x64-windows
+vcpkg.exe install libxml2:x64-windows curl:x64-windows
 ```
+
+Follow the instructions at [Azure SDK for C++](https://github.com/Azure/azure-sdk-for-cpp/) to acquire and build the Azure SDK for C++.
 
 ### Create the project
 
-In Visual Studio, create a C++ console application named *BlobQuickstartV12*.
+In Visual Studio, create a C++ console application called *BlobQuickstartV12*. Add the following libraries to the project:
 
-### Set up the app framework
-
-From the project directory:
-
-1. Open the *BlobQuickstartV12.cpp* file in Visual Studio
-1. Remove the ` std::wcout << "Hello, World!" << std::endl;` statement
-1. Add `#include` statements
-
-:::code language="cpp" source="~/azure-storage-snippets/blobs/quickstarts/C++/V12/BlobQuickstartV12/BlobQuickstartV12/BlobQuickstartV12.cpp" id="Snippet_Includes":::
+- libcurl.lib
+- libxml2.lib
+- bcrypt.lib
+- Crypt32.Lib
+- WS2_32.Lib
+- azure-core.lib
+- azure-storage-common.lib
+- azure-storage-blobs.lib
 
 [!INCLUDE [storage-quickstart-credentials-include](../../../includes/storage-quickstart-credentials-include.md)]
 
@@ -90,12 +92,24 @@ Use the following C++ classes to interact with these resources:
 
 These example code snippets show you how to perform the following with the Azure Blob storage client library for C++:
 
+- [Add include files](#add-include-files)
 - [Get the connection string](#get-the-connection-string)
 - [Create a container](#create-a-container)
 - [Upload blobs to a container](#upload-blobs-to-a-container)
 - [List the blobs in a container](#list-the-blobs-in-a-container)
 - [Download blobs](#download-blobs)
 - [Delete a container](#delete-a-container)
+
+### Add include files
+
+From the project directory:
+
+1. Open the *BlobQuickstartV12.sln* solution file in Visual Studio
+1. Inside Visual Studio, open the *BlobQuickstartV12.cpp* source file
+1. Remove any code inside `main` that was auto-generated
+1. Add `#include` statements
+
+:::code language="cpp" source="~/azure-storage-snippets/blobs/quickstarts/C++/V12/BlobQuickstartV12/BlobQuickstartV12/BlobQuickstartV12.cpp" id="Snippet_Includes":::
 
 ### Get the connection string
 
