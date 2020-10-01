@@ -70,9 +70,9 @@ You might be sending data without the Time Series ID.
 
 ## Problem: Data was showing, but now ingestion has stopped
 
-- Your event source key may have been regenerate and your Gen2 environment needs the new event source key.
+- Your event source key may have been regenerated and your Gen2 environment needs the new event source key.
 
-This problem occurs when the key provided when creating your event source is no longer valid. You would see telemetry in your hub but no Ingress Received Messages in Time Series Insights. If you are unsure whether or not the key was regenerated you can search your Event Hubs' Activity log for "Create or Update Namespace Authorization Rules" or search "Create or update IotHub Resource" for IoT hub.
+This problem occurs when the key provided when creating your event source is no longer valid. You would see telemetry in your hub but no Ingress Received Messages in Time Series Insights. If you are unsure whether or not the key was regenerated, you can search your Event Hubs' Activity log for "Create or Update Namespace Authorization Rules" or search "Create or update IotHub Resource" for IoT hub.
 
 To update your Time Series Insights Gen2 environment with the new key open your hub resource in the Azure portal and copy the new key. Navigate to your TSI resource and click on Event Sources.
 
