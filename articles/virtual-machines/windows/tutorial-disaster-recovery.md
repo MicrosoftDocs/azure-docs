@@ -1,6 +1,6 @@
 ---
 title: Tutorial - Set up disaster recovery for Azure VMs with Azure Site Recovery
-description: Learn how to set up disaster recovery for Azure VMs to a different Azure region, using the Azure Site Recovery service.
+description: Learn how to enable disaster recovery for Azure VMs to a different Azure region, using the Azure Site Recovery service.
 author: rayne-wiselman
 ms.service: virtual-machines
 ms.subservice: recovery
@@ -12,7 +12,7 @@ ms.custom: mvc
 ---
 
 
-# Tutorial: Set up disaster recovery for Azure VMs
+# Tutorial: Enable disaster recovery for Azure VMs
 
 In this tutorial, you replicate an Azure virtual machine (VM) to a secondary Azure region, using the Azure Site Recovery service. Site Recovery contributes to your disaster recovery strategy by managing and orchestrating replication, failover, and failback of VMs between Azure regions.
 
@@ -23,7 +23,7 @@ In this article, learn how to:
 > * Run a disaster recovery drill
 > * Stop replicating the VM after the drill
 
-When you enable replication for a VM, the Site Recovery Mobility service extension installs on the VM, and registers it with Site Recovery. Continuous replication begins. VM disk writes are send to a cache storage account in the source region. Data is sent from there to the target region, and recovery points are generated from the data.  When you fail over a VM during disaster recovery, a recovery point is used to restore the VM in the target region.
+When you enable replication for a VM, the Site Recovery Mobility service extension installs on the VM, and registers it with Site Recovery. Continuous replication begins. VM disk writes are sent to a cache storage account in the source region. Data is sent from there to the target region, and recovery points are generated from the data.  When you fail over a VM during disaster recovery, a recovery point is used to restore the VM in the target region.
 
 ## Prerequisites
 
@@ -32,8 +32,7 @@ When you enable replication for a VM, the Site Recovery Mobility service extensi
     - The Virtual Machine Contributor built-in role, or specific permissions to:
         - Create a VM in the selected virtual network.
         - Write to an Azure storage account.
-        - Write to an Azure managed disk.
-        - The  has permissions for these tasks.
+        - Write to an Azure-managed disk.
     - The Site Recovery Contributor built-in role, to manage Site Recovery operations in the vault. 
 3. We recommend you use one of these VMs in this tutorial:
     - A Windows VM running Windows Server 2012 or later. The VM disk shouldn't be encrypted for this tutorial.
@@ -51,7 +50,7 @@ When you enable replication for a VM, the Site Recovery Mobility service extensi
     **Tag** | **Allow** | **Details**
     --- | --- | ---
     Storage tag | Allows data to be written from the VM to the cache storage account.
-    Azure AD tag | Allows acess to all IP addresses that correspond to Azure AD.
+    Azure AD tag | Allows access to all IP addresses that correspond to Azure AD.
     EventsHub tag | Allows access to Site Recovery monitoring.
     AzureSiteRecovery tag | Allows access to the Site Recovery service in any region.
     GuestAndHybridManagement | Use if you want to automatically upgrade the Site Recovery Mobility agent that's running on VMs enabled for replication.
@@ -89,7 +88,7 @@ After the replication job finishes, you can check the VM replication status.
 
 1. Open the VM properties page.
 2. In **Operations**, select **Disaster recovery**.
-3. Expand the **Essentials** section to review defailts about the vault, replication policy, and target settings.
+3. Expand the **Essentials** section to review defaults about the vault, replication policy, and target settings.
 4. In **Health and status**, get information about replication state for the VM, the agent version, failover readiness, and the latest recovery points. 
 
     :::image type="content" source="./media/tutorial-disaster-recovery/essentials.png" alt-text="Essentials view for VM disaster recovery.":::
@@ -141,7 +140,7 @@ After trying out this tutorial, you can stop replicating the source VM. When you
 - The VM is removed from the Site Recovery list of replicated machines.
 - Site Recovery billing for the VM stops.
 - Source replication settings are cleaned up automatically.
-- The Site Recovery extension installed on the VM during replication isn't removed automatically. You need to remove it manually.
+- The Site Recovery extension installed on the VM during replication isn't removed automatically. Remove it manually.
 
 Disable as follows:
 
