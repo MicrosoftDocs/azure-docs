@@ -8,15 +8,14 @@ ms.subservice: core
 ms.topic: how-to
 
 ms.reviewer: larryfr
-ms.author: aashishb
-author: aashishb
+ms.author: peterlu
+author: peterclu
 ms.date: 07/16/2020
-ms.custom: contperfq4, tracking-python
+ms.custom: contperfq4, tracking-python, contperfq1
 
 ---
 
 # Secure an Azure Machine Learning training environment with virtual networks
-[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
 In this article, you learn how to secure training environments with a virtual network in Azure Machine Learning.
 
@@ -161,7 +160,7 @@ There are two ways that you can accomplish this:
 
     * Download the [Azure IP Ranges and Service Tags](https://www.microsoft.com/download/details.aspx?id=56519) and search the file for `BatchNodeManagement.<region>` and `AzureMachineLearning.<region>`, where `<region>` is your Azure region.
 
-    * Use the [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) to download the information. The following example downloads the IP address information and filters out the information for the East US 2 region:
+    * Use the [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest&preserve-view=true) to download the information. The following example downloads the IP address information and filters out the information for the East US 2 region:
 
         ```azurecli-interactive
         az network list-service-tags -l "East US 2" --query "values[?starts_with(id, 'Batch')] | [?properties.region=='eastus2']"
@@ -177,6 +176,9 @@ There are two ways that you can accomplish this:
     When you add the UDRs, define the route for each related Batch IP address prefix and set __Next hop type__ to __Internet__. The following image shows an example of this UDR in the Azure portal:
 
     ![Example of a UDR for an address prefix](./media/how-to-enable-virtual-network/user-defined-route.png)
+
+    > [!IMPORTANT]
+    > The IP addresses may change over time.
 
     In addition to any UDRs that you define, outbound traffic to Azure Storage must be allowed through your on-premises network appliance. Specifically, the URLs for this traffic are in the following forms: `<account>.table.core.windows.net`, `<account>.queue.core.windows.net`, and `<account>.blob.core.windows.net`. 
 

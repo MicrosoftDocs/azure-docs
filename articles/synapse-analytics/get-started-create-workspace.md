@@ -8,24 +8,23 @@ manager: julieMSFT
 ms.reviewer: jrasnick
 ms.service: synapse-analytics
 ms.topic: tutorial
-ms.date: 08/27/2020 
+ms.date: 09/30/2020 
 ---
 
-# Create a Synapse workspace
+# Creating a Synapse workspace
 
 In this tutorial, you'll learn how to create a Synapse workspace, a SQL pool, and an Apache Spark pool. 
 
-## Create a Synapse workspace
+## Prerequisites
+
+To complete this all of this tutorial's steps, you need to have access to a resource group for which you are assigned the **Owner** role. Create the Synapse workspace in this resource group.
+
+## Create a Synapse workspace in the Azure Portal
 
 1. Open the [Azure portal](https://portal.azure.com), and at the top search for **Synapse**.
 1. In the search results, under **Services**, select **Azure Synapse Analytics (workspaces preview)**.
-1. Select **Add** to create a workspace using these settings:
-
-    |Tab|Setting | Suggested value | Description |
-    |---|---|---|---|
-    |Basics|**Workspace name**|You can name it anything.| In this document, we'll use **myworkspace**.|
-    |Basics|**Region**|Match the region of the storage account.|
-
+1. Select **Add** to create a workspace.
+1. In **Basics**, choose a workspace name. In this tutorial, we'll use **myworkspace**.
 1. You need an ADLSGEN2 account to create a workspace. The simplest choice it to create a new one. If you want to re-use an existing one you'll need to perform some additional configuration. 
 1. OPTION 1 Creating a new ADLSGEN2 account 
     1. Navigate to **Select Data Lake Storage Gen 2**. 

@@ -152,7 +152,7 @@ To deploy a Storage Sync Service, go to the [Azure portal](https://portal.azure.
 
 On the pane that opens, enter the following information:
 
-- **Name**: A unique name (per subscription) for the Storage Sync Service.
+- **Name**: A unique name (per region) for the Storage Sync Service.
 - **Subscription**: The subscription in which you want to create the Storage Sync Service. Depending on your organization's configuration strategy, you might have access to one or more subscriptions. An Azure subscription is the most basic container for billing for each cloud service (such as Azure Files).
 - **Resource group**: A resource group is a logical group of Azure resources, such as a storage account or a Storage Sync Service. You can create a new resource group or use an existing resource group for Azure File Sync. (We recommend using resource groups as containers to isolate resources logically for your organization, such as grouping HR resources or resources for a specific project.)
 - **Location**: The region in which you want to deploy Azure File Sync. Only supported regions are available in this list.
@@ -519,13 +519,12 @@ The recommended steps to onboard on Azure File Sync for the first with zero down
 If you don't have extra storage for initial onboarding and would like to attach to the existing shares, you can pre-seed the data in the Azure files shares. This approach is suggested, if and only if you can accept downtime and absolutely guarantee no data changes on the server shares during the initial onboarding process. 
  
 1. Ensure that data on any of the servers can't change during the onboarding process.
-2. Pre-seed Azure file shares with the server data using any data transfer tool over the SMB for example, Robocopy, direct SMB copy. Since AzCopy does not upload data over the SMB so it can't be used for pre-seeding.
+2. Pre-seed Azure file shares with the server data using any data transfer tool over the SMB. Robocopy, for example. YOu can also use AzCopy over REST. Be sure to use AzCopy with the appropriate switches to preserve ACLs timestamps and attributes.
 3. Create Azure File Sync topology with the desired server endpoints pointing to the existing shares.
 4. Let sync finish reconciliation process on all endpoints. 
 5. Once reconciliation is complete, you can open shares for changes.
  
 Currently, pre-seeding approach has a few limitations - 
-- Full fidelity on files is not preserved. For example, files lose ACLs and timestamps.
 - Data changes on the server before sync topology is fully up and running can cause conflicts on the server endpoints.  
 - After the cloud endpoint is created, Azure File Sync runs a process to detect the files in the cloud before starting the initial sync. The time taken to complete this process varies depending on the various factors like network speed, available bandwidth, and number of files and folders. For the rough estimation in the preview release, detection process runs approximately at 10 files/sec.  Hence, even if pre-seeding runs fast, the overall time to get a fully running system may be significantly longer when data is pre-seeded in the cloud.
 

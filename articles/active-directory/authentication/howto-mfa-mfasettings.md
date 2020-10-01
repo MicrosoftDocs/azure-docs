@@ -28,7 +28,7 @@ The following Azure Multi-Factor Authentication settings are available in the Az
 | [Block/unblock users](#block-and-unblock-users) | Block specific users from being able to receive Azure Multi-Factor Authentication requests. Any authentication attempts for blocked users are automatically denied. Users remain blocked for 90 days from the time that they are blocked or they're manually unblocked. |
 | [Fraud alert](#fraud-alert) | Configure settings that allow users to report fraudulent verification requests. |
 | [Notifications](#notifications) | Enable notifications of events from MFA Server. |
-| [OATH tokens](concept-authentication-methods.md#oath-tokens) | Used in cloud-based Azure MFA environments to manage OATH tokens for users. |
+| [OATH tokens](concept-authentication-oath-tokens.md) | Used in cloud-based Azure MFA environments to manage OATH tokens for users. |
 | [Phone call settings](#phone-call-settings) | Configure settings related to phone calls and greetings for cloud and on-premises environments. |
 | Providers | This will show any existing authentication providers that you may have associated with your account. New authentication providers may not be created as of September 1, 2018 |
 
@@ -54,7 +54,7 @@ To configure account lockout settings, complete the following settings:
 
 ## Block and unblock users
 
-If a user's device has been lost or stolen, you can block authentication attempts for the associated account. Any authentication attempts for blocked users are automatically denied. Users remain blocked for 90 days from the time that they are blocked.
+If a user's device has been lost or stolen, you can block Azure Multi-Factor Authentication attempts for the associated account. Any Azure Multi-Factor Authentication attempts for blocked users are automatically denied. Users remain blocked for 90 days from the time that they are blocked.
 
 ### Block a user
 
@@ -82,7 +82,7 @@ The fraud alert feature lets users report fraudulent attempts to access their re
 
 The following fraud alert configuration options are available:
 
-* **Automatically block users who report fraud**: If a user reports fraud, their account is blocked for 90 days or until an administrator unblocks their account. An administrator can review sign-ins by using the sign-in report, and take appropriate action to prevent future fraud. An administrator can then [unblock](#unblock-a-user) the user's account.
+* **Automatically block users who report fraud**: If a user reports fraud, the Azure MFA authentication attempts for the user  account are blocked for 90 days or until an administrator unblocks their account. An administrator can review sign-ins by using the sign-in report, and take appropriate action to prevent future fraud. An administrator can then [unblock](#unblock-a-user) the user's account.
 * **Code to report fraud during initial greeting**: When users receive a phone call to perform multi-factor authentication, they normally press **#** to confirm their sign-in. To report fraud, the user enters a code before pressing **#**. This code is **0** by default, but you can customize it.
 
    > [!NOTE]
@@ -153,7 +153,7 @@ In the United States, if you haven't configured MFA Caller ID, voice calls from 
 * *+1 (877) 668 6536*
 
 > [!NOTE]
-> When Azure Multi-Factor Authentication calls are placed through the public telephone network, sometimes they are routed through a carrier that doesn't support caller ID. Because of this, caller ID is not guaranteed, even though Azure Multi-Factor Authentication always sends it.
+> When Azure Multi-Factor Authentication calls are placed through the public telephone network, sometimes the calls are routed through a carrier that doesn't support caller ID. Because of this, caller ID isn't guaranteed, even though Azure Multi-Factor Authentication always sends it. This applies both to phone calls and to text messages provided by Azure Multi-Factor Authentication. If you need to validate that a text message is from Azure Multi-Factor Authentication, see [What SMS short codes are used for sending messages?](multi-factor-authentication-faq.md#what-sms-short-codes-are-used-for-sending-sms-messages-to-my-users)
 
 To configure your own caller ID number, complete the following steps:
 

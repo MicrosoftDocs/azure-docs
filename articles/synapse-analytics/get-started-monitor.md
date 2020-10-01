@@ -46,5 +46,4 @@ Open Synapse Studio and navigate to the **Monitor** hub. Here, you can see a his
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Azure Synapse Analytics (workspaces preview)](overview-what-is.md)
-
+> [Explore the Knowledge Center](get-started-knowledge-center.md)

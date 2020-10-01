@@ -33,7 +33,7 @@ To assign users to an app that you added to your Azure AD tenant, you need:
 1. In the Azure AD portal, select **Enterprise applications**. Then find and select the application you want to configure.
 2. In the left navigation menu, select **Users and groups**.
    > [!NOTE]
-   > Some of the Microsoft 365 and Office 365 apps require the use of PowerShell. 
+   > Some of the Microsoft 365 apps require the use of PowerShell. 
 3. Select the **Add user** button.
 4. On the **Add Assignment** pane, select **Users and groups**.
 5. Select the user or group you want to assign to the application. You can also start typing the name of the user or group in the search box. You can choose multiple users and groups, and your selections will appear under **Selected items**.
@@ -41,7 +41,7 @@ To assign users to an app that you added to your Azure AD tenant, you need:
     > When you assign a group to an application, only users in the group will have access. The assignment does not cascade to nested groups.
 
     > [!NOTE]
-    > Group-based assignment requires Azure Active Directory Premium P1 or P2 edition. Group-based assignment is supported for Security groups only. Nested group memberships and Office 365 groups are not currently supported. For more licensing requirements for the features discussed in this article, see the [Azure Active Directory pricing page](https://azure.microsoft.com/pricing/details/active-directory). 
+    > Group-based assignment requires Azure Active Directory Premium P1 or P2 edition. Group-based assignment is supported for Security groups only. Nested group memberships and Microsoft 365 groups are not currently supported. For more licensing requirements for the features discussed in this article, see the [Azure Active Directory pricing page](https://azure.microsoft.com/pricing/details/active-directory). 
 6. When finished, choose **Select**.
    ![Assign a user or group to the app](./media/assign-user-or-group-access-portal/assign-users.png)
 7. On the **Users and groups** pane, select one or more users or groups from the list and then choose the **Select** button at the bottom of the pane.
@@ -50,8 +50,7 @@ To assign users to an app that you added to your Azure AD tenant, you need:
     > If the application doesn't support role selection, the default access role is assigned. In this case, the application manages the level of access users have.
 9. On the **Add Assignment** pane, select the **Assign** button at the bottom of the pane.
 
-> [!NOTE]
-> You can unassign users or groups using the same procedure. Select the user or group you want to unassign and then select **Remove**. Some of the Microsoft 365 and Office 365 apps require the use of PowerShell. 
+You can unassign users or groups using the same procedure. Select the user or group you want to unassign and then select **Remove**. Some of the Microsoft 365 and Office 365 apps require the use of PowerShell. 
 
 ## Clean up resources
 
@@ -61,4 +60,9 @@ After you're done with the quickstart, consider deleting the app. That way you c
 
 Advance to the next article to learn how to set up single sign-on for an app.
 > [!div class="nextstepaction"]
-> [Set up single sign-on](add-application-portal-setup-sso.md)
+> [Set up SAML-based single sign-on](add-application-portal-setup-sso.md)
+
+OR
+
+> [!div class="nextstepaction"]
+> [Set up OIDC-based single sign-on](add-application-portal-setup-oidc-sso.md)

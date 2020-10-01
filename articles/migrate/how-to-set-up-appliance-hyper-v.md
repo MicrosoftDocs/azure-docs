@@ -54,8 +54,8 @@ Check that the zipped file is secure, before you deploy it.
 1. On the machine to which you downloaded the file, open an administrator command window.
 2. Run the following command to generate the hash for the VHD
     - ```C:\>CertUtil -HashFile <file_location> [Hashing Algorithm]```
-    - Example usage: ```C:\>CertUtil -HashFile C:\AzureMigrate\AzureMigrate.vhd SHA256```
-3.  For appliance version 2.19.11.12, the generated hash should match these [settings](./tutorial-assess-hyper-v.md#verify-security).
+    - Example usage: ```C:\>Get-FileHash -Path ./AzureMigrateAppliance_v3.20.09.25.zip -Algorithm SHA256```
+
 
 
 
@@ -126,7 +126,7 @@ If you're running VHDs on SMBs, you must enable delegation of credentials from t
 1. On the appliance VM, run this command. HyperVHost1/HyperVHost2 are example host names.
 
     ```
-    Enable-WSManCredSSP -Role Client -DelegateComputer HyperVHost1.contoso.com HyperVHost2.contoso.com -Force
+    Enable-WSManCredSSP -Role Client -DelegateComputer HyperVHost1.contoso.com, HyperVHost2.contoso.com, HyperVHost1, HyperVHost2 -Force
     ```
 
 2. Alternatively, do this in the Local Group Policy Editor on the appliance:

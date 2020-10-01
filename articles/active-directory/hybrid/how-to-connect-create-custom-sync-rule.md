@@ -1,6 +1,6 @@
 ---
 title: How to customize a synchronization rule in Azure AD Connect | Microsoft Docs'
-description: This topic provides steps for how to troubleshoot issues with installing Azure AD Connect.
+description: Learn how to use the synchronization rule editor to edit or create a new synchronization rule.
 services: active-directory
 documentationcenter: ''
 author: billmath

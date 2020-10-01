@@ -142,7 +142,7 @@ Commands can be used to install, remove and update software. Troubleshoot VMs in
 
 
 Execute the lsblk command and the /rescue is now / and /rescue/boot is /boot
-![Chrooted](./media/chroot-logical-volume-manager/chrooted.png)
+![Screenshot shows a console window with the l s blk command and its output tree.](./media/chroot-logical-volume-manager/chrooted.png)
 
 ## Perform Fixes
 
@@ -168,7 +168,7 @@ grub2-mkconfig -o /boot/grub2/grub.cfg
 *walkthrough*
 
 The **grep** command lists the kernels that **grub.cfg** is aware of.
-![Kernels](./media/chroot-logical-volume-manager/kernels.png)
+![Screenshot shows a console window displaying the result of a grep search for kernels.](./media/chroot-logical-volume-manager/kernels.png)
 
 **grub2-editenv list** displays which kernel will be loaded at next boot
 ![Kernel default](./media/chroot-logical-volume-manager/kernel-default.png)
@@ -193,7 +193,7 @@ Run the **lvs** command to verify which **LVs** are available for mounting, ever
 
 Exit the **chroot** environment mount the required **LV**
 
-![Advanced](./media/chroot-logical-volume-manager/advanced.png)
+![Screenshot shows a console window with an l v s command, then mounting an L V.](./media/chroot-logical-volume-manager/advanced.png)
 
 Now access the **chroot** environment again by running
 

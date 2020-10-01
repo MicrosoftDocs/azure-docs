@@ -6,7 +6,7 @@ ms.author: nimoolen
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 07/29/2020
+ms.date: 09/29/2020
 ---
 
 # Data flow script (DFS)
@@ -171,13 +171,13 @@ aggregate(groupBy(movie),
 Use this code in your data flow script to create a new derived column called ```DWhash``` that produces a ```sha1``` hash of three columns.
 
 ```
-derive(DWhash = sha1(Name,ProductNumber,Color))
+derive(DWhash = sha1(Name,ProductNumber,Color)) ~> DWHash
 ```
 
 You can also use this script below to generate a row hash using all columns that are present in your stream, without needing to name each column:
 
 ```
-derive(DWhash = sha1(columns()))
+derive(DWhash = sha1(columns())) ~> DWHash
 ```
 
 ### String_agg equivalent
@@ -186,7 +186,7 @@ This code will act like the T-SQL ```string_agg()``` function and will aggregate
 ```
 source1 aggregate(groupBy(year),
 	string_agg = collect(title)) ~> Aggregate1
-Aggregate1 derive(string_agg = toString(string_agg)) ~> DerivedColumn2
+Aggregate1 derive(string_agg = toString(string_agg)) ~> StringAgg
 ```
 
 ### Count number of updates, upserts, inserts, deletes
@@ -205,6 +205,14 @@ This snippet will add a new Aggregate transformation to your data flow which wil
 ```
 aggregate(groupBy(mycols = sha2(256,columns())),
     each(match(true()), $$ = first($$))) ~> DistinctRows
+```
+
+### Check for NULLs in all columns
+This is a snippet that you can paste into your data flow to generically check all of your columns for NULL values. This technique leverages schema drift to look through all columns in all rows and uses a Conditional Split to separate the rows with NULLs from the rows with no NULLs. 
+
+```
+split(contains(array(columns()),isNull(#item)),
+	disjoint: false) ~> LookForNULLs@(hasNULLs, noNULLs)
 ```
 
 ## Next steps

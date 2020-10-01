@@ -1,21 +1,23 @@
 ---
-title: Use kubectl to deploy Kubernetes stateful app via statically provisioned share on Azure Stack Edge device| Microsoft Docs
-description: Describes how to create and manage a Kubernetes stateful application deployment via a statically provisioned share using kubectl on a Azure Stack Edge GPU device.
+title: Use kubectl to deploy Kubernetes stateful app via statically provisioned share on Azure Stack Edge Pro device| Microsoft Docs
+description: Describes how to create and manage a Kubernetes stateful application deployment via a statically provisioned share using kubectl on a Azure Stack Edge Pro GPU device.
 services: databox
 author: alkohli
 
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 08/18/2020
+ms.date: 09/22/2020
 ms.author: alkohli
 ---
 
-# Use kubectl to run a Kubernetes stateful application with a PersistentVolume on your Azure Stack Edge device
+# Use kubectl to run a Kubernetes stateful application with a PersistentVolume on your Azure Stack Edge Pro device
 
 This article shows you how to deploy a single-instance stateful application in Kubernetes using a PersistentVolume (PV) and a deployment. The deployment uses `kubectl` commands on an existing Kubernetes cluster and deploys the MySQL application. 
 
-This procedure is intended for those who have reviewed the [Kubernetes storage on Azure Stack Edge device](azure-stack-edge-gpu-kubernetes-storage.md) and are familiar with the concepts of [Kubernetes storage](https://kubernetes.io/docs/concepts/storage/).
+This procedure is intended for those who have reviewed the [Kubernetes storage on Azure Stack Edge Pro device](azure-stack-edge-gpu-kubernetes-storage.md) and are familiar with the concepts of [Kubernetes storage](https://kubernetes.io/docs/concepts/storage/).
+
+Azure Stack Edge Pro also supports running Azure SQL Edge containers and these can be deployed in a similar way as detailed here for MySQL. For more information, see [Azure SQL Edge](../azure-sql-edge/overview.md).
 
 
 ## Prerequisites
@@ -24,30 +26,30 @@ Before you can deploy the stateful application, make sure that you have complete
 
 ### For device
 
-- You have sign-in credentials to a 1-node Azure Stack Edge device.
+- You have sign-in credentials to a 1-node Azure Stack Edge Pro device.
     - The device is activated. See [Activate the device](azure-stack-edge-gpu-deploy-activate.md).
     - The device has the compute role configured via Azure portal and has a Kubernetes cluster. See [Configure compute](azure-stack-edge-gpu-deploy-configure-compute.md).
 
 ### For client accessing the device
 
-- You have a  Windows client system that will be used to access the Azure Stack Edge device.
+- You have a  Windows client system that will be used to access the Azure Stack Edge Pro device.
     - The client is running Windows PowerShell 5.0 or later. To download the latest version of Windows PowerShell, go to [Install Windows PowerShell](https://docs.microsoft.com/powershell/scripting/install/installing-windows-powershell?view=powershell-7).
     
     - You can have any other client with a [Supported operating system](azure-stack-edge-gpu-system-requirements.md#supported-os-for-clients-connected-to-device) as well. This article describes the procedure when using a Windows client. 
     
-    - You have completed the procedure described in [Access the Kubernetes cluster on Azure Stack Edge device](azure-stack-edge-gpu-create-kubernetes-cluster.md). You have:
+    - You have completed the procedure described in [Access the Kubernetes cluster on Azure Stack Edge Pro device](azure-stack-edge-gpu-create-kubernetes-cluster.md). You have:
       - Created a `userns1` namespace via the `New-HcsKubernetesNamespace` command. 
       - Created a user `user1` via the `New-HcsKubernetesUser` command. 
       - Granted the `user1` access to `userns1` via the `Grant-HcsKubernetesNamespaceAccess` command.       
       - Installed `kubectl` on the client  and saved the `kubeconfig` file with the user configuration to C:\\Users\\&lt;username&gt;\\.kube. 
     
-    - Make sure that the `kubectl` client version is skewed no more than one version from the Kubernetes master version running on your Azure Stack Edge device. 
+    - Make sure that the `kubectl` client version is skewed no more than one version from the Kubernetes master version running on your Azure Stack Edge Pro device. 
         - Use `kubectl version` to check the version of kubectl running on the client. Make a note of the full version.
-        - In the local UI of your Azure Stack Edge device, go to **Overview** and note the Kubernetes software number. 
+        - In the local UI of your Azure Stack Edge Pro device, go to **Overview** and note the Kubernetes software number. 
         - Verify these two versions for compatibility from the mapping provided in the Supported Kubernetes version <!-- insert link-->. 
 
 
-You are ready to deploy a stateful application on your Azure Stack Edge device. 
+You are ready to deploy a stateful application on your Azure Stack Edge Pro device. 
 
 ## Provision a static PV
 
@@ -98,7 +100,7 @@ All `kubectl` commands you use to create and manage stateful application deploym
 
     This claim is satisfied by any existing PV that was statically provisioned when you created the share in the earlier step. On your device, a large PV of 32 TB is created for each share. The PV meets the requirements set forth by PVC and the PVC should be bound to this PV.
 
-    Copy and save the following `mysql-deployment.yml` file to a folder on the Windows client that you are using to access the Azure Stack Edge device.
+    Copy and save the following `mysql-deployment.yml` file to a folder on the Windows client that you are using to access the Azure Stack Edge Pro device.
     
     ```yml
     apiVersion: v1
@@ -351,4 +353,4 @@ The PV is no longer bound to the PVC as the PVC was deleted. As the PV was provi
 ## Next steps
 
 To understand how to dynamically provision storage, see 
-[Deploy a stateful application via dynamic provisioning on an Azure Stack Edge device](azure-stack-edge-gpu-deploy-stateful-application-dynamic-provision-kubernetes.md)
+[Deploy a stateful application via dynamic provisioning on an Azure Stack Edge Pro device](azure-stack-edge-gpu-deploy-stateful-application-dynamic-provision-kubernetes.md)
