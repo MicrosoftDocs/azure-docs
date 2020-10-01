@@ -164,7 +164,7 @@ A permanent failure occurs due to a change in the conditions that allow the rule
 - Permissions to one of the data sources of the rule query were changed.
 - One of the data sources of the rule query was deleted or disconnected.
 
-**In the event of a permanent failure,** Azure Sentinel stops trying to execute the rule, and also takes the following steps:
+**In the event of a predetermined number of consecutive permanent failures, of the same type and on the same rule,** Azure Sentinel stops trying to execute the rule, and also takes the following steps:
 
 - Disables the rule.
 - Adds the words **"AUTO DISABLED"** to the beginning of the rule's name.
