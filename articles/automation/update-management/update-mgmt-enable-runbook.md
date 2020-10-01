@@ -16,7 +16,7 @@ This article describes how you can use a runbook to enable the [Update Managemen
 This method uses two runbooks:
 
 * **Enable-MultipleSolution** - The primary runbook that prompts for configuration information, queries the specified VM and performs other validation checks, and then invokes the **Enable-AutomationSolution** runbook to configure Update Management for each VM within the specified resource group.
-* **Enable-AutomationSolution** - Enables Update Management for one or more VMs specified in the target resource group. It verifies prerequisites are met, verifies the Log Analytics VM extension is installed and installs if not found, and adds the VMs to the scope configuration in the specified Log Analytics worskpace linked to the Automation account.
+* **Enable-AutomationSolution** - Enables Update Management for one or more VMs specified in the target resource group. It verifies prerequisites are met, verifies the Log Analytics VM extension is installed and installs if not found, and adds the VMs to the scope configuration in the specified Log Analytics workspace linked to the Automation account.
 
 ## Prerequisites
 
