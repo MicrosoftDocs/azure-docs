@@ -29,7 +29,7 @@ The identifier for a directory schema extension attribute is of the form *Extens
 Directory schema extension attributes can be registered and populated in one of two ways:
 
 - By configuring AD Connect to create them and to sync data into them from on premises AD. See [Azure AD Connect Sync Directory Extensions](../hybrid/how-to-connect-sync-feature-directory-extensions.md).
-- Using Microsoft Graph to register, set the values of, and read from [schema extensions](/graph/extensibility-overview) and/or PowerShell+ [Managing extension attributes with AzureAD PowerShell cmdlets](/powershell/azure/active-directory/using-extension-attributes-sample?view=azureadps-2.0).
+- By using Microsoft Graph to register, set the values of, and read from [schema extensions](/graph/extensibility-overview). [PowerShell cmdlets](/powershell/azure/active-directory/using-extension-attributes-sample) are also available.
 
 ### Emitting claims with data from directory schema extension attributes created with AD Connect
 Directory schema extension attributes created and synced using AD Connect are always associated with the application ID used by AD Connect. They can be used as a source for claims both by configuring them as claims in the **Enterprise Applications** configuration in the Portal UI for SAML applications registered using the Gallery or the non-Gallery application configuration experience under **Enterprise Applications**, and via a claims-mapping policy for applications registered via the Application registration experience.  Once a directory extension attribute created via AD Connect is in the directory, it will show in the SAML SSO claims configuration UI.
