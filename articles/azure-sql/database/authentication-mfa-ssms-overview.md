@@ -22,14 +22,12 @@ Azure SQL Database, Azure SQL Managed Instance, and Azure Synapse Analytics supp
 
 **Download the latest SSMS** - On the client computer, download the latest version of SSMS, from [Download SQL Server Management Studio (SSMS)](https://aka.ms/ssms). 
 
-> [!Note]
-> In December 2021, releases of SSMS prior to 18.6 will no longer authenticate through Azure Active Directory with MFA. To continue utilizing Azure Active Directory authentication with MFA please install or update to SSMS 18.6 or newer.
+[!INCLUDE[ssms-connect-azure-ad](../includes/ssms-connect-azure-ad.md)]
+
 
 For all the features discussed in this article, use at least July 2017, version 17.2. The most recent connection dialog box, should look similar to the following image:
 
   ![Screenshot of the Connect to Server dialog in SQL Server Management Studio, showing settings for Server type, Server name, and Authentication.](./media/authentication-mfa-ssms-overview/1mfa-universal-connect.png)
-  
-    
 
 ## Authentication options
 
