@@ -60,14 +60,6 @@ You can run an unsupported version of Python by building your own container imag
 
 ## Set and access app settings/environment variables
 
-In App Service, Application Settings are provided to your app code as environment variables. You can access these settings using the standard [os.environ](https://docs.python.org/3/library/os.html#os.environ) pattern.
-
-For example, use the following code to access an app setting called `DATABASE_SERVER`:
-
-```python
-os.environ['DATABASE_SERVER']
-```
-
 - **Azure portal**: see [Configure app settings](configure-common.md#configure-app-settings).
 
 - **Azure CLI**: use the [az webapp config app settings set](/cli/azure/webapp/config/appsettings#az_webapp_config_appsettings_set) command to assign a value to a setting:
@@ -92,6 +84,14 @@ os.environ['DATABASE_SERVER']
     
     Replace `<names>` with a space-separated list of setting names.
     
+Once set, Application Settings are available to your app code as environment variables. You access these settings using the standard [os.environ](https://docs.python.org/3/library/os.html#os.environ) pattern.
+
+For example, if you've created app setting called `DATABASE_SERVER`, the following code retrieves that setting's value:
+
+```python
+db_server = os.environ['DATABASE_SERVER']
+```
+
 ## Customize build automation
 
 App Service's build system, called Oryx, performs the following steps when you deploy your app using Git or zip packages:
@@ -184,11 +184,11 @@ If the App Service doesn't find a custom command, a Django app, or a Flask app, 
 
 As noted earlier in this article, you can provide configuration settings for Gunicorn through a *gunicorn.conf.py* file in the project root, as described on [Gunicorn configuration overview](https://docs.gunicorn.org/en/stable/configure.html#configuration-file).
 
-If such configuration is not sufficient, you can control the container's startup behavior by providing either a custom startup command or multiple commands in a startup command file.
-
-A startup command file can use whatever name you choose, such as *startup.sh*, *startup.cmd*, *startup.txt*, and so on.
+If such configuration is not sufficient, you can control the container's startup behavior by providing either a custom startup command or multiple commands in a startup command file. A startup command file can use whatever name you choose, such as *startup.sh*, *startup.cmd*, *startup.txt*, and so on.
 
 All commands must use relative paths to the project root folder.
+
+To specify a startup command or command file:
 
 - **Azure portal**: select the app's **Configuration** page, then select **General settings**. In the **Startup Command** field, place either the full text of your startup command or the name of your startup command file. Then select **Save** to apply the changes.
 
@@ -200,8 +200,7 @@ All commands must use relative paths to the project root folder.
         
     Replace `<custom-command>` with either the full text of your startup command or the name of your startup command file.
         
-> [!IMPORTANT]
-> App Service ignores any errors that occur when processing a custom startup command or file, then continues its startup process by looking for Django and Flask apps. If you don't see the behavior you expect, check that your startup command or file is error-free and that a startup command file is deployed to App Service along with your app code.
+App Service ignores any errors that occur when processing a custom startup command or file, then continues its startup process by looking for Django and Flask apps. If you don't see the behavior you expect, check that your startup command or file is error-free and that a startup command file is deployed to App Service along with your app code.
 
 ### Example startup commands
 
