@@ -78,7 +78,7 @@ To improve the security of applications published by Azure AD Application Proxy,
 
 #### Azure DDoS protection service
 
-Applications published through Application Proxy are protected against Distributed Denial of Service (DDoS) attacks. This protection is managed by Microsoft and it is automatically enabled in all of our data centers, providing always-on traffic monitoring and real-time mitigation of common network-level attacks. 
+Applications published through Application Proxy are protected against Distributed Denial of Service (DDoS) attacks. This protection is managed by Microsoft and is automatically enabled in all our datacenters. The Azure DDoS protection service provides always-on traffic monitoring and real-time mitigation of common network-level attacks. 
 
 ## Under the hood
 
