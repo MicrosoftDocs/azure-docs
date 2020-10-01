@@ -5,80 +5,53 @@ ms.topic: quickstart
 ms.date: 09/29/2020
 ms.reviewer: astay; kraigb
 ms.custom: mvc, seodec18, devx-track-python
-zone_pivot_groups: azure-interface-portal-cli
 ---
 
 # Configure a Linux Python app for Azure App Service
 
 This article describes how [Azure App Service](overview.md) runs Python apps, and how you can customize the behavior of App Service when needed. Python apps must be deployed with all the required [pip](https://pypi.org/project/pip/) modules.
 
-The App Service deployment engine automatically activates a virtual environment and runs `pip install -r requirements.txt` for you when you deploy a [Git repository](deploy-local-git.md), or a [zip package](deploy-zip.md) with build processes switched on.
+The App Service deployment engine automatically activates a virtual environment and runs `pip install -r requirements.txt` for you when you deploy a [Git repository](deploy-local-git.md), or a [zip package](deploy-zip.md).
 
 This guide provides key concepts and instructions for Python developers who use a built-in Linux container in App Service. If you've never used Azure App Service, first follow the [Python quickstart](quickstart-python.md) and [Python with PostgreSQL tutorial](tutorial-python-postgresql-app.md).
 
+You can use either the Azure portal or the Azure CLI for configuration:
+
+- To configure through the [Azure portal](https://portal.azure.com), use the app's **Settings** > **Configuration** page as described on [Configure an App Service app in the Azure portal](configure-common.md).
+
+- To configure your app through CLI commands, you have two options:
+
+    - Run commands in the [Azure Cloud Shell](../cloud-shell/overview.md), which you can open using the **Try It** button on the top right corner of code blocks.
+    - Run commands locally by installing the latest version of the [Azure CLI](/cli/azure/install-azure-cli), then sign in to Azure using [az login](/cli/azure/reference-index#az-login).
+    
 > [!NOTE]
 > Linux is currently the recommended option for running Python apps in App Service. For information on the Windows option, see [Python on the Windows flavor of App Service](/visualstudio/python/managing-python-on-azure-app-service).
 
-::: zone pivot="azurecli"
-## Configure through CLI commands
-
-To configure your app through CLI commands, you have two options:
-
-- Run commands in the [Azure Cloud Shell](../cloud-shell/overview.md), which you can open using the **Try It** button on the top right corner of code blocks.
-- Run commands locally by installing the latest version of the [Azure CLI](/cli/azure/install-azure-cli), then sign in to Azure using [az login](/cli/azure/reference-index#az-login).
-::: zone-end
-
-::: zone pivot="portal"
-## Configure through the portal
-
-The configuration steps in this article generally happen through your app's **Settings** > **Configuration** page.
-
-To find your app's configuration page, open the [Azure portal](https://portal.azure.com), then search for and select the app name in the search bar at the top of the portal:
-
-![Searching for an app name on the Azure portal](media/configure-language-python/portal-app-search.png)
-
-You can also search for "app service", then select **App Services** under **Services**. On the following page, select the name of your web app.
-
-Once you reach your app's **Overview** page, scroll the left side menu to find the **Settings** group, then select **Configuration** to open the configuration page:
-
-![Opening the app's configuration page on the Azure portal](media/configure-language-python/portal-app-settings-configuration.png)
-::: zone-end
-
 ## Configure Python version
 
-::: zone pivot="azurecli"
-The following command shows the current Python version:
+In the Azure portal, use the **General settings** tab on the **Configuration** page as described on [Configure general settings](configure-common.md#configure-general-settings) for Linux containers.
 
-```azurecli-interactive
-az webapp config show --resource-group <resource-group-name> --name <app-name> --query linuxFxVersion
-```
+With the Azure CLI:
 
-Replace `<resource-group-name>` and `<app-name>` with the names appropriate for your web app.
+-  Show the current Python version with [az webapp config show](/cli/azure/webapp/config#az_webapp_config_show):
 
-The following command shows all Python versions that are supported in Azure App Service:
+    ```azurecli-interactive
+    az webapp config show --resource-group <resource-group-name> --name <app-name> --query linuxFxVersion
+    ```
+    
+    Replace `<resource-group-name>` and `<app-name>` with the names appropriate for your web app.
 
-```azurecli-interactive
-az webapp list-runtimes --linux | grep PYTHON
-```
+- Set the Python version with [az webapp config set](/cli/azure/webapp/config#az_webapp_config_set)
+    
+    ```azurecli-interactive
+    az webapp config set --resource-group <resource-group-name> --name <app-name> --linux-fx-version "PYTHON|3.7"
+    ```
 
-The following command sets the Python version to 3.7:
+- Show all Python versions that are supported in Azure App Service with [az webapp list-runtimes](/cli/azure/webapp#az_webapp_list_runtimes):
 
-```azurecli-interactive
-az webapp config set --resource-group <resource-group-name> --name <app-name> --linux-fx-version "PYTHON|3.7"
-```
-::: zone-end
-
-::: zone pivot="portal"
-On the app's configuration page, select **General settings**.
-
-The supported Python versions are visible in the **Major version** and **Minor version** controls:
-
-![Python versions shown on the Azure portal](media/configure-language-python/portal-python-versions.png)
-
-When you select a major version, you can then see what minor versions are supported.
-
-To change the version of Python used for your app, select the desired major and minor versions, then select **Save** at the top of the page.
-::: zone-end
+    ```azurecli-interactive
+    az webapp list-runtimes --linux | grep PYTHON
+    ```
 
 You can run an unsupported version of Python by building your own container image instead. For more information, see [use a custom Docker image](tutorial-custom-container.md?pivots=container-linux).
 
@@ -95,8 +68,9 @@ For example, use the following code to access an app setting called `DATABASE_SE
 os.environ['DATABASE_SERVER']
 ```
 
-::: zone pivot="azurecli"
-Use the [az webapp config app settings set](/cli/azure/webapp/config/appsettings#az_webapp_config_appsettings_set) command to assign a value to a setting:
+To create and manage settings through the Azure portal, see [Configure app settings](configure-common.md#configure-app-settings).
+
+With the Azure CLI, use the [az webapp config app settings set](/cli/azure/webapp/config/appsettings#az_webapp_config_appsettings_set) command to assign a value to a setting:
 
 ```azurecli-interactive
 az webapp config appsettings set --name <app-name> --resource-group <resource-group-name> --settings <setting-name>="<value>"
@@ -117,20 +91,15 @@ az webapp config appsettings delete --name <app-name> --resource-group <resource
 ```
 
 Replace `<names>` with a space-separated list of setting names.
-::: zone-end
-
-::: zone pivot="portal"
-To create and manage settings through the Azure portal, see [Configure app settings](configure-common.md#configure-app-settings).
-::: zone-end
 
 ## Customize build automation
 
-With build automation turned on, App Service's build system, called Oryx, performs the following steps when you deploy your app using Git or zip packages:
+App Service's build system, called Oryx, performs the following steps when you deploy your app using Git or zip packages:
 
-1. Run custom script if specified by the `PRE_BUILD_COMMAND` (or `PRE_BUILD_SCRIPT_PATH`) setting.
+1. Run custom script if specified by the `PRE_BUILD_COMMAND` setting.
 1. Run `pip install -r requirements.txt`.
 1. If *manage.py* is found in the root of the repository (indicating a Django app), run *manage.py collectstatic*. However, if the `DISABLE_COLLECTSTATIC` setting is `true`, this step is skipped.
-1. Run custom script if specified by the `POST_BUILD_COMMAND` (or `POST_BUILD_SCRIPT_PATH`) setting.
+1. Run custom script if specified by the `POST_BUILD_COMMAND` setting.
 
 By default, the `PRE_BUILD_COMMAND`, `POST_BUILD_COMMAND`, and `DISABLE_COLLECTSTATIC` settings are empty. 
 
@@ -221,22 +190,16 @@ A startup command file can use whatever name you choose, such as *startup.sh*, *
 
 All commands must use relative paths to the project root folder.
 
-::: zone pivot="azurecli"
-Use the [az webapp config set]() command with the `--startup-file` parameter to set the startup command or file:
+To set a startup command or command file in the Azure portal, select the app's **Configuration** page, then select **General settings**. In the **Startup Command** field, place either the full text of your startup command or the name of your startup command file. Then select **Save** to apply the changes.
+
+With the Azure CLI, use the [az webapp config set](/cli/azure/webapp/config#az_webapp_config_set) command with the `--startup-file` parameter to set the startup command or file:
 
 ```azurecli-interactive
 az webapp config set --resource-group <resource-group-name> --name <app-name> --startup-file "<custom-command>"
 ```
-
+    
 Replace `<custom-command>` with either the full text of your startup command or the name of your startup command file.
-::: zone-end
-
-::: zone pivot="portal"
-On the app's configuration page in the Azure portal, select **General settings**. In the **Startup Command** field, place either the full text of your startup command or the name of your startup command file. Then select **Save** to apply the changes.
-
-![Setting the Python container startup command on the Azure portal](media/configure-language-python/portal-python-set-startup-command.png)
-::: zone-end
-
+    
 > [!IMPORTANT]
 > App Service ignores any errors that occur when processing a custom startup command or file, then continues its startup process by looking for Django and Flask apps. If you don't see the behavior you expect, check that your startup command or file is error-free and that a startup command file is deployed to App Service along with your app code.
 
@@ -283,7 +246,7 @@ On the app's configuration page in the Azure portal, select **General settings**
     
 ## Detect HTTPS session
 
-In App Service, [SSL termination](https://wikipedia.org/wiki/TLS_termination_proxy) happens at the network load balancers, so all HTTPS requests reach your app as unencrypted HTTP requests. If your app logic needs to check if the user requests are encrypted or not, inspect the `X-Forwarded-Proto` header.
+In App Service, [SSL termination](https://wikipedia.org/wiki/TLS_termination_proxy) (wikipedia.org) happens at the network load balancers, so all HTTPS requests reach your app as unencrypted HTTP requests. If your app logic needs to check if the user requests are encrypted or not, inspect the `X-Forwarded-Proto` header.
 
 ```python
 if 'X-Forwarded-Proto' in request.headers and request.headers['X-Forwarded-Proto'] == 'https':
@@ -294,17 +257,9 @@ Popular web frameworks let you access the `X-Forwarded-*` information in your st
 
 ## Access diagnostic logs
 
-::: zone pivot="azurecli"
 [!INCLUDE [Access diagnostic logs](../../includes/app-service-web-logs-access-linux-no-h.md)]
-::: zone-end
 
-::: zone pivot="portal"
-You can access the console logs generated from inside the container.
-
-On the Azure portal for your web app, select **Monitoring** > **Log stream** on the left side menu.
-
-You can also inspect the log files in a separate browser window at `https://<app-name>.scm.azurewebsites.net/api/logs/docker`.
-::: zone-end
+To access logs through the Azure portal, select **Monitoring** > **Log stream** on the left side menu for your app.
 
 ## Open SSH session in browser
 

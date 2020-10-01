@@ -29,15 +29,6 @@ groups:
     title: Flask
   - id: python-framework-django
     title: Django
-# Owner: kraigb
-- id: azure-interface-portal-cli
-  title: Azure interface
-  prompt: Choose an interface
-  pivots:
-  - id: azurecli
-    title: Azure CLI
-  - id: portal
-    title: Azure portal
 # Programming language groups
 - id: programming-languages-set-one
   title: Programming languages

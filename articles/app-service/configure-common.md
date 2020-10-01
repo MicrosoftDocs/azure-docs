@@ -159,7 +159,12 @@ In the [Azure portal], search for and select **App Services**, and then select y
 
 Here, you can configure some common settings for the app. Some settings require you to [scale up to higher pricing tiers](manage-scale-up.md).
 
-- **Stack settings**: The software stack to run the app, including the language and SDK versions. For Linux apps and custom container apps, you can also set an optional start-up command or file.
+- **Stack settings**: The software stack to run the app, including the language and SDK versions.
+
+    For Linux apps and custom container apps, you can select the language runtime version and set an optional **Startup command** or a startup command file.
+
+    ![General settings for Linux containers](./media/configure-common/open-general-linux.png)
+
 - **Platform settings**: Lets you configure settings for the hosting platform, including:
     - **Bitness**: 32-bit or 64-bit.
     - **WebSocket protocol**: For [ASP.NET SignalR] or [socket.io](https://socket.io/), for example.
