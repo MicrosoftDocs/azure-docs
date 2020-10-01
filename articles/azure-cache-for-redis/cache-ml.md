@@ -313,5 +313,5 @@ After a few moments, the resource group and all of its resources are deleted.
 * Learn more about [Azure Cache for Redis](https://docs.microsoft.com/azure/azure-cache-for-redis/cache-overview)
 * Learn to configure your Functions App in the [Functions](/azure/azure-functions/functions-create-function-linux-custom-image) documentation.
 * [API Reference](https://docs.microsoft.com/python/api/azureml-contrib-functions/azureml.contrib.functions?view=azure-ml-py&preserve-view=true) 
-* [Create a Python app that uses Azure Cache for Redis](https://docs.microsoft.com/azure/azure-cache-for-redis/cache-python-get-started)
+* Create a [Python app that uses Azure Cache for Redis](https://docs.microsoft.com/azure/azure-cache-for-redis/cache-python-get-started)
 
