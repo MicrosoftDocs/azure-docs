@@ -6,7 +6,7 @@ ms.author: mingshen
 ms.reviewer: dannyevers
 ms.service: marketplace 
 ms.topic: overview
-ms.date: 09/30/2020
+ms.date: 10/01/2020
 ---
 
 # What is the Microsoft commercial marketplace?
@@ -19,7 +19,7 @@ The commercial marketplace is available in more than 100 countries and regions, 
 
 The Microsoft commercial marketplace has two online stores: [Microsoft AppSource](https://appsource.microsoft.com/) and [Azure Marketplace](https://azuremarketplace.microsoft.com/). Microsoft AppSource contains business solutions and Azure Marketplace contains IT solutions. Commercial marketplace software and services can also be found in Microsoft products such as Microsoft 365, Dynamics 365, Microsoft Power Platform, and Azure. Our online stores and in-product experiences draw millions of potential customers each month. Each online store offers different scenarios to make sure your solution or service is available to the right customers.
 
-You create a commercial marketplace offer in Partner Center. Your offer may be listed on either or both online stores based on the offer type, categories, and other options you select when you create an offer. In the rare case that the offer is relevant to the users of both online stores, it can appear in both. To learn more, see [Select an online store](determine-your-listing-type.md#selecting-an-online-store) and [A Buyer’s Guide to Microsoft AppSource and Azure Marketplace](https://aka.ms/MarketplaceBuyerGuide).
+When you create a commercial marketplace offer in Partner Center, it may be listed on either or both online stores based on the offer type, categories, and other options you select. In the rare case that the offer is relevant to the users of both online stores, it can appear in both. To learn more, see [Select an online store](determine-your-listing-type.md#selecting-an-online-store) and [A Buyer’s Guide to Microsoft AppSource and Azure Marketplace](https://aka.ms/MarketplaceBuyerGuide).
 
 **Microsoft AppSource** is for business solutions, such as software as a service (SaaS) applications, and also apps that extend directly into Dynamics 365, Microsoft 365, and Microsoft Power Platform. AppSource consulting services are professional services offerings that help customers get started with or accelerate usage of Dynamics 365 and Power BI.
 
@@ -51,7 +51,7 @@ Partners who list with the commercial marketplace are eligible for a diverse set
 
 - Technical: Everything you need to get your application ready for launch. From technical support, application design, and architecture design, to Azure credits for development and testing.
 - Co-marketing: Everything you need to launch your offer. Access free Microsoft Go-To-Market Launch Fundamentals to help you launch and promote your solution. You might also be eligible for additional Microsoft marketing campaign inclusion and opportunities to be featured in the commercial marketplace.
-- Co-selling: Begin or accelerate your journey to selling with Microsoft through the Marketplace. Access programs and support to drive joint sales with Microsoft teams.
+- Co-selling: Begin or accelerate your journey to selling jointly with Microsoft teams through the OCP program.
 
 To learn about these benefits in more detail, see [Your commercial marketplace benefits](gtm-your-marketplace-benefits.md).
 
@@ -59,4 +59,4 @@ To learn about these benefits in more detail, see [Your commercial marketplace b
 
 - Get an [Introduction to the Microsoft commercial marketplace](/learn/modules/intro-commercial-marketplace/) on Microsoft Learn.
 - For new Microsoft partners who are interested in publishing to the commercial marketplace, see [Create a commercial marketplace account in Partner Center](partner-center-portal/create-account.md).
-- To learn more about recent and future releases, review our [Microsoft commercial marketplace resources](marketplace-roadmap.md) or join the conversation in the [Microsoft Partner Community](https://www.microsoftpartnercommunity.com/).
+- To learn more about recent and future releases, join the conversation in the [Microsoft Partner Community](https://www.microsoftpartnercommunity.com/).

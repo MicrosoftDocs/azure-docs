@@ -244,19 +244,21 @@
     - name: Marketo
       href: partner-center-portal/commercial-marketplace-lead-management-instructions-marketo.md
     - name: Salesforce
-      href: partner-center-portal/commercial-marketplace-lead-management-instructions-salesforce.md   
+      href: partner-center-portal/commercial-marketplace-lead-management-instructions-salesforce.md  
+    - name: Lead management FAQ and troubleshooting 
+      href: lead-management-faq.md
 - name: Policies and terms
   items:    
   - name: About our policies and terms
     href: policies-terms.md
   - name: Commercial marketplace certification policies
-    href: https://docs.microsoft.com/legal/marketplace/certification-policies?context=/azure/marketplace/context/context
+    href: /legal/marketplace/certification-policies?context=/azure/marketplace/context/context
   - name: Commercial marketplace review policies
-    href: https://docs.microsoft.com/legal/marketplace/rating-review-policies?context=/azure/marketplace/context/context
+    href: /legal/marketplace/rating-review-policies?context=/azure/marketplace/context/context
   - name: Azure Marketplace participation policies
-    href: https://docs.microsoft.com/legal/marketplace/participation-policy?context=/azure/marketplace/context/context
+    href: /legal/marketplace/participation-policy?context=/azure/marketplace/context/context
   - name: Azure Marketplace terms
-    href: https://docs.microsoft.com/legal/marketplace/terms?context=/azure/marketplace/context/context
+    href: /legal/marketplace/terms?context=/azure/marketplace/context/context
 - name: Reference
   items:
   - name: CPP API reference
@@ -310,18 +312,6 @@
         href: partner-center-portal/pc-saas-fulfillment-api-v1.md
       - name: SaaS fulfillment APIs - FAQ
         href: partner-center-portal/saas-fulfillment-apis-faq.md 
-- name: Commercial marketplace policies and terms
-  items:    
-  - name: About our policies and terms
-    href: policies-terms.md
-  - name: Commercial marketplace certification policies
-    href: /legal/marketplace/certification-policies?context=/azure/marketplace/context/context
-  - name: Commercial marketplace review policies
-    href: /legal/marketplace/rating-review-policies?context=/azure/marketplace/context/context
-  - name: Azure Marketplace participation policies
-    href: /legal/marketplace/participation-policy?context=/azure/marketplace/context/context
-  - name: Azure Marketplace terms
-    href: /legal/marketplace/terms?context=/azure/marketplace/context/context
 - name: Resources
   items:
   - name: Commercial marketplace FAQ
@@ -340,3 +330,5 @@
     href: partner-center-portal/commercial-marketplace-co-sell-countries.md 
   - name: Co-sell state codes
     href: partner-center-portal/commercial-marketplace-co-sell-states.md
+  - name: Forums, blogs, and quick links
+    href: marketplace-roadmap.md
