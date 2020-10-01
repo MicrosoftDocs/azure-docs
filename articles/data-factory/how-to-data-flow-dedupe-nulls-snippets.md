@@ -26,7 +26,7 @@ By using code snippets in mapping data flows, you can very easily perform common
 
 3. Add a Source transformation and connect it to one of your datasets
 
-    ![Source Snippet 2](media/data-flow/snippet2.png)
+    ![Source Snippet 2](media/data-flow/snippet-adf-2.png)
 
 4. The dedupe and NULL check snippets use generic patterns that leverage data flow schema drift so they will work with any schema from your dataset, or with datasets that do not have any pre-defined schema.
 
@@ -34,7 +34,7 @@ By using code snippets in mapping data flows, you can very easily perform common
 
 6. In your data flow designer UI, click the Script button on the top right to open the script editor behind the data flow graph.
 
-    ![Source Snippet 3](media/data-flow/snippet3.png)
+    ![Source Snippet 3](media/data-flow/snippet-adf-3.png)
 
 7. After the definition for ```source1``` in your script, hit Enter and then paste in the code snippet.
 
@@ -42,7 +42,7 @@ By using code snippets in mapping data flows, you can very easily perform common
 
 9. Alternatively, you can connect the new transformation in the designer by selecting the incoming stream from the new transformation node in the graph.
 
-    ![Source Snippet 4](media/data-flow/snippet4.png)
+    ![Source Snippet 4](media/data-flow/snippet-adf-4.png)
 
 10. Now your data flow will remove duplicate rows from your source using the Aggregate transformation that groups by all rows using a general hash across all column values.
     
@@ -54,7 +54,7 @@ By using code snippets in mapping data flows, you can very easily perform common
 
 14. Your data flow graph should now look similar to this:
 
-    ![Source Snippet 1](media/data-flow/snippet1.png)
+    ![Source Snippet 1](media/data-flow/snippet-adf-1.png)
 
   You now have a working data flow with generic deduping and NULL checks by taking existing code snippets from the Data Flow Script library and adding them into your existing design.
 
