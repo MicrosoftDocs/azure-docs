@@ -43,7 +43,7 @@ The file has three sections:
 
 You can quickly get started with GitHub Actions by using the App Service Deployment Center. This will automatically generate a workflow file based on your application stack and commit it to your GitHub repository in the correct directory.
 
-1. Navigate to your webapp in the Azure Portal
+1. Navigate to your webapp in the Azure portal
 1. On the left side, click **Deployment Center**
 1. Under **Continuous Deployment (CI / CD)**, select **GitHub**
 1. Next, select **GitHub Actions**
