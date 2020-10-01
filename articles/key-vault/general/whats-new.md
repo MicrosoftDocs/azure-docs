@@ -15,20 +15,20 @@ ms.author: mbaldwin
 
 ---
 
-# What's New for Azure Key Vault
+# What's new for Azure Key Vault
 
 Here's what's new with Azure Key Vault. New features and improvements are also announced on the [Azure updates Key Vault channel](https://azure.microsoft.com/updates/?category=security&query=Key%20vault).
 
 ## July 2020
 
 > [!WARNING]
-> These two updates to key vault have the potential to impact implementations of the service.
+> These two updates have the potential to impact Azure Key Vault implementations.
 
 ### Soft delete on by default
 
 By the end of 2020, the **soft-delete will be on by default for all key vaults**, both new and pre-existing. For full details on this potentially breaking change, as well as steps to find affected key vaults and update them beforehand, see the article [Soft-delete will be enabled on all key vaults](soft-delete-change.md). 
 
-### Azure TLS Certificate Changes  
+### Azure TLS certificate changes  
 
 Microsoft is updating Azure services to use TLS certificates from a different set of Root Certificate Authorities (CAs). This change is being made because the current CA certificates do not comply with one of the CA/Browser Forum Baseline requirements.  For full details, see [Azure TLS Certificate Changes](../../security/fundamentals/tls-certificate-changes.md).
 
