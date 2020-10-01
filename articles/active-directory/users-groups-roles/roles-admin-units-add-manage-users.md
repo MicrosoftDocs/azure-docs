@@ -92,6 +92,7 @@ In the Azure portal you can open a user's profile by:
 ```powershell
 Get-AzureADMSAdministrativeUnit | where { Get-AzureADMSAdministrativeUnitMember -Id $_.ObjectId | where {$_.RefObjectId -eq $userObjId} }
 ```
+Note: Get-AzureADAdministrativeUnitMember only returns 100 members.
 
 ### Microsoft Graph
 
