@@ -123,9 +123,14 @@ To protect your Assets at rest, the assets should be encrypted by the storage si
 
 ## v3 JobOutput vs v2 Task
 
-JobOutput replaces Task, and is now part of a Job. Inputs and outputs are now at the Job level. For more information, see [Create a job input from a local file](job-input-from-local-file-how-to.md). 
+v3 JobOutput replaces v2 Task, and is now part of a Job. Inputs and outputs are now at the Job level. For more information, see [Create a job input from a local file](job-input-from-local-file-how-to.md). 
 
-v2 Job API, used to return a property called **HistoricalEvents**. HistoricalEvents will no longer be populated. You should now get the history of job progress by listening to the EventGrid events. For more information, see [Handling Event Grid events](reacting-to-media-services-events.md).
+### Getting history of job progress
+
+* v2 Job used to return a property called **HistoricalEvents**. HistoricalEvents will no longer be populated. 
+* v2 Task had a **PerfMessage** field that will no longer be populated.
+
+You should now get the history of job progress by listening to the EventGrid events. For more information, see [Handling Event Grid events](reacting-to-media-services-events.md).
 
 ## Code differences
 
