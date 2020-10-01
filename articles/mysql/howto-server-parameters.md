@@ -17,7 +17,7 @@ Azure Database for MySQL supports configuration of some server parameters. This 
 
 ## Configure server parameters
 
-1. Sign in to the Azure portal, then locate your Azure Database for MySQL server.
+1. Sign in to the [Azure portal](https://portal.azure.com), then locate your Azure Database for MySQL server.
 2. Under the **SETTINGS** section, click **Server parameters** to open the server parameters page for the Azure Database for MySQL server.
 :::image type="content" source="./media/howto-server-parameters/auzre-portal-server-parameters.png" alt-text="Azure portal server parameters page":::
 3. Locate any settings you need to adjust. Review the **Description** column to understand the purpose and allowed values.
