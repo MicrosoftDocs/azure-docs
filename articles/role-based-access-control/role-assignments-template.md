@@ -52,11 +52,11 @@ objectid=$(az ad group show --group "{name}" --query objectId --output tsv)
 To get the ID of a managed identity, you can use [Get-AzAdServiceprincipal](/powershell/module/az.resources/get-azadserviceprincipal) or [az ad sp](/cli/azure/ad/sp) commands.
 
 ```azurepowershell
-$objectid = (Get-AzADServicePrincipal -DisplayName <VM or application name>).id
+$objectid = (Get-AzADServicePrincipal -DisplayName <Azure resource name>).id
 ```
 
 ```azurecli
-objectid=$(az ad sp list --display-name <VM or application name> --query [].objectId --output tsv)
+objectid=$(az ad sp list --display-name <Azure resource name> --query [].objectId --output tsv)
 ```
 
 ### Application
