@@ -59,7 +59,7 @@ Without the use of any custom helper classes, you can represent a twin's propert
 // Define the model type for the twin to be created
 Dictionary<string, object> meta = new Dictionary<string, object>()
 {
-    { "$model", "dtmi:com:contoso:Room;10" }
+    { "$model", "dtmi:com:contoso:Room;1" }
 };
 // Initialize the twin properties
 Dictionary<string, object> twin = new Dictionary<string, object>()
@@ -162,7 +162,7 @@ namespace minimal
 
 ```
 
-Output of this program looks like this:
+The output of this program looks like this:
 
 :::image type="content" source="media/how-to-manage-twin/twin-data.png" alt-text="Console output showing the twin details.":::
 
@@ -295,8 +295,8 @@ twinData.Add(new Dictionary<string, object>() {
 );
 
 await client.UpdateDigitalTwinAsync(twin_Id, JsonSerializer.Serialize(twinData));
-Console.WriteLine("Updated Twin Properties");
-FetchAndPrintTwin(twin_id, client);
+Console.WriteLine("Updated twin properties");
+FetchAndPrintTwin(Twin_id, Client);
 }
 ```
 

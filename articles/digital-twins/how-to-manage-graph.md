@@ -69,7 +69,7 @@ You can now call CreateRelationship function in your main method like this:
 
 `await CreateRelationship(client, srcId, targetId, "contains");`
 
-If you wish to create multiple relationships, you can call the same method and pass your relationship types in the argument. 
+If you wish to create multiple relationships, you can repeat calls to the same method, passing different relationship types into the argument. 
 
 Example: 
 
@@ -166,7 +166,7 @@ You can now call this method to see the incoming relationships of the twins like
 
 `await FindIncomingRelationshipsAsync(client, twin_id);`
 
-You can now fetch and print the properties of twins with their relationships using FetchAndPrintTwinAsync(DigitalTwinsClient client, string twin_id) method.
+You can fetch and print the properties of twins with their relationships using `FetchAndPrintTwinAsync(DigitalTwinsClient client, string twin_id)` method.
 
 ```csharp  
 private static async Task FetchAndPrintTwinAsync(DigitalTwinsClient client, string twin_id)
@@ -196,6 +196,8 @@ You can now call this function in your main method like this:
 
 You can delete relationships using `await DeleteRelationShip(client, srcId, $"{srcId}-contains->{targetId}");` in your main method.
 
+The first parameter specifies the source twin (the twin where the relationship originates). The other parameter is the relationship ID. You need both the twin ID and the relationship ID, because relationship IDs are only unique within the scope of a twin.
+
 ```csharp
 private static async Task DeleteRelationShip(DigitalTwinsClient client, string srcId, string relId)
         {
@@ -211,18 +213,14 @@ private static async Task DeleteRelationShip(DigitalTwinsClient client, string s
             }
         }
 ```
-The first parameter specifies the source twin (the twin where the relationship originates). The other parameter is the relationship ID. You need both the twin ID and the relationship ID, because relationship IDs are only unique within the scope of a twin.
-
-Runnable Code sample below creates models, twins, prints details of the twins, creates relationships between the twins and finally deletes relationships between twins.
+The runnable code sample below creates models, twins, prints details of the twins, creates relationships between the twins and finally deletes relationships between twins.
 
 If you are running the following code directly without going through the above steps, make sure you 
 * Install _Azure.DigitalTwins.Core and Azure.Identity packages_ to your project using your package manager. 
 * Create models with the names of your choice and match the below line of code with _model name_ and _model-id_. 
     `twin.Metadata.ModelId = "dtmi:com:contoso:<model-name>;<model-id>";`. 
 You can refer to [this](https://docs.microsoft.com/azure/digital-twins/tutorial-command-line-app#explore-with-the-sample-solution) link for a sample model code. 
-* Also replace the placeholders with your clientId, tenantId and adtInstanceUrl in the below code.
-
-Note that when you upload a model with the same model id, you will receive an exception. 
+* Also replace the placeholders with your _clientId_, _tenantId_ and _adtInstanceUrl_ in the below code.
 
 ```csharp 
 using System;
