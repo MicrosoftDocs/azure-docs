@@ -103,7 +103,7 @@ Add the following directives to the top of *Program.cs*:
 
 ### Authenticate and create a client
 
-Key vault authentication and client creation depend on the environment variables in the [Set environment variables](#set-environmental-variables) step. The name of your key vault is expanded to the key vault URI, in the format `https://<your-key-vault-name>.vault.azure.net`. The following code uses [DefaultAzureCredential](/dotnet/api/azure.identity.defaultazurecredential?view=azure-dotnet) for authentication to the key vault, which is reading environment variables to retrieve access token.
+Key vault authentication and client creation depend on the environment variables in the [Set environment variables](#set-environment-variables) step. The name of your key vault is expanded to the key vault URI, in the format `https://<your-key-vault-name>.vault.azure.net`. The following code uses [DefaultAzureCredential](/dotnet/api/azure.identity.defaultazurecredential?view=azure-dotnet) for authentication to the key vault, which is reading environment variables to retrieve access token.
 
 [!code-csharp[](~/samples-key-vault-dotnet-quickstart/key-vault-console-app/Program.cs?name=authenticate)]
 
