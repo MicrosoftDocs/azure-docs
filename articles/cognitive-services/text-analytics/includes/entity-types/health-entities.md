@@ -202,7 +202,7 @@ Additionally, the service recognizes relations between the different concepts in
 > ![MED_RELOPR](../../media/ta-for-health/medication_attr_rel_opr.png) 
   + **TIME** - Temporal terms relating to the beginning and/or length (duration) of medication. For example, when was the drug administered.
 > [!div class="mx-imgBorder"]
-> ![MED_TIME](../../media/ta-for-health/medication_attr_rel_time.png) 
+> ![MED_TIME](../../media/ta-for-health/medication_attr_time.png) 
 
 ### Supported Relations
   + **DOSAGE_OF_MEDICATION**
