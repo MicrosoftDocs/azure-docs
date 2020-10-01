@@ -51,7 +51,7 @@ TLS certificates used by Azure services will chain up to one of the following Ro
 
 ## When can I retire the old intermediate thumbprint?
 
-The current CA certificates will *not* be revoked until Feb 15, 2021. After that date you can remove the old thumbprints from your code.
+The current CA certificates will *not* be revoked until Feburary 15, 2021. After that date you can remove the old thumbprints from your code.
 
 If this date changes, you will be notified of the new revocation date.
 
@@ -65,10 +65,10 @@ Here are some ways to detect if your application is impacted:
 
 - If you have an application that integrates with Azure APIs or other Azure services and you are unsure if it uses certificate pinning, check with the application vendor.
 
-- Different operating systems and language runtimes that communicate with Azure services may require additional steps to correctly build the certificate chain with these new roots: 
-    - **Linux**: Many distributions require you to add CAs listed above to /etc/ssl/certs. For specific instructions, refer to the distribution’s documentation.
+- Different operating systems and language runtimes that communicate with Azure services may require additional steps to correctly build the certificate chain with these new roots:
+    - **Linux**: Many distributions require you to add CAs to /etc/ssl/certs. For specific instructions, refer to the distribution’s documentation.
     - **Java**: Ensure that the Java key store contains the CAs listed above.
-    - **Windows running in disconnected environments**: Systems running in disconnected environments will need to have the roots listed above added to the Trusted Root Certification Authorities store, and the intermediates added to the Intermediate Certification Authorities store.
+    - **Windows running in disconnected environments**: Systems running in disconnected environments will need to have the new roots added to the Trusted Root Certification Authorities store, and the intermediates added to the Intermediate Certification Authorities store.
     - **Android**: Check the documentation for your device and version of Android.
     - **Other hardware devices, especially IoT**: Contact the device manufacturer.
 
@@ -85,4 +85,4 @@ Here are some ways to detect if your application is impacted:
 
 ## Next steps
 
-If you have additional questions, please contact us through [support](https://azure.microsoft.com/support/options/).
+If you have additional questions, contact us through [support](https://azure.microsoft.com/support/options/).
