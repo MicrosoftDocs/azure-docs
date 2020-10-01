@@ -28,7 +28,7 @@ For an Azure App Service container workflow, the file has three sections:
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
 - A GitHub account. If you don't have one, sign up for [free](https://github.com/join).  
 - A working container registry and Azure App Service app for containers. This example uses Azure Container Registry. 
-    - Get started with 
+    - [Learn how to create a containerized Node.js application using Docker, push the container image to a registry, and then deploy the image to Azure App Service](https://docs.microsoft.com/azure/developer/javascript/tutorial-vscode-docker-node-01)
 
 ## Generate deployment credentials
 
@@ -135,6 +135,9 @@ The following example show part of the workflow that builds a Node.JS Docker ima
 
 # [Publish profile](#tab/publish-profile)
 
+This example shows how to build a Node.JS Docker image using a publish profile for authentication.
+
+
 ```yaml
 name: Linux Container Node Workflow
 
@@ -221,17 +224,15 @@ jobs:
 
 ## Deploy to an App Service container
 
-To deploy your image to a custom container in App Service, use the `azure/webapps-container-deploy@v2` action. This action has five parameters:
+To deploy your image to a custom container in App Service, use the `azure/webapps-deploy@v2` action. This action has five parameters:
 
 | **Parameter**  | **Explanation**  |
 |---------|---------|
 | **app-name** | (Required) Name of the App Service app | 
+| **publish-profile** | (Optional) Publish profile file contents with Web Deploy secrets |
+| **images** | Fully qualified container image(s) name. For example, 'myregistry.azurecr.io/nginx:latest' or 'python:3.7.2-alpine/'. For multi-container scenario multiple container image names can be provided (multi-line separated) |
 | **slot-name** | (Optional) Enter an existing Slot other than the Production slot |
-| **images** | (Required) Specify the fully qualified container image(s) name. For example, 'myregistry.azurecr.io/nginx:latest' or 'python:3.7.2-alpine/'. For a multi-container app, multiple container image names can be provided (multi-line separated) |
-| **configuration-file** | (Optional) Path of the Docker-Compose file. Should be a fully qualified path or relative to the default working directory. Required for multi-container apps. |
-| **container-command** | (Optional) Enter the start-up command. For ex. dotnet run or dotnet filename.dll |
-
-Below is the sample workflow to build and deploy a Node.js app to a custom container in App Service. 
+| **configuration-file** | (Optional) Path of the Docker-Compose file |
 
 # [Publish profile](#tab/publish-profile)
 
