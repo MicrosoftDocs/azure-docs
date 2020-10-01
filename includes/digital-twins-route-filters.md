@@ -19,6 +19,7 @@ ms.author: baanders
 | Notification body | Reference any property in the `data` field of a notification | `$body.,<property>` | See [How to: Understand event data](https://docs.microsoft.com/azure/digital-twins/how-to-interpret-event-data) for examples of notifications. Any property in the `data` field can be referenced using `$body`
 
 The following data types and comparison operators are supported for the above operations:
+
 | Data Type | Supported Comparisons | Example |
 |-|-|-|
 |**String**|= != <br>STARTS_WITH(input,text) ENDS_WITH(input,text)<br> CONTAINS(input,text)| `STARTS_WITH($body.$dtId, 'dtmi:example:com:floor4')` <br> `CONTAINS(subject, 'room')`|
