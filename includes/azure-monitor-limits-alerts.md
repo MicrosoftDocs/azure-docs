@@ -5,7 +5,7 @@ services: azure-monitor
 author: rboucher
 tags: azure-service-management
 ms.topic: "include"
-ms.date: 08/11/2020
+ms.date: 10/01/2020
 ms.author: robb
 ms.custom: "include file"
 ---
