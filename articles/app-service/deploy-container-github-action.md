@@ -19,7 +19,7 @@ For an Azure App Service container workflow, the file has three sections:
 
 |Section  |Tasks  |
 |---------|---------|
-|**Authentication** | 1.  service principal or publish profile. <br /> 2. Create a GitHub secret. |
+|**Authentication** | 1. Retrieve a service principal or publish profile. <br /> 2. Create a GitHub secret. |
 |**Build** | 1. Create the environment. <br /> 2. Build the container image. |
 |**Deploy** | 1. Deploy the container image. |
 

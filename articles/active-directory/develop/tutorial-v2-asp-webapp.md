@@ -15,7 +15,7 @@ ms.author: jmprieur
 ms.custom: "devx-track-csharp, aaddev, identityplatformtop40"
 ---
 
-# Add sign-in to Microsoft to an ASP.NET web app
+# Tutorial: Add sign-in to Microsoft to an ASP.NET web app
 
 This guide demonstrates how to implement sign-in to Microsoft through an ASP.NET MVC solution by using a traditional web browser-based application and OpenID Connect.
 
