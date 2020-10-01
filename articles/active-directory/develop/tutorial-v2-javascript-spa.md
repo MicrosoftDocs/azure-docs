@@ -15,7 +15,7 @@ ms.author: nacanuma
 ms.custom: aaddev, identityplatformtop40, devx-track-js
 ---
 
-# Sign in users and call the Microsoft Graph API from a JavaScript single-page application (SPA)
+# Tutorial: Sign in users and call the Microsoft Graph API from a JavaScript single-page application (SPA)
 
 In this tutorial, you build a single-page application (SPA) in JavaScript that can sign in users with personal Microsoft accounts or work and school accounts, and then acquire an access token
 for calling the Microsoft Graph API.
