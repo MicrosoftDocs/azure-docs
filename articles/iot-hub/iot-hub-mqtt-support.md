@@ -93,7 +93,7 @@ When doing so, make sure to check the following items:
 
 * AMQP is not supported in the Python SDK.
 
-## An example of C code using MQTT without Azure IoT C SDK
+## Example using MQTT protocol without Azure IoT C SDK
 
 In the [IoT MQTT Sample repository](https://github.com/Azure-Samples/IoTMQTTSample), you'll find a couple of C/C++ demo projects showing how to send telemetry messages, and receive events with an IoT hub without using the Azure IoT C SDK. 
 
