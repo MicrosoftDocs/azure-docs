@@ -81,11 +81,11 @@ Before deploying, you must define what is needed to run the model as a web servi
     > [!IMPORTANT]
     > The entry script is specific to your model; it must understand the format of the incoming request data, the format of the data expected by your model, and the format of the data returned to clients.
     >
-    > If the request data is in a format that is not usable by your model, the script can transform it into an acceptable format. It may also transform the response before returning to it to the client.
+    > If the request data is in a format that is not usable by your model, the script can transform it into an acceptable format. It may also transform the response before returning it to the client.
     >
     > By default when packaging for functions, the input is treated as text. If you are interested in consuming the raw bytes of the input (for instance for Blob triggers), you should use [AMLRequest to accept raw data](https://docs.microsoft.com/azure/machine-learning/how-to-deploy-advanced-entry-script#binary-data).
 
-For the run function, ensure it connects to a Redis endpoint
+For the run function, ensure it connects to a Redis endpoint.
 
 ```python
 import json
@@ -116,7 +116,7 @@ def run(data):
         return error
 ```
 
-For more information on entry script, see [Define scoring code](https://docs.microsoft.com/azure/machine-learning/how-to-deploy-and-where?tabs=python#define-an-entry-script)
+For more information on entry script, see [Define scoring code.](https://docs.microsoft.com/azure/machine-learning/how-to-deploy-and-where?tabs=python#define-an-entry-script)
 
 * **Dependencies**, such as helper scripts or Python/Conda packages required to run the entry script or model
 
@@ -280,14 +280,38 @@ At this point, the function app begins loading the image.
 
 ## Test Azure Function HTTP trigger 
 
-1. Go your Azure Function app in the Azure Portal 
+We will now run and test our Azure Function HTTP trigger.
+
+1. Go to your Azure Function app in the Azure Portal.
 1. Under developer, select **Code + Test**. 
 1. On the right hand side, select the **Input** tab. 
 1. Click on the **Run** button to test the Azure Function HTTP trigger. 
 
+You have now successfully deployed a model from Azure Machine Learning as a function app using an Azure Cache for Redis instance. Learn more about Azure Cache for Redis by navigating to the links in the section below.
+
+## Clean up resources
+
+If you're continuing to the next tutorial, you can keep the resources that you created in this quickstart and reuse them.
+
+Otherwise, if you're finished with the quickstart, you can delete the Azure resources that you created in this quickstart to avoid charges. 
+
+> [!IMPORTANT]
+> Deleting a resource group is irreversible. When you delete a resource group, all the resources in it are permanently deleted. Make sure that you do not accidentally delete the wrong resource group or resources. If you created the resources for hosting this sample inside an existing resource group that contains resources you want to keep, you can delete each resource individually from their respective blades instead of deleting the resource group.
+
+### To delete a resource group
+
+1. Sign in to the [Azure portal](https://portal.azure.com), and then select **Resource groups**.
+
+2. In the **Filter by name...** box, type the name of your resource group. On your resource group, in the results list, select **...**, and then select **Delete resource group**.
+
+You're asked to confirm the deletion of the resource group. Type the name of your resource group to confirm, and then select **Delete**.
+
+After a few moments, the resource group and all of its resources are deleted.
+
 ## Next Steps 
 
-* Learn more about [Azure Cache for Redis](https://review.docs.microsoft.com/azure/azure-cache-for-redis/cache-overview?branch=pr-en-us-127830)
+* Learn more about [Azure Cache for Redis](https://docs.microsoft.com/azure/azure-cache-for-redis/cache-overview)
 * Learn to configure your Functions App in the [Functions](/azure/azure-functions/functions-create-function-linux-custom-image) documentation.
 * [API Reference](https://docs.microsoft.com/python/api/azureml-contrib-functions/azureml.contrib.functions?view=azure-ml-py&preserve-view=true) 
+* [Create a Python app that uses Azure Cache for Redis](https://docs.microsoft.com/azure/azure-cache-for-redis/cache-python-get-started)
 
