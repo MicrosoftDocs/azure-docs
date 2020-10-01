@@ -6,7 +6,7 @@ ms.service: sql-database
 ms.subservice: single-database
 ms.custom: references_regions, seo-lt-2019, sqldbrb=1
 ms.devlang:
-ms.topic: conceptual
+ms.topic: reference
 author: stevestein
 ms.author: sstein
 ms.reviewer:
