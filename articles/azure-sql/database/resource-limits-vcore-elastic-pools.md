@@ -6,7 +6,7 @@ ms.service: sql-database
 ms.subservice: elastic-pools
 ms.custom: sqldbrb=1
 ms.devlang: 
-ms.topic: conceptual
+ms.topic: reference
 author: oslake
 ms.author: moslake
 ms.reviewer: sstein

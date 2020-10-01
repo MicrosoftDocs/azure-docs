@@ -176,7 +176,7 @@ The traffic is routed as follows:
 
 - Asia Virtual WAN hub routes traffic locally to connected VNet.
 
-![Flow 1](./media/migrate-from-hub-spoke-topology/flow1.png)
+:::image type="content" source="./media/migrate-from-hub-spoke-topology/flow1.png" alt-text="Flow 1":::
 
 ### Path 2
 
@@ -188,7 +188,7 @@ The traffic is routed as follows:
 
 - Virtual WAN hub-to-hub global connectivity enables transit of traffic to VNet connected in remote region.
 
-![Flow 2](./media/migrate-from-hub-spoke-topology/flow2.png)
+:::image type="content" source="./media/migrate-from-hub-spoke-topology/flow2.png" alt-text="Flow 2":::
 
 ### Path 3
 
@@ -202,7 +202,7 @@ The traffic is routed as follows:
 
 - Virtual WAN hub-to-hub global connectivity enables transit of traffic.
 
-![Flow 3](./media/migrate-from-hub-spoke-topology/flow3.png)
+:::image type="content" source="./media/migrate-from-hub-spoke-topology/flow3.png" alt-text="Flow 3":::
 
 ### Path 4
 
@@ -212,7 +212,7 @@ The traffic is routed as follows:
 
 - Virtual WAN hub-to-hub global connectivity enables native transit of all connected Azure VNets without further user config.
 
-![Flow 4](./media/migrate-from-hub-spoke-topology/flow4.png)
+:::image type="content" source="./media/migrate-from-hub-spoke-topology/flow4.png" alt-text="Flow 4":::
 
 ### Path 5
 
@@ -224,13 +224,13 @@ The traffic is routed as follows:
 
 - West Europe Virtual WAN hub routes traffic locally to connected VNet.
 
-![Flow 5](./media/migrate-from-hub-spoke-topology/flow5.png)
+:::image type="content" source="./media/migrate-from-hub-spoke-topology/flow5.png" alt-text="Flow 5":::
 
 ## Security and policy control via Azure Firewall
 
 Contoso has now validated connectivity between all branches and VNets in line with the requirements discussed earlier in this article. To meet their requirements for security control and network isolation, they need to continue to separate and log traffic via the hub network. Previously this function was performed by a network virtual appliance (NVA). Contoso also wants to decommission their existing proxy services and utilize native Azure services for outbound Internet filtering.
 
-![Security and policy control via Azure Firewall](./media/migrate-from-hub-spoke-topology/security-policy.png)
+:::image type="content" source="./media/migrate-from-hub-spoke-topology/security-policy.png" alt-text="Security and policy control via Azure Firewall":::
 **Figure: Azure Firewall in Virtual WAN (Secured Virtual hub)**
 
 The following high-level steps are required to introduce Azure Firewall into the Virtual WAN hubs to enable a unified point of policy control. For more information about this process and the concept of Secure Virtual Hubs, see [Azure Firewall Manager](../firewall-manager/index.yml).
@@ -254,7 +254,7 @@ The traffic is routed as follows:
 
 - Azure Firewall can apply policy to these flows.
 
-![Flow 6](./media/migrate-from-hub-spoke-topology/flow6.png)
+:::image type="content" source="./media/migrate-from-hub-spoke-topology/flow6.png" alt-text="Flow 6":::
 
 ### Path 7
 
@@ -266,7 +266,7 @@ The traffic is routed as follows:
 
 - This traffic can be filtered locally using Azure Firewall FQDN rules, or sent to a third-party security service for inspection.
 
-![Flow 7](./media/migrate-from-hub-spoke-topology/flow7.png)
+:::image type="content" source="./media/migrate-from-hub-spoke-topology/flow7.png" alt-text="Flow 7":::
 
 ### Path 8
 
@@ -278,7 +278,7 @@ The traffic is routed as follows:
 
 - This traffic can be filtered locally using Azure Firewall FQDN rules, or sent to a third-party security service for inspection.
 
-![Flow 8](./media/migrate-from-hub-spoke-topology/flow8.png) 
+:::image type="content" source="./media/migrate-from-hub-spoke-topology/flow8.png" alt-text="Flow 8":::
 
 ## Next steps
 
