@@ -1,6 +1,6 @@
 ---
-title: Microsoft Azure Stack Edge Pro with GPU overview | Microsoft Docs
-description: Describes Azure Stack Edge Pro with GPU, a storage solution that uses a physical device for network-based transfer into Azure.
+title: Azure Stack Edge December 2020 update impact | Microsoft Docs
+description: Describes the impact of IoT Edge Role management on Azure Stack Edge devices after the installation of December 2020 update.
 services: databox
 author: alkohli
 
@@ -107,7 +107,7 @@ If you were performing IoT Edge Role management via API, you should use the new 
     }
     ```
 
-- THe API calls for IoT Edge addon are made at the following URI:[https://management.azure.com/subscriptions/4385cf00-2d3a-425a-832f-f4285b1c9dce/resourceGroups/GroupForEdgeAutomation/providers/Microsoft.DataBoxEdge/dataBoxEdgeDevices/testedgedevice/roles/KubernetesRole1/addons/iotaddon?api-version=2020-12-01](https://management.azure.com/subscriptions/4385cf00-2d3a-425a-832f-f4285b1c9dce/resourceGroups/GroupForEdgeAutomation/providers/Microsoft.DataBoxEdge/dataBoxEdgeDevices/testedgedevice/roles/KubernetesRole1/addons/iotaddon?api-version=2020-12-01)
+- The API calls for IoT Edge addon are made at the following URI: [https://management.azure.com/subscriptions/4385cf00-2d3a-425a-832f-f4285b1c9dce/resourceGroups/GroupForEdgeAutomation/providers/Microsoft.DataBoxEdge/dataBoxEdgeDevices/testedgedevice/roles/KubernetesRole1/addons/iotaddon?api-version=2020-12-01](https://management.azure.com/subscriptions/4385cf00-2d3a-425a-832f-f4285b1c9dce/resourceGroups/GroupForEdgeAutomation/providers/Microsoft.DataBoxEdge/dataBoxEdgeDevices/testedgedevice/roles/KubernetesRole1/addons/iotaddon?api-version=2020-12-01)
 
 
     The request body looks like this:
@@ -153,7 +153,7 @@ If you were performing IoT Edge Role management via API, you should use the new 
 
 #### Current http response
 
-- The API calls are made at the following URI:[https://management.azure.com/subscriptions/4385cf00-2d3a-425a-832f-f4285b1c9dce/resourceGroups/GroupForEdgeAutomation/providers/Microsoft.DataBoxEdge/dataBoxEdgeDevices/testedgedevice/roles/IoTRole1?api-version=2019-08-01](https://management.azure.com/subscriptions/4385cf00-2d3a-425a-832f-f4285b1c9dce/resourceGroups/GroupForEdgeAutomation/providers/Microsoft.DataBoxEdge/dataBoxEdgeDevices/testedgedevice/roles/IoTRole1?api-version=2019-08-01)
+- The API calls are made at the following URI: [https://management.azure.com/subscriptions/4385cf00-2d3a-425a-832f-f4285b1c9dce/resourceGroups/GroupForEdgeAutomation/providers/Microsoft.DataBoxEdge/dataBoxEdgeDevices/testedgedevice/roles/IoTRole1?api-version=2019-08-01](https://management.azure.com/subscriptions/4385cf00-2d3a-425a-832f-f4285b1c9dce/resourceGroups/GroupForEdgeAutomation/providers/Microsoft.DataBoxEdge/dataBoxEdgeDevices/testedgedevice/roles/IoTRole1?api-version=2019-08-01)
 
 
 - The response body looks like this:
@@ -225,11 +225,11 @@ If you were performing IoT Edge Role management via API, you should use the new 
 
 ### Current
 
-The API calls are made at the following URI:[https://management.azure.com/subscriptions/4385cf00-2d3a-425a-832f-f4285b1c9dce/resourceGroups/GroupForEdgeAutomation/providers/Microsoft.DataBoxEdge/dataBoxEdgeDevices/testedgedevice/roles/IoTRole1?api-version=2019-08-01](https://management.azure.com/subscriptions/4385cf00-2d3a-425a-832f-f4285b1c9dce/resourceGroups/GroupForEdgeAutomation/providers/Microsoft.DataBoxEdge/dataBoxEdgeDevices/testedgedevice/roles/IoTRole1?api-version=2019-08-01)
+The API calls are made at the following URI: [https://management.azure.com/subscriptions/4385cf00-2d3a-425a-832f-f4285b1c9dce/resourceGroups/GroupForEdgeAutomation/providers/Microsoft.DataBoxEdge/dataBoxEdgeDevices/testedgedevice/roles/IoTRole1?api-version=2019-08-01](https://management.azure.com/subscriptions/4385cf00-2d3a-425a-832f-f4285b1c9dce/resourceGroups/GroupForEdgeAutomation/providers/Microsoft.DataBoxEdge/dataBoxEdgeDevices/testedgedevice/roles/IoTRole1?api-version=2019-08-01)
 
 ### Upcoming
 
-The API calls are made at the following URI:[https://management.azure.com/subscriptions/4385cf00-2d3a-425a-832f-f4285b1c9dce/resourceGroups/GroupForEdgeAutomation/providers/Microsoft.DataBoxEdge/dataBoxEdgeDevices/testedgedevice/roles/KubernetesRole1/addons/iotaddon?api-version=2020-12-01](https://management.azure.com/subscriptions/4385cf00-2d3a-425a-832f-f4285b1c9dce/resourceGroups/GroupForEdgeAutomation/providers/Microsoft.DataBoxEdge/dataBoxEdgeDevices/testedgedevice/roles/KubernetesRole1/addons/iotaddon?api-version=2020-12-01)
+The API calls are made at the following URI: [https://management.azure.com/subscriptions/4385cf00-2d3a-425a-832f-f4285b1c9dce/resourceGroups/GroupForEdgeAutomation/providers/Microsoft.DataBoxEdge/dataBoxEdgeDevices/testedgedevice/roles/KubernetesRole1/addons/iotaddon?api-version=2020-12-01](https://management.azure.com/subscriptions/4385cf00-2d3a-425a-832f-f4285b1c9dce/resourceGroups/GroupForEdgeAutomation/providers/Microsoft.DataBoxEdge/dataBoxEdgeDevices/testedgedevice/roles/KubernetesRole1/addons/iotaddon?api-version=2020-12-01)
 
 
 ## SDK usage
@@ -254,15 +254,15 @@ If you are using `Get-AzStackEdgeRole`, `New-AzStackEdgeRole`, `Set-AzStackEdgeR
 
 ## Frequently asked questions (FAQ)
 
-### I am using Azure Stack Edge Pro – FPGA. Does the December 2020 update affect the FPGA model?
+#### I am using Azure Stack Edge Pro – FPGA. Does the December 2020 update affect the FPGA model?
 
 No. The December 2020 update applies only to Azure Stack Edge – GPU, Azure Stack Edge Pro R, and Azure Stack Edge Mini R devices. The Azure Stack Edge Pro – FPGA is not affected by this update and does not require any change to IoT Edge Role management.
 
-### After I update my Azure Stack Edge Pro - GPU to the new device software in December 2020, are any of the existing services affected?
+#### After I update my Azure Stack Edge Pro - GPU to the new device software in December 2020, are any of the existing services affected?
 
 No. The configured services will not be impacted after installing December 2020 device update. <!--check w/ Anoob, what existing services you are talking about in this question-->
 
-### What are the high-level changes to IoT Edge management API, SDK or CmdLet?
+#### What are the high-level changes to IoT Edge management API, SDK or CmdLet?
 
 IoT Edge is an addon under the Kubernetes role. What this implies is that you will need to make sure that Kubernetes is configured first and then you perform the IoT Edge configuration.
 
