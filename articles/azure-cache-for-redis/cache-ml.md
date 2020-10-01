@@ -83,7 +83,7 @@ Before deploying, you must define what is needed to run the model as a web servi
     >
     > If the request data is in a format that is not usable by your model, the script can transform it into an acceptable format. It may also transform the response before returning to it to the client.
     >
-    > By default when packaging for functions, the input is treated as text. If you are interested in consuming the raw bytes of the input (for instance for Blob triggers), you should use [AMLRequest to accept raw data](https://docs.microsoft.com/azure/machine-learning/how-to-deploy-and-where#binary-data).
+    > By default when packaging for functions, the input is treated as text. If you are interested in consuming the raw bytes of the input (for instance for Blob triggers), you should use [AMLRequest to accept raw data](https://docs.microsoft.com/azure/machine-learning/how-to-deploy-advanced-entry-script#binary-data).
 
 For the run function, ensure it connects to a Redis endpoint
 
@@ -97,7 +97,7 @@ from sklearn.externals import joblib
 def init():
     global model
     global azrediscache
-    azrediscache = redis.Redis(host='<host_url>', port=6379, db=0, password="<access_key>")
+    azrediscache = redis.StrictRedis(host='<host_url>', port=6380, password="<access_key>", ssl=True)
     model_path = os.path.join(os.getenv('AZUREML_MODEL_DIR'), 'sklearn_mnist_model.pkl')
     model = joblib.load(model_path)
 
@@ -116,7 +116,7 @@ def run(data):
         return error
 ```
 
-For more information on entry script, see [Define scoring code](https://docs.microsoft.com/azure/machine-learning/how-to-deploy-and-where#script)
+For more information on entry script, see [Define scoring code](https://docs.microsoft.com/azure/machine-learning/how-to-deploy-and-where?tabs=python#define-an-entry-script)
 
 * **Dependencies**, such as helper scripts or Python/Conda packages required to run the entry script or model
 
@@ -141,7 +141,7 @@ These entities are encapsulated into an __inference configuration__. The inferen
 
 For more information on environments, see [Create and manage environments for training and deployment](https://docs.microsoft.com/azure/machine-learning/how-to-use-environments).
 
-For more information on inference configuration, see [Deploy models with Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/how-to-deploy-and-where).
+For more information on inference configuration, see [Deploy models with Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/how-to-deploy-and-where?tabs=python#define-an-inference-configuration).
 
 > [!IMPORTANT]
 > When deploying to Functions, you do not need to create a __deployment configuration__.
