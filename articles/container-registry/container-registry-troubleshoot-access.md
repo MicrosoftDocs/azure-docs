@@ -43,7 +43,7 @@ See [Check the health of an Azure container registry](container-registry-check-h
 
 ### Configure client firewall access
 
-To access a registry from behind a client firewall or proxy server, configure firewall rules to access the registry' public REST and data endpoints. If [dedicated data endpoints](container-registry-firewall-access-rules.md#enable-dedicated-data-endpoints) are enabled, you need rules to access:
+To access a registry from behind a client firewall or proxy server, configure firewall rules to access the registry's public REST and data endpoints. If [dedicated data endpoints](container-registry-firewall-access-rules.md#enable-dedicated-data-endpoints) are enabled, you need rules to access:
 
 * REST endpoint: `<registryname>.azurecr.io`
 * Data endpoint(s): `<registry-name>.<region>.data.azurecr.io`
