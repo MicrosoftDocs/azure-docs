@@ -102,10 +102,10 @@ Let’s look at the capabilities you can enable for your phone numbers. These ca
 
 Let's look at the countries where you can acquire phone numbers and destinations available to place and receive telephony calls and SMS messages.
 
-|Number Type| Acquire Numbers In | Make Calls To                                        | Send Messages To  |
-|-----------| ------------------ | ---------------------------------------------------  |-------------------|
-| Regional  | US                 | US, Canada, United Kingdom, Germany, France,.. +more*|NA                 |
-| Toll-Free | US                 | US                                                   |US                 |
+|Number Type| Acquire Numbers In | Make Calls To                                        | Receive Calls From                                    |Send Messages To  |
+|-----------| ------------------ | ---------------------------------------------------  |-------------------------------------------------------|------------------|
+| Regional  | US                 | US, Canada, United Kingdom, Germany, France,.. +more*| US, Canada, United Kingdom, Germany, France,.. +more* |NA                |
+| Toll-Free | US                 | US                                                   | US                                                    |US                |
 
 *For a full list of call destinations and pricing please refer to the downloadable pricelist on the pricing page
 
