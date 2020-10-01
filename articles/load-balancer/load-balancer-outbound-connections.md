@@ -4,6 +4,8 @@ description: This article explains how to configure outbound rules to control eg
 services: load-balancer
 author: asudbring
 ms.service: load-balancer
+ms.topic: conceptual
+ms.custom: contperfq1
 ms.date: 10/01/2020
 ms.author: allensu
 ---
