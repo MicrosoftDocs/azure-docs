@@ -227,9 +227,9 @@ If you plan to explore the resources used by this end-to-end tutorial, wait unti
 
 1. If you created certificates locally, delete the folder c:\\edgeCertificates.
 
-In this article, we used our development VM to simulate a leaf device sending sensor and operational data to our IoT Edge device. We validated that the modules on the device routed, classified, persisted, and uploaded the data by examining the real-time operation of the edge device and by looking at the files uploaded to the storage account.
-
 ## Next steps
+
+In this article, we used our development VM to simulate a leaf device sending sensor and operational data to our IoT Edge device. We validated that the modules on the device routed, classified, persisted, and uploaded the data by examining the real-time operation of the edge device and by looking at the files uploaded to the storage account.
 
 More information can be found at the following pages:
 
