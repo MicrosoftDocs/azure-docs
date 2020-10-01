@@ -67,9 +67,7 @@ To use the new feature, follow the steps below.
  8.  Enter the expression in the box.  For this example we are using: `Replace([mail], "@contoso.com", , ,"", ,).`
  9.  Enter the target attribute.  In this example we use ExtensionAttribute15.
  10. Select when to apply this and then click **Apply**
-   
-   ![Edit mappings](media/how-to-attribute-mapping/mapping2.png)
- 11. Back on the attribute mapping screen you should see your new attribute mapping.  
+ 11. Back on the attribute mapping screen you should see your new attribute mapping.
  12. Click **Save Schema**.
 
  ![Save Schema](media/how-to-attribute-mapping/mapping3.png)
