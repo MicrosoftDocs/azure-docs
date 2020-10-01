@@ -36,7 +36,7 @@ In the left pane of the database page, click the **Connection String** button.
 :::image type="content" source="./media/humongous-io/cosmos-db-connection-string-button.png" alt-text="Screenshot of Cosmos DB connection string menu":::
 
 Your database connection information should be displayed now.
-Copy the content under PRIMARY CONNECTION STRING. It should look like this :
+Copy the content under **PRIMARY CONNECTION STRING**. It should look like this :
 
 ```
 mongodb://hio:password@hio.mongo.cosmos.azure.com:10255/?ssl=true&appName=@hio@
