@@ -77,7 +77,7 @@ In the example above, replace the placeholders with your subscription ID, resour
 
 In [GitHub](https://github.com/), browse your repository, select **Settings > Secrets > Add a new secret**.
 
-Paste the contents of the JSON output from [Create a service principal](#create-a-service-principal) as the value of secret variable. Give the secret the name like `AZURE_CREDENTIALS`.
+Paste the contents of the JSON output as the value of secret variable. Give the secret the name like `AZURE_CREDENTIALS`.
 
 When you configure the workflow file later, you use the secret for the input `creds` of the Azure Login action. For example:
 
