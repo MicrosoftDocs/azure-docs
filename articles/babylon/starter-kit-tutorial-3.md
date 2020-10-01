@@ -80,9 +80,8 @@ In this tutorial, you learned how to:
 > * View the lineage of assets.
 
 Advance to the next tutorial to learn about resource sets, asset details, schema, and classification.
-<!---
+
 > [!div class="nextstepaction"]
 > [Resource sets, asset details, schema, and classification](starter-kit-tutorial-4.md)
---->
 
 For information about how to create an Azure Data Factory data flow activity between an Azure Blob and Azure Data Lake Storage Gen2 resource set and observe the lineage, see: [Azure Data Factory data flow activity](https://docs.microsoft.com/azure/data-factory/concepts-data-flow-overview).

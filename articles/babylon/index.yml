@@ -10,7 +10,7 @@ metadata:
   ms.topic: landing-page
   author: jasonwhowell
   ms.author: jasonh
-  ms.date: 09/17/2020
+  ms.date: 09/30/2020
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new
 
@@ -41,8 +41,8 @@ landingContent:
             url: starter-kit-tutorial-2.md
           - text: 3 - Browse and lineage
             url: starter-kit-tutorial-3.md
-#         - text: 4 - Resource set, asset details, schema, and classification
-#           url: starter-kit-tutorial-4.md
+          - text: 4 - Resource sets, assets, schemas, and classifications
+            url: starter-kit-tutorial-4.md
 #         - text: 5 - Glossary, terms, and import
 #           url: starter-kit-tutorial-5.md
 
