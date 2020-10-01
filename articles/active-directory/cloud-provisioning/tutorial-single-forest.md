@@ -107,7 +107,7 @@ To verify that the agent is running follow these steps:
 5.  Click **New Configuration**
 ![Screenshot of Azure AD Provisioning (Preview) screen with "New configuration" link highlighted.](media/tutorial-single-forest/configure1.png)
 7.  On the configuration screen, enter a **Notification email**, move the selector to **Enable** and click **Save**.
-![Screenshot of Configure screen with Notification email filled in and Enable selected.](media/tutorial-single-forest/configure2.png)
+![Screenshot of Configure screen with Notification email filled in and Enable selected.](media/how-to-configure/configure2.png)
 1.  The configuration status should now be **Healthy**.
 ![Screenshot of Azure AD Provisioning (Preview) screen showing Healthy status.](media/how-to-configure/manage4.png)
 
