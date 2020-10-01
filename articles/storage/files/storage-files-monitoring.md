@@ -481,9 +481,9 @@ No. Azure Compute supports the metrics on disks. For more information, see [Per 
 
 ## Next steps
 
-- [Azure Files monitoring data reference](storage-files-monitoring.md).
-- [Monitor Azure resources with Azure Monitor](../../azure-monitor/insights/monitor-azure-resource.md).
-- [Azure Storage metrics migration](../common/storage-metrics-migration.md).
+- [Azure Files monitoring data reference](storage-files-monitoring.md)
+- [Monitor Azure resources with Azure Monitor](../../azure-monitor/insights/monitor-azure-resource.md)
+- [Azure Storage metrics migration](../common/storage-metrics-migration.md)
 - [Planning for an Azure Files deployment](https://docs.microsoft.com/azure/storage/files/storage-files-planning)
 - [How to deploy Azure Files](https://docs.microsoft.com/azure/storage/files/storage-files-deployment-guide)
 - [Troubleshoot Azure Files on Windows](https://docs.microsoft.com/azure/storage/files/storage-troubleshoot-windows-file-connection-problems)
