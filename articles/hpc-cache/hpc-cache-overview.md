@@ -60,12 +60,6 @@ The [customer-managed keys feature](customer-keys.md) is supported only in these
 * US Gov Arizona
 * US Gov Virginia
 
-<!-- ## Service availability
-
-You must request access for each subscription you will use with Azure HPC Cache. This restriction helps ensure service quality.
-
-Request access by filling out [this form](https://aka.ms/onboard-hpc-cache). After your subscription is added to the access list, you can create caches. -->
-
 ## Next steps
 
 * Read the [Azure HPC Cache product page](https://azure.microsoft.com/services/hpc-cache) to learn more about its capabilities
