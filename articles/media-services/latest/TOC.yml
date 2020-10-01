@@ -117,7 +117,9 @@
     - name: Autogen adaptive bitrate ladder
       href: autogen-bitrate-ladder.md       
     - name: Content-aware encoding
-      href: content-aware-encoding.md          
+      href: content-aware-encoding.md
+    - name: Media reserved units
+      href: concept-media-reserved-units.md          
   - name: Analyzing content (Video Indexer)
     items:
     - name: Overview
