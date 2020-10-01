@@ -22,10 +22,10 @@ The following steps show how to import a custom image that starts from a physica
 
 Many options exist for creating a VHD from a physical lab environment. The following steps show how to create a VHD from a HyperV VM:
 
-1. Start with a **HyperV VM** that can be imaged using SCCM, Endpoint Mgr, or another tool.
+1. Start with a Hyper-V VM that can be imaged using SCCM, Endpoint Mgr, or another tool.
 
     1. The VM must be created as a Generation 1 VM.
-    1. The VM must use a fixed disk size; here, you also can specify the size of the disk (NOTE: Azure Lab Services doesn’t support images with > 128 GB of disk size, please make sure to select the disk size appropriately).
+    1. The VM must use a fixed disk size; here, you also can specify the size of the disk (NOTE: Azure Lab Services doesn’t support images with > 128 GB of disk size, make sure to select the disk size appropriately).
     
     :::image type="content" source="./media/upload-custom-image-shared-image-gallery/connect-virtual-hard-disk.png" alt-text="Connect virtual hard disk":::   
     1. Image the VM as you typically would using SCCM, Endpoint Mgr, or any other tool.
@@ -40,7 +40,7 @@ Many options exist for creating a VHD from a physical lab environment. The follo
     
 > [!NOTE]
 > Above steps will create a specialized image. If creating a generalized image, you also will need to run [SysPrep])https://docs.microsoft.com/azure/virtual-machines/windows/prepare-for-upload-vhd-image#determine-when-to-use-sysprep). Overall, we recommend you to create a specialized image since it maintains the User directory which often contains files, user account info, etc. that are needed by software included in the image.
-1. Since **HyperV** creates a **VHDX** file by default, you need to convert this to a VHD file.
+1. Since **Hyper-V** creates a **VHDX** file by default, you need to convert this to a VHD file.
 
     1. Navigate to **HyperV Manager** -> **Action** -> **Edit Disk**.
     1. Here, you'll have the option to **Convert** the disk from a VHDX to a VHD
@@ -52,17 +52,21 @@ Many options exist for creating a VHD from a physical lab environment. The follo
     1. You can use either Storage Explorer or AzCopy from the command line, as described in [Upload a VHD to Azure or copy a managed disk to another region](https://docs.microsoft.com/azure/virtual-machines/windows/disks-upload-vhd-to-managed-disk-powershell).
 
         * Upload in general can be flaky – for example, if your machine goes to sleep or locks, the upload process will get interrupted and fail.
-    1. The result of this step is that you now have a managed disk that you can see in the Azure Portal. 
+    1. The result of this step is that you now have a managed disk that you can see in the Azure portal. 
 
-        * Using the Azure Portal, in configuration, you have the ability to select the disk size but Azure Lab Services doesn’t support images with > 128 GB of disk size, please make sure to select the size appropriately.
+        * Using the Azure portal, in configuration, you have the ability to select the disk size but Azure Lab Services doesn’t support images with > 128 GB of disk size, make sure to select the size appropriately.
 
 1. Take a snapshot of the managed disk.
 
-	This can be done either from PowerShell, using the Azure Portal, or from within Storage Explorer, as described in [Create a snapshot using the portal or PowerShell](https://docs.microsoft.com/azure/virtual-machines/windows/snapshot-copy-managed-disk).
+	This can be done either from PowerShell, using the Azure portal, or from within Storage Explorer, as described in [Create a snapshot using the portal or PowerShell](https://docs.microsoft.com/azure/virtual-machines/windows/snapshot-copy-managed-disk).
 1. In Shared Image Gallery, create an image definition and version:
 
     1. [Create an image definition](https://docs.microsoft.com/azure/virtual-machines/windows/shared-images-portal#create-an-image-definition).
     1. You need to also specify here whether you are creating a specialized\generalized image.
 1. Create the lab in Azure Lab Services and select the custom image from the Shared Image Gallery.
 
-    If you expanded disk after the OS was installed on the original HyperV VM, you also will need to extend the C drive in Windows to use the unallocated disk space. To do this, log into the template VM after the lab is created, then follow steps similar to what is shown in [Extend a basic volume](https://docs.microsoft.com/windows-server/storage/disk-management/extend-a-basic-volume). There are options to do this through the UI as well as using PowerShell.
+    If you expanded disk after the OS was installed on the original Hyper-V VM, you also will need to extend the C drive in Windows to use the unallocated disk space. To do this, log into the template VM after the lab is created, then follow steps similar to what is shown in [Extend a basic volume](https://docs.microsoft.com/windows-server/storage/disk-management/extend-a-basic-volume). There are options to do this through the UI as well as using PowerShell.
+
+## Next steps
+
+[Specify Marketplace images available to lab creators](specify-marketplace-images.md)
