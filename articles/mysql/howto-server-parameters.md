@@ -5,7 +5,7 @@ author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: how-to
-ms.date: 6/11/2020
+ms.date: 10/1/2020
 ---
 
 # Configure server parameters in Azure Database for MySQL using the Azure portal
@@ -13,7 +13,7 @@ ms.date: 6/11/2020
 Azure Database for MySQL supports configuration of some server parameters. This article describes how to configure these parameters by using the Azure portal. Not all server parameters can be adjusted.
 
 >[!Note]
-> Server parameters can be updated globally at the server-level, use the [Azure CLI](./howto-configure-server-parameters-using-cli), [PowerShell](./howto-configure-server-parameters-using-powershell), or [Azure portal](./howto-server-parameters.md)
+> Server parameters can be updated globally at the server-level, use the [Azure CLI](./howto-configure-server-parameters-using-cli.md), [PowerShell](./howto-configure-server-parameters-using-powershell.md), or [Azure portal](./howto-server-parameters.md)
 
 ## Configure server parameters
 
