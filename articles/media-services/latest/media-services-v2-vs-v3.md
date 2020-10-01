@@ -36,7 +36,7 @@ This article describes changes that were introduced in Azure Media Services v3 a
 
    * v3 JobOutput replaces v2 Task and is now part of a Job. Inputs and outputs are now at the Job level. For more information, see [Create a job input from a local file](job-input-from-local-file-how-to.md). 
 
-   To get the history of job progress, listen to the EventGrid events. For more information, see [Handling Event Grid events](reacting-to-media-services-events.md).
+       To get the history of job progress, listen to the EventGrid events. For more information, see [Handling Event Grid events](reacting-to-media-services-events.md).
     * Streaming Locator replaces Locator.
     * Live Event replaces Channel.<br/>Live Events billing is based on Live Channel meters. For more information, see [billing](live-event-states-billing.md) and [pricing](https://azure.microsoft.com/pricing/details/media-services/).
     * Live Output replaces Program.
