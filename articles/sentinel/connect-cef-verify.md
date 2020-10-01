@@ -50,7 +50,7 @@ The validation script performs the following checks:
 
 1. Checks that the file includes the following text:
 
-    ```console
+    ```bash
     <source>
         type syslog
         port 25226
@@ -133,7 +133,7 @@ The validation script performs the following checks:
 
 1. Checks that the file includes the following text:
 
-    ```console
+    ```bash
     <source>
         type syslog
         port 25226

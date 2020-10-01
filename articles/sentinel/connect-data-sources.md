@@ -69,7 +69,7 @@ The following data connection methods are supported by Azure Sentinel:
     - [F5 BIG-IP](connect-f5-big-ip.md)
     - [Forcepoint DLP](connect-forcepoint-dlp.md)
     - [Okta SSO](connect-okta-single-sign-on.md)
-    - [Orca Security](connect-orca-security.md)
+    - [Orca Security](connect-orca-security-alerts.md)
     - [Perimeter 81 logs](connect-perimeter-81-logs.md)
     - [Proofpoint TAP](connect-proofpoint-tap.md)
     - [Qualys VM](connect-qualys-vm.md)
