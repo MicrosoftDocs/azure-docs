@@ -38,7 +38,7 @@ When [preallocated ephemeral ports](load-balancer-outbound-connections.md#preall
 Ephemeral ports have a 4-minute idle timeout (not adjustable). If the retries are too aggressive, the exhaustion has no opportunity to clear up on its own. Therefore, considering how--and how often--your application retries transactions is a critical part of the design.
 
 ## <a name="assignilpip"></a>Assign a Public IP to each VM
-Assigning a Public IP address changes your scenario to [Public IP to a VM](load-balancer-outbound-connections.md). All ephemeral ports of the public IP that are used for each VM are available to the VM. (As opposed to scenarios where ephemeral ports of a public IP are shared with all the VMs associated with the respective backend pool.) There are trade-offs to consider, such as the additional cost of public IP addresses and the potential impact of whitelisting a large number of individual IP addresses.
+Assigning a Public IP address changes your scenario to [Public IP to a VM](load-balancer-outbound-connections.md). All ephemeral ports of the public IP that are used for each VM are available to the VM. (As opposed to scenarios where ephemeral ports of a public IP are shared with all the VMs associated with the respective backend pool.) There are trade-offs to consider, such as the additional cost of public IP addresses and the potential impact of filtering a large number of individual IP addresses.
 
 >[!NOTE] 
 >This option is not available for web worker roles.
