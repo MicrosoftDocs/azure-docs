@@ -53,7 +53,7 @@ A single dashboard can contain resources from multiple applications, resource gr
 
 3. Type a name for the dashboard.
 4. Have a look at the **Tile Gallery** for a variety of tiles that you can add to your dashboard.  In addition to adding tiles from the gallery, you can pin charts and other views directly from Application Insights to the dashboard.
-5. Locate the **Markdown** tile and drag it on to your dashboard.  This tile allows you to add text formatted in markdown, which is ideal for adding descriptive text to your dashboard.
+5. Locate the **Markdown** tile and drag it on to your dashboard.  This tile allows you to add text formatted in markdown, which is ideal for adding descriptive text to your dashboard. To learn more, see [Use a markdown tile on Azure dashboards to show custom content](../../azure-portal/azure-portal-markdown-tile.md).
 6. Add text to the tile's properties and resize it on the dashboard canvas.
 
     [![Edit markdown tile](media/tutorial-app-dashboards/markdown.png)](media/tutorial-app-dashboards/dashboard-edit-mode.png#lightbox)
