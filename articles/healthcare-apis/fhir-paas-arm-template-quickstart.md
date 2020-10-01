@@ -12,11 +12,11 @@ ms.date: 09/14/2020
 
 # Quickstart: Use an ARM template to deploy Azure API for FHIR
 
-In this quickstart, you'll learn how to use an Azure Resource Manager template (ARM template) to deploy Azure API for Fast Healthcare Interoperability Resources (FHIR®).
+In this quickstart, you'll learn how to use an Azure Resource Manager template (ARM template) to deploy Azure API for Fast Healthcare Interoperability Resources (FHIR®). You can deploy Azure API for FHIR through the Azure portal, PowerShell, or CLI.
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
-If your environment meets the prerequisites and you're familiar with using ARM templates, select the **Deploy to Azure** button. The template will open in the Azure portal.
+If your environment meets the prerequisites and you're familiar with using ARM templates, select the **Deploy to Azure** button. The template will open in the Azure portal once you sign in.
 
 [:::image type="content" source="../media/template-deployments/deploy-to-azure.svg" alt-text="Deploy to Azure an Azure API for FHIR service using an ARM template in the Azure portal.":::](https://portal.azure.com/#create/Microsoft.Template/uri/https%3a%2f%2fraw.githubusercontent.com%2fAzure%2fazure-quickstart-templates%2fmaster%2f101-azure-api-for-fhir%2fazuredeploy.json)
 
@@ -29,12 +29,14 @@ An Azure account with an active subscription. [Create one for free](https://azur
 # [PowerShell](#tab/PowerShell)
 
 * An Azure account with an active subscription. [Create one for free](https://azure.microsoft.com/free/).
-* If you want to run the code locally, [Azure PowerShell](/powershell/azure/).
+* If you want to run the code locally, [Azure PowerShell](/powershell/azure/install-az-ps).
 
 # [CLI](#tab/CLI)
 
 * An Azure account with an active subscription. [Create one for free](https://azure.microsoft.com/free/).
-* If you want to run the code locally, [Azure CLI](/cli/azure/).
+* If you want to run the code locally:
+    * A Bash shell (such as Git Bash, which is included in [Git for Windows](https://gitforwindows.org)).
+    * [Azure CLI](/cli/azure/install-azure-cli).
 
 ---
 
@@ -66,7 +68,7 @@ On the **Deploy Azure API for FHIR** page:
 
 3. If you created a new resource group, select a **Region** for the resource group.
 
-4. Enter a new **Service Name** and choose the **Location** of the Azure API for FHIR.
+4. Enter a new **Service Name** and choose the **Location** of the Azure API for FHIR. The location can be the same as or different from the region of the resource group.
 
     :::image type="content" source="./media/fhir-paas-arm-template-quickstart/deploy-azure-api-fhir.png" alt-text="Deploy the Azure API for FHIR using the ARM template in the Azure portal.":::
 
@@ -75,6 +77,9 @@ On the **Deploy Azure API for FHIR** page:
 6. Read the terms and conditions, and then select **Create**.
 
 # [PowerShell](#tab/PowerShell)
+
+> [!NOTE]
+> If you want to run the PowerShell scripts locally, first enter `Connect-AzAccount` to set up your Azure credentials.
 
 If the `Microsoft.HealthcareApis` resource provider isn't already registered for your subscription, you can register it with the following interactive code. To run the code in Azure Cloud Shell, select **Try it** at the upper corner of any code block.
 
@@ -124,6 +129,9 @@ read -p "Press [ENTER] to continue: "
 ```
 
 ---
+
+> [!NOTE]
+> The deployment takes a few minutes to complete. Note the names for the Azure API for FHIR service and the resource group, which you use to review the deployed resources later.
 
 ## Review deployed resources
 
