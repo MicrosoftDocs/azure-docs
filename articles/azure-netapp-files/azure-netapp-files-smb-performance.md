@@ -102,7 +102,7 @@ The following chart shows the results for sequential I/O:
 
 ![Chart that shows Windows 2019 standard _D32ds_v4 64K sequential throughput.](../media/azure-netapp-files/smb-performance-standard-64k-throughput.png)
 
-## What performance is expected when scaling out using 5 VMs with a 1 TB dataset?
+## What performance is expected when scaling out using 5 VMs with a 1-TB dataset?
 
 These tests with 5 VMs use the same testing environment as the single VM, with each process writing to its own file.
 
