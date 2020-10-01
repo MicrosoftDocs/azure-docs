@@ -28,11 +28,7 @@ May include one or more of the following:
 * A client firewall or proxy prevents access - [solution](#configure-client-firewall-access)
 * Public network access rules on the registry prevent access - [solution](#configure-public-access-to-registry)
 * Virtual network configuration prevents access - [solution](#configure-vnet-access)
-<<<<<<< HEAD
-* Registry access by a managed Azure service isn't enabled  - [solution](#configure-image-scanning-solution)
-=======
 * You attempt to integrate Azure Security Center or certain other Azure services with a registry that has a private endpoint, service endpoint, or public IP access rules - [solution](#configure-service-access)
->>>>>>> cfd3c23f03a10d18d1151ba025d8b8878e6975c9
 
 ## Further diagnosis 
 
@@ -108,7 +104,7 @@ Currently, Azure Security Center can't perform [image vulnerability scanning](..
 
 If access or integration of these Azure services with your container registry is required, remove the network restriction. For example, remove the registry's private endpoints, or remove or modify the registry's public access rules.
 
-A network-restricted registry can optionally allow access by select trusted services.
+A network-restricted registry can [allow access]((allow-access-trusted-services.md)) by select trusted services.
 
 Related links:
 
