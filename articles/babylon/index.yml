@@ -43,7 +43,9 @@ landingContent:
             url: starter-kit-tutorial-3.md
           - text: 4 - Resource sets, assets, schemas, and classifications
             url: starter-kit-tutorial-4.md
-          - text: 5 - How to link Azure Data Share
+          - text: 5 - How to browse catalog
+            url: how-to-browse-catalog.md
+          - text: 6 - How to link Azure Data Share
             url: how-to-link-Azure-Data-Share.md
 #         - text: 5 - Glossary, terms, and import
 #           url: starter-kit-tutorial-5.md
