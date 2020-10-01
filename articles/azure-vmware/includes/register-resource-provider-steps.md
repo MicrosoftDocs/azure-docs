@@ -9,8 +9,7 @@ ms.date: 09/21/2020
 
 To use Azure VMware Solution, you must first register the resource provider with your subscription.
 
-```
-azurecli-interactive
+```azurecli-interactive
 az provider register -n Microsoft.AVS --subscription <your subscription ID>
 ```
 

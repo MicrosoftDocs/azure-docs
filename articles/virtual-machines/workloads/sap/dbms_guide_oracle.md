@@ -20,7 +20,7 @@ ms.custom: H1Hack27Feb2017
 
 ---
 
-# Azure Virtual Machines DBMS deployment for SAP workload
+# Azure Virtual Machines Oracle DBMS deployment for SAP workload
 
 [767598]:https://launchpad.support.sap.com/#/notes/767598
 [773830]:https://launchpad.support.sap.com/#/notes/773830

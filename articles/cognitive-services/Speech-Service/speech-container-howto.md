@@ -1,18 +1,20 @@
 ---
-title: Install Speech containers - Speech service
+title: Install and run Docker containers for the Speech service APIs
 titleSuffix: Azure Cognitive Services
-description: Install and run speech containers. Speech-to-text transcribes audio streams to text in real time that your applications, tools, or devices can consume or display. Text-to-speech converts input text into human-like synthesized speech.
+description: Use the Docker containers for the Speech service to perform speech recognition, transcription, generation, and more on-premises.
 services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 09/24/2020
+ms.date: 09/28/2020
 ms.author: aahi
+ms.custom: cog-serv-seo-aug-2020
+keywords: on-premises, Docker, container
 ---
 
-# Install and run Speech service containers 
+# Install and run Docker containers for the Speech service APIs 
 
 Containers enable you to run some of the Speech service APIs in your own environment. Containers are great for specific security and data governance requirements. In this article you'll learn how to download, install, and run a Speech container.
 
@@ -39,7 +41,7 @@ Speech containers enable customers to build a speech application architecture th
 | Text-to-speech | Converts text to natural-sounding speech with plain text input or Speech Synthesis Markup Language (SSML). | 1.7.0 |
 | Custom Text-to-speech | Using a custom model from the [Custom Voice portal](https://aka.ms/custom-voice-portal), converts text to natural-sounding speech with plain text input or Speech Synthesis Markup Language (SSML). | 1.7.0 |
 | Speech Language Detection | Detect the language spoken in audio files. | 1.0 |
-| Neural Text-to-speech | Converts text to natural-sounding speech using deep neural network technology, allowing for more natural synthesized speech. | 1.1.0 |
+| Neural Text-to-speech | Converts text to natural-sounding speech using deep neural network technology, allowing for more natural synthesized speech. | 1.2.0 |
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/cognitive-services/) before you begin.
 
@@ -240,7 +242,7 @@ All tags, except for `latest` are in the following format and are case-sensitive
 The following tag is an example of the format:
 
 ```
-1.1.0-amd64-en-us-arianeural-preview
+1.2.0-amd64-en-us-arianeural-preview
 ```
 
 For all of the supported locales and corresponding voices of the **neural text-to-speech** container, please see [Neural Text-to-speech image tags](../containers/container-image-tags.md#neural-text-to-speech).
@@ -463,7 +465,7 @@ This command:
 * If the custom model was previously downloaded, the `ModelId` is ignored.
 * Automatically removes the container after it exits. The container image is still available on the host computer.
 
-# [Language Detection](#tab/lid)
+# [Speech Language Detection](#tab/lid)
 
 To run the *Speech Language Detection* container, execute the following `docker run` command.
 
@@ -477,7 +479,7 @@ ApiKey={API_KEY}
 
 This command: 
 
-* Runs a speech language-detection container from the container image.
+* Runs a speech language-detection container from the container image. Currently you will not be charged for running this image.
 * Allocates 1 CPU cores and 1 gigabyte (GB) of memory.
 * Exposes TCP port 5003 and allocates a pseudo-TTY for the container.
 * Automatically removes the container after it exits. The container image is still available on the host computer.
@@ -504,7 +506,7 @@ docker run --rm -v ${HOME}:/root -ti antsu/on-prem-client:latest ./speech-to-tex
 | Containers | SDK Host URL | Protocol |
 |--|--|--|
 | Standard Speech-to-text and Custom Speech-to-text | `ws://localhost:5000` | WS |
-| Text-to-speech (including Standard, Custom and Neural), Language detection | `http://localhost:5000` | HTTP |
+| Text-to-speech (including Standard, Custom and Neural), Speech Language detection | `http://localhost:5000` | HTTP |
 
 For more information on using WSS and HTTPS protocols, see [container security](../cognitive-services-container-support.md#azure-cognitive-services-container-security).
 

@@ -17,16 +17,6 @@ keywords: text to speech
 
 # Get started with text-to-speech
 
-In this quickstart, you learn common design patterns for doing text-to-speech synthesis using the Speech SDK. You start by doing basic configuration and synthesis, and move on to more advanced examples for custom application development including:
-
-* Getting responses as in-memory streams
-* Customizing output sample rate and bit rate
-* Submitting synthesis requests using SSML (speech synthesis markup language)
-* Using neural voices
-
-> [!TIP]
-> If you want to skip straight to sample code, see the [quickstart samples](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart) on GitHub.
-
 ::: zone pivot="programming-language-csharp"
 [!INCLUDE [C# Basics include](includes/how-to/text-to-speech-basics/text-to-speech-basics-csharp.md)]
 ::: zone-end

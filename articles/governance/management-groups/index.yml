@@ -11,7 +11,7 @@ metadata:
   ms.collection: collection
   author: DCtheGeek
   ms.author: dacoulte
-  ms.date: 08/31/2020
+  ms.date: 09/30/2020
 
 landingContent:
   - title: About Azure Governance
@@ -38,6 +38,10 @@ landingContent:
             url: ./create-management-group-azure-cli.md
           - text: Create a management group (Azure PowerShell)
             url: ./create-management-group-powershell.md
+          - text: Create a management group (.NET)
+            url: ./create-management-group-dotnet.md
+          - text: Create a management group (JavaScript)
+            url: ./create-management-group-javascript.md
           - text: Create a management group (REST)
             url: ./create-management-group-rest-api.md
           - text: Deploy resources to management group (ARM templates)

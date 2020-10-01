@@ -6,7 +6,7 @@ ms.service: sql-managed-instance
 ms.subservice: operations
 ms.custom: devx-track-azurecli
 ms.devlang: 
-ms.topic: conceptual
+ms.topic: reference
 author: stevestein
 ms.author: sstein
 ms.reviewer:

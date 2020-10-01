@@ -80,7 +80,9 @@ See the following table to learn more about supported series and restrictions.
 |------------|------------|
 | D | None |
 | Dv2 | None |  
-| DSv2 | None |  
+| Dv3 | None|
+| DSv2 | None | 
+| DSv3 | None|
 | FSv2 | None | 
 | HBv2 | Requires approval |  
 | HCS | Requires approval |  
@@ -95,6 +97,20 @@ See the following table to learn more about supported series and restrictions.
 
 
 While Azure Machine Learning supports these VM series, they may not be available in all Azure regions. You can check with VM series are available here: [Products Available by Region](https://azure.microsoft.com/global-infrastructure/services/?products=virtual-machines).
+
+### Compute Isolation
+
+Azure Machine Learning Compute offers virtual machine sizes that are Isolated to a specific hardware type and dedicated to a single customer. Isolated virtual machine sizes are best suited for workloads that require a high degree of isolation from other customers’ workloads for reasons that include meeting compliance and regulatory requirements. Utilizing an isolated size guarantees that your virtual machine will be the only one running on that specific server instance.
+
+The current Isolated virtual machine offerings include:
+* Standard_M128ms
+* Standard_F72s_v2
+* Standard_NC24s_v3
+* Standard_NC24rs_v3*
+
+*RDMA capable
+
+Refer here to learn more about [Isolation in the Azure Public Cloud](https://docs.microsoft.com/azure/security/fundamentals/isolation-choices).
 
 ## Unmanaged compute
 

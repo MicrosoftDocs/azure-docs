@@ -1126,22 +1126,22 @@ This container image has the following tags available:
 | Image Tags                                  | Notes                                                                      |
 |---------------------------------------------|:---------------------------------------------------------------------------|
 | `latest`                                    | Container image with the `en-US` locale and `en-US-AriaNeural` voice.      |
-| `1.1.0-amd64-de-de-katjaneural-preview`     | Container image with the `de-DE` locale and `de-DE-KatjaNeural` voice.     |
-| `1.1.0-amd64-en-au-natashaneural-preview`   | Container image with the `en-AU` locale and `en-AU-NatashaNeural` voice.   |
-| `1.1.0-amd64-en-ca-claraneural-preview`     | Container image with the `en-CA` locale and `en-CA-ClaraNeural` voice.     |
-| `1.1.0-amd64-en-gb-libbyneural-preview`     | Container image with the `en-GB` locale and `en-GB-LibbyNeural` voice.     |
-| `1.1.0-amd64-en-gb-mianeural-preview`       | Container image with the `en-GB` locale and `en-GB-MiaNeural` voice.       |
-| `1.1.0-amd64-en-us-arianeural-preview`      | Container image with the `en-US` locale and `en-US-AriaNeural` voice.      |
-| `1.1.0-amd64-en-us-guyneural-preview`       | Container image with the `en-US` locale and `en-US-GuyNeural` voice.       |
-| `1.1.0-amd64-es-es-elviraneural-preview`    | Container image with the `es-ES` locale and `es-ES-ElviraNeural` voice.    |
-| `1.1.0-amd64-es-mx-dalianeural-preview`     | Container image with the `es-MX` locale and `es-MX-DaliaNeural` voice.     |
-| `1.1.0-amd64-fr-ca-sylvieneural-preview`    | Container image with the `fr-CA` locale and `fr-CA-SylvieNeural` voice.    |
-| `1.1.0-amd64-fr-fr-deniseneural-preview`    | Container image with the `fr-FR` locale and `fr-FR-DeniseNeural` voice.    |
-| `1.1.0-amd64-it-it-elsaneural-preview`      | Container image with the `it-IT` locale and `it-IT-ElsaNeural` voice.      |
-| `1.1.0-amd64-ja-jp-nanamineural-preview`    | Container image with the `ja-JP` locale and `ja-JP-NanamiNeural` voice.    |
-| `1.1.0-amd64-ko-kr-sunhineural-preview`     | Container image with the `ko-KR` locale and `ko-KR-SunHiNeural` voice.     |
-| `1.1.0-amd64-pt-br-franciscaneural-preview` | Container image with the `pt-BR` locale and `pt-BR-FranciscaNeural` voice. |
-| `1.1.0-amd64-zh-cn-xiaoxiaoneural-preview`  | Container image with the `zh-CN` locale and `zh-CN-XiaoxiaoNeural` voice.  |
+| `1.2.0-amd64-de-de-katjaneural-preview`     | Container image with the `de-DE` locale and `de-DE-KatjaNeural` voice.     |
+| `1.2.0-amd64-en-au-natashaneural-preview`   | Container image with the `en-AU` locale and `en-AU-NatashaNeural` voice.   |
+| `1.2.0-amd64-en-ca-claraneural-preview`     | Container image with the `en-CA` locale and `en-CA-ClaraNeural` voice.     |
+| `1.2.0-amd64-en-gb-libbyneural-preview`     | Container image with the `en-GB` locale and `en-GB-LibbyNeural` voice.     |
+| `1.2.0-amd64-en-gb-mianeural-preview`       | Container image with the `en-GB` locale and `en-GB-MiaNeural` voice.       |
+| `1.2.0-amd64-en-us-arianeural-preview`      | Container image with the `en-US` locale and `en-US-AriaNeural` voice.      |
+| `1.2.0-amd64-en-us-guyneural-preview`       | Container image with the `en-US` locale and `en-US-GuyNeural` voice.       |
+| `1.2.0-amd64-es-es-elviraneural-preview`    | Container image with the `es-ES` locale and `es-ES-ElviraNeural` voice.    |
+| `1.2.0-amd64-es-mx-dalianeural-preview`     | Container image with the `es-MX` locale and `es-MX-DaliaNeural` voice.     |
+| `1.2.0-amd64-fr-ca-sylvieneural-preview`    | Container image with the `fr-CA` locale and `fr-CA-SylvieNeural` voice.    |
+| `1.2.0-amd64-fr-fr-deniseneural-preview`    | Container image with the `fr-FR` locale and `fr-FR-DeniseNeural` voice.    |
+| `1.2.0-amd64-it-it-elsaneural-preview`      | Container image with the `it-IT` locale and `it-IT-ElsaNeural` voice.      |
+| `1.2.0-amd64-ja-jp-nanamineural-preview`    | Container image with the `ja-JP` locale and `ja-JP-NanamiNeural` voice.    |
+| `1.2.0-amd64-ko-kr-sunhineural-preview`     | Container image with the `ko-KR` locale and `ko-KR-SunHiNeural` voice.     |
+| `1.2.0-amd64-pt-br-franciscaneural-preview` | Container image with the `pt-BR` locale and `pt-BR-FranciscaNeural` voice. |
+| `1.2.0-amd64-zh-cn-xiaoxiaoneural-preview`  | Container image with the `zh-CN` locale and `zh-CN-XiaoxiaoNeural` voice.  |
 
 ## Key Phrase Extraction
 

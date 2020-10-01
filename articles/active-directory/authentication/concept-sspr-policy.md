@@ -58,7 +58,7 @@ The following password policy options are defined:
 
 ## Administrator reset policy differences
 
-Microsoft enforces a strong default *two-gate* password reset policy for any Azure administrator role. This policy may be different from the one you have defined for your users, and this policy can't be changed. You should always test password reset functionality as a user without any Azure administrator roles assigned.
+By default, administrator accounts are enabled for self-service password reset, and a strong default *two-gate* password reset policy is enforced. This policy may be different from the one you have defined for your users, and this policy can't be changed. You should always test password reset functionality as a user without any Azure administrator roles assigned.
 
 With a two-gate policy, administrators don't have the ability to use security questions.
 
@@ -90,6 +90,8 @@ The two-gate policy requires two pieces of authentication data, such as an email
 * If 30 days have elapsed in a trial subscription; or
 * A custom domain has been configured for your Azure AD tenant, such as *contoso.com*; or
 * Azure AD Connect is synchronizing identities from your on-premises directory
+
+You can disable the use of SSPR for administrator accounts using the [Set-MsolCompanySettings](/powershell/module/msonline/set-msolcompanysettings?view=azureadps-1.0) PowerShell cmdlet. The `-SelfServePasswordResetEnabled $False` parameter disables SSPR for administrators.
 
 ### Exceptions
 

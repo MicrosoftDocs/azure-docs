@@ -47,7 +47,7 @@ Once available at ingestion point, data takes additional 2-5 minutes to be avail
 ### Management solutions collection
 Some solutions do not collect their data from an agent and may use a collection method that introduces additional latency. Some solutions collect data at regular intervals without attempting near-real time collection. Specific examples include the following:
 
-- Office 365 solution polls activity logs using the Office 365 Management Activity API, which currently does not provide any near-real time latency guarantees.
+- Microsoft 365 solution polls activity logs using the Management Activity API, which currently does not provide any near-real time latency guarantees.
 - Windows Analytics solutions (Update Compliance for example) data is collected by the solution at a daily frequency.
 
 Refer to the documentation for each solution to determine its collection frequency.

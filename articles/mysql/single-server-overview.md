@@ -14,7 +14,7 @@ ms.date: 8/20/2020
 - Single Server 
 - Flexible Server (Preview)
 
-In this article, we will provide an overview and introduction to core concepts of single server deployment model. To learn about flexible server deployment mode, refer [flexible server overview](flexible-server/index.yml)
+In this article, we will provide an overview and introduction to core concepts of single server deployment model. To learn about flexible server deployment mode, refer [flexible server overview](flexible-server/index.yml). For information on how to decide what deployment option is appropriate for your workload, see [choosing the right MySQL server option in Azure](select-right-deployment-type.md).
 
 ## Overview
 

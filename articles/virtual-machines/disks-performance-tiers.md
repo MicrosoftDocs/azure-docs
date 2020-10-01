@@ -1,6 +1,6 @@
 ---
-title: Boost Azure managed disk performance
-description: Learn about performance tiers for managed disks, as well as how to upgrade performance tiers for your managed disks.
+title: Change the performance of Azure managed disks
+description: Learn about performance tiers for managed disks, as well as how to change performance tiers for existing managed disks.
 author: roygara
 ms.service: virtual-machines
 ms.topic: how-to

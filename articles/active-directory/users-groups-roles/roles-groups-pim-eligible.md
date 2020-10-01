@@ -32,7 +32,7 @@ This article describes how you can assign an Azure Active Directory (Azure AD) r
 
 1. Select a role, and then select a group. Only groups that are eligible for role assignment (role-assignable groups) are displayed, not all groups.
 
-    ![select the user to whom you're assigning the role](./media/roles-groups-pim-eligible/select-member.png)
+    ![Screenshot that shows the "Add assignments" page with the "Select role" and "Select member(s)" sections highlighted.](./media/roles-groups-pim-eligible/select-member.png)
 
 1. Select the desired membership setting. For roles requiring activation, choose **eligible**. By default, the user would be permanently eligible, but you could also set a start and end time for the user's eligibility. Once you are complete, hit Save and Add to complete the role assignment.
 

@@ -86,7 +86,7 @@ Follow these steps to create a blank database.
 
 9. On the toolbar, click **Notifications** to monitor the deployment process.
 
-   ![notification](./media/design-first-database-tutorial/notification.png)
+   ![Screenshot shows the Notifications menu with Deployment in progress.](./media/design-first-database-tutorial/notification.png)
 
 ## Create a server-level IP firewall rule
 
