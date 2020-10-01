@@ -70,7 +70,7 @@
     href: ../../backup/security-baseline.md
   - name: Azure Cache for Redis security baseline
     href: ../../azure-cache-for-redis/security-baseline.md
-  - name: Azure Cognitive Searchsecurity baseline
+  - name: Azure Cognitive Search security baseline
     href: ../../search/security-baseline.md
   - name: Azure Data Box security baseline
     href: ../../databox/security-baseline.md
