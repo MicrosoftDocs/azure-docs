@@ -43,23 +43,23 @@ Additional resources:
 
 This section walks you through preparing a project to work with the Azure Blob storage client library v12 for C++.
 
-### Create the project
-
-In Visual Studio, create a C++ application named *BlobQuickstartV12*.
-
 ### Install the packages
 
-While still in the application directory, install the Azure Blob storage client library for C++ package by using the `vcpkg install` command.
+Install the Azure Blob storage client library for C++ package by using the `vcpkg install` command.
 
 ```console
-vcpkg install libxml2:x64-windows curl:x64-windows azure-storage-blobs:x64-windows
+vcpkg install azure-storage-blobs:x64-windows
 ```
+
+### Create the project
+
+In Visual Studio, create a C++ console application named *BlobQuickstartV12*.
 
 ### Set up the app framework
 
 From the project directory:
 
-1. Open the *BlobQuickstartV12.cpp* file in your editor
+1. Open the *BlobQuickstartV12.cpp* file in Visual Studio
 1. Remove the ` std::wcout << "Hello, World!" << std::endl;` statement
 1. Add `#include` statements
 
@@ -81,10 +81,10 @@ The following diagram shows the relationship between these resources.
 
 Use the following C++ classes to interact with these resources:
 
-- [BlobServiceClient](/dotnet/api/azure.storage.blobs.blobserviceclient): The `BlobServiceClient` class allows you to manipulate Azure Storage resources and blob containers.
-- [BlobContainerClient](/dotnet/api/azure.storage.blobs.blobcontainerclient): The `BlobContainerClient` class allows you to manipulate Azure Storage containers and their blobs.
-- [BlobClient](/dotnet/api/azure.storage.blobs.blobclient): The `BlobClient` class allows you to manipulate Azure Storage blobs.
-- [BlobDownloadInfo](/dotnet/api/azure.storage.blobs.models.blobdownloadinfo): The `BlobDownloadInfo` class represents the properties and content returned from downloading a blob.
+- [BlobServiceClient](https://azuresdkdocs.blob.core.windows.net/$web/cpp/azure-storage-blobs/1.0.0-beta.2/class_azure_1_1_storage_1_1_blobs_1_1_blob_service_client.html): The `BlobServiceClient` class allows you to manipulate Azure Storage resources and blob containers.
+- [BlobContainerClient](https://azuresdkdocs.blob.core.windows.net/$web/cpp/azure-storage-blobs/1.0.0-beta.2/class_azure_1_1_storage_1_1_blobs_1_1_blob_container_client.html): The `BlobContainerClient` class allows you to manipulate Azure Storage containers and their blobs.
+- [BlobClient](https://azuresdkdocs.blob.core.windows.net/$web/cpp/azure-storage-blobs/1.0.0-beta.2/class_azure_1_1_storage_1_1_blobs_1_1_blob_client.html): The `BlobClient` class allows you to manipulate Azure Storage blobs.
+- [BlockBlobClient](https://azuresdkdocs.blob.core.windows.net/$web/cpp/azure-storage-blobs/1.0.0-beta.2/class_azure_1_1_storage_1_1_blobs_1_1_block_blob_client.html): The `BlockBlobClient` class 
 
 ## Code examples
 
@@ -101,20 +101,18 @@ These example code snippets show you how to perform the following with the Azure
 
 The code below retrieves the connection string for the storage account from the environment variable created in the [Configure your storage connection string](#configure-your-storage-connection-string) section.
 
-Add this code inside the `main` method:
+Add this code inside `main()`:
 
 :::code language="cpp" source="~/azure-storage-snippets/blobs/quickstarts/C++/V12/BlobQuickstartV12/BlobQuickstartV12/BlobQuickstartV12.cpp" id="Snippet_ConnectionString":::
 
 ### Create a container
 
-Decide on a name for the new container. The code below appends a GUID value to the container name to ensure that it is unique.
+Create an instance of the [BlobContainerClient](https://azuresdkdocs.blob.core.windows.net/$web/cpp/azure-storage-blobs/1.0.0-beta.2/class_azure_1_1_storage_1_1_blobs_1_1_blob_container_client.html) class by calling the [CreateFromConnectionString](https://azuresdkdocs.blob.core.windows.net/$web/cpp/azure-storage-blobs/1.0.0-beta.2/class_azure_1_1_storage_1_1_blobs_1_1_blob_container_client.html#ad103d1e3a7ce7c53a82da887d12ce6fe) function. Then call [Create](https://azuresdkdocs.blob.core.windows.net/$web/cpp/azure-storage-blobs/1.0.0-beta.2/class_azure_1_1_storage_1_1_blobs_1_1_blob_container_client.html#a22a1e001068a4ec52bb1b6bd8b52c047) to create the actual container in your storage account.
 
 > [!IMPORTANT]
 > Container names must be lowercase. For more information about naming containers and blobs, see [Naming and Referencing Containers, Blobs, and Metadata](/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata).
 
-Create an instance of the [BlobServiceClient](/dotnet/api/azure.storage.blobs.blobserviceclient) class. Then, call the [CreateBlobContainerAsync](/dotnet/api/azure.storage.blobs.blobserviceclient.createblobcontainerasync) method to create the container in your storage account.
-
-Add this code to the end of the `main` method:
+Add this code to the end of `main()`:
 
 :::code language="cpp" source="~/azure-storage-snippets/blobs/quickstarts/C++/V12/BlobQuickstartV12/BlobQuickstartV12/BlobQuickstartV12.cpp" id="Snippet_CreateContainer":::
 
@@ -122,49 +120,47 @@ Add this code to the end of the `main` method:
 
 The following code snippet:
 
-1. Creates a text file in the local *data* directory.
-1. Gets a reference to a [BlobClient](/dotnet/api/azure.storage.blobs.blobclient) object by calling the [GetBlobClient](/dotnet/api/azure.storage.blobs.blobcontainerclient.getblobclient) method on the container from the [Create a container](#create-a-container) section.
-1. Uploads the local text file to the blob by calling the [​Upload​Async](/dotnet/api/azure.storage.blobs.blobclient.uploadasync#Azure_Storage_Blobs_BlobClient_UploadAsync_System_IO_Stream_System_Boolean_System_Threading_CancellationToken_) method. This method creates the blob if it doesn't already exist, and overwrites it if it does.
+1. Declares a string containing "Hello Azure!".
+1. Gets a reference to a [BlockBlobClient](https://azuresdkdocs.blob.core.windows.net/$web/cpp/azure-storage-blobs/1.0.0-beta.2/class_azure_1_1_storage_1_1_blobs_1_1_block_blob_client.html) object by calling the [GetBlockBlobClient](https://azuresdkdocs.blob.core.windows.net/$web/cpp/azure-storage-blobs/1.0.0-beta.2/class_azure_1_1_storage_1_1_blobs_1_1_blob_container_client.html#acd8c68e3f37268fde0010dd478ff048f) function on the container from the [Create a container](#create-a-container) section.
+1. Uploads the string to the blob by calling the [​Upload​From](https://azuresdkdocs.blob.core.windows.net/$web/cpp/azure-storage-blobs/1.0.0-beta.2/class_azure_1_1_storage_1_1_blobs_1_1_block_blob_client.html#af93af7e37f8806e39481596ef253f93d) function. This function creates the blob if it doesn't already exist, or updates it if it does.
 
-Add this code to the end of the `main` method:
+Add this code to the end of `main()`:
 
 :::code language="cpp" source="~/azure-storage-snippets/blobs/quickstarts/C++/V12/BlobQuickstartV12/BlobQuickstartV12/BlobQuickstartV12.cpp" id="Snippet_UploadBlob":::
 
 ### List the blobs in a container
 
-List the blobs in the container by calling the [GetBlobsAsync](/dotnet/api/azure.storage.blobs.blobcontainerclient.getblobsasync) method. In this case, only one blob has been added to the container, so the listing operation returns just that one blob.
+List the blobs in the container by calling the [ListBlobsFlatSegment](https://azuresdkdocs.blob.core.windows.net/$web/cpp/azure-storage-blobs/1.0.0-beta.2/class_azure_1_1_storage_1_1_blobs_1_1_blob_container_client.html#ac7712bc46909dc061d6bf554b496550c) function. In this case, only one blob has been added to the container, so the listing operation returns just that one blob.
 
-Add this code to the end of the `main` method:
+Add this code to the end of `main()`:
 
 :::code language="cpp" source="~/azure-storage-snippets/blobs/quickstarts/C++/V12/BlobQuickstartV12/BlobQuickstartV12/BlobQuickstartV12.cpp" id="Snippet_ListBlobs":::
 
 ### Download blobs
 
-Download the previously created blob by calling the [​Download​Async](/dotnet/api/azure.storage.blobs.specialized.blobbaseclient.downloadasync) method. The example code adds a suffix of "DOWNLOADED" to the file name so that you can see both files in local file system.
+Get the properties of the uploaded blob. Then, declare and resize a new `std::string` object by using the properties of the uploaded blob. Download the previously created blob into the new `std::string` object by calling the [​DownloadTo](https://azuresdkdocs.blob.core.windows.net/$web/cpp/azure-storage-blobs/1.0.0-beta.2/class_azure_1_1_storage_1_1_blobs_1_1_blob_client.html#aa844f37a8c216f3cb0f27912b114c4d2) function in the [BlobClient](https://azuresdkdocs.blob.core.windows.net/$web/cpp/azure-storage-blobs/1.0.0-beta.2/class_azure_1_1_storage_1_1_blobs_1_1_blob_client.html) base class. Finally, display the downloaded blob data.
 
-Add this code to the end of the `main` method:
+Add this code to the end of `main()`:
 
-:::code language="cpp" source="~/azure-storage-snippets/blobs/quickstarts/C++/V12/BlobQuickstartV12/BlobQuickstartV12/BlobQuickstartV12.cpp" id="Snippet_DownBlob":::
+:::code language="cpp" source="~/azure-storage-snippets/blobs/quickstarts/C++/V12/BlobQuickstartV12/BlobQuickstartV12/BlobQuickstartV12.cpp" id="Snippet_DownloadBlob":::
 
 ### Delete a Blob
 
-The following code deletes the blob from the Azure Blob storage container.
+The following code deletes the blob from the Azure Blob storage container by calling the [BlobClient.Delete](https://azuresdkdocs.blob.core.windows.net/$web/cpp/azure-storage-blobs/1.0.0-beta.2/class_azure_1_1_storage_1_1_blobs_1_1_blob_client.html#a621eabcc8d23893ca1eb106494198615) function.
 
 :::code language="cpp" source="~/azure-storage-snippets/blobs/quickstarts/C++/V12/BlobQuickstartV12/BlobQuickstartV12/BlobQuickstartV12.cpp" id="Snippet_DeleteBlob":::
 
 ### Delete a container
 
-The following code cleans up the resources the app created by deleting the entire container by using [​DeleteAsync](/dotnet/api/microsoft.azure.storage.blob.cloudblobcontainer.deleteasync). It also deletes the local files created by the app.
+The following code cleans up the resources the app created by deleting the entire container by using [BlobContainerClient.​Delete](https://azuresdkdocs.blob.core.windows.net/$web/cpp/azure-storage-blobs/1.0.0-beta.2/class_azure_1_1_storage_1_1_blobs_1_1_blob_container_client.html#aa6b1db52697ae92e9a1227e2e02a5178).
 
-The app pauses for user input by calling `Console.ReadLine` before it deletes the blob, container, and local files. This is a good chance to verify that the resources were actually created correctly, before they are deleted.
-
-Add this code to the end of the `main` method:
+Add this code to the end of `main()`:
 
 :::code language="cpp" source="~/azure-storage-snippets/blobs/quickstarts/C++/V12/BlobQuickstartV12/BlobQuickstartV12/BlobQuickstartV12.cpp" id="Snippet_DeleteContainer":::
 
 ## Run the code
 
-This app creates a string in memory and uploads it to a text file in Blob storage. The example then lists the blobs in the container and downloads the file.
+This app creates a string in memory and uploads it to a text file in Blob storage. The example then lists the blobs in the container, downloads the file, and displays the file contents.
 
 The output of the app is similar to the following example:
 
@@ -186,7 +182,4 @@ In this quickstart, you learned how to upload, download, and list blobs using C+
 To see Blob storage sample apps, continue to:
 
 > [!div class="nextstepaction"]
-> [Azure Blob storage SDK v12 C++ samples](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Azure.Storage.Blobs/samples)
-
-- For tutorials, samples, quick starts and other documentation, visit [Azure for .NET and .NET Core developers](/dotnet/azure/).
-- To learn more about .NET Core, see [Get started with .NET in 10 minutes](https://www.microsoft.com/net/learn/get-started/).
+> [Azure Blob storage SDK v12 for C++ sample](https://github.com/Azure/azure-sdk-for-cpp/tree/master/sdk/storage/azure-storage-blobs/sample)
