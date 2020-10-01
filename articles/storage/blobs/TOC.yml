@@ -701,7 +701,7 @@
         href: data-lake-storage-supported-open-source-platforms.md
     - name: Monitoring
       items:
-      - name: Monitor a storage account
+      - name: Monitor Blob storage
         href: ../common/monitor-storage.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
       - name: Transition from classic metrics
         href: ../common/storage-metrics-migration.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json

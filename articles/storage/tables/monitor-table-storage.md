@@ -53,7 +53,7 @@ To create a diagnostic setting by using the Azure portal, the Azure CLI, or Powe
 
 To see an Azure Resource Manager template that creates a diagnostic setting, see [Diagnostic setting for Azure Storage](https://docs.microsoft.com/azure/azure-monitor/samples/resource-manager-diagnostic-settings#diagnostic-setting-for-azure-storage).
 
-When you create a diagnostic setting, choose the type of storage that you want to enable logs for, such as a blob, queue, table, or file. For Table storage, choose **table**. Data Lake Storage Gen2 doesn't appear as a storage type. That's because Data Lake Storage Gen2 is a set of capabilities available to Table storage. 
+When you create a diagnostic setting, choose the type of storage that you want to enable logs for, such as a blob, queue, table, or file. For Table storage, choose **table**. 
 
 If you create the diagnostic setting in the Azure portal, you can select the resource from a list. If you use PowerShell or the Azure CLI, you need to use the resource ID of the Table storage endpoint. You can find the resource ID in the Azure portal by opening the **Properties** page of your storage account.
 
@@ -231,7 +231,7 @@ The following example shows how to read metric data on the metric supporting mul
     public static async Task ReadStorageMetricValueTest()
     {
         // Resource ID for table storage
-        var resourceId = "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/storageAccounts/{storageAccountName}/blobServices/default";
+        var resourceId = "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/storageAccounts/{storageAccountName}/tableServices/default";
         var subscriptionId = "<subscription-ID}";
         // How to identify Tenant ID, Application ID and Access Key: https://azure.microsoft.com/documentation/articles/resource-group-create-service-principal-portal/
         var tenantId = "<tenant-ID>";
@@ -285,7 +285,7 @@ For a detailed reference of the fields that appear in these logs, see [Azure Tab
 > [!NOTE]
 > Azure Storage logs in Azure Monitor is in public preview and is available for preview testing in all public cloud regions. To enroll in the preview, see [this page](https://forms.microsoft.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbRxW65f1VQyNCuBHMIMBV8qlUM0E0MFdPRFpOVTRYVklDSE1WUTcyTVAwOC4u). This preview enables logs for blobs (which includes Azure Data Lake Storage Gen2), files, queues, tables, premium storage accounts in general-purpose v1, and general-purpose v2 storage accounts. Classic storage accounts aren't supported.
 
-Log entries are created only if there are requests made against the service endpoint. For example, if a storage account has activity in its blob endpoint but not in its table or queue endpoints, only logs that pertain to the table service are created. Azure Storage logs contain detailed information about successful and failed requests to a storage service. This information can be used to monitor individual requests and to diagnose issues with a storage service. Requests are logged on a best-effort basis.
+Log entries are created only if there are requests made against the service endpoint. For example, if a storage account has activity in its table endpoint but not in its blob or queue endpoints, only logs that pertain to the table service are created. Azure Storage logs contain detailed information about successful and failed requests to a storage service. This information can be used to monitor individual requests and to diagnose issues with a storage service. Requests are logged on a best-effort basis.
 
 ### Log authenticated requests
 
@@ -333,7 +333,7 @@ You can access logs sent to a Log Analytics workspace by using Azure Monitor log
 
 For more information, see [Get started with Log Analytics in Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/log-query/get-started-portal).
 
-Data is stored in the **StorageBlobLog** table. Logs for Data Lake Storage Gen2 do not appear in a dedicated table. That's because Data Lake Storage Gen2 is not service. It's a set of capabilities that you can enable in your storage account. If you've enabled those capabilities, logs will continue to appear in the StorageBlobLogs table. 
+Data is stored in the **StorageTableLogs** table. 
 
 #### Sample Kusto queries
 
@@ -347,7 +347,7 @@ Use these queries to help you monitor your Azure Storage accounts:
 * To list the 10 most common errors over the last three days.
 
     ```Kusto
-    StorageBlobLogs
+    StorageTableLogs
     | where TimeGenerated > ago(3d) and StatusText !contains "Success"
     | summarize count() by StatusText
     | top 10 by count_ desc
@@ -355,7 +355,7 @@ Use these queries to help you monitor your Azure Storage accounts:
 * To list the top 10 operations that caused the most errors over the last three days.
 
     ```Kusto
-    StorageBlobLogs
+    StorageTableLogs
     | where TimeGenerated > ago(3d) and StatusText !contains "Success"
     | summarize count() by OperationName
     | top 10 by count_ desc
@@ -363,7 +363,7 @@ Use these queries to help you monitor your Azure Storage accounts:
 * To list the top 10 operations with the longest end-to-end latency over the last three days.
 
     ```Kusto
-    StorageBlobLogs
+    StorageTableLogs
     | where TimeGenerated > ago(3d)
     | top 10 by DurationMs desc
     | project TimeGenerated, OperationName, DurationMs, ServerLatencyMs, ClientLatencyMs = DurationMs - ServerLatencyMs
@@ -371,20 +371,20 @@ Use these queries to help you monitor your Azure Storage accounts:
 * To list all operations that caused server-side throttling errors over the last three days.
 
     ```Kusto
-    StorageBlobLogs
+    StorageTableLogs
     | where TimeGenerated > ago(3d) and StatusText contains "ServerBusy"
     | project TimeGenerated, OperationName, StatusCode, StatusText
     ```
 * To list all requests with anonymous access over the last three days.
 
     ```Kusto
-    StorageBlobLogs
+    StorageTableLogs
     | where TimeGenerated > ago(3d) and AuthenticationType == "Anonymous"
     | project TimeGenerated, OperationName, AuthenticationType, Uri
     ```
 * To create a pie chart of operations used over the last three days.
     ```Kusto
-    StorageBlobLogs
+    StorageTableLogs
     | where TimeGenerated > ago(3d)
     | summarize count() by OperationName
     | sort by count_ desc 

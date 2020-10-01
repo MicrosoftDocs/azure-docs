@@ -74,5 +74,5 @@ The following table lists the properties for Azure Storage resource logs when th
 
 ## See also
 
-- See [Monitoring Azure Storage](monitor-table-storage.md) for a description of monitoring Azure Storage.
+- See [Monitoring Azure Table storage](monitor-table-storage.md) for a description of monitoring Azure Storage.
 - See [Monitoring Azure resources with Azure Monitor](../../azure-monitor/insights/monitor-azure-resource.md) for details on monitoring Azure resources.

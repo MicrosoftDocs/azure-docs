@@ -31,7 +31,7 @@ Azure Storage provides the following capacity metrics in Azure Monitor.
 
 #### Queue storage
 
-This table shows [Queue storage metrics](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-supported#microsoftstoragestorageaccountsfileservices).
+This table shows [Queue storage metrics](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-supported#microsoftstoragestorageaccountsqueueservices).
 
 | Metric | Description |
 | ------------------- | ----------------- |
@@ -74,5 +74,5 @@ The following table lists the properties for Azure Storage resource logs when th
 
 ## See also
 
-- See [Monitoring Azure Storage](monitor-queue-storage.md) for a description of monitoring Azure Storage.
+- See [Monitoring Azure Queue storage](monitor-queue-storage.md) for a description of monitoring Azure Storage.
 - See [Monitoring Azure resources with Azure Monitor](../../azure-monitor/insights/monitor-azure-resource.md) for details on monitoring Azure resources.

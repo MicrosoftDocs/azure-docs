@@ -13,17 +13,17 @@ ms.custom: monitoring
 
 # Azure Files monitoring data reference
 
-See [Monitoring Azure Storage](storage-files-monitoring.md) for details on collecting and analyzing monitoring data for Azure Storage.
+See [Monitoring Azure Files](storage-files-monitoring.md) for details on collecting and analyzing monitoring data for Azure Files.
 
 ## Metrics
 
-The following tables list the platform metrics collected for Azure Storage. 
+The following tables list the platform metrics collected for Azure Files. 
 
 ### Capacity metrics
 
 Capacity metrics values are sent to Azure Monitor every hour. The values are refreshed daily. The time grain defines the time interval for which metrics values are presented. The supported time grain for all capacity metrics is one hour (PT1H).
 
-Azure Storage provides the following capacity metrics in Azure Monitor.
+Azure Files provides the following capacity metrics in Azure Monitor.
 
 #### Account Level
 
@@ -80,5 +80,5 @@ The following table lists the properties for Azure Storage resource logs when th
 
 ## See also
 
-- See [Monitoring Azure Storage](storage-files-monitoring.md) for a description of monitoring Azure Storage.
+- See [Monitoring Azure Files](storage-files-monitoring-reference.md) for a description of monitoring Azure Storage.
 - See [Monitoring Azure resources with Azure Monitor](../../azure-monitor/insights/monitor-azure-resource.md) for details on monitoring Azure resources.

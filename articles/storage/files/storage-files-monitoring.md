@@ -107,7 +107,7 @@ In this example, replace the `<resource-ID>` placeholder with the resource ID of
 
 #### Reading metric values
 
-You can read account-level metric values of your storage account or the Blob storage service. Use the [Get-AzMetric](https://docs.microsoft.com/powershell/module/Az.Monitor/Get-AzMetric) cmdlet.
+You can read account-level metric values of your storage account or the Azure Files service. Use the [Get-AzMetric](https://docs.microsoft.com/powershell/module/Az.Monitor/Get-AzMetric) cmdlet.
 
 ```powershell
    $resourceId = "<resource-ID>"
@@ -230,8 +230,8 @@ The following example shows how to read metric data on the metric supporting mul
 ```csharp
     public static async Task ReadStorageMetricValueTest()
     {
-        // Resource ID for blob storage
-        var resourceId = "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/storageAccounts/{storageAccountName}/blobServices/default";
+        // Resource ID for Azure Files
+        var resourceId = "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/storageAccounts/{storageAccountName}/fileServices/default";
         var subscriptionId = "<subscription-ID}";
         // How to identify Tenant ID, Application ID and Access Key: https://azure.microsoft.com/documentation/articles/resource-group-create-service-principal-portal/
         var tenantId = "<tenant-ID>";
@@ -280,7 +280,7 @@ The following example shows how to read metric data on the metric supporting mul
 
 You can access resource logs either as a blob in a storage account, as event data, or through Log Analytic queries.
 
-For a detailed reference of the fields that appear in these logs, see [Azure Blob storage monitoring data reference](storage-files-monitoring-reference.md).
+For a detailed reference of the fields that appear in these logs, see [Azure Azure Files monitoring data reference](storage-files-monitoring-reference.md).
 
 > [!NOTE]
 > Azure Storage logs in Azure Monitor is in public preview and is available for preview testing in all public cloud regions. To enroll in the preview, see [this page](https://forms.microsoft.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbRxW65f1VQyNCuBHMIMBV8qlUM0E0MFdPRFpOVTRYVklDSE1WUTcyTVAwOC4u). This preview enables logs for blobs (which includes Azure Data Lake Storage Gen2), files, queues, tables, premium storage accounts in general-purpose v1, and general-purpose v2 storage accounts. Classic storage accounts aren't supported.
@@ -296,7 +296,7 @@ Log entries are created only if there are requests made against the service endp
 - Requests that use a shared access signature (SAS) or OAuth, including failed and successful requests
 - Requests to analytics data (classic log data in the **$logs** container and class metric data in the **$metric** tables)
 
-Requests made by the Blob storage service itself, such as log creation or deletion, aren't logged. For a full list of the logged data, see [Storage logged operations and status messages](/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages) and [Storage log format](storage-files-monitoring-reference.md).
+Requests made by the Azure Files service itself, such as log creation or deletion, aren't logged. For a full list of the logged data, see [Storage logged operations and status messages](/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages) and [Storage log format](storage-files-monitoring-reference.md).
 
 ### Log anonymous requests
 
@@ -313,11 +313,11 @@ All other failed anonymous requests aren't logged. For a full list of the logged
 
 Logs appear as blobs stored to a container in the target storage account. Data is collected and stored inside a single blob as a line-delimited JSON payload. The name of the blob follows this naming convention:
 
-`https://<destination-storage-account>.blob.core.windows.net/insights-logs-<storage-operation>/resourceId=/subscriptions/<subscription-ID>/resourceGroups/<resource-group-name>/providers/Microsoft.Storage/storageAccounts/<source-storage-account>/fileServices/default/y=<year>/m=<month>/d=<day>/h=<hour>/m=<minute>/PT1H.json`
+`https://<destination-storage-account>.blob.core.windows.net/insights-logs-<storage-operation>/resourceId=/subscriptions/<subscription-ID>/resourceGroups/<resource-group-name>/providers/Microsoft.Storage/storageAccounts/<source-storage-account>/blobServices/default/y=<year>/m=<month>/d=<day>/h=<hour>/m=<minute>/PT1H.json`
 
 Here's an example:
 
-`https://mylogstorageaccount.blob.core.windows.net/insights-logs-storagewrite/resourceId=/subscriptions/`<br>`208841be-a4v3-4234-9450-08b90c09f4/resourceGroups/myresourcegroup/providers/Microsoft.Storage/storageAccounts/mystorageaccount/fileServices/default/y=2019/m=07/d=30/h=23/m=12/PT1H.json`
+`https://mylogstorageaccount.blob.core.windows.net/insights-logs-storagewrite/resourceId=/subscriptions/`<br>`208841be-a4v3-4234-9450-08b90c09f4/resourceGroups/myresourcegroup/providers/Microsoft.Storage/storageAccounts/mystorageaccount/blobServices/default/y=2019/m=07/d=30/h=23/m=12/PT1H.json`
 
 ### Accessing logs in an event hub
 
@@ -335,7 +335,7 @@ For more information, see [Get started with Log Analytics in Azure Monitor](http
 
 #### Sample Kusto queries
 
-Here are some queries that you can enter in the **Log search** bar to help you monitor your Blob storage. These queries work with the [new language](https://docs.microsoft.com/azure/azure-monitor/log-query/log-query-overview).
+Here are some queries that you can enter in the **Log search** bar to help you monitor your Azure Files. These queries work with the [new language](https://docs.microsoft.com/azure/azure-monitor/log-query/log-query-overview).
 
 > [!IMPORTANT]
 > When you select **Logs** from the storage account resource group menu, Log Analytics is opened with the query scope set to the current resource group. This means that log queries will only include data from that resource group. If you want to run a query that includes data from other resources or data from other Azure services, select **Logs** from the **Azure Monitor** menu. See [Log query scope and time range in Azure Monitor Log Analytics](/azure/azure-monitor/log-query/scope/) for details.
