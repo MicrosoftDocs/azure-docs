@@ -47,6 +47,8 @@
     href: basic-concepts.md
   - name: Security
     items:
+    - name: Key Vault Authentication Fundamentals
+      href: authentication-fundamentals.md
     - name: Azure Key Vault security
       href: overview-security.md
     - name: Best Practices to use Key Vault - Azure Key Vault
@@ -135,6 +137,8 @@
       href: access-behind-firewall.md
   - name: Soft-delete
     items:
+    - name: Key Vault Recovery (Soft Delete & Purge Protection)
+      href: key-vault-recovery.md
     - name: Use soft-delete with CLI
       href: soft-delete-cli.md
     - name: Use soft-delete with PowerShell

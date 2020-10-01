@@ -4,7 +4,7 @@ description: This article describes how Azure Cosmos DB provides high availabili
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 06/29/2020
+ms.date: 09/30/2020
 ms.author: mjbrown
 ms.reviewer: sngun
 
@@ -77,9 +77,6 @@ When configuring multi-region writes for your Azure Cosmos account, you can opt 
 
 This feature is available in: *UK South, Southeast Asia, East US, East US 2, Central US, West Europe, West US 2, Japan East, North Europe, France Central,Australia East, East US 2 EUAP* regions.
 
-> [!NOTE]
-> Enabling Availability Zones for a single region Azure Cosmos account will result in charges that are equivalent to adding an additional region to your account. For details on pricing, see the [pricing page](https://azure.microsoft.com/pricing/details/cosmos-db/) and the [multi-region cost in Azure Cosmos DB](optimize-cost-regions.md) articles.
-
 The following table summarizes the high availability capability of various account configurations:
 
 |KPI  |Single region without Availability Zones (Non-AZ)  |Single region with Availability Zones (AZ)  |Multi-region writes with Availability Zones (AZ, 2 regions) – Most recommended setting |
@@ -93,7 +90,7 @@ The following table summarizes the high availability capability of various accou
 |Write latency | Cross region | Cross region | Low |
 |Regional outage – data loss | Data loss |  Data loss | Data loss <br/><br/> When using bounded staleness consistency with multiple write regions and more than one region, data loss is limited to the bounded staleness configured on your account <br /><br />You can avoid data loss during a regional outage by configuring strong consistency with multiple regions. This option comes with trade-offs that affect availability and performance. It can be configured only on accounts that are configured for single-region writes. |
 |Regional outage – availability | Availability loss | Availability loss | No availability loss |
-|Throughput | X RU/s provisioned throughput | X RU/s provisioned throughput | 2X RU/s provisioned throughput <br/><br/> This configuration mode requires twice the amount of throughput when compared to a single region with Availability Zones because there are two regions. |
+|Throughput | X RU/s provisioned throughput | X RU/s provisioned throughput * 1.25 | 2X RU/s provisioned throughput <br/><br/> This configuration mode requires twice the amount of throughput when compared to a single region with Availability Zones because there are two regions. |
 
 > [!NOTE]
 > To enable Availability Zone support for a multi region Azure Cosmos account, the account must have multi-region writes writes enabled.
