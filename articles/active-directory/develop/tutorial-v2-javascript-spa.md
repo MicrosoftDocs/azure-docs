@@ -1,7 +1,7 @@
 ---
 title: "Tutorial: Create a JavaScript single-page app that uses the Microsoft identity platform for authentication | Azure"
 titleSuffix: Microsoft identity platform
-description: In this tutorial, you build an Angular single-page app (SPA) that uses the Microsoft identity platform to sign in users and get an access token to call the Microsoft Graph API on their behalf.
+description: In this tutorial, you build a JavaScript single-page app (SPA) that uses the Microsoft identity platform to sign in users and get an access token to call the Microsoft Graph API on their behalf.
 services: active-directory
 author: navyasric
 manager: CelesteDG
