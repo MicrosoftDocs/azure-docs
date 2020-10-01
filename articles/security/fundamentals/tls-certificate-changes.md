@@ -55,22 +55,22 @@ The current CA certificates will *not* be revoked until Feb 15, 2021. After that
 
 If this date changes, you will be notified of the new revocation date.
 
-## Will this affect me?
+## Will this change affect me?
 
 We expect that **most Azure customers will not** be impacted.  However, your application may be impacted if it explicitly specifies a list of acceptable CAs. This practice is known as certificate pinning.
 
 Here are some ways to detect if your application is impacted:
 
-- Search your source code for the thumbprint, Common Name, and other cert properties of any of the Microsoft IT TLS CAs found [here](https://www.microsoft.com/pki/mscorp/cps/default.htm). If there is a match, then your application will be impacted. To resolve this problem, update the source code include the new CAs. As a best practice ensure that CAs can be added or edited on short notice. Industry regulations requires CA certificates to be replaced within 7 days and hence customers relying on pinning need to react swiftly.
+- Search your source code for the thumbprint, Common Name, and other cert properties of any of the Microsoft IT TLS CAs found [here](https://www.microsoft.com/pki/mscorp/cps/default.htm). If there is a match, then your application will be impacted. To resolve this problem, update the source code include the new CAs. As a best practice, ensure that CAs can be added or edited on short notice. Industry regulations require CA certificates to be replaced within seven days and hence customers relying on pinning need to react swiftly.
 
 - If you have an application that integrates with Azure APIs or other Azure services and you are unsure if it uses certificate pinning, check with the application vendor.
 
 - Different operating systems and language runtimes that communicate with Azure services may require additional steps to correctly build the certificate chain with these new roots: 
-    - **Linux**: Many distributions require you to add CAs listed above to /etc/ssl/certs. For specific instructions refer to the distribution’s documentation.
+    - **Linux**: Many distributions require you to add CAs listed above to /etc/ssl/certs. For specific instructions, refer to the distribution’s documentation.
     - **Java**: Ensure that the Java key store contains the CAs listed above.
     - **Windows running in disconnected environments**: Systems running in disconnected environments will need to have the roots listed above added to the Trusted Root Certification Authorities store, and the intermediates added to the Intermediate Certification Authorities store.
     - **Android**: Check the documentation for your device and version of Android.
-    - **Other hardware devices, especially IoT**: Contact the device manufacturer. 
+    - **Other hardware devices, especially IoT**: Contact the device manufacturer.
 
 - If you have an environment where firewall rules are set to allow outbound calls to only specific Certificate Revocation List (CRL) download and/or Online Certificate Status Protocol (OCSP) verification locations. You will need to allow the following CRL and OCSP URLs:
 
