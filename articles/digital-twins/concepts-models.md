@@ -79,7 +79,7 @@ For a DTDL model to be compatible with Azure Digital Twins, it must meet these r
 * Azure Digital Twins only allows a single level of component nesting. This means that an interface that's being used as a component can't have any components itself. 
 * Interfaces can't be defined inline within other DTDL interfaces; they must be defined as separate top-level entities with their own IDs. Then, when another interface wants to include that interface as a component or through inheritance, it can reference its ID.
 
-Azure Digital Twins also does not observe the `writable` attribute on properties or relationships. Although this can be set as per DTDL specifications, the value isn't used by Azure Digital Twins. Instead, these are always treated as writable by external clients.
+Azure Digital Twins also does not observe the `writable` attribute on properties or relationships. Although this can be set as per DTDL specifications, the value isn't used by Azure Digital Twins. Instead, these are always treated as writable by external clients that have general write permissions to the Azure Digital Twins service.
 
 ## Example model code
 
