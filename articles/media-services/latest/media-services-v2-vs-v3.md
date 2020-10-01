@@ -34,7 +34,7 @@ This article describes changes that were introduced in Azure Media Services v3 a
 * Event Grid support replaces NotificationEndpoints.
 * The following entities were renamed:
 
-    * JobOutput replaces Task, and is now part of a Job.
+    * JobOutput replaces Task and is now part of a Job.
     
         * For more information, see [v3 JobOutput vs v2 Task](#v3-joboutput-vs-v2-task).
     * Streaming Locator replaces Locator.
@@ -123,7 +123,7 @@ To protect your Assets at rest, the assets should be encrypted by the storage si
 
 ## v3 JobOutput vs v2 Task
 
-v3 JobOutput replaces v2 Task, and is now part of a Job. Inputs and outputs are now at the Job level. For more information, see [Create a job input from a local file](job-input-from-local-file-how-to.md). 
+v3 JobOutput replaces v2 Task and is now part of a Job. Inputs and outputs are now at the Job level. For more information, see [Create a job input from a local file](job-input-from-local-file-how-to.md). 
 
 ### Getting history of job progress
 
