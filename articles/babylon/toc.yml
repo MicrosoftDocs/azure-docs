@@ -24,6 +24,10 @@
     href: starter-kit-tutorial-3.md
   - name: 4 - Resource sets, assets, schemas, and classifications
     href: starter-kit-tutorial-4.md
+  - name: 5 - How to Browse Catalog
+    href: how-to-browse-catalog.md
+  - name: 6 - How to link Azure Data Share
+    href: how-to-link-Azure-Data-Share.md
 # - name: 5 - Glossary, terms, and import
 #   href: starter-kit-tutorial-5.md
 # - name: Concepts
