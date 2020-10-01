@@ -5,7 +5,7 @@ author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.topic: how-to
-ms.date: 4/2/2020
+ms.date: 10/1/2020
 ---
 
 # Create users in Azure Database for MariaDB 
@@ -86,6 +86,10 @@ Once the Azure Database for MariaDB server is created, you can use the first ser
    mysql --host mydemoserver.mariadb.database.azure.com --database testdb --user db_user@mydemoserver -p
    ```
    For more information regarding user account management, see MariaDB documentation for [User account management](https://mariadb.com/kb/en/library/user-account-management/), [GRANT Syntax](https://mariadb.com/kb/en/library/grant/), and [Privileges](https://mariadb.com/kb/en/library/grant/#privilege-levels).
+
+## azure_superuser
+
+All Azure Database for MySQL servers are created with a user called "azure_superuser". This is a system account created by Microsoft to manage the server to conduct monitoring, backups, and other regular maintenance. On-call engineers may also use this account to access the server during an incident with certificate authentication and must request access using just-in-time (JIT) processes.
 
 ## Next steps
 Open the firewall for the IP addresses of the new users' machines to enable them to connect:

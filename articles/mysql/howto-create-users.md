@@ -5,7 +5,7 @@ author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: how-to
-ms.date: 4/2/2020
+ms.date: 10/1/2020
 ---
 
 # Create databases and users in Azure Database for MySQL server
@@ -30,7 +30,8 @@ The server admin user gets certain privileges for your server as listed:
 Once the Azure Database for MySQL server is created, you can use the first server admin user account to create additional users and grant admin access to them. Also, the server admin account can be used to create less privileged users that have access to individual database schemas.
 
 > [!NOTE]
-> The SUPER privilege and DBA role are not supported. Review the [privileges](concepts-limits.md#privilege-support) in the limitations article to understand what's not supported in the service.
+> The SUPER privilege and DBA role are not supported. Review the [privileges](concepts-limits.md#privilege-support) in the limitations article to understand what's not supported in the service.<br><br>
+> Password plugins such as "validate_password" and "caching_sha2_password" are not supported by the service.
 
 ## How to create database with non admin user in Azure Database for MySQL
 
@@ -101,6 +102,10 @@ Once the Azure Database for MySQL server is created, you can use the first serve
 
    SHOW GRANTS FOR 'new_master_user'@'%';
    ```
+
+## azure_superuser
+
+All Azure Database for MySQL servers are created with a user called "azure_superuser". This is a system account created by Microsoft to manage the server to conduct monitoring, backups, and other regular maintenance. On-call engineers may also use this account to access the server during an incident with certificate authentication and must request access using just-in-time (JIT) processes.
 
 ## Next steps
 
