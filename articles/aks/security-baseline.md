@@ -856,7 +856,7 @@ Track the configurations of your machines to aid in pinpointing operational issu
 
 - [How to enable Azure virtual machine Inventory](../automation/automation-tutorial-installed-software.md)
 
-- [How to use File Integrity Monitoring](../security-center/security-center-file-integrity-monitoring.md#using-file-integrity-monitoring)
+- [How to use File Integrity Monitoring](../security-center/security-center-file-integrity-monitoring.md)
 
 - [Understand Azure Change Tracking](../automation/change-tracking.md)
 
