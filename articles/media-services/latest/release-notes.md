@@ -65,7 +65,7 @@ Live Transcriptions now supports 19 languages and 8 regions.
 
 We published a tutorial called [End-to-End content protection using Azure AD](./azure-ad-content-protection.md).
 
-### High availablity
+### High availability
 
 We published a High Availability with Media Services and Video on Demand (VOD) [overview](./media-services-high-availability-encoding.md) and [sample](https://github.com/Azure-Samples/media-services-v3-dotnet/tree/master/HighAvailabilityEncodingStreaming).
 
