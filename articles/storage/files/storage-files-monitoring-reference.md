@@ -53,10 +53,12 @@ Transaction metrics are emitted on every request to a storage account from Azure
 
 ## Metrics dimensions
 
-Azure Storage supports following dimensions for metrics in Azure Monitor.
+Azure Files supports following dimensions for metrics in Azure Monitor.
+
+> [!NOTE] 
+> The File Share dimension is not available for standard file shares (only premium file shares). When using standard file shares, the metrics provided are for all files shares in the storage account. To get per-share metrics for standard file shares, create one file share per storage account.
 
 [!INCLUDE [Metrics dimensions](../../../includes/azure-storage-account-metrics-dimensions.md)]
-
 
 ## Resource logs (preview)
 
