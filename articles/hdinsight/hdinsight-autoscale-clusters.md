@@ -67,7 +67,7 @@ For scale-down, Autoscale issues a request to remove a certain number of nodes. 
 
 The following table describes the cluster types and versions that are compatible with the Autoscale feature.
 
-| Version | Spark | Hive | LLAP | HBase | Kafka | Storm | ML |
+| Version | Spark | Hive | Interactive Query | HBase | Kafka | Storm | ML |
 |---|---|---|---|---|---|---|---|
 | HDInsight 3.6 without ESP | Yes | Yes | Yes | Yes* | No | No | No |
 | HDInsight 4.0 without ESP | Yes | Yes | Yes | Yes* | No | No | No |
@@ -260,7 +260,7 @@ Autoscale for Hadoop clusters also monitors HDFS usage. If the HDFS is busy, it 
 
 ### Set the Hive configuration Maximum Total Concurrent Queries for the peak usage scenario
 
-Autoscale events don't change the Hive configuration *Maximum Total Concurrent Queries* in Ambari. This means that the Hive Server 2 Interactive Service can handle only the given number of concurrent queries at any point of time even if the LLAP daemons count are scaled up and down based on load and schedule. The general recommendation is to set this configuration for the peak usage scenario to avoid manual intervention.
+Autoscale events don't change the Hive configuration *Maximum Total Concurrent Queries* in Ambari. This means that the Hive Server 2 Interactive Service can handle only the given number of concurrent queries at any point of time even if the Interactive Query daemons count are scaled up and down based on load and schedule. The general recommendation is to set this configuration for the peak usage scenario to avoid manual intervention.
 
 However, you may experience a Hive Server 2 restart failure if there are only a small number of worker nodes and the value for maximum total concurrent queries is configured too high. At a minimum, you need the minimum number of worker nodes that can accommodate the given number of Tez Ams (equal to the Maximum Total Concurrent Queries configuration). 
 
@@ -270,11 +270,11 @@ However, you may experience a Hive Server 2 restart failure if there are only a 
 
 HDInsight Autoscale uses a node label file to determine whether a node is ready to execute tasks. The node label file is stored on HDFS with three replicas. If the cluster size is dramatically scaled down and there is a large amount of temporary data, there is a small chance that all three replicas could be dropped. If this happens, the cluster enters an error state.
 
-### LLAP Daemons count
+### Interactive Query Daemons count
 
-In case of autoscae-enabled LLAP clusters, an autoscale up/down event also scales up/down the number of LLAP daemons to the number of active worker nodes. The change in the number of daemons is not persisted in the `num_llap_nodes` configuration in Ambari. If Hive services are restarted manually, the number of LLAP daemons is reset as per the configuration in Ambari.
+In case of autoscale-enabled Interactive Query clusters, an autoscale up/down event also scales up/down the number of Interactive Query daemons to the number of active worker nodes. The change in the number of daemons is not persisted in the `num_llap_nodes` configuration in Ambari. If Hive services are restarted manually, the number of Interactive Query daemons is reset as per the configuration in Ambari.
 
-If the LLAP service is manually restarted, you need to manually change the `num_llap_node` configuration (the number of node(s) needed to run the Hive LLAP daemon) under *Advanced hive-interactive-env* to match the current active worker node count.
+If the Interactive Query service is manually restarted, you need to manually change the `num_llap_node` configuration (the number of node(s) needed to run the Hive Interactive Query daemon) under *Advanced hive-interactive-env* to match the current active worker node count.
 
 ## Next steps
 
