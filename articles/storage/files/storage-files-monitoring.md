@@ -70,17 +70,7 @@ You also have to specify one of the following categories of operations for which
 
 You can analyze metrics for Azure Storage with metrics from other Azure services by using Metrics Explorer. Open Metrics Explorer by choosing **Metrics** from the **Azure Monitor** menu. For details on using this tool, see [Getting started with Azure Metrics Explorer](../../azure-monitor/platform/metrics-getting-started.md). 
 
-This example shows how to view **Transactions** at the account level.
-
-![Screenshot of accessing metrics in the Azure portal](./media/storage-files-monitoring/access-metrics-portal.png)
-
-For metrics that support dimensions, you can filter the metric with the desired dimension value. This example shows how to view **Transactions** at the account level on a specific operation by selecting values for the **API Name** dimension.
-
-![Screenshot of accessing metrics with dimension in the Azure portal](./media/storage-files-monitoring/access-metrics-portal-with-dimension.png)
-
-For a complete list of the dimensions that Azure Storage supports, see [Metrics dimensions](storage-files-monitoring-reference.md#metrics-dimensions).
-
-Metrics for Azure Files are in these namespaces: 
+For metrics that support dimensions, you can filter the metric with the desired dimension value.  For a complete list of the dimensions that Azure Storage supports, see [Metrics dimensions](storage-files-monitoring-reference.md#metrics-dimensions). Metrics for Azure Files are in these namespaces: 
 
 - Microsoft.Storage/storageAccounts
 - Microsoft.Storage/storageAccounts/fileServices
@@ -396,14 +386,21 @@ The following table lists some example scenarios to monitor and the proper metri
 ### How to create alerts for Azure Files
 
 1. Go to your **storage account** in the **Azure portal**. 
+
 2. Click **Alerts** and then click **+ New alert rule**.
+
 3. Click **Edit resource**, select the **File resource type** and then click **Done**. 
+
 4. Click **Select condition** and provide the following information for the alert: 
+
 	- **Metric**
 	- **Dimension name**
 	- **Alert logic**
+
 5. Click **Select action group** and add an action group (email, SMS, etc.) to the alert either by selecting an existing action group or creating a new action group.
-6. Fill in the **Alert details** like **Alert rule name**, **Description, and **Severity**.
+
+6. Fill in the **Alert details** like **Alert rule name**, **Description**, and **Severity**.
+
 7. Click **Create alert rule** to create the alert.
 
 > [!NOTE]  
