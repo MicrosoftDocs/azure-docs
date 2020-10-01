@@ -35,7 +35,9 @@ Additionally, the service recognizes relations between the different concepts in
 ### Entities
   + **BODY_STRUCTURE** - Body systems, anatomic locations or regions, and body sites. For example, arm, knee, abdomen, nose, liver, head, respiratory system, lymphocytes.
 > [!div class="mx-imgBorder"]
-> ![Anatomy_Entities](../media/ta-for-health/Anatomy_Entities.png)
+> ![Anatomy_Entities1](../media/ta-for-health/anatomy_entities_body_str_1.png)
+
+> ![Anatomy_Entities2](../media/ta-for-health/anatomy_entities_body_str_2.png)
 
 ### Attributes
   + **DIRECTION** - Directional terms, such as: left, lateral, upper, posterior, that characterizes a body structure.
@@ -50,6 +52,7 @@ Additionally, the service recognizes relations between the different concepts in
   + **AGE** - All age terms and phrases, including those of a patient, family members, and others. For example, 40-year-old, 51 yo, 3 months old, adult, infant, elderly, young, minor, middle-aged.
 > [!div class="mx-imgBorder"]
 > ![DEMO_AGE1](../media/ta-for-health/demo_entities_age_1.png)
+
 > ![DEMO_AGE2](../media/ta-for-health/demo_entities_age_2.png)
   + **GENDER** - Terms that disclose the gender of the subject. For example, male, female, woman, gentleman, lady.
 > [!div class="mx-imgBorder"]
@@ -61,8 +64,27 @@ Additionally, the service recognizes relations between the different concepts in
 
 ## EXAMINATION
 ### Entities
+  + **EXAMINATION_NAME** – Diagnostic procedures and tests. For example, MRI, ECG, HIV test, hemoglobin, platelets count, scale systems such as *Bristol stool scale*.
+> [!div class="mx-imgBorder"]
+> ![EXAM_NAME1](../media/ta-for-health/exam_entities_name_1.png)
 
+> ![EXAM_NAME2](../media/ta-for-health/exam_entities_name_2.png)
 ### Attributes
+  + **DIRECTION** – Directional terms that characterizes an examination.
+> [!div class="mx-imgBorder"]
+> ![EXAM_DIR](../media/ta-for-health/exam_attr_direction.png)  
+  + **MEASUREMENT_UNIT** – The unit of the examination. For example, in *hemoglobin > 9.5 g/dL*, the term *g/dL* is the unit for the *hemoglobin* test.
+> [!div class="mx-imgBorder"]
+> ![EXAM_UNIT](../media/ta-for-health/exam_attr_unit.png)  
+  + **MEASUREMENT_VALUE** – The value of the examination. For example, in *hemoglobin > 9.5 g/dL*, the term *9.5* is the value for the *hemoglobin* test.
+> [!div class="mx-imgBorder"]
+> ![EXAM_VALUE](../media/ta-for-health/exam_attr_value.png)  
+  + **RELATIONAL_OPERATOR** – Phrases that express the relation between an examination and additional information. For example, the required measurement value for a target examination.
+> [!div class="mx-imgBorder"]
+> ![EXAM_RELOPR](../media/ta-for-health/exam_attr_rel_op.png)  
+  + **TIME** – Temporal terms relating to the beginning and/or length (duration) of an examination. For example, when the test occurred.
+> [!div class="mx-imgBorder"]
+> ![EXAM_TIME](../media/ta-for-health/exam_attr_time.png)  
 
 ### Supported Relations
   + **DIRECTION_OF_EXAMINATION**
