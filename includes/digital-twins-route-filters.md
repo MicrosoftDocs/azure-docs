@@ -18,11 +18,11 @@ ms.author: baanders
 | Spec version | The version of the event schema you are using | `specversion = '<version>'` | The version must be `1.0`. This indicates the CloudEvents schema version 1.0 |
 | Notification body | Reference any property in the `data` field of a notification | `$body.,<property>` | See [How to: Understand event data](https://docs.microsoft.com/azure/digital-twins/how-to-interpret-event-data) for examples of notifications. Any property in the `data` field can be referenced using `$body`
 
-The following data types and comparison operators are supported for the above operations:
+The following data types and comparison operators are supported as values for the filters above:
 
 | Data Type | Supported Comparisons | Example |
 |-|-|-|
-|**String**|= != <br>STARTS_WITH(input,text) ENDS_WITH(input,text)<br> CONTAINS(input,text)| `STARTS_WITH($body.$dtId, 'dtmi:example:com:floor4')` <br> `CONTAINS(subject, 'room')`|
+|**String**|= != <br>STARTS_WITH(input, text) ENDS_WITH(input, text)<br> CONTAINS(input, text)| `STARTS_WITH($body.$dtId, 'dtmi:example:com:floor4')` <br> `CONTAINS(subject, 'room')`|
 |**Integers**|< <= > >= = !=|`$body.$metadata.room.desiredVersion > 1`|
 |**Doubles**|< <= > >= = !=|`$body.value <= 5.5`|
 |**Bools**|= !=|`$body.isEnabled = true`|
