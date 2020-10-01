@@ -5,7 +5,7 @@ services: azure-monitor
 author: rboucher
 tags: azure-service-management
 ms.topic: "include"
-ms.date: 02/07/2019
+ms.date: 10/01/2020
 ms.author: robb
 ms.custom: "include file"
 ---
@@ -13,7 +13,7 @@ ms.custom: "include file"
 | Resource | Default limit | Maximum limit |
 | --- | --- | --- |
 | Azure app push | 10 Azure app actions per action group. | Call support. |
-| Email | 1,000 email actions in an action group.<br>No more than 100 emails in an hour.<br>Also see the [rate limiting information](../articles/azure-monitor/platform/alerts-rate-limiting.md). | Call support. |
+| Email | 1,000 email actions in an action group.<br>No more than 100 emails in an hour.<br>Also see the [rate limiting information](../articles/azure-monitor/platform/alerts-rate-limiting.md). | Same as Default |
 | ITSM | 10 ITSM actions in an action group. | Call support. | 
 | Logic app | 10 logic app actions in an action group. | Call support. |
 | Runbook | 10 runbook actions in an action group. | Call support. |
