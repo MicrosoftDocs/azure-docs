@@ -47,6 +47,8 @@ If you don’t have a subscription, follow the steps below:
 
     ![Create new workspace dialog](media/how-to/create-new-workspace-dialog.png)
 
+>[!Note]
+>Custom Translator does not support creating workspace for Translator Text API resource (a.k.a. Azure subscription key) that was created inside [Enabled VNET](https://docs.microsoft.com/azure/api-management/api-management-using-with-vnet).
 
 ### Modify existing key
 
