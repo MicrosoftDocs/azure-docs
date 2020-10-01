@@ -82,8 +82,6 @@
     - name: Plan a managed application offer
       href: marketplace-managed-apps.md
     - name: Create and publish an Azure application offer
-      items:
-    - name: Create an Azure application offer
       href: partner-center-portal/create-new-azure-apps-offer.md
     - name: Azure application metered billing
       href: partner-center-portal/azure-app-metered-billing.md
@@ -141,7 +139,7 @@
       href: appsource-offer-publishing-guide.md
     - name: Create and publish a Dynamics 365 offer
       items:
-      - name: Create a Dynamics 365 for Customer Engagement & Power Apps offer
+      - name: Create a Dynamics 365 Customer Engagement & Power Apps offer
         href: partner-center-portal/create-new-customer-engagement-offer.md
       - name: Create a Dynamics 365 for Operations offer
         items: 
@@ -199,7 +197,7 @@
         href: test-publish-saas-offer.md
     - name: Market your SaaS offer
       href: create-new-saas-offer-marketing.md 
-  - name: Review and publish
+  - name: Review and publish offers
     href: review-publish-offer.md
   - name: Update existing offers
     href: partner-center-portal/update-existing-offer.md   
@@ -265,9 +263,9 @@
     items:
     - name: CPP API overview
       href: cloud-partner-portal-api-overview.md
-    - name: Prerequisites
+    - name: API prerequisites
       href: cloud-partner-portal-api-prerequisites.md
-    - name: Considerations
+    - name: API considerations
       href: cloud-partner-portal-api-considerations.md
     - name: Concurrency control
       href: cloud-partner-portal-api-concurrency-control.md
