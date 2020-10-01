@@ -90,9 +90,9 @@
   - name: Double encryption
     href: double-encryption.md
   - name: TLS certificate changes
-    href:  tls-certificate-changes.md
+    href: tls-certificate-changes.md
   - name: Disk encryption
-    items: tls-certificate-changes.md
+    items: 
     - name: Best practices
       href: data-encryption-best-practices.md
     - name: Data encryption at rest
