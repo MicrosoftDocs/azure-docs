@@ -51,11 +51,11 @@ TLS certificates used by Azure services will chain up to one of the following Ro
 
 ## When can I retire the old intermediate thumbprint?
 
-The current CA certificates will *not* be revoked until Feburary 15, 2021. After that date you can remove the old thumbprints from your code.
+The current CA certificates will *not* be revoked until February 15, 2021. After that date you can remove the old thumbprints from your code.
 
 If this date changes, you will be notified of the new revocation date.
 
-## Will this change affect me?
+## Will this change affect me? 
 
 We expect that **most Azure customers will not** be impacted.  However, your application may be impacted if it explicitly specifies a list of acceptable CAs. This practice is known as certificate pinning.
 
