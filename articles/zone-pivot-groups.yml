@@ -20,6 +20,15 @@ groups:
     title: cURL
   - id: url-test-tool-postman
     title: Postman
+#Owner: kraigb
+- id: python-frameworks-01
+  title: Web framework 
+  prompt: Choose a framework
+  pivots:
+  - id: python-framework-flask
+    title: Flask
+  - id: python-framework-django
+    title: Django
 # Programming language groups
 - id: programming-languages-set-one
   title: Programming languages
@@ -192,6 +201,22 @@ groups:
     title: Go
   - id: programming-language-ruby
     title: Ruby
+- id: programming-languages-set-seventeen
+# Owner: erhopf
+  title: Programming languages
+  prompt: Choose a programming language or CLI
+  pivots:
+  - id: programming-language-csharp
+    title: C#
+  - id: programming-language-cpp
+    title: C++
+  - id: programming-language-javascript
+    title: JavaScript  
+  - id: programming-language-curl
+    title: REST
+# To be enabled later.
+#  - id: programmer-tool-spx
+#    title: CLI
 # Service-specific groups
 - id: cogsvcs-text-analytics-features
   title: Text Analytics features
@@ -567,10 +592,29 @@ groups:
     title: C++
   - id: programming-language-java
     title: Java
-  - id: programming-language-python
-    title: Python
   - id: programming-language-javascript
     title: JavaScript
+  - id: programming-language-python
+    title: Python
+  - id: programming-language-spx
+    title: CLI
+- id: speech-full-stack-objectivec-swift
+# Owner: erhopf
+  title: Programming languages
+  prompt: Choose a programming language
+  pivots:
+  - id: programming-language-csharp
+    title: C#
+  - id: programming-language-cpp
+    title: C++
+  - id: programming-language-java
+    title: Java
+  - id: programming-language-javascript
+    title: JavaScript
+  - id: programming-languages-objectivec-swift
+    title: Objective-C/Swift
+  - id: programming-language-python
+    title: Python
   - id: programming-language-spx
     title: CLI
 - id: programming-languages-voice-assistants
@@ -744,7 +788,7 @@ groups:
   - id: platform-azp
     title: Azure portal
   - id: platform-arm
-    title: Azure resource manager
+    title: Azure Resource Manager
   - id: platform-net
     title: .NET
   - id: platform-python

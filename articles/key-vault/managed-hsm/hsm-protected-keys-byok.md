@@ -13,7 +13,7 @@ ms.author: ambapat
 
 # Import HSM-protected keys to Managed HSM (BYOK)
 
- Azure Key Vault Managed HSM supports importing keys generated in your on-premise hardware security module (HSM); the keys will  never leave the HSM protection boundary. This scenario often is referred to as *bring your own key* (BYOK). Managed HSM uses the nCipher nShield family of HSMs (FIPS 140-2 Level 3 validated) to protect your keys.
+ Azure Key Vault Managed HSM supports importing keys generated in your on-premise hardware security module (HSM); the keys will  never leave the HSM protection boundary. This scenario often is referred to as *bring your own key* (BYOK). Managed HSM uses the Marvell LiquidSecurity HSM adapters (FIPS 140-2 Level 3 validated) to protect your keys.
 
 Use the information in this article to help you plan for, generate, and transfer your own HSM-protected keys to use with Managed HSM.
 

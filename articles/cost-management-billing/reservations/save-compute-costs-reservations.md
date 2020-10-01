@@ -6,7 +6,7 @@ ms.reviewer: yashar
 ms.service: cost-management-billing
 ms.subservice: reservations
 ms.topic: overview
-ms.date: 08/04/2020
+ms.date: 09/30/2020
 ms.author: banders
 ---
 
@@ -45,9 +45,9 @@ For more information, see [Determine what reservation to purchase](determine-r
 
 You can purchase reservations from the Azure portal, APIs, PowerShell, and CLI. 
 
-Go to Azure portal to purchase (https://ms.portal.azure.com/#blade/Microsoft_Azure_Reservations/CreateBlade/referrer/Docs) 
+Go to the [Azure portal](https://portal.azure.com/#blade/Microsoft_Azure_Reservations/CreateBlade/referrer/Docs) to make a purchase.
 
-For more information, see [Buy a reservation](prepare-buy-reservation.md) 
+For more information, see [Buy a reservation](prepare-buy-reservation.md).
 
 ## How is a reservation billed? 
 

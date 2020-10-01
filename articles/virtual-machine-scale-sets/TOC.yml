@@ -214,6 +214,9 @@
     - name: vCPU quotas
       href: ../virtual-machines/windows/quotas.md
       maintainContext: true
+  - name: PUT calls for create or update operations
+    href: ../virtual-machines/put-calls-create-or-update.md
+    maintainContext: true
   - name: Scale Set FAQ
     href: virtual-machine-scale-sets-faq.md
 - name: How To
@@ -328,6 +331,15 @@
       href: virtual-machine-scale-sets-placement-groups.md
     - name: Convert a scale set template to use managed disk
       href: virtual-machine-scale-sets-convert-template-to-md.md
+    - name: Use dedicated hosts (preview)
+      href: ../virtual-machines/dedicated-hosts.md
+      items:
+      - name: CLI
+        href: ../virtual-machines/linux/dedicated-hosts-cli.md
+      - name: PowerShell
+        href: ../virtual-machines/windows/dedicated-hosts-powershell.md
+      - name: Portal
+        href: ../virtual-machines/dedicated-hosts-portal.md
     - name: Use spot instance
       href: use-spot.md
   - name: Manage

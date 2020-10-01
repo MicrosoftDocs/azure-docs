@@ -211,11 +211,11 @@ Do the following steps in the Azure portal to order a device.
 1. Use your Microsoft Azure credentials to sign in at this URL: [https://portal.azure.com](https://portal.azure.com).
 2. Select **+ Create a resource** and search for *Azure Data Box*. Select **Azure Data Box**.
 
-   ![Select Azure Data Box](media/data-box-deploy-ordered/select-data-box-import-02.png)
+   ![Screenshot of the New section with Azure Data Box in the search field.](media/data-box-deploy-ordered/select-data-box-import-02.png)
 
 3. Select **Create**.
 
-   ![Select Azure Data Box](media/data-box-deploy-ordered/select-data-box-import-03.png)
+   ![Screenshot of the Azure Data Box section with the Create option called out.](media/data-box-deploy-ordered/select-data-box-import-03.png)
 
 4. Check if Data Box service is available in your region. Enter or select the following information and select **Apply**.
 
@@ -231,7 +231,7 @@ Do the following steps in the Azure portal to order a device.
 
 5. Select **Data Box**. The maximum usable capacity for a single order is 80 TB. You can create multiple orders for larger data sizes.
 
-    ![Select Data Box option 1](media/data-box-deploy-ordered/select-data-box-import-05.png)
+    ![Screenshot of the different data sizes that are available for selection: Data Box Disk 40 terabytes, Data Box 100 terabytes, Data Box Heavy, 1000 terabytes, and Send your own disks 1 terabyte.](media/data-box-deploy-ordered/select-data-box-import-05.png)
 
 6. In **Order**, go to the **Basics** tab. Enter or select the following information and select **Next: Data destination>**.
 
@@ -241,7 +241,7 @@ Do the following steps in the Azure portal to order a device.
     |Resource group    | The resource group you selected previously. |
     |Import order name | Provide a friendly name to track the order. <br> The name can have between 3 and 24 characters that can be letters, numbers, and hyphens. <br> The name must start and end with a letter or a number.    |
 
-    ![Select Data Box option 1](media/data-box-deploy-ordered/select-data-box-import-06.png)
+    ![Screenshot of the Order wizard showing the Basics step of the wizard with the correct info filled in.](media/data-box-deploy-ordered/select-data-box-import-06.png)
 
     By default, the device unlock password is encrypted using a Microsoft-managed key. After you complete the order you can add a customer managed key. A customer managed key allows you to use you own key from an Azure Key vault key to protect you device unlock password. For more information, see [Use customer-managed keys in Azure Key Vault for Azure Data Box](data-box-customer-managed-encryption-key-portal.md).
 
@@ -261,7 +261,7 @@ Do the following steps in the Azure portal to order a device.
     |---------|---------|
     |Resource groups     | Create new resource groups if you intend to create managed disks from on-premises VHDs. You can use an existing resource group only if the resource group was created previously when creating a Data Box order for managed disk by Data Box service. <br> Specify multiple resource groups separated by semi-colons. A maximum of 10 resource groups are supported.|
 
-    ![Data Box order for managed disk](media/data-box-deploy-ordered/select-data-box-import-07b.png)
+    ![Screenshot of the Order wizard showing the Data destination step of the wizard with the correct info filled in.](media/data-box-deploy-ordered/select-data-box-import-07b.png)
 
     The storage account specified for managed disks is used as a staging storage account. The Data Box service uploads the VHDs as page blobs to the staging storage account before converting it into managed disks and moving it to the resource groups. For more information, see [Verify data upload to Azure](data-box-deploy-picked-up.md#verify-data-upload-to-azure).
    > [!NOTE]
@@ -282,11 +282,11 @@ Do the following steps in the Azure portal to order a device.
 
 8. In **Contact details**, select **+ Add Shipping Address**.
 
-    ![Data Box order for managed disk](media/data-box-deploy-ordered/select-data-box-import-08a.png)
+    ![Screenshot of the Order wizard showing the Contact details step of the wizard with the Add Shipping Address option called out.](media/data-box-deploy-ordered/select-data-box-import-08a.png)
 
 9. In the **Shipping address**, provide your first and last name, name and postal address of the company, and a valid phone number. Select **Validate address**. The service validates the shipping address for service availability. If the service is available for the specified shipping address, you receive a notification to that effect.
 
-   ![Data Box order for managed disk](media/data-box-deploy-ordered/select-data-box-import-10.png)
+   ![Screenshot of the Add Shipping Address dialog box with the Ship using options and the Add shipping address option called out.](media/data-box-deploy-ordered/select-data-box-import-10.png)
 
    If you selected self-managed shipping, you will receive an email notification after the order is placed successfully. For more information about self-managed shipping, see [Use self-managed shipping](data-box-portal-customer-managed-shipping.md).
 
@@ -296,13 +296,13 @@ Do the following steps in the Azure portal to order a device.
 
     We recommend that you use a group email so that you continue to receive notifications if an admin in the group leaves.
 
-    ![Data Box order for managed disk](media/data-box-deploy-ordered/select-data-box-import-08c.png)
+    ![Screenshot of the Email section of the Contact details step of the Order wizard with the Email text box and the Next: Review and Order option called out.](media/data-box-deploy-ordered/select-data-box-import-08c.png)
 
 12. Review the information in **Review + Order** related to the order, contact, notification, and privacy terms. Check the box corresponding to the agreement to privacy terms.
 
 13. Select **Order**. The order takes a few minutes to be created.
 
-    ![Data Box order for managed disk](media/data-box-deploy-ordered/select-data-box-import-11.png)
+    ![Screenshot of the Order wizard showing the Review and Order step and the Order option called out.](media/data-box-deploy-ordered/select-data-box-import-11.png)
 
 # [Azure CLI](#tab/azure-cli)
 

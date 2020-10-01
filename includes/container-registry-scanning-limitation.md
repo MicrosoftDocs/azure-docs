@@ -6,11 +6,11 @@ author: dlepow
 
 ms.service: container-registry
 ms.topic: include
-ms.date: 08/25/2020
+ms.date: 09/17/2020
 ms.author: danlep
 ms.custom: include file
 ---
 
 
 > [!NOTE]
-> Unless allowed as a [trusted service for network access](../articles/container-registry/allow-access-trusted-services.md), a managed Azure service can't reach an Azure container registry that restricts access to private endpoints, selected subnets, or IP addresses. For example, Azure Security Center can't currently perform [image vulnerability scanning](../articles/security-center/azure-container-registry-integration.md?toc=/azure/container-registry/toc.json&bc=/azure/container-registry/breadcrumb/toc.json) in a network-restricted registry.
+> Azure Security Center can't currently perform [image vulnerability scanning](../articles/security-center/azure-container-registry-integration.md?toc=/azure/container-registry/toc.json&bc=/azure/container-registry/breadcrumb/toc.json) in a registry that restricts access to private endpoints, selected subnets, or IP addresses. Instances of certain Azure services including Azure DevOps Services and Azure Container Instances are also unable to access a network-restricted container registry. For more information, see [Allow trusted services to securely access a network-restricted container registry](../articles/container-registry/allow-access-trusted-services.md).

@@ -7,7 +7,7 @@ ms.service: synapse-analytics
 ms.topic: conceptual
 ms.date: 07/22/2020
 ms.author: euang
-ms.reviewer: jrasnick, carlrab
+ms.reviewer: jrasnick 
 ms.subservice: spark
 ---
 # Manage libraries for Apache Spark in Azure Synapse Analytics

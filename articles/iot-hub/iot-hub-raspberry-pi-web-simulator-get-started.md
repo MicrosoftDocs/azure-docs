@@ -10,7 +10,7 @@ ms.devlang: nodejs
 ms.topic: conceptual
 ms.date: 04/11/2018
 ms.author: wesmc
-ms.custom: ['Role: Cloud Development', devx-track-javascript]
+ms.custom: ['Role: Cloud Development', devx-track-js]
 ---
 
 # Connect Raspberry Pi online simulator to Azure IoT Hub (Node.js)

@@ -32,7 +32,7 @@ You can start the Access Review process from the notification email or by going 
 
 1. Look for an email from Microsoft asking you to review access. Here is an example email to review the access for a group.
 
-    ![Example email from Microsoft to review access to a group](./media/perform-access-review/access-review-email.png)
+    ![Screenshot that shows an example email from Microsoft to review access to a group.](./media/perform-access-review/access-review-email.png)
 
 1. Click the **Start review** link to open the access review.
 
@@ -49,7 +49,7 @@ You can start the Access Review process from the notification email or by going 
         > [!NOTE]
         > If the **Access reviews** tile isn't visible, there are no access reviews to perform for that organization and no action is needed at this time.
 
-        ![Pending access reviews list for apps and groups](./media/perform-access-review/access-reviews-list.png)
+        ![Screenshot that shows the pending access reviews list for apps and groups.](./media/perform-access-review/access-reviews-list.png)
 
     1. Click the **Begin review** link for the access review you want to perform.
 
@@ -94,7 +94,7 @@ To make access reviews easier and faster for you, we also provide recommendation
 
 1. In the blue bar at the bottom of the page, click **Accept recommendations**.
 
-    ![Open access review listing showing the Accept recommendations button](./media/perform-access-review/accept-recommendations.png)
+    ![Screenshot that shows the open access review listing with the "Accept recommendations" button selected.](./media/perform-access-review/accept-recommendations.png)
 
     You see a summary of the recommended actions.
 

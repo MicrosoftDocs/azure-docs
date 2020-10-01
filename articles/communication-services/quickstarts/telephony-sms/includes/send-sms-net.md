@@ -54,13 +54,14 @@ dotnet build
 While still in the application directory, install the Azure Communication Services SMS client library for .NET package by using the `dotnet add package` command.
 
 ```console
-dotnet add package Azure.Communication.Sms
+dotnet add package Azure.Communication.Sms --version 1.0.0-beta.1
 ```
 
 Add a `using` directive to the top of **Program.cs** to include the `Azure.Communication` namespace.
 
 ```csharp
 
+using Azure.Communication;
 using Azure.Communication.Sms;
 
 ```

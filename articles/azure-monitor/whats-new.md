@@ -42,7 +42,7 @@ This article provides lists Azure Monitor articles that are either new or have b
 - [Usage analysis with Azure Application Insights](app/usage-overview.md) - Added video.
 
 ### Autoscale
-- [Get started with autoscale in Azure](platform/autoscale-get-started.md) - Added section on routing to healty instances for App Service.
+- [Get started with autoscale in Azure](platform/autoscale-get-started.md) - Added section on routing to healthy instances for App Service.
 
 ### Data collection
 - [Configure data collection for the Azure Monitor agent (preview)](platform/data-collection-rule-azure-monitor-agent.md) - New article.
@@ -552,7 +552,6 @@ Multiple New articles for view designer to workbooks conversion guide.
 - [Application Insights for Worker Service apps (non-HTTP apps)](app/worker-service.md) - Added default logging level to C# code. Updated package reference version.
 - [ApplicationInsights.config reference - Azure](app/configuration-with-applicationinsights-config.md) - Updated sample code.
 - [Automate Azure Application Insights with PowerShell](app/powershell.md) - Update to Resource Manager template.
-- [Azure Monitor Application Insights NuGet packages](app/nuget.md) - Updated package versions.
 - [Create a new Azure Application Insights resource](app/create-new-resource.md) - Note added to globally unique name.
 - [Diagnose with Live Metrics Stream - Azure Application Insights](app/live-stream.md) - Updated ASP.NET Core SDK version requirement.
 - [Event counters in Application Insights](app/eventcounters.md) - Updated category and table to customMetrics.

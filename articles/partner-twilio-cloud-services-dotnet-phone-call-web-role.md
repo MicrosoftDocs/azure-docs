@@ -1,6 +1,6 @@
 ---
 title: How to make a phone call from Twilio (.NET) | Microsoft Docs
-description: Learn how to make a phone call and send a SMS message with the Twilio API service on Azure. Code samples written in .NET.
+description: Learn how to make a phone call with the Twilio API service on Azure. Code samples written in .NET.
 services: ''
 documentationcenter: .net
 author: mimckitt

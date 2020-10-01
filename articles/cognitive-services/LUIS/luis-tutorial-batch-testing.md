@@ -1,6 +1,8 @@
 ---
 title: "Tutorial: Batch testing to find issues - LUIS"
 description: This tutorial demonstrates how to use batch testing to validate the quality of your Language Understanding (LUIS) app.
+ms.service: cognitive-services
+ms.subservice: language-understanding
 ms.topic: tutorial
 ms.date: 05/07/2020
 ---

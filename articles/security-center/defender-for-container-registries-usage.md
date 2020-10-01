@@ -3,8 +3,8 @@ title: How to use Azure Defender for container registries
 description: Learn about using Azure Defender for container registries to scan images in your registries
 author: memildin
 ms.author: memildin
-ms.date: 9/12/2020
-ms.topic: conceptual
+ms.date: 9/22/2020
+ms.topic: how-to
 ms.service: security-center
 manager: rkarlin
 
@@ -123,7 +123,7 @@ When a finding matches the criteria you've defined in your disable rules, it won
 > [!IMPORTANT]
 > To create a rule, you need permissions to edit a policy in Azure Policy.
 >
-> Learn more in [RBAC Permissions in Azure Policy](../governance/policy/overview.md#rbac-permissions-in-azure-policy).
+> Learn more in [Azure RBAC permissions in Azure Policy](../governance/policy/overview.md#azure-rbac-permissions-in-azure-policy).
 
 You can use any of the following criteria: 
 

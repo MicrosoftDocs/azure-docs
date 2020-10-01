@@ -9,24 +9,24 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/10/2018
+ms.date: 09/28/2020
 ms.author: duau
 ---
 
 # Protocol support for HTTP headers in Azure Front Door
 This article outlines the protocol that Front Door supports with parts of the call path (see image). The following sections provide more information about HTTP headers supported by Front Door.
 
-![Azure Front Door HTTP headers protocol][1]
+:::image type="content" source="./media/front-door-http-headers-protocol/front-door-protocol-summary.png" alt-text="Azure Front Door HTTP headers protocol":::
 
 >[!IMPORTANT]
 >Front Door doesn't certify any HTTP headers that aren't documented here.
 
 ## Client to Front Door
-Front Door accepts most headers from the incoming request without modifying them. Some reserved headers are removed from the incoming request if sent, including headers with the X-FD-* prefix.
+Front Door accepts most headers for the incoming request without modifying them. Some reserved headers are removed from the incoming request if sent, including headers with the X-FD-* prefix.
 
 ## Front Door to backend
 
-Front Door includes headers from an incoming request unless removed because of restrictions. Front Door also adds the following headers:
+Front Door includes headers for an incoming request unless they're removed because of restrictions. Front Door also adds the following headers:
 
 | Header  | Example and description |
 | ------------- | ------------- |
@@ -47,12 +47,9 @@ Any headers sent to Front Door from the backend are also passed through to the c
 
 | Header  | Example |
 | ------------- | ------------- |
-| X-Azure-Ref |  *X-Azure-Ref: 0zxV+XAAAAABKMMOjBv2NT4TY6SQVjC0zV1NURURHRTA2MTkANDM3YzgyY2QtMzYwYS00YTU0LTk0YzMtNWZmNzA3NjQ3Nzgz* </br> This is a unique reference string that identifies a request served by Front Door. This is critical for troubleshooting as it's used to search access logs.|
+| X-Azure-Ref |  *X-Azure-Ref: 0zxV+XAAAAABKMMOjBv2NT4TY6SQVjC0zV1NURURHRTA2MTkANDM3YzgyY2QtMzYwYS00YTU0LTk0YzMtNWZmNzA3NjQ3Nzgz* </br> This is a unique reference string that identifies a request served by Front Door, which is critical for troubleshooting as it's used to search access logs.|
 
 ## Next steps
 
 - [Create a Front Door](quickstart-create-front-door.md)
 - [How Front Door works](front-door-routing-architecture.md)
-
-<!--Image references-->
-[1]: ./media/front-door-http-headers-protocol/front-door-protocol-summary.png

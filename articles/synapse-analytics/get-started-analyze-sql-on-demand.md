@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Get started analyze data with SQL on-demand' 
+title: 'Tutorial: Get started analyze data with serverles SQL' 
 description: In this tutorial, you'll learn how to analyze data with SQL on-demand using data located in Spark databases.
 services: synapse-analytics
 author: saveenr
@@ -13,9 +13,9 @@ ms.date: 07/20/2020
 
 # Analyze data with SQL on-demand
 
-In this tutorial, you'll learn how to analyze data with SQL on-demand using data located in Spark databases. 
+In this tutorial, you'll learn how to analyze data with serverless SQL using an on-demand SQL pool using data located in Spark databases. 
 
-## Analyze NYC Taxi data in blob storage  using SQL on-demand
+## Analyze NYC Taxi data in blob storage using SQL on-demand pool
 
 1. In the **Data** hub under **Linked**, right-click on **Azure Blob Storage > Sample Datasets > nyc_tlc_yellow** and select **SELECT TOP 100 rows**
 1. This will create a new SQL script with the following code:

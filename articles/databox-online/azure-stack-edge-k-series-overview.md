@@ -7,14 +7,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: overview
-ms.date: 09/22/2020
+ms.date: 09/23/2020
 ms.author: alkohli
 #Customer intent: As an IT admin, I need to understand what Azure Stack Edge Mini R is and how it works so I can use it to process and transform data before sending to Azure.
 ---
 
 # What is the Azure Stack Edge Mini R?
 
-The Azure Stack Edge Mini R is a Hardware-as-a-service solution. Microsoft ships you a rugged, cloud-managed, ultra portable device with a built-in Vision Processing Unit (VPU) that enables accelerated AI-inferencing and has all the capabilities of a network storage gateway. These devices are appropriate for use in the harshest environments and are optimized for AI, analytics, and serverless computing.
+Azure Stack Edge Mini R is an ultra portable, rugged, edge computing device designed for use in harsh environments. Azure Stack Edge Mini R is delivered as a hardware-as-a-service solution. Microsoft ships you a cloud-managed device that acts as network storage gateway and has a built-in Vision Processing Unit (VPU) that enables accelerated AI-inferencing.
 
 This article provides you an overview of the Azure Stack Edge Mini R solution, key capabilities, and the scenarios where you can deploy this device.
 
@@ -25,7 +25,7 @@ Azure Stack Edge Mini R has the following capabilities:
 
 |Capability |Description  |
 |---------|---------|
-|Rugged hardware| Rugged hardware designed for harshest environments.|
+|Rugged hardware| Rugged hardware designed for harsh environments.|
 |Ultra portable| Ultra portable, battery-operated form factor.|
 |Cloud-managed|Device and service are managed via the Azure portal.|
 |Edge compute workloads|Allows analysis, processing, filtering of data.<br>Supports VMs and containerized workloads. |
@@ -33,7 +33,7 @@ Azure Stack Edge Mini R has the following capabilities:
 |Wired and wireless | Allows wired and wireless data transfers.|
 |Data access     | Direct data access from Azure Storage Blobs and Azure Files using cloud APIs for additional data processing in the cloud. Local cache on the device is used for fast access of most recently used files.|
 |Disconnected mode|  Device and service can be optionally managed via Azure Stack Hub. Deploy, run, manage applications in offline mode. <br> Disconnected mode supports offline upload scenarios.|
-|Supported protocols     |Supports standard SMB, NFS, and REST protocols for data ingestion. <br> For more information on supported versions, go to [Azure Stack Edge Mini R system requirements](azure-stack-edge-gpu-system-requirements.md).|
+|Supported file transfer protocols      |Supports standard SMB, NFS, and REST protocols for data ingestion. <br> For more information on supported versions, go to [Azure Stack Edge Mini R system requirements](azure-stack-edge-gpu-system-requirements.md).|
 |Data refresh     | Ability to refresh local files with the latest from cloud.|
 |Double encryption    | Use of self-encrypting drive provides the first layer of encryption. VPN provides the second layer of encryption. BitLocker support to locally encrypt data and secure data transfer to cloud over *https* .|
 |Bandwidth throttling| Throttle to limit bandwidth usage during peak hours.|
@@ -58,13 +58,13 @@ Here are the various scenarios where Azure Stack Edge Mini R can be used for rap
 
 The Azure Stack Edge Mini R solution comprises of an Azure Stack Edge resource, Azure Stack Edge Mini R rugged, ultra portable physical device, and a local web UI.
 
-* **Azure Stack Edge Mini R physical device** - An ultra portable device with an onboard battery and a rugged encasing supplied by Microsoft that can be configured to send data to Azure. The device with the battery weighs less than 7 lbs.
+* **Azure Stack Edge Mini R physical device** - An ultra portable, rugged, compute and storage device supplied by Microsoft. The device has an onboard battery and weighs less than 7 lbs.
 
     ![Azure Stack Edge Mini R device](media/azure-stack-edge-k-series-overview/perspective-view-1.png)
 
 * **Azure Stack Edge resource** – A resource in the Azure portal that lets you manage a rugged, Azure Stack Edge Mini R device from a web interface that you can access from different geographical locations. Use the Azure Stack Edge resource to create and manage resources, view, and manage devices and alerts, and manage shares.  
 
-* **Azure Stack Edge Mini R local web UI** - Use the local web UI for initial device configuration, to run diagnostics, shut down and restart the Azure Stack Edge Mini R device, view copy logs, and contact Microsoft Support to file a service request.
+* **Azure Stack Edge Mini R local web UI** - A browser-based local user interface on your Azure Stack Edge Mini R device primarily intended for the initial configuration of the device. Use the local web UI also to run diagnostics, shut down and restart the Azure Stack Edge Pro device, view copy logs, and contact Microsoft Support to file a service request.
 
 
 ## Region availability
@@ -72,6 +72,8 @@ The Azure Stack Edge Mini R solution comprises of an Azure Stack Edge resource, 
 Azure Stack Edge Mini R physical device, Azure resource, and target storage account to which you transfer data do not all have to be in the same region.
 
 - **Resource availability** - For a list of all the regions where the Azure Stack Edge resource is available, go to [Azure products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=databox&regions=all). 
+
+- **Device availability** - For a list of all the countries where the Azure Stack Edge Mini R device is available, go to Availability section in the Azure Stack Edge Mini R tab for [Azure Stack Edge Mini R pricing](https://azure.microsoft.com/pricing/details/azure-stack/edge/#azureStackEdgeMiniR).
 
 - **Destination Storage accounts** - The storage accounts that store the data are available in all Azure regions. The regions where the storage accounts store Azure Stack Edge Mini R data should be located close to where the device is located for optimum performance. A storage account located far from the device results in long latencies and slower performance.
 

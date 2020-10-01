@@ -18,7 +18,19 @@ ms.date: 09/21/2020
 In this document, you learn how to use Azure Private Link with your Azure Machine Learning workspace. For information on setting up a virtual network for Azure Machine Learning, see [Virtual network isolation and privacy overview](how-to-network-security-overview.md)
 
 > [!IMPORTANT]
-> Using Azure Private Link with Azure Machine Learning workspace is currently in public preview. This functionality is only available in the **US East**, **US South Central** and **US West 2** regions. 
+> Using Azure Private Link with Azure Machine Learning workspace is currently in public preview. This functionality is only available in the following regions:
+>
+> * **East US**
+> * **South Central US**
+> * **West US**
+> * **West US 2**
+> * **Central Canada**
+> * **Southeast Asia**
+> * **Japan East**
+> * **North Europe**
+> * **East Australia**
+> * **UK South**
+>
 > This preview is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 

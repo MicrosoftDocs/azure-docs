@@ -29,7 +29,7 @@ These metrics are available for Azure Database for MySQL:
 |storage_limit|Storage limit|Bytes|The maximum storage for this server.|
 |active_connections|Active Connections|Count|The number of active connections to the server.|
 |connections_failed|Failed Connections|Count|The number of failed connections to the server.|
-|seconds_behind_master|Replication lag in seconds|Count|The number of seconds the replica server is lagging against the master server. (Not applicable for Basic tier servers)|
+|seconds_behind_master|Replication lag in seconds|Count|The number of seconds the replica server is lagging against the source server. (Not applicable for Basic tier servers)|
 |network_bytes_egress|Network Out|Bytes|Network Out across active connections.|
 |network_bytes_ingress|Network In|Bytes|Network In across active connections.|
 |backup_storage_used|Backup Storage Used|Bytes|The amount of backup storage used. This metric represents the sum of storage consumed by all the full database backups, differential backups, and log backups retained based on the backup retention period set for the server. The frequency of the backups is service managed and explained in the [concepts article](concepts-backup.md). For geo-redundant storage, backup storage usage is twice that of the locally redundant storage.|

@@ -176,8 +176,8 @@ After entering the above parameters, click on **Review+Create** and create the a
 
 Wait for setup to complete, and navigate to your resource in the Azure portal. Go to the **configuration** section and add the following two **application settings**.
 
-* `EventHubConsumerGroup` – The string name of the consumer group from your Azure IoT hub, you can create a new consumer group in your IoT hub or use the default group. 
-* `IotHubConnectionString` – The connection string to your Azure IoT hub, this can be retrieved from the keys section of your Azure IoT hub resource 
+* `EventHubConsumerGroup` – The string name of the consumer group from your Azure IoT Hub, you can create a new consumer group in your IoT Hub or use the default group. 
+* `IotHubConnectionString` – The connection string to your Azure IoT Hub, this can be retrieved from the keys section of your Azure IoT Hub resource 
 ![Configure Parameters](./media/spatial-analysis/solution-app-config-page.png)
 
 Once these 2 settings are added, click **Save**. Then click **Authentication/Authorization** in the left navigation menu, and update it with the desired level of authentication. We recommend Azure Active Director (Azure AD) express. 

@@ -1257,6 +1257,8 @@
       href: database/database-import-export-hang.md
   - name: Service updates
     items:
+    - name: SSL root certificate expiring
+      href: updates/ssl-root-certificate-expiring.md
     - name: Gateway IP address updates
       href: database/gateway-migration.md
     - name: Periodic maintenance events

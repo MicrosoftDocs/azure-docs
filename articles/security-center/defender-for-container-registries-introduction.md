@@ -4,7 +4,7 @@ description: Learn about the benefits and features of Azure Defender for contain
 author: memildin
 ms.author: memildin
 ms.date: 9/22/2020
-ms.topic: conceptual
+ms.topic: overview
 ms.service: security-center
 manager: rkarlin
 
@@ -60,14 +60,11 @@ The image is pulled from the registry. It's then run in an isolated sandbox with
 
 Security Center filters and classifies findings from the scanner. When an image is healthy, Security Center marks it as such. Security Center generates security recommendations only for images that have issues to be resolved. By only notifying when there are problems, Security Center reduces the potential for unwanted informational alerts.
 
-### How often does Security Center scan my images?
-Image scans are triggered on every push or import, and if the image has been pulled within the last 30 days. 
-
 ### Can I get the scan results via REST API?
 Yes. The results are under [Sub-Assessments Rest API](/rest/api/securitycenter/subassessments/list/). Also, you can use Azure Resource Graph (ARG), the Kusto-like API for all of your resources: a query can fetch a specific scan.
  
 ### What registry types are scanned? What types are billed?
-The availability section lists the types of container registries supported by Azure Defender for container registries. 
+For a list of the types of container registries supported by Azure Defender for container registries, see [Availability](defender-for-container-registries-usage.md#availability).
 
 If you connect unsupported registries to your Azure subscription, they won't be scanned and you won't be billed for them.
 
