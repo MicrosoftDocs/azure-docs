@@ -15,8 +15,8 @@ This article describes how you can use a runbook to enable the [Update Managemen
 
 This method uses two runbooks:
 
-* Enable-MultipleSolution - The primary runbook that prompts for configuration information, queries the specified VM and performs other validation checks, and then invokes the **Enable-AutomationSolution** runbook to configure Update Management for each VM within the specified resource group.
-* Enable-AutomationSolution - Enables Update Management for one or more VMs specified in the target resource group. It verifies prerequisites are met, verifies the Log Analytics VM extension is installed and installs if not found, and adds the VMs to the scope configuration in the specified Log Analytics worskpace linked to the Automation account.
+* **Enable-MultipleSolution** - The primary runbook that prompts for configuration information, queries the specified VM and performs other validation checks, and then invokes the **Enable-AutomationSolution** runbook to configure Update Management for each VM within the specified resource group.
+* **Enable-AutomationSolution** - Enables Update Management for one or more VMs specified in the target resource group. It verifies prerequisites are met, verifies the Log Analytics VM extension is installed and installs if not found, and adds the VMs to the scope configuration in the specified Log Analytics worskpace linked to the Automation account.
 
 ## Prerequisites
 
@@ -72,7 +72,7 @@ With Update Management enabled, you can add an Azure VM to receive updates.
 
 3. Choose the VM from the list and click **Enable** to configure the VM for management.
 
-   ![Enable Update Management for VM](media/update-mgmt-enable-runbook/enable-update.png)
+   ![Enable Update Management for VM](media/update-mgmt-enable-runbook/enable-update-management-vm.png)
 
     > [!NOTE]
     > If you try to enable another feature before setup of Update Management has completed, you receive this message: `Installation of another solution is in progress on this or a different virtual machine. When that installation completes the Enable button is enabled, and you can request installation of the solution on this virtual machine.`
@@ -83,7 +83,7 @@ With Update Management enabled, you can add an Azure VM to receive updates.
 
 2. Select **Browse gallery**.
 
-3. Search for `update and change tracking`.
+3. Search for **update and change tracking**.
 
 4. Select the runbook and click **Import** on the **View Source** page.
 
