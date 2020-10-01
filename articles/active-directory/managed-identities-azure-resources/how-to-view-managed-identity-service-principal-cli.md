@@ -36,7 +36,7 @@ In this article, you learn how to view the service principal of a managed identi
 
 ## View the service principal
 
-This following command demonstrates how to view the service principal of a VM or application with managed identity enabled. Replace `<VM or application name>` with your own values. 
+This following command demonstrates how to view the service principal of a VM or application with managed identity enabled. Replace `<Azure resource name>` with your own values.
 
 ```azurecli-interactive
 az ad sp list --display-name <Azure resource name>
