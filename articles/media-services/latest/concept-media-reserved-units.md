@@ -1,6 +1,6 @@
 ---
-title: Media reserved units overview | Microsoft Docs
-description: This article is an overview of scaling Media Processing with Azure Media Services.
+title: Media reserved units - Azure | Microsoft Docs
+description: Media reserved units allow you to scale media process and determine the speed of your media processing tasks.
 services: media-services
 documentationcenter: ''
 author: IngridAtMicrosoft
@@ -11,16 +11,18 @@ ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 09/30/2020
 ms.author: inhenkel
 
 ---
-# Media reserved units
+# Media Reserved Units
 
-[!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
+[!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
 Azure Media Services enables you to scale media processing by managing Media Reserved Units (MRUs). An MRU provides additional computing capacity required for encoding media. The number of MRUs determine the speed with which your media tasks are processed and how many media tasks can be processed concurrently in an account. For example, if your account has five MRUs and there are tasks to be processed, then five media tasks can be running concurrently. Any remaining tasks will be queued up and can be picked up for processing sequentially when a running task finishes. Each MRU that you provision results in a capacity reservation but does not provide you with dedicated resource. During times of extremely high demand, all of your MRUs may not start processing immediately.
+
+A task is an individual operation of work on an Asset e.g. adaptive streaming encoding. When you submit a job, Media Services will take care of breaking out the job into individual operations (i.e. tasks) that will then be associated with separate MRUs.
 
 ## Choosing between different reserved unit types
 
@@ -42,18 +44,12 @@ The following table helps you make a decision when choosing between different en
 
 ## Billing
 
-You are charged based on number of minutes the Media Reserved Units are provisioned in your account. This occurs independent of whether there are any Jobs running in your account. For a detailed explanation, see the FAQ section of the [Media Services pricing](https://azure.microsoft.com/pricing/details/media-services/) page.
+You are charged based on number of minutes the Media Reserved Units are provisioned in your account, whether or not there are any jobs running. For a detailed explanation, see the FAQ section of the [Media Services pricing](https://azure.microsoft.com/pricing/details/media-services/) page.
 
-## Quotas and limitations
+## Next step
+[Scale Media Reserved Units with CLI](media-reserved-units-cli-how-to.md)
+[Analyze videos](analyze-videos-tutorial-with-api.md)
 
-For information about quotas and limitations and how to open a support ticket, see [Quotas and limitations](media-services-quotas-and-limitations.md).
+## See also
 
-## Next steps
-
-Try scaling media processing with one of these technologies:
-
-[.NET](media-services-dotnet-encoding-units.md)
-[Portal](media-services-portal-scale-media-processing.md)
-[REST](/rest/api/media/operations/encodingreservedunittype)
-[Java](https://github.com/southworkscom/azure-sdk-for-media-services-java-samples)
-[PHP](https://github.com/Azure/azure-sdk-for-php/tree/master/examples/MediaServices)
+* [Quotas and limits](limits-quotas-constraints.md)
