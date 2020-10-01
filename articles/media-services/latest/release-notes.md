@@ -39,8 +39,8 @@ To stay up-to-date with the most recent developments, this article provides you 
 
 The following v2 properties will no longer be populated with historical job progress data:
 
-* [HistoricalEvents](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.mediaservices.client.itask.historicalevents?view=azure-dotnet)
-* [PerfMessage](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.mediaservices.client.itask.perfmessage?view=azure-dotnet)
+* [HistoricalEvents](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.mediaservices.client.itask.historicalevents)
+* [PerfMessage](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.mediaservices.client.itask.perfmessage)
 
 For more information, see [v3 JobOutput vs v2 Task](media-services-v2-vs-v3.md#v3-joboutput-vs-v2-task).
 
