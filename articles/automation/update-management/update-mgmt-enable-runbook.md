@@ -28,7 +28,7 @@ This method uses two runbooks:
     * *LASolutionSubscriptionId*: Subscription ID of where the Log Analytics workspace is located.
     * *LASolutionWorkspaceId*: Workspace ID of the Log Analytics workspace linked to your Automation account.
 
-    These variables are used to configure the workspace on the onboarding VM. If these are not specified, the script first searches for any VM onboarded to Update Management in its subscription, followed by the subscription the Automation account is in, followed by all other subscriptions your user account has access to. If not properly configured, this may result in your machines getting onboarded to some random Log Analytics workspace.
+    These variables are used to configure the workspace of the onboarded VM. If these are not specified, the script first searches for any VM onboarded to Update Management in its subscription, followed by the subscription the Automation account is in, followed by all other subscriptions your user account has access to. If not properly configured, this may result in your machines getting onboarded to some random Log Analytics workspace.
 
 ## Sign in to Azure
 
