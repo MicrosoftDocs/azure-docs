@@ -35,7 +35,7 @@ The following metrics are available from the **Metrics** pane:
 
 * **Consistency metrics** - This metric shows how eventual is the consistency for the consistency model you choose. For multi-region accounts, this metric also shows the replication latency between the regions you have selected.
 
-* **System metrics** - This metric shows how many metadata requests are served by the master partition. It also helps to identify the throttled requests.
+* **System metrics** - This metric shows how many metadata requests are served by the primary partition. It also helps to identify the throttled requests.
 
 The following sections explain common scenarios where you can use Azure Cosmos DB metrics. 
 

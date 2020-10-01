@@ -1,6 +1,6 @@
 ---
 title: Extend Azure Sentinel across workspaces and tenants | Microsoft Docs
-description:  How to extend Azure Sentinel's analytics capabilities across workspaces and tenants.
+description:  How to use Azure Sentinel to query and analyze data across workspaces and tenants.
 services: sentinel
 documentationcenter: na
 author: yelevin
@@ -127,7 +127,7 @@ See also [Deploying and Managing Azure Sentinel as Code](https://techcommunity.m
 
 ## Managing workspaces across tenants using Azure Lighthouse
 
-As mentioned above, in many scenarios, the different Azure Sentinel workspaces can be located in different Azure AD tenants. You can use [Azure Lighthouse](../lighthouse/overview.md) to extend all cross-workspace activities across tenant boundaries, allowing users in your managing tenant to work on Azure Sentinel workspaces across all tenants. Once Azure Lighthouse is [onboarded](../lighthouse/how-to/onboard-customer.md), use the [directory + subscription selector](./multiple-tenants-service-providers.md#how-to-access-azure-sentinel-from-other-tenants) on the Azure portal to select all the subscriptions containing workspaces you want to manage, in order to ensure that they will all be available in the different workspace selectors in the portal.
+As mentioned above, in many scenarios, the different Azure Sentinel workspaces can be located in different Azure AD tenants. You can use [Azure Lighthouse](../lighthouse/overview.md) to extend all cross-workspace activities across tenant boundaries, allowing users in your managing tenant to work on Azure Sentinel workspaces across all tenants. Once Azure Lighthouse is [onboarded](../lighthouse/how-to/onboard-customer.md), use the [directory + subscription selector](./multiple-tenants-service-providers.md#how-to-access-azure-sentinel-in-managed-tenants) on the Azure portal to select all the subscriptions containing workspaces you want to manage, in order to ensure that they will all be available in the different workspace selectors in the portal.
 
 When using Azure Lighthouse, it is recommended to create a group for each Azure Sentinel role and delegate permissions from each tenant to those groups.
 

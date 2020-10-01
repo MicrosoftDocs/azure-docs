@@ -123,7 +123,7 @@ In this step, you will create an unconstrained or constrained integration system
 1. Enter create security group in the search box, and then click **Create Security Group**.
 
    > [!div class="mx-imgBorder"]
-   > ![CreateSecurity Group](./media/workday-inbound-tutorial/wd_isu_03.png "CreateSecurity Group")
+   > ![Screenshot that shows "create security group" entered in the search box, and "Create Security Group - Task" displayed in the search results.](./media/workday-inbound-tutorial/wd_isu_03.png)
 2. Complete the **Create Security Group** task. 
 
    * There are two types of security groups in Workday:
@@ -148,7 +148,7 @@ In this step, you'll grant "domain security" policy permissions for the worker d
 
 1. Enter **Domain Security Configuration** in the search box, and then click on the link **Domain Security Configuration Report**.  
    >[!div class="mx-imgBorder"]
-   >![Domain Security Policies](./media/workday-inbound-tutorial/wd_isu_06.png "Domain Security Policies")  
+   >![Screenshot that shows "domain security configuration" in the search box, with "Domain Security Configuration - Report" displayed in the results.](./media/workday-inbound-tutorial/wd_isu_06.png "Domain Security Policies")  
 2. In the **Domain** text box, search for the following domains and add them to the filter one by one.  
    * *External Account Provisioning*
    * *Worker Data: Workers*
@@ -160,10 +160,10 @@ In this step, you'll grant "domain security" policy permissions for the worker d
    * *Workday Accounts*
    
      >[!div class="mx-imgBorder"]
-     >![Domain Security Policies](./media/workday-inbound-tutorial/wd_isu_07.png "Domain Security Policies")  
+     >![Screenshot that shows the Domain Security Configuration report with the "External Account" in the "Domain" text box.](./media/workday-inbound-tutorial/wd_isu_07.png "Domain Security Policies")  
 
      >[!div class="mx-imgBorder"]
-     >![Domain Security Policies](./media/workday-inbound-tutorial/wd_isu_08.png "Domain Security Policies") 
+     >![Screenshot that shows the Domain Security Configuration report with a list of domains selected.](./media/workday-inbound-tutorial/wd_isu_08.png "Domain Security Policies") 
 
      Click **OK**.
 
@@ -173,7 +173,7 @@ In this step, you'll grant "domain security" policy permissions for the worker d
 
 4. On the **Edit Domain Security Policy Permissions** page, scroll down to the section **Integration Permissions**. Click on the "+" sign to add the integration system group to the list of security groups with **Get** and **Put** integration permissions.
    >[!div class="mx-imgBorder"]
-   >![Edit Permission](./media/workday-inbound-tutorial/wd_isu_10.png "Edit Permission")  
+   >![Screenshot that shows the "Integration Permissons" section highlighted.](./media/workday-inbound-tutorial/wd_isu_10.png "Edit Permission")  
 
 5. Click on the "+" sign to add the integration system group to the list of security groups with **Get** and **Put** integration permissions.
 
@@ -204,12 +204,12 @@ In this step, you'll grant "business process security" policy permissions for th
 1. Enter **Business Process Policy** in the search box, and then click on the link **Edit Business Process Security Policy** task.  
 
    >[!div class="mx-imgBorder"]
-   >![Business Process Security Policies](./media/workday-inbound-tutorial/wd_isu_12.png "Business Process Security Policies")  
+   >![Screenshot that shows "Business Process Policy" in the search box and "Edit Business Process Security Policy - Task" selected.](./media/workday-inbound-tutorial/wd_isu_12.png "Business Process Security Policies")  
 
 2. In the **Business Process Type** textbox, search for *Contact* and select **Work Contact Change** business process and click **OK**.
 
    >[!div class="mx-imgBorder"]
-   >![Business Process Security Policies](./media/workday-inbound-tutorial/wd_isu_13.png "Business Process Security Policies")  
+   >![Screenshot that shows the "Edit Business Process Security Policy" page and "Work Contact Change" selected in the "Business Process Type" menu.](./media/workday-inbound-tutorial/wd_isu_13.png "Business Process Security Policies")  
 
 3. On the **Edit Business Process Security Policy** page, scroll to the **Change Work Contact Information (Web Service)** section.
     
@@ -367,7 +367,7 @@ Transfer the downloaded agent installer to the server host and follow the steps 
 1. Verify the installation of the Agent and make sure it is running by opening the "Services" Snap-In and look for the Service named "Microsoft Azure AD Connect Provisioning Agent"
 
    >[!div class="mx-imgBorder"]
-   >![Screenshot of the Microsoft Azure AD Connect Provisioning Agent running in Services](./media/workday-inbound-tutorial/services.png)
+   >![Screenshot of the Microsoft Azure AD Connect Provisioning Agent running in Services.](./media/workday-inbound-tutorial/services.png)
 
 ### Part 3: In the provisioning app, configure connectivity to Workday and Active Directory
 In this step, we establish connectivity with Workday and Active Directory in the Azure portal. 
@@ -409,7 +409,7 @@ In this step, we establish connectivity with Workday and Active Directory in the
    * Click the **Test Connection** button. If the connection test succeeds, click the **Save** button at  the top. If it fails, double-check that the Workday credentials and the AD credentials configured on the agent setup are valid.
 
      >[!div class="mx-imgBorder"]
-     >![Azure portal](./media/workday-inbound-tutorial/wd_1.png)
+     >![Screenshot that shows  the "Provisioning" page with credentials entered.](./media/workday-inbound-tutorial/wd_1.png)
 
    * Once the credentials are saved successfully, the **Mappings** section will display the default mapping **Synchronize Workday Workers to On Premises Active Directory**
 
@@ -478,7 +478,7 @@ In this section, you will configure how user data flows from Workday to Active D
 
 1. To save your mappings, click **Save** at the top of the  Attribute-Mapping section.
    >[!div class="mx-imgBorder"]
-   >![Azure portal](./media/workday-inbound-tutorial/wd_2.png)
+   >![Screenshot that shows the "Attribute Mapping" page with the "Save" action selected.](./media/workday-inbound-tutorial/wd_2.png)
 
 #### Below are some example attribute mappings between Workday and Active Directory, with some common expressions
 
@@ -943,11 +943,11 @@ When you click on any of the audit log records, the **Activity Details** page op
 
   Look for a HTTP POST record corresponding to the timestamp of the export operation with *Event ID = 2*. This record will contain the attribute values sent by the provisioning service to the provisioning agent.
 
-  [![SCIM Add](media/workday-inbound-tutorial/wd_event_viewer_05.png)](media/workday-inbound-tutorial/wd_event_viewer_05.png#lightbox)
+  :::image type="content" source="media/workday-inbound-tutorial/wd_event_viewer_05.png" alt-text="Screenshot that shows the 'HTTP POST' record in the 'Provisioning Agent' log." lightbox="media/workday-inbound-tutorial/wd_event_viewer_05.png":::
 
   Immediately following the above event, there should be another event that captures the response of the create AD account operation. This event returns the new objectGuid created in AD and it is set as the TargetAnchor attribute in the provisioning service.
 
-  [![SCIM Add](media/workday-inbound-tutorial/wd_event_viewer_06.png)](media/workday-inbound-tutorial/wd_event_viewer_06.png#lightbox)
+  :::image type="content" source="media/workday-inbound-tutorial/wd_event_viewer_06.png" alt-text="Screenshot that shows the 'Provisioning Agent' log with the objectGuid created in AD highlighted." lightbox="media/workday-inbound-tutorial/wd_event_viewer_06.png":::
 
 ### Understanding logs for manager update operations
 
@@ -1041,14 +1041,14 @@ To do this change, you must use [Workday Studio](https://community.workday.com/s
 
 5. Select **External**, and select the Human_Resources WSDL file you downloaded in step 2.
 
-    ![Workday Studio](./media/workday-inbound-tutorial/wdstudio1.png)
+    ![Screenshot that shows the "Human_Resources" file open in Workday Studio.](./media/workday-inbound-tutorial/wdstudio1.png)
 
 6. Set the **Location** field to `https://IMPL-CC.workday.com/ccx/service/TENANT/Human_Resources`, but replacing "IMPL-CC" with your actual instance type, and "TENANT" with your real tenant name.
 
 7. Set **Operation** to **Get_Workers**
 
 8.    Click the small **configure** link below the Request/Response panes to set your Workday credentials. Check **Authentication**, and then enter the user name and password for your Workday integration system account. Be sure to format the user name as name\@tenant, and leave the **WS-Security UsernameToken** option selected.
-   ![Workday Studio](./media/workday-inbound-tutorial/wdstudio2.png)
+   ![Screenshot that shows the "Security" tab with the "Username" and "Password" entered, and "WS-Security Username Token" selected.](./media/workday-inbound-tutorial/wdstudio2.png)
 
 9. Select **OK**.
 
@@ -1087,7 +1087,7 @@ To do this change, you must use [Workday Studio](https://community.workday.com/s
 
 13. In the command bar of Workday Studio, select **File > Open File...** and open the XML file you saved. This action will open the file in the Workday Studio XML editor.
 
-    ![Workday Studio](./media/workday-inbound-tutorial/wdstudio3.png)
+    ![Screenshot of an X M L file open in the "Workday Studio X M L editor".](./media/workday-inbound-tutorial/wdstudio3.png)
 
 14. In the file tree, navigate through **/env: Envelope > env: Body > wd:Get_Workers_Response > wd:Response_Data > wd: Worker** to find your user's data.
 
@@ -1113,7 +1113,7 @@ To do this change, you must use [Workday Studio](https://community.workday.com/s
 
 5. Select **Edit attribute list for Workday**.
 
-    ![Workday Studio](./media/workday-inbound-tutorial/wdstudio_aad1.png)
+    ![Screenshot that shows the "Workday to Azure A D User Provisioning - Provisioning" page with the "Edit attribute list for Workday" action highlighted.](./media/workday-inbound-tutorial/wdstudio_aad1.png)
 
 6. Scroll to the bottom of the attribute list to where the input fields are.
 

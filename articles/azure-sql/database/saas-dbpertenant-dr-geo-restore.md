@@ -6,10 +6,10 @@ ms.service: sql-database
 ms.subservice: scenario
 ms.custom: seo-lt-2019, sqldbrb=1
 ms.devlang: 
-ms.topic: conceptual
+ms.topic: tutorial
 author: stevestein
 ms.author: sstein
-ms.reviewer: sstein
+ms.reviewer:
 ms.date: 01/14/2019
 ---
 # Use geo-restore to recover a multitenant SaaS application from database backups
@@ -17,7 +17,7 @@ ms.date: 01/14/2019
 
 This tutorial explores a full disaster recovery scenario for a multitenant SaaS application implemented with the database per tenant model. You use [geo-restore](recovery-using-backups.md) to recover the catalog and tenant databases from automatically maintained geo-redundant backups into an alternate recovery region. After the outage is resolved, you use [geo-replication](active-geo-replication-overview.md) to repatriate changed databases to their original region.
 
-![Geo-restore-architecture](./media/saas-dbpertenant-dr-geo-restore/geo-restore-architecture.png)
+![Diagram shows an original and recovery regions, both of which have an app, catalog, original or mirror images of servers and pools, automatic backups to storage, with the recovery region accepting geo-replication of backup and having server and pool for new tenants.](./media/saas-dbpertenant-dr-geo-restore/geo-restore-architecture.png)
 
 Geo-restore is the lowest-cost disaster recovery solution for Azure SQL Database. However, restoring from geo-redundant backups can result in data loss of up to one hour. It can take considerable time, depending on the size of each database. 
 

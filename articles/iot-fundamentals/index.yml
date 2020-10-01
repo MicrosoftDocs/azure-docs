@@ -137,7 +137,7 @@ conceptualContent:
       links:
         - url: ../iot-pnp/overview-iot-plug-and-play.md
           itemType: overview
-          text: What is IoT Plug and Play Preview?
+          text: What is IoT Plug and Play?
         - url: ../iot-pnp/quickstart-connect-device-node.md
           itemType: quickstart
           text: Connect a sample device to IoT Hub

@@ -1,7 +1,7 @@
 ---
-title: Sign in users in JavaScript single-page apps (SPA) with auth code | Azure
+title: "Quickstart: Sign in users in JavaScript single-page apps (SPA) with auth code | Azure"
 titleSuffix: Microsoft identity platform
-description: Learn how a JavaScript app can call an API that requires access tokens using the Microsoft identity platform.
+description: In this quickstart, learn how a JavaScript single-page application (SPA) can sign in users of personal accounts, work accounts, and school accounts by using the authorization code flow.
 services: active-directory
 author: hahamil
 manager: CelesteDG
@@ -12,7 +12,7 @@ ms.topic: quickstart
 ms.workload: identity
 ms.date: 07/17/2020
 ms.author: hahamil
-ms.custom: aaddev, scenarios:getting-started, languages:JavaScript, devx-track-javascript
+ms.custom: aaddev, scenarios:getting-started, languages:JavaScript, devx-track-js
 #Customer intent: As an app developer, I want to learn how to get access tokens and refresh tokens by using the Microsoft identity platform endpoint so that my JavaScript app can sign in users of personal accounts, work accounts, and school accounts.
 ---
 

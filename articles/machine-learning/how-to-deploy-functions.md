@@ -6,7 +6,7 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.author: vaidyas
-author: vaidyas
+author: vaidya-s
 ms.reviewer: larryfr
 ms.date: 03/06/2020
 ms.topic: conceptual
@@ -15,7 +15,7 @@ ms.custom: how-to, racking-python
 ---
 
 # Deploy a machine learning model to Azure Functions (preview)
-[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
+
 
 Learn how to deploy a model from Azure Machine Learning as a function app in Azure Functions.
 
@@ -27,7 +27,7 @@ With Azure Machine Learning, you can create Docker images from trained machine l
 ## Prerequisites
 
 * An Azure Machine Learning workspace. For more information, see the [Create a workspace](how-to-manage-workspace.md) article.
-* The [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
+* The [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest&preserve-view=true).
 * A trained machine learning model registered in your workspace. If you do not have a model, use the [Image classification tutorial: train model](tutorial-train-models-with-aml.md) to train and register one.
 
     > [!IMPORTANT]
@@ -41,7 +41,7 @@ With Azure Machine Learning, you can create Docker images from trained machine l
 
 ## Prepare for deployment
 
-Before deploying, you must define what is needed to run the model as a web service. The following list describes the basic items needed for a deployment:
+Before deploying, you must define what is needed to run the model as a web service. The following list describes the core items needed for a deployment:
 
 * An __entry script__. This script accepts requests, scores the request using the model, and returns the results.
 
@@ -116,7 +116,7 @@ When `show_output=True`, the output of the Docker build process is shown. Once t
 
 ## Deploy image as a web app
 
-1. Use the following command to get the login credentials for the Azure Container Registry that contains the image. Replace `<myacr>` with the value returned previously from `package.location`: 
+1. Use the following command to get the login credentials for the Azure Container Registry that contains the image. Replace `<myacr>` with the value returned previously from `blob.location`: 
 
     ```azurecli-interactive
     az acr credential show --name <myacr>
@@ -177,7 +177,7 @@ When `show_output=True`, the output of the Docker build process is shown. Once t
     ```azurecli-interactive
     az storage account create --name <triggerStorage> --location westeurope --resource-group myresourcegroup --sku Standard_LRS
     ```
-    ```azurecli-interactiv
+    ```azurecli-interactive
     az storage account show-connection-string --resource-group myresourcegroup --name <triggerStorage> --query connectionString --output tsv
     ```
     Record this connection string to provide to the function app. We will use it later when we ask for `<triggerConnectionString>`

@@ -1,5 +1,5 @@
 ---
-title: Create and query a Synapse SQL pool (Azure portal)
+title: 'Quickstart: Create and query a Synapse SQL pool (Azure portal)'
 description: Create and query a Synapse SQL pool using the Azure portal
 services: synapse-analytics
 author: kevinvngo
@@ -73,7 +73,7 @@ Follow these steps to create a SQL pool that contains the **AdventureWorksDW** s
 
 7. On the toolbar, select **Notifications** to monitor the deployment process.
 
-   ![notification](./media/create-data-warehouse-portal/notification.png)
+   ![Screenshot shows Notifications with Deployment in progress.](./media/create-data-warehouse-portal/notification.png)
 
 ## Create a server-level firewall rule
 

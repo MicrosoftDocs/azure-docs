@@ -1,6 +1,6 @@
 ---
 title: Assign a role to a group using Privileged Identity Management in Azure AD | Microsoft Docs
-description: Preview custom Azure AD roles for delegating identity management. Manage Azure roles in the Azure portal, PowerShell, or Graph API.
+description: Learn how you can assign an Azure Active Directory (Azure AD) role to a group using Azure AD Privileged Identity Management (PIM).
 services: active-directory
 author: curtand
 manager: daveba
@@ -32,7 +32,7 @@ This article describes how you can assign an Azure Active Directory (Azure AD) r
 
 1. Select a role, and then select a group. Only groups that are eligible for role assignment (role-assignable groups) are displayed, not all groups.
 
-    ![select the user to whom you're assigning the role](./media/roles-groups-pim-eligible/select-member.png)
+    ![Screenshot that shows the "Add assignments" page with the "Select role" and "Select member(s)" sections highlighted.](./media/roles-groups-pim-eligible/select-member.png)
 
 1. Select the desired membership setting. For roles requiring activation, choose **eligible**. By default, the user would be permanently eligible, but you could also set a start and end time for the user's eligibility. Once you are complete, hit Save and Add to complete the role assignment.
 
