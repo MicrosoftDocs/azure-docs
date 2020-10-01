@@ -36,7 +36,7 @@ Azure Cache for Redis is extremely performant and scalable – when paired with 
 ## Create an Azure Cache for Redis instance 
 You’ll be able to deploy a machine learning model to Azure Functions with any Basic, Standard, or Premium cache instance. To create a cache instance, follow these steps.  
 
-1. Go to the Azure Portal homepage or open the sidebar menu, then select **Create a resource**. 
+1. Go to the Azure portal homepage or open the sidebar menu, then select **Create a resource**. 
    
 1. On the **New** page, select **Databases** and then select **Azure Cache for Redis**.
 
@@ -276,13 +276,13 @@ When `show_output=True`, the output of the Docker build process is shown. Once t
 At this point, the function app begins loading the image.
 
 > [!IMPORTANT]
-> It may take several minutes before the image has loaded. You can monitor progress using the Azure Portal.
+> It may take several minutes before the image has loaded. You can monitor progress using the Azure portal.
 
 ## Test Azure Function HTTP trigger 
 
 We will now run and test our Azure Function HTTP trigger.
 
-1. Go to your Azure Function app in the Azure Portal.
+1. Go to your Azure Function app in the Azure portal.
 1. Under developer, select **Code + Test**. 
 1. On the right hand side, select the **Input** tab. 
 1. Click on the **Run** button to test the Azure Function HTTP trigger. 
@@ -308,7 +308,7 @@ You're asked to confirm the deletion of the resource group. Type the name of you
 
 After a few moments, the resource group and all of its resources are deleted.
 
-## Next Steps 
+## Next steps 
 
 * Learn more about [Azure Cache for Redis](https://docs.microsoft.com/azure/azure-cache-for-redis/cache-overview)
 * Learn to configure your Functions App in the [Functions](/azure/azure-functions/functions-create-function-linux-custom-image) documentation.
