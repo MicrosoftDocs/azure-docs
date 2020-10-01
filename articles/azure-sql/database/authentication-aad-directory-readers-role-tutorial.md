@@ -50,7 +50,7 @@ For more information on the benefits of assigning the Directory Readers role to 
 
 To check and manage the group that was created, go back to the **Groups** pane in the Azure portal, and search for your group name. Additional owners and members can be added under the **Owners** and **Members** menu of **Manage** setting after selecting your group. You can also review the **Assigned roles** for the group.
 
-:::image type="content" source="media/authentication-aad-directory-readers-role/azure-ad-group-created.png" alt-text="azure-ad-group-created":::
+:::image type="content" source="media/authentication-aad-directory-readers-role/azure-ad-group-created.png" alt-text="Screenshot of a Group pane with the links that open the Settings menus for Members, Owners, and Assigned roles (Preview) highlighted.":::
 
 ### Add Azure SQL managed identity to the group
 
@@ -63,17 +63,17 @@ For subsequent steps, the Global Administrator or Privileged Role Administrator 
 
 1. Find the name of your **SQL managed instance** resource in the Azure portal.
 
-   :::image type="content" source="media/authentication-aad-directory-readers-role/azure-ad-managed-instance.png" alt-text="azure-ad-managed-instance":::
+   :::image type="content" source="media/authentication-aad-directory-readers-role/azure-ad-managed-instance.png" alt-text="Screenshot of the SQL managed instances screen with the SQL instance name ssomitest and the Subnet name ManagedInstance highlighted.":::
 
    During the creation of your SQL Managed Instance, an Azure identity was created for your instance. The created identity has the same name as the prefix of your SQL Managed Instance name. You can find the service principal for your SQL Managed Instance identity that created as an Azure AD Application by following these steps:
 
     - Go to the **Azure Active Directory** resource. Under the **Manage** setting, select **Enterprise applications**. The **Object ID** is the identity of the instance.
     
-    :::image type="content" source="media/authentication-aad-directory-readers-role/azure-ad-managed-instance-service-principal.png" alt-text="azure-ad-managed-instance-service-principal":::
+    :::image type="content" source="media/authentication-aad-directory-readers-role/azure-ad-managed-instance-service-principal.png" alt-text="Screenshot of the Enterprise applications page for an Azure Active Directory resource with the Object ID of the SQL Managed instance highlighted.":::
 
 1. Go to the **Azure Active Directory** resource. Under **Managed**, go to **Groups**. Select the group that you created. Under the **Managed** setting of your group, select **Members**. Select **Add members** and add your SQL Managed Instance service principal as a member of the group by searching for the name found above.
 
-   :::image type="content" source="media/authentication-aad-directory-readers-role/azure-ad-add-managed-instance-service-principal.png" alt-text="azure-ad-add-managed-instance-service-principal":::
+   :::image type="content" source="media/authentication-aad-directory-readers-role/azure-ad-add-managed-instance-service-principal.png" alt-text="Screenshot of the Members page for an Azure Active Directory resource with the options highlighted for adding an SQL Managed instance as a new member.":::
 
 > [!NOTE]
 > It can take a few minutes to propagate the service principal permissions through the Azure system, and allow access to Azure AD Graph API. You may have to wait a few minutes before you provision an Azure AD admin for SQL Managed Instance.

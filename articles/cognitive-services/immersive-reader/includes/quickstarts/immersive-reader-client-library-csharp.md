@@ -6,20 +6,20 @@ services: cognitive-services
 author: nitinme
 manager: nitinme
 ms.service: cognitive-services
+ms.subservice: immersive-reader
 ms.topic: include
-ms.date: 05/20/2020
+ms.date: 09/14/2020
 ms.author: nitinme
-ms.custom: "devx-track-javascript, devx-track-csharp"
+ms.custom: "devx-track-js, devx-track-csharp"
 ---
 
-The [Immersive Reader](https://www.onenote.com/learningtools) is an inclusively designed tool that implements proven techniques to improve reading comprehension.
+[Immersive Reader](https://www.onenote.com/learningtools) is an inclusively designed tool that implements proven techniques to improve reading comprehension for new readers, language learners, and people with learning differences such as dyslexia. You can use Immersive Reader in your applications to isolate text to improve focus, display pictures for commonly used words, highlight parts of speech, read selected text out loud, translate words and phrases in real-time, and more.
 
-In this quickstart, you build a web app from scratch and integrate the Immersive Reader by using the Immersive Reader client library. A full working sample of this quickstart is available [here](https://github.com/microsoft/immersive-reader-sdk/tree/master/js/samples/quickstart-csharp).
-
-If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/cognitive-services/) before you begin.
+In this quickstart, you build a web app from scratch and integrate Immersive Reader using the Immersive Reader client library. A full working sample of this quickstart is available [on GitHub](https://github.com/microsoft/immersive-reader-sdk/tree/master/js/samples/quickstart-csharp).
 
 ## Prerequisites
 
+* Azure subscription - [Create one for free](https://azure.microsoft.com/free/cognitive-services)
 * [Visual Studio 2019](https://visualstudio.microsoft.com/downloads)
 * An Immersive Reader resource configured for Azure Active Directory authentication. Follow [these instructions](../../how-to-create-immersive-reader.md) to get set up. You will need some of the values created here when configuring the sample project properties. Save the output of your session into a text file for future reference.
 
@@ -27,17 +27,17 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 Create a new project in Visual Studio, using the ASP.NET Core Web Application template with built-in Model-View-Controller, and ASP.NET Core 2.1. Name the project "QuickstartSampleWebApp".
 
-![New Project](../../media/quickstart-csharp/1-createproject.png)
+![New project - C#](../../media/quickstart-csharp/1-createproject.png)
 
-![Configure New Project](../../media/quickstart-csharp/2-configureproject.png)
+![Configure new project - C#](../../media/quickstart-csharp/2-configureproject.png)
 
-![New ASP.NET Core Web Application](../../media/quickstart-csharp/3-createmvc.png)
+![New ASP.NET Core web application - C#](../../media/quickstart-csharp/3-createmvc.png)
 
 ## Set up authentication
 
 ### Configure authentication values
 
-Right-click on the project in the _Solution Explorer_ and choose **Manage User Secrets**. This will open a file called _secrets.json_. This file isn't checked into source control. Learn more [here](https://docs.microsoft.com/aspnet/core/security/app-secrets?view=aspnetcore-3.1&tabs=windows). Replace the contents of _secrets.json_ with the following, supplying the values given when you created your Immersive Reader resource.
+Right-click on the project in the _Solution Explorer_ and choose **Manage User Secrets**. This will open a file called _secrets.json_. This file isn't checked into source control. Learn more [here](https://docs.microsoft.com/aspnet/core/security/app-secrets?view=aspnetcore-3.1&tabs=windows&preserve-view=true). Replace the contents of _secrets.json_ with the following, supplying the values given when you created your Immersive Reader resource.
 
 ```json
 {
@@ -48,7 +48,7 @@ Right-click on the project in the _Solution Explorer_ and choose **Manage User S
 }
 ```
 
-### Add the Microsoft.IdentityModel.Clients.ActiveDirectory NuGet package
+### Install Active Directory
 
 The following code uses objects from the **Microsoft.IdentityModel.Clients.ActiveDirectory** NuGet package so you'll need to add a reference to that package in your project.
 
@@ -211,7 +211,7 @@ Now, we'll add sample content to this web app. Open _Views\Home\Index.cshtml_ an
 
 Notice that all of the text has a **lang** attribute, which describes the languages of the text. This attribute helps the Immersive Reader provide relevant language and grammar features.
 
-## Add JavaScript to handle launching the Immersive Reader
+## Add JavaScript to handle launching Immersive Reader
 
 The Immersive Reader library provides functionality such as launching the Immersive Reader, and rendering Immersive Reader buttons. Learn more [here](https://docs.microsoft.com/azure/cognitive-services/immersive-reader/reference).
 
@@ -291,18 +291,14 @@ From the menu bar, select **Debug > Start Debugging**, or press **F5** to start 
 
 In your browser, you should see:
 
-![Sample app](../../media/quickstart-csharp/4-buildapp.png)
+![Sample app - C#](../../media/quickstart-csharp/4-buildapp.png)
 
 ## Launch the Immersive Reader
 
 When you click on the "Immersive Reader" button, you'll see the Immersive Reader launched with the content on the page.
 
-![Immersive Reader](../../media/quickstart-csharp/5-viewimmersivereader.png)
+![Immersive Reader - C#](../../media/quickstart-csharp/5-viewimmersivereader.png)
 
 ## Next steps
 
-* View the [Node.js quickstart](../../tutorial-nodejs.md) to see what else you can do with the Immersive Reader client library using Node.js
-* View the [Android tutorial](../../tutorial-android.md) to see what else you can do with the Immersive Reader SDK using Java or Kotlin for Android
-* View the [iOS tutorial](../../tutorial-ios.md) to see what else you can do with the Immersive Reader SDK using Swift for iOS
-* View the [Python tutorial](../../tutorial-python.md) to see what else you can do with the Immersive Reader client library using Python
 * Explore the [Immersive Reader SDK](https://github.com/microsoft/immersive-reader-sdk) and the [Immersive Reader SDK Reference](../../reference.md)

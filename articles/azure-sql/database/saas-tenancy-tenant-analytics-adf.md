@@ -6,7 +6,7 @@ ms.service: sql-database
 ms.subservice: scenario
 ms.custom: seo-lt-2019, sqldbrb=1
 ms.devlang: 
-ms.topic: conceptual
+ms.topic: tutorial
 author: stevestein
 ms.author: sstein
 ms.reviewer: 
@@ -105,7 +105,7 @@ In the Object Explorer:
     1. The star-schema tables are **fact_Tickets**, **dim_Customers**, **dim_Venues**, **dim_Events**, and **dim_Dates**.
     1. The stored procedure, **sp_transformExtractedData** is used to  transform the data and load it into the star-schema tables.
 
-![DWtables](./media/saas-tenancy-tenant-analytics-adf/DWtables.JPG)
+![Screenshot shows Object Explorer with Tables expanded to show various database objects.](./media/saas-tenancy-tenant-analytics-adf/DWtables.JPG)
 
 #### Blob storage
 
@@ -162,7 +162,7 @@ Corresponding to the three linked services, there are three datasets that refer 
 ### Data warehouse pattern overview
 
 Azure Synapse (formerly SQL Data Warehouse) is used as the analytics store to perform aggregation on the tenant data. In this sample, PolyBase is used to load data into the data warehouse. Raw data is loaded into staging tables that have an identity column to keep track of rows that have been transformed into the star-schema tables. The following image shows the loading pattern:
-![loadingpattern](./media/saas-tenancy-tenant-analytics-adf/loadingpattern.JPG)
+![Diagram shows the loading pattern of database tables.](./media/saas-tenancy-tenant-analytics-adf/loadingpattern.JPG)
 
 Slowly Changing Dimension (SCD) type 1 dimension tables are used in this example. Each dimension has a surrogate key defined using an identity column. As a best practice, the date dimension table is pre-populated to save time. For the other dimension tables, a CREATE TABLE AS SELECT... (CTAS) statement is used to create a temporary table containing the existing modified and non-modified rows, along with the surrogate keys. This is done with IDENTITY_INSERT=ON. New rows are then inserted into the table with IDENTITY_INSERT=OFF. For easy roll-back, the existing dimension table is renamed and the temporary table is renamed to become the new dimension table. Before each run, the old dimension table is deleted.
 
@@ -176,14 +176,14 @@ Follow the steps below to run the complete extract, load, and transform pipeline
 
 1. In the **Author** tab of the ADF user interface, select **SQLDBToDW** pipeline from the left pane.
 1. Click **Trigger** and from the pulled down menu click **Trigger Now**. This action runs the pipeline immediately. In a production scenario, you would define a timetable for running the pipeline to refresh the data on a schedule.
-  ![adf_trigger](./media/saas-tenancy-tenant-analytics-adf/adf_trigger.JPG)
+  ![Screenshot shows Factory Resources for a pipeline named S Q L D B To D W with the Trigger option expanded and Trigger Now selected.](./media/saas-tenancy-tenant-analytics-adf/adf_trigger.JPG)
 1. On **Pipeline Run** page, click **Finish**.
 
 ### Monitor the pipeline run
 
 1. In the ADF user interface, switch to the **Monitor** tab from the menu on the left.
 1. Click **Refresh** until SQLDBToDW pipeline's status is **Succeeded**.
-  ![adf_monitoring](./media/saas-tenancy-tenant-analytics-adf/adf_monitoring.JPG)
+  ![Screenshot shows the S Q L D B To D W pipeline with a status of Succeeded.](./media/saas-tenancy-tenant-analytics-adf/adf_monitoring.JPG)
 1. Connect to the data warehouse with SSMS and query the star-schema tables to verify that data was loaded in these tables.
 
 Once the pipeline has completed, the fact table holds ticket sales data for all venues and the dimension tables are populated with the corresponding venues, events, and customers.

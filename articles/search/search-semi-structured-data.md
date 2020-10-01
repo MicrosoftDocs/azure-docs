@@ -8,7 +8,7 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: tutorial
-ms.date: 06/23/2020
+ms.date: 09/25/2020
 #Customer intent: As a developer, I want an introduction the indexing Azure blob data for Azure Cognitive Search.
 ---
 
@@ -51,7 +51,7 @@ If possible, create both in the same region and resource group for proximity and
 
 1. Search for *storage account* and select Microsoft's Storage Account offering.
 
-   ![Create Storage account](media/cognitive-search-tutorial-blob/storage-account.png "Create Storage account")
+   :::image type="content" source="media/cognitive-search-tutorial-blob/storage-account.png" alt-text="Create Storage account" border="false":::
 
 1. In the Basics tab, the following items are required. Accept the defaults for everything else.
 
@@ -73,11 +73,11 @@ If possible, create both in the same region and resource group for proximity and
 
 1. After the container is created, open it and select **Upload** on the command bar.
 
-   ![Upload on command bar](media/search-semi-structured-data/upload-command-bar.png "Upload on command bar")
+   :::image type="content" source="media/search-semi-structured-data/upload-command-bar.png" alt-text="Upload on command bar" border="false":::
 
 1. Navigate to the folder containing the sample files. Select all of them and then click **Upload**.
 
-   ![Upload files](media/search-semi-structured-data/clinicalupload.png "Upload files")
+   :::image type="content" source="media/search-semi-structured-data/clinicalupload.png" alt-text="Upload files" border="false":::
 
 After the upload completes, the files should appear in their own subfolder inside the data container.
 
@@ -95,7 +95,7 @@ REST calls require the service URL and an access key on every request. A search 
 
 1. In **Settings** > **Keys**, get an admin key for full rights on the service. There are two interchangeable admin keys, provided for business continuity in case you need to roll one over. You can use either the primary or secondary key on requests for adding, modifying, and deleting objects.
 
-![Get an HTTP endpoint and access key](media/search-get-started-postman/get-url-key.png "Get an HTTP endpoint and access key")
+:::image type="content" source="media/search-get-started-postman/get-url-key.png" alt-text="Get an HTTP endpoint and access key" border="false":::
 
 All requests require an api-key on every request sent to your service. Having a valid key establishes trust, on a per request basis, between the application sending the request and the service that handles it.
 
@@ -107,7 +107,7 @@ The request methods for every call in this tutorial are **POST** and **GET**. Yo
 
 In Headers, set "Content-type" to `application/json` and set `api-key` to the admin api-key of your Azure Cognitive Search service. Once you set the headers, you can use them for every request in this exercise.
 
-  ![Postman request URL and header](media/search-get-started-postman/postman-url.png "Postman request URL and header")
+  :::image type="content" source="media/search-get-started-postman/postman-url.png" alt-text="Postman request URL and header" border="false":::
 
 URIs must specify an api-version and each call should return a **201 Created**. The generally available api-version for using JSON arrays is `2020-06-30`.
 
@@ -312,11 +312,11 @@ You can start searching as soon as the first document is loaded.
 
 1. Add the `$select` query parameter to limit the results to fewer fields: `https://[service name].search.windows.net/indexes/clinical-trials-json-index/docs?search=*&$select=Gender,metadata_storage_size&api-version=2020-06-30&$count=true`.  For this query, 100 documents match, but by default, Azure Cognitive Search only returns 50 in the results.
 
-   ![Parameterized query](media/search-semi-structured-data/lastquery.png "Paramterized query")
+   :::image type="content" source="media/search-semi-structured-data/lastquery.png" alt-text="Parameterized query" border="false":::
 
 1. An example of more complex query would include `$filter=MinimumAge ge 30 and MaximumAge lt 75`, which returns only results where the parameters MinimumAge is greater than or equal to 30 and MaximumAge is less than 75. Replace the `$select` expression with the `$filter` expression.
 
-   ![Semi-structured search](media/search-semi-structured-data/metadatashort.png)
+   :::image type="content" source="media/search-semi-structured-data/metadatashort.png" alt-text="Semi-structured search" border="false":::
 
 You can also use Logical operators (and, or, not) and comparison operators (eq, ne, gt, lt, ge, le). String comparisons are case-sensitive. For more information and examples, see [Create a simple query](search-query-simple-examples.md).
 

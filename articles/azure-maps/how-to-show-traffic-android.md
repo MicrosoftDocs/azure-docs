@@ -4,7 +4,7 @@ description: In this article you'll learn, how to display traffic data on a map 
 author: anastasia-ms
 ms.author: v-stharr
 ms.date: 02/27/2020
-ms.topic: conceptual
+ms.topic: how-to
 ms.service: azure-maps
 services: azure-maps
 manager: philmea

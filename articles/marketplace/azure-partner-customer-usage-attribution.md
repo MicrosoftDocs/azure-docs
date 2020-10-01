@@ -263,39 +263,7 @@ When you deploy \<PARTNER> software, Microsoft is able to identify the installat
 
 ## Get support
 
-There are two support channels depending on the issues you are facing.
-
-If you encounter any issues in the Partner Center, such as seeing the customer usage attribution report or signing in, create a support request with the Partner Center support team here: [https://partner.microsoft.com/support](https://partner.microsoft.com/support)
-
-![Screenshot of Get support page](./media/marketplace-publishers-guide/partner-center-log-in-support.png)
-
-If you need assistance for Marketplace Onboarding and/or customer usage attribution in general, such as how to set up the customer usage attribution, follow the steps below:
-
-1. Go to the [support page](https://go.microsoft.com/fwlink/?linkid=844975).
-
-1. Under **Problem type**, select **Marketplace Onboarding**.
-
-1. Choose the **Category** for your issue:
-
-   - For usage association issues, select **Other**.
-   - For access issues with Azure Marketplace, select **Access Problem**.
-
-     ![Choose the issue category](media/marketplace-publishers-guide/lu-article-incident.png)
-
-1. Select **Start Request**.
-
-1. On the next page, enter the required values. Select **Continue**.
-
-1. On the next page, enter the required values.
-
-   > [!IMPORTANT]
-   > In the **Incident title** box, enter **ISV Usage Tracking**. Describe your issue in detail.
-
-   ![Enter ISV Usage Tracking for the incident title](media/marketplace-publishers-guide/guid-dev-center-help-hd%201.png)
-
-1. Complete the form, and then select **Submit**.
-
-You can also receive technical guidance from a Microsoft Partner Technical Consultant for technical presales, deployment and app development scenarios to understand and incorporate customer usage attribution.
+Learn about the support options in the commercial marketplace at [Support for the commercial marketplace program in Partner Center](./partner-center-portal/support.md).
 
 ### How to submit a technical consultation request
 

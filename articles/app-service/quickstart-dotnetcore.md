@@ -3,8 +3,8 @@ title: "Quickstart: Create a C# ASP.NET Core app"
 description: Learn how to run web apps in Azure App Service by deploying your first ASP.NET core app.
 ms.assetid: b1e6bd58-48d1-4007-9d6c-53fd6db061e3
 ms.topic: quickstart
-ms.date: 08/01/2020
-ms.custom: "devx-track-csharp, mvc, devcenter, vs-azure, seodec18"
+ms.date: 09/24/2020
+ms.custom: "devx-track-csharp, mvc, devcenter, vs-azure, seodec18, contperfq1"
 zone_pivot_groups: app-service-platform-windows-linux
 ---
 
@@ -132,7 +132,7 @@ To manage your web app, go to the [Azure portal](https://portal.azure.com), and 
 
 On the **App Services** page, select the name of your web app.
 
-![Portal navigation to Azure app](./media/quickstart-dotnetcore/select-app-service.png)
+:::image type="content" source="./media/quickstart-dotnetcore/select-app-service.png" alt-text="Screenshot of the App Services page with an example web app selected.":::
 
 The **Overview** page for your web app, contains options for basic management like browse, stop, start, restart, and delete. The left menu provides further pages for configuring your app.
 
@@ -299,7 +299,7 @@ Go to the <a href="https://portal.azure.com" target="_blank">Azure portal</a> to
 
 From the left menu, click **App Services**, and then click the name of your Azure app.
 
-![Portal navigation to Azure app](./media/quickstart-dotnetcore/portal-app-service-list.png)
+:::image type="content" source="./media/quickstart-dotnetcore/portal-app-service-list.png" alt-text="Screenshot of the App Services page showing an example Azure app selected.":::
 
 You see your app's Overview page. Here, you can perform basic management tasks like browse, stop, start, restart, and delete. 
 

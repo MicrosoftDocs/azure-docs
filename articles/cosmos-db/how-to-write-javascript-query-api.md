@@ -6,7 +6,7 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 05/07/2020
 ms.author: tisande
-ms.custom: devx-track-javascript
+ms.custom: devx-track-js
 ---
 
 # How to write stored procedures and triggers in Azure Cosmos DB by using the JavaScript query API

@@ -1,6 +1,8 @@
 ---
 title: Test app in LUIS portal
 description: Use Language Understanding (LUIS) to continuously work on your application to refine it and improve its language understanding.
+ms.service: cognitive-services
+ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 06/02/2020
 ---

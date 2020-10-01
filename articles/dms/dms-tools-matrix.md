@@ -9,7 +9,7 @@ ms.reviewer: craigg
 ms.service: dms
 ms.workload: data-services
 ms.custom: mvc
-ms.topic: article
+ms.topic: reference
 ms.date: 03/03/2020
 ---
 

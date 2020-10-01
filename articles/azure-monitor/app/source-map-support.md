@@ -5,7 +5,7 @@ ms.topic: conceptual
 author: markwolff
 ms.author: marwolff
 ms.date: 06/23/2020
-ms.custom: devx-track-javascript
+ms.custom: devx-track-js
 ---
 
 # Source map support for JavaScript applications

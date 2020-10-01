@@ -8,7 +8,7 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 01/29/2018
 ms.topic: conceptual
-ms.custom: devx-track-javascript
+ms.custom: devx-track-js
 ---
 
 # Implement the device model behavior

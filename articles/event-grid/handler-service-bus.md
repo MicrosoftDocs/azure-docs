@@ -46,7 +46,7 @@ az eventgrid event-subscription create \
 ```
 
 ## Message properties
-If you use a **Service Bus topic or queue** as an event handler for events from Event Grid, set the following message headers: 
+If you use a **Service Bus topic or queue** as an event handler for events from Event Grid, these are the properties you receive in the message headers: 
 
 | Property name | Description |
 | ------------- | ----------- | 
@@ -151,6 +151,9 @@ The internal system ID for the message will be maintained across redelivery of t
 	}
 }
 ```
+
+> [!NOTE]
+> Delivering events to an Azure Servive Bus queue or topic in **another tenant** isn't supported. 
 
 ## Next steps
 See the [Event handlers](event-handlers.md) article for a list of supported event handlers. 

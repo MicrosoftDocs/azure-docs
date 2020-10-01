@@ -75,11 +75,11 @@ A scope is a node within a billing account that you use to view and manage billi
 
 2. Search for **Cost Management + Billing**.
 
-   ![Screenshot that shows Azure portal search](./media/view-all-accounts/billing-search-cost-management-billing.png)
+   ![Screenshot that shows Azure portal search for Cost Management + Billing.](./media/view-all-accounts/billing-search-cost-management-billing.png)
 
 3. In the overview page, select **Switch scope**.
 
-   ![Screenshot that shows billing scopes](./media/view-all-accounts/overview-select-scopes.png)
+   ![Screenshot that shows billing scopes.](./media/view-all-accounts/overview-select-scopes.png)
 
    > [!Note]
     >
@@ -87,7 +87,7 @@ A scope is a node within a billing account that you use to view and manage billi
 
 4. Select a scope to view details.
 
-   ![Screenshot that shows billing scopes](./media/view-all-accounts/list-of-scopes.png)
+   ![Screenshot that shows billing scopes, which you can select for details.](./media/view-all-accounts/list-of-scopes.png)
 
 ## Check the type of your account
 [!INCLUDE [billing-check-mca](../../../includes/billing-check-account-type.md)]

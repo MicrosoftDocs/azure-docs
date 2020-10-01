@@ -1,47 +1,66 @@
 ---
 title: 'Storage overview - Azure Time Series Insights Gen2 | Microsoft Docs'
 description: Learn about data storage in Azure Time Series Insights Gen2.
-author: esung22
-ms.author: elsung
-manager: diviso
+author: lyrana
+ms.author: lyhughes
+manager: deepakpalled
 ms.workload: big-data
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
-ms.date: 08/31/2020
+ms.date: 09/28/2020
 ms.custom: seodec18
 ---
 
 # Data Storage
 
-When you create an Azure Time Series Insights Gen2 environment, you create two Azure resources:
+This article describes data storage in Azure Time Series Insights Gen2. It covers warm and cold, data availability, and best practices.
 
-* An Azure Time Series Insights Gen2 environment that can be configured for warm data storage.
-* An Azure Storage account for cold data storage.
+## Provisioning
 
-Data in your warm store is available only via [Time Series Query APIs](./time-series-insights-update-tsq.md) and the [Azure Time Series Insights Explorer](./time-series-insights-update-explorer.md). Your warm store will contain recent data within the [retention period](./time-series-insights-update-plan.md#the-preview-environment) selected when creating the Azure Time Series Insights Gen2 environment.
+When you create an Azure Time Series Insights Gen2 environment, you have the following options:
 
-Azure Time Series Insights Gen2 saves your cold store data to Azure Blob storage in the [Parquet file format](#parquet-file-format-and-folder-structure). Azure Time Series Insights Gen2  manages this cold store data exclusively, but it's available for you to read directly as standard Parquet files.
+* Cold data storage:
+  * Create a new Azure Storage resource in the subscription and region you’ve chosen for your environment.
+  * Attach a pre-existing Azure Storage account. This option is only available by deploying from an Azure Resource Manager [template](https://docs.microsoft.com/azure/templates/microsoft.timeseriesinsights/allversions), and is not visible in the Azure portal.
+* Warm data storage:
+  * A warm store is optional, and can be enabled or disabled during or after time of provisioning. If you decide to enable warm store at a later time and there is already data in your cold store, review [this](concepts-storage.md#warm-store-behavior) section below to understand the expected behavior. The warm store data retention time can be configured for 7 to 31 days, and this can also be adjusted as needed.
+
+When an event is ingested, it is indexed in both warm store (if enabled) and cold store.
+
+[![Storage overview](media/concepts-storage/pipeline-to-storage.png)](media/concepts-storage/pipeline-to-storage.png#lightbox)
 
 > [!WARNING]
 > As the owner of the Azure Blob storage account where cold store data resides, you have full access to all data in the account. This access includes write and delete permissions. Don't edit or delete the data that Azure Time Series Insights Gen2 writes because that can cause data loss.
 
 ## Data availability
 
-Azure Time Series Insights Gen2 partitions and indexes data for optimum query performance. Data becomes available to query from both warm (if enabled) and cold store after it's indexed. The amount of data that's being ingested can affect this availability.
+Azure Time Series Insights Gen2 partitions and indexes data for optimum query performance. Data becomes available to query from both warm (if enabled) and cold store after it's indexed. The amount of data that's being ingested and the per-partition throughput rate can affect availability. Review the event source [throughput limitations](./concepts-streaming-ingress-throughput-limits.md) and [best practices](./concepts-streaming-ingestion-event-sources.md#streaming-ingestion-best-practices) for best performance. You can also configure a lag [alert](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-environment-mitigate-latency#monitor-latency-and-throttling-with-alerts) to be notified if your environment is experiencing issues processing data.
 
 > [!IMPORTANT]
 > You might experience a period of up to 60 seconds before data becomes available. If you experience significant latency beyond 60 seconds, please submit a support ticket through the Azure portal.
 
-## Azure Storage
+## Warm store
+
+Data in your warm store is available only via the [Time Series Query APIs](./time-series-insights-update-tsq.md), the [Azure Time Series Insights TSI Explorer](./time-series-insights-update-explorer.md), or the [Power BI Connector](./how-to-connect-power-bi.md). Warm store queries are free and there is no quota, but there is a [limit of 30](https://docs.microsoft.com/rest/api/time-series-insights/reference-api-limits#query-apis---limits) concurrent requests.
+
+### Warm store behavior
+
+* When enabled, all data streamed into your environment will be routed to your warm store, regardless of the event timestamp. Note that the streaming ingestion pipeline is built for near-real time streaming and ingesting historical events is [not supported](./concepts-streaming-ingestion-event-sources.md#historical-data-ingestion).
+* The retention period is calculated based on when the event was indexed in warm store, not the event timestamp. This means that data is no longer available in warm store after the retention period has elapsed, even if the event timestamp is for the future.
+  * Example: an event with 10-day weather forecasts is ingested and indexed in a warm storage container configured with a 7-day retention period. After 7 days time, the prediction is no longer accessible in warm store, but can be queried from cold.
+* If you enable warm store on an existing environment that already has recent data indexed in cold storage, note that your warm store will not be back-filled with this data.
+* If you just enabled warm store and are experiencing issues viewing your recent data in the Explorer, you can temporarily toggle warm store queries off:
+
+   [![Disable warm queries](media/concepts-storage/toggle-warm.png)](media/concepts-storage/toggle-warm.png#lightbox)
+
+## Cold store
 
 This section describes Azure Storage details relevant to Azure Time Series Insights Gen2.
 
 For a thorough description of Azure Blob storage, read the [Storage blobs introduction](../storage/blobs/storage-blobs-introduction.md).
 
-### Your storage account
-
-When you create an Azure Time Series Insights Gen2 environment, an Azure Storage account is created as your long-term cold store.  
+### Your cold storage account
 
 Azure Time Series Insights Gen2 retains up to two copies of each event in your Azure Storage account. One copy stores events ordered by ingestion time, always allowing access to events in a time-ordered sequence. Over time, Azure Time Series Insights Gen2 also creates a repartitioned copy of the data to optimize for performant queries.
 

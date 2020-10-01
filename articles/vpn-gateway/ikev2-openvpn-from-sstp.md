@@ -43,7 +43,7 @@ Adding IKEv2 to an existing SSTP VPN gateway will not affect existing clients an
 
 To add IKEv2 to an existing gateway, simply go to the "point-to-site configuration" tab under the Virtual Network Gateway in portal, and select **IKEv2 and SSTP (SSL)** from the drop-down box.
 
-![point-to-site](./media/ikev2-openvpn-from-sstp/sstptoikev2.png "IKEv2")
+![Screenshot that shows the "Point-to-site configuration" page with the "Tunnel type" drop-down open, and "IKEv2 and SSTP(SSL)" selected.](./media/ikev2-openvpn-from-sstp/sstptoikev2.png "IKEv2")
 
 
 ### Option 2 - Remove SSTP and enable OpenVPN on the Gateway

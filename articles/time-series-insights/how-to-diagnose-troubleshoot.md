@@ -76,11 +76,11 @@ This problem occurs when the key provided when creating your event source is no 
 
 To update your Time Series Insights Gen2 environment with the new key open your hub resource in the Azure portal and copy the new key. Navigate to your TSI resource and click on Event Sources. 
 
-   [![Update key.](media/preview-troubleshoot/update-hub-key-step-1.png)](media/preview-troubleshoot/update-hub-key-step-1.png#lightbox)
+   [![Screenshot shows T S I resource with Event Sources menu item called out.](media/preview-troubleshoot/update-hub-key-step-1.png)](media/preview-troubleshoot/update-hub-key-step-1.png#lightbox)
 
 Select the event source(s) that have from which ingestion has stopped, paste in the new key and click Save.
 
-   [![Update key.](media/preview-troubleshoot/update-hub-key-step-2.png)](media/preview-troubleshoot/update-hub-key-step-2.png#lightbox)
+   [![Screenshot shows T S I resource with I o T hub policy key entered.](media/preview-troubleshoot/update-hub-key-step-2.png)](media/preview-troubleshoot/update-hub-key-step-2.png#lightbox)
 
 ## Problem: My event source's Timestamp property name doesn't work
 
@@ -124,7 +124,7 @@ This problem might occur if your environment doesn't have a Time Series Model hi
 
 This problem might occur if you are not using the latest version of the Power BI Connector in Power BI Desktop.
 
-[![Unparented instances will display a warning.](media/preview-troubleshoot/power-bi-unable-to-connect.png)](media/preview-troubleshoot/power-bi-unable-to-connect.png#lightbox)
+[![Screenshot shows the Unable to connect dialog box.](media/preview-troubleshoot/power-bi-unable-to-connect.png)](media/preview-troubleshoot/power-bi-unable-to-connect.png#lightbox)
 
 * Check the version of your Power BI Desktop and make sure that you're using the July 2020 Version. If not, update your Power BI Desktop and run the connector again. 
 

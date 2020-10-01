@@ -115,7 +115,7 @@ This section provides information on the purpose of each component and its role 
 
 ## Secure devices
 
-The physical devices used by privileged users to perform administrative functions are valuable targets for malicious actors. Maintaining the security and integrity of the physical devices and ensuring that they are free from malicious software and protecting them from compromise is a key part of providing a secure remote administration capability. This involves high priority security configuration as specified in the ACSC's Essential Eight Strategies to Mitigate Cyber Security Incidents such as application whitelisting, patching applications, application hardening, and patching operating systems. These capabilities must be installed, configured, audited, validated, and reported on to ensure the state of a device is compliant with organisation requirements.
+The physical devices used by privileged users to perform administrative functions are valuable targets for malicious actors. Maintaining the security and integrity of the physical devices and ensuring that they are free from malicious software and protecting them from compromise is a key part of providing a secure remote administration capability. This involves high priority security configuration as specified in the ACSC's Essential Eight Strategies to Mitigate Cyber Security Incidents such as application filtering, patching applications, application hardening, and patching operating systems. These capabilities must be installed, configured, audited, validated, and reported on to ensure the state of a device is compliant with organisation requirements.
 
 ### Privileged workstation
 

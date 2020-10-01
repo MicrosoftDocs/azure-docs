@@ -17,8 +17,8 @@ You can create rules in IoT Central that trigger actions, such as sending an ema
 
 The Azure IoT Central V3 connector for Power Automate and Azure Logic Apps lets you create more advanced rules to automate operations in IoT Central:
 
-- When a rule fires in your Azure IoT Central app, it can trigger a workflow in Power Automate or Azure Logic Apps. These workflows can run actions in other cloud services, such as Office 365, or a third-party service.
-- An event in another cloud service, such as Office 365, can trigger a workflow in Power Automate or Azure Logic Apps. These workflows can run actions or retrieve data from your IoT Central application.
+- When a rule fires in your Azure IoT Central app, it can trigger a workflow in Power Automate or Azure Logic Apps. These workflows can run actions in other cloud services, such as Microsoft 365 or a third-party service.
+- An event in another cloud service, such as Microsoft 365, can trigger a workflow in Power Automate or Azure Logic Apps. These workflows can run actions or retrieve data from your IoT Central application.
 
 ## Prerequisites
 

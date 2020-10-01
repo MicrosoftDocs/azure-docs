@@ -1,6 +1,6 @@
 ---
 title: Co-locate Linux VMs 
-description: Learn about how co-locating Azure VM resources can improve latency.
+description: Learn about how co-locating Azure VM resources for Linux can improve latency.
 ms.service: virtual-machines
 ms.topic: conceptual
 ms.date: 10/30/2019

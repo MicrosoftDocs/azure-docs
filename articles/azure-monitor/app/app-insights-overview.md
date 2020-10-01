@@ -54,7 +54,7 @@ There are plenty of ways to explore your data. Check out these articles:
 | [**Dashboards**](./overview-dashboard.md)<br/>Mash up data from multiple resources and share with others. Great for multi-component applications, and for continuous display in the team room. |![Dashboards sample](./media/app-insights-overview/dashboard-tn.png) |
 | [**Live Metrics Stream**](./live-stream.md)<br/>When you deploy a new build, watch these near-real-time performance indicators to make sure everything works as expected. |![Live metrics sample](./media/app-insights-overview/live-metrics-tn.png) |
 | [**Analytics**](../log-query/log-query-overview.md)<br/>Answer tough questions about your app's performance and usage by using this powerful query language. |![Analytics sample](./media/app-insights-overview/analytics-tn.png) |
-| [**Visual Studio**](./visual-studio.md)<br/>See performance data in the code. Go to code from stack traces.|![Visual studio](./media/app-insights-overview/visual-studio-tn.png) |
+| [**Visual Studio**](./visual-studio.md)<br/>See performance data in the code. Go to code from stack traces.|![Screenshot shows Exception Details in Visual Studio and an example of going to code from stack traces.](./media/app-insights-overview/visual-studio-tn.png) |
 | [**Snapshot debugger**](./snapshot-debugger.md)<br/>Debug snapshots sampled from live operations, with parameter values.|![Visual studio](./media/app-insights-overview/snapshot.png) |
 | [**Power BI**](./export-power-bi.md)<br/>Integrate usage metrics with other business intelligence.| ![Power BI](./media/app-insights-overview/power-bi.png)|
 | [**REST API**](https://dev.applicationinsights.io/)<br/>Write code to run queries over your metrics and raw data.| ![REST API](./media/app-insights-overview/rest-tn.png) |
@@ -118,6 +118,7 @@ Get started at development time with:
 * [Java](./java-get-started.md)
 * [Node.js](./nodejs.md)
 * [Python](./opencensus-python.md)
+* [JavaScript](./javascript.md)
 
 
 ## Support and feedback
