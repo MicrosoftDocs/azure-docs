@@ -44,7 +44,7 @@ Sign in to the Azure portal at [https://portal.azure.com](https://portal.azure.c
 
 A single dashboard can contain resources from multiple applications, resource groups, and subscriptions.  Start the tutorial by creating a new dashboard for your application.  
 
-1. In the menu dropdown on the left in Azure Portal, select **Dashboard**.
+1. In the menu dropdown on the left in Azure portal, select **Dashboard**.
 
     ![Azure Portal menu dropdown](media/tutorial-app-dashboards/dashboard-from-menu.png)
 
@@ -71,7 +71,7 @@ A dashboard with static text isn't very interesting, so now add a tile from Appl
 3. In the "Pin to dashboard" tab, select which dashboard to add the tile to or create a new one.
  
 3. In the top right, a notification will appear that your tile was pinned to your dashboard.  Select **Pinned to dashboard** in the notification to return to your dashboard or use the dashboard pane.
-4. That tile is now added to your dashboard. Select **Edit** to change the positioning of the tile. Select and drag it into position and then click **Done customizing**. Your dashboard now has a tile with some useful information.
+4. That tile is now added to your dashboard. Select **Edit** to change the positioning of the tile. Select and drag it into position and then select **Done customizing**. Your dashboard now has a tile with some useful information.
 
     [![Dashboard in edit mode](media/tutorial-app-dashboards/dashboard-edit-mode.png)](media/tutorial-app-dashboards/dashboard-edit-mode.png#lightbox)
 
@@ -109,7 +109,7 @@ Azure Application Insights Logs provides a rich query language that allows you t
 4. Select **Run** to validate the results of the query.
 5. Select the pin icon ![Pin icon](media/tutorial-app-dashboards/pushpin.png) and select the name of your dashboard.
 
-5. Before you go back to the dashboard, add another query, but this time render it as a chart so you see the different ways to visualize a logs query in a dashboard. Start with the following query that summarizes the top 10 operations with the most exceptions.
+5. Before you go back to the dashboard, add another query, but render it as a chart so you see the different ways to visualize a logs query in a dashboard. Start with the following query that summarizes the top 10 operations with the most exceptions.
 
     ``` Kusto
 	exceptions
