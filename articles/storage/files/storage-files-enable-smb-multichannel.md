@@ -81,4 +81,4 @@ Azure CLI does not yet support configuring SMB Multichannel. See the portal inst
 - [Remount your file share](storage-how-to-use-files-windows.md) to take advantage of SMB Multichannel.
 - [Troubleshoot any issues you have related to SMB Multichannel](storage-troubleshooting-files-performance.md#smb-multichannel-option-not-visible-under-file-share-settings).
 - To learn more about the improvements, see [SMB Multichannel performance](storage-files-smb-multichannel-performance.md)
- - To learn more about the Windows SMB Multichannel feature, see [Deploy SMB Mulitchannel](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/dn610980(v=ws.11)).
+ - To learn more about the Windows SMB Multichannel feature, see [Manage SMB Mulitchannel](https://docs.microsoft.com/en-us/azure-stack/hci/manage/manage-smb-multichannel).
