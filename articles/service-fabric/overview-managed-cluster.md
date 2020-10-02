@@ -57,8 +57,8 @@ Service Fabric managed clusters are available in both Basic and Standard SKUs.
 | Add/remove node types | No | Yes |
 | Zone redundancy | No | Yes |
 
-## Service Fabric managed cluster known gaps 
-As this is an early preview version of Service Fabric managed clusters their are some scenario gaps to be aware of. We are working to add these features in future releases. 
+## Service Fabric managed cluster feature roadmap
+As this is an early preview version of Service Fabric managed clusters their are some gaps to be aware of. These features will become available in future releases. 
 
 * Publishing applications to clusters directly from Visual Studio
 * Managed Identities 

@@ -45,7 +45,7 @@ To create an HDInsight cluster with a Data Lake Storage Gen1 account as the defa
 2. Follow [Create clusters](../hdinsight/hdinsight-hadoop-create-linux-clusters-portal.md#create-clusters) for the general information on creating HDInsight clusters.
 3. On the **Storage** blade, under **Primary storage type**, select **Azure Data Lake Storage Gen1**, and then enter the following information:
 
-    ![Add service principal to HDInsight cluster](./media/data-lake-store-hdinsight-hadoop-use-portal/hdi.adl.1.adls.storage.png "Add service principal to HDInsight cluster")
+    ![Screenshot of the Storage blade with the Primary storage type option, Select Data Lake Store account option, and Data Lake Store access option called out.](./media/data-lake-store-hdinsight-hadoop-use-portal/hdi.adl.1.adls.storage.png "Add service principal to HDInsight cluster")
 
     * **Select Data Lake Store account**: Select an existing Data Lake Storage Gen1 account. An existing Data Lake Storage Gen1 account is required.  See [Prerequisites](#prerequisites).
     * **Root path**: Enter a path where the cluster-specific files are to be stored. On the screenshot, it is __/clusters/myhdiadlcluster/__, in which the __/clusters__ folder must exist, and the Portal creates *myhdicluster* folder.  The *myhdicluster* is the cluster name.
@@ -64,7 +64,7 @@ To create a HDInsight cluster with a Data Lake Storage Gen1 account as an additi
 2. Follow [Create clusters](../hdinsight/hdinsight-hadoop-create-linux-clusters-portal.md#create-clusters) for the general information on creating HDInsight clusters.
 3. On the **Storage** blade, under **Primary storage type**, select **Azure Storage**, and then enter the following information:
 
-    ![Add service principal to HDInsight cluster](./media/data-lake-store-hdinsight-hadoop-use-portal/hdi.adl.1.png "Add service principal to HDInsight cluster")
+    ![Screenshot of the Storage blade with the Primary storage type option and Data Lake Store access option called out.](./media/data-lake-store-hdinsight-hadoop-use-portal/hdi.adl.1.png "Add service principal to HDInsight cluster")
 
     * **Selection method** - To specify a storage account that is part of your Azure subscription,  select **My subscriptions**, and then select the storage account. To specify a storage account that is outside your Azure subscription, select **Access key**, and then provide the information for the outside storage account.
 
@@ -91,7 +91,7 @@ To use an existing service principal from the Azure portal:
 1. Select **Service principal**, and then select a service principal.
 1. Upload the certificate (.pfx file) that's associated with your selected service principal, and then enter the certificate password.
 
-    ![Add service principal to HDInsight cluster](./media/data-lake-store-hdinsight-hadoop-use-portal/hdi.adl.5.png "Add service principal to HDInsight cluster")
+    ![Screenshot of the Data Lake Storage Gen1 access blade with the Use existing option called out and the Select a Service Principal blade with the h d insight s p option and Select option called out.](./media/data-lake-store-hdinsight-hadoop-use-portal/hdi.adl.5.png "Add service principal to HDInsight cluster")
 
 1. Select **Access** to configure the folder access.  See [Configure file permissions](#configure-file-permissions).
 
@@ -117,7 +117,7 @@ To assign permission at the Data Lake Storage Gen1 account root level:
 1. On the **Data Lake Storage Gen1 access** blade, select **Access**. The **Select file permissions** blade is opened. It lists all the Data Lake Storage Gen1 accounts in your subscription.
 1. Hover (do not click) the mouse over the name of the Data Lake Storage Gen1 account to make the check box visible, then select the check box.
 
-    ![Add service principal to HDInsight cluster](./media/data-lake-store-hdinsight-hadoop-use-portal/hdi.adl.3.png "Add service principal to HDInsight cluster")
+    ![Screenshot of the Self file permissions blade showing the Data Lake Storage Gen 1 account highlighted and selected.](./media/data-lake-store-hdinsight-hadoop-use-portal/hdi.adl.3.png "Add service principal to HDInsight cluster")
 
    By default, __READ__, __WRITE__, AND __EXECUTE__ are all selected.
 
@@ -145,11 +145,11 @@ After the cluster setup is complete, on the cluster blade, verify your results b
 
 * To verify that the associated storage for the cluster is the Data Lake Storage Gen1 account that you specified, select **Storage accounts** in the left pane.
 
-    ![Add service principal to HDInsight cluster](./media/data-lake-store-hdinsight-hadoop-use-portal/hdi.adl.6-1.png "Add service principal to HDInsight cluster")
+    ![Screenshot of the Data Lake Storage Gen 1 account with the Storage Accounts option highlighted.](./media/data-lake-store-hdinsight-hadoop-use-portal/hdi.adl.6-1.png "Add service principal to HDInsight cluster")
 
 * To verify that the service principal is correctly associated with the HDInsight cluster, select **Data Lake Storage Gen1 access** in the left pane.
 
-    ![Add service principal to HDInsight cluster](./media/data-lake-store-hdinsight-hadoop-use-portal/hdi.adl.6.png "Add service principal to HDInsight cluster")
+    ![Screenshot of the Data Lake Storage Gen 1 account with the Data Lake Storage Gen 1 access option highlighted.](./media/data-lake-store-hdinsight-hadoop-use-portal/hdi.adl.6.png "Add service principal to HDInsight cluster")
 
 ## Examples
 

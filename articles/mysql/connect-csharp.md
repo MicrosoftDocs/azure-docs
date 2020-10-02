@@ -7,7 +7,7 @@ ms.service: mysql
 ms.custom: "mvc, devx-track-csharp"
 ms.devlang: csharp
 ms.topic: quickstart
-ms.date: 5/26/2020
+ms.date: 9/29/2020
 ---
 
 # Quickstart: Use .NET (C#) to connect and query data in Azure Database for MySQL
@@ -54,7 +54,7 @@ Replace the `Server`, `Database`, `UserID`, and `Password` parameters with the v
 ```csharp
 using System;
 using System.Threading.Tasks;
-using MySql.Data.MySqlClient;
+using MySqlConnector;
 
 namespace AzureMySqlExample
 {
@@ -119,7 +119,7 @@ Replace the `Server`, `Database`, `UserID`, and `Password` parameters with the v
 ```csharp
 using System;
 using System.Threading.Tasks;
-using MySql.Data.MySqlClient;
+using MySqlConnector;
 
 namespace AzureMySqlExample
 {
@@ -176,7 +176,7 @@ Replace the `Server`, `Database`, `UserID`, and `Password` parameters with the v
 ```csharp
 using System;
 using System.Threading.Tasks;
-using MySql.Data.MySqlClient;
+using MySqlConnector;
 
 namespace AzureMySqlExample
 {
@@ -228,7 +228,7 @@ Replace the `Server`, `Database`, `UserID`, and `Password` parameters with the v
 ```csharp
 using System;
 using System.Threading.Tasks;
-using MySql.Data.MySqlClient;
+using MySqlConnector;
 
 namespace AzureMySqlExample
 {

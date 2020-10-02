@@ -51,7 +51,7 @@ To override the generated Resource Manager template parameters when publishing f
 
 Triggers determine when a pipeline run should be kicked off. Currently triggers can be on a wall clock schedule, operate on a periodic interval, or depend on an event. For more information, learn about [trigger execution](concepts-pipeline-execution-triggers.md#trigger-execution). In the management hub, you can create, edit, delete, or view the current state of a trigger.
 
-![Manage custom params](media/author-management-hub/management-hub-triggers.png)
+![Screenshot that shows where to create, edit, delete, nor view the current state of a trigger.](media/author-management-hub/management-hub-triggers.png)
 
 ### Global parameters
 

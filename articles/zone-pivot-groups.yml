@@ -201,6 +201,22 @@ groups:
     title: Go
   - id: programming-language-ruby
     title: Ruby
+- id: programming-languages-set-seventeen
+# Owner: erhopf
+  title: Programming languages
+  prompt: Choose a programming language or CLI
+  pivots:
+  - id: programming-language-csharp
+    title: C#
+  - id: programming-language-cpp
+    title: C++
+  - id: programming-language-javascript
+    title: JavaScript  
+  - id: programming-language-curl
+    title: REST
+# To be enabled later.
+#  - id: programmer-tool-spx
+#    title: CLI
 # Service-specific groups
 - id: cogsvcs-text-analytics-features
   title: Text Analytics features
