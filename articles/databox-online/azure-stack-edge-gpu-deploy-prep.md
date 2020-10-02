@@ -177,9 +177,12 @@ After the Azure Stack Edge resource is up and running, you'll need to get the ac
 
     A key vault is created for each Azure Stack Edge resource that is activated with your device. The key vault lets you store and access secrets, for example, the Channel Integrity Key (CIK) for the service is stored in the key vault. 
 
-    Once you have specified a key vault name, select **Generate key** to create an activation key. Wait a few minutes as the key vault and activation key are created. Select the copy icon to copy the key and save it for later use.
+    Once you have specified a key vault name, select **Generate key** to create an activation key. 
 
     ![Get activation key](media/azure-stack-edge-gpu-deploy-prep/azure-stack-edge-resource-3.png)
+
+    Wait a few minutes as the key vault and activation key are created. Select the copy icon to copy the key and save it for later use.
+
 
 > [!IMPORTANT]
 > - The activation key expires three days after it is generated.
