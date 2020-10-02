@@ -8,11 +8,38 @@ metadata:
   ms.topic: landing-page
   author: erikadoyle
   ms.author: edoyle
-  ms.date: 12/04/2019
+  ms.date: 07/31/2020
 
 landingContent:
 # Cards and links should be based on top customer tasks or top subjects
 # Start card title with a verb
+  # Card
+  - title: Try Service Fabric managed clusters (preview)
+    linkLists:
+      - linkListType: get-started
+        links:
+          - text: What are Service Fabric managed clusters (preview)
+            url: overview-managed-cluster.md
+          - text: Deploy a managed cluster (preview)
+            url: quickstart-managed-cluster-template.md
+
+      - linkListType: tutorial
+        links:
+          - text: Create a managed cluster (preview)
+            url: tutorial-managed-cluster-deploy.md
+          - text: Scale out a managed cluster node type (preview)
+            url: tutorial-managed-cluster-scale.md
+          - text: Add and remove managed cluster node types (preview)
+            url: tutorial-managed-cluster-add-remove-node-type.md
+          - text: Deploy an app to a managed cluster (preview)
+            url: tutorial-managed-cluster-deploy-app.md
+          - text: Add a VM scale set extension to a managed cluster node type (preview)
+            url: how-to-managed-cluster-vmss-extension.md
+      - linkListType: whats-new
+        links:
+          - text: Service Fabric managed clusters FAQ
+            url: faq-managed-cluster.md
+
   # Card
   - title: About Service Fabric
     linkLists:
@@ -147,7 +174,7 @@ landingContent:
             url: samples-cli.md
       - linkListType: whats-new
         links:
-          - text: Commonly asked Service Fabric questions
+          - text: Service Fabric FAQ
             url: service-fabric-common-questions.md
 
   # Card

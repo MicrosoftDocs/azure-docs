@@ -226,8 +226,8 @@
         href: ../data-factory/concepts-data-flow-expression-builder.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
       - name: Expression language
         href: ../data-factory/data-flow-expression-functions.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
-      - name: Differences from Azure Data Factory
-        href: ./data-integration/concepts-data-factory-differences.md
+    - name: Differences from Azure Data Factory
+      href: ./data-integration/concepts-data-factory-differences.md
   - name: Spark
     items:
     - name: Overview

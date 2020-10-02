@@ -82,7 +82,7 @@ If no resolution is provided for the sign-in error, we suggest that you use the 
 
 You might sign in successfully and then see an error on the application's page. This occurs when Azure AD issued a token to the application, but the application does not accept the response.
 
-To resolve the error, follow these steps:
+To resolve the error, follow these steps, or watch this [short video about how to use Azure AD to troubleshoot SAML SSO](https://www.youtube.com/watch?v=poQCJK0WPUk&list=PLLasX02E8BPBm1xNMRdvP6GtA6otQUqp0&index=8):
 
 1. If the application is in the Azure AD Gallery, verify that you've followed all the steps for integrating the application with Azure AD. To find the integration instructions for your application, see the [list of SaaS application integration tutorials](../saas-apps/tutorial-list.md).
 1. Retrieve the SAML response.

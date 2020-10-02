@@ -57,7 +57,6 @@ Azure Marketplace is an online applications and services marketplace where you c
 
    |**Parameter**  |**Description**|
    |---------|---------|
-   | Name | Name for the module. |
    | MSSQL_SA_PASSWORD  | Change the default value to specify a strong password for the SQL Edge admin account. |
    | MSSQL_LCID   | Change the default value to set the desired language ID to use for SQL Edge. For example, 1036 is French. |
    | MSSQL_COLLATION | Change the default value to set the default collation for SQL Edge. This setting overrides the default mapping of language ID (LCID) to collation. |
@@ -105,7 +104,7 @@ Azure Marketplace is an online applications and services marketplace where you c
    
 8. On the **Update IoT Edge Module** pane, click **Update**.
 9. On the **Set modules on device** page click **Next: Routes >** if you need to define routes for your deployment. Otherwise click **Review + Create**. For more information on configuring routes, see [Deploy modules and establish routes in IoT Edge](../iot-edge/module-composition.md).
-11. On the **Update IoT Edge Module** pane, click **Create**.
+11. On the **Set modules on device** page, click **Create**.
 
 ## Connect to Azure SQL Edge
 

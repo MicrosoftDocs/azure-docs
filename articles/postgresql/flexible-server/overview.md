@@ -44,11 +44,10 @@ During planned or unplanned failover events, if the server goes down, the servic
 1. A new compute Linux VM is provisioned.
 2. The storage with data files is mapped to the new Virtual Machine
 3. PostgreSQL database engine is brought online on the new Virtual Machine.
-4. Gateway service ensures transparent failover ensuring no application side changes requires.
 
 Picture below shows transition for VM and storage failure.
 
- :::image type="content" source="./media/overview/overview-azure-postgres-flex-virtualmachine-storage-failure.png" alt-text="Flexible server - VM and storage failures":::
+ :::image type="content" source="./media/overview/overview-azure-postgres-flex-virtualmachine.png" alt-text="Flexible server - VM and storage failures":::
 
 If zone redundant high availability is configured, the service provisions and maintains a hot standby server across availability zone within the same Azure region. The data changes on the source server is synchronously replicated to the standby server to ensure zero data loss. With zone redundant high availability, once the planned or unplanned failover event is triggered, the standby server comes online immediately and is available to process incoming transactions. This allows the service resiliency from availability zone failure within an Azure region that supports multiple availability zones as shown in the picture below.
 
