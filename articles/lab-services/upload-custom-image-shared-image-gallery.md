@@ -9,12 +9,13 @@ ms.topic: how-to
 
 Shared Image Gallery is available to you for importing your own custom images for creating labs in Azure Lab Services. University IT departments will find importing images especially beneficial for the following reasons: 
 
-* No need to create images manually using a lab's template VM.
-
-    Using the template VM for creating images doesn't scale when an IT department is setting up labs for a large number of classes.
-* Ability to use familiar automated tools for building images helps to ensure consistency/accuracy across a large number of images (such as SCCM, Endpoint Mgr, or another tool).
+* You don’t have to manually create images using a lab’s template VM.
+* You can upload images created using other tools, such as SCCM, Endpoint Manager, etc.
 
 This article describes steps that can be taken to bring a custom image and use in Azure Lab Services. 
+
+> [!IMPORTANT]
+>  Don't simply reuse your existing images from physical labs. <br/>You need to restructure your lab images appropriatly when you move from a physical lab environment to Az Labs. <br/>For details, see the [Moving from a Physical Lab to Azure Lab Services](https://techcommunity.microsoft.com/t5/azure-lab-services/moving-from-a-physical-lab-to-azure-lab-services/ba-p/1654931) blog post.
 
 ## Bring custom image from a physical lab environment
 
@@ -25,7 +26,10 @@ Many options exist for creating a VHD from a physical lab environment. The follo
 1. Start with a Hyper-V VM that can be imaged using SCCM, Endpoint Mgr, or another tool.
 
     1. The VM must be created as a Generation 1 VM.
-    1. The VM must use a fixed disk size; here, you also can specify the size of the disk (NOTE: Azure Lab Services doesn’t support images with > 128 GB of disk size, make sure to select the disk size appropriately).
+    1. The VM must use a fixed disk size; here, you also can specify the size of the disk.
+    
+        > [!NOTE]
+	> Azure Lab Services doesn’t support images with > 128 GB of disk size.
     
     :::image type="content" source="./media/upload-custom-image-shared-image-gallery/connect-virtual-hard-disk.png" alt-text="Connect virtual hard disk":::   
     1. Image the VM as you typically would using SCCM, Endpoint Mgr, or any other tool.
@@ -69,4 +73,5 @@ Many options exist for creating a VHD from a physical lab environment. The follo
 
 ## Next steps
 
-[Specify Marketplace images available to lab creators](specify-marketplace-images.md)
+* (Shared Image Gallery overview)[../azure/virtual-machines/windows/shared-image-galleries.md]
+* (How to use shared image gallery)[how-to-use-shared-image-gallery.md]
