@@ -7,7 +7,7 @@ ms.service: synapse-analytics
 ms.topic: quickstart
 ms.subservice: 
 ms.date: 09/03/2020
-ms.author: pimorano
+ms.author: saveenr
 ms.reviewer: jrasnick 
 ---
 
