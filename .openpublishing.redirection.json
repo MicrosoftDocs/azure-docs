@@ -1527,6 +1527,12 @@
       "redirect_document_id": false
     },
     {
+    {
+      "source_path": "articles/machine-learning/how-to-create-attach-compute-sdk.md",
+      "redirect_url": "/azure/machine-learning/how-to-create-compute-targets",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/open-datasets/tutorial-opendatasets-automl.md",
       "redirect_url": "/azure/machine-learning/tutorial-auto-train-models",
       "redirect_document_id": false
