@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Resource sets, asset details, schemas, and classifications'
+title: 'Tutorial: Use resource sets, asset details, schemas, and classifications'
 description: This tutorial describes how to use resource sets, asset details, schemas, and classifications. 
 author: viseshag
 ms.author: viseshag
@@ -8,11 +8,12 @@ ms.subservice: data-catalog-gen2
 ms.topic: tutorial
 ms.date: 09/30/2020
 ---
-# Tutorial: Resource sets, asset details, schemas, and classifications
+
+# Tutorial: Use resource sets, asset details, schemas, and classifications
 
 Explore the key components of your catalog: resource sets, asset details, schemas, and classifications.
 
-In this tutorial, you'll learn how to:
+In this tutorial, you learn how to:
 
 > [!div class="checklist"]
 >
@@ -34,7 +35,9 @@ Sign in to the [Azure portal](https://portal.azure.com).
 
 ## Review resource sets
 
-A resource set is a single object in the catalog that represents many physical objects in storage. The objects usually share a common schema and, in most cases, a naming convention or folder structure. For example, the date format is *yyyy/mm/dd*.
+A resource set is a single object in the catalog that represents many physical objects in storage. The objects usually share a common schema and, in most cases, a naming convention or folder structure. For example, the date format is *yyyy/mm/dd*. 
+<!--- Temporarily comment out until rest of release branch files are ported
+For more information about resource sets, see [Resource sets in Azure Babylon](concept-resource-sets.md). --->
 
 1. Go to your Azure Babylon portal at `https://web.babylon.azure.com/resource/<your Azure Babylon account name>`.
 
@@ -86,11 +89,6 @@ In this tutorial, you learned how to:
 
 Advance to the next tutorial to learn about the glossary and how to define and import new terms for assets.
 
-<!---
 > [!div class="nextstepaction"]
 > [Tutorial: Starter Kit #5 - Glossary, terms, and imports](starter-kit-tutorial-5.md)
---->
 
-<!--- Temporarily comment out until rest of release branch files are ported
-For more information about resource sets, see [Resource sets in Azure Babylon](concept-resource-sets.md).
---->

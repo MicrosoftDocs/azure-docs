@@ -8,11 +8,12 @@ ms.subservice: data-catalog-gen2
 ms.topic: tutorial
 ms.date: 09/29/2020
 ---
+
 # Tutorial: Browse assets and view their lineage
 
 Browsing Azure Babylon is a powerful way to discover assets and view their important details, such as lineage.
 
-In this tutorial, you'll learn how to:
+In this tutorial, you learn how to:
 
 > [!div class="checklist"]
 >
@@ -33,6 +34,8 @@ Sign in to the [Azure portal](https://portal.azure.com).
 ## Browse for assets in the catalog
 
 In the preceding tutorial, you learned how search can help you discover assets in Azure Babylon catalog. Another way to discover assets in the catalog is by using the catalog's browsing experience.
+
+To browse your Azure Babylon catalog, follow these steps:
 
 1. Go to your Azure Babylon portal at `https://web.babylon.azure.com/resource/<your Azure Babylon account name>`.
 
@@ -58,7 +61,7 @@ In the preceding tutorial, you learned how search can help you discover assets i
 
 On the asset details page, explore the source of the data:
 
-1. Select the **Lineage** tab of the **Contoso_AccountsPayable_{N}** resource set.
+1. Select the **Lineage** tab of the **Contoso_AccountsPayable_{N}.ssv** resource set.
 
    The asset you selected is displayed. The lineage information that you're viewing shows that this resource set was copied from your Azure Blob storage account to Azure Data Lake Storage Gen2.
 
@@ -68,7 +71,10 @@ On the asset details page, explore the source of the data:
 
    Observe that the window has switched to the Azure Blob resource set, which was the source of the Azure Data Lake Storage Gen2 resource set that you originally browsed for.
 
-1. Select the **Details** tab to investigate the asset and confirm its details.
+1. Select the **Overview** tab to investigate the asset and confirm its details.
+
+For information about how to create an Azure Data Factory data flow activity between an Azure Blob and Azure Data Lake Storage Gen2 resource set and observe the lineage, see: [Azure Data Factory data flow activity](https://docs.microsoft.com/azure/data-factory/concepts-data-flow-overview).
+
 
 ## Next steps
 
@@ -83,5 +89,3 @@ Advance to the next tutorial to learn about resource sets, asset details, schema
 
 > [!div class="nextstepaction"]
 > [Resource sets, asset details, schema, and classification](starter-kit-tutorial-4.md)
-
-For information about how to create an Azure Data Factory data flow activity between an Azure Blob and Azure Data Lake Storage Gen2 resource set and observe the lineage, see: [Azure Data Factory data flow activity](https://docs.microsoft.com/azure/data-factory/concepts-data-flow-overview).
