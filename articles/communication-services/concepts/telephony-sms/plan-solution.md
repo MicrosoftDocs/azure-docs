@@ -34,7 +34,7 @@ Now, let's review the phone number types and capabilities available through Comm
 
 Azure Communication Services provides excellent flexibility for developers. On most phone numbers, we allow you to configure an "a la carte" set of plans. Some developers only need an inbound calling plan; some might opt for inbound calling and outbound SMS plans. These plans can be selected as you lease and/or port your telephone numbers within Communication Services.
 
-The available plans depend on the country, use case and phone number type that you're operating within. The diagram below represents the decision flow:	
+The plans that are available to you depend on the country that you're operating within, your use case, and the phone number type that you've selected:	
 
 :::image type="content" source="../media/plan-solution/sample-decision-flow.PNG" alt-text="Diagram showing sample decision flow.":::
 
