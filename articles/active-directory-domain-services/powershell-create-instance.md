@@ -50,9 +50,15 @@ New-AzureADServicePrincipal -AppId "2565bd9d-da50-47d4-8b85-4c97f669dc36"
 
 Now create an Azure AD group named *AAD DC Administrators*. Users added to this group are then granted permissions to perform administration tasks on the managed domain.
 
-Create the *AAD DC Administrators* group using the [New-AzureADGroup][New-AzureADGroup] cmdlet, which also checks if the group already exists:
+First, get the *AAD DC Administrators* group object ID using the [Get-AzureADGroup][Get-AzureADGroup] cmdlet. If the group doesn't exist, create it with the *AAD DC Administrators* group using the [New-AzureADGroup][New-AzureADGroup] cmdlet:
 
 ```powershell
+# First, retrieve the object ID of the 'AAD DC Administrators' group.
+$GroupObjectId = Get-AzureADGroup `
+  -Filter "DisplayName eq 'AAD DC Administrators'" | `
+  Select-Object ObjectId
+
+# If the group doesn't exist, create it
 if (!$GroupObjectId) {
   $GroupObjectId = New-AzureADGroup -DisplayName "AAD DC Administrators" `
     -Description "Delegated group to administer Azure AD Domain Services" `
@@ -65,17 +71,12 @@ else {
 }
 ```
 
-With the *AAD DC Administrators* group created, add a user to the group using the [Add-AzureADGroupMember][Add-AzureADGroupMember] cmdlet. You first get the *AAD DC Administrators* group object ID using the [Get-AzureADGroup][Get-AzureADGroup] cmdlet, then the desired user's object ID using the [Get-AzureADUser][Get-AzureADUser] cmdlet.
+With the *AAD DC Administrators* group created, get the desired user's object ID using the [Get-AzureADUser][Get-AzureADUser] cmdlet, then add the user to the group using the [Add-AzureADGroupMember][Add-AzureADGroupMember] cmdlet..
 
 In the following example, the user object ID for the account with a UPN of `admin@contoso.onmicrosoft.com`. Replace this user account with the UPN of the user you wish to add to the *AAD DC Administrators* group:
 
 ```powershell
-# First, retrieve the object ID of the newly created 'AAD DC Administrators' group.
-$GroupObjectId = Get-AzureADGroup `
-  -Filter "DisplayName eq 'AAD DC Administrators'" | `
-  Select-Object ObjectId
-
-# Now, retrieve the object ID of the user you'd like to add to the group.
+# Retrieve the object ID of the user you'd like to add to the group.
 $UserObjectId = Get-AzureADUser `
   -Filter "UserPrincipalName eq 'admin@contoso.onmicrosoft.com'" | `
   Select-Object ObjectId
@@ -249,6 +250,11 @@ Connect-AzAccount
 
 # Create the service principal for Azure AD Domain Services.
 New-AzureADServicePrincipal -AppId "2565bd9d-da50-47d4-8b85-4c97f669dc36"
+
+# First, retrieve the object ID of the 'AAD DC Administrators' group.
+$GroupObjectId = Get-AzureADGroup `
+  -Filter "DisplayName eq 'AAD DC Administrators'" | `
+  Select-Object ObjectId
 
 # Create the delegated administration group for Azure AD Domain Services if it doesn't already exist.
 if (!$GroupObjectId) {
