@@ -8,6 +8,8 @@ ms.custom: [devx-track-python, devx-track-azurecli]
 
 # Quickstart: Create a function in Azure using Python that responds to HTTP requests
 
+[!INCLUDE [functions-language-selector-quickstart-cli](../../includes/functions-language-selector-quickstart-cli.md)]
+
 In this article, you use command-line tools to create a Python function that responds to HTTP requests. After testing the code locally, you deploy it to the serverless environment of Azure Functions.
 
 Completing this quickstart incurs a small cost of a few USD cents or less in your Azure account.

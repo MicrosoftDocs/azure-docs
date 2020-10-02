@@ -8,6 +8,8 @@ ms.custom: devx-track-python
 
 # Quickstart: Create a function in Azure with Python using Visual Studio Code
 
+[!INCLUDE [functions-language-selector-quickstart-vs-code](../../includes/functions-language-selector-quickstart-vs-code.md)]
+
 In this article, you use Visual Studio Code to create a Python function that responds to HTTP requests. After testing the code locally, you deploy it to the serverless environment of Azure Functions.
 
 Completing this quickstart incurs a small cost of a few USD cents or less in your Azure account.
