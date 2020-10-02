@@ -24,7 +24,9 @@ Some organizations haven't moved to hybrid authentication for the following reas
 * Changing the Azure AD UPN creates a mis-match between on-prem and Azure AD environments that could cause problems with certain applications and services.
 * Due to business or compliance reasons, the organization doesn't want to use the on-premises UPN to sign in to Azure AD.
 
-To help with the move to hybrid authentication, you can now configure Azure AD to let users sign in with an email in your verified domain as an alternate login ID. For example, if *Contoso* rebranded to *Fabrikam*, rather than continuing to sign in with the legacy `balas@contoso.com` UPN, email as an alternate login ID can now be used. To access an application or services, users would sign in to Azure AD using their assigned email, such as `balas@fabrikam.com`. This feature is available in the Azure AD Free edition and higher.
+To help with the move to hybrid authentication, you can now configure Azure AD to let users sign in with an email in your verified domain as an alternate login ID. For example, if *Contoso* rebranded to *Fabrikam*, rather than continuing to sign in with the legacy `balas@contoso.com` UPN, email as an alternate login ID can now be used. To access an application or services, users would sign in to Azure AD using their assigned email, such as `balas@fabrikam.com`.
+
+This article shows you how to enable and use email as an alternate login ID. This feature is available in the Azure AD Free edition and higher.
 
 > [!NOTE]
 > Sign in to Azure AD with email as an alternate login ID is a public preview feature of Azure Active Directory. For more information about previews, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
