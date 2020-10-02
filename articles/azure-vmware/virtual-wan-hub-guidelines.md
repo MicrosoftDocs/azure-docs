@@ -33,7 +33,16 @@ To create the site-to-site VPN tunnel, you'll need to create a public-facing IP 
 
 1. In the Azure portal, search on **Virtual WANS**. Select **+Add**. The Create WAN page opens.  
 
-2. Fill in the required fields on the **Create WAN** page. In order to create the Virtual WAN hub, you need to set a location for the resource group. The Virtual WAN is a global resource and is not confined to a specific region. Selecting a region, however, is still required from a management perspective. In the **Type** field, select **Standard**, which will allow more than just the VPN gateway traffic. Select **Review + Create**.
+2. Enter the required fields on the **Create WAN** page and then select **Review + Create**.
+   
+   | Field | Value |
+   | --- | --- |
+   | **Subscription** | Value is pre-populated with the Subscription belonging to the Resource Group. |
+   | **Resource group** | The Virtual WAN is a global resource and is not confined to a specific region.  |
+   | **Resource group location** | To create the Virtual WAN hub, you need to set a location for the resource group.  |
+   | **Name** |   |
+   | **Type** | Select **Standard**, which will allow more than just the VPN gateway traffic.  |
+
 
     :::image type="content" source="media/virtual-wan-hub-guidelines/create-wan.png" alt-text="Create WAN.":::
 
