@@ -1,12 +1,12 @@
 ---
-title: Azure IoT Hub IP connection filters | Microsoft Docs
+title: Azure IoT Hub IP filters | Microsoft Docs
 description: How to use IP filtering to block connections from specific IP addresses for to your Azure IoT hub. You can block connections from individual or ranges of IP addresses.
-author: robinsh
+author: jlian
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
-ms.date: 05/25/2020
-ms.author: robinsh
+ms.date: 10/16/2020
+ms.author: jlian
 ---
 
 # Use IP filters
@@ -23,20 +23,20 @@ There are two specific use-cases when it is useful to block the IoT Hub endpoint
 
 ## How filter rules are applied
 
-The IP filter rules are applied at the IoT Hub service level. Therefore, the IP filter rules apply to all connections from devices and back-end apps using any supported protocol. However,  clients reading directly from the [built-in Event Hub compatible endpoint](iot-hub-devguide-messages-read-builtin.md) (not via the IoT Hub connection string) are not bound to the IP filter rules. 
+The IP filter rules are applied at the IoT Hub service level. Therefore, the IP filter rules apply to all connections from devices and back-end apps using any supported protocol. Also, you can configure if the the [built-in Event Hub compatible endpoint](iot-hub-devguide-messages-read-builtin.md) (not via the IoT Hub connection string) are bound to these rules. 
 
-Any connection attempt from an IP address that matches a rejecting IP rule in your IoT hub receives an unauthorized 401 status code and description. The response message does not mention the IP rule. Rejecting IP addresses can prevent other Azure services such as Azure Stream Analytics, Azure Virtual Machines, or the Device Explorer in Azure portal from interacting with the IoT hub.
+Any connection attempt from an IP address that isn't explicitly allowed receives an unauthorized 401 status code and description. The response message does not mention the IP rule. Rejecting IP addresses can prevent other Azure services such as Azure Stream Analytics, Azure Virtual Machines, or the Device Explorer in Azure portal from interacting with the IoT hub.
 
 > [!NOTE]
-> If you must use Azure Stream Analytics (ASA) to read messages from an IoT hub with IP filter enabled, use the event hub-compatible name and endpoint of your IoT hub to manually add an [Event Hubs stream input](../stream-analytics/stream-analytics-define-inputs.md#stream-data-from-event-hubs) in the ASA.
+> If you must use Azure Stream Analytics (ASA) to read messages from an IoT hub with IP filter enabled, turn off **Apply IP filters to the built-in endpoint**, and then use the event hub-compatible name and endpoint of your IoT hub to manually add an [Event Hubs stream input](../stream-analytics/stream-analytics-define-inputs.md#stream-data-from-event-hubs) in the ASA.
 
 ## Default setting
-
-By default, the **IP Filter** grid in the portal for an IoT hub is empty. This default setting means that your hub accepts connections from any IP address. This default setting is equivalent to a rule that accepts the 0.0.0.0/0 IP address range.
 
 To get to the IP Filter settings page, select **Networking**, **Public access**, then choose **Selected IP Ranges**:
 
 :::image type="content" source="media/iot-hub-ip-filtering/ip-filter-default.png" alt-text="IoT Hub default IP filter settings":::
+
+By default, the **IP Filter** grid in the portal for an IoT hub is empty. This default setting means that your hub blocks connections from all IP addresses. This default setting is equivalent to a rule that blocks the `0.0.0.0/0` IP address range.
 
 ## Add or edit an IP filter rule
 
@@ -52,8 +52,6 @@ After selecting **Add IP Filter Rule**, fill in the fields.
 
 * Provide a single IPv4 address or a block of IP addresses in CIDR notation. For example, in CIDR notation 192.168.100.0/22 represents the 1024 IPv4 addresses from 192.168.100.0 to 192.168.103.255.
 
-* Select **Allow** or **Block** as the **action** for the IP filter rule.
-
 After filling in the fields, select **Save** to save the rule. You see an alert notifying you that the update is in progress.
 
 :::image type="content" source="./media/iot-hub-ip-filtering/ip-filter-save-new-rule.png" alt-text="Notification about saving an IP filter rule":::
@@ -68,7 +66,13 @@ To delete an IP filter rule, select the trash can icon on that row and then sele
 
 :::image type="content" source="./media/iot-hub-ip-filtering/ip-filter-delete-rule.png" alt-text="Delete an IoT Hub IP filter rule":::
 
-## Retrieve and update IP filters using Azure CLI
+## Apply IP filter rules to the built-in Event Hub compatible endpoint
+
+To apply the IP filter rules to the built-in Event Hub compatible endpoint, check the box next to **Apply IP filters to the built-in endpoint?**, then click **Save**.
+
+If you apply this option, the built-in endpoint is accessible to all IP addresses. This behavior may be useful if you want to read from the endpoint with services with changing IP addresses like Azure Stream Analytics. 
+
+## TODO Retrieve and update IP filters using Azure CLI
 
 Your IoT Hub's IP filters can be retrieved and updated through [Azure  CLI](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest).
 
@@ -116,7 +120,7 @@ az resource update -n <iothubName> -g <resourceGroupName> --resource-type Micros
 
 Note that `<ipFilterIndexToRemove>` must correspond to the ordering of IP filters in your IoT Hub's `properties.ipFilterRules`.
 
-## Retrieve and update IP filters using Azure PowerShell
+## TODO Retrieve and update IP filters using Azure PowerShell
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -148,18 +152,18 @@ You may also retrieve and modify your IoT Hub's IP filter using Azure resource P
 
 ## IP filter rule evaluation
 
-IP filter rules are applied in order and the first rule that matches the IP address determines the accept or reject action.
+IP filter rules are allow rules and applied without ordering. Only IP addresses that you add are allowed to connect to IoT Hub. 
 
-For example, if you want to accept addresses in the range 192.168.100.0/22 and reject everything else, the first rule in the grid should accept the address range 192.168.100.0/22. The next rule should reject all addresses by using the range 0.0.0.0/0.
+For example, if you want to accept addresses in the range `192.168.100.0/22` and reject everything else, you only need to add one rule in the grid with address range `192.168.100.0/22`.
 
-You can change the order of your IP filter rules in the grid by clicking the three vertical dots at the start of a row and using drag and drop.
+## IP filter (classic) deprecation
 
-To save your new IP filter rule order, click **Save**.
-
-:::image type="content" source="media/iot-hub-ip-filtering/ip-filter-rule-order.png" alt-text="Change the order of your IoT HUb IP filter rules":::
+Classic IP filter, with both allow and block , has been retired. To learn more, see 
 
 ## Next steps
 
 To further explore the capabilities of IoT Hub, see:
 
 * [IoT Hub metrics](iot-hub-metrics.md)
+* [IoT Hub support for virtual networks with Private Link and Managed Identity](virtual-network-support.md)
+* [Managing public network access for your IoT hub](iot-hub-public-network-access.md)
