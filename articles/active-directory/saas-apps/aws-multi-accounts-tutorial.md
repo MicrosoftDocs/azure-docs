@@ -223,13 +223,13 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 1. Please make a note of account ID for that AWS account either from EC2 properties or IAM dashboard as highlighted below:
 
-	![Select Administrator Access](./media/aws-multi-accounts-tutorial/aws-accountid.png)
+	![Screenshot shows where the account I D appears in the A W S window.](./media/aws-multi-accounts-tutorial/aws-accountid.png)
 
 1. Now sign into [Azure portal](https://portal.azure.com/) and navigate to **Groups**.
 
 1. Create new groups with the same name as that of IAM Roles created earlier and note down the **Object IDs** of these new groups.
 
-	![Select Administrator Access](./media/aws-multi-accounts-tutorial/copy-objectids.png)
+	![Screenshot shows where to enter the account I D in the Overview pane. ](./media/aws-multi-accounts-tutorial/copy-objectids.png)
 
 1. Sign out from current AWS account and login with other account where you want to configure single sign on with Azure AD.
 
