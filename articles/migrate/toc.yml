@@ -48,7 +48,7 @@
       items:
       - name: About migration options for VMware VMs
         href: server-migrate-overview.md
-      - name: Migrate VMware VMs with agentless migration - portal
+      - name: Migrate VMware VMs with agentless migration - Azure portal
         href: tutorial-migrate-vmware.md
       - name: Migrate VMware VMs with agent-based migration
         href: tutorial-migrate-vmware-agent.md
