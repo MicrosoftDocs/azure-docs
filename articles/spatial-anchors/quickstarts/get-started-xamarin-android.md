@@ -69,7 +69,7 @@ Set the startup project to **SampleXamarin.Android**, change the **Solution Conf
 
 # [Windows](#tab/deploy-windows)
 
-![Visual Studio Configuration](./media/get-started-xamarin-android/visual-studio-windows-configuration.png)
+![Screenshot that shows the menu to select the project and device in Windows.](./media/get-started-xamarin-android/visual-studio-windows-configuration.png)
 
 Select **Debug** > **Start debugging** to deploy and start your app.
 

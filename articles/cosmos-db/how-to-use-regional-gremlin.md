@@ -11,7 +11,7 @@ ms.custom: devx-track-csharp
 ---
 
 # Regional endpoints for Azure Cosmos DB Graph account
-Azure Cosmos DB Graph database is [globally distributed](distribute-data-globally.md) so applications can use multiple read endpoints. Applications that need write access in multiple locations should enable [multi-master](how-to-multi-master.md) capability.
+Azure Cosmos DB Graph database is [globally distributed](distribute-data-globally.md) so applications can use multiple read endpoints. Applications that need write access in multiple locations should enable [multi-region writes](how-to-multi-master.md) capability.
 
 Reasons to choose more than one region:
 1. **Horizontal read scalability** - as application load increases it may be prudent to route read traffic to different Azure regions.

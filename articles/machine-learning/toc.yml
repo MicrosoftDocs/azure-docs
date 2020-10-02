@@ -137,7 +137,7 @@
         - name: Data processing
           href: concept-optimize-data-processing.md
     - name: Model training
-      displayName: run config, estimator, machine learning pipeline, ml pipeline, train model
+      displayName: run config, machine learning pipeline, ml pipeline, train model
       href: concept-train-machine-learning-model.md
     - name: Distributed training
       displayName: parallellization, deep learning, deep neural network, dnn
@@ -451,6 +451,8 @@
           href: how-to-enable-data-collection.md
         - name: Monitor with Application Insights
           href: how-to-enable-app-insights.md
+      - name: High-performance serving with Triton
+        href: how-to-deploy-with-triton.md
       - name: Continuously deploy models
         displayName: ci cd azure devops models
         href: how-to-deploy-continuously-deploy.md

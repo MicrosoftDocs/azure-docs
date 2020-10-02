@@ -10,7 +10,7 @@ ms.service: cloud-services
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 8/17/2020
+ms.date: 9/29/2020
 ms.author: yohaddad
 ---
 
@@ -42,11 +42,9 @@ The following tables show the Microsoft Security Response Center (MSRC) updates 
 |  Rel 20-09 |  [4569778]  |  NET Framework 4.5.2 Security and Quality Rollup | 2.102 | Sep 8, 2020 |
 |  Rel 20-09 |  [4578013]  |  Security Update | 2.102 | Sep 8, 2020 |
 |  Rel 20-09 |  [4576750]  |  Servicing Stack update | 5.47 | Sep 8, 2020 |
-|  Rel 20-09 |  [4576479]  |  NET Framework 4.8 Security and Quality Rollup | 5.47 | Sep 8, 2020 |
 |  Rel 20-09 |  [4494175]  |  Microcode | 5.47 | Sep 8, 2020 |
 |  Rel 20-09 |  [4570332]  |  Servicing Stack update | 6.23 | Sep 8, 2020 |
 |  Rel 20-09 |  [4570720]  |  .NET Framework 3.5 and 4.7.2 Cumulative Update | 6.23 | Sep 8, 2020 |
-|  Rel 20-09 |  [4576483]  |  .NET Framework 4.8 Security and Quality Rollup | 6.23 | Sep 8, 2020 |
 |  Rel 20-09 |  [4494174]  |  Microcode | 6.23 | Sep 8, 2020 |
 
 [4577010]: https://support.microsoft.com/kb/4577010
@@ -67,11 +65,9 @@ The following tables show the Microsoft Security Response Center (MSRC) updates 
 [4569778]: https://support.microsoft.com/kb/4569778
 [4578013]: https://support.microsoft.com/kb/4578013
 [4576750]: https://support.microsoft.com/kb/4576750
-[4576479]: https://support.microsoft.com/kb/4576479
 [4494175]: https://support.microsoft.com/kb/4494175
 [4570332]: https://support.microsoft.com/kb/4570332
 [4570720]: https://support.microsoft.com/kb/4570720
-[4576483]: https://support.microsoft.com/kb/4576483
 [4494174]: https://support.microsoft.com/kb/4494174
 
 ## August 2020 Guest OS
@@ -79,29 +75,26 @@ The following tables show the Microsoft Security Response Center (MSRC) updates 
 
 | Product Category | Parent KB Article | Vulnerability Description | Guest OS | Date First Introduced |
 | --- | --- | --- | --- | --- |
-|  Rel 20-08 |  [4571687]  |  IE Cumulative Update | 2.101, 3.88, 4.81 | Aug 11, 2020 |
-|  Rel 20-08 |  [4561600]  |  Flash Update | 3.88, 4.81, 5.46, 6.22 | Jun 9, 2020 |
-|  Rel 20-08 |  [4571694]  |  Latest Cumulative Update | 6.22 | Aug 11, 2020 |
-|  Rel 20-08 |  [4565349]  |  Latest Cumulative Update | 5.46 | Aug 11, 2020 |
-|  Rel 20-08 |  [4570673]  |  Servicing Stack Update | 2.101 | Aug 11, 2020 |
-|  Rel 20-08 |  [4571729]  |  Monthly Rollup | 2.101 | Aug 11, 2020 |
-|  Rel 20-08 |  [4569767]  |  .NET Framework 3.5.1 Security and Quality Rollup | 2.101 | Aug 11, 2020 |
-|  Rel 20-08 |  [4569780]  |  .NET Framework 4.5.2 Security and Quality Rollup | 2.101 | Aug 11, 2020 |
-|  Rel 20-08 |  [4569765]  |  .NET Framework 3.5 Security and Quality Rollup | 3.88 | Aug 11, 2020 |
-|  Rel 20-08 |  [4569779]  |  .NET Framework 4.5.2 Security and Quality Rollup | 3.88 | Aug 11, 2020 |
-|  Rel 20-08 |  [4566426]  |  Servicing Stack Update | 3.88 | Jul 14, 2020 |
-|  Rel 20-08 |  [4571736]  |  Monthly Rollup | 3.88 | Aug 11, 2020 |
-|  Rel 20-08 |  [4566425]  |  Servicing Stack Update | 4.81 | Jul 14, 2020 |
-|  Rel 20-08 |  [4571703]  |  Monthly Rollup | 4.81 | Aug 11, 2020 |
-|  Rel 20-08 |  [4569768]  |  .NET Framework 3.5 Security and Quality Rollup | 4.81 | Aug 11, 2020 |
-|  Rel 20-08 |  [4569778]  |  .NET Framework 4.5.2 Security and Quality Rollup | 4.81 | Aug 11, 2020 |
-|  Rel 20-08 |  [4494175]  |  Microcode | 5.46 | Feb 25, 2020 |
-|  Rel 20-08 |  [4565912]  |  Servicing Stack Update | 5.46 | Jul 14, 2020 |
-|  Rel 20-08 |  [4569746]  |  .NET Framework  4.8 Security and Quality Rollup | 5.46 | Aug 11, 2020 |
-|  Rel 20-08 |  [4569776]  |  .NET Framework 3.5 and 4.7.2 Cumulative Update | 6.22 | Aug 11, 2020 |
-|  Rel 20-08 |  [4569750]  |  .NET Framework 3.5 and  4.8 Cumulative Update | 6.22 | Aug 11, 2020 |
-|  Rel 20-08 |  [4566424]  |  Servicing Stack Update | 6.22 | Aug 11, 2020 |
-
+|  Rel 20-08 |  [4571687]  |  IE Cumulative Update | [2.101], [3.88], [4.81] | Aug 11, 2020 |
+|  Rel 20-08 |  [4561600]  |  Flash Update | [3.88], [4.81], [5.46], [6.22] | Jun 9, 2020 |
+|  Rel 20-08 |  [4571694]  |  Latest Cumulative Update | [6.22] | Aug 11, 2020 |
+|  Rel 20-08 |  [4565349]  |  Latest Cumulative Update | [5.46] | Aug 11, 2020 |
+|  Rel 20-08 |  [4570673]  |  Servicing Stack Update | [2.101] | Aug 11, 2020 |
+|  Rel 20-08 |  [4571729]  |  Monthly Rollup | [2.101] | Aug 11, 2020 |
+|  Rel 20-08 |  [4569767]  |  .NET Framework 3.5.1 Security and Quality Rollup | [2.101] | Aug 11, 2020 |
+|  Rel 20-08 |  [4569780]  |  .NET Framework 4.5.2 Security and Quality Rollup | [2.101] | Aug 11, 2020 |
+|  Rel 20-08 |  [4569765]  |  .NET Framework 3.5 Security and Quality Rollup | [3.88] | Aug 11, 2020 |
+|  Rel 20-08 |  [4569779]  |  .NET Framework 4.5.2 Security and Quality Rollup | [3.88] | Aug 11, 2020 |
+|  Rel 20-08 |  [4566426]  |  Servicing Stack Update | [3.88] | Jul 14, 2020 |
+|  Rel 20-08 |  [4571736]  |  Monthly Rollup | [3.88] | Aug 11, 2020 |
+|  Rel 20-08 |  [4566425]  |  Servicing Stack Update | [4.81] | Jul 14, 2020 |
+|  Rel 20-08 |  [4571703]  |  Monthly Rollup | [4.81] | Aug 11, 2020 |
+|  Rel 20-08 |  [4569768]  |  .NET Framework 3.5 Security and Quality Rollup | [4.81] | Aug 11, 2020 |
+|  Rel 20-08 |  [4569778]  |  .NET Framework 4.5.2 Security and Quality Rollup | [4.81] | Aug 11, 2020 |
+|  Rel 20-08 |  [4494175]  |  Microcode | [5.46] | Feb 25, 2020 |
+|  Rel 20-08 |  [4565912]  |  Servicing Stack Update | [5.46] | Jul 14, 2020 |
+|  Rel 20-08 |  [4569776]  |  .NET Framework 3.5 and 4.7.2 Cumulative Update | [6.22] | Aug 11, 2020 |
+|  Rel 20-08 |  [4566424]  |  Servicing Stack Update | [6.22] | Aug 11, 2020 |
 
 
 [4571687]: https://support.microsoft.com/kb/4571687
@@ -122,10 +115,13 @@ The following tables show the Microsoft Security Response Center (MSRC) updates 
 [4569778]: https://support.microsoft.com/kb/4569778
 [4494175]: https://support.microsoft.com/kb/4494175
 [4565912]: https://support.microsoft.com/kb/4565912
-[4569746]: https://support.microsoft.com/kb/4569746
 [4569776]: https://support.microsoft.com/kb/4569776
-[4569750]: https://support.microsoft.com/kb/4569750
 [4566424]: https://support.microsoft.com/kb/4566424
+[2.101]: https://docs.microsoft.com/azure/cloud-services/cloud-services-guestos-update-matrix#family-2-releases
+[3.88]: https://docs.microsoft.com/azure/cloud-services/cloud-services-guestos-update-matrix#family-3-releases
+[4.81]: https://docs.microsoft.com/azure/cloud-services/cloud-services-guestos-update-matrix#family-4-releases
+[5.46]: https://docs.microsoft.com/azure/cloud-services/cloud-services-guestos-update-matrix#family-5-releases
+[6.22]: https://docs.microsoft.com/azure/cloud-services/cloud-services-guestos-update-matrix#family-6-releases
 
 
 ## July 2020 Guest OS
@@ -735,8 +731,6 @@ The following tables show the Microsoft Security Response Center (MSRC) updates 
 |  N/A  |  [4499151]  |  May ’19 Non-Security  |  4.67  |  May 14, 2019  |
 |  N/A  |  [4495608]  |  May ’19 .NET 3.5 Non-Security  |  4.67  |  May 14, 2019  |
 |  N/A  |  [4495592]  |  May ’19 .NET 4.5.2 Non-Security  |  4.67  |  May 14, 2019  |
-|  N/A  |  [4495610]  |  May ’19 .NET 4.8 Cumulative  |  6.8  |  May 14, 2019  |
-|  N/A  |  [4495618]  |  May’19 .NET 4.8 Cumulative  |  6.8  |  May 14, 2019  |
 |  N/A  |  [4501226]  |  DST Timezone updates for Morocco and the Palestinian Authority  |  2.87, 3.74, 4.67  |  May 23, 2019  |
 |  N/A  |  [4490128]  |  DST Timezone updates for São Tomé and Príncipe and Qyzylorda  |  2.87, 3.74, 4.67  |  April 17, 2019  |
 
@@ -758,8 +752,6 @@ The following tables show the Microsoft Security Response Center (MSRC) updates 
 [4499151]: https://support.microsoft.com/kb/KB4499151
 [4495608]: https://support.microsoft.com/kb/KB4495608
 [4495592]: https://support.microsoft.com/kb/KB4495592
-[4495610]: https://support.microsoft.com/kb/KB4495610
-[4495618]: https://support.microsoft.com/kb/KB4495618
 [4501226]: https://support.microsoft.com/kb/KB4501226
 [4490128]: https://support.microsoft.com/kb/KB4490128
 
