@@ -106,7 +106,7 @@ The following table shows you where you can acquire different types of phone num
 | Regional  | US                 | US, Canada, United Kingdom, Germany, France,.. +more*| US, Canada, United Kingdom, Germany, France,.. +more* |NA                |
 | Toll-Free | US                 | US                                                   | US                                                    |US                |
 
-*For a full list of call destinations and pricing please refer to the downloadable price list on the pricing page
+*For more details about call destinations and pricing, refer to the [pricing page](../pricing.md).
 
 ## Next steps
 
