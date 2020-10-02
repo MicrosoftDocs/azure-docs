@@ -11,9 +11,9 @@ ms.date: 10/2/2020
 
 Learn how to prepare for planned maintenance events on your Azure Database for MySQL.
 
-## What is a planned maintenance event and what to expect during planned maintenance event
+## What is a planned maintenance event and what to expect during maintenance
 
-Azure Database for MySQL performs periodic maintenance to keep your managed database secure, stable, and up-to-date. During maintenance, the server gets new features, updates, and patches.
+Azure Database for MySQL performs periodic maintenance to keep your managed database secure, stable, and up-to-date. During planned maintenance event, the server gets new features, updates, and patches.
 During maintenance, your Azure Database for MySQL server may experience a brief drop in connectivity for a short number of seconds. You can expect your server to restart and [transient errors](./concepts-connectivity#transient-errors.md) can occur. Most of these events are automatically mitigated by the system in less than 60 seconds.
 
 > [!Note]
@@ -21,7 +21,7 @@ During maintenance, your Azure Database for MySQL server may experience a brief 
 
 ## How can I get notified of planned maintenance event
 
-You can utilize the planned maintenance notifications feature to receive alerts for upcoming planned maintenance event.
+You can utilize the planned maintenance notifications feature to receive alerts for upcoming planned maintenance event. You will receive the notification about the upcoming maintenance 72 hours before the event. 
 
 ## Planned maintenance notification
 
@@ -32,6 +32,14 @@ You can utilize the planned maintenance notifications feature to receive alerts 
 
 We will make every attempt to provide **Planned maintenance notification** 72 hours notice for all events. However, in cases of critical or security patches, notifications might be sent closer to the event or be omitted.
 
+You can either check the planned maintenance notification on Azure portal or configure alerts to receive notification. 
+
+### Check planned maintenance notification on Azure portal
+
+1. In the [portal](https://portal.azure.com), select **Service Health**.
+2. Select **Planned Maintenance** tab
+3. Select **Subscription**, **Region** and **Service** for which you want to check the planned maintenance notification. 
+   
 ### To receive planned maintenance notification
 
 1. In the [portal](https://portal.azure.com), select **Service Health**.
