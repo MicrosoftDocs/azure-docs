@@ -3,7 +3,7 @@ title: Implement Oracle Golden Gate on an Azure Linux VM | Microsoft Docs
 description: Quickly get an Oracle Golden Gate up and running in your Azure environment.
 services: virtual-machines-linux
 documentationcenter: virtual-machines
-author: rgardler
+author: dbakevlar
 manager: 
 editor: 
 tags: azure-resource-manager
@@ -15,7 +15,7 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 08/02/2018
-ms.author: rogardle
+ms.author: kegorman
 ---
 
 # Implement Oracle Golden Gate on an Azure Linux VM 

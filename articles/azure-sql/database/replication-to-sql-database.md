@@ -72,7 +72,7 @@ There are different [types of replication](https://docs.microsoft.com/sql/relati
 
 ## Replication Architecture  
 
-![replication-to-sql-database](./media/replication-to-sql-database/replication-to-sql-database.png)  
+![Diagram shows the replication architecture with Azure SQL Database, which contains several subscriber clusters in different regions, and on-premises Azure virtual machines, which contains a Publisher, Logread executable, and distributor executables that connect to remote clusters.](./media/replication-to-sql-database/replication-to-sql-database.png)  
 
 ## Scenarios  
 

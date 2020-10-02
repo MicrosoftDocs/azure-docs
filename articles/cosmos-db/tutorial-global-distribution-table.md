@@ -28,7 +28,7 @@ The Azure Cosmos DB Table API SDK automatically picks the best endpoint to commu
 
 * **Read requests:** All read requests are sent to the configured `CurrentRegion`. Based on the proximity, the SDK automatically selects a fallback geo-replicated region for high availability.
 
-* **Write requests:** The SDK automatically sends all write requests to the current write region. In a multi master account, current region will serve the writes requests as well. Based on the proximity, the SDK automatically selects a fallback geo-replicated region for high availability.
+* **Write requests:** The SDK automatically sends all write requests to the current write region. In an account with multi-region writes, current region will serve the writes requests as well. Based on the proximity, the SDK automatically selects a fallback geo-replicated region for high availability.
 
 If you don't specify the `CurrentRegion` property, the SDK uses the current write region for all operations.
 

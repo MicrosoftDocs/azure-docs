@@ -86,7 +86,7 @@ Follow these steps to create a blank database.
 
 11. On the toolbar, select **Notifications** to monitor the deployment process.
   
-     ![notification](./media/load-data-from-azure-blob-storage-using-polybase/notification.png)
+     ![Screenshot shows the Azure portal with the Notifications pane open with Deployment in progress.](./media/load-data-from-azure-blob-storage-using-polybase/notification.png)
 
 ## Create a server-level firewall rule
 

@@ -8,7 +8,7 @@ manager: rkarlin
 ms.assetid: 26b5dcb4-ce3f-4f22-8d56-d2bf743cfc90
 ms.service: security-center
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/11/2020
@@ -34,8 +34,8 @@ To avoid alert fatigue, Security Center limits the volume of outgoing mails. For
 
 |Aspect|Details|
 |----|:----|
-|Release state:|Generally Available|
-|Pricing:|Free tier|
+|Release state:|Generally available (GA)|
+|Pricing:|Free|
 |Required roles and permissions:|**Security Admin**<br>**Subscription Owner** |
 |Clouds:|![Yes](./media/icons/yes-icon.png) Commercial clouds<br>![Yes](./media/icons/yes-icon.png) US Gov (partial)<br>![No](./media/icons/no-icon.png) China Gov, Other Gov|
 |||

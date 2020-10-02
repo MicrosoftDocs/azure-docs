@@ -196,7 +196,7 @@ Now that you have successfully configured Grafana to read from the ElasticSearch
 
 The following screenshot depicts a graph and chart showing the top flows and their frequency. Flows are also shown by NSG rule and flows by decision. Grafana is highly customizable so it's advisable that you create dashboards to suit your specific monitoring needs. The following example shows a typical dashboard:
 
-![Dashboard graph](./media/network-watcher-nsg-grafana/network-watcher-nsg-grafana-fig4.png)
+![Screenshot that shows the sample graph configuration with flows segmented by NSG rule.](./media/network-watcher-nsg-grafana/network-watcher-nsg-grafana-fig4.png)
 
 ## Conclusion
 

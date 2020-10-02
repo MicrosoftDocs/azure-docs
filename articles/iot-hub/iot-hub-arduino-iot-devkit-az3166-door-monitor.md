@@ -166,7 +166,7 @@ The connection string that is retrieved from the [Provision Azure services](#pro
 
 VS Code then starts verifying and uploading the Arduino sketch to the DevKit.
 
-![device-upload](media/iot-hub-arduino-iot-devkit-az3166-door-monitor/device-upload.png)
+![Screenshot shows Visual Studio Code verifying and uploading the Arduino sketch.](media/iot-hub-arduino-iot-devkit-az3166-door-monitor/device-upload.png)
 
 The DevKit reboots and starts running the code.
 

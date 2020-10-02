@@ -100,7 +100,7 @@ Error message: Snapshot operation failed because VSS writers were in a bad state
 
 This error occurs because the VSS writers were in a bad state. Azure Backup extensions interact with VSS Writers to take snapshots of the disks. To resolve this issue, follow these steps:
 
-Restart VSS writers that are in a bad state.
+Step 1: Restart VSS writers that are in a bad state.
 - From an elevated command prompt, run ```vssadmin list writers```.
 - The output contains all VSS writers and their state. For every VSS writer with a state that's not **[1] Stable**, restart the respective VSS writer's service. 
 - To restart the service, run the following commands from an elevated command prompt:
@@ -112,12 +112,20 @@ Restart VSS writers that are in a bad state.
 > Restarting some services can have an impact on your production environment. Ensure the approval process is followed and the service is restarted at the scheduled downtime.
  
    
-If restarting the VSS writers did not resolve the issue and the issue still persists due to a time-out, then:
-- Run the following command from an elevated command-prompt (as an administrator) to prevent the threads from being created for blob-snapshots.
+Step 2: If restarting the VSS writers did not resolve the issue, then run the following command from an elevated command-prompt (as an administrator) to prevent the threads from being created for blob-snapshots.
 
 ```console
 REG ADD "HKLM\SOFTWARE\Microsoft\BcdrAgentPersistentKeys" /v SnapshotWithoutThreads /t REG_SZ /d True /f
 ```
+Step 3: If steps 1 and 2 did not resolve the issue, then the failure could be due to VSS writers timing out due to limited IOPS.<br>
+
+To verify, navigate to ***System and Event Viewer Application logs*** and check for the following error message:<br>
+*The shadow copy provider timed out while holding writes to the volume being shadow copied. This is probably due to excessive activity on the volume by an application or a system service. Try again later when activity on the volume is reduced.*<br>
+
+Solution:
+- Check for possibilities to distribute the load across the VM disks. This will reduce the load on single disks. You can [check the IOPs throttling by enabling diagnostic metrics at storage level](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/performance-diagnostics#install-and-run-performance-diagnostics-on-your-vm).
+- Change the backup policy to perform backups during off peak hours, when the load on the VM is at its lowest.
+- Upgrade the Azure disks to support higher IOPs. [Learn more here](https://docs.microsoft.com/azure/virtual-machines/disks-types)
 
 ### ExtensionFailedVssServiceInBadState - Snapshot operation failed due to VSS (Volume Shadow Copy) service in bad state
 
@@ -304,6 +312,13 @@ If you have an Azure Policy that [governs tags within your environment](../gover
 | Backup failed to cancel the job: <br>Wait until the job finishes. |None |
 
 ## Restore
+
+#### Disks appear offline after File Restore
+
+If after restore, you notice the disks are offline then: 
+* Verify if the machine where the script is executed meets the OS requirements. [Learn more](https://docs.microsoft.com/azure/backup/backup-azure-restore-files-from-vm#system-requirements).  
+* Ensure you are not restoring to the same source, [Learn more](https://docs.microsoft.com/azure/backup/backup-azure-restore-files-from-vm#original-backed-up-machine-versus-another-machine).
+
 
 | Error details | Workaround |
 | --- | --- |

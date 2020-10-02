@@ -1,5 +1,5 @@
 ---
-title: Create an Azure Synapse workspace Azure Resource Manager template
+title: 'Quickstart: Create an Azure Synapse workspace Azure Resource Manager template'
 description: Learn how to create a Synapse workspace by using Azure Resource Manager template.
 services: azure-resource-manager
 author: julieMSFT
@@ -28,7 +28,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 You can review the template by selecting the **Visualize** link as follows:
 
-[![Visualize](../media/template-deployments/template-visualize-button.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure-Samples%2FSynapse%2Fmaster%2FManage%2FDeployWorkspace%2Fazuredeploy.json)
+[![Visualize](../media/template-deployments/template-visualize-button.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure-Samples%2FSynapse%2Fmaster%2FManage%2FDeployWorkspace%2Fazuredeploy.json)
 
 The template defines two resources:
 

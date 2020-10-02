@@ -8,7 +8,7 @@ ms.service: virtual-machine-scale-sets
 ms.subservice: linux
 ms.date: 06/01/2018
 ms.reviewer: mimckitt
-ms.custom: mimckitt, devx-track-javascript, devx-track-azurecli
+ms.custom: mimckitt, devx-track-js, devx-track-azurecli
 
 #Customer intent: As an IT administrator, I want to learn about autoscaling VMs in Azure so that I can deploy a highly-available and scalable infrastructure.
 ---

@@ -171,6 +171,10 @@ Please confirm your service principal has not expired.  Please see: [AKS service
 
 Please confirm your service principal has not expired.  Please see: [AKS service principal](./kubernetes-service-principal.md)  and [AKS update credentials](./update-credentials.md).
 
+## Can I scale my AKS cluster to zero?
+You can completely [stop a running AKS cluster](start-stop-cluster.md), saving on the respective compute costs. Additionally, you may also choose to [scale or auto-scale all or specific `User` node pools](scale-cluster.md#scale-user-node-pools-to-0) to 0, maintaining only the necessary cluster configuration.
+You cannot directly scale [system node pools](use-system-pools.md) to 0.
+
 ## Can I use the virtual machine scale set APIs to scale manually?
 
 No, scale operations by using the virtual machine scale set APIs aren't supported. Use the AKS APIs (`az aks scale`).

@@ -1,6 +1,6 @@
 ---
 title: Azure Remote Rendering Asset Tool
-description: Link to the GitHub repository that houses the showcase application
+description: Learn about the Azure Remote Rendering Asset Tool (ARRT) which is an open-source desktop application developed in C++/Qt.
 author: mafranc
 ms.author: mafranc
 ms.date: 06/09/2020

@@ -58,7 +58,6 @@ With a SendGrid account created and SendGrid API key stored in an Azure AD B2C p
 
     <html xmlns="http://www.w3.org/1999/xhtml" dir="ltr" lang="en"><head id="Head1">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>Contoso demo account email verification code</title><meta name="ROBOTS" content="NOINDEX, NOFOLLOW">
-       <!-- Template B O365 -->
        <style>
            table td {border-collapse:collapse;margin:0;padding:0;}
        </style>

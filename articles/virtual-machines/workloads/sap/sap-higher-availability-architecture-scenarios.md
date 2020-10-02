@@ -208,7 +208,7 @@ ms.custom: H1Hack27Feb2017
 
 > This section applies to:
 >
-> ![Windows][Logo_Windows] Windows and ![Linux][Logo_Linux] Linux
+> ![Windows logo.][Logo_Windows] Windows and ![Linux logo.][Logo_Linux] Linux
 >
 
 If you decide not to use functionalities such as Windows Server Failover Clustering (WSFC) or Pacemaker on Linux (currently supported only for SUSE Linux Enterprise Server [SLES] 12 and later), Azure VM restart is utilized. It protects SAP systems against planned and unplanned downtime of the Azure physical server infrastructure and overall underlying Azure platform.

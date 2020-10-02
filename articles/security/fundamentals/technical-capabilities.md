@@ -81,7 +81,7 @@ The following are core Azure identity management capabilities:
 
 [Single sign-on (SSO)](https://azure.microsoft.com/documentation/videos/overview-of-single-sign-on/) means being able to access all the applications and resources that you need to do business, by signing in only once using a single user account. Once signed in, you can access all the applications you need without being required to authenticate (for example, type a password) a second time.
 
-Many organizations rely upon software as a service (SaaS) applications such as Office 365, Box, and Salesforce for end-user productivity. Historically, IT staff needed to individually create and update user accounts in each SaaS application, and users had to remember a password for each SaaS application.
+Many organizations rely upon software as a service (SaaS) applications such as Microsoft 365, Box, and Salesforce for end-user productivity. Historically, IT staff needed to individually create and update user accounts in each SaaS application, and users had to remember a password for each SaaS application.
 
 [Azure AD extends on-premises Active Directory into the cloud](../../active-directory/manage-apps/what-is-single-sign-on.md), enabling users to use their primary organizational account to not only sign in to their domain-joined devices and company resources, but also all the web and SaaS applications needed for their job.
 
@@ -123,15 +123,15 @@ When combined with a [mobile device management (MDM)](https://www.microsoft.com/
 
 #### Privileged identity management
 
-[Azure Active Directory (AD) Privileged Identity Management](../../active-directory/privileged-identity-management/pim-configure.md) lets you manage, control, and monitor your privileged identities and access to resources in Azure AD as well as other Microsoft online services like Office 365 or Microsoft Intune.
+[Azure Active Directory (AD) Privileged Identity Management](../../active-directory/privileged-identity-management/pim-configure.md) lets you manage, control, and monitor your privileged identities and access to resources in Azure AD as well as other Microsoft online services like Microsoft 365 or Microsoft Intune.
 
-Sometimes users need to carry out privileged operations in Azure or Office 365 resources, or other SaaS apps. This often means organizations have to give them permanent privileged access in Azure AD. This is a growing security risk for cloud-hosted resources because organizations can't sufficiently monitor what those users are doing with their admin privileges. Additionally, if a user account with privileged access is compromised, that one breach could impact their overall cloud security. Azure AD Privileged Identity Management helps to resolve this risk.
+Sometimes users need to carry out privileged operations in Azure or Microsoft 365 resources, or other SaaS apps. This often means organizations have to give them permanent privileged access in Azure AD. This is a growing security risk for cloud-hosted resources because organizations can't sufficiently monitor what those users are doing with their admin privileges. Additionally, if a user account with privileged access is compromised, that one breach could impact their overall cloud security. Azure AD Privileged Identity Management helps to resolve this risk.
 
 Azure AD Privileged Identity Management lets you:
 
 - See which users are Azure AD admins
 
-- Enable on-demand, "just in time" administrative access to Microsoft Online Services like Office 365 and Intune
+- Enable on-demand, "just in time" administrative access to Microsoft Online Services like Microsoft 365 and Intune
 
 - Get reports about administrator access history and changes in administrator assignments
 

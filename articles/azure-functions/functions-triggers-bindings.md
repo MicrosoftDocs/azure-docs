@@ -69,11 +69,21 @@ All triggers and bindings have a `direction` property in the [function.json](./f
 
 When you use [attributes in a class library](functions-dotnet-class-library.md) to configure triggers and bindings, the direction is provided in an attribute constructor or inferred from the parameter type.
 
+## Add bindings to a function
+
+You can connect your function to other services by using input or output bindings. Add a binding by adding its specific definitions to your function. To learn how, see [Add bindings to an existing function in Azure Functions](add-bindings-existing-function.md).  
+
 ## Supported bindings
 
 [!INCLUDE [Full bindings table](../../includes/functions-bindings.md)]
 
 For information about which bindings are in preview or are approved for production use, see [Supported languages](supported-languages.md).
+
+## Bindings code examples
+
+Use the following table to find examples of specific binding types that show you how to work with bindings in your functions. First, choose the language tab that corresponds to your project. 
+
+[!INCLUDE [functions-bindings-code-example-chooser](../../includes/functions-bindings-code-example-chooser.md)]
 
 ## Resources
 - [Binding expressions and patterns](./functions-bindings-expressions-patterns.md)

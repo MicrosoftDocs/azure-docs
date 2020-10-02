@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: jonfan, logicappspm
 ms.topic: article
-ms.date: 08/03/2020
+ms.date: 09/16/2020
 ---
 
 # Limits and configuration information for Azure Logic Apps
@@ -26,12 +26,13 @@ Here are the limits for a single logic app definition:
 | Triggers per workflow | 10 | When working in code view, not the designer |
 | Switch scope cases limit | 25 | |
 | Variables per workflow | 250 | |
-| Characters per expression | 8,192 | |
-| Maximum size for `trackedProperties` | 16,000 characters |
 | Name for `action` or `trigger` | 80 characters | |
+| Characters per expression | 8,192 | |
 | Length of `description` | 256 characters | |
-| Maximum `parameters` | 50 | |
-| Maximum `outputs` | 10 | |
+| Maximum number of `parameters` | 50 | |
+| Maximum number of `outputs` | 10 | |
+| Maximum size for `trackedProperties` | 16,000 characters |
+| Inline Code action - Maximum number of code characters | 1,024 characters <p>For a 100,000 character limit, create your logic apps with Visual Studio Code and the [preview **Azure Logic Apps** extension](../logic-apps/create-stateful-stateless-workflows-visual-studio-code.md). |
 
 <a name="run-duration-retention-limits"></a>
 
@@ -281,7 +282,7 @@ Here are the message size limits that apply to B2B protocols:
 
 | Name | Multi-tenant limit | Integration service environment limit | Notes |
 |------|--------------------|---------------------------------------|-------|
-| AS2 | v2 - 100 MB<br>v1 - 50 MB | v2 - 200 MB <br>v1 - 50 MB | Applies to decode and encode |
+| AS2 | v2 - 100 MB<br>v1 - 25 MB | v2 - 200 MB <br>v1 - 25 MB | Applies to decode and encode |
 | X12 | 50 MB | 50 MB | Applies to decode and encode |
 | EDIFACT | 50 MB | 50 MB | Applies to decode and encode |
 ||||

@@ -34,7 +34,7 @@ When a domain is federated with Azure AD, several properties are set on the doma
 
 You can view the IssuerUri by using the PowerShell command `Get-MsolDomainFederationSettings -DomainName <your domain>`.
 
-![Get-MsolDomainFederationSettings](./media/how-to-connect-install-multiple-domains/MsolDomainFederationSettings.png)
+![Screenshot that shows results after entering the "Get-MsolDomainFederationSettings" command in PowerShell.](./media/how-to-connect-install-multiple-domains/MsolDomainFederationSettings.png)
 
 A problem arises when you add more than one top-level domain.  For example, let's say you have set up federation between Azure AD and your on-premises environment.  For this document, the domain, bmcontoso.com is being used.  Now a second, top-level domain, bmfabrikam.com has been added.
 
@@ -42,7 +42,7 @@ A problem arises when you add more than one top-level domain.  For example, let'
 
 When you attempt to convert the bmfabrikam.com domain to be federated, an error occurs.  The reason is, Azure AD has a constraint that does not allow the IssuerUri property to have the same value for more than one domain.  
 
-![Federation error](./media/how-to-connect-install-multiple-domains/error.png)
+![Screenshot that shows a federation error in PowerShell.](./media/how-to-connect-install-multiple-domains/error.png)
 
 ### SupportMultipleDomain Parameter
 To work around this constraint, you need to add a different IssuerUri, which can be done by using the `-SupportMultipleDomain` parameter.  This parameter is used with the following cmdlets:
@@ -53,11 +53,11 @@ To work around this constraint, you need to add a different IssuerUri, which can
 
 This parameter makes Azure AD configure the IssuerUri so that it is based on the name of the domain.  The IssuerUri will be unique across directories in Azure AD.  Using the parameter allows the PowerShell command to complete successfully.
 
-![Federation error](./media/how-to-connect-install-multiple-domains/convert.png)
+![Screenshot that shows a successful completion of the PowerShell command.](./media/how-to-connect-install-multiple-domains/convert.png)
 
 Looking at the settings for the bmfabrikam.com domain you can see the following:
 
-![Federation error](./media/how-to-connect-install-multiple-domains/settings.png)
+![Screenshot that shows the settings for the "bmfabrikam.com" domain.](./media/how-to-connect-install-multiple-domains/settings.png)
 
 `-SupportMultipleDomain` does not change the other endpoints, which are still configured to point to the federation service on adfs.bmcontoso.com.
 
@@ -84,11 +84,11 @@ If you did not set up the federated trust between AD FS and your instance of Azu
 
 If you have successfully added a new domain in the Azure AD portal and then attempt to convert it using `Convert-MsolDomaintoFederated -DomainName <your domain>`, you will get the following error.
 
-![Federation error](./media/how-to-connect-install-multiple-domains/trust1.png)
+![Screenshot that shows a federation error in PowerShell after attempting to convert a new domain with the "Convert-MsolDomaintoFederated" command.](./media/how-to-connect-install-multiple-domains/trust1.png)
 
 If you try to add the `-SupportMultipleDomain` switch, you will receive the following error:
 
-![Federation error](./media/how-to-connect-install-multiple-domains/trust2.png)
+![Screenshot that shows a federation error after adding the "-SupportMultipleDomain" switch.](./media/how-to-connect-install-multiple-domains/trust2.png)
 
 Simply trying to run `Update-MsolFederatedDomain -DomainName <your domain> -SupportMultipleDomain` on the original domain will also result in an error.
 
@@ -118,7 +118,7 @@ Use the following steps to add the new top-level domain using Azure AD Connect.
 
 1. Launch Azure AD Connect from the desktop or start menu
 2. Choose “Add an additional Azure AD Domain”
-   ![Add an additional Azure AD domain](./media/how-to-connect-install-multiple-domains/add1.png)
+   ![Screenshot that shows the "Additional tasks" page with "Add an additional Azure AD domain" selected.](./media/how-to-connect-install-multiple-domains/add1.png)
 3. Enter your Azure AD and Active Directory credentials
 4. Select the second domain you wish to configure for federation.
    ![Add an additional Azure AD domain](./media/how-to-connect-install-multiple-domains/add2.png)
@@ -127,7 +127,7 @@ Use the following steps to add the new top-level domain using Azure AD Connect.
 ### Verify the new top-level domain
 By using the PowerShell command `Get-MsolDomainFederationSettings -DomainName <your domain>`you can view the updated IssuerUri.  The screenshot below shows the federation settings were updated on the original domain `http://bmcontoso.com/adfs/services/trust`
 
-![Get-MsolDomainFederationSettings](./media/how-to-connect-install-multiple-domains/MsolDomainFederationSettings.png)
+![Screenshot that shows the federation settings updated on the original domain.](./media/how-to-connect-install-multiple-domains/MsolDomainFederationSettings.png)
 
 And the IssuerUri on the new domain has been set to `https://bmfabrikam.com/adfs/services/trust`
 

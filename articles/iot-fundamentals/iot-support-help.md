@@ -59,7 +59,7 @@ If you do submit a new question to Stack Overflow, please use one or more of the
  - [Azure IoT SDKs](https://stackoverflow.com/questions/tagged/azure-iot-sdk)
  - [Azure Digital Twins](https://stackoverflow.com/questions/tagged/azure-digital-twins)
  - [Azure RTOS](https://stackoverflow.com/questions/tagged/azure-rtos)
- - [Azure Sphere](https://stackoverflow.com/questions/tagged/azuresphere)
+ - [Azure Sphere](https://stackoverflow.com/questions/tagged/azure-sphere)
  - [Azure Time Series Insights](https://stackoverflow.com/questions/tagged/azure-timeseries-insights)
  - [Azure Maps](https://stackoverflow.com/questions/tagged/azure-maps)
 
