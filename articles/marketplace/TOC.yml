@@ -77,6 +77,8 @@
       href: /partner-center/payout-faq?context=/azure/marketplace/context/context
 - name: Create and manage offers
   items:
+  - name: Publishing guide by offer type
+    href: publisher-guide-by-offer-type.md 
   - name: Enable offer authentication with Azure AD
     href: enable-appsource-marketplace-using-azure-ad.md
   - name: Azure application offers
