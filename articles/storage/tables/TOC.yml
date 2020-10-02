@@ -79,6 +79,8 @@
     href: table-storage-design-modeling.md
   - name: Table design patterns
     href: table-storage-design-patterns.md
+  - name: Monitoring Table storage
+    href: monitor-table-storage.md
 - name: How-to
   items:
   - name: Create a storage account
@@ -172,6 +174,8 @@
     href: https://azure.microsoft.com/pricing/calculator/
 - name: Reference
   items:
+  - name: Monitoring Azure Table storage reference
+    href: monitor-table-storage-reference.md
   - name: Scalability and performance targets
     items:
     - name: Table storage
