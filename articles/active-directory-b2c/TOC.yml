@@ -261,7 +261,7 @@
       - name: Overview
         href: api-connectors-overview.md
       - name: Add an API connector
-        href: add-connector.md
+        href: add-api-connector.md
     - name: Pass through external IdP token
       href: idp-pass-through-custom.md
     - name: Adaptive experience
