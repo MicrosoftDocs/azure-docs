@@ -14,7 +14,7 @@ ms.custom: subject-security-benchmark
 
 # Azure security baseline for Virtual Network NAT
 
-This security baseline applies guidance from the [Azure Security Benchmark](https://docs.microsoft.com/azure/security/benchmarks/overview) to Virtual
+This security baseline applies guidance from the [Azure Security Benchmark](../security/benchmarks/overview.md) to Virtual
 Network NAT. The Azure Security Benchmark provides recommendations on how you can secure your cloud solutions on Azure. The content is grouped by the **security controls** defined by the Azure Security Benchmark and the related guidance applicable to Virtual
 Network NAT. **Controls** not applicable to Virtual
 Network NAT have been excluded. To see how Virtual
@@ -26,7 +26,7 @@ Network NAT security baseline mapping file](https://github.com/MicrosoftDocs/Sec
 
 ## Network security
 
-*For more information, see the [Azure Security Benchmark: Network security](https://docs.microsoft.com/azure/security/benchmarks/security-control-network-security).*
+*For more information, see the [Azure Security Benchmark: Network security](../security/benchmarks/security-control-network-security.md).*
 
 ### 1.2: Monitor and log the configuration and traffic of virtual networks, subnets, and NICs
 
@@ -39,15 +39,15 @@ However, network security group (NSG) flow logs can be used with NAT gateway res
 
 Use Azure Security Center and follow the network protection recommendations to help secure your Azure network resources. Enable network security group flow logs and send the logs to an Azure Storage account for auditing. You can also send the flow logs to a Log Analytics workspace and then use Traffic Analytics to provide insights into traffic patterns in your Azure cloud. Some advantages of Traffic Analytics are the ability to visualize network activity, identify hot spots and security threats, understand traffic flow patterns, and pinpoint network misconfigurations. 
 
-- [Virtual Network NAT overview](https://docs.microsoft.com/azure/virtual-network/nat-overview)
+- [Virtual Network NAT overview](nat-overview.md)
 
-- [NAT gateway resource](https://docs.microsoft.com/azure/virtual-network/nat-gateway-resource)
+- [NAT gateway resource](nat-gateway-resource.md)
 
-- [How to enable network security group flow logs](https://docs.microsoft.com/azure/network-watcher/network-watcher-nsg-flow-logging-portal) 
+- [How to enable network security group flow logs](../network-watcher/network-watcher-nsg-flow-logging-portal.md) 
 
-- [How to enable and use Traffic Analytics](https://docs.microsoft.com/azure/network-watcher/traffic-analytics)
+- [How to enable and use Traffic Analytics](../network-watcher/traffic-analytics.md)
 
-- [Understand network security provided by Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-network-recommendations)
+- [Understand network security provided by Azure Security Center](../security-center/security-center-network-recommendations.md)
 
 **Azure Security Center monitoring**: Unset. Please provide a value in the work item.
 
@@ -60,7 +60,7 @@ Use Azure Security Center and follow the network protection recommendations to h
 
 **Guidance**: Enable Network Watcher packet capture to investigate anomalous activities. 
 
-- [How to create a Network Watcher instance](https://docs.microsoft.com/azure/network-watcher/network-watcher-create)
+- [How to create a Network Watcher instance](../network-watcher/network-watcher-create.md)
 
 **Azure Security Center monitoring**: Yes
 
@@ -73,9 +73,9 @@ Use Azure Security Center and follow the network protection recommendations to h
 
 **Guidance**: Define and implement standard security configurations for subnets configured with NAT gateway resources using built-in or custom Azure Policy definitions and assignments.
 
-- [How to configure and manage Azure Policy](https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage)
+- [How to configure and manage Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
-- [Azure Policy samples for networking](https://docs.microsoft.com/azure/governance/policy/samples/#network)
+- [Azure Policy samples for networking](/azure/governance/policy/samples/#network)
 
 **Azure Security Center monitoring**: Unset. Please provide a value in the work item.
 
@@ -88,9 +88,9 @@ Use Azure Security Center and follow the network protection recommendations to h
 
 **Guidance**: Use Azure Activity log to monitor resource configurations and detect changes to your NAT gateway resources and virtual network resources. Create alerts in Azure Monitor to notify you when critical resources are changed.
 
-- [How to view and retrieve Azure Activity log events](https://docs.microsoft.com/azure/azure-monitor/platform/activity-log-view)
+- [How to view and retrieve Azure Activity log events](/azure/azure-monitor/platform/activity-log-view)
 
-- [How to create alerts in Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-activity-log)
+- [How to create alerts in Azure Monitor](../azure-monitor/platform/alerts-activity-log.md)
 
 **Azure Security Center monitoring**: Unset. Please provide a value in the work item.
 
@@ -98,7 +98,7 @@ Use Azure Security Center and follow the network protection recommendations to h
 
 ## Logging and monitoring
 
-*For more information, see the [Azure Security Benchmark: Logging and monitoring](https://docs.microsoft.com/azure/security/benchmarks/security-control-logging-monitoring).*
+*For more information, see the [Azure Security Benchmark: Logging and monitoring](../security/benchmarks/security-control-logging-monitoring.md).*
 
 ### 2.2: Configure central security log management
 
@@ -109,9 +109,9 @@ Use Azure Security Center and follow the network protection recommendations to h
 
 Alternatively, you can enable and on-board this data to Azure Sentinel or a third-party SIEM.
 
-- [How to onboard Azure Sentinel](https://docs.microsoft.com/azure/sentinel/quickstart-onboard) 
+- [How to onboard Azure Sentinel](../sentinel/quickstart-onboard.md) 
 
-- [How to collect platform logs and metrics with Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-settings) 
+- [How to collect platform logs and metrics with Azure Monitor](../azure-monitor/platform/diagnostic-settings.md) 
 
 - [How to get started with Azure Monitor and third-party SIEM integration](https://azure.microsoft.com/blog/use-azure-monitor-to-integrate-with-siem-tools/) 
 
@@ -126,9 +126,9 @@ Alternatively, you can enable and on-board this data to Azure Sentinel or a thir
 
 **Guidance**: Activity logs, which are automatically available, contain all write operations (PUT, POST, DELETE) for your NAT gateway resources except read operations (GET). Activity logs can be used to find an error when troubleshooting or to monitor how a user in your organization modified a resource.
 
-- [How to collect platform logs and metrics with Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-settings) 
+- [How to collect platform logs and metrics with Azure Monitor](../azure-monitor/platform/diagnostic-settings.md) 
 
-- [Understand logging and different log types in Azure](https://docs.microsoft.com/azure/azure-monitor/platform/platform-logs-overview) 
+- [Understand logging and different log types in Azure](../azure-monitor/platform/platform-logs-overview.md) 
 
 Virtual Network NAT currently does not produce any additional diagnostic logs which are configurable by customers.
 
@@ -143,11 +143,11 @@ Virtual Network NAT currently does not produce any additional diagnostic logs wh
 
 **Guidance**: Use Azure Security Center with Log Analytics workspace for monitoring and alerting on anomalous activity found in security logs and events. Instead, you can enable and on-board data to Azure Sentinel.
 
-- [How to onboard Azure Sentinel](https://docs.microsoft.com/azure/sentinel/quickstart-onboard) 
+- [How to onboard Azure Sentinel](../sentinel/quickstart-onboard.md) 
 
-- [How to manage alerts in Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-managing-and-responding-alerts) 
+- [How to manage alerts in Azure Security Center](../security-center/security-center-managing-and-responding-alerts.md) 
 
-- [How to alert on log analytics log data](https://docs.microsoft.com/azure/azure-monitor/learn/tutorial-response) 
+- [How to alert on log analytics log data](../azure-monitor/learn/tutorial-response.md) 
 
 **Azure Security Center monitoring**: Yes
 
@@ -155,7 +155,7 @@ Virtual Network NAT currently does not produce any additional diagnostic logs wh
 
 ## Inventory and asset management
 
-*For more information, see the [Azure Security Benchmark: Inventory and asset management](https://docs.microsoft.com/azure/security/benchmarks/security-control-inventory-asset-management).*
+*For more information, see the [Azure Security Benchmark: Inventory and asset management](../security/benchmarks/security-control-inventory-asset-management.md).*
 
 ### 6.1: Use automated asset discovery solution
 
@@ -168,7 +168,7 @@ Ensure appropriate (read) permissions in your tenant and enumerate all Azure sub
 
 Although classic Azure resources may be discovered via Resource Graph, it is highly recommended to create and use Azure Resource Manager based resources going forward.
 
-- [Azure Resource Graph queries](https://docs.microsoft.com/azure/governance/resource-graph/first-query-portal)
+- [Azure Resource Graph queries](../governance/resource-graph/first-query-portal.md)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -192,11 +192,11 @@ Although classic Azure resources may be discovered via Resource Graph, it is hig
 
 **Guidance**: Apply tags for management of Azure resources.
 
-- [How to create additional Azure subscriptions](https://docs.microsoft.com/azure/billing/billing-create-subscription) 
+- [How to create additional Azure subscriptions](/azure/billing/billing-create-subscription) 
 
-- [How to create Management Groups](https://docs.microsoft.com/azure/governance/management-groups/create) 
+- [How to create Management Groups](/azure/governance/management-groups/create) 
 
-- [How to create and use Tags](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags)
+- [How to create and use Tags](/azure/azure-resource-manager/resource-group-using-tags)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -210,8 +210,8 @@ Although classic Azure resources may be discovered via Resource Graph, it is hig
 **Guidance**: 
 Use Azure Policy to put restrictions on the type of resources that can be created in your subscription(s).
 Use Azure Resource Graph to query/discover resources within their subscription(s). Ensure that all Azure resources present in the environment are approved.
-- [How to configure and manage Azure Policy](https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage) 
-- [How to create queries with Azure Graph](https://docs.microsoft.com/azure/governance/resource-graph/first-query-portal)
+- [How to configure and manage Azure Policy](../governance/policy/tutorials/create-and-manage.md) 
+- [How to create queries with Azure Graph](../governance/resource-graph/first-query-portal.md)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -224,9 +224,9 @@ Use Azure Resource Graph to query/discover resources within their subscription(s
 
 **Guidance**: Use Azure Policy to restrict which services you can provision in your environment. 
 
-- [How to configure and manage Azure Policy](https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage) 
+- [How to configure and manage Azure Policy](../governance/policy/tutorials/create-and-manage.md) 
 
-- [How to deny a specific resource type with Azure Policy](https://docs.microsoft.com/azure/governance/policy/samples/not-allowed-resource-types)
+- [How to deny a specific resource type with Azure Policy](/azure/governance/policy/samples/not-allowed-resource-types)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -234,7 +234,7 @@ Use Azure Resource Graph to query/discover resources within their subscription(s
 
 ## Incident response
 
-*For more information, see the [Azure Security Benchmark: Incident response](https://docs.microsoft.com/azure/security/benchmarks/security-control-incident-response).*
+*For more information, see the [Azure Security Benchmark: Incident response](../security/benchmarks/security-control-incident-response.md).*
 
 ### 10.1: Create an incident response guide
 
@@ -309,7 +309,7 @@ An incident security response procedure should be created and tested for the off
 
 ## Penetration tests and red team exercises
 
-*For more information, see the [Azure Security Benchmark: Penetration tests and red team exercises](https://docs.microsoft.com/azure/security/benchmarks/security-control-penetration-tests-red-team-exercises).*
+*For more information, see the [Azure Security Benchmark: Penetration tests and red team exercises](../security/benchmarks/security-control-penetration-tests-red-team-exercises.md).*
 
 ### 11.1: Conduct regular penetration testing of your Azure resources and ensure remediation of all critical security findings
 
