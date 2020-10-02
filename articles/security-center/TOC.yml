@@ -94,7 +94,7 @@
     href: security-center-planning-and-operations-guide.md
   - name: Protect your resources
     href: tutorial-protect-resources.md
-  - name: Respond to incidents
+  - name: Investigate and respond to security alerts
     href: tutorial-security-incident.md
   - name: Improve your regulatory compliance
     href: security-center-compliance-dashboard.md
