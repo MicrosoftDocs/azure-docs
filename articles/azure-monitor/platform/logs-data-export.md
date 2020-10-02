@@ -23,7 +23,7 @@ Export rules can be disabled to let you stop the export when you don’t need to
 ## Other export options
 Log Analytics workspace data export continuously exports data from a Log Analytics workspace. Other options to export data for particular scenarios include the following:
 
-- Scheduled export from a log query using a Logic App. This is similar to the data export feature but allows you to send filtered or aggregated data to Azure storage. See [Archive data from Log Analytics workspace to Azure storage using Logic App](../log-query/logicapp-export.md)
+- Scheduled export from a log query using a Logic App. This is similar to the data export feature but allows you to send filtered or aggregated data to Azure storage. See [Archive data from Log Analytics workspace to Azure storage using Logic App](logs-export-logicapp.md)
 - One time export using a Logic App. See [Azure Monitor Logs connector for Logic Apps and Power Automate](logicapp-flow-connector.md).
 - One time export to local machine using PowerShell script. See [Invoke-AzOperationalInsightsQueryExport]](https://www.powershellgallery.com/packages/Invoke-AzOperationalInsightsQueryExport).
 
@@ -67,12 +67,12 @@ The storage account data format is [JSON lines](diagnostic-logs-append-blobs.md)
 
 ![Storage sample data](media/logs-data-export/storage-data.png)
 
-Log Analytics data export can write append blobs to immutable storage accounts when time-based retention policies have the *allowProtectedAppendWrites* setting enabled. This allows writing new blocks to an append blob, while maintaining immutability protection and compliance. See [Allow protected append blobs writes](../storage/blobs/storage-blob-immutable-storage.md#allow-protected-append-blobs-writes).
+Log Analytics data export can write append blobs to immutable storage accounts when time-based retention policies have the *allowProtectedAppendWrites* setting enabled. This allows writing new blocks to an append blob, while maintaining immutability protection and compliance. See [Allow protected append blobs writes](../../storage/blobs/storage-blob-immutable-storage.md#allow-protected-append-blobs-writes).
 
 ### Event hub
 Data is sent to your event hub in near real time as it reaches Azure Monitor. An event hub is created for each data type that you export with the name *am-* followed by the name of the table. For example, the table *SecurityEvent* would sent to an event hub named *am-SecurityEvent*. If you want the exported data to reach a specific event hub, or if you have a table with a name that exceeds the 47 character limit, you can provide your own event hub name and export all tables to it.
 
-The volume of exported data often increase over time, and the event hub scale needs to be increased to handle larger transfer rates and avoid throttling scenarios and data latency. You should use the auto-inflate feature of Event Hubs to automatically scale up and increase the number of throughput units and meet usage needs. See [Automatically scale up Azure Event Hubs throughput units](../event-hubs/event-hubs-auto-inflate.md) for details.
+The volume of exported data often increase over time, and the event hub scale needs to be increased to handle larger transfer rates and avoid throttling scenarios and data latency. You should use the auto-inflate feature of Event Hubs to automatically scale up and increase the number of throughput units and meet usage needs. See [Automatically scale up Azure Event Hubs throughput units](../../event-hubs/event-hubs-auto-inflate.md) for details.
 
 
 ## Prerequisites
@@ -86,8 +86,8 @@ Following are prerequisites that must be completed before configuring Log Analyt
 The follow steps must be performed to enable Log Analytics data export. See the following sections for more details on each.
 
 - [Register resource provider](#register-resource-provider)
-- [Allow trusted Microsoft services](allow-trusted-microsoft-services)
-- [Create one or more data export rules](create-or-update-data-export-rule) that define the tables to export and their destination.
+- [Allow trusted Microsoft services](#allow-trusted-microsoft-services)
+- [Create one or more data export rules](#create-or-update-data-export-rule) that define the tables to export and their destination.
 
 ## Register resource provider
 
@@ -95,7 +95,7 @@ The following Azure resource providers need to registered for your subscription 
 
 - Microsoft.Insights
 
-You can use any of the available methods to register a resource provider as described in [Azure resource providers and types](../..azure-resource-manager/management/resource-providers-and-types.md). You can also use the following sample command using PowerShell to make authenticated call to ARM:
+You can use any of the available methods to register a resource provider as described in [Azure resource providers and types](../../azure-resource-manager/management/resource-providers-and-types.md). You can also use the following sample command using PowerShell to make authenticated call to ARM:
 
 ```PowerShell
 Register-AzResourceProvider -ProviderNamespace Microsoft.insights
