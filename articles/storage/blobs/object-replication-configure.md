@@ -345,6 +345,39 @@ az storage account or-policy create \
 
 ---
 
+## Check the replication status of a blob
+
+You can check the replication status for a blob using the Azure portal, PowerShell, or Azure CLI. Object replication properties are not populated until replication has either completed or failed.
+
+# [Azure portal](#tab/portal)
+
+To check the replication status for a blob in the source account in the Azure portal, follow these steps:
+
+1. Navigate to the destination storage account in the Azure portal.
+1. Locate the container that includes the blob for which you wish to check the replication status.
+1. Select the blob to display its properties. If the blob has replicated successfully, you'll see in the **Object replication** section that the status is set to *Complete*. The replication policy ID and the ID for the rule governing replication for this container are also listed.
+
+:::image type="content" source="media/object-replication-configure/check-replication-status-source.png" alt-text="Screenshot showing replication status for a blob in the source account":::
+
+To check the replication status for a blob in the destination account in the Azure portal, follow these steps:
+
+1. Navigate to the destination storage account in the Azure portal.
+1. Locate the container that includes the blob for which you wish to check the replication status.
+1. Select the blob to display its properties. If the blob has replicated successfully, you'll see that the **Copy status** field is set to *Success*. The **Copy completion time** field indicates the time that the blob was last replicated, after being created or updated.
+
+    :::image type="content" source="media/object-replication-configure/check-replication-status-destination.png" alt-text="Screenshot showing replication status for a blob in the destination account":::
+
+
+# [PowerShell](#tab/powershell)
+
+TBD
+
+# [Azure CLI](#tab/azure-cli)
+
+TBD
+
+---
+
 ## Remove a replication policy
 
 To remove a replication policy and its associated rules, use Azure portal, PowerShell, or CLI.
