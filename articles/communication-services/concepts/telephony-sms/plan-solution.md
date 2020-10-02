@@ -18,7 +18,7 @@ ms.service: azure-communication-services
 
 In this document, we'll review the decision flows that you can use to select phone number types, plans, and capabilities made available through Azure Communication Services.
 
-## Acquiring phone numbers in Azure Communications Services
+## Phone numbers in Azure Communications Services
 
 Azure Communication Services allows you to use phone numbers to place and receive telephony calls and SMS messages. These phone numbers can be used to configure caller ID for outbound calls placed by your service.
 
@@ -28,7 +28,7 @@ If your phone number is being used by a person (for example, a user of your call
 
 Now, let's review these phone number types and capabilities available through Communication Services. 
 
-## Phone numbers and capabilities
+## Phone number capabilities
 
 For most phone numbers, we allow you to configure an "a la carte" set of plans. Some developers only need an outbound calling plan; some might opt for outbound calling and outbound SMS plans. These plans can be selected as you lease your telephone numbers within Azure Communication Services.
 
@@ -89,17 +89,17 @@ The table below summarizes these phone number types:
 | Toll-Free         | +1 (toll-free area *code*) XXX XX XX | US                      | PSTN Calling (Outbound), SMS (Inbound/Outbound)| Assigning phone numbers to Interactive Voice Response (IVR) systems/Bots, SMS applications                                        |
 
 ### Geographic Numbers
-Geographic numbers are 10-digit telephone numbers consisting of the local area codes in US. These phone numbers are generally used by individuals and local businesses. Azure Communication Services offers geographic numbers in US. These numbers can be used with the calling capability. For example, +1 (206) XXX-XXXX, area code 206 is assigned to city of Seattle, Bainbridge Island and Vashon Island.
+Geographic numbers are 10-digit telephone numbers consisting of the local area codes in US. For example, +1 (206) XXX-XXXX, area code 206 is assigned to city of Seattle, Bainbridge Island and Vashon Island. These phone numbers are generally used by individuals and local businesses. Azure Communication Services offers geographic numbers in US. These numbers can be used with the calling capability. 
 
 ### Toll-Free Numbers
-Toll-free numbers are 10-digit telephone numbers with distinct area codes that can be called from any phone number free of charge. These are generally used for customer service purposes. 
+Toll-free numbers are 10-digit telephone numbers with distinct area codes that can be called from any phone number free of charge. For example, +1 (800) XXX-XXXX, is a toll free number in North America region. These phone numbers are generally used for customer service purposes. Azure Communication Services offers toll-free numbers in US. These numbers can be used with calling and/or SMS capability. 
 
 ## Plans 
 
 Let’s look at the capabilities you can enable for your phone numbers. These capabilities vary by country due to regulatory requirements. Azure Communication Services offers the following capabilities:
 
-- **One-way outbound SMS** This plan allows you to send SMS to your users using phone numbers acquired in your Azure Communication Services resource. This plan is useful for scenarios like notifications and two-factor authentication alerts. 
-- **Two-way inbound and outbound SMS** This plan allows you to send and receive messages from your users using phone numbers acquired in your Azure Communication Services resource. This plan is useful scenarios like customer service.
+- **One-way outbound SMS** This plan allows you to send SMS to your users. This plan is useful for scenarios like notifications and two-factor authentication alerts. 
+- **Two-way inbound and outbound SMS** This plan allows you to send and receive messages from your users using phone numbers. This plan is useful scenarios like customer service.
 - **One-way outbound PSTN calling** This plan allows you to make calls to your users and configure Caller ID for outbound calls placed by your service. This plan enables scenarios like customer service.
 
 ## Country/Region availability
