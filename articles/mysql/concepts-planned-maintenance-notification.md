@@ -21,14 +21,14 @@ During maintenance, your Azure Database for MySQL server may experience a brief 
 
 ## How can I get notified of planned maintenance?
 
-You can utilize the planned maintenance notifications feature to receive alerts for an upcoming planned maintenance event. You will receive the notification about the upcoming maintenance 72 hours before the event. 
+You can utilize the planned maintenance notifications feature to receive alerts for an upcoming planned maintenance event. You will receive the notification about the upcoming maintenance 72 calendar hours before the event. 
 
 ## Planned maintenance notification
 
 > [!IMPORTANT]
 > Planned maintenance notifications are currently available in preview in all regions **except** West Central US
 
-**Planned maintenance notifications** allow you to receive alerts for upcoming planned maintenance event to your Azure Database for MySQL. These notifications are integrated with [Service Health's](../service-health/overview.md) planned maintenance and allow you to view all scheduled maintenance for your subscriptions in one place. It also helps to scale the notification to the right audiences for different resource groups, as you may have different contacts responsible for different resources. You will receive the notification about the upcoming maintenance 72 hours before the event.
+**Planned maintenance notifications** allow you to receive alerts for upcoming planned maintenance event to your Azure Database for MySQL. These notifications are integrated with [Service Health's](../service-health/overview.md) planned maintenance and allow you to view all scheduled maintenance for your subscriptions in one place. It also helps to scale the notification to the right audiences for different resource groups, as you may have different contacts responsible for different resources. You will receive the notification about the upcoming maintenance 72 calendar hours before the event.
 
 We will make every attempt to provide **Planned maintenance notification** 72 hours notice for all events. However, in cases of critical or security patches, notifications might be sent closer to the event or be omitted.
 
