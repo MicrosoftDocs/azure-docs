@@ -53,7 +53,7 @@ It includes links to perform operations on this offer based on the selection you
 - If the offer is a draft - [Delete draft offer](update-existing-offer.md#delete-a-draft-offer))
 - If the offer is live - [Stop selling the offer](update-existing-offer.md#stop-selling-an-offer-or-plan))
 - If the offer is in preview - [Go-live](publishing-status.md#publisher-approval))
-- If you haven't completed publisher sign-out - [Cancel publishing](update-existing-offer.md#cancel-publishing))
+- If you haven't completed publisher sign-off - [Cancel publishing](update-existing-offer.md#cancel-publishing))
 
 ## Offer setup
 
@@ -68,7 +68,7 @@ When publishing your offer to the marketplace with Partner Center, you must conn
     - [Salesforce](commercial-marketplace-lead-management-instructions-salesforce.md)
 
     > [!NOTE]
-    > If your CRM system isn't listed above, use [Azure Table](commercial-marketplace-lead-management-instructions-azure-table.md) or [Https Endpoint](commercial-marketplace-lead-management-instructions-https.md) to store customer lead data. Then export the data to your CRM system.
+    > If your CRM system isn't in this list, use [Azure Table](commercial-marketplace-lead-management-instructions-azure-table.md) or and [HTTPS endpoint](commercial-marketplace-lead-management-instructions-https.md) to store customer lead data. Then export the data to your CRM system.
 
 2. Connect your offer to the lead destination when publishing in Partner Center.
 3. Confirm that the connection to the lead destination is configured properly. After you publish it in Partner Center, we'll validate the connection and send you a test lead. While you preview the offer before it goes live, you can also test your lead connection by trying to purchase the offer yourself in the preview environment.
