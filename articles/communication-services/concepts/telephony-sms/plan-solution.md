@@ -20,7 +20,7 @@ This document describes the various telephony plans and number types that Azure 
 
 ## About phone numbers in Azure Communications Services
 
-Azure Communication Services allows you to use phone numbers to place and receive telephony calls and SMS messages. These phone numbers can be used to configure caller ID on outbound calls placed by your service.
+Azure Communication Services allows you to use phone numbers to place and receive telephony calls and SMS messages. These phone numbers can be used to configure caller ID for outbound calls placed by your service.
   
 The simplest way to begin is to get a new phone number from Azure Communication Services in a matter of minutes.
 
@@ -96,7 +96,7 @@ Let’s look at the capabilities you can enable for your phone numbers. These ca
 
 - **One-way outbound SMS** This plan allows you to send SMS to your users using phone numbers acquired in your Azure Communication Services resource. This plan is useful for scenarios like notifications and two-factor authentication alerts. 
 - **Two-way inbound and outbound SMS** This plan allows you to send and receive messages from your users using phone numbers acquired in your Azure Communication Services resource. This plan is useful scenarios like customer service.
-- **One-way outbound PSTN calling** This plan allows you to make calls to your users and configure Caller ID on outbound calls placed by your service. This plan enables scenarios like customer service.
+- **One-way outbound PSTN calling** This plan allows you to make calls to your users and configure Caller ID for outbound calls placed by your service. This plan enables scenarios like customer service.
 
 ## Country/Region Availability
 
