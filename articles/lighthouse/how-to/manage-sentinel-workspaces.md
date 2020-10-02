@@ -1,7 +1,7 @@
 ---
 title: Manage Azure Sentinel workspaces at scale
 description: Learn how to effectively manage Azure Sentinel on delegated customer resources.
-ms.date: 08/27/2020
+ms.date: 09/30/2020
 ms.topic: how-to
 ---
 
@@ -30,6 +30,9 @@ This centralized model of deployment has the following advantages:
 - Data from all data sources and data connectors that are integrated with Azure Sentinel (such as Azure AD Activity Logs, Office 365 logs, or Microsoft Threat Protection alerts) will remain within each customer tenant.
 - Reduces network latency.
 - Easy to add or remove new subsidiaries or customers.
+
+> [!NOTE]
+> You can manage delegated resources that are located in different [regions](../../availability-zones/az-overview.md#regions). However, delegation of subscriptions across a [national cloud](../../active-directory/develop/authentication-national-cloud.md) and the Azure public cloud, or across two separate national clouds, isn't supported.
 
 ## Granular role-based access control (RBAC)
 

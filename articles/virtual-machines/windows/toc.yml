@@ -407,7 +407,7 @@
       href: ps-template.md
     - name: Connect to a VM
       href: connect-logon.md
-    - name: Connect to Linux VMs
+    - name: SSH to Linux VMs
       displayName: ssh keygen ssk-key putty
       items:
       - name: In the portal
@@ -595,7 +595,7 @@
         href: disk-encryption-troubleshooting.md
       - name: Disk encryption FAQ
         href: disk-encryption-faq.md
-      - name: Disk encryption - previous version (Azure AD)
+      - name: Disk encryption - previous version
         items:
         - name: Overview
           href: disk-encryption-overview-aad.md

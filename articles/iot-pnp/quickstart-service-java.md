@@ -73,7 +73,7 @@ In [Set up your environment for the IoT Plug and Play quickstarts and tutorials]
 In this quickstart, you use a sample IoT solution written in Java to interact with the sample device you just set up.
 
 > [!NOTE]
-> This sample uses the **com.microsoft.azure.sdk.iot.service.*;** namespace from the **IoT Hub service client**. To learn more about how to retrieve the model ID, see the [developer guide](concepts-developer-guide-device-csharp.md).
+> This sample uses the **com.microsoft.azure.sdk.iot.service.*;** namespace from the **IoT Hub service client**. To learn more about how to retrieve the model ID, see the [developer guide](concepts-developer-guide-service.md).
 
 1. Open another terminal window to use as your **service** terminal.
 

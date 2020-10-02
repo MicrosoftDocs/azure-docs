@@ -53,7 +53,7 @@ In this article, you learn how to:
     - **Starter**
     - **Unlimited**
 
-7. Enter other API settings. You can set the values during creation or configure them later by going to the **Settings** tab. The settings are explained in the [Import and publish your first API](import-and-publish.md#-import-and-publish-a-backend-api) tutorial.
+7. Enter other API settings. You can set the values during creation or configure them later by going to the **Settings** tab. The settings are explained in the [Import and publish your first API](import-and-publish.md#import-and-publish-a-backend-api) tutorial.
 8. Select **Create**.
 
 ## Test the API in the Azure portal

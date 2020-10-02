@@ -1,6 +1,6 @@
 ---
 title: Azure Services in FedRAMP and DoD SRG Audit Scope
-description: This article contains tables for Azure Public and Azure Government that illustrate what FedRAMP (Moderate vs. High) and DoD SRG (Impact level 2, 4, or 5) audit scope a given service has reached.
+description: This article contains tables for Azure Public and Azure Government that illustrate what FedRAMP (Moderate vs. High) and DoD SRG (Impact level 2, 4, 5 or 6) audit scope a given service has reached.
 author: Jain-Garima  
 ms.author: gjain
 ms.date: 5/17/2019
@@ -11,7 +11,7 @@ ms.reviewer: rochiou
 
 # Azure services by FedRAMP and DoD CC SRG audit scope
 
-Microsoft’s government cloud services meet the demanding requirements of the US Federal Risk & Authorization Management Program (FedRAMP) and of the US Department of Defense, from information impact levels 2 through 5. By deploying protected services including Azure Government, Office 365 U.S. Government, and Dynamics 365 Government, federal and defense agencies can leverage a rich array of compliant services.
+Microsoft’s government cloud services meet the demanding requirements of the US Federal Risk & Authorization Management Program (FedRAMP) and of the US Department of Defense, from information impact levels 2 through 6. By deploying protected services including Azure Government, Office 365 U.S. Government, and Dynamics 365 Government, federal and defense agencies can leverage a rich array of compliant services.
 
 This article provides a detailed list of in-scope cloud services across Azure Public and Azure Government for FedRAMP and DoD CC SRG compliance offerings.
 
