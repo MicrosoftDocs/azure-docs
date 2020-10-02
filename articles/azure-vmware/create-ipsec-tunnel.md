@@ -19,7 +19,7 @@ We'll walk you through the necessary procedures to:
 
 ## Topology
 
-:::image type="content" source="media/create-ipsec-tunnel/vpn-s2s-tunnel-architecture.png alt-text="VPN site-to-site tunnel architecture." border="false":::
+![VPN site-to-site tunnel architecture.](media/create-ipsec-tunnel/vpn-s2s-tunnel-architecture.png)
 
 The Azure Virtual hub contains the Azure VMware Solution ExpressRoute gateway and the site-to-site VPN gateway. It connects an on-premise VPN device with an Azure VMware Solution endpoint.
 
