@@ -57944,6 +57944,11 @@
       "source_path": "articles/private-link/create-private-endpoint-storage-portal.md",
       "redirect_url": "/azure/private-link/tutorial-private-endpoint-storage-portal",
       "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-cache-for-redis/cache-migrate-to-redis.md",
+      "redirect_url": "/azure/azure-cache-for-redis/cache-overview",
+      "redirect_document_id": false
     }
   ]
 }
