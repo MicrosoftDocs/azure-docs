@@ -18,7 +18,7 @@ You can use any of the resources below for a training compute target for most jo
 |----|:----:|:----:|:----:|
 |[Local computer](../articles/machine-learning/how-to-attach-compute-targets.md#local)| yes | &nbsp; | &nbsp; |
 |[Azure Machine Learning compute cluster](../articles/machine-learning/how-to-create-attach-compute-cluster.md)| yes | yes | yes |
-|[Azure Machine Learning compute instance](../articles/machine-learning/how-to-create-manage-compute-instance.md) | yes  | yes |  |
+|[Azure Machine Learning compute instance](../articles/machine-learning/how-to-create-manage-compute-instance.md) | yes (through SDK)  | yes |  |
 |[Remote VM](../articles/machine-learning/how-to-attach-compute-targets.md#vm) | yes  | yes | &nbsp; |
 |[Azure&nbsp;Databricks](../articles/machine-learning/how-to-attach-compute-targets.md#databricks)| yes (SDK local mode only) | yes | &nbsp; |
 |[Azure Data Lake Analytics](../articles/machine-learning/how-to-attach-compute-targets.md#adla) | &nbsp; | yes | &nbsp; |

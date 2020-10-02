@@ -61,6 +61,11 @@ A PostgreSQL connection, even idle, can occupy about 10MB of memory. Also, creat
 ### UTF-8 characters on Windows
 - In some scenarios, UTF-8 characters are not supported fully in open source PostgreSQL on Windows, which affects Azure Database for PostgreSQL. Please see the thread on [Bug #15476 in the postgresql-archive](https://www.postgresql-archive.org/BUG-15476-Problem-on-show-trgm-with-4-byte-UTF-8-characters-td6056677.html) for more information.
 
+### GSS error
+If you see an error related to **GSS**, you are likely using a newer client/driver version which Azure Postgres Single Server does not yet fully support. This error is known to affect [JDBC driver versions 42.2.15 and 42.2.16](https://github.com/pgjdbc/pgjdbc/issues/1868).
+   - We plan to complete the update by the end of November. Consider using a working driver version in the meantime.
+   - Or, consider disabling the GSS request.  Use a connection parameter like `gssEncMode=disable`.
+
 ## Next steps
 - Understand [what’s available in each pricing tier](concepts-pricing-tiers.md)
 - Learn about [Supported PostgreSQL Database Versions](concepts-supported-versions.md)

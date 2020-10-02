@@ -13,13 +13,13 @@ To start, make sure you're set up correctly in Visual Studio for C++ desktop dev
 
 1. Open Visual Studio 2019 to display the **Start** window.
 
-   ![Start window - Visual Studio](../articles/cognitive-services/Speech-Service/media/sdk/vs-start-window.png)
+   ![Screenshot that shows the Visual Studio 2019 "Start" window.](../articles/cognitive-services/Speech-Service/media/sdk/vs-start-window.png)
 
 1. Select **Continue without code** to go to the Visual Studio IDE.
 
 1. From the Visual Studio menu bar, select **Tools** > **Get Tools and Features** to open Visual Studio Installer and view the **Modifying** dialog box.
 
-   ![Workloads tab, Modifying dialog box, Visual Studio Installer](../articles/cognitive-services/Speech-Service/media/sdk/vs-enable-cpp-workload.png)
+   ![Screenshot that shows the "Workloads" tab of the "Modifying" dialog box for the "Visual Studio Installer".](../articles/cognitive-services/Speech-Service/media/sdk/vs-enable-cpp-workload.png)
 
 1. In the **Workloads** tab, under **Windows**, find the **Desktop development with C++** workload. If the check box next to that workload isn't already selected, select it.
 
