@@ -242,9 +242,8 @@
           displayName: compute target
           href: how-to-create-manage-compute-instance.md
         - name: Compute cluster
-          displayName: compute target
           href: how-to-create-attach-compute-cluster.md
-          displayName: low priority, managed identity
+          displayName: compute target, low priority, managed identity
         - name: Azure Kubernetes Service
           displayName: AKS, inference
           href: how-to-create-attach-kubernetes.md
