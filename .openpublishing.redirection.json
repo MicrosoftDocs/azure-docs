@@ -21868,6 +21868,16 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/marketplace/lead-management-for-cloud-marketplace.md",
+      "redirect_url": "/azure/marketplace/partner-center-portal/commercial-marketplace-get-customer-leads",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/marketplace/integrated-solutions.md",
+      "redirect_url": "/azure/marketplace/integrated-solutions-for-publishers",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/marketplace/partner-center-portal/payout-policy-details.md",
       "redirect_url": "/partner-center/payout-policy-details?context=/azure/marketplace/context/context",
       "redirect_document_id": false

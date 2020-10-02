@@ -6,12 +6,12 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
-ms.date: 06/24/2020
+ms.date: 10/01/2020
 
 ms.author: iainfou
 author: iainfoulds
 manager: daveba
-ms.reviewer: scottsta
+ms.reviewer: calui
 
 ---
 # Sign-in to Azure Active Directory using email as an alternate login ID (preview)
@@ -25,6 +25,8 @@ Some organizations haven't moved to hybrid authentication for the following reas
 * Due to business or compliance reasons, the organization doesn't want to use the on-premises UPN to sign in to Azure AD.
 
 To help with the move to hybrid authentication, you can now configure Azure AD to let users sign in with an email in your verified domain as an alternate login ID. For example, if *Contoso* rebranded to *Fabrikam*, rather than continuing to sign in with the legacy `balas@contoso.com` UPN, email as an alternate login ID can now be used. To access an application or services, users would sign in to Azure AD using their assigned email, such as `balas@fabrikam.com`.
+
+This article shows you how to enable and use email as an alternate login ID. This feature is available in the Azure AD Free edition and higher.
 
 > [!NOTE]
 > Sign in to Azure AD with email as an alternate login ID is a public preview feature of Azure Active Directory. For more information about previews, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
@@ -42,6 +44,8 @@ The typical workaround to this issue was to set the Azure AD UPN to the email ad
 A different approach is to synchronize the Azure AD and on-premises UPNs to the same value and then configure Azure AD to allow users to sign in to Azure AD with a verified email. To provide this ability, you define one or more email addresses in the user's *ProxyAddresses* attribute in the on-premises directory. *ProxyAddresses* are then synchronized to Azure AD automatically using Azure AD Connect.
 
 ## Preview limitations
+
+Sign in to Azure AD with email as an alternate login ID is available in the Azure AD Free edition and higher.
 
 In the current preview state, the following limitations apply when a user signs in with a non-UPN email as an alternate login ID:
 
