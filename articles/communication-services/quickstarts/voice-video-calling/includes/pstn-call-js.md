@@ -59,7 +59,7 @@ const callPhoneButton = document.getElementById("call-phone-button");
 const hangUpPhoneButton = document.getElementById("hang-up-phone-button");
 ```
 
-### Object model
+## Object model
 
 The following classes and interfaces handle some of the major features of the Azure Communication Services Calling client library for Javascript.
 
