@@ -80,9 +80,9 @@ Rose sees the messages and starts chatting. In the meanwhile Casey gets a call a
 
 Telephony and SMS services are priced on a per-minute basis. Pricing is determined by the type and location of the number you're using as well as the destination of your calls and SMS messages.
 
-### PSTN calling
+### Telephone calling
 
-PSTN calling is available with pay-as-you-go pricing for phone numbers based in the United States. The price is a per-minute charge based on the type of number used and the destination of the call. Pricing details for the most popular calling destinations are included in the table below. Please see this link (TODO: Link to CSV) for a full list of destinations.
+Traditional telephone (PSTN) calling is available with pay-as-you-go pricing for phone numbers based in the United States. The price is a per-minute charge based on the type of number used and the destination of the call. Pricing details for the most popular calling destinations are included in the table below. Please see this link (TODO: Link to CSV) for a full list of destinations.
 
 
 #### United States calling prices
