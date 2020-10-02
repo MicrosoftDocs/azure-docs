@@ -50,11 +50,14 @@ You can continue using classic metrics and logs if you want to. In fact, classic
 
 Platform metrics and the Activity log are collected automatically, but can be routed to other locations by using a diagnostic setting. You must create a diagnostic setting to collect resource logs. 
 
+> [!NOTE]
+> Azure Storage logs in Azure Monitor is in public preview and is available for preview testing in all public cloud regions. To enroll in the preview, see [this page](https://forms.microsoft.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbRxW65f1VQyNCuBHMIMBV8qlUM0E0MFdPRFpOVTRYVklDSE1WUTcyTVAwOC4u). This preview enables logs for blobs (which includes Azure Data Lake Storage Gen2), files, queues, tables, premium storage accounts in general-purpose v1, and general-purpose v2 storage accounts. Classic storage accounts aren't supported.
+
 To create a diagnostic setting by using the Azure portal, the Azure CLI, or PowerShell, see [Create diagnostic setting to collect platform logs and metrics in Azure](../../azure-monitor/platform/diagnostic-settings.md). 
 
 To see an Azure Resource Manager template that creates a diagnostic setting, see [Diagnostic setting for Azure Storage](https://docs.microsoft.com/azure/azure-monitor/samples/resource-manager-diagnostic-settings#diagnostic-setting-for-azure-storage).
 
-When you create a diagnostic setting, choose the type of storage that you want to enable logs for, such as a blob, queue, table, or file. For Azure Files, choose **file**. 
+When you create a diagnostic setting, choose the type of storage that you want to enable logs for, such as a blob, queue, table, or file. For Azure Files, choose **File**. 
 
 If you create the diagnostic setting in the Azure portal, you can select the resource from a list. If you use PowerShell or the Azure CLI, you need to use the resource ID of the Azure Files endpoint. You can find the resource ID in the Azure portal by opening the **Properties** page of your storage account.
 
@@ -75,7 +78,7 @@ For metrics that support dimensions, you can filter the metric with the desired 
 - Microsoft.Storage/storageAccounts
 - Microsoft.Storage/storageAccounts/fileServices
 
-For a list of all Azure Monitor support metrics, which includes Azure Files, see [Azure Monitor supported metrics](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-supported).
+For a list of all Azure Monitor support metrics, which includes Azure Files, see [Azure Monitor supported metrics](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-supported#microsoftstoragestorageaccountsfileservices).
 
 ### Accessing metrics
 
@@ -472,12 +475,6 @@ The following table lists some example scenarios to monitor and the proper metri
 11. Click **Select action group** to add an **action group** (email, SMS, etc.) to the alert either by selecting an existing action group or creating a new action group.
 12. Fill in the **Alert details** like **Alert rule name**, **Description, and **Severity**.
 13. Click **Create alert rule** to create the alert.
-
-## FAQ
-
-**Does Azure Storage support metrics for Managed Disks or Unmanaged Disks?**
-
-No. Azure Compute supports the metrics on disks. For more information, see [Per disk metrics for Managed and Unmanaged Disks](https://azure.microsoft.com/blog/per-disk-metrics-managed-disks/).
 
 ## Next steps
 
