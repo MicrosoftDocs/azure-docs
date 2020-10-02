@@ -254,11 +254,14 @@ Or you can install from a  terminal window. Install Python packages into the **P
 
 ## Add new kernels
 
+> [!WARNING]
+>  While customizing the compute instance, make sure you do not delete the **azureml_py36** conda environment or **Python 3.6 - AzureML** kernel. This is needed for Jupyter/JupyterLab functionality
+
 To add a new Jupyter kernel to the compute instance:
 
 1. Create new terminal from Jupyter, JupyterLab or from notebooks pane or SSH into the compute instance
 2. Use the terminal window to create a new environment.  For example, the code below creates `newenv`:
-    
+
     ```shell
     conda create --name newenv
     ```
@@ -279,8 +282,7 @@ To add a new Jupyter kernel to the compute instance:
 
 Any of the [available Jupyter Kernels](https://github.com/jupyter/jupyter/wiki/Jupyter-kernels) can be installed.
 
-> [!WARNING]
-> Do not delete the existing **azureml_py36** environment on a compute instance.
+
 
 ## Next steps
 
