@@ -11,7 +11,7 @@ ms.date: 07/22/2020
 
 # Create a Power BI app offer
 
-This article describes how to create and publish a Power BI app offer to Microsoft [AppSource](https://appsource.microsoft.com/).
+This article describes how to create and publish a Power BI app offer to [Microsoft AppSource](https://appsource.microsoft.com/).
 
 Before starting, [Create a Commercial Marketplace account in Partner Center](create-account.md) if you haven't done so yet. Ensure your account is enrolled in the commercial marketplace program.
 
@@ -50,10 +50,10 @@ This page shows a visual representation of the steps required to publish this of
 
 It includes links to perform operations on this offer based on the selection you make. For example:
 
-- If the offer is a draft - [Delete draft offer](update-existing-offer.md#delete-a-draft-offer))
-- If the offer is live - [Stop selling the offer](update-existing-offer.md#stop-selling-an-offer-or-plan))
-- If the offer is in preview - [Go-live](publishing-status.md#publisher-approval))
-- If you haven't completed publisher sign-off - [Cancel publishing](update-existing-offer.md#cancel-publishing))
+- If the offer is a draft - [Delete draft offer](update-existing-offer.md#delete-a-draft-offer)
+- If the offer is live - [Stop selling the offer](update-existing-offer.md#stop-selling-an-offer-or-plan)
+- If the offer is in preview - [Go-live](publishing-status.md#publisher-approval)
+- If you haven't completed publishing - [Cancel publishing](update-existing-offer.md#cancel-publishing)
 
 ## Offer setup
 

@@ -55,7 +55,7 @@ Choose from three options:
 
 By choosing this option, you authorize which partners in the CSP program are eligible to resell your offer.
 
-To authorize partners, click **Select CSP Partners** and a menu appears that lets you search by partner name or CSP Azure Active Directory (AAD) tenant ID.
+To authorize partners, select **Select CSP Partners** and a menu appears that lets you search by partner name or CSP Azure Active Directory (Azure AD) tenant ID.
 
 ![Select CSP menu](media/marketplace-publishers-guide/csp-pop-up-module.png)
 
@@ -76,7 +76,7 @@ Select **Save draft** to register your changes.
 If this offer is unpublished, you'll need to publish your offer to make it available to your selected partners.
 
 >[!NOTE]
->If you authorize a partner in the CSP program in a given region, they can sell the offer to any customer that belongs to that particular region. See [Cloud Solution Provider program regional markets and currency](https://docs.microsoft.com/partner-center/regional-authorization-overview) for more information on how CSP offers are classified under regions.
+>If you authorize a partner in the CSP program in a given region, they can sell the offer to any customer that belongs to that particular region. For more information on how CSP offers are classified under regions, see [Cloud Solution Provider program regional markets and currency](https://docs.microsoft.com/partner-center/regional-authorization-overview).
 
 If you're updating the CSP list of an already published offer, add the additional partners and select **Sync CSP audience**.
 
@@ -142,7 +142,7 @@ If your offer is currently **Option 2: Specific partners in the CSP program I se
 5. Select **Next** to be directed to the **Issue details page** to enter more details about your issue.
 6. Use **Deauthorize CSP** as the issue title and fill out the rest of the required sections.
 
- If your offer is currently **Option 2: Specific partners in the CSP program I select** and you'd like to navigate to **Option 3: No partners in the CSP program**, you'll only be able to navigate to that option if the partners in the CSP program you'd previously authorized have not resold your offer to end customers. Please use the following instructions to create a request:
+ If your offer is currently **Option 2: Specific partners in the CSP program I select** and you'd like to navigate to **Option 3: No partners in the CSP program**, you'll only be able to navigate to that option if the partners in the CSP program you'd previously authorized have not resold your offer to end customers. Use the following instructions to create a request:
 
 1. Go to the [Support request page](https://aka.ms/marketplacepublishersupport). The first few dropdown menus are automatically filled in for you.
 
@@ -165,11 +165,11 @@ To help partners in the Cloud Solution Provider program most effectively represe
 
 ### Partner Center CSP channel
 
-If you've opted into the CSP channel in Partner Center, publishers must enter a URL that hosts relevant marketing materials and channel contact information to the CSP channel under the offer listing module:
+If you've opted into the CSP channel in Partner Center, publishers must enter a URL that hosts relevant marketing materials and channel contact information under the offer listing module.
 
 ![Partner Center CSP collateral information](media/marketplace-publishers-guide/pc-csp-channel.png)
 
 ## Next steps
 
-- Learn more about [Go-to-market services](https://partner.microsoft.com/reach-customers/gtm)
+- Learn more about [Go-to-market services](https://partner.microsoft.com/reach-customers/gtm).
 - Sign in to [Partner Center](https://partner.microsoft.com/dashboard/account/v3/enrollment/introduction/partnership) to create and configure your offer.
