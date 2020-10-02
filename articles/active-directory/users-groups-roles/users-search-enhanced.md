@@ -121,7 +121,7 @@ The **Deleted users** page has additional filters not in the **All users** page.
 - Company name: Enter a company name
 - Permanent deletion date: Last 7, 14, or 30 days
 
-### User list sorting
+## User list sorting
 
 You can now sort by name and user principal name in the **All users** and **Deleted users** pages. You can also sort by deletion date in the **Deleted Users** list.
 
