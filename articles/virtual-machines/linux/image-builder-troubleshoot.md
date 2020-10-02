@@ -3,7 +3,7 @@ title: Troubleshoot Azure Image Builder Service
 description: Troubleshoot common problems and errors when using Azure VM Image Builder Service
 author: cynthn
 ms.author: danis
-ms.date: 09/03/2020
+ms.date: 10/02/2020
 ms.topic: troubleshooting
 ms.service: virtual-machines
 ms.subservice: imaging
@@ -587,6 +587,18 @@ For more information on Azure DevOps capabilities and limitations, see [Microsof
 #### Solution
 
 You can host your own DevOps agents, or look to reduce the time of your build. For example, if you are distributing to the shared image gallery, replicate to one region. If you want to replicate asynchronously. 
+
+### Slow Windows Logon: 'Please wait for the Windows Modules Installer'
+
+#### Error
+After you create a Windows 10 image with Image Builder, then create a VM from the image, you RDP, and have to wait minutes at the first logon seeing a blue screen with the message:
+```text
+Please wait for the Windows Modules Installer
+```
+
+#### Solution
+Firstly in the image build check that there are no outstanding reboots required by adding a Windows Restart customizer as the last customization, and that all software installation is complete. Lastly, add [/mode:vm](https://docs.microsoft.com/en-us/windows-hardware/manufacture/desktop/sysprep-command-line-options) option to the default sysprep that AIB uses, see below, 'VMs created from AIB images do not create successfully' > 'Overriding the Commands'  
+
  
 ## VMs created from AIB images do not create successfully
 
