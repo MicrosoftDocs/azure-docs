@@ -96,7 +96,7 @@ Let’s look at the capabilities you can enable for your phone numbers. These ca
 
 - **One-way outbound SMS** This plan allows you to send SMS to your users using phone numbers acquired in your Azure Communication Services resource. This plan is useful for scenarios like notifications and two-factor authentication alerts. 
 - **Two-way inbound and outbound SMS** This plan allows you to send and receive messages from your users using phone numbers acquired in your Azure Communication Services resource. This plan is useful scenarios like customer service.
-- **One-way outbound PSTN calling** This plan allows you to make calls to your users. This plan enables scenarios like customer service.
+- **One-way outbound PSTN calling** This plan allows you to make calls to your users and configure Caller ID on outbound calls placed by your service. This plan enables scenarios like customer service.
 
 ## Country/Region Availability
 
