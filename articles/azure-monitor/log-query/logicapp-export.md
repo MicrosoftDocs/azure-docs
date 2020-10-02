@@ -14,20 +14,28 @@ ms.date: 09/29/2020
 This article describes a method to use [Azure Logic Apps](../../logic-apps/index.yml) to query data from a Log Analytics workspace in Azure Monitor and send to Azure Storage. Use this process when you need to export your Azure Monitor Log data for auditing and compliance scenarios or to allow another service to retrieve this data.  
 
 ## Other export methods
-To export all data from your Log Analytics workspace to an Azure storage account, use the [continuous export feature](../platform/logs-data-export.md) of Azure Monitor Logs. Use the method described in this article for the following scenarios.
+The method described in this article describes a scheduled export from a log query using a Logic App. Other options to export data for particular scenarios include the following:
 
-- Export aggregated or filtered data from a log query as opposed to all data sent to the workspace.
-- Perform a one time export or schedule on an occasional basis.
+- To export all data from your Log Analytics workspace to an Azure storage account or event hub, use the Log Analytics workspace data export feature of Azure Monitor Logs. See [Log Analytics workspace data export in Azure Monitor (preview)](../platform/logs-data-export.md)
+- One time export using a Logic App. See [Azure Monitor Logs connector for Logic Apps and Power Automate](logicapp-flow-connector.md).
+- One time export to local machine using PowerShell script. See [Invoke-AzOperationalInsightsQueryExport]](https://www.powershellgallery.com/packages/Invoke-AzOperationalInsightsQueryExport).
+
+## Overview
+When you export data from a Log Analytics workspace, you should filter and aggregate your log data and optimize your query to limit the amount of data processed by your Logic App workflow to the required data. For example, if you need to archive sign-in events, you could filter for required events and project only the required fields with the following query: 
+
+```json
+SecurityEvent
+| where EventID == 4624 or EventID == 4625
+| project TimeGenerated , Account , AccountType , Computer
+```
+
+When you export the data on a schedule, use the ingestion_time() function in your query to ensure that you don’t miss late arriving data. If data is delayed due to network or platform issues, using the ingestion time ensures that it will be included in the next Logic App execution. See [Add Azure Monitor Logs action](add-azure-monitor-logs-action.md) for an example.
 
 ## Prerequisites
-You must have the following created before performing this procedure.
+Following are prerequisites that must be completed before completing this procedure.
 
 - Log Analytics workspace. The user who creates the logic app must have at least read permission to the workspace. 
-- Azure storage account. The storage account doesn’t have to be in the same subscription as your Log Analytics workspace. The user who creates the logic app must have write permission to the storage account.
-
-- Scheduled export from a log query using a Logic App. This is similar to the data export feature but allows you to send filtered or aggregated data to Azure storage. See [Archive data from Log Analytics workspace to Azure storage using Logic App](../log-query/logicapp-export.md)
-- One time export using a Logic App. See [Azure Monitor Logs connector for Logic Apps and Power Automate](logicapp-flow-connector.md)
-- One time export to local machine using PowerShell script. See [Invoke-AzOperationalInsightsQueryExport]](https://www.powershellgallery.com/packages/Invoke-AzOperationalInsightsQueryExport).
+- Azure storage account. The storage account doesn’t have to be in the same subscription as your Log Analytics workspace. The user who creates the logic app must have write permission to the storage account. 
 
 
 ## Connector limits
@@ -39,13 +47,11 @@ Log Analytics workspace and log queries in Azure Monitor are multitenancy servic
 - Log Analytics connector is limited to 100 call per minute.
 
 
-
-
 ## Create container in the storage account
-Use the procedure in [Create a container](../../storage/blobs/storage-quickstart-blobs-portal.md#create-a-container) to add a container to your storage account. The name used for the container i this article is **loganalytics-data**, but you can use any name.
+Use the procedure in [Create a container](../../storage/blobs/storage-quickstart-blobs-portal.md#create-a-container) to add a container to your storage account to hold the exported data. The name used for the container in this article is **loganalytics-data**, but you can use any name.
 
 
-## Create a Logic App
+## Create Logic App
 
 Go to **Logic Apps** in the Azure portal and click **Add**. Select a **Subscription**, **Resource group**, and **Region** to store the new logic app and then give it a unique name. You can turn on **Log Analytics** setting to collect information about runtime data and events as described in [Set up Azure Monitor logs and collect diagnostics data for Azure Logic Apps](../../logic-apps/monitor-logic-apps-log-analytics.md). This setting isn't required for using the Azure Monitor Logs connector.
 
@@ -73,18 +79,7 @@ You will be prompted to select a tenant and grant access to the Log Analytics wo
 
 
 ## Add Azure Monitor Logs action
-You should filter and aggregate your log data and optimize your query and limit the amount of data processed by your Logic App workflow to the required data. For example, if you need to archive sign-in events, you could filter for required events and project only the required fields with the following query: 
-
-```json
-SecurityEvent
-| where EventID == 4624 or EventID == 4625
-| project TimeGenerated , Account , AccountType , Computer
-```
-
-Using the ingestion time function ingestion_time() in the query ensures that you don’t miss late arriving data. When data is delayed due to network or platform issues, it’s tagged with the ingestion time and queried in the next Logic App execution.
-Use the following query which is optimized for hourly recurrence and collects the data ingested for the particular execution time. For example, if the workflow runs at 4:35, the time range would be 4:00 to 5:00. If you change the Recurrence trigger to run at a different frequency, you need the change the query as well. For example, if you set Recurrence to run daily, you would set startTime in the query to startofday(make_datetime(year,month,day,0,0)). 
-
-
+The Azure Monitor Logs action allows you to specify the query to run. The log query used in this example is optimized for hourly recurrence and collects the data ingested for the particular execution time. For example, if the workflow runs at 4:35, the time range would be 4:00 to 5:00. If you change the Logic App to run at a different frequency, you need the change the query as well. For example, if you set the recurrence to run daily, you would set startTime in the query to startofday(make_datetime(year,month,day,0,0)). 
 
 Select the **Subscription** and **Resource Group** for your Log Analytics workspace. Select *Log Analytics Workspace* for the **Resource Type** and then select the workspace's name under **Resource Name**.
 
@@ -161,7 +156,7 @@ Click in the **Content** box to display a list of values from previous activitie
 ![Parse JSON payload](media/logicapp-export/parse-json-payload.png)
 
 ## Add the Compose action
-The **Compose** action takes the parsed JSON output and creates the object that we need to store in the blob.
+The **Compose** action takes the parsed JSON output and creates the object that you need to store in the blob.
 
 Click **+ New step**, and then click **+ Add an action**. Under **Choose an action**, type **compose** and then select the **Compose** action.
 
@@ -197,11 +192,13 @@ Click the **Blob content** box to display a list of values from previous activit
 ## Test the Logic App
 Test the workflow by clicking **Run**. If the workflow has errors, it will be indicated on the step with the problem. You can view the executions and drill in to each step to view the input and output to investigate failures. See [Troubleshoot and diagnose workflow failures in Azure Logic Apps](../../logic-apps/logic-apps-diagnosing-failures.md) if necessary.
 
+![Runs history](media/logicapp-export/runs-history.png)
+
 
 ## View logs in Storage
 Go to the **Storage accounts** menu in the Azure portal and select your storage account. Click the **Blobs** tile and select the container you specified in the Create blob action. Select one of the blobs and then **Edit blob**.
 
-
+![Blob data](media/logicapp-export/blob-data.png)
 
 ## Next steps
 
