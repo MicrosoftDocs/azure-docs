@@ -25,8 +25,8 @@ updated and the frequency and events that trigger an evaluation cycle.
 > [!WARNING]
 > If compliance state is being reported as **Not registered**, verify that the
 > **Microsoft.PolicyInsights** Resource Provider is registered and that the user has the appropriate
-> role-based access control (RBAC) permissions as described in
-> [RBAC in Azure Policy](../overview.md#rbac-permissions-in-azure-policy).
+> Azure role-based access control (Azure RBAC) permissions as described in
+> [Azure RBAC permissions in Azure Policy](../overview.md#azure-rbac-permissions-in-azure-policy).
 
 ## Evaluation triggers
 
@@ -69,7 +69,47 @@ Evaluations of assigned policies and initiatives happen as the result of various
 ### On-demand evaluation scan
 
 An evaluation scan for a subscription or a resource group can be started with Azure CLI, Azure
-PowerShell, or a call to the REST API. This scan is an asynchronous process.
+PowerShell, a call to the REST API, or by using the
+[Azure Policy Compliance Scan GitHub Action](https://github.com/marketplace/actions/azure-policy-compliance-scan).
+This scan is an asynchronous process.
+
+#### On-demand evaluation scan - GitHub Action
+
+Use the
+[Azure Policy Compliance Scan action](https://github.com/marketplace/actions/azure-policy-compliance-scan)
+to trigger an on-demand evaluation scan from your
+[GitHub workflow](https://docs.github.com/actions/configuring-and-managing-workflows/configuring-a-workflow#about-workflows)
+on one or multiple resources, resource groups, or subscriptions, and gate the workflow based on the
+compliance state of resources. You can also configure the workflow to run at a scheduled time so
+that you get the latest compliance status at a convenient time. Optionally, this GitHub action can
+generate a report on the compliance state of scanned resources for further analysis or for
+archiving.
+
+The following example runs a compliance scan for a subscription. 
+
+```yaml
+on:
+  schedule:    
+    - cron:  '0 8 * * *'  # runs every morning 8am
+jobs:
+  assess-policy-compliance:    
+    runs-on: ubuntu-latest
+    steps:         
+    - name: Login to Azure
+      uses: azure/login@v1
+      with:
+        creds: ${{secrets.AZURE_CREDENTIALS}} 
+
+    
+    - name: Check for resource compliance
+      uses: azure/policy-compliance-scan@v0
+      with:
+        scopes: |
+          /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
+```
+
+For more information and workflow samples, see the
+[GitHub Action for Azure Policy Compliance Scan repo](https://github.com/Azure/policy-compliance-scan).
 
 #### On-demand evaluation scan - Azure CLI
 
@@ -728,12 +768,17 @@ PolicyDefinitionCategory   : tbd
 ```
 
 Example: Getting events related to non-compliant virtual network resources that occurred after a
-specific date.
+specific date, converting to a CSV object, and exporting to a file.
 
 ```azurepowershell-interactive
-PS> Get-AzPolicyEvent -Filter "ResourceType eq '/Microsoft.Network/virtualNetworks'" -From '2018-05-19'
+$policyEvents = Get-AzPolicyEvent -Filter "ResourceType eq '/Microsoft.Network/virtualNetworks'" -From '2020-09-19'
+$policyEvents | ConvertTo-Csv | Out-File 'C:\temp\policyEvents.csv'
+```
 
-Timestamp                  : 5/19/2018 5:18:53 AM
+The output of the `$policyEvents` object looks like the following:
+
+```output
+Timestamp                  : 9/19/2020 5:18:53 AM
 ResourceId                 : /subscriptions/{subscriptionId}/resourceGroups/RG-Tags/providers/Mi
                              crosoft.Network/virtualNetworks/RG-Tags-vnet
 PolicyAssignmentId         : /subscriptions/{subscriptionId}/resourceGroups/RG-Tags/providers/Mi
@@ -769,10 +814,10 @@ Trent Baker
 
 If you have a [Log Analytics workspace](../../../azure-monitor/log-query/log-query-overview.md) with
 `AzureActivity` from the
-[Activity Log Analytics solution](../../../azure-monitor/platform/activity-log.md) tied to
-your subscription, you can also view non-compliance results from the evaluation cycle using simple
-Kusto queries and the `AzureActivity` table. With details in Azure Monitor logs, alerts can be
-configured to watch for non-compliance.
+[Activity Log Analytics solution](../../../azure-monitor/platform/activity-log.md) tied to your
+subscription, you can also view non-compliance results from the evaluation of new and updated
+resources using simple Kusto queries and the `AzureActivity` table. With details in Azure Monitor
+logs, alerts can be configured to watch for non-compliance.
 
 :::image type="content" source="../media/getting-compliance-data/compliance-loganalytics.png" alt-text="Screenshot of Azure Monitor logs showing Azure Policy actions in the AzureActivity table." border="false":::
 

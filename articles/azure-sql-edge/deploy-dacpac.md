@@ -15,7 +15,7 @@ ms.date: 09/03/2020
 
 Azure SQL Edge is an optimized relational database engine geared for IoT and edge deployments. It's built on the latest versions of the Microsoft SQL Database Engine, which provides industry-leading performance, security, and query processing capabilities. Along with the industry-leading relational database management capabilities of SQL Server, Azure SQL Edge provides in-built streaming capability for real-time analytics and complex event-processing.
 
-Azure SQL Edge also provides a native implementation of SqlPackage.exe that enables you to deploy a [SQL Database DACPAC and BACPAC](https://docs.microsoft.com/sql/relational-databases/data-tier-applications/data-tier-applications) package during the deployment of SQL Edge. 
+Azure SQL Edge provides native mechanism that enable you to deploy a [SQL Database DACPAC and BACPAC](https://docs.microsoft.com/sql/relational-databases/data-tier-applications/data-tier-applications) package during, or after deploying SQL Edge.
 
 SQL Database dacpac and bacpac packages can be deployed to SQL Edge using the `MSSQL_PACKAGE` environment variable. The environment variable can be configured with any of the following.  
 - A local folder location within the SQL container containing the dacpac and bacpac files. This folder can be mapped to a host volume using either mount points or data volume containers. 
@@ -59,6 +59,10 @@ To deploy (or import) a SQL Database DAC package `(*.dacpac)` or a BACPAC file `
 5. After the module update, the package files are downloaded, unzipped, and deployed against the SQL Edge instance.
 
 On each restart of the Azure SQL Edge container, SQL Edge attempts to download the zipped file package and evaluate for changes. If a new version of the dacpac file is encountered, the changes are deployed to the database in SQL Edge.
+
+## Known Issue
+
+During some DACPAC or BACPAC deployments users may encounter a command timeouts, resulting in the failure of the dacpac deployment operation. If you encounter this problem, please use the SQLPackage.exe (or SQL Client Tools) to apply the DACPAC or BACPAC maually. 
 
 ## Next steps
 

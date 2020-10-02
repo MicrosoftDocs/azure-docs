@@ -80,7 +80,7 @@ Follow the steps below to switch your Azure subscription to invoice pay (check/w
 
 1. Go to the [Azure portal](https://portal.azure.com) to sign in as the Account Administrator. Search for and select **Cost Management + Billing**.
 
-    ![Search for Cost Management and Billing, Microsoft Azure portal](./media/pay-by-invoice/search.png)
+    ![Screenshot shows search for Cost Management and Billing in the Azure portal.](./media/pay-by-invoice/search.png)
 
 1. Select the subscription you'd like to switch to invoice payment.
 1. Select **Payment methods**.

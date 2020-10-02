@@ -3,7 +3,7 @@ title: Design and implement an Oracle database on Azure | Microsoft Docs
 description: Design and implement an Oracle database in your Azure environment.
 services: virtual-machines-linux
 documentationcenter: virtual-machines
-author: rgardler
+author: dbakevlar
 manager: 
 editor: 
 tags: azure-resource-manager
@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 08/02/2018
-ms.author: rogardle
+ms.author: kegorman
 ---
 
 # Design and implement an Oracle database in Azure

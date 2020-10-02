@@ -1,6 +1,6 @@
 ---
 title: Install Updates on StorSimple Virtual Array | Microsoft Docs
-description: Describes how to use the StorSimple Virtual Array web UI to apply updates using the Azure portal and hotfix method
+description: Describes how to use the StorSimple Virtual Array web UI to apply Update 0.4 using the Azure portal and hot fix method.
 services: storsimple
 documentationcenter: NA
 author: alkohli

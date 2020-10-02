@@ -70,7 +70,7 @@ After Bastion has been deployed to the virtual network, the screen changes to th
 
 1. Type the username and password for your virtual machine. Then, select **Connect**.
 
-   ![connect](./media/quickstart-host-portal/connect.png)
+   ![Screenshot shows the Connect using Azure Bastion dialog, which prompts you for a Username and Password.](./media/quickstart-host-portal/connect.png)
 1. The RDP connection to this virtual machine via Bastion will open directly in the Azure portal (over HTML5) using port 443 and the Bastion service.
 
    ![RDP connect](./media/quickstart-host-portal/443-rdp.png)

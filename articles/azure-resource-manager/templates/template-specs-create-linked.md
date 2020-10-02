@@ -172,7 +172,7 @@ New-AzTemplateSpec `
   -Version "1.0.0.0" `
   -ResourceGroupName templateSpecRG `
   -Location westus2 `
-  -TemplateJsonFile "c:\Templates\linkedTS\azuredeploy.json"
+  -TemplateFile "c:\Templates\linkedTS\azuredeploy.json"
 ```
 
 # [CLI](#tab/azure-cli)
@@ -219,7 +219,7 @@ New-AzResourceGroup `
   -Name webRG `
   -Location westus2
 
-$id = (Get-AzTemplateSpec -ResourceGroupName templateSpecRG -Name webSpec -Version "1.0.0.0").Version.Id
+$id = (Get-AzTemplateSpec -ResourceGroupName templateSpecRG -Name webSpec -Version "1.0.0.0").Versions.Id
 
 New-AzResourceGroupDeployment `
   -TemplateSpecId $id `

@@ -2,7 +2,7 @@
 title: Test your LUIS app
 titleSuffix: Azure Cognitive Services
 description: Testing is the process of providing sample utterances to LUIS and getting a response of LUIS-recognized intents and entities.
-author: diberry
+
 manager: nitinme
 services: cognitive-services
 ms.custom: seodec18
@@ -10,14 +10,14 @@ ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 10/10/2019
-ms.author: diberry
+
 ---
 
 # Testing example utterances in LUIS
 
 Testing is the process of providing sample utterances to LUIS and getting a response of LUIS-recognized intents and entities. 
 
-You can test LUIS interactively, one utterance at a time, or provide a of utterances. While testing, you can compare the current active model's prediction response to the published model's prediction response. 
+You can test LUIS interactively, one utterance at a time, or provide a set of utterances. While testing, you can compare the current active model's prediction response to the published model's prediction response. 
 
 <a name="A-test-score"></a>
 <a name="Score-all-intents"></a>

@@ -116,6 +116,8 @@
       href: windows-stop-error-bad-system-config-info.md
     - name: Windows stop error - Status No Memory
       href: troubleshoot-windows-stop-error.md
+    - name: Windows stop error - System Process Terminated
+      href: windows-stop-error-system-process-terminated.md
 - name: Cannot connect to my VM
   items:
   - name: RDP
@@ -223,6 +225,8 @@
       href: troubleshoot-performance-virtual-machine-linux-windows.md
     - name: Performance diagnostics
       href: performance-diagnostics.md
+    - name: Troubleshoot high CPU issues for Azure Windows Virtual Machine
+      href: troubleshoot-high-cpu-issues-azure-windows-vm.md
   - name: PerfInsights
     items:
     - name: Windows
@@ -235,6 +239,12 @@
       items:
       - name: How to use PerfInsights
         href: how-to-use-perfinsights-linux.md
+- name: Troubleshoot Shared Image Galleries
+  items:
+  - name: Troubleshoot Shared Image Gallery - Windows
+    href: ../windows/troubleshooting-shared-images.md
+  - name: Troubleshoot Shared Image Gallery - Linux
+    href: ../linux/troubleshooting-shared-images.md
 - name: VM extension issues
   items:
   - name: Azure extension overview

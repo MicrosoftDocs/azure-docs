@@ -29,7 +29,7 @@ There are different ways that you can switch from one cache to another. Dependin
    | ------------ | ---------- | ------------- |
    | Create a new cache | Simplest to implement. | Need to repopulate data to the new cache, which may not work with many applications. |
    | Export and import data via RDB file | Compatible with any Redis cache generally. | Some data could be lost, if they're written to the existing cache after the RDB file is generated. | 
-   | Dual-write data to two caches | No data loss or downtown. Uninterrupted operations of the existing cache. Easier testing of the new cache. | Needs two caches for an extended period of time. | 
+   | Dual-write data to two caches | No data loss or downtime. Uninterrupted operations of the existing cache. Easier testing of the new cache. | Needs two caches for an extended period of time. | 
    | Migrate data programmatically | Full control over how data are moved. | Requires custom code. | 
 
 ### Create a new Azure Cache for Redis

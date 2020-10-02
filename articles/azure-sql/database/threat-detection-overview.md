@@ -10,7 +10,7 @@ ms.custom: sqldbrb=2
 ms.topic: conceptual
 author: monhaber
 ms.author: ronmat
-ms.reviewer: vanto, carlrab
+ms.reviewer: vanto, sstein
 ms.date: 09/21/2020
 tags: azure-synapse
 ---

@@ -10,7 +10,7 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 03/23/2020
 ms.author: trbye
-ms.custom: "devx-track-javascript, devx-track-csharp"
+ms.custom: "devx-track-js, devx-track-csharp"
 ---
 
 # Improve synthesis with Speech Synthesis Markup Language (SSML)

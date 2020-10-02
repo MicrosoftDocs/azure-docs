@@ -1,6 +1,6 @@
 ---
 title: Run Micro Focus Enterprise Server 5.0 in a Docker container on Azure | Microsoft Docs
-description: Rehost your IBM z/OS mainframe workloads using the Micro Focus development and test environment on Azure virtual machines (VMs).
+description: In this article, learn how to run Micro Focus Enterprise Server 5.0 in a Docker container on Microsoft Azure.
 services: virtual-machines-linux
 documentationcenter:
 author: maggsl
@@ -120,9 +120,9 @@ At this point, the VM is running and attached via RDP. You're signed in and read
 
 1.  To launch Enterprise Server 5.0 and the acctdemo application, at the command prompt type:
 
-    ~~~
+    ```
     **docker run -p 16002:86/tcp -p 16002:86/udp -p 9040-9050:9040-9050 -p 9000-9010:9000-9010 -ti --network="nat" --rm microfocus/es-acctdemo:win\_5.0\_x64
-    ~~~
+    ```
 
 1.  Install a 3270 terminal emulator such as [x3270](http://x3270.bgp.nu/) and use it to attach, via port 9040, to the image that’s running.
 
@@ -132,15 +132,15 @@ At this point, the VM is running and attached via RDP. You're signed in and read
 
     2.  To get the IP address for the acctdemo container, use the container ID from the previous step as follows:
 
-    ~~~
+    ```
     docker inspect \<containerID\> --format="{{range.NetworkSettings.Networks}}{{.IPAddress}}{{end}}"
-    ~~~
+    ```
 
     For example:
 
-    ~~~
+    ```
     docker inspect 22a0fe3159d0 --format="{{range.NetworkSettings.Networks}}{{.IPAddress}}{{end}}"
-    ~~~
+    ```
 
 4. Note the IP address for the acctdemo image. For example, the address in the following output is 172.19.202.52.
 

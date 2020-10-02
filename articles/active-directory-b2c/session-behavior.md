@@ -1,6 +1,6 @@
 ---
 title: Configure session behavior - Azure Active Directory B2C | Microsoft Docs
-description: Configure session behavior in Azure Active Directory B2C.
+description: Learn how to configure session behavior in Azure Active Directory B2C.
 services: active-directory-b2c
 author: msmimart
 manager: celestedg

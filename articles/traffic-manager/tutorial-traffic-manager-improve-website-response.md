@@ -198,7 +198,7 @@ In this section, you can see the Traffic Manager is action.
 5. You may receive a certificate warning during the sign-in process. If you receive the warning, select **Yes** or **Continue**, to proceed with the connection.
 1. In a web browser on the VM *myVMEastUS*, type the DNS name of your Traffic Manager profile to view your website. Since the VM located in **East US**, you are routed to the nearest website hosted on the nearest IIS server *myIISVMEastUS* that is located in **East US**.
 
-   ![Test Traffic Manager profile](./media/tutorial-traffic-manager-improve-website-response/eastus-traffic-manager-test.png)
+   ![Screenshot that shows the "Traffic Manager" profile in a web browser.](./media/tutorial-traffic-manager-improve-website-response/eastus-traffic-manager-test.png)
 
 2. Next, connect to the VM *myVMWestEurope* located in **West Europe** using steps 1-5 and browse to the Traffic Manager profile domain name from this VM. Since the VM located in **West Europe**, you are now routed to the website hosted on nearest the IIS server *myIISVMWestEurope* that is located in **West Europe**.
 

@@ -5,7 +5,7 @@ ms.date: "12/10/2019"
 ms.topic: "conceptual"
 description: "Learn how to configure Azure Dev Spaces to use a custom NGINX ingress controller and configure HTTPS using that ingress controller"
 keywords: "Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, containers, Helm, service mesh, service mesh routing, kubectl, k8s"
-ms.custom: devx-track-javascript
+ms.custom: devx-track-js
 ---
 
 # Use a custom NGINX ingress controller and configure HTTPS

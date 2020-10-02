@@ -1,8 +1,8 @@
 ---
 title: Data partitioning in Azure Cosmos DB Gremlin API
 description: Learn how you can use a partitioned graph in Azure Cosmos DB. This article also describes the requirements and best practices for a partitioned graph.
-author: luisbosquez
-ms.author: lbosq
+author: SnehaGunda
+ms.author: sngun
 ms.service: cosmos-db
 ms.subservice: cosmosdb-graph
 ms.topic: how-to
@@ -27,39 +27,39 @@ The following guidelines describe how the partitioning strategy in Azure Cosmos 
 
 - **Edges will be stored with their source vertex**. In other words, for each vertex its partition key defines where they are stored along with its outgoing edges. This optimization is done to avoid cross-partition queries when using the `out()` cardinality in graph queries.
 
-- **Edges contain references to the vertices they point to**. All edges are stored with the partition keys and IDs of the vertices that they are pointing to. This computation makes all `out()` direction queries always be a scoped partitioned query, and not a blind cross-partition query. 
+- **Edges contain references to the vertices they point to**. All edges are stored with the partition keys and IDs of the vertices that they are pointing to. This computation makes all `out()` direction queries always be a scoped partitioned query, and not a blind cross-partition query.
 
 - **Graph queries need to specify a partition key**. To take full advantage of the horizontal partitioning in Azure Cosmos DB, the partition key should be specified when a single vertex is selected, whenever it's possible. The following are queries for selecting one or multiple vertices in a partitioned graph:
 
     - `/id` and `/label` are not supported as partition keys for a container in Gremlin API.
 
 
-    - Selecting a vertex by ID, then **using the `.has()` step to specify the partition key property**: 
-    
+    - Selecting a vertex by ID, then **using the `.has()` step to specify the partition key property**:
+
         ```java
         g.V('vertex_id').has('partitionKey', 'partitionKey_value')
         ```
-    
-    - Selecting a vertex by **specifying a tuple including partition key value and ID**: 
-    
+
+    - Selecting a vertex by **specifying a tuple including partition key value and ID**:
+
         ```java
         g.V(['partitionKey_value', 'vertex_id'])
         ```
-        
+
     - Specifying an **array of tuples of partition key values and IDs**:
-    
+
         ```java
         g.V(['partitionKey_value0', 'verted_id0'], ['partitionKey_value1', 'vertex_id1'], ...)
         ```
-        
-    - Selecting a set of vertices with their IDs and **specifying a list of partition key values**: 
-    
+
+    - Selecting a set of vertices with their IDs and **specifying a list of partition key values**:
+
         ```java
         g.V('vertex_id0', 'vertex_id1', 'vertex_id2', …).has('partitionKey', within('partitionKey_value0', 'partitionKey_value01', 'partitionKey_value02', …)
         ```
 
-    - Using the **Partition strategy** at the beginning of a query and specifying a partition for the scope of the rest of the Gremlin query: 
-    
+    - Using the **Partition strategy** at the beginning of a query and specifying a partition for the scope of the rest of the Gremlin query:
+
         ```java
         g.withStrategies(PartitionStrategy.build().partitionKey('partitionKey').readPartitions('partitionKey_value').create()).V()
         ```

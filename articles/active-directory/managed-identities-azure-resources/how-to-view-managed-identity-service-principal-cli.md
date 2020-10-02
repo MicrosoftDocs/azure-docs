@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 11/29/2018
+ms.date: 09/30/2020
 ms.author: barclayn
 ms.collection: M365-identity-device-management 
 ms.custom: devx-track-azurecli
@@ -30,19 +30,16 @@ In this article, you learn how to view the service principal of a managed identi
 - If you're unfamiliar with managed identities for Azure resources, check out the [overview section](overview.md).
 - If you don't already have an Azure account, [sign up for a free account](https://azure.microsoft.com/free/).
 - Enable [system assigned identity on a virtual machine](./qs-configure-portal-windows-vm.md#system-assigned-managed-identity) or [application](../../app-service/overview-managed-identity.md#add-a-system-assigned-identity).
-- To run the CLI script examples, you have three options:
-    - Use [Azure Cloud Shell](../../cloud-shell/overview.md) from the Azure portal (see next section).
-    - Use the embedded Azure Cloud Shell via the "Try It" button, located in the top right corner of each code block.
-    - [Install the latest version of the Azure CLI](/cli/azure/install-azure-cli) if you prefer to use a local CLI console and sign in to Azure using `az login`
- 
-[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
+- To run the example scripts, you have two options:
+    - Use the [Azure Cloud Shell](../../cloud-shell/overview.md), which you can open using the **Try It** button on the top right corner of code blocks.
+    - Run scripts locally by installing the latest version of the [Azure CLI](/cli/azure/install-azure-cli), then sign in to Azure using [az login](/cli/azure/reference-index#az-login). Use an account associated with the Azure subscription in which you'd like to create resources.   
 
 ## View the service principal
 
-This following command demonstrates how to view the service principal of a VM or application with managed identity enabled. Replace `<VM or application name>` with your own values. 
+This following command demonstrates how to view the service principal of a VM or application with managed identity enabled. Replace `<Azure resource name>` with your own values.
 
 ```azurecli-interactive
-az ad sp list --display-name <VM or application name>
+az ad sp list --display-name <Azure resource name>
 ```
 
 ## Next steps

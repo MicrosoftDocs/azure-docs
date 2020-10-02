@@ -4,7 +4,7 @@ description: Review how to monitor your Azure File Sync deployment by using Azur
 author: roygara
 ms.service: storage
 ms.topic: how-to
-ms.date: 08/05/2019
+ms.date: 09/28/2020
 ms.author: rogarana
 ms.subservice: files
 ---
@@ -30,8 +30,10 @@ Use [Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/overview) to 
 Metrics for Azure File Sync are enabled by default and are sent to Azure Monitor every 15 minutes.
 
 **How to view Azure File Sync metrics in Azure Monitor**
-- Go to your **Storage Sync Service** in the **Azure portal** and click **Metrics**.
-- Click the **Metric** drop-down and select the metric you want to view.
+1. Go to your **Storage Sync Service** in the **Azure portal** and click **Metrics**.
+2. Click the **Metric** drop-down and select the metric you want to view.
+
+![Screenshot of Azure File Sync metrics](media/storage-sync-files-troubleshoot/file-sync-metrics.png)
 
 The following metrics for Azure File Sync are available in Azure Monitor:
 
@@ -53,15 +55,15 @@ Alerts proactively notify you when important conditions are found in your monito
 
 **How to create alerts for Azure File Sync**
 
-- Go to your **Storage Sync Service** in the **Azure portal**. 
-- Click **Alerts** in the Monitoring section and then click **+ New alert rule**.
-- Click **Select condition** and provide the following information for the alert: 
+1. Go to your **Storage Sync Service** in the **Azure portal**. 
+2. Click **Alerts** in the Monitoring section and then click **+ New alert rule**.
+3. Click **Select condition** and provide the following information for the alert: 
 	- **Metric**
 	- **Dimension name**
 	- **Alert logic**
-- Click **Select action group** and add an action group (email, SMS, etc.) to the alert either by selecting an existing action group or creating a new action group.
-- Fill in the **Alert details** like **Alert rule name**, **Description** and **Severity**.
-- Click **Create alert rule** to create the alert.  
+4. Click **Select action group** and add an action group (email, SMS, etc.) to the alert either by selecting an existing action group or creating a new action group.
+5. Fill in the **Alert details** like **Alert rule name**, **Description** and **Severity**.
+6. Click **Create alert rule** to create the alert.  
 
 The following table lists some example scenarios to monitor and the proper metric to use for the alert:
 
@@ -91,6 +93,8 @@ To view the health of your Azure File Sync deployment in the **Azure portal**, n
 
 To view the **registered server health** in the portal, navigate to the **Registered servers** section of the **Storage Sync Service**.
 
+![Screenshot of registered servers health](media/storage-sync-files-troubleshoot/file-sync-registered-servers.png)
+
 - If the **Registered server** state is **Online**, the server is successfully communicating with the service.
 - If the **Registered server** state is **Appears Offline**, the Storage Sync Monitor process (AzureStorageSyncMonitor.exe) is not running or the server is unable to access the Azure File Sync service. See the [troubleshooting documentation](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=portal1%2Cazure-portal#server-endpoint-noactivity) for guidance.
 
@@ -98,7 +102,9 @@ To view the **registered server health** in the portal, navigate to the **Regist
 
 To view the health of a **server endpoint** in the portal, navigate to the **Sync groups** section of the **Storage Sync Service** and select a **sync group**.
 
-- The **server endpoint health** and **sync activity** in the portal is based on the sync events that are logged in the Telemetry event log on the server (ID 9102 and 9302). If a sync session fails because of a transient error, such as error canceled, sync will still show as healthy in the portal as long as the current sync session is making progress (files are applied). Event ID 9302 is the sync progress event and Event ID 9102 is logged once a sync session completes.  For more information, see [sync health](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=server%2Cazure-portal#broken-sync) and [sync progress](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=server%2Cazure-portal#how-do-i-monitor-the-progress-of-a-current-sync-session). If the portal shows an error because sync is not making progress, see the [troubleshooting documentation](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=portal1%2Cazure-portal#common-sync-errors) for guidance.
+![Screenshot of server endpoint health](media/storage-sync-files-troubleshoot/file-sync-server-endpoint-health.png)
+
+- The **server endpoint health** and **sync activity** in the portal is based on the sync events that are logged in the Telemetry event log on the server (ID 9102 and 9302). If a sync session fails because of a transient error, such as error canceled, the server endpoint will still show as **healthy** in the portal as long as the current sync session is making progress (files are applied). Event ID 9302 is the sync progress event and Event ID 9102 is logged once a sync session completes.  For more information, see [sync health](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=server%2Cazure-portal#broken-sync) and [sync progress](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=server%2Cazure-portal#how-do-i-monitor-the-progress-of-a-current-sync-session). If the server endpoint health shows an **Error** or **No Activity**, see the [troubleshooting documentation](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=portal1%2Cazure-portal#common-sync-errors) for guidance.
 - The **files not syncing** count in the portal is based on the Event ID 9121 that is logged in the Telemetry event log on the server. This event is logged for each per-item error once the sync session completes. To resolve per-item errors, see [How do I see if there are specific files or folders that are not syncing?](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=server%2Cazure-portal#how-do-i-see-if-there-are-specific-files-or-folders-that-are-not-syncing).
 - To view the **cloud tiering efficiency** in the portal, go to the **Server Endpoint Properties** and navigate to the **Cloud Tiering** section. The data provided for cloud tiering efficiency is based on Event ID 9071 that is logged in the Telemetry event log on the server. To learn more, see [Cloud Tiering Overview](https://docs.microsoft.com/azure/storage/files/storage-sync-cloud-tiering).
 - To view **files not tiering** and **recall errors** in the portal, go to the **Server Endpoint Properties** and navigate to the **Cloud Tiering** section. **Files not tiering** is based on Event ID 9003 that is logged in the Telemetry event log on the server and **recall errors** is based on Event ID 9006. To investigate files that are failing to tier or recall, see [How to troubleshoot files that fail to tier](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=portal1%2Cazure-portal#how-to-troubleshoot-files-that-fail-to-tier) and [How to troubleshoot files that fail to be recalled](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=portal1%2Cazure-portal#how-to-troubleshoot-files-that-fail-to-be-recalled).
@@ -137,7 +143,7 @@ Sync health
 
 - Event ID 9121 is logged for each per-item error once the sync session completes. Use this event to determine the number of files that are failing to sync with this error (**PersistentCount** and **TransientCount**). Persistent per-item errors should be investigated, see [How do I see if there are specific files or folders that are not syncing?](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=server%2Cazure-portal#how-do-i-see-if-there-are-specific-files-or-folders-that-are-not-syncing).
 
-- Event ID 9302 is logged every 5 to 10 minutes if there’s an active sync session. Use this event to determine if the current sync session is making progress (**AppliedItemCount > 0**). If sync is not making progress, the sync session should eventually fail, and an Event ID 9102 will be logged with the error. For more information, see the [sync progress documentation](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=server%2Cazure-portal#how-do-i-monitor-the-progress-of-a-current-sync-session).
+- Event ID 9302 is logged every 5 to 10 minutes if there’s an active sync session. Use this event to determine how many items are to be synced (**TotalItemCount**), number of items that have synced so far (**AppliedItemCount**) and number of items that have failed to sync due to a per-item error (**PerItemErrorCount**). If sync is not making progress (**AppliedItemCount=0**), the sync session will eventually fail and an Event ID 9102 will be logged with the error. For more information, see the [sync progress documentation](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=server%2Cazure-portal#how-do-i-monitor-the-progress-of-a-current-sync-session).
 
 Registered server health
 
@@ -243,6 +249,7 @@ This section provides some example alerts for Azure File Sync.
 	 - Aggregation type: **Maximum**  
 	 - Threshold value (in bytes): **1** 
 	 - Evaluated based on: Aggregation granularity = **1 hour** | Frequency of evaluation = **Every 30 minutes** 
+	 	- Note that the metrics are sent to Azure Monitor every 15 to 20 minutes. Do not set the **Frequency of evaluation** to less than 30 minutes (will generate false alerts).
 	 - Click **Done.** 
 8. Click **Select action group** to add an action group (email, SMS, etc.) to the alert either by selecting an existing action group or creating a new action group.
 9. Fill in the **Alert details** like **Alert rule name**, **Description** and **Severity**.

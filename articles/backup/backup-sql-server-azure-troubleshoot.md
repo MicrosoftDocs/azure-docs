@@ -126,7 +126,7 @@ At times, either random failures may happen in backup and restore operations or 
 
 | Error message | Possible causes | Recommended action |
 |---|---|---|
-| The log backup used for recovery contains bulk-logged changes. It cannot be used to stop at an arbitrary point in time according to the SQL guidelines. | When a database is in bulk-logged recovery mode, the data between a bulk-logged transaction and the next log transaction can't be recovered. | Choose a different point in time for recovery. [Learn more](/sql/relational-databases/backup-restore/recovery-models-sql-server?view=sql-server-ver15).
+| The log backup used for recovery contains bulk-logged changes. It cannot be used to stop at an arbitrary point in time according to the SQL guidelines. | When a database is in bulk-logged recovery mode, the data between a bulk-logged transaction and the next log transaction can't be recovered. | Choose a different point in time for recovery. [Learn more](/sql/relational-databases/backup-restore/recovery-models-sql-server).
 
 ### FabricSvcBackupPreferenceCheckFailedUserError
 
@@ -168,7 +168,7 @@ Operation is blocked as the vault has reached its maximum limit for such operati
 
 | Error message | Possible causes | Recommended action |
 |---|---|---|
-The VM is not able to contact Azure Backup service due to internet connectivity issues. | The VM needs outbound connectivity to Azure Backup Service, Azure Storage, or Azure Active Directory services.| - If you use NSG to restrict connectivity, then you should use the AzureBackup service tag to allows outbound access to Azure Backup Service, Azure Storage, or Azure Active Directory services. Follow these [steps](./backup-sql-server-database-azure-vms.md#nsg-tags) to grant access.<br>- Ensure DNS is resolving Azure endpoints.<br>- Check if the VM is behind a load balancer blocking internet access. By assigning public IP to the VMs, discovery will work.<br>- Verify there's no firewall/antivirus/proxy that are blocking calls to the above three target services.
+The VM is not able to contact Azure Backup service due to internet connectivity issues. | The VM needs outbound connectivity to Azure Backup Service, Azure Storage, or Azure Active Directory services.| - If you use NSG to restrict connectivity, then you should use the *AzureBackup* service tag to allows outbound access to Azure Backup Service, and similarly for the Azure AD (*AzureActiveDirectory*) and Azure Storage(*Storage*) services. Follow these [steps](./backup-sql-server-database-azure-vms.md#nsg-tags) to grant access.<br>- Ensure DNS is resolving Azure endpoints.<br>- Check if the VM is behind a load balancer blocking internet access. By assigning public IP to the VMs, discovery will work.<br>- Verify there's no firewall/antivirus/proxy that are blocking calls to the above three target services.
 
 ## Re-registration failures
 

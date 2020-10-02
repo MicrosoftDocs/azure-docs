@@ -47,6 +47,8 @@
     items:
     - name: Agent connection issues
       href: troubleshoot-agent-onboard.md
+    - name: VM Extension issues
+      href: troubleshoot-vm-extensions.md
 - name: Reference
   items:
     - name: Data residency

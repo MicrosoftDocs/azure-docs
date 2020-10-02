@@ -41,5 +41,5 @@ In rare cases, maintenance event can be canceled by the system or may fail to co
 ## Next steps
 
 * Learn how to [change the maintenance schedule](how-to-maintenance-portal.md)
-* Learn how to [get notifications about upcoming maintenance](/azure/service-health/service-notifications.md) using Azure Service Health
-* Learn how to [set up alerts about upcoming scheduled maintenance events](/azure/service-health/resource-health-alert-monitor-guide.md)
+* Learn how to [get notifications about upcoming maintenance](../../service-health/service-notifications.md) using Azure Service Health
+* Learn how to [set up alerts about upcoming scheduled maintenance events](../../service-health/resource-health-alert-monitor-guide.md)

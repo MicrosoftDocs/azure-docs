@@ -6,7 +6,11 @@
   - name: Overview
     items:
     - name: What is Azure Stack Edge Pro with GPU?
-      href:  azure-stack-edge-gpu-overview.md
+      href: azure-stack-edge-gpu-overview.md
+  - name: Quickstarts
+    items:
+    - name: Get started
+      href:  azure-stack-edge-gpu-quickstart.md
   - name: Tutorials
     items:
     - name: 0 - Get checklist

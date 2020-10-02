@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: metrics-advisor
 ms.topic: quickstart
-ms.date: 08/19/2020
+ms.date: 09/23/2020
 ms.author: aahi
 ---
 

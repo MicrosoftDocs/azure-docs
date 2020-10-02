@@ -6,7 +6,7 @@ ms.author: mamccrea
 ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 08/25/2020
+ms.date: 09/23/2020
 ---
 
 # Service Bus queues output from Azure Stream Analytics
@@ -46,6 +46,22 @@ The maximum message size is 256 KB per message for Standard tier and 1MB for Pre
 ## Custom metadata properties for output
 
 You can attach query columns as user properties to your outgoing messages. These columns don't go into the payload. The properties are present in the form of a dictionary on the output message. *Key* is the column name and *value* is the column value in the properties dictionary. All Stream Analytics data types are supported except Record and Array.
+
+In the following example, the fields `DeviceId` and `DeviceStatus` are added to the metadata.
+
+1. Use the following query:
+
+   ```sql
+   select *, DeviceId, DeviceStatus from iotHubInput
+   ```
+
+1. Configure `DeviceId,DeviceStatus` as property columns in the output.
+
+   :::image type="content" source="media/service-bus-queues-output/property-columns.png" alt-text="Property columns":::
+
+The following image is of the expected output message properties inspected in EventHub using [Service Bus Explorer](https://github.com/paolosalvatori/ServiceBusExplorer).
+
+:::image type="content" source="media/service-bus-queues-output/custom-properties.png" alt-text="Event custom properties":::
 
 ## System properties
 

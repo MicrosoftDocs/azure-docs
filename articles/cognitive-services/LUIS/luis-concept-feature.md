@@ -1,8 +1,10 @@
 ---
 title: Machine-learning features with LUIS
 description: Add features to a language model to provide hints about how to recognize input that you want to label or classify.
+ms.service: cognitive-services
+ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 06/10/2020
+ms.date: 09/22/2020
 ---
 # Machine-learning features
 
@@ -14,12 +16,10 @@ A feature can be described as a function, like f(x) = y. In the example utteranc
 
 ## Types of features
 
-LUIS supports both phrase lists and models as features:
+Features are a necessary part of your schema design. LUIS supports both phrase lists and models as features:
 
-* Phrase list feature 
+* Phrase list feature
 * Model (intent or entity) as a feature
-
-Features should be considered a necessary part of your schema design.
 
 ## Find features in your example utterances
 
@@ -37,32 +37,6 @@ Determine if the text, because it distinguishes a trait, has to:
 * Match an exact word or phrase: Consider adding a regular expression entity or a list entity as a feature to the entity or intent.
 * Match a well-known concept like dates, times, or people's names: Use a prebuilt entity as a feature to the entity or intent.
 * Learn new examples over time: Use a phrase list of some examples of the concept as a feature to the entity or intent.
-
-## Combine features
-
-You can use more than one feature to describe a trait or concept. A common pairing is to use a phrase list feature and an entity type that's often used as a feature:
-
- * prebuilt entity
- * regular-expression entity
- * list entity
-
-### Ticket-booking entity example
-
-As a first example, consider an app for booking a flight with a flight-reservation intent and a ticket-booking entity.
-
-The ticket-booking entity is a machine-learning entity for the flight destination. To help extract the location, use two features to help:
-
-* A phrase list of relevant words, such as, **plane**, **flight**, **reservation**, or **ticket**
-* A prebuilt **geographyV2** entity as a feature to the entity
-
-### Pizza entity example
-
-As another example, consider an app for ordering a pizza that has a create-pizza-order intent and a pizza entity.
-
-The pizza entity is a machine-learning entity for the pizza details. To help extract the details, use two features to help:
-
-* A phrase list of relevant words, such as, **cheese**, **crust**, **pepperoni**, or **pineapple**
-* A prebuilt **number** entity as a feature to the entity
 
 ## Create a phrase list for a concept
 
@@ -170,12 +144,12 @@ Continuing with the example of the shipping address:
 
 Shipping address (machine learned entity)
 
- * Street number (subentity) 
- * Street address (subentity) 
- * Street name (subentity) 
- * City (subentity) 
- * State or Province (subentity) 
- * Country/Region (subentity) 
+ * Street number (subentity)
+ * Street address (subentity)
+ * Street name (subentity)
+ * City (subentity)
+ * State or Province (subentity)
+ * Country/Region (subentity)
  * Postal code (subentity)
 
 ### Required feature using prebuilt entities
@@ -211,6 +185,59 @@ While the most common use is to apply a feature to a specific model, you can con
 The most common use for a global feature is to add an additional vocabulary to the app. For example, if your customers use a primary language, but expect to be able to use another language within the same utterance, you can add a feature that includes words from the secondary language.
 
 Because the user expects to use the secondary language across any intent or entity, add words from the secondary language to the phrase list. Configure the phrase list as a global feature.
+
+## Combine features for added benefit
+
+You can use more than one feature to describe a trait or concept. A common pairing is to use:
+
+* A phrase list feature: You can use multiple phrase lists as features to the same model.
+* A model as a feature: [prebuilt entity](luis-reference-prebuilt-entities.md), [regular expression entity](reference-entity-regular-expression.md), [list entity](reference-entity-list.md). 
+
+### Example: ticket-booking entity features for a travel app  
+
+As a basic example, consider an app for booking a flight with a flight-reservation _intent_ and a ticket-booking _entity_. The ticket-booking entity captures the information to book a airplane ticket in a reservation system. 
+
+The machine-learning entity for ticket-book has two subentities to capture origin and destination. The features need to be added to each subentity, not the top level entity.
+
+:::image type="content" source="media/luis-concept-features/ticket-booking-entity.png" alt-text="Ticketbooking entity schema":::
+
+The ticket-booking entity is a machine-learning entity, with subentities including _Origin_ and _Destination_. These subentities both indicate a geographical location. To help extract the locations, and distinguish between _Origin_ and _Destination_, each subentity should have features.
+
+|Type|Origin subentity |Destination subentity|
+|--|--|--|
+|Model as a feature|[geographyV2](luis-reference-prebuilt-geographyv2.md?tabs=V3) prebuilt entity|[geographyV2](luis-reference-prebuilt-geographyv2.md?tabs=V3) prebuilt entity|
+|Phrase list|**Origin words**: `start at`, `begin from`, `leave`|**Destination words**: `to`, `arrive`, `land at`, `go`, `going`, `stay`, `heading`|
+|Phrase list|Airport codes - same list for both origin and destination|Airport codes - same list for both origin and destination|
+|Phrase list|Airport names - same list for both origin and destination|Airport codes - same list for both origin and destination|
+
+If you anticipate that people use airport codes and airport names, than LUIS should have phrase lists which uses both types of phrases. Airport codes may be more common with text entered in a chatbot while airport names may be more common with spoken conversation such as a speech-enabled chatbot.
+
+The matching details of the features are returned only for models, not for phrase lists because only models are returned in prediction JSON.
+
+#### Ticket-booking labeling in the intent
+
+After you create the machine-learning entity, you need to add example utterances to an intent, and label the parent entity and all subentities.
+
+For the ticket booking example, Label the example utterances in the intent with the `TicketBooking` entity and any subentities in the text.
+
+:::image type="content" source="media/luis-concept-features/intent-example-utterances-machine-learning-entity.png" alt-text="Label example utterances":::
+
+### Example: pizza ordering app
+
+For a second example, consider an app for a pizza restaurant, which receives pizza orders including the details of the type of pizza someone is ordering. Each detail of the pizza should be extracted, if possible, in order to complete the order processing.
+
+The machine-learning entity in this example is more complex with nested subentities, phrase lists, prebuilt entities, and custom entities.
+
+:::image type="content" source="media/luis-concept-features/pizza-order-entity.png" alt-text="Pizza order entity schema":::
+
+This example uses features at the subentity level and child of subentity level. Which level gets what kind of phrase list or model as a feature is an important part of your entity design.
+
+While subentities can have many phrase lists as features that help detect the entity, each subentity has only one model as a feature. In this [pizza app](https://github.com/Azure/pizza_luis_bot/blob/master/CognitiveModels/MicrosoftPizza.json), those models are primarily lists.
+
+:::image type="content" source="media/luis-concept-features/intent-example-utterances-machine-learning-entity-pizza.png" alt-text="Pizza order intent with labeled example utterances":::
+
+The correctly labeled example utterances display in a way to show how the entities are nested. 
+
 
 ## Best practices
 

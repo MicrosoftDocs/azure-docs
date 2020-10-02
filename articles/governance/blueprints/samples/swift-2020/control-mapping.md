@@ -44,15 +44,15 @@ appropriate action to ensure account management requirements are met.
 
 ## 2.6, 5.1, 6.4, and 6.5A Account Management | Role-Based Schemes
 
-Azure implements [role-based access control](../../../../role-based-access-control/overview.md)
-(RBAC) to help you manage who has access to resources in Azure. Using the Azure portal, you can
+[Azure role-based access control](../../../../role-based-access-control/overview.md)
+(Azure RBAC) to help you manage who has access to resources in Azure. Using the Azure portal, you can
 review who has access to Azure resources and their permissions. This blueprint also assigns [Azure Policy](../../../policy/overview.md)
 definitions to audit use of Azure Active Directory authentication for SQL Servers and Service
 Fabric. Using Azure Active Directory authentication enables simplified permission management and
 centralized identity management of database users and other Microsoft services. Additionally, this 
-blueprint assigns an Azure Policy definition to audit the use of custom RBAC rules. Understanding 
-where custom RBAC rules are implement can help you verify need and proper implementation, as custom 
-RBAC rules are error prone.
+blueprint assigns an Azure Policy definition to audit the use of custom Azure RBAC rules. Understanding 
+where custom Azure RBAC rules are implement can help you verify need and proper implementation, as custom 
+Azure RBAC rules are error prone.
 
 - An Azure Active Directory administrator should be provisioned for SQL servers
 - Audit VMs that do not use managed disks
@@ -87,8 +87,8 @@ separation of duties.
 
 ## 1.3, 5.1, and 6.4 Least Privilege | Review of User Privileges
 
-Azure implements [role-based access control](../../../../role-based-access-control/overview.md)
-(RBAC) to help you manage who has access to resources in Azure. Using the Azure portal, you can
+[Azure role-based access control (Azure RBAC)](../../../../role-based-access-control/overview.md)
+helps you manage who has access to resources in Azure. Using the Azure portal, you can
 review who has access to Azure resources and their permissions. This blueprint assigns [Azure Policy](../../../policy/overview.md)
 definitions to audit accounts that should be prioritized for review. Reviewing these account
 indicators can help you ensure least privilege controls are implemented.

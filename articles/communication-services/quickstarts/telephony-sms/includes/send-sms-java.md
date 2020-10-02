@@ -26,7 +26,8 @@ Completing this quickstart incurs a small cost of a few USD cents or less in you
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - [Java Development Kit (JDK)](https://docs.microsoft.com/java/azure/jdk/?view=azure-java-stable&preserve-view=true) version 8 or above.
 - [Apache Maven](https://maven.apache.org/download.cgi).
-- A deployed Communication Services resource. [Create a Communication Services resource](../../create-communication-resource.md).
+- An active Communication Services resource and connection string. [Create a Communication Services resource](../../create-communication-resource.md).
+- An SMS enabled telephone number. [Get a phone number](../get-phone-number.md).
 
 ### Prerequisite check
 

@@ -1,6 +1,6 @@
 ---
 title: Importing from data sources - QnA Maker
-description: A QnA Maker knowledge base consists of a set of question-and-answer (QnA) pairs and optional metadata associated with each QnA pair.
+description: Learn how to import question and answer pairs from data sources - QnA Maker.
 ms.topic: conceptual
 ms.date: 03/16/2020
 ---

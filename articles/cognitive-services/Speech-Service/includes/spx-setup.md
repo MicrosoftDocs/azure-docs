@@ -7,10 +7,6 @@ ms.date: 05/15/2020
 ms.author: v-demjoh
 ---
 
-## Prerequisites
-
-The only prerequisite is an Azure Speech subscription. See the [guide](../get-started.md#new-resource) on creating a new subscription if you don't already have one.
-
 ## Download and install
 
 #### [Windows Install](#tab/windowsinstall)

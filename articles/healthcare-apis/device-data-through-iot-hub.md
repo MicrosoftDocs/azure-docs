@@ -56,7 +56,7 @@ Here is the list of parameters to use with the command to create an endpoint:
 ### Add a message route
 This step defines a message route using the endpoint created above. Create a route using either [Add-AzIotHubRoute](https://docs.microsoft.com/powershell/module/az.iothub/Add-AzIoTHubRoute) PowerShell command or [az iot hub route create](https://docs.microsoft.com/cli/azure/iot/hub/route#az-iot-hub-route-create) CLI command, based on your preference.
 
-Here is the list of parameters to use with the command to create an endpoint:
+Here is the list of parameters to use with the command to add a message route:
 
 |PowerShell Parameter|CLI Parameter|Description|
 |---|---|---|

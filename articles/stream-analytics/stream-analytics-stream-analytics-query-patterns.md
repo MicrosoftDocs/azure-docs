@@ -8,7 +8,7 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 12/18/2019
-ms.custom: devx-track-javascript
+ms.custom: devx-track-js
 ---
 
 # Common query patterns in Azure Stream Analytics
