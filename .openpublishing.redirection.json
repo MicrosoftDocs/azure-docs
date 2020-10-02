@@ -31253,6 +31253,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/time-series-insights/how-to-shape-query-json.md",
+      "redirect_url": "/azure/time-series-insights/concepts-json-flattening-escaping-rules",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/time-series-insights/time-series-insights-update-overview.md",
       "redirect_url": "/azure/time-series-insights/overview-what-is-tsi",
       "redirect_document_id": false
