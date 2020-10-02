@@ -43,6 +43,3 @@ Use the following checklist to ensure you have this information after you have p
 ## Next steps
 
 Prepare to deploy your [Azure Stack Edge Pro device](azure-stack-edge-gpu-deploy-prep.md).
-
-
-
