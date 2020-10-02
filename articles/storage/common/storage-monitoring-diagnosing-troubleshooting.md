@@ -253,7 +253,7 @@ The storage service automatically generates server request IDs.
 
 # [.NET v12](#tab/dotnet)
 
-:::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/CRUD.cs" id="Snippet_UseCustomRequestID":::
+:::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/Monitoring.cs" id="Snippet_UseCustomRequestID":::
 
 # [.NET v11](#tab/dotnet11)
 
@@ -363,7 +363,7 @@ For the table and queue services, the Nagle algorithm can also cause high **Aver
 
 # [.NET v12](#tab/dotnet)
 
-:::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/CRUD.cs" id="Snippet_DisableNagle":::
+:::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/Monitoring.cs" id="Snippet_DisableNagle":::
 
 # [.NET v11](#tab/dotnet11)
 
@@ -605,7 +605,7 @@ The following code sample shows how to configure your blob service to allow Java
 
 # [.NET v12](#tab/dotnet)
 
-:::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/CRUD.cs" id="Snippet_ConfigureCORS":::
+:::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/Monitoring.cs" id="Snippet_ConfigureCORS":::
 
 # [.NET v11](#tab/dotnet11)
 
