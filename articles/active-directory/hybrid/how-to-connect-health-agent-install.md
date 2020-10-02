@@ -24,10 +24,6 @@ This document walks you through installing and configuring the Azure AD Connect 
 
 ## Requirements
 
-
-> [!IMPORTANT]
-> Installing the Azure AD Connect Health agent on Windows Server Core is not supported.
-
 The following table is a list of requirements for using Azure AD Connect Health.
 
 | Requirement | Description |
@@ -42,6 +38,9 @@ The following table is a list of requirements for using Azure AD Connect Health.
 | Allow the following websites if IE Enhanced Security is enabled |If IE Enhanced Security is enabled, then the following websites must be allowed on the server that is going to have the agent installed.<br /><br /><li>https:\//login.microsoftonline.com</li><li>https:\//secure.aadcdn.microsoftonline-p.com</li><li>https:\//login.windows.net</li><li>https:\//aadcdn.msftauth.net</li><li>The federation server for your organization trusted by Azure Active Directory. For example: https:\//sts.contoso.com</li> Read more about [how to configure IE](https://support.microsoft.com/help/815141/internet-explorer-enhanced-security-configuration-changes-the-browsing). In case you have a proxy within your network , please see note below.|
 | Ensure PowerShell v4.0 or newer is installed | <li>Windows Server 2008 R2 ships with PowerShell v2.0, which is insufficient for the agent. Update PowerShell as explained below under [Agent installation on Windows Server 2008 R2 Servers](#agent-installation-on-windows-server-2008-r2-servers).</li><li>Windows Server 2012 ships with PowerShell v3.0, which is insufficient for the agent.</li><li>Windows Server 2012 R2 and later ship with a sufficiently recent version of PowerShell.</li>|
 |Disable FIPS|FIPS is not supported by Azure AD Connect Health agents.|
+
+> [!IMPORTANT]
+> Installing the Azure AD Connect Health agent on Windows Server Core is not supported.
 
 
 > [!NOTE]
