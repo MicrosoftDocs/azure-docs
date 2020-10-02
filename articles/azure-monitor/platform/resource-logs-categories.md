@@ -57,9 +57,9 @@ If you still something is missing, you can open a GitHub comment at the bottom o
 
 |Category|Category Display Name|
 |---|---|
+|DscNodeStatus|Dsc Node Status|
 |JobLogs|Job Logs|
 |JobStreams|Job Streams|
-|DscNodeStatus|Dsc Node Status|
 
 
 ## Microsoft.Batch/batchAccounts
@@ -97,7 +97,7 @@ If you still something is missing, you can open a GitHub comment at the bottom o
 
 |Category|Category Display Name|
 |---|---|
-|WebApplicationFirewallLogs|Web Application Firewall Logs|
+|WebApplicationFirewallLogs|Web Appliation Firewall Logs|
 
 
 ## Microsoft.Cdn/profiles
@@ -111,7 +111,7 @@ If you still something is missing, you can open a GitHub comment at the bottom o
 
 |Category|Category Display Name|
 |---|---|
-|CoreAnalytics|Gets the metrics of the endpoint, for example, bandwidth, egress, etc.|
+|CoreAnalytics|Gets the metrics of the endpoint, e.g., bandwidth, egress, etc.|
 
 
 ## Microsoft.ClassicNetwork/networksecuritygroups
@@ -127,14 +127,6 @@ If you still something is missing, you can open a GitHub comment at the bottom o
 |---|---|
 |Audit|Audit Logs|
 |RequestResponse|Request and Response Logs|
-
-
-## Microsoft.ContainerRegistry/registries
-
-|Category|Category Display Name|
-|---|---|
-|ContainerRegistryLoginEvents|Login Events|
-|ContainerRegistryRepositoryEvents|RepositoryEvent logs|
 
 
 ## Microsoft.ContainerService/managedClusters
@@ -171,13 +163,6 @@ If you still something is missing, you can open a GitHub comment at the bottom o
 |workspace|Databricks Workspace|
 
 
-## Microsoft.DataCatalog/datacatalogs
-
-|Category|Category Display Name|
-|---|---|
-|ScanStatusLogEvent|ScanStatus|
-
-
 ## Microsoft.DataFactory/factories
 
 |Category|Category Display Name|
@@ -193,6 +178,16 @@ If you still something is missing, you can open a GitHub comment at the bottom o
 |---|---|
 |Audit|Audit Logs|
 |Requests|Request Logs|
+
+
+## Microsoft.DataShare/accounts
+
+|Category|Category Display Name|
+|---|---|
+|ReceivedShareSnapshots|Received Share Snapshots|
+|SentShareSnapshots|Sent Share Snapshots|
+|Shares|Shares|
+|ShareSubscriptions|Share Subscriptions|
 
 
 ## Microsoft.DBforMariaDB/servers
@@ -221,13 +216,6 @@ If you still something is missing, you can open a GitHub comment at the bottom o
 
 
 ## Microsoft.DBforPostgreSQL/serversv2
-
-|Category|Category Display Name|
-|---|---|
-|PostgreSQLLogs|PostgreSQL Server Logs|
-
-
-## Microsoft.DBforPostgreSQL/singleservers
 
 |Category|Category Display Name|
 |---|---|
@@ -305,14 +293,6 @@ If you still something is missing, you can open a GitHub comment at the bottom o
 |QueryRuntimeStatistics|QueryRuntimeStatistics|
 
 
-## Microsoft.EnterpriseKnowledgeGraph/services
-
-|Category|Category Display Name|
-|---|---|
-|AuditEvent|AuditEvent log|
-|DataIssue|DataIssue log|
-|Requests|Configuration log|
-
 ## Microsoft.EventGrid/domains
 
 |Category|Category Display Name|
@@ -342,7 +322,7 @@ If you still something is missing, you can open a GitHub comment at the bottom o
 |---|---|
 |ArchiveLogs|Archive Logs|
 |AutoScaleLogs|Auto Scale Logs|
-|CustomerManagedKeyUserLogs|Customer-Managed Key Logs|
+|CustomerManagedKeyUserLogs|Customer Managed Key Logs|
 |EventHubVNetConnectionEvent|VNet/IP Filtering Connection Logs|
 |KafkaCoordinatorLogs|Kafka Coordinator Logs|
 |KafkaUserErrorLogs|Kafka User Error Logs|
@@ -381,31 +361,11 @@ If you still something is missing, you can open a GitHub comment at the bottom o
 |AppTraces|Traces|
 
 
-## Microsoft.IoTSpaces/Graph
-
-|Category|Category Display Name|
-|---|---|
-|Audit|Audit|
-|Egress|Egress|
-|Ingress|Ingress|
-|Operational|Operational|
-|Trace|Trace|
-|UserDefinedFunction|UserDefinedFunction|
-
-
 ## Microsoft.KeyVault/vaults
 
 |Category|Category Display Name|
 |---|---|
 |AuditEvent|Audit Logs|
-
-
-## Microsoft.Kusto/Clusters
-
-|Category|Category Display Name|
-|---|---|
-|FailedIngestion|Failed ingest operations|
-|SucceededIngestion|Successful ingest operations|
 
 
 ## Microsoft.Logic/integrationAccounts
@@ -687,11 +647,9 @@ If you still something is missing, you can open a GitHub comment at the bottom o
 |AppServiceFileAuditLogs|Site Content Change Audit Logs|
 |AppServiceHTTPLogs|HTTP logs|
 |FunctionAppLogs|Function Application Logs|
-|ScanLogs|Antivirus scan logs|
 
 
 ## microsoft.web/sites/slots
-
 
 |Category|Category Display Name|
 |---|---|
@@ -701,7 +659,6 @@ If you still something is missing, you can open a GitHub comment at the bottom o
 |AppServiceFileAuditLogs|Site Content Change Audit Logs|
 |AppServiceHTTPLogs|HTTP logs|
 |FunctionAppLogs|Function Application Logs|
-|ScanLogs|Antivirus scan logs|
 
 
 ## Next Steps
