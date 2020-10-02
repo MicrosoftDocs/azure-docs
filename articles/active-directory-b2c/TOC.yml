@@ -262,8 +262,6 @@
         href: api-connectors-overview.md
       - name: Add an API connector
         href: add-connector.md
-      - name: Implement an approval system
-        href: add-approvals.md
     - name: Pass through external IdP token
       href: idp-pass-through-custom.md
     - name: Adaptive experience

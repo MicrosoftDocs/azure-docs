@@ -19,13 +19,13 @@ To use an [API connector](api-connectors-overview.md), you first create the API 
 
 ## Create an API connector
 
-1. Sign in to the [Azure portal](https://portal.azure.com/) as an Azure AD administrator.
+1. Sign in to the [Azure portal](https://portal.azure.com/).
 2. Under **Azure services**, select **Azure AD B2C**.
 4. Select **API connectors (Preview)**, and then select **New API connector**.
 
    ![Add a new API connector](./media/add-api-connector/api-connector-new.png)
 
-5. Provide a display name for the call. For example, **Check approval status**.
+5. Provide a display name for the call. For example, **Validate user information**.
 6. Provide the **Endpoint URL** for the API call.
 7. Provide the authentication information for the API.
 
@@ -290,7 +290,7 @@ Content-type: application/json
 ## Best practices and how to troubleshoot
 
 ### Using serverless cloud functions
-Serverless functions, like HTTP triggers in Azure Functions, provide a simple way create API endpoints to use with the API connector. You can use the serverless cloud function to, [for example](code-samples-self-service-sign-up.md#api-connector-azure-function-quickstarts), perform validation logic and limit sign-ups to specific domains. The serverless cloud function can also call and invoke other web APIs, user stores, and other cloud services for more complex scenarios.
+Serverless functions, like HTTP triggers in Azure Functions, provide a simple way create API endpoints to use with the API connector. You can use the serverless cloud function to, for example, perform validation logic and limit sign-ups to specific domains. The serverless cloud function can also call and invoke other web APIs, user stores, and other cloud services for more complex scenarios.
 
 ### Best practices
 Ensure that:
@@ -298,7 +298,7 @@ Ensure that:
 * The **Endpoint URL** of the API connector points to the correct API endpoint.
 * Your API explicitly checks for null values of received claims.
 * Your API responds as quickly as possible to ensure a fluid user experience.
-    * If using a serverless function or scalable web service, use a hosting plan that keeps the API "awake" or "warm." For Azure Functions, its recommended to use the [Premium plan](../../azure-functions/functions-scale.md#premium-plan). 
+    * If using a serverless function or scalable web service, use a hosting plan that keeps the API "awake" or "warm." in production. For Azure Functions, its recommended to use the [Premium plan](../../azure-functions/functions-scale.md#premium-plan). 
 
 
 ### Use logging
@@ -309,7 +309,5 @@ In general, it's helpful to use the logging tools enabled by your web API servic
 * Monitor your API for long response times.
 
 ## Next steps
-<!-- - Learn [where you can enable an API connector](api-connectors-overview.md#where-you-can-enable-an-api-connector-in-a-user-flow) -->
-- Learn how to [add a custom approval workflow to self-service sign-up](self-service-sign-up-add-approvals.md)
-- Get started with our [Azure Function quickstart samples](code-samples-self-service-sign-up.md#api-connector-azure-function-quickstarts).
-<!-- - Learn how to [use API connectors to verify a user identity](code-samples-self-service-sign-up.md#identity-verification) -->
+<!-- - Learn how to [add a custom approval workflow to sign-up](add-approvals.md) -->
+<!-- - Get started with our [Azure Function quickstart samples](code-samples-self-service-sign-up.md#api-connector-azure-function-quickstarts). -->
