@@ -279,7 +279,7 @@ For information on attaching an AKS cluster in the portal, see [Create compute t
 To detach a cluster from your workspace, use one of the following methods:
 
 > [!WARNING]
-> Using the Azure Machine Learning studio, SDK, or the Azure CLI extension for machine learning to detach an AKS cluster **does not delete the AKS cluster**. To delete the cluster, see [Use the Azure CLI with AKS](../../aks/kubernetes-walkthrough.md#delete-the-cluster).
+> Using the Azure Machine Learning studio, SDK, or the Azure CLI extension for machine learning to detach an AKS cluster **does not delete the AKS cluster**. To delete the cluster, see [Use the Azure CLI with AKS](/azure/aks/kubernetes-walkthrough#delete-the-cluster).
 
 # [Python](#tab/python)
 

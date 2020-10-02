@@ -448,7 +448,7 @@ kubectl get secret/azuremlfessl -o yaml
 
 ### Detaching Azure Kubernetes Service
 
-Using the Azure Machine Learning studio, SDK, or the Azure CLI extension for machine learning to detach an AKS cluster does not delete the AKS cluster. To delete the cluster, see [Use the Azure CLI with AKS](../../aks/kubernetes-walkthrough.md#delete-the-cluster).
+Using the Azure Machine Learning studio, SDK, or the Azure CLI extension for machine learning to detach an AKS cluster does not delete the AKS cluster. To delete the cluster, see [Use the Azure CLI with AKS](/azure/aks/kubernetes-walkthrough#delete-the-cluster).
 
 ### Webservices in Azure Kubernetes Service failures
 
