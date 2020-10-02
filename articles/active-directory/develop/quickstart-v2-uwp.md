@@ -21,6 +21,11 @@ ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:U
 This quickstart contains a code sample that demonstrates how a Universal Windows Platform (UWP) application can sign in users with personal accounts or work and school accounts, get an access token, and call the Microsoft Graph API. (See [How the sample works](#how-the-sample-works) for an illustration.)
 
 > [!div renderon="docs"]
+> ## Prerequisites
+>
+> * An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+> * [Visual Studio 2019](https://visualstudio.microsoft.com/vs/)
+>
 > ## Register and download your quickstart app
 > [!div renderon="docs" class="sxs-lookup"]
 > You have two options to start your quickstart application:
