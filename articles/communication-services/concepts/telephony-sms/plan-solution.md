@@ -32,7 +32,7 @@ Now, let's review these phone number types and capabilities available through Co
 
 For most phone numbers, we allow you to configure an "a la carte" set of plans. Some developers only need an outbound calling plan; some might opt for outbound calling and outbound SMS plans. These plans can be selected as you lease your telephone numbers within Azure Communication Services.
 
-The plans that are available to you depending on the country that you're operating within, your use case, and the phone number type that you've selected:	
+The plans that are available to you depend on the country that you're operating within, your use case, and the phone number type that you've selected:	
 
 :::image type="content" source="../media/plan-solution/sample-decision-flow.PNG" alt-text="Diagram showing sample decision flow.":::
 
