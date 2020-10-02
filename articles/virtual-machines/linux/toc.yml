@@ -595,10 +595,6 @@
           href: ../../bastion/create-host-cli.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
       - name: Use Bastion to connect
         href: ../../bastion/bastion-connect-vm-ssh.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
-        items:
-        - name: Bastion SSH connection
-      - name: Bastion RDP connection
-        href: ../../bastion/bastion-connect-vm-rdp.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
     - name: Encrypt
       items:
       - name: Disk encryption scenarios for Linux
@@ -625,7 +621,7 @@
         href: disk-encryption-troubleshooting.md
       - name: Disk encryption FAQ
         href: disk-encryption-faq.md
-      - name: Disk encryption - previous version (Azure AD)
+      - name: Disk encryption - previous version
         items:
         - name: Overview
           href: disk-encryption-overview-aad.md
@@ -640,6 +636,7 @@
     - name: Create a Key Vault
       href: key-vault-setup.md
     - name: Create and use SSH keys
+      displayName: ssh keys ssh openssh
       items:
       - name: On Linux or macOS
         href: mac-create-ssh-keys.md

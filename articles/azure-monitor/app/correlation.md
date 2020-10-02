@@ -50,7 +50,7 @@ In the results, note that all telemetry items share the root `operation_Id`. Whe
 
 When the call `GET /api/stock/value` is made to an external service, you need to know the identity of that server so you can set the `dependency.target` field appropriately. When the external service doesn't support monitoring, `target` is set to the host name of the service (for example, `stock-prices-api.com`). But if the service identifies itself by returning a predefined HTTP header, `target` contains the service identity that allows Application Insights to build a distributed trace by querying telemetry from that service.
 
-## Correlation headers
+## Correlation headers using W3C TraceContext
 
 Application Insights is transitioning to [W3C Trace-Context](https://w3c.github.io/trace-context/), which defines:
 
@@ -65,6 +65,18 @@ The [correlation HTTP protocol, also called Request-Id](https://github.com/dotne
 - `Correlation-Context`: Carries the name-value pairs collection of the distributed trace properties.
 
 Application Insights also defines the [extension](https://github.com/lmolkova/correlation/blob/master/http_protocol_proposal_v2.md) for the correlation HTTP protocol. It uses `Request-Context` name-value pairs to propagate the collection of properties used by the immediate caller or callee. The Application Insights SDK uses this header to set the `dependency.target` and `request.source` fields.
+
+The [W3C Trace-Context](https://w3c.github.io/trace-context/) and Application Insights data models map in the following way:
+
+| Application Insights                   | W3C TraceContext                                      |
+|------------------------------------    |-------------------------------------------------    |
+| `Request`, `PageView`                  | `SpanKind` is server if synchronous; `SpanKind` is consumer if asynchronous                    |
+| `Dependency`                           | `SpanKind` is client if synchronous; `SpanKind` is producer if asynchronous                   |
+| `Id` of `Request` and `Dependency`     | `SpanId`                                            |
+| `Operation_Id`                         | `TraceId`                                           |
+| `Operation_ParentId`                   | `SpanId` of this span's parent span. If this is a root span, then this field must be empty.     |
+
+For more information, see [Application Insights telemetry data model](../../azure-monitor/app/data-model.md).
 
 ### Enable W3C distributed tracing support for classic ASP.NET apps
  
@@ -199,25 +211,11 @@ This feature is in `Microsoft.ApplicationInsights.JavaScript`. It's disabled by 
   </script>
   ```
 
-## OpenTracing and Application Insights
-
-The [OpenTracing data model specification](https://opentracing.io/) and Application Insights data models map in the following way:
-
-| Application Insights                   | OpenTracing                                        |
-|------------------------------------    |-------------------------------------------------    |
-| `Request`, `PageView`                  | `Span` with `span.kind = server`                    |
-| `Dependency`                           | `Span` with `span.kind = client`                    |
-| `Id` of `Request` and `Dependency`     | `SpanId`                                            |
-| `Operation_Id`                         | `TraceId`                                           |
-| `Operation_ParentId`                   | `Reference` of type `ChildOf` (the parent span)     |
-
-For more information, see [Application Insights telemetry data model](../../azure-monitor/app/data-model.md).
-
-For definitions of OpenTracing concepts, see the OpenTracing [specification](https://github.com/opentracing/specification/blob/master/specification.md) and [semantic conventions](https://github.com/opentracing/specification/blob/master/semantic_conventions.md).
-
 ## Telemetry correlation in OpenCensus Python
 
-OpenCensus Python follows the `OpenTracing` data model specifications outlined earlier. It also supports [W3C Trace-Context](https://w3c.github.io/trace-context/) without requiring any configuration.
+OpenCensus Python supports [W3C Trace-Context](https://w3c.github.io/trace-context/) without requiring additional configuration.
+
+As a reference, the OpenCensus data model can be found [here](https://github.com/census-instrumentation/opencensus-specs/tree/master/trace).
 
 ### Incoming request correlation
 

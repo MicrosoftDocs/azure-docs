@@ -6,7 +6,7 @@ manager: vriveras
 services: azure-spatial-anchors
 
 ms.author: crtreasu
-ms.date: 08/17/2020
+ms.date: 09/29/2020
 ms.topic: how-to
 ms.service: azure-spatial-anchors
 ---
@@ -53,7 +53,7 @@ Azure Spatial Anchors for Unity is currently distributed using Unity Package Man
 1. Go to **Edit** > **Project Settings** > **Player**.
 2. In the **Inspector Panel** for **Player Settings**, select the **Android** icon.
 3. Under the **Build** section, check the **Custom Main Gradle Template** checkbox to generate a custom gradle template at `Assets\Plugins\Android\mainTemplate.gradle`.
-4. Open your `mainTemplate.gradle` file in a text editor. 
+4. Open your `mainTemplate.gradle` file in a text editor.
 5. In the `dependencies` section, paste the following dependencies:
 
     ```gradle
@@ -68,10 +68,10 @@ When it's all done, your `dependencies` section should look something like this:
 ### [Import the asset package](#tab/UnityAssetPackage)
 
 > [!WARNING]
-> The Unity Asset Package distribution of the Azure Spatial Anchors SDK will be deprecated after SDK version 2.5.0.
+> The Unity Asset Package distribution of the Azure Spatial Anchors SDK was deprecated in version 2.5.0 and is no longer available as of 2.6.0.
 
-1. Download the `AzureSpatialAnchors.unitypackage` file for the version you want to target from the [GitHub releases](https://github.com/Azure/azure-spatial-anchors-samples/releases).	
-2. Follow the instructions [here](https://docs.unity3d.com/Manual/AssetPackagesImport.html) to import the Unity asset package into your project.	
+1. Download the `AzureSpatialAnchors.unitypackage` file for the version you want to target from the [GitHub releases](https://github.com/Azure/azure-spatial-anchors-samples/releases).
+2. Follow the instructions [here](https://docs.unity3d.com/Manual/AssetPackagesImport.html) to import the Unity asset package into your project.
 
 ---
 
