@@ -58,7 +58,7 @@ Use the [Azure CLI](/cli/azure/install-azure-cli) or [Azure PowerShell](/powersh
 To disable automatic registration using Azure CLI, run the following command: 
 
 ```azurecli-interactive
-az feature unregister --namespace Microsoft.SqlVirtualMachine--name BulkRegistration
+az feature unregister --namespace Microsoft.SqlVirtualMachine --name BulkRegistration
 ```
 
 # [PowerShell](#tab/azure-powershell)
