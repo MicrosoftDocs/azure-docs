@@ -14,7 +14,7 @@ ms.custom: subject-security-benchmark
 
 # Azure security baseline for Cloud Shell
 
-This security baseline applies guidance from the [Azure Security Benchmark](https://docs.microsoft.com/azure/security/benchmarks/overview) to Cloud
+This security baseline applies guidance from the [Azure Security Benchmark](../security/benchmarks/overview.md) to Cloud
 Shell. The Azure Security Benchmark provides recommendations on how you can secure your cloud solutions on Azure. The content is grouped by the **security controls** defined by the Azure Security Benchmark and the related guidance applicable to Cloud Shell. **Controls** not applicable to Cloud
 Shell have been excluded. To see how Cloud Shell completely maps to the Azure Security Benchmark, see the [full Cloud Shell security baseline mapping file](https://github.com/MicrosoftDocs/SecurityBenchmarks/tree/master/Azure%20Offer%20Security%20Baselines).
 
@@ -23,7 +23,7 @@ Shell have been excluded. To see how Cloud Shell completely maps to the Azure Se
 
 ## Network security
 
-*For more information, see the [Azure Security Benchmark: Network security](https://docs.microsoft.com/azure/security/benchmarks/security-control-network-security).*
+*For more information, see the [Azure Security Benchmark: Network security](../security/benchmarks/security-control-network-security.md).*
 
 ### 1.1: Protect Azure resources within virtual networks
 
@@ -34,11 +34,11 @@ Shell have been excluded. To see how Cloud Shell completely maps to the Azure Se
 
 When you deploy Azure Cloud Shell into a customer owned Virtual Network you must create or use an existing virtual network. Ensure that the chosen virtual network has a network security group applied to its subnets and network access controls configured specific to your application's trusted ports and sources.
 
-- [Deploy Cloud Shell into an Azure virtual network](https://docs.microsoft.com/azure/cloud-shell/private-vnet)
+- [Deploy Cloud Shell into an Azure virtual network](private-vnet.md)
 
-- [How to create a network security group with security rules](https://docs.microsoft.com/azure/virtual-network/tutorial-filter-network-traffic)
+- [How to create a network security group with security rules](../virtual-network/tutorial-filter-network-traffic.md)
 
-- [How to deploy and configure Azure Firewall](https://docs.microsoft.com/azure/firewall/tutorial-firewall-deploy-portal)
+- [How to deploy and configure Azure Firewall](../firewall/tutorial-firewall-deploy-portal.md)
 
 **Azure Security Center monitoring**: Currently not available
 
@@ -156,7 +156,7 @@ When you deploy Azure Cloud Shell into a customer owned Virtual Network you must
 
 ## Logging and monitoring
 
-*For more information, see the [Azure Security Benchmark: Logging and monitoring](https://docs.microsoft.com/azure/security/benchmarks/security-control-logging-monitoring).*
+*For more information, see the [Azure Security Benchmark: Logging and monitoring](../security/benchmarks/security-control-logging-monitoring.md).*
 
 ### 2.2: Configure central security log management
 
@@ -247,7 +247,7 @@ Azure Cloud Shell is a browser-based command-line experience that should only be
 
 ## Identity and access control
 
-*For more information, see the [Azure Security Benchmark: Identity and access control](https://docs.microsoft.com/azure/security/benchmarks/security-control-identity-access-control).*
+*For more information, see the [Azure Security Benchmark: Identity and access control](../security/benchmarks/security-control-identity-access-control.md).*
 
 ### 3.1: Maintain an inventory of administrative accounts
 
@@ -408,7 +408,7 @@ lockbox support.
 
 ## Data protection
 
-*For more information, see the [Azure Security Benchmark: Data protection](https://docs.microsoft.com/azure/security/benchmarks/security-control-data-protection).*
+*For more information, see the [Azure Security Benchmark: Data protection](../security/benchmarks/security-control-data-protection.md).*
 
 ### 4.1: Maintain an inventory of sensitive Information
 
@@ -515,7 +515,7 @@ Cloud Shell doesn't handle customer data or sensitive data directly.
 
 ## Vulnerability management
 
-*For more information, see the [Azure Security Benchmark: Vulnerability management](https://docs.microsoft.com/azure/security/benchmarks/security-control-vulnerability-management).*
+*For more information, see the [Azure Security Benchmark: Vulnerability management](../security/benchmarks/security-control-vulnerability-management.md).*
 
 ### 5.1: Run automated vulnerability scanning tools
 
@@ -592,7 +592,7 @@ Customers are responsible to remediate vulnerabilities that are discovered throu
 
 ## Inventory and asset management
 
-*For more information, see the [Azure Security Benchmark: Inventory and asset management](https://docs.microsoft.com/azure/security/benchmarks/security-control-inventory-asset-management).*
+*For more information, see the [Azure Security Benchmark: Inventory and asset management](../security/benchmarks/security-control-inventory-asset-management.md).*
 
 ### 6.1: Use automated asset discovery solution
 
@@ -757,7 +757,7 @@ Customers are responsible to maintain an inventory of approved software running 
 
 ## Secure configuration
 
-*For more information, see the [Azure Security Benchmark: Secure configuration](https://docs.microsoft.com/azure/security/benchmarks/security-control-secure-configuration).*
+*For more information, see the [Azure Security Benchmark: Secure configuration](../security/benchmarks/security-control-secure-configuration.md).*
 
 ### 7.1: Establish secure configurations for all Azure resources
 
@@ -904,7 +904,7 @@ Customers are responsible to maintain an inventory of approved software running 
 
 ## Malware defense
 
-*For more information, see the [Azure Security Benchmark: Malware defense](https://docs.microsoft.com/azure/security/benchmarks/security-control-malware-defense).*
+*For more information, see the [Azure Security Benchmark: Malware defense](../security/benchmarks/security-control-malware-defense.md).*
 
 ### 8.1: Use centrally managed antimalware software
 
@@ -941,7 +941,7 @@ Customers are responsible to maintain an inventory of approved software running 
 
 ## Data recovery
 
-*For more information, see the [Azure Security Benchmark: Data recovery](https://docs.microsoft.com/azure/security/benchmarks/security-control-data-recovery).*
+*For more information, see the [Azure Security Benchmark: Data recovery](../security/benchmarks/security-control-data-recovery.md).*
 
 ### 9.1: Ensure regular automated back ups
 
@@ -989,7 +989,7 @@ Customers are responsible to maintain an inventory of approved software running 
 
 ## Incident response
 
-*For more information, see the [Azure Security Benchmark: Incident response](https://docs.microsoft.com/azure/security/benchmarks/security-control-incident-response).*
+*For more information, see the [Azure Security Benchmark: Incident response](../security/benchmarks/security-control-incident-response.md).*
 
 ### 10.1: Create an incident response guide
 
@@ -998,7 +998,7 @@ Customers are responsible to maintain an inventory of approved software running 
 
 **Guidance**: 
 Build out an incident response guide for your organization. Ensure that there are written incident response plans that define all roles of personnel as well as phases of incident handling/management from detection to post-incident review.
-- [How to configure Workflow Automations within Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-planning-and-operations-guide) 
+- [How to configure Workflow Automations within Azure Security Center](../security-center/security-center-planning-and-operations-guide.md) 
 - [Guidance on building your own security incident response process](https://msrc-blog.microsoft.com/2019/07/01/inside-the-msrc-building-your-own-security-incident-response-process/) 
 - [Microsoft Security Response Center's Anatomy of an Incident](https://msrc-blog.microsoft.com/2019/07/01/inside-the-msrc-building-your-own-security-incident-response-process/) 
 - [Customer may also leverage NIST's Computer Security Incident Handling Guide to aid in the creation of their own incident response plan](https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-61r2.pdf) 
@@ -1015,8 +1015,8 @@ Build out an incident response guide for your organization. Ensure that there ar
 **Guidance**: 
 Security Center assigns a severity to each alert to help you prioritize which alerts should be investigated first. The severity is based on how confident Security Center is in the finding or the analytic used to issue the alert as well as the confidence level that there was malicious intent behind the activity that led to the alert.
 Additionally, clearly mark subscriptions (for ex. production, non-prod) and create a naming system to clearly identify and categorize Azure resources.
-- [Security alerts in Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-alerts-overview) 
-- [Use tags to organize your Azure resources](https://docs.microsoft.com/azure/azure-resource-manager/management/tag-resources) 
+- [Security alerts in Azure Security Center](../security-center/security-center-alerts-overview.md) 
+- [Use tags to organize your Azure resources](../azure-resource-manager/management/tag-resources.md) 
 
 **Azure Security Center monitoring**: Unset. Please provide a value in the work item.
 
@@ -1042,7 +1042,7 @@ Conduct exercises to test your systems’ incident response capabilities on a re
 
 **Guidance**: 
 Security incident contact information will be used by Microsoft to contact you if the Microsoft Security Response Center (MSRC) discovers that the customer's data has been accessed by an unlawful or unauthorized party. Review incidents after the fact to ensure that issues are resolved.
-- [How to set the Azure Security Center Security Contact](https://docs.microsoft.com/azure/security-center/security-center-provide-security-contact-details) 
+- [How to set the Azure Security Center Security Contact](../security-center/security-center-provide-security-contact-details.md) 
 
 **Azure Security Center monitoring**: Unset. Please provide a value in the work item.
 
@@ -1055,8 +1055,8 @@ Security incident contact information will be used by Microsoft to contact you i
 
 **Guidance**: 
 Export your Azure Security Center alerts and recommendations using the Continuous Export feature. Continuous Export allows you to export alerts and recommendations either manually or in an ongoing, continuous fashion. You may use the Azure Security Center data connector to stream the alerts Sentinel.
-- [How to configure continuous export](https://docs.microsoft.com/azure/security-center/continuous-export) 
-- [How to stream alerts into Azure Sentinel](https://docs.microsoft.com/azure/sentinel/connect-azure-security-center) 
+- [How to configure continuous export](../security-center/continuous-export.md) 
+- [How to stream alerts into Azure Sentinel](../sentinel/connect-azure-security-center.md) 
 
 **Azure Security Center monitoring**: Unset. Please provide a value in the work item.
 
@@ -1069,7 +1069,7 @@ Export your Azure Security Center alerts and recommendations using the Continuou
 
 **Guidance**: 
 Use the Workflow Automation feature in Azure Security Center to automatically trigger responses via "Logic Apps" on security alerts and recommendations.
-- [How to configure Workflow Automation and Logic Apps](https://docs.microsoft.com/azure/security-center/workflow-automation)
+- [How to configure Workflow Automation and Logic Apps](../security-center/workflow-automation.md)
 
 **Azure Security Center monitoring**: Unset. Please provide a value in the work item.
 
@@ -1077,7 +1077,7 @@ Use the Workflow Automation feature in Azure Security Center to automatically tr
 
 ## Penetration tests and red team exercises
 
-*For more information, see the [Azure Security Benchmark: Penetration tests and red team exercises](https://docs.microsoft.com/azure/security/benchmarks/security-control-penetration-tests-red-team-exercises).*
+*For more information, see the [Azure Security Benchmark: Penetration tests and red team exercises](../security/benchmarks/security-control-penetration-tests-red-team-exercises.md).*
 
 ### 11.1: Conduct regular penetration testing of your Azure resources and ensure remediation of all critical security findings
 
