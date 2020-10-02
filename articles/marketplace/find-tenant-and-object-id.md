@@ -31,11 +31,11 @@ This article describes how to find the Tenant ID, Object ID, and partner associa
 1. Go to the Azure portal and select **Azure Active Directory** as noted in steps 1 and 2 above.
 2. Select **Subscriptions**.
 
-    :::image type="content" source="media/tenant-and-object-id/icon-azure-subscriptions.png" alt-text="Select Subscriptions in Azure portal.":::
+    :::image type="content" source="media/tenant-and-object-id/icon-azure-subscriptions.png" alt-text="The Subscriptions icon in Azure portal.":::
 
 3. View subscriptions and roles.
 
-    :::image type="content" source="media/tenant-and-object-id/subscriptions-screen.png" alt-text="Select Subscriptions in Azure portal.":::
+    :::image type="content" source="media/tenant-and-object-id/subscriptions-screen.png" alt-text="The Subscriptions screen in Azure portal.":::
 
 ## Find Partner ID
 
@@ -56,3 +56,8 @@ This article describes how to find the Tenant ID, Object ID, and partner associa
 6. Find **role assignments** by selecting **Access control (IAM)** in the left menu.
 
     :::image type="content" source="media/tenant-and-object-id/role-assignments.png" alt-text="Role assignments in Azure Active Directory.":::
+
+## Next steps
+
+- Link to next topic
+- 
