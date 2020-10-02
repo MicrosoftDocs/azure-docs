@@ -88,7 +88,7 @@ E.g. full URL [https://web.babylon.azure.com/?feature.ext.datasource=%7b"teradat
 
 4. Provide the below details:
 
-- Name: The name iof the scan
+- Name: The name of the scan
 
 - Connect via integration runtime: Select the configured self-hosted integration runtime
 
