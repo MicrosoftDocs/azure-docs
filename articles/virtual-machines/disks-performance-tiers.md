@@ -1,5 +1,5 @@
 ---
-title: Performance for managed disks
+title: Change the performance of Azure managed disks
 description: Learn about performance tiers for managed disks, and learn how to change performance tiers for existing managed disks.
 author: roygara
 ms.service: virtual-machines
@@ -47,7 +47,7 @@ For billing information, see [Managed disk pricing](https://azure.microsoft.com/
 ## Restrictions
 
 - This feature is currently supported only for premium SSDs.
-- You must detach disks from a running VM before you change tiers.
+- You must detach your disk from a running VM before you can change the disk's tier.
 - Use of the P60, P70, and P80 performance tiers is restricted to disks of 4,096 GiB or higher.
 - A disk's performance tier can be changed only once every 24 hours.
 
