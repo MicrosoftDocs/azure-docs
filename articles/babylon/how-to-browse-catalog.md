@@ -24,30 +24,30 @@ A native browsing experience with hierarchical namespace is provided for each of
 ## Launch browse experience
 
 1. The browse experience can be launched by selecting the "Browse by asset type" tile in homepage.
-   ![alt-text](./media/how-to-browse-catalog/image1.jpg)
+   ![Babylon home page ](./media/how-to-browse-catalog/image1.jpg)
 
 2. On browse asset types page, tiles are categorized by data sources. To further explore assets in each data source, select the corresponding tile.
-   ![alt-text](./media/how-to-browse-catalog/image2.jpg)
+   ![Browse asset types page](./media/how-to-browse-catalog/image2.jpg)
 
 3. On the next page, top-level assets under chosen type are listed. Pick one of the assets to further explore the contents within.
-   ![alt-text](./media/how-to-browse-catalog/image3.jpg)
+   ![Asset type specific browse page. Example shown is Azure Storage account](./media/how-to-browse-catalog/image3.jpg)
 
 4. The explorer view will open. Start browsing by selecting the asset on the left panel. Children assets will be listed on the right panel of the page.
 
-   ![alt-text](./media/how-to-browse-catalog/image6.jpg)
+   ![Explorer view](./media/how-to-browse-catalog/image6.jpg)
 
 5. To view the details of an asset, select the name or the ellipses button on the far right.
 
-   ![alt-text](./media/how-to-browse-catalog/image7.jpg)
+   ![View asset detail by clicking the ellipses button](./media/how-to-browse-catalog/image7.jpg)
 
 ## Launch related experience from asset detail page
 
 Once the data consumer is in the asset detail page, they can launch an experience to see other related assets. For example, the data consumer can navigate to the parent folder of 'DateDimension' to see the 'Dimensions' folder or even navigate to the container to see the assets under the specific hierarchy. 
 
 1. From the asset detail page, select the Related tab to see other related assets.
-   ![alt-text](./media/how-to-browse-catalog/image10.jpg)
+   ![Launch Related tab](./media/how-to-browse-catalog/image10.jpg)
 2. The Current asset's full relationship will be listed in hierarchical namespace.
-   ![alt-text](./media/how-to-browse-catalog/image11.jpg)
+   ![Hierarchical structure](./media/how-to-browse-catalog/image11.jpg)
 
 3. Select any level on the hierarchical map to list the immediate assets under that hierarchy.
-   ![alt-text](./media/how-to-browse-catalog/image13.jpg)
+   ![Select different hierarchy](./media/how-to-browse-catalog/image13.jpg)

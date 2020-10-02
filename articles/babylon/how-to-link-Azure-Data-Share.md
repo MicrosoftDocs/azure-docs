@@ -11,7 +11,7 @@ ms.date: 9/14/2020
 # How to link Azure Data Share account with Babylon
 
 ## Introduction
-This guide talks about how to connect your [Azure Data Share](https://docs.microsoft.com/en-us/azure/data-share/overview) account with Project Babylon and govern the shared(outgoing/incoming) datasets in your data estate. The data governance personas can discover and track lineage of data going cross boundaries like organizations, data centers, and departments.
+This guide talks about how to connect your [Azure Data Share](https://docs.microsoft.com/azure/data-share/overview) account with Project Babylon and govern the shared(outgoing/incoming) datasets in your data estate. The data governance personas can discover and track lineage of data going cross boundaries like organizations, data centers, and departments.
 
 ## Common Scenarios
 Data Share Lineage is aimed to provide detailed information for root cause analysis and impact analysis.
@@ -32,18 +32,16 @@ All the Data Share lineage information will be collected by Babylon account. You
 In Babylon portal, you can go to Management Center and connect your Azure Data Share under the 'Others' section. Select New on the top bar, find your Azure Data Share in the pop-up side bar and add the Data Share account. It's mandatory to execute Step 3 in the next section. Run a data share snapshot after connecting your Data Share to Babylon account, so that the Data Share assets and lineage information is visible in Babylon.
  
 
-![A screenshot of a cell phone Description automatically
-generated](media/how-to-link-Azure-Data-Share/media/ConnectTo.png)
+![Management center to link Azure Data Share](media/how-to-link-Azure-Data-Share/media/ConnectTo.png)
 
 ### Step 3: Execute your Snapshot in Azure Data Share.
-Once the Azure Data share connection is established with Project Babylon, you can execute a snapshot for your existing shares. If you don’t have any existing shares, go to the Azure data share portal to [share your data](https://docs.microsoft.com/en-us/azure/data-share/share-your-data) [and subscribe to a data share](https://docs.microsoft.com/en-us/azure/data-share/subscribe-to-data-share). Once the data share snapshot is  complete, you can view associated Data Share assets and lineage in Babylon.
+Once the Azure Data share connection is established with Project Babylon, you can execute a snapshot for your existing shares. If you don’t have any existing shares, go to the Azure data share portal to [share your data](https://docs.microsoft.com/azure/data-share/share-your-data) [and subscribe to a data share](https://docs.microsoft.com/azure/data-share/subscribe-to-data-share). Once the data share snapshot is  complete, you can view associated Data Share assets and lineage in Babylon.
 
 ### Step 4: Discover Data Share accounts and share Information in your Babylon account.
 In the home page of Babylon account, select Browse by asset type and select Azure data share tile. You can search for a data share account, share name, share snapshot or partner organization. Otherwise apply filters on the Search result page by Azure Data Share Account, Azure Data Share Type (Sent vs Received Shares). 
 
 
-![A screenshot of a cell phone Description automatically
-generated](media/how-to-link-Azure-Data-Share/media/ADS_SearchResultPage.png)
+![Azure Data share in Search result page](media/how-to-link-Azure-Data-Share/media/ADS_SearchResultPage.png)
  
 Note: For Data Share assets to show in Babylon, a snapshot must be taken after you connect your Data Share to Babylon.
  
@@ -51,5 +49,4 @@ Note: For Data Share assets to show in Babylon, a snapshot must be taken after y
 From the Babylon Search result page, choose the Data share snapshot(received/sent) and select the Lineage tab, to see a lineage graph with upstream and downstream dependency. 
 
 
-![A screenshot of a cell phone Description automatically
-generated](media/how-to-link-Azure-Data-Share/media/ADS_Lineage.png)
+![Lineage of Datasets shared using Azure Data Share](media/how-to-link-Azure-Data-Share/media/ADS_Lineage.png)
