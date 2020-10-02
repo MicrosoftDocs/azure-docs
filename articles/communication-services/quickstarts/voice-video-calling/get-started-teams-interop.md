@@ -18,7 +18,7 @@ zone_pivot_groups: acs-plat-web-ios-android
 Get started with Teams interoperability and join your Azure Communication calling app to a Teams meeting
 
 ::: zone pivot="platform-web"
-[!INCLUDE [Calling with JavaScript](./includes/teams-interop-javascript.md)]
+[!INCLUDE [Join Teams meetings](./includes/teams-interop-javascript.md)]
 ::: zone-end
 
 ## Clean up resources
