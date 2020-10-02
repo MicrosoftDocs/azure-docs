@@ -49,6 +49,8 @@
     href: cli-samples.md
 - name: Concepts
   items:
+    - name: High availability
+      href: cache-high-availability.md
     - name: Failover and patching
       href: cache-failover.md
     - name: Best practices
