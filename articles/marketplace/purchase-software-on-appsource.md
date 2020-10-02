@@ -1,6 +1,6 @@
 ---
 # This file is currently not connected to TOC. We are working on a new location Sept 2020
-title: How to Purchase Software on AppSource | Azure Marketplace
+title: How to purchase software on Microsoft AppSource
 description: Steps for one to purchase software on AppSource | Azure Marketplace. 
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
@@ -61,4 +61,4 @@ For business products, [contact help here](/office365/admin/contact-support-for-
 
 ## Next steps
 
-- See the [Commercial Marketplace documentation](partner-center-portal/commercial-marketplace-overview.md) for more information.
+- [Microsoft marketplace customer documentation](/marketplace/)

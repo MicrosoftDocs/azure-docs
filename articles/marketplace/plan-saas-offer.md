@@ -96,7 +96,7 @@ You can choose to enable a test drive for your SaaS app. Test drives give custom
 You must connect your offer to your customer relationship management (CRM) system to collect customer information. The customer will be asked for permission to share their information. These customer details, along with the offer name, ID, and online store where they found your offer, will be sent to the CRM system that you've configured. The commercial marketplace supports a variety of CRM systems, along with the option to use an Azure table or configure an HTTPS endpoint using Power Automate.
 
 You can add or modify a CRM connection at any time during or after offer creation. For detailed guidance, see
- [Lead management for the commercial marketplace](lead-management-for-cloud-marketplace.md).
+[Customer leads from your commercial marketplace offer](partner-center-portal/commercial-marketplace-get-customer-leads.md).
 
 ## Selecting an online store
 
