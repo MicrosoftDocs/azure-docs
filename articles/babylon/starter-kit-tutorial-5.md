@@ -68,7 +68,7 @@ Create a glossary term by following these steps:
 
 1. When you're finished, select **Create**.
 
-    :::image type="content" source="./media/starter-kit-tutorial-5/enter-new glossary-term.png" alt-text="Screenshot showing how to create a new glossary term.":::
+    :::image type="content" source="./media/starter-kit-tutorial-5/enter-new-glossary-term.png" alt-text="Screenshot showing how to create a new glossary term.":::
 
 ## Add glossary terms to an asset
 

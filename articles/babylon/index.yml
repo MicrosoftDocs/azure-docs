@@ -24,15 +24,15 @@ landingContent:
             url: overview.md
           - text: Product limitations
             url: product-limitations.md
+  # Card
+  - title: Get started
+    linkLists:
       - linkListType: quickstart
         links:
           - text: Create a Babylon account
             url: create-catalog-portal.md
           - text: Add a security principal
             url: add-security-principal.md
-  # Card
-  - title: Top scenarios
-    linkLists:
       - linkListType: tutorial
         links:
           - text: 1 - Scan data

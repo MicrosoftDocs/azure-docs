@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Use resource sets, asset details, schemas, and classifications'
+title: 'Tutorial: Resource sets, asset details, schemas, and classifications'
 description: This tutorial describes how to use resource sets, asset details, schemas, and classifications. 
 author: viseshag
 ms.author: viseshag
@@ -9,7 +9,7 @@ ms.topic: tutorial
 ms.date: 09/30/2020
 ---
 
-# Tutorial: Use resource sets, asset details, schemas, and classifications
+# Tutorial: Resource sets, asset details, schemas, and classifications
 
 Explore the key components of your catalog: resource sets, asset details, schemas, and classifications.
 
@@ -17,8 +17,8 @@ In this tutorial, you learn how to:
 
 > [!div class="checklist"]
 >
-> * Review resource sets.
-> * Review asset details.
+> * View resource sets.
+> * View asset details.
 > * Edit the schema and add classifications.
 
 If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) before you begin.
@@ -33,7 +33,7 @@ If you don't have an Azure subscription, [create a free account](https://azure.m
 
 Sign in to the [Azure portal](https://portal.azure.com).
 
-## Review resource sets
+## View resource sets
 
 A resource set is a single object in the catalog that represents many physical objects in storage. The objects usually share a common schema and, in most cases, a naming convention or folder structure. For example, the date format is *yyyy/mm/dd*. 
 <!--- Temporarily comment out until rest of release branch files are ported
@@ -47,7 +47,7 @@ For more information about resource sets, see [Resource sets in Azure Babylon](c
 
    :::image type="content" source="./media/starter-kit-tutorial-4/overview-tab.png" alt-text="Screenshot showing the Overview tab of a resource set asset page.":::
 
-## Review asset details
+## View asset details
 
 1. Select the **Overview** tab to display the **Description**, **Glossary terms**, and such **Properties** as the **qualifiedName**.
 
@@ -83,8 +83,8 @@ In this tutorial, you learned how to:
 
 > [!div class="checklist"]
 >
-> * Review resource sets.
-> * Review asset details.
+> * View resource sets.
+> * View asset details.
 > * Edit the schema and add classifications.
 
 Advance to the next tutorial to learn about the glossary and how to define and import new terms for assets.
