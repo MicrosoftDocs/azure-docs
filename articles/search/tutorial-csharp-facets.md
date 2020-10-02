@@ -348,7 +348,7 @@ The view is going to require some significant changes.
 
 1. For the view, organize the output into a table, to neatly align the facet lists on the left, and the results on the right. Open the index.cshtml file. Replace the entire contents of the HTML &lt;body&gt; tags, with the following code.
 
-    ```cs
+    ```html
     <body>
         @using (Html.BeginForm("Index", "Home", FormMethod.Post))
         {
