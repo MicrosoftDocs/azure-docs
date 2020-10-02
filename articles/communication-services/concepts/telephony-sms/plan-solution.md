@@ -13,7 +13,7 @@ ms.service: azure-communication-services
 ---
 # Plan your telephony and SMS solution
 
-[!INCLUDE [Private Preview Notice](../../includes/private-preview-include.md)]
+[!INCLUDE [Public Preview Notice](../../includes/public-preview-include.md)]
 
 
 In this document, we'll review the decision flows that you can use to select phone number types, plans, and capabilities made available through Azure Communication Services.
