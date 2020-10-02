@@ -287,7 +287,7 @@ Log entries are created only if there are requests made against the service endp
 - Requests that use a shared access signature (SAS) or OAuth, including failed and successful requests
 - Requests to analytics data (classic log data in the **$logs** container and class metric data in the **$metric** tables)
 
-Requests made by the Azure Files service itself, such as log creation or deletion, aren't logged. For a full list of the logged data, see [Storage logged operations and status messages](/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages) and [Storage log format](storage-files-monitoring-reference.md).
+Requests made by the Azure Files service itself, such as log creation or deletion, aren't logged. For a full list of the logged data, see [Storage logged operations and status messages](https://docs.microsoft.com/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages) and [Storage log format](storage-files-monitoring-reference.md).
 
 ### Log anonymous requests
 
@@ -331,7 +331,7 @@ Here are some queries that you can enter in the **Log search** bar to help you m
 > [!IMPORTANT]
 > When you select **Logs** from the storage account resource group menu, Log Analytics is opened with the query scope set to the current resource group. This means that log queries will only include data from that resource group. If you want to run a query that includes data from other resources or data from other Azure services, select **Logs** from the **Azure Monitor** menu. See [Log query scope and time range in Azure Monitor Log Analytics](/azure/azure-monitor/log-query/scope/) for details.
 
-Use these queries to help you monitor your Azure Storage accounts:
+Use these queries to help you monitor your Azure file shares:
 
 - View SMB errors over the last week
 
