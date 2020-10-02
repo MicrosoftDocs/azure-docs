@@ -18,10 +18,9 @@ ms.service: azure-communication-services
 
 In this document, we'll review the decision flows that you can use to select phone number types, plans, and capabilities made available through Azure Communication Services.
 
-## About phone numbers in Azure Communications Services
+## Acquiring phone numbers in Azure Communications Services
 
 Azure Communication Services allows you to use phone numbers to place and receive telephony calls and SMS messages. These phone numbers can be used to configure caller ID for outbound calls placed by your service.
-  
 
 The following diagram can be used to determine the type of phone number that you'll select:
 
@@ -29,9 +28,9 @@ The following diagram can be used to determine the type of phone number that you
 
 Now, let's review the phone number types and capabilities available through Communication Services. 
 
-## Microsoft direct offer of phone numbers and capabilities
+## Phone numbers and capabilities
 
-Azure Communication Services provides excellent flexibility for developers. On most phone numbers, we allow you to configure an "a la carte" set of plans. Some developers only need an inbound calling plan; some might opt for inbound calling and outbound SMS plans. These plans can be selected as you lease and/or port your telephone numbers within Communication Services.
+Azure Communication Services provides excellent flexibility for developers. On most phone numbers, we allow you to configure an "a la carte" set of plans. Some developers only need an outbound calling plan; some might opt for outbound calling and outbound SMS plans. These plans can be selected as you lease your telephone numbers within Azure Communication Services.
 
 The plans that are available to you depend on the country that you're operating within, your use case, and the phone number type that you've selected:	
 
@@ -39,7 +38,7 @@ The plans that are available to you depend on the country that you're operating 
 
 <!-- Tami/team have rejected this multiple times despite updates, says it needs to be higher res - need to work with her to get approval for this image. Commenting out to move our staging forward. :::image type="content" source="../../media/example-decision-flow.png" alt-text="Example for the decision flow"::: -->
 
-Before you can select a phone number type, let’s review the international phone numbering plan.
+<!-- Before you can select a phone number type, let’s review the international phone numbering plan.
 
 ### Optional reading. International public telecommunication numbering plan (E.164)
 
@@ -74,7 +73,7 @@ A toll-free number in North America region:
 
 A mobile phone number in the UK:
 
-:::image type="content" source="../media/plan-solution/mobile-uk.png" alt-text="Example of a mobile number in the UK":::
+:::image type="content" source="../media/plan-solution/mobile-uk.png" alt-text="Example of a mobile number in the UK"::: -->
 
 Next, let's review specific phone number types available in Azure Communication Services.
 
@@ -86,8 +85,14 @@ The table below summarizes these phone number types:
 
 | Phone number type | Example                              | Country availability    | Phone Number Capability |Common use case                                                                                                     |
 | ----------------- | ------------------------------------ | ----------------------- | ------------------------|------------------------------------------------------------------------------------------------------------------- |
-| Regional          | +1 (geographic area code) XXX XX XX  | US                      | PSTN Calling (Outbound) | Assigning phone numbers to users in your applications or assigning to Interactive Voice Response (IVR) systems/Bots |
-| Toll-Free         | +1 (toll-free area *code*) XXX XX XX | US                      | PSTN Calling (Outbound), SMS (Inbound/Outbound)| Assigning to Interactive Voice Response (IVR) systems/Bots, SMS applications                                        |
+| Geographic        | +1 (local area code) XXX XX XX  | US                      | PSTN Calling (Outbound) | Assigning phone numbers to users in your applications  |
+| Toll-Free         | +1 (toll-free area *code*) XXX XX XX | US                      | PSTN Calling (Outbound), SMS (Inbound/Outbound)| Assigning phone numbers to Interactive Voice Response (IVR) systems/Bots, SMS applications                                        |
+
+### Geographic Numbers
+Geographic numbers are 10-digit telephone numbers consisting of the local area codes in US. These phone numbers are generally used by individuals and local businesses. Azure Communication Services offers geographic numbers in US. These numbers can be used with the calling capability. For example, +1 (206) XXX-XXXX, area code 206 is assigned to city of Seattle, Bainbridge Island and Vashon Island.
+
+### Toll-Free Numbers
+Toll-free numbers are 10-digit telephone numbers with distinct area codes that can be called from any phone number free of charge. These are generally used for customer service purposes. 
 
 ## Plans 
 
@@ -97,7 +102,7 @@ Let’s look at the capabilities you can enable for your phone numbers. These ca
 - **Two-way inbound and outbound SMS** This plan allows you to send and receive messages from your users using phone numbers acquired in your Azure Communication Services resource. This plan is useful scenarios like customer service.
 - **One-way outbound PSTN calling** This plan allows you to make calls to your users and configure Caller ID for outbound calls placed by your service. This plan enables scenarios like customer service.
 
-## Country/Region Availability
+## Country/Region availability
 
 The following table shows you where you can acquire different types of phone numbers along with the inbound and outbound calling and SMS capabilities associated with these phone number types.
 
