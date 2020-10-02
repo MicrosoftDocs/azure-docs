@@ -14,7 +14,7 @@ ms.custom: subject-security-benchmark
 
 # Azure security baseline for Azure SignalR Service
 
-This security baseline applies guidance from the [Azure Security Benchmark](https://docs.microsoft.com/azure/security/benchmarks/overview) to Azure
+This security baseline applies guidance from the [Azure Security Benchmark](../security/benchmarks/overview.md) to Azure
 SignalR Service. The Azure Security Benchmark provides recommendations on how you can secure your cloud solutions on Azure. The content is grouped by the **security controls** defined by the Azure Security Benchmark and the related guidance applicable to Azure
 SignalR Service. **Controls** not applicable to Azure
 SignalR Service have been excluded. To see how Azure
@@ -26,7 +26,7 @@ SignalR Service security baseline mapping file](https://github.com/MicrosoftDocs
 
 ## Network security
 
-*For more information, see the [Azure Security Benchmark: Network security](https://docs.microsoft.com/azure/security/benchmarks/security-control-network-security).*
+*For more information, see the [Azure Security Benchmark: Network security](../security/benchmarks/security-control-network-security.md).*
 
 ### 1.1: Protect Azure resources within virtual networks
 
@@ -37,9 +37,9 @@ SignalR Service security baseline mapping file](https://github.com/MicrosoftDocs
 
 You can also use network access control to allow or deny certain types of request from public or private network. For example, completely deny all traffic from public network, or allow client traffic from public network but server traffic from private network.
 
-- [How to use private endpoints for Azure SignalR Service](https://docs.microsoft.com/azure/azure-signalr/howto-private-endpoints)
+- [How to use private endpoints for Azure SignalR Service](howto-private-endpoints.md)
 
-- [How to configure network access control for Azure SignalR Service](https://docs.microsoft.com/azure/azure-signalr/howto-network-access-control)
+- [How to configure network access control for Azure SignalR Service](howto-network-access-control.md)
 
 **Azure Security Center monitoring**: Yes
 
@@ -96,7 +96,7 @@ You can also use network access control to allow or deny certain types of reques
 
 **Guidance**: 
 Use Virtual Network Service Tags to define network access controls on Network Security Groups or Azure Firewall to control access to your Azure SignalR Service resources. You can use service tags in place of specific IP addresses when creating security rules. By specifying the service tag name "AzureSignalR" in the appropriate source or destination field of a rule, you can allow or deny the traffic for the corresponding service. Microsoft manages the address prefixes encompassed by the service tag and automatically updates the service tag as addresses change.
-- [How to use service tags for Azure SignalR Service](https://docs.microsoft.com/azure/azure-signalr/howto-service-tags)
+- [How to use service tags for Azure SignalR Service](howto-service-tags.md)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -111,11 +111,11 @@ Use Virtual Network Service Tags to define network access controls on Network Se
 
 You can also use Azure Blueprints to simplify large scale Azure deployments by packaging key environment artifacts, such as Azure Resource Manager templates, role assignments, and Azure Policy assignments, in a single blueprint definition. You can apply the blueprint to new subscriptions, and fine-tune control and management through versioning.
 
-- [How to configure and manage Azure Policy](https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage)
+- [How to configure and manage Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
-- [How to audit compliance of Azure SignalR Service resources using Azure Policy](https://docs.microsoft.com/azure/azure-signalr/signalr-howto-azure-policy)
+- [How to audit compliance of Azure SignalR Service resources using Azure Policy](signalr-howto-azure-policy.md)
 
-- [How to create an Azure Blueprint](https://docs.microsoft.com/azure/governance/blueprints/create-blueprint-portal)
+- [How to create an Azure Blueprint](../governance/blueprints/create-blueprint-portal.md)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -128,7 +128,7 @@ You can also use Azure Blueprints to simplify large scale Azure deployments by p
 
 **Guidance**: You may use tags for network security groups and other resources related to network security and traffic flow configured for your Azure SignalR Service resources.
 
-- [How to create and use tags](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags) 
+- [How to create and use tags](/azure/azure-resource-manager/resource-group-using-tags) 
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -147,7 +147,7 @@ You can also use Azure Blueprints to simplify large scale Azure deployments by p
 
 ## Logging and monitoring
 
-*For more information, see the [Azure Security Benchmark: Logging and monitoring](https://docs.microsoft.com/azure/security/benchmarks/security-control-logging-monitoring).*
+*For more information, see the [Azure Security Benchmark: Logging and monitoring](../security/benchmarks/security-control-logging-monitoring.md).*
 
 ### 2.2: Configure central security log management
 
@@ -250,7 +250,7 @@ You can also use Azure Blueprints to simplify large scale Azure deployments by p
 
 ## Identity and access control
 
-*For more information, see the [Azure Security Benchmark: Identity and access control](https://docs.microsoft.com/azure/security/benchmarks/security-control-identity-access-control).*
+*For more information, see the [Azure Security Benchmark: Identity and access control](../security/benchmarks/security-control-identity-access-control.md).*
 
 ### 3.1: Maintain an inventory of administrative accounts
 
@@ -397,7 +397,7 @@ You can also use Azure Blueprints to simplify large scale Azure deployments by p
 
 ## Data protection
 
-*For more information, see the [Azure Security Benchmark: Data protection](https://docs.microsoft.com/azure/security/benchmarks/security-control-data-protection).*
+*For more information, see the [Azure Security Benchmark: Data protection](../security/benchmarks/security-control-data-protection.md).*
 
 ### 4.1: Maintain an inventory of sensitive Information
 
@@ -500,7 +500,7 @@ You can also use Azure Blueprints to simplify large scale Azure deployments by p
 
 ## Vulnerability management
 
-*For more information, see the [Azure Security Benchmark: Vulnerability management](https://docs.microsoft.com/azure/security/benchmarks/security-control-vulnerability-management).*
+*For more information, see the [Azure Security Benchmark: Vulnerability management](../security/benchmarks/security-control-vulnerability-management.md).*
 
 ### 5.1: Run automated vulnerability scanning tools
 
@@ -559,7 +559,7 @@ You can also use Azure Blueprints to simplify large scale Azure deployments by p
 
 ## Inventory and asset management
 
-*For more information, see the [Azure Security Benchmark: Inventory and asset management](https://docs.microsoft.com/azure/security/benchmarks/security-control-inventory-asset-management).*
+*For more information, see the [Azure Security Benchmark: Inventory and asset management](../security/benchmarks/security-control-inventory-asset-management.md).*
 
 ### 6.1: Use automated asset discovery solution
 
@@ -706,7 +706,7 @@ You can also use Azure Blueprints to simplify large scale Azure deployments by p
 
 ## Secure configuration
 
-*For more information, see the [Azure Security Benchmark: Secure configuration](https://docs.microsoft.com/azure/security/benchmarks/security-control-secure-configuration).*
+*For more information, see the [Azure Security Benchmark: Secure configuration](../security/benchmarks/security-control-secure-configuration.md).*
 
 ### 7.1: Establish secure configurations for all Azure resources
 
@@ -853,7 +853,7 @@ You can also use Azure Blueprints to simplify large scale Azure deployments by p
 
 ## Malware defense
 
-*For more information, see the [Azure Security Benchmark: Malware defense](https://docs.microsoft.com/azure/security/benchmarks/security-control-malware-defense).*
+*For more information, see the [Azure Security Benchmark: Malware defense](../security/benchmarks/security-control-malware-defense.md).*
 
 ### 8.1: Use centrally managed antimalware software
 
@@ -890,7 +890,7 @@ You can also use Azure Blueprints to simplify large scale Azure deployments by p
 
 ## Data recovery
 
-*For more information, see the [Azure Security Benchmark: Data recovery](https://docs.microsoft.com/azure/security/benchmarks/security-control-data-recovery).*
+*For more information, see the [Azure Security Benchmark: Data recovery](../security/benchmarks/security-control-data-recovery.md).*
 
 ### 9.1: Ensure regular automated back ups
 
@@ -938,7 +938,7 @@ You can also use Azure Blueprints to simplify large scale Azure deployments by p
 
 ## Incident response
 
-*For more information, see the [Azure Security Benchmark: Incident response](https://docs.microsoft.com/azure/security/benchmarks/security-control-incident-response).*
+*For more information, see the [Azure Security Benchmark: Incident response](../security/benchmarks/security-control-incident-response.md).*
 
 ### 10.1: Create an incident response guide
 
@@ -1008,7 +1008,7 @@ You can also use Azure Blueprints to simplify large scale Azure deployments by p
 
 ## Penetration tests and red team exercises
 
-*For more information, see the [Azure Security Benchmark: Penetration tests and red team exercises](https://docs.microsoft.com/azure/security/benchmarks/security-control-penetration-tests-red-team-exercises).*
+*For more information, see the [Azure Security Benchmark: Penetration tests and red team exercises](../security/benchmarks/security-control-penetration-tests-red-team-exercises.md).*
 
 ### 11.1: Conduct regular penetration testing of your Azure resources and ensure remediation of all critical security findings
 
