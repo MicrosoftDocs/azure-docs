@@ -48,7 +48,15 @@ The template used in this quickstart is from [Azure Quickstart Templates](https:
 
 The template defines one Azure resource:
 
+* **Microsoft.HealthcareApis/services**
+
+<!--
+
+Replace the line above with the following line once https://docs.microsoft.com/azure/templates/microsoft.healthcareapis/services goes live:
+
 * [**Microsoft.HealthcareApis/services**](/azure/templates/microsoft.healthcareapis/services)
+
+-->
 
 More Azure API for FHIR template samples can be found in the [quickstart template gallery](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Healthcareapis&pageNumber=1&sort=Popular).
 
