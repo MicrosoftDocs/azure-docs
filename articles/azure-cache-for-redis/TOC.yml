@@ -92,8 +92,6 @@
       href: cache-reserved-pricing.md
     - name: Migrate to Azure Cache for Redis
       href: cache-migration-guide.md
-    - name: Migrate from Managed Cache Service (deprecated)
-      href: cache-migrate-to-redis.md
     - name: Planning FAQs
       href: cache-planning-faq.md
   - name: Build
