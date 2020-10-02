@@ -46,7 +46,13 @@ To create the site-to-site VPN tunnel, you'll need to create a public-facing IP 
 
     :::image type="content" source="media/virtual-wan-hub-guidelines/create-wan.png" alt-text="Create WAN.":::
 
-3. In the Azure portal, select the Virtual WAN you created in the previous step. Select **Create virtual hub**. Now create your virtual hub, which is a subnet (/24 minimum). Fill in the required fields on the **Basics** tab. Select **Next: Site to site**.
+3. In the Azure portal, select the Virtual WAN you created in the previous step, select **Create virtual hub**, enter the required fields, and then select **Next: Site to site**. 
+
+   | Field | Value |
+   | --- | --- |
+   | **Region** | Selecting a region is required from a management perspective.  |
+   | **Name** |    |
+   | **Hub private address space** | Enter the subnet using a `/24` (minimum).  |
 
     :::image type="content" source="media/virtual-wan-hub-guidelines/create-virtual-hub.png" alt-text="Create Virtual hub.":::
 
