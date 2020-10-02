@@ -100,7 +100,7 @@ Let’s look at the capabilities you can enable for your phone numbers. These ca
 
 ## Country/Region Availability
 
-Let's look at the countries where you can acquire phone numbers and destinations available to place and receive telephony calls and SMS messages.
+The following table shows you where you can acquire different types of phone numbers along with the inbound and outbound calling and SMS capabilities associated with these phone number types.
 
 |Number Type| Acquire Numbers In | Make Calls To                                        | Receive Calls From                                    |Send Messages To  |
 |-----------| ------------------ | ---------------------------------------------------  |-------------------------------------------------------|------------------|
