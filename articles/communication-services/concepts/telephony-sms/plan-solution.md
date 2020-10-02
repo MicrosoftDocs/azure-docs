@@ -107,7 +107,7 @@ Let's look at the countries where you can acquire phone numbers and destinations
 | Regional  | US                 | US, Canada, United Kingdom, Germany, France,.. +more*| US, Canada, United Kingdom, Germany, France,.. +more* |NA                |
 | Toll-Free | US                 | US                                                   | US                                                    |US                |
 
-*For a full list of call destinations and pricing please refer to the downloadable pricelist on the pricing page
+*For a full list of call destinations and pricing please refer to the downloadable price list on the pricing page
 
 ## Next steps
 
