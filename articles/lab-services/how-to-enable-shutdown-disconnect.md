@@ -11,8 +11,8 @@ This article shows you how you can configure automatic shutdown of VMs for a lab
 
 You can enable several auto-shutdown cost control features to proactively prevent additional costs when the virtual machines are not being actively used. The combination of the following three automatic shutdown and disconnect features catches most of the cases where users accidentally leave their virtual machines running:
  
-* Automatically disconnect users from virtual machines that the OS deems idle (Windows-only).
-* Automatically shut down virtual machines when users disconnect (Windows & Linux).
+* Automatically disconnect users from virtual machines that the OS deems idle.
+* Automatically shut down virtual machines when users disconnect.
 * Automatically shut down virtual machines that are started but users don't connect.
 
 Review more details about the auto-shutdown features in the [Maximize cost control with auto-shutdown settings](cost-management-guide.md#automatic-shutdown-settings-for-cost-control) section.
