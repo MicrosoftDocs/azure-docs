@@ -28,7 +28,8 @@ Many options exist for creating a VHD from a physical lab environment. The follo
     1. The VM must use a fixed disk size; here, you also can specify the size of the disk.    
         > [!NOTE]
 	> Azure Lab Services doesn’t support images with > 128 GB of disk size.
-        :::image type="content" source="./media/upload-custom-image-shared-image-gallery/connect-virtual-hard-disk.png" alt-text="Connect virtual hard disk":::   
+    
+    :::image type="content" source="./media/upload-custom-image-shared-image-gallery/connect-virtual-hard-disk.png" alt-text="Connect virtual hard disk":::   
     1. Image the VM as you normally would.
 1. [Connect to the VM and prepare it for Azure](https://docs.microsoft.com/azure/virtual-machines/windows/prepare-for-upload-vhd-image).
     1. [Set Windows configurations for Azure](https://docs.microsoft.com/azure/virtual-machines/windows/prepare-for-upload-vhd-image#set-windows-configurations-for-azure)
@@ -43,7 +44,8 @@ Many options exist for creating a VHD from a physical lab environment. The follo
     1. Navigate to **HyperV Manager** -> **Action** -> **Edit Disk**.
     1. Here, you'll have the option to **Convert** the disk from a VHDX to a VHD
     1. Since Azure Lab Services doesn't support images with > 128 GB of disk size, make sure to not exceed 128 GB when trying to expand the disk size.    
-        :::image type="content" source="./media/upload-custom-image-shared-image-gallery/choose-action.png" alt-text="Choose action":::   
+    
+    :::image type="content" source="./media/upload-custom-image-shared-image-gallery/choose-action.png" alt-text="Choose action":::   
 1. Upload VHD to Azure to create a managed disk.
     1. You can use either Storage Explorer or AzCopy from the command line, as described in [Upload a VHD to Azure or copy a managed disk to another region](https://docs.microsoft.com/azure/virtual-machines/windows/disks-upload-vhd-to-managed-disk-powershell).
         > [!NOTE]
