@@ -82,7 +82,7 @@ Telephony and SMS services are priced on a per-minute basis. Pricing is determin
 
 ### Telephone calling
 
-Traditional telephone (PSTN) calling is available with pay-as-you-go pricing for phone numbers based in the United States. The price is a per-minute charge based on the type of number used and the destination of the call. Pricing details for the most popular calling destinations are included in the table below. Please see this link (TODO: Link to CSV) for a full list of destinations.
+Traditional telephone (PSTN) calling is available with pay-as-you-go pricing for phone numbers based in the United States. The price is a per-minute charge based on the type of number used and the destination of the call. Pricing details for the most popular calling destinations are included in the table below. Please see the [detailed pricing list](https://github.com/Azure/Communication/blob/master/pricing/communication-services-pstn-rates.csv) for a full list of destinations.
 
 
 #### United States calling prices
