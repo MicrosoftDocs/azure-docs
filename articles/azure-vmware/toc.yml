@@ -83,7 +83,9 @@
   - name: VMware solutions
     items:
     - name: Set up vRealize Operations
-      href: vrealize-operations-for-azure-vmware-solution.md  
+      href: vrealize-operations-for-azure-vmware-solution.md
+    - name: Deploy VMware Horizon 
+      href: azure-vmware-solution-horizon.md
 - name: Resources
   items:
   - name: Troubleshooting
