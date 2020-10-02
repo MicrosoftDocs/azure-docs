@@ -211,7 +211,7 @@ aggregate(groupBy(mycols = sha2(256,columns())),
 This is a snippet that you can paste into your data flow to generically check all of your columns for NULL values. This technique leverages schema drift to look through all columns in all rows and uses a Conditional Split to separate the rows with NULLs from the rows with no NULLs. 
 
 ```
-CreateColumnArray split(contains(array(columns()),isNull(#item)),
+split(contains(array(columns()),isNull(#item)),
 	disjoint: false) ~> LookForNULLs@(hasNULLs, noNULLs)
 ```
 

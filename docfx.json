@@ -739,6 +739,7 @@
         "articles/logic-apps/*.md": "Azure Logic Apps",
         "articles/scheduler/*.md": "Azure Scheduler",
         "articles/governance/blueprints/**/*.md": "Azure Blueprints",
+        "articles/governance/management-groups/**/*.md": "Azure governance",
         "articles/governance/policy/**/*.md": "Azure Policy",
         "articles/governance/resource-graph/**/*.md": "Azure Resource Graph",
         "articles/lighthouse/**/*.md": "Azure Lighthouse",

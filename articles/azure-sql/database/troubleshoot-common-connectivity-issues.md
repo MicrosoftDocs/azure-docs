@@ -7,7 +7,7 @@ ms.service: sql-database
 ms.subservice: development
 ms.custom: sqldbrb=1
 ms.devlang: 
-ms.topic: conceptual
+ms.topic: troubleshooting
 author: dalechen
 ms.author: ninarn
 ms.reviewer: sstein, vanto

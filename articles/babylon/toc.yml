@@ -22,10 +22,10 @@
     href: starter-kit-tutorial-2.md
   - name: 3 - Browse and lineage
     href: starter-kit-tutorial-3.md
-# - name: 4 - Resource set, asset details, schema, and classification
-#   href: starter-kit-tutorial-4.md
-# - name: 5 - Glossary, terms, and import
-#   href: starter-kit-tutorial-5.md
+  - name: 4 - Resource sets, assets, schemas, classifications
+    href: starter-kit-tutorial-4.md
+  - name: 5 - Glossary terms
+    href: starter-kit-tutorial-5.md
 # - name: Concepts
 # items:
 # - name: Catalog permissions
