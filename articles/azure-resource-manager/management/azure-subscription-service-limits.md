@@ -207,7 +207,7 @@ The following table details the features and limits of the Basic, Standard, and 
 
 [!INCLUDE [azure-data-lake-analytics-limits](../../../includes/azure-data-lake-analytics-limits.md)]
 
-## Data Lake Store limits
+## Data Lake Storage limits
 
 [!INCLUDE [azure-data-lake-store-limits](../../../includes/azure-data-lake-store-limits.md)]
 
