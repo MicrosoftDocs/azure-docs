@@ -44,7 +44,7 @@
     - name: Your marketplace benefits
       href: gtm-your-marketplace-benefits.md 
     - name: Co-sell partner engagement
-      href: partner-center-portal/marketplace-co-sell.md 
+      href: marketplace-co-sell.md 
     - name: Co-sell option in Partner Center
       href: partner-center-portal/commercial-marketplace-co-sell.md 
     - name: Resell through CSP Partners
@@ -158,7 +158,7 @@
     - name: IoT Edge module offers
       items:
       - name: Plan an IoT Edge module offer
-      - href: iot-edge-module.md
+        href: iot-edge-module.md
       - name: Create an IoT Edge module offer
         href: partner-center-portal/azure-iot-edge-module-creation.md
       - name: Prepare IoT Edge module technical assets
