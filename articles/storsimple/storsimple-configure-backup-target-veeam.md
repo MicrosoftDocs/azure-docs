@@ -426,7 +426,7 @@ GFS rotation weekly, monthly, and yearly schedule
 
     * On the **Maintenance** tab, turn off storage level corruption guard.
 
-    ![Veeam management console, new backup copy job advanced settings page](./media/storsimple-configure-backup-target-using-veeam/veeamimage20.png)
+    ![Screenshot that shows the Maintenance tab on the Veeam management console.](./media/storsimple-configure-backup-target-using-veeam/veeamimage20.png)
 
     * On the **Storage** tab, be sure that deduplication and compression are turned off.
 
