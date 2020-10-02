@@ -307,7 +307,7 @@
         href: log-query/logs-dedicated-clusters.md
     - name: Data export
       items:
-      - name: Continuous export
+      - name: WOrkspace data export
         href: platform/logs-data-export.md
       - name: Export with Logic Apps
         href: platform/logs-export-logicapp.md

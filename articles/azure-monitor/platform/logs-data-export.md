@@ -5,7 +5,7 @@ ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 09/09/2020
+ms.date: 10/02/2020
 
 ---
 
@@ -14,6 +14,8 @@ Log Analytics workspace data export in Azure Monitor allows you to continuously 
 
 ## Overview
 Once data export is configured for your Log Analytics workspace, any new data sent to the selected tables in the workspace is automatically exported to your storage account hourly or to your event hub in near-real-time.
+
+![Data export overview](media/logs-data-export/data-export-overview.png)
 
 All data from included tales is exported without a filter. For example, when you configure a data export rule for *SecurityEvent* table, all data sent to the *SecurityEvent* table is exported starting from the configuration time.
 
