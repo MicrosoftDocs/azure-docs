@@ -16,13 +16,12 @@ The B-series VMs are ideal for workloads that do not need the full performance o
 
 The B-series comes in the following VM sizes:
 
-Premium Storage:  Supported
-
-Premium Storage caching:  Not Supported
-
-Live Migration: Supported
-
-Memory Preserving Updates: Supported
+[Premium Storage](premium-storage-performance.md): Supported<br>
+[Premium Storage caching](premium-storage-performance.md): Not Supported<br>
+[Live Migration](maintenance-and-updates.md): Supported<br>
+[Memory Preserving Updates](maintenance-and-updates.md): Supported<br>
+[VM Generation Support](generation-2.md): Generation 1 and 2<br>
+<br>
 
 | Size | vCPU | Memory: GiB | Temp storage (SSD) GiB | Base CPU Perf of VM | Max CPU Perf of VM | Initial Credits | Credits banked/hour | Max Banked Credits | Max data disks | Max cached and temp storage throughput: IOPS/MBps | Max uncached disk throughput: IOPS/MBps | Max NICs |
 |---|---|---|---|---|---|---|---|---|---|---|---|---|

@@ -1,17 +1,17 @@
 ### YamlMime:Landing
 
 title: Azure Cost Management + Billing documentation
-summary: Azure Cost Management + Billing helps you understand Azure billing, manage your account and subscriptions, monitor and control Azure spending and optimize resource use. Learn how to analyze costs, create and manage budgets, export data, and review and act on recommendations.
+summary: Azure Cost Management + Billing helps you understand your Azure invoice (bill), manage your billing account and subscriptions, monitor and control Azure spending and optimize resource use. Learn how to analyze costs, create and manage budgets, export data, and review and act on recommendations.
 metadata:
   title: Azure Cost Management + Billing
-  description: Azure Cost Management + Billing helps you understand Azure billing, manage your account and subscriptions, monitor and control Azure spending and optimize resource use. Learn how to analyze costs, create and manage budgets, export data, and review and act on recommendations.
+  description: Azure Cost Management + Billing helps you understand your Azure invoice (bill), manage your billing account and subscriptions, monitor and control Azure spending and optimize resource use. Learn how to analyze costs, create and manage budgets, export data, and review and act on recommendations.
   ms.service: cost-management-billing
   ms.subservice: common
   ms.topic: landing-page
   ms.collection: collection
   author: bandersmsft
   ms.author: banders
-  ms.date: 08/20/2020
+  ms.date: 01/01/2020
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new
 
