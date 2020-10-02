@@ -103,8 +103,7 @@ import os
                          key_vault='subscriptions/<azure-subscription-id>/resourcegroups/myresourcegroup/providers/microsoft.keyvault/vaults/mykeyvault',
                          app_insights='subscriptions/<azure-subscription-id>/resourcegroups/myresourcegroup/providers/microsoft.insights/components/myappinsights',
                          container_registry='subscriptions/<azure-subscription-id>/resourcegroups/myresourcegroup/providers/microsoft.containerregistry/registries/mycontainerregistry',
-                         exist_ok=False,
-                         sku='enterprise')
+                         exist_ok=False)
 ```
 
 For more information, see [Workspace SDK reference](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace.workspace?view=azure-ml-py&preserve-view=true)
@@ -140,13 +139,13 @@ The Azure Machine Learning Python SDK provides the [PrivateEndpointConfig](https
 
 ### Multiple workspaces with private endpoint
 
-When you create a private endpoint, a new Private DNS Zone named __privatelink.api.azureml.ms__ is created. This contains a link to the virtual network. If you create multiple workspaces with private endpoints in the same resource group, only the virtual network for the first private endpoint may be added to the DNS zone. To add entries for the virtual networks used by the additional workspaces/private endpoints, use the following steps:	
+When you create a private endpoint, a new Private DNS Zone named __privatelink.api.azureml.ms__ is created. This contains a link to the virtual network. If you create multiple workspaces with private endpoints in the same resource group, only the virtual network for the first private endpoint may be added to the DNS zone. To add entries for the virtual networks used by the additional workspaces/private endpoints, use the following steps:
 
-1. In the [Azure portal](https://portal.azure.com), select the resource group that contains the workspace. Then select the Private DNS Zone resource named __privatelink.api.azureml.ms__.	
-2. In the __Settings__, select __Virtual network links__.	
-3. Select __Add__. From the __Add virtual network link__ page, provide a unique __Link name__, and then select the __Virtual network__ to be added. Select __OK__ to add the network link.	
+1. In the [Azure portal](https://portal.azure.com), select the resource group that contains the workspace. Then select the Private DNS Zone resource named __privatelink.api.azureml.ms__
+2. In the __Settings__, select __Virtual network links__.
+3. Select __Add__. From the __Add virtual network link__ page, provide a unique __Link name__, and then select the __Virtual network__ to be added. Select __OK__ to add the network link.
 
-For more information, see [Azure Private Endpoint DNS configuration](/azure/private-link/private-endpoint-dns).	
+For more information, see [Azure Private Endpoint DNS configuration](/azure/private-link/private-endpoint-dns).
 
 ### Vulnerability scanning
 
@@ -156,7 +155,7 @@ Azure Security Center provides unified security management and advanced threat p
 
 By default, metrics and metadata for the workspace is stored in an Azure Cosmos DB instance that Microsoft maintains. This data is encrypted using Microsoft-managed keys.
 
-To limit the data that Microsoft collects on your workspace, select __High business impact workspace__. For more information on this setting, see [Encryption at rest](concept-enterprise-security.md#encryption-at-rest).
+To limit the data that Microsoft collects on your workspace, select __High business impact workspace__ in the portal, or set `hbi_workspace=true ` in Python. For more information on this setting, see [Encryption at rest](concept-enterprise-security.md#encryption-at-rest).
 
 > [!IMPORTANT]	
 > Selecting high business impact can only be done when creating a workspace. You cannot change this setting after workspace creation.	
@@ -170,21 +169,43 @@ You can provide your own key for data encryption. Doing so creates the Azure Cos
 >
 > 1. Authorize the __Machine Learning App__ (in Identity and Access Management) with contributor permissions on your subscription.	
 > 1. Follow the steps in [Configure customer-managed keys](/azure/cosmos-db/how-to-setup-cmk) to:
->     * Register the Azure Cosmos DB provider	
->     * Create and configure an Azure Key Vault	
->     * Generate a key	
+>     * Register the Azure Cosmos DB provider
+>     * Create and configure an Azure Key Vault
+>     * Generate a key
 >	
 >     You do not need to manually create the Azure Cosmos DB instance, one will be created for you during workspace creation. This Azure Cosmos DB instance will be created in a separate resource group using a name based on this pattern: `<your-workspace-resource-name>_<GUID>`.	
 >	
 > You cannot change this setting after workspace creation. If you delete the Azure Cosmos DB used by your workspace, you must also delete the workspace that is using it.
 
-1. Select __Customer-managed keys__, and then select __Click to select key__.	
+# [Portal](#tab/azure-portal)
 
-    :::image type="content" source="media/how-to-manage-workspace/advanced-workspace.png" alt-text="Customer-managed keys":::	
+1. Select __Customer-managed keys__, and then select __Click to select key__.
+
+    :::image type="content" source="media/how-to-manage-workspace/advanced-workspace.png" alt-text="Customer-managed keys":::
 
 1. On the __Select key from Azure Key Vault__ form, select an existing Azure Key Vault, a key that it contains, and the version of the key. This key is used to encrypt the data stored in Azure Cosmos DB. Finally, use the __Select__ button to use this key.
 
    :::image type="content" source="media/how-to-manage-workspace/select-key-vault.png" alt-text="Select the key":::
+
+
+# [Python](#tab/python)
+
+Use `cmk_keyvault` and `resource_cmk_uri` to specify the customer managed key.
+
+```python
+from azureml.core import Workspace
+   ws = Workspace.create(name='myworkspace',
+               subscription_id='<azure-subscription-id>',
+               resource_group='myresourcegroup',
+               create_resource_group=True,
+               location='eastus2'
+               cmk_keyvault='subscriptions/<azure-subscription-id>/resourcegroups/myresourcegroup/providers/microsoft.keyvault/vaults/<keyvault-name>', 
+               resource_cmk_uri='<key-identifier>'
+               )
+
+```
+
+---
 
 ### Download a configuration file
 
@@ -228,7 +249,11 @@ Place the file into  the directory structure with your Python scripts or Jupyter
 
 # [Python](#tab/python)
 
-Can we list workspaces in SDK?
+```python
+from azureml.core import Workspace
+
+Workspace.list('<subscription-id>')
+```
 
 ---
 
