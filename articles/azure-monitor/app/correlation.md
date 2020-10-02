@@ -129,8 +129,9 @@ It's disabled by default. To enable it, set `ApplicationInsightsServiceOptions.R
 ```csharp
 public void ConfigureServices(IServiceCollection services)
 {
-    services.AddApplicationInsightsTelemetry(o => 
-        o.RequestCollectionOptions.EnableW3CDistributedTracing = true );
+    Activity.DefaultIdFormat = ActivityIdFormat.W3C;
+    Activity.ForceDefaultIdFormat = true;
+    services.AddApplicationInsightsTelemetry();
     // ....
 }
 ```
