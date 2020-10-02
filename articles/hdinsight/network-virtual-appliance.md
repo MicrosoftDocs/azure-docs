@@ -18,7 +18,7 @@ Azure Firewall is automatically configured to allow traffic for many of the comm
 
 * Service Endpoint capable services can be configured with service endpoints which results in bypassing the NVA, usually for cost or performance considerations.
 * IP Address dependencies are for non-HTTP/S traffic (both TCP and UDP traffic).
-* FQDN HTTP/HTTPS endpoints can be whitelisted in your NVA device.
+* FQDN HTTP/HTTPS endpoints can be approved in your NVA device.
 * Assign the route table that you create to your HDInsight subnet.
 
 ## Service endpoint capable dependencies
