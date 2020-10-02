@@ -17,9 +17,9 @@ ms.author: allensu
 
 # High availability ports overview
 
-Azure Standard Load Balancer helps you load-balance TCP and UDP flows on all ports simultaneously when you're using an internal load balancer. 
+Azure Standard Load Balancer helps you load-balance **all** protocol flows on **all** ports simultaneously when you're using an internal Load Balancer via HA Ports.
 
-A high availability (HA) ports load-balancing rule is a variant of a load-balancing rule, configured on an internal Standard Load Balancer. You can simplify the use of a load balancer by providing a single rule to load-balance all TCP and UDP flows that arrive on all ports of an internal Standard Load Balancer. The load-balancing decision is made per flow. This action is based on the following five-tuple connection: source IP address, source port, destination IP address, destination port, and protocol
+High availability (HA) ports is a type of load balancing rule that provides an easy way to load-balance **all** flows that arrive on **all** ports of an internal Standard Load Balancer. The load-balancing decision is made per flow. This action is based on the following five-tuple connection: source IP address, source port, destination IP address, destination port, and protocol
 
 The HA ports load-balancing rules help you with critical scenarios, such as high availability and scale for network virtual appliances (NVAs) inside virtual networks. The feature can also help when a large number of ports must be load-balanced. 
 

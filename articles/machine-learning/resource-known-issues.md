@@ -10,7 +10,7 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
 ms.custom: troubleshooting, contperfq4
-ms.date: 08/13/2020
+ms.date: 10/02/2020
 
 ---
 # Known issues and troubleshooting in Azure Machine Learning
@@ -445,6 +445,10 @@ kubectl get secret/azuremlfessl -o yaml
 
 >[!Note]
 >Kubernetes stores the secrets in base-64 encoded format. You will need to base-64 decode the `cert.pem` and `key.pem` components of the secrets prior to providing them to `attach_config.enable_ssl`. 
+
+### Detaching Azure Kubernetes Service
+
+Using the Azure Machine Learning studio, SDK, or the Azure CLI extension for machine learning to detach an AKS cluster does not delete the AKS cluster. To delete the cluster, see [Use the Azure CLI with AKS](/azure/aks/kubernetes-walkthrough#delete-the-cluster).
 
 ### Webservices in Azure Kubernetes Service failures
 
