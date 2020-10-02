@@ -30,7 +30,7 @@ To learn more about Azure Files, see [What is Azure Files?](storage-files-introd
 
 ## Understanding the .NET APIs
 
-Azure Files provides two broad approaches to client applications: Server Message Block (SMB) and REST. Within .NET, the `System.IO` and `WindowsAzure.Storage` APIs abstract these approaches.
+Azure Files provides two broad approaches to client applications: Server Message Block (SMB) and REST. Within .NET, the `System.IO` and `Azure.Storage.Files.Shares` APIs abstract these approaches.
 
 API | When to use | Notes
 ----|-------------|------
@@ -39,25 +39,25 @@ API | When to use | Notes
 
 ## Create the console application and obtain the assembly
 
+You can use the Azure Files client library in any type of .NET app. These apps include Azure cloud, web, desktop, and mobile apps. In this guide, we create a console application for simplicity.
+
 In Visual Studio, create a new Windows console application. The following steps show you how to create a console application in Visual Studio 2019. The steps are similar in other versions of Visual Studio.
 
 1. Start Visual Studio and select **Create a new project**.
 1. In **Create a new project**, choose **Console App (.NET Framework)** for C#, and then select **Next**.
 1. In **Configure your new project**, enter a name for the app, and select **Create**.
 
-You can add all the code examples in this tutorial to the `Main()` method of your console application's *Program.cs* file.
-
-You can use the Azure Storage client library in any type of .NET application. These types include an Azure cloud service or web app, and desktop and mobile applications. In this guide, we use a console application for simplicity.
+Add all the code examples in this article to the `Program` class in the *Program.cs* file.
 
 ## Use NuGet to install the required packages
 
-Refer to these packages in your project to complete this tutorial:
+Refer to these packages in your project:
 
 # [\.NET v12](#tab/dotnet)
 
 - [Azure core library for .NET](https://www.nuget.org/packages/Azure.Core/): This package is the implementation of the Azure client pipeline.
-- [Azure Blob storage client library for .NET](https://www.nuget.org/packages/Azure.Storage.Blobs/): This package provides programmatic access to blob resources in your storage account.
-- [Azure Files storage client library for .NET](https://www.nuget.org/packages/Azure.Storage.Files.Shares/): This package provides programmatic access to file resources in your storage account.
+- [Azure Storage Blob client library for .NET](https://www.nuget.org/packages/Azure.Storage.Blobs/): This package provides programmatic access to blob resources in your storage account.
+- [Azure Storage Files client library for .NET](https://www.nuget.org/packages/Azure.Storage.Files.Shares/): This package provides programmatic access to file resources in your storage account.
 - [System Configuration Manager library for .NET](https://www.nuget.org/packages/System.Configuration.ConfigurationManager/): This package provides a class storing and retrieving values in a configuration file.
 
 You can use NuGet to obtain the packages. Follow these steps:
@@ -96,23 +96,28 @@ You can use NuGet to obtain the packages. Follow these steps:
 
 ## Save your storage account credentials to the App.config file
 
-Next, save your credentials in your project's *App.config* file. In **Solution Explorer**, double-click `App.config` and edit the file so that it is similar to the following example. Replace `myaccount` with your storage account name and `mykey` with your storage account key.
+Next, save your credentials in your project's *App.config* file. In **Solution Explorer**, double-click `App.config` and edit the file so that it is similar to the following example.
 
 # [\.NET v12](#tab/dotnet)
 
-:::code language="xml" source="~/azure-storage-snippets/files/howto/dotnet/dotnet-v12/app.config":::
+Replace `myaccount` with your storage account name and `mykey` with your storage account key.
+
+:::code language="xml" source="~/azure-storage-snippets/files/howto/dotnet/dotnet-v12/app.config" highlight="5,6,7":::
 
 # [\.NET v11](#tab/dotnetv11)
+
+Replace `myaccount` with your storage account name and `StorageAccountKeyEndingIn==` with your storage account key.
 
 ```xml
 <?xml version="1.0" encoding="utf-8" ?>
 <configuration>
-    <startup>
-        <supportedRuntime version="v4.0" sku=".NETFramework,Version=v4.5" />
-    </startup>
-    <appSettings>
-        <add key="StorageConnectionString" value="DefaultEndpointsProtocol=https;AccountName=myaccount;AccountKey=StorageAccountKeyEndingIn==" />
-    </appSettings>
+  <startup>
+    <supportedRuntime version="v4.0" sku=".NETFramework,Version=v4.5" />
+  </startup>
+  <appSettings>
+    <add key="StorageConnectionString"
+      value="DefaultEndpointsProtocol=https;AccountName=myaccount;AccountKey=StorageAccountKeyEndingIn==" />
+  </appSettings>
 </configuration>
 ```
 
@@ -148,7 +153,7 @@ In the *Program.cs* file, add the following code to access the file share progra
 
 # [\.NET v12](#tab/dotnet)
 
-The following method creates a file share if doesn't already exist. The method starts by creating a [ShareClient](/dotnet/api/azure.storage.files.shares.shareclient) object from a connection string. The sample then attempts to download a file we created earlier.
+The following method creates a file share if doesn't already exist. The method starts by creating a [ShareClient](/dotnet/api/azure.storage.files.shares.shareclient) object from a connection string. The sample then attempts to download a file we created earlier. Call this method from `Main()`.
 
 :::code language="csharp" source="~/azure-storage-snippets/files/howto/dotnet/dotnet-v12/FileShare.cs" id="snippet_CreateShare":::
 
@@ -194,7 +199,7 @@ Run the console application to see the output.
 
 ## Set the maximum size for a file share
 
-Beginning with version 5.x of the Azure Files storage client library, you can set the quota (maximum size) for a file share. You can also check to see how much data is currently stored on the share.
+Beginning with version 5.x of the Azure Files client library, you can set the quota (maximum size) for a file share. You can also check to see how much data is currently stored on the share.
 
 Setting the quota for a share limits the total size of the files stored on the share. If the total size of files on the share exceeds the quota, clients can't increase the size of existing files. Clients also can't create new files, unless those files are empty.
 
@@ -240,11 +245,11 @@ if (share.Exists())
 
 ### Generate a shared access signature for a file or file share
 
-Beginning with version 5.x of the Azure Files storage client library, you can generate a shared access signature (SAS) for a file share or for an individual file.
+Beginning with version 5.x of the Azure Files client library, you can generate a shared access signature (SAS) for a file share or for an individual file.
 
 # [\.NET v12](#tab/dotnet)
 
-The following example returns a SAS on a file in the share.
+The following example method returns a SAS on a file in the specified share.
 
 :::code language="csharp" source="~/azure-storage-snippets/files/howto/dotnet/dotnet-v12/FileShare.cs" id="snippet_GetFileSasUri":::
 
@@ -302,7 +307,7 @@ For more information about creating and using shared access signatures, see [How
 
 ## Copy files
 
-Beginning with version 5.x of the Azure Files storage client library, you can copy a file to another file, a file to a blob, or a blob to a file.
+Beginning with version 5.x of the Azure Files client library, you can copy a file to another file, a file to a blob, or a blob to a file.
 
 You can also use AzCopy to copy one file to another or to copy a blob to a file or the other way around. See [Get started with AzCopy](../common/storage-use-azcopy.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json).
 
@@ -311,7 +316,7 @@ You can also use AzCopy to copy one file to another or to copy a blob to a file 
 
 ### Copy a file to another file
 
-The following example copies a file to another file in the same share. You can use Shared Key authentication to do the copy because this operation copies files in the same storage account.
+The following example copies a file to another file in the same share. You can use [Shared Key authentication](/rest/api/storageservices/authorize-with-shared-key) to do the copy because this operation copies files within the same storage account.
 
 # [\.NET v12](#tab/dotnet)
 
@@ -423,7 +428,7 @@ You can copy a blob to a file in the same way. If the source object is a blob, t
 
 ## Share snapshots
 
-Beginning with version 8.5 of the Azure Files storage client library, you can create a share snapshot. You can also list or browse share snapshots and delete share snapshots. Once created, share snapshots are read-only.
+Beginning with version 8.5 of the Azure Files client library, you can create a share snapshot. You can also list or browse share snapshots and delete share snapshots. Once created, share snapshots are read-only.
 
 ### Create share snapshots
 
@@ -482,9 +487,9 @@ var items = rootDirectory.ListFilesAndDirectories();
 
 ### Restore file shares or files from share snapshots
 
-Taking a snapshot of a file share enables you to recover individual files or the entire the file share.
+Taking a snapshot of a file share enables you to recover individual files or the entire file share.
 
-You can restore a file from a file share snapshot by querying the share snapshots of a file share. You can then retrieve a file that belongs to a particular share snapshot. Use that version to either directly read and compare or to restore.
+You can restore a file from a file share snapshot by querying the share snapshots of a file share. You can then retrieve a file that belongs to a particular share snapshot. Use that version to directly read or to restore the file.
 
 # [\.NET v12](#tab/dotnet)
 
@@ -535,11 +540,11 @@ CloudFileShare mySnapshot = fClient.GetShareReference(baseShareName, snapshotTim
 
 ## Troubleshoot Azure Files by using metrics<a name="troubleshooting-azure-files-using-metrics"></a>
 
-Azure Storage Analytics now supports metrics for Azure Files. With metrics data, you can trace requests and diagnose issues.
+Azure Storage Analytics supports metrics for Azure Files. With metrics data, you can trace requests and diagnose issues.
 
-You can enable metrics for Azure Files from the [Azure portal](https://portal.azure.com). You can also enable metrics programmatically by calling the Set File Service Properties operation with the REST API or one of its analogs in the Azure Files storage client library.
+You can enable metrics for Azure Files from the [Azure portal](https://portal.azure.com). You can also enable metrics programmatically by calling the [Set File Service Properties](/rest/api/storageservices/set-file-service-properties) operation with the REST API or one of its analogs in the Azure Files client library.
 
-The following code example shows how to use the storage client library for .NET to enable metrics for Azure Files.
+The following code example shows how to use the .NET client library to enable metrics for Azure Files.
 
 # [\.NET v12](#tab/dotnet)
 
