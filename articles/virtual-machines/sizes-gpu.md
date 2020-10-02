@@ -16,7 +16,7 @@ GPU optimized VM sizes are specialized virtual machines available with single, m
 
 - [NC-series](nc-series.md), [NCv2-series](ncv2-series.md), [NCv3-series](ncv3-series.md) and [NCT4_v3-series](nct4-v3-series.md) sizes are optimized for compute-intensive and network-intensive applications and algorithms. Some examples are CUDA and OpenCL-based applications and simulations, AI, and Deep Learning. The NCT4v3-series is focused on inference workloads featuring NVIDIA's Tesla T4 GPU and AMD EPYC2 Rome processor. The NCv3-series is focused on high-performance computing workloads featuring NVIDIA’s Tesla V100 GPU. The NC-series uses the Intel Xeon E5-2690 v3 2.60GHz v3 (Haswell) processor, and the NCv2-series and NCv3-series VMs use the Intel Xeon E5-2690 v4 (Broadwell) processor.
 
-- [ND-series](nd-series.md), and [NDv2-series](ndv2-series.md) sizes are focused on training and inference scenarios for deep learning. They use the NVIDIA Tesla P40 GPU and the Intel Xeon E5-2690 v4 (Broadwell) processor. The NDv2-series uses the Intel Xeon Platinum 8168 (Skylake) processor.
+- [ND-series](nd-series.md), and [NDv2-series](ndv2-series.md) sizes are focused on training and inference scenarios for deep learning. The ND-series uses the NVIDIA Tesla P40 GPU and the Intel Xeon E5-2690 v4 (Broadwell) processor. The NDv2-series uses the Nvidia Volta V100 and the Intel Xeon Platinum 8168 (Skylake) processor.
 
 - [NV-series](nv-series.md) and [NVv3-series](nvv3-series.md) sizes are optimized and designed for remote visualization, streaming, gaming, encoding, and VDI scenarios using frameworks such as OpenGL and DirectX. These VMs are backed by the NVIDIA Tesla M60 GPU.
 

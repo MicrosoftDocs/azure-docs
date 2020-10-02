@@ -21868,6 +21868,16 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/marketplace/lead-management-for-cloud-marketplace.md",
+      "redirect_url": "/azure/marketplace/partner-center-portal/commercial-marketplace-get-customer-leads",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/marketplace/integrated-solutions.md",
+      "redirect_url": "/azure/marketplace/integrated-solutions-for-publishers",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/marketplace/partner-center-portal/payout-policy-details.md",
       "redirect_url": "/partner-center/payout-policy-details?context=/azure/marketplace/context/context",
       "redirect_document_id": false
@@ -31240,6 +31250,11 @@
     {
       "source_path": "articles/billing/billing-mca-create-subscription.md",
       "redirect_url": "/azure/billing/billing-create-subscription",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/time-series-insights/how-to-shape-query-json.md",
+      "redirect_url": "/azure/time-series-insights/concepts-json-flattening-escaping-rules",
       "redirect_document_id": false
     },
     {
@@ -57933,6 +57948,11 @@
     {
       "source_path": "articles/private-link/create-private-endpoint-storage-portal.md",
       "redirect_url": "/azure/private-link/tutorial-private-endpoint-storage-portal",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-cache-for-redis/cache-migrate-to-redis.md",
+      "redirect_url": "/azure/azure-cache-for-redis/cache-overview",
       "redirect_document_id": false
     }
   ]
