@@ -1,5 +1,5 @@
 ---
-title: Configure load balancer TCP idle timeout in Azure
+title: Configure load balancer TCP reset and idle timeout in Azure
 titleSuffix: Azure Load Balancer
 description: In this article, learn how to configure Azure Load Balancer TCP idle timeout.
 services: load-balancer
@@ -15,7 +15,7 @@ ms.date: 10/09/2020
 ms.author: allensu
 ---
 
-# Configure TCP idle timeout settings for Azure Load Balancer
+# Configure TCP idle timeout for Azure Load Balancer
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -28,7 +28,7 @@ Azure Load Balancer has an idle timeout setting of 4 minutes to 120 minutes. By 
 The following sections describe how to change idle timeout settings for public IP and load balancer resources.
 
 
-## Configure the TCP timeout for your instance-level public IP
+## Configure the TCP idle timeout for your public IP
 
 ```azurepowershell-interactive
 $publicIP = Get-AzPublicIpAddress -Name MyPublicIP -ResourceGroupName MyResourceGroup
@@ -38,7 +38,7 @@ Set-AzPublicIpAddress -PublicIpAddress $publicIP
 
 `IdleTimeoutInMinutes` is optional. If it isn't set, the default timeout is 4 minutes. The acceptable timeout range is 4 to 120 minutes.
 
-## Set the TCP timeout on a load-balanced rule
+## Set the TCP idle timeout on rules
 
 To set the idle timeout for a load balancer, the 'IdleTimeoutInMinutes' is set on the load-balanced rule. For example:
 

@@ -1,5 +1,5 @@
 ---
-title: Load Balancer TCP Reset on Idle in Azure
+title: Load Balancer TCP Reset and idle timeout in Azure
 titleSuffix: Azure Load Balancer
 description: With this article, learn about Azure Load Balancer with bidirectional TCP RST packets on idle timeout.
 services: load-balancer
@@ -45,11 +45,11 @@ The setting works for inbound connections only. To avoid losing the connection, 
 
 TCP keep-alive works for scenarios where battery life isn't a constraint. It isn't recommended for mobile applications. Using a TCP keep-alive in a mobile application can drain the device battery faster.
 
-![TCP timeout](./media/load-balancer-tcp-idle-timeout/image1.png)
 
 ## Limitations
 
 - TCP reset only sent during TCP connection in ESTABLISHED state.
+- TCP reset is not sent for internal Load Balancers with HA ports configured.
 - TCP idle timeout does not affect load balancing rules on UDP protocol.
 
 ## Next steps
