@@ -24,7 +24,7 @@ Azure Communication Services allows you to use phone numbers to place and receiv
   
 The simplest way to begin is to get a new phone number from Azure Communication Services in a matter of minutes.
 
-The following diagram helps you to navigate through the number acquisition flow:
+The following diagram can be used to determine the type of phone number that you'll select:
 
 :::image type="content" source="../media/plan-solution/NumberAcquisitionFlowDocs.PNG" alt-text="Diagram showing how to make a decision regarding your phone numbers.":::
 
