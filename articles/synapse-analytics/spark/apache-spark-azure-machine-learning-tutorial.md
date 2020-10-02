@@ -23,7 +23,7 @@ In this tutorial you learn the following tasks:
 - Calculate model accuracy
 
 ### Before you begin
-- Create an Apache Spark Pool by following the [Create an Apache Spark pool tutorial](../quickstart-create-apache-spark-pool-studio.md).
+- Create an serverless Apache Spark Pool by following the [Create an serverkess Apache Spark pool qyuickstart](../quickstart-create-apache-spark-pool-studio.md).
 - Complete the [Azure Machine Learning workspace setup tutorial](https://docs.microsoft.com/azure/machine-learning/tutorial-1st-experiment-sdk-setup) if you do not have an existing Azure Machine Learning workspace. 
 
 ### Understand regression models

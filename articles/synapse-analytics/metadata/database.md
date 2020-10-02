@@ -14,7 +14,7 @@ ms.custom: devx-track-csharp
 
 # Azure Synapse Analytics shared database
 
-Azure Synapse Analytics allows the different computational workspace engines to share databases and tables between its Spark pools (preview) and SQL on-demand (preview) engine.
+Azure Synapse Analytics allows the different computational workspace engines to share databases and tables between its serverless Apache Spark pools (preview) and SQL on-demand (preview) engine.
 
 [!INCLUDE [synapse-analytics-preview-terms](../../../includes/synapse-analytics-preview-terms.md)]
 

@@ -85,5 +85,5 @@ If you want to delete the SQL pool, complete the following steps:
 
 ## Next steps
 
-- See [Quickstart: Create an Apache Spark pool in Synapse Studio using web tools](quickstart-apache-spark-notebook.md).
-- See [Quickstart: Create an Apache Spark pool using the Azure portal](quickstart-create-apache-spark-pool-portal.md).
+- See [Quickstart: Create a serverless Apache Spark pool in Synapse Studio using web tools](quickstart-apache-spark-notebook.md).
+- See [Quickstart: Create a serverless Apache Spark pool using the Azure portal](quickstart-create-apache-spark-pool-portal.md).

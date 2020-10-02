@@ -26,7 +26,7 @@ Since the tables are synchronized to SQL on-demand asynchronously, there will be
 
 ## Manage a Spark created table
 
-Use Spark to manage Spark created databases. For example, delete it through a Spark pool job, and create tables in it from Spark.
+Use Spark to manage Spark created databases. For example, delete it through a serverless Apache Spark pool job, and create tables in it from Spark.
 
 If you create objects in such a database from SQL on-demand or try to drop the database, the operation will succeed, but the original Spark database will not be changed.
 

@@ -198,7 +198,7 @@ A step-by-step cell execution status is displayed beneath the cell to help you s
 
 ### Spark progress indicator
 
-Azure Synapse Studio notebook is purely Spark based. Code cells are executed on the Spark pool remotely. A Spark job progress indicator is provided with a real-time progress bar appears to help you understand the job execution status.
+Azure Synapse Studio notebook is purely Spark based. Code cells are executed on the serverless Aoache Spark pool remotely. A Spark job progress indicator is provided with a real-time progress bar appears to help you understand the job execution status.
 The number of tasks per each job or stage help you to identify the parallel level of your spark job. You can also drill deeper to the Spark UI of a specific job (or stage) via selecting the link on the job (or stage) name.
 
 

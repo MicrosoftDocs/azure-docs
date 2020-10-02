@@ -13,7 +13,7 @@ ms.reviewer: jrasnick
 
 # Azure Synapse Analytics shared metadata
 
-Azure Synapse Analytics allows the different workspace computational engines to share databases and tables between its Spark pools (preview) and SQL on-demand engine (preview).
+Azure Synapse Analytics allows the different workspace computational engines to share databases and tables between its serverless Apache Spark pools (preview) and SQL on-demand engine (preview).
 
 [!INCLUDE [preview](../includes/note-preview.md)]
 

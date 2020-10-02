@@ -35,7 +35,7 @@ For more information, see [What is Azure Synapse Analytics](https://docs.microso
 A: Azure Synapse has the following capabilities:
 
 - Analytics capabilities are offered through SQL pool or SQL on-demand (preview) (Serverless).
-- Apache Spark pool (preview) with full support for Scala, Python, SparkSQL, and C#
+- Serverless Apache Spark pool (preview) with full support for Scala, Python, SparkSQL, and C#
 - Data Flow offering a code-free big data transformation experience
 - Data Integration & Orchestration to integrate your data and operationalize all of your code development
 - Studio to access all of these capabilities through a single Web UI

@@ -67,7 +67,7 @@ Azure Databricks is an Apache Spark-based analytics platform with a one-click se
 Optionally, you can use Synapse Analytics to create a spark cluster. Azure Synapse Analytics brings together enterprise data warehousing and big data analytics. It gives you the freedom to query data on your terms, using either serverless on-demand or provisioned resources at scale. To get started using Synapse Analytics, follow these steps:
 
 1. [Create a Synapse Workspace (preview)](https://docs.microsoft.com/azure/synapse-analytics/quickstart-create-workspace).
-1. [Create a new Apache Spark pool (preview) using the Azure portal](https://docs.microsoft.com/azure/synapse-analytics/quickstart-create-apache-spark-pool-portal).
+1. [Create a new serverless Apache Spark pool (preview) using the Azure portal](https://docs.microsoft.com/azure/synapse-analytics/quickstart-create-apache-spark-pool-portal).
 
 In Synapse Analytics, Big Data for Cognitive Services is installed by default.
 

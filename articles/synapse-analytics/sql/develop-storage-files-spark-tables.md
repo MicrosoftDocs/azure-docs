@@ -19,7 +19,7 @@ For each Spark external table based on Parquet and located in Azure Storage, an 
 
 When a table is partitioned in Spark, files in storage are organized by folders. SQL on-demand will use partition metadata and only target relevant folders and files for your query.
 
-Metadata synchronization is automatically configured for each Spark pool provisioned in the Azure Synapse workspace. You can start querying Spark external tables instantly.
+Metadata synchronization is automatically configured for each serverless Apache Spark pool provisioned in the Azure Synapse workspace. You can start querying Spark external tables instantly.
 
 Each Spark parquet external table located in Azure Storage is represented with an external table in a dbo schema that corresponds to a SQL on-demand database. 
 
