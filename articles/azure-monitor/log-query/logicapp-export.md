@@ -11,7 +11,7 @@ ms.date: 09/29/2020
 ---
 
 # Archive data from Log Analytics workspace to Azure storage using Logic App
-This article describes a method to use [Azure Logic Apps](../../logic-apps/index.yml) to query data from a Log Analytics workspace and send to Azure Storage. Use this process when you need to export your Azure Monitor Log data for auditing and compliance scenarios or to allow another service to retrieve this data.  
+This article describes a method to use [Azure Logic Apps](../../logic-apps/index.yml) to query data from a Log Analytics workspace in Azure Monitor and send to Azure Storage. Use this process when you need to export your Azure Monitor Log data for auditing and compliance scenarios or to allow another service to retrieve this data.  
 
 ## Other export methods
 To export all data from your Log Analytics workspace to an Azure storage account, use the [continuous export feature](../platform/logs-data-export.md) of Azure Monitor Logs. Use the method described in this article for the following scenarios.
@@ -24,6 +24,10 @@ You must have the following created before performing this procedure.
 
 - Log Analytics workspace. The user who creates the logic app must have at least read permission to the workspace. 
 - Azure storage account. The storage account doesn’t have to be in the same subscription as your Log Analytics workspace. The user who creates the logic app must have write permission to the storage account.
+
+- Scheduled export from a log query using a Logic App. This is similar to the data export feature but allows you to send filtered or aggregated data to Azure storage. See [Archive data from Log Analytics workspace to Azure storage using Logic App](../log-query/logicapp-export.md)
+- One time export using a Logic App. See [Azure Monitor Logs connector for Logic Apps and Power Automate](logicapp-flow-connector.md)
+- One time export to local machine using PowerShell script. See [Invoke-AzOperationalInsightsQueryExport]](https://www.powershellgallery.com/packages/Invoke-AzOperationalInsightsQueryExport).
 
 
 ## Connector limits
