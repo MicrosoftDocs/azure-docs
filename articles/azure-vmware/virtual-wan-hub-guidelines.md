@@ -21,7 +21,7 @@ We'll walk you through the necessary procedures to:
 
 ## Topology
 
-:::image type="content” source="media/virtual-wan-hub-guidelines/vpn-s2s-tunnel-architecture.png" alt-text="VPN site-to-site tunnel architecture.":::
+:::image type="content" source="media/virtual-wan-hub-guidelines/vpn-s2s-tunnel-architecture.png" alt-text="VPN site-to-site tunnel architecture.":::
 
 The Azure Virtual hub contains the Azure VMware Solution ExpressRoute gateway as well as the site-to-site VPN gateway. It connects an on-premise VPN device with an Azure VMware Solution endpoint.
 
@@ -35,11 +35,11 @@ To create the site-to-site VPN tunnel, you'll need to create a public-facing IP 
 
 2. Fill in the required fields on the **Create WAN** page. In order to create the Virtual WAN hub, you need to set a location for the resource group. The Virtual WAN is a global resource and is not confined to a specific region. Selecting a region, however, is still required from a management perspective. In the **Type** field, select **Standard**, which will allow more than just the VPN gateway traffic. Select **Review + Create**.
 
-    :::image type="content” source="media/virtual-wan-hub-guidelines/create-wan.png" alt-text="Create WAN.":::
+    :::image type="content" source="media/virtual-wan-hub-guidelines/create-wan.png" alt-text="Create WAN.":::
 
 3. In the Azure portal, select the Virtual WAN you created in the previous step. Select **Create virtual hub**. Now create your virtual hub, which is a subnet (/24 minimum). Fill in the required fields on the **Basics** tab. Select **Next: Site to site**.
 
-    :::image type="content” source="media/virtual-wan-hub-guidelines/create-virtual-hub.png" alt-text="Create Virtual hub.":::
+    :::image type="content" source="media/virtual-wan-hub-guidelines/create-virtual-hub.png" alt-text="Create Virtual hub.":::
 
 4. Define the site-to-site gateway on the **Site-to-site** tab. Make your selection from the **Gateway scale units** drop-down to set the  aggregate throughput of the gateway. One scale unit = 500 Mbps. The scale units are set up in pairs for redundancy, each supporting 500 Mbps.
   
@@ -51,7 +51,7 @@ To create the site-to-site VPN tunnel, you'll need to create a public-facing IP 
 
 1. In **Recent resources** in the Azure portal, select the virtual WAN you created earlier. In the **Connectivity** section, select **VPN (Site to site)** and then **Create new VPN site**.
 
-    :::image type="content” source="media/virtual-wan-hub-guidelines/create-vpn-site-basics.png" alt-text="Create VPN site.":::  
+    :::image type="content" source="media/virtual-wan-hub-guidelines/create-vpn-site-basics.png" alt-text="Create VPN site.":::  
  
 2. On the **Basics** tab, fill in the required fields. Make **Region** the same region you specified earlier. **Enable** Border Gateway Protocol (BGP) to ensure both Azure VMware Solution as well as on-premises servers advertize their routes across the tunnel. If BGP  is disabled, the subnets that need to be advertized must be manually maintained. If subnets are missed, HCX will fail to form the service mesh. For more information, see  [About BGP with Azure VPN Gateway](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-bgp-overview). 
 
@@ -67,11 +67,11 @@ This section applies only to policy-based VPNs. Policy-based (or static, route-b
 
 2. Select the name of your Virtual WAN hub. Select the three dots at the far right of the VPN site, and select **edit VPN section to this hub**.
  
-    :::image type="content” source="media/virtual-wan-hub-guidelines/edit-vpn-section-to-this-hub.png" alt-text="Edit VPN section to this hub.":::
+    :::image type="content" source="media/virtual-wan-hub-guidelines/edit-vpn-section-to-this-hub.png" alt-text="Edit VPN section to this hub.":::
 
 3. For Internet Protocol Security (IPSec), select **Custom** and then **Use policy-based traffic selector**. Specify **IKE Phase 1 and 2**. Select **Save**.
  
-    :::image type="content” source="media/virtual-wan-hub-guidelines/edit-vpn-connection.png" alt-text="Edit VPN section"::: 
+    :::image type="content" source="media/virtual-wan-hub-guidelines/edit-vpn-connection.png" alt-text="Edit VPN section"::: 
  
     Your traffic selectors or subnets that are part of the policy-based encryption domain should be:
     
@@ -91,14 +91,14 @@ This section applies only to policy-based VPNs. Policy-based (or static, route-b
 
     Go to the **Connectivity** section of Azure VMware Solution private cloud. On the **ExpressRoute** tab, select **+ Request an authorization key**. Name it and select **Create**. (It may take about 30 seconds to create the key.) Copy the ExpressRoute ID and the authorization key. 
 
-    :::image type="content” source="media/virtual-wan-hub-guidelines/express-route-connectivity.png" alt-text="Copy Express Route ID and authorization key.":::
+    :::image type="content" source="media/virtual-wan-hub-guidelines/express-route-connectivity.png" alt-text="Copy Express Route ID and authorization key.":::
 
     > [!NOTE]
     > The authorization key will disappear after some time, so copy it as soon as it appears.
 
 4. Next, we'll link Azure VMware Solution and the VPN gateway together in the Virtual WAN hub. In the Azure portal, open the Virtual WAN you created earlier. Select the created Virtual WAN hub and then select **ExpressRoute** in the left pane. Select **+ Redeem authorization key**.
 
-    :::image type="content” source="media/virtual-wan-hub-guidelines/redeem-authorization-key.png" alt-text="Redeem authorization key.":::
+    :::image type="content" source="media/virtual-wan-hub-guidelines/redeem-authorization-key.png" alt-text="Redeem authorization key.":::
 
 Paste the authorization key into the Authorization key field and the ExpressRoute ID into the **Peer circuit URI** field. Make sure to select **Automatically associate this ExpressRoute circuit with the hub.** Select **Add** to establish the link. 
 
