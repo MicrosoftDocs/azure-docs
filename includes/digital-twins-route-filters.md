@@ -16,24 +16,24 @@ ms.author: baanders
 | Data schema | DTDL model ID | `dataschema = '<model-dtmi-ID>'` | **For telemetry**: The data schema is the model ID of the twin or the component that emits the telemetry. For example, `dtmi:example:com:floor4;2` <br>**For notifications**: Data schema can be access in the notification body at `$body.$metadata.$model`|
 | Content type | Content type of data value | `datacontenttype = '<contentType>'` | The content type is `application/json` |
 | Spec version | The version of the event schema you are using | `specversion = '<version>'` | The version must be `1.0`. This indicates the CloudEvents schema version 1.0 |
-| Notification body | Reference any property in the `data` field of a notification | `$body.,<property>` | See [How to: Understand event data](https://docs.microsoft.com/azure/digital-twins/how-to-interpret-event-data) for examples of notifications. Any property in the `data` field can be referenced using `$body`
+| Notification body | Reference any property in the `data` field of a notification | `$body.,<property>` | See [*How-to: Understand event data*](https://docs.microsoft.com/azure/digital-twins/how-to-interpret-event-data) for examples of notifications. Any property in the `data` field can be referenced using `$body`
 
 The following data types and comparison operators are supported as values for the filters above:
 
-| Data Type | Supported Comparisons | Example |
+| Data type | Supported comparisons | Example |
 |-|-|-|
 |**String**|= != <br>STARTS_WITH(input, text) ENDS_WITH(input, text)<br> CONTAINS(input, text)| `STARTS_WITH($body.$dtId, 'dtmi:example:com:floor4')` <br> `CONTAINS(subject, 'room')`|
-|**Integers**|< <= > >= = !=|`$body.$metadata.room.desiredVersion > 1`|
-|**Doubles**|< <= > >= = !=|`$body.value <= 5.5`|
-|**Bools**|= !=|`$body.isEnabled = true`|
+|**Integer**|< <= > >= = !=|`$body.$metadata.room.desiredVersion > 1`|
+|**Double**|< <= > >= = !=|`$body.value <= 5.5`|
+|**Bool**|= !=|`$body.isEnabled = true`|
 |**Null**|= !=|`$body.prop != null`|
 
 It is also possible to combine filters using the following operations:
 
 | Filter name | Filter text schema | Example | 
 | --- | --- | --- |
-| AND / OR | `<filter1> AND <filter2>` | `type != 'microsoft.iot.telemetry' AND datacontenttype = 'application/json'` |
-| AND / OR | `<filter1> OR <filter2>` | `type != 'microsoft.iot.telemetry' OR datacontenttype = 'application/json'` |
-| Nested operations | `(<Comparison1>) AND (<Comparison2>)` | `(type != 'microsoft.iot.telemetry' OR datacontenttype = 'application/json') OR (specversion != '1.0')` |
+| **AND** | `<filter1> AND <filter2>` | `type != 'microsoft.iot.telemetry' AND datacontenttype = 'application/json'` |
+| **OR** | `<filter1> OR <filter2>` | `type != 'microsoft.iot.telemetry' OR datacontenttype = 'application/json'` |
+| **Nested operations** | `(<Comparison1>) AND (<Comparison2>)` | `(type != 'microsoft.iot.telemetry' OR datacontenttype = 'application/json') OR (specversion != '1.0')` |
 
 When you implement or update a filter, the change may take a few minutes to be reflected in the data pipeline.
