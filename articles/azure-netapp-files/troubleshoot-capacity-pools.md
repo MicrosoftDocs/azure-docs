@@ -20,20 +20,13 @@ ms.author: b-juche
 
 This article describes resolutions to issues you might have when managing capacity pools. 
 
-## Issues creating a capacity pool
+## Error conditions and resolutions 
 
-Make sure that the capacity pool count does not exceed the limit. See [Resource limits for Azure NetApp Files](azure-netapp-files-resource-limits.md).  If the count is less than the limit and you still experience issues, file a support ticket and specify the capacity pool name.
-
-## Issues deleting a capacity pool
-
-Make sure that you have removed all Azure NetApp Files volumes and snapshots in the subscription where you are trying to delete the capacity pool.   
-
-If you already removed all volumes and snapshots and you still cannot delete the capacity pool, references to resources might still exist without showing up in the portal. In this case, file a support ticket, and specify that you have performed the above recommended steps. 
-
-## Volume creation or modification fails with “Requested throughput not available” error
-
-Available throughput for a volume is determined by its capacity pool’s size and the service level. If you do not have sufficient throughput, you should increase the pool size or adjust the existing volume throughput.
-
+|     Error condition    |     Resolution    |
+|-|-|
+| Issues creating a capacity pool |  Make sure that the capacity pool count does not exceed the limit. See [Resource limits for Azure NetApp Files](azure-netapp-files-resource-limits.md).  If the count is less than the limit and you still experience issues, file a support ticket and specify the capacity pool name. |
+| Issues deleting a capacity pool  |  Make sure that you remove all Azure NetApp Files volumes and snapshots in the subscription where you are trying to delete the capacity pool. <br> If you already removed all volumes and snapshots and you still cannot delete the capacity pool, references to resources might still exist without showing in the portal. In this case, file a support ticket, and specify that you have performed the above recommended steps. |
+| Volume creation or modification fails with `Requested throughput not available` error | Available throughput for a volume is determined by its capacity pool’s size and the service level. If you do not have sufficient throughput, you should increase the pool size or adjust the existing volume throughput. | 
 
 ## Next steps  
 

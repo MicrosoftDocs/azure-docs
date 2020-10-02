@@ -251,9 +251,8 @@ Upload the extension package file (.app) file for your offer.
 
 Required if your offer must be installed along with another extension that will not be published to the marketplace. If so upload its .app file here.
 
-#### Dependency package file
-
-Required if your offer must be installed along with another extension that has already been published to the marketplace. If so, upload its `.app` or `.zip` file here.
+>[!NOTE]
+>The dependency package file is no longer used. Upload a library package file instead.
 
 ### URL to app installation
 
