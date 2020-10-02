@@ -116,4 +116,4 @@ SMS offers pay-as-you-go pricing. The price is a per-message charge based on the
 
 ### Regional considerations
 
-In the United States and Puerto Rico, PSTN Services are sold on behalf of Skype Communications US Corporation. The price displayed includes charges for the PSTN Service and all required taxes and fees. See http://go.microsoft.com/fwlink/?LinkId=690247 for details.
+In the United States and Puerto Rico, PSTN Services are sold on behalf of Skype Communications US Corporation. The price displayed includes charges for the PSTN Service and all required taxes and fees. See [this page](https://go.microsoft.com/fwlink/?LinkId=690247) for details.
