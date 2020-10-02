@@ -43,7 +43,7 @@ Many options exist for creating a VHD from a physical lab environment. The follo
     1. [Install Azure VM Agent and additional configuration as shown here](https://docs.microsoft.com/azure/virtual-machines/windows/prepare-for-upload-vhd-image#complete-the-recommended-configurations)
     
 	> [!NOTE]
-	> Above steps will create a specialized image. If creating a generalized image, you also will need to run [SysPrep])https://docs.microsoft.com/azure/virtual-machines/windows/prepare-for-upload-vhd-image#determine-when-to-use-sysprep). <br/>You should create a specialized image if you want to maintain the User directory which may contains files, user account info, etc. that is needed by software included in the image.
+	> Above steps will create a specialized image. If creating a generalized image, you also will need to run [SysPrep](https://docs.microsoft.com/azure/virtual-machines/windows/prepare-for-upload-vhd-image#determine-when-to-use-sysprep). <br/>You should create a specialized image if you want to maintain the User directory which may contains files, user account info, etc. that is needed by software included in the image.
 1. Since **Hyper-V** creates a **VHDX** file by default, you need to convert this to a VHD file.
 
     1. Navigate to **HyperV Manager** -> **Action** -> **Edit Disk**.
