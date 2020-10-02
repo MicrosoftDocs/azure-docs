@@ -25,7 +25,7 @@ In this tutorial, you learn how to:
 
 Facets are based on fields in your search index. A query request that includes facet=[string] provides the field to facet by. It's common to include multiple facets, such as `&facet=category&facet=amenities`, each one separated by an ampersand (&) character. Implementing a faceted navigation structure requires that you specify both facets and filters. The filter is used on a click event to narrow results. For example, clicking "budget" filters the results based on that criteria.
 
-This tutorial builds onto the paging project created in the [Add paging to search results](tutorial-csharp-paging.md) tutorial. tutorial.
+This tutorial extends the paging project created in the [Add paging to search results](tutorial-csharp-paging.md) tutorial.
 
 A finished version of the code in this tutorial can be found in the following project:
 
