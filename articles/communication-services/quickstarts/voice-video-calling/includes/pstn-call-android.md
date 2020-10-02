@@ -37,7 +37,7 @@ The following classes and interfaces handle some of the major features of the Az
 
 | Name                                           | Description                                                                                          |
 | ---------------------------------------------- | ---------------------------------------------------------------------------------------------------- |
-| [PhoneNumber](../../../overview.md) | This class is needed to initialize a phone number you would like to use for telephony functionality. |
+| PhoneNumber | This class is needed to initialize a phone number you would like to use for telephony functionality. |
 
 
 ## Start a call to phone
