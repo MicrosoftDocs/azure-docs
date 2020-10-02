@@ -59,7 +59,7 @@ If you don’t have a subscription, follow the steps below:
 
 3. In the dialog, enter the key for your Translator subscription, then click the “Save” button.
 
-    ![How to add subscription key](media/how-to/how-to-add-subscription-key-dialog.png)
+    ![How to add subscription key dialog](media/how-to/how-to-add-subscription-key-dialog.png)
 
 ## Manage your workspace
 
