@@ -50,7 +50,10 @@ To create the site-to-site VPN tunnel, you'll need to create a public-facing IP 
 
     :::image type="content" source="media/virtual-wan-hub-guidelines/create-virtual-hub.png" alt-text="Create Virtual hub.":::
 
-4. Define the site-to-site gateway on the **Site-to-site** tab. Make your selection from the **Gateway scale units** drop-down to set the  aggregate throughput of the gateway. One scale unit = 500 Mbps. The scale units are set up in pairs for redundancy, each supporting 500 Mbps.
+4. On the **Site-to-site** tab, define the site-to-site gateway by setting the aggregate throughput from the **Gateway scale units** drop-down. 
+
+   >[!TIP]
+   >One scale unit = 500 Mbps. The scale units are set up in pairs for redundancy, each supporting 500 Mbps.
   
 5. Follow the same procedure on the **ExpressRoute** tab to create an ExpressRoute gateway. A scale unit value here is 2 Gbps. 
 
