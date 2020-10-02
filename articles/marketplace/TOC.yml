@@ -43,7 +43,9 @@
     items:
     - name: Your marketplace benefits
       href: gtm-your-marketplace-benefits.md 
-    - name: Co-sell with Microsoft
+    - name: Co-sell partner engagement
+      href: partner-center-portal/marketplace-co-sell.md 
+    - name: Co-sell option in Partner Center
       href: partner-center-portal/commercial-marketplace-co-sell.md 
     - name: Resell through CSP Partners
       href: cloud-solution-providers.md  
