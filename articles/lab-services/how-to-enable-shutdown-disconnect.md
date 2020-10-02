@@ -2,7 +2,7 @@
 title: Configure automatic shutdown of VMs for a lab in Azure Lab Services 
 description: Learn how to enable or disable automatic shutdown of VMs when a remote desktop connection is disconnected.  
 ms.topic: article
-ms.date: 08/17/2020
+ms.date: 10/01/2020
 ---
 
 # Configure automatic shutdown of VMs for a lab
@@ -32,8 +32,7 @@ You can configure the auto-shutdown setting in the [Azure Lab Services](https://
 Make sure to review details about the auto-shutdown in the [Maximize cost control with auto-shutdown settings](cost-management-guide.md#automatic-shutdown-settings-for-cost-control) section.
 
 > [!WARNING]
-> If you shutdown the Windows operating system (OS) on a VM before disconnecting an RDP session to the VM, the autoshutdown feature will not work properly.  
-
+> If you shutdown the Linux or Windows operating system (OS) on a VM before disconnecting an RDP session to the VM, the autoshutdown feature will not work properly.  
 ## Next steps
 
 [Dashboard for classroom labs](use-dashboard.md)
