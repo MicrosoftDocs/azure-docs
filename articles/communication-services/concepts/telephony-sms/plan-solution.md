@@ -22,17 +22,17 @@ In this document, we'll review the decision flows that you can use to select pho
 
 Azure Communication Services allows you to use phone numbers to place and receive telephony calls and SMS messages. These phone numbers can be used to configure caller ID for outbound calls placed by your service.
 
-The following diagram can be used to determine the type of phone number that you'll select:
+There are two phone number types that you can choose from: **geographic** and **toll-free**. If your phone number will be used by an application (for example, to make calls or send messages on behalf of your service), you can select a toll-free or geographic number. You can select a toll-free number if your application is sending SMS messages and/or making calls. 
 
-:::image type="content" source="../media/plan-solution/number-acquisition-flow.PNG" alt-text="Diagram showing how to make a decision regarding your phone numbers.":::
+If your phone number is being used by a person (for example, a user of your calling application), the geographic phone number can be used. Note that geographic numbers can be used to make calls but not to send SMS messages. Toll-free numbers cannot be used by people and can only be assigned to applications.
 
-Now, let's review the phone number types and capabilities available through Communication Services. 
+Now, let's review these phone number types and capabilities available through Communication Services. 
 
 ## Phone numbers and capabilities
 
-Azure Communication Services provides excellent flexibility for developers. On most phone numbers, we allow you to configure an "a la carte" set of plans. Some developers only need an outbound calling plan; some might opt for outbound calling and outbound SMS plans. These plans can be selected as you lease your telephone numbers within Azure Communication Services.
+For most phone numbers, we allow you to configure an "a la carte" set of plans. Some developers only need an outbound calling plan; some might opt for outbound calling and outbound SMS plans. These plans can be selected as you lease your telephone numbers within Azure Communication Services.
 
-The plans that are available to you depend on the country that you're operating within, your use case, and the phone number type that you've selected:	
+The plans that are available to you depending on the country that you're operating within, your use case, and the phone number type that you've selected:	
 
 :::image type="content" source="../media/plan-solution/sample-decision-flow.PNG" alt-text="Diagram showing sample decision flow.":::
 
