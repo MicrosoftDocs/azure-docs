@@ -89,7 +89,7 @@ To create the site-to-site VPN tunnel, you'll need to create a public-facing IP 
    | **Connect to** |   |
 
 
-    **Private address space** is the classless inter-domain routing (CIDR) block located on-premises. It will be used to route all traffic bound for on-premises across the tunnel. The CIDR block is only required if BGP is NOT enabled.
+   
 
 3. Select the **Links** tab and fill in the required fields. Specifying link and provider names allow you to distinguish between any number of gateways that may eventually be created as part of the hub. BGP and autonomous system number (ASN) are critical, as these must be unique inside your organization.
  
