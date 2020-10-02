@@ -47,6 +47,10 @@ Just one call queries the index and returns results.
 
 This tutorial uses an existing, hosted sample index so that you can focus on building a search page that collects a query string for the request and returns results. The index contains fictitious hotel data. Once you have a basic page, you can enhance it in subsequent lessons to include paging, facets, and a type-ahead experience.
 
+A finished version of the code in this tutorial can be found in the following project:
+
+* [1-basic-search-page (GitHub)](https://github.com/Azure-Samples/azure-search-dotnet-samples/tree/master/create-first-app/v11/1-basic-search-page)
+
 ## Prerequisites
 
 * [Visual Studio](https://visualstudio.microsoft.com/)

@@ -27,7 +27,7 @@ In this tutorial, you learn how to:
 
 This tutorial adds autocompletion and suggested results to the previous [Add paging to search results](tutorial-csharp-paging.md) tutorial.
 
-Finished versions of the code in this tutorial can be found in the following project:
+A finished version of the code in this tutorial can be found in the following project:
 
 * [3-add-typeahead (GitHub)](https://github.com/Azure-Samples/azure-search-dotnet-samples/tree/master/create-first-app/v11/3-add-typeahead)
 
