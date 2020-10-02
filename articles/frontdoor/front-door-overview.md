@@ -52,7 +52,9 @@ Key features included with Front Door:
 
 * Define your own **[custom domain](front-door-custom-domain.md)**. 
 
-* Application security with custom **[Web Application Firewall (WAF)](../web-application-firewall/overview.md)** rules and **[Azure DDoS Protection](../virtual-network/ddos-protection-overview.md)**.
+* Application security with custom **[Web Application Firewall (WAF)](../web-application-firewall/overview.md)** rules and **[Azure DDoS Protection Basic]*(../virtual-network/ddos-protection-overview.md)**. 
+>[!NOTE]
+>Azure DDoS Protection Standard is not yet available for Front Door
 
 * Redirect HTTP traffic to HTTPS with **[URL redirect](front-door-url-redirect.md)**.
 
