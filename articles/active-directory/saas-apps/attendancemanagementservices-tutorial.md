@@ -124,7 +124,7 @@ To configure Azure AD single sign-on with Attendance Management Services, perfor
 
 1. Click on **SAML authentication** under the **Security management section**.
 
-	![Screenshot shows SAML authentication selected in a page that uses non-roman characters.](./media/attendancemanagementservices-tutorial/user1.png)
+	![Screenshot shows SAML authentication selected in a page that uses non-latin characters.](./media/attendancemanagementservices-tutorial/user1.png)
 
 1. Perform the following steps:
 
@@ -202,7 +202,7 @@ To enable Azure AD users to sign in to Attendance Management Services, they must
 
 1. Click on **User management** under the **Security management section**.
 
-	![Screenshot shows User management selected in a page that uses non-roman characters.](./media/attendancemanagementservices-tutorial/user5.png)
+	![Screenshot shows User management selected in a page that uses non-latin characters.](./media/attendancemanagementservices-tutorial/user5.png)
 
 1. Click **New rules login**.
 
