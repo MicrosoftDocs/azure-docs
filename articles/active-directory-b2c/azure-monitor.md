@@ -197,7 +197,7 @@ After you deploy the template, it can take a few minutes for the resource projec
 Once you've deployed the template and have waited a few minutes for the resource projection to complete, associate your subscription to your Azure AD B2C directory with the following steps.
 
 1. **Sign out** of the Azure portal if you're currently signed in. This and the following step are done to refresh your credentials in the portal session.
-1. Sign in to the [Azure portal](https://portal.azure.com) with your Azure AD B2C administrative account.
+1. Sign in to the [Azure portal](https://portal.azure.com) with your Azure AD B2C administrative account whose Id you used in the **PrincipalId** field in the ARM template (or who is a member of the group you used).
 1. Select the **Directory + Subscription** icon in the portal toolbar.
 1. Select the directory that contains your subscription.
 
