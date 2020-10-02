@@ -597,7 +597,7 @@ Please wait for the Windows Modules Installer
 ```
 
 #### Solution
-Firstly in the image build check that there are no outstanding reboots required by adding a Windows Restart customizer as the last customization, and that all software installation is complete. Lastly, add [/mode:vm](https://docs.microsoft.com/en-us/windows-hardware/manufacture/desktop/sysprep-command-line-options) option to the default sysprep that AIB uses, see below, 'VMs created from AIB images do not create successfully' > 'Overriding the Commands'  
+Firstly in the image build check that there are no outstanding reboots required by adding a Windows Restart customizer as the last customization, and that all software installation is complete. Lastly, add [/mode:vm](https://docs.microsoft.com/windows-hardware/manufacture/desktop/sysprep-command-line-options) option to the default sysprep that AIB uses, see below, 'VMs created from AIB images do not create successfully' > 'Overriding the Commands'  
 
  
 ## VMs created from AIB images do not create successfully
