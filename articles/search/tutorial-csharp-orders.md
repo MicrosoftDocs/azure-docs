@@ -549,7 +549,7 @@ Let's look at three examples of scoring profiles, and consider how each _should_
 
 1. Open the index.cshtml file, and replace the &lt;body&gt; section with the following code.
 
-    ```cs
+    ```html
     <body>
 
     @using (Html.BeginForm("Index", "Home", FormMethod.Post))
@@ -951,11 +951,11 @@ Let's look at three examples of scoring profiles, and consider how each _should_
 
 1. For ordering, selecting "By numerical Rating" will give you the numerical ordering you have already implemented in this tutorial, with renovation date deciding among hotels of equal rating.
 
-![Ordering "beach" based on rating](./media/tutorial-csharp-create-first-app/azure-search-orders-beach.png)
+   ![Ordering "beach" based on rating](./media/tutorial-csharp-create-first-app/azure-search-orders-beach.png)
 
 1. Now try the "By amenities" profile. Make various selections of amenities, and verify that hotels with those amenities are promoted up the results list.
 
-![Ordering "beach" based on profile](./media/tutorial-csharp-create-first-app/azure-search-orders-beach-profile.png)
+   ![Ordering "beach" based on profile](./media/tutorial-csharp-create-first-app/azure-search-orders-beach-profile.png)
 
 1. Try the "By Renovated date/Rating profile" to see if you get what you expect. Only recently renovated hotels should get a _freshness_ boost.
 
