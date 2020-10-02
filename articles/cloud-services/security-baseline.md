@@ -14,14 +14,14 @@ ms.custom: subject-security-benchmark
 
 # Azure security baseline for Cloud Services
 
-The Azure Security Baseline for Cloud Services contains recommendations that will help you improve the security posture of your deployment. The baseline for this service is drawn from the [Azure Security Benchmark version 1.0](https://docs.microsoft.com/azure/security/benchmarks/overview), which provides recommendations on how you can secure your cloud solutions on Azure with our best practices guidance. For more information, see [Azure Security Baselines overview](https://docs.microsoft.com/azure/security/benchmarks/security-baselines-overview).
+The Azure Security Baseline for Cloud Services contains recommendations that will help you improve the security posture of your deployment. The baseline for this service is drawn from the [Azure Security Benchmark version 1.0](../security/benchmarks/overview.md), which provides recommendations on how you can secure your cloud solutions on Azure with our best practices guidance. For more information, see [Azure Security Baselines overview](../security/benchmarks/security-baselines-overview.md).
 
 >[!WARNING]
 >This preview version of the article is for review only. **DO NOT MERGE INTO MASTER!**
 
 ## Network security
 
-*For more information, see the [Azure Security Benchmark: Network security](https://docs.microsoft.com/azure/security/benchmarks/security-control-network-security).*
+*For more information, see the [Azure Security Benchmark: Network security](../security/benchmarks/security-control-network-security.md).*
 
 ### 1.1: Protect Azure resources within virtual networks
 
@@ -38,13 +38,13 @@ You can create custom, or user-defined routes (UDR), static in nature, in Azure 
 
 It is important to note that Cloud service (Classic) cannot be placed in Azure Resource Manager virtual networks. However, Resource Manager virtual networks and classic deployment virtual networks can be connected through peering. If needed, you can perform a one-time migration from a classic virtual network to an existing Resource Manager virtual network. After moving to the Resource Manager virtual network, you'll be able to take advantage of the additional and upgraded features such as, fine-grained password policies, email notifications, and audit logs.
 
-- [Network Security Group (NSG)](https://docs.microsoft.com/azure/virtual-network/security-overview)
+- [Network Security Group (NSG)](/azure/virtual-network/security-overview)
 
-- [Application Security Groups](https://docs.microsoft.com/azure/virtual-network/application-security-groups)
+- [Application Security Groups](../virtual-network/application-security-groups.md)
 
 - [Virtual Network peering](https://docs.microsoft.com/azure/cloud-services/cloud-services-connectivity-and-networking-faq?view=vs-2019#how-can-i-use-azure-resource-manager-virtual-networks-with-cloud-services)
 
-- [Migrate Azure AD Domain Services from the Classic virtual network model to Resource Manager](https://docs.microsoft.com/azure/active-directory-domain-services/migrate-from-classic-vnet)
+- [Migrate Azure AD Domain Services from the Classic virtual network model to Resource Manager](../active-directory-domain-services/migrate-from-classic-vnet.md)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -61,7 +61,7 @@ The service definition and config are XML-based files and essentially are the co
 
 For monitoring purposes, It is also recommended to enable network security group flow logs and send the logs to an Azure Storage account for auditing. You can also send the flow logs to a Log Analytics workspace and then use Traffic Analytics to provide insights into traffic patterns in your Azure cloud. Some advantages of Traffic Analytics are the ability to visualize network activity, identify hot spots and security threats, understand traffic flow patterns, and pinpoint network misconfigurations.
 
-https://docs.microsoft.com/azure/azure-resource-manager/management/deployment-models
+../azure-resource-manager/management/deployment-models.md
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -78,9 +78,9 @@ Within the WAF, Microsoft uses the Transport Layer Security (TLS) protocol to pr
 
 Perfect Forward Secrecy (PFS) protects connections between customers’ client systems and Microsoft Cloud service (Classic) by unique keys. Connections also use RSA-based 2,048-bit encryption key lengths. This combination makes it difficult for someone to intercept and access data that is in transit.
 
-- [Encryption Fundamentals](https://docs.microsoft.com/azure/security/fundamentals/encryption-overview)
+- [Encryption Fundamentals](../security/fundamentals/encryption-overview.md)
 
-Configure TLS/SSL certificates. https://docs.microsoft.com/azure/cloud-services/cloud-services-configure-ssl-certificate-portal
+Configure TLS/SSL certificates. cloud-services-configure-ssl-certificate-portal.md
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -100,11 +100,11 @@ You can also prevent incoming traffic to the default URL/name of your Cloud serv
 
 You can also perform a DENY Apply to classic subscription administrator assignments. By default, after an internal endpoint is defined, communication can flow from any role to the internal endpoint of a role without any restrictions. To restrict communication, you must add a NetworkTrafficRules element to the ServiceDefinition element in the service definition file.
 
-https://docs.microsoft.com/azure/cloud-services/cloud-services-connectivity-and-networking-faq?view=vs-2019#how-can-i-blockdisable-incoming-traffic-to-the-default-../security/benchmarks/overview.md-of-my-cloud-service
+https://docs.microsoft.com/azure/cloud-services/cloud-services-connectivity-and-networking-faq?view=vs-2019#how-can-i-blockdisable-incoming-traffic-to-the-default-url-of-my-cloud-service
 
 - [Azure DDOS protection](https://docs.microsoft.com/azure/cloud-services/cloud-services-connectivity-and-networking-faq?view=vs-2019#how-do-i-prevent-receiving-thousands-of-hits-from-unknown-ip-addresses-that-might-indicate-a-malicious-attack-to-the-cloud-service)
 
-- [Block a specific IP address](https://docs.microsoft.com/azure/cloud-services/cloud-services-startup-tasks-common#block-a-specific-ip-address)
+- [Block a specific IP address](cloud-services-startup-tasks-common.md#block-a-specific-ip-address)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -118,7 +118,7 @@ https://docs.microsoft.com/azure/cloud-services/cloud-services-connectivity-and-
 **Guidance**: You can enable Network Watcher which is automatically enabled when you create or update a Virtual Network in an Azure subscription. 
 It enables you to monitor and diagnose conditions at a network scenario level in, to, and from Azure at an end-to-end network level view. Network diagnostic and visualization tools available with Network Watcher help you understand, diagnose, and gain insights to your network in Azure. Network Watcher is enabled through the creation of a Network Watcher resource. 
 
-- [Network Watcher](https://docs.microsoft.com/azure/network-watcher/network-watcher-create#network-watcher-is-automatically-enabled)
+- [Network Watcher](../network-watcher/network-watcher-create.md#network-watcher-is-automatically-enabled)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -151,11 +151,11 @@ Also use the TLS 1.2 protocol, most commonly used method of securing data to pro
 
 Generally, to protect web applications and to secure them against attacks such as OWASP Top 10, you can deploy an Azure Application Gateway for web applications. 
 
-- [Service Certificates](https://docs.microsoft.com/azure/cloud-services/cloud-services-certs-create)
+- [Service Certificates](cloud-services-certs-create.md)
 
-- [Configuring TLS for an application in Azure](https://docs.microsoft.com/azure/cloud-services/cloud-services-configure-ssl-certificate-portal)
+- [Configuring TLS for an application in Azure](cloud-services-configure-ssl-certificate-portal.md)
 
-- [How to deploy Application Gateway](https://docs.microsoft.com/azure/application-gateway/quick-create-portal)
+- [How to deploy Application Gateway](../application-gateway/quick-create-portal.md)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -204,7 +204,7 @@ microsoft.classicstorage/storageaccounts
 
 **Guidance**: Within Cloud services (Classic), for individual network security group rules, use the "Description" field to document the rules that allow traffic to/from a network.
 
-- [How to filter network traffic with network security group rules](https://docs.microsoft.com/azure/virtual-network/tutorial-filter-network-traffic)
+- [How to filter network traffic with network security group rules](../virtual-network/tutorial-filter-network-traffic.md)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -219,12 +219,12 @@ microsoft.classicstorage/storageaccounts
 
 The Activity log is a platform log in Azure that provides insight into subscription-level events. This includes such information as when a resource is modified or when a virtual machine is started. You can view the Activity log in the Azure portal or retrieve entries with PowerShell and CLI. 
 
-- [You can also create a diagnostic setting to send the Activity log to Azure Monitor Logs, to Azure Event Hubs to forward outside of Azure, or to Azure Storage for archiving](https://docs.microsoft.com/azure/azure-monitor/platform/activity-log)
+- [You can also create a diagnostic setting to send the Activity log to Azure Monitor Logs, to Azure Event Hubs to forward outside of Azure, or to Azure Storage for archiving](../azure-monitor/platform/activity-log.md)
 
 You can also configure Azure Monitor for notification alerts when critical resources in your service are changed. 
-https://docs.microsoft.com/azure/azure-monitor/platform/alerts-activity-log
+../azure-monitor/platform/alerts-activity-log.md
 
-- [Traffic Manager Monitoring](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-monitoring)
+- [Traffic Manager Monitoring](../traffic-manager/traffic-manager-monitoring.md)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -232,7 +232,7 @@ https://docs.microsoft.com/azure/azure-monitor/platform/alerts-activity-log
 
 ## Logging and monitoring
 
-*For more information, see the [Azure Security Benchmark: Logging and monitoring](https://docs.microsoft.com/azure/security/benchmarks/security-control-logging-monitoring).*
+*For more information, see the [Azure Security Benchmark: Logging and monitoring](../security/benchmarks/security-control-logging-monitoring.md).*
 
 ### 2.1: Use approved time synchronization sources
 
@@ -241,7 +241,7 @@ https://docs.microsoft.com/azure/azure-monitor/platform/alerts-activity-log
 
 **Guidance**: Microsoft maintains time sources for Azure resources for Cloud service (Classic). Customers may need to create a network rule to allow this access, or for a time server that you use in their environment.
 
-- [NTP server access](https://docs.microsoft.com/azure/firewall/protect-windows-virtual-desktop#additional-considerations)
+- [NTP server access](../firewall/protect-windows-virtual-desktop.md#additional-considerations)
 
 **Azure Security Center monitoring**: Yes
 
@@ -271,11 +271,11 @@ Here are some options for Azure Sentinel including third party tools:
 
 - ArcSight – Use SmartConnector
 
-- [Integrate with a SIEM](https://docs.microsoft.com/azure/security-center/continuous-export#to-integrate-with-a-siem)
+- [Integrate with a SIEM](../security-center/continuous-export.md#to-integrate-with-a-siem)
 
-- [Store diagnostic data](https://docs.microsoft.com/azure/cloud-services/diagnostics-extension-to-storage)
+- [Store diagnostic data](diagnostics-extension-to-storage.md)
 
-- [Configuring SIEM integration via Azure Event Hubs](https://docs.microsoft.com/azure/security-center/continuous-export#configuring-siem-integration-via-azure-event-hubs)
+- [Configuring SIEM integration via Azure Event Hubs](../security-center/continuous-export.md#configuring-siem-integration-via-azure-event-hubs)
 
 **Azure Security Center monitoring**: Yes
 
@@ -298,9 +298,9 @@ You can create the Application Insights Azure resource at that time or send the 
 
 - [To turn on diagnostics in Visual Studio before deployment](https://docs.microsoft.com/visualstudio/azure/vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines?view=vs-2019#to-turn-on-diagnostics-in-visual-studio-before-deployment)
 
-- [View change history](https://docs.microsoft.com/azure/azure-monitor/platform/activity-log#view-change-history)
+- [View change history](../azure-monitor/platform/activity-log.md#view-change-history)
 
-- [Application Insights for Azure Cloud service (Classic)](https://docs.microsoft.com/azure/azure-monitor/app/cloudservices)
+- [Application Insights for Azure Cloud service (Classic)](../azure-monitor/app/cloudservices.md)
 
 - [Set up diagnostics for Azure Cloud service (Classic) and virtual machines](https://docs.microsoft.com/visualstudio/azure/vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines?toc=%2Fazure%2Fcloud-services%2Ftoc.json&amp;view=vs-2019)
 
@@ -328,7 +328,7 @@ You can create the Application Insights Azure resource at that time or send the 
 
 Note that Advanced monitoring involves using the Azure Diagnostics extension (Application Insights SDK is optional) on the role you want to monitor. The diagnostics extension uses a config file (per role) named diagnostics.wadcfgx to configure the diagnostics metrics monitored. The Azure Diagnostic extension collects and stores data in an Azure Storage account. These settings are configured in the .wadcfgx, .csdef, and .cscfg files.
 
-- [Introduction to Cloud service (Classic) Monitoring](https://docs.microsoft.com/azure/cloud-services/cloud-services-how-to-monitor)
+- [Introduction to Cloud service (Classic) Monitoring](cloud-services-how-to-monitor.md)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -354,13 +354,13 @@ To configure central security log management, you should configure continuous ex
 
 - ArcSight – Use SmartConnector
 
-- [Cloud services Dotnet diagnostics](https://docs.microsoft.com/azure/cloud-services/cloud-services-dotnet-diagnostics)
+- [Cloud services Dotnet diagnostics](cloud-services-dotnet-diagnostics.md)
 
-- [How to Enable Diagnostics in a Worker Role - Integrate with a SIEM](https://docs.microsoft.com/azure/security-center/continuous-export#to-integrate-with-a-siem)
+- [How to Enable Diagnostics in a Worker Role - Integrate with a SIEM](../security-center/continuous-export.md#to-integrate-with-a-siem)
 
-- [Store diagnostic data](https://docs.microsoft.com/azure/cloud-services/diagnostics-extension-to-storage)
+- [Store diagnostic data](diagnostics-extension-to-storage.md)
 
-- [Configuring SIEM integration via Azure Event Hubs](https://docs.microsoft.com/azure/security-center/continuous-export#configuring-siem-integration-via-azure-event-hubs)
+- [Configuring SIEM integration via Azure Event Hubs](../security-center/continuous-export.md#configuring-siem-integration-via-azure-event-hubs)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -414,7 +414,7 @@ To configure central security log management, you should configure continuous ex
 
 ## Identity and access control
 
-*For more information, see the [Azure Security Benchmark: Identity and access control](https://docs.microsoft.com/azure/security/benchmarks/security-control-identity-access-control).*
+*For more information, see the [Azure Security Benchmark: Identity and access control](../security/benchmarks/security-control-identity-access-control.md).*
 
 ### 3.1: Maintain an inventory of administrative accounts
 
@@ -432,17 +432,17 @@ The Service Administrator and the Co-Administrators have equivalent access of us
 You can also list role assignments for classic service administrator and coadministrators with PowerShell with this command:
 Get-AzRoleAssignment -IncludeClassicAdministrators
 
-- [For additional information, you can reference this table describes the differences between these three classic subscription administrative roles](https://docs.microsoft.com/azure/role-based-access-control/rbac-and-directory-admin-roles#classic-subscription-administrator-roles)
+- [For additional information, you can reference this table describes the differences between these three classic subscription administrative roles](../role-based-access-control/rbac-and-directory-admin-roles.md#classic-subscription-administrator-roles)
 
-- [The following table describes the differences between these three classic subscription administrative roles](https://docs.microsoft.com/azure/role-based-access-control/rbac-and-directory-admin-roles#classic-subscription-administrator-roles)
+- [The following table describes the differences between these three classic subscription administrative roles](../role-based-access-control/rbac-and-directory-admin-roles.md#classic-subscription-administrator-roles)
 
 - [How can I implement role-based access for Cloud service (Classic)?](https://docs.microsoft.com/azure/cloud-services/cloud-services-configuration-and-management-faq?view=vs-2019#how-can-i-implement-role-based-access-for-cloud-services)
 
-- [Role Based Access Control](https://docs.microsoft.com/azure/role-based-access-control/classic-administrators)
+- [Role Based Access Control](../role-based-access-control/classic-administrators.md)
 
-- [Classic administrators](https://docs.microsoft.com/azure/role-based-access-control/classic-administrators)
+- [Classic administrators](../role-based-access-control/classic-administrators.md)
 
-- [Classic Administrators](https://docs.microsoft.com/azure/role-based-access-control/classic-administrators)
+- [Classic Administrators](../role-based-access-control/classic-administrators.md)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -466,7 +466,7 @@ Get-AzRoleAssignment -IncludeClassicAdministrators
 
 **Guidance**: It is recommended to create standard operating procedures around the use of dedicated administrative accounts, based on available roles and the permissions required to operate and manage the Azure Cloud service (Classic) resources.
 
-- [Use this table as reference which describes the differences between the classic subscription administrative roles](https://docs.microsoft.com/azure/role-based-access-control/rbac-and-directory-admin-roles#classic-subscription-administrator-roles)
+- [Use this table as reference which describes the differences between the classic subscription administrative roles](../role-based-access-control/rbac-and-directory-admin-roles.md#classic-subscription-administrator-roles)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -501,9 +501,9 @@ Get-AzRoleAssignment -IncludeClassicAdministrators
 
 **Guidance**: It is recommended to use a secure, Azure-managed workstation (also known as a Privileged Access Workstation, or PAW) for administrative tasks that require elevated privileges.
 
-- [Understand secure, Azure-managed workstations](https://docs.microsoft.com/azure/active-directory/devices/concept-azure-managed-workstation)
+- [Understand secure, Azure-managed workstations](../active-directory/devices/concept-azure-managed-workstation.md)
 
-- [How to enable Azure AD MFA](https://docs.microsoft.com/azure/active-directory/authentication/howto-mfa-getstarted)
+- [How to enable Azure AD MFA](../active-directory/authentication/howto-mfa-getstarted.md)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -588,7 +588,7 @@ Get-AzRoleAssignment -IncludeClassicAdministrators
 
 ## Data protection
 
-*For more information, see the [Azure Security Benchmark: Data protection](https://docs.microsoft.com/azure/security/benchmarks/security-control-data-protection).*
+*For more information, see the [Azure Security Benchmark: Data protection](../security/benchmarks/security-control-data-protection.md).*
 
 ### 4.1: Maintain an inventory of sensitive Information
 
@@ -603,9 +603,9 @@ certificate a Cloud service (Classic) should use.
 
 It is generally recommended to protect sensitive information including the certificate private keys along with its location, and the name of the store where it is located. For example, to run a Cloud service (Classic) web role with Transport Layer Security (TLS), you must ensure that your exported management certificate includes the private key.
 
-- [Exported certificate does not include private key](https://docs.microsoft.com/azure/cloud-services/cloud-services-troubleshoot-common-issues-which-cause-roles-recycle#exported-certificate-does-not-include-private-key)
+- [Exported certificate does not include private key](cloud-services-troubleshoot-common-issues-which-cause-roles-recycle.md#exported-certificate-does-not-include-private-key)
 
-- [Microsoft Information Protection Unified Labeling platform](https://docs.microsoft.com/azure/information-protection/deploy-aip-scanner-configure-install-classic)
+- [Microsoft Information Protection Unified Labeling platform](/azure/information-protection/deploy-aip-scanner-configure-install-classic)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -620,11 +620,11 @@ It is generally recommended to protect sensitive information including the certi
 
 You can also edit the "permissionLevel" in the Cloud service (Classic)'s Certificate element to specify the access permissions given to the role processes. If you want only elevated processes to be able to access the private key, then specify elevated permission. limitedOrElevated permission allows all role processes to access the private key. Possible values are limitedOrElevated or elevated. The default value is limitedOrElevated.
 
-- [How to create additional Azure subscriptions](https://docs.microsoft.com/azure/billing/billing-create-subscription)
+- [How to create additional Azure subscriptions](/azure/billing/billing-create-subscription)
 
-- [How to create management groups](https://docs.microsoft.com/azure/governance/management-groups/create)
+- [How to create management groups](/azure/governance/management-groups/create)
 
-- [WebRole Schema](https://docs.microsoft.com/azure/cloud-services/schema-csdef-webrole#Certificate)
+- [WebRole Schema](schema-csdef-webrole.md#Certificate)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -637,7 +637,7 @@ You can also edit the "permissionLevel" in the Cloud service (Classic)'s Certifi
 
 **Guidance**: It is recommended to use a third-party solution from Azure Marketplace in network perimeters to monitor for unauthorized transfer of sensitive information and block such transfers while alerting information security professionals.
 
-- [Understand customer data protection in Azure](https://docs.microsoft.com/azure/security/fundamentals/protection-customer-data)
+- [Understand customer data protection in Azure](../security/fundamentals/protection-customer-data.md)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -658,9 +658,9 @@ Management certificates allow you to authenticate with the classic deployment mo
 
 For additional reference, the Azure Service Management API provides programmatic access to the service management functionality available through the Azure portal. Azure SDK for Python can be used to manage Cloud service (Classic) and storage accounts. The Azure SDK for Python wraps the Service Management API, which is a REST API. All API operations are performed over TLS and mutually authenticated by using X.509 v3 certificates. The management service can be accessed from within a service running in Azure. It also can be accessed directly over the Internet from any application that can send an HTTPS request and receive an HTTPS response.
 
-- [Configure TLS for an application in Azure](https://docs.microsoft.com/azure/cloud-services/cloud-services-configure-ssl-certificate-portal)
+- [Configure TLS for an application in Azure](cloud-services-configure-ssl-certificate-portal.md)
 
-- [Use service management from Python](https://docs.microsoft.com/azure/cloud-services/cloud-services-python-how-to-use-service-management)
+- [Use service management from Python](cloud-services-python-how-to-use-service-management.md)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -673,11 +673,11 @@ For additional reference, the Azure Service Management API provides programmatic
 
 **Guidance**: It is recommended to use a third-party active discovery tool to identify all sensitive information stored, processed, or transmitted by the organization's technology systems, including those located on-site, or at a remote service provider, and then update the organization's sensitive information inventory.
 
-https://docs.microsoft.com/azure/information-protection/deploy-aip-scanner-configure-install-classic
+/azure/information-protection/deploy-aip-scanner-configure-install-classic
 
-- [Microsoft Information Protection Unified Labeling platform](https://docs.microsoft.com/azure/information-protection/deploy-aip-scanner-configure-install-classic)
+- [Microsoft Information Protection Unified Labeling platform](/azure/information-protection/deploy-aip-scanner-configure-install-classic)
 
-- [Understand customer data protection in Azure](https://docs.microsoft.com/azure/security/fundamentals/protection-customer-data)
+- [Understand customer data protection in Azure](../security/fundamentals/protection-customer-data.md)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -705,7 +705,7 @@ It is recommended to implement a third-party tool such as an automated host-base
 
 For the underlying platform which is managed by Microsoft, Microsoft treats all customer content as sensitive and goes to great lengths to guard against customer data loss and exposure. To ensure customer data in Azure remains secure, Microsoft has implemented and maintains a suite of robust data protection controls and capabilities.
 
-- [Understand customer data protection in Azure](https://docs.microsoft.com/azure/security/fundamentals/protection-customer-data)
+- [Understand customer data protection in Azure](../security/fundamentals/protection-customer-data.md)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -718,7 +718,7 @@ For the underlying platform which is managed by Microsoft, Microsoft treats all 
 
 **Guidance**: In Azure, organizations can encrypt data at rest without the risk or cost of a custom key management solution. Organizations have the option of letting Azure completely manage Encryption at Rest. Additionally, organizations have various options to closely manage encryption or encryption keys.
 
-- [No documentation available on storage encryption for Cloud service (Classic) used storage](https://docs.microsoft.com/azure/security/fundamentals/encryption-atrest#encryption-at-rest-in-microsoft-cloud-services)
+- [No documentation available on storage encryption for Cloud service (Classic) used storage](../security/fundamentals/encryption-atrest.md#encryption-at-rest-in-microsoft-cloud-services)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -733,11 +733,11 @@ For the underlying platform which is managed by Microsoft, Microsoft treats all 
 
 Additionally, Application Insights can monitor Cloud service (Classic) apps for availability, performance, failures, and usage by combining data from Application Insights SDKs with Azure Diagnostics data from your Cloud service (Classic).
 
-- [Create, view, and manage classic metric alerts using Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-classic-portal)
+- [Create, view, and manage classic metric alerts using Azure Monitor](../azure-monitor/platform/alerts-classic-portal.md)
 
-- [Metric Alerts Overview](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-metric-overview) 
+- [Metric Alerts Overview](../azure-monitor/platform/alerts-metric-overview.md) 
 
-- [Application Insights for Azure Cloud service (Classic)](https://docs.microsoft.com/azure/azure-monitor/app/cloudservices)
+- [Application Insights for Azure Cloud service (Classic)](../azure-monitor/app/cloudservices.md)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -745,7 +745,7 @@ Additionally, Application Insights can monitor Cloud service (Classic) apps for 
 
 ## Vulnerability management
 
-*For more information, see the [Azure Security Benchmark: Vulnerability management](https://docs.microsoft.com/azure/security/benchmarks/security-control-vulnerability-management).*
+*For more information, see the [Azure Security Benchmark: Vulnerability management](../security/benchmarks/security-control-vulnerability-management.md).*
 
 ### 5.1: Run automated vulnerability scanning tools
 
@@ -769,13 +769,13 @@ By default, Azure periodically updates customer's guest OS to the latest support
 
 When a customer chooses a specific OS version for their Cloud service (Classic) classic deployment, it disables automatic OS updates and makes patching their responsibility. The customer must ensure that their role instances are receiving updates or they could expose their application to security vulnerabilities.
 
-- [Azure Guest OS](https://docs.microsoft.com/azure/cloud-services/cloud-services-guestos-msrc-releases)
+- [Azure Guest OS](cloud-services-guestos-msrc-releases.md)
 
-- [Azure Guest OS supportability and retirement policy](https://docs.microsoft.com/azure/cloud-services/cloud-services-guestos-retirement-policy)
+- [Azure Guest OS supportability and retirement policy](cloud-services-guestos-retirement-policy.md)
 
-- [How to Configure Cloud service (Classic)](https://docs.microsoft.com/azure/cloud-services/cloud-services-how-to-configure-portal)
+- [How to Configure Cloud service (Classic)](cloud-services-how-to-configure-portal.md)
 
-- [Manage Guest OS version](https://docs.microsoft.com/azure/cloud-services/cloud-services-how-to-configure-portal#manage-guest-os-version)
+- [Manage Guest OS version](cloud-services-how-to-configure-portal.md#manage-guest-os-version)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -825,7 +825,7 @@ This allows Update Management to patch machines that use Configuration Manager a
 
 - Are my services active/active with failover across multiple regions?
 
-- [Risk evaluation of your Azure resources](https://docs.microsoft.com/azure/security/fundamentals/ddos-best-practices#risk-evaluation-of-your-azure-resources)
+- [Risk evaluation of your Azure resources](../security/fundamentals/ddos-best-practices.md#risk-evaluation-of-your-azure-resources)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -833,7 +833,7 @@ This allows Update Management to patch machines that use Configuration Manager a
 
 ## Inventory and asset management
 
-*For more information, see the [Azure Security Benchmark: Inventory and asset management](https://docs.microsoft.com/azure/security/benchmarks/security-control-inventory-asset-management).*
+*For more information, see the [Azure Security Benchmark: Inventory and asset management](../security/benchmarks/security-control-inventory-asset-management.md).*
 
 ### 6.1: Use automated asset discovery solution
 
@@ -902,7 +902,7 @@ Security Center uses machine learning to analyze the applications running on you
 
 - Enable IT to control the access to sensitive data through app usage.
 
-- [Adaptive application controls](https://docs.microsoft.com/azure/security-center/security-center-adaptive-application)
+- [Adaptive application controls](../security-center/security-center-adaptive-application.md)
 
 **Azure Security Center monitoring**: Yes
 
@@ -930,7 +930,7 @@ Security Center uses machine learning to analyze the applications running on you
 
 - Enable IT to control the access to sensitive data through app usage.
 
-- [Adaptive application controls](https://docs.microsoft.com/azure/security-center/security-center-adaptive-application)
+- [Adaptive application controls](../security-center/security-center-adaptive-application.md)
 
 **Azure Security Center monitoring**: Yes
 
@@ -958,7 +958,7 @@ Security Center uses machine learning to analyze the applications running on you
 
 - Enable IT to control the access to sensitive data through app usage.
 
-- [Adaptive application controls](https://docs.microsoft.com/azure/security-center/security-center-adaptive-application)
+- [Adaptive application controls](../security-center/security-center-adaptive-application.md)
 
 **Azure Security Center monitoring**: Yes
 
@@ -986,7 +986,7 @@ Security Center uses machine learning to analyze the applications running on you
 
 - Enable IT to control the access to sensitive data through app usage.
 
-- [Adaptive application controls](https://docs.microsoft.com/azure/security-center/security-center-adaptive-application)
+- [Adaptive application controls](../security-center/security-center-adaptive-application.md)
 
 **Azure Security Center monitoring**: Yes
 
@@ -1025,7 +1025,7 @@ Security Center uses machine learning to analyze the applications running on you
 
 - Enable IT to control the access to sensitive data through app usage.
 
-- [Adaptive application controls](https://docs.microsoft.com/azure/security-center/security-center-adaptive-application)
+- [Adaptive application controls](../security-center/security-center-adaptive-application.md)
 
 **Azure Security Center monitoring**: Yes
 
@@ -1038,7 +1038,7 @@ Security Center uses machine learning to analyze the applications running on you
 
 **Guidance**: Not applicable to Cloud service (Classic). It does not support the Azure Resource Manager deployment model. The Resource Manager and classic deployment models represent two different ways of deploying and managing your Azure solutions. Customer work with them through two different API sets, and the deployed resources can contain important differences.
 
-- [Azure Resource Manager vs. classic deployment: Understand deployment models and the state of your resources](https://docs.microsoft.com/azure/azure-resource-manager/management/deployment-models)
+- [Azure Resource Manager vs. classic deployment: Understand deployment models and the state of your resources](../azure-resource-manager/management/deployment-models.md)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -1066,7 +1066,7 @@ Security Center uses machine learning to analyze the applications running on you
 
 - Enable IT to control the access to sensitive data through app usage.
 
-- [Adaptive application controls](https://docs.microsoft.com/azure/security-center/security-center-adaptive-application)
+- [Adaptive application controls](../security-center/security-center-adaptive-application.md)
 
 **Azure Security Center monitoring**: Yes
 
@@ -1081,7 +1081,7 @@ Security Center uses machine learning to analyze the applications running on you
 
 You can use a network security group, create an Inbound security rule, choose a service such as http, choose a custom port as well, give it a priority and a name. The priority affects the order in which the rules are applied, the lower the numerical value,  the earlier the rule is applied. You will need to associate your network security group to a subnet or a specific network interface to isolate or segment the network traffic based on your business needs.
 
-- [Tutorial - Filter network traffic with a network security group using the Azure portal](https://docs.microsoft.com/azure/virtual-network/tutorial-filter-network-traffic)
+- [Tutorial - Filter network traffic with a network security group using the Azure portal](../virtual-network/tutorial-filter-network-traffic.md)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -1089,7 +1089,7 @@ You can use a network security group, create an Inbound security rule, choose a 
 
 ## Secure configuration
 
-*For more information, see the [Azure Security Benchmark: Secure configuration](https://docs.microsoft.com/azure/security/benchmarks/security-control-secure-configuration).*
+*For more information, see the [Azure Security Benchmark: Secure configuration](../security/benchmarks/security-control-secure-configuration.md).*
 
 ### 7.1: Establish secure configurations for all Azure resources
 
@@ -1098,7 +1098,7 @@ You can use a network security group, create an Inbound security rule, choose a 
 
 **Guidance**: Use the recommendations from Security Center as a secure configuration baseline for your Cloud service (Classic) resources. On the Azure portal, choose Security Center, then Compute &amp; apps, and Cloud service (Classic) to see the recommendations applicable to your Cloud service (Classic) resources.
 
-- [Security recommendations - a reference guide](https://docs.microsoft.com/azure/security-center/recommendations-reference)
+- [Security recommendations - a reference guide](../security-center/recommendations-reference.md)
 
 **Azure Security Center monitoring**: Yes
 
@@ -1192,7 +1192,7 @@ It is recommended to use a third party solution to maintain secure Azure resourc
 
 Use Security Center to perform baseline scans for your Azure Resources.  
 
-- [How to remediate recommendations in Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-remediate-recommendations)
+- [How to remediate recommendations in Azure Security Center](../security-center/security-center-remediate-recommendations.md)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -1206,7 +1206,7 @@ Use Security Center to perform baseline scans for your Azure Resources.
 **Guidance**: &lt; --- pending confirmation  ---&gt;
 Use Security Center compute &amp; apps and follow the recommendations for VMs and servers, and containers.
 
-- [Understand Azure Security Center container recommendations](https://docs.microsoft.com/azure/security-center/security-center-container-recommendations)
+- [Understand Azure Security Center container recommendations](/azure/security-center/security-center-container-recommendations)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -1224,7 +1224,7 @@ To begin with, specify a plain text password, convert it to a secure string usin
 
 Additionally, it is recommended to store the private keys for certificates used in Cloud service (Classic) to a secured storage.
 
-- [Configure Remote Desktop from PowerShell](https://docs.microsoft.com/th-th/azure/cloud-services/cloud-services-role-enable-remote-desktop-powershell#configure-remote-desktop-from-powershell)
+- [Configure Remote Desktop from PowerShell](/th-th/azure/cloud-services/cloud-services-role-enable-remote-desktop-powershell#configure-remote-desktop-from-powershell)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -1251,7 +1251,7 @@ To begin with, specify a plain text password, convert it to a secure string usin
 
 Additionally, it is recommended to store the private keys for certificates used in Cloud service (Classic) to a secured storage.
 
-- [Configure Remote Desktop from PowerShell](https://docs.microsoft.com/th-th/azure/cloud-services/cloud-services-role-enable-remote-desktop-powershell#configure-remote-desktop-from-powershell)
+- [Configure Remote Desktop from PowerShell](/th-th/azure/cloud-services/cloud-services-role-enable-remote-desktop-powershell#configure-remote-desktop-from-powershell)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -1259,7 +1259,7 @@ Additionally, it is recommended to store the private keys for certificates used 
 
 ## Malware defense
 
-*For more information, see the [Azure Security Benchmark: Malware defense](https://docs.microsoft.com/azure/security/benchmarks/security-control-malware-defense).*
+*For more information, see the [Azure Security Benchmark: Malware defense](../security/benchmarks/security-control-malware-defense.md).*
 
 ### 8.1: Use centrally managed antimalware software
 
@@ -1275,9 +1275,9 @@ You can also use the Adaptive application control feature in Security Center. Ad
 
 - [How can I add an Antimalware extension for my Cloud service (Classic) in an automated way](https://docs.microsoft.com/azure/cloud-services/cloud-services-configuration-and-management-faq?view=vs-2019+E89#how-can-i-add-an-antimalware-extension-for-my-cloud-services-in-an-automated-way)
 
-- [Antimalware Deployment Scenarios](https://docs.microsoft.com/azure/security/fundamentals/antimalware#antimalware-deployment-scenarios)
+- [Antimalware Deployment Scenarios](../security/fundamentals/antimalware.md#antimalware-deployment-scenarios)
 
-- [Adaptive application controls](https://docs.microsoft.com/azure/security-center/security-center-adaptive-application)
+- [Adaptive application controls](../security-center/security-center-adaptive-application.md)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -1301,7 +1301,7 @@ You can also use the Adaptive application control feature in Security Center. Ad
 
 **Guidance**: Microsoft Antimalware for Azure is available for Azure Cloud service (Classic) and Virtual Machines. It is a free real-time protection that helps identify and remove viruses, spyware, and other malicious software. It generates alerts when known malicious or unwanted software tries to install itself or run on your Azure systems. 
 
-- [Antimalware Deployment Scenarios](https://docs.microsoft.com/azure/security/fundamentals/antimalware#antimalware-deployment-scenarios)
+- [Antimalware Deployment Scenarios](../security/fundamentals/antimalware.md#antimalware-deployment-scenarios)
 
 **Azure Security Center monitoring**: Yes
 
@@ -1309,7 +1309,7 @@ You can also use the Adaptive application control feature in Security Center. Ad
 
 ## Data recovery
 
-*For more information, see the [Azure Security Benchmark: Data recovery](https://docs.microsoft.com/azure/security/benchmarks/security-control-data-recovery).*
+*For more information, see the [Azure Security Benchmark: Data recovery](../security/benchmarks/security-control-data-recovery.md).*
 
 ### 9.1: Ensure regular automated back ups
 
@@ -1357,7 +1357,7 @@ You can also use the Adaptive application control feature in Security Center. Ad
 
 ## Incident response
 
-*For more information, see the [Azure Security Benchmark: Incident response](https://docs.microsoft.com/azure/security/benchmarks/security-control-incident-response).*
+*For more information, see the [Azure Security Benchmark: Incident response](../security/benchmarks/security-control-incident-response.md).*
 
 ### 10.1: Create an incident response guide
 
@@ -1366,7 +1366,7 @@ You can also use the Adaptive application control feature in Security Center. Ad
 
 **Guidance**: Build out an incident response guide for your organization. Ensure that there are written incident response plans that define all roles of personnel as well as phases of incident handling/management from detection to post-incident review.
 
-- [How to configure Workflow Automations within Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-planning-and-operations-guide)
+- [How to configure Workflow Automations within Azure Security Center](../security-center/security-center-planning-and-operations-guide.md)
 
 - [Guidance on building your own security incident response process](https://msrc-blog.microsoft.com/2019/07/01/inside-the-msrc-building-your-own-security-incident-response-process/)
 
@@ -1411,7 +1411,7 @@ Additionally, clearly mark subscriptions (for ex. production, non-prod) and crea
 
 **Guidance**: Security incident contact information will be used by Microsoft to contact you if the Microsoft Security Response Center (MSRC) discovers that the customer's data has been accessed by an unlawful or unauthorized party.  Review incidents after the fact to ensure that issues are resolved. 
 
-- [How to set the Azure Security Center Security Contact](https://docs.microsoft.com/azure/security-center/security-center-provide-security-contact-details)
+- [How to set the Azure Security Center Security Contact](../security-center/security-center-provide-security-contact-details.md)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -1424,9 +1424,9 @@ Additionally, clearly mark subscriptions (for ex. production, non-prod) and crea
 
 **Guidance**: Export your Security Center alerts and recommendations using the Continuous Export feature. Continuous Export allows you to export alerts and recommendations either manually or in an ongoing, continuous fashion. You may use the Security Center data connector to stream the alerts Sentinel. 
 
-- [How to configure continuous export](https://docs.microsoft.com/azure/security-center/continuous-export) 
+- [How to configure continuous export](../security-center/continuous-export.md) 
 
-- [How to stream alerts into Azure Sentinel](https://docs.microsoft.com/azure/sentinel/connect-azure-security-center)
+- [How to stream alerts into Azure Sentinel](../sentinel/connect-azure-security-center.md)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -1439,7 +1439,7 @@ Additionally, clearly mark subscriptions (for ex. production, non-prod) and crea
 
 **Guidance**: Use the Workflow Automation feature in Security Center to automatically trigger responses via "Logic Apps" on security alerts and recommendations.
 
-- [How to configure Workflow Automation and Logic Apps](https://docs.microsoft.com/azure/security-center/workflow-automation)
+- [How to configure Workflow Automation and Logic Apps](../security-center/workflow-automation.md)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -1447,7 +1447,7 @@ Additionally, clearly mark subscriptions (for ex. production, non-prod) and crea
 
 ## Penetration tests and red team exercises
 
-*For more information, see the [Azure Security Benchmark: Penetration tests and red team exercises](https://docs.microsoft.com/azure/security/benchmarks/security-control-penetration-tests-red-team-exercises).*
+*For more information, see the [Azure Security Benchmark: Penetration tests and red team exercises](../security/benchmarks/security-control-penetration-tests-red-team-exercises.md).*
 
 ### 11.1: Conduct regular penetration testing of your Azure resources and ensure remediation of all critical security findings
 
