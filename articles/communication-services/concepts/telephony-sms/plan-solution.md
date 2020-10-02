@@ -26,7 +26,7 @@ The simplest way to begin is to get a new phone number from Azure Communication 
 
 The following diagram can be used to determine the type of phone number that you'll select:
 
-:::image type="content" source="../media/plan-solution/NumberAcquisitionFlowDocs.PNG" alt-text="Diagram showing how to make a decision regarding your phone numbers.":::
+:::image type="content" source="../media/plan-solution/number-acquisition-flow.PNG" alt-text="Diagram showing how to make a decision regarding your phone numbers.":::
 
 Now, let's review the phone number types and capabilities available through Communication Services. 
 
@@ -36,7 +36,7 @@ Azure Communication Services provides excellent flexibility for developers. On m
 
 The available plans depend on the country, use case and phone number type that you're operating within. The diagram below represents the decision flow:	
 
-:::image type="content" source="../media/plan-solution/SampleDecisionFlow1.PNG" alt-text="Diagram showing sample decision flow.":::
+:::image type="content" source="../media/plan-solution/sample-decision-flow.PNG" alt-text="Diagram showing sample decision flow.":::
 
 <!-- Tami/team have rejected this multiple times despite updates, says it needs to be higher res - need to work with her to get approval for this image. Commenting out to move our staging forward. :::image type="content" source="../../media/example-decision-flow.png" alt-text="Example for the decision flow"::: -->
 
