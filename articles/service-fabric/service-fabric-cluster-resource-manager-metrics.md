@@ -178,19 +178,19 @@ Those reports will be used in the exactly same way as load reports that are comi
 
 With this API, there are multiple ways to update load in the cluster:
 
-1. A stateful service partition can update its primary replica load.
-2. Both stateless and stateful services can update the load of all its secondary replicas or instances.
-3. Both stateless and stateful services can update the load of a specific replica or instance on a node.
+  - A stateful service partition can update its primary replica load.
+  - Both stateless and stateful services can update the load of all its secondary replicas or instances.
+  - Both stateless and stateful services can update the load of a specific replica or instance on a node.
 
 It is also possible to combine any of those updates per partition at the same time.
 
 Updating loads for multiple partitions is possible with a single API call, in which case the output will contain a response per partition. In case partition update is not successfully applied for any reason, updates for that partition will be skipped, and corresponding error code for a targeted partition will be provided:
 
-1. PartitionNotFound - Specified partition ID doesn't exist.
-2. ReconfigurationPending - Partition is currently reconfiguring.
-3. InvalidForStatelessServices - An attempt was made to change the load of a primary replica for a partition belonging to a stateless service.
-5. ReplicaDoesNotExist - Secondary replica or instance does not exist on a specified node.
-6. InvalidOperation - Could happen in two cases: updating load for a partition that belongs to the System application is not enabled by default, and updating predicted load (besides current load) is not enabled by default. Applying predicted load is under development at the moment, and it will be possible in the future.
+  - PartitionNotFound - Specified partition ID doesn't exist.
+  - ReconfigurationPending - Partition is currently reconfiguring.
+  - InvalidForStatelessServices - An attempt was made to change the load of a primary replica for a partition belonging to a stateless service.
+  - ReplicaDoesNotExist - Secondary replica or instance does not exist on a specified node.
+  - InvalidOperation - Could happen in two cases: updating load for a partition that belongs to the System application or updating predicted load is not enabled.
 
 If some of those errors are returned, you can update the input for a specific partition and retry the update for a specific partition.
 
