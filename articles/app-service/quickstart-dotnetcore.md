@@ -48,8 +48,6 @@ Create an ASP.NET Core web app in Visual Studio by following these steps:
 
    ![Web app running locally](./media/quickstart-dotnetcore/web-app-running-locally.png)
 
-[Having issues? Let us know](https://aka.ms/DotNetAppServiceLinuxQuickStart)
-
 ## Publish your web app
 
 To publish your web app, you must first create and configure a new App Service that you can publish your app to. 
@@ -101,8 +99,6 @@ Follow these steps to create your App Service and publish your web app:
 
 **Congratulations!** Your ASP.NET Core web app is running live in Azure App Service.
 
-[Having issues? Let us know](https://aka.ms/DotNetAppServiceLinuxQuickStart)
-
 ## Update the app and redeploy
 
 Follow these steps to update and redeploy your web app:
@@ -128,8 +124,6 @@ When publishing completes, Visual Studio launches a browser to the URL of the we
 
 ![Updated ASP.NET web app running in Azure](./media/quickstart-dotnetcore/updated-web-app-running-live.png)
 
-[Having issues? Let us know](https://aka.ms/DotNetAppServiceLinuxQuickStart)
-
 ## Manage the Azure app
 
 To manage your web app, go to the [Azure portal](https://portal.azure.com), and search for and select **App Services**.
@@ -145,8 +139,6 @@ The **Overview** page for your web app, contains options for basic management li
 ![App Service in Azure portal](./media/quickstart-dotnetcore/web-app-overview-page.png)
 
 [!INCLUDE [Clean-up section](../../includes/clean-up-section-portal.md)]
-
-[Having issues? Let us know](https://aka.ms/DotNetAppServiceLinuxQuickStart)
 
 ## Next steps
 
@@ -170,8 +162,6 @@ Advance to the next article to learn how to create a .NET Core app and connect i
 You can follow the steps in this article using a Mac, Windows, or Linux machine.
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
-
-[Having issues? Let us know](https://aka.ms/DotNetAppServiceLinuxQuickStart)
 
 ## Prerequisites
 
