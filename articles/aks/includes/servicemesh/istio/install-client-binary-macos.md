@@ -8,7 +8,7 @@ ms.author: pabouwer
 
 ## Download and install the Istio istioctl client binary
 
-In a bash-based shell on MacOS, use `curl` to download the Istio release and then extract with `tar` as follows:
+In a bash-based shell on macOS, use `curl` to download the Istio release and then extract with `tar` as follows:
 
 ```bash
 # Specify the Istio version that will be leveraged throughout these instructions
@@ -17,7 +17,7 @@ ISTIO_VERSION=1.7.3
 curl -sL "https://github.com/istio/istio/releases/download/$ISTIO_VERSION/istioctl-$ISTIO_VERSION-osx.tar.gz" | tar xz
 ```
 
-The `istioctl` client binary runs on your client machine and allows you to install and manage Istio in your AKS cluster. Use the following commands to install the Istio `istioctl` client binary in a bash-based shell on MacOS. These commands copy the `istioctl` client binary to the standard user program location in your `PATH`.
+The `istioctl` client binary runs on your client machine and allows you to install and manage Istio in your AKS cluster. Use the following commands to install the Istio `istioctl` client binary in a bash-based shell on macOS. These commands copy the `istioctl` client binary to the standard user program location in your `PATH`.
 
 ```bash
 sudo mv ./istioctl /usr/local/bin/istioctl

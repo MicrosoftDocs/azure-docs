@@ -278,7 +278,7 @@ istioctl dashboard envoy <pod-name>.<namespace>
 
 ### Remove Istio
 
-To remove Istio from your AKS cluster, delete the `IstioOperator` resource named `istio-control-plane` that we added earlier. The Istio Operator will recognise that the Istio Operator Spec has been removed, and then delete all the associated Istio components.
+To remove Istio from your AKS cluster, delete the `IstioOperator` resource named `istio-control-plane` that we added earlier. The Istio Operator will recognize that the Istio Operator Spec has been removed, and then delete all the associated Istio components.
 
 ```bash
 kubectl delete istiooperator istio-control-plane -n istio-system
