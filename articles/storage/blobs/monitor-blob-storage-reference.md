@@ -5,7 +5,7 @@ author: normesta
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: reference
-ms.date: 09/28/2020
+ms.date: 10/02/2020
 ms.author: normesta
 ms.subservice: logs
 ms.custom: monitoring

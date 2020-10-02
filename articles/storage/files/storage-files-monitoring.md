@@ -6,7 +6,7 @@ services: storage
 ms.service: storage
 ms.subservice: files
 ms.topic: conceptual
-ms.date: 09/30/2020
+ms.date: 10/02/2020
 ms.author: normesta
 ms.reviewer: fryu
 ms.custom: "monitoring, devx-track-csharp"
