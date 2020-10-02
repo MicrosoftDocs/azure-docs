@@ -34,7 +34,8 @@ You'll need to set Swagger to the same region as your Speech service subscriptio
 1. Extract the download.
 1. Install the extracted module into your Python environment:  
        `pip install path/to/package/python-client`
-1. The installed package is named `swagger_client`. Check that the installation worked: `python -c "import swagger_client"`
+1. The installed package is named `swagger_client`. Check that the installation worked:  
+       `python -c "import swagger_client"`
 
 You can use the Python library that you generated with the [Speech service samples on GitHub](https://aka.ms/csspeech/samples).
 
