@@ -88,7 +88,7 @@ This section applies only to policy-based VPNs. Policy-based (or static, route-b
 
 2. Select the name of your Virtual WAN hub. Select the three dots at the far right of the VPN site, and select **edit VPN section to this hub**.
  
-    :::image type="content" source="media/virtual-wan-hub-guidelines/edit-vpn-section-to-this-hub.png" alt-text="Edit VPN section to this hub.":::
+    :::image type="content" source="media/virtual-wan-hub-guidelines/edit-vpn-section-to-this-hub.png" alt-text="Edit VPN section to this hub." lightbox="media/virtual-wan-hub-guidelines/edit-vpn-section-to-this-hub.png":::
 
 3. For Internet Protocol Security (IPSec), select **Custom** and then **Use policy-based traffic selector**. Specify **IKE Phase 1 and 2**. Select **Save**.
  
