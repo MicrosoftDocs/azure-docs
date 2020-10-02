@@ -1,6 +1,6 @@
 ---
 title: Develop for Azure Files with .NET | Microsoft Docs
-description: Learn how to develop .NET applications and services that use Azure Files to store file data.
+description: Learn how to develop .NET applications and services that use Azure Files to store data.
 author: roygara
 ms.service: storage
 ms.devlang: dotnet
@@ -15,13 +15,15 @@ ms.custom: devx-track-csharp
 
 [!INCLUDE [storage-selector-file-include](../../../includes/storage-selector-file-include.md)]
 
-This tutorial demonstrates the basics of using .NET to develop applications that use [Azure Files](storage-files-introduction.md) to store file data. This tutorial creates a simple console application to do basic actions with .NET and Azure Files:
+Learn the basics of developing .NET applications that use [Azure Files](storage-files-introduction.md) to store data. This article shows how to create a simple console application to do the following with .NET and Azure Files:
 
 - Get the contents of a file.
-- Set the maximum size or *quota* for the file share.
-- Create a shared access signature (SAS key) for a file that uses a stored access policy defined on the share.
+- Set the maximum size, or quota, for a file share.
+- Create a shared access signature (SAS) for a file.
 - Copy a file to another file in the same storage account.
 - Copy a file to a blob in the same storage account.
+- Create a snapshot of a file share.
+- Restore a file from a share snapshot.
 - Use Azure Storage Metrics for troubleshooting.
 
 To learn more about Azure Files, see [What is Azure Files?](storage-files-introduction.md)
