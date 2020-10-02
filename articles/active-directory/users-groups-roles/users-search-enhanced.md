@@ -65,9 +65,6 @@ The following are the displayed user properties on the **All users** page:
 - Invitation state: The status of the invitation for a guest user.
 - Mail: The email of the user.
 
-   > [!Note]
-   > This property is only visible to users with permissions to read audit logs(Reporting_ApplicationAuditLogs_Read)
-
 ![new user properties displayed on All users and Deleted users pages](./media/users-search-enhanced/user-properties.png)
 
 ### Deleted users page
@@ -98,8 +95,8 @@ Filtering capabilities have been enhanced to provide more filtering options for 
 
 The following are the filterable properties on the **All users** page:
 
-- User type: Member or guest
-- Directory synced status: Yes
+- User type: Member, guest, none
+- Directory synced status: Yes, no
 - Creation type: Invitation, Email verified, Local account
 - Invitation state – Pending acceptance, Accepted
 - Domain name: Enter a domain name
@@ -110,8 +107,8 @@ The following are the filterable properties on the **All users** page:
 
 The **Deleted users** page has additional filters not in the **All users** page. The following are the filterable properties on the **Deleted users** page:
 
-- User type: Member or guest
-- Directory synced status: Yes
+- User type: Member, guest, none
+- Directory synced status: Yes, no
 - Creation type: Invitation, Email verified, Local account
 - Invitation state: Pending acceptance, Accepted
 - Deletion date: Last 7, 14, or 30 days
