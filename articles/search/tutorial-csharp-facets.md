@@ -8,26 +8,32 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: tutorial
-ms.date: 06/20/2020
+ms.date: 10/01/2020
 ms.custom: devx-track-csharp
 ---
 
 # Tutorial: Add faceted navigation using the .NET SDK
 
-Facets are used to aid navigation, by providing the user with a set of links to use to focus their search. Facets are attributes of the data (such as the category, or a specific feature, of a hotel in our sample data).
-
-This tutorial builds onto the paging project created in the [C# Tutorial: Search results pagination - Azure Cognitive Search](tutorial-csharp-paging.md) tutorial.
+Facets aid user-directed navigation by providing a set of links to filter results. Within a search index, facets are attributes of field definition (such as a hotel category in our sample data).
 
 In this tutorial, you learn how to:
 > [!div class="checklist"]
 > * Set model properties as _IsFacetable_
 > * Add facet navigation to your app
 
+## Overview
+
+This tutorial builds onto the paging project created in the [Add paging to search results](tutorial-csharp-paging.md) tutorial. tutorial.
+
+Finished versions of the code in this tutorial can be found in the following project:
+
+* [4-add-facet-navigation (GitHub)](https://github.com/Azure-Samples/azure-search-dotnet-samples/tree/master/create-first-app/v11/4-add-facet-navigation)
+
 ## Prerequisites
 
-To complete this tutorial, you need to:
+* [2a-add-paging (GitHub)](https://github.com/Azure-Samples/azure-search-dotnet-samples/tree/master/create-first-app/v11/2a-add-paging) solution. This project can either be your own version built from the previous tutorial or a copy from GitHub.
 
-Have the [C# Tutorial: Search results pagination - Azure Cognitive Search](tutorial-csharp-paging.md) project up and running. This project can either be your own version, or install it from GitHub: [Create first app](https://github.com/Azure-Samples/azure-search-dotnet-samples).
+This tutorial has been updated to use the [Azure.Search.Documents (version 11)](https://www.nuget.org/packages/Azure.Search.Documents/) package. For an earlier version of the .NET SDK, see [Microsoft.Azure.Search (version 10) code sample](https://github.com/Azure-Samples/azure-search-dotnet-samples/tree/master/create-first-app/v10).
 
 ## Set model properties as IsFacetable
 

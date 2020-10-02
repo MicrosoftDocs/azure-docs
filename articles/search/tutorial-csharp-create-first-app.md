@@ -126,44 +126,44 @@ The set of **Hotel**, **Address**, and **Room** classes are known as [*complex t
     using Microsoft.Spatial;
     using System;
     using System.Text.Json.Serialization;
-    
+
     namespace FirstAzureSearchApp.Models
     {
         public partial class Hotel
         {
             [SimpleField(IsFilterable = true, IsKey = true)]
             public string HotelId { get; set; }
-    
+
             [SearchableField(IsSortable = true)]
             public string HotelName { get; set; }
-    
+
             [SearchableField(AnalyzerName = LexicalAnalyzerName.Values.EnLucene)]
             public string Description { get; set; }
-    
+
             [SearchableField(AnalyzerName = LexicalAnalyzerName.Values.FrLucene)]
             [JsonPropertyName("Description_fr")]
             public string DescriptionFr { get; set; }
-    
+
             [SearchableField(IsFilterable = true, IsSortable = true, IsFacetable = true)]
             public string Category { get; set; }
-    
+
             [SearchableField(IsFilterable = true, IsFacetable = true)]
             public string[] Tags { get; set; }
-    
+
             [SimpleField(IsFilterable = true, IsSortable = true, IsFacetable = true)]
             public bool? ParkingIncluded { get; set; }
-    
+
             [SimpleField(IsFilterable = true, IsSortable = true, IsFacetable = true)]
             public DateTimeOffset? LastRenovationDate { get; set; }
-    
+
             [SimpleField(IsFilterable = true, IsSortable = true, IsFacetable = true)]
             public double? Rating { get; set; }
-    
+
             public Address Address { get; set; }
-    
+
             [SimpleField(IsFilterable = true, IsSortable = true)]
             public GeographyPoint Location { get; set; }
-    
+
             public Room[] Rooms { get; set; }
         }
     }
@@ -173,23 +173,23 @@ The set of **Hotel**, **Address**, and **Room** classes are known as [*complex t
 
     ```csharp
     using Azure.Search.Documents.Indexes;
-    
+
     namespace FirstAzureSearchApp.Models
     {
         public partial class Address
         {
             [SearchableField]
             public string StreetAddress { get; set; }
-    
+
             [SearchableField(IsFilterable = true, IsSortable = true, IsFacetable = true)]
             public string City { get; set; }
-    
+
             [SearchableField(IsFilterable = true, IsSortable = true, IsFacetable = true)]
             public string StateProvince { get; set; }
-    
+
             [SearchableField(IsFilterable = true, IsSortable = true, IsFacetable = true)]
             public string PostalCode { get; set; }
-    
+
             [SearchableField(IsFilterable = true, IsSortable = true, IsFacetable = true)]
             public string Country { get; set; }
         }
@@ -202,33 +202,33 @@ The set of **Hotel**, **Address**, and **Room** classes are known as [*complex t
     using Azure.Search.Documents.Indexes;
     using Azure.Search.Documents.Indexes.Models;
     using System.Text.Json.Serialization;
-    
+
     namespace FirstAzureSearchApp.Models
     {
         public partial class Room
         {
             [SearchableField(AnalyzerName = LexicalAnalyzerName.Values.EnMicrosoft)]
             public string Description { get; set; }
-    
+
             [SearchableField(AnalyzerName = LexicalAnalyzerName.Values.FrMicrosoft)]
             [JsonPropertyName("Description_fr")]
             public string DescriptionFr { get; set; }
-    
+
             [SearchableField(IsFilterable = true, IsFacetable = true)]
             public string Type { get; set; }
-    
+
             [SimpleField(IsFilterable = true, IsFacetable = true)]
             public double? BaseRate { get; set; }
-    
+
             [SearchableField(IsFilterable = true, IsFacetable = true)]
             public string BedOptions { get; set; }
-    
+
             [SimpleField(IsFilterable = true, IsFacetable = true)]
             public int SleepsCount { get; set; }
-    
+
             [SimpleField(IsFilterable = true, IsFacetable = true)]
             public bool? SmokingAllowed { get; set; }
-    
+
             [SearchableField(IsFilterable = true, IsFacetable = true)]
             public string[] Tags { get; set; }
         }
@@ -239,14 +239,14 @@ The set of **Hotel**, **Address**, and **Room** classes are known as [*complex t
 
     ```csharp
     using Azure.Search.Documents.Models;
-    
+
     namespace FirstAzureSearchApp.Models
     {
         public class SearchData
         {
             // The text to search for.
             public string searchText { get; set; }
-    
+
             // The list of results.
             public SearchResults<Hotel> resultList;
         }
@@ -404,7 +404,7 @@ That completes our view. At this point, both the models and views are completed.
 
 ## Define methods
 
-In this step, modify to the contents of **Home Controller**..
+In this step, modify to the contents of **Home Controller**.
 
 1. Open the HomeController.cs file and replace the **using** statements with the following.
 
@@ -423,7 +423,9 @@ In this step, modify to the contents of **Home Controller**..
 
 ### Add Index methods
 
-We need two **Index** methods, one taking no parameters (for the use case when the app is first opened), and one taking a model as a parameter (for when the user has entered search text).
+In an MVC app, the **Index()** method is a default action method for any controller. It opens the index HTML page. The default method, which takes no parameters, is used in this tutorial for the application start-up use case: rendering an empty search page.
+
+In this section, we extend the method to support a second use case: rendering the page when a user has entered search text. To support this case, the index method is extended to take a model as a parameter.
 
 1. Add the following method, after the default **Index()** method.
 
@@ -531,7 +533,7 @@ Now, let's check whether the app runs correctly.
      :::image type="content" source="media/tutorial-csharp-create-first-app/azure-search-beach.png" alt-text="Searching for *beach*" border="true":::
 
 1. Try entering "five star". Notice that this query returns no results. A more sophisticated search would treat "five star" as a synonym for "luxury" and return those results. Support for [synonyms](search-synonyms.md) is available in Azure Cognitive Search, but isn't be covered in this tutorial series.
- 
+
 1. Try entering "hot" as search text. It does _not_ return entries with the word "hotel" in them. Our search is only locating whole words, though a few results are returned.
 
 1. Try other words: "pool", "sunshine", "view", and whatever. You will see Azure Cognitive Search working at its simplest, but still convincing level.

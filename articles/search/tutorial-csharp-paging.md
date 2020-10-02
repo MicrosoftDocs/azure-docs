@@ -23,17 +23,17 @@ In this tutorial, learn how to:
 
 ## Overview
 
-This tutorial builds the paging systems into the project created in the [Create your first search app](tutorial-csharp-create-first-app.md) tutorial.
+This tutorial overlays a paging system into a previously created project described in the [Create your first search app](tutorial-csharp-create-first-app.md) tutorial.
 
 Finished versions of the code that you will develop in this tutorial can be found in the following projects:
 
-* [2a-add-paging](https://github.com/Azure-Samples/azure-search-dotnet-samples/tree/master/create-first-app/v11/2a-add-paging)
+* [2a-add-paging (GitHub)](https://github.com/Azure-Samples/azure-search-dotnet-samples/tree/master/create-first-app/v11/2a-add-paging)
 
-* [2b-add-infinite-scroll](https://github.com/Azure-Samples/azure-search-dotnet-samples/tree/master/create-first-app/v11/2b-add-infinite-scroll)
+* [2b-add-infinite-scroll (GitHub)](https://github.com/Azure-Samples/azure-search-dotnet-samples/tree/master/create-first-app/v11/2b-add-infinite-scroll)
 
 ## Prerequisites
 
-* [create-first-app](https://github.com/Azure-Samples/azure-search-dotnet-samples/tree/master/create-first-app/v11) solution, with the 1-basic-search-page project. This project can either be your own version built in the previous tutorial, or a [copy from GitHub](https://github.com/Azure-Samples/azure-search-dotnet-samples/v11).
+* [1-basic-search-page (GitHub)](https://github.com/Azure-Samples/azure-search-dotnet-samples/tree/master/create-first-app/v11/1-basic-search-page) project. This project can either be your own version built from the previous tutorial or a copy from GitHub.
 
 This tutorial has been updated to use the [Azure.Search.Documents (version 11)](https://www.nuget.org/packages/Azure.Search.Documents/) package. For an earlier version of the .NET SDK, see [Microsoft.Azure.Search (version 10) code sample](https://github.com/Azure-Samples/azure-search-dotnet-samples/tree/master/create-first-app/v10).
 
@@ -300,7 +300,7 @@ Have the basic search page solution open.
     }
     ```
 
-1. The **RunQueryAsync** method, introduced in the previous lesson, needs modification to address the syntax error. We use the **Skip**, **Size**, and **IncludeTotalCount** fields of the [**SearchOptions**](../dotnet/api/azure.search.documents.searchoptions)  class to request only one page worth of results, starting at the **Skip** setting. We also need to calculate the paging variables for our view. Replace the entire method with the following code.
+1. The **RunQueryAsync** method, introduced in the previous lesson, needs modification to resolve the syntax error. We use the **Skip**, **Size**, and **IncludeTotalCount** fields of the [**SearchOptions**](https://docs.microsoft.com/dotnet/api/azure.search.documents.searchoptions) class to request only one page worth of results, starting at the **Skip** setting. We also need to calculate the paging variables for our view. Replace the entire method with the following code.
 
     ```csharp
     private async Task<ActionResult> RunQueryAsync(SearchData model, int page, int leftMostPage)
