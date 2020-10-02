@@ -12,7 +12,6 @@ This article shows you how to create a schema group with schemas in a schema reg
 > [!NOTE]
 > - The **Schema Registry** feature is currently in **preview**, and is not recommended for production workloads.
 > - The feature is available only in **standard** and **dedicated** tiers, not in the **basic** tier.
-> - This preview is currently available only in the **West Central US** region. 
 
 ## Prerequisites
 [Create an Event Hubs namespace](event-hubs-create.md#create-an-event-hubs-namespace). You can also use an existing namespace. 
