@@ -51,9 +51,9 @@ Additionally, the service recognizes relations between the different concepts in
 
 :::image type="content" source="../../media/ta-for-health/anatomy-attributes.png" alt-text="An example of a directional attribute.":::
 
-### Supported Relations
+### Supported relations
 
-**DIRECTION_OF_BODY_STRUCTURE**
+* **DIRECTION_OF_BODY_STRUCTURE**
 
 ## Demographics
 
@@ -108,12 +108,13 @@ Additionally, the service recognizes relations between the different concepts in
 
 :::image type="content" source="../../media/ta-for-health/exam-time-attribute.png" alt-text="An example of a time attribute with an examination name entity.":::
 
-### Supported Relations
-  + **DIRECTION_OF_EXAMINATION**
-  +	**RELATION_OF_EXAMINATION**
-  +	**TIME_OF_EXAMINATION**
-  +	**UNIT_OF_EXAMINATION**
-  +	**VALUE_OF_EXAMINATION**
+### Supported relations
+
++ **DIRECTION_OF_EXAMINATION**
++	**RELATION_OF_EXAMINATION**
++	**TIME_OF_EXAMINATION**
++	**UNIT_OF_EXAMINATION**
++	**VALUE_OF_EXAMINATION**
 
 ## Genomics
 
@@ -207,78 +208,97 @@ Additionally, the service recognizes relations between the different concepts in
 
 :::image type="content" source="../../media/ta-for-health/medical-condition-time-attribute.png" alt-text="An example of a direction attribute with a symptom or sign entity.":::
 
-### Supported Relations
-  + **DIRECTION_OF_CONDITION**
-  +	**QUALIFIER_OF_CONDITION**
-  +	**TIME_OF_CONDITION**
-  +	**UNIT_OF_CONDITION**
-  +	**VALUE_OF_CONDITION**
+### Supported relations
 
-## MEDICATION
++ **DIRECTION_OF_CONDITION**
++	**QUALIFIER_OF_CONDITION**
++	**TIME_OF_CONDITION**
++	**UNIT_OF_CONDITION**
++	**VALUE_OF_CONDITION**
+
+## Medication
+
 ### Entities
-  + **MEDICATION_CLASS** – A set of medications that have a similar mechanism of action, a related mode of action, a similar chemical structure, and/or are used to treat the same disease. For example, ACE inhibitor, opioid, antibiotics, pain relievers.
-> [!div class="mx-imgBorder"]
-> ![MED_CLASS](../../media/ta-for-health/medication_entities_class.png)
-  + **MEDICATION_NAME** – Medication mentions, including copyrighted brand names, and non-brand names. For example, Advil, Ibuprofen.
-> [!div class="mx-imgBorder"]
-> ![MED_NAME](../../media/ta-for-health/medication_entities_name.png)
+
+**MEDICATION_CLASS** – A set of medications that have a similar mechanism of action, a related mode of action, a similar chemical structure, and/or are used to treat the same disease. For example, ACE inhibitor, opioid, antibiotics, pain relievers.
+
+:::image type="content" source="../../media/ta-for-health/medication-entities-class.png" alt-text="An example of a medication class entity.":::
+
+**MEDICATION_NAME** – Medication mentions, including copyrighted brand names, and non-brand names. For example, Advil, Ibuprofen.
+
+:::image type="content" source="../../media/ta-for-health/medication-entities-name.png" alt-text="An example of a medication name entity.":::
 
 ### Attributes
-  + **DOSAGE** - Amount of medication ordered. For example, Infuse Sodium Chloride solution *1000 mL*.
-> [!div class="mx-imgBorder"]
-> ![MED_DOSAGE](../../media/ta-for-health/medication_attr_dosage.png)  
-  + **FREQUENCY** - How often a medication should be taken.
-> [!div class="mx-imgBorder"]
-> ![MED_FREQUENCY1](../../media/ta-for-health/medication_attr_frequency_1.png)  
 
-> ![MED_FREQUENCY2](../../media/ta-for-health/medication_attr_frequency_2.png)  
-  + **MEDICATION_FORM** - The form of the medication. For example, solution, pill, capsule, tablet, patch, gel, paste, foam, spray, drops, cream, syrup.
-> [!div class="mx-imgBorder"]
-> ![MED_FORM](../../media/ta-for-health/medication_attr_form.png)  
-  + **MEDICATION_ROUTE** - The administration method of medication. For example, oral, vaginal, IV, epidural, topical, inhaled.
-> [!div class="mx-imgBorder"]
-> ![MED_ROUTE](../../media/ta-for-health/medication_attr_route.png) 
-  + **RELATIONAL_OPERATOR** - Phrases that express the relation between medication and additional information. For example, the required measurement value.
-> [!div class="mx-imgBorder"]
-> ![MED_RELOPR](../../media/ta-for-health/medication_attr_rel_opr.png) 
-  + **TIME** - Temporal terms relating to the beginning and/or length (duration) of medication. For example, when was the drug administered.
-> [!div class="mx-imgBorder"]
-> ![MED_TIME](../../media/ta-for-health/medication_attr_time.png) 
+**DOSAGE** - Amount of medication ordered. For example, Infuse Sodium Chloride solution *1000 mL*.
 
-### Supported Relations
-  + **DOSAGE_OF_MEDICATION**
-  +	**FORM_OF_MEDICATION**
-  +	**FREQUENCY_OF_MEDICATION**
-  +	**ROUTE_OF_MEDICATION**
-  +	**TIME_OF_MEDICATION**
+:::image type="content" source="../../media/ta-for-health/medication-dosage.png" alt-text="An example of a medication dosage attribute.":::
+
+**FREQUENCY** - How often a medication should be taken.
+
+:::image type="content" source="../../media/ta-for-health/medication-frequency.png" alt-text="An example of a medication frequency attribute.":::
+
+:::image type="content" source="../../media/ta-for-health/medication-frequency-2.png" alt-text="Another example of a medication frequency attribute.":::
+
+**MEDICATION_FORM** - The form of the medication. For example, solution, pill, capsule, tablet, patch, gel, paste, foam, spray, drops, cream, syrup.
+
+:::image type="content" source="../../media/ta-for-health/medication-form.png" alt-text="An example of a medication form attribute.":::
+
+**MEDICATION_ROUTE** - The administration method of medication. For example, oral, vaginal, IV, epidural, topical, inhaled.
+
+:::image type="content" source="../../media/ta-for-health/medication-route.png" alt-text="An example of a medication route attribute.":::
+
+**RELATIONAL_OPERATOR** - Phrases that express the relation between medication and additional information. For example, the required measurement value.
+
+:::image type="content" source="../../media/ta-for-health/medication-relational-operator.png" alt-text="An example of a relational operator attribute with a medication entity.":::
+
+:::image type="content" source="../../media/ta-for-health/medication-time.png" alt-text="An example of a relational operator attribute with a medication entity.":::
+
+### Supported relations
+
++ **DOSAGE_OF_MEDICATION**
++	**FORM_OF_MEDICATION**
++	**FREQUENCY_OF_MEDICATION**
++	**ROUTE_OF_MEDICATION**
++	**TIME_OF_MEDICATION**
   
-## TREATMENT
+## Treatment
+
 ### Entities
-  + **TREATMENT_NAME** – Therapeutic procedures. For example, knee replacement surgery, bone marrow transplant, TAVI, diet.
-> [!div class="mx-imgBorder"]
-> ![TREAT_NAME](../../media/ta-for-health/treatment_entities_name.png)
+
+**TREATMENT_NAME** – Therapeutic procedures. For example, knee replacement surgery, bone marrow transplant, TAVI, diet.
+
+:::image type="content" source="../../media/ta-for-health/treatment-entities-name.png" alt-text="An example of a treatment name entity.":::
 
 ### Attributes
-  + **DIRECTION** - Directional terms that characterizes a treatment.
-> [!div class="mx-imgBorder"]
-> ![TREAT_DIRECT](../../media/ta-for-health/treatment_attr_direction.png)  
-  + **FREQUENCY** - How often a treatment occurs or should occur.
-> [!div class="mx-imgBorder"]
-> ![TREAT_FREQ](../../media/ta-for-health/treatment_attr_freq.png)  
-  + **RELATIONAL_OPERATOR** - Phrases that express the relation between treatment and additional information.  For example, how much time passed from the previous procedure.
-> [!div class="mx-imgBorder"]
-> ![TREAT_RELOPR](../../media/ta-for-health/treatment_attr_rel_opr.png) 
-  + **TIME** - Temporal terms relating to the beginning and/or length (duration) of a treatment. For example, the date the treatment was given.
-> [!div class="mx-imgBorder"]
-> ![TREAT_TIME](../../media/ta-for-health/treatment_attr_time.png) 
 
-### Supported Relations
-  + **DIRECTION_OF_TREATMENT**
-  +	**TIME_OF_TREATMENT**
-  +	**FREQUENCY_OF_TREATMENT**
-  
-## SOCIAL
+**DIRECTION** - Directional terms that characterizes a treatment.
+
+:::image type="content" source="../../media/ta-for-health/treatment-direction.png" alt-text="An example of a treatment direction attribute.":::
+
+**FREQUENCY** - How often a treatment occurs or should occur.
+
+:::image type="content" source="../../media/ta-for-health/treatment-frequency.png" alt-text="An example of a treatment direction attribute.":::
+ 
+**RELATIONAL_OPERATOR** - Phrases that express the relation between treatment and additional information.  For example, how much time passed from the previous procedure.
+
+:::image type="content" source="../../media/ta-for-health/treatment-relational-operator.png" alt-text="An example of a treatment relational operator attribute.":::
+
+**TIME** - Temporal terms relating to the beginning and/or length (duration) of a treatment. For example, the date the treatment was given.
+
+:::image type="content" source="../../media/ta-for-health/treatment-time.png" alt-text="An example of a treatment time attribute.":::
+
+
+### Supported relations
+
++ **DIRECTION_OF_TREATMENT**
++	**TIME_OF_TREATMENT**
++	**FREQUENCY_OF_TREATMENT**
+
+## Social
+
 ### Entities
-  + **FAMILY_RELATION** – Mentions of family relatives of the subject. For example, father, daughter, siblings, parents.
-> [!div class="mx-imgBorder"]
-> ![SOCIAL_FAM](../../media/ta-for-health/social_entities_fam_rel.png)
+
+**FAMILY_RELATION** – Mentions of family relatives of the subject. For example, father, daughter, siblings, parents.
+
+:::image type="content" source="../../media/ta-for-health/family-relation.png" alt-text="An example of a treatment time attribute.":::
