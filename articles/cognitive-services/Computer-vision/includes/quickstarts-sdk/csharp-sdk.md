@@ -86,8 +86,6 @@ In the application's **Program** class, create variables for your resource's Azu
 >
 > Remember to remove the key from your code when you're done, and never post it publicly. For production, consider using a secure way of storing and accessing your credentials. See the Cognitive Services [security](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-security) article for more information.
 
-## Call methods
-
 In the application's `Main` method, add calls for the methods used in this quickstart. You will create these later.
 
 
