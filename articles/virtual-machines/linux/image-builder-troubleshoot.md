@@ -517,7 +517,7 @@ PACKER ERR 2020/03/26 22:11:25 [INFO] RPC endpoint: Communicator ended with: 230
 Image Builder service uses port 22(Linux), or 5986(Windows)to connect to the build VM, this occurs when the service is disconnected from the build VM during an image build. Reasons for disconnection can vary, but enabling or configuring firewalls in script can block the ports above.
 
 #### Solution
-Review your scripts for firewall changes/enablement, or changes to SSH or WinRM, and ensure any changes allow for constant connectivity between the service and build VM on the ports above. For more infomation on Image Builder networking, please review the [requirements](https://docs.microsoft.com/azure/virtual-machines/linux/image-builder-networking).
+Review your scripts for firewall changes/enablement, or changes to SSH or WinRM, and ensure any changes allow for constant connectivity between the service and build VM on the ports above. For more information on Image Builder networking, please review the [requirements](https://docs.microsoft.com/azure/virtual-machines/linux/image-builder-networking).
 
 ## DevOps task 
 
