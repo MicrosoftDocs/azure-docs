@@ -28,7 +28,6 @@ Many options exist for creating a VHD from a physical lab environment. The follo
     1. The VM must use a fixed disk size; here, you also can specify the size of the disk.    
         > [!NOTE]
 	> Azure Lab Services doesn’t support images with > 128 GB of disk size.
-    
         :::image type="content" source="./media/upload-custom-image-shared-image-gallery/connect-virtual-hard-disk.png" alt-text="Connect virtual hard disk":::   
     1. Image the VM as you normally would.
 1. [Connect to the VM and prepare it for Azure](https://docs.microsoft.com/azure/virtual-machines/windows/prepare-for-upload-vhd-image).
@@ -61,5 +60,5 @@ Many options exist for creating a VHD from a physical lab environment. The follo
 
 ## Next steps
 
-* [Shared Image Gallery overview](../azure/virtual-machines/windows/shared-image-galleries.md)
+* [Shared Image Gallery overview](https://docs.microsoft.com/azure/virtual-machines/windows/shared-image-galleries)
 * [How to use shared image gallery](how-to-use-shared-image-gallery.md)
