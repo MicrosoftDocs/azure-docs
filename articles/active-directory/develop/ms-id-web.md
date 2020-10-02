@@ -1,46 +1,58 @@
 ---
-title: Microsoft identity web - Overview
+title: Microsoft.Identity.Web authentication library overview
 titleSuffix: Microsoft identity platform
-description: Learn about Microsoft identity web, the glue between ASP.NET Core, authentication middleware, and MSAL.NET.
+description: Learn about Microsoft.Identity.Web, an authentication and authorization library for ASP.NET Core applications that integrate with Azure Active Directory and Microsoft Graph and other web APIs.
 services: active-directory
 author: jmprieur
 manager: CelesteDG
 
 ms.service: active-directory
 ms.subservice: develop
-ms.topic: how-to
+ms.topic: conceptual
 ms.workload: identity
-ms.date: 09/24/2020
+ms.date: 10/09/2020
 ms.author: jmprieur
 ms.reviewer: marsma
 ms.custom: "devx-track-csharp, aaddev"
-#Customer intent: As an application developer, I want to learn how to build ASP.NET Core web apps and web api calling or not downstream apis.
+# Customer intent: As an application developer, I want to learn how to add authentication to ASP.NET Core web apps and authorization to protected web APIs.
 ---
 
-# Microsoft.Identity.Web - Overview
+# Microsoft.Identity.Web authentication library
 
-_Microsoft.Identity.Web_ is an authentication library available as a set of NuGet packages. You want to use _Microsoft.Identity.Web_ when developing an ASP.NET Core web app or web API involving authentication with the Microsoft Identity Platform. The library provides the glue between ASP.NET Core, the authentication middleware, and the [Microsoft Authentication Library (MSAL)](msal-overview.md) for [.NET](https://github.com/azuread/microsoft-authentication-library-for-dotnet). It allows for a clearer, more robust developer experience and leverages the power of the Microsoft identity platform and Azure AD B2C.
+*Microsoft.Identity.Web* is a set of ASP.NET Core libraries that simplifies adding authentication and authorization support to web apps and web APIs integrating with the Microsoft identity platform. It provides a single-surface API convenience layer tying together ASP.NET Core, its authentication middleware, and the [Microsoft Authentication Library (MSAL) for .NET](https://github.com/azuread/microsoft-authentication-library-for-dotnet).
 
-Microsoft.Identity.Web proposes the following NuGet packages:
+## Supported application scenarios
 
-- [Microsoft.Identity.Web](https://www.nuget.org/packages/Microsoft.Identity.Web), the main package
-- [Microsoft.Identity.Web.UI](https://www.nuget.org/packages/Microsoft.Identity.Web.UI), brings UI to sign in and sign out users, and an associated controller for web apps
-- [Microsoft.Identity.Web.MicrosoftGraph](https://www.nuget.org/packages/Microsoft.Identity.Web.MicrosoftGraph), does the glue with the Graph SDK for .NET.
+If you're building web apps or web APIs in ASP.NET Core and want to use Azure AD or Azure AD B2C for your identity layer, we recommend using Microsoft.Identity.Web for these scenarios:
 
-## Application types and scenarios
+* [Web app that signs in users](scenario-web-app-sign-user-overview.md)
+* [Web app that signs in users and calling a web API on their behalf](scenario-web-app-call-api-overview.md)
+* [Protected web API that only authenticated users can access](scenario-protected-web-api-overview.md)
+* [Protected web API calling another (downstream) web API on behalf of the signed-in user](scenario-web-api-call-api-overview.md)
 
-Microsoft Identity Web can be used in the following scenarios when the technology you choose is ASP.NET Core. 
+## Get Microsoft.Identity.Web
 
-* [Web app signing in users](scenario-web-app-sign-user-overview.md)
-* [Web application signing in a user and calling a web API on behalf of the user](scenario-web-app-call-api-overview.md)
-* [Protecting a web API so only authenticated users can access it](scenario-protected-web-api-overview.md)
-* [Web API calling another downstream web API on behalf of the signed-in user](scenario-web-api-call-api-overview.md)
+### NuGet
 
-These scenarios are enabled both for Azure AD and Azure AD B2C applications. See them for details on how Microsoft.Identity.Web is used specifically in these scenarios.
+Microsoft.Identity.Web is available on NuGet as a set of packages that provide modular functionality based on your app's needs.
 
-## Why use Microsoft Identity Web?
+- [Microsoft.Identity.Web](https://www.nuget.org/packages/Microsoft.Identity.Web) - The main package. Required by all apps that use Microsoft.Identity.Web.
+- [Microsoft.Identity.Web.UI](https://www.nuget.org/packages/Microsoft.Identity.Web.UI) - Optional. Adds UI for user sign-in and sign-out and an associated controller for web apps.
+- [Microsoft.Identity.Web.MicrosoftGraph](https://www.nuget.org/packages/Microsoft.Identity.Web.MicrosoftGraph) - Optional. Provides simplified interaction with the Microsoft Graph API.
 
-When  creating a web app from an ASP.NET core 3.1 project templates (for instance, `dotnet new webapp --auth SingleOrg`), the application that is produced targets the Azure AD v1.0 endpoint, which means sign-in with a work or school account is the only option for customers. Microsoft.Identity.Web provides access to the Microsoft identity platform (formerly Azure AD v2.0) endpoint. It also provides more complete security features such as issuer validation happening in multi-tenant applications. The web apps and web APIs leveraging that are created don't call downstream web APIs, if a developer wanted to call a downstream web API, they would need to leverage MSAL on their own.
+### Project templates
+
+Microsoft.Identity.Web project templates are included in .NET 5.0 and are available for download for ASP.NET Core 3.1 projects.
+
+:::image type="content" source="media/microsoft-identity-web-overview/diagram-microsoft-identity-web-templates.png" alt-text="Diagram of the available dot net CLI project templates for Microsoft Identity Web ":::
+<br /><sup><b>*</b></sup> `MultiOrg` is not supported with `webapi2`, but can be enabled in *appsettings.json* by setting tenant to `common` or `organizations`
+<br /><sup><b>**</b></sup> `--calls-graph` is not supported for Azure AD B2C
+
+## Features
+
+When  creating a web app from an ASP.NET core 3.1 project templates (for instance, `dotnet new webapp --auth SingleOrg`), the application that is produced targets the Azure AD v1.0 endpoint, which means sign-in with a work or school account is the only option for customers.
+
+Microsoft.Identity.Web provides access to the Microsoft identity platform (formerly Azure AD v2.0) endpoint. It also provides more complete security features such as issuer validation happening in multi-tenant applications. The web apps and web APIs leveraging that are created don't call downstream web APIs, if a developer wanted to call a downstream web API, they would need to leverage MSAL on their own.
 
 The table below show the features brought by Microsoft Identity web on top of the ASP.NET Core web apps and web APIs.
 
@@ -57,10 +69,8 @@ The table below show the features brought by Microsoft Identity web on top of th
 | [Scopes/app role validation](scenario-protected-web-api-verification-scope-app-roles.md) in web APIs | no                        | yes |
 | [www-Authenticate headers generation](ms-id-web-handling-incremental-consent-conditional-access.md#handling-incremental-consent-or-conditional-access-in-web-apis) in web APIs | no               | yes |
 
-## Microsoft.Identity.Web provides project templates for ASP.NET Core 3.1
+## Next steps
 
-Microsoft.Identity.Web also provides .NET Core project templates that bring to ASP.NET Core 3.1 the features above. If you're using .NET 5.0, the web templates already reference Microsoft.Identity.Web.
+To see it in use, our Blazor Server tutorial uses Microsoft.Identity.Web:
 
-Here are the available project templates: 
-
-![image](https://user-images.githubusercontent.com/13203188/93343955-603e4100-f831-11ea-9cd8-7025f6361453.png)
+[Tutorial: Create a Blazor Server app that uses the Microsoft identity platform for authentication](tutorial-blazor-server.md)
