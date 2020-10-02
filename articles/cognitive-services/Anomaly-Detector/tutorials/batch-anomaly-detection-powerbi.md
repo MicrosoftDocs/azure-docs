@@ -75,7 +75,7 @@ Within the Advanced Editor, use the following Power Query M snippet to extract t
     jsonbody    = "{ ""Granularity"": ""daily"", ""Sensitivity"": 95, ""Series"": "& jsontext &" }",
     bytesbody   = Text.ToBinary(jsonbody),
     headers     = [#"Content-Type" = "application/json", #"Ocp-Apim-Subscription-Key" = apikey],
-    bytesresp   = bytesresp  = Web.Contents(endpoint, [Headers=headers, Content=bytesbody, ManualStatusHandling={400}]),
+    bytesresp   = Web.Contents(endpoint, [Headers=headers, Content=bytesbody, ManualStatusHandling={400}]),
     jsonresp    = Json.Document(bytesresp),
 
     respTable = Table.FromColumns({
