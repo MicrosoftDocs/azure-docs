@@ -66,5 +66,5 @@ Managed identities for your Azure Synapse workspace might already have access to
 ## Next steps
 
 * [Create a SQL pool](quickstart-create-sql-pool-studio.md) 
-* [Create an serverless Apache Spark pool](quickstart-create-apache-spark-pool-portal.md)
+* [Create a serverless Apache Spark pool](quickstart-create-apache-spark-pool-portal.md)
 * [Use SQL on-demand](quickstart-sql-on-demand.md)

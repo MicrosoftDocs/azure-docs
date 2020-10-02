@@ -12,7 +12,7 @@ ms.date: 04/15/2020
 
 # Tutorial: Create Apache Spark job definition in Synapse Studio
 
-This tutorial demonstrates how to use the Azure Synapse Studio to create Apache Spark job definitions, and then submit them to an serverless Apache Spark pool.
+This tutorial demonstrates how to use the Azure Synapse Studio to create Apache Spark job definitions, and then submit them to a serverless Apache Spark pool.
 
 This tutorial covers the following tasks:
 > [!div class="checklist"]

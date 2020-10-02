@@ -23,13 +23,16 @@ In this tutorial you learn the following tasks:
 - Calculate model accuracy
 
 ### Before you begin
-- Create an serverless Apache Spark Pool by following the [Create an serverkess Apache Spark pool qyuickstart](../quickstart-create-apache-spark-pool-studio.md).
+
+- Create a serverless Apache Spark Pool by following the [Create a serverless Apache Spark pool quickstart](../quickstart-create-apache-spark-pool-studio.md).
 - Complete the [Azure Machine Learning workspace setup tutorial](https://docs.microsoft.com/azure/machine-learning/tutorial-1st-experiment-sdk-setup) if you do not have an existing Azure Machine Learning workspace. 
 
 ### Understand regression models
+
 *Regression models* predict numerical output values based on independent predictors. In regression, the objective is to help establish the relationship among those independent predictor variables by estimating how one variable impacts the others.  
 
 ### Regression analysis example on the NYC taxi data
+
 In this example, you will use Spark to perform some analysis on taxi trip tip data from New York. The data is available through [Azure Open Datasets](https://azure.microsoft.com/services/open-datasets/catalog/nyc-taxi-limousine-commission-yellow-taxi-trip-records/). This subset of the dataset contains information about yellow taxi trips, including information about each trip, the start and end time and locations, the cost, and other interesting attributes.
 
 > [!IMPORTANT]
