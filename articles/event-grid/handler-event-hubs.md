@@ -77,8 +77,5 @@ If you use an **event hub** as an event handler for events from Event Grid, thes
 }
 ```
 
-> [!NOTE]
-> Delivering events to an Azure event hub in **another tenant** isn't supported. 
-
 ## Next steps
 See the [Event handlers](event-handlers.md) article for a list of supported event handlers. 
