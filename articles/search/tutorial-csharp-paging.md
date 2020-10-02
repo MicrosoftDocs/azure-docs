@@ -109,7 +109,7 @@ Have the basic search page solution open.
 
 1. Open the index.cshtml file, and add the following code right before the closing &lt;/body&gt; tag. This new code presents a table of paging options: first, previous, 1, 2, 3, 4, 5, next, last.
 
-    ```csharp
+    ```html
     @if (Model != null && Model.pageCount > 1)
     {
     // If there is more than one page of results, show the paging buttons.
