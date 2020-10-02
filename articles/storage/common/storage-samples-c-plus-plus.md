@@ -138,7 +138,7 @@ You can browse and clone the GitHub repository for each library.
 
 Check out the following guides if you are looking for instructions on how to install and get started with the Azure Storage Client Libraries.
 
-* [Quickstart: Azure Blob storage library v12 - C++](../blobs/storage-quickstart-blobs-c-plus-plus.md)
+* [Quickstart: Azure Blob storage library v12 - C++](../blobs/quickstart-blobs-c-plus-plus.md)
 
 ## Next steps
 
