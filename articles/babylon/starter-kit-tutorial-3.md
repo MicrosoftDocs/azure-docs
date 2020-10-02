@@ -85,7 +85,7 @@ In this tutorial, you learned how to:
 > * Browse for assets in the catalog.
 > * View the lineage of assets.
 
-Advance to the next tutorial to learn about resource sets, asset details, schema, and classification.
+Advance to the next tutorial to learn about resource sets, asset details, schemas, and classifications.
 
 > [!div class="nextstepaction"]
-> [Resource sets, asset details, schema, and classification](starter-kit-tutorial-4.md)
+> [Resource sets, asset details, schemas, and classifications](starter-kit-tutorial-4.md)
