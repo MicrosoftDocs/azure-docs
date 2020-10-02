@@ -68,7 +68,7 @@ Let's start with the simplest case of offering up alternatives to the user: a dr
 
 1. To access the jQuery library, change the &lt;head&gt; section of the view file to the following code:
 
-    ```cs
+    ```html
     <head>
         <meta charset="utf-8">
         <title>Typeahead</title>
