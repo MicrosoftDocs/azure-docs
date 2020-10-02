@@ -65,7 +65,20 @@ Once you have created a FileStorage account, you can follow the instructions to 
 If the SMB Multichannel option is not visible under **File share settings** or you get a failed to update setting error while updating the configuration, please make sure that your subscription is registered and your account is in one of the [supported regions](#regional-availability) with supported account type and replication.
 
 # [PowerShell](#tab/azure-powershell)
-Azure PowerShell does not yet support configuring SMB Multichannel. See the portal instructions to configure SMB Multichannel on storage account.
+Set the variables `$resourceGroupName` and `$storageAccountName` to your resource group and storage account before running these PowerShell commands.
+
+```azurepowershell
+# Skip steps 1 and 2 if PowershellGet is already updated.
+# 1. Install the latest PowershellGet as an administrator by uncommenting the following line.
+# install-Module PowerShellGet –Repository PSGallery –Force 
+# 2. Close and reopen the Powershell console
+# 3.Install Az.Storage preview module as an administrator
+
+Install-Module Az.Storage -Repository PsGallery -RequiredVersion 2.6.1-preview -AllowClobber -AllowPrerelease -Force   
+
+# Enable SMB Multichannel on the premium storage account that's in one of the supported regions
+Update-AzStorageFileServiceProperty -ResourceGroupName $resourceGroupName -StorageAccountName $storageAccountName -EnableSmbMultichannel $true 
+```
 
 # [Azure CLI](#tab/azure-cli)
 Azure CLI does not yet support configuring SMB Multichannel. See the portal instructions to configure SMB Multichannel on storage account.
