@@ -140,7 +140,7 @@ Mobile push notification are the pop up notification you get on a mobile device.
 
 ### Prerequisite
 
-This tutorial presumes you have a Firebase account setup with Cloud Messaging (FCM) enabled and your Firebase Cloud Messaging is connected to an Azure Notification Hub (ANH) instance. See [Connect Firebase to Azure](https://docs.microsoft.com/azure/notification-hubs/notification-hubs-android-push-notification-google-fcm-get-started) for more on that.
+This tutorial presumes you have a Firebase account setup with Cloud Messaging (FCM) enabled and your Firebase Cloud Messaging is connected to an Azure Notification Hub (ANH) instance. See [Communication Services notifications](https://docs.microsoft.com/en-us/azure/communication-services/concepts/notifications) for more on that.
 Additionally, the tutorial assumes you're using Android Studio version 3.6 or higher to build your application.
 
 A set of permissions are required for the Android application in order to be able to receive notifications messages from FCM. In your AndroidManifest.xml file, add the following set of permissions right after the *<manifest ...>* or below the *</application>* tag
@@ -204,7 +204,7 @@ import com.google.firebase.iid.InstanceIdResult;
 6. Register the device registration token with the Calling Services client library for incoming calls Push Notifications
 
 ```java
-String deviceRegistrationToken = "some_token";
+String deviceRegistrationToken = "<Device Token from previous section>";
 try {
     callAgent.registerPushNotification(deviceRegistrationToken).get();
 }
@@ -222,7 +222,7 @@ catch(Exception e) {
 
 ```java
 public class MyFirebaseMessagingService extends FirebaseMessagingService {
-    private java.util.Map<String, String> pushNotificationMessageData;
+    private java.util.Map<String, String> pushNotificationMessageDataFromFCM;
 
     @Override
     public void onMessageReceived(RemoteMessage remoteMessage) {
@@ -231,7 +231,7 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
             Log.d("PushNotification", "Message Notification Body: " + remoteMessage.getNotification().getBody());
         }
         else {
-            pushNotificationMessageData = serializeDictionaryAsJson(remoteMessage.getData());
+            pushNotificationMessageDataFromFCM = remoteMessage.getData();
         }
     }
 }
@@ -248,10 +248,9 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
         </service>
 ```
 
-- Once the payload is retrieved, it can be passed to the *Communication Services* client library to be handled by calling the *handlePushNotification* method on a *CallAgent* instance.
+- Once the payload is retrieved, it can be passed to the *Communication Services* client library to be handled by calling the *handlePushNotification* method on a *CallAgent* instance. A `CallAgent` instance is create by calling the `createCallAgent(...)` method on a `CallClient` class.
 
 ```java
-java.util.Map<String, String> pushNotificationMessageDataFromFCM = remoteMessage.getData();
 try {
     callAgent.handlePushNotification(pushNotificationMessageDataFromFCM).get();
 }
