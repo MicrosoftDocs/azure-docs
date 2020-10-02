@@ -75,53 +75,47 @@ After investigating an alert and understanding its scope, you can respond to sec
 
 1.	Open the **Take action** tab to see the recommended responses.
 
-    :::image type="content" source="./media/tutorial-security-incident/alert-details-take-action.png" alt-text="Security alerts take details tab" lightbox="./media/tutorial-security-incident/alert-details-take-action.png":::
+    :::image type="content" source="./media/tutorial-security-incident/alert-details-take-action.png" alt-text="Security alerts take action tab" lightbox="./media/tutorial-security-incident/alert-details-take-action.png":::
 
 1.	Review the **Mitigate the threat** section for the manual investigation steps necessary to mitigate the issue.
 1.	To harden your resources and prevent future attacks of this kind, remediate the security recommendations in the **Prevent future attacks** section.
 1.	To trigger a logic app with automated response steps, use the **Trigger automated response** section.
-1.	If the detected activity isn’t malicious, you can suppress future alerts of this kind using the **Suppress similar alerts** section.
+1.	If the detected activity *isn’t* malicious, you can suppress future alerts of this kind using the **Suppress similar alerts** section.
 
-## Classify a security alert
-After investigating and responding to a security alert, the final stage is to *classify* the alert.
-
-1.	To indicate that you've handed an alert, change the status to **Dismissed**.
+1.	When you've completed the investigation into the alert and responded in the appropriate way, change the status to **Dismissed**.
 
     :::image type="content" source="./media/tutorial-security-incident/set-status-dismissed.png" alt-text="Setting an alert's status":::
 
     This removes the alert from the main alerts list. You can use the filter from the alerts list page to view all alerts with **Dismissed** status.
 
-1.	Mark the alert as **Useful** or **Not useful**, and add a reason and comment.
+1.	Optionally, provide feedback on an alert to Microsoft:
+    1. Marking the alert as **Useful** or **Not useful** and providing
+    1. Select a reason and add a comment.
 
-    :::image type="content" source="./media/tutorial-security-incident/alert-feedback.png" alt-text="Provide feedback to Microsoft on the usefulness of an alert":::
+        :::image type="content" source="./media/tutorial-security-incident/alert-feedback.png" alt-text="Provide feedback to Microsoft on the usefulness of an alert":::
 
     > [!TIP]
-    > Microsoft reviews your feedback to improve our algorithms and provide better security alerts.
+    > We review your feedback to improve our algorithms and provide better security alerts.
 
-## Clean-up resources
+## End the tutorial
 
-Other quickstarts and tutorials in this collection build upon this quickstart. If you plan to continue to work with subsequent quickstarts and tutorials, keep automatic provisioning and Azure Defender enabled. If you do not plan to continue or wish to disable Azure Defender:
+Other quickstarts and tutorials in this collection build upon this quickstart. If you plan to continue to work with subsequent quickstarts and tutorials, keep automatic provisioning and Azure Defender enabled. 
+
+If you don't plan to continue, or you want to disable either of these features:
 
 1. Return to the Security Center main menu and select **Pricing and settings**.
-1. Select the subscription that you want to downgrade.
-1. Set **Azure Defender** to Off.
-1. Select **Save**.
-
-If you wish to disable automatic provisioning:
-
-1. Return to the Security Center main menu and select **Security policy**.
-2. Select the subscription on which to disable automatic provisioning.
-3. Under **Security policy – Data Collection**, select **Off** under **Onboarding** to disable automatic provisioning.
+1. Select the relevant subscription.
+1. To downgrade, select **Azure Defender off**.
+1. To disable automatic provisioning, open the **Data Collection** page and set **Auto provisioning** to **Off**.
 4. Select **Save**.
 
 >[!NOTE]
-> Disabling automatic provisioning does not remove the Log Analytics agent from Azure VMs where the agent has been provisioned. Disabling automatic provisioning limits security monitoring for your resources.
+> Disabling automatic provisioning does not remove the Log Analytics agent from Azure VMs that already have the agent. Disabling automatic provisioning limits security monitoring for your resources.
 >
 
 ## Next steps
-In this tutorial, you learned about Security Center features to be used when responding to a security incident, such as:
+In this tutorial, you learned about Security Center features to be used when responding to a security alert. For related material see:
 
-> [!div class="checklist"]
-> * Security incident which is an aggregation of related alerts for a resource
-> * Investigation map which is a graphical representation of the entities connected to a security alert or incident
-> * Search capabilities to find more evidence of compromised systems
+- [Respond to Azure Defender for Key Vault alerts](defender-for-key-vault-usage.md)
+- [Security alerts - a reference guide](alerts-reference.md)
+- [Introduction to Azure Defender](azure-defender.md)

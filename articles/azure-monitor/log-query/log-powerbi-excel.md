@@ -55,6 +55,8 @@ A dataflow is a type of "cloud ETL" designed to help you collect and prep your d
 
 Incremental refresh 
 
+media\log-powerbi-excel
+
 Both Power BI datasets and Power BI dataflow offer an incremental refresh option. 
 
 Incremental refresh is a great way to run small queries and update smaller amounts of data per run. 
