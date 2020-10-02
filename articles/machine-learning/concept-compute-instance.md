@@ -33,6 +33,8 @@ A compute instance is a fully managed cloud-based workstation optimized for your
 |Preconfigured&nbsp;for&nbsp;ML|Save time on setup tasks with pre-configured and up-to-date ML packages, deep learning frameworks, GPU drivers.|
 |Fully customizable|Broad support for Azure VM types including GPUs and persisted low-level customization such as installing packages and drivers makes advanced scenarios a breeze. |
 
+You can [create a compute instance](how-to-create-manage-compute-instance.md?tabs=python#create) yourself, or an administrator can [create a compute instance for you](how-to-create-manage-compute-instance?tabs=python#create-on-behalf-of-preview).
+
 ## <a name="contents"></a>Tools and environments
 
 > [!IMPORTANT]
@@ -42,7 +44,9 @@ A compute instance is a fully managed cloud-based workstation optimized for your
 
 Azure Machine Learning compute instance enables you to author, train, and deploy models in a fully integrated notebook experience in your workspace.
 
-These tools and environments are installed on the compute instance: 
+You can [install packages](how-to-create-manage-compute-instance.md#install-packages) and [add kernels](how-to-create-manage-compute-instance.md#add-new-kernels) to your compute instance.  
+
+These tools and environments are already installed on the compute instance: 
 
 |General tools & environments|Details|
 |----|:----:|

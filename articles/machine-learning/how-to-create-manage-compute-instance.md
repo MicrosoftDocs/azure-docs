@@ -23,9 +23,9 @@ In this article, you learn how to:
 
 * Create a compute instance 
 * Manage (start, stop, restart, delete) a compute instance
-* Access the terminal window to:
-  * Install R or Python packages
-  * Create new environments or Jupyter kernels
+* Access the terminal window 
+* Install R or Python packages
+* Create new environments or Jupyter kernels
 
 Compute instances can run jobs securely in a [virtual network environment](how-to-secure-training-vnet.md), without requiring enterprises to open up SSH ports. The job executes in a containerized environment and packages your model dependencies in a Docker container. 
 
@@ -243,7 +243,7 @@ Open the terminal window of your compute instance in any of these ways:
 
 Use the terminal window to install packages and create additional kernels.
 
-### Install packages
+## Install packages
 
 You can install packages directly in Jupyter Notebook or RStudio:
 
@@ -252,7 +252,7 @@ You can install packages directly in Jupyter Notebook or RStudio:
 
 Or you can install from a  terminal window. Install Python packages into the **Python 3.6 - AzureML** environment.  Install R packages into the **R** environment.
 
-### Add new kernels
+## Add new kernels
 
 To add a new Jupyter kernel to the compute instance:
 
