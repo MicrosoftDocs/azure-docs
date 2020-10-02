@@ -926,7 +926,7 @@ Include all virtual machines, including the majority maker in the cluster.
       pcs constraint location SAPHanaTopology_<b>HN1</b>_HDB<b>03</b>-clone rule resource-discovery=never score=-INFINITY hana_nfs_s1_active ne true and hana_nfs_s2_active ne true
       </code></pre>
 
-6. Place the cluster out of maintenance mode. Make sure that the cluster status is ok and that all of the resources are started.  
+7. **[1]** Place the cluster out of maintenance mode. Make sure that the cluster status is ok and that all of the resources are started.  
    <pre><code> sudo pcs property set maintenance-mode=false
    #If there are failed cluster resources, you may need to run the next command
    pcs resource cleanup
