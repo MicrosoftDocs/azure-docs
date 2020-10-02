@@ -22,7 +22,6 @@ In this document, we'll review the decision flows that you can use to select pho
 
 Azure Communication Services allows you to use phone numbers to place and receive telephony calls and SMS messages. These phone numbers can be used to configure caller ID for outbound calls placed by your service.
   
-The simplest way to begin is to get a new phone number from Azure Communication Services in a matter of minutes.
 
 The following diagram can be used to determine the type of phone number that you'll select:
 
