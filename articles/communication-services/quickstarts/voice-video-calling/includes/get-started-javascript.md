@@ -119,10 +119,8 @@ const callClient = new CallClient();
 const tokenCredential = new AzureCommunicationUserCredential("<USER ACCESS TOKEN>");
 let callAgent;
 
-callClient.createCallAgent(tokenCredential).then(agent => {
-  callAgent = agent;
-  callButton.disabled = false;
-});
+callAgent = await callClient.createCallAgent(tokenCredential);
+callButton.disabled = false;
 ```
 
 ## Start a call
