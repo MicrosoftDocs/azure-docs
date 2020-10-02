@@ -13,7 +13,7 @@ ms.service: azure-communication-services
 ---
 # SMS client library overview
 
-[!INCLUDE [Private Preview Notice](../../includes/private-preview-include.md)]
+[!INCLUDE [Public Preview Notice](../../includes/public-preview-include.md)]
 
 Azure Communication Services SMS client libraries can be used to add SMS messaging to your applications.
 
