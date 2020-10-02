@@ -110,7 +110,7 @@ AzureActivity
     ResourceId = _ResourceId 
 ```
 
-The **Time Range** specifies the records that will be included in the query based on the **TimeGenerated** column. This should be set to a value equal to or higher than the time range selected in the query. Since this query isn't using the **TimeGenerated** column, then **Set in query** option isn't available. See [Query scope](scope.md) for more details about the time range. 
+The **Time Range** specifies the records that will be included in the query based on the **TimeGenerated** column. This should be set to a value equal to or higher than the time range selected in the query. Since this query isn't using the **TimeGenerated** column, then **Set in query** option isn't available. See [Query scope](../log-query/scope.md) for more details about the time range. 
 
 Select **Last 4 hours** for the **Time Range**. This will ensure that any records with a ingestion time larger than **TimeGenerated** will be included in the results.
    
@@ -165,7 +165,7 @@ Click **+ New step**, and then click **+ Add an action**. Under **Choose an acti
 
 Click the **Inputs** box display a list of values from previous activities. Select **Body** from the **Parse JSON** action. This is the parsed output from the log query.
 
-![Select Compose action](media/logs-export-logicapp/select-body-compose.png)
+![Select body for Compose action](media/logs-export-logicapp/select-body-compose.png)
 
 
 ## Add the Create Blob action

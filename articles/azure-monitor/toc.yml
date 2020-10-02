@@ -310,7 +310,7 @@
       - name: Continuous export
         href: platform/logs-data-export.md
       - name: Export with Logic Apps
-        href: log-query/logicapp-export.md
+        href: platform/logs-export-logicapp.md
   - name: Metrics explorer
     items:
     - name: Getting started with Metrics Explorer
