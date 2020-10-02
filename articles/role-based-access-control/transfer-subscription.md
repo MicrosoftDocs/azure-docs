@@ -1,5 +1,5 @@
 ---
-title: Transfer an Azure subscription to a different Azure AD directory (Preview)
+title: Transfer an Azure subscription to a different Azure AD directory
 description: Learn how to transfer an Azure subscription and known related resources to a different Azure Active Directory (Azure AD) directory.
 services: active-directory
 author: rolyon
@@ -12,12 +12,7 @@ ms.date: 08/31/2020
 ms.author: rolyon
 ---
 
-# Transfer an Azure subscription to a different Azure AD directory (Preview)
-
-> [!IMPORTANT]
-> Following these steps to transfer a subscription to a different Azure AD directory is currently in public preview.
-> This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
-> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+# Transfer an Azure subscription to a different Azure AD directory
 
 Organizations might have several Azure subscriptions. Each subscription is associated with a particular Azure Active Directory (Azure AD) directory. To make management easier, you might want to transfer a subscription to a different Azure AD directory. When you transfer a subscription to a different Azure AD directory, some resources are not transferred to the target directory. For example, all role assignments and custom roles in Azure role-based access control (Azure RBAC) are **permanently** deleted from the source directory and are not be transferred to the target directory.
 
