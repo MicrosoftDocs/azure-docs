@@ -21,7 +21,7 @@ ms.collection: M365-identity-device-management
 [Azure Active Directory (Azure AD)](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-whatis) offers a universal identity platform that provides your people, partners, and customers a single identity to access applications and collaborate from any platform and device. Azure AD has a [full suite of identity management capabilities](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-whatis). Standardizing your application (app) authentication and authorization to Azure AD enables the benefits these capabilities provide. 
 
 > [!TIP]
-> This article is written for a developer audience. Project managers and administrators planning an application's move to Azure AD should consider reading our [Migrating application authentication to Azure AD](https://aka.ms/migrateapps/whitepaper) white paper.
+> This article is written for a developer audience. Project managers and administrators planning an application's move to Azure AD should consider reading our [Migrating application authentication to Azure AD](https://aka.ms/migrateapps/whitepaper) white paper (PDF).
 
 ## Introduction
 
