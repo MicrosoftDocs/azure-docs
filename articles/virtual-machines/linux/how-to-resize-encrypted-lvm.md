@@ -1,5 +1,5 @@
 ---
-title: How to resize encrypted logical volume management disks with Azure Disk Encryption
+title: How to resize encrypted logical volume management disks by using Azure Disk Encryption
 description: This article provides instructions for resizing ADE encrypted disks using logical volume management
 author: jofrance
 ms.service: security
@@ -8,277 +8,270 @@ ms.author: jofrance
 ms.date: 09/21/2020
 ---
 
-# How to resize logical volume management devices encrypted with Azure Disk Encryption
+# How to resize logical volume management devices that use Azure Disk Encryption
 
-This article is a step-by-step process on how to resize ADE encrypted data disks using Logical Volume Management (LVM) on Linux, applicable to multiple scenarios.
+In this article, learn how to resize data disks that use Azure Disk Encryption. To resize the disks, you'll use logical volume management (LVM) on Linux. The steps apply to multiple scenarios.
 
-The process applies to the following environments:
+You can use the resizing process in the following environments:
 
 - Linux distributions
-    - RHEL 7+
-    - Ubuntu 16+
-    - SUSE 12+
+    - Red Hat Enterprise Linux (RHEL) 7 or later
+    - Ubuntu 16 or later
+    - SUSE 12 or later
 - Azure Disk Encryption single-pass extension
 - Azure Disk Encryption dual-pass extension
 
-## Considerations
+## Prerequisites
 
-This document assumes that:
+This article assumes that you have:
 
-1. There's an existing LVM configuration.
-   
-   Check [Configure LVM on a Linux VM](configure-lvm.md) for more information about configuring LVM on a Linux VM.
+- An existing LVM configuration. For more information, see [Configure LVM on a Linux VM](configure-lvm.md).
 
-2. The disks are already encrypted using Azure Disk Encryption
-   Check [Configure LVM on crypt](how-to-configure-lvm-raid-on-crypt.md) for information on how to configure LVM-on-Crypt.
+- Disks that are already encrypted by Azure Disk Encryption. For more information, see [Configure LVM and RAID on encrypted devices](how-to-configure-lvm-raid-on-crypt.md).
 
-3. You have the required Linux and LVM expertise to follow these examples.
+- Experience using Linux and LVM.
 
-4. You understand that the recommendation to use data disks on Azure as mentioned on [troubleshoot device names problems](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/troubleshoot-device-names-problems), is to use the /dev/disk/scsi1/ paths.
+- Experience using /dev/disk/scsi1/ paths for data disks on Azure. For more information, see [Troubleshoot Linux VM device name problems](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/troubleshoot-device-names-problems). 
 
 ## Scenarios
 
-The procedures in this article apply to the following scenarios:
+The procedures in this article apply to the following scenarios.
 
-### For traditional LVM and LVM-On-Crypt configurations
+### Traditional LVM and LVM-on-crypt configurations
 
-- Extending a logical volume when there's available space in the VG
+Traditional LVM and LVM-on-crypt configurations extend a logical volume (LV) when the volume group (VG) has available space.
 
-### For traditional LVM encryption (the logical volumes are encrypted, not the whole disk)
+### Traditional LVM encryption 
 
-- Extending a traditional LVM volume adding a new PV
-- Extending a traditional LVM volume resizing an existing PV
+In traditional LVM encryption, LVs are encrypted. The whole disk is not encrypted.
 
-### For LVM-on-crypt (recommended method, the entire disk is encrypted, not only the logical volume)
+By using traditional LVM encryption, you can:
 
-- Extending an LVM on crypt volume adding a new PV
-- Extending an LVM on crypt volume resizing an existing PV
+- Extend a traditional LVM volume by adding a new physical volume (PV).
+- Extend a traditional LVM volume by resizing an existing PV.
+
+### LVM-on-crypt 
+
+The recommended method for disk encryption is lvm-on-encrypt. This method encrypts the entire disk, not just the LV.
+
+By using LVM-on-crypt, you can:
+
+- Extend an LVM-on-crypt volume by adding a new PV.
+- Extend an LVM-on-crypt volume by resizing an existing PV.
 
 > [!NOTE]
-> Mixing traditional LVM encryption and LVM-on-Crypt on the same VM is not recommended.
+> We don't recommend mixing traditional LVM encryption and LVM-on-crypt on the same VM.
 
-> [!NOTE]
-> These examples use the pre-existing names for disks, physical volumes, volume groups, logical volumes, filesystems, UUIDs and mountpoints,   you need to replace the values provided on these examples to fit your environment.
+The following sections provide examples of how to use LVM-on-crypt. The examples use preexisting values for disks, PVs, VGs, LVs, file systems, universally unique identifiers (UUIDs), and mount points. Replace these values with your own to fit your environment.
 
-#### Extending a logical volume when there's available space in the VG
+#### Extend an LV when the VG has available space
 
-Traditional method used to resize logical volumes, it can be applied to non-encrypted disks, traditional lvm encrypted volumes, and LVM-on-Crypt configurations.
+The traditional way to resize LVs is to extend an LV when the VG has space available. You can use this method for nonencrypted disks, traditional LVM-encrypted volumes, and LVM-on-crypt configurations.
 
-1. Verify the current size of the filesystem we want to increase:
+1. Verify the current size of the file system that you want to increase:
 
     ``` bash
     df -h /mountpoint
     ```
 
-    ![scenarioa-check-fs1](./media/disk-encryption/resize-lvm/001-resize-lvm-scenarioa-check-fs.png)
+    ![Screenshot showing the code that checks the size of the file system. The command and the result are highlighted.](./media/disk-encryption/resize-lvm/001-resize-lvm-scenarioa-check-fs.png)
 
-2. Verify that the VG has enough space to increase the LV
+2. Verify that the VG has enough space to increase the LV:
 
     ``` bash
     vgs
     ```
 
-    ![scenarioa-check-vg](./media/disk-encryption/resize-lvm/002-resize-lvm-scenarioa-check-vgs.png)
+    ![Screenshot showing the code that checks for space on the VG. The command and the result are highlighted.](./media/disk-encryption/resize-lvm/002-resize-lvm-scenarioa-check-vgs.png)
 
-    You can also use "vgdisplay"
+    You can also use `vgdisplay`:
 
     ``` bash
     vgdisplay vgname
     ```
 
-    ![scenarioa-check-vgdisplay](./media/disk-encryption/resize-lvm/002-resize-lvm-scenarioa-check-vgdisplay.png)
+    ![Screenshot showing the V G display code that checks for space on the VG. The command and the result are highlighted.](./media/disk-encryption/resize-lvm/002-resize-lvm-scenarioa-check-vgdisplay.png)
 
-3. Identify which logical volume needs to be resized
+3. Identify which LV needs to be resized:
 
     ``` bash
     lsblk
     ```
 
-    ![scenarioa-check-lsblk1](./media/disk-encryption/resize-lvm/002-resize-lvm-scenarioa-check-lsblk1.png)
+    ![Screenshot showing the result of the lsblk command. The command and the result are highlighted.](./media/disk-encryption/resize-lvm/002-resize-lvm-scenarioa-check-lsblk1.png)
 
-    For LVM-On-Crypt, the difference is on this output, which shows that the encrypted layer is on the encrypted layer covering the whole disk
+    For LVM-on-crypt, the difference is this output. The output shows that the encrypted layer is on the encrypted layer that covers the whole disk.
 
-    ![scenarioa-check-lsblk2](./media/disk-encryption/resize-lvm/002-resize-lvm-scenarioa-check-lsblk2.png)
+    ![Screenshot showing the result of the lsblk command. The output is highlighted. It shows the encrypted layer.](./media/disk-encryption/resize-lvm/002-resize-lvm-scenarioa-check-lsblk2.png)
 
-4. Check the logical volume size
+4. Check the LV size:
 
     ``` bash
     lvdisplay lvname
     ```
 
-    ![scenarioa-check-lvdisplay01](./media/disk-encryption/resize-lvm/002-resize-lvm-scenarioa-check-lvdisplay01.png)
+    ![Screenshot showing the code that checks the logical volume size. The command and the result are highlighted.](./media/disk-encryption/resize-lvm/002-resize-lvm-scenarioa-check-lvdisplay01.png)
 
-5. Increase the LV size, using "-r" for online resize of the filesystem
+5. Increase the LV size by using `-r` to resize the file system online:
 
     ``` bash
     lvextend -r -L +2G /dev/vgname/lvname
     ```
 
-    ![scenarioa-resize-lv](./media/disk-encryption/resize-lvm/003-resize-lvm-scenarioa-resize-lv.png)
+    ![Screenshot showing the code that increases the size of the logical volume. The commands and the results are highlighted.](./media/disk-encryption/resize-lvm/003-resize-lvm-scenarioa-resize-lv.png)
 
-6. Verify the new sizes for the LV and the file system
-
-    ``` bash
-    df -h /mountpoint
-    ```
-
-    ![scenarioa-check-fs](./media/disk-encryption/resize-lvm/004-resize-lvm-scenarioa-check-fs.png)
-
-    The new size is reflected, it indicates a successful resize of the LV and the filesystem
-
-7. You may check the LV information again to confirm the changes at the LV level
-
-    ``` bash
-    lvdisplay lvname
-    ```
-
-    ![scenarioa-check-lvdisplay2](./media/disk-encryption/resize-lvm/004-resize-lvm-scenarioa-check-lvdisplay2.png)
-
-#### Extending a traditional LVM volume adding a new PV
-
-Applicable when you need to add a new disk to increase the volume group size.
-
-1. Verify the current size of the filesystem we want to increase:
+6. Verify the new sizes for the LV and the file system:
 
     ``` bash
     df -h /mountpoint
     ```
 
-    ![scenariob-check-fs](./media/disk-encryption/resize-lvm/005-resize-lvm-scenariob-check-fs.png)
+    ![Screenshot showing the code that verifies the size of the LV and the file system. The command and the result are highlighted.](./media/disk-encryption/resize-lvm/004-resize-lvm-scenarioa-check-fs.png)
 
-2. Verify the current Physical Volume configuration
+    The size output indicates that the LV and file system were successfully resized.
+
+You can check the LV information again to confirm the changes at the level of the LV:
+
+``` bash
+lvdisplay lvname
+```
+
+![Screenshot showing the code that confirms the new sizes. The sizes are highlighted.](./media/disk-encryption/resize-lvm/004-resize-lvm-scenarioa-check-lvdisplay2.png)
+
+#### Extend a traditional LVM volume by adding a new PV
+
+When you need to add a new disk to increase the VG size, extend your traditional LVM volume by adding a new PV.
+
+1. Verify the current size of the file system that you want to increase:
+
+    ``` bash
+    df -h /mountpoint
+    ```
+
+    ![Screenshot showing the code that checks the current size of a file system. The command and the result are highlighted.](./media/disk-encryption/resize-lvm/005-resize-lvm-scenariob-check-fs.png)
+
+2. Verify the current PV configuration:
 
     ``` bash
     pvs
     ```
 
-    ![scenariob-check-pvs](./media/disk-encryption/resize-lvm/006-resize-lvm-scenariob-check-pvs.png)
+    ![Screenshot showing the code that checks the current PV configuration. The command and the result are highlighted.](./media/disk-encryption/resize-lvm/006-resize-lvm-scenariob-check-pvs.png)
 
-3. Check the current VG information
+3. Check the current VG information:
 
     ``` bash
     vgs
     ```
 
-    ![scenariob-check-vgs](./media/disk-encryption/resize-lvm/007-resize-lvm-scenariob-check-vgs.png)
+    ![Screenshot showing the code that checks the current volume group information. The command and the result are highlighted.](./media/disk-encryption/resize-lvm/007-resize-lvm-scenariob-check-vgs.png)
 
-4. Check the current disk list
-
-    Data disks should be identified by checking the devices under /dev/disk/azure/scsi1/
+4. Check the current disk list. Identify data disks by checking the devices in */dev/disk/azure/scsi1/*.
 
     ``` bash
     ls -l /dev/disk/azure/scsi1/
     ```
 
-    ![scenariob-check-scs1](./media/disk-encryption/resize-lvm/008-resize-lvm-scenariob-check-scs1.png)
+    ![Screenshot showing the code that checks the current disk list. The command and the results are highlighted.](./media/disk-encryption/resize-lvm/008-resize-lvm-scenariob-check-scs1.png)
 
-5. Check the output of lsblk 
+5. Check the output of `lsblk`: 
 
     ``` bash
     lsbk
     ```
 
-    ![scenariob-check-lsblk](./media/disk-encryption/resize-lvm/008-resize-lvm-scenariob-check-lsblk.png)
+    ![Screenshot showing the code that checks the output of L S B L K. The command and the results are highlighted.](./media/disk-encryption/resize-lvm/008-resize-lvm-scenariob-check-lsblk.png)
 
-6. Attach the new disk to the VM
+6. Attach the new disk to the VM by following the instructions in [Attach a data disk to a Linux VM](attach-disk-portal.md).
 
-    Follow up to step 4 of the following document
-
-   - [Attach a disk to a VM](attach-disk-portal.md)
-
-7. After the disk is attached, check the disk list, notice the new disk
+7. Check the disk list, and notice the new disk:
 
     ``` bash
     ls -l /dev/disk/azure/scsi1/
     ```
 
-    ![scenariob-check-scsi12](./media/disk-encryption/resize-lvm/009-resize-lvm-scenariob-check-scsi12.png)
+    ![Screenshot showing the code that checks the disk list. The results are highlighted.](./media/disk-encryption/resize-lvm/009-resize-lvm-scenariob-check-scsi12.png)
 
     ``` bash
     lsbk
     ```
 
-    ![scenariob-check-lsblk12](./media/disk-encryption/resize-lvm/009-resize-lvm-scenariob-check-lsblk1.png)
+    ![Screenshot showing that checks the disk list by using L S B L K. The command and the result are highlighted.](./media/disk-encryption/resize-lvm/009-resize-lvm-scenariob-check-lsblk1.png)
 
-8. Create a new PV on top of the new Data Disk
+8. Create a new PV on top of the new data disk:
 
     ``` bash
     pvcreate /dev/newdisk
     ```
 
-    ![scenariob-pvcreate](./media/disk-encryption/resize-lvm/010-resize-lvm-scenariob-pvcreate.png)
+    ![Screenshot showing the code that creates a new PV. The result is highlighted.](./media/disk-encryption/resize-lvm/010-resize-lvm-scenariob-pvcreate.png)
 
-    This method uses the whole disk as a PV without a partition, optionally you can use "fdisk" to create a partition and then use that partition for the "pvcreate".
+    This method uses the whole disk as a PV without a partition. Alternatively, you can use `fdisk` to create a partition and then use that partition for `pvcreate`.
 
-9. Verify that the PV was added to the PV list.
+9. Verify that the PV was added to the PV list:
 
     ``` bash
     pvs
     ```
 
-    ![scenariob-check-pvs1](./media/disk-encryption/resize-lvm/011-resize-lvm-scenariob-check-pvs1.png)
+    ![Screenshot showing the code that shows the physical volume list. The result is highlighted.](./media/disk-encryption/resize-lvm/011-resize-lvm-scenariob-check-pvs1.png)
 
-10. Extend the VG by adding the new PV to it
+10. Extend the VG by adding the new PV to it:
 
     ``` bash
     vgextend vgname /dev/newdisk
     ```
 
-    ![scenariob-vg-extend](./media/disk-encryption/resize-lvm/012-resize-lvm-scenariob-vgextend.png)
+    ![Screenshot showing the code that extends the volume group. The result is highlighted.](./media/disk-encryption/resize-lvm/012-resize-lvm-scenariob-vgextend.png)
 
-11. Check the new VG size
+11. Check the new VG size:
 
     ``` bash
     vgs
     ```
 
-    ![scenariob-check-vgs1](./media/disk-encryption/resize-lvm/013-resize-lvm-scenariob-check-vgs1.png)
+    ![Screenshot showing the code that checks the volume group size. The results are highlighted.](./media/disk-encryption/resize-lvm/013-resize-lvm-scenariob-check-vgs1.png)
 
-12. Use lsblk to identify which LV needs to be resized
+12. Use `lsblk` to identify the LV that needs to be resized:
 
     ``` bash
     lsblk
     ```
 
-    ![scenariob-check-lsblk1](./media/disk-encryption/resize-lvm/013-resize-lvm-scenariob-check-lsblk1.png)
+    ![Screenshot showing the code that identifies the local volume that needs to be resized. The results are highlighted.](./media/disk-encryption/resize-lvm/013-resize-lvm-scenariob-check-lsblk1.png)
 
-13. Extend the LV size using “-r” to do an online increase of the filesystem
+13. Extend the LV size by using `-r` to increase the file system online:
 
     ``` bash
     lvextend -r -L +2G /dev/vgname/lvname
     ```
 
-    ![scenariob-lvextend](./media/disk-encryption/resize-lvm/013-resize-lvm-scenariob-lvextend.png) 
+    ![Screenshot showing code that increases the size of the file system online. The results are highlighted.](./media/disk-encryption/resize-lvm/013-resize-lvm-scenariob-lvextend.png) 
 
-14. Verify the New LV and filesystem Sizes
+14. Verify the new sizes of the LV and file system:
 
     ``` bash
     df -h /mountpoint
     ```
 
-    ![scenariob-check-fs1](./media/disk-encryption/resize-lvm/014-resize-lvm-scenariob-check-fs1.png)
+    ![Screenshot showing the code that checks the sizes of the local volume and the file system. The command and the result are highlighted.](./media/disk-encryption/resize-lvm/014-resize-lvm-scenariob-check-fs1.png)
 
-    Is important to know that when ADE is used on traditional LVM configurations, the encrypted layer is created at the LV level, not at the disk level.
-
-    At this point, the encrypted layer is expanded to the new disk.
-    The actual data disk doesn't have any encryption settings at the platform level hence its encryption status isn't updated.
-
-    >[!NOTE]
-    >These are some of the reasons why LVM-on-Crypt is the recommended approach. 
+    >[!IMPORTANT]
+    >When Azure Data Encryption is used on traditional LVM configurations, the encrypted layer is created at the LV level, not at the disk level.
+    >
+    >At this point, the encrypted layer is expanded to the new disk. The actual data disk has no encryption settings at the platform level, so its encryption status isn't updated.
+    >
+    >These are some of the reasons why LVM-on-crypt is the recommended approach. 
 
 15. Check the encryption information from the portal:
 
-    ![scenariob-check-portal1](./media/disk-encryption/resize-lvm/014-resize-lvm-scenariob-check-portal1.png)
+    ![Screenshot showing encryption information in the portal. The disk name and the encryption are highlighted.](./media/disk-encryption/resize-lvm/014-resize-lvm-scenariob-check-portal1.png)
 
-    You need to add a new LV and enable the extension on the VM in order to update the encryption settings on the disk.
+    To update the encryption settings on the disk, add a new LV and enable the extension on the VM.
     
-16. Add a new LV, create a filesystem on it, and add it to /etc/fstab
+16. Add a new LV, create a file system on it, and add it to `/etc/fstab`.
 
-17. Set the encryption extension again in order to stamp the encryption settings on the new data disk at the platform level.
-
-    Example:
-
-    CLI
+17. Set the encryption extension again. This time you'll stamp the encryption settings on the new data disk at the platform level. Here's a CLI example:
 
     ``` bash
     az vm encryption enable -g ${RGNAME} --name ${VMNAME} --disk-encryption-keyvault "<your-unique-keyvault-name>"
@@ -286,68 +279,70 @@ Applicable when you need to add a new disk to increase the volume group size.
 
 18. Check the encryption information from the portal:
 
-    ![scenariob-check-portal2](./media/disk-encryption/resize-lvm/014-resize-lvm-scenariob-check-portal2.png)
+    ![Screenshot showing encryption information in the portal. The disk name and the encryption information are highlighted.](./media/disk-encryption/resize-lvm/014-resize-lvm-scenariob-check-portal2.png)
 
-19. After the encryption settings are updated, you may delete the new LV, you would also need to delete the entry from /etc/fstab and /etc/crypttab that were created for it.
+After the encryption settings are updated, you can delete the new LV. Also delete the entry from the `/etc/fstab` and `/etc/crypttab` that you created.
 
-    ![scenariob-delete-fstab-crypttab](./media/disk-encryption/resize-lvm/014-resize-lvm-scenariob-delete-fstab-crypttab.png)
+![Screenshot showing the code that deletes the new logical volume. The deleted F S tab and crypt tab are highlighted.](./media/disk-encryption/resize-lvm/014-resize-lvm-scenariob-delete-fstab-crypttab.png)
 
-20. Unmount the logical volume
+Follow these steps to finish cleaning up:
+
+1. Unmount the LV:
 
     ``` bash
     umount /mountpoint
     ```
 
-21. Close the encrypted layer of the volume
+1. Close the encrypted layer of the volume:
 
     ``` bash
     cryptsetup luksClose /dev/vgname/lvname
     ```
 
-22. Delete the LV
+1. Delete the LV:
 
     ``` bash
     lvremove /dev/vgname/lvname
     ```
 
-#### Extending a traditional LVM volume resizing an existing PV
+#### Extend a traditional LVM volume by resizing an existing PV
 
-Certain scenarios or limitations require that you resize an existing disk.
+Certain scenarios or limitations require that you resize an existing disk. Here's how:
 
-1. Identify your encrypted disks
+1. Identify your encrypted disks:
 
     ``` bash
     ls -l /dev/disk/azure/scsi1/
     ```
 
-    ![scenarioc-check-scsi1](./media/disk-encryption/resize-lvm/015-resize-lvm-scenarioc-check-scsi1.png)
+    ![Screenshot showing the code that identifies encrypted disks. The results are highlighted.](./media/disk-encryption/resize-lvm/015-resize-lvm-scenarioc-check-scsi1.png)
 
     ``` bash
     lsblk -fs
     ```
 
-    ![scenarioc-check-lsblk](./media/disk-encryption/resize-lvm/015-resize-lvm-scenarioc-check-lsblk.png)
+    ![Screenshot showing alternative code that identifies encrypted disks. The results are highlighted.](./media/disk-encryption/resize-lvm/015-resize-lvm-scenarioc-check-lsblk.png)
 
-2. Check the pv information
+2. Check the PV information:
 
     ``` bash
     pvs
     ```
 
-    ![scenarioc-check-pvs](./media/disk-encryption/resize-lvm/016-resize-lvm-scenarioc-check-pvs.png)
+    ![Screenshot showing the code that checks information about the physical volume. The results are highlighted.](./media/disk-encryption/resize-lvm/016-resize-lvm-scenarioc-check-pvs.png)
 
-    All the space on all the PVs is currently used
+    The results in the image show that all of the space on all of the PVs is currently used.
 
-3. Check the VGs information
+3. Check the VG information:
 
     ``` bash
     vgs
     vgdisplay -v vgname
     ```
 
-    ![scenarioc-check-vgs](./media/disk-encryption/resize-lvm/017-resize-lvm-scenarioc-check-vgs.png)
+    ![Screenshot showing the code that checks information about the volume group. The results are highlighted.](./media/disk-encryption/resize-lvm/017-resize-lvm-scenarioc-check-vgs.png)
 
-4. Check the disk sizes, you can use fdisk or lsblk to list the drive sizes
+4. Check the disk sizes. You can use `fdisk` or `lsblk` to list the drive sizes.
 
     ``` bash
     for disk in `ls -l /dev/disk/azure/scsi1/* | awk -F/ '{print $NF}'` ; do echo "fdisk -l /dev/${disk} | grep ^Disk "; done | bash
@@ -355,30 +350,28 @@ Certain scenarios or limitations require that you resize an existing disk.
     lsblk -o "NAME,SIZE"
     ```
 
-    ![scenarioc-check-fdisk](./media/disk-encryption/resize-lvm/018-resize-lvm-scenarioc-check-fdisk.png)
+    ![Screenshot showing the code that checks disk sizes. The results are highlighted.](./media/disk-encryption/resize-lvm/018-resize-lvm-scenarioc-check-fdisk.png)
 
-    We’ve identified which PVs are associated to which LVs by using lsblk -fs, you can identify it also by running "lvdisplay"
+    Here we identified which PVs are associated with which LVs by using `lsblk -fs`. You can identify the associations by running `lvdisplay`.
 
     ``` bash
     lvdisplay --maps VG/LV
     lvdisplay --maps datavg/datalv1
     ```
 
-    ![check-lvdisplay](./media/disk-encryption/resize-lvm/019-resize-lvm-scenarioc-check-lvdisplay.png)
+    ![Screenshot showing an alternative way to identify physical volume associations with local volumes. The results are highlighted.](./media/disk-encryption/resize-lvm/019-resize-lvm-scenarioc-check-lvdisplay.png)
 
-    On this particular case all 4 data drives are part of the same VG and a single LV, your configuration may differ from this example.
+    In this case, all four data drives are part of the same VG and a single LV. Your configuration might differ.
 
-5. Check the current filesystem utilization:
+5. Check the current file system utilization:
 
     ``` bash
     df -h /datalvm*
     ```
 
-    ![scenarioc-check-df](./media/disk-encryption/resize-lvm/020-resize-lvm-scenarioc-check-df.png)
+    ![Screenshot showing the code that checks file system utilization. The command and the results are highlighted.](./media/disk-encryption/resize-lvm/020-resize-lvm-scenarioc-check-df.png)
 
-6. Resize the data disk(s):
-
-    You can reference [Linux expand disks](expand-disks.md) (only refer to the disk resize), you can use the portal, CLI, or PowerShell to do this step.
+6. Resize the data disks by following the instructions in [Expand an Azure managed disk](expand-disks.md#expand-an-azure-managed-disk). You can use the portal, the CLI, or PowerShell.
 
     >[!NOTE]
     >Please consider that resize operations on virtual disks can't be performed with the VM running. You will need to deallocate your VM for this step
@@ -451,7 +444,7 @@ Certain scenarios or limitations require that you resize an existing disk.
 
     ![scenarioc-check-df3](./media/disk-encryption/resize-lvm/032-resize-lvm-scenarioc-check-df3.png)
 
-#### Extending an LVM-on-Crypt volume adding a new PV
+#### Extending an LVM-on-crypt volume adding a new PV
 
 This method closely follows the steps from [Configure LVM on crypt](how-to-configure-lvm-raid-on-crypt.md) to add a new disk and configure it under a LVM-on-crypt configuration.
 
@@ -566,7 +559,7 @@ You can use this method to add space to an already existent LV or instead you ca
 
 10. Re-launch the encryption previously started for data drives
 
-    For LVM-On-Crypt the recommendation is to use EncryptFormatAll otherwise a double encryption may happen while setting additional disks.
+    For LVM-on-crypt the recommendation is to use EncryptFormatAll otherwise a double encryption may happen while setting additional disks.
 
     For information on usage, see [Configure LVM on crypt](how-to-configure-lvm-raid-on-crypt.md).
 
@@ -644,7 +637,7 @@ You can use this method to add space to an already existent LV or instead you ca
 
     Note the increase on the Total PE count and the Free PE / size
 
-17. Increase the size of the lv and the filesystem by using the -r option on lvextend (in this example we are taking the total available space in the VG and adding it to the given logical volume)
+17. Increase the size of the lv and the filesystem by using the -r option on lvextend (in this example we are taking the total available space in the VG and adding it to the given LV)
 
     ``` bash
     lvextend -r -l +100%FREE /dev/vgname/lvname
@@ -676,7 +669,7 @@ You can use this method to add space to an already existent LV or instead you ca
 
     ![scenarioe-lsblk3](./media/disk-encryption/resize-lvm/038-resize-lvm-scenarioe-lsblk3.png)
 
-    Using lsblk without options will show the mount points multiple times since it sorts by device and logical volumes, you may want to use lsblk -fs, -s reverses the sort so the mountpoints are shown once, then the disks will be shown multiple times.
+    Using lsblk without options will show the mount points multiple times since it sorts by device and LVs, you may want to use lsblk -fs, -s reverses the sort so the mountpoints are shown once, then the disks will be shown multiple times.
 
     ``` bash
     lsblk -fs
@@ -763,7 +756,7 @@ You can use this method to add space to an already existent LV or instead you ca
 
 9. Check the current pv size
 
-    Remember that on LVM-on-Crypt, the pv is the /dev/mapper/ device, not the /dev/sd* device
+    Remember that on LVM-on-crypt, the pv is the /dev/mapper/ device, not the /dev/sd* device
 
     ``` bash
     pvdisplay /dev/mapper/devicemappername
