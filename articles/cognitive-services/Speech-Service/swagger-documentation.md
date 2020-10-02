@@ -31,7 +31,7 @@ You'll need to set Swagger to the same region as your Speech service subscriptio
 1. In a new browser, go to https://editor.swagger.io
 1. Click **File**, click **Import URL**, paste the URL, and click **OK**.
 1. Click **Generate Client** and select **python**. The client library downloads to your computer in a `.zip` file.
-1. Extract everything from the download.
+1. Extract everything from the download. You might use `tar -xf` to extract everything.
 1. Install the extracted module into your Python environment:  
        `pip install path/to/package/python-client`
 1. The installed package is named `swagger_client`. Check that the installation worked:  
