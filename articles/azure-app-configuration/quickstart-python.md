@@ -120,6 +120,15 @@ This command installs the Azure App Configuration client library for Python pack
 
 These example code snippets in this section show you how to perform common actions with the Azure App Configuration client library for Python.
 
+* [Get the connection string](#get-the-connection-string)
+* [Connect to an App Configuration store](#connect-to-an-app-configuration-store)
+* [Get a configuration setting](#get-a-configuration-setting)
+* [Add a configuration setting](#add-a-configuration-setting)
+* [Get a list of configuration settings](#get-a-list-of-configuration-settings)
+* [Lock a configuration setting](#lock-a-configuration-setting)
+* [Update a configuration setting](#update-a-configuration-setting)
+* [Delete a configuration setting](#delete-a-configuration-setting)
+
 ### Get the connection string
 
 The code below retrieves the connection string for the storage account. The connection string is stored the environment variable created in the [Configure your storage connection string](#configure-your-storage-connection-string) section.
@@ -159,7 +168,7 @@ The following code snippet retrieves the configuration value by calling **get_co
 
 ### Add a configuration setting
 
-Previously in this quickstart, you added a configuration key and value using the Azure portal. You can also add configuration settings using the Python client library. The following code snippet initialzies a **ConfigurationSetting** object with a key, value, and a label which can be used to categorize settings. Next, the configuration setting is added by calling **add_configuration_setting** and passing in the **ConfigruationSetting** object. Add this code to the end of the `try` block.
+Previously in this quickstart, you added a configuration key and value using the Azure portal. You can also add configuration settings using the Python client library. The following code snippet initialzies a **ConfigurationSetting** object with a key, value, and a label which can be used to categorize settings. Next, the configuration setting is added to the remote store by calling **add_configuration_setting** and passing in the **ConfigruationSetting** object. Add this code to the end of the `try` block.
 
 ```python
     config_setting = ConfigurationSetting(
@@ -173,7 +182,7 @@ Previously in this quickstart, you added a configuration key and value using the
 
 Note that attempting to call **add_configuration_setting** with a key and label pair that already exist will throw an exception.
 
-### Get a list of configuration setting
+### Get a list of configuration settings
 
 The following code snippet retrieves a list of configuration settings. The **key_filter** parameter is set using a wild card to retrieve all of the settings with keys that match the pattern. You can also provide a **label_filter** parameter to filter by label. Add this code to the end of the `try` block.
 
@@ -213,7 +222,7 @@ Unlock a setting in the portal by clicking the elipses at the end of the setting
 
 ![Select Create](media/quickstarts/azure-portal-app-configuration-unlocked-setting.png)
 
-### Update a setting
+### Update a configuration setting
 
 The following code snippet updates an existing setting by calling **set_configuration_settings** and passing in the **ConfigurationSetting** object for which the value was updated in the previous step. You can use **set_configuration_settings** to update an existing setting or create a new setting. Add this code to the end of the `try` block.
 
@@ -226,7 +235,7 @@ The following code snippet updates an existing setting by calling **set_configur
         print("   key: ", item.key, " label: ", item.label, "value: ", item.value)
 ```
 
-### Delete a setting
+### Delete a configuration setting
 
 The following code snippet deletes a configuration setting by calling **delete_configuration_settings**. Note that attempting to delete a setting that is currently locked will fail. Add this code to the end of the `try` block.
 
