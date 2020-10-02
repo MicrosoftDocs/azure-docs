@@ -61,7 +61,10 @@ To create the site-to-site VPN tunnel, you'll need to create a public-facing IP 
    >[!TIP]
    >One scale unit = 500 Mbps. The scale units are set up in pairs for redundancy, each supporting 500 Mbps.
   
-5. Follow the same procedure on the **ExpressRoute** tab to create an ExpressRoute gateway. A scale unit value here is 2 Gbps. 
+5. On the **ExpressRoute** tab, create an ExpressRoute gateway. 
+
+   >[!TIP]
+   >A scale unit value is 2 Gbps. 
 
     It takes approximately 30 minutes to create each hub. 
 
