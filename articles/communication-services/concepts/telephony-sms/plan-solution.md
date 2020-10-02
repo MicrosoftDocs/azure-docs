@@ -16,7 +16,7 @@ ms.service: azure-communication-services
 [!INCLUDE [Private Preview Notice](../../includes/private-preview-include.md)]
 
 
-This document describes the various telephony plans and number types that Azure Communication Services has to offer. We'll walk through the decision flows to help you select phone number types, plans, and capabilities made available through Azure Communication Services.
+In this document, we'll review the decision flows that you can use to select phone number types, plans, and capabilities made available through Azure Communication Services.
 
 ## About phone numbers in Azure Communications Services
 
