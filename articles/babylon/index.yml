@@ -35,7 +35,7 @@ landingContent:
             url: add-security-principal.md
       - linkListType: tutorial
         links:
-          - text: Homepage and Search
+          - text: Homepage and search
             url: starter-kit-tutorial-1.md # update link
   # Card
   - title: Scan Azure data sources
@@ -92,7 +92,7 @@ landingContent:
     linkLists:
     - linkListType: tutorial
       links:
-        - text: Browse and Lineage
+        - text: Browse and lineage
           url: starter-kit-tutorial-1.md # update link
     - linkListType: how-to-guide
       links:
