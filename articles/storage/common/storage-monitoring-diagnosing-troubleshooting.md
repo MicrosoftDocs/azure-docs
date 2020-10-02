@@ -253,6 +253,8 @@ The storage service automatically generates server request IDs.
 
 # [.NET v12](#tab/dotnet)
 
+The code sample below demonstrates how to use a custom client request ID. 
+
 :::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/Monitoring.cs" id="Snippet_UseCustomRequestID":::
 
 # [.NET v11](#tab/dotnet11)
