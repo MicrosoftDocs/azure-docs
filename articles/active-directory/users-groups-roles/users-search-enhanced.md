@@ -25,6 +25,8 @@ This article describes how to use the user management enhancements preview in th
 
 Changes in the preview include:
 
+- More visible user properties including object ID, directory sync status, creation type, and identity issuer
+- Search now allows combined search of names, emails, and object IDs
 - Enhanced filtering by user type (member, guest, none), directory sync status, creation type, company name, and domain name
 - New sorting capabilities on properties like name and user principal name
 - A new total users count that updates with searches or filters
@@ -62,7 +64,7 @@ The following are the displayed user properties on the **All users** page:
 - Company name: The company name which the user is associated.
 - Invitation state: The status of the invitation for a guest user.
 - Mail: The email of the user.
-- Last sign-in: the date the user last signed in
+
    > [!Note]
    > This property is only visible to users with permissions to read audit logs(Reporting_ApplicationAuditLogs_Read)
 
@@ -100,8 +102,6 @@ The following are the filterable properties on the **All users** page:
 - Directory synced status: Yes
 - Creation type: Invitation, Email verified, Local account
 - Invitation state – Pending acceptance, Accepted
-- User type: Member, guest, none
-- Directory synced status: Yes, no
 - Domain name: Enter a domain name
 - Company name: Enter a company name
 - Administrative unit: Select this option to restrict the scope of the users you view to a single administrative unit. For more information, see [Administrative units management preview](directory-administrative-units.md).
@@ -115,8 +115,6 @@ The **Deleted users** page has additional filters not in the **All users** page.
 - Creation type: Invitation, Email verified, Local account
 - Invitation state: Pending acceptance, Accepted
 - Deletion date: Last 7, 14, or 30 days
-- User type: Member, guest, none
-- Directory synced status: Yes, no
 - Domain name: Enter a domain name
 - Company name: Enter a company name
 - Permanent deletion date: Last 7, 14, or 30 days
@@ -125,7 +123,11 @@ The **Deleted users** page has additional filters not in the **All users** page.
 
 You can now sort by name and user principal name in the **All users** and **Deleted users** pages. You can also sort by deletion date in the **Deleted Users** list.
 
-![Illustration of user list sorting on the All users page](./media/users-search-enhanced/user-list-sorting.png)
+## User list counts
+
+You can view the total number of users in the **All users** and **Deleted users** pages. As you search or filter the lists, the count is updated to reflect the total number of users found.
+
+![Illustration of user list counts on the All users page](./media/users-search-enhanced/user-list-sorting.png)
 
 ## Frequently Asked Questions (FAQ)
 
