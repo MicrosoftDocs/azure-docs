@@ -57,7 +57,8 @@ Classifications are applied the first time, based on sample set check on your da
 
 At the time of re-scan, if new classifications apply, the column gets additional classifications on it. Existing classifications stay on the column.
 
-> [!Note] You need to manually remove existing classifications.
+> [!Note] 
+> You need to manually remove existing classifications.
 
 ## Next steps
 
