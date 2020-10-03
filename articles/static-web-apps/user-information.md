@@ -55,7 +55,7 @@ async function getUserInfo() {
   return clientPrincipal;
 }
 
-console.log(getUserInfo());
+console.log(await getUserInfo());
 ```
 
 ## API functions
