@@ -1,0 +1,32 @@
+- name: Azure Babylon documentation
+  href: index.yml
+- name: Overview
+  items:
+  - name: What is Azure Babylon?
+    href: overview.md
+  - name: Product limitations
+    href: product-limitations.md
+- name: Quickstarts
+  expanded: true
+  items:
+  - name: Create a Babylon account
+    href: create-catalog-portal.md
+  - name: Add a security principal
+    href: add-security-principal.md
+- name: Tutorials
+  expanded: true
+  items:
+  - name: 1 - Scan data
+    href: starter-kit-tutorial-1.md
+  - name: 2 - Home page and search
+    href: starter-kit-tutorial-2.md
+  - name: 3 - Browse and lineage
+    href: starter-kit-tutorial-3.md
+  - name: 4 - Resource sets, assets, schemas, classifications
+    href: starter-kit-tutorial-4.md
+  - name: 5 - Glossary terms
+    href: starter-kit-tutorial-5.md
+# - name: Concepts
+# items:
+# - name: Catalog permissions
+#   href: catalog-permissions.md
