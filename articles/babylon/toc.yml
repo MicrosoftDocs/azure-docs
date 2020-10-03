@@ -16,7 +16,7 @@
 - name: Tutorials
   expanded: true
   items:
-  - name: 1 - Scan data
+  - name: 1 - Run starter kit and scan data
     href: starter-kit-tutorial-1.md
   - name: 2 - Home page and search
     href: starter-kit-tutorial-2.md
@@ -30,3 +30,7 @@
 # items:
 # - name: Catalog permissions
 #   href: catalog-permissions.md
+- name: How-to guides
+  items:
+  - name: Lineage user guide
+    href: catalog-lineage-user-guide.md
