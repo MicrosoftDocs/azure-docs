@@ -1,7 +1,7 @@
 ---
 title: Use PowerShell to assign an Azure role for data access 
 titleSuffix: Azure Storage
-description: Learn how to use PowerShell to assign permissions to an Azure Active Directory security principal with Azure role-based access control (Azure RBAC). Azure Storage supports built-in and Azure custom roles for authentication via Azure AD.
+description: Learn how to use the Azure PowerShell module to assign permissions to an Azure Active Directory security principal with Azure role-based access control (Azure RBAC). Azure Storage supports built-in and Azure custom roles for authentication via Azure AD.
 services: storage
 author: tamram
 
@@ -132,6 +132,6 @@ New-AzRoleAssignment -SignInName <email> `
 
 ## Next steps
 
-- [Add or remove Azure role assignments using Azure PowerShell](../../role-based-access-control/role-assignments-powershell.md)
-- [Use Azure CLI to assign an Azure role for access to blob and queue data](storage-auth-aad-rbac-cli.md)
+- [Add or remove Azure role assignments using the Azure PowerShell module](../../role-based-access-control/role-assignments-powershell.md)
+- [Use the Azure CLI to assign an Azure role for access to blob and queue data](storage-auth-aad-rbac-cli.md)
 - [Use the Azure portal to assign an Azure role for access to blob and queue data](storage-auth-aad-rbac-portal.md)

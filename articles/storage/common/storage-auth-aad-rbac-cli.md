@@ -135,6 +135,6 @@ az role assignment create \
 
 ## Next steps
 
-- [Add or remove Azure role assignments using Azure PowerShell](../../role-based-access-control/role-assignments-powershell.md)
-- [Use PowerShell to assign an Azure role for access to blob and queue data](storage-auth-aad-rbac-powershell.md)
+- [Add or remove Azure role assignments using the Azure PowerShell module](../../role-based-access-control/role-assignments-powershell.md)
+- [Use the Azure PowerShell module to assign an Azure role for access to blob and queue data](storage-auth-aad-rbac-powershell.md)
 - [Use the Azure portal to assign an Azure role for access to blob and queue data](storage-auth-aad-rbac-portal.md)

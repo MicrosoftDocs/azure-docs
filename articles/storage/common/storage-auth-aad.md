@@ -50,8 +50,8 @@ When an Azure role is assigned to an Azure AD security principal, Azure grants a
 To learn how to assign an Azure built-in role to a security principal, see one of the following articles:
 
 - [Use the Azure portal to assign an Azure role for access to blob and queue data](storage-auth-aad-rbac-portal.md)
-- [Use Azure CLI to assign an Azure role for access to blob and queue data](storage-auth-aad-rbac-cli.md)
-- [Use PowerShell to assign an Azure role for access to blob and queue data](storage-auth-aad-rbac-powershell.md)
+- [Use the Azure CLI to assign an Azure role for access to blob and queue data](storage-auth-aad-rbac-cli.md)
+- [Use the Azure PowerShell module to assign an Azure role for access to blob and queue data](storage-auth-aad-rbac-powershell.md)
 
 For more information about how built-in roles are defined for Azure Storage, see [Understand role definitions](../../role-based-access-control/role-definitions.md#management-and-data-operations). For information about creating Azure custom roles, see [Azure custom roles](../../role-based-access-control/custom-roles.md).
 
