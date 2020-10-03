@@ -1,8 +1,8 @@
 ---
 title: Security in Azure Database for PostgreSQL - Single Server
 description: An overview of the security features in Azure Database for PostgreSQL - Single Server.
-author: rachel-msft
-ms.author: raagyema
+author: sunilagarwal
+ms.author: sunila
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 11/22/2019
