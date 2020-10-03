@@ -146,7 +146,7 @@ To set up your virtual machine within the host pool setup process:
 
   - When specifying an OU, make sure you use the full path (Distinguished Name) and without quotation marks.
 
-12. Under Administrator account, enter the credentials for the Active Directory Domain admin of the virtual network you selected. This account can't have multi-factored authentication (MFA) enabled. When joining to an Azure Active Directory Domain Services (Azure AD DS) domain, the account must be part of the Azure AD DC Administrators group and the account password must work in Azure AD DS.
+12. Under Administrator account, enter the credentials for the Active Directory Domain admin of the virtual network you selected. Ensure that the domain username chosen is not a banned local user accountname such as admin or administrator. THe account must not have multi-factored authentication (MFA) enabled. When joining to an Azure Active Directory Domain Services (Azure AD DS) domain, the account must be part of the Azure AD DC Administrators group and the account password must work in Azure AD DS.
 
 13. Select **Next: Workspace >**.
 
