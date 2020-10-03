@@ -2,14 +2,14 @@
 title: include file
 description: include file
 services: cognitive-services
-author: diberry
+
 manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.date: 05/19/2020
 ms.subservice: language-understanding
 ms.topic: include
-ms.author: diberry
+
 ---
 
 In order to receive a LUIS prediction in a chat bot or other client application, you need to publish the app to the prediction endpoint.

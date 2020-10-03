@@ -168,6 +168,6 @@ Use your datasets in your machine learning experiments for training ML models. [
 
 * [A step-by-step example of training with TabularDatasets and automated machine learning](tutorial-first-experiment-automated-ml.md).
 
-* [Train a model](how-to-train-ml-models.md).
+* [Train a model](how-to-set-up-training-targets.md).
 
 * For more dataset training examples, see the [sample notebooks](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/work-with-data/).

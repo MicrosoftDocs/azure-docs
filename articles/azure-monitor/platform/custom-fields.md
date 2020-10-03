@@ -97,7 +97,7 @@ We highlight the name of the service in the **RenderedDescription** property and
 
 We see that the service name is identified properly for some records but not for others.   The **Search Results** show that part of the name for the **WMI Performance Adapter** wasn’t selected.  The **Summary** shows that one record identified **Modules Installer** instead of **Windows Modules Installer**.  
 
-![Search results](media/custom-fields/search-results-01.png)
+![Screenshot showing portions of the service name highlighted in the Search Results pane and one incorrect service name highlighted in the Summary.](media/custom-fields/search-results-01.png)
 
 We start with the **WMI Performance Adapter** record.  We click its edit icon and then **Modify this highlight**.  
 
@@ -109,7 +109,7 @@ We increase the highlight to include the word **WMI** and then rerun the extract
 
 We can see that the entries for **WMI Performance Adapter** have been corrected, and Log Analytics also used that information to correct the records for **Windows Module Installer**.
 
-![Search results](media/custom-fields/search-results-02.png)
+![Screenshot showing the full service name highlighted in the Search Results pane and the correct service names highlighted in the Summary.](media/custom-fields/search-results-02.png)
 
 We can now run a query that verifies **Service_CF** is created but is not yet added to any records. That's because the custom field doesn't work against existing records so we need to wait for new records to be collected.
 

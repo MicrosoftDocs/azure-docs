@@ -228,7 +228,7 @@ Note the following points:
         ![Script arguments](./media/tutorial-transform-data-using-hive-in-vnet-portal/script-arguments.png)
 1. To publish artifacts to Data Factory, click **Publish**.
 
-    ![Publish](./media/tutorial-transform-data-using-hive-in-vnet-portal/publish.png)
+    ![Screenshot shows the option to publish to a Data Factory.](./media/tutorial-transform-data-using-hive-in-vnet-portal/publish.png)
 
 ## Trigger a pipeline run
 

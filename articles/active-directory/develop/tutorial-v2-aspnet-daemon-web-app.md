@@ -1,5 +1,6 @@
 ---
-title: Build a multitenant daemon that uses the Microsoft identity platform endpoint
+title: "Tutorial: Build a multi-tenant daemon that accesses Microsoft Graph business data | Azure"
+titleSuffix: Microsoft identity platform
 description: In this tutorial, learn how to call an ASP.NET web API protected by Azure Active Directory from a Windows desktop (WPF) application. The WPF client authenticates a user, requests an access token, and calls the web API.
 services: active-directory
 author: jmprieur
@@ -15,7 +16,7 @@ ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:A
 #Customer intent: As an application developer, I want to know how to set up OpenId Connect authentication in a web application built using Node.js with Express.
 ---
 
-# Tutorial: Build a multitenant daemon that uses the Microsoft identity platform endpoint
+# Tutorial: Build a multi-tenant daemon that uses the Microsoft identity platform
 
 In this tutorial, you learn how to use the Microsoft identity platform to access the data of Microsoft business customers in a long-running, non-interactive process. The sample daemon uses the [OAuth2 client credentials grant](v2-oauth2-client-creds-grant-flow.md) to acquire an access token. The daemon then uses the token to call [Microsoft Graph](https://graph.microsoft.io) and access organizational data.
 
@@ -27,28 +28,23 @@ In this tutorial, you learn how to use the Microsoft identity platform to access
 
 If you don’t have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
+## Prerequisites
+
+- [Visual Studio 2017 or 2019](https://visualstudio.microsoft.com/downloads/).
+- An Azure AD tenant. For more information, see [How to get an Azure AD tenant](quickstart-create-new-tenant.md).
+- One or more user accounts in your Azure AD tenant. This sample won't work with a Microsoft account. If you signed in to the [Azure portal](https://portal.azure.com) with a Microsoft account and have never created a user account in your directory, do that now.
+
+## Scenario
+
 The app is built as an ASP.NET MVC application. It uses the OWIN OpenID Connect middleware to sign in users.
 
 The "daemon" component in this sample is an API controller, `SyncController.cs`. When the controller is called, it pulls in a list of users in the customer's Azure Active Directory (Azure AD) tenant from Microsoft Graph. `SyncController.cs` is triggered by an AJAX call in the web application. It uses the [Microsoft Authentication Library (MSAL) for .NET](msal-overview.md) to acquire an access token for Microsoft Graph.
 
->[!NOTE]
-> If you are new to the Microsoft identity platform, we recommend you start with the [.NET Core daemon quickstart](quickstart-v2-netcore-daemon.md).
-
-## Scenario
-
-Because the app is a multitenant app for Microsoft business customers, it must provide a way for customers to "sign up" or "connect" the application to their company data. During the connection flow, a company administrator first grants *application permissions* directly to the app so that it can access company data in a non-interactive fashion, without the presence of a signed-in user. The majority of the logic in this sample shows how to achieve this connection flow by using the identity platform's [admin consent](v2-permissions-and-consent.md#using-the-admin-consent-endpoint) endpoint.
+Because the app is a multi-tenant app for Microsoft business customers, it must provide a way for customers to "sign up" or "connect" the application to their company data. During the connection flow, a company administrator first grants *application permissions* directly to the app so that it can access company data in a non-interactive fashion, without the presence of a signed-in user. The majority of the logic in this sample shows how to achieve this connection flow by using the identity platform's [admin consent](v2-permissions-and-consent.md#using-the-admin-consent-endpoint) endpoint.
 
 ![Diagram shows UserSync App with three local items connecting to Azure, with Start dot Auth acquiring a token interactively to connect to Azure A D, AccountController getting admin consent to connect to Azure A D, and SyncController reading user to connect to Microsoft Graph.](./media/tutorial-v2-aspnet-daemon-webapp/topology.png)
 
 For more information on the concepts used in this sample, read the [client credentials protocol documentation for the identity platform endpoint](v2-oauth2-client-creds-grant-flow.md).
-
-## Prerequisites
-
-To run the sample in this quickstart, you'll need:
-
-- [Visual Studio 2017 or 2019](https://visualstudio.microsoft.com/downloads/).
-- An Azure AD tenant. For more information, see [How to get an Azure AD tenant](quickstart-create-new-tenant.md).
-- One or more user accounts in your Azure AD tenant. This sample won't work with a Microsoft account (formerly Windows Live account). If you signed in to the [Azure portal](https://portal.azure.com) with a Microsoft account and have never created a user account in your directory, you need to do that now.
 
 ## Clone or download this repository
 
@@ -253,17 +249,8 @@ If you find a bug in MSAL.NET, please raise the issue on [MSAL.NET GitHub Issues
 To provide a recommendation, go to the [User Voice page](https://feedback.azure.com/forums/169401-azure-active-directory).
 
 ## Next steps
-Learn more about the different [Authentication flows and application scenarios](authentication-flows-app-scenarios.md) that the Microsoft identity platform supports.
 
-For more information, see the following conceptual documentation:
+Learn more about building daemon apps that use the Microsoft identity platform to access protected web APIs:
 
-- [Tenancy in Azure Active Directory](single-and-multi-tenant-apps.md)
-- [Understanding Azure AD application consent experiences](application-consent-experience.md)
-- [Sign in any Azure Active Directory user using the multitenant application pattern](howto-convert-app-to-be-multi-tenant.md)
-- [Understand user and admin consent](howto-convert-app-to-be-multi-tenant.md#understand-user-and-admin-consent)
-- [Application and service principal objects in Azure Active Directory](app-objects-and-service-principals.md)
-- [Quickstart: Register an application with the Microsoft identity platform](quickstart-register-app.md)
-- [Quickstart: Configure a client application to access web APIs](quickstart-configure-app-access-web-apis.md)
-- [Acquiring a token for an application with client credential flows](msal-client-applications.md)
-
-For a simpler multitenant console daemon application, see the [.NET Core daemon quickstart](quickstart-v2-netcore-daemon.md).
+> [!div class="nextstepaction"]
+> [Scenario: Daemon application that calls web APIs](scenario-daemon-overview.md)

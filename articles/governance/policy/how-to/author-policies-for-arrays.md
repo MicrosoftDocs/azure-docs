@@ -1,7 +1,7 @@
 ---
 title: Author policies for array properties on resources
 description: Learn to work with array parameters and array language expressions, evaluate the [*] alias, and to append elements with Azure Policy definition rules.
-ms.date: 08/17/2020
+ms.date: 09/30/2020
 ms.topic: how-to
 ---
 # Author policies for array properties on Azure resources
@@ -221,14 +221,24 @@ rule and array of existing values above:
 |`{<field>,"Equals":"127.0.0.1"}` |Nothing |All match |One array element evaluates as true (127.0.0.1 == 127.0.0.1) and one as false (127.0.0.1 == 192.168.1.1), so the **Equals** condition is _false_ and the effect isn't triggered. |
 |`{<field>,"Equals":"10.0.4.1"}` |Nothing |All match |Both array elements evaluate as false (10.0.4.1 == 127.0.0.1 and 10.0.4.1 == 192.168.1.1), so the **Equals** condition is _false_ and the effect isn't triggered. |
 
-## The append effect and arrays
+## Modifying arrays
 
-The [append effect](../concepts/effects.md#append) behaves differently depending on if the
-**details.field** is a **\[\*\]** alias or not.
+The [append](../concepts/effects.md#append) and [modify](../concepts/effects.md#modify) alter properties on a resource during creation or update. When working with array properties, the behavior of these effects depends on whether the operation is trying to modify the  **\[\*\]** alias or not:
 
-- When not a **\[\*\]** alias, append replaces the entire array with the **value** property
-- When a **\[\*\]** alias, append adds the **value** property to the existing array or creates the
-  new array
+> [!NOTE]
+> Using the `modify` effect with aliases is currently in **preview**.
+
+|Alias |Effect | Outcome |
+|-|-|-|
+| `Microsoft.Storage/storageAccounts/networkAcls.ipRules` | `append` | Azure Policy appends the entire array specified in the effect details if missing. |
+| `Microsoft.Storage/storageAccounts/networkAcls.ipRules` | `modify` with `add` operation | Azure Policy appends the entire array specified in the effect details if missing. |
+| `Microsoft.Storage/storageAccounts/networkAcls.ipRules` | `modify` with `addOrReplace` operation | Azure Policy appends the entire array specified in the effect details if missing or replaces the existing array. |
+| `Microsoft.Storage/storageAccounts/networkAcls.ipRules[*]` | `append` | Azure Policy appends the array member specified in the effect details. |
+| `Microsoft.Storage/storageAccounts/networkAcls.ipRules[*]` | `modify` with `add` operation | Azure Policy appends the array member specified in the effect details. |
+| `Microsoft.Storage/storageAccounts/networkAcls.ipRules[*]` | `modify` with `addOrReplace` operation | Azure Policy removes all existing array members and appends the array member specified in the effect details. |
+| `Microsoft.Storage/storageAccounts/networkAcls.ipRules[*].action` | `append` | Azure Policy appends a value to the `action` property of each array member. |
+| `Microsoft.Storage/storageAccounts/networkAcls.ipRules[*].action` | `modify` with `add` operation | Azure Policy appends a value to the `action` property of each array member. |
+| `Microsoft.Storage/storageAccounts/networkAcls.ipRules[*].action` | `modify` with `addOrReplace` operation | Azure Policy appends or replaces the existing `action` property of each array member. |
 
 For more information, see the [append examples](../concepts/effects.md#append-examples).
 
