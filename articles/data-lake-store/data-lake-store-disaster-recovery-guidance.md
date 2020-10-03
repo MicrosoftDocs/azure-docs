@@ -34,8 +34,6 @@ To prevent accidental deletion, we recommend that you first set the correct acce
 
 You can also enable [diagnostic logging](data-lake-store-diagnostic-logs.md) for a Data Lake Storage Gen1 account to collect data access audit trails. The audit trails provide information about who might have deleted or updated a file.
 
-You can try to restore a deleted item by using the [Az.DataLakeStore](https://docs.microsoft.com/powershell/module/az.datalakestore/) Azure PowerShell module for Data Lake Storage Gen 1. Specifically, see the [Restore-AzDataLakeStoreDeletedItem](https://docs.microsoft.com/powershell/module/az.datalakestore/restore-azdatalakestoredeleteditem) command. Make sure to review the [Description](https://docs.microsoft.com/powershell/module/az.datalakestore/restore-azdatalakestoredeleteditem#description) section before you try to use this command.
-
 ## Next steps
 
 * [Get started with Data Lake Storage Gen1](data-lake-store-get-started-portal.md)

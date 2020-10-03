@@ -1,8 +1,8 @@
 ---
 title: Networking overview - Azure Database for MySQL Flexible Server
 description: Learn about connectivity and networking options in the Flexible Server deployment option for Azure Database for MySQL
-author: rachel-msft
-ms.author: raagyema
+author: ambhatna
+ms.author: ambhatna
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 9/23/2020
