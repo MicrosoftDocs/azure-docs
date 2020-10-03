@@ -23,9 +23,18 @@ The steps in this article walk through a process called manual provisioning, whe
 For manual provisioning, you have two options for authenticating IoT Edge devices:
 
 * **Symmetric key**: When you create a new device identity in IoT Hub, the service creates two keys. You place one of the keys on the device, and it presents the key to IoT Hub when authenticating.
+
+  This authentication method is faster to get started, but not as secure.
+
 * **X.509 self-signed**: You create two X.509 identity certificates and place them on the device. When you create a new device identity in IoT Hub, you provide thumbprints from both certificates. When the device authenticates to IoT Hub, it presents its certificates and IoT Hub can verify that they match the thumbprints.
 
+  This authentication method is more secure, and recommended for production scenarios.
+
 This article walks through the registration and provisioning process with symmetric key authentication. If you want to learn how to set up a device with X.509 certificates, see [Set up an Azure IoT Edge device with X.509 certificate authentication](how-to-manual-provision-x509.md).
+
+## Prerequisites
+
+Before you follow the steps in this article, you should have a device with the IoT Edge runtime installed on it. If not, follow the steps in [Install or uninstall the Azure IoT Edge runtime](how-to-install-iot-edge.md).
 
 ## Register a new device
 
@@ -46,10 +55,18 @@ A free or standard [IoT hub](../iot-hub/iot-hub-create-through-portal.md) in you
 In your IoT Hub in the Azure portal, IoT Edge devices are created and managed separately from IOT devices that are not edge enabled.
 
 1. Sign in to the [Azure portal](https://portal.azure.com) and navigate to your IoT hub.
-2. In the left pane, select **IoT Edge** from the menu.
-3. Select **Add an IoT Edge device**.
-4. Provide a descriptive device ID. Use the default settings to auto-generate authentication keys and connect the new device to your hub.
-5. Select **Save**.
+
+1. In the left pane, select **IoT Edge** from the menu, then select **Add an IoT Edge device**.
+
+   ![Add an IoT Edge device from the Azure portal](./media/how-to-manual-provision-symmetric-key/portal-add-iot-edge-device.png)
+
+1. On the **Create a device** page, provide the following information:
+
+   * Create a descriptive device ID.
+   * Select **Symmetric key** as the authentication type.
+   * Use the default settings to auto-generate authentication keys and connect the new device to your hub.
+
+1. Select **Save**.
 
 ### View IoT Edge devices in the Azure portal
 
@@ -133,9 +150,9 @@ Use the [az iot hub device-identity create](https://docs.microsoft.com/cli/azure
 
 This command includes three parameters:
 
-* **device-id**: Provide a descriptive name that's unique to your IoT hub.
-* **hub-name**: Provide the name of your IoT hub.
-* **edge-enabled**: This parameter declares that the device is for use with IoT Edge.
+* `--device-id` or `-d`: Provide a descriptive name that's unique to your IoT hub.
+* `hub-name` or `-n`: Provide the name of your IoT hub.
+* `--edge-enabled` or `--ee`: Declare that the device is an IoT Edge device.
 
    ![az iot hub device-identity create output](./media/how-to-register-device/Create-edge-device.png)
 
