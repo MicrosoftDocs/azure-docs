@@ -52,17 +52,17 @@ If you're using ASP.NET Core 3.1, install the templates with the .NET CLI:
 dotnet new --install Microsoft.Identity.Web.ProjectTemplates::1.0.0
 ```
 
-To use a template to generate a new project that includes the right packages and starter code for the app type you want to build, use the `dotnet new` command. This example generates a new Blazor Server project (placeholder values shown):
-
-```dotnetcli
-dotnet new blazorserver2 --auth SingleOrg --calls-graph --client-id "00000000-0000-0000-0000-000000000000" --tenant-id "11111111-1111-1111-1111-111111111111" --output my-blazor-app
-```
-
 The following diagram shows a high-level view of the supported app types and their relevant arguments:
 
 :::image type="content" source="media/microsoft-identity-web-overview/diagram-microsoft-identity-web-templates.png" alt-text="Diagram of the available dot net CLI project templates for Microsoft Identity Web ":::
 <br /><sup><b>*</b></sup> `MultiOrg` is not supported with `webapi2`, but can be enabled in *appsettings.json* by setting tenant to `common` or `organizations`
 <br /><sup><b>**</b></sup> `--calls-graph` is not supported for Azure AD B2C
+
+This example .NET CLI command, taken from our [Blazor Server tutorial](tutorial-blazor-server.md), generates a new Blazor Server project that includes right packages and starter code (placeholder values shown):
+
+```dotnetcli
+dotnet new blazorserver2 --auth SingleOrg --calls-graph --client-id "00000000-0000-0000-0000-000000000000" --tenant-id "11111111-1111-1111-1111-111111111111" --output my-blazor-app
+```
 
 #### GitHub
 
