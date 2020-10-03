@@ -19,8 +19,6 @@ Once data export is configured for your Log Analytics workspace, any new data se
 
 All data from included tales is exported without a filter. For example, when you configure a data export rule for *SecurityEvent* table, all data sent to the *SecurityEvent* table is exported starting from the configuration time.
 
-Export rules can be disabled to let you stop the export when you don’t need to retain data for a certain period such as when testing is being performed. 
-
 
 ## Other export options
 Log Analytics workspace data export continuously exports data from a Log Analytics workspace. Other options to export data for particular scenarios include the following:
@@ -53,7 +51,8 @@ Log Analytics workspace data export continuously exports data from a Log Analyti
 > - Problem type: Connectivity
 > - Problem subtype: Connectivity issue
 
-
+## Data completeness
+Data export will continue to retry sending data for up to 30 minutes in the event that the destination is unavailable. If it's still unavailable after 30 minutes then data will be discarded until the destination becomes available.
 
 ## Cost
 There are no additional charges for the data export feature during public preview.  Pricing for features that are in preview will be announced in the future and a notice provided prior to start of billing. If you choose to continue using data export after the notice period, you will be billed at the applicable rate.
@@ -87,11 +86,11 @@ Following are prerequisites that must be completed before configuring Log Analyt
 ## Enable data export
 The follow steps must be performed to enable Log Analytics data export. See the following sections for more details on each.
 
-- [Register resource provider](#register-resource-provider)
-- [Allow trusted Microsoft services](#allow-trusted-microsoft-services)
-- [Create one or more data export rules](#create-or-update-data-export-rule) that define the tables to export and their destination.
+- Register resource provider
+- Allow trusted Microsoft services
+- Create one or more data export rules that define the tables to export and their destination.
 
-## Register resource provider
+### Register resource provider
 
 The following Azure resource providers need to registered for your subscription to enable Log Analytics data export.
 
@@ -103,13 +102,13 @@ You can use any of the available methods to register a resource provider as desc
 Register-AzResourceProvider -ProviderNamespace Microsoft.insights
 ```
 
-## Allow trusted Microsoft services
+### Allow trusted Microsoft services
 If you have configured your Storage Account to allow access from selected networks, you need to add an exception to allow Azure Monitor to write to the account. From **Firewalls and virtual networks** for your storage account, select **Allow trusted Microsoft services to access this storage account**.
 
 [![Storage account firewalls and virtual networks](media/logs-data-export/storage-account-vnet.png)](media/logs-data-export/storage-account-vnet.png#lightbox)
 
 
-## Create or update data export rule
+### Create or update data export rule
 A data export rule defines data to be exported from all tables or a certain set of tables to a single destination. Create multiple rules if you need to send to multiple destinations.
 
 Use the following command to create a data export rule to a storage account using CLI.
@@ -180,7 +179,7 @@ GET https://management.azure.com/subscriptions/<subscription-id>/resourcegroups/
 ```
 
 ## Disable an export rule
-Use the following command to disable a data export rule using CLI.
+Export rules can be disabled to let you stop the export when you don’t need to retain data for a certain period such as when testing is being performed. Use the following command to disable a data export rule using CLI.
 
 ```azurecli
 az monitor log-analytics workspace data-export update --resource-group resourceGroupName --workspace-name workspaceName --name ruleName --enable false
