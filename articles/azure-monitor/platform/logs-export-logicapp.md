@@ -14,10 +14,6 @@ ms.date: 10/02/2020
 This article describes a method to use [Azure Logic Apps](../../logic-apps/index.yml) to query data from a Log Analytics workspace in Azure Monitor and send to Azure Storage. Use this process when you need to export your Azure Monitor Log data for auditing and compliance scenarios or to allow another service to retrieve this data.  
 
 ## Other export methods
-This procedure uses the [Azure Monitor Logs connector](https://docs.microsoft.com/connectors/azuremonitorlogs/) which allows you to run a log query from a logic app and use its output in other actions in the worklow. The [Azure Blob Storage connector](https://docs.microsoft.com/connectors/azureblob/) is used in this procedure to send the query output to Azure storage. The other actions are described in the sections below.
-
-![Logic app overview](media/logs-export-logicapp/logic-app-overview.png)
-
 The method described in this article describes a scheduled export from a log query using a Logic App. Other options to export data for particular scenarios include the following:
 
 - To export all data from your Log Analytics workspace to an Azure storage account or event hub, use the Log Analytics workspace data export feature of Azure Monitor Logs. See [Log Analytics workspace data export in Azure Monitor (preview)](logs-data-export.md)
@@ -25,6 +21,10 @@ The method described in this article describes a scheduled export from a log que
 - One time export to local machine using PowerShell script. See [Invoke-AzOperationalInsightsQueryExport]](https://www.powershellgallery.com/packages/Invoke-AzOperationalInsightsQueryExport).
 
 ## Overview
+This procedure uses the [Azure Monitor Logs connector](https://docs.microsoft.com/connectors/azuremonitorlogs/) which allows you to run a log query from a logic app and use its output in other actions in the worklow. The [Azure Blob Storage connector](https://docs.microsoft.com/connectors/azureblob/) is used in this procedure to send the query output to Azure storage. The other actions are described in the sections below.
+
+![Logic app overview](media/logs-export-logicapp/logic-app-overview.png)
+
 When you export data from a Log Analytics workspace, you should filter and aggregate your log data and optimize your query to limit the amount of data processed by your Logic App workflow to the required data. For example, if you need to archive sign-in events, you could filter for required events and project only the required fields with the following query: 
 
 ```json
