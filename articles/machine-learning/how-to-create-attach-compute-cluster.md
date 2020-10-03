@@ -10,7 +10,7 @@ ms.custom: how-to
 ms.author: sgilley
 author: sdgilley
 ms.reviewer: sgilley
-ms.date: 09/17/2020
+ms.date: 10/02/2020
 ---
 
 # Create an Azure Machine Learning compute cluster
