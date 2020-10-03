@@ -1528,7 +1528,7 @@
     },
     {
       "source_path": "articles/machine-learning/how-to-create-attach-compute-sdk.md",
-      "redirect_url": "/azure/machine-learning/how-to-create-compute-targets",
+      "redirect_url": "/azure/machine-learning/how-to-attach-compute-targets",
       "redirect_document_id": false
     },
     {

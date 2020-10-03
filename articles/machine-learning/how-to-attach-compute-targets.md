@@ -8,26 +8,27 @@ ms.author: sgilley
 ms.reviewer: sgilley
 ms.service: machine-learning
 ms.subservice: core
-ms.date: 07/08/2020
+ms.date: 10/02/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, contperfq1
 ---
 # Set up compute targets for model training and deployment
 
-In this article, learn how to attach Azure compute resources to your Azure Machine Learning workspace.  Then you can use these resources as training and inference [compute targets](concept-compute-target.md) in your machine learning tasks.
+Learn how to attach Azure compute resources to your Azure Machine Learning workspace.  Then you can use these resources as training and inference [compute targets](concept-compute-target.md) in your machine learning tasks.
 
 In this article, learn how to set up your workspace to use these compute resources:
 
-* Your [local computer](#local)
-* [Remote virtual machines](#vm)
-* [Azure HDInsight](#hdinsight)
-* [Azure Batch](#azbatch)
-* [Azure Databricks](#databricks)
-* [Azure Data Lake Analytics](#adla)
+* Your local computer
+* Remote virtual machines
+* Azure HDInsight
+* Azure Batch
+* Azure Databricks
+* Azure Data Lake Analytics
+* Azure Container Instance
 
 To use compute targets managed by Azure Machine Learning, see:
 
-* [Azure Container Instance](#aci)
+
 * [Azure Machine Learning compute instance](how-to-create-manage-compute-instance.md)
 * [Azure Machine Learning compute cluster](how-to-create-attach-compute-cluster.md)
 * [Azure Kubernetes Service cluster](how-to-create-attach-kubernetes.md)
