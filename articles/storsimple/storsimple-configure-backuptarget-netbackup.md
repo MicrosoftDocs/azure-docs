@@ -128,7 +128,7 @@ The following figure shows an architecture in which initial backups and restores
 
 It's important to size your high-performance volume so that it can handle your retention policy capacity and performance requirements.
 
-![Diagram that shows an architecture in which intitial backups and restores target a high performance volume.](./media/storsimple-configure-backup-target-using-netbackup/secondarybackuptargetlogicaldiagram.png)
+![Diagram that shows an architecture in which initial backups and restores target a high performance volume.](./media/storsimple-configure-backup-target-using-netbackup/secondarybackuptargetlogicaldiagram.png)
 
 ### Secondary target backup logical steps
 
