@@ -122,7 +122,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 1. Click the **User** tab, in the **Base DN** textbox, type your domain name, and then click **Save**.
 
-   ![User](./media/airwatch-tutorial/ic791922.png "User")
+   ![Screenshot that highlights the Base DN text box.](./media/airwatch-tutorial/ic791922.png "User")
 
 1. Click the **Server** tab.
 
@@ -130,7 +130,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 1. Perform the following steps on the **LDAP** section:
 
-	![Upload](./media/airwatch-tutorial/ic791924.png "LDAP")   
+	![Screenshot that shows the changes you need to make to the LDAP section.](./media/airwatch-tutorial/ic791924.png "LDAP")   
 
     a. As **Directory Type**, select **None**.
 
@@ -220,7 +220,7 @@ To enable Azure AD users to sign in to AirWatch, they must be provisioned in to 
 
 3. In the **Users** menu, click **List View**, and then click **Add > Add User**.
   
-   ![Add User](./media/airwatch-tutorial/ic791930.png "Add User")
+   ![Screenshot that highlights the Add and Add User buttons.](./media/airwatch-tutorial/ic791930.png "Add User")
 
 4. On the **Add / Edit User** dialog, perform the following steps:
 
