@@ -30,13 +30,9 @@ If you're building ASP.NET Core web apps or web APIs and want to use Azure AD or
 - [Protected web API that only authenticated users can access](scenario-protected-web-api-overview.md)
 - [Protected web API that calls another (downstream) web API on behalf of the signed-in user](scenario-web-api-call-api-overview.md)
 
-## Get Microsoft Identity Web
+## Get the library
 
-Microsoft Identity Web is available through three channels:
-
-- [NuGet](#nuget)
-- [.NET Core project templates](#project-templates)
-- [GitHub](#github)
+You can get Microsoft Identity Web from [NuGet](#nuget), [.NET Core project templates](#project-templates), and [GitHub](#github).
 
 #### NuGet
 
@@ -72,11 +68,11 @@ dotnet new blazorserver2 --auth SingleOrg --calls-graph --client-id "00000000-00
 
 Microsoft Identity Web is an open-source project hosted on GitHub: <a href="https://github.com/AzureAD/microsoft-identity-web" target="_blank">AzureAD/microsoft-identity-web<span class="docon docon-navigate-external x-hidden-focus"></span></a>
 
-The [repository wiki](https://github.com/AzureAD/microsoft-identity-web/wiki) contains additional documentation, and you can view, search, and [file issues](https://github.com/AzureAD/microsoft-identity-web/issues) if you need help or discover a bug.
+The [repository wiki](https://github.com/AzureAD/microsoft-identity-web/wiki) contains additional documentation, and if you need help or discover a bug, you can [file an issue](https://github.com/AzureAD/microsoft-identity-web/issues).
 
 ## Features
 
-The following table provides a feature comparison between what's provided by the default ASP.NET 3.1 project templates and those provided by Microsoft Identity Web.
+The following feature comparison matrix shows the built-in features of Microsoft Identity Web over those provided by the default ASP.NET 3.1 libraries and project templates.
 
 | Feature                   | ASP.NET Core 3.1                       | with Microsoft Identity Web |
 | ------------------------- | -------------------------------------- | --------------------------- |
