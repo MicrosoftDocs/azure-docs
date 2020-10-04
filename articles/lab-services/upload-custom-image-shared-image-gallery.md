@@ -25,8 +25,8 @@ Many options exist for creating a VHD from a physical lab environment. The follo
 
 1. Start with a Hyper-V VM in your physical lab environment that has been created from your image.
     1. The VM must be created as a Generation 1 VM.
-    1. The VM must use a fixed disk size. You also can specify the size of the disk in this window. 
-        The disk size must be no greater than 128 GB. 
+    1. The VM must use a fixed disk size. You also can specify the size of the disk in this window. The disk size must be no greater than 128 GB. 
+    
 	Images with disk size  > 128 GB are not supported by Azure Lab Services. 
        
         :::image type="content" source="./media/upload-custom-image-shared-image-gallery/connect-virtual-hard-disk.png" alt-text="Connect virtual hard disk":::   
@@ -40,6 +40,7 @@ Many options exist for creating a VHD from a physical lab environment. The follo
     1. [Install Azure VM Agent and additional configuration as shown here](https://docs.microsoft.com/azure/virtual-machines/windows/prepare-for-upload-vhd-image#complete-the-recommended-configurations) 
     
 	Above steps will create a specialized image. If creating a generalized image, you also will need to run [SysPrep](https://docs.microsoft.com/azure/virtual-machines/windows/prepare-for-upload-vhd-image#determine-when-to-use-sysprep). 
+	
         You should create a specialized image if you want to maintain the User directory (which may contain files, user account info, etc.) that is needed by software included in the image.
 1. Since **Hyper-V** creates a **VHDX** file by default, you need to convert this to a VHD file.
     1. Navigate to **Hyper-V Manager** -> **Action** -> **Edit Disk**.
@@ -57,6 +58,7 @@ Many options exist for creating a VHD from a physical lab environment. The follo
     1. [Create an image definition](https://docs.microsoft.com/azure/virtual-machines/windows/shared-images-portal#create-an-image-definition).
     1. You need to also specify here whether you are creating a specialized/generalized image.
 1. Create the lab in Azure Lab Services and select the custom image from the Shared Image Gallery.
+
     If you expanded disk after the OS was installed on the original Hyper-V VM, you also will need to extend the C drive in Windows to use the unallocated disk space. To do this, log into the template VM after the lab is created, then follow steps similar to what is shown in [Extend a basic volume](https://docs.microsoft.com/windows-server/storage/disk-management/extend-a-basic-volume). There are options to do this through the UI as well as using PowerShell.
 
 ## Next steps
