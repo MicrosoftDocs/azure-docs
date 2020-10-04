@@ -4,7 +4,7 @@ description: Common issues with Azure Monitor metric alerts and possible solutio
 author: harelbr
 ms.author: harelbr
 ms.topic: troubleshooting
-ms.date: 09/14/2020
+ms.date: 10/04/2020
 ms.subservice: alerts
 ---
 # Troubleshooting problems in Azure Monitor metric alerts 
@@ -70,6 +70,9 @@ For more information about collecting data from the guest operating system of a 
 > [!NOTE] 
 > If you configured guest metrics to be sent to a Log Analytics workspace, the metrics appear under the Log Analytics workspace resource and will start showing data **only** after creating an alert rule that monitors them. To do so, follow the steps to [configure a metric alert for logs](./alerts-metric-logs.md#configuring-metric-alert-for-logs).
 
+> [!NOTE] 
+> Monitoring a guest metric for multiple virtual machines with a single alert rule isn't supported by metric alerts currently. You can achieve this with a [log alert rule](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-unified-log). To do so, make sure the guest metrics are collected to a Log Analytics workspace, and create a log alert rule on the workspace.
+
 ## Can’t find the metric to alert on
 
 If you’re looking to alert on a specific metric but can’t see any metrics for the resource, [check if the resource type is supported for metric alerts](./alerts-metric-near-real-time.md).
@@ -102,9 +105,9 @@ Metric alerts are stateful by default, and therefore additional alerts are not f
 
 ## Define an alert rule on a custom metric that isn't emitted yet
 
-When creating a metric alert rule, the metric name is validated against the [Metric Definitions API](/rest/api/monitor/metricdefinitions/list) to make sure it exists. In some cases, you'd like to create an alert rule on a custom metric even before it’s emitted. For example, when creating (using an Resource Manager template) an Application Insights resource that will emit a custom metric, along with an alert rule that monitors that metric.
+When creating a metric alert rule, the metric name is validated against the [Metric Definitions API](/rest/api/monitor/metricdefinitions/list) to make sure it exists. In some cases, you'd like to create an alert rule on a custom metric even before it’s emitted. For example, when creating (using a Resource Manager template) an Application Insights resource that will emit a custom metric, along with an alert rule that monitors that metric.
 
-To avoid having the deployment fail when trying to validate the custom metric’s definitions, you can use the *skipMetricValidation* parameter in the criteria section of the alert rule, which will cause the metric validation to be skipped. See the example below for how to use this parameter in an Resource Manager template. For more information see the [complete Resource Manager template samples for creating metric alert rules](./alerts-metric-create-templates.md).
+To avoid having the deployment fail when trying to validate the custom metric’s definitions, you can use the *skipMetricValidation* parameter in the criteria section of the alert rule, which will cause the metric validation to be skipped. See the example below for how to use this parameter in a Resource Manager template. For more information, see the [complete Resource Manager template samples for creating metric alert rules](./alerts-metric-create-templates.md).
 
 ```json
 "criteria": {
