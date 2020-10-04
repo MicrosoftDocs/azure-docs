@@ -44,7 +44,7 @@ For information on how to parse the location and dimensions of the face, see [Fa
 
 ## Get face landmarks
 
-[Face landmarks](../concepts/face-detection.md#face-landmarks) are a set of easy-to-find points on a face, such as the pupils or the tip of the nose. To get face landmark data, set the _returnFaceLandmarks_ parameter to **true**.
+[Face landmarks](../concepts/face-detection.md#face-landmarks) are a set of easy-to-find points on a face, such as the pupils or the tip of the nose. To get face landmark data, set the _detectionModel_ parameter to **DetectionModel.Detection01** and the _returnFaceLandmarks_ parameter to **true**.
 
 :::code language="csharp" source="~/cognitive-services-quickstart-code/dotnet/Face/sdk/detect.cs" id="landmarks1":::
 
@@ -62,7 +62,7 @@ When you know the direction of the face, you can rotate the rectangular face fra
 
 Besides face rectangles and landmarks, the face detection API can analyze several conceptual attributes of a face. For a full list, see the [Face attributes](../concepts/face-detection.md#attributes) conceptual section.
 
-To analyze face attributes, set the _returnFaceAttributes_ parameter to a list of [FaceAttributeType Enum](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.vision.face.models.faceattributetype?view=azure-dotnet) values.
+To analyze face attributes, set the _detectionModel_ parameter to **DetectionModel.Detection01** and the _returnFaceAttributes_ parameter to a list of [FaceAttributeType Enum](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.vision.face.models.faceattributetype?view=azure-dotnet) values.
 
 :::code language="csharp" source="~/cognitive-services-quickstart-code/dotnet/Face/sdk/detect.cs" id="attributes1":::
 
