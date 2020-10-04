@@ -25,8 +25,8 @@ Many options exist for creating a VHD from a physical lab environment. The follo
 
 1. Start with a Hyper-V VM in your physical lab environment that has been created from your image.
     1. The VM must be created as a Generation 1 VM.
-    1. The VM must use a fixed disk size; here, you also can specify the size of the disk.       
-       Images with > 128 GB of disk size are not supported by Azure Lab Services. 
+    1. The VM must use a fixed disk size. You also can specify the size of the disk in this window. The disk size must be no greater than 128 GB. 
+       Images with disk size  > 128 GB are not supported by Azure Lab Services. 
        :::image type="content" source="./media/upload-custom-image-shared-image-gallery/connect-virtual-hard-disk.png" alt-text="Connect virtual hard disk":::   
     1. Image the VM as you normally would.
 1. [Connect to the VM and prepare it for Azure](https://docs.microsoft.com/azure/virtual-machines/windows/prepare-for-upload-vhd-image).
@@ -41,7 +41,7 @@ Many options exist for creating a VHD from a physical lab environment. The follo
 1. Since **Hyper-V** creates a **VHDX** file by default, you need to convert this to a VHD file.
     1. Navigate to **Hyper-V Manager** -> **Action** -> **Edit Disk**.
     1. Here, you'll have the option to **Convert** the disk from a VHDX to a VHD
-    1. Since images with > 128 GB of disk size are not supported by Azure Lab Services, make sure to not exceed 128 GB when trying to expand the disk size.        
+    1. When trying to expand the disk size, make sure to not exceed 128 GB.        
         :::image type="content" source="./media/upload-custom-image-shared-image-gallery/choose-action.png" alt-text="Choose action":::   
 1. Upload VHD to Azure to create a managed disk.
     1. You can use either Storage Explorer or AzCopy from the command line, as described in [Upload a VHD to Azure or copy a managed disk to another region](https://docs.microsoft.com/azure/virtual-machines/windows/disks-upload-vhd-to-managed-disk-powershell).        
