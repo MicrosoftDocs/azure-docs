@@ -25,9 +25,11 @@ Many options exist for creating a VHD from a physical lab environment. The follo
 
 1. Start with a Hyper-V VM in your physical lab environment that has been created from your image.
     1. The VM must be created as a Generation 1 VM.
-    1. The VM must use a fixed disk size. You also can specify the size of the disk in this window. The disk size must be no greater than 128 GB. 
-       Images with disk size  > 128 GB are not supported by Azure Lab Services. 
-       :::image type="content" source="./media/upload-custom-image-shared-image-gallery/connect-virtual-hard-disk.png" alt-text="Connect virtual hard disk":::   
+    1. The VM must use a fixed disk size. You also can specify the size of the disk in this window. 
+        The disk size must be no greater than 128 GB. 
+	Images with disk size  > 128 GB are not supported by Azure Lab Services. 
+       
+        :::image type="content" source="./media/upload-custom-image-shared-image-gallery/connect-virtual-hard-disk.png" alt-text="Connect virtual hard disk":::   
     1. Image the VM as you normally would.
 1. [Connect to the VM and prepare it for Azure](https://docs.microsoft.com/azure/virtual-machines/windows/prepare-for-upload-vhd-image).
     1. [Set Windows configurations for Azure](https://docs.microsoft.com/azure/virtual-machines/windows/prepare-for-upload-vhd-image#set-windows-configurations-for-azure)
@@ -36,6 +38,7 @@ Many options exist for creating a VHD from a physical lab environment. The follo
     1. [Configure Windows Firewall rules](https://docs.microsoft.com/azure/virtual-machines/windows/prepare-for-upload-vhd-image#configure-windows-firewall-rules)
     1. Install Windows Updates
     1. [Install Azure VM Agent and additional configuration as shown here](https://docs.microsoft.com/azure/virtual-machines/windows/prepare-for-upload-vhd-image#complete-the-recommended-configurations) 
+    
 	Above steps will create a specialized image. If creating a generalized image, you also will need to run [SysPrep](https://docs.microsoft.com/azure/virtual-machines/windows/prepare-for-upload-vhd-image#determine-when-to-use-sysprep). 
         You should create a specialized image if you want to maintain the User directory (which may contain files, user account info, etc.) that is needed by software included in the image.
 1. Since **Hyper-V** creates a **VHDX** file by default, you need to convert this to a VHD file.
