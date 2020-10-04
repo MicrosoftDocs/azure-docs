@@ -6,7 +6,8 @@
     href: overview.md
   - name: Differences from previous release
     href: overview-differences.md
-- name: Quickstarts
+- name: Quickstart
+  expanded: true
   items:
   - name: Explore a sample scenario
     href: quickstart-adt-explorer.md

@@ -1,11 +1,11 @@
 ---
 # Mandatory fields.
-title: Explore a sample scenario
+title: Quickstart - Explore a sample scenario
 titleSuffix: Azure Digital Twins
-description: Use the ADT Explorer sample to visualize and explore a pre-built scenario.
+description: Quickstart - Use the ADT Explorer sample to visualize and explore a pre-built scenario.
 author: baanders
 ms.author: baanders # Microsoft employees only
-ms.date: 8/12/2020
+ms.date: 9/24/2020
 ms.topic: quickstart
 ms.service: digital-twins
 
@@ -15,7 +15,7 @@ ms.service: digital-twins
 # manager: MSFT-alias-of-manager-or-PM-counterpart
 ---
 
-# Explore a sample Azure Digital Twins scenario using ADT Explorer
+# Quickstart - Explore a sample Azure Digital Twins scenario using ADT Explorer
 
 With Azure Digital Twins, you can create and interact with live models of your real-world environments. This is done by modeling individual elements as **digital twins**, then connecting them into a knowledge **graph** that can respond to live events and be queried for information.
 

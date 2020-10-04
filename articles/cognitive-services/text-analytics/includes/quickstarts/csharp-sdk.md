@@ -248,6 +248,8 @@ Document sentiment: Positive
         Neutral score: 0.77
 ```
 
+### Opinion mining
+
 Create a new function called `SentimentAnalysisWithOpinionMiningExample()` that takes the client that you created earlier, and call its `AnalyzeSentimentBatch()` function with `AdditionalSentimentAnalyses.OpinionMining` option. The returned `AnalyzeSentimentResultCollection` object will contain the collection of `AnalyzeSentimentResult` in which represents `Response<DocumentSentiment>`. The difference between `SentimentAnalysis()` and `SentimentAnalysisWithOpinionMiningExample()` is that the latter will contain `MinedOpinion` in each sentence, which shows an analyzed aspect and the related opinion(s). If there was an error, it will throw a `RequestFailedException`.
 
 ```csharp

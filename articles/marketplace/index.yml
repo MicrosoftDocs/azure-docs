@@ -97,14 +97,14 @@ landingContent:
     linkLists:
     - linkListType: concept
       links:
-      - text: Payout reporting
-        url: ./partner-center-portal/payout-summary-overview.md
+      - text: Payout statements
+        url: /partner-center/payout-statement?context=/azure/marketplace/context/context
       - text: Payment thresholds, methods and time frames
-        url: ./partner-center-portal/payment-thresholds-methods-timeframes.md
+        url: /partner-center/payment-thresholds-methods-timeframes?context=/azure/marketplace/context/context
       - text: Set up your payout account and tax forms
-        url: ./partner-center-portal/set-up-your-payout-account-tax-forms.md
+        url: /partner-center/set-up-your-payout-account?context=/azure/marketplace/context/context
       - text: Tax details
-        url: ./partner-center-portal/tax-details-paid-transactions.md
+        url: /partner-center/tax-details-marketplace?context=/azure/marketplace/context/context
       - text: Commercial marketplace billing
         url: ./partner-center-portal/billing-details.md
 

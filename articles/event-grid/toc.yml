@@ -40,6 +40,8 @@
     href: custom-event-to-eventhub.md
   - name: Container Registry events
     href: ../container-registry/container-registry-event-grid-quickstart.md?toc=%2fazure%2fevent-grid%2ftoc.json
+  - name: Handle Azure Communication Services events
+    href: ../communication-services/quickstarts/telephony-sms/handle-sms-events.md?toc=%2fazure%2fevent-grid%2ftoc.json  
 - name: Tutorials
   items:
   - name: Email when VM changes

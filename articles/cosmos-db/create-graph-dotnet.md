@@ -1,13 +1,13 @@
 ---
 title: Build an Azure Cosmos DB .NET Framework, Core application using the Gremlin API
 description: Presents a .NET Framework/Core code sample you can use to connect to and query Azure Cosmos DB
-author: luisbosquez
+author: jasonwhowell
 ms.service: cosmos-db
 ms.subservice: cosmosdb-graph
 ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 02/21/2020
-ms.author: lbosq
+ms.author: jasonh
 ms.custom: devx-track-dotnet
 
 ---
@@ -114,7 +114,7 @@ Now go back to the Azure portal to get your connection string information and co
 1. After you have copied the URI and PRIMARY KEY of your account, save them to a new environment variable on the local machine running the application. To set the environment variable, open a command prompt window, and run the following command. Make sure to replace <Your_Azure_Cosmos_account_URI> and <Your_Azure_Cosmos_account_PRIMARY_KEY> values.
 
    ```console
-   setx EndpointUrl "<your Azure Cosmos account name>.gremlin.cosmosdb.azure.com"
+   setx Host "<your Azure Cosmos account name>.gremlin.cosmosdb.azure.com"
    setx PrimaryKey "<Your_Azure_Cosmos_account_PRIMARY_KEY>"
    ```
 

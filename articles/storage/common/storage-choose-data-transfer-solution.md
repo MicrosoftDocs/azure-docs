@@ -7,7 +7,7 @@ author: alkohli
 ms.service: storage
 ms.subservice: blobs
 ms.topic: conceptual
-ms.date: 06/03/2019
+ms.date: 09/25/2020
 ms.author: alkohli
 ---
 # Choose an Azure solution for data transfer

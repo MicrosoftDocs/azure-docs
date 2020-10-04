@@ -64,9 +64,9 @@ Your application might experience [transient errors](https://docs.microsoft.com/
 A good practice is to wait for 5 seconds before your first retry. Then follow each retry by increasing the wait gradually, up to 60 seconds. Limit the maximum number of retries at which point your application considers the operation failed, so you can then further investigate. See [How to troubleshoot connection errors](https://docs.microsoft.com/azure/mysql/howto-troubleshoot-common-connection-issues) to learn more. 
 
 ### Enable read replication to mitigate failovers
-You can use [Data-in Replication](https://docs.microsoft.com/azure/mysql/howto-data-in-replication) for failover scenarios. When you're using read replicas, no automated failover between master and replica servers occurs. 
+You can use [Data-in Replication](https://docs.microsoft.com/azure/mysql/howto-data-in-replication) for failover scenarios. When you're using read replicas, no automated failover between source and replica servers occurs. 
 
-You'll notice a lag between the master and the replica because the replication is asynchronous. Network lag can be influenced by many factors, like the size of the workload running on the master server and the latency between datacenters. In most cases, replica lag ranges from a few seconds to a couple of minutes.
+You'll notice a lag between the source and the replica because the replication is asynchronous. Network lag can be influenced by many factors, like the size of the workload running on the source server and the latency between datacenters. In most cases, replica lag ranges from a few seconds to a couple of minutes.
 
 ## Database deployment 
 

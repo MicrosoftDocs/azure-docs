@@ -9,7 +9,7 @@ metadata:
   ms.topic: landing-page 
   author: JnHs 
   ms.author: jenhayes 
-  ms.date: 09/23/2019 
+  ms.date: 09/29/2020
 
 landingContent:
   - title: About Azure Batch
@@ -96,3 +96,5 @@ landingContent:
             url: /python/api/overview/azure/batch
           - text: REST
             url: /rest/api/batchservice/
+          - text: Batch API lifecycle
+            url: /rest/api/batchservice/batch-api-status

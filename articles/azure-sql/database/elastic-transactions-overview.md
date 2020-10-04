@@ -1,5 +1,5 @@
 ---
-title: Distributed transactions across cloud databases
+title: Distributed transactions across cloud databases (preview)
 description: Overview of Elastic Database Transactions with Azure SQL Database.
 services: sql-database
 ms.service: sql-database
@@ -12,10 +12,10 @@ ms.author: sstein
 ms.reviewer:
 ms.date: 03/12/2019
 ---
-# Distributed transactions across cloud databases
+# Distributed transactions across cloud databases (preview)
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
-Elastic database transactions for Azure SQL Database allow you to run transactions that span several databases in SQL Database. Elastic database transactions for SQL Database are available for .NET applications using ADO .NET and integrate with the familiar programming experience using the [System.Transaction](https://msdn.microsoft.com/library/system.transactions.aspx) classes. To get the library, see [.NET Framework 4.6.1 (Web Installer)](https://www.microsoft.com/download/details.aspx?id=49981).
+Elastic database transactions for Azure SQL Database allow you to run transactions that span several databases in SQL Database. Elastic database transactions for SQL Database are available for .NET applications using ADO.NET and integrate with the familiar programming experience using the [System.Transaction](https://msdn.microsoft.com/library/system.transactions.aspx) classes. To get the library, see [.NET Framework 4.6.1 (Web Installer)](https://www.microsoft.com/download/details.aspx?id=49981).
 
 On premises, such a scenario usually requires running Microsoft Distributed Transaction Coordinator (MSDTC). Since MSDTC isn't available for Platform-as-a-Service application in Azure, the ability to coordinate distributed transactions has now been directly integrated into SQL Database. Applications can connect to any database in SQL Database to launch distributed transactions, and one of the databases will transparently coordinate the distributed transaction, as shown in the following figure.
 

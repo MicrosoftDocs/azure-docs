@@ -23,15 +23,13 @@ Ddv4-series sizes run on the Intel&reg; Xeon&reg; Platinum 8272CL (Cascade Lake)
 
 The new Ddv4 VM sizes include fast, larger local SSD storage (up to 2,400 GiB) and are designed for applications that benefit from low latency, high-speed local storage, such as applications that require fast reads/ writes to temp storage or that need temp storage for caches or temporary files. You can attach Standard SSDs and Standard HDDs storage to the Ddv4 VMs. Remote Data disk storage is billed separately from virtual machines.
 
-ACU: 195-210
-
-Premium Storage:  Not Supported
-
-Premium Storage caching:  Not Supported
-
-Live Migration: Supported
-
-Memory Preserving Updates: Supported
+[ACU](acu.md): 195-210<br>
+[Premium Storage](premium-storage-performance.md): Not Supported<br>
+[Premium Storage caching](premium-storage-performance.md): Not Supported<br>
+[Live Migration](maintenance-and-updates.md): Supported<br>
+[Memory Preserving Updates](maintenance-and-updates.md): Supported<br>
+[VM Generation Support](generation-2.md): Generation 1<br>
+<br> 
 
 | Size | vCPU | Memory: GiB | Temp storage (SSD) GiB | Max data disks | Max cached and temp storage throughput: IOPS/MBps | Max NICs|Expected Network bandwidth (Mbps) |
 |---|---|---|---|---|---|---|---|
@@ -52,15 +50,13 @@ The new Ddsv4 VM sizes include fast, larger local SSD storage (up to 2,400 GiB) 
  > [!NOTE]
  >The pricing and billing meters for Ddsv4 sizes are the same as Ddv4-series.
 
-ACU: 195-210
-
-Premium Storage:  Supported
-
-Premium Storage caching:  Supported
-
-Live Migration: Supported
-
-Memory Preserving Updates: Supported
+[ACU](acu.md): 195-210<br>
+[Premium Storage](premium-storage-performance.md): Supported<br>
+[Premium Storage caching](premium-storage-performance.md): Supported<br>
+[Live Migration](maintenance-and-updates.md): Supported<br>
+[Memory Preserving Updates](maintenance-and-updates.md): Supported<br>
+[VM Generation Support](generation-2.md): Generation 1 and 2<br>
+<br> 
 
 | Size | vCPU | Memory: GiB | Temp storage (SSD) GiB | Max data disks | Max cached and temp storage throughput: IOPS/MBps (cache size in GiB) | Max uncached disk throughput: IOPS/MBps | Max NICs|Expected Network bandwidth (Mbps) |
 |---|---|---|---|---|---|---|---|---|

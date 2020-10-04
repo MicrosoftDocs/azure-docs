@@ -4,6 +4,8 @@
   items:
   - name: What is Azure DB for PostgreSQL?
     href: overview.md
+  - name: Which PostgreSQL deployment option to choose?
+    href: overview-postgres-choose-server-options.md
   - name: Service updates
     items:
     - name: SSL root certificate expiring
@@ -552,10 +554,6 @@
         href: concepts-hyperscale-choose-distribution-column.md
       - name: Table colocation
         href: concepts-hyperscale-colocation.md
-      - name: Configuration options
-        href: concepts-hyperscale-configuration-options.md
-      - name: Prepay for reserved capacity
-        href: concepts-hyperscale-reserved-pricing.md
     - name: Security
       items:
       - name: Firewall rules
@@ -577,6 +575,10 @@
       items:
       - name: Monitor and tune
         href: concepts-hyperscale-monitoring.md
+    - name: Configuration options
+      href: concepts-hyperscale-configuration-options.md
+    - name: Prepay for reserved capacity
+      href: concepts-hyperscale-reserved-pricing.md
     - name: PostgreSQL extensions
       href: concepts-hyperscale-extensions.md
   - name: API Reference

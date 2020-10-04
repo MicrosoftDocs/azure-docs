@@ -11,7 +11,7 @@ metadata:
   ms.collection: collection
   author: DCtheGeek
   ms.author: dacoulte
-  ms.date: 09/24/2020
+  ms.date: 09/30/2020
 
 landingContent:
   - title: About Azure Policy
@@ -45,6 +45,8 @@ landingContent:
             url: ./assign-policy-azurecli.md
           - text: Assign a policy (Azure PowerShell)
             url: ./assign-policy-powershell.md
+          - text: Assign a policy (.NET)
+            url: ./assign-policy-dotnet.md
           - text: Assign a policy (JavaScript)
             url: ./assign-policy-javascript.md
           - text: Assign a policy (Python)
@@ -80,6 +82,8 @@ landingContent:
             url: ./how-to/programmatically-create.md
           - text: Author policies for arrays
             url: ./how-to/author-policies-for-arrays.md
+          - text: Export resources
+            url: ./how-to/export-resources.md
       - linkListType: concept
         links:
           - text: Regulatory Compliance

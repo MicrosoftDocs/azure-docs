@@ -5,6 +5,7 @@ services: cognitive-services
 author: erhopf
 manager: nitinme
 ms.service: cognitive-services
+ms.subservice: personalizer
 ms.topic: include 
 ms.date: 08/25/2019
 ms.author: erhopf

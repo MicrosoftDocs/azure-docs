@@ -301,7 +301,7 @@ For more information about managing roles and permissions in other areas of Part
 
 ## Manage tenants
 
-An Azure Active Directory (AD) tenant, also referred to as your "work account" throughout this documentation, is a representation of your organization set up in the Azure portal and helps you to manage a specific instance of Microsoft cloud services for your internal and external users. If your organization subscribed to a Microsoft cloud service, such as Azure, Microsoft Intune, or Office 365, an Azure AD tenant was established for you.
+An Azure Active Directory (AD) tenant, also referred to as your "work account" throughout this documentation, is a representation of your organization set up in the Azure portal and helps you to manage a specific instance of Microsoft cloud services for your internal and external users. If your organization subscribed to a Microsoft cloud service, such as Azure, Microsoft Intune, or Microsoft 365, an Azure AD tenant was established for you.
 
 You can set up multiple tenants to use with Partner Center. Any user with the **Manager** role in the Partner Center account will have the option to add and remove Azure AD tenants from the account.  
 

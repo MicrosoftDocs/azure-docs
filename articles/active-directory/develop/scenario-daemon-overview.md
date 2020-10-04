@@ -21,10 +21,6 @@ ms.custom: aaddev, identityplatformtop40
 
 Learn all you need to build a daemon application that calls web APIs.
 
-## Prerequisites
-
-[!INCLUDE [Pre-requisites](../../../includes/active-directory-develop-scenarios-prerequisites.md)]
-
 ## Overview
 
 Your application can acquire a token to call a web API on behalf of itself (not on behalf of a user). This scenario is useful for daemon applications. It uses the standard OAuth 2.0 [client credentials](v2-oauth2-client-creds-grant-flow.md) grant.
@@ -57,6 +53,10 @@ For developers, the end-to-end experience for this scenario has the following as
 - During [application registration](./scenario-daemon-app-registration.md), the reply URI isn't needed. You need to share secrets or certificates or signed assertions with Azure AD. You also need to request application permissions and grant admin consent to use those app permissions.
 - The [application configuration](./scenario-daemon-app-configuration.md) needs to provide client credentials as shared with Azure AD during the application registration.
 - The [scope](scenario-daemon-acquire-token.md#scopes-to-request) used to acquire a token with the client credentials flow needs to be a static scope.
+
+## Recommended reading
+
+[!INCLUDE [recommended-topics](../../../includes/active-directory-develop-scenarios-prerequisites.md)]
 
 ## Next steps
 
