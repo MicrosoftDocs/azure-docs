@@ -249,6 +249,12 @@ For example:
 	- I'd like to update the first condition, and only monitor transactions where the **ApiName** dimension equals *"GetBlob"*
 	- Because both the **Transactions** and **SuccessE2ELatency** metrics support an **ApiName** dimension, I'll need to update both conditions, and have both of them specify the **ApiName** dimension with a *"GetBlob"* value.
 
+## Setting the alert rule's Period and Frequency
+
+We recommend choosing an *Aggregation granularity (Period)* that is larger than the *Frequency of evaluation*, to reduce the likelihood of missing the first evaluation of added time series in the following cases:
+-	Metric alert rule that monitors multiple dimensions – When a new dimension value combination is added
+-	Metric alert rule that monitors multiple resources – When a new resource is added to the scope
+-	Metric alert rule that monitors a metric that isn’t emitted continuously (sparse metric) –  When the metric is emitted after a period longer than 24 hours in which it wasn’t emitted
 
 ## Next steps
 
