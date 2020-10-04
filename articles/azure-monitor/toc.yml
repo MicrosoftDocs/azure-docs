@@ -235,14 +235,14 @@
       items:
       - name: KQL reference
         href: /azure/data-explorer/kusto/query/
+
       - name: Examples
         href: https://review.docs.microsoft.com/azure/data-explorer/kusto/query/samples?branch=pr-en-us-826&pivots=azuremonitor
       - name: Smart analytics examples
         href: log-query/smart-analytics.md
       - name: Log query examples
-        href: log-query/examples.md
-      - name: Smart analytics examples
-        href: log-query/smart-analytics.md
+      - name: Difference from Azure Data Explorer
+        href: log-query/data-explorer-difference.md
       - name: Lessons
         items:
         - name: String operations
@@ -281,8 +281,6 @@
         href: log-query/resource-expression.md   
       - name: Unify application data resources
         href: log-query/unify-app-resource-data.md
-    - name: Examples and guidance
-      items:
     - name: Workspaces and clusters
       items:
       - name: Design a workspace deployment
@@ -981,6 +979,8 @@
       href: insights/vminsights-maps.md
     - name: Monitor performance
       href: insights/vminsights-performance.md
+    - name: Monitor changes
+      href: insights/vminsights-change-analysis.md
     - name: Analyze data with log queries
       href: insights/vminsights-log-search.md
     - name: Visualize data with workbooks
@@ -1166,12 +1166,18 @@
         href: platform/workbooks-time.md
       - name: Text parameters
         href: platform/workbooks-text.md
+      - name: Resource parameters
+        href: platform/workbooks-resources.md
     - name: Configuration
       items:
       - name: Access control
         href: platform/workbooks-access-control.md
       - name: Deploy with Azure Resource Manager
         href: platform/workbooks-automate.md
+      - name: Groups
+        href: platform/workbooks-groups.md
+      - name: Transform JSON data with JSONPath
+        href: platform/workbooks-jsonpath.md
       - name: Move Workbooks to another region
         href: platform/workbooks-move-region.md
       - name: Move Workbook Templates to another region

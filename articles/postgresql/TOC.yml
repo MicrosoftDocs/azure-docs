@@ -4,6 +4,8 @@
   items:
   - name: What is Azure DB for PostgreSQL?
     href: overview.md
+  - name: Which PostgreSQL deployment option to choose?
+    href: overview-postgres-choose-server-options.md
   - name: Service updates
     items:
     - name: SSL root certificate expiring

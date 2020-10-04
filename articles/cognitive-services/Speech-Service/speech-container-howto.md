@@ -1,18 +1,20 @@
 ---
-title: Install Speech containers - Speech service
+title: Install and run Docker containers for the Speech service APIs
 titleSuffix: Azure Cognitive Services
-description: Install and run speech containers. Speech-to-text transcribes audio streams to text in real time that your applications, tools, or devices can consume or display. Text-to-speech converts input text into human-like synthesized speech.
+description: Use the Docker containers for the Speech service to perform speech recognition, transcription, generation, and more on-premises.
 services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 09/24/2020
+ms.date: 09/28/2020
 ms.author: aahi
+ms.custom: cog-serv-seo-aug-2020
+keywords: on-premises, Docker, container
 ---
 
-# Install and run Speech service containers 
+# Install and run Docker containers for the Speech service APIs 
 
 Containers enable you to run some of the Speech service APIs in your own environment. Containers are great for specific security and data governance requirements. In this article you'll learn how to download, install, and run a Speech container.
 
@@ -477,7 +479,7 @@ ApiKey={API_KEY}
 
 This command: 
 
-* Runs a speech language-detection container from the container image. Currently you will not be charged for running this image. 
+* Runs a speech language-detection container from the container image. Currently you will not be charged for running this image.
 * Allocates 1 CPU cores and 1 gigabyte (GB) of memory.
 * Exposes TCP port 5003 and allocates a pseudo-TTY for the container.
 * Automatically removes the container after it exits. The container image is still available on the host computer.
