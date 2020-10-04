@@ -13,7 +13,7 @@ ms.custom:
 
 # Getting started with the Azure Maps Power BI visual
 
-<Token>**APPLIES TO:** ![yes](media/power-bi-visual/yes.png) Power BI service for ***consumers*** ![yes](media/power-bi-visual/yes.png) Power BI service for designers & developers ![yes](media/power-bi-visual/yes.png) Power BI Desktop ![no](media/power-bi-visual/no.png) Requires Pro or Premium license </Token>
+<Token>**APPLIES TO:** ![Green check mark.](media/power-bi-visual/yes.png) Power BI service for ***consumers*** ![Green check mark.](media/power-bi-visual/yes.png) Power BI service for designers & developers ![Green check mark.](media/power-bi-visual/yes.png) Power BI Desktop ![X indicating no.](media/power-bi-visual/no.png) Requires Pro or Premium license </Token>
 
 This article shows how to use the Microsoft Azure Maps visual for Power BI.
 

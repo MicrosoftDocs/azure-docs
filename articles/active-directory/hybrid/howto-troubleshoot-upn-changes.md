@@ -91,7 +91,7 @@ See the Known issues and workarounds in this document.
 
 When you're synchronizing user accounts from Active Directory to Azure AD, ensure that the UPNs in Active Directory map to verified domains in Azure AD.
 
-![Screenshot of verified domains](./media/howto-troubleshoot-upn-changes/verified-domains.png)
+![Screenshot that shows examples of UPNs mapped to verified Azure A D domains.](./media/howto-troubleshoot-upn-changes/verified-domains.png)
 
 If the value of the userPrincipalName attribute doesn't correspond to a verified domain in Azure AD, the synchronization process replaces the suffix with a default .onmicrosoft.com value.
 
@@ -237,7 +237,7 @@ The user needs to select the drop-down menu on the account enabled for Phone sig
 ## Security Key (FIDO2) known issues and workarounds
 
 **Known issues** <br>
-When multiple users are registered on the same key, the sign in screen shows an account selection page where the old UPN is displayed. Sign ins using Security Keys are not affected by UPN changes.  
+When multiple users are registered on the same key, the sign in screen shows an account selection page where the old UPN is displayed. Sign-ins using Security Keys are not affected by UPN changes.  
 
 **Workaround**<br>
 To remove references to old UPNs, users must [reset the security key and re-register](../authentication/howto-authentication-passwordless-security-key.md#known-issues).

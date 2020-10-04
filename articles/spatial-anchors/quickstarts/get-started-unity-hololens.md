@@ -6,7 +6,7 @@ manager: vriveras
 services: azure-spatial-anchors
 
 ms.author: crtreasu
-ms.date: 07/31/2020
+ms.date: 09/29/2020
 ms.topic: quickstart
 ms.service: azure-spatial-anchors
 ---
@@ -75,7 +75,12 @@ Turn on the HoloLens device, sign in, and connect the device to the PC by using 
 
 Select **Debug** > **Start debugging** to deploy your app and start debugging.
 
-Follow the instructions in the app to place and recall an anchor.
+In the app, select **BasicDemo** using the arrows, then press the **Go!** button to run the demo. Follow the instructions to place and recall an anchor.
+
+![Screenshot 1](./media/get-started-unity-hololens/screenshot-1.jpg)
+![Screenshot 2](./media/get-started-unity-hololens/screenshot-2.jpg)
+![Screenshot 3](./media/get-started-unity-hololens/screenshot-3.jpg)
+![Screenshot 4](./media/get-started-unity-hololens/screenshot-4.jpg)
 
 In Visual Studio, stop the app by selecting either **Stop Debugging** or Shift+F5.
 

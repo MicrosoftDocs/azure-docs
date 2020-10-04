@@ -13,7 +13,7 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 08/19/2020
+ms.date: 09/28/2020
 ms.author: b-juche
 ---
 # Configure an NFS client for Azure NetApp Files
@@ -41,6 +41,9 @@ Regardless of the Linux flavor you use, the following configurations are require
     `sudo realm join $DOMAIN.NAME -U $SERVICEACCOUNT --computer-ou= OU=$YOUROU,DC=$DOMAIN,DC=TLD`
 
 ## Ubuntu configuration 
+This section describes Ubuntu configuration for the NFS clients.  
+
+### If you are using NFSv4.1 Kerberos encryption 
 
 1. Install packages:  
     `sudo yum -y install realmd packagekit sssd adcli samba-common krb5-workstation chrony`
@@ -50,6 +53,27 @@ Regardless of the Linux flavor you use, the following configurations are require
 
 3. Join the Active Directory Domain:  
     `sudo realm join $DOMAIN.NAME -U $SERVICEACCOUNT --computer-ou= OU=$YOUROU,DC=$DOMAIN,DC=TLD`
+
+### If you are using dual protocol  
+
+1. Run the following command to upgrade the installed packages:  
+    `sudo apt update && sudo apt install libnss-ldap libpam-ldap ldap-utils nscd`
+
+    Example:   
+
+    `base dc=hariscus,dc=com`
+    `uri ldap://10.20.0.4:389/`
+    `ldap_version 3`
+    `rootbinddn cn=admin,cn=Users,dc=hariscus,dc=com`
+    `pam_password ad`
+ 
+2. Run the following command to restart and enable the service:   
+    `sudo systemctl restart nscd && sudo systemctl enable nscd`
+
+The following example queries the AD LDAP server from Ubuntu LDAP client for an LDAP user `ldapu1`:   
+
+`root@cbs-k8s-varun4-04:/home/cbs# getent passwd hari1`   
+`hari1:*:1237:1237:hari1:/home/hari1:/bin/bash`   
 
 ## Next steps  
 

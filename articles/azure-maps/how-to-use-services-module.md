@@ -4,11 +4,11 @@ description: Learn about the Azure Maps services module. See how to load and use
 author: rbrundritt
 ms.author: richbrun
 ms.date: 03/25/2019
-ms.topic: conceptual
+ms.topic: how-to
 ms.service: azure-maps
 services: azure-maps
 manager: cpendleton
-ms.custom: devx-track-javascript
+ms.custom: devx-track-js
 ---
 
 # Use the Azure Maps services module

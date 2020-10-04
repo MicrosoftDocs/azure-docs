@@ -22,7 +22,7 @@ Resources that were created with the previous tier model are automatically suppo
 
 For example, if you previously selected the tier that scaled between 400 to 4000 RU/s, the database or container will now show as having a maximum RU/s of 4000 RU/s, which scales between 400 to 4000 RU/s. From here, you can change the maximum RU/s to a custom value to suit your workload. 
 
-### How quickly will autoscale scale up and down based on spikes in traffic?
+### How quickly will autoscale scale up based on spikes in traffic?
 With autoscale, the system scales the throughput (RU/s) `T` up or down within the `0.1 * Tmax` and `Tmax` range, based on incoming traffic. Because the scaling is automatic and instantaneous, at any point in time, you can consume up to the provisioned `Tmax` with no delay. 
 
 ### How do I determine what RU/s the system is currently scaled to?
@@ -32,14 +32,14 @@ Use [Azure Monitor metrics](how-to-choose-offer.md#measure-and-monitor-your-usag
 Each hour, you will be billed for the highest throughput `T` the system scaled to within the hour. If your resource had no requests during the hour or did not scale beyond `0.1 * Tmax`, you will be billed for the minimum of `0.1 * Tmax`. Refer to the Azure Cosmos DB [pricing page](https://azure.microsoft.com/pricing/details/cosmos-db/) for details. 
 
 ### How does autoscale show up on my bill?
-In single-master accounts, the autoscale rate per 100 RU/s is 1.5x the rate of standard (manual) provisioned throughput. On your bill, you will see the existing standard provisioned throughput meter. The quantity of this meter will be multiplied by 1.5. For example, if the highest RU/s the system scaled to within an hour was 6000 RU/s, you'd be billed 60 * 1.5 = 90 units of the meter for that hour.
+In single write region accounts, the autoscale rate per 100 RU/s is 1.5x the rate of standard (manual) provisioned throughput. On your bill, you will see the existing standard provisioned throughput meter. The quantity of this meter will be multiplied by 1.5. For example, if the highest RU/s the system scaled to within an hour was 6000 RU/s, you'd be billed 60 * 1.5 = 90 units of the meter for that hour.
 
-In multi-master accounts, the autoscale rate per 100 RU/s is the same as the rate for standard (manual) provisioned multi-master throughput. On your bill, you will see the existing multi-master meter. Since the rates are the same, if you use autoscale, you'll see the same quantity as with standard throughput.
+In accounts with multiple write regions, the autoscale rate per 100 RU/s is the same as the rate for standard (manual) provisioned multiple write region throughput. On your bill, you will see the existing multiple write regions meter. Since the rates are the same, if you use autoscale, you'll see the same quantity as with standard throughput.
 
 ### Does autoscale work with reserved capacity?
-Yes. When you purchase single-master reserved capacity, the reservation discount for autoscale resources is applied to your meter usage at a ratio of 1.5 * the [ratio of the specific region](../cost-management-billing/reservations/understand-cosmosdb-reservation-charges.md#reservation-discount-per-region). 
+Yes. When you purchase reserved capacity for accounts with multiple write regions, the reservation discount for autoscale resources is applied to your meter usage at a ratio of 1.5 * the [ratio of the specific region](../cost-management-billing/reservations/understand-cosmosdb-reservation-charges.md#reservation-discount-per-region). 
 
-Multi-master reserved capacity works the same for autoscale and standard (manual) provisioned throughput. See [Azure Cosmos DB reserved capacity](cosmos-db-reserved-capacity.md)
+Multi-write region reserved capacity works the same for autoscale and standard (manual) provisioned throughput. See [Azure Cosmos DB reserved capacity](cosmos-db-reserved-capacity.md)
 
 ### Does autoscale work with free tier?
 Yes. In free tier, you can use autoscale throughput on a container. Support for autoscale shared throughput databases with custom max RU/s is not yet available. See how [free tier billing works with autoscale](understand-your-bill.md#billing-examples-with-free-tier-accounts).
@@ -47,7 +47,7 @@ Yes. In free tier, you can use autoscale throughput on a container. Support for 
 ### Is autoscale supported for all APIs?
 Yes, autoscale is supported for all APIs: Core (SQL), Gremlin, Table, Cassandra, and API for MongoDB.
 
-### Is autoscale supported for multi-master accounts?
+### Is autoscale supported for multi-region write accounts?
 Yes. The max RU/s are available in each region that is added to the Azure Cosmos DB account. 
 
 ### How do I enable autoscale on new databases or containers?

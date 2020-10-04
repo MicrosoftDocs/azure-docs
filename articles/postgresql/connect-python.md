@@ -1,8 +1,8 @@
 ---
 title: 'Quickstart: Connect with Python - Azure Database for PostgreSQL - Single Server'
 description: This quickstart provides Python code samples that you can use to connect and query data from Azure Database for PostgreSQL - Single Server.
-author: rachel-msft
-ms.author: raagyema
+author: mksuni
+ms.author: sumuth
 ms.service: postgresql
 ms.custom: mvc, devcenter, devx-track-python
 ms.devlang: python
@@ -41,7 +41,7 @@ Connecting to an Azure Database for PostgreSQL database requires the fully quali
    
    You also need your admin password. If you forget it, you can reset it from this page. 
    
-   ![Azure Database for PostgreSQL server name](./media/connect-python/1-connection-string.png)
+   :::image type="content" source="./media/connect-python/1-connection-string.png" alt-text="Azure Database for PostgreSQL server name":::
 
 ## How to run the Python examples
 
@@ -100,7 +100,7 @@ conn.close()
 
 When the code runs successfully, it produces the following output:
 
-![Command-line output](media/connect-python/2-example-python-output.png)
+:::image type="content" source="media/connect-python/2-example-python-output.png" alt-text="Command-line output":::
 
 ## Read data
 The following code example connects to your Azure Database for PostgreSQL database and uses [cursor.execute](http://initd.org/psycopg/docs/cursor.html#execute) with the SQL **SELECT** statement to read data. This function accepts a query and returns a result set to iterate over by using [cursor.fetchall()](http://initd.org/psycopg/docs/cursor.html#cursor.fetchall). 

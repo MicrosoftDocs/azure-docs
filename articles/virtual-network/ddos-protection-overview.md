@@ -56,7 +56,7 @@ DDoS Protection Standard features include:
 
 DDoS Protection Standard monitors actual traffic utilization and constantly compares it against the thresholds defined in the DDoS Policy. When the traffic threshold is exceeded, DDoS mitigation is initiated automatically. When traffic returns below the threshold, the mitigation is removed.
 
-![Mitigation](./media/ddos-protection-overview/mitigation.png)
+![Diagram shows a flow starting with a customer through the Azure portal through the DDoS Protection Standard, over public I P addresses through policy generation ending at two public I P addresses.](./media/ddos-protection-overview/mitigation.png)
 
 During mitigation, traffic sent to the protected resource is redirected by the DDoS protection service and several checks are performed, such as the following checks:
 
@@ -76,3 +76,4 @@ Microsoft has partnered with [BreakingPoint Cloud](https://www.ixiacom.com/produ
 ## Next steps
 
 - [Configure DDoS Protection Standard](manage-ddos-protection.md)
+- [Azure DDoS Protection pricing](https://azure.microsoft.com/pricing/details/ddos-protection/)

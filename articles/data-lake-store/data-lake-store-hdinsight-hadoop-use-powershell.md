@@ -73,7 +73,7 @@ Follow these steps to create a storage account with  Data Lake Storage Gen1.
     ```
 
    > [!NOTE]
-   > If you receive an error similar to `Register-AzResourceProvider : InvalidResourceNamespace: The resource namespace 'Microsoft.DataLakeStore' is invalid` when registering the Data Lake Storage Gen1 resource provider, it is possible that your subscription is not whitelisted for Data Lake Storage Gen1. Make sure you enable your Azure subscription for Data Lake Storage Gen1 by following these [instructions](data-lake-store-get-started-portal.md).
+   > If you receive an error similar to `Register-AzResourceProvider : InvalidResourceNamespace: The resource namespace 'Microsoft.DataLakeStore' is invalid` when registering the Data Lake Storage Gen1 resource provider, it is possible that your subscription is not approved for Data Lake Storage Gen1. Make sure you enable your Azure subscription for Data Lake Storage Gen1 by following these [instructions](data-lake-store-get-started-portal.md).
    >
    >
 2. A storage account with Data Lake Storage Gen1 is associated with an Azure Resource Group. Start by creating an Azure Resource Group.

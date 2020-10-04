@@ -10,7 +10,7 @@ ms.devlang:
 ms.topic: conceptual
 author: bonova
 ms.author: bonova
-ms.reviewer: sstein, carlrab
+ms.reviewer: sstein
 ms.date: 09/05/2019
 ---
 # What is an Azure SQL Managed Instance pool (preview)?

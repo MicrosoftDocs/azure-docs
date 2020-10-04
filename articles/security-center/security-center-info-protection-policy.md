@@ -8,7 +8,7 @@ manager: rkarlin
 ms.assetid: 2ebf2bc7-232a-45c4-a06a-b3d32aaf2500
 ms.service: security-center
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/11/2020
@@ -51,7 +51,7 @@ To customize the information protection policy for your Azure tenant, you need t
  
 4. Labels are listed in order of ascending sensitivity. To change the ranking between labels, drag the labels to reorder them in the table, or use the **Move up** and **Move down** buttons to change the order. 
  
-    ![Configure Information protection policy](./media/security-center-info-protection-policy/move-up.png)
+    ![Label list](./media/security-center-info-protection-policy/move-up.png)
  
 5. Be sure to click **Save** at the top of the screen when you are finished.
  
@@ -61,7 +61,7 @@ To customize the information protection policy for your Azure tenant, you need t
 1. You can manage and customize information types by clicking on **Manage information types**.
 2. To add a new **Information type**, select **Create information type** in the top menu. You can configure a name, description, and search pattern strings for the **Information type**. Search pattern strings can optionally use keywords with wildcard characters (using the character '%'), which the automated discovery engine uses to identify sensitive data in your databases, based on the columns' metadata.
  
-    ![Configure Information protection policy](./media/security-center-info-protection-policy/info-types.png)
+    ![Create information type](./media/security-center-info-protection-policy/info-types.png)
  
 3. You can also configure the built-in **Information types** by adding additional search pattern strings, disabling some of the existing strings, or by changing the description. You cannot delete built-in **Information types** or edit their names. 
 4. **Information types** are listed in order of ascending discovery ranking, meaning that the types higher in the list will attempt to match first. To change the ranking between information types, drag the types to the right spot in the table, or use the **Move up** and **Move down** buttons to change the order. 

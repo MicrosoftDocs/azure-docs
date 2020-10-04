@@ -1,4 +1,4 @@
-- name: Azure IoT Hub Device Provisioning Service Documentation 
+- name: Azure IoT Hub Device Provisioning Service documentation 
   href: index.yml
 - name: Overview
   items:
@@ -46,9 +46,7 @@
      - name: Provision for multitenancy
        href: how-to-provision-multitenant.md
      - name: Use custom allocation policies
-       href: how-to-use-custom-allocation-policies.md
-  - name: 3 - Reprovisioning tutorial
-    href: how-to-reprovision.md
+       href: tutorial-custom-allocation-policies.md
 - name: Samples
   items:
   - name: Simulated TPM device attestation sample
@@ -111,6 +109,8 @@
   items:
   - name: Connect MXChip IoT DevKit to IoT Hub
     href: how-to-connect-mxchip-iot-devkit.md
+  - name: Provision devices using custom allocation policies
+    href: how-to-use-custom-allocation-policies.md
   - name: Manage Device Provisioning Service
     items:
     - name: Manage enrollments - Portal
