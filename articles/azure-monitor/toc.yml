@@ -304,6 +304,8 @@
           href: learn/quick-create-workspace-cli.md
         - name: Use PowerShell
           href: platform/powershell-workspace-configuration.md
+      - name: Monitor a workspace
+        href: platform/monitor-workspace
       - name: Delete and recover a workspace
         href: platform/delete-workspace.md
       - name: Move a workspace

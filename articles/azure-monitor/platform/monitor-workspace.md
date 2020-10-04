@@ -1,15 +1,15 @@
 ---
-title: Troubleshoot issues in Log Analytics workspaces using operation table
-description: The Operations table in each Log Analytics workspace includes details of operations that occur in the workspace and can be monitored so you can be proactively notified of any issues.
+title: Monitor health of Log Analytics workspace in Azure Monitor
+description: Describes how to monitor the health of your Log Analytics workspace using data in the Operation table.
 ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 09/28/2020
+ms.date: 10/03/2020
 
 ---
 
-# Monitor issues with Azure Monitor Logs
+# Monitor health of Log Analytics workspace in Azure Monitor
 To maintain the performance and availability of your Log Analytics workspace in Azure Monitor, you need to be able to proactively detect any issues that arise. This article describes how to monitor the health of your Log Analytics workspace using data in the [Operation](/azure-monitor/reference/tables/operation) table. This table is included in every Log Analytics workspace and contains error and warnings that occur in your workspace. You should regularly review this data and create alerts to be proactively notified when there are any important incidents in your workspace.
 
 ## _LogsOperation function
@@ -32,13 +32,19 @@ The **_LogsOperation** function returns the columns in the following table.
 
 
 ## Categories
-The following sections describe the categories from the _LogsOperations function. Each includes the operations that may be included in each category.
+The following table describes the categories from the _LogsOperations function. 
+
+| Category | Description |
+|:---|:---|
+| Ingestion           | Operations that are part of the data ingestion process. See below for more details. |
+| Agent               | Indicates an issue with agent installation. |
+| Data collection     | Operations related to data collections processes. |
+| Solution targeting  | Operation of type *ConfigurationScope* was processed. |
+| Assessment solution | An assessment process was executed. |
+
 
 ### Ingestion
-Operations that are part of the data ingestion process. These are issues that occurred during data ingestion including notification about reaching the Azure Log Analytics workspace limits. See [Azure Monitor service limits](../service-limits.md#log-analytics-workspaces) for service limits for Log Analytics workspaces.
-
-Error conditions in this category might suggest data loss, so they are particularly important to monitor.
-
+Ingestion operations are issues that occurred during data ingestion including notification about reaching the Azure Log Analytics workspace limits. Error conditions in this category might suggest data loss, so they are particularly important to monitor. The table below provides details on these operations. See [Azure Monitor service limits](../service-limits.md#log-analytics-workspaces) for service limits for Log Analytics workspaces.
 
 
 | Operation | Level | Detail |
@@ -52,41 +58,6 @@ Error conditions in this category might suggest data loss, so they are particula
 | JSON parsing                | Error   | Failed to parse JSON message.       |
 
 
-### Agent
-Indicates an issue with agent installation. Monitor this type to audit your agent.  
-
-| Operation | Level | Detail |
-|:---|:---|:---|
-| AuditD plugin issue  |  |  |
-| Agent for Linux      |  |  |
-
-
-
-### Data collection 
-Operations related to data collections processes.
-
-| Operation | Level | Detail |
-|:---|:---|:---|
-| Azure Activity Log Collection     | | |
-| Active Directory Group Collection | | |
-| WSUS Client Group Collection      | | | 
-
-
-
-### Solution targeting 
-Operation of type *ConfigurationScope* was processed. 
-
-
-### Assessment solution
-An assessment process was executed.
-
-| Operation | Level | Detail |
-|:---|:---|:---|
-| Assessment Execution         | | |
-| Is Local Administrator Check | | |
-| .Net 4.0 Check               | | |
-| Assessment Target Check      | | |
-| Security Baseline            | | |
 
 
 
@@ -117,3 +88,5 @@ _LogsOperation
 
 
 ## Next steps
+
+- Learn more about [log alerts](platform/alerts-log).
