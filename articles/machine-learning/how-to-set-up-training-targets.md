@@ -26,9 +26,7 @@ All you need to do is define the environment for each compute target within a **
 * If you don't have an Azure subscription, create a free account before you begin. Try the [free or paid version of Azure Machine Learning](https://aka.ms/AMLFree) today
 * The [Azure Machine Learning SDK for Python](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py&preserve-view=true) (>= 1.13.0)
 * An [Azure Machine Learning workspace](how-to-manage-workspace.md), `ws`
-* A compute target, `my_compute_target`.  Create a compute target with:
-  * [Python SDK](how-to-create-attach-compute-sdk.md) 
-  * [Azure Machine Learning studio](how-to-create-attach-compute-studio.md)
+* A compute target, `my_compute_target`.  [Create a compute target](how-to-create-attach-compute-studio.md) 
 
 ## <a name="whats-a-run-configuration"></a>What's a script run configuration?
 A [ScriptRunConfig](https://docs.microsoft.com/python/api/azureml-core/azureml.core.scriptrunconfig?view=azure-ml-py&preserve-view=true) is used to configure the information necessary for submitting a training run as part of an experiment.
@@ -89,7 +87,7 @@ myenv = Environment.get(workspace=ws, name="AzureML-Minimal")
 
 For more information and details about environments, see [Create & use software environments in Azure Machine Learning](how-to-use-environments.md).
   
-### Local compute target
+### <a name="local"></a>Local compute target
 
 If your compute target is your **local machine**, you are responsible for ensuring that all the necessary packages are available in the Python environment where the script runs.  Use `python.user_managed_dependencies` to use your current Python environment (or the Python on the path you specify).
 
@@ -114,6 +112,10 @@ src = ScriptRunConfig(source_directory=project_folder,
                       script='train.py',
                       compute_target=my_compute_target,
                       environment=myenv)
+
+# Set compute target
+# Skip this if you are running on your local computer
+script_run_config.run_config.target = my_compute_target
 ```
 
 If you do not specify an environment, a default environment will be created for you.
