@@ -22,6 +22,7 @@ The table below lists the functional limits of Azure Digital Twins.
 | Models | Number of models within a single Azure Digital Twins instance | 10,000 | Yes |
 | Models | Number of models that can be uploaded in a single API call | 250 | No |
 | Models | Number of items returned in a single page | 100 | No |
+| Models | Payload size for a single model | 1 MB | No | 
 | Query | Number of items returned in a single page | 100 | No |
 | Query | Number of `AND` / `OR` expressions in a query | 50 | Yes |
 | Query | Number of array items in an `IN` / `NOT IN` clause | 50 | Yes |
