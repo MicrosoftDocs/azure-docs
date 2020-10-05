@@ -63,10 +63,18 @@
         href: sso-options.md
       - name: SAML-based SSO
         href: configure-saml-single-sign-on.md
+      - name: SAML-based SSO for on-premises apps
+        href: application-proxy-configure-single-sign-on-on-premises-apps.md
       - name: Password-based SSO
         href: configure-password-single-sign-on-non-gallery-applications.md
+      - name: Password-based SSO for on-premises apps
+        href: application-proxy-configure-single-sign-on-password-vaulting.md
+      - name: Kerberos-based SSO for on-premises apps
+        href: application-proxy-configure-single-sign-on-with-kcd.md
       - name: Linked-based SSO
         href: configure-linked-sign-on.md
+      - name: Header-based SSO
+        href: application-proxy-configure-single-sign-on-with-headers.md
       - name: One-click SSO
         href: one-click-sso-tutorial.md
     - name: Application security
@@ -170,16 +178,6 @@
         href: application-proxy-remove-personal-data.md
       - name: Configure custom domain
         href: application-proxy-configure-custom-domain.md
-      - name: Single sign-on with Application Proxy
-        items:
-        - name: Kerberos constrained Delegation (KCD)
-          href: application-proxy-configure-single-sign-on-with-kcd.md
-        - name: Password vaulting
-          href: application-proxy-configure-single-sign-on-password-vaulting.md
-        - name: Headers
-          href: application-proxy-configure-single-sign-on-with-ping-access.md
-        - name: SAML SSO
-          href: application-proxy-configure-single-sign-on-on-premises-apps.md
       - name: Secure legacy apps with app delivery controllers or networks
         href: secure-hybrid-access.md
       - name: Publishing walkthroughs
