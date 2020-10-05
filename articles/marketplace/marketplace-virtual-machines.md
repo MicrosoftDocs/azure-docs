@@ -14,7 +14,7 @@ ms.date: 09/04/2020
 
 This article explains the different options and requirements for publishing a virtual machine (VM) offer to the commercial marketplace. VM offers are transactable offers deployed and billed through Azure Marketplace).
 
-Before you start, [Create a commercial marketplace account in Partner Center](https://docs.microsoft.com/en-us/azure/marketplace/partner-center-portal/create-account) and ensure your account is enrolled in the commercial marketplace program.
+Before you start, [Create a commercial marketplace account in Partner Center](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-account) and ensure your account is enrolled in the commercial marketplace program.
 
 ## Fundamentals in technical knowledge
 
@@ -35,7 +35,7 @@ These are the available listing options for VM offers:
 | Listing option | Transaction process |
 | --- | --- |
 | Free trial | This option redirects the purchaser to your target URL via Azure Active Directory (Azure AD).\* |
-| Test drive | This option lets your customers evaluate VMs at no additional cost to them. They don't need to be an existing Azure customer to engage with the trial experience. For details, see [What is a test drive?](https://docs.microsoft.com/en-us/azure/marketplace/what-is-test-drive) |
+| Test drive | This option lets your customers evaluate VMs at no additional cost to them. They don't need to be an existing Azure customer to engage with the trial experience. For details, see [What is a test drive?](https://docs.microsoft.com/azure/marketplace/what-is-test-drive) |
 | BYOL | This Bring Your Own Licensing option lets your customers bring existing software licenses to Azure.\* |
 | Usage-based | Also known as pay-as-you-go, this option lets you pay by the core, core size, or market and core size, all priced per hour and billed monthly. |
 | Interactive demo  | Give your customers a guided experience of your solution using an interactive demonstration. The benefit is that you can offer a trial experience without having to provide a complicated setup of your complex solution. |
@@ -43,7 +43,7 @@ These are the available listing options for VM offers:
 
 \* As the publisher, you support all aspects of the software license transaction, including (but not limited to) order, fulfillment, metering, billing, invoicing, payment, and collection.
 
-For more information on these listing options, see [Commercial marketplace transact capabilities](https://docs.microsoft.com/en-us/azure/marketplace/marketplace-commercial-transaction-capabilities-and-considerations).
+For more information on these listing options, see [Commercial marketplace transact capabilities](https://docs.microsoft.com/azure/marketplace/marketplace-commercial-transaction-capabilities-and-considerations).
 
 After your offer is published, the listing option you chose for your offer appears as a button in the upper-left corner of your offer's listing page. The following example shows an offer page in Azure Marketplace with the  **Get it now** button.
 
@@ -61,10 +61,10 @@ You can restrict the discovery and deployment of your VM to a specific set of cu
 For more information, see [**Private Offers on Azure Marketplace**](https://azure.microsoft.com/blog/private-offers-on-azure-marketplace).
 
 > [!NOTE]
-> The Cloud Solution Provider (CSP) partner channel opt-in is now available. For more information about marketing your offer through Microsoft CSP partner channels, see [**Cloud Solution Providers**](https://docs.microsoft.com/en-us/azure/marketplace/cloud-solution-providers).
+> The Cloud Solution Provider (CSP) partner channel opt-in is now available. For more information about marketing your offer through Microsoft CSP partner channels, see [**Cloud Solution Providers**](https://docs.microsoft.com/azure/marketplace/cloud-solution-providers).
 
 ## Next steps
 
 - Learn how to [Grow your cloud business with Azure Marketplace](https://azuremarketplace.microsoft.com/sell).
 - [Sign in to Partner Center](https://partner.microsoft.com/dashboard/account/v3/enrollment/introduction/partnership) to create or complete your offer.
-- Get started at [How to create a VM offer in the commercial marketplace](https://docs.microsoft.com/en-us/azure/marketplace/partner-center-portal/azure-vm-create-offer).
+- Get started at [How to create a VM offer in the commercial marketplace](https://docs.microsoft.com/azure/marketplace/partner-center-portal/azure-vm-create-offer).
