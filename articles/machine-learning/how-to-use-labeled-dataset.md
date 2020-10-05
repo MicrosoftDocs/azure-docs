@@ -86,6 +86,8 @@ imgplot = plt.imshow(img)
 
 You can load labeled datasets into Torchvision dataset with the [to_torchvision()](https://docs.microsoft.com/python/api/azureml-contrib-dataset/azureml.contrib.dataset.tabulardataset?view=azure-ml-py&preserve-view=true#&preserve-view=trueto-torchvision--) method also from the `azureml-contrib-dataset` class. To use this method, you need to have [PyTorch](https://pytorch.org/) installed. 
 
+In the following code, the `animal_labels` dataset is the output from a labeling project previously saved to the workspace.
+
 ```python
 import azureml.core
 import azureml.contrib.dataset
