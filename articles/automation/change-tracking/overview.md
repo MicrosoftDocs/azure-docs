@@ -3,7 +3,7 @@ title: Azure Automation Change Tracking and Inventory overview
 description: This article describes the Change Tracking and Inventory feature, which helps you identify software and Microsoft service changes in your environment.
 services: automation
 ms.subservice: change-inventory-management
-ms.date: 09/25/2020
+ms.date: 09/30/2020
 ms.topic: conceptual
 ---
 
@@ -69,6 +69,16 @@ The following addresses are required specifically for Change Tracking and Invent
 |*.azure-automation.net | *.azure-automation.us|
 
 When you create network group security rules or configure Azure Firewall to allow traffic to the Automation service and the Log Analytics workspace, use the [service tag](../../virtual-network/service-tags-overview.md#available-service-tags) **GuestAndHybridManagement** and **AzureMonitor**. This simplifies the ongoing management of your network security rules. To connect to the Automation service from your Azure VMs securely and privately, review [Use Azure Private Link](../how-to/private-link-security.md). To obtain the current service tag and range information to include as part of your on-premises firewall configurations, see [downloadable JSON files](../../virtual-network/service-tags-overview.md#discover-service-tags-by-using-downloadable-json-files).
+
+## Enable Change Tracking and Inventory
+
+Here are the ways that you can enable Change Tracking and Inventory and select machines to be managed:
+
+* [From an Azure virtual machine](enable-from-vm.md).
+* [From browsing multiple Azure virtual machines](enable-from-portal.md).
+* [From an Azure Automation account](enable-from-automation-account.md).
+* For Arc enabled servers (preview) or non-Azure machines, install the [Log Analytics agent](/azure-monitor/platform/log-analytics-agent) and then [enable machines in the workspace](enable-from-automation-account.md/#enable-machines-in-the-workspace) to Change Tracking and Inventory.
+* [Using an Automation runbook](enable-from-runbook.md).
 
 ## Tracking file changes
 
@@ -149,14 +159,14 @@ The default collection frequency for Microsoft services is 30 minutes. You can c
 
 ![Microsoft services slider](./media/change-tracking/windowservices.png)
 
-To optimize performance, the Log Analytics agent only tracks changes. Setting a high threshold might miss changes if the service reverts to its original state. Setting the frequency to a smaller value allows you to catch changes that might be missed otherwise.
+To optimize performance, the Log Analytics agent only tracks changes. Setting a high threshold might miss changes if the service returns to its original state. Setting the frequency to a smaller value allows you to catch changes that might be missed otherwise.
 
 > [!NOTE]
 > While the agent can track changes down to a 10-second interval, the data still takes a few minutes to display in the Azure portal. Changes that occur during the time to display in the portal are still tracked and logged.
 
 ## Support for alerts on configuration state
 
-A key capability of Change Tracking and Inventory is alerting on changes to the configuration state of your hybrid environment. Many useful actions are available to trigger in response to alerts, for example, actions on Azure functions, Automation runbooks, webhooks, and the like. Alerting on changes to the **c:\windows\system32\drivers\etc\hosts** file for a machine is one good application of alerts for Change Tracking and Inventory data. There are many more scenarios for alerting as well, including the query scenarios defined in the next table.
+A key capability of Change Tracking and Inventory is alerting on changes to the configuration state of your hybrid environment. Many useful actions are available to trigger in response to alerts. For example, actions on Azure functions, Automation runbooks, webhooks, and the like. Alerting on changes to the **c:\windows\system32\drivers\etc\hosts** file for a machine is one good application of alerts for Change Tracking and Inventory data. There are many more scenarios for alerting as well, including the query scenarios defined in the next table.
 
 |Query  |Description  |
 |---------|---------|
@@ -171,10 +181,10 @@ A key capability of Change Tracking and Inventory is alerting on changes to the 
 
 ## Next steps
 
-- To enable the feature from an Automation account, see [Enable Change Tracking and Inventory from an Automation account](automation-enable-changes-from-auto-acct.md).
+- To enable from an Automation account, see [Enable Change Tracking and Inventory from an Automation account](automation-enable-changes-from-auto-acct.md).
 
-- To enable the feature by browsing the Azure portal, see [Enable Change Tracking and Inventory from the Azure portal](automation-enable-changes-from-browse.md).
+- To enable from the Azure portal, see [Enable Change Tracking and Inventory from the Azure portal](automation-enable-changes-from-browse.md).
 
-- To enable the feature from a runbook, see [Enable Change Tracking and Inventory from a runbook](automation-enable-changes-from-runbook.md).
+- To enable from a runbook, see [Enable Change Tracking and Inventory from a runbook](automation-enable-changes-from-runbook.md).
 
-- To enable the feature from an Azure VM, see [Enable Change Tracking and Inventory from an Azure VM](automation-enable-changes-from-vm.md).
+- To enable from an Azure VM, see [Enable Change Tracking and Inventory from an Azure VM](automation-enable-changes-from-vm.md).
