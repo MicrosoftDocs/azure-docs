@@ -130,7 +130,7 @@ These example code snippets in this section show you how to perform common actio
 
 ### Connect to an App Configuration store
 
-The following code snippet creates an instance of the **AzureAppConfiguration** class using the specified connection string. Add this code to the end of the `try` block.
+The following code snippet creates an instance of **AzureAppConfigurationClient** using the connection string stored in your environment variables.
 
 ```python
     connection_string = os.getenv('AZURE_APP_CONFIG_CONNECTION_STRING')
