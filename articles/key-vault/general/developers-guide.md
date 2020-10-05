@@ -6,7 +6,7 @@ author: msmbaldwin
 ms.service: key-vault
 ms.subservice: general
 ms.topic: how-to
-ms.date: 03/11/2020
+ms.date: 10/05/2020
 ms.author: mbaldwin
 ---
 # Azure Key Vault Developer's Guide
