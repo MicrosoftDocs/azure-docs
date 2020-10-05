@@ -137,14 +137,14 @@ The following network diagram shows a secured Azure Machine Learning workspace w
 
 [Secure the workspace](#secure-the-workspace-and-associated-resources) > [Secure the training environment](#secure-the-training-environment) > [Secure the inferencing environment](#secure-the-inferencing-environment) > **Enable studio functionality** > [Configure firewall settings](#configure-firewall-settings)
 
-Although the studio can access data in a storage account configured with a service endpoint, some features are disabled by default:
+If your storage is in a VNet, you first must perform additional configuration steps to enable full functionality in [the studio](overview-what-is-machine-learning-studio.md). By default, the following feature are disabled:
 
 * Preview data in the studio.
 * Visualize data in the designer.
 * Submit an AutoML experiment.
 * Start a labeling project.
 
-To enable full functionality while using a storage service endpoint, see [Use Azure Machine Learning studio in a virtual network](how-to-enable-studio-virtual-network.md#access-data-using-the-studio). The studio supports both service endpoints and private endpoints for storage accounts.
+To enable full functionality while using a storage account inside of a VNet, see [Use Azure Machine Learning studio in a virtual network](how-to-enable-studio-virtual-network.md#access-data-using-the-studio). The studio supports storage accounts using either service endpoints or private endpoints.
 
 ### Limitations
 - The studio cannot access data in storage accounts configured to use private endpoints. For full functionality, you must use service endpoints for storage and use managed identity.

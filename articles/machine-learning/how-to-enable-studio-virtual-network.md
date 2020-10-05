@@ -21,14 +21,15 @@ In this article, you learn how to use Azure Machine Learning studio in a virtual
 
 > [!div class="checklist"]
 > - Access the studio from a resource inside of a virtual network.
+> - Configure private endpoints for storage accounts.
 > - Give the studio access to data stored inside of a virtual network.
-> - Understand how storage security is impacted by the studio.
+> - Understand how the studio impacts storage security.
 
 This article is part five of a five-part series that walks you through securing an Azure Machine Learning workflow. We highly recommend that you read through [Part one: VNet overview](how-to-network-security-overview.md) to understand the overall architecture first. 
 
 See the other articles in this series:
 
-[1. VNet overview](how-to-network-security-overview.md) > [2. Secure the workspace](how-to-secure-workspace-vnet.md) > [3. Secure the training environment](how-to-secure-training-vnet.md) > [4. Secure the inferencing environment](how-to-secure-inferencing-vnet.md) > [5. Enable studio functionality](how-to-enable-studio-virtual-network.md)
+[1. VNet overview](how-to-network-security-overview.md) > [2. Secure the workspace](how-to-secure-workspace-vnet.md) > [3. Secure the training environment](how-to-secure-training-vnet.md) > [4. Secure the inferencing environment](how-to-secure-inferencing-vnet.md) > **5. Enable studio functionality**
 
 
 > [!IMPORTANT]
@@ -51,9 +52,19 @@ If you are accessing the studio from a resource inside of a virtual network (for
 
 For example, if you are using network security groups (NSG) to restrict outbound traffic, add a rule to a __service tag__ destination of __AzureFrontDoor.Frontend__.
 
+## Configure private endpoint for storage accounts
+
+Azure Machine Learning studio supports storage accounts configured to use either service endpoints or private endpoints. If your storage account uses private endpoints, you must also configure two private endpoints for your storage account:
+1. A private endpoint with a **blob** target sub-resource.
+1. A private endpoint with a **file** target sub-resource.
+
+![Screenshot showing private endpoint configuration page with blob and file options](./media/how-to-enable-studio-virtual-network/configure-storage-private-endpoint.png)
+
+For more information on private storage endpoints, see [Use private endpoints for Azure Storage](../storage/common/storage-private-endpoints.md)
+
 ## Access data using the studio
 
-After you [add an Azure storage account to your virtual network](how-to-secure-workspace-vnet.md#secure-azure-storage-accounts), you must configure your storage account to use [managed identity](../active-directory/managed-identities-azure-resources/overview.md) to grant the studio access to your data. The studio supports storage accounts configured to use service endpoints or private endpoints. Storage accounts use service endpoints by default. To enable private endpoints for storage, see [Use private endpoints for Azure Storage](../storage/common/storage-private-endpoints.md)
+After you [add an Azure storage account to your virtual network](how-to-secure-workspace-vnet.md#secure-azure-storage-accounts), you must configure your storage account to use [managed identity](../active-directory/managed-identities-azure-resources/overview.md) to grant the studio access to your data.
 
 If you do not enable managed identity, you will receive this error, `Error: Unable to profile this dataset. This might be because your data is stored behind a virtual network or your data does not support profile.` Additionally, the following operations will be disabled:
 
