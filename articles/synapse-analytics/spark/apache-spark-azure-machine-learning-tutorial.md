@@ -162,7 +162,7 @@ dataset_training = Dataset.Tabular.from_delimited_files(path = [(datastore, 'tra
 
 ![Picture of uploaded dataset.](./media/apache-spark-machine-learning-aml-notebook/upload-dataset.png)
 
-## Submit an Auto ML experiment
+## Submit an AutoML experiment
 
 #### Define training settings
 
