@@ -1,6 +1,6 @@
 ---
 title: Create predictive data pipelines using Azure Data Factory 
-description: Describes how to create create predictive pipelines using Azure Data Factory and Azure Machine Learning
+description: Describes how to create create predictive pipelines using Azure Data Factory and Azure Machine Learning Studio (classic)
 services: data-factory
 documentationcenter: ''
 author: djpmsft
@@ -32,8 +32,8 @@ ms.date: 01/22/2018
 > This article applies to version 1 of Data Factory. If you are using the current version of the Data Factory service, see [transform data using machine learning in Data Factory](../transform-data-using-machine-learning.md).
 
 
-### Azure Machine Learning
-[Azure Machine Learning](https://azure.microsoft.com/documentation/services/machine-learning/) enables you to build, test, and deploy predictive analytics solutions. From a high-level point of view, it is done in three steps:
+### Azure Machine Learning Studio (classic)
+[Azure Machine Learning Studio (classic)](https://azure.microsoft.com/documentation/services/machine-learning/) enables you to build, test, and deploy predictive analytics solutions. From a high-level point of view, it is done in three steps:
 
 1. **Create a training experiment**. You do this step by using Azure Machine Learning Studio (classic). Azure Machine Learning Studio (classic) is a collaborative visual development environment that you use to train and test a predictive analytics model using training data.
 2. **Convert it to a predictive experiment**. Once your model has been trained with existing data and you are ready to use it to score new data, you prepare and streamline your experiment for scoring.
@@ -46,8 +46,8 @@ Data Factory service allows you to create data pipelines that move and transform
 
 See [Introduction to Azure Data Factory](data-factory-introduction.md) and [Build your first pipeline](data-factory-build-your-first-pipeline.md) articles to quickly get started with the Azure Data Factory service.
 
-### Data Factory and Machine Learning together
-Azure Data Factory enables you to easily create pipelines that use a published [Azure Machine Learning][azure-machine-learning] web service for predictive analytics. Using the **Batch Execution Activity** in an Azure Data Factory pipeline, you can invoke an Azure Machine Learning Studio (classic) web service to make predictions on the data in batch. See Invoking an Azure Machine Learning Studio (classic) web service using the Batch Execution Activity section for details.
+### Data Factory and Machine Learning Studio (classic) together
+Azure Data Factory enables you to easily create pipelines that use a published [Azure Machine Learning Studio (classic)][azure-machine-learning] web service for predictive analytics. Using the **Batch Execution Activity** in an Azure Data Factory pipeline, you can invoke an Azure Machine Learning Studio (classic) web service to make predictions on the data in batch. See Invoking an Azure Machine Learning Studio (classic) web service using the Batch Execution Activity section for details.
 
 Over time, the predictive models in the Azure Machine Learning Studio (classic) scoring experiments need to be retrained using new input datasets. You can retrain an Azure Machine Learning Studio (classic) model from a Data Factory pipeline by doing the following steps:
 
@@ -57,20 +57,20 @@ Over time, the predictive models in the Azure Machine Learning Studio (classic) 
 After you are done with retraining, update the scoring web service (predictive experiment exposed as a web service) with the newly trained model by using the **Azure Machine Learning Studio (classic) Update Resource Activity**. See [Updating models using Update Resource Activity](data-factory-azure-ml-update-resource-activity.md) article for details.
 
 ## Invoking a web service using Batch Execution Activity
-You use Azure Data Factory to orchestrate data movement and processing, and then perform batch execution using Azure Machine Learning. Here are the top-level steps:
+You use Azure Data Factory to orchestrate data movement and processing, and then perform batch execution using Azure Machine Learning Studio (classic). Here are the top-level steps:
 
-1. Create an Azure Machine Learning linked service. You need the following values:
+1. Create an Azure Machine Learning Studio (classic) linked service. You need the following values:
 
    1. **Request URI** for the Batch Execution API. You can find the Request URI by clicking the **BATCH EXECUTION** link in the web services page.
-   2. **API key** for the published Azure Machine Learning web service. You can find the API key by clicking the web service that you have published.
+   2. **API key** for the published Azure Machine Learning Studio (classic) web service. You can find the API key by clicking the web service that you have published.
    3. Use the **AzureMLBatchExecution** activity.
 
-      ![Machine Learning Dashboard](./media/data-factory-azure-ml-batch-execution-activity/AzureMLDashboard.png)
+      ![Machine Learning Studio (classic) Dashboard](./media/data-factory-azure-ml-batch-execution-activity/AzureMLDashboard.png)
 
       ![Batch URI](./media/data-factory-azure-ml-batch-execution-activity/batch-uri.png)
 
 ### Scenario: Experiments using Web service inputs/outputs that refer to data in Azure Blob Storage
-In this scenario, the Azure Machine Learning Web service makes predictions using data from a file in an Azure blob storage and stores the prediction results in the blob storage. The following JSON defines a Data Factory pipeline with an AzureMLBatchExecution activity. The activity has the dataset **DecisionTreeInputBlob** as input and **DecisionTreeResultBlob** as the output. The **DecisionTreeInputBlob** is passed as an input to the web service by using the **webServiceInput** JSON property. The **DecisionTreeResultBlob** is passed as an output to the Web service by using the **webServiceOutputs** JSON property.
+In this scenario, the Azure Machine Learning Studio (classic) Web service makes predictions using data from a file in an Azure blob storage and stores the prediction results in the blob storage. The following JSON defines a Data Factory pipeline with an AzureMLBatchExecution activity. The activity has the dataset **DecisionTreeInputBlob** as input and **DecisionTreeResultBlob** as the output. The **DecisionTreeInputBlob** is passed as an input to the web service by using the **webServiceInput** JSON property. The **DecisionTreeResultBlob** is passed as an output to the Web service by using the **webServiceOutputs** JSON property.
 
 > [!IMPORTANT]
 > If the web service takes multiple inputs, use the **webServiceInputs** property instead of using **webServiceInput**. See the [Web service requires multiple inputs](#web-service-requires-multiple-inputs) section for an example of using the webServiceInputs property.
@@ -246,7 +246,7 @@ We recommend that you go through the [Build your first pipeline with Data Factor
 5. Finally, author a pipeline containing an **AzureMLBatchExecution** Activity. At runtime, pipeline performs the following steps:
 
    1. Gets the location of the input file from your input datasets.
-   2. Invokes the Azure Machine Learning batch execution API
+   2. Invokes the Azure Machine Learning Studio (classic) batch execution API
    3. Copies the batch execution output to the blob given in your output dataset.
 
       > [!NOTE]
@@ -313,7 +313,7 @@ When using the reader and writer modules, it is good practice to use a Web servi
 >
 >
 
-Let's look at a scenario for using Web service parameters. You have a deployed Azure Machine Learning web service that uses a reader module to read data from one of the data sources supported by Azure Machine Learning (for example: Azure SQL Database). After the batch execution is performed, the results are written using a Writer module (Azure SQL Database).  No web service inputs and outputs are defined in the experiments. In this case, we recommend that you configure relevant web service parameters for the reader and writer modules. This configuration allows the reader/writer modules to be configured when using the AzureMLBatchExecution activity. You specify Web service parameters in the **globalParameters** section in the activity JSON as follows.
+Let's look at a scenario for using Web service parameters. You have a deployed Azure Machine Learning Studio (classic) web service that uses a reader module to read data from one of the data sources supported by Azure Machine Learning Studio (classic) (for example: Azure SQL Database). After the batch execution is performed, the results are written using a Writer module (Azure SQL Database).  No web service inputs and outputs are defined in the experiments. In this case, we recommend that you configure relevant web service parameters for the reader and writer modules. This configuration allows the reader/writer modules to be configured when using the AzureMLBatchExecution activity. You specify Web service parameters in the **globalParameters** section in the activity JSON as follows.
 
 ```JSON
 "typeProperties": {
@@ -342,7 +342,7 @@ You can also use [Data Factory Functions](data-factory-functions-variables.md) i
 ### Using a Reader module to read data from multiple files in Azure Blob
 Big data pipelines with activities such as Pig and Hive can produce one or more output files with no extensions. For example, when you specify an external Hive table, the data for the external Hive table can be stored in Azure blob storage with the following name 000000_0. You can use the reader module in an experiment to read multiple files, and use them for predictions.
 
-When using the reader module in an Azure Machine Learning experiment, you can specify Azure Blob as an input. The files in the Azure blob storage can be the output files (Example: 000000_0) that are produced by a Pig and Hive script running on HDInsight. The reader module allows you to read files (with no extensions) by configuring the **Path to container, directory/blob**. The **Path to container** points to the container and **directory/blob** points to folder that contains the files as shown in the following image. The asterisk that is, \*) **specifies that all the files in the container/folder (that is, data/aggregateddata/year=2014/month-6/\*)** are read as part of the experiment.
+When using the reader module in an Azure Machine Learning Studio (classic) experiment, you can specify Azure Blob as an input. The files in the Azure blob storage can be the output files (Example: 000000_0) that are produced by a Pig and Hive script running on HDInsight. The reader module allows you to read files (with no extensions) by configuring the **Path to container, directory/blob**. The **Path to container** points to the container and **directory/blob** points to folder that contains the files as shown in the following image. The asterisk that is, \*) **specifies that all the files in the container/folder (that is, data/aggregateddata/year=2014/month-6/\*)** are read as part of the experiment.
 
 ![Azure Blob properties](./media/data-factory-create-predictive-pipelines/azure-blob-properties.png)
 
@@ -399,7 +399,7 @@ When using the reader module in an Azure Machine Learning experiment, you can sp
 
 In the above JSON example:
 
-* The deployed Azure Machine Learning Web service uses a reader and a writer module to read/write data from/to an Azure SQL Database. This Web service exposes the following four parameters:  Database server name, Database name, Server user account name, and Server user account password.
+* The deployed Azure Machine Learning Studio (classic) Web service uses a reader and a writer module to read/write data from/to an Azure SQL Database. This Web service exposes the following four parameters:  Database server name, Database name, Server user account name, and Server user account password.
 * Both **start** and **end** datetimes must be in [ISO format](https://en.wikipedia.org/wiki/ISO_8601). For example: 2014-10-14T16:32:41Z. The **end** time is optional. If you do not specify value for the **end** property, it is calculated as "**start + 48 hours.**" To run the pipeline indefinitely, specify **9999-09-09** as the value for the **end** property. See [JSON Scripting Reference](https://msdn.microsoft.com/library/dn835050.aspx) for details about JSON properties.
 
 ### Other scenarios
