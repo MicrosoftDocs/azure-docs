@@ -185,7 +185,7 @@
         href: how-to-edgeagent-direct-method.md
       - name: Retrieve IoT Edge logs
         href: how-to-retrieve-iot-edge-logs.md
-      - name: Access to IoT Edge runtime metrics remotely
+      - name: Test
         href: how-to-access-iot-edge-runtime-metrics-remotely.md
   - name: Use IoT Edge devices as gateways
     items:

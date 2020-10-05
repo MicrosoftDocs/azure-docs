@@ -17,7 +17,7 @@ The IoT Edge runtime components, IoT Edge Hub and Edge Agent, produce metrics in
 
 ## Metrics exposure
 
-As of release 1.0.10, metrics are automatically exposed by default on **port 9600** of the edgeHub and edgeAgent modules (`http://edgeHub:9600/metrics` and `http://edgeAgent:9600/metics`). They aren't port mapped to the host by default.
+As of release 1.0.10, metrics are automatically exposed by default on **port 9600** of the **edgeHub** and **edgeAgent** modules (`http://edgeHub:9600/metrics` and `http://edgeAgent:9600/metics`). They aren't port mapped to the host by default.
 
 For mapping to host, expose the port from the edgeHub module's `createOptions`:
 
@@ -51,9 +51,9 @@ This module collects metrics and sends them to an [Azure Log Analytics Workspace
     }
 ```
 
-To test the sample metrics collector module, you will need an IoT Edge device. The following steps will help you configure the rest of the resources you need:
+To test the sample metrics collector module, you will need an **IoT Edge device**. The following steps will help you configure the rest of the resources you need:
 
-1. Create an Azure Log Analytics Workspace:
+1. Create an **Azure Log Analytics Workspace**:
     1. Sign in to the [Microsoft Azure portal](https://portal.azure.com).
 
     2. In the left pane, select **Create a resource**, and then search for **Log Analytics Workspace**.  
@@ -68,7 +68,7 @@ To test the sample metrics collector module, you will need an IoT Edge device. T
 
     ![Note the workspace ID and key for your Log Analytics Workspace](./media/how-to-access-iot-edge-runtime-metrics-remotely/log-analytics-workspace-id-and-key.png)
 
-2. Navigate to your IoT Edge device and create your deployment:
+2. Navigate to your **IoT Edge device** and create your deployment:
 
     1. Select **Set modules**.
 
@@ -91,7 +91,7 @@ To test the sample metrics collector module, you will need an IoT Edge device. T
 
     ![Configure the MetricCollector module with the environment variables](./media/how-to-access-iot-edge-runtime-metrics-remotely/create-deployment-for-metrics.png)
 
-3. Once your modules successfully deploy, it may take up to 20 minutes for metrics data to appear in your Log Analytics Workspace. It will normally take 5-10 minutes. Navigate to your Log Analytics Workspace and view your device's metrics:
+3. Once your modules successfully deploy, it may take up to 20 minutes for metrics data to appear in your workspace. It will normally take 5-10 minutes. Navigate to your **Azure Log Analytics Workspace** and view your device's metrics:
 
     1. In the left-hand panel, under **General**, select **Logs**.
 
