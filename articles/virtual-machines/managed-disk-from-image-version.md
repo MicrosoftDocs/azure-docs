@@ -6,7 +6,7 @@ ms.service: virtual-machines
 ms.subservice: imaging
 ms.topic: how-to
 ms.workload: infrastructure
-ms.date: 10/01/2020
+ms.date: 10/05/2020
 ms.author: cynthn
 ms.reviewer: olayemio
 
@@ -74,9 +74,14 @@ $diskName = "myDisk"
 Create a disk configuration and then the disk, using the source image version ID.
 
 ```azurepowershell-interactive
-$diskConfig = New-AzDiskConfig -Location $location -CreateOption FromImage -SourceResourceId $sourceImgVer.Id
+$diskConfig = New-AzDiskConfig `
+   -Location $location `
+   -CreateOption FromImage `
+   -ImageReference $sourceImgVer.Id
  
-New-AzDisk -Disk $diskConfig -ResourceGroupName $resourceGroup -DiskName $diskName
+New-AzDisk -Disk $diskConfig `
+   -ResourceGroupName $resourceGroup `
+   -DiskName $diskName
 ```
 
 ## Next steps
