@@ -29,7 +29,6 @@ highlightedContent:
       url: ./container-reuse-recipe
 
 conceptualContent:
-  
 # itemType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new
   items:
     - title: Vision containers
@@ -40,10 +39,9 @@ conceptualContent:
           text: Read OCR (Optical Character Recognition) 
         - url: ./Custom-Vision-Service/index.yml
           itemType: overview
-          text: Spatial analysis
-  
-  - title: Speech containers
-      summary:  Convert speech into text and text into natural-sounding speech. Translate from one language to another and enable speaker verification and recognition.
+          text: Spatial analysis     
+    - title: Speech containers
+      summary: Convert speech into text and text into natural-sounding speech. Translate from one language to another and enable speaker verification and recognition.
       links:
         - url: ./computer-vision/index.yml
           itemType: overview
@@ -60,9 +58,7 @@ conceptualContent:
         - url: ./computer-vision/index.yml
           itemType: overview
           text: Neural text to speech 
-
-
-  - title: Text Analytics containers
+    - title: Text Analytics containers
       summary:  Convert speech into text and text into natural-sounding speech. Translate from one language to another and enable speaker verification and recognition.
       links:
         - url: ./computer-vision/index.yml
@@ -73,15 +69,14 @@ conceptualContent:
           text: Text language detection
         - url: ./computer-vision/index.yml
           itemType: overview
-          text: Text Analytics for health
-        
-  - title: Anomaly Detector container
+          text: Text Analytics for health     
+    - title: Anomaly Detector container
       summary: Build apps that surface recommendations for informed and efficient decision-making.
       links:
         - url: ./computer-vision/index.yml
           itemType: overview
           text: Anomaly Detector 
-  - title: Language Understanding (LUIS) container
+    - title: Language Understanding (LUIS) container
       summary: Build apps that surface recommendations for informed and efficient decision-making.
       links:
         - url: ./computer-vision/index.yml
