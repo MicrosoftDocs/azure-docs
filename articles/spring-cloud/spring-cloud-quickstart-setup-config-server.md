@@ -52,9 +52,19 @@ The following procedure sets up the config server using the Azure portal to depl
 
 2. In the **Default repository** section, set **URI** to "https://github.com/Azure-Samples/piggymetrics-config".
 
-3. Select **Apply** to save your changes.
+3. Click **Validate**.
 
     ![Screenshot of ASC portal](media/spring-cloud-quickstart-launch-app-portal/portal-config.png)
+
+4. When validation is complete, click **Apply** to save your changes.
+
+    ![Screenshot of ASC portal](media/spring-cloud-quickstart-launch-app-portal/validate-complete.png)
+
+5. Updating the configuration can take a few minutes.
+ 
+    ![Screenshot of ASC portal](media/spring-cloud-quickstart-launch-app-portal/update-complete.png) 
+
+6. You should get a notification when the configuration is complete.
 
 #### [CLI](#tab/Azure-CLI)
 
