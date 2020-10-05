@@ -63,7 +63,7 @@
         href: sso-options.md
       - name: SAML-based SSO
         href: configure-saml-single-sign-on.md
-      - name: SAML-based SSO for on-premises apps
+      - name: SAML-based SSO (on-prem apps)
         href: application-proxy-configure-single-sign-on-on-premises-apps.md
       - name: Password-based SSO
         href: configure-password-single-sign-on-non-gallery-applications.md
