@@ -32,7 +32,7 @@ Many customers start with the free service. This version is limited to three ind
 
 Sections on the service dashboard show how many indexes, indexers, and data sources you already have. 
 
-![Lists of indexes, indexers, and datasources](media/search-get-started-portal/tiles-indexers-datasources.png)
+:::image type="content" source="media/search-get-started-portal/tiles-indexers-datasources.png" alt-text="Lists of indexes, indexers, and datasources":::
 
 ## <a name="create-index"></a> Create an index and load data
 
@@ -46,11 +46,11 @@ For this tutorial, we use a built-in sample dataset that can be crawled using an
 
 1. [Find your search service](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Storage%2storageAccounts/) and on the Overview page, click **Import data** on the command bar to create and populate a search index.
 
-   ![Import data command](media/search-get-started-portal/import-data-cmd.png)
+   :::image type="content" source="media/search-get-started-portal/import-data-cmd.png" alt-text="Import data command":::
 
 1. In the wizard, click **Connect to your data** > **Samples** > **hotels-sample**. This data source is built-in. If you were creating your own data source, you would need to specify a name, type, and connection information. Once created, it becomes an "existing data source" that can be reused in other import operations.
 
-   ![Select sample dataset](media/search-get-started-portal/import-datasource-sample.png)
+   :::image type="content" source="media/search-get-started-portal/import-datasource-sample.png" alt-text="Select sample dataset":::
 
 1. Continue to the next page.
 
@@ -60,7 +60,7 @@ The wizard supports the creation of an [AI enrichment pipeline](cognitive-search
 
 We'll skip this step for now, and move directly on to **Customize target index**.
 
-   ![Skip cognitive skill step](media/search-get-started-portal/skip-cog-skill-step.png)
+   :::image type="content" source="media/search-get-started-portal/skip-cog-skill-step.png" alt-text="Skip cognitive skill step":::
 
 > [!TIP]
 > You can step through an AI-indexing example in a [quickstart](cognitive-search-quickstart-blob.md) or [tutorial](cognitive-search-tutorial-blob.md).
@@ -84,7 +84,7 @@ By default, the wizard scans the data source for unique identifiers as the basis
 
    If you rerun the wizard a second time using an existing hotels data source, the index won't be configured with default attributes. You'll have to manually select attributes on future imports. 
 
-   ![Generated hotels index](media/search-get-started-portal/hotelsindex.png)
+   :::image type="content" source="media/search-get-started-portal/hotelsindex.png" alt-text="Generated hotels index":::
 
 2. Continue to the next page.
 
@@ -97,7 +97,7 @@ This object defines an executable process. You could put it on recurring schedul
 
 Click **Submit** to create and simultaneously run the indexer.
 
-  ![hotels indexer](media/search-get-started-portal/hotels-indexer.png)
+  :::image type="content" source="media/search-get-started-portal/hotels-indexer.png" alt-text="hotels indexer":::
 
 ## Monitor progress
 
@@ -106,7 +106,7 @@ The wizard should take you to the Indexers list where you can monitor progress. 
 
 It can take a few minutes for the portal to update the page, but you should see the newly created indexer in the list, with status indicating "in progress" or success, along with the number of documents indexed.
 
-   ![Indexer progress message](media/search-get-started-portal/indexers-inprogress.png)
+   :::image type="content" source="media/search-get-started-portal/indexers-inprogress.png" alt-text="Indexer progress message":::
 
 ## View the index
 
@@ -114,13 +114,13 @@ The main service page provides links to the resources created in your Azure Cogn
 
 Wait for the portal page to refresh. After a few minutes, you should see the index with a document count and storage size.
 
-   ![Indexes list on the service dashboard](media/search-get-started-portal/indexes-list.png)
+   :::image type="content" source="media/search-get-started-portal/indexes-list.png" alt-text="Indexes list on the service dashboard":::
 
 From this list, you can click on the *hotels-sample* index that you just created, view the index schema. and optionally add new fields. 
 
 The **Fields** tab shows the index schema. Scroll to the bottom of the list to enter a new field. In most cases, you cannot change existing fields. Existing fields have a physical representation in Azure Cognitive Search and are thus non-modifiable, not even in code. To fundamentally change an existing field, create a new index, dropping the original.
 
-   ![sample index definition](media/search-get-started-portal/sample-index-def.png)
+   :::image type="content" source="media/search-get-started-portal/sample-index-def.png" alt-text="sample index definition":::
 
 Other constructs, such as scoring profiles and CORS options, can be added at any time.
 
@@ -138,15 +138,15 @@ Moving forward, you should now have a search index that's ready to query using t
 
 1. Click **Search explorer** on the command bar.
 
-   ![Search explorer command](media/search-get-started-portal/search-explorer-cmd.png)
+   :::image type="content" source="media/search-get-started-portal/search-explorer-cmd.png" alt-text="Search explorer command":::
 
 2. From the **Index** dropdown, choose  *hotels-sample-index*. Click the **API Version** dropdown, to see which REST APIs are available. For the queries below, use the generally available version (2020-06-30).
 
-   ![Index and API commands](media/search-get-started-portal/search-explorer-changeindex.png)
+   :::image type="content" source="media/search-get-started-portal/search-explorer-changeindex.png" alt-text="Index and API commands":::
 
 3. In the search bar, paste in the query strings below and click **Search**.
 
-   ![Query string and search button](media/search-get-started-portal/search-explorer-query-string-example.png)
+   :::image type="content" source="media/search-get-started-portal/search-explorer-query-string-example.png" alt-text="Query string and search button":::
 
 ## Example queries
 
