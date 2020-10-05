@@ -20,7 +20,9 @@ Depending on the configuration method you use, you should update the new version
 ## REST
 REST API requests use the API version in the URL of the request. Replace that version with the latest version as shown in the following example.
 
+```rest
 https://management.azure.com/subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/providers/Microsoft.OperationalInsights/workspaces/{workspaceName}?api-version=2020-08-01
+```
 
 ## Azure Resource Manager
 Resource Manager templates use the API version in the **apiVersion** property of the resource. Replace that version with the latest version as shown in the following example.
