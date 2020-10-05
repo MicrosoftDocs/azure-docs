@@ -245,7 +245,8 @@ For having successful HTTPS connections to your backend whether for health probe
 2. **Backend hosting certificate from invalid CA**: Only certificates from [valid CAs](/azure/frontdoor/front-door-troubleshoot-allowed-ca) can be used at the backend with Front Door. Certificates from internal CAs or self-signed certificates are not allowed.
 
 ### Can I use client/mutual authentication with Azure Front Door?
-No. While Azure Front Door supports TLS 1.2 which introduced the client/mutual authentication in [RFC 5246](https://tools.ietf.org/html/rfc5246), client/mutual authentication is not currently supported.
+
+No. Although Azure Front Door supports TLS 1.2, which introduced client/mutual authentication in [RFC 5246](https://tools.ietf.org/html/rfc5246), currently, Azure Front Door doesn't support client/mutual authentication.
 
 ## Diagnostics and logging
 
