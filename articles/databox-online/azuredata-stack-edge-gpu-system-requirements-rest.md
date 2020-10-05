@@ -65,7 +65,7 @@ To install via Composer: (take blob as example).
 
 ### Endpoint declaration
 
-In the Azure Stack Edge Blob storage SDK,<!--Azure Stack Edge Blob use a different storage SDK?--> the endpoint suffix - `<device serial number>.microsoftdatabox.com` - identifies the Azure Stack Edge domain. For more information on the blob service endpoint, go to <!--Is a link update needed?-->[Connect via Data Box Blob storage](../databox/data-box-deploy-copy-data-via-rest.md).
+In the Azure Stack Edge Blob storage SDK,<!--Does Azure Stack Edge Blob use a different storage SDK? Is Storage in the SDK name?--> the endpoint suffix - `<device serial number>.microsoftdatabox.com` - identifies the Azure Stack Edge domain. For more information on the blob service endpoint, go to <!--This link is a guess. Only Stack Edge GPU topic that tells how to create http and https connections using the service endpoint. Sample device service endpoint in this topic does not look to have a serial number, but maybe...-->[Transfer data via storage accounts with Azure Stack Edge Pro GPU](azure-stack-edge-j-series-deploy-add-storage-accounts.md).
  
 ## Examples
 
@@ -144,4 +144,4 @@ EndpointSuffix=<serial no. of the device>.microsoftdatabox.com
 
 ## Next steps
 
-* [Deploy your Azure Data Box](../databox/data-box-deploy-ordered.md)
+* [Deploy your Azure Data Box](../databox/data-box-deploy-ordered.md)<!--Stumped on this one. What's next in Azure Stack Edge?-->
