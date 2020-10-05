@@ -408,7 +408,7 @@ Set up the disk layout with  **Logical Volume Manager (LVM)**. The following exa
     ```
     sudo mkdir -p /hana/data/HN1
     sudo mkdir -p /hana/log/HN1
-    # Write down the ID of /dev/vg_hana_data_<b>HN1</b>/hana_data and /dev/vg_hana_log_<b>HN1</b>/hana_log
+    # Write down the ID of /dev/vg_hana_data_HN1/hana_data and /dev/vg_hana_log_HN1/hana_log
     sudo blkid
     ```
 
@@ -420,8 +420,8 @@ Set up the disk layout with  **Logical Volume Manager (LVM)**. The following exa
    Insert the following line in the `/etc/fstab` file:
 
     ```
-    /dev/disk/by-uuid/&lt;UUID of /dev/mapper/vg_hana_data_HN1-hana_data&gt; /hana/data/HN1 xfs  defaults,nofail  0  2
-    /dev/disk/by-uuid/&lt;UUID of /dev/mapper/vg_hana_log_HN1-hana_log&gt; /hana/log/HN1 xfs  defaults,nofail  0  2
+    /dev/disk/by-uuid/UUID of /dev/mapper/vg_hana_data_HN1-hana_data /hana/data/HN1 xfs  defaults,nofail  0  2
+    /dev/disk/by-uuid/UUID of /dev/mapper/vg_hana_log_HN1-hana_log /hana/log/HN1 xfs  defaults,nofail  0  2
     ```
 
    Mount the new volumes:
@@ -446,15 +446,15 @@ In this example for deploying SAP HANA in scale-out configuration with HSR on Az
 3. **[1]** Verify that you can log in via SSH to the HANA DB VMs in this site **hana-s1-db2** and **hana-s1-db3**, without being prompted for a password.  
    If that is not the case, exchange  ssh keys, as documented in [Using Key-based Authentication](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/6/html/deployment_guide/s2-ssh-configuration-keypairs).  
     ```
-    ssh root@<b>hana-s1-db2</b>
-    ssh root@<b>hana-s1-db3</b>
+    ssh root@hana-s1-db2
+    ssh root@hana-s1-db3
     ```
 
 4. **[2]** Verify that you can log in via SSH to the HANA DB VMs in this site **hana-s2-db2** and **hana-s2-db3**, without being prompted for a password.  
    If that is not the case, exchange  ssh keys, as documented in [Using Key-based Authentication](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/6/html/deployment_guide/s2-ssh-configuration-keypairs).  
     ```
-    ssh root@<b>hana-s1-db2</b>
-    ssh root@<b>hana-s1-db3</b>
+    ssh root@hana-s2-db2
+    ssh root@hana-s2-db3
     ```
 
 5. **[AH]** Install additional packages, which are required for HANA 2.0 SP4. For more information, see SAP Note [2593824](https://launchpad.support.sap.com/#/notes/2593824) for RHEL 7. 
@@ -518,15 +518,15 @@ In this example for deploying SAP HANA in scale-out configuration with HSR on Az
    Display global.ini, and ensure that the configuration for the internal SAP HANA inter-node communication is in place. Verify the **communication** section. It should have the address space for the `inter` subnet, and `listeninterface` should be set to `.internal`. Verify the **internal_hostname_resolution** section. It should have the IP addresses for the HANA virtual machines that belong to the `inter` subnet.  
 
    ```
-    sudo cat /usr/sap/<b>HN1</b>/SYS/global/hdb/custom/config/global.ini
-    # Example from SITE1 
-    [communication]
-    internal_network = <b>10.23.1.128/26</b>
-    listeninterface = .internal
-    [internal_hostname_resolution]
-    <b>10.23.1.138</b> = <b>hana-s1-db1</b>
-    <b>10.23.1.139</b> = <b>hana-s1-db2</b>
-    <b>10.23.1.140</b> = <b>hana-s1-db3</b>
+     sudo cat /usr/sap/HN1/SYS/global/hdb/custom/config/global.ini
+     # Example from SITE1 
+     [communication]
+     internal_network = 10.23.1.128/26
+     listeninterface = .internal
+     [internal_hostname_resolution]
+     10.23.1.138 = hana-s1-db1
+     10.23.1.139 = hana-s1-db2
+     10.23.1.140 = hana-s1-db3
    ```
 
 4. **[1,2]** Prepare `global.ini` for installation in non-shared environment, as described in SAP note [2080991](https://launchpad.support.sap.com/#/notes/0002080991).  
@@ -748,29 +748,33 @@ Include all virtual machines, including the majority maker in the cluster.
 
 1. **[1,2]** Stop SAP HANA on both replication sites. Execute as <sid\>adm.  
 
-    <pre><code>sapcontrol -nr 03 -function StopSystem </code></pre>
+    ```
+    sapcontrol -nr 03 -function StopSystem
+    ```
 
 2. **[AH]** Un-mount file system `/hana/shared`, which was temporarily mounted for the installation on all HANA DB VMs. You will need to stop any processes and sessions, that are using the file system, before you can un-mount it. 
  
-    <pre><code>umount /hana/shared </code></pre>
+    ```
+    umount /hana/shared 
+    ```
 
 3. **[1]** Create the file system cluster resources for `/hana/shared` in disabled state. The resources are created with the option `--disabled`, because you have to define the location constraints, before the mounts are enabled.  
 
-    <pre><code>
+    ```
     # /hana/shared file system for site 1
-    pcs resource create fs_hana_shared_s1 --disabled ocf:heartbeat:Filesystem device=<b>10.23.1.7:/HN1-shared-s1</b>  directory=/hana/shared \
+    pcs resource create fs_hana_shared_s1 --disabled ocf:heartbeat:Filesystem device=10.23.1.7:/HN1-shared-s1  directory=/hana/shared \
     fstype=nfs options='defaults,rw,hard,timeo=600,rsize=262144,wsize=262144,proto=tcp,intr,noatime,sec=sys,vers=4.1,lock,_netdev' op monitor interval=20s on-fail=fence timeout=40s OCF_CHECK_LEVEL=20 \
     op start interval=0 timeout=120 op stop interval=0 timeout=120
 
     # /hana/shared file system for site 2	
-    pcs resource create fs_hana_shared_s2 --disabled ocf:heartbeat:Filesystem device=<b>10.23.1.7:/HN1-shared-s1</b> directory=/hana/shared \
+    pcs resource create fs_hana_shared_s2 --disabled ocf:heartbeat:Filesystem device=10.23.1.7:/HN1-shared-s1 directory=/hana/shared \
     fstype=nfs options='defaults,rw,hard,timeo=600,rsize=262144,wsize=262144,proto=tcp,intr,noatime,sec=sys,vers=4.1,lock,_netdev' op monitor interval=20s on-fail=fence timeout=40s OCF_CHECK_LEVEL=20 \
     op start interval=0 timeout=120 op stop interval=0 timeout=120
 
 	# clone the /hana/shared file system resources for both site1 and site2
     pcs resource clone fs_hana_shared_s1 meta clone-node-max=1 interleave=true
     pcs resource clone fs_hana_shared_s2 meta clone-node-max=1 interleave=true
-    </code></pre>
+    ```
  
    `OCF_CHECK_LEVEL=20` attribute is added to the monitor operation, so that monitor operations perform a read/write test on the file system. Without this attribute, the monitor operation only verifies that the file system is mounted. This can be a problem because when connectivity is lost, the file system may remain mounted, despite being inaccessible.  
 
@@ -778,7 +782,7 @@ Include all virtual machines, including the majority maker in the cluster.
 
 4. **[1]** Configure and verify the node attributes. All SAP HANA DB nodes on replication site 1 are assigned attribute `S1`, and all SAP HANA DB nodes on replication site 2 are assigned attribute `S2`.  
 
-    <pre><code>
+    ```
     # HANA replication site 1
     pcs node attribute hana-s1-db1 NFS_SID_SITE=S1
     pcs node attribute hana-s1-db2 NFS_SID_SITE=S1
@@ -789,34 +793,37 @@ Include all virtual machines, including the majority maker in the cluster.
     pcs node attribute hana-s2-db3 NFS_SID_SITE=S2
 	#To verify the attribute assignment to nodes execute
     pcs node attribute
-    </code></pre>
+    ```
 
 5. **[1]** Configure the constraints, that determine where the NFS file systems will be mounted and enable the file system resources.  
-    <pre><code># Configure the constraints
+    ```
+    # Configure the constraints
     pcs constraint location fs_hana_shared_s1-clone rule resource-discovery=never score=-INFINITY NFS_SID_SITE ne S1
     pcs constraint location fs_hana_shared_s2-clone rule resource-discovery=never score=-INFINITY NFS_SID_SITE ne S2
     # Enable the file system resources
     pcs resource enable fs_hana_shared_s1
     pcs resource enable fs_hana_shared_s2
-    </code></pre>
+    ```
 
    When you enable the file system resources, the cluster will mount the `/hana/shared` file systems.
  
 6. **[AH]** Verify that the ANF volumes are mounted under `/hana/shared` on all HANA DB VMs on both sites.
 
-    <pre><code>sudo nfsstat -m
-    # Verify that flag vers is set to <b>4.1</b> 
-    # Example from SITE 1, <b>hana-s1-db1</b>
+    ```
+    sudo nfsstat -m
+    # Verify that flag vers is set to 4.1 
+    # Example from SITE 1, hana-s1-db1
     /hana/shared from 10.23.1.7:/HN1-shared-s1
      Flags: rw,noatime,vers=4.1,rsize=262144,wsize=262144,namlen=255,hard,proto=tcp,timeo=600,retrans=2,sec=sys,clientaddr=10.23.0.11,local_lock=none,addr=10.23.1.7
-    # Example from SITE 2, <b>hana-s2-db1</b>
+    # Example from SITE 2, hana-s2-db1
     /hana/shared from 10.23.1.7:/HN1-shared-s2
      Flags: rw,noatime,vers=4.1,rsize=262144,wsize=262144,namlen=255,hard,proto=tcp,timeo=600,retrans=2,sec=sys,clientaddr=10.23.0.14,local_lock=none,addr=10.23.1.7
-    </code></pre>
+    ```
 
 7. **[1]** Configure the attribute resources. Configure the constraints, that will set the attributes to `true`, if the NFS mounts for `hana/shared` are mounted.  
 
-    <pre><code># Configure the attribure resources
+    ```
+    # Configure the attribure resources
     pcs resource create hana_nfs_s1_active ocf:pacemaker:attribute active_value=true inactive_value=false name=hana_nfs_s1_active
     pcs resource create hana_nfs_s2_active ocf:pacemaker:attribute active_value=true inactive_value=false name=hana_nfs_s2_active
 	# Clone the attribure resources
@@ -825,20 +832,23 @@ Include all virtual machines, including the majority maker in the cluster.
 	# Configure the constraints, which will set the attribute values
     pcs constraint order fs_hana_shared_s1-clone then hana_nfs_s1_active-clone
     pcs constraint order fs_hana_shared_s2-clone then hana_nfs_s2_active-clone
-    </code></pre>
+    ```
 
    > [!TIP]
    > If your configuration includes other file systems, besides /`hana/shared`, which are NFS mounted, then include `sequential=false` option, so that there are no ordering dependencies among the file systems. All NFS mounted file systems must start, before the corresponding attribute resource, but they do not need to start in any order relative to each other. For more information see [How do I configure SAP HANA Scale-Out HSR in a pacemaker cluster when the HANA file systems are NFS shares](https://access.redhat.com/solutions/5423971).  
 
 8. **[1]** Place pacemaker in maintenance mode, in preparation for the creation of the HANA cluster resources.  
-    <pre><code>pcs property set maintenance-mode=true
-    </code></pre>
+    ```
+    pcs property set maintenance-mode=true
+    ```
 
 ## Create SAP HANA cluster resources
 
 1. **[A]** Install the HANA scale-out resource agent on all cluster nodes, including the majority maker.    
 
-    <pre><code> yum install -y resource-agents-sap-hana-scaleout </code></pre>
+    ```
+    yum install -y resource-agents-sap-hana-scaleout 
+    ```
 
 
    > [!NOTE]
@@ -847,38 +857,44 @@ Include all virtual machines, including the majority maker in the cluster.
 2. **[1,2]** Install the HANA "system replication hook". The hook needs to be installed on one HANA DB node on each system replication site. SAP HANA should be still down.        
 
    1. Prepare the hook as `root` 
-    <pre><code>mkdir -p /hana/shared/<b>myHooks</b>
-     cp /usr/share/SAPHanaSR-ScaleOut/SAPHanaSR.py /hana/shared/<b>myHooks</b>
-     chown -R <b>hn1</b>adm:sapsys /hana/shared<b>/myHooks</b>
-    </code></pre>
+    ```
+     mkdir -p /hana/shared/myHooks
+     cp /usr/share/SAPHanaSR-ScaleOut/SAPHanaSR.py /hana/shared/myHooks
+     chown -R hn1adm:sapsys /hana/shared/myHooks
+    ```
 
    2. Adjust `global.ini`
-    <pre><code># add to global.ini
-     [ha_dr_provider_SAPHanaSR]
-     provider = SAPHanaSR
-    path = /hana/shared/<b>myHooks</b>
+    ```
+    # add to global.ini
+    [ha_dr_provider_SAPHanaSR]
+    provider = SAPHanaSR
+    path = /hana/shared/myHooks
     execution_order = 1
     
     [trace]
     ha_dr_saphanasr = info
-    </code></pre>
+    ```
 
 3. **[AH]** The cluster requires sudoers configuration on the cluster node for <sid\>adm. In this example that is achieved by creating a new file. Execute the commands as `root`.    
-    <pre><code> cat << EOF > /etc/sudoers.d/20-saphana
-     # SAPHanaSR-ScaleOut needs for srHook
-     Cmnd_Alias SOK = /usr/sbin/crm_attribute -n hana_<b>hn1</b>_glob_srHook -v SOK -t crm_config -s SAPHanaSR
-     Cmnd_Alias SFAIL = /usr/sbin/crm_attribute -n hana_<b>hn1</b>_glob_srHook -v SFAIL -t crm_config -s SAPHanaSR
-     <b>hn1</b>adm ALL=(ALL) NOPASSWD: SOK, SFAIL
+    ``` 
+    cat << EOF > /etc/sudoers.d/20-saphana
+    # SAPHanaSR-ScaleOut needs for srHook
+     Cmnd_Alias SOK = /usr/sbin/crm_attribute -n hana_hn1_glob_srHook -v SOK -t crm_config -s SAPHanaSR
+     Cmnd_Alias SFAIL = /usr/sbin/crm_attribute -n hana_hn1_glob_srHook -v SFAIL -t crm_config -s SAPHanaSR
+     hn1adm ALL=(ALL) NOPASSWD: SOK, SFAIL
      EOF
-    </code></pre>
+    ```
 
 4. **[1,2]** Start SAP HANA on both replication sites. Execute as <sid\>adm.  
 
-    <pre><code>sapcontrol -nr 03 -function StartSystem </code></pre>
+    ```
+    sapcontrol -nr 03 -function StartSystem 
+    ```
 
 5. **[1]** Verify the hook installation. Execute as <sid\>adm on the active HANA system replication site.   
 
-    <pre><code>cdtrace
+    ```
+    cdtrace
      awk '/ha_dr_SAPHanaSR.*crm_attribute/ \
      { printf "%s %s %s %s\n",$2,$3,$5,$16 }' nameserver_*
 
@@ -889,86 +905,94 @@ Include all virtual machines, including the majority maker in the cluster.
      # 2020-07-21 22:04:52.782774 ha_dr_SAPHanaSR SFAIL
      # 2020-07-21 22:04:53.117492 ha_dr_SAPHanaSR SFAIL
      # 2020-07-21 22:06:35.599324 ha_dr_SAPHanaSR SOK
-    </code></pre>
+    ```
 
 6. **[1]** Create the HANA cluster resources. Execute the following commands as `root`.    
    1. Make sure the cluster is already maintenance mode.  
     
    2. Next, create the HANA Topology resource.  
       If building RHEL **7.x** cluster, use the following commands:  
-      <pre><code>pcs resource create SAPHanaTopology_<b>HN1</b>_HDB<b>03</b> SAPHanaTopologyScaleOut \
+      ```
+      pcs resource create SAPHanaTopology_HN1_HDB03 SAPHanaTopologyScaleOut \
        SID=HN1 InstanceNumber=03 \
        op start timeout=600 op stop timeout=300 op monitor interval=10 timeout=600
 
-      pcs resource clone SAPHanaTopology_<b>HN1</b>_HDB<b>03</b> meta clone-node-max=1 interleave=true
-      </code></pre>
+      pcs resource clone SAPHanaTopology_HN1_HDB03 meta clone-node-max=1 interleave=true
+      ```
 
       If building RHEL **8.x** cluster, use the following commands:  
-      <pre><code>pcs resource create SAPHanaTopology_<b>HN1</b>_HDB<b>03</b> SAPHanaTopology \
+      ```
+      pcs resource create SAPHanaTopology_HN1_HDB03 SAPHanaTopology \
        SID=HN1 InstanceNumber=03 meta clone-node-max=1 interleave=true \
        op methods interval=0s timeout=5 \
        op start timeout=600 op stop timeout=300 op monitor interval=10 timeout=600
 
-      pcs resource clone SAPHanaTopology_<b>HN1</b>_HDB<b>03</b> meta clone-node-max=1 interleave=true
-      </code></pre>
+      pcs resource clone SAPHanaTopology_HN1_HDB03 meta clone-node-max=1 interleave=true
+      ```
 
    3. Next, create the HANA instance resource.  
       > [!NOTE]
       > This article contains references to the term *slave*, a term that Microsoft no longer uses. When the term is removed from the software, we’ll remove it from this article.  
  
       If building RHEL **7.x** cluster, use the following commands:    
-      <pre><code>pcs resource create SAPHana_<b>HN1</b>_HDB<b>03</b> SAPHanaController \
-       SID=<b>HN1</b> InstanceNumber=<b>03</b> PREFER_SITE_TAKEOVER=true DUPLICATE_PRIMARY_TIMEOUT=7200 AUTOMATED_REGISTER=false \
+      ```
+      pcs resource create SAPHana_HN1_HDB03 SAPHanaController \
+       SID=HN1 InstanceNumber=03 PREFER_SITE_TAKEOVER=true DUPLICATE_PRIMARY_TIMEOUT=7200 AUTOMATED_REGISTER=false \
        op start interval=0 timeout=3600 op stop interval=0 timeout=3600 op promote interval=0 timeout=3600 \
        op monitor interval=60 role="Master" timeout=700 op monitor interval=61 role="Slave" timeout=700
      
-      pcs resource master msl_SAPHana_<b>HN1</b>_HDB<b>03</b> SAPHana_<b>HN1</b>_HDB<b>03</b> \
+      pcs resource master msl_SAPHana_HN1_HDB03 SAPHana_HN1_HDB03 \
        meta master-max="1" clone-node-max=1 interleave=true
-      </code></pre>
+      ```
 
       If building RHEL **8.x** cluster, use the following commands:  
-      <pre><code>pcs resource create SAPHana_<b>HN1</b>_HDB<b>03</b> SAPHanaController \
-       SID=<b>HN1</b> InstanceNumber=<b>03</b> PREFER_SITE_TAKEOVER=true DUPLICATE_PRIMARY_TIMEOUT=7200 AUTOMATED_REGISTER=false \
+      ```
+      pcs resource create SAPHana_HN1_HDB03 SAPHanaController \
+       SID=HN1 InstanceNumber=03 PREFER_SITE_TAKEOVER=true DUPLICATE_PRIMARY_TIMEOUT=7200 AUTOMATED_REGISTER=false \
        op demote interval=0s timeout=320 op methods interval=0s timeout=5 \
        op start interval=0 timeout=3600 op stop interval=0 timeout=3600 op promote interval=0 timeout=3600 \
        op monitor interval=60 role="Master" timeout=700 op monitor interval=61 role="Slave" timeout=700
      
-      pcs resource promotable SAPHana_<b>HN1</b>_HDB<b>03</b> \
+      pcs resource promotable SAPHana_HN1_HDB03 \
        meta master-max="1" clone-node-max=1 interleave=true
-      </code></pre>
+      ```
       > [!IMPORTANT]
       > We recommend as a best practice that you only set AUTOMATED_REGISTER to **no**, while performing thorough fail-over tests, to prevent failed primary instance to automatically register as secondary. Once the fail-over tests have completed successfully, set AUTOMATED_REGISTER to **yes**, so that after takeover system replication can resume automatically. 
 
    4. Create Virtual IP and associated resources.  
-      <pre><code>pcs resource create vip_<b>HN1</b>_<b>03</b> ocf:heartbeat:IPaddr2 ip=<b>10.23.0.18</b> op monitor interval="10s" timeout="20s"
-      sudo pcs resource create nc_HN1_03 azure-lb port=625<b>03</b>
-      sudo pcs resource group add g_ip_<b>HN1</b>_<b>03</b> nc_<b>HN1</b>_<b>03</b> vip_<b>HN1</b>_<b>03</b>
-      </code></pre>
+      ```
+      pcs resource create vip_HN1_03 ocf:heartbeat:IPaddr2 ip=10.23.0.18 op monitor interval="10s" timeout="20s"
+      sudo pcs resource create nc_HN1_03 azure-lb port=62503
+      sudo pcs resource group add g_ip_HN1_03 nc_HN1_03 vip_HN1_03
+      ```
 
    5. Create the cluster constraints  
       If building RHEL **7.x** cluster, use the following commands:  
-      <pre><code> #Start HANA topology, before the HANA instance
-      pcs constraint order SAPHanaTopology_<b>HN1</b>_HDB<b>03</b>-clone then msl_SAPHana_<b>HN1</b>_HDB<b>03</b>
+      ```
+      #Start HANA topology, before the HANA instance
+      pcs constraint order SAPHanaTopology_HN1_HDB03-clone then msl_SAPHana_HN1_HDB03
 
-      pcs constraint colocation add g_ip_<b>HN1</b>_<b>03</b> with master msl_SAPHana_<b>HN1</b>_HDB<b>03</b> 4000
+      pcs constraint colocation add g_ip_HN1_03 with master msl_SAPHana_HN1_HDB03 4000
       #HANA resources are only allowed to run on a node, if the node's NFS file systems are mounted. The constraint also avoids the majority maker node
-      pcs constraint location SAPHanaTopology_<b>HN1</b>_HDB<b>03</b>-clone rule resource-discovery=never score=-INFINITY hana_nfs_s1_active ne true and hana_nfs_s2_active ne true
-      </code></pre>
+      pcs constraint location SAPHanaTopology_HN1_HDB03-clone rule resource-discovery=never score=-INFINITY hana_nfs_s1_active ne true and hana_nfs_s2_active ne true
+      ```
  
       If building RHEL **8.x** cluster, use the following commands:  
-      <pre><code> #Start HANA topology, before the HANA instance
-      pcs constraint order SAPHanaTopology_<b>HN1</b>_HDB<b>03</b>-clone then SAPHana_<b>HN1</b>_HDB<b>03</b>-clone
+      ```
+      #Start HANA topology, before the HANA instance
+      pcs constraint order SAPHanaTopology_HN1_HDB03-clone then SAPHana_HN1_HDB03-clone
 
-      pcs constraint colocation add g_ip_<b>HN1</b>_<b>03</b> with master SAPHana_<b>HN1</b>_HDB<b>03</b>-clone 4000
+      pcs constraint colocation add g_ip_HN1_03 with master SAPHana_HN1_HDB03-clone 4000
       #HANA resources are only allowed to run on a node, if the node's NFS file systems are mounted. The constraint also avoids the majority maker node
-      pcs constraint location SAPHanaTopology_<b>HN1</b>_HDB<b>03</b>-clone rule resource-discovery=never score=-INFINITY hana_nfs_s1_active ne true and hana_nfs_s2_active ne true
-      </code></pre>
+      pcs constraint location SAPHanaTopology_HN1_HDB03-clone rule resource-discovery=never score=-INFINITY hana_nfs_s1_active ne true and hana_nfs_s2_active ne true
+      ```
 
 7. **[1]** Place the cluster out of maintenance mode. Make sure that the cluster status is ok and that all of the resources are started.  
-   <pre><code> sudo pcs property set maintenance-mode=false
-   #If there are failed cluster resources, you may need to run the next command
-   pcs resource cleanup
-   </code></pre>
+    ```
+    sudo pcs property set maintenance-mode=false
+    #If there are failed cluster resources, you may need to run the next command
+    pcs resource cleanup
+    ```
   
    > [!NOTE]
    > The timeouts in the above configuration are just examples and may need to be adapted to the specific HANA setup. For instance, you may need to increase the start timeout, if it takes longer to start the SAP HANA database.
@@ -978,63 +1002,65 @@ Include all virtual machines, including the majority maker in the cluster.
 1. Before you start a test, check the cluster and SAP HANA system replication status.  
 
    a. Verify that there are no failed cluster actions  
-    <pre><code>#Verify that there are no failed cluster actions
-    pcs status
-    # Example
-    #Stack: corosync
-    #Current DC: hana-s-mm (version 1.1.19-8.el7_6.5-c3c624ea3d) - partition with quorum
-    #Last updated: Thu Sep 24 06:00:20 2020
-    #Last change: Thu Sep 24 05:59:17 2020 by root via crm_attribute on hana-s1-db1
-    #
-    #7 nodes configured
-    #45 resources configured
-    #
-    #Online: [ hana-s-mm hana-s1-db1 hana-s1-db2 hana-s1-db3 hana-s2-db1 hana-s2-db2 hana-s2-db3 ]
-    #
-    #Active resources:
-    #
-    #rsc_st_azure    (stonith:fence_azure_arm):      Started hana-s-mm
-    #Clone Set: fs_hana_shared_s1-clone [fs_hana_shared_s1]
-    #    Started: [ hana--s1-db1 hana-s1-db2 hana-s1-db3 ]
-    #Clone Set: fs_hana_shared_s2-clone [fs_hana_shared_s2]
-    #    Started: [ hana-s2-db1 hana-s2-db2 hana-s2-db3 ]
-    #Clone Set: hana_nfs_s1_active-clone [hana_nfs_s1_active]
-    #    Started: [ hana-s1-db1 hana-s1-db2 hana-s1-db3 ]
-    #Clone Set: hana_nfs_s2_active-clone [hana_nfs_s2_active]
-    #    Started: [ hana-s2-db1 hana-s2-db2 hana-s2-db3 ]
-    #Clone Set: SAPHanaTopology_HN1_HDB03-clone [SAPHanaTopology_HN1_HDB03]
-    #    Started: [ hana-s1-db1 hana-s1-db2 hana-s1-db3 hana-s2-db1 hana-s2-db2 hana-s2-db3 ]
-    #Master/Slave Set: msl_SAPHana_HN1_HDB03 [SAPHana_HN1_HDB03]
-    #    Masters: [ hana-s1-db1 ]
-    #    Slaves: [ hana-s1-db2 hana-s1-db3 hana-s2-db1 hana-s2-db2 hana-s2-db3 ]
-    #Resource Group: g_ip_HN1_03
-    #    nc_HN1_03  (ocf::heartbeat:azure-lb):      Started hana-s1-db1
-    #    vip_HN1_03 (ocf::heartbeat:IPaddr2):       Started hana-s1-db1
-    </code></pre>
+     ```
+     #Verify that there are no failed cluster actions
+     pcs status
+     # Example
+     #Stack: corosync
+     #Current DC: hana-s-mm (version 1.1.19-8.el7_6.5-c3c624ea3d) - partition with quorum
+     #Last updated: Thu Sep 24 06:00:20 2020
+     #Last change: Thu Sep 24 05:59:17 2020 by root via crm_attribute on hana-s1-db1
+     #
+     #7 nodes configured
+     #45 resources configured
+     #
+     #Online: [ hana-s-mm hana-s1-db1 hana-s1-db2 hana-s1-db3 hana-s2-db1 hana-s2-db2 hana-s2-db3 ]
+     #
+     #Active resources:
+     #
+     #rsc_st_azure    (stonith:fence_azure_arm):      Started hana-s-mm
+     #Clone Set: fs_hana_shared_s1-clone [fs_hana_shared_s1]
+     #    Started: [ hana--s1-db1 hana-s1-db2 hana-s1-db3 ]
+     #Clone Set: fs_hana_shared_s2-clone [fs_hana_shared_s2]
+     #    Started: [ hana-s2-db1 hana-s2-db2 hana-s2-db3 ]
+     #Clone Set: hana_nfs_s1_active-clone [hana_nfs_s1_active]
+     #    Started: [ hana-s1-db1 hana-s1-db2 hana-s1-db3 ]
+     #Clone Set: hana_nfs_s2_active-clone [hana_nfs_s2_active]
+     #    Started: [ hana-s2-db1 hana-s2-db2 hana-s2-db3 ]
+     #Clone Set: SAPHanaTopology_HN1_HDB03-clone [SAPHanaTopology_HN1_HDB03]
+     #    Started: [ hana-s1-db1 hana-s1-db2 hana-s1-db3 hana-s2-db1 hana-s2-db2 hana-s2-db3 ]
+     #Master/Slave Set: msl_SAPHana_HN1_HDB03 [SAPHana_HN1_HDB03]
+     #    Masters: [ hana-s1-db1 ]
+     #    Slaves: [ hana-s1-db2 hana-s1-db3 hana-s2-db1 hana-s2-db2 hana-s2-db3 ]
+     #Resource Group: g_ip_HN1_03
+     #    nc_HN1_03  (ocf::heartbeat:azure-lb):      Started hana-s1-db1
+     #    vip_HN1_03 (ocf::heartbeat:IPaddr2):       Started hana-s1-db1
+     ```
 
    b. Verify that SAP HANA system replication is in sync
 
-    <pre><code># Verify HANA HSR is in sync
-    sudo su - hn1adm -c "python /usr/sap/HN1/HDB03/exe/python_support/systemReplicationStatus.py"
-    #| Database | Host        | Port  | Service Name | Volume ID | Site ID | Site Name | Secondary     | Secondary| Secondary | Secondary | Secondary     | Replication | Replication | Replication    |
-    #|          |             |       |              |           |         |           | Host          | Port     | Site ID   | Site Name | Active Status | Mode        | Status      | Status Details |
-    #| -------- | ----------- | ----- | ------------ | --------- | ------- | --------- | ------------- | -------- | --------- | --------- | ------------- | ----------- | ----------- | -------------- |
-    #| HN1      | hana-s1-db3 | 30303 | indexserver  |         5 |       2 | HANA_S1   | hana-s2-db3 |     30303  |         1 | HANA_S2   | YES           | SYNC        | ACTIVE      |                |
-    #| HN1      | hana-s1-db2 | 30303 | indexserver  |         4 |       2 | HANA_S1   | hana-s2-db2 |     30303  |         1 | HANA_S2   | YES           | SYNC        | ACTIVE      |                |
-    #| SYSTEMDB | hana-s1-db1 | 30301 | nameserver   |         1 |       2 | HANA_S1   | hana-s2-db1 |     30301  |         1 | HANA_S2   | YES           | SYNC        | ACTIVE      |                |
-    #| HN1      | hana-s1-db1 | 30307 | xsengine     |         2 |       2 | HANA_S1   | hana-s2-db1 |     30307  |         1 | HANA_S2   | YES           | SYNC        | ACTIVE      |                |
-    #| HN1      | hana-s1-db1 | 30303 | indexserver  |         3 |       2 | HANA_S1   | hana-s2-db1 |     30303  |         1 | HANA_S2   | YES           | SYNC        | ACTIVE      |                |
+      ```
+      # Verify HANA HSR is in sync
+      sudo su - hn1adm -c "python /usr/sap/HN1/HDB03/exe/python_support/systemReplicationStatus.py"
+      #| Database | Host        | Port  | Service Name | Volume ID | Site ID | Site Name | Secondary     | Secondary| Secondary | Secondary | Secondary     | Replication | Replication | Replication    |
+      #|          |             |       |              |           |         |           | Host          | Port     | Site ID   | Site Name | Active Status | Mode        | Status      | Status Details |
+      #| -------- | ----------- | ----- | ------------ | --------- | ------- | --------- | ------------- | -------- | --------- | --------- | ------------- | ----------- | ----------- | -------------- |
+      #| HN1      | hana-s1-db3 | 30303 | indexserver  |         5 |       2 | HANA_S1   | hana-s2-db3 |     30303  |         1 | HANA_S2   | YES           | SYNC        | ACTIVE      |                |
+      #| HN1      | hana-s1-db2 | 30303 | indexserver  |         4 |       2 | HANA_S1   | hana-s2-db2 |     30303  |         1 | HANA_S2   | YES           | SYNC        | ACTIVE      |                |  
+      #| SYSTEMDB | hana-s1-db1 | 30301 | nameserver   |         1 |       2 | HANA_S1   | hana-s2-db1 |     30301  |         1 | HANA_S2   | YES           | SYNC        | ACTIVE      |                |
+      #| HN1      | hana-s1-db1 | 30307 | xsengine     |         2 |       2 | HANA_S1   | hana-s2-db1 |     30307  |         1 | HANA_S2   | YES           | SYNC        | ACTIVE      |                |
+      #| HN1      | hana-s1-db1 | 30303 | indexserver  |         3 |       2 | HANA_S1   | hana-s2-db1 |     30303  |         1 | HANA_S2   | YES           | SYNC        | ACTIVE      |                |
 
-    #status system replication site "1": ACTIVE
-    #overall system replication status: ACTIVE
+      #status system replication site "1": ACTIVE
+      #overall system replication status: ACTIVE
 
-    #Local System Replication State
-    #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+      #Local System Replication State
+      #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-    #mode: PRIMARY
-    #site id: 1
-    #site name: HANA_S1
-    </code></pre>
+      #mode: PRIMARY
+      #site id: 1
+      #site name: HANA_S1
+      ```
 
 2. Verify the cluster configuration for a failure scenario, when a node loses access to the NFS share (`/hana/shared`).  
 
@@ -1043,89 +1069,94 @@ Include all virtual machines, including the majority maker in the cluster.
    **Expected result**: When you remount `/hana/shared` as *Read only*, the monitoring operation that performs read/write operation on file system, will fail, as it is not able to write to the file system and will trigger HANA resource failover. The same result is expected when your HANA node loses access to the NFS share.  
      
    You can check the state of the cluster resources by executing `crm_mon` or `pcs status`. Resource state before starting the test:
-    <pre><code># Output of crm_mon
-    #7 nodes configured
-	#45 resources configured
-	#
-	#Online: [ hana-s-mm hana-s1-db1 hana-s1-db2 hana-s1-db3 hana-s2-db1 hana-s2-db2 hana-s2-db3 ]
-	#
-	#Active resources:
-	#
-	#rsc_st_azure    (stonith:fence_azure_arm):      Started hana-s-mm
-	# Clone Set: fs_hana_shared_s1-clone [fs_hana_shared_s1]
-	#    Started: [ hana-s1-db1 hana-s1-db2 hana-s1-db3 ]
-	# Clone Set: fs_hana_shared_s2-clone [fs_hana_shared_s2]
-	#     Started: [ hana-s2-db1 hana-s2-db2 hana-s2-db3 ]
-	# Clone Set: hana_nfs_s1_active-clone [hana_nfs_s1_active]
-	#     Started: [ hana-s1-db1 hana-s1-db2 hana-s1-db3 ]
-	# Clone Set: hana_nfs_s2_active-clone [hana_nfs_s2_active]
-	#     Started: [ hana-s2-db1 hana-s2-db2 hana-s2-db3 ]
-	# Clone Set: SAPHanaTopology_HN1_HDB03-clone [SAPHanaTopology_HN1_HDB03]
-	#     Started: [ hana-s1-db1 hana-s1-db2 hana-s1-db3 hana-s2-db1 hana-s2-db2 hana-s2-db3 ]
-	# Master/Slave Set: msl_SAPHana_HN1_HDB03 [SAPHana_HN1_HDB03]
-	#     Masters: [ hana-s1-db1 ]
-	#     Slaves: [ hana-s1-db2 hana-s1-db3 hana-s2-db1 hana-s2-db2 hana-s2-db3 ]
-	# Resource Group: g_ip_HN1_03
-	#     nc_HN1_03  (ocf::heartbeat:azure-lb):      Started hana-s1-db1
-	#     vip_HN1_03 (ocf::heartbeat:IPaddr2):       Started hana-s1-db1
-    </code></pre>
+      ```
+      # Output of crm_mon
+      #7 nodes configured
+  	  #45 resources configured
+	  #
+      #Online: [ hana-s-mm hana-s1-db1 hana-s1-db2 hana-s1-db3 hana-s2-db1 hana-s2-db2 hana-s2-db3 ]
+      #
+      #Active resources:
+
+      #rsc_st_azure    (stonith:fence_azure_arm):      Started hana-s-mm
+	  # Clone Set: fs_hana_shared_s1-clone [fs_hana_shared_s1]
+	  #    Started: [ hana-s1-db1 hana-s1-db2 hana-s1-db3 ]
+	  # Clone Set: fs_hana_shared_s2-clone [fs_hana_shared_s2]
+	  #     Started: [ hana-s2-db1 hana-s2-db2 hana-s2-db3 ]
+	  # Clone Set: hana_nfs_s1_active-clone [hana_nfs_s1_active]
+	  #     Started: [ hana-s1-db1 hana-s1-db2 hana-s1-db3 ]
+	  # Clone Set: hana_nfs_s2_active-clone [hana_nfs_s2_active]
+	  #     Started: [ hana-s2-db1 hana-s2-db2 hana-s2-db3 ]
+	  # Clone Set: SAPHanaTopology_HN1_HDB03-clone [SAPHanaTopology_HN1_HDB03]
+	  #     Started: [ hana-s1-db1 hana-s1-db2 hana-s1-db3 hana-s2-db1 hana-s2-db2 hana-s2-db3 ]
+	  # Master/Slave Set: msl_SAPHana_HN1_HDB03 [SAPHana_HN1_HDB03]
+	  #     Masters: [ hana-s1-db1 ]
+	  #     Slaves: [ hana-s1-db2 hana-s1-db3 hana-s2-db1 hana-s2-db2 hana-s2-db3 ]
+	  # Resource Group: g_ip_HN1_03
+	  #     nc_HN1_03  (ocf::heartbeat:azure-lb):      Started hana-s1-db1
+	  #     vip_HN1_03 (ocf::heartbeat:IPaddr2):       Started hana-s1-db1
+      ```
 
    To simulate failure for `/hana/shared` on one of the primary replication site VMs, execute the following command:
-    <pre><code># Execute as root 
-    mount -o ro /hana/shared
-    # Or if the above command returns an error
-    sudo mount -o ro 10.23.1.7/HN1-shared-s1 /hana/shared
-    </code></pre>
+      ```
+      # Execute as root 
+      mount -o ro /hana/shared
+      # Or if the above command returns an error
+      sudo mount -o ro 10.23.1.7/HN1-shared-s1 /hana/shared
+      ```
   
    The HANA VM, that lost access to to `/hana/shared` should restart or stop, depending on the cluster configuration. The cluster resources are migrated to the other HANA system replication site.  
          
    If the cluster has not started on the VM, that was restarted, start the cluster by executing: 
 
-    <pre><code> # Start the cluster 
-    pcs cluster start
-    </code></pre>
+      ```
+      # Start the cluster 
+      pcs cluster start
+      ```
    
    When the cluster starts, file system `/hana/shared` will be automatically mounted.     
    If you set AUTOMATED_REGISTER="false", you will need to configure SAP HANA system replication on secondary site. In this case, you can execute these commands to reconfigure SAP HANA as secondary.   
 
-    <pre><code> # Execute on the secondary 
-    su - <b>hn1</b>adm
-    # Make sure HANA is not running on the secondary site. If it is started, stop HANA
-    sapcontrol -nr 03 -function StopWait 600 10
-    # Register the HANA secondary site
-    hdbnsutil -sr_register --name=HANA_S1 --remoteHost=<b>hana-s2-db1</b> --remoteInstance=<b>03</b> --replicationMode=sync
-    # Switch back to root and cleanup failed resources
-    pcs resource cleanup SAPHana_<b>HN1</b>_HDB<b>03</b>
-    </code></pre>
+      ```
+      # Execute on the secondary 
+      su - hn1adm
+      # Make sure HANA is not running on the secondary site. If it is started, stop HANA
+      sapcontrol -nr 03 -function StopWait 600 10
+      # Register the HANA secondary site
+      hdbnsutil -sr_register --name=HANA_S1 --remoteHost=hana-s2-db1 --remoteInstance=03 --replicationMode=sync
+      # Switch back to root and cleanup failed resources
+      pcs resource cleanup SAPHana_HN1_HDB03
+      ```
 
    The state of the resources, after the test: 
 
-    <pre><code> # Output of crm_mon
-    #7 nodes configured
-	#45 resources configured
-	#
-	#Online: [ hana-s-mm hana-s1-db1 hana-s1-db2 hana-s1-db3 hana-s2-db1 hana-s2-db2 hana-s2-db3 ]
-	#
-	#Active resources:
-	#
-	#rsc_st_azure    (stonith:fence_azure_arm):      Started hana-s-mm
-	# Clone Set: fs_hana_shared_s1-clone [fs_hana_shared_s1]
-	#    Started: [ hana-s1-db1 hana-s1-db2 hana-s1-db3 ]
-	# Clone Set: fs_hana_shared_s2-clone [fs_hana_shared_s2]
-	#     Started: [ hana-s2-db1 hana-s2-db2 hana-s2-db3 ]
-	# Clone Set: hana_nfs_s1_active-clone [hana_nfs_s1_active]
-	#     Started: [ hana-s1-db1 hana-s1-db2 hana-s1-db3 ]
-	# Clone Set: hana_nfs_s2_active-clone [hana_nfs_s2_active]
-	#     Started: [ hana-s2-db1 hana-s2-db2 hana-s2-db3 ]
-	# Clone Set: SAPHanaTopology_HN1_HDB03-clone [SAPHanaTopology_HN1_HDB03]
-	#     Started: [ hana-s1-db1 hana-s1-db2 hana-s1-db3 hana-s2-db1 hana-s2-db2 hana-s2-db3 ]
-	# Master/Slave Set: msl_SAPHana_HN1_HDB03 [SAPHana_HN1_HDB03]
-	#     Masters: [ hana-s2-db1 ]
-	#     Slaves: [ hana-s1-db1 hana-s1-db2 hana-s1-db3 hana-s2-db2 hana-s2-db3 ]
-	# Resource Group: g_ip_HN1_03
-	#     nc_HN1_03  (ocf::heartbeat:azure-lb):      Started hana-s2-db1
-	#     vip_HN1_03 (ocf::heartbeat:IPaddr2):       Started hana-s2-db1
-    </code></pre>
+      ```
+      # Output of crm_mon
+      #7 nodes configured
+      #45 resources configured
+	
+	  #Online: [ hana-s-mm hana-s1-db1 hana-s1-db2 hana-s1-db3 hana-s2-db1 hana-s2-db2 hana-s2-db3 ]
+	  #
+      #Active resources:
+	
+	  #rsc_st_azure    (stonith:fence_azure_arm):      Started hana-s-mm
+ 	  # Clone Set: fs_hana_shared_s1-clone [fs_hana_shared_s1]
+	  #    Started: [ hana-s1-db1 hana-s1-db2 hana-s1-db3 ]
+	  # Clone Set: fs_hana_shared_s2-clone [fs_hana_shared_s2]
+	  #     Started: [ hana-s2-db1 hana-s2-db2 hana-s2-db3 ]
+	  # Clone Set: hana_nfs_s1_active-clone [hana_nfs_s1_active]
+	  #     Started: [ hana-s1-db1 hana-s1-db2 hana-s1-db3 ]
+	  # Clone Set: hana_nfs_s2_active-clone [hana_nfs_s2_active]
+	  #     Started: [ hana-s2-db1 hana-s2-db2 hana-s2-db3 ]
+	  # Clone Set: SAPHanaTopology_HN1_HDB03-clone [SAPHanaTopology_HN1_HDB03]
+	  #     Started: [ hana-s1-db1 hana-s1-db2 hana-s1-db3 hana-s2-db1 hana-s2-db2 hana-s2-db3 ]
+	  # Master/Slave Set: msl_SAPHana_HN1_HDB03 [SAPHana_HN1_HDB03]
+	  #     Masters: [ hana-s2-db1 ]
+	  #     Slaves: [ hana-s1-db1 hana-s1-db2 hana-s1-db3 hana-s2-db2 hana-s2-db3 ]
+	  # Resource Group: g_ip_HN1_03
+	  #     nc_HN1_03  (ocf::heartbeat:azure-lb):      Started hana-s2-db1
+	  #     vip_HN1_03 (ocf::heartbeat:IPaddr2):       Started hana-s2-db1
+      ```
 
 
 We recommend to thoroughly test the SAP HANA cluster configuration, by also performing the tests, documented in [HA for SAP HANA on Azure VMs on RHEL](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-high-availability-rhel#test-the-cluster-setup).
