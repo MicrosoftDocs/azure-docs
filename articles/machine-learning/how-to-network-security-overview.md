@@ -8,7 +8,7 @@ ms.subservice: core
 ms.reviewer: larryfr
 ms.author: aashishb
 author: aashishb
-ms.date: 09/25/2020
+ms.date: 10/05/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, references_regions
 
@@ -166,6 +166,12 @@ To enable full functionality while using a storage service endpoint, see [Use Az
 Configure your firewall to control access to your Azure Machine Learning workspace resources and the public internet. While we recommend Azure Firewall, you should be able to use  other firewall products to secure your network. If you have questions about how to allow communication through your firewall, please consult the documentation for the firewall you are using.
 
 For more information on firewall settings, see [Use workspace behind a Firewall](how-to-access-azureml-behind-firewall.md).
+
+## Custom DNS
+
+If you need to use a custom DNS solution for your virtual network, you must add host records for your workspace.
+
+For more information on the required domain names and IP addresses, see [how to use a workspace with a custom DNS server](how-to-custom-dns.md).
 
 ## Next steps
 
