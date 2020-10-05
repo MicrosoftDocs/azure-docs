@@ -42,7 +42,8 @@ The following classes and interfaces handle some of the major features of the Az
 
 ## Start a call to phone
 
-Specify phone number you acquired in Communication Services resource, that will be used to start the call:
+Specify the phone number you acquired from within your Communication Services resource. This will be used to start the call:
+
 > [!WARNING]
 > Note that phone numbers shold be provided in E.164 international standard format. (e.g.: +12223334444)
 
