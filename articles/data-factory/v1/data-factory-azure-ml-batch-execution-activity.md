@@ -13,7 +13,7 @@ ms.topic: conceptual
 ms.date: 01/22/2018
 ---
 
-# Create predictive pipelines using Azure Machine Learning and Azure Data Factory
+# Create predictive pipelines using Azure Machine Learning Studio (classic) and Azure Data Factory
 
 > [!div class="op_single_selector" title1="Transformation Activities"]
 > * [Hive Activity](data-factory-hive-activity.md)
@@ -553,7 +553,7 @@ For details about Azure Blob/Azure SQL reader/writer, see [Reader](https://msdn.
 **A:** Yes. See the **Using a Reader module to read data from multiple files in Azure Blob** section for details.
 
 ## Azure Machine Learning Studio (classic) Batch Scoring Activity
-If you are using the **AzureMLBatchScoring** activity to integrate with Azure Machine Learning, we recommend that you use the latest **AzureMLBatchExecution** activity.
+If you are using the **AzureMLBatchScoring** activity to integrate with Azure Machine Learning Studio (classic), we recommend that you use the latest **AzureMLBatchExecution** activity.
 
 The AzureMLBatchExecution activity is introduced in the August 2015 release of Azure SDK and Azure PowerShell.
 
