@@ -1,6 +1,6 @@
 ---
 title: Microsoft Azure Stack Edge Blob storage requirements| Microsoft Docs
-description: Learn about the supported versions for APIs, SDKs, and client libraries for Azure Data Box Blob storage
+description: Learn about the supported versions for APIs, SDKs, and client libraries for Azure Stack Edge Blob storage
 services: databox
 author: alkohli
 
@@ -65,7 +65,7 @@ To install via Composer: (take blob as example).
 
 ### Endpoint declaration
 
-In the Azure Stack Edge Blob storage SDK,<!--Azure Stack Edge Blob use a different storage SDK?--> the endpoint suffix - `<device serial number>.microsoftdatabox.com` - identifies the Azure Stack Edge domain. For more information on the blob service endpoint, go to <!--Is a link update needed?-->[Connect via Data Box Blob storage](data-box-deploy-copy-data-via-rest.md).
+In the Azure Stack Edge Blob storage SDK,<!--Azure Stack Edge Blob use a different storage SDK?--> the endpoint suffix - `<device serial number>.microsoftdatabox.com` - identifies the Azure Stack Edge domain. For more information on the blob service endpoint, go to <!--Is a link update needed?-->[Connect via Data Box Blob storage](../databox/data-box-deploy-copy-data-via-rest.md).
  
 ## Examples
 
@@ -144,4 +144,4 @@ EndpointSuffix=<serial no. of the device>.microsoftdatabox.com
 
 ## Next steps
 
-* [Deploy your Azure Data Box](data-box-deploy-ordered.md)
+* [Deploy your Azure Data Box](../databox/data-box-deploy-ordered.md)
