@@ -401,7 +401,7 @@ The default SQL management mode when registering with SQL VM resource provider i
 
 Yes, registering with the SQL VM resource provider will install an agent on the VM.
 
-The SQL Server IaaS extension relies on the agent to query the metadata for SQL Server. The only time an agent is not installed is when the SQL VM resource provider is regsitered  in NoAgent mode
+The SQL Server IaaS extension relies on the agent to query the metadata for SQL Server. The only time an agent is not installed is when the SQL VM resource provider is registered in NoAgent mode
 
 **Will registering with the SQL VM resource provider restart SQL Server on my VM?**
 
