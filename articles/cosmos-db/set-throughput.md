@@ -5,7 +5,7 @@ author: markjbrown
 ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 08/19/2020
+ms.date: 10/05/2020
 ---
 
 # Introduction to provisioned throughput in Azure Cosmos DB
@@ -62,7 +62,7 @@ All containers created inside a database with provisioned throughput must be cre
 
 If the workload on a logical partition consumes more than the throughput that's allocated to a specific logical partition, your operations are rate-limited. When rate-limiting occurs, you can either increase the throughput for the entire database or retry the operations. For more information on partitioning, see [Logical partitions](partition-data.md).
 
-Containers in a shared throughput database share the throughput (RU/s) allocated to that database. You can have up to four containers with a minimum of 400 RU/s on the database. With standard (manual) provisioned throughput, each new container after the first four will require an additional 100 RU/s minimum. For example, if you have a shared throughput database with eight containers, the minimum RU/s on the database will be 800 RU/s. With autoscale provisioned throughput, you can have up to 25 containers in a database with autoscale max 4000 RU/s (scales between 400 - 4000 RU/s).
+Containers in a shared throughput database share the throughput (RU/s) allocated to that database. With standard (manual) provisioned throughput, you can have up to 25 containers with a minimum of 400 RU/s on the database. With autoscale provisioned throughput, you can have up to 25 containers in a database with autoscale max 4000 RU/s (scales between 400 - 4000 RU/s).
 
 > [!NOTE]
 > In February 2020, we introduced a change that allows you to have a maximum of 25 containers in a shared throughput database, which  better enables throughput sharing across the containers. After the first 25 containers, you can add more containers to the database only if they are [provisioned with dedicated throughput](#set-throughput-on-a-database-and-a-container), which is separate from the shared throughput of the database.<br>
@@ -96,23 +96,27 @@ To estimate the [minimum provisioned throughput](concepts-limits.md#storage-and-
 * 400 RU/s 
 * Current storage in GB * 10 RU/s
 * Highest RU/s provisioned on the database or container / 100
-* Container count * 100 RU/s (shared throughput database only)
 
 The actual minimum RU/s may vary depending on your account configuration. You can use [Azure Monitor metrics](monitor-cosmos-db.md#view-operation-level-metrics-for-azure-cosmos-db) to view the history of provisioned throughput (RU/s) and storage on a resource.
 
-You can retrieve the minimum throughput of a container or a database programmatically by using the SDKs or view the value in the Azure portal. When using the .NET SDK, the [DocumentClient.ReplaceOfferAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.documents.client.documentclient.replaceofferasync?view=azure-dotnet) method allows you to scale the provisioned throughput value. When using the Java SDK, the [RequestOptions.setOfferThroughput](sql-api-java-sdk-samples.md) method allows you to scale the provisioned throughput value. 
+You can use the Azure Cosmos DB client SDKs to read or change the throughput (RU/s) on a resource. The minimum RU/s can be retrieved using the `ReadThroughput` method on a resource. 
 
-When using the .NET SDK, the [DocumentClient.ReadOfferAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.documents.client.documentclient.readofferasync?view=azure-dotnet) method allows you to retrieve the minimum throughput of a container or a database. 
+|Language  |Read current throughput  |Change throughput  |
+|---------|---------|---------|
+|.NET     |[Database.ReadThroughputAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.database.readthroughputasync?view=azure-dotnet)<br/>[Container.ReadThroughputAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.container.readthroughputasync?view=azure-dotnet)        |[Database.ReplaceThroughputAsnyc](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.database.replacethroughputasync?view=azure-dotnet) <br/>[Container.ReplaceThroughputAsync](https://docs.microsoft.com/en-us/dotnet/api/microsoft.azure.cosmos.container.replacethroughputasync?view=azure-dotnet) |
+|Java     | [CosmosDatabase.readThroughput](https://docs.microsoft.com/java/api/com.azure.cosmos.cosmosdatabase.readthroughput?view=azure-java-stable) <br/>[CosmosContainer.readThroughput](https://docs.microsoft.com/java/api/com.azure.cosmos.cosmoscontainer.readthroughput?view=azure-java-stable)     |[CosmosDatabase.replaceThroughput](https://docs.microsoft.com/java/api/com.azure.cosmos.cosmosdatabase.replacethroughput?view=azure-java-stable)<br/>[CosmosContainer.replaceThroughput](https://docs.microsoft.com/java/api/com.azure.cosmos.cosmoscontainer.replacethroughput?view=azure-java-stable)    |
+|Python     | [DatabaseProxy.read_offer](https://docs.microsoft.com/en-us/python/api/azure-cosmos/azure.cosmos.database.databaseproxy?view=azure-python#read-offer---kwargs-)<br/>[ContainerProxy.read_offer](https://docs.microsoft.com/python/api/azure-cosmos/azure.cosmos.container.containerproxy?view=azure-python#read-offer---kwargs-)</br>      |  [DatabaseProxy.replace_throughput](https://docs.microsoft.com/python/api/azure-cosmos/azure.cosmos.database.databaseproxy?view=azure-python#replace-throughput-throughput----kwargs-)<br/>[ContainerProxy.replace_throughput](https://docs.microsoft.com/java/api/com.azure.cosmos.cosmosdatabase.replacethroughput?view=azure-java-stable)        |
+|JavaScript     |[Database.ReadOffer](https://docs.microsoft.com/javascript/api/%40azure/cosmos/database?view=azure-node-latest#readoffer-requestoptions-)<br/>[Container.ReadOffer](https://docs.microsoft.com/javascript/api/%40azure/cosmos/container?view=azure-node-latest#readoffer-requestoptions-)       |  [Offer.replace](https://docs.microsoft.com/javascript/api/@azure/cosmos/offer?view=azure-node-latest#replace-offerdefinition--requestoptions-)       |
 
-You can scale the provisioned throughput of a container or a database at any time. When a scale operation is performed to increase the throughput, it can take longer time due to the system tasks to provision the required resources. You can check the status of the scale operation in Azure portal or programmatically using the SDKs. When using the .NET SDK, you can get the status of the scale operation by using the `DocumentClient.ReadOfferAsync` method.
+You can scale the provisioned throughput of a container or a database at any time. When a scale operation is performed to increase the throughput, it can take longer time due to the system tasks to provision the required resources. You can check the status of the scale operation in Azure portal or programmatically using the `ReadThroughput` method in the SDKs.
 
 ## Comparison of models
 This table shows a comparison between provisioning standard (manual) throughput on a database vs. on a container. 
 
 |**Parameter**  |**Standard (manual) throughput on a database**  |**Standard (manual) throughput on a container**|**Autoscale throughput on a database** | **Autoscale throughput on a container**|
 |---------|---------|---------|---------|---------|
-|Entry point (minimum RU/s) |400 RU/s. After the first four containers, each additional container requires a minimum of 100 RU/s</li> |400| Autoscale between 400 - 4000 RU/s. Can have up to 25 containers with no RU/s minimum per container</li> | Autoscale between 400 - 4000 RU/s.|
-|Minimum RU/s per container|100|400|--|Autoscale between 400 - 4000 RU/s|
+|Entry point (minimum RU/s) |400 RU/s. Can have up to 25 containers with no RU/s minimum per container</li> |400| Autoscale between 400 - 4000 RU/s. Can have up to 25 containers with no RU/s minimum per container</li> | Autoscale between 400 - 4000 RU/s.|
+|Minimum RU/s per container|--|400|--|Autoscale between 400 - 4000 RU/s|
 |Maximum RUs|Unlimited, on the database.|Unlimited, on the container.|Unlimited, on the database.|Unlimited, on the container.
 |RUs assigned or available to a specific container|No guarantees. RUs assigned to a given container depend on the properties. Properties can be the choice of partition keys of containers that share the throughput, the distribution of the workload, and the number of containers. |All the RUs configured on the container are exclusively reserved for the container.|No guarantees. RUs assigned to a given container depend on the properties. Properties can be the choice of partition keys of containers that share the throughput, the distribution of the workload, and the number of containers. |All the RUs configured on the container are exclusively reserved for the container.|
 |Maximum storage for a container|Unlimited.|Unlimited|Unlimited|Unlimited|
