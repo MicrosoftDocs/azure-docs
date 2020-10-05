@@ -46,7 +46,7 @@ Before you can associate or add your subscription, do the following tasks:
   - If you have any key vaults, they'll be inaccessible and you'll have to fix them after association
   - If you have any managed identities for resources such as Virtual Machines or Logic Apps, you must re-enable or recreate them after the association
   - If you have a registered Azure Stack, you'll have to re-register it after association
-  - For more information, see [Transfer an Azure subscription to a different Azure AD directory (Preview)](../../role-based-access-control/transfer-subscription.md).
+  - For more information, see [Transfer an Azure subscription to a different Azure AD directory](../../role-based-access-control/transfer-subscription.md).
 
 - Sign in using an account that:
 
@@ -89,7 +89,7 @@ After you associate a subscription to a different directory, you might need to d
 
 - If you've registered an Azure Stack using this subscription, you must re-register. For more information, see [Register Azure Stack with Azure](/azure-stack/operator/azure-stack-registration).
 
-- For more information, see [Transfer an Azure subscription to a different Azure AD directory (Preview)](../../role-based-access-control/transfer-subscription.md).
+- For more information, see [Transfer an Azure subscription to a different Azure AD directory](../../role-based-access-control/transfer-subscription.md).
 
 ## Next steps
 
