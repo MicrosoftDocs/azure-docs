@@ -162,20 +162,21 @@ For the configuration presented in this document, deploy seven virtual machines:
 
     b. Execute the following commands to enable accelerated networking for the additional network interfaces, which are attached to the `inter` and `hsr` subnets.  
 
-    <pre><code> az network nic update --id /subscriptions/<b>your subscription</b>/resourceGroups/<b>your resource group</b>/providers/Microsoft.Network/networkInterfaces/<b>hana-s1-db1-inter</b> --accelerated-networking true
-    az network nic update --id /subscriptions/<b>your subscription</b>/resourceGroups/<b>your resource group</b>/providers/Microsoft.Network/networkInterfaces/<b>hana-s1-db2-inter</b> --accelerated-networking true
-    az network nic update --id /subscriptions/<b>your subscription</b>/resourceGroups/<b>your resource group</b>/providers/Microsoft.Network/networkInterfaces/<b>hana-s1-db3-inter</b> --accelerated-networking true
-    az network nic update --id /subscriptions/<b>your subscription</b>/resourceGroups/<b>your resource group</b>/providers/Microsoft.Network/networkInterfaces/<b>hana-s2-db1-inter</b> --accelerated-networking true
-    az network nic update --id /subscriptions/<b>your subscription</b>/resourceGroups/<b>your resource group</b>/providers/Microsoft.Network/networkInterfaces/<b>hana-s2-db2-inter</b> --accelerated-networking true
-    az network nic update --id /subscriptions/<b>your subscription</b>/resourceGroups/<b>your resource group</b>/providers/Microsoft.Network/networkInterfaces/<b>hana-s2-db3-inter</b> --accelerated-networking true
+    ```
+    az network nic update --id /subscriptions/your subscription/resourceGroups/your resource group/providers/Microsoft.Network/networkInterfaces/hana-s1-db1-inter --accelerated-networking true
+    az network nic update --id /subscriptions/your subscription/resourceGroups/your resource group/providers/Microsoft.Network/networkInterfaces/hana-s1-db2-inter --accelerated-networking true
+    az network nic update --id /subscriptions/your subscription/resourceGroups/your resource group/providers/Microsoft.Network/networkInterfaces/hana-s1-db3-inter --accelerated-networking true
+    az network nic update --id /subscriptions/your subscription/resourceGroups/your resource group/providers/Microsoft.Network/networkInterfaces/hana-s2-db1-inter --accelerated-networking true
+    az network nic update --id /subscriptions/your subscription/resourceGroups/your resource group/providers/Microsoft.Network/networkInterfaces/hana-s2-db2-inter --accelerated-networking true
+    az network nic update --id /subscriptions/your subscription/resourceGroups/your resource group/providers/Microsoft.Network/networkInterfaces/hana-s2-db3-inter --accelerated-networking true
     
-    az network nic update --id /subscriptions/<b>your subscription</b>/resourceGroups/<b>your resource group</b>/providers/Microsoft.Network/networkInterfaces/<b>hana-s1-db1-hsr</b> --accelerated-networking true
-    az network nic update --id /subscriptions/<b>your subscription</b>/resourceGroups/<b>your resource group</b>/providers/Microsoft.Network/networkInterfaces/<b>hana-s1-db2-hsr</b> --accelerated-networking true
-    az network nic update --id /subscriptions/<b>your subscription</b>/resourceGroups/<b>your resource group</b>/providers/Microsoft.Network/networkInterfaces/<b>hana-s1-db3-hsr</b> --accelerated-networking true
-    az network nic update --id /subscriptions/<b>your subscription</b>/resourceGroups/<b>your resource group</b>/providers/Microsoft.Network/networkInterfaces/<b>hana-s2-db1-hsr</b> --accelerated-networking true
-    az network nic update --id /subscriptions/<b>your subscription</b>/resourceGroups/<b>your resource group</b>/providers/Microsoft.Network/networkInterfaces/<b>hana-s2-db2-hsr</b> --accelerated-networking true
-    az network nic update --id /subscriptions/<b>your subscription</b>/resourceGroups/<b>your resource group</b>/providers/Microsoft.Network/networkInterfaces/<b>hana-s2-db3-hsr</b> --accelerated-networking true
-    </code></pre>
+    az network nic update --id /subscriptions/your subscription/resourceGroups/your resource group/providers/Microsoft.Network/networkInterfaces/hana-s1-db1-hsr --accelerated-networking true
+    az network nic update --id /subscriptions/your subscription/resourceGroups/your resource group/providers/Microsoft.Network/networkInterfaces/hana-s1-db2-hsr --accelerated-networking true
+    az network nic update --id /subscriptions/your subscription/resourceGroups/your resource group/providers/Microsoft.Network/networkInterfaces/hana-s1-db3-hsr --accelerated-networking true
+    az network nic update --id /subscriptions/your subscription/resourceGroups/your resource group/providers/Microsoft.Network/networkInterfaces/hana-s2-db1-hsr --accelerated-networking true
+    az network nic update --id /subscriptions/your subscription/resourceGroups/your resource group/providers/Microsoft.Network/networkInterfaces/hana-s2-db2-hsr --accelerated-networking true
+    az network nic update --id /subscriptions/your subscription/resourceGroups/your resource group/providers/Microsoft.Network/networkInterfaces/hana-s2-db3-hsr --accelerated-networking true
+    ```
 
 7. Start the HANA DB virtual machines
 
@@ -249,7 +250,8 @@ Configure and prepare your OS by doing the following steps:
 
 1. **[A]** Maintain the host files on the virtual machines. Include entries for all subnets. The following entries were added to `/etc/hosts` for this example.  
 
-    <pre><code># Client subnet
+    ```
+     # Client subnet
      10.23.0.11 hana-s1-db1
      10.23.0.12 hana-s1-db1
      10.23.0.13 hana-s1-db2
@@ -271,12 +273,12 @@ Configure and prepare your OS by doing the following steps:
      10.23.1.205 hana-s2-db1-hsr
      10.23.1.206 hana-s2-db2-hsr
      10.23.1.207 hana-s2-db3-hsr
-    </code></pre>
+    ```
 
 
 2. **[A]** Install the NFS client package.  
 
-    <pre><code>yum install nfs-utils </code></pre>
+    ```yum install nfs-utils ```
 
 
 3. **[AH]** Red Hat for HANA configuration.  
@@ -295,8 +297,8 @@ In this example, the shared HANA file systems are deployed on Azure NetApp Files
 
 1. **[AH]** Create mount points for the HANA database volumes.  
 
-    <pre><code>mkdir -p /hana/shared
-    </code></pre>
+    ```mkdir -p /hana/shared
+    ```
 
 2. **[AH]** Verify the NFS domain setting. Make sure that the domain is configured as the default Azure NetApp Files domain, that is, **`defaultv4iddomain.com`** and the mapping is set to **nobody**.  
    This step is only needed, if using Azure NetAppFiles NFSv4.1.  
@@ -304,19 +306,21 @@ In this example, the shared HANA file systems are deployed on Azure NetApp Files
     > [!IMPORTANT]
     > Make sure to set the NFS domain in `/etc/idmapd.conf` on the VM to match the default domain configuration on Azure NetApp Files: **`defaultv4iddomain.com`**. If there's a mismatch between the domain configuration on the NFS client (i.e. the VM) and the NFS server, i.e. the Azure NetApp configuration, then the permissions for files on Azure NetApp volumes that are mounted on the VMs will be displayed as `nobody`.  
 
-    <pre><code>sudo cat /etc/idmapd.conf
+    ```
+    sudo cat /etc/idmapd.conf
     # Example
     [General]
-    Domain = <b>defaultv4iddomain.com</b>
+    Domain = defaultv4iddomain.com
     [Mapping]
-    Nobody-User = <b>nobody</b>
-    Nobody-Group = <b>nobody</b>
-    </code></pre>
+    Nobody-User = nobody
+    Nobody-Group = nobody
+    ```
 
 3. **[AH]** Verify `nfs4_disable_idmapping`. It should be set to **Y**. To create the directory structure where `nfs4_disable_idmapping` is located, execute the mount command. You won't be able to manually create the directory under /sys/modules, because access is reserved for the kernel / drivers.  
    This step is only needed, if using Azure NetAppFiles NFSv4.1.  
 
-    <pre><code># Check nfs4_disable_idmapping 
+    ```
+    # Check nfs4_disable_idmapping 
     cat /sys/module/nfs/parameters/nfs4_disable_idmapping
     # If you need to set nfs4_disable_idmapping to Y
     mkdir /mnt/tmp
@@ -325,32 +329,33 @@ In this example, the shared HANA file systems are deployed on Azure NetApp Files
     echo "Y" > /sys/module/nfs/parameters/nfs4_disable_idmapping
     # Make the configuration permanent
     echo "options nfs nfs4_disable_idmapping=Y" >> /etc/modprobe.d/nfs.conf
-    </code></pre>
+    ```
 
    For more information on how to change `nfs4_disable_idmapping` parameter, see https://access.redhat.com/solutions/1749883.
 
 4. **[AH1]** Mount the shared Azure NetApp Files volumes on the SITE1 HANA DB VMs.  
 
-    <pre><code>sudo mount -o rw,vers=4,minorversion=1,hard,timeo=600,rsize=262144,wsize=262144,intr,noatime,lock,_netdev,sec=sys 10.23.1.7:/HN1-shared-s1 /hana/shared
-    </code></pre>
+    ```sudo mount -o rw,vers=4,minorversion=1,hard,timeo=600,rsize=262144,wsize=262144,intr,noatime,lock,_netdev,sec=sys 10.23.1.7:/HN1-shared-s1 /hana/shared
+    ```
 
 5. **[AH2]** Mount the shared Azure NetApp Files volumes on the SITE2 HANA DB VMs.  
 
-    <pre><code>sudo mount -o rw,vers=4,minorversion=1,hard,timeo=600,rsize=262144,wsize=262144,intr,noatime,lock,_netdev,sec=sys 10.23.1.7:/HN1-shared-s2 /hana/shared
-    </code></pre>
+    ```sudo mount -o rw,vers=4,minorversion=1,hard,timeo=600,rsize=262144,wsize=262144,intr,noatime,lock,_netdev,sec=sys 10.23.1.7:/HN1-shared-s2 /hana/shared
+    ```
 
 
 10. **[AH]** Verify that the corresponding `/hana/shared/` file systems are mounted on all HANA DB VMs with NFS protocol version **NFSv4**.  
 
-    <pre><code>sudo nfsstat -m
-    # Verify that flag vers is set to <b>4.1</b> 
-    # Example from SITE 1, <b>hana-s1-db1</b>
+    ```
+    sudo nfsstat -m
+    # Verify that flag vers is set to 4.1 
+    # Example from SITE 1, hana-s1-db1
     /hana/shared from 10.23.1.7:/HN1-shared-s1
      Flags: rw,noatime,vers=4.1,rsize=262144,wsize=262144,namlen=255,hard,proto=tcp,timeo=600,retrans=2,sec=sys,clientaddr=10.23.0.11,local_lock=none,addr=10.23.1.7
-    # Example from SITE 2, <b>hana-s2-db1</b>
+    # Example from SITE 2, hana-s2-db1
     /hana/shared from 10.23.1.7:/HN1-shared-s2
      Flags: rw,noatime,vers=4.1,rsize=262144,wsize=262144,namlen=255,hard,proto=tcp,timeo=600,retrans=2,sec=sys,clientaddr=10.23.0.14,local_lock=none,addr=10.23.1.7
-    </code></pre>
+    ```
 
 ### Prepare the data and log local file systems
 In the presented configuration, file systems `/hana/data` and `/hana/log` are deployed on managed disk and are locally attached to each HANA DB VM. 
@@ -359,24 +364,26 @@ You will need to execute the steps to create the local data and log volumes on e
 Set up the disk layout with  **Logical Volume Manager (LVM)**. The following example assumes that each HANA virtual machine has three data disks attached, that are used to create two volumes.
 
 1. **[AH]** List all of the available disks:
-   <pre><code>ls /dev/disk/azure/scsi1/lun*
-   </code></pre>
+    ```ls /dev/disk/azure/scsi1/lun*
+    ```
 
    Example output:
 
-   <pre><code>/dev/disk/azure/scsi1/lun0  /dev/disk/azure/scsi1/lun1  /dev/disk/azure/scsi1/lun2 
-   </code></pre>
+    ```/dev/disk/azure/scsi1/lun0  /dev/disk/azure/scsi1/lun1  /dev/disk/azure/scsi1/lun2 
+    ```
 
 2. **[AH]** Create physical volumes for all of the disks that you want to use:
-   <pre><code>sudo pvcreate /dev/disk/azure/scsi1/lun0
-   sudo pvcreate /dev/disk/azure/scsi1/lun1
-   sudo pvcreate /dev/disk/azure/scsi1/lun2
-      </code></pre>
+    ```
+    sudo pvcreate /dev/disk/azure/scsi1/lun0
+    sudo pvcreate /dev/disk/azure/scsi1/lun1
+    sudo pvcreate /dev/disk/azure/scsi1/lun2
+    ```
 
 3. **[AH]** Create a volume group for the data files. Use one volume group for the log files and one for the shared directory of SAP HANA:
-   <pre><code>sudo vgcreate vg_hana_data_<b>HN1</b> /dev/disk/azure/scsi1/lun0 /dev/disk/azure/scsi1/lun1
-   sudo vgcreate vg_hana_log_<b>HN1</b> /dev/disk/azure/scsi1/lun2
-   </code></pre>
+    ```
+    sudo vgcreate vg_hana_data_HN1 /dev/disk/azure/scsi1/lun0 /dev/disk/azure/scsi1/lun1
+    sudo vgcreate vg_hana_log_HN1 /dev/disk/azure/scsi1/lun2
+    ```
 
 4. **[AH]** Create the logical volumes. 
    A linear volume is created when you use `lvcreate` without the `-i` switch. We suggest that you create a striped volume for better I/O performance, and align the stripe sizes to the values documented in [SAP HANA VM storage configurations](./hana-vm-operations-storage.md). The `-i` argument should be the number of the underlying physical volumes and the `-I` argument is the stripe size. In this document, two physical volumes are used for the data volume, so the `-i` switch argument is set to **2**. The stripe size for the data volume is **256 KiB**. One physical volume is used for the log volume, so no `-i` or `-I` switches are explicitly used for the log volume commands.  
@@ -385,33 +392,36 @@ Set up the disk layout with  **Logical Volume Manager (LVM)**. The following exa
    > Use the `-i` switch and set it to the number of the underlying physical volume when you use more than one physical volume for each data or log volumes. Use the `-I` switch to specify the stripe size, when creating a striped volume.  
    > See [SAP HANA VM storage configurations](./hana-vm-operations-storage.md) for recommended storage configurations, including stripe sizes and number of disks.  
 
-   <pre><code>sudo lvcreate <b>-i 2</b> <b>-I 256</b> -l 100%FREE -n hana_data vg_hana_data_<b>HN1</b>
-   sudo lvcreate -l 100%FREE -n hana_log vg_hana_log_<b>HN1</b>
-   sudo mkfs.xfs /dev/vg_hana_data_<b>HN1</b>/hana_data
-   sudo mkfs.xfs /dev/vg_hana_log_<b>HN1</b>/hana_log
-   </code></pre>
+    ```
+    sudo lvcreate -i 2 -I 256 -l 100%FREE -n hana_data vg_hana_data_HN1
+    sudo lvcreate -l 100%FREE -n hana_log vg_hana_log_HN1
+    sudo mkfs.xfs /dev/vg_hana_data_HN1/hana_data
+    sudo mkfs.xfs /dev/vg_hana_log_HN1/hana_log
+    ```
 
 5. **[AH]** Create the mount directories and copy the UUID of all of the logical volumes:
-   <pre><code>sudo mkdir -p /hana/data/<b>HN1</b>
-   sudo mkdir -p /hana/log/<b>HN1</b>
-   # Write down the ID of /dev/vg_hana_data_<b>HN1</b>/hana_data and /dev/vg_hana_log_<b>HN1</b>/hana_log
-   sudo blkid
-   </code></pre>
+    ```
+    sudo mkdir -p /hana/data/HN1
+    sudo mkdir -p /hana/log/HN1
+    # Write down the ID of /dev/vg_hana_data_<b>HN1</b>/hana_data and /dev/vg_hana_log_<b>HN1</b>/hana_log
+    sudo blkid
+    ```
 
 6. **[AH]** Create `fstab` entries for the logical volumes and mount:
-   <pre><code>sudo vi /etc/fstab
-   </code></pre>
+    ```sudo vi /etc/fstab
+    ```
 
    Insert the following line in the `/etc/fstab` file:
 
-   <pre><code>/dev/disk/by-uuid/<b>&lt;UUID of /dev/mapper/vg_hana_data_<b>HN1</b>-hana_data&gt;</b> /hana/data/<b>HN1</b> xfs  defaults,nofail  0  2
-   /dev/disk/by-uuid/<b>&lt;UUID of /dev/mapper/vg_hana_log_<b>HN1</b>-hana_log&gt;</b> /hana/log/<b>HN1</b> xfs  defaults,nofail  0  2
-   </code></pre>
+    ```
+    /dev/disk/by-uuid/&lt;UUID of /dev/mapper/vg_hana_data_HN1-hana_data&gt; /hana/data/HN1 xfs  defaults,nofail  0  2
+    /dev/disk/by-uuid/&lt;UUID of /dev/mapper/vg_hana_log_HN1-hana_log&gt; /hana/log/HN1 xfs  defaults,nofail  0  2
+    ```
 
    Mount the new volumes:
 
-   <pre><code>sudo mount -a
-   </code></pre>
+    ```sudo mount -a
+    ```
 
 ## Installation  
 
