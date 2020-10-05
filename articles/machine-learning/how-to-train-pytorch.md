@@ -110,11 +110,36 @@ For more information on compute targets, see the [what is a compute target](conc
 
 ### Define your environment
 
-To define the Azure ML [Environment](concept-environments.md) that encapsulates your training script's dependencies, you can either define a custom environment or use and Azure ML curated environment.
+To define the Azure ML [Environment](concept-environments.md) that encapsulates your training script's dependencies, you can either define a custom environment or use an Azure ML curated environment.
+
+#### Use a curated environment
+Azure ML provides prebuilt, curated environments if you don't want to define your own environment. Azure ML has several CPU and GPU curated environments for PyTorch corresponding to different versions of PyTorch. For more info, see [here](resource-curated-environments.md).
+
+If you want to use a curated environment, you can run the following command instead:
+
+```python
+curated_env_name = 'AzureML-PyTorch-1.6-GPU'
+pytorch_env = Environment.get(workspace=ws, name=curated_env_name)
+```
+
+To see the packages included in the curated environment, you can write out the conda dependencies to disk:
+```python
+pytorch_env.save_to_directory(path=curated_env_name)
+```
+
+Make sure the curated environment includes all the dependencies required by your training script. If not, you will have to modify the environment to include the missing dependencies. Note that if the environment is modified, you will have to give it a new name, as the 'AzureML' prefix is reserved for curated environments. If you modified the conda dependencies YAML file, you can create a new environment from it with a new name, e.g.:
+```python
+pytorch_env = Environment.from_conda_specification(name='pytorch-1.6-gpu', file_path='./conda_dependencies.yml')
+```
+
+If you had instead modified the curated environment object directly, you can clone that environment with a new name:
+```python
+pytorch_env = pytorch_env.clone(new_name='pytorch-1.6-gpu')
+```
 
 #### Create a custom environment
 
-Define the Azure ML environment that encapsulates your training script's dependencies.
+You can also create your own Azure ML environment that encapsulates your training script's dependencies.
 
 First, define your conda dependencies in a YAML file; in this example the file is named `conda_dependencies.yml`.
 
@@ -149,31 +174,6 @@ pytorch_env.docker.base_image = 'mcr.microsoft.com/azureml/openmpi3.1.2-cuda10.1
 > Optionally, you can just capture all your dependencies directly in a custom Docker image or Dockerfile, and create your environment from that. For more information, see [Train with custom image](how-to-train-with-custom-image.md).
 
 For more information on creating and using environments, see [Create and use software environments in Azure Machine Learning](how-to-use-environments.md).
-
-#### Use a curated environment
-Optionally, Azure ML provides prebuilt, curated environments if you don't want to build your own image. Azure ML has several CPU and GPU curated environments for PyTorch corresponding to different versions of PyTorch. For more info, see [here](resource-curated-environments.md).
-
-If you want to use a curated environment, you can run the following command instead:
-
-```python
-curated_env_name = 'AzureML-PyTorch-1.6-GPU'
-pytorch_env = Environment.get(workspace=ws, name=curated_env_name)
-```
-
-To see the packages included in the curated environment, you can write out the conda dependencies to disk:
-```python
-pytorch_env.save_to_directory(path=curated_env_name)
-```
-
-Make sure the curated environment includes all the dependencies required by your training script. If not, you will have to modify the environment to include the missing dependencies. Note that if the environment is modified, you will have to give it a new name, as the 'AzureML' prefix is reserved for curated environments. If you modified the conda dependencies YAML file, you can create a new environment from it with a new name, e.g.:
-```python
-pytorch_env = Environment.from_conda_specification(name='pytorch-1.6-gpu', file_path='./conda_dependencies.yml')
-```
-
-If you had instead modified the curated environment object directly, you can clone that environment with a new name:
-```python
-pytorch_env = pytorch_env.clone(new_name='pytorch-1.6-gpu')
-```
 
 ## Configure and submit your training run
 
