@@ -47,7 +47,7 @@ The following table lists common capabilities required for header-based authenti
 
 ## Publish the application with Application Proxy
 
-Publish your application according to the instructions described in [Publish applications with Application Proxy](application-proxy-add-on-premises-application#add-an-on-premises-app-to-azure-ad.md).  
+Publish your application according to the instructions described in [Publish applications with Application Proxy](application-proxy-add-on-premises-application.md#add-an-on-premises-app-to-azure-ad).  
 - The Internal URL value determines the scope of the application. If you configure Internal URL value at the root path of the application, then all sub paths underneath the root will receive the same header configuration and other application configuration. 
 - Create a new application to set a different header configuration or user assignment for a more granular path than the application you configured. In the new application, configure the internal URL with the specific path you require and then configure the specific headers needed for this URL. Application Proxy will always match your configuration settings to the most granular path set for an application. 
 
