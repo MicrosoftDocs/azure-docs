@@ -28,6 +28,8 @@
       href: tutorial-discover-physical.md
     - name: Discover AWS instances
       href: tutorial-discover-aws.md
+    - name: Discover GCP instances
+      href: tutorial-discover-gcp.md
   - name: Assess 
     items:
     - name: Assess VMware VMs for migration to Azure VMs
@@ -40,6 +42,8 @@
       href: tutorial-assess-physical.md
     - name: Assess AWS instances for migration to Azure
       href: tutorial-assess-aws.md
+    - name: Assess GCP instances for migration to Azure
+      href: tutorial-assess-gcp.md
     - name: Assess imported servers
       href: tutorial-discover-import.md
   - name: Migrate
@@ -58,6 +62,8 @@
       href: tutorial-migrate-physical-virtual-machines.md
     - name: Migrate AWS instances
       href: tutorial-migrate-aws-virtual-machines.md
+    - name: Migrate GCP instances
+      href: tutorial-migrate-gcp-virtual-machines.md
 - name: Concepts
   items:
   - name: Build migration plan with Azure Migrate

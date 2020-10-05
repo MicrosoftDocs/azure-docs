@@ -117,15 +117,23 @@ conceptualContent:
         url: index-voice-assistants.yml
     - title: Speaker Recognition
       links:
-        - itemType: how-to-guide
+        - itemType: overview
           text: About Speaker Recognition
           url: speaker-recognition-overview.md
-        - itemType: how-to-guide
-          text: Speaker Recognition basics          
+        - itemType: quickstart
+          text: Get started with Speaker Recognition          
           url: speaker-recognition-basics.md
         - itemType: how-to-guide
           text: Speaker Recognition API reference
           url: https://docs.microsoft.com/rest/api/speakerrecognition/
+    - title: Custom Keyword
+      links:
+        - itemType: overview
+          text: About Custom Keyword
+          url: custom-keyword-overview.md
+        - itemType: quickstart
+          text: Get started with Custom Keyword       
+          url: custom-keyword-basics.md
     - title: Tools
       links:
         - itemType: overview
