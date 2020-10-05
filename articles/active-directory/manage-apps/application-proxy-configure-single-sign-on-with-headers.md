@@ -78,4 +78,6 @@ When you've completed all these steps, your app should be running and available.
 
 ## Next steps
 
-- 
+- [What is single sign-on?](what-is-single-sign-on.md)
+- [What is application proxy?](what-is-application-proxy.md)
+- [Quickstart Series on Application Management](view-applications-portal.md)
