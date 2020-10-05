@@ -213,9 +213,8 @@ Service Fabric provides scaffolding tools that help you create Service Fabric ap
 
 After you install the generators, create guest executable or container services by running `yo azuresfguest` or `yo azuresfcontainer`, respectively.
 
-## Set up .NET Core 2.0 development
-
-Install the [.NET Core 2.0 SDK for Ubuntu](https://www.microsoft.com/net/core#linuxubuntu) to start [creating C# Service Fabric applications](service-fabric-create-your-first-linux-application-with-csharp.md). NuGet.org hosts packages for .NET Core 2.0 Service Fabric applications, currently in preview.
+## Set up .NET Core development
+Install the [.NET Core 3.1 SDK for Ubuntu](https://docs.microsoft.com/en-us/dotnet/core/install/linux-ubuntu) to start [creating C# Service Fabric applications](service-fabric-create-your-first-linux-application-with-csharp.md). NuGet.org hosts packages for .NET Core 3.1 Service Fabric applications.
 
 ## Set up Java development
 
@@ -290,8 +289,8 @@ To remove the Service Fabric SDKs, run the following commands.
 
     ```bash
     sudo apt-get remove servicefabric servicefabicsdkcommon
-    npm uninstall -g generator-azuresfcontainer
-    npm uninstall -g generator-azuresfguest
+    sudo npm uninstall -g generator-azuresfcontainer
+    sudo npm uninstall -g generator-azuresfguest
     sudo apt-get install -f
     ```
 
