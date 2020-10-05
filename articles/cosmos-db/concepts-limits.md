@@ -132,6 +132,7 @@ Depending on which API you use, an Azure Cosmos item can represent either a docu
 | Maximum length of property value | No practical limit |
 | Maximum length of string property value | No practical limit |
 | Maximum length of numeric property value | IEEE754 double-precision 64-bit |
+| Maximum level of nesting for embedded objects / arrays | 128 |
 | Maximum TTL value |2147483647|
 
 There are no restrictions on the item payloads like number of properties and nesting depth, except for the length restrictions on partition key and ID values, and the overall size restriction of 2 MB. You may have to configure indexing policy for containers with large or complex item structures to reduce RU consumption. See [Modeling items in Cosmos DB](how-to-model-partition-example.md) for a real-world example, and patterns to manage large items.
