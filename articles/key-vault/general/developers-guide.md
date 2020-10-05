@@ -62,16 +62,19 @@ For more information, see:
 Access to keys, secrets, and certificates is controlled by data plane. Data plane access control can be done using local vault access policies or RBAC (preview).
 
 **Keys APIs and SDKs**
+
 | Azure CLI | PowerShell | REST API | Resource Manager | .NET | Python | Java | JavaScript |  
 |--|--|--|--|--|--|--|--|
 |[Reference](/cli/azure/keyvault/key)<br>[Quickstart](../keys/quick-create-cli.md)|[Reference](/powershell/module/az.keyvault/)<br>[Quickstart](../keys/quick-create-powershell.md)|[Reference](/rest/api/keyvault/#key-operations)|N/A|[Reference](/dotnet/api/azure.security.keyvault.keys)|[Reference](/python/api/azure-mgmt-keyvault/azure.mgmt.keyvault)<br>[Quickstart](../keys/quick-create-python.md)|[Reference](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-security-keyvault-keys/4.2.0/index.html)|[Reference](/javascript/api/@azure/keyvault-keys/)|
 
 **Certificates APIs and SDKs**
+
 | Azure CLI | PowerShell | REST API | Resource Manager | .NET | Python | Java | JavaScript |  
 |--|--|--|--|--|--|--|--|
 |[Reference](/cli/azure/keyvault/certificate)<br>[Quickstart](../certificates/quick-create-cli.md)|[Reference](/powershell/module/az.keyvault)<br>[Quickstart](../certificates/quick-create-powershell.md)|[Reference](/rest/api/keyvault/#certificate-operations)|N/A|[Reference](/dotnet/api/azure.security.keyvault.certificates)|[Reference](/python/api/overview/azure/keyvault-certificates-readme)<br>[Quickstart](../certificates/quick-create-python.md)|[Reference](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-security-keyvault-certificates/4.1.0/index.html)|[Reference](/javascript/api/@azure/keyvault-certificates/)|
 
 **Secrets APIs and SDKs**
+
 | Azure CLI | PowerShell | REST API | Resource Manager | .NET | Python | Java | JavaScript |  
 |--|--|--|--|--|--|--|--|
 |[Reference](/cli/azure/keyvault/secret)<br>[Quickstart](../secrets/quick-create-cli.md)|[Reference](/powershell/module/az.keyvault/)<br>[Quickstart](../secrets/quick-create-powershell.md)|[Reference](/rest/api/keyvault/#secret-operations)|[Reference](/azure/templates/microsoft.keyvault/vaults/secrets)<br>[Quickstart](../secrets/quick-create-template.md)|[Reference](/dotnet/api/azure.security.keyvault.secrets)<br>[Quickstart](../secrets/quick-create-net.md)|[Reference](/python/api/overview/azure/keyvault-secrets-readme)<br>[Quickstart](../secrets/quick-create-python.md)|[Reference](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-security-keyvault-secrets/4.2.0/index.html)<br>[Quickstart](../secrets/quick-create-java.md)|[Reference](/javascript/api/@azure/keyvault-secrets/)<br>[Quickstart](../secrets/quick-create-node.md)|
