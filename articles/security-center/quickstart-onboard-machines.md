@@ -9,15 +9,6 @@ ms.service: security-center
 manager: rkarlin
 zone_pivot_groups: non-azure-machines
 ---
-# Owner: memildin
-  title: Non-Azure machines
-  prompt: How will you connect the non-Azure machine?
-  pivots:
-  - id: azure-arc
-    title: Azure Arc
-  - id: azure-portal
-    title: Security Center's portal pages
-- id: 
 #  Connect your non-Azure machines to Security Center
 
 Security Center can monitor the security posture of your non-Azure computers but you need to first onboard these resources. 
