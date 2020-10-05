@@ -43,6 +43,8 @@ This article describes how to find the Tenant ID, Object ID, and partner associa
 2. Select a subscription.
 3. Under **Billing**, select **Partner information**.
 
+    :::image type="content" source="media/tenant-and-object-id/menu-partner-information.png" alt-text="Partner information in the left-nav menu.":::
+
 ## Find User (Object ID)
 
 1. Sign in to the [Office 365 Admin Portal](https://portal.office.com/adminportal/home) with an account in the desired tenant with the appropriate administrative rights.
