@@ -161,7 +161,7 @@ Commercial marketplace offerings can be purchased in 141 geographies as defined 
 | Zimbabwe                            | ZW        | USD          |
 |   |   |   |
 
-\* For customers in Brazil, the commcercial marketplace through Cloud Solution Providers (CSP) uses USD.
+\* For customers in Brazil, the commercial marketplace through Cloud Solution Providers (CSP) uses USD.
 
 \** Free and BYOL VM images only.
 
