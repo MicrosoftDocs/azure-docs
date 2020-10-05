@@ -6,7 +6,7 @@ ms.reviewer: baolcsva
 ms.service: cost-management-billing
 ms.subservice: enterprise
 ms.topic: conceptual
-ms.date: 09/23/2020
+ms.date: 10/05/2020
 ms.author: banders
 ms.custom: contperfq1
 ---
@@ -95,7 +95,7 @@ To transfer an Enterprise subscription to an individual subscription with Pay-As
 
 ## Change account owner
 
-The Azure EA portal can transfer subscriptions from one account owner to another. For more information, see [Change account owner](ea-portal-get-started.md#change-account-owner).
+The Azure EA portal can transfer subscriptions from one account owner to another. For more information, see [Change account owner](ea-portal-administration.md#change-account-owner).
 
 ## Subscription transfer effects
 

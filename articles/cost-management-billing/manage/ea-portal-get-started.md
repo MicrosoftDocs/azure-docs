@@ -7,7 +7,7 @@ tags: billing
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: conceptual
-ms.date: 10/01/2020
+ms.date: 10/05/2020
 ms.author: banders
 ms.custom: contperfq1
 ---
@@ -68,10 +68,10 @@ View this video to watch a full Azure Enterprise portal onboarding session:
 
 ## Now that you’re familiar with the EA terms, here are the major tasks that you need to do to get onboarded
 
-- For an understanding of EA user roles and an introduction to EA portal user hierarchy, see [Understand EA Roles] https://docs.microsoft.com/en-us/azure/cost-management-billing/manage/understand-ea-roles.
-- For more information regarding activating your enrollment, creating a department or subscription, adding administrators and account owners, and other administrative tasks please visit: https://docs.microsoft.com/en-us/azure/cost-management-billing/manage/ea-portal-administration
-- If you’d like to know more about transferring an Enterprise subscription to a Pay-As-You-Go subscription, please visit: https://docs.microsoft.com/en-us/azure/cost-management-billing/manage/ea-transfers
-- To view usage summary and download reports, visit: https://docs.microsoft.com/en-us/azure/cost-management-billing/manage/ea-portal-enrollment-invoices
+- For an understanding of EA user roles and an introduction to EA portal user hierarchy, see [Understand EA Roles] https://docs.microsoft.com/azure/cost-management-billing/manage/understand-ea-roles.
+- For more information regarding activating your enrollment, creating a department or subscription, adding administrators and account owners, and other administrative tasks please visit: https://docs.microsoft.com/azure/cost-management-billing/manage/ea-portal-administration
+- If you’d like to know more about transferring an Enterprise subscription to a Pay-As-You-Go subscription, please visit: https://docs.microsoft.com/azure/cost-management-billing/manage/ea-transfers
+- To view usage summary and download reports, visit: https://docs.microsoft.com/azure/cost-management-billing/manage/ea-portal-enrollment-invoices
 
 
 ## Get started on Azure EA - FAQ
