@@ -3,7 +3,7 @@ title: Service developer guide - IoT Plug and Play | Microsoft Docs
 description: Description of IoT Plug and Play for service developers
 author: dominicbetts
 ms.author: dobett
-ms.date: 09/24/2020
+ms.date: 10/01/2020
 ms.topic: conceptual
 ms.service: iot-pnp
 services: iot-pnp
@@ -33,6 +33,179 @@ The service SDKs let you access device information from a solution, such as a de
 | Java     | [Documentation](https://docs.microsoft.com/java/api/com.microsoft.azure.sdk.iot.service.devicetwin.devicetwindevice?view=azure-java-stable&preserve-view=true) <br/> [Samples](https://github.com/Azure/azure-iot-sdk-java/blob/master/service/iot-service-samples/pnp-service-sample)| [Samples](https://github.com/Azure/azure-iot-sdk-java/tree/master/service/iot-service-samples/digitaltwin-service-samples) |
 | Node.js  | [Documentation](https://docs.microsoft.com/javascript/api/azure-iothub/twin?view=azure-node-latest&preserve-view=true) <br/> [Sample](https://github.com/Azure/azure-iot-sdk-node/blob/master/service/samples/javascript/twin.js)| [Documentation](https://docs.microsoft.com/javascript/api/azure-iot-digitaltwins-service/?view=azure-node-latest&preserve-view=true) <br/> [Sample](https://github.com/Azure/azure-iot-sdk-node/blob/master/service/samples/javascript/get_digital_twin.js) |
 | Python   | [Documentation](https://docs.microsoft.com/python/api/azure-iot-hub/azure.iot.hub.iothubregistrymanager?view=azure-python&preserve-view=true) <br/> [Sample](https://github.com/Azure/azure-iot-sdk-python/blob/master/azure-iot-hub/samples/iothub_registry_manager_method_sample.py)| [Documentation](https://docs.microsoft.com/python/api/azure-iot-hub/azure.iot.hub.iothubdigitaltwinmanager?view=azure-python&preserve-view=true) <br/> [Sample](https://github.com/Azure/azure-iot-sdk-python/blob/master/azure-iot-hub/samples/get_digital_twin_sample.py) |
+
+## IoT Hub service client examples
+
+This section shows C# examples using the IoT Hub service client and the **RegistryManager** and **ServiceClient** classes. You use the **RegistryManager** class to interact with the device state using device twins. You use the **ServiceClient** class to call commands on the device. The [Digital Twins Definition Language (DTDL)](concepts-digital-twin.md) model for the device defines the properties and commands the device implements. In the code snippets, the `_deviceTwinId` variable holds the device ID of the IoT Plug and Play device registered with your IoT hub.
+
+### Get the device twin and model ID
+
+To get the device twin and model ID of the IoT Plug and Play device that connected to your IoT hub:
+
+```csharp
+RegistryManager registryManager = RegistryManager.CreateFromConnectionString(parameters.HubConnectionString);
+
+Twin twin = await registryManager.GetTwinAsync(_deviceTwinId);
+Console.WriteLine($"Device twin: \n{JsonConvert.SerializeObject(twin, Formatting.Indented)}");
+Console.WriteLine($"Model ID: {twin.ModelId}.");
+```
+
+### Update device twin
+
+```csharp
+Twin twin = await registryManager.GetTwinAsync(_deviceTwinId);
+
+int desiredTargetTemperature = 60;
+
+// Update the twin
+var twinPatch = new Twin();
+twinPatch.Properties.Desired["targetTemperature"] = desiredTargetTemperature;
+
+Console.WriteLine($"Update the targetTemperature property to {desiredTargetTemperature}.");
+
+await registryManager.UpdateTwinAsync(_deviceTwinId, twinPatch, twin.ETag);
+```
+
+### Call command
+
+```csharp
+ServiceClient serviceClient = ServiceClient.CreateFromConnectionString(parameters.HubConnectionString);
+
+var commandInvocation = new CloudToDeviceMethod("getMaxMinReport") { ResponseTimeout = TimeSpan.FromSeconds(30) };
+
+// Set command payload
+DateTimeOffset since = DateTimeOffset.Now.Subtract(TimeSpan.FromMinutes(2));
+string componentCommandPayload = JsonConvert.SerializeObject(since);
+commandInvocation.SetPayloadJson(componentCommandPayload);
+
+try
+{
+  CloudToDeviceMethodResult result = await serviceClient.InvokeDeviceMethodAsync(_deviceTwinId, commandInvocation);
+
+  Console.WriteLine($"Command getMaxMinReport was invoked." +
+      $"\nDevice returned status: {result.Status}. \nReport: {result.GetPayloadAsJson()}");
+}
+catch (DeviceNotFoundException)
+{
+    Console.WriteLine($"Unable to execute command getMaxMinReport on {_deviceTwinId}.";
+}
+```
+
+## Digital twin examples
+
+You use the **DigitalTwinClient** class to interact with the device state using digital twins. The [Digital Twins Definition Language (DTDL)](concepts-digital-twin.md) model for the device defines the properties and commands the device implements.
+
+This section shows C# examples using the Digital Twins API. The following snippets use the following classes to represent the digital twin of the thermostat device:
+
+```csharp
+using Microsoft.Azure.Devices.Serialization;
+using Newtonsoft.Json;
+using System;
+
+namespace Microsoft.Azure.Devices.Samples
+{
+  internal class ThermostatTwin : BasicDigitalTwin
+  {
+    [JsonProperty("$metadata")]
+    public new ThermostatMetadata Metadata { get; set; }
+
+    [JsonProperty("maxTempSinceLastReboot")]
+    public double? MaxTempSinceLastReboot { get; set; }
+
+    [JsonProperty("targetTemperature")]
+    public double? TargetTemperature { get; set; }
+  }
+
+  internal class ThermostatMetadata : DigitalTwinMetadata
+  {
+    [JsonProperty("maxTempSinceLastReboot")]
+    public ReportedPropertyMetadata MaxTempSinceLastReboot { get; set; }
+
+    [JsonProperty("targetTemperature")]
+    public WritableProperty TargetTemperature { get; set; }
+  }
+
+  internal class ReportedPropertyMetadata
+  {
+    [JsonProperty("lastUpdateTime")]
+    public DateTimeOffset LastUpdateTime { get; set; }
+  }
+}
+```
+
+The `_digitalTwinId` variable holds the deice ID of the IoT Plug and Play device registered with your IoT hub.
+
+### Get the digital twin and model ID
+
+To get the digital twin and model ID of the IoT Plug and Play device that connected to your IoT hub:
+
+```csharp
+DigitalTwinClient digitalTwinClient = DigitalTwinClient.CreateFromConnectionString(parameters.HubConnectionString);
+HttpOperationResponse<ThermostatTwin, DigitalTwinGetHeaders> getDigitalTwinResponse = await digitalTwinClient
+    .GetDigitalTwinAsync<ThermostatTwin>(_digitalTwinId);
+ThermostatTwin thermostatTwin = getDigitalTwinResponse.Body;
+Console.WriteLine($"Model ID: {thermostatTwin.Metadata.ModelId}.");
+Console.WriteLine($"Digital Twin: \n{JsonConvert.SerializeObject(thermostatTwin, Formatting.Indented)}");
+```
+
+### Update digital twin
+
+The following snippet shows how to use the digital twin to update the `targetTemperature` property on your IoT Plug and Play device:
+
+```csharp
+var updateOperation = new UpdateOperationsUtility();
+
+int desiredTargetTemperature = 60;
+
+// Get the current value of the targetTemperature property
+HttpOperationResponse<ThermostatTwin, DigitalTwinGetHeaders> getDigitalTwinResponse = await digitalTwinClient
+    .GetDigitalTwinAsync<ThermostatTwin>(_digitalTwinId);
+double? currentTargetTemperature = getDigitalTwinResponse.Body.TargetTemperature;
+
+// Has the targetTemperature property previously been set?
+if (currentTargetTemperature != null)
+{
+  // Update the existing property
+  // Prepend the property path with a '/'
+  updateOperation.AppendReplacePropertyOp($"/targetTemperature", desiredTargetTemperature);
+}
+else
+{
+  // Add a new property
+  // Prepend the property path with a '/'
+  updateOperation.AppendAddPropertyOp($"/targetTemperature", desiredTargetTemperature);
+}
+
+// Update the targetTemperature property on the digital twin
+HttpOperationHeaderResponse<DigitalTwinUpdateHeaders> updateDigitalTwinResponse = await digitalTwinClient
+    .UpdateDigitalTwinAsync(_digitalTwinId, updateOperation.Serialize());
+
+Console.WriteLine($"Update {_digitalTwinId} digital twin response: {updateDigitalTwinResponse.Response.StatusCode}.");
+```
+
+### Call command
+
+The following snippet shows how to use the digital twin to call the `getMaxMinReport` command on your IoT Plug and Play device:
+
+```csharp
+DateTimeOffset since = DateTimeOffset.Now.Subtract(TimeSpan.FromMinutes(2));
+
+try
+{
+  HttpOperationResponse<DigitalTwinCommandResponse, DigitalTwinInvokeCommandHeaders> invokeCommandResponse = await digitalTwinClient
+    .InvokeCommandAsync(_digitalTwinId, "getMaxMinReport", JsonConvert.SerializeObject(since));
+
+  Console.WriteLine($"Command getMaxMinReport was invoked. \nDevice returned status: {invokeCommandResponse.Body.Status}." +
+    $"\nReport: {invokeCommandResponse.Body.Payload}");
+}
+catch (HttpOperationException e)
+{
+  if (e.Response.StatusCode == HttpStatusCode.NotFound)
+  {
+    Console.WriteLine($"Unable to execute command getMaxMinReport on {_digitalTwinId}.");
+  }
+}
+```
 
 ## REST API
 
@@ -69,6 +242,94 @@ More generally, commands can be called through this REST API template:
 
 ```REST
 /digitalTwins/{device-id}/components/{component-name}/commands/{command-name}
+```
+
+## Read device telemetry
+
+IoT Plug and Play devices send the telemetry defined in the DTDL model to IoT Hub. By default, IoT Hub routes the telemetry to an Event Hubs endpoint where you can consume it. To learn more, see [Use IoT Hub message routing to send device-to-cloud messages to different endpoints](../iot-hub/iot-hub-devguide-messages-d2c.md).
+
+The following code snippet shows how to read the telemetry from the default Event Hubs endpoint. The code in this snippet is taken from the IoT Hub quickstart [Send telemetry from a device to an IoT hub and read it with a back-end application](../iot-hub/quickstart-send-telemetry-dotnet.md):
+
+```csharp
+await using EventHubConsumerClient consumer = new EventHubConsumerClient(EventHubConsumerClient.DefaultConsumerGroupName, connectionString, EventHubName);
+
+Console.WriteLine("Listening for messages on all partitions");
+
+try
+{
+    await foreach (PartitionEvent partitionEvent in consumer.ReadEventsAsync(cancellationToken))
+    {
+        Console.WriteLine("Message received on partition {0}:", partitionEvent.Partition.PartitionId);
+
+        string data = Encoding.UTF8.GetString(partitionEvent.Data.Body.ToArray());
+        Console.WriteLine("\t{0}:", data);
+
+        Console.WriteLine("Application properties (set by device):");
+        foreach (var prop in partitionEvent.Data.Properties)
+        {
+            Console.WriteLine("\t{0}: {1}", prop.Key, prop.Value);
+        }
+
+        Console.WriteLine("System properties (set by IoT Hub):");
+        foreach (var prop in partitionEvent.Data.SystemProperties)
+        {
+            Console.WriteLine("\t{0}: {1}", prop.Key, prop.Value);
+        }
+    }
+}
+catch (TaskCanceledException)
+{
+    // This is expected when the token is signaled; it should not be considered an
+    // error in this scenario.
+}
+```
+
+The following output from the previous code shows the temperature telemetry sent by the no-component **Thermostat** IoT Plug and Play device that only has the default component. The `dt-dataschema` system property shows the model ID:
+
+```cmd/sh
+Message received on partition 1:
+        { "temperature": 25.5 }:
+Application properties (set by device):
+System properties (set by IoT Hub):
+        iothub-connection-device-id: my-pnp-device
+        iothub-connection-auth-method: {"scope":"device","type":"sas","issuer":"iothub","acceptingIpFilterRule":null}
+        iothub-connection-auth-generation-id: 637375045610235418
+        iothub-enqueuedtime: 05/10/2020 14:30:58
+        iothub-message-source: Telemetry
+        dt-dataschema: dtmi:com:example:Thermostat;1
+        content-type: application/json
+        content-encoding: utf-8
+```
+
+The following output from the previous code shows the temperature telemetry sent by the multi-component **TemperatureController** IoT Plug and Play device. The `dt-subject` system property shows the name of the component that sent the telemetry. In this example the two components are `thermostat1` and `thermostat2` as defined in the DTDL model. The `dt-dataschema` system property shows the model ID:
+
+```cmd/sh
+Message received on partition 1:
+        {"temperature":11.1}:
+Application properties (set by device):
+System properties (set by IoT Hub):
+        dt-subject: thermostat1
+        iothub-connection-device-id: my-pnp-device
+        iothub-connection-auth-method: {"scope":"device","type":"sas","issuer":"iothub","acceptingIpFilterRule":null}
+        iothub-connection-auth-generation-id: 637375045610235418
+        iothub-enqueuedtime: 05/10/2020 14:23:36
+        iothub-message-source: Telemetry
+        dt-dataschema: dtmi:com:example:TemperatureController;1
+        content-type: application/json
+        content-encoding: utf-8
+Message received on partition 1:
+        {"temperature":41.2}:
+Application properties (set by device):
+System properties (set by IoT Hub):
+        dt-subject: thermostat2
+        iothub-connection-device-id: my-pnp-device
+        iothub-connection-auth-method: {"scope":"device","type":"sas","issuer":"iothub","acceptingIpFilterRule":null}
+        iothub-connection-auth-generation-id: 637375045610235418
+        iothub-enqueuedtime: 05/10/2020 14:23:36
+        iothub-message-source: Telemetry
+        dt-dataschema: dtmi:com:example:TemperatureController;1
+        content-type: application/json
+        content-encoding: utf-8
 ```
 
 ## Next steps
