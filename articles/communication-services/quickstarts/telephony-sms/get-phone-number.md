@@ -103,13 +103,23 @@ Select the Phone Numbers tab in the menu to manage your phone numbers.
 > [!NOTE]
 > It may take a few minutes for the provisioned numbers to be shown on this page.
 
+### Customizing phone plans
+On the `Numbers` page, you can select the phone number by clicking on the number for which you'd like to customize the plan.
+
+:::image type="content" source="../media/manage-phone-azure-portal-update-capabilities.png" alt-text="Screenshot showing the update capabilities page.":::
+
+> [!NOTE]
+> This quickstart is showing the `Toll-free` Number Plan customization flow. The experience may be slightly different if you have chosen the `Geographic` Number type, but the end-result will be the same.
+
+Select the capabilities from the list of available calling and SMS capabilities, then click `Confirm` to apply selection.
+
 ## Troubleshooting
 
 Common questions and issues:
 
 - Only US is supported for purchasing phone numbers at this time. This is based on the billing address of the subscription that the resource is associated with. At this time, you cannot move a resource to another subscription.
 
-- When a phone number is deleted, the phone number will not be released or able to be repurchased until the end of the billing cycle.
+- When a phone number is released, the phone number will not be released or able to be repurchased until the end of the billing cycle.
 
 - When a Communication Services resource is deleted, the phone numbers associated with that resource will be automatically released at the same time.
 
