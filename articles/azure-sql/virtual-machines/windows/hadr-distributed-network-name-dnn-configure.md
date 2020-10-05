@@ -245,7 +245,11 @@ Alternatively, configure a network adapter in Azure to reserve the IP address us
 
 ## Overview
 
+# [Availability group](#tab/ag)
+
 PICTURE OF AG
+
+---
 
 ## Prerequisites
 
@@ -259,91 +263,71 @@ Before you complete the steps in this article, you should already have:
 
 ---
 
-## Create DNN resource 
-
+## Create script
 
 # [Availability group](#tab/ag)
 
-The DNN resource is created in the same cluster group as the availability group. Use PowerShell to create the DNN resource inside the AG cluster group. 
-
-The following PowerShell command adds a DNN resource to the SQL Server FCI cluster group with a resource name of `<dnnResourceName>`. The resource name is used to uniquely identify a resource. Use one that makes sense to you and is unique across the cluster. The resource type must be `Distributed Network Name`. 
-
-The `-Group` value must be the name of the cluster group that corresponds to the SQL Server FCI where you want to add the distributed network name. For a default instance, the typical format is `SQL Server (MSSQLSERVER)`. 
-
+Save this as a .ps1 file, such as `add_dnn_listener.ps1`: 
 
 ```powershell
-Add-ClusterResource -Name <dnnResourceName> `
--ResourceType "Distributed Network Name" -Group "<WSFC role of SQL server instance>"
-```
+param (
+   [Parameter(Mandatory=$true)][string]$Ag,
+   [Parameter(Mandatory=$true)][string]$Dns,
+   [Parameter(Mandatory=$true)][string]$Port
+)
 
-For example, to create your DNN resource `dnn-demo` for a default SQL Server FCI, use the following PowerShell command:
+Write-Host "Add a DNN listener for availability group $Ag with DNS name $Dns and port $Port"
 
-```powershell
-Add-ClusterResource -Name dnn-demo `
--ResourceType "Distributed Network Name" -Group "SQL Server (MSSQLSERVER)"
+$ErrorActionPreference = "Stop"
 
+# create the DNN resource with the port as the resource name
+Add-ClusterResource -Name $Port -ResourceType "Distributed Network Name" -Group $Ag 
+
+# set the DNS name of the DNN resource
+Get-ClusterResource -Name $Port | Set-ClusterParameter -Name DnsName -Value $Dns 
+
+# start the DNN resource
+Start-ClusterResource -Name $Port
+
+
+$Dep = Get-ClusterResourceDependency -Resource $Ag
+if ( $Dep.DependencyExpression -match '\s*\((.*)\)\s*' )
+{
+	$DepStr = "$($Matches.1) or [$Port]"
+}
+else
+{
+	$DepStr = "[$Port]"
+}
+
+Write-Host "$DepStr"
+
+# add the Dependency from availability group resource to the DNN resource
+Set-ClusterResourceDependency -Resource $Ag -Dependency "$DepStr"
+
+
+#bounce the AG resource
+Stop-ClusterResource -Name $Ag
+Start-ClusterResource -Name $Ag
 ```
 
 ---
 
-
-## Set cluster DNN DNS name
-
-# [Availability group](#tab/ag)
-
-Set the DNS name for the DNN resource in the cluster. The cluster then uses this value to route traffic to the node that's currently hosting the SQL Server FCI. 
-
-Clients use the DNS name to connect to the SQL Server FCI. You can choose a unique value. Or, if you already have an existing FCI and don't want to update client connection strings, you can configure the DNN to use the current VNN that clients are already using. To do so, you need to [rename the VNN](#rename-the-vnn) before setting the DNN in DNS.
-
-Use this command to set the DNS name for your DNN: 
-
-```powershell
-Get-ClusterResource -Name <dnnResourceName> | `
-Set-ClusterParameter -Name DnsName -Value <DNSName>
-```
-
-The `DNSName` value is what clients use to connect to the SQL Server FCI. For example, for clients to connect to `FCIDNN`, use the following PowerShell command:
-
-```powershell
-Get-ClusterResource -Name dnn-demo | `
-Set-ClusterParameter -Name DnsName -Value FCIDNN
-```
-
-Clients will now enter `FCIDNN` into their connection string when connecting to the SQL Server FCI. 
-
-   > [!WARNING]
-   > Do not delete the current virtual network name (VNN) as it is a necessary component of the FCI infrastructure. 
-
----
-
-### Rename the VNN 
+## Execute script
 
 # [Availability group](#tab/ag)
 
-If you have an existing virtual network name and you want clients to continue using this value to connect to the SQL Server FCI, you must rename the current VNN to a placeholder value. After the current VNN is renamed, you can set the DNS name value for the DNN to the VNN. 
+Execute the script you just created, and pass in the parameters for ag name, listener name, and port.
 
-Some restrictions apply for renaming the VNN. For more information, see [Renaming an FCI](/sql/sql-server/failover-clusters/install/rename-a-sql-server-failover-cluster-instance).
+For example:
 
-If using the current VNN is not necessary for your business, skip this section. After you've renamed the VNN, then [set the cluster DNN DNS name](#set-cluster-dnn-dns-name). 
-
----
-
-   
-## Set DNN resource online
-
-# [Availability group](#tab/ag)
-
-After your DNN resource is appropriately named, and you've set the DNS name value in the cluster, use PowerShell to set the DNN resource online in the cluster: 
-
-```powershell
-Start-ClusterResource -Name <dnnResourceName>
+```console
+c:> .\add_dnn_listener.ps1 ag1 dnnlsnr 6789
 ```
 
-For example, to start your DNN resource `dnn-demo`, use the following PowerShell command: 
-
-```powershell
-Start-ClusterResource -Name dnn-demo
-```
+where ag1 is the name of the ag
+dnnlsnr is the name of the ag listener
+6789 is the port number
 
 ---
 
@@ -367,17 +351,6 @@ To update possible owners, follow these steps:
 
 ---
 
-## Restart SQL Server instance 
-
-# [Availability group](#tab/ag)
-
-Use Failover Cluster Manager to restart the SQL Server instance. Follow these steps:
-
-1. Go to your SQL Server resource in Failover Cluster Manager.
-1. Right-click the SQL Server resource, and take it offline. 
-1. After all associated resources are offline, right-click the SQL Server resource and bring it online again. 
-
----
 
 ## Update connection string
 
@@ -447,11 +420,11 @@ Get-ClusterResource "virtual IP address" | Set-ClusterParameter
 
 In this command, "virtual IP address" is the name of the clustered VIP address resource, and "169.254.1.1" is the APIPA address chosen for the VIP address. Choose the address that best suits your business. Set `OverrideAddressMatch=1` to allow the IP address to be on any network, including the APIPA address space. 
 
----
-
 ### Dedicated network adapter
 
 Alternatively, configure a network adapter in Azure to reserve the IP address used by the virtual IP address resource. However, this consumes the address in the subnet address space, and there is the additional overhead of ensuring the network adapter is not used for any other purpose.
+
+---
 
 ## Limitations
 
