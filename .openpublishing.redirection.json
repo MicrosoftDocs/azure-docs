@@ -38579,7 +38579,7 @@
     {
       "source_path": "articles/azure-sql/database/sql-data-sync-monitor-sync.md",
       "redirect_url": "/azure/azure-sql/database/monitor-tune-overview",
-      "redirect_document_id": true
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/virtual-machines/linux/classic/cli-use-docker.md",
