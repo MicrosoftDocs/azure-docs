@@ -54,15 +54,15 @@ The following procedure sets up the config server using the Azure portal to depl
 
 3. Click **Validate**.
 
-    ![Screenshot of ASC portal](media/spring-cloud-quickstart-launch-app-portal/portal-config.png)
+    ![Navigate to config server](media/spring-cloud-quickstart-launch-app-portal/portal-config.png)
 
 4. When validation is complete, click **Apply** to save your changes.
 
-    ![Screenshot of ASC portal](media/spring-cloud-quickstart-launch-app-portal/validate-complete.png)
+    ![Validating config server](media/spring-cloud-quickstart-launch-app-portal/validate-complete.png)
 
 5. Updating the configuration can take a few minutes.
  
-    ![Screenshot of ASC portal](media/spring-cloud-quickstart-launch-app-portal/update-complete.png) 
+    ![Updating config server](media/spring-cloud-quickstart-launch-app-portal/updating-config.png) 
 
 6. You should get a notification when the configuration is complete.
 
