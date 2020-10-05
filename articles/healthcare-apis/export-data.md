@@ -1,6 +1,6 @@
 ---
 title: Executing the export by invoking $export command on Azure API for FHIR
-description: This article describes how to set up and use de-identified export
+description: This article describes how to export FHIR data using $export
 author: matjazl
 ms.service: healthcare-apis
 ms.subservice: fhir
