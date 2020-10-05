@@ -253,6 +253,81 @@ The following code snippet deletes a configuration setting by calling **delete_c
 
 This app retrieves an configuration setting created through the Azure portal. Next, using the Azure App Configuration client library for Python, the app creates a new setting, retrieves a list of existing settings, locks and unlocks a setting, updates a setting, and finally deletes a setting.
 
+The following is the full code listing.
+
+```python
+import os
+from  azure.appconfiguration import *
+
+
+try:
+    print("Azure App Configuration - Python quickstart sample")
+    # Quick start code goes here
+
+    # Retrieve the connection string for use with the application. The app configuration
+    # connection string is stored in an environment variable on the machine
+    # running the application called AZURE_APP_CONFIG_CONNECTION_STRING. If the
+    # environment variable is created after the application is launched in a
+    # console or with Visual Studio, the shell or application needs to be
+    # closed and reloaded to take the environment variable into account.
+    connection_string = os.getenv('AZURE_APP_CONFIG_CONNECTION_STRING')
+
+    client = AzureAppConfigurationClient.from_connection_string(connection_string)
+
+    fetched_config_setting = client.get_configuration_setting(key = 'TestApp:Settings:Message')
+    print(
+        "Fetched key: ", fetched_config_setting.key,
+        " value: ", fetched_config_setting.value
+    )
+
+    config_setting = ConfigurationSetting(
+        key='TestApp:Settings:Message',
+        label='TestAppLabel',
+        value='Value from labeled key'
+    )
+
+    added_config_setting = client.add_configuration_setting(config_setting)
+
+    filtered_settings_list = client.list_configuration_settings( key_filter="TestApp*")
+    print("Key list:")
+    for item in filtered_settings_list:
+        print("   key: ", item.key, " label: ", item.label, "value: ", item.value)
+
+    locked_config_setting = client.set_read_only(config_setting)
+    print("Read-only status: ", locked_config_setting.read_only)
+
+    try:
+        config_setting.value = "Updated value"
+        client.set_configuration_setting(config_setting)
+    except Exception as ex:
+        print('Exception:')
+        print(ex)
+
+    unlocked_config_setting = client.set_read_only(config_setting, False)
+    print("Read-only status: ", unlocked_config_setting.read_only)
+
+    updated_config_setting = client.set_configuration_setting(config_setting)
+    
+    filtered_settings_list = client.list_configuration_settings( key_filter="TestApp*")
+    print("Key list:")
+    for item in filtered_settings_list:
+        print("   key: ", item.key, " label: ", item.label, "value: ", item.value)
+
+
+    deleted_config_setting = client.delete_configuration_setting(
+        key="TestApp:Settings:Message", label="TestAppLabel"
+    )
+    
+    filtered_settings_list = client.list_configuration_settings( key_filter="TestApp*")
+    print("Key list:")
+    for item in filtered_settings_list:
+        print("   key: ", item.key, " label: ", item.label, "value: ", item.value)
+
+except Exception as ex:
+    print('Exception:')
+    print(ex)
+```
+
 In your console window, navigate to the directory containing the *app-configuration-quickstart.py* file, then execute the following `python` command to run the app.
 
 ```console
