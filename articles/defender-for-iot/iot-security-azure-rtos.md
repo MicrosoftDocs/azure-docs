@@ -45,8 +45,7 @@ By using the recommended infrastructure Defender for IoT provides, you can gain 
 
 ## Get started protecting Azure RTOS devices
 
-The security module for Azure RTOS is provided as a free download for your devices. The Defender for IoT cloud service is available with a 30-day trial per Azure subscription. Download the [security module for Azure RTOS](https://github.com/azure-rtos/iot-security-module-preview) to get started.
-
+Security Module for Azure RTOS is provided as a free download for your devices. The Defender for IoT cloud service is available with a 30-day trial per Azure subscription. To get started, download the [security module for Azure RTOS](https://github.com/MicrosoftDocs/azure-docs/blob/master/articles/defender-for-iot/iot-security-azure-rtos.md). 
 
 ## Next steps
 
