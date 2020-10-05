@@ -113,6 +113,10 @@ The following table shows you where you can acquire different types of phone num
 
 *For more details about call destinations and pricing, refer to the [pricing page](../pricing.md).
 
+## Azure Subscriptions eligibility
+
+To acquire a phone number, you need to be on paid Azure subscription. You cannot get a phone number for PSTN or SMS on a trial account. 
+
 ## Next steps
 
 ### Quickstarts
