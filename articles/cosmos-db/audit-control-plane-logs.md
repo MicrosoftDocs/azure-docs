@@ -4,7 +4,7 @@ description: Learn how to audit the control plane operations such as add a regio
 author: SnehaGunda
 ms.service: cosmos-db
 ms.topic: how-to
-ms.date: 06/25/2020
+ms.date: 10/05/2020
 ms.author: sngun
 
 ---
@@ -207,20 +207,20 @@ on activityId_g
 | project Caller, activityId_g
 ```
 
-Query to get index or ttl updates
+Query to get index or ttl updates. You can then compare the output of this query with an earlier update to see the change in index or ttl.
 
 ```Kusto
 AzureDiagnostics
 | where Category =="ControlPlaneRequests"
 | where  OperationName == "SqlContainersUpdate"
 | project resourceDetails_s
+```
 
+**output:**
+
+```json
 {id:skewed,indexingPolicy:{automatic:true,indexingMode:consistent,includedPaths:[{path:/*,indexes:[]}],excludedPaths:[{path:/_etag/?}],compositeIndexes:[],spatialIndexes:[]},partitionKey:{paths:[/pk],kind:Hash},defaultTtl:1000000,uniqueKeyPolicy:{uniqueKeys:[]},conflictResolutionPolicy:{mode:LastWriterWins,conflictResolutionPath:/_ts,conflictResolutionProcedure:}
-
-The key here is to compare this log with earlier instance of update to see the change in index or ttl. 
-
-
-
+```
 
 ## Next steps
 

@@ -286,7 +286,7 @@ You can also find out more about [creating linked Azure Resource Manager templat
 
 The infrastructure and software can be defined as code and colocated in the same repository.
 
-For this solution, the ffmpeg is used as the application package. The ffmpeg package can be downloaded [here](https://ffmpeg.zeranoe.com/builds/win64/static/ffmpeg-3.4-win64-static.zip).
+For this solution, the ffmpeg is used as the application package. The ffmpeg package can be downloaded [here](https://www.videohelp.com/software?d=ffmpeg-3.3.4-win64-static.zip).
 
 ![Example Git Repository Structure](media/batch-ci-cd/git-repository.jpg)
 
