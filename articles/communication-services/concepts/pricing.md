@@ -108,12 +108,10 @@ The following prices include required communications taxes and fees until June 3
 
 ### SMS
 
-SMS offers pay-as-you-go pricing. The price is a per-message charge based on the destination of the message. Messages can be sent to phone numbers located within the United States.
+SMS offers pay-as-you-go pricing. The price is a per-message charge based on the destination of the message. Messages can be sent by toll-free phone numbers to phone numbers located within the United States. Note that local (geographic) phone numbers can't be used to send SMS messages.
+
+The following prices include required communications taxes and fees until June 30th, 2021:
 
 |Country   |Send messages|Receive messages|
 |-----------|------------|------------|
-|USA     |$0.0075/msg   | $0.0075/msg |
-
-### Regional considerations
-
-In the United States and Puerto Rico, PSTN Services are sold on behalf of Skype Communications US Corporation. The price displayed includes charges for the PSTN Service and all required taxes and fees. See [this page](https://go.microsoft.com/fwlink/?LinkId=690247) for details.
+|USA (Toll-free)    |$0.0075/msg   | $0.0075/msg |
