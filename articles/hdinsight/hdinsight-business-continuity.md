@@ -1,120 +1,123 @@
 ---
-title: Azure HDInsight Business Continuity
-description: 
+title: Azure HDInsight business continuity
+description: This article gives an overview of best practices, single region availability, and optimization options for Azure HDInsight business continuity planning.
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 keywords: hadoop high availability
 ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 09/28/2020
+ms.date: 10/01/2020
 ---
 
-# Azure HDInsight Business Continuity
+# Azure HDInsight business continuity
 
-Azure HDInsight clusters depend on many Azure services like Storage, Databases, Active Directory, Active Directory Domain Services, Networking, and Key Vault. A well-designed, highly available and fault-tolerant analytics application should be designed with enough redundancy to be able to withstand regional or even local disruptions in one or more of these services.
+Azure HDInsight clusters depend on many Azure services like storage, databases, Active Directory, Active Directory Domain Services, networking, and Key Vault. A well-designed, highly available, and fault-tolerant analytics application should be designed with enough redundancy to withstand regional or local disruptions in one or more of these services. This article gives an overview of best practices, single region availability, and optimization options for business continuity planning.
 
-Tolerance for reduced functionality during a disaster is a business decision that varies from one application to the next. It might be acceptable for some applications to be unavailable or to be partially available with reduced functionality or delayed processing for a period. For other applications, any reduced functionality is unacceptable.
+## General best practices
 
-> [!NOTE]
-> The architectures presented in this article are in no way exhaustive. Design your own unique architectures post objective determinations around expected business continuity, operational complexity, and cost of ownership.
+This section discusses a few best practices for you to consider during business continuity planning.
 
-## Best practices
+* Determine the minimal business functionality you will need if there is a disaster and why. For example, evaluate if you need failover capabilities for the data transformation layer (shown in yellow) *and* the data serving layer (shown in blue), or if you only need failover for the data service layer.
 
-You need to determine, that in the event of a disaster, what is the minimal business functionality that absolutely needs to be available and why? An example could be to evaluate,  if in the event of a disaster , you really need failover capabilities for the data transformation layer (in yellow) and the data serving layer(in blue) or would failover capabilities only the data serving layer suffice.
+   :::image type="content" source="media/hdinsight-business-continuity/data-layers.png" alt-text="data transformation and data serving layers":::
 
-:::image type="content" source="media/hdinsight-business-continuity/failover-for-data-transformation-data-serving-layers.png" alt-text="diagram of data transportation and data serving layers":::
+* Segment your clusters based on workload, development lifecycle, and departments. Having more clusters reduces the chances of a single large failure affecting multiple different business processes.
 
-•	Segment your clusters based on workload, development lifecycle, departments etc. Having more clusters reduces the chances of a single large failure affecting multiple different business processes.
+* Make your secondary regions read-only. Failover regions with both read and write capabilities can lead to complex architectures.
 
-•	Requiring both Read & Write capabilities in the failover region can lead to complex architectures. Keep your secondary regions as Read only. 
+* Transient clusters are easier to manage when there is a disaster. Design your workloads in a way that clusters can be cycled and no state is maintained in clusters.
 
-•	Transient clusters are easier to manage in the event of a disaster. Design your workloads in a way so that clusters can be cycled, and no state is maintained in clusters. 
+* Often workloads are left unfinished if there is a disaster and need to restart in the new region. Design your workloads to be idempotent in nature.
 
-•	Often workloads are left unfinished in the event of a disaster and need to restart in the new region. Design your workloads to be idempotent in nature.
+* Use automation during cluster deployments and ensure cluster configuration settings are scripted as far as possible to ensure rapid and fully automated deployment if there is a disaster.
 
-•	Use automation during cluster deployments and ensure cluster config settings are scripted as far as possible to ensure rapid fully automated deployment in the event of a disaster. 
+* Use Azure monitoring tools on HDInsight to detect abnormal behavior in the cluster and set corresponding alert notifications. You can deploy the pre-configured HDInsight cluster-specific management solutions that collect important performance metrics of the specific cluster type. For more information, see [Azure Monitoring for HDInsight](./hdinsight/hdinsight-hadoop-oms-log-analytics-tutorial.md`).  
 
-•	Use Azure monitoring tools on HDInsight to determine abnormal behavior in the cluster and set corresponding alert notifications. A good place to start may be to deploy the preconfigured HDInsight cluster specific management solutions which collect important performance metrics of the specific cluster type. Refer to Azure Monitoring for HDInsight for more details.  
+* Subscribe to Azure health alerts to be notified about service issues, planned maintenance, health and security advisories for a subscription, service, or region. Health notifications that include the issue cause and resolute ETA help you to better execute failover and failbacks. For more information, see [Azure Service Health documentation](/azure/service-health/).
 
-•	Subscribe to Azure health alerts to be notified about service issues, planned maintenance, health and security advisories at a subscription, service, or region. Notifications related to health of the HDInsight service, cause thereof and corresponding resolution ETAs would enable customers execute their failovers and failbacks better. Refer to Azure Service Health documentation for more details.
+## Single region availability
 
-## Single region availability 
+A basic HDInsight system has the following components. All components have their own single region fault tolerance mechanisms.
 
-An HDInsight system minimally comprises of the below components all of which are accompanied by their single region fault tolerance mechanisms.  
-Compute(Virtual Machines): Azure HDInsight cluster 
-Metastore/s: Azure SQL Database
-Storage: Azure Data Lake Gen2 or Blob Store 
-Authentication(optional using Enterprise Security Package) : Azure Active Directory and Azure Active directory Domain Services
-DNS: Domain Name resolution
+* Compute (virtual machines): Azure HDInsight cluster
+* Metastore(s): Azure SQL Database
+* Storage: Azure Data Lake Gen2 or Blob storage
+* Authentication: Azure Active Directory, Azure Active Directory Domain Services, Enterprise Security Package
+* Domain name resolution: Azure DNS
 
-:::image type="content" source="media/hdinsight-business-continuity/single-region-availability.png" alt-text="single region availablity":::
+There are other optional services that can be used, such as Azure Key Vault and Azure Data Factory.
 
-Depending on functionality there can be other services that can be used like Azure Key Vault , Azure Data Factory etc. 
+:::image type="content" source="media/hdinsight-business-continuity/hdinsight-components.png" alt-text="HDInsight components":::
 
-HDInsight cluster (Compute) 
-HDInsight service offers a Availability SLA of 99.9% . To provide high availability in a single deployment, HDInsight by default is accompanied by many services in HA mode. HA services custom developed by Microsoft along with HA services from Apache OSS ecosystem together provide for mechanisms to support many fault tolerance mechanisms in HDInsight. Below is the list of services that are designed to be highly available. 
-•	Infrastructure 
-	Active and Standby Headnodes
-	Multiple Gateway Nodes 
-	Three Zookeeper Quorum nodes
-	Worker Nodes distributed by fault and update domains
+### Azure HDInsight cluster (compute)
 
-	Service
-	Apache Ambari Server 
-	Application timeline sever for YARN 
-	Job History Server for Hadoop MapReduce
-	Apache Livy
-	HDFS
-	YARN Resource Manager
-	HBase Master
- 
-Refer documentation on High availability services supported by Azure HDInsight to learn more. 
+HDInsight offers an availability SLA of 99.9%. To provide high availability in a single deployment, HDInsight is accompanied by many services that are in high availability mode by default. Fault tolerance mechanisms in HDInsight are provided by both Microsoft and Apache OSS ecosystem high availability services.
 
-HDInsight Metastore 
-HDInsight uses Azure SQL which provides an SLA of 99.99%. Three replicas of data are persisted within a datacenter with asynchronous replication. In the event of a replica loss, an alternate replica is served seamlessly. Active Geo-replication is supported out of the box with a maximum of 4 datacenters.  In the event of a failover (manual or datacenter), the first in hierarchy will become read-write capable out of the box. Refer documentation on Azure SQL DB business continuity to learn more. 
-HDInsight Storage 
-HDInsight recommends ADLSGen2 as the underlying storage layer. Azure Storage(including ADLSGen2) provides an SLA of 99.9% . HDInsight uses the LRS service in which three replicas of data are persisted within a datacenter (replication is synchronous), out of the box. In the event of a replica loss, a replica is served seamlessly.
-Active directory
-Active directory provides an SLA of 99.9%.Active directory is a global service with multiple levels of internal redundancy and automatic recoverability. Refer documentation on how Microsoft in continually improving the reliability of Azure Active directory. 
+The following services are designed to be highly available:
 
-Active directory domain services (AADDS) 
-Active directory domain services provides an SLA of 99.9%. AADDS is a highly available service hosted in globally distributed datacenters. Replica sets is preview feature (as of Sept-2020) in AADDS that enables geographic disaster recovery if an Azure region goes offline. Refer to Replica sets concepts and features for Azure Active Directory Domain Services to learn more.  
+#### Infrastructure
 
-Azure DNS
-Azure DNS provides an SLA of 100%. HDInsight uses Azure DNS at various places for domain name resolution. 
-It does not always take a catastrophic event to impact business functionality. Service incidents  in one or more of these services in a single region can also lead to customers experiencing loss of expected business functionality and hence there arises a need to design a multi-region highly available architecture. 
+* Active and Standby Headnodes
+* Multiple Gateway Nodes
+* Three Zookeeper Quorum nodes
+* Worker Nodes distributed by fault and update domains
 
-## Cost and Complexity optimizations for multi region setup
+#### Service
 
-Improving business continuity using cross region HADR accompanies architectural designs of higher complexity and higher cost. Below are some technical areas that may increase total cost of ownership for customers.
+* Apache Ambari Server
+* Application timeline severs for YARN
+* Job History Server for Hadoop MapReduce
+* Apache Livy
+* HDFS
+* YARN Resource Manager
+* HBase Master
 
-Cost Optimizations
-Area	Cause of cost escalation 	Optimization Strategies 
-Data Storage 	Duplicating primary data/tables in a secondary region	Replicate only curated data
-Data Egress	Outbound cross region data transfers come at a price. Review Bandwidth pricing guidelines  
-Replicate only curated data to reduce the region egress footprint 
-Cluster Compute	Additional HDInsight cluster/s in secondary region		Use automated scripts to deploy secondary compute after primary failure.
-	Use Autoscaling to keep secondary cluster size to a minimum.
-	Use cheaper VM SKU’s. 
-	Create secondaries in regions where VM SKU’s may be discounted 
+Refer documentation on [high availability services supported by Azure HDInsight](./hdinsight/hdinsight-high-availability-components.md) to learn more.
 
-Authentication 	Multiuser scenarios in secondary region will incur additional AADDS setups	Avoid multiuser setups in secondary region
-  
-Complexity Optimization
-Area	Cause of complexity escalation 	Optimization Strategies 
-Read Write patterns 	Requiring both primary and secondary to be Read and Write enabled 	Design the secondary to be read only
-Zero RPO & RTO 	Requiring zero data loss (RPO=0) and zero downtime (RTO=0) 	Design RPO and RTO in ways to reduce the number of components that need to fail over.  
-Business functionality 	Requiring full business functionality of primary in secondary 	Evaluate if you can run with bare minimum critical subset of the business functionality in secondary
-Connectivity 	Requiring all upstream and downstream systems from primary to connect to the secondary as well	Limit the secondary connectivity to a bare minimum critical subset. 
+It doesn't always take a catastrophic event to impact business functionality. Service incidents in one or more of the following services in a single region can also lead to loss of expected business functionality.
 
-##Apache Hive and Interactive Query
-Hive Replication V2 is the recommended way of setting up business continuity in HDInsight Hive and Interactive query clusters. The persistent sections of a standalone Hive cluster that need to be replicated consist of the Storage Layer and the Hive Metastore. If the Hive cluster works in a multiuser scenario with Enterprise Security Package, there would be additional considerations like the AADDS and Ranger Metastore. 
-Review Hive replication section for more information. 
+### HDInsight metastore
 
-:::image type="content" source="media/hdinsight-business-continuity/hive-replication.png" alt-text="Apache Hive replication":::
+HDInsight uses [Azure SQL Database](https://azure.microsoft.com/support/legal/sla/sql-database/v1_4/) as a metastore, which provides an SLA of 99.99%. Three replicas of data persist within a data center with asynchronous replication. If there is a replica loss, an alternate replica is served seamlessly. [Active geo-replication](../azure-sql/database/active-geo-replication-overview.md) is supported out of the box with a maximum of four data centers. When there is a failover, either manual or data center, the first replica in the hierarchy will automatically become read-write capable. For more information, see [Azure SQL Database business continuity](../azure-sql/database/business-continuity-high-availability-disaster-recover-hadr-overview.md).
 
+### HDInsight Storage
 
+HDInsight recommends Azure Data Lake Storage Gen2 as the underlying storage layer. [Azure Storage](https://azure.microsoft.com/support/legal/sla/storage/v1_5/), including Azure Data Lake Storage Gen2, provides an SLA of 99.9%. HDInsight uses the LRS service in which three replicas of data persist within a data center, and replication is synchronous. When there is a replica loss, a replica is served seamlessly.
+
+### Azure Active Directory
+
+[Azure Active Directory](https://azure.microsoft.com/support/legal/sla/active-directory/v1_0/) provides an SLA of 99.9%. Active Directory is a global service with multiple levels of internal redundancy and automatic recoverability. For more information, see how [Microsoft in continually improving the reliability of Azure Active Directory](https://azure.microsoft.com/blog/advancing-azure-active-directory-availability/).
+
+### Azure Active Directory Domain Services (AD DS)
+
+[Azure Active Directory Domain Services](https://azure.microsoft.com/support/legal/sla/active-directory-ds/v1_0/) provides an SLA of 99.9%. Azure AD DS is a highly available service hosted in globally distributed data centers. Replica sets are a preview feature in Azure AD DS that enables geographic disaster recovery if an Azure region goes offline. For more information, see [replica sets concepts and features for Azure Active Directory Domain Services](../active-directory-domain-services/concepts-replica-sets.md) to learn more.  
+
+### Azure DNS
+
+[Azure DNS](https://azure.microsoft.com/support/legal/sla/dns/v1_1/) provides an SLA of 100%. HDInsight uses Azure DNS in various places for domain name resolution.
+
+## Cost and complexity optimizations for multi region setup
+
+Improving business continuity using cross region high availability disaster recovery requires architectural designs of higher complexity and higher cost. The following tables detail some technical areas that may increase total cost of ownership.
+
+### Cost optimizations
+
+|Area|Cause of cost escalation|Optimization strategies|
+|----|------------------------|-----------------------|
+|Data Storage|Duplicating primary data/tables in a secondary region|Replicate only curated data|
+|Data Egress|Outbound cross region data transfers come at a price. Review Bandwidth pricing guidelines|Replicate only curated data to reduce the region egress footprint|
+|Cluster Compute|Additional HDInsight cluster/s in secondary region|Use automated scripts to deploy secondary compute after primary failure.<\br><\br>Use Autoscaling to keep secondary cluster size to a minimum.<\br><\br>Use cheaper VM SKUs.<\br><\br> Create secondaries in regions where VM SKUs may be discounted.|
+|Authentication |Multiuser scenarios in secondary region will incur additional Azure AD DS setups|Avoid multiuser setups in secondary region.|
+
+### Complexity optimizations
+
+|Area|Cause of complexity escalation|Optimization strategies|
+|----|------------------------|-----------------------|
+|Read Write patterns |Requiring both primary and secondary to be Read and Write enabled |Design the secondary to be read only|
+|Zero RPO & RTO |Requiring zero data loss (RPO=0) and zero downtime (RTO=0) |Design RPO and RTO in ways to reduce the number of components that need to fail over.|
+|Business functionality |Requiring full business functionality of primary in secondary |Evaluate if you can run with bare minimum critical subset of the business functionality in secondary.|
+|Connectivity |Requiring all upstream and downstream systems from primary to connect to the secondary as well|Limit the secondary connectivity to a bare minimum critical subset.|
 
 ## Next steps
 
