@@ -1107,7 +1107,7 @@
             href: virtual-machines/windows/hadr-distributed-network-name-dnn-configure-zp1.md
           - name: Distributed Network Name (DNN) ZP2
             href: virtual-machines/windows/hadr-distributed-network-name-dnn-configure-zp2.md
-            - name: Virtual Network Name (VNN)
+          - name: Virtual Network Name (VNN)
             href: virtual-machines/windows/hadr-vnn-azure-load-balancer-configure.md
 
 
