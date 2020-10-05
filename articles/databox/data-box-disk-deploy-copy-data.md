@@ -226,11 +226,11 @@ This optional procedure may be used when you are using multiple disks and have a
    - Enter the drive letters corresponding to the target disks. The data is taken from the source path and copied across multiple disks.
    - Provide a path for the log files. By default, it is sent to the current directory where the `.exe` is located.
 
-     ![Split copy data](media/data-box-disk-deploy-copy-data/split-copy-5.png)
+     ![Split copy data 5](media/data-box-disk-deploy-copy-data/split-copy-5.png)
 
 6. To validate the file format, go to `JSONlint`. Save the file as `ConfigFile.json`. 
 
-     ![Split copy data 5](media/data-box-disk-deploy-copy-data/split-copy-6.png)
+     ![Split copy data 6](media/data-box-disk-deploy-copy-data/split-copy-6.png)
  
 7. Open a Command Prompt window. 
 
