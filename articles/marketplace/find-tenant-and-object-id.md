@@ -53,11 +53,6 @@ This article describes how to find the Tenant ID, Object ID, and partner associa
 
     :::image type="content" source="media/tenant-and-object-id/aad-admin-center.png" alt-text="Azure Active Directory admin center.":::
 
-6. Find **role assignments** by selecting **Access control (IAM)** in the left menu.
+6. Find **role assignments** by selecting **Access control (IAM)** in the left menu, then **Role assignments**.
 
-    :::image type="content" source="media/tenant-and-object-id/role-assignments.png" alt-text="Role assignments in Azure Active Directory.":::
-
-## Next steps
-
-- Link to next topic
-- 
+    :::image type="content" source="https://docs.microsoft.com/azure/role-based-access-control/media/role-assignments-portal/role-assignments.png" alt-text="Role assignments in Azure Active Directory.":::
