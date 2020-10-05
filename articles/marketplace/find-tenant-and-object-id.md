@@ -66,7 +66,7 @@ If you need to get screenshots of these items in Azure Cloud shell to use for de
 1. Go to the [Azure portal](https://ms.portal.azure.com/).
 2. Open Azure Cloud shell by selecting the PowerShell icon at the top-right.
 
-    :::image type="content" source="media/tenant-and-object-id/icon-azure-cloud-shell.png" alt-text="Partner information in the left-nav menu.":::
+    :::image type="content" source="media/tenant-and-object-id/icon-azure-cloud-shell.png" alt-text="PowerShell icon at the top right of the screen.":::
 
 3. Select **PowerShell**.
 
