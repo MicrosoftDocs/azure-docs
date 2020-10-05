@@ -1,12 +1,12 @@
 ### YamlMime:Hub
 
 title: Azure Cognitive Services containers
-summary: Azure Cognitive Services provides containers on premises deployment. 
+summary: Azure Cognitive Services offers several containers to use the cloud-based APIs on premises. Using these containers gives you the flexibility to bring Cognitive Services closer to your data for compliance, security or other operational reasons.
 brand: azure
 
 metadata:
   title: Azure Cognitive Services containers 
-  description: Azure Cognitive Services provides containers on premises deployment. 
+  description: Azure Cognitive Services provides containers for premises deployment. 
   ms.service: cognitive-services
   ms.topic: hub-page
   author: aahill
@@ -31,54 +31,69 @@ highlightedContent:
 conceptualContent:
 # itemType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new
   items:
-    - title: Vision containers
-      summary: Recognize, identify, caption, index, and moderate your pictures, videos, and digital ink content.
+    - title: Computer Vision containers
+      summary: Use the Computer Vision containers to recognize text in images, and detect people in physical spaces.
       links:
-        - url: ./computer-vision/index.yml
+        - url: ./computer-vision/computer-vision-how-to-install-containers.md
           itemType: overview
           text: Read OCR (Optical Character Recognition) 
-        - url: ./Custom-Vision-Service/index.yml
+        - url: ./computer-vision/spatial-analysis-container.md
           itemType: overview
           text: Spatial analysis     
     - title: Speech containers
-      summary: Convert speech into text and text into natural-sounding speech. Translate from one language to another and enable speaker verification and recognition.
+      summary: Use the Speech services containers to convert speech to text, generate speech, or identify a spoken language.
       links:
-        - url: ./computer-vision/index.yml
+        - url: ./speech-service/speech-container-howto.md
           itemType: overview
           text: Speech to text 
-        - url: ./computer-vision/index.yml
+        - url: ./speech-service/speech-container-howto.md
           itemType: overview
           text: Custom Speech to text 
-        - url: ./computer-vision/index.yml
+        - url: ./speech-service/speech-container-howto.md
           itemType: overview
           text: Text to speech
-        - url: ./computer-vision/index.yml
+        - url: ./speech-service/speech-container-howto.md
           itemType: overview
           text: Custom text to speech 
-        - url: ./computer-vision/index.yml
+        - url: ./speech-service/speech-container-howto.md
           itemType: overview
           text: Neural text to speech 
     - title: Text Analytics containers
-      summary:  Convert speech into text and text into natural-sounding speech. Translate from one language to another and enable speaker verification and recognition.
+      summary: Detect sentiment in text, extract key phrases, identify and identify the language of written text. 
       links:
-        - url: ./computer-vision/index.yml
+        - url: ./text-analytics/how-tos/text-analytics-how-to-install-containers.md
           itemType: overview
           text: Sentiment Analysis
-        - url: ./computer-vision/index.yml
+        - url: ./text-analytics/how-tos/text-analytics-how-to-install-containers.md
+          itemType: overview
+          text: Key phrase extraction
+        - url: ./text-analytics/how-tos/text-analytics-how-to-install-containers.md
           itemType: overview
           text: Text language detection
-        - url: ./computer-vision/index.yml
+        - url: ./text-analytics/how-tos/text-analytics-how-to-install-containers.md
           itemType: overview
           text: Text Analytics for health     
     - title: Anomaly Detector container
-      summary: Build apps that surface recommendations for informed and efficient decision-making.
+      summary: Detect anomalies in your time series data.
       links:
-        - url: ./computer-vision/index.yml
+        - url: ./anomaly-detector/anomaly-detector-container-howto.md
           itemType: overview
           text: Anomaly Detector 
     - title: Language Understanding (LUIS) container
-      summary: Build apps that surface recommendations for informed and efficient decision-making.
+      summary: Load a published LUIS model (also called a LUIS app), into a Docker container and query the prediction endpoints. 
       links:
-        - url: ./computer-vision/index.yml
+        - url: ./luis/luis-container-howto.md
+          itemType: overview
+          text: LUIS container
+    - title: Form Recognizer
+      summary:  Identify and extract key-value pairs and tables from forms.
+      links:
+        - url: ./form-recognizer/form-recognizer-container-howto.md
+          itemType: overview
+          text: Form Recognizer
+    - title: Face
+      summary: Detect human faces in images and identify attributes, such as face landmarks (such as noses and eyes), gender, and age. 
+      links:
+        - url: ./face/face-how-to-install-containers.md
           itemType: overview
           text: Anomaly Detector 
