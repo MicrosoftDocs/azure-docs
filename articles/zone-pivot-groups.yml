@@ -664,6 +664,15 @@ groups:
   - id: programming-language-csharp
     title: C#
 - id: speech-full-stack-go
+# Owner: mathoma
+  title: SQL VM HADR
+  prompt: Choose a HADR solution
+  pivots:
+  - id: fci
+    title: Failover cluster instance (FCI)
+  - id: ag
+    title: Availability group (AG)
+- id: sql-vm-hadr
   # Owner: erhopf
   title: Programming languages
   prompt: Choose a programming language

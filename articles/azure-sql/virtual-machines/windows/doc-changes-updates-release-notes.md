@@ -18,6 +18,14 @@ ms.date: 08/20/2020
 
 Azure allows you to deploy a virtual machine (VM) with an image of SQL Server built in. This article summarizes the documentation changes associated with new features and improvements in the recent releases of [SQL Server on Azure Virtual Machines](https://azure.microsoft.com/services/virtual-machines/sql-server/). 
 
+## October 2020
+
+| Changes | Details |
+| --- | --- |
+| **DNN for AG** | You can now configure a [distributed network name](hadr-distributed-network-name-dnn-configure.md) for an [availability group listener](availability-group-overview.md#connectivity), replacing the Azure Load Balancer.  | 
+
+
+
 ## August 2020
 
 | Changes | Details |

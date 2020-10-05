@@ -1040,6 +1040,12 @@
             href: virtual-machines/windows/sql-vm-resource-provider-register.md
           - name: Bulk register multiple VMs
             href: virtual-machines/windows/sql-vm-resource-provider-bulk-register.md
+        - name: Backup and restore
+          items:
+          - name: Automated backup (SQL 2016+)
+            href: virtual-machines/windows/automated-backup.md
+          - name: Automated backup (SQL 2014)
+            href: virtual-machines/windows/automated-backup-sql-2014.md
         - name: Automate management tasks
           items:
           - name: Use the SQL Server IaaS Agent Extension
@@ -1052,14 +1058,8 @@
           href: virtual-machines/windows/migrate-to-vm-from-sql-server.md
         - name: VM to a new region
           href: virtual-machines/windows/move-sql-vm-different-region.md
-      - name: Business continuity
+      - name: High availability, disaster recovery (HADR)
         items:
-        - name: Backup and restore
-          items:
-          - name: Automated backup (SQL 2016+)
-            href: virtual-machines/windows/automated-backup.md
-          - name: Automated backup (SQL 2014)
-            href: virtual-machines/windows/automated-backup-sql-2014.md
         - name: Always On availability group
           items:
           - name: Azure portal
@@ -1072,6 +1072,8 @@
             href: virtual-machines/windows/availability-group-manually-configure-multiple-regions.md
           - name: Domain-independent (workgroup)
             href: virtual-machines/windows/availability-group-clusterless-workgroup-configure.md
+          - name: DNN Interoperability
+            href: virtual-machines/windows/availability-group-dnn-interoperability.md
           - name: Configure manually
             items:
             - name: Prerequisites
@@ -1094,16 +1096,20 @@
               href: virtual-machines/windows/failover-cluster-instance-storage-spaces-direct-manually-configure.md
             - name: Premium file share (Win2012+)
               href: virtual-machines/windows/failover-cluster-instance-premium-file-share-manually-configure.md
-          - name: Distributed Network Name (DNN)
-            items: 
-            - name: Create DNN for FCI
-              href: virtual-machines/windows/hadr-distributed-network-name-dnn-configure.md
-            - name: FCI DNN & SQL Server features
-              href: virtual-machines/windows/failover-cluster-instance-dnn-interoperability.md
+          - name: DNN Interoperability
+            href: virtual-machines/windows/failover-cluster-instance-dnn-interoperability.md
+           
         - name: Configure connectivity
           items:
+          - name: Distributed Network Name (DNN)
+            href: virtual-machines/windows/hadr-distributed-network-name-dnn-configure.md
+          - name: Distributed Network Name (DNN) ZP
+            href: virtual-machines/windows/hadr-distributed-network-name-dnn-configure-zp.md
           - name: Virtual Network Name (VNN)
             href: virtual-machines/windows/hadr-vnn-azure-load-balancer-configure.md
+
+
+
 
     - name: Reference
       items:
