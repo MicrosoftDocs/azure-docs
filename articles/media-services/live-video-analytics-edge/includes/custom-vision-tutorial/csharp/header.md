@@ -1,1 +1,1 @@
-
+We will show you how to bring together the power of Custom Vision - that allows anyone to build and train a computer vision model by simply uploading and labeling a few images, without any knowledge of data science, ML or AI - along with capabilities of Live Video Analytics  to easily deploy a custom model as a container on the edge and analyze a simulated live video feed. This tutorial uses an Azure VM as an IoT Edge device, is based on sample code written in C#, and it builds on the [Detect motion and emit events](detect-motion-emit-events-quickstart.md) quickstart.
