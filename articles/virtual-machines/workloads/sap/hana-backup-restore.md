@@ -411,7 +411,7 @@ SnapCenter offers solutions for scenarios including backup/recovery, disaster re
 For additional references, see NetApp TR-4614 and TR-4646 on SnapCenter.
 
 - [SAP HANA Backup/Recovery with SnapCenter](https://www.netapp.com/us/media/tr-4614.pdf)
-- [SAP HANA DR with async. Storage Replication](https://www.netapp.com/us/media/tr-4646.pdf)
+- [SAP HANA Disaster Recovery with Storage Replication](https://www.netapp.com/us/media/tr-4646.pdf)
 - [SAP HANA HSR with SnapCenter](https://www.netapp.com/us/media/tr-4719.pdf)
 - [SAP Cloning from SnapCenter](https://www.netapp.com/us/media/tr-4667.pdf)
 
@@ -425,8 +425,8 @@ To run SnapCenter on Azure HLI, system requirements include:
 
 The steps to integrate SnapCenter in SAP HANA are: 
 
-1. Raise a support ticket request to communicate the user-generated public key to the Microsoft Ops team. This is required to setup SnapCenter user role for access to storage system
-1. Create a VM in your VNET that has access to HLI, this VM will be used for SnapCenter. 
+1. Raise a support ticket request to communicate the user-generated public key to the Microsoft Ops team. This is required to setup the SnapCenter user role for access to the storage system.
+1. Create a VM in your VNET that has access to HLI; this VM will be used for SnapCenter. 
 1. Download and install SnapCenter. 
 1. Backup and recover operations. 
 
@@ -513,26 +513,13 @@ Before installing SnapCenter, review [SAP HANA Backup/Recovery with SnapCenter](
    >[!IMPORTANT]
    >Pay attention to the size of the VM, especially in larger environments.
 
-   :::image type="content" source="./media/snapcenter/prerequisites-validation.png" alt-text="Prerequisites validation":::
+1. Configure the user credentials for the SnapCenter. By default, it populates the Windows user credentials used for installing the application. 
 
-1. Clear the **Enable and configure NLB** checkbox to disable NLB and select **Next**. We don't install a cluster for the SnapCenter server.
+   :::image type="content" source="media/snapcenter/unstallation-user-inputs-dialog.png" alt-text="Installation user inputs dialog"::: 
 
-   :::image type="content" source="./media/snapcenter/network-load-balancing.png" alt-text="Network load balancing":::
+1. When you start the session, save the security exemption and the GUI will start up.
 
-1. Create a new user for the SnapCenter, select **Add**, specify the user as *snapcenter* and enter a password, and then select **Next**.
-
-1. Enter the ports to use for communicating with the components and then select **Next**.
-
-1. Define the MySQL password and then select **Next**.
-
-1. On the InstallSheild Wizard Complete dialog, select **Finish**.
-
-   :::image type="content" source="./media/snapcenter/snapcenter-installation-complete.png" alt-text="SnapCenter installation complete window":::
-
-1. Restart your system for the configuration to take effect. 
-
-1. When you start the session, save the security exemption and the GUI starts up.
-1. Sign in as the *snapcenter* user.
+1. On the VM, sign in as the *snapcenter* user to configure the environment.
 
 1. Once you're in SnapCenter, select **Storage System**, and then select **+New**. 
 
