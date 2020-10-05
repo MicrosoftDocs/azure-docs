@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: logicappspm
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 09/20/2019
+ms.date: 09/30/2020
 ---
 
 # Tutorial: Create automated approval-based workflows by using Azure Logic Apps
 
-This tutorial shows how to build a [logic app](../logic-apps/logic-apps-overview.md) that automates an approval-based workflow. Specifically, this logic app processes subscription requests for a mailing list that's managed by the [MailChimp](https://mailchimp.com/) service. This logic app monitors an email account for these requests, sends these requests for approval, and adds approved members to the mailing list.
+This tutorial shows how to build an example [logic app](../logic-apps/logic-apps-overview.md) that automates an approval-based workflow. Specifically, this example logic app processes subscription requests for a mailing list that's managed by the [MailChimp](https://mailchimp.com/) service. This logic app includes various steps, which starts by monitoring an email account for requests, sends these requests for approval, checks whether or not the request gets approval, adds approved members to the mailing list, and confirms whether or not new members get added to the list.
 
 In this tutorial, you learn how to:
 
@@ -31,84 +31,81 @@ When you're done, your logic app looks like this workflow at a high level:
 
 ## Prerequisites
 
-* An Azure subscription. If you don't have a subscription, [sign up for a free Azure account](https://azure.microsoft.com/free/) before you begin.
+* An Azure account and subscription. If you don't have a subscription, [sign up for a free Azure account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-* A MailChimp account that contains a list named "test-members-ML" where your logic app can add email addresses for approved members. If you don't have an account, [sign up for a free account](https://login.mailchimp.com/signup/), and then learn [how to create a MailChimp list](https://us17.admin.mailchimp.com/lists/#).
+* A MailChimp account where you previously created a list named "test-members-ML" where your logic app can add email addresses for approved members. If you don't have an account, [sign up for a free account](https://login.mailchimp.com/signup/), and then learn [how to create a MailChimp list](https://us17.admin.mailchimp.com/lists/#).
 
-* An email account in Outlook for Microsoft 365 or Outlook.com, which supports approval workflows. This article uses Office 365 Outlook. If you use a different email account, the general steps stay the same, but your UI might appear slightly different.
+* An email account from an email provider that's supported by Logic Apps, such as Office 365 Outlook, Outlook.com, or Gmail. For other providers, [review the connectors list here](/connectors/). This quickstart uses Office 365 Outlook with a work or school account. If you use a different email account, the general steps stay the same, but your UI might slightly differ.
+
+* An email account in Office 365 Outlook or Outlook.com, which supports approval workflows. This tutorial uses Office 365 Outlook. If you use a different email account, the general steps stay the same, but your UI might appear slightly different.
 
 ## Create your logic app
 
-1. Sign in to the [Azure portal](https://portal.azure.com) with your Azure account credentials.
+1. Sign in to the [Azure portal](https://portal.azure.com) with your Azure account credentials. On the Azure home page, select **Create a resource**.
 
-1. From the main Azure menu, select **Create a resource** > **Integration** > **Logic App**.
+1. On the Azure Marketplace menu, select **Integration** > **Logic App**.
 
-   ![Create your new logic app resource](./media/tutorial-process-mailing-list-subscriptions-workflow/create-new-logic-app-resource.png)
+   ![Screenshot that shows Azure Marketplace menu with "Integration" and "Logic App" selected.](./media/tutorial-process-mailing-list-subscriptions-workflow/create-new-logic-app-resource.png)
 
-1. Under **Create logic app**, provide this information about your logic app as shown and described. When you're done, select **Create**.
+1. On the **Logic App** pane, provide the information described here about the logic app that you want to create.
 
-   ![Provide information about your logic app](./media/tutorial-process-mailing-list-subscriptions-workflow/create-logic-app-settings.png)
+   ![Screenshot that shows the Logic App creation pane and the info to provide for the new logic app.](./media/tutorial-process-mailing-list-subscriptions-workflow/create-logic-app-settings.png)
 
    | Property | Value | Description |
    |----------|-------|-------------|
-   | **Name** | LA-MailingList | Your logic app's name, which can contain only letters, numbers, hyphens (`-`), underscores (`_`), parentheses (`(`, `)`), and periods (`.`). This example uses "LA-MailingList". |
-   | **Subscription** | <*your-Azure-subscription-name*> | Your Azure subscription name |
-   | **Resource group** | LA-MailingList-RG | The name for the [Azure resource group](../azure-resource-manager/management/overview.md), which is used to organize related resources. This example uses "LA-MailingList-RG". |
-   | **Location** | West US | TThe region where to store your logic app information. This example uses "West US". |
+   | **Subscription** | <*Azure-subscription-name*> | Your Azure subscription name. This example uses `Pay-As-You-Go`. |
+   | **Resource group** | LA-MailingList-RG | The name for the [Azure resource group](../azure-resource-manager/management/overview.md), which is used to organize related resources. This example creates a new resource group named `LA-MailingList-RG`. |
+   | **Name** | LA-MailingList | Your logic app's name, which can contain only letters, numbers, hyphens (`-`), underscores (`_`), parentheses (`(`, `)`), and periods (`.`). This example uses `LA-MailingList`. |
+   | **Location** | West US | TThe region where to store your logic app information. This example uses `West US`. |
    | **Log Analytics** | Off | Keep the **Off** setting for diagnostic logging. |
    ||||
 
-1. After Azure deploys your app, on the Azure toolbar, select **Notifications** > **Go to resource** for your deployed logic app.
+1. When you're done, select **Review + create**. After Azure validates the information about your logic app, select **Create**.
 
-   ![Go to your new logic app resource](./media/tutorial-process-mailing-list-subscriptions-workflow/go-to-logic-app-resource.png)
+1. After Azure deploys your app, select **Go to resource**.
 
-   Or, you can find and select your logic app by typing the name in the search box.
+   Azure opens the Logic Apps template selection pane, which shows an introduction video, commonly used triggers, and logic app template patterns.
 
-   The Logic Apps Designer opens and shows a page with an introduction video and commonly used triggers and logic app patterns. Under **Templates**, select **Blank Logic App**.
+1. Scroll down past the video and common triggers sections to the **Templates** section, and select **Blank Logic App**.
 
-   ![Select blank logic app template](./media/tutorial-process-mailing-list-subscriptions-workflow/select-logic-app-template.png)
+   ![Screenshot that shows the Logic Apps template selection pane with "Blank Logic App" selected.](./media/tutorial-process-mailing-list-subscriptions-workflow/select-logic-app-template.png)
 
-Next, add a [trigger](../logic-apps/logic-apps-overview.md#logic-app-concepts) that listens for incoming emails with subscription requests. Each logic app has to start with a trigger, which fires when a specific event happens or when new data meets a specific condition. For more information, see [Create your first logic app](../logic-apps/quickstart-create-first-logic-app-workflow.md).
+Next, add an Outlook [trigger](../logic-apps/logic-apps-overview.md#logic-app-concepts) that listens for incoming emails with subscription requests. Each logic app must start with a trigger, which fires when a specific event happens or when new data meets a specific condition. For more information, see [Create your first logic app](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
 ## Add trigger to monitor emails
 
-1. On the Logic App Designer, in the search box, enter `when email arrives` as your filter. From the **Triggers** list, select the **When a new email arrives** trigger for your email provider.
+1. In the Logic Apps Designer search box, enter `when email arrives`, and select the trigger named **When a new email arrives**.
 
-   This example uses the Office 365 Outlook trigger:
+   * For Azure work or school accounts, select **Office 365 Outlook**.
+   * For personal Microsoft accounts, select **Outlook.com**.
 
-   ![Select "When a new email arrives" trigger for email provider](./media/tutorial-process-mailing-list-subscriptions-workflow/add-trigger-new-email.png)
+   This example continues by selecting Office 365 Outlook.
 
-   * For Azure work or school accounts, select Office 365 Outlook.
-   * For personal Microsoft accounts, select Outlook.com.
+   ![Screenshot that shows the Logic Apps Designer search box that contains the "when email arrives" search term, and the "When a new email arrives" trigger appears selected.](./media/tutorial-process-mailing-list-subscriptions-workflow/add-trigger-new-email.png)
 
-1. If prompted, sign in to your email account with your credentials so that Logic Apps can create a connection to your email account.
+1. If you don't already have a connection, sign in and authenticate access to your email account when prompted.
 
-1. In the trigger, provide the criteria for checking all new email.
+   Azure Logic Apps creates a connection to your email account.
 
-   1. Specify the folder, interval, and frequency for checking emails.
+1. In the trigger, provide the criteria for checking new email.
 
-      ![Specify folder, interval, and frequency for checking mails](./media/tutorial-process-mailing-list-subscriptions-workflow/add-trigger-set-up-email.png)
+   1. Specify the folder for checking emails, and keep the other properties set to their default values.
 
-      | Property | Value | Description |
-      |----------|-------|-------------|
-      | **Folder** | `Inbox` | The email folder to monitor |
-      | **Interval** | `1` | The number of intervals to wait between checks |
-      | **Frequency** | `Hour` | The unit of time to use for the recurrence |
-      ||||
+      ![Screenshot that shows the designer with the "When a new email arrives" action and "Folder" set to "Inbox".](./media/tutorial-process-mailing-list-subscriptions-workflow/add-trigger-set-up-email.png)
 
-   1. Now add another property to the trigger so that you can filter on email subject line. Open the **Add new parameter list**, and select the **Subject Filter** property.
+   1. Add the trigger's **Subject Filter** property so that you can filter emails based on the subject line. Open the **Add new parameter** list, and select **Subject Filter**.
 
-      ![Add "Subject Filter" property to trigger](./media/tutorial-process-mailing-list-subscriptions-workflow/add-trigger-add-properties.png)
+      ![Screenshot that shows the opened "Add new parameter" list with "Subject Filter" selected.](./media/tutorial-process-mailing-list-subscriptions-workflow/add-trigger-add-properties.png)
 
       For more information about this trigger's properties, see the [Office 365 Outlook connector reference](/connectors/office365/) or the [Outlook.com connector reference](/connectors/outlook/).
 
    1. After the property appears in the trigger, enter this text: `subscribe-test-members-ML`
 
-      ![Enter text for "Subject Filter" property](./media/tutorial-process-mailing-list-subscriptions-workflow/add-trigger-subject-filter-property.png)
+      ![Screenshot that shows the "Subject Filter" property with the text "subscribe-test-members-ML" entered.](./media/tutorial-process-mailing-list-subscriptions-workflow/add-trigger-subject-filter-property.png)
 
-1. To hide the trigger's details for now, click the trigger's title bar.
+1. To hide the trigger's details for now, collapse the shape by clicking inside the shape's title bar.
 
-   ![Collapse shape to hide details](./media/tutorial-process-mailing-list-subscriptions-workflow/collapse-trigger-shape.png)
+   ![Screenshot that shows the collapsed trigger shape.](./media/tutorial-process-mailing-list-subscriptions-workflow/collapse-trigger-shape.png)
 
 1. Save your logic app. On the designer toolbar, select **Save**.
 
@@ -118,48 +115,43 @@ Your logic app is now live but doesn't do anything other than check your incomin
 
 Now that you have a trigger, add an [action](../logic-apps/logic-apps-overview.md#logic-app-concepts) that sends an email to approve or reject the request.
 
-1. Under the trigger, select **New step**. 
+1. In the Logic Apps Designer, under the **When a new email arrives** trigger, select **New step**.
 
-1. Under **Choose an action**, in the search box, enter `approval` as your filter. From the actions list, select the **Send approval email** action for your email provider. 
+1. Under **Choose an operation**, in the search box, enter `send approval`, and select the action named **Send approval email**.
 
-   This example uses the Office 365 Outlook action:
+   ![Screenshot that shows the "Choose an operation" list filtered by "approval" actions, and the "Send approval email" action selected.](./media/tutorial-process-mailing-list-subscriptions-workflow/add-action-send-approval-email.png)
 
-   ![Select "Send approval email" action](./media/tutorial-process-mailing-list-subscriptions-workflow/add-action-send-approval-email.png)
+1. Now enter the values for the specified properties shown and described here. leaving all the others at their default values. For more information about these properties, see the [Office 365 Outlook connector reference](/connectors/office365/) or the [Outlook.com connector reference](/connectors/outlook/).
 
-1. Provide the information about this action as described: 
-
-   ![Send approval email properties](./media/tutorial-process-mailing-list-subscriptions-workflow/add-action-approval-email-settings.png)
+   ![Screenshot that shows the "Send approval email" properties](./media/tutorial-process-mailing-list-subscriptions-workflow/add-action-approval-email-settings.png)
 
    | Property | Value | Description |
    |----------|-------|-------------|
-   | **To** | <*your-email-address*> | The approver's email address. For testing purposes, you can use your own address. This example uses the fictional "sophia.owen@fabrikam.com" email address. |
+   | **To** | <*approval-email-address*> | The approver's email address. For testing purposes, you can use your own address. This example uses the fictional `sophiaowen@fabrikam.com` email address. |
    | **Subject** | `Approve member request for test-members-ML` | A descriptive email subject |
-   | **User Options** | `Approve, Reject` | The response options that the approver can select. By default, the approver can select either "Approve" or "Reject" as their response. |
+   | **User Options** | `Approve, Reject` | Make sure this property specifies the response options that the approver can select, which are **Approve** or **Reject** by default. |
    ||||
 
-   For now, ignore the dynamic content list that appears when you click inside specific edit boxes. This list lets you select available output from previous actions that you can use as inputs in your workflow.
-
-   For more information about this action's properties, see the [Office 365 Outlook connector reference](/connectors/office365/) or the [Outlook.com connector reference](/connectors/outlook/).
+   > [!NOTE]
+   > When you click inside some edit boxes, the dynamic content list appears, which you can ignore for now. 
+   > This list shows the outputs from previous actions that are available for you to select as inputs to 
+   > subsequent actions in your workflow.
  
 1. Save your logic app.
 
-Next, add a condition to check the approver's selected response.
+Next, add a condition that checks the approver's selected response.
 
 ## Check approval response
 
-1. Under the **Send approval email** action, select **New step**".
+1. Under the **Send approval email** action, select **New step**.
 
-1. Under **Choose an action**, select **Built-in**. In the search box, enter `condition` as your filter. From the actions list, select the **Condition** action.
+1. Under **Choose an operation**, select **Built-in**. In the search box, enter `condition`, and select the action named **Condition**.
 
-   ![Find and select the "Condition" action](./media/tutorial-process-mailing-list-subscriptions-workflow/select-condition-action.png)
+   ![Screenshot that shows the "Choose an operation" search box with "Built-in" selected and "condition" as the search term, while the "Condition" action appears selected.](./media/tutorial-process-mailing-list-subscriptions-workflow/select-condition-action.png)
 
-1. Rename the condition with a better description.
+1. On the **Condition** shape, select the **ellipses** (**...**) button, and then select **Rename**. Rename the condition with this description: `If request approved`
 
-   1. On the condition's title bar, select the **ellipses** (**...**) button > **Rename**.
-
-      ![Rename condition's description](./media/tutorial-process-mailing-list-subscriptions-workflow/rename-condition-description.png)
-
-   1. Rename your condition with this description: `If request approved`
+   ![Screenshot that shows the ellipses button selected with the "Settings" list opened and the "Rename" command selected.](./media/tutorial-process-mailing-list-subscriptions-workflow/rename-condition-description.png)
 
 1. Build a condition that checks whether the approver selected **Approve**.
 
