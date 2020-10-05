@@ -392,7 +392,7 @@
       topicHref: /azure/cognitive-services/LUIS/
     - name: Linguistic Analysis
       tocHref: /azure/cognitive-services/linguisticanalysisapi/
-      topicHref: https://www.programmableweb.com/api/microsoft-cognitive-services-linguistic-analysis#:~:text=The%20Microsoft%20Cognitive%20Services%20Linguistic%20Analysis%20API%20processes,feedback%2C%20interpreting%20user%20commands%2C%20or%20consuming%20web%20text
+      topicHref: https://www.programmableweb.com/api/microsoft-cognitive-services-linguistic-analysis
     - name: QnA Maker
       tocHref: /azure/cognitive-services/qnamaker/
       topicHref: /azure/cognitive-services/qnamaker/home
