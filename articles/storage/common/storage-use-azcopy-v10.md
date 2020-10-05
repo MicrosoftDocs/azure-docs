@@ -89,7 +89,7 @@ These roles can be assigned to your security principal in any of these scopes:
 - Resource group
 - Subscription
 
-To learn how to verify and assign roles, see [Grant access to Azure blob and queue data with RBAC in the Azure portal](https://docs.microsoft.com/azure/storage/common/storage-auth-aad-rbac-portal?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
+To learn how to verify and assign roles, see [Use the Azure portal to assign an Azure role for access to blob and queue data](https://docs.microsoft.com/azure/storage/common/storage-auth-aad-rbac-portal?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
 
 > [!NOTE]
 > Keep in mind that Azure role assignments can take up to five minutes to propagate.

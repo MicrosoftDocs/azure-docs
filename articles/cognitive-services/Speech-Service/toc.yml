@@ -449,12 +449,6 @@
               href: windows-voice-assistants-best-practices.md
             - name: 'Samples and frequently asked questions'
               href: windows-voice-assistants-faq.md
-    - name: Custom Keyword
-      items:
-        - name: Custom keyword overview
-          href: custom-keyword-overview.md
-        - name: Custom keyword basics
-          href: custom-keyword-basics.md
 - name: Speaker Recognition
   items:
     - name: Speaker Recognition overview
@@ -465,6 +459,12 @@
       items:
         - name: Speaker Recognition REST API
           href: https://docs.microsoft.com/rest/api/speakerrecognition/
+- name: Custom Keyword
+  items:
+    - name: Custom keyword overview
+      href: custom-keyword-overview.md
+    - name: Custom keyword basics
+      href: custom-keyword-basics.md
 - name: Tools
   items:
   - name: Speech SDK

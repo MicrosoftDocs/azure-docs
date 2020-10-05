@@ -14,7 +14,7 @@ articles/active-directory/app-provisioning/ @CelesteDG
 articles/active-directory/manage-apps/ @CelesteDG
 
 # Cognitive Services
-articles/cognitive-services/ @diberry @erhopf @aahill @trevorbye @patrickfarley @nitinme
+articles/cognitive-services/ @erhopf @aahill @trevorbye @patrickfarley @nitinme @mrbullwinkle
 
 # DevOps
 articles/ansible/ @TomArcherMsft
@@ -23,9 +23,9 @@ articles/jenkins/ @TomArcherMsft
 articles/terraform/ @TomArcherMsft
 
 # compute
-articles/virtual-machines/ @cynthn @mimckitt 
-articles/virtual-machine-scale-sets/ @ju-shim @mimckitt 
-articles/cloud-services/ @mimckitt 
+articles/virtual-machines/ @cynthn @mimckitt
+articles/virtual-machine-scale-sets/ @ju-shim @mimckitt
+articles/cloud-services/ @mimckitt
 
 # Requires Internal Review
 articles/best-practices-availability-paired-regions.md @martinekuan @syntaxc4 @snoviking
