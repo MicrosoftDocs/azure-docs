@@ -6,7 +6,7 @@ author: duongau
 
 ms.service: expressroute
 ms.topic: overview
-ms.date: 08/25/2020
+ms.date: 10/05/2020
 ms.author: duau
 
 ---
@@ -70,7 +70,7 @@ ExpressRoute has a constantly growing ecosystem of connectivity providers and sy
 Microsoft operates isolated cloud environments for special geopolitical regions and customer segments. Refer to the [ExpressRoute partners and peering locations](expressroute-locations.md) page for a list of national clouds and providers.
 
 ### ExpressRoute Direct
-ExpressRoute Direct provides customers the opportunity to connect directly into Microsoft’s global network at peering locations strategically distributed across the world. ExpressRoute Direct provides dual 100Gbps connectivity, which supports Active/Active connectivity at scale.
+ExpressRoute Direct provides customers the opportunity to connect directly into Microsoft’s global network at peering locations strategically distributed across the world. ExpressRoute Direct provides dual 100 Gbps connectivity, which supports Active/Active connectivity at scale.
 
 Key features that ExpressRoute Direct provides include, but are not limited to:
 
@@ -93,7 +93,7 @@ You can purchase ExpressRoute circuits for a wide range of bandwidths. The suppo
 * 10 Gbps
 
 ### Dynamic scaling of bandwidth
-You can increase the ExpressRoute circuit bandwidth (on a best effort basis) without having to tear down your connections. For more information see [Modifying an ExpressRoute circuit](expressroute-howto-circuit-portal-resource-manager.md#modify).
+You can increase the ExpressRoute circuit bandwidth (on a best effort basis) without having to tear down your connections. For more information, see [Modifying an ExpressRoute circuit](expressroute-howto-circuit-portal-resource-manager.md#modify).
 
 ### Flexible billing models
 You can pick a billing model that works best for you. Choose between the billing models listed below. For more information, see [ExpressRoute FAQ](expressroute-faqs.md).
@@ -113,13 +113,6 @@ For frequently asked questions about ExpressRoute, see [ExpressRoute FAQ](expres
 Subscribe to the RSS feed and view the latest ExpressRoute feature updates on the [Azure Updates](https://azure.microsoft.com/updates/?category=networking&query=ExpressRoute) page.
 
 ## Next steps
-* Learn about [ExpressRoute connectivity models](expressroute-connectivity-models.md).
-* Learn about ExpressRoute connections and routing domains. See [ExpressRoute circuits and routing domains](expressroute-circuit-peerings.md).
-* Find a service provider. See [ExpressRoute partners and peering locations](expressroute-locations.md).
 * Ensure that all prerequisites are met. See [ExpressRoute prerequisites](expressroute-prerequisites.md).
-* Refer to the requirements for [Routing](expressroute-routing.md), [NAT](expressroute-nat.md), and [QoS](expressroute-qos.md).
-* Configure your ExpressRoute connection.
-  * [Create and modify an ExpressRoute circuit](expressroute-howto-circuit-portal-resource-manager.md)
-  * [Create and modify peering for an ExpressRoute circuit](expressroute-howto-routing-portal-resource-manager.md)
-  * [Connect a virtual network to an ExpressRoute circuit](expressroute-howto-linkvnet-portal-resource-manager.md)
-* Learn about some of the other Azure key [networking capabilities](../networking/networking-overview.md).
+* Learn about [ExpressRoute connectivity models](expressroute-connectivity-models.md).
+* Find a service provider. See [ExpressRoute partners and peering locations](expressroute-locations.md).
