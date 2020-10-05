@@ -48,14 +48,7 @@ The Azure API for FHIR will cache decisions for up to 5 minutes. If you grant a 
 
 ## Next steps
 
-In this article, you learned how to assign Azure roles for the FHIR data plane.
-
-To learn about configuring customer-managed keys as a database setting:
-
->[!div class="nextstepaction"]
->[Configure customer-managed keys](byok.md)
-
-To learn about additional settings for the Azure API for FHIR:
+In this article, you learned how to assign Azure roles for the FHIR data plane. To learn about additional settings for the Azure API for FHIR:
  
 >[!div class="nextstepaction"]
 >[Additional settings for Azure API for FHIR](azure-api-for-fhir-additional-settings.md)
