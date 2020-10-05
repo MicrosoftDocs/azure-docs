@@ -71,14 +71,18 @@ $resourceGroup = "myResourceGroup"
 $diskName = "myDisk"
 ```
 
-Create a disk configuration and then the disk, using the source image version ID.
+Create a disk configuration and then the disk, using the source image version ID. For the `-GalleryImageReference`, Lun is needed only if the source is a data disk.
 
 ```azurepowershell-interactive
 $diskConfig = New-AzDiskConfig `
    -Location $location `
    -CreateOption FromImage `
-   -ImageReference $sourceImgVer.Id
- 
+   -GalleryImageReference @{Id = $sourceImgVer.Id; Lun=1}
+``` 
+
+Create the disk.
+
+```azurepowershell-interactive
 New-AzDisk -Disk $diskConfig `
    -ResourceGroupName $resourceGroup `
    -DiskName $diskName
