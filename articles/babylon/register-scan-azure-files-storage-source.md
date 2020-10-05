@@ -79,5 +79,3 @@ Then click Cancel Scan to stop all the selected scans from running.
 
 ## Summary
 In this tutorial you scanned an Azure Files account using the portal.
-
-## Next steps
