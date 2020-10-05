@@ -16,17 +16,13 @@ The DCsv2-series can help protect the confidentiality and integrity of your data
 
 Example use cases include: confidential multiparty data sharing, fraud detection, anti-money laundering, blockchain, confidential usage analytics, intelligence analysis and confidential machine learning.
 
-Premium Storage: Supported*
-
-Premium Storage caching: Supported*
-
-Live Migration: Not Supported
-
-Memory Preserving Updates: Not Supported
+[Premium Storage](premium-storage-performance.md): Supported*<br>
+[Premium Storage caching](premium-storage-performance.md): Supported<br>
+[Live Migration](maintenance-and-updates.md): Not Supported<br>
+[Memory Preserving Updates](maintenance-and-updates.md): Not Supported<br>
+[VM Generation Support](generation-2.md): Generation 1 and 2<br>
 
 *Except for Standard_DC8_v2
-
-
 
 | Size             | vCPU | Memory: GiB | Temp storage (SSD) GiB | Max data disks | Max cached and temp storage throughput: IOPS / MBps (cache size in GiB) | Max NICs / Expected network bandwidth (MBps) | EPC Memory (MiB) |
 |------------------|------|-------------|------------------------|----------------|-------------------------------------------------------------------------|----------------------------------------------|---------------------|

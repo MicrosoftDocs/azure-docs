@@ -80,7 +80,7 @@ $ras.Count
 
 ## Transferring a subscription to a different directory
 
-- If you need steps for how to transfer a subscription to a different Azure AD directory, see [Transfer an Azure subscription to a different Azure AD directory (Preview)](transfer-subscription.md).
+- If you need steps for how to transfer a subscription to a different Azure AD directory, see [Transfer an Azure subscription to a different Azure AD directory](transfer-subscription.md).
 - If you transfer a subscription to a different Azure AD directory, all role assignments are **permanently** deleted from the source Azure AD directory and are not migrated to the target Azure AD directory. You must re-create your role assignments in the target directory. You also have to manually recreate managed identities for Azure resources. For more information, see [FAQs and known issues with managed identities](../active-directory/managed-identities-azure-resources/known-issues.md).
 - If you are an Azure AD Global Administrator and you don't have access to a subscription after it was transferred between directories, use the **Access management for Azure resources** toggle to temporarily [elevate your access](elevate-access-global-admin.md) to get access to the subscription.
 

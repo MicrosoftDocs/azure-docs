@@ -14,7 +14,7 @@ ms.topic: how-to
 ms.custom: mvc
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/08/2020
+ms.date: 10/01/2020
 ms.author: yelevin
 
 ---
@@ -41,17 +41,22 @@ The following data connection methods are supported by Azure Sentinel:
 
 - **Service to service integration**:<br> Some services are connected natively, such as AWS and Microsoft services, these services leverage the Azure foundation for out-of-the box integration, the following solutions can be connected in a few clicks:
     - [Amazon Web Services - CloudTrail](connect-aws.md)
-    - [Azure Activity](connect-azure-activity.md)
     - [Azure Active Directory](connect-azure-active-directory.md) - audit logs and sign-in logs
+    - [Azure Activity](connect-azure-activity.md)
     - [Azure AD Identity Protection](connect-azure-ad-Identity-protection.md)
-    - [Microsoft Defender for Identity](connect-azure-atp.md) (formerly Azure Advanced Threat Protection)
+    - [Azure DDoS Protection](connect-azure-ddos-protection.md)
+    - [Azure Defender for IoT](connect-asc-iot.md) (formerly Azure Security Center for IoT)
     - [Azure Information Protection](connect-azure-information-protection.md)
+    - [Azure Firewall](connect-azure-firewall.md)
     - [Azure Security Center](connect-azure-security-center.md) - alerts from Azure Defender solutions
+    - [Azure Web Application Firewall (WAF)](connect-azure-waf.md) (formerly Microsoft WAF)
     - [Cloud App Security](connect-cloud-app-security.md)
     - [Domain name server](connect-dns.md)
-    - [Office 365](connect-office-365.md)
+    - [Microsoft 365 Defender](connect-microsoft-365-defender.md) - includes MDATP raw data
     - [Microsoft Defender for Endpoint](connect-microsoft-defender-advanced-threat-protection.md) (formerly Microsoft Defender Advanced Threat Protection)
-    - [Microsoft web application firewall](connect-microsoft-waf.md)
+    - [Microsoft Defender for Identity](connect-azure-atp.md) (formerly Azure Advanced Threat Protection)
+    - [Microsoft Defender for Office 365](connect-office-365-advanced-threat-protection.md) (formerly Office 365 Advanced Threat Protection)
+    - [Office 365](connect-office-365.md) (now with Teams!)
     - [Windows firewall](connect-windows-firewall.md)
     - [Windows security events](connect-windows-security-events.md)
 
@@ -63,9 +68,14 @@ The following data connection methods are supported by Azure Sentinel:
     - [Citrix Analytics (Security)](connect-citrix-analytics.md)
     - [F5 BIG-IP](connect-f5-big-ip.md)
     - [Forcepoint DLP](connect-forcepoint-dlp.md)
+    - [Okta SSO](connect-okta-single-sign-on.md)
+    - [Orca Security](connect-orca-security-alerts.md)
     - [Perimeter 81 logs](connect-perimeter-81-logs.md)
+    - [Proofpoint TAP](connect-proofpoint-tap.md)
+    - [Qualys VM](connect-qualys-vm.md)
     - [Squadra Technologies secRMM](connect-squadra-secrmm.md)
     - [Symantec ICDX](connect-symantec.md)
+    - [VMware Carbon Black Cloud Endpoint Standard](connect-vmware-carbon-black.md)
     - [Zimperium](connect-zimperium-mtd.md)
 
 
@@ -75,7 +85,7 @@ The following data connection methods are supported by Azure Sentinel:
 
     The Azure Sentinel agent, which is actually the Log Analytics agent, converts CEF-formatted logs into a format that can be ingested by Log Analytics. Depending on the appliance type, the agent is installed either directly on the appliance, or on a dedicated Linux-based log forwarder. The agent for Linux receives events from the Syslog daemon over UDP, but if a Linux machine is expected to collect a high volume of Syslog events, they are sent over TCP from the Syslog daemon to the agent and from there to Log Analytics.
 
-    - **Firewalls, proxies, and endpoints:**
+    - **Firewalls, proxies, and endpoints - CEF:**
         - [AI Vectra Detect](connect-ai-vectra-detect.md)
         - [Check Point](connect-checkpoint.md)
         - [Cisco ASA](connect-cisco.md)
@@ -83,15 +93,23 @@ The following data connection methods are supported by Azure Sentinel:
         - [F5 ASM](connect-f5.md)
         - [Forcepoint products](connect-forcepoint-casb-ngfw.md)
         - [Fortinet](connect-fortinet.md)
-        - [Palo Alto Networks](connect-paloalto.md)
+        - [Illusive Networks AMS](connect-illusive-attack-management-system.md)
         - [One Identity Safeguard](connect-one-identity.md)
-        - [Other CEF appliances](connect-common-event-format.md)
-        - [Other Syslog appliances](connect-syslog.md)
+        - [Palo Alto Networks](connect-paloalto.md)
         - [Trend Micro Deep Security](connect-trend-micro.md)
         - [Zscaler](connect-zscaler.md)
+        - [Other CEF-based appliances](connect-common-event-format.md)
+    - **Firewalls, proxies, and endpoints - Syslog:**
+        - [Infoblox NIOS](connect-infoblox.md)
+        - [Pulse Connect Secure](connect-pulse-connect-secure.md)
+        - [Sophos XG](connect-sophos-xg-firewall.md)
+        - [Symantec Proxy SG](connect-symantec-proxy-sg.md)
+        - [Symantec VIP](connect-symantec-vip.md)
+        - [Other Syslog-based appliances](connect-syslog.md)
     - DLP solutions
     - [Threat intelligence providers](connect-threat-intelligence.md)
     - [DNS machines](connect-dns.md) - agent installed directly on the DNS machine
+    - [Azure Stack VMs](connect-azure-stack.md)
     - Linux servers
     - Other clouds
     
