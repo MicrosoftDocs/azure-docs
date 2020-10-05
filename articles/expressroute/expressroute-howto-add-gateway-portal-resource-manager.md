@@ -76,7 +76,7 @@ You can view a [Video](https://azure.microsoft.com/documentation/videos/azure-ex
 
 1. Select **Review + Create**, and then **Create** to begin creating the gateway. The settings are validated and the gateway deploys. Creating virtual network gateway can take up to 45 minutes to complete.
 
-    :::image type="content" source="./media/expressroute-howto-add-gateway-portal-resource-manager/gateway.png" alt-text="Create virtual network gateway blade fields":::
+    :::image type="content" source="./media/expressroute-howto-add-gateway-portal-resource-manager/gateway.png" alt-text="Create virtual network gateway page fields":::
 
 ## Clean up resources
 
@@ -85,7 +85,7 @@ If you no longer need the ExpressRoute gateway, locate the gateway in the virtua
 :::image type="content" source="./media/expressroute-howto-add-gateway-portal-resource-manager/delete-gateway.png" alt-text="Delete virtual network gateway":::
 
 ## Next steps
-After you have created the VNet gateway, you can link your VNet to an ExpressRoute circuit. 
+After you've created the VNet gateway, you can link your VNet to an ExpressRoute circuit. 
 
 > [!div class="nextstepaction"]
 > [Link a Virtual Network to an ExpressRoute circuit](expressroute-howto-linkvnet-portal-resource-manager.md)
