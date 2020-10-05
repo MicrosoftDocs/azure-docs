@@ -52,7 +52,7 @@ The _Get it now (Free)_, _Free trial_, and _Sell through Microsoft_ listing opti
 
 These additional technical requirements apply to the _Sell through Microsoft_ (transactable) listing option only:
 
-- Azure AD with single sign-on (SSO) identity management and authentication is required. For detailed guidance, see [Azure AD and transactable SaaS offers in the commercial marketplace](azure-ad-saas.md).
+- Azure AD with single sign-on (SSO) identity management and authentication is required for the buying user accessing the landing page. For detailed guidance, see [Azure AD and transactable SaaS offers in the commercial marketplace](azure-ad-saas.md).
 - You must use the [SaaS Fulfillment APIs](./partner-center-portal/pc-saas-fulfillment-api-v2.md) to integrate with Azure Marketplace and Microsoft AppSource. You need to expose a service that can interact with the SaaS subscription to create, update, and delete a user account and service plan. Critical API changes must be supported within 24 hours. Non-critical API changes will be released periodically. Diagrams and detailed explanations describing the usage of the collected fields are available in documentation for the [APIs](./partner-center-portal/pc-saas-fulfillment-api-v2.md).
 - You must create at least one plan for your offer. Your plan is priced based on the pricing model you select before publishing: _flat rate_ or _per-user_. More details about [plans](#plans) are provided later in this article.
 - The customer can cancel your offer at any time.
