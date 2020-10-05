@@ -404,7 +404,18 @@ To restore to a certain point in time, see "Recover the database to the followin
 
 ## SnapCenter integration in SAP HANA large instances
 
-This section describes how customers can use NetApp SnapCenter software to snapshot, backup, and maintain SAP HANA in-memory databases hosted on Microsoft Azure HANA Large Instances (HLI). SnapCenter offers solutions for scenarios including backup/recovery, disaster recovery (DR) with asynchronous storage replication, system replication, and system cloning. Integrated with SAP HANA Large Instances on Azure, a customer’s user role has permissions for SnapCenter operations consisting of Snapshot, SnapMirror, SnapVault, and Cloning.
+This section describes how customers can use NetApp SnapCenter software to take a snapshot, backup and restore SAP HANA databases hosted on Microsoft Azure HANA Large Instances (HLI). 
+
+SnapCenter offers solutions for scenarios including backup/recovery, disaster recovery (DR) with asynchronous storage replication, system replication, and system cloning. Integrated with SAP HANA Large Instances on Azure, customers can now use SnapCenter for backup and recovery operations.
+
+For additional references, see NetApp TR-4614 and TR-4646 on SnapCenter.
+
+- [SAP HANA Backup/Recovery with SnapCenter](https://www.netapp.com/us/media/tr-4614.pdf)
+- [SAP HANA DR with async. Storage Replication](https://www.netapp.com/us/media/tr-4646.pdf)
+- [SAP HANA HSR with SnapCenter](https://www.netapp.com/us/media/tr-4719.pdf)
+- [SAP Cloning from SnapCenter](https://www.netapp.com/us/media/tr-4667.pdf)
+
+
 
 ### System Requirements and Prerequisites
 
@@ -414,9 +425,10 @@ To run SnapCenter on Azure HLI, system requirements include:
 
 The steps to integrate SnapCenter in SAP HANA are: 
 
-1. Raise a support ticket request to communicate the user-generated public key to the MS Ops team. 
+1. Raise a support ticket request to communicate the user-generated public key to the Microsoft Ops team. This is required to setup SnapCenter user role for access to storage system
 1. Create a VM in your VNET that has access to HLI, this VM will be used for SnapCenter. 
 1. Download and install SnapCenter. 
+1. Backup and recover operations. 
 
 ### Create a support case for user-role storage setup
 
@@ -440,7 +452,7 @@ The steps to integrate SnapCenter in SAP HANA are:
 
    :::image type="content" source="./media/snapcenter/open-new-support-ticket-request.png" alt-text="Open new support ticket request":::
 
-1. Provide the following information for the ticket:
+1. On the **Basics** tab, provide the following information for the ticket:
 
    * **Issue type:** Technical
    * **Subscription:** Your subscription
@@ -448,26 +460,53 @@ The steps to integrate SnapCenter in SAP HANA are:
    * **Resource:** Your resource group
    * **Summary:** Provide the user-generated public key
    * **Problem type:** Configuration and Setup
-   * **Problem subtype:** My problem is not listed above
+   * **Problem subtype:** Setup SnapCenter for HLI
 
-   :::image type="content" source="./media/snapcenter/new-support-request-basics.png" alt-text="New support request - Basics tab" lightbox="./media/snapcenter/new-support-request-basics.png":::
 
 1. In the **Description** of the support ticket, on the **Details** tab, provide: Continue with the support request prompts on screen and on the Details tab, again indicate
    
    * Set up SnapCenter for HLI
-   * Your public key 
+   * Your public key for snapcenter user (snapcenter.pem) - see the public key create example below
 
    :::image type="content" source="./media/snapcenter/new-support-request-details.png" alt-text="New support request - Details tab" lightbox="./media/snapcenter/new-support-request-details.png":::
 
-1. Select **Review + create** to review your support ticket and then select **Create** 
+1. Select **Review + create** to review your support ticket and then select **Create**. 
 
-   :::image type="content" source="./media/snapcenter/new-support-request-review-create.png" alt-text="New support request review and create" lightbox="./media/snapcenter/new-support-request-review-create.png":::
+1. Generate a certificate for "snapcenter" user on the HANA Large Instance or any Linux server.
+
+   SnapCenter requires username and password to access the storage virtual machine (SVM) and create snapshots of the HANA database. The customer creates the password and Microsoft uses the public key to enable the customer to create the password and then access the storage system. 
+
+   ```bash
+   openssl req -x509 -nodes -days 1095 -newkey rsa:2048 -keyout snapcenter.key -out snapcenter.pem -subj "/C=US/ST=WA/L=BEL/O=NetApp/CN=snapcenter"
+   Generating a 2048 bit RSA private key
+   ................................................................................................................................................+++++
+   ...............................+++++
+   writing new private key to 'snapcenter.key'
+   -----
+
+   sollabsjct31:~ # ls -l cl25*
+   -rw-r--r-- 1 root root 1704 Jul 22 09:59 snapcenter.key
+   -rw-r--r-- 1 root root 1253 Jul 22 09:59 snapcenter.pem
+
+   ```
+
+1. Set the SnapCenter user password.  Once the public key certificate is submitted, Microsoft Ops sets up the snapcenter user role for your tenant along with SVM IP address.  After you receive the SVM IP, create a password to access SVM, which you control. You will use the snapcenter username and password in your SnapCenter setup to access the storage system. 
+
+   **Example**
+   This is an example of the REST CALL (documentation) from HANA Large Instance or VM in virtual network, which has access to HANA Large Instance environment and will be used to set the password.
+
+   ```bash
+   curl --cert snapcenter.pem --key snapcenter.key -X POST -k "https://10.0.40.11/api/security/authentication/password" -d '{"name":"snapcenter","password":"test1234"}'
+   ```
+
+   Now the user role is setup for SnapCenter access to te storage system. You'll use the snapcenter user to configure the SnapCenter once it's installed. 
 
 ### Download and Install SnapCenter
+Before installing SnapCenter, review [SAP HANA Backup/Recovery with SnapCenter](https://www.netapp.com/us/media/tr-4614.pdf) to define your backup strategy. 
 
-1. Sign in to NetApp to [download SnapCenter version 4.3](https://nam06.safelinks.protection.outlook.com/?url=https%3A%2F%2Fmysupport.netapp.com%2Fsite%2Fproducts%2Fall%2Fdetails%2Fsnapcenter%2Fdownloads-tab&data=02%7C01%7Cmadhukan%40microsoft.com%7Ca53f5e2f245a4e36933008d816efbb54%7C72f988bf86f141af91ab2d7cd011db47%7C1%7C0%7C637284566603265503&sdata=TOANWNYoAr1q5z1opu70%2FUDPHjluvovqR9AKplYpcpk%3D&reserved=0).
+1. Sign in to [NetApp](https://mysupport.netapp.com) to [download](https://nam06.safelinks.protection.outlook.com/?url=https%3A%2F%2Fmysupport.netapp.com%2Fsite%2Fproducts%2Fall%2Fdetails%2Fsnapcenter%2Fdownloads-tab&data=02%7C01%7Cmadhukan%40microsoft.com%7Ca53f5e2f245a4e36933008d816efbb54%7C72f988bf86f141af91ab2d7cd011db47%7C1%7C0%7C637284566603265503&sdata=TOANWNYoAr1q5z1opu70%2FUDPHjluvovqR9AKplYpcpk%3D&reserved=0) the latest version of SnapCenter.
 
-1. Install SnapCenter 4.3 on the Windows Azure VM.
+1. Install SnapCenter on the Windows Azure VM.
 
    The installer checks the prerequisites of the VM. 
 
