@@ -4,7 +4,7 @@ description: Design high-performance applications using Azure premium SSD manage
 author: roygara
 ms.service: virtual-machines
 ms.topic: conceptual
-ms.date: 06/27/2017
+ms.date: 10/05/2020
 ms.author: rogarana
 ms.subservice: disks
 ---
