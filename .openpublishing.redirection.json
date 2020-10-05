@@ -7810,7 +7810,7 @@
       "redirect_document_id": false
     },
     {
-      "source_path": "articles/app-service/containers/how-to-serve-content-from-azure-storage",
+      "source_path": "articles/app-service/containers/how-to-serve-content-from-azure-storage.md",
       "redirect_url": "/azure/app-service/configure-connect-to-azure-storage",
       "redirect_document_id": false
     },     
