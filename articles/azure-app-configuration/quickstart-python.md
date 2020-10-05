@@ -127,21 +127,6 @@ These example code snippets in this section show you how to perform common actio
 * [Update a configuration setting](#update-a-configuration-setting)
 * [Delete a configuration setting](#delete-a-configuration-setting)
 
-### Get the connection string
-
-The code below retrieves the connection string for the storage account. The connection string is stored the environment variable created in the [Configure your storage connection string](#configure-your-storage-connection-string) section.
-
-Add this code inside the `try` block:
-
-```python
-    # Retrieve the connection string for use with the application. The app configuration
-    # connection string is stored in an environment variable on the machine
-    # running the application called AZURE_APP_CONFIG_CONNECTION_STRING. If the
-    # environment variable is created after the application is launched in a
-    # console or with Visual Studio, the shell or application needs to be
-    # closed and reloaded to take the environment variable into account.
-    connection_string = os.getenv('AZURE_APP_CONFIG_CONNECTION_STRING')
-```
 
 ### Connect to an App Configuration store
 
