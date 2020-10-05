@@ -111,4 +111,4 @@ To learn more about metrics in Azure Monitor, see [Metrics in Azure Monitor](htt
 ## Next steps
 
 * [Azure Monitor](../../monitoring-and-diagnostics/monitoring-overview.md)
-* [Storage metrics in Azure Monitor](./storage-metrics-in-azure-monitor.md)
+
