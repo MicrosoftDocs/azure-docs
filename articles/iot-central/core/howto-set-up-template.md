@@ -165,6 +165,15 @@ The following table shows the configuration settings for a command capability:
 | Request | If enabled, a definition of the request parameter, including: name, display name, schema, unit, and display unit. |
 | Response | If enabled, a definition of the command response, including: name, display name, schema, unit, and display unit. |
 
+#### Cloud to Device messages
+
+You can send cloud to device messages or Offline commands from IoT Central. This is most effective to send notifications to offline devices. Cloud-to-device(C2D) messages are a special type of commands that supported by [Azure IoT Hub] (https://docs.microsoft.com/en-us/azure/iot-hub/iot-hub-devguide-messages-c2d). Cloud-to-device messages are used for one-way notifications to the device from your solution. To guarantee at-least-once message delivery, your IoT hub persists cloud-to-device messages in per-device queues. This approach guarantees resiliency against connectivity and device failures. Use the IoT Central authoring experience and set the toggle to enable the **Queue if Offline** option.
+On the device side implement the message handler to process the C2D message.
+
+> [!NOTE]
+> This is available only via UX and on model export this setting is not exported.
+
+
 ## Manage an interface
 
 If you haven't published the interface, you can edit the capabilities defined by the interface. After you publish the interface, if you want to make any changes, you'll need to create a new version of the device template and version the interface. You can make changes that don't require versioning, such as display names or units, in the **Customize** section.
