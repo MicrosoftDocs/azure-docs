@@ -96,6 +96,9 @@ from azureml.contrib.dataset import FileHandlingOption
 
 from torchvision.transforms import functional as F
 
+# get animal_labels dataset from the workspace
+animal_labels = Dataset.get_by_name(workspace, 'animal_labels')
+
 # load animal_labels dataset into torchvision dataset
 pytorch_dataset = animal_labels.to_torchvision()
 img = pytorch_dataset[0][0]
