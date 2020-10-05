@@ -20,8 +20,8 @@ In this tutorial, you will learn how to:
 
 > [!div class="checklist"]
 > * Set up a development environment.
-> * Define a pipeline that uses OCR, text extraction, language detection, entity and key phrase recognition on blobs in Azure Storage.
-> * Execute the pipeline to start transformations and analysis, and to create and load a search index.
+> * Define a pipeline that over blobs using OCR, language detection, entity and key phrase recognition.
+> * Execute the pipeline to invoke transformations, and to create and load a search index.
 > * Explore results using full text search and a rich query syntax.
 
 If you don't have an Azure subscription, open a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
@@ -36,14 +36,15 @@ The skillset uses built-in skills based on Cognitive Services APIs. Steps in the
 
 * [Visual Studio](https://visualstudio.microsoft.com/downloads/)
 * [Azure.Search.Documents 11.x NuGet package](https://www.nuget.org/packages/Azure.Search.Documents) 
-* [Azure Storage](https://azure.microsoft.com/services/storage/) and sample data
-* [Create](search-create-service-portal.md) or [find an existing search service](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices)
-
+* [Azure Storage](https://azure.microsoft.com/services/storage/)
+* [Azure Cognitive Search](https://azure.microsoft.com/services/search/)
 
 > [!Note]
-> You can use the free service for this tutorial. A free search service limits you to three indexes, three indexers, and three data sources. This tutorial creates one of each. Before starting, make sure you have room on your service to accept the new resources.
+> You can use the free search service for this tutorial. A free search service limits you to three indexes, three indexers, and three data sources. This tutorial creates one of each. Before starting, make sure you have room on your service to accept the new resources.
 
-## Download files
+## Download sample data
+
+The sample data consists of 14 files of mixed content type that you will upload to Azure Blob storage in a later step.
 
 1. Open this [OneDrive folder](https://1drv.ms/f/s!As7Oy81M_gVPa-LCb5lC_3hbS-4) and on the top-left corner, click **Download** to copy the files to your computer. 
 
@@ -109,7 +110,9 @@ For this exercise, however, you can skip resource provisioning because Azure Cog
 
 ### Azure Cognitive Search
 
-The third component is Azure Cognitive Search, which you can [create in the portal](search-create-service-portal.md). You can use the Free tier to complete this walkthrough. 
+The third component is Azure Cognitive Search, which you can [create in the portal](search-create-service-portal.md) or [find an existing search service](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) in your subscription.
+
+You can use the Free tier to complete this walkthrough. 
 
 ### Copy an admin api-key and URL for Azure Cognitive Search
 
