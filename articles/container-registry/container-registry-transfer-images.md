@@ -2,7 +2,7 @@
 title: Transfer artifacts
 description: Transfer collections of images or other artifacts from one container registry to another registry by creating a transfer pipeline using Azure storage accounts
 ms.topic: article
-ms.date: 05/08/2020
+ms.date: 10/05/2020
 ms.custom: 
 ---
 
@@ -16,7 +16,7 @@ To transfer artifacts, you create a *transfer pipeline* that replicates artifact
 * The blob is copied from the source storage account to a target storage account
 * The blob in the target storage account gets imported as artifacts in the target registry. You can set up the import pipeline to trigger whenever the artifact blob updates in the target storage.
 
-Transfer is ideal for copying content between two Azure container registries in physically disconnected clouds, mediated by storage accounts in each cloud. For image copy from container registries in connected clouds including Docker Hub and other cloud vendors, [image import](container-registry-import-images.md) is recommended instead.
+Transfer is ideal for copying content between two Azure container registries in physically disconnected clouds, mediated by storage accounts in each cloud. If instead you want to copy images from container registries in connected clouds including Docker Hub and other cloud vendors, [image import](container-registry-import-images.md) is recommended.
 
 In this article, you use Azure Resource Manager template deployments to create and run the transfer pipeline. The Azure CLI is used to provision the associated resources such as storage secrets. Azure CLI version 2.2.0 or later is recommended. If you need to install or upgrade the CLI, see [Install Azure CLI][azure-cli].
 
@@ -27,11 +27,18 @@ This feature is available in the **Premium** container registry service tier. Fo
 
 ## Prerequisites
 
-* **Container registries** - You need an existing source registry with artifacts to transfer, and a target registry. ACR transfer is intended for movement across physically disconnected clouds. For testing, the source and target registries can be in the same or a different Azure subscription, Active Directory tenant, or cloud. If you need to create a registry, see [Quickstart: Create a private container registry using the Azure CLI](container-registry-get-started-azure-cli.md). 
-* **Storage accounts** - Create source and target storage accounts in a subscription and location of your choice. For testing purposes, you can use the same subscription or subscriptions as your source and target registries. For cross-cloud scenarios, typically you create a separate storage account in each cloud. If needed, create the storage accounts with the [Azure CLI](../storage/common/storage-account-create.md?tabs=azure-cli) or other tools. 
+* **Container registries** - You need an existing source registry with artifacts to transfer, and a target registry. ACR transfer is intended for movement across physically disconnected clouds. For testing, the source and target registries can be in the same or a different Azure subscription, Active Directory tenant, or cloud. 
+
+   If you need to create a registry, see [Quickstart: Create a private container registry using the Azure CLI](container-registry-get-started-azure-cli.md). 
+* **Storage accounts** - Create source and target storage accounts in a subscription and location of your choice. For testing purposes, you can use the same subscription or subscriptions as your source and target registries. For cross-cloud scenarios, typically you create a separate storage account in each cloud. 
+
+  If needed, create the storage accounts with the [Azure CLI](../storage/common/storage-account-create.md?tabs=azure-cli) or other tools. 
 
   Create a blob container for artifact transfer in each account. For example, create a container named *transfer*. Two or more transfer pipelines can share the same storage account, but should use different storage container scopes.
-* **Key vaults** - Key vaults are needed to store SAS token secrets used to access source and target storage accounts. Create the source and target key vaults in the same Azure subscription or subscriptions as your source and target registries. If needed, create key vaults with the [Azure CLI](../key-vault/secrets/quick-create-cli.md) or other tools.
+* **Key vaults** - Key vaults are needed to store SAS token secrets used to access source and target storage accounts. Create the source and target key vaults in the same Azure subscription or subscriptions as your source and target registries. For demonstration purposes, the templates and commands used in this article also assume that the source and target key vaults are located in the same resource groups as the source and target registries, respectively. This use of common resource groups isn't required, but it simplifies the templates and commands used in this article.
+
+   If needed, create key vaults with the [Azure CLI](../key-vault/secrets/quick-create-cli.md) or other tools.
+
 * **Environment variables** - For example commands in this article, set the following environment variables for the source and target environments. All examples are formatted for the Bash shell.
   ```console
   SOURCE_RG="<source-resource-group>"
@@ -57,7 +64,7 @@ Storage authentication uses SAS tokens, managed as secrets in key vaults. The pi
 
 ### Things to know
 * The ExportPipeline and ImportPipeline will typically be in different Active Directory tenants associated with the source and destination clouds. This scenario requires separate managed identities and key vaults for the export and import resources. For testing purposes, these resources can be placed in the same cloud, sharing identities.
-* The pipeline examples create system-assigned managed identities to access key vault secrets. ExportPipelines and ImportPipelines also support user-assigned identities. In this case, you must configure the key vaults with access policies for the identities. 
+* By default, the pipeline examples enable system-assigned managed identities to access key vault secrets. ExportPipelines and ImportPipelines also support user-assigned identities. 
 
 ## Create and store SAS keys
 
@@ -167,6 +174,9 @@ EXPORT_RES_ID=$(az group deployment show \
   --output tsv)
 ```
 
+> [!NOTE]
+> By default, the example template enables a system-assigned identity in the ExportPipeline resource. The identity is configured to access the SAS token in the export key vault. 
+
 ## Create ImportPipeline with Resource Manager 
 
 Create an ImportPipeline resource in your target container registry using Azure Resource Manager template deployment. By default, the pipeline is enabled to import automatically when the storage account in the target environment has an artifact blob.
@@ -212,6 +222,10 @@ IMPORT_RES_ID=$(az group deployment show \
   --query 'properties.outputResources[1].id' \
   --output tsv)
 ```
+
+
+> [!NOTE]
+> By default, the example template enables a system-assigned identity in the ImporttPipeline resource. The identity is configured to access the SAS token in the import key vault. 
 
 ## Create PipelineRun for export with Resource Manager 
 
@@ -369,8 +383,6 @@ To import single container images to an Azure container registry from a public r
 
 <!-- LINKS - Internal -->
 [azure-cli]: /cli/azure/install-azure-cli
-[az-identity-create]: /cli/azure/identity#az-identity-create
-[az-identity-show]: /cli/azure/identity#az-identity-show
 [az-login]: /cli/azure/reference-index#az-login
 [az-keyvault-secret-set]: /cli/azure/keyvault/secret#az-keyvault-secret-set
 [az-keyvault-secret-show]: /cli/azure/keyvault/secret#az-keyvault-secret-show
