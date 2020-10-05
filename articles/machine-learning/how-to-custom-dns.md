@@ -15,7 +15,7 @@ ms.custom: how-to
 
 # How to use your workspace with a custom DNS server
 
-When using Azure Machine Learning with a virtual network, there are [several ways to handle DNS name resolution](https://docs.microsoft.com/en-us/azure/virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances). By default, Azure automatically handles name resolution for your workspace and private endpoint. However, __when using your own custom DNS server__, you must manually create DNS entries for the workspace.
+When using Azure Machine Learning with a virtual network, there are [several ways to handle DNS name resolution](/azure/virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances). By default, Azure automatically handles name resolution for your workspace and private endpoint. However, __when using your own custom DNS server__, you must manually create DNS entries for the workspace.
 
 ![IMPORTANT]
 > This article only covers how to find the FQDN and IP addresses for these entries it does NOT provide information on configuring the DNS records for these items. Consult the documentation for your custom DNS software for information on how to add records.
