@@ -78,7 +78,7 @@ The traditional way to resize LVs is to extend an LV when the VG has space avail
     df -h /mountpoint
     ```
 
-    ![Screenshot showing the code that checks the size of the file system. The command and the result are highlighted.](./media/disk-encryption/resize-lvm/001-resize-lvm-scenarioa-check-fs.png)
+    ![Screenshot showing code that checks the size of the file system. The command and the result are highlighted.](./media/disk-encryption/resize-lvm/001-resize-lvm-scenarioa-check-fs.png)
 
 2. Verify that the VG has enough space to increase the LV:
 
@@ -398,7 +398,7 @@ Im some scenarios, your limitations might require you to resize an existing disk
     pvdisplay /dev/resizeddisk
     ```
 
-    ![Screenshot showing the code that checks the size of the physical volume. The result is highlighted.](./media/disk-encryption/resize-lvm/022-resize-lvm-scenarioc-check-pvdisplay.png)
+    ![Screenshot showing the code that checks the size of the P V. The result is highlighted.](./media/disk-encryption/resize-lvm/022-resize-lvm-scenarioc-check-pvdisplay.png)
     
     Even though the disk was resized, the PV still has the previous size.
 
@@ -417,7 +417,7 @@ Im some scenarios, your limitations might require you to resize an existing disk
     pvdisplay /dev/resizeddisk
     ```
 
-    ![Screenshot showing the code that checks the size of the physical volume. The result is highlighted.](./media/disk-encryption/resize-lvm/024-resize-lvm-scenarioc-check-pvdisplay1.png)
+    ![Screenshot showing the code that checks the physical volume's size. The result is highlighted.](./media/disk-encryption/resize-lvm/024-resize-lvm-scenarioc-check-pvdisplay1.png)
 
     Apply the same procedure for all of the disks that you want to resize.
 
@@ -438,7 +438,7 @@ Im some scenarios, your limitations might require you to resize an existing disk
     lvresize -r -l +100%FREE /dev/datavg/datalv01
     ```
 
-    ![Screenshot showing the code that resizes the local volume. The results are highlighted.](./media/disk-encryption/resize-lvm/031-resize-lvm-scenarioc-check-lvresize1.png)
+    ![Screenshot showing the code that resizes the L V. The results are highlighted.](./media/disk-encryption/resize-lvm/031-resize-lvm-scenarioc-check-lvresize1.png)
 
 13. Check the size of the file system:
 
@@ -474,7 +474,7 @@ You can use this method to add space to an existing LV. Or you can create new VG
     df -h mountpoint
     ```
 
-    ![Screenshot showing the code that checks the size of the file system. The result is highlighted.](./media/disk-encryption/resize-lvm/034-resize-lvm-scenarioe-check-fs01.png)
+    ![Screenshot showing the code that checks the file system's size. The result is highlighted.](./media/disk-encryption/resize-lvm/034-resize-lvm-scenarioe-check-fs01.png)
 
 3. Add a new data disk to the VM and identify it.
 
@@ -738,7 +738,7 @@ Follow the next steps to verify your changes.
     lsblk
     ```
 
-    ![Screenshot showing the code that checks disk sizes. The results are highlighted.](./media/disk-encryption/resize-lvm/045-resize-lvm-scenariof-fdisk01.png)
+    ![Screenshot showing the code that checks the size of disks. The results are highlighted.](./media/disk-encryption/resize-lvm/045-resize-lvm-scenariof-fdisk01.png)
 
 7. Resize the data disk. You can use the portal, CLI, or PowerShell. For more information, see the disk-resize section in [Expand virtual hard disks on a Linux VM](expand-disks.md). 
 
