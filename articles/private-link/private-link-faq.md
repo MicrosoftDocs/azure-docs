@@ -20,7 +20,7 @@ ms.author: allensu
 - **[Azure Private Link Service](private-link-service-overview.md)**: Azure Private Link service is a service created by a service provider. Currently, a Private Link service can be attached to the frontend IP configuration of a Standard Load Balancer. 
 
 ### How is traffic being sent when using Private Link?
-Traffic is sent privately using Microsoft backbone. It doesn’t traverse the internet.  
+Traffic is sent privately using Microsoft backbone. It doesn’t traverse the internet. Azure Private Link does not store customer data.
  
 ### What is the difference between a Service Endpoints and a Private Endpoints?
 - When using Private Endpoints, network access is granted to specific resources behind a given service providing granular segmentation, also traffic can reach the service resource from on premises without using public endpoints.
