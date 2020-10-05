@@ -6,12 +6,11 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: how-to
-
 ms.reviewer: larryfr
-ms.author: aashishb
-author: aashishb
+ms.author: peterlu
+author: peterclu
 ms.date: 09/24/2020
-ms.custom: contperfq4, tracking-python
+ms.custom: contperfq4, tracking-python, contperfq1
 
 ---
 
@@ -29,6 +28,7 @@ In this article you learn how to secure the following inferencing resources in a
 > [!div class="checklist"]
 > - Default Azure Kubernetes Service (AKS) cluster
 > - Private AKS cluster
+> - AKS cluster with private link
 > - Azure Container Instances (ACI)
 
 

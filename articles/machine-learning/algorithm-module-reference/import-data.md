@@ -52,7 +52,7 @@ If your source data changes, you can refresh the dataset and add new data by rer
 1. Select **Data source**, and choose the data source type. It could be HTTP or datastore.
 
     If you choose datastore, you can select existing datastores that already registered to your Azure Machine Learning workspace or create a new datastore. Then define the path of data to import in the datastore. You can easily browse the path by click **Browse Path**
-    ![import-data-path](media/module/import-data-path.png)
+    ![Screenshot shows the Browse path link which opens the Path selection dialog box.](media/module/import-data-path.png)
 
 1. Select the preview schema to filter the columns you want to include. You can also define advanced settings like Delimiter in Parsing options.
 

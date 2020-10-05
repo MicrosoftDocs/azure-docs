@@ -4,6 +4,8 @@
   items:
   - name: About AKS
     href: intro-kubernetes.md
+  - name: Solution architectures
+    href: /azure/architecture/reference-architectures/containers/aks-start-here?bc=%2fazure%2faks%2fbreadcrumb%2ftoc.json&toc=%2fazure%2faks%2ftoc.json
 - name: Quickstarts
   expanded: true
   items:
@@ -48,6 +50,8 @@
     href: concepts-identity.md
   - name: Security
     items:
+    - name: Security Baseline
+      href: security-baseline.md
     - name: Security for applications and clusters
       href: concepts-security.md
     - name: Security controls by Azure Policy

@@ -1,7 +1,7 @@
 ---
 title: ISV Partner gallery for Azure AD B2C
 titleSuffix: Azure AD B2C
-description: Learn how to integrate with our ISV partners to tailor your end-user experience to your needs. Our partner network extends our solution capabilities; enable MFA, Secure Customer Authentication, Role-Based Access Control; combat fraud through Identity Verification Proofing.
+description: Learn how to integrate with our ISV partners to tailor your end-user experience to your needs. Our partner network extends our solution capabilities; enable MFA, Secure Customer Authentication, role-based access control; combat fraud through Identity Verification Proofing.
 services: active-directory-b2c
 author: msmimart
 manager: celestedg
@@ -16,7 +16,7 @@ ms.subservice: B2C
 
 # Azure Active Directory B2C ISV partners
 
-Our ISV partner network extends our solution capabilities to help you build seamless end-user experiences. With Azure AD B2C, you can integrate with ISV partners to enable multi-factor authentication methods, enable Secure Customer Authentication (SCA), perform Role-Based Access Control, and combat fraud through identity verification and proofing. Use our detailed sample walkthroughs to learn how to integrate apps with the ISV partners listed below.
+Our ISV partner network extends our solution capabilities to help you build seamless end-user experiences. With Azure AD B2C, you can integrate with ISV partners to enable multi-factor authentication methods, enable Secure Customer Authentication (SCA), perform role-based access control, and combat fraud through identity verification and proofing. Use our detailed sample walkthroughs to learn how to integrate apps with the ISV partners listed below.
 
 >[!NOTE]
 >The [Azure Active Directory B2C community site on GitHub](https://azure-ad-b2c.github.io/azureadb2ccommunity.io/) also provides sample custom policies from the community.

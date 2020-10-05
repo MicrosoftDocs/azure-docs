@@ -127,7 +127,7 @@ Azure services in your subscription keep running without any interruption. We on
 
 ### User access to Azure resources
 
-Access to Azure resources that was set using Azure RBAC (role-based access control) is not affected during the transition.
+Access to Azure resources that was set using Azure role-based access control (Azure RBAC) is not affected during the transition.
 
 ### Azure Reservations
 

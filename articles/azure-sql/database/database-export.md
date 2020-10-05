@@ -10,7 +10,7 @@ ms.custom: sqldbrb=2
 ms.author: sstein
 ms.reviewer: 
 ms.date: 07/16/2019
-ms.topic: conceptual
+ms.topic: how-to
 ---
 # Export to a BACPAC file - Azure SQL Database and Azure SQL Managed Instance
 

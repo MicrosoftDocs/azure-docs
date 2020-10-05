@@ -118,7 +118,7 @@ Depending on how you pay for your Azure subscription, email reservation notifica
 For customers with EA subscriptions:
 
 - Notifications are sent only to the EA notification contacts.
-- Users added to a reservation using RBAC (IAM) permission don't receive any email notifications.
+- Users added to a reservation using Azure RBAC (IAM) permission don't receive any email notifications.
 
 For customers with individual subscriptions:
 

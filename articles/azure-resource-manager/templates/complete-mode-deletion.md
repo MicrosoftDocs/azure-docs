@@ -1499,8 +1499,6 @@ Jump to a resource provider namespace:
 > | workspaces | Yes |
 > | workspaces / computes | No |
 > | workspaces / eventGridFilters | No |
-> | workspaces / inferenceEndpoints | Yes |
-> | workspaces / inferenceEndpoints / deployments | Yes |
 > | workspaces / linkedServices | No |
 
 ## Microsoft.Maintenance

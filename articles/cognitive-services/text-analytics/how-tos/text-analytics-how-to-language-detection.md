@@ -27,6 +27,8 @@ If you have content expressed in a less frequently used language, you can try th
 
 ## Preparation
 
+[!INCLUDE [v3 region availability](../includes/v3-region-availability.md)]
+
 You must have JSON documents in this format: ID and text.
 
 The document size must be under 5,120 characters per document. You can have up to 1,000 items (IDs) per collection. The collection is submitted in the body of the request. The following sample is an example of content you might submit for language detection:
