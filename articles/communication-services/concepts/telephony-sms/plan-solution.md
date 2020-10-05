@@ -26,13 +26,13 @@ Communication Services offers two types of phone numbers: **local** and **toll-f
 Local (Geographic) numbers are 10-digit telephone numbers consisting of the local area codes in the United States. For example, `+1 (206) XXX-XXXX` is a local number with an area code of `206`. This area code is assigned to city of Seattle. These phone numbers are generally used by individuals and local businesses. Azure Communication Services offers local numbers in the United States. These numbers can be used to place phone calls, but not to send SMS messages. 
 
 ### Toll-free Numbers
-Toll-free numbers are 10-digit telephone numbers with distinct area codes that can be called from any phone number free of charge. For example, `+1 (800) XXX-XXXX` is a toll-free number in the North America region. These phone numbers are generally used for customer service purposes. Azure Communication Services offers toll-free numbers in the United states. These numbers can be used to place phone calls and to send SMS messages. 
+Toll-free numbers are 10-digit telephone numbers with distinct area codes that can be called from any phone number free of charge. For example, `+1 (800) XXX-XXXX` is a toll-free number in the North America region. These phone numbers are generally used for customer service purposes. Azure Communication Services offers toll-free numbers in the United states. These numbers can be used to place phone calls and to send SMS messages. Toll-free numbers cannot be used by people and can only be assigned to applications.
+
+#### Choosing a phone number type
 
 If your phone number will be used by an application (for example, to make calls or send messages on behalf of your service), you can select a toll-free or local (geographic) number. You can select a toll-free number if your application is sending SMS messages and/or making calls.
 
-If your phone number is being used by a person (for example, a user of your calling application) a the local (geographic) phone number can be used. 
-
-Note that geographic numbers can be used to make calls but not to send SMS messages. Toll-free numbers cannot be used by people and can only be assigned to applications.
+If your phone number is being used by a person (for example, a user of your calling application), the local (geographic) phone number must be used. 
 
 The table below summarizes these phone number types: 
 
@@ -65,7 +65,7 @@ The following table shows you where you can acquire different types of phone num
 
 ## Azure Subscriptions eligibility
 
-To acquire a phone number, you need to be on paid Azure subscription. Phone numbers can't be acquired on trial accounts. 
+To acquire a phone number, you need to be on a paid Azure subscription. Phone numbers can't be acquired on trial accounts. 
 
 ## Next steps
 
