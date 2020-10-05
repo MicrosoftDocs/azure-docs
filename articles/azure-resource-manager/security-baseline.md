@@ -62,11 +62,7 @@ The Azure Security Baseline for Azure Resource Manager contains recommendations 
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32001.).
 
-**Guidance**: Within Azure Monitor, set your Log Analytics workspace retention period according to your organization's compliance regulations. Use Azure Storage Accounts for long-term/archival storage. 
-
-- [Change the data retention period in Log Analytics](../azure-monitor/platform/manage-cost-storage.md#change-the-data-retention-period) 
-
-- [How to configure retention policy for Azure Storage account logs](../storage/common/storage-monitor-storage-account.md#configure-logging)
+**Guidance**: Not applicable; ARM does not offer separate logging for customers.
 
 **Azure Security Center monitoring**: Not applicable
 
