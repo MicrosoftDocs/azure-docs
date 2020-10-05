@@ -77,8 +77,7 @@ This command installs the Azure App Configuration client library for Python pack
     ```python
     import os
     from azure.appconfiguration import *
-    #from azure.appconfiguration import AzureAppConfigurationClient
-
+    
     try:
         print("Azure App Configuration - Python quickstart sample")
         # Quick start code goes here
