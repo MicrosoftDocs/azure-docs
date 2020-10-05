@@ -46,7 +46,7 @@ You will first need to choose the `Country/region` where you would like to provi
 Selecting a phone plan is broken down into two steps: 
 
 1. The selection of the [Number type](../../concepts/telephony-sms/plan-solution.md#phone-number-types-in-azure-communication-services)
-2. The selection of the [Plan](../../concepts/telephony-sms/plan-solution.md#plans)
+2. The selection of the [Plan](../../concepts/telephony-sms/plan-solution.md#phone-number-plans-in-azure-communication-services)
 
 We offer two Number types currently: `Geographic`, and `Toll-free`. When you've selected a Number type, you will then be offered several Plans from which you can choose.
 
