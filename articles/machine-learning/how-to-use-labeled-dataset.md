@@ -62,9 +62,14 @@ We offer the following file handling options for file streams when converting to
 * Download: Download your data files to a local path.
 * Mount: Mount your data files to a mount point. Mount only works for Linux-based compute, including Azure Machine Learning notebook VM and Azure Machine Learning Compute.
 
+In the following code, the `animal_labels` dataset is the output from a labeling project that was previously saved to the workspace. 
+
 ```Python
 import azureml.contrib.dataset
 from azureml.contrib.dataset import FileHandlingOption
+
+# get animal_labels dataset from the workspace
+animal_labels = Dataset.get_by_name(workspace, 'animal_labels')
 animal_pd = animal_labels.to_pandas_dataframe(file_handling_option=FileHandlingOption.DOWNLOAD, target_path='./download/', overwrite_download=True)
 
 import matplotlib.pyplot as plt
@@ -79,8 +84,14 @@ imgplot = plt.imshow(img)
 
 You can load labeled datasets into Torchvision dataset with the [to_torchvision()](https://docs.microsoft.com/python/api/azureml-contrib-dataset/azureml.contrib.dataset.tabulardataset?view=azure-ml-py&preserve-view=true#&preserve-view=trueto-torchvision--) method also from the `azureml-contrib-dataset` class. To use this method, you need to have [PyTorch](https://pytorch.org/) installed. 
 
+In the following code, the `animal_labels` dataset is the output from a labeling project that was previously saved to the workspace. 
+
 ```python
+import azureml.contrib.dataset
 from torchvision.transforms import functional as F
+
+# get animal_labels dataset from the workspace
+animal_labels = Dataset.get_by_name(workspace, 'animal_labels')
 
 # load animal_labels dataset into torchvision dataset
 pytorch_dataset = animal_labels.to_torchvision()
