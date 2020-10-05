@@ -52,7 +52,7 @@ The _Get it now (Free)_, _Free trial_, and _Sell through Microsoft_ listing opti
 
 These additional technical requirements apply to the _Sell through Microsoft_ (transactable) listing option only:
 
-- Azure AD with single sign-on (SSO) identity management and authentication is required. For detailed guidance, see [Azure AD and transactable SaaS offers in the commercial marketplace](azure-ad-saas.md).
+- Azure AD with single sign-on (SSO) identity management and authentication is required for the buying user accessing the landing page. For detailed guidance, see [Azure AD and transactable SaaS offers in the commercial marketplace](azure-ad-saas.md).
 - You must use the [SaaS Fulfillment APIs](./partner-center-portal/pc-saas-fulfillment-api-v2.md) to integrate with Azure Marketplace and Microsoft AppSource. You need to expose a service that can interact with the SaaS subscription to create, update, and delete a user account and service plan. Critical API changes must be supported within 24 hours. Non-critical API changes will be released periodically. Diagrams and detailed explanations describing the usage of the collected fields are available in documentation for the [APIs](./partner-center-portal/pc-saas-fulfillment-api-v2.md).
 - You must create at least one plan for your offer. Your plan is priced based on the pricing model you select before publishing: _flat rate_ or _per-user_. More details about [plans](#plans) are provided later in this article.
 - The customer can cancel your offer at any time.
@@ -63,7 +63,7 @@ If you’re creating a transactable offer, you'll need to gather the following i
 
 - **Landing page URL**: The SaaS site URL (for example: `https://contoso.com/signup`) that users will be directed to after acquiring your offer from the commercial marketplace, triggering the configuration process from the newly created SaaS subscription. This URL will receive a token that can be used to call the fulfillment APIs to get provisioning details for your interactive registration page.
 
-  This URL will be called with the marketplace purchase identification token parameter which uniquely identifies the specific customer's SaaS purchase. You must exchange this token for the corresponding SaaS subscription details using the [resolve API](./partner-center-portal/pc-saas-fulfillment-api-v2.md#resolve-a-purchased-subscription). Those details and any others you wish to collect should be used as part of a customer-interactive web page built in your experience to complete customer registration and activate their purchase. On this page, the user should sign up through one-click authentication by using Azure Active Directory (Azure AD).
+  This URL will be called with the marketplace purchase identification token parameter that uniquely identifies the specific customer's SaaS purchase. You must exchange this token for the corresponding SaaS subscription details using the [resolve API](./partner-center-portal/pc-saas-fulfillment-api-v2.md#resolve-a-purchased-subscription). Those details and any others you wish to collect should be used as part of a customer-interactive web page built in your experience to complete customer registration and activate their purchase. On this page, the user should sign up through one-click authentication by using Azure Active Directory (Azure AD).
 
   This URL with marketplace purchase identification token parameter will also be called when the customer launches a managed SaaS experience from the Azure portal or M365 Admin Center. You should handle both flows: when the token is provided for the first time after a new customer purchase, and when it's provided again for an existing customer managing their SaaS solution.
 
@@ -96,7 +96,7 @@ You can choose to enable a test drive for your SaaS app. Test drives give custom
 You must connect your offer to your customer relationship management (CRM) system to collect customer information. The customer will be asked for permission to share their information. These customer details, along with the offer name, ID, and online store where they found your offer, will be sent to the CRM system that you've configured. The commercial marketplace supports a variety of CRM systems, along with the option to use an Azure table or configure an HTTPS endpoint using Power Automate.
 
 You can add or modify a CRM connection at any time during or after offer creation. For detailed guidance, see
- [Lead management for the commercial marketplace](lead-management-for-cloud-marketplace.md).
+[Customer leads from your commercial marketplace offer](partner-center-portal/commercial-marketplace-get-customer-leads.md).
 
 ## Selecting an online store
 
@@ -190,7 +190,7 @@ To help create your offer more easily, prepare some of these items ahead of time
 A preview audience can access your offer prior to being published live in the online stores in order to test the end-to-end functionality before you publish it live. On the **Preview audience** page, you can define a limited preview audience. This setting is not available if you choose to process transactions independently instead of selling your offer through Microsoft. If so, you can skip this section and go to [Additional sales opportunities](#additional-sales-opportunities).
 
 > [!NOTE]
-> A preview audience differs from a private plan. A private plan is one you make available only to a specific audience you choose. This enables you to negotiate a custom plan with specific customers. For more details, see the next section: Plans.
+> A preview audience differs from a private plan. A private plan is one you make available only to a specific audience you choose. This enables you to negotiate a custom plan with specific customers. For more information, see the next section: Plans.
 
 You can send invites to Microsoft Account (MSA) or Azure Active Directory (Azure AD) email addresses. Add up to 10 email addresses manually or import up to 20 with a .csv file. If your offer is already live, you can still define a preview audience for testing any changes or updates to your offer.
 
