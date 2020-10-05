@@ -14,12 +14,13 @@ In this article, you'll learn how to resize data disks that use Azure Disk Encry
 
 You can use this resizing process in the following environments:
 
-- Linux distributions
+- Linux distributions:
     - Red Hat Enterprise Linux (RHEL) 7 or later
     - Ubuntu 16 or later
     - SUSE 12 or later
-- Azure Disk Encryption single-pass extension
-- Azure Disk Encryption dual-pass extension
+- Azure Disk Encryption versions: 
+    - Single-pass extension
+    - Dual-pass extension
 
 ## Prerequisites
 
@@ -51,22 +52,22 @@ In traditional LVM encryption, LVs are encrypted. The whole disk isn't encrypted
 
 By using traditional LVM encryption, you can:
 
-- Extend a traditional LVM volume by adding a new physical volume (PV).
-- Extend a traditional LVM volume by resizing an existing PV.
+- Extend the LV when you add a new physical volume (PV).
+- Extend the LV when you resize an existing PV.
 
 ### LVM-on-crypt 
 
 The recommended method for disk encryption is LVM-on-encrypt. This method encrypts the entire disk, not just the LV.
 
-By using LVM-on-crypt, you can:
+By using LVM-on-crypt, you can: 
 
-- Extend an LVM-on-crypt volume by adding a new PV.
-- Extend an LVM-on-crypt volume by resizing an existing PV.
+- Extend the LV when you add a new PV.
+- Extend the LV when you resize an existing PV.
 
 > [!NOTE]
 > We don't recommend mixing traditional LVM encryption and LVM-on-crypt on the same VM.
 
-The following sections provide examples of how to use LVM-on-crypt. The examples use preexisting values for disks, PVs, VGs, LVs, file systems, universally unique identifiers (UUIDs), and mount points. Replace these values with your own values to fit your environment.
+The following sections provide examples of how to use LVM and LVM-on-crypt. The examples use preexisting values for disks, PVs, VGs, LVs, file systems, universally unique identifiers (UUIDs), and mount points. Replace these values with your own values to fit your environment.
 
 #### Extend an LV when the VG has available space
 
@@ -104,7 +105,7 @@ The traditional way to resize LVs is to extend an LV when the VG has space avail
 
     ![Screenshot showing the result of the l s b l k command. The command and the result are highlighted.](./media/disk-encryption/resize-lvm/002-resize-lvm-scenarioa-check-lsblk1.png)
 
-    For LVM-on-crypt, the difference is this output. The output shows that the encrypted layer is on the encrypted layer that covers the whole disk.
+    For LVM-on-crypt, the difference is that this output shows that the encrypted layer is at the disk level.
 
     ![Screenshot showing the result of the l s b l k command. The output is highlighted. It shows the encrypted layer.](./media/disk-encryption/resize-lvm/002-resize-lvm-scenarioa-check-lsblk2.png)
 
@@ -450,7 +451,7 @@ Im some scenarios, your limitations might require you to resize an existing disk
 
 #### Extend an LVM-on-crypt volume by adding a new PV
 
-You can also extend an LVM-on-crypt volume by adding a new PV. This method closely follows the steps in [Configure LVM and RAID on encrypted devices](how-to-configure-lvm-raid-on-crypt.md). See the sections that explain how to add a new disk and set it up in an LVM-on-crypt configuration.
+You can also extend an LVM-on-crypt volume by adding a new PV. This method closely follows the steps in [Configure LVM and RAID on encrypted devices](how-to-configure-lvm-raid-on-crypt.md#general-steps). See the sections that explain how to add a new disk and set it up in an LVM-on-crypt configuration.
 
 You can use this method to add space to an existing LV. Or you can create new VGs or LVs.
 
@@ -504,7 +505,7 @@ You can use this method to add space to an existing LV. Or you can create new VG
     fdisk -l | egrep ^"Disk /"
     ```
 
-    ![Screenshot showing the code that lists the disks. The results are highlighted.](./media/disk-encryption/resize-lvm/036-resize-lvm-scenarioe-check-newdisk02.png)-
+    ![Screenshot showing the code that lists the disks. The results are highlighted.](./media/disk-encryption/resize-lvm/036-resize-lvm-scenarioe-check-newdisk02.png)
 
     ``` bash
     lsblk
@@ -674,7 +675,7 @@ Follow the next steps to verify your changes.
 
     If you use `lsblk` without options, then you see the mount points multiple times. The command sorts by device and LVs. 
 
-    You might want to use `lsblk -fs, -s`. This command reverses the sort so that the mount points are shown once. The disks are shown multiple times.
+    You might want to use `lsblk -fs`. In this command, `-fs` reverses the sort order so that the mount points are shown once. The disks are shown multiple times.
 
     ``` bash
     lsblk -fs
@@ -740,7 +741,7 @@ Follow the next steps to verify your changes.
 
     ![Screenshot showing the code that checks the size of disks. The results are highlighted.](./media/disk-encryption/resize-lvm/045-resize-lvm-scenariof-fdisk01.png)
 
-7. Resize the data disk. You can use the portal, CLI, or PowerShell. For more information, see the disk-resize section in [Expand virtual hard disks on a Linux VM](expand-disks.md). 
+7. Resize the data disk. You can use the portal, CLI, or PowerShell. For more information, see the disk-resize section in [Expand virtual hard disks on a Linux VM](expand-disks.md#expand-an-azure-managed-disk). 
 
     >[!IMPORTANT]
     >You can't resize virtual disks while the VM is running. Deallocate your VM for this step.
