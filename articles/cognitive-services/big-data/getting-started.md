@@ -26,11 +26,11 @@ To use the Big Data Cognitive Services, we must first create a Cognitive Service
 
 ### Cloud services
 
-Cloud-based Cognitive Services are intelligent algorithms hosted in Azure. These services are ready for use without training, you just need an internet connection. You can [create a Cognitive Service in the Azure portal](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account?tabs=multiservice%2Cwindows) or with the [Azure CLI](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account-cli?tabs=windows).
+Cloud-based Cognitive Services is intelligent algorithms hosted in Azure. These services are ready for use without training, you just need an internet connection. You can [create a Cognitive Service in the Azure portal](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account?tabs=multiservice%2Cwindows) or with the [Azure CLI](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account-cli?tabs=windows).
 
 ### Containerized services (optional)
 
-If your application or workload uses extremely large datasets, requires private networking, or can't contact the cloud, communicating with cloud services might be impossible. In this situation, containerized Cognitive Services have these benefits:
+If your application or workload uses large datasets, requires private networking, or can't contact the cloud, communicating with cloud services might be impossible. In this situation, containerized Cognitive Services have these benefits:
 
 * **Low Connectivity**: You can deploy containerized Cognitive Services in any computing environment, both on-cloud and off. If your application can't contact the cloud, consider deploying containerized Cognitive Services on your application.
 
@@ -97,7 +97,7 @@ First, we can create a notebook in Azure Databricks. For other Spark cluster pro
 
     Select **Create**.
 
-1. Paste this code snippet below into your new notebook.
+1. Paste this code snippet into your new notebook.
 
 ```python
 from mmlspark.cognitive import *

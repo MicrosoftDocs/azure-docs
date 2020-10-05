@@ -140,7 +140,7 @@ ws = Workspace(workspace_name = workspace_name,
 ```
 
 ## Convert a dataframe to an Azure Machine Learning Dataset
-To submit a remote experiment, we will need to convert our dataset into an Azure Machine Learning ```TabularDatset```. A [TabularDataset](https://docs.microsoft.com/python/api/azureml-core/azureml.data.tabulardataset?view=azure-ml-py) represents data in a tabular format by parsing the provided files.
+To submit a remote experiment, we will need to convert our dataset into an Azure Machine Learning ```TabularDatset```. A [TabularDataset](https://docs.microsoft.com/python/api/azureml-core/azureml.data.tabulardataset?view=azure-ml-py&preserve-view=true) represents data in a tabular format by parsing the provided files.
 
 The following code gets the existing workspace and the default Azure Machine Learning default datastore. It then passes the datastore and file locations to the path parameter to create a new ```TabularDataset```. 
 

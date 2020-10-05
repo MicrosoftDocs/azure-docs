@@ -19,7 +19,7 @@ In this tutorial, you'll learn how to create a Synapse workspace, a dedicated SQ
 
 To complete this all of this tutorial's steps, you need to have access to a resource group for which you are assigned the **Owner** role. Create the Synapse workspace in this resource group.
 
-## Create a Synapse workspace in the Azure Portal
+## Create a Synapse workspace in the Azure portal
 
 1. Open the [Azure portal](https://portal.azure.com), and at the top search for **Synapse**.
 1. In the search results, under **Services**, select **Azure Synapse Analytics (workspaces preview)**.

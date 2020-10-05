@@ -26,8 +26,8 @@ In this tutorial, you'll learn the basic steps to load and analyze data with Apa
     data_df = data.to_spark_dataframe()
     display(data_df.limit(10))
     ```
-1. In the notebook choose a serverless Spark pool in the **Attach to** menu
-1. Click **Run** on the cell
+1. In the notebook, choose a serverless Spark pool in the **Attach to** menu
+1. Select **Run** on the cell
 
 ## Load the NYC Taxi data into the Spark nyctaxi database
 
