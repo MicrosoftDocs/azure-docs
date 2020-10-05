@@ -36744,7 +36744,12 @@
     },
     {
       "source_path": "articles/active-directory/application-proxy-ping-access.md",
-      "redirect_url": "/azure/active-directory/manage-apps/application-proxy-configure-single-sign-on-with-ping-access",
+      "redirect_url": "/azure/active-directory/manage-apps/application-proxy-configure-single-sign-on-with-headers",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/active-directory/manage-apps/application-proxy-configure-single-sign-on-with-ping-access.md",
+      "redirect_url": "/azure/active-directory/manage-apps/application-proxy-configure-single-sign-on-with-headers",
       "redirect_document_id": false
     },
     {
