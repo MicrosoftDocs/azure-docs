@@ -105,6 +105,8 @@
       href: rbac-migration.md  
     - name: Troubleshoot access issues
       href: troubleshooting-access-issues.md
+  - name: How to enable logging
+    href: howto-logging.md
   - name: Develop
     items:
     - name: Azure Key Vault Developer's Guide

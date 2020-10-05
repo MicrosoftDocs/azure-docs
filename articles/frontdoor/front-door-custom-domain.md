@@ -205,4 +205,4 @@ In this tutorial, you learned how to:
 To learn how to enable HTTPS for your custom domain, continue to the next tutorial.
 
 > [!div class="nextstepaction"]
-> [Enable HTTPS for a custom domain](front-door-custom-domain.md)
+> [Enable HTTPS for a custom domain](front-door-custom-domain-https.md)
