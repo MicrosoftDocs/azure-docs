@@ -90,7 +90,7 @@ The following are considerations for choosing a tier.
     For standard tier stores, the first 200,000 requests each day are included in the daily charge. Additional requests are billed as overage.
 
 - **Service level agreement**: The standard tier has an SLA of 99.9% availability. The free tier doesn't have an SLA.
-- **Security features**: Both tiers include basic security functionality, including encryption with Microsoft-managed keys, authentication via HMAC or Azure Active Directory, RBAC support, and managed identity. The Standard tier offers more advanced security functionality, including Private Link support and encryption with customer-managed keys.
+- **Security features**: Both tiers include basic security functionality, including encryption with Microsoft-managed keys, authentication via HMAC or Azure Active Directory, Azure RBAC support, and managed identity. The Standard tier offers more advanced security functionality, including Private Link support and encryption with customer-managed keys.
 - **Cost**: Standard tier stores have a daily usage charge. There's also an overage charge for requests past the daily allocation. There's no cost to use a free tier store.
 
 ## Can I upgrade a store from the Free tier to the Standard tier? Can I downgrade a store from the Standard tier to the Free tier?

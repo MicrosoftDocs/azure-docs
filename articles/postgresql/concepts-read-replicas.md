@@ -78,7 +78,7 @@ At the prompt, enter the password for the user account.
 ## Monitor replication
 Azure Database for PostgreSQL provides two metrics for monitoring replication. The two metrics are **Max Lag Across Replicas** and **Replica Lag**. To learn how to view these metrics, see the **Monitor a replica** section of the [read replica how-to article](howto-read-replicas-portal.md).
 
-The **Max Lag Across Replicas** metric shows the lag in bytes between the primary and the most-lagging replica. This metric is available on the primary server only.
+The **Max Lag Across Replicas** metric shows the lag in bytes between the primary and the most-lagging replica. This metric is available on the primary server only, and will be available only if at least one of the read replica is connected to the primary.
 
 The **Replica Lag** metric shows the time since the last replayed transaction. If there are no transactions occurring on your primary server, the metric reflects this time lag. This metric is available for replica servers only. Replica Lag is calculated from the `pg_stat_wal_receiver` view:
 
@@ -136,6 +136,9 @@ Once you have decided you want to failover to a replica,
 	
 Once your application is successfully processing reads and writes, you have completed the failover. The amount of downtime your application experiences will depend on when you detect an issue and complete steps 1 and 2 above.
 
+### Disaster recovery
+
+When there is a major disaster event such as availability zone-level or regional failures, you can perform disaster recovery operation by promoting your read replica. From the UI portal, you can navigate to the read replica server. Then click the replication tab, and you can stop the replica to promote it to be an independent server. Alternatively, you can use the [Azure CLI](https://docs.microsoft.com/cli/azure/postgres/server/replica?view=azure-cli-latest#az_postgres_server_replica_stop) to stop and promote the replica server.
 
 ## Considerations
 

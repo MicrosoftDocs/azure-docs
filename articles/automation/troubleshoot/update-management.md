@@ -221,7 +221,7 @@ Here are possible causes for this issue:
 
 #### Incorrect access on selected scopes
 
-The Azure portal only displays machines for which you have write access in a given scope. If you don't have the correct access for a scope, see [Tutorial: Grant a user access to Azure resources using RBAC and the Azure portal](../../role-based-access-control/quickstart-assign-role-user-portal.md).
+The Azure portal only displays machines for which you have write access in a given scope. If you don't have the correct access for a scope, see [Tutorial: Grant a user access to Azure resources using the Azure portal](../../role-based-access-control/quickstart-assign-role-user-portal.md).
 
 #### ARG query doesn't return expected machines
 
