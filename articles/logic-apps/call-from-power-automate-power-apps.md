@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, logicappspm
 ms.topic: conceptual
-ms.date: 09/28/2020
+ms.date: 10/05/2020
 ---
 
 # Call logic apps from Power Automate and Power Apps
