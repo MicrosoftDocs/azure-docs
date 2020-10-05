@@ -7,7 +7,7 @@ ms.service: sql-db-mi
 ms.subservice: high-availability
 ms.custom: sqldbrb=2
 ms.devlang: 
-ms.topic: conceptual
+ms.topic: how-to
 author: MashaMSFT
 ms.author: mathoma
 ms.reviewer: sstein
@@ -18,7 +18,7 @@ ms.date: 08/14/2019
 
 This topic teaches you how to configure an [auto-failover group](auto-failover-group-overview.md) for Azure SQL Database and Azure SQL Managed Instance.
 
-## Single database in Azure SQL Database
+## Single database
 
 Create the failover group and add a single database to it using the Azure portal or PowerShell.
 
@@ -186,7 +186,7 @@ Revert failover group back to the primary server:
 > [!IMPORTANT]
 > If you need to delete the secondary database, remove it from the failover group before deleting it. Deleting a secondary database before it is removed from the failover group can cause unpredictable behavior.
 
-## Elastic pools in Azure SQL Database
+## Elastic pool
 
 Create the failover group and add an elastic pool to it using the Azure portal, or PowerShell.  
 
@@ -340,7 +340,9 @@ Fail over to the secondary server:
 
 Create a failover group between two managed instances in Azure SQL Managed Instance by using the Azure portal  or PowerShell.
 
-You will need to either configure [ExpressRoute](../../expressroute/expressroute-howto-circuit-portal-resource-manager.md) or create a gateway for the virtual network of each SQL Managed Instance, connect the two gateways, and then create the failover group.
+You will need to either configure [ExpressRoute](../../expressroute/expressroute-howto-circuit-portal-resource-manager.md) or create a gateway for the virtual network of each SQL Managed Instance, connect the two gateways, and then create the failover group. 
+
+Deploy both managed instances to [paired regions](../../best-practices-availability-paired-regions.md) for performance reasons. Managed instances residing in geo-paired regions have much better performance compared to unpaired regions. 
 
 ### Prerequisites
 
@@ -354,6 +356,9 @@ Consider the following prerequisites:
 ### Create primary virtual network gateway
 
 If you have not configured [ExpressRoute](../../expressroute/expressroute-howto-circuit-portal-resource-manager.md), you can create the primary virtual network gateway with the Azure portal, or PowerShell.
+
+> [!NOTE]
+> The SKU of the gateway affects throughput performance. This article deploys a gateway with the most basic SKU (`HwGw1`). Deploy a higher SKU (example: `VpnGw3`) to achieve higher throughput. For all available options, see [Gateway SKUs](../../vpn-gateway/vpn-gateway-about-vpngateways.md#benchmark) 
 
 # [Portal](#tab/azure-portal)
 

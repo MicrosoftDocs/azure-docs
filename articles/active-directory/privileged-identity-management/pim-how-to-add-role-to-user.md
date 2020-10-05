@@ -46,7 +46,7 @@ Follow these steps to make a user eligible for an Azure AD admin role.
 
 1. Select **Roles** to see the list of roles for Azure AD permissions.
 
-    ![Azure AD roles](./media/pim-how-to-add-role-to-user/roles-list.png)
+    ![Screenshot of the "Roles" page with the "Add assignments" action selected.](./media/pim-how-to-add-role-to-user/roles-list.png)
 
 1. Select **Add assignments** to open the **Add assignments** page.
 
