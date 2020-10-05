@@ -11,10 +11,17 @@ ms.date: 10/2/2020
 
 Learn how to prepare for planned maintenance events on your Azure Database for MySQL.
 
-## What is a planned maintenance event and what to expect during maintenance
+## What is a planned maintenance event?
 
-Azure Database for MySQL performs periodic maintenance to keep your managed database secure, stable, and up-to-date. During planned maintenance events, the server receives new features, updates, and patches.
-During maintenance, your Azure Database for MySQL server may experience a brief drop in connectivity for a short number of seconds. You can expect your server to restart and [transient errors](./concepts-connectivity#transient-errors.md) can occur. Most of these events are automatically mitigated by the system in less than 60 seconds.
+Azure Database for MySQL service performs automated patching of the underlying hardware, OS, and database engine. The patch includes new service features, security and software updates. For MySQL engine, minor version upgrades are automatic and included as part of the patching cycle. There is no user action or configuration settings required for patching. The patch is tested extensively and rolled out using safe deployment practices.
+
+A planned maintenance is an maintenance window when these service updates are deployed to servers in a given Azure region. During planned maintenance, a notification event is created to inform customers when the service update is deployed in the Azure region hosting their servers.
+
+## How long is a planned maintenance expected to run and what to expect during planned maintenance?
+
+A planned maintenance for a given Azure region is typically expected to run 12 hrs. The window also includes buffer time to execute a rollback plan if required. During planned maintenance, there can be database server restarts or failovers which might lead to brief unavailability of the database servers for end users. Azure Database for MySQL servers are running in containers so database server restarts are typically quick, expected to complete typically in 30-60 seconds. The entire planned maintenance event including each server restarts is carefully monitored by the engineering team. The server failovers time is dependent on database recovery time which can cause the database to come online longer if you have heavy transactional activity on the server at the time of failover. To avoid longer restart time, it is recommended to avoid any long running transactions (bulk loads) during planned maintenance events.
+
+In summary, while the planned maintenance event runs for 12 hours, the individual server impact generally lasts 60 seconds depending on the transactional activity on the server. A notification is sent when the planned maintenance starts and another one when it is completed for a given region.
 
 > [!Note]
 > Maintenance is needed to keep your server secure, stable, and up-to-date. The planned maintenance event cannot be cancelled or postponed.
@@ -23,7 +30,7 @@ During maintenance, your Azure Database for MySQL server may experience a brief 
 
 You can utilize the planned maintenance notifications feature to receive alerts for an upcoming planned maintenance event. You will receive the notification about the upcoming maintenance 72 calendar hours before the event. 
 
-## Planned maintenance notification
+### Planned maintenance notification
 
 > [!IMPORTANT]
 > Planned maintenance notifications are currently available in preview in all regions **except** West Central US
@@ -53,14 +60,22 @@ You can either check the planned maintenance notification on Azure portal or con
 
 For detailed steps on how to create **service health alerts**, refer to [Create activity log alerts on service notifications](../service-health/alerts-activity-log-service-notifications.md).
 
+## Can I control or change planned maintenance for my servers after I receive a notification event?
+
+This is not supported. Once the notification is sent to a given Azure region, the patching schedule changes cannot be made for any individual server in that region. The patch is rolled out for entire region at once. Azure Database for MySQL - Single server service is designed for cloud native application that doesn't require granular control or customization of the service. If you are looking to have ability to schedule maintenance for your servers, we recommend you consider [Flexible servers](./flexible-server/overview).
+
+## Are all the Azure regions patched at the same time?
+
+No, all the Azure paired regions are patched during the deployment wise window timings. The deployment wise window generally stretches from 5 PM - 8 AM local time next day, in a given Azure region. Geo-paired Azure regions are patched on different days. For high availability and business continuity of database servers, leveraging [cross region read replicas](./concepts-read-replicas#cross-region-replication) is recommended.
+
 ## Retry logic
 
-A transient error, also known as a transient fault, is an error that will resolve itself. [Transient errors](./concepts-connectivity#transient-errors.md) can occur during maintenance. Most of these events are automatically mitigated by the system in less than 60 seconds.
+A transient error, also known as a transient fault, is an error that will resolve itself. [Transient errors](./concepts-connectivity#transient-errors.md) can occur during maintenance. Most of these events are automatically mitigated by the system in less than 60 seconds. Transient errors should be handled using [retry logic](concepts-connectivity#handling-transient-errors).
 
-Transient errors should be handled using [retry logic](concepts-connectivity#handling-transient-errors).
 
 ## Next steps
 
+- For any questions or suggestions you might have about working with Azure Database for MySQL, send an email to the Azure Database for MySQL Team at [AskAzureDBforMySQL@service.microsoft.com](AskAzureDBforMySQL@service.microsoft.com)
 - See [How to set up alerts](howto-alert-on-metric.md) for guidance on creating an alert on a metric.
 - [Troubleshoot connection issues to Azure Database for MySQL](howto-troubleshoot-common-connection-issues.md)
 - [Handle transient errors and connect efficiently to Azure Database for MySQL](concepts-connectivity.md)
