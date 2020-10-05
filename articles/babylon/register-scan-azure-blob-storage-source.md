@@ -28,9 +28,6 @@ Azure Blob Storage supports the following:<br />
 4. You can see **Register sources** pane open up on the right side of your screen. From the tiles of data sources, select **Azure Blob Storage** and hit **continue**<br />
 <br />
 
-## Create and run a scan
-<br /><br />
-
 ## Set up authentication for a scan
 There are four ways to set up authentication for Azure blob storage: <br />
 1. Managed Identity<br />
@@ -48,7 +45,7 @@ When authentication method selected is **Account Key**, select "Enter manually" 
 <br /><br />
 
 ### SAS URL
-To use a SAS URL, you need to generate one. To learn more about how to do this, see this [article](https://docs.microsoft.com/en-us/azure/storage/common/storage-sas-overview)
+To use a SAS URL, you need to generate one. To learn more about how to do this, see this [article](https://docs.microsoft.com/azure/storage/common/storage-sas-overview)
 
 ### Service Principal
 To use a service principal, you must first create one<br />
@@ -73,7 +70,7 @@ To do this in the Azure portal: <br />
 
 9. Copy down both the display name and the application ID<br />
 
-10. Add your service principal to a role on the Azure Blob storage account that you would like to scan. You do this in the Azure portal. For more information about service principals, see [Acquire a token from Azure AD for authorizing requests from a client application](https://docs.microsoft.com/en-us/azure/storage/common/storage-auth-aad-app?tabs=dotnet)<br />
+10. Add your service principal to a role on the Azure Blob storage account that you would like to scan. You do this in the Azure portal. For more information about service principals, see [Acquire a token from Azure AD for authorizing requests from a client application](https://docs.microsoft.com/azure/storage/common/storage-auth-aad-app?tabs=dotnet)<br />
 
 11. Once your Service Principal is set, connect your Babylon to your Azure Blob store using client ID and secret key and check your connect as shown in the screenshot below.<br /> ![Screenshot showing service principal authorization](./media/scan-azure-blob/service-principal-auth.png)
 
@@ -91,7 +88,7 @@ To do this in the Azure portal: <br />
 After you have setup your authentication type, click Continue. The next screen is where you set your scan trigger, telling the system how often you would like to scan.
 
 >![Note] 
->Once means no schedule, which is an indication to the system that the scan should only run once. Recurring allows you to create a schedule the system should run the scan according to. The first execution of the scan will begin on the start date and time provided. Options include Monthly or Weekly scans.
+>Once means no schedule, which is an indication to the system that the scan should only run once.
 
 Here are some examples of triggers that are set up on a monthly cadence below. You can select the time it starts at and define the recurrence for a particular day of the month, and a time on that day of your choosing. You can also choose to specify an end date or not (meaning the recurrence of the scan will happen indefinitely).
 
