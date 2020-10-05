@@ -127,13 +127,13 @@ You can specify the replication properties as follows.
     - To use standard HDD disks, specify "Standard_LRS" as value for  `DiskType` parameter. 
 - **Infrastructure redundancy** - Specify infrastructure redundancy option as follows. 
     - Availability Zone to pin the migrated machine to a specific Availability Zone in the region. Use this option to distribute servers that form a multi-node application tier across Availability Zones. This option is only available if the target region selected for the migration supports Availability Zones. To use availability zones, specify the availability zone value for `TargetAvailabilityZone` parameter.
-    - Availability Set to place the migrated machine in an Availability Set. The target Resource Group that was selected must have one or more availability setstouse this option. To use availability set, specify the availability set Id for `TargetAvailabilitySet` parameter. 
+    - Availability Set to place the migrated machine in an Availability Set. The target Resource Group that was selected must have one or more availability sets to use this option. To use availability set, specify the availability set Id for `TargetAvailabilitySet` parameter. 
 
 In this tutorial, we'll replicate all the disks of the discovered VM and specify a new name for the VM in Azure. We specify the first disk of the discovered server as OS Disk and migrate all disks as Standard HDD. The OS disk is the disk that has the operating system bootloader and installer.
 
 ```azurepowershell
 # Start replication for a discovered VM in an Azure Migrate project
-$MigrateJob =  New-AzMigrateServerReplication -InputObject $DiscoveredServer -TargetNetworkId $TargetVNetId -LicenseType "NoLicenseType" -OSDiskID $DiscoveredServer.Disk[0].Uuid -TargetSubnetName "default" -DiskType "Standard_LRS" -TargetVMName "newtestvm" -TargetVMSize "Standard_DS2_v2"
+$MigrateJob =  New-AzMigrateServerReplication -InputObject $DiscoveredServer -TargetResourceGroupId $TargetRGId -TargetNetworkId $TargetVNetId -LicenseType "NoLicenseType" -OSDiskID $DiscoveredServer.Disk[0].Uuid -TargetSubnetName "default" -DiskType "Standard_LRS" -TargetVMName "newtestvm" -TargetVMSize "Standard_DS2_v2"
 
 # Track job status to check for completion
 while (($MigrateJob.State -eq "InProgress") -or ($MigrateJob.State -eq "NotStarted")){
@@ -168,7 +168,7 @@ $DisksToReplicate += $OSDisk
 $DisksToReplicate += $DataDisk 
 
 # Start replication for the VM
-$MigrateJob =  New-AzMigrateServerReplication -InputObject $DiscoveredServer -TargetNetworkId $TargetVNetId -LicenseType "NoLicenseType" -DiskToInclude $DisksToReplicate -TargetSubnetName "default" -TargetVMName "newtestvm" -TargetVMSize "Standard_DS2_v2"
+$MigrateJob =  New-AzMigrateServerReplication -InputObject $DiscoveredServer -TargetResourceGroupId $TargetRGId -TargetNetworkId $TargetVNetId -LicenseType "NoLicenseType" -DiskToInclude $DisksToReplicate -TargetSubnetName "default" -TargetVMName "newtestvm" -TargetVMSize "Standard_DS2_v2"
 
 # Track job status to check for completion
 while (($MigrateJob.State -eq "InProgress") -or ($MigrateJob.State -eq "NotStarted")){
