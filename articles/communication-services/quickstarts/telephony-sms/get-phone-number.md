@@ -1,12 +1,12 @@
 ---
 title: Quickstart - Get a phone number from Azure Communication Services
 description: Learn how to buy a Communication Services phone number using the Azure portal.
-author: ddematheu2
-manager: nimag
+author: ddematheu2, prakulka
+manager: nimag, nmurav
 services: azure-communication-services
 
 ms.author: dademath
-ms.date: 07/09/2020
+ms.date: 10/05/2020
 ms.topic: quickstart
 ms.service: azure-communication-services
 ms.custom: references_regions
@@ -106,7 +106,7 @@ Select the Phone Numbers tab in the menu to manage your phone numbers.
 ### Customizing phone plans
 On the `Numbers` page, you can select the phone number by clicking on the number for which you'd like to customize the plan.
 
-:::image type="content" source="../media/manage-phone-azure-portal-update-capabilities.png" alt-text="Screenshot showing the update capabilities page.":::
+:::image type="content" source="../media/manage-phone-azure-portal-capability-update.png" alt-text="Screenshot showing the update capabilities page.":::
 
 > [!NOTE]
 > This quickstart is showing the `Toll-free` Number Plan customization flow. The experience may be slightly different if you have chosen the `Geographic` Number type, but the end-result will be the same.
