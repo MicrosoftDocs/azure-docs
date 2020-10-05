@@ -88,13 +88,13 @@ To create the site-to-site VPN tunnel, you'll need to create a public-facing IP 
 
 4. On the **Links** tab, fill in the required fields and select **Review + create**. Specifying link and provider names allow you to distinguish between any number of gateways that may eventually be created as part of the hub. BGP and autonomous system number (ASN) must be unique inside your organization.
  
-## (Optional) Defining a virtual hub for policy-based VPNs
+## (Optional) Defining a VPN site for policy-based VPN site-to-site tunnels
 
 This section applies only to policy-based VPNs. Policy-based (or static, route-based) VPN setups are driven by on-premise VPN device capabilities in most cases. They require on-premise and Azure VMware Solution networks to be specified. For Azure VMware Solution with an Azure Virtual WAN hub, you can't select *any* network. Instead, you have to specify all relevant on-premise and Azure VMware Solution Virtual WAN hub ranges. These hub ranges are used to specify the encryption domain of the policy base VPN tunnel on-premise endpoint. The Azure VMware Solution side only requires the policy-based traffic selector indicator to be enabled. 
 
 1. In the Azure portal, go to your Virtual WAN hub site; under **Connectivity**, select **VPN (Site to site)**.
 
-2. Select your site name and then the ellipsis (...) at the far right; then select **edit VPN section to this hub**.
+2. Select your VPN site name and then the ellipsis (...) at the far right; then select **edit VPN section to this hub**.
  
     :::image type="content" source="media/create-ipsec-tunnel/edit-vpn-section-to-this-hub.png" alt-text="Edit VPN section to this hub." lightbox="media/create-ipsec-tunnel/edit-vpn-section-to-this-hub.png":::
 
