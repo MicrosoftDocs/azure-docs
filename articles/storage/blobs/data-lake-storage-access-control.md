@@ -22,7 +22,7 @@ Azure RBAC uses role assignments to effectively apply sets of permissions to *se
 
 Typically, those Azure resources are constrained to top-level resources (For example: Azure Storage accounts). In the case of Azure Storage, and consequently Azure Data Lake Storage Gen2, this mechanism has been extended to the container (file system) resource.
 
-To learn how to assign roles to security principals in the scope of your storage account, see [Grant access to Azure blob and queue data with Azure RBAC in the Azure portal](https://docs.microsoft.com/azure/storage/common/storage-auth-aad-rbac-portal?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
+To learn how to assign roles to security principals in the scope of your storage account, see [Use the Azure portal to assign an Azure role for access to blob and queue data](https://docs.microsoft.com/azure/storage/common/storage-auth-aad-rbac-portal?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
 
 > [!NOTE]
 > A guest user can't create a role assignment.
