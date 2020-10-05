@@ -6,9 +6,9 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.reviewer: larryfr
-ms.author: aashishb
-author: aashishb
-ms.date: 09/25/2020
+ms.author: jhirono
+author: jhirono
+ms.date: 10/05/2020
 ms.topic: conceptual
 ms.custom: how-to
 ---
