@@ -8,30 +8,37 @@ author: MarkHeff
 ms.author: maheff
 ms.service: cognitive-search
 ms.topic: tutorial
-ms.date: 10/02/2020
+ms.date: 10/05/2020
 ms.custom: devx-track-csharp
 ---
 
 # Tutorial: AI-generated searchable content from Azure blobs using the .NET SDK
 
-If you have unstructured text or images in Azure Blob storage, an [AI enrichment pipeline](cognitive-search-concept-intro.md) can extract information and create new content that is useful for full-text search or knowledge mining scenarios. In this C# tutorial, apply Optical Character Recognition (OCR) on images and perform natural language processing to create new fields that you can leverage in queries, facets, and filters.
+If you have unstructured text or images in Azure Blob storage, an [AI enrichment pipeline](cognitive-search-concept-intro.md) can extract information and create new content for full-text search or knowledge mining scenarios. 
 
-This tutorial uses C# and the [Azure.Search.Documents (11.x)](/dotnet/api/overview/azure/search) client library to perform the following tasks:
+In this tutorial, you will learn how to:
 
 > [!div class="checklist"]
-> * Start with application files and images in Azure Blob storage.
-> * Define a pipeline to add OCR, text extraction, language detection, entity and key phrase recognition.
-> * Define an index to store the output (raw content, plus pipeline-generated name-value pairs).
-> * Execute the pipeline to start transformations and analysis, and to create and load the index.
+> * Set up a development environment.
+> * Define a pipeline that uses OCR, text extraction, language detection, entity and key phrase recognition on blobs in Azure Storage.
+> * Execute the pipeline to start transformations and analysis, and to create and load a search index.
 > * Explore results using full text search and a rich query syntax.
 
 If you don't have an Azure subscription, open a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
+## Overview
+
+This tutorial uses C# and the **Azure.Search.Documents** client library to create a data source, index, indexer, and skillset.
+
+The skillset uses built-in skills based on Cognitive Services APIs. Steps in the pipeline include Optical Character Recognition (OCR) on images, language detection on text, key phrase extraction, and entity recognition (organizations). New information is stored in new fields that you can leverage in queries, facets, and filters.
+
 ## Prerequisites
 
-+ [Azure Storage](https://azure.microsoft.com/services/storage/)
-+ [Visual Studio](https://visualstudio.microsoft.com/downloads/)
-+ [Create](search-create-service-portal.md) or [find an existing search service](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) 
+* [Visual Studio](https://visualstudio.microsoft.com/downloads/)
+* [Azure.Search.Documents 11.x NuGet package](https://www.nuget.org/packages/Azure.Search.Documents) 
+* [Azure Storage](https://azure.microsoft.com/services/storage/) and sample data
+* [Create](search-create-service-portal.md) or [find an existing search service](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices)
+
 
 > [!Note]
 > You can use the free service for this tutorial. A free search service limits you to three indexes, three indexers, and three data sources. This tutorial creates one of each. Before starting, make sure you have room on your service to accept the new resources.
@@ -60,13 +67,13 @@ If possible, create both in the same region and resource group for proximity and
 
 1. In the Basics tab, the following items are required. Accept the defaults for everything else.
 
-   + **Resource group**. Select an existing one or create a new one, but use the same group for all services so that you can manage them collectively.
+   * **Resource group**. Select an existing one or create a new one, but use the same group for all services so that you can manage them collectively.
 
-   + **Storage account name**. If you think you might have multiple resources of the same type, use the name to disambiguate by type and region, for example *blobstoragewestus*. 
+   * **Storage account name**. If you think you might have multiple resources of the same type, use the name to disambiguate by type and region, for example *blobstoragewestus*. 
 
-   + **Location**. If possible, choose the same location used for Azure Cognitive Search and Cognitive Services. A single location voids bandwidth charges.
+   * **Location**. If possible, choose the same location used for Azure Cognitive Search and Cognitive Services. A single location voids bandwidth charges.
 
-   + **Account Kind**. Choose the default, *StorageV2 (general purpose v2)*.
+   * **Account Kind**. Choose the default, *StorageV2 (general purpose v2)*.
 
 1. Click **Review + Create** to create the service.
 
@@ -83,7 +90,7 @@ If possible, create both in the same region and resource group for proximity and
 1. Before you leave Azure Storage, get a connection string so that you can formulate a connection in Azure Cognitive Search. 
 
    1. Browse back to the Overview page of your storage account (we used *blobstoragewestus* as an example). 
-   
+
    1. In the left navigation pane, select **Access keys** and copy one of the connection strings. 
 
    The connection string is a URL similar to the following example:
@@ -273,17 +280,17 @@ Build and run the solution. Since this is your first request, check the Azure po
 
 In this section, you define a set of enrichment steps that you want to apply to your data. Each enrichment step is called a *skill* and the set of enrichment steps, a *skillset*. This tutorial uses [built-in cognitive skills](cognitive-search-predefined-skills.md) for the skillset:
 
-+ [Optical Character Recognition](cognitive-search-skill-ocr.md) to recognize printed and handwritten text in image files.
+* [Optical Character Recognition](cognitive-search-skill-ocr.md) to recognize printed and handwritten text in image files.
 
-+ [Text Merger](cognitive-search-skill-textmerger.md) to consolidate text from a collection of fields into a single field.
+* [Text Merger](cognitive-search-skill-textmerger.md) to consolidate text from a collection of fields into a single field.
 
-+ [Language Detection](cognitive-search-skill-language-detection.md) to identify the content's language.
+* [Language Detection](cognitive-search-skill-language-detection.md) to identify the content's language.
 
-+ [Text Split](cognitive-search-skill-textsplit.md) to break large content into smaller chunks before calling the key phrase extraction skill and the entity recognition skill. Key phrase extraction and entity recognition accept inputs of 50,000 characters or less. A few of the sample files need splitting up to fit within this limit.
+* [Text Split](cognitive-search-skill-textsplit.md) to break large content into smaller chunks before calling the key phrase extraction skill and the entity recognition skill. Key phrase extraction and entity recognition accept inputs of 50,000 characters or less. A few of the sample files need splitting up to fit within this limit.
 
-+ [Entity Recognition](cognitive-search-skill-entity-recognition.md) for extracting the names of organizations from content in the blob container.
+* [Entity Recognition](cognitive-search-skill-entity-recognition.md) for extracting the names of organizations from content in the blob container.
 
-+ [Key Phrase Extraction](cognitive-search-skill-keyphrases.md) to pull out the top key phrases.
+* [Key Phrase Extraction](cognitive-search-skill-keyphrases.md) to pull out the top key phrases.
 
 During initial processing, Azure Cognitive Search cracks each document to extract content from different file formats. Text originating in the source file is placed into a generated `content` field, one for each document. As such, set the input as `"/document/content"` to use this text. Image content is placed into a generated `normalized_images` field, specified in a skillset as `/document/normalized_images/*`.
 
@@ -324,7 +331,7 @@ private static OcrSkill CreateOcrSkill()
 
 ### Merge skill
 
-In this section you'll create a **Merge** skill that merges the document content field with the text that was produced by the OCR skill.
+In this section, you'll create a **Merge** skill that merges the document content field with the text that was produced by the OCR skill.
 
 ```csharp
 private static MergeSkill CreateMergeSkill()
@@ -640,7 +647,7 @@ private static SearchIndex CreateDemoIndex(SearchIndexClient indexClient)
 }
 ```
 
-During testing you may find that you're attempting to create the index more than once. Because of this, check to see if the index that you're about to create already exists before attempting to create it.
+During testing, you may find that you're attempting to create the index more than once. Because of this, check to see if the index that you're about to create already exists before attempting to create it.
 
 Add the following lines to `Main`.
 
@@ -662,9 +669,9 @@ To learn more about index concepts, see [Create Index (REST API)](/rest/api/sear
 
 So far you have created a data source, a skillset, and an index. These three components become part of an [indexer](search-indexer-overview.md) that pulls each piece together into a single multi-phased operation. To tie these together in an indexer, you must define field mappings.
 
-+ The fieldMappings are processed before the skillset, mapping source fields from the data source to target fields in an index. If field names and types are the same at both ends, no mapping is required.
+* The fieldMappings are processed before the skillset, mapping source fields from the data source to target fields in an index. If field names and types are the same at both ends, no mapping is required.
 
-+ The outputFieldMappings are processed after the skillset, referencing sourceFieldNames that don't exist until document cracking or enrichment creates them. The targetFieldName is a field in an index.
+* The outputFieldMappings are processed after the skillset, referencing sourceFieldNames that don't exist until document cracking or enrichment creates them. The targetFieldName is a field in an index.
 
 In addition to hooking up inputs to outputs, you can also use field mappings to flatten data structures. For more information, see [How to map enriched fields to a searchable index](cognitive-search-output-field-mapping.md).
 
@@ -736,6 +743,7 @@ private static SearchIndexer CreateDemoIndexer(SearchIndexerClient indexerClient
     return indexer;
 }
 ```
+
 Add the following lines to `Main`.
 
 ```csharp
@@ -813,11 +821,11 @@ The easiest option is [Search explorer](search-explorer.md) in the portal. You c
 
 1. In Azure portal, in the search Overview page, select **Indexes**.
 
-1. Find **demoindex** in the list. It should have 14 documents. If the document count is zero, the indexer is either still running or the page hasn't been refreshed yet. 
+1. Find **`demoindex`** in the list. It should have 14 documents. If the document count is zero, the indexer is either still running or the page hasn't been refreshed yet. 
 
-1. Select **demoindex**. Search explorer is the first tab.
+1. Select **`demoindex`**. Search explorer is the first tab.
 
-1. Content is searchable as soon as the first document is loaded. To verify content exists, run an unspecified query by clicking **Search**. This query returns all current documents, which gives you an idea of what the index contains.
+1. Content is searchable as soon as the first document is loaded. To verify content exists, run an unspecified query by clicking **Search**. This query returns all currently indexed documents, giving you an idea of what the index contains.
 
 1. Next, paste in the following string for more manageable results: `search=*&$select=id, languageCode, organizations`
 
