@@ -18,7 +18,7 @@ ms.author: baanders
 | Spec version | The version of the event schema you are using | `specversion = '<version>'` | The version must be `1.0`. This indicates the CloudEvents schema version 1.0 |
 | Notification body | Reference any property in the `data` field of a notification | `$body.<property>` | See [*How-to: Understand event data*](https://docs.microsoft.com/azure/digital-twins/how-to-interpret-event-data) for examples of notifications. Any property in the `data` field can be referenced using `$body`
 
-The following data types are supported as values for the filters above:
+The following data types are supported as values returned by references to the data above:
 
 | Data type | Example |
 |-|-|-|
