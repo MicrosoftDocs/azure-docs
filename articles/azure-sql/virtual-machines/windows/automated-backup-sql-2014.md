@@ -30,27 +30,24 @@ Automated Backup automatically configures [Managed Backup to Microsoft Azure](ht
 ## Prerequisites
 To use Automated Backup, consider the following prerequisites:
 
+
 **Operating system**:
 
-- Windows Server 2012
-- Windows Server 2012 R2
-- Windows Server 2016
+- Windows Server 2012 and greater 
 
 **SQL Server version/edition**:
 
 - SQL Server 2014 Standard
 - SQL Server 2014 Enterprise
 
-> [!IMPORTANT]
-> Automated Backup works with SQL Server 2014. If you are using SQL Server 2016/2017, you can use Automated Backup v2 to back up your databases. For more information, see [Automated Backup v2 for SQL Server 2016 Azure virtual machines](automated-backup.md).
+> [!NOTE]
+> For SQL 2016 and greater, see [Automated Backup for SQL Server 2016](automated-backup.md).
 
 **Database configuration**:
 
-- Target databases must use the full recovery model. For more information about the impact of the full recovery model on backups, see [Backup under the full recovery model](https://technet.microsoft.com/library/ms190217.aspx).
-- Target databases must be on the default SQL Server instance. The SQL Server IaaS Agent Extension does not support named instances.
-
-> [!NOTE]
-> Automated Backup relies on the SQL Server IaaS Agent Extension. Current SQL virtual machine gallery images add this extension by default. For more information, see [SQL Server IaaS Agent Extension](sql-server-iaas-agent-extension-automate-management.md).
+- Target _user_ databases must use the full recovery model. System databases do not have to use the full recovery model. However, if you require log backups to be taken for Model or MSDB, you must use the full recovery model. For more information about the impact of the full recovery model on backups, see [Backup under the full recovery model](https://technet.microsoft.com/library/ms190217.aspx). 
+- The SQL Server VM has been registered with the SQL VM resource provider in [full management mode](sql-vm-resource-provider-register.md#upgrade-to-full). 
+-  Automated backup relies on the full [SQL Server IaaS Agent Extension](sql-server-iaas-agent-extension-automate-management.md). As such, automated backup is only supported on target databases from the default instance, or a single named instance. If there is no default instance, and multiple named instances, the SQL IaaS extension fails and automated backup will not work. 
 
 ## Settings
 

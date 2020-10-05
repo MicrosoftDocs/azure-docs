@@ -152,7 +152,7 @@ You can use [Azure AD audit logs](../reports-monitoring/concept-audit-logs.md#au
 
 Here is an example of recent group license changes, with details:
 
-![Screenshot group license changes](./media/licensing-group-advanced/audit-group-license-change.png)
+![Screenshot that shows the "Audit logs" page with a list item selected and the "Activity Details Audit log" pane open.](./media/licensing-group-advanced/audit-group-license-change.png)
 
 ### Find out when group changes started and finished processing
 

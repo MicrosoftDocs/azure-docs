@@ -172,7 +172,7 @@
       href: connect-azure-stack.md  
   - name: Enable User and Entity Behavior Analytics
     href: enable-entity-behavior-analytics.md
-  - name: Work with multiple tenants (MSSP)
+  - name: Manage multiple tenants (MSSP)
     href: multiple-tenants-service-providers.md
   - name: Work with incidents in multiple workspaces
     href: multiple-workspace-view.md

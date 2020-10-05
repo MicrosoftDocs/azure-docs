@@ -12,9 +12,6 @@ This article shows you how to set up activity log alerts for resource health not
 
 Azure Resource Health keeps you informed about the current and historical health status of your Azure resources. Azure Resource Health alerts can notify you in near real-time when these resources have a change in their health status. Creating Resource Health alerts programmatically allow for users to create and customize alerts in bulk.
 
-> [!NOTE]
-> Resource Health alerts currently are in preview.
-
 Resource health notifications are stored in the [Azure activity log](../azure-monitor/platform/platform-logs-overview.md) Given the possibly large volume of information stored in the activity log, there is a separate user interface to make it easier to view and set up alerts on resource health notifications.
 You can receive an alert when Azure resource sends resource health notifications to your Azure subscription. You can configure the alert based on:
 

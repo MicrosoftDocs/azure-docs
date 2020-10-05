@@ -3,14 +3,14 @@ title: Enterprise concepts - LUIS
 titleSuffix: Azure Cognitive Services
 description: Understand design concepts for large LUIS apps or multiple apps including LUIS and QnA Maker together.
 services: cognitive-services
-author: diberry
+
 manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 07/29/2019
-ms.author: diberry
+
 ---
 
 # Enterprise strategies for a LUIS app

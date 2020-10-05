@@ -198,7 +198,7 @@ Perform the following steps to download the order history.
 
 You can also view the chain of custody logs that include the audit logs and the BOM files.
 
-![Logs in storage accounts](media/data-box-portal-admin/logs-in-storage-acct-1.png)
+![Logs in storage accounts 2](media/data-box-portal-admin/logs-in-storage-acct-1.png)
 
 ## View order status
 
