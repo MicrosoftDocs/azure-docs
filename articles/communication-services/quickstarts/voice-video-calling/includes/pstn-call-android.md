@@ -22,7 +22,8 @@ ms.author: nikuklic
 
 ### Add PSTN functionality your app
 
-Add PhoneNumber type to your app by modifying **MainActivity.java**:
+Add the `PhoneNumber` type to your app by modifying **MainActivity.java**:
+
 
 ```java
 import com.azure.android.communication.common.PhoneNumber;
