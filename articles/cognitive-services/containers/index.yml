@@ -24,7 +24,7 @@ highlightedContent:
     - title: Frequently Asked Questions 
       itemType: whats-new
       url: container-faq.md
-    - title: Reuse containers
+    - title: Container reuse recipe
       itemType: concept
       url: ./container-reuse-recipe
 
@@ -34,66 +34,66 @@ conceptualContent:
     - title: Computer Vision containers
       summary: Use the Computer Vision containers to recognize text in images, and detect people in physical spaces.
       links:
-        - url: ./computer-vision/computer-vision-how-to-install-containers.md
+        - url: ../computer-vision/computer-vision-how-to-install-containers.md
           itemType: overview
           text: Read OCR (Optical Character Recognition) 
-        - url: ./computer-vision/spatial-analysis-container.md
+        - url: ../computer-vision/spatial-analysis-container.md
           itemType: overview
           text: Spatial analysis     
     - title: Speech containers
       summary: Use the Speech services containers to convert speech to text, generate speech, or identify a spoken language.
       links:
-        - url: ./speech-service/speech-container-howto.md
+        - url: ../speech-service/speech-container-howto.md
           itemType: overview
           text: Speech to text 
-        - url: ./speech-service/speech-container-howto.md
+        - url: ../speech-service/speech-container-howto.md
           itemType: overview
           text: Custom Speech to text 
-        - url: ./speech-service/speech-container-howto.md
+        - url: ../speech-service/speech-container-howto.md
           itemType: overview
           text: Text to speech
-        - url: ./speech-service/speech-container-howto.md
+        - url: ../speech-service/speech-container-howto.md
           itemType: overview
           text: Custom text to speech 
-        - url: ./speech-service/speech-container-howto.md
+        - url: ../speech-service/speech-container-howto.md
           itemType: overview
           text: Neural text to speech 
     - title: Text Analytics containers
       summary: Detect sentiment in text, extract key phrases, identify and identify the language of written text. 
       links:
-        - url: ./text-analytics/how-tos/text-analytics-how-to-install-containers.md
+        - url: ../text-analytics/how-tos/text-analytics-how-to-install-containers.md
           itemType: overview
           text: Sentiment Analysis
-        - url: ./text-analytics/how-tos/text-analytics-how-to-install-containers.md
+        - url: ../text-analytics/how-tos/text-analytics-how-to-install-containers.md
           itemType: overview
           text: Key phrase extraction
-        - url: ./text-analytics/how-tos/text-analytics-how-to-install-containers.md
+        - url: ../text-analytics/how-tos/text-analytics-how-to-install-containers.md
           itemType: overview
           text: Text language detection
-        - url: ./text-analytics/how-tos/text-analytics-how-to-install-containers.md
+        - url: ../text-analytics/how-tos/text-analytics-how-to-install-containers.md
           itemType: overview
           text: Text Analytics for health     
     - title: Anomaly Detector container
       summary: Detect anomalies in your time series data.
       links:
-        - url: ./anomaly-detector/anomaly-detector-container-howto.md
+        - url: ../anomaly-detector/anomaly-detector-container-howto.md
           itemType: overview
           text: Anomaly Detector 
     - title: Language Understanding (LUIS) container
       summary: Load a published LUIS model (also called a LUIS app), into a Docker container and query the prediction endpoints. 
       links:
-        - url: ./luis/luis-container-howto.md
+        - url: ../luis/luis-container-howto.md
           itemType: overview
           text: LUIS container
     - title: Form Recognizer
       summary:  Identify and extract key-value pairs and tables from forms.
       links:
-        - url: ./form-recognizer/form-recognizer-container-howto.md
+        - url: ../form-recognizer/form-recognizer-container-howto.md
           itemType: overview
           text: Form Recognizer
     - title: Face
       summary: Detect human faces in images and identify attributes, such as face landmarks (such as noses and eyes), gender, and age. 
       links:
-        - url: ./face/face-how-to-install-containers.md
+        - url: ../face/face-how-to-install-containers.md
           itemType: overview
-          text: Anomaly Detector 
+          text: Face
