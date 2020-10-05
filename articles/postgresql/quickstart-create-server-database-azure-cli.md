@@ -52,7 +52,7 @@ Here are the details for the preceding arguments:
 
 **Setting** | **Sample value** | **Description**
 ---|---|---
-name | mydemoserver | Unique name that identifies your Azure Database for PostgreSQL server. The server name can contain only lowercase letters, numbers, and the hyphen (-) character. It must contain 3 to 63 characters.
+name | mydemoserver | Unique name that identifies your Azure Database for PostgreSQL server. The server name can contain only lowercase letters, numbers, and the hyphen (-) character. It must contain 3 to 63 characters. For more information, see [Azure Database for PostgreSQL Naming Rules](https://docs.microsoft.com/en-us/azure/azure-resource-manager/management/resource-name-rules#microsoftdbforpostgresql).
 resource-group | myresourcegroup | Name of the Azure resource group.
 location | westus | Azure location for the server.
 admin-user | myadmin | Username for the administrator login. It can't be **azure_superuser**, **admin**, **administrator**, **root**, **guest**, or **public**.
