@@ -301,6 +301,8 @@
         href: platform/move-workspace.md
       - name: Design for service providers
         href: platform/service-providers.md
+      - name: Manage access
+        href: platform/manage-access.md
       - name: Dedicated clusters
         href: log-query/logs-dedicated-clusters.md
   - name: Metrics explorer
