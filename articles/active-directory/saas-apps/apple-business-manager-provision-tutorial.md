@@ -53,7 +53,7 @@ The scenario outlined in this tutorial assumes that you already have the followi
 2. Click Settings at the bottom of the sidebar click Data Source below Organization Settings, then click Connect to Data Source.
 3. Click Connect next to SCIM, carefully read the warning, click Copy, then click Close.
 [The Connect to SCIM window, which provides a token and a Copy button under it.]
-Leave this window open to copy the Tenant URL from Apple Business Manager to Azure AD, which is: <code>https://federation.apple.com/feeds/business/scim</code>
+Leave this window open to copy the Tenant URL from Apple Business Manager to Azure AD, which is: 'https://federation.apple.com/feeds/business/scim'
 
 	![Apple Business Manager](media/applebusinessmanager-provisioning-tutorial/scim-token.png)
 
