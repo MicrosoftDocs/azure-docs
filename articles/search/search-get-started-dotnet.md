@@ -91,7 +91,7 @@ After the project is created, add the client library. The [Azure.Search.Document
        SearchIndexClient idxclient = new SearchIndexClient(serviceEndpoint, credential);
 
        // Create a SearchClient to load and query documents
-       SearchClient qryclient = new SearchClient(serviceEndpoint, indexName, credential);
+       SearchClient srchclient = new SearchClient(serviceEndpoint, indexName, credential);
     ```
 
 ## 1 - Create an index
@@ -185,7 +185,7 @@ When uploading documents, you must use an [IndexDocumentsBatch](/dotnet/api/azur
     IndexDocumentsOptions idxoptions = new IndexDocumentsOptions { ThrowOnAnyError = true };
 
     Console.WriteLine("{0}", "Loading index...\n");
-    qryclient.IndexDocuments(batch, idxoptions);
+    srchclient.IndexDocuments(batch, idxoptions);
     ```
 
     Once you initialize the [IndexDocumentsBatch](/dotnet/api/azure.search.documents.models.indexdocumentsbatch-1) object, you can send it to the index by calling [IndexDocuments](/dotnet/api/azure.search.documents.searchclient.indexdocuments) on your [SearchClient](/dotnet/api/azure.search.documents.searchclient) object.
@@ -227,7 +227,7 @@ The [SearchResults](/dotnet/api/azure.search.documents.models.searchresults-1) c
 1. Create a RunQueries method to execute queries and return results. Results are Hotel objects.
 
     ```csharp
-    private static void RunQueries(SearchClient qryclient)
+    private static void RunQueries(SearchClient srchclient)
     {
         SearchOptions options;
         SearchResults<Hotel> response;
@@ -240,7 +240,7 @@ The [SearchResults](/dotnet/api/azure.search.documents.models.searchresults-1) c
             OrderBy = { "" }
         };
 
-        response = qryclient.Search<Hotel>("motel", options);
+        response = srchclient.Search<Hotel>("motel", options);
         WriteDocuments(response);
 
         Console.WriteLine("Query #2: Find hotels where 'type' equals hotel...\n");
@@ -250,7 +250,7 @@ The [SearchResults](/dotnet/api/azure.search.documents.models.searchresults-1) c
             Filter = "hotelCategory eq 'hotel'",
         };
 
-        response = qryclient.Search<Hotel>("*", options);
+        response = srchclient.Search<Hotel>("*", options);
         WriteDocuments(response);
 
         Console.WriteLine("Query #3: Filter on rates less than $200 and sort by when the hotel was last updated...\n");
@@ -261,7 +261,7 @@ The [SearchResults](/dotnet/api/azure.search.documents.models.searchresults-1) c
             OrderBy = { "lastRenovationDate desc" }
         };
 
-        response = qryclient.Search<Hotel>("*", options);
+        response = srchclient.Search<Hotel>("*", options);
         WriteDocuments(response);
     }
     ```
@@ -270,7 +270,7 @@ The [SearchResults](/dotnet/api/azure.search.documents.models.searchresults-1) c
 
     ```csharp
     Console.WriteLine("Starting queries...\n");
-    RunQueries(qryclient);
+    RunQueries(srchclient);
     ```
 
 This example shows the two [ways of matching terms in a query](search-query-overview.md#types-of-queries): full-text search, and filters:
