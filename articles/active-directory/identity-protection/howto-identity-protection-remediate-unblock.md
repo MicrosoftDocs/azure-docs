@@ -38,6 +38,13 @@ If you allow users to self-remediate, with Azure Multi-Factor Authentication (MF
 
 Some detections may not raise risk to the level where a user self-remediation would be required but administrators should still evaluate these detections. Administrators may determine that additional measures are necessary like [blocking access from locations](../conditional-access/howto-conditional-access-policy-location.md) or lowering the acceptable risk in their policies.
 
+Some more useful points to take a note of:
+
+- Self-remediation doesn't work if user risk state is high for security reasons
+- In order to remove High User-risk, the Admin needs to either dismiss the user risk or reset the the user risk using a temporary password.
+- In order to reset High User-risk state of a user, the Admin has to assign a temporary password to the user and ask user to login with temporary password (shared by Admin) and then reset the password.
+- Password should be changed for users belonging to the on-premises environment in order to access the cloud resources with new updated password.
+
 ### Manual password reset
 
 If requiring a password reset using a user risk policy is not an option, administrators can close all risk detections for a user with a manual password reset.
