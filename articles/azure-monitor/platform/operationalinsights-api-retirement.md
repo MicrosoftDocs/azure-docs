@@ -10,7 +10,7 @@ ms.date: 10/02/2020
 ---
 
 # OperationalInsights API version retirement
-Microsoft provides notification at least 36 months in advance of retiring an API in order to smooth the transition to a newer/supported version. We have released a new version (2020-08-01) for **OperationalInsights** resource provider APIs and will retire any earlier API versions on October 31, 2023. Since new features and functionality and optimizations are only added to the current API you should upgrade to the latest API version as early as possible.
+Microsoft provides notification at least 12 months in advance of retiring an API in order to smooth the transition to a newer/supported version. We have released a new version (2020-08-01) for **OperationalInsights** resource provider APIs and will retire any earlier API versions on October 31, 2023. Since new features and functionality and optimizations are only added to the current API you should upgrade to the latest API version as early as possible.
 
 After October 31, 2023 Azure Monitor will no longer support earlier APIs versions than 2020-08-01. If you prefer not to upgrade, requests sent from earlier versions will continue to be served by the Azure Monitor service until October 31, 2023.
 
@@ -18,10 +18,13 @@ Depending on the configuration method you use, you should update the new version
 
 
 ## REST
+REST API requests use the API version in the URL of the request. Replace that version with the latest version as shown in the following example.
 
-PUT https://management.azure.com/subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/providers/Microsoft.OperationalInsights/workspaces/{workspaceName}?api-version=2020-08-01
+https://management.azure.com/subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/providers/Microsoft.OperationalInsights/workspaces/{workspaceName}?api-version=2020-08-01
 
 ## Azure Resource Manager
+Resource Manager templates use the API version in the **apiVersion** property of the resource. Replace that version with the latest version as shown in the following example.
+
 
 ```json
 {
