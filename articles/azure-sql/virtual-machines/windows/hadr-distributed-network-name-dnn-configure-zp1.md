@@ -26,7 +26,7 @@ This article teaches you to configure a DNN to route traffic to your FCIs with S
 
 ::: zone pivot="fci"
 
-## Prerequisites
+## Prerequisites (FCI)
 
 Before you complete the steps in this article, you should already have:
 
@@ -34,10 +34,8 @@ Before you complete the steps in this article, you should already have:
 - Configured your [failover cluster instances](failover-cluster-instance-overview.md). 
 - Installed the latest version of [PowerShell](/powershell/azure/install-az-ps). 
 
-## Create DNN resource 
+## Create DNN resource (FCI)
 
-
-# [Failover cluster instance](#tab/fci)
 The DNN resource is created in the same cluster group as the SQL Server FCI. Use PowerShell to create the DNN resource inside the FCI cluster group. 
 
 The following PowerShell command adds a DNN resource to the SQL Server FCI cluster group with a resource name of `<dnnResourceName>`. The resource name is used to uniquely identify a resource. Use one that makes sense to you and is unique across the cluster. The resource type must be `Distributed Network Name`. 
@@ -59,7 +57,7 @@ Add-ClusterResource -Name dnn-demo `
 ```
 
 
-## Set cluster DNN DNS name
+## Set cluster DNN DNS name (FCI)
 
 Set the DNS name for the DNN resource in the cluster. The cluster then uses this value to route traffic to the node that's currently hosting the SQL Server FCI. 
 
@@ -85,7 +83,7 @@ Clients will now enter `FCIDNN` into their connection string when connecting to 
    > Do not delete the current virtual network name (VNN) as it is a necessary component of the FCI infrastructure. 
 
 
-### Rename the VNN 
+### Rename the VNN  (FCI)
 
 If you have an existing virtual network name and you want clients to continue using this value to connect to the SQL Server FCI, you must rename the current VNN to a placeholder value. After the current VNN is renamed, you can set the DNS name value for the DNN to the VNN. 
 
@@ -94,7 +92,7 @@ Some restrictions apply for renaming the VNN. For more information, see [Renamin
 If using the current VNN is not necessary for your business, skip this section. After you've renamed the VNN, then [set the cluster DNN DNS name](#set-cluster-dnn-dns-name). 
 
    
-## Set DNN resource online
+## Set DNN resource online (FCI)
 
 After your DNN resource is appropriately named, and you've set the DNS name value in the cluster, use PowerShell to set the DNN resource online in the cluster: 
 
@@ -108,7 +106,7 @@ For example, to start your DNN resource `dnn-demo`, use the following PowerShell
 Start-ClusterResource -Name dnn-demo
 ```
 
-## Configure possible owners
+## Configure possible owners (FCI)
 
 By default, the cluster binds the DNN DNS name to all the nodes in the cluster. However, nodes in the cluster that are not part of the SQL Server FCI should be excluded from the list of DNN possible owners. 
 
@@ -124,7 +122,7 @@ To update possible owners, follow these steps:
 1. Select **OK** to save your settings. 
 
 
-## Restart SQL Server instance 
+## Restart SQL Server instance  (FCI)
 
 Use Failover Cluster Manager to restart the SQL Server instance. Follow these steps:
 
@@ -132,17 +130,14 @@ Use Failover Cluster Manager to restart the SQL Server instance. Follow these st
 1. Right-click the SQL Server resource, and take it offline. 
 1. After all associated resources are offline, right-click the SQL Server resource and bring it online again. 
 
-## Update connection string
+## Update connection string (FCI)
 
 To ensure rapid connectivity upon failover, add `MultiSubnetFailover=True` to the connection string if the SQL client version is earlier than 4.6.1. 
 
 Additionally, if the DNN is not using the original VNN, SQL clients that connect to the SQL Server FCI will need to update their connection string to the DNN DNS name. To avoid this requirement, you can update the DNS name value to be the name of the VNN. But you'll need to [replace the existing VNN with a placeholder](#rename-the-vnn) first. 
 
-## Test failover
 
-
-
-## Test failover
+## Test failover (FCI)
 
 
 Test failover of the clustered resource to validate cluster functionality. 
@@ -162,14 +157,14 @@ To test failover, follow these steps:
 
 
 
-## Test connectivity
+## Test connectivity (FCI)
 
 To test connectivity, sign in to another virtual machine in the same virtual network. Open **SQL Server Management Studio** and connect to the SQL Server FCI by using the DNN DNS name.
 
 If you need to, you can [download SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms).
 
 
-## Avoid IP conflict
+## Avoid IP conflict (FCI)
 
 This is an optional step to prevent the virtual IP (VIP) address used by the FCI resource from being assigned to another resource in Azure as a duplicate. 
 
@@ -177,7 +172,7 @@ Although customers now use the DNN to connect to the SQL Server FCI, the virtual
 
 Configure an APIPA address or a dedicated network adapter to reserve the IP address. 
 
-### APIPA address
+### APIPA address (FCI)
 
 To avoid using duplicate IP addresses, configure an APIPA address (also known as a link-local address). To do so, run the following command:
 
@@ -188,11 +183,11 @@ Get-ClusterResource "virtual IP address" | Set-ClusterParameter
 
 In this command, "virtual IP address" is the name of the clustered VIP address resource, and "169.254.1.1" is the APIPA address chosen for the VIP address. Choose the address that best suits your business. Set `OverrideAddressMatch=1` to allow the IP address to be on any network, including the APIPA address space. 
 
-### Dedicated network adapter
+### Dedicated network adapter (FCI)
 
 Alternatively, configure a network adapter in Azure to reserve the IP address used by the virtual IP address resource. However, this consumes the address in the subnet address space, and there is the additional overhead of ensuring the network adapter is not used for any other purpose.
 
-## Limitations
+## Limitations (FCI)
 
 - Currently, a DNN is supported only for SQL Server 2019 CU2 and later on Windows Server 2016. 
 - Currently, a DNN is supported only for failover cluster instances with SQL Server on Azure VMs. Use the virtual network name with Azure Load Balancer for availability group listeners.
@@ -202,7 +197,7 @@ Alternatively, configure a network adapter in Azure to reserve the IP address us
 
 ::: zone pivot="ag"
 
-## Prerequisites
+## Prerequisites (AG)
 
 Before you complete the steps in this article, you should already have:
 
@@ -210,10 +205,9 @@ Before you complete the steps in this article, you should already have:
 - Configured your [failover cluster instances](failover-cluster-instance-overview.md). 
 - Installed the latest version of [PowerShell](/powershell/azure/install-az-ps). 
 
-## Create DNN resource 
+## Create DNN resource (AG)
 
 
-# [Failover cluster instance](#tab/fci)
 The DNN resource is created in the same cluster group as the SQL Server FCI. Use PowerShell to create the DNN resource inside the FCI cluster group. 
 
 The following PowerShell command adds a DNN resource to the SQL Server FCI cluster group with a resource name of `<dnnResourceName>`. The resource name is used to uniquely identify a resource. Use one that makes sense to you and is unique across the cluster. The resource type must be `Distributed Network Name`. 
@@ -235,7 +229,7 @@ Add-ClusterResource -Name dnn-demo `
 ```
 
 
-## Set cluster DNN DNS name
+## Set cluster DNN DNS name (AG)
 
 Set the DNS name for the DNN resource in the cluster. The cluster then uses this value to route traffic to the node that's currently hosting the SQL Server FCI. 
 
@@ -261,7 +255,7 @@ Clients will now enter `FCIDNN` into their connection string when connecting to 
    > Do not delete the current virtual network name (VNN) as it is a necessary component of the FCI infrastructure. 
 
 
-### Rename the VNN 
+### Rename the VNN  (AG)
 
 If you have an existing virtual network name and you want clients to continue using this value to connect to the SQL Server FCI, you must rename the current VNN to a placeholder value. After the current VNN is renamed, you can set the DNS name value for the DNN to the VNN. 
 
@@ -270,7 +264,7 @@ Some restrictions apply for renaming the VNN. For more information, see [Renamin
 If using the current VNN is not necessary for your business, skip this section. After you've renamed the VNN, then [set the cluster DNN DNS name](#set-cluster-dnn-dns-name). 
 
    
-## Set DNN resource online
+## Set DNN resource online (AG)
 
 After your DNN resource is appropriately named, and you've set the DNS name value in the cluster, use PowerShell to set the DNN resource online in the cluster: 
 
@@ -284,7 +278,7 @@ For example, to start your DNN resource `dnn-demo`, use the following PowerShell
 Start-ClusterResource -Name dnn-demo
 ```
 
-## Configure possible owners
+## Configure possible owners (AG)
 
 By default, the cluster binds the DNN DNS name to all the nodes in the cluster. However, nodes in the cluster that are not part of the SQL Server FCI should be excluded from the list of DNN possible owners. 
 
@@ -300,7 +294,7 @@ To update possible owners, follow these steps:
 1. Select **OK** to save your settings. 
 
 
-## Restart SQL Server instance 
+## Restart SQL Server instance  (AG)
 
 Use Failover Cluster Manager to restart the SQL Server instance. Follow these steps:
 
@@ -308,17 +302,13 @@ Use Failover Cluster Manager to restart the SQL Server instance. Follow these st
 1. Right-click the SQL Server resource, and take it offline. 
 1. After all associated resources are offline, right-click the SQL Server resource and bring it online again. 
 
-## Update connection string
+## Update connection string (AG)
 
 To ensure rapid connectivity upon failover, add `MultiSubnetFailover=True` to the connection string if the SQL client version is earlier than 4.6.1. 
 
 Additionally, if the DNN is not using the original VNN, SQL clients that connect to the SQL Server FCI will need to update their connection string to the DNN DNS name. To avoid this requirement, you can update the DNS name value to be the name of the VNN. But you'll need to [replace the existing VNN with a placeholder](#rename-the-vnn) first. 
 
-## Test failover
-
-
-
-## Test failover
+## Test failover (AG)
 
 
 Test failover of the clustered resource to validate cluster functionality. 
@@ -338,14 +328,14 @@ To test failover, follow these steps:
 
 
 
-## Test connectivity
+## Test connectivity (AG)
 
 To test connectivity, sign in to another virtual machine in the same virtual network. Open **SQL Server Management Studio** and connect to the SQL Server FCI by using the DNN DNS name.
 
 If you need to, you can [download SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms).
 
 
-## Avoid IP conflict
+## Avoid IP conflict (AG)
 
 This is an optional step to prevent the virtual IP (VIP) address used by the FCI resource from being assigned to another resource in Azure as a duplicate. 
 
@@ -353,7 +343,7 @@ Although customers now use the DNN to connect to the SQL Server FCI, the virtual
 
 Configure an APIPA address or a dedicated network adapter to reserve the IP address. 
 
-### APIPA address
+### APIPA address (AG)
 
 To avoid using duplicate IP addresses, configure an APIPA address (also known as a link-local address). To do so, run the following command:
 
@@ -364,11 +354,11 @@ Get-ClusterResource "virtual IP address" | Set-ClusterParameter
 
 In this command, "virtual IP address" is the name of the clustered VIP address resource, and "169.254.1.1" is the APIPA address chosen for the VIP address. Choose the address that best suits your business. Set `OverrideAddressMatch=1` to allow the IP address to be on any network, including the APIPA address space. 
 
-### Dedicated network adapter
+### Dedicated network adapter (AG)
 
 Alternatively, configure a network adapter in Azure to reserve the IP address used by the virtual IP address resource. However, this consumes the address in the subnet address space, and there is the additional overhead of ensuring the network adapter is not used for any other purpose.
 
-## Limitations
+## Limitations (AG)
 
 - Currently, a DNN is supported only for SQL Server 2019 CU2 and later on Windows Server 2016. 
 - Currently, a DNN is supported only for failover cluster instances with SQL Server on Azure VMs. Use the virtual network name with Azure Load Balancer for availability group listeners.
