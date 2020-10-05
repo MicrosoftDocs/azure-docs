@@ -297,7 +297,8 @@ In this example, the shared HANA file systems are deployed on Azure NetApp Files
 
 1. **[AH]** Create mount points for the HANA database volumes.  
 
-    ```mkdir -p /hana/shared
+    ```
+    mkdir -p /hana/shared
     ```
 
 2. **[AH]** Verify the NFS domain setting. Make sure that the domain is configured as the default Azure NetApp Files domain, that is, **`defaultv4iddomain.com`** and the mapping is set to **nobody**.  
@@ -335,12 +336,14 @@ In this example, the shared HANA file systems are deployed on Azure NetApp Files
 
 4. **[AH1]** Mount the shared Azure NetApp Files volumes on the SITE1 HANA DB VMs.  
 
-    ```sudo mount -o rw,vers=4,minorversion=1,hard,timeo=600,rsize=262144,wsize=262144,intr,noatime,lock,_netdev,sec=sys 10.23.1.7:/HN1-shared-s1 /hana/shared
+    ```
+    sudo mount -o rw,vers=4,minorversion=1,hard,timeo=600,rsize=262144,wsize=262144,intr,noatime,lock,_netdev,sec=sys 10.23.1.7:/HN1-shared-s1 /hana/shared
     ```
 
 5. **[AH2]** Mount the shared Azure NetApp Files volumes on the SITE2 HANA DB VMs.  
 
-    ```sudo mount -o rw,vers=4,minorversion=1,hard,timeo=600,rsize=262144,wsize=262144,intr,noatime,lock,_netdev,sec=sys 10.23.1.7:/HN1-shared-s2 /hana/shared
+    ```
+    sudo mount -o rw,vers=4,minorversion=1,hard,timeo=600,rsize=262144,wsize=262144,intr,noatime,lock,_netdev,sec=sys 10.23.1.7:/HN1-shared-s2 /hana/shared
     ```
 
 
@@ -364,12 +367,14 @@ You will need to execute the steps to create the local data and log volumes on e
 Set up the disk layout with  **Logical Volume Manager (LVM)**. The following example assumes that each HANA virtual machine has three data disks attached, that are used to create two volumes.
 
 1. **[AH]** List all of the available disks:
-    ```ls /dev/disk/azure/scsi1/lun*
+    ```
+    ls /dev/disk/azure/scsi1/lun*
     ```
 
    Example output:
 
-    ```/dev/disk/azure/scsi1/lun0  /dev/disk/azure/scsi1/lun1  /dev/disk/azure/scsi1/lun2 
+    ```
+    /dev/disk/azure/scsi1/lun0  /dev/disk/azure/scsi1/lun1  /dev/disk/azure/scsi1/lun2 
     ```
 
 2. **[AH]** Create physical volumes for all of the disks that you want to use:
@@ -408,7 +413,8 @@ Set up the disk layout with  **Logical Volume Manager (LVM)**. The following exa
     ```
 
 6. **[AH]** Create `fstab` entries for the logical volumes and mount:
-    ```sudo vi /etc/fstab
+    ```
+    sudo vi /etc/fstab
     ```
 
    Insert the following line in the `/etc/fstab` file:
@@ -420,7 +426,8 @@ Set up the disk layout with  **Logical Volume Manager (LVM)**. The following exa
 
    Mount the new volumes:
 
-    ```sudo mount -a
+    ```
+    sudo mount -a
     ```
 
 ## Installation  
@@ -432,35 +439,40 @@ In this example for deploying SAP HANA in scale-out configuration with HSR on Az
 1. **[AH]** Before the HANA installation, set the root password. You can disable the root password after the installation has been completed. Execute as `root` command `passwd`.  
 
 2. **[1,2]** Change the permissions on `/hana/shared` 
-    <pre><code>chmod 775 /hana/shared
-    </code></pre>
+    ```
+    chmod 775 /hana/shared
+    ```
 
 3. **[1]** Verify that you can log in via SSH to the HANA DB VMs in this site **hana-s1-db2** and **hana-s1-db3**, without being prompted for a password.  
    If that is not the case, exchange  ssh keys, as documented in [Using Key-based Authentication](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/6/html/deployment_guide/s2-ssh-configuration-keypairs).  
-    <pre><code> ssh root@<b>hana-s1-db2</b>
+    ```
+    ssh root@<b>hana-s1-db2</b>
     ssh root@<b>hana-s1-db3</b>
-    </code></pre>
+    ```
 
 4. **[2]** Verify that you can log in via SSH to the HANA DB VMs in this site **hana-s2-db2** and **hana-s2-db3**, without being prompted for a password.  
    If that is not the case, exchange  ssh keys, as documented in [Using Key-based Authentication](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/6/html/deployment_guide/s2-ssh-configuration-keypairs).  
-    <pre><code> ssh root@<b>hana-s1-db2</b>
+    ```
+    ssh root@<b>hana-s1-db2</b>
     ssh root@<b>hana-s1-db3</b>
-    </code></pre>
+    ```
 
 5. **[AH]** Install additional packages, which are required for HANA 2.0 SP4. For more information, see SAP Note [2593824](https://launchpad.support.sap.com/#/notes/2593824) for RHEL 7. 
 
-    <pre><code> # If using RHEL 7
+    ```
+    # If using RHEL 7
     yum install libgcc_s1 libstdc++6 compat-sap-c++-7 libatomic1
     # If using RHEL 8
     yum install libatomic libtool-ltdl.x86_64
-    </code></pre>
+    ```
 
 
 6. **[A]** Disable the firewall temporarily, so that it doesn't interfere with the HANA installation. You can re-enable it, after the HANA installation is done. 
-   <pre><code># Execute as root
-   systemctl stop firewalld
-   systemctl disable firewalld
-   </code></pre>
+    ```
+    # Execute as root
+    systemctl stop firewalld
+    systemctl disable firewalld
+    ```
 
 ### HANA installation on the first node on each site
 
@@ -468,8 +480,9 @@ In this example for deploying SAP HANA in scale-out configuration with HSR on Az
 
    a. Start the **hdblcm** program as `root` from the HANA installation software directory. Use the `internal_network` parameter and pass the address space for subnet, which is used for the internal HANA inter-node communication.  
 
-    <pre><code>./hdblcm --internal_network=10.23.1.128/26
-    </code></pre>
+    ```
+    ./hdblcm --internal_network=10.23.1.128/26
+    ```
 
    b. At the prompt, enter the following values:
 
@@ -504,7 +517,8 @@ In this example for deploying SAP HANA in scale-out configuration with HSR on Az
 
    Display global.ini, and ensure that the configuration for the internal SAP HANA inter-node communication is in place. Verify the **communication** section. It should have the address space for the `inter` subnet, and `listeninterface` should be set to `.internal`. Verify the **internal_hostname_resolution** section. It should have the IP addresses for the HANA virtual machines that belong to the `inter` subnet.  
 
-   <pre><code> sudo cat /usr/sap/<b>HN1</b>/SYS/global/hdb/custom/config/global.ini
+   ```
+    sudo cat /usr/sap/<b>HN1</b>/SYS/global/hdb/custom/config/global.ini
     # Example from SITE1 
     [communication]
     internal_network = <b>10.23.1.128/26</b>
@@ -513,41 +527,46 @@ In this example for deploying SAP HANA in scale-out configuration with HSR on Az
     <b>10.23.1.138</b> = <b>hana-s1-db1</b>
     <b>10.23.1.139</b> = <b>hana-s1-db2</b>
     <b>10.23.1.140</b> = <b>hana-s1-db3</b>
-   </code></pre>
+   ```
 
 4. **[1,2]** Prepare `global.ini` for installation in non-shared environment, as described in SAP note [2080991](https://launchpad.support.sap.com/#/notes/0002080991).  
 
-   <pre><code> sudo vi /usr/sap/HN1/SYS/global/hdb/custom/config/global.ini
+   ```
+    sudo vi /usr/sap/HN1/SYS/global/hdb/custom/config/global.ini
     [persistence]
     basepath_shared = no
-   </code></pre>
+   ```
 
 4. **[1,2]** Restart SAP HANA to activate the changes.  
 
-   <pre><code> sudo -u <b>hn1</b>adm /usr/sap/hostctrl/exe/sapcontrol -nr <b>03</b> -function StopSystem
-    sudo -u <b>hn1</b>adm /usr/sap/hostctrl/exe/sapcontrol -nr <b>03</b> -function StartSystem
-   </code></pre>
+   ```
+    sudo -u hn1adm /usr/sap/hostctrl/exe/sapcontrol -nr 03 -function StopSystem
+    sudo -u hn1adm /usr/sap/hostctrl/exe/sapcontrol -nr 03 -function StartSystem
+   ```
 
 6. **[1,2]** Verify that the client interface will be using the IP addresses from the `client` subnet for communication.  
 
-   <pre><code># Execute as hn1adm
-    /usr/sap/HN1/HDB03/exe/hdbsql -u SYSTEM -p "<b>password</b>" -i 03 -d SYSTEMDB 'select * from SYS.M_HOST_INFORMATION'|grep net_publicname
+    ```
+    # Execute as hn1adm
+    /usr/sap/HN1/HDB03/exe/hdbsql -u SYSTEM -p "password" -i 03 -d SYSTEMDB 'select * from SYS.M_HOST_INFORMATION'|grep net_publicname
     # Expected result - example from SITE 2
-    "<b>hana-s2-db1</b>","net_publicname","<b>10.23.0.14</b>"
-   </code></pre>
+    "hana-s2-db1","net_publicname","10.23.0.14"
+   ```
 
    For information about how to verify the configuration, see SAP Note [2183363 - Configuration of SAP HANA internal network](https://launchpad.support.sap.com/#/notes/2183363).  
 
 7. **[AH]** Change permissions on the data and log directories to avoid HANA installation error.  
 
-   <pre><code>sudo chmod o+w -R /hana/data /hana/log
-   </code></pre>
+   ```
+    sudo chmod o+w -R /hana/data /hana/log
+   ```
 
 8. **[1]** Install the secondary HANA nodes. The example instructions in this step are for SITE 1.  
    a. Start the resident **hdblcm** program as `root`.    
-    <pre><code>cd /hana/shared/<b>HN1</b>/hdblcm
+    ```
+     cd /hana/shared/HN1/hdblcm
      ./hdblcm 
-    </code></pre>
+    ```
 
    b. At the prompt, enter the following values:
 
@@ -578,35 +597,40 @@ In this example for deploying SAP HANA in scale-out configuration with HSR on Az
 
    Back up the databases as **hn1**adm:
 
-   <pre><code>hdbsql -d SYSTEMDB -u SYSTEM -p "<b>passwd</b>" -i <b>03</b> "BACKUP DATA USING FILE ('<b>initialbackupSYS</b>')"
-   hdbsql -d <b>HN1</b> -u SYSTEM -p "<b>passwd</b>" -i <b>03</b> "BACKUP DATA USING FILE ('<b>initialbackupHN1</b>')"
-   </code></pre>
+    ```
+    hdbsql -d SYSTEMDB -u SYSTEM -p "passwd" -i 03 "BACKUP DATA USING FILE ('initialbackupSYS')"
+    hdbsql -d HN1 -u SYSTEM -p "passwd" -i 03 "BACKUP DATA USING FILE ('initialbackupHN1')"
+    ```
 
    Copy the system PKI files to the secondary site:
 
-   <pre><code>scp /usr/sap/<b>HN1</b>/SYS/global/security/rsecssfs/data/SSFS_<b>HN1</b>.DAT   <b>hn1-db-1</b>:/usr/sap/<b>HN1</b>/SYS/global/security/rsecssfs/data/
-   scp /usr/sap/<b>HN1</b>/SYS/global/security/rsecssfs/key/SSFS_<b>HN1</b>.KEY  <b>hn1-db-1</b>:/usr/sap/<b>HN1</b>/SYS/global/security/rsecssfs/key/
-   </code></pre>
+    ```
+    scp /usr/sap/HN1/SYS/global/security/rsecssfs/data/SSFS_HN1.DAT hana-s2-db1:/usr/sap/HN1/SYS/global/security/rsecssfs/data/
+    scp /usr/sap/HN1/SYS/global/security/rsecssfs/key/SSFS_HN1.KEY  hana-s2-db1:/usr/sap/HN1/SYS/global/security/rsecssfs/key/
+    ```
 
    Create the primary site:
 
-   <pre><code>hdbnsutil -sr_enable --name=<b>HANA_S1</b>
-   </code></pre>
+    ```
+    hdbnsutil -sr_enable --name=HANA_S1
+    ```
 
 2. **[2]** Configure System Replication on SITE 2:
     
    Register the second site to start the system replication. Run the following command as <hanasid\>adm:
 
-   <pre><code>sapcontrol -nr <b>03</b> -function StopWait 600 10
-   hdbnsutil -sr_register --remoteHost=<b>hana-s1-db1</b> --remoteInstance=<b>03</b> --replicationMode=sync --name=<b>HANA_S2</b>
-   sapcontrol -nr <b>03</b> -function StartSystem
-   </code></pre>
+    ```
+    sapcontrol -nr 03 -function StopWait 600 10
+    hdbnsutil -sr_register --remoteHost=hana-s1-db1 --remoteInstance=03 --replicationMode=sync --name=HANA_S2
+    sapcontrol -nr 03 -function StartSystem
+    ```
 
 3. **[1]** Check replication status
 
    Check the replication status and wait until all databases are in sync.
 
-   <pre><code>sudo su - <b>hn1</b>adm -c "python /usr/sap/<b>HN1</b>/HDB<b>03</b>/exe/python_support/systemReplicationStatus.py"
+    ```
+    sudo su - hn1adm -c "python /usr/sap/HN1/HDB03/exe/python_support/systemReplicationStatus.py"
    	# | Database | Host          | Port  | Service Name | Volume ID | Site ID | Site Name | Secondary     | Secondary | Secondary | Secondary | Secondary     | Replication | Replication | Replication    |
 	# |          |               |       |              |           |         |           | Host          | Port      | Site ID   | Site Name | Active Status | Mode        | Status      | Status Details |
 	# | -------- | ------------- | ----- | ------------ | --------- | ------- | --------- | ------------- | --------- | --------- | --------- | ------------- | ----------- | ----------- | -------------- |
@@ -624,15 +648,17 @@ In this example for deploying SAP HANA in scale-out configuration with HSR on Az
 	# mode: PRIMARY
 	# site id: 1
 	# site name: HANA_S1
-   </code></pre>
+    ```
 
 4. **[1,2]** Change the HANA configuration so that communication for HANA system replication if directed though the HANA system replication virtual network interfaces.   
    - Stop HANA on both sites
-   <pre><code>sudo -u <b>hn1</b>adm /usr/sap/hostctrl/exe/sapcontrol -nr <b>03</b> -function StopSystem HDB
-   </code></pre>
+    ```
+    sudo -u hn1adm /usr/sap/hostctrl/exe/sapcontrol -nr 03 -function StopSystem HDB
+    ```
 
    - Edit global.ini to add the host mapping for HANA system replication: use the IP addresses from the `hsr` subnet.  
-   <pre><code>sudo vi /usr/sap/HN1/SYS/global/hdb/custom/config/global.ini
+    ```
+    sudo vi /usr/sap/HN1/SYS/global/hdb/custom/config/global.ini
     #Add the section
     [system_replication_hostname_resolution]
     10.23.1.202 = hana-s1-db1
@@ -641,28 +667,30 @@ In this example for deploying SAP HANA in scale-out configuration with HSR on Az
     10.23.1.205 = hana-s2-db1
     10.23.1.206 = hana-s2-db2
     10.23.1.207 = hana-s2-db3
-   </code></pre>
+    ```
 
    - Start HANA on both sites
-   <pre><code>
-    sudo -u <b>hn1</b>adm /usr/sap/hostctrl/exe/sapcontrol -nr <b>03</b> -function StartSystem HDB
-   </code></pre>
+   ```
+    sudo -u hn1adm /usr/sap/hostctrl/exe/sapcontrol -nr 03 -function StartSystem HDB
+   ```
 
    For more information, see [Host Name resolution for System Replication](https://help.sap.com/viewer/eb3777d5495d46c5b2fa773206bbfb46/1.0.12/en-US/c0cba1cb2ba34ec89f45b48b2157ec7b.html).  
 
 5. **[AH]** Re-enable the firewall.  
    - Re-enable the firewall
-       <pre><code> # Execute as root
-        systemctl start firewalld
-        systemctl enable firewalld
-       </code></pre>
+       ```
+       # Execute as root
+       systemctl start firewalld
+       systemctl enable firewalld
+       ```
 
    - Open the necessary firewall ports. You will need to adjust the ports for your HANA instance number.  
 
        > [!IMPORTANT]
        > Create firewall rules to allow HANA inter node communication and client traffic. The required ports are listed on [TCP/IP Ports of All SAP Products](https://help.sap.com/viewer/ports). The following commands are just an example. In this scenario with used system number 03.
 
-       <pre><code> # Execute as root
+       ```
+        # Execute as root
         sudo firewall-cmd --zone=public --add-port=30301/tcp --permanent
         sudo firewall-cmd --zone=public --add-port=30301/tcp
         sudo firewall-cmd --zone=public --add-port=30303/tcp --permanent
@@ -705,7 +733,7 @@ In this example for deploying SAP HANA in scale-out configuration with HSR on Az
         sudo firewall-cmd --zone=public --add-port=30310/tcp
         sudo firewall-cmd --zone=public --add-port=30302/tcp --permanent
         sudo firewall-cmd --zone=public --add-port=30302/tcp
-       </code></pre>
+       ```
 
 ## Create a Pacemaker cluster
 
