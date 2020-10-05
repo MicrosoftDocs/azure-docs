@@ -96,7 +96,7 @@ To configure Azure AD single sign-on with Clear Review, perform the following st
 
 4. On the **Basic SAML Configuration** section, if you wish to configure the application in **IDP** initiated mode, perform the following steps:
 
-    ![Clear Review Domain and URLs single sign-on information](common/idp-intiated.png)
+    ![Screenshot shows the Basic SAML Configuration, where you can enter Identifier, Reply U R L, and select Save.](common/idp-intiated.png)
 
     a. In the **Identifier** text box, type a URL using the following pattern:
     `https://<customer name>.clearreview.com/sso/metadata/`
@@ -106,7 +106,7 @@ To configure Azure AD single sign-on with Clear Review, perform the following st
 
 5. Click **Set additional URLs** and perform the following step if you wish to configure the application in **SP** initiated mode:
 
-    ![Clear Review Domain and URLs single sign-on information](common/metadata-upload-additional-signon.png)
+    ![Screenshot shows Set additional U R Ls where you can enter a Sign on U R L.](common/metadata-upload-additional-signon.png)
 
     In the **Sign-on URL** text box, type a URL using the following pattern:
     `https://<customer name>.clearreview.com`
@@ -150,15 +150,15 @@ To configure Azure AD single sign-on with Clear Review, perform the following st
 
 2. Select **Admin** from the left navigation.
 
-	![Configure Single Sign-On Save button](./media/clearreview-tutorial/tutorial_clearreview_app_admin1.png)
+	![Screenshot shows the Clear Review portal with Admin selected.](./media/clearreview-tutorial/tutorial_clearreview_app_admin1.png)
 
 3. In the **Integrations** section at the bottom of the page click the **Change** button to the right of **Single Sign-On Settings**.
 
-	![Configure Single Sign-On Save button](./media/clearreview-tutorial/tutorial_clearreview_app_admin2.png)
+	![Screenshot shows the Single Sign-On Change button.](./media/clearreview-tutorial/tutorial_clearreview_app_admin2.png)
 
 4. Perform following steps on **Single Sign-On Settings** page
 
-	![Configure Single Sign-On Save button](./media/clearreview-tutorial/tutorial_clearreview_app_admin3.png)
+	![Screenshot shows the Single Sign-On Settings page where you can enter the information in this step.](./media/clearreview-tutorial/tutorial_clearreview_app_admin3.png)
 
 	a. In the **Issuer URL** textbox, paste the value of **Azure AD Identifier** which you have copied from Azure portal.
 
