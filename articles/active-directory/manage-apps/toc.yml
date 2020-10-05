@@ -200,6 +200,8 @@
           href: application-proxy-integrate-with-tableau.md
         - name: Integrate with Qlik
           href: application-proxy-qlik.md
+        - name: Integrate with PingAccess
+          href: application-proxy-ping-access-publishing-guide.md
     - name: Troubleshoot
       items:
       - name: Troubleshoot adding apps
