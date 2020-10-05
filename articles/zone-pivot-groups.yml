@@ -663,7 +663,7 @@ groups:
     title: Java
   - id: programming-language-csharp
     title: C#
-- id: speech-full-stack-go
+- id: sql-vm-hadr
 # Owner: mathoma
   title: SQL VM HADR
   prompt: Choose a HADR solution
@@ -671,8 +671,8 @@ groups:
   - id: fci
     title: Failover cluster instance (FCI)
   - id: ag
-    title: Availability group (AG)
-- id: sql-vm-hadr
+    title: Availability group (AG)    
+- id: speech-full-stack-go
   # Owner: erhopf
   title: Programming languages
   prompt: Choose a programming language
