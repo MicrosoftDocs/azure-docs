@@ -1,6 +1,6 @@
 ---
-title: 'Azure AD Connect: Custom installation | Microsoft Docs'
-description: This document details the custom installation options for Azure AD Connect. Use these instructions to install Active Directory through Azure AD Connect.
+title: 'Customize an installation of Azure Active Directory Connect'
+description: This article explains the custom installation options for Azure AD Connect. Use these instructions to install Active Directory through Azure AD Connect.
 services: active-directory
 keywords: what is Azure AD Connect, install Active Directory, required components for Azure AD
 documentationcenter: ''
@@ -16,15 +16,24 @@ ms.author: billmath
 ms.collection: M365-identity-device-management
 ---
 
-# Custom installation of Azure AD Connect
-Azure AD Connect **Custom settings** are used when you want more options for the installation.  For example, if you have multiple forests or if you want to configure optional features. It is used in all cases where the [**express installation**](how-to-connect-install-express.md) option does not satisfy your deployment or topology.
+# Custom installation of Azure Active Directory Connect
+Use *custom settings* in Azure Active Directory (Azure AD) Connect when you want more options for the installation. Use these settings, for example, if you have multiple forests or if you want to configure optional features. You should use custom settings in all cases where [*express installation*](how-to-connect-install-express.md) doesn't satisfy your deployment or topology.
 
-Before you start installing Azure AD Connect, make sure to [download Azure AD Connect](https://go.microsoft.com/fwlink/?LinkId=615771) and complete the pre-requisite steps in [Azure AD Connect: Hardware and prerequisites](how-to-connect-install-prerequisites.md). Also make sure you have required accounts available as described in [Azure AD Connect accounts and permissions](reference-connect-accounts-permissions.md).
+Before you install Azure AD Connect:
+- [Download Azure AD Connect](https://go.microsoft.com/fwlink/?LinkId=615771).
+- Complete the prerequisite steps in [Azure AD Connect: Hardware and prerequisites](how-to-connect-install-prerequisites.md). 
+- Make sure you have the accounts described in [Azure AD Connect accounts and permissions](reference-connect-accounts-permissions.md).
 
-## Custom settings installation of Azure AD Connect
+## Custom installation settings 
 
-### Express Settings
-On this page, click **Customize** to start a customized settings installation.  The remainder of this document guides you through the various wizard screens for the custom installation.  You can use the links below to quickly navigate to the information for a particular wizard screen.
+To use custom installation settings for Azure AD Connect:
+- Use express settings.
+- Install the required components.
+- Choose a user sign-in method.
+- Connect to Azure AD.
+
+### Use express settings
+On this page, select **Customize** to start a customized settings installation.  The remainder of this document guides you through the various wizard screens for the custom installation.  You can use the links below to quickly navigate to the information for a particular wizard screen.
 
 - [Install required components](#install-required-components)
 - [User sign-in](#user-sign-in)
@@ -44,7 +53,7 @@ When you install the synchronization services, you can leave the optional config
 | Specify custom sync groups |By default Azure AD Connect creates four groups local to the server when the synchronization services are installed. These groups are: Administrators group, Operators group, Browse group, and the Password Reset Group. You can specify your own groups here. The groups must be local on the server and cannot be located in the domain. |
 |Import synchronization settings (Preview)|Allows you to import settings from another versions of Azure AD Connect.  For more information see [importing and exporting Azure AD Connect configuration settings](how-to-connect-import-export-config.md).|
 
-### User sign-in
+### Choose a user sign-in method
 After installing the required components, you are asked to select your users single sign-on method. The following table provides a brief description of the available options. For a full description of the sign-in methods, see [User sign-in](plan-connect-user-signin.md).
 
 ![Screenshot that shows the "User Sign-in" page with "Password Hash Synchronization" selected.](./media/how-to-connect-install-custom/usersignin4.png)
@@ -71,7 +80,7 @@ The global admin account can also have [Privileged Identity Management](../privi
 
 If you receive an error and have problems with connectivity, then see [Troubleshoot connectivity problems](tshoot-connect-connectivity.md).
 
-## Pages under the Sync section
+## Pages in the Sync section
 
 ### Connect your directories
 To connect to your Active Directory Domain Service, Azure AD Connect needs the forest name and credentials of an account with sufficient permissions.
@@ -87,10 +96,10 @@ After entering the forest name and clicking  **Add Directory**, a pop-up dialog 
 
 ![Connect Directory](./media/how-to-connect-install-custom/connectdir02.png)
 
-#### Enterprise Admin and Domain Admin accounts not supported
-As of build 1.4.18.0 it is no longer supported to use an Enterprise Admin or a Domain Admin account as the AD DS Connector account.  If you attempt to enter an account that is an enterprise admin or domain admin when specifying **use existing account**, you will receive the following error:
-
-  **“Using  an Enterprise or Domain administrator account for your AD forest account is not allowed.  Let Azure AD Connect create the account for you or specify a synchronization account with the correct permissions.  &lt;Learn More&gt;”**
+>[!NOTE]
+> As of build 1.4.18.0, Enterprise Admin and Domain Admin accounts can't use an Enterprise Admin or a Domain Admin account as the AD DS Connector account.  If you attempt to enter an account that is an enterprise admin or domain admin when specifying **use existing account**, you will receive the following error:
+>
+> **“Using  an Enterprise or Domain administrator account for your AD forest account is not allowed.  Let Azure AD Connect create the account for you or specify a synchronization account with the correct permissions.  &lt;Learn More&gt;”**
 
 ### Azure AD sign-in configuration
 This page allows you to review the UPN domains present in on-premises AD DS and which have been verified in Azure AD. This page also allows you to configure the attribute to use for the userPrincipalName.
