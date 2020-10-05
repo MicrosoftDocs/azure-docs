@@ -89,4 +89,4 @@ _LogsOperation
 
 ## Next steps
 
-- Learn more about [log alerts](platform/alerts-log).
+- Learn more about [log alerts](platform/alerts-log.md).
