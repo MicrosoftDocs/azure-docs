@@ -75,8 +75,8 @@ To do this in the Azure portal: <br />
 11. Once your Service Principal is set, connect your Babylon to your Azure Blob store using client ID and secret key and check your connect as shown in the screenshot below.<br /> ![Screenshot showing service principal authorization](./media/scan-azure-blob/service-principal-auth.png)
 
 ## Firewall setting in Azure Blob account 
->![Note] 
->This applies to authorization using Managed Identity only
+> [!NOTE] 
+> This applies to authorization using Managed Identity only
 
 * Go into your storage account in Azure portal, **click on Settings > Firewalls and virtual networks** and select **Allow access from Selected Networks**.
 * In the **Firewall** section, select **Allow trusted Microsoft services to access this storage account** and hit **Save**
@@ -87,8 +87,8 @@ To do this in the Azure portal: <br />
 ## Create and run a scan
 After you have setup your authentication type, click Continue. The next screen is where you set your scan trigger, telling the system how often you would like to scan.
 
->![Note] 
->Once means no schedule, which is an indication to the system that the scan should only run once.
+> [!NOTE] 
+> Once means no schedule, which is an indication to the system that the scan should only run once.
 
 Here are some examples of triggers that are set up on a monthly cadence below. You can select the time it starts at and define the recurrence for a particular day of the month, and a time on that day of your choosing. You can also choose to specify an end date or not (meaning the recurrence of the scan will happen indefinitely).
 
@@ -109,10 +109,10 @@ To remove a scan, select one or more scans from the list, then click Remove.
 **Scan history**
 Click on any scan in the list to get to the scan history page. This page will show you whether your scan was schedule or manual, how many assets had classifications applied, how many total assets were discovered, the start and end time of the scan and the total duration.
 
-**Running a scan manually**
+**Run a scan manually**
 From the Scan History page, you can choose Run Scan now to launch a new scan immediately. This action will run a full scan, not an incremental scan.
 
-**Cancelling scans in progress**
+**Cancel scans in progress**
 Select one or more scans that are in progress by selecting the checkbox for each.
 
 Then click Cancel Scan to stop all the selected scans from running.

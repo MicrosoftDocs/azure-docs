@@ -26,6 +26,9 @@
     href: starter-kit-tutorial-4.md
   - name: 5 - Glossary terms
     href: starter-kit-tutorial-5.md
+- name: How-to guides
+  - name: Register and scan Azure blob
+  - href: register-scan-azure-blob-storage-source.md
 # - name: Concepts
 # items:
 # - name: Catalog permissions
