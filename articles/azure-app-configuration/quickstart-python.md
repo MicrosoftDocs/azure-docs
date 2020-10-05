@@ -220,7 +220,7 @@ The following code snippet updates an existing setting by calling **set_configur
 
 ### Delete a configuration setting
 
-The following code snippet deletes a configuration setting by calling **delete_configuration_settings**. Note that attempting to delete a setting that is currently locked will fail. Add this code to the end of the `try` block.
+The following code snippet deletes a configuration setting by calling the **delete_configuration_settings** method.
 
 ```python
     deleted_config_setting = client.delete_configuration_setting(
