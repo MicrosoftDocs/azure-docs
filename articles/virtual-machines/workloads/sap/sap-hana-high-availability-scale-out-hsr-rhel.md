@@ -1072,29 +1072,29 @@ Include all virtual machines, including the majority maker in the cluster.
       ```
       # Output of crm_mon
       #7 nodes configured
-  	  #45 resources configured
-	  #
+      #45 resources configured
+
       #Online: [ hana-s-mm hana-s1-db1 hana-s1-db2 hana-s1-db3 hana-s2-db1 hana-s2-db2 hana-s2-db3 ]
       #
       #Active resources:
 
       #rsc_st_azure    (stonith:fence_azure_arm):      Started hana-s-mm
-	  # Clone Set: fs_hana_shared_s1-clone [fs_hana_shared_s1]
-	  #    Started: [ hana-s1-db1 hana-s1-db2 hana-s1-db3 ]
-	  # Clone Set: fs_hana_shared_s2-clone [fs_hana_shared_s2]
-	  #     Started: [ hana-s2-db1 hana-s2-db2 hana-s2-db3 ]
-	  # Clone Set: hana_nfs_s1_active-clone [hana_nfs_s1_active]
-	  #     Started: [ hana-s1-db1 hana-s1-db2 hana-s1-db3 ]
-	  # Clone Set: hana_nfs_s2_active-clone [hana_nfs_s2_active]
-	  #     Started: [ hana-s2-db1 hana-s2-db2 hana-s2-db3 ]
-	  # Clone Set: SAPHanaTopology_HN1_HDB03-clone [SAPHanaTopology_HN1_HDB03]
-	  #     Started: [ hana-s1-db1 hana-s1-db2 hana-s1-db3 hana-s2-db1 hana-s2-db2 hana-s2-db3 ]
-	  # Master/Slave Set: msl_SAPHana_HN1_HDB03 [SAPHana_HN1_HDB03]
-	  #     Masters: [ hana-s1-db1 ]
-	  #     Slaves: [ hana-s1-db2 hana-s1-db3 hana-s2-db1 hana-s2-db2 hana-s2-db3 ]
-	  # Resource Group: g_ip_HN1_03
-	  #     nc_HN1_03  (ocf::heartbeat:azure-lb):      Started hana-s1-db1
-	  #     vip_HN1_03 (ocf::heartbeat:IPaddr2):       Started hana-s1-db1
+      # Clone Set: fs_hana_shared_s1-clone [fs_hana_shared_s1]
+      #    Started: [ hana-s1-db1 hana-s1-db2 hana-s1-db3 ]
+      # Clone Set: fs_hana_shared_s2-clone [fs_hana_shared_s2]
+      #     Started: [ hana-s2-db1 hana-s2-db2 hana-s2-db3 ]
+      # Clone Set: hana_nfs_s1_active-clone [hana_nfs_s1_active]
+      #     Started: [ hana-s1-db1 hana-s1-db2 hana-s1-db3 ]
+      # Clone Set: hana_nfs_s2_active-clone [hana_nfs_s2_active]
+      #     Started: [ hana-s2-db1 hana-s2-db2 hana-s2-db3 ]
+      # Clone Set: SAPHanaTopology_HN1_HDB03-clone [SAPHanaTopology_HN1_HDB03]
+      #     Started: [ hana-s1-db1 hana-s1-db2 hana-s1-db3 hana-s2-db1 hana-s2-db2 hana-s2-db3 ]
+      # Master/Slave Set: msl_SAPHana_HN1_HDB03 [SAPHana_HN1_HDB03]
+      #     Masters: [ hana-s1-db1 ]
+      #     Slaves: [ hana-s1-db2 hana-s1-db3 hana-s2-db1 hana-s2-db2 hana-s2-db3 ]
+      # Resource Group: g_ip_HN1_03
+      #     nc_HN1_03  (ocf::heartbeat:azure-lb):      Started hana-s1-db1
+      #     vip_HN1_03 (ocf::heartbeat:IPaddr2):       Started hana-s1-db1
       ```
 
    To simulate failure for `/hana/shared` on one of the primary replication site VMs, execute the following command:
@@ -1135,27 +1135,27 @@ Include all virtual machines, including the majority maker in the cluster.
       #7 nodes configured
       #45 resources configured
 	
-	  #Online: [ hana-s-mm hana-s1-db1 hana-s1-db2 hana-s1-db3 hana-s2-db1 hana-s2-db2 hana-s2-db3 ]
-	  #
+      #Online: [ hana-s-mm hana-s1-db1 hana-s1-db2 hana-s1-db3 hana-s2-db1 hana-s2-db2 hana-s2-db3 ]
+	  
       #Active resources:
 	
-	  #rsc_st_azure    (stonith:fence_azure_arm):      Started hana-s-mm
- 	  # Clone Set: fs_hana_shared_s1-clone [fs_hana_shared_s1]
-	  #    Started: [ hana-s1-db1 hana-s1-db2 hana-s1-db3 ]
-	  # Clone Set: fs_hana_shared_s2-clone [fs_hana_shared_s2]
-	  #     Started: [ hana-s2-db1 hana-s2-db2 hana-s2-db3 ]
-	  # Clone Set: hana_nfs_s1_active-clone [hana_nfs_s1_active]
-	  #     Started: [ hana-s1-db1 hana-s1-db2 hana-s1-db3 ]
-	  # Clone Set: hana_nfs_s2_active-clone [hana_nfs_s2_active]
-	  #     Started: [ hana-s2-db1 hana-s2-db2 hana-s2-db3 ]
-	  # Clone Set: SAPHanaTopology_HN1_HDB03-clone [SAPHanaTopology_HN1_HDB03]
-	  #     Started: [ hana-s1-db1 hana-s1-db2 hana-s1-db3 hana-s2-db1 hana-s2-db2 hana-s2-db3 ]
-	  # Master/Slave Set: msl_SAPHana_HN1_HDB03 [SAPHana_HN1_HDB03]
-	  #     Masters: [ hana-s2-db1 ]
-	  #     Slaves: [ hana-s1-db1 hana-s1-db2 hana-s1-db3 hana-s2-db2 hana-s2-db3 ]
-	  # Resource Group: g_ip_HN1_03
-	  #     nc_HN1_03  (ocf::heartbeat:azure-lb):      Started hana-s2-db1
-	  #     vip_HN1_03 (ocf::heartbeat:IPaddr2):       Started hana-s2-db1
+      #rsc_st_azure    (stonith:fence_azure_arm):      Started hana-s-mm
+      # Clone Set: fs_hana_shared_s1-clone [fs_hana_shared_s1]
+      #    Started: [ hana-s1-db1 hana-s1-db2 hana-s1-db3 ]
+      # Clone Set: fs_hana_shared_s2-clone [fs_hana_shared_s2]
+      #     Started: [ hana-s2-db1 hana-s2-db2 hana-s2-db3 ]
+      # Clone Set: hana_nfs_s1_active-clone [hana_nfs_s1_active]
+      #     Started: [ hana-s1-db1 hana-s1-db2 hana-s1-db3 ]
+      # Clone Set: hana_nfs_s2_active-clone [hana_nfs_s2_active]
+      #     Started: [ hana-s2-db1 hana-s2-db2 hana-s2-db3 ]
+      # Clone Set: SAPHanaTopology_HN1_HDB03-clone [SAPHanaTopology_HN1_HDB03]
+      #     Started: [ hana-s1-db1 hana-s1-db2 hana-s1-db3 hana-s2-db1 hana-s2-db2 hana-s2-db3 ]
+      # Master/Slave Set: msl_SAPHana_HN1_HDB03 [SAPHana_HN1_HDB03]
+      #     Masters: [ hana-s2-db1 ]
+      #     Slaves: [ hana-s1-db1 hana-s1-db2 hana-s1-db3 hana-s2-db2 hana-s2-db3 ]
+      # Resource Group: g_ip_HN1_03
+      #     nc_HN1_03  (ocf::heartbeat:azure-lb):      Started hana-s2-db1
+      #     vip_HN1_03 (ocf::heartbeat:IPaddr2):       Started hana-s2-db1
       ```
 
 
