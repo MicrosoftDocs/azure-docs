@@ -6,7 +6,7 @@ ms.topic: how-to
 ms.date: 10/06/2020
 ms.author: helohr
 manager: lizross
-----
+---
 # Connect with the Microsoft Store client
 
 >Applies to: Windows 10.
