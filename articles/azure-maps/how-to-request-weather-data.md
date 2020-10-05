@@ -33,7 +33,7 @@ This tutorial uses the [Postman](https://www.postman.com/) application, but you 
 
 ## Request real-time weather forecast data
 
-The [Get Current Conditions API](https://docs.microsoft.com/rest/api/maps/weather/getcurrentconditionspreview) returns detailed weather conditions such as precipitation, temperature, and wind for a given coordinate location. Also, observations from the past 6 or 24 hours for a particular location can be retrieved. The basic information returned with the response includes details like observation date and time, brief description of the weather conditions, weather icon, precipitation indicator flags, and temperature. RealFeel™ Temperature and UV index are also returned.
+The [Get Current Conditions API](https://docs.microsoft.com/rest/api/maps/weather/getcurrentconditionspreview) returns detailed weather conditions such as precipitation, temperature, and wind for a given coordinate location. Also, observations from the past 6 or 24 hours for a particular location can be retrieved. The response includes details like observation date and time, brief description of the weather conditions, weather icon, precipitation indicator flags, and temperature. RealFeel™ Temperature and ultraviolet(UV) index are also returned.
 
 In this example, you'll use the [Get Current Conditions API](https://docs.microsoft.com/rest/api/maps/weather/getcurrentconditionspreview) to retrieve current weather conditions at coordinates located in Seattle, WA.
 
@@ -51,7 +51,7 @@ In this example, you'll use the [Get Current Conditions API](https://docs.micros
 
 ## Request severe weather alerts
 
-The [Get Severe Weather Alerts API](https://docs.microsoft.com/rest/api/maps/weather/getsevereweatheralertspreview) returns worldwide severe weather alerts that are available from both official Government Meteorological Agencies and leading global to regional weather alert providers. The API returns details such as alert type, category, level, and detailed description about active severe alerts for the requested location. Severe alerts are issued for events like hurricanes, thunderstorms, lightning, heat waves, or forest fires.
+The [Get Severe Weather Alerts API](https://docs.microsoft.com/rest/api/maps/weather/getsevereweatheralertspreview) returns worldwide severe weather alerts from weather alert providers. Providers include official Government Meteorological Agencies and leading global to regional weather alert providers. The API returns details such as alert type, category, level, and detailed alert description information. Severe alerts are issued for events like hurricanes, thunderstorms, lightning, heat waves, or forest fires.
 
 In this example, you'll use the [Get Severe Weather Alerts API](https://docs.microsoft.com/rest/api/maps/weather/getsevereweatheralertspreview) to retrieve current weather conditions at coordinates located in Cheyenne, WY.
 
@@ -103,7 +103,7 @@ In this example, you'll use the [Get Severe Weather Alerts API](https://docs.mic
 
 ## Request daily weather forecast data
 
-The [Get Daily Forecast API](https://docs.microsoft.com/rest/api/maps/weather/getdailyforecastpreview) returns detailed weather forecast such as temperature and wind by day for the next 1, 5, 10, 15, 25, or 45 days for a given coordinate location. The response includes details such as temperature, wind, precipitation, air quality, and UV index.
+The [Get Daily Forecast API](https://docs.microsoft.com/rest/api/maps/weather/getdailyforecastpreview) returns detailed daily weather forecast such as temperature and wind. The request can specify how many days to return: 1, 5, 10, 15, 25, or 45 days for a given coordinate location. The response includes details such as temperature, wind, precipitation, air quality, and UV index.
 
 >[!IMPORTANT]
 >In the S0 pricing tier, you can request daily forecast for the next 1, 5, 10, and 15 days. In the S1 pricing tier, you can also request daily forecast for the next 25 days, and 45 days.
@@ -122,7 +122,7 @@ In this example, you'll use the [Get Daily Forecast API](https://docs.microsoft.
 
 ## Request hourly weather forecast data
 
-The [Get Hourly Forecast API](https://docs.microsoft.com/rest/api/maps/weather/gethourlyforecastpreview) returns detailed weather forecast by the hour for the next 1, 12, 24 (1 day), 72 (3 days), 120 (5 days), and 240 hours (10 days) for the given coordinate location. The API returns details such as temperature, humidity, wind, precipitation, and ultraviolet (UV) index.
+The [Get Hourly Forecast API](https://docs.microsoft.com/rest/api/maps/weather/gethourlyforecastpreview) returns detailed weather forecast by the hour for the next 1, 12, 24 (1 day), 72 (3 days), 120 (5 days), and 240 hours (10 days) for the given coordinate location. The API returns details such as temperature, humidity, wind, precipitation, and UV index.
 
 >[!IMPORTANT]
 >In the S0 pricing tier, you can request hourly forecast for the next 1, 12, 24 hours (1 day), and 72 hours (3 days). In the S1 pricing tier, you can also request hourly forecast for the next 120 (5 days) and 240 hours (10 days).
