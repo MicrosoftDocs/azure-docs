@@ -19,7 +19,7 @@ This tutorial shows you how to create a web app that queries and returns results
 In this tutorial, you will learn how to:
 
 > [!div class="checklist"]
-> * Setup a development environment
+> * Set up a development environment
 > * Model data structures
 > * Create a web page to collect query inputs and display results
 > * Define a search method

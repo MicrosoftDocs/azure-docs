@@ -8294,6 +8294,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/app-service/containers/how-to-serve-content-from-azure-storage.md",
+      "redirect_url": "/azure/app-service/configure-connect-to-azure-storage",
+      "redirect_document_id": false
+    },     
+    {
       "source_path": "articles/app-service/containers/configure-language-ruby.md",
       "redirect_url": "/azure/app-service/configure-language-ruby",
       "redirect_document_id": false
@@ -30038,6 +30043,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/security-center/security-center-features-retirement-july2019.md",
+      "redirect_url": "/azure/security-center/security-center-introduction",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/security-center/azure-container-registry-integration.md",
       "redirect_url": "/azure/security-center/defender-for-container-registries-introduction",
       "redirect_document_id": false
@@ -38574,6 +38584,11 @@
     {
       "source_path": "articles/active-directory/manage-apps/application-proxy-publish-azure-portal.md",
       "redirect_url": "/azure/active-directory/manage-apps/application-proxy-add-on-premises-application",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-sql/database/sql-data-sync-monitor-sync.md",
+      "redirect_url": "/azure/azure-sql/database/monitor-tune-overview",
       "redirect_document_id": false
     },
     {
