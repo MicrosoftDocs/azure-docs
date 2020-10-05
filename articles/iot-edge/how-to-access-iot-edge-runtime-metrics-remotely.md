@@ -51,7 +51,7 @@ This module collects metrics and sends them to an [Azure Log Analytics Workspace
     }
 ```
 
-To test the sample metrics collector module, you will need an IoT Edge device. The following steps will help you setup the rest of the resources you need:
+To test the sample metrics collector module, you will need an IoT Edge device. The following steps will help you configure the rest of the resources you need:
 
 1. Create an Azure Log Analytics Workspace:
     1. Sign in to the [Microsoft Azure portal](https://portal.azure.com).
@@ -145,7 +145,7 @@ The **edgeAgent** module produces the following metrics:
 | `edgeAgent_module_start_total` | `module_name`, `module_version` | Number of times edgeAgent asked docker to start the module | counter |
 | `edgeAgent_module_stop_total` | `module_name`, `module_version` | Number of times edgeAgent asked docker to stop the module | counter |
 | `edgeAgent_command_latency_seconds` | `command` | How long it took docker to execute the given command. Possible commands are: create, update,  remove, start, stop, restart | gauge |
-| `edgeAgent_iothub_syncs_total` |  | Number of times edgeAgent attempted to sync its twin with iotHub, both successful and unsuccessful. This includes both Agent requesting a twin and Hub notifying of a twin update | counter |
+| `edgeAgent_iothub_syncs_total` |  | Number of times edgeAgent attempted to sync its twin with iotHub, both successful and unsuccessful. This number includes both Agent requesting a twin and Hub notifying of a twin update | counter |
 | `edgeAgent_unsuccessful_iothub_syncs_total` |  | Number of times edgeAgent failed to sync its twin with iotHub. | counter |
 | `edgeAgent_deployment_time_seconds` |  | The amount of time it took to complete a new deployment after receiving a change. | counter |
 | `edgeagent_direct_method_invocations_count` | `method_name` | Number of times a built-in edgeAgent direct method is called, such as Ping or Restart. | counter |
