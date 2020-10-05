@@ -36,13 +36,13 @@ Before you begin, have the following tools and services:
 
 ## Set up your project
 
-Assemble search service connection information, and then start Visual Studio to create a new Console App project that can run on .NET Core.
+Assemble service connection information, and then start Visual Studio to create a new Console App project that can run on .NET Core.
 
 <a name="get-service-info"></a>
 
 ### Copy a key and endpoint
 
-Calls to the service require a URL endpoint and an access key on every request. As a first step, find the API key and URL to add to your project.
+Calls to the service require a URL endpoint and an access key on every request. As a first step, find the API key and URL to add to your project. You will specify both values when creating the client in a later step.
 
 1. [Sign in to the Azure portal](https://portal.azure.com/), and in your search service **Overview** page, get the URL. An example endpoint might look like `https://mydemo.search.windows.net`.
 
@@ -60,7 +60,7 @@ After the project is created, add the client library. The [Azure.Search.Document
 
 1. Click **Browse**.
 
-1. Search for `Azure.Search.Documents` and select version 11.0.0.
+1. Search for `Azure.Search.Documents` and select version 11.0 or later.
 
 1. Click **Install** on the right to add the assembly to your project and solution.
 
@@ -153,9 +153,7 @@ In this example, synchronous methods of the Azure.Search.Documents library are u
 
 Attributes on the field determine how it is used in an application. For example, the `IsFilterable` attribute must be assigned to every field that supports a filter expression.
 
-In the Azure.Search.Documents client library, you can use [SearchableField](/dotnet/api/azure.search.documents.indexes.models.searchablefield) and [SimpleField](/dotnet/api/azure.search.documents.indexes.models.simplefield) to streamline field definitions.
-
-Both `SimpleField` and `SearchableField` are derivatives of a [SearchField](/dotnet/api/azure.search.documents.indexes.models.searchfield) and can potentially simplify your code:
+In the Azure.Search.Documents client library, you can use [SearchableField](/dotnet/api/azure.search.documents.indexes.models.searchablefield) and [SimpleField](/dotnet/api/azure.search.documents.indexes.models.simplefield) to streamline field definitions. Both are derivatives of a [SearchField](/dotnet/api/azure.search.documents.indexes.models.searchfield) and can potentially simplify your code:
 
 + `SimpleField` can be any data type, is always non-searchable (it's ignored for full text search queries), and is retrievable (it's not hidden). Other attributes are off by default, but can be enabled. You might use a `SimpleField` for document IDs or fields used only in filters, facets, or scoring profiles. If so, be sure to apply any attributes that are necessary for the scenario, such as `IsKey = true` for a document ID. For more information, see [SimpleFieldAttribute.cs](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/search/Azure.Search.Documents/src/Indexes/SimpleFieldAttribute.cs) in source code.
 
@@ -268,11 +266,11 @@ The [SearchResults](/dotnet/api/azure.search.documents.models.searchresults-1) c
     }
     ```
 
-1. Add RunQueries to `Main`.
+1. Add RunQueries to `Main()`.
 
     ```csharp
     Console.WriteLine("Starting queries...\n");
-    RunQueries(srchclient);
+    RunQueries(qryclient);
     ```
 
 This example shows the two [ways of matching terms in a query](search-query-overview.md#types-of-queries): full-text search, and filters:
@@ -289,7 +287,7 @@ Both searches and filters are performed using the [SearchClient.Search](/dotnet/
 
 Press F5 to rebuild the app and run the program in its entirety. 
 
-Output includes messages from [Console.WriteLIne](/dotnet/api/system.console.writeline), with the addition of query information and results.
+Output includes messages from [Console.WriteLine](/dotnet/api/system.console.writeline), with the addition of query information and results.
 
 ## Clean up resources
 
