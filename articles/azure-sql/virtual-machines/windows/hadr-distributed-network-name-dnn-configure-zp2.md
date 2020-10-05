@@ -305,6 +305,7 @@ Clients will now enter `FCIDNN` into their connection string when connecting to 
    > [!WARNING]
    > Do not delete the current virtual network name (VNN) as it is a necessary component of the FCI infrastructure. 
 
+---
 
 ### Rename the VNN 
 
@@ -366,6 +367,8 @@ Use Failover Cluster Manager to restart the SQL Server instance. Follow these st
 1. Go to your SQL Server resource in Failover Cluster Manager.
 1. Right-click the SQL Server resource, and take it offline. 
 1. After all associated resources are offline, right-click the SQL Server resource and bring it online again. 
+
+---
 
 ## Update connection string
 
