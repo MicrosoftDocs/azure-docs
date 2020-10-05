@@ -40,7 +40,6 @@ Set up authentication for Azure Files Storage using Account Key<br />
 4. Pick your storage account name from the list.<br />
 5. Click "Finish"<br />
 <!---![screenshot to register data source]--->
-<br /><br />
 
 ## Create and run a scan
 After you have setup your authentication type, click Continue. The next screen is where you set your scan trigger, telling the system how often you would like to scan.
