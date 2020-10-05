@@ -149,7 +149,7 @@ Process server | The process server receives replication data, optimizes, and en
 
 ## Azure VM requirements
 
-All on-premises VMs replicated to Azure, with agentless or agent-based migration) must meet the Azure VM requirements summarized in this table. 
+All on-premises VMs replicated to Azure (with agentless or agent-based migration) must meet the Azure VM requirements summarized in this table. 
 
 **Component** | **Requirements** 
 --- | --- | ---

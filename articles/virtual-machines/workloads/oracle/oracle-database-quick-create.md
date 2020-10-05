@@ -14,7 +14,7 @@ ms.service: virtual-machines-linux
 ms.topic: quickstart
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 08/28/2020
+ms.date: 10/05/2020
 ms.author: kegorman
 ---
 
@@ -138,7 +138,7 @@ The Oracle software is already installed on the Marketplace image. Create a samp
            -databaseType MULTIPURPOSE \
            -automaticMemoryManagement false \
            -storageType FS \
-           -datafileDestination "/u01/app/oracle/oradata/"
+           -datafileDestination "/u01/app/oracle/oradata/" \
            -ignorePreReqs
     ```
 
