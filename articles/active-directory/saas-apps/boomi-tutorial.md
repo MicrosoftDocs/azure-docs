@@ -86,6 +86,8 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 	![image](common/idp-intiated.png)
 
+	d. Enter the **Sign-on URL**, such as `https://platform.boomi.com/AtomSphere.html#build;accountId={your-accountId}`.
+
 	> [!Note]
 	> You will get the **Service Provider metadata file** from the **Configure Boomi SSO** section, which is explained later in the tutorial. If the **Identifier** and **Reply URL** values do not get auto polulated, then fill in the values manually according to your requirement.
 
