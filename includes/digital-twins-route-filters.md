@@ -18,22 +18,29 @@ ms.author: baanders
 | Spec version | The version of the event schema you are using | `specversion = '<version>'` | The version must be `1.0`. This indicates the CloudEvents schema version 1.0 |
 | Notification body | Reference any property in the `data` field of a notification | `$body.<property>` | See [*How-to: Understand event data*](https://docs.microsoft.com/azure/digital-twins/how-to-interpret-event-data) for examples of notifications. Any property in the `data` field can be referenced using `$body`
 
-The following data types and comparison operators are supported as values for the filters above:
+The following data types are supported as values for the filters above:
 
-| Data type | Supported comparisons | Example |
+| Data type | Example |
 |-|-|-|
-|**String**|=, !=, <br>STARTS_WITH(x, y),<br>ENDS_WITH(x, y),<br> CONTAINS(x, y)| `STARTS_WITH($body.$metadate.$model, 'dtmi:example:com:floor')` <br> `CONTAINS(subject, '<twinID>')`|
-|**Integer**|<, <=, >, >=, =, !=|`$body.errorCode > 200`|
-|**Double**|<, <=, >, >=, =, !=|`$body.temperature <= 5.5`|
-|**Bool**|=, !=|`$body.poweredOn = true`|
-|**Null**|=, !=|`$body.prop != null`|
+|**String**| `STARTS_WITH($body.$metadate.$model, 'dtmi:example:com:floor')` <br> `CONTAINS(subject, '<twinID>')`|
+|**Integer**|`$body.errorCode > 200`|
+|**Double**|`$body.temperature <= 5.5`|
+|**Bool**|`$body.poweredOn = true`|
+|**Null**|`$body.prop != null`|
 
-It is also possible to combine filters using the following operations:
+The following operators are supported when defining route filters:
 
-| Filter name | Filter text schema | Example | 
-| --- | --- | --- |
-| **AND** | `<filter1> AND <filter2>` | `type != 'microsoft.iot.telemetry' AND datacontenttype = 'application/json'` |
-| **OR** | `<filter1> OR <filter2>` | `type != 'microsoft.iot.telemetry' OR datacontenttype = 'application/json'` |
-| **Nested operations** | `(<Comparison1>) AND (<Comparison2>)` | `(type != 'microsoft.iot.telemetry' OR datacontenttype = 'application/json') OR (specversion != '1.0')` |
+|Family|Operators|Example|
+|-|-|-|
+|Logical|AND, OR, ( )|`(type != 'microsoft.iot.telemetry' OR datacontenttype = 'application/json') OR (specversion != '1.0')`|
+|Comparison|<, <=, >, >=, =, !=|`$body.temperature <= 5.5`
+
+The following functions are supported when defining route filters:
+
+|Function|Description|Example|
+|--|--|--|
+|STARTS_WITH(x,y)|Returns true if the value `x` starts with the string `y`.|`STARTS_WITH($body.$metadata.$model, 'dtmi:example:com:floor')`|
+|ENDS_WITH(x,y) | Returns true if the value `x` ends with the string `y`.|`ENDS_WITH($body.$metadata.$model, 'floor;1')`|
+|CONTAINS(x,y)| Returns true if the value `x` contains the string `y`.|`CONTAINS(subject, '<twinID>')`|
 
 When you implement or update a filter, the change may take a few minutes to be reflected in the data pipeline.
