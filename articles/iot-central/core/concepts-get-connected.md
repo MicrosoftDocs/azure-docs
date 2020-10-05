@@ -92,13 +92,13 @@ To add and verify a root or intermediate certificate to your enrollment group:
 
 1. On the **Primary certificate page**, upload your primary X.509 certificate. This is your root or intermediate certificate:
 
-    :::image type="content" source="media/concepts-get-connected/upload-primary-certificate-v2.png" alt-text="Primary certificate screenshot":::
+    :::image type="content" source="media/concepts-get-connected/upload-primary-certificate.png" alt-text="Primary certificate screenshot":::
 
-1. Click **Generate verification code** to generate a code and use in the tool you're using to generate the verification certificate. Then select **Verify** to upload the verification certificate.
+1. Click **Generate verification code** to generate a code for the tool you're using to generate the verification certificate. Then select **Verify** to upload the verification certificate.
 
 1. When the verification is successful, you see the following confirmation:
 
-    :::image type="content" source="media/concepts-get-connected/verified-primary-certificate-v2.png" alt-text="Verified primary certificate screenshot":::
+    :::image type="content" source="media/concepts-get-connected/verified-primary-certificate.png" alt-text="Verified primary certificate screenshot":::
 
 Verifying certificate ownership ensures that the person uploading the certificate has the certificate's private key.
 

@@ -70,17 +70,13 @@ filename | contents
 
 2. Select + **Create enrollment group**, and create a new enrollment group called _MyX509Group_ with an attestation type of **Certificates (X.509)**:
 
-
 3. Open the enrollment group you created and click **Manage Primary**. 
 
 4. Select file option and upload the root certificate file called _mytestrootcert_cert.pem_ that you generated previously:
 
+    ![Certificate Upload](./media/how-to-connect-devices-x509/certificate-upload.png)
 
-    ![Certificate Upload](./media/how-to-connect-devices-x509/certificate-upload-v2.png)
-
-
-
-5. To complete the verification, generate the verirification code, copy the verification code, and create an X.509 verification certificate with that code in command prompt.
+5. To complete the verification, generate the verification code, copy it, and then use it to create an X.509 verification certificate at the command prompt.
 
     ```cmd/sh
     node create_test_cert.js verification --ca mytestrootcert_cert.pem --key mytestrootcert_key.pem --nonce  {verification-code}
@@ -88,8 +84,7 @@ filename | contents
 
 6. Upload the signed verification certificate _verification_cert.pem_ to complete the verification.
 
-    ![Verified Certificate](./media/how-to-connect-devices-x509/verified-v2.png)
-
+    ![Verified Certificate](./media/how-to-connect-devices-x509/verified.png)
 
 You can now connect devices that have an X.509 certificate derived from this primary root certificate. After you save the enrollment group, make a note of the ID Scope.
 
