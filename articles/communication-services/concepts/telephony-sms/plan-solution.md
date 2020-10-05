@@ -79,7 +79,7 @@ Next, let's review specific phone number types available in Azure Communication 
 
 ## Phone number types in Azure Communication Services
 
-Microsoft offers regional and toll-free plans for numbers in US.
+Microsoft offers geographic and toll-free plans for numbers in US.
 
 The table below summarizes these phone number types: 
 
