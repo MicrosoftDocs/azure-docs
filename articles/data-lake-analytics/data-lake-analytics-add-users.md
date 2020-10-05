@@ -16,7 +16,7 @@ ms.date: 05/24/2018
 2. Click **Add User Wizard**.
 3. In the **Select user** step, find the user you want to add. Click **Select**.
 4. the **Select role** step, pick **Data Lake Analytics Developer**. This role has the minimum set of permissions required to submit/monitor/manage U-SQL jobs. Assign to this role if the group is not intended for managing Azure services.
-5. In the **Select catalog permissions** step, select any additional databases that user will need access to. Read and Write Access to the master database is required to submit jobs. When you are done, click **OK**.
+5. In the **Select catalog permissions** step, select any additional databases that user will need access to. Read and Write Access to the default static database called "master" is required to submit jobs. When you are done, click **OK**.
 6. In the final step called **Assign selected permissions** review the changes the wizard will make. Click **OK**.
 
 

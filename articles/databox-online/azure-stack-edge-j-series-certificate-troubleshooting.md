@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: troubleshooting
-ms.date: 08/28/2020
+ms.date: 09/29/2020
 ms.author: alkohli
 ---
 
@@ -26,7 +26,6 @@ The following table shows common certificate errors and detailed information abo
 |---|---|
 | CertificateManagement_UntrustedCertificate | Certificate with subject name {0} has certificate chain broken. Upload the signing chain certificate before uploading this certificate.|
 | CertificateManagement_DeviceNotRegistered| Your device is not activated. You can upload a support certificate only after activation.|
-| CertificateManagement_EmptySAN | Certificate with subject name {0} does not have a subject alternative name. Check your certificate properties and bring in a new certificate.|
 | CertificateManagement_ExpiredCertificate | Certificate with type {0} has expired or expires soon. Check the certificate expiration and if needed, bring in a new certificate.|
 | CertificateManagement_FormatMismatch | Certificate format is not supported. Check the certificate format and if needed, bring in a new certificate.  Expected {0}, found {1}. |
 | CertificateManagement_GenericError | Could not perform the certificate management operation. Retry this operation in few minutes. If the problem persists, contact Microsoft Support. |
@@ -38,7 +37,6 @@ The following table shows common certificate errors and detailed information abo
 | CertificateManagement_KeySizeNotSufficient | Certificate with subject name {0} has insufficient key size {1}. Minimum key size is 4096.|
 | CertificateManagement_MissingClientOid | Certificate with subject name {0} does not have client authentication OID. Check your certificate properties and if needed, bring in a new certificate.|
 | CertificateManagement_MissingDigitalSignatureKeyUsage | Certificate with subject name {0} does not have Digital Signature in Key Usage. Check your certificate properties and if needed, bring in a new certificate. |
-| CertificateManagement_MissingEntryInSAN | Certificate with subject name {0} does not have a subject name entry in subject alternative name. Check your certificate properties and bring in a new certificate. |
 | CertificateManagement_MissingKeyCertSignKeyUsage | Certificate with subject name {0} does not have Certificate Signing in Key Usage. Check your certificate properties and if needed, bring in a new certificate.|
 | CertificateManagement_MissingKeyEnciphermentKeyUsage | Certificate with subject name {0} does not have Key Encipherment in Key Usage. Check your certificate properties and if needed, bring in a new certificate. |
 | CertificateManagement_MissingServerOid | Certificate with subject name {0} does not have server authentication OID. Check your certificate properties and if needed, bring in a new certificate.|
@@ -51,6 +49,10 @@ The following table shows common certificate errors and detailed information abo
 | CertificateManagement_SubjectNamesInvalid | Certificate with subject name {0} does not have the correct subject name or subject alternative names for {1} certificate. Check the certificate you have uploaded and if needed bring in a new certificate. You should also check you DNS name to match the SANS names.|
 | CertificateManagement_UnreadableCertificate | Certificate with type {0} could not be read. This error occurs when the certificate is unreadable or corrupted. Bring in a new certificate.|
 | CertificateSubjectNotFound | Certificate with subject name {0} could not be found. Bring in a new certificate.|
+| CertificateRotationGenericFailure | One or more certificates rotation failed. Retry in few minutes. If the problem persists, contact Microsoft Support.|
+| CertificateImportFailure | Certificate with thumbprint {0} was not imported on node {1}. If the problem persists, contact Microsoft Support. |
+| CertificateApplyFailure | Certificate with thumbprint {0} was not applied on node {1}. If the problem persists, contact Microsoft Support.|
+| NodeNotReachable | Could not validate certificate on {0}. Check the system hardware and software health.|
 
 ## Next steps
 

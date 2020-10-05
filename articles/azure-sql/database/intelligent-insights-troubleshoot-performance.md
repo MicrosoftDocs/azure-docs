@@ -6,7 +6,7 @@ ms.service: sql-db-mi
 ms.subservice: performance
 ms.custom: sqldbrb=2
 ms.devlang: 
-ms.topic: conceptual
+ms.topic: troubleshooting
 author: danimir
 ms.author: danil
 ms.reviewer: jrasnik, sstein

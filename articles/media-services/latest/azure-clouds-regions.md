@@ -93,6 +93,8 @@ The following endpoints are important to know when connecting to Media Services 
 | Authentication | `https://login.microsoftonline.us/` |
 | Token audience | `https://management.core.usgovcloudapi.net/` |
 
+[!INCLUDE [Widevine is not available in the GovCloud region.](./includes/widevine-not-available-govcloud.md)]
+
 ### Azure Germany
 
 | Service | Endpoint |

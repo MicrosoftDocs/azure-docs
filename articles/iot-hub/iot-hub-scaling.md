@@ -42,7 +42,7 @@ Only one type of [edition](https://azure.microsoft.com/pricing/details/iot-hub/)
 | [Device twins](iot-hub-devguide-device-twins.md), [Module twins](iot-hub-devguide-module-twins.md), and [Device management](iot-hub-device-management-overview.md) |   | Yes |
 | [Device streams (preview)](iot-hub-device-streams-overview.md) |   | Yes |
 | [Azure IoT Edge](../iot-edge/about-iot-edge.md) |   | Yes |
-| [IoT Plug and Play Preview](../iot-pnp/overview-iot-plug-and-play.md) |   | Yes |
+| [IoT Plug and Play](../iot-pnp/overview-iot-plug-and-play.md) |   | Yes |
 
 IoT Hub also offers a free tier that is meant for testing and evaluation. It has all the capabilities of the standard tier, but limited messaging allowances. You cannot upgrade from the free tier to either basic or standard.
 

@@ -28,7 +28,7 @@ Beginning in November 2019, the Azure AD roles portion of Privileged Identity Ma
 1. Sign in to the [Azure portal](https://portal.azure.com/) with a user who is in the [Privileged role administrator](../users-groups-roles/directory-assign-admin-roles.md#privileged-role-administrator) role.
 1. Open **Azure AD Privileged Identity Management**. If you have a banner on the top of the overview page, follow the instructions in the **New version** tab of this article. Otherwise, follow the instructions in the **Previous version** tab.
 
-    [![Azure AD roles new version](media/pim-how-to-use-audit-log/directory-roles-audit-history.png "Select the tab for your version")](media/pim-how-to-use-audit-log/directory-roles-audit-history.png)
+    [![Screenshot that shows the "Azure AD roles - Directory roles audit history" page.](media/pim-how-to-use-audit-log/directory-roles-audit-history.png "Select the tab for your version")](media/pim-how-to-use-audit-log/directory-roles-audit-history.png)
 
 # [New version](#tab/new)
 
@@ -119,11 +119,11 @@ Follow these steps to view the audit history for Azure AD roles.
     - See the reason for an audit event in the **Status reason** column.
     - See the approver in the **Initiated by (actor)** column for the "add member to role request approved" event.
 
-    [![Azure AD roles new version](media/pim-how-to-use-audit-log/filter-audit-logs.png "Filter the audit log for the PIM service")](media/pim-how-to-use-audit-log/filter-audit-logs.png)
+    [![Screenshot that shows the "audit logs" page with the "Initiated by (actor) menu open and "PIM" selected.](media/pim-how-to-use-audit-log/filter-audit-logs.png "Filter the audit log for the PIM service")](media/pim-how-to-use-audit-log/filter-audit-logs.png)
 
 1. Select an audit log event to see the ticket number on the **Activity** tab of the **Details** pane.
   
-    [![Azure AD roles new version](media/pim-how-to-use-audit-log/audit-event-ticket-number.png "Check the ticket number for the audit event")](media/pim-how-to-use-audit-log/audit-event-ticket-number.png)
+    [![Screenshot that shows the "Audit logs" page with the ticket number highlighted in the "Details" pane.](media/pim-how-to-use-audit-log/audit-event-ticket-number.png "Check the ticket number for the audit event")](media/pim-how-to-use-audit-log/audit-event-ticket-number.png)
 
 1. You can view the requester (person activating the role) on the **Targets** tab of the **Details** pane for an audit event. There are two target types for Azure AD roles:
 
