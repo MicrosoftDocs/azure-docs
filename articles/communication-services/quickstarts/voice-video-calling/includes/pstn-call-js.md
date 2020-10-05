@@ -121,6 +121,7 @@ Open your browser and navigate to http://localhost:8080/. You should see the fol
 
 ![Screenshot of the completed JavaScript Application.](../media/javascript/pstn-calling-javascript-app.png)
 
-You can make an call to phone by providing a phone number in the added text field and clicking the **Start Phone Call** button.
+You can place a call to a real phone number by providing a phone number in the added text field and clicking the **Start Phone Call** button.
+
 > [!WARNING]
 > Note that phone numbers shold be provided in E.164 international standard format. (e.g.: +12223334444)
