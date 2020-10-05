@@ -128,7 +128,7 @@ The Python sample code is running a Linux container in App Service using a built
 
 [Having issues? Let us know.](https://aka.ms/FlaskCLIQuickstartHelp)
 
-## Run the sample
+## Run the sample 
 
 ::: zone pivot="python-framework-flask"
 1. Make sure you're in the *python-docs-hello-world* folder. 
