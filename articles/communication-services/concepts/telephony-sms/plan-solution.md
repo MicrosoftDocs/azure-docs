@@ -6,7 +6,7 @@ author: prakulka
 manager: nmurav
 services: azure-communication-services
 
-ms.author: stkozak
+ms.author: prakulka
 ms.date: 10/05/2020
 ms.topic: overview
 ms.service: azure-communication-services
@@ -23,7 +23,7 @@ Azure Communication Services allows you to use phone numbers to make voice calls
 Communication Services offers two types of phone numbers: **local** and **toll-free**. 
 
 ### Local numbers
-Local (Geographic) numbers are 10-digit telephone numbers consisting of the local area codes in the United States. For example, `+1 (206) XXX-XXXX` is a local number with an area code of `206`. This area code is assigned to city of Seattle. These phone numbers are generally used by individuals and local businesses. Azure Communication Services offers local numbers in the United States. These numbers can be used to place phone calls, but not to send SMS messages. 
+Local (Geographic) numbers are 10-digit telephone numbers consisting of the local area codes in the United States. For example, `+1 (206) XXX-XXXX` is a local number with an area code of `206`. This area code is assigned to the city of Seattle. These phone numbers are generally used by individuals and local businesses. Azure Communication Services offers local numbers in the United States. These numbers can be used to place phone calls, but not to send SMS messages. 
 
 ### Toll-free Numbers
 Toll-free numbers are 10-digit telephone numbers with distinct area codes that can be called from any phone number free of charge. For example, `+1 (800) XXX-XXXX` is a toll-free number in the North America region. These phone numbers are generally used for customer service purposes. Azure Communication Services offers toll-free numbers in the United states. These numbers can be used to place phone calls and to send SMS messages. Toll-free numbers cannot be used by people and can only be assigned to applications.
