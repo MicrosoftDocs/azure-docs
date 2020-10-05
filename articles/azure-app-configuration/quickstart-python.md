@@ -119,7 +119,6 @@ This command installs the Azure App Configuration client library for Python pack
 
 These example code snippets in this section show you how to perform common actions with the Azure App Configuration client library for Python.
 
-* [Get the connection string](#get-the-connection-string)
 * [Connect to an App Configuration store](#connect-to-an-app-configuration-store)
 * [Get a configuration setting](#get-a-configuration-setting)
 * [Add a configuration setting](#add-a-configuration-setting)
@@ -128,28 +127,14 @@ These example code snippets in this section show you how to perform common actio
 * [Update a configuration setting](#update-a-configuration-setting)
 * [Delete a configuration setting](#delete-a-configuration-setting)
 
-### Get the connection string
-
-The code below retrieves the connection string for the storage account. The connection string is stored the environment variable created in the [Configure your storage connection string](#configure-your-storage-connection-string) section.
-
-Add this code inside the `try` block:
-
-```python
-    # Retrieve the connection string for use with the application. The app configuration
-    # connection string is stored in an environment variable on the machine
-    # running the application called AZURE_APP_CONFIG_CONNECTION_STRING. If the
-    # environment variable is created after the application is launched in a
-    # console or with Visual Studio, the shell or application needs to be
-    # closed and reloaded to take the environment variable into account.
-    connection_string = os.getenv('AZURE_APP_CONFIG_CONNECTION_STRING')
-```
 
 ### Connect to an App Configuration store
 
-The following code snippet creates an instance of the **AzureAppConfiguration** class using the specified connection string. Add this code to the end of the `try` block.
+The following code snippet creates an instance of **AzureAppConfigurationClient** using the connection string stored in your environment variables.
 
 ```python
-    client = AzureAppConfigurationClient.from_connection_string(connection_string)
+    connection_string = os.getenv('AZURE_APP_CONFIG_CONNECTION_STRING')
+    app_config_client = AzureAppConfigurationClient.from_connection_string(connection_string)
 ```
 
 ### Get a configuration setting
@@ -236,7 +221,7 @@ The following code snippet updates an existing setting by calling **set_configur
 
 ### Delete a configuration setting
 
-The following code snippet deletes a configuration setting by calling **delete_configuration_settings**. Note that attempting to delete a setting that is currently locked will fail. Add this code to the end of the `try` block.
+The following code snippet deletes a configuration setting by calling the **delete_configuration_settings** method.
 
 ```python
     deleted_config_setting = client.delete_configuration_setting(
@@ -249,7 +234,7 @@ The following code snippet deletes a configuration setting by calling **delete_c
         print("   key: ", item.key, " label: ", item.label, "value: ", item.value)
 ```
 
-## Run the code
+## Run the app
 
 This app retrieves an configuration setting created through the Azure portal. Next, using the Azure App Configuration client library for Python, the app creates a new setting, retrieves a list of existing settings, locks and unlocks a setting, updates a setting, and finally deletes a setting.
 
