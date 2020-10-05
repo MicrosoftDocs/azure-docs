@@ -1,5 +1,5 @@
 ---
-title: Create an Azure API Management instance by using Azure Resource Manager template (ARM template)
+title: Quickstart - Create Azure API Management instance by using ARM template
 description: Learn how to create an Azure API Management instance in the Developer tier by using an Azure Resource Manager template (ARM template).
 services: azure-resource-manager
 author: dlepow
@@ -7,9 +7,8 @@ ms.service: azure-resource-manager
 ms.topic: quickstart
 ms.custom: subject-armqs
 ms.author: danlep
-ms.date: 10/02/2020
+ms.date: 10/05/2020
 ---
-
 
 # Quickstart: Create a new Azure API Management service instance using an ARM template
 
@@ -19,7 +18,7 @@ This quickstart describes how to use an Azure Resource Manager template (ARM tem
 
 If your environment meets the prerequisites and you're familiar with using ARM templates, select the **Deploy to Azure** button. The template will open in the Azure portal.
 
-[![Deploy to Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-azure-api-management-create%2fazuredeploy.json)
+[![Deploy to Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-azure-api-management-create%2Fazuredeploy.json)
 
 ## Prerequisites
 
@@ -40,9 +39,11 @@ More Azure API Management template samples can be found in [Azure Quickstart Tem
 
 ## Deploy the template
 
-1. Select the following image to sign in to Azure and open a template. The template creates an API Management service instance in the Developer tier.
+1. Select the following image to sign in to Azure and open a template. The template creates an API Management service instance with an automatically generated name. 
+  
+    In this example, the instance is configured in the Developer tier, an economical option to evaluate Azure API Management. This tier isn't for production use. For more information about scaling the API Management tiers, see [upgrade and scale](upgrade-and-scale.md).
 
-    [![Deploy to Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-azure-api-management-create%2fazuredeploy.json)
+    [![Deploy to Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-azure-api-management-create%2Fazuredeploy.json)
 
 1. Select or enter the following values.
     * **Subscription**: select an Azure subscription.
@@ -50,63 +51,49 @@ More Azure API Management template samples can be found in [Azure Quickstart Tem
     * **Location**: select a location for the resource group. Example: **Central US**.
     * **Publisher Email**: enter an email address to receive notifications.
     * **Publisher Name**: enter the name of the API publisher.
-    * **Sku**: accept the default value of **Developer**. This tier isn't for production use. For more information about scaling the API Management tiers, see [upgrade and scale](upgrade-and-scale.md).
-    * **Sku count**: accept the default value.
+    * **Sku**: accept the default value of **Developer**. 
+    * **Sku Count**: accept the default value.
     * **Location**: accept the generated location for the API Management service.
 
-    ![Template properties](media/quickstart-arm-template/create-instance-template.png)
+    :::image type="content" source="media/quickstart-arm-template/create-instance-template.png" alt-text="API Management template properties":::
+
 
  1. Select **Review + Create**, then review the terms and conditions. If you agree, select **Create**.
+    
+    > [!TIP]
+    >  It can take between 30 and 40 minutes to create and activate an API Management service in the Developer tier. 
+
  1. After the instance has been created successfully, you get a notification:
+ 
+    :::image type="content" source="media/quickstart-arm-template/deployment-notification.png" alt-text="Deployment notification":::
+
+ The Azure portal is used to deploy the template. In addition to the Azure portal, you can also use the Azure PowerShell, Azure CLI, and REST API. To learn other deployment methods, see [Deploy templates](../azure-resource-manager/templates/deploy-cli.md).
 
 ## Review deployed resources
 
-<!-- This heading must be titled "Review deployed resources" or "Validate the deployment". -->
+Use the Azure portal to check the deployed resources, or use tools such as the Azure CLI or Azure PowerShell to list the deployed resources.
 
-<!--
-Include at least one method that displays the deployed resources. Use a portal screenshot of the resources, or interactive code fences for Azure CLI (`azurecli-interactive`) or Azure PowerShell (`azurepowershell-interactive`).
--->
 
-You can either use the Azure portal to check the deployed resources, or use Azure CLI or Azure PowerShell script to list the deployed resources.
+1. In the portal, search for and select **API Management services**, and select the service instance you created.
+1. Review the properties of your service on the **Overview** page.
+
+:::image type="content" source="media/quickstart-arm-template/service-instance-created.png" alt-text="Service overview page":::
+
+When your API Management service instance is online, you're ready to use it. Start with the tutorial to [import and publish](import-and-publish.md) your first API.
 
 ## Clean up resources
 
-<!-- 
-The Clean up resources section includes a paragraph that explains how to delete unneeded resources. Include at least one method that shows how to clean up resources. Use a portal screenshot, or interactive code fences for Azure CLI (`azurecli-interactive`) or Azure PowerShell (`azurepowershell-interactive`).
--->
+If you plan to continue working with subsequent tutorials, you might want to leave the API Management instance in place. When no longer needed, delete the resource group, which deletes the resources in the resource group.
 
-When no longer needed, delete the resource group, which deletes the resources in the resource group.
+1. In the Azure portal, search for and select **Resource groups**. You can also select **Resource groups** on the Home page.
+1. On the **Resource groups** page, select your resource group.
+1. On the resource group page, select **Delete resource group**.
 
-<!--
+    :::image type="content" source="media/quickstart-arm-template/delete-resource-group.png" alt-text="Delete resource group":::
+1. Type the name of your resource group, and then select **Delete**.
 
-Choose Azure CLI, Azure PowerShell, or Azure portal to delete the resource group.
-
-Here are the samples for Azure CLI and Azure PowerShell:
-
-```azurecli-interactive
-echo "Enter the Resource Group name:" &&
-read resourceGroupName &&
-az group delete --name $resourceGroupName &&
-echo "Press [ENTER] to continue ..."
-```
-
-```azurepowershell-interactive
-$resourceGroupName = Read-Host -Prompt "Enter the Resource Group name"
-Remove-AzResourceGroup -Name $resourceGroupName
-Write-Host "Press [ENTER] to continue..."
-```
-
--->
 
 ## Next steps
 
-<!-- 
-Make the next steps similar to other quickstarts and use a blue button to link to the next article for your service. Or direct readers to the article: "Tutorial: Create and deploy your first ARM template" to follow the process of creating a template.
-
-To include additional links for more information about the service, it's acceptable to use a paragraph and bullet points.
--->
-
-For a step-by-step tutorial that guides you through the process of creating a template, see:
-
 > [!div class="nextstepaction"]
-> [Tutorial: Create and deploy your first ARM template](/azure/azure-resource-manager/templates/template-tutorial-create-first-template)
+> [Tutorial: Import and publish your first API](import-and-publish.md)
