@@ -116,15 +116,15 @@ To configure Azure AD single sign-on with Clear Review, perform the following st
 
 6. Clear Review application expects the SAML assertions in a specific format, which requires you to add custom attribute mappings to your SAML token attributes configuration. The following screenshot shows the list of default attributes, where as **nameidentifier** is mapped with **user.userprincipalname**. Clear Review application expects **nameidentifier** to be mapped with **user.mail**, so you need to edit the attribute mapping by clicking on **Edit** icon and change the attribute mapping.
 
-	![image](common/edit-attribute.png)
+	![Screenshot shows User Attributes with the Edit icon selected.](common/edit-attribute.png)
 
 7. On the **User Attributes & Claims** dialog, perform the following steps:
 
 	a. Click **Edit icon** on the right of **Name identifier value**.
 
-	![image](./media/clearreview-tutorial/attribute02.png)
+	![Screenshot shows User Attributes & Claims with the Edit icon selected.](./media/clearreview-tutorial/attribute02.png)
 
-	![image](./media/clearreview-tutorial/attribute01.png)
+	![Screenshot shows the Manage user claims dialog box where you can enter the values described.](./media/clearreview-tutorial/attribute01.png)
 
 	b. From the **Source attribute** list, select the **user.mail** attribute value for that row.
 
