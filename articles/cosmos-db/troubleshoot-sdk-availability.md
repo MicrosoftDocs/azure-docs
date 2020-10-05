@@ -44,6 +44,8 @@ When any of the following scenarios occur, the client using the Azure Cosmos SDK
 * The *Diagnostics* property on responses and exceptions in .NET V3 SDK.
 * The *getDiagnostics()* method on responses and exceptions in Java V4 SDK.
 
+When determining the next region in order of preference, the SDK client will use the account region list, prioritizing the preferred regions (if any).
+
 For a comprehensive detail on SLA guarantees during these events, see the [SLAs for availability](high-availability.md#slas-for-availability).
 
 ## <a id="remove-region"></a>Removing a region from the account
