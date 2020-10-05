@@ -300,13 +300,11 @@ As an example, you can apply these guidelines to SQL Server running on Premium S
 
 ## Optimize performance on Linux VMs
 
-For all premium SSDs or ultra disks with cache set to **ReadOnly** or **None**, you can disable "barriers" for performance optimization for situations where it is known that there are no caches that could lose data. To disable "barriers," use one of the following methods based on your file system:
-  
-* For **reiserFS**, to disable barriers, use the  `barrier=none` mount option. (To enable barriers, use `barrier=flush`.)
-* For **ext3/ext4**, to disable barriers, use the `barrier=0` mount option. (To enable barriers, use `barrier=1`.)
-* For **XFS**, to disable barriers, use the `nobarrier` mount option. Also, in later Linux kernels, disabling barriers has no effect for the XFS file system. (To enable barriers, use `barrier`.)
-* For premium storage disks with cache set to **ReadWrite**, enable barriers for write durability.
-* For volume labels to persist after you restart the VM, you must update /etc/fstab with the universally unique identifier (UUID) references to the disks. For more information, see [Add a managed disk to a Linux VM](./linux/add-disk.md).
+For all premium SSDs or ultra disks, you may be able to disable “barriers” for file systems on the disk in order to improve performance when it is known that there are no caches that could lose data.  If Azure disk caching is set to ReadOnly or None, you can disable barriers.  But if caching is set to ReadWrite, barriers should remain enabled to ensure write durability.  Barriers are typically enabled by default, but you can disable barriers using one of the following methods depending on the file system type:
+
+* For **reiserFS**, use the barrier=none mount option to disable barriers.  To explicitly enable barriers, use barrier=flush.
+* For **ext3/ext4**, use the barrier=0 mount option to disable barriers.  To explicitly enable barriers, use barrier=1.
+* For **XFS**, use the nobarrier mount option to disable barriers.  To explicitly enable barriers, use barrier.  Note that in later Linux kernel versions, the design of XFS file system always ensures durability, and disabling barriers has no effect.  
 
 ## Disk striping
 
