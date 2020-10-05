@@ -10,7 +10,7 @@
  ms.custom: include file
 ---
 
-The following limits apply to Azure Event Grid **topics** (system,  custom, and partner topics. 
+The following limits apply to Azure Event Grid **topics** (system,  custom, and partner topics). 
 
 | Resource | Limit |
 | --- | --- |
@@ -21,7 +21,7 @@ The following limits apply to Azure Event Grid **topics** (system,  custom, and 
 | Private endpoint connections per topic  | 64 | 
 | IP Firewall rules per topic | 16 | 
 
-\* Operations are charged in 64 KB increments though. So, events over 64 KB will incur operations charges as though they were multiple events. For example, an event that is 130 KB would incur operations as though it were 3 separate events.
+\* Operations are charged in 64 KB increments though. So, events over 64 KB will incur operations charges as though they were multiple events. For example, an event that is 130 KB would incur operations as though it were three separate events.
 
 The following limits apply to Azure Event Grid **domains**. 
 
