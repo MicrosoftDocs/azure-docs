@@ -82,7 +82,7 @@ Add the following code to the `main` method:
 ```java
 // Your can find your endpoint and access token from your resource in the Azure Portal
 String endpoint = "https://<RESOURCE_NAME>.communication.azure.com";
-String accessKey = "SECRET";
+String accessToken = "SECRET";
 
 // Create an HttpClient builder of your choice and customize it
 // Use com.azure.core.http.netty.NettyAsyncHttpClientBuilder if that suits your needs
@@ -90,23 +90,12 @@ HttpClient httpClient = new NettyAsyncHttpClientBuilder().build();
 
 CommunicationIdentityClient communicationIdentityClient = new CommunicationIdentityClientBuilder()
     .endpoint(endpoint)
-    .accessKey(accessKey)
+    .credential(new CommunicationClientCredential(accessToken))
     .httpClient(httpClient)
     .buildClient();
 ```
 
 You can initialize the client with any custom HTTP client the implements the `com.azure.core.http.HttpClient` interface. The above code demonstrates use of the [Azure Core Netty HTTP client](https://docs.microsoft.com/java/api/overview/azure/core-http-netty-readme?view=azure-java-stable&preserve-view=true) that is provided by `azure-core`.
-
-You can also provide the entire connection string using the connectionString() function instead of providing the endpoint and access key. 
-```java
-// Your can find your connection string from your resource in the Azure Portal
-String connectionString = "<connection_string>";
-
-CommunicationIdentityClient communicationIdentityClient = new CommunicationIdentityClientBuilder()
-    .connectionString(connectionString)
-    .httpClient(httpClient)
-    .buildClient();
-```
 
 ## Create a user
 
