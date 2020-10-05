@@ -51,7 +51,7 @@ With Azure Synapse Link, you can get a cost-optimized, fully managed solution fo
 Azure Cosmos DB analytical store follows a consumption-based pricing model, which is based on data storage and analytical read/write operations and queries executed . It doesn’t require you to provision any throughput, as you do today for the transactional workloads. Accessing your data with highly elastic compute engines from Azure Synapse Analytics makes the overall cost of running storage and compute very efficient.
 
 
-### Analytics for locally available, globally distributed, multi master data
+### Analytics for locally available, globally distributed, multi-region writes
 
 You can run analytical queries effectively against the nearest regional copy of the data in Azure Cosmos DB. Azure Cosmos DB provides the state-of-the-art capability to run the globally distributed analytical workloads along with transactional workloads in an active-active manner.
 

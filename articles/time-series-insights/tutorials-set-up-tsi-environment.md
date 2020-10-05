@@ -8,9 +8,9 @@ ms.workload: big-data
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: tutorial
-ms.date: 07/27/2020
+ms.date: 09/30/2020
 ms.custom: seodec18
-# Customer intent: As a data analyst or developer, I want to learn how to create a Azure Time Series Insights Gen2 environment so that I can use Azure Time Series Insights Gen2 queries to understand device behavior. 
+# Customer intent: As a data analyst or developer, I want to learn how to create an Azure Time Series Insights Gen2 environment so that I can use Azure Time Series Insights Gen2 queries to understand device behavior. 
 ---
 
 # Tutorial: Set up an Azure Time Series Insights Gen2 environment
