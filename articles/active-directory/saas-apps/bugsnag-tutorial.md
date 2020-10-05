@@ -94,7 +94,7 @@ To configure Azure AD single sign-on with Bugsnag, perform the following steps:
 
 4. On the **Basic SAML Configuration** section, If you wish to configure the application in **IDP** initiated mode, perform the following step:
 
-    ![Bugsnag Domain and URLs single sign-on information](common/both-replyurl.png)
+    ![Screenshot shows the Basic SAML Configuration, where you can enter Reply U R L, and select Save.](common/both-replyurl.png)
 
 	In the **Reply URL** text box, type a URL using the following pattern:
     `https://app.bugsnag.com/user/sign_in/saml/<org_slug>/acs`
@@ -104,7 +104,7 @@ To configure Azure AD single sign-on with Bugsnag, perform the following steps:
 
 5. Click **Set additional URLs** and perform the following step if you wish to configure the application in **SP** initiated mode:
 
-    ![Bugsnag Domain and URLs single sign-on information](common/both-signonurl.png)
+    ![Screenshot shows Set additional U R Ls where you can enter a Sign on U R L.](common/both-signonurl.png)
 
     In the **Sign-on URL** text box, type as:
     `https://app.bugsnag.com/user/identity_provider`

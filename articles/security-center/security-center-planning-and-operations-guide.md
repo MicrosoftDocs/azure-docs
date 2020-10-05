@@ -116,7 +116,7 @@ Security Center policies contain the following components:
 - [Data collection](security-center-enable-data-collection.md): agent provisioning and data collection settings.
 - [Security policy](tutorial-security-policy.md): an [Azure Policy](../governance/policy/overview.md) that determines which controls are monitored and recommended by Security Center, or use Azure Policy to create new definitions, define additional policies, and assign policies across management groups.
 - [Email notifications](security-center-provide-security-contact-details.md): security contacts and notification settings.
-- [Pricing tier](security-center-pricing.md): with or without Azure Defender, which determine which Security Center features are available for resources in scope (can be specified for subscriptions, resource groups and workspaces).
+- [Pricing tier](security-center-pricing.md): with or without Azure Defender, which determine which Security Center features are available for resources in scope (can be specified for subscriptions and workspaces, or resource groups using the API).
 
 > [!NOTE]
 > Specifying a security contact will ensure that Azure can reach the right person in your organization if a security incident occurs. Read [Provide security contact details in Azure Security Center](security-center-provide-security-contact-details.md) for more information on how to enable this recommendation.
@@ -157,9 +157,9 @@ For workspaces created by Azure Security Center, data is retained for 30 days. F
 > Microsoft makes strong commitments to protect the privacy and security of this data. Microsoft adheres to strict compliance and security guidelines—from coding to operating a service. For more information about data handling and privacy, read [Azure Security Center Data Security](security-center-data-security.md).
 >
 
-## Onboarding non-Azure resources
+## Onboard non-Azure resources
 
-Security Center can monitor the security posture of your non-Azure computers but you need to first onboard these resources. Read [Onboard non-Azure computers](quickstart-onboard-machines.md) for more information on how to onboarding non-Azure resources.
+Security Center can monitor the security posture of your non-Azure computers but you need to first onboard these resources. Read [Onboard non-Azure computers](quickstart-onboard-machines.md) for more information on how to onboard non-Azure resources.
 
 ## Ongoing security monitoring
 After initial configuration and application of Security Center recommendations, the next step is considering Security Center operational processes.
@@ -215,11 +215,9 @@ The following example shows a suspicious RDP activity taking place:
 
 This page shows the details regarding the time that the attack took place, the source hostname, the target VM and also gives recommendation steps. In some circumstances, the source information of the attack may be empty. Read [Missing Source Information in Azure Security Center Alerts](https://blogs.msdn.microsoft.com/azuresecurity/2016/03/25/missing-source-information-in-azure-security-center-alerts/) for more information about this type of behavior.
 
-From this page, you can also start an investigation to better understand the timeline of the attack, how the attack took place, which systems were potentially compromised, which credentials were used, and see a graphical representation of the entire attack chain.
-
 Once you identify the compromised system, you can run a [Workflow Automation](workflow-automation.md) that was previously created. These are a collection of procedures that can be executed from Security Center once triggered by an alert.
 
-In the [How to Leverage the Azure Security Center & Microsoft Operations Management Suite for an Incident Response](https://channel9.msdn.com/Blogs/Taste-of-Premier/ToP1703) video, you can see some demonstrations that can help you to understand how Security Center can be used in each one of those stages.
+In the [How to Leverage the Azure Security Center & Microsoft Operations Management Suite for an Incident Response](https://channel9.msdn.com/Blogs/Taste-of-Premier/ToP1703) video, you can see some demonstrations that show how Security Center can be used in each one of those stages.
 
 > [!NOTE]
 > Read [Managing and responding to security alerts in Azure Security Center](security-center-managing-and-responding-alerts.md) for more information on how to use Security Center capabilities to assist you during your Incident Response process.
