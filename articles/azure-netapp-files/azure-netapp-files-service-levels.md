@@ -13,7 +13,7 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 10/05/2019
+ms.date: 10/05/2020
 ms.author: b-juche
 ---
 # Service levels for Azure NetApp Files
