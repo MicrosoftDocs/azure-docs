@@ -96,14 +96,14 @@ Navigate to your Azure Communication Resource on the [Azure portal](https://port
 
 :::image type="content" source="../media/manage-phone-azure-portal-start.png" alt-text="Screenshot showing a Communication Services Resource's main page.":::
 
-Select the Phone Numbers tab in the menu to manage your phone numbers.
+Select the Phone Numbers blade in the menu to manage your phone numbers.
 
 :::image type="content" source="../media/manage-phone-azure-portal-phones.png" alt-text="Screenshot showing a Communication Services Resource's phone number page.":::
 
 > [!NOTE]
 > It may take a few minutes for the provisioned numbers to be shown on this page.
 
-### Customizing phone plans
+### Customizing phone number plans
 On the `Numbers` page, you can select the phone number by clicking on the number for which you'd like to customize the plan.
 
 :::image type="content" source="../media/manage-phone-azure-portal-capability-update.png" alt-text="Screenshot showing the update capabilities page.":::
