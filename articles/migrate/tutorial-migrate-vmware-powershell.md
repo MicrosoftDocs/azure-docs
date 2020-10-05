@@ -115,8 +115,8 @@ After completing discovery and initializing replication infrastructure, you can 
 
 You can specify the replication properties as follows.
 
-- **Target subscription and resource group** - Specify the subscription and resource group that the VM should be migrated to by providing the resource group Id using the `TargetResourceGroupId` parameter. 
-- **Target virtual network and subnet** - Specify the Id of the Azure Virtual Network and the name of the subnet that the VM should be migrated to by using the `TargetNetworkId` and `TargetSubnetName` parameters respectively. 
+- **Target subscription and resource group** - Specify the subscription and resource group that the VM should be migrated to by providing the resource group ID using the `TargetResourceGroupId` parameter. 
+- **Target virtual network and subnet** - Specify the ID of the Azure Virtual Network and the name of the subnet that the VM should be migrated to by using the `TargetNetworkId` and `TargetSubnetName` parameters respectively. 
 - **Target VM name** - Specify the name of the Azure VM to be created by using the `TargetVMName` parameter.
 - **Target VM size** - Specify the Azure VM size to be used for the replicating VM by using `TargetVMSize` parameter. For instance, to migrate a VM to D2_v2 VM in Azure, specify the value for `TargetVMSize` as "Standard_D2_v2".  
 - **License** - To use Azure Hybrid Benefit for your Windows Server machines that are covered with active Software Assurance or Windows Server subscriptions, specify the value for `LicenseType` parameter as "AHUB". Otherwise, specify the value for `LicenseType` parameter as "NoLicenseType".
@@ -127,7 +127,7 @@ You can specify the replication properties as follows.
     - To use standard HDD disks, specify "Standard_LRS" as value for  `DiskType` parameter. 
 - **Infrastructure redundancy** - Specify infrastructure redundancy option as follows. 
     - Availability Zone to pin the migrated machine to a specific Availability Zone in the region. Use this option to distribute servers that form a multi-node application tier across Availability Zones. This option is only available if the target region selected for the migration supports Availability Zones. To use availability zones, specify the availability zone value for `TargetAvailabilityZone` parameter.
-    - Availability Set to place the migrated machine in an Availability Set. The target Resource Group that was selected must have one or more availability sets to use this option. To use availability set, specify the availability set Id for `TargetAvailabilitySet` parameter. 
+    - Availability Set to place the migrated machine in an Availability Set. The target Resource Group that was selected must have one or more availability sets to use this option. To use availability set, specify the availability set ID for `TargetAvailabilitySet` parameter. 
 
 In this tutorial, we'll replicate all the disks of the discovered VM and specify a new name for the VM in Azure. We specify the first disk of the discovered server as OS Disk and migrate all disks as Standard HDD. The OS disk is the disk that has the operating system bootloader and installer.
 
@@ -275,8 +275,8 @@ The following properties can be updated for a VM.
 
 - **VM Name** - Specify the name of the Azure VM to be created by using the `TargetVMName` parameter.
 - **VM size** - Specify the Azure VM size to be used for the replicating VM by using `TargetVMSize` parameter. For instance, to migrate a VM to D2_v2 VM in Azure, specify the value for `TargetVMSize` as "Standard_D2_v2".  
-- **Virtual Network** - Specify the Id of the Azure Virtual Network that the VM should be migrated to by using the `TargetNetworkId` parameter. 
-- **Resource Group** - Specify the Id of the resource group that the VM should be migrated to by providing the resource group Id using the `TargetResourceGroupId` parameter.
+- **Virtual Network** - Specify the ID of the Azure Virtual Network that the VM should be migrated to by using the `TargetNetworkId` parameter. 
+- **Resource Group** - Specify the ID of the resource group that the VM should be migrated to by providing the resource group ID using the `TargetResourceGroupId` parameter.
 - **Network Interface** - NIC configuration can be specified using the `New-AzMigrateNicMapping` cmdlet. The object is then passed an input to the `NicToUpdate` parameter in the `Set-AzMigrateServerReplication` cmdlet. 
 
     - **Change IP allocation** -To specify a static IP for a NIC, provide the static IP in the format "xxx.xxx.xxx.xxx" as the value for the `TargetNicIP` parameter. To dynamically assign an IP for a NIC, provide "auto" as the value for the `TargetNicIP` parameter.
@@ -323,7 +323,7 @@ When delta replication begins, you can run a test migration for the VMs before r
 - Test migration simulates the migration by creating an Azure VM using replicated data (usually migrating to a non-production VNet in your Azure subscription).
 - You can use the replicated test Azure VM to validate the migration, perform app testing, and address any issues before full migration.
 
-Select the Azure Virtual Network to be used for testing by specifying the Id of the virtual network using the `TestNetworkID` parameter.
+Select the Azure Virtual Network to be used for testing by specifying the ID of the virtual network using the `TestNetworkID` parameter.
 
 ```azurepowershell
 #Start test migration for a replicating server
