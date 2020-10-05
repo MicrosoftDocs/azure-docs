@@ -5,7 +5,7 @@ author: cynthn
 ms.service: virtual-machines
 ms.workload: infrastructure-services
 ms.topic: how-to
-ms.date: 09/14/2020
+ms.date: 10/05/2020
 ms.author: cynthn
 ms.reviewer: jagaveer
 ---
