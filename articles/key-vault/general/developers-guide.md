@@ -13,8 +13,8 @@ ms.author: mbaldwin
 
 Key Vault allows you to securely access sensitive information from within your applications:
 
-- Keys,secrets, and certificates are protected without having to write the code yourself and you are easily able to use them from your applications.
-- You are able to have your customers own and manage their own keys, secrets, and certificates so you can concentrate on providing the core software features. In this way, your applications will not own the responsibility or potential liability for your customers' tenant keys,secrets, and certificates.
+- Keys, secrets, and certificates are protected without having to write the code yourself and you're easily able to use them from your applications.
+- You are able to have customers to own and manage their own keys, secrets, and certificates so you can concentrate on providing the core software features. In this way, your applications will not own the responsibility or potential liability for your customers' tenant keys, secrets, and certificates.
 - Your application can use keys for signing and encryption yet keeps the key management external from your application. For more information about keys, see [About Keys](../keys/about-keys.md)
 - You can manage credentials like passwords, access keys,sas tokens storing them in Key Vault as secrets, see [About Secrets](../secrets/about-secrets.md)
 - Manage certificates. For more information, see [About Certificates](../certificates/about-certificates.md)
@@ -23,17 +23,17 @@ For more general information on Azure Key Vault, see [What is Key Vault](overvie
 
 ## Public Previews
 
-Periodically, we release a public preview of a new Key Vault feature. Try out these and let us know what you think via azurekeyvault@microsoft.com, our feedback email address.
+Periodically, we release a public preview of a new Key Vault feature. Try out public preview features and let us know what you think via azurekeyvault@microsoft.com, our feedback email address.
 
 ## Creating and Managing Key Vaults
 
 Key Vault management, similar to other Azure services, is done through Azure Resource Manager service. Azure Resource Manager is the deployment and management service for Azure. It provides a management layer that enables you to create, update, and delete resources in your Azure account. For more information, see [Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/management/overview)
 
-Access to management layer is controlled by [Azure role-based access control](https://docs.microsoft.com/azure/role-based-access-control/overview). In Key Vault, management layer, also known as management or control plane, let you create and manage Key Vaults and it's attributes including access policies, but not keys, secrets and certificates, which are managed on data plane. You can use pre-defined `Key Vault Contributor` role to grant management access to Key Vault.     
+Access to management layer is controlled by [Azure role-based access control](https://docs.microsoft.com/azure/role-based-access-control/overview). In Key Vault, management layer, also known as management or control plane, let you create and manage Key Vaults and its attributes including access policies, but not keys, secrets and certificates, which are managed on data plane. You can use pre-defined `Key Vault Contributor` role to grant management access to Key Vault.     
 
-**API's and SDK's for key vault management:**
+**API's and SDKs for key vault management:**
 
-| Azure CLI | PowerShell | REST API | ARM | .NET | Python | Java | Javascript |  
+| Azure CLI | PowerShell | REST API | Resource Manager | .NET | Python | Java | JavaScript |  
 |--|--|--|--|--|--|--|--|
 |[Reference](/cli/azure/keyvault)<br>[Quickstart](quick-create-cli.md)|[Reference](/powershell/module/az.keyvault)<br>[Quickstart](quick-create-powershell.md)|[Reference](/rest/api/keyvault/)|[Reference](/azure/templates/microsoft.keyvault/vaults)|[Reference](/dotnet/api/microsoft.azure.management.keyvault)|[Reference](/python/api/azure-mgmt-keyvault/azure.mgmt.keyvault)|[Reference](/java/api/com.microsoft.azure.management.keyvault)|[Reference](/javascript/api/@azure/arm-keyvault)|
 
@@ -43,36 +43,36 @@ For more information about Key Vault management plane, see [Key Vault Management
 
 ## Authenticate to Key Vault SDK
 
-Key Vault is using Azure AD authentication which requires Azure AD security principal to grant access. An Azure AD security principal may be a user, an application service principal, a [managed identity for Azure resources](../../active-directory/managed-identities-azure-resources/overview.md), or a group of any type of security principals.
+Key Vault is using Azure AD authentication that requires Azure AD security principal to grant access. An Azure AD security principal may be a user, an application service principal, a [managed identity for Azure resources](../../active-directory/managed-identities-azure-resources/overview.md), or a group of any type of security principals.
 
-For secure applications, it is recommended to use managed identity for applications deployed to Azure. In case of Azure services which does not support managed identity or applications deployed on premise, [service principal with a certificate](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal) is a possible alternative. Certificate should be stored in Key Vault and rotated often. 
+For secure applications, it is recommended to use managed identity for applications deployed to Azure. If Azure services, which do not support managed identity or applications deployed on premise, [service principal with a certificate](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal) is a possible alternative. Certificate should be stored in Key Vault and rotated often. 
 
-Service principal with secret can be used for development and testing environments, and locally or on cloud shell user principal is recommended.
+Service principal with secret can be used for development and testing environments, and locally or in Cloud Shell user principal is recommended.
 
-For application development, you can use Azure Identity SDK across different environments and platforms without changing code. Azure Identity is integrated with Azure CLI, Visual Studio, Visual Studio Code and many others. 
+For application development, you can use Azure Identity SDK across different environments and platforms without changing code. Azure Identity is integrated with Azure CLI, Visual Studio, Visual Studio Code, and others. 
 
 For more information, see: 
 
-| .NET | Python | Java | Javascript |
+| .NET | Python | Java | JavaScript |
 |--|--|--|--|
-|[Azure Identity SDK .NET](https://docs.microsoft.com/dotnet/api/overview/azure/identity-readme)|[Azure Identity SDK Python](https://docs.microsoft.com/python/api/overview/azure/identity-readme)|[Azure Identity SDK Java](https://docs.microsoft.com/java/api/overview/azure/identity-readme)|[Azure Identity SDK Javascript](https://docs.microsoft.com/javascript/api/overview/azure/identity-readme)|     
+|[Azure Identity SDK .NET](https://docs.microsoft.com/dotnet/api/overview/azure/identity-readme)|[Azure Identity SDK Python](https://docs.microsoft.com/python/api/overview/azure/identity-readme)|[Azure Identity SDK Java](https://docs.microsoft.com/java/api/overview/azure/identity-readme)|[Azure Identity SDK JavaScript](https://docs.microsoft.com/javascript/api/overview/azure/identity-readme)|     
 
 ## Manage keys, certificates, and secrets
 
-Access to keys, secrets and certificates is controlled by data plane. Data plane access control can be be done using local vault access policies or RBAC (preview).
+Access to keys, secrets, and certificates is controlled by data plane. Data plane access control can be done using local vault access policies or RBAC (preview).
 
 **Keys APIs and SDKs**
-| Azure CLI | PowerShell | REST API | ARM | .NET | Python | Java | Javascript |  
+| Azure CLI | PowerShell | REST API | Resource Manager | .NET | Python | Java | JavaScript |  
 |--|--|--|--|--|--|--|--|
 |[Reference](/cli/azure/keyvault/key)<br>[Quickstart](../keys/quick-create-cli.md)|[Reference](/powershell/module/az.keyvault/)<br>[Quickstart](../keys/quick-create-powershell.md)|[Reference](/rest/api/keyvault/#key-operations)|N/A|[Reference](/dotnet/api/azure.security.keyvault.keys)|[Reference](/python/api/azure-mgmt-keyvault/azure.mgmt.keyvault)<br>[Quickstart](../keys/quick-create-python.md)|[Reference](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-security-keyvault-keys/4.2.0/index.html)|[Reference](/javascript/api/@azure/keyvault-keys/)|
 
 **Certificates APIs and SDKs**
-| Azure CLI | PowerShell | REST API | ARM | .NET | Python | Java | Javascript |  
+| Azure CLI | PowerShell | REST API | Resource Manager | .NET | Python | Java | JavaScript |  
 |--|--|--|--|--|--|--|--|
 |[Reference](/cli/azure/keyvault/certificate)<br>[Quickstart](../certificates/quick-create-cli.md)|[Reference](/powershell/module/az.keyvault)<br>[Quickstart](../certificates/quick-create-powershell.md)|[Reference](/rest/api/keyvault/#certificate-operations)|N/A|[Reference](/dotnet/api/azure.security.keyvault.certificates)|[Reference](/python/api/overview/azure/keyvault-certificates-readme)<br>[Quickstart](../certificates/quick-create-python.md)|[Reference](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-security-keyvault-certificates/4.1.0/index.html)|[Reference](/javascript/api/@azure/keyvault-certificates/)|
 
 **Secrets APIs and SDKs**
-| Azure CLI | PowerShell | REST API | ARM | .NET | Python | Java | Javascript |  
+| Azure CLI | PowerShell | REST API | Resource Manager | .NET | Python | Java | JavaScript |  
 |--|--|--|--|--|--|--|--|
 |[Reference](/cli/azure/keyvault/secret)<br>[Quickstart](../secrets/quick-create-cli.md)|[Reference](/powershell/module/az.keyvault/)<br>[Quickstart](../secrets/quick-create-powershell.md)|[Reference](/rest/api/keyvault/#secret-operations)|[Reference](/azure/templates/microsoft.keyvault/vaults/secrets)<br>[Quickstart](../secrets/quick-create-template.md)|[Reference](/dotnet/api/azure.security.keyvault.secrets)<br>[Quickstart](../secrets/quick-create-net.md)|[Reference](/python/api/overview/azure/keyvault-secrets-readme)<br>[Quickstart](../secrets/quick-create-python.md)|[Reference](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-security-keyvault-secrets/4.2.0/index.html)<br>[Quickstart](../secrets/quick-create-java.md)|[Reference](/javascript/api/@azure/keyvault-secrets/)<br>[Quickstart](../secrets/quick-create-node.md)|
 
