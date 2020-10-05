@@ -1218,6 +1218,8 @@
         href: oracle-peoplesoft-protected-by-f5-big-ip-apm-tutorial.md
       - name: OrgChart Now
         href: orgchartnow-tutorial.md
+      - name: OrgVitality SSO
+        href: orgvitality-sso-tutorial.md
       - name: Origami
         href: origami-tutorial.md
       - name: Otsuka Shokai

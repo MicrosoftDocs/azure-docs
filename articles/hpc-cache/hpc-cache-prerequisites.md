@@ -31,9 +31,6 @@ Read the rest of this article for specific recommendations.
 ## Azure subscription
 
 A paid subscription is recommended.
-<!-- 
-> [!NOTE]
-> The Azure HPC Cache team must add your subscription to the access list before it can be used to create a cache instance. This procedure helps ensure that each customer gets high-quality responsiveness from their caches. Fill out [this form](https://aka.ms/onboard-hpc-cache) to request access.  -->
 
 ## Network infrastructure
 

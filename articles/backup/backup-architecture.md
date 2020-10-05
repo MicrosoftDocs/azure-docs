@@ -30,7 +30,7 @@ Learn more about [what you can back up](backup-overview.md) and about [supported
 
 ## Where is data backed up?
 
-Azure Backup stores backed-up data in a vaults - Recover Services vaults and Backup vaults. A vault is an online-storage entity in Azure that's used to hold data, such as backup copies, recovery points, and backup policies.
+Azure Backup stores backed-up data in a vaults - Recovery Services vaults and Backup vaults. A vault is an online-storage entity in Azure that's used to hold data, such as backup copies, recovery points, and backup policies.
 
 Vaults have the following features:
 
