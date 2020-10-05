@@ -2,7 +2,7 @@
 title: Troubleshoot network issues with registry
 description: Symptoms, causes, and resolution of common problems when accessing an Azure container registry in a virtual network or behind a firewall
 ms.topic: article
-ms.date: 08/11/2020
+ms.date: 10/01/2020
 ---
 
 # Troubleshoot network issues with registry
@@ -17,6 +17,7 @@ May include one or more of the following:
 * Unable to push or pull images and you receive Azure CLI error `Could not connect to the registry login server`
 * Unable to pull images from registry to Azure Kubernetes Service or another Azure service
 * Unable to access a registry behind an HTTPS proxy and you receive error `Error response from daemon: login attempt failed with status: 403 Forbidden`
+* Unable to configure virtual network settings and you receive error `Failed to save firewall and virtual network settings for container registry`
 * Unable to access or view registry settings in Azure portal or manage registry using the Azure CLI
 * Unable to add or modify virtual network settings or public access rules
 * ACR Tasks is unable to push or pull images
@@ -42,7 +43,7 @@ See [Check the health of an Azure container registry](container-registry-check-h
 
 ### Configure client firewall access
 
-To access a registry from behind a client firewall or proxy server, configure firewall rules to access the registry's REST and data endpoints. If [dedicated data endpoints](container-registry-firewall-access-rules.md#enable-dedicated-data-endpoints) are enabled, you need rules to access:
+To access a registry from behind a client firewall or proxy server, configure firewall rules to access the registry's public REST and data endpoints. If [dedicated data endpoints](container-registry-firewall-access-rules.md#enable-dedicated-data-endpoints) are enabled, you need rules to access:
 
 * REST endpoint: `<registryname>.azurecr.io`
 * Data endpoint(s): `<registry-name>.<region>.data.azurecr.io`
@@ -81,7 +82,11 @@ Review NSG rules and service tags used to limit traffic from other resources in 
 
 If a service endpoint to the registry is configured, confirm that a network rule is added to the registry that allows access from that network subnet. The service endpoint only supports access from virtual machines and AKS clusters in the network.
 
+If you want to restrict registry access using a virtual network in a different Azure subscription, ensure that you register the `Microsoft.ContainerRegistry` resource provider in that subscription. [Register the resource provider](../azure-resource-manager/management/resource-providers-and-types.md) for Azure Container Registry using the Azure portal, Azure CLI, or other Azure tools.
+
 If Azure Firewall or a similar solution is configured in the network, check that egress traffic from other resources such as an AKS cluster is enabled to reach the registry endpoints.
+
+If a private endpoint is configured, confirm that DNS resolves the registry's public FQDN such as *myregistry.azurecr.io* to the registry's private IP address. Use a network utility such as `dig` or `nslookup` for DNS lookup.
 
 Related links:
 

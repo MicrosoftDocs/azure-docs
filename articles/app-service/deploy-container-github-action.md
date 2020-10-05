@@ -3,9 +3,10 @@ title: Custom container CI/CD from GitHub Actions
 description: Learn how to use GitHub Actions to deploy your custom Linux container to App Service from a CI/CD pipeline.
 ms.devlang: na
 ms.topic: article
-ms.date: 10/25/2019
+ms.date: 10/03/2020
 ms.author: jafreebe
 ms.reviewer: ushan
+ms.custom: github-actions-azure
 
 ---
 
@@ -19,7 +20,7 @@ For an Azure App Service container workflow, the file has three sections:
 
 |Section  |Tasks  |
 |---------|---------|
-|**Authentication** | 1.  service principal or publish profile. <br /> 2. Create a GitHub secret. |
+|**Authentication** | 1. Retrieve a service principal or publish profile. <br /> 2. Create a GitHub secret. |
 |**Build** | 1. Create the environment. <br /> 2. Build the container image. |
 |**Deploy** | 1. Deploy the container image. |
 
