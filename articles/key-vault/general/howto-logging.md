@@ -1,5 +1,5 @@
 ---
-title: How to enable Key Vault logging
+title: How to enable Azure Key Vault logging
 description: How to enable logging for Azure Key Vault, which saves information in an Azure storage account that you provide.
 services: key-vault
 author: msmbaldwin
