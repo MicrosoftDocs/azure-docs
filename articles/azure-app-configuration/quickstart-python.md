@@ -119,7 +119,6 @@ This command installs the Azure App Configuration client library for Python pack
 
 These example code snippets in this section show you how to perform common actions with the Azure App Configuration client library for Python.
 
-* [Get the connection string](#get-the-connection-string)
 * [Connect to an App Configuration store](#connect-to-an-app-configuration-store)
 * [Get a configuration setting](#get-a-configuration-setting)
 * [Add a configuration setting](#add-a-configuration-setting)
