@@ -53,7 +53,7 @@ ms.author: radeltch
 [nfs-ha]:high-availability-guide-suse-nfs.md
 
 
-This article describes how to deploy a highly available SAP HANA system in a scale-out configuration with HANA system replication(HSR) and Pacemaker on Azure Red Hat Enterprise Linux virtual machines (VMs). The shared file systems in the presented architecture are provided by [Azure NetApp Files](../../../azure-netapp-files/azure-netapp-files-introduction.md) and are mounted over NFS.  
+This article describes how to deploy a highly available SAP HANA system in a scale-out configuration with HANA system replication (HSR) and Pacemaker on Azure Red Hat Enterprise Linux virtual machines (VMs). The shared file systems in the presented architecture are provided by [Azure NetApp Files](../../../azure-netapp-files/azure-netapp-files-introduction.md) and are mounted over NFS.  
 
 In the example configurations, installation commands, and so on, the HANA instance is **03** and the HANA system ID is **HN1**. The examples are based on HANA 2.0 SP4 and Red Hat Enterprise Linux for SAP 7.6. 
 
@@ -109,7 +109,7 @@ In the preceding diagram, three subnets are represented within one Azure virtual
 
 As `/hana/data` and `/hana/log` are deployed on local disks, it is not necessary to deploy separate subnet and separate virtual network cards for communication to the storage.  
 
-The Azure NetApp volumes are deployed in a separate subnet, [delegated to Azure NetApp Files](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-delegate-subnet.md): `anf` 10.23.1.0/26.   
+The Azure NetApp volumes are deployed in a separate subnet, [delegated to Azure NetApp Files](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-delegate-subnet: `anf` 10.23.1.0/26.   
 
 ## Set up the infrastructure
 
@@ -179,7 +179,7 @@ For the configuration presented in this document, deploy seven virtual machines:
 
 7. Start the HANA DB virtual machines
 
-### Deploy Azure Load balancer
+### Deploy Azure Load Balancer
 
 1. We recommend using standard load balancer. Follow these configuration steps to deploy standard load balancer:
    1. First, create a front-end IP pool:
@@ -901,7 +901,7 @@ Include all virtual machines, including the majority maker in the cluster.
       > [!IMPORTANT]
       > We recommend as a best practice that you only set AUTOMATED_REGISTER to **no**, while performing thorough fail-over tests, to prevent failed primary instance to automatically register as secondary. Once the fail-over tests have completed successfully, set AUTOMATED_REGISTER to **yes**, so that after takeover system replication can resume automatically. 
 
-      4. Create Virtual IP and associated resources.  
+   4. Create Virtual IP and associated resources.  
       <pre><code>pcs resource create vip_<b>HN1</b>_<b>03</b> ocf:heartbeat:IPaddr2 ip=<b>10.23.0.18</b> op monitor interval="10s" timeout="20s"
       sudo pcs resource create nc_HN1_03 azure-lb port=625<b>03</b>
       sudo pcs resource group add g_ip_<b>HN1</b>_<b>03</b> nc_<b>HN1</b>_<b>03</b> vip_<b>HN1</b>_<b>03</b>
