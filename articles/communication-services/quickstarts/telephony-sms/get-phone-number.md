@@ -37,7 +37,7 @@ Navigate to the Phone Numbers blade in the resource menu.
 
 Press the `Get` button to launch the wizard. The wizard on the `Phone numbers` blade will walk you through a series of questions that helps you choose the phone number that best fits your scenario. 
 
-You will first need to choose the `Country/region` where you would like to provision the phone number. After selecting the Country/region, you will then need to select the `phone plan` which best suites your needs. 
+You will first need to choose the `Country/region` where you would like to provision the phone number. After selecting the Country/region, you will then need to select the `use case` which best suites your needs. 
 
 :::image type="content" source="../media/manage-phone-azure-portal-get-numbers.png" alt-text="Screenshot showing the Get phone numbers view.":::
 
@@ -51,18 +51,12 @@ Selecting a phone plan is broken down into two steps:
 We offer two Number types currently: `Geographic`, and `Toll-free`. When you've selected a Number type, you will then be offered several Plans from which you can choose.
 
 > [!NOTE]
-> We currently only support selecting phone numbers with Inbound OR Outbound calling. You may, however, purchase a phone number with inbound calling enabled, and then configure the outbound caller ID to match the number of the inbound-calling-enabled phone number (what users see when you call them from your Communication Services application).
-> This only applies to two-way calling. Two-way SMS is natively supported.
+> We currently only support selecting phone numbers with Outbound calling plan. You may, however, purchase a phone number with outbound calling enabled, and then configure the outbound caller ID (what users see when you call them from your Communication Services application).
+> This only applies to calling. Two-way SMS is natively supported.
 
-In our example, we have chosen a `Toll-free` Number type with the `Outbound calling` Plan.
+In our example, we have chosen a `Toll-free` Number type with the `Outbound calling` and `Inbound and Outbound SMS` Plans.
 
 :::image type="content" source="../media/manage-phone-azure-portal-select-plans.png" alt-text="Screenshot showing the Select plans view.":::
-
-### Declare purpose
-
-Next, the wizard will ask you for the purpose of using the number. We collect this information to apply the correct tax and emergency calling regulations.
-
-:::image type="content" source="../media/quickstart-search-and-acquire-bot-or-human.png" alt-text="Screenshot showing selecting a bot or human within the phone number acquisition process.":::
 
 From here, click the `Next: Numbers` button at the bottom of the page to customize the phone number(s) you would like to provision.
 
