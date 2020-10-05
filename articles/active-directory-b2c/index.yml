@@ -120,7 +120,7 @@ landingContent:
             url: deploy-custom-policies-devops.md
           - text: Monitoring
             url: azure-monitor.md
-          - text: Role-based access for admins
+          - text: Role-based access control for admins
             url: overview.md
           - text: User management
             url: manage-user-accounts-graph-api.md
