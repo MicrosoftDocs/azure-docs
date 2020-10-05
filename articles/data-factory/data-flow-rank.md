@@ -18,17 +18,15 @@ Use the rank transformation to generate an ordered ranking based upon sort condi
 
 ## Configuration
 
-Below are the configuration options for the rank transformation.
-
 ![Rank settings](media/data-flow/rank-configuration.png "Rank settings")
 
 **Case insensitive:** If a sort column is of type string, case will be factored into the ranking. 
 
-**Dense:** If enabled, the rank column will be dense ranked. This means each rank count will be a consecutive number and rank values will not be skipped in the event of a tie.
+**Dense:** If enabled, the rank column will be dense ranked. Each rank count will be a consecutive number and rank values won't be skipped after a tie.
 
 **Rank column:** The name of the rank column generated. This column will be of type long.
 
-**Sort conditions:** Choose which columns you are sorting by and in which order the sort happens. The order determines sorting priority.
+**Sort conditions:** Choose which columns you're sorting by and in which order the sort happens. The order determines sorting priority.
 
 The above configuration takes incoming basketball data and creates a rank column called 'pointsRanking'. The row with the highest value of the column *PTS* will have a *pointsRanking* value of 1.
 
@@ -52,7 +50,7 @@ The above configuration takes incoming basketball data and creates a rank column
 
 ![Rank settings](media/data-flow/rank-configuration.png "Rank settings")
 
-The data flow script for the above rank configuration is in the code snippet below.
+The data flow script for the above rank configuration is in the following code snippet.
 
 ```
 PruneColumns
