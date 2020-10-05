@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: article
-ms.date: 09/23/2019
+ms.date: 10/05/2020
 ms.author: alkohli
 ---
 # Azure Data Box Blob storage requirements
@@ -65,7 +65,7 @@ To install via Composer: (take blob as example).
 
 ### Endpoint declaration
 
-In the Data Box Blob storage SDK, the endpoint suffix - `<device serial number>.microsoftdatabox.com` - identifies the Data Box domain. For more information on blob service endpoint, go to [Connect via Data Box Blob storage](data-box-deploy-copy-data-via-rest.md).
+In the Data Box Blob storage SDK, the endpoint suffix - `<device serial number>.microsoftdatabox.com` - identifies the Data Box domain. For more information on the blob service endpoint, go to [Connect via Data Box Blob storage](data-box-deploy-copy-data-via-rest.md).
  
 ## Examples
 
