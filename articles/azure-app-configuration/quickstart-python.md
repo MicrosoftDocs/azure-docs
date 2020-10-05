@@ -133,7 +133,8 @@ These example code snippets in this section show you how to perform common actio
 The following code snippet creates an instance of the **AzureAppConfiguration** class using the specified connection string. Add this code to the end of the `try` block.
 
 ```python
-    client = AzureAppConfigurationClient.from_connection_string(connection_string)
+    connection_string = os.getenv('AZURE_APP_CONFIG_CONNECTION_STRING')
+    app_config_client = AzureAppConfigurationClient.from_connection_string(connection_string)
 ```
 
 ### Get a configuration setting
