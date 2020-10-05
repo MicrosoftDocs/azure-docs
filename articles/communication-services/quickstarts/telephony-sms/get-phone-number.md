@@ -108,9 +108,6 @@ On the `Numbers` page, you can select the phone number by clicking on the number
 
 :::image type="content" source="../media/manage-phone-azure-portal-capability-update.png" alt-text="Screenshot showing the update capabilities page.":::
 
-> [!NOTE]
-> This quickstart is showing the `Toll-free` Number Plan customization flow. The experience may be slightly different if you have chosen the `Geographic` Number type, but the end-result will be the same.
-
 Select the capabilities from the list of available calling and SMS capabilities, then click `Confirm` to apply selection.
 
 ## Troubleshooting
