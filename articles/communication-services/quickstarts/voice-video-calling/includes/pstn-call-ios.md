@@ -39,11 +39,17 @@ Specify phone number you acquired in Communication Services resource, that will 
 Modify `startCall` event handler that will be performed when the *Start Call* button is tapped:
 
 ```swift
-func startCall()
-{
-    let callees:[CommunicationIdentifier] = [PhoneNumber(identifier: self.callee)]
-    let caller = PhoneNumber(identifier: '+12223334444')
-    self.call = self.callAgent?.call(callees, options: ACSStartCallOptions(alternateCallerId: caller))
+func startCall() {
+    // Ask permissions
+    AVAudioSession.sharedInstance().requestRecordPermission { (granted) in
+        if granted {
+            let startCallOptions = ACSStartCallOptions()
+            startCallOptions!.alternateCallerID = PhoneNumber(phoneNumber: "+12223334444")
+            self.call = self.callAgent!.call([PhoneNumber(phoneNumber: self.callee)], options: startCallOptions)
+            self.callDelegate = CallDelegate(self)
+            self.call!.delegate = self.callDelegate
+        }
+    }
 }
 ```
 
