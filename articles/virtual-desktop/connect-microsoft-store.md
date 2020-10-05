@@ -3,7 +3,7 @@ title: Connect to Microsoft Store client - Azure
 description: How to connect to Windows Virtual Desktop using the Microsoft Store client.
 author: Heidilohr
 ms.topic: how-to
-ms.date: 10/06/2020
+ms.date: 10/05/2020
 ms.author: helohr
 manager: lizross
 ---
