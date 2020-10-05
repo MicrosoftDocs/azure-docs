@@ -108,7 +108,7 @@ Below you can find a list of all the authorized Cloud Solution Providers, which 
 |[Cybercore Solutions LLC](https://cybercoresolutions.com/)|
 |[Dalecheck Technology Group](https://www.dalechek.com/)|
 |[Dasher Technologies, Inc.](https://www.dasher.com)|
-|[Data:Architect](https://data.arcah.tech/)|
+|Data:Architect|
 |[Data Center Services Inc](https://www.d8acenter.com)|
 |[Datapipe (RackSpace Company)](https://www.rackspace.com)|
 |[Dataprise, Inc.](https://www.dataprise.com/)|
