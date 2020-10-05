@@ -238,11 +238,11 @@ This optional procedure may be used when you are using multiple disks and have a
 
     `DataBoxDiskSplitCopy.exe PrepImport /config:<Your-config-file-name.json>`
 
-     ![Split copy data 6](media/data-box-disk-deploy-copy-data/split-copy-7.png)
+     ![Split copy data 7](media/data-box-disk-deploy-copy-data/split-copy-7.png)
  
 9. Enter to continue the script.
 
-    ![Split copy data 7](media/data-box-disk-deploy-copy-data/split-copy-8.png)
+    ![Split copy data 8](media/data-box-disk-deploy-copy-data/split-copy-8.png)
   
 10. When the dataset is split and copied, the summary of the Split Copy tool for the copy session is presented. A sample output is shown below.
 
@@ -250,12 +250,12 @@ This optional procedure may be used when you are using multiple disks and have a
  
 11. Verify that the data is split across the target disks. 
  
-    ![Split copy data 9](media/data-box-disk-deploy-copy-data/split-copy-10.png)
-    ![Split copy data 10](media/data-box-disk-deploy-copy-data/split-copy-11.png)
+    ![Split copy data 10](media/data-box-disk-deploy-copy-data/split-copy-10.png)
+    ![Split copy data 11](media/data-box-disk-deploy-copy-data/split-copy-11.png)
 	 
     If you examine the contents of `n:` drive further, you will see that two sub-folders are created corresponding to block blob and page blob format data.
     
-     ![Split copy data 11](media/data-box-disk-deploy-copy-data/split-copy-12.png)
+     ![Split copy data 12](media/data-box-disk-deploy-copy-data/split-copy-12.png)
 
 12. If the copy session fails, then to recover and resume, use the following command:
 
