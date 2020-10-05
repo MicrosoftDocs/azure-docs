@@ -1,6 +1,6 @@
 ---
 title: Deploy GPU module on your Microsoft Azure Stack Edge Pro device from Azure Marketplace| Microsoft Docs
-description: Describes how to enable compute and make your Azure Stack Edge Pro device compute-ready via the local UI.
+description: Describes how to deploy GPU enabled IoT module on your Azure Stack Edge Pro GPU device.
 services: databox
 author: alkohli
 
