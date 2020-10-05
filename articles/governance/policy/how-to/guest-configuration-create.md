@@ -25,8 +25,6 @@ Use the following actions to create your own configuration for validating the st
 non-Azure machine.
 
 > [!IMPORTANT]
-> Custom policies with Guest Configuration is a Preview feature.
->
 > The Guest Configuration extension is required to perform audits in Azure virtual machines.
 > To deploy the extension at scale across all Windows machines, assign the following policy definitions:
 > `Deploy prerequisites to enable Guest Configuration Policy on Windows VMs`
@@ -492,13 +490,22 @@ The following example creates a policy definition to audit a service, where the 
 list at the time of policy assignment.
 
 ```azurepowershell-interactive
+# This DSC Resource text:
+Service 'UserSelectedNameExample'
+      {
+          Name = 'ParameterValue'
+          Ensure = 'Present'
+          State = 'Running'
+      }
+
+# Would require the following hashtable:
 $PolicyParameterInfo = @(
     @{
         Name = 'ServiceName'                                            # Policy parameter name (mandatory)
         DisplayName = 'windows service name.'                           # Policy parameter display name (mandatory)
         Description = "Name of the windows service to be audited."      # Policy parameter description (optional)
         ResourceType = "Service"                                        # DSC configuration resource type (mandatory)
-        ResourceId = 'windowsService'                                   # DSC configuration resource property name (mandatory)
+        ResourceId = 'UserSelectedNameExample'                                   # DSC configuration resource id (mandatory)
         ResourcePropertyName = "Name"                                   # DSC configuration resource property name (mandatory)
         DefaultValue = 'winrm'                                          # Policy parameter default value (optional)
         AllowedValues = @('BDESVC','TermService','wuauserv','winrm')    # Policy parameter allowed values (optional)
