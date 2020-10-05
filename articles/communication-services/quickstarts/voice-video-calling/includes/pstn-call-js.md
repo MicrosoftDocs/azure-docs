@@ -117,7 +117,8 @@ Use the `webpack-dev-server` to build and run your app. Run the following comman
 npx webpack-dev-server --entry ./client.js --output bundle.js
 ```
 
-Open your browser and navigate to http://localhost:8080/. You should see the following:
+Open your browser and navigate to `http://localhost:8080/`. You should see the following:
+
 
 ![Screenshot of the completed JavaScript Application.](../media/javascript/pstn-calling-javascript-app.png)
 
