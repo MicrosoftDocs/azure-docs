@@ -17,7 +17,7 @@ The IoT Edge runtime components, IoT Edge Hub and Edge Agent, produce metrics in
 
 ## Metrics exposure
 
-As of release 1.0.10, metrics are automatically exposed by default on **port 9600** of the edgeHub and edgeAgent modules (`http://edgeHub:9600/metrics` and `http://edgeAgent:9600/metics`). They are not port mapped to the host by default.
+As of release 1.0.10, metrics are automatically exposed by default on **port 9600** of the edgeHub and edgeAgent modules (`http://edgeHub:9600/metrics` and `http://edgeAgent:9600/metics`). They aren't port mapped to the host by default.
 
 For mapping to host, expose the port from the edgeHub module's `createOptions`:
 
@@ -51,7 +51,7 @@ This module collects metrics and sends them to an [Azure Log Analytics Workspace
     }
 ```
 
-To test the sample metrics collector module, you will need an IoT Edge device. The following steps will help you set up the rest of the resources you need:
+To test the sample metrics collector module, you will need an IoT Edge device. The following steps will help you setup the rest of the resources you need:
 
 1. Create an Azure Log Analytics Workspace:
     1. Sign in to the [Microsoft Azure portal](https://portal.azure.com).
@@ -76,7 +76,7 @@ To test the sample metrics collector module, you will need an IoT Edge device. T
 
     3. Add the **MetricCollector** using an **IoT Edge Module** and enter `azureiotedge/azureiotedge-metrics-collector-sample:0.1` for the **Image URI**.
 
-    4. Set the **MetricCollector** module's environment variables to the following:
+    4. Set the **MetricCollector** module's environment variables to the following values:
 
         | Name | Value |
         |-|-|
@@ -84,7 +84,7 @@ To test the sample metrics collector module, you will need an IoT Edge device. T
         | LogAnalyticsSharedKey | `Primary key` |
         | Log AnalyticsLogType | `promMetrics` |
         | MetricsEndpointsCSV | http://edgeHub:9600/metics,http://edgeAgent:9600/metrics (add metrics URLs from additional modules exposing Prometheus endpoints using this comma-separated list) |
-        | ScrapeFrequencyInSecs | 300 (use this to increase or decrease collection frequency) |
+        | ScrapeFrequencyInSecs | 300 (use this value to increase or decrease collection frequency) |
         | UploadTarget | AzureLogAnalytics |
 
     5. Select **Review + create** and, once validation passes, **Create**.
@@ -99,9 +99,9 @@ To test the sample metrics collector module, you will need an IoT Edge device. T
 
     ![Use the promMetrics_CL query to view your device's metrics](./media/how-to-access-iot-edge-runtime-metrics-remotely/logs-query.png)
 
-You can view the details of the collected metrics by using the arrow on the left-hand side of each metric in the list or using the scroll bar at the bottom of the list. For each metric, you will see a **TimeGenerated**, a **Name**, a **Value**, and its corresponding **Tags**.
+Expand a metric entry to view the details of the collected metric. For each metric, you will see a **TimeGenerated**, a **Name**, a **Value**, and its corresponding **Tags**.
 
-Additional information about the components that make up these metrics and what metrics are exposed by the edgeAgent and edgeHub modules is provided below.
+See the following section for what metrics are exposed and their components.
 
 ## Available metrics
 
@@ -110,7 +110,7 @@ Metrics contain tags to help identify the nature of the metric being collected. 
 | Tag | Description |
 |-|-|
 | iothub | The hub the device is talking to |
-| edge_device | The device id of the current device |
+| edge_device | The ID of the current device |
 | instance_number | A GUID representing the current runtime. On restart, all metrics will be reset. This GUID makes it easier to reconcile restarts. |
 
 The **edgeHub** module produces the following metrics:
@@ -121,12 +121,12 @@ The **edgeHub** module produces the following metrics:
 | `edgehub_messages_received_total` | `route_output` (output that sent message)<br> `id` | Total number of messages received from clients | counter |
 | `edgehub_messages_sent_total` |  `from` (message source)<br> `to` (message destination)<br>`from_route_output`<br> `to_route_input` (message destination input (empty when "to" is $upstream))<br> `priority` (message priority to destination) | Total number of messages sent to clients or upstream | counter |
 | `edgehub_reported_properties_total` |  `target`(update target)<br> `id` | Total reported property updates calls | counter |
-| `edgehub_message_size_bytes` |  `id`<br> `quantile`(percentile (50, 90, 95, 99, 99.9, 99.99)) | P50, P90, P95, P99, P99.9 and P99.99 message size from clients (values may be reported as `NaN` if no new measurements are reported for a certain period of time (currently 10 minutes)); as this is `summary` type, corresponding `_count` and `_sum` counters will be emitted. | summary |
+| `edgehub_message_size_bytes` |  `id`<br> `quantile`(percentile (50, 90, 95, 99, 99.9, 99.99)) | P50, P90, P95, P99, P99.9 and P99.99 message size from clients (values may be reported as `NaN` if no new measurements are reported for a certain period of time (currently 10 minutes)); for `summary` type, corresponding `_count` and `_sum` counters will be emitted. | summary |
 | `edgehub_gettwin_duration_seconds` |  `source` <br> `id`<br> `quantile` | P50, P90, P95, P99, P99.9 and P99.99  time taken for get twin operations | summary |
 | `edgehub_message_send_duration_seconds` | `from`<br> `to`<br> `from_route_output`<br> `to_route_input`<br> `quantile` | P50, P90, P95, P99, P99.9 and P99.99 time taken to send a message | summary |
 | `edgehub_message_process_duration_seconds` |  `from` <br> `to` <br> `priority` <br> `quantile` | P50, P90, P95, P99, P99.9 and P99.99 time taken to process a message from the queue | summary |
 | `edgehub_reported_properties_update_duration_seconds` | `target`<br> `id` <br> `quantile` | P50, P90, P95, P99, P99.9 and P99.99 time taken to update reported properties | summary |
-| `edgehub_direct_method_duration_seconds`       |  `from` (Caller)<br> `to` (Reciever)<br> `quantile` | P50, P90, P95, P99, P99.9 and P99.99 time taken to resolve a direct message | summary |
+| `edgehub_direct_method_duration_seconds`       |  `from` (caller)<br> `to` (receiver)<br> `quantile` | P50, P90, P95, P99, P99.9 and P99.99 time taken to resolve a direct message | summary |
 | `edgehub_direct_methods_total` |  `from`<br> `to` | Total number of direct messages sent | counter |
 | `edgehub_queue_length` | `endpoint` (message source)<br> `priority` (queue priority) | Current length of edgeHub's queue for a given priority | gauge |
 | `edgehub_messages_dropped_total` |  `reason` (no_route, ttl_expiry)<br> `from` <br> `from_route_output` | Total number of messages removed because of reason | counter |
@@ -145,8 +145,8 @@ The **edgeAgent** module produces the following metrics:
 | `edgeAgent_module_start_total` | `module_name`, `module_version` | Number of times edgeAgent asked docker to start the module | counter |
 | `edgeAgent_module_stop_total` | `module_name`, `module_version` | Number of times edgeAgent asked docker to stop the module | counter |
 | `edgeAgent_command_latency_seconds` | `command` | How long it took docker to execute the given command. Possible commands are: create, update,  remove, start, stop, restart | gauge |
-| `edgeAgent_iothub_syncs_total` |  | The amount of times edgeAgent attempted to sync its twin with iotHub, both successful and unsuccessful. This incudes both Agent requesting a twin and Hub notifying of a twin update | counter |
-| `edgeAgent_unsuccessful_iothub_syncs_total` |  | The amount of times edgeAgent failed to sync its twin with iotHub. | counter |
+| `edgeAgent_iothub_syncs_total` |  | Number of times edgeAgent attempted to sync its twin with iotHub, both successful and unsuccessful. This includes both Agent requesting a twin and Hub notifying of a twin update | counter |
+| `edgeAgent_unsuccessful_iothub_syncs_total` |  | Number of times edgeAgent failed to sync its twin with iotHub. | counter |
 | `edgeAgent_deployment_time_seconds` |  | The amount of time it took to complete a new deployment after receiving a change. | counter |
 | `edgeagent_direct_method_invocations_count` | `method_name` | Number of times a built-in edgeAgent direct method is called, such as Ping or Restart. | counter |
 | `edgeAgent_host_uptime_seconds` || How long the host has been on | gauge |
@@ -167,7 +167,7 @@ The **edgeAgent** module produces the following metrics:
 
 IoT Edge collects anonymized telemetry from the host runtime and system modules to improve product quality. This information is called Runtime Quality Telemetry (RQT). RQT is periodically sent as device-to-cloud messages to IoT Hub from the IoT Edge Agent. RQT messages do not appear in customer's regular telemetry and do not consume any message quota.
 
-A subset of the edgeAgent and edgeHub metrics listed above are collected by the IoT Edge Agent as part of RQT. Metrics collected as a part of RQT include the tag `ms_telemetry`.
+A subset of the edgeAgent and edgeHub metrics listed in the previous section are collected by the IoT Edge Agent as part of RQT. Metrics collected as a part of RQT include the tag `ms_telemetry`.
 
 As part of the anonymization, any personally or organizationally identifiable information, such as device and module names, are removed before upload.
 

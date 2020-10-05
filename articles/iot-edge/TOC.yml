@@ -186,7 +186,7 @@
       - name: Retrieve IoT Edge logs
         href: how-to-retrieve-iot-edge-logs.md
       - name: Access to IoT Edge Runtime Metrics Remotely
-        href: hot-to-access-iot-edge-runtime-metrics-remotely.md
+        href: how-to-access-iot-edge-runtime-metrics-remotely.md
   - name: Use IoT Edge devices as gateways
     items:
     - name: Configure a transparent gateway
