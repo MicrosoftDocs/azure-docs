@@ -111,7 +111,8 @@ The `forEveryone` property ends the call for all call participants.
 
 ## Run the code
 
-Use the `webpack-dev-server` to build and run your app. Run the following command to bundle application host in on a local webserver:
+Use the `webpack-dev-server` to build and run your app. Run the following command to bundle the application host on a local webserver:
+
 
 ```console
 npx webpack-dev-server --entry ./client.js --output bundle.js
