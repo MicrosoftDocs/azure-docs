@@ -234,7 +234,7 @@ The following code snippet deletes a configuration setting by calling the **dele
         print("   key: ", item.key, " label: ", item.label, "value: ", item.value)
 ```
 
-## Run the code
+## Run the app
 
 This app retrieves an configuration setting created through the Azure portal. Next, using the Azure App Configuration client library for Python, the app creates a new setting, retrieves a list of existing settings, locks and unlocks a setting, updates a setting, and finally deletes a setting.
 
