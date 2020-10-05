@@ -22,13 +22,13 @@ You can use the Azure Storage resource provider to perform actions such as creat
 
 Microsoft provides two REST APIs for working with Azure Storage resources. These APIs form the basis of all actions you can perform against Azure Storage. The Azure Storage REST API enables you to work with data in your storage account, including blob, queue, file, and table data. The Azure Storage resource provider REST API enables you to work with the storage account and related resources.
 
-A request that reads or writes blob data requires different permissions than a request that performs a management operation. RBAC provides fine-grained control over permissions to both types of resources. When you assign an Azure role to a security principal, make sure that you understand what permissions that principal will be granted. For a detailed reference that describes which actions are associated with each Azure built-in role, see [Azure built-in roles](../../role-based-access-control/built-in-roles.md).
+A request that reads or writes blob data requires different permissions than a request that performs a management operation. Azure RBAC provides fine-grained control over permissions to both types of resources. When you assign an Azure role to a security principal, make sure that you understand what permissions that principal will be granted. For a detailed reference that describes which actions are associated with each Azure built-in role, see [Azure built-in roles](../../role-based-access-control/built-in-roles.md).
 
 Azure Storage supports using Azure AD to authorize requests against Blob and Queue storage. For information about Azure roles for blob and queue data operations, see [Authorize access to blobs and queues using Active Directory](storage-auth-aad.md).
 
-## Assign management permissions with role-based access control (RBAC)
+## Assign management permissions with Azure role-based access control (Azure RBAC)
 
-Every Azure subscription has an associated Azure Active Directory that manages users, groups, and applications. A user, group, or application is also referred to as a security principal in the context of the [Microsoft identity platform](/azure/active-directory/develop/). You can grant access to resources in a subscription to a security principal that is defined in the Active Directory by using role-based access control (RBAC).
+Every Azure subscription has an associated Azure Active Directory that manages users, groups, and applications. A user, group, or application is also referred to as a security principal in the context of the [Microsoft identity platform](/azure/active-directory/develop/). You can grant access to resources in a subscription to a security principal that is defined in the Active Directory by using Azure role-based access control (Azure RBAC).
 
 When you assign an Azure role to a security principal, you also indicate the scope at which the permissions granted by the role are in effect. For management operations, you can assign a role at the level of the subscription, the resource group, or the storage account. You can assign an Azure role to a security principal by using the [Azure portal](https://portal.azure.com/), the [Azure CLI tools](../../cli-install-nodejs.md), [PowerShell](/powershell/azure/), or the [Azure Storage resource provider REST API](/rest/api/storagerp).
 

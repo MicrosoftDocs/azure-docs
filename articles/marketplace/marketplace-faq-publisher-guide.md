@@ -306,9 +306,8 @@ To receive refunds, customers can cancel subscriptions within a specified time f
 
 Here are some resources to get you started:
 
-- [Introduction to the Microsoft commercial marketplace](/azure/marketplace/marketplace-publishers-guide)
+- [What is the Microsoft commercial marketplace?](overview.md)
 - [Microsoft commercial marketplace partner hub](https://partner.microsoft.com/asset/collection/commercial-marketplace#/)
-- [Welcome to the commercial marketplace](index.yml)
 
 ### How can I engage with Microsoft and other partners?
 
@@ -319,7 +318,7 @@ We recommend these resources:
 
 ### Where can I learn more about Partner Center?
 
-- [Partner Center documentation](https://docs.microsoft.com/partner-center/)
+- [Partner Center documentation](/partner-center/)
 - [Welcome to the commercial marketplace](index.yml)
 
 ### Where can I learn more about the Microsoft Admin Center?

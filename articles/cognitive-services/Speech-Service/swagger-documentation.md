@@ -25,10 +25,17 @@ The [Swagger specification](https://westus.dev.cognitive.microsoft.com/docs/serv
 
 You'll need to set Swagger to the same region as your Speech service subscription. You can confirm your region in the Azure portal under your Speech service resource. For a complete list of supported regions, see [regions](regions.md).
 
-1. In a browser, go to the Swagger specification for your region `https://<your-region>.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0`. On that page, click **API definition**, and click **Swagger**. Copy the URL of the page that appears.
+1. In a browser, go to the Swagger specification for your region:  
+       `https://<your-region>.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0`
+1. On that page, click **API definition**, and click **Swagger**. Copy the URL of the page that appears.
 1. In a new browser, go to https://editor.swagger.io
 1. Click **File**, click **Import URL**, paste the URL, and click **OK**.
-1. Click **Generate Client** and select **python**. The client library downloads to your computer.
+1. Click **Generate Client** and select **python**. The client library downloads to your computer in a `.zip` file.
+1. Extract everything from the download. You might use `tar -xf` to extract everything.
+1. Install the extracted module into your Python environment:  
+       `pip install path/to/package/python-client`
+1. The installed package is named `swagger_client`. Check that the installation worked:  
+       `python -c "import swagger_client"`
 
 You can use the Python library that you generated with the [Speech service samples on GitHub](https://aka.ms/csspeech/samples).
 
