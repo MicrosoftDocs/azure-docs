@@ -14,7 +14,7 @@
       href: Quickstarts/create-publish-knowledge-base.md
     - name: Query a knowledge base
       href: Quickstarts/get-answer-from-knowledge-base-using-url-tool.md
-  - name: Using CLI
+  - name: Using REST
     href: Quickstarts/quickstart-rest-curl.md
   - name: Using SDK
     href: Quickstarts/quickstart-sdk.md
