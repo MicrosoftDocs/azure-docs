@@ -48,7 +48,9 @@ See [high availability concepts](concepts-high-availability.md) for more details
 
 ## Automated patching with managed maintenance window
 
-The service performs automated patching of the underlying hardware, OS, and database engine. The patching includes security and software updates. For MySQL engine, minor version upgrades are also included as part of the planned maintenance release. Users can configure the patching schedule to be system managed or define their custom schedule. During the maintenance schedule, the patch is applied and server may require a restart as part of the patching process to complete the update. With the custom schedule, users can make their patching cycle predictable and choose a maintenance window with minimum impact to the business. In general, the service follows monthly release schedule as part of the continuous integration and release. 
+The service performs automated patching of the underlying hardware, OS, and database engine. The patching includes security and software updates. For MySQL engine, minor version upgrades are also included as part of the planned maintenance release. Users can configure the patching schedule to be system managed or define their custom schedule. During the maintenance schedule, the patch is applied and server may require a restart as part of the patching process to complete the update. With the custom schedule, users can make their patching cycle predictable and choose a maintenance window with minimum impact to the business. In general, the service follows monthly release schedule as part of the continuous integration and release.
+
+See [Scheduled Maintenance](concepts-maintenance.md) for more details. 
 
 ## Automatic backups
 
@@ -80,6 +82,8 @@ See [Compute and Storage concepts](concepts-compute-storage.md) to learn more.
 ## Stop/Start server to optimize cost
 
 The flexible server service allows you to stop and start server on-demand to optimize cost. The compute tier billing is stopped immediately when the server is stopped. This can allow you to have significant cost savings during development, testing and for time-bound predictable production workloads. The server remains in stopped state for seven days unless re-started sooner. 
+
+See [Server concepts](concept-servers.md) to learn more. 
 
 ## Enterprise grade security and privacy
 
