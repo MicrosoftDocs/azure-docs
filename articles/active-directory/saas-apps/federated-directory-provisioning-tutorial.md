@@ -91,15 +91,15 @@ To configure Federated Directory for automatic user provisioning with Azure AD, 
 
 5. Navigate to the **URL** highlighted below in a separate browser. 
 
-	:::image type="content" source="media/federated-directory-provisioning-tutorial/loginpage1.png" alt-text="federated directory" border="false":::
+	:::image type="content" source="media/federated-directory-provisioning-tutorial/loginpage1.png" alt-text="Screenshot of a page in the Azure portal that displays information on Federated Directory. The U R L value is highlighted." border="false":::
 
 6. Click **LOG IN**.
 
-	:::image type="content" source="media/federated-directory-provisioning-tutorial/federated04.png" alt-text="federated directory" border="false":::
+	:::image type="content" source="media/federated-directory-provisioning-tutorial/federated04.png" alt-text="Screenshot of the main menu on the Federated Directory site. The Log in button is highlighted." border="false":::
 
 7.  As Federated Directory is an OpenIDConnect app, choose to login to Federated Directory using your Microsoft work account.
 	
-	:::image type="content" source="media/federated-directory-provisioning-tutorial/loginpage3.png" alt-text="federated directory" border="false":::
+	:::image type="content" source="media/federated-directory-provisioning-tutorial/loginpage3.png" alt-text="Screenshot of the S C I M A D test page on the Federated Directory site. Log in with your Microsoft account is highlighted." border="false":::
  
 8. After a successful authentication, accept the consent prompt for the consent page. The application will then be automatically added to your tenant and you will be redirected to your Federated Directory account.
 
@@ -141,12 +141,12 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 10. Under the **Mappings** section, select **Synchronize Azure Active Directory Users to Federated Directory**.
 
-	:::image type="content" source="media/federated-directory-provisioning-tutorial/user-mappings.png" alt-text="Federated Directory tutorial" border="false":::
+	:::image type="content" source="media/federated-directory-provisioning-tutorial/user-mappings.png" alt-text="Screenshot of the Mappings section. Under Name, Synchronize Azure Active Directory Users to Federated Directory is highlighted." border="false":::
 	
 	
 11. Review the user attributes that are synchronized from Azure AD to Federated Directory in the **Attribute Mapping** section. The attributes selected as **Matching** properties are used to match the user accounts in Federated Directory for update operations. Select the **Save** button to commit any changes.
 
-	:::image type="content" source="media/federated-directory-provisioning-tutorial/user-attributes.png" alt-text="Federated Directory tutorial" border="false":::
+	:::image type="content" source="media/federated-directory-provisioning-tutorial/user-attributes.png" alt-text="Screenshot of the Attribute Mappings page. A table lists Azure Active Directory and Federated Directory attributes and the matching status." border="false":::
 	
 
 12. To configure scoping filters, refer to the following instructions provided in the [Scoping filter tutorial](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
