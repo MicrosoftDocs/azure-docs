@@ -299,7 +299,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 18. Create a new policy for this user.
 
-    ![Screenshot of Add user](./media/amazon-web-service-tutorial/adduser2.png)
+    ![Screenshot shows the Add user page where you can create a policy for the user.](./media/amazon-web-service-tutorial/adduser2.png)
 
     a. Select **Attach existing policies directly**.
 
@@ -317,7 +317,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 20. Download the user credentials of a user.
 
-    ![Screenshot of Add user](./media/amazon-web-service-tutorial/adduser4.png)
+    ![Screenshot shows the Add user page with a Download c s v button to get user credentials.](./media/amazon-web-service-tutorial/adduser4.png)
 
     a. Copy the user **Access key ID** and **Secret access key**.
 
