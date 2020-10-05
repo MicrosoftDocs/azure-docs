@@ -1,6 +1,6 @@
 ---
-title: Provision an Azure IoT Edge device | Microsoft Docs
-description: After installation, provision an IoT Edge device with its cloud identity and authenticate to IoT Hub
+title: Provision with X.509 certificates - Azure IoT Edge | Microsoft Docs
+description: After installation, provision an IoT Edge device with its device identity certificates and authenticate to IoT Hub
 author: kgremban
 manager: philmea
 # this is the PM responsible
@@ -90,7 +90,7 @@ All the edge-enabled devices that connect to your IoT hub are listed on the **Io
 
 ### Create an IoT Edge device with the Azure CLI
 
-Use the [az iot hub device-identity create](https://docs.microsoft.com/cli/azure/ext/azure-iot/iot/hub/device-identity?view=azure-cli-latest#ext-azure-iot-az-iot-hub-device-identity-create) command to create a new device identity in your IoT hub. For example:
+Use the [az iot hub device-identity create](https://docs.microsoft.com/cli/azure/ext/azure-iot/iot/hub/device-identity#ext-azure-iot-az-iot-hub-device-identity-create) command to create a new device identity in your IoT hub. For example:
 
    ```azurecli
    az iot hub device-identity create --device-id [device id] --hub-name [hub name] --edge-enabled --auth-method x509_thumbprint --primary-thumbprint [SHA thumbprint] --secondary-thumbprint [SHA thumbprint]
@@ -107,7 +107,7 @@ This command includes several parameters:
 
 ### View IoT Edge devices with the Azure CLI
 
-Use the [az iot hub device-identity list](https://docs.microsoft.com/cli/azure/ext/azure-iot/iot/hub/device-identity?view=azure-cli-latest#ext-azure-iot-az-iot-hub-device-identity-list) command to view all devices in your IoT hub. For example:
+Use the [az iot hub device-identity list](https://docs.microsoft.com/cli/azure/ext/azure-iot/iot/hub/device-identity#ext-azure-iot-az-iot-hub-device-identity-list) command to view all devices in your IoT hub. For example:
 
    ```azurecli
    az iot hub device-identity list --hub-name [hub name]
@@ -116,6 +116,8 @@ Use the [az iot hub device-identity list](https://docs.microsoft.com/cli/azure/e
 Add the flag `--edge-enabled` or `--ee` to list only IoT Edge devices in your IoT hub.
 
 Any device that is registered as an IoT Edge device will have the property **capabilities.iotEdge** set to **true**.
+
+--- 
 
 ## Configure an IoT Edge device
 
@@ -150,20 +152,109 @@ On a Linux device, you provide this information by editing a config.yaml file. O
      dynamic_reprovisioning: false
    ```
 
+1. Update the following fields:
 
-1. Update the following fields: 
+   * **iothub_hostname**: Hostname of the IoT hub the device will connect to. For example, `{IoT hub name}.azure-devices.net`.
+   * **device_id**: The ID that you provided when you registered the device.
+   * **identity_cert**: URI to an identity certificate on the device. For example, `file:///path/identity_certificate.pem`.
+   * **identity_pk**: URI to the private key file for the provided identity certificate. For example, `file:///path/identity_key.pem`.
 
-   * **
-
-
-To paste clipboard contents into Nano `Shift+Right Click` or press `Shift+Insert`.
-
-Save and close the file.
+1. Save and close the file.
 
    `CTRL + X`, `Y`, `Enter`
 
-After entering the provisioning information in the configuration file, restart the daemon:
+1. After entering the provisioning information in the configuration file, restart the daemon:
+
+   ```bash
+   sudo systemctl restart iotedge
+   ```
+
+# [Windows](#tab/windows)
+
+1. On the IoT Edge device, run PowerShell as an administrator.
+
+2. Use the [Initialize-IoTEdge](reference-windows-scripts.md#initialize-iotedge) command to configure the IoT Edge runtime on your machine.
+
+   ```powershell
+   . {Invoke-WebRequest -useb https://aka.ms/iotedge-win} | Invoke-Expression; `
+   Initialize-IoTEdge -ManualX509
+   ```
+
+   If you are using Linux containers, add the `-ContainerOs` parameter to the flag. Be consistent with the container option you chose with the `Deploy-IoTEdge` command that you ran previously.
+
+   ```powershell
+   . {Invoke-WebRequest -useb https://aka.ms/iotedge-win} | Invoke-Expression; `
+   Initialize-IoTEdge -ManualX509 -ContainerOs Linux
+   ```
+
+3. When prompted, provide the following information:
+1. 
+   * **IotHubHostName**: Hostname of the IoT hub the device will connect to. For example, `{IoT hub name}.azure-devices.net`.
+   * **DeviceId**: The ID that you provided when you registered the device.
+   * **X509IdentityCertificate**: Absolute path to an identity certificate on the device. For example, `C:\path\identity_certificate.pem`.
+   * **X509IdentityPrivateKey**: Absolute path to the private key file for the provided identity certificate. For example, `C:\path\identity_key.pem`.
+
+When you provision a device manually, you can use additional parameters to modify the process including:
+
+* Direct traffic to go through a proxy server
+* Declare a specific agent container image, and provide credentials if it's in a private registry
+
+For more information about these additional parameters, see [PowerShell scripts for IoT Edge on Windows](reference-windows-scripts.md).
+
+---
+
+## Verify successful setup
+
+Check the status of the IoT Edge service. It should be listed as running.  
+
+# [Linux](#tab/linux)
 
 ```bash
-sudo systemctl restart iotedge
+systemctl status iotedge
 ```
+
+# [Windows](#tab/windows)
+
+```powershell
+Get-Service iotedge
+```
+
+---
+
+Examine service logs. 
+
+# [Linux](#tab/linux)
+
+```bash
+journalctl -u iotedge --no-pager --no-full
+```
+
+# [Windows](#tab/windows)
+
+If you just finished installing the IoT Edge runtime, you may see a list of errors from the time between running **Deploy-IoTEdge** and **Initialize-IoTEdge**. These errors are expected, as the service is trying to start before being configured.
+
+```powershell
+. {Invoke-WebRequest -useb https://aka.ms/iotedge-win} | Invoke-Expression; Get-IoTEdgeLog
+```
+
+---
+
+Run the [troubleshooting tool](troubleshoot.md#run-the-check-command) to check for the most common configuration and networking errors.
+
+```powershell
+iotedge check
+```
+
+Until you deploy your first module to IoT Edge on your device, the **$edgeHub** system module will not be deployed to the device. As a result, the automated check will return an error for the `Edge Hub can bind to ports on host` connectivity check. This error can be ignored unless it occurs after deploying a module to the device.
+
+Finally, list running modules:
+
+```powershell
+iotedge list
+```
+
+After a new installation, the only module you should see running is **edgeAgent**.
+
+## Next steps
+
+Continue to [deploy IoT Edge modules](how-to-deploy-modules-portal.md) to learn how to deploy modules onto your device.

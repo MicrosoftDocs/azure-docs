@@ -1,6 +1,6 @@
 ---
-title: Provision an Azure IoT Edge device | Microsoft Docs
-description: After installation, provision an IoT Edge device with its cloud identity and authenticate to IoT Hub
+title: Provision with symmetric keys - Azure IoT Edge | Microsoft Docs
+description: After installation, provision an IoT Edge device with symmetric keys using its connection string and authenticate to IoT Hub
 author: kgremban
 manager: philmea
 # this is the PM responsible
@@ -72,7 +72,7 @@ In your IoT Hub in the Azure portal, IoT Edge devices are created and managed se
 
 All the edge-enabled devices that connect to your IoT hub are listed on the **IoT Edge** page.
 
-![View all IoT Edge devices in your IoT hub](./media/how-to-register-device/portal-view-devices.png)
+![Use the Azure portal to view all IoT Edge devices in your IoT hub](./media/how-to-register-device/portal-view-devices.png)
 
 ### Retrieve the connection string in the Azure portal
 
@@ -119,7 +119,7 @@ In the output screen, you see the result of the command. The device info is prin
 
 All the devices that connect to your IoT hub are listed in the **Azure IoT Hub** section of the Visual Studio Code Explorer. IoT Edge devices are distinguishable from non-Edge devices with a different icon, and the fact that the **$edgeAgent** and **$edgeHub** modules are deployed to each IoT Edge device.
 
-![View all IoT Edge devices in your IoT hub](./media/how-to-register-device/view-devices.png)
+![Use VS Code to view all IoT Edge devices in your IoT hub](./media/how-to-register-device/view-devices.png)
 
 ### Retrieve the connection string with Visual Studio Code
 
@@ -142,7 +142,7 @@ You can also select **Get Device Info** from the right-click menu to see all the
 
 ### Create an IoT Edge device with the Azure CLI
 
-Use the [az iot hub device-identity create](https://docs.microsoft.com/cli/azure/ext/azure-iot/iot/hub/device-identity?view=azure-cli-latest#ext-azure-iot-az-iot-hub-device-identity-create) command to create a new device identity in your IoT hub. For example:
+Use the [az iot hub device-identity create](https://docs.microsoft.com/cli/azure/ext/azure-iot/iot/hub/device-identity#ext-azure-iot-az-iot-hub-device-identity-create) command to create a new device identity in your IoT hub. For example:
 
    ```azurecli
    az iot hub device-identity create --device-id [device id] --hub-name [hub name] --edge-enabled
@@ -158,7 +158,7 @@ This command includes three parameters:
 
 ### View IoT Edge devices with the Azure CLI
 
-Use the [az iot hub device-identity list](https://docs.microsoft.com/cli/azure/ext/azure-iot/iot/hub/device-identity?view=azure-cli-latest#ext-azure-iot-az-iot-hub-device-identity-list) command to view all devices in your IoT hub. For example:
+Use the [az iot hub device-identity list](https://docs.microsoft.com/cli/azure/ext/azure-iot/iot/hub/device-identity#ext-azure-iot-az-iot-hub-device-identity-list) command to view all devices in your IoT hub. For example:
 
    ```azurecli
    az iot hub device-identity list --hub-name [hub name]
@@ -168,7 +168,7 @@ Any device that is registered as an IoT Edge device will have the property **cap
 
 ### Retrieve the connection string with the Azure CLI
 
-When you're ready to set up your device, you need the connection string that links your physical device with its identity in the IoT hub. Use the [az iot hub device-identity show-connection-string](https://docs.microsoft.com/cli/azure/ext/azure-iot/iot/hub/device-identity?view=azure-cli-latest#ext-azure-iot-az-iot-hub-device-identity-show-connection-string) command to return the connection string for a single device:
+When you're ready to set up your device, you need the connection string that links your physical device with its identity in the IoT hub. Use the [az iot hub device-identity show-connection-string](https://docs.microsoft.com/cli/azure/ext/azure-iot/iot/hub/device-identity#ext-azure-iot-az-iot-hub-device-identity-show-connection-string) command to return the connection string for a single device:
 
    ```azurecli
    az iot hub device-identity show-connection-string --device-id [device id] --hub-name [hub name]
@@ -238,13 +238,12 @@ sudo systemctl restart iotedge
 
    The device connection string takes the following format, and should not include quotation marks: `HostName={IoT hub name}.azure-devices.net;DeviceId={device name};SharedAccessKey={key}`
 
-When you install and provision a device manually, you can use additional parameters to modify the installation including:
+When you provision a device manually, you can use additional parameters to modify the process including:
 
 * Direct traffic to go through a proxy server
-* Point the installer to an offline directory
 * Declare a specific agent container image, and provide credentials if it's in a private registry
 
-For more information about these installation options, see [PowerShell scripts for IoT Edge on Windows](reference-windows-scripts.md).
+For more information about these additional parameters, see [PowerShell scripts for IoT Edge on Windows](reference-windows-scripts.md).
 
 ---
 
@@ -298,7 +297,7 @@ Finally, list running modules:
 iotedge list
 ```
 
-After a new installation, the only module you should see running is **edgeAgent**. 
+After a new installation, the only module you should see running is **edgeAgent**.
 
 ## Next steps
 
