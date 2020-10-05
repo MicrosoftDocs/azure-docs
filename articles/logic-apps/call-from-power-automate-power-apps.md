@@ -147,3 +147,8 @@ To connect to the logic app that you exported with your Power Apps flow:
     :::image type="content" source="./media/call-logic-apps-from-power-automate-power-apps/delete-custom-connector.png" alt-text="Screenshot of Power Apps 'Custom connectors' page, showing logic app's custom connector management buttons.":::
 
 1. To confirm the deletion, select **OK**.
+
+## Next steps
+
+* Learn more about [Connectors for Azure Logic Apps](../connectors/apis-list.md)
+* Learn more about [Azure Logic Apps](../logic-apps/logic-apps-overview.md)
