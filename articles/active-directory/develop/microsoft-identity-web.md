@@ -23,7 +23,7 @@ Microsoft Identity Web is a set of ASP.NET Core libraries that simplifies adding
 
 ## Supported application scenarios
 
-If you're building ASP.NET Core web apps or web APIs and want to use Azure AD or Azure AD B2C for identity and access management (IAM), we recommend using Microsoft Identity Web for all of these scenarios:
+If you're building ASP.NET Core web apps or web APIs and want to use Azure Active Directory (Azure AD) or Azure AD B2C for identity and access management (IAM), we recommend using Microsoft Identity Web for all of these scenarios:
 
 - [Web app that signs in users](scenario-web-app-sign-user-overview.md)
 - [Web app that signs in users and calls a web API on their behalf](scenario-web-app-call-api-overview.md)
@@ -66,29 +66,43 @@ dotnet new blazorserver2 --auth SingleOrg --calls-graph --client-id "00000000-00
 
 #### GitHub
 
-Microsoft Identity Web is an open-source project hosted on GitHub: <a href="https://github.com/AzureAD/microsoft-identity-web" target="_blank">AzureAD/microsoft-identity-web<span class="docon docon-navigate-external x-hidden-focus"></span></a>
+Microsoft Identity Web is an open-source project hosted on GitHub: <a href="https://github.com/AzureAD/microsoft-identity-web" target="_blank">AzureAD/microsoft-identity-web
 
 The [repository wiki](https://github.com/AzureAD/microsoft-identity-web/wiki) contains additional documentation, and if you need help or discover a bug, you can [file an issue](https://github.com/AzureAD/microsoft-identity-web/issues).
 
 ## Features
 
-The following feature comparison matrix shows the built-in features of Microsoft Identity Web over those provided by the default ASP.NET 3.1 libraries and project templates.
+Microsoft Identity Web includes several features not provided if you use the default ASP.NET 3.1 project templates.
 
-| Feature                   | ASP.NET Core 3.1                       | with Microsoft Identity Web |
-| ------------------------- | -------------------------------------- | --------------------------- |
-| [Sign in users](scenario-web-app-sign-user-app-configuration.md) in web apps | Yes: Work or school accounts and B2C   | Yes: Work or school accounts, personal accounts, and B2C   |
-| [Protect web APIs](scenario-protected-web-api-app-configuration.md#microsoftidentityweb)        | Yes: Work or school accounts and B2C   | Yes: Work or school accounts, personal accounts, and B2C |
-| Issuer validation in multi-tenant apps        | No                                     | Yes for [all clouds](authentication-national-cloud.md) and [Azure AD B2C](https://docs.microsoft.com/azure/active-directory-b2c)         |
-| Web app/API [calls Microsoft graph](scenario-web-api-call-api-call-api.md#option-1-call-microsoft-graph-with-the-sdk)   | No                           | Yes                         |
-| Web app/API [calls web API](scenario-web-api-call-api-call-api.md#option-1-call-microsoft-graph-with-the-sdk)   | No                                   | Yes                         |
-| Supports [certificate credentials](ms-id-web-using-certificates.md#client-certificates)   | No                            | Yes, many means of describing the certificate source, including Azure Key Vault                        |
-| [Incremental consent and conditional access](ms-id-web-handling-incremental-consent-conditional-access.md) support in web apps   | No                             | Yes in MVC, Razor pages and Blazor pages |
-| [Token encryption certificates](ms-id-web-using-certificates.md#decryption-certificates) in web APIs | No            | Yes, many means of describing the certificate source |
-| [Scopes/app role validation](scenario-protected-web-api-verification-scope-app-roles.md) in web APIs | No                        | Yes |
-| [www-Authenticate headers generation](ms-id-web-handling-incremental-consent-conditional-access.md#handling-incremental-consent-or-conditional-access-in-web-apis) in web APIs | No               | Yes |
+| Feature                                                                                  | ASP.NET Core 3.1                                                     | Microsoft Identity Web                                                                                  |
+|------------------------------------------------------------------------------------------|----------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------|
+| [Sign in users](scenario-web-app-sign-user-app-configuration.md) in web apps             | <li>Work or school accounts<li>Social identities (with Azure AD B2C) | <li>Work or school accounts<li>Personal Microsoft accounts<li>Social identities (with Azure AD B2C)     |
+| [Protect web APIs](scenario-protected-web-api-app-configuration.md#microsoftidentityweb) | <li>Work or school accounts<li>Social identities (with Azure AD B2C) | <li>Work or school accounts<li>Personal Microsoft accounts<li>Social identities (with Azure AD B2C)     |
+| Issuer validation in multi-tenant apps                                                   | No                                                                   | Yes, for [all clouds](authentication-national-cloud.md) and [Azure AD B2C](/azure/active-directory-b2c) |
+| Web app/API [calls Microsoft graph][scenario-api-call-graph]                             | No                                                                   | Yes                                                                                                     |
+| Web app/API [calls web API][scenario-api-call-api]                                       | No                                                                   | Yes                                                                                                     |
+| Supports certificate credentials                                                         | No                                                                   | Yes, including Azure Key Vault                                                                          |
+| Incremental consent and conditional access support in web apps                           | No                                                                   | Yes, in MVC, Razor pages, and Blazor                                                                    |
+| Token encryption certificates in web APIs                                                | No                                                                   | Yes                                                                                                     |
+| [Scopes/app role validation][scenario-api-validation] in web APIs                        | No                                                                   | Yes                                                                                                     |
+| `WWW-Authenticate` header generation in web APIs                                         | No                                                                   | Yes                                                                                                     |
 
 ## Next steps
 
 To see Microsoft Identity Web in action, try our Blazor Server tutorial:
 
 [Tutorial: Create a Blazor Server app that uses the Microsoft identity platform for authentication](tutorial-blazor-server.md)
+
+The Microsoft Identity Web wiki on GitHub contains extensive reference documentation for various aspects of the library. For example, certificate usage, incremental consent, and conditional access reference can be found here:
+
+- <a href="https://github.com/AzureAD/microsoft-identity-web/wiki/Using-certificates" target="_blank">Using certificates with Microsoft.Identity.Web<span class="docon docon-navigate-external x-hidden-focus"></span></a> (GitHub)
+- <a href="https://github.com/AzureAD/microsoft-identity-web/wiki/Managing-incremental-consent-and-conditional-access" target="_blank">Incremental consent and conditional access<span class="docon docon-navigate-external x-hidden-focus"></span></a> (GitHub)
+
+<!-- LINKS -->
+<!--  [miw-certs]: microsoft-identity-web-certificates.md  -->
+<!--  [miw-certs-decrypt]: microsoft-identity-web-certificates.md#decryption-certificates  -->
+<!--  [miw-inc-consent-ca-header]: microsoft-identity-web-consent-conditional-access.md#handling-incremental-consent-or-conditional-access-in-web-apis  -->
+<!--  [miw-inc-consent-ca]: microsoft-identity-web-consent-conditional-access.md  -->
+[scenario-api-call-api]: scenario-web-api-call-api-call-api.md#option-1-call-microsoft-graph-with-the-sdk
+[scenario-api-call-graph]: scenario-web-api-call-api-call-api.md#option-1-call-microsoft-graph-with-the-sdk
+[scenario-api-validation]: scenario-protected-web-api-verification-scope-app-roles.md

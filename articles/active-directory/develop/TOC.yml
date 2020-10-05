@@ -384,15 +384,9 @@
       - name: Migrate apps from ADAL to MSAL
         href: msal-migration.md
         displayName: migration
-  - name: Microsoft Identity Web
+  - name: Microsoft Identity Web Library
+    href: microsoft-identity-web.md
     displayName: auth, library, .NET Core
-    items:
-      - name: Overview
-        href: microsoft-identity-web.md
-      - name: Use certificates with Microsoft Identity Web
-        href: ms-id-web-using-certificates.md
-      - name: Handle incremental consent and conditional access
-        href: ms-id-web-handling-incremental-consent-conditional-access.md
   - name: Authentication protocols
     displayName: Auth protocol
     items:
