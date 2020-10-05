@@ -73,7 +73,7 @@ You can permanently delete a user from your organization without waiting the 30 
 
 2. Select **Delete permanently**.
 
-    ![Users - Deleted users page, with Restore user option highlighted](media/active-directory-users-restore/users-deleted-users-permanent-delete-user.png)
+    ![Users - Deleted users page, with Delete user option highlighted](media/active-directory-users-restore/users-deleted-users-permanent-delete-user.png)
 
 ## Next steps
 After you've restored or deleted your users, you can perform the following basic processes:

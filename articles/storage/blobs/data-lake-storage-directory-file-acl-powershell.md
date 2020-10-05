@@ -62,7 +62,7 @@ Next, choose how you want your commands to obtain authorization to the storage a
 
 ### Option 1: Obtain authorization by using Azure Active Directory (AD)
 
-With this approach, the system ensures that your user account has the appropriate role-based access control (RBAC) assignments and ACL permissions. 
+With this approach, the system ensures that your user account has the appropriate Azure role-based access control (Azure RBAC) assignments and ACL permissions. 
 
 ```powershell
 $ctx = New-AzStorageContext -StorageAccountName '<storage-account-name>' -UseConnectedAccount
@@ -70,7 +70,7 @@ $ctx = New-AzStorageContext -StorageAccountName '<storage-account-name>' -UseCon
 
 ### Option 2: Obtain authorization by using the storage account key
 
-With this approach, the system doesn't check RBAC or ACL permissions.
+With this approach, the system doesn't check Azure RBAC or ACL permissions.
 
 ```powershell
 $storageAccount = Get-AzStorageAccount -ResourceGroupName "<resource-group-name>" -AccountName "<storage-account-name>"

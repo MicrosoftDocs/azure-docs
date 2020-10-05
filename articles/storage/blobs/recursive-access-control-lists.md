@@ -133,7 +133,7 @@ Next, choose how you want your commands to obtain authorization to the storage a
 
 ### Option 1: Obtain authorization by using Azure Active Directory (AD)
 
-With this approach, the system ensures that your user account has the appropriate role-based access control (RBAC) assignments and ACL permissions. 
+With this approach, the system ensures that your user account has the appropriate Azure role-based access control (Azure RBAC) assignments and ACL permissions. 
 
 ```powershell
 $ctx = New-AzStorageContext -StorageAccountName '<storage-account-name>' -UseConnectedAccount
@@ -148,7 +148,7 @@ The following table shows each of the supported roles and their ACL setting capa
 
 ### Option 2: Obtain authorization by using the storage account key
 
-With this approach, the system doesn't check RBAC or ACL permissions.
+With this approach, the system doesn't check Azure RBAC or ACL permissions.
 
 ```powershell
 $storageAccount = Get-AzStorageAccount -ResourceGroupName "<resource-group-name>" -AccountName "<storage-account-name>"
@@ -169,7 +169,7 @@ After you install the package, add this using statement to the top of your code 
 using Azure.Identity;
 ```
 
-Get a client ID, a client secret, and a tenant ID. To do this, see [Acquire a token from Azure AD for authorizing requests from a client application](../common/storage-auth-aad-app.md). As part of that process, you'll have to assign one of the following [role-based access control (RBAC)](../../role-based-access-control/overview.md) roles to your security principal. 
+Get a client ID, a client secret, and a tenant ID. To do this, see [Acquire a token from Azure AD for authorizing requests from a client application](../common/storage-auth-aad-app.md). As part of that process, you'll have to assign one of the following [Azure role-based access control (Azure RBAC)](../../role-based-access-control/overview.md) roles to your security principal. 
 
 |Role|ACL setting capability|
 |--|--|
@@ -224,7 +224,7 @@ To use the snippets in this article, you'll need to create a **DataLakeServiceCl
 
 You can use the [Azure identity client library for Python](https://pypi.org/project/azure-identity/) to authenticate your application with Azure AD.
 
-This example creates a **DataLakeServiceClient** instance by using a client ID, a client secret, and a tenant ID.  To get these values, see [Acquire a token from Azure AD for authorizing requests from a client application](../common/storage-auth-aad-app.md). As part of that process, you'll have to assign one of the following [role-based access control (RBAC)](../../role-based-access-control/overview.md) roles to your security principal. 
+This example creates a **DataLakeServiceClient** instance by using a client ID, a client secret, and a tenant ID.  To get these values, see [Acquire a token from Azure AD for authorizing requests from a client application](../common/storage-auth-aad-app.md). As part of that process, you'll have to assign one of the following [Azure role-based access control (Azure RBAC)](../../role-based-access-control/overview.md) roles to your security principal. 
 
 |Role|ACL setting capability|
 |--|--|

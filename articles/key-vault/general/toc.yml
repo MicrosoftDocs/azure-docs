@@ -105,6 +105,8 @@
       href: rbac-migration.md  
     - name: Troubleshoot access issues
       href: troubleshooting-access-issues.md
+  - name: How to enable logging
+    href: howto-logging.md
   - name: Develop
     items:
     - name: Azure Key Vault Developer's Guide
@@ -151,6 +153,10 @@
       href: move-subscription.md
     - name: Move Key Vault to Another Region
       href: move-region.md
+  - name: Networking
+    items:
+    - name: Diagnose Private Links Configuration Issues
+      href: private-link-diagnostics.md
 
 - name: Reference
   items:
