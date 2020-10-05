@@ -58,3 +58,34 @@ This article describes how to find the Tenant ID, Object ID, and partner associa
 6. Find **role assignments** by selecting **Access control (IAM)** in the left menu, then **Role assignments**.
 
     :::image type="content" source="https://docs.microsoft.com/azure/role-based-access-control/media/role-assignments-portal/role-assignments.png" alt-text="Role assignments in Azure Active Directory.":::
+
+## Find Tenant, Object, and Partner ID association for debugging
+
+1. Go to the [Azure portal](https://ms.portal.azure.com/).
+2. Open Azure Cloud Shell by selecting the PowerShell icon at the top-right.
+
+    :::image type="content" source="media/tenant-and-object-id/icon-azure-cloud-shell.png" alt-text="Partner information in the left-nav menu.":::
+
+3. Select **PowerShell**.
+
+    :::image type="content" source="media/tenant-and-object-id/icon-powershell.png" alt-text="Select the PowerShell link.":::
+
+4. Select the **Subscription** box to choose the one to which the partner is linked, then **Create Storage**. This is a one-time action; if you already have storage set up, proceed to the next step.
+
+    :::image type="content" source="media/tenant-and-object-id/create-storage-window.png" alt-text="Selelct the Create Storage button.":::
+
+5. Creating (or already having) storage opens the Azure Cloud shell window.
+
+    :::image type="content" source="media/tenant-and-object-id/cloud-shell-window-1.png" alt-text="The Azure Cloud shell window.":::
+
+6. For partner association details, install the extension with this command:<br>`az extension add --name managementpartner`.<br>Azure Cloud shell will note if the extension is already installed:
+
+    :::image type="content" source="media/tenant-and-object-id/cloud-shell-window-2.png" alt-text="The Azure Cloud shell window showing the extension is already installed.":::
+
+7. Check partner details using this command:<br>`az managementpartner show --partner-id xxxxxx`<br>Example: `az managementpartner show --partner-id 4760962`.<br>Snap a screenshot of the command results, which will look similar to this:
+
+    :::image type="content" source="media/tenant-and-object-id/partner-id-sample-screenshot.png" alt-text="Sample screen showing the results of the prior command to view parter ID.":::
+
+>[!NOTE]
+>If multiple subscriptions require a screenshot, use this command to switch between subscriptions:<br>`az account set --subscription "My Demos"`
+ 
