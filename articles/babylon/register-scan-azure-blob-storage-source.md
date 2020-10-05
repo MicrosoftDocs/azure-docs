@@ -98,7 +98,7 @@ You can also set up a trigger on a weekly cadence with an option to choose the d
 Select a scan rule set to be used by your scan from the list of available<br />![Screenshot showing scan rule set](./media/scan-azure-blob/select-scan-rule-set.png)
 
 **Review your scan**
-When you click Continue, you will be presented with scan summary page, where you can view all the settings for your scan.<br />![Screenshot showing scan rule set](./media/scan-azure-blob/review-save-run.png)
+When you click Continue, you will be presented with scan summary page, where you can view all the settings for your scan.<br />![Screenshot showing review your scan](./media/scan-azure-blob/review-save-run.png)
 
 **Edit a scan**
 Select a scan and click Edit to edit the selected scan. You can only edit one scan at a time.
