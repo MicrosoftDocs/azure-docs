@@ -15,8 +15,8 @@ Key Vault allows you to securely access sensitive information from within your a
 
 - Keys,secrets, and certificates are protected without having to write the code yourself and you are easily able to use them from your applications.
 - You are able to have your customers own and manage their own keys, secrets, and certificates so you can concentrate on providing the core software features. In this way, your applications will not own the responsibility or potential liability for your customers' tenant keys,secrets, and certificates.
-- Your application can use keys for signing and encryption yet keeps the key management external from your application. For more information about keys, see [About Keys](../keys/about-keys)
-- You can manage credentials like passwords, access keys,sas tokens storing them in Key Vault as secrets, see [About Secrets](../keys/about-secrets)
+- Your application can use keys for signing and encryption yet keeps the key management external from your application. For more information about keys, see [About Keys](../keys/about-keys.md)
+- You can manage credentials like passwords, access keys,sas tokens storing them in Key Vault as secrets, see [About Secrets](../keys/about-secrets.md)
 - Manage certificates. For more information, see [About Certificates](../certificates/about-certificates.md)
 
 For more general information on Azure Key Vault, see [What is Key Vault](overview.md).
@@ -37,7 +37,7 @@ Access to management layer is controlled by [Azure role-based access control](ht
 |--|--|--|--|--|--|--|--|
 |[Reference](/cli/azure/keyvault)<br>[Quickstart](quick-create-cli.md)|[Reference](/powershell/module/az.keyvault)<br>[Quickstart](quick-create-powershell.md)|[Reference](/rest/api/keyvault/)|[Reference](/azure/templates/microsoft.keyvault/vaults)|[Reference](/dotnet/api/microsoft.azure.management.keyvault)|[Reference](/python/api/azure-mgmt-keyvault/azure.mgmt.keyvault)|[Reference](/java/api/com.microsoft.azure.management.keyvault)|[Reference](/javascript/api/@azure/arm-keyvault)|
 
-See [Client Libraries](client-libraries) for installation packages and source code.
+See [Client Libraries](client-libraries.md) for installation packages and source code.
 
 For more information about Key Vault management plane, see [Key Vault Management Plane](https://docs.microsoft.com/azure/key-vault/general/secure-your-key-vault#management-plane-and-azure-rbac)
 
@@ -53,10 +53,9 @@ For application development, you can use Azure Identity SDK across different env
 
 For more information, see: 
 
- - [Azure Identity SDK .NET](https://docs.microsoft.com/dotnet/api/overview/azure/identity-readme)
- - [Azure Identity SDK Python](https://docs.microsoft.com/python/api/overview/azure/identity-readme)
- - [Azure Identity SDK Java](https://docs.microsoft.com/java/api/overview/azure/identity-readme)
- - [Azure Identity SDK Javascript](https://docs.microsoft.com/en-us/javascript/api/overview/azure/identity-readme)
+| .NET | Python | Java | Javascript |
+|--|--|--|--|
+|[Azure Identity SDK .NET](https://docs.microsoft.com/dotnet/api/overview/azure/identity-readme)|[Azure Identity SDK Python](https://docs.microsoft.com/python/api/overview/azure/identity-readme)|[Azure Identity SDK Java](https://docs.microsoft.com/java/api/overview/azure/identity-readme)|[Azure Identity SDK Javascript](https://docs.microsoft.com/javascript/api/overview/azure/identity-readme)|     
 
 ## Manage keys, certificates, and secrets
 
@@ -79,7 +78,7 @@ Access to keys, secrets and certificates is controlled by data plane. Data plane
 
 See [Client Libraries](client-libraries.md) for installation packages and source code.
 
-For more information about Key Vault data plane security, see [Key Vault Data Plane and access policies](https://docs.microsoft.com/azure/key-vault/general/secure-your-key-vault#data-plane-and-access-policies) and [Key Vault Data Plane and RBAC(preview)](https://docs.microsoft.com/en-us/azure/key-vault/general/secure-your-key-vault#data-plane-and-azure-rbac-preview)
+For more information about Key Vault data plane security, see [Key Vault Data Plane and access policies](https://docs.microsoft.com/azure/key-vault/general/secure-your-key-vault#data-plane-and-access-policies) and [Key Vault Data Plane and RBAC(preview)](https://docs.microsoft.com/azure/key-vault/general/secure-your-key-vault#data-plane-and-azure-rbac-preview)
 
 ### Code examples
 
