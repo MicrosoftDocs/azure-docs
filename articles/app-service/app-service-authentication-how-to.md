@@ -318,6 +318,17 @@ The following exhausts possible configuration options within the file:
             "/path2"
         ]
     },
+    "httpSettings": {
+        "requireHttps": <true|false>,
+        "routes": {
+            "apiPrefix": "<api prefix>"
+        },
+        "forwardProxy": {
+            "convention": "NoProxy|Standard|Custom",
+            "customHostHeaderName": "<host header value>",
+            "customProtoHeaderName": "<proto header value>"
+        }
+    },
     "identityProviders": {
         "azureActiveDirectory": {
             "enabled": <true|false>,
@@ -393,7 +404,7 @@ The following exhausts possible configuration options within the file:
             }
         },
         "openIdConnectProviders": {
-            "provider name": {
+            "<providerName>": {
                 "enabled": <true|false>,
                 "registration": {
                     "clientId": "<client id>",
@@ -422,45 +433,35 @@ The following exhausts possible configuration options within the file:
                 }
             },
             //...
+        }
+    },
+    "login": {
+        "routes": {
+            "logoutEndpoint": "<logout endpoint>"
         },
-        "login": {
-            "routes": {
-                "logoutEndpoint": "<logout endpoint>"
+        "tokenStore": {
+            "enabled": <true|false>,
+            "tokenRefreshExtensionHours": "<double>",
+            "fileSystem": {
+                "directory": "<directory to store the tokens in if using a file system token store (default)>"
             },
-            "tokenStore": {
-                "enabled": <true|false>,
-                "tokenRefreshExtensionHours": "<double>",
-                "fileSystem": {
-                    "directory": "<directory to store the tokens in if using a file system token store (default)>"
-                },
-                "azureBlobStorage": {
-                    "sasUrlSettingName": "<app setting name containing the sas url for the Azure Blob Storage if opting to use that for a token store>"
-                }
-            },
-            "preserveUrlFragmentsForLogins": <true|false>,
-            "allowedExternalRedirectUri": [
-                "https://uri1.azurewebsites.net/",
-                "https://uri2.azurewebsites.net/"
-            ],
-            "cookieExpiration": {
-                "convention": "FixedTime|IdentityProviderDerived",
-                "timeToExpiration": "<timespan>"
-            },
-            "nonce": {
-                "validateNonce": <true|false>,
-                "nonceExpirationInterval": "<timespan>"
+            "azureBlobStorage": {
+                "sasUrlSettingName": "<app setting name containing the sas url for the Azure Blob Storage if opting to use that for a token store>"
             }
         },
-        "httpSettings": {
-            "requireHttps": <true|false>,
-            "routes": {
-                "apiPrefix": "<api prefix>"
-            },
-            "forwardProxy": {
-                "convention": "NoProxy|Standard|Custom",
-                "customHostHeaderName": "<host header value>",
-                "customProtoHeaderName": "<proto header value>"
-            }
+        "preserveUrlFragmentsForLogins": <true|false>,
+        "allowedExternalRedirectUri": [
+            "https://uri1.azurewebsites.net/",
+            "https://uri2.azurewebsites.net/",
+            "url_scheme_of_your_app://easyauth.callback"
+        ],
+        "cookieExpiration": {
+            "convention": "FixedTime|IdentityProviderDerived",
+            "timeToExpiration": "<timespan>"
+        },
+        "nonce": {
+            "validateNonce": <true|false>,
+            "nonceExpirationInterval": "<timespan>"
         }
     }
 }
