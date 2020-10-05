@@ -19,11 +19,11 @@ For each Spark external table based on Parquet and located in Azure Storage, an 
 
 When a table is partitioned in Spark, files in storage are organized by folders. SQL on-demand will use partition metadata and only target relevant folders and files for your query.
 
-Metadata synchronization is automatically configured for each Spark pool provisioned in the Azure Synapse workspace. You can start querying Spark external tables instantly.
+Metadata synchronization is automatically configured for each serverless Apache Spark pool provisioned in the Azure Synapse workspace. You can start querying Spark external tables instantly.
 
 Each Spark parquet external table located in Azure Storage is represented with an external table in a dbo schema that corresponds to a SQL on-demand database. 
 
-For Spark external table queries, run a query that targets an external [spark_table]. Before running the example below, make sure you have correct [access to the storage account](develop-storage-files-storage-access-control.md) where the files are located.
+For Spark external table queries, run a query that targets an external [spark_table]. Before running the following example, make sure you have correct [access to the storage account](develop-storage-files-storage-access-control.md) where the files are located.
 
 ```sql
 SELECT * FROM [db].dbo.[spark_table]
@@ -37,7 +37,7 @@ SELECT * FROM [db].dbo.[spark_table]
 | Spark data type | SQL data type               |
 | --------------- | --------------------------- |
 | ByteType        | smallint                    |
-| Short Type       | smallint                    |
+| Short Type      | smallint                    |
 | IntegerType     | int                         |
 | LongType        | bigint                      |
 | FloatType       | real                        |
@@ -45,16 +45,16 @@ SELECT * FROM [db].dbo.[spark_table]
 | DecimalType     | decimal                     |
 | TimestampType   | datetime2                   |
 | DateType        | date                        |
-| StringType      | varchar(max)*               |
+| StringType      | varchar(max)\*               |
 | BinaryType      | varbinary                   |
 | BooleanType     | bit                         |
-| ArrayType       | varchar(max)* (into JSON)** |
-| MapType         | varchar(max)* (into JSON)** |
-| StructType      | varchar(max)* (into JSON)** |
+| ArrayType       | varchar(max)\* (into JSON)\** |
+| MapType         | varchar(max)\* (into JSON)\** |
+| StructType      | varchar(max)\* (into JSON)\** |
 
 \* Collation used is Latin1_General_100_BIN2_UTF8.
 
-** ArrayType, MapType, and StructType are represented as JSONs.
+\** ArrayType, MapType, and StructType are represented as JSONs.
 
 
 

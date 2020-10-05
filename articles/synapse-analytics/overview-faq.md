@@ -35,7 +35,7 @@ For more information, see [What is Azure Synapse Analytics](https://docs.microso
 A: Azure Synapse has the following capabilities:
 
 - Analytics capabilities are offered through SQL pool or SQL on-demand (preview) (Serverless).
-- Apache Spark pool (preview) with full support for Scala, Python, SparkSQL, and C#
+- Serverless Apache Spark pool (preview) with full support for Scala, Python, SparkSQL, and C#
 - Data Flow offering a code-free big data transformation experience
 - Data Integration & Orchestration to integrate your data and operationalize all of your code development
 - Studio to access all of these capabilities through a single Web UI
@@ -84,7 +84,7 @@ A: Data flow allows data engineers to develop graphical data transformation logi
 
 ## Security and Access
 
-A: End-to-end single sign-on experience is an important authentication process in Synapse Analytics. Managing and passing the identity  through via a full AAD integration is a must.
+A: End-to-end single sign-on experience is an important authentication process in Synapse Analytics. Managing and passing the identity  through via a full Azure AD integration is a must.
 
 ### Q: How do I get access to files and folders in the ADLS Gen2
 

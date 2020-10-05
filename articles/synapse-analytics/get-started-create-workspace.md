@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: Get started create a Synapse workspace' 
-description: In this tutorial, you'll learn how to create a Synapse workspace, a SQL pool, and an Apache Spark pool.
+title: 'Quickstart: Get started - create a Synapse workspace' 
+description: In this tutorial, you'll learn how to create a Synapse workspace, a dedicated SQL pool, and a serverless Apache Spark pool.
 services: synapse-analytics
 author: saveenr
 ms.author: saveenr
@@ -13,13 +13,13 @@ ms.date: 09/30/2020
 
 # Creating a Synapse workspace
 
-In this tutorial, you'll learn how to create a Synapse workspace, a SQL pool, and an Apache Spark pool. 
+In this tutorial, you'll learn how to create a Synapse workspace, a dedicated SQL pool, and a serverless Apache Spark pool. 
 
 ## Prerequisites
 
 To complete this all of this tutorial's steps, you need to have access to a resource group for which you are assigned the **Owner** role. Create the Synapse workspace in this resource group.
 
-## Create a Synapse workspace in the Azure Portal
+## Create a Synapse workspace in the Azure portal
 
 1. Open the [Azure portal](https://portal.azure.com), and at the top search for **Synapse**.
 1. In the search results, under **Services**, select **Azure Synapse Analytics (workspaces preview)**.
@@ -71,7 +71,7 @@ A SQL pool consumes billable resources as long as it's active. You can pause the
 1. Select **Review + create** > **Create**. Your Apache Spark pool will be ready in a few seconds.
 
 > [!NOTE]
-> Despite the name, an Apache Spark pool is not like a SQL pool. It's just some basic metadata that you use to tell the Azure Synapse workspace how to interact with Spark.
+> Despite the name, an serverless Apache Spark pool is not like a dedicated SQL pool. It's just some basic metadata that you use to tell the Azure Synapse workspace how to interact with Spark.
 
 Because they're metadata, Spark pools can't be started or stopped.
 
