@@ -9,7 +9,7 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.devlang: dotnet
 ms.topic: quickstart
-ms.date: 08/05/2020
+ms.date: 10/05/2020
 ms.custom: devx-track-csharp
 
 ---
@@ -32,11 +32,17 @@ Before you begin, have the following tools and services:
 
 + [Visual Studio](https://visualstudio.microsoft.com/downloads/), any edition. Sample code was tested on the free Community edition of Visual Studio 2019.
 
++ [Azure.Search.Documents NuGet package](https://www.nuget.org/packages/Azure.Search.Documents/)
+
+## Set up your project
+
+Assemble search service connection information, and then start Visual Studio to create a new Console App project that can run on .NET Core.
+
 <a name="get-service-info"></a>
 
-## Get a key and endpoint
+### Copy a key and endpoint
 
-Calls to the service require a URL endpoint and an access key on every request. A search service is created with both, so if you added Azure Cognitive Search to your subscription, follow these steps to get the necessary information:
+Calls to the service require a URL endpoint and an access key on every request. As a first step, find the API key and URL to add to your project.
 
 1. [Sign in to the Azure portal](https://portal.azure.com/), and in your search service **Overview** page, get the URL. An example endpoint might look like `https://mydemo.search.windows.net`.
 
@@ -45,10 +51,6 @@ Calls to the service require a URL endpoint and an access key on every request. 
    ![Get an HTTP endpoint and access key](media/search-get-started-postman/get-url-key.png "Get an HTTP endpoint and access key")
 
 All requests require an api-key on every request sent to your service. Having a valid key establishes trust, on a per request basis, between the application sending the request and the service that handles it.
-
-## Set up your project
-
-Start Visual Studio and create a new Console App project that can run on .NET Core. 
 
 ### Install the NuGet package
 
@@ -74,7 +76,7 @@ After the project is created, add the client library. The [Azure.Search.Document
    using Azure.Search.Documents.Models;
    ```
 
-1. Create two clients: [SearchIndexClient](/dotnet/api/azure.search.documents.indexes.searchindexclient) creates the index, and [SearchClient](/dotnet/api/azure.search.documents.searchclient) works with an existing index. Both need the service endpoint and an admin API key for authentication with create/delete rights.
+1. Create two clients: [SearchIndexClient](/dotnet/api/azure.search.documents.indexes.searchindexclient) creates the index, and [SearchClient](/dotnet/api/azure.search.documents.searchclient) loads and queries an existing index. Both need the service endpoint and an admin API key for authentication with create/delete rights.
 
    ```csharp
    static void Main(string[] args)
@@ -94,7 +96,7 @@ After the project is created, add the client library. The [Azure.Search.Document
 
 ## 1 - Create an index
 
-This quickstart builds a Hotels index that you'll load with hotel data and run queries on. In this step, define the fields in the index. Each field definition includes a name, data type, and attributes that determine how the field is used.
+This quickstart builds a Hotels index that you'll load with hotel data and execute queries against. In this step, define the fields in the index. Each field definition includes a name, data type, and attributes that determine how the field is used.
 
 In this example, synchronous methods of the Azure.Search.Documents library are used for simplicity and readability. However, for production scenarios, you should use asynchronous methods to keep your app scalable and responsive. For example, you would use [CreateIndexAsync](/dotnet/api/azure.search.documents.indexes.searchindexclient.createindexasync) instead of [CreateIndex](/dotnet/api/azure.search.documents.indexes.searchindexclient.createindex).
 
@@ -128,7 +130,7 @@ In this example, synchronous methods of the Azure.Search.Documents library are u
     }
     ```
 
-1. In **Program.cs**, specify the fields and attributes. [SearchIndex](/dotnet/api/azure.search.documents.indexes.models.searchindex) and [CreateIndex](/dotnet/api/azure.search.documents.indexes.searchindexclient.createindex) are used to create an index.
+1. In **Program.cs**, create a [SearchIndex](/dotnet/api/azure.search.documents.indexes.models.searchindex) object, and then call the [CreateIndex](/dotnet/api/azure.search.documents.indexes.searchindexclient.createindex) method to express the index in your search service.
 
    ```csharp
     // Define an index schema using SearchIndex
@@ -151,9 +153,15 @@ In this example, synchronous methods of the Azure.Search.Documents library are u
 
 Attributes on the field determine how it is used in an application. For example, the `IsFilterable` attribute must be assigned to every field that supports a filter expression.
 
-In contrast with previous versions of the .NET SDK that require [IsSearchable](/dotnet/api/microsoft.azure.search.models.field.issearchable) on searchable string fields, you can use [SearchableField](/dotnet/api/azure.search.documents.indexes.models.searchablefield) and [SimpleField](/dotnet/api/azure.search.documents.indexes.models.simplefield) to streamline field definitions.
+In the Azure.Search.Documents client library, you can use [SearchableField](/dotnet/api/azure.search.documents.indexes.models.searchablefield) and [SimpleField](/dotnet/api/azure.search.documents.indexes.models.simplefield) to streamline field definitions.
 
-Similar to the previous versions, other attributes are still required on the definition itself. For example, [IsFilterable](/dotnet/api/azure.search.documents.indexes.models.searchfield.isfilterable), [IsSortable](/dotnet/api/azure.search.documents.indexes.models.searchfield.issortable), and [IsFacetable](/dotnet/api/azure.search.documents.indexes.models.searchfield.isfacetable) must be explicitly attributed, as shown in the sample above. 
+Both `SimpleField` and `SearchableField` are derivatives of a [SearchField](/dotnet/api/azure.search.documents.indexes.models.searchfield) and can potentially simplify your code:
+
++ `SimpleField` can be any data type, is always non-searchable (it's ignored for full text search queries), and is retrievable (it's not hidden). Other attributes are off by default, but can be enabled. You might use a `SimpleField` for document IDs or fields used only in filters, facets, or scoring profiles. If so, be sure to apply any attributes that are necessary for the scenario, such as `IsKey = true` for a document ID. For more information, see [SimpleFieldAttribute.cs](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/search/Azure.Search.Documents/src/Indexes/SimpleFieldAttribute.cs) in source code.
+
++ `SearchableField` must be a string, and is always searchable and retrievable. Other attributes are off by default, but can be enabled. Because this field type is searchable, it supports synonyms and the full complement of analyzer properties. For more information, see the [SearchableFieldAttribute.cs](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/search/Azure.Search.Documents/src/Indexes/SearchableFieldAttribute.cs) in source code.
+
+Whether you use the basic `SearchField` API or either one of the helper models, you must explicitly enable filter, facet, and sort attributes. For example, [IsFilterable](/dotnet/api/azure.search.documents.indexes.models.searchfield.isfilterable), [IsSortable](/dotnet/api/azure.search.documents.indexes.models.searchfield.issortable), and [IsFacetable](/dotnet/api/azure.search.documents.indexes.models.searchfield.isfacetable) must be explicitly attributed, as shown in the sample above. 
 
 <a name="load-documents"></a>
 
@@ -161,11 +169,11 @@ Similar to the previous versions, other attributes are still required on the def
 
 Azure Cognitive Search searches over content stored in the service. In this step, you'll load JSON documents that conform to the hotel index you just created.
 
-In Azure Cognitive Search, documents are data structures that are both inputs to indexing and outputs from queries. As obtained from an external data source, document inputs might be rows in a database, blobs in Blob storage, or JSON documents on disk. In this example, we're taking a shortcut and embedding JSON documents for five hotels in the code itself. 
+In Azure Cognitive Search, search documents are data structures that are both inputs to indexing and outputs from queries. As obtained from an external data source, document inputs might be rows in a database, blobs in Blob storage, or JSON documents on disk. In this example, we're taking a shortcut and embedding JSON documents for five hotels in the code itself. 
 
-When uploading documents, you must use an [IndexDocumentsBatch](/dotnet/api/azure.search.documents.models.indexdocumentsbatch-1) object. An IndexDocumentsBatch contains a collection of [Actions](/dotnet/api/azure.search.documents.models.indexdocumentsbatch-1.actions), each of which contains a document and a property telling Azure Cognitive Search what action to perform ([upload, merge, delete, and mergeOrUpload](search-what-is-data-import.md#indexing-actions)).
+When uploading documents, you must use an [IndexDocumentsBatch](/dotnet/api/azure.search.documents.models.indexdocumentsbatch-1) object. An `IndexDocumentsBatch` object contains a collection of [Actions](/dotnet/api/azure.search.documents.models.indexdocumentsbatch-1.actions), each of which contains a document and a property telling Azure Cognitive Search what action to perform ([upload, merge, delete, and mergeOrUpload](search-what-is-data-import.md#indexing-actions)).
 
-1. In **Program.cs**, create an array of documents and index actions, and then pass the array to `ndexDocumentsBatch` The documents below conform to the hotels-quickstart-v11 index, as defined by the hotel class.
+1. In **Program.cs**, create an array of documents and index actions, and then pass the array to `IndexDocumentsBatch`. The documents below conform to the hotels-quickstart-v11 index, as defined by the hotel class.
 
     ```csharp
     // Load documents (using a subset of fields for brevity)
@@ -260,6 +268,13 @@ The [SearchResults](/dotnet/api/azure.search.documents.models.searchresults-1) c
     }
     ```
 
+1. Add RunQueries to `Main`.
+
+    ```csharp
+    Console.WriteLine("Starting queries...\n");
+    RunQueries(srchclient);
+    ```
+
 This example shows the two [ways of matching terms in a query](search-query-overview.md#types-of-queries): full-text search, and filters:
 
 + Full-text search queries for one or more terms in searchable fields in your index. The first query is full text search. Full-text search produces relevance scores used to rank the results.
@@ -286,7 +301,7 @@ If you are using a free service, remember that you are limited to three indexes,
 
 ## Next steps
 
-In this C# quickstart, you worked through a series of tasks to create an index, load it with documents, and run queries. At different stages, we took shortcuts to simplify the code for readability and comprehension. If you are comfortable with the basic concepts, we recommend the next article for an exploration of alternative approaches and concepts that will deepen your knowledge. 
+In this C# quickstart, you worked through a set of tasks to create an index, load it with documents, and run queries. At different stages, we took shortcuts to simplify the code for readability and comprehension. If you are comfortable with the basic concepts, we recommend the next article for an exploration of alternative approaches and concepts that will deepen your knowledge. 
 
 > [!div class="nextstepaction"]
 > [How to develop in .NET](search-howto-dotnet-sdk.md)
