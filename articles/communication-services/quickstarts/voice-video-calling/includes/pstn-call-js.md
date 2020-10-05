@@ -73,7 +73,8 @@ Specify phone number you acquired in Communication Services resource, that will 
 > [!WARNING]
 > Note that phone numbers shold be provided in E.164 international standard format. (e.g.: +12223334444)
 
-Add an event handler to initiate a call to phone you provided when the `callPhoneButton` is clicked:
+Add an event handler to initiate a call to the phone number you provided when the `callPhoneButton` is clicked:
+
 
 ```javascript
 callPhoneButton.addEventListener("click", () => {
