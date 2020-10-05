@@ -8,7 +8,7 @@ ms.subservice: core
 ms.topic: conceptual
 ms.author: sgilley
 author: sdgilley
-ms.date: 08/25/2020
+ms.date: 10/02/2020
 # As a data scientist, I want to know what a compute instance is and how to use it for Azure Machine Learning.
 ---
 
@@ -20,7 +20,7 @@ Compute instances make it easy to get started with Azure Machine Learning develo
 
 Use a compute instance as your fully configured and managed development environment in the cloud for machine learning. They can also be used as a compute target for training and inferencing for development and testing purposes.  
 
-For production grade model training, use an [Azure Machine Learning compute cluster](how-to-create-attach-compute-sdk.md#amlcompute) with multi-node scaling capabilities. For production grade model deployment, use [Azure Kubernetes Service cluster](how-to-deploy-azure-kubernetes-service.md).
+For production grade model training, use an [Azure Machine Learning compute cluster](how-to-create-attach-compute-cluster.md) with multi-node scaling capabilities. For production grade model deployment, use [Azure Kubernetes Service cluster](how-to-deploy-azure-kubernetes-service.md).
 
 ## Why use a compute instance?
 
@@ -33,6 +33,8 @@ A compute instance is a fully managed cloud-based workstation optimized for your
 |Preconfigured&nbsp;for&nbsp;ML|Save time on setup tasks with pre-configured and up-to-date ML packages, deep learning frameworks, GPU drivers.|
 |Fully customizable|Broad support for Azure VM types including GPUs and persisted low-level customization such as installing packages and drivers makes advanced scenarios a breeze. |
 
+You can [create a compute instance](how-to-create-manage-compute-instance.md?tabs=python#create) yourself, or an administrator can [create a compute instance for you](how-to-create-manage-compute-instance.md?tabs=python#create-on-behalf-of-preview).
+
 ## <a name="contents"></a>Tools and environments
 
 > [!IMPORTANT]
@@ -42,7 +44,9 @@ A compute instance is a fully managed cloud-based workstation optimized for your
 
 Azure Machine Learning compute instance enables you to author, train, and deploy models in a fully integrated notebook experience in your workspace.
 
-These tools and environments are installed on the compute instance: 
+You can [install packages](how-to-create-manage-compute-instance.md#install-packages) and [add kernels](how-to-create-manage-compute-instance.md#add-new-kernels) to your compute instance.  
+
+These tools and environments are already installed on the compute instance: 
 
 |General tools & environments|Details|
 |----|:----:|
@@ -74,46 +78,6 @@ These tools and environments are installed on the compute instance:
 |Azure Machine Learning Python & R SDK samples||
 
 Python packages are all installed in the **Python 3.6 - AzureML** environment.  
-
-### Installing packages
-
-You can install packages directly in Jupyter Notebook or RStudio:
-
-* RStudio Use the **Packages** tab on the bottom right, or the **Console** tab on the top left.  
-* Python: Add install code and execute in a Jupyter Notebook cell.
-
-Or you can access a terminal window in any of these ways:
-
-* RStudio: Select the **Terminal** tab on top left.
-* Jupyter Lab:  Select the **Terminal** tile under the **Other** heading in the Launcher tab.
-* Jupyter:  Select **New>Terminal** on top right in the Files tab.
-* SSH to the machine.  Then install Python packages into the **Python 3.6 - AzureML** environment.  Install R packages into the **R** environment.
-
-While customizing the compute instance please ensure that you don't delete the azureml_py36 conda environment or Python 3.6 - AzureML kernel. This is needed for Jupyter/JupyterLab functionality
-
-### Add new kernels
-
-To add a new Jupyter kernel to the compute instance:
-
-1. Create new terminal from Jupyter, JupyterLab or from notebooks pane or SSH into the compute instance
-2. Use the terminal window to create a new environment.  For example, the code below creates `newenv`:
-    ```shell
-    conda create --name newenv
-    ```
-3. Activate the environment.  For example, after creating `newenv`:
-
-    ```shell
-    conda activate newenv
-    ```
-4. Install pip and ipykernel package to the new environment and create a kernel for that conda env
-
-    ```shell
-    conda install pip
-    conda install ipykernel
-    python -m ipykernel install --user --name newenv --display-name "Python (newenv)"
-    ```
-
-Any of the [available Jupyter Kernels](https://github.com/jupyter/jupyter/wiki/Jupyter-kernels) can be installed.
 
 ## Accessing files
 
@@ -215,4 +179,5 @@ New Notebook VMs cannot be created. However, you can still access and use Notebo
 
 ## Next steps
 
- * [Tutorial: Train your first ML model](tutorial-1st-experiment-sdk-train.md) shows how to use a compute instance with an integrated notebook.
+* [Create and manage a compute instance](how-to-create-manage-compute-instance.md)
+* [Tutorial: Train your first ML model](tutorial-1st-experiment-sdk-train.md) shows how to use a compute instance with an integrated notebook.

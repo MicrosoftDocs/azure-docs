@@ -100,6 +100,8 @@ To learn more about MFA concepts, see [How Azure Multi-Factor Authentication wor
 
 Learn more about configuring authentication methods using the [Microsoft Graph REST API beta](/graph/api/resources/authenticationmethods-overview?view=graph-rest-beta).
 
+To review what authentication methods are in use, see [Azure Multi-Factor Authentication authentication method analysis with PowerShell](/samples/azure-samples/azure-mfa-authentication-method-analysis/azure-mfa-authentication-method-analysis/).
+
 <!-- INTERNAL LINKS -->
 [tutorial-sspr]: tutorial-enable-sspr.md
 [tutorial-azure-mfa]: tutorial-enable-azure-mfa.md
