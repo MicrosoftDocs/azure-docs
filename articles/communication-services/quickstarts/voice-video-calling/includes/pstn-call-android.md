@@ -17,7 +17,6 @@ ms.author: nikuklic
 ### Prerequisite check
 
 - To view the phone numbers associated with your Communication Services resource, sign in to the [Azure portal](https://portal.azure.com/), locate your Communication Services resource and open the **phone numbers** tab from the left navigation pane.
-- You can build and run your app with Azure Communication Services Calling client library for Android:
 
 ## Setting up
 
