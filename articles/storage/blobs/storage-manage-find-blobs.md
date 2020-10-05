@@ -68,8 +68,11 @@ The following limits apply to blob index tags:
 - Tag keys and values are case-sensitive
 - Tag keys and values only support string data types; any numbers, date, times, or special characters will be saved as strings
 - Tag keys and values must adhere to the following naming rules:
-  - Alpha numeric characters: a-z, A-Z, 0-9
-  - Special characters: space, plus, minus, period, colon, equals, underscore, forward slash
+  - Alphanumeric characters:
+    - **a** through **z** (lowercase letters)
+    - **A** through **Z** (uppercase letters)
+    - **0** through **9** (numbers)
+  - Valid special characters: space, plus, minus, period, colon, equals, underscore, forward slash (` +-.:=_/`)
 
 ## Getting and listing blob index tags
 
