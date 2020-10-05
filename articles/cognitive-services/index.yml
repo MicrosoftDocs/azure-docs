@@ -39,9 +39,6 @@ highlightedContent:
     - title: Use in Databases
       itemType: concept
       url: ./big-data/cognitive-services-for-big-data.md
-    - title: Virtual networks
-      itemType: architecture
-      url: cognitive-services-virtual-networks.md
     - title: Security
       itemType: concept
       url: cognitive-services-security.md
