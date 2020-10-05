@@ -1,3 +1,4 @@
+---
 title: Connect to Windows Store client - Azure
 description: How to connect to Windows Virtual Desktop using the Windows Store client.
 author: Heidilohr
