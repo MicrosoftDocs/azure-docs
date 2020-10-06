@@ -448,7 +448,7 @@ No. [Status Monitor](./monitor-performance-live-website-now.md) and [Status Moni
 Yes. Feature support for the SDK is the same in all platforms, with the following exceptions:
 
 * The SDK collects [Event Counters](./eventcounters.md) on Linux because [Performance Counters](./performance-counters.md) are only supported in Windows. Most metrics are the same.
-* Even though `ServerTelemetryChannel` is enabled by default, if the application is running in Linux or MacOS, the channel doesn't automatically create a local storage folder to keep telemetry temporarily if there are network issues. Because of this limitation, telemetry is lost when there are temporary network or server issues. To work around this issue, configure a local folder for the channel:
+* Even though `ServerTelemetryChannel` is enabled by default, if the application is running in Linux or macOS, the channel doesn't automatically create a local storage folder to keep telemetry temporarily if there are network issues. Because of this limitation, telemetry is lost when there are temporary network or server issues. To work around this issue, configure a local folder for the channel:
 
 ```csharp
 using Microsoft.ApplicationInsights.Channel;
