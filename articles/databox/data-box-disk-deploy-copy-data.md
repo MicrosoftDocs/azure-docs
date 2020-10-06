@@ -246,7 +246,7 @@ This optional procedure may be used when you are using multiple disks and have a
   
 10. When the dataset is split and copied, the summary of the Split Copy tool for the copy session is presented. A sample output is shown below.
 
-    ![Split copy data 8](media/data-box-disk-deploy-copy-data/split-copy-9.png)
+    ![Split copy data 9](media/data-box-disk-deploy-copy-data/split-copy-9.png)
  
 11. Verify that the data is split across the target disks. 
  
