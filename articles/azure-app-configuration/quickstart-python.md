@@ -151,7 +151,7 @@ Note that attempting to call **add_configuration_setting** with a key and label 
 The following code snippet retrieves a list of configuration settings. The `key_filter` and `label_filter` arguments can be provided to filter key-values based on `key` and 'label` respectively. For more information on filtering, see how to [query configuration settings](./concept-key-value.md#query-key-values).
 
 ```python
-    filtered_settings_list = client.list_configuration_settings( key_filter="TestApp*")
+    filtered_settings_list = app_config_client.list_configuration_settings(key_filter="TestApp*")
     print("Retrieved configuration settings:")
     for item in filtered_listed:
         print("Key: " + item.key + ", Value: " + item.value)
