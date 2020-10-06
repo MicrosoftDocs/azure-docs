@@ -53,21 +53,9 @@ Azure Private Link lets you connect to your workspace using a private endpoint. 
 
 For more information on setting up a Private Link workspace, see [How to configure Private Link](how-to-configure-private-link.md).
 
-## Secure Azure storage accounts with private endpoints
-
-Azure Machine Learning supports storage accounts configured to use either service endpoints or private endpoints. If the storage account uses private endpoints, you must configure two private endpoints for your default storage account:
-1. A private endpoint with a **blob** target sub-resource.
-1. A private endpoint with a **file** target sub-resource (fileshare).
-
-![Screenshot showing private endpoint configuration page with blob and file options](./media/how-to-enable-studio-virtual-network/configure-storage-private-endpoint.png)
-
-To configure a private endpoint for a storage account that is **not** the default storage, select the **Target sub-resource** type that corresponds to the storage account you want to add.
-
-For more information, see [Use private endpoints for Azure Storage](../storage/common/storage-private-endpoints.md)
-
 ## Secure Azure storage accounts with service endpoints
 
-In this section, you learn how to secure an Azure storage account using service endpoints.
+Azure Machine Learning supports storage accounts configured to use either service endpoints or private endpoints. In this section, you learn how to secure an Azure storage account using service endpoints. For private endpoints, see the next section.
 
 > [!IMPORTANT]
 > You can place the both the _default storage account_ for Azure Machine Learning, or _non-default storage accounts_ in a virtual network.
@@ -101,6 +89,18 @@ To use an Azure storage account for the workspace in a virtual network, use the 
     > To enable access to the storage account, visit the __Firewalls and virtual networks__ for the storage account *from a web browser on the development client*. Then use the __Add your client IP address__ check box to add the client's IP address to the __ADDRESS RANGE__. You can also use the __ADDRESS RANGE__ field to manually enter the IP address of the development environment. Once the IP address for the client has been added, it can access the storage account using the SDK.
 
    [![The "Firewalls and virtual networks" pane in the Azure portal](./media/how-to-enable-virtual-network/storage-firewalls-and-virtual-networks-page.png)](./media/how-to-enable-virtual-network/storage-firewalls-and-virtual-networks-page.png#lightbox)
+
+## Secure Azure storage accounts with private endpoints
+
+Azure Machine Learning supports storage accounts configured to use either service endpoints or private endpoints. If the storage account uses private endpoints, you must configure two private endpoints for your default storage account:
+1. A private endpoint with a **blob** target sub-resource.
+1. A private endpoint with a **file** target sub-resource (fileshare).
+
+![Screenshot showing private endpoint configuration page with blob and file options](./media/how-to-enable-studio-virtual-network/configure-storage-private-endpoint.png)
+
+To configure a private endpoint for a storage account that is **not** the default storage, select the **Target sub-resource** type that corresponds to the storage account you want to add.
+
+For more information, see [Use private endpoints for Azure Storage](../storage/common/storage-private-endpoints.md)
 
 ## Secure datastores and datasets
 

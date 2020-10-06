@@ -44,7 +44,7 @@ See the other articles in this series:
 
 + An existing [Azure Machine Learning workspace with Private Link enabled](how-to-secure-workspace-vnet.md#secure-the-workspace-with-private-endpoint).
 
-+ An existing [Azure storage account added your virtual network](how-to-secure-workspace-vnet.md#secure-azure-storage-accounts).
++ An existing [Azure storage account added your virtual network](how-to-secure-workspace-vnet.md#secure-azure-storage-accounts-with-service-endpoints).
 
 ## Access the studio from a resource inside the VNet
 
