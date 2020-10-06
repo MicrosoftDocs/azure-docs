@@ -159,7 +159,7 @@ The following code snippet retrieves a list of configuration settings. The `key_
 
 ### Lock a configuration setting
 
-The following code snippet shows how to lock a setting so that it can't be modified without first unlocking it. The setting is locked by calling **set_read_only** and passing in a **ConfigurationSetting** object containing the key and label of the setting to be updated. This example attempts to update the locked setting to demonstrate that an exception is thrown. Finally, the setting is unlocked so that it can be modified in the next step. Add this code to the end of the `try` block.
+The following code snippet shows how to lock a configuration setting by calling the `set_read_only` method and providing the `ConfigurationSetting` object to be locked.
 
 ```python
     locked_config_setting = client.set_read_only(config_setting)
