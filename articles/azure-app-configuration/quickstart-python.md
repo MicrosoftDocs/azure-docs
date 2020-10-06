@@ -278,7 +278,33 @@ except Exception as ex:
     print('Exception:')
     print(ex)
 ```
+
+In your console window, navigate to the directory containing the app-configuration-quickstart.py file, then execute the following python command to run the app.
+
+```console
+python app-configuration-quickstart.py
+```
+
+The output of the app is similar to the following example:
+
+```output
+Azure App Configuration - Python quickstart sample
+Retrieved configuration setting:
+Key: TestApp:Settings:Message, Value: Data from Azure App Configuration
+Retrieved configuration settings:
+Key:  TestApp:Settings:Message , Value:  Data from Azure App Configuration
+Key:  TestApp:Settings:NewSetting , Value:  New setting value
+Read-only status:  True
+Read-only status:  False
+Retrieved configuration settings:
+Key:  TestApp:Settings:Message , Value:  Data from Azure App Configuration
+Key:  TestApp:Settings:NewSetting , Value:  New setting value
+Retrieved configuration settings:
+Key:  TestApp:Settings:Message , Value:  Data from Azure App Configuration
+```
+
 ## Clean up resources
+
 
 [!INCLUDE [azure-app-configuration-cleanup](../../includes/azure-app-configuration-cleanup.md)]
 
