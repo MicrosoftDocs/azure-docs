@@ -65,7 +65,7 @@ Review the following considerations before you copy the data to the disks:
 
 Perform the following steps to connect and copy data from your computer to the Data Box Disk.
 
-1. View the contents of the unlocked drive. The list of the precreated folders and subfolders in the drive is different depending upon the options selected when placing the Data Box Disk order.
+1. View the contents of the unlocked drive. The list of the precreated folders and subfolders in the drive is different depending upon the options selected when placing the Data Box Disk order. If a precreated folder does not exist, do not create it as copying to a user created folder will fail to upload on Azure.
 
     |Selected storage destination  |Storage account type|Staging storage account type |Folders and sub-folders  |
     |---------|---------|---------|------------------|

@@ -93,7 +93,7 @@ The following table summarizes the high availability capability of various accou
 |Throughput | X RU/s provisioned throughput | X RU/s provisioned throughput * 1.25 | 2X RU/s provisioned throughput <br/><br/> This configuration mode requires twice the amount of throughput when compared to a single region with Availability Zones because there are two regions. |
 
 > [!NOTE]
-> To enable Availability Zone support for a multi region Azure Cosmos account, the account must have multi-region writes writes enabled.
+> To enable Availability Zone support for a multi region Azure Cosmos account, the account must have multi-region writes enabled.
 
 You can enable zone redundancy when adding a region to new or existing Azure Cosmos accounts. To enable zone redundancy on your Azure Cosmos account, you should set the `isZoneRedundant` flag to `true` for a specific location. You can set this flag within the locations property. For example, the following PowerShell snippet enables zone redundancy for the "Southeast Asia" region:
 
