@@ -76,6 +76,15 @@ The following <a name="snatporttable"></a>table shows the SNAT port <a name="pre
 >[!NOTE]
 > If you have a backend pool with a max size of 6, each instance can have 64,000/10 = 6,400 ports if you define an explicit outbound rule. According to the above table each will only have 1,024 if you choose automatic allocation.
 
+## <a name="outboundrules"></a> Outbound rules and Virtual Network NAT
+
+Azure Load Balancer outbound rules and Virtual Network NAT are options available for egress from a virtual network.
+
+See **Outbound rules** for more information on the management and configuration of Azure Load Balancer outbound rules.
+
+See [What is Azure Virtual Network NAT](../virtual-network/nat-overview.md) for more information on the NAT gateway resource and options.
+
+
 ## Constraints
 
 *	Ports will be released after 15 seconds if a **TCP RST** is received or sent
