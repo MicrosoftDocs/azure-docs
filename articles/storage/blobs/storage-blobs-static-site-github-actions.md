@@ -79,7 +79,7 @@ In the example above, replace the placeholders with your subscription ID and res
 
 1. Delete everything after the `on:` section of your workflow file. For example, your remaining workflow may look like this. 
 
-    ```yml
+    ```yaml
     name: CI
 
     on:
@@ -91,7 +91,7 @@ In the example above, replace the placeholders with your subscription ID and res
 
 1. Rename your workflow `Blob storage website CI` and add the checkout and login actions. These actions will checkout your site code and authenticate with Azure using the `AZURE_CREDENTIALS` GitHub secret you created earlier. 
 
-    ```yml
+    ```yaml
     name: Blob storage website CI
 
     on:
