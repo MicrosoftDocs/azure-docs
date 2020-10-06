@@ -244,7 +244,7 @@ The Azure Maps routing API has many additional features not available in Bing Ma
 
 There are several ways to snap coordinates to roads in Azure Maps.
 
--   Use the route directions API to snap coordinates and from a logical route along the road network.
+-   Use the route directions API to snap coordinates to a logical route along the road network.
 -   Use the Azure Maps Web SDK to snap individual coordinates to the nearest road in the vector tiles.
 -   Use the Azure Maps vector tiles directly to snap individual coordinates.
 

@@ -71,6 +71,23 @@ Yes. Refer to the detailed documentation [here](backup-azure-afs-automation.md).
 
 All snapshots taken by Azure Backup can be accessed by viewing snapshots in the portal, PowerShell, or CLI. To learn more about Azure Files share snapshots, see [Overview of share snapshots for Azure Files](../storage/files/storage-snapshots-files.md).
 
+### What happens after I move a backed up file share to a different subscription?
+
+Once a file share  is moved to a different subscription, it's considered as a new file share by Azure Backup. Below are the recommended steps :
+ 
+Scenario: Let's say you have a file share FS1 in subscription S1 and it is protected using V1 vault. Now you want to move your file share to subscription S2.
+ 
+1.	Move the desired storage account and file share (FS1) to different subscription (S2).
+2.	In V1 vault, trigger stop protection with delete data operation for FS1.
+3.	Unregister the storage account hosting FS1 from V1 vault.
+4.	Reconfigure backup for FS1 , now moved to S2, with a vault (V2) in S2 subscription. 
+ 
+Please note that after reconfiguring backup with V2, the snapshots that were taken with V1 will no longer be managed by Azure Backup and hence you will have to delete those snapshots manually as per your requirement.
+
+### Can I move my backed up file share to a different resource group?
+ 
+Yes, you can move your backed up file share to a different resource group. However, you will need to reconfigure backup for the file share as it would be treated as a new  resource by Azure Backup. Also, the snapshots that were created before the resource group move, will no longer be managed by Azure backup .Hence, you will have to delete those snapshots manually as per your requirement.
+
 ### What is the maximum retention I can configure for backups?
 
 Refer to the [support matrix](azure-file-share-support-matrix.md) for details on maximum retention. Azure Backup does a real-time calculation of the number of snapshots when you enter the retention values while configuring backup policy. As soon as the number of snapshots corresponding to your defined retention values exceeds 200, the portal will show a warning requesting you to adjust your retention values. This is so you don’t exceed the limit of maximum number of snapshots supported by Azure Files for any file share at any point in time.
