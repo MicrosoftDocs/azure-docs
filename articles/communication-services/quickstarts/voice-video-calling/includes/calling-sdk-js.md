@@ -66,10 +66,10 @@ const oneToOneCall = callAgent.call([CommunicationUser]);
 ```
 
 ### Place a 1:n call with users and PSTN
-> [!WARNING]
-> PSTN calling is currently in private preview. For access, [apply to early adopter program](https://aka.ms/ACS-EarlyAdopter).
+
 To place a 1:n call to a user and a PSTN number you have to specify a CommunicationUser
 and a Phone Number for both callees.
+
 Your Communication Services resource must be configured to allow PSTN calling.
 ```js
 
