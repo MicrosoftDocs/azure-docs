@@ -87,7 +87,7 @@ Now that the content library has been created, you can add an ISO image to deplo
 
 ## Next steps
 
-If you plan to use Hybrid Cloud Extension (HCX) to migrate VM workloads to your private cloud, use the [Install HCX for Azure VMware Solution](hybrid-cloud-extension-installation.md) procedure.
+If you plan to use Hybrid Cloud Extension (HCX) to migrate VM workloads to your private cloud, use the [Install HCX for Azure VMware Solution](tutorial-deploy-vmware-hcx.md) procedure.
 
 <!-- LINKS - external-->
 

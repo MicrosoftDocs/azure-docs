@@ -128,19 +128,19 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 1. Click on the **My Organisation**.
 
-    ![AskYourTeam Configuration](./media/askyourteam-tutorial/user1.png)
+    ![Screenshot shows the My Organisation link.](./media/askyourteam-tutorial/user1.png)
 
 1. Click on **Integrations**.
 
-    ![AskYourTeam Configuration](./media/askyourteam-tutorial/configure1.png)
+    ![Screenshot shows the Integrations link.](./media/askyourteam-tutorial/configure1.png)
 
 1. Click on **Edit Settings**.
 
-    ![AskYourTeam Configuration](./media/askyourteam-tutorial/configure2.png)
+    ![Screenshot shows the Single Sign-On message with an Edit Settings button.](./media/askyourteam-tutorial/configure2.png)
 
 1. On the **Edit Single Sign-On Integration** page, perform the following steps: 
 
-    ![AskYourTeam Configuration](./media/askyourteam-tutorial/configure3.png)
+    ![Screenshot shows Edit Single Sign-On Integration where you can enter the values for this step.](./media/askyourteam-tutorial/configure3.png)
 
     a. In the **SAML Single Sign-On Service URL** textbox, paste the **Login URL** value which you have copied from the Azure portal.
 
@@ -165,15 +165,15 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 1. Click on the **My Organisation**.
 
-    ![AskYourTeam Configuration](./media/askyourteam-tutorial/user1.png)
+    ![Screenshot shows the My Organisation link where you begin this task.](./media/askyourteam-tutorial/user1.png)
 
 1. Click **Users** and select **New User**.
 
-    ![AskYourTeam Configuration](./media/askyourteam-tutorial/user2.png)
+    ![Screenshot shows the Users link with New User.](./media/askyourteam-tutorial/user2.png)
 
 1. On the **New user** section, perform the following steps:
 
-    ![AskYourTeam Configuration](./media/askyourteam-tutorial/user3.png)
+    ![Screenshot shows a New User section where you enter user information.](./media/askyourteam-tutorial/user3.png)
 
     1. In the **First name** textbox, enter the first name of the user.
 

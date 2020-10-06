@@ -109,7 +109,7 @@ Max length: 256
 
 ## Internal: SDK version
 
-SDK version. See [this article](https://github.com/microsoft/ApplicationInsights-Home/blob/master/EndpointSpecs/SDK-VERSIONS.md) for information.
+SDK version. See [this article](https://github.com/MohanGsk/ApplicationInsights-Home/blob/master/EndpointSpecs/SDK-VERSIONS.md) for information.
 
 Max length: 64
 

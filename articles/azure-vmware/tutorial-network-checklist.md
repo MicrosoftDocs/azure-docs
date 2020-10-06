@@ -17,8 +17,6 @@ In this tutorial, you'll learn about:
 > * Required network ports for to communicate with the services
 > * DHCP and DNS considerations in Azure VMware Solution
 
-
-
 ## Virtual network and ExpressRoute circuit considerations
 When you create a virtual network connection in your subscription, the ExpressRoute circuit gets established through peering, uses an authorization key, and a peering ID that you request in the Azure portal. The peering is a private, one-to-one connection between your private cloud and the virtual network.
 

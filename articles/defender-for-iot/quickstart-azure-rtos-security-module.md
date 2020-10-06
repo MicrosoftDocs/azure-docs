@@ -31,7 +31,7 @@ This article provides an explanation of the prerequisites before getting started
 - NXP i.MX RT1060 EVK
 - Microchip SAM E54 Xplained Pro EVK
 
-Download, compile, and run one of the .zip files for the specific board and tool (IAR, semi's IDE or PC) of your choice from the [Security Module for Azure RTOS GitHub resource](hhtps://github.com/azure-rtos/azure-iot-preview/releases).
+Download, compile, and run one of the .zip files for the specific board and tool (IAR, semi's IDE or PC) of your choice from the [Security Module for Azure RTOS GitHub resource](https://github.com/azure-rtos/azure-iot-preview/releases).
 
 ### Azure resources
 

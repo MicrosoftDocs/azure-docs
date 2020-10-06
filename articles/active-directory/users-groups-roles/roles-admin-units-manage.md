@@ -28,9 +28,6 @@ For more granular administrative control in Azure Active Directory (Azure AD), y
 
     ![Screenshot showing link to "Grant admin consent"](./media/roles-admin-units-manage/select-graph-explorer.png)
 
-    b. In Graph Explorer, select the **beta** version.
-
-    ![Screenshot showing the beta version selected](./media/roles-admin-units-manage/select-beta-version.png)
 
 1. Use the preview version of Azure AD PowerShell.
 
@@ -54,7 +51,7 @@ Install Azure AD PowerShell (preview) before you try to run the following comman
 
 ```powershell
 Connect-AzureAD
-New-AzureADAdministrativeUnit -Description "West Coast region" -DisplayName "West Coast"
+New-AzureADMSAdministrativeUnit -Description "West Coast region" -DisplayName "West Coast"
 ```
 
 You can modify the values that are enclosed in quotation marks, as required.
@@ -86,8 +83,8 @@ In Azure AD, you can remove an administrative unit that you no longer need as a 
 ### Use PowerShell
 
 ```powershell
-$delau = Get-AzureADAdministrativeUnit -Filter "displayname eq 'DeleteMe Admin Unit'"
-Remove-AzureADAdministrativeUnit -ObjectId $delau.ObjectId
+$delau = Get-AzureADMSAdministrativeUnit -Filter "displayname eq 'DeleteMe Admin Unit'"
+Remove-AzureADMSAdministrativeUnit -ObjectId $delau.ObjectId
 ```
 
 You can modify the values that are enclosed in quotation marks, as required for the specific environment.

@@ -8,7 +8,7 @@ ms.subservice: core
 ms.topic: conceptual
 ms.author: sgilley
 author: sdgilley
-ms.date: 07/27/2020
+ms.date: 09/29/2020
 # As a data scientist, I want to understand what a compute target is and why I need it.
 ---
 
@@ -24,18 +24,31 @@ In a typical model development lifecycle, you might:
 The compute resources you use for your compute targets are attached to a [workspace](concept-workspace.md). Compute resources other than the local machine are shared by users of the workspace.
 
 ## <a name="train"></a> Training compute targets
-
-Azure Machine Learning has varying support across different compute resources.  You can also attach your own compute resource, although support for various scenarios may vary.
+Azure Machine Learning has varying support across different compute targets. A typical model development lifecycle starts with dev/experimentation on a small amount of data. At this stage, we recommend using a local environment. For example, your local computer or a cloud-based VM. As you scale up your training on larger data sets, or perform distributed training, we recommend using Azure Machine Learning Compute to create a single- or multi-node cluster that autoscales each time you submit a run. You can also attach your own compute resource, although support for various scenarios may vary as detailed below:
 
 [!INCLUDE [aml-compute-target-train](../../includes/aml-compute-target-train.md)]
 
-Learn more about [using a compute target for model training](how-to-set-up-training-targets.md).
+Learn more about how to [submit a training run to a compute target](how-to-set-up-training-targets.md).
 
-## <a name="deploy"></a>Deployment targets
+## <a name="deploy"></a> Compute targets for inference
 
 The following compute resources can be used to host your model deployment.
 
 [!INCLUDE [aml-compute-target-deploy](../../includes/aml-compute-target-deploy.md)]
+
+When performing inference, Azure Machine Learning creates a Docker container that hosts the model and associated resources needed to use it. This container is then used in one of the following deployment scenarios:
+
+* As a __web service__ that is used for real-time inference. Web service deployments use one of the following compute targets:
+
+    * [Local computer](how-to-attach-compute-targets.md#local)
+    * [Azure Machine Learning compute instance](how-to-create-manage-compute-instance.md)
+    * [Azure Container Instances](how-to-attach-compute-targets.md#aci)
+    * [Azure Kubernetes Services](how-to-create-attach-kubernetes.md)
+    * Azure Functions (preview). Deployment to Azure Functions only relies on Azure Machine Learning to build the Docker container. From there, it is deployed using Azure Functions. For more information, see [Deploy a machine learning model to Azure Functions (preview)](how-to-deploy-functions.md).
+
+* As a __batch inference__ endpoint that is used to periodically process batches of data. Batch inferences uses [Azure Machine Learning compute cluster](how-to-create-attach-compute-cluster.md).
+
+* To an __IoT device__ (preview). Deployment to an IoT device only relies on Azure Machine Learning to build the Docker container. From there, it is deployed using Azure IoT Edge. For more information, see [Deploy as an IoT Edge module (preview)](/azure/iot-edge/tutorial-deploy-machine-learning).
 
 Learn [where and how to deploy your model to a compute target](how-to-deploy-and-where.md).
 
@@ -46,8 +59,9 @@ A managed compute resource is created and managed by Azure Machine Learning. Thi
 
 You can create Azure Machine Learning compute instances or compute clusters from:
 * [Azure Machine Learning studio](how-to-create-attach-compute-studio.md)
-* Azure portal
-* Python SDK [ComputeInstance](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.computeinstance%28class%29?view=azure-ml-py&preserve-view=true) and [AmlCompute](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.amlcompute%28class%29?view=azure-ml-py&preserve-view=true) classes
+* Python SDK and CLI:
+    * [Compute instance](how-to-create-manage-compute-instance.md)
+    * [Compute cluster](how-to-create-attach-compute-cluster.md)
 * [R SDK](https://azure.github.io/azureml-sdk-for-r/reference/index.html#section-compute-targets) (preview)
 * Resource Manager template. For an example template, see the [create Azure Machine Learning compute template](https://github.com/Azure/azure-quickstart-templates/tree/master/101-machine-learning-compute-create-amlcompute).
 * Machine learning [extension for the Azure CLI](reference-azure-machine-learning-cli.md#resource-management).  
@@ -64,7 +78,7 @@ When created these compute resources are automatically part of your workspace, u
 
 
 > [!NOTE]
-> When a compute cluster is idle, it autoscales to 0 nodes, so you don't pay when it's not in use.  A compute *instance*, however, is always on and does not autoscale.  You should [stop the compute instance](concept-compute-instance.md#managing-a-compute-instance) when you are not using it to avoid extra cost. 
+> When a compute cluster is idle, it autoscales to 0 nodes, so you don't pay when it's not in use.  A compute *instance*, however, is always on and does not autoscale.  You should [stop the compute instance](how-to-create-manage-compute-instance.md#manage) when you are not using it to avoid extra cost. 
 
 ### Supported VM series and sizes
 
@@ -97,6 +111,20 @@ See the following table to learn more about supported series and restrictions.
 
 
 While Azure Machine Learning supports these VM series, they may not be available in all Azure regions. You can check with VM series are available here: [Products Available by Region](https://azure.microsoft.com/global-infrastructure/services/?products=virtual-machines).
+
+### Compute Isolation
+
+Azure Machine Learning Compute offers virtual machine sizes that are Isolated to a specific hardware type and dedicated to a single customer. Isolated virtual machine sizes are best suited for workloads that require a high degree of isolation from other customers’ workloads for reasons that include meeting compliance and regulatory requirements. Utilizing an isolated size guarantees that your virtual machine will be the only one running on that specific server instance.
+
+The current Isolated virtual machine offerings include:
+* Standard_M128ms
+* Standard_F72s_v2
+* Standard_NC24s_v3
+* Standard_NC24rs_v3*
+
+*RDMA capable
+
+Refer here to learn more about [Isolation in the Azure Public Cloud](https://docs.microsoft.com/azure/security/fundamentals/isolation-choices).
 
 ## Unmanaged compute
 

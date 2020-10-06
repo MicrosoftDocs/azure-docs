@@ -4,7 +4,7 @@ description: Learn about the benefits and features of Azure Defender for servers
 author: memildin
 ms.author: memildin
 ms.date: 9/23/2020
-ms.topic: conceptual
+ms.topic: overview
 ms.service: security-center
 manager: rkarlin
 
