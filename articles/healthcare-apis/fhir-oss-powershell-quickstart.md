@@ -36,14 +36,18 @@ The Microsoft FHIR Server for Azure [GitHub Repository](https://github.com/Micro
 ```azurepowershell-interactive
 New-AzResourceGroupDeployment -TemplateUri https://raw.githubusercontent.com/Microsoft/fhir-server/master/samples/templates/default-azuredeploy.json -ResourceGroupName $rg.ResourceGroupName -serviceName $fhirServiceName
 ```
-Note: If you are not already logged in, run the commands below first.
+
+> [!NOTE]
+> If you aren't already logged in, run the following commands first.
 
 ```azurepowershell-interactive
 Connect-AzAccount
 get-azsubscription
 Set-AzContext -SubscriptionId yoursubscriptionid
 ```
+
 To use an existing resource group, change $rg values in the $rg variable definition line and the Azure ARM template deployment command line, as shown in the code.
+
 ```azurepowershell-interactive
 $fhirServiceName = "MyFhirService"
 $rg = "MyExistingResourceGroupName"
