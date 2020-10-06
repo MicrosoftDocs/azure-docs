@@ -149,25 +149,25 @@ Next, add a condition that checks the approver's selected response.
 
    ![Screenshot that shows the "Choose an operation" search box with "Built-in" selected and "condition" as the search term, while the "Condition" action appears selected.](./media/tutorial-process-mailing-list-subscriptions-workflow/select-condition-action.png)
 
-1. On the **Condition** shape, select the **ellipses** (**...**) button, and then select **Rename**. Rename the condition with this description: `If request approved`
+1. In the **Condition** title bar, select the **ellipses** (**...**) button, and then select **Rename**. Rename the condition with this description: `If request approved`
 
    ![Screenshot that shows the ellipses button selected with the "Settings" list opened and the "Rename" command selected.](./media/tutorial-process-mailing-list-subscriptions-workflow/rename-condition-description.png)
 
 1. Build a condition that checks whether the approver selected **Approve**.
 
-   1. In the condition, click inside the **Choose a value** box on the condition's left side.
+   1. On the condition's left side, click inside the **Choose a value** box.
 
    1. From the dynamic content list that appears, under **Send approval email**, select the **SelectedOption** property.
 
-      ![From dynamic content list, select "SelectedOption"](./media/tutorial-process-mailing-list-subscriptions-workflow/build-condition-check-approval-response.png)
+      ![Screenshot that shows the dynamic content list where in the "Send approval email" section, the "SelectedOption" output appears selected.](./media/tutorial-process-mailing-list-subscriptions-workflow/build-condition-check-approval-response.png)
 
    1. In the middle comparison box, select the **is equal to** operator.
 
-   1. In the **Choose a value** box on the condition's right side, enter this text: `Approve`
+   1. On the condition's right side, in the **Choose a value** box, enter the text, `Approve`.
 
       When you're done, the condition looks like this example:
 
-      ![Finished condition for Approved example](./media/tutorial-process-mailing-list-subscriptions-workflow/build-condition-check-approval-response-2.png)
+      ![Screenshot that shows the finished condition for the approved request example](./media/tutorial-process-mailing-list-subscriptions-workflow/build-condition-check-approval-response-2.png)
 
 1. Save your logic app.
 
@@ -177,11 +177,11 @@ Next, specify the action that your logic app performs when the reviewer approves
 
 Now add an action that adds the approved member to your mailing list.
 
-1. In the condition's **If true** branch, select **Add an action**.
+1. In the condition's **True** branch, select **Add an action**.
 
-1. Under **Choose an action**, enter `mailchimp` as your filter, and select the **Add member to list** action.
+1. Under the **Choose an operation** search box, select **All**. In the search box, enter `mailchimp`, and select the action named **Add member to list**.
 
-   ![Select "Add member to list" action](./media/tutorial-process-mailing-list-subscriptions-workflow/add-action-mailchimp-add-member.png)
+   ![Screenshot that shows the Select "Add member to list" action](./media/tutorial-process-mailing-list-subscriptions-workflow/add-action-mailchimp-add-member.png)
 
 1. If you're prompted for access to your MailChimp account, sign in with your MailChimp credentials.
 
@@ -204,9 +204,9 @@ Next, add a condition so that you can check whether the new member successfully 
 
 ## Check for success or failure
 
-1. In the **If true** branch, under the **Add member to list** action, select **Add an action**.
+1. In the **True** branch, under the **Add member to list** action, select **Add an action**.
 
-1. Under **Choose an action**, select **Built-in**. In the search box, enter `condition` as your filter. From the actions list, select **Condition**.
+1. Under **Choose an operation**, select **Built-in**. In the search box, enter `condition` as your filter. From the actions list, select **Condition**.
 
 1. Rename the condition with this description: `If add member succeeded`
 
@@ -230,11 +230,11 @@ Next, set up the emails to send when the approved member succeeds or fails in jo
 
 ## Send email if member added
 
-1. Under the **If add member succeeded** condition, in the **If true** branch, select **Add an action**.
+1. Under the **If add member succeeded** condition, in the **True** branch, select **Add an action**.
 
-   ![In "If true" branch, select "Add an action"](./media/tutorial-process-mailing-list-subscriptions-workflow/add-action-email-success.png)
+   ![In "True" branch, select "Add an action"](./media/tutorial-process-mailing-list-subscriptions-workflow/add-action-email-success.png)
 
-1. Under **Choose an action**, in the search box, enter `outlook send email` as your filter, and select the **Send an email** action.
+1. Under **Choose an operation**, in the search box, enter `outlook send email` as your filter, and select the **Send an email** action.
 
    ![Add "Send an email" action](./media/tutorial-process-mailing-list-subscriptions-workflow/add-action-email-success-2.png)
 
@@ -255,11 +255,11 @@ Next, set up the emails to send when the approved member succeeds or fails in jo
 
 ## Send email if member not added
 
-1. Under the **If add member succeeded** condition, in the **If false** branch, select **Add an action**.
+1. Under the **If add member succeeded** condition, in the **False** branch, select **Add an action**.
 
-   ![In "If false" branch, select "Add an action"](./media/tutorial-process-mailing-list-subscriptions-workflow/add-action-email-failed.png)
+   ![In the "False" branch, select "Add an action"](./media/tutorial-process-mailing-list-subscriptions-workflow/add-action-email-failed.png)
 
-1. Under **Choose an action**, in the search box, enter `outlook send email` as your filter, and select the **Send an email** action.
+1. Under **Choose an operation**, in the search box, enter `outlook send email` as your filter, and select the **Send an email** action.
 
    ![Add action for "Send an email"](./media/tutorial-process-mailing-list-subscriptions-workflow/add-action-email-failed-2.png)
 
