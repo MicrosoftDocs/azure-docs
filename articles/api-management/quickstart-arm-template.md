@@ -7,7 +7,7 @@ ms.service: azure-resource-manager
 ms.topic: quickstart
 ms.custom: subject-armqs
 ms.author: danlep
-ms.date: 10/05/2020
+ms.date: 10/06/2020
 ---
 
 # Quickstart: Create a new Azure API Management service instance using an ARM template
@@ -41,16 +41,16 @@ More Azure API Management template samples can be found in [Azure Quickstart Tem
 
 1. Select the following image to sign in to Azure and open a template. The template creates an API Management service instance with an automatically generated name. 
   
-    In this example, the instance is configured in the Developer tier, an economical option to evaluate Azure API Management. This tier isn't for production use. For more information about scaling the API Management tiers, see [upgrade and scale](upgrade-and-scale.md).
-
     [![Deploy to Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-azure-api-management-create%2Fazuredeploy.json)
+
+    In this example, the instance is configured in the Developer tier, an economical option to evaluate Azure API Management. This tier isn't for production use. For more information about scaling the API Management tiers, see [upgrade and scale](upgrade-and-scale.md).
 
 1. Select or enter the following values.
     * **Subscription**: select an Azure subscription.
     * **Resource group**: select **Create new**, enter a unique name for the resource group, and then select **OK**.
-    * **Location**: select a location for the resource group. Example: **Central US**.
+    * **Region**: select a location for the resource group. Example: **Central US**.
     * **Publisher Email**: enter an email address to receive notifications.
-    * **Publisher Name**: enter the name of the API publisher.
+    * **Publisher Name**: enter a name you choose for the API publisher.
     * **Sku**: accept the default value of **Developer**. 
     * **Sku Count**: accept the default value.
     * **Location**: accept the generated location for the API Management service.
@@ -85,7 +85,7 @@ When your API Management service instance is online, you're ready to use it. Sta
 
 If you plan to continue working with subsequent tutorials, you might want to leave the API Management instance in place. When no longer needed, delete the resource group, which deletes the resources in the resource group.
 
-1. In the Azure portal, search for and select **Resource groups**. You can also select **Resource groups** on the Home page.
+1. In the Azure portal, search for and select **Resource groups**. You can also select **Resource groups** on the **Home** page.
 1. On the **Resource groups** page, select your resource group.
 1. On the resource group page, select **Delete resource group**.
 
