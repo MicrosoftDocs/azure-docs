@@ -11,7 +11,7 @@ ms.date: 10/02/2020
 
 # Cognitive Services docs: What's new for September 1, 2020 - September 30, 2020
 
-Welcome to what's new in the Cognitive Services docs from August 1, 2020 through August 31, 2020. This article lists some of the major changes to docs during this period.
+Welcome to what's new in the Cognitive Services docs from September 1, 2020 through September 31, 2020. This article lists some of the major changes to docs during this period.
 
 ## Cognitive Services
 
@@ -21,6 +21,17 @@ Welcome to what's new in the Cognitive Services docs from August 1, 2020 through
 - [Quickstart: Create a Cognitive Services resource using the Azure Management client library](cognitive-services-apis-create-account-client-library.md)
 - [Quickstart: Create a Cognitive Services resource using the Azure portal](cognitive-services-apis-create-account.md)
 - [Quickstart: Create a Cognitive Services resource using an ARM template](create-account-resource-manager-template.md)
+
+## Computer Vision
+
+### New articles
+
+- [Introduction to Computer Vision spatial analysis](https://docs.microsoft.com/legal/cognitive-services/computer-vision/intro-to-spatial-analysis-public-preview?context=/azure/cognitive-services/Computer-vision/context/context)
+- [Responsible use in AI deployment for Computer Vision spatial analysis](https://docs.microsoft.com/legal/cognitive-services/computer-vision/responsible-use-deployment?context=/azure/cognitive-services/Computer-vision/context/context)
+- [Research Insights for Computer Vision spatial analysis](https://docs.microsoft.com/legal/cognitive-services/computer-vision/research-insights?context=/azure/cognitive-services/Computer-vision/context/context)
+- [Disclosure Design Guidelines for Computer Vision spatial analysis](https://docs.microsoft.com/legal/cognitive-services/computer-vision/disclosure-design?context=/azure/cognitive-services/Computer-vision/context/context)
+- [Compliance, privacy, and security for Computer Vision spatial analysis](https://docs.microsoft.com/legal/cognitive-services/computer-vision/compliance-privacy-security-2?context=/azure/cognitive-services/Computer-vision/context/context)
+- [Characteristics and limitations for Computer Vision spatial analysis](https://docs.microsoft.com/legal/cognitive-services/computer-vision/accuracy-and-limitations?context=/azure/cognitive-services/Computer-vision/context/context)
 
 ## Containers
 
