@@ -31,7 +31,7 @@ To configure Azure AD integration with Sectigo Certificate Manager, you need the
 * An Azure AD subscription. If you don't have an Azure AD subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
 * Sectigo Certificate Manager account.
 
-NOTE: Sectigo runs multiple instances of SCM, with the main instance being **cert-manager.com**.  URLs used in this tutorial will reference that instance.  If your account is on a separate instance the URLs will need to be adjusted accordingly.
+NOTE: Sectigo runs multiple instances of SCM, with the main instance being **https:\//cert-manager.com**.  URLs used in this tutorial will reference that instance.  If your account is on a separate instance the URLs will need to be adjusted accordingly.
 
 ## Scenario description
 
@@ -98,10 +98,12 @@ In this section, you configure Azure AD single sign-on with Sectigo Certificate 
 1. In the **Basic SAML Configuration** section complete the following steps:
 
     1. In the **Identifier (Entity ID)** box, enter:
-	   * https:\//cert-manager.com/shibboleth
+        * For main SCM instance:
+            * https:\//cert-manager.com/shibboleth
 
     1. In the **Reply URL** box, enter this URL:
-        * https:\//cert-manager.com/Shibboleth.sso/SAML2/POST
+        * For main SCM instance:
+            * https:\//cert-manager.com/Shibboleth.sso/SAML2/POST
         
     NOTE: Azure documents that the **Sign on URL** is mandatory for *SP-initiated mode* but it is not needed to login from SCM.        
 
@@ -110,7 +112,8 @@ In this section, you configure Azure AD single sign-on with Sectigo Certificate 
 	1. Select **Set additional URLs**.
 
 	1. In the **Relay State** box, enter your SCM customer specific URL:
-	   * https:\//cert-manager.com/customer/*customerURI*/idp
+        * For main SCM instance:
+            * https:\//cert-manager.com/customer/*customerURI*/idp
 
     ![Sectigo Certificate Manager domain and URLs single sign-on information](common/idp-relay.png)
 
@@ -197,7 +200,7 @@ In this section, you test your Azure AD single sign-on configuration.
 
 #### Test from Sectigo Certificate Manager (SP-initiated single sign-on)
 
-Browse to your customer specific URL, i.e. https:\//cert-manager.com/customer/*customerURI*/ and click the button below **Or Sign In With**.  If configured correctly you will be automatically signed in to Sectigo Certificate Manager.
+Browse to your customer specific URL, for main SCM instance https:\//cert-manager.com/customer/*customerURI*/, and click the button below **Or Sign In With**.  If configured correctly you will be automatically signed in to Sectigo Certificate Manager.
 
 #### Test from Azure Single sign-on configuration (IDP-initiated single sign-on)
 
