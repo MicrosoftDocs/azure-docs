@@ -21,6 +21,9 @@ ms.reviewer: baanders
 
 Azure Digital Twins does not currently have a certified (pre-built) connector for Logic Apps. Instead, the current process for using Logic Apps with Azure Digital Twins is to create a [**custom Logic Apps connector**](../logic-apps/custom-connector-overview.md), using a [custom Azure Digital Twins Swagger](https://docs.microsoft.com/samples/azure-samples/digital-twins-custom-swaggers/azure-digital-twins-custom-swaggers/) that has been modified to work with Logic Apps.
 
+> [!NOTE]
+> The custom Swagger linked above is the latest version. The earlier preview version, also located in the sample, is also still supported.
+
 In this article, you will use the [Azure portal](https://portal.azure.com) to **create a custom connector** that can be used to connect Logic Apps to an Azure Digital Twins instance. You will then **create a logic app** that uses this connection for an example scenario, in which events triggered by a timer will automatically update a twin in your Azure Digital Twins instance. 
 
 ## Prerequisites
