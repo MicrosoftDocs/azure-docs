@@ -32,10 +32,10 @@ An Azure subscription and GitHub account.
 
 You can create a [service principal](../../active-directory/develop/app-objects-and-service-principals.md#service-principal-object) with the [az ad sp create-for-rbac](/cli/azure/ad/sp?view=azure-cli-latest#az-ad-sp-create-for-rbac&preserve-view=true) command in the [Azure CLI](/cli/azure/). Run this command with [Azure Cloud Shell](https://shell.azure.com/) in the Azure portal or by selecting the **Try it** button.
 
+Replace the placeholder `myStaticSite` with the name of your site hosted in Azure Storage. 
+
 ```azurecli-interactive
-   az ad sp create-for-rbac --name "myStorageApp" --role contributor \
-                            --scopes /subscriptions/{subscription-id}/resourceGroups/{resource-group} \
-                            --sdk-auth
+   az ad sp create-for-rbac --name <myStaticSite> --role contributor --scopes /subscriptions/{subscription-id}/resourceGroups/{resource-group} --sdk-auth
 ```
 
 In the example above, replace the placeholders with your subscription ID and resource group name. The output is a JSON object with the role assignment credentials that provide access to your App Service app similar to below. Copy this JSON object for later.
@@ -57,7 +57,7 @@ In the example above, replace the placeholders with your subscription ID and res
 
 1. In [GitHub](https://github.com/), browse your repository.
 
-1. Select **Settings > Secrets > Add a new secret**.
+1. Select **Settings > Secrets > New secret**.
 
 1. Paste the entire JSON output from the Azure CLI command into the secret's value field. Give the secret the name like `AZURE_CREDENTIALS`.
 
@@ -75,7 +75,7 @@ In the example above, replace the placeholders with your subscription ID and res
 
     :::image type="content" source="media/storage-blob-static-website/storage-blob-github-actions-header.png" alt-text="GitHub actions menu item":::
 
-1. Select _Set up your workflow yourself_. 
+1. Select **Set up your workflow yourself**. 
 
 1. Delete everything after `branches: [ master ]`. Your remaining workflow should look like this. 
 
@@ -127,21 +127,17 @@ In the example above, replace the placeholders with your subscription ID and res
             az cdn endpoint purge --content-paths  "/*" --profile-name "CDN_PROFILE_NAME" --name "CDN_ENDPOINT" --resource-group "RESOURCE_GROUP"
     ``` 
 
-1. Complete your workflow by adding an action to logout of Azure. Here is the completed workflow. 
+1. Complete your workflow by adding an action to logout of Azure. Here is the completed workflow. The file will appear in the `.github/workflows` folder of your repository.
 
     ```yaml
-    name: Blob storage website CI
+   name: Blob storage website CI
 
-    on:
-    push:
-        branches: [ master ]
-    pull_request:
-        branches: [ master ]
+    on: [push]
 
     jobs:
     build:
-    runs-on: ubuntu-latest
-    steps:
+        runs-on: ubuntu-latest
+        steps:
         - uses: actions/checkout@v2
         - name: Azure Login
         uses: azure/login@v1
@@ -159,10 +155,10 @@ In the example above, replace the placeholders with your subscription ID and res
             azcliversion: 2.0.72
             inlineScript: |
             az cdn endpoint purge --content-paths  "/*" --profile-name "CDN_PROFILE_NAME" --name "CDN_ENDPOINT" --resource-group "RESOURCE_GROUP"
-        # Azure logout 
+            # Azure logout 
         - name: logout
-        run: |
-            az logout
+          run: |
+                az logout
     ```
 
 ## Review your deployment
