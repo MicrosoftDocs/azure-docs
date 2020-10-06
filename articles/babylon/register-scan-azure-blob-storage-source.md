@@ -37,12 +37,11 @@ There are four ways to set up authentication for Azure blob storage: <br />
 
 ### Managed Identity
 When you choose **Managed Identity**, you must let Catalog's managed identity authenticate with your Azure Blob account. To set up the connection, you must first give your Catalog the permission to scan the data source. Please see steps in the article here.
-<br /><br />
+<br />
 
 ### Account Key
 When authentication method selected is **Account Key**, select "Enter manually" option and paste the access key from Azure blob storage account within settings.
-
-<br /><br />
+<br />
 
 ### SAS URL
 To use a SAS URL, you need to generate one. To learn more about how to do this, see this [article](https://docs.microsoft.com/azure/storage/common/storage-sas-overview)
