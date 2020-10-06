@@ -8739,6 +8739,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/logic-apps/call-logic-apps-from-power-automate-power-apps.md",
+      "redirect_url": "/azure/logic-apps/call-from-power-automate-power-apps",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/connectors/connectors-overview.md",
       "redirect_url": "/azure/connectors/apis-list",
       "redirect_document_id": true
@@ -30040,6 +30045,11 @@
     {
       "source_path": "articles/sentinel/connect-microsoft-waf.md",
       "redirect_url": "/azure/sentinel/connect-azure-waf",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/security-center/security-center-features-retirement-july2019.md",
+      "redirect_url": "/azure/security-center/security-center-introduction",
       "redirect_document_id": false
     },
     {
@@ -57993,6 +58003,11 @@
     {
       "source_path": "articles/azure-cache-for-redis/cache-migrate-to-redis.md",
       "redirect_url": "/azure/azure-cache-for-redis/cache-overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-monitor/app/performance-testing.md",
+      "redirect_url": "/azure/azure-monitor/azure-monitor-app-hub",
       "redirect_document_id": false
     }
   ]
