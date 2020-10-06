@@ -438,6 +438,10 @@
                 href: how-to-custom-commands-debug-build-time.md
               - name: Debug errors when running the app
                 href: how-to-custom-commands-debug-runtime.md
+              - name: Skills
+                items:
+                - name: Export your Custom Commands app as a skill
+                  href: how-to-custom-commands-integrate-remote-skills.md
             - name: References
               items:
                 - name: Custom Commands concepts
