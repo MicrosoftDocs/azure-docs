@@ -13,7 +13,7 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 09/28/2020
+ms.date: 10/05/2020
 ms.author: b-juche
 ---
 # Create a dual-protocol (NFSv3 and SMB) volume for Azure NetApp Files
@@ -35,6 +35,7 @@ Azure NetApp Files supports creating volumes using NFS (NFSv3 and NFSv4.1), SMBv
 * Ensure that the NFS client is up to date and running the latest updates for the operating system.
 * Ensure that the Active Directory (AD) LDAP server is up and running on the AD. This is done by installing and configuring the [Active Directory Lightweight Directory Services (AD LDS)](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/hh831593(v=ws.11)) role on the AD machine.
 * Ensure that a certificate authority (CA)  is created on the AD using the [Active Directory Certificate Services (AD CS)](https://docs.microsoft.com/windows-server/networking/core-network-guide/cncg/server-certs/install-the-certification-authority) role to generate and export the self-signed root CA certificate.   
+* Dual-protocol volumes do not currently support Azure Active Directory Domain Services (AADDS).  
 
 ## Create a dual-protocol volume
 

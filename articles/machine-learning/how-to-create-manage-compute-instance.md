@@ -41,7 +41,7 @@ Compute instances can run jobs securely in a [virtual network environment](how-t
 
 Creating a compute instance is a one time process for your workspace. You can reuse this compute as a development workstation or as a compute target for training. You can have multiple compute instances attached to your workspace.
 
-The dedicated cores per region per VM family quota and total regional quota, which applies to compute instance creation, is unified and shared with Azure Machine Learning training compute cluster quota. Stopping the compute instance does not release quota to ensure you will be able to restart the compute instance.
+The dedicated cores per region per VM family quota and total regional quota, which applies to compute instance creation, is unified and shared with Azure Machine Learning training compute cluster quota. Stopping the compute instance does not release quota to ensure you will be able to restart the compute instance. Please note it is not possible to change the virtual machine size of compute instance once it is created.
 
 The following example demonstrates how to create a compute instance:
 
@@ -103,7 +103,7 @@ You can also create a compute instance with an [Azure Resource Manager template]
 ### Create on behalf of (preview)
 
 As an administrator, you can create a compute instance on behalf of a data scientist and assign the instance to them with:
-* [Azure Resource Manager template](https://github.com/Azure/azure-rest-api-specs/blob/master/specification/machinelearningservices/resource-manager/Microsoft.MachineLearningServices/preview/2020-09-01-preview/examples/createComputeInstance.json).  For details on how to find the TenantID and ObjectID needed in this template, see [Find identity object IDs for authentication configuration](../healthcare-apis/find-identity-object-ids.md).  You can also find these values in the Azure Active Directory portal.
+* [Azure Resource Manager template](https://github.com/Azure/azure-quickstart-templates/tree/master/101-machine-learning-compute-create-computeinstance).  For details on how to find the TenantID and ObjectID needed in this template, see [Find identity object IDs for authentication configuration](../healthcare-apis/find-identity-object-ids.md).  You can also find these values in the Azure Active Directory portal.
 * REST API
 
 The data scientist you create the compute instance for needs the following be [Azure role-based access control (RBAC)](../role-based-access-control/overview.md) permissions: 
