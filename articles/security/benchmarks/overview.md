@@ -39,8 +39,6 @@ The following controls are included in the Azure Security Benchmark:
 | [Backup&nbsp;and&nbsp;Recovery&nbsp;(BR)](security-controls-v2-backup-recovery.md) | Backup and Recovery covers controls to ensure that data and configuration backups at the different service tiers are performed, validated, and protected. |
 | [Governance&nbsp;and&nbsp;Strategy&nbsp;(GS)](security-controls-v2-governance-strategy.md) | Governance and Strategy provides guidance for ensuring a coherent security strategy and documented governance approach to guide and sustain security assurance, including establishing roles and responsibilities for the different cloud security functions, unified technical strategy, and supporting policies and standards. |
 
-You can also download the Azure Security Benchmark in [spreadsheet format](https://github.com/MicrosoftDocs/SecurityBenchmarks/tree/master/Azure%20Security%20Benchmark).
-
 ## Azure Security Benchmark Recommendations
 
 Each recommendation includes the following information:
@@ -57,7 +55,11 @@ Each recommendation includes the following information:
 
 We welcome your detailed feedback and active participation in the Azure Security Benchmark effort. If you would like to provide the Azure Security Benchmark team direct input, fill out the form at https://aka.ms/AzSecBenchmark
 
+## Download
 
+You can download the Azure Security Benchmark in [spreadsheet format](https://github.com/MicrosoftDocs/SecurityBenchmarks/tree/master/Azure%20Security%20Benchmark).
+
+## Next steps 
 - See the first security control: [Network security](security-control-network-security.md)
 - Read the [Azure Security Benchmark introduction](introduction.md)
-- Download the [Azure Security Benchmark v2 excel spreadsheet](https://github.com/MicrosoftDocs/SecurityBenchmarks/tree/master/Azure%20Security%20Benchmark)
+- Learn the [Azure Security Fundamentals](../fundamentals/index.yml)
