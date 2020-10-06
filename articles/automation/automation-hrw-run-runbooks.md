@@ -3,9 +3,10 @@ title: Run Azure Automation runbooks on a Hybrid Runbook Worker
 description: This article describes how to run runbooks on machines in your local datacenter or other cloud provider with the Hybrid Runbook Worker.
 services: automation
 ms.subservice: process-automation
-ms.date: 09/22/2020
+ms.date: 10/06/2020
 ms.topic: conceptual
 ---
+
 # Run runbooks on a Hybrid Runbook Worker
 
 Runbooks that run on a [Hybrid Runbook Worker](automation-hybrid-runbook-worker.md) typically manage resources on the local computer or against resources in the local environment where the worker is deployed. Runbooks in Azure Automation typically manage resources in the Azure cloud. Even though they are used differently, runbooks that run in Azure Automation and runbooks that run on a Hybrid Runbook Worker are identical in structure.
@@ -188,14 +189,13 @@ The following example creates a self-signed certificate that can be used for sig
 ```powershell
 # Create a self-signed certificate that can be used for code signing
 $SigningCert = New-SelfSignedCertificate -CertStoreLocation cert:\LocalMachine\my `
-                                        -Subject "CN=contoso.com" `
-                                        -KeyAlgorithm RSA `
-                                        -KeyLength 2048 `
-                                        -Provider "Microsoft Enhanced RSA and AES Cryptographic Provider" `
-                                        -KeyExportPolicy Exportable `
-                                        -KeyUsage DigitalSignature `
-                                        -Type CodeSigningCert
-
+    -Subject "CN=contoso.com" `
+    -KeyAlgorithm RSA `
+    -KeyLength 2048 `
+    -Provider "Microsoft Enhanced RSA and AES Cryptographic Provider" `
+    -KeyExportPolicy Exportable `
+    -KeyUsage DigitalSignature `
+    -Type CodeSigningCert
 
 # Export the certificate so that it can be imported to the hybrid workers
 Export-Certificate -Cert $SigningCert -FilePath .\hybridworkersigningcertificate.cer
@@ -241,6 +241,13 @@ To be able to work with signed runbooks, a Linux Hybrid Runbook Worker must have
 > [!IMPORTANT]
 > Once you've configured a Hybrid Runbook Worker to run only signed runbooks, unsigned runbooks fail to execute on the worker.
 
+You will perform the following steps to complete this configuration:
+
+* Create a GPG keyring and keypair
+* Make the keyring available to the Hybrid Runbook Worker
+* Verify that signature validation is on
+* Sign a runbook
+
 ### Create a GPG keyring and keypair
 
 To create the GPG keyring and keypair, use the Hybrid Runbook Worker [nxautomation account](automation-runbook-execution.md#log-analytics-agent-for-linux).
@@ -265,10 +272,10 @@ To create the GPG keyring and keypair, use the Hybrid Runbook Worker [nxautomati
 
 ### Make the keyring available to the Hybrid Runbook Worker
 
-Once the keyring has been created, make it available to the Hybrid Runbook Worker. Modify the settings file **/var/opt/microsoft/omsagent/state/automationworker/diy/worker.conf** to include the following example code under the file section `[worker-optional]`.
+Once the keyring has been created, make it available to the Hybrid Runbook Worker. Modify the settings file **home/nxautomation/state/worker.conf** to include the following example code under the file section `[worker-optional]`.
 
 ```bash
-gpg_public_keyring_path = /var/opt/microsoft/omsagent/run/.gnupg/pubring.kbx
+gpg_public_keyring_path = /home/nxautomation/run/.gnupg/pubring.kbx
 ```
 
 ### Verify that signature validation is on
