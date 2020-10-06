@@ -28,31 +28,23 @@ In this article, learn how to view and evaluate the results of your automated ma
 
 ## View the run
 
-After your automated machine learning experiment completes, a history of the runs can be found in your machine learning workspace via the Azure Machine Learning studio. 
-
-1. [Sign into the studio](https://ml.azure.com/) and navigate to your workspace.
-
-1. In the left panel of the workspace, select **Runs**.
-
-   ![Screenshot of experiment menu](./media/how-to-understand-automated-ml/workspace-home-screen.png)
-
-1. In the list of experiments, select the one you want to explore.
-
-   [![Experiment list](./media/how-to-understand-automated-ml/azure-machine-learning-auto-ml-experiment-list.png)](./media/how-to-understand-automated-ml/azure-machine-learning-auto-ml-experiment-list-expanded.png)
-
-1. In the bottom table, select the **Run**.
-
-   [![Experiment run](./media/how-to-understand-automated-ml/azure-machine-learning-auto-ml-experiment-run.png)](./media/how-to-understand-automated-ml/azure-machine-learning-auto-ml-experiment-run-expanded.png)
-
-1. In the **Models** tab, select the **Algorithm name** for the model that you want to explore further.
-
-   [![Experiment model](./media/how-to-understand-automated-ml/azure-machine-learning-auto-ml-experiment-model.png)](./media/how-to-understand-automated-ml/azure-machine-learning-auto-ml-experiment-model-expanded.png)
-
-1. On the **Metrics** tab, select what metrics and charts you want to evaluate for that particular model. 
-
-    ![Model metrics](./media/how-to-understand-automated-ml/auto-ml-model-metrics-screen.png)
+After your automated machine learning experiment completes, a history of the runs can be found in your machine learning workspace via the [Azure Machine Learning studio](overview-what-is-machine-learning-studio.md). 
 
 For SDK experiments, you can see these same results during a run when you use the `RunDetails` [Jupyter widget](https://docs.microsoft.com/python/api/azureml-widgets/azureml.widgets?view=azure-ml-py&preserve-view=true).
+
+The following steps and animation show how to view the run history and performance metrics and charts of a specific model in the the studio.
+
+![Steps to view run history and model performance metrics and charts](./media/how-to-understand-automated-ml/view-run-metrics-ui.gif)
+
+To view the run history and model performance metrics and charts in the the studio: 
+
+1. [Sign into the studio](https://ml.azure.com/) and navigate to your workspace.
+1. In the left panel of the workspace, select **Runs**.
+1. In the list of experiments, select the one you want to explore.
+1. In the bottom table, select the **Run**.
+1. In the **Models** tab, select the **Algorithm name** for the model that you want to explore.
+1. On the **Metrics** tab, select what metrics and charts you want to evaluate for that model. 
+
 
 <a name="classification"></a> 
 
@@ -236,9 +228,7 @@ This graph can be used to measure performance of a model as the closer to the y=
 
 ## Histogram of residuals chart
 
-Automated ML automatically provides a residuals chart to show the distribution of errors in the predictions of a regression model. 
-
-A residual is the difference between the prediction and the actual value (`y_pred - y_true`). 
+Automated ML automatically provides a residuals chart to show the distribution of errors in the predictions of a regression model. A residual is the difference between the prediction and the actual value (`y_pred - y_true`). 
 
 ### What does a good model look like?
 To show a margin of error with low bias, the histogram of residuals should be shaped as a bell curve, centered around zero.
