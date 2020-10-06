@@ -10,27 +10,24 @@ ms.service: virtual-machines-sql
 ms.topic: reference
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-ms.date: 09/21/2020
+ms.date: 10/15/2020
 ---
 # Documentation changes for SQL Server on Azure Virtual Machines
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
 
 Azure allows you to deploy a virtual machine (VM) with an image of SQL Server built in. This article summarizes the documentation changes associated with new features and improvements in the recent releases of [SQL Server on Azure Virtual Machines](https://azure.microsoft.com/services/virtual-machines/sql-server/). 
 
-<<<<<<< HEAD
 ## October 2020
 
 | Changes | Details |
 | --- | --- |
 | **DNN for AG** | You can now configure a [distributed network name](hadr-distributed-network-name-dnn-configure.md) for an [availability group listener](availability-group-overview.md#connectivity), replacing the Azure Load Balancer.  | 
 
-=======
 ## September 2020
 
 | Changes | Details |
 | --- | --- |
 | **Automatic RP registration** | You can now enable the [Automatic registration](sql-vm-resource-provider-automatic-registration.md) feature to automatically register all SQL Server VMs already deployed to your subscription, as well as any SQL Server VMs added in the future.  | 
->>>>>>> 241184822202734c5d34741b3958681b46f9b579
 
 
 ## August 2020
