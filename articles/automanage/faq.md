@@ -28,10 +28,13 @@ The following are prerequisites for enabling Azure Automanage:
 - User must have correct permissions
 - Non-scale set VMs only
 - VMs must not link to a log analytics workspace in a different subscription
+- Automanage does not support Sandbox subscriptions at this time
 
-**What RBAC permission is needed to enable Automanage?**
+**What Azure RBAC permission is needed to enable Automanage?**
 
-Users must have the Owner role. Alternatively, users can have the Contributor role along with User Access Administrator role to apply Automanage.
+If you are enabling Automanage on an VM with an existing Automanage Account, you need Contributor role to the Resource Group where the VM resides.
+
+If you are using a new Automanage Account when enabling, you must have either the Owner role or have Contributor + User Access Administrator role to the subscription.
 
 
 **What regions are supported?**
@@ -43,6 +46,9 @@ VMs in the following regions are supported: West Europe, East US, West US 2, Can
 
 Automanage enrolls, configures, and monitors throughout the lifecycle of the VM the services listed [here](virtual-machines-best-practices.md).
 
+**Does Azure Automanage work with Azure Arc-enabled VMs?**
+
+Automanage currently does not support Arc-enabled VMs.
 
 **Can I customize configurations on Azure Automanage?**
 
@@ -77,6 +83,11 @@ Yes, we have a built-in policy that will automatically apply Automanage to all V
 **What is an Automanage account?**
 
 The Automanage Account is an MSI (Managed Service Identity) that provides the security context or the identity under which the automated operations occur.
+
+
+**When enabling Automanage, does it impact any additional VMs besides the VM(s) I selected?**
+
+If your VM is linked to an existing Log Analytics workspace, we will reuse that workspace to apply these solutions: Change Tracking, Inventory, and Update Management. All VMs connected to that workspace will have those solutions enabled.
 
 
 **Can I change the configuration profile of my VM?**

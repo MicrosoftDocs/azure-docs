@@ -247,7 +247,7 @@ Select VMs for migration.
 
 1. In the Azure Migrate project > **Servers**, **Azure Migrate: Server Migration**, click **Replicate**.
 
-    ![Replicate VMs](./media/tutorial-migrate-vmware-agent/select-replicate.png)
+    ![Screenshot of the Servers screen in Azure Migrate. The Replicate button is selected in Azure Migrate: Server Migration under Migration tools.](./media/tutorial-migrate-vmware-agent/select-replicate.png)
 
 2. In **Replicate**, > **Source settings** > **Are your machines virtualized?**, select **Yes, with VMware vSphere**.
 3. In **On-premises appliance**, select the name of the Azure Migrate appliance that you set up.
@@ -255,7 +255,7 @@ Select VMs for migration.
 5. In **Process Server**, select the name of the replication appliance.
 6. In **Guest credentials**, specify the VM admin account that will be used for push installation of the Mobility service. Then click **Next: Virtual machines**.
 
-    ![Replicate VMs](./media/tutorial-migrate-vmware-agent/source-settings.png)
+    ![Screenshot of the Source settings tab in the Replicate screen. The Guest credentials field is highlighted and the value is set to VM-admin-account.](./media/tutorial-migrate-vmware-agent/source-settings.png)
 
 7. In **Virtual Machines**, select the machines that you want to replicate.
 

@@ -69,7 +69,7 @@ In the [deployment manifest](https://go.microsoft.com/fwlink/?linkid=2142179), l
 
 "telegraf": { 
   "settings": {
-  "image":   "mcr.microsoft.com/azure-cognitive-services/spatial-analysis/telegraf:1.0",
+  "image":   "mcr.microsoft.com/azure-cognitive-services/vision/spatial-analysis/telegraf:1.0",
   "createOptions":   "{\"HostConfig\":{\"Runtime\":\"nvidia\",\"NetworkMode\":\"azure-iot-edge\",\"Memory\":33554432,\"Binds\":[\"/var/run/docker.sock:/var/run/docker.sock\"]}}"
 },
 "type": "docker",
@@ -131,7 +131,7 @@ In the "env" section add the following configuration:
 ```json
 "diagnostics": {  
   "settings": {
-  "image":   "mcr.microsoft.com/azure-cognitive-services/spatial-analysis/diagnostics:1.0",
+  "image":   "mcr.microsoft.com/azure-cognitive-services/vision/spatial-analysis/diagnostics:1.0",
   "createOptions":   "{\"HostConfig\":{\"Mounts\":[{\"Target\":\"/usr/bin/docker\",\"Source\":\"/home/data/docker\",\"Type\":\"bind\"},{\"Target\":\"/var/run\",\"Source\":\"/run\",\"Type\":\"bind\"}],\"LogConfig\":{\"Config\":{\"max-size\":\"500m\"}}}}"
   }
 ```    
@@ -301,6 +301,14 @@ The following table lists the attributes in the query response.
 Check fetch log's lines, times, and sizes, if those settings look good replace ***DoPost*** to `true` and that will push the logs with same filters to destinations. 
 
 You can export logs from the Azure Blob Storage when troubleshooting issues. 
+
+## Common issues
+
+If you see the following message in the module logs, it might mean your Azure subscription needs to be approved: 
+
+"Container is not in a valid state. Subscription validation failed with status 'Mismatch'. Api Key is not intended for the given container type."
+
+For more information, see [Request approval to run the container](spatial-analysis-container.md#request-approval-to-run-the-container).
 
 ## Troubleshooting the Azure Stack Edge device
 

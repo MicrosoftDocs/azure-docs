@@ -4,7 +4,7 @@ description: Use the Ethereum Proof-of-Authority consortium solution to deploy a
 ms.date: 07/23/2020
 ms.topic: how-to
 ms.reviewer: ravastra
-ms.custom: devx-track-javascript
+ms.custom: devx-track-js
 ---
 # Deploy Ethereum proof-of-authority consortium solution template on Azure
 

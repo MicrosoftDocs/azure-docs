@@ -7,7 +7,7 @@ author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 07/12/2019
 
-ms.custom: mvc, seo-javascript-september2019, seo-javascript-october2019, devx-track-javascript
+ms.custom: mvc, seo-javascript-september2019, seo-javascript-october2019, devx-track-js
 ---
 
 # Quickstart: Start monitoring your Node.js Web application with Azure Application Insights

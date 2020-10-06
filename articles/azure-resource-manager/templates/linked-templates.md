@@ -366,7 +366,7 @@ You can't use both inline parameters and a link to a parameter file. The deploym
 
 ## Template specs
 
-Instead of maintaining your linked templates at an accessible endpoint, you can create a [template spec](template-specs.md) that packages the main template and its linked templates into a single entity you can deploy. The template spec is a resource in your Azure subscription. It makes it easy to securely share the template with users in your organization. You use role-based access control (RBAC) to grant access to the template spec. This feature is currently in preview.
+Instead of maintaining your linked templates at an accessible endpoint, you can create a [template spec](template-specs.md) that packages the main template and its linked templates into a single entity you can deploy. The template spec is a resource in your Azure subscription. It makes it easy to securely share the template with users in your organization. You use Azure role-based access control (Azure RBAC) to grant access to the template spec. This feature is currently in preview.
 
 For more information, see:
 
@@ -728,7 +728,7 @@ The parameter file can also be limited to access through a SAS token.
 Currently, you can't link to a template in a storage account that is behind an [Azure Storage firewall](../../storage/common/storage-network-security.md).
 
 > [!IMPORTANT]
-> Instead of securing your linked template with a SAS token, consider creating a [template spec](template-specs.md). The template spec securely stores the main template and its linked templates as a resource in your Azure subscription. You use RBAC to grant access to users who need to deploy the template.
+> Instead of securing your linked template with a SAS token, consider creating a [template spec](template-specs.md). The template spec securely stores the main template and its linked templates as a resource in your Azure subscription. You use Azure RBAC to grant access to users who need to deploy the template.
 
 The following example shows how to pass a SAS token when linking to a template:
 

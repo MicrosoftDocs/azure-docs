@@ -6,7 +6,7 @@ ms.service: sql-database
 ms.subservice: scenario
 ms.custom: sqldbrb=1
 ms.devlang:
-ms.topic: conceptual
+ms.topic: tutorial
 author: stevestein
 ms.author: sstein
 ms.reviewer: 
@@ -163,7 +163,7 @@ To understand how the Wingtip app implements new tenant provisioning in a shared
 
 4. After script execution stops at the breakpoint, press **F11** to step into the code.
 
-   ![debug](./media/saas-multitenantdb-provision-and-catalog/debug.png)
+   ![Screenshot shows the Windows PowerShell ISE with the Debug menu open and Step Into selected.](./media/saas-multitenantdb-provision-and-catalog/debug.png)
 
 5. Trace the script's execution using the **Debug** menu options, **F10** and **F11**, to step over or into called functions.
 

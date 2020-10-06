@@ -136,7 +136,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 ### Create a Virtual Service 
 
-1. Go to Kemp LoadMaster Azure AD integration Load Master Web UI > Virtual Services > Add New.
+1. Go to Kemp LoadMaster Azure AD integration LoadMaster Web UI > Virtual Services > Add New.
 
 1. Click Add New.
 
@@ -194,11 +194,11 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 ### SSL Acceleration
  
-1. Go to Kemp Load Master Web UI > Virtual Services > Virtual Services.
+1. Go to Kemp LoadMaster Web UI > Virtual Services > View/Modify Services.
 
 1. Click in Modify under Operation.
 
-1. Under Properties for tcp/x.x.x.:443 (ID:6) - Operating at Layer 7, click on SSL Properties.
+1. Click on SSL Properties, (which operates at Layer 7).
     
     ![Kemp LoadMaster Azure AD integration webserver](./media/kemp-tutorial/kemp-3.png)
     

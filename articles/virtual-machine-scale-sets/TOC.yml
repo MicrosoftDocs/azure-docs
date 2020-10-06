@@ -214,6 +214,9 @@
     - name: vCPU quotas
       href: ../virtual-machines/windows/quotas.md
       maintainContext: true
+  - name: PUT calls for create or update operations
+    href: ../virtual-machines/put-calls-create-or-update.md
+    maintainContext: true
   - name: Scale Set FAQ
     href: virtual-machine-scale-sets-faq.md
 - name: How To
@@ -274,6 +277,8 @@
       - name: Using customer-managed keys
         displayName: SSE, CMK, encrypt
         href: ../virtual-machines/image-version-encryption.md
+      - name: App registration for sharing
+        href: share-images-across-tenants.md
   - name: Create a template
     items:
     - name: Learn about scale set templates
@@ -326,6 +331,15 @@
       href: virtual-machine-scale-sets-placement-groups.md
     - name: Convert a scale set template to use managed disk
       href: virtual-machine-scale-sets-convert-template-to-md.md
+    - name: Use dedicated hosts (preview)
+      href: ../virtual-machines/dedicated-hosts.md
+      items:
+      - name: CLI
+        href: ../virtual-machines/linux/dedicated-hosts-cli.md
+      - name: PowerShell
+        href: ../virtual-machines/windows/dedicated-hosts-powershell.md
+      - name: Portal
+        href: ../virtual-machines/dedicated-hosts-portal.md
     - name: Use spot instance
       href: use-spot.md
   - name: Manage
@@ -358,18 +372,6 @@
       href: virtual-machine-scale-sets-scale-in-policy.md
     - name: Terminate notification on delete
       href: virtual-machine-scale-sets-terminate-notification.md
-    - name: Shared image galleries
-      items:
-      - name: Overview
-        href: shared-image-galleries.md
-      - name: CLI
-        href: shared-images-cli.md
-      - name: PowerShell
-        href: shared-images-powershell.md
-      - name: Share images across tenants
-        href: share-images-across-tenants.md
-      - name: Troubleshoot shared images
-        href: troubleshooting-shared-images.md
     - name: Create a proximity placement group
       href: proximity-placement-groups.md
     - name: Vertical scaling in a scale set

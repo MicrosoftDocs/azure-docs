@@ -4,7 +4,7 @@ description: Learn how to manage Azure Cosmos DB resources by using the Azure po
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: how-to
-ms.date: 04/30/2020
+ms.date: 09/18/2020
 ms.author: mjbrown
 ---
 
@@ -64,7 +64,7 @@ Please see [Add or remove regions with PowerShell](manage-with-powershell.md#upd
 
 Open the **Replicate Data Globally** tab and select **Enable** to enable multi-region writes. After you enable multi-region writes, all the read regions that you currently have on the account will become read and write regions.
 
-:::image type="content" source="./media/how-to-manage-database-account/single-to-multi-master.png" alt-text="Azure Cosmos account configures multi-master screenshot":::
+:::image type="content" source="./media/how-to-manage-database-account/single-to-multi-master.png" alt-text="Azure Cosmos account configures multi-region writes screenshot":::
 
 ### <a id="configure-multiple-write-regions-cli"></a>Azure CLI
 
@@ -72,11 +72,11 @@ Please see [Enable multiple-write regions with Azure CLI](manage-with-cli.md#ena
 
 ### <a id="configure-multiple-write-regions-ps"></a>Azure PowerShell
 
-Please see [Enable multiple-write regions with PowerShell](manage-with-powershell.md#multi-master)
+Please see [Enable multiple-write regions with PowerShell](manage-with-powershell.md#multi-region-writes)
 
 ### <a id="configure-multiple-write-regions-arm"></a>Resource Manager template
 
-An account can be migrated from single-master to multi-master by deploying the Resource Manager template used to create the account and setting `enableMultipleWriteLocations: true`. The following Azure Resource Manager template is a bare minimum template that will deploy an Azure Cosmos account for SQL API with two regions and multiple write locations enabled.
+An account can be migrated from single write region to multiple write regions by deploying the Resource Manager template used to create the account and setting `enableMultipleWriteLocations: true`. The following Azure Resource Manager template is a bare minimum template that will deploy an Azure Cosmos account for SQL API with two regions and multiple write locations enabled.
 
 ```json
 {
@@ -199,7 +199,7 @@ Please see [Set failover priority with PowerShell](manage-with-powershell.md#mod
 The process for performing a manual failover involves changing the account's write region (failover priority = 0) to another region configured for the account.
 
 > [!NOTE]
-> Multi-master accounts cannot be manually failed over. For applications using the Azure Cosmos SDK, the SDK will detect when a region becomes unavailable, then redirect automatically to the next closest region if using multi-homing API in the SDK.
+> Accounts with multiple write regions cannot be manually failed over. For applications using the Azure Cosmos SDK, the SDK will detect when a region becomes unavailable, then redirect automatically to the next closest region if using multi-homing API in the SDK.
 
 ### <a id="enable-manual-failover-via-portal"></a>Azure portal
 

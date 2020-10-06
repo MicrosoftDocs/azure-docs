@@ -50,7 +50,7 @@ The article focuses on the following core Azure Identity management capabilities
 
 SSO means being able to access all the applications and resources that you need to do business, by signing in only once using a single user account. Once signed in, you can access all of the applications you need without being required to authenticate (for example, type a password) a second time.
 
-Many organizations rely upon SaaS applications such as Office 365, Box, and Salesforce for user productivity. Historically, IT staff needed to individually create and update user accounts in each SaaS application, and users had to remember a password for each SaaS application.
+Many organizations rely upon SaaS applications such as Microsoft 365, Box, and Salesforce for user productivity. Historically, IT staff needed to individually create and update user accounts in each SaaS application, and users had to remember a password for each SaaS application.
 
 Azure AD extends on-premises Active Directory environments into the cloud, enabling users to use their primary organizational account to  sign in not only to their domain-joined devices and company resources, but also to all the web and SaaS applications they need for their jobs.
 
@@ -143,14 +143,14 @@ Learn more:
 
 ## Privileged identity management
 
-With Azure AD Privileged Identity Management, you can manage, control, and monitor your privileged identities and access to resources in Azure AD as well as other Microsoft online services, such as Office 365 and Microsoft Intune.
+With Azure AD Privileged Identity Management, you can manage, control, and monitor your privileged identities and access to resources in Azure AD as well as other Microsoft online services, such as Microsoft 365 and Microsoft Intune.
 
-Users sometimes need to carry out privileged operations in Azure or Office 365 resources, or in other SaaS apps. This need often means that organizations have to give users permanent privileged access in Azure AD. Such access is a growing security risk for cloud-hosted resources, because organizations can't sufficiently monitor what the users are doing with their administrator privileges. Additionally, if a user account with privileged access is compromised, that one breach could affect the organization's overall cloud security. Azure AD Privileged Identity Management helps to mitigate this risk.
+Users sometimes need to carry out privileged operations in Azure or Microsoft 365 resources, or in other SaaS apps. This need often means that organizations have to give users permanent privileged access in Azure AD. Such access is a growing security risk for cloud-hosted resources, because organizations can't sufficiently monitor what the users are doing with their administrator privileges. Additionally, if a user account with privileged access is compromised, that one breach could affect the organization's overall cloud security. Azure AD Privileged Identity Management helps to mitigate this risk.
 
 With Azure AD Privileged Identity Management, you can:
 
 * See which users are Azure AD administrators.
-* Enable on-demand, just-in-time (JIT) administrative access to Microsoft services such as Office 365 and Intune.
+* Enable on-demand, just-in-time (JIT) administrative access to Microsoft services such as Microsoft 365 and Intune.
 * Get reports about administrator access history and changes in administrator assignments.
 * Get alerts about access to a privileged role.
 
@@ -170,7 +170,7 @@ Learn more:
 
 ## Hybrid identity management/Azure AD connect
 
-Microsoft’s identity solutions span on-premises and cloud-based capabilities, creating a single user identity for authentication and authorization to all resources, regardless of location. We call this hybrid identity. Azure AD Connect is the Microsoft tool designed to meet and accomplish your hybrid identity goals. This allows you to provide a common identity for your users for Office 365, Azure, and SaaS applications integrated with Azure AD. It provides the following features:
+Microsoft’s identity solutions span on-premises and cloud-based capabilities, creating a single user identity for authentication and authorization to all resources, regardless of location. We call this hybrid identity. Azure AD Connect is the Microsoft tool designed to meet and accomplish your hybrid identity goals. This allows you to provide a common identity for your users for Microsoft 365, Azure, and SaaS applications integrated with Azure AD. It provides the following features:
 
 * Synchronization
 * AD FS and federation integration

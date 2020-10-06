@@ -38,7 +38,7 @@ This section shows you how to use the Azure portal to create IP firewall rules f
 
     If you select the **All networks** option, the event hub accepts connections from any IP address (using the access key). This setting is equivalent to a rule that accepts the 0.0.0.0/0 IP address range. 
 
-    ![Firewall - All networks option selected](./media/event-hubs-firewall/firewall-all-networks-selected.png)
+    ![Screenshot that shows the "Firewall and virtual networks" page with the "All networks" option selected.](./media/event-hubs-firewall/firewall-all-networks-selected.png)
 1. To restrict access to specific IP addresses, confirm that the **Selected networks** option is selected. In the **Firewall** section, follow these steps:
     1. Select **Add your client IP address** option to give your current client IP the access to the namespace. 
     2. For **address range**, enter a specific IPv4 address or a range of IPv4 address in CIDR notation. 

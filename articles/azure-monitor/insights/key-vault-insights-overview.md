@@ -22,21 +22,6 @@ Before jumping into the experience, you should understand how it presents and vi
 
 Azure Monitor for Key Vault combines both logs and metrics to provide a global monitoring solution. All users can access the metrics-based monitoring data, however the inclusion of logs-based visualizations may require users to [enable logging of their Azure Key Vault](../../key-vault/general/logging.md).
 
-## Configuring your key vaults for monitoring
-
-> [!NOTE]
-> Enabling logs is a paid-service that provides additional monitoring capabilities.
-
-1. The Operations & Latency tab helps you determine how many and which key vaults are enabled. To begin collecting, select the **Enable** button, which will bring you to a separate workbook that lists out the key vaults that require enabling diagnostic logs.
-
-    ![Screenshot of operations and latency tab with blue enable button displayed](./media/key-vaults-insights-overview/enable-logging.png)
-
-2. To enable diagnostic logs, click on the **Enable** link underneath the actions column, and create a new diagnostics setting that sends logs to a Log Analytics workspace. It is recommended to send all the logs to the same workspace.
-
-3. Once the diagnostic settings are saved, you will be able to view all the log-based charts and visualizations underneath the Key Vault Insights. Please note that it may take several minutes to hours to begin populating the logs.
-
-4. For additional assistance on how to enable diagnostic logs for your Key Vault service, read the [full guide](../../key-vault/general/logging.md).
-
 ## View from Azure Monitor
 
 From Azure Monitor, you can view request, latency, and failure details from multiple key vaults in your subscription, and help identify performance problems and throttling scenarios.
@@ -161,10 +146,6 @@ There is a limit of 200 key vaults that can be selected and viewed. Regardless o
 We only show subscriptions that contain key vaults, chosen from the selected subscription filter, which are selected in the "Directory + Subscription" in the Azure portal header.
 
 ![Screenshot of subscription filter](./media/key-vaults-insights-overview/Subscriptions.png)
-
-### I am getting an error message that the "query exceeds the maximum number of workspaces/regions allowed", what to do now
-
-Currently, there is a limit to 25 regions and 200 workspaces, to view your data, you will need to reduce the number of subscriptions and/or resource groups.
 
 ### I want to make changes or add additional visualizations to Key Vault Insights, how do I do so
 

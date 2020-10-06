@@ -1,6 +1,6 @@
 ---
 title: 'Tutorial: Configure Salesforce for automatic user provisioning with Azure Active Directory| Microsoft Docs'
-description: Learn how to configure single sign-on between Azure Active Directory and Salesforce.
+description: Learn the steps required to perform in Salesforce and Azure AD to automatically provision and de-provision user accounts from Azure AD to Salesforce.
 services: active-directory
 author: jeevansd
 manager: CelesteDG
@@ -61,7 +61,7 @@ The objective of this section is to outline how to enable user provisioning of A
 
 4. Set the **Provisioning Mode** to **Automatic**.
 
-    ![provisioning](./media/salesforce-provisioning-tutorial/provisioning.png)
+    ![Screenshot shows the Salesforce Provisioning page, with Provisioning Mode set to Automatic and other values you can set.](./media/salesforce-provisioning-tutorial/provisioning.png)
 
 5. Under the **Admin Credentials** section, provide the following configuration settings:
 

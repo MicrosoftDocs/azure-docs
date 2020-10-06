@@ -55,14 +55,14 @@ In this scenario, there is an existing forest synced using Azure AD Connect sync
 4. Click on "Download agent"
 5. Run the Azure AD Connect provisioning agent
 6. On the splash screen, **Accept** the licensing terms and click **Install**.</br>
-![Welcome screen](media/how-to-install/install1.png)</br>
+![Screenshot that shows the "Microsoft Azure AD Connect Provisioning Agent Package" splash screen.](media/how-to-install/install1.png)</br>
 
 7. Once this operation completes, the configuration wizard will launch.  Sign in with your Azure AD global administrator account.  Note that if you have IE enhanced security enabled this will block the sign-in.  If this is the case, close the installation, disable IE enhanced security in Server Manager, and click the **AAD Connect Provisioning Agent Wizard** to restart the installation.
 8. On the **Connect Active Directory** screen, click **Add directory** and then sign in with your Active Directory domain administrator account.  NOTE: The domain administrator account should not have password change requirements. In case the password expires or changes, you will need to re-configure the agent with the new credentials. This operation will add your on-premises directory.  Click **Next**.</br>
-![Welcome screen](media/how-to-install/install3.png)</br>
+![Screenshot that shows the "Connect Active Directory" screen.](media/how-to-install/install3.png)</br>
 
 9. On the **Configuration complete** screen, click **Confirm**.  This operation will register and restart the agent.</br>
-![Welcome screen](media/how-to-install/install4.png)</br>
+![Screenshot that shows the "Configuration complete" screen.](media/how-to-install/install4.png)</br>
 
 10. Once this operation completes you should see a notice: **Your agent configuration was successfully verified.**  You can click **Exit**.</br>
 ![Welcome screen](media/how-to-install/install5.png)</br>
@@ -104,7 +104,7 @@ To verify that the agent is running follow these steps:
 5.  Click **New Configuration**
 ![Screenshot of Azure AD Provisioning (Preview) screen with "New configuration" link highlighted.](media/tutorial-single-forest/configure1.png)
 7.  On the configuration screen, enter a **Notification email**, move the selector to **Enable** and click **Save**.
-![Screenshot of Configure screen with Notification email filled in and Enable selected.](media/tutorial-single-forest/configure2.png)
+![Screenshot of Configure screen with Notification email filled in and Enable selected.](media/how-to-configure/configure2.png)
 1.  The configuration status should now be **Healthy**.
 ![Screenshot of Azure AD Provisioning (Preview) screen showing Healthy status.](media/how-to-configure/manage4.png)
 

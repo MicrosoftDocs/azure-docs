@@ -1,19 +1,19 @@
 ---
-title: Connect hybrid machine with Azure Arc enabled servers (preview)
-description: Learn how to connect and register your hybrid machine with Azure Arc enabled servers (preview).
+title: Connect hybrid machine with Azure Arc enabled servers
+description: Learn how to connect and register your hybrid machine with Azure Arc enabled servers.
 ms.topic: quickstart
-ms.date: 08/12/2020
+ms.date: 09/23/2020
 ---
 
-# Quickstart: Connect hybrid machine with Azure Arc enabled servers (preview)
+# Quickstart: Connect hybrid machine with Azure Arc enabled servers
 
-[Azure Arc enabled servers](../overview.md) (preview) enables you to manage and govern your Windows and Linux machines hosted across on-premises, edge, and multicloud environments. In this quickstart, you'll deploy and configure the Connected Machine agent on your Windows or Linux machine hosted outside of Azure for management by Arc enabled servers (preview).
+[Azure Arc enabled servers](../overview.md) enables you to manage and govern your Windows and Linux machines hosted across on-premises, edge, and multicloud environments. In this quickstart, you'll deploy and configure the Connected Machine agent on your Windows or Linux machine hosted outside of Azure for management by Arc enabled servers.
 
 ## Prerequisites
 
 * If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
-* Deploying the Arc enabled servers (preview) Hybrid Connected Machine agent requires that you have administrator permissions on the machine to install and configure the agent. On Linux, by using the root account, and on Windows, with an account that is a member of the Local Administrators group.
+* Deploying the Arc enabled servers Hybrid Connected Machine agent requires that you have administrator permissions on the machine to install and configure the agent. On Linux, by using the root account, and on Windows, with an account that is a member of the Local Administrators group.
 
 * Before you get started, be sure to review the agent [prerequisites](../agent-overview.md#prerequisites) and verify the following:
 
@@ -23,13 +23,13 @@ ms.date: 08/12/2020
 
     * If the machine connects through a firewall or proxy server to communicate over the Internet, make sure the URLs [listed](../agent-overview.md#networking-configuration) are not blocked.
 
-    * Azure Arc enabled servers (preview) supports only the regions specified [here](../overview.md#supported-regions).
+    * Azure Arc enabled servers supports only the regions specified [here](../overview.md#supported-regions).
 
 [!INCLUDE [cloud-shell-try-it.md](../../../../includes/cloud-shell-try-it.md)]
 
 ## Register Azure resource providers
 
-Azure Arc enabled servers (preview) depends on the following Azure resource providers in your subscription in order to use this service:
+Azure Arc enabled servers depends on the following Azure resource providers in your subscription in order to use this service:
 
 * Microsoft.HybridCompute
 * Microsoft.GuestConfiguration
@@ -92,7 +92,7 @@ The script to automate the download, installation, and establish the connection 
 
 ## Verify the connection with Azure Arc
 
-After you install the agent and configure it to connect to Azure Arc enabled servers (preview), go to the Azure portal to verify that the server has successfully connected. View your machine in the [Azure portal](https://aka.ms/hybridmachineportal).
+After you install the agent and configure it to connect to Azure Arc enabled servers, go to the Azure portal to verify that the server has successfully connected. View your machine in the [Azure portal](https://aka.ms/hybridmachineportal).
 
 :::image type="content" source="./media/quick-enable-hybrid-vm/enabled-machine.png" alt-text="A successful machine connection" border="false":::
 
@@ -100,7 +100,7 @@ After you install the agent and configure it to connect to Azure Arc enabled ser
 
 Now that you've enabled your Linux or Windows hybrid machine and successfully connected to the service, you are ready to enable Azure Policy to understand compliance in Azure.
 
-To learn how to identify Azure Arc enabled servers (preview) enabled machine that doesn't have the Log Analytics agent installed, continue to the tutorial:
+To learn how to identify Azure Arc enabled servers enabled machine that doesn't have the Log Analytics agent installed, continue to the tutorial:
 
 > [!div class="nextstepaction"]
 > [Create a policy assignment to identify non-compliant resources](tutorial-assign-policy-portal.md)

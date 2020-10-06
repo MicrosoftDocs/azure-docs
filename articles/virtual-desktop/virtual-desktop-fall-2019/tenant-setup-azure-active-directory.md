@@ -120,7 +120,7 @@ To find your Azure subscription ID:
 1. In the same [Azure portal](https://portal.azure.com) session, search for and select **Subscriptions**.
 
    > [!div class="mx-imgBorder"]
-   > ![A screenshot of the search results for "Azure Active Directory" in the Azure portal. The search result under "Services" is highlighted.](../media/tenant-search-subscription.png)
+   > ![A screenshot of the search results for "Azure Active Directory" in the Azure portal. The search result for "Services" is highlighted.](../media/tenant-search-subscription.png)
 
 2. Select the Azure subscription you want to use to receive Windows Virtual Desktop service notifications.
 3. Look for **Subscription ID**, and then hover over the value until a clipboard icon appears. Select the clipboard icon and paste it in a handy location so you can use it later as the **AzureSubscriptionId** value.

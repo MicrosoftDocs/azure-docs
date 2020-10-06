@@ -1,5 +1,6 @@
 ---
 title: Microsoft identity platform overview - Azure
+titleSuffix: Microsoft identity platform
 description: Learn about the components of the Microsoft identity platform and how they can help you build identity and access management (IAM) support into your applications.
 services: active-directory
 author: rwike77
@@ -16,7 +17,7 @@ ms.custom: identityplatformtop40
 # Customer intent: As an application developer, I want a quick introduction to the Microsoft identity platform so I can decide if this platform meets my application development requirements.
 ---
 
-# Microsoft identity platform overview
+# What is the Microsoft identity platform?
 
 The Microsoft identity platform helps you build applications your users and customers can sign in to using their Microsoft identities or social accounts, and provide authorized access to your own APIs or Microsoft APIs like Microsoft Graph.
 
