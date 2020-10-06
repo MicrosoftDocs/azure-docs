@@ -20,24 +20,24 @@ A well-planned and executed data governance platform paves the way for better da
 * Access to Microsoft Azure with a Development or Production subscription
 * Ability to spin up Azure resources including Babylon
 * Access data sources such as Azure Data Lake Storage or Azure SQL in Test, Development or Production
-* This will require Reader Role in order to scan
-* For SQL, the identity must be able to query tables for sampling of classifications
+  * For Data Lake, the required role is Reader Role in order to scan
+  * For SQL, the identity must be able to query tables for sampling of classifications
 * Access to Security Center or collaborate with Security Center Admin for Labeling
 
 ## Identify objectives and goals
 
 Many organizations started their data governance journey by developing individual solutions catering to specific requirements of different groups and data domains across the organization. Although challenges might be different from various organizations depending the industry, product and even cultural, most would find out that it’s extremely difficult to main a consistent knowledge across these groups to ensure consistent controls and policies. 
 
-Below are some of the common overarching objectives that you might want to identify in the early phases:
+Some of the common overarching objectives that you might want to identify in the early phases:
 
 * Maximizing business value of data
-* Enabling a data culture where data consumers can easily find, interpret and trust data
+* Enabling a data culture where data consumers can easily find, interpret, and trust data
 * Increasing collaboration amongst various business units to provide consistent data experience
 * Fostering innovation by accelerating data analytics to reap the benefits of the Cloud
 * Decreasing time to discover data via self-service for various skill groups
 * Reducing time to market for the delivery of analytics solutions that improve service to their customers
 * Reducing the operational risks that are due to the use of domain-specific tools and unsupported technology
-The general approach is to break down those overarching objectives into various categories and goals. Below are some examples:
+The general approach is to break down those overarching objectives into various categories and goals. Some examples are:
 
 |Category|Goal|
 |---------|---------|
