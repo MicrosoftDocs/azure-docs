@@ -289,6 +289,15 @@ After installing the appropriate agent setup.exe, you can perform the agent regi
     Register-AzureADConnectHealthSyncAgent
 
 ```
+> [!NOTE]
+>Note:
+>To register against sovereign clouds, please use the following command lines:
+>
+>Register-AzureADConnectHealthADFSAgent -UserPrincipalName upn-of-the-user
+>Register-AzureADConnectHealthADDSAgent -UserPrincipalName upn-of-the-user
+>Register-AzureADConnectHealthSyncAgent -UserPrincipalName upn-of-the-user
+>
+
 
 These commands accept "Credential" as a parameter to complete the registration in a non-interactive manner or on a Server-Core machine.
 * The Credential can be captured in a PowerShell variable that is passed as a parameter.
