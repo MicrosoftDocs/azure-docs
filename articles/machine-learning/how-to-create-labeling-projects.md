@@ -153,7 +153,7 @@ The exact number of labeled images necessary to start assisted labeling is not a
 Since the final labels still rely on input from the labeler, this technology is sometimes called *human in the loop* labeling.
 
 > [!NOTE]
-> ML assisted data labelling does not support default storage accounts secured behind a [virtual network](how-to-network-security-overview.md). You must use a non-default storage account for ML assisted data labelling. Note, the non-default storage account can be secured behind the virtual network. 
+> ML assisted data labelling does not support default storage accounts secured behind a [virtual network](how-to-network-security-overview.md). You must use a non-default storage account for ML assisted data labelling. The non-default storage account can be secured behind the virtual network. 
 
 ### Clustering
 
