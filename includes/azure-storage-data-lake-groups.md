@@ -20,6 +20,6 @@ To enable these activities, you could create a `LogsWriter` group and a `LogsRea
 - Add users in the service engineering team to the `LogsWriter` group.
 - Add the service principal object or MSI for Databricks to the `LogsReader` group.
 
-If a user in the service engineering team leaves the company, you could just remove them from the `LogsWriter` group. If you did not add that user to a group, but instead added an dedicated ACL entry for that user, you would have to remove that ACL entry from the **/LogData** directory. You would also have to remove the entry from all subdirectories and files in the entire directory hierarchy of the **/LogeData** directory. 
+If a user in the service engineering team leaves the company, you could just remove them from the `LogsWriter` group. If you did not add that user to a group, but instead, you added a dedicated ACL entry for that user, you would have to remove that ACL entry from the **/LogData** directory. You would also have to remove the entry from all subdirectories and files in the entire directory hierarchy of the **/LogData** directory. 
 
 To create a group and add members, see [Create a basic group and add members using Azure Active Directory](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-groups-create-azure-portal).
