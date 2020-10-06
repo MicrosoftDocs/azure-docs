@@ -19,11 +19,11 @@ Azure Synapse Link for Azure Cosmos DB creates a tight integration between Azure
 
 In the public preview release, Synapse Link is supported for the Azure Cosmos DB SQL (Core) API and for the Azure Cosmos DB API for MongoDB. 
 
-### Is Synapse Link supported for multi-region Azure Cosmos accounts?
+### Is Synapse Link supported for multi-region Azure Cosmos DB accounts?
 
-Yes, for multi-region Azure Cosmos accounts, the data stored in the analytical store is also globally distributed. Regardless of single write region (single master) or multiple write regions (also known as multi-master), analytical queries performed from Azure Synapse Analytics can be served from the closest local region.
+Yes, for multi-region Azure Cosmos DB accounts, the data stored in the analytical store is also globally distributed. Regardless of single write region (single master) or multiple write regions (also known as multi-master), analytical queries performed from Azure Synapse Analytics can be served from the closest local region.
 
-When planning to configure a multi-region Azure Cosmos account with analytical store support, it is recommended to have all the necessary regions added at time of account creation.
+When planning to configure a multi-region Azure Cosmos DB account with analytical store support, it is recommended to have all the necessary regions added at time of account creation.
 
 ### Can I choose to enable Synapse Link for only certain region and not all regions in a multi-region account set-up?
 
@@ -33,9 +33,9 @@ In the preview release, when Synapse Link is enabled for a multi-region account,
 
 In preview, for Synapse Link enabled database accounts, backup and restore of containers is not supported. If you have production workloads that require backup and restore functionality, we recommended not to enable Synapse Link on those database accounts. 
 
-### Can I disable the Synapse Link feature for my Azure Cosmos account?
+### Can I disable the Synapse Link feature for my Azure Cosmos DB account?
 
-Currently, after the Synapse Link capability is enabled at the account level, you cannot disable it.  If you want to turn off the capability, you have to delete and re-create a new Azure Cosmos account.
+Currently, after the Synapse Link capability is enabled at the account level, you cannot disable it.  If you want to turn off the capability, you have to delete and re-create a new Azure Cosmos DB account.
 
 Understand that you will **not** have any billing implications if the Synapse Link capability is enabled at the account level but there is no analytical store enabled containers.
 
@@ -45,11 +45,11 @@ Understand that you will **not** have any billing implications if the Synapse Li
 
 Currently, the analytical store can only be enabled for new containers (both in new and existing accounts).
 
-### Can I disable analytical store on my Azure Cosmos containers after enabling it during container creation?
+### Can I disable analytical store on my Azure Cosmos DB containers after enabling it during container creation?
 
-Currently, the analytical store cannot be disabled on an Azure Cosmos container after it is enabled during container creation.
+Currently, the analytical store cannot be disabled on an Azure Cosmos DB container after it is enabled during container creation.
 
-### Is analytical store supported for Azure Cosmos containers with autoscale provisioned throughput?
+### Is analytical store supported for Azure Cosmos DB containers with autoscale provisioned throughput?
 
 Yes, the analytical store can be enabled on containers with autoscale provisioned throughput.
 
@@ -74,7 +74,7 @@ At this time, the analytical store cannot be accessed from Synapse SQL provision
 
 ### Can I write back the query aggregation results from Synapse back to the analytical store?
 
-Analytical store is a read-only store in an Azure Cosmos container. So, you cannot directly write back the aggregation results to the analytical store, but can write them to the Azure Cosmos DB transactional store of another container, which can later be leveraged as a serving layer.
+Analytical store is a read-only store in an Azure Cosmos DB container. So, you cannot directly write back the aggregation results to the analytical store, but can write them to the Azure Cosmos DB transactional store of another container, which can later be leveraged as a serving layer.
 
 ### Is the autosync replication from transactional store to the analytical store asynchronous or synchronous and what are the latencies?
 
