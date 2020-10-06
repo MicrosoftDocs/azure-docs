@@ -32,9 +32,13 @@ A retry policy can be defined on any function for any trigger in an app.  The re
 
 The following options are available for defining a retry policy.
 
-**Max Retry Count** is the maximum number of times an execution should be retried before eventual failure.  A value of `-1` means to retry indefinitely.  The current retry count is stored in memory of the instance.  It is possible that an instance has a failure between retry attempts.  If an instance failed during a retry policy, the retry count would be lost.  If there are instance failures, triggers like Event Hubs, Cosmos DB, and queues would be able to resume processing and retry the batch on a new instance, with the retry count reset to zero.  Other triggers like HTTP and timer would not resume on a new instance.  This means that the max retry count is a best effort, and in some rare cases an execution could be retried more than the maximum, or for triggers like HTTP and timer be retried less than the maximum.
+**Max Retry Count** is the maximum number of times an execution should be retried before eventual failure.  A value of `-1` means to retry indefinitely.  The current retry count is stored in memory of the instance.  It is possible that an instance has a failure between retry attempts.  If an instance failed during a retry policy, the retry count would be lost.  If there are instance failures, triggers like Event Hubs, Cosmos DB, and Queues would be able to resume processing and retry the batch on a new instance, with the retry count reset to zero.  Other triggers like HTTP and timer would not resume on a new instance.  This means that the max retry count is a best effort, and in some rare cases an execution could be retried more than the maximum, or for triggers like HTTP and timer be retried less than the maximum.
 
-**Retry Strategy** is how retries will behave.  There are two valid options, `fixedDelay` and `exponentialBackoff`.  Fixed delay will wait a specified amount of time between each retry.  Exponential backoff will do the first retry for the minimum delay, and then exponentially add to that duration for each retry until the maximum delay is reached.  Exponential backoff adds some small randomization to delays to stagger retries in high throughput scenarios.
+**Retry Strategy** is how retries will behave.  There are two valid options, `fixedDelay` and `exponentialBackoff`.  
+
+Fixed delay will wait a specified amount of time between each retry.  
+
+Exponential backoff will do the first retry for the minimum delay, and then exponentially add to that duration for each retry until the maximum delay is reached.  Exponential backoff adds some small randomization to delays to stagger retries in high throughput scenarios.
 
 #### App level configuration
 

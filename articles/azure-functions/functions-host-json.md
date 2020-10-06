@@ -115,7 +115,7 @@ The following sample *host.json* file for version 2.x+ has all possible options 
     "retry": {
       "strategy": "fixedDelay",
       "maxRetryCount": 5,
-      "delayIntervale": "00:00:05"
+      "delayInterval": "00:00:05"
     },
     "singleton": {
       "lockPeriod": "00:00:15",
