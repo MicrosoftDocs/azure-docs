@@ -15,8 +15,10 @@ You can access the console logs generated from inside the container.
 First, turn on container logging by running the following command:
 
 ```azurecli-interactive
-az webapp log config --name <app-name> --resource-group <resource-grou-name> --docker-container-logging filesystem
+az webapp log config --name <app-name> --resource-group <resource-group-name> --docker-container-logging filesystem
 ```
+
+Replace `<app-name>` and `<resource-group-name>` with the names appropriate for your web app.
 
 Once container logging is turned on, run the following command to see the log stream:
 

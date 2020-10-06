@@ -2,7 +2,7 @@
 title: Configure Linux Python apps
 description: Learn how to configure the Python container in which web apps are run, using both the Azure portal and the Azure CLI. 
 ms.topic: quickstart
-ms.date: 09/29/2020
+ms.date: 10/06/2020
 ms.reviewer: astay; kraigb
 ms.custom: mvc, seodec18, devx-track-python
 ---
@@ -58,48 +58,14 @@ You can run an unsupported version of Python by building your own container imag
 <!-- <a> element here to preserve external links-->
 <a name="access-environment-variables"></a>
 
-## Set and access app settings/environment variables
-
-- **Azure portal**: see [Configure app settings](configure-common.md#configure-app-settings).
-
-- **Azure CLI**: use the [az webapp config app settings set](/cli/azure/webapp/config/appsettings#az_webapp_config_appsettings_set) command to assign a value to a setting:
-
-    ```azurecli-interactive
-    az webapp config appsettings set --name <app-name> --resource-group <resource-group-name> --settings <setting-name>="<value>"
-    ```
-    
-    Replace `<setting-name>` with the name of the setting, and `<value>` with the value to assign to it. This command creates the setting if it doesn't already exist.
-    
-    Use [az webapp config appsettings list](/cli/azure/webapp/config/appsettings#az_webapp_config_appsettings_list) to show all settings with their values
-    
-    ```azurecli-interactive
-    az webapp config appsettings list --name <app-name> --resource-group <resource-group-name>
-    ```
-    
-    You can also use [az webapp config app settings delete](/cli/azure/webapp/config/appsettings#az_webapp_config_appsettings_delete) to remove one or more settings:
-    
-    ```azurecli-interactive
-    az webapp config appsettings delete --name <app-name> --resource-group <resource-group-name> --setting-names {<names>}
-    ```
-    
-    Replace `<names>` with a space-separated list of setting names.
-    
-Once set, Application Settings are available to your app code as environment variables. You access these settings using the standard [os.environ](https://docs.python.org/3/library/os.html#os.environ) pattern.
-
-For example, if you've created app setting called `DATABASE_SERVER`, the following code retrieves that setting's value:
-
-```python
-db_server = os.environ['DATABASE_SERVER']
-```
-
 ## Customize build automation
 
 App Service's build system, called Oryx, performs the following steps when you deploy your app using Git or zip packages:
 
-1. Run custom script if specified by the `PRE_BUILD_COMMAND` setting.
-1. Run `pip install -r requirements.txt`.
+1. Run a custom pre-build script if specified by the `PRE_BUILD_COMMAND` setting.
+1. Run `pip install -r requirements.txt`. The *requirements.txt* file must be present in the project's root folder. Otherwise, the build process reports the error: "Could not find setup.py or requirements.txt; Not running pip install."
 1. If *manage.py* is found in the root of the repository (indicating a Django app), run *manage.py collectstatic*. However, if the `DISABLE_COLLECTSTATIC` setting is `true`, this step is skipped.
-1. Run custom script if specified by the `POST_BUILD_COMMAND` setting.
+1. Run custom post-build script if specified by the `POST_BUILD_COMMAND` setting.
 
 By default, the `PRE_BUILD_COMMAND`, `POST_BUILD_COMMAND`, and `DISABLE_COLLECTSTATIC` settings are empty. 
 
@@ -115,6 +81,8 @@ For more information on how App Service runs and builds Python apps in Linux, se
 
 > [!NOTE]
 > The `PRE_BUILD_SCRIPT_PATH` and `POST_BUILD_SCRIPT_PATH` settings are identical to `PRE_BUILD_COMMAND` and `POST_BUILD_COMMAND` and are supported for legacy purposes.
+> 
+> A setting named `SCM_DO_BUILD_DURING_DEPLOYMENT`, if it contains `true` or 1, triggers an Oryx build happens during deployment. The setting is true when deploying using git, the Azure CLI command `az webapp up`, and Visual Studio Code.
 
 > [!NOTE]
 > Always use relative paths in all pre- and post-build scripts because the build container in which Oryx runs is different from the runtime container in which the app runs. Never rely on the exact placement of your app project folder within the container (for example, that it's placed under *site/wwwroot*).
@@ -152,11 +120,11 @@ The following sections provide additional details for each option.
 For Django apps, App Service looks for a file named `wsgi.py` within your app code, and then runs Gunicorn using the following command:
 
 ```bash
-# <module-path> is the relative path to the folder that contains wsgi.py
-gunicorn --bind=0.0.0.0 --timeout 600 <module-path>.wsgi
+# <module> is the name of the folder that contains wsgi.py
+gunicorn --bind=0.0.0.0 --timeout 600 <module>.wsgi
 ```
 
-If you want more specific control over the startup command, use a [custom startup command](#customize-startup-command) and replace `<module-path>` with the relative path of folder that contains *wsgi.py*. For example, if your *wsgi.py* is located under *knboard/backend/config* from your project root, use the value `knboard/backend/config.wsgi`.
+If you want more specific control over the startup command, use a [custom startup command](#customize-startup-command), replace `<module>` with the name of folder that contains *wsgi.py*, and add a `--chdir` argument if that module is not in the project root. For example, if your *wsgi.py* is located under *knboard/backend/config* from your project root, use the arguments `--chdir knboard/backend config.wsgi`.
 
 To enable production logging, add the `--access-logfile` and `--error-logfile` parameters as shown in the examples for [custom startup commands](#customize-startup-command).
 
@@ -200,25 +168,25 @@ To specify a startup command or command file:
         
     Replace `<custom-command>` with either the full text of your startup command or the name of your startup command file.
         
-App Service ignores any errors that occur when processing a custom startup command or file, then continues its startup process by looking for Django and Flask apps. If you don't see the behavior you expect, check that your startup command or file is error-free and that a startup command file is deployed to App Service along with your app code.
+App Service ignores any errors that occur when processing a custom startup command or file, then continues its startup process by looking for Django and Flask apps. If you don't see the behavior you expect, check that your startup command or file is error-free and that a startup command file is deployed to App Service along with your app code. You can also check the [Diagnostic logs](#access-diagnostic-logs) for additional information. Also check the app's **Diagnose and solve problems** page on the [Azure portal](https://portal.azure.com).
 
 ### Example startup commands
 
 - **Added Gunicorn arguments**: The following example adds the `--workers=4` to a Gunicorn command line for starting a Django app: 
 
     ```bash
-    # <module-path> is the relative path to the folder that contains wsgi.py
-    gunicorn --bind=0.0.0.0 --timeout 600 --workers=4 <module-path>.wsgi
+    # <module-path> is the relative path to the folder that contains the module
+    # that contains wsgi.py; <module> is the name of the folder containing wsgi.py.
+    gunicorn --bind=0.0.0.0 --timeout 600 --workers=4 --chdir <module_path> <module>.wsgi
     ```    
 
     For more information, see [Running Gunicorn](https://docs.gunicorn.org/en/stable/run.html) (docs.gunicorn.org).
 
 - **Enable production logging for Django**: Add the `--access-logfile '-'` and `--error-logfile '-'` arguments to the command line:
 
-    ```bash
-    # <module-path> is the relative path to the folder that contains wsgi.py.
+    ```bash    
     # '-' for the log files means stdout for --access-logfile and stderr for --error-logfile.
-    gunicorn --bind=0.0.0.0 --timeout 600 --workers=4 <module-path>.wsgi --access-logfile '-' --error-logfile '-'
+    gunicorn --bind=0.0.0.0 --timeout 600 --workers=4 --chdir <module_path> <module>.wsgi --access-logfile '-' --error-logfile '-'
     ```    
 
     These logs will appear in the [App Service log stream](#access-diagnostic-logs).
@@ -242,6 +210,16 @@ App Service ignores any errors that occur when processing a custom startup comma
     ```bash
     python3.7 -m aiohttp.web -H localhost -P 8080 package.module:init_func
     ```
+
+## Access app settings as environment variables
+
+App settings are values stored in the cloud specifically for your app as described on [Configure app settings](configure-common.md#configure-app-settings). These settings are available to your app code as environment variables and accessed using the standard [os.environ](https://docs.python.org/3/library/os.html#os.environ) pattern.
+
+For example, if you've created app setting called `DATABASE_SERVER`, the following code retrieves that setting's value:
+
+```python
+db_server = os.environ['DATABASE_SERVER']
+```
     
 ## Detect HTTPS session
 
