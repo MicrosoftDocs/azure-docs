@@ -395,4 +395,5 @@ You will soon no longer be able to add the Activity Logs Analytics solution to y
 ## Next steps
 
 * [Read an overview of platform logs](platform-logs-overview.md)
+* [Review Activity log event schema](activity-log-schema.md)
 * [Create diagnostic setting to send Activity logs to other destinations](diagnostic-settings.md)
