@@ -13,6 +13,10 @@ ms.date: 07/31/2020
 
 For an overview of the key *video analytics - object and motion detection* application components, see [object and motion detection video analytics application architecture](architecture-video-analytics.md).
 
+The following video gives a walkthrough of how to use the _video analytics - object and motion detection application template_ to deploy an IoT Central solution:
+
+> [!VIDEO https://aka.ms/iotshow/232/youtube]
+
 ## Deploy the application
 
 Complete the following steps to deploy an IoT Central application using the video analytics application template:
