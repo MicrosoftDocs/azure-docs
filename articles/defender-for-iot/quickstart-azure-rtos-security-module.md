@@ -4,7 +4,7 @@ description: Learn how to onboard and enable the Security Module for Azure RTOS 
 services: defender-for-iot
 ms.service: defender-for-iot
 documentationcenter: na
-author: mlottner
+author: rkarlin
 manager: rkarlin
 editor: ''
 
@@ -12,8 +12,8 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/06/2020
-ms.author: mlottner
+ms.date: 09/24/2020
+ms.author: rkarlin
 ---
 
 # Quickstart: Security Module for Azure RTOS (preview)
