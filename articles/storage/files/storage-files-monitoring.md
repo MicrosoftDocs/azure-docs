@@ -67,6 +67,8 @@ You also have to specify one of the following categories of operations for which
 | StorageWrite | Write operations on objects. |
 | StorageDelete | Delete operations on objects. |
 
+To get the list of SMB and REST operations that are logged for Azure Files, see [Log Operations](https://docs.microsoft.com/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages#logged-operations).
+
 ## Analyzing metrics
 
 You can analyze metrics for Azure Storage with metrics from other Azure services by using Metrics Explorer. Open Metrics Explorer by choosing **Metrics** from the **Azure Monitor** menu. For details on using this tool, see [Getting started with Azure Metrics Explorer](../../azure-monitor/platform/metrics-getting-started.md). 
