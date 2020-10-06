@@ -144,7 +144,7 @@ If your storage is in a VNet, you first must perform additional configuration st
 * Submit an AutoML experiment.
 * Start a labeling project.
 
-To enable full functionality while using a storage account inside of a VNet, see [Use Azure Machine Learning studio in a virtual network](how-to-enable-studio-virtual-network.md#access-data-using-the-studio). The studio supports storage accounts using either service endpoints or private endpoints.
+To enable full studio functionality while inside of a VNet, see [Use Azure Machine Learning studio in a virtual network](how-to-enable-studio-virtual-network.md#access-data-using-the-studio). The studio supports storage accounts using either service endpoints or private endpoints.
 
 ### Limitations
 - The studio cannot access data in storage accounts configured to use private endpoints. For full functionality, you must use service endpoints for storage and use managed identity.
