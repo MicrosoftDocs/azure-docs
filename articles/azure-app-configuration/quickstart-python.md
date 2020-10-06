@@ -103,7 +103,7 @@ The sample code snippets in this section show you how to perform common operatio
 
 * [Connect to an App Configuration store](#connect-to-an-app-configuration-store)
 * [Get a configuration setting](#get-a-configuration-setting)
-* [Add a configuration setting](#add-a-configuration-setting)
+* [Set a configuration setting](#set-a-configuration-setting)
 * [Get a list of configuration settings](#get-a-list-of-configuration-settings)
 * [Lock a configuration setting](#lock-a-configuration-setting)
 * [Update a configuration setting](#update-a-configuration-setting)
