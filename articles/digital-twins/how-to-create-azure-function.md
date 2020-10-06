@@ -187,7 +187,7 @@ You can set up security access for the Azure function app using one of these opt
 
 The Azure function skeleton from earlier examples requires that a bearer token to be passed to it, in order to be able to authenticate with Azure Digital Twins. To make sure that this bearer token is passed, you'll need to set up [Managed Service Identity (MSI)](../active-directory/managed-identities-azure-resources/overview.md) for the function app. This only needs to be done once for each function app.
 
-You can create system-managed identity and assign the function app's identity to the _Azure Digital Twins Owner (Preview)_ role for your Azure Digital Twins instance. This will give the function app permission in the instance to perform data plane activities. Then, make the URL of Azure Digital Twins instance accessible to your function by setting an environment variable.
+You can create system-managed identity and assign the function app's identity to the _Azure Digital Twins Data Owner_ role for your Azure Digital Twins instance. This will give the function app permission in the instance to perform data plane activities. Then, make the URL of Azure Digital Twins instance accessible to your function by setting an environment variable.
 
  Use [Azure Cloud Shell](https://shell.azure.com) to run the commands.
 
@@ -196,10 +196,10 @@ Use the following command to create the system-managed identity. Take note of th
 ```azurecli	
 az functionapp identity assign -g <your-resource-group> -n <your-App-Service-(function-app)-name>	
 ```
-Use the _principalId_ value in the following command to assign the function app's identity to the _Azure Digital Twins Owner (Preview)_ role for your Azure Digital Twins instance.
+Use the _principalId_ value in the following command to assign the function app's identity to the _Azure Digital Twins Data Owner_ role for your Azure Digital Twins instance.
 
 ```azurecli	
-az dt role-assignment create --dt-name <your-Azure-Digital-Twins-instance> --assignee "<principal-ID>" --role "Azure Digital Twins Owner (Preview)"
+az dt role-assignment create --dt-name <your-Azure-Digital-Twins-instance> --assignee "<principal-ID>" --role "Azure Digital Twins Data Owner"
 ```
 Lastly, you can make the URL of your Azure Digital Twins instance accessible to your function by setting an environment variable. For more information on setting an environment variables, see [*Environment variables*](https://docs.microsoft.com/sandbox/functions-recipes/environment-variables). 
 
@@ -242,7 +242,7 @@ On the _Add role assignment (Preview)_ window that opens up, select
 * _Scope_: Resource group
 * _Subscription_: select your Azure subscription
 * _Resource group_: select your resource group from the dropdown
-* _Role_: select _Azure Digital Twins Owner (Preview)_ from the dropdown
+* _Role_: select _Azure Digital Twins Data Owner_ from the dropdown
 
 Save your details by selecting _Save_ button.
 

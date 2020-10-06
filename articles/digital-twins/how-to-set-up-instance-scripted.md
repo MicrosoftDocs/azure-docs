@@ -72,10 +72,10 @@ Here are the steps to run the deployment script in Cloud Shell.
     * For the app registration: an *Azure AD application display name* to associate with the registration. This app registration is where you configure access permissions to the [Azure Digital Twins APIs](how-to-use-apis-sdks.md). Later, the client app will authenticate against the app registration, and as a result be granted the configured access permissions to the APIs.
     * For the app registration: an *Azure AD application reply URL* for the Azure AD application. Use `http://localhost`. The script will set up a *Public client/native (mobile & desktop)* URI for it.
 
-The script will create an Azure Digital Twins instance, assign your Azure user the *Azure Digital Twins Owner (Preview)* role on the instance, and set up an Azure AD app registration for your client app to use.
+The script will create an Azure Digital Twins instance, assign your Azure user the *Azure Digital Twins Data Owner* role on the instance, and set up an Azure AD app registration for your client app to use.
 
 >[!NOTE]
->There is currently a **known issue** with scripted setup, in which some users (especially users on personal [Microsoft accounts (MSAs)](https://account.microsoft.com/account)) may find the **role assignment to _Azure Digital Twins Owner (Preview)_ was not created**.
+>There is currently a **known issue** with scripted setup, in which some users (especially users on personal [Microsoft accounts (MSAs)](https://account.microsoft.com/account)) may find the **role assignment to _Azure Digital Twins Data Owner_ was not created**.
 >
 >You can verify the role assignment with the [*Verify user role assignment*](#verify-user-role-assignment) section later in this article, and—if needed—set up the role assignment manually using the [Azure portal](how-to-set-up-instance-portal.md#set-up-user-access-permissions) or [CLI](how-to-set-up-instance-cli.md#set-up-user-access-permissions).
 >
@@ -90,7 +90,7 @@ If the script completes successfully, the final printout will say `Deployment co
 Upon script completion, you now have an Azure Digital Twins instance ready to go with permissions to manage it, and have set up permissions for a client app to access it.
 
 > [!NOTE]
-> The script currently assigns the required management role within Azure Digital Twins (*Azure Digital Twins Owner (Preview)*) to the same user that runs the script from Cloud Shell. If you need to assign this role to someone else who will be managing the instance, you can do this now via the Azure portal ([instructions](how-to-set-up-instance-portal.md#set-up-user-access-permissions)) or CLI ([instructions](how-to-set-up-instance-cli.md#set-up-user-access-permissions)).
+> The script currently assigns the required management role within Azure Digital Twins (*Azure Digital Twins Data Owner*) to the same user that runs the script from Cloud Shell. If you need to assign this role to someone else who will be managing the instance, you can do this now via the Azure portal ([instructions](how-to-set-up-instance-portal.md#set-up-user-access-permissions)) or CLI ([instructions](how-to-set-up-instance-cli.md#set-up-user-access-permissions)).
 
 ## Collect important values
 
