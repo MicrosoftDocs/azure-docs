@@ -183,7 +183,7 @@ az aks get-upgrades --resource-group myResourceGroup --name myAKSCluster
 
 You can then upgrade your AKS cluster using the [az aks upgrade][az-aks-upgrade] command. The upgrade process safely cordons and drains one node at a time, schedules pods on remaining nodes, and then deploys a new node running the latest OS and Kubernetes versions.
 
-It is highly recommended to test new minor versions in a dev/test environment so you can flight your workload with the new Kubernetes version. Kubernetes may deprecate APIs, such as in version 1.16, which could be relied on by your workloads. When bringing new versions into production, consider using [multiple node pools on separate versions](use-multiple-node-pools.md) and upgrade individual pools one at a time to progressively roll the update across a cluster. If running multiple clusters, upgrade one cluster at a time to progressively monitor for impact or changes.
+It is highly recommended to test new minor versions in a dev test environment so you can validate your workload continues healthy operation with the new Kubernetes version. Kubernetes may deprecate APIs, such as in version 1.16, which could be relied on by your workloads. When bringing new versions into production, consider using [multiple node pools on separate versions](use-multiple-node-pools.md) and upgrade individual pools one at a time to progressively roll the update across a cluster. If running multiple clusters, upgrade one cluster at a time to progressively monitor for impact or changes.
 
 ```azurecli-interactive
 az aks upgrade --resource-group myResourceGroup --name myAKSCluster --kubernetes-version KUBERNETES_VERSION
