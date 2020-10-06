@@ -158,7 +158,7 @@ You can deploy access policies to existing key vault without redeployment of ent
 }
 
 ```
-For more about Key Vault template settings, see [Key Vault ARM template reference](https://docs.microsoft.com/en-us/azure/templates/microsoft.keyvault/vaults/accesspolicies).
+For more about Key Vault template settings, see [Key Vault ARM template reference](https://docs.microsoft.com/azure/templates/microsoft.keyvault/vaults/accesspolicies).
 
 ## Other available Key Vault Resource Manager templates
 
