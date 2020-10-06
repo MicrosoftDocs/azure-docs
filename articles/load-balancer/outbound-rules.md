@@ -94,6 +94,8 @@ If an NSG blocks health probe requests from the AZURE_LOADBALANCER default tag, 
 - The range of the configurable outbound idle timeout is 4 to 120 minutes (240 to 7200 seconds).
 - Load balancer doesn't support ICMP for outbound NAT.
 - Outbound rules can only be applied to primary IP configuration of a NIC.  You can't create an outbound rule for the secondary IP of a VM or NVA. Multiple NICs are supported.
+- All virtual machines within an **availability set** must be added to the backend pool for outbound connectivity. 
+- All virtual machines within a **virtual machine scale set** must be added to the backend pool for outbound connectivity.
 
 ## Next steps
 
