@@ -131,7 +131,7 @@ To deploy your automation configurations across your organization, use the suppl
     1. In the **Parameters** tab, set the resource group and data type details. 
         > [!TIP]
         > Azure Policy's parameters tab (1) provides access to the same configuration options as Security Center's continuous export page (2).
-        > :::image type="content" source="./media/continuous-export/azure-policy-next-to-continuous-export.png" alt-text="Accessing Azure Policy":::
+        > :::image type="content" source="./media/continuous-export/azure-policy-next-to-continuous-export.png" alt-text="Comparing the parameters in continuous export with Azure Policy" lightbox="./media/continuous-export/azure-policy-next-to-continuous-export.png":::
     1. Optionally, to apply this assignment to existing subscriptions, open the **Remediation** tab and select the option to create a remediation task.
 1. Review the summary page and select **Create**.
 
