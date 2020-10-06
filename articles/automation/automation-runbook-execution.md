@@ -3,7 +3,7 @@ title: Runbook execution in Azure Automation
 description: This article tells provides an overview of the processing of runbooks in Azure Automation.
 services: automation
 ms.subservice: process-automation
-ms.date: 09/22/2020
+ms.date: 10/06/2020
 ms.topic: conceptual
 ---
 
@@ -96,9 +96,11 @@ The [Log Analytics agent for Linux](../azure-monitor/platform/agent-linux.md) wo
 
 The **nxautomation** account with the corresponding sudo permissions must be present during [installation of a Linux Hybrid Runbook worker](automation-linux-hrw-install.md). If you try to install the worker and the account is not present or doesn’t have the appropriate permissions, the installation fails.
 
+You should not change the permissions of the `sudoers.d` folder or its ownership. Sudo permission is required for the **nxautomation** account and the permissions should not be removed. Restricting this to certain folders or commands may result in a breaking change.
+
 The logs available for the Log Analytics agent and the **nxautomation** account are:
 
-* /var/opt/microsoft/omsagent/log/omsagent.log - Log Analytics agent log 
+* /var/opt/microsoft/omsagent/log/omsagent.log - Log Analytics agent log
 * /var/opt/microsoft/omsagent/run/automationworker/worker.log - Automation worker log
 
 >[!NOTE]
