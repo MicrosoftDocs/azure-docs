@@ -8,7 +8,7 @@ ms.reviewer: veyalla
 ms.service: iot-edge
 services: iot-edge
 ms.topic: conceptual
-ms.date: 09/04/2020
+ms.date: 10/06/2020
 ms.author: kgremban
 ---
 
@@ -68,13 +68,13 @@ Prepare your device to access the Microsoft installation packages.
 
 # [Windows](#tab/windows)
 
-### Check your Windows version
+### Windows version
 
 IoT Edge with Windows containers requires Windows version 1809/build 17762, which is the latest [Windows long term support build](/windows/release-information/). For development and test scenarios, any SKU (Pro, Enterprise, Server, etc) that supports the containers feature will work. However, be sure to review the supported systems list before going to production.
 
 IoT Edge with Linux containers can run on any version of Windows that meets the [requirements for Docker Desktop](https://docs.docker.com/docker-for-windows/install/#what-to-know-before-you-install).
 
-### Prepare for a container engine
+### Container engine requirements
 
 Azure IoT Edge relies on an [OCI-compatible](https://www.opencontainers.org/) container engine. Make sure your device can support containers.
 
@@ -102,12 +102,6 @@ Install the Moby engine.
    sudo apt-get install moby-engine
    ```
 
-Install the Moby command-line interface (CLI). The CLI is useful for development but optional for production deployments.
-
-   ```bash
-   sudo apt-get install moby-cli
-   ```
-
 If you get errors when installing the Moby container engine, verify your Linux kernel for Moby compatibility. Some embedded device manufacturers ship device images that contain custom Linux kernels without the features required for container engine compatibility. Run the following command, which uses the [check-config script](https://github.com/moby/moby/blob/master/contrib/check-config.sh) provided by Moby, to check your kernel configuration:
 
    ```bash
@@ -122,7 +116,7 @@ In the output of the script, check that all items under `Generally Necessary` an
 
 For production scenarios, use the Moby-based engine that is included in the installation script. There are no additional steps to install the engine.
 
-For IoT Edge with Linux containers, you need to provide your own container runtime. You can use [Docker Desktop](https://docs.docker.com/docker-for-windows/install/) as your container engine. You need to install Docker and configure it to [use Linux containers](https://docs.docker.com/docker-for-windows/#switch-between-windows-and-linux-containers) before installing IoT Edge.
+For IoT Edge with Linux containers, you need to provide your own container runtime. Install [Docker Desktop](https://docs.docker.com/docker-for-windows/install/) on your device and configure it to [use Linux containers](https://docs.docker.com/docker-for-windows/#switch-between-windows-and-linux-containers) before continuing.
 
 ---
 
@@ -208,7 +202,9 @@ Choose the next article based on which authentication type you want to use:
 
 ## Offline or specific version installation
 
-* Offline installation
+The steps in this section are for scenarios not covered by the standard installation steps. This may include:
+
+* Install IoT Edge while offline
 * Install a release candidate version
 * On Windows, install a version other than the latest
 

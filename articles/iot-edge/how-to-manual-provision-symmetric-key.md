@@ -8,7 +8,7 @@ ms.reviewer: veyalla
 ms.service: iot-edge
 services: iot-edge
 ms.topic: conceptual
-ms.date: 09/29/2020
+ms.date: 10/06/2020
 ms.author: kgremban
 ---
 
@@ -178,9 +178,9 @@ The value for the `device-id` parameter is case-sensitive. Don't copy the quotat
 
 ---
 
-## Configure an IoT Edge device
+## Provision an IoT Edge device
 
-Once the IoT Edge device has an identity in IoT Hub and a connection string that it can use for authentication, you need to configure the device itself with this information.
+Once the IoT Edge device has an identity in IoT Hub and a connection string that it can use for authentication, you need to provision the device itself with this information.
 
 On a Linux device, you provide the connection string by editing a config.yaml file. On a Windows device, you provide the connection string by running a PowerShell script.
 
@@ -227,12 +227,19 @@ sudo systemctl restart iotedge
    Initialize-IoTEdge -ManualConnectionString -ContainerOs Windows
    ```
 
-   If you are using Linux containers, add the `-ContainerOs` parameter to the flag. Be consistent with the container option you chose with the `Deploy-IoTEdge` command that you ran previously.
+   * If you are using Linux containers, add the `-ContainerOs` parameter to the flag. Be consistent with the container option you chose with the `Deploy-IoTEdge` command that you ran previously.
 
-   ```powershell
-   . {Invoke-WebRequest -useb https://aka.ms/iotedge-win} | Invoke-Expression; `
-   Initialize-IoTEdge -ContainerOs Linux
-   ```
+      ```powershell
+      . {Invoke-WebRequest -useb https://aka.ms/iotedge-win} | Invoke-Expression; `
+      Initialize-IoTEdge -ContainerOs Linux
+      ```
+
+   * If you downloaded the IoTEdgeSecurityDaemon.ps1 script onto your device for offline or specific version installation, be sure to reference the local copy of the script.
+
+      ```powershell
+      . <path>/IoTEdgeSecurityDaemon.ps1
+      Initialize-IoTEdge -ManualX509
+      ```
 
 3. When prompted, provide the device connection string that you retrieved in the previous section. The device connection string associates the physical device with a device ID in IoT Hub and provides authentication information.
 
@@ -241,63 +248,13 @@ sudo systemctl restart iotedge
 When you provision a device manually, you can use additional parameters to modify the process including:
 
 * Direct traffic to go through a proxy server
-* Declare a specific agent container image, and provide credentials if it's in a private registry
+* Declare a specific edgeAgent container image, and provide credentials if it's in a private registry
 
 For more information about these additional parameters, see [PowerShell scripts for IoT Edge on Windows](reference-windows-scripts.md).
 
 ---
 
-## Verify successful setup
-
-Check the status of the IoT Edge service. It should be listed as running.  
-
-# [Linux](#tab/linux)
-
-```bash
-systemctl status iotedge
-```
-
-# [Windows](#tab/windows)
-
-```powershell
-Get-Service iotedge
-```
-
----
-
-Examine service logs. 
-
-# [Linux](#tab/linux)
-
-```bash
-journalctl -u iotedge --no-pager --no-full
-```
-
-# [Windows](#tab/windows)
-
-If you just finished installing the IoT Edge runtime, you may see a list of errors from the time between running **Deploy-IoTEdge** and **Initialize-IoTEdge**. These errors are expected, as the service is trying to start before being configured.
-
-```powershell
-. {Invoke-WebRequest -useb https://aka.ms/iotedge-win} | Invoke-Expression; Get-IoTEdgeLog
-```
-
----
-
-Run the [troubleshooting tool](troubleshoot.md#run-the-check-command) to check for the most common configuration and networking errors.
-
-```powershell
-iotedge check
-```
-
-Until you deploy your first module to IoT Edge on your device, the **$edgeHub** system module will not be deployed to the device. As a result, the automated check will return an error for the `Edge Hub can bind to ports on host` connectivity check. This error can be ignored unless it occurs after deploying a module to the device.
-
-Finally, list running modules:
-
-```powershell
-iotedge list
-```
-
-After a new installation, the only module you should see running is **edgeAgent**.
+[!INCLUDE [Verify and troubleshoot installation](../../includes/iot-edge-verify-troubleshoot-install.md)]
 
 ## Next steps
 

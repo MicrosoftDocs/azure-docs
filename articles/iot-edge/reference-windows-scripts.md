@@ -4,7 +4,7 @@ description: Reference information for IoT Edge PowerShell scripts to install, u
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 09/29/2020
+ms.date: 10/06/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
@@ -13,6 +13,30 @@ services: iot-edge
 # PowerShell scripts for IoT Edge on Windows
 
 Understand the PowerShell scripts that install, update, or uninstall IoT Edge on Windows devices.
+
+The commands described in this article are from the `IoTEdgeSecurityDaemon.ps1` file that is released with every [IoT Edge release](https://github.com/Azure/azure-iotedge/releases). The latest version of the script is always available at [aka.ms/iotedge-win](aka.ms/iotedge-win). 
+
+You can run any of the commands using the `Invoke-WebRequest` cmdlet to access the latest script version. For example:
+
+```powershell
+. {Invoke-WebRequest -useb https://aka.ms/iotedge-win} | Invoke-Expression; `
+Deploy-IoTEdge
+```
+
+You can also download this script, or a version of the script from a specific release, to run the commands. For example:
+
+```powershell
+. <path>\IoTEdgeSecurityDaemon.ps1
+Deploy-IoTEdge
+```
+
+The provided script is signed to increase security. You can verify the signature by downloading the script to your device then running the following PowerShell command:
+
+```powershell
+Get-AuthenticodeSignature "C:\<path>\IotEdgeSecurityDaemon.ps1"
+```
+
+The output status is **Valid** if the signature is verified.
 
 ## Deploy-IoTEdge
 
@@ -75,3 +99,5 @@ The Initialize-IoTEdge command configures IoT Edge with your device connection s
 Learn how to use these commands in the following articles:
 
 * [Install or uninstall the Azure IoT Edge runtime](how-to-install-iot-edge.md)
+* [Provision an Azure IoT Edge device with symmetric key authentication](how-to-manual-provision-symmetric-key.md)
+* [Provision an Azure IoT Edge device with X.509 certificate authentication](how-to-manual-provision-x509-cert.md)
