@@ -50,10 +50,6 @@ Selecting a phone plan is broken down into two steps:
 
 We offer two Number types currently: `Geographic`, and `Toll-free`. When you've selected a Number type, you will then be offered several Plans from which you can choose.
 
-> [!NOTE]
-> We currently only support selecting phone numbers with Outbound calling plan. You may, however, purchase a phone number with outbound calling enabled, and then configure the outbound caller ID (what users see when you call them from your Communication Services application).
-> This only applies to calling. Two-way SMS is natively supported.
-
 In our example, we have chosen a `Toll-free` Number type with the `Outbound calling` and `Inbound and Outbound SMS` Plans.
 
 :::image type="content" source="../media/manage-phone-azure-portal-select-plans.png" alt-text="Screenshot showing the Select plans view.":::
