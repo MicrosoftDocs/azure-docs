@@ -14,7 +14,7 @@ ms.custom: references_regions
 ---
 # Quickstart: Get a phone number using the Azure portal
 
-[!INCLUDE [Private Preview Notice](../../includes/private-preview-include.md)]
+[!INCLUDE [Public Preview Notice](../../includes/public-preview-include.md)]
 
 Get started with Azure Communication Services by using the Azure portal to purchase a telephone number.
 
