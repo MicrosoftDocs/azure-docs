@@ -34,6 +34,9 @@ When **Deny public network access** setting is set to **Yes**, only connections 
 
 Any attempts to set **Deny public network access** setting to **Yes** without any existing private endpoints at the logical server will fail with an error message similar to:  
 
+> [!NOTE]
+> To define Vnet firewall rules on a logical server that is already configured with private endpoints, please set Deny public network access to No.
+
 ```output
 Error 42102
 Unable to set Deny Public Network Access to Yes since there is no private endpoint enabled to access the server. 
