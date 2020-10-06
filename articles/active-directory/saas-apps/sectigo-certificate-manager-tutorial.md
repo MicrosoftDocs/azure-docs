@@ -29,7 +29,9 @@ For more information about software as a service (SaaS) app integration with Azu
 To configure Azure AD integration with Sectigo Certificate Manager, you need the following items:
 
 * An Azure AD subscription. If you don't have an Azure AD subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
-* Sectigo Certificate Manager account. Sectigo runs multiple instances of SCM, with the main instance being cert-manager.com.  URLs used in this tutorial will reference that instance.  If your account is on a separate instance the URLs will need to be adjusted accordingly.
+* Sectigo Certificate Manager account.
+
+NOTE: Sectigo runs multiple instances of SCM, with the main instance being **cert-manager.com**.  URLs used in this tutorial will reference that instance.  If your account is on a separate instance the URLs will need to be adjusted accordingly.
 
 ## Scenario description
 
@@ -124,6 +126,8 @@ In this section, you configure Azure AD single sign-on with Sectigo Certificate 
     | mail | empty | Attribute | user.mail | Required |
     | givenName | empty | Attribute | user.givenname | Optional |
     | sn | empty | Attribute | user.surname | Optional |
+
+    ![Sectigo Certificate Manager domain and URLs single sign-on information](media/sectigo-certificate-manager-tutorial/additional_claims.png)
 
 1. In the **SAML Signing Certificate** section, select **Download** next to **Federation Metadata XML**. Save the XML file on your computer.
 
