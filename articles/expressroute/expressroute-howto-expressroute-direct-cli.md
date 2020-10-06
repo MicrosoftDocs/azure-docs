@@ -215,6 +215,8 @@ Input the recently created ExpressRoute Direct resource name, resource group nam
 az network express-route port generate-loa -n Contoso-Direct -g Contoso-Direct-rg --customer-name Contoso --destination C:\Users\SampleUser\Downloads\LOA.pdf
 ```
 
+## <a name="state"></a>Change AdminState for links
+
 Use this process to conduct a layer 1 test. Ensure that each cross-connection is properly patched into each router in the primary and secondary ports.
 
 1. Set links to **Enabled**. Repeat this step to set each link to **Enabled**.
