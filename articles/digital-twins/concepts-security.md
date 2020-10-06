@@ -52,9 +52,6 @@ Azure provides the below Azure built-in roles for authorizing access to an Azure
 * *Azure Digital Twins Data Owner* – Use this role to give full access over Azure Digital Twins resources.
 * *Azure Digital Twins Data Reader* – Use this role to give read-only access to Azure Digital Twins resources.
 
-> [!TIP]
-> The *Azure Digital Twins Data Reader* role now also supports browsing relationships.
-
 For more information about how built-in roles are defined, see [*Understand role definitions*](../role-based-access-control/role-definitions.md) in the Azure RBAC documentation. For information about creating Azure custom roles, see [*Azure custom roles*](../role-based-access-control/custom-roles.md).
 
 You can assign roles in two ways:
