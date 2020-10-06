@@ -41,8 +41,6 @@
   items:
   - name: Cross-region load balancer
     href: cross-region-overview.md
-  - name: Egress to internet
-    href: egress-internet.md
   - name: What's new?
     href: whats-new.md
   - name: Components
