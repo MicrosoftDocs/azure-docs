@@ -47,8 +47,6 @@ See [the list of known issues](resource-known-issues.md) to learn about known bu
   + **azureml-interpret**
     + fixed explanation client is_raw flag behavior in azureml-interpret
     + fix package descriptions causing upload error to pypi for azureml-interpret, azureml-explain-model, azureml-contrib-interpret and azureml-tensorboard
-  + **azureml-parallel-run**
-    + Improve messages in log and the job result
   + **azureml-pipeline-core**
     + `azureml-train, azureml-train-core, azureml-sdk, azureml-pipeline-core, azureml-dataprep-native` officially support Python 3.8.
   + **azureml-sdk**
