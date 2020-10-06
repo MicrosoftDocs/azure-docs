@@ -21,7 +21,7 @@ In the public preview release, Synapse Link is supported for the Azure Cosmos DB
 
 ### Is Synapse Link supported for multi-region Azure Cosmos accounts?
 
-Yes, for multi-region Azure Cosmos accounts, the data stored in the analytical store is also globally distributed. Regardless of single write region (single master) or multiple write regions (also known as multi-master), analytical queries performed from Azure Synapse Analytics can be served from the closest local region.
+Yes, for multi-region Azure Cosmos accounts, the data stored in the analytical store is also globally distributed. Regardless of single write region or multiple write regions, analytical queries performed from Azure Synapse Analytics can be served from the closest local region.
 
 When planning to configure a multi-region Azure Cosmos account with analytical store support, it is recommended to have all the necessary regions added at time of account creation.
 
@@ -116,7 +116,7 @@ All transactional updates and deletes are copied to the analytical store but if 
 
 ### What are the ways to authenticate with the analytical store?
 
-Authentication with the analytical store is the same as a transactional store. For a given database, you can authenticate with the master or read-only key. You can leverage linked service in Synapse Studio to prevent pasting the Azure Cosmos DB keys in the Spark notebooks. Access to this Linked Service is available for everyone who has access to the workspace.
+Authentication with the analytical store is the same as a transactional store. For a given database, you can authenticate with the primary or read-only key. You can leverage linked service in Synapse Studio to prevent pasting the Azure Cosmos DB keys in the Spark notebooks. Access to this Linked Service is available for everyone who has access to the workspace.
 
 ## Synapse run-times
 

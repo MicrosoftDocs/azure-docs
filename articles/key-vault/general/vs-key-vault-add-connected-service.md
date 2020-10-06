@@ -184,6 +184,9 @@ Affects the project file .NET references and `packages.config` (NuGet references
 | .NET; NuGet | Azure.Security.KeyVault.Keys |
 | .NET; NuGet | Azure.Security.KeyVault.Secrets |
 
+> [!IMPORTANT] 
+> By default Azure.Identity 1.1.1 is installed, which does not support Visual Studio Credential. You can update package reference manually to 1.2+ use Visual Studio Credential.
+
 ### Added files for ASP.NET Framework
 
 - `ConnectedService.json` added, which records some information about the Connected Service provider, version, and a link to the documentation.
