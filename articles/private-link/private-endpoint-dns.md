@@ -71,6 +71,8 @@ For Azure services, use the recommended zone names as described in the following
 | Azure Monitor (Microsoft.Insights/privateLinkScopes) / azuremonitor | privatelink.monitor.azure.com<br/> privatelink.oms.opinsights.azure.com <br/> privatelink.ods.opinsights.azure.com <br/> privatelink.agentsvc.azure-automation.com | monitor.azure.com<br/> oms.opinsights.azure.com<br/> ods.opinsights.azure.com<br/> agentsvc.azure-automation.com |
 | Cognitive Services (Microsoft.CognitiveServices/accounts) / account | privatelink.cognitiveservices.azure.com  | cognitiveservices.azure.com  |
 | Azure File Sync (Microsoft.StorageSync/storageSyncServices) / afs |  privatelink.afs.azure.net  |  afs.azure.net  |
+| Azure Data Factory (Microsoft.DataFactory/factories ) / dataFactory |  privatelink.datafactory.azure.net  |  datafactory.azure.net  |
+| Azure Data Factory (Microsoft.DataFactory/factories ) / portal |  privatelink.azure.com  |  azure.com  |
 
  
 ## DNS configuration scenarios
