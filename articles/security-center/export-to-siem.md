@@ -58,7 +58,7 @@ To stream alerts into **ArcSight**, **Splunk**, **SumoLogic**, Syslog servers, *
 
 1. Enable [continuous export](continuous-export.md) to stream Security Center alerts into a dedicated Azure Event Hub at the subscription level. 
     > [!TIP]
-    > To do this at the Management Group level using Azure Policy, see [Create continuous export automation configurations at scale](continuous-export.md#create-continuous-export-automation-configurations-at-scale)
+    > To do this at the Management Group level using Azure Policy, see [Create continuous export automation configurations at scale](continuous-export.md#deploy-at-scale-with-azure-policytabazure-policy)
 
 1. [Connect the Azure Event hub to your preferred solution using Azure Monitor's built-in connectors](../azure-monitor/platform/stream-monitoring-data-event-hubs.md#partner-tools-with-azure-monitor-integration).
 
