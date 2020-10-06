@@ -1,5 +1,5 @@
 ---
-title: Azure Security Center's continuous export can send alerts and recommendations to Log Analytics workspaces or Azure Event Hubs
+title: Continuous export can send Azure Security Center's alerts and recommendations to Log Analytics workspaces or Azure Event Hubs
 description: Learn how to configure continuous export of security alerts and recommendations to Log Analytics workspaces or Azure Event Hubs
 services: security-center
 author: memildin
@@ -47,6 +47,8 @@ You can configure continuous export from the Security Center pages in Azure port
 
 ### [**Use the Azure portal**](#tab/azure-portal)
 
+### Configure continuous export from the Security Center pages in Azure portal
+
 The steps below are necessary whether you're setting up a continuous export to Log Analytics workspace or Azure Event Hubs.
 
 1. From Security Center's sidebar, select **Pricing & settings**.
@@ -69,6 +71,8 @@ The steps below are necessary whether you're setting up a continuous export to L
 1. Select **Save**.
 
 ### [**Use the REST API**](#tab/rest-api)
+
+### Configure continuous export using the REST API
 
 Continuous export can be configured and managed via the Azure Security Center [automations API](https://docs.microsoft.com/rest/api/securitycenter/automations). Use this API to create or update rules for exporting to any of the following possible destinations:
 
@@ -95,7 +99,7 @@ Learn more about the automations API in the [REST API documentation](https://doc
 
 ### [**Deploy at scale with Azure Policy**](#tab/azure-policy)
 
-## Create continuous export automation configurations at scale
+### Configure continuous export at scale using the supplied policies
 
 Automating your organization's monitoring and incident response processes can greatly improve the time it takes to investigate and mitigate security incidents.
 
@@ -103,7 +107,8 @@ To deploy your automation configurations across your organization, use the suppl
 
 **To implement these policies**
 
-1. Select the policy you want to apply:
+1. From the table below, select the policy you want to apply:
+
     |Goal  |Policy  |Policy ID  |
     |---------|---------|---------|
     |Continuous export to event hub|[Deploy export to Event Hub for Azure Security Center alerts and recommendations](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2fcdfcce10-4578-4ecd-9703-530938e4abcb)|cdfcce10-4578-4ecd-9703-530938e4abcb|

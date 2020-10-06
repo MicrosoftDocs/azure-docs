@@ -1,6 +1,6 @@
 ---
-title: Stream your alerts from Azure Security Center to SIEMs and monitoring solutions
-description: Learn how to stream your security alerts to Azure Sentinel or a third-party SIEM, SOAR, or ITSM solutions
+title: Stream your alerts from Azure Security Center to Security Information and Event Management (SIEM) systems and other monitoring solutions
+description: Learn how to stream your security alerts to Azure Sentinel, third-party SIEMs, SOAR, or ITSM solutions
 services: security-center
 author: memildin
 manager: rkarlin
@@ -11,63 +11,67 @@ ms.author: memildin
 
 ---
 
-# Stream alerts to a SIEM, SOAR, or ITSM solutions
+# Stream alerts to a SIEM, SOAR, or IT Service Management solution
 
-Azure Security Center can stream your security alerts into the most popular SIEM (Security information and event management), SOAR (Security orchestration automated response), and ITSM (IT service management) solutions.
+Azure Security Center can stream your security alerts into the most popular Security Information and Event Management (SIEM), Security Orchestration Automated Response (SOAR), and IT Service Management (ITSM) solutions.
 
 There are Azure-native tools for ensuring you can view your alert data in all of the most popular solutions in use today.
 
 ## Stream alerts to Azure Sentinel 
 
-Security Center natively integrates with Azure Sentinel - Azure cloud-native SIEM and SOAR solution. You can stream Azure Security Center alerts into Azure Sentinel with few simple clicks. 
+Security Center natively integrates with Azure Sentinel, Azure's cloud-native SIEM and SOAR solution. 
 
-- stream Azure Security Center alerts to Azure Sentinel in subscription level - Learn more> 
-- Automatically connect all subscriptions in your tenant to Azure Sentinel – Learn more> 
-- stream audit logs into Azure Sentinel to allow easier investigation of ASC alerts (Note: very expensive) - Windows, syslog, Activity log 
+### Azure Sentinel's connectors for Security Center
 
-## Microsoft Graph streams alerts to Splunk, QRadar, ServiceNow, and Power BI
+Azure Sentinel includes built-in connectors for Azure Security Center at the subscription and tenant levels:
 
-Security Center has out-of-the-box integration with Microsoft Graph (no configuration required, no additional costs) which allow you to stream your security alerts using Microsoft Graph into popular SIEM solutions (Splunk, QRadar) and other popular platforms (ServiceNow, PowerBI and more) with easy integration for your entire tenant together with data from many other Microsoft Security products:  
+- [Stream alerts to Azure Sentinel at the subscription level](../sentinel/connect-azure-security-center.md)
+- [Connect all subscriptions in your tenant to Azure Sentinel](https://techcommunity.microsoft.com/t5/azure-sentinel/azure-security-center-auto-connect-to-sentinel/ba-p/1387539) 
 
-- stream security alerts  to Splunk, ServiceNow and PowerBI using built-in connectors – Learn more> 
-- stream security alerts to QRadar  - Learn more>  
-- stream security alerts to Palo-Alto Networks, Anomli, Lookout, Inspark and more – Learn more> 
+### Configure ingestion of all audit logs into Azure Sentinel 
 
-## Azure Monitor streams alerts to ArcSight and other monitoring solutions 
+Another alternative for investigating Security Center alerts in Azure Sentinel is to stream your audit logs into Azure Sentinel:
+    - [Connect Windows security events](../sentinel/connect-windows-security-events.md)
+    - [Collect data from Linux-based sources using Syslog](../sentinel/connect-syslog.md)
+    - [Connect data from Azure Activity log](../sentinel/connect-azure-activity.md)
 
-You can integrate Azure Security Center with Azure monitor using Azure Event Hubs to stream Azure Security Center alerts into ArcSight and additional monitoring solutions (Splunk, ArcSight, SumoLogic, Syslog server, LogRythm, Logz.io, and more) using the steps below. 
+> [!CAUTION]
+> The costs for this approach can be very high. 
 
-1. Setup [continuous export](continuous-export.md) to stream Security Center alerts into a dedicated Azure Event Hub at the subscription level. 
+
+## Stream alerts with Microsoft Graph
+
+Security Center has out-of-the-box integration with Microsoft Graph. No configuration is required and there are no additional costs. 
+
+You can use Microsoft Graph, and its API, to stream alerts from your entire tenant (as well as data from many other Microsoft Security products) into third-party SIEMs and other popular platforms:
+
+- **Splunk**, **ServiceNow**, and **Power BI** - [Use the built-in connectors from Microsoft Graph](https://docs.microsoft.com/graph/security-integration) 
+- **QRadar** - [IBM's Device Support Module for Azure Security Center via Microsoft Graph API](https://www.ibm.com/support/knowledgecenter/SS42VS_DSM/com.ibm.dsm.doc/c_dsm_guide_ms_azure_security_center_overview.html) 
+- **Palo Alto Networks**, **Anomli**, **Lookout**, **InSpark**, and more - [Microsoft Graph Security API](https://www.microsoft.com/security/business/graph-security-api#office-MultiFeatureCarousel-09jr2ji)
+
+[Learn more about Microsoft Graph Security API](https://www.microsoft.com/security/business/graph-security-api)
+
+
+## Stream alerts with Azure Monitor 
+
+To stream alerts into **ArcSight**, **Splunk**, **SumoLogic**, Syslog servers, **LogRythm**, **Logz.io Cloud Observability Platform**, and other monitoring solutions. connect Security Center with Azure monitor via Azure Event Hubs:
+
+1. Enable [continuous export](continuous-export.md) to stream Security Center alerts into a dedicated Azure Event Hub at the subscription level. 
     > [!TIP]
     > To do this at the Management Group level using Azure Policy, see [Create continuous export automation configurations at scale](continuous-export.md#create-continuous-export-automation-configurations-at-scale)
 
-1. Connect the Azure Event hub to your preferred solution (ArcSight, SumoLogic, Syslog server, LogRythm, Logz.io, Splunk) using Azure Monitor built-it connectors. Learn more in [Partner tools with Azure Monitor integration](../azure-monitor/platform/stream-monitoring-data-event-hubs.md#partner-tools-with-azure-monitor-integration).
+1. [Connect the Azure Event hub to your preferred solution using Azure Monitor's built-in connectors](../azure-monitor/platform/stream-monitoring-data-event-hubs.md#partner-tools-with-azure-monitor-integration).
+
 1. Optionally, stream the raw logs to the Azure Event Hub and connect to your preferred solution. Learn more in [Monitoring data available](../azure-monitor/platform/stream-monitoring-data-event-hubs.md#monitoring-data-available).
 
+> [!TIP]
+> To view the event schemas of the exported data types, visit the [Event Hub event schemas](https://aka.ms/ASCAutomationSchemas).
 
 
+## Next steps
 
-## Configure SIEM integration via Azure Event Hubs
+This page explained how to ensure your Azure Security Center alert data is available in your SIEM, SOAR, or ITSM tool of choice. For related material see:
 
-Azure Event Hubs is a great solution for programatically consuming any streaming data. For Azure Security Center alerts and recommendations, it's the preferred way to integrate with a third-party SIEM.
-
-> [!NOTE]
-> The most effective method to stream monitoring data to external tools in most cases is using Azure Event Hubs. [This article](https://docs.microsoft.com/azure/azure-monitor/platform/stream-monitoring-data-event-hubs) provides a brief description for how you can stream monitoring data from different sources to an Event Hub and links to detailed guidance.
-
-> [!NOTE]
-> If you previously exported Security Center alerts to a SIEM using Azure Activity log, the procedure below replaces that methodology.
-
-To view the event schemas of the exported data types, visit the [Event Hub event schemas](https://aka.ms/ASCAutomationSchemas).
-
-
-### To integrate with a SIEM 
-
-After you have configured continuous export of your chosen Security Center data to Azure Event Hubs, you can set up the appropriate connector for your SIEM:
-
-* **Azure Sentinel** - Use the native Azure Security Center alerts [data connector](https://docs.microsoft.com/azure/sentinel/connect-azure-security-center) offered there.
-* **Splunk** - Use the [Azure Monitor Add-On for Splunk](https://github.com/Microsoft/AzureMonitorAddonForSplunk/blob/master/README.md)
-* **IBM QRadar** - Use [a manually configured log source](https://www.ibm.com/support/knowledgecenter/SS42VS_DSM/com.ibm.dsm.doc/t_dsm_guide_microsoft_azure_enable_event_hubs.html)
-* **ArcSight** – Use [SmartConnector](https://community.microfocus.com/t5/ArcSight-Connectors/SmartConnector-for-Microsoft-Azure-Monitor-Event-Hub/ta-p/1671292)
-
-Also, if you'd like to move the continuously exported data automatically from your configured Event Hub to Azure Data Explorer, use the instructions in [Ingest data from Event Hub into Azure Data Explorer](https://docs.microsoft.com/azure/data-explorer/ingest-data-event-hub).
-
+- [Continuously export security alerts and recommendations](continuous-export.md)
+- [Learn more about Microsoft Graph](https://docs.microsoft.com/graph/overview)
+- [Learn more about Microsoft Graph Security API](https://docs.microsoft.com/graph/api/resources/security-api-overview)
