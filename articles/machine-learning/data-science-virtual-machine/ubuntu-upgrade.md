@@ -14,7 +14,7 @@ ms.date: 10/07/2020
 
 # Upgrade your Data Science Virtual Machine to Ubuntu 18.04
 
-If you have a Data Science Virtual Machine running an older release such as Ubuntu 16.04 or CentOS, you should migrate your DSVM to Ubuntu 18.04. Migrating will ensure that you get the latest operating system patches, drivers, preinstalled software, and library versions.
+If you have a Data Science Virtual Machine running an older release such as Ubuntu 16.04 or CentOS, you should migrate your DSVM to Ubuntu 18.04. Migrating will ensure that you get the latest operating system patches, drivers, preinstalled software, and library versions. This document tells you how to migrate from either older versions of Ubuntu or from CentOS. 
 
 ## Prerequisites
 
@@ -43,7 +43,7 @@ Once all the details are filled and validations pass, select **Review + create**
 
 ## In-place migration
 
-If you're migrating an older Ubuntu release, you may choose to do an in-place migration. This migration doesn't create a new virtual machine and has fewer steps than a side-by-side migration. 
+If you're migrating an older Ubuntu release, you may choose to do an in-place migration. This migration doesn't create a new virtual machine and has fewer steps than a side-by-side migration.  If you wish to do a side-by-side migration because you want more control or because you are migrating from a different distribution, such as CentOS, skip to the [Side-by-side migration](#side-by-side-migration) section. 
 
 From the Azure portal, start your DSVM and sign in using SSH. To do so, select **Connect** and **SSH** and follow the connection instructions. 
 
