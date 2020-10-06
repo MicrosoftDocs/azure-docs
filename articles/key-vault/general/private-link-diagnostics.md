@@ -17,7 +17,7 @@ This article helps users diagnosing and fixing issues involving Key Vault and th
 
 If you are new to this feature, see [Integrate Key Vault with Azure Private Link](private-link-service.md).
 
-### Symptoms covered by this article
+### Problems covered by this article
 
 - Your DNS queries still return a public IP address for the key vault, instead of a private IP address that you would expect from using the private links feature.
 - All requests made by a given client that is using private link, are failing with timeouts or network errors, and the problem is not intermittent.
@@ -26,7 +26,7 @@ If you are new to this feature, see [Integrate Key Vault with Azure Private Link
 - Your key vault has two Private Endpoints. Requests using one are working fine, but requests using the other are failing.
 - You have another subscription, key vault, or virtual network that is using private links. You want to make a new similar deployment, but you can't get private links to work there.
 
-### Symptoms NOT covered by this article
+### Problems NOT covered by this article
 
 - There is an intermittent connectivity issue. In a given client, you see some requests working and some not working. *Intermittent problems are typically not caused by an issue in private links configuration; they are a sign of network or client overload.*
 - You are using an Azure product that supports BYOK (Bring Your Own Key) or CMK (Customer Managed Keys), and that product cannot access your key vault. *Look at the other product documentation. Make sure it explicitly states support for key vaults with the firewall enabled. Contact product support for that specific product, if needed.*
@@ -183,7 +183,7 @@ The notable difference from previous scenario is that there is a new alias with 
 
 It doesn't mean that requests performed from machines *outside* the Virtual Network (like the one you just used) will use private links - they won't. You can see that from the fact that the hostname still resolves to a public IP address. Only machines *connected to the Virtual Network* can use private links. More on this will follow.
 
-If you don't see the `privatelink` Alias, it means the key vault has zero private endpoint connections in `Approved` state. Continue to read this article.
+If you don't see the `privatelink` alias, it means the key vault has zero private endpoint connections in `Approved` state. Go back to [this section](#2-confirm-that-the-connection-is-approved-and-succeeded) before retrying.
 
 ### Key vault with private link resolving from Virtual Network
 
@@ -205,7 +205,7 @@ Linux:
     fabrikam.vault.azure.net is an alias for fabrikam.privatelink.vaultcore.azure.net.
     fabrikam.privatelink.vaultcore.azure.net has address 10.1.2.3
 
-There are two notable differences. First, the name resolves to a private IP address. That must be the IP address that we found in the [corresponding section](#find-the-key-vault-private-ip-address-in-the-virtual-network) of this article. Second, there are no other aliases after the `privatelink` one. This happens because the Virtual Network DNS servers *intercept* the chain of aliases and are return the private IP address directly from the name `fabrikam.privatelink.vaultcore.azure.net`. That entry is actually an `A` record in a Private DNS Zone. More on this will follow.
+There are two notable differences. First, the name resolves to a private IP address. That must be the IP address that we found in the [corresponding section](#find-the-key-vault-private-ip-address-in-the-virtual-network) of this article. Second, there are no other aliases after the `privatelink` one. This happens because the Virtual Network DNS servers *intercept* the chain of aliases and return the private IP address directly from the name `fabrikam.privatelink.vaultcore.azure.net`. That entry is actually an `A` record in a Private DNS Zone. More on this will follow.
 
 >[!NOTE]
 > The outcome above only happens at a Virtual Machine connected to the Virtual Network where the Private Endpoint was created. If you don't have a VM deployed in the Virtual Network that contains the Private Endpoint, deploy one and connect remotely to it, then execute the `nslookup` command (Windows) or the `host` command (Linux) above.

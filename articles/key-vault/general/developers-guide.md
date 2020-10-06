@@ -45,11 +45,10 @@ For more information about Key Vault management plane, see [Key Vault Management
 
 Key Vault is using Azure AD authentication that requires Azure AD security principal to grant access. An Azure AD security principal may be a user, an application service principal, a [managed identity for Azure resources](../../active-directory/managed-identities-azure-resources/overview.md), or a group of any type of security principals.
 
-For secure applications, it is recommended to use managed identity for applications deployed to Azure. If Azure services, which do not support managed identity or applications deployed on premise, [service principal with a certificate](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal) is a possible alternative. Certificate should be stored in Key Vault and rotated often. 
+### Authentication best practices
+It is recommended to use managed identity for applications deployed to Azure. If you use Azure services, which do not support managed identity or if applications are deployed on premise, [service principal with a certificate](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal) is a possible alternative. In that scenario, certificate should be stored in Key Vault and rotated often. Service principal with secret can be used for development and testing environments, and locally or in Cloud Shell using user principal is recommended.
 
-Service principal with secret can be used for development and testing environments, and locally or in Cloud Shell user principal is recommended.
-
-For application development, you can use Azure Identity SDK across different environments and platforms without changing code. Azure Identity is integrated with Azure CLI, Visual Studio, Visual Studio Code, and others. 
+Above authentications scenarios are supported by Azure Identity client library and integrated with Key Vault SDKs. Azure Identity library can be used across different environments and platforms without changing your code. Azure Identity would also automatically retrieve authentication token from logged in to Azure user with Azure CLI, Visual Studio, Visual Studio Code, and others. 
 
 For more information, see: 
 
