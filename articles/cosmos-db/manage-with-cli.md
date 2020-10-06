@@ -16,6 +16,9 @@ The following guide describes common commands to automate management of your Azu
 
 If you choose to install and use the CLI locally, this topic requires that you are running the Azure CLI version 2.9.1 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI](/cli/azure/install-azure-cli).
 
+> [!IMPORTANT]
+> Azure Cosmos DB resources cannot be renamed as this violates how Azure Resource Manager works with resource URIs.
+
 ## Azure Cosmos Accounts
 
 The following sections demonstrate how to manage the Azure Cosmos account, including:
