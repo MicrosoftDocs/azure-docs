@@ -74,31 +74,31 @@ Now that the sample data is in a blob, you can enable the sentiment analysis mod
 
 2. Select **Open in Studio (classic)**.  
    
-   ![Stream Analytics Machine Learning Studio (classic), open Machine Learning Studio (classic)](./media/stream-analytics-machine-learning-integration-tutorial/stream-analytics-machine-learning-integration-tutorial-open-ml-studio.png)  
+   ![Stream Analytics Azure Machine Learning Studio (classic), open Studio (classic)](./media/stream-analytics-machine-learning-integration-tutorial/stream-analytics-machine-learning-integration-tutorial-open-ml-studio.png)  
 
 3. Sign in to go to the workspace. Select a location.
 
 4. Select **Run** at the bottom of the page. The process runs, which takes about a minute.
 
-   ![Run experiment in Machine Learning Studio (classic)](./media/stream-analytics-machine-learning-integration-tutorial/stream-analytics-machine-learning-run-experiment.png)  
+   ![Run experiment in Studio (classic)](./media/stream-analytics-machine-learning-integration-tutorial/stream-analytics-machine-learning-run-experiment.png)  
 
 5. After the process has run successfully, select **Deploy Web Service** at the bottom of the page.
 
-   ![Deploy experiment in Machine Learning Studio (classic) as a web service](./media/stream-analytics-machine-learning-integration-tutorial/stream-analytics-machine-learning-deploy-web-service.png)  
+   ![Deploy experiment in Studio (classic) as a web service](./media/stream-analytics-machine-learning-integration-tutorial/stream-analytics-machine-learning-deploy-web-service.png)  
 
 6. To validate that the sentiment analytics model is ready to use, select the **Test** button. Provide text input such as "I love Microsoft".
 
-   ![Test experiment in Machine Learning Studio (classic)](./media/stream-analytics-machine-learning-integration-tutorial/stream-analytics-machine-learning-test.png)  
+   ![Test experiment in Studio (classic)](./media/stream-analytics-machine-learning-integration-tutorial/stream-analytics-machine-learning-test.png)  
 
    If the test works, you see a result similar to the following example:
 
-   ![Test results in Machine Learning Studio (classic)](./media/stream-analytics-machine-learning-integration-tutorial/stream-analytics-machine-learning-test-results.png)  
+   ![Test results in Studio (classic)](./media/stream-analytics-machine-learning-integration-tutorial/stream-analytics-machine-learning-test-results.png)  
 
 7. In the **Apps** column, select the **Excel 2010 or earlier workbook** link to download an Excel workbook. The workbook contains the API key and the URL that you need later to set up the Stream Analytics job.
 
-    ![Stream Analytics Machine Learning Studio (classic), quick glance](./media/stream-analytics-machine-learning-integration-tutorial/stream-analytics-machine-learning-integration-tutorial-quick-glance.png)  
+    ![Stream Analytics Azure Machine Learning Studio (classic), quick glance](./media/stream-analytics-machine-learning-integration-tutorial/stream-analytics-machine-learning-integration-tutorial-quick-glance.png)  
 
-## Create a Stream Analytics job that uses the Machine Learning Studio (classic) model
+## Create a Stream Analytics job that uses the Studio (classic) model
 
 You can now create a Stream Analytics job that reads the sample tweets from the CSV file in blob storage.
 
@@ -142,9 +142,9 @@ The job sends results to the same blob storage where it gets input.
 
 3. Select **Save**.
 
-### Add the Machine Learning Studio (classic) function
+### Add the Studio (classic) function
 
-Earlier you published a Machine Learning Studio (classic) model to a web service. In this scenario, when the Stream Analysis job runs, it sends each sample tweet from the input to the web service for sentiment analysis. The Machine Learning Studio (classic) web service returns a sentiment (`positive`, `neutral`, or `negative`) and a probability of the tweet being positive.
+Earlier you published a Studio (classic) model to a web service. In this scenario, when the Stream Analysis job runs, it sends each sample tweet from the input to the web service for sentiment analysis. The Studio (classic) web service returns a sentiment (`positive`, `neutral`, or `negative`) and a probability of the tweet being positive.
 
 In this section, you define a function in the Stream Analysis job. The function can be invoked to send a tweet to the web service and get the response back.
 
@@ -164,7 +164,7 @@ In this section, you define a function in the Stream Analysis job. The function 
 
 ### Create a query to transform the data
 
-Stream Analytics uses a declarative, SQL-based query to examine the input and process it. In this section, you create a query that reads each tweet from input and then invokes the Machine Learning Studio (classic) function to perform sentiment analysis. The query then sends the result to the output that you defined (blob storage).
+Stream Analytics uses a declarative, SQL-based query to examine the input and process it. In this section, you create a query that reads each tweet from input and then invokes the Studio (classic) function to perform sentiment analysis. The query then sends the result to the output that you defined (blob storage).
 
 1. Return to the Stream Analytics job overview.
 
@@ -210,14 +210,14 @@ You can now start the Stream Analytics job.
 
 3. Open the generated CSV file. You see something like the following example:  
 
-   ![Stream Analytics Machine Learning Studio (classic), CSV view](./media/stream-analytics-machine-learning-integration-tutorial/stream-analytics-machine-learning-integration-tutorial-csv-view.png)  
+   ![Stream Analytics Azure Machine Learning Studio (classic), CSV view](./media/stream-analytics-machine-learning-integration-tutorial/stream-analytics-machine-learning-integration-tutorial-csv-view.png)  
 
 ### View metrics
 
-You also can view Azure Machine Learning Studio (classic) function-related metrics. The following function-related metrics are displayed in the **Monitoring** box of the job overview:
+You also can view Studio (classic) function-related metrics. The following function-related metrics are displayed in the **Monitoring** box of the job overview:
 
-* **Function Requests** indicates the number of requests sent to a Machine Learning Studio (classic) web service.  
-* **Function Events** indicates the number of events in the request. By default, each request to a Machine Learning Studio (classic) web service contains up to 1,000 events.
+* **Function Requests** indicates the number of requests sent to a Studio (classic) web service.  
+* **Function Events** indicates the number of events in the request. By default, each request to a Studio (classic) web service contains up to 1,000 events.
 
 ## Next steps
 
