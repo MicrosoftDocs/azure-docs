@@ -21,10 +21,12 @@ ms.collection: M365-identity-device-management
 
 # User management enhancements (preview) in Azure Active Directory
 
-This article describes how to use the enhanced user management preview in the Azure Active Directory (Azure AD) portal. The **All users** and **Deleted users** pages have been updated to provide more information and make it easier to find users. For more information about previews, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+This article describes how to use the user management enhancements preview in the Azure Active Directory (Azure AD) portal. The **All users** and **Deleted users** pages have been updated to provide more information and make it easier to find users. For more information about previews, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 Changes in the preview include:
 
+- More visible user properties including object ID, directory sync status, creation type, and identity issuer
+- Search now allows combined search of names, emails, and object IDs
 - Enhanced filtering by user type (member, guest, none), directory sync status, creation type, company name, and domain name
 - New sorting capabilities on properties like name and user principal name
 - A new total users count that updates with searches or filters
@@ -62,9 +64,6 @@ The following are the displayed user properties on the **All users** page:
 - Company name: The company name which the user is associated.
 - Invitation state: The status of the invitation for a guest user.
 - Mail: The email of the user.
-- Last sign-in: the date the user last signed in
-   > [!Note]
-   > This property is only visible to users with permissions to read audit logs(Reporting_ApplicationAuditLogs_Read)
 
 ![new user properties displayed on All users and Deleted users pages](./media/users-search-enhanced/user-properties.png)
 
@@ -96,12 +95,10 @@ Filtering capabilities have been enhanced to provide more filtering options for 
 
 The following are the filterable properties on the **All users** page:
 
-- User type: Member or guest
-- Directory synced status: Yes
-- Creation type: Invitation, Email verified, Local account
-- Invitation state – Pending acceptance, Accepted
 - User type: Member, guest, none
 - Directory synced status: Yes, no
+- Creation type: Invitation, Email verified, Local account
+- Invitation state – Pending acceptance, Accepted
 - Domain name: Enter a domain name
 - Company name: Enter a company name
 - Administrative unit: Select this option to restrict the scope of the users you view to a single administrative unit. For more information, see [Administrative units management preview](directory-administrative-units.md).
@@ -110,22 +107,24 @@ The following are the filterable properties on the **All users** page:
 
 The **Deleted users** page has additional filters not in the **All users** page. The following are the filterable properties on the **Deleted users** page:
 
-- User type: Member or guest
-- Directory synced status: Yes
+- User type: Member, guest, none
+- Directory synced status: Yes, no
 - Creation type: Invitation, Email verified, Local account
 - Invitation state: Pending acceptance, Accepted
 - Deletion date: Last 7, 14, or 30 days
-- User type: Member, guest, none
-- Directory synced status: Yes, no
 - Domain name: Enter a domain name
 - Company name: Enter a company name
 - Permanent deletion date: Last 7, 14, or 30 days
 
-### User list sorting
+## User list sorting
 
 You can now sort by name and user principal name in the **All users** and **Deleted users** pages. You can also sort by deletion date in the **Deleted Users** list.
 
-![Illustration of user list sorting on the All users page](./media/users-search-enhanced/user-list-sorting.png)
+## User list counts
+
+You can view the total number of users in the **All users** and **Deleted users** pages. As you search or filter the lists, the count is updated to reflect the total number of users found.
+
+![Illustration of user list counts on the All users page](./media/users-search-enhanced/user-list-sorting.png)
 
 ## Frequently Asked Questions (FAQ)
 

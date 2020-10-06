@@ -111,7 +111,7 @@ Here is an example of getting the JSON for a policy definition with **Name** of
 _VirtualMachineStorage_:
 
 ```azurepowershell-interactive
-Get-AzPolicyDefinition --Name 'VirtualMachineStorage'
+Get-AzPolicyDefinition -Name 'VirtualMachineStorage'
 ```
 
 ## Next steps

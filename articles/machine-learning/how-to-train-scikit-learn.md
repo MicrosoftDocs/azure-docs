@@ -63,9 +63,17 @@ Notes:
 
 To define the Azure ML [Environment](concept-environments.md) that encapsulates your training script's dependencies, you can either define a custom environment or use and Azure ML curated environment.
 
+#### Use a curated environment
+Optionally, Azure ML provides prebuilt, curated environments if you don't want to define your own environment. For more info, see [here](resource-curated-environments.md).
+If you want to use a curated environment, you can run the following command instead:
+
+```python
+sklearn_env = Environment.get(workspace=ws, name='AzureML-Tutorial')
+```
+
 #### Create a custom environment
 
-To create your own custom environment, define your conda dependencies in a YAML file; in this example the file is named `conda_dependencies.yml`.
+You can also create your own your own custom environment. Define your conda dependencies in a YAML file; in this example the file is named `conda_dependencies.yml`.
 
 ```yaml
 dependencies:
@@ -84,14 +92,6 @@ sklearn_env = Environment.from_conda_specification(name='sklearn-env', file_path
 ```
 
 For more information on creating and using environments, see [Create and use software environments in Azure Machine Learning](how-to-use-environments.md).
-
-#### Use a curated environment
-Optionally, Azure ML provides prebuilt, curated environments if you don't want to build your own image. For more info, see [here](resource-curated-environments.md).
-If you want to use a curated environment, you can run the following command instead:
-
-```python
-sklearn_env = Environment.get(workspace=ws, name='AzureML-Tutorial')
-```
 
 ## Configure and submit your training run
 
