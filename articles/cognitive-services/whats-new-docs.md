@@ -69,8 +69,6 @@ Welcome to what's new in the Cognitive Services docs from August 1, 2020 through
 
 - [How to use Named Entity Recognition in Text Analytics](/azure/cognitive-services/text-analytics/how-tos/text-analytics-how-to-entity-linking.md)
 - [Model versioning in the Text Analytics API](/azure/cognitive-services/text-analytics/concepts/model-versioning.md)
-- [How to call the Text Analytics REST API](/azure/cognitive-services/text-analytics/how-tos/text-analytics-how-to-call-api.md)
-- [What is the Text Analytics API?](/azure/cognitive-services/text-analytics/overview.md)
 - [Quickstart: Use the Text Analytics client library](/azure/cognitive-services/text-analytics/quickstarts/text-analytics-sdk.md)
 
 ## Community contributors
