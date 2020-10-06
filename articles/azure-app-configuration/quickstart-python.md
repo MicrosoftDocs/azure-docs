@@ -74,7 +74,7 @@ In this quickstart, you will use Azure App Configuration to centralize storage a
 
 
 
-## Configure your storage connection string
+## Configure your App Configuration connection string
 
 
 1. Set an environment variable named **AZURE_APP_CONFIG_CONNECTION_STRING**, and set it to the access key to your App Configuration store. At the command line, run the following command:
