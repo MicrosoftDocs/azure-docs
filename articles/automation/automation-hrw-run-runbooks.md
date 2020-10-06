@@ -86,7 +86,7 @@ Use the following procedure to specify a Run As account for a Hybrid Runbook Wor
 5. Change the value of **Run As** from **Default** to **Custom**.
 6. Select the credential and click **Save**.
 
-### <a name="runas-script"></a>Install Run As account certificate
+## <a name="runas-script"></a>Install Run As account certificate
 
 As part of your automated build process for deploying resources in Azure, you might require access to on-premises systems to support a task or set of steps in your deployment sequence. To provide authentication against Azure using the Run As account, you must install the Run As account certificate.
 
