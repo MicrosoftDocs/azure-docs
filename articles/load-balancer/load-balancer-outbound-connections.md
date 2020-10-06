@@ -98,7 +98,6 @@ For more information about Azure Virtual Network NAT, see [What is Azure Virtual
 
 ## Next Steps
 
-*	[Learn more about using Outbound Rules to define SNAT allocation](https://docs.microsoft.com/azure/load-balancer/load-balancer-outbound-connections#outboundrules)
 *	[Troubleshoot outbound connection failures because of SNAT exhaustion](https://docs.microsoft.com/azure/load-balancer/troubleshoot-outbound-connection)
 *	[Review SNAT metrics](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-diagnostics#how-do-i-check-my-snat-port-usage-and-allocation) and familiarize yourself with the correct way to filter, split, and view them.
 
