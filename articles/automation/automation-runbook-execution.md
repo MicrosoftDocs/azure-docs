@@ -1,6 +1,6 @@
 ---
 title: Runbook execution in Azure Automation
-description: This article tells provides an overview of the processing of runbooks in Azure Automation.
+description: This article provides an overview of the processing of runbooks in Azure Automation.
 services: automation
 ms.subservice: process-automation
 ms.date: 10/06/2020
