@@ -77,7 +77,7 @@ In the example above, replace the placeholders with your subscription ID and res
 
 1. Select **Set up your workflow yourself**. 
 
-1. Delete everything after `branches: [ master ]`. Your remaining workflow should look like this. 
+1. Delete everything after the `on:` section of your workflow file. For example, your remaining workflow may look like this. 
 
     ```yml
     name: CI
@@ -132,7 +132,11 @@ In the example above, replace the placeholders with your subscription ID and res
     ```yaml
    name: Blob storage website CI
 
-    on: [push]
+    on:
+    push:
+        branches: [ master ]
+    pull_request:
+        branches: [ master ]
 
     jobs:
     build:
