@@ -1,5 +1,5 @@
 ---
-title: Find Tenant ID, Object ID, and partner association details
+title: Find Tenant ID, Object ID, and partner association details in Azure Marketplace
 description: How to Find the Tenant ID, Object ID, and partner association details of a subscription ID in the Azure Marketplace.
 ms.service: marketplace
 ms.topic: article
@@ -22,22 +22,22 @@ If you need to get screenshots of these items in Azure Cloud Shell to use for de
 1. Go to the [Azure portal](https://ms.portal.azure.com/).
 2. Select **Azure Active Directory**.
 
-    :::image type="content" source="media/tenant-and-object-id/icon-aad.png" alt-text="The Azure Active Directory icon in Azure portal.":::
+    :::image type="content" source="media/tenant-and-object-id/icon-azure-ad.png" alt-text="The Azure Active Directory icon in Azure portal.":::
 
 3. Select **Groups**. Your Tenant ID is located in the **Tenant information** box.
 
-    :::image type="content" source="media/tenant-and-object-id/select-groups.png" alt-text="Select Groups in Azure portal.":::
+    :::image type="content" source="media/tenant-and-object-id/select-groups-1.png" alt-text="Select Groups in Azure portal.":::
 
 ## Find subscriptions and roles
 
 1. Go to the Azure portal and select **Azure Active Directory** as noted in steps 1 and 2 above.
 2. Select **Subscriptions**.
 
-    :::image type="content" source="media/tenant-and-object-id/icon-azure-subscriptions.png" alt-text="The Subscriptions icon in Azure portal.":::
+    :::image type="content" source="media/tenant-and-object-id/icon-azure-subscriptions-1.png" alt-text="The Subscriptions icon in Azure portal.":::
 
 3. View subscriptions and roles.
 
-    :::image type="content" source="media/tenant-and-object-id/subscriptions-screen.png" alt-text="The Subscriptions screen in Azure portal.":::
+    :::image type="content" source="media/tenant-and-object-id/subscriptions-screen-1.png" alt-text="The Subscriptions screen in Azure portal.":::
 
 ## Find Partner ID
 
@@ -55,18 +55,20 @@ If you need to get screenshots of these items in Azure Cloud Shell to use for de
 4. Browse to or search for the desired user, then select the account name to view the user account’s profile information.
 5. The Object ID is located in the Identity section on the right.
 
-    :::image type="content" source="media/tenant-and-object-id/aad-admin-center.png" alt-text="Azure Active Directory admin center.":::
+    :::image type="content" source="media/tenant-and-object-id/azure-ad-admin-center.png" alt-text="Azure Active Directory admin center.":::
 
 6. Find **role assignments** by selecting **Access control (IAM)** in the left menu, then **Role assignments**.
 
     :::image type="content" source="https://docs.microsoft.com/azure/role-based-access-control/media/role-assignments-portal/role-assignments.png" alt-text="Role assignments in Azure Active Directory.":::
 
-## Find Tenant, Object, and Partner ID association for debugging
+## Find IDs for debugging
+
+This section describes how to find tenant, object, and partner ID association for debugging purposes.
 
 1. Go to the [Azure portal](https://ms.portal.azure.com/).
 2. Open Azure Cloud Shell by selecting the PowerShell icon at the top-right.
 
-    :::image type="content" source="media/tenant-and-object-id/icon-azure-cloud-shell.png" alt-text="PowerShell icon at the top right of the screen.":::
+    :::image type="content" source="media/tenant-and-object-id/icon-azure-cloud-shell-1.png" alt-text="PowerShell icon at the top right of the screen.":::
 
 3. Select **PowerShell**.
 
@@ -74,7 +76,7 @@ If you need to get screenshots of these items in Azure Cloud Shell to use for de
 
 4. Select the **Subscription** box to choose the one to which the partner is linked, then **Create Storage**. This is a one-time action; if you already have storage set up, proceed to the next step.
 
-    :::image type="content" source="media/tenant-and-object-id/create-storage-window.png" alt-text="Selelct the Create Storage button.":::
+    :::image type="content" source="media/tenant-and-object-id/create-storage-window.png" alt-text="Select the Create Storage button.":::
 
 5. Creating (or already having) storage opens the Azure Cloud Shell window.
 
@@ -90,4 +92,7 @@ If you need to get screenshots of these items in Azure Cloud Shell to use for de
 
 >[!NOTE]
 >If multiple subscriptions require a screenshot, use this command to switch between subscriptions:<br>`az account set --subscription "My Demos"`
- 
+
+## Next steps
+
+- [Supported countries and regions](sell-from-countries.md)
