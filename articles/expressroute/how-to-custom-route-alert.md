@@ -48,7 +48,7 @@ Verify that you have met the following criteria before beginning your configurat
 
 ## <a name="accounts"></a>Create and configure accounts
 
-When you create an Automation account in the Azure portal, a [Run As](../automation/manage-runas-account.md#types-of-run-as-accounts) account is automatically created. This account takes following actions:
+When you create an Automation account in the Azure portal, a [Run As](../automation/automation-security-overview.md#run-as-accounts) account is automatically created. This account takes following actions:
 
 * Creates an Azure Active Directory (Azure AD) application with a self-signed certificate. The Run As account itself has a certificate that needs to be renewed by default every year.
 
