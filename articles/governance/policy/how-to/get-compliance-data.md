@@ -306,6 +306,7 @@ the **Events** tab.
 
 :::image type="content" source="../media/getting-compliance-data/compliance-events.png" alt-text="Screenshot of the Events tab on Compliance Details page." border="false":::
 
+<a name="component-compliance"></a>
 For [Resource Provider mode](../concepts/definition-structure.md#resource-provider-modes) resources,
 on the **Resource compliance** tab, selecting the resource or right-clicking on the row and
 selecting **View compliance details** opens the component compliance details. This page also offers
