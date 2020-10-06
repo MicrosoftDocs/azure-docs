@@ -27,6 +27,8 @@ In this article, you learn how to view the service principal of a managed identi
 
 [!INCLUDE [azure-cli-prepare-your-environment.md](../../../includes/azure-cli-prepare-your-environment.md)]
 
+If you're unfamiliar with managed identities for Azure resources, see [What are managed identities for Azure resources?](overview.md).
+
 ## View the service principal
 
 This following command demonstrates how to view the service principal of a VM or application with managed identity enabled. Replace `<Azure resource name>` with your own values.

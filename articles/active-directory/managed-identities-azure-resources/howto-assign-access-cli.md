@@ -27,6 +27,8 @@ Once you've configured an Azure resource with a managed identity, you can give t
 
 [!INCLUDE [azure-cli-prepare-your-environment.md](../../../includes/azure-cli-prepare-your-environment.md)]
 
+If you're unfamiliar with managed identities for Azure resources, see [What are managed identities for Azure resources?](overview.md). To learn about  system-assigned and user-assigned managed identity types, see [Managed identity types](overview.md#managed-identity-types).
+
 ## Use Azure RBAC to assign a managed identity access to another resource
 
 After you've enabled managed identity on an Azure resource, such as an [Azure virtual machine](qs-configure-cli-windows-vm.md) or [Azure virtual machine scale set](qs-configure-cli-windows-vmss.md): 

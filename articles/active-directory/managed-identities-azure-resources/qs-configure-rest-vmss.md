@@ -31,6 +31,19 @@ In this article, using CURL to make calls to the Azure Resource Manager REST end
 
 [!INCLUDE [azure-cli-prepare-your-environment.md](../../../includes/azure-cli-prepare-your-environment.md)]
 
+If you're unfamiliar with managed identities for Azure resources, see [What are managed identities for Azure resources?](overview.md). To learn about  system-assigned and user-assigned managed identity types, see [Managed identity types](overview.md#managed-identity-types).
+
+To perform the management operations in this article, your account needs the following Azure role assignments:
+
+- [Virtual Machine Contributor](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor) to create a virtual machine scale set and enable and remove system and/or user-assigned managed identity from an virtual machine scale set.
+
+- [Managed Identity Contributor](../../role-based-access-control/built-in-roles.md#managed-identity-contributor) role to create a user-assigned managed identity.
+
+- [Managed Identity Operator](../../role-based-access-control/built-in-roles.md#managed-identity-operator) role to assign and remove a user-assigned identity from and to a virtual machine scale set.
+
+> [!NOTE]
+> No additional Azure AD directory role assignments required.
+
 ## System-assigned managed identity
 
 In this section, you learn how to enable and disable system-assigned managed identity on a virtual machine scale set using CURL to make calls to the Azure Resource Manager REST endpoint.
