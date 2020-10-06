@@ -152,6 +152,9 @@ The exact number of labeled images necessary to start assisted labeling is not a
 
 Since the final labels still rely on input from the labeler, this technology is sometimes called *human in the loop* labeling.
 
+> [!NOTE]
+> [ML assisted data labelling](how-to-create-labeling-projects#use-ml-assisted-labeling) does not support storage accounts secured behind a [virtual network](how-to-network-security-overview.md).
+
 ### Clustering
 
 After a certain number of labels are submitted, the machine learning model for image classification starts to group together similar images.  These similar images are presented to the labelers on the same screen to speed up manual tagging. Clustering is especially useful when the labeler is viewing a grid of 4, 6, or 9 images. 
