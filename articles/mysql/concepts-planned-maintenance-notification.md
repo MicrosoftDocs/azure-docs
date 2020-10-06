@@ -63,7 +63,7 @@ Maintenance is needed to keep your server secure, stable, and up-to-date. The pl
 
 ## Are all the Azure regions patched at the same time?
 
-No, all the Azure paired regions are patched during the deployment wise window timings. The deployment wise window generally stretches from 5 PM - 8 AM local time next day, in a given Azure region. Geo-paired Azure regions are patched on different days. For high availability and business continuity of database servers, leveraging [cross region read replicas](./concepts-read-replicas#cross-region-replication) is recommended.
+No, all the Azure regions are patched during the deployment wise window timings. The deployment wise window generally stretches from 5 PM - 8 AM local time next day, in a given Azure region. Geo-paired Azure regions are patched on different days. For high availability and business continuity of database servers, leveraging [cross region read replicas](./concepts-read-replicas#cross-region-replication) is recommended.
 
 ## Retry logic
 
