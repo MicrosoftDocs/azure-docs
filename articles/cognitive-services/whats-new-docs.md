@@ -64,7 +64,7 @@ Welcome to what's new in the Cognitive Services docs from September 1, 2020 thro
 
 ## Metrics Advisor
 
-### Updated articles
+### New articles
 
 - [How to: Configure metrics and fine tune detecting configuration](/azure/cognitive-services/metrics-advisor/how-tos/configure-metrics.md)
 - [Add data feeds from different data sources to Metrics Advisor](/azure/cognitive-services/metrics-advisor/data-feeds-from-different-sources.md)
