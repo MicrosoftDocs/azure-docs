@@ -471,7 +471,7 @@ Baseboard management controller (BMC) is used to remotely monitor and manage you
         [10.100.10.10]: PS>
         ```    
 
-- `Set-HcsBmcPassword`: Use this cmdlet to modify the BMC password for `EdgeUser`. `EdgeUser` is case-sensitive.
+- `Set-HcsBmcPassword`: Use this cmdlet to modify the BMC password for `EdgeUser`. The user name - `EdgeUser`- is case-sensitive.
 
     Here is a sample output: 
 
