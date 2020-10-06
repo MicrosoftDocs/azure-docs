@@ -8,7 +8,7 @@ ms.reviewer: daperlov
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 10/06/2019
+ms.date: 10/06/2020
 ---
 
 # Data transformation expressions in mapping data flow
