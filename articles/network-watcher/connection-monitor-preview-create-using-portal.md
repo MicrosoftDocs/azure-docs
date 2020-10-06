@@ -140,16 +140,16 @@ In the Azure portal, to create a test group in a connection monitor, you specify
     
         To add an endpoint, in the upper-right corner, select **+ Endpoints**. Then provide an endpoint name and URL, IP, or FQDN.
 
-       ![Screenshot showing where to add public endpoints as destinations in Connection Monitor](./media/connection-monitor-2-preview/add-endpoints.png)
+       ![Screenshot that shows where to add public endpoints as destinations in Connection Monitor.](./media/connection-monitor-2-preview/add-endpoints.png)
 
-    * To choose recently used endpoints, go to the **Recent Endpoints** tab.
-    * When you finish choosing destinations, select **Done**. You can still edit basic properties like endpoint name by clicking the endpoint in the Create Test Group view. 
+    * To choose recently used endpoints, go to the **Recent endpoint** tab.
+    * When you finish choosing destinations, select **Done**. You can still edit basic properties like the endpoint name by selecting the endpoint in the **Create Test Group** view. 
 
-* **Test configurations** – You can associate one or more test configurations in a test group. Create a new test configuration using the "New configuration" tab or use a test configuration used in other test groups in the same Connection Monitor through  "Choose Existing" tab.
+* **Test configurations**: You can add one or more test configurations to a test group. Create a new test configuration by using the **New configuration** tab. Or add a test configuration from another test group in the same Connection Monitor from the **Choose existing** tab.
 
-    * **Name** – Name the test configuration.
-    * **Protocol** – Choose TCP, ICMP, or HTTP. To change HTTP to HTTPS, select **HTTP** as the protocol, and select **443** as the port.
-        * **Create network test configuration** – This check box appears only if you select **HTTP** in the **Protocol** field. Select this box to create another test configuration that uses the same sources and destinations that you specified elsewhere in your configuration. The newly created test configuration is named `<the name of your test configuration>_networkTestConfig`.
+    * **Test configuration name**: Name the test configuration.
+    * **Protocol**: Select **TCP**, **ICMP**, or **HTTP**. To change HTTP to HTTPS, select **HTTP** as the protocol and then select **443** as the port.
+        * **Create network test configuration**: This check box appears only if you select **HTTP** in the **Protocol** field. Select this box to create another test configuration that uses the same sources and destinations that you specified elsewhere in your configuration. The new test configuration is named **\<name of test configuration>_networkTestConfig**.
         * **Disable traceroute** – This field applies when protocol is TCP or ICMP. Select this box to stop sources from discovering topology and hop-by-hop RTT.
     * **Destination port** – You can customize this field with a destination port of your choice.
     	* Listen on port - This field applies when protocol is TCP. Select this box to open the chosen TCP port if not already open. 
