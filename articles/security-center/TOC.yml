@@ -144,8 +144,6 @@
       - name: Automate responses to recommendations
         displayName: workflow
         href: workflow-automation.md
-      - name: Export recommendations
-        href: continuous-export.md
       - name: Exempt a resource from a recommendation
         href: exempt-resource.md
   - name: Azure Defender alerts
@@ -245,9 +243,6 @@
     - name: Automate responses to alerts
       displayName: workflow
       href: workflow-automation.md
-    - name: Export alerts
-      displayName: continuous    
-      href: continuous-export.md
   - name: Protect your Kubernetes workloads
     displayName: k8s, containers
     href: kubernetes-workload-protections.md
