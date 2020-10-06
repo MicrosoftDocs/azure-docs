@@ -1,12 +1,11 @@
 ---
-title: 'ExpressRoute: Link a VNet to a circuit: Azure PowerShell'
-description: This document provides an overview of how to link virtual networks (VNets) to ExpressRoute circuits by using the Resource Manager deployment model and PowerShell.
+title: 'Tutorial: Link a VNet to a ExpressRoute circuit - Azure PowerShell'
+description: This tutorial provides an overview of how to link virtual networks (VNets) to ExpressRoute circuits by using the Resource Manager deployment model and Azure PowerShell.
 services: expressroute
 author: duongau
-
 ms.service: expressroute
-ms.topic: how-to
-ms.date: 05/20/2018
+ms.topic: tutorial
+ms.date: 10/06/2020
 ms.author: duau
 ms.custom: seodec18
 
@@ -28,8 +27,14 @@ This article helps you link virtual networks (VNets) to Azure ExpressRoute circu
 
 * You can link virtual networks outside of the geopolitical region of the ExpressRoute circuit, or connect a larger number of virtual networks to your ExpressRoute circuit if you enabled the ExpressRoute premium add-on. Check the [FAQ](expressroute-faqs.md) for more details on the premium add-on.
 
+In this tutorial, you learn how to:
+> [!div class="checklist"]
+> - Connect a virtual network in the same subscription to a circuit
+> - Connect a virtual network in a different subscription to a circuit
+> - Modify a virtual network connection
+> - Configure ExpressRoute FastPath
 
-## Before you begin
+## Prerequisites
 
 * Review the [prerequisites](expressroute-prerequisites.md), [routing requirements](expressroute-routing.md), and [workflows](expressroute-workflows.md) before you begin configuration.
 
@@ -62,10 +67,8 @@ Each of the smaller clouds within the large cloud is used to represent subscript
 > [!NOTE]
 > Connectivity and bandwidth charges for the ExpressRoute circuit will be applied to the subscription owner. All virtual networks share the same bandwidth.
 > 
-> 
 
-![Cross-subscription connectivity](./media/expressroute-howto-linkvnet-classic/cross-subscription.png)
-
+:::image type="content" source="./media/expressroute-howto-linkvnet-classic/cross-subscription.png" alt-text="Cross-subscription connectivity":::
 
 ### Administration - circuit owners and circuit users
 
@@ -90,7 +93,6 @@ $circuit = Get-AzExpressRouteCircuit -Name "MyCircuit" -ResourceGroupName "MyRG"
 $auth1 = Get-AzExpressRouteCircuitAuthorization -ExpressRouteCircuit $circuit -Name "MyAuthorization1"
 ```
 
-
 The response to this will contain the authorization key and status:
 
 ```azurepowershell
@@ -101,8 +103,6 @@ AuthorizationKey       : ####################################
 AuthorizationUseStatus : Available
 ProvisioningState      : Succeeded
 ```
-
-
 
 **To review authorizations**
 
@@ -193,5 +193,16 @@ $connection.ExpressRouteGatewayBypass = $True
 Set-AzVirtualNetworkGatewayConnection -VirtualNetworkGatewayConnection $connection
 ``` 
 
+## Clean up resources
+
+If you no longer need the ExpressRoute connection, from the subscription where the gateway is located use the `Remove-AzVirtualNetworkGatewayConnection` command to remove the link between the gateway and the circuit.
+
+```azurepowershell-interactive
+Remove-AzVirtualNetworkGatewayConnection "MyConnection" -ResourceGroupName "MyRG"
+```
+
 ## Next steps
-For more information about ExpressRoute, see the [ExpressRoute FAQ](expressroute-faqs.md).
+For more information about ExpressRoute, see the ExpressRoute FAQ.
+
+> [!div class="nextstepaction"]
+> [ExpressRoute FAQ](expressroute-faqs.md)
