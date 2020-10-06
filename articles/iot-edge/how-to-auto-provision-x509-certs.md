@@ -262,7 +262,7 @@ For more detailed information about installing IoT Edge on Windows, including pr
    Deploy-IoTEdge
    ```
 
-1. At this point, IoT Core devices may restart automatically. Other Windows 10 or Windows Server devices may prompt you to restart. If so, restart your device now. Once your device is ready, run PowerShell as an administrator again.
+1. At this point, the output may prompt you to restart. If so, restart your device now. Once your device is ready, run PowerShell as an administrator again.
 
 1. The **Initialize-IoTEdge** command configures the IoT Edge runtime on your machine. The command defaults to manual provisioning unless you use the `-Dps` flag to use automatic provisioning.
 
