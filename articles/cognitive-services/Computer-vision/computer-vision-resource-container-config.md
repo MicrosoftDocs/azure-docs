@@ -1,7 +1,7 @@
 ---
-title: Configure containers - Computer Vision
+title: Configure Read OCR containers - Computer Vision
 titleSuffix: Azure Cognitive Services
-description: This article shows you how to configure both required and optional settings for Recognize Text containers in Computer Vision.
+description: This article shows you how to configure both required and optional settings for Read OCR containers in Computer Vision.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -13,9 +13,9 @@ ms.author: aahi
 ms.custom: seodec18
 ---
 
-# Configure Computer Vision Docker containers
+# Configure Read OCR Docker containers
 
-You configure the Computer Vision container's runtime environment by using the `docker run` command arguments. This container has several required settings, along with a few optional settings. Several [examples](#example-docker-run-commands) of the command are available. The container-specific settings are the billing settings. 
+You configure the Computer Vision Read OCR container's runtime environment by using the `docker run` command arguments. This container has several required settings, along with a few optional settings. Several [examples](#example-docker-run-commands) of the command are available. The container-specific settings are the billing settings. 
 
 ## Configuration settings
 

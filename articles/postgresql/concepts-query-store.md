@@ -1,8 +1,8 @@
 ---
 title: Query Store - Azure Database for PostgreSQL - Single Server
 description: This article describes the Query Store feature in Azure Database for PostgreSQL - Single Server.
-author: rachel-msft
-ms.author: raagyema
+author: sunilagarwal
+ms.author: sunila
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 07/01/2020
@@ -245,7 +245,7 @@ The following tables describes the fields for the two log types. Depending on th
 ## Limitations and known issues
 - If a PostgreSQL server has the parameter default_transaction_read_only on, Query Store cannot capture data.
 - Query Store functionality can be interrupted if it encounters long Unicode queries (>= 6000 bytes).
-- [Read replicas](concepts-read-replicas.md) replicate Query Store data from the master server. This means that a read replica's Query Store does not provide statistics about queries run on the read replica.
+- [Read replicas](concepts-read-replicas.md) replicate Query Store data from the primary server. This means that a read replica's Query Store does not provide statistics about queries run on the read replica.
 
 
 ## Next steps

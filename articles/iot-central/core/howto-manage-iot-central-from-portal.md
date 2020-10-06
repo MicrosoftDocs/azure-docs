@@ -51,11 +51,11 @@ To get started, select **All resources** in the portal. Select **Show hidden typ
 
 To navigate to the application, select the **IoT Central Application URL**:
 
-![Management portal: resource management](media/howto-manage-iot-central-from-portal/image3.png)
+![Screenshot that shows the "Overview" page with the "IoT Central Application URL" highlighted.](media/howto-manage-iot-central-from-portal/image3.png)
 
 To move the application to a different resource group, select **change** beside the resource group. On the **Move resources** page, choose the resource group you'd like to move this application to:
 
-![Management portal: resource management](media/howto-manage-iot-central-from-portal/image4a.png)
+![Screenshot that shows the "Overview" page with the "Resource group (change)" highlighted.](media/howto-manage-iot-central-from-portal/image4a.png)
 
 To move the application to a different subscription, select  **change** beside the subscription. On the **Move resources** page, choose the subscription you'd like to move this application to:
 
