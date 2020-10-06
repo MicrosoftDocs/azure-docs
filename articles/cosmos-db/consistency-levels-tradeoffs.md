@@ -9,7 +9,7 @@ ms.date: 04/23/2020
 ms.reviewer: sngun
 ---
 
-# Consistency, availability, and performance tradeoffs
+# Latency, availability, and performance tradeoffs with different Azure Cosmos DB consistency levels
 
 Distributed databases that rely on replication for high availability, low latency, or both must make tradeoffs. The tradeoffs are between read consistency vs. availability, latency, and throughput.
 

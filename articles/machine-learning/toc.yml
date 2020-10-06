@@ -15,7 +15,7 @@
 - name: Tutorials
   expanded: true
   items: 
-    - name: "Python Day 1 get started"
+    - name: "Python day 1 get started"
       expanded: true
       items:
         - name: 1. Set up local computer

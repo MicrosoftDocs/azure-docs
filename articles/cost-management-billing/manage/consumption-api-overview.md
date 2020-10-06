@@ -33,7 +33,7 @@ Use the Usage Details API to get charge and usage data for all Azure 1st party r
 The API includes:
 
 -	**Meter Level Consumption Data** - See data including usage cost, the meter emitting the charge, and what Azure resource the charge pertains to. All usage detail records map to a daily bucket.
--	**Azure Role-based Access Control** - Configure access policies on the [Azure portal](https://portal.azure.com), the [Azure CLI](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-cli) or [Azure PowerShell cmdlets](https://docs.microsoft.com/powershell/azure/) to specify which users or applications can get access to the subscription’s usage data. Callers must use standard Azure Active Directory tokens for authentication. Add the caller to either the Billing Reader, Reader, Owner, or Contributor role to get access to the usage data for a specific Azure subscription.
+-	**Azure role-based access control (Azure RBAC)** - Configure access policies on the [Azure portal](https://portal.azure.com), the [Azure CLI](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-cli) or [Azure PowerShell cmdlets](https://docs.microsoft.com/powershell/azure/) to specify which users or applications can get access to the subscription’s usage data. Callers must use standard Azure Active Directory tokens for authentication. Add the caller to either the Billing Reader, Reader, Owner, or Contributor role to get access to the usage data for a specific Azure subscription.
 -	**Filtering** - Trim your API result set down to a smaller set of usage detail records using the following filters:
     - Usage end / usage start
     - Resource Group
@@ -50,7 +50,7 @@ Use the Marketplace Charges API to get charge and usage data on all Marketplace 
 The API includes:
 
 -	**Meter Level Consumption Data** - See data including marketplace usage cost, the meter emitting the charge, and what resource the charge pertains to. All usage detail records map to a daily bucket.
--	**Azure Role-based Access Control** - Configure access policies on the [Azure portal](https://portal.azure.com), the [Azure CLI](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-cli) or [Azure PowerShell cmdlets](https://docs.microsoft.com/powershell/azure/) to specify which users or applications can get access to the subscription’s usage data. Callers must use standard Azure Active Directory tokens for authentication. Add the caller to either the Billing Reader, Reader, Owner, or Contributor role to get access to the usage data for a specific Azure subscription.
+-	**Azure role-based access control (Azure RBAC)** - Configure access policies on the [Azure portal](https://portal.azure.com), the [Azure CLI](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-cli) or [Azure PowerShell cmdlets](https://docs.microsoft.com/powershell/azure/) to specify which users or applications can get access to the subscription’s usage data. Callers must use standard Azure Active Directory tokens for authentication. Add the caller to either the Billing Reader, Reader, Owner, or Contributor role to get access to the usage data for a specific Azure subscription.
 -	**Filtering** - Trim your API result set down to a smaller set of marketplace records using the following filters:
     - Usage start / usage end
     - Resource Group
@@ -65,7 +65,7 @@ Enterprise customers can use the Balances API to get a monthly summary of inform
 
 The API includes:
 
--	**Azure Role-based Access Control** - Configure access policies on the [Azure portal](https://portal.azure.com), the [Azure CLI](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-cli) or [Azure PowerShell cmdlets](https://docs.microsoft.com/powershell/azure/) to specify which users or applications can get access to the subscription’s usage data. Callers must use standard Azure Active Directory tokens for authentication. Add the caller to either the Billing Reader, Reader, Owner, or Contributor role to get access to the usage data for a specific Azure subscription.
+-	**Azure role-based access control (Azure RBAC)** - Configure access policies on the [Azure portal](https://portal.azure.com), the [Azure CLI](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-cli) or [Azure PowerShell cmdlets](https://docs.microsoft.com/powershell/azure/) to specify which users or applications can get access to the subscription’s usage data. Callers must use standard Azure Active Directory tokens for authentication. Add the caller to either the Billing Reader, Reader, Owner, or Contributor role to get access to the usage data for a specific Azure subscription.
 -	**Enterprise Customers Only** This API is only available EA customers.
     - Customers must have Enterprise Admin permissions to call this API
 
@@ -77,7 +77,7 @@ Enterprise customers can use this API to create either cost or usage budgets for
 
 The API includes:
 
--	**Azure Role-based Access Control** - Configure access policies on the [Azure portal](https://portal.azure.com), the [Azure CLI](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-cli) or [Azure PowerShell cmdlets](https://docs.microsoft.com/powershell/azure/) to specify which users or applications can get access to the subscription’s usage data. Callers must use standard Azure Active Directory tokens for authentication. Add the caller to either the Billing Reader, Reader, Owner, or Contributor role to get access to the usage data for a specific Azure subscription.
+-	**Azure role-based access control (Azure RBAC)** - Configure access policies on the [Azure portal](https://portal.azure.com), the [Azure CLI](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-cli) or [Azure PowerShell cmdlets](https://docs.microsoft.com/powershell/azure/) to specify which users or applications can get access to the subscription’s usage data. Callers must use standard Azure Active Directory tokens for authentication. Add the caller to either the Billing Reader, Reader, Owner, or Contributor role to get access to the usage data for a specific Azure subscription.
 -	**Enterprise Customers Only** - This API is only available EA customers.
 -	**Configurable Notifications** - Specify user(s) to be notified when the budget is tripped.
 -	**Usage or Cost Based Budgets** - Create your budget based on either consumption or cost as needed by your scenario.
@@ -95,7 +95,7 @@ Use this API to get recommendations for purchasing Reserved VM Instances. Recomm
 
 The API includes:
 
--	**Azure Role-based Access Control** - Configure access policies on the [Azure portal](https://portal.azure.com), the [Azure CLI](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-cli) or [Azure PowerShell cmdlets](https://docs.microsoft.com/powershell/azure/) to specify which users or applications can get access to the subscription’s usage data. Callers must use standard Azure Active Directory tokens for authentication. Add the caller to either the Billing Reader, Reader, Owner, or Contributor role to get access to the usage data for a specific Azure subscription.
+-	**Azure role-based access control (Azure RBAC)** - Configure access policies on the [Azure portal](https://portal.azure.com), the [Azure CLI](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-cli) or [Azure PowerShell cmdlets](https://docs.microsoft.com/powershell/azure/) to specify which users or applications can get access to the subscription’s usage data. Callers must use standard Azure Active Directory tokens for authentication. Add the caller to either the Billing Reader, Reader, Owner, or Contributor role to get access to the usage data for a specific Azure subscription.
 -	**Filtering** - Tailor your recommendation results using the following filters:
     - Scope
     - Lookback period
@@ -109,7 +109,7 @@ Use the Reservation Details API to see info on previously purchased VM reservati
 
 The API includes:
 
--	**Azure Role-based Access Control** - Configure access policies on the [Azure portal](https://portal.azure.com), the [Azure CLI](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-cli) or [Azure PowerShell cmdlets](https://docs.microsoft.com/powershell/azure/) to specify which users or applications can get access to the subscription’s usage data. Callers must use standard Azure Active Directory tokens for authentication. Add the caller to either the Billing Reader, Reader, Owner, or Contributor role to get access to the usage data for a specific Azure subscription.
+-	**Azure role-based access control (Azure RBAC)** - Configure access policies on the [Azure portal](https://portal.azure.com), the [Azure CLI](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-cli) or [Azure PowerShell cmdlets](https://docs.microsoft.com/powershell/azure/) to specify which users or applications can get access to the subscription’s usage data. Callers must use standard Azure Active Directory tokens for authentication. Add the caller to either the Billing Reader, Reader, Owner, or Contributor role to get access to the usage data for a specific Azure subscription.
 -	**Filtering** - Trim your API result set down to a smaller set of reservations using the following filter:
     - Date range
 -	**Reservation info for different offer types** - Reservation information is currently available for Enterprise and Web Direct customers.
@@ -122,7 +122,7 @@ Use this API to see aggregate information on previously purchased VM reservation
 
 The API includes:
 
--	**Azure Role-based Access Control** - Configure access policies on the [Azure portal](https://portal.azure.com), the [Azure CLI](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-cli) or [Azure PowerShell cmdlets](https://docs.microsoft.com/powershell/azure/) to specify which users or applications can get access to the subscription’s usage data. Callers must use standard Azure Active Directory tokens for authentication. Add the caller to either the Billing Reader, Reader, Owner, or Contributor role to get access to the usage data for a specific Azure subscription.
+-	**Azure role-based access control (Azure RBAC)** - Configure access policies on the [Azure portal](https://portal.azure.com), the [Azure CLI](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-cli) or [Azure PowerShell cmdlets](https://docs.microsoft.com/powershell/azure/) to specify which users or applications can get access to the subscription’s usage data. Callers must use standard Azure Active Directory tokens for authentication. Add the caller to either the Billing Reader, Reader, Owner, or Contributor role to get access to the usage data for a specific Azure subscription.
 -	**Filtering** - Tailor your results when using the daily grain with the following filter:
     - Usage Date
 -	**Reservation info for different offer types** - Reservation information is currently available for Enterprise and Web Direct customers.
@@ -135,7 +135,7 @@ Enterprise customer can use this API to retrieve their custom pricing for all me
 
 The API includes:
 
--	**Azure Role-based Access Control** - Configure access policies on the [Azure portal](https://portal.azure.com), the [Azure CLI](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-cli) or [Azure PowerShell cmdlets](https://docs.microsoft.com/powershell/azure/) to specify which users or applications can get access to the subscription’s usage data. Callers must use standard Azure Active Directory tokens for authentication. Add the caller to either the Billing Reader, Reader, Owner, or Contributor role to get access to the usage data for a specific Azure subscription.
+-	**Azure role-based access control (Azure RBAC)** - Configure access policies on the [Azure portal](https://portal.azure.com), the [Azure CLI](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-cli) or [Azure PowerShell cmdlets](https://docs.microsoft.com/powershell/azure/) to specify which users or applications can get access to the subscription’s usage data. Callers must use standard Azure Active Directory tokens for authentication. Add the caller to either the Billing Reader, Reader, Owner, or Contributor role to get access to the usage data for a specific Azure subscription.
 -	**Enterprise Customers Only** - This API is only available EA customers. Web Direct customers should use the RateCard API to get pricing.
 
 For more information, see the technical specification for the [Price Sheet API](https://docs.microsoft.com/rest/api/consumption/pricesheet).

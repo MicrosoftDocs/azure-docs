@@ -9,7 +9,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/13/2020
+ms.date: 09/18/2020
 ms.author: duau
 ---
 
@@ -152,6 +152,10 @@ Azure Front Door (AFD) requires a public IP or publicly resolvable DNS name to r
 ### What are the various timeouts and limits for Azure Front Door?
 
 Learn about all the documented [timeouts and limits for Azure Front Door](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#azure-front-door-service-limits).
+
+### How long does it take for a rule to take effect after being added to the Front Door Rules Engine?
+
+The Rules Engine configuration takes about 10 to 15 minutes to complete an update. You can expect the rule to take effect as soon as the update is completed. 
 
 ## Performance
 

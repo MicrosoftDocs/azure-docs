@@ -117,12 +117,6 @@ The following recommendation applies only to AKS and the Azure Policy Add-on:
 Before installing the Azure Policy Add-on or enabling any of the service features, your subscription
 must enable the **Microsoft.ContainerService** and **Microsoft.PolicyInsights** resource providers.
 
-> [!IMPORTANT]
-> The general availability (GA) of Azure Policy on AKS is actively releasing across all regions. The
-> expected global completion of the GA release is 9/29/2020. Usage in regions without the GA release
-> requires preview registration steps. However, this will be automatically updated to the GA release
-> when available in the region.
-
 1. You need the Azure CLI version 2.12.0 or later installed and configured. Run `az --version` to
    find the version. If you need to install or upgrade, see
    [Install the Azure CLI](/cli/azure/install-azure-cli).

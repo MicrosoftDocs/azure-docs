@@ -80,7 +80,7 @@ To understand how the Wingtip Tickets application implements new tenant provisio
 
 2. To add a breakpoint, put your cursor anywhere on the line that says *New-Tenant `*. Then press F9.
 
-   ![Breakpoint](./media/saas-dbpertenant-provision-and-catalog/breakpoint.png)
+   ![Screenshot shows a script with New-Tenant highlighted for adding a breakpoint.](./media/saas-dbpertenant-provision-and-catalog/breakpoint.png)
 
 3. To run the script, press F5.
 

@@ -17,7 +17,7 @@ Azure Synapse Link for Azure Cosmos DB creates a tight integration between Azure
 
 ### Is Synapse Link supported for all Azure Cosmos DB APIs?
 
-In the public preview release, Synapse Link is supported for the Azure Cosmos DB SQL (Core) API and for the Azure Cosmos DB API for MongoDB. Support for Cassandra API is currently under gated preview. To request access to gated preview, reach out to the [Azure Cosmos DB team](mailto:cosmosdbsynapselink@microsoft.com).
+In the public preview release, Synapse Link is supported for the Azure Cosmos DB SQL (Core) API and for the Azure Cosmos DB API for MongoDB. 
 
 ### Is Synapse Link supported for multi-region Azure Cosmos accounts?
 

@@ -53,7 +53,7 @@ Run an Azure VMware Solution (AVS) assessment as follows:
 
 2. In the **Servers** tab, in **Azure Migrate: Server Assessment** tile, click **Assess**.
 
-    ![Assess](./media/how-to-create-assessment/assess.png)
+    ![Screenshot shows Azure Migrate Servers with Assess selected under Assessment tools.](./media/how-to-create-assessment/assess.png)
 
 3. In **Assess servers**, select the assessment type as "Azure VMware Solution (AVS)", select the discovery source and specify the assessment name.
 

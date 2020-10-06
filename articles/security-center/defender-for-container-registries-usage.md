@@ -4,7 +4,7 @@ description: Learn about using Azure Defender for container registries to scan i
 author: memildin
 ms.author: memildin
 ms.date: 9/22/2020
-ms.topic: conceptual
+ms.topic: how-to
 ms.service: security-center
 manager: rkarlin
 

@@ -69,7 +69,7 @@ In this example, we show how to recover the default nginx web page /var/www/html
  
 1. On your local computer, open a browser and type in the public IP address of your VM to see the default nginx web page.
 
-	![Default nginx web page](./media/tutorial-backup-vms/nginx-working.png)
+	![Screenshot that shows the default nginx web page.](./media/tutorial-backup-vms/nginx-working.png)
 
 1. SSH into your VM.
 
@@ -85,7 +85,7 @@ In this example, we show how to recover the default nginx web page /var/www/html
 	
 4. On your local computer, refresh the browser by hitting CTRL + F5 to see that default nginx page is gone.
 
-	![Default nginx web page](./media/tutorial-backup-vms/nginx-broken.png)
+	![Screenshot that shows the default nginx page is gone.](./media/tutorial-backup-vms/nginx-broken.png)
 	
 1. On your local computer, sign in to the [Azure portal](https://portal.azure.com/).
 6. In the menu on the left, select **Virtual machines**. 
