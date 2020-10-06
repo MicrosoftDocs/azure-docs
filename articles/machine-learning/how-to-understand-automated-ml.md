@@ -50,7 +50,7 @@ After your automated machine learning experiment completes, a history of the run
 
 1. On the **Metrics** tab, select what metrics and charts you want to evaluate for that particular model. 
 
-![Model metrics](./media/how-to-understand-automated-ml/auto-ml-model-metrics-screen.png)
+    ![Model metrics](./media/how-to-understand-automated-ml/auto-ml-model-metrics-screen.png)
 
 For SDK experiments, you can see these same results during a run when you use the `RunDetails` [Jupyter widget](https://docs.microsoft.com/python/api/azureml-widgets/azureml.widgets?view=azure-ml-py&preserve-view=true).
 
