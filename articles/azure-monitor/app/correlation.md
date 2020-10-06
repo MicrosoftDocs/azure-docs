@@ -70,9 +70,10 @@ The [W3C Trace-Context](https://w3c.github.io/trace-context/) and Application In
 
 | Application Insights                   | W3C TraceContext                                      |
 |------------------------------------    |-------------------------------------------------|
-| `Id` of `Request` and `Dependency`     | `SpanId`                                            |
-| `Operation_Id`                         | `TraceId`                                           |
-| `Operation_ParentId`                   | `SpanId` of this span's parent span. If this is a root span, then this field must be empty.     |
+| `Id` of `Request` and `Dependency`     | [parent-id](https://w3c.github.io/trace-context/#parent-id)                                     |
+| `Operation_Id`                         | [trace-id](https://w3c.github.io/trace-context/#trace-id)                                           |
+| `Operation_ParentId`                   | [parent-id](https://w3c.github.io/trace-context/#parent-id) of this span's parent span. If this is a root span, then this field must be empty.     |
+
 
 For more information, see [Application Insights telemetry data model](../../azure-monitor/app/data-model.md).
 
