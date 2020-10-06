@@ -5,7 +5,7 @@ titleSuffix: Azure Digital Twins
 description: See how to manage a graph of digital twins by connecting them with relationships.
 author: baanders
 ms.author: baanders # Microsoft employees only
-ms.date: 09/30/2020
+ms.date: 10/05/2020
 ms.topic: how-to
 ms.service: digital-twins
 
@@ -32,15 +32,15 @@ Relationships describe how different digital twins are connected to each other, 
 Relationships are created using the `CreateRelationship` call. 
 
 To create a relationship, you need to specify:
-* The source twin ID (the twin where the relationship originates)
-* The target twin ID (the twin where the relationship arrives)
-* A relationship name
-* A relationship ID
+* The source twin ID (_srcId_) (the twin where the relationship originates)
+* The target twin ID (_targetId_) (the twin where the relationship arrives)
+* A relationship name (_relName_)
+* A relationship ID (_relId_)
 
 The relationship ID must be unique within the given source twin. It does not need to be globally unique.
-For example, for the twin *foo*, each specific relationship ID must be unique. However, another twin *bar* can have an outgoing relationship that matches the same ID of a *foo* relationship. 
+For example, for the twin *foo*, each specific relationship ID must be unique. However, another twin *bar* can have an outgoing relationship that matches the same ID of a *foo* relationship.
 
-The following code sample illustrates how to add a relationship to your Azure Digital Twins instance.
+The following code sample illustrates how to create a relationship to your Azure Digital Twins instance.
 
 ```csharp
 public async static Task CreateRelationship(DigitalTwinsClient client, string srcId, string targetId, string relName)
@@ -64,8 +64,7 @@ public async static Task CreateRelationship(DigitalTwinsClient client, string sr
             
         }
 ```
-
-You can now call CreateRelationship function in your main method like this: 
+In your main method, you can now call CreateRelationship function with _contains_ relationship like this: 
 
 `await CreateRelationship(client, srcId, targetId, "contains");`
 
@@ -83,17 +82,21 @@ There is no restriction on the number of relationships that you can have between
 
 This means that you can express several different types of relationships between two twins at once. For example, *Twin A* can have both a *stored* relationship and *manufactured* relationship with *Twin B*.
 
-You can even create multiple instances of the same type of relationship between the same two twins, if desired. In this example, that means *Twin A* could have two distinct *stored* relationships with *Twin B*.
+You can even create multiple instances of the same type of relationship between the same two twins, if desired. In this example, *Twin A* could have two different *stored* relationships differing in relationship ID's with *Twin B*.
+
+Relationships can be classified as
+1. OutgoingRelationships - We can get OutgoingRelationships of a twin by calling GetRelationships() method.
+2. IncomingRelationships
 
 ## List relationships
 
-To access the list of relationships for a given twin in the graph, you can use:
+To access the list of relationships for a given twin in the graph, you can use GetRelationships() method like this:
 
-`await client.GetRelationshipsAsync(id);`
+`await client.GetRelationships()`
 
-This returns an `Azure.Pageable<T>` or `Azure.AsyncPageable<T>`, depending on if you use the synchronous or asynchronous version of the call.
+This returns an `Azure.Pageable<T>` or `Azure.AsyncPageable<T>`, depending on the synchronous or asynchronous version of the call.
 
-Here is a full example that retrieves a list of relationships:
+Here is an example that retrieves a list of relationships:
 
 ```csharp
 public static async Task<List<BasicRelationship>> FindOutgoingRelationshipsAsync(DigitalTwinsClient client, string dtId)
@@ -213,6 +216,100 @@ private static async Task DeleteRelationShip(DigitalTwinsClient client, string s
             }
         }
 ```
+
+## Create a twin graph 
+
+The following code snippet uses the relationship operations from this article to create a twin graph out of digital twins and relationships.
+
+```csharp
+static async Task CreateTwins(DigitalTwinsClient client)
+{
+    // Create twins - see utility functions below 
+    await CreateRoom(client, "Room01", 68, 50);
+    await CreateRoom(client, "Room02", 70, 66);
+    await CreateFloorOrBuilding("Floor01", makeFloor:true);
+
+    // Create relationships
+    await AddRelationship(client, "Floor01", "contains", "Floor-to-Room01", "Room01");
+    await AddRelationship(client, "Floor01", "contains", "Floor-to-Room02", "Room02");
+}
+
+static async Task<bool> AddRelationship(DigitalTwinsClient client, string source, string rel_name, string id, string target)
+{
+    var relationship = new BasicRelationship
+    {
+        TargetId = target,
+        Name = rel_name
+    };
+
+    try
+    {
+        string relId = $"{source}-contains->{target}";
+        await client.CreateRelationshipAsync(source, relId, JsonSerializer.Serialize(relationship));
+        Console.WriteLine("Created relationship successfully");
+        return true;
+    }
+    catch (RequestFailedException rex) {
+        Console.WriteLine($"Create relationship error: {rex.Status}:{rex.Message}");
+        return false;
+    }
+}
+
+static async Task<bool> CreateRoom(DigitalTwinsClient client, string id, double temperature, double humidity)
+{
+    BasicDigitalTwin twin = new BasicDigitalTwin();
+    twin.Metadata = new DigitalTwinMetadata();
+    twin.Metadata.ModelId = "dtmi:com:contoso:Room;2";
+    // Initialize properties
+    Dictionary<string, object> props = new Dictionary<string, object>();
+    props.Add("Temperature", temperature);
+    props.Add("Humidity", humidity);
+    twin.CustomProperties = props;
+    
+    try
+    {
+       await client.CreateDigitalTwinAsync(id, JsonSerializer.Serialize<BasicDigitalTwin>(twin)); 
+        return true;       
+    }
+    catch (ErrorResponseException e)
+    {
+        Console.WriteLine($"*** Error creating twin {id}"); 
+        return false;
+    }
+}
+
+static async Task<bool> CreateFloorOrBuilding(DigitalTwinsClient client, string id, bool makeFloor=true)
+{
+    string type = "dtmi:com:contoso:Building;3";
+    if (makeFloor==true)
+        type = "dtmi:com:contoso:Floor;2";
+    BasicDigitalTwin twin = new BasicDigitalTwin();
+    twin.Metadata = new DigitalTwinMetadata();
+    twin.Metadata.ModelId = type;
+    // Initialize properties
+    Dictionary<string, object> props = new Dictionary<string, object>();
+    props.Add("AverageTemperature", 0);
+    twin.CustomProperties = props;
+    
+    try
+    {
+        client.CreateDigitalTwinAsync(id, JsonSerializer.Serialize<BasicDigitalTwin>(twin));  
+        return true;      
+    }
+    catch (ErrorResponseException e)
+    {
+        Console.WriteLine($"*** Error creating twin {id}"); 
+        return false;
+    }
+}
+```
+> [!NOTE]
+> The graph is a concept of creating relationships between twins. If you want to view the visual representation of a graph, you can checkout [Visualization](https://docs.microsoft.com/azure/digital-twins/how-to-manage-graph#visualization) section of this article. 
+
+### Runnable code for creating a twin graph
+
+Below is the complete runnable code to create a graph to show the relationship between the twins.  
+
 The runnable code sample below creates models, twins, prints details of the twins, creates relationships between the twins and finally deletes relationships between twins.
 
 If you are running the following code directly without going through the above steps, make sure you 
@@ -410,102 +507,6 @@ Here is the console output of the above program:
 
 :::image type="content" source="media/how-to-manage-graph/console-output-twins-relationships.png" alt-text="Console output showing the twin details, incoming and outgoing relationships of the twins.":::
 
-## Create a twin graph 
-
-The following code snippet uses the relationship operations from this article to create a twin graph out of digital twins and relationships.
-
-```csharp
-static async Task CreateTwins(DigitalTwinsClient client)
-{
-    // Create twins - see utility functions below 
-    await CreateRoom(client, "Room01", 68, 50);
-    await CreateRoom(client, "Room02", 70, 66);
-    await CreateFloorOrBuilding("Floor01", makeFloor:true);
-
-    // Create relationships
-    await AddRelationship(client, "Floor01", "contains", "Floor-to-Room01", "Room01");
-    await AddRelationship(client, "Floor01", "contains", "Floor-to-Room02", "Room02");
-}
-
-static async Task<bool> AddRelationship(DigitalTwinsClient client, string source, string rel_name, string id, string target)
-{
-    var relationship = new BasicRelationship
-    {
-        TargetId = target,
-        Name = rel_name
-    };
-
-    try
-    {
-        string relId = $"{source}-contains->{target}";
-        await client.CreateRelationshipAsync(source, relId, JsonSerializer.Serialize(relationship));
-        Console.WriteLine("Created relationship successfully");
-        return true;
-    }
-    catch (RequestFailedException rex) {
-        Console.WriteLine($"Create relationship error: {rex.Status}:{rex.Message}");
-        return false;
-    }
-}
-
-static async Task<bool> CreateRoom(DigitalTwinsClient client, string id, double temperature, double humidity)
-{
-    BasicDigitalTwin twin = new BasicDigitalTwin();
-    twin.Metadata = new DigitalTwinMetadata();
-    twin.Metadata.ModelId = "dtmi:com:contoso:Room;2";
-    // Initialize properties
-    Dictionary<string, object> props = new Dictionary<string, object>();
-    props.Add("Temperature", temperature);
-    props.Add("Humidity", humidity);
-    twin.CustomProperties = props;
-    
-    try
-    {
-       await client.CreateDigitalTwinAsync(id, JsonSerializer.Serialize<BasicDigitalTwin>(twin)); 
-        return true;       
-    }
-    catch (ErrorResponseException e)
-    {
-        Console.WriteLine($"*** Error creating twin {id}"); 
-        return false;
-    }
-}
-
-static async Task<bool> CreateFloorOrBuilding(DigitalTwinsClient client, string id, bool makeFloor=true)
-{
-    string type = "dtmi:com:contoso:Building;3";
-    if (makeFloor==true)
-        type = "dtmi:com:contoso:Floor;2";
-    BasicDigitalTwin twin = new BasicDigitalTwin();
-    twin.Metadata = new DigitalTwinMetadata();
-    twin.Metadata.ModelId = type;
-    // Initialize properties
-    Dictionary<string, object> props = new Dictionary<string, object>();
-    props.Add("AverageTemperature", 0);
-    twin.CustomProperties = props;
-    
-    try
-    {
-        client.CreateDigitalTwinAsync(id, JsonSerializer.Serialize<BasicDigitalTwin>(twin));  
-        return true;      
-    }
-    catch (ErrorResponseException e)
-    {
-        Console.WriteLine($"*** Error creating twin {id}"); 
-        return false;
-    }
-}
-```
-
-You can call CreateTwins() function in your main method like this: 
-
-```csharp
-
-await CreateTwins(client);
-
-```
-
-
 
 ### Create a twin graph from a spreadsheet
 
@@ -513,15 +514,13 @@ In practical use cases, twin hierarchies will often be created from data stored 
 
 Consider the following data table, describing a set of digital twins and relationships to be created.
 
-| Model    | ID | Parent | Relationship name | Other data |
+| ModelID| ID (must be unique) | Relationship (From) | Relationship Name | Init Data |
 | --- | --- | --- | --- | --- |
-| floor    | Floor01 | | | … |
-| room    | Room10 | Floor01 | contains | … |
-| room    | Room11 | Floor01 | contains | … |
-| room    | Room12 | Floor01 | contains | … |
-| floor    | Floor02 | | | … |
-| room    | Room21 | Floor02 | contains | … |
-| room    | Room22 | Floor02 | contains | … |
+| dtmi:example:Floor;1 | Floor1 |  | 
+| dtmi:example:Floor;1 | Floor0 |  |  
+| dtmi:example:Room;1  | Room1 | Floor1 | contains | {"Temperature": 80, "Humidity": 60} |
+| dtmi:example:Room;1  | Room0 | Floor0 | contains | {"Temperature": 70, "Humidity": 30} |
+
 
 The following code uses the [Microsoft Graph API](https://docs.microsoft.com/graph/overview) to read a spreadsheet and construct an Azure Digital Twins twin graph from the results.
 
