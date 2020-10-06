@@ -26,7 +26,7 @@ Resource Manager locks apply only to operations that happen in the management pl
 ## Manage locks
 
 > [!WARNING]
-> Resource locks do not work for changes made by users accessing Azure Cosmos DB using account keys unless the Azure Cosmos account is first locked by enabling the disableKeyBasedMetadataWriteAccess property. Care should be taken before enabling this property to ensure it does not break existing applications that make changes to resources using any SDK, Azure portal or 3rd party tools that connect via account keys and modify resources such as changing throughput, updating index policies, etc. To learn more and to go through a checklist to ensure your applications continue to function see, [Preventing changes from the Azure Cosmos DB SDKs](https://docs.microsoft.com/en-us/azure/cosmos-db/role-based-access-control#prevent-sdk-changes)
+> Resource locks do not work for changes made by users accessing Azure Cosmos DB using account keys unless the Azure Cosmos account is first locked by enabling the disableKeyBasedMetadataWriteAccess property. Care should be taken before enabling this property to ensure it does not break existing applications that make changes to resources using any SDK, Azure portal or 3rd party tools that connect via account keys and modify resources such as changing throughput, updating index policies, etc. To learn more and to go through a checklist to ensure your applications continue to function see, [Preventing changes from the Azure Cosmos DB SDKs](role-based-access-control.md#prevent-sdk-changes)
 
 ### PowerShell
 
