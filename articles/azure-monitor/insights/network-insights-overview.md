@@ -112,7 +112,7 @@ This section will help you with the diagnosis and troubleshooting of some of the
 
 ### Resolving performance issues or failures
 
-To help troubleshoot any networking relaed issues you identify with Azure Monitor for Networks, see the troubleshooting documentation of the malfunctioning resource. 
+To help troubleshoot any networking related issues you identify with Azure Monitor for Networks, see the troubleshooting documentation of the malfunctioning resource. 
 Trouble-shooting links for high used services are listed below.
 * Virtual Network (VNET)
 * Application Gateway
