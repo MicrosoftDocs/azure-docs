@@ -13,7 +13,7 @@ ms.service: azure-communication-services
 ---
 # Plan your telephony and SMS solution
 
-[!INCLUDE [Private Preview Notice](../../includes/private-preview-include.md)]
+[!INCLUDE [Public Preview Notice](../../includes/public-preview-include.md)]
 
 This document describes the various telephony plans and number types that Azure Communication Services has to offer. We'll walk through the decision flows to help you select a voice service provider, phone number types, plans, and capabilities made available through Communication Services.
 
