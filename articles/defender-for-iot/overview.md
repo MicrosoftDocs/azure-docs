@@ -5,7 +5,7 @@ description: Learn more about Defender for IoT features and services, and unders
 services: defender-for-iot
 ms.service: defender-for-iot
 documentationcenter: na
-author: mlottner
+author: rkarlin
 manager: rkarlin
 editor: ''
 
@@ -13,23 +13,28 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/09/2020
-ms.author: mlottner
+ms.date: 10/07/2020
+ms.author: rkarlin
 ---
 
 # Introducing Azure Defender for IoT
 
-Unify security management and enable end-to-end threat detection and analysis across hybrid cloud workloads and your Azure IoT solution.
+As enterprises implement digital transformation for greater efficiency and productivity, boards and management teams are increasingly concerned about the liability and financial risk resulting from the deployment of massive numbers of unmanaged Internet of Things (IoT) and Operational Technology (OT) devices.
+Threat actors targeting this expanded attack surface can cause substantial corporate impact including safety and environmental incidents, costly production downtime, and theft of sensitive intellectual property.
 
-## Secure your entire IoT solution from IoT devices to Azure cloud
+Legacy IoT and OT devices don’t support agents and are often unpatched, misconfigured, and invisible to IT teams – making them soft targets for threat actors looking to pivot deeper into corporate networks. 
 
-Choose from our seamless agentless solution or take advantage of agent-based comprehensive security, Azure Defender for IoT provides threat prevention and analysis for every device, IoT Edge and IoT Hub, across your IoT assets.
+Traditional network security monitoring tools developed for corporate IT networks are unable to address these environments because they lack a deep understanding of the specialized protocols, devices, and machine-to-machine (M2M) behaviors found in IoT and OT environments.
 
-As billions of new devices are connected to the internet, and integrated into our daily lives and our businesses, your security operations teams must ensure their security strategies evolve quickly enough to cover each new attack surface. Like any other system, to comprehensively secure your IoT solution, it requires  protection at every stage of implementation.
+Azure Defender for IoT is a holistic solution that continuously discovers, monitors, and manages IoT and OT threats, risks, and vulnerabilities across all IoT and OT devices, whether they are newer devices managed via Azure IoT Hub or legacy unmanaged devices. Azure Defender for IoT helps accelerate incident response, provides insight into operational challenges, and simplifies hybrid workload protection by delivering unified IoT and OT visibility and control.
 
-Defender for IoT simplifies hybrid workload protection by delivering unified visibility and control, adaptive threat prevention, and intelligent threat detection and response across workloads running on edge, on-premises, in Azure, and in other clouds.
+Purpose-built for IoT and OT networks, Azure Defender for IoT delivers deep visibility into IoT and OT risk within minutes of being connected to the network, with zero impact on the network and network devices due to its passive, non-invasive, Network Traffic Analysis (NTA) approach. It leverages patented, IoT- and OT-aware behavioral analytics to detect advanced IoT and OT threats (such as fileless malware) based on anomalous or unauthorized activity. This holistic solution addresses key use cases that include:
+- Automatic asset discovery for all IoT and OT devices
+- Continuous IoT and OT risk and vulnerability management
+- IoT and OT threat hunting and incident response
+- Operational efficiency 
 
-![Defender for IoT architecture](./media/architecture/azure-iot-security-architecture.png)
+Azure Defender for IoT is a unified solution for IoT and OT security across all your devices. It gives you the tools to build security into new IoT and OT devices managed via Azure IoT Hub, as well as the agentless network-layer monitoring capabilities you need to protect unmanaged IoT and OT assets.
 
 ### Unified visibility and control
 
@@ -50,6 +55,3 @@ In this overview, you learned about the features and services of Defender for Io
 - [Architecture](architecture.md)
 - [Service prerequisites](service-prerequisites.md)
 - [Getting started](getting-started.md)
-- [Define your solution](quickstart-configure-your-solution.md)
-- [Defender for IoT FAQ](resources-frequently-asked-questions.md)
-- [Defender for IoT alerts](concept-security-alerts.md)

@@ -4,7 +4,7 @@ description: Details of everything needed to get started with Azure Defender for
 services: defender-for-iot
 ms.service: defender-for-iot
 documentationcenter: na
-author: mlottner
+author: rkarlin
 manager: rkarlin
 editor: ''
 
@@ -13,8 +13,8 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/09/2020
-ms.author: mlottner
+ms.date: 10/07/2020
+ms.author: rkarlin
 ms.custom: references_regions
 ---
 
@@ -29,6 +29,7 @@ This article provides an explanation of the different components of the Defender
 - [Log Analytics Workspace](https://docs.microsoft.com/azure/azure-monitor/learn/quick-create-workspace)
 - Azure Security Center (recommended)
   - Use of Azure Security Center is a recommendation, and not a requirement. Without Azure Security Center, you'll be unable to view your other Azure resources within IoT Hub.
+  - Sensors and the on-premises management console run on Azure IoT Defender version 3.1 or above.
 
 ## Working with Defender for IoT service
 

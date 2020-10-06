@@ -4,7 +4,7 @@ description: Find answers to the most frequently asked questions about Azure Def
 services: defender-for-iot
 ms.service: defender-for-iot
 documentationcenter: na
-author: mlottner
+author: rkarlin
 manager: rkarlin
 editor: ''
 
@@ -13,8 +13,8 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/09/2020
-ms.author: mlottner
+ms.date: 10/07/2020
+ms.author: rkarlin
 ---
 
 # Azure Defender for IoT frequently asked questions
@@ -28,6 +28,34 @@ Azure provides an integrated view for monitoring and managing your IoT security 
 ## What is Azure's unique value proposition for IoT security?
 
 Defender for IoT enables enterprises to extend their existing cyber security view to their entire IoT solution. Azure provides an end to end view of your business solution, enabling you to take business-related actions and decisions based on your enterprise security posture and collected data. Combined security using Azure IoT, Azure IoT Edge, and Azure Security Center enable you to create the solution you want with the security you need.
+
+## Our organization uses proprietary non-standard industrial protocols. Are they supported? 
+
+Azure Defender for IoT provides comprehensive protocol support. In addition to embedded protocol support, you can secure IoT and OT devices running proprietary and custom protocols, or protocols that deviate from any standard. Using the Horizon Open Development Environment (ODE) SDK, developers can create dissector plugins that decode network traffic based on defined protocols. Traffic is analyzed by services to provide complete monitoring, alerting, and reporting. Use Horizon to:
+- Expand visibility and control without the need to upgrade to new versions.
+- Secure proprietary information by developing on-site as an external plugin. 
+- Localize text for alerts, events, and protocol parameters.
+
+Azure Defender for IoT the largest knowledge base of industrial protocols. This unique solution for developing protocols as plugins, does not require dedicated developer teams or version releases in order to support a new protocol. Developers, partners, and customers can securely develop protocols and share insights and knowledge using Horizon. 
+
+Microsoft is the only vendor that can support virtually any protocol via Horizon SDK.
+
+Our approach is to support all existing systems and versions that use the protocols we support. This includes old and new versions up to their latest version. For every new solution version that is released by an industrial vendor, Microsoft tests its effect on the protocol and in the rare occasion that a protocol change has occurred – we update our DPI with the matching changes to support the new version as well as the old ones.
+
+## Do I have to purchase hardware appliances from Microsoft partners?
+The Azure Defender for IoT platform is 100% vendor-agnostic. It interoperates on all server hardware vendors such as Dell, HP, Microsoft etc. 
+
+## Regulation does not allow us to connect our system to the Internet. Can we still utilize Defender for IoT?
+
+Yes you can! The Azure Defender for IoT platform on-premises solution is deployed as a physical or virtual sensor appliance that passively ingests network traffic (via SPAN, RSPAN, or TAP) to analyze, discover, and continuously monitor IT, OT, and IoT networks. For larger enterprises, multiple sensors can aggregate their data to an on-premises management console.
+
+## Where in the network should I connect monitoring ports?
+
+The Azure Defender for IoT sensor connects to a SPAN port or network TAP and immediately begins collecting ICS network traffic via passive (agentless) monitoring. It has zero impact on OT networks since it isn’t placed in the data path and doesn’t actively scan OT devices.
+
+For example:
+- A single appliance (virtual of physical) can be in the Shop Floor DMZ layer, having all Shop Floor cell traffic routed to this layer.
+- Alternatively, locate small mini-sensors in each Shop Floor cell with either cloud or local management that will reside in the Shop Floor DMZ layer. Another appliance (virtual or physical) can monitor the traffic in the Shop Floor DMZ layer (for SCADA, Historian, or MES).
 
 ## Who is Defender for IoT made for?
 
