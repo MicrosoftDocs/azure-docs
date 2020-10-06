@@ -38,13 +38,7 @@ In this quickstart, you will use Azure App Configuration to centralize storage a
 
 ## Setting up
 
-This section walks you through preparing a project to work with the Azure App Configuration client library for Python.
-
-### Create the project
-
-Create a Python application named *app-configuration-quickstart*.
-
-1. In a console window (such as cmd, PowerShell, or Bash), create a new directory for the project.
+1. In this tutorial, you'll create a new directory for the project named *app-configuration-quickstart*.
 
     ```console
     mkdir app-configuration-quickstart
@@ -56,38 +50,26 @@ Create a Python application named *app-configuration-quickstart*.
     cd app-configuration-quickstart
     ```
 
-### Install the package
+1. Install the Azure App Configuration client library by using the `pip install` command.
 
-Install the Azure App Configuration client library for Python package by using the `pip install` command.
+    ```console
+    pip install azure-appconfiguration
+    ```
 
-```console
-pip install azure-appconfiguration
-```
-
-This command installs the Azure App Configuration client library for Python package and all the libraries on which it depends. In this case, that is just the Azure core library for Python, azure-core, and the Azure for Python REST library, msrest.
-
-### Set up the app framework
-
-1. Open a new text file in your code editor
-1. Add `import` statements
-1. Create the structure for the program, including very basic exception handling
-
-    Here's the code:
+1. Create a new file called *app-configuration-quickstart.py* in the *app-configuration-quickstart* directory and add the following code:
 
     ```python
     import os
-    from azure.appconfiguration import *
+    from azure.appconfiguration import AzureAppConfigurationClient, ConfigurationSetting
     
     try:
-        print("Azure App Configuration - Python quickstart sample")
-        # Quick start code goes here
+        print("Azure App Configuration - Python Quickstart")
+        # Quickstart code goes here
     except Exception as ex:
         print('Exception:')
         print(ex)
-
     ```
 
-1. Save the new file as *app-configuration-quickstart.py* in the *app-configuration-quickstart* directory.
 
 
 
