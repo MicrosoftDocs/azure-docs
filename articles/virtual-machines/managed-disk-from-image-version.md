@@ -63,6 +63,7 @@ $sourceImgVer = Get-AzGalleryImageVersion `
    -ResourceGroupName myResourceGroup `
    -Name 1.0.0
 ```
+
 Set up some variables for the disk information.
 
 ```azurepowershell-interactive
