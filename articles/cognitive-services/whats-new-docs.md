@@ -28,6 +28,9 @@ Welcome to what's new in the Cognitive Services docs from August 1, 2020 through
 
 - [Azure Cognitive Services container image tags](/azure/cognitive-services/containers/container-image-tags.md)
 
+### New articles
+- [Install and run the spatial analysis container (preview)](/azure/cognitive-services/computer-vision/spatial-analysis-container.md)
+
 ## Form Recognizer
 
 ### Updated articles
