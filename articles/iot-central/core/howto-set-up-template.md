@@ -167,7 +167,7 @@ The following table shows the configuration settings for a command capability:
 
 #### Cloud to Device messages
 
-You can send cloud to device messages or Offline commands from IoT Central. This is most effective to send notifications to offline devices. Cloud-to-device(C2D) messages are a special type of commands that supported by [Azure IoT Hub] (https://docs.microsoft.com/en-us/azure/iot-hub/iot-hub-devguide-messages-c2d). Cloud-to-device messages are used for one-way notifications to the device from your solution. To guarantee at-least-once message delivery, your IoT hub persists cloud-to-device messages in per-device queues. This approach guarantees resiliency against connectivity and device failures. Use the IoT Central authoring experience and set the toggle to enable the **Queue if Offline** option.
+You can send cloud to device messages or Offline commands from IoT Central. This is most effective to send notifications to offline devices. Cloud-to-device(C2D) messages are a special type of commands that supported by [Azure IoT Hub](https://docs.microsoft.com/en-us/azure/iot-hub/iot-hub-devguide-messages-c2d). Cloud-to-device messages are used for one-way notifications to the device from your solution. To guarantee at-least-once message delivery, your IoT hub persists cloud-to-device messages in per-device queues. This approach guarantees resiliency against connectivity and device failures. Use the IoT Central authoring experience and set the toggle to enable the **Queue if Offline** option.
 On the device side implement the message handler to process the C2D message.
 
 > [!NOTE]
