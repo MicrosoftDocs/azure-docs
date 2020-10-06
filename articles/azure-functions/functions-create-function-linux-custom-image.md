@@ -28,6 +28,9 @@ In this tutorial, you learn how to:
 
 You can follow this tutorial on any computer running Windows, macOS, or Linux. Completing the tutorial will incur costs of a few US dollars in your Azure account.
 
+> [!NOTE] 
+> Linux hosting for custom functions containers are supported on [Dedicated (App Service) plans](functions-scale.md#app-service-plan) and [Premium plans](functions-premium-plan.md#features).
+
 [!INCLUDE [functions-requirements-cli](../../includes/functions-requirements-cli.md)]
 
 <!---Requirements specific to Docker --->
@@ -238,7 +241,7 @@ You use Azure CLI commands to create these items. Each command provides JSON out
     az functionapp plan create --resource-group AzureFunctionsContainers-rg --name myPremiumPlan --location westeurope --number-of-workers 1 --sku EP1 --is-linux
     ```   
 
-    Linux hosting for custom functions containers are supported on [Dedicated (App Service) plans](functions-scale.md#app-service-plan) and [Premium plans](functions-premium-plan.md#features). We use the Premium plan here, which can scale as needed. To learn more about hosting, see [Azure Functions hosting plans comparison](functions-scale.md). To calculate costs, see the [Functions pricing page](https://azure.microsoft.com/pricing/details/functions/).
+    We use the Premium plan here, which can scale as needed. To learn more about hosting, see [Azure Functions hosting plans comparison](functions-scale.md). To calculate costs, see the [Functions pricing page](https://azure.microsoft.com/pricing/details/functions/).
 
     The command also provisions an associated Azure Application Insights instance in the same resource group, with which you can monitor your function app and view logs. For more information, see [Monitor Azure Functions](functions-monitoring.md). The instance incurs no costs until you activate it.
 
