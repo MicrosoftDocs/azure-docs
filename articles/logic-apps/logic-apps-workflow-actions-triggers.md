@@ -6,7 +6,7 @@ ms.suite: integration
 ms.reviewer: jonfan, logicappspm
 ms.topic: conceptual
 ms.date: 09/22/2020
-ms.custom: devx-track-javascript
+ms.custom: devx-track-js
 ---
 
 # Schema reference guide for trigger and action types in Azure Logic Apps

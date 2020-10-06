@@ -13,7 +13,7 @@ ms.topic: quickstart
 ms.date: 09/22/2020
 ms.author: aahi
 keywords: anomaly detection, algorithms
-ms.custom: "devx-track-python, devx-track-javascript, devx-track-csharp, cog-serv-seo-aug-2020"
+ms.custom: "devx-track-python, devx-track-js, devx-track-csharp, cog-serv-seo-aug-2020"
 ---
 
 # Quickstart: Use the Anomaly Detector client library

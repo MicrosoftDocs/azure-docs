@@ -3,7 +3,7 @@ title: Diagnose and troubleshoot the availability of Azure Cosmos SDKs in multir
 description: Learn all about the Azure Cosmos SDK availability behavior when operating in multi regional environments.
 author: ealsur
 ms.service: cosmos-db
-ms.date: 09/16/2020
+ms.date: 10/05/2020
 ms.author: maquaran
 ms.subservice: cosmosdb-sql
 ms.topic: troubleshooting
@@ -19,8 +19,9 @@ All the Azure Cosmos SDKs give you an option to customize the regional preferenc
 * The [CosmosClientOptions.ApplicationRegion](/dotnet/api/microsoft.azure.cosmos.cosmosclientoptions.applicationregion) or [CosmosClientOptions.ApplicationPreferredRegions](/dotnet/api/microsoft.azure.cosmos.cosmosclientoptions.applicationpreferredregions) properties in .NET V3 SDK.
 * The [CosmosClientBuilder.preferredRegions](/java/api/com.azure.cosmos.cosmosclientbuilder.preferredregions) method in Java V4 SDK.
 * The [CosmosClient.preferred_locations](/python/api/azure-cosmos/azure.cosmos.cosmos_client.cosmosclient) parameter in Python SDK.
+* The [CosmosClientOptions.ConnectionPolicy.preferredLocations](/javascript/api/@azure/cosmos/connectionpolicy#preferredlocations) parameter in JS SDK.
 
-When regional preference is set, the client will connect based on the following table:
+When you set the regional preference, the client will connect to a region as mentioned in the following table:
 
 |Account type |Reads |Writes |
 |------------------------|--|--|
@@ -37,11 +38,17 @@ If you don't set a preferred region:
 > [!NOTE]
 > Primary region refers to the first region in the [Azure Cosmos account region list](distribute-data-globally.md)
 
-When any of the following scenarios occur, the client using the Azure Cosmos SDK exposes logs and includes the retry information as part of the **operation diagnostic information**.
+When any of the following scenarios occur, the client using the Azure Cosmos SDK exposes logs and includes the retry information as part of the **operation diagnostic information**:
+
+* The *RequestDiagnosticsString* property on responses in .NET V2 SDK.
+* The *Diagnostics* property on responses and exceptions in .NET V3 SDK.
+* The *getDiagnostics()* method on responses and exceptions in Java V4 SDK.
+
+When determining the next region in order of preference, the SDK client will use the account region list, prioritizing the preferred regions (if any).
 
 For a comprehensive detail on SLA guarantees during these events, see the [SLAs for availability](high-availability.md#slas-for-availability).
 
-## <a id="remove region"></a>Removing a region from the account
+## <a id="remove-region"></a>Removing a region from the account
 
 When you remove a region from an Azure Cosmos account, any SDK client that actively uses the account will detect the region removal through a backend response code. The client then marks the regional endpoint as unavailable. The client retries the current operation and all the future operations are permanently routed to the next region in order of preference.
 
@@ -49,7 +56,7 @@ When you remove a region from an Azure Cosmos account, any SDK client that activ
 
 Every 5 minutes, the Azure Cosmos SDK client reads the account configuration and refreshes the regions that it's aware of.
 
-If you remove a region and later add it back to the account, if the added region has a higher preference, the SDK will switch back to use this region permanently. After the added region is detected, all the future requests are directed to it.
+If you remove a region and later add it back to the account, if the added region has a higher regional preference order in the SDK configuration than the current connected region, the SDK will switch back to use this region permanently. After the added region is detected, all the future requests are directed to it.
 
 If you configure the client to preferably connect to a region that the Azure Cosmos account does not have, the preferred region is ignored. If you add that region later, the client detects it and will switch permanently to that region.
 
@@ -59,7 +66,7 @@ If you initiate a failover of the current write region, the next write request w
 
 ## Regional outage
 
-If the account is single write region and the regional outage occurs during a write operation, the behavior is similar to a [manual failover](#manual-failover-single-region). For read requests or multiple write regions accounts, the behavior is similar to [removing a region](#remove region).
+If the account is single write region and the regional outage occurs during a write operation, the behavior is similar to a [manual failover](#manual-failover-single-region). For read requests or multiple write regions accounts, the behavior is similar to [removing a region](#remove-region).
 
 ## Session consistency guarantees
 

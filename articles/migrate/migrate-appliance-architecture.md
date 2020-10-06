@@ -68,7 +68,7 @@ The appliance communicates with vCenter Servers and Hyper-V hosts/cluster using 
 2. **Gather metadata and performance data**:
     - The appliance uses a Common Information Model (CIM) session to gather Hyper-V VM data from the Hyper-V host on port 5985.
     - The appliance communicates with port 443 by default, to gather VMware VM data from the vCenter Server.
-3. **Send data**: The appliance sends the collected data to Azure Migrate Server Assessment and Azure Migrate Server Migration over SSL port 443. The appliance can connect to Azure over the internet, or you can use ExpressRoute with public/Microsoft peering.
+3. **Send data**: The appliance sends the collected data to Azure Migrate Server Assessment and Azure Migrate Server Migration over SSL port 443. The appliance can connect to Azure over the internet or via ExpressRoute (requires Microsoft peering).
     - For performance data, the appliance collects real-time utilization data.
         - Performance data is collected every 20 seconds for VMware, and every 30 seconds for Hyper-V, for each performance metric.
         - The collected data is rolled up to create a single data point for 10 minutes.

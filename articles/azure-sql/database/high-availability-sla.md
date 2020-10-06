@@ -10,7 +10,7 @@ ms.devlang:
 ms.topic: conceptual
 author: sashan
 ms.author: sashan
-ms.reviewer: carlrab, sashan
+ms.reviewer: sstein, sashan
 ms.date: 08/12/2020
 ---
 

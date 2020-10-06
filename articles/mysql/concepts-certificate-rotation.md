@@ -25,6 +25,7 @@ The new certificate will be used starting October 26, 2020 (10/26/2020).If you u
 All applications that use SSL/TLS and verify the root certificate needs to update the root certificate. You can identify whether your connections verify the root certificate by reviewing your connection string.
 -	If your connection string includes `sslmode=verify-ca` or `sslmode=verify-full`, you need to update the certificate.
 -	If your connection string includes `sslmode=disable`, `sslmode=allow`, `sslmode=prefer`, or `sslmode=require`, you do not need to update certificates. 
+-  If using Java connectors and your connection string includes useSSL=false or requireSSL=false, you do not need to update certificates.
 -	If your connection string does not specify sslmode, you do not need to update certificates.
 
 If you are using a client that abstracts the connection string away, review the client’s documentation to understand whether it verifies certificates.
@@ -114,7 +115,7 @@ For servers created after October 26, 2020 (10/26/2020), you can use the newly i
 ###	10. How often does Microsoft update their certificates or what is the expiry policy?
 These certificates used by Azure Database for MySQL are provided by trusted Certificate Authorities (CA). So the support of these certificates on Azure Database for MySQL is tied to the support of these certificates by CA. However, as in this case, there can be unforeseen bugs in these predefined certificates, which need to be fixed at the earliest.
 
-###	11. If I am using read replicas, do I need to perform this update only on master server or the read replicas?
+###	11. If I am using read replicas, do I need to perform this update only on source server or the read replicas?
 Since this update is a client-side change, if the client used to read data from the replica server, you will need to apply the changes for those clients as well.
 
 ###	12. If I am using Data-in replication, do I need to perform any action?
@@ -133,7 +134,7 @@ If you are using [Data-in replication](concepts-data-in-replication.md) to conne
     If you do see the certificate is provided for the CA_file, SSL_Cert and SSL_Key, you will need to update the file by adding the [new certificate](https://cacerts.digicert.com/DigiCertGlobalRootG2.crt.pem).
 
 *   If the data-replication is between two Azure Database for MySQL, then you will need to reset the replica by executing 
-**CALL mysql.az_replication_change_master** and provide the new dual root certificate as last parameter [master_ssl_ca](howto-data-in-replication.md#link-master-and-replica-servers-to-start-data-in-replication)
+**CALL mysql.az_replication_change_master** and provide the new dual root certificate as last parameter [master_ssl_ca](howto-data-in-replication.md#link-source-and-replica-servers-to-start-data-in-replication)
 
 ### 13. Do we have server-side query to verify if SSL is being used?
 To verify if you are using SSL connection to connect to the server refer [SSL verification](howto-configure-ssl.md#step-4-verify-the-ssl-connection).

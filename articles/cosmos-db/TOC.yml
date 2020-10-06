@@ -21,6 +21,8 @@
         href: create-sql-api-dotnet.md
       - name: Java app
         href: create-sql-api-java.md
+      - name: Spring Data app
+        href: create-sql-api-spring-data.md        
       - name: Node.js app
         href: create-sql-api-nodejs.md
       - name: Python app
@@ -73,6 +75,8 @@
       href: sql-api-dotnet-v3sdk-samples.md
     - name: Java SDK v4 samples
       href: sql-api-java-sdk-samples.md
+    - name: Spring Data v3 samples
+      href: sql-api-spring-data-sdk-samples.md      
     - name: Node.js samples
       href: sql-api-nodejs-samples.md
     - name: Python samples
@@ -108,7 +112,7 @@
         displayName: request units, RUs, RU
         href: scaling-throughput.md
       - name: Conflict types and resolution policies
-        displayName: last write wins, custom, multi master, multi-master
+        displayName: last write wins, custom, multi-region writes, multi-master
         href: conflict-resolution-policies.md
       - name: Global distribution - under the hood
         href: global-dist-under-the-hood.md
@@ -580,7 +584,7 @@
         - name: Data encryption
           href: database-encryption-at-rest.md
         - name: Secure access to data
-          displayName: master key, resource token, users, roles
+          displayName: primary key, resource token, users, roles
           href: secure-access-to-data.md
         - name: IP firewall
           href: firewall-support.md
@@ -971,9 +975,11 @@
         displayName: ARM
       - name: Move between regions
         href: how-to-move-regions.md
+      - name: Prevent changes or deletion
+        href: resource-locks.md
     - name: Global distribution
       items:
-      - name: Configure multi-master
+      - name: Configure multi-region writes
         href: how-to-multi-master.md
       - name: Manage consistency levels
         displayName: session, consistency prefix, strong, eventual, bounded staleness
@@ -1060,6 +1066,8 @@
       items:
       - name: Migrate to Java V4 SDK
         href: migrate-java-v4-sdk.md
+      - name: Migrate to .NET V3 SDK
+        href: migrate-dotnet-v3.md
     - name: Troubleshooting
       items:
       - name: Common errors
@@ -1074,7 +1082,7 @@
           href: troubleshoot-not-found.md
         - name : Troubleshoot unauthorized
           href: troubleshoot-unauthorized.md
-        - name : SDK Availability in multiregional environments
+        - name : Availability issues in multiregional environments
           href: troubleshoot-sdk-availability.md
       - name: .NET
         items: 

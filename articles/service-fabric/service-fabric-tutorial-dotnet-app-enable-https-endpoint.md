@@ -349,7 +349,7 @@ In Solution Explorer, select the **Voting** application and set the **Applicatio
 
 Save all files and hit F5 to run the application locally.  After the application deploys, a web browser opens to https:\//localhost:443. If you are using a self-signed certificate, you see a warning that your PC doesn't trust this website's security.  Continue on to the web page.
 
-![Voting application][image2]
+![Screenshot of the Service Fabric Voting Sample app running in a browser window with the URL https://localhost/.][image2]
 
 ## Install certificate on cluster nodes
 
@@ -417,7 +417,7 @@ Save all files, switch from Debug to Release, and hit F6 to rebuild.  In Solutio
 
 When the application deploys, open a web browser and navigate to `https://mycluster.region.cloudapp.azure.com:443` (update the URL with the connection endpoint for your cluster). If you are using a self-signed certificate, you see a warning that your PC doesn't trust this website's security.  Continue on to the web page.
 
-![Voting application][image3]
+![Screenshot of the Service Fabric Voting Sample app running in a browser window with the URL https://mycluster.region.cloudapp.azure.com:443.][image3]
 
 ## Next steps
 

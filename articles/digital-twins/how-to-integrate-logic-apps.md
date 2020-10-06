@@ -28,7 +28,7 @@ In this article, you will use the [Azure portal](https://portal.azure.com) to **
 If you don't have an Azure subscription, **create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)** before you begin.
 Sign in to the [Azure portal](https://portal.azure.com) with this account. 
 
-The rest of this section will walk you through these steps:
+You also need to complete the following items as part of prerequisite setup. The remainder of this section will walk you through these steps:
 - Set up an Azure Digital Twins instance
 - Get app registration client secret
 - Add a digital twin
@@ -37,9 +37,9 @@ The rest of this section will walk you through these steps:
 
 To connect an Azure Digital Twins instance to Logic Apps in this article, you'll need to have the **Azure Digital Twins instance** already set up. 
 
-If you need to set up a new instance now, the simplest way to do so is to run an automated deployment script sample. Follow the instructions in [*How-to: Set up an instance and authentication (scripted)*](how-to-set-up-instance-scripted.md) to set up a new instance and the required Azure AD app registration. The instructions also contain steps to verify that you have completed each step successfully and are ready to move on to using your new instance.
+First, set up an Azure Digital Twins instance and the required authentication to be able to work with it. To do this, follow the instructions in [*How-to: Set up an instance and authentication*](how-to-set-up-instance-portal.md). Depending on your preferred experience, the setup article is offered for the [Azure portal](how-to-set-up-instance-portal.md), [CLI](how-to-set-up-instance-cli.md), or [automated Cloud Shell deployment script sample](how-to-set-up-instance-scripted.md). All versions of the instructions also contain steps to verify that you have completed each step successfully and are ready to move on to using your new instance.
 
-In this tutorial, you will need the following values from when you set up your instance. 
+In this tutorial, you will need several values from when you set up your instance. 
 If you need to gather these values again, use the links below to the corresponding sections in the setup article for finding them in the [Azure portal](https://portal.azure.com).
 * Azure Digital Twins instance **_host name_** ([find in portal](how-to-set-up-instance-portal.md#verify-success-and-collect-important-values))
 * Azure AD app registration **_Application (client) ID_** ([find in portal](how-to-set-up-instance-portal.md#collect-important-values))
@@ -161,13 +161,13 @@ You are now done setting up a custom connector that can access the Azure Digital
 
 Next, you'll create a logic app that will use your new connector to automate Azure Digital Twins updates.
 
-Navigate to the [Logic apps (consumption)](https://portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Logic%2Fworkflows) page in the Azure portal (you can use this link or look for it in the portal search bar). Hit *Add* button to create a logic app.
+In the [Azure portal](https://portal.azure.com), search for *Logic apps* in the portal search bar. Selecting it should take you to the *Logic apps* page. Hit the *Create logic app* button to create a new logic app.
 
-:::image type="content" source="media/how-to-integrate-logic-apps/create-logic-app.png" alt-text="The 'Logic Apps (consumption)' page in the Azure portal. Hit 'Add' button":::
+:::image type="content" source="media/how-to-integrate-logic-apps/create-logic-app.png" alt-text="The 'Logic Apps' page in the Azure portal. Hit 'Add' button":::
 
-In the *Logic apps (consumption)* page that follows, enter your subscription, resource group. Also, choose a name for your logic app and select the location.
+In the *Logic App* page that follows, enter your subscription and resource group. Also, choose a name for your logic app and select the deployment location.
 
-Select _Review + create_ button.
+Hit the _Review + create_ button.
 
 This will take you to the *Review + create* tab, where you can review your details and hit *Create* at the bottom to create your resource.
 

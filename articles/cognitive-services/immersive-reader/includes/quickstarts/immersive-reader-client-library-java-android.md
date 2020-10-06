@@ -6,9 +6,10 @@ services: cognitive-services
 author: dylankil
 manager: guillasi
 ms.service: cognitive-services
+ms.subservice: immersive-reader
 ms.topic: include
 ms.date: 09/14/2020
-ms.custom: devx-track-java, devx-track-javascript
+ms.custom: devx-track-java, devx-track-js
 ms.author: dylankil
 ---
 
@@ -58,7 +59,7 @@ CLIENT_ID=<YOUR_CLIENT_ID>
 CLIENT_SECRET=<YOUR_CLIENT_SECRET>
 SUBDOMAIN=<YOUR_SUBDOMAIN>
 ```
-![Environment variables in Android Studio](../../media/android/java/android-studio-assets-and-env-file.png)
+![Screenshot that shows environment variables in Android Studio.](../../media/android/java/android-studio-assets-and-env-file.png)
 
 ## Add dependencies
 

@@ -1,10 +1,10 @@
 ---
 title: 'Quickstart: Use Node.js to connect to Azure Database for PostgreSQL - Single Server'
 description: This quickstart provides a Node.js code sample you can use to connect and query data from Azure Database for PostgreSQL  - Single Server.
-author: rachel-msft
-ms.author: raagyema
+author: mksuni
+ms.author: sumuth
 ms.service: postgresql
-ms.custom: [mvc, devcenter, seo-javascript-september2019, seo-javascript-october2019, devx-track-javascript]
+ms.custom: [mvc, devcenter, seo-javascript-september2019, seo-javascript-october2019, devx-track-js]
 ms.devlang: nodejs
 ms.topic: quickstart
 ms.date: 5/6/2019

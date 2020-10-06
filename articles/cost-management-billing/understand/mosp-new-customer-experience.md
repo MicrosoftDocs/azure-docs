@@ -110,7 +110,7 @@ The following sections provide additional information about your new experience.
 Azure services in your subscription will keep running without any interruption. The only update is to your billing experience. There's no impact to existing resources, resource groups, or management groups.
 
 **No changes to Azure resources**
-Access to Azure resources that were set using Azure RBAC (role-based access control) isn't affected by the update.
+Access to Azure resources that were set using Azure role-based access control (Azure RBAC) isn't affected by the update.
 
 **Past invoices are available in the new experience**
 Invoices generated before your account was updated are still available in the Azure portal.

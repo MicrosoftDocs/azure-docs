@@ -291,7 +291,7 @@ SecurityEvent
 | distinct FilePath, CallerProcessName1
 ```
 
-When the above doesn't allow to avoid using sub-queries, another technique is to hint to the query engine that there is a single source data used in each one of them using the [materialize() function](/azure/data-explorer/kusto/query/materializefunction?pivots=azuremonitor). This is useful when the source data is coming from a function that is used several times within the query.
+When the above doesn't allow to avoid using sub-queries, another technique is to hint to the query engine that there is a single source data used in each one of them using the [materialize() function](/azure/data-explorer/kusto/query/materializefunction?pivots=azuremonitor). This is useful when the source data is coming from a function that is used several times within the query. Materialize is effective when the output of the sub-query is much smaller than the input. The query engine will cache and reuse the output in all occurrences.
 
 
 

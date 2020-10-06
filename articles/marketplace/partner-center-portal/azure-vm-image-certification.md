@@ -1,6 +1,6 @@
 ---
-title: Azure virtual machine image validation - Azure Marketplace
-description: Learn how to test and submit a virtual machine offer in the commercial marketplace.
+title: Test an Azure virtual machine image for Azure Marketplace
+description: Learn how to test and submit an Azure virtual machine offer in the Microsoft commercial marketplace.
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
@@ -9,13 +9,13 @@ ms.author: iqshah
 ms.date: 08/14/2020
 ---
 
-# Azure virtual machine image validation
+# Test a virtual machine image for Azure Marketplace
 
 This article describes how to test and submit a virtual machine (VM) image in the commercial marketplace to ensure it meets the latest Azure Marketplace publishing requirements.
 
 Complete these steps before submitting your VM offer:
 
-- Deploy an Azure VM using your generalized image.
+- Deploy an Azure VM using your generalized image. See here for more information on [Generalized images](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-azure-vm-technical-asset#generalize-the-image).
 - Run validations.
 
 ## Deploy an Azure VM using your generalized image
@@ -594,7 +594,9 @@ After the automated test completes, provide additional information about your VM
 
 The last screen lets you provide more information, such as SSH access information for a Linux VM image, and an explanation for any failed assessments if you’re looking for exceptions.
 
-Finally, select Generate Report to download the test results and log files for the executed test cases along with your answers to the questionnaire. Save the results in the same container as your VHDs.
+Finally, select Generate Report to download the test results and log files for the executed test cases along with your answers to the questionnaire. 
+> [!Note]
+> Few publishers have scenarios where VMs need to be locked as they have software such as firewalls installed on the VM. In this case, publishers can download the [Certified Test Tool](https://aka.ms/AzureCertificationTestTool) here, and provide the report at [Marketplace Publisher Support](https://aka.ms/marketplacepublishersupport)
 
 ## How to use PowerShell to consume the Self-Test API
 

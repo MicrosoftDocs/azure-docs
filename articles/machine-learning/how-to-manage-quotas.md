@@ -8,7 +8,7 @@ ms.subservice: core
 ms.reviewer: jmartens
 author: nishankgu
 ms.author: nigup
-ms.date: 05/08/2020
+ms.date: 09/30/2020
 ms.topic: conceptual
 ms.custom: troubleshooting,contperfq4 
 ---
@@ -151,7 +151,7 @@ To request an allowance for these scenarios, use the following steps:
     | Problem type | Workspace setup, SDK and CLI |
     | Problem subtype | Problem provisioning or managing workspace |
 
-2. From the __Details__ section, provide the Azure region you want to use and the scenario that you plan to use.
+2. From the __Details__ section, use the __Description__ field to provide the Azure region you want to use and the scenario that you plan to use. If you need to request quota increases for multiple subscriptions, list the subscription IDs in this field also.
 
 3. Use __Create__ to create the request.
 

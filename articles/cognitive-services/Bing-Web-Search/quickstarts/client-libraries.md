@@ -12,7 +12,7 @@ ms.subservice: bing-web-search
 ms.topic: quickstart
 ms.date: 03/05/2020
 ms.author: aahi
-ms.custom: "devx-track-python, devx-track-javascript, devx-track-csharp"
+ms.custom: "devx-track-python, devx-track-js, devx-track-csharp"
 ---
 # Quickstart: Use a Bing Web Search client library
 

@@ -7,6 +7,7 @@
   - name: Differences from previous release
     href: overview-differences.md
 - name: Quickstarts
+  expanded: true
   items:
   - name: Explore a sample scenario
     href: quickstart-adt-explorer.md
@@ -161,7 +162,11 @@
         - name: JavaScript SDK - npm
           href: https://www.npmjs.com/package/@azure/digital-twins/v/1.0.0-preview.1  
         - name: JavaScript SDK - reference
-          href: https://docs.microsoft.com/javascript/api/@azure/digital-twins/?view=azure-node-latest&preserve-view=true       
+          href: https://docs.microsoft.com/javascript/api/@azure/digital-twins/?view=azure-node-latest&preserve-view=true  
+        - name: Java SDK - Maven
+          href: https://search.maven.org/artifact/com.azure/azure-digitaltwins-core/1.0.0-beta.1/jar  
+        - name: Java SDK - reference
+          href: https://docs.microsoft.com/java/api/overview/azure/digitaltwins/client?view=azure-java-preview&preserve-view=true             
   - name: Digital Twins CLI 
     items: 
     - name: Digital Twins CLI reference

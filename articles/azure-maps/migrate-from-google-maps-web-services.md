@@ -1,6 +1,6 @@
 ---
-title: 'How to migrate web services from Google Maps to Microsoft Azure Maps'
-description: Learn how to migrate web services from Google Maps to Microsoft Azure Maps.
+title: 'Migrate web services from Google Maps | Microsoft Azure Maps'
+description: How to migrate web services from Google Maps to Microsoft Azure Maps
 author: rbrundritt
 ms.author: richbrun
 ms.date: 08/19/2020
@@ -473,22 +473,5 @@ The following are additional documentation and resources for the Azure Maps REST
 - [Search for an address](how-to-search-for-address.md)
 - [Best practices for routing](how-to-use-best-practices-for-routing.md)
 - [Azure Maps REST Service API reference documentation](https://docs.microsoft.com/rest/api/maps/)
-
-## Next steps
-
-Learn more about the Azure Maps REST services.
-
-> [!div class="nextstepaction"]
-> [Best practices for using the search service](how-to-use-best-practices-for-search.md)
-
-> [!div class="nextstepaction"]
-> [Best practices for using the routing service](how-to-use-best-practices-for-search.md)
-
-> [!div class="nextstepaction"]
-> [How to use the services module (Web SDK)](how-to-use-best-practices-for-routing.md)
-
-> [!div class="nextstepaction"]
-> [Azure Maps REST Service API reference documentation](https://docs.microsoft.com/rest/api/maps/)
-
-> [!div class="nextstepaction"]
-> [Code samples](https://docs.microsoft.com/samples/browse/?products=azure-maps)
+- [Code samples](https://docs.microsoft.com/samples/browse/?products=azure-maps)
+- [How to use the services module (Web SDK)](how-to-use-best-practices-for-routing.md)

@@ -2,7 +2,7 @@
 title: Deploy resources to tenant
 description: Describes how to deploy resources at the tenant scope in an Azure Resource Manager template.
 ms.topic: conceptual
-ms.date: 09/04/2020
+ms.date: 09/24/2020
 ---
 
 # Create resources at the tenant level
@@ -19,7 +19,7 @@ For Azure Policies, use:
 * [policyDefinitions](/azure/templates/microsoft.authorization/policydefinitions)
 * [policySetDefinitions](/azure/templates/microsoft.authorization/policysetdefinitions)
 
-For role-based access control, use:
+For Azure role-based access control (Azure RBAC), use:
 
 * [roleAssignments](/azure/templates/microsoft.authorization/roleassignments)
 
@@ -37,7 +37,7 @@ For managing costs, use:
 * [instructions](/azure/templates/microsoft.billing/billingaccounts/billingprofiles/instructions)
 * [invoiceSections](/azure/templates/microsoft.billing/billingaccounts/billingprofiles/invoicesections)
 
-### Schema
+## Schema
 
 The schema you use for tenant deployments is different than the schema for resource group deployments.
 
@@ -59,7 +59,7 @@ The principal deploying the template must have permissions to create resources a
 
 The Global Administrator for the Azure Active Directory doesn't automatically have permission to assign roles. To enable template deployments at the tenant scope, the Global Administrator must do the following steps:
 
-1. Elevate account access so the Global Administrator can assign roles. For more information, see [Elevate access to manage all Azure subscriptions and management Groups](../../role-based-access-control/elevate-access-global-admin.md).
+1. Elevate account access so the Global Administrator can assign roles. For more information, see [Elevate access to manage all Azure subscriptions and management groups](../../role-based-access-control/elevate-access-global-admin.md).
 
 1. Assign Owner or Contributor to the principal that needs to deploy the templates.
 
@@ -73,11 +73,23 @@ The Global Administrator for the Azure Active Directory doesn't automatically ha
 
 The principal now has the required permissions to deploy the template.
 
+## Deployment scopes
+
+When deploying to a tenant, you can target the tenant or management groups, subscriptions, and resource groups in the tenant. The user deploying the template must have access to the specified scope.
+
+Resources defined within the resources section of the template are applied to the tenant.
+
+:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/scope/default-tenant.json" highlight="5":::
+
+To target a management group within the tenant, add a nested deployment and specify the `scope` property.
+
+:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/scope/tenant-to-mg.json" highlight="10,17,22":::
+
 ## Deployment commands
 
 The commands for tenant deployments are different than the commands for resource group deployments.
 
-For Azure CLI, use [az deployment tenant create](/cli/azure/deployment/tenant?view=azure-cli-latest#az-deployment-tenant-create):
+For Azure CLI, use [az deployment tenant create](/cli/azure/deployment/tenant#az-deployment-tenant-create):
 
 ```azurecli-interactive
 az deployment tenant create \
@@ -104,56 +116,6 @@ For tenant level deployments, you must provide a location for the deployment. Th
 You can provide a name for the deployment, or use the default deployment name. The default name is the name of the template file. For example, deploying a template named **azuredeploy.json** creates a default deployment name of **azuredeploy**.
 
 For each deployment name, the location is immutable. You can't create a deployment in one location when there's an existing deployment with the same name in a different location. If you get the error code `InvalidDeploymentLocation`, either use a different name or the same location as the previous deployment for that name.
-
-## Deployment scopes
-
-When deploying to a tenant, you can target the tenant or management groups, subscriptions and resource groups in the tenant. The user deploying the template must have access to the specified scope.
-
-Resources defined within the resources section of the template are applied to the tenant.
-
-```json
-{
-    "$schema": "https://schema.management.azure.com/schemas/2019-08-01/tenantDeploymentTemplate.json#",
-    "contentVersion": "1.0.0.0",
-    "resources": [
-        tenant-level-resources
-    ],
-    "outputs": {}
-}
-```
-
-To target a management group within the tenant, add a nested deployment and specify the `scope` property.
-
-```json
-{
-    "$schema": "https://schema.management.azure.com/schemas/2019-08-01/tenantDeploymentTemplate.json#",
-    "contentVersion": "1.0.0.0",
-    "parameters": {
-        "mgName": {
-            "type": "string"
-        }
-    },
-    "variables": {
-        "mgId": "[concat('Microsoft.Management/managementGroups/', parameters('mgName'))]"
-    },
-    "resources": [
-        {
-            "type": "Microsoft.Resources/deployments",
-            "apiVersion": "2020-06-01",
-            "name": "nestedMG",
-            "scope": "[variables('mgId')]",
-            "location": "eastus",
-            "properties": {
-                "mode": "Incremental",
-                "template": {
-                    nested-template-with-resources-in-mg
-                }
-            }
-        }
-    ],
-    "outputs": {}
-}
-```
 
 ## Use template functions
 

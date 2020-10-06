@@ -8,7 +8,7 @@ ms.topic: how-to
 ms.date: 03/20/2020
 author: timsander1
 ms.author: tisande
-ms.custom: seodec18, devx-track-javascript
+ms.custom: seodec18, devx-track-js
 ---
 # Connect a Node.js Mongoose application to Azure Cosmos DB
 

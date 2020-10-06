@@ -1,6 +1,6 @@
 ---
 title: 'Tutorial: Configure Workplace by Facebook for automatic user provisioning with Azure Active Directory | Microsoft Docs'
-description: Learn how to configure single sign-on between Azure Active Directory and Workplace by Facebook.
+description: Learn the steps you need to perform in both Workplace by Facebook and Azure Active Directory (Azure AD) to configure automatic user provisioning.
 services: active-directory
 author: jeevansd
 manager: CelesteDG
@@ -76,11 +76,11 @@ The Azure AD provisioning service allows you to scope who will be provisioned ba
 
 3. Select the **Provisioning** tab.
 
-	![Provisioning tab](common/provisioning.png)
+	![Screenshot of the Manage options with the Provisioning option called out.](common/provisioning.png)
 
 4. Set the **Provisioning Mode** to **Automatic**.
 
-	![Provisioning tab](common/provisioning-automatic.png)
+	![Screenshot of the Provisioning Mode dropdown list with the Automatic option called out.](common/provisioning-automatic.png)
 
 5. Under the **Admin Credentials** section, click on **Authorize**. You will be redirected to Workplace by Facebook's authorization page. Input your Workplace by Facebook username and click on the **Continue** button. Click **Test Connection** to ensure Azure AD can connect to Workplace by Facebook. If the connection fails, ensure your Workplace by Facebook account has Admin permissions and try again.
 

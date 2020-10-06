@@ -12,7 +12,7 @@ ms.date: 09/21/2020
 ms.author: pafarley
 zone_pivot_groups: programming-languages-set-ten
 
-ms.custom: "devx-track-javascript, devx-track-csharp, cog-serv-seo-aug-2020"
+ms.custom: "devx-track-js, devx-track-csharp, cog-serv-seo-aug-2020"
 keywords: forms processing, automated data processing
 ---
 

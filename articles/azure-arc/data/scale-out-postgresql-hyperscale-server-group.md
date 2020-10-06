@@ -147,7 +147,11 @@ The general format of the scale-out command is:
 azdata arc postgres server edit -n <server group name> -w <target number of worker nodes>
 ```
 
-For example, increase the number of worker nodes from 2 to 4, by running the following command:
+> [!CAUTION]
+> The preview release does not support scale back in. For example it is not yet possible to reduce the number of worker nodes. If you need to do so, you need to extract/backup the data, drop the server group, create a new server group with less worker nodes and then import the data.
+
+In this example, we increase the number of worker nodes from 2 to 4, by running the following command:
+
 ```console
 azdata arc postgres server edit -n postgres01 -w 4
 ```
@@ -192,7 +196,8 @@ It returns the list of server groups created in your namespace and indicates the
 NAME         STATE   READY-PODS   EXTERNAL-ENDPOINT   AGE
 postgres01   Ready   4/4          10.0.0.4:31066      4d20h
 ```
-> **Note:** If you created a server group of the version 11 PostgreSQL instead of 12, run the following command instead: _kubectl get postgresql-11_
+> [!NOTE]
+> If you created a server group of the version 11 PostgreSQL instead of 12, run the following command instead: _kubectl get postgresql-11_
 
 #### With a SQL query:
 Connect to your server group with the client tool of your choice and run the following query:
@@ -226,7 +231,6 @@ Note the execution time.
 >* [High performance HTAP with Azure PostgreSQL Hyperscale (Citus)](https://www.youtube.com/watch?v=W_3e07nGFxY)
 >* [Building HTAP applications with Python & Azure PostgreSQL Hyperscale (Citus)](https://www.youtube.com/watch?v=YDT8_riLLs0)
 
-> The preview release does not support scale back in. For example it is not yet possible to reduce the number of worker nodes. If you need to do so, you need to extract/backup the data, drop the server group, create a new server group with less worker nodes and then import the data.
 
 ## Next steps
 

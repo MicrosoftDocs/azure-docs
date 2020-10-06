@@ -5,7 +5,7 @@ author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: how-to
-ms.date: 9/21/2020
+ms.date: 9/29/2020
 ---
 
 # Configure and access audit logs for Azure Database for MySQL - Flexible Server using the Azure portal
@@ -30,41 +30,38 @@ Enable and configure audit logging.
 1. Select your flexible server.
 
 1. Under the **Settings** section in the sidebar, select **Server parameters**.
-    <!--:::image type="content" source="./media/howto-configure-audit-logs-portal/server-parameters.png" alt-text="Server parameters":::-->
+    :::image type="content" source="./media/how-to-configure-audit-logs-portal/server-parameters.png" alt-text="Server parameters":::
 
 1. Update the **audit_log_enabled** parameter to ON.
-    <!-- :::image type="content" source="./media/howto-configure-audit-logs-portal/audit-log-enabled.png" alt-text="Enable audit logs":::-->
+    :::image type="content" source="./media/how-to-configure-audit-logs-portal/audit-log-enabled.png" alt-text="Enable audit logs":::
 
 1. Select the [event types](concepts-audit-logs.md#configure-audit-logging) to be logged by updating the **audit_log_events** parameter.
-    <!-- :::image type="content" source="./media/howto-configure-audit-logs-portal/audit-log-events.png" alt-text="Audit log events":::-->
+    :::image type="content" source="./media/how-to-configure-audit-logs-portal/audit-log-events.png" alt-text="Audit log events":::
 
-1. Add any MySQL users to be excluded from logging by updating the **audit_log_exclude_users** parameter. Specify users by providing their MySQL user name.
-    <!--:::image type="content" source="./media/howto-configure-audit-logs-portal/audit-log-exclude-users.png" alt-text="Audit log exclude users":::-->
+1. Add any MySQL users to be included or excluded from logging by updating the **audit_log_exclude_users** and **audit_log_include_users** parameters. Specify users by providing their MySQL user name.
+    :::image type="content" source="./media/how-to-configure-audit-logs-portal/audit-log-exclude-users.png" alt-text="Audit log exclude users":::
 
 1. Once you have changed the parameters, you can click **Save**. Or you can **Discard** your changes.
-    <!--:::image type="content" source="./media/howto-configure-audit-logs-portal/save-parameters.png" alt-text="Save":::-->
+    :::image type="content" source="./media/how-to-configure-audit-logs-portal/save-parameters.png" alt-text="Save":::
 
 ## Set up diagnostics
-
-> [!NOTE]
-> Integration with Azure Monitor diagnostic settings to access logs is in the process of deploying and full functionality will be available soon.
 
 Audit logs are integrated with Azure Monitor diagnostic settings to allow you to pipe your logs to Azure Monitor logs, Event Hubs, or Azure Storage.
 
 1. Under the **Monitoring** section in the sidebar, select **Diagnostic settings**.
 
 1. Click on "+ Add diagnostic setting"
-    <!-- :::image type="content" source="./media/howto-configure-audit-logs-portal/add-diagnostic-setting.png" alt-text="Add diagnostic setting":::-->
+    :::image type="content" source="./media/how-to-configure-audit-logs-portal/add-diagnostic-setting.png" alt-text="Add diagnostic setting":::
 
 1. Provide a diagnostic setting name.
 
 1. Specify which destinations to send the audit logs (storage account, event hub, and/or Log Analytics workspace).
 
 1. Select **MySqlAuditLogs** as the log type.
-    <!-- :::image type="content" source="./media/howto-configure-audit-logs-portal/configure-diagnostic-setting.png" alt-text="Configure diagnostic setting"::: -->
+    :::image type="content" source="./media/how-to-configure-audit-logs-portal/configure-diagnostic-setting.png" alt-text="Configure diagnostic setting":::
 
 1. Once you've configured the data sinks to pipe the audit logs to, you can click **Save**.
-    <!-- :::image type="content" source="./media/howto-configure-audit-logs-portal/save-diagnostic-setting.png" alt-text="Save diagnostic setting":::-->
+    :::image type="content" source="./media/how-to-configure-audit-logs-portal/save-diagnostic-setting.png" alt-text="Save diagnostic setting":::
 
 1. Access the audit logs by exploring them in the data sinks you configured. It may take up to 10 minutes for the logs to appear.
 

@@ -23,7 +23,7 @@ Traffic between your virtual network and the service travels the Microsoft backb
 Azure Private Link provides the following benefits:  
 - **Privately access services on the Azure platform**: Connect your virtual network to services in Azure without a public IP address at the source or destination. Service providers can render their services in their own virtual network and consumers can access those services in their local virtual network. The Private Link platform will handle the connectivity between the consumer and services over the Azure backbone network. 
  
-- **On-premises and peered networks**: Access services running in Azure from on-premises over ExpressRoute private peering, VPN tunnels, and peered virtual networks using private endpoints. There's no need to set up public peering or traverse the internet to reach the service. Private Link provides a secure way to migrate workloads to Azure.
+- **On-premises and peered networks**: Access services running in Azure from on-premises over ExpressRoute private peering, VPN tunnels, and peered virtual networks using private endpoints. There's no need to set up ExpressRoute Microsoft peering or traverse the internet to reach the service. Private Link provides a secure way to migrate workloads to Azure.
  
 - **Protection against data leakage**: A private endpoint is mapped to an instance of a PaaS resource instead of the entire service. Consumers can only connect to the specific resource. Access to any other resource in the service is blocked. This mechanism provides protection against data leakage risks. 
  
@@ -59,13 +59,14 @@ Azure Private Link provides the following benefits:
 |Azure Relay | All public regions      |  | Preview <br/> [Learn more](https://docs.microsoft.com/azure/service-bus-relay/private-link-service)  |
 |Azure Event Grid| All public regions<br/> All Government regions       |  | GA   <br/> [Learn more](https://docs.microsoft.com/azure/event-grid/network-security) |
 |Azure Web Apps | All public regions      | Supported with PremiumV2 Windows and Linux and Elastic Premium Functions  | Preview   <br/> [Learn more](https://docs.microsoft.com/azure/app-service/networking/private-endpoint)   |
-|Azure Machine Learning | EAST US, SOUTH CENTRAL US,<br/> WEST US 2      |  | Preview   <br/> [Learn more](https://docs.microsoft.com/azure/machine-learning/how-to-configure-private-link)   |
+|Azure Machine Learning | All public regions    |  | GA   <br/> [Learn more](https://docs.microsoft.com/azure/machine-learning/how-to-configure-private-link)   |
 | Azure Automation  | All public regions |  | Preview | |
 | Azure IoT Hub | All public regions    |  | GA   <br/> [Learn more](https://docs.microsoft.com/azure/iot-hub/virtual-network-support ) |
 | Azure SignalR | EAST US, SOUTH CENTRAL US,<br/>WEST US 2, All China regions      |  | Preview   <br/> [Learn more](https://aka.ms/asrs/privatelink)   |
 | Azure Monitor <br/>(Log Analytics & Application Insights) | All public regions      |  | GA   <br/> [Learn more](https://docs.microsoft.com/azure/azure-monitor/platform/private-link-security)   | 
-| Azure Batch | EAST US, WEST US 2, SOUTH CENTRAL US,<br/> WEST CENTRAL US, FRANCE CENTRAL, EAST ASIA, UK SOUTH, US GOV VIRGINIA, US GOV ARIZONA  | | GA <br/> [Learn more](https://docs.microsoft.com/azure/batch/private-connectivity) | 
+| Azure Batch | All public regions except: GERMANY CENTRAL, GERMANY NORTHEAST <br/> All Government regions  | | GA <br/> [Learn more](https://docs.microsoft.com/azure/batch/private-connectivity) |
 |Azure Data Factory | All public regions<br/> All Government regions<br/>All China regions    | Credentials need to be stored in an Azure key vault| GA   <br/> [Learn more](https://docs.microsoft.com/azure/data-factory/data-factory-private-link)   |
+
 
 
 For the most up-to-date notifications, check the [Azure Private Link updates page](https://azure.microsoft.com/updates/?product=private-link).

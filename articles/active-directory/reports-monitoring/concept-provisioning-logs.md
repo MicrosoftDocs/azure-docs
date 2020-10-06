@@ -186,7 +186,7 @@ The **Steps** tab outlines the steps taken to provision an object. Provisioning 
 
 
 
-![Steps](./media/concept-provisioning-logs/steps.png "Filter")
+![Screenshot shows the Steps tab, which shows the provisioning steps.](./media/concept-provisioning-logs/steps.png "Filter")
 
 
 ### Troubleshoot and recommendations

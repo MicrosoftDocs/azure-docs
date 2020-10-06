@@ -114,7 +114,7 @@ This section guides you through the steps for configuring the Azure AD provision
 
 11. Review the user attributes that are synchronized from Azure AD to Zscaler Three in the **Attribute Mappings** section. The attributes selected as **Matching** properties are used to match the user accounts in Zscaler Three for update operations. Select **Save** to commit any changes.
 
-	![Attribute Mappings](./media/zscaler-three-provisioning-tutorial/user-attribute-mappings.png)
+	![Screenshot of the Attribute Mappings section with seven mappings displayed.](./media/zscaler-three-provisioning-tutorial/user-attribute-mappings.png)
 
 12. In the **Mappings** section, select **Synchronize Azure Active Directory Groups to ZscalerThree**:
 
@@ -122,7 +122,7 @@ This section guides you through the steps for configuring the Azure AD provision
 
 13. Review the group attributes that are synchronized from Azure AD to Zscaler Three in the **Attribute Mappings** section. The attributes selected as **Matching** properties are used to match the groups in Zscaler Three for update operations. Select **Save** to commit any changes.
 
-	![Attribute Mappings](./media/zscaler-three-provisioning-tutorial/group-attribute-mappings.png)
+	![Screenshot of the Attribute Mappings section with three mappings displayed.](./media/zscaler-three-provisioning-tutorial/group-attribute-mappings.png)
 
 14. To configure scoping filters, refer to the instructions in the [Scoping filter tutorial](./../active-directory-saas-scoping-filters.md).
 

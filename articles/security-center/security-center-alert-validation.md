@@ -8,7 +8,7 @@ manager: rkarlin
 ms.assetid: f8f17a55-e672-4d86-8ba9-6c3ce2e71a57
 ms.service: security-center
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date:  09/22/2020
@@ -57,11 +57,11 @@ After Security Center agent is installed on your computer, follow these steps fr
 
 ## Validate alerts on Kubernetes <a name="validate-kubernetes"></a>
 
-If you're using the Security Center preview feature of integrating Azure Kubernetes Service, run the following kubectl command to test that your alerts are working:
+If you've integrated Azure Kubernetes Service with Security Center, you can test that your alerts are working with the following kubectl command:
 
 ```kubectl get pods --namespace=asc-alerttest-662jfi039n```
 
-For more information about the integration of Azure Kubernetes Service and Azure Security Center, see [this article](azure-kubernetes-service-integration.md).
+For more information about defending your Kubernetes nodes and clusters, see [Introduction to Azure Defender for Kubernetes](defender-for-kubernetes-introduction.md)
 
 ## Next steps
 This article introduced you to the alerts validation process. Now that you're familiar with this validation, try the following articles:

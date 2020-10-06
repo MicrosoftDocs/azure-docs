@@ -7,7 +7,7 @@ ms.service: static-web-apps
 ms.topic:  how-to
 ms.date: 05/29/2020
 ms.author: wachegha
-ms.custom: devx-track-javascript
+ms.custom: devx-track-js
 ---
 
 # Add an API to Azure Static Web Apps Preview with Azure Functions

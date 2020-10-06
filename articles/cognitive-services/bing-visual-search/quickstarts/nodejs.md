@@ -11,7 +11,7 @@ ms.subservice: bing-visual-search
 ms.topic: quickstart
 ms.date: 05/22/2020
 ms.author: scottwhi
-ms.custom: devx-track-javascript
+ms.custom: devx-track-js
 ---
 
 # Quickstart: Get image insights using the Bing Visual Search REST API and Node.js

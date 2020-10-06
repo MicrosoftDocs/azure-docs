@@ -4,6 +4,7 @@ description: If you are a new user signing in to the LUIS portal, the sign-in ex
 services: cognitive-services
 ms.custom:
 ms.service: cognitive-services
+ms.subservice: language-understanding
 ms.date: 09/08/2020
 ms.topic: how-to
 ms.author: a-sakand

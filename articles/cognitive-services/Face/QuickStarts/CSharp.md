@@ -72,7 +72,7 @@ namespace DetectFace
 
 ### Receive image input
 
-Add the following code to the **Main** method of the **Program** class. This code writes a prompt to the console asking the user to enter an image URL. Then it calls another method, **MakeAnalysisRequest**, to process the image at that location.
+Add the following code to the **Main** method of the **Program** class. This code writes a prompt to the console asking the user to enter their local image file path. Then it calls another method, **MakeAnalysisRequest**, to process the image at that location.
 
 ```csharp
         static void Main(string[] args)
@@ -156,7 +156,7 @@ You will define the helper methods in the following steps.
 
 ### Process the input image data
 
-Add the following method to the **Program** class. This method converts the image at the specified URL into a byte array.
+Add the following method to the **Program** class. This method converts the image at the specified file path into a byte array.
 
 ```csharp
         // Returns the contents of the specified file as a byte array.

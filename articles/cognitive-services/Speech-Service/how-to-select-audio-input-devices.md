@@ -11,7 +11,7 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 07/05/2019
 ms.author: chlandsi
-ms.custom: devx-track-javascript
+ms.custom: devx-track-js
 ---
 
 # How to: Select an audio input device with the Speech SDK

@@ -15,15 +15,13 @@ The Mv2-series features high throughput, low latency platform running on a hyper
 
 Mv2-series VM’s feature Intel® Hyper-Threading Technology
 
-Premium Storage: Supported
-
-Premium Storage caching: Supported
-
-Live Migration: Not Supported
-
-Memory Preserving Updates: Not Supported
-
-Write Accelerator: [Supported](./how-to-enable-write-accelerator.md)
+[Premium Storage](premium-storage-performance.md): Supported<br>
+[Premium Storage caching](premium-storage-performance.md): Supported<br>
+[Live Migration](maintenance-and-updates.md): Not Supported<br>
+[Memory Preserving Updates](maintenance-and-updates.md): Not Supported<br>
+[VM Generation Support](generation-2.md): Generation 1 and 2<br>
+[Write Accelerator](./how-to-enable-write-accelerator.md): Supported<br>
+<br>
 
 |Size | vCPU | Memory: GiB | Temp storage (SSD) GiB | Max data disks | Max cached and temp storage throughput: IOPS / MBps (cache size in GiB) | Max uncached disk throughput: IOPS / MBps | Max NICs | Expected network bandwidth (Mbps) |
 |---|---|---|---|---|---|---|---|---|

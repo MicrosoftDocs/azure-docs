@@ -48,7 +48,7 @@ ngrok http -host-header=localhost 7071
 ```
 As the utility is set up, the command window should look similar to the following screenshot:
 
-![Start ngrok](./media/functions-debug-event-grid-trigger-local/functions-debug-event-grid-trigger-local-ngrok.png)
+![Screenshot that shows the Command Prompt after starting the "ngrok" utility.](./media/functions-debug-event-grid-trigger-local/functions-debug-event-grid-trigger-local-ngrok.png)
 
 Copy the **HTTPS** URL generated when *ngrok* is run. This value is used when configuring the event grid event endpoint.
 

@@ -13,9 +13,6 @@ ms.date: 9/21/2020
 > [!IMPORTANT] 
 > Azure Database for MySQL Flexible Server is currently in public preview
 
-> [!NOTE]
-> Integration with Azure Monitor diagnostic settings to access logs is in the process of deploying and full functionality will be available soon.
-
 Azure Database for MySQL Flexible Server provides users with the ability to configure audit logs. Audit logs can be used to track database-level activity including connection, admin, DDL, and DML events. These types of logs are commonly used for compliance purposes.
 
 ## Configure audit logging
@@ -47,9 +44,6 @@ Other parameters you can adjust to control audit logging behavior include:
 | `TABLE_ACCESS` | - Only available for MySQL 5.7 <br> - Table read statements, such as SELECT or INSERT INTO ... SELECT <br> - Table delete statements, such as DELETE or TRUNCATE TABLE <br> - Table insert statements, such as INSERT or REPLACE <br> - Table update statements, such as UPDATE |
 
 ## Access audit logs
-
-> [!NOTE]
-> Integration with Azure Monitor diagnostic settings to access logs is in the process of deploying and full functionality will be available soon.
 
 Audit logs are integrated with Azure Monitor diagnostic settings. Once you've enabled audit logs on your MySQL flexible server, you can emit them to Azure Monitor logs, Event Hubs, or Azure Storage. To learn more about diagnostic settings, see the [diagnostic logs documentation](../../azure-monitor/platform/platform-logs-overview.md). To learn more about how to enable diagnostic settings in the Azure portal, see the [audit log portal article](how-to-configure-audit-logs-portal.md#set-up-diagnostics).
 

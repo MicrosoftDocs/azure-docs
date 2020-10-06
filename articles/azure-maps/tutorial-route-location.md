@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: How to display route directions using Microsoft Azure Maps Route service and Map control'
-description: Learn how to display route directions using the Microsoft Azure Maps Route service and Map control.
+title: 'Tutorial: Find route to a location | Microsoft Azure Maps'
+description: Tutorial on how to find a route to a point of interest. See how to set address coordinates and query the Azure Maps Route service for directions to the point.
 author: anastasia-ms
 ms.author: v-stharr
 ms.date: 09/01/2020
@@ -8,7 +8,7 @@ ms.topic: tutorial
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.custom: mvc, devx-track-javascript
+ms.custom: mvc, devx-track-js
 ---
 
 # Tutorial: How to display route directions using Azure Maps Route service and Map control
@@ -213,9 +213,7 @@ This section shows you how to use the Azure Maps Route Directions API to get rou
 
      :::image type="content" source="./media/tutorial-route-location/map-route.png" alt-text="Azure Map control and Route service":::
 
-
-    You can obtain the full source code for the sample [here](https://github.com/Azure-Samples/AzureMapsCodeSamples/blob/master/AzureMapsCodeSamples/Tutorials/route.html). A live sample can be found [here](https://azuremapscodesamples.azurewebsites.net/?sample=Route%20to%20a%20destination).
-
+You can obtain the full source code for the sample [here](https://github.com/Azure-Samples/AzureMapsCodeSamples/blob/master/AzureMapsCodeSamples/Tutorials/route.html). A live sample can be found [here](https://azuremapscodesamples.azurewebsites.net/?sample=Route%20to%20a%20destination).
 
 ## Next steps
 
