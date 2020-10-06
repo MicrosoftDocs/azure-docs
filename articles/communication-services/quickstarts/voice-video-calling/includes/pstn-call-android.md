@@ -20,7 +20,7 @@ ms.author: nikuklic
 
 ## Setting up
 
-### Add PSTN functionality your app
+### Add PSTN functionality to your app
 
 Add the `PhoneNumber` type to your app by modifying **MainActivity.java**:
 
