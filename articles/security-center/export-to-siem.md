@@ -43,9 +43,11 @@ Another alternative for investigating Security Center alerts in Azure Sentinel i
 
 Security Center has out-of-the-box integration with Microsoft Graph. No configuration is required and there are no additional costs. 
 
-You can use Microsoft Graph, and its API, to stream alerts from your entire tenant (as well as data from many other Microsoft Security products) into third-party SIEMs and other popular platforms:
+You can use Microsoft Graph, and its API, to stream alerts from your **entire tenant** (as well as data from many other Microsoft Security products) into third-party SIEMs and other popular platforms:
 
-- **Splunk**, **ServiceNow**, and **Power BI** - [Use the built-in connectors from Microsoft Graph](https://docs.microsoft.com/graph/security-integration) 
+- **Splunk Enterprise and Splunk Cloud** - [Use the Microsoft Graph Security API Add-On for Splunk](https://splunkbase.splunk.com/app/4564/) 
+- **Power BI** - [Connect to the Microsoft Graph Security API in Power BI Desktop](https://docs.microsoft.com/power-bi/connect-data/desktop-connect-graph-security)
+- **ServiceNow** - [Follow the instructions to install and configure the Microsoft Graph Security API application from the ServiceNow Store](https://docs.servicenow.com/bundle/orlando-security-management/page/product/secops-integration-sir/secops-integration-ms-graph/task/ms-graph-install.html)
 - **QRadar** - [IBM's Device Support Module for Azure Security Center via Microsoft Graph API](https://www.ibm.com/support/knowledgecenter/SS42VS_DSM/com.ibm.dsm.doc/c_dsm_guide_ms_azure_security_center_overview.html) 
 - **Palo Alto Networks**, **Anomli**, **Lookout**, **InSpark**, and more - [Microsoft Graph Security API](https://www.microsoft.com/security/business/graph-security-api#office-MultiFeatureCarousel-09jr2ji)
 
@@ -58,7 +60,7 @@ To stream alerts into **ArcSight**, **Splunk**, **SumoLogic**, Syslog servers, *
 
 1. Enable [continuous export](continuous-export.md) to stream Security Center alerts into a dedicated Azure Event Hub at the subscription level. 
     > [!TIP]
-    > To do this at the Management Group level using Azure Policy, see [Create continuous export automation configurations at scale](continuous-export.md&tabs=azure-policy#configure-continuous-export-at-scale-using-the-supplied-policies)
+    > To do this at the Management Group level using Azure Policy, see [Create continuous export automation configurations at scale](continuous-export.md?tabs=azure-policy#configure-continuous-export-at-scale-using-the-supplied-policies)
 
 1. [Connect the Azure Event hub to your preferred solution using Azure Monitor's built-in connectors](../azure-monitor/platform/stream-monitoring-data-event-hubs.md#partner-tools-with-azure-monitor-integration).
 
