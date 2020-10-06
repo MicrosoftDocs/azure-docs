@@ -105,7 +105,7 @@ You can use the Azure AD PowerShell Preview module, [AzureADPreview](https://doc
 
 ---
 
-## Next steps
+### Next steps
 
 To learn more:
 

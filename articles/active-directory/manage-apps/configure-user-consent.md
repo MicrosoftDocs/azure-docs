@@ -91,7 +91,7 @@ Set-AzureADMSAuthorizationPolicy `
 ---
 
 > [!TIP]
-> [Enable the admin consent workflow](configure-admin-consent-workflow.md) to allow users to request an administrator's review and approval of an application that the user is not allowed to consent to--for example, when user consent has been disabled or when an application is requesting permissions that the user is not allowed to grant.
+> [Enable the admin consent workflow](configure-admin-consent-workflow.md) to allow users to request an administrator's review and approval of an application that the user is not allowed to consent to—for example, when user consent has been disabled or when an application is requesting permissions that the user is not allowed to grant.
 
 ## Risk-based step-up consent
 

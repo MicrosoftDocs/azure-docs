@@ -107,7 +107,7 @@ You can use the latest Azure AD PowerShell Preview module, [AzureADPreview](http
 
 ---
 
-## Next steps
+### Next steps
 
 To learn more:
 
