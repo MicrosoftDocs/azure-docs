@@ -26,11 +26,7 @@ In this tutorial, you learn how to:
 > - Create a gateway subnet.
 > - Create Virtual Network gateway.
 
-### Working with PowerShell
-
-[!INCLUDE [updated-for-az](../../includes/hybrid-az-ps.md)]
-
-[!INCLUDE [working with Cloud Shell](../../includes/expressroute-cloudshell-powershell-about.md)]
+[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
 ## Prerequisites
 
