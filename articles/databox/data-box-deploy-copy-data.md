@@ -122,7 +122,7 @@ Once you're connected to the Data Box shares, the next step is to copy data. Bef
   * You don't use both SMB and NFS at the same time.
   * Copy the same data to same end destination on Azure.
   In these cases, the final outcome can't be determined.
-* 
+
 > [!IMPORTANT]
 > Make sure that you maintain a copy of the source data until you can confirm that the Data Box has transferred your data into Azure Storage.
 
