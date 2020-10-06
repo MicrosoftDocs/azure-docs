@@ -6,7 +6,7 @@ ms.service: virtual-machines
 ms.subservice: imaging
 ms.topic: how-to
 ms.workload: infrastructure
-ms.date: 10/05/2020
+ms.date: 10/06/2020
 ms.author: cynthn
 ms.reviewer: olayemio
 
@@ -71,14 +71,14 @@ $resourceGroup = "myResourceGroup"
 $diskName = "myDisk"
 ```
 
-Create a disk configuration and then the disk, using the source image version ID. For the `-GalleryImageReference`, Lun is needed only if the source is a data disk.
+Create a disk configuration and then the disk, using the source image version ID. For the `-GalleryImageReference`, LUN is needed only if the source is a data disk.
 
 ```azurepowershell-interactive
 $diskConfig = New-AzDiskConfig `
    -Location $location `
    -CreateOption FromImage `
    -GalleryImageReference @{Id = $sourceImgVer.Id; Lun=1}
-``` 
+```
 
 Create the disk.
 
