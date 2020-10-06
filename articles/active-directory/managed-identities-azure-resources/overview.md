@@ -12,7 +12,7 @@ ms.subservice: msi
 ms.devlang:
 ms.topic: overview
 ms.custom: mvc
-ms.date: 09/28/2020
+ms.date: 10/06/2020
 ms.author: barclayn
 
 #As a developer, I'd like to securely manage the credentials that my application uses for authenticating to cloud services without having the credentials in my code or checked into source control.
@@ -43,7 +43,7 @@ There are two types of managed identities:
 - **System-assigned** Some Azure services allow you to enable a managed identity directly on a service instance. When you enable a system-assigned managed identity an identity is created in Azure AD that is tied to the lifecycle of that service instance. So when the resource is deleted, Azure automatically deletes the identity for you. By design, only that Azure resource can use this identity to request tokens from Azure AD.
 - **User-assigned** You may also create a managed identity as a standalone Azure resource. You can [create a user-assigned managed identity](how-to-manage-ua-identity-portal.md) and assign it to one or more instances of an Azure service. In the case of user-assigned managed identities, the identity is managed separately from the resources that use it. </br></br>
 
-   > [!VIDEO https://www.youtube.com/embed/OzqpxeD3fG0]
+  > [!VIDEO https://www.youtube.com/embed/OzqpxeD3fG0]
 
 The table below shows the differences between the two types of managed identities.
 
@@ -59,7 +59,7 @@ The table below shows the differences between the two types of managed identitie
 
 ## How can I use managed identities for Azure resources?
 
-![some examples of how a developer may use managed identities to get access to resources from their code without managing authentication information](media/overview/managed-identities-examples.png)
+![some examples of how a developer may use managed identities to get access to resources from their code without managing authentication information](media/overview/azure-managed-identities-examples.png)
 
 ## What Azure services support the feature?<a name="which-azure-services-support-managed-identity"></a>
 
