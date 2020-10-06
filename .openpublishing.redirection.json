@@ -21808,6 +21808,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/marketplace/cloud-partner-portal/azure-vm-common-issues-during-vhd-creation.md",
+      "redirect_url": "/azure/marketplace/azure-vm-vhd-creation-faq",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/marketplace/cloud-partner-portal/business-applications-isv-program.md",
       "redirect_url": "/azure/marketplace/business-applications-isv-program",
       "redirect_document_id": false
@@ -45089,12 +45094,12 @@
     },
     {
       "source_path": "articles/marketplace/cloud-partner-portal/virtual-machine/cpp-create-technical-assets.md",
-      "redirect_url": "/azure/marketplace/partner-center-portal/create-azure-vm-technical-asset",
+      "redirect_url": "/azure/marketplace/azure-vm-create-technical-assets",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/marketplace/cloud-partner-portal/virtual-machine/cpp-create-vhd.md",
-      "redirect_url": "/azure/marketplace/partner-center-portal/create-azure-vm-technical-asset",
+      "redirect_url": "/azure/marketplace/azure-vm-create-technical-assets",
       "redirect_document_id": false
     },
     {
@@ -45104,12 +45109,12 @@
     },
     {
       "source_path": "articles/marketplace/cloud-partner-portal/virtual-machine/cpp-connect-vm.md",
-      "redirect_url": "/azure/marketplace/partner-center-portal/create-azure-vm-technical-asset",
+      "redirect_url": "/azure/marketplace/azure-vm-create-technical-assets",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/marketplace/cloud-partner-portal/virtual-machine/cpp-configure-vm.md",
-      "redirect_url": "/azure/marketplace/partner-center-portal/create-azure-vm-technical-asset",
+      "redirect_url": "/azure/marketplace/azure-vm-create-technical-assets",
       "redirect_document_id": false
     },
     {
@@ -45124,12 +45129,22 @@
     },
     {
       "source_path": "articles/marketplace/cloud-partner-portal/virtual-machine/cpp-deploy-vm-vhd.md",
-      "redirect_url": "/azure/marketplace/partner-center-portal/create-azure-vm-technical-asset",
+      "redirect_url": "/azure/marketplace/azure-vm-create-technical-assets",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/marketplace/cloud-partner-portal/virtual-machine/cpp-create-user-image.md",
-      "redirect_url": "/azure/marketplace/partner-center-portal/create-azure-vm-technical-asset",
+      "redirect_url": "/azure/marketplace/azure-vm-create-technical-assets",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/marketplace/partner-center-portal/create-azure-vm-technical-asset.md",
+      "redirect_url": "/azure/marketplace/azure-vm-create-technical-assets",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/marketplace/partner-center-portal/vm-certification-issues-solutions.md",
+      "redirect_url": "/azure/marketplace/azure-vm-certification-issues-solutions",
       "redirect_document_id": false
     },
     {

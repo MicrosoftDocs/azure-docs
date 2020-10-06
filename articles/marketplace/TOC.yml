@@ -119,13 +119,19 @@
           href: partner-center-portal/azure-vm-create-offer.md
         - name: Create Azure VM technical asset
           items:
-            - name: Virtual machine certification - issues and solutions
-              href: partner-center-portal/vm-certification-issues-solutions.md
-            - name: Create an Azure VM technical asset
-              href: partner-center-portal/create-azure-vm-technical-asset.md
-            - name: Azure VM technical asset FAQ
-              href: partner-center-portal/common-issues-during-vhd-creation.md
-            - name: Test Virtual Machine deployed from VHD 
+            - name: Virtual machine certification issues and solutions
+              href: azure-vm-certification-issues-solutions.md
+            - name: Create VM technical assets
+              items:
+              - name: Create VM technical assets
+                href: azure-vm-create-technical-assets.md
+              - name: Create VM using an approved image
+                href: azure-vm-create-using-approved-base.md
+              - name: Create VM using your own image
+                href: azure-vm-create-using-own image.md
+            - name: VHD creation FAQ
+              href: partner-center-portal/azure-vm-vhd-creation-faq.md
+            - name: Test VM deployed from VHD 
               href: partner-center-portal/azure-vm-image-certification.md
             - name: SAS URI
               items:
