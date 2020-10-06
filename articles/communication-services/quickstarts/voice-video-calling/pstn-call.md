@@ -1,34 +1,30 @@
 ---
-title: Quickstart - Add voice calling to your app 
+title: Quickstart - Call To Phone
 titleSuffix: An Azure Communication Services quickstart
-description: In this quickstart, you'll learn how to add calling capabilities to your app using Azure Communication Services.
-author: matthewrobertson
-ms.author: marobert
-ms.date: 07/24/2020
+description: In this quickstart, you'll learn how to add PSTN calling capabilities to your app using Azure Communication Services.
+author: nikuklic
+ms.author: nikuklic
+ms.date: 09/11/2020
 ms.topic: quickstart
 ms.service: azure-communication-services
-
 zone_pivot_groups: acs-plat-web-ios-android
 ---
 
-# Quickstart: Add voice calling to your app
-
+# Quickstart: Call To Phone
 [!INCLUDE [Public Preview Notice](../../includes/public-preview-include.md)]
 
-Get started with Azure Communication Services by using the Communication Services calling client library to add voice and video calling to your app. 
-
-[!INCLUDE [Emergency Calling Notice](../../includes/emergency-calling-notice-include.md)]
+Get started with Azure Communication Services by using the Communication Services calling client library to add PSTN calling to your app. 
 
 ::: zone pivot="platform-web"
-[!INCLUDE [Calling with JavaScript](./includes/get-started-javascript.md)]
+[!INCLUDE [Calling with JavaScript](./includes/pstn-call-js.md)]
 ::: zone-end
 
 ::: zone pivot="platform-android"
-[!INCLUDE [Calling with Android](./includes/get-started-android.md)]
+[!INCLUDE [Calling with Android](./includes/pstn-call-android.md)]
 ::: zone-end
 
 ::: zone pivot="platform-ios"
-[!INCLUDE [Calling with iOS](./includes/get-started-ios.md)]
+[!INCLUDE [Calling with iOS](./includes/pstn-call-ios.md)]
 ::: zone-end
 
 ## Clean up resources
@@ -39,6 +35,5 @@ If you want to clean up and remove a Communication Services subscription, you ca
 
 For more information, see the following articles:
 
-- Check out our [calling hero sample](../../samples/calling-hero-sample.md)
 - Learn about [calling client library capabilities](./calling-client-samples.md)
 - Learn more about [how calling works](../../concepts/voice-video-calling/about-call-types.md)
