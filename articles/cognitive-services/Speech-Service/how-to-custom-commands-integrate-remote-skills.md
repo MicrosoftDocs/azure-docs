@@ -1,7 +1,7 @@
 ---
 title: 'How To: Export Custom Commands application as a remote skill - Speech service'
 titleSuffix: Azure Cognitive Services
-description: In this article, you learn how to add parameters to Custom Commands
+description: In this article, you learn how to export Custom Commands application as a skill
 services: cognitive-services
 author: singhsaumya
 manager: yetian
@@ -25,7 +25,7 @@ In this article, you will learn how to export a Custom Commands application as a
 
 ## Custom Commands as remote skills
 1. Bot Framework Skills are re-usable conversational skill building-blocks covering conversational use-cases enabling you to add extensive functionality to a Bot within minutes. To read more on this, go to [Bot Framework Skill](https://microsoft.github.io/botframework-solutions/overview/skills/).
-1. Any Custom Commands application can be exported as a skill and can be re-used from within any other Bot Framework Bot. Consumer bot can invoke a Skill bot (in this case, a Custom Commands application configured as a skill) over remote skill protocol.
+1. A Custom Commands application can be exported as a skill. This skill can then be invoked over the remote skills protocol from a Bot Framework bot.
 
 ## Configure an application to be exposed as a remote skill
 
@@ -72,10 +72,11 @@ As an author, you might want to control which of your **example sentences** are 
 > In case your existing example sentences have references to **String > Catalog** data-type, those sentences will be automatically omitted from the skills triggering utterances list. 
 
 ## Download skill manifest
-1. After, you have **published** your application, you can download the skill manifest file
+1. After, you have **published** your application, you can download the skill manifest file.
 1. Use the skill manifest to configure your Bot Framework consumer bot to call in to the Custom Commands skill.
 > [!IMPORTANT]
-> You must **publish** your Custom Commands application in order to download the skill manifest. Additionally, if you made any changes to the application, you need to publish the application again for the latest changes to be reflected in the manifest file.
+> You must **publish** your Custom Commands application in order to download the skill manifest. </br>
+> Additionally, if you made **any changes** to the application, you need to publish the application again for the latest changes to be reflected in the manifest file.
 
 > [!NOTE]
 > If you face any issues with publishing the application and the error directs to skills triggering utterances, please re-check the configuration for **Enabled commands for skills**. Each of the exposed commands must have at least one valid triggering utterance.
