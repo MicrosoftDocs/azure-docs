@@ -75,31 +75,31 @@ https://success.mediusflow.com/documentation/administration_guide/user_login_and
 
 5. Select user provisioning and click **OK**.
 
-	:::image type="content" source="./media/mediusflow-provisioning-tutorial/5-select-user-provisioning.png" alt-text="Authenticate" border="false":::
+	:::image type="content" source="./media/mediusflow-provisioning-tutorial/5-select-user-provisioning.png" alt-text="Screenshot of the MediusFlow admin console that shows the fifth integration step. The Use user provisioning and Ok buttons are highlighted." border="false":::
 
 6. Click on **Generate Secret Key**. Copy and save this value.This value will be entered in the **Secret Token** field in the **Provisioning** tab of your MediusFLow application in the Azure portal.
 
-	:::image type="content" source="./media/mediusflow-provisioning-tutorial/6-create-secret-1.png" alt-text="Authenticate" border="false":::
+	:::image type="content" source="./media/mediusflow-provisioning-tutorial/6-create-secret-1.png" alt-text="Screenshot of the User provisioning configuration tab in the MediusFlow admin console. The Generate secret key and Copy buttons are highlighted." border="false":::
 
 7. Click on **OK**.
 
-	:::image type="content" source="./media/mediusflow-provisioning-tutorial/7-confirm-secret.png" alt-text="Authenticate" border="false":::
+	:::image type="content" source="./media/mediusflow-provisioning-tutorial/7-confirm-secret.png" alt-text="Screenshot of the MediusFlow admin console with a notification telling users to click Ok to generate a new secret key. The Ok button is highlighted." border="false":::
 
 8. To get the users imported with a pre-defined set of roles, companies and other general configurations in MediusFlow, you will need to configure it first. Start by adding the configuration by clicking on **Add new configuration**.
 
-	:::image type="content" source="./media/mediusflow-provisioning-tutorial/8-configure-user-configuration-1.png" alt-text="Config users" border="false":::
+	:::image type="content" source="./media/mediusflow-provisioning-tutorial/8-configure-user-configuration-1.png" alt-text="Screenshot of the User provisioning configuration tab in the MediusFlow admin console. The Add new configuration button is highlighted." border="false":::
 
 9. Provide the default settings for the users. In this view, it is possible to set the default attribute. If the standard settings are ok, it is enough to provide just a valid company name. Since these configuration settings are fetched from Mediusflow, they need to be configured first. For more information see the **Prerequisites** section of this article.
 
-	:::image type="content" source="./media/mediusflow-provisioning-tutorial/9-configure-user-config-detail-1.png" alt-text="Config users" border="false":::
+	:::image type="content" source="./media/mediusflow-provisioning-tutorial/9-configure-user-config-detail-1.png" alt-text="Screenshot of the MediusFlow Add new configuration window. Many settings are visible, including locale settings, a filter, and user roles." border="false":::
 
 10. Click on **Save** to save the user configuration.
 
-	:::image type="content" source="./media/mediusflow-provisioning-tutorial/10-done-1.png" alt-text="Config users" border="false":::
+	:::image type="content" source="./media/mediusflow-provisioning-tutorial/10-done-1.png" alt-text="Screenshot of the User provisioning configuration tab in the MediusFlow admin console. The Save button is highlighted." border="false":::
 
 11. To get the user provisioning link click on **Copy SCIM Link**. Copy and save this value. This value is entered in the **Tenant URL** field in the **Provisioning** tab of your MediusFLow application in the Azure portal.
  
-	:::image type="content" source="./media/mediusflow-provisioning-tutorial/11-get-scim-link.png" alt-text="Config users" border="false":::
+	:::image type="content" source="./media/mediusflow-provisioning-tutorial/11-get-scim-link.png" alt-text="Screenshot of the User provisioning configuration tab in the MediusFlow admin console. The Copy S C I M link button is highlighted." border="false":::
 
 ## Step 3. Add MediusFlow from the Azure AD application gallery
 
