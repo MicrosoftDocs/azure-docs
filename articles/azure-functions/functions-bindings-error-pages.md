@@ -4,7 +4,7 @@ description: Learn to handle errors and retry events in Azure Functions with lin
 author: craigshoemaker
 
 ms.topic: conceptual
-ms.date: 09/29/2020
+ms.date: 10/01/2020
 ms.author: cshoe
 ---
 

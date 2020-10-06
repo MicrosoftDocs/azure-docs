@@ -2,7 +2,7 @@
 author: ggailey777
 ms.service: azure-functions
 ms.topic: include
-ms.date: 02/21/2020
+ms.date: 10/01/2020
 ms.author: glenga
 ---
 
@@ -26,23 +26,23 @@ Capturing and publishing errors is critical to monitoring the health of your app
 
 ## Retry policies
 
-A retry policy can be defined on any function for any trigger in an app.  The retry policy allows you to re-execute a trigger with its inputs until either the retry threshold is reached or a successful execution occurs.  Retry policies can be defined for all functions in an app or for individual functions.  By default a function app will not retry messages (aside from the [specific triggers that have a retry policy on the trigger source](#trigger-specific-retry-support)).  Event Hubs and Cosmos DB checkpoints won't be written until the retry policy for the execution has completed.  A retry policy will be evaluated whenever an execution results in an uncaught exception.  The best practice is for all exceptions to be caught in user code, and for those errors which should result in a retry are thrown to mark the execution as failed.
+A retry policy can be defined on any function for any trigger in an app.  The retry policy re-executes a function until the maximum number of retries or a successful execution.  Retry policies can be defined for all functions in an app or for individual functions.  By default a function app won't retry messages (aside from the [specific triggers that have a retry policy on the trigger source](#trigger-specific-retry-support)).  A retry policy will be evaluated whenever an execution results in an uncaught exception.  The best practice is for all exceptions to be caught in user code, and for those errors that should result in a retry to throw.  Event Hubs and Cosmos DB checkpoints won't be written until the retry policy for the execution has completed, meaning progressing on that partition will be paused until the current batch has completed.
 
 ### Retry policy options
 
 The following options are available for defining a retry policy.
 
-**Max Retry Count** is the maximum number of times an execution should be retried before eventual failure.  A value of `-1` means to retry indefinitely.  The current retry count is stored in memory of the instance.  It is possible that an instance has a failure between retry attempts.  If an instance were to fail during a retry policy the retry count would be lost.  In the case of instance failure, triggers like Event Hubs, Cosmos DB, and queues would be able to resume processing and retry the message on a new instance, with the retry count reset to zero.  Other triggers like HTTP and timer would not resume on a new instance.  This means that the max retry count is a best effort, and in some rare cases an execution could be retried more than the maximum, or for triggers like HTTP and timer be retried less than the maximum.
+**Max Retry Count** is the maximum number of times an execution should be retried before eventual failure.  A value of `-1` means to retry indefinitely.  The current retry count is stored in memory of the instance.  It is possible that an instance has a failure between retry attempts.  If an instance failed during a retry policy, the retry count would be lost.  If there are instance failures, triggers like Event Hubs, Cosmos DB, and queues would be able to resume processing and retry the batch on a new instance, with the retry count reset to zero.  Other triggers like HTTP and timer would not resume on a new instance.  This means that the max retry count is a best effort, and in some rare cases an execution could be retried more than the maximum, or for triggers like HTTP and timer be retried less than the maximum.
 
-**Retry Strategy** is how retries will behave.  There are two valid options, `fixedDelay` and `exponentialBackoff`.  Fixed delay will wait a specified amount of time between each retry.  Exponential backoff will do the first retry for the minimum delay, and then exponentially add to that duration for each retry until the maximum delay is reached.  There is some slight randomization added to the exponential backoff delays to stagger retries in high throughput scenarios.
+**Retry Strategy** is how retries will behave.  There are two valid options, `fixedDelay` and `exponentialBackoff`.  Fixed delay will wait a specified amount of time between each retry.  Exponential backoff will do the first retry for the minimum delay, and then exponentially add to that duration for each retry until the maximum delay is reached.  Exponential backoff adds some small randomization to delays to stagger retries in high throughput scenarios.
 
 #### App level configuration
 
-A retry policy can be defined for all functions in an app [using the `host.json` file](./functions-host-json.md#retry). 
+A retry policy can be defined for all functions in an app [using the `host.json` file](../articles/azure-functions/functions-host-json.md#retry). 
 
 #### Function level configuration
 
-A retry policy can be defined for a specific function.  Function specific configuration will take priority over app level configuration.
+A retry policy can be defined for a specific function.  Function-specific configuration will take priority over app level configuration.
 
 # [C#](#tab/csharp)
 
@@ -243,11 +243,11 @@ Here's the retry policy in the *function.json* file:
 
 ## Trigger specific retry support
 
-Some triggers provide retries at the trigger source.  These trigger retries can be used in addition to or as a replacement for the function app host retry policy.  If a fixed amount of retries is desired, you should use the trigger specific retry policy over the generic host retry policy.  The following triggers support retries at the trigger source:
+Some triggers provide retries at the trigger source.  These trigger retries can be used in addition to or as a replacement for the function app host retry policy.  If a fixed number of retries are desired, you should use the trigger-specific retry policy over the generic host retry policy.  The following triggers support retries at the trigger source:
 
 * [Azure Blob storage](../articles/azure-functions/functions-bindings-storage-blob.md)
 * [Azure Queue storage](../articles/azure-functions/functions-bindings-storage-queue.md)
 * [Azure Service Bus (queue/topic)](../articles/azure-functions/functions-bindings-service-bus.md)
 
-By default, these triggers retry requests up to five times. After the fifth retry, both the Azure Queue storage and Azure Service Bus triggers write a message to a [poison queue](../articles/azure-functions/functions-bindings-storage-queue-trigger.md#poison-messages).
+By default, these triggers retry requests up to five times. After the fifth retry, both the Azure Queue storage and Azure Service Bus trigger write a message to a [poison queue](../articles/azure-functions/functions-bindings-storage-queue-trigger.md#poison-messages).
 

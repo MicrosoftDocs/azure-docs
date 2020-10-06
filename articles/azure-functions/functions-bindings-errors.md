@@ -4,7 +4,7 @@ description: Learn to handle Azure Functions binding errors
 author: craigshoemaker
 
 ms.topic: reference
-ms.date: 09/12/2019
+ms.date: 10/01/2020
 ms.author: cshoe
 ---
 
