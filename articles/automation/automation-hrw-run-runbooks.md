@@ -67,7 +67,7 @@ Follow the next steps to use a managed identity for Azure resources on a Hybrid 
     > [!NOTE]
     > `Connect-AzAccount -Identity` works for a Hybrid Runbook Worker using a system-assigned identity and a single user-assigned identity. If you use multiple user-assigned identities on the Hybrid Runbook Worker, your runbook must specify the `AccountId` parameter for `Connect-AzAccount` to select a specific user-assigned identity.
 
-## Use runbook authentication with Run As account
+### Use runbook authentication with Run As account
 
 Instead of having your runbook provide its own authentication to local resources, you can specify a Run As account for a Hybrid Runbook Worker group. To specify a Run As account, you must define a [credential asset](./shared-resources/credentials.md) that has access to local resources. These resources include certificate stores and all runbooks run under these credentials on a Hybrid Runbook Worker in the group.
 
