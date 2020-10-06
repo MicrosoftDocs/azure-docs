@@ -749,8 +749,6 @@
       - name: Availability alerts
         displayname: alerts, global, alerting
         href: app/availability-alerts.md
-      - name: Performance testing
-        href: app/performance-testing.md
       - name: Troubleshooting
         displayname: availability, troubleshoot, troubleshoot availability
         href: app/troubleshoot-availability.md
