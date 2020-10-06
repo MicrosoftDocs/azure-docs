@@ -13,10 +13,6 @@ zone_pivot_groups: acs-plat-web-ios-android
 # Quickstart: Call To Phone
 [!INCLUDE [Public Preview Notice](../../includes/public-preview-include.md)]
 
-> [!WARNING]
-> This document is under construction and needs the following items to be addressed: 
-> - Client team should approve android/ios syntax and validate style of JS
-
 Get started with Azure Communication Services by using the Communication Services calling client library to add PSTN calling to your app. 
 
 ::: zone pivot="platform-web"
