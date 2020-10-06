@@ -101,7 +101,7 @@
       href: how-to-integrate-maps.md
     - name: Integrate with Azure Time Series Insights
       href: how-to-integrate-time-series-insights.md
-  - name: Troubleshoot
+  - name: Monitor and troubleshoot
     items:
     - name: View metrics in Azure Monitor
       href: troubleshoot-metrics.md
@@ -109,6 +109,8 @@
       href: troubleshoot-diagnostics.md
     - name: Enable alerts
       href: troubleshoot-alerts.md
+    - name: Use Azure Resource Health
+      href: troubleshoot-resource-health.md
     - name: Known issues
       href: troubleshoot-known-issues.md
     - name: Problem resolution
