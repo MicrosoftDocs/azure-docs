@@ -39,6 +39,10 @@ Azure Stream Analytics creates a Power BI dataset and table schema for the user 
 
 Power BI uses the first-in, first-out (FIFO) retention policy. Data will collect in a table until it hits 200,000 rows.
 
+> [!NOTE]
+> Using multiple outputs to write to the same dataset is generally discouraged as it can cause several issues. Each output can try to create the Power BI dataset independently which can result in multiple datasets with the same name being created. Additionally, if the outputs do not have consistent schemas, this will cause the dataset to change schema on each write leading to too many schema change requests. Even if these issues are avoided, multiple outputs will be less performant than a single merged output as it can send too many requests.
+>
+
 ### Convert a data type from Stream Analytics to Power BI
 
 Azure Stream Analytics updates the data model dynamically at runtime if the output schema changes. Column name changes, column type changes, and the addition or removal of columns are all tracked.
