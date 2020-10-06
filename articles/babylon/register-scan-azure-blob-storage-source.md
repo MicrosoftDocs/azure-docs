@@ -22,7 +22,7 @@ Azure Blob Storage supports the following:<br />
 1. Navigate to your Babylon catalog.<br />
 2. Click on **Management Center** on the left navigation pane.<br />
 
-![Screenshot showing how to go to Management Center](./media/scan-azure-blob/go-to-management-center.png)
+![Screenshot showing how to go to Management Center](./media/register-scan-azure-blob-storage-source/go-to-management-center.png)
 
 3. Under **Sources and Scanning** pane, go to **Data sources** and hit the + sign on the right pane.<br />
 4. You can see **Register sources** pane open up on the right side of your screen. From the tiles of data sources, select **Azure Blob Storage** and hit **continue**<br />
@@ -74,7 +74,7 @@ To do this in the Azure portal: <br />
 
 11. Once your Service Principal is set, connect your Babylon to your Azure Blob store using client ID and secret key and check your connect as shown in the screenshot below.<br /> 
 
-![Screenshot showing service principal authorization](./media/scan-azure-blob/service-principal-auth.png)
+![Screenshot showing service principal authorization](./media/register-scan-azure-blob-storage-source/service-principal-auth.png)
 
 ## Firewall setting in Azure Blob account 
 > [!NOTE] 
@@ -84,7 +84,7 @@ To do this in the Azure portal: <br />
 * In the **Firewall** section, select **Allow trusted Microsoft services to access this storage account** and hit **Save**
 <br />
 
-![Screenshot showing firewall setting](./media/scan-azure-blob/firewall-setting.png)
+![Screenshot showing firewall setting](./media/register-scan-azure-blob-storage-source/firewall-setting.png)
 
 ## Create and run a scan
 After you have setup your authentication type, click Continue. The next screen is where you set your scan trigger, telling the system how often you would like to scan.
@@ -99,12 +99,12 @@ You can also set up a trigger on a weekly cadence with an option to choose the d
 **Set scan rule set**
 Select a scan rule set to be used by your scan from the list of available<br />
 
-![Screenshot showing scan rule set](./media/scan-azure-blob/select-scan-rule-set.png)
+![Screenshot showing scan rule set](./media/register-scan-azure-blob-storage-source/select-scan-rule-set.png)
 
 **Review your scan**
 When you click Continue, you will be presented with scan summary page, where you can view all the settings for your scan.<br />
 
-![Screenshot showing review your scan](./media/scan-azure-blob/review-save-run.png)
+![Screenshot showing review your scan](./media/register-scan-azure-blob-storage-source/review-save-run.png)
 
 **Edit a scan**
 Select a scan and click Edit to edit the selected scan. You can only edit one scan at a time.

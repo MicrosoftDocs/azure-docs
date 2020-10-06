@@ -28,6 +28,8 @@
     href: starter-kit-tutorial-5.md
 - name: How-to guides
   items:
+  - name: Register and scan Azure Files
+    href: register-scan-azure-files-storage-source.md
   - name: Register and scan Azure blob
     href: register-scan-azure-blob-storage-source.md
 # - name: Concepts
