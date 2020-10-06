@@ -71,25 +71,25 @@ on.
 
 1. Choose Access control (IAM)
 
-    ![image alt-text](./media/register-scan-adls-gen1/image100.png)
+    ![Choose access control](./media/register-scan-adls-gen1/image100.png)
 
 1. The **Add role assignment** blade will open.
 
-    ![image alt-text](./media/register-scan-adls-gen1/image101.png)
+    ![Add role assignment](./media/register-scan-adls-gen1/image101.png)
 
 1. Fill in the form as follows:
 
     1. Under **Role**, Choose 'Storage Blob Data Reader' from the list.
 
-        ![image alt-text](./media/register-scan-adls-gen1/image102.png)
+        ![Storage Blob Data Reader](./media/register-scan-adls-gen1/image102.png)
 
     1. In the **Assign access to** box, select **Azure AD user, group, or service principal**. It should be the default option.
 
-        ![image alt-text](./media/register-scan-adls-gen1/image103.png)
+        ![Assign access ](./media/register-scan-adls-gen1/image103.png)
 
     1. In the **Select** box, start typing the name of *your* catalog and you should see it in the list for you to select.
 
-        ![image alt-text](./media/register-scan-adls-gen1/image104.png)
+        ![Select your catalog](./media/register-scan-adls-gen1/image104.png)
 
     1. Click Save.
 
@@ -129,8 +129,6 @@ have to be real or work
 1. Copy down both the display name and the application ID
 
 1. Add your service principal to a role on the data stores that you would like to scan. You do this in the Azure portal. For more information about service principals, see [Acquire a token from Azure AD for authorizing requests from a client application](https://docs.microsoft.com/azure/storage/common/storage-auth-aad-app).
-
-For more details of the authentication mechanisms, please see [Scan data sources](scan-azure-data-sources-portal.md)
 
 ## Creating and running a scan
 

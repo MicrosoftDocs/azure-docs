@@ -73,25 +73,25 @@ on.
 
 1. Choose Access control (IAM)
 
-    ![image alt-text](./media/register-scan-adls-gen2/image100.png)
+    ![Choose Access control](./media/register-scan-adls-gen2/image100.png)
 
 1. The **Add role assignment** blade will open.
 
-    ![image alt-text](./media/register-scan-adls-gen2/image101.png)
+    ![Add role assignement](./media/register-scan-adls-gen2/image101.png)
 
 1. Fill in the form as follows:
 
     1. Under **Role**, Choose 'Storage Blob Data Reader' from the list.
 
-        ![image alt-text](./media/register-scan-adls-gen2/image102.png)
+        ![Set role](./media/register-scan-adls-gen2/image102.png)
 
     1. In the **Assign access to** box, select **Azure AD user, group, or service principal**. It should be the default option.
 
-        ![image alt-text](./media/register-scan-adls-gen2/image103.png)
+        ![Assign access](./media/register-scan-adls-gen2/image103.png)
 
     1. In the **Select** box, start typing the name of *your* catalog and you should see it in the list for you to select.
 
-        ![image alt-text](./media/register-scan-adls-gen2/image104.png)
+        ![Select your catalog](./media/register-scan-adls-gen2/image104.png)
 
     1. Click Save.
 
