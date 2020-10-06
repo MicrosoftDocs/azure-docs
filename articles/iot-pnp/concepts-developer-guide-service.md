@@ -79,11 +79,11 @@ string propertyUpdate = CreatePropertyPatch("targetTemperature",
     JsonConvert.SerializeObject(desiredTargetTemperature),
     "thermostat1");
 var twinPatch = new Twin();
-twinPatch.Properties.Desired["targetTemperature"] = desiredTargetTemperature;
+twinPatch.Properties.Desired["targetTemperature"] = propertyUpdate;
 
-Twin twin = await _registryManager.GetTwinAsync(_digitalTwinId);
+Twin twin = await _registryManager.GetTwinAsync(_deviceTwinId);
 
-await _registryManager.UpdateTwinAsync(_digitalTwinId, twinPatch, twin.ETag);
+await _registryManager.UpdateTwinAsync(_deviceTwinId, twinPatch, twin.ETag);
 
 // ...
 
@@ -152,7 +152,7 @@ commandInvocation.SetPayloadJson(componentCommandPayload);
 
 try
 {
-    CloudToDeviceMethodResult result = await _serviceClient.InvokeDeviceMethodAsync(_digitalTwinId, commandInvocation);
+    CloudToDeviceMethodResult result = await _serviceClient.InvokeDeviceMethodAsync(_deviceTwinId, commandInvocation);
     Console.WriteLine($"Command getMaxMinReport was invoked on component thermostat1." +
         $"\nDevice returned status: {result.Status}. \nReport: {result.GetPayloadAsJson()}");
 }
