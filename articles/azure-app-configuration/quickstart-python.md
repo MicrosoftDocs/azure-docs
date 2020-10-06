@@ -152,7 +152,7 @@ The following code snippet retrieves a list of configuration settings. The `key_
 
 ```python
     filtered_settings_list = client.list_configuration_settings( key_filter="TestApp*")
-    print("Key list:")
+    print("Retrieved configuration settings:")
     for item in filtered_listed:
         print("Key: " + item.key + ", Value: " + item.value)
 ```
