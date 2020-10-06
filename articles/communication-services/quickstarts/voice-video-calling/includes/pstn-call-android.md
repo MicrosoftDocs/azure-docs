@@ -28,8 +28,11 @@ Add the `PhoneNumber` type to your app by modifying **MainActivity.java**:
 ```java
 import com.azure.android.communication.common.PhoneNumber;
 ```
+
+<!--
 > [!TBD]
 > Namespace based on input from Komivi Agbakpem. But it does not correlates with other use namespaces in Calling Quickstart. E.g: "com.azure.communication.calling.CommunicationUser" or "com.azure.communication.common.client.CommunicationUserCredential". Double-chek this.
+-->
 
 ## Object model
 
