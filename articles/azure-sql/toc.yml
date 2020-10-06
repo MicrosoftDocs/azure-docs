@@ -1105,6 +1105,8 @@
           items:
           - name: Distributed Network Name (DNN)
             href: virtual-machines/windows/hadr-distributed-network-name-dnn-configure.md
+          - name: Distributed Network Name (DNN) ZP
+            href: virtual-machines/windows/hadr-distributed-network-name-dnn-configure-zp.md
           - name: Virtual Network Name (VNN)
             href: virtual-machines/windows/hadr-vnn-azure-load-balancer-configure.md
 
