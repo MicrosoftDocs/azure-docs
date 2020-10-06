@@ -8,7 +8,7 @@ ms.service: role-based-access-control
 ms.devlang: na
 ms.topic: how-to
 ms.workload: identity
-ms.date: 08/31/2020
+ms.date: 10/06/2020
 ms.author: rolyon
 ---
 
@@ -246,9 +246,11 @@ When you create a key vault, it is automatically tied to the default Azure Activ
 
 1. Use the [az graph](/cli/azure/ext/resource-graph/graph) extension to list other Azure resources with known Azure AD directory dependencies.
 
-    ```azurecli
-    az graph query -q \
-    'resources | where type != "microsoft.azureactivedirectory/b2cdirectories" | where  identity <> "" or properties.tenantId <> "" or properties.encryptionSettingsCollection.enabled == true | project name, type, kind, identity, tenantId, properties.tenantId' \
+    ```azurecli    
+    az graph query -q "Resources 
+    | where type != 'microsoft.azureactivedirectory/b2cdirectories'
+    | where identity <> '' or properties.tenantId <> '' or properties.encryptionSettingsCollection.enabled == true 
+    | project name, type, kind, identity, tenantId, properties.tenantId" `
     --subscriptions $subscriptionId --output table
     ```
 
