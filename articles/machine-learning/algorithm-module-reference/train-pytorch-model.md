@@ -9,7 +9,7 @@ ms.topic: reference
 
 author: likebupt
 ms.author: keli19
-ms.date: 05/26/2020
+ms.date: 09/26/2020
 ---
 
 # Train Pytorch Model
@@ -45,7 +45,7 @@ This article describes how to use the **Train Pytorch Model** module in Azure Ma
 
 8.  For **Patience**, specify how many epochs to early stop training if validation loss does not decrease consecutively. by default 3.
 
-9.  Submit the pipeline. If your dataset has larger size, it will take a while.
+9.  Submit the pipeline. If your dataset has larger size, it will take a while and GPU compute are recommended.
 
 ## Results
 

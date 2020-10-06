@@ -113,7 +113,7 @@ When the dashboard reports the job is complete, the disks are shipped to you and
 1. After you receive the drives with exported data, you need to get the BitLocker keys to unlock the drives. Go to the export job in the Azure portal. Click **Import/Export** tab.
 2. Select and click your export job from the list. Go to **Encryption** and copy the keys.
 
-   ![View BitLocker keys for export job](./media/storage-import-export-data-from-blobs/export-from-blob7.png)
+   ![View BitLocker keys for export job](./media/storage-import-export-data-from-blobs/export-from-blob-7.png)
 
 3. Use the BitLocker keys to unlock the disks.
 

@@ -7,7 +7,7 @@ ms.service: sql-db-mi
 ms.subservice: data-movement
 ms.custom: sqldbrb=2
 ms.devlang: 
-ms.topic: conceptual
+ms.topic: how-to
 author: MashaMSFT
 ms.author: mathoma
 ms.reviewer: sstein
@@ -165,7 +165,7 @@ Replication of all databases on each instance will be initiated automatically. F
 
 ### Monitor the preparation process
 
-You can periodically call [Get-AzSqlDatabaseFailoverGroup](/powershell/module/az.sql/get-azsqldatabasefailovergroup?view=azps-2.3.2) to monitor replication of your databases from the source to the target. The output object of `Get-AzSqlDatabaseFailoverGroup` includes a property for the **ReplicationState**:
+You can periodically call [Get-AzSqlDatabaseFailoverGroup](/powershell/module/az.sql/get-azsqldatabasefailovergroup) to monitor replication of your databases from the source to the target. The output object of `Get-AzSqlDatabaseFailoverGroup` includes a property for the **ReplicationState**:
 
 - **ReplicationState = 2** (CATCH_UP) indicates the database is synchronized and can be safely failed over.
 - **ReplicationState = 0** (SEEDING) indicates that the database isn't yet seeded, and an attempt to fail over will fail.
@@ -177,7 +177,7 @@ Once **ReplicationState** is `2`, connect to each database, or subset of databas
 ### Initiate the move
 
 1. Connect to the target managed instance by using the secondary endpoint `<fog-name>.secondary.database.windows.net`.
-1. Use [Switch-AzSqlDatabaseFailoverGroup](/powershell/module/az.sql/switch-azsqldatabasefailovergroup?view=azps-2.3.2) to switch the secondary managed instance to be the primary with full synchronization. This operation will succeed, or it will roll back.
+1. Use [Switch-AzSqlDatabaseFailoverGroup](/powershell/module/az.sql/switch-azsqldatabasefailovergroup) to switch the secondary managed instance to be the primary with full synchronization. This operation will succeed, or it will roll back.
 1. Verify that the command has completed successfully by using `nslook up <fog-name>.secondary.database.windows.net` to ascertain that the DNS CNAME entry points to the target region IP address. If the switch command fails, the CNAME won't be updated.
 
 ### Remove the source managed instances

@@ -1,7 +1,7 @@
 ---
 title: Use Azure CLI to assign an Azure role for data access 
 titleSuffix: Azure Storage
-description: Learn how to use Azure CLI to assign permissions to an Azure Active Directory security principal with role-based access control (RBAC). Azure Storage supports built-in and Azure custom roles for authentication via Azure AD.
+description: Learn how to use Azure CLI to assign permissions to an Azure Active Directory security principal with Azure role-based access control (Azure RBAC). Azure Storage supports built-in and Azure custom roles for authentication via Azure AD.
 services: storage
 author: tamram
 
@@ -135,6 +135,6 @@ az role assignment create \
 
 ## Next steps
 
-- [Manage access to Azure resources using RBAC and Azure PowerShell](../../role-based-access-control/role-assignments-powershell.md)
-- [Grant access to Azure blob and queue data with RBAC using Azure PowerShell](storage-auth-aad-rbac-powershell.md)
-- [Grant access to Azure blob and queue data with RBAC in the Azure portal](storage-auth-aad-rbac-portal.md)
+- [Add or remove Azure role assignments using the Azure PowerShell module](../../role-based-access-control/role-assignments-powershell.md)
+- [Use the Azure PowerShell module to assign an Azure role for access to blob and queue data](storage-auth-aad-rbac-powershell.md)
+- [Use the Azure portal to assign an Azure role for access to blob and queue data](storage-auth-aad-rbac-portal.md)

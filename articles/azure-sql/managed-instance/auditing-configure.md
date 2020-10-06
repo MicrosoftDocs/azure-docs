@@ -6,7 +6,7 @@ ms.service: sql-managed-instance
 ms.subservice: security
 ms.custom: sqldbrb=1
 ms.devlang: 
-ms.topic: conceptual
+ms.topic: how-to
 f1_keywords: 
   - "mi.azure.sqlaudit.general.f1"
 author: DavidTrigano

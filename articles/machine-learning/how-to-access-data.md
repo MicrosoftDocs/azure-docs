@@ -264,5 +264,5 @@ Azure Data Factory provides efficient and resilient data transfer with more than
 ## Next steps
 
 * [Create an Azure machine learning dataset](how-to-create-register-datasets.md)
-* [Train a model](how-to-train-ml-models.md)
+* [Train a model](how-to-set-up-training-targets.md)
 * [Deploy a model](how-to-deploy-and-where.md)
