@@ -8,7 +8,7 @@ ms.date: 8/9/2017
 
 # Resource governance
 
-When you're running multiple services on the same node or cluster, it is possible that one service might consume more resources, starving other services in the process. This problem is referred to as the "noisy neighbor" problem. Azure Service Fabric enables the developer to control this behavior by specifying requests and limits per service to request resources and limit resource usage.
+When you're running multiple services on the same node or cluster, it is possible that one service might consume more resources, starving other services in the process. This problem is referred to as the "noisy neighbor" problem. Azure Service Fabric enables the developer to control this behavior by specifying requests and limits per service to limit resource usage.
 
 > Before you proceed with this article, we recommend that you get familiar with the [Service Fabric application model][application-model-link] and the [Service Fabric hosting model][hosting-model-link].
 >
