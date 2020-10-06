@@ -56,7 +56,7 @@ Configuring customer-managed key for your Azure Data Box is optional. By default
 
     You can also select **Create new** to create a new key vault. In the **Create key vault blade**, enter the resource group and the key vault name. Ensure that the **Soft delete** and **Purge protection** are enabled. Accept all other defaults. Select **Review + Create**.
 
-    ![Create new Azure Key Vault](./media/data-box-customer-managed-encryption-key-portal/customer-managed-key-4.png)
+    ![Create new Azure Key Vault 2](./media/data-box-customer-managed-encryption-key-portal/customer-managed-key-4.png)
 
 7. Review the information associated with your key vault and select **Create**. Wait for a couple minutes for the key vault creation to complete.
 
@@ -64,11 +64,11 @@ Configuring customer-managed key for your Azure Data Box is optional. By default
 
 8. In the **Select key from Azure Key Vault**, you can select a key in the existing key vault.
 
-    ![Create new key in Azure Key Vault](./media/data-box-customer-managed-encryption-key-portal/customer-managed-key-6.png)
+    ![Create new key in Azure Key Vault 3](./media/data-box-customer-managed-encryption-key-portal/customer-managed-key-6.png)
 
 9. If you want to create a new key, select **Create new** to create a key. RSA key size can be 2048 or greater.
 
-    ![Create new key in Azure Key Vault](./media/data-box-customer-managed-encryption-key-portal/customer-managed-key-61.png)
+    ![Create new key in Azure Key Vault 4](./media/data-box-customer-managed-encryption-key-portal/customer-managed-key-61.png)
 
 10. Provide the name for your key, accept the other defaults, and select **Create**. 
 

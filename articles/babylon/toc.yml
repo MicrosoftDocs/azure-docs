@@ -26,6 +26,10 @@
     href: starter-kit-tutorial-4.md
   - name: 5 - Glossary terms
     href: starter-kit-tutorial-5.md
+- name: How-to guides
+  items:
+  - name: Register and scan Azure Files
+    href: register-scan-azure-files-storage-source.md
 # - name: Concepts
 # items:
 # - name: Catalog permissions
