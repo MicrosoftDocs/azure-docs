@@ -153,7 +153,7 @@ The exact number of labeled images necessary to start assisted labeling is not a
 Since the final labels still rely on input from the labeler, this technology is sometimes called *human in the loop* labeling.
 
 > [!NOTE]
-> [ML assisted data labelling](how-to-create-labeling-projects#use-ml-assisted-labeling) does not support storage accounts secured behind a [virtual network](how-to-network-security-overview.md).
+> ML assisted data labelling does not support storage accounts secured behind a [virtual network](how-to-network-security-overview.md).
 
 ### Clustering
 

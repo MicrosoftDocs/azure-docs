@@ -64,7 +64,7 @@ If you do not enable managed identity, you will receive this error, `Error: Unab
 * Start a labeling project.
 
 > [!NOTE]
-> [ML assisted data labelling](how-to-create-labeling-projects#use-ml-assisted-labeling) does not support storage accounts secured behind a virtual network.
+> [ML assisted data labelling](how-to-create-labeling-projects.md#use-ml-assisted-labeling) does not support storage accounts secured behind a virtual network.
 
 The studio supports reading data from the following datastore types in a virtual network:
 
