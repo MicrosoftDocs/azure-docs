@@ -242,22 +242,22 @@ This section describes how to create and deploy a user-provided virtual machine 
 
 6. Provide the parameter values for the displayed Custom deployment property pages.
 
-| ResourceGroupName | Existing Azure resource group name. Typically, use the same RG as your key vault. |
-| --- | --- |
-| TemplateFile | Full pathname to the file VHDtoImage.json. |
-| userStorageAccountName | Name of the storage account. |
-| dnsNameForPublicIP | DNS name for the public IP; must be lowercase. |
-| subscriptionId | Azure subscription identifier. |
-| Location | Standard Azure geographic location of the resource group. |
-| vmName | Name of the virtual machine. |
-| vhdUrl | Web address of the virtual hard disk. |
-| vmSize | Size of the virtual machine instance. |
-| publicIPAddressName | Name of the public IP address. |
-| virtualNetworkName | Name of the virtual network. |
-| nicName | Name of the network interface card for the virtual network. |
-| adminUserName | Username of the administrator account. |
-| adminPassword | Administrator password. |
-|
+    | ResourceGroupName | Existing Azure resource group name. Typically, use the same RG as your key vault. |
+    | --- | --- |
+    | TemplateFile | Full pathname to the file VHDtoImage.json. |
+    | userStorageAccountName | Name of the storage account. |
+    | dnsNameForPublicIP | DNS name for the public IP; must be lowercase. |
+    | subscriptionId | Azure subscription identifier. |
+    | Location | Standard Azure geographic location of the resource group. |
+    | vmName | Name of the virtual machine. |
+    | vhdUrl | Web address of the virtual hard disk. |
+    | vmSize | Size of the virtual machine instance. |
+    | publicIPAddressName | Name of the public IP address. |
+    | virtualNetworkName | Name of the virtual network. |
+    | nicName | Name of the network interface card for the virtual network. |
+    | adminUserName | Username of the administrator account. |
+    | adminPassword | Administrator password. |
+
 
 7. After you supply these values, select **Purchase**.
 
