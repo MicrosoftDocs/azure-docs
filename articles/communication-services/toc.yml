@@ -20,6 +20,8 @@
     items:
       - name: Get a telephone number
         href: quickstarts/telephony-sms/get-phone-number.md
+      - name: Add telephone calling to your app
+        href: quickstarts/voice-video-calling/pstn-call.md
       - name: Send an SMS message
         href: quickstarts/telephony-sms/send.md
       - name: Handle SMS events
