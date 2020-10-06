@@ -154,7 +154,7 @@ The following code snippet retrieves a list of configuration settings. The `key_
     filtered_settings_list = client.list_configuration_settings( key_filter="TestApp*")
     print("Key list:")
     for item in filtered_listed:
-        print("   key: ", item.key, " label: ", item.label, "value: ", item.value)
+        print("Key: " + item.key + ", Value: " + item.value)
 ```
 
 ### Lock a configuration setting
