@@ -1,5 +1,5 @@
 ---
-title: Create Azure Virtual Machine technical assets 
+title: Create technical assets for an Azure Marketplace virtual machine offer
 description: Learn how to create and configure technical assets for a virtual machine (VM) offer for Azure Marketplace.  
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
@@ -9,7 +9,7 @@ ms.author: iqshah
 ms.date: 08/14/2020
 ---
 
-# Create Azure Virtual Machine technical assets
+# Create technical assets for an Azure Marketplace virtual machine offer
 
 When publishing your virtual machine (VM) images to Azure Marketplace, the Azure team validates the VM image to ensure its bootability, security, and Azure compatibility. If any of the high-quality tests fail, the publishing will fail with a message containing the error and possible [rectification steps](https://docs.microsoft.com/azure/marketplace/partner-center-portal/vm-certification-issues-solutions).
 
