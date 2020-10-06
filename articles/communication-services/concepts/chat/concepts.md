@@ -123,7 +123,7 @@ You can use [Azure Cognitive APIs](https://docs.microsoft.com/azure/cognitive-se
 
 One way to achieve this is by having your trusted service act as a member of a chat thread. Let's say you want to enable language translation. This service will be responsible for listening to the messages being exchanged by other members [1], calling cognitive APIs to translate the content to desired language[2,3] and sending the translated result as a message in the chat thread[4]. 
 
-This way, the message history will contain both original and translated messages. In the client application, you can add logic to show the original or translated message. See [this quickstart](https://docs.microsoft.com/azure/cognitive-services/translator/quickstart-translate) to understand how to use Cognitive APIs to translate text to different languages. 
+This way, the message history will contain both original and translated messages. In the client application, you can add logic to show the original or translated message. See [this quickstart](https://docs.microsoft.com/azure/cognitive-services/translator/quickstart-translator) to understand how to use Cognitive APIs to translate text to different languages. 
 
 :::image type="content" source="../media/chat/cognitive-services.png" alt-text="Diagram showing Cognitive Services interacting with Communication Services.":::
 
