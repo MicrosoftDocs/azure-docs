@@ -54,7 +54,7 @@ dotnet new --install Microsoft.Identity.Web.ProjectTemplates::1.0.0
 
 The following diagram shows a high-level view of the supported app types and their relevant arguments:
 
-:::image type="content" source="media/microsoft-identity-web-overview/diagram-microsoft-identity-web-templates.png" lightbox="media/microsoft-identity-web-overview/diagram-microsoft-identity-web-templates.png alt-text="Diagram of the available dot net CLI project templates for Microsoft Identity Web ":::
+:::image type="content" source="media/microsoft-identity-web-overview/diagram-microsoft-identity-web-templates.png" lightbox="media/microsoft-identity-web-overview/diagram-microsoft-identity-web-templates.png" alt-text="Diagram of the available dot net CLI project templates for Microsoft Identity Web":::
 <br /><sup><b>*</b></sup> `MultiOrg` is not supported with `webapi2`, but can be enabled in *appsettings.json* by setting tenant to `common` or `organizations`
 <br /><sup><b>**</b></sup> `--calls-graph` is not supported for Azure AD B2C
 
