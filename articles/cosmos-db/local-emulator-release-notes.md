@@ -23,7 +23,7 @@ This article shows the Azure Cosmos emulator release notes with a list of featur
 
 ### 2.11.6 (6 October 2020)
 
- - This release addresses a concurrency related issue when multiple containers are created at the same time which resulted in emulator data corruption and "service unavailable" errors when trying to use the emulator endpoint after.
+ - This release addresses a concurrency related issue when multiple containers might be created at the same time. In such cases emulator's data is left in a corrupted state and following API requests to the emulator's endpoint could fail with "service unavailable" errors, requiring a restart and a reset of the emulator's local data.
 
 ### 2.11.5 (23 August 2020)
 
