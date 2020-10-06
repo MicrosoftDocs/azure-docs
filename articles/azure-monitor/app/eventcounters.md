@@ -9,7 +9,7 @@ ms.custom: devx-track-csharp
 
 # EventCounters introduction
 
-`EventCounter` is .NET/.NET Core mechanism to publish and consume counters or statistics. [This](/dotnet/core/diagnostics/event-counters) document gives an overview of `EventCounters` and examples on how to publish and consume them. EventCounters are supported in all OS platforms - Windows, Linux, and macOS. It can be thought of as a cross-platform equivalent for the [PerformanceCounters](/dotnet/api/system.diagnostics.performancecounter) that is only supported in Windows systems.
+[`EventCounter`](/dotnet/core/diagnostics/event-counters) is .NET/.NET Core mechanism to publish and consume counters or statistics. EventCounters are supported in all OS platforms - Windows, Linux, and macOS. It can be thought of as a cross-platform equivalent for the [PerformanceCounters](/dotnet/api/system.diagnostics.performancecounter) that is only supported in Windows systems.
 
 While users can publish any custom `EventCounters` to meet their needs, .NET Core 3.0 and higher runtime publishes a set of these counters by default. This document will walk through the steps required to collect and view `EventCounters` (system defined or user defined) in Azure Application Insights.
 
@@ -22,7 +22,7 @@ Application Insights supports collecting `EventCounters` with its `EventCounterC
 Starting with 2.15.0 version of either [AspNetCore SDK](asp-net-core.md) or [WorkerService SDK](worker-service.md), no counters are collected by default. The module itself is enabled, so users can simply add the desired counters to
 collect them.
 
-Follow [this](/dotnet/core/diagnostics/event-counters#available-counters) document to get a list of well known counters published by the .NET runtime.
+To get a list of well known counters published by the .NET Runtime, see [Available Counters](/dotnet/core/diagnostics/event-counters#available-counters) document.
 
 ## Customizing counters to be collected
 
