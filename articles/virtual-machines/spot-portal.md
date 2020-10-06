@@ -36,7 +36,7 @@ It you select **Yes**, the section expands and you can choose your [eviction typ
 
 You can also compare the pricing and eviction rates with other similar regions by selecting **View pricing history and compare prices in nearby regions**.
 
-In this example, the West US 2 region is less expensive and has a lower eviction rate than the West US region.
+In this example, the Canada Central region is less expensive and has a lower eviction rate than the East US region.
 
 :::image type="content" source="./media/spot-portal/pricing.png" alt-text="Screenshot of the region options with the difference in pricing and eviction rates.":::
 
