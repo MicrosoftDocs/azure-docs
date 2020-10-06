@@ -148,7 +148,7 @@ Note that attempting to call **add_configuration_setting** with a key and label 
 
 ### Get a list of configuration settings
 
-The following code snippet retrieves a list of configuration settings. The **key_filter** parameter is set using a wild card to retrieve all of the settings with keys that match the pattern. You can also provide a **label_filter** parameter to filter by label. Add this code to the end of the `try` block.
+The following code snippet retrieves a list of configuration settings. The `key_filter` and `label_filter` arguments can be provided to filter key-values based on `key` and 'label` respectively. For more information on filtering, see how to [query configuration settings](./concept-key-value.md#query-key-values).
 
 ```python
     filtered_settings_list = client.list_configuration_settings( key_filter="TestApp*")
