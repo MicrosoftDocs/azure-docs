@@ -52,18 +52,6 @@ If you are accessing the studio from a resource inside of a virtual network (for
 
 For example, if you are using network security groups (NSG) to restrict outbound traffic, add a rule to a __service tag__ destination of __AzureFrontDoor.Frontend__.
 
-## Configure private endpoint for storage accounts
-
-Azure Machine Learning studio supports storage accounts configured to use either service endpoints or private endpoints. If the storage account uses private endpoints, you must also configure two private endpoints for your default storage account:
-1. A private endpoint with a **blob** target sub-resource.
-1. A private endpoint with a **file** target sub-resource (fileshare).
-
-![Screenshot showing private endpoint configuration page with blob and file options](./media/how-to-enable-studio-virtual-network/configure-storage-private-endpoint.png)
-
-To configure a private endpoint for a storage account that is **not** the default storage, select the **Target sub-resource** type that corresponds to the storage account you want to add.
-
-For more information, see [Use private endpoints for Azure Storage](../storage/common/storage-private-endpoints.md)
-
 ## Access data using the studio
 
 After you add an Azure storage account to your virtual network with a [service endpoint](how-to-secure-workspace-vnet.md#secure-azure-storage-accounts-with-service-endpoints) or [private endpoint](how-to-secure-workspace-vnet.md#secure-azure-storage-accounts-with-private-endpoints), you must configure your storage account to use [managed identity](../active-directory/managed-identities-azure-resources/overview.md) to grant the studio access to your data.
