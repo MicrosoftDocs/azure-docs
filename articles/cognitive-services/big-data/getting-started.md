@@ -56,7 +56,7 @@ Azure Databricks is an Apache Spark-based analytics platform with a one-click se
     * Create a new library in your databricks workspace  
        <img src="media/create-library.png" alt="Create library" width="50%"/>
     * Input the following maven coordinates
-      Coordinates:  `com.microsoft.ml.spark:mmlspark_2.11:1.0.0-rc1`
+      Coordinates:  `com.microsoft.ml.spark:mmlspark_2.11:1.0.0-rc3`
       Repository: `https://mmlspark.azureedge.net/maven`  
       <img src="media/library-coordinates.png" alt="Library Coordinates" width="50%"/>
     * Install the library onto a cluster  
