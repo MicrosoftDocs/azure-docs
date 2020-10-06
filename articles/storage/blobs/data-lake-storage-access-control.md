@@ -12,7 +12,7 @@ ms.reviewer: jamesbak
 
 # Access control lists (ACLs) in Azure Data Lake Storage Gen2
 
-Azure Data Lake Storage Gen2 implements an access control model that supports both Azure role-based access control (Azure RBAC) and POSIX-like access control lists (ACLs). This article describes access control lists in Data Lake Storage Gen2. To learn about how to incorporate RBAC together with ACLs, and how system evaluates them to make authorization decisions, see [Access control model in Azure Data Lake Storage Gen2](data-lake-storage-access-control-model.md).
+Azure Data Lake Storage Gen2 implements an access control model that supports both Azure role-based access control (Azure RBAC) and POSIX-like access control lists (ACLs). This article describes access control lists in Data Lake Storage Gen2. To learn about how to incorporate Azure RBAC together with ACLs, and how system evaluates them to make authorization decisions, see [Access control model in Azure Data Lake Storage Gen2](data-lake-storage-access-control-model.md).
 
 <a id="access-control-lists-on-files-and-directories"></a>
 
@@ -88,7 +88,7 @@ The following table shows you the ACL entries required to enable a security prin
 This table shows a column that represents each level of a fictitious directory hierarchy. There's a column for the root directory of the container (`\`), a subdirectory named **Oregon**, a subdirectory of the Oregon directory named **Portland**, and a text file in the Portland directory named **Data.txt**. 
 
 > [!IMPORANT] 
-> This table assumes that you are using **only** ACLs without any RBAC role assignments. To see a similar table that combines RBAC together with ACLs, see [Permissions table: Combining RBAC and ACL](data-lake-storage-access-control-model.md#permissions-table-combining-rbac-and-acl).
+> This table assumes that you are using **only** ACLs without any Azure RBAC role assignments. To see a similar table that combines Azure RBAC together with ACLs, see [Permissions table: Combining Azure RBAC and ACL](data-lake-storage-access-control-model.md#permissions-table-combining-rbac-and-acl).
 
 |    Operation             |    /    | Oregon/ | Portland/ | Data.txt     |
 |--------------------------|---------|----------|-----------|--------------|
@@ -249,23 +249,23 @@ def set_default_acls_for_new_child(parent, child):
 
 No. Access control via ACLs is enabled for a storage account as long as the Hierarchical Namespace (HNS) feature is turned ON.
 
-If HNS is turned OFF, the Azure RBAC authorization rules still apply.
+If HNS is turned OFF, the Azure Azure RBAC authorization rules still apply.
 
 ### What is the best way to apply ACLs?
 
 [!INCLUDE [Security groups](../../../includes/azure-storage-data-lake-groups.md)] 
 
-### How are RBAC and ACL permissions evaluated?
+### How are Azure RBAC and ACL permissions evaluated?
 
-To learn how the system evaluates RBAC and ACLs together to make authorization decisions for storage account resources, see [How permissions are evaluated](data-lake-storage-access-control-model.md#how-permissions-are-evaluated).
+To learn how the system evaluates Azure RBAC and ACLs together to make authorization decisions for storage account resources, see [How permissions are evaluated](data-lake-storage-access-control-model.md#how-permissions-are-evaluated).
 
-### What are the limits for RBAC role assignments and ACL entries?
+### What are the limits for Azure RBAC role assignments and ACL entries?
 
-The following table provides a summary view of the limits to consider while using RBAC to manage "coarse-grained" permissions (permissions that apply to storage accounts or containers) and using ACLs to manage "fine-grained" permissions (permissions that apply to files and directories).
+The following table provides a summary view of the limits to consider while using Azure RBAC to manage "coarse-grained" permissions (permissions that apply to storage accounts or containers) and using ACLs to manage "fine-grained" permissions (permissions that apply to files and directories).
 
 [!INCLUDE [Security groups](../../../includes/azure-storage-data-lake-rbac-acl-limits.md)] 
 
-### Does Data Lake Storage Gen2 support inheritance of RBAC?
+### Does Data Lake Storage Gen2 support inheritance of Azure RBAC?
 
 Azure role assignments do inherit. Assignments flow from subscription, resource group, and storage account resources down to the container resource.
 

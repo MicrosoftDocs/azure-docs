@@ -15,20 +15,20 @@ Data Lake Storage Gen2 supports the following authorization mechanisms:
 
 - Shared Key authorization
 - Shared access signature (SAS) authorization
-- Role-based access control (RBAC)
+- Role-based access control (Azure RBAC)
 - Access control lists (ACL)
 
 [Shared Key and SAS authorization](#shared-key-and-shared-access-signature-sas-authorization) grants access to a user (or application) without requiring them to have an identity in Azure Active Directory (Azure AD). 
 
-RBAC and ACL both require the user (or application) to have an identity in Azure AD.  RBAC lets you grant "coarse-grain" access to storage account data, such as read or write access to **all** of the data in a storage account, while ACLs let you grant "fine-grained" access, such as write access to a specific directory or file.  
+Azure RBAC and ACL both require the user (or application) to have an identity in Azure AD.  Azure RBAC lets you grant "coarse-grain" access to storage account data, such as read or write access to **all** of the data in a storage account, while ACLs let you grant "fine-grained" access, such as write access to a specific directory or file.  
 
-This article focuses on RBAC and ACLs, and how the system evaluates them together to make authorization decisions for storage account resources.
+This article focuses on Azure RBAC and ACLs, and how the system evaluates them together to make authorization decisions for storage account resources.
 
 <a id="role-based-access-control"></a>
 
-## Role-based access control (RBAC)
+## Role-based access control (Azure RBAC)
 
-RBAC uses role assignments to apply sets of permissions to [security principals](https://docs.microsoft.com/azure/role-based-access-control/overview#security-principal). A security principal is an object that represents a user, group, service principal, or managed identity that is defined in Azure Active Directory (AD). A permission set can give a security principal a "coarse-grain" level of access such as read or write access to **all** of the data in a storage account or **all** of the data in a container. 
+Azure RBAC uses role assignments to apply sets of permissions to [security principals](https://docs.microsoft.com/azure/role-based-access-control/overview#security-principal). A security principal is an object that represents a user, group, service principal, or managed identity that is defined in Azure Active Directory (AD). A permission set can give a security principal a "coarse-grain" level of access such as read or write access to **all** of the data in a storage account or **all** of the data in a container. 
 
 The following roles permit a security principal to access data in a storage account. 
 
@@ -48,57 +48,57 @@ ACLs give you the ability to apply "finer grain" level of access to directories 
 
 During security principal-based authorization, permissions are evaluated in the following order.
 
-:one:&nbsp;&nbsp; RBAC role assignments are evaluated first and take priority over any ACL assignments.
+:one:&nbsp;&nbsp; Azure RBAC role assignments are evaluated first and take priority over any ACL assignments.
 
-:two:&nbsp;&nbsp; If the operation is fully authorized based on RBAC role assignment, then ACLs are not evaluated at all.
+:two:&nbsp;&nbsp; If the operation is fully authorized based on Azure RBAC role assignment, then ACLs are not evaluated at all.
 
 :three:&nbsp;&nbsp; If the operation is not fully authorized, then ACLs are evaluated.
 
 > [!div class="mx-imgBorder"]
 > ![data lake storage permission flow](./media/control-access-permissions-data-lake-storage/data-lake-storage-permissions-flow.png)
 
-Based on this model, you should choose RBAC roles that provide only the minimal level of required access, and then use ACLs to grant **elevated** access permissions to directories and files. Because of the way that access permissions are evaluated by the system, you **cannot** use an ACL to **restrict** access that has already been granted by a role assignment. That's because the system evaluates RBAC role assignments first, and if the assignment grants sufficient access permission, ACLs are ignored. 
+Based on this model, you should choose Azure RBAC roles that provide only the minimal level of required access, and then use ACLs to grant **elevated** access permissions to directories and files. Because of the way that access permissions are evaluated by the system, you **cannot** use an ACL to **restrict** access that has already been granted by a role assignment. That's because the system evaluates Azure RBAC role assignments first, and if the assignment grants sufficient access permission, ACLs are ignored. 
 
 The following diagram shows the permission flow for three common operations: listing directory contents, reading a file, and writing a file.
 
 > [!div class="mx-imgBorder"]
 > ![data lake storage permission flow example](./media/control-access-permissions-data-lake-storage/data-lake-storage-permissions-example.png)
 
-## Permissions table: Combining RBAC and ACL
+## Permissions table: Combining Azure RBAC and ACL
 
-The following table shows you how to combine RBAC roles and ACL entries so that a security principal can perform the operations listed in the **Operation** column. 
-This table shows a column that represents each level of a fictitious directory hierarchy. There's a column for the root directory of the container (`\`), a subdirectory named **Oregon**, a subdirectory of the Oregon directory named **Portland**, and a text file in the Portland directory named **Data.txt**. Appearing in those columns are [short form](data-lake-storage-access-control.md#short-forms-for-permissions) representations of the ACL entry required to grant permissions. 
+The following table shows you how to combine Azure RBAC roles and ACL entries so that a security principal can perform the operations listed in the **Operation** column. 
+This table shows a column that represents each level of a fictitious directory hierarchy. There's a column for the root directory of the container (`\`), a subdirectory named **Oregon**, a subdirectory of the Oregon directory named **Portland**, and a text file in the Portland directory named **Data.txt**. Appearing in those columns are [short form](data-lake-storage-access-control.md#short-forms-for-permissions) representations of the minimum ACL entry required to grant permissions. 
 
-|    Operation             | Assigned RBAC role               |    /        | Oregon/     | Portland/ | Data.txt |             
+|    Operation             | Assigned Azure RBAC role               |    /        | Oregon/     | Portland/ | Data.txt |             
 |--------------------------|----------------------------------|-------------|-------------|-----------|----------|
-| Read Data.txt            |   Storage Blob Data Owner        |   `---`       |   `---`       |  `---`      | `---`      |  
-|                          |   Storage Blob Data Contributor  |   `---`       |   `---`       |  `---`      | `---`      |
-|                          |   Storage Blob Data Reader       |   `---`       |   `---`       |  `---`      | `---`      |
-|                          |   None                           |   `--X`       |   `--X`       |  `--X`      | `R--`      |
-| Append to Data.txt       |   Storage Blob Data Owner        |   `---`       |   `---`       |  `---`      | `---`      |
-|                          |   Storage Blob Data Contributor  |   `---`       |   `---`       |  `---`      | `---`      |
-|                          |   Storage Blob Data Reader       |   `---`       |   `---`       |  `---`      | `-W-`      |
-|                          |   None                           |   `--X`       |   `--X`       |  `--X`      | `RW-`      |
-| Delete Data.txt          |   Storage Blob Data Owner        |   `---`       |   `---`       |  `---`      | `---`      |
-|                          |   Storage Blob Data Contributor  |   `---`       |   `---`       |  `---`      | `---`      |
-|                          |   Storage Blob Data Reader       |   `---`       |   `---`       |  `-WX`      | `---`      |
-|                          |   None                           |   `--X`       |   `--X`       |  `-WX`      | `---`      |
-| Create Data.txt          |   Storage Blob Data Owner        |   `---`       |   `---`       |  `---`      | `---`      |
-|                          |   Storage Blob Data Contributor  |   `---`       |   `---`       |  `---`      | `---`      |
-|                          |   Storage Blob Data Reader       |   `---`       |   `---`       |  `-W-`      | `---`      |
-|                          |   None                           |   `--X`       |   `--X`       |  `-WX`      | `---`      |
-| List /                   |   Storage Blob Data Owner        |   `---`       |   `---`       |  `---`      | `---`      |
-|                          |   Storage Blob Data Contributor  |   `---`       |   `---`       |  `---`      | `---`      |
-|                          |   Storage Blob Data Reader       |   `---`       |   `---`       |  `---`      | `---`      |
-|                          |   None                           |   `R-X`       |   `---`       |  `---`      | `---`      |
-| List /Oregon/            |   Storage Blob Data Owner        |   `---`       |   `---`       |  `---`      | `---`      |
-|                          |   Storage Blob Data Contributor  |   `---`       |   `---`       |  `---`      | `---`      |
-|                          |   Storage Blob Data Reader       |   `---`       |   `---`       |  `---`      | `---`      |
-|                          |   None                           |   `--X`       |   `R-X`       |  `---`      | `---`      |
-| List /Oregon/Portland/   |   Storage Blob Data Owner        |   `---`       |   `---`       |  `---`      | `---`      |
-|                          |   Storage Blob Data Contributor  |   `---`       |   `---`       |  `---`      | `---`      |
-|                          |   Storage Blob Data Reader       |   `---`       |   `---`       |  `---`      | `---`      |
-|                          |   None                           |   `--X`       |   `--X`       |  `R-X`      | `---`      |
+| Read Data.txt            |   Storage Blob Data Owner        | No entry required      | No entry required      | No entry required       | No entry required    |  
+|                          |   Storage Blob Data Contributor  | No entry required      | No entry required      | No entry required       | No entry required    |
+|                          |   Storage Blob Data Reader       | No entry required      | No entry required      | No entry required       | No entry required    |
+|                          |   None                           | Execute (`--X`)        | Execute (`--X`)        | Execute (`--X`)         | Read (`R--`)         |
+| Append to Data.txt       |   Storage Blob Data Owner        | No entry required      | No entry required      | No entry required       | No entry required    |
+|                          |   Storage Blob Data Contributor  | No entry required      | No entry required      | No entry required       | No entry required    |
+|                          |   Storage Blob Data Reader       | Execute (`--X`)        | Execute (`--X`)        | Execute (`--X`)         | Write (`-W-`)        |
+|                          |   None                           | Execute (`--X`)        | Execute (`--X`)        | Execute (`--X`)         | Read & write (`RW-`) |
+| Delete Data.txt          |   Storage Blob Data Owner        | No entry required      | No entry required      | No entry required       | No entry required    |
+|                          |   Storage Blob Data Contributor  | No entry required      | No entry required      | No entry required       | No entry required    |
+|                          |   Storage Blob Data Reader       | Execute (`--X`)        | Execute (`--X`)        | Write & Execute (`-WX`) | No entry required    |
+|                          |   None                           | Execute (`--X`)        | Execute (`--X`)        | Write & Execute (`-WX`) | No entry required    |
+| Create Data.txt          |   Storage Blob Data Owner        | No entry required      | No entry required      | No entry required       | No entry required    |
+|                          |   Storage Blob Data Contributor  | No entry required      | No entry required      | No entry required       | No entry required    |
+|                          |   Storage Blob Data Reader       | Execute (`--X`)        | Execute (`--X`)        | Write & Execute (`-WX`) | No entry required    |
+|                          |   None                           | Execute (`--X`)        | Execute (`--X`)        | Write & Execute (`-WX`) | No entry required    |
+| List /                   |   Storage Blob Data Owner        | No entry required      | No entry required      | No entry required       | No entry required    |
+|                          |   Storage Blob Data Contributor  | No entry required      | No entry required      | No entry required       | No entry required    |
+|                          |   Storage Blob Data Reader       | No entry required      | No entry required      | No entry required       | No entry required    |
+|                          |   None                           | Read & Execute (`R-X`) | No entry required      |  No entry required      | No entry required    |
+| List /Oregon/            |   Storage Blob Data Owner        | No entry required      | No entry required      | No entry required       | No entry required    |
+|                          |   Storage Blob Data Contributor  | No entry required      | No entry required      | No entry required       | No entry required    |
+|                          |   Storage Blob Data Reader       | No entry required      | No entry required      | No entry required       | No entry required    |
+|                          |   None                           | Execute (`--X`)        | Read & Execute (`R-X`) | No entry required       | No entry required    |
+| List /Oregon/Portland/   |   Storage Blob Data Owner        | No entry required      | No entry required      | No entry required       | No entry required    |
+|                          |   Storage Blob Data Contributor  | No entry required      | No entry required      | No entry required       | No entry required    |
+|                          |   Storage Blob Data Reader       | No entry required      | No entry required      | No entry required       | No entry required    |
+|                          |   None                           | Execute (`--X`)        |   Execute (`--X`)      | Read & Execute (`R-X`)  | No entry required    |
 
 
 > [!NOTE] 
@@ -108,7 +108,7 @@ This table shows a column that represents each level of a fictitious directory h
 
 [!INCLUDE [Security groups](../../../includes/azure-storage-data-lake-groups.md)]
 
-## Limits on RBAC role assignments and ACL entries
+## Limits on Azure RBAC role assignments and ACL entries
 
 By using groups, you're less likely to exceed the maximum number of role assignments per subscription and the maximum number of ACl entries per file or directory. The following table describes these limits.
 
