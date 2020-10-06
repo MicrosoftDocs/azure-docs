@@ -115,11 +115,7 @@ In this quickstart, you created a:
 * Public IP
 * network security groups
 
-To learn more about linking a virtual network to a circuit, continue to the ExpressRoute tutorials.
+To learn how to link a virtual network to a circuit, continue to the ExpressRoute tutorials.
 
 > [!div class="nextstepaction"]
 > [ExpressRoute tutorials](expressroute-howto-linkvnet-portal-resource-manager.md)
-
-* For more information about ExpressRoute workflows, see [ExpressRoute workflows](expressroute-workflows.md).
-* For more information about circuit peering, see [ExpressRoute circuits and routing domains](expressroute-circuit-peerings.md).
-* For more information about working with virtual networks, see [Virtual network overview](../virtual-network/virtual-networks-overview.md).

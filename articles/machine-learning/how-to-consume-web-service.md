@@ -177,7 +177,7 @@ For information on enabling CORS support in your service, see [Cross-origin reso
 
 ## Call the service (C#)
 
-This example demonstrates how to use C# to call the web service created from the [Train within notebook](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training-with-deep-learning/how-to-use-estimator/notebook_example.ipynb) example:
+This example demonstrates how to use C# to call the web service created from the [Train within notebook](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/machine-learning-pipelines/intro-to-pipelines/notebook_runner/training_notebook.ipynb) example:
 
 ```csharp
 using System;

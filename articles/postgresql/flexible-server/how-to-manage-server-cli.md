@@ -35,7 +35,7 @@ az account set --subscription <subscription id>
 
 ## Scale compute and storage
 
-You can scale up your compute tier, vCores, and storage easily using the following command. You can see all the server operation you can run [az postgres flexible-server server overview](/cli/azure/PostgreSQL/server)
+You can scale up your compute tier, vCores, and storage easily using the following command. You can see all the server operation you can run [az postgres flexible-server server overview](https://azure.microsoft.com/services/postgresql/)
 
 ```azurecli-interactive
 az postgres flexible-server update --resource-group myresourcegroup --name mydemoserver --sku-name Standard_D4ds_v3 --storage-size 6144
