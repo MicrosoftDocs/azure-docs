@@ -1,6 +1,8 @@
 ---
 title: Design for language - QnA Maker
 description: The QnA Maker resource and all the knowledge bases inside that resource support a single language. The single language is necessary to provide the best answer results for a query.
+ms.service: cognitive-services
+ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 01/27/2020
 ---
