@@ -424,7 +424,7 @@ DEBUG 2020-05-14T20:42:14Z: loop process - 0 events, 0.000s
 
 Baseboard management controller (BMC) is used to remotely monitor and manage your device. This section describes the cmdlets that can be used to manage BMC configuration. Prior to running any of these cmdlets, [Connect to the PowerShell interface of the device](#connect-to-the-powershell-interface).
 
-- `Get-HcsNetBmcInterface`: Use this cmdlet to get the network configuration properties of the BMC, for example, `IPv4Address`, `IPv4Gateway`, `IPv4SubnetMask`, `DhcpEnabled`: 
+- `Get-HcsNetBmcInterface`: Use this cmdlet to get the network configuration properties of the BMC, for example, `IPv4Address`, `IPv4Gateway`, `IPv4SubnetMask`, `DhcpEnabled`. 
     
     Here is a sample output:
     
@@ -471,7 +471,7 @@ Baseboard management controller (BMC) is used to remotely monitor and manage you
         [10.100.10.10]: PS>
         ```    
 
-- `Set-HcsBmcPassword`: Use this cmdlet to modify the BMC password for `EdgeUser`. 
+- `Set-HcsBmcPassword`: Use this cmdlet to modify the BMC password for `EdgeUser`. `EdgeUser` is case-sensitive.
 
     Here is a sample output: 
 
