@@ -15,7 +15,18 @@ ms.custom: how-to, contperfq2
 
 # Evaluate automated machine learning experiment results
 
-In this article, learn how to view and evaluate the results of your automated machine learning, AutoML, experiments. These experiments consist of multiple runs, where each run creates a model. To help you evaluate each model, AutoML automatically generates performance metrics and charts based on your experiment type, classification or regression.
+In this article, learn how to view and evaluate the results of your automated machine learning, AutoML, experiments. These experiments consist of multiple runs, where each run creates a model. To help you evaluate each model, AutoML automatically generates performance metrics and charts specific to your experiment type. 
+
+For example, the following table lists the different charts that AutoML provides for classification and regression models. 
+
+Classification| Regression
+---|---
+[Confusion matrix](#confusion-matrix) |[Predicted vs. True](#pvt)
+[Precision-Recall chart](#precision-recall-chart) |[Histogram of residuals](#histo)
+[Receiver operating characteristics (or ROC)](#roc) |
+[Lift curve](#lift-curve)|
+[Gains curve](#gains-curve)|
+[Calibration plot](#calibration-plot)|
 
 ## Prerequisites
 
@@ -189,6 +200,8 @@ A well-calibrated model aligns with the y=x line, where it correctly predicts th
 #### Example 2: An over-confident model
 ![An over-confident model](./media/how-to-understand-automated-ml/azure-machine-learning-auto-ml-calib-curve2.png)
 
+
+<a name="regression"></a> 
 ## Regression performance metrics
 
 The following table summarizes the model performance metrics that AutoML calculates for each regression or forecasting model that is generated for your experiment. 
