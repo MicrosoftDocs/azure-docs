@@ -227,6 +227,21 @@ az provider register --namespace Microsoft.Storage
 - secure transfer required(enable HTTPS traffic only): false
 - select the virtual network of your agent nodes in Firewalls and virtual networks
 
+### Install the azurefile CSI driver on the cluster
+
+```console
+curl -skSL https://raw.githubusercontent.com/kubernetes-sigs/azurefile-csi-driver/v0.9.0/deploy/install-driver.sh | bash -s v0.9.0 --
+```
+
+You can verify is the driver was installed by checking the status of the pods that comprise the solution:
+```console
+kubectl -n kube-system get pod -o wide --watch -l app=csi-azurefile-controller
+kubectl -n kube-system get pod -o wide --watch -l app=csi-azurefile-node
+```
+
+> [!NOTE]
+> If the cluster was created using Managed Identity, make sure the assigned identity has *Contributor* role on the Storage Account. 
+
 ### Create NFS file share storage class
 
 Save a `nfs-sc.yaml` file with the manifest below editing the respective placeholders.
@@ -255,7 +270,7 @@ storageclass.storage.k8s.io/azurefile-csi created
 You can deploy an example [stateful set](https://github.com/kubernetes-sigs/azurefile-csi-driver/blob/master/deploy/example/statefulset.yaml) that saves timestamps into a file `data.txt` by deploying the following command with the [kubectl apply][kubectl-apply] command:
 
  ```console
-$ kubectl apply -f https://raw.githubusercontent.com/kubernetes-sigs/azurefile-csi-driver/master/deploy/example/windows/statefulset.yaml
+$ kubectl apply -f https://raw.githubusercontent.com/kubernetes-sigs/azurefile-csi-driver/master/deploy/example/statefulset.yaml
 
 statefulset.apps/statefulset-azurefile created
 ```

@@ -147,10 +147,9 @@ To create a premium file share with the Azure CLI, use the [az storage share cre
 
 ```azurecli-interactive
 az storage share-rm create \
-    --account-name $STORAGEACCT \
-    --account-key $STORAGEKEY \
-    --enabled-protocol NFS \
-    --root-access RootSquash \
+    --storage-account $STORAGEACCT \
+    --enabled-protocols NFS \
+    --root-squash RootSquash \
     --name "myshare" 
 ```
 ---
