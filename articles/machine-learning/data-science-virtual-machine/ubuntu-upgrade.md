@@ -14,11 +14,11 @@ ms.date: 10/07/2020
 
 # Upgrade your Data Science Virtual Machine to Ubuntu 18.04
 
-If you have a Data Science Virtual Machine running an older release such as Ubuntu 16.04 or CentOS, you should upgrade your DSVM to Ubuntu 18.04. This will ensure that you get the latest operating system patches, drivers, preinstalled software, and library versions.
+If you have a Data Science Virtual Machine running an older release such as Ubuntu 16.04 or CentOS, you should migrate your DSVM to Ubuntu 18.04. Migrating will ensure that you get the latest operating system patches, drivers, preinstalled software, and library versions.
 
 ## Prerequisites
 
-1. Make sure that your environment does not depend on drivers only available for your older operating system. {>> Is there a link for this? AFAICT this is either irrelevant (for a DSVM) or hard (requires painstaking `lpsci:` review) <<}
+1. Make sure that your environment doesn't depend on drivers only available for your older operating system. {>> Is there a link for this? AFAICT this is either irrelevant (for a DSVM) or hard (requires painstaking `lpsci:` review) <<}
 
 2. Create a backup before any Operating System migration. {>> Relevant for DSVM? Is this not taken care of by "Create Snapshot" step? <<}
 
@@ -26,8 +26,8 @@ If you have a Data Science Virtual Machine running an older release such as Ubun
 
 This section includes the migration plan for Ubuntu 18.04 from 16.04. There are two possible ways to migrate:
 
-- In-place migration, also called "same server" migration. This migration upgrades the existing VM without creating a new virtual machine. This is the easiest way to migrate from Ubuntu 16.04 to Ubuntu 18.04.
-- Side-by-side migration, also called "inter-server" migration. This migration transfers data from the existing virtual machine to a newly created VM. This is the way to migrate from Centos to Ubuntu 18.04. You may prefer this for a migration between Ubuntu versions if you feel your old install had become needlessly cluttered.
+- In-place migration, also called "same server" migration. This migration upgrades the existing VM without creating a new virtual machine. In-place migration is the easier way to migrate from Ubuntu 16.04 to Ubuntu 18.04.
+- Side-by-side migration, also called "inter-server" migration. This migration transfers data from the existing virtual machine to a newly created VM. Side-by-side migration is the way to migrate from Centos to Ubuntu 18.04. You may prefer side-by-side migration for upgrading between Ubuntu versions if you feel your old install has become needlessly cluttered.
 
 ## Snapshot your VM in case you need to roll back
 
@@ -43,7 +43,7 @@ Once all the details are filled and validations pass, select **Review + create**
 
 ## In-place migration
 
-If you are migrating an older Ubuntu release, you may choose to do an in-place migration. This migration does not create a new virtual machine and has fewer steps than a side-by-side migration. 
+If you're migrating an older Ubuntu release, you may choose to do an in-place migration. This migration doesn't create a new virtual machine and has fewer steps than a side-by-side migration. 
 
 From the Azure portal, start your DSVM and sign in using SSH. To do so, select **Connect** and **SSH** and follow the connection instructions. 
 
@@ -53,7 +53,7 @@ Once connected to a terminal session on your DSVM, run the following upgrade com
 sudo do-release-upgrade
 ```
 
-The upgrade process will take a while to complete. When it is over, the program will ask for permission to restart the virtual machine. Answer **Yes**. You will be disconnected from the SSH session as the system reboots.
+The upgrade process will take a while to complete. When it's over, the program will ask for permission to restart the virtual machine. Answer **Yes**. You will be disconnected from the SSH session as the system reboots.
 
 ### If necessary, regenerate SSH keys
 
@@ -71,11 +71,11 @@ To do so, on your local machine, run the command:
 ssh-keygen -R "your server hostname or ip"
 ```
 
-You should now be able to connect with SSH. If you are still having trouble, in the **Connect** page follow the link to **Troubleshoot SSH connectivity issues**.
+You should now be able to connect with SSH. If you're still having trouble, in the **Connect** page follow the link to **Troubleshoot SSH connectivity issues**.
 
 ## Side-by-side migration
 
-If you are migrating from CentOS or desire a clean OS install, you can do a side-by-side migration. This type of migration has more steps, but gives you control over exactly which files are carried over.
+If you're migrating from CentOS or want a clean OS install, you can do a side-by-side migration. This type of migration has more steps, but gives you control over exactly which files are carried over.
 
 Migrations from other systems based on the same set of upstream source packages should be relatively straightforward, for example [FAQ/CentOS3](https://wiki.centos.org/FAQ/CentOS3).
 
@@ -93,11 +93,11 @@ You may choose to upgrade the operating system parts of the filesystem and leave
 
 1.  Mount the disk of the snapshotted VM as a data disk on your new Data Science Virtual Machine
 
-1.  Manually copy the desired data
+1.  Manually copy the wanted data
 
 ### Create a disk from your VM snapshot
 
-If you have not already created a VM snapshot as described previously, do so. 
+If you  haven't already created a VM snapshot as described previously, do so. 
 
 In the Azure portal, search for **Disks** and select **Add**, which will open the **Disk** page.
 
@@ -115,7 +115,7 @@ Create a new Ubuntu Data Science Virtual Machine using the [Azure portal](https:
 
 ### Recreate user account(s) on your new Data Science Virtual Machine
 
-Since you will just by copying data from your old computer, you will need to recreate whichever user accounts and software environments that you want to use on the new machine.
+Since you'll just be copying data from your old computer, you'll need to recreate whichever user accounts and software environments that you want to use on the new machine.
 
 Linux is flexible enough to allow you to customize directories and paths on your new installation to follow your old machine. In general, though, it's easier to use the modern Ubuntu's preferred layout and modify your user environment and scripts to adapt.
 
@@ -131,7 +131,7 @@ In the **Disk name** dropdown, select the disk that you created from your old VM
 
 Select **Save** to update your virtual machine.
 
-### Manually copy the desired data 
+### Manually copy the wanted data 
 
 Start your Data Science Virtual Machine and sign on using SSH. 
 
