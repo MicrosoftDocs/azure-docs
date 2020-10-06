@@ -18,7 +18,7 @@ Data Lake Storage Gen2 supports the following authorization mechanisms:
 - Role-based access control (Azure RBAC)
 - Access control lists (ACL)
 
-[Shared Key and SAS authorization](#shared-key-and-shared-access-signature-sas-authorization) grants access to a user (or application) without requiring them to have an identity in Azure Active Directory (Azure AD). 
+[Shared Key and SAS authorization](#shared-key-and-shared-access-signature-sas-authorization) grants access to a user (or application) without requiring them to have an identity in Azure Active Directory (Azure AD). With these two forms of authentication, Azure RBAC and ACLs have no effect.
 
 Azure RBAC and ACL both require the user (or application) to have an identity in Azure AD.  Azure RBAC lets you grant "coarse-grain" access to storage account data, such as read or write access to **all** of the data in a storage account, while ACLs let you grant "fine-grained" access, such as write access to a specific directory or file.  
 
@@ -67,7 +67,7 @@ The following diagram shows the permission flow for three common operations: lis
 ## Permissions table: Combining Azure RBAC and ACL
 
 The following table shows you how to combine Azure RBAC roles and ACL entries so that a security principal can perform the operations listed in the **Operation** column. 
-This table shows a column that represents each level of a fictitious directory hierarchy. There's a column for the root directory of the container (`\`), a subdirectory named **Oregon**, a subdirectory of the Oregon directory named **Portland**, and a text file in the Portland directory named **Data.txt**. Appearing in those columns are [short form](data-lake-storage-access-control.md#short-forms-for-permissions) representations of the ACL entry required to grant permissions. `N/A` (_Not applicable_) appears in the column if an ACL entry is not required to perform the operation
+This table shows a column that represents each level of a fictitious directory hierarchy. There's a column for the root directory of the container (`/`), a subdirectory named **Oregon**, a subdirectory of the Oregon directory named **Portland**, and a text file in the Portland directory named **Data.txt**. Appearing in those columns are [short form](data-lake-storage-access-control.md#short-forms-for-permissions) representations of the ACL entry required to grant permissions. **N/A** (_Not applicable_) appears in the column if an ACL entry is not required to perform the operation.
 
 |    Operation             | Assigned RBAC role               |    /        | Oregon/     | Portland/ | Data.txt |             
 |--------------------------|----------------------------------|-------------|-------------|-----------|----------|
