@@ -29,14 +29,18 @@ A workspace allows you to perform analytics with SQL and Apache spark. Resources
 ## Apache Spark for Synapse
 To use Spark analytics, create and use **Spark pools** in your Synapse workspace.
 
-## Terminology
+## SQL Terminology
+| Term                         | Definition      |
+|:---                                 |:---                 |
+| **SQL Request**  |   Operation such as a query run through SQL pool or SQL on-demand. |
+
+## Spark Terminology
 | Term                         | Definition      |
 |:---                                 |:---                 |
 |**Apache Spark for Synapse** | Spark run-time used in a Spark pool. The current version supported is Spark 2.4 with Python 3.6.1, Scala 2.11.12, .NET support for Apache Spark 0.5 and Delta Lake 0.3.  | 
 | **Apache Spark pool**  | 0-to-N Spark provisioned resources with their corresponding databases can be deployed in a workspace. A Spark pool can be auto-paused, resumed, and scaled.  |
 | **Spark application**  |   It consists of a driver process and a set of executor processes. A Spark application runs on a Spark pool.            |
 | **Spark session**  |   Unified entry point of a spark application. It provides a way to interact with Spark's various functionalities and with a lesser number of constructs. To run a notebook, a session needs to be created. A session can be configured to run on a specific number of executors of a specific size. The default configuration for a notebook session is is to run on 2 medium-sized executors. |
-| **SQL Request**  |   Operation such as a query run through SQL pool or SQL on-demand. |
 |**Data Integration**| Gives the capability to ingest data between various sources and orchestrate activities running within a workspace or outside a workspace.| 
 |**Artifacts**| Concept that encapsulates all objects necessary for a user to manage data sources, develop, orchestrate, and visualize.|
 |**Notebook**| Interactive and reactive Data Science and Engineering interface supporting Scala, PySpark, C#, and SparkSQL. |

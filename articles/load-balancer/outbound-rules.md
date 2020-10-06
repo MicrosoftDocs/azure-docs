@@ -10,7 +10,7 @@ ms.date: 10/01/2020
 ms.author: allensu
 ---
 
-# <a name="outboundrules"></a>Outbound rules
+# <a name="outboundrules"></a>Outbound rules Azure Load Balancer
 
 Outbound rules make it simple to configure public standard load balancer outbound SNAT (source network address translation). This configuration allows you to use the frontend public IP(s) of your load balancer for egress connections to the internet. This configuration enables IP masquerading and simplifying your allow lists.
 

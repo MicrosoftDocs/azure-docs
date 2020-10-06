@@ -4,8 +4,8 @@ summary: "Azure Database for PostgreSQL - Flexible Server (Preview) is a fully m
 metadata:
   title: Azure Database for PostgreSQL - Flexible Server (Preview)
   description: "Azure Database for PostgreSQL - Flexible Server (Preview) is a relational database service in the Microsoft cloud that is built for developers and powered by the PostgreSQL community edition."
-  author: rachel-msft
-  ms.author: raagyema
+  author: sunilagarwal
+  ms.author: sunila
   ms.date: 09/22/2020
   ms.service: postgresql
   ms.topic: landing-page

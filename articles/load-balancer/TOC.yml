@@ -63,12 +63,20 @@
     href: load-balancer-ha-ports-overview.md
   - name: Multiple frontends
     href: load-balancer-multivip-overview.md
+<<<<<<< HEAD
   - name: Outbound rules
     href: outbound-rules.md
   - name: TCP reset on idle timeout
+=======
+  - name: Outbound connections
+    href: load-balancer-outbound-connections.md
+  - name: TCP reset and TCP idle timeout
+>>>>>>> fa89d60061922c67ae3d6deb044e62b0f5879da5
     href: load-balancer-tcp-reset.md
   - name: Standard Load Balancer and Availability Zones
     href: load-balancer-standard-availability-zones.md
+  - name: Floating IP configuration
+    href: load-balancer-floating-ip.md
   - name: Security
     items: 
     - name: Security baseline

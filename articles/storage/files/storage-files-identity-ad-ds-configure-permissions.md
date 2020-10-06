@@ -13,11 +13,11 @@ ms.author: rogarana
 
 Before you begin this article, make sure you completed the previous article, [Assign share-level permissions to an identity](storage-files-identity-ad-ds-assign-permissions.md) to ensure that your share-level permissions are in place.
 
-After you assign share-level permissions with RBAC, you must configure proper Windows ACLs at the root, directory, or file level, to take advantage of granular access control. Think of the RBAC share-level permissions as the high-level gatekeeper that determines whether a user can access the share. While the Windows ACLs operate at a more granular level to determine what operations the user can do at the directory or file level. Both share-level and file/directory level permissions are enforced when a user attempts to access a file/directory, so if there is a difference between either of them, only the most restrictive one will be applied. For example, if a user has read/write access at the file-level, but only read at a share-level, then they can only read that file. The same would be true if it was reversed, and a user had read/write access at the share-level, but only read at the file-level, they can still only read the file.
+After you assign share-level permissions with Azure RBAC, you must configure proper Windows ACLs at the root, directory, or file level, to take advantage of granular access control. Think of the Azure RBAC share-level permissions as the high-level gatekeeper that determines whether a user can access the share. While the Windows ACLs operate at a more granular level to determine what operations the user can do at the directory or file level. Both share-level and file/directory level permissions are enforced when a user attempts to access a file/directory, so if there is a difference between either of them, only the most restrictive one will be applied. For example, if a user has read/write access at the file-level, but only read at a share-level, then they can only read that file. The same would be true if it was reversed, and a user had read/write access at the share-level, but only read at the file-level, they can still only read the file.
 
-## RBAC permissions
+## Azure RBAC permissions
 
-The following table contains the RBAC permissions related to this configuration:
+The following table contains the Azure RBAC permissions related to this configuration:
 
 
 | Built-in role  | NTFS permission  | Resulting access  |
@@ -80,7 +80,7 @@ else
 
 ```
 
-If you experience issues in connecting to Azure Files, refer to [the troubleshooting tool we published for Azure Files mounting errors on Windows](https://gallery.technet.microsoft.com/Troubleshooting-tool-for-a9fa1fe5). We also provide [guidance](https://docs.microsoft.com/azure/storage/files/storage-files-faq#on-premises-access) to work around scenarios when port 445 is blocked. 
+If you experience issues in connecting to Azure Files, refer to [the troubleshooting tool we published for Azure Files mounting errors on Windows](https://azure.microsoft.com/blog/new-troubleshooting-diagnostics-for-azure-files-mounting-errors-on-windows/). We also provide [guidance](https://docs.microsoft.com/azure/storage/files/storage-files-faq#on-premises-access) to work around scenarios when port 445 is blocked. 
 
 ## Configure Windows ACLs
 
