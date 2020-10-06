@@ -81,9 +81,9 @@ Some key stakeholders that you may want to include:
 |Data Architect|Design databases for mission-critical line-of-business apps. Designing and implementing data security.|
 |Data Engineer|Operate and maintain the data stack, pull data from different sources, data integration and prep, set up data pipelines.|
 |Data Scientist|Build analytical models and set up data products to be accessed by APIs.|
-|DB Admin|Own, track, and resolve database-related incidents and requests within service-level agreements (SLAs); Some are known to setup data pipelines.|
+|DB Admin|Own, track, and resolve database-related incidents and requests within service-level agreements (SLAs); Some are known to set up data pipelines.|
 |DevOps|Line-of-Business application development and implementation which may include writing scripts and orchestration capability.|
-|Data Security Specialist|Assess overall network and data security which involve data coming in and out of Babylon.|
+|Data Security Specialist|Assess overall network and data security, which involve data coming in and out of Babylon.|
 
 ## Identify key scenarios
 
@@ -105,7 +105,7 @@ The scenarios must be specific, actionable and executable with measurable result
 |Discover business-critical assets|I need to have a search engine that can search through all metadata in the catalog. I should be able to search using technical term, business term with either simple or complex search using wildcard.|Business Analyst, Data Scientist, Data Engineer, Data Admin|
 |Track data to understand its origin and troubleshoot data issues|I need to have data lineage to track data in reports, predictions or models back to its original source and understand the changes and where the data has resided through the data life cycle. This needs to support prioritized data pipelines Azure Data Factory and Databricks.|Data Engineer, Data Scientist|
 |Enrich metadata on critical data assets|I need to enrich the data set in the catalog with technical metadata that is generated automatically. Classification and labeling are some examples.|Data Engineer, Domain/Business Owner|
-|Govern data assets with friendly user experience|I need to have a Business glossary for business specific metadata. The business users can use Babylon for self-service scenarios to annotate their data and enable the data to be discovered easily via search.|Domain/Business Owner, Business Analyst, Data Scientist, Data Engineer|
+|Govern data assets with friendly user experience|I need to have a Business glossary for business-specific metadata. The business users can use Babylon for self-service scenarios to annotate their data and enable the data to be discovered easily via search.|Domain/Business Owner, Business Analyst, Data Scientist, Data Engineer|
 
 ## Deployment models
 
@@ -117,7 +117,7 @@ The simple answer is that ideally there should only be one Babylon for the entir
 
 However, there are exceptions to this pattern:
 
-1. **Testing new configurations** – Organizations may want to create multiple instances for testing out scan configurations or classifications in isolated environments. Although there are “versioning” features in some areas of the platform such as glossary, it would be easier to have a “disposable” instance to freely test.
+1. **Testing new configurations** – Organizations may want to create multiple instances for testing out scan configurations or classifications in isolated environments. Although there is “versioning” feature in some areas of the platform such as glossary, it would be easier to have a “disposable” instance to freely test.
 2. **Separating Test, Pre-production and Production** – Organizations want to create different platforms for different kinds of data stored in different environments. It is not recommended as those are just different content types. You could use glossary term at the top hierarchy level or category to segregate content types.
 3. **Conglomerates and federated model** – Conglomerates often have many business units (BUs) that operate completely separately, and, in some cases, they won't even share billing with each other. In those cases, the organization will end up creating a Babylon instance per BU. This is not ideal but there doesn't seem to be a good way around this, especially because BUs are often not willing to share billing. 
 4. **Compliance** – There are some very strict compliance regimes which treat even metadata as sensitive and require it to be in a specific geography. If a company has multiple geographies than today, the only solution is to have multiple Babylon instances, one for each geography.
@@ -157,10 +157,10 @@ In this phase, Babylon must be created and configured for a very small set of us
 |Task|Detail|Duration|
 |---------|---------|---------|
 |Gather & agree on requirements|Discussion with all stakeholders to gather a full set of requirements. Different personas must participate to agree on a subset of requirements to complete for each phase of the project.|1 Week|
-|Set up Starter Kit|Go through Quick Start and setup the Starter Kit to demo Babylon to all stakeholders.|1 Day|
+|Set up Starter Kit|Go through Quick Start and set up the Starter Kit to demo Babylon to all stakeholders.|1 Day|
 |Navigating Babylon|Understand how to use Babylon from the home page.|1 Day|
 |Configure ADF for lineage|Identify key pipelines and data assets. Gather all information required to connect to an internal ADF account.|1 Day|
-|Scan a data source such as Azure Data Lake Storage|Add the data source and setup a scan. Ensure the scan successfully detects all assets.|2 Day|
+|Scan a data source such as Azure Data Lake Storage|Add the data source and set up a scan. Ensure the scan successfully detects all assets.|2 Day|
 |Search and browse|Allow end users to access Babylon and perform end-to-end search and browse scenarios.|1 Day|
 
 ### Acceptance criteria
@@ -232,7 +232,7 @@ The above phases should be followed to create an effective information governanc
 |---------|---------|---------|
 |Scan production data sources with Firewall enabled|If this is optional when firewall is in place but it’s important to explore options to hardening your infrastructure.|1-5 Days|
 |Enable Private Link|If this is optional when Private Link is used. Otherwise, you can skip this as it’s a must-have criterion when Private is enabled.|1-5 Days|
-|Create automated workflow|Workflow are important to automate process such as approval, escalation, review and issue management.|2-3 Weeks|
+|Create automated workflow|Workflow is important to automate process such as approval, escalation, review and issue management.|2-3 Weeks|
 |Operation documentation|Data governance is not a one-time project. It is an ongoing program to fuel data-driven decision making and creating opportunities for business. It is critical to document key procedure and business standards.|1 Week|
 
 ### Acceptance criteria
