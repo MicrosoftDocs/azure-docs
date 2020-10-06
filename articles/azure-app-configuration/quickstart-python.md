@@ -99,7 +99,7 @@ In this quickstart, you will use Azure App Configuration to centralize storage a
 
 ## Code samples
 
-These example code snippets in this section show you how to perform common actions with the Azure App Configuration client library for Python.
+The sample code snippets in this section show you how to perform common operations with the Azure App Configuration client library for Python. Add these snippets to the `try` block in *app-configuration-quickstart.py* file you created earlier.
 
 * [Connect to an App Configuration store](#connect-to-an-app-configuration-store)
 * [Get a configuration setting](#get-a-configuration-setting)
