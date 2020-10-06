@@ -114,7 +114,7 @@ To configure Azure AD single sign-on with FilesAnywhere, perform the following s
 
 	![Screenshot that shows the "User Attributes" section with the "Edit" button selected.](common/edit-attribute.png)
 
-	When the users signs up with FilesAnywhere they get the value of **clientid** attribute from [FilesAnywhere team](mailto:support@FilesAnywhere.com). You have to add the "Client Id" attribute with the unique value provided by FilesAnywhere.
+	When the users signs up with FilesAnywhere they get the value of **clientid** attribute from [FilesAnywhere team](mailto:support@FilesAnywhere.com). You have to add the "Client ID" attribute with the unique value provided by FilesAnywhere.
 
 7. In addition to above, FilesAnywhere application expects few more attributes to be passed back in SAML response. In the **User Claims** section on the **User Attributes** dialog, perform the following steps to add SAML token attribute as shown in the below table:
 
