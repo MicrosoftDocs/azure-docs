@@ -50,12 +50,12 @@ To create a monitor in Connection Monitor Preview by using the Azure portal:
 
     ![Screenshot that shows connection monitors created in Connection Monitor Preview.](./media/connection-monitor-2-preview/cm-resource-view.png)   
 	
-1. In the **Connection Monitor (Preview)** dashboard, in the upper-left corner, selects **Create**.
+1. In the **Connection Monitor (Preview)** dashboard, in the upper-left corner, select **Create**.
 
    
 
 1. On the **Basics** tab, enter information for your connection monitor: 
-   * **Connection Monitor Name**: Enter a name of your connection monitor. Use the standard naming rules for Azure resources.
+   * **Connection Monitor Name**: Enter a name for your connection monitor. Use the standard naming rules for Azure resources.
    * **Subscription**: Select a subscription for your connection monitor.
    * **Region**: Select a region for your connection monitor. You can select only the source VMs that are created in this region.
    * **Workspace configuration**: Choose a custom workspace or the default workspace. Your workspace holds your monitoring data.
@@ -120,7 +120,7 @@ In the Azure portal, to create a test group in a connection monitor, you specify
 
 * **Destinations**: You can monitor connectivity to an Azure VM, an on-premises machine, or any endpoint (a public IP, URL, or FQDN) by specifying it as a destination. In a single test group, you can add Azure VMs, on-premises machines, Office 365 URLs, Dynamics 365 URLs, and custom endpoints.
 
-    * To choose Azure VMs as destinations, select the **Azure endpoints** tab. By default, the Azure VMs are grouped into a subscription hierarchy that's in the region that you selected under **Create Connection Monitor** on the **Basics** tab. You can change the region and choose Azure VMs from the new region. Then you can drill down from **Subscription** level to other levels in the hierarchy, just as you can when you set the source Azure endpoints.
+    * To choose Azure VMs as destinations, select the **Azure endpoints** tab. By default, the Azure VMs are grouped into a subscription hierarchy that's in the region that you selected under **Create Connection Monitor** on the **Basics** tab. You can change the region and choose Azure VMs from the new region. Then you can drill down from the **Subscription** level to other levels in the hierarchy, just as you can when you set the source Azure endpoints.
 
       You can select VNETs, subnets, or single VMs, as you can when you set the source Azure endpoints. When you select a VNET, subnet, or single VM, the corresponding resource ID is set as the endpoint. By default, all VMs in the selected VNET or subnet that have the Network Watcher extension participate in monitoring. To reduce the scope, either select specific subnets or agents or change the value of the scope property. 
 
@@ -149,11 +149,11 @@ In the Azure portal, to create a test group in a connection monitor, you specify
 
     * **Test configuration name**: Name the test configuration.
     * **Protocol**: Select **TCP**, **ICMP**, or **HTTP**. To change HTTP to HTTPS, select **HTTP** as the protocol and then select **443** as the port.
-        * **Create network test configuration**: This check box appears only if you select **HTTP** in the **Protocol** field. Select this box to create another test configuration that uses the same sources and destinations that you specified elsewhere in your configuration. The new test configuration is named **\<name of test configuration>_networkTestConfig**.
+        * **Create network test configuration**: This check box appears only if you select **HTTP** in the **Protocol** list. Select this check box to create another test configuration that uses the same sources and destinations that you specified elsewhere in your configuration. The new test configuration is named **\<name of test configuration>_networkTestConfig**.
         * **Disable traceroute**: This check box applies when the protocol is TCP or ICMP. Select this box to stop sources from discovering topology and hop-by-hop RTT.
     * **Destination port**: You can provide a destination port of your choice.
-    	* **Listen on port**: This check box applies when the protocol is TCP. Select this box to open the chosen TCP port if it's not already open. 
-    * **Test Frequency**: Use this box to choose how frequently sources will ping destinations on the protocol and port that you specified. You can choose 30 seconds, 1 minute, 5 minutes, 15 minutes, or 30 minutes. Select **custom** to enter another frequency that's between 30 seconds and 30 minutes. Sources will test connectivity to destinations based on the value that you choose. For example, if you select 30 seconds, sources will check connectivity to the destination at least once in every 30-second period.
+    	* **Listen on port**: This check box applies when the protocol is TCP. Select this check box to open the chosen TCP port if it's not already open. 
+    * **Test Frequency**: In this list, specify how frequently sources will ping destinations on the protocol and port that you specified. You can choose 30 seconds, 1 minute, 5 minutes, 15 minutes, or 30 minutes. Select **custom** to enter another frequency that's between 30 seconds and 30 minutes. Sources will test connectivity to destinations based on the value that you choose. For example, if you select 30 seconds, sources will check connectivity to the destination at least once in every 30-second period.
     * **Success Threshold**: You can set thresholds on the following network parameters:
        * **Checks failed**: Set the percentage of checks that can fail when sources check connectivity to destinations by using the criteria that you specified. For the TCP or ICMP protocol, the percentage of failed checks can be equated to the percentage of packet loss. For HTTP protocol, this value represents the percentage of HTTP requests that received no response.
        * **Round trip time**: Set the RTT, in milliseconds, for how long sources can take to connect to the destination over the test configuration.
@@ -166,7 +166,7 @@ You can set up alerts on tests that are failing based on the thresholds set in t
 
 In the Azure portal, to create alerts for a connection monitor, you specify values for these fields: 
 
-- **Create alert**: You can select this check box to create a metric alert in Azure Monitor. When you select this box, the other fields will be enabled for editing. Additional charges for the alert will be applicable, based on the [pricing for alerts](https://azure.microsoft.com/pricing/details/monitor/). 
+- **Create alert**: You can select this check box to create a metric alert in Azure Monitor. When you select this check box, the other fields will be enabled for editing. Additional charges for the alert will be applicable, based on the [pricing for alerts](https://azure.microsoft.com/pricing/details/monitor/). 
 
 - **Scope** > **Resource** > **Hierarchy**: These values are automatically filled, based on the values specified on the **Basics** tab.
 
@@ -192,4 +192,4 @@ Connection monitors have these scale limits:
 ## Next steps
 
 * Learn [how to analyze monitoring data and set alerts](https://docs.microsoft.com/azure/network-watcher/connection-monitor-preview#analyze-monitoring-data-and-set-alerts).
-* Learn [how to diagnose issues in your network](https://docs.microsoft.com/azure/network-watcher/connection-monitor-preview#diagnose-issues-in-your-network).
+* Learn [how to diagnose problems in your network](https://docs.microsoft.com/azure/network-watcher/connection-monitor-preview#diagnose-issues-in-your-network).
