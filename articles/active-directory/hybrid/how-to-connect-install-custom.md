@@ -182,141 +182,145 @@ All objects that you want to synchronize must be direct members of the group. Us
 > This feature is intended to support only a pilot deployment. Don't use it in a full production deployment.
 >
 
-In a full production deployment, it will be hard to maintain a single group and all of its objects to synchronize. Instead, use one of the methods described in [Configure filtering](how-to-connect-sync-configure-filtering.md).
+In a full production deployment, it would be hard to maintain a single group and all of its objects to synchronize. Instead of the filtering-on-groups feature, use one of the methods described in [Configure filtering](how-to-connect-sync-configure-filtering.md).
 
 ### Optional Features page
-On this page, you can select optional features for your specific scenario.
+On the next page, you can select optional features for your scenario.
 
 >[!WARNING]
->Azure AD Connect versions 1.0.8641.0 and earlier rely on Azure Access Control Service for password writeback.  This service was retired on November 7, 2018.  If you are using any of these versions of Azure AD Connect and have enabled password writeback, users may lose the ability to change or reset their passwords once the service is retired. Password writeback with these versions of Azure AD Connect will not be supported.
+>Azure AD Connect versions 1.0.8641.0 and earlier rely on Azure Access Control Service for password writeback.  This service was retired on November 7, 2018.  If you use any of these versions of Azure AD Connect and have enabled password writeback, users might lose the ability to change or reset their passwords when the service is retired. These versions of Azure AD Connect don't support password writeback.
 >
->For more information on the Azure Access Control service see [How to: Migrate from the Azure Access Control service](../azuread-dev/active-directory-acs-migration.md)
+>For more information, see [Migrate from Azure Access Control Service](../azuread-dev/active-directory-acs-migration.md).
 >
->To download the latest version of Azure AD Connect click [here](https://www.microsoft.com/download/details.aspx?id=47594).
+>If you want to use password writeback, download the [latest version of Azure AD Connect](https://www.microsoft.com/download/details.aspx?id=47594).
 
- ![Optional features](./media/how-to-connect-install-custom/optional2a.png)
+ ![Screenshot showing the Optional Features page.](./media/how-to-connect-install-custom/optional2a.png)
 
 > [!WARNING]
-> If you currently have DirSync or Azure AD Sync active, do not activate any of the writeback features in Azure AD Connect.
+> If you have Azure AD Sync or Direct Synchronization (DirSync) active, don't activate any writeback features in Azure AD Connect.
 
 
 
 | Optional features | Description |
 | --- | --- |
-| Exchange Hybrid Deployment |The Exchange Hybrid Deployment feature allows for the co-existence of Exchange mailboxes both on-premises and in Microsoft 365. Azure AD Connect is synchronizing a specific set of [attributes](reference-connect-sync-attributes-synchronized.md#exchange-hybrid-writeback) from Azure AD back into your on-premises directory. |
-| Exchange Mail Public Folders | The Exchange Mail Public Folders feature allows you to synchronize mail-enabled Public Folder objects from your on-premises Active Directory to Azure AD. |
-| Azure AD app and attribute filtering |By enabling Azure AD app and attribute filtering, the set of synchronized attributes can be tailored. This option adds two more configuration pages. For more information, see [Azure AD app and attribute filtering](#azure-ad-app-and-attribute-filtering). |
-| Password hash synchronization |If you selected federation as the sign-in solution, then you can enable this option. Password hash synchronization can then be used as a backup option. For additional information, see [Password hash synchronization](how-to-connect-password-hash-synchronization.md). </br></br>If you selected Pass-through Authentication this option can also be enabled to ensure support for legacy clients and as a backup option. For additional information, see [Password hash synchronization](how-to-connect-password-hash-synchronization.md).|
-| Password writeback |By enabling password writeback, password changes that originate in Azure AD is written back to your on-premises directory. For more information, see [Getting started with password management](../authentication/tutorial-enable-sspr.md). |
-| Group writeback |If you use the **Microsoft 365 Groups** feature, then you can have these groups represented in your on-premises Active Directory. This option is only available if you have Exchange present in your on-premises Active Directory. For more information see [Azure AD Connect group writeback](how-to-connect-group-writeback.md)|
-| Device writeback |Allows you to writeback device objects in Azure AD to your on-premises Active Directory for Conditional Access scenarios. For more information, see [Enabling device writeback in Azure AD Connect](how-to-connect-device-writeback.md). |
-| Directory extension attribute sync |By enabling directory extensions attribute sync, attributes specified are synced to Azure AD. For more information, see [Directory extensions](how-to-connect-sync-feature-directory-extensions.md). |
+| Exchange hybrid deployment |The Exchange hybrid deployment feature allows for the coexistence of Exchange mailboxes both on-premises and in Microsoft 365. Azure AD Connect synchronizes a specific set of [attributes](reference-connect-sync-attributes-synchronized.md#exchange-hybrid-writeback) from Azure AD back into your on-premises directory. |
+| Exchange Mail Public Folders | The Exchange mail public folders feature allows you to synchronize mail-enabled public-folder objects from your on-premises instance of Active Directory to Azure AD. |
+| Azure AD app and attribute filtering |By enabling Azure AD app and attribute filtering, you can tailor the set of synchronized attributes. This option adds two more configuration pages to the wizard. For more information, see [Azure AD app and attribute filtering](#azure-ad-app-and-attribute-filtering). |
+| Password hash synchronization |If you selected federation as the sign-in solution, you can enable password hash synchronization. Then you can use it as a backup option.  </br></br>If you selected pass-through authentication, you can enable this option to ensure support for legacy clients and to provide a backup.</br></br> For more information, see [Password hash synchronization](how-to-connect-password-hash-synchronization.md).|
+| Password writeback |Use this option to ensure that password changes that originate in Azure AD are written back to your on-premises directory. For more information, see [Getting started with password management](../authentication/tutorial-enable-sspr.md). |
+| Group writeback |If you use Microsoft 365 Groups, then you can represent groups in your on-premises instance of Active Directory. This option is available only if you have Exchange in your on-premises instance of Active Directory. For more information, see [Azure AD Connect group writeback](how-to-connect-group-writeback.md).|
+| Device writeback |For conditional-access scenarios, use this option to write back device objects in Azure AD to your on-premises instance of Active Directory. For more information, see [Enabling device writeback in Azure AD Connect](how-to-connect-device-writeback.md). |
+| Directory extension attribute sync |When you select this option, specified attributes are synced to Azure AD. For more information, see [Directory extensions](how-to-connect-sync-feature-directory-extensions.md). |
 
 ### Azure AD Attributes page
-If you want to limit which attributes to synchronize to Azure AD, then start by selecting which services you are using. If you make configuration changes on this page, a new service has to be selected explicitly by rerunning the installation wizard.
+If you want to limit which attributes synchronize to Azure AD, then start by selecting the services you use. If you change the selections on this page, you have to explicitly select a new service by rerunning the installation wizard.
 
-![Optional features Apps](./media/how-to-connect-install-custom/azureadapps2.png)
+![Screenshot showing optional Azure A D apps features.](./media/how-to-connect-install-custom/azureadapps2.png)
 
 Based on the services selected in the previous step, this page shows all attributes that are synchronized. This list is a combination of all object types being synchronized. If there are some particular attributes you need to not synchronize, you can unselect those attributes.
 
-![Optional features Attributes](./media/how-to-connect-install-custom/azureadattributes2.png)
+![Screenshot showing optional Azure A D attributes features.](./media/how-to-connect-install-custom/azureadattributes2.png)
 
 > [!WARNING]
-> Removing attributes can impact functionality. For best practices and recommendations, see [attributes synchronized](reference-connect-sync-attributes-synchronized.md#attributes-to-synchronize).
->
+> Removing attributes can affect functionality. For best practices and recommendations, see [Attributes to synchronize](reference-connect-sync-attributes-synchronized.md#attributes-to-synchronize).
 >
 
 ### Directory Extensions page
-You can extend the schema in Azure AD with custom attributes added by your organization or other attributes in Active Directory. To use this feature, select **Directory Extension attribute sync** on the **Optional Features** page. You can select more attributes to sync on this page.
+You can extend the schema in Azure AD by using custom attributes that are added by your organization or by using other attributes in Active Directory. To use this feature, on the **Optional Features** page, select **Directory Extension attribute sync**. On the **Directory Extensions** page, you can select more attributes to sync.
 
 >[!NOTE]
->The Available attributes box is case sensitive.
+>The **Available Attributes** field is case sensitive.
 
-![Directory extensions](./media/how-to-connect-install-custom/extension2.png)
+![Screenshot showing the Directory Extensions page.](./media/how-to-connect-install-custom/extension2.png)
 
 For more information, see [Directory extensions](how-to-connect-sync-feature-directory-extensions.md).
 
 ### Single sign-on page
-Configuring single sign-on for use with Password Synchronization or Pass-through authentication is a simple process that you only need to complete once for each forest that is being synchronized to Azure AD. Configuration involves two steps as follows:
+On the Single sign-on page, you configure single sign-on for use with password synchronization or pass-through authentication. You do this once for each forest that's being synchronized to Azure AD. Configuration involves two steps:
 
-1.	Create the necessary computer account in your on-premises Active Directory.
-2.	Configure the intranet zone of the client machines to support single sign on.
+1.	Create the necessary computer account in your on-premises instance of Active Directory.
+2.	Configure the intranet zone of the client machines to support single sign-on.
 
 #### Create the computer account in Active Directory
-For each forest that has been added in Azure AD Connect, you will need to supply Domain Administrator credentials so that the computer account can be created in each forest. The credentials are only used to create the account and are not stored or used for any other operation. Simply add the credentials on the **Enable Single sign on** page as shown:
+For each forest that has been added in Azure AD Connect, you need to supply domain administrator credentials so that the computer account can be created in each forest. The credentials are used only to create the account. They aren't stored or used for any other operation. Add the credentials on the **Enable Single sign-on** page as shown:
 
-![Enable Single sign on](./media/how-to-connect-install-custom/enablesso.png)
-
->[!NOTE]
->You can skip a particular forest if you do not wish to use Single sign on with that forest.
-
-#### Configure the Intranet Zone for client machines
-To ensure that the client sign-ins automatically in the intranet zone you need to ensure that the URL is part of the intranet zone. This ensures that the domain joined computer automatically sends a Kerberos ticket to Azure AD when it is connected to the corporate network.
-On a computer that has the Group Policy management tools.
-
-1.	Open the Group Policy Management tools
-2.	Edit the Group policy that will be applied to all users. For example, the Default Domain Policy.
-3.	Navigate to **User Configuration\Administrative Templates\Windows Components\Internet Explorer\Internet Control Panel\Security Page** and select **Site to Zone Assignment List** per the image below.
-4.	Enable the policy, and enter a value name of `https://autologon.microsoftazuread-sso.com` and value of `1` in the dialog box.
-5.	It should look similar to the following:  
-![Intranet Zones](./media/how-to-connect-install-custom/sitezone.png)
-
-6.	Click **Ok** twice.
-
-## Configuring federation with AD FS
-Configuring AD FS with Azure AD Connect is simple and only requires a few clicks. The following is required before the configuration.
-
-* A Windows Server 2012 R2 or later server for the federation server with remote management enabled
-* A Windows Server 2012 R2 or later server for the Web Application Proxy server with remote management enabled
-* A TLS/SSL certificate for the federation service name you intend to use (for example sts.contoso.com)
+![Screenshot showing the Enable single sign-on page. Forest credentials are added.](./media/how-to-connect-install-custom/enablesso.png)
 
 >[!NOTE]
->You can update a TLS/SSL certificate for your AD FS farm using Azure AD Connect even if you do not use it to manage your federation trust.
+>You can skip forests where you don't want to use single sign-on.
 
-### AD FS configuration pre-requisites
-To configure your AD FS farm using Azure AD Connect, ensure WinRM is enabled on the remote servers. Make sure you have completed the other tasks in [federation prerequisites](how-to-connect-install-prerequisites.md#prerequisites-for-federation-installation-and-configuration). In addition, go through the ports requirement listed in [Table 3 - Azure AD Connect and Federation Servers/WAP](reference-connect-ports.md#table-3---azure-ad-connect-and-ad-fs-federation-serverswap).
+#### Configure the intranet zone for client machines
+To ensure that the client signs in automatically in the intranet zone, make sure that the URL is part of the intranet zone. This ensures that the domain-joined computer automatically sends a Kerberos ticket to Azure AD when it's connected to the corporate network.
+
+On a computer that has the Group Policy management tools:
+
+1.	Open the Group Policy management tools.
+2.	Edit the group policy that will be applied to all users. For example, the Default Domain policy.
+3.	Go to *User Configuration\Administrative Templates\Windows Components\Internet Explorer\Internet Control Panel\Security Page*. Then select **Site to Zone Assignment List**, as the following image shows.
+4.	Enable the policy. Then, in the dialog box, enter a value name of `https://autologon.microsoftazuread-sso.com` and value of `1`. Your setup should look like the following image.
+  
+    ![Screenshot showing intranet zones.](./media/how-to-connect-install-custom/sitezone.png)
+
+6.	Click **OK** twice.
+
+## Configure federation by using AD FS
+You can configure AD FS with Azure AD Connect in just a few clicks. Before you start, you need:
+
+* Windows Server 2012 R2 or later for the federation server. Remote management should be enabled.
+* Windows Server 2012 R2 or later for the Web Application Proxy server. Remote management should be enabled.
+* A TLS/SSL certificate for the federation service name that you intend to use (for example, `sts.contoso.com`).
+
+>[!NOTE]
+>You can update a TLS/SSL certificate for your AD FS farm by using Azure AD Connect even if you don't use it to manage your federation trust.
+
+### AD FS configuration prerequisites
+To configure your AD FS farm by using Azure AD Connect, ensure that WinRM is enabled on the remote servers. Make sure you've completed the other tasks in [Federation prerequisites](how-to-connect-install-prerequisites.md#prerequisites-for-federation-installation-and-configuration). Also make sure you follow the ports requirements listed in [Azure A D Connect and Federation Servers/WAP](reference-connect-ports.md#table-3---azure-ad-connect-and-ad-fs-federation-serverswap) table.
 
 ### Create a new AD FS farm or use an existing AD FS farm
-You can use an existing AD FS farm or you can choose to create a new AD FS farm. If you choose to create a new one, you are required to provide the TLS/SSL certificate. If the TLS/SSL certificate is protected by a password, you are prompted for the password.
+You can use an existing AD FS farm or create a new one. If you choose to create a new one, you must provide the TLS/SSL certificate. If the TLS/SSL certificate is protected by a password, you're prompted to provide the password.
 
-![AD FS Farm](./media/how-to-connect-install-custom/adfs1.png)
+![Screenshot showing the A D F S Farm page](./media/how-to-connect-install-custom/adfs1.png)
 
-If you choose to use an existing AD FS farm, you are taken directly to the configuring the trust relationship between AD FS and Azure AD screen.
+If you choose to use an existing AD FS farm, you see the page where you can configure the trust relationship between AD FS and Azure AD.
 
 >[!NOTE]
->Azure AD Connect can be used to manage only one AD FS farm. If you have existing federation trust with Azure AD configured on the selected AD FS farm, the trust will be re-created again from scratch by Azure AD Connect.
+>You can use Azure AD Connect to manage only one AD FS farm. If you have an existing federation trust where Azure AD is configured on the selected AD FS farm, Azure AD Connect will re-create the trust from scratch.
 
 ### Specify the AD FS servers
-Enter the servers that you want to install AD FS on. You can add one or more servers based on your capacity planning needs. Join all AD FS servers (not required for the WAP servers) to Active Directory before you perform this configuration. Microsoft recommends installing a single AD FS server for test and pilot deployments. Then add and deploy more servers to meet your scaling needs by running Azure AD Connect again after initial configuration.
+Specify the servers where you want to install AD FS. You can add one or more servers, depending on your capacity needs. Before you set up this configuration, join all AD FS servers to Active Directory. This step isn't required for the WAP servers. 
+
+Microsoft recommends installing a single AD FS server for test and pilot deployments. After the initial configuration, you can add and deploy more servers to meet your scaling needs by running Azure AD Connect again.
 
 > [!NOTE]
-> Ensure that all your servers are joined to an AD domain before you do this configuration.
->
+> Before you set up this configuration, ensure that all of your servers are joined to an AD domain.
 >
 
-![AD FS Servers](./media/how-to-connect-install-custom/adfs2.png)
+
+![Screenshot showing the Federation Servers page.](./media/how-to-connect-install-custom/adfs2.png)
 
 ### Specify the Web Application Proxy servers
-Enter the servers that you want as your Web Application proxy servers. The web application proxy server is deployed in your DMZ (extranet facing) and supports authentication requests from the extranet. You can add one or more servers based on your capacity planning needs. Microsoft recommends installing a single Web application proxy server for test and pilot deployments. Then add and deploy more servers to meet your scaling needs by running Azure AD Connect again after initial configuration. We recommend having an equivalent number of proxy servers to satisfy authentication from the intranet.
+Specify your Web Application Proxy servers. The Web Application Proxy server is deployed in your perimeter network, facing the extranet. It supports authentication requests from the extranet. You can add one or more servers, depending on your capacity needs. 
+
+Microsoft recommends installing a single Web Application Proxy server for test and pilot deployments. After the initial configuration, you can add and deploy more servers to meet your scaling needs by running Azure AD Connect again. We recommend that you have an equivalent number of proxy servers to satisfy authentication from the intranet.
 
 > [!NOTE]
-> <li> If the account you use is not a local admin on the WAP servers, then you are prompted for admin credentials.</li>
-> <li> Ensure that there is HTTP/HTTPS connectivity between the Azure AD Connect server and the Web Application Proxy server before you run this step.</li>
-> <li> Ensure that there is HTTP/HTTPS connectivity between the Web Application Server and the AD FS server to allow authentication requests to flow through.</li>
+> - If the account you use isn't a local admin on the WAP servers, then you're prompted for admin credentials.
+> - Before you specify Web Application Proxy servers, ensure that there's HTTP/HTTPS connectivity between the Azure AD Connect server and the Web Application Proxy server.
+> - Ensure that there's HTTP/HTTPS connectivity between the Web Application Server and the AD FS server to allow authentication requests to flow through.
 >
->
 
-![Web App](./media/how-to-connect-install-custom/adfs3.png)
 
-You are prompted to enter credentials so that the web application server can establish a secure connection to the AD FS server. These credentials need to be a local administrator on the AD FS server.
+![Screenshot showing the Web Application Proxy servers page.](./media/how-to-connect-install-custom/adfs3.png)
 
-![Proxy](./media/how-to-connect-install-custom/adfs4.png)
+You're prompted to enter credentials so that the web application server can establish a secure connection to the AD FS server. These credentials must be for a local administrator account on the AD FS server.
+
+![Screenshot showing the Credentials page. Administrator credentials are entered in the username field and the password field.](./media/how-to-connect-install-custom/adfs4.png)
 
 ### Specify the service account for the AD FS service
-The AD FS service requires a domain service account to authenticate users and lookup user information in Active Directory. It can support two types of service accounts:
+The AD FS service requires a domain service account to authenticate users and to look up user information in Active Directory. It can support two types of service accounts:
 
-* **Group Managed Service Account** - Introduced in Active Directory Domain Services with Windows Server 2012. This type of account provides services, such as AD FS, a single account without needing to update the account password regularly. Use this option if you already have Windows Server 2012 domain controllers in the domain that your AD FS servers belong to.
-* **Domain User Account** - This type of account requires you to provide a password and regularly update the password when the password changes or expires. Use this option only when you do not have Windows Server 2012 domain controllers in the domain that your AD FS servers belong to.
+* **Group managed service account** - This account type was introduced into AD DS by Windows Server 2012. This type of account provides services such as AD FS. It's a single account in which you don't need to update the password regularly. Use this option if you already have Windows Server 2012 domain controllers in the domain that your AD FS servers belong to.
+* **Domain user account** - This type of account requires you to provide a password and regularly update it when it expires. Use this option only when you don't have Windows Server 2012 domain controllers in the domain that your AD FS servers belong to.
 
 If you selected Group Managed Service Account and this feature has never been used in Active Directory, you are prompted for Enterprise Admin credentials. These credentials are used to initiate the key store and enable the feature in Active Directory.
 
