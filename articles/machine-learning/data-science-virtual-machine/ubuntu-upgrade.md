@@ -9,7 +9,7 @@ ms.subservice: data-science-vm
 author: samkemp
 ms.author: samkemp
 ms.topic: conceptual
-ms.date: 10/01/2020
+ms.date: 10/07/2020
 ---
 
 # Upgrade your Data Science Virtual Machine to Ubuntu 18.04
