@@ -73,7 +73,7 @@ To manually start your logic app, on the designer toolbar, select **Run**. Or, y
 
 ## Clean up resources
 
-To remove a Communication Services subscription, delete the Communication Services resource or resource group. Deleting the resource group also deletes any other resources in that group. For more information, review [how to clean up Communication Services resources](./create-communication-resource.md#clean-up-resources).
+To remove a Communication Services subscription, delete the Communication Services resource or resource group. Deleting the resource group also deletes any other resources in that group. For more information, review [how to clean up Communication Services resources](../create-communication-resource.md#clean-up-resources).
 
 To clean up your logic app workflow and related resources, review [how to clean up Logic Lpps resources](../../../logic-apps/quickstart-create-first-logic-app-workflow.md#clean-up-resources).
 
@@ -82,7 +82,7 @@ To clean up your logic app workflow and related resources, review [how to clean 
 In this quickstart, you learned how to send SMS messages by using Azure Logic Apps and Azure Communication Services. To learn more, continue with subscribing to SMS events:
 
 > [!div class="nextstepaction"]
-> [Subscribe to SMS Events](../handle-sms-events.md)
+> [Subscribe to SMS Events](./handle-sms-events.md)
 
 For more information about SMS in Azure Communication Services, see these articles:
 
