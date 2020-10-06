@@ -1,6 +1,6 @@
 ---
 title: Find Tenant ID, Object ID, and partner association details
-description: How to Find the Tenant ID, Object ID, and partner association details of a subscription ID in the Azure marketplace.
+description: How to Find the Tenant ID, Object ID, and partner association details of a subscription ID in the Azure Marketplace.
 ms.service: marketplace
 ms.topic: article
 author: keferna
@@ -12,7 +12,7 @@ ms.date: 10/09/2020
 
 This article describes how to find the Tenant ID, Object ID, and partner association details, along with their respective subscription IDs.
 
-If you need to get screenshots of these items in Azure Cloud shell to use for debugging assistance, jump down to [Find Tenant, Object, and Partner ID association for debugging](#find-tenant-object-and-partner-id-association-for-debugging).
+If you need to get screenshots of these items in Azure Cloud Shell to use for debugging assistance, jump down to [Find Tenant, Object, and Partner ID association for debugging](#find-tenant-object-and-partner-id-association-for-debugging).
 
 >[!Note]
 > Only the owner of a subscription has the privileges to perform these steps.
@@ -64,7 +64,7 @@ If you need to get screenshots of these items in Azure Cloud shell to use for de
 ## Find Tenant, Object, and Partner ID association for debugging
 
 1. Go to the [Azure portal](https://ms.portal.azure.com/).
-2. Open Azure Cloud shell by selecting the PowerShell icon at the top-right.
+2. Open Azure Cloud Shell by selecting the PowerShell icon at the top-right.
 
     :::image type="content" source="media/tenant-and-object-id/icon-azure-cloud-shell.png" alt-text="PowerShell icon at the top right of the screen.":::
 
@@ -76,13 +76,13 @@ If you need to get screenshots of these items in Azure Cloud shell to use for de
 
     :::image type="content" source="media/tenant-and-object-id/create-storage-window.png" alt-text="Selelct the Create Storage button.":::
 
-5. Creating (or already having) storage opens the Azure Cloud shell window.
+5. Creating (or already having) storage opens the Azure Cloud Shell window.
 
-    :::image type="content" source="media/tenant-and-object-id/cloud-shell-window-1.png" alt-text="The Azure Cloud shell window.":::
+    :::image type="content" source="media/tenant-and-object-id/cloud-shell-window-1.png" alt-text="The Azure Cloud Shell window.":::
 
-6. For partner association details, install the extension with this command:<br>`az extension add --name managementpartner`.<br>Azure Cloud shell will note if the extension is already installed:
+6. For partner association details, install the extension with this command:<br>`az extension add --name managementpartner`.<br>Azure Cloud Shell will note if the extension is already installed:
 
-    :::image type="content" source="media/tenant-and-object-id/cloud-shell-window-2.png" alt-text="The Azure Cloud shell window showing the extension is already installed.":::
+    :::image type="content" source="media/tenant-and-object-id/cloud-shell-window-2.png" alt-text="The Azure Cloud Shell window showing the extension is already installed.":::
 
 7. Check partner details using this command:<br>`az managementpartner show --partner-id xxxxxx`<br>Example: `az managementpartner show --partner-id 4760962`.<br>Snap a screenshot of the command results, which will look similar to this:
 
