@@ -75,6 +75,9 @@ If you do not enable managed identity, you will receive this error, `Error: Unab
 * Submit an AutoML experiment.
 * Start a labeling project.
 
+> [!NOTE]
+> Assisted labelling does not support storage accounts configured to use private endpoints.
+
 The studio supports reading data from the following datastore types in a virtual network:
 
 * Azure Blob
