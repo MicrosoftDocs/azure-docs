@@ -1018,7 +1018,7 @@ Adds a database or group of databases to a target group.
 The name of the target group to which the member will be added. target_group_name is nvarchar(128), with no default.
 
 [ **\@membership_type =** ] 'membership_type'  
-Specifies if the target group member will be included or excluded. target_group_name is nvarchar(128), with default of ‘Include’. Valid values for target_group_name are ‘Include’ or ‘Exclude’.
+Specifies if the target group member will be included or excluded. target_group_name is nvarchar(128), with default of ‘Include’. Valid values for membership_type are ‘Include’ or ‘Exclude’.
 
 [ **\@target_type =** ] 'target_type'  
 The type of target database or collection of databases including all databases in a server, all databases in an Elastic pool, all databases in a shard map, or an individual database. target_type is nvarchar(128), with no default. Valid values for target_type are ‘SqlServer’, ‘SqlElasticPool’, ‘SqlDatabase’, or ‘SqlShardMap’.
@@ -1036,7 +1036,7 @@ The name of the database that should be added to the specified target group. dat
 The name of the Elastic pool that should be added to the specified target group. elastic_pool_name should be specified when target_type is ‘SqlElasticPool’. elastic_pool_name is nvarchar(128), with no default.
 
 [ **\@shard_map_name =** ] 'shard_map_name'  
-The name of the shard map pool that should be added to the specified target group. elastic_pool_name should be specified when target_type is ‘SqlSqlShardMap’. shard_map_name is nvarchar(128), with no default.
+The name of the shard map pool that should be added to the specified target group. elastic_pool_name should be specified when target_type is ‘SqlShardMap’. shard_map_name is nvarchar(128), with no default.
 
 [ **\@target_id =** ] target_group_id OUTPUT  
 The target identification number assigned to the target group member if created added to the target group. target_id is an output variable of type uniqueidentifier, with a default of NULL.
