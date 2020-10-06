@@ -49,13 +49,13 @@ Create a Key Vault in the resource group from the previous step. You will need t
 - The location: **EastUS**.
 
 ```azurepowershell-interactive
-New-AzKeyVault -Name "&lt;your-unique-key-vault-name&gt; -ResourceGroupName "myResourceGroup" -Location "East US"
+New-AzKeyVault -Name <your-unique-key-vault-name> -ResourceGroupName "myResourceGroup" -Location "East US"
 ```
 
 The output of this cmdlet shows properties of the newly created key vault. Take note of the two properties listed below:
 
 - **Vault Name**: The name you provided to the --name parameter above.
-- **Vault URI**: In the example, this is https://&lt;your-unique-keyvault-name&gt;.vault.azure.net/. Applications that use your vault through its REST API must use this URI.
+- **Vault URI**: In the example, this is https://<your-unique-keyvault-name>.vault.azure.net/. Applications that use your vault through its REST API must use this URI.
 
 At this point, your Azure account is the only one authorized to perform any operations on this new vault.
 
