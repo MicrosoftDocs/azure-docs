@@ -29,7 +29,7 @@ In this quickstart, you'll use Azure App Configuration to centralize storage and
 
 [!INCLUDE[Azure App Configuration resource creation steps](../../includes/azure-app-configuration-create.md)]
 
-7. Select **Operations** > **Configuration explorer** > **Create** > **Key-value** to add the following key-value pairs:
+8. Select **Operations** > **Configuration explorer** > **Create** > **Key-value** to add the following key-value pairs:
 
     | Key                                | Value                               |
     |------------------------------------|-------------------------------------|
