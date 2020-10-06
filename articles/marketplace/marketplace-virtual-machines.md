@@ -28,16 +28,16 @@ Your engineering team should have a working knowledge of the following Microsoft
 
 ## Licensing options
 
-As you prepare to publish a new VM offer, you need to decide which licensingoption to choose. This will determine what additional information you'll need to provide later as you create your offer in Partner Center.
+As you prepare to publish a new VM offer, you need to decide which licensing option to choose. This will determine what additional information you'll need to provide later as you create your offer in Partner Center.
 
 These are the available listing options for VM offers:
 
 | Listing option | Transaction process |
 | --- | --- |
-| Free trial | This option redirects the purchaser to your target URL via Azure Active Directory (Azure AD).\* |
+| Free trial | Offer your customers a one-, three- or six-month free trial. |
 | Test drive | This option lets your customers evaluate VMs at no additional cost to them. They don't need to be an existing Azure customer to engage with the trial experience. For details, see [What is a test drive?](https://docs.microsoft.com/azure/marketplace/what-is-test-drive) |
 | BYOL | This Bring Your Own Licensing option lets your customers bring existing software licenses to Azure.\* |
-| Usage-based | Also known as pay-as-you-go, this option lets you pay by the core, core size, or market and core size, all priced per hour and billed monthly. |
+| Usage-based | Also known as pay-as-you-go, this option lets your customers pay per hour. |
 | Interactive demo  | Give your customers a guided experience of your solution using an interactive demonstration. The benefit is that you can offer a trial experience without having to provide a complicated setup of your complex solution. |
 |
 
@@ -51,7 +51,7 @@ After your offer is published, the listing option you chose for your offer appea
 
 ## Virtual machine offer
 
-Use this offer type when you deploy a virtual appliance to the subscription that's associated with your customer. VMs are fully commerce-enabled, using pay-as-you-go or bring-your-own-license (BYOL) licensing models. Microsoft hosts the commerce transaction and bills your customer on your behalf. You get the benefit of using the preferred payment relationship between your customer and Microsoft, including any Enterprise Agreements.
+Use this offer type when your offer is deployed as a virtual machine to the subscription that's associated with your customer. VMs are fully commerce-enabled, using pay-as-you-go or bring-your-own-license (BYOL) licensing models. Microsoft hosts the commerce transaction and bills your customer on your behalf. You get the benefit of using the preferred payment relationship between your customer and Microsoft, including any Enterprise Agreements.
 
 > [!NOTE]
 > The monetary commitments associated with an Enterprise Agreement can be used against the Azure usage of your VM, but not against your software licensing fees.
