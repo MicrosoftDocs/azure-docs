@@ -1,12 +1,12 @@
 ---
 title: Quickstart - Get a phone number from Azure Communication Services
 description: Learn how to buy a Communication Services phone number using the Azure portal.
-author: ddematheu2
-manager: nimag
+author: prakulka
+manager: nmurav
 services: azure-communication-services
 
-ms.author: dademath
-ms.date: 07/09/2020
+ms.author: prakulka
+ms.date: 10/05/2020
 ms.topic: quickstart
 ms.service: azure-communication-services
 ms.custom: references_regions
@@ -14,7 +14,7 @@ ms.custom: references_regions
 ---
 # Quickstart: Get a phone number using the Azure portal
 
-[!INCLUDE [Private Preview Notice](../../includes/private-preview-include.md)]
+[!INCLUDE [Public Preview Notice](../../includes/public-preview-include.md)]
 
 Get started with Azure Communication Services by using the Azure portal to purchase a telephone number.
 
@@ -37,7 +37,7 @@ Navigate to the Phone Numbers blade in the resource menu.
 
 Press the `Get` button to launch the wizard. The wizard on the `Phone numbers` blade will walk you through a series of questions that helps you choose the phone number that best fits your scenario. 
 
-You will first need to choose the `Country/region` where you would like to provision the phone number. After selecting the Country/region, you will then need to select the `phone plan` which best suites your needs. 
+You will first need to choose the `Country/region` where you would like to provision the phone number. After selecting the Country/region, you will then need to select the `use case` which best suites your needs. 
 
 :::image type="content" source="../media/manage-phone-azure-portal-get-numbers.png" alt-text="Screenshot showing the Get phone numbers view.":::
 
@@ -46,23 +46,13 @@ You will first need to choose the `Country/region` where you would like to provi
 Selecting a phone plan is broken down into two steps: 
 
 1. The selection of the [Number type](../../concepts/telephony-sms/plan-solution.md#phone-number-types-in-azure-communication-services)
-2. The selection of the [Plan](../../concepts/telephony-sms/plan-solution.md#plans)
+2. The selection of the [Plan](../../concepts/telephony-sms/plan-solution.md#phone-number-plans-in-azure-communication-services)
 
 We offer two Number types currently: `Geographic`, and `Toll-free`. When you've selected a Number type, you will then be offered several Plans from which you can choose.
 
-> [!NOTE]
-> We currently only support selecting phone numbers with Inbound OR Outbound calling. You may, however, purchase a phone number with inbound calling enabled, and then configure the outbound caller ID to match the number of the inbound-calling-enabled phone number (what users see when you call them from your Communication Services application).
-> This only applies to two-way calling. Two-way SMS is natively supported.
-
-In our example, we have chosen a `Toll-free` Number type with the `Outbound calling` Plan.
+In our example, we have chosen a `Toll-free` Number type with the `Outbound calling` and `Inbound and Outbound SMS` Plans.
 
 :::image type="content" source="../media/manage-phone-azure-portal-select-plans.png" alt-text="Screenshot showing the Select plans view.":::
-
-### Declare purpose
-
-Next, the wizard will ask you for the purpose of using the number. We collect this information to apply the correct tax and emergency calling regulations.
-
-:::image type="content" source="../media/quickstart-search-and-acquire-bot-or-human.png" alt-text="Screenshot showing selecting a bot or human within the phone number acquisition process.":::
 
 From here, click the `Next: Numbers` button at the bottom of the page to customize the phone number(s) you would like to provision.
 
@@ -102,12 +92,19 @@ Navigate to your Azure Communication Resource on the [Azure portal](https://port
 
 :::image type="content" source="../media/manage-phone-azure-portal-start.png" alt-text="Screenshot showing a Communication Services Resource's main page.":::
 
-Select the Phone Numbers tab in the menu to manage your phone numbers.
+Select the Phone Numbers blade in the menu to manage your phone numbers.
 
 :::image type="content" source="../media/manage-phone-azure-portal-phones.png" alt-text="Screenshot showing a Communication Services Resource's phone number page.":::
 
 > [!NOTE]
 > It may take a few minutes for the provisioned numbers to be shown on this page.
+
+### Customizing phone number plans
+On the `Numbers` page, you can select the phone number by clicking on the number for which you'd like to customize the plan.
+
+:::image type="content" source="../media/manage-phone-azure-portal-capability-update.png" alt-text="Screenshot showing the update capabilities page.":::
+
+Select the capabilities from the list of available calling and SMS capabilities, then click `Confirm` to apply selection.
 
 ## Troubleshooting
 
@@ -115,7 +112,7 @@ Common questions and issues:
 
 - Only US is supported for purchasing phone numbers at this time. This is based on the billing address of the subscription that the resource is associated with. At this time, you cannot move a resource to another subscription.
 
-- When a phone number is deleted, the phone number will not be released or able to be repurchased until the end of the billing cycle.
+- When a phone number is released, the phone number will not be released or able to be repurchased until the end of the billing cycle.
 
 - When a Communication Services resource is deleted, the phone numbers associated with that resource will be automatically released at the same time.
 
