@@ -41,7 +41,7 @@ dotnet build
 Install the Azure Communication Chat client library for .NET
 
 ```PowerShell
-dotnet add package Azure.Communication.Chat --version 1.0.0-beta.1
+dotnet add package Azure.Communication.Chat --version 1.0.0-beta.2
 ``` 
 
 ## Object model
