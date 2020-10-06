@@ -106,6 +106,7 @@ The sample code snippets in this section show you how to perform common operatio
 * [Set a configuration setting](#set-a-configuration-setting)
 * [Get a list of configuration settings](#get-a-list-of-configuration-settings)
 * [Lock a configuration setting](#lock-a-configuration-setting)
+* [Unlock a configuration setting](#unlock-a-configuration-setting)
 * [Update a configuration setting](#update-a-configuration-setting)
 * [Delete a configuration setting](#delete-a-configuration-setting)
 
@@ -124,37 +125,35 @@ The following code snippet creates an instance of **AzureAppConfigurationClient*
 The following code snippet retrieves the configuration setting by `key` name.
 
 ```python
-    fetched_config_setting = client.get_configuration_setting(key = 'TestApp:Settings:Message')
+    retrieved_config_setting = app_config_client.get_configuration_setting(key = 'TestApp:Settings:Message')
     print("Retrieved configuration setting:")
-    print("Key: " + fetched_config_setting.key + ", Value: " + fetched_config_setting.value)
+    print("Key: " + retrieved_config_setting.key + ", Value: " + retrieved_config_setting.value)
 ```
 
 
-### Add a configuration setting
+### Set a configuration setting
 
-Previously in this quickstart, you added a configuration key and value using the Azure portal. You can also add configuration settings using the Python client library. The following code snippet initialzies a **ConfigurationSetting** object with a key, value, and a label which can be used to categorize settings. Next, the configuration setting is added to the remote store by calling **add_configuration_setting** and passing in the **ConfigruationSetting** object. Add this code to the end of the `try` block.
+Previously in this quickstart, you added a configuration key and value using the Azure portal. You can also add configuration settings using the Python client library. The following code snippet initialzies a **ConfigurationSetting** object with a key and value. Next, the configuration setting is added to the remote store by calling **add_configuration_setting** and passing in the **ConfigruationSetting** object. Add this code to the end of the `try` block.
 
 ```python
     config_setting = ConfigurationSetting(
-        key='TestApp:Settings:Message',
-        label='TestAppLabel',
-        value='Value from labeled key'
+        key='TestApp:Settings:NewSetting',
+        value='New setting value'
     )
 
-    added_config_setting = client.add_configuration_setting(config_setting)
+    added_config_setting = app_config_client.add_configuration_setting(config_setting)
 ```
 
-Note that attempting to call **add_configuration_setting** with a key and label pair that already exist will throw an exception.
 
 ### Get a list of configuration settings
 
-The following code snippet retrieves a list of configuration settings. The `key_filter` and `label_filter` arguments can be provided to filter key-values based on `key` and 'label` respectively. For more information on filtering, see how to [query configuration settings](./concept-key-value.md#query-key-values).
+The following code snippet retrieves a list of configuration settings. The `key_filter` and `label_filter` arguments can be provided to filter key-values based on `key` and `label` respectively. For more information on filtering, see how to [query configuration settings](./concept-key-value.md#query-key-values).
 
 ```python
-    filtered_settings_list = app_config_client.list_configuration_settings(key_filter="TestApp*")
+    filtered_settings_list = app_config_client.list_configuration_settings( key_filter="TestApp*")
     print("Retrieved configuration settings:")
-    for item in filtered_listed:
-        print("Key: " + item.key + ", Value: " + item.value)
+    for item in filtered_settings_list:
+        print("Key: ", item.key, ", Value: ", item.value)
 ```
 
 ### Lock a configuration setting
@@ -162,41 +161,30 @@ The following code snippet retrieves a list of configuration settings. The `key_
 The following code snippet shows how to lock a configuration setting by calling the `set_read_only` method and providing the `ConfigurationSetting` object to be locked.
 
 ```python
-    locked_config_setting = client.set_read_only(config_setting)
+    locked_config_setting = app_config_client.set_read_only(config_setting)
     print("Read-only status: ", locked_config_setting.read_only)
-
-    # Update the value of the ConfigurationSetting object
-    config_setting.value = "Updated value"
-
-    try:
-        client.set_configuration_setting(config_setting)
-    except Exception as ex:
-        print('Exception:')
-        print(ex)
-
-    unlocked_config_setting = client.set_read_only(config_setting, False)
-    print("Read-only status: ", unlocked_config_setting.read_only)
 ```
 
-Settings that are locked with the Python client API are also locked in the Azure portal, as indicated by the lock icon next to the setting's value in the **Configuration explorer**.
+### Unlock a configuration setting
 
-![Select Create](media/quickstarts/azure-portal-app-configuration-locked-setting.png)
+The following code snippet shows how to lock a configuration setting by calling the `set_read_only` method and providing the `ConfigurationSetting` object and specifying **False** for the optional parameter to indicate that the state of the setting should be set to unlocked.
 
-Unlock a setting in the portal by clicking the elipses at the end of the setting's row and selecting **Unlock**. 
-
-![Select Create](media/quickstarts/azure-portal-app-configuration-unlocked-setting.png)
+```python
+    unlocked_config_setting = app_config_client.set_read_only(config_setting, False)
+    print("Read-only status: ", unlocked_config_setting.read_only)
+```
 
 ### Update a configuration setting
 
 The following code snippet updates an existing setting by calling **set_configuration_settings** and passing in the **ConfigurationSetting** object for which the value was updated in the previous step. You can use **set_configuration_settings** to update an existing setting or create a new setting. Add this code to the end of the `try` block.
 
 ```python
-    updated_config_setting = client.set_configuration_setting(config_setting)
+    updated_config_setting = app_config_client.set_configuration_setting(config_setting)
     
-    filtered_settings_list = client.list_configuration_settings( key_filter="TestApp*")
-    print("Key list:")
+    filtered_settings_list = app_config_client.list_configuration_settings( key_filter="TestApp*")
+    print("Retrieved configuration settings:")
     for item in filtered_settings_list:
-        print("   key: ", item.key, " label: ", item.label, "value: ", item.value)
+        print("Key: ", item.key, ", Value: ", item.value)
 ```
 
 ### Delete a configuration setting
@@ -204,14 +192,14 @@ The following code snippet updates an existing setting by calling **set_configur
 The following code snippet deletes a configuration setting by calling the **delete_configuration_settings** method.
 
 ```python
-    deleted_config_setting = client.delete_configuration_setting(
-        key="TestApp:Settings:Message", label="TestAppLabel"
+    deleted_config_setting = app_config_client.delete_configuration_setting(
+        key="TestApp:Settings:NewSetting"
     )
     
-    filtered_settings_list = client.list_configuration_settings( key_filter="TestApp*")
-    print("Key list:")
+    filtered_settings_list = app_config_client.list_configuration_settings( key_filter="TestApp*")
+    print("Retrieved configuration settings:")
     for item in filtered_settings_list:
-        print("   key: ", item.key, " label: ", item.label, "value: ", item.value)
+        print("Key: ", item.key, ", Value: ", item.value)
 ```
 
 ## Run the app
@@ -222,7 +210,7 @@ The following is the full code listing.
 
 ```python
 import os
-from  azure.appconfiguration import *
+from azure.appconfiguration import AzureAppConfigurationClient, ConfigurationSetting
 
 
 try:
@@ -237,85 +225,58 @@ try:
     # closed and reloaded to take the environment variable into account.
     connection_string = os.getenv('AZURE_APP_CONFIG_CONNECTION_STRING')
 
-    client = AzureAppConfigurationClient.from_connection_string(connection_string)
+    app_config_client = AzureAppConfigurationClient.from_connection_string(connection_string)
 
-    fetched_config_setting = client.get_configuration_setting(key = 'TestApp:Settings:Message')
-    print(
-        "Fetched key: ", fetched_config_setting.key,
-        " value: ", fetched_config_setting.value
-    )
+    retrieved_config_setting = app_config_client.get_configuration_setting(key = 'TestApp:Settings:Message')
+    print("Retrieved configuration setting:")
+    print("Key: " + retrieved_config_setting.key + ", Value: " + retrieved_config_setting.value)
 
     config_setting = ConfigurationSetting(
-        key='TestApp:Settings:Message',
-        label='TestAppLabel',
-        value='Value from labeled key'
+        key='TestApp:Settings:NewSetting',
+        value='New setting value'
     )
 
-    added_config_setting = client.add_configuration_setting(config_setting)
+    added_config_setting = app_config_client.add_configuration_setting(config_setting)
 
-    filtered_settings_list = client.list_configuration_settings( key_filter="TestApp*")
-    print("Key list:")
+    filtered_settings_list = app_config_client.list_configuration_settings( key_filter="TestApp*")
+    print("Retrieved configuration settings:")
     for item in filtered_settings_list:
-        print("   key: ", item.key, " label: ", item.label, "value: ", item.value)
+        print("Key: ", item.key, ", Value: ", item.value)
 
-    locked_config_setting = client.set_read_only(config_setting)
+    
+    locked_config_setting = app_config_client.set_read_only(config_setting)
     print("Read-only status: ", locked_config_setting.read_only)
 
-    try:
-        config_setting.value = "Updated value"
-        client.set_configuration_setting(config_setting)
-    except Exception as ex:
-        print('Exception:')
-        print(ex)
+    # try:
+    #     config_setting.value = "Updated value"
+    #     app_config_client.set_configuration_setting(config_setting)
+    # except Exception as ex:
+    #     print('Exception:')
+    #     print(ex)
 
-    unlocked_config_setting = client.set_read_only(config_setting, False)
+    unlocked_config_setting = app_config_client.set_read_only(config_setting, False)
     print("Read-only status: ", unlocked_config_setting.read_only)
 
-    updated_config_setting = client.set_configuration_setting(config_setting)
+    updated_config_setting = app_config_client.set_configuration_setting(config_setting)
     
-    filtered_settings_list = client.list_configuration_settings( key_filter="TestApp*")
-    print("Key list:")
+    filtered_settings_list = app_config_client.list_configuration_settings( key_filter="TestApp*")
+    print("Retrieved configuration settings:")
     for item in filtered_settings_list:
-        print("   key: ", item.key, " label: ", item.label, "value: ", item.value)
+        print("Key: ", item.key, ", Value: ", item.value)
 
 
-    deleted_config_setting = client.delete_configuration_setting(
-        key="TestApp:Settings:Message", label="TestAppLabel"
+    deleted_config_setting = app_config_client.delete_configuration_setting(
+        key="TestApp:Settings:NewSetting"
     )
     
-    filtered_settings_list = client.list_configuration_settings( key_filter="TestApp*")
-    print("Key list:")
+    filtered_settings_list = app_config_client.list_configuration_settings( key_filter="TestApp*")
+    print("Retrieved configuration settings:")
     for item in filtered_settings_list:
-        print("   key: ", item.key, " label: ", item.label, "value: ", item.value)
+        print("Key: ", item.key, ", Value: ", item.value)
 
 except Exception as ex:
     print('Exception:')
     print(ex)
-```
-
-In your console window, navigate to the directory containing the *app-configuration-quickstart.py* file, then execute the following `python` command to run the app.
-
-```console
-python app-configuration-quickstart.py
-```
-
-The output of the app is similar to the following example:
-
-```output
-Azure App Configuration - Python quickstart sample
-Fetched key:  TestApp:Settings:Message  value:  Data from Azure App Configuration
-Key list:
-   key:  TestApp:Settings:Message  label:  None value:  Data from Azure App Configuration
-   key:  TestApp:Settings:Message  label:  TestAppLabel value:  Value from labeled key
-Read-only status:  True
-Exception:
-Operation returned an invalid status 'Conflict'
-Read-only status:  False
-Key list:
-   key:  TestApp:Settings:Message  label:  None value:  Data from Azure App Configuration
-   key:  TestApp:Settings:Message  label:  TestAppLabel value:  Updated value
-Key list:
-   key:  TestApp:Settings:Message  label:  None value:  Data from Azure App Configuratione
 ```
 ## Clean up resources
 
