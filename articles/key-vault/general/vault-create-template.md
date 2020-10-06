@@ -216,4 +216,4 @@ Write-Host "Press [ENTER] to continue..."
 
 - [Secure access to a Key Vault](secure-your-key-vault.md)
 - [Authenticate to a Key Vault](authentication.md)
-- [Azure Key Vault Developer's guide](developers-guide)
+- [Azure Key Vault Developer's guide](developers-guide.md)
