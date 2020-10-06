@@ -49,7 +49,7 @@ With managed identities, the Azure platform manages this runtime identity. You d
 #### Authorization: Azure roles for Azure Digital Twins
 
 Azure provides the below Azure built-in roles for authorizing access to an Azure Digital Twins resource:
-* *Azure Digital Twins Owner (Preview)* – Use this role to give full access over Azure Digital Twins resources.
+* *Azure Digital Twins Data Owner* – Use this role to give full access over Azure Digital Twins resources.
 * *Azure Digital Twins Reader (Preview)* – Use this role to give read-only access to Azure Digital Twins resources.
 
 > [!TIP]
