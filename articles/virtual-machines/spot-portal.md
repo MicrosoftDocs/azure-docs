@@ -30,7 +30,7 @@ On the **Basics** tab, in the **Instance details** section, **No** is the defaul
 
 ![Screen capture for choosing no, don't use an Azure spot instance](./media/spot-portal/no.png)
 
-It you select **Yes**, the section expands and you can choose your [eviction type and eviction policy](spot-vms.md#eviction-policy). 
+If you select **Yes**, the section expands and you can choose your [eviction type and eviction policy](spot-vms.md#eviction-policy). 
 
 ![Screen capture for choosing yes, use an Azure spot instance](./media/spot-portal/yes.png)
 
