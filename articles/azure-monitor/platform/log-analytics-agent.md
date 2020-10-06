@@ -55,16 +55,18 @@ See [Configure agent to report to an Operations Manager management group](agent-
 
 * Windows agents can connect to up to four workspaces, even if they are connected to a System Center Operations Manager management group.
 * The Linux agent does not support multi-homing and can only connect to a single workspace or management group.
-  
+
 
 ## Security limitations
 
-* The Windows agent supports the [FIPS 140 standard](/windows/security/threat-protection/fips-140-validation), while the Linux agent does not support it.  
+* The Windows and Linux agents support the [FIPS 140 standard](/windows/security/threat-protection/fips-140-validation), but [other types of hardening may not be supported](agent-linux.md#supported-linux-hardening).
 
 
 ## Installation options
 
 There are multiple methods to install the Log Analytics agent and connect your machine to Azure Monitor depending on your requirements. The following sections list the possible methods for different types of virtual machine.
+> [!NOTE]
+> It is not supported to clone a machine with the Log Analytics Agent already configured. If the agent has already been associated with a workspace this will not work for 'golden images'.
 
 ### Azure virtual machine
 

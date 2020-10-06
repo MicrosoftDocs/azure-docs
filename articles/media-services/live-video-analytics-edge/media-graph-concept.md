@@ -16,7 +16,8 @@ ms.date: 05/01/2020
 
 A media graph lets you define where media should be captured from, how it should be processed, and where the results should be delivered. You accomplish this by connecting components, or nodes, in the desired manner. The diagram below provides a graphical representation of a media graph.  
 
-![A graphical representation of a media graph](./media/media-graph/overview.png)
+> [!div class="mx-imgBorder"]
+> :::image type="content" source="./media/media-graph/media-graph.svg" alt-text="Media graph":::
 
 Live Video Analytics on IoT Edge supports different types of sources, processors, and sinks.
 
@@ -34,7 +35,8 @@ The values for the parameters in the topology are specified when you create grap
 
 The lifecycle of graph topologies and graph instances is shown in the following state diagram.
 
-![Graph topology and graph instance lifecycle](./media/media-graph/graph-topology-lifecycle.svg)
+> [!div class="mx-imgBorder"]
+> :::image type="content" source="./media/media-graph/graph-topology-lifecycle.svg" alt-text="Graph topology and graph instance lifecycle":::
 
 You begin with [creating a graph topology](direct-methods.md#graphtopologyset). Then, for each live video feed that you want to process with this topology, you [create a graph instance](direct-methods.md#graphinstanceset). 
 
@@ -63,7 +65,7 @@ Live Video Analytics on IoT Edge supports the following types of nodes within a 
 
 #### RTSP source 
 
-An RTSP source node enables you to ingest media from a [RTSP](https://tools.ietf.org/html/rfc2326 server. Surveillance and IP-based cameras transmit their data in a protocol called RTSP (real-time-streaming-protocol) which is different than other types of devices like phones and video cameras. This protocol is used for establishing and controlling the media sessions between a server (the camera) and a client. The RTSP source node in a media graph acts as a client and can establish a session with an RTSP server. Many devices such as most [IP cameras](https://en.wikipedia.org/wiki/IP_camera) have a built-in RTSP server. [ONVIF](https://www.onvif.org/) mandates RTSP to be supported in its definition of [Profiles G, S & T](https://www.onvif.org/wp-content/uploads/2019/12/ONVIF_Profile_Feature_overview_v2-3.pdf) compliant devices. The RTSP source node requires you to specify an RTSP URL, along with credentials to enable an authenticated connection.
+An RTSP source node enables you to ingest media from a [RTSP](https://tools.ietf.org/html/rfc2326 server). Surveillance and IP-based cameras transmit their data in a protocol called RTSP (real-time-streaming-protocol) which is different than other types of devices like phones and video cameras. This protocol is used for establishing and controlling the media sessions between a server (the camera) and a client. The RTSP source node in a media graph acts as a client and can establish a session with an RTSP server. Many devices such as most [IP cameras](https://en.wikipedia.org/wiki/IP_camera) have a built-in RTSP server. [ONVIF](https://www.onvif.org/) mandates RTSP to be supported in its definition of [Profiles G, S & T](https://www.onvif.org/wp-content/uploads/2019/12/ONVIF_Profile_Feature_overview_v2-3.pdf) compliant devices. The RTSP source node requires you to specify an RTSP URL, along with credentials to enable an authenticated connection.
 
 #### IoT Hub message source 
 

@@ -93,7 +93,7 @@ All data collected by Application Insights is stored in Azure Log Analytics, whi
 
 	![Code](media/tutorial-runtime-exceptions/codelens.png)
 
-1. Click **Analyze impact** to open Application Insights Analytics.  It's populated with several queries that provide details on failed requests such as impacted users, browsers, and regions.<br><br>![Analytics](media/tutorial-runtime-exceptions/analytics.png)<br>
+1. Click **Analyze impact** to open Application Insights Analytics.  It's populated with several queries that provide details on failed requests such as impacted users, browsers, and regions.<br><br>![Screenshot shows Application Insights window which includes several queries.](media/tutorial-runtime-exceptions/analytics.png)<br>
 
 ## Add work item
 If you connect Application Insights to a tracking system such as Azure DevOps or GitHub, you can create a work item directly from Application Insights.

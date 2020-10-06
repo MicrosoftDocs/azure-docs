@@ -39,13 +39,11 @@ The [Text Analytics for Health](../how-tos/text-analytics-for-health.md) contain
 
 | Endpoint                        | Container Image Tag                     | Model version |
 |---------------------------------|-----------------------------------------|---------------|
-| `/domains/health`               | `1.1.013150001-amd64-preview` or latest | `2020-07-24`  |
+| `/entities/health`              | `1.1.013530001-amd64-preview` or latest          | `2020-09-03`  |
+| `/entities/health`              | `1.1.013150001-amd64-preview`           | `2020-07-24`  |
 | `/domains/health`               | `1.1.012640001-amd64-preview`           | `2020-05-08`  |
 | `/domains/health`               | `1.1.012420001-amd64-preview`           | `2020-05-08`  |
 | `/domains/health`               | `1.1.012070001-amd64-preview`           | `2020-04-16`  |
-| `/domains/health`               | `1.1.012070001-amd64-preview`           | `2020-07-24`  |
-
-
 
 
 ## Next steps

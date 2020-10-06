@@ -1,5 +1,5 @@
 ---
-title: Create compute resources in studio
+title: Create training & deploy computes (studio)
 titleSuffix: Azure Machine Learning
 description: Use studio to create training and deployment compute resources (compute targets) for machine learning
 services: machine-learning
@@ -13,12 +13,14 @@ ms.topic: conceptual
 ms.custom: how-to, contperfq1
 ---
 # Create compute targets for model training and deployment in Azure Machine Learning studio
-[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
 In this article, learn how to create and manage compute targets in Azure Machine studio.  You can also create and manage compute targets with:
 
-* [Azure Machine Learning Learning SDK](how-to-create-attach-compute-sdk.md), 
-* The [CLI extension](reference-azure-machine-learning-cli.md#resource-management) for Azure Machine Learning
+* Azure Machine Learning Learning SDK or  CLI extension for Azure Machine Learning
+  * [Compute instance](how-to-create-manage-compute-instance.md)
+  * [Compute cluster](how-to-create-attach-compute-cluster.md)
+  * [Azure Kubernetes Service cluster](how-to-create-attach-kubernetes.md)
+  * [Other compute resources](how-to-attach-compute-targets.md)
 * The [VS Code extension](how-to-manage-resources-vscode.md#compute-clusters) for Azure Machine Learning.
 
 
@@ -102,7 +104,7 @@ Create a single or multi node compute cluster for your training, batch inferenci
 |Maximum number of nodes | Maximum number of nodes that you want to provision. The compute will autoscale to a maximum of this node count when a job is submitted. |
 |Advanced settings     |  Optional. Configure a virtual network. Specify the **Resource group**, **Virtual network**, and **Subnet** to create the compute instance inside an Azure Virtual Network (vnet). For more information, see these [network requirements](how-to-enable-virtual-network.md#compute-instance) for vnet.   Also attach [managed identities](#managed-identity) to grant access to resources     |
 
-#### <a id="managed-identity"></a> Set up managed identity
+#### <a name="managed-identity"></a> Set up managed identity
 
 [!INCLUDE [aml-clone-in-azure-notebook](../../includes/aml-managed-identity-intro.md)]
 
@@ -113,6 +115,9 @@ During cluster creation or when editing compute cluster details, in the **Advanc
 [!INCLUDE [aml-clone-in-azure-notebook](../../includes/aml-managed-identity-default.md)]
 
 ### Inference clusters
+
+> [!IMPORTANT]
+> Using Azure Kubernetes Service with Azure Machine Learning has multiple configuration options. Some scenarios, such as networking, require additional setup and configuration. For more information on using AKS with Azure ML, see [Create and attach an Azure Kubernetes Service cluster](how-to-create-attach-kubernetes.md).
 
 Create or attach an Azure Kubernetes Service (AKS) cluster for large scale inferencing. Use the [steps above](#portal-create) to create the AKS cluster.  Then fill out the form as follows:
 

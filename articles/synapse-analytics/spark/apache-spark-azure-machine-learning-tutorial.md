@@ -1,16 +1,16 @@
 ---
-title: Run experiments using Azure Automated ML
-description: Run machine learning experiments using Apache Spark and Azure Automated ML
+title: 'Tutorial: Run experiments using Azure Automated ML'
+description: A tutorial on how to run machine learning experiments using Apache Spark and Azure Automated ML
 services: synapse-analytics
 author: midesa
 ms.service: synapse-analytics
-ms.topic: conceptual
-ms.subservice:
+ms.topic: tutorial
+ms.subservice: machine-learning
 ms.date: 06/30/2020
 ms.author: midesa
 ms.reviewer: jrasnick, 
 ---
-# Run experiments using Azure Automated ML and Apache Spark
+# Tutorial: Run experiments using Azure Automated ML and Apache Spark
 
 Azure Machine Learning is a cloud-based environment that allows you to train, deploy, automate, manage, and track machine learning models. 
 

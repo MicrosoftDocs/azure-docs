@@ -36,7 +36,7 @@ Forecasts or predictions from machine learning can make apps and devices smarter
 ## Machine learning tools to fit each task 
 
 Azure Machine Learning provides all the tools developers and data scientists need for their machine learning workflows, including:
-+ The [Azure Machine Learning designer](tutorial-designer-automobile-price-train-score.md) (preview): drag-n-drop modules to build your experiments and then deploy pipelines.
++ The [Azure Machine Learning designer](tutorial-designer-automobile-price-train-score.md): drag-n-drop modules to build your experiments and then deploy pipelines.
 
 + Jupyter notebooks: use our [example notebooks](https://github.com/Azure/MachineLearningNotebooks) or create your own notebooks to leverage our <a href="https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py" target="_blank">SDK for Python</a> samples for your machine learning. 
 
@@ -58,15 +58,15 @@ You can even use [MLflow to track metrics and deploy models](how-to-use-mlflow.m
 
 Start training on your local machine using the Azure Machine Learning <a href="https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py" target="_blank">Python SDK</a> or <a href="https://azure.github.io/azureml-sdk-for-r/reference/index.html" target="_blank">R SDK</a>. Then, you can scale out to the cloud. 
 
-With many available [compute targets](how-to-create-attach-compute-sdk.md), like Azure Machine Learning Compute and [Azure Databricks](/azure/azure-databricks/what-is-azure-databricks), and with [advanced hyperparameter tuning services](how-to-tune-hyperparameters.md), you can build better models faster by using the power of the cloud.
+With many available [compute targets](how-to-create-attach-compute-studio.md), like Azure Machine Learning Compute and [Azure Databricks](/azure/azure-databricks/what-is-azure-databricks), and with [advanced hyperparameter tuning services](how-to-tune-hyperparameters.md), you can build better models faster by using the power of the cloud.
 
 You can also [automate model training and tuning](tutorial-auto-train-models.md) using the SDK.
 
 ## Build ML models in the studio
 
-[Azure Machine Learning studio](https://www.ml.azure.com) is a web portal in Azure Machine Learning for low-code and no-code options for model training, deployment, and asset management. The studio integrates with the Azure Machine Learning SDK for a seamless experience. For more information, see [What is Azure Machine Learning studio](overview-what-is-machine-learning-studio.md).
+[Azure Machine Learning studio](https://studio.azureml.net) is a web portal in Azure Machine Learning for low-code and no-code options for model training, deployment, and asset management. The studio integrates with the Azure Machine Learning SDK for a seamless experience. For more information, see [What is Azure Machine Learning studio](overview-what-is-machine-learning-studio.md).
 
-+ **Azure Machine Learning designer (preview)**
++ **Azure Machine Learning designer**
 
   Use [the designer](concept-designer.md) to train and deploy machine learning models without writing any code. Try the [designer tutorial](tutorial-designer-automobile-price-train-score.md) to get started. 
 
@@ -81,13 +81,13 @@ You can also [automate model training and tuning](tutorial-auto-train-models.md)
 
 + **And much more...**
 
-  Visit Azure Machine Learning studio at [ml.azure.com](https://www.ml.azure.com). 
+  Visit Azure Machine Learning studio at [ml.azure.com](https://studio.azureml.net). 
 
 
 ## MLOps: Deploy & lifecycle management
 When you have the right model, you can easily use it in a web service, on an IoT device, or from Power BI. For more information, see the article on [how to deploy and where](how-to-deploy-and-where.md).
 
-Then you can manage your deployed models by using the [Azure Machine Learning SDK for Python](https://docs.microsoft.com/python/api/overview/azure/ml/?view=azure-ml-py), [Azure Machine Learning studio](https://ml.azure.com), or the [machine learning CLI](reference-azure-machine-learning-cli.md).
+Then you can manage your deployed models by using the [Azure Machine Learning SDK for Python](https://docs.microsoft.com/python/api/overview/azure/ml/?view=azure-ml-py&preserve-view=true), [Azure Machine Learning studio](https://ml.azure.com), or the [machine learning CLI](reference-azure-machine-learning-cli.md).
 
 These models can be consumed and return predictions in [real time](how-to-consume-web-service.md) or [asynchronously](how-to-use-parallel-run-step.md) on large quantities of data.
 
@@ -110,7 +110,7 @@ Azure Machine Learning works with other services on the Azure platform, and also
 + __Azure Event Grid__. For more information, see [Consume Azure Machine Learning events](concept-event-grid-integration.md).
 + __Azure Monitor__. For more information, see [Monitoring Azure Machine Learning](monitor-azure-machine-learning.md).
 + Data stores such as __Azure Storage accounts__, __Azure Data Lake Storage__, __Azure SQL Database__, __Azure Database for PostgreSQL__, and __Azure Open Datasets__. For more information, see [Access data in Azure storage services](how-to-access-data.md) and [Create datasets with Azure Open Datasets](how-to-create-register-datasets.md).
-+ __Azure Virtual Networks__. For more information, see [Secure experimentation and inference in a virtual network](how-to-enable-virtual-network.md).
++ __Azure Virtual Networks__. For more information, see [Virtual network isolation and privacy overview](how-to-network-security-overview.md).
 + __Azure Pipelines__. For more information, see [Train and deploy machine learning models](/azure/devops/pipelines/targets/azure-machine-learning).
 + __Git repository logs__. For more information, see [Git integration](concept-train-model-git-integration.md).
 + __MLFlow__. For more information, see [MLflow to track metrics and deploy models](how-to-use-mlflow.md) 
@@ -118,16 +118,7 @@ Azure Machine Learning works with other services on the Azure platform, and also
 
 ### Secure communications
 
-Your Azure Storage account, compute targets, and other resources can be used securely inside a virtual network to train models and perform inference. For more information, see [Secure experimentation and inference in a virtual network](how-to-enable-virtual-network.md).
-
-## <a name="sku"></a>Basic & Enterprise editions
-
-Azure Machine Learning offers two editions tailored for your machine learning needs:
-+ **Basic**: Great for open-source development at cloud scale with a code-first experience.
-
-+ **Enterprise**: All of Basic plus a web interface (studio) + secure, comprehensive ML lifecycle management for all skill levels.
-
-To learn more about these editions and what capabilities they unlock, read the ["Azure Machine Learning Editions" article](concept-editions.md).
+Your Azure Storage account, compute targets, and other resources can be used securely inside a virtual network to train models and perform inference. For more information, see [Virtual network isolation and privacy overview](how-to-network-security-overview.md).
 
 ## Next steps
 

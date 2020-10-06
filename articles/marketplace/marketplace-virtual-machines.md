@@ -7,14 +7,14 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 author: iqshahmicrosoft
 ms.author: iqshah
-ms.date: 04/15/2020
+ms.date: 09/04/2020
 ---
 
 # Publishing guide for virtual machine offers
 
 Publishing virtual machine (VM) images is one of the main ways to publish a solution to Azure Marketplace. Use this guide to understand the requirements for this type of offer. 
 
-Virtual machine offers are transaction offers that are deployed and billed through Azure Marketplace. The call to action that a user sees is *Get It Now*.
+Virtual machine offers are transaction offers that are deployed and billed through Azure Marketplace. The listing option that a user sees is *Get It Now*.
 
 ## Free trial 
 

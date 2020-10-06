@@ -161,7 +161,7 @@ Commercial marketplace offerings can be purchased in 141 geographies as defined 
 | Zimbabwe                            | ZW        | USD          |
 |   |   |   |
 
-\* For customers in Brazil, the commcercial marketplace through Cloud Solution Providers (CSP) uses USD.
+\* For customers in Brazil, the commercial marketplace through Cloud Solution Providers (CSP) uses USD.
 
 \** Free and BYOL VM images only.
 
@@ -172,14 +172,16 @@ For all paid offer types, you have the option of entering prices in USD or uploa
 To adjust any price before you publish, just export the pricing spreadsheet, modify it, and upload it with changes.
 
 > [!NOTE]
-> After a price for a market in your plan is published, it can't be changed later. To ensure that the prices are right before you publish them, export the pricing spreadsheet and review the prices in each market.
+> After a price for a market in your plan is published, it can't be changed. To ensure that the prices are right before you publish them, export the pricing spreadsheet and review the prices in each market.
 
 The price of an offer is always shown to customers in their local currency. The price you select in Partner Center is converted to the local currency of customers according to the exchange rate at the time you saved the price in Partner Center. The price shown to customers in the online stores doesn't change, unless you republish your offer.
 
-Microsoft receives payments from customers in their local currency, and pays you in your local currency. Microsoft converts the customer local currency to your local currency using the exchange rate of the day of purchase.
+Microsoft receives payments from customers in their local currency, and pays you in the currency you selected in Partner Center. Microsoft converts the customer local currency using the exchange rate of the day of purchase.
 
 > [!NOTE]
-> Microsoft converts offer prices using the Microsoft Treasury exchange rate.
+> Microsoft converts offer prices using the Microsoft Treasury exchange rates.
+
+[![The currency conversion flow.](media/marketplace-geo-availability-currencies/currency-exchange-flow.png)](media/marketplace-geo-availability-currencies/currency-exchange-flow.png#lightbox)
 
 ## Retrieving currency information by API
 

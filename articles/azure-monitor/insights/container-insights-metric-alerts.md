@@ -1,14 +1,14 @@
 ---
-title: Metric alerts from Azure Monitor for containers | Microsoft Docs
+title: Metric alerts from Azure Monitor for containers
 description: This article reviews the recommended metric alerts available from Azure Monitor for containers in public preview.
 ms.topic: conceptual
-ms.date: 08/04/2020
+ms.date: 09/24/2020
 
 ---
 
 # Recommended metric alerts (preview) from Azure Monitor for containers
 
-To alert on system resource issues when they are experiencing peak demand and running near capacity, with Azure Monitor for containers you would create a log alert based on performance data stored in Azure Monitor Logs. Azure Monitor for containers now includes pre-configured metric alert rules for your AKS cluster, which is in public preview.
+To alert on system resource issues when they are experiencing peak demand and running near capacity, with Azure Monitor for containers you would create a log alert based on performance data stored in Azure Monitor Logs. Azure Monitor for containers now includes pre-configured metric alert rules for your AKS and Azure Arc enabled Kubernetes cluster, which is in public preview.
 
 This article reviews the experience and provides guidance on configuring and managing these alert rules.
 
@@ -18,22 +18,22 @@ If you're not familiar with Azure Monitor alerts, see [Overview of alerts in Mic
 
 Before you start, confirm the following:
 
-* Custom metrics are only available in a subset of Azure regions. A list of supported regions is documented [here](../platform/metrics-custom-overview.md#supported-regions).
+* Custom metrics are only available in a subset of Azure regions. A list of supported regions is documented in [Supported regions](../platform/metrics-custom-overview.md#supported-regions).
 
-* To support metric alerts and the introduction of additional metrics, the minimum agent version required is **microsoft/oms:ciprod05262020**.
+* To support metric alerts and the introduction of additional metrics, the minimum agent version required is **microsoft/oms:ciprod05262020** for AKS and **microsoft/oms:ciprod09252020** for Azure Arc enabled Kubernetes cluster.
 
     To verify your cluster is running the newer version of the agent, you can either:
 
     * Run the command: `kubectl describe <omsagent-pod-name> --namespace=kube-system`. In the status returned, note the value under **Image** for omsagent in the *Containers* section of the output. 
     * On the **Nodes** tab, select the cluster node and on the **Properties** pane to the right, note the value under **Agent Image Tag**.
 
-    The value shown should be a version later than **ciprod05262020**. If your cluster has an older version, follow the [upgrade agent on AKS cluster](container-insights-manage-agent.md#upgrade-agent-on-aks-cluster) steps to get the latest version.
-    
+    The value shown for AKS should be version **ciprod05262020** or later. The value shown for Azure Arc enabled Kubernetes cluster should be version **ciprod09252020** or later. If your cluster has an older version, see [How to upgrade the Azure Monitor for containers agent](container-insights-manage-agent.md#upgrade-agent-on-aks-cluster) for steps to get the latest version.
+
     For more information related to the agent release, see [agent release history](https://github.com/microsoft/docker-provider/tree/ci_feature_prod). To verify metrics are being collected, you can use Azure Monitor metrics explorer and verify from the **Metric namespace** that **insights** is listed. If it is, you can go ahead and start setting up the alerts. If you don't see any metrics collected, the cluster Service Principal or MSI is missing the necessary permissions. To verify the SPN or MSI is a member of the **Monitoring Metrics Publisher** role, follow the steps described in the section [Upgrade per cluster using Azure CLI](container-insights-update-metrics.md#upgrade-per-cluster-using-azure-cli) to confirm and set role assignment.
 
 ## Alert rules overview
 
-To alert on what matters, Azure Monitor for containers includes the following metric alerts for your AKS clusters:
+To alert on what matters, Azure Monitor for containers includes the following metric alerts for your AKS and Azure Arc enabled Kubernetes clusters:
 
 |Name| Description |Default threshold |
 |----|-------------|------------------|
@@ -140,7 +140,7 @@ The basic steps are as follows:
 
 2. To deploy a customized template through the portal, select **Create a resource** from the [Azure portal](https://portal.azure.com).
 
-3. Search for **template**, and then select **Template**. deployment.
+3. Search for **template**, and then select **Template deployment**.
 
 4. Select **Create**.
 

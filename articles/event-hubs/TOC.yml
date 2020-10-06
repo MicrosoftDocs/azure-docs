@@ -10,6 +10,8 @@
       href: event-hubs-capture-overview.md
     - name: Event Hubs Dedicated
       href: event-hubs-dedicated-overview.md
+    - name: Azure Schema Registry in Event Hubs (Preview)
+      href: schema-registry-overview.md      
 - name: Quickstarts
   expanded: true
   items:
@@ -64,7 +66,7 @@
   items:
     - name: Visualize data anomalies on Event Hubs data streams
       href: event-hubs-tutorial-visualize-anomalies.md
-    - name: Store captured data in a SQL Data Warehouse
+    - name: Store captured data in a Azure Synapse Analytics
       href: store-captured-data-data-warehouse.md
     - name: Process Apache Kafka for Event Hubs events using Stream analytics
       href: event-hubs-kafka-stream-analytics.md
@@ -125,6 +127,8 @@
       maintainContext: true
 - name: How-to guides
   items:
+    - name: Create a schema registry
+      href: create-schema-registry.md  
     - name: Move
       items:
       - name: Move a namespace to another region
@@ -219,6 +223,8 @@
           href: troubleshoot-authentication-authorization.md
         - name: Kafka troubleshooting guide for Event Hubs
           href: apache-kafka-troubleshooting-guide.md
+        - name: EventHubsException 
+          href: exceptions-dotnet.md    
         - name: .NET exceptions
           href: event-hubs-messaging-exceptions.md
         - name: Resource Manager exceptions

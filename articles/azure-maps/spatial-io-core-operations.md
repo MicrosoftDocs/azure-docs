@@ -8,7 +8,7 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.custom: devx-track-javascript
+ms.custom: devx-track-js
 ---
 
 # Core IO operations
@@ -126,19 +126,14 @@ The generated XML from the above code would look like the following.
 
 Learn more about the classes and methods used in this article:
 
-> [!div class="nextstepaction"]
-> [CsvReader](https://docs.microsoft.com/javascript/api/azure-maps-spatial-io/atlas.io.core.csvreader)
+[CsvReader](https://docs.microsoft.com/javascript/api/azure-maps-spatial-io/atlas.io.core.csvreader)
 
-> [!div class="nextstepaction"]
-> [CsvWriter](https://docs.microsoft.com/javascript/api/azure-maps-spatial-io/atlas.io.core.csvwriter)
+[CsvWriter](https://docs.microsoft.com/javascript/api/azure-maps-spatial-io/atlas.io.core.csvwriter)
 
-> [!div class="nextstepaction"]
-> [SimpleXmlReader](https://docs.microsoft.com/javascript/api/azure-maps-spatial-io/atlas.io.core.simplexmlreader)
+[SimpleXmlReader](https://docs.microsoft.com/javascript/api/azure-maps-spatial-io/atlas.io.core.simplexmlreader)
 
-> [!div class="nextstepaction"]
-> [SimpleXmlWriter](https://docs.microsoft.com/javascript/api/azure-maps-spatial-io/atlas.io.core.simplexmlwriter)
+[SimpleXmlWriter](https://docs.microsoft.com/javascript/api/azure-maps-spatial-io/atlas.io.core.simplexmlwriter)
 
 See the following articles for more code samples to add to your maps:
 
-> [!div class="nextstepaction"]
-> [Supported data format details](spatial-io-supported-data-format-details.md)
+[Supported data format details](spatial-io-supported-data-format-details.md)

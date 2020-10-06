@@ -21,7 +21,7 @@ There are two broad categories of an IoT solution:
 
 To use an IoT Plug and Play model, an IoT solution:
 
-1. Identifies the model ID of the model implemented by the IoT Plug and Play device connected to the solution.
+1. Identifies the model ID of the model implemented by the IoT Plug and Play device, module, or IoT Edge module connected to the solution.
 
 1. Uses the model ID to retrieve the model definition of the connected device from a model repository or custom store.
 
@@ -35,7 +35,10 @@ A solution can get the model ID of the IoT Plug and Play device by using one of 
 
 ### Get Device Twin API
 
-The solution can use the [Get Device Twin](https://docs.microsoft.com/rest/api/iothub/service/twin/getdevicetwin) API to retrieve model ID of the IoT Plug and Play device.
+The solution can use the [Get Device Twin](https://docs.microsoft.com/java/api/com.microsoft.azure.sdk.iot.device.deviceclient.getdevicetwin?view=azure-java-stable&preserve-view=true) API to retrieve model ID of the IoT Plug and Play device.
+
+> [!TIP]
+> For modules and IoT Edge modules, use [ModuleClient.getTwin](https://docs.microsoft.com/java/api/com.microsoft.azure.sdk.iot.device.moduleclient.gettwin?view=azure-java-stable&preserve-view=true).
 
 In the following device twin response snippet, `modelId` contains the model ID of an IoT Plug and Play device:
 

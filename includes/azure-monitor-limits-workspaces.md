@@ -66,20 +66,30 @@ Azure Monitor is a high scale data service that serves thousands of customers se
 
 When you send data to a workspace at a volume rate higher than 80% of the threshold configured in your workspace, an event is sent to the *Operation* table in your workspace every 6 hours while the threshold continues to be exceeded. When ingested volume rate is higher than threshold, some data is dropped and an event is sent to the *Operation* table in your workspace every 6 hours while the threshold continues to be exceeded. If your ingestion volume rate continues to exceed the threshold or you are expecting to reach it sometime soon, you can request to increase it in by opening a support request. 
 
-To be notified on approching or reaching ingestion volume rate limit in your workspace, create a [log alert rule](../articles/azure-monitor/platform/alerts-log.md) using the following query with alert logic base on number of results grater than zero, evaluation period of 5 minutes and frequency of 5 minutes.
+To be notified on approaching or reaching ingestion volume rate limit in your workspace, create a [log alert rule](../articles/azure-monitor/platform/alerts-log.md) using the following query with alert logic base on number of results greater than zero, evaluation period of 5 minutes and frequency of 5 minutes.
 
-Ingestion volume rate reached 80% of threshold:
+Ingestion volume rate crossed the threshold
 ```Kusto
 Operation
-|where OperationCategory == "Ingestion"
-|where Detail startswith "The data ingestion volume rate crossed 80% of the threshold"
+| where OperationCategory == "Ingestion"
+| where OperationKey == "Ingestion rate limit"
+| where OperationStatus == "Error"
 ```
 
-Ingestion volume rate reached threshold:
+Ingestion volume rate crossed 80% of the threshold
 ```Kusto
 Operation
-|where OperationCategory == "Ingestion"
-|where Detail startswith "The data ingestion volume rate crossed the threshold"
+| where OperationCategory == "Ingestion"
+| where OperationKey == "Ingestion rate limit"
+| where OperationStatus == "Warning"
+```
+
+Ingestion volume rate crossed 70% of the threshold
+```Kusto
+Operation
+| where OperationCategory == "Ingestion"
+| where OperationKey == "Ingestion rate limit"
+| where OperationStatus == "Info"
 ```
 
 >[!NOTE]

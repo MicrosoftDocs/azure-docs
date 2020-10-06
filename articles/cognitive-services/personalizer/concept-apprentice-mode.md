@@ -1,6 +1,8 @@
 ---
 title: Apprentice mode - Personalizer
 description:
+ms.service: cognitive-services
+ms.subservice: personalizer
 ms.topic: conceptual
 ms.date: 05/01/2020
 ---

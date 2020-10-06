@@ -61,11 +61,11 @@ Before configuring RFPIO for automatic user provisioning with Azure AD, you will
 
 4.	Ensure that **Auto User Provisioning** is enabled. Click on **GENERATE SCIM API TOKEN**.
 
-	![RFPIO Create Token](media/rfpio-provisioning-tutorial/generate.png)
+	![Screenshot of the S C I M section with the GENERATE S C I M A P I TOKEN option called out.](media/rfpio-provisioning-tutorial/generate.png)
 
 5.	Save the **SCIM API Token** as this token will not be displayed again for security purpose. This value will be entered in the **Secret Token** field in the Provisioning tab of your RFPIO application in the Azure portal.
 
-	![RFPIO Create Token](media/rfpio-provisioning-tutorial/auth.png)
+	![Screenshot of the S C I M section with the the Warning dialog box that appears after you select SUBMIT.](media/rfpio-provisioning-tutorial/auth.png)
 
 ## Add RFPIO from the gallery
 
@@ -108,11 +108,11 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 3. Select the **Provisioning** tab.
 
-	![Provisioning tab](common/provisioning.png)
+	![Screenshot of the Manage options with the Provisioning option called out.](common/provisioning.png)
 
 4. Set the **Provisioning Mode** to **Automatic**.
 
-	![Provisioning tab](common/provisioning-automatic.png)
+	![Screenshot of the Provisioning Mode dropdown list with the Automatic option called out.](common/provisioning-automatic.png)
 
 5. Under the **Admin Credentials** section, input `https://<RFPIO tenant instance>.rfpio.com/rfpserver/scim/v2 ` in **Tenant URL**. An example value is `https://Azure-test1.rfpio.com/rfpserver/scim/v2`. Input the **SCIM API Token** value retrieved earlier in **Secret Token**. Click **Test Connection** to ensure Azure AD can connect to RFPIO. If the connection fails, ensure your RFPIO account has Admin permissions and try again.
 

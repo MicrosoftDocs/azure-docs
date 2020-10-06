@@ -51,6 +51,10 @@ If you're receiving errors importing your OpenAPI document, make sure you've val
 
 ## OpenAPI import, update, and export mechanisms
 
+### <a name="open-import-export-general"> </a>General
+
+-   API definitions exported from API Management service are primarily intended for applications external to API Management service that need to call the API hosted in API Management service. Exported API definitions are not intended to be imported again into the same or different API Management service. For configuration management of API defiitions across different serivces/envionments, please refer to documentation regarding using API Management Service with Git. 
+
 ### Add new API via OpenAPI import
 
 For each operation found in the OpenAPI document, a new operation will be created with Azure resource name and display name set to `operationId` and `summary` respectively. `operationId` value is normalized following the rules described below. `summary` value is imported as-is and its length is limited to 300 characters.

@@ -158,6 +158,7 @@ To create a premium file share with the Azure PowerShell module, use the [New-Az
 ```powershell
 New-AzStorageShare `
    -Name myshare `
+   -EnabledProtocol SMB `
    -Context $storageAcct.Context
 ```
 
@@ -172,6 +173,7 @@ To create a premium file share with the Azure CLI, use the [az storage share cre
 az storage share create \
     --account-name $STORAGEACCT \
     --account-key $STORAGEKEY \
+    --enabled-protocol SMB \
     --name "myshare" 
 ```
 ---

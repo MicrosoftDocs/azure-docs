@@ -16,7 +16,7 @@ ms.date: 07/10/2020
 ---
 
 # Use private Python packages with Azure Machine Learning
-[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
+
 
 In this article, learn how to use private Python packages securely within Azure Machine Learning. Use cases for private Python packages include:
 
@@ -29,12 +29,12 @@ The private packages are used through [Environment](https://docs.microsoft.com/p
 
 ## Prerequisites
 
- * The [Azure Machine Learning SDK for Python](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py)
+ * The [Azure Machine Learning SDK for Python](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py&preserve-view=true)
  * An [Azure Machine Learning workspace](how-to-manage-workspace.md)
 
 ## Use small number of packages for development and testing
 
-For a small number of private packages for a single workspace, use the static [`Environment.add_private_pip_wheel()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment.environment?view=azure-ml-py#add-private-pip-wheel-workspace--file-path--exist-ok-false-) method. This approach allows you to quickly add a private package to the workspace, and is well suited for development and testing purposes.
+For a small number of private packages for a single workspace, use the static [`Environment.add_private_pip_wheel()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment.environment?view=azure-ml-py&preserve-view=true#&preserve-view=trueadd-private-pip-wheel-workspace--file-path--exist-ok-false-) method. This approach allows you to quickly add a private package to the workspace, and is well suited for development and testing purposes.
 
 Point the file path argument to a local wheel file and run the ```add_private_pip_wheel``` command. The command returns a URL used to track the location of the package within your Workspace. Capture the storage URL and pass it the `add_pip_package()` method.
 
@@ -50,14 +50,14 @@ Internally, Azure Machine Learning service replaces the URL by secure SAS URL, s
 
 ## Use a repository of packages from Azure DevOps feed
 
-If you're actively developing Python packages for your machine learning application, you can host them in an Azure DevOps repository as artifacts and publish them as a feed. This approach allows you to integrate the DevOps workflow for building packages with your Azure Machine Learning Workspace. To learn how to set up Python feeds using Azure DevOps, read [Get Started with Python Packages in Azure Artifacts](https://docs.microsoft.com/azure/devops/artifacts/quickstarts/python-packages?view=azure-devops)
+If you're actively developing Python packages for your machine learning application, you can host them in an Azure DevOps repository as artifacts and publish them as a feed. This approach allows you to integrate the DevOps workflow for building packages with your Azure Machine Learning Workspace. To learn how to set up Python feeds using Azure DevOps, read [Get Started with Python Packages in Azure Artifacts](https://docs.microsoft.com/azure/devops/artifacts/quickstarts/python-packages?view=azure-devops&preserve-view=true)
 
 This approach uses Personal Access Token to authenticate against the repository. The same approach is applicable to other repositories
 with token based authentication, such as private GitHub repositories. 
 
- 1. [Create a Personal Access Token (PAT)](https://docs.microsoft.com/azure/devops/organizations/accounts/use-personal-access-tokens-to-authenticate?view=azure-devops&tabs=preview-page#create-a-pat) for your Azure DevOps instance. Set the scope of the token to __Packaging > Read__. 
+ 1. [Create a Personal Access Token (PAT)](https://docs.microsoft.com/azure/devops/organizations/accounts/use-personal-access-tokens-to-authenticate?view=azure-devops&preserve-view=true&tabs=preview-page#create-a-pat) for your Azure DevOps instance. Set the scope of the token to __Packaging > Read__. 
 
- 2. Add the Azure DevOps URL and PAT as workspace properties, using the [Workspace.set_connection](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace.workspace?view=azure-ml-py#set-connection-name--category--target--authtype--value-) method.
+ 2. Add the Azure DevOps URL and PAT as workspace properties, using the [Workspace.set_connection](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace.workspace?view=azure-ml-py&preserve-view=true#&preserve-view=trueset-connection-name--category--target--authtype--value-) method.
 
      ```python
     from azureml.core import Workspace
@@ -90,16 +90,10 @@ The environment is now ready to be used in training runs or web service endpoint
 
 You can consume packages from an Azure storage account within your organization's firewall. The storage account can hold a curated set of packages or an internal mirror of publicly available packages.
 
-To set up such private storage:
+To set up such private storage, see [Secure an Azure Machine Learning workspace and associated resources](how-to-secure-workspace-vnet.md#secure-azure-storage-accounts-with-service-endpoints). You must also [place the Azure Container Registry (ACR) behind the VNet](how-to-secure-workspace-vnet.md#enable-azure-container-registry-acr).
 
-1. [Place the Workspace inside a virtual network (VNet)](how-to-enable-virtual-network.md).
-1. Create a storage account and [disallow public access](https://docs.microsoft.com/azure/storage/common/storage-network-security).
-1. Place the Python packages you want to use into a container within the storage account 
-1. [Allow the storage account access from Workspace VNet](https://docs.microsoft.com/azure/storage/common/storage-network-security#grant-access-from-a-virtual-network)
-1. [Place the Azure Container Registry (ACR) for the workspace behind the VNet](how-to-enable-virtual-network.md#azure-container-registry).
-
-    > [!IMPORTANT]
-    > You must complete this step to be able to train or deploy models using the private package repository.
+> [!IMPORTANT]
+> You must complete this step to be able to train or deploy models using the private package repository.
 
 After completing these configurations, you can reference the packages in the Azure Machine Learning environment definition by their full URL in Azure blob storage.
 

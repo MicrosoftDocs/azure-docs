@@ -2,7 +2,7 @@
 title: Troubleshoot Azure Application Insights Snapshot Debugger
 description: This article presents troubleshooting steps and information to help developers who are having trouble enabling or using Application Insights Snapshot Debugger.
 ms.topic: conceptual
-author: brahmnes
+author: cweining
 ms.date: 03/07/2019
 
 ms.reviewer: mbullwin
@@ -28,13 +28,38 @@ If that doesn't solve the problem, then refer to the following manual troublesho
 
 Make sure you're using the correct instrumentation key in your published application. Usually, the instrumentation key is read from the ApplicationInsights.config file. Verify the value is the same as the instrumentation key for the Application Insights resource that you see in the portal.
 
+## <a id="SSL"></a>Check SSL client settings (ASP.NET)
+
+If you have an ASP.NET application hosted in Azure App Service or in IIS on a virtual machine, your application could fail to connect to the Snapshot Debugger service due to a missing SSL security protocol.
+[The Snapshot Debugger endpoint requires TLS version 1.2](snapshot-debugger-upgrade.md?toc=/azure/azure-monitor/toc.json). The set of SSL security protocols is one of the quirks enabled by the httpRuntime targetFramework value in the system.web section of web.config.
+If the httpRuntime targetFramework is 4.5.2 or lower, then TLS 1.2 isn't included by default.
+
+> [!NOTE]
+> The httpRuntime targetFramework value is independent of the target framework used when building your application.
+
+To check the setting, open your web.config file and find the system.web section. Ensure that the `targetFramework` for `httpRuntime` is set to 4.6 or above.
+
+   ```xml
+   <system.web>
+      ...
+      <httpRuntime targetFramework="4.7.2" />
+      ...
+   </system.web>
+   ```
+
+> [!NOTE]
+> Modifying the httpRuntime targetFramework value changes the runtime quirks applied to your application and can cause other, subtle behavior changes. Be sure to test your application thoroughly after making this change. For a full list of compatibility changes, please see https://docs.microsoft.com/dotnet/framework/migration-guide/application-compatibility#retargeting-changes
+
+> [!NOTE]
+> If the targetFramework is 4.7 or above then Windows determines the available protocols. In Azure App Service, TLS 1.2 is available. However, if you are using your own virtual machine, you may need to enable TLS 1.2 in the OS.
+
 ## Preview Versions of .NET Core
 If the application uses a preview version of .NET Core, and Snapshot Debugger was enabled through the [Application Insights pane](snapshot-debugger-appservice.md?toc=/azure/azure-monitor/toc.json) in the portal, then Snapshot Debugger may not start. Follow the instructions at [Enable Snapshot Debugger for other environments](snapshot-debugger-vm.md?toc=/azure/azure-monitor/toc.json) first to include the [Microsoft.ApplicationInsights.SnapshotCollector](https://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector) NuGet package with the application ***in addition*** to enabling through the [Application Insights pane](snapshot-debugger-appservice.md?toc=/azure/azure-monitor/toc.json).
 
 
 ## Upgrade to the latest version of the NuGet package
 
-If Snapshot Debugger was enabled through the [Application Insights pane in the portal](snapshot-debugger-appservice.md?toc=/azure/azure-monitor/toc.json), then your application should already be running the latest NuGet package. If Snapshot Debugger was enabled by including the [Microsoft.ApplicationInsights.SnapshotCollector](https://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector) NuGet package, use Visual Studio's NuGet Package Manager to make sure you're using the latest version of Microsoft.ApplicationInsights.SnapshotCollector. Release notes can be found at https://github.com/Microsoft/ApplicationInsights-Home/issues/167
+If Snapshot Debugger was enabled through the [Application Insights pane in the portal](snapshot-debugger-appservice.md?toc=/azure/azure-monitor/toc.json), then your application should already be running the latest NuGet package. If Snapshot Debugger was enabled by including the [Microsoft.ApplicationInsights.SnapshotCollector](https://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector) NuGet package, use Visual Studio's NuGet Package Manager to make sure you're using the latest version of Microsoft.ApplicationInsights.SnapshotCollector.
 
 ## Check the uploader logs
 

@@ -6,7 +6,7 @@ author: kevinvngo
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
-ms.subservice:
+ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: kevin
 ms.reviewer: igorstan
@@ -21,7 +21,7 @@ Rowgroup quality is determined by the number of rows in a rowgroup. Increasing t
 
 Since a columnstore index scans a table by scanning column segments of individual rowgroups, maximizing the number of rows in each rowgroup enhances query performance. When rowgroups have a high number of rows, data compression improves which means there is less data to read from disk.
 
-For more information about rowgroups, see [Columnstore Indexes Guide](/sql/relational-databases/indexes/columnstore-indexes-overview?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest).
+For more information about rowgroups, see [Columnstore Indexes Guide](/sql/relational-databases/indexes/columnstore-indexes-overview?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true).
 
 ## Target size for rowgroups
 
@@ -29,15 +29,15 @@ For best query performance, the goal is to maximize the number of rows per rowgr
 
 ## Rowgroups can get trimmed during compression
 
-During a bulk load or columnstore index rebuild, sometimes there isn't enough memory available to compress all the rows designated for each rowgroup. When there is memory pressure, columnstore indexes trim the rowgroup sizes so compression into the columnstore can succeed.
+During a bulk load or columnstore index rebuild, sometimes there's not enough memory available to compress all the rows designated for each rowgroup. When there is memory pressure, columnstore indexes trim the rowgroup sizes so compression into the columnstore can succeed.
 
 When there is insufficient memory to compress at least 10,000 rows into each rowgroup, an error will be generated.
 
-For more information on bulk loading, see [Bulk load into a clustered columnstore index](/sql/relational-databases/indexes/columnstore-indexes-data-loading-guidance?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest#Bulk ).
+For more information on bulk loading, see [Bulk load into a clustered columnstore index](/sql/relational-databases/indexes/columnstore-indexes-data-loading-guidance?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest#Bulk&preserve-view=true ).
 
 ## How to monitor rowgroup quality
 
-The DMV sys.dm_pdw_nodes_db_column_store_row_group_physical_stats ([sys.dm_db_column_store_row_group_physical_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-column-store-row-group-physical-stats-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) contains the view definition matching SQL DB) that exposes useful information such as number of rows in rowgroups and the reason for trimming if there was trimming. You can create the following view as a handy way to query this DMV to get information on rowgroup trimming.
+The DMV sys.dm_pdw_nodes_db_column_store_row_group_physical_stats ([sys.dm_db_column_store_row_group_physical_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-column-store-row-group-physical-stats-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) contains the view definition matching SQL DB) that exposes useful information such as number of rows in rowgroups and the reason for trimming if there was trimming. You can create the following view as a handy way to query this DMV to get information on rowgroup trimming.
 
 ```sql
 create view dbo.vCS_rg_physical_stats
@@ -72,14 +72,15 @@ The trim_reason_desc tells whether the rowgroup was trimmed(trim_reason_desc = N
 
 ## How to estimate memory requirements
 
-The maximum required memory to compress one rowgroup is approximately
+The maximum required memory to compress one rowgroup is, approximately, as follows:
 
 - 72 MB +
 - \#rows \* \#columns \* 8 bytes +
 - \#rows \* \#short-string-columns \* 32 bytes +
 - \#long-string-columns \* 16 MB for compression dictionary
 
-where short-string-columns use string data types of <= 32 bytes and long-string-columns use string data types of > 32 bytes.
+> [!NOTE]
+> Where short-string-columns use string data types of <= 32 bytes and long-string-columns use string data types of > 32 bytes.
 
 Long strings are compressed with a compression method designed for compressing text. This compression method uses a *dictionary* to store text patterns. The maximum size of a dictionary is 16 MB. There is only one dictionary for each long string column in the rowgroup.
 
@@ -117,7 +118,7 @@ Design the load query to focus only on loading the query. If you need to run tra
 
 ### Adjust MAXDOP
 
-Each distribution compresses rowgroups into the columnstore in parallel when there is more than one CPU core available per distribution. The parallelism requires additional memory resources, which can lead to memory pressure and rowgroup trimming.
+Each distribution compresses rowgroups into the columnstore in parallel when there's more than one CPU core available per distribution. The parallelism requires additional memory resources, which can lead to memory pressure and rowgroup trimming.
 
 To reduce memory pressure, you can use the MAXDOP query hint to force the load operation to run in serial mode within each distribution.
 

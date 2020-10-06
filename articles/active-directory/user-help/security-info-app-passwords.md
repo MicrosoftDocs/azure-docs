@@ -55,7 +55,7 @@ If you use two-step verification with your work or school account and your admin
 
 4. Type the name of the app that requires the app password, and then select **Next**.
 
-    ![App password page, with name of app](media/security-info/securityinfo-myprofile-password-appname.png)
+    ![Screenshot that shows the "App password" page, with the name of the app entered.](media/security-info/securityinfo-myprofile-password-appname.png)
 
 5. Copy the text from the **Password** box, paste the password in the password area of the app (in this example, Outlook 2010), and then select **Done**.
 

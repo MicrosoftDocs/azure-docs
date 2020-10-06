@@ -1,5 +1,5 @@
 ---
-title: Define a new gateway device type in Azure IoT Central | Microsoft Docs
+title: Tutorial - Define a new gateway device type in Azure IoT Central | Microsoft Docs
 description: This tutorial shows you, as a builder, how to define a new IoT gateway device type in your Azure IoT Central application.
 author: rangv
 ms.author: rangv
@@ -11,7 +11,7 @@ ms.custom: mvc
 manager: peterpr
 ---
 
-# Define a new IoT gateway device type in your Azure IoT Central application
+# Tutorial - Define a new IoT gateway device type in your Azure IoT Central application
 
 *This article applies to solution builders and device developers.*
 
@@ -26,6 +26,12 @@ As well as enabling downstream devices to communicate with your IoT Central appl
 * Send its own telemetry, such as temperature.
 * Respond to writeable property updates made by an operator. For example, an operator could changes the telemetry send interval.
 * Respond to commands, such as rebooting the device.
+
+> [!div class="checklist"]
+> Create downstream device templates
+> Create a gateway device template
+> Publish the device template
+> Create the simulated devices
 
 ## Prerequisites
 

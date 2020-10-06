@@ -35,7 +35,7 @@ When you're done, your logic app looks like this workflow at a high level:
 
 * An email account from an email provider supported by Logic Apps, such as Office 365 Outlook, Outlook.com, or Gmail. For other providers, [review the connectors list here](/connectors/).
 
-  This logic app uses an Office 365 Outlook account. If you use a different email account, the general steps stay the same, but your UI might appear slightly different.
+  This logic app uses a work or school account. If you use a different email account, the general steps stay the same, but your UI might appear slightly different.
 
   > [!IMPORTANT]
   > If you want to use the Gmail connector, only G-Suite business accounts can use this connector without restriction in logic apps. 
@@ -323,7 +323,7 @@ Now add a condition that selects only emails that have attachments.
 
    1. On the first row under **And**, click inside the left box. From the dynamic content list that appears, select the **Has Attachment** property.
 
-      ![Build condition](./media/tutorial-process-email-attachments-workflow/build-condition.png)
+      ![Screenshot that shows the "And" property for the condition and the "Has Attachment" property selection.](./media/tutorial-process-email-attachments-workflow/build-condition.png)
 
    1. In the middle box, keep the operator **is equal to**.
 
@@ -392,7 +392,7 @@ This step adds your previously created Azure function to your logic app and pass
 
    ![Inside "If true", add action](./media/tutorial-process-email-attachments-workflow/if-true-add-action.png)
 
-1. In the search box, find "azure functions", and select this action: **Choose an Azure function - Azure Functions**
+1. In the search box, find "Azure functions", and select this action: **Choose an Azure function - Azure Functions**
 
    ![Select action for "Choose an Azure function"](./media/tutorial-process-email-attachments-workflow/add-action-azure-function.png)
 
@@ -461,7 +461,7 @@ Next, add an action that creates a blob in your storage container so you can sav
 
    When you're done, the action looks like this example:
 
-   ![Finished "Create blob" action](./media/tutorial-process-email-attachments-workflow/create-blob-for-email-body-done.png)
+   ![Screenshot that shows an example of a finished "Create blob" action.](./media/tutorial-process-email-attachments-workflow/create-blob-for-email-body-done.png)
 
 1. Save your logic app.
 

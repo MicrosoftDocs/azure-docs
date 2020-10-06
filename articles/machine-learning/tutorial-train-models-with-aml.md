@@ -9,13 +9,13 @@ ms.topic: tutorial
 
 author: sdgilley
 ms.author: sgilley
-ms.date: 03/18/2020
+ms.date: 09/28/2020
 ms.custom: seodec18, devx-track-python
 #Customer intent: As a professional data scientist, I can build an image classification model with Azure Machine Learning by using Python in a Jupyter notebook.
 ---
 
 # Tutorial: Train image classification models with MNIST data and scikit-learn 
-[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
+
 
 In this tutorial, you train a machine learning model on remote compute resources. You'll use the training and deployment workflow for Azure Machine Learning in a Python Jupyter notebook.  You can then use the notebook as a template to train your own machine learning model with your own data. This tutorial is **part one of a two-part tutorial series**.  
 
@@ -34,7 +34,7 @@ You learn how to select a model and deploy it in [part two of this tutorial](tut
 If you don't have an Azure subscription, create a free account before you begin. Try the [free or paid version of Azure Machine Learning](https://aka.ms/AMLFree) today.
 
 >[!NOTE]
-> Code in this article was tested with [Azure Machine Learning SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py) version 1.0.83.
+> Code in this article was tested with [Azure Machine Learning SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py&preserve-view=true) version 1.13.0.
 
 ## Prerequisites
 
@@ -114,7 +114,7 @@ from azureml.core.compute import ComputeTarget
 import os
 
 # choose a name for your cluster
-compute_name = os.environ.get("AML_COMPUTE_CLUSTER_NAME", "cpucluster")
+compute_name = os.environ.get("AML_COMPUTE_CLUSTER_NAME", "cpu-cluster")
 compute_min_nodes = os.environ.get("AML_COMPUTE_CLUSTER_MIN_NODES", 0)
 compute_max_nodes = os.environ.get("AML_COMPUTE_CLUSTER_MAX_NODES", 4)
 
@@ -180,7 +180,7 @@ mnist_file_dataset = mnist_file_dataset.register(workspace=ws,
 
 ### Display some sample images
 
-Load the compressed files into `numpy` arrays. Then use `matplotlib` to plot 30 random images from the dataset with their labels above them. This step requires a `load_data` function that's included in an `util.py` file. This file is included in the sample folder. Make sure it's placed in the same folder as this notebook. The `load_data` function simply parses the compressed files into numpy arrays.
+Load the compressed files into `numpy` arrays. Then use `matplotlib` to plot 30 random images from the dataset with their labels above them. This step requires a `load_data` function that's included in an `utils.py` file. This file is included in the sample folder. Make sure it's placed in the same folder as this notebook. The `load_data` function simply parses the compressed files into numpy arrays.
 
 ```python
 # make sure utils.py is in the same directory as this code
@@ -220,7 +220,7 @@ Now you have an idea of what these images look like and the expected prediction 
 For this task, you submit the job to run on the remote training cluster you set up earlier.  To submit a job you:
 * Create a directory
 * Create a training script
-* Create an estimator object
+* Create a script run configuration
 * Submit the job
 
 ### Create a directory
@@ -305,19 +305,19 @@ Notice how the script gets data and saves models:
   shutil.copy('utils.py', script_folder)
   ```
 
-### Create an estimator
+### Configure the training job
 
-An estimator object is used to submit the run. Azure Machine Learning has pre-configured estimators for common machine learning frameworks, as well as generic Estimator. Create an estimator by specifying
+Create a [ScriptRunConfig](https://docs.microsoft.com/python/api/azureml-core/azureml.core.scriptrunconfig?view=azure-ml-py&preserve-view=true) object to specify the configuration details of your training job, including your training script, environment to use, and the compute target to run on. Configure the ScriptRunConfig by specifying:
 
-
-* The name of the estimator object, `est`.
 * The directory that contains your scripts. All the files in this directory are uploaded into the cluster nodes for execution.
 * The compute target. In this case, you use the Azure Machine Learning compute cluster you created.
 * The training script name, **train.py**.
 * An environment that contains the libraries needed to run the script.
-* Parameters required from the training script.
+* Arguments required from the training script.
 
-In this tutorial, this target is AmlCompute. All files in the script folder are uploaded into the cluster nodes for run. The **data_folder** is set to use the dataset. "First, create the environment that contains: the scikit-learn library, azureml-dataprep required for accessing the dataset, and azureml-defaults which contains the dependencies for logging metrics. The azureml-defaults also contains the dependencies required for deploying the model as a web service later in the part 2 of the tutorial.
+In this tutorial, this target is AmlCompute. All files in the script folder are uploaded into the cluster nodes for run. The **--data_folder** is set to use the dataset.
+
+First, create the environment that contains: the scikit-learn library, azureml-dataset-runtime required for accessing the dataset, and azureml-defaults which contains the dependencies for logging metrics. The azureml-defaults also contains the dependencies required for deploying the model as a web service later in the part 2 of the tutorial.
 
 Once the environment is defined, register it with the Workspace to re-use it in part 2 of the tutorial.
 
@@ -327,38 +327,34 @@ from azureml.core.conda_dependencies import CondaDependencies
 
 # to install required packages
 env = Environment('tutorial-env')
-cd = CondaDependencies.create(pip_packages=['azureml-dataprep[pandas,fuse]>=1.1.14', 'azureml-defaults'], conda_packages = ['scikit-learn==0.22.1'])
+cd = CondaDependencies.create(pip_packages=['azureml-dataset-runtime[pandas,fuse]', 'azureml-defaults'], conda_packages=['scikit-learn==0.22.1'])
 
 env.python.conda_dependencies = cd
 
 # Register environment to re-use later
-env.register(workspace = ws)
+env.register(workspace=ws)
 ```
 
-Then create the estimator with the following code.
+Then, create the ScriptRunConfig by specifying the training script, compute target and environment.
 
 ```python
-from azureml.train.estimator import Estimator
+from azureml.core import ScriptRunConfig
 
-script_params = {
-    # to mount files referenced by mnist dataset
-    '--data-folder': mnist_file_dataset.as_named_input('mnist_opendataset').as_mount(),
-    '--regularization': 0.5
-}
+args = ['--data-folder', mnist_file_dataset.as_mount(), '--regularization', 0.5]
 
-est = Estimator(source_directory=script_folder,
-              script_params=script_params,
-              compute_target=compute_target,
-              environment_definition=env,
-              entry_script='train.py')
+src = ScriptRunConfig(source_directory=script_folder,
+                      script='train.py', 
+                      arguments=args,
+                      compute_target=compute_target,
+                      environment=env)
 ```
 
 ### Submit the job to the cluster
 
-Run the experiment by submitting the estimator object:
+Run the experiment by submitting the ScriptRunConfig object:
 
 ```python
-run = exp.submit(config=est)
+run = exp.submit(config=src)
 run
 ```
 
@@ -370,7 +366,7 @@ In total, the first run takes **about 10 minutes**. But for subsequent runs, as 
 
 What happens while you wait:
 
-- **Image creation**: A Docker image is created that matches the Python environment specified by the estimator. The image is uploaded to the workspace. Image creation and uploading takes **about five minutes**.
+- **Image creation**: A Docker image is created that matches the Python environment specified by the Azure ML environment. The image is uploaded to the workspace. Image creation and uploading takes **about five minutes**.
 
   This stage happens once for each Python environment because the container is cached for subsequent runs. During image creation, logs are streamed to the run history. You can monitor the image creation progress by using these logs.
 
@@ -384,7 +380,7 @@ You can check the progress of a running job in several ways. This tutorial uses 
 
 ### Jupyter widget
 
-Watch the progress of the run with a [Jupyter widget](https://docs.microsoft.com/python/api/azureml-widgets/azureml.widgets?view=azure-ml-py). Like the run submission, the widget is asynchronous and provides live updates every 10 to 15 seconds until the job finishes:
+Watch the progress of the run with a [Jupyter widget](https://docs.microsoft.com/python/api/azureml-widgets/azureml.widgets?view=azure-ml-py&preserve-view=true). Like the run submission, the widget is asynchronous and provides live updates every 10 to 15 seconds until the job finishes:
 
 ```python
 from azureml.widgets import RunDetails

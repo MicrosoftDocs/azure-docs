@@ -56,7 +56,7 @@ The condition is structured as:
 Identifier:[ClaimPropertyCondition, ClaimPropertyCondition,…]
 ```
 
-The condition is composed of individual conditions on various properties of a claim. A condition can have an optional identifier, which can be used to refer the claim/s that satisfy the condition. This reference can be used in the other conditions or the action of the same rule.
+The conditions list is composed of individual conditions on various properties of a claim. A condition can have an optional identifier, which can be used to refer the claim/s that satisfy the condition. This reference can be used in the other conditions or the action of the same rule.
 
 For example
 

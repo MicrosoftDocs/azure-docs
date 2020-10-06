@@ -2,7 +2,7 @@
 title: Improve reliability of your application with Advisor
 description: Use Azure Advisor to ensure and improve reliability in your business-critical Azure deployments.
 ms.topic: article
-ms.date: 01/29/2019
+ms.date: 09/27/2020
 
 ---
 
@@ -72,8 +72,8 @@ Virtual machines that are in an availability set with disks that share either st
 
 ## Repair invalid log alert rules
 
-Azure Advisor detects alert rules that have invalid queries specified in their condition section. 
-You can create log alert rules in Azure Monitor and use them to run analytics queries at specified intervals. The results of a query determine if an alert needs to be triggered. Analytics queries can become invalid over time because of changes in referenced resources, tables, or commands. Advisor recommends that you correct the query in the alert rule to prevent it from being automatically disabled and ensure monitoring coverage of your resources in Azure. [Learn more about troubleshooting alert rules.](https://aka.ms/aa_logalerts_queryrepair)
+Azure Advisor detects log alert rules that have invalid queries specified in their condition section. 
+Azure Monitor log alert rules run queries at specified frequency and fire alerts based on the results. Queries can become invalid over time because of changes in the referenced resources, tables, or commands. Advisor recommends corrections for alert queries to prevent the rules from being automatically disabled and to ensure monitoring coverage. For more information, see [Troubleshooting alert rules](../azure-monitor/platform/alerts-troubleshoot-log.md#query-used-in-a-log-alert-isnt-valid)
 
 ## Configure Consistent indexing mode on your Azure Cosmos DB collection
 
@@ -106,6 +106,12 @@ Starting July 1, 2020, you won't be able to create new Spark clusters by using S
 ## Enable virtual machine replication
 Virtual machines that don't have replication enabled to another region aren't resilient to regional outages. Replicating virtual machines reduces any adverse business impact during Azure region outages. Advisor detects VMs on which replication isn't enabled and recommends enabling it. When you enable replication, if there's an outage, you can quickly bring up your virtual machines in a remote Azure region. [Learn more about virtual machine replication.](../site-recovery/azure-to-azure-quickstart.md)
 
+## Upgrade to the latest version of the Azure Connected Machine agent
+The [Azure Connected Machine agent](https://docs.microsoft.com/azure/azure-arc/servers/manage-agent) is updated regularly with bug fixes, stability enhancements, and new functionality. We have identified resources which are not working on the latest version of machine agent and this Advisor recommendation will suggest you to upgrade your agent to the latest version for the best Azure Arc experience.
+
+## Do not override hostname to ensure website integrity
+Advisor recommend to try avoid overriding the hostname when configuring Application Gateway. Having a different domain on the frontend of Application Gateway than the one which is used to access the backend can potentially lead to cookies or redirect urls being broken. Note that this might not be the case in all situations and that certain categories of backends (like REST API's) in general are less sensitive to this. Please make sure the backend is able to deal with this or update the Application Gateway configuration so the hostname does not need to be overwritten towards the backend. When used with App Service, attach a custom domain name to the Web App and avoid use of the *.azurewebsites.net host name towards the backend.* [Learn more about custom domain](https://aka.ms/appgw-advisor-usecustomdomain).
+
 ## How to access high availability recommendations in Advisor
 
 1. Sign in to the [Azure portal](https://portal.azure.com), and then open [Advisor](https://aka.ms/azureadvisordashboard).
@@ -117,6 +123,7 @@ Virtual machines that don't have replication enabled to another region aren't re
 For more information about Advisor recommendations, see:
 * [Introduction to Advisor](advisor-overview.md)
 * [Get started with Advisor](advisor-get-started.md)
+* [Advisor score](azure-advisor-score.md)
 * [Advisor cost recommendations](advisor-cost-recommendations.md)
 * [Advisor performance recommendations](advisor-performance-recommendations.md)
 * [Advisor security recommendations](advisor-security-recommendations.md)

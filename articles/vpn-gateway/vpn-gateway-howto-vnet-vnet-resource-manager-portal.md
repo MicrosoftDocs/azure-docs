@@ -6,7 +6,7 @@ author: cherylmc
 
 ms.service: vpn-gateway
 ms.topic: how-to
-ms.date: 03/05/2020
+ms.date: 09/03/2020
 ms.author: cherylmc
 
 ---
@@ -174,7 +174,7 @@ Next, create a connection from VNet4 to VNet1. In the portal, locate the virtual
    ![Verify connections](./media/vpn-gateway-howto-vnet-vnet-resource-manager-portal/view-connections.png "Verify connections")
 3. Under the **Name** column, select one of the connections to view more information. When data begins flowing, you'll see values for **Data in** and **Data out**.
 
-   ![Status](./media/vpn-gateway-howto-vnet-vnet-resource-manager-portal/status.png "Status")
+   ![Screenshot shows a resource group which has values for Data in and Data out.](./media/vpn-gateway-howto-vnet-vnet-resource-manager-portal/status.png "Status")
 
 ## Add additional connections
 

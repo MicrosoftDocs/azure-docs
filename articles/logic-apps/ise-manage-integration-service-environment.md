@@ -117,7 +117,7 @@ The Premium ISE base unit has fixed capacity, so if you need more throughput, yo
    * [**Manual scale**](#manual-scale): Scale based on the number of processing units that you want to use.
    * [**Custom autoscale**](#custom-autoscale): Scale based on performance metrics by selecting from various criteria and specifying the threshold conditions for meeting that criteria.
 
-   ![Select the scaling type that you want](./media/ise-manage-integration-service-environment/select-scale-out-options.png)
+   ![Screenshot that shows the "Scale out" page with "Manual scale" selected.](./media/ise-manage-integration-service-environment/select-scale-out-options.png)
 
 <a name="manual-scale"></a>
 

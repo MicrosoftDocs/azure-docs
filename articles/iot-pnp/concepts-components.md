@@ -53,7 +53,7 @@ The following example shows part of a simple model that doesn't use components:
 ...
 ```
 
-Although the model doesn't explicitly define a component, it behaves as if there is a single component with all the telemetry, property, and command definitions.
+Although the model doesn't explicitly define a component, it behaves as if there is a single, _default component_, with all the telemetry, property, and command definitions.
 
 The following screenshot shows how the model displays in the Azure IoT explorer tool:
 
@@ -63,7 +63,10 @@ The model ID is stored in a device twin property as the following screenshot sho
 
 :::image type="content" source="media/concepts-components/twin-model-id.png" alt-text="Model ID in digital twin property":::
 
-A DTDL model without components is a useful simplification for a device with a single set of telemetry, properties, and commands. A model that doesn't use components makes it easy to migrate an existing device to be an IoT Plug and Play device - you create a DTDL model that describes your actual device without the need to define any components.
+A DTDL model without components is a useful simplification for a device or IoT Edge module with a single set of telemetry, properties, and commands. A model that doesn't use components makes it easy to migrate an existing device or module to be an IoT Plug and Play device or module - you create a DTDL model that describes your actual device or module without the need to define any components.
+
+> [!TIP]
+> A module can be a device [module](../iot-hub/iot-hub-devguide-module-twins.md or an [IoT Edge module](../iot-edge/about-iot-edge.md).
 
 ## Multiple components
 
@@ -76,12 +79,12 @@ For a DTDL model with multiple components, there are two or more component secti
 ```json
 {
   "@context": "dtmi:dtdl:context;2",
-  "@id": "dtmi:com:example:Thermostat;1",
+  "@id": "dtmi:com:example:TemperatureController;1",
   "@type": "Interface",
-  "displayName": "Thermostat",
-  "description": "Reports current temperature and provides desired temperature control.",
+  "displayName": "Temperature Controller",
+  "description": "Device with two thermostats and remote reboot.",
   "contents": [
-... 
+...
     {
       "@type" : "Component",
       "schema": "dtmi:com:example:Thermostat;1",
@@ -106,11 +109,12 @@ For a DTDL model with multiple components, there are two or more component secti
 ...
 ```
 
-This model has three components defined in the contents section -  two `Thermostat` components and a `DeviceInformation` component. There's also a default root component.
+This model has three components defined in the contents section -  two `Thermostat` components and a `DeviceInformation` component. There's also a default component.
 
 ## Next steps
 
 Now that you've learned about model components, here are some additional resources:
 
+- [Install and use the DTDL authoring tools](howto-use-dtdl-authoring-tools.md)
 - [Digital Twins Definition Language v2 (DTDL)](https://github.com/Azure/opendigitaltwins-dtdl)
 - [Model repositories](./concepts-model-repository.md)

@@ -23,6 +23,8 @@
     - name: Security controls by Azure Policy
       displayName: regulatory, compliance, standards, domains
       href: security-controls-policy.md
+    - name: Security overview
+      href: security-overview.md
 - name: How-to guides
   items:
   - name: Connect to Azure Arc
@@ -45,9 +47,11 @@
     items:
     - name: Agent connection issues
       href: troubleshoot-agent-onboard.md
-  - name: Reference
-    items:
-    - name: Region availability and data residency
+    - name: VM Extension issues
+      href: troubleshoot-vm-extensions.md
+- name: Reference
+  items:
+    - name: Data residency
       href: data-residency.md
     - name: REST
       href: /rest/api/hybridcompute

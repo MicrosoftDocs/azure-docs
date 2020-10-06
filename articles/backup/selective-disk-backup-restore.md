@@ -10,9 +10,6 @@ ms.custom: references_regions
 
 Azure Backup supports backing up all the disks (operating system and data) in a VM together using the virtual machine backup solution. Now, using the selective disks backup and restore functionality, you can back up a subset of the data disks in a VM. This provides an efficient and cost-effective solution for your backup and restore needs. Each recovery point contains only the disks that are included in the backup operation. This further allows you to have a subset of disks restored from the given recovery point during the restore operation. This applies to both restore from snapshots and the vault.
 
->[!NOTE]
->Selective disk backup and restore for Azure virtual machines is in public preview in all regions.
-
 ## Scenarios
 
 This solution is useful particularly in the following scenarios:
@@ -33,7 +30,7 @@ Ensure you're using Az CLI version 2.0.80 or higher. You can get the CLI version
 az --version
 ```
 
-Sign in to the subscription ID where the Recovery Services vault and the VM exists:
+Sign in to the subscription ID where the Recovery Services vault and the VM exist:
 
 ```azurecli
 az account set -s {subscriptionID}
@@ -57,7 +54,7 @@ az backup protection enable-for-vm --resource-group {resourcegroup} --vault-name
 If the VM isn't in the same resource group as the vault, then **ResourceGroup** refers to the resource group where the vault was created. Instead of the VM name, provide the VM ID as indicated below.
 
 ```azurecli
-az backup protection enable-for-vm  --resource-group {ResourceGroup} --vault-name {vaultname} --vm $(az vm show -g VMResourceGroup -n MyVm --query id | tr -d '"') --policy-name {policyname} --disk-list-setting include --diskslist {LUN number(s) separated by space}
+az backup protection enable-for-vm  --resource-group {ResourceGroup} --vault-name {vaultname} --vm $(az vm show -g VMResourceGroup -n MyVm --query id --output tsv) --policy-name {policyname} --disk-list-setting include --diskslist {LUN number(s) separated by space}
 ```
 
 ### Modify protection for already backed up VMs with Azure CLI
@@ -81,7 +78,7 @@ az backup protection update-for-vm --resource-group {resourcegroup} --vault-name
 ### Restore disks with Azure CLI
 
 ```azurecli
-az backup restore restore-disks --resource-group {resourcegroup} --vault-name {vaultname} -c {vmname} -i {vmname} --backup-management-type AzureIaasVM -r {restorepoint} --target-resource-group {targetresourcegroup} --storage-account {storageaccountname} --diskslist {LUN number of the disk(s) to be restored}
+az backup restore restore-disks --resource-group {resourcegroup} --vault-name {vaultname} -c {vmname} -i {vmname} -r {restorepoint} --target-resource-group {targetresourcegroup} --storage-account {storageaccountname} --diskslist {LUN number of the disk(s) to be restored}
 ```
 
 ### Restore only OS disk with Azure CLI
@@ -264,6 +261,10 @@ When you enable backup using Azure portal, you can choose the **Backup OS Disk o
 
 ![Configure backup for the OS disk only](./media/selective-disk-backup-restore/configure-backup-operating-system-disk.png)
 
+## Using Azure REST API
+
+You can configure Azure VM Backup with a few select disks or you can modify an existing VM's protection to include/exclude few disks as documented [here](backup-azure-arm-userestapi-backupazurevms.md#excluding-disks-in-azure-vm-backup).
+
 ## Selective disk restore
 
 Selective disk restore is an added functionality you get when you enable the selective disks backup feature. With this functionality, you can restore selective disks from all the disks backed up in a recovery point. It's more efficient, and helps save time in scenarios where you know which of the disks needs to be restored.
@@ -280,11 +281,32 @@ Selective disks backup functionality isn't supported for classic virtual machine
 
 The restore options to **Create new VM** and **Replace existing** aren't supported for the VM for which selective disks backup functionality is enabled.
 
+Currently, Azure VM backup doesn't support VMs with ultra-disks or shared disks attached to them. Selective disk backup can't be used to in such cases, which exclude the disk and backup the VM.
+
 ## Billing
 
 Azure virtual machine backup follows the existing pricing model, explained in detail [here](https://azure.microsoft.com/pricing/details/backup/).
 
-**Protected Instance (PI) cost** is calculated for the OS disk only if you choose to back up using the **OS Disk only** option.  If you configure backup and select at least one data disk, the PI cost will be calculated for all the disks attached to the VM. **Backup storage cost** is calculated based on only the included disks and so you get to save on the storage cost. **Snapshot cost** is always calculated for all the disks in the VM (both the included and excluded disks).  
+**Protected Instance (PI) cost** is calculated for the OS disk only if you choose to back up using the **OS Disk only** option.  If you configure backup and select at least one data disk, the PI cost will be calculated for all the disks attached to the VM. **Backup storage cost** is calculated based on only the included disks and so you get to save on the storage cost. **Snapshot cost** is always calculated for all the disks in the VM (both the included and excluded disks).
+
+If you have chosen the Cross Region Restore (CRR) feature, then the [CRR pricing](https://azure.microsoft.com/pricing/details/backup/) applies on the backup storage cost after excluding the disk.
+
+## Frequently asked questions
+
+### How is Protected Instance (PI) cost calculated for only OS disk backup in Windows and Linux?
+
+PI cost is calculated based on actual (used) size of the VM.
+
+- For Windows: Used space calculation is based on the drive that stores the operating system (which is usually C:).
+- For Linux: Used space calculation is based on the device where root filesystem ( / ) is mounted.
+
+### I have configured only OS disk backup, why is the snapshot happening for all the disks?
+
+Selective disk backup features let you save on backup vault storage cost by hardening the included disks that are part of the backup. However, the snapshot is taken for all the disks that are attached to the VM. So the snapshot cost is always calculated for all the disks in the VM (both the included and excluded disks). For more information, see [billing](#billing).
+
+### I can't configure backup for the Azure virtual machine by excluding ultra disk or shared disks attached to the VM
+
+Selective disk backup feature is a capability provided on top of the Azure virtual machine backup solution. Currently, Azure VM backup doesn't support VMs with ultra-disk or shared disk attached to them.
 
 ## Next steps
 

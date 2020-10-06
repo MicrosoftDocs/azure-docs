@@ -16,22 +16,22 @@ Azure Data Lake Storage Gen2 implements an access control model that supports bo
 
 <a id="azure-role-based-access-control-rbac"></a>
 
-## Role-based access control
+## Azure role-based access control
 
-RBAC uses role assignments to effectively apply sets of permissions to *security principals*. A *security principal* is an object that represents a user, group, service principal, or managed identity that is defined in Azure Active Directory (AD) that is requesting access to Azure resources.
+Azure RBAC uses role assignments to effectively apply sets of permissions to *security principals*. A *security principal* is an object that represents a user, group, service principal, or managed identity that is defined in Azure Active Directory (AD) that is requesting access to Azure resources.
 
 Typically, those Azure resources are constrained to top-level resources (For example: Azure Storage accounts). In the case of Azure Storage, and consequently Azure Data Lake Storage Gen2, this mechanism has been extended to the container (file system) resource.
 
-To learn how to assign roles to security principals in the scope of your storage account, see [Grant access to Azure blob and queue data with RBAC in the Azure portal](https://docs.microsoft.com/azure/storage/common/storage-auth-aad-rbac-portal?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
+To learn how to assign roles to security principals in the scope of your storage account, see [Use the Azure portal to assign an Azure role for access to blob and queue data](https://docs.microsoft.com/azure/storage/common/storage-auth-aad-rbac-portal?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
 
 > [!NOTE]
 > A guest user can't create a role assignment.
 
 ### The impact of role assignments on file and directory level access control lists
 
-While using Azure role assignments is a powerful mechanism to control access permissions, it is a very coarsely grained mechanism relative to ACLs. The smallest granularity for RBAC is at the container level and this will be evaluated at a higher priority than ACLs. Therefore, if you assign a role to a security principal in the scope of a container, that security principal has the authorization level associated with that role for ALL directories and files in that container, regardless of ACL assignments.
+While using Azure role assignments is a powerful mechanism to control access permissions, it is a very coarsely grained mechanism relative to ACLs. The smallest granularity for Azure RBAC is at the container level and this will be evaluated at a higher priority than ACLs. Therefore, if you assign a role to a security principal in the scope of a container, that security principal has the authorization level associated with that role for ALL directories and files in that container, regardless of ACL assignments.
 
-When a security principal is granted RBAC data permissions through a [built-in role](https://docs.microsoft.com/azure/storage/common/storage-auth-aad?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#built-in-rbac-roles-for-blobs-and-queues), or through a custom role, these permissions are evaluated first upon authorization of a request. If the requested operation is authorized by the security principal's Azure role assignments then authorization is immediately resolved and no additional ACL checks are performed. Alternatively, if the security principal does not have an Azure role assignment, or the request's operation does not match the assigned permission, then ACL checks are performed to determine if the security principal is authorized to perform the requested operation.
+When a security principal is granted Azure RBAC data permissions through a [built-in role](https://docs.microsoft.com/azure/storage/common/storage-auth-aad?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#built-in-rbac-roles-for-blobs-and-queues), or through a custom role, these permissions are evaluated first upon authorization of a request. If the requested operation is authorized by the security principal's Azure role assignments then authorization is immediately resolved and no additional ACL checks are performed. Alternatively, if the security principal does not have an Azure role assignment, or the request's operation does not match the assigned permission, then ACL checks are performed to determine if the security principal is authorized to perform the requested operation.
 
 > [!NOTE]
 > If the security principal has been assigned the Storage Blob Data Owner built-in role assignment, then the security principal is considered a *super-user* and is granted full access to all mutating operations, including setting the owner of a directory or file as well as ACLs for directories and files for which they are not the owner. Super-user access is the only authorized manner to change the owner of a resource.
@@ -97,7 +97,7 @@ The permissions on a container object are **Read**, **Write**, and **Execute**, 
 | **Execute (X)** | Does not mean anything in the context of Data Lake Storage Gen2 | Required to traverse the child items of a directory |
 
 > [!NOTE]
-> If you are granting permissions by using only ACLs (no RBAC), then to grant a security principal read or write access to a file, you'll need to give the security principal **Execute** permissions to the container, and to each folder in the hierarchy of folders that lead to the file.
+> If you are granting permissions by using only ACLs (no Azure RBAC), then to grant a security principal read or write access to a file, you'll need to give the security principal **Execute** permissions to the container, and to each folder in the hierarchy of folders that lead to the file.
 
 #### Short forms for permissions
 
@@ -251,7 +251,7 @@ The umask for Azure Data Lake Storage Gen2 a constant value that is set to 007. 
 | umask.owning_group  |    0         |   `---`      | For owning group, copy the parent's default ACL to the child's access ACL | 
 | umask.other         |    7         |   `RWX`      | For other, remove all permissions on the child's access ACL |
 
-The umask value used by Azure Data Lake Storage Gen2 effectively means that the value for **other** is never transmitted by default on new children, regardless of what the default ACL indicates. 
+The umask value used by Azure Data Lake Storage Gen2 effectively means that the value for **other** is never transmitted by default on new children, unless a default ACL is defined on the parent directory. In that case, the umask is effectively ignored and the permissions defined by the default ACL are applied to the child item. 
 
 The following pseudocode shows how the umask is applied when creating the ACLs for a child item.
 

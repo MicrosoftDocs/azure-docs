@@ -1,6 +1,6 @@
 ---
 title: Custom administrator roles in Azure Active Directory | Microsoft Docs
-description: Preview custom Azure AD roles for delegating identity management. Manage Azure roles in the Azure portal, PowerShell, or Graph API.
+description: Learn how to understand Azure AD custom roles in Azure Active Directory (Azure AD) with roles-based access control and resource scopes.
 services: active-directory
 author: curtand
 manager: daveba
@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: overview
-ms.date: 04/22/2020
+ms.date: 09/11/2020
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro

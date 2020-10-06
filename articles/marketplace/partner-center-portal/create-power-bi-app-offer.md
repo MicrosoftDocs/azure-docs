@@ -5,13 +5,13 @@ author: navits09
 ms.author: navits
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 07/22/2020
 ---
 
 # Create a Power BI app offer
 
-This article describes how to create and publish a Power BI app offer to Microsoft [AppSource](https://appsource.microsoft.com/).
+This article describes how to create and publish a Power BI app offer to [Microsoft AppSource](https://appsource.microsoft.com/).
 
 Before starting, [Create a Commercial Marketplace account in Partner Center](create-account.md) if you haven't done so yet. Ensure your account is enrolled in the commercial marketplace program.
 
@@ -50,10 +50,10 @@ This page shows a visual representation of the steps required to publish this of
 
 It includes links to perform operations on this offer based on the selection you make. For example:
 
-- If the offer is a draft - [Delete draft offer](update-existing-offer.md#delete-a-draft-offer))
-- If the offer is live - [Stop selling the offer](update-existing-offer.md#stop-selling-an-offer-or-plan))
-- If the offer is in preview - [Go-live](publishing-status.md#publisher-approval))
-- If you haven't completed publisher sign-out - [Cancel publishing](update-existing-offer.md#cancel-publishing))
+- If the offer is a draft - [Delete draft offer](update-existing-offer.md#delete-a-draft-offer)
+- If the offer is live - [Stop selling the offer](update-existing-offer.md#stop-selling-an-offer-or-plan)
+- If the offer is in preview - [Go-live](publishing-status.md#publisher-approval)
+- If you haven't completed publishing - [Cancel publishing](update-existing-offer.md#cancel-publishing)
 
 ## Offer setup
 
@@ -68,7 +68,7 @@ When publishing your offer to the marketplace with Partner Center, you must conn
     - [Salesforce](commercial-marketplace-lead-management-instructions-salesforce.md)
 
     > [!NOTE]
-    > If your CRM system isn't listed above, use [Azure Table](commercial-marketplace-lead-management-instructions-azure-table.md) or [Https Endpoint](commercial-marketplace-lead-management-instructions-https.md) to store customer lead data. Then export the data to your CRM system.
+    > If your CRM system isn't in this list, use [Azure Table](commercial-marketplace-lead-management-instructions-azure-table.md) or and [HTTPS endpoint](commercial-marketplace-lead-management-instructions-https.md) to store customer lead data. Then export the data to your CRM system.
 
 2. Connect your offer to the lead destination when publishing in Partner Center.
 3. Confirm that the connection to the lead destination is configured properly. After you publish it in Partner Center, we'll validate the connection and send you a test lead. While you preview the offer before it goes live, you can also test your lead connection by trying to purchase the offer yourself in the preview environment.
@@ -76,10 +76,10 @@ When publishing your offer to the marketplace with Partner Center, you must conn
 
 Here are some additional lead management resources:
 
-- [Lead management overview](commercial-marketplace-get-customer-leads.md)
-- [Lead management FAQs](../lead-management-for-cloud-marketplace.md#frequently-asked-questions))
-- [Common lead configuration errors](../lead-management-for-cloud-marketplace.md#publishing-config-errors))
-- [Lead Management Overview](https://assetsprod.microsoft.com/mpn/cloud-marketplace-lead-management.pdf) PDF (make sure your pop-up blocker is turned off)
+- [Customer leads from your commercial marketplace offer](commercial-marketplace-get-customer-leads.md)
+- [Common questions about lead management](../lead-management-faq.md#common-questions-about-lead-management)
+- [Troubleshooting lead configuration errors](../lead-management-faq.md#publishing-config-errors)
+- [Lead Management Overview](https://assetsprod.microsoft.com/mpn/cloud-marketplace-lead-management.pdf) PDF (Make sure your pop-up blocker is turned off).
 
 Select **Save draft** before continuing.
 
@@ -197,7 +197,7 @@ Provide at least one and up to three related marketing documents in PDF format. 
 
 Provide logos and images to use with your offer. All images must be in PNG format. Blurry images will be rejected.
 
-[!INCLUDE [logotips](../includes/graphics-suggestions.md)]
+[!INCLUDE [logo tips](../includes/graphics-suggestions.md)]
 
 >[!NOTE]
 >If you have an issue uploading files, make sure your local network does not block the `https://upload.xboxlive.com` service used by Partner Center.
@@ -213,7 +213,7 @@ These logos are used in different places in the listing:
 
 [!INCLUDE [logos-appsource-only](../includes/logos-appsource-only.md)]
 
-[!INCLUDE [logotips](../includes/graphics-suggestions.md)]
+[!INCLUDE [logo tips](../includes/graphics-suggestions.md)]
 
 #### Screenshots
 

@@ -20,8 +20,8 @@ ms.collection: M365-identity-device-management
 
 [Azure Active Directory (Azure AD)](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-whatis) offers a universal identity platform that provides your people, partners, and customers a single identity to access applications and collaborate from any platform and device. Azure AD has a [full suite of identity management capabilities](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-whatis). Standardizing your application (app) authentication and authorization to Azure AD enables the benefits these capabilities provide. 
 
-> [!NOTE]
-> This article focuses on moving application authentication from on-premises Active Directory and Active Directory Federation Services to Azure AD. Please see the white paper [Migrating application authentication to Azure AD](https://aka.ms/migrateapps/whitepaper) for an overview of planning this move. The white paper discusses how to plan the migration, testing, and insights.
+> [!TIP]
+> This article is written for a developer audience. Project managers and administrators planning an application's move to Azure AD should consider reading our [Migrating application authentication to Azure AD](https://aka.ms/migrateapps/whitepaper) white paper (PDF).
 
 ## Introduction
 
@@ -30,7 +30,7 @@ If you have an on-premises directory that contains user accounts, you likely hav
 
 Users may also authenticate directly with your on-premises Active Directory. Active Directory Federation Services (AD FS) is a standards based on-premises identity service. AD FS extends the ability to use single sign-on (SSO) functionality between trusted business partners without requiring users to sign-in separately to each application. This is known as Federation.
 
-Many organizations have Software as a Service (SaaS) or custom Line-of-Business (LOB) apps federated directly to AD FS, alongside Office 365 and Azure AD-based apps. 
+Many organizations have Software as a Service (SaaS) or custom Line-of-Business (LOB) apps federated directly to AD FS, alongside Microsoft 365 and Azure AD-based apps. 
 
 ![Applications connected directly on-premises](media/migrate-adfs-apps-to-azure/app-integration-before-migration1.png)
 
@@ -401,7 +401,7 @@ In this table, we've listed some useful Permit and Except options and how they m
 | With Specific Claims in the Request| This setting can't be migrated| This setting can't be migrated |
 
 
-An example of how to configure the Exclude option for trusted locations in the Azure Portal:
+An example of how to configure the Exclude option for trusted locations in the Azure portal:
 
 ![Screenshot of mapping access control policies](media/migrate-adfs-apps-to-azure/map-builtin-access-control-policies-3.png)
 

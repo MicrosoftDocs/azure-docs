@@ -15,7 +15,7 @@ ms.custom: how-to, devx-track-python
 
 # Reinforcement learning (preview) with Azure Machine Learning
 
-[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
+
 
 > [!NOTE]
 > Azure Machine Learning Reinforcement Learning is currently a preview feature. Only Ray and RLlib frameworks are supported at this time.
@@ -45,8 +45,8 @@ Run this code in either of the following environments. We recommend that you try
  
  - Your own Jupyter Notebook server
 
-    - Install the [Azure Machine Learning SDK](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py).
-    - Install the [Azure Machine Learning RL SDK](https://docs.microsoft.com/python/api/azureml-contrib-reinforcementlearning/?view=azure-ml-py): `pip install --upgrade azureml-contrib-reinforcementlearning`
+    - Install the [Azure Machine Learning SDK](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py&preserve-view=true).
+    - Install the [Azure Machine Learning RL SDK](https://docs.microsoft.com/python/api/azureml-contrib-reinforcementlearning/?view=azure-ml-py&preserve-view=true): `pip install --upgrade azureml-contrib-reinforcementlearning`
     - Create a [workspace configuration file](how-to-configure-environment.md#workspace).
     - Run the virtual network [setup notebook](https://aka.ms/azure-rl-env-setup) to open network ports used for distributed reinforcement learning.
 
@@ -103,7 +103,7 @@ ws = Workspace.from_config()
 
 ### Create a reinforcement learning experiment
 
-Create an [experiment](https://docs.microsoft.com/python/api/azureml-core/azureml.core.experiment.experiment?view=azure-ml-py) to track your reinforcement learning run. In Azure Machine Learning, experiments are logical collections of related trials to organize run logs, history, outputs, and more.
+Create an [experiment](https://docs.microsoft.com/python/api/azureml-core/azureml.core.experiment.experiment?view=azure-ml-py&preserve-view=true) to track your reinforcement learning run. In Azure Machine Learning, experiments are logical collections of related trials to organize run logs, history, outputs, and more.
 
 ```python
 experiment_name='rllib-pong-multi-node'
@@ -209,9 +209,9 @@ else:
 
 ## Create a reinforcement learning estimator
 
-In this section, you learn how to use the [ReinforcementLearningEstimator](https://docs.microsoft.com/python/api/azureml-contrib-reinforcementlearning/azureml.contrib.train.rl.reinforcementlearningestimator?view=azure-ml-py) to submit a training job to Azure Machine Learning.
+In this section, you learn how to use the [ReinforcementLearningEstimator](https://docs.microsoft.com/python/api/azureml-contrib-reinforcementlearning/azureml.contrib.train.rl.reinforcementlearningestimator?view=azure-ml-py&preserve-view=true) to submit a training job to Azure Machine Learning.
 
-Azure Machine Learning uses estimator classes to encapsulate run configuration information. This lets you easily specify how to configure a script execution. For more information on the Azure Machine Learning estimator pattern, see [How to train models using estimators](how-to-train-ml-models.md).
+Azure Machine Learning uses estimator classes to encapsulate run configuration information. This lets you easily specify how to configure a script execution. 
 
 ### Define a worker configuration
 
@@ -395,7 +395,7 @@ def on_train_result(info):
 
 ## Submit a run
 
-[Run](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run(class)?view=azure-ml-py) handles the run history of in-progress or complete jobs. 
+[Run](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run%28class%29?view=azure-ml-py&preserve-view=true) handles the run history of in-progress or complete jobs. 
 
 ```python
 run = exp.submit(config=rl_estimator)

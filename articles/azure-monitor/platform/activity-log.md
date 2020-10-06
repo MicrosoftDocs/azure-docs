@@ -222,7 +222,7 @@ Following is a sample PowerShell script to create a log profile that writes the 
    # Build the storage account Id from the settings above
    $storageAccountId = "/subscriptions/$subscriptionId/resourceGroups/$resourceGroupName/providers/Microsoft.Storage/storageAccounts/$storageAccountName"
 
-   Add-AzLogProfile -Name $logProfileName -Location $locations -ServiceBusRuleId $serviceBusRuleId
+   Add-AzLogProfile -Name $logProfileName -Location $locations -StorageAccountId  $storageAccountId -ServiceBusRuleId $serviceBusRuleId
    ```
 
 
@@ -255,7 +255,7 @@ The legacy method for sending the Activity log into a Log Analytics workspace is
 1. In the **Workspace Data Sources** section of the workspace's menu, select **Azure Activity log**.
 1. Click the subscription you want to connect.
 
-    ![Workspaces](media/activity-log-collect/workspaces.png)
+    ![Screenshot shows Log Analytics workspace with an Azure Activity log selected.](media/activity-log-collect/workspaces.png)
 
 1. Click **Connect** to connect the Activity log in the subscription to the selected workspace. If the subscription is already connected to another workspace, click **Disconnect** first to disconnect it.
 
@@ -395,4 +395,5 @@ You will soon no longer be able to add the Activity Logs Analytics solution to y
 ## Next steps
 
 * [Read an overview of platform logs](platform-logs-overview.md)
+* [Review Activity log event schema](activity-log-schema.md)
 * [Create diagnostic setting to send Activity logs to other destinations](diagnostic-settings.md)

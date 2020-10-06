@@ -55,7 +55,7 @@ Check that the zipped file is secure, before you deploy it.
     - ```C:\>CertUtil -HashFile <file_location> [Hashing Algorithm]```
     - Example usage for public cloud: ```C:\>CertUtil -HashFile C:\Users\administrator\Desktop\AzureMigrateInstaller-Server-Public.zip SHA256 ```
     - Example usage for government cloud: ```  C:\>CertUtil -HashFile C:\Users\administrator\Desktop\AzureMigrateInstaller-Server-USGov.zip MD5 ```
-3.  Verify the latest version of the appliance, and hash values [settings](./tutorial-assess-physical.md#verify-security).
+3.  Verify the latest version of the appliance, and [hash values](tutorial-discover-physical.md#verify-security) settings.
  
 
 ## Run the Azure Migrate installer script

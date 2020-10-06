@@ -8,7 +8,7 @@ ms.workload: big-data
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
-ms.date: 08/25/2020
+ms.date: 10/01/2020
 ms.custom: seodec18
 ---
 
@@ -68,4 +68,4 @@ These APIs are available across both stores (Warm and Cold) in our multilayered 
 ## Next steps
 
 * Read more about different variables that can be defined in the [Time Series Model](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-update-tsm).
-* Read more about how to query data from the [Azure Time Series Insights TSI Explorer](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-update-explorer).
+* Read more about how to query data from the [Azure Time Series Insights Explorer](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-update-explorer).

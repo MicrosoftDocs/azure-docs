@@ -24,7 +24,7 @@ If you can't find answers to your questions in this FAQ, check out [other suppor
 
 **Q: Where do I start if I want to use a baseline model?**
 
-**A**: First, get a [subscription key](get-started.md). If you want to make REST calls to the predeployed baseline models, see the [REST APIs](rest-apis.md). If you want to use WebSockets, [download the SDK](speech-sdk.md).
+**A**: First, get a [subscription key](overview.md#try-the-speech-service-for-free). If you want to make REST calls to the predeployed baseline models, see the [REST APIs](rest-apis.md). If you want to use WebSockets, [download the SDK](speech-sdk.md).
 
 **Q: Do I always need to build a custom speech model?**
 
@@ -148,17 +148,17 @@ which includes insertions, deletions, and substitutions, divided by the total nu
 
 **A**: Uploading a list of words will add the words to the vocabulary, but it won't teach the system how the words are typically used. By providing full or partial utterances (sentences or phrases of things that users are likely to say), the language model can learn the new words and how they are used. The custom language model is good not only for adding new words to the system, but also for adjusting the likelihood of known words for your application. Providing full utterances helps the system learn better.
 
-## Tenant Model (Custom Speech with Office 365 data)
+## Tenant Model (Custom Speech with Microsoft 365 data)
 
 **Q: What information is included in the Tenant Model, and how is it created?**
 
-**A:** A Tenant Model is built using [public group](https://support.office.com/article/learn-about-office-365-groups-b565caa1-5c40-40ef-9915-60fdb2d97fa2) emails and documents that can be seen by anyone in your organization.
+**A:** A Tenant Model is built using [public group](https://support.microsoft.com/office/learn-about-microsoft-365-groups-b565caa1-5c40-40ef-9915-60fdb2d97fa2) emails and documents that can be seen by anyone in your organization.
 
 **Q: What speech experiences are improved by the Tenant Model?**
 
 **A:** When the Tenant Model is enabled, created and published, it is used to improve recognition for any enterprise applications built using the Speech service; that also pass a user Azure AD token indicating membership to the enterprise.
 
-The speech experiences built into Office 365, such as Dictation and PowerPoint Captioning, aren't changed when you create a Tenant Model for your Speech service applications.
+The speech experiences built into Microsoft 365, such as Dictation and PowerPoint Captioning, aren't changed when you create a Tenant Model for your Speech service applications.
 
 ## Next steps
 

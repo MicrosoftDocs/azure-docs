@@ -11,6 +11,70 @@ ms.date: 07/08/2020
 
 This article provides lists Azure Monitor articles that are either new or have been significantly updated. It will be refreshed the first week of each month to include article updates from the previous month.
 
+## August 2020
+
+### General
+
+- [What is monitored by Azure Monitor](monitor-reference.md) - Updated to include Azure Monitor agent.
+
+
+### Agents
+- [Azure Monitor agent overview](platform/azure-monitor-agent-overview.md) - New article.
+- [Enable Azure Monitor for a hybrid environment](insights/vminsights-enable-hybrid.md) - Updated dependency agent version.
+- [Overview of the Azure monitoring agents](platform/agents-overview.md) - Added Azure Monitor agent and consolidated OS support table.
+
+
+#### New and updated articles from restructure of agent content
+- [Enable Azure Monitor for VMs overview](insights/vminsights-enable-overview.md)
+- [Install Log Analytics agent on Linux computers](platform/agent-linux.md)
+- [Install Log Analytics agent on Windows computers](platform/agent-windows.md)
+- [Log Analytics agent overview](platform/log-analytics-agent.md)
+
+### Application Insights
+- [Azure Application Insights for JavaScript web apps](app/javascript.md) - Added section clarifying client server correlation and configuration for CORS correlation.
+- [Create a new Azure Monitor Application Insights workspace-based resource](app/create-workspace-resource.md) - Added capabilities provided by workspace-based applications.
+- [IP addresses used by Application Insights and Log Analytics](app/ip-addresses.md) - Updated IP addresses for live metrics stream.
+- [Monitor Java applications on any environment - Azure Monitor Application Insights](app/java-in-process-agent.md) - Added table for supported custom telemetry.
+- [Native React plugin for Application Insights JavaScript SDK](app/javascript-react-native-plugin.md) - New article.
+- [React plugin for Application Insights JavaScript SDK](app/javascript-react-plugin.md) - New article.
+- [Resource Manager template sample for creating Azure Function apps with Application Insights monitoring](samples/resource-manager-function-app.md) - New article.
+- [Resource Manager template samples for creating Azure App Services web apps with Application Insights monitoring](samples/resource-manager-web-app.md) - New article.
+- [Usage analysis with Azure Application Insights](app/usage-overview.md) - Added video.
+
+### Autoscale
+- [Get started with autoscale in Azure](platform/autoscale-get-started.md) - Added section on routing to healthy instances for App Service.
+
+### Data collection
+- [Configure data collection for the Azure Monitor agent (preview)](platform/data-collection-rule-azure-monitor-agent.md) - New article.
+- [Data Collection Rules in Azure Monitor (preview)](platform/data-collection-rule-overview.md) - New article.
+
+
+### Containers
+- [Deployment & HPA metrics with Azure Monitor for containers](insights/container-insights-deployment-hpa-metrics.md) - New article.
+
+### Insights
+- [Monitoring solutions in Azure Monitor](insights/solutions.md) - Updated for new UI.
+- [Network Performance Monitor solution in Azure](insights/network-performance-monitor.md) - Added supported workspace regions.
+
+
+### Logs
+- [Azure Monitor FAQ](faq.md) - Added entry for deleting data from a workspace. Added entry on 502 and 503 responses.
+  - [Designing your Azure Monitor Logs deployment](platform/design-logs-deployment.md) - Updates to Ingestion volume rate limit section.
+- [Manage usage and costs for Azure Monitor Logs](platform/manage-cost-storage.md) - Updated usage queries to more efficient query format.
+- [Optimize log queries in Azure Monitor](log-query/query-optimization.md) - Added specific values to performance indicators.
+- [Resource Manager template samples for diagnostic settings](samples/resource-manager-diagnostic-settings.md) - Added sample for log query audit logs.
+
+
+### Platform logs
+- [Create diagnostic settings to send platform logs and metrics to different destinations](platform/diagnostic-settings.md) - Added regional requirement for diagnostic settings.
+
+### Visualizations
+- [Azure Monitor Workbooks Overview](platform/workbooks-overview.md) - Added video.
+- [Move an Azure Workbook Template to another region](platform/workbook-templates-move-region.md) - New article.
+- [Move an Azure Workbook to another region](platform/workbooks-move-region.md) - New article.
+
+
+
 ## July 2020
 
 ### General
@@ -488,7 +552,6 @@ Multiple New articles for view designer to workbooks conversion guide.
 - [Application Insights for Worker Service apps (non-HTTP apps)](app/worker-service.md) - Added default logging level to C# code. Updated package reference version.
 - [ApplicationInsights.config reference - Azure](app/configuration-with-applicationinsights-config.md) - Updated sample code.
 - [Automate Azure Application Insights with PowerShell](app/powershell.md) - Update to Resource Manager template.
-- [Azure Monitor Application Insights NuGet packages](app/nuget.md) - Updated package versions.
 - [Create a new Azure Application Insights resource](app/create-new-resource.md) - Note added to globally unique name.
 - [Diagnose with Live Metrics Stream - Azure Application Insights](app/live-stream.md) - Updated ASP.NET Core SDK version requirement.
 - [Event counters in Application Insights](app/eventcounters.md) - Updated category and table to customMetrics.

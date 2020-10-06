@@ -2,13 +2,9 @@
 title: Manage variables in Azure Automation
 description: This article tells how to work with variables in runbooks and DSC configurations.
 services: automation
-ms.service: automation
 ms.subservice: shared-capabilities
-author: mgoedtel
-ms.author: magoedte
-ms.date: 05/14/2019
+ms.date: 10/05/2020
 ms.topic: conceptual
-manager: carmonm
 ---
 # Manage variables in Azure Automation
 
@@ -24,7 +20,7 @@ Automation variables are useful for the following scenarios:
 
 Azure Automation persists variables and makes them available even if a runbook or DSC configuration fails. This behavior allows one runbook or DSC configuration to set a value that is then used by another runbook, or by the same runbook or DSC configuration the next time it runs.
 
-Azure Automation stores each encrypted variable securely. When you create a variable, you can specify its encryption and storage by Azure Automation as a secure asset. After you create the variable, you can't change its encryption status without re-creating the variable. An Azure Security Center recommendation is to encrypt all Azure Automation variables as described in [Automation account variables should be encrypted](../../security-center/recommendations-reference.md#recs-computeapp). 
+Azure Automation stores each encrypted variable securely. When you create a variable, you can specify its encryption and storage by Azure Automation as a secure asset. After you create the variable, you can't change its encryption status without re-creating the variable. An Azure Security Center recommendation is to encrypt all Azure Automation variables as described in [Automation account variables should be encrypted](../../security-center/recommendations-reference.md#recs-computeapp).
 
 >[!NOTE]
 >Secure assets in Azure Automation include credentials, certificates, connections, and encrypted variables. These assets are encrypted and stored in Azure Automation using a unique key that is generated for each Automation account. Azure Automation stores the key in the system-managed Key Vault. Before storing a secure asset, Automation loads the key from Key Vault and then uses it to encrypt the asset. 
@@ -39,9 +35,9 @@ When you create a variable with the Azure portal, you must specify a data type f
 * Boolean
 * Null
 
-The variable isn't restricted to the specified data type. You must set the variable using Windows PowerShell if you want to specify a value of a different type. If you indicate `Not defined`, the value of the variable is set to Null. You must set the value with the [Set-AzAutomationVariable](/powershell/module/az.automation/set-azautomationvariable?view=azps-3.5.0) cmdlet or the internal `Set-AutomationVariable` cmdlet.
+The variable isn't restricted to the specified data type. You must set the variable using Windows PowerShell if you want to specify a value of a different type. If you indicate `Not defined`, the value of the variable is set to Null. You must set the value with the [Set-AzAutomationVariable](/powershell/module/az.automation/set-azautomationvariable) cmdlet or the internal `Set-AutomationVariable` cmdlet.
 
-You can't use the Azure portal to create or change the value for a complex variable type. However, you can provide a value of any type using Windows PowerShell. Complex types are retrieved as a [PSCustomObject](/dotnet/api/system.management.automation.pscustomobject).
+You can't use the Azure portal to create or change the value for a complex variable type. However, you can provide a value of any type using Windows PowerShell. Complex types are retrieved as a [Newtonsoft.Json.Linq.JProperty](https://www.newtonsoft.com/json/help/html/N_Newtonsoft_Json_Linq.htm) for a Complex object type instead of a PSObject type [PSCustomObject](/dotnet/api/system.management.automation.pscustomobject).
 
 You can store multiple values to a single variable by creating an array or hashtable and saving it to the variable.
 
@@ -54,10 +50,10 @@ The cmdlets in the following table create and manage Automation variables with P
 
 | Cmdlet | Description |
 |:---|:---|
-|[Get-AzAutomationVariable](/powershell/module/az.automation/get-azautomationvariable?view=azps-3.5.0) | Retrieves the value of an existing variable. If the value is a simple type, that same type is retrieved. If it's a complex type, a `PSCustomObject` type is retrieved. <br>**Note:**  You can't use this cmdlet to retrieve the value of an encrypted variable. The only way to do this is by using the internal `Get-AutomationVariable` cmdlet in a runbook or DSC configuration. See [Internal cmdlets to access variables](#internal-cmdlets-to-access-variables). |
-|[New-AzAutomationVariable](/powershell/module/az.automation/new-azautomationvariable?view=azps-3.5.0) | Creates a new variable and sets its value.|
-|[Remove-AzAutomationVariable](/powershell/module/az.automation/remove-azautomationvariable?view=azps-3.5.0)| Removes an existing variable.|
-|[Set-AzAutomationVariable](/powershell/module/az.automation/set-azautomationvariable?view=azps-3.5.0)| Sets the value for an existing variable. |
+|[Get-AzAutomationVariable](/powershell/module/az.automation/get-azautomationvariable) | Retrieves the value of an existing variable. If the value is a simple type, that same type is retrieved. If it's a complex type, a `PSCustomObject` type is retrieved. <br>**Note:** You can't use this cmdlet to retrieve the value of an encrypted variable. The only way to do this is by using the internal `Get-AutomationVariable` cmdlet in a runbook or DSC configuration. See [Internal cmdlets to access variables](#internal-cmdlets-to-access-variables). |
+|[New-AzAutomationVariable](/powershell/module/az.automation/new-azautomationvariable) | Creates a new variable and sets its value.|
+|[Remove-AzAutomationVariable](/powershell/module/az.automation/remove-azautomationvariable)| Removes an existing variable.|
+|[Set-AzAutomationVariable](/powershell/module/az.automation/set-azautomationvariable)| Sets the value for an existing variable. |
 
 ## Internal cmdlets to access variables
 
@@ -72,7 +68,7 @@ The internal cmdlets in the following table are used to access variables in your
 > Avoid using variables in the `Name` parameter of `Get-AutomationVariable` in a runbook or DSC configuration. Use of the variables can complicate the discovery of dependencies between runbooks and Automation variables at design time.
 
 `Get-AutomationVariable` does not work in PowerShell, but only in a runbook or DSC configuration. For example, to see the value of an encrypted variable, you might create a runbook to get the variable and then write it to the output stream:
- 
+
 ```powershell
 $mytestencryptvar = Get-AutomationVariable -Name TestVariable
 Write-output "The encrypted value of the variable is: $mytestencryptvar"
@@ -97,16 +93,16 @@ The functions in the following table are used to access variables in a Python 2 
 
 ### Create and get a variable using the Azure portal
 
-1. From your Automation account, click the **Assets** tile, then the **Assets** blade, and select **Variables**.
-2. On the **Variables** tile, select **Add a variable**.
-3. Complete the options on the **New Variable** blade and then click **Create** to save the new variable.
+1. From your Automation account, on the left-hand pane select **Variables** under **Shared Resources**.
+2. On the **Variables** page, select **Add a variable**.
+3. Complete the options on the **New Variable** page and then select **Create** to save the new variable.
 
 > [!NOTE]
 > Once you have saved an encrypted variable, it can't be viewed in the portal. It can only be updated.
 
 ### Create and get a variable in Windows PowerShell
 
-Your runbook or DSC configuration uses the `New-AzAutomationVariable` cmdlet to create a new variable and set its initial value. If the variable is encrypted, the call should use the `Encrypted` parameter. Your script can retrieve the value of the variable using `Get-AzAutomationVariable`. 
+Your runbook or DSC configuration uses the `New-AzAutomationVariable` cmdlet to create a new variable and set its initial value. If the variable is encrypted, the call should use the `Encrypted` parameter. Your script can retrieve the value of the variable using `Get-AzAutomationVariable`.
 
 >[!NOTE]
 >A PowerShell script can't retrieve an encrypted value. The only way to do this is to use the internal `Get-AutomationVariable` cmdlet.
@@ -121,18 +117,18 @@ $string = (Get-AzAutomationVariable -ResourceGroupName "ResourceGroup01" `
 –AutomationAccountName "MyAutomationAccount" –Name 'MyStringVariable').Value
 ```
 
-The following example shows how to create a variable with a complex type and then retrieve its properties. In this case, a virtual machine object from [Get-AzVM](/powershell/module/Az.Compute/Get-AzVM?view=azps-3.5.0) is used.
+The following example shows how to create a variable with a complex type and then retrieve its properties. In this case, a virtual machine object from [Get-AzVM](/powershell/module/Az.Compute/Get-AzVM) is used specifying a subset of its properties.
 
 ```powershell
-$vm = Get-AzVM -ResourceGroupName "ResourceGroup01" –Name "VM01"
-New-AzAutomationVariable –AutomationAccountName "MyAutomationAccount" –Name "MyComplexVariable" –Encrypted $false –Value $vm
+$vm = Get-AzVM -ResourceGroupName "ResourceGroup01" –Name "VM01" | Select Name, Location, Extensions
+New-AzAutomationVariable -ResourceGroupName "ResourceGroup01" –AutomationAccountName "MyAutomationAccount" –Name "MyComplexVariable" –Encrypted $false –Value $vm
 
-$vmValue = (Get-AzAutomationVariable -ResourceGroupName "ResourceGroup01" `
-–AutomationAccountName "MyAutomationAccount" –Name "MyComplexVariable").Value
+$vmValue = Get-AzAutomationVariable -ResourceGroupName "ResourceGroup01" `
+–AutomationAccountName "MyAutomationAccount" –Name "MyComplexVariable"
+
 $vmName = $vmValue.Name
-$vmIpAddress = $vmValue.IpAddress
+$vmExtensions = $vmValue.Extensions
 ```
-
 ## Textual runbook examples
 
 ### Retrieve and set a simple value from a variable

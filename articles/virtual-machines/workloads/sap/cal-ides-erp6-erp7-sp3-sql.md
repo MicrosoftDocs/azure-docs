@@ -51,11 +51,11 @@ After you sign in to the SAP CAL, the first page usually leads you to the **Solu
 
     b. **Microsoft Azure** is the new Resource Manager deployment model.
 
-    ![SAP CAL Accounts](./media/cal-ides-erp6-ehp7-sp3-sql/s4h-pic-2a.PNG)
+    ![Screenshot shows S A P CAL Accounts with Microsoft Azure called out.](./media/cal-ides-erp6-ehp7-sp3-sql/s4h-pic-2a.PNG)
 
     To deploy in the Resource Manager model, select **Microsoft Azure**.
 
-    ![SAP CAL Accounts](./media/cal-ides-erp6-ehp7-sp3-sql/s4h-pic3c.PNG)
+    ![Screenshot shows S A P CAL Accounts.](./media/cal-ides-erp6-ehp7-sp3-sql/s4h-pic3c.PNG)
 
 1. Enter the Azure **Subscription ID** that can be found on the Azure portal. 
 

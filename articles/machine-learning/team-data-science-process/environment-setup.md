@@ -22,7 +22,7 @@ The following articles describe how to set up the various data science environme
 
 * [Azure storage-account](../../storage/common/storage-account-create.md)
 * [HDInsight (Hadoop) cluster](customize-hadoop-cluster.md)
-* [Azure Machine Learning Studio (classic) workspace](../studio/create-workspace.md)
+* [Azure Machine Learning Studio (classic) workspace](../classic/create-workspace.md)
 
 The **Microsoft Data Science Virtual Machine (DSVM)** is also available as an Azure virtual machine (VM) image. This VM is pre-installed and configured with several popular tools that are commonly used for data analytics and machine learning. The DSVM is available on both Windows and Linux. For more information, see [Introduction to the cloud-based Data Science Virtual Machine for Linux and Windows](../data-science-virtual-machine/overview.md).
 

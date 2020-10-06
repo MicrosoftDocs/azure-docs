@@ -69,21 +69,21 @@ In this section, we answer common questions about the developer portal, which ar
 
 ### <a id="preview-to-ga"></a> How can I migrate from the preview version of the portal?
 
-By using the preview version of the developer portal, you provisioned the preview content in your API Management service. The default content has been significantly modified in the generally available version for better user experience. It also includes new widgets.
+When you first launched the preview version of developer portal, you provisioned the preview version of its default content in your API Management service. The default content has been significantly modified in the generally available version. For example, the preview version of default content doesn't include OAuth buttons in the log-in pages, it uses different widgets for displaying APIs, and relies on limited capabilities for structuring developer portal pages. Even though there are differences in the content, the portal's engine (including underlying widgets) is automatically updated every time you publish your developer portal.
 
-If you're using the managed version, reset the content of the portal by clicking **Reset content** in the **Operations** menu section. Confirming this operation will remove all the content of the portal and provision the new default content. The portal's engine has been automatically updated in your API Management service.
+If you heavily customized your portal based on the preview version of content, you may continue to use it as is and place new widgets manually on portal's pages. Otherwise, we recommend replacing your portal's content with the new default content.
+
+To reset the content in a managed portal, click **Reset content** in the **Operations** menu section. This operation will remove all the content of the portal and provision new default content. You will lose all developer portal customizations and changes. **You can't undo this action**.
 
 ![Reset portal content](media/api-management-howto-developer-portal/reset-content.png)
 
-If you're using the self-hosted version, use the `scripts/cleanup.bat` and `scripts/generate.bat` from the GitHub repository to remove existing content and provision new content. Make sure you upgrade your portal's code to the latest release from the GitHub repository beforehand.
+If you're using the self-hosted version, run `scripts.v2/cleanup.bat` and `scripts.v2/generate.bat` scripts from the GitHub repository to remove existing content and provision new content. Make sure to upgrade your portal's code to the latest release from the GitHub repository beforehand.
 
-If you don't want to reset the content of the portal, you may consider using newly available widgets throughout your pages. Existing widgets have been automatically updated to the latest versions.
-
-If your portal was provisioned after the general availability announcement, it should already feature the new default content. No action is required from your side.
+If you first accessed the portal after the general availability announcement in November 2019, it should already feature the new default content and no further action is required.
 
 ### Does the portal have all the features of the legacy portal?
 
-The developer portal no longer supports *Applications* and *Issues*.
+The developer portal no longer supports *Applications*, *Issues*, and direct integration with Facebook, Microsoft, Twitter, and Google as identity providers (you can use Azure AD B2C instead).
 
 ### Has the legacy portal been deprecated?
 
@@ -168,7 +168,7 @@ You can also enable CORS manually.
 
 ### What permissions do I need to edit the developer portal?
 
-If you're seeing the `Oops. Something went wrong. Please try again later.` error when you open the portal in the administrative mode, you may be lacking the required permissions (RBAC).
+If you're seeing the `Oops. Something went wrong. Please try again later.` error when you open the portal in the administrative mode, you may be lacking the required permissions (Azure RBAC).
 
 The legacy portals required the permission `Microsoft.ApiManagement/service/getssotoken/action` at the service scope (`/subscriptions/<subscription-id>/resourceGroups/<resource-group>/providers/Microsoft.ApiManagement/service/<apim-service-name>`) to allow the user administrator access to the portals. The new portal requires the permission `Microsoft.ApiManagement/service/users/token/action` at the scope `/subscriptions/<subscription-id>/resourceGroups/<resource-group>/providers/Microsoft.ApiManagement/service/<apim-service-name>/users/1`.
 

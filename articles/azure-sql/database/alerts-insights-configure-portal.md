@@ -1,15 +1,15 @@
 ---
-title: Setup alerts and notifications (the Azure portal)
+title: Setup alerts and notifications in the Azure portal
 description: Use the Azure portal to create alerts, which can trigger notifications or automation when the conditions you specify are met.
 services: sql-database
 ms.service: sql-database
 ms.subservice: performance
 ms.custom: sqldbrb=1
 ms.devlang: 
-ms.topic: conceptual
+ms.topic: how-to
 author: aamalvea
 ms.author: aamalvea
-ms.reviewer: jrasnik, carlrab
+ms.reviewer: jrasnik, sstein
 ms.date: 05/04/2020
 ---
 # Create alerts for Azure SQL Database and Azure Synapse Analytics using the Azure portal
@@ -18,7 +18,7 @@ ms.date: 05/04/2020
 
 ## Overview
 
-This article shows you how to set up alerts for databases in Azure SQL Database and Azure Synapse Analytics (formerly Azure SQL Data Warehouse) using the Azure portal. Alerts can send you an email or call a web hook when some metric (for example database size or CPU usage) reaches the threshold.
+This article shows you how to set up alerts for databases in Azure SQL Database and Azure Synapse Analytics (formerly SQL Data Warehouse) using the Azure portal. Alerts can send you an email or call a web hook when some metric (for example database size or CPU usage) reaches the threshold.
 
 > [!NOTE]
 > For Azure SQL Managed Instance specific instructions, see [Create alerts for Azure SQL Managed Instance](../managed-instance/alerts-create.md).

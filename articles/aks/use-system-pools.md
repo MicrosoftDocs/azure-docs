@@ -10,7 +10,7 @@ ms.custom: fasttrack-edit
 
 # Manage system node pools in Azure Kubernetes Service (AKS)
 
-In Azure Kubernetes Service (AKS), nodes of the same configuration are grouped together into *node pools*. Node pools contain the underlying VMs that run your applications. System node pools and user node pools are two different node pool modes for your AKS clusters. System node pools serve the primary purpose of hosting critical system pods such as CoreDNS and tunnelfront. User node pools serve the primary purpose of hosting your application pods. However, application pods can be scheduled on system node pools if you wish to only have one pool in your AKS cluster. Every AKS cluster must contain at least one system node pool with at least one node.
+In Azure Kubernetes Service (AKS), nodes of the same configuration are grouped together into *node pools*. Node pools contain the underlying VMs that run your applications. System node pools and user node pools are two different node pool modes for your AKS clusters. System node pools serve the primary purpose of hosting critical system pods such as `CoreDNS` and `metrics-server`. User node pools serve the primary purpose of hosting your application pods. However, application pods can be scheduled on system node pools if you wish to only have one pool in your AKS cluster. Every AKS cluster must contain at least one system node pool with at least one node.
 
 > [!Important]
 > If you run a single system node pool for your AKS cluster in a production environment, we recommend you use at least three nodes for the node pool.
@@ -42,6 +42,7 @@ System node pools have the following restrictions:
 * System node pools require a VM SKU of at least 2 vCPUs and 4GB memory.
 * System node pools must support at least 30 pods as described by the [minimum and maximum value formula for pods][maximum-pods].
 * Spot node pools require user node pools.
+* Adding an additional system node pool or changing which node pool is a system node pool will *NOT* automatically move system pods. System pods can continue to run on the same node pool even if you change it to a user node pool. If you delete or scale down a node pool running system pods that was previously a system node pool, those system pods are redeployed with preferred scheduling to the new system node pool.
 
 You can do the following operations with node pools:
 
@@ -159,7 +160,7 @@ az aks nodepool update -g myResourceGroup --cluster-name myAKSCluster -n mynodep
 > [!Note]
 > To use system node pools on AKS clusters before API version 2020-03-02, add a new system node pool, then delete the original default node pool.
 
-Previously you could not delete the system node pool, which was the initial default node pool in an AKS cluster. You now have the flexibility to delete any node pool from your clusters. Since AKS clusters require at least one system node pool, you must have at least two system node pools on your AKS cluster before you can delete one of them.
+You must have at least two system node pools on your AKS cluster before you can delete one of them.
 
 ```azurecli-interactive
 az aks nodepool delete -g myResourceGroup --cluster-name myAKSCluster -n mynodepool

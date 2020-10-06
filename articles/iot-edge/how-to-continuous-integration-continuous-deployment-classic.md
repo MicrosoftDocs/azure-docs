@@ -1,9 +1,9 @@
 ---
 title: Continuous integration and continuous deployment to Azure IoT Edge devices (classic editor) - Azure IoT Edge
 description: Set up continuous integration and continuous deployment using the classic editor - Azure IoT Edge with Azure DevOps, Azure Pipelines
-author: shizn
+author: kgremban
 manager: philmea
-ms.author: xshi
+ms.author: kgremban
 ms.date: 08/26/2020
 ms.topic: conceptual
 ms.service: iot-edge
@@ -81,7 +81,7 @@ In this section, you create a new build pipeline. You configure the pipeline to 
 
    * If you would like to build your modules in platform amd64 for Windows 1809 containers, you need to [set up self-hosted agent on Windows](https://docs.microsoft.com/azure/devops/pipelines/agents/v2-windows?view=vsts).
 
-   * If you would like to build your modules in platform arm32v7 or arm64 for Linux containers, you need to [set up self-hosted agent on Linux](https://blogs.msdn.microsoft.com/iotdev/2018/11/13/setup-azure-iot-edge-continuous-integration-continuous-deployment-pipeline-with-arm-agent/).
+   * If you would like to build your modules in platform arm32v7 or arm64 for Linux containers, you need to [set up self-hosted agent on Linux](https://devblogs.microsoft.com/iotdev/setup-azure-iot-edge-ci-cd-pipeline-with-arm-agent).
 
     ![Configure build agent specification](./media/how-to-continuous-integration-continuous-deployment-classic/configure-env.png)
 
@@ -155,7 +155,7 @@ This pipeline is now configured to run automatically when you push new code to y
 >[!NOTE]
 >If you wish to use **layered deployments** in your pipeline, layered deployments are not yet supported in Azure IoT Edge tasks in Azure DevOps.
 >
->However, you can use an [Azure CLI task in Azure DevOps](https://docs.microsoft.com/azure/devops/pipelines/tasks/deploy/azure-cli) to create your deployment as a layered deployment. For the **Inline Script** value, you can use the [az iot edge deployment create command](https://docs.microsoft.com/cli/azure/ext/azure-cli-iot-ext/iot/edge/deployment):
+>However, you can use an [Azure CLI task in Azure DevOps](https://docs.microsoft.com/azure/devops/pipelines/tasks/deploy/azure-cli) to create your deployment as a layered deployment. For the **Inline Script** value, you can use the [az iot edge deployment create command](/cli/azure/ext/azure-cli-iot-ext/iot/edge/deployment):
 >
 >   ```azurecli-interactive
 >   az iot edge deployment create -d {deployment_name} -n {hub_name} --content modules_content.json --layered true

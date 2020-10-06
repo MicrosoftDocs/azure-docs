@@ -14,6 +14,28 @@ This article answers common questions about the Azure Migrate: Server Migration 
 - Questions about [discovery, assessment, and dependency visualization](common-questions-discovery-assessment.md)
 - Get questions answered in the [Azure Migrate forum](https://aka.ms/AzureMigrateForum)
 
+## Does Azure Migrate convert UEFI-based machines to BIOS-based machines and migrate them to Azure as Azure generation 1 VMs?
+Azure Migrate: Server Migration tool migrates all the UEFI-based machines to Azure as Azure generation 2 VMs. We no longer support the conversion of UEFI-based VMs to BIOS-based VMs. Note that all the BIOS-based machines are migrated to Azure as Azure generation 1 VMs only.
+
+## How can I migrate UEFI-based machines to Azure as Azure generation 1 VMs?
+Azure Migrate: Server Migration tool migrates UEFI-based machines to Azure as Azure generation 2 VMs. If you want to migrate them to Azure generation 1 VMs, convert the boot-type to BIOS before starting replication, and then use the Azure Migrate: Server Migration tool to migrate to Azure.
+ 
+## Which operating systems are supported for migration of UEFI-based machines to Azure?
+
+| **Operating systems supported for UEFI-based machines** | **Agentless VMware to Azure**                                                                                                             | **Agentless Hyper-V to Azure** | **Agent-based VMware, physical and other clouds to Azure** |
+| ------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------ | ---------------------------------------------------------- |
+| Windows Server 2019, 2016, 2012 R2, 201                 | Y                                                                                                                                         | Y                              | Y                                                          |
+| Windows 10 Pro, Windows 10 Enterprise                   | Y                                                                                                                                         | Y                              | Y                                                          |
+| SUSE Linux Enterprise Server 15 SP1                     | Y                                                                                                                                         | Y                              | Y                                                          |
+| SUSE Linux Enterprise Server 12 SP4                     | Y                                                                                                                                         | Y                              | Y                                                          |
+| Ubuntu Server 16.04, 18.04, 19.04, 19.10                | Y                                                                                                                                         | Y                              | Y                                                          |
+| RHEL 8.1, 8.0, 7.8, 7.7, 7.6, 7.5, 7.4, 7.0, 6.x        | Y<br>                 _RHEL 8.x requires [manual preparation](https://go.microsoft.com/fwlink/?linkid=2143939)_   | Y                              | Y                                                          |
+| Cent OS 8.1, 8.0, 7.7, 7.6, 7.5, 7.4, 6.x               | Y<br>_Cent OS 8.x requires [manual preparation](https://go.microsoft.com/fwlink/?linkid=2143939)_ | Y                              | Y                                                          |
+| Oracle Linux 7.7, 7.7-CI                                |  Y                                                                                                                                        | Y                              | Y                                                          |
+
+## Can I use the recovery services vault created by Azure Migrate for Disaster Recovery scenarios?
+We do not recommend using the recovery services vault created by Azure Migrate for Disaster Recovery scenarios. Doing so can result in start replication failures in Azure Migrate. 
+
 ## Where should I install the replication appliance for agent-based migrations?
 
 The replication appliance should be installed on a dedicated machine. The replication appliance shouldn't be installed on a source machine that you want to replicate or on the Azure Migrate discovery and assessment appliance you may have installed before. Follow the [tutorial](https://docs.microsoft.com/azure/migrate/tutorial-migrate-physical-virtual-machines) for more details.
@@ -197,11 +219,6 @@ Azure Migrate server migration capabilities support like for like migrations cur
 
 Agentless replication results in some performance impact on VMware vCenter Server and VMware ESXi hosts. Because agentless replication uses snapshots, it consumes IOPS on storage, so some IOPS storage bandwidth is required. We don't recommend using agentless replication if you have constraints on storage or IOPs in your environment.
 
-## Can I do agentless migration of UEFI VMs to Azure Gen 2?
-
-No. You can use the [VMware agent-based migration](https://docs.microsoft.com/azure/migrate/tutorial-migrate-vmware-agent), [Hyper-V migration](https://docs.microsoft.com/azure/migrate/tutorial-migrate-physical-virtual-machines), or [physical servers migration](https://docs.microsoft.com/azure/migrate/tutorial-migrate-physical-virtual-machines) options to migrate these VMs to Gen 2 Azure VMs.
-
-***Note:*** Ensure that you select the appropriate VM size that supports Generation 2 UEFI in Azure.
 
 ## Next steps
 

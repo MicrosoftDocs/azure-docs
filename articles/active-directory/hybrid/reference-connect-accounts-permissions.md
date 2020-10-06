@@ -110,7 +110,7 @@ With the custom settings installation, the wizard offers you more choices and op
 
 The following is a summary of the custom installation wizard pages, the credentials collected, and what they are used for.
 
-![Express installation](./media/reference-connect-accounts-permissions/customize.png)
+![Screenshot that shows the custom installation wizard pages.](./media/reference-connect-accounts-permissions/customize.png)
 
 | Wizard Page | Credentials Collected | Permissions Required | Used For |
 | --- | --- | --- | --- |
@@ -144,7 +144,7 @@ Which permissions you require depends on the optional features you enable. If yo
 | Exchange Mail Public Folder |Read permissions to the attributes documented in [Exchange Mail Public Folder](reference-connect-sync-attributes-synchronized.md#exchange-mail-public-folder) for public folders. | 
 | Password writeback |Write permissions to the attributes documented in [Getting started with password management](../authentication/tutorial-enable-sspr-writeback.md) for users. |
 | Device writeback |Permissions granted with a PowerShell script as described in [device writeback](how-to-connect-device-writeback.md). |
-| Group writeback |Allows you to writeback **Office 365 Groups** to a forest with Exchange installed.|
+| Group writeback |Allows you to writeback **Microsoft 365 Groups** to a forest with Exchange installed.|
 
 ## Upgrade
 When you upgrade from one version of Azure AD Connect to a new release, you need the following permissions:
@@ -203,7 +203,7 @@ Legend:
 #### Virtual service account
 A virtual service account is a special type of account that does not have a password and is managed by Windows.
 
-![VSA](./media/reference-connect-accounts-permissions/aadsyncvsa.png)
+![Screenshot that shows the virtual service account (VSA).](./media/reference-connect-accounts-permissions/aadsyncvsa.png)
 
 The VSA is intended to be used with scenarios where the sync engine and SQL are on the same server. If you use remote SQL, then we recommend to use a Group Managed Service Account instead.
 
@@ -236,7 +236,7 @@ The account is also granted permissions to files, registry keys, and other objec
 ### Azure AD Connector account
 An account in Azure AD is created for the sync service's use. This account can be identified by its display name.
 
-![AD account](./media/reference-connect-accounts-permissions/aadsyncserviceaccount2.png)
+![Screenshot that shows the Azure AD account.](./media/reference-connect-accounts-permissions/aadsyncserviceaccount2.png)
 
 The name of the server the account is used on can be identified in the second part of the user name. In the picture, the server name is DC1. If you have staging servers, each server has its own account.
 
