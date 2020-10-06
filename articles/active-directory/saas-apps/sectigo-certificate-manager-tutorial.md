@@ -193,9 +193,19 @@ In this section, you create a user named Britta Simon in Sectigo Certificate Man
 
 ### Test single sign-on
 
-In this section, you test your Azure AD single sign-on configuration by using the My Apps portal.
+In this section, you test your Azure AD single sign-on configuration.
 
-After you set up single sign-on, when you select **Sectigo Certificate Manager** in the My Apps portal, you are automatically signed in to Sectigo Certificate Manager. For more information about the My Apps portal, see [Access and use apps in the My Apps portal](../user-help/my-apps-portal-end-user-access.md).
+#### Test from Sectigo Certificate Manager (SP-initiated single sign-on)
+
+Browse to your customer specific URL, i.e. https:\//cert-manager.com/customer/*customerURI*/ and click the button below **Or Sign In With**.  If configured correctly you will be automatically signed in to Sectigo Certificate Manager.
+
+#### Test from Azure Single sign-on configuration (IDP-initiated single sign-on)
+
+In the **Sectigo Certificate Manager** application integration pane, select **Single sign-on** and click the Test button.  If configured correctly you will be automatically signed in to Sectigo Certificate Manager.
+
+#### Test using the My Apps portal (IDP-initiated single sign-on)
+
+Select **Sectigo Certificate Manager** in the My Apps portal.  If configured correctly you will be automatically signed in to Sectigo Certificate Manager. For more information about the My Apps portal, see [Access and use apps in the My Apps portal](../user-help/my-apps-portal-end-user-access.md).
 
 ## Next steps
 
