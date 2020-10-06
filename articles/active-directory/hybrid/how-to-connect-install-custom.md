@@ -26,13 +26,9 @@ Before you install Azure AD Connect:
 
 ## Custom installation settings 
 
-To use custom installation settings for Azure AD Connect:
-- Use express settings.
-- Install the required components.
-- Choose a user sign-in method.
-- Connect to Azure AD.
+To help you set up a custom installation for Azure AD Connect, the wizard guides you through the pages that the following sections describe.
 
-### Use express settings
+### Express Settings page
 On this page, select **Customize** to start a customized-settings installation.  The remainder of this article guides you through the wizard for the custom installation.  You can use the following links to quickly go to the information for a particular wizard page.
 
 - [Install required components](#install-required-components)
@@ -40,7 +36,7 @@ On this page, select **Customize** to start a customized-settings installation. 
 - [Connect to Azure AD](#connect-to-azure-ad)
 - [Pages in the Sync section](#pages-under-the-sync-section)
 
-### Install required components
+### Required Components page
 When you install the synchronization services, you can leave the optional configuration section unselected. Azure AD Connect sets up everything automatically. It sets up a SQL Server 2012 Express LocalDB instance, creates the appropriate groups, and assign permissions. If you want to change the defaults, clear the appropriate boxes.  The following table summarizes these options and links to additional information. 
 
 ![Screenshot showing optional selections for the required installation components in Azure AD Connect.](./media/how-to-connect-install-custom/requiredcomponents2.png)
@@ -48,41 +44,45 @@ When you install the synchronization services, you can leave the optional config
 | Optional configuration | Description |
 | --- | --- |
 |Specify a custom installation location| Allows you to change the default installation path for Azure AD Connect.|
-| Use an existing SQL Server |Allows you to specify the SQL Server name and instance name. Choose this option if you already have a database server that you want to use. For **Instance Name**, enter the instance name, a comma, and the port number if your SQL Server doesn't have browsing enabled.  Then specify the name of the Azure AD Connect database.  Your SQL privileges determine whether a new database will be created or your SQL administrator must create the database in advance.  If you have SQL system administrator (SA) permissions, see [Install Azure AD Connect by using an existing database](how-to-connect-install-existing-database.md).  If you have been delegated permissions (DBO), see [Install Azure AD Connect by using SQL delegated administrator permissions](how-to-connect-install-sql-delegation.md). |
-| Use an existing service account |By default Azure AD Connect uses a virtual service account for the synchronization services to use. If you use a remote SQL server or use a proxy that requires authentication, you need to use a **managed service account** or use a service account in the domain and know the password. In those cases, enter the account to use. Make sure the user running the installation is an SA in SQL so a login for the service account can be created.  See [Azure AD Connect accounts and permissions](reference-connect-accounts-permissions.md#adsync-service-account). </br></br>With the latest build, provisioning the database can now be performed out of band by the SQL administrator and then installed by the Azure AD Connect administrator with database owner rights.  For more information see [Install Azure AD Connect using SQL delegated administrator permissions](how-to-connect-install-sql-delegation.md).|
-| Specify custom sync groups |By default Azure AD Connect creates four groups local to the server when the synchronization services are installed. These groups are: Administrators group, Operators group, Browse group, and the Password Reset Group. You can specify your own groups here. The groups must be local on the server and cannot be located in the domain. |
-|Import synchronization settings (preview)|Allows you to import settings from another versions of Azure AD Connect.  For more information see [importing and exporting Azure AD Connect configuration settings](how-to-connect-import-export-config.md).|
+| Use an existing SQL Server |Allows you to specify the SQL Server name and instance name. Choose this option if you already have a database server that you want to use. For **Instance Name**, enter the instance name, a comma, and the port number if your SQL Server doesn't have browsing enabled.  Then specify the name of the Azure AD Connect database.  Your SQL privileges determine whether a new database will be created or your SQL administrator must create the database in advance.  If you have SQL server-administrator (SA) permissions, see [Install Azure AD Connect by using an existing database](how-to-connect-install-existing-database.md).  If you have been delegated permissions (DBO), see [Install Azure AD Connect by using SQL delegated administrator permissions](how-to-connect-install-sql-delegation.md). |
+| Use an existing service account |By default. Azure AD Connect provides a virtual service account for the synchronization services to use. If you use a remote SQL server or use a proxy that requires authentication, you can use a *managed service account* or a password-protected service account in the domain. In those cases, enter the account you want to use. To run the installation, you need to be an SA in SQL so you can create sign-in credentials for the service account. For more information, see [Azure AD Connect accounts and permissions](reference-connect-accounts-permissions.md#adsync-service-account). </br></br>By using the latest build, the SQL administrator can now provision the database out of band. Then the Azure AD Connect administrator can install it with database owner rights.  For more information, see [Install Azure AD Connect by using SQL delegated administrator permissions](how-to-connect-install-sql-delegation.md).|
+| Specify custom sync groups |By default, when the synchronization services are installed, Azure AD Connect creates four groups that are local to the server. These groups are Administrators, Operators, Browse, and Password Reset. You can specify your own groups here. The groups must be local on the server. They can't be located in the domain. |
+|Import synchronization settings (preview)|Allows you to import settings from other versions of Azure AD Connect.  For more information, see [Importing and exporting Azure AD Connect configuration settings](how-to-connect-import-export-config.md).|
 
-### Choose a user sign-in method
-After installing the required components, you are asked to select your users single sign-on method. The following table provides a brief description of the available options. For a full description of the sign-in methods, see [User sign-in](plan-connect-user-signin.md).
+### User Sign-In page
+After installing the required components, you select your users' single sign-on method. The following table briefly describes the available options. For a full description of the sign-in methods, see [User sign-in](plan-connect-user-signin.md).
 
-![Screenshot that shows the "User Sign-in" page with "Password Hash Synchronization" selected.](./media/how-to-connect-install-custom/usersignin4.png)
+![Screenshot that shows the "User Sign-in" page. The "Password Hash Synchronization" option is selected.](./media/how-to-connect-install-custom/usersignin4.png)
 
-| Single Sign On option | Description |
+| Single sign-on option | Description |
 | --- | --- |
-| Password Hash Sync |Users are able to sign in to Microsoft cloud services, such as Microsoft 365, using the same password they use in their on-premises network. The users passwords are synchronized to Azure AD as a password hash and authentication occurs in the cloud. See [Password hash synchronization](how-to-connect-password-hash-synchronization.md) for more information. |
-|Pass-through Authentication|Users are able to sign in to Microsoft cloud services, such as Microsoft 365, using the same password they use in their on-premises network.  The users password is passed through to the on-premises Active Directory domain controller to be validated.
-| Federation with AD FS |Users are able to sign in to Microsoft cloud services, such as Microsoft 365, using the same password they use in their on-premises network.  The users are redirected to their on-premises AD FS instance to sign in and authentication occurs on-premises. |
-| Federation with PingFederate|Users are able to sign in to Microsoft cloud services, such as Microsoft 365, using the same password they use in their on-premises network.  The users are redirected to their on-premises PingFederate instance to sign in and authentication occurs on-premises. |
-| Do not configure |No user sign-in feature is installed and configured. Choose this option if you already have a 3rd party federation server or another existing solution in place. |
-|Enable Single Sign on|This options is available with both password hash sync and pass-through authentication and provides a single sign on experience for desktop users on the corporate network. See [Single sign-on](how-to-connect-sso.md) for more information. </br>Note for AD FS customers this option is not available because AD FS already offers the same level of single sign on.</br>
+| Password Hash Synchronization |Users can sign in to Microsoft cloud services, such as Microsoft 365, by using the same password they use in their on-premises network. User passwords are synchronized to Azure AD as a password hash. Authentication occurs in the cloud. For more information, see [Password hash synchronization](how-to-connect-password-hash-synchronization.md). |
+|Pass-through authentication|Users can sign in to Microsoft cloud services, such as Microsoft 365, by using the same password they use in their on-premises network.  User passwords validated by being passed through to the on-premises Active Directory domain controller.
+| Federation with AD FS |Users can sign in to Microsoft cloud services, such as Microsoft 365, by using the same password they use in their on-premises network.  Users are redirected to their on-premises Azure Directory Federation Services (AD FS) instance to sign in. Authentication occurs on-premises. |
+| Federation with PingFederate|Users can sign in to Microsoft cloud services, such as Microsoft 365, by using the same password they use in their on-premises network.  The users are redirected to their on-premises PingFederate instance to sign in. Authentication occurs on-premises. |
+| Do not configure |No user sign-in feature is installed or configured. Choose this option if you already have a third-party federation server or another existing solution in place. |
+|Enable single sign-on|This option is available with both password hash sync and pass-through authentication. It provides a single sign-on experience for desktop users on corporate networks. For more information, see [Single sign-on](how-to-connect-sso.md). </br>**Note:** For AD FS customers, this option is not available. AD FS already offers the same level of single sign-on.</br>
 
-### Connect to Azure AD
-On the Connect to Azure AD screen, enter a global admin account and password. If you selected **Federation with AD FS** on the previous page, do not sign in with an account in a domain you plan to enable for federation. A recommendation is to use an account in the default **onmicrosoft.com** domain, which comes with your Azure AD tenant.
+### Connect to Azure AD page
+On the Connect to Azure AD page, enter a global admin account and password. If you selected **Federation with AD FS** on the previous page, don't sign in with an account that's in a domain you plan to enable for federation. You might want to use an account in the default *onmicrosoft.com* domain, which comes with your Azure AD tenant.
 
-This account is only used to create a service account in Azure AD and is not used after the wizard has completed.  
-![User Sign in](./media/how-to-connect-install-custom/connectaad.png)
+This account is used only to create a service account in Azure AD. It's not used after the wizard finishes.
+  
+![Screenshot showing the Connect to Azure AD tab selected on the left. On the right are a username field and a password field.](./media/how-to-connect-install-custom/connectaad.png)
 
-If your global admin account has MFA enabled, then you need to provide the password again in the sign-in popup and complete the MFA challenge. The challenge could be a providing a verification code or a phone call.  
-![User Sign in MFA](./media/how-to-connect-install-custom/connectaadmfa.png)
+If your global admin account has multifactor authentication enabled, you'll provide the password again in the sign-in window, and you must complete the multifactor authentication challenge. The challenge could be a verification code or a phone call.  
 
-The global admin account can also have [Privileged Identity Management](../privileged-identity-management/pim-getting-started.md) enabled.
+![Screenshot showing the Connect to Azure AD tab selected on the left. On the right is a multifactor authentication code field.](./media/how-to-connect-install-custom/connectaadmfa.png)
 
-If you receive an error and have problems with connectivity, then see [Troubleshoot connectivity problems](tshoot-connect-connectivity.md).
+The global admin account can also have [privileged identity management](../privileged-identity-management/pim-getting-started.md) enabled.
 
-## Pages in the Sync section
+If you get an error and have problems with connectivity, then see [Troubleshoot connectivity problems](tshoot-connect-connectivity.md).
 
-### Connect your directories
+## Sync pages
+
+The following sections describe the pages in the Sync section of the wizard.
+
+### Connect Directories
 To connect to your Active Directory Domain Service, Azure AD Connect needs the forest name and credentials of an account with sufficient permissions.
 
 ![Screenshot that shows the "Connect your directories" page.](./media/how-to-connect-install-custom/connectdir01.png)
