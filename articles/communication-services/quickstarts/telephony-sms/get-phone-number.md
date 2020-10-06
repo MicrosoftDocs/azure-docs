@@ -1,11 +1,11 @@
 ---
 title: Quickstart - Get a phone number from Azure Communication Services
 description: Learn how to buy a Communication Services phone number using the Azure portal.
-author: ddematheu2, prakulka
-manager: nimag, nmurav
+author: prakulka
+manager: nmurav
 services: azure-communication-services
 
-ms.author: dademath
+ms.author: prakulka
 ms.date: 10/05/2020
 ms.topic: quickstart
 ms.service: azure-communication-services
