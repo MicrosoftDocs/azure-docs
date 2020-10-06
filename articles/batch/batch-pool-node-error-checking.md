@@ -123,15 +123,16 @@ Some of these files are only written once when pool nodes are created, such as p
 
 Other files are written out for each task that is run on a node, such as stdout and stderr. If a large number of tasks run on the same node and/or the task files are too large, they could fill the temporary drive.
 
-The size of the temporary drive depends on the VM size. One consideration when picking a VM size is to ensure the temporary drive has enough space.
+Additionally after the node starts, small amount of space is needed on the operating system disk to create users.
+
+The size of the temporary drive size depends on the VM size. One consideration when picking a VM size is to ensure the temporary drive has enough space for the planned workload.
 
 - In the Azure portal when adding a pool, the full list of VM sizes can be displayed and there is a 'Resource Disk Size' column.
 - The articles describing all VM sizes have tables with a 'Temp Storage' column; for example [Compute Optimized VM sizes](../virtual-machines/sizes-compute.md)
 
 For files written out by each task, a retention time can be specified for each task that determines how long the task files are kept before being automatically cleaned up. The retention time can be reduced to lower the storage requirements.
 
-
-If the temporary disk runs out of space (or is very close to running out of space), the node will move to [Unusable](/rest/api/batchservice/computenode/get#computenodestate) state and a node error will be reported saying that the disk is full.
+If the temporary or operating system disk runs out of space (or is very close to running out of space), the node will move to [Unusable](/rest/api/batchservice/computenode/get#computenodestate) state and a node error will be reported saying that the disk is full.
 
 ### What to do when a disk is full
 
@@ -141,7 +142,7 @@ Make sure that any data you need has been retrieved from the node or uploaded to
 
 ### Recovering the node
 
-1. If your pool is a [C.loudServiceConfiguration](/rest/api/batchservice/pool/add#cloudserviceconfiguration) pool, you can re-image the node via the [Batch re-image API](/rest/api/batchservice/computenode/reimage).This will clean the entire disk. Re-image is not currently supported for [VirtualMachineConfiguration](/rest/api/batchservice/pool/add#virtualmachineconfiguration) pools.
+1. If your pool is a [CloudServiceConfiguration](/rest/api/batchservice/pool/add#cloudserviceconfiguration) pool, you can re-image the node via the [Batch re-image API](/rest/api/batchservice/computenode/reimage).This will clean the entire disk. Re-image is not currently supported for [VirtualMachineConfiguration](/rest/api/batchservice/pool/add#virtualmachineconfiguration) pools.
 
 2. If your pool is a [VirtualMachineConfiguration](/rest/api/batchservice/pool/add#virtualmachineconfiguration), you can remove the node from the pool using the [remove nodes API](/rest/api/batchservice/pool/removenodes). Then, you can grow the pool again to replace the bad node with a fresh one.
 
