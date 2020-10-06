@@ -35,7 +35,7 @@ You can create a [service principal](../../active-directory/develop/app-objects-
 Replace the placeholder `myStaticSite` with the name of your site hosted in Azure Storage. 
 
 ```azurecli-interactive
-   az ad sp create-for-rbac --name <myStaticSite> --role contributor --scopes /subscriptions/{subscription-id}/resourceGroups/{resource-group} --sdk-auth
+   az ad sp create-for-rbac --name {myStaticSite} --role contributor --scopes /subscriptions/{subscription-id}/resourceGroups/{resource-group} --sdk-auth
 ```
 
 In the example above, replace the placeholders with your subscription ID and resource group name. The output is a JSON object with the role assignment credentials that provide access to your App Service app similar to below. Copy this JSON object for later.
