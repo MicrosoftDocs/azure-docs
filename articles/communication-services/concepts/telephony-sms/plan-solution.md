@@ -9,6 +9,7 @@ services: azure-communication-services
 ms.author: prakulka
 ms.date: 10/05/2020
 ms.topic: overview
+ms.custom: references_regions
 ms.service: azure-communication-services
 ---
 # Plan your telephony and SMS solution
