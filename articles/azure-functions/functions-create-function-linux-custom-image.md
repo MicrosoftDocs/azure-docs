@@ -11,6 +11,8 @@ zone_pivot_groups: programming-languages-set-functions
 
 In this tutorial, you create and deploy your code to Azure Functions as a custom Docker container using a Linux base image. You typically use a custom image when your functions require a specific language version or have a specific dependency or configuration that isn't provided by the built-in image.
 
+Deploying your function code in a custom Linux container requires [Premium plan](functions-premium-plan.md#features) or a [Dedicated (App Service) plan](functions-scale.md#app-service-plan) hosting. Completing this tutorial incurs costs of a few US dollars in your Azure account, which you can minimize by [cleaning-up resources](#clean-up-resources) when you're done.
+
 You can also use a default Azure App Service container as described on [Create your first function hosted on Linux](./functions-create-first-azure-function-azure-cli.md?pivots=programming-language-python). Supported base images for Azure Functions are found in the [Azure Functions base images repo](https://hub.docker.com/_/microsoft-azure-functions-base).
 
 In this tutorial, you learn how to:
@@ -26,10 +28,7 @@ In this tutorial, you learn how to:
 > * Enable SSH connections to the container.
 > * Add a Queue storage output binding. 
 
-You can follow this tutorial on any computer running Windows, macOS, or Linux. Completing the tutorial will incur costs of a few US dollars in your Azure account.
-
-> [!NOTE] 
-> Linux hosting for custom functions containers are supported on [Dedicated (App Service) plans](functions-scale.md#app-service-plan) and [Premium plans](functions-premium-plan.md#features).
+You can follow this tutorial on any computer running Windows, macOS, or Linux. 
 
 [!INCLUDE [functions-requirements-cli](../../includes/functions-requirements-cli.md)]
 
