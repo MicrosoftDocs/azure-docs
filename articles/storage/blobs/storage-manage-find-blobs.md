@@ -192,7 +192,7 @@ The following sample lifecycle management rule applies to block blobs in the con
 
 You can authorize access to blob index using one of the following approaches:
 
-- By using role-based access control (RBAC) to grant permissions to an Azure Active Directory (Azure AD) security principal. Microsoft recommends using Azure AD for superior security and ease of use. For more information about using Azure AD with blob operations, see [Authorize access to blobs and queues using Azure Active Directory](../common/storage-auth-aad.md).
+- By using Azure role-based access control (Azure RBAC) to grant permissions to an Azure Active Directory (Azure AD) security principal. Microsoft recommends using Azure AD for superior security and ease of use. For more information about using Azure AD with blob operations, see [Authorize access to blobs and queues using Azure Active Directory](../common/storage-auth-aad.md).
 - By using a shared access signature (SAS) to delegate access to blob index. For more information about shared access signatures, see [Grant limited access to Azure Storage resources using shared access signatures (SAS)](../common/storage-sas-overview.md).
 - By using the account access keys to authorize operations with Shared Key. For more information, see [Authorize with Shared Key](/rest/api/storageservices/authorize-with-shared-key).
 
@@ -201,7 +201,7 @@ Blob index tags are a sub-resource to the blob data. A user with permissions or 
 ### Role-based access control
 Callers using an [Azure AD identity](../common/storage-auth-aad.md) may be granted the following permissions to operate on blob index tags.
 
-|   Blob operations  |  RBAC action   |
+|   Blob operations  |  Azure RBAC action   |
 |--------------------|----------------|
 | Find Blobs by Tags | Microsoft.Storage/storageAccounts/blobServices/containers/blobs/filter/action |
 | Set Blob Tags      | Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags/write |

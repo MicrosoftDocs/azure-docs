@@ -62,6 +62,8 @@ Sign in to the [Azure portal](https://portal.azure.com/).
 
 ## Enable Automanage for VMs on a new VM
 
+Sign into the Azure portal [here](https://aka.ms/automanageportalnextstep) to create a new VM and enable Automanage.
+
 1. Follow the creation steps in [Quickstart - create a Windows VM in the Azure portal](..\virtual-machines\windows\quick-create-portal.md).
 
 2. After your VM is deployed, you will land on the deployment status page that has recommended **Next steps** at the bottom.
@@ -83,7 +85,6 @@ Sign in to the [Azure portal](https://portal.azure.com/).
     :::image type="content" source="media\quick-create-virtual-machine-portal\browse-production-profile.png" alt-text="Browse production configuration profile.":::
 
 7. Click the **Enable** button.
-
 
 ## Disable Automanage for VMs
 

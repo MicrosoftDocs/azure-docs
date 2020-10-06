@@ -59,8 +59,8 @@ We define two rules:
 
 | Rule | Map frontend | To backend pool |
 | --- | --- | --- |
-| 1 |![green frontend](./media/load-balancer-multivip-overview/load-balancer-rule-green.png) Frontend1:80 |![backend](./media/load-balancer-multivip-overview/load-balancer-rule-green.png) DIP1:80, ![backend](./media/load-balancer-multivip-overview/load-balancer-rule-green.png) DIP2:80 |
-| 2 |![VIP](./media/load-balancer-multivip-overview/load-balancer-rule-purple.png) Frontend2:80 |![backend](./media/load-balancer-multivip-overview/load-balancer-rule-purple.png) DIP1:81, ![backend](./media/load-balancer-multivip-overview/load-balancer-rule-purple.png) DIP2:81 |
+| 1 |![green frontend](./media/load-balancer-multivip-overview/load-balancer-rule-green.png) Frontend1:80 |![green backend](./media/load-balancer-multivip-overview/load-balancer-rule-green.png) DIP1:80, ![green backend](./media/load-balancer-multivip-overview/load-balancer-rule-green.png) DIP2:80 |
+| 2 |![VIP](./media/load-balancer-multivip-overview/load-balancer-rule-purple.png) Frontend2:80 |![purple backend](./media/load-balancer-multivip-overview/load-balancer-rule-purple.png) DIP1:81, ![purple backend](./media/load-balancer-multivip-overview/load-balancer-rule-purple.png) DIP2:81 |
 
 The complete mapping in Azure Load Balancer is now as follows:
 
@@ -138,8 +138,8 @@ We define two rules:
 
 | Rule | Frontend | Map to backend pool |
 | --- | --- | --- |
-| 1 |![rule](./media/load-balancer-multivip-overview/load-balancer-rule-green.png) Frontend1:80 |![backend](./media/load-balancer-multivip-overview/load-balancer-rule-green.png) Frontend1:80 (in VM1 and VM2) |
-| 2 |![rule](./media/load-balancer-multivip-overview/load-balancer-rule-purple.png) Frontend2:80 |![backend](./media/load-balancer-multivip-overview/load-balancer-rule-purple.png) Frontend2:80 (in VM1 and VM2) |
+| 1 |![green rule](./media/load-balancer-multivip-overview/load-balancer-rule-green.png) Frontend1:80 |![green backend](./media/load-balancer-multivip-overview/load-balancer-rule-green.png) Frontend1:80 (in VM1 and VM2) |
+| 2 |![purple rule](./media/load-balancer-multivip-overview/load-balancer-rule-purple.png) Frontend2:80 |![purple backend](./media/load-balancer-multivip-overview/load-balancer-rule-purple.png) Frontend2:80 (in VM1 and VM2) |
 
 The following table shows the complete mapping in the load balancer:
 
