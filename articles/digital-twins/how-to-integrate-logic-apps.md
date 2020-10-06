@@ -22,7 +22,7 @@ ms.reviewer: baanders
 Azure Digital Twins does not currently have a certified (pre-built) connector for Logic Apps. Instead, the current process for using Logic Apps with Azure Digital Twins is to create a [**custom Logic Apps connector**](../logic-apps/custom-connector-overview.md), using a [custom Azure Digital Twins Swagger](https://docs.microsoft.com/samples/azure-samples/digital-twins-custom-swaggers/azure-digital-twins-custom-swaggers/) that has been modified to work with Logic Apps.
 
 > [!NOTE]
-> The custom Swagger linked above is the latest version. The earlier preview version, also located in the sample, is also still supported.
+> There are multiple versions of the Swagger contained in the custom Swagger sample linked above. The latest version is found in *LogicApps/stable/2020-10-31/*. The earlier preview version (in *LogicApps/preview/2020-05-31-preview/*) is also still supported.
 
 In this article, you will use the [Azure portal](https://portal.azure.com) to **create a custom connector** that can be used to connect Logic Apps to an Azure Digital Twins instance. You will then **create a logic app** that uses this connection for an example scenario, in which events triggered by a timer will automatically update a twin in your Azure Digital Twins instance. 
 
@@ -94,7 +94,10 @@ You'll be taken to the deployment page for the connector. When it is finished de
 
 Next, you'll configure the connector you've created to reach Azure Digital Twins.
 
-First, download a custom Azure Digital Twins Swagger that has been modified to work with Logic Apps. Download the **Azure Digital Twins Custom Swaggers** sample from [this link](https://docs.microsoft.com/samples/azure-samples/digital-twins-custom-swaggers/azure-digital-twins-custom-swaggers/) by hitting the *Download ZIP* button. Navigate to the downloaded *Azure_Digital_Twins_Custom_Swaggers.zip* folder and unzip it. The custom Swagger for this tutorial is located at *Azure_Digital_Twins_Custom_Swaggers\LogicApps\preview\2020-05-31-preview\digitaltwins.json*.
+First, download a custom Azure Digital Twins Swagger that has been modified to work with Logic Apps. Download the **Azure Digital Twins Custom Swaggers** sample from [this link](https://docs.microsoft.com/samples/azure-samples/digital-twins-custom-swaggers/azure-digital-twins-custom-swaggers/) by hitting the *Download ZIP* button. Navigate to the downloaded *Azure_Digital_Twins_Custom_Swaggers.zip* folder and unzip it. The custom Swagger for this tutorial is located at *Azure_Digital_Twins_Custom_Swaggers\LogicApps\stable\2020-10-31\digitaltwins.json*.
+
+> [!NOTE]
+> There are multiple versions of the Swagger contained in the custom Swagger sample linked above. The latest version is found in *LogicApps/stable/2020-10-31/*. The earlier preview version (in *LogicApps/preview/2020-05-31-preview/*) is also still supported.
 
 Then, go to your connector's Overview page in the [Azure portal](https://portal.azure.com) and hit *Edit*.
 
