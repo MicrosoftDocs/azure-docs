@@ -72,6 +72,8 @@ Passwordless authentication using the Authenticator app follows the same basic p
 1. The nonce is signed with the private key and sent back to Azure AD.
 1. Azure AD performs public/private key validation and returns a token.
 
+Passwordless sign-in with the Microsoft Authenticator app to Azure AD is currently in preview. Use of the Microsoft Authenticator app for secondary authentication for Azure Multi-Factor Authentication, self-service password reset (SSPR), or OATH software tokens is GA. For more information about previews, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
 To get started with passwordless sign-in, complete the following how-to:
 
 > [!div class="nextstepaction"]
