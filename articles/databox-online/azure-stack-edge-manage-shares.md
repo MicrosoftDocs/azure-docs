@@ -10,7 +10,7 @@ ms.topic: how-to
 ms.date: 03/25/2019
 ms.author: alkohli
 ---
-# Use the Azure portal to manage shares on your Azure Stack Edge Pro
+# Use the Azure portal to manage shares on Azure Stack Edge Pro
 
 This article describes how to manage shares on your Azure Stack Edge Pro. You can manage the Azure Stack Edge Pro via the Azure portal or via the local web UI. Use the Azure portal to add, delete, refresh shares, or sync storage key for storage account associated with the shares.
 
