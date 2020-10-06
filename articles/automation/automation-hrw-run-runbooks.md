@@ -19,7 +19,7 @@ Azure Automation handles jobs on Hybrid Runbook Workers differently from jobs ru
 
 Jobs for Hybrid Runbook Workers run under the local **System** account on Windows, or the **nxautomation** account on Linux. For Linux, verify the **nxautomation** account has access to the location where the runbook modules are stored. When you use the [Install-Module](/powershell/module/powershellget/install-module) cmdlet, be sure to specify AllUsers for the `Scope` parameter to ensure that the **nxautomation** account has access. For more information on PowerShell on Linux, see [Known Issues for PowerShell on Non-Windows Platforms](/powershell/scripting/whats-new/known-issues-ps6#known-issues-for-powershell-on-non-windows-platforms).
 
-## Set up runbook permissions
+## Configure runbook permissions
 
 Define permissions for your runbook to run on the Hybrid Runbook Worker in the following ways:
 
@@ -27,7 +27,7 @@ Define permissions for your runbook to run on the Hybrid Runbook Worker in the f
 * Configure authentication using [managed identities for Azure resources](../active-directory/managed-identities-azure-resources/tutorial-windows-vm-access-arm.md#grant-your-vm-access-to-a-resource-group-in-resource-manager).
 * Specify a Run As account to provide a user context for all runbooks.
 
-## Use runbook authentication to local resources
+### Use runbook authentication to local resources
 
 If preparing a runbook that provides its own authentication to resources, use [credential](./shared-resources/credentials.md) and [certificate](./shared-resources/certificates.md) assets in your runbook. There are several cmdlets that allow you to specify credentials so that the runbook can authenticate to different resources. The following example shows a portion of a runbook that restarts a computer. It retrieves credentials from a credential asset and the name of the computer from a variable asset and then uses these values with the `Restart-Computer` cmdlet.
 
@@ -40,7 +40,7 @@ Restart-Computer -ComputerName $Computer -Credential $Cred
 
 You can also use an [InlineScript](automation-powershell-workflow.md#use-inlinescript) activity. `InlineScript` allows you to run blocks of code on another computer with credentials.
 
-## <a name="runbook-auth-managed-identities"></a>Use runbook authentication with managed identities
+### <a name="runbook-auth-managed-identities"></a>Use runbook authentication with managed identities
 
 Hybrid Runbook Workers on Azure virtual machines can use managed identities to authenticate to Azure resources. Using managed identities for Azure resources instead of Run As accounts provides benefits because you don't need to:
 
@@ -86,7 +86,7 @@ Use the following procedure to specify a Run As account for a Hybrid Runbook Wor
 5. Change the value of **Run As** from **Default** to **Custom**.
 6. Select the credential and click **Save**.
 
-## <a name="runas-script"></a>Install Run As account certificate
+### <a name="runas-script"></a>Install Run As account certificate
 
 As part of your automated build process for deploying resources in Azure, you might require access to on-premises systems to support a task or set of steps in your deployment sequence. To provide authentication against Azure using the Run As account, you must install the Run As account certificate.
 
@@ -177,7 +177,7 @@ To finish preparing the Run As account:
 
 ## Work with signed runbooks on a Windows Hybrid Runbook Worker
 
-You can configure a Windows Hybrid Runbook Worker to run only signed runbooks. 
+You can configure a Windows Hybrid Runbook Worker to run only signed runbooks.
 
 > [!IMPORTANT]
 > Once you've configured a Hybrid Runbook Worker to run only signed runbooks, unsigned runbooks fail to execute on the worker.
