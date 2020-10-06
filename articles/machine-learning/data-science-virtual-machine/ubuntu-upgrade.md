@@ -24,7 +24,7 @@ If you have a Data Science Virtual Machine running an older release such as Ubun
 
 ## Overview
 
-This section includes the migration plan for Ubuntu 18.04 from 16.04. There are two possible ways to migrate:
+There are two possible ways to migrate:
 
 - In-place migration, also called "same server" migration. This migration upgrades the existing VM without creating a new virtual machine. In-place migration is the easier way to migrate from Ubuntu 16.04 to Ubuntu 18.04.
 - Side-by-side migration, also called "inter-server" migration. This migration transfers data from the existing virtual machine to a newly created VM. Side-by-side migration is the way to migrate from Centos to Ubuntu 18.04. You may prefer side-by-side migration for upgrading between Ubuntu versions if you feel your old install has become needlessly cluttered.
