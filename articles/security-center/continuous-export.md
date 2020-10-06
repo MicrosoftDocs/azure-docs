@@ -35,7 +35,7 @@ This article describes how to configure continuous export to Log Analytics works
 |----|:----|
 |Release state:|Generally available (GA)|
 |Pricing:|Free|
-|Required roles and permissions:|**Security admin role** on the resource group (or **Owner**)<br>Must also have write permissions for the target resource|
+|Required roles and permissions:|**Security admin role** on the resource group (or **Owner**)<br>Must also have write permissions for the target resource<be>If you're using the Azure Policy 'DeployIfNotExist' policies described below you'll also need permissions for assigning policies|
 |Clouds:|![Yes](./media/icons/yes-icon.png) Commercial clouds<br>![Yes](./media/icons/yes-icon.png) US Gov<br>![Yes](./media/icons/yes-icon.png) China Gov (to Event Hub), Other Gov|
 |||
 
@@ -103,7 +103,7 @@ Learn more about the automations API in the [REST API documentation](https://doc
 
 Automating your organization's monitoring and incident response processes can greatly improve the time it takes to investigate and mitigate security incidents.
 
-To deploy your automation configurations across your organization, use the supplied Azure Policy 'DeployIfdNotExist' policies described below to create and configure continuous export procedures.
+To deploy your continuous export configurations across your organization, use the supplied Azure Policy 'DeployIfNotExist' policies described below to create and configure continuous export procedures.
 
 **To implement these policies**
 
@@ -119,18 +119,18 @@ To deploy your automation configurations across your organization, use the suppl
     > You can also find these by searching Azure Policy:
     > 1. Open Azure Policy.
     > :::image type="content" source="./media/continuous-export/opening-azure-policy.png" alt-text="Accessing Azure Policy":::
-    > 2. From the Azure Policy menu, select **Definitions** and search for them by name.
+    > 2. From the Azure Policy menu, select **Definitions** and search for them by name. 
 
-    The relevant policy page opens. 
-
-1. Select **Assign**.
+1. From the relevant Azure Policy page, select **Assign**.
     :::image type="content" source="./media/continuous-export/export-policy-assign.png" alt-text="Assigning the Azure Policy":::
 
 1. Open each tab and set the parameters as desired:
     1. In the **Basics** tab, set the scope for the policy. To use centralized management, assign the policy to the Management Group containing the subscriptions that will use continuous export configuration. 
     1. In the **Parameters** tab, set the resource group and data type details. 
         > [!TIP]
-        > Azure Policy's parameters tab (1) provides access to the same configuration options as Security Center's continuous export page (2).
+        > Each parameter has a tooltip explaining the options available to you.
+        >
+        > Azure Policy's parameters tab (1) provides access to similar configuration options as Security Center's continuous export page (2).
         > :::image type="content" source="./media/continuous-export/azure-policy-next-to-continuous-export.png" alt-text="Comparing the parameters in continuous export with Azure Policy" lightbox="./media/continuous-export/azure-policy-next-to-continuous-export.png":::
     1. Optionally, to apply this assignment to existing subscriptions, open the **Remediation** tab and select the option to create a remediation task.
 1. Review the summary page and select **Create**.
