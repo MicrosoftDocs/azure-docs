@@ -64,7 +64,7 @@
   - name: Multiple frontends
     href: load-balancer-multivip-overview.md
   - name: Outbound rules
-    href: load-balancer-outbound-connections.md
+    href: outbound-rules.md
   - name: TCP reset on idle timeout
     href: load-balancer-tcp-reset.md
   - name: Standard Load Balancer and Availability Zones
