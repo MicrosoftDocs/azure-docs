@@ -159,10 +159,10 @@ The **edgeAgent** module produces the following metrics:
 | `edgeAgent_total_memory_bytes` | `module_name` | Type: gauge<br> RAM available |
 | `edgeAgent_used_cpu_percent` | `module_name` | Type: histogram<br> Percent of cpu used by all processes |
 | `edgeAgent_created_pids_total` | `module_name` | Type: gauge<br> The number of processes or threads the container has created |
-| `edgeAgent_total_network_in_bytes` | `module_name` | Type: gauge<br> The amount of bytes recieved from the network |
-| `edgeAgent_total_network_out_bytes` | `module_name` | Type: gauge<br> The amount of bytes sent to network |
-| `edgeAgent_total_disk_read_bytes` | `module_name` | Type: gauge<br> The amount of bytes read from the disk |
-| `edgeAgent_total_disk_write_bytes` | `module_name` | Type: gauge<br> The amount of bytes written to disk |
+| `edgeAgent_total_network_in_bytes` | `module_name` | Type: gauge<br> The number of bytes received from the network |
+| `edgeAgent_total_network_out_bytes` | `module_name` | Type: gauge<br> The number of bytes sent to network |
+| `edgeAgent_total_disk_read_bytes` | `module_name` | Type: gauge<br> The number of bytes read from the disk |
+| `edgeAgent_total_disk_write_bytes` | `module_name` | Type: gauge<br> The number of bytes written to disk |
 | `edgeAgent_metadata` | `edge_agent_version`, `experimental_features`, `host_information` | Type: gauge<br> General metadata about the device. The value is always 0, information is encoded in the tags. Note `experimental_features` and `host_information` are json objects. `host_information` looks like ```{"OperatingSystemType": "linux", "Architecture": "x86_64", "Version": "1.0.10~dev20200803.4", "Provisioning": {"Type": "dps.tpm", "DynamicReprovisioning": false, "AlwaysReprovisionOnStartup": true}, "ServerVersion": "19.03.6", "KernelVersion": "5.0.0-25-generic", "OperatingSystem": "Ubuntu 18.04.4 LTS", "NumCpus": 6, "Virtualized": "yes"}```. Note `ServerVersion` is the Docker version and `Version` is the IoT Edge security daemon version. |
 
 ## Next steps
