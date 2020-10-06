@@ -261,7 +261,7 @@ To learn how the system evaluates Azure RBAC and ACLs together to make authoriza
 
 ### What are the limits for Azure RBAC role assignments and ACL entries?
 
-The following table provides a summary view of the limits to consider while using Azure RBAC to manage "coarse-grained" permissions (permissions that apply to storage accounts or containers) and using ACLs to manage "fine-grained" permissions (permissions that apply to files and directories).
+The following table provides a summary view of the limits to consider while using Azure RBAC to manage "coarse-grained" permissions (permissions that apply to storage accounts or containers) and using ACLs to manage "fine-grained" permissions (permissions that apply to files and directories). Use security groups for ACL assignments. By using groups, you're less likely to exceed the maximum number of role assignments per subscription and the maximum number of ACl entries per file or directory. 
 
 [!INCLUDE [Security groups](../../../includes/azure-storage-data-lake-rbac-acl-limits.md)] 
 
@@ -271,7 +271,7 @@ Azure role assignments do inherit. Assignments flow from subscription, resource 
 
 ### Does Data Lake Storage Gen2 support inheritance of ACLs?
 
-ACLs do not inherit. However, default ACLs can be used to set ACLs for new child subdirectories and files created under the parent directory. To update ACLs for existing child items, you will need to add, update, or remove ACLs recursively for the desired directory hierarchy. For more information, see [Set access control lists (ACLs) recursively for Azure Data Lake Storage Gen2](recursive-access-control-lists.md). 
+Default ACLs can be used to set ACLs for new child subdirectories and files created under the parent directory. To update ACLs for existing child items, you will need to add, update, or remove ACLs recursively for the desired directory hierarchy. For more information, see [Set access control lists (ACLs) recursively for Azure Data Lake Storage Gen2](recursive-access-control-lists.md). 
 
 ### Which permissions are required to recursively delete a directory and its contents?
 
