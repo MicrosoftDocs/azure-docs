@@ -8,7 +8,7 @@ ms.subservice: core
 ms.reviewer: larryfr
 ms.author: peterlu
 author: peterclu
-ms.date: 07/07/2020
+ms.date: 10/06/2020
 ms.topic: conceptual
 ms.custom: how-to, contperfq4, tracking-python, contperfq1
 
@@ -53,10 +53,21 @@ Azure Private Link lets you connect to your workspace using a private endpoint. 
 
 For more information on setting up a Private Link workspace, see [How to configure Private Link](how-to-configure-private-link.md).
 
+## Secure Azure storage accounts with private endpoints
 
-## Secure Azure storage accounts
+Azure Machine Learning supports storage accounts configured to use either service endpoints or private endpoints. If the storage account uses private endpoints, you must configure two private endpoints for your default storage account:
+1. A private endpoint with a **blob** target sub-resource.
+1. A private endpoint with a **file** target sub-resource (fileshare).
 
-In this section, you learn how to secure an Azure storage account using service endpoints. However, you can also use private endpoints to secure Azure storage. For more information, see [Use private endpoints for Azure Storage](../storage/common/storage-private-endpoints.md).
+![Screenshot showing private endpoint configuration page with blob and file options](./media/how-to-enable-studio-virtual-network/configure-storage-private-endpoint.png)
+
+To configure a private endpoint for a storage account that is **not** the default storage, select the **Target sub-resource** type that corresponds to the storage account you want to add.
+
+For more information, see [Use private endpoints for Azure Storage](../storage/common/storage-private-endpoints.md)
+
+## Secure Azure storage accounts with service endpoints
+
+In this section, you learn how to secure an Azure storage account using service endpoints.
 
 > [!IMPORTANT]
 > You can place the both the _default storage account_ for Azure Machine Learning, or _non-default storage accounts_ in a virtual network.

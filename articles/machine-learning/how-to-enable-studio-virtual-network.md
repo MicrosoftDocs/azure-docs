@@ -56,7 +56,7 @@ For example, if you are using network security groups (NSG) to restrict outbound
 
 Azure Machine Learning studio supports storage accounts configured to use either service endpoints or private endpoints. If the storage account uses private endpoints, you must also configure two private endpoints for your default storage account:
 1. A private endpoint with a **blob** target sub-resource.
-1. A private endpoint with a **file** target sub-resource.
+1. A private endpoint with a **file** target sub-resource (fileshare).
 
 ![Screenshot showing private endpoint configuration page with blob and file options](./media/how-to-enable-studio-virtual-network/configure-storage-private-endpoint.png)
 
@@ -66,7 +66,7 @@ For more information, see [Use private endpoints for Azure Storage](../storage/c
 
 ## Access data using the studio
 
-After you [add an Azure storage account to your virtual network](how-to-secure-workspace-vnet.md#secure-azure-storage-accounts), you must configure your storage account to use [managed identity](../active-directory/managed-identities-azure-resources/overview.md) to grant the studio access to your data.
+After you add an Azure storage account to your virtual network with a [service endpoint](how-to-secure-workspace-vnet.md#secure-azure-storage-accounts-with-service-endpoints) or [private endpoint](how-to-secure-workspace-vnet.md#secure-azure-storage-accounts-with-private-endpoints), you must configure your storage account to use [managed identity](../active-directory/managed-identities-azure-resources/overview.md) to grant the studio access to your data.
 
 If you do not enable managed identity, you will receive this error, `Error: Unable to profile this dataset. This might be because your data is stored behind a virtual network or your data does not support profile.` Additionally, the following operations will be disabled:
 
