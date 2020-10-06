@@ -59,7 +59,7 @@ az eventgrid topic create -g <your-resource-group-name> --name <your-topic-name>
 > az account list-locations -o table
 > ```
 
-Once you have created the topic, you can link it to Azure Digital Twins with the following command:
+Once you have created the topic, you can link it to Azure Digital Twins with the following [Azure Digital Twins CLI command](how-to-use-cli.md):
 
 ```azurecli
 az dt endpoint create eventgrid --endpoint-name <Event-Grid-endpoint-name> --eventgrid-resource-group <Event-Grid-resource-group-name> --eventgrid-topic <your-Event-Grid-topic-name> -n <your-Azure-Digital-Twins-instance-name>
@@ -91,7 +91,7 @@ az dt endpoint create eventhub --endpoint-name <Event-Hub-endpoint-name> --event
 
 To actually send data from Azure Digital Twins to an endpoint, you'll need to define an **event route**. Azure Digital Twins **EventRoutes APIs** let developers wire up event flow, throughout the system and to downstream services. Read more about event routes in [*Concepts: Routing Azure Digital Twins events*](concepts-route-events.md).
 
-The samples in this section use the C# SDK.
+The samples in this section use the [.NET (C#) SDK](https://www.nuget.org/packages/Azure.DigitalTwins.Core).
 
 **Prerequisite**: You need to create endpoints as described earlier in this article before you can move on to creating a route. You can proceed to creating an event route once your endpoints are finished setting up.
 
@@ -102,7 +102,7 @@ The samples in this section use the C# SDK.
 
 ### Create an event route
 
-Event routes are defined using data plane APIs. 
+Event routes are defined using [data plane APIs](how-to-use-apis-sdks.md#overview-data-plane-apis). 
 
 A route definition can contain these elements:
 * The route name you want to use

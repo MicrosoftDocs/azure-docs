@@ -50,7 +50,7 @@ To turn on the policy:
 
 1. Search on **Cost Management + Billing**.
 
-   ![Screenshot that shows Azure portal search](./media/mpa-overview/search-cmb.png)
+   ![Screenshot shows Azure portal search for Cost Management + Billing.](./media/mpa-overview/search-cmb.png)
 
 1. Select **Customers** from the left-hand side and then select a customer from the list.
 

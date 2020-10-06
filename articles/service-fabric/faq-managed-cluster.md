@@ -36,7 +36,7 @@ The SLA doesn't change from the current Service Fabric resource model.
 
 ### What is the difference between a Basic, and Standard SKU cluster?
 
-A Basic SKU cluster means, most of the configurations are provided by the Service Fabric resource provider. Basic SKU clusters are intended to be used for testing and pre production environments. A Standard SKU cluster allows users to configure the cluster to specifically meet their needs. For more information, see [Service Fabric managed cluster SKUs](overview-managed-cluster.md#service-fabric-managed-cluster skus.md) for more details.
+A Basic SKU cluster means, most of the configurations are provided by the Service Fabric resource provider. Basic SKU clusters are intended to be used for testing and pre production environments. A Standard SKU cluster allows users to configure the cluster to specifically meet their needs. For more information, see [Service Fabric managed cluster SKUs](https://docs.microsoft.com/azure/service-fabric/overview-managed-cluster#service-fabric-managed-cluster-skus) for more details.
 
 ## Cluster Deployment and Management
 

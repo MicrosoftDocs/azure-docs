@@ -1,7 +1,7 @@
 ---
 title: Understand resource locking
 description: Learn about the locking options in Azure Blueprints to protect resources when assigning a blueprint.
-ms.date: 08/27/2020
+ms.date: 10/05/2020
 ms.topic: conceptual
 ---
 # Understand resource locking in Azure Blueprints
@@ -36,8 +36,8 @@ Locked** state. The following table can be used to determine the state of a reso
 
 ## Overriding locking states
 
-It's typically possible for someone with appropriate [role-based access
-control](../../../role-based-access-control/overview.md) (RBAC) on the subscription, such as the
+It's typically possible for someone with appropriate [Azure role-based access
+control (Azure RBAC)](../../../role-based-access-control/overview.md) on the subscription, such as the
 'Owner' role, to be allowed to alter or delete any resource. This access isn't the case when Azure
 Blueprints applies locking as part of a deployed assignment. If the assignment was set with the
 **Read Only** or **Do Not Delete** option, not even the subscription owner can perform the blocked
@@ -121,7 +121,7 @@ resource is left behind and would need to be deleted through normal means.
 
 ## How blueprint locks work
 
-An RBAC [deny assignments](../../../role-based-access-control/deny-assignments.md) deny action is
+An Azure RBAC [deny assignments](../../../role-based-access-control/deny-assignments.md) deny action is
 applied to artifact resources during assignment of a blueprint if the assignment selected the **Read
 Only** or **Do Not Delete** option. The deny action is added by the managed identity of the
 blueprint assignment and can only be removed from the artifact resources by the same managed
@@ -136,8 +136,8 @@ of each mode are as follows:
 
 |Mode |Permissions.Actions |Permissions.NotActions |Principals[i].Type |ExcludePrincipals[i].Id | DoNotApplyToChildScopes |
 |-|-|-|-|-|-|
-|Read Only |**\*** |**\*/read** |SystemDefined (Everyone) |blueprint assignment and user-defined in **excludedPrincipals** |Resource group - _true_; Resource - _false_ |
-|Do Not Delete |**\*/delete** | |SystemDefined (Everyone) |blueprint assignment and user-defined in **excludedPrincipals** |Resource group - _true_; Resource - _false_ |
+|Read Only |**\*** |**\*/read**<br />**Microsoft.Authorization/locks/delete**<br />**Microsoft.Network/virtualNetwork/subnets/join/action** |SystemDefined (Everyone) |blueprint assignment and user-defined in **excludedPrincipals** |Resource group - _true_; Resource - _false_ |
+|Do Not Delete |**\*/delete** | **Microsoft.Authorization/locks/delete**<br />**Microsoft.Network/virtualNetwork/subnets/join/action** |SystemDefined (Everyone) |blueprint assignment and user-defined in **excludedPrincipals** |Resource group - _true_; Resource - _false_ |
 
 > [!IMPORTANT]
 > Azure Resource Manager caches role assignment details for up to 30 minutes. As a result, deny
@@ -199,7 +199,7 @@ definition is an example of a request body that includes **excludedPrincipals**:
 Similar to [excluding a principal](#exclude-a-principal-from-a-deny-assignment) on a
 [deny assignment](../../../role-based-access-control/deny-assignments.md) in a blueprint assignment,
 you can exclude specific
-[RBAC operations](../../../role-based-access-control/resource-provider-operations.md). Within the
+[Azure resource provider operations](../../../role-based-access-control/resource-provider-operations.md). Within the
 **properties.locks** block, in the same place that **excludedPrincipals** is, an **excludedActions**
 can be added:
 
@@ -218,7 +218,7 @@ can be added:
 ```
 
 While **excludedPrincipals** must be explicit, **excludedActions** entries can make use of `*` for
-wildcard matching of RBAC operations.
+wildcard matching of resource provider operations.
 
 ## Next steps
 

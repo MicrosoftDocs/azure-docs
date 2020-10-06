@@ -1,11 +1,9 @@
 ---
 title: Set up your dev environment on macOS
 description: Install the runtime, SDK, and tools and create a local development cluster. After completing this setup, you'll be ready to build applications on macOS.
-author: suhuruli
 
 ms.topic: conceptual
 ms.date: 11/17/2017
-ms.author: suhuruli
 ms.custom: devx-track-js
 ---
 # Set up your development environment on Mac OS X

@@ -79,11 +79,11 @@ For personal Microsoft accounts, you can prove your identity by entering your pa
 
 1. In the **Accounts** screen of the Microsoft Authenticator app, tap the account you want to recover to open the full screen view of the account.
 
-    :::image type="content" source="media/user-help-auth-app-backup-recovery/backup-and-recovery-arrow.png" alt-text="Microsoft Authenticator app, showing the available account tiles" border="true":::
+    :::image type="content" source="media/user-help-auth-app-backup-recovery/backup-and-recovery-arrow.png" alt-text="Screenshot that shows the Microsoft Authenticator app with the available account tiles." border="true":::
 
 1. Tap the tile for the account you're recovering and then tap the option to sign in to recover. Enter your password and then confirm your email address or phone number as additional verification.
 
-    :::image type="content" source="media/user-help-auth-app-backup-recovery/backup-and-recovery-codes.png" alt-text="Authenticator presents a one-time password as a verification code" border="true":::
+    :::image type="content" source="media/user-help-auth-app-backup-recovery/backup-and-recovery-codes.png" alt-text="Screenshot that shows the Microsoft Authenticator one-time password code." border="true":::
 
 ### To provide more verification for work or school accounts
 

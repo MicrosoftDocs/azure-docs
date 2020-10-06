@@ -30,7 +30,7 @@ The key benefits of Cosmos DB as a fully managed, globally distributed, database
 * Keep your application portable and continue to remain cloud vendor-agnostic.
 * Get industry leading, financially backed SLAs for the common NoSQL APIs powered by Cosmos DB.
 * Elastically scale the provisioned throughput and storage for your Cosmos databases based on your need and pay only for the throughput and storage you need. This leads to significant cost savings.
-* Turnkey, global distribution with multi-master replication.
+* Turnkey, global distribution with multi-region writes replication.
 
 ## Cosmos DB's API for MongoDB
 

@@ -4,7 +4,7 @@ description: Connect privately to a Web App using Azure Private Endpoint
 author: ericgre
 ms.assetid: 2dceac28-1ba6-4904-a15d-9e91d5ee162c
 ms.topic: article
-ms.date: 08/12/2020
+ms.date: 10/07/2020
 ms.author: ericg
 ms.service: app-service
 ms.workload: web
@@ -12,12 +12,7 @@ ms.custom: fasttrack-edit, references_regions
 
 ---
 
-# Using Private Endpoints for Azure Web App (Preview)
-
-> [!Note]
-> With the preview refresh, we released the data exfiltration protection feature.
->
-> The preview is available in all public regions for PremiumV2 Windows and Linux Web Apps and Elastic Premium Functions. 
+# Using Private Endpoints for Azure Web App
 
 You can use Private Endpoint for your Azure Web App to allow clients located in your private network to securely access the app over Private Link. The Private Endpoint uses an IP address from your Azure VNet address space. Network traffic between a client on your private network and the Web App traverses over the VNet and a Private Link on the Microsoft backbone network, eliminating exposure from the public Internet.
 
@@ -97,7 +92,7 @@ After this DNS configuration you can reach your Web App privately with the defau
 
 
 If you need to use a custom DNS name, you must add the custom name in your Web App. 
-During the preview, the custom name must be validated like any custom name, using public DNS resolution. 
+The custom name must be validated like any custom name, using public DNS resolution. 
 For more information, see [custom DNS validation][dnsvalidation].
 
 For the Kudu console, or Kudu REST API (deployment with Azure DevOps self-hosted agents for example), you must create two records in your Azure DNS private zone or your custom DNS server. 
@@ -117,7 +112,9 @@ For pricing details, see [Azure Private Link pricing][pricing].
 
 When you use Azure Function in Elastic Premium Plan with Private Endpoint, to run or execute the function in Azure Web portal, you must have direct network access or you will receive an HTTP 403 error. In other words, your browser must be able to reach the Private Endpoint to execute the function from the Azure Web portal. 
 
-During the preview, only the production slot is exposed behind the Private Endpoint, other slots must be reach by Public Endpoint.
+You can connect up to 100 Private Endpoint to a particular Web App.
+
+Private Endpoint is available for PremiumV2, PremiumV3, Windows and Linux Web App, containerized or not, and the Azure Functions Premium plan (sometimes referred to as the Elastic Premium plan). 
 
 We are improving Private Link feature and Private Endpoint regularly, check [this article][pllimitations] for up-to-date information about limitations.
 
