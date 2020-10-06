@@ -199,7 +199,7 @@ If you see an attribute IsSoftDeleted in your attribute mappings, it is used to 
 
 **Recommendation**
 
-When developing an application, always support both soft deletes and hard deletes when building an application. It allows customers to recover when a user is accidentally disabled.
+When developing an application, always support both soft deletes and hard deletes. It allows customers to recover when a user is accidentally disabled.
 
 
 ## Next Steps
