@@ -118,8 +118,8 @@ In this section, you configure Azure AD single sign-on with Sectigo Certificate 
 	
 	1. Select **Add new claim** and add the following 4 claims:
 	
-    | Name | Namespace | Source | Source attribute | Description
-    | --- | --- |
+    | Name | Namespace | Source | Source attribute | Description |
+    | --- | --- | --- | --- | --- |
     | eduPersonPrincipalName | empty | Attribute | user.userprincipalname | Must match the **IdP Person Id** field in SCM for Admins |
     | mail | empty | Attribute | user.mail | Required |
     | givenName | empty | Attribute | user.givenname | Optional |
