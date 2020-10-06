@@ -14,10 +14,12 @@ ms.custom: subject-security-benchmark
 
 # Azure security baseline for Site Recovery
 
-This security baseline applies guidance from the [Azure Security Benchmark](../security/benchmarks/overview.md) to Site
+This security baseline applies guidance from the [Azure Security Benchmark version 1.0](../security/benchmarks/overview-v1.md) to Site
 Recovery. The Azure Security Benchmark provides recommendations on how you can secure your cloud solutions on Azure. The content is grouped by the **security controls** defined by the Azure Security Benchmark and the related guidance applicable to Site
 Recovery. **Controls** not applicable to Site
-Recovery have been excluded. To see how Site
+Recovery have been excluded. 
+
+To see how Site
 Recovery completely maps to the Azure Security Benchmark, see the [full Site
 Recovery security baseline mapping file](https://github.com/MicrosoftDocs/SecurityBenchmarks/tree/master/Azure%20Offer%20Security%20Baselines).
 
@@ -62,7 +64,7 @@ Recovery security baseline mapping file](https://github.com/MicrosoftDocs/Securi
 
 **Guidance**: Use Site Recovery to protect or enable Disaster Recovery on Azure Virtual Machines and associate the virtual machines with a network security group.  Add a description to specify the business need for the rule for traffic documentation.
 
-**Azure Security Center monitoring**: Not Applicable
+**Azure Security Center monitoring**: Not applicable
 
 **Responsibility**: Customer
 
@@ -94,7 +96,7 @@ Recovery security baseline mapping file](https://github.com/MicrosoftDocs/Securi
 
 Use Azure Activity Log data to determine the "what, who, and when" for any write operations (PUT, POST, DELETE) performed on your Azure resources.
 
-Ingest Site Recovery logs with Azure Monitor to aggregate generated security data . Within Azure Monitor, use Log Analytics workspaces to query and perform analytics, and use storage accounts for long-term/archival storage. Also, you may enable and on-board data to Azure Sentinel or a third-party Security Incident and Event Management (SIEM) solution.
+Ingest Site Recovery logs in Azure Monitor to aggregate generated security data . Within Azure Monitor, use Log Analytics workspaces to query and perform analytics, and use storage accounts for long-term/archival storage. Also, you may enable and on-board data to Azure Sentinel or a third-party Security Incident and Event Management (SIEM) solution.
 
 - [How to enable Diagnostic Settings for Azure Activity Log](../azure-monitor/platform/activity-log.md)
 
@@ -216,7 +218,6 @@ You can also onboard alerts to a Log Analytics workspace to Azure Sentinel as it
 **Guidance**: Create standard operating procedures around the use of dedicated administrative accounts. Use Security Center's Identity and Access Management features to monitor the number of administrative accounts.
 
 Additionally, to help you keep track of dedicated administrative accounts, you may use recommendations from Security Center or built-in Azure policies, such as: 
-
 - There should be more than one owner assigned to your subscription 
 
 - Deprecated accounts with owner permissions should be removed from your subscription 
@@ -238,7 +239,7 @@ Create a process to track identity and access control for administrative account
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/33704.).
 
-**Guidance**: Use Azure app registration (with a Service Principal) to retrieve a token to be used to interact with your Recovery Services vaults through API calls.
+**Guidance**: Use Azure app registration with a Service Principal to retrieve a token to be used to interact with your Recovery Services vaults through API calls.
 
 - [How to call Azure REST APIs](/rest/api/azure/#how-to-call-azure-rest-apis-with-postman)
 
@@ -364,7 +365,7 @@ Further streamline this process by creating diagnostic settings for Azure AD use
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/33712.).
 
-**Guidance**: Use Azure Active Directory (Azure AD) as the central authentication and authorization system for your Recovery Services vaults. 
+**Guidance**: Use Azure Active Directory (Azure AD) as the central authentication and authorization system for your Recovery Services Vaults. 
 
 Employ Azure AD's Identity Protection features for account login behavior detection and to configure automated responses to detected suspicious actions, as related to user identities. Also ingest data into Azure Sentinel for further investigation.
 
@@ -417,7 +418,7 @@ All of Site Recovery's Disaster Recovery data is transferred or stored in custom
 
 Site Recovery helps ensure business continuity by keeping business apps and workloads running during outages by maintaining Recovery Time Objectives (RTO) and Recovery Point Objectives (RPO) within organizational limits.
 
-Turn off Virtual Machines, which store or process sensitive data, when not in use. Implement policy and procedures to create this as a recurring process. 
+Turn off virtual machines, which store or process sensitive data, when not in use. Implement policy and procedures to create this as a recurring process. 
 
 - [How to create additional Azure subscriptions](../cost-management-billing/manage/create-subscription.md)
 
@@ -459,7 +460,7 @@ Current TLS versions supported for Site Recovery are TLS 1.0, TLS 1.1, TLS 1.2 i
 
 - [Understanding encryption in transit for Azure Site Recovery](physical-azure-set-up-source.md)
 
-**Azure Security Center monitoring**: Not Applicable
+**Azure Security Center monitoring**: Not applicable
 
 **Responsibility**: Shared
 
@@ -524,45 +525,6 @@ Only the customer has access to the encryption key while using a Recovery Servic
 
 **Responsibility**: Customer
 
-## Vulnerability management
-
-*For more information, see the [Azure Security Benchmark: Vulnerability management](../security/benchmarks/security-control-vulnerability-management.md).*
-
-### 5.2: Deploy automated operating system patch management solution
-
->[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/33724.).
-
-**Guidance**: Not applicable to Site Recovery. This guideline is intended for compute resources. 
-
-Microsoft performs patch management on the underlying operating systems that support Recovery services vaults (Site Recovery PaaS services).
-
-**Azure Security Center monitoring**: Not applicable
-
-**Responsibility**: Not Applicable
-
-### 5.3: Deploy an automated patch management solution for third-party software titles
-
->[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/33725.).
-
-**Guidance**: Not applicable to Site Recovery. This guideline is intended for compute resources.
-
-**Azure Security Center monitoring**: Not Applicable
-
-**Responsibility**: Not Applicable
-
-### 5.4: Compare back-to-back vulnerability scans
-
->[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/33726.).
-
-**Guidance**: Not applicable to Site Recovery. This guideline is intended for compute resources.
-
-**Azure Security Center monitoring**: Not Applicable
-
-**Responsibility**: Not Applicable
-
 ## Inventory and asset management
 
 *For more information, see the [Azure Security Benchmark: Inventory and asset management](../security/benchmarks/security-control-inventory-asset-management.md).*
@@ -572,7 +534,7 @@ Microsoft performs patch management on the underlying operating systems that sup
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/33728.).
 
-**Guidance**: Use Azure Resource Graph to query or discover all resources (including Recovery Services Vaults) within your subscriptions. 
+**Guidance**: Use Azure Resource Graph to query or discover all resources, including Recovery Services Vaults, within your subscriptions. 
 
 Ensure appropriate read permissions in your tenant and enumerate all Azure subscriptions as well as resources within your subscriptions.
 
@@ -752,7 +714,7 @@ Additionally, develop a process and pipeline for managing policy exceptions.
 
 **Guidance**: Use built-in Azure Policy definitions as well as Azure Policy aliases in the "Microsoft.RecoveryServices" namespace to create custom policies to alert, audit, and enforce system configurations. 
 
-Use Azure Policy [audit], [deny], and [deploy if not exist] to automatically enforce configurations for your Azure resources.
+Use Azure Policy [audit], [deny], and [deploy if not exist] effects to automatically enforce configurations for your Azure resources.
 - [How to configure and manage Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
 **Azure Security Center monitoring**: Not applicable
@@ -860,7 +822,7 @@ This is out of customer scope and Site Recovery team takes care of it internally
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/33759.).
 
-**Guidance**: Periodically test restoration of you're backed up customer managed keys.
+**Guidance**: Periodically test restores of backed-up customer managed keys.
 
 - [How to restore key vault keys in Azure](https://docs.microsoft.com/powershell/module/azurerm.keyvault/restore-azurekeyvaultkey?view=azurermps-6.13.0)
 
@@ -913,7 +875,7 @@ Ensure that there are written incident response plans that define all roles of p
 
 **Guidance**: Security Center assigns a severity to each alert to help you prioritize which alerts should be investigated first. The severity is based on how confident Security Center is in the finding or the analytic used to issue the alert as well as the confidence level that there was malicious intent behind the activity that led to the alert.
 
-Additionally, clearly mark subscriptions (for ex. production, non-prod) and create a naming system to clearly identify and categorize Azure resources.
+Additionally, clearly mark subscriptions (for example, production, non-production) and create a naming system to clearly identify and categorize Azure resources.
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -954,7 +916,7 @@ Create a process to review incidents, post occurrence, to ensure that issues are
 
 **Guidance**: Export your Security Center alerts and recommendations using the Continuous Export feature. Continuous Export allows you to export alerts and recommendations either manually or in an ongoing, continuous fashion. 
 
-You may use the Azure Security Center data connector to stream the alerts Sentinel.
+You may use the Security Center data connector to stream the alerts Sentinel.
 - [How to configure continuous export](../security-center/continuous-export.md)
 
 - [How to stream alerts into Azure Sentinel](../sentinel/connect-azure-security-center.md)
