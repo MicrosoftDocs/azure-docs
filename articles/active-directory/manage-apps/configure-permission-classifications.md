@@ -13,9 +13,11 @@ ms.author: phsignor
 ms.reviewer: arvindh, luleon, phsignor
 ---
 
-# Configure permission classifications (preview)
+# Configure permission classifications
 
 Permission classifications allow you to identify the impact that different permissions have according to your organization's policies and risk evaluations. For example, you can use permission classifications in consent policies to identify the set of permissions that users are allowed to consent to.
+
+## Manage permission classifications
 
 Currently, only the "Low impact" permission classification is supported. Only delegated permissions that don't require admin consent can be classified as "Low impact".
 
@@ -107,7 +109,7 @@ You can use the latest Azure AD PowerShell Preview module, [AzureADPreview](http
 
 ---
 
-### Next steps
+## Next steps
 
 To learn more:
 

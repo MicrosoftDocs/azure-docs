@@ -17,6 +17,8 @@ ms.reviewer: arvindh, luleon, phsignor
 
 Group and team owners can authorize applications, such as applications published by third-party vendors, to access your organization's data associated with a group. For example, a team owner in Microsoft Teams can allow an app to read all Teams messages in the team, or list the basic profile of a group's members. See [Resource-specific consent in Microsoft Teams](https://docs.microsoft.com/microsoftteams/resource-specific-consent) to learn more.
 
+## Manage group owner consent to apps
+
 You can configure which users are allowed to consent to apps accessing their groups' or teams' data, or you can disable this for all users.
 
 # [Portal](#tab/azure-portal)
@@ -105,7 +107,7 @@ You can use the Azure AD PowerShell Preview module, [AzureADPreview](https://doc
 
 ---
 
-### Next steps
+## Next steps
 
 To learn more:
 
