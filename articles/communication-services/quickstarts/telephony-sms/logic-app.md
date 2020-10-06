@@ -75,7 +75,7 @@ To manually start your logic app, on the designer toolbar, select **Run**. Or, y
 
 To remove a Communication Services subscription, delete the Communication Services resource or resource group. Deleting the resource group also deletes any other resources in that group. For more information, review [how to clean up Communication Services resources](../create-communication-resource.md#clean-up-resources).
 
-To clean up your logic app workflow and related resources, review [how to clean up Logic Lpps resources](../../../logic-apps/quickstart-create-first-logic-app-workflow.md#clean-up-resources).
+To clean up your logic app workflow and related resources, review [how to clean up Logic Apps resources](../../../logic-apps/quickstart-create-first-logic-app-workflow.md#clean-up-resources).
 
 ## Next steps
 
