@@ -165,7 +165,7 @@ This method creates the first training iteration in the project. It queries the 
 
 ## Publish the current iteration
 
-This method makes the current iteration of the model available for querying. You can use the model name as a reference to send prediction requests. You need to enter your own value for `predictionResourceId`; you can get the prediction resource ID from the Azure portal.
+This method makes the current iteration of the model available for querying. You can use the model name as a reference to send prediction requests. You need to enter your own value for `predictionResourceId`. You can find the prediction resource ID on the resource's **Overview** tab in the Azure portal, listed as **Subscription ID**.
 
 [!code-csharp[](~/cognitive-services-dotnet-sdk-samples/CustomVision/ObjectDetection/Program.cs?name=snippet_publish)]
 
@@ -177,6 +177,20 @@ This part of the script loads the test image, queries the model endpoint, and ou
 [!code-csharp[](~/cognitive-services-dotnet-sdk-samples/CustomVision/ObjectDetection/Program.cs?name=snippet_prediction)]
 
 ## Run the application
+
+#### [Visual Studio IDE](#tab/visual-studio)
+
+Run the application by clicking the **Debug** button at the top of the IDE window.
+
+#### [CLI](#tab/cli)
+
+Run the application from your application directory with the `dotnet run` command.
+
+```dotnet
+dotnet run
+```
+
+---
 
 As the application runs, it should open a console window and write the following output:
 
