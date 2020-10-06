@@ -57,9 +57,5 @@ Classifications are applied the first time, based on sample set check on your da
 
 At the time of re-scan, if new classifications apply, the column gets additional classifications on it. Existing classifications stay on the column.
 
-> [!Note] 
+> [!NOTE] 
 > You need to manually remove existing classifications.
-
-## Next steps
-
-Click this link to learn how to use **Search** capability to find assets with a specific classification.
