@@ -52,9 +52,8 @@ The steps for this task use a VNet based on the values in the following configur
 | Gateway Public IP Name  | *gwpip* |
 
 ## Add a gateway
-1. Connect to your Azure Subscription.
 
-   [!INCLUDE [Sign in](cloud-shell-connect.md)]
+1. To connect with Azure, run `Connect-AzAccount`.
 
 1. Declare your variables for this exercise. Be sure to edit the sample to reflect the settings that you want to use.
 
