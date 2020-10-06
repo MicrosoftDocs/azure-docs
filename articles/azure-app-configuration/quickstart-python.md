@@ -121,7 +121,7 @@ The following code snippet creates an instance of **AzureAppConfigurationClient*
 
 ### Get a configuration setting
 
-The following code snippet retrieves the configuration value by calling **get_configuration_setting** and setting the **key** parameter to the key you configured in the Azure portal. Add this code to the end of the `try` block.
+The following code snippet retrieves the configuration setting by `key` name.
 
 ```python
     fetched_config_setting = client.get_configuration_setting(key = 'TestApp:Settings:Message')
