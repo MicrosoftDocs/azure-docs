@@ -1024,7 +1024,7 @@ Specifies if the target group member will be included or excluded. target_group_
 The type of target database or collection of databases including all databases in a server, all databases in an Elastic pool, all databases in a shard map, or an individual database. target_type is nvarchar(128), with no default. Valid values for target_type are ‘SqlServer’, ‘SqlElasticPool’, ‘SqlDatabase’, or ‘SqlShardMap’.
 
 [ **\@refresh_credential_name =** ] 'refresh_credential_name'  
-The name of the server. refresh_credential_name is nvarchar(128), with no default.
+The name of the database scoped credential. refresh_credential_name is nvarchar(128), with no default.
 
 [ **\@server_name =** ] 'server_name'  
 The name of the server that should be added to the specified target group. server_name should be specified when target_type is ‘SqlServer’. server_name is nvarchar(128), with no default.
