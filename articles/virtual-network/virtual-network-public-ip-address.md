@@ -43,7 +43,7 @@ Public IP addresses have a nominal charge. To view the pricing, read the [IP add
 
 ## Create a public IP address
 
-For instructions on how to Create Public IP addresses using the Portal, Powershell, or CLI -- please refer to the following pages:
+For instructions on how to Create Public IP addresses using the Portal, PowerShell, or CLI -- please refer to the following pages:
 
  * [Create public IP addresses - portal](https://docs.microsoft.com/azure/virtual-network/create-public-ip-portal?tabs=option-create-public-ip-standard-zones)
  * [Create public IP addresses - PowerShell](https://docs.microsoft.com/azure/virtual-network/create-public-ip-powershell?tabs=option-create-public-ip-standard-zones)
@@ -76,28 +76,28 @@ For additional detail on the specific attributes of a Public IP address during c
    >[!WARNING]
    >To change the assignment for a public IP address from static to dynamic, you must first dissociate the address from any applicable IP configurations (see **Delete** section).  Also note, when you change the assignment method from static to dynamic, you lose the IP address that was assigned to the public IP address. While the Azure public DNS servers maintain a mapping between static or dynamic addresses and any DNS name label (if you defined one), a dynamic IP address can change when the virtual machine is started after being in the stopped (deallocated) state. To prevent the address from changing, assign a static IP address.
    
-|Operation|Azure Portal|Azure Powershell|Azure CLI|
-|---|---|---|---|
-|View | In the **Overview** section of a Public IP |[Get-AzPublicIpAddress](/powershell/module/az.network/get-azpublicipaddress) to retrieve a public IP address object and view its settings| [az network public-ip show](/cli/azure/network/public-ip#az-network-public-ip-show) to show settings|
-|List | Under the **Public IP addresses** category |[Get-AzPublicIpAddress](/powershell/module/az.network/get-azpublicipaddress) to retrieve one or more public IP address objects and view its settings|[az network public-ip list](/cli/azure/network/public-ip#az-network-public-ip-list) to list public IP addresses|
-|Modify | For an IP that is dissociated, select **Configuration** to modify idle timeout, DNS name label, or change assignment of Basic IP from Static to Dynamic  |[Set-AzPublicIpAddress](/powershell/module/az.network/set-azpublicipaddress) to update settings |[az network public-ip update](/cli/azure/network/public-ip#az-network-public-ip-update) to update |
+    |Operation|Azure portal|Azure PowerShell|Azure CLI|
+    |---|---|---|---|
+    |View | In the **Overview** section of a Public IP |[Get-AzPublicIpAddress](/powershell/module/az.network/get-azpublicipaddress) to retrieve a public IP address object and view its settings| [az network public-ip show](/cli/azure/network/public-ip#az-network-public-ip-show) to show settings|
+    |List | Under the **Public IP addresses** category |[Get-AzPublicIpAddress](/powershell/module/az.network/get-azpublicipaddress) to retrieve one or more public IP address objects and view its settings|[az network public-ip list](/cli/azure/network/public-ip#az-network-public-ip-list) to list public IP addresses|
+    |Modify | For an IP that is dissociated, select **Configuration** to modify idle timeout, DNS name label, or change assignment of Basic IP from Static to Dynamic  |[Set-AzPublicIpAddress](/powershell/module/az.network/set-azpublicipaddress) to update settings |[az network public-ip update](/cli/azure/network/public-ip#az-network-public-ip-update) to update |
 
    - **Delete**: Deletion of Public IPs requires that the Public IP object not be associated to any IP configuration or Virtual Machine NIC. See the table below for more details.
 
-|Resource|Azure Portal|Azure Powershell|Azure CLI|
-|---|---|---|---|
-|[Virtual Machine](https://docs.microsoft.com/azure/virtual-network/remove-public-ip-address-vm)|Select **Dissociate** to dissociate the IP address from the NIC configuration, then select **Delete**.|[Set-AzPublicIpAddress](/powershell/module/az.network/set-azpublicipaddress) to dissociate the IP address from the NIC configuration; [Remove-AzPublicIpAddress](/powershell/module/az.network/remove-azpublicipaddress) to delete|[az network public-ip update --remove](/cli/azure/network/public-ip#az-network-public-ip-update) to dissociate the IP address from the NIC configuration; [az network public-ip delete](/cli/azure/network/public-ip#az-network-public-ip-delete) to delete |
-|Load Balancer Frontend | Navigate to an unused Public IP address and select **Associate** and pick the Load Balancer with the relevant Front End IP Configuration to replace it (then the old IP can be deleted using same method as for VM)  | [Set-AzLoadBalancerFrontendIpConfig](/powershell/module/az.network/set-azloadbalancerfrontendipconfig) to associate new Frontend IP config with Public Load Balancer; [Remove-AzPublicIpAddress](/powershell/module/az.network/remove-azpublicipaddress) to delete; can also use [Remove-AzLoadBalancerFrontendIpConfig](/powershell/module/az.network/remove-azloadbalancerfrontendipconfig) to remove Frontend IP Config if there are more than one |[az network lb frontend-ip update](/cli/azure/network/lb/frontend-ip?view=azure-cli-latest#az_network_lb_frontend_ip_update) to associate new Frontend IP config with Public Load Balancer; [Remove-AzPublicIpAddress](/powershell/module/az.network/remove-azpublicipaddress) to delete; can also use [az network lb frontend-ip delete](/cli/azure/network/lb/frontend-ip?view=azure-cli-latest#az_network_lb_frontend_ip_delete) to remove Frontend IP Config if there are more than one|
-|Firewall|N/A| [Deallocate()](https://docs.microsoft.com/azure/firewall/firewall-faq#how-can-i-stop-and-start-azure-firewall) to deallocate firewall and remove all IP configurations | [az network firewall ip-config delete](/cli/azure/ext/azure-firewall/network/firewall/ip-config#ext_azure_firewall_az_network_firewall_ip_config_delete) to remove IP (but must use Powershell to deallocate first)|
+    |Resource|Azure portal|Azure PowerShell|Azure CLI|
+    |---|---|---|---|
+    |[Virtual Machine](https://docs.microsoft.com/azure/virtual-network/remove-public-ip-address-vm)|Select **Dissociate** to dissociate the IP address from the NIC configuration, then select **Delete**.|[Set-AzPublicIpAddress](/powershell/module/az.network/set-azpublicipaddress) to dissociate the IP address from the NIC configuration; [Remove-AzPublicIpAddress](/powershell/module/az.network/remove-azpublicipaddress) to delete|[az network public-ip update --remove](/cli/azure/network/public-ip#az-network-public-ip-update) to dissociate the IP address from the NIC configuration; [az network public-ip delete](/cli/azure/network/public-ip#az-network-public-ip-delete) to delete |
+    |Load Balancer Frontend | Navigate to an unused Public IP address and select **Associate** and pick the Load Balancer with the relevant Front End IP Configuration to replace it (then the old IP can be deleted using same method as for VM)  | [Set-AzLoadBalancerFrontendIpConfig](/powershell/module/az.network/set-azloadbalancerfrontendipconfig) to associate new Frontend IP config with Public Load Balancer; [Remove-AzPublicIpAddress](/powershell/module/az.network/remove-azpublicipaddress) to delete; can also use [Remove-AzLoadBalancerFrontendIpConfig](/powershell/module/az.network/remove-azloadbalancerfrontendipconfig) to remove Frontend IP Config if there are more than one |[az network lb frontend-ip update](/cli/azure/network/lb/frontend-ip?view=azure-cli-latest#az_network_lb_frontend_ip_update) to associate new Frontend IP config with Public Load Balancer; [Remove-AzPublicIpAddress](/powershell/module/az.network/remove-azpublicipaddress) to delete; can also use [az network lb frontend-ip delete](/cli/azure/network/lb/frontend-ip?view=azure-cli-latest#az_network_lb_frontend_ip_delete) to remove Frontend IP Config if there are more than one|
+    |Firewall|N/A| [Deallocate()](https://docs.microsoft.com/azure/firewall/firewall-faq#how-can-i-stop-and-start-azure-firewall) to deallocate firewall and remove all IP configurations | [az network firewall ip-config delete](/cli/azure/ext/azure-firewall/network/firewall/ip-config#ext_azure_firewall_az_network_firewall_ip_config_delete) to remove IP (but must use PowerShell to deallocate first)|
 
->[!NOTE]
->Certain resources cannot have their Public IPs changed or removed after creation.  These are: Azure NAT Gateway, Azure VPN Gateway, Azure Application Gateway.
+    >[!NOTE]
+    >Certain resources cannot have their Public IPs changed or removed after creation.  These are: Azure NAT Gateway, Azure VPN Gateway, Azure Application Gateway.
 
 ## Virtual Machine Scale Sets
 
-When using a Virtual Machine Scale Set with Public IPs, there are not separate Public IP objects associated with the individual virtual machine instances. However, a Public IP Prefix object [can be used to generate the instance IPs](https://azure.microsoft.com/resources/templates/101-vmms-with-public-ip-prefix/).
+When using a virtual machine scale set with Public IPs, there are not separate Public IP objects associated with the individual virtual machine instances. However, a Public IP Prefix object [can be used to generate the instance IPs](https://azure.microsoft.com/resources/templates/101-vmms-with-public-ip-prefix/).
 
-To list the Public IPs on a Virtual Machine Scale set, you can use Powershell ([Get-AzPublicIpAddress -VirtualMachineScaleSetName](/powershell/module/az.network/get-azpublicipaddress)) or CLI ([az vmss list-instance-public-ips](/cli/azure/vmss?view=azure-cli-latest#az_vmss_list_instance_public_ips)).
+To list the Public IPs on a virtual machine scale set, you can use PowerShell ([Get-AzPublicIpAddress -VirtualMachineScaleSetName](/powershell/module/az.network/get-azpublicipaddress)) or CLI ([az vmss list-instance-public-ips](/cli/azure/vmss?view=azure-cli-latest#az_vmss_list_instance_public_ips)).
 
 For more information, see [Networking for Azure virtual machine scale sets](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-networking#public-ipv4-per-virtual-machine).
 
