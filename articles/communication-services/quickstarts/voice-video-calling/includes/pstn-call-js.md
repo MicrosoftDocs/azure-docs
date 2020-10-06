@@ -25,7 +25,7 @@ npx webpack-dev-server --entry ./client.js --output bundle.js
 
 ## Setting up
 
-### Add PSTN functionality your app
+### Add PSTN functionality to your app
 
 Extend your layout with phone dialing controls.
 
