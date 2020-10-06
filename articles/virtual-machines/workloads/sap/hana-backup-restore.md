@@ -650,6 +650,237 @@ If you configured HSR, you must configure the system manually.
 
 ### Create a snapshot policy
 
+Before you use SnapCenter to back up SAP HANA database resources, you must create a backup policy for the resource or resource group that you want to back up. During the process of creating a snapshot policy, you'll be given the option to configure pre/post commands and special SSL keys. For information on how to create a snapshot policy, see [Creating backup policies for SAP HANA databases](http://docs.netapp.com/ocsc-43/index.jsp?topic=%2Fcom.netapp.doc.ocsc-dpg-sap-hana%2FGUID-246C0810-4F0B-4BF7-9A35-B729AD69954A.html).
+
+### Disable EMS message to NetApp Autosupport
+By default, EMS data collection is enabled and runs every seven days after your installation date.  You can disable data collection with the PowerShell cmdlet `Disable-SmDataCollectionEms`.
+
+1. In PowerShell, establish a session with SnapCenter.
+
+   ```powershell
+   Open-SmConnection
+   ```
+
+1. Sign in with your credentials.
+1. Disable the collection of EMS messages.
+
+   ```powershell
+   Disable-SmCollectionEms
+   ```
+
+### Restore database after crash
+You can use SnapCenter to restore the database.  In this section, we'll cover the high-level steps, but for more information, see [SAP HANA Backup/Recovery with SnapCenter](https://www.netapp.com/us/media/tr-4614.pdf).
+
+
+1. Stop the database and delete all the database files.
+
+   ```
+   su - h31adm
+   > sapcontrol -nr 00 -function StopSystem
+   StopSystem
+   OK
+   > sapcontrol -nr 00 -function GetProcessList
+   OK
+   name, description, dispstatus, textstatus, starttime, elapsedtime, pid
+   hdbdaemon, HDB Daemon, GRAY, Stopped, , , 35902
+ 
+   ```
+
+1. Unmount the database volume.
+
+   ```bash
+   unmount /hana/data/H31/mnt00001
+   ```
+
+
+1. Restore the database files via SnapCenter.  With a default setup, you don't need to specify commands to do a local restore from the on-disk snapshot.  
+
+   SnapCenter restores the data to the original location so you can start the restore process in HANA. Also, since SnapCenter isn't able to modify the backup catalog (database is down), a warning is displayed.
+
+
+For more information on restoring a database, see [SAP HANA Backup/Recovery with SnapCenter](https://www.netapp.com/us/media/tr-4614.pdf).
+
+
+### Non database backups
+You can restore non-data volumes, for example, a network file share (/hana/shared) or an operating system backup.  For more information on restoring a non-data volumes, see [SAP HANA Backup/Recovery with SnapCenter](https://www.netapp.com/us/media/tr-4614.pdf).
+
+### SAP HANA system cloning
+
+Before you can clone, you must have the same HANA version installed as the source database. The SID and ID can be different. 
+
+:::image type="content" source="media/snapcenter/system-cloning-diagram.png" alt-text="SAP HANA system cloning" lightbox="media/snapcenter/system-cloning-diagram.png":::
+
+1. Create a HANA database user store for the H34 database from /usr/sap/H34/HDB40.
+
+   ```
+   hdbuserstore set H34KEY sollabsjct34:34013 system manager
+   ```
+ 
+1. Disable the firewall.
+
+   ```bash
+   systemctl disable SuSEfirewall2
+   systemctl stop  SuSEfirewall2
+   ```
+
+1. Install the Java SDK.
+
+   ```bash
+   zypper in java-1_8_0-openjdk
+   ```
+
+1. In SnapCenter, add the destination host on which the clone will be mounted. For more information, see [Adding hosts and installing plug-in packages on remote hosts](http://docs.netapp.com/ocsc-43/index.jsp?topic=%2Fcom.netapp.doc.ocsc-dpg-sap-hana%2FGUID-246C0810-4F0B-4BF7-9A35-B729AD69954A.html).
+
+1. Stop HANA and unmount the old data volume.  You will mount the clone from SnapCenter.  
+
+   ```bash
+   sapcontrol -nr 40 -function StopSystem
+   umount /hana/data/H34/mnt00001
+
+   ```
+ 1. Create the configuration and shell script files for the target.
+ 
+   ```bash
+   mkdir /NetApp
+   chmod 777 /NetApp
+   cd NetApp
+   chmod 777 sc-system-refresh-H34.cfg
+   chmod 777 sc-system-refresh.sh
+
+   ```
+
+   >[!TIP]
+   >You can copy the scripts from [SAP Cloning from SnapCenter](https://www.netapp.com/us/media/tr-4667.pdf).
+
+1. Modify the configuration file. 
+
+   ```bash
+   vi sc-system-refresh-H34.cfg
+   ```
+
+   * HANA_ARCHITECTURE="MDC_single_tenant"
+   * KEY="H34KEY"
+   * TIME_OUT_START=18
+   * TIME_OUT_STOP=18
+   * INSTANCENO="40"
+   * STORAGE="10.250.101.33"
+
+1. Modify the shell script file.
+
+   ```bash
+   vi sc-system-refresh.sh
+   ```  
+
+   * VERBOSE=NO
+   * MY_NAME="`basename $0`"
+   * BASE_SCRIPT_DIR="`dirname $0`"
+   * MOUNT_OPTIONS="rw,vers=4,hard,timeo=600,rsize=1048576,wsize=1048576,intr,noatime,nolock"
+
+1. Start the clone from a backup process. For more information, see [Cloning from a backup](https://docs.netapp.com/ocsc-43/index.jsp?topic=%2Fcom.netapp.doc.ocsc-dpg-cpi%2FGUID-F6E7FF73-0183-4B9F-8156-8D7DA17A8555.html).
+
+1. Under **Scripts**, provide the following:
+
+   * **Mount command:** `/NetApp/sc-system-refresh.sh mount H34 %hana_data_h31_mnt00001_t250_vol_Clone`
+   * **Post clone command:** `/NetApp/sc-system-refresh.sh recover H34`
+
+1. Disable (lock) the automatic mount in the /etc/fstab since the data volume of the pre-installed database isn't necessary. 
+
+   ```bash
+   vi /etc/fstab
+   ```
+
+### Delete a clone
+
+You can delete a clone if it is no longer necessary. For more information, see [Deleting clones](https://docs.netapp.com/ocsc-43/index.jsp?topic=%2Fcom.netapp.doc.ocsc-dpg-cpi%2FGUID-F6E7FF73-0183-4B9F-8156-8D7DA17A8555.html).
+
+The commands used to execute before clone deletion, are:
+* **Pre clone delete:** `/NetApp/sc-system-refresh.sh shutdown H34`
+* **Unmount:** `/NetApp/sc-system-refresh.sh umount H34`
+
+These commands allow SnapCenter to showdown the database, unmount the volume, and delete the fstab entry.  After that, the FlexClone is deleted. 
+
+### Cloning database logfile
+
+```   
+20190502025323###sollabsjct34###sc-system-refresh.sh: Adding entry in /etc/fstab.
+20190502025323###sollabsjct34###sc-system-refresh.sh: 10.250.101.31:/Sc21186309-ee57-41a3-8584-8210297f791d /hana/data/H34/mnt00001 nfs rw,vers=4,hard,timeo=600,rsize=1048576,wsize=1048576,intr,noatime,lock 0 0
+20190502025323###sollabsjct34###sc-system-refresh.sh: Mounting data volume.
+20190502025323###sollabsjct34###sc-system-refresh.sh: mount /hana/data/H34/mnt00001
+20190502025323###sollabsjct34###sc-system-refresh.sh: Data volume mounted successfully.
+20190502025323###sollabsjct34###sc-system-refresh.sh: chown -R h34adm:sapsys /hana/data/H34/mnt00001
+20190502025333###sollabsjct34###sc-system-refresh.sh: Recover system database.
+20190502025333###sollabsjct34###sc-system-refresh.sh: /usr/sap/H34/HDB40/exe/Python/bin/python /usr/sap/H34/HDB40/exe/python_support/recoverSys.py --command "RECOVER DATA USING SNAPSHOT CLEAR LOG"
+[140278542735104, 0.005] >> starting recoverSys (at Thu May  2 02:53:33 2019)
+[140278542735104, 0.005] args: ()
+[140278542735104, 0.005] keys: {'command': 'RECOVER DATA USING SNAPSHOT CLEAR LOG'}
+recoverSys started: ============2019-05-02 02:53:33 ============
+testing master: sollabsjct34
+sollabsjct34 is master
+shutdown database, timeout is 120
+stop system
+stop system: sollabsjct34
+stopping system: 2019-05-02 02:53:33
+stopped system: 2019-05-02 02:53:33
+creating file recoverInstance.sql
+restart database
+restart master nameserver: 2019-05-02 02:53:38
+start system: sollabsjct34
+2019-05-02T02:53:59-07:00  P010976      16a77f6c8a2 INFO    RECOVERY state of service: nameserver, sollabsjct34:34001, volume: 1, RecoveryPrepared
+recoverSys finished successfully: 2019-05-02 02:54:00
+[140278542735104, 26.490] 0
+[140278542735104, 26.490] << ending recoverSys, rc = 0 (RC_TEST_OK), after 26.485 secs
+20190502025400###sollabsjct34###sc-system-refresh.sh: Wait until SAP HANA database is started ....
+20190502025400###sollabsjct34###sc-system-refresh.sh: Status:  YELLOW
+20190502025410###sollabsjct34###sc-system-refresh.sh: Status:  YELLOW
+20190502025420###sollabsjct34###sc-system-refresh.sh: Status:  YELLOW
+20190502025430###sollabsjct34###sc-system-refresh.sh: Status:  YELLOW
+20190502025440###sollabsjct34###sc-system-refresh.sh: Status:  YELLOW
+20190502025451###sollabsjct34###sc-system-refresh.sh: Status:  GREEN
+20190502025451###sollabsjct34###sc-system-refresh.sh: SAP HANA database is started.
+20190502025451###sollabsjct34###sc-system-refresh.sh: Recover tenant database H34.
+20190502025451###sollabsjct34###sc-system-refresh.sh: /usr/sap/H34/SYS/exe/hdb/hdbsql -U H34KEY RECOVER DATA FOR H34 USING SNAPSHOT CLEAR LOG
+0 rows affected (overall time 69.584135 sec; server time 69.582835 sec)
+20190502025600###sollabsjct34###sc-system-refresh.sh: Checking availability of Indexserver for tenant H34.
+20190502025601###sollabsjct34###sc-system-refresh.sh: Recovery of tenant database H34 succesfully finished.
+20190502025601###sollabsjct34###sc-system-refresh.sh: Status: GREEN
+Deleting the DB Clone – Logfile
+20190502030312###sollabsjct34###sc-system-refresh.sh: Stopping HANA database.
+20190502030312###sollabsjct34###sc-system-refresh.sh: sapcontrol -nr 40 -function StopSystem HDB
+
+02.05.2019 03:03:12
+StopSystem
+OK
+20190502030312###sollabsjct34###sc-system-refresh.sh: Wait until SAP HANA database is stopped ....
+20190502030312###sollabsjct34###sc-system-refresh.sh: Status:  GREEN
+20190502030322###sollabsjct34###sc-system-refresh.sh: Status:  GREEN
+20190502030332###sollabsjct34###sc-system-refresh.sh: Status:  GREEN
+20190502030342###sollabsjct34###sc-system-refresh.sh: Status:  GRAY
+20190502030342###sollabsjct34###sc-system-refresh.sh: SAP HANA database is stopped.
+20190502030347###sollabsjct34###sc-system-refresh.sh: Unmounting data volume.
+20190502030347###sollabsjct34###sc-system-refresh.sh: Junction path: Sc21186309-ee57-41a3-8584-8210297f791d
+20190502030347###sollabsjct34###sc-system-refresh.sh: umount /hana/data/H34/mnt00001
+20190502030347###sollabsjct34###sc-system-refresh.sh: Deleting /etc/fstab entry.
+20190502030347###sollabsjct34###sc-system-refresh.sh: Data volume unmounted successfully.
+
+```
+
+### Uninstall SnapCenter plug-ins package for Linux
+
+You can uninstall the Linux plug-ins package from the command line. Because the automatic deployment expects a fresh system, it's easy to uninstall the plug-in.  
+
+>[!NOTE]
+>You may need to uninstall an older version of the plug-in manually. 
+
+Uninstall the plug-ins.
+
+```bash
+cd /opt/NetApp/snapcenter/spl/installation/plugins
+./uninstall
+```
+
+You can now install the latest HANA plug-in on the new node by selecting **SUBMIT** in SnapCenter. 
+
+
 
 
 ## Next steps
