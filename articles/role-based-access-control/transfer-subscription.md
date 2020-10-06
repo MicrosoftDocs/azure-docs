@@ -8,7 +8,7 @@ ms.service: role-based-access-control
 ms.devlang: na
 ms.topic: how-to
 ms.workload: identity
-ms.date: 08/31/2020
+ms.date: 10/06/2020
 ms.author: rolyon
 ---
 

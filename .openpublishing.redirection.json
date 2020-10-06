@@ -58004,6 +58004,11 @@
       "source_path": "articles/azure-cache-for-redis/cache-migrate-to-redis.md",
       "redirect_url": "/azure/azure-cache-for-redis/cache-overview",
       "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-monitor/app/performance-testing.md",
+      "redirect_url": "/azure/azure-monitor/azure-monitor-app-hub",
+      "redirect_document_id": false
     }
   ]
 }
