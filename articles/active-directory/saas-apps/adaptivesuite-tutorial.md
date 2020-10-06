@@ -96,7 +96,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 2. Go to **Administration**.
 
-	![Admin](./media/adaptivesuite-tutorial/ic805644.png "Admin")
+	![Screenshot that highlights Administration in the navigation panel.](./media/adaptivesuite-tutorial/ic805644.png "Admin")
 
 3. In the **Users and Roles** section, click **SAML SSO Settings**.
 
