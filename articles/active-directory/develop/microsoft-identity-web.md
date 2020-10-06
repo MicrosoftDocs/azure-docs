@@ -1,7 +1,7 @@
 ---
 title: Microsoft Identity Web authentication library overview
 titleSuffix: Microsoft identity platform
-description: Learn about Microsoft Identity Web, an authentication and authorization library for ASP.NET Core applications that integrate with Azure Active Directory and Microsoft Graph and other web APIs.
+description: Learn about Microsoft Identity Web, an authentication and authorization library for ASP.NET Core applications that integrate with Azure Active Directory, Azure AD B2C, and Microsoft Graph and other web APIs.
 services: active-directory
 author: jmprieur
 manager: CelesteDG
@@ -54,7 +54,7 @@ dotnet new --install Microsoft.Identity.Web.ProjectTemplates::1.0.0
 
 The following diagram shows a high-level view of the supported app types and their relevant arguments:
 
-:::image type="content" source="media/microsoft-identity-web-overview/diagram-microsoft-identity-web-templates.png" alt-text="Diagram of the available dot net CLI project templates for Microsoft Identity Web ":::
+:::image type="content" source="media/microsoft-identity-web-overview/diagram-microsoft-identity-web-templates.png" lightbox="media/microsoft-identity-web-overview/diagram-microsoft-identity-web-templates.png alt-text="Diagram of the available dot net CLI project templates for Microsoft Identity Web ":::
 <br /><sup><b>*</b></sup> `MultiOrg` is not supported with `webapi2`, but can be enabled in *appsettings.json* by setting tenant to `common` or `organizations`
 <br /><sup><b>**</b></sup> `--calls-graph` is not supported for Azure AD B2C
 
@@ -66,7 +66,7 @@ dotnet new blazorserver2 --auth SingleOrg --calls-graph --client-id "00000000-00
 
 #### GitHub
 
-Microsoft Identity Web is an open-source project hosted on GitHub: <a href="https://github.com/AzureAD/microsoft-identity-web" target="_blank">AzureAD/microsoft-identity-web<span class="docon docon-navigate-external x-hidden-focus"></span></a>
+Microsoft Identity Web is an open-source project hosted on GitHub: [AzureAD/microsoft-identity-web](https://github.com/AzureAD/microsoft-identity-web?azure-portal=true)
 
 The [repository wiki](https://github.com/AzureAD/microsoft-identity-web/wiki) contains additional documentation, and if you need help or discover a bug, you can [file an issue](https://github.com/AzureAD/microsoft-identity-web/issues).
 
@@ -95,8 +95,8 @@ To see Microsoft Identity Web in action, try our Blazor Server tutorial:
 
 The Microsoft Identity Web wiki on GitHub contains extensive reference documentation for various aspects of the library. For example, certificate usage, incremental consent, and conditional access reference can be found here:
 
-- <a href="https://github.com/AzureAD/microsoft-identity-web/wiki/Using-certificates" target="_blank">Using certificates with Microsoft.Identity.Web<span class="docon docon-navigate-external x-hidden-focus"></span></a> (GitHub)
-- <a href="https://github.com/AzureAD/microsoft-identity-web/wiki/Managing-incremental-consent-and-conditional-access" target="_blank">Incremental consent and conditional access<span class="docon docon-navigate-external x-hidden-focus"></span></a> (GitHub)
+- [Using certificates with Microsoft.Identity.Web](https://github.com/AzureAD/microsoft-identity-web/wiki/Using-certificates?azure-portal=true) (GitHub)
+- [Incremental consent and conditional access](https://github.com/AzureAD/microsoft-identity-web/wiki/Managing-incremental-consent-and-conditional-access?azure-portal=true) (GitHub)
 
 <!-- LINKS -->
 <!--  [miw-certs]: microsoft-identity-web-certificates.md  -->
