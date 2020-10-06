@@ -18,8 +18,8 @@ A well-planned and executed data governance platform paves the way for better da
 ## Prerequisites
 
 * Access to Microsoft Azure with a Development or Production subscription
-* Ability to spin up Azure resources including Babylon
-* Access data sources such as Azure Data Lake Storage or Azure SQL in Test, Development or Production
+* Ability to create Azure resources including Babylon
+* Access data sources such as Azure Data Lake Storage or Azure SQL in Test, Development, or Production
   * For Data Lake, the required role is Reader Role in order to scan
   * For SQL, the identity must be able to query tables for sampling of classifications
 * Access to Security Center or collaborate with Security Center Admin for Labeling
@@ -49,11 +49,11 @@ The general approach is to break down those overarching objectives into various 
 |Reporting|The users must be able to view reporting of the data estate including sensitive data and data that need additional enrichment.|
 |Data Governance|The platform must allow the Admin to define policies such as GDPR for access control and automatically enforce the data access based on each user.|
 |Workflow|That platform must have ability to create and modify workflow so that it is easy to scale out and automate various tasks within the platform.|
-|Integration|Other 3rd party technologies such as ticketing or orchestration must be able to integrate into the platform via script or REST APIs.|
+|Integration|Other third party technologies such as ticketing or orchestration must be able to integrate into the platform via script or REST APIs.|
 
 ## Top questions to ask
 
-Once your organization agrees on the high-level objectives and goals, there will be a lot of questions from multiple groups. It’s crucial to gather these questions in order to craft a plan to address people’s concerns. Below are some example questions that you may run into during the kick start phase:
+Once your organization agrees on the high-level objectives and goals, there will be many questions from multiple groups. It’s crucial to gather these questions in order to craft a plan to address people’s concerns. Some example questions that you may run into during the kick start phase:
 
 1. What are the main organization data sources and data systems?
 2. For data sources that are not supported yet by Babylon, what are my options?
@@ -71,11 +71,11 @@ While you might not have the answer to most of these questions right away, it ca
 
 To ensure the success of implementing Babylon for the entire enterprise, it’s important to bring in the right stakeholders. Even though it’s true that in the initial phase, only a few people are actually involved in the project. As the scope expands, you will require additional personas to contribute to the project and provide feedback.
 
-Below are some key stakeholders:
+Some key stakeholders that you may want to include:
 
 |Persona|Roles|
 |---------|---------|
-|Chief Data Officer|The CDO oversees a range of functions that may include data management, data quality, master data management, data science, business intelligence and creating data strategy. He/she can be the sponsor of Babylon project.|
+|Chief Data Officer|The CDO oversees a range of functions that may include data management, data quality, master data management, data science, business intelligence, and creating data strategy. He/she can be the sponsor of Babylon project.|
 |Domain/Business Owner|A business person who influences usage of tools and has budget control.|
 |Data Analyst|Frame a business problem; Analyze data to help leaders make business decisions.|
 |Data Architect|Design databases for mission-critical line-of-business apps. Designing and implementing data security.|
@@ -97,7 +97,7 @@ These scenarios can be written up in various ways, but you need to include at le
 4. Detail scenarios – How the users use Babylon to solve problems?
 5. Expected outcome – What is the success criteria?
 
-The scenarios must be specific, actionable and executable with measurable results. Below are some example scenarios that you can leverage:
+The scenarios must be specific, actionable and executable with measurable results. Some example scenarios that you can leverage:
 
 |Scenario|Detail|Persona|
 |---------|---------|---------|
