@@ -77,7 +77,7 @@ Perform the following steps to restore the device to a target StorSimple Cloud A
 
     1. Select the device that was used as the target for the failover.
 
-       ![Select device](./media/storsimple-8000-device-failover-disaster-recovery/failover-phy-dev14.png)
+       ![Select device 5](./media/storsimple-8000-device-failover-disaster-recovery/failover-phy-dev14.png)
 
     2. Click **Volume Containers**. All the volume containers, along with the volumes from the old device, should be listed.
 
