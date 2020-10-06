@@ -1,5 +1,5 @@
 ---
-title: Power BI and Synapse SQL serverless to analyze Azure Cosmos DB data with Synapse Link
+title: Power BI and serverless SQL pool to analyze Azure Cosmos DB data with Synapse Link
 description: Learn how to build a Synapse SQL serverless database and views over Synapse Link for Azure Cosmos DB, query the Azure Cosmos containers and then build a model with Power BI over those views.
 author: ArnoMicrosoft
 ms.service: cosmos-db
@@ -8,9 +8,9 @@ ms.date: 09/22/2020
 ms.author: acomet
 ---
 
-# Use Power BI and Synapse SQL serverless to analyze Azure Cosmos DB data with Synapse Link (preview)
+# Use Power BI and Serverless SQL pool in Azure Synapse Analytics to analyze Azure Cosmos DB data with Synapse Link (preview)
 
-In this article, you learn how to build a Synapse SQL serverless(which, was previously referred to as **SQL on-demand**) database and views over Synapse Link for Azure Cosmos DB. You will query the Azure Cosmos containers and then build a model with Power BI over those views to reflect that query.
+In this article, you learn how to build a serverless SQL pool database and views over Synapse Link for Azure Cosmos DB. You will query the Azure Cosmos containers and then build a model with Power BI over those views to reflect that query.
 
 > [!NOTE]
 > Using the Azure Cosmos DB analytic store with Synapse SQL serverless is currently under gated preview. To request access, reach out to the [Azure Cosmos DB team](mailto:cosmosdbsynapselink@microsoft.com).
@@ -39,7 +39,7 @@ From the Synapse workspace go the **Develop** tab, select on the **+** icon and 
 
 :::image type="content" source="./media/synapse-link-power-bi/add-sql-script.png" alt-text="Add a SQL script to the Synapse Analytics workspace":::
 
-Every workspace comes with a Synapse SQL serverless endpoint. After creating a SQL script, from the tool bar on the top connect to **SQL on-demand**.
+Every workspace comes with a serverless SQL pool endpoint. After creating a SQL script, from the tool bar on the top connect to **serverless SQL pool**.
 
 :::image type="content" source="./media/synapse-link-power-bi/enable-sql-on-demand-endpoint.png" alt-text="Enable the SQL script to use the Synapse SQL serverless endpoint in the workspace":::
 

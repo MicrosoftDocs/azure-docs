@@ -31,7 +31,7 @@ The **Knowledge Center** allows you to do three things:
 * **Browser available sample**. This option lets you link sample data sets and add sample code in the form of SQL scripts, notebooks, and pipelines.
 * **Tour Synapse studio**. This option takes you on a brief tour of the basic parts of Synapse Studio. This is useful if you have never used Synapse Studio before.
 
-## Exploring blob storage with SQL on-demand
+## Exploring blob storage with serverless SQL pool
 
 1. The **Knowledge Center**, click **Use samples immediately**
 1. Select **Query data with SQL** 
@@ -54,4 +54,4 @@ The **Knowledge Center** allows you to do three things:
 
 * [Get started with Azure Synapse Analytics](get-started.md)
 * [Create a workspace](quickstart-create-workspace.md)
-* [Use SQL on-demand](quickstart-sql-on-demand.md)
+* [Use serverless SQL pool](quickstart-sql-on-demand.md)
