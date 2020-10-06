@@ -6,7 +6,7 @@
     href: overview.md
   - name: Differences from previous release
     href: overview-differences.md
-- name: Quickstart
+- name: Quickstarts
   expanded: true
   items:
   - name: Explore a sample scenario

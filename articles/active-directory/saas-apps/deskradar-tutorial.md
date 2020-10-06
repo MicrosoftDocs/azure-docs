@@ -160,7 +160,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 1. On the **SAML 2.0** tab, perform the following steps:
 
-	![Deskradar Configuration](./media/deskradar-tutorial/14-paste-urls.jpg)
+	![Screenshot that shows the "S A M L 2.0" tab with arrows pointing to the "S A M L S S D U R L" and "Identifier Provider Issuer" fields.](./media/deskradar-tutorial/14-paste-urls.jpg)
 
 	a. Enable **SAML** authentication method.
 
