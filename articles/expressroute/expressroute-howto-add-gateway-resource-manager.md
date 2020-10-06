@@ -54,7 +54,7 @@ The steps for this task use a VNet based on the values in the following configur
 ## Add a gateway
 1. Connect to your Azure Subscription.
 
-   [!INCLUDE [Sign in](expressroute-cloud-shell-connect.md)]
+   [!INCLUDE [Sign in](cloud-shell-connect.md)]
 
 1. Declare your variables for this exercise. Be sure to edit the sample to reflect the settings that you want to use.
 
@@ -110,11 +110,10 @@ Get-AzVirtualNetworkGateway -ResourceGroupName $RG
 ```
 
 ## Resize a gateway
-There are a number of [Gateway SKUs](../articles/expressroute/expressroute-about-virtual-network-gateways.md). You can use the following command to change the Gateway SKU at any time.
+There are a number of [Gateway SKUs](expressroute-about-virtual-network-gateways.md). You can use the following command to change the Gateway SKU at any time.
 
 > [!IMPORTANT]
 > This command doesn't work for UltraPerformance gateway. To change your gateway to an UltraPerformance gateway, first remove the existing ExpressRoute gateway, and then create a new UltraPerformance gateway. To downgrade your gateway from an UltraPerformance gateway, first remove the UltraPerformance gateway, and then create a new gateway.
-> 
 > 
 
 ```azurepowershell-interactive
