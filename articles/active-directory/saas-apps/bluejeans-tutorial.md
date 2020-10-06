@@ -148,7 +148,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 2. Go to **ADMIN \> GROUP SETTINGS \> SECURITY**.
 
-	![Admin](./media/bluejeans-tutorial/ic785868.png "Admin")
+	![Screenshot shows part of a browser window with the Admin tab selected, with Group Setting and Security selected.](./media/bluejeans-tutorial/ic785868.png "Admin")
 
 3. In the **SECURITY** section, perform the following steps:
 
@@ -190,14 +190,14 @@ The objective of this section is to create a user called B.Simon in BlueJeans fo
 
 2. Go to **ADMIN \> MANAGE USERS \> ADD USER**.
 
-	![Admin](./media/bluejeans-tutorial/ic785877.png "Admin")
+	![Screenshot shows part of a browser window with the Admin tab selected, with Manage Users and Add Users selected.](./media/bluejeans-tutorial/ic785877.png "Admin")
 
 	> [!IMPORTANT]
 	> The **ADD USER** tab is only available if, in the **SECUTIRY tab**, **Enable automatic provisioning** is unchecked.
 
 3. In the **ADD USER** section, perform the following steps:
 
-	![Add User](./media/bluejeans-tutorial/ic785886.png "Add User")
+	![Screenshot shows the Add user section where you enter the information described in this step.](./media/bluejeans-tutorial/ic785886.png "Add User")
 
 	a. In **First Name** text box, enter the first name of user like **B**.
 
@@ -217,7 +217,7 @@ The objective of this section is to create a user called B.Simon in BlueJeans fo
 
 	i. Click **CONTINUE**.
 
-	![Add User](./media/bluejeans-tutorial/ic785887.png "Add User")
+	![Screenshot shows the Add user section where you can view settings and features, with the Add User button selected.](./media/bluejeans-tutorial/ic785887.png "Add User")
 
 	J. Click **ADD USER**.
 
