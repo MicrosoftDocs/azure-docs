@@ -1,7 +1,7 @@
 ---
 title: Troubleshoot common errors
 description: Learn how to troubleshoot issues with creating policy definitions, the various SDK, and the add-on for Kubernetes.
-ms.date: 08/17/2020
+ms.date: 10/05/2020
 ms.topic: troubleshooting
 ---
 # Troubleshoot errors using Azure Policy
@@ -62,7 +62,7 @@ become available in Azure portal or SDK. To start a new evaluation scan with Azu
 REST API, see
 [On-demand evaluation scan](../how-to/get-compliance-data.md#on-demand-evaluation-scan).
 
-### Scenario: Evaluation not as expected
+### Scenario: Compliance not as expected
 
 #### Issue
 
@@ -76,15 +76,32 @@ operate as intended.
 
 #### Resolution
 
-- For a non-compliant resource that was expected to be compliant, start by
-  [determining reasons for non-compliance](../how-to/determine-non-compliance.md). The comparison of
-  the definition to the evaluated property value indicates why a resource was non-compliant.
-- For a compliant resource that was expected to be non-compliant, read the policy definition
-  condition by condition and evaluate against the resources properties. Validate that logical
-  operators are grouping the right conditions together and that your conditions aren't inverted.
+Follow these steps to troubleshoot your policy definition:
 
-If compliance for a policy assignment shows `0/0` resources, no resources were determined to be
-applicable within the assignment scope. Check both the policy definition and the assignment scope.
+1. First, wait the appropriate amount of time for an evaluation to complete and compliance results
+   to become available in Azure portal or SDK. To start a new evaluation scan with Azure PowerShell
+   or REST API, see
+   [On-demand evaluation scan](../how-to/get-compliance-data.md#on-demand-evaluation-scan).
+1. Check that the assignment parameters and assignment scope are set correctly.
+1. Check the [policy definition mode](../concepts/definition-structure.md#mode):
+   - Mode 'all' for all resource types.
+   - Mode 'indexed' if the policy definition checks for tags or location.
+1. Check that the scope of the resource isn't
+   [excluded](../concepts/assignment-structure.md#excluded-scopes) or
+   [exempt](../concepts/exemption-structure.md).
+1. If compliance for a policy assignment shows `0/0` resources, no resources were determined to be
+   applicable within the assignment scope. Check both the policy definition and the assignment
+   scope.
+1. For a non-compliant resource that was expected to be compliant, check
+   [determining reasons for non-compliance](../how-to/determine-non-compliance.md). The comparison
+   of the definition to the evaluated property value indicates why a resource was non-compliant.
+   - If the **target value** is wrong, revise the policy definition.
+   - If the **current value** is wrong, validate the resource payload through `resources.azure.com`.
+1. Check [Troubleshoot: Enforcement not as expected](#scenario-enforcement-not-as-expected) for
+   other common issues and solutions.
+
+If you still have an issue with your duplicated and customized built-in policy definition or custom
+definition, create a support ticket under **Authoring a policy** to route the issue correctly.
 
 ### Scenario: Enforcement not as expected
 
@@ -102,9 +119,28 @@ log.
 
 #### Resolution
 
-Update **enforcementMode** to _Enabled_. This change lets Azure Policy act on the resources in this
-policy assignment and send entries to Activity log. If **enforcementMode** is already enabled, see
-[Evaluation not as expected](#scenario-evaluation-not-as-expected) for courses of action.
+Follow these steps to troubleshoot your policy assignment's enforcement:
+
+1. First, wait the appropriate amount of time for an evaluation to complete and compliance results
+   to become available in Azure portal or SDK. To start a new evaluation scan with Azure PowerShell
+   or REST API, see
+   [On-demand evaluation scan](../how-to/get-compliance-data.md#on-demand-evaluation-scan).
+1. Check that the assignment parameters and assignment scope are set correctly and that
+   **enforcementMode** is _Enabled_. 
+1. Check the [policy definition mode](../concepts/definition-structure.md#mode):
+   - Mode 'all' for all resource types.
+   - Mode 'indexed' if the policy definition checks for tags or location.
+1. Check that the scope of the resource isn't
+   [excluded](../concepts/assignment-structure.md#excluded-scopes) or
+   [exempt](../concepts/exemption-structure.md).
+1. Verify the resource payload matches the policy logic. This can be done by
+   [capturing a HAR trace](../../../azure-portal/capture-browser-trace.md) or reviewing the ARM
+   template properties.
+1. Check [Troubleshoot: Compliance not as expected](#scenario-compliance-not-as-expected) for other
+   common issues and solutions.
+
+If you still have an issue with your duplicated and customized built-in policy definition or custom
+definition, create a support ticket under **Authoring a policy** to route the issue correctly.
 
 ### Scenario: Denied by Azure Policy
 
