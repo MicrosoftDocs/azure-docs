@@ -68,7 +68,7 @@ The device is now ready to receive commands and property updates, and has starte
 In [Set up your environment for the IoT Plug and Play quickstarts and tutorials](set-up-environment.md) you created two environment variables to configure the sample to connect to your IoT hub and device:
 
 * **IOTHUB_CONNECTION_STRING**: the IoT hub connection string you made a note of previously.
-* **DEVICE_ID**: `"my-pnp-device"`.
+* **IOTHUB_DEVICE_ID**: `"my-pnp-device"`.
 
 In this quickstart, you use a sample IoT solution written in Java to interact with the sample device you just set up.
 
