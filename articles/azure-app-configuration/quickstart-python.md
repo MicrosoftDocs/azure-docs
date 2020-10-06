@@ -97,7 +97,7 @@ In this quickstart, you will use Azure App Configuration to centralize storage a
 
 2. Restart the command prompt to allow the change to take effect. Print out the value of the environment variable to validate that it is set properly.
 
-## Code examples 
+## Code samples
 
 These example code snippets in this section show you how to perform common actions with the Azure App Configuration client library for Python.
 
