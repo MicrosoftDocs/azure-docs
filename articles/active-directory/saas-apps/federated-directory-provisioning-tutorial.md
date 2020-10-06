@@ -52,7 +52,7 @@ Before configuring Federated Directory for automatic user provisioning with Azur
 
 2. Navigate to **Directories > User directories** and select your tenant. 
 
-	:::image type="content" source="media/federated-directory-provisioning-tutorial/ad-user-directories.png" alt-text="Screenshot of the Federated Directory admin console, with Directories and Federated Directory Azure AD Test highlighted." border="false":::
+	:::image type="content" source="media/federated-directory-provisioning-tutorial/ad-user-directories.png" alt-text="Screenshot of the Federated Directory admin console, with Directories and Federated Directory Azure A D Test highlighted." border="false":::
 
 3. 	To generate a permanent bearer token, navigate to **Directory Keys > Create New Key.** 
 
