@@ -31,7 +31,7 @@ Here are some definitions to get you started:
 	* Azure subnets.
 	* On-premises agents.
 	* On-premises subnets.
-	* On-premises custom networks comprising multiple subnets.
+	* On-premises custom networks that include multiple subnets.
 	* URLs and IPs.
 * **Test configuration**. A protocol-specific configuration for a test. Based on the protocol you choose, you can define the port, thresholds, test frequency, and other parameters.
 * **Test group**. The group that contains source endpoints, destination endpoints, and test configurations. A connection monitor can contain more than one test group.
@@ -50,7 +50,7 @@ To create a monitor in Connection Monitor Preview by using the Azure portal:
 
     ![Screenshot that shows connection monitors created in Connection Monitor Preview.](./media/connection-monitor-2-preview/cm-resource-view.png)   
 	
-1. In the **Connection Monitor (Preview)** dashboard, in the upper-left corner, select **Create**.
+1. In the **Connection Monitor (Preview)** dashboard, in the upper-left corner, selects **Create**.
 
    
 
@@ -64,7 +64,7 @@ To create a monitor in Connection Monitor Preview by using the Azure portal:
    ![Screenshot that shows the Basics tab in Connection Monitor.](./media/connection-monitor-2-preview/create-cm-basics.png)
 1. At the bottom of the tab, select **Next: Test groups**.
 
-1. Add sources, destinations and test configurations in your test groups. To learn about setting up your test groups, see [Create test groups in Connection Monitor](#create-test-groups-in-a-connection-monitor). 
+1. Add sources, destinations, and test configurations in your test groups. To learn about setting up your test groups, see [Create test groups in Connection Monitor](#create-test-groups-in-a-connection-monitor). 
   ![Screenshot that shows the Test groups tab in Connection Monitor.](./media/connection-monitor-2-preview/create-tg.png)
 1. At the bottom of the tab, select **Next: Create Alerts**. To learn about creating alerts, see [Create alerts in Connection Monitor](#create-alerts-in-connection-monitor).
    ![Screenshot that shows the Create alert tab.](./media/connection-monitor-2-preview/create-alert.png)
@@ -136,7 +136,7 @@ In the Azure portal, to create a test group in a connection monitor, you specify
     
      ![Screenshot that shows the Add Destinations pane and the Non-Azure endpoints tab.](./media/connection-monitor-2-preview/add-non-azure-dest.png)
 	
-    * To choose public endpoints as destinations, select the **External Addresses** tab. The list of endpoints includes Office 365 test URLs and Dynamics 365 test URLs, grouped by name. In addition to these endpoints, you can choose endpoints that were created in other test groups in the same connection monitor. 
+    * To choose public endpoints as destinations, select the **External Addresses** tab. The list of endpoints includes Office 365 test URLs and Dynamics 365 test URLs, grouped by name. You also can choose endpoints that were created in other test groups in the same connection monitor. 
     
         To add an endpoint, in the upper-right corner, select **+ Endpoints**. Then provide an endpoint name and URL, IP, or FQDN.
 
@@ -150,39 +150,39 @@ In the Azure portal, to create a test group in a connection monitor, you specify
     * **Test configuration name**: Name the test configuration.
     * **Protocol**: Select **TCP**, **ICMP**, or **HTTP**. To change HTTP to HTTPS, select **HTTP** as the protocol and then select **443** as the port.
         * **Create network test configuration**: This check box appears only if you select **HTTP** in the **Protocol** field. Select this box to create another test configuration that uses the same sources and destinations that you specified elsewhere in your configuration. The new test configuration is named **\<name of test configuration>_networkTestConfig**.
-        * **Disable traceroute** – This field applies when protocol is TCP or ICMP. Select this box to stop sources from discovering topology and hop-by-hop RTT.
-    * **Destination port** – You can customize this field with a destination port of your choice.
-    	* Listen on port - This field applies when protocol is TCP. Select this box to open the chosen TCP port if not already open. 
-    * **Test Frequency** – Use this field to choose how frequently sources will ping destinations on the protocol and port that you specified. You can choose 30 seconds, 1 minute, 5 minutes, 15 minutes, or 30 minutes. Select custom to enter frequency of your choice between 30 seconds to 30 minutes. Sources will test connectivity to destinations based on the value that you choose.  For example, if you select 30 seconds, sources will check connectivity to the destination at least once in a 30-second period.
-    * **Success Threshold** – You can set thresholds on the following network parameters:
-       * **Checks failed** – Set the percentage of checks that can fail when sources check connectivity to destinations by using the criteria that you specified. For TCP or ICMP protocol, the percentage of failed checks can be equated to the percentage of packet loss. For HTTP protocol, this field represents the percentage of HTTP requests that received no response.
-       * **Round-trip time** – Set the RTT in milliseconds for how long sources can take to connect to the destination over the test configuration.
+        * **Disable traceroute**: This check box applies when the protocol is TCP or ICMP. Select this box to stop sources from discovering topology and hop-by-hop RTT.
+    * **Destination port**: You can provide a destination port of your choice.
+    	* **Listen on port**: This check box applies when the protocol is TCP. Select this box to open the chosen TCP port if it's not already open. 
+    * **Test Frequency**: Use this box to choose how frequently sources will ping destinations on the protocol and port that you specified. You can choose 30 seconds, 1 minute, 5 minutes, 15 minutes, or 30 minutes. Select **custom** to enter another frequency that's between 30 seconds and 30 minutes. Sources will test connectivity to destinations based on the value that you choose. For example, if you select 30 seconds, sources will check connectivity to the destination at least once in every 30-second period.
+    * **Success Threshold**: You can set thresholds on the following network parameters:
+       * **Checks failed**: Set the percentage of checks that can fail when sources check connectivity to destinations by using the criteria that you specified. For the TCP or ICMP protocol, the percentage of failed checks can be equated to the percentage of packet loss. For HTTP protocol, this value represents the percentage of HTTP requests that received no response.
+       * **Round trip time**: Set the RTT, in milliseconds, for how long sources can take to connect to the destination over the test configuration.
     
-       ![Screenshot showing where to set up a test configuration in Connection Monitor](./media/connection-monitor-2-preview/add-test-config.png)
+       ![Screenshot that shows where to set up a test configuration in Connection Monitor.](./media/connection-monitor-2-preview/add-test-config.png)
        
-## Create Alerts in Connection Monitor
+## Create alerts in Connection Monitor
 
-You can setup alerts on tests that are failing based on the thresholds set in test configurations.   
+You can set up alerts on tests that are failing based on the thresholds set in test configurations.
 
-From the Azure portal, to create alerts in a connection monitor, you specify values for the following fields: 
+In the Azure portal, to create alerts for a connection monitor, you specify values for these fields: 
 
-- Create alert - You can select this field to create a metric alert in Azure Monitor. Selecting this will enable the other fields for editing. Additional charges for alert will be applicable based on [pricing for alerts](https://azure.microsoft.com/pricing/details/monitor/) 
+- **Create alert**: You can select this check box to create a metric alert in Azure Monitor. When you select this box, the other fields will be enabled for editing. Additional charges for the alert will be applicable, based on the [pricing for alerts](https://azure.microsoft.com/pricing/details/monitor/). 
 
-- Scope -> Resource and Scope -> Hierarchy - This is prefilled based on the values specified in the Basics tab 
+- **Scope** > **Resource** > **Hierarchy**: These values are automatically filled, based on the values specified on the **Basics** tab.
 
-- Condition -> The alert is created on the "Test Result(preview)" metric. When the test result of the connection monitor is failed, the alert rule will get fired. 
+- **Condition name**: The alert is created on the `Test Result(preview)` metric. When the result of the connection monitor test is a failing result, the alert rule will fire. 
 
-- Action Group -You can choose to enter your email directly or you can choose to create alerts via action groups. If you choose to enter your email directly, an action group with the name NPM Email ActionGroup is created and the email ID is added to that action group.If you choose to use action groups, you will have to select an previously created action group. You can learn how to create an action group here.Once the alert is successfully created, you can use Manage Alerts link to manage your alerts. 
+- **Action group name**: You can enter your email directly or you can create alerts via action groups. If you enter your email directly, an action group with the name **NPM Email ActionGroup** is created. The email ID is added to that action group. If you choose to use action groups, you need to select a previously created action group. You can learn how to create an action group here. After the alert is created, you can use the **Manage Alerts** link to manage your alerts. 
 
-- Alert Rule Name - Name of the Connection Monitor 
+- **Alert rule name**: The name of the connection monitor.
 
-- Enable rule upon creation - This will enable the alert rule based on the condition. Disable this if you want to create the rule but not enable it. 
+- **Enable rule upon creation**: Select this check box to enable the alert rule based on the condition. Disable this check box if you want to create the rule without enabling it. 
 
-  	![Screenshot showing creating alert in Connection Monitor pane](./media/connection-monitor-2-preview/create-alert-filled.png)
+  	![Screenshot that shows the Create alert tab in Connection Monitor.](./media/connection-monitor-2-preview/create-alert-filled.png)
 
 ## Scale limits
 
-Connection monitors have the following scale limits:
+Connection monitors have these scale limits:
 
 * Maximum connection monitors per subscription per region: 100
 * Maximum test groups per connection monitor: 20
@@ -191,5 +191,5 @@ Connection monitors have the following scale limits:
 
 ## Next steps
 
-* Learn [how to analyze monitoring data and set alerts](https://docs.microsoft.com/azure/network-watcher/connection-monitor-preview#analyze-monitoring-data-and-set-alerts)
-* Learn [how to diagnose issues in your network](https://docs.microsoft.com/azure/network-watcher/connection-monitor-preview#diagnose-issues-in-your-network)
+* Learn [how to analyze monitoring data and set alerts](https://docs.microsoft.com/azure/network-watcher/connection-monitor-preview#analyze-monitoring-data-and-set-alerts).
+* Learn [how to diagnose issues in your network](https://docs.microsoft.com/azure/network-watcher/connection-monitor-preview#diagnose-issues-in-your-network).
