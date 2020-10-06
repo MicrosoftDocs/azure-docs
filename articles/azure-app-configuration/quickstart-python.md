@@ -125,10 +125,8 @@ The following code snippet retrieves the configuration setting by `key` name.
 
 ```python
     fetched_config_setting = client.get_configuration_setting(key = 'TestApp:Settings:Message')
-    print(
-        "Fetched key: ", fetched_config_setting.key,
-        " value: ", fetched_config_setting.value
-    )
+    print("Retrieved configuration setting:")
+    print("Key: " + fetched_config_setting.key + ", Value: " + fetched_config_setting.value)
 ```
 
 
