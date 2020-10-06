@@ -100,9 +100,9 @@ To estimate the [minimum provisioned throughput](concepts-limits.md#storage-and-
 
 The actual minimum RU/s may vary depending on your account configuration. You can use [Azure Monitor metrics](monitor-cosmos-db.md#view-operation-level-metrics-for-azure-cosmos-db) to view the history of provisioned throughput (RU/s) and storage on a resource.
 
-You can retrieve the minimum throughput of a container or a database programmatically by using the SDKs or view the value in the Azure portal. When using the .NET SDK, the [container.ReplaceThroughputAsync](/dotnet/api/microsoft.azure.cosmos.container.replacethroughputasync?view=azure-dotnet) method allows you to scale the provisioned throughput value. When using the Java SDK, the [CosmosContainer.replaceProvisionedThroughput](sql-api-java-sdk-samples.md) method allows you to scale the provisioned throughput value.
+You can retrieve the minimum throughput of a container or a database programmatically by using the SDKs or view the value in the Azure portal. When using the .NET SDK, the [container.ReplaceThroughputAsync](/dotnet/api/microsoft.azure.cosmos.container.replacethroughputasync?view=azure-dotnet&preserve-view=true) method allows you to scale the provisioned throughput value. When using the Java SDK, the [CosmosContainer.replaceProvisionedThroughput](sql-api-java-sdk-samples.md) method allows you to scale the provisioned throughput value.
 
-When using the .NET SDK, the [Container.ReadThroughputAsync](/dotnet/api/microsoft.azure.cosmos.container.readthroughputasync?view=azure-dotnet) method allows you to retrieve the minimum throughput of a container or a database. 
+When using the .NET SDK, the [Container.ReadThroughputAsync](/dotnet/api/microsoft.azure.cosmos.container.readthroughputasync?view=azure-dotnet&preserve-view=true) method allows you to retrieve the minimum throughput of a container or a database. 
 
 You can scale the provisioned throughput of a container or a database at any time. When a scale operation is performed to increase the throughput, it can take longer time due to the system tasks to provision the required resources. You can check the status of the scale operation in Azure portal or programmatically using the SDKs. When using the .NET SDK, you can get the status of the scale operation by using the `Container.ReadThroughputAsync` method.
 
