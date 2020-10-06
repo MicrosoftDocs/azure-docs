@@ -12,7 +12,7 @@ ms.author: allensu
 
 # <a name="outboundrules"></a>Outbound rules
 
-Outbound rules make it simple to configure public standard load balancer outbound SNAT(source network address translation). This configuration allows you to use the frontend public IP(s) of your load balancer for egress connections to the internet. This configuration enables IP masquerading and simplifying your allow lists.
+Outbound rules make it simple to configure public standard load balancer outbound SNAT (source network address translation). This configuration allows you to use the frontend public IP(s) of your load balancer for egress connections to the internet. This configuration enables IP masquerading and simplifying your allow lists.
 
 With outbound rules, you have full declarative control over outbound internet connectivity. Outbound rules allow you to scale and tune this ability to your specific needs. 
 
@@ -20,7 +20,7 @@ Outbound rules will only be followed if the backend VM doesn't have an instance-
 
 ![Load Balancer outbound rules](media/load-balancer-outbound-rules-overview/load-balancer-outbound-rules.png)
 
-With outbound rules, you can explicitly define outbound <a name ="snat"></a>**SNAT** behavior.
+With outbound rules, you can explicitly define outbound **SNAT** behavior.
 
 Outbound rules allow you to control:
 
@@ -35,7 +35,7 @@ Outbound rules allow you to control:
 * **Whether to send a TCP Reset on idle timeout.**
      * when timing out idle connections, do we send a TCP RST to the client and server so they know the flow is abandoned?
 
-## <a name="scenarios"></a>Outbound rule definition
+## Outbound rule definition
 
 Outbound rules follow the same familiar syntax as load balancing and inbound NAT rules: **frontend** + **parameters** + **backend pool**. 
 
@@ -73,7 +73,7 @@ You can use this parameter in two ways:
 
 1. Prevention of the inbound IP address for outbound SNAT. Disable outbound SNAT in the load-balancing rule.
   
-2. Tune the outbound [SNAT](#snat) parameters of an IP address used for inbound and outbound simultaneously. The automatic outbound NAT must be disabled to allow an outbound rule to take control. To change the SNAT port allocation of an address also used for inbound, the `disableOutboundSnat` parameter must be set to true. 
+2. Tune the outbound **SNAT**parameters of an IP address used for inbound and outbound simultaneously. The automatic outbound NAT must be disabled to allow an outbound rule to take control. To change the SNAT port allocation of an address also used for inbound, the `disableOutboundSnat` parameter must be set to true. 
 
 The operation to configure an outbound rule will fail if you attempt to redefine an IP address that is used for inbound.  Disable the outbound NAT of the load-balancing rule first.
 
@@ -87,22 +87,6 @@ When you apply an NSG to a load-balanced VM, pay attention to the [service tags]
 Ensure that the VM can receive health probe requests from Azure Load Balancer.
 
 If an NSG blocks health probe requests from the AZURE_LOADBALANCER default tag, your VM health probe fails and the VM is marked unavailable. The load balancer stops sending new flows to that VM.
-
-Should you use the automatic allocation of outbound SNAT through a load-balancing rule, the below table will define your port allocation. 
-
-The following <a name="snatporttable"></a>table shows the SNAT port <a name="preallocatedports"></a>preallocations for tiers of backend pool sizes:
-
-| Pool size (VM instances) | Preallocated SNAT ports per IP configuration |
-| --- | --- |
-| 1-50 | 1,024 |
-| 51-100 | 512 |
-| 101-200 | 256 |
-| 201-400 | 128 |
-| 401-800 | 64 |
-| 801-1,000 | 32 | 
-
->[!NOTE]
-> If you have a backend pool with a max size of 6, each instance can have 64,000/10 = 6,400 ports if you define an explicit outbound rule. According to the above table each will only have 1,024 if you choose automatic allocation.
 
 ## Limitations
 
