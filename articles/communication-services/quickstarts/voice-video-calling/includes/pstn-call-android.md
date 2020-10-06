@@ -34,15 +34,6 @@ import com.azure.android.communication.common.PhoneNumber;
 > Namespace based on input from Komivi Agbakpem. But it does not correlates with other use namespaces in Calling Quickstart. E.g: "com.azure.communication.calling.CommunicationUser" or "com.azure.communication.common.client.CommunicationUserCredential". Double-chek this.
 -->
 
-## Object model
-
-The following classes and interfaces handle some of the major features of the Azure Communication Services Calling client library for Android.
-
-| Name                                           | Description                                                                                          |
-| ---------------------------------------------- | ---------------------------------------------------------------------------------------------------- |
-| PhoneNumber | This class is needed to initialize a phone number you would like to use for telephony functionality. |
-
-
 ## Start a call to phone
 
 Specify the phone number you acquired from within your Communication Services resource. This will be used to start the call:
