@@ -33,11 +33,11 @@ There are two possible ways to migrate:
 
 In the Azure portal, use the search bar to find the **Snapshots** functionality. 
 
-![Screenshot showing Azure portal and search bar, with **Snapshots** highlighted](media/ubuntu_upgrade/azure-portal-search-bar.png)
+:::image type="content" source="media/ubuntu_upgrade/azure-portal-search-bar.png" alt-text="Screenshot showing Azure portal and search bar, with **Snapshots** highlighted":::
 
 Select **Add**, which will take you to the **Create snapshot** page. Select the subscription and resource group of your virtual machine. For **Region**, select the same region in which the target storage exists. Select the DSVM storage disk and additional backup options. **Standard HDD** is an appropriate storage type for this backup scenario.
 
-![Screenshot showing 'Create snapshot' options](media/ubuntu_upgrade/create-snapshot-options.PNG)
+:::image type="content" source="media/ubuntu_upgrade/create-snapshot-options.png" alt-text="Screenshot showing 'Create snapshot' options":::
 
 Once all the details are filled and validations pass, select **Review + create** to validate and create the snapshot. When the snapshot successfully completes, you will see a message telling you the deployment is complete.
 
@@ -57,13 +57,14 @@ The upgrade process will take a while to complete. When it's over, the program w
 
 ### If necessary, regenerate SSH keys
 
- [!IMPORTANT] After upgrading and rebooting, you may need to regenerate your SSH keys.
+> [!IMPORTANT] 
+> After upgrading and rebooting, you may need to regenerate your SSH keys.
 
 After your VM has upgraded and rebooted, attempt to access it again via SSH. The IP address may have changed during the reboot, so confirm it before attempting to connect.
 
 If you receive the error **REMOTE HOST IDENTIFICATION HAS CHANGED**, you will need to regenerate your SSH credentials.
 
-![Powershell screenshot showing remote host identification changed warning](media/ubuntu_upgrade/remote-host-warning.png)
+:::image type="content" source="media/ubuntu_upgrade/remote-host-warning.png" alt-text="Powershell screenshot showing remote host identification changed warning":::
 
 To do so, on your local machine, run the command:
 
@@ -101,13 +102,13 @@ If you  haven't already created a VM snapshot as described previously, do so.
 
 In the Azure portal, search for **Disks** and select **Add**, which will open the **Disk** page.
 
-![Screenshot of Azure portal showing search for Disks page and the Add button](media/ubuntu_upgrade/portal-disks-search.png)
+:::image type="content" source="media/ubuntu_upgrade/portal-disks-search.png" alt-text="Screenshot of Azure portal showing search for Disks page and the Add button":::
 
 Set the **Subscription**, **Resource group**, and **Region** to the values of your VM snapshot. Choose a **Name** for the disk to be created.
 
 Select **Source type** as **Snapshot** and select the VM snapshot as the **Source snapshot**. Review and create the disk. 
 
-![Screenshot of disk creation dialog showing options](media/ubuntu_upgrade/disk-create-options.png)
+:::image type="content" source="media/ubuntu_upgrade/disk-create-options.png" alt-text="Screenshot of disk creation dialog showing options":::
 
 ### Create a new Ubuntu Data Science Virtual Machine
 
@@ -127,7 +128,7 @@ In the Azure portal, go to the page of your Data Science Virtual Machine. Choose
 
 In the **Disk name** dropdown, select the disk that you created from your old VM's snapshot.
 
-![Screenshot of DSVM options page showing disk attachment options](media/ubuntu_upgrade/attach-data-disk.png)
+:::image type="content" source="media/ubuntu_upgrade/attach-data-disk.png" alt-text="Screenshot of DSVM options page showing disk attachment options":::
 
 Select **Save** to update your virtual machine.
 
@@ -149,11 +150,11 @@ cat /etc/os-release
 
 And you should see that you're running Ubuntu 18.04.
 
-![Screenshot of Ubuntu terminal showing OS version data](media/ubuntu_upgrade/ssh-os-release.png)
+:::image type="content" source="media/ubuntu_upgrade/ssh-os-release.png" alt-text="Screenshot of Ubuntu terminal showing OS version data":::
 
 The change of version is also shown in the Azure portal.
 
-![Screenshot of portal showing DSVM properties including OS version](media/ubuntu_upgrade/portal-showing-os-version.png)
+:::image type="content" source="media/ubuntu_upgrade/portal-showing-os-version.png" alt-text="Screenshot of portal showing DSVM properties including OS version":::
 
 ## Next steps
 
