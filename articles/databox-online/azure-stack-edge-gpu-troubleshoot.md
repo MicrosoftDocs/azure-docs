@@ -46,7 +46,7 @@ Do the following steps to collect a Support package.
  
 2. After the Support package is created, select **Download Support package**. A zipped package is downloaded on the path you chose. You can unzip the package and the view the system log files.
 
-    ![Select add user](media/azure-stack-edge-gpu-troubleshoot/collect-logs-2.png)
+    ![Select add user 2](media/azure-stack-edge-gpu-troubleshoot/collect-logs-2.png)
 
 ## Gather advanced security logs
 
