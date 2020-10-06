@@ -6,7 +6,7 @@ author: lisaguthrie
 ms.service: azure-app-configuration
 ms.topic: quickstart
 ms.custom: devx-track-csharp
-ms.date: 1/9/2019
+ms.date: 09/28/2020
 ms.author: lcozzens
 
 #Customer intent: As a .NET Core developer, I want to manage all my app settings in one place.
@@ -17,7 +17,7 @@ In this quickstart, you incorporate Azure App Configuration into a .NET Core con
 
 ## Prerequisites
 
-- Azure subscription - [create one for free](https://azure.microsoft.com/free/)
+- Azure subscription - [create one for free](https://azure.microsoft.com/free/dotnet)
 - [.NET Core SDK](https://dotnet.microsoft.com/download) - also available in the [Azure Cloud Shell](https://shell.azure.com).
 
 ## Create an App Configuration store

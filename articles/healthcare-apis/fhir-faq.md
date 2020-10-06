@@ -74,6 +74,10 @@ Some examples of this are below:
 * GET Patient/<id>/Observation
 * GET Patient/<id>/Observation?code=8302-2
 
+### Where can I see some examples of using the Azure API for FHIR within a workflow?
+
+We have a collection of reference architectures available on the [Health Architecture GitHub page](https://github.com/microsoft/health-architectures).
+
 ## Azure IoT Connector for FHIR (preview)
 
 ### What is IoMT?

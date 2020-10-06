@@ -125,7 +125,7 @@ Then create the Postgres database in Azure with the [`az postgres up`](/cli/azur
 az postgres up --resource-group DjangoPostgres-tutorial-rg --location westus2 --sku-name B_Gen5_1 --server-name <postgre-server-name> --database-name pollsdb --admin-user <admin-username> --admin-password <admin-password> --ssl-enforcement Enabled
 ```
 
-- Replace *\<postgres-server-name>* with a name that's unique across all Azure (the server endpoint is `https://\<postgres-server-name>.postgres.database.azure.com`). A good pattern is to use a combination of your company name and another unique value.
+- Replace *\<postgres-server-name>* with a name that's unique across all Azure (the server endpoint is `https://<postgres-server-name>.postgres.database.azure.com`). A good pattern is to use a combination of your company name and another unique value.
 - For *\<admin-username>* and *\<admin-password>*, specify credentials to create an administrator user for this Postgres server.
 - The B_Gen5_1 (Basic, Gen5, 1 core) [pricing tier](../postgresql/concepts-pricing-tiers.md) used here is the least expensive. For production databases, omit the `--sku-name` argument to use the GP_Gen5_2 (General Purpose, Gen 5, 2 cores) tier instead.
 
@@ -165,7 +165,7 @@ az webapp up --resource-group DjangoPostgres-tutorial-rg --location westus2 --pl
 <!-- without --sku creates PremiumV2 plan -->
 
 - For the `--location` argument, use the same location as you did for the database in the previous section.
-- Replace *\<app-name>* with a unique name across all Azure (the server endpoint is `https://\<app-name>.azurewebsites.net`). Allowed characters for *\<app-name>* are `A`-`Z`, `0`-`9`, and `-`. A good pattern is to use a combination of your company name and an app identifier.
+- Replace *\<app-name>* with a unique name across all Azure (the server endpoint is `https://<app-name>.azurewebsites.net`). Allowed characters for *\<app-name>* are `A`-`Z`, `0`-`9`, and `-`. A good pattern is to use a combination of your company name and an app identifier.
 
 This command performs the following actions, which may take a few minutes:
 
@@ -176,15 +176,13 @@ This command performs the following actions, which may take a few minutes:
 - Create the App Service app if it doesn't exist.
 - Enable default logging for the app, if not already enabled.
 - Upload the repository using ZIP deployment with build automation enabled.
+- Cache common parameters, such as the name of the resource group and App Service plan, into the file *.azure/config*. As a result, you don't need to specify all the same parameter with later commands. For example, to redeploy the app after making changes, you can just run `az webapp up` again without any parameters. Commands that come from CLI extensions, such as `az postgres up`, however, do not at present use the cache, which is why you needed to specify the resource group and location here with the initial use of `az webapp up`.
 
 Upon successful deployment, the command generates JSON output like the following example:
 
 ![Example az webapp up command output](./media/tutorial-python-postgresql-app/az-webapp-up-output.png)
 
 [Having issues? Let us know.](https://aka.ms/DjangoCLITutorialHelp)
-
-> [!TIP]
-> Many Azure CLI commands cache common parameters, such as the name of the resource group and App Service plan, into the file *.azure/config*. As a result, you don't need to specify all the same parameter with later commands. For example, to redeploy the app after making changes, you can just run `az webapp up` again without any parameters. Commands that come from CLI extensions, such as `az postgres up`, however, do not at present use the cache, which is why you needed to specify the resource group and location here with `az webapp up`.
 
 > [!NOTE]
 > If you attempt to visit the app's URL at this point, you encounter the error "DisallowedHost at /". This error happens because you have not yet configured the app to use the production settings discussed earlier, which you do in the following section.
@@ -196,11 +194,11 @@ With the code now deployed to App Service, the next step is to connect the app t
 The app code expects to find database information in a number of environment variables. To set environment variables in App Service, you create "app settings" with the [az webapp config appsettings set](/cli/azure/webapp/config/appsettings#az-webapp-config-appsettings-set) command.
 
 ```azurecli
-az webapp config appsettings set --settings DJANGO_ENV="production" DBHOST="<postgres-server-name>.postgres.database.azure.com" DBNAME="pollsdb" DBUSER="<username>" DBPASS="<password>"
+az webapp config appsettings set --settings DJANGO_ENV="production" DBHOST="<postgres-server-name>.postgres.database.azure.com" DBNAME="pollsdb" DBUSER="<username>@<postgres-server-name>" DBPASS="<password>"
 ```
 
 - Replace *\<postgres-server-name>* with the name you used earlier with the `az postgres up` command.
-- Replace *\<username>* and *\<password>* with the credentials that the command also generated for you.
+- Replace *\<username>* and *\<password>* with the credentials that the command also generated for you. The `DBUSER` argument must be in the form `<username>@<postgres-server-name>`.
 - The resource group and app name are drawn from the cached values in the *.azure/config* file.
 - The command creates settings named `DJANGO_ENV`, `DBHOST`, `DBNAME`, `DBUSER`, and `DBPASS` as expected by the app code.
 - In your Python code, you access these settings as environment variables with statements like `os.environ.get('DJANGO_ENV')`. For more information, see [Access environment variables](configure-language-python.md#access-environment-variables).
@@ -219,7 +217,7 @@ Django database migrations ensure that the schema in the PostgreSQL on Azure dat
 
     Replace `<app-name>` with the name used earlier in the `az webapp up` command.
 
-    On macOS and Linux, you can alternately connect to an SSH session with the [`az webapp ssh`](/cli/azure/webapp?view=azure-cli-latest#az_webapp_ssh) command.
+    On macOS and Linux, you can alternately connect to an SSH session with the [`az webapp ssh`](/cli/azure/webapp?view=azure-cli-latest&preserve-view=true#az_webapp_ssh) command.
 
 1. In the SSH session, run the following commands (you can paste commands using **Ctrl**+**Shift**+**V**):
 
@@ -242,15 +240,17 @@ Django database migrations ensure that the schema in the PostgreSQL on Azure dat
     
 1. The `createsuperuser` command prompts you for superuser credentials. For the purposes of this tutorial, use the default username `root`, press **Enter** for the email address to leave it blank, and enter `Pollsdb1` for the password.
 
+1. If you see an error that the database is locked, make sure that you ran the `az webapp settings` command in the previous section. Without those settings, the migrate command cannot communicate with the database, resulting in the error.
+
 [Having issues? Let us know.](https://aka.ms/DjangoCLITutorialHelp)
     
 ### Create a poll question in the app
 
-1. In a browser, open the URL *http:\//\<app-name>.azurewebsites.net*. The app should display the message "No polls are available" because there are no specific polls yet in the database.
+1. In a browser, open the URL `http://<app-name>.azurewebsites.net`. The app should display the message "No polls are available" because there are no specific polls yet in the database.
 
-1. Browse to *http:\//\<app-name>.azurewebsites.net/admin*. Sign in using superuser credentials from the previous section (`root` and `Pollsdb1`). Under **Polls**, select **Add** next to **Questions** and create a poll question with some choices.
+1. Browse to `http://<app-name>.azurewebsites.net/admin`. Sign in using superuser credentials from the previous section (`root` and `Pollsdb1`). Under **Polls**, select **Add** next to **Questions** and create a poll question with some choices.
 
-1. Browse again to *http:\//\<app-name>.azurewebsites.net/* to confirm that the questions are now presented to the user. Answer questions however you like to generate some data in the database.
+1. Browse again to `http://<app-name>.azurewebsites.net` to confirm that the questions are now presented to the user. Answer questions however you like to generate some data in the database.
 
 **Congratulations!** You're running a Python Django web app in Azure App Service for Linux, with an active Postgres database.
 
@@ -326,9 +326,9 @@ Once the web app is fully loaded, the Django development server provides the loc
 
 Test the app locally with the following steps:
 
-1. Go to *http:\//localhost:8000* in a browser, which should display the message "No polls are available". 
+1. Go to `http://localhost:8000` in a browser, which should display the message "No polls are available". 
 
-1. Go to *http:\//localhost:8000/admin* and sign in using the admin user you created previously. Under **Polls**, again select **Add** next to **Questions** and create a poll question with some choices. 
+1. Go to `http:///localhost:8000/admin` and sign in using the admin user you created previously. Under **Polls**, again select **Add** next to **Questions** and create a poll question with some choices. 
 
 1. Go to *http:\//localhost:8000* again and answer the question to test the app. 
 
@@ -376,7 +376,7 @@ This command uses the parameters cached in the *.azure/config* file. Because App
 
 Because you made changes to the data model, you need to rerun database migrations in App Service.
 
-Open an SSH session again in the browser by navigating to *https://\<app-name>.scm.azurewebsites.net/webssh/host*. Then run the following commands:
+Open an SSH session again in the browser by navigating to `https://<app-name>.scm.azurewebsites.net/webssh/host`. Then run the following commands:
 
 ```
 cd site/wwwroot
@@ -391,7 +391,7 @@ python manage.py migrate
 
 ### Review app in production
 
-Browse to *http:\//\<app-name>.azurewebsites.net* and test the app again in production. (Because you only changed the length of a database field, the change is only noticeable if you try to enter a longer response when creation a question.)
+Browse to `http://<app-name>.azurewebsites.net` and test the app again in production. (Because you only changed the length of a database field, the change is only noticeable if you try to enter a longer response when creation a question.)
 
 [Having issues? Let us know.](https://aka.ms/DjangoCLITutorialHelp)
 

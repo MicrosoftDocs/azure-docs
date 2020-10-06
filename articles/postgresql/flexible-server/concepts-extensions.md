@@ -1,11 +1,11 @@
 ---
 title: Extensions - Azure Database for PostgreSQL - Flexible Server
 description: Learn about the available Postgres extensions in Azure Database for PostgreSQL - Flexible Server
-author: rachel-msft
-ms.author: raagyema
+author: lfittl-msft
+ms.author: lufittl
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 09/22/2020
+ms.date: 09/23/2020
 ---
 
 # PostgreSQL extensions in Azure Database for PostgreSQL - Flexible Server
@@ -28,6 +28,8 @@ The following extensions are available in Azure Database for PostgreSQL - Flexib
 > [!div class="mx-tableFixed"]
 > | **Extension**| **Extension version** | **Description** |
 > |---|---|---|
+> |[address_standardizer](http://postgis.net/docs/Address_Standardizer.html)         | 3.0.0           | Used to parse an address into constituent elements. |
+> |[address_standardizer_data_us](http://postgis.net/docs/Address_Standardizer.html) | 3.0.0           | Address Standardizer US dataset example|
 > |[amcheck](https://www.postgresql.org/docs/12/amcheck.html)                    | 1.2             | functions for verifying relation integrity|
 > |[bloom](https://www.postgresql.org/docs/12/bloom.html)                    | 1.0             | bloom access method - signature file based index|
 > |[btree_gin](https://www.postgresql.org/docs/12/btree-gin.html)                    | 1.3             | support for indexing common datatypes in GIN|
@@ -56,7 +58,11 @@ The following extensions are available in Azure Database for PostgreSQL - Flexib
 > |[pgrowlocks](https://www.postgresql.org/docs/12/pgrowlocks.html)                   | 1.2             | show row-level locking information|
 > |[pgstattuple](https://www.postgresql.org/docs/12/pgstattuple.html)                  | 1.5             | show tuple-level statistics|
 > |[plpgsql](https://www.postgresql.org/docs/12/plpgsql.html)                      | 1.0             | PL/pgSQL procedural language|
-> |[postgis](https://www.postgis.net/)                      | 3.0.0           | PostGIS geometry, geography, and raster spatial types and functions|
+> |[postgis](https://www.postgis.net/)                      | 3.0.0           | PostGIS geometry, geography |
+> |[postgis_raster](https://www.postgis.net/)               | 3.0.0           | PostGIS raster types and functions| 
+> |[postgis_sfcgal](https://www.postgis.net/)               | 3.0.0           | PostGIS SFCGAL functions|
+> |[postgis_tiger_geocoder](https://www.postgis.net/)       | 3.0.0           | PostGIS tiger geocoder and reverse geocoder|
+> |[postgis_topology](https://postgis.net/docs/Topology.html)             | 3.0.0           | PostGIS topology spatial types and functions|
 > |[postgres_fdw](https://www.postgresql.org/docs/12/postgres-fdw.html)                 | 1.0             | foreign-data wrapper for remote PostgreSQL servers|
 > |[sslinfo](https://www.postgresql.org/docs/12/sslinfo.html)                    | 1.2             | information about SSL certificates|
 > |[tsm_system_rows](https://www.postgresql.org/docs/12/tsm-system-rows.html)                    | 1.0             |  TABLESAMPLE method which accepts number of rows as a limit|
@@ -71,6 +77,8 @@ The following extensions are available in Azure Database for PostgreSQL - Flexib
 > [!div class="mx-tableFixed"]
 > | **Extension**| **Extension version** | **Description** |
 > |---|---|---|
+> |[address_standardizer](http://postgis.net/docs/Address_Standardizer.html)         | 2.5.1           | Used to parse an address into constituent elements. |
+> |[address_standardizer_data_us](http://postgis.net/docs/Address_Standardizer.html) | 2.5.1           | Address Standardizer US dataset example|
 > |[amcheck](https://www.postgresql.org/docs/11/amcheck.html)                    | 1.1             | functions for verifying relation integrity|
 > |[bloom](https://www.postgresql.org/docs/11/bloom.html)                    | 1.0             | bloom access method - signature file based index|
 > |[btree_gin](https://www.postgresql.org/docs/11/btree-gin.html)                    | 1.3             | support for indexing common datatypes in GIN|
@@ -100,6 +108,9 @@ The following extensions are available in Azure Database for PostgreSQL - Flexib
 > |[pgstattuple](https://www.postgresql.org/docs/11/pgstattuple.html)                  | 1.5             | show tuple-level statistics|
 > |[plpgsql](https://www.postgresql.org/docs/11/plpgsql.html)                      | 1.0             | PL/pgSQL procedural language|
 > |[postgis](https://www.postgis.net/)                      | 2.5.1           | PostGIS geometry, geography, and raster spatial types and functions|
+> |[postgis_sfcgal](https://www.postgis.net/)               | 2.5.1           | PostGIS SFCGAL functions|
+> |[postgis_tiger_geocoder](https://www.postgis.net/)       | 2.5.1           | PostGIS tiger geocoder and reverse geocoder|
+> |[postgis_topology](https://postgis.net/docs/Topology.html)             | 2.5.1           | PostGIS topology spatial types and functions|
 > |[postgres_fdw](https://www.postgresql.org/docs/11/postgres-fdw.html)                 | 1.0             | foreign-data wrapper for remote PostgreSQL servers|
 > |[sslinfo](https://www.postgresql.org/docs/11/sslinfo.html)                    | 1.2             | information about SSL certificates|
 > |[tablefunc](https://www.postgresql.org/docs/11/tablefunc.html)                    | 1.0             | functions that manipulate whole tables, including crosstab|
@@ -109,9 +120,21 @@ The following extensions are available in Azure Database for PostgreSQL - Flexib
 > |[uuid-ossp](https://www.postgresql.org/docs/11/uuid-ossp.html)                    | 1.1             | generate universally unique identifiers (UUIDs)|
 
 
+## dblink and postgres_fdw
+[dblink](https://www.postgresql.org/docs/current/contrib-dblink-function.html) and [postgres_fdw](https://www.postgresql.org/docs/current/postgres-fdw.html) allow you to connect from one PostgreSQL server to another, or to another database in the same server. The sending server needs to allow outbound connections to the receiving server. The receiving server needs to allow connections from the sending server.
+
+We recommend deploying your servers with [VNet integration](concepts-networking.md) if you plan to use these two extensions. By default VNet integration allows connections between servers in the VNET. You can also choose to use [VNet network security groups](../../virtual-network/manage-network-security-group.md) to customize access.
+
+
 ## pg_prewarm
 
 The pg_prewarm extension loads relational data into cache. Prewarming your caches means that your queries have better response times on their first run after a restart. The auto-prewarm functionality is not currently available in Azure Database for PostgreSQL - Flexible Server.
+
+## pg_stat_statements
+The [pg_stat_statements extension](https://www.postgresql.org/docs/current/pgstatstatements.html) is preloaded on every Azure Database for PostgreSQL flexible server to provide you a means of tracking execution statistics of SQL statements.
+The setting `pg_stat_statements.track`, which controls what statements are counted by the extension, defaults to `top`, meaning all statements issued directly by clients are tracked. The two other tracking levels are `none` and `all`. This setting is configurable as a server parameter.
+
+There is a tradeoff between the query execution information pg_stat_statements provides and the impact on server performance as it logs each SQL statement. If you are not actively using the pg_stat_statements extension, we recommend that you set `pg_stat_statements.track` to `none`. Note that some third party monitoring services may rely on pg_stat_statements to deliver query performance insights, so confirm whether this is the case for you or not.
 
 
 ## Next steps

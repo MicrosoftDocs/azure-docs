@@ -1,6 +1,7 @@
 ---
-title: Microsoft identity platform Java web app quickstart | Azure
-description: Learn how to implement Microsoft Sign-In on a Java web app using OpenID Connect
+title: "Quickstart: Add sign-in with Microsoft to a Java web app | Azure"
+titleSuffix: Microsoft identity platform
+description: In this quickstart, learn how to implement Microsoft sign-in in a Java web application using OpenID Connect.
 services: active-directory
 author: sangonzal
 manager: CelesteDG
@@ -189,15 +190,16 @@ If you would like to deploy the web sample to Tomcat, you will need to make a co
 3.   Tomcat's default HTTP port is 8080, though an HTTPS connection over port 8443 is needed. To configure this:
         - Go to tomcat/conf/server.xml
         - Search for the `<connector>` tag, and replace the existing connector with:
-        ```
+
+        ```xml
         <Connector
                    protocol="org.apache.coyote.http11.Http11NioProtocol"
                    port="8443" maxThreads="200"
                    scheme="https" secure="true" SSLEnabled="true"
                    keystoreFile="C:/Path/To/Keystore/File/keystore.p12" keystorePass="KeystorePassword"
                    clientAuth="false" sslProtocol="TLS"/>
-        ``` 
-       
+        ```
+
 4. Open a command prompt, go to the root folder of this sample (where the pom.xml file is located), and run `mvn package` to build the project
     - This will generate a `msal-web-sample-0.1.0.war` file in your /targets directory.
     - Rename this file to `msal4jsample.war`
@@ -245,16 +247,11 @@ Add a reference to MSAL for Java by adding the following code to the top of the 
 import com.microsoft.aad.msal4j.*;
 ```
 
+[!INCLUDE [Help and support](../../../includes/active-directory-develop-help-support-include.md)]
+
 ## Next Steps
 
-Learn more about permissions and consent:
+For a more in-depth discussion of building web apps that sign in users on the Microsoft identity platform, move on to our multi-part scenario series:
 
 > [!div class="nextstepaction"]
-> [Permissions and Consent](./v2-permissions-and-consent.md)
-
-To know more about the auth flow for this scenario, see the Oauth 2.0 authorization code flow:
-
-> [!div class="nextstepaction"]
-> [Authorization Code Oauth flow](./v2-oauth2-auth-code-flow.md)
-
-[!INCLUDE [Help and support](../../../includes/active-directory-develop-help-support-include.md)]
+> [Scenario: Web app that signs in users](scenario-web-app-sign-user-overview.md?tabs=java)

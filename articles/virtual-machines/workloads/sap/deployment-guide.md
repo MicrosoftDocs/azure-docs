@@ -540,11 +540,11 @@ Because different versions of an operating system or DBMS have different patch r
 You use different steps to create a private image for Linux than to create one for Windows.
 
 ---
-> ![Windows][Logo_Windows] Windows
+> ![Windows logo.][Logo_Windows] Windows
 >
 > To prepare a Windows image that you can use to deploy multiple virtual machines, the Windows settings (like Windows SID and hostname) must be abstracted or generalized on the on-premises VM. You can use [sysprep](/previous-versions/windows/it-pro/windows-8.1-and-8/hh825084(v=win.10)) to do this.
 >
-> ![Linux][Logo_Linux] Linux
+> ![Linux logo.][Logo_Linux] Linux
 >
 > To prepare a Linux image that you can use to deploy multiple virtual machines, some Linux settings must be abstracted or generalized on the on-premises VM. You can use `waagent -deprovision`  to do this. For more information, see [Capture a Linux virtual machine running on Azure][virtual-machines-linux-capture-image] and the [Azure Linux agent user guide][virtual-machines-linux-agent-user-guide-command-line-options].
 >
@@ -681,11 +681,11 @@ In this scenario, the VM Agent is **not** automatically installed during deploym
 For more information about the Azure VM Agent, see the following resources.
 
 ---
-> ![Windows][Logo_Windows] Windows
+> ![Windows logo.][Logo_Windows] Windows
 >
 > [Azure Virtual Machine Agent overview][virtual-machines-windows-agent-user-guide]
 >
-> ![Linux][Logo_Linux] Linux
+> ![Linux logo.][Logo_Linux] Linux
 >
 > [Azure Linux Agent User Guide][virtual-machines-linux-agent-user-guide]
 >
@@ -1309,7 +1309,7 @@ If some of the infrastructure data is not delivered correctly as indicated by th
 > [!NOTE]
 > There are two versions of the VM extension. This chapter covers the default VM extension. If you have installed the new VM extension, please see chapter [Troubleshooting the new Azure Extension for SAP][deployment-guide-5.3-new].
 
-#### ![Windows][Logo_Windows] Azure performance counters do not show up at all
+#### ![Windows logo.][Logo_Windows] Azure performance counters do not show up at all
 
 The AzureEnhancedMonitoring Windows service collects performance metrics in Azure. If the service has not been installed correctly or if it is not running in your VM, no performance metrics can be collected.
 
@@ -1352,13 +1352,13 @@ The AzureEnhancedMonitoring Windows service exists and is enabled, but fails to 
 
 The configuration is incorrect. Restart the Azure Extension for SAP in the VM, as described in [Configure the Azure Extension for SAP][deployment-guide-4.5].
 
-#### ![Windows][Logo_Windows] Some Azure performance counters are missing
+#### ![Windows logo.][Logo_Windows] Some Azure performance counters are missing
 
 The AzureEnhancedMonitoring Windows service collects performance metrics in Azure. The service gets data from several sources. Some configuration data is collected locally, and some performance metrics are read from Azure Diagnostics. Storage counters are used from your logging on the storage subscription level.
 
 If troubleshooting by using SAP Note [1999351] doesn't resolve the issue, rerun the `Set-AzVMAEMExtension` configuration script. You might have to wait an hour because storage analytics or diagnostics counters might not be created immediately after they are enabled. If the problem persists, open an SAP customer support message on the component BC-OP-NT-AZR for Windows or BC-OP-LNX-AZR for a Linux virtual machine.
 
-#### ![Linux][Logo_Linux] Azure performance counters do not show up at all
+#### ![Linux logo.][Logo_Linux] Azure performance counters do not show up at all
 
 Performance metrics in Azure are collected by a daemon. If the daemon is not running, no performance metrics can be collected.
 
@@ -1391,7 +1391,7 @@ Executing azperfli.exe as described earlier you can get a result that is indicat
 The messages are caused by the fact that Standard Managed Disks are not delivering the APIs used by the SAP Extension for SAP to check on statistics of the Standard Azure Storage Accounts. This is not a matter of concern. Reason for introducing the collecting data for Standard Disk Storage accounts was throttling of inputs and outputs that occurred frequently. Managed disks will avoid such throttling by limiting the number of disks in a storage account. Therefore, not having that type of that data is not critical.
 
 
-#### ![Linux][Logo_Linux] Some Azure performance counters are missing
+#### ![Linux logo.][Logo_Linux] Some Azure performance counters are missing
 
 Performance metrics in Azure are collected by a daemon, which gets data from several sources. Some configuration data is collected locally, and some performance metrics are read from Azure Diagnostics. Storage counters come from the logs in your storage subscription.
 
@@ -1404,7 +1404,7 @@ If troubleshooting by using SAP Note [1999351] does not resolve the issue, rerun
 > [!NOTE]
 > There are two versions of the VM extension. This chapter covers the new VM extension. If you have installed the default VM extension, please see chapter [Troubleshooting the Azure Extension for SAP][deployment-guide-5.3].
 
-#### ![Windows][Logo_Windows] Azure performance counters do not show up at all
+#### ![Windows logo.][Logo_Windows] Azure performance counters do not show up at all
 
 The AzureEnhancedMonitoring process collects performance metrics in Azure. If the process is not running in your VM, no performance metrics can be collected.
 
@@ -1420,13 +1420,13 @@ is empty.
 
 The extension is not installed. Determine whether this is a proxy issue (as described earlier). You might need to restart the machine or install the VM extension again.
 
-#### ![Windows][Logo_Windows] Some Azure performance counters are missing
+#### ![Windows logo.][Logo_Windows] Some Azure performance counters are missing
 
 The AzureEnhancedMonitoring Windows process collects performance metrics in Azure. The process gets data from several sources. Some configuration data is collected locally, and some performance metrics are read from Azure Monitor.
 
 If troubleshooting by using SAP Note [1999351] does not resolve the issue, open an SAP customer support message on the component BC-OP-NT-AZR for Windows or BC-OP-LNX-AZR for a Linux virtual machine. Please attach the log file C:\\Packages\\Plugins\\Microsoft.AzureCAT.AzureEnhancedMonitoring.MonitorX64Windows\\&lt;version>\\logapp.txt to the incident.
 
-#### ![Linux][Logo_Linux] Azure performance counters do not show up at all
+#### ![Linux logo.][Logo_Linux] Azure performance counters do not show up at all
 
 Performance metrics in Azure are collected by a daemon. If the daemon is not running, no performance metrics can be collected.
 
@@ -1440,7 +1440,7 @@ The directory \\var\\lib\\waagent\\ does not have a subdirectory for the Azure E
 
 The extension is not installed. Determine whether this is a proxy issue (as described earlier). You might need to restart the machine and/or install the VM extension again.
 
-#### ![Linux][Logo_Linux] Some Azure performance counters are missing
+#### ![Linux logo.][Logo_Linux] Some Azure performance counters are missing
 
 Performance metrics in Azure are collected by a daemon, which gets data from several sources. Some configuration data is collected locally, and some performance metrics are read from Azure Monitor.
 

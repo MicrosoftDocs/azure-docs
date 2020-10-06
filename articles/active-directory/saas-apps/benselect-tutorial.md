@@ -85,15 +85,15 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 1. BenSelect application expects the SAML assertions in a specific format, which requires you to add custom attribute mappings to your SAML token attributes configuration. The following screenshot shows the list of default attributes.
 
-	![image](common/edit-attribute.png)
+	![Screenshot shows User Attributes with default attributes such as givenname user.givenname and emailaddress user.mail.](common/edit-attribute.png)
 
 1. Click on the **Edit** icon to edit the **Name identifier value**.
 
-	![image](media/benselect-tutorial/mail-prefix1.png)
+	![Screenshot shows the User Attributes & Claims pane with the Edit icon called out.](media/benselect-tutorial/mail-prefix1.png)
 
 1. On the **Manage user claims** section, perform the following steps:
 
-	![image](media/benselect-tutorial/mail-prefix2.png)
+	![Screenshot shows Manage user claims where you can enter the values described in this step.](media/benselect-tutorial/mail-prefix2.png)
 
 	a. Select **Transformation** as a **Source**.
 

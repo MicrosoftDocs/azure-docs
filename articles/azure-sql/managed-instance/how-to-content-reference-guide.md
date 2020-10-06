@@ -7,7 +7,7 @@ ms.service: sql-managed-instance
 ms.subservice: operations
 ms.custom: sqldbrb=1
 ms.devlang: 
-ms.topic: conceptual
+ms.topic: guide
 author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: sstein

@@ -66,6 +66,5 @@ You can use the [az eventgrid event-subscription create](https://docs.microsoft.
 ### Azure PowerShell
 You can use the [New-AzEventGridSubscription](https://docs.microsoft.com/powershell/module/az.eventgrid/new-azeventgridsubscription) or [Update-AzEventGridSubscription](https://docs.microsoft.com/powershell/module/az.eventgrid/update-azeventgridsubscription) cmdlet to configure batch-related settings using the following parameters: `-MaxEventsPerBatch` or `-PreferredBatchSizeInKiloBytes`.
 
-###
 ## Next steps
 See the [Event handlers](event-handlers.md) article for a list of supported event handlers. 

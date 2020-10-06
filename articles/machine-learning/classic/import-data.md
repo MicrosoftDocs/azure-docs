@@ -13,7 +13,7 @@ ms.date: 02/01/2019
 ---
 # Import your training data into Azure Machine Learning Studio (classic) from various data sources
 
-**APPLIES TO:**  ![yes](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio (classic)   ![no](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../compare-azure-ml-to-studio-classic.md)
+**APPLIES TO:**  ![Applies to.](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio (classic)   ![Does not apply to.](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../compare-azure-ml-to-studio-classic.md)
 
 
 To use your own data in Machine Learning Studio (classic) to develop and train a predictive analytics solution, you can use data from: 

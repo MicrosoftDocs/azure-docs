@@ -20,7 +20,7 @@ ms.custom: how-to, devx-track-python, contperfq1
 
 In this article, you learn how to create and run a [machine learning pipeline](concept-ml-pipelines.md) by using the [Azure Machine Learning SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py&preserve-view=true). Use **ML pipelines** to create a workflow that stitches together various ML phases. Then, publish that pipeline for later access or sharing with others. Track ML pipelines to see how your model is performing in the real world and to detect data drift. ML pipelines are ideal for batch scoring scenarios, using various computes, reusing steps instead of rerunning them, as well as sharing ML workflows with others.
 
-While you can use a different kind of pipeline called an [Azure Pipeline](https://docs.microsoft.com/azure/devops/pipelines/targets/azure-machine-learning?context=azure%2Fmachine-learning%2Fservice%2Fcontext%2Fml-context&view=azure-devops&tabs=yaml) for CI/CD automation of ML tasks, that type of pipeline is not stored in your workspace. [Compare these different pipelines](concept-ml-pipelines.md#which-azure-pipeline-technology-should-i-use).
+While you can use a different kind of pipeline called an [Azure Pipeline](https://docs.microsoft.com/azure/devops/pipelines/targets/azure-machine-learning?context=azure%2Fmachine-learning%2Fservice%2Fcontext%2Fml-context&view=azure-devops&tabs=yaml&preserve-view=true) for CI/CD automation of ML tasks, that type of pipeline is not stored in your workspace. [Compare these different pipelines](concept-ml-pipelines.md#which-azure-pipeline-technology-should-i-use).
 
 The ML pipelines you create are visible to the members of your Azure Machine Learning [workspace](how-to-manage-workspace.md). 
 
@@ -106,7 +106,7 @@ output_data1 = PipelineData(
 ## Set up a compute target
 
 
-In Azure Machine Learning, the term __compute__ (or __compute target__) refers to the machines or clusters that perform the computational steps in your machine learning pipeline.   See [compute targets for model training](concept-compute-target.md#train) for a full list of compute targets and [Create compute targets](how-to-create-attach-compute-sdk.md) for how to create and attach them to your workspace.   The process for creating and or attaching a compute target is the same whether you are training a model or running a pipeline step. After you create and attach your compute target, use the `ComputeTarget` object in your [pipeline step](#steps).
+In Azure Machine Learning, the term __compute__ (or __compute target__) refers to the machines or clusters that perform the computational steps in your machine learning pipeline.   See [compute targets for model training](concept-compute-target.md#train) for a full list of compute targets and [Create compute targets](how-to-create-attach-compute-studio.md) for how to create and attach them to your workspace.   The process for creating and or attaching a compute target is the same whether you are training a model or running a pipeline step. After you create and attach your compute target, use the `ComputeTarget` object in your [pipeline step](#steps).
 
 > [!IMPORTANT]
 > Performing management operations on compute targets is not supported from inside remote jobs. Since machine learning pipelines are submitted as a remote job, do not use management operations on compute targets from inside the pipeline.

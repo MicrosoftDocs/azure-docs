@@ -1497,11 +1497,8 @@ Jump to a resource provider namespace:
 > | Resource type | Complete mode deletion |
 > | ------------- | ----------- |
 > | workspaces | Yes |
-> | workspaces / codeJobs | No |
 > | workspaces / computes | No |
 > | workspaces / eventGridFilters | No |
-> | workspaces / inferenceEndpoints | Yes |
-> | workspaces / inferenceEndpoints / deployments | Yes |
 > | workspaces / linkedServices | No |
 
 ## Microsoft.Maintenance

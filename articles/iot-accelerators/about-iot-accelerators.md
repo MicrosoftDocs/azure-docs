@@ -44,7 +44,7 @@ Use the [Connected Factory solution accelerator](iot-accelerators-connected-fact
 
 You can use the connected factory dashboard to monitor and manage your industrial devices:
 
-[![Connected factory solution dashboard](./media/about-iot-accelerators/cf-dashboard-inline.png)](./media/about-iot-accelerators/cf-dashboard-expanded.png#lightbox)
+:::image type="content" source="./media/about-iot-accelerators/cf-dashboard-inline.png" alt-text="Screenshot that shows the Connected factory solution dashboard." lightbox="./media/about-iot-accelerators/cf-dashboard-expanded.png":::
 
 ### Predictive Maintenance
 
@@ -52,7 +52,7 @@ Use the [Predictive Maintenance solution accelerator](iot-accelerators-predictiv
 
 You can use the predictive maintenance dashboard to view predictive maintenance analytics:
 
-[![Connected factory solution dashboard](./media/about-iot-accelerators/pm-dashboard-inline.png)](./media/about-iot-accelerators/pm-dashboard-expanded.png#lightbox)
+:::image type="content" source="./media/about-iot-accelerators/pm-dashboard-inline.png" alt-text="Screenshot that shows the 'Predictive maintenance' dashboard." lightbox="./media/about-iot-accelerators/pm-dashboard-expanded.png":::
 
 ### Device Simulation
 

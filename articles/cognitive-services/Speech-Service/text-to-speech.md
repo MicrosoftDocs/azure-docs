@@ -72,5 +72,5 @@ For detailed information, see [Pricing](https://azure.microsoft.com/pricing/deta
 
 ## Next steps
 
-- [Get a free Speech service subscription](get-started.md)
+- [Get a free Speech service subscription](overview.md#try-the-speech-service-for-free)
 - [Get the Speech SDK](speech-sdk.md)

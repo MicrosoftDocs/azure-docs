@@ -7,13 +7,13 @@ manager: jken
 services: azure-communication-services
 
 ms.author: mikben
-ms.date: 03/10/2020
+ms.date: 09/30/2020
 ms.topic: overview
 ms.service: azure-communication-services
 ---
 # Quickstart: Handle SMS events
 
-[!INCLUDE [Private Preview Notice](../../includes/private-preview-include.md)]
+[!INCLUDE [Public Preview Notice](../../includes/public-preview-include.md)]
 
 Get started with Azure Communication Services by using Azure Event Grid to handle Communication Services SMS events. 
 

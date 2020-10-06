@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: conceptual
-ms.date: 04/15/2020
+ms.date: 09/28/2020
 
 ms.author: mimart
 author: msmimart
@@ -72,7 +72,21 @@ The next section of the email contains information about where the invitee will 
 The footer contains more information about the invitation being sent. There is always an option for the invitee to block future invitations. If the organization has [set a privacy statement](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-properties-area), the link to the statement is displayed here.  Otherwise, a note indicates the organization hasn't set a privacy statement.
 
 ![Image of the footer section in the email](media/invitation-email-elements/footer-section.png)
- 
+
+### Blocking an organization (unsubscribing)
+
+In the invitation from an organization, the footer contains an option to **Block future invitations**. A guest user can select this link to block any future invitations from the organization. This action also adds the organization to the user's unsubscribed list at [https://invitations.microsoft.com/unsubscribe/manage](https://invitations.microsoft.com/unsubscribe/manage).
+
+### Viewing organizations you've blocked
+
+A guest user can follow these steps to view or export the organizations they've blocked:
+
+1. Go to [https://invitations.microsoft.com/unsubscribe/manage](https://invitations.microsoft.com/unsubscribe/manage).
+2. Enter your email and follow the sign-in steps for email one-time passcode authentication.
+3. View the organizations you've blocked, or export the names using copy and paste.
+   > [!NOTE]
+   > If you want to allow an organization you’ve blocked to invite you again, you can choose the organization and select **Next**.
+
 ## How the language is determined
 
 The language presented to the guest user in the invitation email is determined by the following settings. These settings are listed in order of precedence. If a setting isn’t configured, the next setting in the list determines the language.

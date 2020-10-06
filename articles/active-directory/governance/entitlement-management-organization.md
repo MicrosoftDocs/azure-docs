@@ -12,7 +12,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
 ms.subservice: compliance
-ms.date: 06/18/2020
+ms.date: 09/28/2020
 ms.author: barclayn
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
@@ -65,6 +65,8 @@ To add an external Azure AD directory or domain as a connected organization, fol
 
     ![The "Add connected organization" Basics pane](./media/entitlement-management-organization/organization-basics.png)
 
+1. The state will automatically be set to **Configured** when you create a new connected organization. For more information about state properties, see [State properties of connected organizations](#state-properties-of-connected-organizations)
+
 1. Select the **Directory + domain** tab, and then select **Add directory + domain**.
 
     The **Select directories + domains** pane opens.
@@ -108,7 +110,7 @@ If the connected organization changes to a different domain, the organization's 
 
 1. In the left pane, select **Connected organizations**, and then select the connected organization to open it.
 
-1. In the connected organization's overview pane, select **Edit** to change the organization name or description.  
+1. In the connected organization's overview pane, select **Edit** to change the organization name, description, or state.  
 
 1. In the **Directory + domain** pane, select **Update directory + domain** to change to a different directory or domain.
 
@@ -134,6 +136,23 @@ If you no longer have a relationship with an external Azure AD directory or doma
 ## Managing a connected organization programmatically
 
 You can also create, list, update, and delete connected organizations using Microsoft Graph. A user in an appropriate role with an application that has the delegated `EntitlementManagement.ReadWrite.All` permission can call the API to manage [connectedOrganization](/graph/api/resources/connectedorganization?view=graph-rest-beta) objects and set sponsors for them.
+
+## State properties of connected organizations
+
+There are two different types of state properties for connected organizations in Azure AD entitlement management currently, configured and proposed: 
+
+- A configured connected organization is a fully functional connected organization that allows users within that organization access to access packages. When an admin creates a new connected organization in the Azure portal, it will be in the **configured** state by default since the administrator created and wants to use this connected organization. Additionally, when a connected org is created programmatically via the API, the default state should be **configured** unless set to another state explicitly. 
+
+    Configured connected organizations will show up in the pickers for connected organizations and will be in scope for any policies that target “all” connected organizations.
+
+- A proposed connected organization is a connected organization that has been automatically created, but hasn't had an administrator create or approve the organization. When a user signs up for an access package outside of a configured connected organization, any automatically created connected organizations will be in the **proposed** state since no administrator in the tenant set-up that partnership. 
+    
+    Proposed connected organizations do not show up in the pickers for configured connected organizations, and are not in scope for the “all configured connected organizations” setting on any policies. 
+
+Only users from configured connected organizations can request access packages that are available to users from all configured organizations. Users from proposed connected organizations have an experience as if there is no connected organization for that domain, and won't have access to the access package until the state is changed by an administrator.
+
+> [!NOTE]
+> As part of rolling out this new feature, all connected organizations created before 09/09/20 were considered **configured**. If you had an access package that allowed users from any organization to sign up, you should review your list of connected organizations that were created before that date to ensure none are miscategorized as **configured**.  An admin can update the **State** property as appropriate. For guidance, see [Update a connected organization](#update-a-connected-organization).
 
 ## Next steps
 

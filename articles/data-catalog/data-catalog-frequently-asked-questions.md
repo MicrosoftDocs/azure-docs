@@ -49,7 +49,7 @@ To submit feature requests and other feedback, go to the [Data Catalog on the Az
 
 ## Why do I get an error *Catalog already exists* when I try to create a new catalog?
 
-When you purchase Office 365 E5 with Power BI Pro License, Microsoft creates a default catalog in the subscription's region automatically. This catalog uses the free SKU. The Office 365 / Power BI user license is managed in the Office 365 Administration page. 
+When you purchase Office 365 E5 with Power BI Pro License, Microsoft creates a default catalog in the subscription's region automatically. This catalog uses the free SKU. The Office 365 / Power BI user license is managed in the administration page. 
 
 However, this type of data catalog does not have an **Administrator Option** and is not visible in the **Azure portal**. You cannot delete this type of data catalog. Similarly, you are not allowed to rename the data catalog, and you cannot move it to another region. 
 

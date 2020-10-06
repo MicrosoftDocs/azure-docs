@@ -81,13 +81,20 @@ In this section, modify the device app you created in [Send telemetry from a dev
 
 The `ReceiveAsync` method asynchronously returns the received message at the time that it is received by the device. It returns *null* after a specifiable timeout period. In this example, the default of one minute is used. When the app receives a *null*, it should continue to wait for new messages. This requirement is the reason for the `if (receivedMessage == null) continue` line.
 
-The call to `CompleteAsync()` notifies IoT Hub that the message has been successfully processed. The message can be safely removed from the device queue. If something happened that prevented the device app from completing the processing of the message, IoT Hub delivers it again. The message processing logic in the device app must be *idempotent*, so that receiving the same message multiple times produces the same result.
+The call to `CompleteAsync()` notifies IoT Hub that the message has been successfully processed and that the message can be safely removed from the device queue. The device should call this method when its processing successfully completes regardless of the protocol it's using.
 
-An application can also temporarily abandon a message, which results in IoT hub retaining the message in the queue for future consumption. Or the application can reject a message, which permanently removes the message from the queue. For more information about the cloud-to-device message lifecycle, see [D2C and C2D messaging with IoT Hub](iot-hub-devguide-messaging.md).
+With AMQP and HTTPS, but not MQTT, the device can also:
 
-   > [!NOTE]
-   > When using HTTPS instead of MQTT or AMQP as a transport, the `ReceiveAsync` method returns immediately. The supported pattern for cloud-to-device messages with HTTPS is intermittently connected devices that check for messages infrequently (less than every 25 minutes). Issuing more HTTPS receives results in IoT Hub throttling the requests. For more information about the differences between MQTT, AMQP and HTTPS support, and IoT Hub throttling, see [D2C and C2D messaging with IoT Hub](iot-hub-devguide-messaging.md).
-   >
+* Abandon a message, which results in IoT Hub retaining the message in the device queue for future consumption.
+* Reject a message, which which permanently removes the message from the device queue.
+
+If something happens that prevents the device from completing, abandoning, or rejecting the message, IoT Hub will, after a fixed timeout period, queue the message for delivery again. For this reason, the message processing logic in the device app must be *idempotent*, so that receiving the same message multiple times produces the same result.
+
+For more detailed information about how IoT Hub processes cloud-to-device messages, including details of the cloud-to-device message lifecycle, see [Send cloud-to-device messages from an IoT hub](iot-hub-devguide-messages-c2d.md).
+
+> [!NOTE]
+> When using HTTPS instead of MQTT or AMQP as a transport, the `ReceiveAsync` method returns immediately. The supported pattern for cloud-to-device messages with HTTPS is intermittently connected devices that check for messages infrequently (a minimum of every 25 minutes). Issuing more HTTPS receives results in IoT Hub throttling the requests. For more information about the differences between MQTT, AMQP, and HTTPS support, see [Cloud-to-device communications guidance](iot-hub-devguide-c2d-guidance.md) and [Choose a communication protocol](iot-hub-devguide-protocols.md).
+>
 
 ## Get the IoT hub connection string
 
@@ -154,7 +161,7 @@ In this section, you create a .NET console app that sends cloud-to-device messag
 
 1. Press **F5**. Both applications should start. Select the **SendCloudToDevice** window, and press **Enter**. You should see the message being received by the device app.
 
-   ![App receiving message](./media/iot-hub-csharp-csharp-c2d/sendc2d1.png)
+   ![Device app receiving message](./media/iot-hub-csharp-csharp-c2d/sendc2d1.png)
 
 ## Receive delivery feedback
 
@@ -201,7 +208,7 @@ In this section, you modify the **SendCloudToDevice** app to request feedback, a
 
 1. Run the apps by pressing **F5**. You should see both applications start. Select the **SendCloudToDevice** window, and press **Enter**. You should see the message being received by the device app, and after a few seconds, the feedback message being received by your **SendCloudToDevice** application.
 
-   ![App receiving message](./media/iot-hub-csharp-csharp-c2d/sendc2d2.png)
+   ![Device app receiving message and service app receiving feedback](./media/iot-hub-csharp-csharp-c2d/sendc2d2.png)
 
 > [!NOTE]
 > For simplicity, this tutorial does not implement any retry policy. In production code, you should implement retry policies, such as exponential backoff, as suggested in [Transient fault handling](/azure/architecture/best-practices/transient-faults).

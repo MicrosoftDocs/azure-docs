@@ -81,6 +81,8 @@
     items:
     - name: ASP.NET
       href: tutorial-v2-asp-webapp.md
+    - name: Blazor Server
+      href: tutorial-blazor-server.md
   - name: Mobile and desktop apps
     items:
     - name: Android
@@ -416,6 +418,8 @@
         href: id-tokens.md
       - name: Access tokens
         href: access-tokens.md
+      - name: Configure token lifetimes
+        href: active-directory-configurable-token-lifetimes.md
       - name: UserInfo endpoint
         href: userinfo.md
       - name: Certificate credentials
@@ -520,7 +524,7 @@
     - name: Use directory schema extension attributes in claims
       href: active-directory-schema-extensions.md
     - name: Configure token lifetimes
-      href: active-directory-configurable-token-lifetimes.md
+      href: configure-token-lifetimes.md
     - name: Handle SameSite cookie changes in Chrome browser
       href: howto-handle-samesite-cookie-changes-chrome-browser.md
     - name: Handle ITP in Safari

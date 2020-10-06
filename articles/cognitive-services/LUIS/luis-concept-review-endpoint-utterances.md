@@ -1,6 +1,8 @@
 ---
 title: Review user utterance - LUIS
 description:  With active learning, your review endpoint utterances for correct intent and entity. LUIS chooses endpoint utterances it is unsure of.
+ms.service: cognitive-services
+ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 04/01/2020
 ---

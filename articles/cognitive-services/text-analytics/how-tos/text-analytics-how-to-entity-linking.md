@@ -9,7 +9,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: article
-ms.date: 05/13/2020
+ms.date: 09/24/2020
 ms.author: aahi
 ---
 
@@ -135,12 +135,13 @@ All POST requests return a JSON formatted response with the IDs and detected ent
 
 Output is returned immediately. You can stream the results to an application that accepts JSON or save the output to a file on the local system, and then import it into an application that allows you to sort, search, and manipulate the data. Due to multilingual and emoji support, the response may contain text offsets. See [how to process text offsets](../concepts/text-offsets.md) for more information.
 
-### Example v3 responses
+### Example responses
 
-Version 3 provides separate endpoints for NER and entity linking. The responses for both operations are below. 
+Version 3 provides separate endpoints for general NER, PII and entity linking. The responses for both operations are below. 
 
-#### Example NER response
+#### [Version 3.0](#tab/version-3)
 
+Example of a general NER response:
 ```json
 {
   "documents": [
@@ -192,10 +193,46 @@ Version 3 provides separate endpoints for NER and entity linking. The responses 
   "modelVersion": "2020-04-01"
 }
 ```
+#### [Version 3.1-preview](#tab/version-3-preview)
 
-
-#### Example entity linking response
-
+Example of a PII response:
+```json
+{
+  "documents": [
+    {
+    "redactedText": "You can even pre-order from their online menu at *************************, call ************ or send email to ***************************!",
+    "id": "0",
+    "entities": [
+        {
+        "text": "www.contososteakhouse.com",
+        "category": "URL",
+        "offset": 49,
+        "length": 25,
+        "confidenceScore": 0.8
+        }, 
+        {
+        "text": "312-555-0176",
+        "category": "Phone Number",
+        "offset": 81,
+        "length": 12,
+        "confidenceScore": 0.8
+        }, 
+        {
+        "text": "order@contososteakhouse.com",
+        "category": "Email",
+        "offset": 111,
+        "length": 27,
+        "confidenceScore": 0.8
+        }
+      ],
+    "warnings": []
+    }
+  ],
+  "errors": [],
+  "modelVersion": "2020-07-01"
+}
+```
+Example of an Entity linking response:
 ```json
 {
   "documents": [
@@ -203,6 +240,7 @@ Version 3 provides separate endpoints for NER and entity linking. The responses 
       "id": "1",
       "entities": [
         {
+          "bingId": "f8dd5b08-206d-2554-6e4a-893f51f4de7e", 
           "name": "Space Needle",
           "matches": [
             {
@@ -218,6 +256,7 @@ Version 3 provides separate endpoints for NER and entity linking. The responses 
           "dataSource": "Wikipedia"
         },
         {
+          "bingId": "5fbba6b8-85e1-4d41-9444-d9055436e473",
           "name": "Seattle",
           "matches": [
             {
@@ -240,6 +279,7 @@ Version 3 provides separate endpoints for NER and entity linking. The responses 
   "modelVersion": "2020-02-01"
 }
 ```
+---
 
 
 ## Summary

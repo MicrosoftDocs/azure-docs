@@ -5,7 +5,7 @@ author: normesta
 ms.subservice: data-lake-storage-gen2
 ms.service: storage
 ms.topic: how-to
-ms.date: 08/26/2020
+ms.date: 09/21/2020
 ms.author: normesta
 ms.reviewer: prishet
 ms.custom: devx-track-csharp
@@ -50,7 +50,7 @@ Install the necessary libraries.
    echo $PSVersionTable.PSVersion.ToString() 
    ```
     
-   To upgrade your version of PowerShell, see [Upgrading existing Windows PowerShell](https://docs.microsoft.com/powershell/scripting/install/installing-windows-powershell?view=powershell-6#upgrading-existing-windows-powershell)
+   To upgrade your version of PowerShell, see [Upgrading existing Windows PowerShell](https://docs.microsoft.com/powershell/scripting/install/installing-windows-powershell)
     
 3. Install the latest version of the PowershellGet module.
 
@@ -66,7 +66,7 @@ Install the necessary libraries.
    Install-Module Az.Storage -Repository PsGallery -RequiredVersion 2.5.2-preview -AllowClobber -AllowPrerelease -Force  
    ```
 
-   For more information about how to install PowerShell modules, see [Install the Azure PowerShell module](https://docs.microsoft.com/powershell/azure/install-az-ps?view=azps-3.0.0)
+   For more information about how to install PowerShell modules, see [Install the Azure PowerShell module](https://docs.microsoft.com/powershell/azure/install-az-ps)
 
 ### [.NET](#tab/dotnet)
 
@@ -133,7 +133,7 @@ Next, choose how you want your commands to obtain authorization to the storage a
 
 ### Option 1: Obtain authorization by using Azure Active Directory (AD)
 
-With this approach, the system ensures that your user account has the appropriate role-based access control (RBAC) assignments and ACL permissions. 
+With this approach, the system ensures that your user account has the appropriate Azure role-based access control (Azure RBAC) assignments and ACL permissions. 
 
 ```powershell
 $ctx = New-AzStorageContext -StorageAccountName '<storage-account-name>' -UseConnectedAccount
@@ -148,7 +148,7 @@ The following table shows each of the supported roles and their ACL setting capa
 
 ### Option 2: Obtain authorization by using the storage account key
 
-With this approach, the system doesn't check RBAC or ACL permissions.
+With this approach, the system doesn't check Azure RBAC or ACL permissions.
 
 ```powershell
 $storageAccount = Get-AzStorageAccount -ResourceGroupName "<resource-group-name>" -AccountName "<storage-account-name>"
@@ -169,7 +169,7 @@ After you install the package, add this using statement to the top of your code 
 using Azure.Identity;
 ```
 
-Get a client ID, a client secret, and a tenant ID. To do this, see [Acquire a token from Azure AD for authorizing requests from a client application](../common/storage-auth-aad-app.md). As part of that process, you'll have to assign one of the following [role-based access control (RBAC)](../../role-based-access-control/overview.md) roles to your security principal. 
+Get a client ID, a client secret, and a tenant ID. To do this, see [Acquire a token from Azure AD for authorizing requests from a client application](../common/storage-auth-aad-app.md). As part of that process, you'll have to assign one of the following [Azure role-based access control (Azure RBAC)](../../role-based-access-control/overview.md) roles to your security principal. 
 
 |Role|ACL setting capability|
 |--|--|
@@ -224,7 +224,7 @@ To use the snippets in this article, you'll need to create a **DataLakeServiceCl
 
 You can use the [Azure identity client library for Python](https://pypi.org/project/azure-identity/) to authenticate your application with Azure AD.
 
-This example creates a **DataLakeServiceClient** instance by using a client ID, a client secret, and a tenant ID.  To get these values, see [Acquire a token from Azure AD for authorizing requests from a client application](../common/storage-auth-aad-app.md). As part of that process, you'll have to assign one of the following [role-based access control (RBAC)](../../role-based-access-control/overview.md) roles to your security principal. 
+This example creates a **DataLakeServiceClient** instance by using a client ID, a client secret, and a tenant ID.  To get these values, see [Acquire a token from Azure AD for authorizing requests from a client application](../common/storage-auth-aad-app.md). As part of that process, you'll have to assign one of the following [Azure role-based access control (Azure RBAC)](../../role-based-access-control/overview.md) roles to your security principal. 
 
 |Role|ACL setting capability|
 |--|--|
@@ -274,7 +274,9 @@ except Exception as e:
 
 ## Set an ACL recursively
 
-You can set the ACLs recursively.  
+When you *set* an ACL, you **replace** the entire ACL including all of it's entries. If you want to change the permission level of a security principal or add a new security principal to the ACL without affecting other existing entries, you should *update* the ACL instead. To update an ACL instead of replace it, see the [Update an ACL recursively](#update-an-acl-recursively) section of this article.   
+
+This section contains examples for how to set an ACL 
 
 ### [PowerShell](#tab/azure-powershell)
 
@@ -362,13 +364,17 @@ def set_permission_recursively():
 
 ## Update an ACL recursively
 
-You can update an existing ACL recursively.
+When you *update* an ACL, you modify the ACL instead of replacing the ACL. For example, you can add a new security principal to the ACL without affecting other security principals listed in the ACL.  To replace the ACL instead of update it, see the [Set an ACL recursively](#set-an-acl-recursively) section of this article. 
+
+To update an ACL, create a new ACL object with the ACL entry that you want to update, and then use that object in update ACL operation. Do not get the existing ACL, just provide ACL entries to be updated.
+
+This section contains examples for how to update an ACL.
 
 ### [PowerShell](#tab/azure-powershell)
 
 Update an ACL recursively by using the  **Update-AzDataLakeGen2AclRecursive** cmdlet. 
 
-This example updates an ACL entry with write permission.
+This example updates an ACL entry with write permission. 
 
 ```powershell
 $filesystemName = "my-container"
@@ -440,7 +446,9 @@ def update_permission_recursively():
 
 ## Remove ACL entries recursively
 
-You can remove one or more ACL entries recursively.
+You can remove one or more ACL entries recursively. To remove an ACL entry, create a new ACL object for ACL entry to be removed, and then use that object in remove ACL operation. Do not get the existing ACL, just provide the ACL entries to be removed. 
+
+This section contains examples for how to remove an ACL.
 
 ### [PowerShell](#tab/azure-powershell)
 
