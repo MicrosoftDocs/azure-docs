@@ -12,7 +12,7 @@ ms.date: 10/09/2020
 
 This article describes how to find the Tenant ID, Object ID, and partner association details, along with their respective subscription IDs.
 
-If you need to get screenshots of these items in Azure Cloud Shell to use for debugging assistance, jump down to [Find Tenant, Object, and Partner ID association for debugging](#find-tenant-object-and-partner-id-association-for-debugging).
+If you need to get screenshots of these items in Azure Cloud Shell to use for debugging assistance, jump down to [Find Tenant, Object, and Partner ID association for debugging](#find-ids-for-debugging).
 
 >[!Note]
 > Only the owner of a subscription has the privileges to perform these steps.
