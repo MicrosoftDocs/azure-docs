@@ -119,7 +119,7 @@ Custom built wheel packages can be installed on the Apache Spark pool by uploadi
 The files should be uploaded to the following path in the storage account's default container: 
 
 ```
-abfss://<file_system>@<account_name>.dfs.core.windows.net/synapse/workspaces/<workspace_name>sparkpools/<pool_name>libraries/python/
+abfss://<file_system>@<account_name>.dfs.core.windows.net/synapse/workspaces/<workspace_name>/sparkpools/<pool_name>/libraries/python/
 ```
 
 >[!IMPORTANT]
