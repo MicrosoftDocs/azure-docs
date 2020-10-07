@@ -33,4 +33,4 @@ When the Communication Services user joins the Teams meeting, the display name p
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Get started joining your calling app to a Teams meeting](../../quickstarts/voice-video-calling/get-started-teams-interop.md)
+> [Join your calling app to a Teams meeting](../../quickstarts/voice-video-calling/get-started-teams-interop.md)
