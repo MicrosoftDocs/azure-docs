@@ -28,7 +28,7 @@ Azure Static Web Apps allows you to create static web applications supported by 
 
 The app featured in this tutorial is made up from three different Visual Studio projects:
 
-- **Api**: The C# Azure Functions application which implements the API endpoint that provides weather information to the static app. The [`WeatherForecastFunction`](https://github.com/staticwebev/blazor-starter/blob/main/Api/WeatherForecastFunction.cs) returns an array of `WeatherForecast` objects.
+- **Api**: The C# Azure Functions application which implements the API endpoint that provides weather information to the static app. The [`WeatherForecastFunction`](https://github.com/ssdeepak/blazor/blob/main/Api/WeatherForecastFunction.cs) returns an array of `WeatherForecast` objects.
 
 - **Client**: The front-end Blazor web assembly project. A [fallback route](#fallback-route) is implemented to ensure all routes are served the _index.html_ file.
 
