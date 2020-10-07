@@ -165,14 +165,20 @@ The following table shows the configuration settings for a command capability:
 | Request | If enabled, a definition of the request parameter, including: name, display name, schema, unit, and display unit. |
 | Response | If enabled, a definition of the command response, including: name, display name, schema, unit, and display unit. |
 
-#### Cloud to Device messages
+#### Offline commands
 
-You can send cloud to device messages or Offline commands from IoT Central. This is most effective to send notifications to offline devices. Cloud-to-device(C2D) messages are a special type of commands that supported by [Azure IoT Hub](https://docs.microsoft.com/en-us/azure/iot-hub/iot-hub-devguide-messages-c2d). Cloud-to-device messages are used for one-way notifications to the device from your solution. To guarantee at-least-once message delivery, your IoT hub persists cloud-to-device messages in per-device queues. This approach guarantees resiliency against connectivity and device failures. Use the IoT Central authoring experience and set the toggle to enable the **Queue if Offline** option.
-On the device side implement the message handler to process the C2D message.
+You can choose queue commands if a device is currently offline by enabling the **Queue if offline** option for a command in the device template.
+
+This option uses IoT Hub cloud-to-device messages to send notifications to devices. To learn more, see the IoT Hub article [Send cloud-to-device messages](../../iot-hub/iot-hub-devguide-messages-c2d.md).
+
+Cloud-to-device messages:
+
+- Are one-way notifications to the device from your solution.
+- Guarantee at-least-once message delivery. IoT Hub persists cloud-to-device messages in per-device queues, guaranteeing resiliency against connectivity and device failures.
+- Require the device to implement a message handler to process the cloud-to-device message.
 
 > [!NOTE]
-> This is available only via UX and on model export this setting is not exported.
-
+> This option is only available in the IoT Central web UI. This setting isn't included if you export a model or interface from the device template.
 
 ## Manage an interface
 
