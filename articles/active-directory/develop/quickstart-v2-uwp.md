@@ -87,7 +87,7 @@ This quickstart uses a code sample to demonstrate how a Universal Windows Platfo
 >
 > 1. Extract the .zip archive to a local folder close to the root of your drive. For example, into **C:\Azure-Samples**.
 > 1. Open the project in Visual Studio. Install the **Universal Windows Platform development** workload and any individual SDK components if prompted.
-> 1. In *MainPage.Xaml.cs*, change the value of `ClientId` variable to the **Application (Client) ID** of the application you registered earlier (it's a GUID).
+> 1. In *MainPage.Xaml.cs*, change the value of the `ClientId` variable to the **Application (Client) ID** of the application you registered earlier.
 >
 >    ```csharp
 >    private const string ClientId = "Enter_the_Application_Id_here";
