@@ -45,7 +45,7 @@ Open the local *live-video-analytics* repository folder with VS Code.
 1. Edit the `LvaEdgeGatewayModule` module section to add the name of your image and your AMS account name in the `env:amsAccountName:value`.
 1. Edit the `lvaYolov3` module section and add the name of your image.
 1. Edit the `lvaEdge` module section and add the name of your image.
-1. See the [Create a video analytics application in Azure IoT Central](tutorial-video-analytics-create-app.md) for more information about how to complete the configuration.
+1. See the [Create a video analytics application in Azure IoT Central](tutorial-video-analytics-create-app-yolov3.md) for more information about how to complete the configuration.
 
 ## Build the code
 
