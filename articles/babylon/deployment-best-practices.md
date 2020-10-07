@@ -47,7 +47,7 @@ The general approach is to break down those overarching objectives into various 
 |Lineage|Each asset must show graphical view of underlying datasets so that the users understand the original sources and what changes have been made.|
 |Collaboration|Platform must allow users to collaborate to provide and contribute additional information about each data asset|
 |Reporting|The users must be able to view reporting of the data estate including sensitive data and data that need additional enrichment.|
-|Data Governance|The platform must allow the Admin to define policies such as GDPR for access control and automatically enforce the data access based on each user.|
+|Data Governance|The platform must allow the Admin to define policies for access control and automatically enforce the data access based on each user.|
 |Workflow|That platform must have ability to create and modify workflow so that it is easy to scale out and automate various tasks within the platform.|
 |Integration|Other third party technologies such as ticketing or orchestration must be able to integrate into the platform via script or REST APIs.|
 
