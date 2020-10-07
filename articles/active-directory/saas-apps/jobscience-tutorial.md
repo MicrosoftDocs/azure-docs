@@ -93,15 +93,15 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 1. In the Azure portal, on the **Jobscience** application integration page, click **Single sign-on**.
 
-    ![Configure Single Sign-On][4]
+    ![Screenshot shows Single sign-on selected under Manage in the Azure portal.][4]
 
 1. On the **Single sign-on** dialog, select **Mode** as    **SAML-based Sign-on** to enable single sign-on.
  
-    ![Configure Single Sign-On](./media/jobscience-tutorial/tutorial_jobscience_samlbase.png)
+    ![Screenshot shows SAML-based Sign-on Mode selected.](./media/jobscience-tutorial/tutorial_jobscience_samlbase.png)
 
 1. On the **Jobscience Domain and URLs** section, perform the following steps:
 
-    ![Configure Single Sign-On](./media/jobscience-tutorial/tutorial_jobscience_url.png)
+    ![Screenshot shows the sign-on U R L.](./media/jobscience-tutorial/tutorial_jobscience_url.png)
 
     In the **Sign-on URL** textbox, type a URL using the following pattern:
     `http://<company name>.my.salesforce.com`
