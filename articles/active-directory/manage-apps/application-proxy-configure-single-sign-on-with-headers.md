@@ -25,7 +25,7 @@ Azure Active Directory (Azure AD) Application Proxy natively supports single sig
 
 ## Pre-requisites
 Before you get started with single sign-on for header-based authentication apps, make sure your environment is ready with the following settings and configurations:
-- You need to enable Application Proxy and install a connector that has line of site to your applications. See the tutorial [Add an on-premises application for remote access through Application Proxy](application-proxy-add-on-premises-application#add-an-on-premises-app-to-azure-ad) to learn how to prepare your on-premises environment, install and register a connector, and test the connector. 
+- You need to enable Application Proxy and install a connector that has line of site to your applications. See the tutorial [Add an on-premises application for remote access through Application Proxy](application-proxy-add-on-premises-application.md#add-an-on-premises-app-to-azure-ad) to learn how to prepare your on-premises environment, install and register a connector, and test the connector. 
 
 ## Supported capabilities
 
@@ -36,7 +36,7 @@ The following table lists common capabilities required for header-based authenti
 |Federated SSO |In pre-authenticated mode, all applications are protected with Azure AD authentication and enable users to have single sign-on. |
 |Remote access |Application Proxy enables remote access to the app. Users can access the application from the internet on any browser using the External URL. Application Proxy is not intended for corporate access use. |
 |Header-based integration |Application Proxy does the SSO integration with Azure AD and then passes identity or other application data as HTTP headers to the application. |
-|Application authorization |Common policies can be specified based on the application being accessed, the user’s group membership and other policies. In Azure AD, policies are implemented using [conditional access](../conditional-access/overview). Application authorization policies only apply to the initial authentication request. |
+|Application authorization |Common policies can be specified based on the application being accessed, the user’s group membership and other policies. In Azure AD, policies are implemented using [conditional access](../conditional-access/overview.md). Application authorization policies only apply to the initial authentication request. |
 |Step-up authentication |Policies can be defined to force added authentication, for example, to gain access to sensitive resources. |
 |Fine grained authorization |Provides access control at the URL level. Added policies can be enforced based on the URL being accessed. The internal URL configured for the app, defines the scope of app that the policy is applied to. The policy configured for the most granular path is enforced.  |
 
