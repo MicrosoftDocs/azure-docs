@@ -44,8 +44,8 @@ When you install the synchronization services, you can leave the optional config
 | Optional configuration | Description |
 | --- | --- |
 |Specify a custom installation location| Allows you to change the default installation path for Azure AD Connect.|
-| Use an existing SQL Server |Allows you to specify the SQL Server name and instance name. Choose this option if you already have a database server that you want to use. For **Instance Name**, enter the instance name, a comma, and the port number if your SQL Server doesn't have browsing enabled.  Then specify the name of the Azure AD Connect database.  Your SQL privileges determine whether a new database will be created or your SQL administrator must create the database in advance.  If you have SQL server-administrator (SA) permissions, see [Install Azure AD Connect by using an existing database](how-to-connect-install-existing-database.md).  If you have been delegated permissions (DBO), see [Install Azure AD Connect by using SQL delegated administrator permissions](how-to-connect-install-sql-delegation.md). |
-| Use an existing service account |By default. Azure AD Connect provides a virtual service account for the synchronization services to use. If you use a remote SQL server or use a proxy that requires authentication, you can use a *managed service account* or a password-protected service account in the domain. In those cases, enter the account you want to use. To run the installation, you need to be an SA in SQL so you can create sign-in credentials for the service account. For more information, see [Azure AD Connect accounts and permissions](reference-connect-accounts-permissions.md#adsync-service-account). </br></br>By using the latest build, the SQL administrator can now provision the database out of band. Then the Azure AD Connect administrator can install it with database owner rights.  For more information, see [Install Azure AD Connect by using SQL delegated administrator permissions](how-to-connect-install-sql-delegation.md).|
+| Use an existing SQL Server |Allows you to specify the SQL Server name and instance name. Choose this option if you already have a database server that you want to use. For **Instance Name**, enter the instance name, a comma, and the port number if your SQL Server doesn't have browsing enabled.  Then specify the name of the Azure AD Connect database.  Your SQL privileges determine whether a new database will be created or your SQL administrator must create the database in advance.  If you have SQL Server administrator (SA) permissions, see [Install Azure AD Connect by using an existing database](how-to-connect-install-existing-database.md).  If you have been delegated permissions (DBO), see [Install Azure AD Connect by using SQL delegated administrator permissions](how-to-connect-install-sql-delegation.md). |
+| Use an existing service account |By default. Azure AD Connect provides a virtual service account for the synchronization services to use. If you use a remote instance of SQL Server or use a proxy that requires authentication, you can use a *managed service account* or a password-protected service account in the domain. In those cases, enter the account you want to use. To run the installation, you need to be an SA in SQL so you can create sign-in credentials for the service account. For more information, see [Azure AD Connect accounts and permissions](reference-connect-accounts-permissions.md#adsync-service-account). </br></br>By using the latest build, the SQL administrator can now provision the database out of band. Then the Azure AD Connect administrator can install it with database owner rights.  For more information, see [Install Azure AD Connect by using SQL delegated administrator permissions](how-to-connect-install-sql-delegation.md).|
 | Specify custom sync groups |By default, when the synchronization services are installed, Azure AD Connect creates four groups that are local to the server. These groups are Administrators, Operators, Browse, and Password Reset. You can specify your own groups here. The groups must be local on the server. They can't be located in the domain. |
 |Import synchronization settings (preview)|Allows you to import settings from other versions of Azure AD Connect.  For more information, see [Importing and exporting Azure AD Connect configuration settings](how-to-connect-import-export-config.md).|
 
@@ -419,40 +419,43 @@ Azure AD Connect verifies the DNS settings when you select the **Verify** button
 
 To validate end-to-end authentication, manually perform one or more the following tests:
 
-* Once synchronization in complete, use the Verify federated login additional task in Azure AD Connect to verify authentication for an on-premises user account of your choice.
-* Validate that you can sign in from a browser from a domain joined machine on the intranet: Connect to https://myapps.microsoft.com and verify the sign-in with your logged in account. The built-in Azure AD DS administrator account is not synchronized and cannot be used for verification.
-* Validate that you can sign in from a device from the extranet. On a home machine or a mobile device, connect to https://myapps.microsoft.com and supply your credentials.
-* Validate rich client sign-in. Connect to https://testconnectivity.microsoft.com, choose the **Office 365** tab and chose the **Office 365 Single Sign-On Test**.
+* When synchronization finishes, in Azure AD Connect, use the **Verify federated login** additional task to verify authentication for an on-premises user account that you choose.
+* From a domain-joined machine on the intranet, ensure that you can sign in from a browser. Connect to https://myapps.microsoft.com. Then use your logged-on account to verify the sign-in. The built-in Azure AD DS administrator account isn't synchronized, and you can't use it for verification.
+* Ensure that you can sign in from a device on the extranet. On a home machine or a mobile device, connect to https://myapps.microsoft.com. Then provide your credentials.
+* Validate rich client sign-in. Connect to https://testconnectivity.microsoft.com. Then select **Office 365** > **Office 365 Single Sign-On Test**.
 
 ## Troubleshoot
-The following section contains troubleshooting and information that you can use if you encounter an issue installing Azure AD Connect.
+This section contains troubleshooting information that you can use if you encounter a problem while installing Azure AD Connect.
 
-### “The ADSync database already contains data and cannot be overwritten”
-When you custom install Azure AD Connect and select the option **Use an existing SQL server** on the **Install required components** page, you might encounter an error that states **The ADSync database already contains data and cannot be overwritten. Please remove the existing database and try again.**
+When you customize a Azure AD Connect installation, on the **Install required components** page, you can select the option **Use an existing SQL Server**. In this case, you might see the following error: "The ADSync database already contains data and cannot be overwritten. Please remove the existing database and try again."
 
-![Screenshot that shows the "Install required components" page.](./media/how-to-connect-install-custom/error1.png)
+![Screenshot that shows the "Install required components" page. An error appears at the bottom of the page.](./media/how-to-connect-install-custom/error1.png)
 
-This is because there is already an existing database named **ADSync** on the SQL instance of the SQL server, which you specified in the above textboxes.
+You see this error because a database named *ADSync* already exists on the SQL instance of SQL Server that you specified.
 
-This typically occurs after you have uninstalled Azure AD Connect.  The database will not be deleted from the SQL Server when you uninstall.
+You typically see this error after you have uninstalled Azure AD Connect.  The database isn't deleted from the computer that runs SQL Server when you uninstall Azure AD Connect.
 
-To fix this issue, first verify that the **ADSync** database that was used by Azure AD Connect prior to being uninstalled, is no longer being used.
+To fix this issue:
 
-Next, it is recommended that you backup the database prior to deleting it.
+1. Check the ADSync database that Azure AD Connect used before it was uninstalled. Make sure that the database is no longer being used.
 
-Finally, you need to delete the database.  You can do this by using **Microsoft SQL Server Management Studio** and connect to the SQL instance. Find the **ADSync** database, right click on it, and select **Delete** from the context menu.  Then click **OK** button to delete it.
+2. Back up the database.
 
-![Error](./media/how-to-connect-install-custom/error2.png)
+3. Delete the database:
+    1. Use **Microsoft SQL Server Management Studio** to connect to the SQL instance. 
+    1. Find the **ADSync** database and right-click it.
+    1. On the context menu, select **Delete**.
+    1. Select **OK** to delete the database.
 
-After you delete the **ADSync** database, you can click the **install** button, to retry installation.
+![Screenshot showing Microsoft SQL Server Management Studio. A D Sync is selected.](./media/how-to-connect-install-custom/error2.png)
+
+After you delete the ADSync database, select **Install** to retry the installation.
 
 ## Next steps
-After the installation has completed, sign out and sign in again to Windows before you use Synchronization Service Manager or Synchronization Rule Editor.
+After the installation finishes, sign out of Windows and then sign in again before you use Synchronization Service Manager or Synchronization Rule Editor.
 
-Now that you have Azure AD Connect installed you can [verify the installation and assign licenses](how-to-connect-post-installation.md).
+Now that you have Azure AD Connect installed, you can [verify the installation and assign licenses](how-to-connect-post-installation.md).
 
-Learn more about these features, which were enabled with the installation: [Prevent accidental deletes](how-to-connect-sync-feature-prevent-accidental-deletes.md) and [Azure AD Connect Health](how-to-connect-health-sync.md).
+For more information about the features that you enabled during the installation, see [Prevent accidental deletes](how-to-connect-sync-feature-prevent-accidental-deletes.md) and [Azure AD Connect Health](how-to-connect-health-sync.md).
 
-Learn more about these common topics: [scheduler and how to trigger sync](how-to-connect-sync-feature-scheduler.md).
-
-Learn more about [Integrating your on-premises identities with Azure Active Directory](whatis-hybrid-identity.md).
+For more information about other common topics, see [Azure AD Connect sync: Scheduler](how-to-connect-sync-feature-scheduler.md) and [Integrating your on-premises identities with Azure Active Directory](whatis-hybrid-identity.md).
