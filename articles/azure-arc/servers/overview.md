@@ -16,7 +16,7 @@ To deliver this experience with your hybrid machines hosted outside of Azure, th
 
 When you connect your machine to Azure Arc enabled servers, it enables the ability to perform the following configuration management and monitoring tasks:
 
-- Assign [Azure Policy guest configurations](../../governance/policy/concepts/guest-configuration.md) using the same experience as policy assignment for Azure virtual machines. Today, most Guest Configuration policies do not apply configurations, they only audit settings inside the machine.
+- Assign [Azure Policy guest configurations](../../governance/policy/concepts/guest-configuration.md) using the same experience as policy assignment for Azure virtual machines. Today, most Guest Configuration policies do not apply configurations, they only audit settings inside the machine. To understand the cost of using Azure Policy Guest Configuration policies with Arc enabled servers, see Azure Policy [pricing guide](https://azure.microsoft.com/pricing/details/azure-policy/).
 
 - Report on configuration changes about installed software, Microsoft services, Windows registry and files, and Linux daemons on monitored servers using Azure Automation [Change Tracking and Inventory](../../automation/change-tracking.md).
 
