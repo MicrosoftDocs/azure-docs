@@ -151,7 +151,7 @@ It may happen that someone with sufficient access rights to the key vault accide
 
 - deleting the managed identity of the server in Azure Active Directory
 
-Learn more about [the common causes for database to become inaccessible](/sql/relational-databases/security/encryption/troubleshoot-tde?view=azuresqldb-current#common-errors-causing-databases-to-become-inaccessible).
+Learn more about [the common causes for database to become inaccessible](/sql/relational-databases/security/encryption/troubleshoot-tde?view=azuresqldb-current&preserve-view=true#common-errors-causing-databases-to-become-inaccessible).
 
 ## Monitoring of the customer-managed TDE
 
