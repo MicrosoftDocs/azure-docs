@@ -145,15 +145,15 @@ New-ServiceFabricService -ApplicationName $applicationName -ServiceName $service
 >
 
 > [!NOTE]
-> Currently the policy is only supported for Stateless services with ExclusiveProcess [service package activation mode](https://docs.microsoft.com/en-us/dotnet/api/system.fabric.description.servicepackageactivationmode?view=azure-dotnet).
->
-
-> [!NOTE]
-> Currently the policy is not supported when used with [MinInstanceCount](https://docs.microsoft.com/en-us/dotnet/api/system.fabric.description.statelessservicedescription.mininstancecount?view=azure-dotnet). Using both in conjunction can lead to stuck Application upgrades.
+> Currently the policy is only supported for Stateless services with ExclusiveProcess [service package activation mode](https://docs.microsoft.com/dotnet/api/system.fabric.description.servicepackageactivationmode?view=azure-dotnet).
 >
 
 > [!WARNING]
 > The policy is not supported when used with static port endpoints. Using both in conjunction can lead to an unhealthy cluster as multiple instances on the same node try to bind to the same port, and cannot come up. 
+>
+
+> [!NOTE]
+> Using a high value of [MinInstanceCount](https://docs.microsoft.com/dotnet/api/system.fabric.description.statelessservicedescription.mininstancecount?view=azure-dotnet) with this placement policy can lead to stuck Application Upgrades. For example, if you have a five-node cluster and set InstanceCount=10, you will have two instances on each node. If you set MinInstanceCount=9, an attempted app upgrade can get stuck; with MinInstanceCount=8, this can be avoided.
 >
 
 ## Next steps
