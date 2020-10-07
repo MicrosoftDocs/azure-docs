@@ -44,6 +44,7 @@ A Key Vault reference is of the form `@Microsoft.KeyVault({referenceString})`, w
 > Versions are currently required. When rotating secrets, you will need to update the version in your application configuration.
 For example, a complete reference would look like the following:
 
+
 ```
 @Microsoft.KeyVault(SecretUri=https://myvault.vault.azure.net/secrets/mysecret/ec96f02080254f109c51a1f14cdb1931)
 ```
