@@ -20,9 +20,9 @@ zone_pivot_groups: sql-vm-hadr
 # Configure a distributed network name (Preview)
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
 
-On Azure Virtual Machines, the distributed network name (DNN) is used to route traffic to the appropriate clustered resource. It provides an easier way to connect to the SQL Server failover cluster instance (FCI) or Always On availability group (AG) listener than the virtual network name (VNN), without the need for an Azure Load Balancer. 
+On Azure Virtual Machines, the distributed network name (DNN) is used to route traffic to the appropriate clustered resource. It provides an easier way to connect to the SQL Server failover cluster instance (FCI) or Always On availability group (AG) than the virtual network name (VNN), without the need for an Azure Load Balancer. 
 
-This article teaches you to configure a DNN to route traffic to your FCIs or availability group listener with SQL Server on Azure VMs for high availability and disaster recovery (HADR). 
+This article teaches you to configure a DNN resource to route traffic to your failover cluster instance, or your availability group with SQL Server on Azure VMs for high availability and disaster recovery (HADR). 
 
 The DNN feature is currently in preview and only available on: 
 
@@ -34,10 +34,9 @@ The DNN feature is currently in preview and only available on:
 
 ## Overview
 
-The distributed network name (DNN) replaces the virtual network name (VNN) as the connection point when used with an [Always On failover cluster instance on SQL Server VMs](failover-cluster-overview.md).  This negates the need for an Azure Load Balancer, simplifying deployment, maintenance, and improving failover. 
+The distributed network name (DNN) replaces the virtual network name (VNN) as the connection point when used with an [Always On failover cluster instance on SQL Server VMs](failover-cluster-overview.md). This negates the need for an Azure Load Balancer routing traffic to the VNN, simplifying deployment, maintenance, and improving failover. 
 
 With an FCI deployment, the VNN still exists, but the client connects to the DNN DNS name instead of the VNN name. 
-
 
 
 PICTURE OF FCI
@@ -282,8 +281,6 @@ Before you complete the steps in this article, you should already have:
 
 ## Create script
 
-
-
 # [Availability group](#tab/ag)
 
 Use PowerShell to create the distributed network name (DNN) resource and associate it with your availability group. 
@@ -354,7 +351,7 @@ For example, assuming an availability group name of `ag1`, listener name of `dnn
    ```console
    c:\Documents> add_dnn_listener.ps1 ag1 dnnlsnr 6789
    ```
-
+   
 ---
 
 ## Update connection string

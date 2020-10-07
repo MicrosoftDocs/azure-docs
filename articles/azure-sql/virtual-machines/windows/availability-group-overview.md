@@ -33,9 +33,6 @@ The following diagram illustrates the parts of a complete SQL Server Availabilit
 ![Availability Group](./media/availability-group-overview/00-EndstateSampleNoELB.png)
 
 
-
-
-
 ## VM redundancy 
 
 To increase redundancy and high availability, the SQL Server VMs should either be in the same [availability set](../../../virtual-machines/windows/tutorial-availability-sets.md#availability-set-overview), or different [availability zones](/azure/availability-zones/az-overview).
