@@ -132,7 +132,7 @@ For more information, see [Quickstart: Set up the Data Science Virtual Machine f
 
 4. Select **Save** to update your virtual machine.
 
-> ![Important]
+> [!Important]
 > Your VM should be running at the time you attach the data disk. If the VM isn't running, the disks may be added in an incorrect order, leading to a confusing and potentially non-bootable system. If you add the data disk with the VM off, choose the **X** beside the data disk, start the VM, and re-attach it.
 
 ### Manually copy the wanted data 
