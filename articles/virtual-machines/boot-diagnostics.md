@@ -20,7 +20,7 @@ An alternative Boot Diagnostics experience is to use a user managed storage acco
 
 > [!IMPORTANT]
 > Azure customers will not be charged for the storage costs associated with boot diagnostics using a managed storage account through October 2020.
-
+>
 > The boot diagnostics data blobs (which comprise of logs and snapshot images) are stored in a managed storage account. Customers will be charged only on used GiBs by the blobs, not on the disk's provisioned size. The snapshot meters will be used for billing of the managed storage account. Because the managed accounts are created on either Standard LRS or Standard ZRS, customers will be charged at $0.05/GB per month for the size of their diagnostic data blobs only. For more information on this pricing, see [Managed disks pricing](https://azure.microsoft.com/pricing/details/managed-disks/). Customers will see this charge tied to their VM resource URI. 
 
 ## Boot diagnostics view
