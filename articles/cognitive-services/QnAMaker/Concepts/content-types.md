@@ -2,6 +2,8 @@
 title: Content types - QnA Maker
 description: Content types include many standard structured documents such as PDF, DOCX, and TXT.
 services: cognitive-services
+ms.service: cognitive-services
+ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 07/17/2020
 ---

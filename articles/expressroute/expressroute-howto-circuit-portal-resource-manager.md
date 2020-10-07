@@ -1,6 +1,6 @@
 ---
-title: 'Quickstart: Create and modify a circuit with ExpressRoute'
-description: In this quickstart, you learn how to create, provision, verify, update, delete, and deprovision an ExpressRoute circuit.
+title: 'Quickstart: Create and modify a circuit with ExpressRoute - Azure portal'
+description: In this quickstart, you learn how to create, provision, verify, update, delete, and deprovision an ExpressRoute circuit by using the Azure portal.
 services: expressroute
 author: duongau
 ms.service: expressroute
