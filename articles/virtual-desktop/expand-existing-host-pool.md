@@ -44,13 +44,16 @@ To expand your host pool by adding virtual machines:
 5. Select **+Add** to start creating your host pool.
 
 6. Ignore the the Basics tab and instead select the **VM details** tab. Here you can view and edit the details of the virtual machine (VM) you want to add to the host pool.
-
+    >[!NOTE]
+    >If you choose an image from a Shared Image Gallery the latest version will be deployed.  It is important that any intended image version is not flagged "Exclude from Latest" in the Shared Image Gallery or the prior version will be considerred "Latest." 
+    >Details at https://docs.microsoft.com/en-us/azure/virtual-machines/windows/shared-images-portal
+    
 7. Select the resource group you want to create the VMs under, then select the region. You can choose the current region you're using or a new region.
 
 8. Enter the number of session hosts you want to add to your host pool into **Number of VMs**. For example, if you're expanding your host pool by five hosts, enter **5**.
 
     >[!NOTE]
-    >You can't edit the size or image of the VMs because it's important to ensure that all VMs in the host pool are the same size.
+    >Although you can edit the size or image of the VMs but this is NOT recommended. it's important to ensure that all VMs in the host pool are consistent.
 
 9. For the **virtual network information**, select the virtual network and subnet to which you want the virtual machines to be joined to. You can select the same virtual network your existing machines currently use or choose a different one that's more suitable to the region you selected in step 7.
 
