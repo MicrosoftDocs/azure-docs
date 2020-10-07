@@ -51,15 +51,15 @@ A finished version of the code in this tutorial can be found in the following pr
 
 * [1-basic-search-page (GitHub)](https://github.com/Azure-Samples/azure-search-dotnet-samples/tree/master/create-first-app/v11/1-basic-search-page)
 
+This tutorial has been updated to use the Azure.Search.Documents (version 11) package. For an earlier version of the .NET SDK, see [Microsoft.Azure.Search (version 10) code sample](https://github.com/Azure-Samples/azure-search-dotnet-samples/tree/master/create-first-app/v10).
+
 ## Prerequisites
+
+Because you are using a public sample search index hosted by Microsoft, you don't need a search service or an Azure account for this tutorial.
 
 * [Visual Studio](https://visualstudio.microsoft.com/)
 
 * [Azure Cognitive Search client library (version 11)](https://www.nuget.org/packages/Azure.Search.Documents/)
-
-This tutorial has been updated to use the Azure.Search.Documents (version 11) package. For an earlier version of the .NET SDK, see [Microsoft.Azure.Search (version 10) code sample](https://github.com/Azure-Samples/azure-search-dotnet-samples/tree/master/create-first-app/v10).
-
-Because you are using a public sample hosted by Microsoft, you don't need a search service or an Azure account for this tutorial.
 
 ### Install and run the project from GitHub
 

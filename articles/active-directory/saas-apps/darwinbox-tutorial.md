@@ -140,19 +140,19 @@ When you click the Darwinbox tile in the Access Panel, you should be automatical
 
 1. Open Darwinbox mobile application. Click on **Enter Organization URL** now enter your organization URL in the textbox and click on Arrow button.
 
-    ![Darwinbox mobile app](media/darwinbox-tutorial/DarwinboxMobile01.jpg)
+    ![Screenshot that shows the "Darwinbox" mobile app with the "Enter Organization U R L" selected, and an example organization and "Arrow" button highlighted.](media/darwinbox-tutorial/DarwinboxMobile01.jpg)
 
 1. If you have multiple domain, then click on your domain.
 
-    ![Darwinbox mobile app](media/darwinbox-tutorial/DarwinboxMobile02.jpg)
+    ![Screenshot that shows the "Choose your domain" screen with an example domain selected.](media/darwinbox-tutorial/DarwinboxMobile02.jpg)
 
 1. Enter your Azure AD email into the Darwinbox application and click **Next**.
 
-    ![Darwinbox mobile app](media/darwinbox-tutorial/DarwinboxMobile03.jpg)
+    ![Screenshot that shows the "Sign in" screen with the "Next" button highlighted.](media/darwinbox-tutorial/DarwinboxMobile03.jpg)
 
 1. Enter your Azure AD password into the Darwinbox application and click **Sign in**.
 
-    ![Darwinbox mobile app](media/darwinbox-tutorial/DarwinboxMobile04.jpg)
+    ![Screenshot that shows the "Enter password" screen with the "Next" button highlighted.](media/darwinbox-tutorial/DarwinboxMobile04.jpg)
 
 1. Finally after successful sign in, the application homepage will be displayed.
 

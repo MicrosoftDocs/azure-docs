@@ -59,7 +59,7 @@ If the application uses a preview version of .NET Core, and Snapshot Debugger wa
 
 ## Upgrade to the latest version of the NuGet package
 
-If Snapshot Debugger was enabled through the [Application Insights pane in the portal](snapshot-debugger-appservice.md?toc=/azure/azure-monitor/toc.json), then your application should already be running the latest NuGet package. If Snapshot Debugger was enabled by including the [Microsoft.ApplicationInsights.SnapshotCollector](https://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector) NuGet package, use Visual Studio's NuGet Package Manager to make sure you're using the latest version of Microsoft.ApplicationInsights.SnapshotCollector. Release notes can be found at https://github.com/Microsoft/ApplicationInsights-Home/issues/167
+If Snapshot Debugger was enabled through the [Application Insights pane in the portal](snapshot-debugger-appservice.md?toc=/azure/azure-monitor/toc.json), then your application should already be running the latest NuGet package. If Snapshot Debugger was enabled by including the [Microsoft.ApplicationInsights.SnapshotCollector](https://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector) NuGet package, use Visual Studio's NuGet Package Manager to make sure you're using the latest version of Microsoft.ApplicationInsights.SnapshotCollector.
 
 ## Check the uploader logs
 

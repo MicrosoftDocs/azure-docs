@@ -154,11 +154,11 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 2. Click on the **Profile Settings** on the right top corner and then click **Account Settings**. 
 
-	![Check Point CloudGuard Dome9 Arc Configuration](./media/dome9arc-tutorial/configure1.png)
+	![Screenshot that shows the "Profile Settings" menu with "Account Settings" selected.](./media/dome9arc-tutorial/configure1.png)
 
 3. Navigate to **SSO** and then click **ENABLE**.
 
-	![Check Point CloudGuard Dome9 Arc Configuration](./media/dome9arc-tutorial/configure2.png)
+	![Screenshot that shows the "S S O" tab and "Enable" selected.](./media/dome9arc-tutorial/configure2.png)
 
 4. In the SSO Configuration section, perform the following steps:
 
@@ -187,11 +187,11 @@ To enable Azure AD users to sign in to Check Point CloudGuard Dome9 Arc, they mu
 
 2. Click on the **Users & Roles** and then click **Users**.
 
-	![Add Employee](./media/dome9arc-tutorial/user1.png)
+	![Screenshot that shows "Users & Roles" with the "Users" action selected.](./media/dome9arc-tutorial/user1.png)
 
 3. Click **ADD USER**.
 
-	![Add Employee](./media/dome9arc-tutorial/user2.png)
+	![Screenshot that shows "Users & Roles" with the "ADD USER" button selected.](./media/dome9arc-tutorial/user2.png)
 
 4. In the **Create User** section, perform the following steps:
 
