@@ -13,7 +13,6 @@ ms.custom: devx-track-azurepowershell
 
 # Programmatically create Azure subscriptions (preview)
 
----
 > [!NOTE]
 > This article shares the steps to programmatically create your Azure subscriptions using the preview version of the APIs. We have since released [GA versions of these APIs](programmatically-create-subscription.md) which will be supported going forward. You may still use this guide in case you have not yet made the switch over to using the GA version. 
 
