@@ -2,6 +2,7 @@
 title: Deploy and configure Azure VMware Solution
 description: Learn how to use the information gathered in the planning stage to deploy the Azure VMware Solution private cloud.
 ms.topic: tutorial
+ms.author: tredavis
 ms.date: 10/02/2020
 ---
 
@@ -23,17 +24,15 @@ Use the information you gathered in the [Planning the Azure VMware Solution depl
 
 [!INCLUDE [create-avs-private-cloud-azure-portal](includes/create-private-cloud-azure-portal-steps.md)]
 
-
+>[!NOTE]
+>For an end-to-end overview of this step, view the [Azure VMware Solution: Deployment](https://www.youtube.com/embed/1JLB3L2WDWI) video. 
 
 ## Create the jump box
 
 >[!IMPORTANT]
 >If you left the **Virtual Network** option blank during the initial provisioning step on the **Create a Private Cloud** screen, complete the [Configure networking for your VMware private cloud](tutorial-configure-networking.md) tutorial **before** you proceed with this section.  
 
-
-
 After deploying Azure VMware Solution, you'll create the virtual network's jump box that connects to vCenter and NSX. Once you've configured ExpressRoute circuits and ExpressRoute Global Reach, the jump box isn't needed.  But it's handy to reach vCenter and NSX in your Azure VMware Solution.  
-
 
 :::image type="content" source="media/pre-deployment/jump-box-diagram.png" alt-text="Create the Azure VMware Solution jump box" border="false" lightbox="media/pre-deployment/jump-box-diagram.png":::
 
