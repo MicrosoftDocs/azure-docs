@@ -8297,7 +8297,7 @@
       "source_path": "articles/app-service/containers/how-to-serve-content-from-azure-storage.md",
       "redirect_url": "/azure/app-service/configure-connect-to-azure-storage",
       "redirect_document_id": false
-    },     
+    },
     {
       "source_path": "articles/app-service/containers/configure-language-ruby.md",
       "redirect_url": "/azure/app-service/configure-language-ruby",
@@ -21941,7 +21941,7 @@
       "source_path": "articles/marketplace/partner-center-portal/payment-thresholds-methods-timeframes.md",
       "redirect_url": "/partner-center/payment-thresholds-methods-timeframes?context=/azure/marketplace/context/context",
       "redirect_document_id": false
-    },                
+    },
     {
       "source_path": "articles/marketplace/marketplace-saas-applications-technical-publishing-guide.md",
       "redirect_url": "/azure/marketplace/plan-saas-offer",
@@ -47768,7 +47768,7 @@
     },
     {
       "source_path": "articles/active-directory/develop/app-registration-portal-content.md",
-      "redirect_url": "/azure/active-directory/develop/quickstart-v2-register-an-app",
+      "redirect_url": "/azure/active-directory/develop/quickstart-register-app",
       "redirect_document_id": false
     },
     {
@@ -51653,7 +51653,17 @@
     },
     {
       "source_path": "articles/active-directory/develop/app-registrations-training-guide.md",
-      "redirect_url": "/azure/active-directory/develop/app-registrations-training-guide-for-app-registrations-legacy-users",
+      "redirect_url": "/azure/active-directory/develop/quickstart-register-app",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/active-directory/develop/app-registration-portal-training-guide.md",
+      "redirect_url": "/azure/active-directory/develop/quickstart-register-app",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/active-directory/develop/app-registrations-training-guide-for-app-registrations-legacy-users.md",
+      "redirect_url": "/azure/active-directory/develop/quickstart-register-app",
       "redirect_document_id": false
     },
     {
