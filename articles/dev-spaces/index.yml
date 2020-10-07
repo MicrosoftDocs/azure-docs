@@ -62,3 +62,5 @@ landingContent:
             url: https://code.visualstudio.com/docs/containers/bridge-to-kubernetes
           - text: Use Bridge to Kubernetes with Visual Studio
             url: /visualstudio/containers/bridge-to-kubernetes
+          - text: Migrating to Bridge to Kubernetes
+            url: migrate-to-bridge-to-kubernetes.md
