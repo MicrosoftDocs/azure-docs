@@ -19,10 +19,12 @@ Select **Spatial Anchors**, and then select **Create**.
 
 On the **Spatial Anchors Account** pane, do the following:
 
-* Enter a unique resource name, using regular alphanumeric characters.  
+* Enter a unique resource name by using regular alphanumeric characters.  
 * Select the subscription that you want to attach the resource to.  
 * Create a resource group by selecting **Create new**. Name it **myResourceGroup**, and then select **OK**.  
-   [!INCLUDE [resource group intro text](resource-group.md)]  
+
+  [!INCLUDE [resource group intro text](resource-group.md)]
+  
 * Select a location (region) in which to place the resource.  
 * Select **New** to begin creating the resource.
 
@@ -32,9 +34,7 @@ After the resource is created, the Azure portal shows that your deployment is co
    
 ![Screenshot showing that the resource deployment is complete.](./media/spatial-anchors-get-started-create-resource/deployment-complete.png)
 
-Select **Go to resource**.
-
-   You can now view the resource properties. 
+Select **Go to resource**. You can now view the resource properties. 
    
 Copy the resource's **Account ID** value into a text editor for later use.
 
