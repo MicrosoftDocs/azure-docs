@@ -28,7 +28,7 @@ The high-level architecture for this use-case:
 
 While certain Teams meeting features such as raised hand, together mode, and breakout rooms are only be available for Teams users, your custom application will have access to the meeting's core audio, video, and screen sharing capabilities.
 
-When the Azure Communication user joins the Teams meeting, the display name provided through the Calling SDK will be shown to Teams users. However the Azure Communication user is otherwise treated as anonymous user in Teams. Your custom application should consider user authentication and other security measures to protect Teams meetings. Be mindful of the security implications of enabling anonymous users to join meetings, and use the [Teams security guide](https://docs.microsoft.com/microsoftteams/teams-security-guide#addressing-threats-to-teams-meetings) to configure capabilities available to anonymous users.
+When the Communication Services user joins the Teams meeting, the display name provided through the Calling client library will be shown to Teams users. The Communication Services user will otherwise be treated like an anonymous user in Teams. Your custom application should consider user authentication and other security measures to protect Teams meetings. Be mindful of the security implications of enabling anonymous users to join meetings, and use the [Teams security guide](https://docs.microsoft.com/microsoftteams/teams-security-guide#addressing-threats-to-teams-meetings) to configure capabilities available to anonymous users.
 
 ## Next steps
 
