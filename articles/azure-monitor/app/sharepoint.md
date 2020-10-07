@@ -137,4 +137,3 @@ function onRequestFail(sender, args) {
 * [Application Insights](./app-insights-overview.md) for other types of app.
 
 <!--Link references-->
-

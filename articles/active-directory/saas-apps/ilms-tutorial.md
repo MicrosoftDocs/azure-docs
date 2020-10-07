@@ -124,29 +124,29 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 2. Click **SSO:SAML** under **Settings** tab to open SAML settings and perform the following steps:
 
-	![Configure Single Sign-On](./media/ilms-tutorial/1.png)
+	![Screenshot shows the I L M S settings tab where you can select S S O: SAML.](./media/ilms-tutorial/1.png)
 
 3. Expand the **Service Provider** section and copy the **Identifier** and **Endpoint (URL)** value.
 
-	![Configure Single Sign-On](./media/ilms-tutorial/2.png) 
+	![Screenshot shows SAML Settings where you can get the values.](./media/ilms-tutorial/2.png) 
 
 4. Under **Identity Provider** section, click **Import Metadata**.
 
 5. Select the **Federation Metadata** file downloaded from the Azure portal from the **SAML Signing Certificate** section.
 
-    ![Configure Single Sign-On](./media/ilms-tutorial/tutorial_ilms_ssoconfig1.png)
+    ![Screenshot shows SAML Settings where you can select the metadata file.](./media/ilms-tutorial/tutorial_ilms_ssoconfig1.png)
 
 6. If you want to enable JIT provisioning to create iLMS accounts for un-recognize users, follow below steps:
 
 	a. Check **Create Un-recognized User Account**.
 
-	![Configure Single Sign-On](./media/ilms-tutorial/tutorial_ilms_ssoconfig2.png)
+	![Screenshot shows Create Un-recognized User Account option.](./media/ilms-tutorial/tutorial_ilms_ssoconfig2.png)
 
 	b. Map the attributes in Azure AD with the attributes in iLMS. In the attribute column, specify the attributes name or the default value.
 
 	c. Go to **Business Rules** tab and perform the following steps:
 
-	![Configure Single Sign-On](./media/ilms-tutorial/5.png)
+	![Screenshot shows Business Rules settings where you can enter the information in this step.](./media/ilms-tutorial/5.png)
 
 	d. Check **Create Un-recognized Regions, Divisions and Departments** to create Regions, Divisions, and Departments that do not already exist at the time of Single Sign-on.
 
@@ -158,7 +158,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 7. Click **Save** button to save the settings.
 
-	![Configure Single Sign-On](./media/ilms-tutorial/save.png)
+	![Screenshot shows the Save button.](./media/ilms-tutorial/save.png)
 
 ### Create an Azure AD test user
 
@@ -200,11 +200,11 @@ If you need to create an user manually, then follow below steps:
 
 2. Click **Register User** under **Users** tab to open **Register User** page.
 
-   ![Add Employee](./media/ilms-tutorial/3.png)
+   ![Screenshot shows the I L M S settings tab where you can select Register User.](./media/ilms-tutorial/3.png)
 
 3. On the **Register User** page, perform the following steps.
 
-	![Add Employee](./media/ilms-tutorial/create_testuser_add.png)
+	![Screenshot shows the Register User page where you enter the specified information.](./media/ilms-tutorial/create_testuser_add.png)
 
 	a. In the **First Name** textbox, type the first name like Britta.
 
