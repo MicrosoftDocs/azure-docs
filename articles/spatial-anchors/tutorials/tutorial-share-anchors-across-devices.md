@@ -15,7 +15,7 @@ ms.service: azure-spatial-anchors
 
 Azure Spatial Anchors is a cross-platform developer service with which you can create mixed-reality experiences by using objects that persist their location across devices over time. 
 
-In this tutorial, you use [Azure Spatial Anchors](../overview.md) to create anchors during one session and then locate them on the same device or a different one. The same anchors can also be located by multiple devices in the same place and at the same time. Anchors that you create in one instance can be shared to the others.
+In this tutorial, you use [Azure Spatial Anchors](../overview.md) to create anchors during one session and then locate them on the same device or a different one. The same anchors can also be located by multiple devices in the same place and at the same time. Anchors that you create in one instance can be shared to other instances.
 
 ![Animation showing spatial anchors that are created with a mobile device and used with a different device over the course of days.](./media/persistence.gif)
 
@@ -23,7 +23,7 @@ In this tutorial, you use [Azure Spatial Anchors](../overview.md) to create anch
 In this tutorial, you'll learn how to:
 
 > [!div class="checklist"]
-> * Deploy an ASP.NET Core web app in Azure that can be used to share anchors, and store the anchors in memory for a specified period of time.
+> * Deploy an ASP.NET Core web app in Azure that you can use to share anchors, and store the anchors in memory for a specified period of time.
 > * Configure the AzureSpatialAnchorsLocalSharedDemo scene within the Unity sample from our quickstarts to take advantage of the Sharing Anchors web app.
 > * Deploy and run the anchors to one or more devices.
 
@@ -32,7 +32,7 @@ In this tutorial, you'll learn how to:
 [!INCLUDE [Share Anchors Sample Prerequisites](../../../includes/spatial-anchors-share-sample-prereqs.md)]
 
 > [!NOTE]
-> Although you'll be using Unity and an ASP.NET Core web app in this tutorial, this approach is only to show an example of how to share Azure Spatial Anchors identifiers across other devices. You can use other languages and back-end technologies to achieve the same goal.
+> You'll be using Unity and an ASP.NET Core web app in this tutorial, but the approach here is only to provide an example of how to share Azure Spatial Anchors identifiers across other devices. You can use other languages and back-end technologies to achieve the same goal.
 
 [!INCLUDE [Create Spatial Anchors resource](../../../includes/spatial-anchors-get-started-create-resource.md)]
 
@@ -40,7 +40,7 @@ In this tutorial, you'll learn how to:
 
 [!INCLUDE [Clone Sample Repo](../../../includes/spatial-anchors-clone-sample-repository.md)]
 
-## Deploy your Sharing Anchors service
+## Deploy the Sharing Anchors service
 
 ## [Visual Studio](#tab/VS)
 
@@ -60,17 +60,17 @@ Go to the <a href="https://portal.azure.com/" target="_blank">Azure portal</a>, 
 
 [!INCLUDE [resource group intro text](../../../includes/resource-group.md)]
 
-1. Next to **Resource Group**, select **New**.
+Next to **Resource Group**, select **New**.
 
-1. Name the resource group **myResourceGroup**, and then select **OK**.
+Name the resource group **myResourceGroup**, and then select **OK**.
 
 ### Create an App Service plan
 
 [!INCLUDE [app-service-plan](../../../includes/app-service-plan.md)]
 
-1. Next to **Hosting Plan**, select **New**.
+Next to **Hosting Plan**, select **New**.
 
-1. On the **Configure Hosting Plan** pane, use these settings:
+On the **Configure Hosting Plan** pane, use these settings:
 
 | Setting | Suggested value | Description |
 |-|-|-|
@@ -78,11 +78,11 @@ Go to the <a href="https://portal.azure.com/" target="_blank">Azure portal</a>, 
 | Location | West US | The datacenter where the web app is hosted |
 | Size | Free | The [pricing tier](https://azure.microsoft.com/pricing/details/app-service/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) that determines hosting features |
 
-1. Select **OK**.
+Select **OK**.
 
-1. Open Visual Studio Code, and then open the project in the *Sharing\SharingServiceSample* folder. 
+Open Visual Studio Code, and then open the project in the *Sharing\SharingServiceSample* folder. 
 
-1. To deploy the sharing service through Visual Studio Code, follow the instructions in <a href="https://docs.microsoft.com/aspnet/core/tutorials/publish-to-azure-webapp-using-vscode?view=aspnetcore-2.2#open-it-with-visual-studio-code" target="_blank">Publish an ASP.NET Core app to Azure with Visual Studio Code</a>. Start at the "Open it with Visual Studio Code" section. Do not create another ASP.NET project as explained in the preceding step, because you already have the project that needs to be deployed and published: the SharingServiceSample.
+To deploy the sharing service through Visual Studio Code, follow the instructions in <a href="https://docs.microsoft.com/aspnet/core/tutorials/publish-to-azure-webapp-using-vscode?view=aspnetcore-2.2#open-it-with-visual-studio-code" target="_blank">Publish an ASP.NET Core app to Azure with Visual Studio Code</a>. Start at the "Open it with Visual Studio Code" section. Do not create another ASP.NET project as explained in the preceding step, because you already have a project to be deployed and published: SharingServiceSample.
 
 ---
 
