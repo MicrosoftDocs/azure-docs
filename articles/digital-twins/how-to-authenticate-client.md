@@ -31,7 +31,7 @@ To proceed, you will need a client app project in which you write your code. If 
 
 ## Authenticating with Azure.Identity
 
-`Azure.Identity` is a client library that provides several credential-obtaining methods that you can use to get a bearer tokena nd authenticate with your SDK. Although this article gives examples in C#, you can view `Azure.Identity` for several languages, including...
+`Azure.Identity` is a client library that provides several credential-obtaining methods that you can use to get a bearer token and authenticate with your SDK. Although this article gives examples in C#, you can view `Azure.Identity` for several languages, including...
 * [.NET (C#)](https://docs.microsoft.com/dotnet/api/azure.identity?view=azure-dotnet)
 * [Java](https://docs.microsoft.com/java/api/overview/azure/identity-readme?view=azure-java-stable)
 * [JavaScript](https://docs.microsoft.com/javascript/api/overview/azure/identity-readme?view=azure-node-latest)
@@ -39,7 +39,7 @@ To proceed, you will need a client app project in which you write your code. If 
 
 Three common credential-obtaining methods in `Azure.Identity` are:
 * [DefaultAzureCredential](https://docs.microsoft.com/dotnet/api/azure.identity.defaultazurecredential?view=azure-dotnet&preserve-view=true) provides a default `TokenCredential` authentication flow for applications that will be deployed to Azure, and is **the recommended choice for local development**. It also can be enabled to try the other two methods recommended in this article; it wraps `ManagedIdentityCredential` and can access `InteractiveBrowserCredential` with a configuration variable.
-* [ManagedIdentityCredential](https://docs.microsoft.com/dotnet/api/azure.identity.managedidentitycredential?view=azure-dotnet&preserve-view=true) works great in cases where you need managed identities (MSI), and is a good candidate for working with Azure Functions and deploying to Azure services.
+* [ManagedIdentityCredential](https://docs.microsoft.com/dotnet/api/azure.identity.managedidentitycredential?view=azure-dotnet&preserve-view=true) works great in cases where you need [managed identities (MSI)](../active-directory/managed-identities-azure-resources/overview.md), and is a good candidate for working with Azure Functions and deploying to Azure services.
 * [InteractiveBrowserCredential](https://docs.microsoft.com/dotnet/api/azure.identity.interactivebrowsercredential?view=azure-dotnet&preserve-view=true) is intended for interactive applications, and can be used to create an authenticated SDK client
 
 The following example shows how to use each of these with the .NET (C#) SDK.
