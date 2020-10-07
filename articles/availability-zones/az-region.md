@@ -55,7 +55,7 @@ Services that are available in each region, along with upcoming roadmap for avai
 | **Security** |  |  |  |  |  |
 | [Azure Active Directory Domain Services](https://docs.microsoft.com/azure/active-directory-domain-services/overview) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |  |
 
-##Europe
+## Europe
 
 | **Products** | **France Central** | **North Europe** | **UK South** | **West Europe** |
 |--|--|--|--|--|
