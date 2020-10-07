@@ -82,15 +82,6 @@ This quickstart walks you through the steps to get started with Live Video Analy
 
 ## Run the sample program
 
-1. In Visual Studio Code, open the **Extensions** tab (or press Ctrl+Shift+X) and search for Azure IoT Hub.
-1. Right click and select **Extension Settings**.
-
-    > [!div class="mx-imgBorder"]
-    > :::image type="content" source="./media/run-program/extensions-tab.png" alt-text="Extension Settings":::
-1. Search and enable “Show Verbose Message”.
-
-    > [!div class="mx-imgBorder"]
-    > :::image type="content" source="./media/run-program/show-verbose-message.png" alt-text="Show Verbose Message":::
 ::: zone pivot="programming-language-csharp"
 [!INCLUDE [run-sample-program](includes/detect-motion-emit-events-quickstart/csharp/run-sample-program.md)]
 ::: zone-end
