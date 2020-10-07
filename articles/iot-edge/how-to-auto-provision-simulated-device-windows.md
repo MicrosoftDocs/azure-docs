@@ -72,7 +72,7 @@ After creating the individual enrollment, save the value of the **Registration I
 
 The IoT Edge runtime is deployed on all IoT Edge devices. Its components run in containers, and allow you to deploy additional containers to the device so that you can run code at the edge. Install the IoT Edge runtime on the device that is running the simulated TPM.
 
-Follow the steps in [Install the Azure IoT Edge runtime](how-to-install-iot-edge.md&tabs=windows), then return to this article to provision the device.
+Follow the steps in [Install the Azure IoT Edge runtime](how-to-install-iot-edge.md), then return to this article to provision the device.
 
 > [!TIP]
 > Keep the window that's running the TPM simulator open during your installation and testing.

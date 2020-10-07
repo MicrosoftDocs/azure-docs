@@ -36,6 +36,8 @@ This article walks through the registration and provisioning process with X.509 
 
 Before you follow the steps in this article, you should have a device with the IoT Edge runtime installed on it. If not, follow the steps in [Install or uninstall the Azure IoT Edge runtime](how-to-install-iot-edge.md).
 
+Manual provisioning with X.509 certificates require IoT Edge version 1.0.10 or newer.
+
 ## Create certificates and thumbprints
 
 

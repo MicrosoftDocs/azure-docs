@@ -172,7 +172,7 @@ Now that an enrollment exists for this device, the IoT Edge runtime can automati
 
 The IoT Edge runtime is deployed on all IoT Edge devices. Its components run in containers, and allow you to deploy additional containers to the device so that you can run code at the edge. Install the IoT Edge runtime on your virtual machine.
 
-Follow the steps in [Install the Azure IoT Edge runtime](how-to-install-iot-edge.md&tabs=linux), then return to this article to provision the device.
+Follow the steps in [Install the Azure IoT Edge runtime](how-to-install-iot-edge.md), then return to this article to provision the device.
 
 ## Configure the device with provisioning information
 

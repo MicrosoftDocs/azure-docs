@@ -46,7 +46,7 @@ If you just finished installing the IoT Edge runtime, you may see a list of erro
 
 ---
 
-Run the [troubleshooting tool](troubleshoot.md#run-the-check-command) to check for the most common configuration and networking errors.
+Run the [troubleshooting tool](../articles/iot-edge/troubleshoot.md#run-the-check-command) to check for the most common configuration and networking errors.
 
 ```powershell
 iotedge check
@@ -64,9 +64,9 @@ After a new installation, the only module you should see running is **edgeAgent*
 
 ## Tips and troubleshooting
 
-On resource constrained devices, it is highly recommended that you set the *OptimizeForPerformance* environment variable to *false* as per instructions in the [troubleshooting guide](troubleshoot.md).
+On resource constrained devices, it is highly recommended that you set the *OptimizeForPerformance* environment variable to *false* as per instructions in the [troubleshooting guide](../articles/iot-edge/troubleshoot.md).
 
-If your device can't connect to IoT Hub and your network has a proxy server, follow the steps in [Configure your IoT Edge device to communicate through a proxy server](how-to-configure-proxy-support.md).
+If your device can't connect to IoT Hub and your network has a proxy server, follow the steps in [Configure your IoT Edge device to communicate through a proxy server](../articles/iot-edge/how-to-configure-proxy-support.md).
 
 # [Linux](#tab/linux)
 
