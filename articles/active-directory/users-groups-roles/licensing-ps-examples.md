@@ -30,7 +30,7 @@ cmdlets](/powershell/module/msonline) and Microsoft Graph. This document provide
 
 ## Assign licenses to a group
 
-Use the following sample to assign license to a group using Microsoft Graph.
+Use the following sample to assign licenses to a group by using Microsoft Graph:
 
 ```
 POST https://graph.microsoft.com/v1.0/groups/1ad75eeb-7e5a-4367-a493-9214d90d54d0/assignLicense
