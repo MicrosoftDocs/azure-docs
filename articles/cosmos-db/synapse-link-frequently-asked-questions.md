@@ -35,7 +35,7 @@ In preview, for Azure Synapse Link enabled database accounts, backup and restore
 
 ### Can I disable the Azure Synapse Link feature for my Azure Cosmos DB account?
 
-Currently, after the Azure Synapse Link capability is enabled at the account level, you cannot disable it.  If you want to turn off the capability, you have to delete and re-create a new Azure Cosmos DB account.
+Currently, after the Azure Synapse Link capability is enabled at the account level, you cannot disable it.  If you want to turn off the capability, you have 2 options. The first one is to delete and re-create a new Azure Cosmos DB account, migrating the data if necessary. The second option is to open a support ticket, to get help on a data migration to another account.
 
 Understand that you will **not** have any billing implications if the Synapse Link capability is enabled at the account level but there is no analytical store enabled containers.
 
