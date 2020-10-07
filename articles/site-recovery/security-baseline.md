@@ -96,7 +96,7 @@ Recovery security baseline mapping file](https://github.com/MicrosoftDocs/Securi
 
 Use Azure Activity Log data to determine the "what, who, and when" for any write operations (PUT, POST, DELETE) performed on your Azure resources.
 
-Ingest Site Recovery logs in Azure Monitor to aggregate generated security data . Within Azure Monitor, use Log Analytics workspaces to query and perform analytics, and use storage accounts for long-term/archival storage. Also, you may enable and on-board data to Azure Sentinel or a third-party Security Incident and Event Management (SIEM) solution.
+Ingest Site Recovery logs in Azure Monitor to aggregate generated security data. Within Azure Monitor, use Log Analytics workspaces to query and perform analytics, and use storage accounts for long-term/archival storage. Also, you may enable and on-board data to Azure Sentinel or a third-party Security Incident and Event Management (SIEM) solution.
 
 - [How to enable Diagnostic Settings for Azure Activity Log](../azure-monitor/platform/activity-log.md)
 
@@ -117,7 +117,7 @@ Ingest Site Recovery logs in Azure Monitor to aggregate generated security data 
 
 Use Azure Activity Log data to determine the "what, who, and when" for any write operations (PUT, POST, DELETE) performed on your Azure resources.
 
-Ingest Site Recovery logs with Azure Monitor to aggregate generated security data . Within Azure Monitor, use Log Analytics workspaces to query and perform analytics, and use storage accounts for long-term/archival storage. Also, you may enable and on-board data to Azure Sentinel or a third-party Security Incident and Event Management (SIEM) solution.
+Ingest Site Recovery logs with Azure Monitor to aggregate generated security data. Within Azure Monitor, use Log Analytics workspaces to query and perform analytics, and use storage accounts for long-term/archival storage. Also, you may enable and on-board data to Azure Sentinel or a third-party Security Incident and Event Management (SIEM) solution.
 
 - [How to enable Diagnostic Settings for Azure Activity Log](../azure-monitor/platform/activity-log.md)
 
@@ -166,7 +166,7 @@ Enable Azure Activity Log diagnostic settings and send the logs to a Log Analyti
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/33697.).
 
-**Guidance**: Site Recovery offers built-in monitoring and alerting capabilities without any additional management infrastructure in a Recovery Services vault. You can also increase the scale of your monitoring and reporting by using Azure Monitor. Site Recovery alerts notify customers to take relevant action on resources. These alerts are defined by Site Recovery service . Custom alert configuration to generate alerts outside of Site Recovery is not supported.
+**Guidance**: Site Recovery offers built-in monitoring and alerting capabilities without any additional management infrastructure in a Recovery Services vault. You can also increase the scale of your monitoring and reporting by using Azure Monitor. Site Recovery alerts notify customers to take relevant action on resources. These alerts are defined by Site Recovery service. Custom alert configuration to generate alerts outside of Site Recovery is not supported.
 
 You can also onboard alerts to a Log Analytics workspace to Azure Sentinel as it provides a security orchestration automated response (SOAR) solution. This allows for playbooks (automated solutions) to be created and used to remediate security issues. Additionally, you can create custom log alerts in your Log Analytics workspace using Azure Monitor. 
 
@@ -303,7 +303,7 @@ In addition, use Azure AD risk detections to view alerts and reports on risky us
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/33708.).
 
-**Guidance**: Use Conditional Access Named Locations to allow access to the Azure portal from only specific logical groupings of IP address ranges, regions or countries.
+**Guidance**: Use Conditional Access Named Locations to allow access to the Azure portal from only specific logical groupings of IP address ranges, regions, or countries.
 - [How to configure Named Locations in Azure](../active-directory/reports-monitoring/quickstart-configure-named-locations.md)
 
 **Azure Security Center monitoring**: Not applicable
@@ -454,9 +454,9 @@ Microsoft manages the underlying platform used by Site Recovery and treats all c
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/33717.).
 
-**Guidance**: Site Recovery uses a secure https channel which is encrypted using Advanced Encryption Standard (AES 256) from on-premises or Azure workload servers to Site Recovery services hosted behind a Recovery Services Vault.
+**Guidance**: Site Recovery uses a secure https channel, which is encrypted using Advanced Encryption Standard (AES 256) from on-premises or Azure workload servers to Site Recovery services hosted behind a Recovery Services Vault.
 
-Current TLS versions supported for Site Recovery are TLS 1.0, TLS 1.1, TLS 1.2 in regions which were live by the end of 2019. TLS1.2 is the only supported TLS version for any new regions.
+Current TLS versions supported for Site Recovery are TLS 1.0, TLS 1.1, TLS 1.2 in regions, which were live by the end of 2019. TLS1.2 is the only supported TLS version for any new regions.
 
 - [Understanding encryption in transit for Azure Site Recovery](physical-azure-set-up-source.md)
 
@@ -469,7 +469,7 @@ Current TLS versions supported for Site Recovery are TLS 1.0, TLS 1.1, TLS 1.2 i
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/33718.).
 
-**Guidance**: Data identification, classification, and loss prevention features are not yet available for Site Recovery. Implement a third-party solution if required for compliance purposes.
+**Guidance**: Data identification, classification, and loss prevention features are not yet available for Site Recovery. Implement a third-party solution if necessary for compliance purposes.
 
 Microsoft manages the underlying platform used by Site Recovery and treats all customer content as sensitive and guards against customer data loss and exposure. Microsoft has implemented and maintains a suite of robust data protection controls and capabilities to ensure customer data within Azure remains secure. 
 
@@ -501,7 +501,7 @@ Separate work duties with Azure RBAC and grant appropriate access required for t
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/33721.).
 
-**Guidance**: Enable double encryption with both platform and customer managed keys. This capability is available in Site Recovery. 
+**Guidance**: Enable double encryption with both platform and customer-managed keys. This capability is available in Site Recovery. 
 
 Site Recovery supports encryption at-rest for data. For Azure IaaS workloads, data is encrypted-at-rest using Storage Service Encryption (SSE). 
 
@@ -570,9 +570,9 @@ Although classic Azure resources may be discovered via Resource Graph, it is hig
 **Guidance**: Use tagging, management groups, and separate subscriptions, where appropriate, to organize and track Site Recovery (Recovery Services vaults) and other related resources. Reconcile inventory on a regular basis and ensure unauthorized resources are deleted from the subscription in a timely manner.
 
 In addition, use Azure Policy to put restrictions on the type of resources that can be created in customer subscriptions using the following built-in policy definitions: 
-- Not allowed resource types, 
+- Not allowed resource types
 
-- Allowed resource types.
+- Allowed resource types
 
 - [How to create additional Azure subscriptions](../cost-management-billing/manage/create-subscription.md)
 
@@ -619,7 +619,9 @@ In addition, use Azure Resource Graph to query for and discover resources within
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/33736.).
 
-**Guidance**: Use Azure Policy to put restrictions on the type of resources that can be created in customer subscriptions using the following built-in policy definitions: - Not allowed resource types 
+**Guidance**: Use Azure Policy to put restrictions on the type of resources that can be created in customer subscriptions using the following built-in policy definitions
+
+- Not allowed resource types 
 
 - Allowed resource types
 
@@ -745,7 +747,7 @@ Use Azure Policy [audit], [deny], and [deploy if not exist] effects to automatic
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/33752.).
 
-**Guidance**: Site Recovery supports system managed identity only where customer can enable system managed  identity on recovery services vault and same can be granted on resources used in Disaster Recovery offering to define the access boundary. 
+**Guidance**: Site Recovery supports system-managed identity only where customer can enable system managed  identity on recovery services vault and same can be granted on resources used in Disaster Recovery offering to define the access boundary. 
 
 Use Managed Identities to provide Azure services with an automatically managed identity in Azure Active
 Directory (Azure AD). 
@@ -822,7 +824,7 @@ This is out of customer scope and Site Recovery team takes care of it internally
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/33759.).
 
-**Guidance**: Periodically test restores of backed-up customer managed keys.
+**Guidance**: Periodically test restores of backed-up customer-managed keys.
 
 - [How to restore key vault keys in Azure](https://docs.microsoft.com/powershell/module/azurerm.keyvault/restore-azurekeyvaultkey?view=azurermps-6.13.0)
 
