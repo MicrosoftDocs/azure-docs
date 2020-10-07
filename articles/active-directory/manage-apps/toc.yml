@@ -59,8 +59,10 @@
       items:
       - name: Plan a single sign-on deployment
         href: plan-sso-deployment.md
-      - name: Single sign-on options 
+      - name: Single sign-on options
         href: sso-options.md
+      - name: Single sign-on with on-prem apps
+        href: application-proxy-config-sso-how-to.md
       - name: SAML-based SSO
         href: configure-saml-single-sign-on.md
       - name: SAML-based SSO (on-prem apps)
@@ -184,6 +186,8 @@
         items:
         - name: Integrate with Application Proxy on an NDES server
           href: active-directory-app-proxy-protect-ndes.md
+        - name: Integrate with Application Proxy using PingAccess
+          href: application-proxy-ping-access-publishing-guide.md
         - name: Integrate with Azure AD Domain Services
           href: /azure/active-directory-domain-services/deploy-azure-app-proxy?context=azure/active-directory/manage-apps/context/manage-apps-context
         - name: Integrate with Power BI
@@ -200,8 +204,6 @@
           href: application-proxy-integrate-with-tableau.md
         - name: Integrate with Qlik
           href: application-proxy-qlik.md
-        - name: Integrate with PingAccess
-          href: application-proxy-ping-access-publishing-guide.md
     - name: Troubleshoot
       items:
       - name: Troubleshoot adding apps
@@ -246,8 +248,6 @@
           href: application-proxy-connectivity-no-working-connector.md
         - name: Configure in admin portal
           href: application-proxy-config-how-to.md
-        - name: Configure single sign-on to my app
-          href: application-proxy-config-sso-how-to.md
         - name: Problem creating an app in admin portal
           href: application-proxy-config-problem.md
         - name: Configure Kerberos Constrained Delegation

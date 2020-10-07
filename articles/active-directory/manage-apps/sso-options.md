@@ -185,3 +185,4 @@ To learn more about header-based authentication, see [Header-based SSO](applicat
 ## Next steps
 * [Quickstart Series on Application Management](view-applications-portal.md)
 * [Plan a single sign-on deployment](plan-sso-deployment.md)
+* [Single sign-on with on-premises apps](application-proxy-config-sso-how-to.md)
