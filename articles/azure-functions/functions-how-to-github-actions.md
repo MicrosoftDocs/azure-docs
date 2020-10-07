@@ -54,7 +54,7 @@ To download the publishing profile of your function app:
 
 # [Service principal](#tab/service-principal)
 
-You can create a [service principal](../active-directory/develop/app-objects-and-service-principals.md#service-principal-object) by using the [az ad sp create-for-rbac](/cli/azure/ad/sp?view=azure-cli-latest#az-ad-sp-create-for-rbac) command in the [Azure CLI](/cli/azure/). You can run this command using [Azure Cloud Shell](https://shell.azure.com) in the Azure portal or by selecting the **Try it** button.
+You can create a [service principal](../active-directory/develop/app-objects-and-service-principals.md#service-principal-object) by using the [az ad sp create-for-rbac](/cli/azure/ad/sp?view=azure-cli-latest#az-ad-sp-create-for-rbac) command for [Azure CLI](/cli/azure/). Run this command using [Azure Cloud Shell](https://shell.azure.com) in the Azure portal or by selecting the **Try it** button.
 
 ```azurecli-interactive
 az ad sp create-for-rbac --name "myApp" --role contributor --scopes /subscriptions/<SUBSCRIPTION_ID>/resourceGroups/<RESOURCE_GROUP>/providers/Microsoft.Web/sites/<APP_NAME> --sdk-auth
@@ -90,7 +90,7 @@ In this example, replace the placeholders in the resource with your subscription
 
 GitHub can now authenticate to your function app in Azure.
 
-## Set up the environment 
+## Create the environment 
 
 Setting up the environment is done using a language-specific publish setup action.
 
@@ -155,7 +155,7 @@ The following example shows the part of the workflow that uses the `actions/setu
 
 This depends on the language and for languages supported by Azure Functions, this section should be the standard build steps of each language.
 
-The following example shows the part of the workflow that builds the function app, which is language specific:
+The following example shows the part of the workflow that builds the function app, which is language-specific:
 
 # [JavaScript](#tab/javascript)
 
@@ -219,8 +219,7 @@ The following example shows the part of the workflow that builds the function ap
 ---
 
 ## Deploy the function app
-
-To deploy your code to a function app, you will need to use the `Azure/functions-action` action. This action has three parameters:
+Use the `Azure/functions-action` action to deploy your code to a function app. This action has three parameters:
 
 |Parameter |Explanation  |
 |---------|---------|
