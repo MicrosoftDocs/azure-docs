@@ -49,7 +49,7 @@ Decryption via the envelope technique works in the following way:
 The storage client library uses [AES](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard) in order to encrypt user data. Specifically, [Cipher Block Chaining (CBC)](https://en.wikipedia.org/wiki/Block_cipher_mode_of_operation#Cipher-block_chaining_.28CBC.29) mode with AES. Each service works somewhat differently, so we will discuss each of them here.
 
 ### Blobs
-The client library currently supports encryption of whole blobs only. Specifically, encryption is supported when users use **BlobClient.Upload**. For downloads, both complete and range downloads are supported.
+The client library currently supports encryption of whole blobs only. For downloads, both complete and range downloads are supported.
 
 During encryption, the client library will generate a random Initialization Vector (IV) of 16 bytes, together with a random content encryption key (CEK) of 32 bytes, and perform envelope encryption of the blob data using this information. The wrapped CEK and some additional encryption metadata are then stored as blob metadata along with the encrypted blob on the service.
 
@@ -58,7 +58,7 @@ During encryption, the client library will generate a random Initialization Vect
 > 
 > 
 
-Downloading an encrypted blob involves retrieving the content of the entire blob using the **Download**/**DownloadTo**/**OpenRead** convenience methods. The wrapped CEK is unwrapped and used together with the IV (stored as blob metadata in this case) to return the decrypted data to the users.
+When downloading an entire blob, the wrapped CEK is unwrapped and used together with the IV (stored as blob metadata in this case) to return the decrypted data to the users.
 
 Downloading an arbitrary range in the encrypted blob involves adjusting the range provided by users in order to get a small amount of additional data that can be used to successfully decrypt the requested range.
 
@@ -77,7 +77,7 @@ During decryption, the wrapped key is extracted from the queue message and unwra
 
 ### Tables
 > [!NOTE]
-> Tables service is not supported in more recent versions of the storage libraries.
+> The Table service is supported in the Azure Storage client library through version 9.x only.
 > 
 > 
 
@@ -121,15 +121,17 @@ The storage client library uses the Key Vault interfaces in the core library in 
 There are two necessary packages for Key Vault integration:
 
 * Azure.Core contains the `IKeyEncryptionKey` and `IKeyEncryptionKeyResolver` interfaces. The storage client library for .NET already defines it as a dependency.
-* Azure.Security.KeyVault.Keys contains the Key Vault REST client, as well as cryptographic clients used with client-side encryption.
+* Azure.Security.KeyVault.Keys (v4.x) contains the Key Vault REST client, as well as cryptographic clients used with client-side encryption.
 
 # [.NET v11](#tab/dotnet11)
 
 There are three Key Vault packages:
 
 * Microsoft.Azure.KeyVault.Core contains the IKey and IKeyResolver. It is a small package with no dependencies. The storage client library for .NET defines it as a dependency.
-* Microsoft.Azure.KeyVault contains the Key Vault REST client.
-* Microsoft.Azure.KeyVault.Extensions contains extension code that includes implementations of cryptographic algorithms and an RSAKey and a SymmetricKey. It depends on the Core and KeyVault namespaces and provides functionality to define an aggregate resolver (when users want to use multiple key providers) and a caching key resolver. Although the storage client library does not directly depend on this package, if users wish to use Azure Key Vault to store their keys or to use the Key Vault extensions to consume the local and cloud cryptographic providers, they will need this package.
+* Microsoft.Azure.KeyVault (v3.x) contains the Key Vault REST client.
+* Microsoft.Azure.KeyVault.Extensions (v3.x) contains extension code that includes implementations of cryptographic algorithms and an RSAKey and a SymmetricKey. It depends on the Core and KeyVault namespaces and provides functionality to define an aggregate resolver (when users want to use multiple key providers) and a caching key resolver. Although the storage client library does not directly depend on this package, if users wish to use Azure Key Vault to store their keys or to use the Key Vault extensions to consume the local and cloud cryptographic providers, they will need this package.
+
+More information regarding Key Vault usage in v11 can be found in the [v11 encryption code samples](https://github.com/Azure/azure-storage-net/tree/master/Samples/GettingStarted/EncryptionSamples).
 
 ---
 
@@ -138,8 +140,6 @@ Key Vault is designed for high-value master keys, and throttling limits per Key 
 1. Create a secret offline and upload it to Key Vault.
 2. Use the secret's base identifier as a parameter to resolve the current version of the secret for encryption and cache this information locally. Use CachingKeyResolver for caching; users are not expected to implement their own caching logic.
 3. Use the caching resolver as an input while creating the encryption policy.
-
-More information regarding Key Vault usage  in v11 can be found in the [v11 encryption code samples](https://github.com/Azure/azure-storage-net/tree/master/Samples/GettingStarted/EncryptionSamples).
 
 ## Best practices
 Encryption support is available only in the storage client library for .NET. Windows Phone and Windows Runtime do not currently support encryption.
@@ -151,8 +151,8 @@ Encryption support is available only in the storage client library for .NET. Win
 > * For tables, a similar constraint exists. Be careful to not update encrypted properties without updating the encryption metadata.
 > * If you set metadata on the encrypted blob, you may overwrite the encryption-related metadata required for decryption, since setting metadata is not additive. This is also true for snapshots; avoid specifying metadata while creating a snapshot of an encrypted blob. If metadata must be set, be sure to call the **FetchAttributes** method first to get the current encryption metadata, and avoid concurrent writes while metadata is being set.
 > * Enable the **RequireEncryption** property in the default request options for users that should work only with encrypted data. See below for more info.
-> 
-> 
+>
+>
 
 ## Client API / Interface
 Users can provide only a key, only a resolver, or both. Keys are identified using a key identifier and provides the logic for wrapping/unwrapping. Resolvers are used to resolve a key during the decryption process. It defines a resolve method that returns a key given a key identifier. This provides users the ability to choose between multiple keys that are managed in multiple locations.
