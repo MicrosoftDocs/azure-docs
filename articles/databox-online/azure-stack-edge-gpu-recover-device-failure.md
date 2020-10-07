@@ -20,7 +20,7 @@ This article describes how to recover from a non-tolerable failure on your Azure
 Make sure that you have:
 
 - Contacted Microsoft Support regarding the device failure and they have recommended a device replacement. 
-- Backed up your device configuration as described in [Prepare for a device failure](azure-stack-edge-gpu-prep-device-failure.md).
+- Backed up your device configuration as described in [Prepare for a device failure](azure-stack-edge-gpu-prepare-device-failure.md).
 
 
 ## Configure replacement device
