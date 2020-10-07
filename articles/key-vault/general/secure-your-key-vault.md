@@ -23,7 +23,7 @@ For more information on Key Vault, see [About Azure Key Vault](overview.md); for
 
 Access to a key vault is controlled through two interfaces: the **management plane** and the **data plane**. The management plane is where you manage Key Vault itself. Operations in this plane include creating and deleting key vaults, retrieving Key Vault properties, and updating access policies. The data plane is where you work with the data stored in a key vault. You can add, delete, and modify keys, secrets, and certificates.
 
-Both planes use [Azure Active Directory (Azure AD)](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-whatis) for authentication. For authorization, the management plane uses [Azure role-based access control (RBAC)](https://docs.microsoft.com/azure/role-based-access-control/) and the data plane uses a [Key Vault access policy](https://docs.microsoft.com/en-us/azure/key-vault/general/assign-access-policy-portal) and [Azure RBAC for Key Vault data plane operations (preview)](https://docs.microsoft.com/azure/key-vault/general/rbac-guide).
+Both planes use [Azure Active Directory (Azure AD)](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-whatis) for authentication. For authorization, the management plane uses [Azure role-based access control (RBAC)](https://docs.microsoft.com/en-us/azure/role-based-access-control/overview) and the data plane uses a [Key Vault access policy](https://docs.microsoft.com/azure/key-vault/general/assign-access-policy-portal) and [Azure RBAC for Key Vault data plane operations (preview)](https://docs.microsoft.com/azure/key-vault/general/rbac-guide).
 
 To access a key vault in either plane, all callers (users or applications) must have proper authentication and authorization. Authentication establishes the identity of the caller. Authorization determines which operations the caller can execute. Authentication with Key Vault works in conjunction with [Azure Active Directory (Azure AD)](/azure/active-directory/fundamentals/active-directory-whatis), which is responsible for authenticating the identity of any given **security principal**.
 
@@ -142,7 +142,7 @@ Common scenarios for using Private Link for Azure services:
  
 - **Extend to your own services**: Enable the same experience and functionality to render your service privately to consumers in Azure. By placing your service behind a standard Azure Load Balancer, you can enable it for Private Link. The consumer can then connect directly to your service using a private endpoint in their own virtual network. You can manage the connection requests using an approval call flow. Azure Private Link works for consumers and services belonging to different Azure Active Directory tenants. 
 
-For more infromation about private endpoints, see [Key Vault with Azure Private Link](https://docs.microsoft.com/en-us/azure/key-vault/general/private-link-service)
+For more infromation about private endpoints, see [Key Vault with Azure Private Link](https://docs.microsoft.com/azure/key-vault/general/private-link-service)
 
 ## Example
 
