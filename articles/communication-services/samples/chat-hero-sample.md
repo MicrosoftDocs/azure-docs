@@ -2,7 +2,7 @@
 title: Group Chat Hero Sample
 titleSuffix: An Azure Communication Services sample overview
 description: Overview of chat hero sample using Azure Communication Services to enable developers to learn more about the inner workings of the sample and learn how to modify it.
-author: ddematheu
+author: ddematheu2
 manager: nimag
 services: azure-communication-services
 
