@@ -38,18 +38,18 @@ Network rules are enforced on all network protocols to Azure Cognitive Services,
 Virtual networks (VNETs) are supported in [regions where Cognitive Services are available](https://azure.microsoft.com/global-infrastructure/services/). Cognitive Services supports service tags for network rules configuration. The services listed below are included in the **CognitiveServicesManagement** service tag.
 
 > [!div class="checklist"]
-> * [Anomaly Detector](./anomaly-detector/index.yml)
-> * [Computer Vision](./computer-vision/index.yml)
-> * [Content Moderator](./content-moderator/index.yml)
-> * [Custom Vision](./custom-vision-service/index.yml)
-> * [Face](./face/index.yml)
-> * [Form Recognizer](./form-recognizer/index.yml)
-> * [Language Understanding (LUIS)](./luis/index.yml)
-> * [Personalizer](./personalizer/index.yml)
-> * [Text Analytics](./text-analytics/index.yml)
-> * [QnA Maker](./qnamaker/index.yml)
-> * [Translator Text](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#virtual-network-support)
-> * [Immersive Reader](./immersive-reader/index.yml)
+> * Anomaly Detector
+> * Computer Vision
+> * Content Moderator
+> * Custom Vision
+> * Face
+> * Form Recognizer
+> * Language Understanding (LUIS)
+> * Personalizer
+> * Text Analytics
+> * QnA Maker
+> * Translator Text
+> * Immersive Reader
 
 > [!NOTE]
 > If you're using LUIS, the **CognitiveServicesManagement** tag only enables you use the service using the SDK or REST API. To access and use the LUIS portal from a virtual network, you will need to use the following tags:  
