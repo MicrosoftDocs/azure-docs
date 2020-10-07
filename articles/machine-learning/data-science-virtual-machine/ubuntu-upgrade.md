@@ -132,7 +132,7 @@ In the **Disk name** dropdown, select the disk that you created from your old VM
 
 Select **Save** to update your virtual machine.
 
-> ![IMPORTANT]
+> ![Important]
 > Your VM should be running at the time you attach the data disk. If the VM isn't running, the disks may be added in an incorrect order, leading to a confusing and potentially non-bootable system. If you add the data disk with the VM off, choose the **X** beside the data disk, start the VM, and re-attach it.
 
 ### Manually copy the wanted data 
