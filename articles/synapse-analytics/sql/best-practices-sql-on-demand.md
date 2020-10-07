@@ -18,7 +18,7 @@ In this article, you'll find a collection of best practices for using serverless
 
 ## General considerations
 
-Serverless SQL pool allows you to query files in your Azure storage accounts. It doesn't have local storage or ingestion capabilities. So all files that the query targets are external toserverless SQL pool. Everything related to reading files from storage might have an impact on query performance.
+Serverless SQL pool allows you to query files in your Azure storage accounts. It doesn't have local storage or ingestion capabilities. So all files that the query targets are external to serverless SQL pool. Everything related to reading files from storage might have an impact on query performance.
 
 ## Colocate your Azure storage account and serverless SQL pool
 
@@ -138,4 +138,4 @@ If you need better performance, try using SAS credentials to access storage unti
 
 ## Next steps
 
-Review the [troubleshooting](../sql-data-warehouse/sql-data-warehouse-troubleshoot.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) article for solutions to common problems. If you're working with a dedicated SQL pool rather than serverless SQL pool, see [Best practices for SQL pools](best-practices-sql-pool.md) for specific guidance.
+Review the [troubleshooting](../sql-data-warehouse/sql-data-warehouse-troubleshoot.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) article for solutions to common problems. If you're working with dedicated SQL pool rather than serverless SQL pool, see [Best practices for SQL pools](best-practices-sql-pool.md) for specific guidance.
