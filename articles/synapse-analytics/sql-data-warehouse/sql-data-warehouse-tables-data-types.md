@@ -1,6 +1,6 @@
 ---
-title: Table data types in Synapse SQL pool
-description: Recommendations for defining table data types in Synapse SQL pool. 
+title: Table data types in dedicated SQL pool
+description: Recommendations for defining table data types in dedicated Synapse SQL pool. 
 services: synapse-analytics
 author: filippopovic
 manager: craigg
@@ -13,13 +13,13 @@ ms.reviewer: jrasnick
 ms.custom: 
 ---
 
-# Table data types in Synapse SQL pool
+# Table data types for dedicated SQL pool in Azure Synapse Analytics 
 
-Included in this article are recommendations for defining table data types in SQL pool.
+Included in this article are recommendations for defining table data types in dedicated SQL pool.
 
 ## Supported data types
 
-SQL pool supports the most commonly used data types. For a list of the supported data types, see [data types](/sql/t-sql/statements/create-table-azure-sql-data-warehouse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest#DataTypes) in the CREATE TABLE statement.
+Dedicated SQL pool supports the most commonly used data types. For a list of the supported data types, see [data types](/sql/t-sql/statements/create-table-azure-sql-data-warehouse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest#DataTypes) in the CREATE TABLE statement.
 
 ## Minimize row length
 
@@ -33,7 +33,7 @@ If you're using PolyBase external tables to load your tables, the defined length
 
 ## Identify unsupported data types
 
-If you're migrating your database from another SQL database, you might find data types that aren't supported in SQL pool. Use the following query to discover unsupported data types in your existing SQL schema:
+If you're migrating your database from another SQL database, you might find data types that aren't supported in dedicated SQL pool. Use the following query to discover unsupported data types in your existing SQL schema:
 
 ```sql
 SELECT  t.[name], c.[name], c.[system_type_id], c.[user_type_id], y.[is_user_defined], y.[name]
@@ -46,7 +46,7 @@ WHERE y.[name] IN ('geography','geometry','hierarchyid','image','text','ntext','
 
 ## <a name="unsupported-data-types"></a>Workarounds for unsupported data types
 
-The following list shows the data types that SQL pool doesn't support and gives useful alternatives for unsupported data types.
+The following list shows the data types that dedicated SQL pool doesn't support and gives useful alternatives for unsupported data types.
 
 | Unsupported data type | Workaround |
 | --- | --- |
