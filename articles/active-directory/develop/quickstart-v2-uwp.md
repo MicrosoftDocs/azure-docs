@@ -70,7 +70,7 @@ This quickstart contains a code sample that demonstrates how a Universal Windows
 
 > [!div class="sxs-lookup" renderon="portal"]
 > Run the project using Visual Studio 2019.
-> [!div renderon="portal" id="autoupdate" class="nextstepaction"]
+> [!div class="sxs-lookup" renderon="portal" id="autoupdate" class="nextstepaction"]
 > [Download the code sample](https://github.com/Azure-Samples/active-directory-dotnet-native-uwp-v2/archive/msal3x.zip)
 
 > [!div class="sxs-lookup" renderon="portal"]

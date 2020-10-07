@@ -342,11 +342,12 @@ Your development machine now has access to your container registry, and your IoT
 
 ## Deploy modules to device
 
-Use the Visual Studio cloud explorer and the Azure IoT Edge Tools extension to deploy the module project to your IoT Edge device. You already have a deployment manifest prepared for your scenario, the **deployment.windows-amd64.json** file in the config folder. All you need to do now is select a device to receive the deployment.
+Use Visual Studio Cloud Explorer and the Azure IoT Edge Tools extension to deploy the module project to your IoT Edge device. You already have a deployment manifest prepared for your scenario, the **deployment.windows-amd64.json** file in the config folder. All you need to do now is select a device to receive the deployment.
+
 
 Make sure that your IoT Edge device is up and running.
 
-1. In the Visual Studio cloud explorer, expand the resources to see your list of IoT devices.
+1. In Visual Studio Cloud Explorer, expand the resources to see your list of IoT devices.
 
 2. Right-click the name of the IoT Edge device that you want to receive the deployment.
 
@@ -354,7 +355,7 @@ Make sure that your IoT Edge device is up and running.
 
 4. In the file explorer, select the **deployment.windows-amd64** file in the config folder of your solution.
 
-5. Refresh the cloud explorer to see the deployed modules listed under your device.
+5. Refresh Cloud Explorer to see the deployed modules listed under your device.
 
 ## View generated data
 
@@ -362,7 +363,7 @@ Once you apply the deployment manifest to your IoT Edge device, the IoT Edge run
 
 You can use the IoT Edge Tools extension to view messages as they arrive at your IoT Hub.
 
-1. In the Visual Studio cloud explorer, select the name of your IoT Edge device.
+1. In the Visual Studio Cloud Explorer, select the name of your IoT Edge device.
 
 2. In the **Actions** list, select **Start Monitoring Built-in Event Endpoint**.
 
