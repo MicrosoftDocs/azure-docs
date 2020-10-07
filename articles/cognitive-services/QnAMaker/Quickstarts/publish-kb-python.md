@@ -1,6 +1,8 @@
 ---
 title: "Quickstart: Publish knowledge base, REST, Python - QnA Maker"
 description: This Python REST-based quickstart publishes your knowledge base and creates an endpoint that can be called in your application or chat bot.
+ms.service: cognitive-services
+ms.subservice: qna-maker
 ms.date: 02/08/2020
 ROBOTS: NOINDEX,NOFOLLOW
 ms.custom: RESTCURL2020FEB27, devx-track-python
