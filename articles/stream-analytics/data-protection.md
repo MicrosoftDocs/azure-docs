@@ -71,7 +71,7 @@ Use the following steps to configure your storage account for private data asset
 
 
 ### Known issues
-There is a known limitation where a job using customer managed key runs into failures when using managed identity to authenticate to any inputs or outputs. We are working on removing this limitation in the near future.
+Currently, there is a known limitation where a job using customer managed key runs into failures when using managed identity to authenticate to any inputs or outputs.
 
 ## Next steps
 
