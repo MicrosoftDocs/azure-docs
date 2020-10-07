@@ -99,7 +99,7 @@ First, download a custom Azure Digital Twins Swagger that has been modified to w
 The custom Swagger for this tutorial is located in the _**Azure_Digital_Twins_Custom_Swaggers\LogicApps**_ folder. This folder contains subfolders called *stable* and *preview*, both of which hold different versions of the Swagger organized by date. The folder with the most recent date will contain the latest copy of the Swagger. Whichever version you select, the Swagger file is named _**digitaltwins.json**_.
 
 > [!NOTE]
-> It's recommended to use the most recent version of the Swagger. However, earlier versions of the Swagger are also still supported. 
+> Unless you're working with a preview feature, it's generally recommended to use the most recent *stable* version of the Swagger. However, earlier versions and preview versions of the Swagger are also still supported. 
 
 Next, go to your connector's Overview page in the [Azure portal](https://portal.azure.com) and hit *Edit*.
 
