@@ -4,11 +4,11 @@ Follow these steps to run the sample code:
 1. Right click and select **Extension Settings**.
 
     > [!div class="mx-imgBorder"]
-    > :::image type="content" source="../../media/run-program/extensions-tab.png" alt-text="Extension Settings":::
+    > :::image type="content" source="../../../media/run-program/extensions-tab.png" alt-text="Extension Settings":::
 1. Search and enable “Show Verbose Message”.
 
     > [!div class="mx-imgBorder"]
-    > :::image type="content" source="../../media/run-program/show-verbose-message.png" alt-text="Show Verbose Message":::
+    > :::image type="content" source="../../../media/run-program/show-verbose-message.png" alt-text="Show Verbose Message":::
 1. In Visual Studio Code, go to *src/cloud-to-device-console-app/operations.json*.
 1. On the **GraphTopologySet** node, make sure you see the following value:
 
