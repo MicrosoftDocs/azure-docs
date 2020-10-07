@@ -33,14 +33,15 @@ az sig image-version list \
 ```
 
 
-In this example, we create a managed disk named *myManagedDisk*, in the *EastUS* region, in a resource group named *myResourceGroup*.
+In this example, we create a managed disk named *myManagedDisk*, in the *EastUS* region, in a resource group named *myResourceGroup*. 
 
 ```azurecli-interactive
 source="/subscriptions/<subscriptionId>/resourceGroups/<resourceGroupName>/providers/Microsoft.Compute/galleries/<galleryName>/images/<galleryImageDefinition>/versions/<imageVersion>"
 
-az disk create --resource-group myResourceGroup --location EastUS --name myManagedDisk --gallery-image-reference $source
+az disk create --resource-group myResourceGroup --location EastUS --name myManagedDisk --gallery-image-reference $source 
 ```
 
+If the disk is a data disk, add `--gallery-image-reference-lun` to specify the LUN.
 
 ## PowerShell
 
