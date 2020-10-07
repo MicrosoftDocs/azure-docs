@@ -163,7 +163,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
     ![Litmus Configuration](./media/litmus-tutorial/user-profile.png)
 
-    a. In the **Email** textbox, enter the email address of the user like **B.Simon@contoso.com**
+    a. In the **Email** textbox, enter the email address of the user like **B.Simon\@contoso.com**
 
     b. In the **First Name** textbox, enter the first name of the user like **B**.
 
