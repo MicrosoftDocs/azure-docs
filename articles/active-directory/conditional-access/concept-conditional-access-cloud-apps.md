@@ -42,11 +42,11 @@ Administrators can assign a Conditional Access policy to the following cloud app
 - Microsoft Cloud App Security
 - Microsoft Commerce Tools Access Control Portal
 - Microsoft Commerce Tools Authentication Service
-- Microsoft Flow
 - Microsoft Forms
 - Microsoft Intune
 - [Microsoft Intune Enrollment](/intune/enrollment/multi-factor-authentication)
 - Microsoft Planner
+- Microsoft Power Automate
 - Microsoft PowerApps
 - Microsoft Search in Bing
 - Microsoft StaffHub
@@ -74,8 +74,8 @@ Administrators can choose to exclude specific apps from policy if they wish by i
 
 Key applications that are included in the Office 365 client app:
 
-   - Microsoft Flow
    - Microsoft Forms
+   - Microsoft Power Automate
    - Microsoft Stream
    - Microsoft To-Do
    - Microsoft Teams
