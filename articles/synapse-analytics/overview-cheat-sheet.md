@@ -24,7 +24,7 @@ A **Synapse workspace** is a securable collaboration boundary for doing cloud-ba
 A workspace allows you to perform analytics with SQL and Apache spark. Resources available for SQL and Spark analytics are organized into SQL and Spark **pools**. 
 
 ## Synapse SQL
-**Synapse SQL** is the ability to do T-SQL based analytics in Synapse workspace. Synapse SQL has two consumption models: dedicated and serverless.  For the dedicated  model, use dedicated **SQL pools**. A workspace can have any number of these pools. To use the serverless model, use the serverless SQL pool called "SQL on-demand". Every workspace has one of these pools.
+**Synapse SQL** is the ability to do T-SQL based analytics in Synapse workspace. Synapse SQL has two consumption models: dedicated and serverless.  For the dedicated  model, use dedicated **SQL pools**. A workspace can have any number of these pools. To use the serverless model, use serverless SQL pool. Every workspace has one of these pools.
 
 ## Apache Spark for Synapse
 To use Spark analytics, create and use **Spark pools** in your Synapse workspace.
@@ -32,7 +32,7 @@ To use Spark analytics, create and use **Spark pools** in your Synapse workspace
 ## SQL Terminology
 | Term                         | Definition      |
 |:---                                 |:---                 |
-| **SQL Request**  |   Operation such as a query run through SQL pool or SQL on-demand. |
+| **SQL Request**  |   Operation such as a query run through dedicated SQL pool or serverless SQL pool. |
 
 ## Spark Terminology
 | Term                         | Definition      |
@@ -46,7 +46,7 @@ To use Spark analytics, create and use **Spark pools** in your Synapse workspace
 |**Notebook**| Interactive and reactive Data Science and Engineering interface supporting Scala, PySpark, C#, and SparkSQL. |
 |**Spark job definition**|Interface to submit a Spark job by with assembly jar containing the code and its dependencies.|
 |**Data Flow**|  Provides a fully visual experience with no coding required to do big data transformation. All optimization and execution are handled in a serverless fashion. |
-|**SQL script**| Set of SQL commands saved in a file. A SQL script can contain one or more SQL statements. It can be used to run SQL requests through SQL pool or SQL on-demand.|
+|**SQL script**| Set of SQL commands saved in a file. A SQL script can contain one or more SQL statements. It can be used to run SQL requests through dedicated SQL pool or serverless SQL pool.|
 |**Pipeline**| Logical grouping of activities that perform a task together.|
 |**Activity**| Defines actions to perform on data such as copying data, running a Notebook or a SQL script.|
 |**Trigger**| Executes a pipeline. It can be run manually or automatically (schedule, tumbling window or event-based).|
@@ -59,5 +59,5 @@ To use Spark analytics, create and use **Spark pools** in your Synapse workspace
 - [Use Synapse Studio](quickstart-synapse-studio.md)
 - [Create a SQL pool](quickstart-create-sql-pool-portal.md)
 - [Create a serverless Apache Spark pool](quickstart-create-apache-spark-pool-portal.md)
-- [Use SQL on-demand](quickstart-sql-on-demand.md)
+- [Use serverless SQL pool](quickstart-sql-on-demand.md)
 
