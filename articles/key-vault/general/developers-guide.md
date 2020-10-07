@@ -56,6 +56,11 @@ For more information, see:
 |--|--|--|--|
 |[Azure Identity SDK .NET](https://docs.microsoft.com/dotnet/api/overview/azure/identity-readme)|[Azure Identity SDK Python](https://docs.microsoft.com/python/api/overview/azure/identity-readme)|[Azure Identity SDK Java](https://docs.microsoft.com/java/api/overview/azure/identity-readme)|[Azure Identity SDK JavaScript](https://docs.microsoft.com/javascript/api/overview/azure/identity-readme)|     
 
+Authenticate to Key Vault in applications:
+- [Authenticate to Key Vault in application hosted in VM in .NET](https://docs.microsoft.com/azure/key-vault/general/tutorial-net-virtual-machine)
+- [Authenticate to Key Vault in application hosted in VM in Python](https://docs.microsoft.com/azure/key-vault/general/tutorial-python-virtual-machine)
+- [Authenticate to Key Vault with App Service](https://docs.microsoft.com/azure/key-vault/general/tutorial-net-create-vault-azure-web-app)
+
 ## Manage keys, certificates, and secrets
 
 Access to keys, secrets, and certificates is controlled by data plane. Data plane access control can be done using local vault access policies or RBAC (preview).
@@ -106,9 +111,13 @@ The following articles and scenarios provide task-specific guidance for working 
 
 These articles are about other scenarios and services that use or integrate with Key Vault.
 
-- [Encryption at REST with Key Vault](https://docs.microsoft.com/azure/security/fundamentals/encryption-atrest)
-
+- [Encryption at rest](https://docs.microsoft.com/azure/security/fundamentals/encryption-atrest) allows the encoding (encryption) of data when it is persisted. Data encryption keys are often encrypted with a key encryption key in Azure Key Vault to further limit access.
 - [Azure Information Protection](/azure/information-protection/plan-implement-tenant-key) allows you to manager your own tenant key. For example, instead of Microsoft managing your tenant key (the default), you can manage your own tenant key to comply with specific regulations that apply to your organization. Managing your own tenant key is also referred to as bring your own key, or BYOK.
+- [Azure Private Link Service](private-link-service.md) enables you to access Azure Services (for example, Azure Key Vault, Azure Storage, and Azure Cosmos DB) and Azure hosted customer/partner services over a Private Endpoint in your virtual network.
+- Key Vault integration with [Event Grid](https://docs.microsoft.com/azure/event-grid/event-schema-key-vault)  allows users to be notified when the status of a secret  stored in key vault has changed. You can distribute new version of secrets to applications or rotate near expiry secrets to prevent outages.
+- You can protect your [Azure Devops](https://docs.microsoft.com/azure/devops/pipelines/release/azure-key-vault) secrets from unwanted access in Key Vault.
+- [Use secret stored in Key Vault in DataBricks to connect to Azure Storage](https://docs.microsoft.com/azure/key-vault/general/integrate-databricks-blob-storage)
+- Configure and run the Azure Key Vault provider for the [Secrets Store CSI driver](https://docs.microsoft.com/azure/key-vault/general/key-vault-integrate-kubernetes) on Kubernetes
 
 ## Key Vault overviews and concepts
 
