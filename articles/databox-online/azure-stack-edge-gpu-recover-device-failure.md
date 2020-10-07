@@ -1,6 +1,6 @@
 ---
-title: Recover from an Azure Stack Edge Pro device failure | Microsoft Docs 
-description: Describes how to recover from a Azure Stack Edge Pro failed device.
+title: Recover from an Azure Stack Edge Pro device failure 
+description: Describes how to recover from an Azure Stack Edge Pro failed device.
 services: databox
 author: alkohli
 

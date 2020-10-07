@@ -1,6 +1,6 @@
 ---
-title: Replace your Azure Stack Edge Pro failed device | Microsoft Docs 
-description: Describes how to get a replacement Azure Stack Edge Pro for a failed device.
+title: Prepare for Azure Stack Edge Pro device failure
+description: Describes how to get a replacement for an Azure Stack Edge Pro failed device.
 services: databox
 author: alkohli
 
