@@ -36,7 +36,7 @@ You create a workspace via the Azure portal, a web-based console for managing yo
 >[!IMPORTANT]
 > Take note of your *workspace* and *subscription*. You'll need this information to ensure you create your experiment in the right place.
 
-## <a name="azure"></a>Run notebook in your workspace
+## <a name="azure"></a>Run a notebook in your workspace
 
 Machine Learning includes a cloud notebook server in your workspace for an install-free and preconfigured experience. Use [your own environment](tutorial-1st-experiment-sdk-setup-local.md) if you prefer to have control over your environment, packages, and dependencies.
 
@@ -46,7 +46,7 @@ Machine Learning includes a cloud notebook server in your workspace for an insta
 
 ### Clone a notebook folder
 
-You complete the following experiment setup and run steps in Machine Learning studio, a consolidated interface that includes machine learning tools to perform data science scenarios for data science practitioners of all skill levels.
+You complete the following experiment setup and run steps in Machine Learning studio. This consolidated interface includes machine learning tools to perform data science scenarios for data science practitioners of all skill levels.
 
 1. Sign in to [Machine Learning studio](https://ml.azure.com/).
 
@@ -77,26 +77,26 @@ You complete the following experiment setup and run steps in Machine Learning st
 
     :::image type="content" source="media/tutorial-1st-experiment-sdk-setup/expand-user-folder.png" alt-text="Screenshot that shows the Open tutorials folder.":::
 
-1. On the top bar, select a compute instance to use to run the notebook. These VMs are preconfigured with [everything you need to run Machine Learning](concept-compute-instance.md#contents).
+1. On the top bar, select a compute instance to use to run the notebook. These virtual machines (VMs) are preconfigured with [everything you need to run Machine Learning](concept-compute-instance.md#contents).
 
 1. If no VMs are found, select **+ Add** to create the compute instance VM.
 
     1. When you create a VM, follow these rules:
  
-        + Name is required and can't be empty.
-        + Name needs to be unique (in a case-insensitive fashion) across all existing compute instances in the Azure region of the workspace or compute instance. You'll get an alert if the name you choose isn't unique.
-        + Valid characters are upper- and lowercase letters, numbers (0 to 9), and the dash character (-).
-        + Name must be between 3 and 24 characters long.
-        + Name should start with a letter (not a number or a dash character).
-        + If a dash character is used, it needs to be followed by at least one letter after the dash. For example, Test-, test-0, test-01 are invalid, while test-a0, test-0a are valid instances.
+        + A name is required, and the field can't be empty.
+        + The name must be unique (in a case-insensitive fashion) across all existing compute instances in the Azure region of the workspace or compute instance. You'll get an alert if the name you choose isn't unique.
+        + Valid characters are uppercase and lowercase letters, numbers 0 to 9, and the dash character (-).
+        + The name must be between 3 and 24 characters long.
+        + The name should start with a letter, not a number or a dash character.
+        + If a dash character is used, it must be followed by at least one letter after the dash. For example, Test-, test-0, test-01 are invalid, while test-a0, test-0a are valid instances.
 
-    1. Select the Virtual Machine size from the available choices. For the tutorials, the default VM is a good choice.
+    1. Select the VM size from the available choices. For the tutorials, the default VM is a good choice.
 
     1. Then select **Create**. It can take approximately five minutes to set up your VM.
 
 1. When the VM is available, it appears in the top toolbar. You can now run the notebook by using either **Run all** in the toolbar or **Shift+Enter** in the code cells of the notebook.
 
-If you have custom widgets or prefer to use Jupyter/JupyterLab, select the **Jupyter** drop-down list on the far right. Then select **Jupyter** or **JupyterLab**. The new browser window opens.
+If you have custom widgets or prefer to use Jupyter or JupyterLab, select the **Jupyter** drop-down list on the far right. Then select **Jupyter** or **JupyterLab**. The new browser window opens.
 
 ## Next steps
 

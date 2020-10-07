@@ -14,11 +14,11 @@ ms.date: 09/17/2020
 
 You can use any of the following resources for a training compute target for most jobs. Not all resources can be used for automated machine learning, machine learning pipelines, or designer.
 
-|Training &nbsp;targets|[Automated machine learning](../articles/machine-learning/concept-automated-ml.md) | [Azure Machine Learning pipelines](../articles/machine-learning/concept-ml-pipelines.md) | [Azure Machine Learning designer](../articles/machine-learning/concept-designer.md)
+|Training &nbsp;targets|[Automated machine learning](../articles/machine-learning/concept-automated-ml.md) | [Machine learning pipelines](../articles/machine-learning/concept-ml-pipelines.md) | [Azure Machine Learning designer](../articles/machine-learning/concept-designer.md)
 |----|:----:|:----:|:----:|
 |[Local computer](../articles/machine-learning/how-to-attach-compute-targets.md#local)| Yes | &nbsp; | &nbsp; |
-|[Machine Learning compute cluster](../articles/machine-learning/how-to-create-attach-compute-cluster.md)| Yes | Yes | Yes |
-|[Machine Learning compute instance](../articles/machine-learning/how-to-create-manage-compute-instance.md) | Yes (through SDK)  | Yes |  |
+|[Azure Machine Learning compute cluster](../articles/machine-learning/how-to-create-attach-compute-cluster.md)| Yes | Yes | Yes |
+|[Azure Machine Learning compute instance](../articles/machine-learning/how-to-create-manage-compute-instance.md) | Yes (through SDK)  | Yes |  |
 |[Remote VM](../articles/machine-learning/how-to-attach-compute-targets.md#vm) | Yes  | Yes | &nbsp; |
 |[Azure&nbsp;Databricks](../articles/machine-learning/how-to-attach-compute-targets.md#databricks)| Yes (SDK local mode only) | Yes | &nbsp; |
 |[Azure Data Lake Analytics](../articles/machine-learning/how-to-attach-compute-targets.md#adla) | &nbsp; | Yes | &nbsp; |

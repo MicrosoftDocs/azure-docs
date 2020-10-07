@@ -40,7 +40,7 @@ The following compute resources can be used to host your model deployment.
 
 When performing inference, Machine Learning creates a Docker container that hosts the model and associated resources needed to use it. This container is then used in one of the following deployment scenarios:
 
-* As a web service that's used for real-time inference. Web service deployments use one of the following compute targets:
+* As a *web service* that's used for real-time inference. Web service deployments use one of the following compute targets:
 
     * [Local computer](how-to-attach-compute-targets.md#local)
     * [Machine Learning compute instance](how-to-create-manage-compute-instance.md)
@@ -96,22 +96,22 @@ See the following table to learn more about supported series and restrictions.
 
 | **Supported VM series**  | **Restrictions** |
 |------------|------------|
-| D | None |
-| Dv2 | None |  
-| Dv3 | None|
-| DSv2 | None | 
-| DSv3 | None|
-| FSv2 | None | 
-| HBv2 | Requires approval |  
-| HCS | Requires approval |  
-| M | Requires approval |
-| NC | None |    
-| NCsv2 | Requires approval |
-| NCsv3 | Requires approval |  
-| NDs | Requires approval |
-| NDv2 | Requires approval |
-| NV | None |
-| NVv3 | Requires approval | 
+| D | None. |
+| Dv2 | None. |  
+| Dv3 | None.|
+| DSv2 | None. | 
+| DSv3 | None.|
+| FSv2 | None. | 
+| HBv2 | Requires approval. |  
+| HCS | Requires approval. |  
+| M | Requires approval. |
+| NC | None. |    
+| NCsv2 | Requires approval. |
+| NCsv3 | Requires approval. |  
+| NDs | Requires approval. |
+| NDv2 | Requires approval. |
+| NV | None. |
+| NVv3 | Requires approval. | 
 
 
 While Machine Learning supports these VM series, they might not be available in all Azure regions. To check whether VM series are available, see [Products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=virtual-machines).
