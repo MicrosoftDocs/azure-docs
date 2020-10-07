@@ -188,6 +188,8 @@
             - name: Use Private Link
               displayName: private endpoint
               href: how-to-configure-private-link.md
+            - name: Use custom DNS
+              href: how-to-custom-dns.md
             - name: Configure secure web services
               displayName: ssl, tls
               href: how-to-secure-web-service.md
