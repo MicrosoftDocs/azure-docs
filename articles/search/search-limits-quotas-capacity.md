@@ -46,7 +46,7 @@ Maximum limits on storage, workloads, and quantities of indexes and other object
 
 <sup>1</sup> Basic services created before December 2017 have lower limits (5 instead of 15) on indexes. Basic tier is the only SKU with a lower limit of 100 fields per index.
 
-<sup>2</sup> An element of a complex collection is a member of that collection (for example, a room in the Rooms collection of a Hotel document). During indexing, the indexing engine can safely process a maximum of 3000 elements across the document as a whole. This limit was introduced in `api-version=2019-05-06` and applies to complex collections only, and not to string collections or complex fields. For more information, see [Indexing complex types](search-howto-complex-data-types.md#indexing-complex-types).
+<sup>2</sup> An element of a complex collection is a member of that collection (for example, a room in the Rooms collection of a Hotel document). During indexing, the indexing engine can safely process a maximum of 3000 elements across the document as a whole. [This limit](search-api-migration.md#upgrade-to-2019-05-06) was introduced in `api-version=2019-05-06` and applies to complex collections only, and not to string collections or complex fields. For more information, see [Indexing complex types](search-howto-complex-data-types.md#indexing-complex-types).
 
 <a name="document-limits"></a>
 
