@@ -81,7 +81,6 @@ Service Tags:
 * AzureActiveDirectory
 * AzureTrafficManager
 * AzureArcInfrastructure
-* GuestAndHybridManagement
 
 URLs:
 
