@@ -59,7 +59,7 @@ definition:
 |description|Text describing what the activity does.|No|
 |type|For Databricks Jar Activity, the activity type is DatabricksSparkJar.|Yes|
 |linkedServiceName|Name of the Databricks Linked Service on which the Jar activity runs. To learn about this linked service, see [Compute linked services](compute-linked-services.md) article.|Yes|
-|mainClassName|The full name of the class containing the main method to be executed. This class must be contained in a JAR provided as a library.|Yes|
+|mainClassName|The full name of the class containing the main method to be executed. This class must be contained in a JAR provided as a library. Multiple main classes may exist in one JAR.|Yes|
 |parameters|Parameters that will be passed to the main method.  This is an array of strings.|No|
 |libraries|A list of libraries to be installed on the cluster that will execute the job. It can be an array of <string, object>|Yes (at least one containing the mainClassName method)|
 
