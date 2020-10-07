@@ -334,7 +334,7 @@ The following sections demonstrate how to manage the Azure Cosmos DB container, 
 * [Create a container with TTL enabled](#create-a-container-with-ttl)
 * [Create a container with custom index policy](#create-a-container-with-a-custom-index-policy)
 * [Change container throughput](#change-container-throughput)
-* [Migrate a container to autoscale throughput](migrate-a-container-to-autoscale-throughput)
+* [Migrate a container to autoscale throughput](#migrate-a-container-to-autoscale-throughput)
 * [Prevent a container from being deleted](#prevent-a-container-from-being-deleted)
 
 ### Create a container

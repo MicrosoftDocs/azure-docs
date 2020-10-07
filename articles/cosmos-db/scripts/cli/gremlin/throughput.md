@@ -9,7 +9,7 @@ ms.topic: sample
 ms.date: 10/07/2020
 ---
 
-# Throughput (RU/s) operations for a database or graph for Azure Cosmos DB - Gremlin API
+# Throughput (RU/s) operations with Azure CLI for a database or graph for Azure Cosmos DB - Gremlin API
 
 [!INCLUDE [cloud-shell-try-it.md](../../../../../includes/cloud-shell-try-it.md)]
 
@@ -41,8 +41,8 @@ This script uses the following commands. Each command in the table links to comm
 | [az cosmosdb gremlin graph create](/cli/azure/cosmosdb/gremlin/graph#az-cosmosdb-gremlin-graph-create) | Creates an Azure Cosmos Gremlin graph. |
 | [az cosmosdb gremlin database throughput update](/cli/azure/cosmosdb/gremlin/database/throughput#az-cosmosdb-gremlin-database-throughput-update) | Update RU/s for an Azure Cosmos Gremlin database. |
 | [az cosmosdb gremlin graph throughput update](/cli/azure/cosmosdb/gremlin/graph/throughput#az-cosmosdb-gremlin-graph-throughput-update) | Update RU/s for an Azure Cosmos Gremlin graph. |
-| [az cosmosdb gremlin database throughput migrate](/cli/azure/cosmosdb/gremlin/database/throughput?view=azure-cli-latest#az_cosmosdb_gremlin_database_throughput_migrate) | Migrate throughput for an Azure Cosmos Gremlin database. |
-| [az cosmosdb gremlin graph throughput migrate](/cli/azure/cosmosdb/gremlin/graph/throughput?view=azure-cli-latest#az_cosmosdb_gremlin_graph_throughput_migrate) | Migrate throughput for an Azure Cosmos Gremlin graph. |
+| [az cosmosdb gremlin database throughput migrate](/cli/azure/cosmosdb/gremlin/database/throughput#az_cosmosdb_gremlin_database_throughput_migrate) | Migrate throughput for an Azure Cosmos Gremlin database. |
+| [az cosmosdb gremlin graph throughput migrate](/cli/azure/cosmosdb/gremlin/graph/throughput#az_cosmosdb_gremlin_graph_throughput_migrate) | Migrate throughput for an Azure Cosmos Gremlin graph. |
 | [az group delete](/cli/azure/resource#az-resource-delete) | Deletes a resource group including all nested resources. |
 
 ## Next steps

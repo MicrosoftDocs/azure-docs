@@ -9,7 +9,7 @@ ms.date: 10/07/2020
 ms.author: mjbrown
 ---
 
-# Throughput (RU/s) operations for a table for Azure Cosmos DB - Table API
+# Throughput (RU/s) operations with PowerShell for a table for Azure Cosmos DB - Table API
 
 [!INCLUDE [updated-for-az](../../../../../includes/updated-for-az.md)]
 

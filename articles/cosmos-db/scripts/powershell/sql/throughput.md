@@ -9,7 +9,7 @@ ms.date: 10/07/2020
 ms.author: mjbrown
 ---
 
-# Throughput (RU/s) operations for a database or container for Azure Cosmos DB Core (SQL) API
+# Throughput (RU/s) operations with PowerShell for a database or container for Azure Cosmos DB Core (SQL) API
 
 [!INCLUDE [updated-for-az](../../../../../includes/updated-for-az.md)]
 

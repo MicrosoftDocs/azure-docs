@@ -9,7 +9,7 @@ ms.date: 10/07/2020
 ms.author: mjbrown
 ---
 
-# Throughput (RU/s) operations for a database or collection for Azure Cosmos DB API for MongoDB
+# Throughput (RU/s) operations with PowerShell for a database or collection for Azure Cosmos DB API for MongoDB
 
 [!INCLUDE [updated-for-az](../../../../../includes/updated-for-az.md)]
 

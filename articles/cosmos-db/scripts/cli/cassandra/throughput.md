@@ -9,7 +9,7 @@ ms.topic: sample
 ms.date: 10/07/2020
 ---
 
-# Throughput (RU/s) operations for a keyspace or table for Azure Cosmos DB - Cassandra API
+# Throughput (RU/s) operations with Azure CLI for a keyspace or table for Azure Cosmos DB - Cassandra API
 
 [!INCLUDE [cloud-shell-try-it.md](../../../../../includes/cloud-shell-try-it.md)]
 
@@ -39,10 +39,10 @@ This script uses the following commands. Each command in the table links to comm
 | [az cosmosdb create](/cli/azure/cosmosdb#az-cosmosdb-create) | Creates an Azure Cosmos DB account. |
 | [az cosmosdb cassandra keyspace create](/cli/azure/cosmosdb/cassandra/keyspace#az-cosmosdb-cassandra-keyspace-create) | Creates an Azure Cosmos Cassandra keyspace. |
 | [az cosmosdb cassandra table create](/cli/azure/cosmosdb/cassandra/table#az-cosmosdb-cassandra-table-create) | Creates an Azure Cosmos Cassandra table. |
-| [az cosmosdb cassandra keyspace throughput update](/cli/azure/cosmosdb/cassandra/keyspace/throughput?view=azure-cli-latest&preserve-view=true#az-cosmosdb-cassandra-keyspace-throughput-update) | Update RU/s for an Azure Cosmos Cassandra keyspace. |
+| [az cosmosdb cassandra keyspace throughput update](/cli/azure/cosmosdb/cassandra/keyspace/throughput#az-cosmosdb-cassandra-keyspace-throughput-update) | Update RU/s for an Azure Cosmos Cassandra keyspace. |
 | [az cosmosdb cassandra table throughput update](/cli/azure/cosmosdb/cassandra/table/throughput#az-cosmosdb-cassandra-table-throughput-update) | Update RU/s for an Azure Cosmos Cassandra table. |
-| [az cosmosdb cassandra keyspace throughput migrate](/cli/azure/cosmosdb/cassandra/keyspace/throughput?view=azure-cli-latest#az_cosmosdb_cassandra_keyspace_throughput_migrate) | Migrate throughput for an Azure Cosmos Cassandra keyspace. |
-| [az cosmosdb cassandra table throughput migrate](/cli/azure/cosmosdb/cassandra/table/throughput?view=azure-cli-latest#az_cosmosdb_cassandra_table_throughput_migrate) | Migrate throughput for an Azure Cosmos Cassandra table. |
+| [az cosmosdb cassandra keyspace throughput migrate](/cli/azure/cosmosdb/cassandra/keyspace/throughput#az_cosmosdb_cassandra_keyspace_throughput_migrate) | Migrate throughput for an Azure Cosmos Cassandra keyspace. |
+| [az cosmosdb cassandra table throughput migrate](/cli/azure/cosmosdb/cassandra/table/throughput#az_cosmosdb_cassandra_table_throughput_migrate) | Migrate throughput for an Azure Cosmos Cassandra table. |
 | [az group delete](/cli/azure/resource#az-resource-delete) | Deletes a resource group including all nested resources. |
 
 ## Next steps

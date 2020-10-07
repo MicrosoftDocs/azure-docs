@@ -9,7 +9,7 @@ ms.topic: sample
 ms.date: 10/07/2020
 ---
 
-# Throughput (RU/s) operations for a database or graph for Azure Cosmos DB Core (SQL) API
+# Throughput (RU/s) operations with Azure CLI for a database or container for Azure Cosmos DB Core (SQL) API
 
 [!INCLUDE [cloud-shell-try-it.md](../../../../../includes/cloud-shell-try-it.md)]
 
