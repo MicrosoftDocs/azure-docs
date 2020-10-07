@@ -31,7 +31,7 @@ To run large-scale analytics into Azure Cosmos DB without impacting your operati
 
 ## Navigate to Synapse Studio
 
-From your Synapse workspace, select **Launch Synapse Studio**. On the Synapse Studio home page, select **Data, which will take you to the **Data Object Explorer**.
+From your Synapse workspace, select **Launch Synapse Studio**. On the Synapse Studio home page, select **Data**, which will take you to the **Data Object Explorer**.
 
 ## Connect an Azure Cosmos DB database to a Synapse workspace
 
