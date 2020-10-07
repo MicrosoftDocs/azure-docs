@@ -306,7 +306,6 @@
     items:
     - name: Process with Indexer
       href: media-services-index-content.md
-      items:
     - name: Task preset
       href: indexer-task-preset.md    
     - name: Process with Face Redactor
