@@ -16,7 +16,7 @@ ms.custom: it-pro
 
 # App consent permissions for custom roles in Azure Active Directory
 
-This article contains the currently available app consent permissions for custom role definitions in Azure Active Directory (Azure AD). In this article, you'll find permission lists for some common scenarios and the full list of enterprise app permissions.
+This article contains the currently available app consent permissions for custom role definitions in Azure Active Directory (Azure AD). In this article, you'll find the permissions required for some common scenarios related to app consent and permissions.
 
 ## Required license plan
 
@@ -51,7 +51,7 @@ For example, to allow role assignees to grant tenant-wide admin consent to apps 
 
 ### Managing app consent policies
 
-To delegate the creation, update and deletion of app consent policies.
+To delegate the creation, update and deletion of [app consent policies](../manage-apps/manage-app-consent-policies.md).
 
 - microsoft.directory/permissionGrantPolicies/create
 - microsoft.directory/permissionGrantPolicies/standard/read
