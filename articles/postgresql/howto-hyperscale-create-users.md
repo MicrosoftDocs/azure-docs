@@ -11,24 +11,25 @@ ms.date: 1/8/2019
 
 # Create users in Azure Database for PostgreSQL - Hyperscale (Citus)
 
-> [!NOTE]
-> The term "users" refers to users within a Hyperscale (Citus)
-> server group. Hyperscale Citus doesn't support role based access control , to know more see [RBAC in Hyperscale Postgresql](https://docs.microsoft.com/en-us/azure/postgresql/postgresql-hyperscale-security-baseline#31-maintain-an-inventory-of-administrative-accounts)
+Learn how to create users in Azure Database for PostgreSQL - Hyperscale (Citus).
 
+> [!NOTE]
+> _Users_ refers to users in a Hyperscale (Citus) server group. Hyperscale (Citus) doesn't support role-based access control (RBAC). For more information, see [RBAC in Hyperscale PostgreSQL](https://docs.microsoft.com/azure/postgresql/postgresql-hyperscale-security-baseline#31-maintain-an-inventory-of-administrative-accounts).
+>
 
 ## The server admin account
 
 The PostgreSQL engine uses
 [roles](https://www.postgresql.org/docs/current/sql-createrole.html) to control
-access to database objects, and a newly created Hyperscale (Citus) server group
-comes with several roles pre-defined:
+access to database objects. A newly created Hyperscale (Citus) server group
+comes with several roles predefined:
 
 * The [default PostgreSQL roles](https://www.postgresql.org/docs/current/default-roles.html)
 * `azure_pg_admin`
 * `postgres`
 * `citus`
 
-Since Hyperscale (Citus) is a managed PaaS service, only Microsoft can sign in with the
+Because Hyperscale (Citus) is a managed PaaS service, only Microsoft can sign in with the
 `postgres` super user role. For limited administrative access, Hyperscale (Citus)
 provides the `citus` role.
 
