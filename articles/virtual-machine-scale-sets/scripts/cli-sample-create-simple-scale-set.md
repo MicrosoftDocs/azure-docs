@@ -26,7 +26,7 @@ This script creates an Azure virtual machine scale set with an Ubuntu operating 
 # Create a resource group
 az group create --name myResourceGroup --location eastus
 
-# Create Network Security Group and Allow access to port 22
+# Create a Network Security Group and allow access to port 22
 az network nsg create --resource-group MyResourceGroup --name MyNsg
 az network nsg rule create --resource-group MyResourceGroup --name AllowSsh --nsg-name MyNsg --priority 100 --destination-port-ranges 22
 
