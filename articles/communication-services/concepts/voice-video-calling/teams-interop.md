@@ -16,7 +16,7 @@ ms.service: azure-communication-services
 
 Azure Communication Services can be used to build custom meeting experiences that interact with Microsoft Teams. Users of your Communication Services solution(s) can interact with Teams participants over voice, video, and screen sharing.
 
-Interoperability allows you to create custom Azure applications that connect users to Teams meetings, even users who do not have Azure Active Directory identities or Teams licenses. This capability is ideal for bringing together employees (familiar using Teams) and external users (using a custom application experience) together in a single communication space. An experience you could build:
+This interoperability allows you to create custom Azure applications that connect users to Teams meetings. Users of your custom applications don't need to have Azure Active Directory identities or Teams licenses to experience this capability. This is ideal for bringing employees (familiar using Teams) and external users (using a custom application experience) together into a seamless meeting experience. This allows you to build an experience like this:
 
 1. Employees use Teams to schedule a meeting
 2. Your service application using the Microsoft Graph APIs to access meeting details
