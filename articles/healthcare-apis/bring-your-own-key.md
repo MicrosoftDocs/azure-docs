@@ -1,5 +1,5 @@
 ---
-title: configure customer-managed keys
+title: Configure customer-managed keys for Azure API for FHIR
 description: Bring your own key feature supported in Azure API for FHIR through Cosmos DB
 services: healthcare-apis
 author: matjazl
@@ -23,14 +23,14 @@ In Azure, this is typically accomplished using an encryption key in the customer
 
 After creating your Azure API for FHIR account on Azure portal, you can see a "Data Encryption" configuration option under the "Database Settings" on the "Additional Settings" tab. By default, the service-managed key option will be chosen. You can specify your AKV key here by selecting "Customer-managed key" option. You can enter the copied key URI here.
 
-:::image type="content" source="media/byok/byok-create.png" alt-text="Create Azure API for FHIR":::
+:::image type="content" source="media/bring-your-own-key/bring-your-own-key-create.png" alt-text="Create Azure API for FHIR":::
 
 Or, you can choose your key from the KeyPicker:
 
-:::image type="content" source="media/byok/byok-keypicker.png" alt-text="KeyPicker":::
+:::image type="content" source="media/bring-your-own-key/bring-your-own-key-keypicker.png" alt-text="KeyPicker":::
 
 For existing FHIR accounts, you can view the key encryption choice (service- or customer-managed key) in "Database" blade as below. The configuration option can't be modified once chosen. However, you can modify and update your key.
 
-:::image type="content" source="media/byok/byok-database.png" alt-text="Database":::
+:::image type="content" source="media/bring-your-own-key/bring-your-own-key-database.png" alt-text="Database":::
 
 In addition, you can create a new version of the specified key, after which your data will get encrypted with the new version without any service interruption. You can also remove access to the key to remove access to the data.
