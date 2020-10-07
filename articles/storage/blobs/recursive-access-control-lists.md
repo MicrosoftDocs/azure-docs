@@ -5,7 +5,7 @@ author: normesta
 ms.subservice: data-lake-storage-gen2
 ms.service: storage
 ms.topic: how-to
-ms.date: 09/21/2020
+ms.date: 10/06/2020
 ms.author: normesta
 ms.reviewer: prishet
 ms.custom: devx-track-csharp
@@ -75,7 +75,7 @@ Install the necessary libraries.
 2. From your project directory, install the Azure.Storage.Files.DataLake preview package by using the `dotnet add package` command.
 
    ```console
-   dotnet add package Azure.Storage.Files.DataLake -v 12.3.0-dev.20200811.1 -s https://pkgs.dev.azure.com/azure-sdk/public/_packaging/azure-sdk-for-net/nuget/v3/index.json
+   dotnet add package Azure.Storage.Files.DataLake -v 12.5.0-preview.1 -s https://pkgs.dev.azure.com/azure-sdk/public/_packaging/azure-sdk-for-net/nuget/v3/index.json
    ```
 
 3. Add these using statements to the top of your code file.
@@ -551,7 +551,7 @@ public async Task<string> ResumeAsync(DataLakeServiceClient serviceClient,
     {
         var accessControlChangeResult =
             await directoryClient.SetAccessControlRecursiveAsync(
-                accessControlList, null, continuationToken: continuationToken);
+                accessControlList, continuationToken: continuationToken, null);
 
         if (accessControlChangeResult.Value.Counters.FailedChangesCount > 0)
         {

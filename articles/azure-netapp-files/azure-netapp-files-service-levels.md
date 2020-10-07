@@ -58,10 +58,10 @@ If you use a manual QoS capacity pool, you can assign the capacity and throughpu
 
 For an SAP HANA system, this capacity pool can be used to create the following volumes. Each volume provides the individual size and throughput to meet your application requirements:
 
-* SAP HANA data volume: Size 4 TB with up to 704 MiB/s
-* SAP HANA log volume: Size 0.5 TB with up to 256 MiB/s
-* SAP HANA shared volume: Size 1 TB with up to 64 MiB/s
-* SAP HANA backup volume: Size 4.5 TB with up to 256 MiB/s
+* SAP HANA data volume: Size 4 TiB with up to 704 MiB/s
+* SAP HANA log volume: Size 0.5 TiB with up to 256 MiB/s
+* SAP HANA shared volume: Size 1 TiB with up to 64 MiB/s
+* SAP HANA backup volume: Size 4.5 TiB with up to 256 MiB/s
 
 The diagram below illustrates the scenarios for the SAP HANA volumes:
 
