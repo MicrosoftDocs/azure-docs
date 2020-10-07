@@ -18,9 +18,7 @@ If you have a Data Science Virtual Machine running an older release such as Ubun
 
 ## Prerequisites
 
-1. Make sure that your environment doesn't depend on drivers only available for your older operating system. {>> Is there a link for this? AFAICT this is either irrelevant (for a DSVM) or hard (requires painstaking `lpsci:` review) <<}
-
-2. Create a backup before any Operating System migration. {>> Relevant for DSVM? Is this not taken care of by "Create Snapshot" step? <<}
+- Familiarity with SSH and the Linux command line
 
 ## Overview
 
