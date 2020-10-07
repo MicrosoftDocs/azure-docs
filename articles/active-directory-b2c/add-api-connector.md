@@ -68,12 +68,12 @@ Content-type: application/json
 
 Only user properties and custom attributes listed in the **Azure Active Directory** > **External Identities** > **Custom user attributes** experience are available to be sent in the request.
 
-Custom attributes exist in the **extension_\<extensions-app-id>_AttributeName**  format in the directory. Your API should expect to receive claims in this same serialized format. For more information on custom attributes, see [Define custom attributes in Azure Active Directory B2C](user-flow-custom-attributes.md).
+Custom attributes exist in the **extension_\<extensions-app-id>_CustomAttribute**  format in the directory. Your API should expect to receive claims in this same serialized format. For more information on custom attributes, see [Define custom attributes in Azure Active Directory B2C](user-flow-custom-attributes.md).
 
 Additionally, the **UI Locales ('ui_locales')** claim is sent by default in all requests. It provides a user's locale(s) as configured on their device that can be used by the API to return internationalized responses.
 
 > [!IMPORTANT]
-> If a claim to send does not have a value at the time the API endpoint is called, the claim will not be sent to the API. Your API should be designed to explicitly check for the value it expects.
+> If a claim does not have a value at the time the API endpoint is called, the claim will not be sent to the API. Your API should be designed to explicitly check and handle the case in which a claim is not in the request.
 
 > [!TIP] 
 > [**identities ('identities')**](https://docs.microsoft.com/graph/api/resources/objectidentity) and the **Email Address ('email')** claims can be used by your API to identify a user before they have an account in your tenant. The 'identities' claim is sent when a user authenticates with an identity provider such as Google or Facebook. 'email' is always sent.
@@ -90,7 +90,7 @@ Follow these steps to add an API connector to a sign-up user flow.
    - **After signing in with an identity provider**
    - **Before creating the user**
 
-   ![Add APIs to the user flow](./media/sign-up-add-api-connector/api-connectors-user-flow-select.png)
+   ![Add APIs to the user flow](./media/add-api-connector/api-connectors-user-flow-select.png)
 
 6. Select **Save**.
 
