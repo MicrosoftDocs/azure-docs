@@ -78,7 +78,7 @@ To publish your own on-premises application:
    1. **Internal URL**: Normally you provide the URL that takes you to the app’s sign-in page when you’re on the corporate network. For this scenario, the connector needs to treat the PingAccess proxy as the front page of the application. Use this format: `https://<host name of your PingAccess server>:<port>`. The port is 3000 by default, but you can configure it in PingAccess.
 
       > [!WARNING]
-      > For this type of single sign-on, the internal URL must use `https` and can't use `http`.
+      > For this type of single sign-on, the internal URL must use `https` and can't use `http`. Also, there is a constraint when configuring an application that no two apps should have the same internal URL as this allows App Proxy to maintain distinction between applications.
 
    1. **Pre-authentication method**: Choose **Azure Active Directory**.
    1. **Translate URL in Headers**: Choose **No**.
