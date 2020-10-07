@@ -3,7 +3,7 @@ title: 'Tutorial - Stream Analytics at the edge using Azure IoT Edge'
 description: 'In this tutorial, you deploy Azure Stream Analytics as a module to an IoT Edge device'
 author: kgremban
 ms.author: kgremban
-ms.date: 11/11/2019
+ms.date: 07/29/2020
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc
@@ -129,7 +129,7 @@ Using the three elements of input, output, and query, this section creates a job
     HAVING Avg(machine.temperature) > 70
     ```
 
-1. Select **Save**.
+1. Select **Save query**.
 
 ### Configure IoT Edge settings
 
@@ -164,7 +164,7 @@ For this tutorial, you deploy two modules. The first is **SimulatedTemperatureSe
    1. Click **Add** and select **IoT Edge Module**.
    1. For the name, type **SimulatedTemperatureSensor**.
    1. For the image URI, enter **mcr.microsoft.com/azureiotedge-simulated-temperature-sensor:1.0**.
-   1. Leave the other settings unchanged and select **Save**.
+   1. Leave the other settings unchanged and select **Add**.
 
 1. Add your Azure Stream Analytics Edge job with the following steps:
 
@@ -182,9 +182,9 @@ For this tutorial, you deploy two modules. The first is **SimulatedTemperatureSe
 
    By default, the Stream Analytics module takes the same name as the job it's based on. You can change the module name on this page if you like, but it's not necessary.
 
-1. Select **Cancel** or **Save**.
+1. Select **Update** or **Cancel**.
 
-1. Make a note of the name of your Stream Analytics module because you'll need it in the next step, then select **Next: Routes** to continue.
+1. Make a note of the name of your Stream Analytics module because you'll need it in the next step. Then, select **Next: Routes** to continue.
 
 1. On the **Routes** tab, you define how messages are passed between modules and the IoT Hub. Messages are constructed using name/value pairs. Replace the default `route` and `upstream` name and values with the pairs shown in following table, the following name/value pairs, replacing instances of _{moduleName}_ with the name of your Azure Stream Analytics module.
 

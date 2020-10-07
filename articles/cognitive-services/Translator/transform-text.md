@@ -1,7 +1,7 @@
 ---
-title: Transform text - Translator Text API
+title: Transform text - Translator
 titleSuffix: Azure Cognitive Services
-description: Transform text using the Translator Text API.
+description: Transform text using the Translator.
 services: cognitive-services
 author: swmachan
 manager: nitinme
@@ -10,12 +10,13 @@ ms.subservice: translator-text
 ms.topic: conceptual
 ms.date: 12/14/2017
 ms.author: swmachan
+ms.custom: devx-track-csharp
 ---
 
 # How to use the TransformText method
 
 > [!NOTE]
-> This method is deprecated. It is not available in V3.0 of the Translator Text API.
+> This method is deprecated. It is not available in V3.0 of the Translator.
 
 The TransformText method is a text normalization function for social media, which returns a normalized form of the input. The method can be used as a preprocessing step in machine translation or other applications which expect clean input text that is not typically found in social media or user-generated content. The function currently works only with English input.
 

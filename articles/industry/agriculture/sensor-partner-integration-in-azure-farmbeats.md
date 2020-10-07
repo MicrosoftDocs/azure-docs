@@ -59,22 +59,27 @@ headers = {"Authorization": "Bearer " + access_token, …} 
 The following sample Python code gives the access token, which can be used for subsequent API calls to FarmBeats.
 
 ```python
-import azure 
+import requests
+import json
+import msal
 
-from azure.common.credentials import ServicePrincipalCredentials 
-import adal 
-#FarmBeats API Endpoint 
-ENDPOINT = "https://<yourdatahub>.azurewebsites.net" [Azure website](https://<yourdatahub>.azurewebsites.net)
-CLIENT_ID = "<Your Client ID>"   
-CLIENT_SECRET = "<Your Client Secret>"   
-TENANT_ID = "<Your Tenant ID>" 
-AUTHORITY_HOST = 'https://login.microsoftonline.com' 
-AUTHORITY = AUTHORITY_HOST + '/' + TENANT_ID 
-#Authenticating with the credentials 
-context = adal.AuthenticationContext(AUTHORITY) 
-token_response = context.acquire_token_with_client_credentials(ENDPOINT, CLIENT_ID, CLIENT_SECRET) 
-#Should get an access token here 
-access_token = token_response.get('accessToken') 
+# Your service principal App ID
+CLIENT_ID = "<CLIENT_ID>"
+# Your service principal password
+CLIENT_SECRET = "<CLIENT_SECRET>"
+# Tenant ID for your Azure subscription
+TENANT_ID = "<TENANT_ID>"
+
+AUTHORITY_HOST = 'https://login.microsoftonline.com'
+AUTHORITY = AUTHORITY_HOST + '/' + TENANT_ID
+
+ENDPOINT = "https://<yourfarmbeatswebsitename-api>.azurewebsites.net"
+SCOPE = ENDPOINT + "/.default"
+
+context = msal.ConfidentialClientApplication(CLIENT_ID, authority=AUTHORITY, client_credential=CLIENT_SECRET)
+token_response = context.acquire_token_for_client(SCOPE)
+# We should get an access token here
+access_token = token_response.get('access_token')
 ```
 
 
@@ -121,7 +126,7 @@ FarmBeats Datahub has the following APIs that enable device partners to create a
 - /**SensorModel**: SensorModel corresponds to the metadata of the sensor, such as the manufacturer, the type of sensor, which is either analog or digital, and the sensor measure, such as ambient temperature and pressure.
 - /**Sensor**: Sensor corresponds to a physical sensor that records values. A sensor is typically connected to a device with a device ID.
 
-  **DeviceModel** |  |
+  DeviceModel | Description |
   --- | ---
   Type (node, gateway)  | Type of the device - Node or Gateway |
   Manufacturer  | Name of the manufacturer |
@@ -130,7 +135,7 @@ FarmBeats Datahub has the following APIs that enable device partners to create a
   Name  | Name to identify resource. For example, model name or product name. |
   Description  | Provide a meaningful description of the model. |
   Properties  | Additional properties from the manufacturer. |
-  **Device** |  |
+  **Device** | **Description** |
   DeviceModelId  |ID of the associated device model. |
   HardwareId   |Unique ID for the device, such as a MAC address.  |
   ReportingInterval |Reporting interval in seconds. |
@@ -139,7 +144,7 @@ FarmBeats Datahub has the following APIs that enable device partners to create a
   Name  | Name to identify the resource. Device partners need to send a name that's consistent with the device name on the device partner side. If the device name is user-defined on the device partner side, the same user-defined name should be propagated to FarmBeats.  |
   Description  | Provide a meaningful description.  |
   Properties  |Additional properties from the manufacturer.  |
-  **SensorModel** |  |
+  **SensorModel** | **Description** |
   Type (analog, digital)  |Mention analog or digital sensor.|
   Manufacturer  | Name of manufacturer. |
   ProductCode  | Product code or model name or number. For example, RS-CO2-N01.  |
@@ -153,7 +158,7 @@ FarmBeats Datahub has the following APIs that enable device partners to create a
   Name  | Name to identify resource. For example, the model name or product name.
   Description  | Provide a meaningful description of the model.
   Properties  | Additional properties from the manufacturer.
-  **Sensor**  |  |
+  **Sensor**  | **Description** |
   HardwareId  | Unique ID for the sensor set by the manufacturer.
   SensorModelId  | ID of the associated sensor model.
   Location  | Sensor latitude (-90 to +90), longitude (-180 to 180), and elevation (in meters).

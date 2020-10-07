@@ -4,7 +4,7 @@ description: Learn how to use the Azure Service Fabric CLI. Learn how to connect
 author: jeffj6123
 
 ms.topic: conceptual
-ms.date: 1/16/2020
+ms.date: 5/19/2020
 ms.author: jejarry
 ---
 # Azure Service Fabric CLI
@@ -25,7 +25,8 @@ The Service Fabric CLI is meant to support the latest runtime version of the Ser
 
 | CLI version   | supported runtime version |
 |---------------|---------------------------|
-| Latest (~=9)  | Latest (~=7)              |
+| Latest (~=10) | Latest (~=7.1)            |
+| 9.0.0         | 7.1                       |
 | 8.0.0         | 6.5                       |
 | 7.1.0         | 6.4                       |
 | 6.0.0         | 6.3                       |

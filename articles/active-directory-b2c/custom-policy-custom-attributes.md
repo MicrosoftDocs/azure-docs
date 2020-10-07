@@ -8,7 +8,7 @@ manager: celestedg
 
 ms.service: active-directory
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 03/17/2020
 ms.author: mimart
 ms.subservice: B2C
@@ -44,7 +44,7 @@ The terms *extension property*, *custom attribute*, and *custom claim* refer to 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 1. Select the **Directory + subscription** filter in the top menu, and then select the directory that contains your Azure AD B2C tenant.
 1. In the left menu, select **Azure AD B2C**. Or, select **All services** and search for and select **Azure AD B2C**.
-1. Select **App registrations (Preview)**, and then select **All Applications**.
+1. Select **App registrations**, and then select **All applications**.
 1. Select the `b2c-extensions-app. Do not modify. Used by AADB2C for storing user data.` application.
 1. Copy the following identifiers to your clipboard and save them:
     * **Application ID**. Example: `11111111-1111-1111-1111-111111111111`.

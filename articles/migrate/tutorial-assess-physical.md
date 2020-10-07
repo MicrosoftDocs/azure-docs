@@ -2,306 +2,184 @@
 title: Assess physical servers for migration to Azure with Azure Migrate Server Assessment
 description: Describes how to assess on-premises physical servers for migration to Azure using Azure Migrate Server Assessment.
 ms.topic: tutorial
-ms.date: 04/15/2020
+ms.date: 09/14/2020
+ms.custom: MVC
+#Customer intent: As a server admin, I want to assess my on-premises physical servers in preparation for migration to Azure.
 ---
 
-# Assess physical servers with Azure Migrate:Server Assessment
+# Tutorial: Assess physical servers for migration to Azure
 
-This article shows you how to assess on-premises physical servers, using the Azure Migrate:Server Assessment tool.
+As part of your migration journey to Azure, you assess your on-premises workloads to measure cloud readiness, identify risks, and estimate costs and complexity.
 
-[Azure Migrate](migrate-services-overview.md) provides a hub of tools that help you to discover, assess, and migrate apps, infrastructure, and workloads to Microsoft Azure. The hub includes Azure Migrate tools, and third-party independent software vendor (ISV) offerings.
+This article shows you how to assess on-premises physical servers for migration to Azure, using the Azure Migrate: Server Assessment tool.
 
-This tutorial is the second in a series that demonstrates how to assess and migrate physical servers to Azure. In this tutorial, you learn how to:
+
+In this tutorial, you learn how to:
 > [!div class="checklist"]
-> * Set up an Azure Migrate project.
-> * Set up an Azure Migrate appliance that runs on-premises to assess physical servers.
-> * Start continuous discovery of on-premises physical servers. The appliance sends configuration and performance data for discovered servers to Azure.
-> * Group discovered servers, and assess the server group.
-> * Review the assessment.
+- Run an assessment based on machine metadata and configuration information.
+- Run an assessment based on performance data.
 
 > [!NOTE]
-> Tutorials show you the simplest deployment path for a scenario so that you can quickly set up a proof-of-concept. Tutorials use default options where possible, and don't show all possible settings and paths. For detailed instructions, review the How-to articles.
+> Tutorials show the quickest path for trying out a scenario, and use default options where possible. 
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/pricing/free-trial/) before you begin.
 
 
 ## Prerequisites
 
-- [Complete](tutorial-prepare-physical.md) the first tutorial in this series. If you don't, the instructions in this tutorial won't work.
-- Here's what you should have done in the first tutorial:
-    - [Set up Azure permissions](tutorial-prepare-physical.md) for Azure Migrate.
-    - [Prepare physical servers](tutorial-prepare-physical.md#prepare-for-physical-server-assessment) for assessment. Appliance requirements should be verified. You should also have an account set up for physical server discovery. Required ports should be available, and you should be aware of the URLs needed for access to Azure.
+- Before you follow this tutorial to assess your machines for migration to Azure VMs, make sure you've discovered the machines you want to assess:
+    - To discover machines using the Azure Migrate appliance, [follow this tutorial](tutorial-discover-physical.md). 
+    - To discover machines using an imported CSV file, [follow this tutorial](tutorial-discover-import.md).
+- Make sure physical machines you want to assess aren't running Windows Server 2003, or SUSE Linux. Assessment isn't supported for these machines.
 
 
+## Decide which assessment to run
 
 
-## Set up an Azure Migrate project
+Decide whether you want to run an assessment using sizing criteria based on machine configuration data/metadata that's collected as-is on-premises, or on dynamic performance data.
 
-Set up a new Azure Migrate project as follows.
-
-1. In the Azure portal > **All services**, search for **Azure Migrate**.
-2. Under **Services**, select **Azure Migrate**.
-3. In **Overview**, under **Discover, assess and migrate servers**, click **Assess and migrate servers**.
-
-    ![Discover and assess servers](./media/tutorial-assess-physical/assess-migrate.png)
-
-4. In **Getting started**, click **Add tools**.
-5. In **Migrate project**, select your Azure subscription, and create a resource group if you don't have one.  
-6. In **Project Details**, specify the project name, and the geography in which you want to create the project. Review supported geographies for [public](migrate-support-matrix.md#supported-geographies-public-cloud) and [government clouds](migrate-support-matrix.md#supported-geographies-azure-government).
-
-    - The project geography is used only to store the metadata gathered from on-premises servers.
-    - You can select any target region when you run a migration.
-
-    ![Create an Azure Migrate project](./media/tutorial-assess-physical/migrate-project.png)
-
-
-7. Click **Next**.
-8. In **Select assessment tool**, select **Azure Migrate: Server Assessment** > **Next**.
-
-    ![Create an Azure Migrate project](./media/tutorial-assess-physical/assessment-tool.png)
-
-9. In **Select migration tool**, select **Skip adding a migration tool for now** > **Next**.
-10. In **Review + add tools**, review the settings, and click **Add tools**.
-11. Wait a few minutes for the Azure Migrate project to deploy. You'll be taken to the project page. If you don't see the project, you can access it from **Servers** in the Azure Migrate dashboard.
-
-
-## Set up the appliance
-
-Azure Migrate: Server Assessment runs a lightweight appliance.
-
-- This appliance performs physical server discovery and sends server metadata and performance data to Azure Migrate Server Assessment.
-- To set up the appliance you:
-    - Download a zipped file with Azure Migrate installer script from the Azure portal.
-    - Extract the contents from the zipped file. Launch the PowerShell console with administrative privileges.
-    - Execute the PowerShell script to launch the appliance web application.
-    - Configure the appliance for the first time, and register it with the Azure Migrate project.
-- You can set up multiple appliances for a single Azure Migrate project. Across all appliances, you can discover any number of physical servers. A maximum of 250 servers can be discovered per appliance.
-
-### Download the installer script
-
-Download the zipped file for the appliance.
-
-1. In **Migration Goals** > **Servers** > **Azure Migrate: Server Assessment**, click **Discover**.
-2. In **Discover machines** > **Are your machines virtualized?**, click **Not virtualized/Other**.
-3. Click **Download** to download the zipped file.
-
-    ![Download installer](./media/tutorial-assess-physical/download-appliance.png)
-
-
-### Verify security
-
-Check that the zipped file is secure, before you deploy it.
-
-1. On the machine to which you downloaded the file, open an administrator command window.
-2. Run the following command to generate the hash for the zipped file:
-    - ```C:\>CertUtil -HashFile <file_location> [Hashing Algorithm]```
-    - Example usage for public cloud: ```C:\>CertUtil -HashFile C:\Users\administrator\Desktop\AzureMigrateInstaller.zip SHA256 ```
-    - Example usage for government cloud: ```  C:\>CertUtil -HashFile C:\Users\administrator\Desktop\AzureMigrateInstaller-Server-USGov.zip MD5 ```
-3.  Verify hash values:
- 
-    - For the public cloud (for the latest appliance version):
-
-        **Algorithm** | **Hash value**
-          --- | ---
-          MD5 | 1e92ede3e87c03bd148e56a708cdd33f
-          SHA256 | a3fa78edc8ff8aff9ab5ae66be1b64e66de7b9f475b6542beef114b20bfdac3c
-
-    - For Azure government (for the latest appliance version):
-
-        **Algorithm** | **Hash value**
-          --- | ---
-          MD5 | f81c155fc4a1409901caea948713913f
-
-### Run the Azure Migrate installer script
-
-The installer script does the following:
-
-- Installs agents and a web application for physical server discovery and assessment.
-- Install Windows roles, including Windows Activation Service, IIS, and PowerShell ISE.
-- Download and installs an IIS rewritable module. [Learn more](https://www.microsoft.com/download/details.aspx?id=7435).
-- Updates a registry key (HKLM) with persistent setting details for Azure Migrate.
-- Creates the following files under the path:
-    - **Config Files**: %Programdata%\Microsoft Azure\Config
-    - **Log Files**: %Programdata%\Microsoft Azure\Logs
-
-Run the script as follows:
-
-1. Extract the zipped file to a folder on the server that will host the appliance.  Make sure you don't run the script on a machine on an existing Azure Migrate appliance.
-2. Launch PowerShell on the above server with administrative (elevated) privilege.
-3. Change the PowerShell directory to the folder where the contents have been extracted from the downloaded zipped file.
-4. Run the script named **AzureMigrateInstaller.ps1** by running the following command:
-
-    - For the public cloud: ``` PS C:\Users\administrator\Desktop\AzureMigrateInstaller> AzureMigrateInstaller.ps1 ```
-    - For Azure Government: ``` PS C:\Users\Administrators\Desktop\AzureMigrateInstaller-Server-USGov>AzureMigrateInstaller.ps1 ```
-
-    The script will launch the appliance web application when it finishes successfully.
-
-If you come across any issues, you can access the script logs at C:\ProgramData\Microsoft Azure\Logs\AzureMigrateScenarioInstaller_<em>Timestamp</em>.log for troubleshooting.
-
-### Verify appliance access to Azure
-
-Make sure that the appliance can connect to Azure URLs for [public](migrate-appliance.md#public-cloud-urls) and [government](migrate-appliance.md#government-cloud-urls) clouds.
-
-
-### Configure the appliance
-
-Set up the appliance for the first time.
-
-1. Open a browser on any machine that can connect to the appliance, and open the URL of the appliance web app: **https://*appliance name or IP address*: 44368**.
-
-   Alternately, you can open the app from the desktop by clicking the app shortcut.
-2. In the web app > **Set up prerequisites**, do the following:
-    - **License**: Accept the license terms, and read the third-party information.
-    - **Connectivity**: The app checks that the server has internet access. If the server uses a proxy:
-        - Click **Proxy settings**, and specify the proxy address and listening port, in the form http://ProxyIPAddress or http://ProxyFQDN.
-        - Specify credentials if the proxy needs authentication.
-        - Only HTTP proxy is supported.
-    - **Time sync**: Time is verified. The time on the appliance should be in sync with internet time for server discovery to work properly.
-    - **Install updates**: Azure Migrate Server Assessment checks that the appliance has the latest updates installed.
-
-### Register the appliance with Azure Migrate
-
-1. Click **Log In**. If it doesn't appear, make sure you've disabled the pop-up blocker in the browser.
-2. On the new tab, sign in using your Azure credentials.
-    - Sign in with your username and password.
-    - Sign in with a PIN isn't supported.
-3. After successfully signing in, go back to the web app.
-4. Select the subscription in which the Azure Migrate project was created. Then select the project.
-5. Specify a name for the appliance. The name should be alphanumeric with 14 characters or less.
-6. Click **Register**.
-
-
-## Start continuous discovery
-
-Now, connect from the appliance to the physical servers to be discovered, and start the discovery.
-
-1. Click **Add Credentials** to specify the account credentials that the appliance will use to discover servers.  
-2. Specify the **Operating System**,  a friendly name for the credentials, and the username and password. Then click **Add**.
-You can add one set of credentials each for Windows and Linux servers.
-4. Click **Add server**, and specify server details- FQDN/IP address and friendly name of credentials (one entry per row) to connect to the server.
-3. Click **Validate**. After validation, the list of servers that can be discovered is shown.
-    - If validation fails for a server, review the error by hovering over the icon in the **Status** column. Fix issues, and validate again.
-    - To remove a server, select > **Delete**.
-4. After validation, click **Save and start discovery** to start the discovery process.
-
-This starts discovery. It takes around 1.5 minutes per server for metadata of discovered server to appear in the Azure portal.
-
-### Verify servers in the portal
-
-After discovery, you can verify that the servers appear in the Azure portal.
-
-1. Open the Azure Migrate dashboard.
-2. In **Azure Migrate - Servers** > **Azure Migrate: Server Assessment** page, click the icon that displays the count for **Discovered servers**.
-
-## Set up an assessment
-
-There are two types of assessments you can create using Azure Migrate: Server Assessment.
-
-**Assessment** | **Details** | **Data**
+**Assessment** | **Details** | **Recommendation**
 --- | --- | ---
-**Performance-based** | Assessments based on collected performance data | **Recommended VM size**: Based on CPU and memory utilization data.<br/><br/> **Recommended disk type (standard or premium managed disk)**: Based on the IOPS and throughput of the on-premises disks.
-**As on-premises** | Assessments based on on-premises sizing. | **Recommended VM size**: Based on the on-premises server size<br/><br> **Recommended disk type**: Based on the storage type setting you select for the assessment.
+**As-is on-premises** | Assess based on machine configuration data/metadata.  | Recommended Azure VM size is based on the on-premises VM size.<br/><br> The recommended Azure disk type is based on what you select in the storage type setting in the assessment.
+**Performance-based** | Assess based on collected dynamic performance data. | Recommended Azure VM size is based on CPU and memory utilization data.<br/><br/> The recommended disk type is based on the IOPS and throughput of the on-premises disks.
 
-
-### Run an assessment
+## Run an assessment
 
 Run an assessment as follows:
 
-1. Review the [best practices](best-practices-assessment.md) for creating assessments.
-2. In the **Servers** tab, in **Azure Migrate: Server Assessment** tile, click **Assess**.
+1. On the **Servers** page > **Windows and Linux servers**, click **Assess and migrate servers**.
 
-    ![Assess](./media/tutorial-assess-physical/assess.png)
+   ![Location of Assess and migrate servers button](./media/tutorial-assess-physical/assess.png)
 
-2. In **Assess servers**, specify a name for the assessment.
-3. Click **View all** to review the assessment properties.
+2. In **Azure Migrate: Server Assessment**, click **Assess**.
 
-    ![Assessment properties](./media/tutorial-assess-physical/view-all.png)
+    ![Location of the Assess button](./media/tutorial-assess-physical/assess-servers.png)
 
-3. In **Select or create a group**, select **Create New**, and specify a group name. A group gathers one or more servers together for assessment.
-4. In **Add machines to the group**, select servers to add to the group.
-5. Click **Create Assessment** to create the group, and run the assessment.
+3. In **Assess servers** > **Assessment type**, select **Azure VM**.
+4. In **Discovery source**:
 
-    ![Create an assessment](./media/tutorial-assess-physical/assessment-create.png)
+    - If you discovered machines using the appliance, select **Machines discovered from Azure Migrate appliance**.
+    - If you discovered machines using an imported CSV file, select **Imported machines**. 
+    
+5. Specify a name for the assessment. 
+6. Click **View all** to review the assessment properties.
 
-6. After the assessment is created, view it in **Servers** > **Azure Migrate: Server Assessment** > **Assessments**.
-7. Click **Export assessment**, to download it as an Excel file.
+    ![Location of the View all button to review assessment properties](./media/tutorial-assess-physical/assessment-name.png)
+
+7. In **Assessment properties** > **Target Properties**:
+    - In **Target location**, specify the Azure region to which you want to migrate.
+        - Size and cost recommendations are based on the location that you specify.
+        - In Azure Government, you can target assessments in [these regions](migrate-support-matrix.md#supported-geographies-azure-government)
+    - In **Storage type**,
+        - If you want to use performance-based data in the assessment, select **Automatic** for Azure Migrate to recommend a storage type, based on disk IOPS and throughput.
+        - Alternatively, select the storage type you want to use for VM when you migrate it.
+    - In **Reserved Instances**, specify whether you want to use reserve instances for the VM when you migrate it.
+        - If you select to use a reserved instance, you can't specify  '**Discount (%)**, or **VM uptime**. 
+        - [Learn more](https://aka.ms/azurereservedinstances).
+8. In **VM Size**:
+ 
+    - In **Sizing criterion**, select if you want to base the assessment on machine configuration data/metadata, or on performance-based data. If you use performance data:
+        - In **Performance history**, indicate the data duration on which you want to base the assessment
+        - In **Percentile utilization**, specify the percentile value you want to use for the performance sample. 
+    - In **VM Series**, specify the Azure VM series you want to consider.
+        - If you're using performance-based assessment, Azure Migrate suggests a value for you.
+        - Tweak settings as needed. For example, if you don't have a production environment that needs A-series VMs in Azure, you can exclude A-series from the list of series.
+    - In **Comfort factor**, indicate the buffer you want to use during assessment. This accounts for issues like seasonal usage, short performance history, and likely increases in future usage. For example, if you use a comfort factor of two:
+        **Component** | **Effective utilization** | **Add comfort factor (2.0)**
+        Cores | 2 | 4
+        Memory | 8 GB | 16 GB    
+   
+9. In **Pricing**:
+    - In **Offer**, specify the [Azure offer](https://azure.microsoft.com/support/legal/offer-details/) if you're enrolled. Server Assessment estimates the cost for that offer.
+    - In **Currency**, select the billing currency for your account.
+    - In **Discount (%)**, add any subscription-specific discounts you receive on top of the Azure offer. The default setting is 0%.
+    - In **VM Uptime**, specify the duration (days per month/hour per day) that VMs will run.
+        - This is useful for Azure VMs that won't run continuously.
+        - Cost estimates are based on the duration specified.
+        - Default is 31 days per month/24 hours per day.
+
+    - In **EA Subscription**, specify whether to take an Enterprise Agreement (EA) subscription discount into account for cost estimation. 
+    - In **Azure Hybrid Benefit**, specify whether you already have a Windows Server license. If you do and they're covered with active Software Assurance of Windows Server Subscriptions, you can apply for the [Azure Hybrid Benefit](https://azure.microsoft.com/pricing/hybrid-use-benefit/) when you bring licenses to Azure.
+
+10. Click **Save** if you make changes.
+
+    ![Assessment properties](./media/tutorial-assess-physical/assessment-properties.png)
+
+11. In **Assess Servers**, click **Next**.
+12. In **Select machines to assess**, select **Create New**, and specify a group name. 
+13. Select the appliance, and select the VMs you want to add to the group. Then click **Next**.
+14. In **Review + create assessment, review the assessment details, and click **Create Assessment** to create the group and run the assessment.
 
 
+    > [!NOTE]
+    > For performance-based assessments, we recommend that you wait at least a day after starting discovery before you create an assessment. This provides time to collect performance data with higher confidence. Ideally, after you start discovery, wait for the performance duration you specify (day/week/month) for a high-confidence rating.
 
 ## Review an assessment
 
 An assessment describes:
 
-- **Azure readiness**: Whether servers are suitable for migration to Azure.
-- **Monthly cost estimation**: The estimated monthly compute and storage costs for running the servers in Azure.
+- **Azure readiness**: Whether VMs are suitable for migration to Azure.
+- **Monthly cost estimation**: The estimated monthly compute and storage costs for running the VMs in Azure.
 - **Monthly storage cost estimation**: Estimated costs for disk storage after migration.
 
-### View an assessment
+To view an assessment:
 
-1. In **Migration goals** >  **Servers**, click **Assessments** in **Azure Migrate: Server Assessment**.
-2. In **Assessments**, click on an assessment to open it.
+1. In **Servers** > **Azure Migrate: Server Assessment**, click the number next to **Assessments**.
+2. In **Assessments**, select an assessment to open it. As an example (estimations and costs for example only): 
 
     ![Assessment summary](./media/tutorial-assess-physical/assessment-summary.png)
 
-### Review Azure readiness
+3. Review the assessment summary. You can also edit the assessment properties, or recalculate the assessment.
+ 
+ 
+### Review readiness
 
-1. In **Azure readiness**, verify whether the servers are ready for migration to Azure.
-2. Review the status:
-    - **Ready for Azure**: Azure Migrate recommends a VM size and cost estimates for VMs in the assessment.
+1. Click **Azure readiness**.
+2. In **Azure readiness**, review the VM status:
+    - **Ready for Azure**: Used when Azure Migrate recommends a VM size and cost estimates, for VMs in the assessment.
     - **Ready with conditions**: Shows issues and suggested remediation.
     - **Not ready for Azure**: Shows issues and suggested remediation.
-    - **Readiness unknown**: Used when Azure Migrate can't assess readiness, due to data availability issues.
+    - **Readiness unknown**: Used when Azure Migrate can't assess readiness, because of data availability issues.
 
-2. Click on an **Azure readiness** status. You can view server readiness details, and drill down to see server details, including compute, storage, and network settings.
+3. Select an **Azure readiness** status. You can view VM readiness details. You can also drill down to see VM details, including compute, storage, and network settings.
 
+### Review cost estimates
 
+The assessment summary shows the estimated compute and storage cost of running VMs in Azure. 
 
-### Review cost details
+1. Review the monthly total costs. Costs are aggregated for all VMs in the assessed group.
 
-This view shows the estimated compute and storage cost of running VMs in Azure.
-
-1. Review the monthly compute and storage costs. Costs are aggregated for all servers in the assessed group.
-
-    - Cost estimates are based on the size recommendations for a machine, and its disks and properties.
+    - Cost estimates are based on the size recommendations for a machine, its disks, and its properties.
     - Estimated monthly costs for compute and storage are shown.
-    - The cost estimation is for running the on-premises servers as IaaS VMs. Azure Migrate Server Assessment doesn't consider PaaS or SaaS costs.
+    - The cost estimation is for running the on-premises VMs on Azure VMs. The estimation doesn't consider PaaS or SaaS costs.
 
-2. You can review monthly storage cost estimates. This view shows aggregated storage costs for the assessed group, split over different types of storage disks.
-3. You can drill down to see details for specific servers.
-
+2. Review monthly storage costs. The view shows the aggregated storage costs for the assessed group, split over different types of storage disks. 
+3. You can drill down to see cost details for specific VMs.
 
 ### Review confidence rating
 
-When you run performance-based assessments, a confidence rating is assigned to the assessment.
+Server Assessment assigns a confidence rating to performance-based assessments. Rating is from one star (lowest) to five stars (highest).
 
 ![Confidence rating](./media/tutorial-assess-physical/confidence-rating.png)
 
-- A rating from 1-star (lowest) to 5-star (highest) is awarded.
-- The confidence rating helps you estimate the reliability of the size recommendations provided by the assessment.
-- The confidence rating is based on the availability of data points needed to compute the assessment.
+The confidence rating helps you estimate the reliability of  size recommendations in the assessment. The rating is based on the availability of data points needed to compute the assessment.
 
-Confidence ratings for an assessment are as follows.
+> [!NOTE]
+> Confidence ratings aren't assigned if you create an assessment based on a CSV file.
+
+Confidence ratings are as follows.
 
 **Data point availability** | **Confidence rating**
 --- | ---
-0%-20% | 1 Star
-21%-40% | 2 Star
-41%-60% | 3 Star
-61%-80% | 4 Star
-81%-100% | 5 Star
+0%-20% | 1 star
+21%-40% | 2 stars
+41%-60% | 3 stars
+61%-80% | 4 stars
+81%-100% | 5 stars
 
-[Learn more](best-practices-assessment.md#best-practices-for-confidence-ratings) about best practices for confidence ratings.
-
+[Learn more](concepts-assessment-calculation.md#confidence-ratings-performance-based) about confidence ratings.
 
 ## Next steps
 
-In this tutorial, you:
-
-> [!div class="checklist"]
-> * Set up an Azure Migrate appliance
-> * Created and reviewed an assessment
-
-Continue to the third tutorial in the series, to learn how to migrate physical servers to Azure with Azure Migrate: Server Migration.
-
-> [!div class="nextstepaction"]
-> [Migrate physical servers](./tutorial-migrate-physical-virtual-machines.md)
+- Find machine dependencies using [dependency mapping](concepts-dependency-visualization.md).
+- Set up [agent-based](how-to-create-group-machine-dependencies.md) dependency mapping.

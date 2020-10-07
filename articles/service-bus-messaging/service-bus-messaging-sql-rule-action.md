@@ -1,21 +1,8 @@
 ---
 title: SQLRuleAction syntax reference in Azure Service Bus
 description: This article provides a reference for SQLRuleAction syntax. The actions are written in SQL-language based syntax that is performed against a brokered message.
-services: service-bus-messaging
-documentationcenter: na
-author: axisc
-manager: timlt
-editor: spelluru
-
-ms.assetid: 
-ms.service: service-bus-messaging
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 01/24/2020
-ms.author: aschhab
-
+ms.date: 06/23/2020
 ---
 
 # SQLRuleAction syntax reference for Azure Service Bus

@@ -9,7 +9,7 @@ ms.assetid: b310b762-471b-4b26-887a-a321c9e81d46
 ms.workload: identity
 ms.service: active-directory
 ms.subservice: user-help
-ms.topic: conceptual
+ms.topic: end-user-help
 ms.date: 04/02/2017
 ms.author: curtand
 ms.reviewer: librown
@@ -35,14 +35,14 @@ Your sign-in experience differs depending on what you choose to use as your seco
 ## Signing in with a phone call
 The following information describes the two-step verification experience with a call to your mobile or office phone.
 
-1. Sign in to an application or service such as Office 365 using your username and password.  
+1. Sign in to an application or service such as Microsoft 365 using your username and password.  
 2. Microsoft calls you.  
 3. Answer the phone and hit the # key.  
 
 ## Signing in with a text message
 The following information describes the two-step verification experience with a text message to your mobile phone:
 
-1. Sign in to an application or service such as Office 365 using your username and password.
+1. Sign in to an application or service such as Microsoft 365 using your username and password.
 2. Microsoft sends you a text message that contains a number code.
 3. Enter the code in the box provided on the sign-in page.
 
@@ -50,7 +50,7 @@ The following information describes the two-step verification experience with a 
 The following information describes the experience of using the Microsoft Authenticator app for two-step verifications. There are two different ways to use the app. You can receive push notifications on your device, or you can open the app to get a verification code.
 
 ### To sign in with a notification from the Microsoft Authenticator app
-1. Sign in to an application or service such as Office 365 using your username and password.
+1. Sign in to an application or service such as Microsoft 365 using your username and password.
 2. Microsoft sends a notification to the Microsoft Authenticator app on your device.
 
    ![Microsoft sends notification](./media/multi-factor-authentication-end-user-signin/notify.png)
@@ -62,7 +62,7 @@ The following information describes the experience of using the Microsoft Authen
 
 If you use the Microsoft Authenticator app to get verification codes, then when you open the app you see a number under your account name. This number changes every 30 seconds so that you don't use the same number twice. When you're asked for a verification code, open the app and use whatever number is currently displayed.
 
-1. Sign in to an application or service such as Office 365 using your username and password.
+1. Sign in to an application or service such as Microsoft 365 using your username and password.
 2. Microsoft prompts you for a verification code.
 
    ![Enter verification code](./media/multi-factor-authentication-end-user-signin/verify3.png)
@@ -72,7 +72,7 @@ If you use the Microsoft Authenticator app to get verification codes, then when 
 ## Signing in with an alternate method
 Sometimes you don't have the phone or device that you set up as your preferred verification method. This situation is why we recommend that you set up backup methods for your account. The following section shows you how to sign in with an alternate method when your primary method may not be available.
 
-1. Sign in to an application or service such as Office 365 using your username and password.
+1. Sign in to an application or service such as Microsoft 365 using your username and password.
 2. Select **Use a different verification option**. You see different verification options based on how many you have setup.
 3. Choose an alternate method and sign in.
 

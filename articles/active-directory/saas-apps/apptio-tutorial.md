@@ -2,22 +2,15 @@
 title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Apptio | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and Apptio.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-
-ms.assetid: b23eba91-7698-47e7-ae75-0ceafd739965
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 08/29/2019
 ms.author: jeedes
-
-ms.collection: M365-identity-device-management
 ---
 
 # Tutorial: Azure Active Directory single sign-on (SSO) integration with Apptio
@@ -127,11 +120,11 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 ## Configure Apptio SSO
 
-To configure single sign-on on **Apptio** side, you need to send the downloaded **Federation Metadata XML** and appropriate copied URLs from Azure portal to [Apptio support team](https://www.apptio.com/about/contact). They set this setting to have the SAML SSO connection set properly on both sides.
+To configure single sign-on on **Apptio** side, you need to send the downloaded **Federation Metadata XML** and appropriate copied URLs from Azure portal to [Apptio support team](https://www.apptio.com/resources/customer-support/). They set this setting to have the SAML SSO connection set properly on both sides.
 
 ### Create Apptio test user
 
-In this section, you create a user called B.Simon in Apptio. Work with [Apptio support team](https://www.apptio.com/about/contact) to add the users in the Apptio platform. Users must be created and activated before you use single sign-on.
+In this section, you create a user called B.Simon in Apptio. Work with [Apptio support team](https://www.apptio.com/resources/customer-support/) to add the users in the Apptio platform. Users must be created and activated before you use single sign-on.
 
 ## Test SSO 
 

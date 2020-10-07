@@ -3,7 +3,7 @@ title: Mount Azure File storage on Linux VMs using SMB
 description: How to mount Azure File storage on Linux VMs using SMB with the Azure CLI
 author: cynthn
 ms.service: virtual-machines-linux
-ms.topic: article
+ms.topic: how-to
 ms.workload: infrastructure
 ms.date: 06/28/2018
 ms.author: cynthn
@@ -58,7 +58,7 @@ STORAGEKEY=$(az storage account keys list \
 
 Create the File storage share using [az storage share create](/cli/azure/storage/share). 
 
-Share names need to be all lower case letters, numbers, and single hyphens but can't start with a hyphen. For complete details about naming file shares and files, see [Naming and Referencing Shares, Directories, Files, and Metadata](https://docs.microsoft.com/rest/api/storageservices/Naming-and-Referencing-Shares--Directories--Files--and-Metadata).
+Share names need to be all lower case letters, numbers, and single hyphens but can't start with a hyphen. For complete details about naming file shares and files, see [Naming and Referencing Shares, Directories, Files, and Metadata](/rest/api/storageservices/naming-and-referencing-shares--directories--files--and-metadata).
 
 This example creates a share named *myshare* with a 10-GiB quota. 
 
@@ -106,4 +106,3 @@ For increased security in production environments, you should store your credent
 - [Using cloud-init to customize a Linux VM during creation](using-cloud-init.md)
 - [Add a disk to a Linux VM](add-disk.md)
 - [Azure Disk Encryption for Linux VMs](disk-encryption-overview.md)
-

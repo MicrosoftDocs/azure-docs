@@ -1,10 +1,10 @@
 ---
 title: Azure Storage compliance offerings | Microsoft Docs
-description: Summary of compliance offerings on Azure Storage
+description: Read a summary of compliance offerings on Azure Storage for national, regional, and industry-specific requirements governing the collection and usage of data.
 services: storage
 author: fhryo-msft
 ms.service: storage
-ms.topic: article
+ms.topic: conceptual
 ms.date: 06/27/2018
 ms.author: fryu
 ms.subservice: common
@@ -59,7 +59,6 @@ You can find below compliance offerings on Azure Storage to ensure your service 
 * [MAS + ABS (Singapore)](https://aka.ms/AzureCompliance)
 * [MPAA](https://www.microsoft.com/trustcenter/compliance/mpaa)
 * [NEN-7510 (Netherlands)](https://www.microsoft.com/trustcenter/compliance/nen-7510)
-* [NHS IG Toolkit (UK)](https://www.microsoft.com/trustcenter/Compliance/NHS)
 * [PCI DSS](https://www.microsoft.com/trustcenter/compliance/pci)
 * [Shared Assessments](https://aka.ms/AzureCompliance)
 * [SOX](https://www.microsoft.com/trustcenter/compliance/SOX)

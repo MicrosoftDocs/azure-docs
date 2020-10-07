@@ -13,8 +13,8 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 05/08/2019
-ms.author: b-juche
+ms.date: 09/08/2020
+ms.author: ramakk
 ---
 # Guidelines for Azure NetApp Files network planning
 
@@ -31,10 +31,13 @@ You should understand a few considerations when you plan for Azure NetApp Files 
 The features below are currently unsupported for Azure NetApp Files: 
 
 * Network security groups (NSGs) applied to the delegated subnet
-* User-defined routes (UDRs) with address prefix as Azure NetApp files subnet
+* User-defined routes (UDRs) applied to the delegated subnet
 * Azure policies (for example, custom naming policies) on the Azure NetApp Files interface
 * Load balancers for Azure NetApp Files traffic
-* Azure NetApp Files is not supported with Azure Virtual WAN
+* Azure Virtual WAN 
+* Zone redundant Virtual Network gateways (Gateway SKUs with Az) 
+* Active/Active Virtual Network GWs 
+* Dual stack (IPv4 and IPv6) VNet
 
 The following network restrictions apply to Azure NetApp Files:
 
@@ -77,9 +80,10 @@ If the VNet is peered with another VNet, you cannot expand the VNet address spac
 
 ### UDRs and NSGs
 
-User-defined routes (UDRs) and Network security groups (NSGs) are not supported on delegated subnets for Azure NetApp Files.
+User-defined routes (UDRs) and Network security groups (NSGs) are not supported on delegated subnets for Azure NetApp Files. However, you can apply UDRs and NSGs to other subnets, even within the same VNet as the subnet delegated to Azure NetApp Files.
 
-As a workaround, you can apply NSGs to other subnets that either permit or deny the traffic to and from the Azure NetApp Files delegated subnet.  
+* UDRs then define the traffic flows from the other subnets to the Azure NetApp Files delegated subnet. This helps to ensure that this is aligned to the traffic flow back from Azure NetApp Files to the other subnets using the system routes.  
+* NSGs then either permit or deny the traffic to and from the Azure NetApp Files delegated subnet. 
 
 ## Azure native environments
 

@@ -9,12 +9,12 @@ ms.topic: reference
 
 author: likebupt
 ms.author: keli19
-ms.date: 03/05/2020
+ms.date: 06/05/2020
 ---
 
 # Apply Transformation module
 
-This article describes a module in Azure Machine Learning designer (preview).
+This article describes a module in Azure Machine Learning designer.
 
 Use this module to modify an input dataset based on a previously computed transformation.
 
@@ -28,13 +28,13 @@ The designer lets you save data transformations as **datasets** so that you can 
 
 1. Select the **Outputs + logs** tab.
 
-1. Select the **Save icon** to save the **Result Transformation**.
+1. Find the transformation output, and select the **Register dataset** to save it as a module under **Datasets** category in the module palette.
 
 ## How to use Apply Transformation  
   
 1. Add the **Apply Transformation** module to your pipeline. You can find this module in the **Model Scoring & Evaluation** section of the module palette. 
   
-1. Find the saved transformation you want to use under **Datasets** > **My Datasets** in the module palette.
+1. Find the saved transformation you want to use under **Datasets** in the module palette.
 
 1. Connect the output of the saved transformation to the left input port of the **Apply Transformation** module.
 

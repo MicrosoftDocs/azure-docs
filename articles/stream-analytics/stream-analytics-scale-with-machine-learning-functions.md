@@ -5,7 +5,7 @@ author: jseb225
 ms.author: jeanb
 ms.reviewer: mamccrea
 ms.service: stream-analytics
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 03/16/2020
 ---
 # Scale your Stream Analytics job with Azure Machine Learning Studio (classic) functions
@@ -19,7 +19,7 @@ This article discusses how to efficiently scale Azure Stream Analytics jobs that
 
 A Machine Learning function in Stream Analytics can be used like a regular function call in the Stream Analytics query language. Behind the scenes, however, these function calls are actually Azure Machine Learning Web Service requests.
 
-You can improve the throughput of Machine Learning web service requests by "batching" multiple rows together in the same web service API call. This grouping is called a mini-batch. For more information, see [Azure Machine Learning Studio (classic) Web Services](../machine-learning/studio/consume-web-services.md). Support for Azure Machine Learning Studio (classic) in Stream Analytics is in preview.
+You can improve the throughput of Machine Learning web service requests by "batching" multiple rows together in the same web service API call. This grouping is called a mini-batch. For more information, see [Azure Machine Learning Studio (classic) Web Services](../machine-learning/classic/consume-web-services.md). Support for Azure Machine Learning Studio (classic) in Stream Analytics is in preview.
 
 ## Configure a Stream Analytics job with Machine Learning functions
 
@@ -53,7 +53,7 @@ In general, ***B*** for batch size, ***L*** for the web service latency at batch
 
 You can also configure the 'max concurrent calls' on the Machine Learning web service. It's recommended to set this parameter to the maximum value (200 currently).
 
-For more information on this setting, review the [Scaling article for Machine Learning Web Services](../machine-learning/studio/create-endpoint.md).
+For more information on this setting, review the [Scaling article for Machine Learning Web Services](../machine-learning/classic/create-endpoint.md).
 
 ## Example – Sentiment Analysis
 The following example includes a Stream Analytics job with the sentiment analysis Machine Learning function, as described in the [Stream Analytics Machine Learning integration tutorial](stream-analytics-machine-learning-integration-tutorial.md).
@@ -135,7 +135,7 @@ To scale a Stream Analytics job with Machine Learning functions, consider the fo
 2. The tolerated latency for the running Stream Analytics job (and thus the batch size of the Machine Learning web service requests).
 3. The provisioned Stream Analytics SUs and the number of Machine Learning web service requests (the additional function-related costs).
 
-A fully partitioned Stream Analytics query was used as an example. If a more complex query is needed, the [Azure Stream Analytics forum](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics) is a great resource for getting additional help from the Stream Analytics team.
+A fully partitioned Stream Analytics query was used as an example. If a more complex query is needed, the [Microsoft Q&A question page for Azure Stream Analytics](https://docs.microsoft.com/answers/topics/azure-stream-analytics.html) is a great resource for getting additional help from the Stream Analytics team.
 
 ## Next steps
 To learn more about Stream Analytics, see:

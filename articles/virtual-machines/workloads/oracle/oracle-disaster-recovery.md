@@ -3,8 +3,8 @@ title: Overview of an Oracle disaster recovery scenario in your Azure environmen
 description: A disaster recovery scenario for an Oracle Database 12c database in your Azure environment
 services: virtual-machines-linux
 documentationcenter: virtual-machines
-author: BorisB2015
-manager: gwallace
+author: dbakevlar
+manager: 
 editor: 
 tags: azure-resource-manager
 ms.assetid: 
@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 08/02/2018
-ms.author: borisb
+ms.author: kegorman
 ---
 
 # Disaster recovery for an Oracle Database 12c database in an Azure environment
@@ -74,7 +74,7 @@ Following is a summary of the Azure setup:
 ![Screenshot of the DR topology page](./media/oracle-disaster-recovery/oracle_topology_02.png)
 
 ### Approach 2: Site-to-site VPN
-Site-to-site VPN is a better approach. For more information about setting up a VPN, see [Create a virtual network with a Site-to-Site VPN connection using CLI](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-cli).
+Site-to-site VPN is a better approach. For more information about setting up a VPN, see [Create a virtual network with a Site-to-Site VPN connection using CLI](../../../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-cli.md).
 
 #### Topology
 

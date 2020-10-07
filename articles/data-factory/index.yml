@@ -12,7 +12,6 @@ metadata:
   author: markingmyname
   ms.author: maghan
   ms.date: 10/02/2019
-  monikerRange: ""
 
 landingContent:
   - title: About Azure Data Factory
@@ -72,12 +71,12 @@ landingContent:
           - text: Copy on-premises data to cloud
             url: /azure/data-factory/tutorial-hybrid-copy-data-tool
           - text: Copy data in bulk
-            url: /azure/data-factory/
+            url: /azure/data-factory/tutorial-bulk-copy-portal
           - text: Copy data incrementally
-            url: /azure/data-factory/tutorial-create-azure-ssis-runtime-portal
+            url: /azure/data-factory/tutorial-incremental-copy-overview
           - text: Load ADLS Gen2
             url: /azure/data-factory/load-azure-data-lake-storage-gen2
-          - text: Load SQL DW
+          - text: Load Azure Synapse Analytics
             url: /azure/data-factory/load-azure-sql-data-warehouse
           - text: Load SAP BW
             url: /azure/data-factory/load-sap-bw-data
@@ -105,7 +104,7 @@ landingContent:
     linkLists:
       - linkListType: overview
         links:
-          - text: Migrate SSIS packages to Azure SQL Database managed instance
+          - text: Migrate SSIS packages to Azure SQL Managed Instance
             url: /azure/data-factory/scenario-ssis-migration-ssisdb-mi
       - linkListType: tutorial
         links:

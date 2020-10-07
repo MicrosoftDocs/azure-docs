@@ -2,12 +2,12 @@
 title: 'Configure an Always-On VPN user tunnel'
 titleSuffix: Azure Virtual WAN
 description: This article describes how to configure an Always On VPN user tunnel for your Virtual WAN
-services: vpn-gateway
+services: virtual-wan
 author: cherylmc
 
-ms.service: vpn-gateway
-ms.topic: conceptual
-ms.date: 03/13/2020
+ms.service: virtual-wan
+ms.topic: how-to
+ms.date: 09/22/2020
 ms.author: cherylmc
 
 ---
@@ -20,7 +20,7 @@ ms.author: cherylmc
 You must create a point-to-site configuration and edit the virtual hub assignment. See the following sections for instructions:
 
 * [Create a P2S configuration](virtual-wan-point-to-site-portal.md#p2sconfig)
-* [Edit the hub assignment](virtual-wan-point-to-site-portal.md#edit)
+* [Create hub with P2S gateway](virtual-wan-point-to-site-portal.md#hub)
 
 ## Configure a user tunnel
 

@@ -11,7 +11,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/04/2019
+ms.date: 09/08/2020
 ms.author: memildin
 
 ---
@@ -64,30 +64,6 @@ To implement Quick Fix remediation:
 
 The remediation operation uses a template deployment or REST PATCH API call to apply the configuration on the resource. These operations are logged in [Azure activity log](../azure-resource-manager/management/view-activity-logs.md).
 
-
-## Recommendations with Quick Fix remediation
-
-|Recommendation|Implication|
-|---|---|
-|Auditing on SQL servers should be enabled|This action will enable SQL auditing on these servers and their databases. <br>**Note**: <ul><li>For each region of the selected SQL servers, a storage account for saving audit logs will be created and shared by all the servers in that region.</li><li>To ensure proper auditing, do not delete or rename the resource group or the storage accounts.</li></ul>|
-|Advanced data security should be enabled on your SQL managed instances|This action will enable SQL Advanced Data Security (ADS) on the selected SQL managed instances. <br>**Note**: <ul><li>For each region and resource group of the selected SQL managed instances, a storage account for saving scan results will be created and shared by all the instances in that region.</li><li> ADS is charged at $15 per SQL managed instance.</li></ul>|
-|Vulnerability assessment should be enabled on your SQL managed instances|This action will enable SQL Vulnerability Assessment on the selected SQL managed instances. <br>**Note**:<ul><li>SQL Vulnerability Assessment is part of the SQL Advanced Data Security (ADS) package. If ADS is not enabled already, it will automatically be enabled on the managed instance.</li><li>For each region and resource group of the selected SQL managed instances, a storage account for storing scan results will be created and shared by all the instances in that region.</li><li>ADS is charged at $15 per SQL server.</li></ul>||
-|Advanced Data Security should be enabled on your SQL servers|This action will enable Advanced Data Security (ADS) on these selected servers and their databases. <br>**Note**:<ul><li>For each region and resource group of the selected SQL servers, a storage account for storing scan results will be created and shared by all the servers in that region.<</li><li>ADS is charged at $15 per SQL server.</li></ul>||
-|Vulnerability Assessment should be enabled on your SQL servers|This action will enable SQL Vulnerability Assessment on these selected servers and their databases. <br>**Note**:<ul><li>SQL Vulnerability Assessment is part of the SQL Advanced Data Security (ADS) package. If ADS isn't enabled already, it will automatically be enabled on the SQL server.</li><li>For each region and resource group of the selected SQL servers, a storage account for storing scan results will be created and shared by all the instances in that region.</li><li>ADS is charged at $15 per SQL server.</li></ul>||
-|Transparent data encryption on SQL databases should be enabled|This action enables SQL Database Transparent Data Encryption (TDE) on the selected databases. <br>**Note**: By default, service-managed TDE keys will be used.
-|Secure transfer to storage accounts should be enabled|This action updates your storage account security to only allow requests by secure connections. (HTTPS). <br>**Note**:<ul><li>Any requests using HTTP will be rejected.</li><li>When you're using the Azure files service, connection without encryption will fail, including scenarios using SMB 2.1, SMB 3.0 without encryption, and some flavors of the Linux SMB client. Learn more.</li></ul>|
-|Web Application should only be accessible over HTTPS|This action will redirect all traffic from HTTP to HTTPS, on the selected resources. <br>**Note**:<ul><li>An HTTPS endpoint that doesn’t have an SSL certificate will show up in the browser with a ‘Privacy Error’. So users who have a custom domain need to verify they have set up an SSL certificate.</li><li>Make sure packet and web application firewalls protecting the app service, allow HTTPS sessions forwarding.</li></ul>|
-|Function App should only be accessible over HTTPS|This action will redirect all traffic from HTTP to HTTPS, on the selected resources. <br>**Note**:<ul><li>An HTTPS endpoint that doesn’t have an SSL certificate will show up in the browser with a ‘Privacy Error’. So users who have a custom domain need to verify they have set up an SSL certificate.</li><li>Make sure packet and web application firewalls protecting the app service, allow HTTPS sessions forwarding.</li></ul>|
-|API App should only be accessible over HTTPS|This action will redirect all traffic from HTTP to HTTPS, on the selected resources. <br>**Note**:<ul><li>An HTTPS endpoint that doesn’t have an SSL certificate will show up in the browser with a ‘Privacy Error’. So users who have a custom domain need to verify they have set up an SSL certificate.</li><li>Make sure packet and web application firewalls protecting the app service, allow HTTPS sessions forwarding.</li></ul>|
-|Remote debugging should be turned off for Web Application|This action disables remote debugging.|
-|Remote debugging should be turned off for Function App|This action disables remote debugging.|
-|Remote debugging should be turned off for API App|This action disables remote debugging.|
-|CORS should not allow every resource to access your Web Application|This action blocks other domains from accessing your Web Application. To allow specific domains, enter them in the Allowed origins field (separated by commas). <br>**Note**: Leaving the field empty will block all cross-origin calls.’Param field title: ‘Allowed origins’|
-|CORS should not allow every resource to access your Function App|This action blocks other domains from accessing your Function Application. To allow specific domains, enter them in the Allowed origins field (separated by commas). <br>**Note**: Leaving the field empty will block all cross-origin calls.’Param field title: ‘Allowed origins’|
-|CORS should not allow every resource to access your API App|This action blocks other domains from accessing your API Application. To allow specific domains, enter them in the Allowed origins field (separated by commas). <br>**Note**: Leaving the field empty will block all cross-origin calls.’Param field title: ‘Allowed origins’|
-|Monitoring agent should be enabled on your virtual machines|This action installs a monitoring agent on the selected virtual machines. Select a workspace for the agent to report to.<ul><li>If your update policy is set to automatic, it will deploy on new existing instances.</li><li>If your update policy is set to manual and you would like to install the agent on existing instances, select the check box option. [Learn more](../virtual-machine-scale-sets/virtual-machine-scale-sets-faq.md#how-do-i-add-an-extension-to-all-vms-in-my-virtual-machine-scale-set)</li></ul>|
-|Diagnostic logs in Key Vault should be enabled|This action enables diagnostic logs on key vaults. Diagnostic logs and metrics are saved in the selected workspace.|
-|Diagnostic logs in Service bus should be enabled|This action enables diagnostic logs on the service bus. Diagnostic logs and metrics are saved in the selected workspace.|
 
 ## Next steps
 

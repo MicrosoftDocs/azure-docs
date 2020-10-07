@@ -13,7 +13,7 @@ metadata:
   author: mtillman
   ms.author: mtillman
   manager: daveba
-  ms.date: 03/17/2020
+  ms.date: 05/29/2020
 
 highlightedContent:
 # itemType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new
@@ -42,15 +42,15 @@ conceptualContent:
   items:
     - title: Application management
       links:
-        - url: ./manage-apps/what-is-single-sign-on.md
-          itemType: concept
-          text: What is single sign-on (SSO)?
-        - url: ./manage-apps/user-provisioning.md
-          itemType: tutorial
-          text: Automatic user provisioning
-        - url: ./manage-apps/application-proxy.md
-          itemType: concept
-          text: Application Proxy for on-premises apps
+        - url: ./manage-apps/what-is-application-management.md
+          itemType: overview
+          text: What is application management?
+        - url: ./manage-apps/view-applications-portal.md
+          itemType: quickstart
+          text: View the apps that are using your tenant for identity management
+        - url: ./manage-apps/add-application-portal-setup-sso.md
+          itemType: quickstart
+          text: Set up SAML-based SSO
       footerLink:
         url: ./manage-apps/index.yml
         text: See more
@@ -85,36 +85,6 @@ conceptualContent:
         url: ./authentication/index.yml
         text: See more
 
-    - title: Business-to-Business (B2B)
-      links:
-        - url: ./b2b/what-is-b2b.md
-          itemType: overview
-          text: What is Azure AD B2B?
-        - url: ./b2b/add-users-administrator.md
-          itemType: how-to-guide
-          text: Add guest users in the portal
-        - url: ./b2b/o365-external-user.md
-          itemType: concept
-          text: B2B and Office 365 sharing
-      footerLink:
-        url: ./b2b/index.yml
-        text: See more
-
-    - title: Business-to-Customer (B2C)
-      links:
-        - url: ../active-directory-b2c/active-directory-b2c-overview.md
-          itemType: overview
-          text:  What is Azure AD B2C?
-        - url: ../active-directory-b2c/tutorial-create-tenant.md
-          itemType: tutorial
-          text:  Create an Azure AD B2C tenant
-        - url: ../active-directory-b2c/active-directory-b2c-get-started-custom.md
-          itemType: how-to-guide
-          text:  Custom policies in Azure AD B2C
-      footerLink:
-        url: ../active-directory-b2c/index.yml
-        text: See more
-
     - title: Cloud provisioning
       links:
         - url: ./cloud-provisioning/what-is-cloud-provisioning.md
@@ -143,21 +113,6 @@ conceptualContent:
           text:  Conditions based on location
       footerLink:
         url: ./conditional-access/index.yml
-        text: See more
-
-    - title: Developers
-      links:
-        - url: ./develop/v2-overview.md
-          itemType: overview
-          text:  About Microsoft identity platform
-        - url: ./develop/v2-oauth2-auth-code-flow.md
-          itemType: concept
-          text:  OAuth 2.0 code flow grant
-        - url: ./develop/quickstart-register-app.md
-          itemType: quickstart
-          text:  Register an app with the Microsoft identity platform
-      footerLink:
-        url: ./develop/index.yml
         text: See more
 
     - title: Device management
@@ -203,6 +158,21 @@ conceptualContent:
           text:  Azure AD service limits and restrictions
       footerLink:
         url: ./users-groups-roles/index.yml
+        text: See more
+
+    - title: External Identities
+      links:
+        - url: ./b2b/compare-with-b2c.md
+          itemType: overview
+          text: Compare solutions for external users
+        - url: ../active-directory-b2c/active-directory-b2c-overview.md
+          itemType: overview
+          text:  Scale your apps to consumers (B2C)
+        - url: ./b2b/what-is-b2b.md
+          itemType: overview
+          text: Collaborate with users outside your org (B2B)
+      footerLink:
+        url: ./b2b/index.yml
         text: See more
 
     - title: Hybrid identity
@@ -263,6 +233,21 @@ conceptualContent:
           text:  Services that support managed identity
       footerLink:
         url: ./managed-identities-azure-resources/index.yml
+        text: See more
+
+    - title: Microsoft identity platform
+      links:
+        - url: ./develop/v2-overview.md
+          itemType: overview
+          text:  About Microsoft identity platform
+        - url: ./develop/v2-oauth2-auth-code-flow.md
+          itemType: concept
+          text:  OAuth 2.0 code flow grant
+        - url: ./develop/quickstart-register-app.md
+          itemType: quickstart
+          text:  Register an app with the Microsoft identity platform
+      footerLink:
+        url: ./develop/index.yml
         text: See more
 
     - title: Privileged identity management (PIM)

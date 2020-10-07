@@ -3,8 +3,8 @@ title: Implement Oracle Data Guard on an Azure Linux virtual machine | Microsoft
 description: Quickly get Oracle Data Guard up and running in your Azure environment.
 services: virtual-machines-linux
 documentationcenter: virtual-machines
-author: BorisB2015
-manager: gwallace
+author: dbakevlar
+manager: 
 editor: 
 tags: azure-resource-manager
 
@@ -15,14 +15,14 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 08/02/2018
-ms.author: borisb
+ms.author: kegorman
 ---
 
 # Implement Oracle Data Guard on an Azure Linux virtual machine 
 
 Azure CLI is used to create and manage Azure resources from the command line or in scripts. This article describes how to use Azure CLI to deploy an Oracle Database 12c database from the Azure Marketplace image. This article then shows you, step by step, how to install and configure Data Guard on an Azure virtual machine (VM).
 
-Before you start, make sure that Azure CLI is installed. For more information, see the [Azure CLI installation guide](https://docs.microsoft.com/cli/azure/install-azure-cli).
+Before you start, make sure that Azure CLI is installed. For more information, see the [Azure CLI installation guide](/cli/azure/install-azure-cli).
 
 ## Prepare the environment
 ### Assumptions
@@ -54,7 +54,7 @@ az group create --name myResourceGroup --location westus
 
 ### Create an availability set
 
-Creating an availability set is optional, but we recommend it. For more information, see [Azure availability sets guidelines](https://docs.microsoft.com/azure/virtual-machines/windows/infrastructure-availability-sets-guidelines).
+Creating an availability set is optional, but we recommend it. For more information, see [Azure availability sets guidelines](../../windows/infrastructure-example.md).
 
 ```azurecli
 az vm availability-set create \

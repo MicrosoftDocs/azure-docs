@@ -8,7 +8,7 @@ author: luiscabrer
 ms.author: luisca
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 01/30/2020
+ms.date: 06/17/2020
 ---
 
 #     Custom Entity Lookup cognitive skill (Preview)
@@ -18,7 +18,7 @@ ms.date: 01/30/2020
 
 The **Custom Entity Lookup** skill looks for text from a custom, user-defined list of words and phrases. Using this list, it labels all documents with any matching entities. The skill also supports a degree of fuzzy matching that can be applied to find matches that are similar but not quite exact.  
 
-This skill is not bound to a Cognitive Services API and can be used free of charge during the preview period. You should still [attach a Cognitive Services resource](https://docs.microsoft.com/azure/search/cognitive-search-attach-cognitive-services), however, to override the daily enrichment limit. The daily limit applies to free access to Cognitive Services when accessed through Azure Cognitive Search.
+This skill is not bound to a Cognitive Services API and can be used free of charge during the preview period. You should still [attach a Cognitive Services resource](./cognitive-search-attach-cognitive-services.md), however, to override the daily enrichment limit. The daily limit applies to free access to Cognitive Services when accessed through Azure Cognitive Search.
 
 ## @odata.type  
 Microsoft.Skills.Text.CustomEntityLookupSkill 
@@ -34,17 +34,17 @@ Parameters are case-sensitive.
 
 | Parameter name     | Description |
 |--------------------|-------------|
-| entitiesDefinitionUri    | Path to a JSON or CSV file containing all the target text to match against. This entity definition is read at the beginning of an indexer run; any updates to this file mid-run won't be realized until subsequent runs. This config must be accessible over HTTPS. See [Custom Entity Definition](#custom-entity-definition-format) Format" below for expected CSV or JSON schema.|
-|inlineEntitiesDefinition | Inline JSON entity definitions. This parameter supersedes the entitiesDefinitionUri parameter if present. No more than 10 KB of configuration may be provided inline. See [Custom Entity Definition](#custom-entity-definition-format) below for expected JSON schema. |
-|defaultLanguageCode |    (Optional) Language code of the input text used to tokenize and delineate input text. The following languages are supported: `da, de, en, es, fi, fr, it, ko, pt`. The default is English (`en`). If you pass a languagecode-countrycode format, only the languagecode part of the format is used.  |
+| `entitiesDefinitionUri`    | Path to a JSON or CSV file containing all the target text to match against. This entity definition is read at the beginning of an indexer run; any updates to this file mid-run won't be realized until subsequent runs. This config must be accessible over HTTPS. See [Custom Entity Definition](#custom-entity-definition-format) Format" below for expected CSV or JSON schema.|
+|`inlineEntitiesDefinition` | Inline JSON entity definitions. This parameter supersedes the entitiesDefinitionUri parameter if present. No more than 10 KB of configuration may be provided inline. See [Custom Entity Definition](#custom-entity-definition-format) below for expected JSON schema. |
+|`defaultLanguageCode` |    (Optional) Language code of the input text used to tokenize and delineate input text. The following languages are supported: `da, de, en, es, fi, fr, it, ko, pt`. The default is English (`en`). If you pass a languagecode-countrycode format, only the languagecode part of the format is used.  |
 
 
 ## Skill inputs
 
 | Input name      | Description                   |
 |---------------|-------------------------------|
-| text          | The text to analyze.          |
-| languageCode    | Optional. Default is `"en"`.  |
+| `text`          | The text to analyze.          |
+| `languageCode`    | Optional. Default is `"en"`.  |
 
 
 ## Skill outputs
@@ -52,7 +52,7 @@ Parameters are case-sensitive.
 
 | Output name      | Description                   |
 |---------------|-------------------------------|
-| entities | An array of objects that contain information about the matches that were found, and related metadata. Each of the entities identified may contain the following fields:  <ul> <li> *name*: The top-level entity identified. The entity represents the "normalized" form. </li> <li> *id*:  A unique identifier for the entity as defined by the user in the "Custom Entity Definition Format".</li> <li> *description*: Entity description as defined by the user in the "Custom Entity Definition Format". </li> <li> *type:* Entity type as defined by the user in the "Custom Entity Definition Format".</li> <li> *subtype:* Entity subtype as defined by the user in the "Custom Entity Definition Format".</li>  <li> *matches*: Collection that describes each of the matches for that entity on the source text. Each match will have the following members: </li> <ul> <li> *text*: The raw text match from the source document. </li> <li> *offset*: The location where the match was found in the text. </li> <li> *length*:  The length of the matched text. </li> <li> *matchDistance*: The number of characters different this match was from original entity name or alias.  </li> </ul> </ul>
+| `entities` | An array of objects that contain information about the matches that were found, and related metadata. Each of the entities identified may contain the following fields:  <ul> <li> *name*: The top-level entity identified. The entity represents the "normalized" form. </li> <li> *id*:  A unique identifier for the entity as defined by the user in the "Custom Entity Definition Format".</li> <li> *description*: Entity description as defined by the user in the "Custom Entity Definition Format". </li> <li> *type:* Entity type as defined by the user in the "Custom Entity Definition Format".</li> <li> *subtype:* Entity subtype as defined by the user in the "Custom Entity Definition Format".</li>  <li> *matches*: Collection that describes each of the matches for that entity on the source text. Each match will have the following members: </li> <ul> <li> *text*: The raw text match from the source document. </li> <li> *offset*: The location where the match was found in the text. </li> <li> *length*:  The length of the matched text. </li> <li> *matchDistance*: The number of characters different this match was from original entity name or alias.  </li> </ul> </ul>
   |
 
 ## Custom Entity Definition Format
@@ -141,22 +141,22 @@ The tables below describe in more details the different configuration parameters
 
 |  Field name  |        Description  |
 |--------------|----------------------|
-| name | The top-level entity descriptor. Matches in the skill output will be grouped by this name, and it should represent the "normalized" form of the text being found.  |
-| description  | (Optional) This field can be used as a passthrough for custom metadata about the matched text(s). The value of this field will appear with every match of its entity in the skill output. |
-| type | (Optional) This field can be used as a passthrough for custom metadata about the matched text(s). The value of this field will appear with every match of its entity in the skill output. |
-| subtype | (Optional) This field can be used as a passthrough for custom metadata about the matched text(s). The value of this field will appear with every match of its entity in the skill output. |
-| id | (Optional) This field can be used as a passthrough for custom metadata about the matched text(s). The value of this field will appear with every match of its entity in the skill output. |
-| caseSensitive | (Optional) Defaults to false. Boolean value denoting whether comparisons with the entity name should be sensitive to character casing. Sample case insensitive matches of "Microsoft" could be: microsoft, microSoft, MICROSOFT |
-| fuzzyEditDistance | (Optional) Defaults to 0. Maximum value of 5. Denotes the acceptable number of divergent characters that would still constitute a match with the entity name. The smallest possible fuzziness for any given match is returned.  For instance, if the edit distance is set to 3, "Windows 10" would still match "Windows", "Windows10" and "windows 7". <br/> When case sensitivity is set to false, case differences do NOT count towards fuzziness tolerance, but otherwise do. |
-| defaultCaseSensitive | (Optional) Changes the default case sensitivity value for this entity. It be used to change the default value of all aliases caseSensitive values. |
-| defaultFuzzyEditDistance | (Optional) Changes the default fuzzy edit distance value for this entity. It can be used to change the default value of all aliases fuzzyEditDistance values. |
-| aliases | (Optional) An array of complex objects that can be used to specify alternative spellings or synonyms to the root entity name. |
+| `name` | The top-level entity descriptor. Matches in the skill output will be grouped by this name, and it should represent the "normalized" form of the text being found.  |
+| `description`  | (Optional) This field can be used as a passthrough for custom metadata about the matched text(s). The value of this field will appear with every match of its entity in the skill output. |
+| `type` | (Optional) This field can be used as a passthrough for custom metadata about the matched text(s). The value of this field will appear with every match of its entity in the skill output. |
+| `subtype` | (Optional) This field can be used as a passthrough for custom metadata about the matched text(s). The value of this field will appear with every match of its entity in the skill output. |
+| `id` | (Optional) This field can be used as a passthrough for custom metadata about the matched text(s). The value of this field will appear with every match of its entity in the skill output. |
+| `caseSensitive` | (Optional) Defaults to false. Boolean value denoting whether comparisons with the entity name should be sensitive to character casing. Sample case insensitive matches of "Microsoft" could be: microsoft, microSoft, MICROSOFT |
+| `fuzzyEditDistance` | (Optional) Defaults to 0. Maximum value of 5. Denotes the acceptable number of divergent characters that would still constitute a match with the entity name. The smallest possible fuzziness for any given match is returned.  For instance, if the edit distance is set to 3, "Windows 10" would still match "Windows", "Windows10" and "windows 7". <br/> When case sensitivity is set to false, case differences do NOT count towards fuzziness tolerance, but otherwise do. |
+| `defaultCaseSensitive` | (Optional) Changes the default case sensitivity value for this entity. It be used to change the default value of all aliases caseSensitive values. |
+| `defaultFuzzyEditDistance` | (Optional) Changes the default fuzzy edit distance value for this entity. It can be used to change the default value of all aliases fuzzyEditDistance values. |
+| `aliases` | (Optional) An array of complex objects that can be used to specify alternative spellings or synonyms to the root entity name. |
 
 | Alias properties | Description |
 |------------------|-------------|
-| text  | The alternative spelling or representation of some target entity name.  |
-| caseSensitive | (Optional) Acts the same as root entity "caseSensitive" parameter above, but applies to only this one alias. |
-| fuzzyEditDistance | (Optional) Acts the same as root entity "fuzzyEditDistance" parameter above, but applies to only this one alias. |
+| `text`  | The alternative spelling or representation of some target entity name.  |
+| `caseSensitive` | (Optional) Acts the same as root entity "caseSensitive" parameter above, but applies to only this one alias. |
+| `fuzzyEditDistance` | (Optional) Acts the same as root entity "fuzzyEditDistance" parameter above, but applies to only this one alias. |
 
 
 ### Inline format
@@ -184,7 +184,7 @@ A sample skill definition using an inline format is shown below:
       }, 
       { 
         "name" : "Xbox One", 
-        "type": "Harware",
+        "type": "Hardware",
         "subtype" : "Gaming Device",
         "id" : "4e36bf9d-5550-4396-8647-8e43d7564a76",
         "description" : "The Xbox One product"
@@ -204,7 +204,7 @@ A sample skill definition using an inline format is shown below:
     ]
   }
 ```
-Alternatively, if you decide to provide a pointer to the entities definition file, a sample skill definition using the entitiesDefinitionUri format is shown below:
+Alternatively, if you decide to provide a pointer to the entities definition file, a sample skill definition using the `entitiesDefinitionUri` format is shown below:
 
 ```json
   {
@@ -236,7 +236,7 @@ Alternatively, if you decide to provide a pointer to the entities definition fil
         "recordId": "1",
         "data":
            {
-             "text": "The company microsoft was founded by Bill Gates. Microsoft's gaming console is called Xbox",
+             "text": "The company, Microsoft, was founded by Bill Gates. Microsoft's gaming console is called Xbox",
              "languageCode": "en"
            }
       }

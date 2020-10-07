@@ -19,7 +19,7 @@ ms.subservice: B2C
 
 The **ClaimsSchema** element defines the claim types that can be referenced as part of the policy. Claims schema is the place where you declare your claims. A claim can be first name, last name, display name, phone number and more. ClaimsSchema element contains list of **ClaimType** elements. The **ClaimType** element contains the **Id** attribute, which is the claim name.
 
-```XML
+```xml
 <BuildingBlocks>
   <ClaimsSchema>
     <ClaimType Id="Id">
@@ -93,7 +93,7 @@ The **Protocol** element contains the following attributes:
 
 In the following example, when the Identity Experience Framework interacts with a SAML2 identity provider or relying party application, the **surname** claim is mapped to `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname`, with OpenIdConnect and OAuth2, the claim is mapped to `family_name`.
 
-```XML
+```xml
 <ClaimType Id="surname">
   <DisplayName>Surname</DisplayName>
   <DataType>string</DataType>
@@ -107,7 +107,7 @@ In the following example, when the Identity Experience Framework interacts with 
 
 As a result, the JWT token issued by Azure AD B2C, emits the `family_name` instead of ClaimType name **surname**.
 
-```JSON
+```json
 {
   "sub": "6fbbd70d-262b-4b50-804c-257ae1706ef2",
   "auth_time": 1535013501,
@@ -128,7 +128,7 @@ The **Mask** element contains the following attributes:
 
 The following example configures a **PhoneNumber** claim with the `Simple` mask:
 
-```XML
+```xml
 <ClaimType Id="PhoneNumber">
   <DisplayName>Phone Number</DisplayName>
   <DataType>string</DataType>
@@ -143,7 +143,7 @@ The Identity Experience Framework renders the phone number while hiding the firs
 
 The following example configures a **AlternateEmail** claim with the `Regex` mask:
 
-```XML
+```xml
 <ClaimType Id="AlternateEmail">
   <DisplayName>Please verify the secondary email linked to your account</DisplayName>
   <DataType>string</DataType>
@@ -186,7 +186,7 @@ The **Enumeration** element contains the following attributes:
 
 The following example configures a **city** dropdown list claim with a default value set to `New York`:
 
-```XML
+```xml
 <ClaimType Id="city">
   <DisplayName>city where you work</DisplayName>
   <DataType>string</DataType>
@@ -214,7 +214,7 @@ The **Pattern** element can contain the following attributes:
 
 The following example configures an **email** claim with regular expression input validation and help text:
 
-```XML
+```xml
 <ClaimType Id="email">
   <DisplayName>Email Address</DisplayName>
   <DataType>string</DataType>
@@ -258,7 +258,7 @@ The **TextBox** user input type is used to provide a single-line text box.
 
 ![TextBox showing properties specified in claim type](./media/claimsschema/textbox.png)
 
-```XML
+```xml
 <ClaimType Id="displayName">
   <DisplayName>Display Name</DisplayName>
   <DataType>string</DataType>
@@ -273,7 +273,7 @@ The **EmailBox** user input type is used to provide a basic email input field.
 
 ![EmailBox showing properties specified in claim type](./media/claimsschema/emailbox.png)
 
-```XML
+```xml
 <ClaimType Id="email">
   <DisplayName>Email Address</DisplayName>
   <DataType>string</DataType>
@@ -291,7 +291,7 @@ The **Password** user input type is used to record a password entered by the use
 
 ![Using claim type with password](./media/claimsschema/password.png)
 
-```XML
+```xml
 <ClaimType Id="password">
   <DisplayName>Password</DisplayName>
   <DataType>string</DataType>
@@ -306,7 +306,7 @@ The **DateTimeDropdown** user input type is used to provide a set of drop-downs 
 
 ![Using claim type with datetimedropdown](./media/claimsschema/datetimedropdown.png)
 
-```XML
+```xml
 <ClaimType Id="dateOfBirth">
   <DisplayName>Date Of Birth</DisplayName>
   <DataType>date</DataType>
@@ -321,7 +321,7 @@ The **RadioSingleSelect** user input type is used to provide a collection of rad
 
 ![Using claim type with radiodsingleselect](./media/claimsschema/radiosingleselect.png)
 
-```XML
+```xml
 <ClaimType Id="color">
   <DisplayName>Preferred color</DisplayName>
   <DataType>string</DataType>
@@ -340,7 +340,7 @@ The **DropdownSingleSelect** user input type is used to provide a drop-down box 
 
 ![Using claim type with dropdownsingleselect](./media/claimsschema/dropdownsingleselect.png)
 
-```XML
+```xml
 <ClaimType Id="city">
   <DisplayName>City where you work</DisplayName>
   <DataType>string</DataType>
@@ -359,7 +359,7 @@ The **CheckboxMultiSelect** user input type is used to provide a collection of c
 
 ![Using claim type with checkboxmultiselect](./media/claimsschema/checkboxmultiselect.png)
 
-```XML
+```xml
 <ClaimType Id="languages">
   <DisplayName>Languages you speak</DisplayName>
   <DataType>string</DataType>
@@ -378,7 +378,7 @@ The **Readonly** user input type is used to provide a readonly field to display 
 
 ![Using claim type with readonly](./media/claimsschema/readonly.png)
 
-```XML
+```xml
 <ClaimType Id="membershipNumber">
   <DisplayName>Membership number</DisplayName>
   <DataType>string</DataType>
@@ -394,7 +394,7 @@ The **Paragraph** user input type is used to provide a field that shows text onl
 
 ![Using claim type with paragraph](./media/claimsschema/paragraph.png)
 
-```XML
+```xml
 <ClaimType Id="responseMsg">
   <DisplayName>Error message: </DisplayName>
   <DataType>string</DataType>

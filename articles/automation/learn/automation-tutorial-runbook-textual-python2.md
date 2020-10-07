@@ -1,11 +1,11 @@
 ---
 title: Create a Python runbook in Azure Automation
-description: Tutorial showing how to create, test, and publish a simple Python runbook.
+description: This article teaches you to create, test, and publish a simple Python runbook.
 services: automation
 ms.subservice: process-automation
 ms.date: 04/19/2020
 ms.topic: tutorial
-ms.custom: has-adal-ref
+ms.custom: has-adal-ref, devx-track-python
 ---
 
 # Tutorial: Create a Python runbook
@@ -26,7 +26,7 @@ This tutorial walks you through the creation of a [Python runbook](../automation
 To complete this tutorial, you need the following:
 
 - Azure subscription. If you don't have one yet, you can [activate your MSDN subscriber benefits](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) or sign up for a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-- [Automation account](../automation-offering-get-started.md) to hold the runbook and authenticate to Azure resources. This account must have permission to start and stop the virtual machine.
+- [Automation account](../index.yml) to hold the runbook and authenticate to Azure resources. This account must have permission to start and stop the virtual machine.
 - An Azure virtual machine. You stop and start this machine so it should not be a production VM.
 
 ## Create a new runbook
@@ -74,13 +74,11 @@ Before you publish the runbook to make it available in production, you want to t
 
 ## Publish and start the runbook
 
-The runbook that you created is still in Draft mode. You need to publish it before you can run it in production.
-When you publish a runbook, you overwrite the existing published version with the draft version.
-In this case, you don't have a published version yet because you just created the runbook.
+The runbook that you created is still in Draft mode. You need to publish it before you can run it in production. When you publish a runbook, you overwrite the existing published version with the draft version. In this case, you don't have a published version yet because you just created the runbook.
 
 1. Click **Publish** to publish the runbook and then **Yes** when prompted.
 
-2. If you scroll left to view the runbook on the **Runbooks** page, you should see an **Authoring Status** of **Published**.
+2. If you scroll left to view the runbook on the Runbooks page, you should see an **Authoring Status** of **Published**.
 
 3. Scroll back to the right to view the pane for **MyFirstRunbook-Python**.
 
@@ -160,7 +158,7 @@ To do this, the script has to authenticate using the credentials from your Autom
 ## Add code to create Python Compute client and start the VM
 
 To work with Azure VMs, create an instance of the
-[Azure Compute client for Python](https://docs.microsoft.com/python/api/azure-mgmt-compute/azure.mgmt.compute.computemanagementclient).
+[Azure Compute client for Python](/python/api/azure-mgmt-compute/azure.mgmt.compute.computemanagementclient).
 
 Use the compute client to start the VM. Add the following code to the runbook:
 

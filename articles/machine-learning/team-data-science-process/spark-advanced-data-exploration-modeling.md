@@ -48,11 +48,11 @@ Setup steps and code are provided in this walkthrough for using an HDInsight Spa
 
 ### Spark 1.6 notebooks
 
-[pySpark-machine-learning-data-science-spark-advanced-data-exploration-modeling.ipynb](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/Spark/pySpark/pySpark-machine-learning-data-science-spark-advanced-data-exploration-modeling.ipynb): Includes topics in notebook #1, and model development using hyperparameter tuning and cross-validation.
+[pySpark-machine-learning-data-science-spark-advanced-data-exploration-modeling.ipynb](https://github.com/Azure-Samples/Azure-MachineLearning-DataScience/blob/master/Misc/Spark/pySpark/Spark2.0/Spark2.0-pySpark3-machine-learning-data-science-spark-advanced-data-exploration-modeling.ipynb): Includes topics in notebook #1, and model development using hyperparameter tuning and cross-validation.
 
 ### Spark 2.0 notebooks
 
-[Spark2.0-pySpark3-machine-learning-data-science-spark-advanced-data-exploration-modeling.ipynb](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/Spark/pySpark/Spark2.0-pySpark3-machine-learning-data-science-spark-advanced-data-exploration-modeling.ipynb)​: This file provides information on how to perform data exploration, modeling, and scoring in Spark 2.0 clusters.
+[Spark2.0-pySpark3-machine-learning-data-science-spark-advanced-data-exploration-modeling.ipynb](https://github.com/Azure-Samples/Azure-MachineLearning-DataScience/blob/master/Misc/Spark/pySpark/Spark2.0/Spark2.0-pySpark3-machine-learning-data-science-spark-advanced-data-exploration-modeling.ipynb)​: This file provides information on how to perform data exploration, modeling, and scoring in Spark 2.0 clusters.
 
 [!INCLUDE [delete-cluster-warning](../../../includes/hdinsight-delete-cluster-warning.md)]
 
@@ -64,19 +64,21 @@ To save models or files in WASB, the path needs to be specified properly. The de
 ### Set directory paths for storage locations in WASB
 The following code sample specifies the location of the data to be read and the path for the model storage directory to which the model output is saved:
 
-    # SET PATHS TO FILE LOCATIONS: DATA AND MODEL STORAGE
+```python
+# SET PATHS TO FILE LOCATIONS: DATA AND MODEL STORAGE
 
-    # LOCATION OF TRAINING DATA
-    taxi_train_file_loc = "wasb://mllibwalkthroughs@cdspsparksamples.blob.core.windows.net/Data/NYCTaxi/JoinedTaxiTripFare.Point1Pct.Train.tsv";
+# LOCATION OF TRAINING DATA
+taxi_train_file_loc = "wasb://mllibwalkthroughs@cdspsparksamples.blob.core.windows.net/Data/NYCTaxi/JoinedTaxiTripFare.Point1Pct.Train.tsv";
 
 
-    # SET THE MODEL STORAGE DIRECTORY PATH 
-    # NOTE THAT THE FINAL BACKSLASH IN THE PATH IS NEEDED.
-    modelDir = "wasb:///user/remoteuser/NYCTaxi/Models/";
+# SET THE MODEL STORAGE DIRECTORY PATH 
+# NOTE THAT THE FINAL BACKSLASH IN THE PATH IS NEEDED.
+modelDir = "wasb:///user/remoteuser/NYCTaxi/Models/";
 
-    # PRINT START TIME
-    import datetime
-    datetime.datetime.now()
+# PRINT START TIME
+import datetime
+datetime.datetime.now()
+```
 
 **OUTPUT**
 
@@ -85,21 +87,22 @@ datetime.datetime(2016, 4, 18, 17, 36, 27, 832799)
 ### Import libraries
 Import necessary libraries with the following code:
 
-    # LOAD PYSPARK LIBRARIES
-    import pyspark
-    from pyspark import SparkConf
-    from pyspark import SparkContext
-    from pyspark.sql import SQLContext
-    import matplotlib
-    import matplotlib.pyplot as plt
-    from pyspark.sql import Row
-    from pyspark.sql.functions import UserDefinedFunction
-    from pyspark.sql.types import *
-    import atexit
-    from numpy import array
-    import numpy as np
-    import datetime
-
+```python
+# LOAD PYSPARK LIBRARIES
+import pyspark
+from pyspark import SparkConf
+from pyspark import SparkContext
+from pyspark.sql import SQLContext
+import matplotlib
+import matplotlib.pyplot as plt
+from pyspark.sql import Row
+from pyspark.sql.functions import UserDefinedFunction
+from pyspark.sql.types import *
+import atexit
+from numpy import array
+import numpy as np
+import datetime
+```
 
 ### Preset Spark context and PySpark magics
 The PySpark kernels that are provided with Jupyter notebooks have a preset context. So you do not need to set the Spark or Hive contexts explicitly before you start working with the application you are developing. These contexts are available for you by default. These contexts are:
@@ -125,61 +128,62 @@ The first step in the data science process is to ingest the data to be analyzed 
 
 Here is the code for data ingestion.
 
-    # RECORD START TIME
-    timestart = datetime.datetime.now()
+```python
+# RECORD START TIME
+timestart = datetime.datetime.now()
 
-    # IMPORT FILE FROM PUBLIC BLOB
-    taxi_train_file = sc.textFile(taxi_train_file_loc)
+# IMPORT FILE FROM PUBLIC BLOB
+taxi_train_file = sc.textFile(taxi_train_file_loc)
 
-    # GET SCHEMA OF THE FILE FROM HEADER
-    schema_string = taxi_train_file.first()
-    fields = [StructField(field_name, StringType(), True) for field_name in schema_string.split('\t')]
-    fields[7].dataType = IntegerType() #Pickup hour
-    fields[8].dataType = IntegerType() # Pickup week
-    fields[9].dataType = IntegerType() # Weekday
-    fields[10].dataType = IntegerType() # Passenger count
-    fields[11].dataType = FloatType() # Trip time in secs
-    fields[12].dataType = FloatType() # Trip distance
-    fields[19].dataType = FloatType() # Fare amount
-    fields[20].dataType = FloatType() # Surcharge
-    fields[21].dataType = FloatType() # Mta_tax
-    fields[22].dataType = FloatType() # Tip amount
-    fields[23].dataType = FloatType() # Tolls amount
-    fields[24].dataType = FloatType() # Total amount
-    fields[25].dataType = IntegerType() # Tipped or not
-    fields[26].dataType = IntegerType() # Tip class
-    taxi_schema = StructType(fields)
+# GET SCHEMA OF THE FILE FROM HEADER
+schema_string = taxi_train_file.first()
+fields = [StructField(field_name, StringType(), True) for field_name in schema_string.split('\t')]
+fields[7].dataType = IntegerType() #Pickup hour
+fields[8].dataType = IntegerType() # Pickup week
+fields[9].dataType = IntegerType() # Weekday
+fields[10].dataType = IntegerType() # Passenger count
+fields[11].dataType = FloatType() # Trip time in secs
+fields[12].dataType = FloatType() # Trip distance
+fields[19].dataType = FloatType() # Fare amount
+fields[20].dataType = FloatType() # Surcharge
+fields[21].dataType = FloatType() # Mta_tax
+fields[22].dataType = FloatType() # Tip amount
+fields[23].dataType = FloatType() # Tolls amount
+fields[24].dataType = FloatType() # Total amount
+fields[25].dataType = IntegerType() # Tipped or not
+fields[26].dataType = IntegerType() # Tip class
+taxi_schema = StructType(fields)
 
-    # PARSE FIELDS AND CONVERT DATA TYPE FOR SOME FIELDS
-    taxi_header = taxi_train_file.filter(lambda l: "medallion" in l)
-    taxi_temp = taxi_train_file.subtract(taxi_header).map(lambda k: k.split("\t"))\
+# PARSE FIELDS AND CONVERT DATA TYPE FOR SOME FIELDS
+taxi_header = taxi_train_file.filter(lambda l: "medallion" in l)
+taxi_temp = taxi_train_file.subtract(taxi_header).map(lambda k: k.split("\t"))\
             .map(lambda p: (p[0],p[1],p[2],p[3],p[4],p[5],p[6],int(p[7]),int(p[8]),int(p[9]),int(p[10]),
-                            float(p[11]),float(p[12]),p[13],p[14],p[15],p[16],p[17],p[18],float(p[19]),
-                            float(p[20]),float(p[21]),float(p[22]),float(p[23]),float(p[24]),int(p[25]),int(p[26])))
+                        float(p[11]),float(p[12]),p[13],p[14],p[15],p[16],p[17],p[18],float(p[19]),
+                        float(p[20]),float(p[21]),float(p[22]),float(p[23]),float(p[24]),int(p[25]),int(p[26])))
 
 
-    # CREATE DATA FRAME
-    taxi_train_df = sqlContext.createDataFrame(taxi_temp, taxi_schema)
+# CREATE DATA FRAME
+taxi_train_df = sqlContext.createDataFrame(taxi_temp, taxi_schema)
 
-    # CREATE A CLEANED DATA-FRAME BY DROPPING SOME UN-NECESSARY COLUMNS & FILTERING FOR UNDESIRED VALUES OR OUTLIERS
-    taxi_df_train_cleaned = taxi_train_df.drop('medallion').drop('hack_license').drop('store_and_fwd_flag').drop('pickup_datetime')\
-        .drop('dropoff_datetime').drop('pickup_longitude').drop('pickup_latitude').drop('dropoff_latitude')\
-        .drop('dropoff_longitude').drop('tip_class').drop('total_amount').drop('tolls_amount').drop('mta_tax')\
-        .drop('direct_distance').drop('surcharge')\
-        .filter("passenger_count > 0 and passenger_count < 8 AND payment_type in ('CSH', 'CRD') AND tip_amount >= 0 AND tip_amount < 30 AND fare_amount >= 1 AND fare_amount < 150 AND trip_distance > 0 AND trip_distance < 100 AND trip_time_in_secs > 30 AND trip_time_in_secs < 7200" )
+# CREATE A CLEANED DATA-FRAME BY DROPPING SOME UN-NECESSARY COLUMNS & FILTERING FOR UNDESIRED VALUES OR OUTLIERS
+taxi_df_train_cleaned = taxi_train_df.drop('medallion').drop('hack_license').drop('store_and_fwd_flag').drop('pickup_datetime')\
+    .drop('dropoff_datetime').drop('pickup_longitude').drop('pickup_latitude').drop('dropoff_latitude')\
+    .drop('dropoff_longitude').drop('tip_class').drop('total_amount').drop('tolls_amount').drop('mta_tax')\
+    .drop('direct_distance').drop('surcharge')\
+    .filter("passenger_count > 0 and passenger_count < 8 AND payment_type in ('CSH', 'CRD') AND tip_amount >= 0 AND tip_amount < 30 AND fare_amount >= 1 AND fare_amount < 150 AND trip_distance > 0 AND trip_distance < 100 AND trip_time_in_secs > 30 AND trip_time_in_secs < 7200" )
 
-    # CACHE & MATERIALIZE DATA-FRAME IN MEMORY. GOING THROUGH AND COUNTING NUMBER OF ROWS MATERIALIZES THE DATA-FRAME IN MEMORY
-    taxi_df_train_cleaned.cache()
-    taxi_df_train_cleaned.count()
+# CACHE & MATERIALIZE DATA-FRAME IN MEMORY. GOING THROUGH AND COUNTING NUMBER OF ROWS MATERIALIZES THE DATA-FRAME IN MEMORY
+taxi_df_train_cleaned.cache()
+taxi_df_train_cleaned.count()
 
-    # REGISTER DATA-FRAME AS A TEMP-TABLE IN SQL-CONTEXT
-    taxi_df_train_cleaned.registerTempTable("taxi_train")
+# REGISTER DATA-FRAME AS A TEMP-TABLE IN SQL-CONTEXT
+taxi_df_train_cleaned.registerTempTable("taxi_train")
 
-    # PRINT HOW MUCH TIME IT TOOK TO RUN THE CELL
-    timeend = datetime.datetime.now()
-    timedelta = round((timeend-timestart).total_seconds(), 2) 
-    print "Time taken to execute above cell: " + str(timedelta) + " seconds"; 
-
+# PRINT HOW MUCH TIME IT TOOK TO RUN THE CELL
+timeend = datetime.datetime.now()
+timedelta = round((timeend-timestart).total_seconds(), 2) 
+print "Time taken to execute above cell: " + str(timedelta) + " seconds"; 
+```
 
 **OUTPUT**
 
@@ -196,12 +200,13 @@ This code and subsequent snippets use SQL magic to query the sample and local ma
 
 This query retrieves the trips by passenger count. 
 
-    # PLOT FREQUENCY OF PASSENGER COUNTS IN TAXI TRIPS
+```sql
+# PLOT FREQUENCY OF PASSENGER COUNTS IN TAXI TRIPS
 
-    # SQL QUERY
-    %%sql -q -o sqlResults
-    SELECT passenger_count, COUNT(*) as trip_counts FROM taxi_train WHERE passenger_count > 0 and passenger_count < 7 GROUP BY passenger_count
-
+# SQL QUERY
+%%sql -q -o sqlResults
+SELECT passenger_count, COUNT(*) as trip_counts FROM taxi_train WHERE passenger_count > 0 and passenger_count < 7 GROUP BY passenger_count
+```
 
 This code creates a local data-frame from the query output and plots the data. The `%%local` magic creates a local data-frame, `sqlResults`, which can be used for plotting with matplotlib. 
 
@@ -212,28 +217,32 @@ This code creates a local data-frame from the query output and plots the data. T
 
 <!-- -->
 
-    # RUN THE CODE LOCALLY ON THE JUPYTER SERVER
-    %%local
+```python
+# RUN THE CODE LOCALLY ON THE JUPYTER SERVER
+%%local
 
-    # USE THE JUPYTER AUTO-PLOTTING FEATURE TO CREATE INTERACTIVE FIGURES. 
-    # CLICK ON THE TYPE OF PLOT TO BE GENERATED (E.G. LINE, AREA, BAR ETC.)
-    sqlResults
+# USE THE JUPYTER AUTO-PLOTTING FEATURE TO CREATE INTERACTIVE FIGURES. 
+# CLICK ON THE TYPE OF PLOT TO BE GENERATED (E.G. LINE, AREA, BAR ETC.)
+sqlResults
+```
 
 Here is the code to plot the trips by passenger counts
 
-    # RUN THE CODE LOCALLY ON THE JUPYTER SERVER AND IMPORT LIBRARIES
-    %%local
-    import matplotlib.pyplot as plt
-    %matplotlib inline
+```python
+# RUN THE CODE LOCALLY ON THE JUPYTER SERVER AND IMPORT LIBRARIES
+%%local
+import matplotlib.pyplot as plt
+%matplotlib inline
 
-    # PLOT PASSENGER NUMBER VS TRIP COUNTS
-    x_labels = sqlResults['passenger_count'].values
-    fig = sqlResults[['trip_counts']].plot(kind='bar', facecolor='lightblue')
-    fig.set_xticklabels(x_labels)
-    fig.set_title('Counts of trips by passenger count')
-    fig.set_xlabel('Passenger count in trips')
-    fig.set_ylabel('Trip counts')
-    plt.show()
+# PLOT PASSENGER NUMBER VS TRIP COUNTS
+x_labels = sqlResults['passenger_count'].values
+fig = sqlResults[['trip_counts']].plot(kind='bar', facecolor='lightblue')
+fig.set_xticklabels(x_labels)
+fig.set_title('Counts of trips by passenger count')
+fig.set_xlabel('Passenger count in trips')
+fig.set_ylabel('Trip counts')
+plt.show()
+```
 
 **OUTPUT**
 
@@ -244,49 +253,51 @@ You can select among several different types of visualizations (Table, Pie, Line
 ### Plot a histogram of tip amounts and how tip amount varies by passenger count and fare amounts.
 Use a SQL query to sample data..
 
-    # SQL SQUERY
-    %%sql -q -o sqlResults
-        SELECT fare_amount, passenger_count, tip_amount, tipped
-        FROM taxi_train 
-        WHERE passenger_count > 0 
-        AND passenger_count < 7
-        AND fare_amount > 0 
-        AND fare_amount < 200
-        AND payment_type in ('CSH', 'CRD')
-        AND tip_amount > 0 
-        AND tip_amount < 25
-
+```sql
+# SQL SQUERY
+%%sql -q -o sqlResults
+    SELECT fare_amount, passenger_count, tip_amount, tipped
+    FROM taxi_train 
+    WHERE passenger_count > 0 
+    AND passenger_count < 7
+    AND fare_amount > 0 
+    AND fare_amount < 200
+    AND payment_type in ('CSH', 'CRD')
+    AND tip_amount > 0 
+    AND tip_amount < 25
+```
 
 This code cell uses the SQL query to create three plots the data.
 
-    # RUN THE CODE LOCALLY ON THE JUPYTER SERVER AND IMPORT LIBRARIES
-    %%local
-    %matplotlib inline
+```python
+# RUN THE CODE LOCALLY ON THE JUPYTER SERVER AND IMPORT LIBRARIES
+%%local
+%matplotlib inline
 
-    # TIP BY PAYMENT TYPE AND PASSENGER COUNT
-    ax1 = resultsPDDF[['tip_amount']].plot(kind='hist', bins=25, facecolor='lightblue')
-    ax1.set_title('Tip amount distribution')
-    ax1.set_xlabel('Tip Amount ($)')
-    ax1.set_ylabel('Counts')
-    plt.suptitle('')
-    plt.show()
+# TIP BY PAYMENT TYPE AND PASSENGER COUNT
+ax1 = resultsPDDF[['tip_amount']].plot(kind='hist', bins=25, facecolor='lightblue')
+ax1.set_title('Tip amount distribution')
+ax1.set_xlabel('Tip Amount ($)')
+ax1.set_ylabel('Counts')
+plt.suptitle('')
+plt.show()
 
-    # TIP BY PASSENGER COUNT
-    ax2 = resultsPDDF.boxplot(column=['tip_amount'], by=['passenger_count'])
-    ax2.set_title('Tip amount ($) by Passenger count')
-    ax2.set_xlabel('Passenger count')
-    ax2.set_ylabel('Tip Amount ($)')
-    plt.suptitle('')
-    plt.show()
+# TIP BY PASSENGER COUNT
+ax2 = resultsPDDF.boxplot(column=['tip_amount'], by=['passenger_count'])
+ax2.set_title('Tip amount ($) by Passenger count')
+ax2.set_xlabel('Passenger count')
+ax2.set_ylabel('Tip Amount ($)')
+plt.suptitle('')
+plt.show()
 
-    # TIP AMOUNT BY FARE AMOUNT, POINTS ARE SCALED BY PASSENGER COUNT
-    ax = resultsPDDF.plot(kind='scatter', x= 'fare_amount', y = 'tip_amount', c='blue', alpha = 0.10, s=5*(resultsPDDF.passenger_count))
-    ax.set_title('Tip amount by Fare amount ($)')
-    ax.set_xlabel('Fare Amount')
-    ax.set_ylabel('Tip Amount')
-    plt.axis([-2, 120, -2, 30])
-    plt.show()
-
+# TIP AMOUNT BY FARE AMOUNT, POINTS ARE SCALED BY PASSENGER COUNT
+ax = resultsPDDF.plot(kind='scatter', x= 'fare_amount', y = 'tip_amount', c='blue', alpha = 0.10, s=5*(resultsPDDF.passenger_count))
+ax.set_title('Tip amount by Fare amount ($)')
+ax.set_xlabel('Fare Amount')
+ax.set_ylabel('Tip Amount')
+plt.axis([-2, 120, -2, 30])
+plt.show()
+```
 
 **OUTPUT:** 
 
@@ -309,24 +320,28 @@ This section describes and provides the code for procedures used to prepare data
 ### Create a new feature by partitioning traffic times into bins
 This code shows how to create a new feature by partitioning traffic times into bins and then how to cache the resulting data frame in memory. Caching leads to improved execution time where Resilient Distributed Datasets (RDDs) and data-frames are used repeatedly. So, we cache RDDs and data-frames at several stages in this walkthrough.
 
-    # CREATE FOUR BUCKETS FOR TRAFFIC TIMES
-    sqlStatement = """
-        SELECT *,
-        CASE
-         WHEN (pickup_hour <= 6 OR pickup_hour >= 20) THEN "Night" 
-         WHEN (pickup_hour >= 7 AND pickup_hour <= 10) THEN "AMRush" 
-         WHEN (pickup_hour >= 11 AND pickup_hour <= 15) THEN "Afternoon"
-         WHEN (pickup_hour >= 16 AND pickup_hour <= 19) THEN "PMRush"
-        END as TrafficTimeBins
-        FROM taxi_train 
-    """
-    taxi_df_train_with_newFeatures = sqlContext.sql(sqlStatement)
+```python
+# CREATE FOUR BUCKETS FOR TRAFFIC TIMES
+sqlStatement = """
+    SELECT *,
+    CASE
+     WHEN (pickup_hour <= 6 OR pickup_hour >= 20) THEN "Night" 
+     WHEN (pickup_hour >= 7 AND pickup_hour <= 10) THEN "AMRush" 
+     WHEN (pickup_hour >= 11 AND pickup_hour <= 15) THEN "Afternoon"
+     WHEN (pickup_hour >= 16 AND pickup_hour <= 19) THEN "PMRush"
+    END as TrafficTimeBins
+    FROM taxi_train 
+"""
+taxi_df_train_with_newFeatures = sqlContext.sql(sqlStatement)
+```
 
-    # CACHE DATA-FRAME IN MEMORY & MATERIALIZE DF IN MEMORY
-    # THE .COUNT() GOES THROUGH THE ENTIRE DATA-FRAME,
-    # MATERIALIZES IT IN MEMORY, AND GIVES THE COUNT OF ROWS.
-    taxi_df_train_with_newFeatures.cache()
-    taxi_df_train_with_newFeatures.count()
+```python
+# CACHE DATA-FRAME IN MEMORY & MATERIALIZE DF IN MEMORY
+# THE .COUNT() GOES THROUGH THE ENTIRE DATA-FRAME,
+# MATERIALIZES IT IN MEMORY, AND GIVES THE COUNT OF ROWS.
+taxi_df_train_with_newFeatures.cache()
+taxi_df_train_with_newFeatures.count()
+```
 
 **OUTPUT**
 
@@ -339,45 +354,46 @@ Depending on the model, you need to index or encode them in different ways. For 
 
 Here is the code to index and encode categorical features:
 
-    # RECORD START TIME
-    timestart = datetime.datetime.now()
+```python
+# RECORD START TIME
+timestart = datetime.datetime.now()
 
-    # LOAD PYSPARK LIBRARIES
-    from pyspark.ml.feature import OneHotEncoder, StringIndexer, VectorAssembler, OneHotEncoder, VectorIndexer
+# LOAD PYSPARK LIBRARIES
+from pyspark.ml.feature import OneHotEncoder, StringIndexer, VectorAssembler, OneHotEncoder, VectorIndexer
 
-    # INDEX AND ENCODE VENDOR_ID
-    stringIndexer = StringIndexer(inputCol="vendor_id", outputCol="vendorIndex")
-    model = stringIndexer.fit(taxi_df_train_with_newFeatures) # Input data-frame is the cleaned one from above
-    indexed = model.transform(taxi_df_train_with_newFeatures)
-    encoder = OneHotEncoder(dropLast=False, inputCol="vendorIndex", outputCol="vendorVec")
-    encoded1 = encoder.transform(indexed)
+# INDEX AND ENCODE VENDOR_ID
+stringIndexer = StringIndexer(inputCol="vendor_id", outputCol="vendorIndex")
+model = stringIndexer.fit(taxi_df_train_with_newFeatures) # Input data-frame is the cleaned one from above
+indexed = model.transform(taxi_df_train_with_newFeatures)
+encoder = OneHotEncoder(dropLast=False, inputCol="vendorIndex", outputCol="vendorVec")
+encoded1 = encoder.transform(indexed)
 
-    # INDEX AND ENCODE RATE_CODE
-    stringIndexer = StringIndexer(inputCol="rate_code", outputCol="rateIndex")
-    model = stringIndexer.fit(encoded1)
-    indexed = model.transform(encoded1)
-    encoder = OneHotEncoder(dropLast=False, inputCol="rateIndex", outputCol="rateVec")
-    encoded2 = encoder.transform(indexed)
+# INDEX AND ENCODE RATE_CODE
+stringIndexer = StringIndexer(inputCol="rate_code", outputCol="rateIndex")
+model = stringIndexer.fit(encoded1)
+indexed = model.transform(encoded1)
+encoder = OneHotEncoder(dropLast=False, inputCol="rateIndex", outputCol="rateVec")
+encoded2 = encoder.transform(indexed)
 
-    # INDEX AND ENCODE PAYMENT_TYPE
-    stringIndexer = StringIndexer(inputCol="payment_type", outputCol="paymentIndex")
-    model = stringIndexer.fit(encoded2)
-    indexed = model.transform(encoded2)
-    encoder = OneHotEncoder(dropLast=False, inputCol="paymentIndex", outputCol="paymentVec")
-    encoded3 = encoder.transform(indexed)
+# INDEX AND ENCODE PAYMENT_TYPE
+stringIndexer = StringIndexer(inputCol="payment_type", outputCol="paymentIndex")
+model = stringIndexer.fit(encoded2)
+indexed = model.transform(encoded2)
+encoder = OneHotEncoder(dropLast=False, inputCol="paymentIndex", outputCol="paymentVec")
+encoded3 = encoder.transform(indexed)
 
-    # INDEX AND TRAFFIC TIME BINS
-    stringIndexer = StringIndexer(inputCol="TrafficTimeBins", outputCol="TrafficTimeBinsIndex")
-    model = stringIndexer.fit(encoded3)
-    indexed = model.transform(encoded3)
-    encoder = OneHotEncoder(dropLast=False, inputCol="TrafficTimeBinsIndex", outputCol="TrafficTimeBinsVec")
-    encodedFinal = encoder.transform(indexed)
+# INDEX AND TRAFFIC TIME BINS
+stringIndexer = StringIndexer(inputCol="TrafficTimeBins", outputCol="TrafficTimeBinsIndex")
+model = stringIndexer.fit(encoded3)
+indexed = model.transform(encoded3)
+encoder = OneHotEncoder(dropLast=False, inputCol="TrafficTimeBinsIndex", outputCol="TrafficTimeBinsVec")
+encodedFinal = encoder.transform(indexed)
 
-    # PRINT ELAPSED TIME
-    timeend = datetime.datetime.now()
-    timedelta = round((timeend-timestart).total_seconds(), 2) 
-    print "Time taken to execute above cell: " + str(timedelta) + " seconds"; 
-
+# PRINT ELAPSED TIME
+timeend = datetime.datetime.now()
+timedelta = round((timeend-timestart).total_seconds(), 2) 
+print "Time taken to execute above cell: " + str(timedelta) + " seconds"; 
+```
 
 **OUTPUT**
 
@@ -388,89 +404,93 @@ This section contains code that shows how to index categorical text data as a la
 
 Here is the code to index and encode text features for binary classification.
 
-    # FUNCTIONS FOR BINARY CLASSIFICATION
+```python
+# FUNCTIONS FOR BINARY CLASSIFICATION
 
-    # LOAD LIBRARIES
-    from pyspark.mllib.regression import LabeledPoint
-    from numpy import array
+# LOAD LIBRARIES
+from pyspark.mllib.regression import LabeledPoint
+from numpy import array
 
-    # INDEXING CATEGORICAL TEXT FEATURES FOR INPUT INTO TREE-BASED MODELS
-    def parseRowIndexingBinary(line):
-        features = np.array([line.paymentIndex, line.vendorIndex, line.rateIndex, line.pickup_hour, line.weekday,
-                             line.passenger_count, line.trip_time_in_secs, line.trip_distance, line.fare_amount])
-        labPt = LabeledPoint(line.tipped, features)
-        return  labPt
+# INDEXING CATEGORICAL TEXT FEATURES FOR INPUT INTO TREE-BASED MODELS
+def parseRowIndexingBinary(line):
+    features = np.array([line.paymentIndex, line.vendorIndex, line.rateIndex, line.pickup_hour, line.weekday,
+                         line.passenger_count, line.trip_time_in_secs, line.trip_distance, line.fare_amount])
+    labPt = LabeledPoint(line.tipped, features)
+    return  labPt
 
-    # ONE-HOT ENCODING OF CATEGORICAL TEXT FEATURES FOR INPUT INTO LOGISTIC REGRESSION MODELS
-    def parseRowOneHotBinary(line):
-        features = np.concatenate((np.array([line.pickup_hour, line.weekday, line.passenger_count,
-                                            line.trip_time_in_secs, line.trip_distance, line.fare_amount]), 
-                                   line.vendorVec.toArray(), line.rateVec.toArray(), line.paymentVec.toArray()), axis=0)
-        labPt = LabeledPoint(line.tipped, features)
-        return  labPt
-
+# ONE-HOT ENCODING OF CATEGORICAL TEXT FEATURES FOR INPUT INTO LOGISTIC REGRESSION MODELS
+def parseRowOneHotBinary(line):
+    features = np.concatenate((np.array([line.pickup_hour, line.weekday, line.passenger_count,
+                                        line.trip_time_in_secs, line.trip_distance, line.fare_amount]), 
+                               line.vendorVec.toArray(), line.rateVec.toArray(), line.paymentVec.toArray()), axis=0)
+    labPt = LabeledPoint(line.tipped, features)
+    return  labPt
+```
 
 Here is the code to encode and index categorical text features for linear regression analysis.
 
-    # FUNCTIONS FOR REGRESSION WITH TIP AMOUNT AS TARGET VARIABLE
+```python
+# FUNCTIONS FOR REGRESSION WITH TIP AMOUNT AS TARGET VARIABLE
 
-    # ONE-HOT ENCODING OF CATEGORICAL TEXT FEATURES FOR INPUT INTO TREE-BASED MODELS
-    def parseRowIndexingRegression(line):
-        features = np.array([line.paymentIndex, line.vendorIndex, line.rateIndex, line.TrafficTimeBinsIndex, 
-                             line.pickup_hour, line.weekday, line.passenger_count, line.trip_time_in_secs, 
-                             line.trip_distance, line.fare_amount])
-        labPt = LabeledPoint(line.tip_amount, features)
-        return  labPt
+# ONE-HOT ENCODING OF CATEGORICAL TEXT FEATURES FOR INPUT INTO TREE-BASED MODELS
+def parseRowIndexingRegression(line):
+    features = np.array([line.paymentIndex, line.vendorIndex, line.rateIndex, line.TrafficTimeBinsIndex, 
+                         line.pickup_hour, line.weekday, line.passenger_count, line.trip_time_in_secs, 
+                         line.trip_distance, line.fare_amount])
+    labPt = LabeledPoint(line.tip_amount, features)
+    return  labPt
 
-    # INDEXING CATEGORICAL TEXT FEATURES FOR INPUT INTO LINEAR REGRESSION MODELS
-    def parseRowOneHotRegression(line):
-        features = np.concatenate((np.array([line.pickup_hour, line.weekday, line.passenger_count,
-                                            line.trip_time_in_secs, line.trip_distance, line.fare_amount]), 
-                                            line.vendorVec.toArray(), line.rateVec.toArray(), 
-                                            line.paymentVec.toArray(), line.TrafficTimeBinsVec.toArray()), axis=0)
-        labPt = LabeledPoint(line.tip_amount, features)
-        return  labPt
-
+# INDEXING CATEGORICAL TEXT FEATURES FOR INPUT INTO LINEAR REGRESSION MODELS
+def parseRowOneHotRegression(line):
+    features = np.concatenate((np.array([line.pickup_hour, line.weekday, line.passenger_count,
+                                        line.trip_time_in_secs, line.trip_distance, line.fare_amount]), 
+                                        line.vendorVec.toArray(), line.rateVec.toArray(), 
+                                        line.paymentVec.toArray(), line.TrafficTimeBinsVec.toArray()), axis=0)
+    labPt = LabeledPoint(line.tip_amount, features)
+    return  labPt
+```
 
 ### Create a random subsampling of the data and split it into training and testing sets
 This code creates a random sampling of the data (25% is used here). Although it is not required for this example due to the size of the dataset, we demonstrate how you can sample the data here. Then you know how to use it for your own problem if needed. When samples are large, sampling can save significant time while training models. Next we split the sample into a training part (75% here) and a testing part (25% here) to use in classification and regression modeling.
 
-    # RECORD START TIME
-    timestart = datetime.datetime.now()
+```python
+# RECORD START TIME
+timestart = datetime.datetime.now()
 
-    # SPECIFY SAMPLING AND SPLITTING FRACTIONS
-    from pyspark.sql.functions import rand
+# SPECIFY SAMPLING AND SPLITTING FRACTIONS
+from pyspark.sql.functions import rand
 
-    samplingFraction = 0.25;
-    trainingFraction = 0.75; testingFraction = (1-trainingFraction);
-    seed = 1234;
-    encodedFinalSampled = encodedFinal.sample(False, samplingFraction, seed=seed)
+samplingFraction = 0.25;
+trainingFraction = 0.75; testingFraction = (1-trainingFraction);
+seed = 1234;
+encodedFinalSampled = encodedFinal.sample(False, samplingFraction, seed=seed)
 
-    # SPLIT SAMPLED DATA-FRAME INTO TRAIN/TEST, WITH A RANDOM COLUMN ADDED FOR DOING CV (SHOWN LATER)
-    # INCLUDE RAND COLUMN FOR CREATING CROSS-VALIDATION FOLDS
-    dfTmpRand = encodedFinalSampled.select("*", rand(0).alias("rand"));
-    trainData, testData = dfTmpRand.randomSplit([trainingFraction, testingFraction], seed=seed);
+# SPLIT SAMPLED DATA-FRAME INTO TRAIN/TEST, WITH A RANDOM COLUMN ADDED FOR DOING CV (SHOWN LATER)
+# INCLUDE RAND COLUMN FOR CREATING CROSS-VALIDATION FOLDS
+dfTmpRand = encodedFinalSampled.select("*", rand(0).alias("rand"));
+trainData, testData = dfTmpRand.randomSplit([trainingFraction, testingFraction], seed=seed);
 
-    # CACHE TRAIN AND TEST DATA
-    trainData.cache()
-    testData.cache()
+# CACHE TRAIN AND TEST DATA
+trainData.cache()
+testData.cache()
 
-    # FOR BINARY CLASSIFICATION TRAINING AND TESTING
-    indexedTRAINbinary = trainData.map(parseRowIndexingBinary)
-    indexedTESTbinary = testData.map(parseRowIndexingBinary)
-    oneHotTRAINbinary = trainData.map(parseRowOneHotBinary)
-    oneHotTESTbinary = testData.map(parseRowOneHotBinary)
+# FOR BINARY CLASSIFICATION TRAINING AND TESTING
+indexedTRAINbinary = trainData.map(parseRowIndexingBinary)
+indexedTESTbinary = testData.map(parseRowIndexingBinary)
+oneHotTRAINbinary = trainData.map(parseRowOneHotBinary)
+oneHotTESTbinary = testData.map(parseRowOneHotBinary)
 
-    # FOR REGRESSION TRAINING AND TESTING
-    indexedTRAINreg = trainData.map(parseRowIndexingRegression)
-    indexedTESTreg = testData.map(parseRowIndexingRegression)
-    oneHotTRAINreg = trainData.map(parseRowOneHotRegression)
-    oneHotTESTreg = testData.map(parseRowOneHotRegression)
+# FOR REGRESSION TRAINING AND TESTING
+indexedTRAINreg = trainData.map(parseRowIndexingRegression)
+indexedTESTreg = testData.map(parseRowIndexingRegression)
+oneHotTRAINreg = trainData.map(parseRowOneHotRegression)
+oneHotTESTreg = testData.map(parseRowOneHotRegression)
 
-    # PRINT ELAPSED TIME
-    timeend = datetime.datetime.now()
-    timedelta = round((timeend-timestart).total_seconds(), 2) 
-    print "Time taken to execute above cell: " + str(timedelta) + " seconds"; 
+# PRINT ELAPSED TIME
+timeend = datetime.datetime.now()
+timedelta = round((timeend-timestart).total_seconds(), 2) 
+print "Time taken to execute above cell: " + str(timedelta) + " seconds"; 
+```
 
 **OUTPUT**
 
@@ -486,32 +506,34 @@ Feature scaling, also known as data normalization, insures that features with wi
 
 Here is the code to scale variables for use with the regularized linear SGD algorithm.
 
-    # RECORD START TIME
-    timestart = datetime.datetime.now()
+```python
+# RECORD START TIME
+timestart = datetime.datetime.now()
 
-    # LOAD PYSPARK LIBRARIES
-    from pyspark.mllib.regression import LabeledPoint
-    from pyspark.mllib.linalg import Vectors
-    from pyspark.mllib.feature import StandardScaler, StandardScalerModel
-    from pyspark.mllib.util import MLUtils
+# LOAD PYSPARK LIBRARIES
+from pyspark.mllib.regression import LabeledPoint
+from pyspark.mllib.linalg import Vectors
+from pyspark.mllib.feature import StandardScaler, StandardScalerModel
+from pyspark.mllib.util import MLUtils
 
-    # SCALE VARIABLES FOR REGULARIZED LINEAR SGD ALGORITHM
-    label = oneHotTRAINreg.map(lambda x: x.label)
-    features = oneHotTRAINreg.map(lambda x: x.features)
-    scaler = StandardScaler(withMean=False, withStd=True).fit(features)
-    dataTMP = label.zip(scaler.transform(features.map(lambda x: Vectors.dense(x.toArray()))))
-    oneHotTRAINregScaled = dataTMP.map(lambda x: LabeledPoint(x[0], x[1]))
+# SCALE VARIABLES FOR REGULARIZED LINEAR SGD ALGORITHM
+label = oneHotTRAINreg.map(lambda x: x.label)
+features = oneHotTRAINreg.map(lambda x: x.features)
+scaler = StandardScaler(withMean=False, withStd=True).fit(features)
+dataTMP = label.zip(scaler.transform(features.map(lambda x: Vectors.dense(x.toArray()))))
+oneHotTRAINregScaled = dataTMP.map(lambda x: LabeledPoint(x[0], x[1]))
 
-    label = oneHotTESTreg.map(lambda x: x.label)
-    features = oneHotTESTreg.map(lambda x: x.features)
-    scaler = StandardScaler(withMean=False, withStd=True).fit(features)
-    dataTMP = label.zip(scaler.transform(features.map(lambda x: Vectors.dense(x.toArray()))))
-    oneHotTESTregScaled = dataTMP.map(lambda x: LabeledPoint(x[0], x[1]))
+label = oneHotTESTreg.map(lambda x: x.label)
+features = oneHotTESTreg.map(lambda x: x.features)
+scaler = StandardScaler(withMean=False, withStd=True).fit(features)
+dataTMP = label.zip(scaler.transform(features.map(lambda x: Vectors.dense(x.toArray()))))
+oneHotTESTregScaled = dataTMP.map(lambda x: LabeledPoint(x[0], x[1]))
 
-    # PRINT ELAPSED TIME
-    timeend = datetime.datetime.now()
-    timedelta = round((timeend-timestart).total_seconds(), 2) 
-    print "Time taken to execute above cell: " + str(timedelta) + " seconds"; 
+# PRINT ELAPSED TIME
+timeend = datetime.datetime.now()
+timedelta = round((timeend-timestart).total_seconds(), 2) 
+print "Time taken to execute above cell: " + str(timedelta) + " seconds"; 
+```
 
 **OUTPUT**
 
@@ -520,29 +542,31 @@ Time taken to execute above cell: 11.67 seconds
 ### Cache objects in memory
 The time taken for training and testing of ML algorithms can be reduced by caching the input data frame objects used for classification, regression and, scaled features.
 
-    # RECORD START TIME
-    timestart = datetime.datetime.now()
+```python
+# RECORD START TIME
+timestart = datetime.datetime.now()
 
-    # FOR BINARY CLASSIFICATION TRAINING AND TESTING
-    indexedTRAINbinary.cache()
-    indexedTESTbinary.cache()
-    oneHotTRAINbinary.cache()
-    oneHotTESTbinary.cache()
+# FOR BINARY CLASSIFICATION TRAINING AND TESTING
+indexedTRAINbinary.cache()
+indexedTESTbinary.cache()
+oneHotTRAINbinary.cache()
+oneHotTESTbinary.cache()
 
-    # FOR REGRESSION TRAINING AND TESTING
-    indexedTRAINreg.cache()
-    indexedTESTreg.cache()
-    oneHotTRAINreg.cache()
-    oneHotTESTreg.cache()
+# FOR REGRESSION TRAINING AND TESTING
+indexedTRAINreg.cache()
+indexedTESTreg.cache()
+oneHotTRAINreg.cache()
+oneHotTESTreg.cache()
 
-    # SCALED FEATURES
-    oneHotTRAINregScaled.cache()
-    oneHotTESTregScaled.cache()
+# SCALED FEATURES
+oneHotTRAINregScaled.cache()
+oneHotTESTregScaled.cache()
 
-    # PRINT ELAPSED TIME
-    timeend = datetime.datetime.now()
-    timedelta = round((timeend-timestart).total_seconds(), 2) 
-    print "Time taken to execute above cell: " + str(timedelta) + " seconds"; 
+# PRINT ELAPSED TIME
+timeend = datetime.datetime.now()
+timedelta = round((timeend-timestart).total_seconds(), 2) 
+print "Time taken to execute above cell: " + str(timedelta) + " seconds"; 
+```
 
 **OUTPUT** 
 
@@ -582,84 +606,85 @@ The code in this section shows how to train, evaluate, and save a logistic regre
 
 **Train the logistic regression model using CV and hyperparameter sweeping**
 
-    # LOGISTIC REGRESSION CLASSIFICATION WITH CV AND HYPERPARAMETER SWEEPING
+```python
+# LOGISTIC REGRESSION CLASSIFICATION WITH CV AND HYPERPARAMETER SWEEPING
 
-    # GET ACCURACY FOR HYPERPARAMETERS BASED ON CROSS-VALIDATION IN TRAINING DATA-SET
+# GET ACCURACY FOR HYPERPARAMETERS BASED ON CROSS-VALIDATION IN TRAINING DATA-SET
 
-    # RECORD START TIME
-    timestart = datetime.datetime.now()
+# RECORD START TIME
+timestart = datetime.datetime.now()
 
-    # LOAD LIBRARIES
-    from pyspark.mllib.classification import LogisticRegressionWithLBFGS 
-    from pyspark.mllib.evaluation import BinaryClassificationMetrics
+# LOAD LIBRARIES
+from pyspark.mllib.classification import LogisticRegressionWithLBFGS 
+from pyspark.mllib.evaluation import BinaryClassificationMetrics
 
-    # CREATE PARAMETER GRID FOR LOGISTIC REGRESSION PARAMETER SWEEP
-    from sklearn.grid_search import ParameterGrid
-    grid = [{'regParam': [0.01, 0.1], 'iterations': [5, 10], 'regType': ["l1", "l2"], 'tolerance': [1e-3, 1e-4]}]
-    paramGrid = list(ParameterGrid(grid))
-    numModels = len(paramGrid)
+# CREATE PARAMETER GRID FOR LOGISTIC REGRESSION PARAMETER SWEEP
+from sklearn.grid_search import ParameterGrid
+grid = [{'regParam': [0.01, 0.1], 'iterations': [5, 10], 'regType': ["l1", "l2"], 'tolerance': [1e-3, 1e-4]}]
+paramGrid = list(ParameterGrid(grid))
+numModels = len(paramGrid)
 
-    # SET NUM FOLDS AND NUM PARAMETER SETS TO SWEEP ON
-    nFolds = 3;
-    h = 1.0 / nFolds;
-    metricSum = np.zeros(numModels);
+# SET NUM FOLDS AND NUM PARAMETER SETS TO SWEEP ON
+nFolds = 3;
+h = 1.0 / nFolds;
+metricSum = np.zeros(numModels);
 
-    # BEGIN CV WITH PARAMETER SWEEP
-    for i in range(nFolds):
-        # Create training and x-validation sets
-        validateLB = i * h
-        validateUB = (i + 1) * h
-        condition = (trainData["rand"] >= validateLB) & (trainData["rand"] < validateUB)
-        validation = trainData.filter(condition)
-        # Create LabeledPoints from data-frames
-        if i > 0:
-            trainCVLabPt.unpersist()
-            validationLabPt.unpersist()
-        trainCV = trainData.filter(~condition)
-        trainCVLabPt = trainCV.map(parseRowOneHotBinary)
-        trainCVLabPt.cache()
-        validationLabPt = validation.map(parseRowOneHotBinary)
-        validationLabPt.cache()
-        # For parameter sets compute metrics from x-validation
-        for j in range(numModels):
-            regt = paramGrid[j]['regType']
-            regp = paramGrid[j]['regParam']
-            iters = paramGrid[j]['iterations']
-            tol = paramGrid[j]['tolerance']
-            # Train logistic regression model with hypermarameter set
-            model = LogisticRegressionWithLBFGS.train(trainCVLabPt, regType=regt, iterations=iters,  
-                                                      regParam=regp, tolerance = tol, intercept=True)
-            predictionAndLabels = validationLabPt.map(lambda lp: (float(model.predict(lp.features)), lp.label))
-            # Use ROC-AUC as accuracy metrics
-            validMetrics = BinaryClassificationMetrics(predictionAndLabels)
-            metric = validMetrics.areaUnderROC
-            metricSum[j] += metric
+# BEGIN CV WITH PARAMETER SWEEP
+for i in range(nFolds):
+    # Create training and x-validation sets
+    validateLB = i * h
+    validateUB = (i + 1) * h
+    condition = (trainData["rand"] >= validateLB) & (trainData["rand"] < validateUB)
+    validation = trainData.filter(condition)
+    # Create LabeledPoints from data-frames
+    if i > 0:
+        trainCVLabPt.unpersist()
+        validationLabPt.unpersist()
+    trainCV = trainData.filter(~condition)
+    trainCVLabPt = trainCV.map(parseRowOneHotBinary)
+    trainCVLabPt.cache()
+    validationLabPt = validation.map(parseRowOneHotBinary)
+    validationLabPt.cache()
+    # For parameter sets compute metrics from x-validation
+    for j in range(numModels):
+        regt = paramGrid[j]['regType']
+        regp = paramGrid[j]['regParam']
+        iters = paramGrid[j]['iterations']
+        tol = paramGrid[j]['tolerance']
+        # Train logistic regression model with hypermarameter set
+        model = LogisticRegressionWithLBFGS.train(trainCVLabPt, regType=regt, iterations=iters,  
+                                                  regParam=regp, tolerance = tol, intercept=True)
+        predictionAndLabels = validationLabPt.map(lambda lp: (float(model.predict(lp.features)), lp.label))
+        # Use ROC-AUC as accuracy metrics
+        validMetrics = BinaryClassificationMetrics(predictionAndLabels)
+        metric = validMetrics.areaUnderROC
+        metricSum[j] += metric
 
-    avgAcc = metricSum / nFolds;
-    bestParam = paramGrid[np.argmax(avgAcc)];
+avgAcc = metricSum / nFolds;
+bestParam = paramGrid[np.argmax(avgAcc)];
 
-    # UNPERSIST OBJECTS
-    trainCVLabPt.unpersist()
-    validationLabPt.unpersist()
+# UNPERSIST OBJECTS
+trainCVLabPt.unpersist()
+validationLabPt.unpersist()
 
-    # TRAIN ON FULL TRAIING SET USING BEST PARAMETERS FROM CV/PARAMETER SWEEP
-    logitBest = LogisticRegressionWithLBFGS.train(oneHotTRAINbinary, regType=bestParam['regType'], 
-                                                  iterations=bestParam['iterations'], 
-                                                  regParam=bestParam['regParam'], tolerance = bestParam['tolerance'], 
-                                                  intercept=True)
+# TRAIN ON FULL TRAIING SET USING BEST PARAMETERS FROM CV/PARAMETER SWEEP
+logitBest = LogisticRegressionWithLBFGS.train(oneHotTRAINbinary, regType=bestParam['regType'], 
+                                              iterations=bestParam['iterations'], 
+                                              regParam=bestParam['regParam'], tolerance = bestParam['tolerance'], 
+                                              intercept=True)
 
 
-    # PRINT COEFFICIENTS AND INTERCEPT OF THE MODEL
-    # NOTE: There are 20 coefficient terms for the 10 features, 
-    #       and the different categories for features: vendorVec (2), rateVec, paymentVec (6), TrafficTimeBinsVec (4)
-    print("Coefficients: " + str(logitBest.weights))
-    print("Intercept: " + str(logitBest.intercept))
+# PRINT COEFFICIENTS AND INTERCEPT OF THE MODEL
+# NOTE: There are 20 coefficient terms for the 10 features, 
+#       and the different categories for features: vendorVec (2), rateVec, paymentVec (6), TrafficTimeBinsVec (4)
+print("Coefficients: " + str(logitBest.weights))
+print("Intercept: " + str(logitBest.intercept))
 
-    # PRINT ELAPSED TIME    
-    timeend = datetime.datetime.now()
-    timedelta = round((timeend-timestart).total_seconds(), 2) 
-    print "Time taken to execute above cell: " + str(timedelta) + " seconds"; 
-
+# PRINT ELAPSED TIME    
+timeend = datetime.datetime.now()
+timedelta = round((timeend-timestart).total_seconds(), 2) 
+print "Time taken to execute above cell: " + str(timedelta) + " seconds"; 
+```
 
 **OUTPUT**
 
@@ -673,46 +698,47 @@ Time taken to execute above cell: 14.43 seconds
 
 The code in this section shows how to evaluate a logistic regression model against a test data-set, including a plot of the ROC curve.
 
-    # RECORD START TIME
-    timestart = datetime.datetime.now()
+```python
+# RECORD START TIME
+timestart = datetime.datetime.now()
 
-    #IMPORT LIBRARIES
-    from sklearn.metrics import roc_curve,auc
-    from pyspark.mllib.evaluation import BinaryClassificationMetrics
-    from pyspark.mllib.evaluation import MulticlassMetrics
+#IMPORT LIBRARIES
+from sklearn.metrics import roc_curve,auc
+from pyspark.mllib.evaluation import BinaryClassificationMetrics
+from pyspark.mllib.evaluation import MulticlassMetrics
 
-    # PREDICT ON TEST DATA WITH BEST/FINAL MODEL
-    predictionAndLabels = oneHotTESTbinary.map(lambda lp: (float(logitBest.predict(lp.features)), lp.label))
+# PREDICT ON TEST DATA WITH BEST/FINAL MODEL
+predictionAndLabels = oneHotTESTbinary.map(lambda lp: (float(logitBest.predict(lp.features)), lp.label))
 
-    # INSTANTIATE METRICS OBJECT
-    metrics = BinaryClassificationMetrics(predictionAndLabels)
+# INSTANTIATE METRICS OBJECT
+metrics = BinaryClassificationMetrics(predictionAndLabels)
 
-    # AREA UNDER PRECISION-RECALL CURVE
-    print("Area under PR = %s" % metrics.areaUnderPR)
+# AREA UNDER PRECISION-RECALL CURVE
+print("Area under PR = %s" % metrics.areaUnderPR)
 
-    # AREA UNDER ROC CURVE
-    print("Area under ROC = %s" % metrics.areaUnderROC)
-    metrics = MulticlassMetrics(predictionAndLabels)
+# AREA UNDER ROC CURVE
+print("Area under ROC = %s" % metrics.areaUnderROC)
+metrics = MulticlassMetrics(predictionAndLabels)
 
-    # OVERALL STATISTICS
-    precision = metrics.precision()
-    recall = metrics.recall()
-    f1Score = metrics.fMeasure()
-    print("Summary Stats")
-    print("Precision = %s" % precision)
-    print("Recall = %s" % recall)
-    print("F1 Score = %s" % f1Score)
+# OVERALL STATISTICS
+precision = metrics.precision()
+recall = metrics.recall()
+f1Score = metrics.fMeasure()
+print("Summary Stats")
+print("Precision = %s" % precision)
+print("Recall = %s" % recall)
+print("F1 Score = %s" % f1Score)
 
-    # OUTPUT PROBABILITIES AND REGISTER TEMP TABLE
-    logitBest.clearThreshold(); # This clears threshold for classification (0.5) and outputs probabilities
-    predictionAndLabelsDF = predictionAndLabels.toDF()
-    predictionAndLabelsDF.registerTempTable("tmp_results");
+# OUTPUT PROBABILITIES AND REGISTER TEMP TABLE
+logitBest.clearThreshold(); # This clears threshold for classification (0.5) and outputs probabilities
+predictionAndLabelsDF = predictionAndLabels.toDF()
+predictionAndLabelsDF.registerTempTable("tmp_results");
 
-    # PRINT ELAPSED TIME    
-    timeend = datetime.datetime.now()
-    timedelta = round((timeend-timestart).total_seconds(), 2) 
-    print "Time taken to execute above cell: " + str(timedelta) + " seconds"; 
-
+# PRINT ELAPSED TIME    
+timeend = datetime.datetime.now()
+timedelta = round((timeend-timestart).total_seconds(), 2) 
+print "Time taken to execute above cell: " + str(timedelta) + " seconds"; 
+```
 
 **OUTPUT**
 
@@ -734,38 +760,40 @@ Time taken to execute above cell: 2.67 seconds
 
 The *predictionAndLabelsDF* is registered as a table, *tmp_results*, in the previous cell. *tmp_results* can be used to do queries and output results into the sqlResults data-frame for plotting. Here is the code.
 
-    # QUERY RESULTS                              
-    %%sql -q -o sqlResults
-    SELECT * from tmp_results
-
+```python
+# QUERY RESULTS                              
+%%sql -q -o sqlResults
+SELECT * from tmp_results
+```
 
 Here is the code to make predictions and plot the ROC-curve.
 
-    # MAKE PREDICTIONS AND PLOT ROC-CURVE
+```python
+# MAKE PREDICTIONS AND PLOT ROC-CURVE
 
-    # RUN THE CODE LOCALLY ON THE JUPYTER SERVER AND IMPORT LIBRARIES                              
-    %%local
-    %matplotlib inline
-    from sklearn.metrics import roc_curve,auc
+# RUN THE CODE LOCALLY ON THE JUPYTER SERVER AND IMPORT LIBRARIES                              
+%%local
+%matplotlib inline
+from sklearn.metrics import roc_curve,auc
 
-    #PREDICTIONS
-    predictions_pddf = sqlResults.rename(columns={'_1': 'probability', '_2': 'label'})
-    prob = predictions_pddf["probability"] 
-    fpr, tpr, thresholds = roc_curve(predictions_pddf['label'], prob, pos_label=1);
-    roc_auc = auc(fpr, tpr)
+#PREDICTIONS
+predictions_pddf = sqlResults.rename(columns={'_1': 'probability', '_2': 'label'})
+prob = predictions_pddf["probability"] 
+fpr, tpr, thresholds = roc_curve(predictions_pddf['label'], prob, pos_label=1);
+roc_auc = auc(fpr, tpr)
 
-    # PLOT ROC CURVES
-    plt.figure(figsize=(5,5))
-    plt.plot(fpr, tpr, label='ROC curve (area = %0.2f)' % roc_auc)
-    plt.plot([0, 1], [0, 1], 'k--')
-    plt.xlim([0.0, 1.0])
-    plt.ylim([0.0, 1.05])
-    plt.xlabel('False Positive Rate')
-    plt.ylabel('True Positive Rate')
-    plt.title('ROC Curve')
-    plt.legend(loc="lower right")
-    plt.show()
-
+# PLOT ROC CURVES
+plt.figure(figsize=(5,5))
+plt.plot(fpr, tpr, label='ROC curve (area = %0.2f)' % roc_auc)
+plt.plot([0, 1], [0, 1], 'k--')
+plt.xlim([0.0, 1.0])
+plt.ylim([0.0, 1.05])
+plt.xlabel('False Positive Rate')
+plt.ylabel('True Positive Rate')
+plt.title('ROC Curve')
+plt.legend(loc="lower right")
+plt.show()
+```
 
 **OUTPUT**
 
@@ -775,24 +803,25 @@ Here is the code to make predictions and plot the ROC-curve.
 
 The code in this section shows how to save the logistic regression model for consumption.
 
-    # RECORD START TIME
-    timestart = datetime.datetime.now()
+```python
+# RECORD START TIME
+timestart = datetime.datetime.now()
 
-    # LOAD PYSPARK LIBRARIES
-    from pyspark.mllib.classification import LogisticRegressionModel
+# LOAD PYSPARK LIBRARIES
+from pyspark.mllib.classification import LogisticRegressionModel
 
-    # PERSIST MODEL
-    datestamp = unicode(datetime.datetime.now()).replace(' ','').replace(':','_');
-    logisticregressionfilename = "LogisticRegressionWithLBFGS_" + datestamp;
-    dirfilename = modelDir + logisticregressionfilename;
+# PERSIST MODEL
+datestamp = unicode(datetime.datetime.now()).replace(' ','').replace(':','_');
+logisticregressionfilename = "LogisticRegressionWithLBFGS_" + datestamp;
+dirfilename = modelDir + logisticregressionfilename;
 
-    logitBest.save(sc, dirfilename);
+logitBest.save(sc, dirfilename);
 
-    # PRINT ELAPSED TIME
-    timeend = datetime.datetime.now()
-    timedelta = round((timeend-timestart).total_seconds(), 2) 
-    print "Time taken to execute above cell: " + str(timedelta) + " seconds";
-
+# PRINT ELAPSED TIME
+timeend = datetime.datetime.now()
+timedelta = round((timeend-timestart).total_seconds(), 2) 
+print "Time taken to execute above cell: " + str(timedelta) + " seconds";
+```
 
 **OUTPUT**
 
@@ -808,49 +837,51 @@ The code in this section shows how to train, evaluate, and save a logistic regre
 
 <!-- -->
 
-    # RECORD START TIME
-    timestart = datetime.datetime.now()
+```python
+# RECORD START TIME
+timestart = datetime.datetime.now()
 
-    # LOAD PYSPARK LIBRARIES
-    from pyspark.ml.classification import LogisticRegression
-    from pyspark.ml import Pipeline
-    from pyspark.ml.evaluation import BinaryClassificationEvaluator
-    from pyspark.ml.tuning import CrossValidator, ParamGridBuilder
-    from sklearn.metrics import roc_curve,auc
+# LOAD PYSPARK LIBRARIES
+from pyspark.ml.classification import LogisticRegression
+from pyspark.ml import Pipeline
+from pyspark.ml.evaluation import BinaryClassificationEvaluator
+from pyspark.ml.tuning import CrossValidator, ParamGridBuilder
+from sklearn.metrics import roc_curve,auc
 
-    # DEFINE ALGORITHM / MODEL
-    lr = LogisticRegression()
+# DEFINE ALGORITHM / MODEL
+lr = LogisticRegression()
 
-    # DEFINE GRID PARAMETERS
-    paramGrid = ParamGridBuilder().addGrid(lr.regParam, (0.01, 0.1))\
-                                  .addGrid(lr.maxIter, (5, 10))\
-                                  .addGrid(lr.tol, (1e-4, 1e-5))\
-                                  .addGrid(lr.elasticNetParam, (0.25,0.75))\
-                                  .build()
+# DEFINE GRID PARAMETERS
+paramGrid = ParamGridBuilder().addGrid(lr.regParam, (0.01, 0.1))\
+                              .addGrid(lr.maxIter, (5, 10))\
+                              .addGrid(lr.tol, (1e-4, 1e-5))\
+                              .addGrid(lr.elasticNetParam, (0.25,0.75))\
+                              .build()
 
-    # DEFINE CV WITH PARAMETER SWEEP
-    cv = CrossValidator(estimator= lr,
-                        estimatorParamMaps=paramGrid,
-                        evaluator=BinaryClassificationEvaluator(),
-                        numFolds=3)
+# DEFINE CV WITH PARAMETER SWEEP
+cv = CrossValidator(estimator= lr,
+                    estimatorParamMaps=paramGrid,
+                    evaluator=BinaryClassificationEvaluator(),
+                    numFolds=3)
 
-    # CONVERT TO DATA-FRAME: THIS DOES NOT RUN ON RDDs
-    trainDataFrame = sqlContext.createDataFrame(oneHotTRAINbinary, ["features", "label"])
+# CONVERT TO DATA-FRAME: THIS DOES NOT RUN ON RDDs
+trainDataFrame = sqlContext.createDataFrame(oneHotTRAINbinary, ["features", "label"])
 
-    # TRAIN WITH CROSS-VALIDATION
-    cv_model = cv.fit(trainDataFrame)
+# TRAIN WITH CROSS-VALIDATION
+cv_model = cv.fit(trainDataFrame)
 
 
-    ## PREDICT AND EVALUATE ON TEST DATA-SET
+## PREDICT AND EVALUATE ON TEST DATA-SET
 
-    # USE TEST DATASET FOR PREDICTION
-    testDataFrame = sqlContext.createDataFrame(oneHotTESTbinary, ["features", "label"])
-    test_predictions = cv_model.transform(testDataFrame)
+# USE TEST DATASET FOR PREDICTION
+testDataFrame = sqlContext.createDataFrame(oneHotTESTbinary, ["features", "label"])
+test_predictions = cv_model.transform(testDataFrame)
 
-    # PRINT ELAPSED TIME
-    timeend = datetime.datetime.now()
-    timedelta = round((timeend-timestart).total_seconds(), 2) 
-    print "Time taken to execute above cell: " + str(timedelta) + " seconds";
+# PRINT ELAPSED TIME
+timeend = datetime.datetime.now()
+timedelta = round((timeend-timestart).total_seconds(), 2) 
+print "Time taken to execute above cell: " + str(timedelta) + " seconds";
+``` 
 
 **OUTPUT**
 
@@ -860,33 +891,36 @@ Time taken to execute above cell: 107.98 seconds
 
 The *predictionAndLabelsDF* is registered as a table, *tmp_results*, in the previous cell. *tmp_results* can be used to do queries and output results into the sqlResults data-frame for plotting. Here is the code.
 
-    # QUERY RESULTS
-    %%sql -q -o sqlResults
-    SELECT label, prediction, probability from tmp_results
+```python
+# QUERY RESULTS
+%%sql -q -o sqlResults
+SELECT label, prediction, probability from tmp_results
+```
 
 Here is the code to plot the ROC curve.
 
-    # RUN THE CODE LOCALLY ON THE JUPYTER SERVER AND IMPORT LIBRARIES 
-    %%local
-    from sklearn.metrics import roc_curve,auc
+```python
+# RUN THE CODE LOCALLY ON THE JUPYTER SERVER AND IMPORT LIBRARIES 
+%%local
+from sklearn.metrics import roc_curve,auc
 
-    # ROC CURVE
-    prob = [x["values"][1] for x in sqlResults["probability"]]
-    fpr, tpr, thresholds = roc_curve(sqlResults['label'], prob, pos_label=1);
-    roc_auc = auc(fpr, tpr)
+# ROC CURVE
+prob = [x["values"][1] for x in sqlResults["probability"]]
+fpr, tpr, thresholds = roc_curve(sqlResults['label'], prob, pos_label=1);
+roc_auc = auc(fpr, tpr)
 
-    #PLOT
-    plt.figure(figsize=(5,5))
-    plt.plot(fpr, tpr, label='ROC curve (area = %0.2f)' % roc_auc)
-    plt.plot([0, 1], [0, 1], 'k--')
-    plt.xlim([0.0, 1.0])
-    plt.ylim([0.0, 1.05])
-    plt.xlabel('False Positive Rate')
-    plt.ylabel('True Positive Rate')
-    plt.title('ROC Curve')
-    plt.legend(loc="lower right")
-    plt.show()
-
+#PLOT
+plt.figure(figsize=(5,5))
+plt.plot(fpr, tpr, label='ROC curve (area = %0.2f)' % roc_auc)
+plt.plot([0, 1], [0, 1], 'k--')
+plt.xlim([0.0, 1.0])
+plt.ylim([0.0, 1.05])
+plt.xlabel('False Positive Rate')
+plt.ylabel('True Positive Rate')
+plt.title('ROC Curve')
+plt.legend(loc="lower right")
+plt.show()
+```
 
 **OUTPUT**
 
@@ -895,47 +929,48 @@ Here is the code to plot the ROC curve.
 ### Random forest classification
 The code in this section shows how to train, evaluate, and save a random forest regression that predicts whether or not a tip is paid for a trip in the NYC taxi trip and fare dataset.
 
-    # RECORD START TIME
-    timestart = datetime.datetime.now()
+```python
+# RECORD START TIME
+timestart = datetime.datetime.now()
 
-    # LOAD PYSPARK LIBRARIES
-    from pyspark.mllib.tree import RandomForest, RandomForestModel
-    from pyspark.mllib.util import MLUtils
-    from pyspark.mllib.evaluation import BinaryClassificationMetrics
-    from pyspark.mllib.evaluation import MulticlassMetrics
+# LOAD PYSPARK LIBRARIES
+from pyspark.mllib.tree import RandomForest, RandomForestModel
+from pyspark.mllib.util import MLUtils
+from pyspark.mllib.evaluation import BinaryClassificationMetrics
+from pyspark.mllib.evaluation import MulticlassMetrics
 
-    # SPECIFY NUMBER OF CATEGORIES FOR CATEGORICAL FEATURES. FEATURE #0 HAS 2 CATEGORIES, FEATURE #2 HAS 2 CATEGORIES, AND SO ON
-    categoricalFeaturesInfo={0:2, 1:2, 2:6, 3:4}
+# SPECIFY NUMBER OF CATEGORIES FOR CATEGORICAL FEATURES. FEATURE #0 HAS 2 CATEGORIES, FEATURE #2 HAS 2 CATEGORIES, AND SO ON
+categoricalFeaturesInfo={0:2, 1:2, 2:6, 3:4}
 
-    # TRAIN RANDOMFOREST MODEL
-    rfModel = RandomForest.trainClassifier(indexedTRAINbinary, numClasses=2, 
-                                           categoricalFeaturesInfo=categoricalFeaturesInfo,
-                                           numTrees=25, featureSubsetStrategy="auto",
-                                           impurity='gini', maxDepth=5, maxBins=32)
-    ## UN-COMMENT IF YOU WANT TO PRING TREES
-    #print('Learned classification forest model:')
-    #print(rfModel.toDebugString())
+# TRAIN RANDOMFOREST MODEL
+rfModel = RandomForest.trainClassifier(indexedTRAINbinary, numClasses=2, 
+                                       categoricalFeaturesInfo=categoricalFeaturesInfo,
+                                       numTrees=25, featureSubsetStrategy="auto",
+                                       impurity='gini', maxDepth=5, maxBins=32)
+## UN-COMMENT IF YOU WANT TO PRING TREES
+#print('Learned classification forest model:')
+#print(rfModel.toDebugString())
 
-    # PREDICT ON TEST DATA AND EVALUATE
-    predictions = rfModel.predict(indexedTESTbinary.map(lambda x: x.features))
-    predictionAndLabels = indexedTESTbinary.map(lambda lp: lp.label).zip(predictions)
+# PREDICT ON TEST DATA AND EVALUATE
+predictions = rfModel.predict(indexedTESTbinary.map(lambda x: x.features))
+predictionAndLabels = indexedTESTbinary.map(lambda lp: lp.label).zip(predictions)
 
-    # AREA UNDER ROC CURVE
-    metrics = BinaryClassificationMetrics(predictionAndLabels)
-    print("Area under ROC = %s" % metrics.areaUnderROC)
+# AREA UNDER ROC CURVE
+metrics = BinaryClassificationMetrics(predictionAndLabels)
+print("Area under ROC = %s" % metrics.areaUnderROC)
 
-    # PERSIST MODEL IN BLOB
-    datestamp = unicode(datetime.datetime.now()).replace(' ','').replace(':','_');
-    rfclassificationfilename = "RandomForestClassification_" + datestamp;
-    dirfilename = modelDir + rfclassificationfilename;
+# PERSIST MODEL IN BLOB
+datestamp = unicode(datetime.datetime.now()).replace(' ','').replace(':','_');
+rfclassificationfilename = "RandomForestClassification_" + datestamp;
+dirfilename = modelDir + rfclassificationfilename;
 
-    rfModel.save(sc, dirfilename);
+rfModel.save(sc, dirfilename);
 
-    # PRINT ELAPSED TIME
-    timeend = datetime.datetime.now()
-    timedelta = round((timeend-timestart).total_seconds(), 2) 
-    print "Time taken to execute above cell: " + str(timedelta) + " seconds"; 
-
+# PRINT ELAPSED TIME
+timeend = datetime.datetime.now()
+timedelta = round((timeend-timestart).total_seconds(), 2) 
+print "Time taken to execute above cell: " + str(timedelta) + " seconds"; 
+```
 
 **OUTPUT**
 
@@ -946,40 +981,42 @@ Time taken to execute above cell: 26.72 seconds
 ### Gradient boosting trees classification
 The code in this section shows how to train, evaluate, and save a gradient boosting trees model that predicts whether or not a tip is paid for a trip in the NYC taxi trip and fare dataset.
 
-    # RECORD START TIME
-    timestart = datetime.datetime.now()
+```python
+# RECORD START TIME
+timestart = datetime.datetime.now()
 
-    # LOAD PYSPARK LIBRARIES
-    from pyspark.mllib.tree import GradientBoostedTrees, GradientBoostedTreesModel
+# LOAD PYSPARK LIBRARIES
+from pyspark.mllib.tree import GradientBoostedTrees, GradientBoostedTreesModel
 
-    # SPECIFY NUMBER OF CATEGORIES FOR CATEGORICAL FEATURES. FEATURE #0 HAS 2 CATEGORIES, FEATURE #2 HAS 2 CATEGORIES, AND SO ON
-    categoricalFeaturesInfo={0:2, 1:2, 2:6, 3:4}
+# SPECIFY NUMBER OF CATEGORIES FOR CATEGORICAL FEATURES. FEATURE #0 HAS 2 CATEGORIES, FEATURE #2 HAS 2 CATEGORIES, AND SO ON
+categoricalFeaturesInfo={0:2, 1:2, 2:6, 3:4}
 
-    gbtModel = GradientBoostedTrees.trainClassifier(indexedTRAINbinary, categoricalFeaturesInfo=categoricalFeaturesInfo,
-                                                    numIterations=10)
-    ## UNCOMMENT IF YOU WANT TO PRINT TREE DETAILS
-    #print('Learned classification GBT model:')
-    #print(bgtModel.toDebugString())
+gbtModel = GradientBoostedTrees.trainClassifier(indexedTRAINbinary, categoricalFeaturesInfo=categoricalFeaturesInfo,
+                                                numIterations=10)
+## UNCOMMENT IF YOU WANT TO PRINT TREE DETAILS
+#print('Learned classification GBT model:')
+#print(bgtModel.toDebugString())
 
-    # PREDICT ON TEST DATA AND EVALUATE
-    predictions = gbtModel.predict(indexedTESTbinary.map(lambda x: x.features))
-    predictionAndLabels = indexedTESTbinary.map(lambda lp: lp.label).zip(predictions)
+# PREDICT ON TEST DATA AND EVALUATE
+predictions = gbtModel.predict(indexedTESTbinary.map(lambda x: x.features))
+predictionAndLabels = indexedTESTbinary.map(lambda lp: lp.label).zip(predictions)
 
-    # Area under ROC curve
-    metrics = BinaryClassificationMetrics(predictionAndLabels)
-    print("Area under ROC = %s" % metrics.areaUnderROC)
+# Area under ROC curve
+metrics = BinaryClassificationMetrics(predictionAndLabels)
+print("Area under ROC = %s" % metrics.areaUnderROC)
 
-    # PERSIST MODEL IN A BLOB
-    datestamp = unicode(datetime.datetime.now()).replace(' ','').replace(':','_');
-    btclassificationfilename = "GradientBoostingTreeClassification_" + datestamp;
-    dirfilename = modelDir + btclassificationfilename;
+# PERSIST MODEL IN A BLOB
+datestamp = unicode(datetime.datetime.now()).replace(' ','').replace(':','_');
+btclassificationfilename = "GradientBoostingTreeClassification_" + datestamp;
+dirfilename = modelDir + btclassificationfilename;
 
-    gbtModel.save(sc, dirfilename)
+gbtModel.save(sc, dirfilename)
 
-    # PRINT ELAPSED TIME
-    timeend = datetime.datetime.now()
-    timedelta = round((timeend-timestart).total_seconds(), 2) 
-    print "Time taken to execute above cell: " + str(timedelta) + " seconds"; 
+# PRINT ELAPSED TIME
+timeend = datetime.datetime.now()
+timedelta = round((timeend-timestart).total_seconds(), 2) 
+print "Time taken to execute above cell: " + str(timedelta) + " seconds"; 
+```
 
 **OUTPUT**
 
@@ -1022,43 +1059,45 @@ The code in this section shows how to use scaled features to train a linear regr
 > 
 > 
 
-    # LINEAR REGRESSION WITH SGD 
+```python
+# LINEAR REGRESSION WITH SGD 
 
-    # RECORD START TIME
-    timestart = datetime.datetime.now()
+# RECORD START TIME
+timestart = datetime.datetime.now()
 
-    # LOAD LIBRARIES
-    from pyspark.mllib.regression import LabeledPoint, LinearRegressionWithSGD, LinearRegressionModel
-    from pyspark.mllib.evaluation import RegressionMetrics
-    from scipy import stats
+# LOAD LIBRARIES
+from pyspark.mllib.regression import LabeledPoint, LinearRegressionWithSGD, LinearRegressionModel
+from pyspark.mllib.evaluation import RegressionMetrics
+from scipy import stats
 
-    # USE SCALED FEATURES TO TRAIN MODEL
-    linearModel = LinearRegressionWithSGD.train(oneHotTRAINregScaled, iterations=100, step = 0.1, regType='l2', regParam=0.1, intercept = True)
+# USE SCALED FEATURES TO TRAIN MODEL
+linearModel = LinearRegressionWithSGD.train(oneHotTRAINregScaled, iterations=100, step = 0.1, regType='l2', regParam=0.1, intercept = True)
 
-    # PRINT COEFFICIENTS AND INTERCEPT OF THE MODEL
-    # NOTE: There are 20 coefficient terms for the 10 features, 
-    #       and the different categories for features: vendorVec (2), rateVec, paymentVec (6), TrafficTimeBinsVec (4)
-    print("Coefficients: " + str(linearModel.weights))
-    print("Intercept: " + str(linearModel.intercept))
+# PRINT COEFFICIENTS AND INTERCEPT OF THE MODEL
+# NOTE: There are 20 coefficient terms for the 10 features, 
+#       and the different categories for features: vendorVec (2), rateVec, paymentVec (6), TrafficTimeBinsVec (4)
+print("Coefficients: " + str(linearModel.weights))
+print("Intercept: " + str(linearModel.intercept))
 
-    # SCORE ON SCALED TEST DATA-SET & EVALUATE
-    predictionAndLabels = oneHotTESTregScaled.map(lambda lp: (float(linearModel.predict(lp.features)), lp.label))
-    testMetrics = RegressionMetrics(predictionAndLabels)
+# SCORE ON SCALED TEST DATA-SET & EVALUATE
+predictionAndLabels = oneHotTESTregScaled.map(lambda lp: (float(linearModel.predict(lp.features)), lp.label))
+testMetrics = RegressionMetrics(predictionAndLabels)
 
-    print("RMSE = %s" % testMetrics.rootMeanSquaredError)
-    print("R-sqr = %s" % testMetrics.r2)
+print("RMSE = %s" % testMetrics.rootMeanSquaredError)
+print("R-sqr = %s" % testMetrics.r2)
 
-    # SAVE MODEL IN BLOB
-    datestamp = unicode(datetime.datetime.now()).replace(' ','').replace(':','_');
-    linearregressionfilename = "LinearRegressionWithSGD_" + datestamp;
-    dirfilename = modelDir + linearregressionfilename;
+# SAVE MODEL IN BLOB
+datestamp = unicode(datetime.datetime.now()).replace(' ','').replace(':','_');
+linearregressionfilename = "LinearRegressionWithSGD_" + datestamp;
+dirfilename = modelDir + linearregressionfilename;
 
-    linearModel.save(sc, dirfilename)
+linearModel.save(sc, dirfilename)
 
-    # PRINT ELAPSED TIME
-    timeend = datetime.datetime.now()
-    timedelta = round((timeend-timestart).total_seconds(), 2) 
-    print "Time taken to execute above cell: " + str(timedelta) + " seconds"; 
+# PRINT ELAPSED TIME
+timeend = datetime.datetime.now()
+timedelta = round((timeend-timestart).total_seconds(), 2) 
+print "Time taken to execute above cell: " + str(timedelta) + " seconds"; 
+```
 
 **OUTPUT**
 
@@ -1082,45 +1121,47 @@ The code in this section shows how to train, evaluate, and save a random forest 
 
 <!-- -->
 
-    #PREDICT TIP AMOUNTS USING RANDOM FOREST
+```python
+#PREDICT TIP AMOUNTS USING RANDOM FOREST
 
-    # RECORD START TIME
-    timestart= datetime.datetime.now()
+# RECORD START TIME
+timestart= datetime.datetime.now()
 
-    # LOAD PYSPARK LIBRARIES
-    from pyspark.mllib.tree import RandomForest, RandomForestModel
-    from pyspark.mllib.util import MLUtils
-    from pyspark.mllib.evaluation import RegressionMetrics
+# LOAD PYSPARK LIBRARIES
+from pyspark.mllib.tree import RandomForest, RandomForestModel
+from pyspark.mllib.util import MLUtils
+from pyspark.mllib.evaluation import RegressionMetrics
 
 
-    # TRAIN MODEL
-    categoricalFeaturesInfo={0:2, 1:2, 2:6, 3:4}
-    rfModel = RandomForest.trainRegressor(indexedTRAINreg, categoricalFeaturesInfo=categoricalFeaturesInfo,
-                                        numTrees=25, featureSubsetStrategy="auto",
-                                        impurity='variance', maxDepth=10, maxBins=32)
-    # UN-COMMENT IF YOU WANT TO PRING TREES
-    #print('Learned classification forest model:')
-    #print(rfModel.toDebugString())
+# TRAIN MODEL
+categoricalFeaturesInfo={0:2, 1:2, 2:6, 3:4}
+rfModel = RandomForest.trainRegressor(indexedTRAINreg, categoricalFeaturesInfo=categoricalFeaturesInfo,
+                                    numTrees=25, featureSubsetStrategy="auto",
+                                    impurity='variance', maxDepth=10, maxBins=32)
+# UN-COMMENT IF YOU WANT TO PRING TREES
+#print('Learned classification forest model:')
+#print(rfModel.toDebugString())
 
-    # PREDICT AND EVALUATE ON TEST DATA-SET
-    predictions = rfModel.predict(indexedTESTreg.map(lambda x: x.features))
-    predictionAndLabels = oneHotTESTreg.map(lambda lp: lp.label).zip(predictions)
+# PREDICT AND EVALUATE ON TEST DATA-SET
+predictions = rfModel.predict(indexedTESTreg.map(lambda x: x.features))
+predictionAndLabels = oneHotTESTreg.map(lambda lp: lp.label).zip(predictions)
 
-    testMetrics = RegressionMetrics(predictionAndLabels)
-    print("RMSE = %s" % testMetrics.rootMeanSquaredError)
-    print("R-sqr = %s" % testMetrics.r2)
+testMetrics = RegressionMetrics(predictionAndLabels)
+print("RMSE = %s" % testMetrics.rootMeanSquaredError)
+print("R-sqr = %s" % testMetrics.r2)
 
-    # SAVE MODEL IN BLOB
-    datestamp = unicode(datetime.datetime.now()).replace(' ','').replace(':','_');
-    rfregressionfilename = "RandomForestRegression_" + datestamp;
-    dirfilename = modelDir + rfregressionfilename;
+# SAVE MODEL IN BLOB
+datestamp = unicode(datetime.datetime.now()).replace(' ','').replace(':','_');
+rfregressionfilename = "RandomForestRegression_" + datestamp;
+dirfilename = modelDir + rfregressionfilename;
 
-    rfModel.save(sc, dirfilename);
+rfModel.save(sc, dirfilename);
 
-    # PRINT ELAPSED TIME
-    timeend = datetime.datetime.now()
-    timedelta = round((timeend-timestart).total_seconds(), 2) 
-    print "Time taken to execute above cell: " + str(timedelta) + " seconds"; 
+# PRINT ELAPSED TIME
+timeend = datetime.datetime.now()
+timedelta = round((timeend-timestart).total_seconds(), 2) 
+print "Time taken to execute above cell: " + str(timedelta) + " seconds"; 
+```
 
 **OUTPUT**
 
@@ -1135,43 +1176,44 @@ The code in this section shows how to train, evaluate, and save a gradient boost
 
 **Train and evaluate**
 
-    #PREDICT TIP AMOUNTS USING GRADIENT BOOSTING TREES
+```python
+#PREDICT TIP AMOUNTS USING GRADIENT BOOSTING TREES
 
-    # RECORD START TIME
-    timestart= datetime.datetime.now()
+# RECORD START TIME
+timestart= datetime.datetime.now()
 
-    # LOAD PYSPARK LIBRARIES
-    from pyspark.mllib.tree import GradientBoostedTrees, GradientBoostedTreesModel
-    from pyspark.mllib.util import MLUtils
+# LOAD PYSPARK LIBRARIES
+from pyspark.mllib.tree import GradientBoostedTrees, GradientBoostedTreesModel
+from pyspark.mllib.util import MLUtils
 
-    # TRAIN MODEL
-    categoricalFeaturesInfo={0:2, 1:2, 2:6, 3:4}
-    gbtModel = GradientBoostedTrees.trainRegressor(indexedTRAINreg, categoricalFeaturesInfo=categoricalFeaturesInfo, 
-                                                    numIterations=10, maxBins=32, maxDepth = 4, learningRate=0.1)
+# TRAIN MODEL
+categoricalFeaturesInfo={0:2, 1:2, 2:6, 3:4}
+gbtModel = GradientBoostedTrees.trainRegressor(indexedTRAINreg, categoricalFeaturesInfo=categoricalFeaturesInfo, 
+                                                numIterations=10, maxBins=32, maxDepth = 4, learningRate=0.1)
 
-    # EVALUATE A TEST DATA-SET
-    predictions = gbtModel.predict(indexedTESTreg.map(lambda x: x.features))
-    predictionAndLabels = indexedTESTreg.map(lambda lp: lp.label).zip(predictions)
+# EVALUATE A TEST DATA-SET
+predictions = gbtModel.predict(indexedTESTreg.map(lambda x: x.features))
+predictionAndLabels = indexedTESTreg.map(lambda lp: lp.label).zip(predictions)
 
-    testMetrics = RegressionMetrics(predictionAndLabels)
-    print("RMSE = %s" % testMetrics.rootMeanSquaredError)
-    print("R-sqr = %s" % testMetrics.r2)
+testMetrics = RegressionMetrics(predictionAndLabels)
+print("RMSE = %s" % testMetrics.rootMeanSquaredError)
+print("R-sqr = %s" % testMetrics.r2)
 
-    # PLOT SCATTER-PLOT BETWEEN ACTUAL AND PREDICTED TIP VALUES
-    test_predictions= sqlContext.createDataFrame(predictionAndLabels)
-    test_predictions_pddf = test_predictions.toPandas()
+# PLOT SCATTER-PLOT BETWEEN ACTUAL AND PREDICTED TIP VALUES
+test_predictions= sqlContext.createDataFrame(predictionAndLabels)
+test_predictions_pddf = test_predictions.toPandas()
 
-    # SAVE MODEL IN BLOB
-    datestamp = unicode(datetime.datetime.now()).replace(' ','').replace(':','_');
-    btregressionfilename = "GradientBoostingTreeRegression_" + datestamp;
-    dirfilename = modelDir + btregressionfilename;
-    gbtModel.save(sc, dirfilename)
+# SAVE MODEL IN BLOB
+datestamp = unicode(datetime.datetime.now()).replace(' ','').replace(':','_');
+btregressionfilename = "GradientBoostingTreeRegression_" + datestamp;
+dirfilename = modelDir + btregressionfilename;
+gbtModel.save(sc, dirfilename)
 
-    # PRINT ELAPSED TIME
-    timeend = datetime.datetime.now()
-    timedelta = round((timeend-timestart).total_seconds(), 2) 
-    print "Time taken to execute above cell: " + str(timedelta) + " seconds"; 
-
+# PRINT ELAPSED TIME
+timeend = datetime.datetime.now()
+timedelta = round((timeend-timestart).total_seconds(), 2) 
+print "Time taken to execute above cell: " + str(timedelta) + " seconds"; 
+```
 
 **OUTPUT**
 
@@ -1185,28 +1227,31 @@ Time taken to execute above cell: 20.9 seconds
 
 *tmp_results* is registered as a Hive table in the previous cell. Results from the table are output into the *sqlResults* data-frame for plotting. Here is the code
 
-    # PLOT SCATTER-PLOT BETWEEN ACTUAL AND PREDICTED TIP VALUES
+```python
+# PLOT SCATTER-PLOT BETWEEN ACTUAL AND PREDICTED TIP VALUES
 
-    # SELECT RESULTS
-    %%sql -q -o sqlResults
-    SELECT * from tmp_results
-
+# SELECT RESULTS
+%%sql -q -o sqlResults
+SELECT * from tmp_results
+```
 
 Here is the code to plot the data using the Jupyter server.
 
-    # RUN THE CODE LOCALLY ON THE JUPYTER SERVER AND IMPORT LIBRARIES
-    %%local
-    import numpy as np
+```python
+# RUN THE CODE LOCALLY ON THE JUPYTER SERVER AND IMPORT LIBRARIES
+%%local
+import numpy as np
 
-    # PLOT
-    ax = sqlResults.plot(kind='scatter', figsize = (6,6), x='_1', y='_2', color='blue', alpha = 0.25, label='Actual vs. predicted');
-    fit = np.polyfit(sqlResults['_1'], sqlResults['_2'], deg=1)
-    ax.set_title('Actual vs. Predicted Tip Amounts ($)')
-    ax.set_xlabel("Actual")
-    ax.set_ylabel("Predicted")
-    ax.plot(sqlResults['_1'], fit[0] * sqlResults['_1'] + fit[1], color='magenta')
-    plt.axis([-1, 15, -1, 15])
-    plt.show(ax)
+# PLOT
+ax = sqlResults.plot(kind='scatter', figsize = (6,6), x='_1', y='_2', color='blue', alpha = 0.25, label='Actual vs. predicted');
+fit = np.polyfit(sqlResults['_1'], sqlResults['_2'], deg=1)
+ax.set_title('Actual vs. Predicted Tip Amounts ($)')
+ax.set_xlabel("Actual")
+ax.set_ylabel("Predicted")
+ax.plot(sqlResults['_1'], fit[0] * sqlResults['_1'] + fit[1], color='magenta')
+plt.axis([-1, 15, -1, 15])
+plt.show(ax)
+```
 
 ![Actual-vs-predicted-tip-amounts](./media/spark-advanced-data-exploration-modeling/actual-vs-predicted-tips.png)
 
@@ -1216,59 +1261,60 @@ This appendix contains code showing how to do CV using Elastic net for linear re
 ### Cross validation using Elastic net for linear regression
 The code in this section shows how to do cross validation using Elastic net for linear regression and how to evaluate the model against test data.
 
-    ###  CV USING ELASTIC NET FOR LINEAR REGRESSION
+```python
+###  CV USING ELASTIC NET FOR LINEAR REGRESSION
 
-    # RECORD START TIME
-    timestart = datetime.datetime.now()
+# RECORD START TIME
+timestart = datetime.datetime.now()
 
-    # LOAD PYSPARK LIBRARIES
-    from pyspark.ml.regression import LinearRegression
-    from pyspark.ml import Pipeline
-    from pyspark.ml.evaluation import RegressionEvaluator
-    from pyspark.ml.tuning import CrossValidator, ParamGridBuilder
+# LOAD PYSPARK LIBRARIES
+from pyspark.ml.regression import LinearRegression
+from pyspark.ml import Pipeline
+from pyspark.ml.evaluation import RegressionEvaluator
+from pyspark.ml.tuning import CrossValidator, ParamGridBuilder
 
-    # DEFINE ALGORITHM/MODEL
-    lr = LinearRegression()
+# DEFINE ALGORITHM/MODEL
+lr = LinearRegression()
 
-    # DEFINE GRID PARAMETERS
-    paramGrid = ParamGridBuilder().addGrid(lr.regParam, (0.01, 0.1))\
-                                  .addGrid(lr.maxIter, (5, 10))\
-                                  .addGrid(lr.tol, (1e-4, 1e-5))\
-                                  .addGrid(lr.elasticNetParam, (0.25,0.75))\
-                                  .build() 
+# DEFINE GRID PARAMETERS
+paramGrid = ParamGridBuilder().addGrid(lr.regParam, (0.01, 0.1))\
+                              .addGrid(lr.maxIter, (5, 10))\
+                              .addGrid(lr.tol, (1e-4, 1e-5))\
+                              .addGrid(lr.elasticNetParam, (0.25,0.75))\
+                              .build() 
 
-    # DEFINE PIPELINE 
-    # SIMPLY THE MODEL HERE, WITHOUT TRANSFORMATIONS
-    pipeline = Pipeline(stages=[lr])
+# DEFINE PIPELINE 
+# SIMPLY THE MODEL HERE, WITHOUT TRANSFORMATIONS
+pipeline = Pipeline(stages=[lr])
 
-    # DEFINE CV WITH PARAMETER SWEEP
-    cv = CrossValidator(estimator= lr,
-                        estimatorParamMaps=paramGrid,
-                        evaluator=RegressionEvaluator(),
-                        numFolds=3)
+# DEFINE CV WITH PARAMETER SWEEP
+cv = CrossValidator(estimator= lr,
+                    estimatorParamMaps=paramGrid,
+                    evaluator=RegressionEvaluator(),
+                    numFolds=3)
 
-    # CONVERT TO DATA FRAME, AS CROSSVALIDATOR WON'T RUN ON RDDS
-    trainDataFrame = sqlContext.createDataFrame(oneHotTRAINreg, ["features", "label"])
+# CONVERT TO DATA FRAME, AS CROSSVALIDATOR WON'T RUN ON RDDS
+trainDataFrame = sqlContext.createDataFrame(oneHotTRAINreg, ["features", "label"])
 
-    # TRAIN WITH CROSS-VALIDATION
-    cv_model = cv.fit(trainDataFrame)
+# TRAIN WITH CROSS-VALIDATION
+cv_model = cv.fit(trainDataFrame)
 
 
-    # EVALUATE MODEL ON TEST SET
-    testDataFrame = sqlContext.createDataFrame(oneHotTESTreg, ["features", "label"])
+# EVALUATE MODEL ON TEST SET
+testDataFrame = sqlContext.createDataFrame(oneHotTESTreg, ["features", "label"])
 
-    # MAKE PREDICTIONS ON TEST DOCUMENTS
-    # cvModel uses the best model found (lrModel).
-    predictionAndLabels = cv_model.transform(testDataFrame)
+# MAKE PREDICTIONS ON TEST DOCUMENTS
+# cvModel uses the best model found (lrModel).
+predictionAndLabels = cv_model.transform(testDataFrame)
 
-    # CONVERT TO DF AND SAVE REGISTER DF AS TABLE
-    predictionAndLabels.registerTempTable("tmp_results");
+# CONVERT TO DF AND SAVE REGISTER DF AS TABLE
+predictionAndLabels.registerTempTable("tmp_results");
 
-    # PRINT ELAPSED TIME
-    timeend = datetime.datetime.now()
-    timedelta = round((timeend-timestart).total_seconds(), 2) 
-    print "Time taken to execute above cell: " + str(timedelta) + " seconds"; 
-
+# PRINT ELAPSED TIME
+timeend = datetime.datetime.now()
+timedelta = round((timeend-timestart).total_seconds(), 2) 
+print "Time taken to execute above cell: " + str(timedelta) + " seconds"; 
+```
 
 **OUTPUT**
 
@@ -1278,22 +1324,24 @@ Time taken to execute above cell: 161.21  seconds
 
 *tmp_results* is registered as a Hive table in the previous cell. Results from the table are output into the *sqlResults* data-frame for plotting. Here is the code
 
-    # SELECT RESULTS
-    %%sql -q -o sqlResults
-    SELECT label,prediction from tmp_results
-
+```python
+# SELECT RESULTS
+%%sql -q -o sqlResults
+SELECT label,prediction from tmp_results
+```
 
 Here is the code to calculate R-sqr.
 
-    # RUN THE CODE LOCALLY ON THE JUPYTER SERVER AND IMPORT LIBRARIES
-    %%local
-    from scipy import stats
+```python
+# RUN THE CODE LOCALLY ON THE JUPYTER SERVER AND IMPORT LIBRARIES
+%%local
+from scipy import stats
 
-    #R-SQR TEST METRIC
-    corstats = stats.linregress(sqlResults['label'],sqlResults['prediction'])
-    r2 = (corstats[2]*corstats[2])
-    print("R-sqr = %s" % r2)
-
+#R-SQR TEST METRIC
+corstats = stats.linregress(sqlResults['label'],sqlResults['prediction'])
+r2 = (corstats[2]*corstats[2])
+print("R-sqr = %s" % r2)
+```
 
 **OUTPUT**
 
@@ -1302,85 +1350,86 @@ R-sqr = 0.619184907088
 ### Cross validation with parameter sweep using custom code for random forest regression
 The code in this section shows how to do cross validation with parameter sweep using custom code for random forest regression and how to evaluate the model against test data.
 
-    # RECORD START TIME
-    timestart= datetime.datetime.now()
+```python
+# RECORD START TIME
+timestart= datetime.datetime.now()
 
-    # LOAD PYSPARK LIBRARIES
-    # GET ACCURARY FOR HYPERPARAMETERS BASED ON CROSS-VALIDATION IN TRAINING DATA-SET
-    from pyspark.mllib.tree import RandomForest, RandomForestModel
-    from pyspark.mllib.util import MLUtils
-    from pyspark.mllib.evaluation import RegressionMetrics
-    from sklearn.grid_search import ParameterGrid
+# LOAD PYSPARK LIBRARIES
+# GET ACCURARY FOR HYPERPARAMETERS BASED ON CROSS-VALIDATION IN TRAINING DATA-SET
+from pyspark.mllib.tree import RandomForest, RandomForestModel
+from pyspark.mllib.util import MLUtils
+from pyspark.mllib.evaluation import RegressionMetrics
+from sklearn.grid_search import ParameterGrid
 
-    ## CREATE PARAMETER GRID
-    grid = [{'maxDepth': [5,10], 'numTrees': [25,50]}]
-    paramGrid = list(ParameterGrid(grid))
+## CREATE PARAMETER GRID
+grid = [{'maxDepth': [5,10], 'numTrees': [25,50]}]
+paramGrid = list(ParameterGrid(grid))
 
-    ## SPECIFY LEVELS OF CATEGORICAL VARIBLES
-    categoricalFeaturesInfo={0:2, 1:2, 2:6, 3:4}
+## SPECIFY LEVELS OF CATEGORICAL VARIBLES
+categoricalFeaturesInfo={0:2, 1:2, 2:6, 3:4}
 
-    # SPECIFY NUMFOLDS AND ARRAY TO HOLD METRICS
-    nFolds = 3;
-    numModels = len(paramGrid)
-    h = 1.0 / nFolds;
-    metricSum = np.zeros(numModels);
+# SPECIFY NUMFOLDS AND ARRAY TO HOLD METRICS
+nFolds = 3;
+numModels = len(paramGrid)
+h = 1.0 / nFolds;
+metricSum = np.zeros(numModels);
 
-    for i in range(nFolds):
-        # Create training and x-validation sets
-        validateLB = i * h
-        validateUB = (i + 1) * h
-        condition = (trainData["rand"] >= validateLB) & (trainData["rand"] < validateUB)
-        validation = trainData.filter(condition)
-        # Create labeled points from data-frames
-        if i > 0:
-            trainCVLabPt.unpersist()
-            validationLabPt.unpersist()
-        trainCV = trainData.filter(~condition)
-        trainCVLabPt = trainCV.map(parseRowIndexingRegression)
-        trainCVLabPt.cache()
-        validationLabPt = validation.map(parseRowIndexingRegression)
-        validationLabPt.cache()
-        # For parameter sets compute metrics from x-validation
-        for j in range(numModels):
-            maxD = paramGrid[j]['maxDepth']
-            numT = paramGrid[j]['numTrees']
-            # Train logistic regression model with hypermarameter set
-            rfModel = RandomForest.trainRegressor(trainCVLabPt, categoricalFeaturesInfo=categoricalFeaturesInfo,
-                                        numTrees=numT, featureSubsetStrategy="auto",
-                                        impurity='variance', maxDepth=maxD, maxBins=32)
-            predictions = rfModel.predict(validationLabPt.map(lambda x: x.features))
-            predictionAndLabels = validationLabPt.map(lambda lp: lp.label).zip(predictions)
-            # Use ROC-AUC as accuracy metrics
-            validMetrics = RegressionMetrics(predictionAndLabels)
-            metric = validMetrics.rootMeanSquaredError
-            metricSum[j] += metric
+for i in range(nFolds):
+    # Create training and x-validation sets
+    validateLB = i * h
+    validateUB = (i + 1) * h
+    condition = (trainData["rand"] >= validateLB) & (trainData["rand"] < validateUB)
+    validation = trainData.filter(condition)
+    # Create labeled points from data-frames
+    if i > 0:
+        trainCVLabPt.unpersist()
+        validationLabPt.unpersist()
+    trainCV = trainData.filter(~condition)
+    trainCVLabPt = trainCV.map(parseRowIndexingRegression)
+    trainCVLabPt.cache()
+    validationLabPt = validation.map(parseRowIndexingRegression)
+    validationLabPt.cache()
+    # For parameter sets compute metrics from x-validation
+    for j in range(numModels):
+        maxD = paramGrid[j]['maxDepth']
+        numT = paramGrid[j]['numTrees']
+        # Train logistic regression model with hypermarameter set
+        rfModel = RandomForest.trainRegressor(trainCVLabPt, categoricalFeaturesInfo=categoricalFeaturesInfo,
+                                    numTrees=numT, featureSubsetStrategy="auto",
+                                    impurity='variance', maxDepth=maxD, maxBins=32)
+        predictions = rfModel.predict(validationLabPt.map(lambda x: x.features))
+        predictionAndLabels = validationLabPt.map(lambda lp: lp.label).zip(predictions)
+        # Use ROC-AUC as accuracy metrics
+        validMetrics = RegressionMetrics(predictionAndLabels)
+        metric = validMetrics.rootMeanSquaredError
+        metricSum[j] += metric
 
-    avgAcc = metricSum/nFolds;
-    bestParam = paramGrid[np.argmin(avgAcc)];
+avgAcc = metricSum/nFolds;
+bestParam = paramGrid[np.argmin(avgAcc)];
 
-    # UNPERSIST OBJECTS
-    trainCVLabPt.unpersist()
-    validationLabPt.unpersist()
+# UNPERSIST OBJECTS
+trainCVLabPt.unpersist()
+validationLabPt.unpersist()
 
-    ## TRAIN FINAL MODL WIHT BEST PARAMETERS
-    rfModel = RandomForest.trainRegressor(indexedTRAINreg, categoricalFeaturesInfo=categoricalFeaturesInfo,
-                                        numTrees=bestParam['numTrees'], featureSubsetStrategy="auto",
-                                        impurity='variance', maxDepth=bestParam['maxDepth'], maxBins=32)
+## TRAIN FINAL MODL WIHT BEST PARAMETERS
+rfModel = RandomForest.trainRegressor(indexedTRAINreg, categoricalFeaturesInfo=categoricalFeaturesInfo,
+                                    numTrees=bestParam['numTrees'], featureSubsetStrategy="auto",
+                                    impurity='variance', maxDepth=bestParam['maxDepth'], maxBins=32)
 
-    # EVALUATE MODEL ON TEST DATA
-    predictions = rfModel.predict(indexedTESTreg.map(lambda x: x.features))
-    predictionAndLabels = indexedTESTreg.map(lambda lp: lp.label).zip(predictions)
+# EVALUATE MODEL ON TEST DATA
+predictions = rfModel.predict(indexedTESTreg.map(lambda x: x.features))
+predictionAndLabels = indexedTESTreg.map(lambda lp: lp.label).zip(predictions)
 
-    #PRINT TEST METRICS
-    testMetrics = RegressionMetrics(predictionAndLabels)
-    print("RMSE = %s" % testMetrics.rootMeanSquaredError)
-    print("R-sqr = %s" % testMetrics.r2)
+#PRINT TEST METRICS
+testMetrics = RegressionMetrics(predictionAndLabels)
+print("RMSE = %s" % testMetrics.rootMeanSquaredError)
+print("R-sqr = %s" % testMetrics.r2)
 
-    # PRINT ELAPSED TIME
-    timeend = datetime.datetime.now()
-    timedelta = round((timeend-timestart).total_seconds(), 2) 
-    print "Time taken to execute above cell: " + str(timedelta) + " seconds"; 
-
+# PRINT ELAPSED TIME
+timeend = datetime.datetime.now()
+timedelta = round((timeend-timestart).total_seconds(), 2) 
+print "Time taken to execute above cell: " + str(timedelta) + " seconds"; 
+```
 
 **OUTPUT**
 
@@ -1393,30 +1442,31 @@ Time taken to execute above cell: 69.17 seconds
 ### Clean up objects from memory and print model locations
 Use `unpersist()` to delete objects cached in memory.
 
-    # UNPERSIST OBJECTS CACHED IN MEMORY
+```python
+# UNPERSIST OBJECTS CACHED IN MEMORY
 
-    # REMOVE ORIGINAL DFs
-    taxi_df_train_cleaned.unpersist()
-    taxi_df_train_with_newFeatures.unpersist()
-    trainData.unpersist()
-    trainData.unpersist()
+# REMOVE ORIGINAL DFs
+taxi_df_train_cleaned.unpersist()
+taxi_df_train_with_newFeatures.unpersist()
+trainData.unpersist()
+trainData.unpersist()
 
-    # FOR BINARY CLASSIFICATION TRAINING AND TESTING
-    indexedTRAINbinary.unpersist()
-    indexedTESTbinary.unpersist()
-    oneHotTRAINbinary.unpersist()
-    oneHotTESTbinary.unpersist()
+# FOR BINARY CLASSIFICATION TRAINING AND TESTING
+indexedTRAINbinary.unpersist()
+indexedTESTbinary.unpersist()
+oneHotTRAINbinary.unpersist()
+oneHotTESTbinary.unpersist()
 
-    # FOR REGRESSION TRAINING AND TESTING
-    indexedTRAINreg.unpersist()
-    indexedTESTreg.unpersist()
-    oneHotTRAINreg.unpersist()
-    oneHotTESTreg.unpersist()
+# FOR REGRESSION TRAINING AND TESTING
+indexedTRAINreg.unpersist()
+indexedTESTreg.unpersist()
+oneHotTRAINreg.unpersist()
+oneHotTESTreg.unpersist()
 
-    # SCALED FEATURES
-    oneHotTRAINregScaled.unpersist()
-    oneHotTESTregScaled.unpersist()
-
+# SCALED FEATURES
+oneHotTRAINregScaled.unpersist()
+oneHotTESTregScaled.unpersist()
+```
 
 **OUTPUT**
 
@@ -1425,14 +1475,15 @@ PythonRDD[122] at RDD at PythonRDD.scala: 43
 **Output path to model files to be used in the consumption notebook. **
 To consume and score an independent data-set, you need to copy and paste these file names in the "Consumption notebook".
 
-    # PRINT MODEL FILE LOCATIONS FOR CONSUMPTION
-    print "logisticRegFileLoc = modelDir + \"" + logisticregressionfilename + "\"";
-    print "linearRegFileLoc = modelDir + \"" + linearregressionfilename + "\"";
-    print "randomForestClassificationFileLoc = modelDir + \"" + rfclassificationfilename + "\"";
-    print "randomForestRegFileLoc = modelDir + \"" + rfregressionfilename + "\"";
-    print "BoostedTreeClassificationFileLoc = modelDir + \"" + btclassificationfilename + "\"";
-    print "BoostedTreeRegressionFileLoc = modelDir + \"" + btregressionfilename + "\"";
-
+```python
+# PRINT MODEL FILE LOCATIONS FOR CONSUMPTION
+print "logisticRegFileLoc = modelDir + \"" + logisticregressionfilename + "\"";
+print "linearRegFileLoc = modelDir + \"" + linearregressionfilename + "\"";
+print "randomForestClassificationFileLoc = modelDir + \"" + rfclassificationfilename + "\"";
+print "randomForestRegFileLoc = modelDir + \"" + rfregressionfilename + "\"";
+print "BoostedTreeClassificationFileLoc = modelDir + \"" + btclassificationfilename + "\"";
+print "BoostedTreeRegressionFileLoc = modelDir + \"" + btregressionfilename + "\"";
+```
 
 **OUTPUT**
 

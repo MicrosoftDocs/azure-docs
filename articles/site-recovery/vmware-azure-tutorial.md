@@ -79,10 +79,10 @@ All of these components are installed together on the single on-premises machine
 ## Import the template in VMware
 
 
-1. Sign in to the VMware vCenter server or vSphere ESXi host with the VMWare vSphere Client.
+1. Sign in to the VMware vCenter server or vSphere ESXi host with the VMware vSphere Client.
 2. On the **File** menu, select **Deploy OVF Template** to start the **Deploy OVF Template Wizard**.
 
-     ![OVF template](./media/vmware-azure-tutorial/vcenter-wizard.png)
+     ![Screenshot of the Deploy OVF template command in the VMWare vSphere Client.](./media/vmware-azure-tutorial/vcenter-wizard.png)
 
 3. On **Select source**, enter the location of the downloaded OVF.
 4. On **Review details**, select **Next**.
@@ -108,7 +108,7 @@ If you want to add an additional NIC to the configuration server, add it before 
 
 After the configuration server is set up, you register it in the vault.
 
-1. From the VMWare vSphere Client console, turn on the VM.
+1. From the VMware vSphere Client console, turn on the VM.
 2. The VM boots up into a Windows Server 2016 installation experience. Accept the license agreement, and enter an administrator password.
 3. After the installation finishes, sign in to the VM as the administrator.
 4. The first time you sign in, the Azure Site Recovery Configuration Tool starts within a few seconds.
@@ -149,7 +149,7 @@ Select and verify target resources.
 1. Select **Prepare infrastructure** > **Target**. Select the Azure subscription you want to use. We're using a Resource Manager model.
 2. Site Recovery checks that you have one or more virtual networks. You should have these when you set up the Azure components in the [first tutorial](tutorial-prepare-azure.md) in this tutorial series.
 
-   ![Target tab](./media/vmware-azure-tutorial/storage-network.png)
+   ![Screenshot of the Prepare infrastructure > Target options.](./media/vmware-azure-tutorial/storage-network.png)
 
 ## Create a replication policy
 
@@ -161,10 +161,12 @@ Select and verify target resources.
 6. In **Recovery point retention**, specify how longer each recovery point is retained. For this tutorial we're using 72 hours. Replicated VMs can be recovered to any point in a retention window.
 7. In **App-consistent snapshot frequency**, specify how often app-consistent snapshots are created. We're using the default of 60 minutes. Select **OK** to create the policy.
 
-   ![Create replication policy](./media/vmware-azure-tutorial/replication-policy.png)
+   ![Screenshot of the Create replication policy options.](./media/vmware-azure-tutorial/replication-policy.png)
 
 - The policy is automatically associated with the configuration server.
 - A matching policy is automatically created for failback by default. For example, if the replication policy is **rep-policy**, then the failback policy is **rep-policy-failback**. This policy isn't used until you initiate a failback from Azure.
+
+Note: In VMware-to-Azure scenario the crash-consistent snapshot is taken at 5 min interval.
 
 ## Enable replication
 

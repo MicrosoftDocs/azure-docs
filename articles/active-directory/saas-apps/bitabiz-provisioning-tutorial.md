@@ -2,20 +2,15 @@
 title: 'Tutorial: Configure BitaBIZ for automatic user provisioning with Azure Active Directory | Microsoft Docs'
 description: Learn how to configure Azure Active Directory to automatically provision and de-provision user accounts to BitaBIZ.
 services: active-directory
-documentationcenter: ''
 author: zchia
 writer: zchia
-manager: beatrizd
-
-ms.assetid: d0d38abe-c041-482a-9d3f-ca340678c226
+manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 07/26/2019
-ms.author: zhchia 
+ms.author: zhchia
 ---
 
 # Tutorial: Configure BitaBIZ for automatic user provisioning
@@ -106,11 +101,11 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 3. Select the **Provisioning** tab.
 
-	![Provisioning tab](common/provisioning.png)
+	![Screenshot of the Manage options with the Provisioning option called out.](common/provisioning.png)
 
 4. Set the **Provisioning Mode** to **Automatic**.
 
-	![Provisioning tab](common/provisioning-automatic.png)
+	![Screenshot of the Provisioning Mode dropdown list with the Automatic option called out.](common/provisioning-automatic.png)
 
 5. Under the Admin Credentials section, input the **SCIM Provisioning endpoint URL** and **Bearer Token** values retrieved earlier in Tenant URL and Secret Token respectively. Click **Test Connection** to ensure Azure AD can connect to BitaBIZ. If the connection fails, ensure your BitaBIZ account has Admin permissions and try again.
 

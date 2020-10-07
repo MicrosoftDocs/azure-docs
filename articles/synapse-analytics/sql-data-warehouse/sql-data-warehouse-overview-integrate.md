@@ -6,23 +6,23 @@ author: mlee3gsd
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
-ms.subservice: 
+ms.subservice: sql-dw 
 ms.date: 04/17/2018
 ms.author: martinle
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
 ---
 
-# Integrate other services with a SQL Analytics data warehouse
+# Integrate other services with a Synapse SQL pool (data warehouse)
 
-The SQL Analytics capability within Azure Synapse Analytics enables users to integrate with many of the other services in Azure. Using SQL Analytics, you can create a data warehouse via its SQL Pool resource, which can then utilize several additional services, some of which include:
+The SQL pool capability within Azure Synapse Analytics enables users to integrate with many of the other services in Azure. Using Synapse SQL, you can create a data warehouse via its SQL pool resource, which can then utilize several additional services, some of which include:
 
 * Power BI
 * Azure Data Factory
 * Azure Machine Learning
 * Azure Stream Analytics
 
-For more information regarding integration services across Azure, review the [Integration partners](sql-data-warehouse-partner-data-integration.md)article.
+For more information about integration services across Azure, review the [Integration partners](sql-data-warehouse-partner-data-integration.md)article.
 
 ## Power BI
 

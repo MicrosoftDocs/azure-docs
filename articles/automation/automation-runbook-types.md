@@ -1,6 +1,6 @@
 ---
 title: Azure Automation runbook types
-description: Describes the different types of runbooks that you can use in Azure Automation and considerations for determining which type to use.
+description: This article describes the types of runbooks that you can use in Azure Automation and considerations for determining which type to use.
 services: automation
 ms.subservice: process-automation
 ms.date: 03/05/2019
@@ -8,7 +8,7 @@ ms.topic: conceptual
 ---
 # Azure Automation runbook types
 
-The Azure Automation process automation service supports several types of runbooks, as defined in the following table. To learn about the process automation environment, see [Runbook execution in Azure Automation](automation-runbook-execution.md).
+The Azure Automation Process Automation feature supports several types of runbooks, as defined in the following table. To learn about the process automation environment, see [Runbook execution in Azure Automation](automation-runbook-execution.md).
 
 | Type | Description |
 |:--- |:--- |
@@ -22,9 +22,6 @@ Take into account the following considerations when determining which type to us
 
 * You can't convert runbooks from graphical to text type, or the other way around.
 * There are limitations when using runbooks of different types as child runbooks. For more information, see [Child runbooks in Azure Automation](automation-child-runbooks.md).
-
->[!NOTE]
->This article has been updated to use the new Azure PowerShell Az module. You can still use the AzureRM module, which will continue to receive bug fixes until at least December 2020. To learn more about the new Az module and AzureRM compatibility, see [Introducing the new Azure PowerShell Az module](https://docs.microsoft.com/powershell/azure/new-azureps-module-az?view=azps-3.5.0). For Az module installation instructions on your Hybrid Runbook Worker, see [Install the Azure PowerShell Module](https://docs.microsoft.com/powershell/azure/install-az-ps?view=azps-3.5.0). For your Automation account, you can update your modules to the latest version using [How to update Azure PowerShell modules in Azure Automation](automation-update-azure-modules.md).
 
 ## Graphical runbooks
 
@@ -63,17 +60,17 @@ PowerShell runbooks are based on Windows PowerShell. You directly edit the code 
 ### Limitations
 
 * You must be familiar with PowerShell scripting.
-* Runbooks can't use [parallel processing](automation-powershell-workflow.md#parallel-processing) to execute multiple actions in parallel.
-* Runbooks can't use [checkpoints](automation-powershell-workflow.md#checkpoints) to resume runbook if there's an error.
-* You can include only PowerShell Workflow runbooks and graphical runbooks as child runbooks by using the [Start-AzAutomationRunbook](https://docs.microsoft.com/powershell/module/az.automation/start-azautomationrunbook?view=azps-3.7.0) cmdlet, which creates a new job.
+* Runbooks can't use [parallel processing](automation-powershell-workflow.md#use-parallel-processing) to execute multiple actions in parallel.
+* Runbooks can't use [checkpoints](automation-powershell-workflow.md#use-checkpoints-in-a-workflow) to resume runbook if there's an error.
+* You can include only PowerShell Workflow runbooks and graphical runbooks as child runbooks by using the [Start-AzAutomationRunbook](/powershell/module/az.automation/start-azautomationrunbook?view=azps-3.7.0) cmdlet, which creates a new job.
 
 ### Known issues
 
 The following are current known issues with PowerShell runbooks:
 
-* PowerShell runbooks can't retrieve an unencrypted [variable asset](automation-variables.md) with a null value.
+* PowerShell runbooks can't retrieve an unencrypted [variable asset](./shared-resources/variables.md) with a null value.
 * PowerShell runbooks can't retrieve a variable asset with `*~*` in the name.
-* A [Get-Process](https://docs.microsoft.com/powershell/module/microsoft.powershell.management/get-process?view=powershell-7) operation in a loop in a PowerShell runbook can crash after about 80 iterations.
+* A [Get-Process](/powershell/module/microsoft.powershell.management/get-process?view=powershell-7) operation in a loop in a PowerShell runbook can crash after about 80 iterations.
 * A PowerShell runbook can fail if it tries to write a large amount of data to the output stream at once. You can typically work around this issue by having the runbook output just the information needed  to work with large objects. For example, instead of using `Get-Process` with no limitations, you can have the cmdlet output just the required parameters as in `Get-Process | Select ProcessName, CPU`.
 
 ## PowerShell Workflow runbooks
@@ -83,14 +80,14 @@ PowerShell Workflow runbooks are text runbooks based on [Windows PowerShell Work
 ### Advantages
 
 * Implement all complex logic with PowerShell Workflow code.
-* Use [checkpoints](automation-powershell-workflow.md#checkpoints) to resume operation if there's an error.
-* Use [parallel processing](automation-powershell-workflow.md#parallel-processing) to do multiple actions in parallel.
+* Use [checkpoints](automation-powershell-workflow.md#use-checkpoints-in-a-workflow) to resume operation if there's an error.
+* Use [parallel processing](automation-powershell-workflow.md#use-parallel-processing) to do multiple actions in parallel.
 * Can include other graphical runbooks and PowerShell Workflow runbooks as child runbooks to create high-level workflows.
 
 ### Limitations
 
 * You must be familiar with PowerShell Workflow.
-* Runbooks must deal with the additional complexity of PowerShell Workflow, such as [deserialized objects](automation-powershell-workflow.md#code-changes).
+* Runbooks must deal with the additional complexity of PowerShell Workflow, such as [deserialized objects](automation-powershell-workflow.md#deserialized-objects).
 * Runbooks take longer to start than PowerShell runbooks since they must be compiled before running.
 * You can only include PowerShell runbooks as child runbooks by using the `Start-AzAutomationRunbook` cmdlet.
 * Runbooks can't run on a Linux Hybrid Runbook Worker.
@@ -112,7 +109,7 @@ Python runbooks compile under Python 2. You can directly edit the code of the ru
 
 ## Next steps
 
-* To learn more about graphical runbook authoring, see [Graphical authoring in Azure Automation](automation-graphical-authoring-intro.md).
-* To understand the differences between PowerShell and PowerShell workflows for runbooks, see [Learning Windows PowerShell Workflow](automation-powershell-workflow.md).
-* For more information on how to create or import a runbook, see [Manage runbooks in Azure Automation](manage-runbooks.md).
-* To find out more about PowerShell, including language reference and learning modules, refer to the [PowerShell Docs](https://docs.microsoft.com/powershell/scripting/overview).
+* To learn about PowerShell runbooks, see [Tutorial: Create a PowerShell runbook](learn/automation-tutorial-runbook-textual-powershell.md).
+* To learn about PowerShell Workflow runbooks, see [Tutorial: Create a PowerShell Workflow runbook](learn/automation-tutorial-runbook-textual.md).
+* To learn about graphical runbooks, see [Tutorial: Create a graphical runbook](learn/automation-tutorial-runbook-graphical.md).
+* To learn about Python runbooks, see [Tutorial: Create a Python runbook](learn/automation-tutorial-runbook-textual-python2.md).

@@ -1,21 +1,24 @@
 ---
-title: Geocoding coverage | Microsoft Azure Maps
-description: The process of converting location address to latitude and longitude coordinates is known as geocoding. In this article, you will learn about regions with Geocoding Coverage in Microsoft Azure Maps.
-author: philmea
-ms.author: philmea
-ms.date: 12/31/2019
+title: Geocoding coverage in Microsoft Azure Maps Search service
+description: See which regions Azure Maps Search covers. Geocoding categories include address points, house numbers, street level, city level, and points of interest.
+author: anastasia-ms
+ms.author: v-stharr
+ms.date: 07/28/2019
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
-manager: timlt
+manager: philmea
 ---
 
 # Azure Maps geocoding coverage
 
-When you search for a location with Azure Maps, the search service, for example [Get Search Address](https://docs.microsoft.com/rest/api/maps/search/getsearchaddress), takes your search terms and returns the latitude and longitude coordinates. This process is called geocoding. However, Azure Maps does not have the same level of information and accuracy for all regions and countries. Use this article to determine what kind of locations you can reliably search for in each region. 
+The Azure Maps [Search service](https://docs.microsoft.com/rest/api/maps/search) supports geocoding, which means that your API request can have search terms, like an address or the name of a place, and returns the result as latitude and longitude coordinates. For example, the Azure Maps [Get Search Address API](https://docs.microsoft.com/rest/api/maps/search/getsearchaddress) receives queries that contain location information, and returns results as latitude and longitude coordinates.
 
-The ability to geocode in a country/region is dependent upon the road data coverage and the geocoding precision of the geocoding service. The following categorizations are used specify the level of geocoding support in each country/region.
-* **Address points** - Addresses data can be resolved to a latitude/longitude coordinate within the address parcel (property boundary). Sometimes referred to as 'Rooftop' accurate. This is the highest level of accuracy available for addresses. 
+However, the Azure Maps [Search service](https://docs.microsoft.com/rest/api/maps/search) doesn't have the same level of information and accuracy for all regions and countries. Use this article to determine what kind of locations you can reliably search for in each region.
+
+The ability to geocode in a country/region is dependent upon the road data coverage and geocoding precision of the geocoding service. The following categorizations are used to specify the level of geocoding support in each country/region.
+
+* **Address points** - Address data can be resolved to latitude/longitude coordinates within the address parcel (property boundary). Address points are often referred to as being 'Rooftop' accurate, which is the highest level of accuracy available for addresses.
 * **House numbers** - Addresses are interpolated to a latitude/longitude coordinate on the street.
 * **Street level** - Addresses are resolved to the latitude/longitude coordinate of the street that contains the address. The house number may not be processed.
 * **City level** - City place names are supported.
@@ -209,7 +212,6 @@ The ability to geocode in a country/region is dependent upon the road data cover
 | Uzbekistan                                          |                 |                |              |      ✓     |          ✓         |
 | Vatican City                                        |                 |                |       ✓      |      ✓     |          ✓         |
 
-
 ## Middle East and Africa
 
 | Country/Region                                      | Address points |House numbers | Street level | City level | Points of interest |
@@ -290,11 +292,8 @@ The ability to geocode in a country/region is dependent upon the road data cover
 | Zambia                                              |                 |                |       ✓      |      ✓     |          ✓         |
 | Zimbabwe                                            |                 |                |       ✓      |      ✓     |          ✓         |
 
-
-
 ## Next steps
 
-For more information about Azure Maps geocoding, see the [Search](https://docs.microsoft.com/rest/api/maps/search) reference pages.
-
-Learn about the [coverage areas for the Maps traffic service](traffic-coverage.md). 
-
+Learn more about Azure Maps geocoding:
+> [!div class="nextstepaction"]
+> [Azure Maps Search service](https://docs.microsoft.com/rest/api/maps/search)

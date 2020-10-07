@@ -1,6 +1,7 @@
 ---
-title: Microsoft identity platform Windows UWP quickstart | Azure
-description: Learn how a Universal Windows Platform (XAML) application can get an access token and call an API protected by Microsoft identity platform endpoint.
+title: "Quickstart: Sign in users and call Microsoft Graph in a Universal Windows Platform app | Azure"
+titleSuffix: Microsoft identity platform
+description: In this quickstart, learn how a Universal Windows Platform (UWP) application can get an access token and call an API protected by Microsoft identity platform.
 services: active-directory
 author: jmprieur
 manager: CelesteDG
@@ -20,6 +21,11 @@ ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:U
 This quickstart contains a code sample that demonstrates how a Universal Windows Platform (UWP) application can sign in users with personal accounts or work and school accounts, get an access token, and call the Microsoft Graph API. (See [How the sample works](#how-the-sample-works) for an illustration.)
 
 > [!div renderon="docs"]
+> ## Prerequisites
+>
+> * An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+> * [Visual Studio 2019](https://visualstudio.microsoft.com/vs/)
+>
 > ## Register and download your quickstart app
 > [!div renderon="docs" class="sxs-lookup"]
 > You have two options to start your quickstart application:
@@ -64,7 +70,7 @@ This quickstart contains a code sample that demonstrates how a Universal Windows
 
 > [!div class="sxs-lookup" renderon="portal"]
 > Run the project using Visual Studio 2019.
-> [!div renderon="portal" id="autoupdate" class="nextstepaction"]
+> [!div class="sxs-lookup" renderon="portal" id="autoupdate" class="nextstepaction"]
 > [Download the code sample](https://github.com/Azure-Samples/active-directory-dotnet-native-uwp-v2/archive/msal3x.zip)
 
 > [!div class="sxs-lookup" renderon="portal"]
@@ -130,7 +136,7 @@ PublicClientApp = PublicClientApplicationBuilder.Create(ClientId)
                                                     .Build();
 ```
 
-> |Where: ||
+> |Where: | Description |
 > |---------|---------|
 > | `ClientId` | Is the **Application (client) ID** for the application registered in the Azure portal. You can find this value in the app's **Overview** page in the Azure portal. |
 
@@ -152,7 +158,7 @@ authResult = await App.PublicClientApp.AcquireTokenInteractive(scopes)
                       .ExecuteAsync();
 ```
 
-> |Where:||
+> |Where:| Description |
 > |---------|---------|
 > | `scopes` | Contains the scopes being requested, such as `{ "user.read" }` for Microsoft Graph or `{ "api://<Application ID>/access_as_user" }` for custom web APIs. |
 
@@ -167,7 +173,7 @@ authResult = await App.PublicClientApp.AcquireTokenSilent(scopes, firstAccount)
                                       .ExecuteAsync();
 ```
 
-> |Where: ||
+> |Where: | Description |
 > |---------|---------|
 > | `scopes` | Contains the scopes being requested, such as `{ "user.read" }` for Microsoft Graph or `{ "api://<Application ID>/access_as_user" }` for custom web APIs |
 > | `firstAccount` | Specifies the first user account in the cache (MSAL supports multiple users in a single app) |

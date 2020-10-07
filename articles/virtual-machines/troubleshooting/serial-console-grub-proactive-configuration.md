@@ -33,11 +33,11 @@ The reasons to perform a VM recovery are many and can be attributed to scenarios
    - Mangled sshd configurations files
    - Networking configurations
 
- Many other scenarios as detailed [here](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/serial-console-linux#common-scenarios-for-accessing-the-serial-console)
+ Many other scenarios as detailed [here](./serial-console-linux.md#common-scenarios-for-accessing-the-serial-console)
 
 Verify that you can access GRUB and the Serial console on your VMs deployed in Azure. 
 
-If you are new to Serial Console, refer to [this link](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/serial-console-linux/).
+If you are new to Serial Console, refer to [this link](./serial-console-linux.md).
 
 > [!TIP]
 > Ensure you take backups of files before making changes
@@ -72,7 +72,7 @@ Ensuring you have access to the Azure Serial Console and GRUB means that a passw
 
 - Disk Swap – can be automated using either:
 
-   - [Power Shell Recovery Scripts](https://github.com/Azure/azure-support-scripts/tree/master/VMRecovery/ResourceManager)
+   - [PowerShell Recovery Scripts](https://github.com/Azure/azure-support-scripts/tree/master/VMRecovery/ResourceManager)
    - [bash Recovery Scripts](https://github.com/sribs/azure-support-scripts)
 
 - Legacy Method
@@ -94,7 +94,7 @@ In this article, we'll review various Linux distributions and document configura
 The sysrq key is enabled on some newer Linux distros by default, although on others it might be configured for accepting values only for certain SysRq functions.
 On older distros, it might be disabled completely.
 
-The SysRq feature is useful for rebooting a crashed or hung VM directly from the Azure Serial Console, also helpful in gaining access to the GRUB menu, alternatively restarting a VM from another portal window or ssh session might drop your current console connection thus expiring GRUB Timeouts to which are used to display the GRUB menu.
+The SysRq feature is useful for rebooting a crashed or non-responding VM directly from the Azure Serial Console, also helpful in gaining access to the GRUB menu, alternatively restarting a VM from another portal window or ssh session might drop your current console connection thus expiring GRUB Timeouts to which are used to display the GRUB menu.
 The VM must be configured to accept a value of 1 for the kernel parameter, which enables all functions of sysrq or 128, which allows reboot/poweroff
 
 
@@ -209,11 +209,11 @@ Interrupt the BOOT Process and access GRUB menu
 
 Select Advanced Options for Ubuntu and press enter
 
-![ubunturec1](./media/virtual-machines-serial-console/ubunturec1.png)
+![Screenshot shows the Serial console with Advanced options for Ubuntu selected.](./media/virtual-machines-serial-console/ubunturec1.png)
 
 Select the line displaying *(recovery mode)* do not press enter but press “e”
 
-![ubunturec2](./media/virtual-machines-serial-console/ubunturec2.png)
+![Screenshot shows the Serial console with a recovery mode version selected.](./media/virtual-machines-serial-console/ubunturec2.png)
 
 Locate the line that will load the kernel and substitute the last parameter **nomodeset** with destination as **console=ttyS0**
 
@@ -225,12 +225,12 @@ change to
 linux /boot/vmlinuz-4.15.0-1023-azure root=UUID=21b294f1-25bd-4265-9c4e-d6e4aeb57e97 ro recovery console=ttyS0
 ```
 
-![ubunturec3](./media/virtual-machines-serial-console/ubunturec3.png)
+![Screenshot shows the Serial console with the changed value.](./media/virtual-machines-serial-console/ubunturec3.png)
 
 Press **Ctrl-x** to start and load the kernel.
 If all goes well you will see these additional Options, which can help perform other recovery options
 
-![ubunturec4](./media/virtual-machines-serial-console/ubunturec4.png)
+![Screenshot shows the Serial console at the Recovery Menu, which offers additional recovery options.](./media/virtual-machines-serial-console/ubunturec4.png)
 
 
 ## Red Hat GRUB configuration
@@ -337,16 +337,16 @@ terminal --timeout=5 serial console
 
 The last line  *terminal –-timeout=5 serial console* will further increase **GRUB** timeout by adding a prompt of 5 seconds displaying **Press any key to continue.**
 
-![rh6-1](./media/virtual-machines-serial-console/rh6-1.png)
+![Screenshot shows a console with output.](./media/virtual-machines-serial-console/rh6-1.png)
 
 GRUB menu should appear on-screen for the configured timeout=15 without the need to press Esc. Make sure to click in the Console in the Browser to make active the menu and select the required kernel
 
-![rh6-2](./media/virtual-machines-serial-console/rh6-2.png)
+![Screenshot shows a console with two Linux options.](./media/virtual-machines-serial-console/rh6-2.png)
 
 ## SuSE
 
 ## SLES 12 sp1
-Either use yast bootloader as per the official [docs](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/serial-console-grub-single-user-mode#grub-access-in-suse-sles)
+Either use YaST bootloader as per the official [docs](./serial-console-grub-single-user-mode.md#grub-access-in-suse-sles)
 
 Or add/change to /etc/default/grub the following parameters:
 
@@ -405,18 +405,18 @@ You will gain access to a shell without having to enter a password. You can then
 Having access to GRUB allows you to interrupt the initialization process this interaction is useful for many recovery procedures.
 If you do not have root password and single user requires you to have a root password, you can boot the kernel replacing the init program with a bash prompt – this interrupt can be achieved by appending init=/bin/bash to the kernel boot line
 
-![bash1](./media/virtual-machines-serial-console/bash1.png)
+![Screenshot shows a console with the updated boot line.](./media/virtual-machines-serial-console/bash1.png)
 
 Remount your / (root) file system RW using the command
 
 `mount -o remount,rw /`
 
-![bash2](./media/virtual-machines-serial-console/bash2.png)
+![Screenshot shows a console with a re-mount action.](./media/virtual-machines-serial-console/bash2.png)
 
 
 Now you can perform root password change or many other Linux configuration changes
 
-![bash3](./media/virtual-machines-serial-console/bash3.png)
+![Screenshot shows a console where you can change root password and other configuration.](./media/virtual-machines-serial-console/bash3.png)
 
 Restart the VM with 
 
@@ -431,11 +431,11 @@ Alternatively you might need to access the VM in single user or emergency mode. 
 Enter the desired mode by appending the keyword **single** or **1** to the kernel boot line. 
 On RHEL systems, you can also append **rd.break**.
 
-For more information on how to access single user mode, see [this doc](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/serial-console-grub-single-user-mode#general-single-user-mode-access) 
+For more information on how to access single user mode, see [this doc](./serial-console-grub-single-user-mode.md#general-single-user-mode-access) 
 
 
 ![single_user_ubuntu](./media/virtual-machines-serial-console/single-user-ubuntu.png)
 
 
 ## Next steps
-Learn more about [Azure Serial Console]( https://docs.microsoft.com/azure/virtual-machines/troubleshooting/serial-console-linux)
+Learn more about [Azure Serial Console]( ./serial-console-linux.md)

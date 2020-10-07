@@ -4,7 +4,7 @@ description: How to use Azure Batch rendering capabilities. Try using the Batch 
 author: mscurrell
 ms.author: markscu
 ms.date: 03/05/2020
-ms.topic: conceptual
+ms.topic: how-to
 ---
 
 # Using Azure Batch rendering
@@ -14,8 +14,8 @@ There are several ways to use Azure Batch rendering:
 * APIs:
   * Write code using any of the Batch APIs.  Developers can integrate Azure Batch capabilities into their existing applications or workflow, whether cloud or based on-premises.
 * Command line tools:
-  * The [Azure command line](https://docs.microsoft.com/cli/azure/) or [PowerShell](https://docs.microsoft.com/powershell/azure/overview) can be used to script Batch use.
-  * In particular, the [Batch CLI template support](https://docs.microsoft.com/azure/batch/batch-cli-templates) makes it much easier to create pools and submit jobs.
+  * The [Azure command line](/cli/azure/) or [PowerShell](/powershell/azure/) can be used to script Batch use.
+  * In particular, the [Batch CLI template support](./batch-cli-templates.md) makes it much easier to create pools and submit jobs.
 * Batch Explorer UI:
   * [Batch Explorer](https://github.com/Azure/BatchLabs) is a cross-platform client tool that also allows Batch accounts to be managed and monitored.
   * For each of the rendering applications, a number of pool and job templates are provided that can be used to easily create pools and to submit jobs.  A set of templates is listed in the application UI, with the template files being accessed from GitHub.
@@ -27,7 +27,7 @@ The best way to try Azure Batch rendering and simplest way for end-users, who ar
 
 ## Using Batch Explorer
 
-For a step-by-step tutorial for using Batch Explorer to perform rendering see the [Blender tutorial](https://docs.microsoft.com/azure/batch/tutorial-rendering-batchexplorer-blender).
+For a step-by-step tutorial for using Batch Explorer to perform rendering see the [Blender tutorial](./tutorial-rendering-batchexplorer-blender.md).
 
 ### Download and Install
 
@@ -60,5 +60,5 @@ Plug-ins are available for some of the client applications.  The plug-ins allow 
 
 For examples of Batch rendering try out the two tutorials:
 
-* [Rendering using the Azure CLI](https://docs.microsoft.com/azure/batch/tutorial-rendering-cli)
-* [Rendering using Batch Explorer](https://docs.microsoft.com/azure/batch/tutorial-rendering-batchexplorer-blender)
+* [Rendering using the Azure CLI](./tutorial-rendering-cli.md)
+* [Rendering using Batch Explorer](./tutorial-rendering-batchexplorer-blender.md)

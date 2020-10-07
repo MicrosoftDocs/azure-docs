@@ -7,7 +7,7 @@ manager: celestedg
 
 ms.service: active-directory
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 05/07/2020
 ms.author: mimart
 ms.subservice: B2C
@@ -50,7 +50,7 @@ You can configure the token lifetime on any user flow.
 
 ## Next steps
 
-Learn more about how to [use access tokens](access-tokens.md).
+Learn more about how to [request access tokens](access-tokens.md).
 
 
 

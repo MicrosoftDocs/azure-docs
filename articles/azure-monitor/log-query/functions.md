@@ -5,7 +5,7 @@ ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 11/15/2018
+ms.date: 07/31/2020
 
 ---
 
@@ -24,14 +24,14 @@ Create a function with Log Analytics in the Azure portal by clicking **Save** an
 | Function Alias | Short name to use the function in other queries. May not contain spaces and must be unique. |
 | Category       | A category to organize saved queries and functions in **Query explorer**. |
 
-> [!NOTE]
-> A function in Azure Monitor cannot contain another function.
-
 
 
 
 ## Use a function
 Use a function by including its alias in another query. It can be used like any other table.
+
+## Function parameters 
+You can add parameters to a function so that you can provide values for certain variables when calling it. The only way to currently create a function with parameters is using a Resource Manager template. See [Resource Manager template samples for log queries in Azure Monitor](../samples/resource-manager-log-queries.md#parameterized-function) for an example.
 
 ## Example
 The following sample query returns all missing security updates reported in the last day. Save this query as a function with the alias _security_updates_last_day_. 

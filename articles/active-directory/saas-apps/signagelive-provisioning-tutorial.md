@@ -2,17 +2,12 @@
 title: 'Tutorial: Configure Signagelive for automatic user provisioning with Azure Active Directory | Microsoft Docs'
 description: Learn how to configure Azure Active Directory to automatically provision and de-provision user accounts to Signagelive.
 services: active-directory
-documentationcenter: ''
 author: zchia
 writer: zchia
-manager: beatrizd
-
-ms.assetid: fb48deae-4653-448a-ba2f-90258edab3a7
+manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 07/23/2019
 ms.author: Zhchia
@@ -95,11 +90,11 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 3. Select the **Provisioning** tab.
 
-	![Provisioning tab](common/provisioning.png)
+	![Screenshot of the Manage options with the Provisioning option called out.](common/provisioning.png)
 
 4. Set the **Provisioning Mode** to **Automatic**.
 
-	![Provisioning tab](common/provisioning-automatic.png)
+	![Screenshot of the Provisioning Mode dropdown list with the Automatic option called out.](common/provisioning-automatic.png)
 
 5. Under the Admin Credentials section, input ` https://samlapi.signagelive.com/scim/v2` in **Tenant URL**. In **Secret Token** field, enter the **bearer Token** value provided by the engineering development team. Click **Test Connection** to ensure Azure AD can connect to Signagelive. If the connection fails, ensure your Signagelive account has Admin permissions and try again.
 	![Tenant URL + Token](common/provisioning-testconnection-tenanturltoken.png)
@@ -112,19 +107,19 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 8. Under the **Mappings** section, select **Synchronize Azure Active Directory Users to Signagelive**.
 
-	![Signagelive User Mappings](media/signagelive-provisioning-tutorial/usermapping.png)
+	![Screenshot of the Mappings section with the Synchronize Azure Active Directory Users to Signagelive option called out.](media/signagelive-provisioning-tutorial/usermapping.png)
 
 9. Review the user attributes that are synchronized from Azure AD to Signagelive in the **Attribute Mapping** section. The attributes selected as **Matching** properties are used to match the user accounts in Signagelive for update operations. Select the **Save** button to commit any changes.
 
-	![Signagelive User Attributes](media/signagelive-provisioning-tutorial/userattribute.png)
+	![Screenshot of the Attribute Mappings section with seven mappings displayed.](media/signagelive-provisioning-tutorial/userattribute.png)
 
 10. Under the **Mappings** section, select **Synchronize Azure Active Directory Group to Signagelive**.
 
-	![Signagelive User Mappings](media/signagelive-provisioning-tutorial/groupmapping.png)
+	![Screenshot of the Mappings section with the Synchronize Azure Active Directory Group to Signagelive option called out.](media/signagelive-provisioning-tutorial/groupmapping.png)
 
 11. Review the group attributes that are synchronized from Azure AD to Signagelive in the **Attribute Mapping** section. The attributes selected as **Matching** properties are used to match the group accounts in Signagelive for update operations. Select the **Save** button to commit any changes.
 
-	![Signagelive User Attributes](media/signagelive-provisioning-tutorial/groupattribute.png)
+	![Screenshot of the Attribute Mappings section with three mappings displayed.](media/signagelive-provisioning-tutorial/groupattribute.png)
 
 12. To configure scoping filters, refer to the following instructions provided in the [Scoping filter tutorial](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
 

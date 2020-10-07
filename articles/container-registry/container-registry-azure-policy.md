@@ -2,27 +2,24 @@
 title: Compliance using Azure Policy
 description: Assign built-in policies in Azure Policy to audit compliance of your Azure container registries
 ms.topic: article
-ms.date: 02/26/2020
+ms.date: 06/11/2020
 ---
 
 # Audit compliance of Azure container registries using Azure Policy
 
 [Azure Policy](../governance/policy/overview.md) is a service in Azure that you use to create, assign, and manage policies. These policies enforce different rules and effects over your resources, so those resources stay compliant with your corporate standards and service level agreements.
 
-This article introduces built-in policies (preview) for Azure Container Registry. Use these policies to audit new and existing registries for compliance.
+This article introduces built-in policies for Azure Container Registry. Use these policies to audit new and existing registries for compliance.
 
 There are no charges for using Azure Policy.
-
-> [!IMPORTANT]
-> This feature is currently in preview. Previews are made available to you on the condition that you agree to the [supplemental terms of use][terms-of-use]. Some aspects of this feature may change prior to general availability (GA).
 
 ## Built-in policy definitions
 
 The following built-in policy definitions are specific to Azure Container Registry:
 
-[!INCLUDE [azure-policy-samples-policies-container-registry](../../includes/policy/samples/bycat/policies-container-registry.md)]
+[!INCLUDE [azure-policy-reference-policies-container-registry](../../includes/policy/reference/bycat/policies-container-registry.md)]
 
-See also the built-in network policy definition: [[Preview] Container Registry should use a virtual network service endpoint](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fc4857be7-912a-4c75-87e6-e30292bcdf78).
+See also the built-in network policy definition: [Container Registry should use a virtual network service endpoint](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fc4857be7-912a-4c75-87e6-e30292bcdf78).
 
 ## Assign policies
 
@@ -43,8 +40,10 @@ When a resource is non-compliant, there are many possible reasons. To determine 
 
 1. Select **All services**, and search for **Policy**.
 1. Select **Compliance**.
-1. Use the filters to limit compliance states or to search for policies
-    ![Policy compliance in portal](./media/container-registry-azure-policy/azure-policy-compliance.png).
+1. Use the filters to limit compliance states or to search for policies.
+
+    ![Policy compliance in portal](./media/container-registry-azure-policy/azure-policy-compliance.png)
+    
 1. Select a policy to review aggregate compliance details and events. If desired, then select a specific registry for resource compliance.
 
 ### Policy compliance in the Azure CLI
@@ -60,8 +59,8 @@ Sample output:
 ```
 Name                                                                                   ID
 -------------------------------------------------------------------------------------  --------------------------------------------------------------------------------------------------------------------------------
-[Preview]: Container Registries should not allow unrestricted network access           /subscriptions/<subscriptionID>/providers/Microsoft.Authorization/policyAssignments/b4faf132dc344b84ba68a441
-[Preview]: Container Registries should be encrypted with a Customer-Managed Key (CMK)  /subscriptions/<subscriptionID>/providers/Microsoft.Authorization/policyAssignments/cce1ed4f38a147ad994ab60a
+Container Registries should not allow unrestricted network access           /subscriptions/<subscriptionID>/providers/Microsoft.Authorization/policyAssignments/b4faf132dc344b84ba68a441
+Container Registries should be encrypted with a Customer-Managed Key (CMK)  /subscriptions/<subscriptionID>/providers/Microsoft.Authorization/policyAssignments/cce1ed4f38a147ad994ab60a
 ```
 
 Then run [az policy state list](/cli/azure/policy/state#az-policy-state-list) to return the JSON-formatted compliance state for all resources under a specific policy ID:
@@ -83,12 +82,8 @@ az policy state list \
 
 ## Next steps
 
-* Learn more about Azure Policy [definitions](../governance/policy/concepts/definition-structure.md) and [effects](../governance/policy/concepts/effects.md)
+* Learn more about Azure Policy [definitions](../governance/policy/concepts/definition-structure.md) and [effects](../governance/policy/concepts/effects.md).
 
-* Create a [custom policy definition](../governance/policy/tutorials/create-custom-policy-definition.md)
+* Create a [custom policy definition](../governance/policy/tutorials/create-custom-policy-definition.md).
 
-* Learn more about [governance capabilities](../governance/index.yml) in Azure
-
-
-<!-- LINKS - External -->
-[terms-of-use]: https://azure.microsoft.com/support/legal/preview-supplemental-terms/
+* Learn more about [governance capabilities](../governance/index.yml) in Azure.

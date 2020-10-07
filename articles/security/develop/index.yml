@@ -21,25 +21,13 @@ landingContent:
 # Cards and links should be based on top customer tasks or top subjects
 # Start card title with a verb
   # Card
-  - title: Develop secure sample apps
-    linkLists:
-      - linkListType: tutorial
-        links:
-          - text: Web app in a Linux container
-            url: secure-web-app.md
-          - text: Web app with Azure Active Directory
-            url: secure-aad-app.md
-          - text: Payment card industry
-            url: secure-pci-web-app.md
-
-  # Card
   - title: Get started
     linkLists:
       - linkListType: concept
         links:
           - text: Secure development best practices
             url: secure-dev-overview.md
-          - text: Desgin phase
+          - text: Design phase
             url: secure-design.md
           - text: Development phase
             url: secure-develop.md

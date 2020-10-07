@@ -1,25 +1,24 @@
 ---
 title: Translate links and URLs Azure AD App Proxy | Microsoft Docs
-description: Covers the basics about Azure AD Application Proxy connectors.
+description: Learn how to redirect hard-coded links for apps published with Azure AD Application proxy.
 services: active-directory
 documentationcenter: ''
-author: msmimart
-manager: CelesteDG
-
+author: kenwith
+manager: celestedg
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 08/15/2019
-ms.author: mimart
+ms.author: kenwith
 ms.reviewer: japere
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ---
 
-# Redirect hardcoded links for apps published with Azure AD Application Proxy
+# Redirect hard-coded links for apps published with Azure AD Application Proxy
 
 Azure AD Application Proxy makes your on-premises apps available to users who are remote or on their own devices. Some apps, however, were developed with local links embedded in the HTML. These links don't work correctly when the app is used remotely. When you have several on-premises applications point to each other, your users expect the links to keep working when they're not at the office. 
 
@@ -29,13 +28,13 @@ The best way to make sure that links work the same both inside and outside of yo
 If you can't use custom domains in your tenant, there are several other options for providing this functionality. All of these are also compatible with custom domains and each other, so you can configure custom domains and other solutions if needed.
 
 > [!NOTE]
-> Link translation is not supported for hard-coded internal URLs generated through Javascript.
+> Link translation is not supported for hard-coded internal URLs generated through JavaScript.
 
-**Option 1: Use the Managed Browser or Microsoft Edge** – This solution is only applicable if you plan to recommend or require that users access the application through the Intune Managed Browser or Microsoft Edge Browser. It will handle all published URLs. 
+**Option 1: Use Microsoft Edge** – This solution is only applicable if you plan to recommend or require that users access the application through the Microsoft Edge browser. It will handle all published URLs. 
 
 **Option 2: Use the MyApps Extension** – This solution requires users to install a client-side browser extension, but it will handle all published URLs and works with most popular browsers. 
 
-**Option 3: Use the link translation setting** – This is an admin side setting that is invisible to users. However, it will only handle URLs in HTML and CSS.   
+**Option 3: Use the link translation setting** – This is an admin side setting that is invisible to users. However, it will handle URLs only in HTML and CSS.   
 
 These three features keep your links working no matter where your users are. When you have apps that point directly to internal endpoints or ports, you can map these internal URLs to the published external Application Proxy URLs. 
 
@@ -46,11 +45,11 @@ These three features keep your links working no matter where your users are. Whe
 > Or, if the application you need to configure with link translation is SharePoint, see [Configure alternate access mappings for SharePoint 2013](https://technet.microsoft.com/library/cc263208.aspx) for another approach to mapping links. 
 
  
-### Option 1: Intune Managed Browser and Microsoft Edge Integration 
+### Option 1: Microsoft Edge Integration 
 
-You can use the Intune Managed Browser or Microsoft Edge to further protect your application and content. To use this solution, you need to require/recommend users access the application through the Intune Managed Browser. All internal URLs published with Application Proxy will be recognized by the Managed Browser and redirected to the corresponding external URL. This ensures that all the hard-coded internal URLs work, and if a user goes to the browser and directly types the internal URL, it works even if the user is remote.  
+You can use Microsoft Edge to further protect your application and content. To use this solution, you need to require/recommend users access the application through Microsoft Edge. All internal URLs published with Application Proxy will be recognized by Edge and redirected to the corresponding external URL. This ensures that all the hard-coded internal URLs work, and if a user goes to the browser and directly types the internal URL, it works even if the user is remote.  
 
-To learn more, including how to configure this option, please see the [Managed Browser](https://docs.microsoft.com/intune/app-configuration-managed-browser) documentation.  
+To learn more, including how to configure this option, please see the [Manage web access by using Edge for iOS and Android with Microsoft Intune](https://docs.microsoft.com/mem/intune/apps/manage-microsoft-edge) documentation.  
 
 ### Option 2: MyApps Browser Extension 
 
@@ -69,9 +68,9 @@ When link translation is enabled, the Application Proxy service searches through
 
 ## How link translation works
 
-After authentication, when the proxy server passes the application data to the user, Application Proxy scans the application for hardcoded links and replaces them with their respective, published external URLs.
+After authentication, when the proxy server passes the application data to the user, Application Proxy scans the application for hard-coded links and replaces them with their respective, published external URLs.
 
-Application Proxy assumes that applications are encoded in UTF-8. If that's not the case, specify the encoding type in an http response header, like `Content-Type:text/html;charset=utf-8`.
+Application Proxy assumes that applications are encoded in UTF-8. If that's not the case, specify the encoding type in an HTTP response header, like `Content-Type:text/html;charset=utf-8`.
 
 ### Which links are affected?
 
@@ -80,7 +79,7 @@ The link translation feature only looks for links that are in code tags in the b
 There are two common types of internal links in on-premises applications:
 
 - **Relative internal links** that point to a shared resource in a local file structure like `/claims/claims.html`. These links automatically work in apps that are published through Application Proxy, and continue to work with or without link translation. 
-- **Hardcoded internal links** to other on-premises apps like `http://expenses` or published files like `http://expenses/logo.jpg`. The link translation feature works on hardcoded internal links, and changes them to point to the external URLs that remote users need to go through.
+- **Hard-coded internal links** to other on-premises apps like `http://expenses` or published files like `http://expenses/logo.jpg`. The link translation feature works on hard-coded internal links, and changes them to point to the external URLs that remote users need to go through.
 
 The complete list of HTML code tags that Application Proxy supports link translation for include:
 * a

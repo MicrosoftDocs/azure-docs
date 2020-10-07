@@ -6,7 +6,7 @@ documentationcenter: ''
 author: curtand
 manager: daveba
 ms.service: active-directory
-ms.topic: article
+ms.topic: overview
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.date: 04/29/2020

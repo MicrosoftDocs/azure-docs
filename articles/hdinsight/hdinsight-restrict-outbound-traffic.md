@@ -5,7 +5,7 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.topic: conceptual
+ms.topic: how-to
 ms.custom: seoapr2020
 ms.date: 04/17/2020
 ---
@@ -70,7 +70,7 @@ Create an application rule collection that allows the cluster to send and receiv
 
     **Target FQDNs section**
 
-    | Name | Source addresses | `Protocol:Port` | Target FQDNS | Notes |
+    | Name | Source addresses | Protocol:Port | Target FQDNS | Notes |
     | --- | --- | --- | --- | --- |
     | Rule_2 | * | https:443 | login.windows.net | Allows Windows login activity |
     | Rule_3 | * | https:443 | login.microsoftonline.com | Allows Windows login activity |
@@ -110,7 +110,8 @@ Create the network rules to correctly configure your HDInsight cluster.
     | Name | Protocol | Source Addresses | Service Tags | Destination Ports | Notes |
     | --- | --- | --- | --- | --- | --- |
     | Rule_7 | TCP | * | SQL | 1433 | Configure a network rule in the Service Tags section for SQL that will allow you to log and audit SQL traffic. Unless you configured Service Endpoints for SQL Server on the HDInsight subnet, which will bypass the firewall. |
-
+    | Rule_8 | TCP | * | Azure Monitor | * | (optional) Customers who plan to use auto scale feature should add this rule. |
+    
    ![Title: Enter application rule collection](./media/hdinsight-restrict-outbound-traffic/hdinsight-restrict-outbound-traffic-add-network-rule-collection.png)
 
 1. Select **Add**.

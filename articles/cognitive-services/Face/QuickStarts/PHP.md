@@ -9,7 +9,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: quickstart
-ms.date: 04/14/2020
+ms.date: 08/05/2020
 ms.author: pafarley
 ---
 # Quickstart: Detect faces in an image using the REST API and PHP
@@ -18,10 +18,13 @@ In this quickstart, you'll use the Azure Face REST API with PHP to detect human 
 
 ## Prerequisites
 
-- A Face subscription key. You can get a free trial subscription key from [Try Cognitive Services](https://azure.microsoft.com/try/cognitive-services/?api=face-api). Or, follow the instructions in [Create a Cognitive Services account](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) to subscribe to the Face service and get your key.
-- A code editor such as [Visual Studio Code](https://code.visualstudio.com/download).
-- The PHP [HTTP_Request2](https://pear.php.net/package/HTTP_Request2) package.
-- A PHP-enabled web browser. If you have not set this up, you can do so by installing and setting up [XAMPP](https://www.apachefriends.org/) on your machine.
+* Azure subscription - [Create one for free](https://azure.microsoft.com/free/cognitive-services/)
+* Once you have your Azure subscription, <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesFace"  title="Create a Face resource"  target="_blank">create a Face resource <span class="docon docon-navigate-external x-hidden-focus"></span></a> in the Azure portal to get your key and endpoint. After it deploys, click **Go to resource**.
+    * You will need the key and endpoint from the resource you create to connect your application to the Face API. You'll paste your key and endpoint into the code below later in the quickstart.
+    * You can use the free pricing tier (`F0`) to try the service, and upgrade later to a paid tier for production.
+* A code editor such as [Visual Studio Code](https://code.visualstudio.com/download).
+* The PHP [HTTP_Request2](https://pear.php.net/package/HTTP_Request2) package.
+* A PHP-enabled web browser. If you have not set this up, you can do so by installing and setting up [XAMPP](https://www.apachefriends.org/) on your machine.
 
 ## Initialize the HTML file
 

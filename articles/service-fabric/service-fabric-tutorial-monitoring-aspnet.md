@@ -6,7 +6,7 @@ author: dkkapur
 ms.topic: tutorial
 ms.date: 07/10/2019
 ms.author: dekapur
-ms.custom: mvc
+ms.custom: "mvc, devx-track-csharp"
 ---
 # Tutorial: Monitor and diagnose an ASP.NET Core application on Service Fabric using Application Insights
 
@@ -186,7 +186,7 @@ You can click on one of the traces to view more details about it. There is usefu
 
 Additionally, you can click *Application map* on the left menu on the Overview page, or click on the **App map** icon to take you to the App Map showing your two services connected.
 
-![AI trace details](./media/service-fabric-tutorial-monitoring-aspnet/app-map-new.png)
+![Screenshot that highlights Application map in the left menu.](./media/service-fabric-tutorial-monitoring-aspnet/app-map-new.png)
 
 The App map can help you understand your application topology better, especially as you start adding multiple different services that work together. It also gives you basic data on request success rates, and can help you diagnose failed request to understand where things may have gone wrong. To learn more about using the App map, see [Application Map in Application Insights](../azure-monitor/app/app-map.md).
 
@@ -265,4 +265,4 @@ Now that you have completed setting up monitoring and diagnostics for your ASP.N
 
 * [Further explore monitoring and diagnostics in Service Fabric](service-fabric-diagnostics-overview.md)
 * [Service Fabric event analysis with Application Insights](service-fabric-diagnostics-event-analysis-appinsights.md)
-* To learn more about Application Insights, see [Application Insights Documentation](https://docs.microsoft.com/azure/application-insights/)
+* To learn more about Application Insights, see [Application Insights Documentation](/azure/application-insights/)

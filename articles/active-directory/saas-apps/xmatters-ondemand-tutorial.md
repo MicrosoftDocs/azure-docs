@@ -2,21 +2,15 @@
 title: 'Tutorial: Azure Active Directory integration with xMatters OnDemand | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and xMatters OnDemand.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-
-ms.assetid: ca0633db-4f95-432e-b3db-0168193b5ce9
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/29/2019
 ms.author: jeedes
-
 ---
 # Tutorial: Azure Active Directory integration with xMatters OnDemand
 
@@ -103,24 +97,18 @@ To configure Azure AD single sign-on with xMatters OnDemand, perform the followi
 
     a. In the **Identifier** text box, type a URL using the following pattern:
 
-    | |
-	|--|
-	| `https://<companyname>.au1.xmatters.com.au/`|
-	| `https://<companyname>.cs1.xmatters.com/`|
-	| `https://<companyname>.xmatters.com/`|
-	| `https://www.xmatters.com`|
-	| `https://<companyname>.xmatters.com.au/`|
-	| |
+	- `https://<companyname>.au1.xmatters.com.au/`
+	- `https://<companyname>.cs1.xmatters.com/`
+	- `https://<companyname>.xmatters.com/`
+	- `https://www.xmatters.com`
+	- `https://<companyname>.xmatters.com.au/`
 
     b. In the **Reply URL** text box, type a URL using the following pattern:
 
-    | |
-	|--|
-	| `https://<companyname>.au1.xmatters.com.au`|
-	| `https://<companyname>.xmatters.com/sp/<instancename>`|
-	| `https://<companyname>.cs1.xmatters.com/sp/<instancename>`|
-	| `https://<companyname>.au1.xmatters.com.au/<instancename>`|
-	| |
+	- `https://<companyname>.au1.xmatters.com.au`
+	- `https://<companyname>.xmatters.com/sp/<instancename>`
+	- `https://<companyname>.cs1.xmatters.com/sp/<instancename>`
+	- `https://<companyname>.au1.xmatters.com.au/<instancename>`
 
 	> [!NOTE]
 	> These values are not real. Update these values with the actual Identifier and Reply URL. Contact [xMatters OnDemand Client support team](https://www.xmatters.com/company/contact-us/) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.

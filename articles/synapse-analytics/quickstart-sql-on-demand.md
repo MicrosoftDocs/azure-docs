@@ -1,21 +1,21 @@
 ---
-title: Using SQL on-demand (preview)
+title: 'Quickstart: Use SQL on-demand'
 description: In this quickstart, you'll see and learn how easy is to query various types of files using SQL on-demand (preview).
 services: synapse-analytics
 author: azaricstefan
 ms.service: synapse-analytics
 ms.topic: quickstart
-ms.subservice:
+ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick
 ---
 
-# Quickstart: Using SQL on-demand
+# Quickstart: Use SQL on-demand
 
-Synapse SQL on-demand  (preview) is a serverless query service that enables you to run SQL queries on files placed in Azure Storage. In this quickstart, you'll learn how to query various types of files using SQL on-demand.
+Synapse SQL on-demand  (preview) is a serverless query service that enables you to run SQL queries on files placed in Azure Storage. In this quickstart, you'll learn how to query various types of files using SQL on-demand. Supported formats are listed in [OPENROWSET](sql/develop-openrowset.md).
 
-The following file types are supported: JSON, CSV, Apache Parquet
+This quickstart shows querying: CSV, Apache Parquet, and JSON files.
 
 ## Prerequisites
 
@@ -25,7 +25,7 @@ Choose a SQL client to issue queries:
 - [Azure Data Studio](sql/get-started-azure-data-studio.md) is a client tool that enables you to run SQL queries and notebooks on your On-demand database.
 - [SQL Server Management Studio](sql/get-started-ssms.md) is a client tool that enables you to run SQL queries on your On-demand database.
 
-Parameters for quickstart:
+Parameters for this quickstart:
 
 | Parameter                                 | Description                                                   |
 | ----------------------------------------- | ------------------------------------------------------------- |
@@ -55,36 +55,27 @@ Use the following query, changing `mydbname` to a name of your choice:
 CREATE DATABASE mydbname
 ```
 
-### Create credentials
+### Create data source
 
-To run queries using SQL on-demand, create credentials for SQL on-demand to use to access files in storage.
-
-> [!NOTE]
-> In order to successfully run samples in this section you have to use an SAS token.
->
-> To start using SAS tokens you have to drop the UserIdentity which is explained in the following [article](sql/develop-storage-files-storage-access-control.md#disable-forcing-azure-ad-pass-through).
->
-> SQL on-demand by default always uses AAD pass-through.
-
-For more information on how to manage storage access control, see the[Control storage account access for SQL on-demand ](sql/develop-storage-files-storage-access-control.md) article.
-
-Execute the following code snippet to create credentials used in samples in this section:
+To run queries using SQL on-demand, create data source that SQL on-demand can use use to access files in storage.
+Execute the following code snippet to create data source used in samples in this section:
 
 ```sql
--- create credentials for containers in our demo storage account
-IF EXISTS
-   (SELECT * FROM sys.credentials
-   WHERE name = 'https://sqlondemandstorage.blob.core.windows.net')
-   DROP CREDENTIAL [https://sqlondemandstorage.blob.core.windows.net]
-GO
+-- create master key that will protect the credentials:
+CREATE MASTER KEY ENCRYPTION BY PASSWORD = <enter very strong password here>
 
-CREATE CREDENTIAL [https://sqlondemandstorage.blob.core.windows.net]
+-- create credentials for containers in our demo storage account
+CREATE DATABASE SCOPED CREDENTIAL sqlondemand
 WITH IDENTITY='SHARED ACCESS SIGNATURE',  
 SECRET = 'sv=2018-03-28&ss=bf&srt=sco&sp=rl&st=2019-10-14T12%3A10%3A25Z&se=2061-12-31T12%3A10%3A00Z&sig=KlSU2ullCscyTS0An0nozEpo4tO5JAgGBvw%2FJX2lguw%3D'
 GO
+CREATE EXTERNAL DATA SOURCE SqlOnDemandDemo WITH (
+    LOCATION = 'https://sqlondemandstorage.blob.core.windows.net',
+    CREDENTIAL = sqlondemand
+);
 ```
 
-## Querying CSV files
+## Query CSV files
 
 The following image is a preview of the file to be queried:
 
@@ -96,8 +87,9 @@ The following query shows how to read a CSV file that doesn't contain a header r
 SELECT TOP 10 *
 FROM OPENROWSET
   (
-      BULK 'https://sqlondemandstorage.blob.core.windows.net/csv/population/*.csv'
-    , FORMAT = 'CSV'
+      BULK 'csv/population/*.csv',
+      DATA_SOURCE = 'SqlOnDemandDemo',
+      FORMAT = 'CSV', PARSER_VERSION = '2.0'
   )
 WITH
   (
@@ -113,7 +105,7 @@ WHERE
 You can specify schema at query compilation time.
 For more examples, see how to [query CSV file](sql/query-single-csv-file.md).
 
-## Querying parquet files
+## Query Parquet files
 
 The following sample shows the automatic schema inference capabilities for querying Parquet files. It returns the number of rows in September of 2017 without specifying schema.
 
@@ -124,14 +116,15 @@ The following sample shows the automatic schema inference capabilities for query
 SELECT COUNT_BIG(*)
 FROM OPENROWSET
   (
-      BULK 'https://sqlondemandstorage.blob.core.windows.net/parquet/taxi/year=2017/month=9/*.parquet'
-    , FORMAT='PARQUET'
+      BULK 'parquet/taxi/year=2017/month=9/*.parquet',
+      DATA_SOURCE = 'SqlOnDemandDemo',
+      FORMAT='PARQUET'
   ) AS nyc
 ```
 
 Find more information about [querying parquet files](sql/query-parquet-files.md).
 
-## Querying JSON files
+## Query JSON files
 
 ### JSON sample file
 
@@ -153,7 +146,7 @@ Files are stored in *json* container, folder *books*, and contain single book en
 }
 ```
 
-### Querying JSON files
+### Query JSON files
 
 The following query shows how to use [JSON_VALUE](/sql/t-sql/functions/json-value-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) to retrieve scalar values (title, publisher) from a book with the title *Probabilistic and Statistical Methods in Cryptology, An Introduction by Selected articles*:
 
@@ -164,7 +157,8 @@ SELECT
   , jsonContent
 FROM OPENROWSET
   (
-      BULK 'https://sqlondemandstorage.blob.core.windows.net/json/books/*.json'
+      BULK 'json/books/*.json',
+      DATA_SOURCE = 'SqlOnDemandDemo'
     , FORMAT='CSV'
     , FIELDTERMINATOR ='0x0b'
     , FIELDQUOTE = '0x0b'

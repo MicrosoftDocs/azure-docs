@@ -1,40 +1,58 @@
 ---
 title: Logical decoding - Azure Database for PostgreSQL - Single Server
 description: Describes logical decoding and wal2json for change data capture in Azure Database for PostgreSQL - Single Server
-author: rachel-msft
-ms.author: raagyema
+author: sr-msft
+ms.author: srranga
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 03/31/2020
+ms.date: 06/22/2020
 ---
 
 # Logical decoding
  
 [Logical decoding in PostgreSQL](https://www.postgresql.org/docs/current/logicaldecoding.html) allows you to stream data changes to external consumers. Logical decoding is popularly used for event streaming and change data capture scenarios.
 
-Logical decoding uses an output plugin to convert Postgres’s write ahead log (WAL) into a readable format. Azure Database for PostgreSQL provides two output plugins: [test_decoding](https://www.postgresql.org/docs/current/test-decoding.html) and [wal2json](https://github.com/eulerto/wal2json).
- 
+Logical decoding uses an output plugin to convert Postgres’s write ahead log (WAL) into a readable format. Azure Database for PostgreSQL provides the output plugins [wal2json](https://github.com/eulerto/wal2json), [test_decoding](https://www.postgresql.org/docs/current/test-decoding.html) and pgoutput. pgoutput is made available by Postgres from Postgres version 10 and up.
+
+For an overview of how Postgres logical decoding works, [visit our blog](https://techcommunity.microsoft.com/t5/azure-database-for-postgresql/change-data-capture-in-postgres-how-to-use-logical-decoding-and/ba-p/1396421). 
 
 > [!NOTE]
 > Logical decoding is in public preview on Azure Database for PostgreSQL - Single Server.
 
 
-## Set up your server
-To start using logical decoding, enable your server to save and stream the WAL. 
+## Set up your server 
+Logical decoding and [read replicas](concepts-read-replicas.md) both depend on the Postgres write ahead log (WAL) for information. These two features need different levels of logging from Postgres. Logical decoding needs a higher level of logging than read replicas.
 
-1. Set azure.replication_support to `logical` using the Azure CLI. 
+To configure the right level of logging, use the Azure replication support parameter. Azure replication support has three setting options:
+
+* **Off** - Puts the least information in the WAL. This setting is not available on most Azure Database for PostgreSQL servers.  
+* **Replica** - More verbose than **Off**. This is the minimum level of logging needed for [read replicas](concepts-read-replicas.md) to work. This setting is the default on most servers.
+* **Logical** - More verbose than **Replica**. This is the minimum level of logging for logical decoding to work. Read replicas also work at this setting.
+
+The server needs to be restarted after a change of this parameter. Internally, this parameter sets the Postgres parameters `wal_level`, `max_replication_slots`, and `max_wal_senders`.
+
+### Using Azure CLI
+
+1. Set azure.replication_support to `logical`.
    ```
    az postgres server configuration set --resource-group mygroup --server-name myserver --name azure.replication_support --value logical
-   ```
+   ``` 
 
-   > [!NOTE]
-   > If you use read replicas, azure.replication_support set to `logical` also allows replicas to run. If you stop using logical decoding, change the setting back to `replica`. 
-
-
-2. Restart the server to apply the changes.
+2. Restart the server to apply the change.
    ```
    az postgres server restart --resource-group mygroup --name myserver
    ```
+
+### Using Azure portal
+
+1. Set Azure replication support to **logical**. Select **Save**.
+
+   :::image type="content" source="./media/concepts-logical/replication-support.png" alt-text="Azure Database for PostgreSQL - Replication - Azure replication support":::
+
+2. Restart the server to apply the change by selecting **Yes**.
+
+   :::image type="content" source="./media/concepts-logical/confirm-restart.png" alt-text="Azure Database for PostgreSQL - Replication - Confirm restart":::
+
 
 ## Start logical decoding
 

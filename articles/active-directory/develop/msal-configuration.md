@@ -8,7 +8,7 @@ manager: CelesteDG
 
 ms.service: active-directory
 ms.subservice: develop
-ms.topic: conceptual
+ms.topic: reference
 ms.workload: identity
 ms.date: 09/12/2019
 ms.author: shoatman
@@ -54,14 +54,14 @@ The list of authorities that are known and trusted by you. In addition to the au
     "audience": {
         "type": "AzureADandPersonalMicrosoftAccount"
     },
-    "default": true // Indicates that this is the default to use if not provided as part of the acquireToken or acquireTokenSilent call
+    "default": true // Indicates that this is the default to use if not provided as part of the acquireToken call
 },
 // Example AzureAD My Organization
 {
     "type": "AAD",
     "audience": {
         "type": "AzureADMyOrg",
-        "tenantId": "contoso.com" // Provide your specific tenant ID here
+        "tenant_id": "contoso.com" // Provide your specific tenant ID here
     }
 },
 // Example AzureAD Multiple Organizations
@@ -146,7 +146,7 @@ The following global settings are for logging:
 | Property | Data Type  | Required | Notes |
 | ----------|-------------|-----------|---------|
 | `pii_enabled`  | boolean | No | Whether to emit personal data |
-| `log_level`   | boolean | No | Which log messages to output |
+| `log_level`   | string | No | Which log messages to output. Supported log levels include `ERROR`,`WARNING`,`INFO`, and `VERBOSE`. |
 | `logcat_enabled` | boolean | No | Whether to output to log cat in addition to the logging interface |
 
 ### account_mode

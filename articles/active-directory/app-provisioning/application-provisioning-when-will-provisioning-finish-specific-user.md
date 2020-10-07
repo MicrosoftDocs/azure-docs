@@ -2,14 +2,14 @@
 title: Find out when a specific user will be able to access an app
 description: How to find out when a critically important user be able to access an application you have configured for user provisioning with Azure AD
 services: active-directory
-author: msmimart
-manager: CelesteDG
+author: kenwith
+manager: celestedg
 ms.service: active-directory
 ms.subservice: app-provisioning
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 09/03/2019
-ms.author: mimart
+ms.author: kenwith
 ms.reviewer: arvinh
 ---
 
@@ -25,7 +25,7 @@ When you first configure automatic provisioning, the **Current Status** section 
 - The type of provisioning cycle (initial or incremental) that is currently running or was last completed.
 - A **progress bar** showing the percentage of the provisioning cycle that has completed. The percentage reflects the count of pages provisioned. Note that each page could contain multiple users or groups, so the percentage doesn't directly correlate to the number of users, groups, or roles provisioned.
 - A **Refresh** button you can use to keep the view updated.
-- The number of **Users** and **Groups** in the connector data store. The count increases anytime an object is added to the scope of provisioning. The count will not go down if a user is soft-deleted or hard-deleted as this does not remove the object from the connector data store. The count will be recalculated the first sync after the CDS is [reset](https://docs.microsoft.com/graph/api/synchronization-synchronizationjob-restart?view=graph-rest-beta&tabs=http) 
+- The number of **Users** and **Groups** in the connector data store. The count increases anytime an object is added to the scope of provisioning. The count will not go down if a user is soft-deleted or hard-deleted as this does not remove the object from the connector data store. The count will be recalculated the first sync after the CDS is [reset](/graph/api/synchronization-synchronizationjob-restart?tabs=http&view=graph-rest-beta) 
 - A **View Audit Logs** link, which opens the Azure AD provisioning logs for details about all operations run by the user provisioning service, including provisioning status for individual users (see the [Use provisioning logs](#use-provisioning-logs-to-check-a-users-provisioning-status) section below).
 
 After a provisioning cycle is complete, the **Statistics to date** section shows the cumulative numbers of users and groups that have been provisioned to date, along with the completion date and duration of the last cycle. The **Activity ID** uniquely identifies the most recent provisioning cycle. The **Job ID** is a unique identifier for the provisioning job, and is specific to the app in your tenant.
@@ -72,12 +72,11 @@ The following table summarizes synchronization times for common provisioning sce
 | Sync all users in Azure AD|  < 1,000  | < 30 minutes | < 30 minutes |
 | Sync all users in Azure AD | 1,000 - 10,000  | 43 - 86 minutes | < 30 minutes |
 
-
 For the configuration **Sync assigned user and groups only**, you can use the following formulas to determine the approximate minimum and maximum expected **initial cycle** times:
 
-	Minimum minutes =  0.01 x [Number of assigned users, groups, and group members]
-	Maximum minutes = 0.08 x [Number of assigned users, groups, and group members] 
-	
+- Minimum minutes =  0.01 x [Number of assigned users, groups, and group members]
+- Maximum minutes = 0.08 x [Number of assigned users, groups, and group members]
+
 Summary of factors that influence the time it takes to complete an **initial cycle**:
 
 - The total number of users and groups in scope for provisioning.

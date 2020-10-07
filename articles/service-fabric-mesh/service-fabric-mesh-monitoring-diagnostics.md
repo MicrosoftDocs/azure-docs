@@ -54,7 +54,7 @@ The Mesh environment exposes a handful of metrics indicating how your containers
 | RestartCount | Number of container restarts | N/A |
 
 > [!NOTE]
-> The ServiceStatus and ServiceReplicaStatus values are the same as the [HealthState](https://docs.microsoft.com/dotnet/api/system.fabric.health.healthstate?view=azure-dotnet) in Service Fabric. 
+> The ServiceStatus and ServiceReplicaStatus values are the same as the [HealthState](/dotnet/api/system.fabric.health.healthstate?view=azure-dotnet) in Service Fabric. 
 
 Each metric is available on different dimensions so you can see aggregates at different levels. The current list of dimensions are as follows:
 
@@ -70,7 +70,7 @@ Each dimension corresponds to different components of the [Service Fabric Applic
 
 ### Azure Monitor CLI
 
-A full list of commands is available in the [Azure Monitor CLI docs](https://docs.microsoft.com/cli/azure/monitor/metrics?view=azure-cli-latest#az-monitor-metrics-list) but we have included a few helpful examples below 
+A full list of commands is available in the [Azure Monitor CLI docs](/cli/azure/monitor/metrics?view=azure-cli-latest#az-monitor-metrics-list) but we have included a few helpful examples below 
 
 In each example, the Resource ID follows this pattern
 
@@ -114,4 +114,4 @@ In addition to the metrics explorer, we also have a dashboard available out of t
 
 ## Next steps
 * To learn more about Service Fabric Mesh, read the [Service Fabric Mesh overview](service-fabric-mesh-overview.md).
-* To learn more about the Azure Monitor metrics commands, check out the [Azure Monitor CLI docs](https://docs.microsoft.com/cli/azure/monitor/metrics?view=azure-cli-latest#az-monitor-metrics-list).
+* To learn more about the Azure Monitor metrics commands, check out the [Azure Monitor CLI docs](/cli/azure/monitor/metrics?view=azure-cli-latest#az-monitor-metrics-list).

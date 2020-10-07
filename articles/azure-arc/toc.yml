@@ -2,24 +2,13 @@
   href: index.yml
 - name: Overview
   items:
-  - name: What is Azure Arc for servers?
-    href: ./servers/overview.md
-- name: Samples
-  items:
-  - name: Azure Policy built-ins
-    displayName: samples, policies, definitions
-    href: ./servers/policy-samples.md
-- name: How-to guides
-  items:
-  - name: Connect to Azure Arc
-    items:
-    - name: Connect machines to Azure Arc from the Azure portal
-      href: ./servers/onboard-portal.md
-    - name: Connect machines at scale using a service principal
-      href: ./servers/onboard-service-principal.md
-    - name: Connect machines to Azure Arc with PowerShell DSC
-      href: ./servers/onboard-dsc.md
-  - name: Manage
-    items:
-    - name: Manage agent
-      href: ./servers/manage-agent.md
+  - name: About Azure Arc
+    href: overview.md
+- name: Arc enabled servers >
+  href: ./servers/overview.md
+- name: Arc enabled Kubernetes >
+  href: ./kubernetes/overview.md
+- name: Arc enabled data services (preview) >
+  href: ./data/overview.md
+- name: Arc enabled SQL Server (preview) >
+  href: https://docs.microsoft.com/sql/sql-server/azure-arc/overview

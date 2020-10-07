@@ -8,7 +8,7 @@ ms.topic: quickstart
 ms.service: iot-dps
 services: iot-dps 
 ms.devlang: python
-ms.custom: mvc
+ms.custom: mvc, devx-track-python
 ---
 
 # Quickstart: Create and provision a simulated TPM device using Python device SDK for IoT Hub Device Provisioning Service
@@ -19,7 +19,7 @@ In this quickstart, you create a simulated IoT device on a Windows computer. The
 
 ## Prerequisites
 
-- Review of [Auto-provisioning concepts](concepts-auto-provisioning.md).
+- Familiar with [provisioning](about-iot-dps.md#provisioning-process) concepts.
 - Completion of [Set up IoT Hub Device Provisioning Service with the Azure portal](./quick-setup-auto-provision.md).
 - An Azure account with an active subscription. [Create one for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 - [Visual Studio 2015+](https://visualstudio.microsoft.com/vs/) with Desktop development with C++.

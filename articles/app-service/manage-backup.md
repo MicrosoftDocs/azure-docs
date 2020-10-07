@@ -37,8 +37,8 @@ The following database solutions are supported with backup feature:
 <a name="requirements"></a>
 
 ## Requirements and restrictions
-* The Backup and Restore feature requires the App Service plan to be in the **Standard** tier or **Premium** tier. For more information about scaling your App Service plan to use a higher tier, see [Scale up an app in Azure](manage-scale-up.md). **Premium** tier allows a greater number of daily back ups than **Standard** tier.
-* You need an Azure storage account and container in the same subscription as the app that you want to back up. For more information on Azure storage accounts, see [Azure storage account overview](https://docs.microsoft.com/azure/storage/common/storage-account-overview).
+* The Backup and Restore feature requires the App Service plan to be in the **Standard**, **Premium** or **Isolated** tier. For more information about scaling your App Service plan to use a higher tier, see [Scale up an app in Azure](manage-scale-up.md). **Premium** and **Isolated** tiers allow a greater number of daily back ups than **Standard** tier.
+* You need an Azure storage account and container in the same subscription as the app that you want to back up. For more information on Azure storage accounts, see [Azure storage account overview](../storage/common/storage-account-overview.md).
 * Backups can be up to 10 GB of app and database content. If the backup size exceeds this limit, you get an error.
 * Backups of TLS enabled Azure Database for MySQL is not supported. If a backup is configured, you will get failed backups.
 * Backups of TLS enabled Azure Database for PostgreSQL is not supported. If a backup is configured, you will get failed backups.
@@ -56,7 +56,7 @@ The following database solutions are supported with backup feature:
     > [!NOTE]
     > If you see the following message, click it to upgrade your App Service plan before you can proceed with backups.
     > For more information, see [Scale up an app in Azure](manage-scale-up.md).
-    > ![Choose storage account](./media/manage-backup/upgrade-plan.png)
+    > :::image type="content" source="./media/manage-backup/upgrade-plan.png" alt-text="Screenshot of a banner with a message to upgrade the App Service plan to access the Backup and Restore feature.":::
     > 
     > 
 
@@ -66,13 +66,13 @@ The following database solutions are supported with backup feature:
 
 3. In the **Backup Configuration** page, click **Storage not configured** to configure a storage account.
 
-    ![Choose storage account](./media/manage-backup/configure-storage.png)
+    :::image type="content" source="./media/manage-backup/configure-storage.png" alt-text="Screenshot of the Backup Storage section with the Storage not configured setting selected.":::
 
 4. Choose your backup destination by selecting a **Storage Account** and **Container**. The storage account must belong to the same subscription as the app you want to back up. If you wish, you can create a new storage account or a new container in the respective pages. When you're done, click **Select**.
 
-5. In the **Backup Configuration** page that is still left open, you can configure **Backup Database**, then select the databases you want to include in the backups (SQL database or MySQL), then click **OK**.
+5. In the **Backup Configuration** page that is still left open, you can configure **Backup Database**, then select the databases you want to include in the backups (SQL Database or MySQL), then click **OK**.
 
-    ![Choose storage account](./media/manage-backup/configure-database.png)
+    :::image type="content" source="./media/manage-backup/configure-database.png" alt-text="Screenshot of Backup Database section showing the Include in backup selection.":::
 
     > [!NOTE]
     > For a database to appear in this list, its connection string must exist in the **Connection strings** section of the **Application settings** page for your app. 
@@ -88,7 +88,7 @@ The following database solutions are supported with backup feature:
 
     You see a progress message during the backup process.
 
-Once the storage account and container is configured, you can initiate a manual backup at any time.
+Once the storage account and container is configured, you can initiate a manual backup at any time. Manual backups are retained indefinitely.
 
 <a name="automatedbackups"></a>
 
@@ -137,7 +137,7 @@ Run backups the same way you would normally do it, [manually](#create-a-manual-b
 > [!NOTE]
 > You restore partial backups of your site the same way you would [restore a regular backup](web-sites-restore.md). The restore process does the right thing.
 > 
-> When a full backup is restored, all content on the site is replaced with whatever is in the backup. If a file is on the site, but not in the backup it gets deleted. But when a partial backup is restored, any content that is located in one of the blacklisted directories, or any blacklisted file, is left as is.
+> When a full backup is restored, all content on the site is replaced with whatever is in the backup. If a file is on the site, but not in the backup it gets deleted. But when a partial backup is restored, any content that is located in one of the restricted directories, or any restricted file, is left as is.
 > 
 
 
@@ -146,7 +146,7 @@ Run backups the same way you would normally do it, [manually](#create-a-manual-b
 ## How backups are stored
 After you have made one or more backups for your app, the backups are visible on the **Containers** page of your storage account, and your app. In the storage account, each backup consists of a`.zip` file that contains the backup data and an `.xml` file that contains a manifest of the `.zip` file contents. You can unzip and browse these files if you want to access your backups without actually performing an app restore.
 
-The database backup for the app is stored in the root of the .zip file. For a SQL database, this is a BACPAC file (no file extension) and can be imported. To create a SQL database based on the BACPAC export, see [Import a BACPAC File to Create a New User Database](https://technet.microsoft.com/library/hh710052.aspx).
+The database backup for the app is stored in the root of the .zip file. For SQL Database, this is a BACPAC file (no file extension) and can be imported. To create a database in Azure SQL Database based on the BACPAC export, see [Import a BACPAC file to create a database in Azure SQL Database](../azure-sql/database/database-import.md).
 
 > [!WARNING]
 > Altering any of the files in your **websitebackups** container can cause the backup to become invalid and therefore non-restorable.
@@ -155,7 +155,7 @@ The database backup for the app is stored in the root of the .zip file. For a SQ
 
 ## Automate with scripts
 
-You can automate backup management with scripts, using the [Azure CLI](/cli/azure/install-azure-cli) or [Azure PowerShell](/powershell/azure/overview).
+You can automate backup management with scripts, using the [Azure CLI](/cli/azure/install-azure-cli) or [Azure PowerShell](/powershell/azure/).
 
 For samples, see:
 
@@ -165,4 +165,4 @@ For samples, see:
 <a name="nextsteps"></a>
 
 ## Next Steps
-For information on restoring an app from a backup, see [Restore an app in Azure](web-sites-restore.md). 
+For information on restoring an app from a backup, see [Restore an app in Azure](web-sites-restore.md).

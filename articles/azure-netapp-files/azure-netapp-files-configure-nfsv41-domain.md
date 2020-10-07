@@ -11,7 +11,7 @@ ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 11/08/2019
 ms.author: b-juche
 ---
@@ -49,7 +49,7 @@ As the above example shows, the user for `file1` should be `root`, but it maps t
 
 The following example shows the resulting user/group change: 
 
-![Resulting configuration for NFSv4.1](../media/azure-netapp-files/azure-netapp-files-nfsv41-resulting-config.png)
+![Screenshot that shows an example of the resulting user/group change.](../media/azure-netapp-files/azure-netapp-files-nfsv41-resulting-config.png)
 
 As the example shows, the user/group has now changed from `nobody` to `root`.
 
@@ -59,7 +59,7 @@ Azure NetApp Files supports local users (users created locally on a host) who ha
 
 In the following example, `Host1` has three existing test user accounts (`testuser01`, `testuser02`, `testuser03`): 
 
-![Resulting configuration for NFSv4.1](../media/azure-netapp-files/azure-netapp-files-nfsv41-host1-users.png)
+![Screenshot that shows that Host1 has three existing test user accounts.](../media/azure-netapp-files/azure-netapp-files-nfsv41-host1-users.png)
 
 On `Host2`, note that the test user accounts have not been created, but the same volume is mounted on both hosts:
 

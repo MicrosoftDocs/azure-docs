@@ -1,6 +1,6 @@
 ---
 title: Access Key Vault behind a firewall - Azure Key Vault | Microsoft Docs
-description: Learn how to access Azure Key Vault from an application behind a firewall
+description: Learn about the ports, hosts, or IP addresses to open to enable a key vault client application behind a firewall to access a key vault.
 services: key-vault
 author: amitbapat
 manager: rkarlin
@@ -8,7 +8,7 @@ tags: azure-resource-manager
 
 ms.service: key-vault
 ms.subservice: general
-ms.topic: tutorial
+ms.topic: how-to
 ms.date: 08/12/2019
 ms.author: ambapat
 
@@ -70,4 +70,4 @@ Authentication and Identity (Azure Active Directory) is a global service and may
 
 ## Next steps
 
-If you have questions about Key Vault, visit the [Azure Key Vault Forums](https://social.msdn.microsoft.com/forums/azure/home?forum=AzureKeyVault).
+If you have questions about Key Vault, visit the [Microsoft Q&A question page for Azure Key Vault](https://docs.microsoft.com/answers/topics/azure-key-vault.html).

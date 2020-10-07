@@ -21,7 +21,7 @@ Azure Database Migration Service hybrid mode manages database migrations by usin
 >[!NOTE]
 >Currently, Azure Database Migration Service running in hybrid mode supports SQL Server migrations to:
 >
->- Azure SQL Database managed instance with near zero downtime (online).
+>- Azure SQL Managed Instance with near zero downtime (online).
 >- Azure SQL Database single database with some downtime (offline).
 >- MongoDb to Azure CosmosDB with near zero downtime (online).
 >- MongoDb to Azure CosmosDB with some downtime (offline).
@@ -186,5 +186,5 @@ Fill in the parameters at the top of the script, and then run the script from an
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Migrate SQL Server to an Azure SQL Database managed instance online](tutorial-sql-server-managed-instance-online.md)
-> [Migrate SQL Server to a single database or pooled database in Azure SQL Database offline](tutorial-sql-server-to-azure-sql.md)
+> [Migrate SQL Server to an Azure SQL Managed Instance online](tutorial-sql-server-managed-instance-online.md)
+> [Migrate SQL Server to Azure SQL Database offline](tutorial-sql-server-to-azure-sql.md)

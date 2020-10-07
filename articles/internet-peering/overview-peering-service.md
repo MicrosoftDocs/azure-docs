@@ -3,11 +3,11 @@ title: Internet peering vs. Peering Service
 titleSuffix: Azure
 description: Internet peering vs. Peering Service
 services: internet-peering
-author: prmitiki
+author: derekolo
 ms.service: internet-peering
 ms.topic: overview
-ms.date: 11/27/2019
-ms.author: prmitiki
+ms.date: 5/22/2020
+ms.author: derekol
 ---
 
 # Internet peering vs. Peering Service
@@ -33,15 +33,15 @@ In the figure above each branch office of a global enterprise connects to the ne
 
 **Peering Service customer benefits:**
 * Best public routing over internet to Microsoft Cloud Services for optimal performance and reliability.
-* Ability to select the preferred SP to connect to Microsoft Cloud.
+* Ability to select the preferred Service Provider to connect to Microsoft Cloud.
 * Traffic insights such as latency reporting, and prefix monitoring.
 * Optimum Network Hops (AS Hops) from Microsoft Cloud.
 * Route analytics and statistics - Events for Border Gateway Protocol ([BGP](https://en.wikipedia.org/wiki/Border_Gateway_Protocol)) route anomalies (leak/hijack detection), and suboptimal routing.
 
 ## Peering Service partnership requirements
-* Connectivity to Microsoft Cloud at a location nearest to customer. A partner Service Provider will route user traffic to Microsoft edge closest to user. Similarly, on traffic towards the user, Microsoft will route traffic (using BGP tag) to the edge location closest to the user and SP will deliver the traffic to the user.
+* Connectivity to Microsoft Cloud at a location nearest to customer. A partner Service Provider will route user traffic to Microsoft edge closest to user. Similarly, on traffic towards the user, Microsoft will route traffic (using BGP tag) to the edge location closest to the user and Service Provider will deliver the traffic to the user.
 * Partner will maintain high available, high throughput, and geo-redundant connectivity with Microsoft Global Network.
-* Partner can utilize their existing peering to support Peering Service if it meets the requirement
+* Partner can utilize their existing peering to support Peering Service if it meets the requirement.
 
 ## FAQ
 For frequently asked questions, see [Peering Service - FAQ](service-faqs.md).

@@ -2,22 +2,15 @@
 title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Check Point CloudGuard Dome9 Arc | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and Check Point CloudGuard Dome9 Arc.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-
-ms.assetid: 4c12875f-de71-40cb-b9ac-216a805334e5
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 10/17/2019
 ms.author: jeedes
-
-ms.collection: M365-identity-device-management
 ---
 
 # Tutorial: Azure Active Directory single sign-on (SSO) integration with Check Point CloudGuard Dome9 Arc
@@ -161,11 +154,11 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 2. Click on the **Profile Settings** on the right top corner and then click **Account Settings**. 
 
-	![Check Point CloudGuard Dome9 Arc Configuration](./media/dome9arc-tutorial/configure1.png)
+	![Screenshot that shows the "Profile Settings" menu with "Account Settings" selected.](./media/dome9arc-tutorial/configure1.png)
 
 3. Navigate to **SSO** and then click **ENABLE**.
 
-	![Check Point CloudGuard Dome9 Arc Configuration](./media/dome9arc-tutorial/configure2.png)
+	![Screenshot that shows the "S S O" tab and "Enable" selected.](./media/dome9arc-tutorial/configure2.png)
 
 4. In the SSO Configuration section, perform the following steps:
 
@@ -194,11 +187,11 @@ To enable Azure AD users to sign in to Check Point CloudGuard Dome9 Arc, they mu
 
 2. Click on the **Users & Roles** and then click **Users**.
 
-	![Add Employee](./media/dome9arc-tutorial/user1.png)
+	![Screenshot that shows "Users & Roles" with the "Users" action selected.](./media/dome9arc-tutorial/user1.png)
 
 3. Click **ADD USER**.
 
-	![Add Employee](./media/dome9arc-tutorial/user2.png)
+	![Screenshot that shows "Users & Roles" with the "ADD USER" button selected.](./media/dome9arc-tutorial/user2.png)
 
 4. In the **Create User** section, perform the following steps:
 

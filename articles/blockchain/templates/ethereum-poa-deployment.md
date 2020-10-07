@@ -1,9 +1,10 @@
 ---
 title: Deploy Ethereum Proof-of-Authority consortium solution template on Azure
 description: Use the Ethereum Proof-of-Authority consortium solution to deploy and configure a multi-member consortium Ethereum network on Azure
-ms.date: 12/18/2019
-ms.topic: article
-ms.reviewer: coborn
+ms.date: 07/23/2020
+ms.topic: how-to
+ms.reviewer: ravastra
+ms.custom: devx-track-js
 ---
 # Deploy Ethereum proof-of-authority consortium solution template on Azure
 
@@ -12,15 +13,20 @@ You can use [the Ethereum Proof-of-Authority Consortium preview Azure solution t
 The solution template can be used by each consortium member to provision a blockchain network footprint using
 Microsoft Azure compute, networking, and storage services. Each consortium member's network footprint consists of a set of load-balanced validator nodes that an application or user can interact with to submit Ethereum transactions.
 
+[!INCLUDE [Preview note](./includes/preview.md)]
+
 ## Choose an Azure Blockchain solution
 
 Before choosing to use the Ethereum proof-of-authority consortium solution template, compare your scenario with the common use cases of available Azure Blockchain options.
 
+> [!IMPORTANT]
+> Consider using [Azure Blockchain Service](../service/overview.md) rather than the Ethereum on Azure solution template. Azure Blockchain Service is a supported managed Azure Service. Parity Ethereum transitioned to community driven development and maintenance. For more information, see [Transitioning Parity Ethereum to OpenEthereum DAO](https://www.parity.io/parity-ethereum-openethereum-dao/).
+
 Option | Service model | Common use case
 -------|---------------|-----------------
-Solution templates | IaaS | Solution templates are Azure Resource Manager templates you can use to provision a fully configured blockchain network topology. The templates deploy and configure Microsoft Azure compute, networking, and storage services for a given blockchain network type.
+Solution templates | IaaS | Solution templates are Azure Resource Manager templates you can use to provision a fully configured blockchain network topology. The templates deploy and configure Microsoft Azure compute, networking, and storage services for a given blockchain network type. Solution templates are provided without a service level agreement. Use the [Microsoft Q&A question page](/answers/topics/azure-blockchain-workbench.html) for support.
 [Azure Blockchain Service](../service/overview.md) | PaaS | Azure Blockchain Service Preview simplifies the formation, management, and governance of consortium blockchain networks. Use Azure Blockchain Service for solutions requiring PaaS, consortium management, or contract and transaction privacy.
-[Azure Blockchain Workbench](../workbench/overview.md) | IaaS and PaaS | Azure Blockchain Workbench Preview is a collection of Azure services and capabilities designed to help you create and deploy blockchain applications to share business processes and data with other organizations. Use Azure Blockchain Workbench for prototyping a blockchain solution or a blockchain application proof of concept.
+[Azure Blockchain Workbench](../workbench/overview.md) | IaaS and PaaS | Azure Blockchain Workbench Preview is a collection of Azure services and capabilities designed to help you create and deploy blockchain applications to share business processes and data with other organizations. Use Azure Blockchain Workbench for prototyping a blockchain solution or a blockchain application proof of concept. Azure Blockchain Workbench is provided without a service level agreement. Use the [Microsoft Q&A question page](/answers/topics/azure-blockchain-workbench.html) for support.
 
 ## Solution architecture
 
@@ -317,7 +323,7 @@ For security reasons, the SSH port access is denied by a network group security 
 
 1. Select the **allow-ssh** rule.
 
-    ![ssh-allow](./media/ethereum-poa-deployment/ssh-allow.png)
+    ![Screen capture shows an overview window the the ssh-allow selected.](./media/ethereum-poa-deployment/ssh-allow.png)
 
 1. Change **Action** to **Allow**
 
@@ -719,6 +725,20 @@ The transaction throughput will be highly dependent upon the types of transactio
 
 Ethereum Proof-of-Authority now supports web-sockets.  Check your deployment output to locate the web-socket URL and port.
 
+## Support and feedback
+
+For Azure Blockchain news, visit the [Azure Blockchain blog](https://azure.microsoft.com/blog/topics/blockchain/) to stay up to date on blockchain service offerings and information from the Azure Blockchain engineering team.
+
+To provide product feedback or to request new features, post or vote for an idea via the [Azure feedback forum for blockchain](https://aka.ms/blockchainuservoice).
+
+### Community support
+
+Engage with Microsoft engineers and Azure Blockchain community experts.
+
+* [Microsoft Q&A question page](/answers/topics/azure-blockchain-workbench.html). Engineering support for blockchain templates is limited to deployment issues.
+* [Microsoft Tech Community](https://techcommunity.microsoft.com/t5/Blockchain/bd-p/AzureBlockchain)
+* [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-blockchain-workbench)
+
 ## Next steps
 
-For more Azure Blockchain solutions, see the [Azure Blockchain documentation](https://docs.microsoft.com/azure/blockchain/).
+For more Azure Blockchain solutions, see the [Azure Blockchain documentation](../index.yml).

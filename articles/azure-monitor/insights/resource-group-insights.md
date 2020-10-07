@@ -42,10 +42,10 @@ The resource group insights page provides several other tools scoped to help you
 
    |         |          |
    | ---------------- |:-----|
-   | [**Alerts**](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-unified-alerts)      |  View, create, and manage your alerts. |
-   | [**Metrics**](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-metrics) | Visualize and explore your metric based data.    |
-   | [**Activity logs**](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs) | Subscription level events that have occurred in Azure.  |
-   | [**Application map**](https://docs.microsoft.com/azure/application-insights/app-insights-app-map) | Navigate your distributed application's topology to identify performance bottlenecks or failure hotspots. |
+   | [**Alerts**](../platform/alerts-overview.md)      |  View, create, and manage your alerts. |
+   | [**Metrics**](../platform/data-platform.md) | Visualize and explore your metric based data.    |
+   | [**Activity logs**](../platform/platform-logs-overview.md) | Subscription level events that have occurred in Azure.  |
+   | [**Application map**](../app/app-map.md) | Navigate your distributed application's topology to identify performance bottlenecks or failure hotspots. |
 
 ## Failures and performance
 
@@ -113,6 +113,6 @@ Azure Monitor for Resource Groups relies on the Azure Monitor Alerts Management 
 
 ## Next steps
 
-- [Azure Monitor Workbooks](https://docs.microsoft.com/azure/application-insights/app-insights-usage-workbooks)
-- [Azure Resource Health](https://docs.microsoft.com/azure/service-health/resource-health-overview)
-- [Azure Monitor Alerts](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-unified-alerts)
+- [Azure Monitor Workbooks](../platform/workbooks-overview.md)
+- [Azure Resource Health](../../service-health/resource-health-overview.md)
+- [Azure Monitor Alerts](../platform/alerts-overview.md)

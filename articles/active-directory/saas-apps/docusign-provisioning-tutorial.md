@@ -2,21 +2,14 @@
 title: 'Tutorial: Configure DocuSign for automatic user provisioning with Azure Active Directory| Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and DocuSign.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: daveba
-
-ms.assetid: 294cd6b8-74d7-44bc-92bc-020ccd13ff12
+manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 01/26/2018
 ms.author: jeedes
-
-ms.collection: M365-identity-device-management
 ---
 # Tutorial: Configure DocuSign for automatic user provisioning
 
@@ -66,13 +59,16 @@ The objective of this section is to outline how to enable user provisioning of A
 
 1. Set the **Provisioning Mode** to **Automatic**. 
 
-    ![provisioning](./media/docusign-provisioning-tutorial/provisioning.png)
+    ![Screenshot of the Provisioning tab for DocuSign in Azure portal. Provisioning Mode is set to Automatic and Admin Username, Password and Test Connection are highlighted.](./media/docusign-provisioning-tutorial/provisioning.png)
 
 1. Under the **Admin Credentials** section, provide the following configuration settings:
    
     a. In the **Admin User Name** textbox, type a DocuSign account name that has the **System Administrator** profile in DocuSign.com assigned.
    
     b. In the **Admin Password** textbox, type the password for this account.
+
+> [!NOTE]
+> If both SSO and user provisioning is setup , the authorization credentials used for provisioning needs to be configured to work with both SSO and Username/Password.
 
 1. In the Azure portal, click **Test Connection** to ensure Azure AD can connect to your DocuSign app.
 

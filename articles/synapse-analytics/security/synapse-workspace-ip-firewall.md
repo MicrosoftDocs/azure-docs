@@ -1,15 +1,14 @@
 ---
-title: Configure IP firewall rules in Azure Synapse Analytics 
+title: Configure IP firewall rules 
 description: An article that teaches you to configure IP firewall rules in Azure Synapse Analytics 
 author: RonyMSFT 
 ms.service: synapse-analytics 
-ms.topic: overview 
+ms.topic: overview
+ms.subservice: security 
 ms.date: 04/15/2020 
 ms.author: ronytho 
 ms.reviewer: jrasnick
 ---
-
-
 
 # Azure Synapse Analytics IP firewall rules (preview)
 
@@ -31,7 +30,7 @@ You can also add IP firewall rules to a Synapse workspace after the workspace is
 
 ![Azure Synapse workspace IP configuration in Azure portal.](./media/synpase-workspace-ip-firewall/ip-firewall-3.png)
 
-## Connecting to Synapse from your own network
+## Connect to Synapse from your own network
 
 You can connect to your Synapse workspace using Synapse Studio. You can also use SQL Server Management Studio (SSMS) to connect to the SQL resources (SQL pools and SQL on-demand) in your workspace.
 
@@ -39,10 +38,10 @@ Make sure that the firewall on your network and local computer allows outgoing c
 
 Also, you need to allow outgoing communication on UDP port 53 for Synapse Studio. To connect using tools such as SSMS and Power BI, you must allow outgoing communication on TCP port 1433.
 
-If you're using the default Redirect connection policy setting, you may need to allow outgoing communication on additional ports. You can learn more about connection policies here.
+If you're using the default Redirect connection policy setting, you may need to allow outgoing communication on additional ports. You can learn more about connection policies [here](https://docs.microsoft.com/azure/sql-database/sql-database-connectivity-architecture#connection-policy).
 
 ## Next steps
 
 Create an [Azure Synapse Workspace](../quickstart-create-workspace.md)
 
-Create an Azure Synapse workspace with a [Managed workspace VNet](./synapse-workspace-managed-vnet.md)
+Create an Azure Synapse workspace with a [Managed workspace Virtual Network](./synapse-workspace-managed-vnet.md)

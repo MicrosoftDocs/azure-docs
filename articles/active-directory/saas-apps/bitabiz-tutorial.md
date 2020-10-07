@@ -2,22 +2,15 @@
 title: 'Tutorial: Azure Active Directory integration with BitaBIZ | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and BitaBIZ.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-
-ms.assetid: 1a51e677-c62b-4aee-9c61-56926aaaa899
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 02/06/2019
 ms.author: jeedes
-
-ms.collection: M365-identity-device-management
 ---
 # Tutorial: Azure Active Directory integration with BitaBIZ
 
@@ -135,15 +128,15 @@ To configure Azure AD single sign-on with BitaBIZ, perform the following steps:
 
 2. Click on **SETUP ADMIN**.
 
-	![BitaBIZ Configuration](./media/bitabiz-tutorial/settings1.png)
+	![Screenshot shows part of a browser window with Setup Admin selected.](./media/bitabiz-tutorial/settings1.png)
 
 3. Click on **Microsoft integrations** under **Add value** section.
 
-	![BitaBIZ Configuration](./media/bitabiz-tutorial/settings2.png)
+	![Screenshot shows Add value with Microsoft integrations selected.](./media/bitabiz-tutorial/settings2.png)
 
 4. Scroll down to the section **Microsoft Azure AD (Enable single sign on)** and perform following steps:
 
-	![BitaBIZ Configuration](./media/bitabiz-tutorial/settings3.png)
+	![Screenshot shows the Microsoft Azure A D section where you enter the information described in this step.](./media/bitabiz-tutorial/settings3.png)
 
 	a. Copy the value from the **Entity ID (”Identifier” in Azure AD)** textbox and paste it into the **Identifier** textbox on the **Basic SAML Configuration** section in Azure portal. 
 
@@ -221,19 +214,19 @@ In the case of BitaBIZ, provisioning is a manual task.
 
 2. Click on **SETUP ADMIN**.
 
-	![BitaBIZ Add User](./media/bitabiz-tutorial/settings1.png)
+	![Screenshot shows part of your browser window with Setup Admin selected.](./media/bitabiz-tutorial/settings1.png)
 
 3. Click on **Add users** under **Organization** section.
 
-	![BitaBIZ Add User](./media/bitabiz-tutorial/user1.png)
+	![Screenshot shows the Organization section with Add users selected.](./media/bitabiz-tutorial/user1.png)
 
 4. Click **Add new employee**.
 
-	![BitaBIZ Add User](./media/bitabiz-tutorial/user2.png)
+	![Screenshot shows Add users with Add new employee selected.](./media/bitabiz-tutorial/user2.png)
 
 5. On the **Add new employee** dialog page, perform the following steps:
 
-	![BitaBIZ Add User](./media/bitabiz-tutorial/user3.png)
+	![Screenshot shows the page where you enter the information described in this step.](./media/bitabiz-tutorial/user3.png)
 
 	a. In the **First Name** textbox, type the first name of user like Britta.
 

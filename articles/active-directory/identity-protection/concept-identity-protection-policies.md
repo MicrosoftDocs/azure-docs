@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: identity-protection
 ms.topic: conceptual
-ms.date: 10/18/2019
+ms.date: 05/20/2020
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -38,7 +38,7 @@ If risk is detected, users can perform multi-factor authentication to self-remed
 
 ### Custom Conditional Access policy
 
-Administrators can also choose to create a custom Conditional Access policy including sign-in risk as an assignment condition. More information about Conditional Access can be found in the article, [What is Conditional Access?](../conditional-access/overview.md)
+Administrators can also choose to create a custom Conditional Access policy including sign-in risk as an assignment condition. More information about risk as a condition in a Conditional Access policy can be found in the article, [Conditional Access: Conditions](../conditional-access/concept-conditional-access-conditions.md#sign-in-risk)
 
 ![Custom Conditional Access sign-in risk policy](./media/concept-identity-protection-policies/identity-protection-custom-sign-in-policy.png)
 

@@ -1,7 +1,7 @@
 ---
 title: Cost analysis and budget
 description: Learn how to get a cost analysis and set a budget for the underlying compute resources and software licenses used to run your Batch workloads.
-ms.topic: article
+ms.topic: how-to
 ms.date: 07/19/2019
 ---
 
@@ -64,7 +64,7 @@ Learn more about how to set up low-priority VMs for your workload at [Use low-pr
 
 ### Virtual machine OS disk type
 
-There are multiple [VM OS disk types](../virtual-machines/windows/disks-types.md). Most VM-series have sizes that support both premium and standard storage. When an ‘s’ VM size is selected for a pool, Batch configures premium SSD OS disks. When the ‘non-s’ VM size is selected, then the cheaper, standard HDD disk type is used. For example, premium SSD OS disks are used for `Standard_D2s_v3` and standard HDD OS disks are used for `Standard_D2_v3`.
+There are multiple [VM OS disk types](../virtual-machines/disks-types.md). Most VM-series have sizes that support both premium and standard storage. When an ‘s’ VM size is selected for a pool, Batch configures premium SSD OS disks. When the ‘non-s’ VM size is selected, then the cheaper, standard HDD disk type is used. For example, premium SSD OS disks are used for `Standard_D2s_v3` and standard HDD OS disks are used for `Standard_D2_v3`.
 
 Premium SSD OS disks are more expensive, but have higher performance and VMs with premium disks can start slightly quicker than VMs with standard HDD OS disks. With Batch, the OS disk is often not used much as the applications and task files are located on the VMs temporary SSD disk. Therefore in many cases, there's no need to pay the increased cost for the premium SSD that is provisioned when a ‘s’ VM size is specified.
 

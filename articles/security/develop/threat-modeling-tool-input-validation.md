@@ -1,6 +1,6 @@
 ---
 title: Input Validation - Microsoft Threat Modeling Tool - Azure | Microsoft Docs
-description: mitigations for threats exposed in the Threat Modeling Tool 
+description: Learn about input validation in the Threat Modeling Tool. See mitigation information and view code examples.
 services: security
 documentationcenter: na
 author: jegeib
@@ -16,6 +16,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
+ms.custom: devx-track-csharp
 
 ---
 
@@ -68,7 +69,7 @@ doc.setProperty("AllowXsltScript", false); // CORRECT. Setting to false disables
 | **SDL Phase**               | Build |  
 | **Applicable Technologies** | Generic |
 | **Attributes**              | N/A  |
-| **References**              | [IE8 Security Part V - Comprehensive Protection](https://blogs.msdn.com/ie/archive/2008/07/02/ie8-security-part-v-comprehensive-protection.aspx)  |
+| **References**              | [IE8 Security Part V - Comprehensive Protection](https://docs.microsoft.com/archive/blogs/ie/ie8-security-part-v-comprehensive-protection)  |
 | **Steps** | <p>For each page that could contain user controllable content, you must use the HTTP Header `X-Content-Type-Options:nosniff`. To comply with this requirement, you can either set the required header page by page for only those pages that might contain user-controllable content, or you can set it globally for all pages in the application.</p><p>Each type of file delivered from a web server has an associated [MIME type](https://en.wikipedia.org/wiki/Mime_type) (also called a *content-type*) that describes the nature of the content (that is, image, text, application, etc.)</p><p>The X-Content-Type-Options header is an HTTP header that allows developers to specify that their content should not be MIME-sniffed. This header is designed to mitigate MIME-Sniffing attacks. Support for this header was added in Internet Explorer 8 (IE8)</p><p>Only users of Internet Explorer 8 (IE8) will benefit from X-Content-Type-Options. Previous versions of Internet Explorer do not currently respect the X-Content-Type-Options header</p><p>Internet Explorer 8 (and later) are the only major browsers to implement a MIME-sniffing opt-out feature. If and when other major browsers (Firefox, Safari, Chrome) implement similar features, this recommendation will be updated to include syntax for those browsers as well</p>|
 
 ### Example
@@ -210,7 +211,7 @@ Note that in MSXML6, ProhibitDTD is set to true (disabling DTD processing) by de
 | **SDL Phase**               | Build |  
 | **Applicable Technologies** | Generic |
 | **Attributes**              | N/A  |
-| **References**              | [Unrestricted File Upload](https://www.owasp.org/index.php/Unrestricted_File_Upload), [File Signature Table](https://www.garykessler.net/library/file_sigs.html) |
+| **References**              | [Unrestricted File Upload](https://owasp.org/www-community/vulnerabilities/Unrestricted_File_Upload), [File Signature Table](https://www.garykessler.net/library/file_sigs.html) |
 | **Steps** | <p>Uploaded files represent a significant risk to applications.</p><p>The first step in many attacks is to get some code to the system to be attacked. Then the attack only needs to find a way to get the code executed. Using a file upload helps the attacker accomplish the first step. The consequences of unrestricted file upload can vary, including complete system takeover, an overloaded file system or database, forwarding attacks to back-end systems, and simple defacement.</p><p>It depends on what the application does with the uploaded file and especially where it is stored. Server side validation of file uploads is missing. Following security controls should be implemented for File Upload functionality:</p><ul><li>File Extension check (only a valid set of allowed file type should be accepted)</li><li>Maximum file size limit</li><li>File should not be uploaded to webroot; the location should be a directory on non-system drive</li><li>Naming convention should be followed, such that the uploaded file name have some randomness, so as to prevent file overwrites</li><li>Files should be scanned for anti-virus before writing to the disk</li><li>Ensure that the file name and any other metadata (e.g., file path) are validated for malicious characters</li><li>File format signature should be checked, to prevent a user from uploading a masqueraded file (e.g., uploading an exe file by changing extension to txt)</li></ul>| 
 
 ### Example
@@ -393,7 +394,7 @@ In the preceding code example, the input value cannot be longer than 11 characte
 | **Applicable Technologies** | Generic, MVC5, MVC6 |
 | **Attributes**              | N/A  |
 | **References**              | [Adding Validation](https://www.asp.net/mvc/overview/getting-started/introduction/adding-validation), [Validating Model Data in an MVC Application](https://msdn.microsoft.com/library/dd410404(v=vs.90).aspx), [Guiding Principles For Your ASP.NET MVC Applications](https://msdn.microsoft.com/magazine/dd942822.aspx) |
-| **Steps** | <p>All the input parameters must be validated before they are used in the application to ensure that the application is safeguarded against malicious user inputs. Validate the input values using regular expression validations on server side with a whitelist validation strategy. Unsanitized user inputs / parameters passed to the methods can cause code injection vulnerabilities.</p><p>For web applications, entry points can also include form fields, QueryStrings, cookies, HTTP headers, and web service parameters.</p><p>The following input validation checks must be performed upon model binding:</p><ul><li>The model properties should be annotated with RegularExpression annotation, for accepting allowed characters and maximum permissible length</li><li>The controller methods should perform ModelState validity</li></ul>|
+| **Steps** | <p>All the input parameters must be validated before they are used in the application to ensure that the application is safeguarded against malicious user inputs. Validate the input values using regular expression validations on server side with a allowed list validation strategy. Unsanitized user inputs / parameters passed to the methods can cause code injection vulnerabilities.</p><p>For web applications, entry points can also include form fields, QueryStrings, cookies, HTTP headers, and web service parameters.</p><p>The following input validation checks must be performed upon model binding:</p><ul><li>The model properties should be annotated with RegularExpression annotation, for accepting allowed characters and maximum permissible length</li><li>The controller methods should perform ModelState validity</li></ul>|
 
 ## <a id="richtext"></a>Sanitization should be applied on form fields that accept all characters, e.g, rich text editor
 
@@ -437,7 +438,7 @@ Don't use `innerHtml`; instead use `innerText`. Similarly, instead of `$("#elm")
 | **Applicable Technologies** | Generic |
 | **Attributes**              | N/A  |
 | **References**              | [The OAuth 2.0 Authorization Framework - Open Redirectors](https://tools.ietf.org/html/rfc6749#section-10.15) |
-| **Steps** | <p>Application design requiring redirection to a user-supplied location must constrain the possible redirection targets to a predefined "safe" list of sites or domains. All redirects in the application must be closed/safe.</p><p>To do this:</p><ul><li>Identify all redirects</li><li>Implement an appropriate mitigation for each redirect. Appropriate mitigations include redirect whitelist or user confirmation. If a web site or service with an open redirect vulnerability uses Facebook/OAuth/OpenID identity providers, an attacker can steal a user's logon token and impersonate that user. This is an inherent risk when using OAuth, which is documented in RFC 6749 "The OAuth 2.0 Authorization Framework", Section 10.15 "Open Redirects" Similarly, users' credentials can be compromised by spear phishing attacks using open redirects</li></ul>|
+| **Steps** | <p>Application design requiring redirection to a user-supplied location must constrain the possible redirection targets to a predefined "safe" list of sites or domains. All redirects in the application must be closed/safe.</p><p>To do this:</p><ul><li>Identify all redirects</li><li>Implement an appropriate mitigation for each redirect. Appropriate mitigations include redirect allowed list or user confirmation. If a web site or service with an open redirect vulnerability uses Facebook/OAuth/OpenID identity providers, an attacker can steal a user's logon token and impersonate that user. This is an inherent risk when using OAuth, which is documented in RFC 6749 "The OAuth 2.0 Authorization Framework", Section 10.15 "Open Redirects" Similarly, users' credentials can be compromised by spear phishing attacks using open redirects</li></ul>|
 
 ## <a id="string-method"></a>Implement input validation on all string type parameters accepted by Controller methods
 

@@ -11,7 +11,7 @@ tags: connectors
 
 # Create and manage records in Common Data Service by using Azure Logic Apps
 
-With [Azure Logic Apps](../logic-apps/logic-apps-overview.md) and the [Common Data Service connector](https://docs.microsoft.com/connectors/commondataservice/), you can build automated workflows that manage records in your [Common Data Service](https://docs.microsoft.com/powerapps/maker/common-data-service/data-platform-intro) database. These workflows can create records, update records, and perform other operations. You can also get information from your Common Data Service database and make the output available for other actions to use in your logic app. For example, when a record is updated in your Common Data Service database, you can send an email by using the Office 365 Outlook connector.
+With [Azure Logic Apps](../logic-apps/logic-apps-overview.md) and the [Common Data Service connector](/connectors/commondataservice/), you can build automated workflows that manage records in your [Common Data Service](/powerapps/maker/common-data-service/data-platform-intro) database. These workflows can create records, update records, and perform other operations. You can also get information from your Common Data Service database and make the output available for other actions to use in your logic app. For example, when a record is updated in your Common Data Service database, you can send an email by using the Office 365 Outlook connector.
 
 This article shows how you can build a logic app that creates a task record whenever a new lead record is created.
 
@@ -19,10 +19,10 @@ This article shows how you can build a logic app that creates a task record when
 
 * An Azure subscription. If you don't have an Azure subscription, [sign up for a free Azure account](https://azure.microsoft.com/free/).
 
-* A [Common Data Service environment](https://docs.microsoft.com/power-platform/admin/environments-overview), which is a space where your organization stores, manages, and shares business data and a Common Data Service database. For more information, see these resources:<p>
+* A [Common Data Service environment](/power-platform/admin/environments-overview), which is a space where your organization stores, manages, and shares business data and a Common Data Service database. For more information, see these resources:<p>
 
-  * [Learn: Get started with Common Data Service](https://docs.microsoft.com/learn/modules/get-started-with-powerapps-common-data-service/)
-  * [Power Platform - Environments overview](https://docs.microsoft.com/power-platform/admin/environments-overview)
+  * [Learn: Get started with Common Data Service](/learn/modules/get-started-with-powerapps-common-data-service/)
+  * [Power Platform - Environments overview](/power-platform/admin/environments-overview)
 
 * Basic knowledge about [how to create logic apps](../logic-apps/quickstart-create-first-logic-app-workflow.md) and the logic app from where you want to access the records in your Common Data Service database. To start your logic app with a Common Data Service trigger, you need a blank logic app. If you're new to Azure Logic Apps, review [Quickstart: Create your first workflow by using Azure Logic Apps](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
@@ -46,7 +46,7 @@ For this example, add the Common Data Service trigger that fires when a new reco
 
    | Property | Required | Description |
    |----------|----------|-------------|
-   | **Environment** | Yes | The environment to monitor, for example, "Fabrikam Sales Production". For more information, see [Power Platform - Environments overview](https://docs.microsoft.com/power-platform/admin/environments-overview). |
+   | **Environment** | Yes | The environment to monitor, for example, "Fabrikam Sales Production". For more information, see [Power Platform - Environments overview](/power-platform/admin/environments-overview). |
    | **Entity Name** | Yes | The entity to monitor, for example, "Leads" |
    | **Scope** | Yes | The source that created the new record, for example, a user in your business unit or any user in your organization. This example uses "Business unit". |
    ||||
@@ -103,7 +103,7 @@ For triggers that run when records are updated, such as the **When a record is u
 
 1. In the trigger, from the **Add new parameter** list, select **Attribute Filters**.
 
-   ![Add "Attribute Filters" property](./media/connect-common-data-service/when-record-updated-trigger-add-attribute-filters.png)
+   ![Screenshot that shows the "When a record is updated" action and the opened "Add new parameter" list with the "Attribute Filters" property selected.](./media/connect-common-data-service/when-record-updated-trigger-add-attribute-filters.png)
 
 1. For each **Attribute Filters Item**, select the attribute that you want to monitor for updates, for example:
 
@@ -121,7 +121,7 @@ For actions that return records, such as the **List records** action, you can us
 
    ![Enter ODATA filter query for filtering records](./media/connect-common-data-service/list-records-action-filter-query-value.png)
 
-For more information about `$filter` system query options, see [Common Data Service - Filter results](https://docs.microsoft.com/powerapps/developer/common-data-service/webapi/query-data-web-api#filter-results).
+For more information about `$filter` system query options, see [Common Data Service - Filter results](/powerapps/developer/common-data-service/webapi/query-data-web-api#filter-results).
 
 ## List records based on an order
 
@@ -135,7 +135,7 @@ For actions that return records, such as the **List records** action, you can us
 
    ![Enter ODATA filter query for ordering records](./media/connect-common-data-service/list-records-action-order-by-value.png)
 
-For more information about `$orderby` system query options, see [Common Data Service - Order results](https://docs.microsoft.com/powerapps/developer/common-data-service/webapi/query-data-web-api#order-results).
+For more information about `$orderby` system query options, see [Common Data Service - Order results](/powerapps/developer/common-data-service/webapi/query-data-web-api#order-results).
 
 ## Field data types
 
@@ -161,7 +161,7 @@ This example shows how the **Create a new record** action creates a new "Tasks" 
 
 ## Connector reference
 
-For technical information based on the connector's Swagger description, such as triggers, actions, limits, and other details, see the [connector's reference page](https://docs.microsoft.com/connectors/commondataservice/).
+For technical information based on the connector's Swagger description, such as triggers, actions, limits, and other details, see the [connector's reference page](/connectors/commondataservice/).
 
 ## Next steps
 

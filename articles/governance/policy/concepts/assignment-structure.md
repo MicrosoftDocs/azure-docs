@@ -1,7 +1,7 @@
 ---
 title: Details of the policy assignment structure
 description: Describes the policy assignment definition used by Azure Policy to relate policy definitions and parameters to resources for evaluation.
-ms.date: 04/15/2020
+ms.date: 09/22/2020
 ms.topic: conceptual
 ---
 # Azure Policy assignment structure
@@ -71,28 +71,34 @@ This property has the following values:
 |Disabled |DoNotEnforce |string |Yes |No | The policy effect isn't enforced during resource creation or update. |
 
 If **enforcementMode** isn't specified in a policy or initiative definition, the value _Default_ is
-used. [Remediation tasks](../how-to/remediate-resources.md) can be started for [deployIfNotExists](./effects.md#deployifnotexists)
-policies, even when **enforcementMode** is set to _DoNotEnforce_.
+used. [Remediation tasks](../how-to/remediate-resources.md) can be started for
+[deployIfNotExists](./effects.md#deployifnotexists) policies, even when **enforcementMode** is set
+to _DoNotEnforce_.
 
 ## Excluded scopes
 
 The **scope** of the assignment includes all child resource containers and child resources. If a
 child resource container or child resource shouldn't have the definition applied, each can be
-excluded from evaluation by setting **notScopes**. This property is an array to enable excluding one
-or more resource containers or resources from evaluation. **notScopes** can be added or updated
+_excluded_ from evaluation by setting **notScopes**. This property is an array to enable excluding
+one or more resource containers or resources from evaluation. **notScopes** can be added or updated
 after creation of the initial assignment.
+
+> [!NOTE]
+> An _excluded_ resource is different from an _exempted_ resource. For more information, see
+> [Understand scope in Azure Policy](./scope.md).
 
 ## Policy definition ID
 
 This field must be the full path name of either a policy definition or an initiative definition.
 `policyDefinitionId` is a string and not an array. It's recommended that if multiple policies are
-often assigned together, to use an [initiative](./definition-structure.md#initiatives) instead.
+often assigned together, to use an [initiative](./initiative-definition-structure.md) instead.
 
 ## Parameters
 
-This segment of the policy assignment provides the values for the parameters defined in the [policy definition or initiative definition](./definition-structure.md#parameters).
-This design makes it possible to reuse a policy or initiative definition with different resources,
-but check for different business values or outcomes.
+This segment of the policy assignment provides the values for the parameters defined in the
+[policy definition or initiative definition](./definition-structure.md#parameters). This design
+makes it possible to reuse a policy or initiative definition with different resources, but check for
+different business values or outcomes.
 
 ```json
 "parameters": {
@@ -116,4 +122,5 @@ reducing the duplication and complexity of policy definitions while providing fl
 - Understand how to [programmatically create policies](../how-to/programmatically-create.md).
 - Learn how to [get compliance data](../how-to/get-compliance-data.md).
 - Learn how to [remediate non-compliant resources](../how-to/remediate-resources.md).
-- Review what a management group is with [Organize your resources with Azure management groups](../../management-groups/overview.md).
+- Review what a management group is with
+  [Organize your resources with Azure management groups](../../management-groups/overview.md).

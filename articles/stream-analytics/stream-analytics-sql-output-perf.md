@@ -10,9 +10,9 @@ ms.date: 03/18/2019
 ---
 # Azure Stream Analytics output to Azure SQL Database
 
-This article discusses tips to achieve better write throughput performance when you're loading data into SQL Azure Database using Azure Stream Analytics.
+This article discusses tips to achieve better write throughput performance when you're loading data into Azure SQL Database using Azure Stream Analytics.
 
-SQL output in Azure Stream Analytics supports writing in parallel as an option. This option allows for [fully parallel](stream-analytics-parallelization.md#embarrassingly-parallel-jobs) job topologies, where multiple output partitions are writing to the destination table in parallel. Enabling this option in Azure Stream Analytics however may not be sufficient to achieve higher throughputs, as it depends significantly on your SQL Azure database configuration and table schema. The choice of indexes, clustering key, index fill factor, and compression have an impact on the time to load tables. For more information about how to optimize your SQL Azure database to improve query and load performance based on internal benchmarks, see [SQL database performance guidance](../sql-database/sql-database-performance-guidance.md). Ordering of writes is not guaranteed when writing in parallel to SQL Azure Database.
+SQL output in Azure Stream Analytics supports writing in parallel as an option. This option allows for [fully parallel](stream-analytics-parallelization.md#embarrassingly-parallel-jobs) job topologies, where multiple output partitions are writing to the destination table in parallel. Enabling this option in Azure Stream Analytics however may not be sufficient to achieve higher throughputs, as it depends significantly on your database configuration and table schema. The choice of indexes, clustering key, index fill factor, and compression have an impact on the time to load tables. For more information about how to optimize your database to improve query and load performance based on internal benchmarks, see [SQL Database performance guidance](../azure-sql/database/performance-guidance.md). Ordering of writes is not guaranteed when writing in parallel to SQL Database.
 
 Here are some configurations within each service that can help improve overall throughput of your solution.
 

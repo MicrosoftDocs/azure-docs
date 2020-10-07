@@ -7,7 +7,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: conceptual
-ms.date: 02/21/2019
+ms.date: 08/17/2020
 ms.author: swmachan
 #Customer intent: As a Custom Translator user, I want to concept of a model and training, so that I can efficiently use training, tuning and testing datasets the helps me build a translation model.
 ---
@@ -17,7 +17,7 @@ ms.author: swmachan
 A model is the system, which provides translation for a specific language pair.
 The outcome of a successful training is a model. When training a model, three
 mutually exclusive document types are required: training, tuning, and
-testing. Dictionary document type can also be provided. Please refere to [Sentence alignment](https://docs.microsoft.com/azure/cognitive-services/translator/custom-translator/sentence-alignment#suggested-minimum-number-of-sentences).
+testing. Dictionary document type can also be provided. Please refer to [Sentence alignment](https://docs.microsoft.com/azure/cognitive-services/translator/custom-translator/sentence-alignment#suggested-minimum-number-of-sentences).
 
 If only training data is provided when queuing a training, Custom Translator will automatically assemble tuning and testing data. It will use a random subset of sentences from your training documents, and exclude these sentences from the training data itself.
 

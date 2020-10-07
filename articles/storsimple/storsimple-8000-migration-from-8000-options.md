@@ -2,12 +2,12 @@
 title: Data migration options from StorSimple 8000 series devices
 description: Provides an overview of the options to migrate data from StorSimple 8000 series.
 services: storsimple
-author: priestlg
+author: alkohli
 
 ms.service: storsimple
-ms.topic: article
+ms.topic: how-to
 ms.date: 03/25/2020 
-ms.author: v-grpr
+ms.author: alkohli
 
 ---
 # Options to migrate data from StorSimple 8000 series
@@ -36,6 +36,12 @@ For more information on how to migrate data to Azure File Sync, go to [StorSimpl
 StorSimple 5000-7000 series and StorSimple 8000 series customers can choose to migrate to Panzura Freedom NAS to keep their data in Azure. The Panzura Freedom solution provides a NAS solution that spans datacenters, offices, public and private clouds. The solution enables local, hybrid, and in-cloud data workflows for NFS, SMB, and mobile clients.
 
 This migration is supported by Panzura and customers can get started by requesting migration support from the [Panzura website](https://panzura.com/migrate-storsimple-panzura/).
+
+#### Migrate to Nasuni
+
+Moving your entire StorSimple environment to a stable, secure, high performance file services platform is easy with Nasuni. Nasuni offers the security and performance of on-premises file storage while combining it with the scalability and durability of Azure.  As a leading Azure independent software vendor (ISV), Nasuni brings all the tools necessary to move your StorSimple data to a modern platform that lets you share and collaborate with your files across multiple locations.
+
+Get started today: [Nasuni website](https://info.nasuni.com/storsimple8000-webinar).
 
 <!-- 04/09/2020 v-grpr (priestlg) - As per request, commenting out this section because the information that will go into this section is forthcoming
 #### Migrate to Cohesity

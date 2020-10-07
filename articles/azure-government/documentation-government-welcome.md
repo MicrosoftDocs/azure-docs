@@ -4,8 +4,6 @@ description: 'This article provides an overview of the Azure Government Cloud ca
 services: azure-government
 cloud: gov
 documentationcenter: ''
-author: Juliako
-manager: femila
 
 ms.service: azure-government
 ms.devlang: na
@@ -13,7 +11,6 @@ ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: azure-government
 ms.date: 09/17/2018
-ms.author: juliako
 
 #Customer intent: As the chairman of the municipal council, I want to find out if Azure Government will meet our security and compliance requirements.
 ---

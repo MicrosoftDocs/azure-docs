@@ -7,7 +7,7 @@ author: curtand
 ms.author: curtand
 manager: daveba
 ms.date: 04/16/2020
-ms.topic: conceptual
+ms.topic: how-to
 ms.service: active-directory
 ms.subservice: users-groups-roles
 ms.workload: identity
@@ -68,7 +68,7 @@ To download the list of users from the Azure AD admin center, you must be signed
 
 You can see the status of your pending bulk requests in the **Bulk operation results** page.
 
-[![](media/users-bulk-download/bulk-center.png "Check status in the Bulk Operations Results page")](media/users-bulk-download/bulk-center.png#lightbox)
+[![Check status in the Bulk Operations Results page.](media/users-bulk-download/bulk-center.png)](media/users-bulk-download/bulk-center.png#lightbox)
 
 ## Bulk download service limits
 

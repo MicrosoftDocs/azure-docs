@@ -3,7 +3,7 @@ title: Configure Azure HPC Cache settings
 description: Explains how to configure additional settings for the cache like MTU and no-root-squash, and how to access the express snapshots from Azure Blob storage targets.
 author: ekpgh
 ms.service: hpc-cache
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 05/06/2020
 ms.author: v-erkel
 ---
@@ -17,6 +17,9 @@ This article also describes how to use the snapshot feature for Azure Blob stora
 To see the settings, open the cache's **Configuration** page in the Azure portal.
 
 ![screenshot of configuration page in Azure portal](media/configuration.png)
+
+> [!TIP]
+> The [Managing Azure HPC Cache video](https://azure.microsoft.com/resources/videos/managing-hpc-cache/) shows the configuration page and its settings.
 
 ## Adjust MTU value
 <!-- linked from troubleshoot-nas article -->
@@ -43,7 +46,7 @@ When root squash is enabled, root users from a client are automatically mapped t
 
 If root squash is disabled, a request from the client root user (UID 0) is passed through to a back-end NFS storage system as root. This configuration might allow inappropriate file access.
 
-Setting root squash on the cache can help compensate for the required ``no_root_squash`` setting on NAS systems that are used as storage targets. (Read more about [NFS storage target prerequisites](hpc-cache-prereqs.md#nfs-storage-requirements).) It also can improve security when used with Azure Blob storage targets.
+Setting root squash on the cache can help compensate for the required ``no_root_squash`` setting on NAS systems that are used as storage targets. (Read more about [NFS storage target prerequisites](hpc-cache-prerequisites.md#nfs-storage-requirements).) It also can improve security when used with Azure Blob storage targets.
 
 The default setting is **Yes**. (Caches created before April 2020 might have the default setting **No**.)
 

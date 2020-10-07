@@ -1,6 +1,6 @@
 ---
 title: How to set or edit Azure API Management policies | Microsoft Docs
-description: This topic shows how to set or edit Azure API Management policies.
+description: Learn how to set or edit Azure API Management policies. These policies are XML documents that describe a sequence of inbound and outbound statements.
 services: api-management
 documentationcenter: ''
 author: mikebudzynski
@@ -37,7 +37,7 @@ To set or edit a policy, follow the following steps:
 7. Select the **</>** (code editor) icon in the **Inbound processing** or **Outbound processing** section.
 8. Paste the desired policy code into one of the appropriate blocks.
 
-    ```XML
+    ```xml
     <policies>
         <inbound>
             <base />
@@ -131,5 +131,5 @@ Operation scope is configured for the selected operation.
 See the following related topics:
 
 + [Transform APIs](transform-api.md)
-+ [Policy Reference](api-management-policy-reference.md) for a full list of policy statements and their settings
++ [Policy Reference](./api-management-policies.md) for a full list of policy statements and their settings
 + [Policy samples](policy-samples.md)

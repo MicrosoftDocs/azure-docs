@@ -1,19 +1,8 @@
 ---
 title: Azure Event Hubs - Resource Manager exceptions | Microsoft Docs
 description: List of Azure Event Hubs exceptions surfaced by Azure Resource Manager and suggested actions.
-services: service-bus-messaging
-documentationcenter: na
-author: spelluru
-editor: spelluru
-
-ms.service: service-bus-messaging
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 12/08/2019
-ms.author: spelluru
-
+ms.date: 06/23/2020
 ---
 
 # Azure Event Hubs - Resource Manager exceptions
@@ -50,7 +39,7 @@ The following sections provide various exceptions/errors that are surfaced throu
 | BadRequest | none | Can't update a namespace that is secondary | The namespace can't be updated because it's the secondary namespace in a [GeoDR pairing](event-hubs-geo-dr.md). | If appropriate, make the change to the primary namespace in this pairing instead. Otherwise break the GeoDR pairing to make the change. |
 | BadRequest | none | Can't set Auto-Inflate in basic SKU | Auto-Inflate can't be enabled on basic tier Event Hubs namespaces. | To [enable Auto Inflate](event-hubs-auto-inflate.md) on a namespace, make sure it's of standard tier. |
 | BadRequest | none | There isn't enough capacity to create the namespace. Contact your Event Hubs administrator. | The selected region is at capacity and more namespaces can't be created. | Select another region to house your namespace. |
-| BadRequest | none | The operation can't be done on entity type 'ConsumerGroup' because the namespace 'namespace name' is using 'Basic' tier.  | Basic tier Event Hubs namespaces have a [quota]((event-hubs-quotas.md#event-hubs-basic-and-standard---quotas-and-limits) of one consumer group (the default). Creating more consumer groups isn't supported. | Continue using the default consumer group ($Default), or if more are needed, consider using a standard tier Event Hubs namespace instead. | 
+| BadRequest | none | The operation can't be done on entity type 'ConsumerGroup' because the namespace 'namespace name' is using 'Basic' tier.  | Basic tier Event Hubs namespaces have a quota(event-hubs-quotas.md) of one consumer group (the default). Creating more consumer groups isn't supported. | Continue using the default consumer group ($Default), or if more are needed, consider using a standard tier Event Hubs namespace instead. | 
 | BadRequest | none | The namespace 'namespace name' doesn't exist. | The namespace provided couldn't be found. | Double check that the namespace name is correct and can be found in your subscription. If it isn't, [create an Event Hubs namespace](event-hubs-create.md). | 
 | BadRequest | none | The location property of the resource doesn't match its containing Namespace. | Creating an event hub in a specific region failed because it didn't match the region of the namespace. | Try creating the event hub in the same region as the namespace. | 
 

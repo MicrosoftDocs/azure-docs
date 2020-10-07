@@ -8,42 +8,27 @@ author: mrcarter8
 ms.author: mcarter
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 01/13/2020
+ms.date: 05/11/2020
 ---
 
-# Create a Private Endpoint for a secure connection to Azure Cognitive Search (Preview)
+# Create a Private Endpoint for a secure connection to Azure Cognitive Search
 
-In this article, use the portal to create a new Azure Cognitive Search service instance that can't be accessed via a public IP address. Next, configure an Azure virtual machine in the same virtual network, and use it to access the search service via a private endpoint.
+In this article, you'll use the Azure portal to create a new Azure Cognitive Search service instance that can't be accessed via the internet. Next, you'll configure an Azure virtual machine in the same virtual network and use it to access the search service via a private endpoint.
+
+Private endpoints are provided by [Azure Private Link](../private-link/private-link-overview.md), as a separate service. For more information about costs, see the [pricing page](https://azure.microsoft.com/pricing/details/private-link/).
 
 > [!Important]
-> Private Endpoint support for Azure Cognitive Search is available [upon request](https://aka.ms/SearchPrivateLinkRequestAccess) as a limited-access preview. Preview features are provided without a service level agreement, and are not recommended for production workloads. For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). 
->
-> Once you are granted access to the preview, you'll be able to configure Private Endpoints for your service using the Azure portal or the [Management REST API version 2019-10-06-Preview](https://docs.microsoft.com/rest/api/searchmanagement/).
->   
+> Private Endpoint support for Azure Cognitive Search can be configured using the Azure portal or the [Management REST API version 2020-03-13](/rest/api/searchmanagement/). When the service endpoint is private, some portal features are disabled. You'll be able to view and manage service level information, but portal access to index data and the various components in the service, such as the index, indexer, and skillset definitions, is restricted for security reasons.
 
-## Why use Private Endpoint for secure access?
+## Why use a Private Endpoint for secure access?
 
-[Private Endpoints](../private-link/private-endpoint-overview.md) for Azure Cognitive Search allow a client on a virtual network to securely access data in a search index over a [Private Link](../private-link/private-link-overview.md). The private endpoint uses an IP address from the [virtual network address space](../virtual-network/virtual-network-ip-addresses-overview-arm.md#private-ip-addresses) for your search service. Network traffic between the client and the search service traverses over the virtual network and a private link on the Microsoft backbone network, eliminating exposure from the public internet. For a list of other PaaS services that support Private Link, check the [availability section](../private-link/private-link-overview.md#availability) in the product documentation.
+[Private Endpoints](../private-link/private-endpoint-overview.md) for Azure Cognitive Search allow a client on a virtual network to securely access data in a search index over a [Private Link](../private-link/private-link-overview.md). The private endpoint uses an IP address from the [virtual network address space](../virtual-network/private-ip-addresses.md) for your search service. Network traffic between the client and the search service traverses over the virtual network and a private link on the Microsoft backbone network, eliminating exposure from the public internet. For a list of other PaaS services that support Private Link, check the [availability section](../private-link/private-link-overview.md#availability) in the product documentation.
 
 Private endpoints for your search service enables you to:
 
 - Block all connections on the public endpoint for your search service.
 - Increase security for the virtual network, by enabling you to block exfiltration of data from the virtual network.
 - Securely connect to your search service from on-premises networks that connect to the virtual network using [VPN](../vpn-gateway/vpn-gateway-about-vpngateways.md) or [ExpressRoutes](../expressroute/expressroute-locations.md) with private-peering.
-
-> [!NOTE]
-> There are currently some limitations in the preview that you should be aware of:
-> * Available only for search services on the **Basic** tier. 
-> * Available in the West US 2, West Central US, East US, South Central US, Australia East, and Australia Southeast regions.
-> * When the service endpoint is private, some portal features are disabled. You'll be able to view and manage service level information, but portal access to index data and the various components in the service, such as the index, indexer, and skillset definitions, is restricted for security reasons.
-> * When the service endpoint is private, you must use the [Search REST API](https://docs.microsoft.com/rest/api/searchservice/) to upload documents to the index.
-> * You must use the following link to see the private endpoint support option in the Azure portal: https://portal.azure.com/?feature.enablePrivateEndpoints=true
-
-
-
-## Request access 
-
-Click [request access](https://aka.ms/SearchPrivateLinkRequestAccess) to sign up for this preview feature. The form requests information about you, your company, and  general network topology. Once we review your request, you'll receive a confirmation email with additional instructions.
 
 ## Create the virtual network
 
@@ -55,17 +40,13 @@ In this section, you will create a virtual network and subnet to host the VM tha
 
     | Setting | Value |
     | ------- | ----- |
-    | Name | Enter *MyVirtualNetwork* |
-    | Address space | Enter *10.1.0.0/16* |
     | Subscription | Select your subscription|
     | Resource group | Select **Create new**, enter *myResourceGroup*, then select **OK** |
-    | Location | Select **West US** or whatever region you are using|
-    | Subnet - Name | Enter *mySubnet* |
-    | Subnet - Address range | Enter *10.1.0.0/24* |
+    | Name | Enter *MyVirtualNetwork* |
+    | Region | Select your desired region |
     |||
 
-1. Leave the rest as default and select **Create**.
-
+1. Leave the defaults for the rest of the settings. Click **Review + create** and then **Create**
 
 ## Create a search service with a private endpoint
 
@@ -82,8 +63,8 @@ In this section, you will create a new Azure Cognitive Search service with a Pri
     | Resource group | Select **myResourceGroup**. You created this in the previous section.|
     | **INSTANCE DETAILS** |  |
     | URL | Enter a unique name. |
-    | Location | Select the region that you specified when requesting access to this preview feature. |
-    | Pricing tier | Select **Change Pricing Tier** and choose **Basic**. This tier is required for the preview. |
+    | Location | Select your desired region. |
+    | Pricing tier | Select **Change Pricing Tier** and choose your desired service tier. (Not support on **Free** tier. Must be **Basic** or higher.) |
     |||
   
 1. Select **Next: Scale**.
@@ -101,11 +82,11 @@ In this section, you will create a new Azure Cognitive Search service with a Pri
     | Subscription | Select your subscription. |
     | Resource group | Select **myResourceGroup**. You created this in the previous section.|
     | Location | Select **West US**.|
-    | Name | Enter *myPrivateEndpoint*.  |
+    | Name | Enter *myPrivateEndpoint*.  |
     | Target sub-resource | Leave the default **searchService**. |
     | **NETWORKING** |  |
-    | Virtual network  | Select *MyVirtualNetwork* from resource group *myResourceGroup*. |
-    | Subnet | Select *mySubnet*. |
+    | Virtual network  | Select *MyVirtualNetwork* from resource group *myResourceGroup*. |
+    | Subnet | Select *mySubnet*. |
     | **PRIVATE DNS INTEGRATION** |  |
     | Integrate with private DNS zone  | Leave the default **Yes**. |
     | Private DNS zone  | Leave the default ** (New) privatelink.search.windows.net**. |
@@ -202,9 +183,9 @@ Download and then connect to the VM *myVm* as follows:
 
 In this section, you will verify private network access to the search service and connect privately to the using the Private Endpoint.
 
-Recall from the introduction that all interactions with the search service require the [Search REST API](https://docs.microsoft.com/rest/api/searchservice/). The portal and .NET SDK are not supported in this preview.
+When the search service endpoint is private, some portal features are disabled. You'll be able to view and manage service level settings, but portal access to index data and various other components in the service, such as the index, indexer, and skillset definitions, is restricted for security reasons.
 
-1. In the Remote Desktop of *myVM*, open PowerShell.
+1. In the Remote Desktop of *myVM*, open PowerShell.
 
 1. Enter 'nslookup [search service name].search.windows.net'
 
@@ -222,7 +203,7 @@ Recall from the introduction that all interactions with the search service requi
 
 1. Completing the quickstart from the VM is your confirmation that the service is fully operational.
 
-1. Close the remote desktop connection to *myVM*. 
+1. Close the remote desktop connection to *myVM*. 
 
 1. To verify that your service is not accessible on a public endpoint, open Postman on your local workstation and attempt the first several tasks in the quickstart. If you receive an error that the remote server does not exist, you have successfully configured a private endpoint for your search service.
 

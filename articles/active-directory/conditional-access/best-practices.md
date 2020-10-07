@@ -5,7 +5,7 @@ description: Learn about things you should know and what it is you should avoid 
 services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
-ms.topic: article
+ms.topic: how-to
 ms.date: 01/25/2019
 
 ms.author: joflore
@@ -17,12 +17,12 @@ ms.collection: M365-identity-device-management
 ---
 # Best practices for Conditional Access in Azure Active Directory
 
-With [Azure Active Directory (Azure AD) Conditional Access](../active-directory-conditional-access-azure-portal.md), you can control how authorized users access your cloud apps. This article provides you with information about:
+With [Azure Active Directory (Azure AD) Conditional Access](./overview.md), you can control how authorized users access your cloud apps. This article provides you with information about:
 
 - Things you should know 
 - What it is you should avoid doing when configuring Conditional Access policies. 
 
-This article assumes that you are familiar with the concepts and the terminology outlined in [What is Conditional Access in Azure Active Directory?](../active-directory-conditional-access-azure-portal.md)
+This article assumes that you are familiar with the concepts and the terminology outlined in [What is Conditional Access in Azure Active Directory?](./overview.md)
 
 ## What's required to make a policy work?
 
@@ -46,14 +46,21 @@ More than one Conditional Access policy may apply when you access a cloud app. I
 
 All policies are enforced in two phases:
 
-- Phase 1: 
-   - Detail collection: Gather details to identify policies that would already be satisfied.
-   - During this phase, users may see a certificate prompt if device compliance is part of your Conditional Access policies. This prompt may occur for browser apps when the device operating system is not Windows 10.
-   - Phase 1 of policy evaluation occurs for all enabled policies and policies in [report-only mode](concept-conditional-access-report-only.md).
-- Phase 2:
-   - Enforcement: Taking in to account the details gathered in phase 1, request user to satisfy any additional requirements that have not been met.
-   - Apply results to session. 
-   - Phase 2 of policy evaluation occurs for all enabled policies.
+- Phase 1: Collect session details 
+   - Gather session details, like user location and device identity that will be necessary for policy evaluation. 
+   - During this phase, users may see a certificate prompt if device compliance is part of your Conditional Access policies. This prompt may occur for browser apps when the device operating system is not Windows 10. 
+   - Phase 1 of policy evaluation occurs for enabled policies and policies in [report-only mode](concept-conditional-access-report-only.md).
+- Phase 2: Enforcement 
+   - Use the session details gathered in phase 1 to identify any requirements that have not been met. 
+   - If there is a policy that is configured to block access, with the block grant control, enforcement will stop here and the user will be blocked. 
+   - The user will then be prompted to complete additional grant control requirements that have not been satisfied during phase 1 in the following order, until policy is satisfied:  
+      - Multi-factor authentication​ 
+      - Approved client app/app protection policy​ 
+      - Managed device (compliant or hybrid Azure AD join)​ 
+      - Terms of use 
+      - Custom controls  
+      - Once grant controls have been satisfied, apply session controls (App Enforced, Microsoft Cloud App Security, and token Lifetime) 
+   - Phase 2 of policy evaluation occurs for all enabled policies. 
 
 ### How are assignments evaluated?
 
@@ -68,7 +75,7 @@ If you need to configure a location condition that applies to all connections ma
 
 If you are locked out of the Azure AD portal due to an incorrect setting in a Conditional Access policy:
 
-- Check is there are other administrators in your organization that aren't blocked yet. An administrator with access to the Azure portal can disable the policy that is impacting your sign in. 
+- Check is there are other administrators in your organization that aren't blocked yet. An administrator with access to the Azure portal can disable the policy that is impacting your sign-in. 
 - If none of the administrators in your organization can update the policy, you need to submit a support request. Microsoft support can review and update Conditional Access policies that are preventing access.
 
 ### What happens if you have policies in the Azure classic portal and Azure portal configured?  
@@ -87,13 +94,13 @@ For every sign-in, Azure Active Directory evaluates all policies and ensures tha
 
 Yes, you can use Exchange ActiveSync in a Conditional Access policy.
 
-Some cloud apps like SharePoint Online and Exchange Online also support legacy authentication protocols. When a client app can use a legacy authentication protocol to access a cloud app, Azure AD cannot enforce a Conditional Access policy on this access attempt. To prevent a client app from bypassing the enforcement of policies, you should check whether it is possible to only enable modern authentication on the affected cloud apps.
+Some cloud apps like SharePoint and Exchange Online also support legacy authentication protocols. When a client app can use a legacy authentication protocol to access a cloud app, Azure AD cannot enforce a Conditional Access policy on this access attempt. To prevent a client app from bypassing the enforcement of policies, you should check whether it is possible to only enable modern authentication on the affected cloud apps.
 
-### How should you configure Conditional Access with Office 365 apps?
+### How should you configure Conditional Access with Microsoft 365 apps?
 
-Because Office 365 apps are interconnected, we recommend assigning commonly used apps together when creating policies.
+Because Microsoft 365 apps are interconnected, we recommend assigning commonly used apps together when creating policies.
 
-Common interconnected applications include Microsoft Flow, Microsoft Planner, Microsoft Teams, Office 365 Exchange Online, Office 365 SharePoint Online, and Office 365 Yammer.
+Common interconnected applications include Microsoft Flow, Microsoft Planner, Microsoft Teams, Exchange Online, SharePoint, and Yammer.
 
 It is important for policies that require user interactions, like multi-factor authentication, when access is controlled at the beginning of a session or task. If you don't, users won't be able to complete some tasks within an app. For example, if you require multi-factor authentication on unmanaged devices to access SharePoint but not to email, users working in their email won't be able to attach SharePoint files to a message. More information can be found in the article, [What are service dependencies in Azure Active Directory Conditional Access?](service-dependencies.md).
 
@@ -144,5 +151,5 @@ For more information, see [Migrate classic policies in the Azure portal](policy-
 
 If you want to know:
 
-- How to configure a Conditional Access policy, see [Require MFA for specific apps with Azure Active Directory Conditional Access](app-based-mfa.md).
+- How to configure a Conditional Access policy, see [Require MFA for specific apps with Azure Active Directory Conditional Access](../authentication/tutorial-enable-azure-mfa.md).
 - How to plan your Conditional Access policies, see [How to plan your Conditional Access deployment in Azure Active Directory](plan-conditional-access.md).

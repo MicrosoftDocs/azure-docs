@@ -4,7 +4,7 @@ description: In this article, learn how to use Azure DNS along to provide DNS fo
 services: dns
 author: rohinkoul
 ms.service: dns
-ms.topic: article
+ms.topic: how-to
 ms.date: 7/13/2019
 ms.author: rohink
 ---

@@ -9,7 +9,8 @@ ms.service: key-vault
 ms.subservice: general
 ms.topic: tutorial
 ms.date: 08/12/2019
-ms.author: mbaldwin
+ms.author: mbaldwin 
+ms.custom: devx-track-azurecli
 
 ---
 # Manage Key Vault using the Azure CLI 

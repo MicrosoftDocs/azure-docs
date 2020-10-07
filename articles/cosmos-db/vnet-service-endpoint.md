@@ -20,6 +20,10 @@ By default, an Azure Cosmos account is accessible from any source if the request
 
 Here are some frequently asked questions about configuring access from virtual networks:
 
+### Are Notebooks and Mongo/Cassandra Shell currently compatible with Virtual Network enabled accounts?
+
+At the moment the [Mongo shell](https://devblogs.microsoft.com/cosmosdb/preview-native-mongo-shell/) and [Cassandra shell](https://devblogs.microsoft.com/cosmosdb/announcing-native-cassandra-shell-preview/) integrations in the Cosmos DB Data Explorer, and the [Jupyter Notebooks service](https://docs.microsoft.com/azure/cosmos-db/cosmosdb-jupyter-notebooks), are not supported with VNET access. This is currently in active development.
+
 ### Can I specify both virtual network service endpoint and IP access control policy on an Azure Cosmos account? 
 
 You can enable both the virtual network service endpoint and an IP access control policy (aka firewall) on your Azure Cosmos account. These two features are complementary and collectively ensure isolation and security of your Azure Cosmos account. Using IP firewall ensures that static IPs can access your account. 

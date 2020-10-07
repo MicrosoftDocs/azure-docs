@@ -2,21 +2,15 @@
 title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Litmus | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and Litmus.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-
-ms.assetid: 3b570512-f5b2-490e-8e72-b530c0b53956
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 04/06/2020
 ms.author: jeedes
-
-ms.collection: M365-identity-device-management
 ---
 
 # Tutorial: Azure Active Directory single sign-on (SSO) integration with Litmus
@@ -169,7 +163,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
     ![Litmus Configuration](./media/litmus-tutorial/user-profile.png)
 
-    a. In the **Email** textbox, enter the email address of the user like **B.Simon@contoso.com**
+    a. In the **Email** textbox, enter the email address of the user like **B.Simon\@contoso.com**
 
     b. In the **First Name** textbox, enter the first name of the user like **B**.
 

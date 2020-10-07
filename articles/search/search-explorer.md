@@ -8,20 +8,24 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: quickstart
-ms.date: 03/27/2020
+ms.date: 09/25/2020
 ---
 
 # Quickstart: Use Search explorer to run queries in the portal
 
-**Search explorer** is a built-in query tool used for running queries against a search index in Azure Cognitive Search. This tool makes it easy to learn query syntax, test a query or filter expression, or confirm the results of an index refresh by verifying newer content exists.
+**Search explorer** is a built-in query tool used for running queries against a search index in Azure Cognitive Search. This tool makes it easy to learn query syntax, test a query or filter expression, or confirm data refresh by checking whether new content exists in the index.
 
-This quickstart uses **realestate-us-sample-index** to demonstrate Search explorer. Requests are formulated using the [Search REST API](https://docs.microsoft.com/rest/api/searchservice/), with responses returned as JSON documents.
+This quickstart uses an existing index to demonstrate Search explorer. Requests are formulated using the [Search REST API](/rest/api/searchservice/), with responses returned as JSON documents.
 
 ## Prerequisites
 
-+ [Create an Azure Cognitive Search service](search-create-service-portal.md) or [find an existing service](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) under your current subscription. You can use a free service for this quickstart.
+Before you begin, you must have the following:
 
-+ **realestate-us-sample-index** is used for this quickstart. Step through the [**Import data**](search-import-data-portal.md) wizard to generate the index from the built-in samples data source.
++ An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/).
+
++ An Azure Cognitive Search service. [Create a service](search-create-service-portal.md) or [find an existing service](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) under your current subscription. You can use a free service for this quickstart. 
+
++ The *realestate-us-sample-index* is used for this quickstart. Use the [**Import data**](search-import-data-portal.md) wizard to create the index. In the first step, when asked for the data source, choose **Samples** and then select the **realestate-us-sample** data source. Accept all of the wizard defaults to create the index.
 
 ## Start Search explorer
 
@@ -29,11 +33,11 @@ This quickstart uses **realestate-us-sample-index** to demonstrate Search explor
 
 1. Open Search explorer from the command bar:
 
-   ![Search explorer command in portal](./media/search-explorer/search-explorer-cmd2.png "Search explorer command in portal")
+   :::image type="content" source="media/search-explorer/search-explorer-cmd2.png" alt-text="Search explorer command in portal" border="false":::
 
     Or use the embedded **Search explorer** tab on an open index:
 
-   ![Search explorer tab](./media/search-explorer/search-explorer-tab.png "Search explorer tab")
+   :::image type="content" source="media/search-explorer/search-explorer-tab.png" alt-text="Search explorer tab" border="false":::
 
 ## Unspecified query
 
@@ -47,7 +51,7 @@ Equivalent syntax for an empty search is `*` or `search=*`.
 
    **Results**
    
-   ![Empty query example](./media/search-explorer/search-explorer-example-empty.png "Unqualified or empty query example")
+   :::image type="content" source="media/search-explorer/search-explorer-example-empty.png" alt-text="Unqualified or empty query example" border="false":::
 
 ## Free text search
 
@@ -63,7 +67,7 @@ Notice that when you provide search criteria, such as query terms or expressions
 
    You can use Ctrl-F to search within results for specific terms of interest.
 
-   ![Free text query example](./media/search-explorer/search-explorer-example-freetext.png "Free text query example")
+   :::image type="content" source="media/search-explorer/search-explorer-example-freetext.png" alt-text="Free text query example" border="false":::
 
 ## Count of matching documents 
 
@@ -75,7 +79,7 @@ Add **$count=true** to get the number of matches found in an index. On an empty 
 
    **Results**
 
-   ![Count of documents example](./media/search-explorer/search-explorer-example-count.png "Count of matching documents in index")
+   :::image type="content" source="media/search-explorer/search-explorer-example-count.png" alt-text="Count of matching documents in index" border="false":::
 
 ## Limit fields in search results
 
@@ -87,7 +91,7 @@ Add [**$select**](search-query-odata-select.md) to limit results to the explicit
 
    **Results**
 
-   ![Limit fields example](./media/search-explorer/search-explorer-example-selectfield.png "Restrict fields in search results")
+   :::image type="content" source="media/search-explorer/search-explorer-example-selectfield.png" alt-text="Restrict fields in search results" border="false":::
 
 ## Return next batch of results
 
@@ -99,7 +103,7 @@ Azure Cognitive Search returns the top 50 matches based on the search rank. To g
 
    **Results**
 
-   ![Batch search results](./media/search-explorer/search-explorer-example-topskip.png "Return next batch of search results")
+   :::image type="content" source="media/search-explorer/search-explorer-example-topskip.png" alt-text="Return next batch of search results" border="false":::
 
 ## Filter expressions (greater than, less than, equal to)
 
@@ -111,7 +115,7 @@ Use the [**$filter**](search-query-odata-filter.md) parameter when you want to s
    
    **Results**
 
-   ![Filter expression](./media/search-explorer/search-explorer-example-filter.png "Filter by criteria")
+   :::image type="content" source="media/search-explorer/search-explorer-example-filter.png" alt-text="Filter by criteria" border="false":::
 
 ## Order-by expressions
 
@@ -123,9 +127,9 @@ Add [**$orderby**](search-query-odata-orderby.md) to sort results by another fie
    
    **Results**
 
-   ![Orderby expression](./media/search-explorer/search-explorer-example-ordery.png "Change the sort order")
+   :::image type="content" source="media/search-explorer/search-explorer-example-ordery.png" alt-text="Change the sort order" border="false":::
 
-Both **$filter** and **$orderby** expressions are OData constructions. For more information, see [Filter OData syntax](https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search).
+Both **$filter** and **$orderby** expressions are OData constructions. For more information, see [Filter OData syntax](/rest/api/searchservice/odata-expression-syntax-for-azure-search).
 
 <a name="start-search-explorer"></a>
 
@@ -139,7 +143,7 @@ In this quickstart, you used **Search explorer** to query an index using the RES
 
 + Free-form queries, similar to what you might enter in a commercial web browser, are useful for testing an end-user experience. For example, assuming the built-in realestate sample index, you could enter "Seattle apartments lake washington", and then you can use Ctrl-F to find terms within the search results. 
 
-+ Query and filter expressions are articulated in a syntax supported by Azure Cognitive Search. The default is a [simple syntax](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search), but you can optionally use [full Lucene](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search) for more powerful queries. [Filter expressions](https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search) are an OData syntax.
++ Query and filter expressions are articulated in a syntax supported by Azure Cognitive Search. The default is a [simple syntax](/rest/api/searchservice/simple-query-syntax-in-azure-search), but you can optionally use [full Lucene](/rest/api/searchservice/lucene-query-syntax-in-azure-search) for more powerful queries. [Filter expressions](/rest/api/searchservice/odata-expression-syntax-for-azure-search) are an OData syntax.
 
 ## Clean up resources
 
@@ -151,7 +155,7 @@ If you are using a free service, remember that you are limited to three indexes,
 
 ## Next steps
 
-To learn more about query structures and syntax, use Postman or an equivalent tool to create query expressions that leverage more parts of the API. The [Search REST API](https://docs.microsoft.com/rest/api/searchservice/) is especially helpful for learning and exploration.
+To learn more about query structures and syntax, use Postman or an equivalent tool to create query expressions that leverage more parts of the API. The [Search REST API](/rest/api/searchservice/) is especially helpful for learning and exploration.
 
 > [!div class="nextstepaction"]
 > [Create a basic query in Postman](search-query-simple-examples.md)

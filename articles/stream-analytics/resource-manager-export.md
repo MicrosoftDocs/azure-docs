@@ -5,7 +5,7 @@ services: stream-analytics
 author: mamccrea
 ms.author: mamccrea
 ms.service: stream-analytics
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 03/10/2020
 ---
 
@@ -23,7 +23,7 @@ To export a job to a local project, locate the job you wish to export in the **S
 
 ![Open Stream Analytics job in Visual Studio Code](./media/resource-manager-export/open-job-vs-code.png)
 
-For more information on using Visual Studio Code to manage Stream Analytics jobs, see the [Visual Studio Code quickstart](quick-create-vs-code.md).
+For more information on using Visual Studio Code to manage Stream Analytics jobs, see the [Visual Studio Code quickstart](quick-create-visual-studio-code.md).
 
 ## Compile the script 
 

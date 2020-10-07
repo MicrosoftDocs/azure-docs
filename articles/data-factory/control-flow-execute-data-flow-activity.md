@@ -52,11 +52,11 @@ Use the Data Flow activity to transform and move data via mapping data flows. If
 Property | Description | Allowed values | Required
 -------- | ----------- | -------------- | --------
 dataflow | The reference to the Data Flow being executed | DataFlowReference | Yes
-integrationRuntime | The compute environment the data flow runs on. If not specified, the auto-resolve Azure integration runtime will be used. Only integration runtimes of region auto-resolve are supported. | IntegrationRuntimeReference | No
+integrationRuntime | The compute environment the data flow runs on. If not specified, the auto-resolve Azure integration runtime will be used. | IntegrationRuntimeReference | No
 compute.coreCount | The number of cores used in the spark cluster. Can only be specified if the auto-resolve Azure Integration runtime is used | 8, 16, 32, 48, 80, 144, 272 | No
 compute.computeType | The type of compute used in the spark cluster. Can only be specified if the auto-resolve Azure Integration runtime is used | "General", "ComputeOptimized", "MemoryOptimized" | No
-staging.linkedService | If you're using a SQL DW source or sink, the storage account used for PolyBase staging | LinkedServiceReference | Only if the data flow reads or writes to a SQL DW
-staging.folderPath | If you're using a SQL DW source or sink, the folder path in blob storage account used for PolyBase staging | String | Only if the data flow reads or writes to a SQL DW
+staging.linkedService | If you're using an Azure Synapse Analytics source or sink, the storage account used for PolyBase staging | LinkedServiceReference | Only if the data flow reads or writes to an Azure Synapse Analytics
+staging.folderPath | If you're using an Azure Synapse Analytics source or sink, the folder path in blob storage account used for PolyBase staging | String | Only if the data flow reads or writes to Azure Synapse Analytics
 
 ![Execute Data Flow](media/data-flow/activity-data-flow.png "Execute Data Flow")
 
@@ -70,7 +70,7 @@ The Core Count and Compute Type properties can be set dynamically to adjust to t
 
 ### Data Flow integration runtime
 
-Choose which Integration Runtime to use for your Data Flow activity execution. By default, Data Factory will use the auto-resolve Azure Integration runtime with four worker cores and no time to live (TTL). This IR has a general purpose compute type and runs in the same region as your factory. You can create your own Azure Integration Runtimes that define specific regions, compute type, core counts, and TTL for your data flow activity execution. At this time, only integration runtimes of region auto-resolve are supported in the data flow activity.
+Choose which Integration Runtime to use for your Data Flow activity execution. By default, Data Factory will use the auto-resolve Azure Integration runtime with four worker cores and no time to live (TTL). This IR has a general purpose compute type and runs in the same region as your factory. You can create your own Azure Integration Runtimes that define specific regions, compute type, core counts, and TTL for your data flow activity execution.
 
 For pipeline executions, the cluster is a job cluster, which takes several minutes to start up before execution starts. If no TTL is specified, this start-up time is required on every pipeline run. If you specify a TTL, a warm cluster pool will stay active for the time specified after the last execution, resulting in shorter start-up times. For example, if you have a TTL of 60 minutes and run a data flow on it once an hour, the cluster pool will stay active. For more information, see [Azure integration runtime](concepts-integration-runtime.md).
 
@@ -81,7 +81,7 @@ For pipeline executions, the cluster is a job cluster, which takes several minut
 
 ### PolyBase
 
-If you're using an Azure SQL Data Warehouse as a sink or source, you must choose a staging location for your PolyBase batch load. PolyBase allows for batch loading in bulk instead of loading the data row-by-row. PolyBase drastically reduces the load time into the SQL DW.
+If you're using an Azure Synapse Analytics (formerly SQL Data Warehouse) as a sink or source, you must choose a staging location for your PolyBase batch load. PolyBase allows for batch loading in bulk instead of loading the data row-by-row. PolyBase drastically reduces the load time into Azure Synapse Analytics.
 
 ## Parameterizing Data Flows
 

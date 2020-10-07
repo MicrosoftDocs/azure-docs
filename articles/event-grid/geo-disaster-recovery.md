@@ -1,13 +1,8 @@
 ---
 title: Geo disaster recovery in Azure Event Grid | Microsoft Docs
 description: Describes how Azure Event Grid supports geo disaster recovery (GeoDR) automatically. 
-services: event-grid
-author: spelluru
-
-ms.service: event-grid
 ms.topic: conceptual
-ms.date: 05/24/2019
-ms.author: spelluru
+ms.date: 07/07/2020
 ---
 
 # Server-side geo disaster recovery in Azure Event Grid

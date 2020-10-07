@@ -2,9 +2,7 @@
 title: Resources without 800 count limit
 description: Lists the Azure resource types that can have more than 800 instances in a resource group.
 ms.topic: conceptual
-author: davidsmatlak
-ms.author: v-dasmat
-ms.date: 05/04/2020
+ms.date: 09/21/2020
 ---
 
 # Resources not limited to 800 instances per resource group
@@ -13,12 +11,15 @@ By default, you can deploy up to 800 instances of a resource type in each resour
 
 For some resource types, you need to contact support to have the 800 instance limit removed. Those resource types are noted in this article.
 
+
 ## Microsoft.Automation
 
 * automationAccounts
 
 ## Microsoft.AzureStack
 
+* edgeSubscriptions
+* linkedSubscriptions
 * registrations
 * registrations/customerSubscriptions
 * registrations/products
@@ -35,6 +36,7 @@ For some resource types, you need to contact support to have the 800 instance li
 * galleries/images/versions
 * images
 * snapshots
+* virtualMachineScaleSets - By default, limited to 800 instances. That limit can be increased by contacting support.
 * virtualMachines
 
 ## Microsoft.ContainerInstance
@@ -52,24 +54,29 @@ For some resource types, you need to contact support to have the 800 instance li
 * registries/tasks
 * registries/webhooks
 
+## Microsoft.D365CustomerInsights
+
+* instances
+
 ## Microsoft.DBforMariaDB
 
 * servers
 
 ## Microsoft.DBforMySQL
 
+* flexibleServers
 * servers
 
 ## Microsoft.DBforPostgreSQL
 
+* flexibleServers
 * serverGroups
 * servers
 * serversv2
-* singleServers
 
 ## Microsoft.DevTestLab
 
-* schedules - By default, limited to 800 instances. That limit can be increased by contacting support.
+* schedules
 
 ## Microsoft.EnterpriseKnowledgeGraph
 
@@ -101,6 +108,10 @@ For some resource types, you need to contact support to have the 800 instance li
 
 * integrationAccounts
 * workflows
+
+## Microsoft.Media
+
+* mediaservices/liveEvents
 
 ## Microsoft.NetApp
 

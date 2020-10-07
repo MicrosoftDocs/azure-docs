@@ -12,7 +12,7 @@ ms.workload: data-services
 
 
 ms.topic: conceptual
-ms.date: 09/04/2019
+ms.date: 06/10/2020
 ms.author: jingwang
 
 ---
@@ -35,8 +35,10 @@ You can copy data from Sybase database to any supported sink data store. For a l
 
 Specifically, this Sybase connector supports:
 
-- SAP Sybase SQL Anywhere (ASA) **version 16 and above**; IQ and ASE are not supported.
+- SAP Sybase SQL Anywhere (ASA) **version 16 and above**.
 - Copying data using **Basic** or **Windows** authentication.
+
+Sybase IQ and ASE are not supported. You can use generic ODBC connector with Sybase driver instead.
 
 ## Prerequisites
 

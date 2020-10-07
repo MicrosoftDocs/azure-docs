@@ -5,11 +5,12 @@ author: bandersmsft
 ms.reviewer: amberb
 tags: billing
 ms.service: cost-management-billing
+ms.subservice: billing
 ms.topic: conceptual
-ms.date: 05/08/2020
+ms.date: 08/20/2020
 ms.author: banders
-
 ---
+
 # Cancel your Azure subscription
 
 You can cancel your Azure subscription in the Azure portal if you no longer need the subscription.
@@ -20,17 +21,17 @@ Although not required, Microsoft *recommends* that you take the following action
 * Shut down your services. Go to the [resources page in the management portal](https://ms.portal.azure.com/?flight=1#blade/HubsExtension/Resources/resourceType/Microsoft.Resources%2Fresources), and **Stop** any running virtual machines, applications, or other services.
 * Consider migrating your data. See [Move resources to new resource group or subscription](../../azure-resource-manager/management/move-resource-group-and-subscription.md).
 * Delete all resources and all resource groups.
-* If you have any custom roles that reference this subscription in `AssignableScopes`, you should update those custom roles to remove the subscription. If you try to update a custom role after you cancel a subscription, you might get an error. For more information, see [Troubleshoot problems with custom roles](../../role-based-access-control/troubleshooting.md#problems-with-custom-roles) and [Custom roles for Azure resources](../../role-based-access-control/custom-roles.md).
+* If you have any custom roles that reference this subscription in `AssignableScopes`, you should update those custom roles to remove the subscription. If you try to update a custom role after you cancel a subscription, you might get an error. For more information, see [Troubleshoot problems with custom roles](../../role-based-access-control/troubleshooting.md#problems-with-custom-roles) and [Azure custom roles](../../role-based-access-control/custom-roles.md).
 
 If you cancel a paid Azure Support plan, you are billed for the rest of the subscription term. For more information, see [Azure support plans](https://azure.microsoft.com/support/plans/).
 
 ## Cancel subscription in the Azure portal
 
 1. Select your subscription from the [Subscriptions page in the Azure portal](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade).
-2. Select the subscription that you want to cancel.
-3. Select **Overview**, and then select **Cancel subscription**.
+1. Select the subscription that you want to cancel.
+1. Select **Overview**, and then select **Cancel subscription**.
     ![Screenshot that shows the Cancel button](./media/cancel-azure-subscription/cancel_ibiza.png)
-3. Follow prompts and finish cancellation.
+1. Follow prompts and finish cancellation.
 
 ## Who can cancel a subscription?
 
@@ -44,11 +45,20 @@ The table below describes the permission required to cancel a subscription.
 
 ## What happens after I cancel my subscription?
 
-After you cancel, billing is stopped immediately. However, it can take up to 10 minutes for the cancellation to show in the portal. If you cancel in the middle of a billing period, we send the final invoice on your typical invoice date after the period ends. 
+After you cancel, billing is stopped immediately. However, it can take up to 10 minutes for the cancellation to show in the portal. If you cancel in the middle of a billing period, we send the final invoice on your typical invoice date after the period ends.
 
 After you cancel, your services are disabled. That means your virtual machines are de-allocated, temporary IP addresses are freed, and storage is read-only.
 
-Microsoft waits 30 - 90 days before permanently deleting your data in case you need to access it or you change your mind. We don't charge you for retaining the data. To learn more, see [Microsoft Trust Center - How we manage your data](https://go.microsoft.com/fwLink/p/?LinkID=822930&clcid=0x409).
+After your subscription is canceled, Microsoft waits 30 - 90 days before permanently deleting your data in case you need to access it or you change your mind. We don't charge you for retaining the data. To learn more, see [Microsoft Trust Center - How we manage your data](https://go.microsoft.com/fwLink/p/?LinkID=822930&clcid=0x409).
+
+## Delete free trial subscription
+
+If you have a free trial subscription, you don't have to wait 30 days for the subscription to automatically delete. You can delete your subscription *three days* after you cancel it. The **Delete subscription** option isn't available until three days after you cancel your subscription.
+
+1. Wait three days after the date you canceled the subscription.
+1. Select your subscription on the [Subscriptions](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade) page in the Azure portal.
+1. Select the subscription that you want to delete.
+1. Select **Overview**, and then select **Delete subscription**.
 
 ## Reactivate subscription
 

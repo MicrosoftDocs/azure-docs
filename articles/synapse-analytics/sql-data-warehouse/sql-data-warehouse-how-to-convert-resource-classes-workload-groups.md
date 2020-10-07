@@ -1,13 +1,13 @@
 ---
 title: Convert resource class to a workload group 
-description: Learn how to create a workload group that is similar to a resource class in Azure SQL Data Warehouse.
+description: Learn how to create a workload group that is similar to a resource class in Azure Synapse Analytics.
 services: synapse-analytics
 author: ronortloff
 manager: craigg
 ms.service: synapse-analytics
-ms.subservice: 
+ms.subservice: sql-dw 
 ms.topic: conceptual
-ms.date: 04/14/2020
+ms.date: 08/13/2020
 ms.author: rortloff
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
@@ -33,19 +33,19 @@ SELECT Request_min_resource_grant_percent = Effective_request_min_resource_grant
 > [!NOTE]
 > Workload groups operate based on percentage of overall system resources.  
 
-Because workload groups operate based on percentage of overall system resources, as you scale up and down, the percentage of resources allocated to static resource classes relative to the overall system resources changes.  For example, staticrc40 at DW1000c allocates 9.6% of the overall system resources.  At DW2000c, 19.2% are allocated.  This model is similar if you wish to scale up for concurrency versus allocating more resources per request.
+Because workload groups operate based on percentage of overall system resources, as you scale up and down, the percentage of resources allocated to static resource classes relative to the overall system resources changes.  For example, staticrc40 at DW1000c allocates 19.2% of the overall system resources.  At DW2000c, 9.6% are allocated.  This model is similar if you wish to scale up for concurrency versus allocating more resources per request.
 
 ## Create Workload Group
 
 With the known `REQUEST_MIN_RESOURCE_GRANT_PERCENT`, you can use the CREATE WORKLOAD GROUP <link> syntax to create the workload group.  You can optionally specify a `MIN_PERCENTAGE_RESOURCE` that is greater than zero to isolate resources for the workload group.  Also, you can optionally specify `CAP_PERCENTAGE_RESOURCE` less than 100 to limit the amount of resources the workload group can consume.  
 
-The below example sets the `MIN_PERCENTAGE_RESOURCE` to dedicate 9.6% of the system resources to `wgDataLoads` and guarantees one query will be able to run all the times.  Additionally, `CAP_PERCENTAGE_RESOURCE` is set to 38.4% and limits this workload group to four concurrent requests.  By setting the `QUERY_EXECUTION_TIMEOUT_SEC` parameter to 3600, any query that runs for more than 1 hour will be automatically canceled.
+Using mediumrc as a basis for an example, the below code sets the `MIN_PERCENTAGE_RESOURCE` to dedicate 10% of the system resources to `wgDataLoads` and guarantees one query will be able to run all the times.  Additionally, `CAP_PERCENTAGE_RESOURCE` is set to 40% and limits this workload group to four concurrent requests.  By setting the `QUERY_EXECUTION_TIMEOUT_SEC` parameter to 3600, any query that runs for more than 1 hour will be automatically canceled.
 
 ```sql
 CREATE WORKLOAD GROUP wgDataLoads WITH  
-( REQUEST_MIN_RESOURCE_GRANT_PERCENT = 9.6
- ,MIN_PERCENTAGE_RESOURCE = 9.6
- ,CAP_PERCENTAGE_RESOURCE = 38.4
+( REQUEST_MIN_RESOURCE_GRANT_PERCENT = 10
+ ,MIN_PERCENTAGE_RESOURCE = 10
+ ,CAP_PERCENTAGE_RESOURCE = 40
  ,QUERY_EXECUTION_TIMEOUT_SEC = 3600)
 ```
 

@@ -1,13 +1,8 @@
 ---
 title: Event filtering for Azure Event Grid
 description: Describes how to filter events when creating an Azure Event Grid subscription.
-services: event-grid
-author: spelluru
-
-ms.service: event-grid
 ms.topic: conceptual
-ms.date: 04/28/2020
-ms.author: spelluru
+ms.date: 07/07/2020
 ---
 
 # Understand event filtering for Event Grid subscriptions
@@ -151,7 +146,7 @@ The values can be:
 
 Advanced filtering has the following limitations:
 
-* Five advanced filters per event grid subscription
+* 5 advanced filters and 25 filter values across all the filters per event grid subscription
 * 512 characters per string value
 * Five values for **in** and **not in** operators
 * Keys with **`.` (dot)** character in them. For example: `http://schemas.microsoft.com/claims/authnclassreference` or `john.doe@contoso.com`. Currently, there is no support for escape characters in keys. 

@@ -1,6 +1,6 @@
 ---
 title: Configure geo-filtering web application firewall policy for Azure Front Door service
-description: In this tutorial, you learn how to create a geo-filtering policy and associate the policy with your existing Front Door frontend host
+description: In this tutorial, you learn how to create a geo-filtering policy and associate the policy with your existing Front Door frontend host.
 services: web-application-firewall
 author: vhorne
 ms.service: web-application-firewall
@@ -22,7 +22,7 @@ Before you begin to set up a geo-filter policy, set up your PowerShell environme
 ### Set up your PowerShell environment
 Azure PowerShell provides a set of cmdlets that use the [Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) model for managing your Azure resources. 
 
-You can install [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview) on your local machine and use it in any PowerShell session. Follow the instructions on the page, to sign in with your Azure credentials, and install the Az PowerShell module.
+You can install [Azure PowerShell](https://docs.microsoft.com/powershell/azure/) on your local machine and use it in any PowerShell session. Follow the instructions on the page, to sign in with your Azure credentials, and install the Az PowerShell module.
 
 #### Connect to Azure with an interactive dialog for sign in
 
@@ -48,7 +48,7 @@ Create a Front Door profile by following the instructions described in [Quicksta
 ## Define geo-filtering match condition
 
 Create a sample match condition that selects requests not coming from "US" using [New-AzFrontDoorWafMatchConditionObject](/powershell/module/az.frontdoor/new-azfrontdoorwafmatchconditionobject) on parameters when creating a match condition. 
-Two letter country codes to country mapping are provided in [What is geo-filtering on a domain for Azure Front Door?](waf-front-door-geo-filtering.md).
+Two letter country/region codes to country/region mapping are provided in [What is geo-filtering on a domain for Azure Front Door?](waf-front-door-geo-filtering.md).
 
 ```azurepowershell-interactive
 $nonUSGeoMatchCondition = New-AzFrontDoorWafMatchConditionObject `

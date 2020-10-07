@@ -3,9 +3,10 @@ title: Analyze Azure costs with the Power BI App
 description: This article explains how to install and use the Azure Cost Management Power BI App.
 author: bandersmsft
 ms.author: banders
-ms.date: 04/15/2020
-ms.topic: conceptual
+ms.date: 07/24/2020
+ms.topic: how-to
 ms.service: cost-management-billing
+ms.subservice: cost-management
 ms.reviewer: benshy
 ---
 
@@ -13,9 +14,12 @@ ms.reviewer: benshy
 
 This article explains how to install and use the Azure Cost Management Power BI app. The app helps you analyze and manage your Azure costs in Power BI. You can use the app to monitor costs, usage trends, and identify cost optimization options to reduce your expenditures.
 
-You download the app into Power BI Desktop. You can use the app as-is, or you can modify it to extend the default filters, views, and visualizations to customize for your needs. Then, use it to join additional data to create customized reports to get holistic views of your overall business cost.
+You can use the app as-is, or you can modify it to extend the default filters, views, and visualizations to customize for your needs. Then, use it to join additional data to create customized reports to get holistic views of your overall business cost.
 
 The Azure Cost Management Power BI App currently supports only customers with an [Enterprise Agreement](https://azure.microsoft.com/pricing/enterprise-agreement/).
+
+> [!NOTE]
+> Power BI template apps don't support downloading the PBIX file.
 
 ## Prerequisites
 
@@ -38,7 +42,7 @@ To install the app:
 9. In the dialog that appears, enter your EA enrollment number for **BillingProfileIdOrEnrollmentNumber**. Specify the number of months of data to get. Leave the default **Scope** value of **Enrollment Number**, then select **Next**.  
   ![Enter EA enrollment information](./media/analyze-cost-data-azure-cost-management-power-bi-template-app/ea-number.png)  
 10. The next dialog connects to Azure and gets data required for reserved instance recommendations. *Leave the default values as configured* and select **Sign in**.  
-  ![Connect to Azure](./media/analyze-cost-data-azure-cost-management-power-bi-template-app/autofit.png)  
+  ![Screenshot shows the Connect to Azure Cost Management App dialog box with default values.](./media/analyze-cost-data-azure-cost-management-power-bi-template-app/autofit.png)  
 11. The final installation step connects to your EA enrollment and requires an [Enterprise Administrator](../manage/understand-ea-roles.md) account. Select **Sign in** to authenticate with your EA enrollment. This step also starts a data refresh action in Power BI.  
   ![Connect to EA enrollment](./media/analyze-cost-data-azure-cost-management-power-bi-template-app/ea-auth.png)  
     > [!NOTE]
@@ -123,6 +127,27 @@ For details about how to use the report, see the [VM RI Coverage (shared recomme
 
 If you're having issues with the Power BI app, the following troubleshooting information might help.
 
+### Error processing the data in the dataset
+
+You might get an error stating:
+
+```
+There was an error when processing the data in the dataset.
+Data source error: {"error":{"code":"ModelRefresh_ShortMessage_ProcessingError","pbi.error":{"code":"ModelRefresh_ShortMessage_ProcessingError","parameters":{},"details":[{"code":"Message","detail":{"type":1,"value":"We cannot convert the value \"Required Field: 'Enr...\" to type List."}}],"exceptionCulprit":1}}} Table: <TableName>.
+```
+
+A table name would appear instead of `<TableName>`.
+
+#### Cause
+
+The default **Scope** value of `Enrollment Number` was changed in the connection to Cost Management.
+
+#### Solution
+
+Reconnect to Cost Management and set the **Scope** value to `Enrollment Number`. Do not enter your organization's enrollment number, instead type `Enrollment Number` exactly as it appears in the following image.
+
+![Enter EA enrollment information](./media/analyze-cost-data-azure-cost-management-power-bi-template-app/ea-number.png)  
+
 ### BudgetAmount error
 
 You might get an error stating:
@@ -159,7 +184,7 @@ This error occurs if you change the authentication method for the AutoFitComboMe
 
 1. Connect to your data.
 1. After you enter your EA enrollment and number of months, make sure that you leave the default value of **Anonymous** for Authentication method and **None** for the Privacy level setting.  
-  ![Connect to Azure](./media/analyze-cost-data-azure-cost-management-power-bi-template-app/autofit-troubleshoot.png)  
+  ![Screenshot shows the Connect to Azure Cost Management App dialog box with Anonymous and None values entered.](./media/analyze-cost-data-azure-cost-management-power-bi-template-app/autofit-troubleshoot.png)  
 1. On the next page, set **OAuth2** for the Authentication method and **None** set for Privacy level. Then, sign in to authenticate with your enrollment. This step also starts a Power BI data refresh.
 
 

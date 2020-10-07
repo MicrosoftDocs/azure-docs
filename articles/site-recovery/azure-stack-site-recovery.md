@@ -30,7 +30,7 @@ With these steps complete, you can then run a full failover to Azure as and when
 
 ## Architecture
 
-![Architecture](./media/azure-stack-site-recovery/architecture.png)
+![Diagram shows Recovery Services vaults for two tenants in clouds associated with tenant subscriptions both on a common Azure Stack infrastructure.](./media/azure-stack-site-recovery/architecture.png)
 
 **Location** | **Component** |**Details**
 --- | --- | ---
@@ -158,13 +158,13 @@ Set up the configuration server machine, register it in the vault, and discover 
 1. Click **Prepare Infrastructure** > **Source**.
 2. In **Prepare source**, click **+Configuration server**.
 
-    ![Set up source](./media/azure-stack-site-recovery/plus-config-srv.png)
+    ![Screenshot of the +Configuration Server dialog with the message "Click on +Configuration Server in the command bar above to setup one…".](./media/azure-stack-site-recovery/plus-config-srv.png)
 
 3. In **Add Server**, check that **Configuration Server** appears in **Server type**.
 5. Download the Site Recovery Unified Setup installation file.
 6. Download the vault registration key. You need the registration key when you run Unified Setup. The key is valid for five days after you generate it.
 
-    ![Set up source](./media/azure-stack-site-recovery/set-source2.png)
+    ![Screenshot of the Add Server dialog with Server Type set to Configuration Server and the Download the vault registration key button highlighted.](./media/azure-stack-site-recovery/set-source2.png)
 
 
 ### Run Azure Site Recovery Unified Setup
@@ -256,7 +256,7 @@ Before you run a test failover, verify the machine properties, and make sure tha
 2. In the **Replicated item** pane, there's a summary of VM information, health status, and the latest available recovery points. Click **Properties** to view more details.
 3. In **Compute and Network**, modify settings as needed.
 
-    - You can modify the Azure VM name, resource group, target size, [availability set](/azure/virtual-machines/windows/tutorial-availability-sets), and managed disk settings.
+    - You can modify the Azure VM name, resource group, target size, [availability set](../virtual-machines/windows/tutorial-availability-sets.md), and managed disk settings.
     - You can also view and modify network settings. These include the network/subnet to which the Azure VM is joined after failover, and the IP address that will be assigned to the VM.
 1. In **Disks**, view information about the operating system and data disks on the VM.
 
@@ -309,26 +309,7 @@ Then run a failover as follows:
 
 ### Fail back to Azure Stack
 
-When your primary site is up and running again, you can fail back from Azure to Azure Stack. To do this, you need to download the Azure VM VHD, and upload it to Azure Stack.
-
-1. Shut down the Azure VM, so that the VHD can be downloaded.
-2. To start downloading the VHD, install [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/).
-3. Navigate to the VM in the Azure Portal (using the VM name).
-4. In **Disks**, click on the disk name, and gather settings.
-
-    - As an example, the VHD URI used in our test: `https://502055westcentralus.blob.core.windows.net/wahv9b8d2ceb284fb59287/copied-3676553984.vhd` can be broken down to get the following input parameters that are used to download the VHD.
-        - Storage Account: 502055westcentralus
-        - Container: wahv9b8d2ceb284fb59287
-        - VHD Name: copied-3676553984.vhd
-
-5. Now, use Azure Storage Explorer to download the VHD.
-6. Upload the VHD to Azure Stack with [these steps](/azure-stack/user/azure-stack-manage-vm-disks#use-powershell-to-add-multiple-disks-to-a-vm).
-7. In the existing VM or new VM, attach the uploaded VHDs.
-8. Check that the OS Disk is correct, and start the VM.
-
-
-At this stage failback is complete.
-
+When your primary site is up and running again, you can fail back from Azure to Azure Stack. To do this, follow the steps listed out [here](https://docs.microsoft.com/azure-stack/operator/site-recovery-failback?view=azs-2005).
 
 ## Conclusion
 

@@ -7,7 +7,7 @@ author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 07/12/2019
 
-ms.custom: mvc, seo-javascript-september2019, seo-javascript-october2019
+ms.custom: mvc, seo-javascript-september2019, seo-javascript-october2019, devx-track-js
 ---
 
 # Quickstart: Start monitoring your Node.js Web application with Azure Application Insights
@@ -32,7 +32,7 @@ Application Insights can gather telemetry data from any internet-connected appli
    ![Add an Azure Application Insights resource](./media/nodejs-quick-start/azure-app-insights-create-resource.png)
 
    > [!NOTE]
-   >If this is your first time creating an Application Insights resource you can learn more by visiting the [Create an Application Insights Resource](https://docs.microsoft.com/azure/azure-monitor/app/create-new-resource) doc.
+   >If this is your first time creating an Application Insights resource you can learn more by visiting the [Create an Application Insights Resource](../app/create-new-resource.md) doc.
 
    A configuration page appears; use the following table to fill out the input fields. 
 
@@ -56,7 +56,7 @@ Application Insights can gather telemetry data from any internet-connected appli
    npm install applicationinsights --save
    ```
 
-3. Edit your app's first *.js* file and add the two lines below to the topmost part of your script. If you're using the [Node.js quickstart app](https://docs.microsoft.com/azure/app-service/app-service-web-get-started-nodejs), you would modify the *index.js* file. Replace `<instrumentation_key>` with your application's instrumentation key. 
+3. Edit your app's first *.js* file and add the two lines below to the topmost part of your script. If you're using the [Node.js quickstart app](../../app-service/quickstart-nodejs.md), you would modify the *index.js* file. Replace `<instrumentation_key>` with your application's instrumentation key. 
 
    ```JavaScript
    const appInsights = require('applicationinsights');
@@ -108,11 +108,11 @@ Application Insights can gather telemetry data from any internet-connected appli
    </script>
    ```
 
-5. On the left, select **Metrics**. Use the metrics explorer to investigate the health and utilization of your resource. You can select **Add new chart** to create additional custom views or select **Edit** to modify the existing chart types, height, color palette, groupings, and metrics. For example, you can make a chart that displays the average browser page load time by selecting "Browser page load time" from the metrics drop down and "Avg" from aggregation. To learn more about Azure Metrics Explorer, visit [Getting started with Azure Metrics Explorer](../../azure-monitor/platform/metrics-getting-started.md).
+5. On the left, select **Metrics**. Use the metrics explorer to investigate the health and utilization of your resource. You can select **Add new chart** to create additional custom views or select **Edit** to modify the existing chart types, height, color palette, groupings, and metrics. For example, you can make a chart that displays the average browser page load time by selecting "Browser page load time" from the metrics drop down and "Avg" from aggregation. To learn more about Azure Metrics Explorer, visit [Getting started with Azure Metrics Explorer](../platform/metrics-getting-started.md).
 
    ![Application Insights Server metrics graph](./media/nodejs-quick-start/azure-app-insights-server-metrics.png)
 
-To learn more about monitoring Node.js, check out the [additional AppInsights Node.js documentation](../../azure-monitor/app/nodejs.md).
+To learn more about monitoring Node.js, check out the [additional AppInsights Node.js documentation](../app/nodejs.md).
 
 ## Clean up resources
 
@@ -127,4 +127,5 @@ When you're done testing, you can delete the resource group and all related reso
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Find and diagnose performance problems](https://docs.microsoft.com/azure/application-insights/app-insights-analytics)
+> [Find and diagnose performance problems](../log-query/log-query-overview.md)
+

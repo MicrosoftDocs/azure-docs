@@ -1,9 +1,9 @@
 ---
 title: Azure Monitor for containers region mappings
-description: This article describes the region mappings supported between Azure Monitor for containers, Log Analytics Workspace, and custom metrics.
+description: Describes the region mappings supported between Azure Monitor for containers, Log Analytics Workspace, and custom metrics.
 ms.topic: conceptual
-ms.date: 06/26/2019
-
+ms.date: 09/22/2020
+ms.custom: references_regions
 ---
 
 # Region mappings supported by Azure Monitor for containers
@@ -12,7 +12,8 @@ ms.date: 06/26/2019
 
 ## Log Analytics workspace supported mappings
 
-The AKS cluster resources or Log Analytics workspace can reside in other regions, and the following table shows our mappings.
+Supported AKS regions are listed in [Products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=kubernetes-service). The Log Analytics workspace must be in the same region except for the regions listed in the following table. Watch [AKS release notes](https://github.com/Azure/AKS/releases) for updates.
+
 
 |**AKS Cluster region** | **Log Analytics Workspace region** |
 |-----------------------|------------------------------------|
@@ -20,43 +21,24 @@ The AKS cluster resources or Log Analytics workspace can reside in other regions
 |SouthAfricaNorth |WestEurope |
 |SouthAfricaWest |WestEurope |
 |**Australia** | |
-|AustraliaEast |AustraliaEast |
-|AustraliaCentral |AustraliaCentral |
 |AustraliaCentral2 |AustraliaCentral |
-|AustraliaEast |AustraliaEast |
-|**Asia Pacific** | |
-|EastAsia |EastAsia |
-|SoutheastAsia |SoutheastAsia |
 |**Brazil** | |
 |BrazilSouth | SouthCentralUS |
 |**Canada** ||
-|CanadaCentral |CanadaCentral |
 |CanadaEast |CanadaCentral |
 |**Europe** | |
-|FranceCentral |FranceCentral |
 |FranceSouth |FranceCentral |
-|NorthEurope |NorthEurope |
-|UKSouth |UKSouth |
 |UKWest |UKSouth |
-|WestEurope |WestEurope |
 |**India** | |
-|CentralIndia |CentralIndia |
 |SouthIndia |CentralIndia |
 |WestIndia |CentralIndia |
 |**Japan** | |
-|JapanEast |JapanEast |
 |JapanWest |JapanEast |
 |**Korea** | |
-|KoreaCentral |KoreaCentral |
 |KoreaSouth |KoreaCentral |
 |**US** | |
-|CentralUS |CentralUS|
-|EastUS |EastUS |
-|EastUS2 |EastUS2 |
-|WestUS |WestUS |
-|WestUS2 |WestUS2 |
 |WestCentralUS<sup>1</sup>|EastUS<sup>1</sup>|
-|US Gov Virginia |US Gov Virginia |
+
 
 <sup>1</sup> Due to capacity restraints, the region isn't available when creating new resources. This includes a Log Analytics workspace. However, preexisting linked resources in the region should continue to work.
 

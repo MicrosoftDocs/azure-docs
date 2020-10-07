@@ -2,7 +2,8 @@
 title: Template resource location
 description: Describes how to set resource location in an Azure Resource Manager template.
 ms.topic: conceptual
-ms.date: 09/04/2019
+ms.date: 09/04/2019 
+ms.custom:
 ---
 
 # Set resource location in ARM template
@@ -39,7 +40,7 @@ The following example shows a storage account that is deployed to a location spe
 
 ```json
 {
-  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
   "contentVersion": "1.0.0.0",
   "parameters": {
     "storageAccountType": {

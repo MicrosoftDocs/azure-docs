@@ -1,9 +1,8 @@
 ---
 title: Choose VM sizes for pools
 description: How to choose from the available VM sizes for compute nodes in Azure Batch pools
-ms.topic: article
-ms.date: 09/12/2019
-ms.author: labrenne
+ms.topic: conceptual
+ms.date: 09/22/2020
 ms.custom: seodec18
 
 ---
@@ -32,9 +31,13 @@ Batch pools in the Virtual Machine configuration support almost all VM sizes ([L
 | DC | None |
 | Dv2, DSv2 | All sizes |
 | Dv3, Dsv3 | All sizes |
-| Dav4, Dasv4 | None - not yet available |
-| Ev3, Esv3 | All sizes, except for E64is_v3 and E64i_v3 |
-| Eav4, Easv4 | None - not yet available |
+| Dav4<sup>1</sup> | All sizes |
+| Dasv4<sup>1</sup> | All sizes |
+| Ddv4, Ddsv4 |  All sizes |
+| Ev3, Esv3 | All sizes, except for E64is_v3 |
+| Eav4<sup>1</sup> | All sizes |
+| Easv4<sup>1</sup> | All sizes |
+| Edv4, Edsv4 |  All sizes |
 | F, Fs | All sizes |
 | Fsv2 | All sizes |
 | G, Gs | All sizes |
@@ -43,9 +46,9 @@ Batch pools in the Virtual Machine configuration support almost all VM sizes ([L
 | HBv2<sup>1</sup> | All sizes |
 | HC<sup>1</sup> | All sizes |
 | Ls | All sizes |
-| Lsv2 | None - not yet available |
-| M<sup>1</sup> | All sizes, except for M64, M64m, M128, M128m |
-| Mv2 | None - not yet available |
+| Lsv2<sup>1</sup> | All sizes |
+| M<sup>1</sup> | All sizes |
+| Mv2<sup>1,2</sup> | All sizes |
 | NC | All sizes |
 | NCv2<sup>1</sup> | All sizes |
 | NCv3<sup>1</sup> | All sizes |
@@ -53,10 +56,15 @@ Batch pools in the Virtual Machine configuration support almost all VM sizes ([L
 | NDv2<sup>1</sup> | None - not yet available |
 | NV | All sizes |
 | NVv3<sup>1</sup> | All sizes |
-| NVv4 | None |
+| NVv4 | None - not yet available |
 | SAP HANA | None |
 
-<sup>1</sup> These VM sizes can be allocated in Batch pools in Virtual Machine configuration, but you must create a new Batch account and request a specific [quota increase](batch-quota-limit.md#increase-a-quota). This limitation will be removed once vCPU quota per VM series is fully supported for Batch accounts.
+<sup>1</sup> These VM series can be allocated in Batch pools in Virtual Machine configuration, but you must create a new Batch account and request a specific [quota increase](batch-quota-limit.md#increase-a-quota). This limitation will be removed once vCPU quota per VM series is fully supported for Batch accounts.
+
+<sup>2</sup> These VM series can only be used with generation 2 VM Images.
+
+### Using Generation 2 VM Images
+Some VM series, such as [Mv2](../virtual-machines/mv2-series.md), can only be used with [generation 2 VM images](../virtual-machines/generation-2.md). Generation 2 VM images are specified like any VM image, using the 'sku' property of the ['imageReference'](/rest/api/batchservice/pool/add#imagereference) configuration; the 'sku' strings have a suffix such as "-g2" or "-gen2". To get a list of VM images supported by Batch, including generation 2 images, use the ['list supported images'](/rest/api/batchservice/account/listsupportedimages) API, [PowerShell](/powershell/module/az.batch/get-azbatchsupportedimage), or [Azure CLI](/cli/azure/batch/pool/supported-images).
 
 ### Pools in Cloud Service configuration
 
@@ -69,7 +77,7 @@ Batch pools in the Cloud Service configuration support all [VM sizes for Cloud S
 
 ## Size considerations
 
-* **Application requirements** - Consider the characteristics and requirements of the application you'll run on the nodes. Aspects like whether the application is multithreaded and how much memory it consumes can help determine the most suitable and cost-effective node size. For multi-instance [MPI workloads](batch-mpi.md) or CUDA applications, consider specialized [HPC](../virtual-machines/linux/sizes-hpc.md) or [GPU-enabled](../virtual-machines/linux/sizes-gpu.md) VM sizes, respectively. (See [Use RDMA-capable or GPU-enabled instances in Batch pools](batch-pool-compute-intensive-sizes.md).)
+* **Application requirements** - Consider the characteristics and requirements of the application you'll run on the nodes. Aspects like whether the application is multithreaded and how much memory it consumes can help determine the most suitable and cost-effective node size. For multi-instance [MPI workloads](batch-mpi.md) or CUDA applications, consider specialized [HPC](../virtual-machines/sizes-hpc.md) or [GPU-enabled](../virtual-machines/sizes-gpu.md) VM sizes, respectively. (See [Use RDMA-capable or GPU-enabled instances in Batch pools](batch-pool-compute-intensive-sizes.md).)
 
 * **Tasks per node** - It's typical to select a node size assuming one task runs on a node at a time. However, it might be advantageous to have multiple tasks (and therefore multiple application instances) [run in parallel](batch-parallel-node-tasks.md) on compute nodes during job execution. In this case, it is common to choose a multicore node size to accommodate the increased demand of parallel task execution.
 
@@ -83,5 +91,5 @@ Batch pools in the Cloud Service configuration support all [VM sizes for Cloud S
 
 ## Next steps
 
-* For an in-depth overview of Batch, see [Develop large-scale parallel compute solutions with Batch](batch-api-basics.md).
+* Learn about the [Batch service workflow and primary resources](batch-service-workflow-features.md) such as pools, nodes, jobs, and tasks.
 * For information about using compute-intensive VM sizes, see [Use RDMA-capable or GPU-enabled instances in Batch pools](batch-pool-compute-intensive-sizes.md).

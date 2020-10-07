@@ -3,7 +3,7 @@ title: Monitor Java applications anywhere - Azure Monitor Application Insights
 description: Codeless application performance monitoring for Java applications running in any environment without instrumenting the app. Find the root cause of the issues d using distributed tracing and application map.
 ms.topic: conceptual
 ms.date: 04/16/2020
-
+ms.custom: devx-track-java
 ---
 
 # Configuration options - Java standalone agent for Azure Monitor Application Insights
@@ -29,14 +29,14 @@ You will find more details and additional configuration options below for more d
 
 ## Configuration file path
 
-By default, Application Insights Java 3.0 Preview expects the configuration file to be named `ApplicationInsights.json`, and to be located in the same directory as `applicationinsights-agent-3.0.0-PREVIEW.4.jar`.
+By default, Application Insights Java 3.0 Preview expects the configuration file to be named `ApplicationInsights.json`, and to be located in the same directory as `applicationinsights-agent-3.0.0-PREVIEW.5.jar`.
 
 You can specify your own configuration file path using either
 
 * `APPLICATIONINSIGHTS_CONFIGURATION_FILE` environment variable, or
 * `applicationinsights.configurationFile` Java system property
 
-If you specify a relative path, it will be resolved relative to the directory where `applicationinsights-agent-3.0.0-PREVIEW.4.jar` is located.
+If you specify a relative path, it will be resolved relative to the directory where `applicationinsights-agent-3.0.0-PREVIEW.5.jar` is located.
 
 ## Connection string
 
@@ -44,7 +44,18 @@ This is required. You can find your connection string in your Application Insigh
 
 :::image type="content" source="media/java-ipa/connection-string.png" alt-text="Application Insights Connection String":::
 
+
+```json
+{
+  "instrumentationSettings": {
+    "connectionString": "InstrumentationKey=00000000-0000-0000-0000-000000000000"
+  }
+}
+```
+
 You can also set the connection string using the environment variable `APPLICATIONINSIGHTS_CONNECTION_STRING`.
+
+Not setting the connection string will disable the Java agent.
 
 ## Cloud role name
 
@@ -88,7 +99,7 @@ You can also set the cloud role instance using the environment variable `APPLICA
 
 Application Insights Java 3.0 Preview automatically captures application logging via Log4j, Logback, and java.util.logging.
 
-By default it will capture all logging performed at `WARN` level or above.
+By default it will capture all logging performed at `INFO` level or above.
 
 If you want to change this threshold:
 
@@ -98,7 +109,7 @@ If you want to change this threshold:
     "preview": {
       "instrumentation": {
         "logging": {
-          "threshold": "ERROR"
+          "threshold": "WARN"
         }
       }
     }
@@ -106,20 +117,22 @@ If you want to change this threshold:
 }
 ```
 
+You can also set the logging threshold using the environment variable `APPLICATIONINSIGHTS_LOGGING_THRESHOLD`.
+
 These are the valid `threshold` values that you can specify in the `ApplicationInsights.json` file, and how they correspond to logging levels across different logging frameworks:
 
-| `threshold`  | Log4j  | Logback | JUL     |
-|--------------|--------|---------|---------|
-| OFF          | OFF    | OFF     | OFF     |
-| FATAL        | FATAL  | ERROR   | SEVERE  |
-| ERROR/SEVERE | ERROR  | ERROR   | SEVERE  |
-| WARN/WARNING | WARN   | WARN    | WARNING |
-| INFO         | INFO   | INFO    | INFO    |
-| CONFIG       | DEBUG  | DEBUG   | CONFIG  |
-| DEBUG/FINE   | DEBUG  | DEBUG   | FINE    |
-| FINER        | DEBUG  | DEBUG   | FINER   |
-| TRACE/FINEST | TRACE  | TRACE   | FINEST  |
-| ALL          | ALL    | ALL     | ALL     |
+| threshold value   | Log4j  | Logback | JUL     |
+|-------------------|--------|---------|---------|
+| OFF               | OFF    | OFF     | OFF     |
+| FATAL             | FATAL  | ERROR   | SEVERE  |
+| ERROR (or SEVERE) | ERROR  | ERROR   | SEVERE  |
+| WARN (or WARNING) | WARN   | WARN    | WARNING |
+| INFO              | INFO   | INFO    | INFO    |
+| CONFIG            | DEBUG  | DEBUG   | CONFIG  |
+| DEBUG (or FINE)   | DEBUG  | DEBUG   | FINE    |
+| FINER             | DEBUG  | DEBUG   | FINER   |
+| TRACE (or FINEST) | TRACE  | TRACE   | FINEST  |
+| ALL               | ALL    | ALL     | ALL     |
 
 ## JMX metrics
 
@@ -129,22 +142,27 @@ If you have some JMX metrics that you are interested in capturing:
 {
   "instrumentationSettings": {
     "preview": {
-        "jmxMetrics": [
+      "jmxMetrics": [
         {
-          "objectName": "java.lang:type=ClassLoading",
-          "attribute": "LoadedClassCount",
-          "display": "Loaded Class Count"
+          "objectName": "java.lang:type=Runtime",
+          "attribute": "Uptime",
+          "display": "JVM uptime (millis)"
         },
         {
-          "objectName": "java.lang:type=MemoryPool,name=Code Cache",
+          "objectName": "java.lang:type=MemoryPool,name=Metaspace",
           "attribute": "Usage.used",
-          "display": "Code Cache Used"
+          "display": "MetaSpace Used"
         }
       ]
     }
   }
 }
 ```
+
+You can also set the JMX metrics using the environment variable `APPLICATIONINSIGHTS_JMX_METRICS`.
+
+This environment variable content must be json data matching the above structure, e.g.
+`[{"objectName": "java.lang:type=Runtime", "attribute": "Uptime", "display": "JVM uptime (millis)"}, {"objectName": "java.lang:type=MemoryPool,name=Metaspace", "attribute": "Usage.used", "display": "MetaSpace Used"}]`
 
 ## Micrometer (including metrics from Spring Boot Actuator)
 
@@ -176,9 +194,9 @@ By default, Application Insights Java 3.0 Preview sends a heartbeat metric once 
 {
   "instrumentationSettings": {
     "preview": {
-        "heartbeat": {
-            "intervalSeconds": 60
-        }
+      "heartbeat": {
+        "intervalSeconds": 60
+      }
     }
   }
 }
@@ -200,19 +218,21 @@ Here is an example how to set the sampling to **10% of all transactions** - plea
 {
   "instrumentationSettings": {
     "preview": {
-        "sampling": {
-            "fixedRate": {
-                "percentage": 10
-            }
-          }
+      "sampling": {
+        "fixedRate": {
+          "percentage": 10
         }
+      }
     }
+  }
 }
 ```
 
+You can also set the sampling percentage using the environment variable `APPLICATIONINSIGHTS_SAMPLING_PERCENTAGE`.
+
 ## HTTP Proxy
 
-If your application is behind a firewall and cannot connect directly to Application Insights (see [IP addresses used by Application Insights](https://docs.microsoft.com/azure/azure-monitor/app/ip-addresses)), you can configure Application Insights Java 3.0 Preview to use an HTTP proxy:
+If your application is behind a firewall and cannot connect directly to Application Insights (see [IP addresses used by Application Insights](./ip-addresses.md)), you can configure Application Insights Java 3.0 Preview to use an HTTP proxy:
 
 ```json
 {
@@ -239,10 +259,10 @@ By default, it logs to console with level `warn`, corresponding to this configur
 {
   "instrumentationSettings": {
     "preview": {
-        "selfDiagnostics": {
-            "destination": "console",
-            "level": "WARN"
-        }
+      "selfDiagnostics": {
+        "destination": "console",
+        "level": "WARN"
+      }
     }
   }
 }
@@ -256,12 +276,12 @@ If you want to log to a file instead of logging to console:
 {
   "instrumentationSettings": {
     "preview": {
-        "selfDiagnostics": {
-            "destination": "file",
-            "directory": "/var/log/applicationinsights",
-            "level": "WARN",
-            "maxSizeMB": 10
-        }    
+      "selfDiagnostics": {
+        "destination": "file",
+        "directory": "/var/log/applicationinsights",
+        "level": "WARN",
+        "maxSizeMB": 10
+      }
     }
   }
 }

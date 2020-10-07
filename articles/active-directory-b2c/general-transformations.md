@@ -31,7 +31,7 @@ Copy value of a claim to another. Both claims must be from the same type.
 
 Use this claims transformation to copy a value from a string or numeric claim, to another claim. The following example copies the externalEmail claim value to email claim.
 
-```XML
+```xml
 <ClaimsTransformation Id="CopyEmailAddress" TransformationMethod="CopyClaim">
   <InputClaims>
     <InputClaim ClaimTypeReferenceId="externalEmail" TransformationClaimType="inputClaim"/>
@@ -60,7 +60,7 @@ Checks if the **inputClaim** exists or not and sets **outputClaim** to true or f
 
 Use this claims transformation to check if a claim exists or contains any value. The return value is a boolean that indicates whether the claim exists. Following example checks if the email address exists.
 
-```XML
+```xml
 <ClaimsTransformation Id="CheckIfEmailPresent" TransformationMethod="DoesClaimExist">
   <InputClaims>
     <InputClaim ClaimTypeReferenceId="email" TransformationClaimType="inputClaim" />
@@ -89,7 +89,7 @@ Hash the provided plain text using the salt and a secret. The hashing algorithm 
 | InputParameter | randomizerSecret | string | Points to an existing Azure AD B2C **policy key**. To create a new policy key: In your Azure AD B2C tenant, under **Manage**, select **Identity Experience Framework**. Select **Policy keys** to view the keys that are available in your tenant. Select **Add**. For **Options**, select **Manual**. Provide a name (the prefix *B2C_1A_* might be added automatically.). In the **Secret** text box, enter any secret you want to use, such as 1234567890. For **Key usage**, select **Signature**. Select **Create**. |
 | OutputClaim | hash | string | The ClaimType that is produced after this claims transformation has been invoked. The claim configured in the `plaintext` inputClaim. |
 
-```XML
+```xml
 <ClaimsTransformation Id="HashPasswordWithEmail" TransformationMethod="Hash">
   <InputClaims>
     <InputClaim ClaimTypeReferenceId="password" TransformationClaimType="plaintext" />

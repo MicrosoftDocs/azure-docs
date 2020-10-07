@@ -1,8 +1,8 @@
 ---
 title: Permissions to repositories in Azure Container Registry
-description: Create a token with permissions scoped to specific repositories in a registry to pull or push images, or perform other actions
+description: Create a token with permissions scoped to specific repositories in a Premium registry to pull or push images, or perform other actions
 ms.topic: article
-ms.date: 02/13/2020
+ms.date: 05/27/2020
 ---
 
 # Create a token with repository-scoped permissions
@@ -15,12 +15,13 @@ Scenarios for creating a token include:
 * Provide an external organization with permissions to a specific repository 
 * Limit repository access to different user groups in your organization. For example, provide write and read access to developers who build images that target specific repositories, and read access to teams that deploy from those repositories.
 
+This feature is available in the **Premium** container registry service tier. For information about registry service tiers and limits, see [Azure Container Registry service tiers](container-registry-skus.md).
+
 > [!IMPORTANT]
 > This feature is currently in preview, and some [limitations apply](#preview-limitations). Previews are made available to you on the condition that you agree to the [supplemental terms of use][terms-of-use]. Some aspects of this feature may change prior to general availability (GA).
 
 ## Preview limitations
 
-* This feature is only available in a **Premium** container registry. For information about registry service tiers and limits, see [Azure Container Registry SKUs](container-registry-skus.md).
 * You can't currently assign repository-scoped permissions to an Azure Active Directory identity, such as a service principal or managed identity.
 * You can't create a scope map in a registry enabled for [anonymous pull access](container-registry-faq.md#how-do-i-enable-anonymous-pull-access).
 
@@ -47,7 +48,7 @@ To configure repository-scoped permissions, you create a *token* with an associa
     * Configure multiple tokens with identical permissions to a set of repositories
     * Update token permissions when you add or remove repository actions in the scope map, or apply a different scope map 
 
-  Azure Container Registry also provides several system-defined scope maps you can apply, with fixed permissions across all repositories.
+  Azure Container Registry also provides several system-defined scope maps you can apply when creating tokens. The permissions of system-defined scope maps apply to all repositories in your registry.
 
 The following image shows the relationship between tokens and scope maps. 
 
@@ -63,7 +64,7 @@ The following image shows the relationship between tokens and scope maps.
 
 ### Create token and specify repositories
 
-Create a token using the [az acr token create][az-acr-token-create] command. When creating a token, you can specify one or more repositories and associated actions on each repository. The repositories don't need to be in the registry yet. To create a token by specifying an existing scope map, see the next section.
+Create a token using the [az acr token create][az-acr-token-create] command. When creating a token, you can specify one or more repositories and associated actions on each repository. The repositories don't need to be in the registry yet. To create a token by specifying an existing scope map, see the [next section](#create-token-and-specify-scope-map).
 
 The following example creates a token in the registry *myregistry* with the following permissions on the `samples/hello-world` repo: `content/write` and `content/read`. By default, the command sets the default token status to `enabled`, but you can update the status to `disabled` at any time.
 
@@ -73,7 +74,7 @@ az acr token create --name MyToken --registry myregistry \
   content/write content/read
 ```
 
-The output shows details about the token, including two generated passwords. It's recommended to save the passwords in a safe place to use later for authentication. The passwords can't be retrieved again, but new ones can be generated.
+The output shows details about the token. By default, two passwords are generated. It's recommended to save the passwords in a safe place to use later for authentication. The passwords can't be retrieved again, but new ones can be generated.
 
 ```console
 {
@@ -106,6 +107,9 @@ The output shows details about the token, including two generated passwords. It'
   "type": "Microsoft.ContainerRegistry/registries/tokens"
 ```
 
+> [!NOTE]
+> If you want to regenerate token passwords and set password expiration periods, see [Regenerate token passwords](#regenerate-token-passwords) later in this article.
+
 The output includes details about the scope map the command created. You can use the scope map, here named `MyToken-scope-map`, to apply the same repository actions to other tokens. Or, update the scope map later to change the permissions of the associated tokens.
 
 ### Create token and specify scope map
@@ -129,7 +133,10 @@ az acr token create --name MyToken \
   --scope-map MyScopeMap
 ```
 
-The output shows details about the token, including two generated passwords. It's recommended to save the passwords in a safe place to use later for authentication. The passwords can't be retrieved again, but new ones can be generated.
+The output shows details about the token. By default, two passwords are generated. It's recommended to save the passwords in a safe place to use later for authentication. The passwords can't be retrieved again, but new ones can be generated.
+
+> [!NOTE]
+> If you want to regenerate token passwords and set password expiration periods, see [Regenerate token passwords](#regenerate-token-passwords) later in this article.
 
 ## Create token - portal
 
@@ -138,14 +145,16 @@ You can use the Azure portal to create tokens and scope maps. As with the `az ac
 The following example creates a token, and creates a scope map with the following permissions on the `samples/hello-world` repository: `content/write` and `content/read`.
 
 1. In the portal, navigate to your container registry.
-1. Under **Services**, select **Tokens (Preview) > +Add**.
-  ![Create token in portal](media/container-registry-repository-scoped-permissions/portal-token-add.png)
+1. Under **Repository permissions**, select **Tokens (Preview) > +Add**.
+
+      :::image type="content" source="media/container-registry-repository-scoped-permissions/portal-token-add.png" alt-text="Create token in portal":::
 1. Enter a token name.
 1. Under **Scope map**, select **Create new**.
 1. Configure the scope map:
     1. Enter a name and description for the scope map. 
     1. Under **Repositories**, enter `samples/hello-world`, and under **Permissions**, select  `content/read` and `content/write`. Then select **+Add**.  
-    ![Create scope map in portal](media/container-registry-repository-scoped-permissions/portal-scope-map-add.png)
+
+        :::image type="content" source="media/container-registry-repository-scoped-permissions/portal-scope-map-add.png" alt-text="Create scope map in portal":::
 
     1. After adding repositories and permissions, select **Add** to add the scope map.
 1. Accept the default token **Status** of **Enabled** and then select **Create**.
@@ -154,26 +163,26 @@ After the token is validated and created, token details appear in the **Tokens**
 
 ### Add token password
 
-Generate a password after you create a token. To authenticate with the registry, the token must be enabled and have a valid password.
-
-You can generate one or two passwords, and set an expiration date for each one. 
+To use a token created in the portal, you must generate a password. You can generate one or two passwords, and set an expiration date for each one. 
 
 1. In the portal, navigate to your container registry.
-1. Under **Services**, select **Tokens (Preview)**, and select a token.
+1. Under **Repository permissions**, select **Tokens (Preview)**, and select a token.
 1. In the token details, select **password1** or **password2**, and select the Generate icon.
-1. In the password screen, optionally set an expiration date for the password, and select **Generate**.
+1. In the password screen, optionally set an expiration date for the password, and select **Generate**. It's recommended to set an expiration date.
 1. After generating a password, copy and save it to a safe location. You can't retrieve a generated password after closing the screen, but you can generate a new one.
 
-    ![Create token password in portal](media/container-registry-repository-scoped-permissions/portal-token-password.png)
+    :::image type="content" source="media/container-registry-repository-scoped-permissions/portal-token-password.png" alt-text="Create token password in portal":::
 
 ## Authenticate with token
 
-When a user or service uses a token to authenticate with the target registry, it provides the token name as a user name and one of its generated passwords. The authentication method depends on the configured action or actions associated with the token.
+When a user or service uses a token to authenticate with the target registry, it provides the token name as a user name and one of its generated passwords. 
+
+The authentication method depends on the configured action or actions associated with the token.
 
 |Action  |How to authenticate  |
   |---------|---------|
-  |`content/delete`    | `az acr repository delete` in Azure CLI |
-  |`content/read`     |  `docker login`<br/><br/>`az acr login` in Azure CLI  |
+  |`content/delete`    | `az acr repository delete` in Azure CLI<br/><br/>Example: `az acr repository delete --name myregistry --repository myrepo --username MyToken --password xxxxxxxxxx`|
+  |`content/read`     |  `docker login`<br/><br/>`az acr login` in Azure CLI<br/><br/>Example: `az acr login --name myregistry --username MyToken --password xxxxxxxxxx`  |
   |`content/write`     |  `docker login`<br/><br/>`az acr login` in Azure CLI     |
   |`metadata/read`    | `az acr repository show`<br/><br/>`az acr repository show-tags`<br/><br/>`az acr repository show-manifests` in Azure CLI   |
   |`metadata/write`     |  `az acr repository untag`<br/><br/>`az acr repository update` in Azure CLI |
@@ -195,7 +204,7 @@ docker tag hello-world myregistry.azurecr.io/samples/alpine:v1
 
 ### Authenticate using token
 
-Run `docker login` to authenticate with the registry, Provide the token name as the user name, and provide one of its passwords. The token must have the `Enabled` status.
+Run `docker login` or `az acr login` to authenticate with the registry to push or pull images. Provide the token name as the user name, and provide one of its passwords. The token must have the `Enabled` status.
 
 The following example is formatted for the bash shell, and provides the values using environment variables.
 
@@ -226,7 +235,7 @@ The token doesn't have permissions to the `samples/alpine` repo, so the followin
 docker push myregistry.azurecr.io/samples/alpine:v1
 ```
 
-### Change push/pull permissions
+### Update token permissions
 
 To update the permissions of a token, update the permissions in the associated scope map. The updated scope map is applied immediately to all associated tokens. 
 
@@ -245,7 +254,7 @@ az acr scope-map update \
 In the Azure portal:
 
 1. Navigate to your container registry.
-1. Under **Services**, select **Scope maps (Preview)**, and select the scope map to update.
+1. Under **Repository permissions**, select **Scope maps (Preview)**, and select the scope map to update.
 1. Under **Repositories**, enter `samples/alpine`, and under **Permissions**, select `content/read` and `content/write`. Then select **+Add**.
 1. Under **Repositories**, select `samples/hello-world` and under **Permissions**, deselect `content/write`. Then select **Save**.
 
@@ -280,9 +289,9 @@ az acr scope-map update \
   --add samples/alpine content/delete
 ``` 
 
-To update the scope map using the portal, see the preceding section.
+To update the scope map using the portal, see the [previous section](#update-token-permissions).
 
-Use the following [az acr repository delete][az-acr-repository-delete] command to delete the `samples/alpine` repository. To delete images or repositories, the token doesn't authenticate through `docker login`. Instead, pass the token's name and password to the command. The following example uses the environment variables created earlier in the article:
+Use the following [az acr repository delete][az-acr-repository-delete] command to delete the `samples/alpine` repository. To delete images or repositories, pass the token's name and password to the command. The following example uses the environment variables created earlier in the article:
 
 ```azurecli
 az acr repository delete \
@@ -303,11 +312,11 @@ az acr scope-map update \
   --add samples/hello-world metadata/read 
 ```  
 
-To update the scope map using the portal, see the preceding section.
+To update the scope map using the portal, see the [previous section](#update-token-permissions).
 
 To read metadata in the `samples/hello-world` repository, run the [az acr repository show-manifests][az-acr-repository-show-manifests] or [az acr repository show-tags][az-acr-repository-show-tags] command. 
 
-To read metadata, the token doesn't authenticate through `docker login`. Instead, pass the token's name and password to either command. The following example uses the environment variables created earlier in the article:
+To read metadata, pass the token's name and password to either command. The following example uses the environment variables created earlier in the article:
 
 ```azurecli
 az acr repository show-tags \
@@ -322,6 +331,7 @@ Sample output:
   "v1"
 ]
 ```
+
 ## Manage tokens and scope maps
 
 ### List scope maps
@@ -333,7 +343,7 @@ az acr scope-map list \
   --registry myregistry --output table
 ```
 
-The output shows the scope maps you defined and several system-defined scope maps you can use to configure tokens:
+The output consists of the three system-defined scope maps and other scope maps generated by you. Tokens can be configured with any of these scope maps.
 
 ```
 NAME                 TYPE           CREATION DATE         DESCRIPTION
@@ -359,9 +369,9 @@ Use the [az acr token list][az-acr-token-list] command, or the **Tokens (Preview
 az acr token list --registry myregistry --output table
 ```
 
-### Generate passwords for token
+### Regenerate token passwords
 
-If you don't have a token password, or you want to generate new passwords, run the [az acr token credential generate][az-acr-token-credential-generate] command. 
+If you didn't generate a token password, or you want to generate new passwords, run the [az acr token credential generate][az-acr-token-credential-generate] command. 
 
 The following example generates a new value for password1 for the *MyToken* token, with an expiration period of 30 days. It stores the password in the environment variable `TOKEN_PWD`. This example is formatted for the bash shell.
 

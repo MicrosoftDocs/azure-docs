@@ -63,7 +63,7 @@ You can declare the parent-child relationship when creating a new device. Or for
 
 #### Option 2: Use the `az` command-line tool
 
-Using the [Azure command-line interface](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest) with [IoT extension](https://github.com/azure/azure-iot-cli-extension) (v0.7.0 or newer), you can manage parent child relationships with the [device-identity](https://docs.microsoft.com/cli/azure/ext/azure-cli-iot-ext/iot/hub/device-identity?view=azure-cli-latest) subcommands. The example below uses a query to assign all non-IoT Edge devices in the hub to be child devices of an IoT Edge device.
+Using the [Azure command-line interface](/cli/azure/) with [IoT extension](https://github.com/azure/azure-iot-cli-extension) (v0.7.0 or newer), you can manage parent child relationships with the [device-identity](/cli/azure/ext/azure-iot/iot/hub/device-identity) subcommands. The example below uses a query to assign all non-IoT Edge devices in the hub to be child devices of an IoT Edge device.
 
 ```azurecli
 # Set IoT Edge parent device
@@ -90,7 +90,7 @@ You can modify the [query](../iot-hub/iot-hub-devguide-query-language.md) to sel
 
 #### Option 3: Use IoT Hub Service SDK
 
-Finally, you can manage parent child relationships programmatically using either C#, Java or Node.js IoT Hub Service SDK. Here is an [example of assigning a child device](https://aka.ms/set-child-iot-device-c-sharp) using the C# SDK.
+Finally, you can manage parent child relationships programmatically using either C#, Java or Node.js IoT Hub Service SDK. Here is an [example of assigning a child device](https://github.com/Azure/azure-iot-sdk-csharp/blob/master/e2e/test/iothub/service/RegistryManagerE2ETests.cs) using the C# SDK.
 
 ### Set up the parent device as a gateway
 

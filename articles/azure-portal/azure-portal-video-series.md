@@ -5,7 +5,7 @@ services: azure-portal
 keywords: 
 author: mgblythe
 ms.author: mblythe
-ms.date: 04/06/2020
+ms.date: 08/17/2020
 ms.topic: conceptual
 
 ms.service: azure-portal
@@ -17,18 +17,18 @@ The Azure portal how-to video series showcases how to work with Azure services i
 
 ## Featured video
 
-In this featured video, we show you how to save money in Azure using Azure Advisor cost recommendations.
+In this featured video, we show you how to deploy an Azure Static Web App.
 
-> [!VIDEO https://www.youtube.com/embed/ky2WS3KWuYs]
+> [!VIDEO https://www.youtube.com/embed/H2MPsgujpNk]
 
-[How to use cost recommendations on Azure Advisor](https://www.youtube.com/watch?v=ky2WS3KWuYs)
+[How to deploy an Azure Static Web App](https://www.youtube.com/watch?v=H2MPsgujpNk)
 
 Catch up on these recent videos you may have missed:
 
-|   |   |   |
+| [How to monitor Azure Functions](https://www.youtube.com/watch?v=eVDZz8h0s00)  | [How to use blob versioning](https://www.youtube.com/watch?v=b2oyxbSbLPA)  | [Connect to a storage account using Azure Private Link](https://www.youtube.com/watch?v=m7e9h1gedWQ)  |
 | ------| ------ | ------ |
-| [![Image of YouTube video about using Azure Monitor workbooks](https://i.ytimg.com/vi/Z5xRyy3HB8U/hqdefault.jpg?sqp=-oaymwEYCKgBEF5IVfKriqkDCwgBFQAAiEIYAXAB&rs=AOn4CLAf2gcTSuNBP-DczGeEB7rQLKc4UQ)](http://www.youtube.com/watch?v=Z5xRyy3HB8U) | [![Image of YouTube video about filtering your resource list view in the Azure portal](https://i.ytimg.com/vi/L3I-xOZKWcg/hqdefault.jpg?sqp=-oaymwEYCKgBEF5IVfKriqkDCwgBFQAAiEIYAXAB&rs=AOn4CLBUZwS_xaZIkYNakpHFvFIiD8i-Tw)](http://www.youtube.com/watch?v=L3I-xOZKWcg) | [![Image of YouTube video about using auto-refresh for dashboards](https://i.ytimg.com/vi/tVoDXygZzWM/hqdefault.jpg?sqp=-oaymwEYCKgBEF5IVfKriqkDCwgBFQAAiEIYAXAB&rs=AOn4CLAiBhmM0tZo_eV_u_JClkx3SXaWFw)](http://www.youtube.com/watch?v=tVoDXygZzWM) |
-| [Using Azure Monitor workbooks](https://www.youtube.com/watch?v=Z5xRyy3HB8U) | [Filtering your resource list view in the Azure portal](https://www.youtube.com/watch?v=L3I-xOZKWcg) | [Using auto-refresh for dashboards](https://www.youtube.com/watch?v=tVoDXygZzWM) |
+| [![Image of YouTube video about how to monitor Azure Functions](https://i.ytimg.com/vi/eVDZz8h0s00/hqdefault.jpg?sqp=-oaymwEYCKgBEF5IVfKriqkDCwgBFQAAiEIYAXAB&rs=AOn4CLAf2gcTSuNBP-DczGeEB7rQLKc4UQ)](http://www.youtube.com/watch?v=eVDZz8h0s00) | [![Image of YouTube video about how to use blob versioning](https://i.ytimg.com/vi/m7e9h1gedWQ/hqdefault.jpg?sqp=-oaymwEYCKgBEF5IVfKriqkDCwgBFQAAiEIYAXAB&rs=AOn4CLBUZwS_xaZIkYNakpHFvFIiD8i-Tw)](http://www.youtube.com/watch?v=m7e9h1gedWQ) | [![Image of YouTube video about connecting to a storage account using Azure Private Link](https://i.ytimg.com/vi/vM7yDwHSc_o/hqdefault.jpg?sqp=-oaymwEYCKgBEF5IVfKriqkDCwgBFQAAiEIYAXAB&rs=AOn4CLAiBhmM0tZo_eV_u_JClkx3SXaWFw)](https://www.youtube.com/watch?v=vM7yDwHSc_o) |
+
 
 ## Video playlist
 

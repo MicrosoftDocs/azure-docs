@@ -3,21 +3,19 @@ title: Review user utterances - LUIS
 titleSuffix: Azure Cognitive Services
 description: Review utterances captured by active learning to select intent and mark entities for read-world utterances; accept changes, train, and publish.
 services: cognitive-services
-author: diberry
+
 manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
-ms.topic: conceptual
-ms.date: 01/27/2020
-ms.author: diberry
+ms.topic: how-to
+ms.date: 05/07/2020
+
 ---
 
 # How to improve the LUIS app by reviewing endpoint utterances
 
-The process of reviewing endpoint utterances for correct predictions is called [Active learning](luis-concept-review-endpoint-utterances.md). Active learning captures endpoint queries and selects user's endpoint utterances that it is unsure of. You review these utterances to select the intent and mark entities for these read-world utterances. Accept these changes into your example utterances then train and publish. LUIS then identifies utterances more accurately.
-
-[!INCLUDE [Uses preview portal](includes/uses-portal-preview.md)]
+The process of reviewing endpoint utterances for correct predictions is called [Active learning](luis-concept-review-endpoint-utterances.md). Active learning captures endpoint queries and selects user's endpoint utterances that it is unsure of. You review these utterances to select the intent and mark entities for these real-world utterances. Accept these changes into your example utterances then train and publish. LUIS then identifies utterances more accurately.
 
 ## Enable active learning
 
@@ -25,12 +23,13 @@ To enable active learning, you must log user queries. This is accomplished by ca
 
 Use the LUIS portal to construct the correct endpoint query.
 
-1. In the [preview LUIS portal](https://preview.luis.ai/), select your app from the list of apps.
+1. Sign in to the [LUIS portal](https://www.luis.ai), and select your **Subscription** and **Authoring resource** to see the apps assigned to that authoring resource.
+1. Open your app by selecting its name on **My Apps** page.
 1. Go to the **Manage** section, then select **Azure resources**.
 1. For the assigned prediction resource, select **Change query parameters**.
 
     > [!div class="mx-imgBorder"]
-    > ![Use LUIS portal to save logs, which is required for active learning.](./media/luis-tutorial-review-endpoint-utterances/azure-portal-change-query-url-settings.png)
+    > ![Screenshot shows the Change query parameters link.](./media/luis-tutorial-review-endpoint-utterances/azure-portal-change-query-url-settings.png)
 
 1. Toggle **Save logs** then save by selecting **Done**.
 

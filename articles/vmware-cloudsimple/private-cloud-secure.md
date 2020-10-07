@@ -24,7 +24,7 @@ Creation of CloudSimple service requires **Owner** or **Contributor** role on th
 
 Only the users who have **Owner** or **Contributor** privileges on the resource group will see the CloudSimple service and launch CloudSimple portal.
 
-For more information about RBAC, see [What is role-based access control (RBAC) for Azure resources](../role-based-access-control/overview.md).
+For more information, see [What is Azure role-based access control (Azure RBAC)](../role-based-access-control/overview.md).
 
 ## RBAC for Private Cloud vCenter
 

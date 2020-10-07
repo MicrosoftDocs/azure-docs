@@ -2,21 +2,15 @@
 title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Boomi | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and Boomi.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-
-ms.assetid: 40d034ff-7394-4713-923d-1f8f2ed8bf36
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 02/07/2020
 ms.author: jeedes
-
-ms.collection: M365-identity-device-management
 ---
 
 # Tutorial: Azure Active Directory single sign-on (SSO) integration with Boomi
@@ -90,14 +84,16 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 	c. After the metadata file is successfully uploaded, the **Identifier** and **Reply URL** values get auto populated in Basic SAML Configuration section.
 
-	![image](common/idp-intiated.png)
+	![Screenshot shows the Basic SAML Configuration, where Identifier and Reply U R L values appear.](common/idp-intiated.png)
+
+	d. Enter the **Sign-on URL**, such as `https://platform.boomi.com/AtomSphere.html#build;accountId={your-accountId}`.
 
 	> [!Note]
 	> You will get the **Service Provider metadata file** from the **Configure Boomi SSO** section, which is explained later in the tutorial. If the **Identifier** and **Reply URL** values do not get auto polulated, then fill in the values manually according to your requirement.
 
 1. Boomi application expects the SAML assertions in a specific format, which requires you to add custom attribute mappings to your SAML token attributes configuration. The following screenshot shows the list of default attributes.
 
-	![image](common/default-attributes.png)
+	![Screenshot shows User Attributes & Claims with default values such as Givenname user.givenname and Emailaddress User.mail.](common/default-attributes.png)
 
 1. In addition to above, Boomi application expects few more attributes to be passed back in SAML response which are shown below. These attributes are also pre populated but you can review them as per your requirements.
 
@@ -175,13 +171,13 @@ In order to enable Azure AD users to sign in to Boomi, they must be provisioned 
 
 1. After logging in, navigate to **User Management** and go to **Users**.
 
-	![Users](./media/boomi-tutorial/tutorial_boomi_001.png "Users")
+	![Screenshot shows the User Management page with Users selected.](./media/boomi-tutorial/tutorial_boomi_001.png "Users")
 
 1. Click **+**  icon and the **Add/Maintain User Roles** dialog opens.
 
-	![Users](./media/boomi-tutorial/tutorial_boomi_002.png "Users")
+	![Screenshot shows the + icon selected.](./media/boomi-tutorial/tutorial_boomi_002.png "Users")
 
-	![Users](./media/boomi-tutorial/tutorial_boomi_003.png "Users")
+	![Screenshot shows the Add / Maintain User Roles where you configure a user.](./media/boomi-tutorial/tutorial_boomi_003.png "Users")
 
 	a. In the **User e-mail address** textbox, type the email of user like B.Simon@contoso.com.
 

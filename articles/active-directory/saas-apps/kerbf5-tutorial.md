@@ -1,23 +1,16 @@
 ---
-title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with F5 | Microsoft Docs'
-description: Learn how to configure single sign-on between Azure Active Directory and F5.
+title: 'Tutorial: Azure AD single sign-on integration with F5 | Microsoft Docs'
+description: Learn how to configure single sign-on (SSO) between Azure Active Directory and F5.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-
-ms.assetid: 39382eab-05fe-4dc2-8792-62d742dfb4e1
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 11/19/2019
 ms.author: jeedes
-
-ms.collection: M365-identity-device-management
 ---
 
 # Tutorial: Azure Active Directory single sign-on (SSO) integration with F5
@@ -39,11 +32,11 @@ To get started, you need the following items:
 * F5 single sign-on (SSO) enabled subscription.
 
 * Deploying the joint solution requires the following license:
-    * F5 BIG-IP® Best bundle (or)
+    * F5 BIG-IP&reg; Best bundle (or)
 
-    * F5 BIG-IP Access Policy Manager™ (APM) standalone license
+    * F5 BIG-IP Access Policy Manager&trade; (APM) standalone license
 
-    * F5 BIG-IP Access Policy Manager™ (APM) add-on license on an existing BIG-IP F5 BIG-IP® Local Traffic Manager™ (LTM).
+    * F5 BIG-IP Access Policy Manager&trade; (APM) add-on license on an existing BIG-IP F5 BIG-IP&reg; Local Traffic Manager&trade; (LTM).
 
     * In addition to the above license, the F5 system may also be licensed with:
 
@@ -61,28 +54,28 @@ To get started, you need the following items:
 
 ## Access guided configuration
 
-* Access guided configuration’ is supported on F5 TMOS version 13.1.0.8 and above. If your BIG-IP system is running a version below 13.1.0.8, please refer to the **Advanced configuration** section.
+* Access guided configuration' is supported on F5 TMOS version 13.1.0.8 and above. If your BIG-IP system is running a version below 13.1.0.8, please refer to the **Advanced configuration** section.
 
 * Access guided configuration presents a completely new and streamlined user experience. This workflow-based architecture provides intuitive, re-entrant configuration steps tailored to the selected topology.
 
 * Before proceeding to the configuration, upgrade the guided configuration by downloading the latest use case pack from [downloads.f5.com](https://login.f5.com/resource/login.jsp?ctx=719748). To upgrade, follow the below procedure.
 
-	>[!NOTE]
-	>The screenshots below are for the latest released version (BIG-IP 15.0 with AGC version 5.0). The configuration steps below are valid for this use case across from 13.1.0.8 to the latest BIG-IP version.
+    >[!NOTE]
+    >The screenshots below are for the latest released version (BIG-IP 15.0 with AGC version 5.0). The configuration steps below are valid for this use case across from 13.1.0.8 to the latest BIG-IP version.
 
 1. On the F5 BIG-IP Web UI, click on **Access >> Guide Configuration**.
 
 2. On the **Guided Configuration** page, click on **Upgrade Guided Configuration** on the top left-hand corner.
 
-	![F5 (Kerberos) configuration](./media/kerbf5-tutorial/configure14.png) 
+    ![F5 (Kerberos) configuration](./media/kerbf5-tutorial/configure14.png) 
 
 3. On the Upgrade Guide Configuration pop screen, select **Choose File** to upload the downloaded use case pack and click on **Upload and Install** button.
 
-	![F5 (Kerberos) configuration](./media/kerbf5-tutorial/configure15.png) 
+    ![F5 (Kerberos) configuration](./media/kerbf5-tutorial/configure15.png) 
 
 4. When upgrade is completed, click on the **Continue** button.
 
-	![F5 (Kerberos) configuration](./media/kerbf5-tutorial/configure16.png)
+    ![F5 (Kerberos) configuration](./media/kerbf5-tutorial/configure16.png)
 
 ## Scenario description
 
@@ -158,16 +151,16 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
     In the **Sign-on URL** text box, type a URL using the following pattern:
     `https://<YourCustomFQDN>.f5.com/`
 
-	> [!NOTE]
-	> These values are not real. Update these values with the actual Identifier, Reply URL and Sign-on URL. Contact [F5 Client support team](https://support.f5.com/csp/knowledge-center/software/BIG-IP?module=BIG-IP%20APM45) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
+    > [!NOTE]
+    > These values are not real. Update these values with the actual Identifier, Reply URL and Sign-on URL. Contact [F5 Client support team](https://support.f5.com/csp/knowledge-center/software/BIG-IP?module=BIG-IP%20APM45) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
 
 1. On the **Set up single sign-on with SAML** page, in the **SAML Signing Certificate** section,  find **Federation Metadata XML** and **Certificate (Base64)** then select **Download** to download the certificate and save it on your computer.
 
-	![The Certificate download link](common/metadataxml.png)
+    ![The Certificate download link](common/metadataxml.png)
 
 1. On the **Set up F5** section, copy the appropriate URL(s) based on your requirement.
 
-	![Copy configuration URLs](common/copy-configuration-urls.png)
+    ![Copy configuration URLs](common/copy-configuration-urls.png)
 
 ### Create an Azure AD test user
 
@@ -193,7 +186,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 1. Select **Add user**, then select **Users and groups** in the **Add Assignment** dialog.
 
-	![The Add User link](common/add-assign-user.png)
+    ![The Add User link](common/add-assign-user.png)
 
 1. In the **Users and groups** dialog, select **B.Simon** from the Users list, then click the **Select** button at the bottom of the screen.
 1. If you're expecting any role value in the SAML assertion, in the **Select Role** dialog, select the appropriate role for the user from the list and then click the **Select** button at the bottom of the screen.
@@ -218,12 +211,12 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 1. Navigate to **System > Certificate Management > Traffic Certificate Management > SSL Certificate List**. Select **Import** from the right-hand corner. Specify a **Certificate Name** (will be referenced Later in the config). In the **Certificate Source**, select Upload File specify the certificate downloaded from Azure while configuring SAML Single Sign on. Click **Import**.
 
-	![F5 (Kerberos) configuration](./media/kerbf5-tutorial/configure01.png) 
+    ![F5 (Kerberos) configuration](./media/kerbf5-tutorial/configure01.png) 
 
 1. Additionally, you will require **SSL Certificate for the Application Hostname. Navigate to System > Certificate Management > Traffic Certificate Management > SSL Certificate List**. Select **Import** from the right-hand corner. **Import Type** will be **PKCS 12(IIS)**. Specify a **Key Name** (will be referenced Later in the config) and the specify the PFX file. Specify the **Password** for the PFX. Click **Import**.
 
-	>[!NOTE]
-	>In the example our app name is `Kerbapp.superdemo.live`, we are using a Wild Card Certificate our keyname is `WildCard-SuperDemo.live`
+    >[!NOTE]
+    >In the example our app name is `Kerbapp.superdemo.live`, we are using a Wild Card Certificate our keyname is `WildCard-SuperDemo.live`
 
     ![F5 (Kerberos) configuration](./media/kerbf5-tutorial/configure02.png) 
  
@@ -239,8 +232,8 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 1. In this example we are creating a new Virtual Server as 192.168.30.200 with port 443. Specify the Virtual Server IP address in the **Destination Address**. Select the Client **SSL Profile**, select Create new. Specify previously uploaded application certificate, (the wild card certificate in this example) and the associated key, and then click **Save & Next**.
 
-	>[!NOTE]
-	>in this example our Internal webserver is running on port 80 and we want to publish it with 443.
+    >[!NOTE]
+    >in this example our Internal webserver is running on port 80 and we want to publish it with 443.
 
     ![F5 (Kerberos) configuration](./media/kerbf5-tutorial/configure06.png)
 
@@ -248,7 +241,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
     ![F5 (Kerberos) configuration](./media/kerbf5-tutorial/configure07.png)  
 
-1. Under **Select a Pool**, specify **Create New** (alternatively select a pool it already exists). Let other value be default.	Under Pool Servers, type the IP Address under **IP Address/Node Name**. Specify the **Port**. Click **Save & Next**.
+1. Under **Select a Pool**, specify **Create New** (alternatively select a pool it already exists). Let other value be default.    Under Pool Servers, type the IP Address under **IP Address/Node Name**. Specify the **Port**. Click **Save & Next**.
  
     ![F5 (Kerberos) configuration](./media/kerbf5-tutorial/configure08.png)
 
@@ -282,45 +275,45 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 You configure an Active Directory AAA server in Access Policy Manager (APM) to specify domain controllers and credentials for APM to use for authenticating users.
 
-1.	On the Main tab, click **Access Policy > AAA Servers > Active Directory**. The Active Directory Servers list screen opens.
+1. On the Main tab, click **Access Policy > AAA Servers > Active Directory**. The Active Directory Servers list screen opens.
 
-2.	Click **Create**. The New Server properties screen opens.
+2. Click **Create**. The New Server properties screen opens.
 
-3.	In the **Name** field, type a unique name for the authentication server.
+3. In the **Name** field, type a unique name for the authentication server.
 
-4.	In the **Domain Name** field, type the name of the Windows domain.
+4. In the **Domain Name** field, type the name of the Windows domain.
 
-5.	For the **Server Connection** setting, select one of these options:
+5. For the **Server Connection** setting, select one of these options:
 
-    * Select **Use Pool** to set up high availability for the AAA server.
+   * Select **Use Pool** to set up high availability for the AAA server.
 
-    * Select **Direct** to set up the AAA server for standalone functionality.
+   * Select **Direct** to set up the AAA server for standalone functionality.
 
-6.	If you selected **Direct**, type a name in the **Domain Controller** field.
+6. If you selected **Direct**, type a name in the **Domain Controller** field.
 
-7.	If you selected Use **Pool**, configure the pool:
+7. If you selected Use **Pool**, configure the pool:
 
-    * Type a name in the **Domain Controller Pool Name** field.
+   * Type a name in the **Domain Controller Pool Name** field.
 
-    * Specify the **Domain Controllers** in the pool by typing the IP address and host name for each, and clicking the **Add** button.
+   * Specify the **Domain Controllers** in the pool by typing the IP address and host name for each, and clicking the **Add** button.
 
-    * To monitor the health of the AAA server, you have the option of selecting a health monitor: only the **gateway_icmp** monitor is appropriate in this case; you can select it from the **Server Pool Monitor** list.
+   * To monitor the health of the AAA server, you have the option of selecting a health monitor: only the **gateway_icmp** monitor is appropriate in this case; you can select it from the **Server Pool Monitor** list.
 
-8.	In the **Admin Name** field, type a is case-sensitive name for an administrator who has Active Directory administrative permissions. APM uses the information in the **Admin Name** and **Admin Password** fields for AD Query. If Active Directory is configured for anonymous queries, you do not need to provide an Admin Name. Otherwise, APM needs an account with sufficient privilege to bind to an Active Directory server, fetch user group information, and fetch Active Directory password policies to support password-related functionality. (APM must fetch password policies, for example, if you select the Prompt user to change password before expiration option in an AD Query action.) If you do not provide Admin account information in this configuration, APM uses the user account to fetch information. This works if the user account has sufficient privilege.
+8. In the **Admin Name** field, type a is case-sensitive name for an administrator who has Active Directory administrative permissions. APM uses the information in the **Admin Name** and **Admin Password** fields for AD Query. If Active Directory is configured for anonymous queries, you do not need to provide an Admin Name. Otherwise, APM needs an account with sufficient privilege to bind to an Active Directory server, fetch user group information, and fetch Active Directory password policies to support password-related functionality. (APM must fetch password policies, for example, if you select the Prompt user to change password before expiration option in an AD Query action.) If you do not provide Admin account information in this configuration, APM uses the user account to fetch information. This works if the user account has sufficient privilege.
 
-9.	In the **Admin Password** field, type the administrator password associated with the Domain Name.
+9. In the **Admin Password** field, type the administrator password associated with the Domain Name.
 
-10.	In the **Verify Admin Password** field, retype the administrator password associated with the **Domain Name** setting.
+10. In the **Verify Admin Password** field, retype the administrator password associated with the **Domain Name** setting.
 
-11.	In the **Group Cache Lifetime** field, type the number of days. The default lifetime is 30 days.
+11. In the **Group Cache Lifetime** field, type the number of days. The default lifetime is 30 days.
 
-12.	In the **Password Security Object Cache Lifetime** field, type the number of days. The default lifetime is 30 days.
+12. In the **Password Security Object Cache Lifetime** field, type the number of days. The default lifetime is 30 days.
 
-13.	From the **Kerberos Preauthentication Encryption Type** list, select an encryption type. The default is **None**. If you specify an encryption type, the BIG-IP system includes Kerberos preauthentication data within the first authentication service request (AS-REQ) packet.
+13. From the **Kerberos Preauthentication Encryption Type** list, select an encryption type. The default is **None**. If you specify an encryption type, the BIG-IP system includes Kerberos preauthentication data within the first authentication service request (AS-REQ) packet.
 
-14.	In the **Timeout** field, type a timeout interval (in seconds) for the AAA server. (This setting is optional.)
+14. In the **Timeout** field, type a timeout interval (in seconds) for the AAA server. (This setting is optional.)
 
-15.	Click **Finished**. The new server displays on the list. 
+15. Click **Finished**. The new server displays on the list. 
 This adds the new Active Directory server to the Active Directory Servers list.
 
     ![F5 (Kerberos) configuration](./media/kerbf5-tutorial/configure17.png)
@@ -348,7 +341,7 @@ This adds the new Active Directory server to the Active Directory Servers list.
 1. For setting up the SAML SP, navigate to **Access > Federation > SAML Service Provider > Local SP Services** and click **Create**. Complete the following information and click **OK**.
 
     * Type Name: KerbApp200SAML
-    * Entity ID*: https://kerbapp200.superdemo.live
+    * Entity ID*: https://kerb-app.com.cutestat.com
     * SP Name Settings
     * Scheme: https
     * Host: kerbapp200.superdemo.live
@@ -393,7 +386,7 @@ This adds the new Active Directory server to the Active Directory Servers list.
 
         ![F5 (Kerberos) configuration](./media/kerbf5-tutorial/configure31.png)
 
-1. Click **Access Policy** and then click **Edit Access Policy** for Profile “KerbApp200”.
+1. Click **Access Policy** and then click **Edit Access Policy** for Profile "KerbApp200".
 
     ![F5 (Kerberos) configuration](./media/kerbf5-tutorial/configure32.png)
 

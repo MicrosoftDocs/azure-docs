@@ -10,11 +10,11 @@ ms.reviewer: sngun
 
 ---
 
-# Globally scale provisioned throughput 
+# How does Azure Cosmos DB globally scale the provisioned throughput?
 
 In Azure Cosmos DB, provisioned throughput is represented as request units/second (RU/s or the plural form RUs). RUs measure the cost of both read and write operations against your Cosmos container as shown in the following image:
 
-![Request Units](./media/scaling-throughput/request-unit-charge-of-read-and-write-operations.png)
+:::image type="content" source="./media/scaling-throughput/request-unit-charge-of-read-and-write-operations.png" alt-text="Request Units" border="false":::
 
 You can provision RUs on a Cosmos container or a Cosmos database. RUs provisioned on a container are exclusively available for the operations performed on that container. RUs provisioned on a database are shared among all the containers within that database (except for any containers with exclusively assigned RUs).
 

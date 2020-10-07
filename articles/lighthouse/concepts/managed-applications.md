@@ -1,7 +1,7 @@
 ---
 title: Azure Lighthouse and Azure managed applications
-description: Azure Lighthouse and Azure managed applications ... 
-ms.date: 05/01/2020
+description: Understand how Azure Lighthouse and Azure managed applications can help enable different scenarios, and how they can be used together.
+ms.date: 08/12/2020
 ms.topic: conceptual
 ---
 
@@ -9,13 +9,16 @@ ms.topic: conceptual
 
 Both Azure managed applications and Azure Lighthouse work by enabling a service provider to access resources that reside in the customer's tenant. It can be helpful to understand the differences in the way that they work and the scenarios that they help to enable, as well as how they can be used together.
 
+> [!TIP]
+> Though we refer to service providers and customers in this topic, [enterprises managing multiple tenants](enterprise.md) can use the same processes and tools.
+
 ## Comparing Azure Lighthouse and Azure managed applications
 
 ### Azure Lighthouse
 
-With [Azure Lighthouse](../overview.md), a service provider to perform a wide range of management tasks directly on a customer's subscription (or resource group). This access is achieved through a logical projection, allowing service providers to sign in to their own tenant and access resources that belong to the customer's tenant. The customer can determine which subscriptions or resource groups to delegate to the service provider, and the customer maintains full access to those resources. They can also remove the service provider's access at any time.
+With [Azure Lighthouse](../overview.md), a service provider can perform a wide range of management tasks directly on a customer's subscription (or resource group). This access is achieved through a logical projection, allowing service providers to sign in to their own tenant and access resources that belong to the customer's tenant. The customer can determine which subscriptions or resource groups to delegate to the service provider, and the customer maintains full access to those resources. They can also remove the service provider's access at any time.
 
-To use Azure Lighthouse, customers are onboarded for [Azure delegated resource management](azure-delegated-resource-management.md) either by [deploying ARM templates](../how-to/onboard-customer.md) or through a [Managed Service offer in  Azure Marketplace](managed-services-offers.md). You can track your impact on customer engagements by [linking your partner ID](../../cost-management-billing/manage/link-partner-id.md).
+To use Azure Lighthouse, customers are onboarded for [Azure delegated resource management](azure-delegated-resource-management.md) either by [deploying ARM templates](../how-to/onboard-customer.md) or through a [Managed Service offer in Azure Marketplace](managed-services-offers.md). You can track your impact on customer engagements and receive partner earned credit by [linking your partner ID](../how-to/partner-earned-credit.md).
 
 Azure Lighthouse is typically used when a service provider will perform management tasks for a customer on an ongoing basis.
 
@@ -42,4 +45,4 @@ Customers might also be interested in managed applications from multiple service
 ## Next steps
 
 - Learn about [Azure managed applications](../../azure-resource-manager/managed-applications/overview.md).
-- Learn how to [onboard a subscription to Azure delegated resource management](../how-to/onboard-customer.md).
+- Learn how to [onboard a subscription to Azure Lighthouse](../how-to/onboard-customer.md).

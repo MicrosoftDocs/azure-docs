@@ -2,21 +2,15 @@
 title: 'Tutorial: Azure Active Directory integration with Confirmit Horizons | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and Confirmit Horizons.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-
-ms.assetid: 4134ee87-a7df-4328-ba09-4c9a729a29ee
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/19/2019
 ms.author: jeedes
-
 ---
 # Tutorial: Azure Active Directory integration with Confirmit Horizons
 
@@ -101,29 +95,27 @@ To configure Azure AD single sign-on with Confirmit Horizons, perform the follow
 
 4. On the **Basic SAML Configuration** section, If you wish to configure the application in **IDP** initiated mode, perform the following steps:
 
-    ![Confirmit Horizons Domain and URLs single sign-on information](common/idp-intiated.png)
+    ![Screenshot that shows the "Basic S A M L Configuration" section with the "Save" action, "Identifier" field, and "Reply U R L" field highlighted.](common/idp-intiated.png)
 
     a. In the **Identifier** text box, type a URL using the following pattern:
 
-	| |
-	|--|
-	| `https://<SUBDOMAIN>.confirmit.com/identity/AuthServices/<UNIQUEID>` |
-	| `https://<SUBDOMAIN>.confirmit.com.au/identity/AuthServices/<UNIQUEID>` |
-	| `https://<SUBDOMAIN>.confirmit.ca/identity/AuthServices/<UNIQUEID>` |
-	| `https://<SUBDOMAIN>.confirmit.hk/identity/AuthServices/<UNIQUEID>` |
-	| `https://sso.us.confirmit.com/<UNIQUEID>` |
-	| |
+    ```http
+    https://<SUBDOMAIN>.confirmit.com/identity/AuthServices/<UNIQUEID>
+    https://<SUBDOMAIN>.confirmit.com.au/identity/AuthServices/<UNIQUEID>
+    https://<SUBDOMAIN>.confirmit.ca/identity/AuthServices/<UNIQUEID>
+    https://<SUBDOMAIN>.confirmit.hk/identity/AuthServices/<UNIQUEID>
+    https://sso.us.confirmit.com/<UNIQUEID>
+    ```
 
     b. In the **Reply URL** text box, type a URL using the following pattern:
 
-	| |
-	|--|
-	| `https://<SUBDOMAIN>.confirmit.com/identity/AuthServices/<UNIQUEID>/acs`|
-	| `https://<SUBDOMAIN>.confirmit.com.au/identity/AuthServices/<UNIQUEID>/acs`|
-	| `https://<SUBDOMAIN>.confirmit.ca/identity/AuthServices/<UNIQUEID>/acs`|
-	| `https://<SUBDOMAIN>.confirmit.hk/identity/AuthServices/<UNIQUEID>/acs`|
-	| `https://sso.us.confirmit.com/<UNIQUEID>/saml/acs` |
-	| |
+    ```http
+    https://<SUBDOMAIN>.confirmit.com/identity/AuthServices/<UNIQUEID>/acs
+    https://<SUBDOMAIN>.confirmit.com.au/identity/AuthServices/<UNIQUEID>/acs
+    https://<SUBDOMAIN>.confirmit.ca/identity/AuthServices/<UNIQUEID>/acs
+    https://<SUBDOMAIN>.confirmit.hk/identity/AuthServices/<UNIQUEID>/acs
+    https://sso.us.confirmit.com/<UNIQUEID>/saml/acs
+    ```
 
 5. Click **Set additional URLs** and perform the following step if you wish to configure the application in **SP** initiated mode:
 
@@ -131,14 +123,13 @@ To configure Azure AD single sign-on with Confirmit Horizons, perform the follow
 
     In the **Sign-on URL** text box, type a URL using the following pattern:
 
-	| |
-	|--|
-	| `https://<SUBDOMAIN>.confirmit.com/identity/<UNIQUEID>` |
-	| `https://<SUBDOMAIN>.confirmit.com.au/identity/<UNIQUEID>` |
-	| `https://<SUBDOMAIN>.confirmit.ca/identity/<UNIQUEID>` |
-	| `https://<SUBDOMAIN>.confirmit.hk/identity/<UNIQUEID>` |
-	| `https://sso.us.confirmit.com/<UNIQUEID>` |
-	| | 
+    ```http
+    https://<SUBDOMAIN>.confirmit.com/identity/<UNIQUEID>
+    https://<SUBDOMAIN>.confirmit.com.au/identity/<UNIQUEID>
+    https://<SUBDOMAIN>.confirmit.ca/identity/<UNIQUEID>
+    https://<SUBDOMAIN>.confirmit.hk/identity/<UNIQUEID>
+    https://sso.us.confirmit.com/<UNIQUEID>
+    ```
 
 	> [!NOTE]
 	> These values are not real. Update these values with the actual Identifier, Reply URL and Sign-on URL. Contact [Confirmit Horizons Client support team](mailto:support@confirmit.com) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.

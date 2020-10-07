@@ -57,7 +57,7 @@ When deploying a secure HDInsight cluster, there are some best practices that sh
 When hierarchical name space in not enabled:
 
 * There are no inherited permissions.
-* Only filesystem permission that works is **Storage Data XXXX** RBAC role, to be assigned to the user directly in Azure portal.
+* Only filesystem permission that works is **Storage Data XXXX** Azure role, to be assigned to the user directly in Azure portal.
 
 ### Default HDFS permissions
 
@@ -154,6 +154,17 @@ Most common reasons:
 * NSGs are too restrictive, preventing domain join.
 * Managed Identity doesn't have sufficient permissions.
 * Cluster name isn't unique on the first six characters (either with another live cluster, or with a deleted cluster).
+
+## Authentication setup and configuration
+
+### User Principal Name (UPN)
+
+* Please use lowercase for all services - UPNs are not case sensitive in ESP clusters, but
+* The UPN prefix should match both SAMAccountName in Azure AD-DS. Matching with the mail field is not required.
+
+### LDAP properties in Ambari configuration
+
+For a full list of the Ambari properties that affect your HDInsight cluster configuration, see [Ambari LDAP Authentication Setup](https://ambari.apache.org/1.2.1/installing-hadoop-using-ambari/content/ambari-chap2-4.html).
 
 ## Next steps
 

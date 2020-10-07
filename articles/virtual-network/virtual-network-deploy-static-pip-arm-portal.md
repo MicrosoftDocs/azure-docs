@@ -7,8 +7,8 @@ author: asudbring
 manager: KumudD
 ms.service: virtual-network
 ms.subservice: ip-services
-ms.devlang: azurecli
-ms.topic: article
+ms.devlang:
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/08/2018
@@ -55,13 +55,13 @@ Sign in to the Azure portal at https://portal.azure.com.
 9. Once the virtual machine is deployed, enter *myPublicIpAddress* in the search box at the top of the portal. When **myPublicIpAddress** appears in the search results, select it.
 10. You can view the public IP address that is assigned, and that the address is assigned to the **myVM** virtual machine, as shown in the following picture:
 
-    ![View public IP address](./media/virtual-network-deploy-static-pip-arm-portal/public-ip-overview.png)
+    ![Screenshot shows the Public I P address pane with the I P address and name called out. ](./media/virtual-network-deploy-static-pip-arm-portal/public-ip-overview.png)
 
     Azure assigned a public IP address from addresses used in the region you created the virtual machine in. You can download the list of ranges (prefixes) for the Azure [Public](https://www.microsoft.com/download/details.aspx?id=56519), [US government](https://www.microsoft.com/download/details.aspx?id=57063), [China](https://www.microsoft.com/download/details.aspx?id=57062), and [Germany](https://www.microsoft.com/download/details.aspx?id=57064) clouds.
 
 11. Select **Configuration** to confirm that the assignment is **Static**.
 
-    ![View public IP address](./media/virtual-network-deploy-static-pip-arm-portal/public-ip-configuration.png)
+    ![Screenshot shows the Public I P address pane with the Configuration item selected.](./media/virtual-network-deploy-static-pip-arm-portal/public-ip-configuration.png)
 
 > [!WARNING]
 > Do not modify the IP address settings within the virtual machine's operating system. The operating system is unaware of Azure public IP addresses. Though you can add private IP address settings to the operating system, we recommend not doing so unless necessary, and not until after reading [Add a private IP address to an operating system](virtual-network-network-interface-addresses.md#private).

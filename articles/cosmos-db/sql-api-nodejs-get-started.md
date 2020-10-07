@@ -8,6 +8,7 @@ ms.devlang: nodejs
 ms.topic: tutorial
 ms.date: 04/20/2020
 ms.author: dech
+ms.custom: devx-track-js
 #Customer intent: As a developer, I want to build a Node.js console application to access and manage SQL API account resources in Azure Cosmos DB, so that customers can better use the service.
 
 ---
@@ -86,7 +87,7 @@ Now that your app exists, you need to make sure it can talk to Azure Cosmos DB. 
 
    You can find the endpoint and key details in the **Keys** pane of the [Azure portal](https://portal.azure.com).
 
-   ![Get keys from Azure portal screenshot][keys]
+   :::image type="content" source="media/sql-api-nodejs-get-started/node-js-tutorial-keys.png" alt-text="Get keys from Azure portal screenshot":::
 
 The JavaScript SDK uses the generic terms *container* and *item*. A container can be a collection, graph, or table. An item can be a document, edge/vertex, or row, and is the content inside a container. In the previous code snippet, the `module.exports = config;` code is used to export the config object, so that you can reference it within the *app.js* file.
 
@@ -219,4 +220,3 @@ When these resources are no longer needed, you can delete the resource group, Az
 > [Monitor an Azure Cosmos DB account](monitor-accounts.md)
 
 [create-account]: create-sql-api-dotnet.md#create-account
-[keys]: media/sql-api-nodejs-get-started/node-js-tutorial-keys.png

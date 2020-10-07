@@ -12,7 +12,8 @@ ms.service: azure-cdn
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
-ms.topic: article
+ms.custom: devx-track-csharp
+ms.topic: how-to
 ms.date: 02/15/2018
 ms.author: allensu
 

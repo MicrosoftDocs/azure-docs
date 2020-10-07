@@ -59,6 +59,8 @@ Locate the `SpatialAnchorsAccountKey` field and replace `Set me` with the accoun
 
 Locate the `SpatialAnchorsAccountId` field and replace `Set me` with the account identifier.
 
+Locate the `SpatialAnchorsAccountDomain` field and replace `Set me` with the account domain.
+
 ## Deploy the app to your Android device
 
 Power on the Android device, sign in, and connect it to the computer using a USB cable.
@@ -67,7 +69,7 @@ Set the startup project to **SampleXamarin.Android**, change the **Solution Conf
 
 # [Windows](#tab/deploy-windows)
 
-![Visual Studio Configuration](./media/get-started-xamarin-android/visual-studio-windows-configuration.png)
+![Screenshot that shows the menu to select the project and device in Windows.](./media/get-started-xamarin-android/visual-studio-windows-configuration.png)
 
 Select **Debug** > **Start debugging** to deploy and start your app.
 

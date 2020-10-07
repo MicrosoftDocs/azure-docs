@@ -4,16 +4,16 @@ description: This article describes how to manage server administrators for an A
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 04/15/2020
+ms.date: 07/07/2020
 ms.author: owend
 ms.reviewer: minewiskan
 
 ---
 # Manage server administrators
 
-Server administrators must be a valid user or security group in the Azure Active Directory (Azure AD) for the tenant in which the server resides. You can use **Analysis Services Admins** for your server in Azure portal, Server Properties in SSMS, PowerShell, or REST API to manage server administrators. 
+Server administrators must be a valid user, service principal, or security group in the Azure Active Directory (Azure AD) for the tenant in which the server resides. You can use **Analysis Services Admins** for your server in Azure portal, Server Properties in SSMS, PowerShell, or REST API to manage server administrators. 
 
-When adding a **security group**, use `obj:groupid@tenantid`.
+When adding a **security group**, use `obj:groupid@tenantid`. Service principals are not supported in security groups added to the server administrator role.
 
 ## To add server administrators by using Azure portal
 
@@ -49,5 +49,4 @@ Use [Update](https://docs.microsoft.com/rest/api/analysisservices/servers/update
 
 [Authentication and user permissions](analysis-services-manage-users.md)  
 [Manage database roles and users](analysis-services-database-users.md)  
-[Role-Based Access Control](../role-based-access-control/overview.md)  
-
+[Azure role-based access control (Azure RBAC)](../role-based-access-control/overview.md)  

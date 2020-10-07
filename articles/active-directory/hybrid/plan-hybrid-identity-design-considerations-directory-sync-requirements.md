@@ -59,7 +59,7 @@ You also need to determine the security requirements and constraints directory s
   * Will you be able to open the required firewall ports to support synchronization?
 * Do you have a disaster recovery plan for the synchronization server?
 * Do you have an account with the correct permissions for all forests you want to synch with?
-  * If your company doesn’t know the answer for this question, review the section “Permissions for password synchronization” in the article [Install the Azure Active Directory Sync Service](https://msdn.microsoft.com/library/azure/dn757602.aspx#BKMK_CreateAnADAccountForTheSyncService) and determine if you already have an account with these permissions or if you need to create one.
+  * If your company doesn’t know the answer for this question, review the section “Permissions for password synchronization” in the article [Install the Azure Active Directory Sync Service](/previous-versions/azure/azure-services/dn757602(v=azure.100)#BKMK_CreateAnADAccountForTheSyncService) and determine if you already have an account with these permissions or if you need to create one.
 * If you have mutli-forest sync is the sync server able to get to each forest?
 
 > [!NOTE]
@@ -72,4 +72,3 @@ You also need to determine the security requirements and constraints directory s
 
 ## See also
 [Design considerations overview](plan-hybrid-identity-design-considerations-overview.md)
-

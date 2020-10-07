@@ -6,7 +6,7 @@ author: mlee3gsd
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
-ms.subservice: 
+ms.subservice: sql-dw 
 ms.date: 02/19/2019
 ms.author: martinle
 ms.reviewer: jrasnick
@@ -110,7 +110,7 @@ You can now seamlessly upgrade to the SQL pool Compute Optimized Gen2 tier in th
 
    > [!NOTE]
    > If you do not see the **Upgrade to Gen2** card under the Tasks tab, your subscription type is limited in the current region.
-   > [Submit a support ticket](sql-data-warehouse-get-started-create-support-ticket.md) to get your subscription whitelisted.
+   > [Submit a support ticket](sql-data-warehouse-get-started-create-support-ticket.md) to get your subscription approved.
 
 3. Ensure your workload has completed running and quiesced before upgrading. You'll experience downtime for a few minutes before your SQL pool is back online as a Compute Optimized Gen2 tier SQL pool. **Select Upgrade**:
 
@@ -235,7 +235,7 @@ $GeoRestoredDatabase.status
 ```
 
 > [!NOTE]
-> To configure your database after the restore has completed, see [Configure your database after recovery](../../sql-database/sql-database-disaster-recovery.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json#configure-your-database-after-recovery).
+> To configure your database after the restore has completed, see [Configure your database after recovery](../../azure-sql/database/disaster-recovery-guidance.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json#configure-your-database-after-recovery).
 
 The recovered database will be TDE-enabled if the source database is TDE-enabled.
 

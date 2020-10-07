@@ -6,7 +6,7 @@ author: alkohli
 
 ms.service: databox
 ms.subservice: gateway
-ms.topic: article
+ms.topic: how-to
 ms.date: 08/02/2019
 ms.author: alkohli
 ---
@@ -14,7 +14,7 @@ ms.author: alkohli
 
 Azure Data Box Gateway solution lets you send data over the network to Azure. This article describes some of the configuration and management tasks for your Data Box Gateway device. You can use the Azure portal, local web UI, or the Windows PowerShell interface to manage your device.
 
-This article focuses on the tasks you do using the PowerShell interface. 
+This article focuses on the tasks you do using the PowerShell interface.
 
 This article includes the following procedures:
 
