@@ -129,11 +129,11 @@ To do that in the Azure portal, go to the **Automanage – Azure virtual machine
 Read carefully through the messaging in the resulting pop-up before agreeing to **Disable**.
 
 > [!NOTE]
->Disabling automanagement in a VM results in the following behavior:
+> Disabling automanagement in a VM results in the following behavior:
 >
-> 1.    The configuration of the VM and the services it's onboarded to will not be changed
-> 2.    Any changes incurred by those services will remain billable and will continue to be incurred
-> 3.    Any Automanage behaviors will stop immediately
+> - The configuration of the VM and the services it is onboarded to don't change.
+> - Any charges incurred by those services remain billable and continue to be incurred.
+> - Any Automanage behaviors immediately stop.
 
 
 First and foremost, we will not off-board the virtual machine from any of the services that we onboarded it to and configured. So any charges incurred by those services will continue to remain billable. You will need to off-board if necessary. Any Automanage behavior will stop immediately. For example, we will no longer monitor the VM for drift.
