@@ -14,7 +14,7 @@ ms.service: azure-communication-services
 
 ## Joining Teams meetings
 
-Azure Communication Services supports anonymous meeting interoperability with Microsoft Teams. Meetings in Microsoft Teams provide audio, video, and screen sharing. They're one of the key ways to collaborate in Teams. 
+Azure Communication Services can be used to build custom meeting experiences that interact with Microsoft Teams. Users of your Communication Services solution(s) can interact with Teams participants over voice, video, and screen sharing.
 
 Interoperability allows you to create custom Azure applications that connect users to Teams meetings, even users who do not have Azure Active Directory identities or Teams licenses. This capability is ideal for bringing together employees (familiar using Teams) and external users (using a custom application experience) together in a single communication space. An experience you could build:
 
