@@ -21,6 +21,9 @@ This tutorial walks you through the Log Analytics interface, gets you started wi
 > * View, modify, and share visuals of query results
 > * Save, load, export, and copy queries and results
 
+> [!IMPORTANT]
+> This tutorial uses features of Log Analytics instead of working with the query itself. you'll leverage Log Analytics features to build one query and use another example query. When you're ready to learn the syntax of queries and start directly editing the query itself, go through the [Kusto Query Language tutorial](/azure/data-explorer/kusto/query/tutorial?pivots=azuremonitor). That tutorial walks through several example queries that you can edit and run in Log Analytics, leveraging several of the features that you'll learn in this tutorial.
+
 
 ## Prerequisites
 To use Log Analytics, you need to be signed in to an Azure account. If you don't have an Azure account, [create one for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F). To complete most of the steps in this tutorial, you can use the [Log Analytics demo environment](https://ms.portal.azure.com/#blade/Microsoft_Azure_Monitoring_Logs/DemoLogsBlade). This includes plenty of sample data supporting the sample queries. With the demo environment though, you won't be able to save queries or pin results to a dashboard. You should perform these steps in your own environment.
@@ -96,179 +99,20 @@ Now drag the **CallerIpAddress** column into the grouping row. Results are now o
 
 [![Query results grouped](media/get-started-portal/query-results-grouped.png)](media/get-started-portal/query-results-grouped.png#lightbox)
 
-## Numeric data
-Let's have a look at a query that uses numerical data that we can view in a chart. 
+## Work with charts
+Let's have a look at a query that uses numerical data that we can view in a chart. Instead of building a query, we'll select an example query.
 
+Click on **Queries** in the left pane. This pane includes example queries that you can add to the query window. If you're using your own workspace, you should have a variety of queries in multiple categories, but if you're using the demo environment, you may only see a single **Log Analytics workspaces** category. Expand that to view the queries in the category.
 
+Click on the query called **Request Count by ResponseCode**. This will add the query to the query window. Notice that the new query is separated from the other by a blank line. A query in KQL ends when it encounters a blank line, so these are seen as separate queries. 
 
+[![Example query](media/get-started-portal/example-query.png)](media/get-started-portal/example-query.png#lightbox)
 
+The current query is the one that the cursor is positioned on. You can see that the first query is highlighted indicating it's the current query. Click anywhere in the new query to select it and then click the **Run** button to run it.
 
 
 
 
-## Log Analytics interface
-Let's start with a walkthrough of the Log Anlaytics 
-
-
-### 1. Top action bar
-The top action bar provides controls for working with the query in the query window and 
-
-**Scope:** Specifies the scope of data used for the query. This could be all data in a Log Analytics workspace or data for a particular resource across multiple workspaces. See [Query scope](#query-scope).
-
-**Run button:** Click to run the selected query in the query window. You can also press shift+enter to run a query.
-
-**Time picker:** Select the time range for the data available to the query. This is overriden if you include a time filter in the query. See [Log query scope and time range in Azure Monitor Log Analytics](scope.md).
-
-**Save button:** Save the query to the Query Explorer for the workspace.
-
-**Copy button:** Copy a link to the query, the query text, or the query results to the clipboard.
-
-**New alert rule button:** Create a new tab with an empty query.
-
-**Export button:** Export the results of the query to a CSV file or the query to Power Query Formula Language format for use with Power Bi.
-
-**Pin to dashboard button:** Add the results of the query to an Azure dashboard.
-
-**Format query button:** Arrange the selected text for readability.
-
-**Example queries button:** Open the example queries dialog box that is displayed when you first open Log Analytics.
-
-**Query Explorer button:** Open **Query Explorer** which provides access to saved queries in the workspace.
-
-### 2. Sidebar
-
-**Tables:** Lists the tables that are part of the selected scope. Select **Group by** to change the grouping of the tables. Hover over a table name to display a dialog box with a description of the table and options to view its documentation and to preview its data. Expand a table to view its columns. Double-click on a table or column name to add it to the query.
-
-**Queries:** List of example queries that you can open in the query window. This is the same list that's displayed when you open Log Analytics. Select **Group by** to change the grouping of the queries. Double-click on a query to add it to the query window or hover over it for other options.
-
-**Filter:** Creates filter options based on the results of a query. After you a run a query, columns will be displayed with different values from the results. Select one or more values and then click **Apply & Run** to add a **where** command to the query and run it again.
-
-### 3. Query window
-The query window is where you edit your query. This includes intellisense for KQL commands and color coding to enhance readability. Click the **+** at the top of the window to open another tab.
-
-As single window can include multiple queries. A query cannot include any blank lines, so you can separate multiple queries in a window with one or more blank lines. The current query is the one with the cursor positioned anywhere in it.
-
-To run the current query, click the **Run** button or press Shift+Enter.
-
-### 4. Results window
-The results of the query are displayed in the results window. By default, the results are displayed as a table. To display as a chart, either select **Chart** in the results window, or add a **render** command to your query.
-
-#### Results view
-The Results view displays query results in a table organized by columns and rows. Click to the left of a row to expand its values. Click on the **Columns** dropdown to change the list of columns. 
-
-Sort the results by clicking on a column name. Filter the results by clicking the funnel next to a column name. Clear the filters and reset the sorting by running the query again.
-
-Select **Group columns** to display the grouping bar above the query results. Group the results by any column by dragging it to the bar. Create nested groups in the results by adding additional columns. 
-
-#### Chart view
-The Chart view displays the results as one of multiple available chart types. You can specify the chart type in a **render** command in your query or select it from the **Visualization Type** dropdown.
-
-| Option | Description |
-|:---|:---|
-| **Visualization Type** | Type of chart to display. |
-| **X-Axis** | Column in the results to use for the X-Axis 
-| **Y-Axis** | Column in the results to use for the Y-Axis. This will typically be a numeric column. |
-| **Split by** | Column in the results that defines the series in the chart. A series is created for each value in the column. |
-| **Aggregation** | Type of aggregation to perform on the numeric values in the Y-Axis. |
-
-## Understand the schema
- 
-A *schema* is a collection of tables grouped under logical categories. The Demo schema has several categories from monitoring solutions. For example, the **LogManagement** category contains Windows and Syslog events, performance data, and agent heartbeats.
-
-The schema tables appear on the **Tables** tab of the Log Analytics workspace. The tables contain columns, each with a data type shown by the icon next to the column name. For example, the **Event** table contains text columns like **Computer** and numerical columns like **EventCategory**.
-
-![Screenshot shows the Azure portal Logs page with a new query, highlighting the Tables pane with Computer and EventCategory highlighted.](media/get-started-portal/schema.png)
-
-## Write and run basic queries
-
-Log Analytics opens with a new blank query in the **Query editor**.
-
-![Log Analytics](media/get-started-portal/homepage.png)
-
-### Write a query
-
-Azure Monitor log queries use a version of the Kusto query language. Queries can begin with either a table name or a [search](/azure/kusto/query/searchoperator) command. 
-
-The following query retrieves all records from the **Event** table:
-
-```Kusto
-Event
-```
-
-The pipe (|) character separates commands, so the output of the first command is the input of the next command. You can add any number of commands to a single query. The following query retrieves the records from the **Event** table, and then searches them for the term **error** in any property:
-
-```Kusto
-Event 
-| search "error"
-```
-
-A single line break makes queries easier to read. More than one line break splits the query into separate queries.
-
-Another way to write the same query is:
-
-```Kusto
-search in (Event) "error"
-```
-
-In the second example, the **search** command searches only records in the **Events** table for the term **error**.
-
-By default, Log Analytics limits queries to a time range of the past 24 hours. To set a different time range, you can add an explicit **TimeGenerated** filter to the query, or use the **Time range** control.
-
-### Use the Time range control
-To use the **Time range** control, select it in the top bar, and then select a value from the dropdown list, or select **Custom** to create a custom time range.
-
-![Time picker](media/get-started-portal/time-picker.png)
-
-- Time range values are in UTC, which could be different than your local time zone.
-- If the query explicitly sets a filter for **TimeGenerated**, the time picker control shows **Set in query**, and is disabled to prevent a conflict.
-
-### Run a query
-To run a query, place your cursor somewhere inside the query, and select **Run** in the top bar or press **Shift**+**Enter**. The query runs until it finds a blank line.
-
-## Filter results
-Log Analytics limits results to a maximum of 10,000 records. A general query like `Event` returns too many results to be useful. You can filter query results either through restricting the table elements in the query, or by explicitly adding a filter to the results. Filtering through the table elements returns a new result set, while an explicit filter applies to the existing result set.
-
-### Filter by restricting table elements
-To filter `Event` query results to **Error** events by restricting table elements in the query:
-
-1. In the query results, select the dropdown arrow next to any record that has **Error** in the **EventLevelName** column. 
-   
-1. In the expanded details, hover over and select the **...** next to **EventLevelName**, and then select **Include "Error"**. 
-   
-   ![Add filter to query](media/get-started-portal/add-filter.png)
-   
-1. Notice that the query in the **Query editor** has now changed to:
-   
-   ```Kusto
-   Event
-   | where EventLevelName == "Error"
-   ```
-   
-1. Select **Run** to run the new query.
-
-### Filter by explicitly filtering results
-To filter the `Event` query results to **Error** events by filtering the query results:
-
-1. In the query results, select the **Filter** icon next to the column heading **EventLevelName**. 
-   
-1. In the first field of the pop-up window, select **Is equal to**, and in the next field, enter *error*. 
-   
-1. Select **Filter**.
-   
-   ![Screenshot shows a table of results with a contextual menu for filtering  results by EventLevelName.](media/get-started-portal/filter.png)
-
-## Sort, group, and select columns
-To sort query results by a specific column, such as **TimeGenerated [UTC]**, select the column heading. Select the heading again to toggle between ascending and descending order.
-
-![Sort column](media/get-started-portal/sort-column.png)
-
-Another way to organize results is by groups. To group results by a specific column, drag the column header to the bar above the results table labeled **Drag a column header and drop it here to group by that column**. To create subgroups, drag other columns to the upper bar. You can rearrange the hierarchy and sorting of the groups and subgroups in the bar.
-
-![Screenshot shows query results with subgroups for EventLevelName and Computer.](media/get-started-portal/groups.png)
-
-To hide or show columns in the results, select **Columns** above the table, and then select or deselect the columns you want from the dropdown list.
-
-![Select columns](media/get-started-portal/select-columns.png)
 
 ## View and modify charts
 You can also see query results in visual formats. Enter the following query as an example:
