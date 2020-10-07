@@ -1,6 +1,6 @@
 ---
 title: 'Tutorial: Get started analyze data with serverless SQL pool' 
-description: In this tutorial, you'll learn how to analyze data using a serverless SQL pool using data located in Spark databases.
+description: In this tutorial, you'll learn how to analyze data with a serverless SQL pool using data located in Spark databases.
 services: synapse-analytics
 author: saveenr
 ms.author: saveenr

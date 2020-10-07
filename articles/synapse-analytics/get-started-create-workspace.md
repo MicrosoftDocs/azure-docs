@@ -86,7 +86,7 @@ Every workspace comes with a pre-built pool called **serverless SQL pool**. This
 
 Unlike the other kinds of pools, billing for serverless SQL pool is based on the amount of data scanned to run the query, not the number of resources used to execute the query.
 
-* Serverless SQL pool has its own databases that exist independently from any serverless SQL pool.
+* Serverless SQL pool has its own databases that exist independently from other serverless SQL pools.
 * A workspace always has exactly one serverless SQL pool named **serverless SQL pool**.
 
 ## Preparing a ADLSGEN2 storage account
