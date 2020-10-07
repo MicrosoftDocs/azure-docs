@@ -55,7 +55,7 @@ When performing inference, Machine Learning creates a Docker container that host
 Learn [where and how to deploy your model to a compute target](how-to-deploy-and-where.md).
 
 <a name="amlcompute"></a>
-## Machine Learning compute (managed)
+## Azure Machine Learning compute (managed)
 
 A managed compute resource is created and managed by Machine Learning. This compute is optimized for machine learning workloads. Machine Learning compute clusters and [compute instances](concept-compute-instance.md) are the only managed computes.
 
