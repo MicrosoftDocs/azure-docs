@@ -281,7 +281,7 @@ To run a container task on a container-enabled pool, specify container-specific 
 
 - For Windows, tasks must be run with [ElevationLevel](/rest/api/batchservice/task/add#elevationlevel) set to `admin`. 
 
-- For Linux, Batch will map the user/group permission to the container. If access to any folder within container require Administrator permission, you may need run the task as pool scope with admin elevation level. This will ensure Batch runs the task as root in the container context. Otherwise, a non-admin user may not have permission to access some folders in the container.
+- For Linux, Batch will map the user/group permission to the container. If access to any folder within the container requires Administrator permission, you may need to run the task as pool scope with admin elevation level. This will ensure Batch runs the task as root in the container context. Otherwise, a non-admin user may not have access to those folders.
 
 - For container pools with GPU-enabled hardware, Batch will automatically enable GPU for container tasks, so you shouldn't include the `–gpus` argument.
 
