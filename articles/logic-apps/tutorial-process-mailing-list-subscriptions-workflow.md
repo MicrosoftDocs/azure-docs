@@ -280,42 +280,52 @@ Next, set up the emails to send when the approved member either succeeds or fail
 
 Next, test your logic app, which now looks similar to this example:
 
-![Example finished logic app workflow](./media/tutorial-process-mailing-list-subscriptions-workflow/tutorial-high-level-completed.png)
+![Screenshot that shows the example finished logic app workflow.](./media/tutorial-process-mailing-list-subscriptions-workflow/tutorial-high-level-completed.png)
 
 ## Run your logic app
 
 1. Send yourself an email request to join your mailing list. Wait for the request to appear in your inbox.
 
-1. To manually start your logic app, on the designer toolbar bar, select **Run**. 
+1. To manually start your logic app, on the designer toolbar, select **Run**. 
 
    If your email has a subject that matches the trigger's subject filter, your logic app sends you email to approve the subscription request.
 
-1. In the approval email, select **Approve**.
+1. In the approval email that you receive, select **Approve**.
 
 1. If the subscriber's email address doesn't exist on your mailing list, your logic app adds that person's email address and sends you an email like this example:
 
-   ![Example email - successful subscription](./media/tutorial-process-mailing-list-subscriptions-workflow/add-member-mailing-list-success.png)
+   ![Screenshot that shows the example email for a successful subscription.](./media/tutorial-process-mailing-list-subscriptions-workflow/add-member-mailing-list-success.png)
 
    If your logic app can't add the subscriber, you get an email like this example:
 
-   ![Example email - failed subscription](./media/tutorial-process-mailing-list-subscriptions-workflow/add-member-mailing-list-failed.png)
+   ![Screenshot that shows the example email for a failed subscription.](./media/tutorial-process-mailing-list-subscriptions-workflow/add-member-mailing-list-failed.png)
 
-   If you don't get any emails, check your email's junk folder. Your email junk filter might redirect these kinds of mails. Otherwise, if you're unsure that your logic app ran correctly, 
-   see [Troubleshoot your logic app](../logic-apps/logic-apps-diagnosing-failures.md).
+  > [!TIP]
+  > If you don't get any emails, check your email's junk folder. Your email junk filter might 
+  > redirect these kinds of mails. Otherwise, if you're unsure that your logic app ran correctly, 
+  > see [Troubleshoot your logic app](../logic-apps/logic-apps-diagnosing-failures.md).
 
 Congratulations, you've now created and run a logic app that integrates information across Azure, Microsoft services, and other SaaS apps.
 
 ## Clean up resources
 
-When you no longer need the sample logic app, delete the resource group that contains your logic app and related resources. 
+Your logic app continues running until you disable or delete the app. When you no longer need the sample logic app, delete the resource group that contains your logic app and related resources.
 
-1. On the main Azure menu, go to **Resource groups**, and select the resource group for your logic app.
+1. In the Azure portal's search box, enter the name for the resource group that you created. From the results, under **Resource Groups**, select the resource group.
 
-1. On the resource group menu, select **Overview** > **Delete resource group**. 
+   This example created the resource group named `LA-MailingList-RG`.
 
-   !["Overview" > "Delete resource group"](./media/tutorial-process-mailing-list-subscriptions-workflow/delete-resource-group.png)
+   ![Screenshot that shows the Azure search box with "la-mailinglist-rg" entered and **LA-MailingList-RG** selected.](./media/tutorial-process-mailing-list-subscriptions-workflow/find-resource-group.png)
 
-1. Enter the resource group name as confirmation, and select **Delete**.
+   > [!TIP]
+   > If the Azure home page shows the resource group under **Recent resources**,
+   > you can select the group from the home page.
+
+1. On the resource group menu, check that **Overview** is selected. On the **Overview** pane's toolbar, select **Delete resource group**.
+
+   ![Screenshot that shows the resource group's "Overview" pane and on the pane's toolbar, "Delete resource group" is selected.](./media/tutorial-process-mailing-list-subscriptions-workflow/delete-resource-group.png)
+
+1. In the confirmation pane that appears, enter the resource group name, and select **Delete**.
 
 ## Next steps
 
