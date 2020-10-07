@@ -93,7 +93,7 @@ The following example shows a JSON index schema with simple fields, collections,
 
 ## Indexing complex types
 
-During indexing, you can have a maximum of 3000 data elements across all complex collections within a single document. An element of a complex collection is a member of that collection, so in the case of Rooms (the only complex collection in the hotel example), each room is an element. An element can consist of one or more fields. Whether an element has one field or many, it is the element itself and not its size that counts towards the limit. For nested complex collections, each individual sub-element is counted as an element.
+During indexing, you can have a maximum of 3000 data elements across all complex collections within a single document. An element of a complex collection is a member of that collection, so in the case of Rooms (the only complex collection in the hotel example), each room is an element. For nested complex collections, each individual sub-element is counted as an element.
 
 This limit applies only to complex collections, and not complex types (like Address) or string collections (like Tags).
 
