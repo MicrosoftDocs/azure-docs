@@ -9,7 +9,7 @@ ms.date: 05/11/2020
 
 # Application Insights for Worker Service applications (non-HTTP applications)
 
-Application Insights is releasing a new SDK, called `Microsoft.ApplicationInsights.WorkerService`, which is best suited for non-HTTP workloads like messaging, background tasks, console applications etc. These types of applications don't have the notion of an incoming HTTP request like a traditional ASP.NET/ASP.NET Core Web Application, and hence using Application Insights packages for [ASP.NET](asp-net.md) or [ASP.NET Core](asp-net-core.md) applications is not supported.
+[Application Insights SDK for Worker Service](https://www.nuget.org/packages/Microsoft.ApplicationInsights.WorkerService) is a new SDK which is best suited for non-HTTP workloads like messaging, background tasks, console applications etc. These types of applications don't have the notion of an incoming HTTP request like a traditional ASP.NET/ASP.NET Core Web Application, and hence using Application Insights packages for [ASP.NET](asp-net.md) or [ASP.NET Core](asp-net-core.md) applications is not supported.
 
 The new SDK does not do any telemetry collection by itself. Instead, it brings in other well known Application Insights auto collectors like [DependencyCollector](https://www.nuget.org/packages/Microsoft.ApplicationInsights.DependencyCollector/), [PerfCounterCollector](https://www.nuget.org/packages/Microsoft.ApplicationInsights.PerfCounterCollector/), [ApplicationInsightsLoggingProvider](https://www.nuget.org/packages/Microsoft.Extensions.Logging.ApplicationInsights) etc. This SDK exposes extension methods on `IServiceCollection` to enable and configure telemetry collection.
 
