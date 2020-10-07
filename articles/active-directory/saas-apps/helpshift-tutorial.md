@@ -133,11 +133,11 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 1. Open the Helpshift **Dashboard** and click on **Settings icon**.
 
-	![The Helpshift Configuration](./media/helpshift-tutorial/configuration01.png)
+	![Screenshot shows the Helpshift Settings icon.](./media/helpshift-tutorial/configuration01.png)
 
 1. Click **Integrations** tab and perform the following steps:
 
-	![The Helpshift Configuration](./media/helpshift-tutorial/configuration02.png)
+	![Screenshot shows the Integration tab where you can perform steps described.](./media/helpshift-tutorial/configuration02.png)
 
     a. Turn on the **Single Sign-On(SAML – SSO)**.
 

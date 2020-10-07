@@ -225,7 +225,7 @@ Use the [Spring Initializr](https://start.spring.io/) to create a new Spring Boo
         </header>
         <div class="container body-content">
             <h1 class="mt-5">Welcome</h1>
-            <p>Learn more about <a href="https://github.com/microsoft/spring-cloud-azure/blob/master/spring-cloud-azure-feature-management/README.md">Feature Management with Spring Cloud Azure</a></p>
+            <p>Learn more about <a href="https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/appconfiguration/azure-spring-cloud-feature-management/README.md">Feature Management with Spring Cloud Azure</a></p>
 
         </div>
         <footer class="footer">
