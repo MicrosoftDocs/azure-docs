@@ -39,5 +39,5 @@ landingContent:
     linkLists:
       - linkListType: architecture
         links:
-          - text: Hybrid management and configuration
+          - text: Manage configurations for hybrid servers 
             url: /architecture/hybrid/azure-arc-hybrid-config 
