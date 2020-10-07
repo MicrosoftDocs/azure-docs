@@ -50,7 +50,8 @@ The following sections discuss the steps and recommendations to protect each of 
 
 You can create Edge cloud shares that tier data from your device to Azure. Depending on the network bandwidth available, configure bandwidth templates on your device to minimize any data loss in the event of a non-tolerable failure.
 
-> [!IMPORTANT] If the device has a non-tolerable failure, local data that is not tiered off from the device to Azure may be lost. 
+> [!IMPORTANT] 
+> If the device has a non-tolerable failure, local data that is not tiered off from the device to Azure may be lost. 
 
 ## Protect data in Edge local shares
 

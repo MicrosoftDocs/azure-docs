@@ -36,7 +36,7 @@ Follow these steps to configure the replacement device:
 1. [Unpack](azure-stack-edge-gpu-deploy-install.md#unpack-the-device), [rack mount](azure-stack-edge-gpu-deploy-install.md#rack-the-device) and [cable your device](azure-stack-edge-gpu-deploy-install.md#cable-the-device). 
 1. [Connect to the local UI of the device](azure-stack-edge-gpu-deploy-connect.md).
 1. Configure the network using the same IP addresses that you used for your old device. This minimizes the impact on any client machines used in your environment. See how to [configure network settings](azure-stack-edge-gpu-deploy-configure-network-compute-web-proxy.md).
-1. Assign the same device name and DNS domain as your old device. This ensures that your clients can use the same device name to talk to the new device. See how to [configure device setting](azure-stack-edge-gpu-deploy-set-up-device-update-time).
+1. Assign the same device name and DNS domain as your old device. This ensures that your clients can use the same device name to talk to the new device. See how to [configure device setting](azure-stack-edge-gpu-deploy-set-up-device-update-time.md).
 1. Configure certificates on the new device in the same way as you did for the old device. Keep in mind that the new device has a new node serial number. If you used your own certificates on the old device, you will need to get a new node certificate. See how to [configure certificates](azure-stack-edge-gpu-deploy-configure-certificates.md).
 1. Get the activation key from the Azure portal and activate the new device. See how to [activate the device](azure-stack-edge-gpu-deploy-activate.md).
 
