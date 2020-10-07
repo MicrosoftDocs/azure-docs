@@ -23,7 +23,7 @@ Interoperability allows you to create custom Azure applications that connect use
 3. Meeting details are shared with external users through your custom application
 4. External users leverage the custom application and Azure Communication Services Calling SDK to join the Teams meeting
 
-The high-level architecture for this use case:
+The high-level architecture for this use-case:
 ![Architecture for Teams interop](..//media/call-flows/teams-interop.png)
 
 While certain Teams meeting features such as raised hand, together mode, and breakout rooms are only be available for Teams users, your custom application will have access to the meeting's core audio, video, and screen sharing capabilities.
