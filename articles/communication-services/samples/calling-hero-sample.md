@@ -112,6 +112,6 @@ For more information, see the following articles:
 
 - [Azure Communication GitHub](https://github.com/Azure/communication) - Find more examples and information on the official GitHub page
 - [Redux](https://redux.js.org/) - Client-side state management
-- [FluentUI](https://developer.microsoft.com/fluentui#/) - Microsoft powered UI library
+- [FluentUI](https://aka.ms/fluent-ui) - Microsoft powered UI library
 - [React](https://reactjs.org/) - Library for building user interfaces
 - [ASP.NET Core](https://docs.microsoft.com/aspnet/core/introduction-to-aspnet-core?view=aspnetcore-3.1&preserve-view=true) - Framework for building web applications
