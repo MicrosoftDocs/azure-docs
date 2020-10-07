@@ -28,7 +28,7 @@ Prerequisites:
 
 To set up a custom installation for Azure AD Connect, go through the wizard pages that the following sections describe.
 
-### Express Settings page
+### Express settings
 On the **Express Settings** page, select **Customize** to start a customized-settings installation.  The rest of this article guides you through the custom installation process. Use the following links to quickly go to the information for a particular page:
 
 - [Required Components](#required-components)
@@ -36,7 +36,7 @@ On the **Express Settings** page, select **Customize** to start a customized-set
 - [Connect to Azure AD](#connect-to-azure-ad)
 - [Sync](#sync-pages)
 
-### Required Components page
+### Install required components
 When you install the synchronization services, you can leave the optional configuration section unselected. Azure AD Connect sets up everything automatically. It sets up a SQL Server 2012 Express LocalDB instance, creates the appropriate groups, and assign permissions. If you want to change the defaults, clear the appropriate boxes.  The following table summarizes these options and provides links to additional information. 
 
 ![Screenshot showing optional selections for the required installation components in Azure AD Connect.](./media/how-to-connect-install-custom/requiredcomponents2.png)
@@ -46,10 +46,10 @@ When you install the synchronization services, you can leave the optional config
 |Specify a custom installation location| Allows you to change the default installation path for Azure AD Connect.|
 | Use an existing SQL Server |Allows you to specify the SQL Server name and instance name. Choose this option if you already have a database server that you want to use. For **Instance Name**, enter the instance name, a comma, and the port number if your SQL Server instance doesn't have browsing enabled.  Then specify the name of the Azure AD Connect database.  Your SQL privileges determine whether a new database can be created or your SQL administrator must create the database in advance.  If you have SQL Server administrator (SA) permissions, see [Install Azure AD Connect by using an existing database](how-to-connect-install-existing-database.md).  If you have delegated permissions (DBO), see [Install Azure AD Connect by using SQL delegated administrator permissions](how-to-connect-install-sql-delegation.md). |
 | Use an existing service account |By default, Azure AD Connect provides a virtual service account for the synchronization services. If you use a remote instance of SQL Server or use a proxy that requires authentication, you can use a *managed service account* or a password-protected service account in the domain. In those cases, enter the account you want to use. To run the installation, you need to be an SA in SQL so you can create sign-in credentials for the service account. For more information, see [Azure AD Connect accounts and permissions](reference-connect-accounts-permissions.md#adsync-service-account). </br></br>By using the latest build, the SQL administrator can now provision the database out of band. Then the Azure AD Connect administrator can install it with database owner rights.  For more information, see [Install Azure AD Connect by using SQL delegated administrator permissions](how-to-connect-install-sql-delegation.md).|
-| Specify custom sync groups |By default, when the synchronization services are installed, Azure AD Connect creates four groups that are local to the server. These groups are administrators, operators, browse, and password reset. You can specify your own groups here. The groups must be local on the server. They can't be located in the domain. |
+| Specify custom sync groups |By default, when the synchronization services are installed, Azure AD Connect creates four groups that are local to the server. These groups are Administrators, Operators, Browse, and Password Reset. You can specify your own groups here. The groups must be local on the server. They can't be located in the domain. |
 |Import synchronization settings (preview)|Allows you to import settings from other versions of Azure AD Connect.  For more information, see [Importing and exporting Azure AD Connect configuration settings](how-to-connect-import-export-config.md).|
 
-### User Sign-in page
+### User sign-in
 After installing the required components, select your users' single sign-on method. The following table briefly describes the available options. For a full description of the sign-in methods, see [User sign-in](plan-connect-user-signin.md).
 
 ![Screenshot that shows the "User Sign-in" page. The "Password Hash Synchronization" option is selected.](./media/how-to-connect-install-custom/usersignin4.png)
@@ -61,9 +61,9 @@ After installing the required components, select your users' single sign-on meth
 | Federation with AD FS |Users can sign in to Microsoft cloud services, such as Microsoft 365, by using the same password they use in their on-premises network.  Users are redirected to their on-premises Azure Directory Federation Services (AD FS) instance to sign in. Authentication occurs on-premises. |
 | Federation with PingFederate|Users can sign in to Microsoft cloud services, such as Microsoft 365, by using the same password they use in their on-premises network.  Users are redirected to their on-premises PingFederate instance to sign in. Authentication occurs on-premises. |
 | Do not configure |No user sign-in feature is installed or configured. Choose this option if you already have a third-party federation server or another solution in place. |
-|Enable single sign-on|This option is available with both password hash sync and pass-through authentication. It provides a single sign-on experience for desktop users on corporate networks. For more information, see [Single sign-on](how-to-connect-sso.md). </br>**Note:** For AD FS customers, this option is unavailable. AD FS already offers the same level of single sign-on.</br>
+|Enable single sign-on|This option is available with both password hash sync and pass-through authentication. It provides a single sign-on experience for desktop users on corporate networks. For more information, see [Single sign-on](how-to-connect-sso.md). </br></br>**Note:** For AD FS customers, this option is unavailable. AD FS already offers the same level of single sign-on.</br>
 
-### Connect to Azure AD page
+### Connect to Azure AD
 On the Connect to Azure AD page, enter a global admin account and password. If you selected **Federation with AD FS** on the previous page, don't sign in with an account that's in a domain you plan to enable for federation. 
 
 You might want to use an account in the default *onmicrosoft.com* domain, which comes with your Azure AD tenant. This account is used only to create a service account in Azure AD. It's not used after the installation finishes.
@@ -82,7 +82,7 @@ If you see an error or have problems with connectivity, then see [Troubleshoot c
 
 The following sections describe the pages in the Sync section.
 
-### Connect Directories page
+### Connect your directories
 To connect to Active Directory Domain Services (Azure AD DS), Azure AD Connect needs the forest name and credentials of an account that has sufficient permissions.
 
 ![Screenshot that shows the "Connect your directories" page.](./media/how-to-connect-install-custom/connectdir01.png)
@@ -97,11 +97,10 @@ After you enter the forest name and select  **Add Directory**, a window appears.
 ![Screenshot showing the "Connect Directory" page and the A D forest account window, where you can choose to create a new account or use an existing account.](./media/how-to-connect-install-custom/connectdir02.png)
 
 >[!NOTE]
-> As of build 1.4.18.0, you can't use an enterprise admin or domain admin account as the Azure AD DS connector account. When you select **Use existing account**, if you try to enter an enterprise admin account or a domain admin account, you see the following error:
+> As of build 1.4.18.0, you can't use an enterprise admin or domain admin account as the Azure AD DS connector account. When you select **Use existing account**, if you try to enter an enterprise admin account or a domain admin account, you see the following error: "Using  an Enterprise or Domain administrator account for your AD forest account is not allowed. Let Azure AD Connect create the account for you or specify a synchronization account with the correct permissions."
 >
->"Using  an Enterprise or Domain administrator account for your AD forest account is not allowed. Let Azure AD Connect create the account for you or specify a synchronization account with the correct permissions."
 
-### Azure AD sign-in page
+### Azure AD sign-in configuration
 On the Azure AD sign-in configuration page, review the user principal name (UPN) domains in on-premises Azure AD DS. These UPN domains have been verified in Azure AD. On this page, you configure the attribute to use for the userPrincipalName.
 
 ![Screenshot showing unverified domains on the "Azure A D sign-in" page.](./media/how-to-connect-install-custom/aadsigninconfig2.png)  
@@ -121,7 +120,7 @@ The alternate ID attribute value must follow the RFC 822 standard. You can use a
 > Alternate IDs aren't compatible with all Microsoft 365 workloads. For more information, see [Configuring alternate sign-in IDs](/windows-server/identity/ad-fs/operations/configuring-alternate-login-id).
 >
 
-### Domain and OU Filtering page
+### Domain and OU filtering
 By default, all domains and organizational units (OUs) are synchronized. If you don't want to synchronize some domains or OUs to Azure AD, you can clear the appropriate selections.  
 
 ![Screenshot showing the Domain and O U filtering page.](./media/how-to-connect-install-custom/domainoufiltering.png)  
@@ -138,7 +137,7 @@ It's also possible that some domains are unreachable because of firewall restric
 
 If you see this warning, make sure that these domains are indeed unreachable and that the warning is expected.
 
-### Identifying Users page
+### Uniquely identifying your users
 
 On the Identifying Users page, choose how to identify users in your on-premises directories and how to identify them by using the sourceAnchor attribute.
 
@@ -171,7 +170,7 @@ In federation scenarios and some Azure AD interfaces, the sourceAnchor attribute
 
 For more information about the source anchor, see [Design concepts](plan-connect-design-concepts.md#sourceanchor).
 
-### Filtering page
+### Sync filtering based on groups
 The filtering-on-groups feature allows you to sync only a small subset of objects for a pilot. To use this feature, create a group for this purpose in your on-premises instance of Active Directory. Then add users and groups that should be synchronized to Azure AD as direct members. You can later add users or remove users from this group to maintain the list of objects that should be present in Azure AD. 
 
 All objects that you want to synchronize must be direct members of the group. Users, groups, contacts, and computers or devices must all be direct members. Nested group membership isn't resolved. When you add a group as a member, only the group itself is added. Its members aren't added.
@@ -184,7 +183,7 @@ All objects that you want to synchronize must be direct members of the group. Us
 
 In a full production deployment, it would be hard to maintain a single group and all of its objects to synchronize. Instead of the filtering-on-groups feature, use one of the methods described in [Configure filtering](how-to-connect-sync-configure-filtering.md).
 
-### Optional Features page
+### Optional features
 On the next page, you can select optional features for your scenario.
 
 >[!WARNING]
@@ -212,7 +211,7 @@ On the next page, you can select optional features for your scenario.
 | Device writeback |For conditional-access scenarios, use this option to write back device objects in Azure AD to your on-premises instance of Active Directory. For more information, see [Enabling device writeback in Azure AD Connect](how-to-connect-device-writeback.md). |
 | Directory extension attribute sync |Select this option to sync specified attributes to Azure AD. For more information, see [Directory extensions](how-to-connect-sync-feature-directory-extensions.md). |
 
-### Azure AD Attributes page
+### Azure AD app and attribute filtering
 If you want to limit which attributes synchronize to Azure AD, then start by selecting the services you use. If you change the selections on this page, you have to explicitly select a new service by rerunning the installation wizard.
 
 ![Screenshot showing optional Azure A D apps features.](./media/how-to-connect-install-custom/azureadapps2.png)
@@ -225,7 +224,7 @@ Based on the services you selected in the previous step, this page shows all att
 > Removing attributes can affect functionality. For best practices and recommendations, see [Attributes to synchronize](reference-connect-sync-attributes-synchronized.md#attributes-to-synchronize).
 >
 
-### Directory Extensions page
+### Directory Extension attribute sync
 You can extend the schema in Azure AD by using custom attributes that your organization added or by using other attributes in Active Directory. To use this feature, on the **Optional Features** page, select **Directory Extension attribute sync**. On the **Directory Extensions** page, you can select more attributes to sync.
 
 >[!NOTE]
@@ -235,7 +234,7 @@ You can extend the schema in Azure AD by using custom attributes that your organ
 
 For more information, see [Directory extensions](how-to-connect-sync-feature-directory-extensions.md).
 
-### Single Sign-on page
+### Enabling single sign-on
 On the Single Sign-on page, you configure single sign-on for use with password synchronization or pass-through authentication. You do this step once for each forest that's being synchronized to Azure AD. Configuration involves two steps:
 
 1.	Create the necessary computer account in your on-premises instance of Active Directory.
@@ -256,14 +255,14 @@ On a computer that has Group Policy management tools:
 
 1.	Open the Group Policy management tools.
 2.	Edit the group policy that will be applied to all users. For example, the Default Domain policy.
-3.	Go to **User Configuration** > **Administrative Templates** > **Windows Components** > **Internet Explorer** > **Internet Control Panel** > **Security Page**. Then select **Site to Zone Assignment List**, as the following image shows.
+3.	Go to **User Configuration** > **Administrative Templates** > **Windows Components** > **Internet Explorer** > **Internet Control Panel** > **Security Page**. Then select **Site to Zone Assignment List**.
 4.	Enable the policy. Then, in the dialog box, enter a value name of `https://autologon.microsoftazuread-sso.com` and value of `1`. Your setup should look like the following image.
   
     ![Screenshot showing intranet zones.](./media/how-to-connect-install-custom/sitezone.png)
 
 6.	Select **OK** twice.
 
-## Configure federation by using AD FS
+## Configuring federation with AD FS
 You can configure AD FS with Azure AD Connect in just a few clicks. Before you start, you need:
 
 * Windows Server 2012 R2 or later for the federation server. Remote management should be enabled.
@@ -342,11 +341,11 @@ When you select the domain that you want to federate, Azure AD Connect provides 
 ![Screenshot showing the "Azure A D Domain" page, including information you can use to verify the domain.](./media/how-to-connect-install-custom/verifyfeddomain.png)
 
 > [!NOTE]
-> AD Connect tries to verify the domain during the configuration stage. If you don't add the necessary Domain Name System (DNS) records, the configuration can't be completed.
+> Azure AD Connect tries to verify the domain during the configuration stage. If you don't add the necessary Domain Name System (DNS) records, the configuration can't be completed.
 >
 
 
-## Configure federation by using PingFederate
+## Configuring federation with PingFederate
 You can configure PingFederate with Azure AD Connect in just a few clicks. The following prerequisites are required:
 - PingFederate 8.4 or later.  For more information, see [PingFederate integration with Azure Active Directory and Microsoft 365](https://docs.pingidentity.com/bundle/O365IG20_sm_integrationGuide/page/O365IG_c_integrationGuide.html).
 - A TLS/SSL certificate for the federation service name that you intend to use (for example, sts.contoso.com).
@@ -380,7 +379,7 @@ Finally, you can verify the newly configured federated login flow by signing in 
 
 ![Screenshot showing the "Verify federated login" page. A message at the bottom indicates a successful sign-in.](./media/how-to-connect-install-custom/ping4.png)
 
-## Configure and verify
+## Configure and verify pages
 The configuration happens on the Configure page.
 
 > [!NOTE]
