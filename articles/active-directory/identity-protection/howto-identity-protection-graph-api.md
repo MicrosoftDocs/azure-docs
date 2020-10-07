@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: identity-protection
 ms.topic: how-to
-ms.date: 07/14/2020
+ms.date: 10/06/2020
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -101,6 +101,8 @@ Send this header as a request to the following API URL: `https://graph.microsoft
 The response, if successful, is a collection of identity risk detections and associated data in the OData JSON format, which can be parsed and handled as you see fit.
 
 ### Sample
+
+This sample shows the use of a shared secret to authenticate. In a production environment storing secrets in code is generally frowned upon. Organizations can make use of managed identities for Azure resources to secure these credentials. For more information about managed identities see the article, [What are managed identities for Azure resources](../managed-identities-azure-resources/overview.md).
 
 Here’s sample code for authenticating and calling the API using PowerShell.  
 Just add your client ID, the secret key, and the tenant domain.
