@@ -10,7 +10,7 @@ ms.custom: "devx-track-csharp, devx-track-python, github-actions-azure"
 
 # Continuous delivery by using GitHub Action
 
-Use [GitHub Actions](https://github.com/features/actions) to define a workflow to automatically build and deploy your functions code to your function app in Azure. 
+Use [GitHub Actions](https://github.com/features/actions) to define a workflow to automatically build and deploy code to your Azure function app. 
 
 In GitHub Actions, a [workflow](https://help.github.com/articles/about-github-actions#workflow) is an automated process that you define in your GitHub repository. This process tells GitHub how to build and deploy your functions app project on GitHub. 
 
@@ -20,7 +20,7 @@ For an Azure Functions workflow, the file has three sections:
 
 | Section | Tasks |
 | ------- | ----- |
-| **Authentication** | <ol><li>Define a service principal or download a publishing profile.</li><li>Create a GitHub secret.</li></ol>|
+| **Authentication** | <ol><li>Download a publish profile or define a service principal.</li><li>Create a GitHub secret.</li></ol>|
 | **Build** | <ol><li>Set up the environment.</li><li>Build the function app.</li></ol> |
 | **Deploy** | <ol><li>Deploy the function app.</li></ol>|
 
@@ -49,15 +49,15 @@ To download the publishing profile of your function app:
 
    :::image type="content" source="media/functions-how-to-github-actions/get-publish-profile.png" alt-text="Download publish profile":::
 
-1. Save and copy the contents of the publish settings file.
+1. Save and copy the contents of the file.
 
 
 # [Service principal](#tab/service-principal)
 
-You can create a [service principal](../active-directory/develop/app-objects-and-service-principals.md#service-principal-object) by using the [az ad sp create-for-rbac](/cli/azure/ad/sp?view=azure-cli-latest#az-ad-sp-create-for-rbac) command for [Azure CLI](/cli/azure/). Run this command using [Azure Cloud Shell](https://shell.azure.com) in the Azure portal or by selecting the **Try it** button.
+You can create a [service principal](../active-directory/develop/app-objects-and-service-principals.md#service-principal-object&preserve-view=true) by using the [az ad sp create-for-rbac](/cli/azure/ad/sp?view=azure-cli-latest#az-ad-sp-create-for-rbac&preserve-view=true) command for [Azure CLI](/cli/azure/). Run this command using [Azure Cloud Shell](https://shell.azure.com) in the Azure portal or by selecting the **Try it** button.
 
 ```azurecli-interactive
-az ad sp create-for-rbac --name "myApp" --role contributor --scopes /subscriptions/<SUBSCRIPTION_ID>/resourceGroups/<RESOURCE_GROUP>/providers/Microsoft.Web/sites/<APP_NAME> --sdk-auth
+az ad sp create-for-rbac --name "<MY-APP-NAME>" --role contributor --scopes /subscriptions/<SUBSCRIPTION_ID>/resourceGroups/<RESOURCE_GROUP>/providers/Microsoft.Web/sites/<APP_NAME> --sdk-auth
 ```
 
 In this example, replace the placeholders in the resource with your subscription ID, resource group, and function app name. The output is the role assignment credentials that provide access to your function app. Copy this JSON object, which you can use to authenticate from GitHub. 
@@ -77,7 +77,7 @@ In this example, replace the placeholders in the resource with your subscription
 
 ---
 
-## Configure the GitHub secret
+## Add the GitHub secret
 
 1. In [GitHub](https://github.com), browse to your repository, select **Settings** > **Secrets** > **Add a new secret**.
 
@@ -157,11 +157,40 @@ This depends on the language and for languages supported by Azure Functions, thi
 
 The following example shows the part of the workflow that builds the function app, which is language-specific:
 
+# [.NET](#tab/dotnet)
+
+```yaml
+    env:
+      AZURE_FUNCTIONAPP_PACKAGE_PATH: '.' # set this to the path to your web app project, defaults to the repository root
+
+    - name: 'Resolve Project Dependencies Using Dotnet'
+      shell: bash
+      run: |
+        pushd './${{ env.AZURE_FUNCTIONAPP_PACKAGE_PATH }}'
+        dotnet build --configuration Release --output ./output
+        popd
+```
+
+# [Java](#tab/java)
+
+```yaml
+    env:
+      POM_XML_DIRECTORY: '.'  # set this to the directory which contains pom.xml file
+
+    - name: 'Restore Project Dependencies Using Mvn'
+      shell: bash
+      run: |
+        pushd './${{ env.POM_XML_DIRECTORY }}'
+        mvn clean package
+        mvn azure-functions:package
+        popd
+```
+
 # [JavaScript](#tab/javascript)
 
 ```yaml
     env:
-      AZURE_FUNCTIONAPP_PACKAGE_PATH: '.'      # set this to the path to your web app project, defaults to the repository root
+      AZURE_FUNCTIONAPP_PACKAGE_PATH: '.'  # set this to the path to your web app project, defaults to the repository root
 
     - name: 'Resolve Project Dependencies Using Npm'
       shell: bash
@@ -177,7 +206,7 @@ The following example shows the part of the workflow that builds the function ap
 
 ```yaml
     env:
-      AZURE_FUNCTIONAPP_PACKAGE_PATH: '.'      # set this to the path to your web app project, defaults to the repository root
+      AZURE_FUNCTIONAPP_PACKAGE_PATH: '.' # set this to the path to your web app project, defaults to the repository root
 
     - name: 'Resolve Project Dependencies Using Pip'
       shell: bash
@@ -185,35 +214,6 @@ The following example shows the part of the workflow that builds the function ap
         pushd './${{ env.AZURE_FUNCTIONAPP_PACKAGE_PATH }}'
         python -m pip install --upgrade pip
         pip install -r requirements.txt --target=".python_packages/lib/site-packages"
-        popd
-```
-
-# [.NET](#tab/dotnet)
-
-```yaml
-    env:
-      AZURE_FUNCTIONAPP_PACKAGE_PATH: '.'      # set this to the path to your web app project, defaults to the repository root
-
-    - name: 'Resolve Project Dependencies Using Dotnet'
-      shell: bash
-      run: |
-        pushd './${{ env.AZURE_FUNCTIONAPP_PACKAGE_PATH }}'
-        dotnet build --configuration Release --output ./output
-        popd
-```
-
-# [Java](#tab/java)
-
-```yaml
-    env:
-      POM_XML_DIRECTORY: '.'                     # set this to the directory which contains pom.xml file
-
-    - name: 'Restore Project Dependencies Using Mvn'
-      shell: bash
-      run: |
-        pushd './${{ env.POM_XML_DIRECTORY }}'
-        mvn clean package
-        mvn azure-functions:package
         popd
 ```
 ---
@@ -227,6 +227,8 @@ Use the `Azure/functions-action` action to deploy your code to a function app. T
 |_**slot-name**_ | (Optional) The name of the [deployment slot](functions-deployment-slots.md) you want to deploy to. The slot must already be defined in your function app. |
 |_**publish-profile**_ | (Optional) The name of the GitHub secret for your publish profile. |
 
+
+### Publish profile deploy examples
 
 The following examples use version 1 of the `functions-action` and a `publish profile` for authentication:
 
@@ -529,7 +531,9 @@ jobs:
 
 ---
 
-The following examples use version 1 of the `functions-action` and a `service principal` for authentication. The workflow sets up a Windows .NET environment. 
+### Service principal deploy examples
+
+The following example uses version 1 of the `functions-action` and a `service principal` for authentication. The workflow sets up a Windows .NET environment. 
 
 ```yaml
 name: Windows_Dotnet_Workflow
@@ -575,7 +579,5 @@ jobs:
 ```
 ## Next steps
 
-To view a complete workflow .yaml file, see one of the files in the [Azure GitHub Actions workflow samples repo](https://aka.ms/functions-actions-samples) that have `functionapp` in the name. You can use these samples a starting point for your workflow.
-
 > [!div class="nextstepaction"]
-> [Learn more about GitHub Actions](https://help.github.com/en/articles/about-github-actions)
+> [Learn more about Azure and GitHub integration](https://docs.microsoft.com/azure/developer/github/)
