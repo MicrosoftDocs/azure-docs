@@ -6,7 +6,7 @@ ms.suite: integration
 ms.reviewer: logicappspm
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 09/30/2020
+ms.date: 10/07/2020
 ---
 
 # Tutorial: Create automated approval-based workflows by using Azure Logic Apps
@@ -129,7 +129,7 @@ Now that you have a trigger, add an [action](../logic-apps/logic-apps-overview.m
    |----------|-------|-------------|
    | **To** | <*approval-email-address*> | The approver's email address. For testing purposes, you can use your own address. This example uses the fictional `sophiaowen@fabrikam.com` email address. |
    | **Subject** | `Approve member request for test-members-ML` | A descriptive email subject |
-   | **User Options** | `Approve, Reject` | Make sure this property specifies the response options that the approver can select, which are **Approve** or **Reject** by default. |
+   | **User Options** | `Approve, Reject` | Make sure that this property specifies the response options that the approver can select, which are **Approve** or **Reject** by default. |
    ||||
 
    > [!NOTE]
@@ -181,74 +181,74 @@ Now add an action that adds the approved member to your mailing list.
 
 1. Under the **Choose an operation** search box, select **All**. In the search box, enter `mailchimp`, and select the action named **Add member to list**.
 
-   ![Screenshot that shows the Select "Add member to list" action](./media/tutorial-process-mailing-list-subscriptions-workflow/add-action-mailchimp-add-member.png)
+   ![Screenshot that shows the "Choose an operation" box with the "mailchimp" search term and the "Add member to list" action selected.](./media/tutorial-process-mailing-list-subscriptions-workflow/add-action-mailchimp-add-member.png)
 
-1. If you're prompted for access to your MailChimp account, sign in with your MailChimp credentials.
+1. If you don't already have a connection to your MailChimp account, you're prompted to sign in.
 
-1. Provide information about this action as shown and described here:
+1. In the **Add member to list** action, provide the information as shown and described here:
 
-   ![Provide information for "Add member to list"](./media/tutorial-process-mailing-list-subscriptions-workflow/add-action-mailchimp-add-member-settings.png)
+   ![Screenshot that shows the "Add member to list" action information.](./media/tutorial-process-mailing-list-subscriptions-workflow/add-action-mailchimp-add-member-settings.png)
 
    | Property | Required | Value | Description |
    |----------|----------|-------|-------------|
-   | **List Id** | Yes | `test-members-ML` | The name for your MailChimp mailing list. This example uses "test-members-ML". |
-   | **Status** | Yes | `subscribed` | Select the subscription status for the new member. This example uses "subscribed". <p>For more information, see [Manage subscribers with the MailChimp API](https://developer.mailchimp.com/documentation/mailchimp/guides/manage-subscribers-with-the-mailchimp-api/). |
-   | **Email Address** | Yes | <*new-member-email-address*> | From the dynamic content list, select **From** under **When a new mail arrives**, which passes in the email address for the new member. |
-   ||||
+   | **List Id** | Yes | <*mailing-list-name*> | Select the name for your MailChimp mailing list. This example uses `test-members-ML`. |
+   | **Email Address** | Yes | <*new-member-email-address*> | In the dynamic content list that opens, from the **When a new email arrives** section, select **From**, which is output from the trigger and specifies the email address for the new member. |
+   | **Status** | Yes | <*member-subscription-status*> | Select the subscription status to set for the new member. This example selects `subscribed`. <p>For more information, see [Manage subscribers with the MailChimp API](https://developer.mailchimp.com/documentation/mailchimp/guides/manage-subscribers-with-the-mailchimp-api/). |
+   |||||
 
-   For more information about this action's properties, see the [MailChimp connector reference](/connectors/mailchimp/).
+   For more information about the **Add member to list** action properties, see the [MailChimp connector reference](/connectors/mailchimp/).
 
 1. Save your logic app.
 
-Next, add a condition so that you can check whether the new member successfully joined your mailing list. That way, your logic app notifies you whether this operation succeeds or fails.
+Next, add a condition so that you can check whether the new member successfully joined your mailing list. That way, your logic app can notify you whether this operation succeeded or failed.
 
 ## Check for success or failure
 
 1. In the **True** branch, under the **Add member to list** action, select **Add an action**.
 
-1. Under **Choose an operation**, select **Built-in**. In the search box, enter `condition` as your filter. From the actions list, select **Condition**.
+1. Under **Choose an operation**, select **Built-in**. In the search box, enter `condition`, and select the action named **Condition**.
 
 1. Rename the condition with this description: `If add member succeeded`
 
 1. Build a condition that checks whether the approved member succeeds or fails in joining your mailing list:
 
-   1. In the condition, click inside the **Choose a value** box, which is on the condition's left side. From the dynamic content list, under **Add member to list**, select the **Status** property.
+   1. On the condition's left side, click inside the **Choose a value** box. From the dynamic content list that appears, in the **Add member to list** section, select the **Status** property.
 
       For example, your condition looks like this example:
 
-      ![Under "Add member to list", select "Status"](./media/tutorial-process-mailing-list-subscriptions-workflow/build-condition-check-added-member.png)
+      ![Screenshot that shows the condition's left side "Choose a value" box with "Status" entered.](./media/tutorial-process-mailing-list-subscriptions-workflow/build-condition-check-added-member.png)
 
    1. In the middle comparison box, select the **is equal to** operator.
 
-   1. In the **Choose a value** box on the condition's right side, enter this text: `subscribed`
+   1. On the condition's right side, in the **Choose a value** box, enter this text: `subscribed`
 
       When you're done, the condition looks like this example:
 
-      ![Finished condition for Subscribed example](./media/tutorial-process-mailing-list-subscriptions-workflow/build-condition-check-added-member-2.png)
+      ![Screenshot that shows the finished condition for checking successful or failed subscription.](./media/tutorial-process-mailing-list-subscriptions-workflow/build-condition-check-added-member-2.png)
 
-Next, set up the emails to send when the approved member succeeds or fails in joining your mailing list.
+Next, set up the emails to send when the approved member either succeeds or fails in joining your mailing list.
 
 ## Send email if member added
 
 1. Under the **If add member succeeded** condition, in the **True** branch, select **Add an action**.
 
-   ![In "True" branch, select "Add an action"](./media/tutorial-process-mailing-list-subscriptions-workflow/add-action-email-success.png)
+   ![Screenshot that shows the "If add member succeeded" condition's "True" branch with "Add an action" selected.](./media/tutorial-process-mailing-list-subscriptions-workflow/add-action-email-success.png)
 
-1. Under **Choose an operation**, in the search box, enter `outlook send email` as your filter, and select the **Send an email** action.
+1. In the **Choose an operation** search box, enter `outlook send email`, and select the action named **Send an email**.
 
-   ![Add "Send an email" action](./media/tutorial-process-mailing-list-subscriptions-workflow/add-action-email-success-2.png)
+   ![Screenshot that shows the "Choose an operation" search box with "outlook send email" entered and the "Send an email" action selected.](./media/tutorial-process-mailing-list-subscriptions-workflow/add-action-email-success-2.png)
 
 1. Rename the action with this description: `Send email on success`
 
-1. Provide information for this action as shown and described:
+1. In the **Send email on success** action, provide the information as shown and described here:
 
-   ![Provide information for success email](./media/tutorial-process-mailing-list-subscriptions-workflow/add-action-email-success-settings.png)
+   ![Screenshot that shows the "Send email on success" action and the information provided for the success email.](./media/tutorial-process-mailing-list-subscriptions-workflow/add-action-email-success-settings.png)
 
    | Property | Required | Value | Description |
    |----------|----------|-------|-------------|
+   | **Body** | Yes | <*success-email-body*> | The body content for the success email. For this tutorial, follow these steps: <p>1. Enter this text with a trailing space: `New member has joined "test-members-ML":` <p>2. From the dynamic content list that appears, select the **Email Address** property. <p>**Note**: If this property doesn't appear, next to the **Add member to list** section header, select **See more**. <p>3. On the next row, enter this text with a trailing space: `Member opt-in status: ` <p>4. From the dynamic content list, under **Add member to list**, select the **Status** property. |
+   | **Subject** | Yes | <*success-email-subject*> | The subject for the success email. For this tutorial, follow these steps: <p>1. Enter this text with a trailing space: `Success! Member added to "test-members-ML": ` <p>2. From the dynamic content list, under **Add member to list**, select the **Email Address** property. |
    | **To** | Yes | <*your-email-address*> | The email address for where to send the success email. For testing purposes, you can use your own email address. |
-   | **Subject** | Yes | <*subject-for-success-email*> | The subject for the success email. For this tutorial, enter this text: <p>`Success! Member added to "test-members-ML": ` <p>From the dynamic content list, under **Add member to list**, select the **Email Address** property. |
-   | **Body** | Yes | <*body-for-success-email*> | The body content for the success email. For this tutorial, enter this text: <p>`New member has joined "test-members-ML":` <p>From the dynamic content list, select the **Email Address** property. <p>On the next row, enter this text: `Member opt-in status: ` <p> From the dynamic content list, under **Add member to list**, select the **Status** property. |
    |||||
 
 1. Save your logic app.
@@ -257,23 +257,23 @@ Next, set up the emails to send when the approved member succeeds or fails in jo
 
 1. Under the **If add member succeeded** condition, in the **False** branch, select **Add an action**.
 
-   ![In the "False" branch, select "Add an action"](./media/tutorial-process-mailing-list-subscriptions-workflow/add-action-email-failed.png)
+   ![Screenshot that shows the "If add member succeeded" condition's "False" branch with "Add an action" selected.](./media/tutorial-process-mailing-list-subscriptions-workflow/add-action-email-failed.png)
 
-1. Under **Choose an operation**, in the search box, enter `outlook send email` as your filter, and select the **Send an email** action.
+1. In the **Choose an operation** search box, enter `outlook send email`, and select the action named **Send an email**.
 
-   ![Add action for "Send an email"](./media/tutorial-process-mailing-list-subscriptions-workflow/add-action-email-failed-2.png)
+   ![Screenshot that shows the "Choose an operation" search box with "outlook send email" entered and the "Send an email" action selected.](./media/tutorial-process-mailing-list-subscriptions-workflow/add-action-email-failed-2.png)
 
 1. Rename the action with this description: `Send email on failure`
 
 1. Provide information about this action as shown and described here:
 
-   ![Provide information for failed email](./media/tutorial-process-mailing-list-subscriptions-workflow/add-action-email-failed-settings.png)
+   ![Screenshot that shows the "Send email on failure" action and the information provided for the failure email.](./media/tutorial-process-mailing-list-subscriptions-workflow/add-action-email-failed-settings.png)
 
    | Property | Required | Value | Description |
    |----------|----------|-------|-------------|
-   | **To** | Yes | <*your-email-address*> | The email address for where to send the failure email. For testing purposes, you can use your own email address. |
-   | **Subject** | Yes | <*subject-for-failure-email*> | The subject for the failure email. For this tutorial, enter this text: <p>`Failed, member not added to "test-members-ML": ` <p>From the dynamic content list, under **Add member to list**, select the **Email Address** property. |
    | **Body** | Yes | <*body-for-failure-email*> | The body content for the failure email. For this tutorial, enter this text: <p>`Member might already exist. Check your MailChimp account.` |
+   | **Subject** | Yes | <*subject-for-failure-email*> | The subject for the failure email. For this tutorial, follow these steps: <p>1. Enter this text with a trailing space: `Failed, member not added to "test-members-ML": ` <p>2. From the dynamic content list, under **Add member to list**, select the **Email Address** property. |
+   | **To** | Yes | <*your-email-address*> | The email address for where to send the failure email. For testing purposes, you can use your own email address. |
    |||||
 
 1. Save your logic app. 
