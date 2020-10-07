@@ -1,6 +1,6 @@
 ---
 title: Common issues when certifying virtual machine images for Azure Marketplace
-description: This article explains common error messages and issus when testing and certifying VM images for Azure Marketplace. It also discusses related solutions.
+description: This article explains common error messages and issues when testing and certifying VM images for Azure Marketplace. It also discusses related solutions.
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: troubleshooting
