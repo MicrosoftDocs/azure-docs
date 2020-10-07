@@ -11,15 +11,15 @@ ms.date: 10/06/2020
 ms.author: alkohli
 ---
 
-# Prepare for an Azure Stack Edge Pro device failure
+# Prepare for an Azure Stack Edge Pro GPU device failure
 
 This article helps you prepare for a device failure by detailing how to save and back up the device configuration and data on your Azure Stack Edge Pro GPU device. 
 
-The article does not include steps to back up Kubernetes and IoT containers deployed on your Azure Stack Edge device. 
+The article does not include steps to back up Kubernetes and IoT containers deployed on your Azure Stack Edge Pro GPU device. 
 
 ## Understand device failures
 
-Your Azure Stack Edge device can experience two types of hardware failures.
+Your Azure Stack Edge Pro GPU device can experience two types of hardware failures.
 
 - Tolerable failures that require you to replace a hardware component. These failures will allow you to operate the device in a degraded state. Examples of these failures include a single failed power supply unit (PSU) or a single failed disk on the device. In each of these cases, the device can continue to operate. You are recommended to contact Microsoft Support at the earliest to replace the failed components.
 
@@ -57,7 +57,7 @@ You can create Edge cloud shares that tier data from your device to Azure. Depen
 
 If deploying Kubernetes or IoT Edge, configure to save the application data on the device locally and do not sync with Azure Storage. The data is stored on a share on the device. You might find it important to backup the data in these shares.
 
-The following data protection vendors also can provide a backup solution for the local share data via NFS or SMB. 
+The following third-party data protection solutions can provide a backup solution for the data in the local SMB or NFS shares. 
 
 | Third-party software           | Reference to the solution                               |
 |--------------------------------|---------------------------------------------------------|
@@ -67,7 +67,7 @@ The following data protection vendors also can provide a backup solution for the
 
 ## Protect files and folders on VMs
 
-Azure Stack Edge works with major well establish data protection solutions to provide a backup solution for protecting files and folders within the deployed VM on the device. Below are references to available solutions for you to choose from.
+Azure Stack Edge works with Azure Backup and other third-party data protection solutions to provide a backup solution to protect data contained in the VMs deployed on the device. The following table lists references to available solutions that you can choose from.
 
 
 | Backup solutions        | Supported OS   | Reference                                                                |
@@ -80,4 +80,4 @@ Azure Stack Edge works with major well establish data protection solutions to pr
 
 ## Next steps
 
-- Learn how to [Recover from a failed Azure Stack Edge Pro device](azure-stack-edge-gpu-recover-device-failure.md).
+- Learn how to [Recover from a failed Azure Stack Edge Pro GPU device](azure-stack-edge-gpu-recover-device-failure.md).
