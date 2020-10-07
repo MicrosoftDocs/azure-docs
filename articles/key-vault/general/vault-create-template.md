@@ -206,6 +206,8 @@ Remove-AzResourceGroup -Name $resourceGroupName
 Write-Host "Press [ENTER] to continue..."
 ```
 
+---
+
 ## Resources
 
 - Read an [Overview of Azure Key Vault](../general/overview.md)
