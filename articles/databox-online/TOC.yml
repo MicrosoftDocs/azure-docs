@@ -150,7 +150,11 @@
       - name: Return device
         href: azure-stack-edge-return-device.md     
       - name: Replace device
-        href: azure-stack-edge-replace-device.md     
+        href: azure-stack-edge-replace-device.md  
+      - name: Prepare for device failure
+        href: azure-stack-edge-prep-device-failure.md
+      - name: Recover from device failure
+        href: azure-stack-edge-recover-device-failure.md   
     - name: Monitor
       items:
       - name: Using metric charts
