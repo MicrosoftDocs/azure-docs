@@ -25,7 +25,7 @@ npx webpack-dev-server --entry ./client.js --output bundle.js
 
 ## Setting up
 
-### Add PSTN functionality your app
+### Add PSTN functionality to your app
 
 Extend your layout with phone dialing controls.
 
@@ -58,14 +58,6 @@ const calleePhoneInput = document.getElementById("callee-phone-input");
 const callPhoneButton = document.getElementById("call-phone-button");
 const hangUpPhoneButton = document.getElementById("hang-up-phone-button");
 ```
-
-## Object model
-
-The following classes and interfaces handle some of the major features of the Azure Communication Services Calling client library for JavaScript.
-
-| Name                                           | Description                                                                                          |
-| ---------------------------------------------- | ---------------------------------------------------------------------------------------------------- |
-| PhoneNumber | This class is needed to initialize a phone number you would like to use for telephony functionality. |
 
 ## Start a call to phone
 
