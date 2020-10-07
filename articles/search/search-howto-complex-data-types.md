@@ -37,6 +37,7 @@ The following JSON document is composed of simple fields and complex fields. Com
   "HotelId": "1",
   "HotelName": "Secret Point Motel",
   "Description": "Ideally located on the main commercial artery of the city in the heart of New York.",
+  "Tags": ["Free wifi", "on-site parking", "indoor pool", "continental breakfast"]
   "Address": {
     "StreetAddress": "677 5th Ave",
     "City": "New York",
@@ -57,6 +58,14 @@ The following JSON document is composed of simple fields and complex fields. Com
   ]
 }
 ```
+
+<a name="indexing-complex-types></a>
+
+## Indexing complex types
+
+During indexing, you can have a maximum of 3000 elements across all complex collections within a single document. An element of a complex collection is a member of that collection, so in the case of Rooms (the only complex collection in the hotel example), each room is an element. A hotel with 500 rooms would be a hotel document with 500 room elements. For nested complex collections, each individual sub-element counts as a separate element.
+
+This limit applies only to complex collections, and not complex types (like Address) or string collections (like Tags).
 
 ## Creating complex fields
 
@@ -88,14 +97,6 @@ The following example shows a JSON index schema with simple fields, collections,
   ]
 }
 ```
-
-<a name="indexing-complex-types></a>
-
-## Indexing complex types
-
-During indexing, you can have a maximum of 3000 data elements across all complex collections within a single document. An element of a complex collection is a member of that collection, so in the case of Rooms (the only complex collection in the hotel example), each room is an element. An element can consist of one or more fields. Whether an element has one field or many, it is the element itself and not its size that counts towards the limit. For nested complex collections, each individual sub-element is counted as an element.
-
-This limit applies only to complex collections, and not complex types (like Address) or string collections (like Tags).
 
 ## Updating complex fields
 
