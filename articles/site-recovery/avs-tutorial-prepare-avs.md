@@ -113,7 +113,7 @@ To connect to Linux VMs using SSH after failover, do the following:
 
 
 ## Failback requirements
-If you plan to fail back to your Azure VMware Solution cloud, there are a number of [prerequisites for failback](avs-tutorial-azure-reprotect.md#before-you-begin). You can prepare these now, but you don't need to. You can prepare after you fail over to Azure.
+If you plan to fail back to your Azure VMware Solution cloud, there are a number of [prerequisites for failback](avs-tutorial-reprotect.md#before-you-begin). You can prepare these now, but you don't need to. You can prepare after you fail over to Azure.
 
 
 
@@ -121,4 +121,4 @@ If you plan to fail back to your Azure VMware Solution cloud, there are a number
 ## Next steps
 > [!div class="nextstepaction"]
 > [Setup disaster recovery](avs-tutorial-replication.md)
-- If you're replicating multiple VMs, [perform capacity planning](site-recovery-deployment-planner.mdd).
+- If you're replicating multiple VMs, [perform capacity planning](site-recovery-deployment-planner.md).

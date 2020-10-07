@@ -1,5 +1,5 @@
 ---
-title: Run a disaster recovery drill to Azure with Azure Site Recovery 
+title: Run a disaster recovery drill from Azure VMware Solution to Azure with Azure Site Recovery 
 description: Learn how to run a disaster recovery drill from Azure VMware Solution private cloud to Azure, with Azure Site Recovery.
 author: Harsha-CS
 manager: rochakm
@@ -10,7 +10,7 @@ ms.author: harshacs
 ms.custom: MVC
 
 ---
-# Run a disaster recovery drill to Azure
+# Run a disaster recovery drill from Azure VMware Solution to Azure
 
 This article describes how to run a disaster recovery drill for an Azure VMware Solution VM to Azure using the [Azure Site Recovery](site-recovery-overview.md) service. A drill validates your replication strategy without data loss.
 
