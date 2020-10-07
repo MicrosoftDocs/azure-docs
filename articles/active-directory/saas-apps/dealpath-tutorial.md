@@ -124,7 +124,7 @@ To configure Azure AD single sign-on with Dealpath, perform the following steps:
 
 2. In the top right, click **Admin Tools** and navigate to **Integrations**, then in **SAML 2.0 Authentication** section click **Update Settings**:
 
-	![Dealpath Configuration](./media/dealpath-tutorial/tutorial_dealpath_admin.png)
+	![Screenshot that shows the "Admin Tools - Integrations" page with the "S A M L 2.0 Authentication" section and "Update Settings" selected.](./media/dealpath-tutorial/tutorial_dealpath_admin.png)
 
 3. In the **Set up SAML 2.0 authentication** page, perform the following steps:
 

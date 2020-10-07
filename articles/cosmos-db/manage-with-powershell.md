@@ -24,6 +24,9 @@ For cross-platform management of Azure Cosmos DB, you can use the `Az` and `Az.C
 
 Follow the instructions in [How to install and configure Azure PowerShell][powershell-install-configure] to install and sign in to your Azure account in PowerShell.
 
+> [!IMPORTANT]
+> Azure Cosmos DB resources cannot be renamed as this violates how Azure Resource Manager works with resource URIs.
+
 ## Azure Cosmos accounts
 
 The following sections demonstrate how to manage the Azure Cosmos account, including:

@@ -10,78 +10,78 @@ ms.topic: how-to
 ms.date: 9/29/2020
 ---
 
-# Register and Scan Azure blob storage    
+# Register and Scan Azure Blob Storage    
+This article outlines how to register an Azure Blob Storage account in Babylon and set up a scan.
+
 ## Supported Capabilities
-Azure Blob Storage supports the following:<br />
-* Full and incremental scans to capture the metadata and apply classifications on the metadata, based on system and customer classifications<br />
+Azure Blob Storage supports the following:
+* Full and incremental scans to capture the metadata and apply classifications on the metadata, based on system and customer classifications
 
 ## Prerequisites
 * You need to be a Catalog Admin or Data Source Admin
 
-## Register an Azure blob storage account
-1. Navigate to your Babylon catalog.<br />
-2. Click on **Management Center** on the left navigation pane.<br />
+## Register an Azure Blob Storage account
+1. Navigate to your Babylon catalog.
+2. Click on **Management Center** on the left navigation pane.
 
-![Screenshot showing how to go to Management Center](./media/register-scan-azure-blob-storage-source/go-to-management-center.png)
+    ![Screenshot showing how to go to Management Center](./media/register-scan-azure-blob-storage-source/go-to-management-center.png)
 
-3. Under **Sources and Scanning** pane, go to **Data sources** and hit the + sign on the right pane.<br />
-4. You can see **Register sources** pane open up on the right side of your screen. From the tiles of data sources, select **Azure Blob Storage** and hit **continue**<br />
-<br />
+3. Under **Sources and Scanning** pane, go to **Data sources** and hit the + sign on the right pane.
+4. You can see **Register sources** pane open up on the right side of your screen. From the tiles of data sources, select **Azure Blob Storage** and hit **continue**
 
 ## Set up authentication for a scan
-There are four ways to set up authentication for Azure blob storage: <br />
-1. Managed Identity<br />
-2. Account Key<br />
-3. SAS URL<br />
-4. Service Principal <br />
+There are four ways to set up authentication for Azure blob storage: 
+* Managed Identity
+* Account Key
+* SAS URL
+* Service Principal 
 
 ### Managed Identity
 When you choose **Managed Identity**, you must let Catalog's managed identity authenticate with your Azure Blob account. To set up the connection, you must first give your Catalog the permission to scan the data source. Please see steps in the article here.
-<br />
+
 
 ### Account Key
-When authentication method selected is **Account Key**, select "Enter manually" option and paste the access key from Azure blob storage account within settings.
-<br />
+When authentication method selected is **Account Key**, select "Enter manually" option and paste the access key from Azure Blob storage account within settings.
+
 
 ### SAS URL
 To use a SAS URL, you need to generate one. To learn more about how to do this, see this [article](https://docs.microsoft.com/azure/storage/common/storage-sas-overview)
 
 ### Service Principal
-To use a service principal, you must first create one<br />
-<br />
-To do this in the Azure portal: <br />
+To use a service principal, you must first create one
 
-1. Navigate to **portal.azure.com**<br />
+To do this in the Azure portal: 
 
-2. Select **"Azure Active Directory"** from the top search bar<br />
+1. Navigate to **portal.azure.com**
 
-3. Select **"App registrations"**<br />
+2. Select **"Azure Active Directory"** from the top search bar
 
-4. Select **"+ New application registration"**<br />
+3. Select **"App registrations"**
 
-5. Enter a name for the **"application"** (the service principal name)<br />
+4. Select **"+ New application registration"**
 
-6. Select **"Accounts in this organizational directory only (Microsoft only -- Single Tenant)"**<br />
+5. Enter a name for the **"application"** (the service principal name)
 
-7. For Redirect URI select **"Web"** and enter any URL you want; it doesn't have to be real or work<br />
+6. Select **"Accounts in this organizational directory only (Microsoft only -- Single Tenant)"**
 
-8. Then click on Register<br />
+7. For Redirect URI select **"Web"** and enter any URL you want; it doesn't have to be real or work
 
-9. Copy down both the display name and the application ID<br />
+8. Then click on Register
 
-10. Add your service principal to a role on the Azure Blob storage account that you would like to scan. You do this in the Azure portal. For more information about service principals, see [Acquire a token from Azure AD for authorizing requests from a client application](https://docs.microsoft.com/azure/storage/common/storage-auth-aad-app?tabs=dotnet)<br />
+9. Copy down both the display name and the application ID
 
-11. Once your Service Principal is set, connect your Babylon to your Azure Blob store using client ID and secret key and check your connect as shown in the screenshot below.<br /> 
+10. Add your service principal to a role on the Azure Blob storage account that you would like to scan. You do this in the Azure portal. For more information about service principals, see [Acquire a token from Azure AD for authorizing requests from a client application](https://docs.microsoft.com/azure/storage/common/storage-auth-aad-app?tabs=dotnet)
+
+11. Once your Service Principal is set, connect your Babylon to your Azure Blob store using client ID and secret key and check your connect as shown in the screenshot below.
 
 ![Screenshot showing service principal authorization](./media/register-scan-azure-blob-storage-source/service-principal-auth.png)
 
-## Firewall setting in Azure Blob account 
+## Firewall setting in Azure Blob Storage account 
 > [!NOTE] 
 > This applies to authorization using Managed Identity only
 
 * Go into your storage account in Azure portal, **click on Settings > Firewalls and virtual networks** and select **Allow access from Selected Networks**.
 * In the **Firewall** section, select **Allow trusted Microsoft services to access this storage account** and hit **Save**
-<br />
 
 ![Screenshot showing firewall setting](./media/register-scan-azure-blob-storage-source/firewall-setting.png)
 
@@ -96,12 +96,12 @@ Here are some examples of triggers that are set up on a monthly cadence below. Y
 You can also set up a trigger on a weekly cadence with an option to choose the day of the week.
 
 **Set scan rule set**
-Select a scan rule set to be used by your scan from the list of available<br />
+Select a scan rule set to be used by your scan from the list of available
 
 ![Screenshot showing scan rule set](./media/register-scan-azure-blob-storage-source/select-scan-rule-set.png)
 
 **Review your scan**
-When you click Continue, you will be presented with scan summary page, where you can view all the settings for your scan.<br />
+When you click Continue, you will be presented with scan summary page, where you can view all the settings for your scan.
 
 ![Screenshot showing review your scan](./media/register-scan-azure-blob-storage-source/review-save-run.png)
 
