@@ -33,23 +33,23 @@ In the Azure portal, use the search bar to find the **Snapshots** functionality.
 
 :::image type="content" source="media/ubuntu_upgrade/azure-portal-search-bar.png" alt-text="Screenshot showing Azure portal and search bar, with **Snapshots** highlighted":::
 
-Select **Add**, which will take you to the **Create snapshot** page. Select the subscription and resource group of your virtual machine. For **Region**, select the same region in which the target storage exists. Select the DSVM storage disk and additional backup options. **Standard HDD** is an appropriate storage type for this backup scenario.
+1. Select **Add**, which will take you to the **Create snapshot** page. Select the subscription and resource group of your virtual machine. For **Region**, select the same region in which the target storage exists. Select the DSVM storage disk and additional backup options. **Standard HDD** is an appropriate storage type for this backup scenario.
 
 :::image type="content" source="media/ubuntu_upgrade/create-snapshot-options.png" alt-text="Screenshot showing 'Create snapshot' options":::
 
-Once all the details are filled and validations pass, select **Review + create** to validate and create the snapshot. When the snapshot successfully completes, you'll see a message telling you the deployment is complete.
+2. Once all the details are filled and validations pass, select **Review + create** to validate and create the snapshot. When the snapshot successfully completes, you'll see a message telling you the deployment is complete.
 
 ## In-place migration
 
 If you're migrating an older Ubuntu release, you may choose to do an in-place migration. This migration doesn't create a new virtual machine and has fewer steps than a side-by-side migration.  If you wish to do a side-by-side migration because you want more control or because you're migrating from a different distribution, such as CentOS, skip to the [Side-by-side migration](#side-by-side-migration) section. 
 
-From the Azure portal, start your DSVM and sign in using SSH. To do so, select **Connect** and **SSH** and follow the connection instructions. 
+1. From the Azure portal, start your DSVM and sign in using SSH. To do so, select **Connect** and **SSH** and follow the connection instructions. 
 
-Once connected to a terminal session on your DSVM, run the following upgrade command:
+1. Once connected to a terminal session on your DSVM, run the following upgrade command:
 
-```bash
-sudo do-release-upgrade
-```
+    ```bash
+    sudo do-release-upgrade
+    ```
 
 The upgrade process will take a while to complete. When it's over, the program will ask for permission to restart the virtual machine. Answer **Yes**. You will be disconnected from the SSH session as the system reboots.
 
@@ -62,7 +62,7 @@ After your VM has upgraded and rebooted, attempt to access it again via SSH. The
 
 If you receive the error **REMOTE HOST IDENTIFICATION HAS CHANGED**, you'll need to regenerate your SSH credentials.
 
-:::image type="content" source="media/ubuntu_upgrade/remote-host-warning.png" alt-text="Powershell screenshot showing remote host identification changed warning":::
+:::image type="content" source="media/ubuntu_upgrade/remote-host-warning.png" alt-text="PowerShell screenshot showing remote host identification changed warning":::
 
 To do so, on your local machine, run the command:
 
@@ -98,13 +98,13 @@ You may choose to upgrade the operating system parts of the filesystem and leave
 
 If you  haven't already created a VM snapshot as described previously, do so. 
 
-In the Azure portal, search for **Disks** and select **Add**, which will open the **Disk** page.
+1. In the Azure portal, search for **Disks** and select **Add**, which will open the **Disk** page.
 
 :::image type="content" source="media/ubuntu_upgrade/portal-disks-search.png" alt-text="Screenshot of Azure portal showing search for Disks page and the Add button":::
 
-Set the **Subscription**, **Resource group**, and **Region** to the values of your VM snapshot. Choose a **Name** for the disk to be created.
+2. Set the **Subscription**, **Resource group**, and **Region** to the values of your VM snapshot. Choose a **Name** for the disk to be created.
 
-Select **Source type** as **Snapshot** and select the VM snapshot as the **Source snapshot**. Review and create the disk. 
+3. Select **Source type** as **Snapshot** and select the VM snapshot as the **Source snapshot**. Review and create the disk. 
 
 :::image type="content" source="media/ubuntu_upgrade/disk-create-options.png" alt-text="Screenshot of disk creation dialog showing options":::
 
@@ -122,40 +122,40 @@ For more information, see [Quickstart: Set up the Data Science Virtual Machine f
 
 ### Mount the disk of the snapshotted VM as a data disk on your new Data Science Virtual Machine
 
-In the Azure portal, make sure that your Data Science Virtual Machine is running.
+1. In the Azure portal, make sure that your Data Science Virtual Machine is running.
 
-In the Azure portal, go to the page of your Data Science Virtual Machine. Choose the **Disks** blade on the left rail. Choose **Attach existing disks**.
+2. In the Azure portal, go to the page of your Data Science Virtual Machine. Choose the **Disks** blade on the left rail. Choose **Attach existing disks**.
 
-In the **Disk name** dropdown, select the disk that you created from your old VM's snapshot.
+3. In the **Disk name** dropdown, select the disk that you created from your old VM's snapshot.
 
 :::image type="content" source="media/ubuntu_upgrade/attach-data-disk.png" alt-text="Screenshot of DSVM options page showing disk attachment options":::
 
-Select **Save** to update your virtual machine.
+4. Select **Save** to update your virtual machine.
 
 > ![Important]
 > Your VM should be running at the time you attach the data disk. If the VM isn't running, the disks may be added in an incorrect order, leading to a confusing and potentially non-bootable system. If you add the data disk with the VM off, choose the **X** beside the data disk, start the VM, and re-attach it.
 
 ### Manually copy the wanted data 
 
-Sign on to your running virtual machine using SSH.
+1. Sign on to your running virtual machine using SSH.
 
-Confirm that you've attached the disk created from your old VM's snapshot by running the following command:
+2. Confirm that you've attached the disk created from your old VM's snapshot by running the following command:
 
-```bash
-lsblk -o NAME,HCTL,SIZE,MOUNTPOINT | grep -i 'sd'
-```
+    ```bash
+    lsblk -o NAME,HCTL,SIZE,MOUNTPOINT | grep -i 'sd'
+    ```
+    
+    The results should look something like the following image. In the image, disk `sda1` is mounted at the root and `sdb2` is the `/mnt` scratch disk. The data disk created from the snapshot of your old VM is identified as `sdc1` but isn't yet available, as evidenced by the lack of a mount location. Your results might have different identifiers, but you should see a similar pattern.
+    
+    :::image type="content" source="media/ubuntu_upgrade/lsblk-results.png" alt-text="Screenshot of lsblk output, showing unmounted data drive":::
+    
+3. To access the data drive, create a location for it and mount it. Replace `/dev/sdc1` with the appropriate value returned by `lsblk`:
 
-The results should look something like the following image. In the image, disk `sda1` is mounted at the root and `sdb2` is the `/mnt` scratch disk. The data disk created from the snapshot of your old VM is identified as `sdc1` but isn't yet available, as evidenced by the lack of a mount location. Your results might have different identifiers, but you should see a similar pattern.
-
-:::image type="content" source="media/ubuntu_upgrade/lsblk-results.png" alt-text="Screenshot of lsblk output, showing unmounted data drive":::
-
-To access the data drive, create a location for it and mount it. Replace `/dev/sdc1` with the appropriate value returned by `lsblk`:
-
-```bash
-sudo mkdir /datadrive && sudo mount /dev/sdc1 /datadrive
-```
-
-Now, `/datadrive` contains the directories and files of your old Data Science Virtual Machine. Move or copy the directories or files you want from the data drive to the new VM as you wish.
+    ```bash
+    sudo mkdir /datadrive && sudo mount /dev/sdc1 /datadrive
+    ```
+    
+4. Now, `/datadrive` contains the directories and files of your old Data Science Virtual Machine. Move or copy the directories or files you want from the data drive to the new VM as you wish.
 
 For more information, see [Use the portal to attach a data disk to a Linux VM](https://docs.microsoft.com/azure/virtual-machines/linux/attach-disk-portal#connect-to-the-linux-vm-to-mount-the-new-disk).
 
