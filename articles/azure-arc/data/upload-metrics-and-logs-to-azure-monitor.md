@@ -30,7 +30,7 @@ You can verify this by running the following command:
 az provider show -n Microsoft.AzureData -o table
 ```
 
-If the resource provider is not currently registered in your subscription, you can register it by running the following command.  This command make take a minute or two to complete.
+If the resource provider is not currently registered in your subscription, you can register it by running the following command.  This command may take a minute or two to complete.
 
 ```console
 az provider register -n Microsoft.AzureData --wait
