@@ -35,9 +35,11 @@ This article describes how to configure continuous export to Log Analytics works
 |----|:----|
 |Release state:|Generally available (GA)|
 |Pricing:|Free|
-|Required roles and permissions:|**Security admin role** on the resource group (or **Owner**)<br>Must also have write permissions for the target resource<br>If you're using the Azure Policy 'DeployIfNotExist' policies described below you'll also need permissions for assigning policies|
+|Required roles and permissions:|<ul><li>**Security admin** or **Owner** on the resource group</li><li>Write permissions for the target resource</li><li>If you're using the Azure Policy 'DeployIfNotExist' policies described below you'll also need permissions for assigning policies</li></ul>|
 |Clouds:|![Yes](./media/icons/yes-icon.png) Commercial clouds<br>![Yes](./media/icons/yes-icon.png) US Gov<br>![Yes](./media/icons/yes-icon.png) China Gov (to Event Hub), Other Gov|
 |||
+
+
 
 
 
