@@ -19,7 +19,7 @@ ms.author: depadia
 
 ---
 
-# SAP BusinessObjects BI Platform on Azure for Linux
+# SAP BusinessObjects Business Intelligence Platform on Azure for Linux
 
 This article describes the strategy to deploy SAP BOBI Platform on Azure for Linux. In this example, two virtual machines with Premium SSD Managed Disks as its install directory are configured. Azure Database for MySQL is used for CMS database, and Azure NetApp Files for File Repository Server is shared across both servers. The default Tomcat Java web application and BI Platform application are installed together on both virtual machines. To load balance the user request, Application Gateway is used that has native TLS/SSL offloading capabilities.
 

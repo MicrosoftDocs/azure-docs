@@ -19,7 +19,7 @@ ms.author: depadia
 
 ---
 
-# SAP BusinessObjects Business Intelligence Platform on Azure Virtual Machines
+# SAP BusinessObjects Business Intelligence Platform on Azure
 
 ## Overview
 
