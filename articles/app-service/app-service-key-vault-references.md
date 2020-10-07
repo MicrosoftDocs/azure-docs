@@ -28,8 +28,8 @@ In order to read secrets from Key Vault, you need to have a vault created and gi
 1. Create an [access policy in Key Vault](../key-vault/general/secure-your-key-vault.md#key-vault-access-policies) for the application identity you created earlier. Enable the "Get" secret permission on this policy. Do not configure the "authorized application" or `applicationId` settings, as this is not compatible with a managed identity.
 
     > [!NOTE]
-    > Key Vault references are not presently able to resolve secrets stored in a key vault with [network restrictions](../key-vault/general/overview-vnet-service-endpoints.md).
-    
+    > Key Vault references are not presently able to resolve secrets stored in a key vault with [network restrictions](../key-vault/general/overview-vnet-service-endpoints.md) unless the app is hosted within an [App Service Environment](./environment/intro.md).
+
 ## Reference syntax
 
 A Key Vault reference is of the form `@Microsoft.KeyVault({referenceString})`, where `{referenceString}` is replaced by one of the following options:
@@ -41,8 +41,7 @@ A Key Vault reference is of the form `@Microsoft.KeyVault({referenceString})`, w
 > | VaultName=_vaultName_;SecretName=_secretName_;SecretVersion=_secretVersion_ | The **VaultName** should the name of your Key Vault resource. The **SecretName** should be the name of the target secret. The **SecretVersion** should be the version of the secret to use. |
 
 > [!NOTE] 
-> Versions are currently not required. If you are rotating secrets you should not include the version ( i.e. @Microsoft.KeyVault(SecretUri=https://myvault.vault.azure.net/secrets/mysecret)
-
+> Versions are currently required. When rotating secrets, you will need to update the version in your application configuration.
 For example, a complete reference would look like the following:
 
 ```
