@@ -111,6 +111,8 @@
     items:
     - name: Azure Key Vault Developer's Guide
       href: developers-guide.md
+    - name: Use Azure Resource Manager to deploy Key Vault
+      href: vault-create-template.md
     - name: Save Web App secrets
       href: vs-secure-secret-appsettings.md
     - name: Service-to-service authentication with .NET
