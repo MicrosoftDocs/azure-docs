@@ -168,7 +168,7 @@
         - name: Java SDK - Maven
           href: https://search.maven.org/artifact/com.azure/azure-digitaltwins-core/1.0.0-beta.1/jar  
         - name: Java SDK - reference
-          href: https://docs.microsoft.com/java/api/overview/azure/digitaltwins/client?view=azure-java-preview&preserve-view=true             
+          href: https://docs.microsoft.com/java/api/overview/azure/digitaltwins/client?view=azure-java-stable&preserve-view=true             
   - name: Digital Twins CLI 
     items: 
     - name: Digital Twins CLI reference

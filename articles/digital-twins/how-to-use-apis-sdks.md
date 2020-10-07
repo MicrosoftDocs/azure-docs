@@ -64,7 +64,7 @@ To use the data plane APIs:
    - you can view the [SDK reference documentation](https://docs.microsoft.com/javascript/api/@azure/digital-twins/?view=azure-node-latest&preserve-view=true).
 * You can use the **Java** SDK. To use the Java SDK...
    - you can view and install the package from Maven: [`com.azure:azure-digitaltwins-core`](https://search.maven.org/artifact/com.azure/azure-digitaltwins-core/1.0.0-beta.1/jar)
-   - you can view the [SDK reference documentation](https://docs.microsoft.com/java/api/overview/azure/digitaltwins/client?view=azure-java-preview&preserve-view=true)
+   - you can view the [SDK reference documentation](https://docs.microsoft.com/java/api/overview/azure/digitaltwins/client?view=azure-java-stable&preserve-view=true)
 * You can generate an SDK for another language using AutoRest. Follow the instructions in [*How-to: Create custom SDKs for Azure Digital Twins with AutoRest*](how-to-create-custom-sdks.md).
 
 You can also exercise date plane APIs by interacting with Azure Digital Twins through the [CLI](how-to-use-cli.md).
