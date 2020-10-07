@@ -28,7 +28,7 @@ ms.author: crtreasu
 
    ![Screenshot of the Spatial Anchors pane for creating a resource.](./media/spatial-anchors-get-started-create-resource/create-resource-form.png)
 
-   After the resource is created, Azure portal shows that your deployment is complete. 
+   After the resource is created, the Azure portal shows that your deployment is complete. 
    
    ![Screenshot showing that the resource deployment is complete.](./media/spatial-anchors-get-started-create-resource/deployment-complete.png)
 
