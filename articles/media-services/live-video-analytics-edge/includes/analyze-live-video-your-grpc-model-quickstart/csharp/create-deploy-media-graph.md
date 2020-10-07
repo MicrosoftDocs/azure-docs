@@ -114,7 +114,7 @@ As part of the prerequisites, you downloaded the sample code to a folder. Follow
     > :::image type="content" source="../../../media/run-program/show-verbose-message.png" alt-text="Show Verbose Message":::
 1. Right-click the Live Video Analytics device and select **Start Monitoring Built-in Event Endpoint**. You need this step to monitor the IoT Hub events in the **OUTPUT** window of Visual Studio Code.
 
-![Start monitoring](../../../media/quickstarts/start-monitoring-built-event-endpoint-grpc.png)
+   ![Start monitoring](../../../media/quickstarts/start-monitoring-built-event-endpoint-grpc.png)
 
 ### Run the sample program
 
