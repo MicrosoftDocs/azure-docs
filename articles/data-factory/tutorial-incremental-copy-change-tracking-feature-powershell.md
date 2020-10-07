@@ -448,10 +448,10 @@ Invoke-AzDataFactoryV2Pipeline -PipelineName "FullCopyPipeline" -ResourceGroup $
     ![Monitor & Manage tile](media/tutorial-incremental-copy-change-tracking-feature-powershell/monitor-monitor-manage-tile-3.png)    
 5. The **Data Integration Application** launches in a separate tab. You can see all the **pipeline runs** and their statuses. Notice that in the following example, the status of the pipeline run is **Succeeded**. You can check parameters passed to the pipeline by clicking link in the **Parameters** column. If there was an error, you see a link in the **Error** column. Click the link in the **Actions** column.
 
-    ![Pipeline runs](media/tutorial-incremental-copy-change-tracking-feature-powershell/monitor-pipeline-runs-4.png)    
+    ![Screenshot shows pipeline runs for a data factory.](media/tutorial-incremental-copy-change-tracking-feature-powershell/monitor-pipeline-runs-4.png)    
 6. When you click the link in the **Actions** column, you see the following page that shows all the **activity runs** for the pipeline.
 
-    ![Activity runs](media/tutorial-incremental-copy-change-tracking-feature-powershell/monitor-activity-runs-5.png)
+    ![Screenshot shows activity runs for a data factory with the Pipelines link called out.](media/tutorial-incremental-copy-change-tracking-feature-powershell/monitor-activity-runs-5.png)
 7. To switch back to the **Pipeline runs** view, click **Pipelines** as shown in the image.
 
 
@@ -627,10 +627,10 @@ Invoke-AzDataFactoryV2Pipeline -PipelineName "IncrementalCopyPipeline" -Resource
 ### Monitor the incremental copy pipeline
 1. In the **Data Integration Application**, refresh the **pipeline runs** view. Confirm that you see the IncrementalCopyPipeline in the list. Click the link in the **Actions** column.  
 
-    ![Pipeline runs](media/tutorial-incremental-copy-change-tracking-feature-powershell/monitor-pipeline-runs-6.png)    
+    ![Screenshot shows pipeline runs for a data factory including your pipeline.](media/tutorial-incremental-copy-change-tracking-feature-powershell/monitor-pipeline-runs-6.png)    
 2. When you click the link in the **Actions** column, you see the following page that shows all the **activity runs** for the pipeline.
 
-    ![Activity runs](media/tutorial-incremental-copy-change-tracking-feature-powershell/monitor-activity-runs-7.png)
+    ![Screenshot shows pipeline runs for a data factory with several marked as succeeded.](media/tutorial-incremental-copy-change-tracking-feature-powershell/monitor-activity-runs-7.png)
 3. To switch back to the **Pipeline runs** view, click **Pipelines** as shown in the image.
 
 ### Review the results

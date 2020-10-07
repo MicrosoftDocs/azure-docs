@@ -1,17 +1,17 @@
 ---
-title: Build a machine learning app with Apache Spark MLlib
-description: Learn how to use Apache Spark MLlib to create a machine learning app that analyzes a dataset using classification through logistic regression.
+title: 'Tutorial: Build a machine learning app with Apache Spark MLlib'
+description: A tutorial on how to use Apache Spark MLlib to create a machine learning app that analyzes a dataset using classification through logistic regression.
 services: synapse-analytics
 author: euangMS
 ms.service:  synapse-analytics
 ms.reviewer: jrasnick 
-ms.topic: conceptual
+ms.topic: tutorial
 ms.subservice: machine-learning
 ms.date: 04/15/2020
 ms.author: euang
 
 ---
-# Build a machine learning app with Apache Spark MLlib and Azure Synapse Analytics
+# Tutorial: Build a machine learning app with Apache Spark MLlib and Azure Synapse Analytics
 
 In this article, you'll learn how to use Apache Spark [MLlib](https://spark.apache.org/mllib/) to create a machine learning application that does simple predictive analysis on an Azure open dataset. Spark provides built-in machine learning libraries. This example uses *classification* through logistic regression.
 

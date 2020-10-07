@@ -201,6 +201,22 @@ groups:
     title: Go
   - id: programming-language-ruby
     title: Ruby
+- id: programming-languages-set-seventeen
+# Owner: erhopf
+  title: Programming languages
+  prompt: Choose a programming language or CLI
+  pivots:
+  - id: programming-language-csharp
+    title: C#
+  - id: programming-language-cpp
+    title: C++
+  - id: programming-language-javascript
+    title: JavaScript  
+  - id: programming-language-curl
+    title: REST
+# To be enabled later.
+#  - id: programmer-tool-spx
+#    title: CLI
 # Service-specific groups
 - id: cogsvcs-text-analytics-features
   title: Text Analytics features
@@ -394,18 +410,18 @@ groups:
   title: Programming languages
   prompt: Choose a programming language or CLI
   pivots:
-  - id: programmer-tool-spx
-    title: CLI
   - id: programming-language-csharp
     title: C#
   - id: programming-language-cpp
     title: C++
   - id: programming-language-java
     title: Java
-  - id: programming-language-python
-    title: Python
   - id: programming-language-javascript
     title: JavaScript
+  - id: programming-language-python
+    title: Python
+  - id: programmer-tool-spx
+    title: CLI
   - id: programming-language-more
     title: More languages...
 - id: programming-languages-set-two-with-js-go
@@ -662,6 +678,27 @@ groups:
     title: JavaScript
   - id: programming-language-go
     title: Go
+  - id: programming-language-python
+    title: Python
+  - id: programming-language-spx
+    title: CLI
+- id: speech-full-stack-go-objectivec-swift
+  # Owner: erhopf
+  title: Programming languages
+  prompt: Choose a programming language
+  pivots:
+  - id: programming-language-csharp
+    title: C#
+  - id: programming-language-cpp
+    title: C++
+  - id: programming-language-go
+    title: Go
+  - id: programming-language-java
+    title: Java
+  - id: programming-language-javascript
+    title: JavaScript
+  - id: programming-languages-objectivec-swift
+    title: Objective-C/Swift
   - id: programming-language-python
     title: Python
   - id: programming-language-spx

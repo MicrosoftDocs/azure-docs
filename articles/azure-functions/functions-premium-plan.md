@@ -5,7 +5,9 @@ author: jeffhollan
 ms.topic: conceptual
 ms.date: 08/28/2020
 ms.author: jehollan
-ms.custom: references_regions 
+ms.custom:
+- references_regions 
+- fasttrack-edit
 
 ---
 
@@ -39,7 +41,7 @@ If no events and executions occur today in the Consumption plan, your app may sc
 In the Premium plan, you can have your app always ready on a specified number of instances.  The maximum number of always ready instances is 20.  When events begin to trigger the app, they are routed to the always ready instances first.  As the function becomes active, additional instances will be warmed as a buffer.  This buffer prevents cold start for new instances required during scale.  These buffered instances are called [pre-warmed instances](#pre-warmed-instances).  With the combination of the always ready instances and a pre-warmed buffer, your app can effectively eliminate cold start.
 
 > [!NOTE]
-> Every premium plan will have at least one active and billed instance at all times.
+> Every premium plan will have at least one active (billed) instance at all times.
 
 You can configure the number of always ready instances in the Azure portal by selected your **Function App**, going to the **Platform Features** tab, and selecting the **Scale Out** options. In the function app edit window, always ready instances are specific to that app.
 
@@ -55,9 +57,9 @@ az resource update -g <resource_group> -n <function_app_name>/config/web --set p
 
 Pre-warmed instances are the number of instances warmed as a buffer during scale and activation events.  Pre-warmed instances continue to buffer until the maximum scale-out limit is reached.  The default pre-warmed instance count is 1, and for most scenarios should remain as 1.  If an app has a long warm up (like a custom container image), you may wish to increase this buffer.  A pre-warmed instance will become active only after all active instances have been sufficiently utilized.
 
-Consider this example of how always ready instances and pre-warmed instances work together.  A premium function app has five always ready instances configured, and the default of one prewarmed instance.  When the app is idle and no events are triggering, the app will be provisioned and running on five instances.  
+Consider this example of how always ready instances and pre-warmed instances work together.  A premium function app has five always ready instances configured, and the default of one pre-warmed instance.  When the app is idle and no events are triggering, the app will be provisioned and running on five instances.  At this time, you will not be billed for a pre-warmed instance as the always ready instances aren't used, and no pre-warmed instance is even allocated.
 
-As soon as the first trigger comes in, the five always ready instances become active, and an additional pre-warmed instance is allocated.  The app is now running with six provisioned instances: the five now-active always ready instances, and the sixth pre-warmed and inactive buffer.  If the rate of executions continues to increase, the five active instances will eventually be utilized.  When the platform decides to scale beyond five instances, it will scale into the pre-warmed instance.  When that happens, there will now be six active instances, and a seventh instance will instantly be provisioned and fill the pre-warmed buffer.  This sequence of scaling and pre-warming will continue until the maximum instance count for the app is reached.  No instances will be pre-warmed or activated beyond the maximum.
+As soon as the first trigger comes in, the five always ready instances become active, and a pre-warmed instance is allocated.  The app is now running with six provisioned instances: the five now-active always ready instances, and the sixth pre-warmed and inactive buffer.  If the rate of executions continues to increase, the five active instances will eventually be utilized.  When the platform decides to scale beyond five instances, it will scale into the pre-warmed instance.  When that happens, there will now be six active instances, and a seventh instance will instantly be provisioned and fill the pre-warmed buffer.  This sequence of scaling and pre-warming will continue until the maximum instance count for the app is reached.  No instances will be pre-warmed or activated beyond the maximum.
 
 You can modify the number of pre-warmed instances for an app using the Azure CLI.
 
@@ -91,7 +93,7 @@ Azure Functions in a Consumption plan are limited to 10 minutes for a single exe
 
 When you create the plan, there are two plan size settings: the minimum number of instances (or plan size) and the maximum burst limit.
 
-If your app requires instances beyond the always ready instances, it can continue to scale out until the number of instances hits the maximum burst limit.  You are billed for instances beyond your plan size only while they are running and rented to you.  We will make a best effort at scaling your app out to its defined maximum limit.
+If your app requires instances beyond the always ready instances, it can continue to scale out until the number of instances hits the maximum burst limit.  You are billed for instances beyond your plan size only while they are running and allocated to you, on a per-second basis.  We will make a best effort at scaling your app out to its defined maximum limit.
 
 You can configure the plan size and maximums in the Azure portal by selecting the **Scale Out** options in the plan or a function app deployed to that plan (under **Platform Features**).
 
@@ -116,7 +118,7 @@ az resource update -g <resource_group> -n <premium_plan_name> --set sku.capacity
 
 ### Available instance SKUs
 
-When creating or scaling your plan, you can choose between three instance sizes.  You will be billed for the total number of cores and memory consumed per second.  Your app can automatically scale out to multiple instances as needed.  
+When creating or scaling your plan, you can choose between three instance sizes.  You will be billed for the total number of cores and memory provisioned, per second that each instance is allocated to you.  Your app can automatically scale out to multiple instances as needed.  
 
 |SKU|Cores|Memory|Storage|
 |--|--|--|--|
