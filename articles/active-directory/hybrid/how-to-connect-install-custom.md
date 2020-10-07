@@ -322,105 +322,109 @@ The AD FS service requires a domain service account to authenticate users and to
 * **Group managed service account** - This account type was introduced into AD DS by Windows Server 2012. This type of account provides services such as AD FS. It's a single account in which you don't need to update the password regularly. Use this option if you already have Windows Server 2012 domain controllers in the domain that your AD FS servers belong to.
 * **Domain user account** - This type of account requires you to provide a password and regularly update it when it expires. Use this option only when you don't have Windows Server 2012 domain controllers in the domain that your AD FS servers belong to.
 
-If you selected Group Managed Service Account and this feature has never been used in Active Directory, you are prompted for Enterprise Admin credentials. These credentials are used to initiate the key store and enable the feature in Active Directory.
+If you selected **Create a group Managed Service Account** and this feature has never been used in Active Directory, you're prompted for enterprise admin credentials. These credentials are used to initiate the key store and enable the feature in Active Directory.
 
 > [!NOTE]
-> Azure AD Connect performs a check to detect if the AD FS service is already registered as a SPN in the domain.  Azure AD DS will not allow duplicate SPN’s to be registered at once.  If a duplicate SPN is found, you will not be able to proceed further until the SPN is removed.
+> Azure AD Connect checks whether the AD FS service is already registered as a service principal name (SPN) in the domain.  Azure AD DS doesn't allow duplicate SPNs to be registered at the same time.  If a duplicate SPN is found, you can't proceed further until the SPN is removed.
 
-![AD FS Service Account](./media/how-to-connect-install-custom/adfs5.png)
+![Screenshot showing the AD FS service account page.](./media/how-to-connect-install-custom/adfs5.png)
 
-### Select the Azure AD domain that you wish to federate
-This configuration is used to setup the federation relationship between AD FS and Azure AD. It configures AD FS to issue security tokens to Azure AD and configures Azure AD to trust the tokens from this specific AD FS instance. This page only allows you to configure a single domain in the initial installation. You can configure more domains later by running Azure AD Connect again.
+### Select the Azure AD domain that you want to federate
+Use the Azure AD Domain page to set up the federation relationship between AD FS and Azure AD. Here, you configure AD FS to provide security tokens to Azure AD. You also configure Azure AD to trust the tokens from this AD FS instance. 
+
+On this page, you can configure only a single domain in the initial installation. You can configure more domains later by running Azure AD Connect again.
 
 ![Screenshot that shows the "Azure AD Domain" page.](./media/how-to-connect-install-custom/adfs6.png)
 
 ### Verify the Azure AD domain selected for federation
-When you select the domain to be federated, Azure AD Connect provides you with necessary information to verify an unverified domain. See [Add and verify the domain](../fundamentals/add-custom-domain.md) for how to use this information.
+When you select the domain that you want to federate, Azure AD Connect provides information that you can use to verify an unverified domain. For more information, see [Add and verify the domain](../fundamentals/add-custom-domain.md).
 
-![Azure AD Domain](./media/how-to-connect-install-custom/verifyfeddomain.png)
+![Screenshot showing the "Azure AD Domain" page, including information you can use to verify the domain.](./media/how-to-connect-install-custom/verifyfeddomain.png)
 
 > [!NOTE]
-> AD Connect tries to verify the domain during the configure stage. If you continue to configure without adding the necessary DNS records, the wizard is not able to complete the configuration.
->
+> AD Connect tries to verify the domain during the configuration stage. If you don't add the necessary Domain Name System (DNS) records, the configuration can't be completed.
 >
 
-## Configuring federation with PingFederate
-Configuring PingFederate with Azure AD Connect is simple and only requires a few clicks. However, the following prerequisites are required.
-- PingFederate 8.4 or higher.  For more information see [PingFederate Integration with Azure Active Directory and Microsoft 365](https://docs.pingidentity.com/bundle/O365IG20_sm_integrationGuide/page/O365IG_c_integrationGuide.html)
-- A TLS/SSL certificate for the federation service name you intend to use (for example sts.contoso.com)
+
+## Configure federation by using PingFederate
+You can configure PingFederate with Azure AD Connect in just a few clicks. The following prerequisites are required:
+- PingFederate 8.4 or later.  For more information, see [PingFederate integration with Azure Active Directory and Microsoft 365](https://docs.pingidentity.com/bundle/O365IG20_sm_integrationGuide/page/O365IG_c_integrationGuide.html).
+- A TLS/SSL certificate for the federation service name that you intend to use (for example, `sts.contoso.com`).
 
 ### Verify the domain
-After selecting Federation with PingFederate, you will be asked to verify the domain you want to federate.  Select the domain from the drop-down box.
+After you choose to set up federation by using PingFederate, you're asked to verify the domain you want to federate.  Select the domain from the drop-down menu.
 
-![Screenshot that shows the "Azure AD Domain" with the example domain "contoso.com" selected.](./media/how-to-connect-install-custom/ping1.png)
+![Screenshot that shows the "Azure AD Domain" page. The example domain "contoso.com" is selected.](./media/how-to-connect-install-custom/ping1.png)
 
 ### Export the PingFederate settings
 
 
-PingFederate must be configured as the federation server for each federated Azure domain.  Click the Export Settings button and share this information with your PingFederate administrator.  The federation server administrator will update the configuration, then provide the PingFederate server URL and port number so Azure AD Connect can verify the metadata settings.  
+You must configure PingFederate as the federation server for each federated Azure domain.  Select the **Export Settings** button to share this information with your PingFederate administrator.  The federation server administrator updates the configuration and then provides the PingFederate server URL and port number so that Azure AD Connect can verify the metadata settings.  
 
-![Verify Domain](./media/how-to-connect-install-custom/ping2.png)
+![Screenshot showing the "PingFederate settings" page. The Export Settings button appears near the top of the page.](./media/how-to-connect-install-custom/ping2.png)
 
-Contact your PingFederate administrator to resolve any validation issues.  The following is an example of a PingFederate server that does not have a valid trust relationship with Azure:
+Contact your PingFederate administrator to resolve any validation issues.  The following image shows information about a PingFederate server that has no valid trust relationship with Azure.
 
-![Trust](./media/how-to-connect-install-custom/ping5.png)
+![Screenshot showing server information: The PingFederate server was found, but the service provider connection for Azure is missing or disabled.](./media/how-to-connect-install-custom/ping5.png)
 
 
 
 
 ### Verify federation connectivity
-Azure AD Connect will attempt to validate the authentication endpoints retrieved from the PingFederate metadata in the previous step.  Azure AD Connect will first attempt to resolve the endpoints using your local DNS servers.  Next it will attempt to resolve the endpoints using an external DNS provider.  Contact your PingFederate administrator to resolve any validation issues.  
+Azure AD Connect attempts to validate the authentication endpoints that it retrieves from the PingFederate metadata in the previous step.  Azure AD Connect first attempts to resolve the endpoints by using your local DNS servers.  Next, it attempts to resolve the endpoints by using an external DNS provider.  Contact your PingFederate administrator to resolve any validation issues.  
 
-![Verify Connectivity](./media/how-to-connect-install-custom/ping3.png)
+![Screenshot showing the "Verify Connectivity" page.](./media/how-to-connect-install-custom/ping3.png)
 
 ### Verify federation login
-Finally, you can verify the newly configured federated login flow by signing in to the federated domain. When this succeeds, the federation with PingFederate is successfully configured.
-![Verify login](./media/how-to-connect-install-custom/ping4.png)
+Finally, you can verify the newly configured federated login flow by signing in to the federated domain. If your sign-in succeeds, then the federation with PingFederate is successfully configured.
 
-## Configure and verify pages
-The configuration happens on this page.
+![Screenshot showing the "Verify federated login" page. A message at the bottom indicates a successful sign-in.](./media/how-to-connect-install-custom/ping4.png)
+
+## Configure and verify page
+The configuration happens on the Configure page.
 
 > [!NOTE]
-> Before you continue installation and if you configured federation, make sure that you have configured [Name resolution for federation servers](how-to-connect-install-prerequisites.md#name-resolution-for-federation-servers).
+> If you configured federation, then make sure that you have configured [Name resolution for federation servers](how-to-connect-install-prerequisites.md#name-resolution-for-federation-servers) before you continue the installation.
 >
->
 
 
-![Ready to configure](./media/how-to-connect-install-custom/readytoconfigure2.png)
 
-### Staging mode
-It is possible to setup a new sync server in parallel with staging mode. It is only supported to have one sync server exporting to one directory in the cloud. But if you want to move from another server, for example one running DirSync, then you can enable Azure AD Connect in staging mode. When enabled, the sync engine import and synchronize data as normal, but it does not export anything to Azure AD or AD. The features password sync and password writeback are disabled while in staging mode.
+![Screenshot showing the "Ready to configure" page.](./media/how-to-connect-install-custom/readytoconfigure2.png)
 
-![Staging mode](./media/how-to-connect-install-custom/stagingmode.png)
+### Use staging mode
+It's possible to set up a new sync server in parallel with staging mode. If you want to use this setup, then only one sync server can export to one directory in the cloud. But if you want to move from another server, for example a server running DirSync, then you can enable Azure AD Connect in staging mode. 
 
-While in staging mode, it is possible to make required changes to the sync engine and review what is about to be exported. When the configuration looks good, run the installation wizard again and disable staging mode. Data is now exported to Azure AD from this server. Make sure to disable the other server at the same time so only one server is actively exporting.
+When you enable the staging setup, the sync engine imports and synchronizes data as normal. But it exports no data to Azure AD or Active Directory. In staging mode, the password sync feature and password writeback feature are disabled.
+
+![Screenshot showing the "Enable staging mode" option.](./media/how-to-connect-install-custom/stagingmode.png)
+
+In staging mode, you can make required changes to the sync engine and review what will be exported. When the configuration looks good, run the installation wizard again and disable staging mode. 
+
+Data is now exported to Azure AD from the server. Make sure to disable the other server at the same time so only one server is actively exporting.
 
 For more information, see [Staging mode](how-to-connect-sync-staging-server.md).
 
 ### Verify your federation configuration
-Azure AD Connect verifies the DNS settings for you when you click the Verify button.
+Azure AD Connect verifies the DNS settings when you select the **Verify** button. It checks the following settings:
 
-**Intranet connectivity checks**
+* **Intranet connectivity**
+    * Resolve federation FQDN: Azure AD Connect checks whether the DNS can resolve the federation FQDN to ensure connectivity. If Azure AD Connect can't resolve the FQDN, then the verification fails. To successfully complete the verification, ensure that a DNS record is present for the federation service FQDN.
+    * DNS A record: Azure AD Connect checks whether your federation service has an A record. In the absence of an A record, the verification fails. To successfully complete the verification, create an A record (not a CNAME record) for your federation FQDN.
+* **Extranet connectivity**
+    * Resolve federation FQDN: Azure AD Connect checks whether the DNS can resolve the federation FQDN to ensure connectivity.
 
-* Resolve federation FQDN: Azure AD Connect checks if the  federation FQDN can be resolved by DNS to ensure connectivity. If Azure AD Connect cannot resolve the FQDN, the verification will fail. Ensure that a DNS record is present for the federation service FQDN in order to successfully complete the verification.
-* DNS A record: Azure AD Connect checks if there is an A record for your federation service. In the absence of an A record, the verification will fail. Create an A record and not CNAME record for your federation FQDN in order to successfully complete the verification.
+      ![Screenshot showing the "Installation complete" page.](./media/how-to-connect-install-custom/completed.png)
 
-**Extranet connectivity checks**
+      ![Screenshot showing the "Installation complete" page. A message indicates that the intranet configuration was verified.](./media/how-to-connect-install-custom/adfs7.png)
 
-* Resolve federation FQDN: Azure AD Connect checks if the  federation FQDN can be resolved by DNS to ensure connectivity.
-
-![Complete](./media/how-to-connect-install-custom/completed.png)
-
-![Verify](./media/how-to-connect-install-custom/adfs7.png)
-
-To validate end-to-end authentication is successful you should manually perform one or more the following tests:
+To validate end-to-end authentication, manually perform one or more the following tests:
 
 * Once synchronization in complete, use the Verify federated login additional task in Azure AD Connect to verify authentication for an on-premises user account of your choice.
 * Validate that you can sign in from a browser from a domain joined machine on the intranet: Connect to https://myapps.microsoft.com and verify the sign-in with your logged in account. The built-in Azure AD DS administrator account is not synchronized and cannot be used for verification.
 * Validate that you can sign in from a device from the extranet. On a home machine or a mobile device, connect to https://myapps.microsoft.com and supply your credentials.
 * Validate rich client sign-in. Connect to https://testconnectivity.microsoft.com, choose the **Office 365** tab and chose the **Office 365 Single Sign-On Test**.
 
-## Troubleshooting
+## Troubleshoot
 The following section contains troubleshooting and information that you can use if you encounter an issue installing Azure AD Connect.
 
 ### “The ADSync database already contains data and cannot be overwritten”
