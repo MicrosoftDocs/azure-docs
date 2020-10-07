@@ -225,7 +225,7 @@ For detailed information about how to create a diagnostic setting by using the A
  
 1. How to get Controlplane logs?
  
-   remember to switch on flag as described in the [disable key-based metadata write access](audit-control-plane-logs.md#disable-key-based-metadata-write-access) articleand execute the operations via Azure PowerShell, CLI or ARM.
+   remember to switch on flag as described in the [disable key-based metadata write access](audit-control-plane-logs.md#disable-key-based-metadata-write-access) article and execute the operations via Azure PowerShell, the Azure CLI or Azure Resource Manager.
  
    ```Kusto  
    AzureDiagnostics 
