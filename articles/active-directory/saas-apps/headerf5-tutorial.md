@@ -216,7 +216,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 	>[!NOTE]
 	>In the example our app name is `Headerapp.superdemo.live`, we are using a Wild Card Certificate our keyname is `WildCard-SuperDemo.live`.
 
-	![Screenshot shows the Guided Configuration page with Federation selected.](./media/headerf5-tutorial/configure13.png)
+	![Screenshot shows the S S L Certificate/Key Source page.](./media/headerf5-tutorial/configure13.png)
 
 1. We will use the Guided Experience to setup the Azure AD Federation and Application Access. Go to – F5 BIG-IP **Main** and select **Access > Guided Configuration > Federation > SAML Service Provider**. Click **Next** then click **Next** to begin configuration.
 
