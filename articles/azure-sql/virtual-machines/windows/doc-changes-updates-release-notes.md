@@ -21,7 +21,7 @@ Azure allows you to deploy a virtual machine (VM) with an image of SQL Server bu
 
 | Changes | Details |
 | --- | --- |
-| **DNN for AG** | You can now configure a [distributed network name](hadr-distributed-network-name-dnn-configure.md) for an [availability group listener](availability-group-overview.md#connectivity), replacing the Azure Load Balancer.  | 
+| **DNN for AG** | You can now configure a [distributed network name](hadr-distributed-network-name-dnn-configure-zp.md) for an [availability group listener](availability-group-overview.md#connectivity), replacing the Azure Load Balancer.  | 
 
 ## September 2020
 

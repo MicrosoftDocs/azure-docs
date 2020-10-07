@@ -19,36 +19,53 @@ ms.custom: "seo-lt-2019, devx-track-azurecli"
 
 ---
 
-# Introducing SQL Server Always On availability groups on Azure Virtual Machines
-
+# Always On availability group on SQL Server on Azure VMs
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
 
 This article introduces Always On availability groups on SQL Server on Azure Virtual Machines (VMs). 
 
 ## Overview
 
-Always On availability groups on Azure Virtual Machines are similar to Always On availability groups on-premises. For more information, see [Always On Availability Groups (SQL Server)](/sql/database-engine/availability-groups/windows/always-on-availability-groups-sql-server). 
+Always On availability groups on Azure Virtual Machines are similar to [Always On availability groups on-premises](/sql/database-engine/availability-groups/windows/always-on-availability-groups-sql-server). However, since the virtual machines are hosted in Azure, there are a few additional considerations as well, such as VM redundancy, and routing traffic on the Azure network. 
 
 The following diagram illustrates the parts of a complete SQL Server Availability Group in Azure Virtual Machines.
 
 ![Availability Group](./media/availability-group-overview/00-EndstateSampleNoELB.png)
 
-In Azure, there is the added complexity of routing traffic on the Azure network. 
 
 
 
 
 ## VM redundancy 
 
-To increase redundancy and high availability, the SQL Server VMs should either be in the same [availability set](availability-group-manually-configure-prerequisites-tutorial.md#create-availability-sets), or different [availability zones](/azure/availability-zones/az-overview). 
+To increase redundancy and high availability, the SQL Server VMs should either be in the same [availability set](../../../virtual-machines/windows/tutorial-availability-sets.md#availability-set-overview), or different [availability zones](/azure/availability-zones/az-overview).
+
+An availability set is a grouping of resources which are configured such that no two land in the same availability zone. This prevents impacting multiple resources in the group during deployment roll outs. To be supported in Azure, SQL Server VMs participating in an availability group must be in the same availability set or two different availability zones. 
 
 ## Connectivity 
 
-### DNN
+In a traditional on-premises deployment, clients connect to the availability group listener using the virtual network name (VNN), and the listener routes traffic to the appropriate SQL Server replica in the availability group. However, in Azure, there is an extra requirement to route traffic on the Azure network. 
+
+With SQL Server on Azure VMs, configure a [load balancer](hadr-vnn-azure-load-balancer.md) to route traffic to your availability group listener, or, if you're on SQL Server 2019 CU8 and above, configure a [distributed network name (DNN) listener](hadr-distributed-network-name-dnn-configure.md) to replace the traditional availability group listener. 
+
 
 ### Load balancer 
 
-these virtual machines (VMs) require a [load balancer](../../../load-balancer/load-balancer-overview.md). The load balancer holds the IP addresses for the availability group listener. If you have more than one availability group, each group requires a listener. One load balancer can support multiple listeners.
+Use an Azure [Load Balancer](../../../load-balancer/load-balancer-overview.md) to route traffic from the client to the availability group listener on the Azure network. 
+
+The load balancer holds the IP addresses for the availability group listener. If you have more than one availability group, each group requires a listener. One load balancer can support multiple listeners.
+
+To get started, see [configure a load balancer](hadr-vnn-azure-load-balancer.md). 
+
+### DNN listener
+
+SQL Server 2019 CU8 introduces support for the distributed network name (DNN) listener. The distributed network name replaces the traditional availability group listener, negating the need for an Azure Loud Balancer to route traffic on the Azure network. 
+
+The DNN listener is the recommended HADR connectivity solution in Azure as it simplifies deployment, reduces maintenance and cost, and reduces failover time in the event of a failure. 
+
+Use the DNN listener to replace an existing VNN listener, or alternatively, use it in conjunction with an existing VNN listener so that your availability group has two distinct connection points - one using the VNN listener name (and port if non-default), and one using the DNN listener name and port. 
+
+To get started, see [configure a DNN listener](hadr-distributed-network-name-dnn-configure.md).
 
 
 ## Deployment 
@@ -64,36 +81,33 @@ The **SQL Server AlwaysOn Cluster (preview)** template has been removed from the
 
 When you are ready to build a SQL Server availability group on Azure Virtual Machines, refer to these tutorials.
 
-### Manually with Azure CLI
+- [Azure Portal](availability-group-azure-portal-configure.md) 
+   - Creates the cluster or lets you onboard an existing cluster for portal management 
+   - Creates the availability group
+   - Creates the listener with the load balancer simultaneously
+   - No native DNN listener support, DNN must be created separately
+- [Azure CLI / PowerShell](availability-group-az-cli-configure.md)
+   - Creates the cluster
+   - Does not create the availability group, you still need to do this manually
+   - Creates the listener with the load balancer simultaneously
+   - No native DNN listener support, DNN must be created separately
+- [Quickstart Templates](availability-group-quickstart-template-configure.md)
+   - Creates the cluster or lets you onboard an existing cluster for portal management 
+   - Does not create the availability group, you still need to do this manually 
+   - Creates the listener with the load balancer simultaneously
+   - No native DNN listener support, DNN must be created separately
+- [Manual](availability-group-manually-configure-prerequisites-tutorial.md)
+   - Creates the cluster but does not onboard it to the SQL VM resource provider metadata
+   - Creates the listener separately from the load balancer
+   - No native DNN listener support, DNN must be created separately
 
-It's recommended to use Azure CLI to configure and deploy an availability group because it's the simplest and fastest to deploy. With Azure CLI, the creation of the Windows Failover Cluster, joining SQL Server VMs to the cluster, as well as the creation of the listener and Internal Load Balancer can all be achieved in under 30 minutes. This option still requires a manual creation of the availability group, but it automates all the other necessary configuration steps. 
-
-For more information, see [Use Azure SQL VM CLI to configure Always On availability group for SQL Server on an Azure VM](availability-group-az-cli-configure.md). 
-
-### Automatically with Azure Quickstart Templates
-
-The Azure Quickstart Templates utilize the SQL VM resource provider to deploy the Windows Failover Cluster, join SQL Server VMs to it, create the listener, and configure the Internal Load Balancer. This option still requires a manual creation of the availability group and the Internal Load Balancer (ILB). However, it automates and simplifies all the other necessary configuration steps, including the configuration of the ILB. 
-
-For more information, see [Use Azure Quickstart Template to configure Always On availability group for SQL Server on an Azure VM](availability-group-quickstart-template-configure.md).
-
-
-### Automatically with an Azure portal template
-
-[Configure Always On availability group in Azure VM automatically - Resource Manager](availability-group-azure-marketplace-template-configure.md)
-
-
-### Manually in the Azure portal
-
-You can also create the virtual machines yourself without the template. First, complete the prerequisites, then create the availability group. See the following topics: 
-
-- [Configure prerequisites for SQL Server Always On availability groups on Azure Virtual Machines](availability-group-manually-configure-prerequisites-tutorial.md)
-
-- [Create Always On Availability Group to improve availability and disaster recovery](availability-group-manually-configure-tutorial.md)
 
 ## Considerations 
 
-Additionally, on an Azure IaaS VM guest failover cluster, we recommend a single NIC per server (cluster node) and a single subnet. Azure networking has physical redundancy, which makes additional NICs and subnets unnecessary on an Azure IaaS VM guest cluster. Although the cluster validation report will issue a warning that the nodes are only reachable on a single network, this warning can be safely ignored on Azure IaaS VM guest failover clusters. 
+On an Azure IaaS VM guest failover cluster, we recommend a single NIC per server (cluster node) and a single subnet. Azure networking has physical redundancy, which makes additional NICs and subnets unnecessary on an Azure IaaS VM guest cluster. Although the cluster validation report will issue a warning that the nodes are only reachable on a single network, this warning can be safely ignored on Azure IaaS VM guest failover clusters. 
 
 ## Next steps
 
-[Configure a SQL Server Always On Availability Group on Azure Virtual Machines in Different Regions](availability-group-manually-configure-multiple-regions.md)
+Review the [HADR best practices](hadr-cluster-best-practices.md) and then get started with deploying your availability group using the [Azure Portal](availability-group-azure-portal-configure.md), [Azure CLI / PowerShell](availability-group-az-cli-configure.md), [Quickstart Templates](availability-group-quickstart-template-configure.md) or [manually](availability-group-manually-configure-prerequisites-tutorial.md).
+
+Alternatively, you can deploy a [clusterless availability group](availability-group-clusterless-workgroup-configure.md) or an availability group in [multiple regions](availability-group-configure-multiple-regions.md). 

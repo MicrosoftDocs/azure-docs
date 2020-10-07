@@ -24,15 +24,21 @@ On Azure Virtual Machines, the distributed network name (DNN) is used to route t
 
 This article teaches you to configure a DNN to route traffic to your FCIs or availability group listener with SQL Server on Azure VMs for high availability and disaster recovery (HADR). 
 
-The DNN feature is currently in preview and only available: 
+The DNN feature is currently in preview and only available on: 
 
-- On Windows Server 2016 and later
+- Windows Server 2016 and later
 - SQL Server 2019 CU2 for failover cluster instances 
 - SQL Server 2019 CU8 for availability groups 
 
 ::: zone pivot="fci"
 
 ## Overview
+
+The distributed network name (DNN) replaces the virtual network name (VNN) as the connection point when used with an [Always On failover cluster instance on SQL Server VMs](failover-cluster-overview.md).  This negates the need for an Azure Load Balancer, simplifying deployment, maintenance, and improving failover. 
+
+With an FCI deployment, the VNN still exists, but the client connects to the DNN DNS name instead of the VNN name. 
+
+
 
 PICTURE OF FCI
 
@@ -253,6 +259,10 @@ Alternatively, configure a network adapter in Azure to reserve the IP address us
 
 # [Availability group](#tab/ag)
 
+A distributed network name (DNN) listener replaces the traditional virtual network name (VNN) availability group listener when used with [Always On availability groups on SQL Server VMs](availability-group-overview.md). This negates the need for an Azure Load Balancer to route traffic, simplifying deployment, maintenance, and improving failover. 
+
+Use the DNN listener to replace an existing VNN listener, or alternatively, use it in conjunction with an existing VNN listener so that your availability group has two distinct connection points - one using the VNN listener name (and port if non-default), and one using the DNN listener name and port. 
+
 PICTURE OF AG
 
 ---
@@ -265,7 +275,7 @@ Before you complete the steps in this article, you should already have:
 
 - SQL Server 2019 on CU8 or later, on Windows Server 2016 and later
 - Decided that the distributed network name is the appropriate [connectivity option for your HADR solution](hadr-cluster-best-practices.md#connectivity).
-- Configured your [Always On availability group](failover-cluster-instance-overview.md). 
+- Configured your [Always On availability group](availability-group-overview.md). 
 - Installed the latest version of [PowerShell](/powershell/azure/install-az-ps). 
 
 ---
@@ -276,7 +286,7 @@ Before you complete the steps in this article, you should already have:
 
 # [Availability group](#tab/ag)
 
-Create the distributed network name (DNN) resource and associate it with your availability group using PowerShell. 
+Use PowerShell to create the distributed network name (DNN) resource and associate it with your availability group. 
 
 To do so, follow these steps: 
 
@@ -333,7 +343,7 @@ To do so, follow these steps:
 
 # [Availability group](#tab/ag)
 
-After the script is saved, execute it, passing in parameters for the name of the availability group, listener name, and port. 
+To create the DNN, execute the script passing in parameters for the name of the availability group, listener name, and port. 
 
 For example, assuming an availability group name of `ag1`, listener name of `dnnlsnr`, and listener port as `6789`, follow these steps: 
 
@@ -344,8 +354,6 @@ For example, assuming an availability group name of `ag1`, listener name of `dnn
    ```console
    c:\Documents> add_dnn_listener.ps1 ag1 dnnlsnr 6789
    ```
-
-
 
 ---
 
@@ -371,6 +379,7 @@ To test failover, follow these steps:
 1. Right-click the availability group and choose **Failover** to open the **Failover Wizard**. 
 1. Follow the prompts to choose a failover target and fail the availability group over to a secondary replica. 
 1. Confirm the database is in a synchronized state on the new primary replica. 
+1. (Optional) Fail back to the original primary, or another secondary replica. 
 
 ---
 
