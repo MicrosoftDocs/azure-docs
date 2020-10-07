@@ -15,9 +15,9 @@ When publishing your virtual machine (VM) images to Azure Marketplace, the Azure
 
 This article describes how to create and configure technical assets for a virtual machine (VM) offer for Azure Marketplace. A VM contains two components: the operating system virtual hard disk (VHD) and optional associated data disks VHDs:
 
-1. **Operating system VHD** – Contains the operating system and solution that deploys with your offer. The process of preparing the VHD differs depending on whether it is a Linux-based, Windows-based, or a custom- based VM.
+- **Operating system VHD**: Contains the operating system and solution that deploys with your offer. The process of preparing the VHD differs depending on whether it is a Linux-based, Windows-based, or a custom- based VM.
 
-2. **Data disk VHDs** – Dedicated, persistent storage for a VM. Don't use the operating system VHD (for example, the C: drive) to store persistent information.
+- **Data disk VHDs**: Dedicated, persistent storage for a VM. Don't use the operating system VHD (for example, the C: drive) to store persistent information.
 
 A VM image contains one operating system disk and up to 16 data disks. Use one VHD per data disk, even if the disk is blank.
 
