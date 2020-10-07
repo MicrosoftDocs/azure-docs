@@ -36,7 +36,7 @@ landingContent:
             url: ./learn/quick-enable-hybrid-vm.md
  # Card
   - title: Reference architecture
-    linksLists:
+    linkLists:
       - linkListType: architecture
         links:
           - text: Manage hybrid configurations
