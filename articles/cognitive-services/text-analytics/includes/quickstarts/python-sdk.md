@@ -1,6 +1,7 @@
 ---
 author: aahill
 ms.service: cognitive-services
+ms.subservice: text-analytics
 ms.topic: include
 ms.date: 09/21/2020
 ms.author: aahi

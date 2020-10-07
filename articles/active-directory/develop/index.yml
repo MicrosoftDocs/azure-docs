@@ -5,7 +5,7 @@ summary: The Microsoft identity platform is an authentication service, open-sour
 
 metadata:
    ms.topic: landing-page
-   ms.date: 09/26/2020
+   ms.date: 10/07/2020
    author: mmacy
    ms.author: marsma
    ms.service: active-directory
@@ -122,6 +122,8 @@ landingContent:
     linkLists:
       - linkListType: whats-new
         links:
+          - text: "Microsoft Identity Web library overview" # 10/07/2020
+            url: microsoft-identity-web.md
           - text: "Tutorial: Blazor Server" # 9/26/2020
             url: tutorial-blazor-server.md
           - text: "Quickstart: Protect an ASP.NET Core web API"
@@ -139,4 +141,4 @@ landingContent:
           - text: Handle errors & exceptions - Android
             url: msal-android-handling-exceptions.md
           - text: Directory schema extension attributes in claims
-            url: active-directory-schema-extensions.md
+            url: active-directory-schema-extensions.md # 07/29/2020
