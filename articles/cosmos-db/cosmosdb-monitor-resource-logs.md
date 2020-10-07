@@ -94,12 +94,12 @@ For detailed information about how to create a diagnostic setting by using the A
    | render timechart
    ```
     
-1. How to get partition Key statistics to evaluate skew across top 3 partitions for database account:
+1. How to get partition key statistics to evaluate skew across top 3 partitions for a database account:
 
    ```Kusto
    AzureDiagnostics 
    | where ResourceProvider=="MICROSOFT.DOCUMENTDB" and Category=="PartitionKeyStatistics" 
-   | project SubscriptionId, regionName_s, databaseName_s, collectionname_s, partitionkey_s, sizeKb_s, ResourceId 
+   | project SubscriptionId, regionName_s, databaseName_s, collectionName_s, partitionKey_s, sizeKb_d, ResourceId 
    ```
 
 1. How to get the request charges for expensive queries?
@@ -209,14 +209,6 @@ For detailed information about how to create a diagnostic setting by using the A
    | where todouble(sizeKb_d) > 800000
    ```
 
-1. How to get partition Key statistics to evaluate skew across top three partitions for database account?
-
-   ```Kusto
-   AzureDiagnostics 
-   | where ResourceProvider=="MICROSOFT.DOCUMENTDB" and Category=="PartitionKeyStatistics" 
-   | project SubscriptionId, regionName_s, databaseName_s, collectionName_s, partitionKey_s, sizeKb_d, ResourceId
-   ```
-
 1. How to get P99 or P50 replication latencies for operations, request charge or the length of the response?
 
    ```Kusto
@@ -233,7 +225,7 @@ For detailed information about how to create a diagnostic setting by using the A
  
 1. How to get Controlplane logs?
  
-   remember to switch on flag as described in the [disable key-based metadata write access](audit-control-plane-logs.md#disable-key-based-metadata-write-access) articleand execute the operations via Azure PowerShell, CLI or ARM.
+   Remember to switch on the flag as described in the [Disable key-based metadata write access](audit-control-plane-logs.md#disable-key-based-metadata-write-access) article, and execute the operations by using Azure PowerShell, the Azure CLI, or Azure Resource Manager.
  
    ```Kusto  
    AzureDiagnostics 
