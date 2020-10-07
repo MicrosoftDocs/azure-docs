@@ -108,5 +108,4 @@ If the user hasn't provided the correct username or password, or the client hasn
 
 ## Learn more
 
-* Try out ROPC for yourself using the [sample console application](https://github.com/azure-samples/active-directory-dotnetcore-console-up-v2).
-* To determine whether you should use the v2.0 endpoint, read about [Microsoft identity platform limitations](../azuread-dev/azure-ad-endpoint-comparison.md).
+For an example of using ROPC, see the [.NET Core console application](https://github.com/azure-samples/active-directory-dotnetcore-console-up-v2) code sample on GitHub.
