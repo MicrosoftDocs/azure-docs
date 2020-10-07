@@ -1,6 +1,6 @@
 ---
-title: Access IoT Edge runtime metrics - Azure IoT Edge
-description: Remote access to metrics from the IoT Edge runtime and workload modules
+title: Access built-in metrics - Azure IoT Edge
+description: Remote access to built-in metrics from the IoT Edge runtime components
 author: v-tcassi
 manager: philmea
 ms.author: v-tcassi
@@ -11,24 +11,32 @@ ms.service: iot-edge
 services: iot-edge
 ---
 
-# Remote access to IoT Edge runtime metrics
+# Remote access to built-in metrics
 
-The IoT Edge runtime components, IoT Edge Hub and IoT Edge Agent, produce metrics in the [Prometheus exposition format](https://prometheus.io/docs/instrumenting/exposition_formats/). Access these metrics remotely to monitor and understand the health of an IoT Edge device.
-
-## Metrics exposure
+The IoT Edge runtime components, IoT Edge Hub and IoT Edge Agent, produce built-in metrics in the [Prometheus exposition format](https://prometheus.io/docs/instrumenting/exposition_formats/). Access these metrics remotely to monitor and understand the health of an IoT Edge device.
 
 As of release 1.0.10, metrics are automatically exposed by default on **port 9600** of the **edgeHub** and **edgeAgent** modules (`http://edgeHub:9600/metrics` and `http://edgeAgent:9600/metics`). They aren't port mapped to the host by default.
 
-For mapping to host, expose the port from the edgeHub module's `createOptions`:
+Access metrics from the host by exposing and mapping the metrics port from the module's `createOptions`. The example below maps the default metrics port to port 9601 on the host:
 
 ```
 {
   "ExposedPorts": {
     "9600/tcp": {},
+  },
+  "HostConfig": {
+    "PortBindings": {
+      "9600/tcp": [
+        {
+          "HostPort": "9601"
+        }
+      ]
+    }
   }
-  <other options, if any>
 }
 ```
+
+Choose different and unique host port numbers if you are mapping both the edgeHub and edgeAgent's metrics endpoints.
 
 > [!NOTE]
 > If you wish to disable metrics, set the `MetricsEnabled` environment variable to `false` for **edgeAgent**.
@@ -45,6 +53,8 @@ Metrics contain tags to help identify the nature of the metric being collected. 
 
 In the Prometheus exposition format, there are four core metric types: counter, gauge, histogram, and summary. For more information about the different metric types, see the [Prometheus metric types documentation](https://prometheus.io/docs/concepts/metric_types/).
 
+The quantiles provided for the system modules histogram and summary metrics are 0.1, 0.5, 0.9 and 0.99.
+
 The **edgeHub** module produces the following metrics:
 
 | Name | Dimensions | Description |
@@ -53,18 +63,18 @@ The **edgeHub** module produces the following metrics:
 | `edgehub_messages_received_total` | `route_output` (output that sent message)<br> `id` | Type: counter<br> Total number of messages received from clients |
 | `edgehub_messages_sent_total` | `from` (message source)<br> `to` (message destination)<br>`from_route_output`<br> `to_route_input` (message destination input)<br> `priority` (message priority to destination) | Type: counter<br> Total number of messages sent to clients or upstream<br> `to_route_input` is empty when `to` is $upstream |
 | `edgehub_reported_properties_total` | `target`(update target)<br> `id` | Type: counter<br> Total reported property updates calls |
-| `edgehub_message_size_bytes` | `id`<br> `quantile`(50, 90, 95, 99, 99.9, 99.99 percentiles) | Type: summary<br> P50, P90, P95, P99, P99.9 and P99.99 message size from clients<br> Values may be reported as `NaN` if no new measurements are reported for a certain period of time (currently 10 minutes); for `summary` type, corresponding `_count` and `_sum` counters will be emitted. |
-| `edgehub_gettwin_duration_seconds` | `source` <br> `id`<br> `quantile` | Type: summary<br> P50, P90, P95, P99, P99.9 and P99.99 time taken for get twin operations |
-| `edgehub_message_send_duration_seconds` | `from`<br> `to`<br> `from_route_output`<br> `to_route_input`<br> `quantile` | Type: summary<br> P50, P90, P95, P99, P99.9 and P99.99 time taken to send a message |
-| `edgehub_message_process_duration_seconds` | `from` <br> `to` <br> `priority` <br> `quantile` | Type: summary<br> P50, P90, P95, P99, P99.9 and P99.99 time taken to process a message from the queue |
-| `edgehub_reported_properties_update_duration_seconds` | `target`<br> `id` <br> `quantile` | Type: summary<br> P50, P90, P95, P99, P99.9 and P99.99 time taken to update reported properties |
-| `edgehub_direct_method_duration_seconds` | `from` (caller)<br> `to` (receiver)<br> `quantile` | Type: summary<br> P50, P90, P95, P99, P99.9 and P99.99 time taken to resolve a direct message |
+| `edgehub_message_size_bytes` | `id`<br> | Type: summary<br> Message size from clients<br> Values may be reported as `NaN` if no new measurements are reported for a certain period of time (currently 10 minutes); for `summary` type, corresponding `_count` and `_sum` counters will be emitted. |
+| `edgehub_gettwin_duration_seconds` | `source` <br> `id` | Type: summary<br> Time taken for get twin operations |
+| `edgehub_message_send_duration_seconds` | `from`<br> `to`<br> `from_route_output`<br> `to_route_input` | Type: summary<br> Time taken to send a message |
+| `edgehub_message_process_duration_seconds` | `from` <br> `to` <br> `priority` | Type: summary<br> Time taken to process a message from the queue |
+| `edgehub_reported_properties_update_duration_seconds` | `target`<br> `id` | Type: summary<br> Time taken to update reported properties |
+| `edgehub_direct_method_duration_seconds` | `from` (caller)<br> `to` (receiver) | Type: summary<br> Time taken to resolve a direct message |
 | `edgehub_direct_methods_total` | `from`<br> `to` | Type: counter<br> Total number of direct messages sent |
 | `edgehub_queue_length` | `endpoint` (message source)<br> `priority` (queue priority) | Type: gauge<br> Current length of edgeHub's queue for a given priority |
 | `edgehub_messages_dropped_total` | `reason` (no_route, ttl_expiry)<br> `from` <br> `from_route_output` | Type: counter<br> Total number of messages removed because of reason |
 | `edgehub_messages_unack_total` | `reason` (storage_failure)<br> `from`<br> `from_route_output` | Type: counter<br> Total number of messages unacknowledged because storage failure |
 | `edgehub_offline_count_total` | `id` | Type: counter<br> Total number of times edgeHub went offline |
-| `edgehub_offline_duration_seconds`| `id`<br> `quantile` | Type: summary<br> P50, P90, P95, P99, P99.9 and P99.99 time edge hub was offline |
+| `edgehub_offline_duration_seconds`| `id` | Type: summary<br> Time edge hub was offline |
 | `edgehub_operation_retry_total` | `id`<br> `operation` (operation name) | Type: counter<br> Total number of times edgeHub operations were retried |
 | `edgehub_client_connect_failed_total` | `id` <br> `reason` (not authenticated)<br> | Type: counter<br> Total number of times clients failed to connect to edgeHub |
 

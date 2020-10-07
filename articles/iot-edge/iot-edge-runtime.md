@@ -133,6 +133,7 @@ The default frequency of RQT is one message sent to IoT Hub every 24 hours and l
 > If you wish to opt out of RQT, there are two ways to do so:
 >
 > * Uncheck option in portal during deployment authoring experience
+> OR
 > * Set the `SendRuntimeQualityTelemetry` environment variable to `false` for **edgeAgent**
 
 ## Next steps
