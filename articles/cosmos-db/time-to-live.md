@@ -15,6 +15,8 @@ With **Time to Live** or TTL, Azure Cosmos DB provides the ability to delete ite
 
 Deletion of expired items is a background task that consumes left-over [Request Units](request-units.md), that is Request Units that haven't been consumed by user requests. Even after the TTL has expired, if the container is overloaded with requests and if there aren't enough RU's available, the data deletion is delayed. Data is deleted once there are enough RUs available to perform the delete operation. Though the data deletion is delayed, data is not returned by any queries (by any API) after the TTL has expired.
 
+> This content is related to Azure Cosmos DB transactional store TTL. If you are looking for analitycal store TTL, that enables NoETL HTAP scenarios through [Azure Synapse Link](https://docs.microsoft.com/azure/cosmos-db/synapse-link), please click [here](https://docs.microsoft.com/azure/cosmos-db/analytical-store-introduction#analytical-ttl).
+
 ## Time to live for containers and items
 
 The time to live value is set in seconds, and it is interpreted as a delta from the time that an item was last modified. You can set time to live on a container or an item within the container:
