@@ -4,8 +4,8 @@ description: Learn how to test and submit an Azure virtual machine offer in the 
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
-author: iqshahmicrosoft
-ms.author: iqshah 
+author: github-2407
+ms.author: krsh
 ms.date: 08/14/2020
 ---
 
