@@ -384,8 +384,8 @@ The `validate-jwt` policy enforces existence and validity of a JSON web token (J
 
 > [!IMPORTANT]
 > The `validate-jwt` policy requires that the `exp` registered claim is included in the JWT token, unless `require-expiration-time` attribute is specified and set to `false`.
-> The `validate-jwt` policy supports HS256 and RS256 signing algorithms. For HS256 the key must be provided inline within the policy in the base64 encoded form. For RS256 the key has to be provide via an Open ID configuration endpoint.
-> The `validate-jwt` policy supports tokens encrypted with symmetric keys using the following encryption algorithms A128CBC-HS256, A192CBC-HS384, A256CBC-HS512.
+> The `validate-jwt` policy supports HS256 and RS256 signing algorithms. For HS256 the key must be provided inline within the policy in the base64 encoded form. For RS256 the key may be provided either via an Open ID configuration endpoint, or by providing an RSA certificate ID or public key modulus-exponent pair.
+> The `validate-jwt` policy supports tokens encrypted with symmetric keys using the following encryption algorithms: A128CBC-HS256, A192CBC-HS384, A256CBC-HS512.
 
 ### Policy statement
 
@@ -476,7 +476,7 @@ The `validate-jwt` policy enforces existence and validity of a JSON web token (J
         </claim>
     </required-claims>
 </validate-jwt>
-```q
+```
 
 #### Azure Active Directory B2C token validation
 
