@@ -19,7 +19,7 @@ Organizations might have several Azure subscriptions. Each subscription is assoc
 This article describes the basic steps you can follow to transfer a subscription to a different Azure AD directory and re-create some of the resources after the transfer.
 
 > [!NOTE]
-> For Azure Cloud Service Providers (CSP) subscriptions, changing the Azure AD directory for the subscription isn't supported.
+> For Azure Cloud Solution Providers (CSP) subscriptions, changing the Azure AD directory for the subscription isn't supported.
 
 ## Overview
 
