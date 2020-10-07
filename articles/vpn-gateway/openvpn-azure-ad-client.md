@@ -6,7 +6,7 @@ author: cherylmc
 
 ms.service: vpn-gateway
 ms.topic: conceptual
-ms.date: 09/03/2020
+ms.date: 10/07/2020
 ms.author: alzam
 
 ---
@@ -14,11 +14,7 @@ ms.author: alzam
 
 This article helps you configure a VPN client to connect to a virtual network using Point-to-Site VPN and Azure Active Directory authentication. Before you can connect and authenticate using Azure AD, you must first configure your Azure AD tenant. For more information, see [Configure an Azure AD tenant](openvpn-azure-ad-tenant.md).
 
-> [!NOTE]
-> Azure AD authentication is supported only for OpenVPN® protocol connections.
->
-> Azure AD authentication requires the Azure VPN client, which is available only for Windows 10.
->
+[!INCLUDE [Windows 10 and OpenVPN note](../../includes/vpn-gateway-openvpn-auth-include.md)]
 
 ## <a name="profile"></a>Working with client profiles
 
