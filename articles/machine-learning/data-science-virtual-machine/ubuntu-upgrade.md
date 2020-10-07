@@ -124,6 +124,8 @@ For more information, see [Quickstart: Set up the Data Science Virtual Machine f
 
 ### Mount the disk of the snapshotted VM as a data disk on your new Data Science Virtual Machine
 
+In the Azure portal, make sure that your Data Science Virtual Machine is running.
+
 In the Azure portal, go to the page of your Data Science Virtual Machine. Choose the **Disks** blade on the left rail. Choose **Attach existing disks**.
 
 In the **Disk name** dropdown, select the disk that you created from your old VM's snapshot.
@@ -132,13 +134,32 @@ In the **Disk name** dropdown, select the disk that you created from your old VM
 
 Select **Save** to update your virtual machine.
 
+> ![IMPORTANT]
+> Your VM should be running at the time you attach the data disk. If the VM isn't running, the disks may be added in an incorrect order, leading to a confusing and potentially non-bootable system. If you add the data disk with the VM off, choose the **X** beside the data disk, start the VM, and re-attach it.
+
 ### Manually copy the wanted data 
 
-Start your Data Science Virtual Machine and sign on using SSH. 
+Sign on to your running virtual machine using SSH.
 
-{>> mmm... I think you have to mount the disk, right? And then update fstab? <<}
+Confirm that you've attached the disk created from your old VM's snapshot by running the following command:
 
-**Move** or **Copy** the necessary directories or files from the **CentOS VM** to the **Ubuntu VM** in the appropriate directories for the services.
+```bash
+lsblk -o NAME,HCTL,SIZE,MOUNTPOINT | grep -i 'sd'
+```
+
+The results should look something like the following image. In the image, disk `sda1` is mounted at the root and `sdb2` is the `/mnt` scratch disk. The data disk created from the snapshot of your old VM is identified as `sdc1` but is not yet available, as evidenced by the lack of a mount location. Your results might have somewhat different identifiers, but you should see a similar pattern.
+
+:::image type="content" source="media/ubuntu_upgrade/lsblk-results.png" alt-text="Screenshot of lsblk output, showing unmounted datadrive":::
+
+To access the data drive, create a location for it and mount it. Substitute `/dev/sdc1` with the appropriate value returned by `lsblk`:
+
+```bash
+sudo mkdir /datadrive && sudo mount /dev/sdc1 /datadrive
+```
+
+Now, `/datadrive` contains the directories and files of your old Data Science Virtual Machine. Move or copy the directories or files you want from the datadrive to the new VM as you wish.
+
+For more information, see [Use the portal to attach a data disk to a Linux VM](https://docs.microsoft.com/azure/virtual-machines/linux/attach-disk-portal#connect-to-the-linux-vm-to-mount-the-new-disk).
 
 ## Connect and confirm version upgrade
 
