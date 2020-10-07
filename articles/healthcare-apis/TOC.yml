@@ -77,7 +77,7 @@
     - name: Configure database settings
       href: configure-database.md
     - name: Configure customer-managed keys
-      href: byok.md
+      href: bring-your-own-key.md
     - name: Configure CORS
       href: configure-cross-origin-resource-sharing.md
     - name: Configure Export
@@ -88,7 +88,7 @@
     - name: Export data
       href: export-data.md
     - name: De-identified export
-      href: de-id-export.md
+      href: de-identified-export.md
   - name: Find identity object IDs
     href: find-identity-object-ids.md
   - name: Enable Diagnostics Logging in Azure API for FHIR®
