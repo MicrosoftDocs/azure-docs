@@ -26,8 +26,8 @@ This failure occurs when you use a base image that belongs to another publisher 
 
 To fix this issue, retrieve the image from Azure Marketplace and make changes to it. For more information, see the following articles:
 
-- [Linux images](../../virtual-machines/linux/endorsed-distros.md?toc=/azure/virtual-machines/linux/toc.json)
-- [Windows images](create-azure-vm-technical-asset.md#create-a-vm-image-using-an-approved-base)
+- [Linux images](../virtual-machines/linux/endorsed-distros.md?toc=/azure/virtual-machines/linux/toc.json)
+- [Windows images](azure-vm-create-using-approved-base.md)
 
 > [!Note]
 > If you are using a Linux base image not taken from Marketplace, you can offset the first partition by 2048 KB. This allows the unformatted space to be used for adding new billing info and allows Azure to go ahead with publishing your VM to Marketplace.  
@@ -43,17 +43,18 @@ To enable VM extensions, do the following:
 1. Enable Base matrices by updating the **Storage account**.
 1. Select **Save**.
 
-   ![Enable guest-level monitoring](./media/vm-certification-issues-solutions-1.png)
+   ![Enable guest-level monitoring](./media/create-vm/vm-certification-issues-solutions-1.png)
 
 To verify that the VM extensions are properly activated, do the following:
 
 1. In the VM, select the **VM extensions** tab, and then verify the status of the **Linux Diagnostics Extension**.
+1. 
     * If the status is *Provisioning Succeeded*, the extensions test case has passed.  
     * If the status is *Provisioning Failed*, the extensions test case has failed and you need to set the Hardened flag.
 
-      ![Screenshot showing that provisioning has succeeded](./media/vm-certification-issues-solutions-2.png)
+      ![Screenshot showing that provisioning has succeeded](./media/create-vm/vm-certification-issues-solutions-2.png)
 
-      If the VM extension fails, see [Use Linux Diagnostic Extension to monitor metrics and logs](../../virtual-machines/extensions/diagnostics-linux.md) to enable it. If you don't want the VM extension to be enabled, contact the Support team, and ask them to disable it.
+      If the VM extension fails, see [Use Linux Diagnostic Extension to monitor metrics and logs](../virtual-machines/extensions/diagnostics-linux.md) to enable it. If you don't want the VM extension to be enabled, contact the Support team, and ask them to disable it.
 
 ## VM provisioning issue
 
@@ -66,11 +67,12 @@ Provisioning issues can include the following failure scenarios:
 |1|Invalid virtual hard disk (VHD)|If the specified cookie value in the VHD footer is incorrect, the VHD will be considered invalid.|Re-create the image and submit the request.|
 |2|Invalid blob type|VM provisioning failed because the used block is a blob type instead of a page type.|Re-create the image and submit the request.|
 |3|Provisioning timeout or not properly generalized|There's an issue with VM generalization.|Re-create the image with generalization and submit the request.|
+|
 
 > [!NOTE]
 > For more information about VM generalization, see:
-> - [Linux documentation](create-azure-vm-technical-asset.md#generalize-the-image)
-> - [Windows documentation](../../virtual-machines/windows/capture-image-resource.md#generalize-the-windows-vm-using-sysprep)
+> - [Linux documentation](azure-vm-create-using-approved-base.md#generalize-the-image)
+> - [Windows documentation](../virtual-machines/windows/capture-image-resource.md#generalize-the-windows-vm-using-sysprep)
 
 ## Software compliance for Windows
 
@@ -80,9 +82,9 @@ Don't create your own Windows image with SQL server installed in it. Instead, us
 
 If you're trying to install Visual Studio or any Office-licensed product, contact the Support team for prior approval.
 
-For more information about selecting an approved base, see [Create your Azure virtual machine technical assets](create-azure-vm-technical-asset.md#create-a-vm-image-using-an-approved-base).
+For more information about selecting an approved base, see [Create a virtual machine from an approved base](azure-vm-create-using-approved-base.md).
 
-## Tool kit test case execution failed 
+## Tool kit test case execution failed
 
 The Microsoft Certification toolkit can help you run test cases and verify that your VHD or image is compatible with the Azure environment.
 
@@ -139,6 +141,7 @@ The following table lists the Windows test cases that the toolkit will run, alon
 |15|SNMP Services|The Simple Network Management Protocol (SNMP) Services feature isn't yet supported. The application shouldn't be dependent on this feature.|
 |16|Windows Internet Name Service|Windows Internet Name Service. This server feature isn't yet supported. The application shouldn't be dependent on this feature.|
 |17|Wireless LAN Service|Wireless LAN Service. This server feature isn't yet supported. The application shouldn't be dependent on this feature.|
+|
 
 If you come across any failures with the preceding test cases, refer to the **Description** column in the table for the solution. If you require more information, contact the Support team. 
 
@@ -156,6 +159,7 @@ Refer to the following rules for limitations on OS disk size. When you submit an
 |---|---|
 |Linux|30 GB to 1023 GB|
 |Windows|30 GB to 250 GB|
+|
 
 As VMs allow access to the underlying operating system, ensure that the VHD size is sufficiently large for the VHD. Because disks aren’t expandable without downtime, use a disk size from 30 GB to 50 GB.
 
@@ -163,6 +167,7 @@ As VMs allow access to the underlying operating system, ensure that the VHD size
 |---|---|---|
 |>500 tebibytes (TiB)|n/a|Contact the Support team for an exception approval.|
 |250-500 TiB|>200 gibibytes (GiB) difference from blob size|Contact the Support team for an exception approval.|
+|
 
 > [!NOTE]
 > Larger disk sizes incur higher costs and will incur a delay during the setup and replication process. Because of this delay and cost, the Support team might seek justification for the exception approval.
@@ -185,6 +190,7 @@ The image file version can be verified from `C:\windows\system32\drivers\srv.sys
 |Windows Server 2012 R2|6.3.9600.18604|
 |Windows Server 2016|10.0.14393.953|
 |Windows Server 2019|NA|
+|
 
 ## SACK vulnerability patch verification
 
@@ -194,13 +200,13 @@ Update the kernel with an approved version, and resubmit the request. You can fi
 
 If your image isn't installed with one of the following kernel versions, update it with the correct patches. Request the necessary approval from the Support team after the image is updated with these required patches:
 
-- CVE-2019-11477 
-- CVE-2019-11478 
+- CVE-2019-11477
+- CVE-2019-11478
 - CVE-2019-11479
 
 |OS family|Version|Kernel|
 |---|---|---|
-|Ubuntu|14.04 LTS|4.4.0-151| 
+|Ubuntu|14.04 LTS|4.4.0-151|
 ||14.04 LTS|4.15.0-1049-*-azure|
 ||16.04 LTS|4.15.0-1049|
 ||18.04 LTS|4.18.0-1023|
@@ -231,7 +237,7 @@ If your image isn't installed with one of the following kernel versions, update 
 ||SLES15|4.12.14-5.30.1 (kernel-azure)|
 ||SLES15 for SAP|4.12.14-5.30.1 (kernel-azure)|
 ||SLES15SP1|4.12.14-5.30.1 (kernel-azure)|
-|Oracle|6.10|UEK2 2.6.39-400.312.2<br>UEK3 3.8.13-118.35.2<br>RHCK 2.6.32-754.15.3 
+|Oracle|6.10|UEK2 2.6.39-400.312.2<br>UEK3 3.8.13-118.35.2<br>RHCK 2.6.32-754.15.3
 ||7.0-7.5|UEK3 3.8.13-118.35.2<br>UEK4 4.1.12-124.28.3<br>RHCK follows RHEL above|
 ||7.6|RHCK 3.10.0-957.21.3<br>UEK5 4.14.35-1902.2.0|
 |CoreOS Stable 2079.6.0|4.19.43*|
@@ -242,12 +248,13 @@ If your image isn't installed with one of the following kernel versions, update 
 ||stretch (security)|4.9.168-1+deb9u3|
 ||Debian GNU/Linux 10 (buster)|Debian 6.3.0-18+deb9u1|
 ||buster, sid (stretch backports)|4.19.37-5|
+|
 
 ## Image size should be in multiples of megabytes
 
 All VHDs on Azure must have a virtual size aligned to multiples of 1 megabyte (MB). If your VHD doesn't adhere to the recommended virtual size, your request might get rejected.
 
-Follow guidelines when you're converting from a raw disk to VHD, and ensure that the raw disk size is a multiple of 1 MB. For more information, see [Information for non-endorsed distributions](../../virtual-machines/linux/create-upload-generic.md).
+Follow guidelines when you're converting from a raw disk to VHD, and ensure that the raw disk size is a multiple of 1 MB. For more information, see [Information for non-endorsed distributions](../virtual-machines/linux/create-upload-generic.md).
 
 ## VM access denied
 
@@ -256,17 +263,18 @@ If you come across access denied issues while you're running the test cases on t
 Check to see whether proper access is enabled for the account on which the self-test cases are running. If access is not enabled, enable it to run the test cases. If you don't want to enable access, you might share the self-test case results with the Support team.
 
 ## Download failure
-    
+
 Refer to the following table for any issues that arise when you download the VM image by using a shared access signature (SAS) URL.
 
 |Scenario|Error|Reason|Solution|
 |---|---|---|---|
-|1|Blob not found|The VHD might either be deleted or moved from the specified location.|| 
+|1|Blob not found|The VHD might either be deleted or moved from the specified location.||
 |2|Blob in use|The VHD is used by another internal process.|The VHD should be in a used state when you download it by using an SAS URL.|
 |3|Invalid SAS URL|The associated SAS URL for the VHD is incorrect.|Get the correct SAS URL.|
 |4|Invalid signature|The associated SAS URL for the VHD is incorrect.|Get the correct SAS URL.|
 |6|HTTP conditional header|The SAS URL is invalid.|Get the correct SAS URL.|
 |7|Invalid VHD name|Check to see whether any special characters, such as a percent sign (%) or quotation marks ("), exist in the VHD name.|Rename the VHD file by removing the special characters.|
+|
 
 ## First MB (2048 KB) partition (Only for Linux)
 
@@ -309,10 +317,11 @@ For solutions to errors that are related to the data disk, use the following tab
 |---|---|---|
 |`DataDisk- InvalidUrl:`|This error might occur because of an invalid number specified for the logical unit number (LUN) when the offer is submitted.|Verify that the LUN number sequence for the data disk is in Partner Center.|
 |`DataDisk- NotFound:`|This error might occur because of a data disk not being located at a specified SAS URL.|Verify that the data disk is located at the SAS URL that's specified in the request.|
+|
 
 ## Remote access issue
 
-If the Remote Desktop Protocol (RDP) option isn't enabled for the Windows image, you will receive this error. 
+If the Remote Desktop Protocol (RDP) option isn't enabled for the Windows image, you will receive this error.
 
 Enable RDP access for Windows images before you submit them.
 
@@ -324,18 +333,18 @@ information isn't captured in your bash history file.
 Below are the steps to delete the “Bash History”.
 
 Step 1.	Deploy the VM and click on “Run Command” option on Azure portal.
-![Run command on Azure portal](./media/vm-certification-issues-solutions-3.png)
+![Run command on Azure portal](./media/create-vm/vm-certification-issues-solutions-3.png)
 
 Step 2.	Select first option “RunShellScript” and run the below command.
 
 Command: “cat /dev/null > ~/.bash_history && history -c”
-![Bash History command on Azure portal](./media/vm-certification-issues-solutions-4.png)
+![Bash History command on Azure portal](./media/create-vm/vm-certification-issues-solutions-4.png)
 
-Step 3.	After successful executing the command, Restart the VM.
+Step 3. After successful executing the command, Restart the VM.
 
-Step 4.	Generalize the VM, take the Image VHD and Stop the VM.
+Step 4. Generalize the VM, take the Image VHD and Stop the VM.
 
-Step 5. 	Re-Submit the generalized image.
+Step 5. Re-Submit the generalized image.
 
 ## Requesting exceptions (custom templates) on VM images for selective tests
 
@@ -346,30 +355,28 @@ In the sections below, we will talk about main scenarios where exceptions are re
 
 Scenarios for exception
 
-There are three scenarios/cases where publishers generally request these exceptions. 
+There are three scenarios/cases where publishers generally request these exceptions.
 
-* **Exception for one or more test cases:** Publishers can reach out to [Marketplace Publisher Support](https://aka.ms/marketplacepublishersupport) request exceptions for test cases. 
+* **Exception for one or more test cases:** Publishers can reach out to [Marketplace Publisher Support](https://aka.ms/marketplacepublishersupport) request exceptions for test cases.
 
 * **Locked Down VMs/No root access:** Few publishers have scenarios where VMs need to be locked as they have software such as firewalls installed on the VM. 
        In this case, publishers can download the [Certified Test Tool](https://aka.ms/AzureCertificationTestTool) here, and provide the report at [Marketplace Publisher Support](https://aka.ms/marketplacepublishersupport)
 
-
-* **Custom Templates:** Some publishers publish VM images which require a custom ARM template to deploy the VMs. 
-In this case, Publishers are requested to provide the custom templates at [Marketplace Publisher Support](https://aka.ms/marketplacepublishersupport) so that same can be used by Certification team for validation. 
+* **Custom Templates:** Some publishers publish VM images which require a custom ARM template to deploy the VMs.
+In this case, Publishers are requested to provide the custom templates at [Marketplace Publisher Support](https://aka.ms/marketplacepublishersupport) so that same can be used by Certification team for validation.
 
 ### Information to provide for exception scenarios
 
 Publishers must reach out to the support at [Marketplace Publisher Support](https://aka.ms/marketplacepublishersupport) for requesting exceptions for the above scenario with the additional following information:
 
    1.	Publisher ID – The publisher ID on Partner Center portal
-   2.	Offer ID/name – The Offer ID/name for which exception is requested 
+   2.	Offer ID/name – The Offer ID/name for which exception is requested
    3.	SKU/Plan ID – The plan ID/sku of the VM offer for which exception is requested
-   4.	 Version – The version of the VM offer for which exception is requested
+   4.	Version – The version of the VM offer for which exception is requested
    5.	Exception Type –Tests, Locked Down VM, Custom Templates
-   6.	Reason of request – Reason for this exception and information on tests to be exempted 
-   7. Timeline - Date till which this exception has been requested 
+   6.	Reason of request – Reason for this exception and information on tests to be exempted
+   7. Timeline - Date till which this exception has been requested
    8.	Attachment - Attach any importance evidence documents. For Locked Down VMs, attach the test report and for custom templates, provide the custom ARM template as attachment. Failure to attach report for Locked Down VMs and custom ARM template for custom templates will result in denial of request
-
 
 ## Next steps
 

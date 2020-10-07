@@ -14,4 +14,4 @@ If you need additional configuration, use a scheduled task that runs at startup 
 - If it is a run-once task, the task should delete itself after it successfully completes.
 - Configurations should not rely on drives other than C or D, because only these two drives are always guaranteed to exist (drive C is the operating system disk and drive D is the temporary local disk).
 
-For more information about Linux customizations, see [Virtual machine extensions and features for Linux](../virtual-machines/extensions/features-linux.md).
+For more information about Linux customizations, see [Virtual machine extensions and features for Linux](../../virtual-machines/extensions/features-linux.md).

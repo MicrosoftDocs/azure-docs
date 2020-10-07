@@ -31834,7 +31834,7 @@
     },
     {
       "source_path": "articles/marketplace-publishing/marketplace-publishing-vm-image-creation-on-premise.md",
-      "redirect_url": "/azure/marketplace/partner-center-portal/azure-vm-image-certification",
+      "redirect_url": "/azure/marketplace/azure-vm-image-certification",
       "redirect_document_id": false
     },
     {
@@ -31854,7 +31854,7 @@
     },
     {
       "source_path": "articles/marketplace-publishing/marketplace-publishing-vm-image-test-in-staging.md",
-      "redirect_url": "/azure/marketplace/partner-center-portal/azure-vm-image-certification",
+      "redirect_url": "/azure/marketplace/azure-vm-image-certification",
       "redirect_document_id": false
     },
     {
@@ -45328,6 +45328,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/marketplace/partner-center-portal/support.md",
+      "redirect_url": "/azure/marketplace/support",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/marketplace/cloud-partner-portal/virtual-machine/cpp-connect-vm.md",
       "redirect_url": "/azure/marketplace/azure-vm-create-technical-assets",
       "redirect_document_id": false
@@ -45369,37 +45374,37 @@
     },
     {
       "source_path": "articles/marketplace/cloud-partner-portal/virtual-machine/cpp-create-key-vault-cert.md",
-      "redirect_url": "/azure/marketplace/partner-center-portal/azure-vm-image-certification",
+      "redirect_url": "/azure/marketplace/azure-vm-image-certification",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/marketplace/cloud-partner-portal/virtual-machine/cpp-key-vault-deploy-template.md",
-      "redirect_url": "/azure/marketplace/partner-center-portal/azure-vm-image-certification",
+      "redirect_url": "/azure/marketplace/azure-vm-image-certification",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/marketplace/cloud-partner-portal/virtual-machine/cpp-deploy-vm-user-image.md",
-      "redirect_url": "/azure/marketplace/partner-center-portal/azure-vm-image-certification",
+      "redirect_url": "/azure/marketplace/azure-vm-image-certification",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/marketplace/cloud-partner-portal/virtual-machine/cpp-deploy-json-template.md",
-      "redirect_url": "/azure/marketplace/partner-center-portal/azure-vm-image-certification",
+      "redirect_url": "/azure/marketplace/azure-vm-image-certification",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/marketplace/cloud-partner-portal/virtual-machine/cpp-deploy-vm-marketplace.md",
-      "redirect_url": "/azure/marketplace/partner-center-portal/azure-vm-image-certification",
+      "redirect_url": "/azure/marketplace/azure-vm-image-certification",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/marketplace/cloud-partner-portal/virtual-machine/cpp-certify-vm.md",
-      "redirect_url": "/azure/marketplace/partner-center-portal/azure-vm-image-certification",
+      "redirect_url": "/azure/marketplace/azure-vm-image-certification",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/marketplace/cloud-partner-portal/virtual-machine/cpp-selftest-client.md",
-      "redirect_url": "/azure/marketplace/partner-center-portal/azure-vm-image-certification",
+      "redirect_url": "/azure/marketplace/azure-vm-image-certification",
       "redirect_document_id": false
     },
     {

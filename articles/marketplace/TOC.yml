@@ -113,16 +113,20 @@
       items: 
       - name: Create an Azure virtual machine offer
         href: partner-center-portal/azure-vm-create-offer.md
-      - name: Create Azure VM technical asset
+      - name: Create Azure VM technical assets
         items:
-          - name: Virtual machine certification - issues and solutions
+          - name: Create VM technical assets
+            href: azure-vm-create-technical-assets.md
+          - name: Create a VM from an approved base
+            href: azure-vm-create-using-approved-base.md
+          - name: Create a VM using your own image
+            href: azure-vm-create-using-own image.md
+          - name: VM certification - issues and solutions
             href: partner-center-portal/vm-certification-issues-solutions.md
-          - name: Create an Azure VM technical asset
-            href: partner-center-portal/create-azure-vm-technical-asset.md
-          - name: Azure VM technical asset FAQ
-            href: partner-center-portal/common-issues-during-vhd-creation.md
-          - name: Test Virtual Machine deployed from VHD 
-            href: partner-center-portal/azure-vm-image-certification.md
+          - name: VHD creation FAQ
+            href: azure-vm-common-issues-during-vhd-creation.md
+          - name: Test VM deployed from VHD 
+            href: azure-vm-image-certification.md
           - name: SAS URI
             items:
               - name: Get SAS URI
@@ -325,7 +329,7 @@
   - name: Cloud Partner Portal migration FAQ
     href: cloud-partner-portal-migration-faq.md     
   - name: Partner Center support options
-    href: partner-center-portal/support.md
+    href: support.md
   - name: Geographic availability and currencies
     href: marketplace-geo-availability-currencies.md
   - name: Supported countries and regions

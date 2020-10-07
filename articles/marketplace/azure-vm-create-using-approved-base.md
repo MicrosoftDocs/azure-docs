@@ -21,8 +21,8 @@ Select one of the following Windows or Linux Images as your base.
 
 - Windows Server ([2019](https://azuremarketplace.microsoft.com/marketplace/apps/microsoftwindowsserver.windowsserver?tab=Overview), [2016](https://azuremarketplace.microsoft.com/marketplace/apps/microsoftwindowsserver.windowsserver?tab=Overview), [2012 R2 Datacenter](https://azuremarketplace.microsoft.com/marketplace/apps/microsoftwindowsserver.windowsserver?tab=Overview), [2012 Datacenter](https://azuremarketplace.microsoft.com/marketplace/apps/microsoftwindowsserver.windowsserver?tab=Overview), [2008 R2 SP1](https://azuremarketplace.microsoft.com/marketplace/apps/microsoftwindowsserver.windowsserver?tab=Overview))
 - SQL Server 2019 ([Enterprise](https://azuremarketplace.microsoft.com/marketplace/apps/microsoftsqlserver.sql2019-ws2019?tab=Overview), [Standard](https://azuremarketplace.microsoft.com/marketplace/apps/microsoftsqlserver.sql2019-ws2019?tab=Overview), [Web](https://azuremarketplace.microsoft.com/marketplace/apps/microsoftsqlserver.sql2019-ws2019?tab=Overview))
-- SQL Server 2014 ([Enterprise](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-server-pricing-guidance), [Standard](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-server-pricing-guidance), [Web](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-server-pricing-guidance))
-- SQL Server 2012 SP2 ([Enterprise](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-server-pricing-guidance), [Standard](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-server-pricing-guidance), [Web](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-server-pricing-guidance))
+- SQL Server 2014 ([Enterprise](../virtual-machines/windows/sql/virtual-machines-windows-sql-server-pricing-guidance.md), [Standard](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-server-pricing-guidance.md), [Web](../virtual-machines/windows/sql/virtual-machines-windows-sql-server-pricing-guidance.md))
+- SQL Server 2012 SP2 ([Enterprise](virtual-machines/windows/sql/virtual-machines-windows-sql-server-pricing-guidance.md), [Standard](../virtual-machines/windows/sql/virtual-machines-windows-sql-server-pricing-guidance.md), [Web](/virtual-machines/windows/sql/virtual-machines-windows-sql-server-pricing-guidance.md))
 
 ### Linux
 
@@ -36,12 +36,12 @@ Follow these steps to create the base VM image on the [Azure portal](https://ms.
 
 - Windows Server ([2019](https://azuremarketplace.microsoft.com/marketplace/apps/microsoftwindowsserver.windowsserver?tab=Overview), [2016](https://azuremarketplace.microsoft.com/marketplace/apps/microsoftwindowsserver.windowsserver?tab=Overview), [2012 R2 Datacenter](https://azuremarketplace.microsoft.com/marketplace/apps/microsoftwindowsserver.windowsserver?tab=Overview), [2012 Datacenter](https://azuremarketplace.microsoft.com/marketplace/apps/microsoftwindowsserver.windowsserver?tab=Overview), [2008 R2 SP1](https://azuremarketplace.microsoft.com/marketplace/apps/microsoftwindowsserver.windowsserver?tab=Overview))
 - SQL Server 2019 ([Enterprise](https://azuremarketplace.microsoft.com/marketplace/apps/microsoftsqlserver.sql2019-ws2019?tab=Overview), [Standard](https://azuremarketplace.microsoft.com/marketplace/apps/microsoftsqlserver.sql2019-ws2019?tab=Overview), [Web](https://azuremarketplace.microsoft.com/marketplace/apps/microsoftsqlserver.sql2019-ws2019?tab=Overview))
-- SQL Server 2014 ([Enterprise](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-server-pricing-guidance), [Standard](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-server-pricing-guidance), [Web](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-server-pricing-guidance))
-- SQL Server 2012 SP2 ([Enterprise](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-server-pricing-guidance), [Standard](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-server-pricing-guidance), [Web](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-server-pricing-guidance))
+- SQL Server 2014 ([Enterprise](../virtual-machines/windows/sql/virtual-machines-windows-sql-server-pricing-guidance.md), [Standard](../virtual-machines/windows/sql/virtual-machines-windows-sql-server-pricing-guidance.md), [Web](../virtual-machines/windows/sql/virtual-machines-windows-sql-server-pricing-guidance.md))
+- SQL Server 2012 SP2 ([Enterprise](../virtual-machines/windows/sql/virtual-machines-windows-sql-server-pricing-guidance.md), [Standard](../virtual-machines/windows/sql/virtual-machines-windows-sql-server-pricing-guidance.md), [Web](../virtual-machines/windows/sql/virtual-machines-windows-sql-server-pricing-guidance.md))
 
 #### Linux
 
-Azure offers a range of approved Linux distributions. For a current list, see [Linux on distributions endorsed by Azure](https://docs.microsoft.com/en-us/azure/virtual-machines/linux/endorsed-distros).
+Azure offers a range of approved Linux distributions. For a current list, see [Linux on distributions endorsed by Azure](https://docs.microsoft.com/azure/virtual-machines/linux/endorsed-distros).
 
 ### Create VM on the Azure portal
 
@@ -72,7 +72,7 @@ Azure begins provisioning the virtual machine you specified. Track its progress 
 
 ## Connect to your VM
 
-Connect to your [Windows](../virtual-machines/windows/connect-logon) or [Linux](../virtual-machines/linux/ssh-from-windows#connect-to-your-vm) VM.
+Connect to your [Windows](../virtual-machines/windows/connect-logon.md) or [Linux](../virtual-machines/linux/ssh-from-windows.md#connect-to-your-vm) VM.
 
 :::image type="content" source="media/create-vm/putty-configuration.png" alt-text="Connect to Windows or Linux VM dialog box.":::
 

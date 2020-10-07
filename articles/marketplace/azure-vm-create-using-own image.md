@@ -37,7 +37,7 @@ This section describes how to size, update, and generalize an Azure VM. These st
 
 ## Upload the vhd to Azure
 
-Configure and prepare the VM to be uploaded as described in [Prepare a Windows VHD or VHDX to upload to Azure](../virtual-machines/windows/prepare-for-upload-vhd-image.md) or [Create and Upload a Linux VHD](../virtual-machines/linux/create-upload-generic).
+Configure and prepare the VM to be uploaded as described in [Prepare a Windows VHD or VHDX to upload to Azure](../virtual-machines/windows/prepare-for-upload-vhd-image.md) or [Create and Upload a Linux VHD](../virtual-machines/linux/create-upload-generic.md).
 
 ## Next steps
 

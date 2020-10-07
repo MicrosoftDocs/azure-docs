@@ -263,7 +263,7 @@ When you deploy \<PARTNER> software, Microsoft is able to identify the installat
 
 ## Get support
 
-Learn about the support options in the commercial marketplace at [Support for the commercial marketplace program in Partner Center](./partner-center-portal/support.md).
+Learn about the support options in the commercial marketplace at [Support for the commercial marketplace program in Partner Center](support.md).
 
 ### How to submit a technical consultation request
 

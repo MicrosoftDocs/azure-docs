@@ -47,5 +47,5 @@ Optional suggested tools:
 
 Create a VM image using either an approved base or an image you built on your own premises:
 
-- [Create a VM image using an approved base](create-using-approved-base.md)
-- [Create a VM using your own image](create-using-own-image.md) you built on your own premises
+- [Create a VM image using an approved base](azure-vm-create-using-approved-base.md)
+- [Create a VM using your own image](azure-vm-create-using-own-image.md) you built on your own premises
