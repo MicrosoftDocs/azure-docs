@@ -92,7 +92,7 @@ The `GetChatThreadClient` method returns a thread client for a thread that alrea
 
 ```csharp
 string threadId = "<THREAD_ID>";
-ChatThreadClient chatThreadClient = await chatClient.GetChatThreadClient(threadId);
+ChatThreadClient chatThreadClient = chatClient.GetChatThreadClient(threadId);
 ```
 
 ## Send a message to a chat thread
