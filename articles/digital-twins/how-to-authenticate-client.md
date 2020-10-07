@@ -32,10 +32,10 @@ To proceed, you will need a client app project in which you write your code. If 
 ## Authenticating with Azure.Identity
 
 `Azure.Identity` is a client library that provides several credential-obtaining methods that you can use to get a bearer token and authenticate with your SDK. Although this article gives examples in C#, you can view `Azure.Identity` for several languages, including...
-* [.NET (C#)](https://docs.microsoft.com/dotnet/api/azure.identity?view=azure-dotnet)
-* [Java](https://docs.microsoft.com/java/api/overview/azure/identity-readme?view=azure-java-stable)
-* [JavaScript](https://docs.microsoft.com/javascript/api/overview/azure/identity-readme?view=azure-node-latest)
-* [Python](https://docs.microsoft.com/python/api/overview/azure/identity-readme?view=azure-python)
+* [.NET (C#)](https://docs.microsoft.com/dotnet/api/azure.identity?view=azure-dotnet&preserve-view=true)
+* [Java](https://docs.microsoft.com/java/api/overview/azure/identity-readme?view=azure-java-stable&preserve-view=true)
+* [JavaScript](https://docs.microsoft.com/javascript/api/overview/azure/identity-readme?view=azure-node-latest&preserve-view=true)
+* [Python](https://docs.microsoft.com/python/api/overview/azure/identity-readme?view=azure-python&preserve-view=true)
 
 Three common credential-obtaining methods in `Azure.Identity` are:
 * [DefaultAzureCredential](https://docs.microsoft.com/dotnet/api/azure.identity.defaultazurecredential?view=azure-dotnet&preserve-view=true) provides a default `TokenCredential` authentication flow for applications that will be deployed to Azure, and is **the recommended choice for local development**. It also can be enabled to try the other two methods recommended in this article; it wraps `ManagedIdentityCredential` and can access `InteractiveBrowserCredential` with a configuration variable.
