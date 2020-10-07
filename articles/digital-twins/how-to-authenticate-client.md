@@ -21,8 +21,8 @@ ms.custom: devx-track-js
 After you [set up an Azure Digital Twins instance and authentication](how-to-set-up-instance-portal.md), you can create a client application that you will use to interact with the instance. Once you have set up a starter client project, this article shows you **how to write code in that client app to authenticate it** against the Azure Digital Twins instance.
 
 There are two approaches to sample code in this article. You can use the one that's right for you, depending on your language of choice:
-* The first section of sample code uses the Azure Digital Twins .NET (C#) SDK. The SDK is part of the Azure SDK for .NET, and is located here: [*Azure IoT Digital Twin client library for .NET*](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/digitaltwins/Azure.DigitalTwins.Core).
-* The second section of sample code is for users not using the .NET SDK, and instead using AutoRest-generated SDKs in other languages. For more information on this strategy, see [*How-to: Create custom SDKs for Azure Digital Twins with AutoRest*](how-to-create-custom-sdks.md).
+* The first section of sample code uses the Azure Digital Twins .NET (C#) SDK. The SDK is part of the Azure SDK for .NET, and is located here: [*Azure IoT Digital Twin client library for .NET*](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/digitaltwins/Azure.DigitalTwins.Core). There are also supported SDKs for [Java](https://search.maven.org/artifact/com.azure/azure-digitaltwins-core/1.0.0-beta.1/jar ) and [JavaScript](https://www.npmjs.com/package/@azure/digital-twins/v/1.0.0-preview.1), which can be used in a similar way.
+* The second section of sample code is for users not using a provided SDK, and instead using AutoRest-generated SDKs in other languages. For more information on this strategy, see [*How-to: Create custom SDKs for Azure Digital Twins with AutoRest*](how-to-create-custom-sdks.md).
 
 You can also read more about the APIs and SDKs for Azure Digital Twins in [*How-to: Use the Azure Digital Twins APIs and SDKs*](how-to-use-apis-sdks.md).
 
@@ -33,6 +33,8 @@ First, complete the setup steps in [*How-to: Set up an instance and authenticati
 To proceed, you will need a client app project in which you write your code. If you don't already have a client app project set up, create a basic project in your language of choice to use with this tutorial.
 
 ## Authentication and client creation: .NET (C#) SDK
+
+This section shows an example in C# for using the provided .NET SDK.
 
 First, include the following packages in your project in order to use the .NET SDK and authentication tools for this how-to:
 * `Azure.DigitalTwins.Core`
@@ -101,7 +103,7 @@ Also, to use authentication in a function, remember to:
 
 ## Authentication with an AutoRest-generated SDK
 
-If you are not using .NET, you may opt to build an SDK library in a language of your choice, as described in [*How-to: Create custom SDKs for Azure Digital Twins with AutoRest*](how-to-create-custom-sdks.md).
+If you are not using one of the provided SDKs (.NET, Java, JavaScript), you may opt to build an SDK library in a language of your choice, as described in [*How-to: Create custom SDKs for Azure Digital Twins with AutoRest*](how-to-create-custom-sdks.md).
 
 This section explains how to authenticate in that case.
 

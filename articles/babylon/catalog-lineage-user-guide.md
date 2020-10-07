@@ -11,7 +11,7 @@ ms.date: 10/06/2020
 
 # Catalog lineage user guide
 
-One of the primary features of Azure Babylon is the ability to show the lineage between datasets, based on its integration with Azure Data Factory (ADF). Azure Babylon supports capturing data lineage from the ADF activities Copy data, Data Flow, and Execute SSIS Package. In addition to the native integration, custom lineage reporting is also supported via Atlas hooks and REST API.
+One of the primary features of Azure Babylon is the ability to show the lineage between datasets, based on its integration with Azure Data Factory (ADF). Azure Babylon supports capturing data lineage from the ADF activities Copy Data, Data Flow, and Execute SSIS Package. In addition to the native integration, custom lineage reporting is also supported via Atlas hooks and REST API.
 
 ## Common scenarios
 
@@ -27,11 +27,11 @@ If data producers want to change the attributes of a data source they own, such 
 
 ## Configure the catalog to collect lineage from Azure Data Factory
 
-This section explains the configuration steps required to report lineage in Azure Babylon at the execution time of ADF pipelines. For instructions about how to connect Azure Data Factory and Azure Babylon see [Connection to Azure Data Factory](catalog-client-overview.md#connection-to-azure-data-factory-adf). Follow these instructions to configure lineage reporting. This configuration is a one-time step to start ingesting lineage from ADF into Azure Babylon.
+This section explains the configuration steps required to report lineage in Azure Babylon for ADF pipelines at execution time. For instructions about how to connect Azure Data Factory with Azure Babylon and configure lineage reporting, see [Connection to Azure Data Factory](catalog-client-overview.md#connection-to-azure-data-factory-adf). This configuration is a one-time step to start ingesting lineage from ADF into Azure Babylon.
 
 Lineage for the ADF Copy activity is available for on-prem SQL databases. If you're running self-hosted integration runtime for the data movement with Azure Data Factory and want to capture lineage in Azure Babylon, ensure the version is 4.8.7418.1 or later. For more information about self-hosted integration runtime, see [Create and configure a self-hosted integration runtime](https://docs.microsoft.com/azure/data-factory/create-self-hosted-integration-runtime).
 
-To collect lineage from an [Execute SSIS Package activity](https://docs.microsoft.com/azure/data-factory/how-to-invoke-ssis-package-ssis-activity), enable **Logging level** as **Verbose** on the **Settings** tab for the Execute SSIS Package activity.
+To collect lineage from an [Execute SSIS Package activity](https://docs.microsoft.com/azure/data-factory/how-to-invoke-ssis-package-ssis-activity), enable its **Logging level** as **Verbose** on the **Settings** tab.
 
 ## Supported Azure Data Factory activities
 
@@ -46,9 +46,9 @@ Azure Babylon captures runtime lineage from the following Azure Data Factory act
 > [!IMPORTANT]
 > Azure Babylon drops lineage if the source or destination uses an unsupported data storage system.
 
-### ADF Copy Data support
+Azure Babylon/ADF native integration supports only a subset of the data systems that ADF supports, as described in the following sections.
 
-Although Azure Data Factory supports several Azure, on-prem, and multi cloud data systems as sources and sinks, the Azure Babylon/ADF native integration supports only a subset, as follows:
+### ADF Copy Data support
 
 <table>
 <thead>
@@ -69,7 +69,7 @@ Although Azure Data Factory supports several Azure, on-prem, and multi cloud dat
 <td><p>ADLS Gen1</p>
 <p>(no JSON support)</p></td>
 <td>Yes</td>
-<td>Yes (Non-binary copy only)</td>
+<td>Yes (non-binary copy only)</td>
 </tr>
 <tr class="odd">
 <td><p>ADLS Gen2</p>
@@ -176,11 +176,11 @@ Although Azure Data Factory supports several Azure, on-prem, and multi cloud dat
 Lineage uses the following terminology:
 
 * Source/Input (Node):
-   A dataset (structured or unstructured) provided as an input to a process. For example, SQL Table, Azure blob, and files (such as .csv and .xml). In the following lineage screenshots, these datasets are represented by rectangle boxes to the left of the round-edged boxes representing processes.
+   A dataset (structured or unstructured) provided as an input to a process. For example, SQL Table, Azure blob, and files (such as .csv and .xml). In the lineage screenshots that follow, these datasets are represented by rectangular boxes to the left of the round-edged boxes representing processes.
 
-* Process (Edge): A unit of activity or transformation where an action is performed on the source/input. For example, ADF Copy activity. In the following lineage screenshots, these processes are represented by round-edged boxes.
+* Process (Edge): A unit of activity or transformation where an action is performed on the source/input. For example, ADF Copy activity. In the lineage screenshots that follow, these processes are represented by round-edged boxes.
 
-* Sink/Output (Node): A dataset, structured or unstructured, produced as an output from the process. For example, SQL Table, Azure blob, and files (such as .csv and .xml). In the following lineage screenshots, these nodes are represented by rectangle boxes to the right of the round-edged boxes representing processes.
+* Sink/Output (Node): A dataset, structured or unstructured, produced as an output from the process. For example, SQL Table, Azure blob, and files (such as .csv and .xml). In the lineage screenshots that follow, these nodes are represented by rectangular boxes to the right of the round-edged boxes representing processes.
 
 Follow these steps to access the lineage information of an asset:
 
@@ -190,23 +190,22 @@ Follow these steps to access the lineage information of an asset:
 
 1. On the Azure Babylon **Home** page, search for a data asset. In the **Search catalog** box, enter the name of the input used in the ADF Copy or Data Flow activity and press Enter.
 
-1. From the Search result page, open the asset details and select the **Lineage** tab.
+1. From the search results, select the data asset and select its **Lineage** tab.
 
    :::image type="content" source="./media/catalog-lineage-user-guide/select-lineage-from-asset.png" alt-text="Screenshot showing how to select the Lineage tab.":::
 
 ## Supported lineage patterns for ADF Copy and Data Flow activities
 
-The lineage data generated is based on the type of source and sink used in the ADF activities. Although there are about 80 source/sinks in ADF, Azure Babylon supports only a subset, as listed in [Supported Azure Data Factory activities](#supported-azure-data-factory-activities).
-For information on how to configure ADF to send lineage, see [Get started with lineage](#get-started-with-lineage)
-.
+The generated lineage data is based on the type of source and sink used in the ADF activities. Although there are about 80 source/sinks in ADF, Azure Babylon supports only a subset, as listed in [Supported Azure Data Factory activities](#supported-azure-data-factory-activities).
+To configure ADF to send lineage, see [Get started with lineage](#get-started-with-lineage).
 
-There are several patterns of lineage captured in Azure Babylon, described as follows:
+There are several patterns of lineage that Azure Babylon captures, described as follows:
 
 * In the **Lineage** tab, hover over the node or edge to get information about the asset's taxonomy, like asset type.
 
-* Select the node or edge to show additional metadata like the business glossary annotations, column count, etc.
+* Select the node or edge to show additional metadata like business glossary annotations, column count, and so on.
 
-* Select **View Columns** in the data asset to see the list of columns in the data asset. For more information about column-level lineage, see [Column-level lineage](#column-level-lineage).
+* Select **View Columns** in the data asset to see its list of columns. For more information about column-level lineage, see [Column-level lineage](#column-level-lineage).
 
 ### Data movement with 1:1 lineage
 
@@ -224,7 +223,7 @@ Lineage of SQL table -\> SQL table; SQL table -\> Azure blob/ADLS Gen1/ADLS Gen2
 
 ### Data movement with 1:1 lineage and wildcard support
 
-In this scenario, the data is moved from Azure blob to Azure Data Lake storage using an ADF Copy activity with wildcard support. When a wildcard is used in the ADF Copy activity to copy multiple files together, Azure Babylon captures file-level lineage for each individual file that's copied by the ADF copy activity.
+In this scenario, data is moved from Azure Blob storage to Azure Data Lake storage using an ADF Copy activity with wildcard support. When you use a wildcard in the ADF Copy activity to copy multiple files together, Azure Babylon captures file-level lineage for each individual file that's copied by the ADF copy activity.
 
 Lineage of Azure Blob/ADLS Gen1/Gen2 -\> Azure Blob/ADLS Gen1/Gen2 file(s):
 
@@ -238,7 +237,7 @@ Lineage of Azure Blob/ADLS Gen1/Gen2 -\> Azure Blob/ADLS Gen1/Gen2 file(s):
 
 ### Data movement with n:1 lineage
 
-Data Factory Data Flow activities can be used to merge or join more than one source dataset to produce a target dataset. In this example, Azure Babylon captures file-level lineage for individual input files that are part of an ADF Data Flow activity flowing into a SQL table.
+You can use ADF Data Flow activities to merge or join more than one source dataset to produce a target dataset. In this example, Azure Babylon captures file-level lineage for individual input files that are part of an ADF Data Flow activity flowing into a SQL table.
 
 Lineage of Azure Blob/ADLS Gen1/Gen2 -\> SQL table:
 
@@ -252,43 +251,45 @@ Lineage of Azure Blob/ADLS Gen1/Gen2 -\> SQL table:
 
 ### Lineage for resource sets
 
-A resource set is a logical object in the catalog that represents many partition files in the underlying storage. More information is available in [Resource sets in Azure Data Catalog](concept-resource-sets.md). When Azure Babylon captures lineage from the Azure Data Factory, it applies the rules to normalize the individual partition files and creates a single logical object.
+A resource set is a logical object in the catalog that represents many partition files in the underlying storage. For more information, see [Resource sets in Azure Data Catalog](concept-resource-sets.md). When Azure Babylon captures lineage from the Azure Data Factory, it applies the rules to normalize the individual partition files and create a single logical object.
 
 In the following example, an Azure Data Lake Gen2 resource set is produced from an Azure Blob:
 
-* 1 source/input: "Employee\_management.csv" (Azure Blob)
+* 1 source/input: *Employee\_management.csv* (Azure Blob)
 
-* 1 sink/output: "Employee\_management.csv" (Azure Data Lake Gen 2)
+* 1 sink/output: *Employee\_management.csv* (Azure Data Lake Gen 2)
 
-* 1 process: "CopyBlobToAdlsGen2\_RS" (ADF Copy activity)
+* 1 process: *CopyBlobToAdlsGen2\_RS* (ADF Copy activity)
 
 :::image type="content" source="./media/catalog-lineage-user-guide/image8.png" alt-text="Screenshot showing the lineage for a resource set.":::
 
 ## Column-level lineage
 
-Column-level lineage is supported in Azure Babylon for the ADF Copy activity and the ADF Data Flow activity. To see column-level lineage, go to the **Lineage** tab of the current asset in the catalog and follow these steps:
+Azure Babylon supports column-level lineage for the ADF Copy and ADF Data Flow activities. To see column-level lineage, go to the **Lineage** tab of the current asset in the catalog and follow these steps:
 
-1. Select the current data asset node to expand it, and then select **View columns**. The list of columns belonging to the data node appears in a list in the left navigation bar.
+1. Select the current data asset node to expand it, and then select **View columns**. 
+
+   The list of columns belonging to the data node appears in a list in the left pane.
 
    :::image type="content" source="./media/catalog-lineage-user-guide/image9.png" alt-text="Screenshot showing how to select View columns in the lineage page.":::
 
-1. To display the column-level data lineage, select the checkbox in the left navigation bar to see one or more columns.
+1. To display the column-level data lineage, select check boxes in the left pane to display one or more columns.
 
    :::image type="content" source="./media/catalog-lineage-user-guide/image10.png" alt-text="Screenshot showing how to select columns to display in the lineage page.":::
 
-1. Hover over any column name on the left navigation bar or a data asset node to highlight all the instances and see the flow of a column in the data lineage path.
+1. Hover over any column name on the left pane or a data asset node in the lineage canvas to highlight all the instances and see the flow of a column in the data lineage path.
 
    :::image type="content" source="./media/catalog-lineage-user-guide/image11.png" alt-text="Screenshot showing how to hover over a column name to highlight the flow of a column in a data lineage path.":::
 
-1. If the number of columns is larger than can be displayed in the left navigation bar, use the filter option to find a specific column by name. Alternatively, scroll with the mouse.
+1. If the number of columns is larger than can be displayed in the left pane, use the filter option to select a specific column by name. Alternatively, scroll with the mouse.
 
    :::image type="content" source="./media/catalog-lineage-user-guide/image12.png" alt-text="Screenshot showing how to filter columns by column name on the lineage page.":::
 
-1. If the lineage canvas contains more nodes and edges, use the filter to find data asset nodes by name. Alternatively, you can use the mouse to scroll around the lineage window.
+1. If the lineage canvas contains more nodes and edges, use the filter to select data asset nodes by name. Alternatively, you can use the mouse to scroll around the lineage window.
 
    :::image type="content" source="./media/catalog-lineage-user-guide/image13.png" alt-text="Screenshot showing how to filter data asset nodes by name on the lineage page.":::
 
-1. Use the **Union**/**Intersection** toggle to filter the list of nodes in the lineage canvas. If you select **Union**, then any asset that contains at least one of the selected columns is displayed. If you select **Intersection**, then only assets that contain all of the assets are displayed.
+1. Use the **Union**/**Intersection** toggle to filter the list of nodes in the lineage canvas. If you select **Union**, any asset that contains at least one of the selected columns is displayed. If you select **Intersection**, only assets that contain all of the assets are displayed.
 
    :::image type="content" source="./media/catalog-lineage-user-guide/image14.png" alt-text="Screenshot showing how to use the Union-Intersection toggle to filter the list of nodes on the lineage page.":::
 
