@@ -72,7 +72,7 @@ In your IoT Hub in the Azure portal, IoT Edge devices are created and managed se
 
 All the edge-enabled devices that connect to your IoT hub are listed on the **IoT Edge** page.
 
-![Use the Azure portal to view all IoT Edge devices in your IoT hub](./media/how-to-register-device/portal-view-devices.png)
+![Use the Azure portal to view all IoT Edge devices in your IoT hub](./media/how-to-manual-provision-symmetric-key/portal-view-devices.png)
 
 ### Retrieve the connection string in the Azure portal
 
@@ -96,7 +96,7 @@ You can use the Azure IoT extensions for Visual Studio Code to perform operation
 1. In Visual Studio Code, open the **Explorer** view.
 1. At the bottom of the Explorer, expand the **Azure IoT Hub** section.
 
-   ![Expand Azure IoT Hub Devices section](./media/how-to-register-device/azure-iot-hub-devices.png)
+   ![Expand Azure IoT Hub Devices section](./media/how-to-manual-provision-symmetric-key/azure-iot-hub-devices.png)
 
 1. Click on the **...** in the **Azure IoT Hub** section header. If you don't see the ellipsis, click on or hover over the header.
 1. Choose **Select IoT Hub**.
@@ -119,7 +119,7 @@ In the output screen, you see the result of the command. The device info is prin
 
 All the devices that connect to your IoT hub are listed in the **Azure IoT Hub** section of the Visual Studio Code Explorer. IoT Edge devices are distinguishable from non-Edge devices with a different icon, and the fact that the **$edgeAgent** and **$edgeHub** modules are deployed to each IoT Edge device.
 
-![Use VS Code to view all IoT Edge devices in your IoT hub](./media/how-to-register-device/view-devices.png)
+![Use VS Code to view all IoT Edge devices in your IoT hub](./media/how-to-manual-provision-symmetric-key/view-devices.png)
 
 ### Retrieve the connection string with Visual Studio Code
 
@@ -154,7 +154,7 @@ This command includes three parameters:
 * `hub-name` or `-n`: Provide the name of your IoT hub.
 * `--edge-enabled` or `--ee`: Declare that the device is an IoT Edge device.
 
-   ![az iot hub device-identity create output](./media/how-to-register-device/Create-edge-device.png)
+   ![az iot hub device-identity create output](./media/how-to-manual-provision-symmetric-key/create-edge-device-cli.png)
 
 ### View IoT Edge devices with the Azure CLI
 

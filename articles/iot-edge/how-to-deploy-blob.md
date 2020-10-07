@@ -15,7 +15,10 @@ There are several ways to deploy modules to an IoT Edge device and all of them w
 ## Prerequisites
 
 - An [IoT hub](../iot-hub/iot-hub-create-through-portal.md) in your Azure subscription.
-- An [IoT Edge device](how-to-register-device.md) with the IoT Edge runtime installed.
+- An IoT Edge device.
+
+  If you don't have an IoT Edge device set up, you can create one in an Azure virtual machine. Follow the steps in one of the quickstart articles to [Create a virtual Linux device](quickstart-linux.md) or [Create a virtual Windows device](quickstart.md).
+
 - [Visual Studio Code](https://code.visualstudio.com/) and the [Azure IoT Tools](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools) if deploying from Visual Studio Code.
 
 ## Deploy from the Azure portal
@@ -26,7 +29,7 @@ The Azure portal guides you through creating a deployment manifest and pushing t
 
 1. Sign in to the [Azure portal](https://portal.azure.com) and navigate to your IoT hub.
 1. Select **IoT Edge** from the menu.
-1. Click on the ID of the target device from the list of devices.'
+1. Click on the ID of the target device from the list of devices.
 1. Select **Set Modules**.
 
 ### Configure a deployment manifest
