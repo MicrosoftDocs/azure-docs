@@ -83,7 +83,7 @@ The video quality can be compromised either by network quality or the missing H2
 
 ## Video recorded with MRC does not reflect the quality of the live experience
 
-A video can be recorded on Hololens through [Mixed Reality Capture (MRC)](https://docs.microsoft.com/windows/mixed-reality/mixed-reality-capture-for-developers). However the resulting video has worse quality than the live experience for two reasons:
+A video can be recorded on HoloLens through [Mixed Reality Capture (MRC)](https://docs.microsoft.com/windows/mixed-reality/mixed-reality-capture-for-developers). However the resulting video has worse quality than the live experience for two reasons:
 * The video framerate is capped at 30 Hz as opposed to 60 Hz.
 * The video images do not go through the [late stage reprojection](../overview/features/late-stage-reprojection.md) processing step, so the video appears to be choppier.
 
@@ -181,7 +181,7 @@ The `AudioPluginMsHRTF.dll` for Arm64 was added to the *Windows Mixed Reality* p
 
 ### 'Library not found' error for UWP application or Dll
 
-Inside the C++ Nuget package, there is file `microsoft.azure.remoterendering.Cpp.targets` file that defines which of the binary flavor to use. To identify `UWP`, the conditions in the file check for `ApplicationType == 'Windows Store'`. So it needs to be ensured that this type is set in the project. That should be the case when creating a UWP application or Dll through Visual Studio's project wizard.
+Inside the C++ NuGet package, there is file `microsoft.azure.remoterendering.Cpp.targets` file that defines which of the binary flavor to use. To identify `UWP`, the conditions in the file check for `ApplicationType == 'Windows Store'`. So it needs to be ensured that this type is set in the project. That should be the case when creating a UWP application or Dll through Visual Studio's project wizard.
 
 ## Unstable Holograms
 
@@ -189,7 +189,7 @@ In case rendered objects seem to be moving along with head movements, you might 
 
 Another reason for unstable holograms (wobbling, warping, jittering, or jumping holograms) can be poor network connectivity, in particular insufficient network bandwidth, or too high latency. A good indicator for the quality of your network connection is the [performance statistics](../overview/features/performance-queries.md) value `ARRServiceStats.VideoFramesReused`. Reused frames indicate situations where an old video frame needed to be reused on the client side because no new video frame was available – for example because of packet loss or because of variations in network latency. If `ARRServiceStats.VideoFramesReused` is frequently larger than zero, this indicates a network problem.
 
-Another value to look at is `ARRServiceStats.LatencyPoseToReceiveAvg`. It should consistently be below 100 ms. If you see higher values, this indicates that you are connected to a data center that is too far away.
+Another value to look at is `ARRServiceStats.LatencyPoseToReceiveAvg`. It should consistently be below 100 ms. Seeing higher values could indicate that you are connected to a data center that is too far away.
 
 For a list of potential mitigations, see the [guidelines for network connectivity](../reference/network-requirements.md#guidelines-for-network-connectivity).
 
@@ -241,7 +241,9 @@ Coplanar surfaces can have a number of different causes:
 
 * Surfaces are purposefully authored to touch, like decals or text on walls.
 
+## Graphics artifacts using multi-pass stereo rendering in native C++ apps
 
+In some cases, custom native C++ apps that use a multi-pass stereo rendering mode for local content (rendering to the left and right eye in separate passes) after calling [**BlitRemoteFrame**](../concepts/graphics-bindings.md#render-remote-image) can trigger a driver bug. The bug results in non-deterministic rasterization glitches, causing individual triangles or parts of triangles of the local content to randomly disappear. For performance reasons, it is recommended anyway to render local content with a more modern single-pass stereo rendering technique, for example using **SV_RenderTargetArrayIndex**.
 
 ## Next steps
 
