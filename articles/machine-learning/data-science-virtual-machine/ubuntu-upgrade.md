@@ -145,11 +145,11 @@ Confirm that you've attached the disk created from your old VM's snapshot by run
 lsblk -o NAME,HCTL,SIZE,MOUNTPOINT | grep -i 'sd'
 ```
 
-The results should look something like the following image. In the image, disk `sda1` is mounted at the root and `sdb2` is the `/mnt` scratch disk. The data disk created from the snapshot of your old VM is identified as `sdc1` but is not yet available, as evidenced by the lack of a mount location. Your results might have different identifiers, but you should see a similar pattern.
+The results should look something like the following image. In the image, disk `sda1` is mounted at the root and `sdb2` is the `/mnt` scratch disk. The data disk created from the snapshot of your old VM is identified as `sdc1` but isn't yet available, as evidenced by the lack of a mount location. Your results might have different identifiers, but you should see a similar pattern.
 
 :::image type="content" source="media/ubuntu_upgrade/lsblk-results.png" alt-text="Screenshot of lsblk output, showing unmounted data drive":::
 
-To access the data drive, create a location for it and mount it. Substitute `/dev/sdc1` with the appropriate value returned by `lsblk`:
+To access the data drive, create a location for it and mount it. Replace `/dev/sdc1` with the appropriate value returned by `lsblk`:
 
 ```bash
 sudo mkdir /datadrive && sudo mount /dev/sdc1 /datadrive
