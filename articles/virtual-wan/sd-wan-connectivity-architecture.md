@@ -1,5 +1,5 @@
 ---
-title: 'Virtaul WAN and SD-WAN connectivity architectures'
+title: 'Virtual WAN and SD-WAN connectivity architectures'
 titleSuffix: Azure Virtual WAN
 description: Learn about interconnecting a private SD-WAN with Azure Virtual WAN
 services: virtual-wan
