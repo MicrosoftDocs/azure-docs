@@ -63,7 +63,7 @@ The following JSON document is composed of simple fields and complex fields. Com
 
 ## Indexing complex types
 
-During indexing, you can have a maximum of 3000 elements across all complex collections within a single document. An element of a complex collection is a member of that collection, so in the case of Rooms (the only complex collection in the hotel example), each room is an element. A hotel with 500 rooms would be a hotel document with 500 room elements. For nested complex collections, each individual sub-element counts as a separate element.
+During indexing, you can have a maximum of 3000 elements across all complex collections within a single document. An element of a complex collection is a member of that collection, so in the case of Rooms (the only complex collection in the hotel example), each room is an element. A hotel with 500 rooms would be a hotel document with 500 room elements. For nested complex collections, each nested element is also counted, in addition to the outer (parent) element..
 
 This limit applies only to complex collections, and not complex types (like Address) or string collections (like Tags).
 
