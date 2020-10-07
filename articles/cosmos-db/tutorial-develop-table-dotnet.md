@@ -114,7 +114,7 @@ This code defines an entity class that uses the customer's first name as the row
 
 ## Insert or merge an entity
 
-The following code example creates an entity object and adds it to the table. The InsertOrMerge method within the [TableOperation](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.table.tableoperation) class is used to insert or merge an entity. The [CloudTable.ExecuteAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.table.cloudtable.executeasync?view=azure-dotnet&preserve-view=true&preserve-view=true) method is called to execute the operation. 
+The following code example creates an entity object and adds it to the table. The InsertOrMerge method within the [TableOperation](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.table.tableoperation) class is used to insert or merge an entity. The [CloudTable.ExecuteAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.table.cloudtable.executeasync?view=azure-dotnet&preserve-view=true) method is called to execute the operation. 
 
 Right click on your project **CosmosTableSamples**. Select **Add**, **New Item** and add a class named **SamplesUtils.cs**. This class stores all the code required to perform CRUD operations on the entities. 
 
