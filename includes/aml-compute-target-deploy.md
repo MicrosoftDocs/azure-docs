@@ -26,9 +26,9 @@ The compute target you use to host your model will affect the cost and availabil
 | [Azure Data Box Edge](../articles/databox-online/azure-stack-edge-overview.md)   | Via IoT Edge |  &nbsp; | Yes | Deploy and serve machine learning models on IoT devices. |
 
 > [!NOTE]
-> Although compute targets like local, Machine Learning compute, and Machine Learning compute clusters support GPU for training and experimentation, using GPU for inference _when deployed as a web service_ is supported only on AKS.
+> Although compute targets like local, Azure Machine Learning compute, and Azure Machine Learning compute clusters support GPU for training and experimentation, using GPU for inference _when deployed as a web service_ is supported only on AKS.
 >
-> Using a GPU for inference _when scoring with a machine learning pipeline_ is supported only on Machine Learning compute.
+> Using a GPU for inference _when scoring with a machine learning pipeline_ is supported only on Azure Machine Learning compute.
 
 > [!NOTE]
 > * Container instances are suitable only for small models less than 1 GB in size.
