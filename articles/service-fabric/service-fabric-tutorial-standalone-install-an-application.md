@@ -1,11 +1,9 @@
 ---
 title: Install an app on a standalone cluster
 description: In this tutorial, you learn how to install an application into your standalone Service Fabric cluster.
-author: dkkapur
 
 ms.topic: tutorial
 ms.date: 07/22/2019
-ms.author: dekapur
 ms.custom: mvc
 ---
 # Tutorial: Deploy an application on your Service Fabric standalone cluster
