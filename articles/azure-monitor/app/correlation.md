@@ -248,7 +248,7 @@ You can export the log data by using `AzureLogHandler`. For more information, se
 
 .NET runtime supports distributed with the help of [Activity](https://github.com/dotnet/runtime/blob/master/src/libraries/System.Diagnostics.DiagnosticSource/src/ActivityUserGuide.md) and [DiagnosticSource](https://github.com/dotnet/runtime/blob/master/src/libraries/System.Diagnostics.DiagnosticSource/src/DiagnosticSourceUsersGuide.md)
 
-The Application Insights SDK, uses `DiagnosticSource` and `Activity` to collect and correlate telemetry.
+The Application Insights .NET SDK uses `DiagnosticSource` and `Activity` to collect and correlate telemetry.
 
 <a name="java-correlation"></a>
 ## Telemetry correlation in Java
