@@ -19,7 +19,7 @@ ms.author: memildin
 
 To ensure the right people in your organization are notified about security alerts in your environment, Azure Security Center lets you define *who* should be notified, and what *alerts* they should receive.
 
-By default, Security Center emails subscription owners about any high-severity alerts on their subscription. To change this behaviour, add other recipients, or modify the severity levels for which Security Center should send out notifications, use the **Email notifications** settings page.
+By default, Security Center emails subscription owners about any high-severity alerts on their subscription. To change this behavior, add other recipients, or modify the severity levels for which Security Center should send out notifications, use the **Email notifications** settings page.
 
 When setting up your notifications, you can configure the emails to be sent to specific individuals or to anyone with a specific Azure role for a subscription. 
 
