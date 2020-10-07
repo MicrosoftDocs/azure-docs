@@ -182,10 +182,18 @@ To see the events from the objectCounter module and from the Live Video Analytic
     > [!div class="mx-imgBorder"]
     > :::image type="content" source="./media/quickstarts/start-monitoring-iothub-events.png" alt-text="Start monitoring built-in event endpoint":::
     
-    ## Run the program
+## Run the program
 
-1. In Visual Studio Code, go to src/cloud-to-device-console-app/operations.json.
+1. In Visual Studio Code, open the **Extensions** tab (or press Ctrl+Shift+X) and search for Azure IoT Hub.
+1. Right click and select **Extension Settings**.
 
+    > [!div class="mx-imgBorder"]
+    > :::image type="content" source="./media/run-program/extensions-tab.png" alt-text="Extension Settings":::
+1. Search and enable “Show Verbose Message”.
+
+    > [!div class="mx-imgBorder"]
+    > :::image type="content" source="./media/run-program/show-verbose-message.png" alt-text="Show Verbose Message":::
+1. <!--In Visual Studio Code, go-->Go to src/cloud-to-device-console-app/operations.json.
 1. Under the **GraphTopologySet** node, edit the following:
 
     `"topologyUrl" : "https://raw.githubusercontent.com/Azure/live-video-analytics/master/MediaGraph/topologies/evr-hubMessage-assets/topology.json"`
@@ -194,7 +202,6 @@ To see the events from the objectCounter module and from the Live Video Analytic
 
     `"topologyName" : "EVRtoAssetsOnObjDetect"`
 1. Start a debugging session by selecting F5. You'll see some messages printed in the **TERMINAL** window.
-
 1. The operations.json file starts off with calls to GraphTopologyList and GraphInstanceList. If you've cleaned up resources after previous quickstarts or tutorials, this action returns empty lists and pauses for you to select **Enter**, as shown:
 
     ```
@@ -212,7 +219,6 @@ To see the events from the objectCounter module and from the Live Video Analytic
     Executing operation WaitForInput
     Press Enter to continue
     ```
-
 1. After you select **Enter** in the **TERMINAL** window, the next set of direct method calls is made:
    * A call to GraphTopologySet by using the previous topologyUrl
    * A call to GraphInstanceSet by using the following body
@@ -246,11 +252,9 @@ To see the events from the objectCounter module and from the Live Video Analytic
    * A second call to GraphInstanceList to show that the graph instance is in the running state
      
 1. The output in the **TERMINAL** window pauses now at a **Press Enter to continue** prompt. Don't select **Enter** at this time. Scroll up to see the JSON response payloads for the direct methods you invoked.
-
 1. If you now switch over to the **OUTPUT** window in Visual Studio Code, you'll see messages being sent to IoT Hub by the Live Video Analytics on IoT Edge module.
 
    These messages are discussed in the following section.
-     
 1. The graph instance continues to run and record the video. The RTSP simulator keeps looping the source video. Review the messages as discussed in the following section. Then to stop the instance, go back to the **TERMINAL** window and select **Enter**. The next series of calls are made to clean up resources by using:
 
    * A call to GraphInstanceDeactivate to deactivate the graph instance.

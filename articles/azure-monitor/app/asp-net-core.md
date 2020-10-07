@@ -21,7 +21,7 @@ The [Application Insights SDK for ASP.NET Core](https://nuget.org/packages/Micro
 * **Deployment method**: Framework dependent or self-contained.
 * **Web server**: IIS (Internet Information Server) or Kestrel.
 * **Hosting platform**: The Web Apps feature of Azure App Service, Azure VM, Docker, Azure Kubernetes Service (AKS), and so on.
-* **.NET Core Runtime version**: 1.XX, 2.XX, or 3.XX
+* **.NET Core version**: All officially [supported](https://dotnet.microsoft.com/download/dotnet-core) .NET Core versions.
 * **IDE**: Visual Studio, VS Code, or command line.
 
 > [!NOTE]
@@ -118,7 +118,7 @@ For Visual Studio for Mac use the [manual guidance](#enable-application-insights
 ### User secrets and other configuration providers
 
 If you want to store the instrumentation key in ASP.NET Core user secrets or retrieve it from another configuration provider, you can use the overload with a `Microsoft.Extensions.Configuration.IConfiguration` parameter. For example, `services.AddApplicationInsightsTelemetry(Configuration);`.
-Starting from Microsoft.ApplicationInsights.AspNetCore version [2.15.0-beta3](https://www.nuget.org/packages/Microsoft.ApplicationInsights.AspNetCore), calling `services.AddApplicationInsightsTelemetry()` will automatically read the instrumentation key from `Microsoft.Extensions.Configuration.IConfiguration` of the application. There is no need to explicitly provide the `IConfiguration`.
+Starting from Microsoft.ApplicationInsights.AspNetCore version [2.15.0](https://www.nuget.org/packages/Microsoft.ApplicationInsights.AspNetCore), calling `services.AddApplicationInsightsTelemetry()` will automatically read the instrumentation key from `Microsoft.Extensions.Configuration.IConfiguration` of the application. There is no need to explicitly provide the `IConfiguration`.
 
 ## Run your application
 
@@ -147,7 +147,7 @@ Support for [performance counters](./web-monitor-performance.md) in ASP.NET Core
 
 ### EventCounter
 
-`EventCounterCollectionModule` is enabled by default, and it will collect a default set of counters from .NET Core 3.X apps. The [EventCounter](eventcounters.md) tutorial lists the default set of counters collected. It also has instructions on customizing the list.
+`EventCounterCollectionModule` is enabled by default. The [EventCounter](eventcounters.md) tutorial has instructions on configuring the list of counters to be collected.
 
 ## Enable client-side telemetry for web applications
 
@@ -222,9 +222,9 @@ Full List of settings in `ApplicationInsightsServiceOptions`
 
 See the [configurable settings in `ApplicationInsightsServiceOptions`](https://github.com/microsoft/ApplicationInsights-dotnet/blob/develop/NETCORE/src/Shared/Extensions/ApplicationInsightsServiceOptions.cs) for the most up-to-date list.
 
-### Configuration Recommendation for Microsoft.ApplicationInsights.AspNetCore SDK 2.15.0-beta3 & above
+### Configuration Recommendation for Microsoft.ApplicationInsights.AspNetCore SDK 2.15.0 & above
 
-Starting from Microsoft.ApplicationInsights.AspNetCore SDK version [2.15.0-beta3](https://www.nuget.org/packages/Microsoft.ApplicationInsights.AspNetCore/2.15.0-beta3) the recommendation is to configure every setting available in `ApplicationInsightsServiceOptions`, including instrumentationkey using applications `IConfiguration` instance. The settings must be under the section "ApplicationInsights", as shown in the below example. The following section from appsettings.json configures instrumentation key, and also disable adaptive sampling and performance counter collection.
+Starting from Microsoft.ApplicationInsights.AspNetCore SDK version [2.15.0](https://www.nuget.org/packages/Microsoft.ApplicationInsights.AspNetCore/2.15.0) the recommendation is to configure every setting available in `ApplicationInsightsServiceOptions`, including instrumentationkey using applications `IConfiguration` instance. The settings must be under the section "ApplicationInsights", as shown in the below example. The following section from appsettings.json configures instrumentation key, and also disable adaptive sampling and performance counter collection.
 
 ```json
 {
@@ -236,11 +236,11 @@ Starting from Microsoft.ApplicationInsights.AspNetCore SDK version [2.15.0-beta3
 }
 ```
 
-If `services.AddApplicationInsightsTelemetry(aiOptions)` is used, this overrides the settings from `Microsoft.Extensions.Configuration.IConfiguration`.
+If `services.AddApplicationInsightsTelemetry(aiOptions)` is used, it overrides the settings from `Microsoft.Extensions.Configuration.IConfiguration`.
 
 ### Sampling
 
-The Application Insights SDK for ASP.NET Core supports both fixed-rate and adaptive sampling. Adaptive sampling is enabled by default. 
+The Application Insights SDK for ASP.NET Core supports both fixed-rate and adaptive sampling. Adaptive sampling is enabled by default.
 
 For more information, see [Configure adaptive sampling for ASP.NET Core applications](./sampling.md#configuring-adaptive-sampling-for-aspnet-core-applications).
 
@@ -331,7 +331,6 @@ public void ConfigureServices(IServiceCollection services)
     services.ConfigureTelemetryModule<EventCounterCollectionModule>(
             (module, o) =>
             {
-                module.Counters.Clear();
                 module.Counters.Add(new EventCounterCollectionRequest("System.Runtime", "gen-0-size"));
             }
         );
@@ -444,16 +443,12 @@ If the SDK is installed at build time as shown in this article, you don't need t
 
 No. [Status Monitor](./monitor-performance-live-website-now.md) and [Status Monitor v2](./status-monitor-v2-overview.md) currently support ASP.NET 4.x only.
 
-### Is Application Insights automatically enabled for my ASP.NET Core 2.0 application?
-
-The `Microsoft.AspNetCore.All` 2.0 metapackage included the Application Insights SDK (version 2.1.0). If you run the application under Visual Studio debugger, Visual Studio enables Application Insights and shows telemetry locally in the IDE itself. Telemetry wasn't sent to the Application Insights service unless an instrumentation key was specified. We recommend following the instructions in this article to enable Application Insights, even for 2.0 apps.
-
 ### If I run my application in Linux, are all features supported?
 
 Yes. Feature support for the SDK is the same in all platforms, with the following exceptions:
 
 * The SDK collects [Event Counters](./eventcounters.md) on Linux because [Performance Counters](./performance-counters.md) are only supported in Windows. Most metrics are the same.
-* Even though `ServerTelemetryChannel` is enabled by default, if the application is running in Linux or MacOS, the channel doesn't automatically create a local storage folder to keep telemetry temporarily if there are network issues. Because of this limitation, telemetry is lost when there are temporary network or server issues. To work around this issue, configure a local folder for the channel:
+* Even though `ServerTelemetryChannel` is enabled by default, if the application is running in Linux or macOS, the channel doesn't automatically create a local storage folder to keep telemetry temporarily if there are network issues. Because of this limitation, telemetry is lost when there are temporary network or server issues. To work around this issue, configure a local folder for the channel:
 
 ```csharp
 using Microsoft.ApplicationInsights.Channel;
@@ -470,6 +465,8 @@ using Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel;
         services.AddApplicationInsightsTelemetry();
     }
 ```
+
+This limitation is not applicable from [2.15.0](https://www.nuget.org/packages/Microsoft.ApplicationInsights.AspNetCore/2.15.0) and newer versions.
 
 ### Is this SDK supported for the new .NET Core 3.X Worker Service template applications?
 

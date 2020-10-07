@@ -16,23 +16,61 @@
   - name: Add a security principal
     href: add-security-principal.md
 - name: Tutorials
-  expanded: true
   items:
-  - name: 1 - Scan data
-    href: starter-kit-tutorial-1.md
-  - name: 2 - Home page and search
-    href: starter-kit-tutorial-2.md
-  - name: 3 - Browse and lineage
-    href: starter-kit-tutorial-3.md
-  - name: 4 - Resource sets, assets, schemas, classifications
-    href: starter-kit-tutorial-4.md
-  - name: 5 - Glossary terms
-    href: starter-kit-tutorial-5.md
+  - name: Starter kit
+    items: 
+    - name: 1 - Scan data
+      href: starter-kit-tutorial-1.md
+    - name: 2 - Home page and search
+      href: starter-kit-tutorial-2.md
+    - name: 3 - Browse and lineage
+      href: starter-kit-tutorial-3.md
+    - name: 4 - Resource sets, assets, schemas, classifications
+      href: starter-kit-tutorial-4.md
+    - name: 5 - Glossary terms
+      href: starter-kit-tutorial-5.md
+  - name: Call Babylon REST APIs
+    href: tutorial-using-rest-apis.md
+#- name: Samples
+- name: Concepts
+  items:
+  - name: Catalog client overview
+    href: catalog-client-overview.md
+  - name: Catalog lineage user guide
+    href: catalog-lineage-user-guide.md
+  - name: Scan to detect deleted assets
+    href: concept-detect-deleted-assets.md
+  - name: Resource Sets
+    href: concept-resource-sets.md
+  - name: Supported stores and classifications
+    href: supported-stores-and-classifications.md
 - name: How-to guides
   items:
-  - name: Register and scan Azure Files
-    href: register-scan-azure-files-storage-source.md
-# - name: Concepts
-# items:
-# - name: Catalog permissions
-#   href: catalog-permissions.md
+  - name: Scan
+    items:
+    - name: Register and scan Azure Files
+      href: register-scan-azure-files-storage-source.md
+    - name: Register and scan Teradata
+      href: register-scan-teradata-source.md
+    - name: Create a scan rule set
+      href: create-a-scan-rule-set.md
+  - name: Classify
+    items: 
+    - name: Apply classifications
+      href: use-classifications.md
+    - name: Create a custom classification
+      href: create-a-custom-classification.md
+  - name: Security
+    items:
+    - name: View classification insights
+      href: classification-reporting-data-azure-blob-storage.md
+    - name: View sensitivity label insights
+      href: sensitivity-label-reporting-data-azure-blob-storage.md
+  - name: Map and discover insights
+    href: map-discover.md
+  - name: Frequently asked questions
+    href: frequently-asked-questions.md
+  - name: Provide feedback
+    href: how-to-provide-feedback.md
+#- name: Reference
+#- name: Resources
