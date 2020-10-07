@@ -152,7 +152,7 @@
       - name: Replace device
         href: azure-stack-edge-replace-device.md  
       - name: Prepare for device failure
-        href: azure-stack-edge-gpu-prep-device-failure.md
+        href: azure-stack-edge-gpu-prepare-device-failure.md
       - name: Recover from device failure
         href: azure-stack-edge-gpu-recover-device-failure.md   
     - name: Monitor
