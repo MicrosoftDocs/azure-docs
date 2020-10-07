@@ -37,11 +37,11 @@ Select **Add**, which will take you to the **Create snapshot** page. Select the 
 
 :::image type="content" source="media/ubuntu_upgrade/create-snapshot-options.png" alt-text="Screenshot showing 'Create snapshot' options":::
 
-Once all the details are filled and validations pass, select **Review + create** to validate and create the snapshot. When the snapshot successfully completes, you will see a message telling you the deployment is complete.
+Once all the details are filled and validations pass, select **Review + create** to validate and create the snapshot. When the snapshot successfully completes, you'll see a message telling you the deployment is complete.
 
 ## In-place migration
 
-If you're migrating an older Ubuntu release, you may choose to do an in-place migration. This migration doesn't create a new virtual machine and has fewer steps than a side-by-side migration.  If you wish to do a side-by-side migration because you want more control or because you are migrating from a different distribution, such as CentOS, skip to the [Side-by-side migration](#side-by-side-migration) section. 
+If you're migrating an older Ubuntu release, you may choose to do an in-place migration. This migration doesn't create a new virtual machine and has fewer steps than a side-by-side migration.  If you wish to do a side-by-side migration because you want more control or because you're migrating from a different distribution, such as CentOS, skip to the [Side-by-side migration](#side-by-side-migration) section. 
 
 From the Azure portal, start your DSVM and sign in using SSH. To do so, select **Connect** and **SSH** and follow the connection instructions. 
 
@@ -60,7 +60,7 @@ The upgrade process will take a while to complete. When it's over, the program w
 
 After your VM has upgraded and rebooted, attempt to access it again via SSH. The IP address may have changed during the reboot, so confirm it before attempting to connect.
 
-If you receive the error **REMOTE HOST IDENTIFICATION HAS CHANGED**, you will need to regenerate your SSH credentials.
+If you receive the error **REMOTE HOST IDENTIFICATION HAS CHANGED**, you'll need to regenerate your SSH credentials.
 
 :::image type="content" source="media/ubuntu_upgrade/remote-host-warning.png" alt-text="Powershell screenshot showing remote host identification changed warning":::
 
@@ -145,9 +145,9 @@ Confirm that you've attached the disk created from your old VM's snapshot by run
 lsblk -o NAME,HCTL,SIZE,MOUNTPOINT | grep -i 'sd'
 ```
 
-The results should look something like the following image. In the image, disk `sda1` is mounted at the root and `sdb2` is the `/mnt` scratch disk. The data disk created from the snapshot of your old VM is identified as `sdc1` but is not yet available, as evidenced by the lack of a mount location. Your results might have somewhat different identifiers, but you should see a similar pattern.
+The results should look something like the following image. In the image, disk `sda1` is mounted at the root and `sdb2` is the `/mnt` scratch disk. The data disk created from the snapshot of your old VM is identified as `sdc1` but is not yet available, as evidenced by the lack of a mount location. Your results might have different identifiers, but you should see a similar pattern.
 
-:::image type="content" source="media/ubuntu_upgrade/lsblk-results.png" alt-text="Screenshot of lsblk output, showing unmounted datadrive":::
+:::image type="content" source="media/ubuntu_upgrade/lsblk-results.png" alt-text="Screenshot of lsblk output, showing unmounted data drive":::
 
 To access the data drive, create a location for it and mount it. Substitute `/dev/sdc1` with the appropriate value returned by `lsblk`:
 
@@ -155,7 +155,7 @@ To access the data drive, create a location for it and mount it. Substitute `/de
 sudo mkdir /datadrive && sudo mount /dev/sdc1 /datadrive
 ```
 
-Now, `/datadrive` contains the directories and files of your old Data Science Virtual Machine. Move or copy the directories or files you want from the datadrive to the new VM as you wish.
+Now, `/datadrive` contains the directories and files of your old Data Science Virtual Machine. Move or copy the directories or files you want from the data drive to the new VM as you wish.
 
 For more information, see [Use the portal to attach a data disk to a Linux VM](https://docs.microsoft.com/azure/virtual-machines/linux/attach-disk-portal#connect-to-the-linux-vm-to-mount-the-new-disk).
 
