@@ -79,7 +79,8 @@ If outbound connectivity is restricted by your firewall or proxy server, make su
 Service Tags:
 
 * AzureActiveDirectory
-* AzureResourceManager
+* AzureTrafficManager
+* AzureArcInfrastructure
 * GuestAndHybridManagement
 
 URLs:
