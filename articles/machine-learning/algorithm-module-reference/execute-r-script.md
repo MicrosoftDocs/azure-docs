@@ -14,9 +14,9 @@ ms.date: 07/27/2020
 
 # Execute R Script module
 
-This article describes how to use the Execute R Script module to run R code in your Azure Machine Learning designer (preview) pipeline.
+This article describes how to use the Execute R Script module to run R code in your Azure Machine Learning designer pipeline.
 
-With R, you can perform tasks that existing modules don't currently support, such as: 
+With R, you can do tasks that aren't supported by existing modules, such as: 
 - Create custom data transformations
 - Use your own metrics to evaluate predictions
 - Build models using algorithms that aren't implemented as standalone modules in the designer
@@ -133,7 +133,7 @@ You can refer to the following sample code to [access to the registered datasets
 
 ## How to configure Execute R Script
 
-The Execute R Script module contains sample code that you can use as a starting point. To configure the Execute R Script module, provide a set of inputs and code to run.
+The Execute R Script module contains sample code as a starting point.
 
 ![Diagram of inputs for an R module](media/module/execute-r-script.png)
 
@@ -190,9 +190,12 @@ Datasets stored in the designer are automatically converted to an R data frame w
     > [!NOTE]
     > Existing R code might need minor changes to run in a designer pipeline. For example, input data that you provide in CSV format should be explicitly converted to a dataset before you can use it in your code. Data and column types used in the R language also differ in some ways from the data and column types used in the designer.
 
-    If your script is larger than 16KB, use the **Script Bundle** port to avoid errors like *CommandLine exceeds the limit of 16597 characters*. 
+    If your script is larger than 16 KB, use the **Script Bundle** port to avoid errors like *CommandLine exceeds the limit of 16597 characters*. 
     
-    Bundle the script and other custom resources to a zip file, and upload the zip file as a **File Dataset** to the studio. Then you can drag the dataset module from the *My datasets* list in the left module pane in the designer authoring page. Connect the dataset module to the **Script Bundle** port of **Execute R Script** module.
+    1. Bundle the script and other custom resources to a zip file.
+    1. Upload the zip file as a **File Dataset** to the studio. 
+    1. Drag the dataset module from the *My datasets* list in the left module pane in the designer authoring page. 
+    1. Connect the dataset module to the **Script Bundle** port of **Execute R Script** module.
     
     Following is the sample code to consume the script in the script bundle:
 
@@ -215,7 +218,7 @@ Datasets stored in the designer are automatically converted to an R data frame w
 
 ## Results
 
-Execute R Script modules can return multiple outputs, but they must be provided as R data frames. Data frames are automatically converted to datasets in the designer for compatibility with other modules.
+Execute R Script modules can return multiple outputs, but they must be provided as R data frames. The designer automatically converts data frames to datasets for compatibility with other modules.
 
 Standard messages and errors from R are returned to the module's log.
 
@@ -232,7 +235,7 @@ The Execute R Script module supports arbitrary R script files as inputs. To use 
 
 1. To upload a .zip file that contains R code to your workspace, go to the **Datasets** asset page. Select **Create dataset**, and then select **From local file** and the **File** dataset type option.  
 
-1. Verify that the zipped file is available in the **My Datasets** list under the **Datasets** category in the left module tree.
+1. Verify that the zipped file appears in **My Datasets** under the **Datasets** category in the left module tree.
 
 1.  Connect the dataset to the **Script Bundle** input port.
 

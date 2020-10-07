@@ -1,6 +1,6 @@
 ---
-title: Available Azure Files protocols
-description: Learn about the available protocols before creating an Azure file share.
+title: Available Azure Files protocols - NFS and SMB
+description: Learn about the available protocols before creating an Azure file share, including Server Message Block (SMB) and Network File System (NFS).
 author: roygara
 ms.service: storage
 ms.topic: conceptual
@@ -20,8 +20,8 @@ Azure Files offers two protocols for connecting and mounting your Azure file sha
 |---------|---------|---------|
 |Access protocols     |NFS 4.1         |SMB 2.1, SMB 3.0         |
 |Supported OS     |Linux kernel version 4.3+         |Windows 2008 R2+, Linux kernel version 4.11+         |
-|Available tiers     |Premium storage         |Premium storage, standard storage, hot, cool         |
-|Replication     |LRS         |LRS, ZRS, GRS         |
+|[Available tiers](storage-files-planning.md#storage-tiers)     |Premium storage         |Premium storage, transaction optimized, hot, cool         |
+|[Redundancy](storage-files-planning.md#redundancy)     |LRS         |LRS, ZRS, GRS         |
 |Authentication     |Host-based authentication only        |Identity-based authentication, user-based authentication         |
 |Permissions     |UNIX-style permissions         |NTFS-style permissions         |
 |File system semantics     |POSIX compliant         |Not POSIX compliant         |
@@ -50,7 +50,7 @@ Mounting Azure file shares with NFS 4.1 is currently in preview. It offers a tig
 NFS with Azure Files is ideal for:
 
 - Workloads that require POSIX-compliant file shares, case sensitivity, or Unix style permissions(UID/GID).
-- Linux-centric workloads that do not require SMB access.
+- Linux-centric workloads that do not require Windows access.
 
 ### Security
 

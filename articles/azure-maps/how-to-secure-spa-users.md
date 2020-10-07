@@ -5,11 +5,11 @@ description: How to configure a single page application which supports Azure AD 
 author: anastasia-ms
 ms.author: v-stharr
 ms.date: 06/12/2020
-ms.topic: conceptual
+ms.topic: how-to
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.custom: devx-track-javascript
+ms.custom: devx-track-js
 ---
 
 # Secure a single page application with user sign-in

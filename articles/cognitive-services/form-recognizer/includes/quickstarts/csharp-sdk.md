@@ -1,13 +1,13 @@
 ---
 title: "Quickstart: Form Recognizer client library for .NET"
-description: In this quickstart, get started with the Form Recognizer client library for .NET.
+description: Use the Form Recognizer client library for .NET to create a forms processing app that extracts key/value pairs and table data from your custom documents.
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: forms-recognizer
 ms.topic: include
-ms.date: 08/17/2020
+ms.date: 09/21/2020
 ms.author: pafarley
 ---
 
@@ -100,7 +100,8 @@ With Form Recognizer, you can create two different client types. The first, `For
 
 See examples for [Train a Model](#train-a-custom-model) and [Manage Custom Models](#manage-custom-models).
 
-Please note that models can also be trained using a graphical user interface such as the [Form Recognizer Labeling Tool](https://docs.microsoft.com/azure/cognitive-services/form-recognizer/quickstarts/label-tool).
+> [!NOTE]
+> Models can also be trained using a graphical user interface such as the [Form Recognizer Labeling Tool](https://docs.microsoft.com/azure/cognitive-services/form-recognizer/quickstarts/label-tool).
 
 ## Code examples
 
@@ -133,7 +134,7 @@ static private FormRecognizerClient AuthenticateClient(){
 }
 ```
 
-## Assets for testing 
+## Get assets for testing 
 
 The code snippets in this guide use remote forms accessed by URLs. If you want to process local form documents instead, see the related methods in the [reference documentation](https://docs.microsoft.com/python/api/azure-ai-formrecognizer/azure.ai.formrecognizer) and [samples](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/formrecognizer/azure-ai-formrecognizer/samples).
 
@@ -615,6 +616,19 @@ static async Task RecognizeContentCustomModel()
 
             Console.WriteLine($"    Value: '{field.ValueData.Text}");
             Console.WriteLine($"    Confidence: '{field.Confidence}");
+        }
+        Console.WriteLine("Table data:");
+        foreach (FormPage page in form.Pages.Values)
+        {
+            for (int i = 0; i < page.Tables.Count; i++)
+            {
+                FormTable table = page.Tables[i];
+                Console.WriteLine($"Table {i} has {table.RowCount} rows and {table.ColumnCount} columns.");
+                foreach (FormTableCell cell in table.Cells)
+                {
+                    Console.WriteLine($"    Cell ({cell.RowIndex}, {cell.ColumnIndex}) contains {(cell.IsHeader ? "header" : "text")}: '{cell.Text}'");
+                }
+            }
         }
     }
 }

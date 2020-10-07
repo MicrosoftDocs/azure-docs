@@ -29,7 +29,7 @@ There are various approaches and platforms to put models into production. Here a
 >
 
 >[!NOTE]
->For deployment using Azure Machine Learning Studio, see [Deploy an Azure Machine Learning web service](../studio/deploy-a-machine-learning-web-service.md).
+>For deployment using Azure Machine Learning Studio, see [Deploy an Azure Machine Learning web service](../classic/deploy-a-machine-learning-web-service.md).
 >
 
 ## A/B testing

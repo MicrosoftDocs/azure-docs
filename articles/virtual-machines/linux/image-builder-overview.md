@@ -10,6 +10,6 @@ ms.subservice: imaging
 ms.reviewer: danis
 ---
 
-# Preview: Azure Image Builder overview in Linux
+# Preview: Azure Image Builder overview
 
 [!INCLUDE [virtual-machines-image-builder-overview](../../../includes/virtual-machines-image-builder-overview.md)]

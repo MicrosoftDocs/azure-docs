@@ -73,7 +73,7 @@ The following XML sample will install the Monthly Enterprise Channel release.
   <RemoveMSI/>
   <Updates Enabled="FALSE"/>
   <Display Level="None" AcceptEULA="TRUE" />
-  <Logging Level=" Standard" Path="%temp%\WVDOfficeInstall" />
+  <Logging Level="Standard" Path="%temp%\WVDOfficeInstall" />
   <Property Name="FORCEAPPSHUTDOWN" Value="TRUE"/>
   <Property Name="SharedComputerLicensing" Value="1"/>
 </Configuration>

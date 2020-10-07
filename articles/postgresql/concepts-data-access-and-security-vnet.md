@@ -1,8 +1,8 @@
 ---
 title: Virtual network rules - Azure Database for PostgreSQL - Single Server
 description: Learn how to use virtual network (vnet) service endpoints to connect to Azure Database for PostgreSQL - Single Server.
-author: rachel-msft
-ms.author: raagyema
+author: niklarin
+ms.author: nlarin
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 07/17/2020
@@ -14,7 +14,7 @@ ms.date: 07/17/2020
 
 To create a virtual network rule, there must first be a [virtual network][vm-virtual-network-overview] (VNet) and a [virtual network service endpoint][vm-virtual-network-service-endpoints-overview-649d] for the rule to reference. The following picture illustrates how a Virtual Network service endpoint works with Azure Database for PostgreSQL:
 
-![Example of how a VNet Service Endpoint works](media/concepts-data-access-and-security-vnet/vnet-concept.png)
+:::image type="content" source="media/concepts-data-access-and-security-vnet/vnet-concept.png" alt-text="Example of how a VNet Service Endpoint works":::
 
 > [!NOTE]
 > This feature is available in all regions of Azure public cloud where Azure Database for PostgreSQL is deployed for General Purpose and Memory Optimized servers.

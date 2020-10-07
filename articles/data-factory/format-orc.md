@@ -7,7 +7,7 @@ ms.reviewer: craigg
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 09/15/2020
+ms.date: 09/28/2020
 ms.author: jingwang
 ---
 
@@ -27,12 +27,13 @@ For a full list of sections and properties available for defining datasets, see 
 | ---------------- | ------------------------------------------------------------ | -------- |
 | type             | The type property of the dataset must be set to **Orc**. | Yes      |
 | location         | Location settings of the file(s). Each file-based connector has its own location type and supported properties under `location`. **See details in connector article -> Dataset properties section**. | Yes      |
+| compressionCodec         | The compression codec to use when writing to ORC files. When reading from ORC files, Data Factories automatically determine the compression codec based on the file metadata.<br>Supported types are **none**, **zlib**, **snappy** (default), and **lzo**. Note currently Copy activity doesn't support LZO when read/write ORC files. | No      |
 
 Below is an example of ORC dataset on Azure Blob Storage:
 
 ```json
 {
-    "name": "ORCDataset",
+    "name": "OrcDataset",
     "properties": {
         "type": "Orc",
         "linkedServiceName": {
@@ -55,7 +56,6 @@ Note the following points:
 
 * Complex data types are not supported (STRUCT, MAP, LIST, UNION).
 * White space in column name is not supported.
-* ORC file has three [compression-related options](https://hortonworks.com/blog/orcfile-in-hdp-2-better-compression-better-performance/): NONE, ZLIB, SNAPPY. Data Factory supports reading data from ORC file in any of these compressed formats. It uses the compression codec is in the metadata to read the data. However, when writing to an ORC file, Data Factory chooses ZLIB, which is the default for ORC. Currently, there is no option to override this behavior.
 
 ## Copy activity properties
 
@@ -76,7 +76,7 @@ The following properties are supported in the copy activity ***\*sink\**** secti
 
 | Property      | Description                                                  | Required |
 | ------------- | ------------------------------------------------------------ | -------- |
-| type          | The type property of the copy activity source must be set to **OrcSink**. | Yes      |
+| type          | The type property of the copy activity sink must be set to **OrcSink**. | Yes      |
 | formatSettings | A group of properties. Refer to **ORC write settings** table below. |    No      |
 | storeSettings | A group of properties on how to write data to a data store. Each file-based connector has its own supported write settings under `storeSettings`. **See details in connector article -> Copy activity properties section**. | No       |
 
@@ -87,6 +87,67 @@ Supported **ORC write settings** under `formatSettings`:
 | type          | The type of formatSettings must be set to **OrcWriteSettings**. | Yes                                                   |
 | maxRowsPerFile | When writing data into a folder, you can choose to write to multiple files and specify the max rows per file.  | No |
 | fileNamePrefix | Applicable when `maxRowsPerFile` is configured.<br> Specify the file name prefix when writing data to multiple files, resulted in this pattern: `<fileNamePrefix>_00000.<fileExtension>`. If not specified, file name prefix will be auto generated. This property does not apply when source is file-based store or [partition-option-enabled data store](copy-activity-performance-features.md).  | No |
+
+## Mapping data flow properties
+
+In mapping data flows, you can read and write to ORC format in the following data stores: [Azure Blob Storage](connector-azure-blob-storage.md#mapping-data-flow-properties), [Azure Data Lake Storage Gen1](connector-azure-data-lake-store.md#mapping-data-flow-properties), and [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md#mapping-data-flow-properties).
+
+You can point to ORC files either using ORC dataset or using an [inline dataset](data-flow-source.md#inline-datasets).
+
+### Source properties
+
+The below table lists the properties supported by an ORC source. You can edit these properties in the **Source options** tab.
+
+When using inline dataset, you will see additional file settings, which are the same as the properties described in [dataset properties](#dataset-properties) section.
+
+| Name | Description | Required | Allowed values | Data flow script property |
+| ---- | ----------- | -------- | -------------- | ---------------- |
+| Format | Format must be `orc` | yes | `orc` | format |
+| Wild card paths | All files matching the wildcard path will be processed. Overrides the folder and file path set in the dataset. | no | String[] | wildcardPaths |
+| Partition root path | For file data that is partitioned, you can enter a partition root path in order to read partitioned folders as columns | no | String | partitionRootPath |
+| List of files | Whether your source is pointing to a text file that lists files to process | no | `true` or `false` | fileList |
+| Column to store file name | Create a new column with the source file name and path | no | String | rowUrlColumn |
+| After completion | Delete or move the files after processing. File path starts from the container root | no | Delete: `true` or `false` <br> Move: `[<from>, <to>]` | purgeFiles <br> moveFiles |
+| Filter by last modified | Choose to filter files based upon when they were last altered | no | Timestamp | modifiedAfter <br> modifiedBefore |
+| Allow no files found | If true, an error is not thrown if no files are found | no | `true` or `false` | ignoreNoFilesFound |
+
+### Source example
+
+The associated data flow script of an ORC source configuration is:
+
+```
+source(allowSchemaDrift: true,
+	validateSchema: false,
+	rowUrlColumn: 'fileName',
+	format: 'orc') ~> OrcSource
+```
+
+### Sink properties
+
+The below table lists the properties supported by an ORC sink. You can edit these properties in the **Settings** tab.
+
+When using inline dataset, you will see additional file settings, which are the same as the properties described in [dataset properties](#dataset-properties) section.
+
+| Name | Description | Required | Allowed values | Data flow script property |
+| ---- | ----------- | -------- | -------------- | ---------------- |
+| Format | Format must be `orc` | yes | `orc` | format |
+| Clear the folder | If the destination folder is cleared prior to write | no | `true` or `false` | truncate |
+| File name option | The naming format of the data written. By default, one file per partition in format `part-#####-tid-<guid>` | no | Pattern: String <br> Per partition: String[] <br> As data in column: String <br> Output to single file: `['<fileName>']` | filePattern <br> partitionFileNames <br> rowUrlColumn <br> partitionFileNames |
+
+### Sink example
+
+The associated data flow script of an ORC sink configuration is:
+
+```
+OrcSource sink(
+	format: 'orc',
+	filePattern:'output[n].orc',
+	truncate: true,
+    allowSchemaDrift: true,
+	validateSchema: false,
+	skipDuplicateMapInputs: true,
+	skipDuplicateMapOutputs: true) ~> OrcSink
+```
 
 ## Using Self-hosted Integration Runtime
 

@@ -66,7 +66,7 @@ The following command shows the restore of a file */etc/fstabfrom* the backup fi
 
 The following screenshot shows the restore of a complete backup:
 
-![HowtoRestoreaBackup.PNG](media/HowToHLI/OSBackupTypeIISKUs/HowtoRestoreaBackup.PNG)
+![Screenshot shows a command prompt window with the restore.](media/HowToHLI/OSBackupTypeIISKUs/HowtoRestoreaBackup.PNG)
 
 ## How to install the ReaR tool and change the configuration? 
 
@@ -97,4 +97,4 @@ BACKUP_PROG_EXCLUDE=("${BACKUP_PROG_EXCLUDE[@]}" '/media' '/var/tmp/*' '/var/cra
 ```
 
 The following screenshot shows the restore of a complete backup:
-![RearToolConfiguration.PNG](media/HowToHLI/OSBackupTypeIISKUs/RearToolConfiguration.PNG)
+![Screenshot shows a command prompt window with the restore using the ReaR tool.](media/HowToHLI/OSBackupTypeIISKUs/RearToolConfiguration.PNG)

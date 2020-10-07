@@ -77,13 +77,13 @@ The Data Encryption Keys, encrypted with the Key Encryption Keys are stored sepa
 
 Microsoft Cloud services are used in all three cloud models: IaaS, PaaS, SaaS. Below you have examples of how they fit on each model:
 
-- Software services, referred to as Software as a Server or SaaS, which have application provided by the cloud such as Office 365.
+- Software services, referred to as Software as a Server or SaaS, which have applications provided by the cloud such as Microsoft 365.
 - Platform services which customers leverage the cloud in their applications, using the cloud for things like storage, analytics, and service bus functionality.
 - Infrastructure services, or Infrastructure as a Service (IaaS) in which customer deploys operating systems and applications that are hosted in the cloud and possibly leveraging other cloud services.
 
 ### Encryption at rest for SaaS customers
 
-Software as a Service (SaaS) customers typically have encryption at rest enabled or available in each service. Office 365 has several options for customers to verify or enable encryption at rest. For information about Office 365 services, see [Encryption in Office 365](https://docs.microsoft.com/office365/securitycompliance/encryption).
+Software as a Service (SaaS) customers typically have encryption at rest enabled or available in each service. Microsoft 365 has several options for customers to verify or enable encryption at rest. For information about Microsoft 365 services, see [Encryption in Microsoft 365](/microsoft-365/compliance/encryption).
 
 ### Encryption at rest for PaaS customers
 

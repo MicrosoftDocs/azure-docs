@@ -1,6 +1,8 @@
 ---
 title: "Quickstart: Query for prediction with browser - LUIS"
 description: In this quickstart, use an available public LUIS app to determine a user's intention from conversational text in a browser.
+ms.service: cognitive-services
+ms.subservice: language-understanding
 ms.topic: quickstart
 ms.date: 04/21/2020
 #Customer intent: As an developer familiar with how to use a browser but new to the LUIS service, I want to query the LUIS endpoint of a published model so that I can see the JSON prediction response.

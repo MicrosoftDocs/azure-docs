@@ -6,10 +6,10 @@ ms.service: sql-database
 ms.subservice: data-movement
 ms.custom: data sync, sqldbrb=1
 ms.devlang: 
-ms.topic: conceptual
+ms.topic: troubleshooting
 author: stevestein
 ms.author: sstein
-ms.reviewer: carlrab
+ms.reviewer:
 ms.date: 12/20/2018
 ---
 # Troubleshoot issues with SQL Data Sync

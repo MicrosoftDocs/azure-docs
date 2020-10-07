@@ -18,11 +18,7 @@ Sometimes during [linking of a storage account](../how-tos/create-an-account.md#
 
 ## Client can't connect to server
 
-Make sure that your firewalls (on device, inside routers, etc.) don't block the following ports:
-
-* **50051 (TCP)** - required for initial connection (HTTP handshake)
-* **8266 (TCP+UDP)** - required for data transfer
-* **5000 (TCP)**, **5433 (TCP)**, **8443 (TCP)** - required for [ArrInspector](tools/arr-inspector.md)
+Make sure that your firewalls (on device, inside routers, etc.) don't block the ports mentioned in the [System requirements](../overview/system-requirements.md#network-ports).
 
 ## Error '`Disconnected: VideoFormatNotAvailable`'
 
@@ -147,12 +143,12 @@ There can be two problems with this bounding box that lead to invisible geometry
 
 Azure Remote Rendering hooks into the Unity render pipeline to do the frame composition with the video, and to do the reprojection. To verify that these hooks exist, open the menu *:::no-loc text="Window > Analysis > Frame debugger":::*. Enable it and make sure there are two entries for the `HolographicRemotingCallbackPass` in the pipeline:
 
-![Unity frame debugger](./media/troubleshoot-unity-pipeline.png)
+![Unity render pipeline](./media/troubleshoot-unity-pipeline.png)
 
 ## Checkerboard pattern is rendered after model loading
 
 If the rendered image looks like this:
-![Checkerboard](../reference/media/checkerboard.png)
+![Screenshot shows a grid of black and white squares with a Tools menu.](../reference/media/checkerboard.png)
 then the renderer hits the [polygon limits for the standard configuration size](../reference/vm-sizes.md). To mitigate, either switch to **premium** configuration size or reduce the number of visible polygons.
 
 ## The rendered image in Unity is upside-down
@@ -180,6 +176,12 @@ We have seen spurious failures when trying to compile Unity samples (quickstart,
 ### Arm64 builds for Unity projects fail because AudioPluginMsHRTF.dll is missing
 
 The `AudioPluginMsHRTF.dll` for Arm64 was added to the *Windows Mixed Reality* package *(com.unity.xr.windowsmr.metro)* in version 3.0.1. Ensure that you have version 3.0.1 or later installed via the Unity Package Manager. From the Unity menu bar, navigate to *Window > Package Manager* and look for the *Windows Mixed Reality* package.
+
+## Native C++ based application does not compile
+
+### 'Library not found' error for UWP application or Dll
+
+Inside the C++ Nuget package, there is file `microsoft.azure.remoterendering.Cpp.targets` file that defines which of the binary flavor to use. To identify `UWP`, the conditions in the file check for `ApplicationType == 'Windows Store'`. So it needs to be ensured that this type is set in the project. That should be the case when creating a UWP application or Dll through Visual Studio's project wizard.
 
 ## Unstable Holograms
 
@@ -213,7 +215,7 @@ If the above steps have been exhausted and the remaining z-fighting is unaccepta
 
 ARR has a feature for determining if surfaces could z-fight: [Checkerboard highlighting](../overview/features/z-fighting-mitigation.md). You can also determine visually what causes the z-fighting. The following first animation shows an example of depth-precision loss in the distance, and the second one shows an example of nearly coplanar surfaces:
 
-![depth-precision-z-fighting](./media/depth-precision-z-fighting.gif)  ![coplanar-z-fighting](./media/coplanar-z-fighting.gif)
+![Animation shows an example of depth-precision loss in the distance.](./media/depth-precision-z-fighting.gif)  ![Animation shows an example of nearly coplanar surfaces.](./media/coplanar-z-fighting.gif)
 
 Compare these examples with your z-fighting to determine the cause or optionally follow this step-by-step workflow:
 
