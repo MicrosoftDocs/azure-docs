@@ -24,19 +24,19 @@ Follow these steps to create an Azure Database for MySQL server with Infrastruct
 
 2. Select **Databases** > **Azure Database for PostgreSQL**. You can also enter PostgreSQL in the search box to find the service. Enabled the **Single server** deployment option.
 
-   ![The "Azure Database for PostgreSQL" in menu](./media/quickstart-create-database-portal/1-create-database.png)
+   :::image type="content" source="./media/quickstart-create-database-portal/1-create-database.png" alt-text="The Azure Database for PostgreSQL in menu":::
 
 3. Provide the basic information of the server. Select **Additional settings** and enabled the **Infrastructure double encryption** checkbox to set the parameter.
 
-    ![Azure Database for PostgreSQL selections](./media/howto-infrastructure-double-encryption/infrastructure-encryption-selected.png)
+    :::image type="content" source="./media/howto-infrastructure-double-encryption/infrastructure-encryption-selected.png" alt-text="Azure Database for PostgreSQL selections":::
 
 4. Select **Review + create** to provision the server.
 
-    ![Azure Database for PostgreSQL summary](./media/howto-infrastructure-double-encryption/infrastructure-encryption-summary.png)
+    :::image type="content" source="./media/howto-infrastructure-double-encryption/infrastructure-encryption-summary.png" alt-text="Azure Database for PostgreSQL summary":::
 
 5. Once the server is created you can validate the infrastructure double encryption by checking the status in the **Data encryption** server blade.
 
-    ![Azure Database for MySQL validation](./media/howto-infrastructure-double-encryption/infrastructure-encryption-validation.png)
+    :::image type="content" source="./media/howto-infrastructure-double-encryption/infrastructure-encryption-validation.png" alt-text="Azure Database for MySQL validation":::
 
 ## Create an Azure Database for PostgreSQL server with Infrastructure Double encryption - CLI
 

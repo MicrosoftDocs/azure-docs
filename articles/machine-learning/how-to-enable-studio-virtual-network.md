@@ -16,20 +16,20 @@ ms.custom: contperfq4, tracking-python
 ---
 
 # Use Azure Machine Learning studio in an Azure virtual network
-[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
 In this article, you learn how to use Azure Machine Learning studio in a virtual network. You learn how to:
 
 > [!div class="checklist"]
 > - Access the studio from a resource inside of a virtual network.
+> - Configure private endpoints for storage accounts.
 > - Give the studio access to data stored inside of a virtual network.
-> - Understand how storage security is impacted by the studio.
+> - Understand how the studio impacts storage security.
 
 This article is part five of a five-part series that walks you through securing an Azure Machine Learning workflow. We highly recommend that you read through [Part one: VNet overview](how-to-network-security-overview.md) to understand the overall architecture first. 
 
 See the other articles in this series:
 
-[1. VNet overview](how-to-network-security-overview.md) > [2. Secure the workspace](how-to-secure-workspace-vnet.md) > [3. Secure the training environment](how-to-secure-training-vnet.md) > [4. Secure the inferencing environment](how-to-secure-inferencing-vnet.md) > [5. Enable studio functionality](how-to-enable-studio-virtual-network.md)
+[1. VNet overview](how-to-network-security-overview.md) > [2. Secure the workspace](how-to-secure-workspace-vnet.md) > [3. Secure the training environment](how-to-secure-training-vnet.md) > [4. Secure the inferencing environment](how-to-secure-inferencing-vnet.md) > **5. Enable studio functionality**
 
 
 > [!IMPORTANT]
@@ -44,7 +44,7 @@ See the other articles in this series:
 
 + An existing [Azure Machine Learning workspace with Private Link enabled](how-to-secure-workspace-vnet.md#secure-the-workspace-with-private-endpoint).
 
-+ An existing [Azure storage account added your virtual network](how-to-secure-workspace-vnet.md#secure-azure-storage-accounts).
++ An existing [Azure storage account added your virtual network](how-to-secure-workspace-vnet.md#secure-azure-storage-accounts-with-service-endpoints).
 
 ## Access the studio from a resource inside the VNet
 
@@ -54,8 +54,7 @@ For example, if you are using network security groups (NSG) to restrict outbound
 
 ## Access data using the studio
 
-If your data is stored in a virtual network, you must configure your storage accounts to use [managed identity](../active-directory/managed-identities-azure-resources/overview.md) to grant the studio access to your data.
-
+After you add an Azure storage account to your virtual network with a [service endpoint](how-to-secure-workspace-vnet.md#secure-azure-storage-accounts-with-service-endpoints) or [private endpoint](how-to-secure-workspace-vnet.md#secure-azure-storage-accounts-with-private-endpoints), you must configure your storage account to use [managed identity](../active-directory/managed-identities-azure-resources/overview.md) to grant the studio access to your data.
 
 If you do not enable managed identity, you will receive this error, `Error: Unable to profile this dataset. This might be because your data is stored behind a virtual network or your data does not support profile.` Additionally, the following operations will be disabled:
 
@@ -64,13 +63,15 @@ If you do not enable managed identity, you will receive this error, `Error: Unab
 * Submit an AutoML experiment.
 * Start a labeling project.
 
+> [!NOTE]
+> [ML assisted data labelling](how-to-create-labeling-projects.md#use-ml-assisted-labeling) does not support default storage accounts secured behind a virtual network. You must use a non-default storage account for ML assisted data labelling. The non-default storage account can be secured behind the virtual network. 
+
 The studio supports reading data from the following datastore types in a virtual network:
 
 * Azure Blob
 * Azure Data Lake Storage Gen1
 * Azure Data Lake Storage Gen2
 * Azure SQL Database
-
 
 ### Configure datastores to use managed identity
 
@@ -102,7 +103,7 @@ For __Azure Blob storage__, the workspace-managed identity is also added as a [B
 
 You can use both RBAC and POSIX-style access control lists (ACLs) to control data access inside of a virtual network.
 
-To use RBAC, add the workspace-managed identity to the [Blob Data Reader](../role-based-access-control/built-in-roles.md#storage-blob-data-reader) role. For more information, see [Role-based access control](../storage/blobs/data-lake-storage-access-control.md#role-based-access-control).
+To use RBAC, add the workspace-managed identity to the [Blob Data Reader](../role-based-access-control/built-in-roles.md#storage-blob-data-reader) role. For more information, see [Azure role-based access control](../storage/blobs/data-lake-storage-access-control.md#azure-role-based-access-control).
 
 To use ACLs, the workspace-managed identity can be assigned access just like any other security principle. For more information, see [Access control lists on files and directories](../storage/blobs/data-lake-storage-access-control.md#access-control-lists-on-files-and-directories).
 

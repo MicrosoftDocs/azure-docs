@@ -6,7 +6,7 @@ ms.topic: conceptual
 description: "Review and test changes from a pull request directly in Azure Kubernetes Service using GitHub Actions and Azure Dev Spaces"
 keywords: "Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, containers, GitHub Actions, Helm, service mesh, service mesh routing, kubectl, k8s"
 manager: gwallace
-ms.custom: devx-track-javascript
+ms.custom: devx-track-js
 ---
 # GitHub Actions & Azure Kubernetes Service (preview)
 

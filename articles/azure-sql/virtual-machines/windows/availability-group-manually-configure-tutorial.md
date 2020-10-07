@@ -10,7 +10,7 @@ tags: azure-service-management
 ms.assetid: 08a00342-fee2-4afe-8824-0db1ed4b8fca
 ms.service: virtual-machines-sql
 
-ms.topic: article
+ms.topic: tutorial
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 08/30/2018
@@ -39,13 +39,13 @@ The following table lists the prerequisites that you need to complete before sta
 
 | Requirement |Description |
 |----- |----- |----- |
-|![Square](./media/availability-group-manually-configure-tutorial/square.png)   **Two SQL Server instances** | - In an Azure availability set <br/> - In a single domain <br/> - With Failover Clustering feature installed |
-|![Square](./media/availability-group-manually-configure-tutorial/square.png)   **Windows Server** | File share for cluster witness |  
-|![Square](./media/availability-group-manually-configure-tutorial/square.png)   **SQL Server service account** | Domain account |
-|![Square](./media/availability-group-manually-configure-tutorial/square.png)   **SQL Server Agent service account** | Domain account |  
-|![Square](./media/availability-group-manually-configure-tutorial/square.png)   **Firewall ports open** | - SQL Server: **1433** for default instance <br/> - Database mirroring endpoint: **5022** or any available port <br/> - Availability group load balancer IP address health probe: **59999** or any available port <br/> - Cluster core load balancer IP address health probe: **58888** or any available port |
-|![Square](./media/availability-group-manually-configure-tutorial/square.png)   **Add Failover Clustering Feature** | Both SQL Server instances require this feature |
-|![Square](./media/availability-group-manually-configure-tutorial/square.png)   **Installation domain account** | - Local administrator on each SQL Server <br/> - Member of SQL Server sysadmin fixed server role for each instance of SQL Server  |
+|:::image type="icon" source="./media/availability-group-manually-configure-tutorial/square.png" border="false":::   **Two SQL Server instances** | - In an Azure availability set <br/> - In a single domain <br/> - With Failover Clustering feature installed |
+|:::image type="icon" source="./media/availability-group-manually-configure-tutorial/square.png" border="false":::   **Windows Server** | File share for cluster witness |  
+|:::image type="icon" source="./media/availability-group-manually-configure-tutorial/square.png" border="false":::   **SQL Server service account** | Domain account |
+|:::image type="icon" source="./media/availability-group-manually-configure-tutorial/square.png" border="false":::   **SQL Server Agent service account** | Domain account |  
+|:::image type="icon" source="./media/availability-group-manually-configure-tutorial/square.png" border="false":::   **Firewall ports open** | - SQL Server: **1433** for default instance <br/> - Database mirroring endpoint: **5022** or any available port <br/> - Availability group load balancer IP address health probe: **59999** or any available port <br/> - Cluster core load balancer IP address health probe: **58888** or any available port |
+|:::image type="icon" source="./media/availability-group-manually-configure-tutorial/square.png" border="false":::   **Add Failover Clustering Feature** | Both SQL Server instances require this feature |
+|:::image type="icon" source="./media/availability-group-manually-configure-tutorial/square.png" border="false":::   **Installation domain account** | - Local administrator on each SQL Server <br/> - Member of SQL Server sysadmin fixed server role for each instance of SQL Server  |
 
 
 Before you begin the tutorial, you need to [Complete prerequisites for creating Always On Availability Groups in Azure Virtual Machines](availability-group-manually-configure-prerequisites-tutorial.md). If these prerequisites are completed already, you can jump to [Create Cluster](#CreateCluster).

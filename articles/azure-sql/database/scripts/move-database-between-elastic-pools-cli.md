@@ -9,7 +9,7 @@ ms.devlang: azurecli
 ms.topic: sample
 author: stevestein
 ms.author: sstein
-ms.reviewer: carlrab
+ms.reviewer:
 ms.date: 06/25/2019
 ---
 # Use the Azure CLI to move a database in SQL Database in a SQL elastic pool

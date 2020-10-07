@@ -63,8 +63,8 @@ This process enables the scenario where users lose access to organizational file
 
 | | Office web apps | Office Win32 apps | Office for iOS | Office for Android | Office for Mac |
 | :--- | :---: | :---: | :---: | :---: | :---: |
-| **SharePoint Online** | Supported | Supported | Not Supported | Supported | Supported |
-| **Exchange Online** | Supported | Supported | Not Supported | Supported | Supported |
+| **SharePoint Online** | Not Supported | Supported | Supported | Supported | Supported |
+| **Exchange Online** | Not Supported | Supported | Supported | Supported | Supported |
 
 ### Client-side claim challenge
 

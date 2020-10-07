@@ -15,7 +15,7 @@ ms.date: 06/27/2020
 ---
 
 # How to run Jupyter Notebooks in your workspace
-[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
+
 
 Learn how to run your Jupyter Notebooks directly in your workspace in Azure Machine Learning studio. While you can launch [Jupyter](https://jupyter.org/) or [JupyterLab](https://jupyterlab.readthedocs.io), you can also edit and run your notebooks without leaving the workspace.
 
@@ -85,6 +85,11 @@ To access the terminal:
 
 Learn more about [cloning Git repositories into your workspace file system](concept-train-model-git-integration.md#clone-git-repositories-into-your-workspace-file-system).
 
+### Copy and Paste in Terminal
+
+> * Windows: `Ctrl-Insert` to copy and use `Ctrl-Shift-v` or `Shift-Insert` to paste.
+> * Mac OS: `Cmd-c` to copy and `Cmd-v` to paste.
+> * FireFox/IE may not support clipboard permissions properly.
 
 ### Share notebooks and other files
 

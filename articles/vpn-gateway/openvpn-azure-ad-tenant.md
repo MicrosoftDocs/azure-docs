@@ -1,6 +1,6 @@
 ---
 title: 'VPN Gateway: Azure AD tenant for P2S VPN connections: Azure AD authentication'
-description: You can use P2S VPN to connect to your VNet using Azure AD authentication
+description: Learn how to set up an Azure AD tenant for P2S Open VPN authentication.
 services: vpn-gateway
 author: cherylmc
 
@@ -43,7 +43,7 @@ Use the steps in [this article](../active-directory/fundamentals/add-users-azure
 
 1. Locate the Directory ID of the directory that you want to use for authentication. It is listed in the properties section of the Active Directory page.
 
-    ![Directory ID](./media/openvpn-create-azure-ad-tenant/directory-id.png)
+    ![Screenshot that shows the "Directory Properties" page with "Directory ID" highlighted.](./media/openvpn-create-azure-ad-tenant/directory-id.png)
 
 2. Copy the Directory ID.
 
@@ -81,11 +81,11 @@ Use the steps in [this article](../active-directory/fundamentals/add-users-azure
 
 6. Select **Accept** when prompted.
 
-    ![Accept](./media/openvpn-create-azure-ad-tenant/accept.jpg)
+    ![Screenshot shows the message Permissions requested Accept for your organization with details and the option to accept.](./media/openvpn-create-azure-ad-tenant/accept.jpg)
 
 7. Under your Azure AD, in **Enterprise applications**, you see **Azure VPN** listed.
 
-    ![Azure VPN](./media/openvpn-create-azure-ad-tenant/azurevpn.png)
+    ![Screenshot that shows the "All applications" page.](./media/openvpn-create-azure-ad-tenant/azurevpn.png)
     
 8. If you don't already have a functioning point-to-site environment, follow the instruction to create one. See [Create a point-to-site VPN](vpn-gateway-howto-point-to-site-resource-manager-portal.md) to create and configure a point-to-site VPN gateway. 
 

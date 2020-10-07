@@ -36,7 +36,7 @@ ms.collection: M365-identity-device-management
 
 * Automate review outcomes, such as removing users’ access to resources
 
-  ![Planning access reviews](./media/deploy-access-review/1-planning-review.png)
+  ![Diagram that shows the access reviews flow.](./media/deploy-access-review/1-planning-review.png)
 
 Access Reviews is an [Azure AD Identity Governance](identity-governance-overview.md) capability. The other capabilities are [Entitlement Management](entitlement-management-overview.md), [Privileged Identity Management](../privileged-identity-management/pim-configure.md) and [Terms of Use](../conditional-access/terms-of-use.md). Together, they help organizations address these four questions:
 
@@ -299,7 +299,7 @@ When [creating an Access Package](entitlement-management-access-package-create.m
 
 Open the Lifecycle tab to scroll down to Access Reviews.
 
- ![Edit policy](./media/deploy-access-review/5-plan-access-packages-admin-ui.png)
+ ![Screenshot that shows the "Edit policy" in the "Lifecycle" tab.](./media/deploy-access-review/5-plan-access-packages-admin-ui.png)
 
 ## Plan Access Reviews for groups
 
@@ -445,7 +445,7 @@ Access needs to groups and applications for employees and guests likely change o
 
 To reduce the risk associated with stale role assignments, you should regularly review access of privileged Azure AD roles.
 
-![review azure ad roles](./media/deploy-access-review/8-review-azure-ad-roles-picker.png)
+![Screenshot that shows the "Review membership" list of Azure A D roles.](./media/deploy-access-review/8-review-azure-ad-roles-picker.png)
 
 Follow the instructions in the links below:
 

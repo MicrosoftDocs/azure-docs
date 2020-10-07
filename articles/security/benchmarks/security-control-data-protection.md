@@ -70,7 +70,7 @@ Follow Azure Security Center recommendations for encryption at rest and encrypti
 
 When no feature is available for your specific service in Azure, use a third-party active discovery tool to identify all sensitive information stored, processed, or transmitted by the organization's technology systems, including those located on-site, or at a remote service provider, and update the organization's sensitive information inventory.
 
-Use Azure Information Protection for identifying sensitive information within Office 365 documents.
+Use Azure Information Protection for identifying sensitive information within Microsoft 365 documents.
 
 Use Azure SQL Information Protection to assist in the classification and labeling of information stored in Azure SQL Database.
 

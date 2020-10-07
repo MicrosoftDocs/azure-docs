@@ -425,5 +425,4 @@ If no type information can be extracted from the header, and the dynamic typing 
 
 See the following articles for more code samples to add to your maps:
 
-> [!div class="nextstepaction"]
-> [Read and write spatial data](spatial-io-read-write-spatial-data.md)
+[Read and write spatial data](spatial-io-read-write-spatial-data.md)

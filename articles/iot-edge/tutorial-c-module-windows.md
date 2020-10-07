@@ -3,10 +3,10 @@
 title: Tutorial develop C module for Windows - Azure IoT Edge | Microsoft Docs 
 description: This tutorial shows you how to create an IoT Edge module with C code and deploy it to a Windows device running IoT Edge
 services: iot-edge
-author: shizn
+author: kgremban
 manager: philmea
 
-ms.author: xshi
+ms.author: kgremban
 ms.date: 05/28/2019
 ms.topic: tutorial
 ms.service: iot-edge

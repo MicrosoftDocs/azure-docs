@@ -32,7 +32,7 @@ In this tutorial, you'll learn how to:
 - A Text Analytics resource. If you don't have one, you can [create one in the Azure portal](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextAnalytics) and use the free tier to complete this tutorial.
 - The [key and endpoint](../../cognitive-services-apis-create-account.md#get-the-keys-for-your-resource) that was generated for you during sign-up.
 - A spreadsheet containing tenant issues. Example data is provided on GitHub
-- Office 365, with OneDrive for Business.
+- Microsoft 365, with OneDrive for business.
 
 ## Add the Excel file to OneDrive for Business
 

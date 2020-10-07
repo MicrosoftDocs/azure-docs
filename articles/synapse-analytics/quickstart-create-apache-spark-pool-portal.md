@@ -8,7 +8,7 @@ ms.topic: quickstart
 ms.subservice: spark
 ms.date: 04/15/2020 
 ms.author: jrasnick 
-ms.reviewer: jrasnick, carlrab
+ms.reviewer: jrasnick 
 ---
 
 # Quickstart: Create a new Apache Spark pool using the Azure portal

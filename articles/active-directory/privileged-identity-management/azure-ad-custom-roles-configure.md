@@ -43,7 +43,7 @@ Follow these steps to open the settings for an Azure AD role.
 1. Select **Setting** to open the **Settings** page. Select the role for the settings you want to configure.
 1. Select **Edit** to open the **Role settings** page.
 
-    ![Open the Azure AD custom role to edit settings](./media/azure-ad-custom-roles-configure/edit-settings.png)
+    ![Screenshot that shows the "Role setting details" page with the "Edit" action selected.](./media/azure-ad-custom-roles-configure/edit-settings.png)
 
 ## Role settings
 

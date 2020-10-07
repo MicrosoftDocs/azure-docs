@@ -7,7 +7,7 @@ ms.reviewer: craigg
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 09/15/2020
+ms.date: 09/27/2020
 ms.author: jingwang
 ---
 
@@ -74,7 +74,7 @@ The following properties are supported in the copy activity ***\*sink\**** secti
 
 | Property      | Description                                                  | Required |
 | ------------- | ------------------------------------------------------------ | -------- |
-| type          | The type property of the copy activity source must be set to **ParquetSink**. | Yes      |
+| type          | The type property of the copy activity sink must be set to **ParquetSink**. | Yes      |
 | formatSettings | A group of properties. Refer to **Parquet write settings** table below. |    No      |
 | storeSettings | A group of properties on how to write data to a data store. Each file-based connector has its own supported write settings under `storeSettings`. **See details in connector article -> Copy activity properties section**. | No       |
 
@@ -103,6 +103,7 @@ The below table lists the properties supported by a parquet source. You can edit
 | Column to store file name | Create a new column with the source file name and path | no | String | rowUrlColumn |
 | After completion | Delete or move the files after processing. File path starts from the container root | no | Delete: `true` or `false` <br> Move: `[<from>, <to>]` | purgeFiles <br> moveFiles |
 | Filter by last modified | Choose to filter files based upon when they were last altered | no | Timestamp | modifiedAfter <br> modifiedBefore |
+| Allow no files found | If true, an error is not thrown if no files are found | no | `true` or `false` | ignoreNoFilesFound |
 
 ### Source example
 
@@ -121,7 +122,7 @@ source(allowSchemaDrift: true,
 
 ### Sink properties
 
-The below table lists the properties supported by a parquet source. You can edit these properties in the **Source options** tab.
+The below table lists the properties supported by a parquet sink. You can edit these properties in the **Settings** tab.
 
 | Name | Description | Required | Allowed values | Data flow script property |
 | ---- | ----------- | -------- | -------------- | ---------------- |
