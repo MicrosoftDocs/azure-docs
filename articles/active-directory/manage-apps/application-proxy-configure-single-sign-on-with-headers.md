@@ -19,9 +19,13 @@ Azure Active Directory (Azure AD) Application Proxy natively supports single sig
 
 * **Simplify providing remote access to your on-premises apps** - App Proxy allows you to simplify your existing remote access architecture. You can replace VPN access to these apps. You can also remove dependencies on on-premises identity solutions for authentication. Your users won't notice anything different when they sign in to use your corporate applications. They can still work from anywhere on any device.  
 
-* **No additional requirements** - You can use your existing Application Proxy connectors and it doesn't require any additional software to be installed.  
+* **No additional software or changes to your apps** - You can use your existing Application Proxy connectors and it doesn't require any additional software to be installed.  
 
-* **Wide list of attributes and transformations available** - All header values available are based on standard claims that are issued by Azure AD. All attributes and transformations available for configuring claims for SAML or OIDC applications are also available to be used as header values. 
+* **Wide list of attributes and transformations available** - All header values available are based on standard claims that are issued by Azure AD. All attributes and transformations available for [configuring claims for SAML or OIDC applications](../develop/active-directory-saml-claims-customization.md#attributes) are also available to be used as header values. 
+
+## Pre-requisites
+Before you get started with single sign-on for header-based authentication apps, make sure your environment is ready with the following settings and configurations:
+- You need to enable Application Proxy and install a connector that has line of site to your applications. See the tutorial [Add an on-premises application for remote access through Application Proxy](application-proxy-add-on-premises-application#add-an-on-premises-app-to-azure-ad) to learn how to prepare your on-premises environment, install and register a connector, and test the connector. 
 
 ## Supported capabilities
 
@@ -30,8 +34,9 @@ The following table lists common capabilities required for header-based authenti
 |Requirement   |Description|
 |----------|-----------|
 |Federated SSO |In pre-authenticated mode, all applications are protected with Azure AD authentication and enable users to have single sign-on. |
+|Remote access |Application Proxy enables remote access to the app. Users can access the application from the internet on any browser using the External URL. Application Proxy is not intended for corporate access use. |
 |Header-based integration |Application Proxy does the SSO integration with Azure AD and then passes identity or other application data as HTTP headers to the application. |
-|Application authorization |Common policies can be specified based on the application being accessed, the user’s group membership and other policies. In Azure AD, policies are implemented using conditional access. Application authorization policies only apply to the initial authentication request. |
+|Application authorization |Common policies can be specified based on the application being accessed, the user’s group membership and other policies. In Azure AD, policies are implemented using [conditional access](../conditional-access/overview). Application authorization policies only apply to the initial authentication request. |
 |Step-up authentication |Policies can be defined to force added authentication, for example, to gain access to sensitive resources. |
 |Fine grained authorization |Provides access control at the URL level. Added policies can be enforced based on the URL being accessed. The internal URL configured for the app, defines the scope of app that the policy is applied to. The policy configured for the most granular path is enforced.  |
 
@@ -41,7 +46,7 @@ The following table lists common capabilities required for header-based authenti
 
 1. The Admin customizes the attribute mappings required by the application in the Azure AD portal. 
 2. When a user accesses the app, Application Proxy ensures the user is authenticated by Azure AD 
-3. The Application Proxy cloud service is aware of the attributes required. So the service fetches the corresponding claims from the JWT token received during authentication. The service then translates the values into the required HTTP headers as part of the request to the Connector. 
+3. The Application Proxy cloud service is aware of the attributes required. So the service fetches the corresponding claims from the ID token received during authentication. The service then translates the values into the required HTTP headers as part of the request to the Connector. 
 4. The request is then passed along to the Connector, which is then passed to the backend application. 
 5. The application receives the headers and can use these headers as needed. 
 
