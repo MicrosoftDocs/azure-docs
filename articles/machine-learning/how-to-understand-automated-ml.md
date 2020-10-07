@@ -17,16 +17,11 @@ ms.custom: how-to, contperfq2
 
 In this article, learn how to view and evaluate the results of your automated machine learning, AutoML, experiments. These experiments consist of multiple runs, where each run creates a model. To help you evaluate each model, AutoML automatically generates performance metrics and charts specific to your experiment type. 
 
-For example, the following table lists the different charts that AutoML provides for classification and regression models. 
+For example, AutoML provides different charts for classification and regression models. 
 
-Classification| Regression
----|---
-[Confusion matrix](#confusion-matrix) |[Predicted vs. True](#pvt)
-[Precision-Recall chart](#precision-recall-chart) |[Histogram of residuals](#histo)
-[Receiver operating characteristics (or ROC)](#roc) |
-[Lift curve](#lift-curve)|
-[Gains curve](#gains-curve)|
-[Calibration plot](#calibration-plot)|
+|Classification|Regression
+|---|---
+<li> [Confusion matrix](#confusion-matrix) <li>[Precision-Recall chart](#precision-recall-chart) <li> [Receiver operating characteristics (or ROC)](#roc) <li> [Lift curve](#lift-curve)<li> [Gains curve](#gains-curve)<li> [Calibration plot](#calibration-plot)| <li> [Predicted vs. True](#pvt) <li> [Histogram of residuals](#histo)
 
 ## Prerequisites
 
@@ -37,7 +32,7 @@ Classification| Regression
     * Use the SDK to build a [classification model](how-to-auto-train-remote.md) or [regression model](tutorial-auto-train-models.md)
     * Use [Azure Machine Learning studio](how-to-use-automated-ml-for-ml-models.md) to create a classification or regression model by uploading the appropriate data.
 
-## View the run
+## View run results
 
 After your automated machine learning experiment completes, a history of the runs can be found in your machine learning workspace via the [Azure Machine Learning studio](overview-what-is-machine-learning-studio.md). 
 
