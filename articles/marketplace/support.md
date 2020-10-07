@@ -133,4 +133,4 @@ To generate a HAR file using **Safari**:
 
 ## Next steps
 
-- [Update an existing offer in the Commercial Marketplace](./update-existing-offer.md)
+- [Update an existing offer in the Commercial Marketplace](partner-center-portal/update-existing-offer.md)

@@ -130,9 +130,9 @@
           - name: SAS URI
             items:
               - name: Get SAS URI
-                href: partner-center-portal/get-sas-uri.md
+                href: get-sas-uri.md
               - name: SAS URI FAQ
-                href: partner-center-portal/common-sas-uri-issues.md
+                href: common-sas-uri-issues.md
   - name: Consulting services
     items: 
     - name: Plan a consulting services offer

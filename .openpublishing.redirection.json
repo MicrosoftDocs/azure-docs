@@ -45409,12 +45409,22 @@
     },
     {
       "source_path": "articles/marketplace/cloud-partner-portal/virtual-machine/cpp-get-sas-uri.md",
-      "redirect_url": "/azure/marketplace/partner-center-portal/common-sas-uri-issues",
+      "redirect_url": "/azure/marketplace/common-sas-uri-issues",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/marketplace/cloud-partner-portal/virtual-machine/cpp-common-sas-url-issues.md",
-      "redirect_url": "/azure/marketplace/partner-center-portal/common-sas-uri-issues",
+      "redirect_url": "/azure/marketplace/common-sas-uri-issues",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/marketplace/partner-center-portal/get-sas-uri.md",
+      "redirect_url": "/azure/marketplace/get-sas-uri",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/marketplace/partner-center-portal/common-sas-uri-issues.md",
+      "redirect_url": "/azure/marketplace/common-sas-uri-issues",
       "redirect_document_id": false
     },
     {
