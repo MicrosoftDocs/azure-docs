@@ -14,11 +14,11 @@ This article provides lists Azure Monitor articles that are either new or have b
 ## September 2020
 
 ### General
-- [Azure Monitor FAQ](faq.md) - Added section on OpemTelemetry.
+- [Azure Monitor FAQ](faq.md) - Added section on OpenTelemetry.
 
 ### Agents
 - [Azure Monitor agent overview](platform/azure-monitor-agent-overview.md) - Added decision factors for switching to new agent.
-- [Overview of the Azure monitoring agents](platform/agents-overview.md) - Added support for Windos 10.
+- [Overview of the Azure monitoring agents](platform/agents-overview.md) - Added support for Windows 10.
 
 ### Alerts
 - [Create a log alert with Azure Resource Manager template](platform/alerts-log-create-templates.md) - New article.
@@ -39,7 +39,7 @@ This article provides lists Azure Monitor articles that are either new or have b
 
 ### Containers
 - [Configure Azure Arc enabled Kubernetes cluster with Azure Monitor for containers](insights/container-insights-enable-arc-enabled-clusters.md) - Added guidance for enabling monitoring using service principal.
-- [Deployment & HPA metrics with Azure Monitor for containers](insights/container-insights-deployment-hpa-metrics.md) - New article
+- [Deployment & HPA metrics with Azure Monitor for containers](insights/container-insights-deployment-hpa-metrics.md) - New article.
 
 ### Insights and solutions
 - [Azure Monitor for Azure Cache for Redis](insights/redis-cache-insights-overview.md) - Removed preview designation.
@@ -56,7 +56,7 @@ This article provides lists Azure Monitor articles that are either new or have b
 - [Log query scope in Azure Monitor Log Analytics](log-query/scope.md) - Updates to include workspace-based applications.
 - [Logs in Azure Monitor](platform/data-platform-logs.md) - Updates to include workspace-based applications.
 - [Standard columns in Azure Monitor log records](platform/log-standard-columns.md) - Updates to include workspace-based applications.
-- [Tenant Activity Logs - List (Azure Monitor)](includes/azure-monitor-limits-log-queries.md) - Updated limits for user query throttling.'
+- [Azure Monitor service limits](service-limits.md) - Updated limits for user query throttling.
 - [Using customer-managed storage accounts in Azure Monitor Log Analytics](platform/private-storage.md) - Article rewritten.
 - [Viewing and analyzing data in Azure Log Analytics](log-query/logs-structure.md) - Updates to include workspace-based applications.
 
