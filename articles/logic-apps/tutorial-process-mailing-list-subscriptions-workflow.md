@@ -236,7 +236,7 @@ Next, set up the emails to send when the approved member either succeeds or fail
 
 1. In the **Choose an operation** search box, enter `outlook send email`, and select the action named **Send an email**.
 
-   ![Screenshot that shows the "Choose an operation" search box with "outlook send email" entered and the "Send an email" action selected.](./media/tutorial-process-mailing-list-subscriptions-workflow/add-action-email-success-2.png)
+   ![Screenshot that shows the "Choose an operation" search box with "outlook send email" entered and the "Send an email" action selected for notification.](./media/tutorial-process-mailing-list-subscriptions-workflow/add-action-email-success-2.png)
 
 1. Rename the action with this description: `Send email on success`
 
@@ -329,7 +329,7 @@ Your logic app continues running until you disable or delete the app. When you n
 
 ## Next steps
 
-In this tutorial, you created a logic app that manages approvals for mailing list requests. Now, learn how to build a logic app that processes and stores email attachments by integrating Azure services, such as Azure Storage and Azure Functions.
+In this tutorial, you created a logic app that handles approvals for mailing list requests. Now, learn how to build a logic app that processes and stores email attachments by integrating Azure services, such as Azure Storage and Azure Functions.
 
 > [!div class="nextstepaction"]
 > [Process email attachments](../logic-apps/tutorial-process-email-attachments-workflow.md)
