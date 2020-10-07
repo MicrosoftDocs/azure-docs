@@ -71,6 +71,8 @@ You can analyze metrics for Azure Cosmos DB with metrics from other Azure servic
 * Region
 * StatusCode
 
+Metrics which are available to monitor are available [here](monitor-cosmos-db.md#analyzing-metric-data)
+
 ### View operation level metrics for Azure Cosmos DB
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
