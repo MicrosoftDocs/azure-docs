@@ -52,14 +52,14 @@ The following table lists common capabilities required for header-based authenti
 
 ## Publish the application with Application Proxy
 
-Publish your application according to the instructions described in [Publish applications with Application Proxy](application-proxy-add-on-premises-application.md#add-an-on-premises-app-to-azure-ad).  
-- The Internal URL value determines the scope of the application. If you configure Internal URL value at the root path of the application, then all sub paths underneath the root will receive the same header configuration and other application configuration. 
-- Create a new application to set a different header configuration or user assignment for a more granular path than the application you configured. In the new application, configure the internal URL with the specific path you require and then configure the specific headers needed for this URL. Application Proxy will always match your configuration settings to the most granular path set for an application. 
+1. Publish your application according to the instructions described in [Publish applications with Application Proxy](application-proxy-add-on-premises-application.md#add-an-on-premises-app-to-azure-ad).  
+    - The Internal URL value determines the scope of the application. If you configure Internal URL value at the root path of the application, then all sub paths underneath the root will receive the same header configuration and other application configuration. 
+    - Create a new application to set a different header configuration or user assignment for a more granular path than the application you configured. In the new application, configure the internal URL with the specific path you require and then configure the specific headers needed for this URL. Application Proxy will always match your configuration settings to the most granular path set for an application. 
 
-1. Select **Azure Active Directory** as the **pre-authentication method**. 
-2. Assign a test user by navigating to **Users and groups** and assigning the appropriate users and groups. 
-3. Open a browser and navigate to the **External URL** from the Application Proxy settings. 
-4. Verify that you can connect to the application. Even though you can connect, you can't access the app yet since the headers aren't configured. 
+2. Select **Azure Active Directory** as the **pre-authentication method**. 
+3. Assign a test user by navigating to **Users and groups** and assigning the appropriate users and groups. 
+4. Open a browser and navigate to the **External URL** from the Application Proxy settings. 
+5. Verify that you can connect to the application. Even though you can connect, you can't access the app yet since the headers aren't configured. 
 
 ## Configure single sign-on 
 Before you get started with single sign-on for header-based applications, you should have already installed an Application Proxy connector and the connector can access the target applications. If not, follow the steps in [Tutorial: Azure AD Application Proxy](application-proxy-add-on-premises-application.md) then come back here. 
