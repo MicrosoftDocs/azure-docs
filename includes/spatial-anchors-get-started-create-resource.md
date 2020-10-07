@@ -7,43 +7,43 @@ ms.author: crtreasu
 ---
 ## Create a Spatial Anchors resource
 
-1. Go to the <a href="https://portal.azure.com" target="_blank">Azure portal</a>.
+Go to the <a href="https://portal.azure.com" target="_blank">Azure portal</a>.
 
-1. On the left pane, select **Create a resource**.
+On the left pane, select **Create a resource**.
 
-1. Use the search box to search for **Spatial Anchors**.
+Use the search box to search for **Spatial Anchors**.
 
-   ![Screenshot showing the results of a search for Spatial Anchors.](./media/spatial-anchors-get-started-create-resource/portal-search.png)
+![Screenshot showing the results of a search for Spatial Anchors.](./media/spatial-anchors-get-started-create-resource/portal-search.png)
 
-1. Select **Spatial Anchors**, and then select **Create**.
+Select **Spatial Anchors**, and then select **Create**.
 
-1. On the **Spatial Anchors Account** pane, do the following:
+On the **Spatial Anchors Account** pane, do the following:
 
-   a. Enter a unique resource name, using regular alphanumeric characters.  
-   b. Select the subscription that you want to attach the resource to.  
-   c. Create a resource group by selecting **Create new**. Name it **myResourceGroup**, and then select **OK**.  
-      [!INCLUDE [resource group intro text](resource-group.md)]  
-   d. Select a location (region) in which to place the resource.  
-   e. Select **New** to begin creating the resource.
+* Enter a unique resource name, using regular alphanumeric characters.  
+* Select the subscription that you want to attach the resource to.  
+* Create a resource group by selecting **Create new**. Name it **myResourceGroup**, and then select **OK**.  
+   [!INCLUDE [resource group intro text](resource-group.md)]  
+* Select a location (region) in which to place the resource.  
+* Select **New** to begin creating the resource.
 
-   ![Screenshot of the Spatial Anchors pane for creating a resource.](./media/spatial-anchors-get-started-create-resource/create-resource-form.png)
+![Screenshot of the Spatial Anchors pane for creating a resource.](./media/spatial-anchors-get-started-create-resource/create-resource-form.png)
 
-   After the resource is created, the Azure portal shows that your deployment is complete. 
+After the resource is created, the Azure portal shows that your deployment is complete. 
    
-   ![Screenshot showing that the resource deployment is complete.](./media/spatial-anchors-get-started-create-resource/deployment-complete.png)
+![Screenshot showing that the resource deployment is complete.](./media/spatial-anchors-get-started-create-resource/deployment-complete.png)
 
-1. Select **Go to resource**.
+Select **Go to resource**.
 
    You can now view the resource properties. 
    
-1. Copy the resource's **Account ID** value into a text editor for later use.
+Copy the resource's **Account ID** value into a text editor for later use.
 
-   ![Screenshot of the resource properties pane.](./media/spatial-anchors-get-started-create-resource/view-resource-properties.png)
+![Screenshot of the resource properties pane.](./media/spatial-anchors-get-started-create-resource/view-resource-properties.png)
 
-1. Also copy the resource's **Account Domain** value into a text editor for later use.
+Also copy the resource's **Account Domain** value into a text editor for later use.
 
-   ![Screenshot showing the resource's account domain value.](./media/spatial-anchors-get-started-create-resource/view-resource-domain.png)
+![Screenshot showing the resource's account domain value.](./media/spatial-anchors-get-started-create-resource/view-resource-domain.png)
 
-1. Under **Settings**, select **Key**, and then copy the **Primary key** value, **Account Key**, into a text editor for later use.
+Under **Settings**, select **Key**, and then copy the **Primary key** value, **Account Key**, into a text editor for later use.
 
-   ![Screenshot of the Keys pane for the account.](./media/spatial-anchors-get-started-create-resource/view-account-key.png)
+![Screenshot of the Keys pane for the account.](./media/spatial-anchors-get-started-create-resource/view-account-key.png)
