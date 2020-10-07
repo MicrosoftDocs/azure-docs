@@ -5093,7 +5093,7 @@ Azure service: [Cognitive Services](../cognitive-services/index.yml)
 
 ### Microsoft.MachineLearning
 
-Azure service: [Machine Learning Studio (classic)](../machine-learning/classic/index.yml)
+Azure service: [Azure Machine Learning Studio (classic)](../machine-learning/classic/index.yml)
 
 > [!div class="mx-tableFixed"]
 > | Action | Description |
