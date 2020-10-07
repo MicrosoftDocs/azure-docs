@@ -80,6 +80,7 @@ Service Tags:
 
 * AzureActiveDirectory
 * AzureTrafficManager
+* AzureResourceManager
 * AzureArcInfrastructure
 
 URLs:
