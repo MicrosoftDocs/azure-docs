@@ -83,12 +83,12 @@ dotnet add package Microsoft.Azure.CognitiveServices.Vision.CustomVision.Predict
 
 From the project directory, open the *program.cs* file and add the following `using` directives:
 
-[!code-csharp[](~/cognitive-services-quickstart-code/CustomVision/ImageClassification/Program.cs?name=snippet_imports)]
+[!code-csharp[](~/cognitive-services-quickstart-code/dotnet/CustomVision/ImageClassification/Program.cs?name=snippet_imports)]
 
 
 In the application's **Main** method, create variables for your resource's key and endpoint. You'll also declare some basic objects to be used later.
 
-[!code-csharp[](~/cognitive-services-quickstart-code/CustomVision/ImageClassification/Program.cs?name=snippet_creds)]
+[!code-csharp[](~/cognitive-services-quickstart-code/dotnet/CustomVision/ImageClassification/Program.cs?name=snippet_creds)]
 
 > [!IMPORTANT]
 > Go to the Azure portal. If the Custom Vision resources you created in the **Prerequisites** section deployed successfully, click the **Go to Resource** button under **Next Steps**. You can find your keys and endpoint in the resources' **key and endpoint** pages, under **resource management**. You'll need to get both your training and prediction keys.
@@ -97,7 +97,7 @@ In the application's **Main** method, create variables for your resource's key a
 
 In the application's **Main** method, add calls for the methods used in this quickstart. You will implement these later.
 
-[!code-csharp[](~/cognitive-services-quickstart-code/CustomVision/ImageClassification/Program.cs?name=snippet_maincalls)]
+[!code-csharp[](~/cognitive-services-quickstart-code/dotnet/CustomVision/ImageClassification/Program.cs?name=snippet_maincalls)]
 
 ## Object model
 
@@ -125,20 +125,20 @@ These code snippets show you how to do the following tasks with the Custom Visio
 
 In a new method, instantiate training and prediction clients using your endpoint and keys.
 
-[!code-csharp[](~/cognitive-services-quickstart-code/CustomVision/ImageClassification/Program.cs?name=snippet_auth)]
+[!code-csharp[](~/cognitive-services-quickstart-code/dotnet/CustomVision/ImageClassification/Program.cs?name=snippet_auth)]
 
 ## Create a new Custom Vision project
 
 This next bit of code creates an image classification project. The created project will show up on the [Custom Vision website](https://customvision.ai/). See the [CreateProject](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.vision.customvision.training.customvisiontrainingclientextensions.createproject?view=azure-dotnet#Microsoft_Azure_CognitiveServices_Vision_CustomVision_Training_CustomVisionTrainingClientExtensions_CreateProject_Microsoft_Azure_CognitiveServices_Vision_CustomVision_Training_ICustomVisionTrainingClient_System_String_System_String_System_Nullable_System_Guid__System_String_System_Collections_Generic_IList_System_String__&preserve-view=true) method to specify other options when you create your project (explained in the [Build a classifier](../../geting-started-build-a-classifier.md) web portal guide).  
 
-[!code-csharp[](~/cognitive-services-quickstart-code/CustomVision/ImageClassification/Program.cs?name=snippet_create)]
+[!code-csharp[](~/cognitive-services-quickstart-code/dotnet/CustomVision/ImageClassification/Program.cs?name=snippet_create)]
 
 
 ## Add tags to the project
 
 This method defines the tags that you will train the model on.
 
-[!code-csharp[](~/cognitive-services-quickstart-code/CustomVision/ImageClassification/Program.cs?name=snippet_addtags)]
+[!code-csharp[](~/cognitive-services-quickstart-code/dotnet/CustomVision/ImageClassification/Program.cs?name=snippet_addtags)]
 
 ## Upload and tag images
 
@@ -146,18 +146,18 @@ First, download the sample images for this project. Save the contents of the [sa
 
 Then define a helper method to upload the images in this directory. You may need to edit the **GetFiles** argument to point to the location where your images are saved.
 
-[!code-csharp[](~/cognitive-services-quickstart-code/CustomVision/ImageClassification/Program.cs?name=snippet_loadimages)]
+[!code-csharp[](~/cognitive-services-quickstart-code/dotnet/CustomVision/ImageClassification/Program.cs?name=snippet_loadimages)]
 
 Next, define a method to upload the images, applying tags according to their folder location (the images are already sorted). You can upload and tag images iteratively, or in a batch (up to 64 per batch). This code snippet contains examples of both. 
 
-[!code-csharp[](~/cognitive-services-quickstart-code/CustomVision/ImageClassification/Program.cs?name=snippet_upload)]
+[!code-csharp[](~/cognitive-services-quickstart-code/dotnet/CustomVision/ImageClassification/Program.cs?name=snippet_upload)]
 
 
 ## Train the project
 
 This method creates the first training iteration in the project. It queries the service until training is completed.
 
-[!code-csharp[](~/cognitive-services-quickstart-code/CustomVision/ImageClassification/Program.cs?name=snippet_train)]
+[!code-csharp[](~/cognitive-services-quickstart-code/dotnet/CustomVision/ImageClassification/Program.cs?name=snippet_train)]
 
 > [!TIP]
 > Train with selected tags
@@ -168,14 +168,14 @@ This method creates the first training iteration in the project. It queries the 
 
 This method makes the current iteration of the model available for querying. You can use the model name as a reference to send prediction requests. You need to enter your own value for `predictionResourceId`. You can find the prediction resource ID on the resource's **Overview** tab in the Azure portal, listed as **Subscription ID**.
 
-[!code-csharp[](~/cognitive-services-quickstart-code/CustomVision/ImageClassification/Program.cs?name=snippet_publish)]
+[!code-csharp[](~/cognitive-services-quickstart-code/dotnet/CustomVision/ImageClassification/Program.cs?name=snippet_publish)]
 
 
 ## Test the prediction endpoint
 
 This part of the script loads the test image, queries the model endpoint, and outputs prediction data to the console.
 
-[!code-csharp[](~/cognitive-services-quickstart-code/CustomVision/ImageClassification/Program.cs?name=snippet_test)]
+[!code-csharp[](~/cognitive-services-quickstart-code/dotnet/CustomVision/ImageClassification/Program.cs?name=snippet_test)]
 
 
 ## Run the application
