@@ -146,7 +146,6 @@ Each Azure subscription has default quotas that could impact the scope of your I
 - Array schema types aren't supported.
 - Only the C device SDK and the Node.js device and service SDKs are supported.
 - IoT Central is currently available in the United States, Europe, Asia Pacific, Australia, United Kingdom, and Japan locations.
-- You cannot use the **Custom application (legacy)** application template in the United Kingdom and Japan locations.
 - Device capability models must have all the interfaces defined inline in the same file.
 
 ## Next steps
