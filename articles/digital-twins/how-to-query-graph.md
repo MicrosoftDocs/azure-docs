@@ -79,6 +79,48 @@ AND IS_OF_MODEL(LightBulb, 'dtmi:contoso:com:lightbulb ;1')
 AND Room.$dtId IN ['room1', 'room2'] 
 ```
 
+### Specify return set with projections
+
+Using projections, you can choose which columns (or expressions) a query will return. 
+
+>[!NOTE]
+>At this time, complex properties are not supported. To make sure that projection properties are valid, combine the projections with an `IS_PRIMITIVE` check. 
+
+Here is an example of...
+```sql
+SELECT Consumer, Factory, Edge 
+FROM DIGITALTWINS Factory 
+JOIN Consumer RELATED Factory.customer Edge 
+WHERE Factory.$dtId = 'ABC' 
+```
+ 
+Here is an example of...
+```sql
+SELECT Consumer.name 
+FROM DIGITALTWINS Factory 
+JOIN Consumer RELATED Factory.customer Edge 
+WHERE Factory.$dtId = 'ABC' 
+AND IS_PRIMITIVE(Consumer.name)
+```
+
+Here is an example of...
+```sql
+SELECT Consumer.name, Edge.prop1, Edge.prop2, Factory.area 
+FROM DIGITALTWINS Factory 
+JOIN Consumer RELATED Factory.customer Edge 
+WHERE Factory.$dtId = 'ABC' 
+AND IS_PRIMITIVE(Factory.area) AND IS_PRIMITIVE(Consumer.name) AND IS_PRIMITIVE(Edge.prop1) AND IS_PRIMITIVE(Edge.prop2)
+```
+ 
+Here is an example of...
+```sql
+SELECT Consumer.name AS consumerName, Edge.prop1 AS first, Edge.prop2 AS second, Factory.area AS facotryArea 
+FROM DIGITALTWINS Factory 
+JOIN Consumer RELATED Factory.customer Edge 
+WHERE Factory.$dtId = 'ABC' 
+AND IS_PRIMITIVE(Factory.area) AND IS_PRIMITIVE(Consumer.name) AND IS_PRIMITIVE(Edge.prop1) AND IS_PRIMITIVE(Edge.prop2)" 
+```
+
 ### Query by property
 
 Get digital twins by **properties** (including ID and metadata):
