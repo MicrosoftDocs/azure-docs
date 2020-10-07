@@ -13448,6 +13448,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/virtual-machines/windows/spot-portal.md",
+      "redirect_url": "/azure/virtual-machines/spot-portal",
+      "redirect_document_id": true
+    },
+    {
       "source_path": "articles/virtual-machines/windows/spot-vms.md",
       "redirect_url": "/azure/virtual-machines/spot-vms",
       "redirect_document_id": false
