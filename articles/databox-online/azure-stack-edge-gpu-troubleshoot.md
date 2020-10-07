@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: troubleshooting
-ms.date: 08/19/2020
+ms.date: 10/07/2020
 ms.author: alkohli
 ---
 # Troubleshoot issues on your Azure Stack Edge Pro GPU device 
@@ -193,6 +193,17 @@ Here are the errors related to blob storage on Azure Stack Edge Pro/ Data Box Ga
 |The value for one of the HTTP headers is not in the correct format.|The installed version of the Microsoft Azure Storage Library for Python is not supported by Data Box. See Azure Data Box Blob storage requirements for supported versions.|
 |… [SSL: CERTIFICATE_VERIFY_FAILED] …| Before running Python, set the REQUESTS_CA_BUNDLE environment variable to the path of the Base64-encoded SSL certificate file (see how to [Download the certificate](https://docs.microsoft.com/azure/databox/data-box-deploy-copy-data-via-rest#download-certificate). For example:<br>`export REQUESTS_CA_BUNDLE=/tmp/mycert.cer`<br>`python`<br>Alternately, add the certificate to the system's certificate store, and then set this environment variable to the path of that store. For example, on Ubuntu:<br>`export REQUESTS_CA_BUNDLE=/etc/ssl/certs/ca-certificates.crt`<br>`python`.|
 |The connection times out.|Sign into the Azure Stack Edge Pro and then check that it's unlocked. Any time the device restarts, it stays locked until someone signs in.|
+
+## Activation and Azure Key Vault 
+
+| Error   message| Recommended   resolution |
+|------------------------------------------------------|--------------------------------------|
+| If the Azure Key Vault used for activation is deleted before the device is actually activated with the activation key, then you receive this error.  | In the Azure portal, go to your Azure Stack Edge resource and provide an Azure Key Vault name. This would create another Azure Key Vault and you can generate a new activation key. Use this key to activate your device. |
+| If the Azure Key Vault is deleted after the device is activated, and you then try to perform any operation that involves encryption, for example: **Add User**, **Add Share**, **Configure Compute**, then you receive this error.    | If the key vault has been deleted, you can recover the key vault if the vault is in purge-protection duration. Follow the steps in Recover a key vault. <br>If the purge-protection duration has elapsed, then the key vault cannot be recovered. Contact Microsoft Support for next steps. |
+| If the Channel Integrity Key in the Azure Key Vault is deleted and you then try to perform any operations that involves encryption, for example: **Add User**, **Add Share**, **Configure Compute** - then you will receive this error. | If the Channel Integrity Key in the key vault is deleted, but it is still within the purge duration, follow the steps in Undo Key vault key removal. <br>If the purge protection duration has elapsed, and if you have the key backed-up, you can restore from the backup else you can't recover the key. Contact Microsoft Support for next steps. |
+| If the activation key generation fails due to any error, then you receive this error. Additional details are present in the notification.  | Wait a few minutes and retry the operation. If the problem persists, contact Microsoft Support. |
+| If the user has read only permissions, then the user is not allowed to generate an activation key and this error is presented.| Mare sure that you have owner or contributor access at the resource group level used for your Azure Stack Edge resource. Only then you can generate an activation key.  |
+
 
 
 ## Next steps
