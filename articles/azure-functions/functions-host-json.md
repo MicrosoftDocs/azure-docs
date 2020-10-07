@@ -368,7 +368,7 @@ Controls the [retry policy](./functions-bindings-error-pages.md#retry-policies) 
 |---------|---------|---------| 
 |strategy|null|Required. The retry strategy to use. Valid values are `fixedDelay` or `exponentialBackoff`.|
 |maxRetryCount|null|Required. The maximum number of retries allowed per function execution. `-1` means to retry indefinitely.|
-|delayInterval|null|The delay that will be used between retries when using `fixedDelay` strategy.|
+|delayInterval|null|The delay that's used between retries with a `fixedDelay` strategy.|
 |minimumInterval|null|The minimum retry delay when using `exponentialBackoff` strategy.|
 |maximumInterval|null|The maximum retry delay when using `exponentialBackoff` strategy.| 
 
