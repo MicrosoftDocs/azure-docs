@@ -82,6 +82,16 @@ ___
 Returns the angle in radians between the positive x-axis of a plane and the point given by the coordinates.  
 * ``atan2(0, 0) -> 0.0``  
 ___
+### <code>byOrigin</code>
+<code><b>byOrigin(<i>&lt;column name&gt;</i> : string, [<i>&lt;origin stream name&gt;</i> : string]) => any</b></code><br/><br/>
+Selects a column value by name in the origin stream. The second argument is the origin stream name. If there are multiple matches, the first match is returned. If no match it returns a NULL value. The returned value has to be type converted by one of the type conversion functions(TO_DATE, TO_STRING ...). Column names known at design time should be addressed just by their name. Computed inputs are not supported but you can use parameter substitutions.  
+* ``toString(byOrigin('ancestor', 'ancestorStream'))``
+___
+### <code>byOrigins</code>
+<code><b>byOrigins(<i>&lt;column names&gt;</i> : array, [<i>&lt;origin stream name&gt;</i> : string]) => any</b></code><br/><br/>
+Selects an array of columns by name in the stream. The second argument is the stream where it originated from. If there are multiple matches, the first match is returned. If no match it returns a NULL value. The returned value has to be type converted by one of the type conversion functions(TO_DATE, TO_STRING ...) Column names known at design time should be addressed just by their name. Computed inputs are not supported but you can use parameter substitutions.
+* ``toString(byOrigins(['ancestor1', 'ancestor2'], 'ancestorStream'))``
+___
 ### <code>byName</code>
 <code><b>byName(<i>&lt;column name&gt;</i> : string, [<i>&lt;stream name&gt;</i> : string]) => any</b></code><br/><br/>
 Selects a column value by name in the stream. You can pass a optional stream name as the second argument. If there are multiple matches, the first match is returned. If no match it returns a NULL value. The returned value has to be type converted by one of the type conversion functions(TO_DATE, TO_STRING ...).  Column names known at design time should be addressed just by their name. Computed inputs are not supported but you can use parameter substitutions.  
@@ -278,13 +288,46 @@ ___
 <code><b>false() => boolean</b></code><br/><br/>
 Always returns a false value. Use the function syntax(false()) if there is a column named 'false'.  
 * ``(10 + 20 > 30) -> false``  
-* ``(10 + 20 > 30) -> false()``  
+* ``(10 + 20 > 30) -> false()``
 ___
 ### <code>filter</code>
 <code><b>filter(<i>&lt;value1&gt;</i> : array, <i>&lt;value2&gt;</i> : unaryfunction) => array</b></code><br/><br/>
 Filters elements out of the array that do not meet the provided predicate. Filter expects a reference to one element in the predicate function as #item.  
 * ``filter([1, 2, 3, 4], #item > 2) -> [3, 4]``  
 * ``filter(['a', 'b', 'c', 'd'], #item == 'a' || #item == 'b') -> ['a', 'b']``  
+___
+### <code>find</code>
+<code><b>find(<i>&lt;value1&gt;</i> : array, <i>&lt;value2&gt;</i> : unaryfunction) => any</b></code><br/><br/>
+Find the first item from an array that match the condition. It takes a filter function where you can address the item in the array as #item. For deeply nested maps you can refer to the parent maps using the #item_n(#item_1, #item_2...) notation.  
+* ``find([10, 20, 30], #item > 10) -> 20``
+* ``find(['azure', 'data', 'factory'], length(#item) > 4) -> 'azure'``
+* ``find([
+      @(
+         name = 'Daniel',
+         types = [
+                   @(mood = 'jovial', behavior = 'terrific'),
+                   @(mood = 'grumpy', behavior = 'bad')
+                 ]
+        ),
+      @(
+         name = 'Mark',
+         types = [
+                   @(mood = 'happy', behavior = 'awesome'),
+                   @(mood = 'calm', behavior = 'reclusive')
+                 ]
+        )
+      ],
+      contains(#item.types, #item.mood=='happy')  /*Filter out the happy kid*/
+    )``
+* ``
+   @(
+         name = 'Mark',
+         types = [
+                   @(mood = 'happy', behavior = 'awesome'),
+                   @(mood = 'calm', behavior = 'reclusive')
+                 ]
+    )
+  ``  
 ___
 ### <code>floor</code>
 <code><b>floor(<i>&lt;value1&gt;</i> : number) => number</b></code><br/><br/>

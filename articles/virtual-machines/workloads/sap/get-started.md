@@ -15,7 +15,7 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 10/01/2020
+ms.date: 10/05/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
 
@@ -81,6 +81,7 @@ In this section you can find information in how to configure SSO with most of th
 
 ## Change Log
 
+- 10/05/2020: Release of [SAP HANA scale-out HSR with Pacemaker on Azure VMs on RHEL](./sap-hana-high-availability-scale-out-hsr-rhel.md) configuration guide
 - 09/30/2020: Change in [High availability of SAP HANA on Azure VMs on RHEL](./sap-hana-high-availability-rhel.md), [HA for SAP HANA scale-up with ANF on RHEL](./sap-hana-high-availability-netapp-files-red-hat.md) and [Setting up Pacemaker on RHEL in Azure](./high-availability-guide-rhel-pacemaker.md) to adapt the instructions for RHEL 8.1
 - 09/29/2020: Making restrictions and recommendations around usage of PPG more obvious in the article [Azure proximity placement groups for optimal network latency with SAP applications](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-proximity-placement-scenarios) 
 - 09/28/2020: Adding a new storage operation guide for SAP HANA using Azure NetApp Files with the document [NFS v4.1 volumes on Azure NetApp Files for SAP HANA](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-vm-operations-netapp)

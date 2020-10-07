@@ -94,7 +94,7 @@ To configure Azure AD single sign-on with Agiloft, perform the following steps:
 
 4. On the **Basic SAML Configuration** section, If you wish to configure the application in **IDP** initiated mode, perform the following steps:
 
-    ![Agiloft Domain and URLs single sign-on information](common/idp-intiated.png)
+    ![Screenshot that highlights the Identifier and Reply URL text boxes.](common/idp-intiated.png)
 
     a. In the **Identifier** text box, type a URL using the following pattern:
 
@@ -144,11 +144,11 @@ To configure Azure AD single sign-on with Agiloft, perform the following steps:
 
 2. Click on **Setup** (on the Left Pane) and then select **Access**.
 
-	![Agiloft Configuration](./media/agiloft-tutorial/setup1.png)
+	![Screenshot that highlights the Access section.](./media/agiloft-tutorial/setup1.png)
 
 3. Click on the button **Configure SAML 2.0 Single Sign-On**.
 
-	![Agiloft Configuration](./media/agiloft-tutorial/setup2.png)
+	![Screenshot that highlights the Configure SAML 2.0 Single Sign-On button.](./media/agiloft-tutorial/setup2.png)
 
 4. A wizard dialog appears. On the dialog, click on the **Identity Provider Details** and fill in the following fields:  
 
