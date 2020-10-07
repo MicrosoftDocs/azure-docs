@@ -15,7 +15,7 @@ ms.date: 04/24/2020
 > [!Note]
 > Deploy new HDInsight clusters using [Azure Data Lake Storage Gen2](hdinsight-hadoop-use-data-lake-storage-gen2.md) for improved performance and new features.
 
-To analyze data in HDInsight cluster, you can store the data either in [`Azure Blob storage`](../storage/common/storage-introduction.md), [Azure Data Lake Storage Gen 1](../data-lake-store/data-lake-store-overview.md), or [Azure Data Lake Storage Gen 2](../storage/blobs/data-lake-storage-introduction.md). All storage options enable you to safely delete HDInsight clusters that are used for computation without losing user data.
+To analyze data in HDInsight cluster, you can store the data either in [`Azure Blob storage`](../storage/common/storage-introduction.md), [Azure Data Lake Storage Gen1](../data-lake-store/data-lake-store-overview.md), or [Azure Data Lake Storage Gen2](../storage/blobs/data-lake-storage-introduction.md). All storage options enable you to safely delete HDInsight clusters that are used for computation without losing user data.
 
 In this article, you learn how Data Lake Storage Gen1 works with HDInsight clusters. To learn how Azure Blob storage works with HDInsight clusters, see [Use Azure Blob storage with Azure HDInsight clusters](hdinsight-hadoop-use-blob-storage.md). For more information about creating an HDInsight cluster, see [Create Apache Hadoop clusters in HDInsight](hdinsight-hadoop-provision-linux-clusters.md).
 
@@ -43,7 +43,7 @@ Currently, only some of the HDInsight cluster types/versions support using Data 
 | HDInsight version 3.4 | No | Yes | |
 | HDInsight version 3.3 | No | No | |
 | HDInsight version 3.2 | No | Yes | |
-| Storm | | |You can use Data Lake Storage Gen1 to write data from a Storm topology. You can also use Data Lake Storage for reference data that can then be read by a Storm topology.|
+| Storm | | |You can use Data Lake Storage Gen1 to write data from a Storm topology. You can also use Data Lake Storage Gen1 for reference data that can then be read by a Storm topology.|
 
 > [!WARNING]  
 > HDInsight HBase is not supported with Azure Data Lake Storage Gen1
@@ -115,11 +115,11 @@ To use a Data Lake Storage Gen1 as additional storage, grant the service princip
 
 For more information for creating service principal and grant access, see Configure Data Lake Storage access.
 
-## Use more than one Data Lake Storage accounts
+## Use more than one Data Lake Storage Gen1 accounts
 
-Adding a Data Lake Storage account as additional and adding more than one Data Lake Storage accounts can be done. Give the HDInsight cluster permission on data in one or more Data Lake Storage accounts. See Configure Data Lake Storage access.
+Adding a Data Lake Storage account as additional and adding more than one Data Lake Storage accounts can be done. Give the HDInsight cluster permission on data in one or more Data Lake Storage accounts. See Configure Data Lake Storage Gen1 access below.
 
-## Configure Data Lake Storage access
+## Configure Data Lake Storage Gen1 access
 
 To configure Azure Data Lake Storage Gen1 access from your HDInsight cluster, you must have an Azure Active directory (Azure AD) service principal. Only an Azure AD administrator can create a service principal. The service principal must be created with a certificate. For more information, see [Quickstart: Set up clusters in HDInsight](../storage/data-lake-storage/quickstart-create-connect-hdi-cluster.md), and [Create service principal with self-signed-certificate](../active-directory/develop/howto-authenticate-service-principal-powershell.md#create-service-principal-with-self-signed-certificate).
 

@@ -42,9 +42,9 @@ Before you begin this tutorial, make sure that you meet the following requiremen
 	>You can create a service principal only if you are an Azure AD administrator. Your Azure AD administrator must create a service principal before you can create an HDInsight cluster with Data Lake Storage Gen1. The service principal must be created with a certificate, as described in [Create a service principal with certificate](../active-directory/develop/howto-authenticate-service-principal-powershell.md#create-service-principal-with-certificate-from-certificate-authority).
 	>
 
-## Create an Azure Data Lake Storage Gen1 account
+## Create a Azure Data Lake Storage Gen1 account
 
-To create an Data Lake Storage Gen1 account with , do the following:
+To create a Data Lake Storage Gen1 account, do the following:
 
 1. From your desktop, open a PowerShell window, and then enter the snippets below. When you are prompted to sign in, sign in as one of the subscription administrators or owners. 
 
@@ -66,7 +66,7 @@ To create an Data Lake Storage Gen1 account with , do the following:
 	> If you register the Data Lake Storage Gen1 resource provider and receive an error similar to `Register-AzResourceProvider : InvalidResourceNamespace: The resource namespace 'Microsoft.DataLakeStore' is invalid`, your subscription might not be whitelisted for Data Lake Storage Gen1. To enable your Azure subscription for Data Lake Storage Gen1, follow the instructions in [Get started with Azure Data Lake Storage Gen1 by using the Azure portal](data-lake-store-get-started-portal.md).
 	>
 
-2. An Data Lake Storage Gen1 account is associated with an Azure resource group. Start by creating a resource group.
+2. A Data Lake Storage Gen1 account is associated with an Azure resource group. Start by creating a resource group.
 
     ```azurepowershell
     $resourceGroupName = "<your new resource group name>"
@@ -83,7 +83,7 @@ To create an Data Lake Storage Gen1 account with , do the following:
     ResourceId        : /subscriptions/<subscription-id>/resourceGroups/hdiadlgrp
     ```
 
-3. Create an Data Lake Storage Gen1 account. The account name you specify must contain only lowercase letters and numbers.
+3. Create a Data Lake Storage Gen1 account. The account name you specify must contain only lowercase letters and numbers.
 
     ```azurepowershell
     $dataLakeStorageGen1Name = "<your new Data Lake Storage Gen1 name>"
@@ -203,7 +203,7 @@ In this section, you create an HDInsight Hadoop Linux cluster with Data Lake Sto
     # Set these variables
 
     $location = "East US 2"
-    $storageAccountName = $dataLakeStorageGen1Name   					   # storage account with Data Lake Storage Gen1 name
+    $storageAccountName = $dataLakeStorageGen1Name   					   # Data Lake Storage Gen1 account name
         $storageRootPath = "<Storage root path you specified earlier>" # E.g. /clusters/hdiadlcluster
         $clusterName = "<unique cluster name>"
     $clusterNodes = <ClusterSizeInNodes>            # The number of nodes in the HDInsight cluster

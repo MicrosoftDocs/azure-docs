@@ -35,7 +35,7 @@ Here are some important considerations for using HDInsight with Data Lake Storag
 
 Configuring HDInsight to work with Data Lake Storage Gen1 using PowerShell involves the following steps:
 
-* Create a storage account with Data Lake Storage Gen1
+* Create a Data Lake Storage Gen1 account 
 * Set up authentication for role-based access to Data Lake Storage Gen1
 * Create HDInsight cluster with authentication to Data Lake Storage Gen1
 * Run a test job on the cluster
@@ -53,8 +53,8 @@ Before you begin this tutorial, you must have the following:
 
     **If you are not an Azure AD administrator**, you will not be able to perform the steps required to create a service principal. In such a case, your Azure AD administrator must first create a service principal before you can create an HDInsight cluster with Data Lake Storage Gen1. Also, the service principal must be created using a certificate, as described at [Create a service principal with certificate](../active-directory/develop/howto-authenticate-service-principal-powershell.md#create-service-principal-with-certificate-from-certificate-authority).
 
-## Create a storage account with Data Lake Storage Gen1
-Follow these steps to create a storage account with  Data Lake Storage Gen1.
+## Create a Data Lake Storage Gen1 account 
+Follow these steps to create a Data Lake Storage Gen1 account.
 
 1. From your desktop, open a new Azure PowerShell window, and enter the following snippet. When prompted to log in, make sure you log in as one of the subscription administrator/owner:
 

@@ -14,15 +14,15 @@ ms.date: 01/02/2020
 
 ML Services on HDInsight can use different storage solutions to persist data, code, or objects that contain results from analysis. These solutions include the following options:
 
-- [Azure Blob](https://azure.microsoft.com/services/storage/blobs/)
-- [Azure Data Lake Storage](https://azure.microsoft.com/services/storage/data-lake-storage/)
+- [Azure Blob storage](https://azure.microsoft.com/services/storage/blobs/)
+- [Azure Data Lake Storage Gen1](https://azure.microsoft.com/services/storage/data-lake-storage/)
 - [Azure File storage](https://azure.microsoft.com/services/storage/files/)
 
 You also have the option of accessing multiple Azure storage accounts or containers with your HDInsight cluster. Azure File storage is a convenient data storage option for use on the edge node that enables you to mount an Azure storage file share to, for example, the Linux file system. But Azure File shares can be mounted and used by any system that has a supported operating system such as Windows or Linux.
 
-When you create an Apache Hadoop cluster in HDInsight, you specify either an **Azure Storage** account or **Data Lake Storage**. A specific storage container from that account holds the file system for the cluster that you create (for example, the Hadoop Distributed File System). For more information and guidance, see:
+When you create an Apache Hadoop cluster in HDInsight, you specify either an **Azure Blob storage** account or **Data Lake Storage Gen1**. A specific storage container from that account holds the file system for the cluster that you create (for example, the Hadoop Distributed File System). For more information and guidance, see:
 
-- [Use Azure Storage with HDInsight](../hdinsight-hadoop-use-blob-storage.md)
+- [Use Azure Blob storage with HDInsight](../hdinsight-hadoop-use-blob-storage.md)
 - [Use Data Lake Storage Gen1 with Azure HDInsight clusters](../hdinsight-hadoop-use-data-lake-storage-gen1.md)
 
 ## Use Azure Blob storage accounts with ML Services cluster
@@ -103,15 +103,15 @@ hadoop fs -mkdir wasbs://container2@storage2.blob.core.windows.net/user/RevoShar
 hadoop fs -mkdir wasbs://container2@storage2.blob.core.windows.net/user/RevoShare/<RDP username>
 ```
 
-## Use Azure Data Lake Storage with ML Services cluster
+## Use Azure Data Lake Storage Gen1 with ML Services cluster
 
-To use Data Lake Storage with your HDInsight cluster, you need to give your cluster access to each Azure Data Lake Storage that you want to use. For instructions on how to use the Azure portal to create a HDInsight cluster with an Azure Data Lake Storage as the default storage or as additional storage, see [Create an HDInsight cluster with Data Lake Storage using Azure portal](../../data-lake-store/data-lake-store-hdinsight-hadoop-use-portal.md).
+To use Data Lake Storage Gen1 with your HDInsight cluster, you need to give your cluster access to each Azure Data Lake Storage Gen1 that you want to use. For instructions on how to use the Azure portal to create a HDInsight cluster with an Azure Data Lake Storage Gen1 as the default storage or as additional storage, see [Create an HDInsight cluster with Data Lake Storage Gen1 using Azure portal](../../data-lake-store/data-lake-store-hdinsight-hadoop-use-portal.md).
 
 You then use the storage in your R script much like you did a secondary Azure storage account as described in the previous procedure.
 
-### Add cluster access to your Azure Data Lake Storage
+### Add cluster access to your Azure Data Lake Storage Gen1
 
-You access Data Lake Storage by using an Azure Active Directory (Azure AD) Service Principal that's associated with your HDInsight cluster.
+You access Data Lake Storage Gen1 by using an Azure Active Directory (Azure AD) Service Principal that's associated with your HDInsight cluster.
 
 1. When you create your HDInsight cluster, select **Cluster AAD Identity** from the **Data Source** tab.
 
@@ -119,7 +119,7 @@ You access Data Lake Storage by using an Azure Active Directory (Azure AD) Servi
 
 After you give the Service Principal a name and create a password for it, click **Manage ADLS Access** to associate the Service Principal with your Data Lake Storage.
 
-It's also possible to add cluster access to one or more Data Lake storage accounts following cluster creation. Open the Azure portal entry for a Data Lake Storage and go to **Data Explorer > Access > Add**.
+It's also possible to add cluster access to one or more Data Lake storage Gen1 accounts following cluster creation. Open the Azure portal entry for a Data Lake Storage Gen1 and go to **Data Explorer > Access > Add**.
 
 ### How to access Data Lake Storage Gen1 from ML Services on HDInsight
 
