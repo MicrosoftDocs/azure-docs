@@ -104,7 +104,7 @@ Follow these steps to access the lineage information of an asset:
 
 1. From the search results, select the data asset and select its **Lineage** tab.
 
-   :::image type="content" source="./media/catalog-lineage-user-guide/select-lineage-from-asset.png" alt-text="Screenshot showing how to select the Lineage tab." lightbox="select-lineage-from-asset.png":::
+   :::image type="content" source="./media/catalog-lineage-user-guide/select-lineage-from-asset.png" alt-text="Screenshot showing how to select the Lineage tab." lightbox="./media/catalog-lineage-user-guide/select-lineage-from-asset.png":::
 
 ## Supported lineage patterns for ADF activities
 
