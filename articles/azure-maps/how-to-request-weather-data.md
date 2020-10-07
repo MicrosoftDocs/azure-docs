@@ -18,8 +18,6 @@ The Azure Maps [Weather service](https://docs.microsoft.com/rest/api/maps/weathe
 
 In this article you’ll learn, how to:
 
-In this article you'll learn, how to:
-
 * Request real-time (current) weather data using the [Get Current Conditions API](https://docs.microsoft.com/rest/api/maps/weather/getcurrentconditionspreview).
 * Request severe weather alerts using the [Get Severe Weather Alerts API](https://docs.microsoft.com/rest/api/maps/weather/getsevereweatheralertspreview).
 * Request daily forecasts using the [Get Daily Forecast API](https://docs.microsoft.com/rest/api/maps/weather/getdailyforecastpreview).
@@ -148,7 +146,7 @@ In this example, you'll use the [Get Hourly Forecast API](https://docs.microsoft
 
  The [Get Minute Forecast API](https://docs.microsoft.com/rest/api/maps/weather/getminuteforecastpreview) returns minute-by-minute forecasts for a given location for the next 120 minutes. Users can request weather forecasts in intervals of 1, 5 and 15 minutes. The response includes details such as the type of precipitation (including rain, snow, or a mixture of both), start time, and precipitation intensity value (dBZ).
 
-In this example, you'll use the [Get Minute Forecast API](https://docs.microsoft.com/rest/api/maps/weather/getminuteforecastpreview) to retrieve the minute-by-minute weather forecast at coordinates located in Seattle, WA. The weather forecast is given for the next 120 minutes. Our query requests that the forecast be given at 15-minute intervals, but you can adjust the parameter parameter to either 1 or 15 minutes.
+In this example, you'll use the [Get Minute Forecast API](https://docs.microsoft.com/rest/api/maps/weather/getminuteforecastpreview) to retrieve the minute-by-minute weather forecast at coordinates located in Seattle, WA. The weather forecast is given for the next 120 minutes. Our query requests that the forecast be given at 15-minute intervals, but you can adjust the parameter to be either 1 or 5 minutes.
 
 1. Open the Postman app, click **New**, and select **Request**. Enter a **Request name** for the request. Select the collection you created in the previous section or created a new one, and then select **Save**.
 
