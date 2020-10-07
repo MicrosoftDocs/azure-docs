@@ -22,7 +22,7 @@ In Azure Active Directory (Azure AD), all users are granted a set of default per
 ## Member and guest users
 The set of default permissions received depends on whether the user is a native member of the tenant (member user) or if the user is brought over from another directory as a B2B collaboration guest (guest user). See [What is Azure AD B2B collaboration?](../external-identities/what-is-b2b.md) for more information about adding guest users.
 * Member users can register applications, manage their own profile photo and mobile phone number, change their own password, and invite B2B guests. In addition, users can read all directory information (with a few exceptions). 
-* Guest users have restricted directory permissions. They can manage their own profile, change their own password and retrieve some information about other users, groups and apps, however, they cannot read all directory information. For example, guest users cannot enumerate users, groups and other directory objects. Guests can be added to administrator roles, which grant them full read and write permissions contained in the role. Guests can also invite other guests.
+* Guest users have restricted directory permissions. They can manage their own profile, change their own password and retrieve some information about other users, groups and apps, however, they cannot read all directory information. For example, guest users cannot enumerate the list of all users, groups and other directory objects. Guests can be added to administrator roles, which grant them full read and write permissions contained in the role. Guests can also invite other guests.
 
 ## Compare member and guest default permissions
 
