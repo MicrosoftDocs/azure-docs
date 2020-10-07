@@ -49,9 +49,9 @@ A retry policy can be defined for all functions in an app [using the `host.json`
 
 A retry policy can be defined for a specific function.  Function-specific configuration takes priority over app-level configuration.
 
-# [C#](#tab/csharp)
-
 #### Fixed delay retry
+
+# [C#](#tab/csharp)
 
 ```csharp
 [FunctionName("EventHubTrigger")]
@@ -62,22 +62,29 @@ public static async Task Run([EventHubTrigger("myHub", Connection = "EventHubCon
 }
 ```
 
-#### Exponential backoff retry
-
-```csharp
-[FunctionName("EventHubTrigger")]
-[exponentialBackoffRetry(5, "00:00:04", "00:15:00")]
-public static async Task Run([EventHubTrigger("myHub", Connection = "EventHubConnection")] EventData[] events, ILogger log)
-{
-// ...
-}
-```
-
 # [C# Script](#tab/csharp-script)
 
 Here's the retry policy in the *function.json* file:
 
-#### Fixed delay retry
+```json
+{
+    "disabled": false,
+    "bindings": [
+        {
+            ....
+        }
+    ],
+    "retry": {
+        "strategy": "fixedDelay",
+        "maxRetryCount": 4,
+        "delayInterval": "00:00:10"
+    }
+}
+```
+# [JavaScript](#tab/javascript)
+
+Here's the retry policy in the *function.json* file:
+
 
 ```json
 {
@@ -95,7 +102,64 @@ Here's the retry policy in the *function.json* file:
 }
 ```
 
+# [Python](#tab/python)
+
+Here's the retry policy in the *function.json* file:
+
+```json
+{
+    "disabled": false,
+    "bindings": [
+        {
+            ....
+        }
+    ],
+    "retry": {
+        "strategy": "fixedDelay",
+        "maxRetryCount": 4,
+        "delayInterval": "00:00:10"
+    }
+}
+```
+
+# [Java](#tab/java)
+
+Here's the retry policy in the *function.json* file:
+
+
+```json
+{
+    "disabled": false,
+    "bindings": [
+        {
+            ....
+        }
+    ],
+    "retry": {
+        "strategy": "fixedDelay",
+        "maxRetryCount": 4,
+        "delayInterval": "00:00:10"
+    }
+}
+```
+---
+
 #### Exponential backoff retry
+
+# [C#](#tab/csharp)
+
+```csharp
+[FunctionName("EventHubTrigger")]
+[ExponentialBackoffRetry(5, "00:00:04", "00:15:00")]
+public static async Task Run([EventHubTrigger("myHub", Connection = "EventHubConnection")] EventData[] events, ILogger log)
+{
+// ...
+}
+```
+
+# [C# Script](#tab/csharp-script)
+
+Here's the retry policy in the *function.json* file:
 
 ```json
 {
@@ -118,26 +182,6 @@ Here's the retry policy in the *function.json* file:
 
 Here's the retry policy in the *function.json* file:
 
-#### Fixed delay retry
-
-```json
-{
-    "disabled": false,
-    "bindings": [
-        {
-            ....
-        }
-    ],
-    "retry": {
-        "strategy": "fixedDelay",
-        "maxRetryCount": 4,
-        "delayInterval": "00:00:10"
-    }
-}
-```
-
-#### Exponential backoff retry
-
 ```json
 {
     "disabled": false,
@@ -159,26 +203,6 @@ Here's the retry policy in the *function.json* file:
 
 Here's the retry policy in the *function.json* file:
 
-#### Fixed delay retry
-
-```json
-{
-    "disabled": false,
-    "bindings": [
-        {
-            ....
-        }
-    ],
-    "retry": {
-        "strategy": "fixedDelay",
-        "maxRetryCount": 4,
-        "delayInterval": "00:00:10"
-    }
-}
-```
-
-#### Exponential backoff retry
-
 ```json
 {
     "disabled": false,
@@ -199,26 +223,6 @@ Here's the retry policy in the *function.json* file:
 # [Java](#tab/java)
 
 Here's the retry policy in the *function.json* file:
-
-#### Fixed delay retry
-
-```json
-{
-    "disabled": false,
-    "bindings": [
-        {
-            ....
-        }
-    ],
-    "retry": {
-        "strategy": "fixedDelay",
-        "maxRetryCount": 4,
-        "delayInterval": "00:00:10"
-    }
-}
-```
-
-#### Exponential backoff retry
 
 ```json
 {
