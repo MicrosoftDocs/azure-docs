@@ -10,13 +10,13 @@ ms.author: duau
 ---
 
 # ExpressRoute connectivity models
-You can create a connection between your on-premises network and the Microsoft cloud in four different ways, [CloudExchange Colocation](#CloudExchange), [Point-to-point Ethernet Connection](#Ethernet), [Any-to-any (IPVPN) Connection](#IPVPN), and [ExpressRoute Direct](#Direct). Connectivity providers may offer one or more connectivity models. You can work with your connectivity provider to pick the model that works best for you.
+You can create a connection between your on-premises network and the Microsoft cloud in four different ways, [CloudExchange Co-location](#CloudExchange), [Point-to-point Ethernet Connection](#Ethernet), [Any-to-any (IPVPN) Connection](#IPVPN), and [ExpressRoute Direct](#Direct). Connectivity providers may offer one or more connectivity models. You can work with your connectivity provider to pick the model that works best for you.
 <br><br>
 
 :::image type="content" source="./media/expressroute-connectivity-models/expressroute-connectivity-models-diagram.png" alt-text="ExpressRoute connectivity model diagram":::
 
-## <a name="CloudExchange"></a>Colocated at a cloud exchange
-If you're colocated in a facility with a cloud exchange, you can order virtual cross-connections to the Microsoft cloud through the colocation provider’s Ethernet exchange. Colocation providers can offer either Layer 2 cross-connections, or managed Layer 3 cross-connections between your infrastructure in the colocation facility and the Microsoft cloud.
+## <a name="CloudExchange"></a>Co-located at a cloud exchange
+If you're co-located in a facility with a cloud exchange, you can order virtual cross-connections to the Microsoft cloud through the co-location provider’s Ethernet exchange. Co-location providers can offer either Layer 2 cross-connections, or managed Layer 3 cross-connections between your infrastructure in the co-location facility and the Microsoft cloud.
 
 ## <a name="Ethernet"></a>Point-to-point Ethernet connections
 You can connect your on-premises datacenters/offices to the Microsoft cloud through point-to-point Ethernet links. Point-to-point Ethernet providers can offer Layer 2 connections, or managed Layer 3 connections between your site and the Microsoft cloud.
