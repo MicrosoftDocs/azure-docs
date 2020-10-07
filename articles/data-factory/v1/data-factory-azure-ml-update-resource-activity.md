@@ -1,6 +1,6 @@
 ---
 title: Update Machine Learning models using Azure Data Factory 
-description: Describes how to create predictive pipelines using Azure Data Factory and Azure Machine Learning Studio (classic)
+description: Describes how to create predictive pipelines using Azure Data Factory v1 and Azure Machine Learning Studio (classic)
 services: data-factory
 documentationcenter: ''
 author: djpmsft
