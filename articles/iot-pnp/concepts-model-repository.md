@@ -79,25 +79,25 @@ string modelContent = await _httpClient.GetStringAsync(fullyQualifiedPath);
 
 1. Fork the public GitHub repo: [https://github.com/Azure/device-models](https://github.com/Azure/device-models).
 1. Clone the forked repo. Optionally create a new branch to keep your changes isolated from the `main` branch.
-1. Add the new interfaces to the `dtmi` folder using the folder/filename convention. The `add-model.js` script helps you to check basic requirements and create the file in the correct folder based on the interface Id. To learn more, see the [Scripts to validate changes](#local-validation) section.
+1. Add the new interfaces to the `dtmi` folder using the folder/filename convention. See the [add-model](#add-model) tool below.
+1. Validate the models locally using the [scripts to validate changes](#validate-files) section.
 1. Commit the changes locally and push to your fork.
 1. From your fork, create a PR that targets the `main` branch.
+1. Review the [PR requirements](https://github.com/Azure/device-models/pr-reqs.md)
 
 The PR triggers a series of GitHub actions that will validate the new submitted interfaces, and make sure your PR satisfies all the checks.
 
 Microsoft will respond to a PR with all checks in 3 business days.
 
-### Adding interfaces
+### add-model
 
 The following steps show you how the add-model.js script helps you add a new interface. This script requires Node.js to run:
-
 
 1. From a command prompt navigate to the local git repo
 1. Run `npm install`
 1. Run `npm run add-model <path-to-file-to-add>`
 
-The script will check that all dependencies are met, there are no global unique Ids, and then it will create the file in the required folder.
-
+Watch the console output for any error messages.
 
 ### Local validation
 
@@ -117,18 +117,7 @@ You can run the same validation checks locally before submitting the PR to help 
 
 #### validate-models
 
-Models can be validated with the `dmr-client` dotnet tool that can be installed with:
-
-```bash
-dotnet tool install -g dmr-client
-```
-
-To validate an interface resolving dependencies from the local `dtmi` folder:
-
-```bash
-dmr-client validate --model-file <file1.json> --registry /repos/device-models/dtmi
-```
-
+You can run the [DTDL Validation Sample](https://github.com/Azure-Samples/DTDL-Validator) to validate your models locally.
 
 ## Next steps
 
