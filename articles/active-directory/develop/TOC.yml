@@ -26,8 +26,6 @@
     items:
     - name: Angular
       href: quickstart-v2-angular.md
-    - name: Angular
-      href: quickstart-blazor-wasm.md
     - name: JavaScript - Auth code flow
       href: quickstart-v2-javascript-auth-code.md
     - name: JavaScript - Implicit flow
@@ -75,6 +73,8 @@
     items:
     - name: Angular
       href: tutorial-v2-angular.md
+    - name: Blazor WebAssembly
+      href: tutorial-blazor-wasm.md
     - name: JavaScript - Auth code flow
       href: tutorial-v2-javascript-auth-code.md
     - name: JavaScript - Implicit flow
