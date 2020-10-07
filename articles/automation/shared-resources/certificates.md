@@ -79,8 +79,7 @@ New-AzAutomationCertificate -AutomationAccountName "MyAutomationAccount" -Name $
 The following example demonstrates how to deploy a certificate to your Automation account by using a Resource Manager template through PowerShell:
 
 ```powershell-interactive
-$AutomationAccountName = "<automation account name>"
-$PfxCertPath = '<PFX cert path'
+$PfxCertPath = '<PFX cert path>'
 $CertificatePassword = '<password>'
 $certificateName = '<certificate name>'
 $AutomationAccountName = '<automation account name>'

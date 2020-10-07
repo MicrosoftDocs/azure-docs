@@ -141,7 +141,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 1. On the **Single Sign-On** tab, click **Edit**.
 
-	![Single Sign-On Settings](./media/druva-tutorial/ic795092.png "Single Sign-On Settings")
+	![Screenshot that shows the "Access Settings - Single Sign-On" tab with the "Edit" button selected.](./media/druva-tutorial/ic795092.png "Single Sign-On Settings")
 
 1. On the **Edit Single Sign-On Settings** page, perform the following steps:
 
