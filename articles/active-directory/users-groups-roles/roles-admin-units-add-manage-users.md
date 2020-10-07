@@ -30,7 +30,7 @@ You can assign users to administrative units individually or in a bulk operation
 
 - Individual assignment from a user profile
 
-   1. Sign in to the [Azure AD admin center](http://portal.azure.com) with Privileged Role Administrator permissions.
+   1. Sign in to the [Azure AD admin center](https://portal.azure.com) with Privileged Role Administrator permissions.
    1. Select **Users** and select the user to be assigned to an administrative unit to open the user's profile.
    1. Select **Administrative units**. The user can be assigned to one or more administrative units by selecting **Assign to administrative unit** and selecting the administrative units where the user is to be assigned.
 
@@ -38,7 +38,7 @@ You can assign users to administrative units individually or in a bulk operation
 
 - Individual assignment from an administrative unit
 
-   1. Sign in to the [Azure AD admin center](http://portal.azure.com) with Privileged Role Administrator permissions.
+   1. Sign in to the [Azure AD admin center](https://portal.azure.com) with Privileged Role Administrator permissions.
    1. Select **Administrative units** and then select the administrative unit where the users are to be assigned.
    1. Select **All users** and then select **Add member** to select one or more users to be assigned to the administrative unit from the **Add member** pane.
 
@@ -46,7 +46,7 @@ You can assign users to administrative units individually or in a bulk operation
 
 - Bulk assignment
 
-   1. Sign in to the [Azure AD admin center](http://portal.azure.com) with Privileged Role Administrator permissions.
+   1. Sign in to the [Azure AD admin center](https://portal.azure.com) with Privileged Role Administrator permissions.
    1. Select **Administrative units**.
    1. Select the administrative unit where users are to be added.
    1. Open **All users** > **Add members from .csv file**. You can then download the comma-separated values (CSV) template and edit the file. The format is simple and needs a single User Principal Name to be added in each line. Once the file is ready, save it at an appropriate location and then upload it as part of this step.
