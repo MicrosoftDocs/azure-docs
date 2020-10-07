@@ -210,6 +210,17 @@ Push all metrics to Azure Monitor and consume them where you need them.
 The Microsoft Azure DSM and Microsoft Azure Event Hub Protocol are available for download from [the IBM support website](https://www.ibm.com/support). You can learn more about the integration with Azure in the [QRadar documentation](https://www.ibm.com/support/knowledgecenter/SS42VS_DSM/c_dsm_guide_microsoft_azure_overview.html?cp=SS42VS_7.3.0).
 
 
+## RSA
+
+![RSA Logo](./media/partners/rsa.png)
+
+The RSA NetWitness Platform is a leading threat detection and response platform that brings together evolved SIEM and extended detection and response solutions. The solutions deliver unsurpassed visibility, analytics, and automated response capabilities. These combined capabilities help security teams work more efficiently and effectively, up-leveling their threat hunting skills and enabling them to investigate and respond to threats faster, across their organization’s entire infrastructure—whether in the cloud, on premises, or virtual. 
+
+RSA NetWitness Platform's integration with Azure Monitor provides quick out of the box capabilities to ingest event data and logs from Azure Monitor natively into the RSA NetWitness Platform through an intuitive UI and robust native parsing capabilities. Gain rapid visibility into Activity, Diagnostic, Active Directory Events and other Event Hub data and see this data alongside your other enterprise security information in a complete threat detection and response solution.
+
+[Learn more.](https://community.rsa.com/docs/DOC-101239)
+
+
 ## ScienceLogic
 
 ![ScienceLogic Logo](./media/partners/sciencelogic.png)

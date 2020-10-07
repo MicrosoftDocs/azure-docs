@@ -1,8 +1,8 @@
 ---
 title: Supported versions - Azure Database for PostgreSQL - Single Server
 description: Describes the supported Postgres major and minor versions in Azure Database for PostgreSQL - Single Server.
-author: rachel-msft
-ms.author: raagyema
+author: lfittl-msft
+ms.author: lufittl
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 07/22/2020

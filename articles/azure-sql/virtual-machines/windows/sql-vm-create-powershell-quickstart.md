@@ -168,7 +168,7 @@ Then during a maintenance window, upgrade to full mode:
 $vm = Get-AzVM -Name <vm_name> -ResourceGroupName <resource_group_name>
       
 # Register with SQL VM resource provider in full mode
-New-AzSqlVM -Name $vm.Name -ResourceGroupName $vm.ResourceGroupName -SqlManagementType Full
+Update-AzSqlVM -Name $vm.Name -ResourceGroupName $vm.ResourceGroupName -SqlManagementType Full
 ```
 
 

@@ -28,6 +28,10 @@
     href: tutorial-custom-role-cli.md
 - name: Concepts
   items:
+  - name: Role definitions
+    href: role-definitions.md
+  - name: Scope
+    href: scope-overview.md
   - name: Best practices
     href: best-practices.md
   - name: Conditional Access for Azure management
@@ -40,11 +44,7 @@
 - name: How-to guides
   items:
   - name: List role definitions
-    items:
-    - name: Overview
-      href: role-definitions.md
-    - name: List role definitions
-      href: role-definitions-list.md
+    href: role-definitions-list.md
   - name: List role assignments
     items:
     - name: Portal
@@ -57,6 +57,8 @@
       href: role-assignments-list-rest.md
   - name: Add or remove role assignments
     items:
+    - name: Steps to add a role assignment
+      href: role-assignments-steps.md
     - name: Portal
       href: role-assignments-portal.md
     - name: Portal - guest users
@@ -101,7 +103,7 @@
     href: elevate-access-global-admin.md
   - name: Classic administrators
     href: classic-administrators.md
-  - name: Transfer subscription to different directory (Preview)
+  - name: Transfer subscription to different directory
     href: transfer-subscription.md
   - name: Troubleshoot
     href: troubleshooting.md
