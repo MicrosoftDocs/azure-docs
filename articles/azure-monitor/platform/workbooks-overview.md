@@ -108,7 +108,7 @@ To access pin mode, click **Edit** to enter editing mode, and select the blue pi
 ![Pin experience](./media/workbooks-overview/pin-experience.png)
 
 > [!NOTE]
-> The state of the the workbook is saved at the time of the pin, and pinned workbooks on a dashboard will not update if the underlying workbook is modified. In order to update a pinned workbook part, you will need to delete and re-pin that part.
+> The state of the workbook is saved at the time of the pin, and pinned workbooks on a dashboard will not update if the underlying workbook is modified. In order to update a pinned workbook part, you will need to delete and re-pin that part.
 
 ## Dashboard time ranges
 

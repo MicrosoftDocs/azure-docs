@@ -7,7 +7,7 @@ author: cherylmc
 ms.service: vpn-gateway
 ms.topic: conceptual
 ms.date: 09/03/2020
-ms.author: alzam
+ms.author: cherylmc
 
 ---
 # Create an Active Directory (AD) tenant for P2S OpenVPN protocol connections
@@ -15,7 +15,7 @@ ms.author: alzam
 When connecting to your VNet, you can use certificate-based authentication or RADIUS authentication. However, when you use the Open VPN protocol, you can also use Azure Active Directory authentication. If you want different set of users to be able to connect to different VPN gateways, you can register multiple apps in AD and link them to different VPN gateways. This article helps you set up an Azure AD tenant for P2S OpenVPN authentication and create and register multiple apps in Azure AD for allowing different access for different users and groups.
 
 > [!NOTE]
-> Azure AD authentication is supported only for OpenVPN® protocol connections.
+> Azure AD authentication is supported only for OpenVPN® protocol connections. Azure AD authentication requires the Azure VPN client, which is available only for Windows 10.
 >
 
 [!INCLUDE [create](../../includes/openvpn-azure-ad-tenant-multi-app.md)]
