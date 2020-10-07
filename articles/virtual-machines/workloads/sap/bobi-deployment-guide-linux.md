@@ -21,9 +21,9 @@ ms.author: depadia
 
 # SAP BusinessObjects BI Platform on Azure for Linux
 
-This section demonstrates on how to deploy SAP BOBI Platform on Azure for Linux. In this illustration, two virtual machines are provisioned with Managed Premium SSD as its install directory, Azure Database for MySQL as CMS database, and Azure NetApp Files for File Repository Server shared across both the servers. The default Tomcat Java Web Application and BI Platform Application are installed together on both Virtual Machines. For load balancing, Azure Application Gateway is used to load balance incoming user request and supports TLS/SSL offloading.
+This article describes the strategy to deploy SAP BOBI Platform on Azure for Linux. In this example, two virtual machines with Premium SSD Managed Disks as its install directory are configured. Azure Database for MySQL is used for CMS database, and Azure NetApp Files for File Repository Server is shared across both servers. The default Tomcat Java web application and BI Platform application are installed together on both virtual machines. To load balance the user request, Application Gateway is used that has native TLS/SSL offloading capabilities.
 
-This type of architecture is effective for small deployment or non-production environment. For Production or large-scale deployment, you can have a separate host for Web Application and can as well have multiple BOBI applications hosts allowing server to process more information.
+This type of architecture is effective for small deployment or non-production environment. For Production or large-scale deployment, you can have separate hosts for Web Application and can as well have multiple BOBI applications hosts allowing server to process more information.
 
 ![SAP BOBI Deployment on Azure for Linux](media/bobi-deployment-guide/bobi-deployment-linux.png)
 
@@ -49,11 +49,11 @@ In this section, we'll create two virtual machines (VMs) with Linux Operating Sy
 2. Create a [Virtual Network](../../../virtual-network/quick-create-portal.md#create-a-virtual-network).
 
    - Don't use single subnet for all Azure services in SAP BI Platform deployment. Based on SAP BI Platform architecture, you need to create multiple subnets. In this deployment, we'll create three subnets - Application Subnet, File Repository Store Subnet, and Application Gateway Subnet.
-   - In Azure, Application Gateway and Azure NetApp Files always need to be on separate subnet. Check [Azure Application Gateway](../../../application-gateway/configuration-overview.md) and [Guidelines for Azure NetApp Files Network Planning](../../../azure-netapp-files/azure-netapp-files-network-topologies.md) configuration article for more details.
+   - In Azure, Application Gateway and Azure NetApp Files always need to be on separate subnet. Check [Azure Application Gateway](../../../application-gateway/configuration-overview.md) and [Guidelines for Azure NetApp Files Network Planning](../../../azure-netapp-files/azure-netapp-files-network-topologies.md) article for more details.
 
 3. Create an Availability Set.
 
-   - If you have multiple hosts for SAP BI Platform and to achieve availability for each tier (Web, Storage, Management, Processing) in SAP BI Platform, you have to define multiple availability sets.
+   - To achieve redundancy for each tier in multi-instance deployment, place virtual machines for each tier in an availability set. Make sure you separate the availability sets for each tier based on your architecture.
 
 4. Create Virtual Machine 1 **(azusbosl1).**
 
@@ -70,7 +70,7 @@ Azure NetApp Files is available in several [Azure regions](https://azure.microso
 
 Use [Azure NetApp Files availability by Azure Region](https://azure.microsoft.com/global-infrastructure/services/?products=netapp&regions=all) page to check the availability of Azure NetApp Files by region.
 
-Before you deploy Azure NetApp Files, request onboarding to Azure NetApp Files by going to [Register for Azure NetApp Files instructions](../../../azure-netapp-files/azure-netapp-files-register.md).
+Request onboarding to Azure NetApp Files by going to [Register for Azure NetApp Files instructions](../../../azure-netapp-files/azure-netapp-files-register.md) before you deploy Azure NetApp Files.
 
 ### Deploy Azure NetApp Files resources
 
@@ -97,14 +97,14 @@ Keep in mind that the Azure NetApp Files resources and the Azure VMs must be in 
 
 ### Important considerations
 
-As you're creating your Azure NetApp Files for SAP HANA Scale-up systems, be aware of the following consideration:
+As you're creating your Azure NetApp Files for SAP BOBI Platform File Repository Server, be aware of the following consideration:
 
 1. The minimum capacity pool is 4 tebibytes (TiB).
 2. The minimum volume size is 100 gibibytes (GiB).
 3. Azure NetApp Files and all virtual machines where the Azure NetApp Files volumes will be mounted must be in the same Azure virtual network or in [peered virtual networks](../../../virtual-network/virtual-network-peering-overview.md) in the same region. Azure NetApp Files access over VNET peering in the same region is supported now. Azure NetApp access over global peering isn't supported yet.
 4. The selected virtual network must have a subnet that is delegated to Azure NetApp Files.
 5. With the Azure NetApp Files [export policy](../../../azure-netapp-files/azure-netapp-files-configure-export-policy.md), you can control the allowed clients, the access type (read-write, read only, and so on).
-6. The Azure NetApp Files feature is not zone-aware yet. Currently, the feature isn't deployed in all availability zones in an Azure region. Be aware of the potential latency implications in some Azure regions.
+6. The Azure NetApp Files feature isn't zone-aware yet. Currently, the feature isn't deployed in all availability zones in an Azure region. Be aware of the potential latency implications in some Azure regions.
 7. Azure NetApp Files volumes can be deployed as NFSv3 or NFSv4.1 volumes. Both protocols are supported for the SAP BI Platform Applications.
 
 ## Configure File Systems on Linux Servers
@@ -264,9 +264,9 @@ The steps in this section use the following prefixes:
    10.31.2.4:/azusbobi-frsoutput  100T  512K  100T   1% /usr/sap/frsoutput
    ```
 
-## Configure CMS Database (Azure DB for MySQL)
+## Configure CMS Database - Azure DB for MySQL
 
-This section provides details on how to provision Azure Database for MySQL using Azure portal. It also provides instructions on how to create CMS and Audit Databases for SAP BOBI Platform and a user account that access the database(s).
+This section provides details on how to provision Azure Database for MySQL using Azure portal. It also provides instructions on how to create CMS and Audit Databases for SAP BOBI Platform and a user account to access the database.
 
 The guidelines are applicable only if you're using Azure DB for MySQL. For other database(s), refer SAP or database-specific documentation for instructions.
 
@@ -296,11 +296,11 @@ By default the server created is protected with a firewall and isn't accessible 
 1. Go to server resources in the Azure portal and select **Connection security** from left side menu for your server resource.
 2. Select **Yes** to **Allow access to Azure services**.
 3. Under VNET rules, select **Adding existing virtual network**. Select the virtual network and subnet of SAP BI Platform application server. Also you need to provide access to Jump box or other servers from where you can connect [MySQL Workbench](../../../mysql/connect-workbench.md) to Azure Database for MySQL. MySQL Workbench will be used to create CMS and Audit database
-4. Once virtual networks are added, select on **Save**.
+4. Once virtual networks are added, select **Save**.
 
 ### Create CMS and Audit Database
 
-1. Download and install MySQL workbench from [MySQL website](https://dev.mysql.com/downloads/workbench/). Make sure you install MySQL workbench on the jump server that can access Azure Database for MySQL.
+1. Download and install MySQL workbench from [MySQL website](https://dev.mysql.com/downloads/workbench/). Make sure you install MySQL workbench on the server that can access Azure Database for MySQL.
 
 2. Connect to server by using MySQL Workbench. Follow the instruction mentioned in this [article](../../../mysql/connect-workbench.md#get-connection-information). If the connection test is successful, you'll get following message -
 
@@ -457,13 +457,13 @@ Navigate to media of SAP BusinessObjects BI Platform and run below command with 
 ./setup.sh -InstallDir /usr/sap/BL1
 ```
 
-Follow [SAP BOBI Platform](https://help.sap.com/viewer/product/SAP_BUSINESSOBJECTS_BUSINESS_INTELLIGENCE_PLATFORM) Installation Guide for Unix specific to your version. Few points to note while installing SAP BOBI Platform
+Follow [SAP BOBI Platform](https://help.sap.com/viewer/product/SAP_BUSINESSOBJECTS_BUSINESS_INTELLIGENCE_PLATFORM) Installation Guide for Unix, specific to your version. Few points to note while installing SAP BOBI Platform.
 
-- On **Configure Product Registration** screen, you can either download temporary license key for SAP BusinessObjects Solutions from SAP Note [1288121](https://launchpad.support.sap.com/#/notes/1288121) or can generate license key in SAP Service Marketplace
+- On **Configure Product Registration** screen, you can either use temporary license key for SAP BusinessObjects Solutions from SAP Note [1288121](https://launchpad.support.sap.com/#/notes/1288121) or can generate license key in SAP Service Marketplace
 
 - On **Select Install Type** screen, select **Full** installation on first server (azusbosl1), for other server (azusbosl2) select **Custom / Expand** which will expand the existing BOBI setup.
 
-- On **Select Default or Existing Database** screen, select **configure an existing database**, which will prompt you select CMS and Audit database. Select **MySQL** for CMS Database type and Audit Database type.
+- On **Select Default or Existing Database** screen, select **configure an existing database**, which will prompt you to select CMS and Audit database. Select **MySQL** for CMS Database type and Audit Database type.
 
   You can also select No auditing database, if you don’t want to configure auditing during installation.
 
@@ -501,11 +501,11 @@ select version();
 
 ### Tomcat Clustering - Session Replication
 
-Tomcat supports clustering of two or more application servers for session replication and failover. SAP BOBI platform sessions are serialized, a user session can fail over seamlessly to another instance of Tomcat, even when an application server fails.
+Tomcat supports clustering of two or more application servers for session replication and failover. SAP BOBI platform sessions are serialized, a user session can fail over seamlessly to another instance of tomcat, even when an application server fails.
 
 For example, if a user is connected to a web server that fails while the user is navigating a folder hierarchy in SAP BI application. With a correctly configured cluster, the user may continue navigating the folder hierarchy without being redirected to sign in page.
 
-In SAP Note [2808640](https://launchpad.support.sap.com/#/notes/2808640), steps to configure tomcat clustering is provided using multicast. But in Azure, multicast isn't supported. So to make Tomcat cluster work in Azure, you must use [StaticMembershipInterceptor](https://tomcat.apache.org/tomcat-8.0-doc/config/cluster-interceptor.html#Static_Membership) (SAP Note [2764907](https://launchpad.support.sap.com/#/notes/2764907)). Check [Tomcat Clustering using Static Membership for SAP BusinessObjects BI Platform](https://blogs.sap.com/2020/09/04/sap-on-azure-tomcat-clustering-using-static-membership-for-sap-businessobjects-bi-platform/) on SAP blog.
+In SAP Note [2808640](https://launchpad.support.sap.com/#/notes/2808640), steps to configure tomcat clustering is provided using multicast. But in Azure, multicast isn't supported. So to make Tomcat cluster work in Azure, you must use [StaticMembershipInterceptor](https://tomcat.apache.org/tomcat-8.0-doc/config/cluster-interceptor.html#Static_Membership) (SAP Note [2764907](https://launchpad.support.sap.com/#/notes/2764907)). Check [Tomcat Clustering using Static Membership for SAP BusinessObjects BI Platform](https://blogs.sap.com/2020/09/04/sap-on-azure-tomcat-clustering-using-static-membership-for-sap-businessobjects-bi-platform/) on SAP blog to set up tomcat cluster in Azure.
 
 ### Load-Balancing Web Tier of SAP BI Platform
 
@@ -513,9 +513,9 @@ In SAP BOBI multi-instance deployment, Java Web Application servers (web tier) a
 
 #### Azure Load Balancer (Network-based Load Balancer)
 
-[Azure Load Balancer](../../../load-balancer/load-balancer-overview.md) is a high performance, low latency layer 4 (TCP, UDP) load balancer that distributes traffic among healthy Virtual Machines. A load balancer health probe monitors a given port on each VM and only distributes traffic to an operational Virtual Machine(s). You can either choose a public load balancer or internal load balancer, depending on whether you want SAP BI Platform accessible from internet or not. Its zone redundant, ensuring high-availability across Availability Zones.
+[Azure Load Balancer](../../../load-balancer/load-balancer-overview.md) is a high performance, low latency layer 4 (TCP, UDP) load balancer that distributes traffic among healthy Virtual Machines. A load balancer health probe monitors a given port on each VM and only distributes traffic to an operational Virtual Machine(s). You can either choose a public load balancer or internal load balancer depending on whether you want SAP BI Platform accessible from internet or not. Its zone redundant, ensuring high-availability across Availability Zones.
 
-Refer Internal Load Balancer section in below figure where web application server runs on port 8080, default Tomcat HTTP Port, which will be monitored by health probe. So any incoming request that comes from end users will get redirected to the web application servers (azusbosl1 or azusbosl2) in the backend pool. Load balancer doesn’t support TLS/SSL Termination (also known as TLS/SSL Offloading). If you want TLS/SSL encryption enabled on web server for SAP BI Platform, you have to apply TLS/SSL certificate on all web servers. Once HTTPS is enabled, you can configure Azure Load Balancer using HTTPS port, which will load balance traffic to TLS/SSL enabled web servers.
+Refer Internal Load Balancer section in below figure where web application server runs on port 8080, default Tomcat HTTP Port, which will be monitored by health probe. So any incoming request that comes from end users will get redirected to the web application servers (azusbosl1 or azusbosl2) in the backend pool. Load balancer doesn’t support TLS/SSL Termination (also known as TLS/SSL Offloading). If you are using Azure load balancer to distribute traffic across web servers, we recommend using Standard Load Balancer.
 
 > [!NOTE]
 > When VMs without public IP addresses are placed in the backend pool of internal (no public IP address) Standard Azure load balancer, there will be no outbound internet connectivity, unless additional configuration is performed to allow routing to public end points. For details on how to achieve outbound connectivity see [Public endpoint connectivity for Virtual Machines using Azure Standard Load Balancer in SAP high-availability scenarios](high-availability-guide-standard-load-balancer-outbound-connections.md).
@@ -533,7 +533,7 @@ In SAP BI Platform, application gateway directs application web traffic to the s
 To configure Application Gateway for SAP BOBI Web Server, you can refer [Load Balancing SAP BOBI Web Servers using Azure Application Gateway](https://blogs.sap.com/2020/09/17/sap-on-azure-load-balancing-web-application-servers-for-sap-bobi-using-azure-application-gateway/) on SAP blog.
 
 > [!NOTE]
-> We recommend to use Azure Application Gateway to load balance the traffic to web server as it provide feature likes like SSL offloading, Centralize SSL management to reduce encryption and decryption overhead on server, Round-Robin algorithm to distribute traffic, Web Application Firewall (WAF) capabilities, high-availability etc.
+> We recommend to use Azure Application Gateway to load balance the traffic to web server as it provide feature likes like SSL offloading, Centralize SSL management to reduce encryption and decryption overhead on server, Round-Robin algorithm to distribute traffic, Web Application Firewall (WAF) capabilities, high-availability and so on.
 
 ### SAP BusinessObjects BI Platform - Back up and Restore
 
@@ -555,7 +555,7 @@ As part of backup process, snapshot is taken and the data is transferred to the 
 
 #### Backup & Restore for File Repository Server
 
-For **Azure NetApp Files**, you can create on-demand snapshots and schedule automatic snapshot by using snapshot policies. Snapshot copies provide a point-in-time copy of your ANF volume. For more details, refer [Manage snapshots by using Azure NetApp Files](../../../azure-netapp-files/azure-netapp-files-manage-snapshots.md).
+For **Azure NetApp Files**, you can create an on-demand snapshots and schedule automatic snapshot by using snapshot policies. Snapshot copies provide a point-in-time copy of your ANF volume. For more details, refer [Manage snapshots by using Azure NetApp Files](../../../azure-netapp-files/azure-netapp-files-manage-snapshots.md).
 
 **Azure Files** backup is integrated with native [Azure Backup](../../../backup/backup-overview.md) service, which centralizes the backup and restore function along with VMs backup and simplifies operation work. For more information, refer [Azure File Share backup](../../../backup/azure-file-share-backup-overview.md) and [FAQs - Back up Azure Files](../../../backup/backup-azure-files-faq.md).
 
