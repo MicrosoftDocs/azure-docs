@@ -40,7 +40,7 @@ Specific instructions for each type of application is described in the following
 
 ## .NET Core 3.0 worker service application
 
-Full example is shared [here](https://github.com/microsoft/ApplicationInsights-Home/tree/master/Samples/WorkerServiceSDK/WorkerServiceSampleWithApplicationInsights)
+Full example is shared [here](https://github.com/MohanGsk/ApplicationInsights-Home/tree/master/Samples/WorkerServiceSDK/WorkerServiceSampleWithApplicationInsights)
 
 1. Download and install [.NET Core 3.0](https://dotnet.microsoft.com/download/dotnet-core/3.0)
 2. Create a new Worker Service project either by using Visual Studio new project template or command line `dotnet new worker`
@@ -133,9 +133,9 @@ Typically, `APPINSIGHTS_INSTRUMENTATIONKEY` specifies the instrumentation key fo
 
 [This](/aspnet/core/fundamentals/host/hosted-services?tabs=visual-studio&view=aspnetcore-2.2&preserve-view=true) document describes how to create backgrounds tasks in ASP.NET Core 2.1/2.2 application.
 
-Full example is shared [here](https://github.com/microsoft/ApplicationInsights-Home/tree/master/Samples/WorkerServiceSDK/BackgroundTasksWithHostedService)
+Full example is shared [here](https://github.com/MohanGsk/ApplicationInsights-Home/tree/master/Samples/WorkerServiceSDK/BackgroundTasksWithHostedService)
 
-1. Install the Microsoft.ApplicationInsights.WorkerService(https://www.nuget.org/packages/Microsoft.ApplicationInsights.WorkerService) package to the application.
+1. Install the [Microsoft.ApplicationInsights.WorkerService](https://www.nuget.org/packages/Microsoft.ApplicationInsights.WorkerService) package to the application.
 2. Add `services.AddApplicationInsightsTelemetryWorkerService();` to the `ConfigureServices()` method, as in this example:
 
 ```csharp
@@ -220,9 +220,9 @@ Following is the code for `TimedHostedService` where the background task logic r
 
 As mentioned in the beginning of this article, the new package can be used to enable Application Insights Telemetry from even a regular console application. This package targets [`NetStandard2.0`](/dotnet/standard/net-standard), and hence can be used for console apps in .NET Core 2.0 or higher, and .NET Framework 4.7.2 or higher.
 
-Full example is shared [here](https://github.com/microsoft/ApplicationInsights-Home/tree/master/Samples/WorkerServiceSDK/ConsoleAppWithApplicationInsights)
+Full example is shared [here](https://github.com/MohanGsk/ApplicationInsights-Home/tree/master/Samples/WorkerServiceSDK/ConsoleAppWithApplicationInsights)
 
-1. Install the Microsoft.ApplicationInsights.WorkerService(https://www.nuget.org/packages/Microsoft.ApplicationInsights.WorkerService) package to the application.
+1. Install the [Microsoft.ApplicationInsights.WorkerService](https://www.nuget.org/packages/Microsoft.ApplicationInsights.WorkerService) package to the application.
 
 2. Modify Program.cs as below example.
 
@@ -290,7 +290,7 @@ This console application also uses the same default `TelemetryConfiguration`, an
 
 ## Run your application
 
-Run your application. The example workers from all of the above above makes an http call every second to bing.com, and also emits few logs using ILogger. These lines are wrapped inside `StartOperation` call of `TelemetryClient`, which is used to create an operation (in this example `RequestTelemetry` named "operation"). Application Insights will collect these ILogger logs (warning or above by default) and dependencies, and they will be correlated to the `RequestTelemetry` with parent-child relationship. The correlation also works cross process/network boundary. For example, if the call was made to another monitored component, then it will be correlated to this parent as well.
+Run your application. The example workers from all of the above makes an http call every second to bing.com, and also emits few logs using `ILogger`. These lines are wrapped inside `StartOperation` call of `TelemetryClient`, which is used to create an operation (in this example `RequestTelemetry` named "operation"). Application Insights will collect these ILogger logs (warning or above by default) and dependencies, and they will be correlated to the `RequestTelemetry` with parent-child relationship. The correlation also works cross process/network boundary. For example, if the call was made to another monitored component, then it will be correlated to this parent as well.
 
 This custom operation of `RequestTelemetry` can be thought of as the equivalent of an incoming web request in a typical Web Application. While it is not necessary to use an Operation, it fits best with the [Application Insights correlation data model](./correlation.md) - with `RequestTelemetry` acting as the parent operation, and every telemetry generated inside the worker iteration being treated as logically belonging to the same operation. This approach also ensures all the telemetry generated (automatic and manual) will have the same `operation_id`. As sampling is based on `operation_id`, sampling algorithm either keeps or drops all of the telemetry from a single iteration.
 
@@ -529,13 +529,13 @@ using Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel;
 
 ## Sample applications
 
-[.NET Core Console Application](https://github.com/microsoft/ApplicationInsights-Home/tree/master/Samples/WorkerServiceSDK/ConsoleAppWithApplicationInsights)
+[.NET Core Console Application](https://github.com/MohanGsk/ApplicationInsights-Home/tree/master/Samples/WorkerServiceSDK/ConsoleAppWithApplicationInsights)
 Use this sample if you are using a Console Application written in either .NET Core (2.0 or higher) or .NET Framework (4.7.2 or higher)
 
-[ASP .NET Core background tasks with HostedServices](https://github.com/microsoft/ApplicationInsights-Home/tree/master/Samples/WorkerServiceSDK/BackgroundTasksWithHostedService)
+[ASP .NET Core background tasks with HostedServices](https://github.com/MohanGsk/ApplicationInsights-Home/tree/master/Samples/WorkerServiceSDK/BackgroundTasksWithHostedService)
 Use this sample if you are in Asp.Net Core 2.1/2.2, and creating background tasks as per official guidance [here](/aspnet/core/fundamentals/host/hosted-services?view=aspnetcore-2.2&preserve-view=true)
 
-[.NET Core 3.0 Worker Service](https://github.com/microsoft/ApplicationInsights-Home/tree/master/Samples/WorkerServiceSDK/WorkerServiceSampleWithApplicationInsights)
+[.NET Core 3.0 Worker Service](https://github.com/MohanGsk/ApplicationInsights-Home/tree/master/Samples/WorkerServiceSDK/WorkerServiceSampleWithApplicationInsights)
 Use this sample if you have a .NET Core 3.0 Worker Service application as per official guidance [here](/aspnet/core/fundamentals/host/hosted-services?tabs=visual-studio&view=aspnetcore-3.0&preserve-view=true#worker-service-template)
 
 ## Open-source SDK

@@ -1,6 +1,8 @@
 ---
 title: Design knowledge base - QnA Maker
 description: Learn how to design a knowledge base - QnA Maker.
+ms.service: cognitive-services
+ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 01/27/2020
 ---
