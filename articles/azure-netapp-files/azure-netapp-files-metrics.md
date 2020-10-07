@@ -74,7 +74,7 @@ Azure NetApp Files provides metrics on allocated storage, actual storage usage, 
     The total throughput allocated to volumes in a given capacity pool (that is, the total of the volumes' allocated throughput in the capacity pool).
 -->
 
-<!-- ANF-6443; future
+<!-- ANF-6443; 2020.11
 - *Pool Consumed Throughput*	
     The total throughput being consumed by volumes in a given capacity pool.
 -->
