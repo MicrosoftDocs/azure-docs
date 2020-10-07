@@ -11,7 +11,7 @@ ms.service: iot-edge
 services: iot-edge
 ---
 
-# Remote access to built-in metrics
+# Access built-in metrics
 
 The IoT Edge runtime components, IoT Edge Hub and IoT Edge Agent, produce built-in metrics in the [Prometheus exposition format](https://prometheus.io/docs/instrumenting/exposition_formats/). Access these metrics remotely to monitor and understand the health of an IoT Edge device.
 
@@ -53,7 +53,7 @@ Metrics contain tags to help identify the nature of the metric being collected. 
 
 In the Prometheus exposition format, there are four core metric types: counter, gauge, histogram, and summary. For more information about the different metric types, see the [Prometheus metric types documentation](https://prometheus.io/docs/concepts/metric_types/).
 
-The quantiles provided for the system modules histogram and summary metrics are 0.1, 0.5, 0.9 and 0.99.
+The quantiles provided for the built-in histogram and summary metrics are 0.1, 0.5, 0.9 and 0.99.
 
 The **edgeHub** module produces the following metrics:
 
