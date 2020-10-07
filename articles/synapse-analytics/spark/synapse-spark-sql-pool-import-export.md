@@ -12,7 +12,7 @@ ms.reviewer: euang
 ---
 # Introduction
 
-The Azure Synapse Apache Spark to Synapse SQL connector is designed to efficiently transfer data between serverless Apache Spark pools (preview) and SQL pools in Azure Synapse. The Azure Synapse Apache Spark to Synapse SQL connector works on SQL pools only, it doesn't work with SQL on-demand.
+The Azure Synapse Apache Spark to Synapse SQL connector is designed to efficiently transfer data between serverless Apache Spark pools (preview) and SQL pools in Azure Synapse. The Azure Synapse Apache Spark to Synapse SQL connector works on dedicated SQL pools only, it doesn't work with serverless SQL pool.
 
 ## Design
 

@@ -15,7 +15,7 @@ ms.custom: devx-track-csharp
 # Connect to Synapse SQL
 Get connected to the Synapse SQL capability in Azure Synapse Analytics.
 
-## Supported tools for SQL on-demand (preview)
+## Supported tools for serverless SQL pool (preview)
 
 [Azure Data Studio](/sql/azure-data-studio/download-azure-data-studio) is fully supported starting from version 1.18.0. SSMS is partially supported starting from version 18.5, you can use it to connect and query only.
 
@@ -26,8 +26,8 @@ Get connected to the Synapse SQL capability in Azure Synapse Analytics.
 
 ## Find your server name
 
-The server name for SQL pool in the following example is: showdemoweu.sql.azuresynapse.net.
-The server name for SQL on-demand in the following example is: showdemoweu-ondemand.sql.azuresynapse.net.
+The server name for the dedicated SQL pool in the following example is: showdemoweu.sql.azuresynapse.net.
+The server name for the serverless SQL pool in the following example is: showdemoweu-ondemand.sql.azuresynapse.net.
 
 To find the fully qualified server name:
 
@@ -41,9 +41,9 @@ To find the fully qualified server name:
 
 ![Full server name](./media/connect-overview/server-connect-example.png)
 
-## **SQL on-demand**
+## **serverless SQL pool**
 
-![Full server name SQL on-demand](./media/connect-overview/server-connect-example-sqlod.png)
+![Full server name serverless SQL pool](./media/connect-overview/server-connect-example-sqlod.png)
 
 ## Supported drivers and connection strings
 Synapse SQL supports [ADO.NET](https://msdn.microsoft.com/library/e80y5yhx(v=vs.110).aspx), [ODBC](https://msdn.microsoft.com/library/jj730314.aspx), [PHP](https://msdn.microsoft.com/library/cc296172.aspx?f=255&MSPPError=-2147217396), and [JDBC](https://msdn.microsoft.com/library/mt484311(v=sql.110).aspx). To find the latest version and documentation, select one of the preceding drivers. To automatically generate the connection string for the driver that you're using from the Azure portal, select **Show database connection strings** from the preceding example. Following are also some examples of what a connection string looks like for each driver.
@@ -87,7 +87,7 @@ Synapse SQL standardizes some settings during connection and object creation. Th
 
 ## Recommendations
 
-For executing **SQL on-demand** queries, recommended tools are [Azure Data Studio](get-started-azure-data-studio.md) and Azure Synapse Studio.
+For executing **serverless SQL pool** queries, recommended tools are [Azure Data Studio](get-started-azure-data-studio.md) and Azure Synapse Studio.
 
 ## Next steps
 To connect and query with Visual Studio, see [Query with Visual Studio](../sql-data-warehouse/sql-data-warehouse-query-visual-studio.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json). To learn more about authentication options, see [Authentication to Synapse SQL](../sql-data-warehouse/sql-data-warehouse-authentication.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json).
