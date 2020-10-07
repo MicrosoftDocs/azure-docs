@@ -21,8 +21,8 @@ ms.date: 01/22/2018
 > * [MapReduce Activity](data-factory-map-reduce.md)
 > * [Hadoop Streaming Activity](data-factory-hadoop-streaming-activity.md)
 > * [Spark Activity](data-factory-spark.md)
-> * [Studio (classic) Batch Execution Activity](data-factory-azure-ml-batch-execution-activity.md)
-> * [Studio (classic) Update Resource Activity](data-factory-azure-ml-update-resource-activity.md)
+> * [Azure Machine Learning Studio (classic) Batch Execution Activity](data-factory-azure-ml-batch-execution-activity.md)
+> * [Azure Machine Learning Studio (classic) Update Resource Activity](data-factory-azure-ml-update-resource-activity.md)
 > * [Stored Procedure Activity](data-factory-stored-proc-activity.md)
 > * [Data Lake Analytics U-SQL Activity](data-factory-usql-activity.md)
 > * [.NET Custom Activity](data-factory-use-custom-activities.md)
@@ -31,10 +31,10 @@ ms.date: 01/22/2018
 > [!NOTE]
 > This article applies to version 1 of Data Factory. If you are using the current version of the Data Factory service, see [update machine learning models in Data Factory](../update-machine-learning-models.md).
 
-This article complements the main Azure Data Factory - Studio (classic) integration article: [Create predictive pipelines using Azure Machine Learning Studio (classic) and Azure Data Factory](data-factory-azure-ml-batch-execution-activity.md). If you haven't already done so, review the main article before reading through this article. 
+This article complements the main Azure Data Factory - Azure Machine Learning Studio (classic) integration article: [Create predictive pipelines using Azure Machine Learning Studio (classic) and Azure Data Factory](data-factory-azure-ml-batch-execution-activity.md). If you haven't already done so, review the main article before reading through this article. 
 
 ## Overview
-Over time, the predictive models in the Azure ML scoring experiments need to be retrained using new input datasets. After you are done with retraining, you want to update the scoring web service with the retrained ML model. The typical steps to enable retraining and updating Azure ML models via web services are:
+Over time, the predictive models in the Azure Machine Learning Studio (classic) scoring experiments need to be retrained using new input datasets. After you are done with retraining, you want to update the scoring web service with the retrained ML model. The typical steps to enable retraining and updating Studio (classic) models via web services are:
 
 1. Create an experiment in [Azure Machine Learning Studio (classic)](https://studio.azureml.net).
 2. When you are satisfied with the model, use Studio (classic) to publish web services for both the **training experiment** and scoring/**predictive experiment**.
@@ -44,11 +44,11 @@ The following table describes the web services used in this example.  See [Retra
 - **Training web service** - Receives training data and produces trained models. The output of the retraining is an .ilearner file in an Azure Blob storage. The **default endpoint** is automatically created for you when you publish the training experiment as a web service. You can create more endpoints but the example uses only the default endpoint.
 - **Scoring web service** - Receives unlabeled data examples and makes predictions. The output of prediction could have various forms, such as a .csv file or rows in Azure SQL Database, depending on the configuration of the experiment. The default endpoint is automatically created for you when you publish the predictive experiment as a web service. 
 
-The following picture depicts the relationship between training and scoring endpoints in Azure ML.
+The following picture depicts the relationship between training and scoring endpoints in Azure Machine Learning Studio (classic).
 
 ![Web services](./media/data-factory-azure-ml-batch-execution-activity/web-services.png)
 
-You can invoke the **training web service** by using the **Azure ML Batch Execution Activity**. Invoking a training web service is same as invoking an Azure ML web service (scoring web service) for scoring data. The preceding sections cover how to invoke an Azure ML web service from an Azure Data Factory pipeline in detail. 
+You can invoke the **training web service** by using the **Azure ML Batch Execution Activity**. Invoking a training web service is same as invoking a Studio (classic) web service (scoring web service) for scoring data. The preceding sections cover how to invoke a Studio (classic) web service from an Azure Data Factory pipeline in detail. 
 
 You can invoke the **scoring web service** by using the **Azure ML Update Resource Activity** to update the web service with the newly trained model. The following examples provide linked service definitions: 
 
@@ -83,7 +83,7 @@ If the web service is the new type of web service that exposes an Azure Resource
 https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resource-group-name}/providers/Microsoft.MachineLearning/webServices/{web-service-name}?api-version=2016-05-01-preview. 
 ```
 
-You can get values for place holders in the URL when querying the web service on the [Azure Machine Learning Studio (classic) Web Services Portal](https://services.azureml.net/). The new type of update resource endpoint requires an AAD (Azure Active Directory) token. Specify **servicePrincipalId** and **servicePrincipalKey** in the Studio (classic) linked service. See [how to create service principal and assign permissions to manage Azure resource](../../active-directory/develop/howto-create-service-principal-portal.md). Here is a sample AzureML linked service definition: 
+You can get values for place holders in the URL when querying the web service on the [Azure Machine Learning Studio (classic) Web Services Portal](https://services.azureml.net/). The new type of update resource endpoint requires an AAD (Azure Active Directory) token. Specify **servicePrincipalId** and **servicePrincipalKey** in the Studio (classic) linked service. See [how to create service principal and assign permissions to manage Azure resource](../../active-directory/develop/howto-create-service-principal-portal.md). Here is a sample Studio (classic) linked service definition: 
 
 ```json
 {
