@@ -1,6 +1,6 @@
 ---
-title: Azure Guide - Create an Azure key vault and an vault access policy by using Azure Resource Manager template | Microsoft Docs
-description: Guide showing how to create Azure key vaults and vault access policies by using Azure Resource Manager template.
+title: Azure Guide - Create an Azure key vault and a vault access policy by using Azure Resource Manager template | Microsoft Docs
+description: Shows how to create Azure key vaults and vault access policies by using Azure Resource Manager template.
 services: key-vault
 author: msmbaldwin
 manager: rkarlin
@@ -162,7 +162,7 @@ For more about Key Vault template settings, see [Key Vault ARM template referenc
 
 ## Other available Key Vault Resource Manager templates
 
-There are other Resource manager templates available for Key Vault objects:
+There are other Resource Manager templates available for Key Vault objects:
 
 | Secrets | Keys | Certificates |
 |--|--|--|
@@ -172,7 +172,7 @@ More Key Vault templates you can find here: [Key Vault Resource Manager referenc
 
 ## Deploy the templates
 
-You can use Azure Portal to deploy above templates by using 'Build your own template in editor' option in guide below:
+You can use the Azure portal to deploy above templates by using 'Build your own template in editor' option in guide below:
 [Deploy resources from custom template](https://docs.microsoft.com/azure/azure-resource-manager/templates/deploy-portal#deploy-resources-from-custom-template)
 
 You can also save above templates to files and use following commands:  [New-AzResourceGroupDeployment](/powershell/module/az.resources/new-azresourcegroupdeployment) and [az group deployment create](/cli/azure/group/deployment#az-group-deployment-create):
@@ -183,11 +183,11 @@ New-AzResourceGroupDeployment -ResourceGroupName ExampleGroup -TemplateFile key-
 
 ```azurecli
 az group deployment create --resource-group ExampleGroup --template-file key-vault-template.json
+```
 
 ## Clean up resources
 
-If you plan to continue on to work with subsequent quickstarts and tutorials, you may wish to leave these resources in place.
-When no longer needed, delete the resource group, which deletes the Key Vault and related resources. To delete the resource group by using Azure CLI or Azure PowerShell:
+If you plan to continue and work on subsequent quickstarts and tutorials, you can leave these resources in place. When the resources are no longer needed, delete the resource group, which deletes the key vault and related resources. To delete the resource group by using the Azure CLI or Azure PowerShell, use the following steps.
 
 # [CLI](#tab/CLI)
 
@@ -214,6 +214,6 @@ Write-Host "Press [ENTER] to continue..."
 
 ## Next steps
 
-- [Secure access to a Key Vault](secure-your-key-vault.md)
-- [Authenticate to a Key Vault](authentication.md)
+- [Secure access to a key vault](secure-your-key-vault.md)
+- [Authenticate to a key vault](authentication.md)
 - [Azure Key Vault Developer's guide](developers-guide.md)
