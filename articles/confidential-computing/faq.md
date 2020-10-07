@@ -52,6 +52,10 @@ DC-Series VMs run on older 6-core Intel Processors with Intel SGX and have less 
 
 No. At this time, these virtual machines are only available in select regions. Check the [products by regions page](https://azure.microsoft.com/global-infrastructure/services/?products=virtual-machines) for the latest available regions. 
 
+**Is Hyper-threading OFF on these machines?**
+
+Yes, Hyper-threading is disabled by default. We work closely with Intel to ensure [SGX security](https://intel.com/trustsgx) is always up to date.
+
 **How do I install the Open Enclave SDK on the DCsv2 virtual machines?**
    
 For instructions on how to install the OE SDK on an Azure or on-premise Machine, follow the instructions on the [Open Enclave SDK GitHub](https://github.com/openenclave/openenclave).
@@ -60,3 +64,4 @@ You can also look into the Open Enclave SDK GitHub for OS-specific installation 
    - [Install the OE SDK on Windows](https://github.com/openenclave/openenclave/blob/master/docs/GettingStartedDocs/install_oe_sdk-Windows.md)
    - [Install the OE SDK on Ubuntu 18.04](https://github.com/openenclave/openenclave/blob/master/docs/GettingStartedDocs/install_oe_sdk-Ubuntu_18.04.md)
    - [Install the OE SDK on Ubuntu 16.04](https://github.com/openenclave/openenclave/blob/master/docs/GettingStartedDocs/install_oe_sdk-Ubuntu_16.04.md)
+
