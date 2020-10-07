@@ -41,7 +41,7 @@ In this tutorial, you learn how to:
 
 1. Right-click the **FabrikamFiber.Web** project > **Add** > **Container Orchestrator Support**.  Select **Service Fabric** as the container orchestrator and click **OK**.
 
-2. Click **Yes** to switch Docker to Windows containers now.
+2. If prompted, click **Yes** to switch Docker to Windows containers now.
 
    A new project Service Fabric application project **FabrikamFiber.CallCenterApplication** is created in the solution.  A Dockerfile is added to the existing **FabrikamFiber.Web** project.  A **PackageRoot** directory is also added to the **FabrikamFiber.Web** project, which contains the service manifest and settings for the new FabrikamFiber.Web service.
 

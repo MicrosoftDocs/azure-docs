@@ -1,6 +1,8 @@
 ---
 title: Importing from data sources - QnA Maker
 description: Learn how to import question and answer pairs from data sources - QnA Maker.
+ms.service: cognitive-services
+ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 03/16/2020
 ---

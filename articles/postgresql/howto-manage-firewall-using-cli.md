@@ -1,8 +1,8 @@
 ---
 title: Manage firewall rules - Azure CLI - Azure Database for PostgreSQL - Single Server
 description: This article describes how to create and manage firewall rules in Azure Database for PostgreSQL - Single Server using Azure CLI command line.
-author: rachel-msft
-ms.author: raagyema
+author: niklarin
+ms.author: nlarin
 ms.service: postgresql
 ms.devlang: azurecli
 ms.topic: how-to

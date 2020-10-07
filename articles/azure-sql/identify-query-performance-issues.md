@@ -6,7 +6,7 @@ ms.service: sql-database
 ms.subservice: performance
 ms.custom: 
 ms.devlang: 
-ms.topic: conceptual
+ms.topic: troubleshooting
 author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: jrasnick, sstein
