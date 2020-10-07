@@ -1,13 +1,13 @@
 ---
 title: Azure HDInsight business continuity architectures
-description: 
+description: This article discusses the different possible business continuity architectures for HDInsight
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 keywords: hadoop high availability
 ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 10/01/2020
+ms.date: 10/07/2020
 ---
 
 # Azure HDInsight business continuity architectures
@@ -185,7 +185,7 @@ Disadvantages:
 
 ## HDInsight Enterprise Security Package
 
-This set up is used to enable multi-user functionality in both primary and secondary, as well as [Azure AD DS replica sets](https://docs.microsoft.com/en-us/azure/active-directory-domain-services/tutorial-create-replica-set) to ensure that users can authenticate to both clusters. During normal operations, Ranger policies need to be set up in the Secondary to ensure that users are restricted to Read operations. The below architecture explains how an ESP enabled Hive Active Primary – Standby Secondary set up might look.
+This set up is used to enable multi-user functionality in both primary and secondary, as well as [Azure AD DS replica sets](https://docs.microsoft.com/azure/active-directory-domain-services/tutorial-create-replica-set) to ensure that users can authenticate to both clusters. During normal operations, Ranger policies need to be set up in the Secondary to ensure that users are restricted to Read operations. The below architecture explains how an ESP enabled Hive Active Primary – Standby Secondary set up might look.
 
 Ranger Metastore replication:
 
@@ -202,7 +202,7 @@ Replicating Ranger policies between primary and secondary can cause the secondar
 To learn more about the items discussed in this article, see:
 
 * [Apache Ambari REST Reference](https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/index.md)
-* [Install and configure the Azure CLI](https://docs.microsoft.com//cli/azure/install-azure-cli?view=azure-cli-latest)
+* [Install and configure the Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest&preserve-view=true)
 * [Install and configure Azure PowerShell module Az](/powershell/azure/)
 * [Manage HDInsight using Apache Ambari](hdinsight-hadoop-manage-ambari.md)
 * [Provision Linux-based HDInsight clusters](hdinsight-hadoop-provision-linux-clusters.md)
