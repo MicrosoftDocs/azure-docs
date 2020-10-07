@@ -94,7 +94,7 @@ To configure Azure AD single sign-on with Andromeda, perform the following steps
 
 4. On the **Basic SAML Configuration** section, if you wish to configure the application in **IDP** initiated mode, perform the following steps:
 
-    ![Andromeda Domain and URLs single sign-on information](common/idp-intiated.png)
+    ![Screenshot shows the Basic SAML Configuration, where you can enter Identifier, Reply U R L, and select Save.](common/idp-intiated.png)
 
     a. In the **Identifier** text box, type a URL using the following pattern:
     `https://<tenantURL>.ngcxpress.com/`
@@ -104,7 +104,7 @@ To configure Azure AD single sign-on with Andromeda, perform the following steps
 
 5. Click **Set additional URLs** and perform the following step if you wish to configure the application in **SP** initiated mode:
 
-    ![Andromeda Domain and URLs single sign-on information](common/metadata-upload-additional-signon.png)
+    ![Screenshot shows Set additional U R Ls where you can enter a Sign on U R L.](common/metadata-upload-additional-signon.png)
 
     In the **Sign-on URL** text box, type a URL using the following pattern:
     `https://<tenantURL>.ngcxpress.com/SAMLLogon.aspx`
@@ -114,7 +114,7 @@ To configure Azure AD single sign-on with Andromeda, perform the following steps
 
 6. Andromeda application expects the SAML assertions in a specific format. Configure the following claims for this application. You can manage the values of these attributes from the **User Attributes** section on application integration page. On the **Set up Single Sign-On with SAML** page, click **Edit** button to open **User Attributes** dialog.
 
-	![image](common/edit-attribute.png)
+	![Screenshot shows User attributes such as givenname user.givenname and emailaddress user.mail.](common/edit-attribute.png)
 
 	> [!Important]
 	> Clear out the NameSpace definitions while setting these up.
@@ -132,9 +132,9 @@ To configure Azure AD single sign-on with Andromeda, perform the following steps
 
 	a. Click **Add new claim** to open the **Manage user claims** dialog.
 
-	![image](common/new-save-attribute.png)
+	![Screenshot shows User claims with options to Add new claim and save.](common/new-save-attribute.png)
 
-	![image](common/new-attribute-details.png)
+	![Screenshot shows Manage user claims where you can enter values described I this step.](common/new-attribute-details.png)
 
 	b. In the **Name** textbox, type the attribute name shown for that row.
 

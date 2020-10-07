@@ -202,7 +202,7 @@ In the case of ClickTime, provisioning is a manual task.
 
 1. In the toolbar on the top, click **Company**, and then click **People**.
    
-    ![People](./media/clicktime-tutorial/tic777282.png "People")
+    ![Screenshot shows the ClickTime tenant with Company and People selected.](./media/clicktime-tutorial/tic777282.png "People")
 
 1. Click **Add Person**.
    
@@ -210,7 +210,7 @@ In the case of ClickTime, provisioning is a manual task.
 
 1. In the New Person section, perform the following steps:
    
-    ![People](./media/clicktime-tutorial/tic777284.png "People")
+    ![Screenshot shows the Add Person section where you can add the information in this step.](./media/clicktime-tutorial/tic777284.png "People")
    
     a.  In the **full name** textbox, type full name of user like **Britta Simon**. 
   
