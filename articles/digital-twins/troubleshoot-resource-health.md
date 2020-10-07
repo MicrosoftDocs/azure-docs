@@ -23,7 +23,7 @@ This article shows you how to get **resource health** information for your Azure
 
 ## Use Azure Resource Health
 
-Azure Resource Health can help you monitor whether your Azure Digital Twins instance is up and running. Azure Digital Twins indicates health at a regional level, which means you can also learn whether a regional outage is impacting the health of your instance.
+Azure Resource Health can help you monitor whether your Azure Digital Twins instance is up and running. You can also use it to learn whether a regional outage is impacting the health of your instance.
 
 To check the health of your instance, follow these steps:
 
