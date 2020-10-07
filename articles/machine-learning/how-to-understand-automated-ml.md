@@ -20,8 +20,8 @@ In this article, learn how to view and evaluate the results of your automated ma
 For example, AutoML provides different charts for classification and regression models. 
 
 |Classification|Regression
-|---|---
-<li> [Confusion matrix](#confusion-matrix) <li>[Precision-Recall chart](#precision-recall-chart) <li> [Receiver operating characteristics (or ROC)](#roc) <li> [Lift curve](#lift-curve)<li> [Gains curve](#gains-curve)<li> [Calibration plot](#calibration-plot)| <li> [Predicted vs. True](#pvt) <li> [Histogram of residuals](#histo)
+|---|---|
+|<li> [Confusion matrix](#confusion-matrix) <li>[Precision-Recall chart](#precision-recall-chart) <li> [Receiver operating characteristics (or ROC)](#roc) <li> [Lift curve](#lift-curve)<li> [Gains curve](#gains-curve)<li> [Calibration plot](#calibration-plot) | <li> [Predicted vs. True](#pvt) <li> [Histogram of residuals](#histo)|
 
 ## Prerequisites
 
