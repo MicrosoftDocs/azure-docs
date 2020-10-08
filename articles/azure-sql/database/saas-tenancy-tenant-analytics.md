@@ -49,7 +49,7 @@ Together the central fact and dimension tables enable efficient analytical proce
  
 ![architectureOverView](./media/saas-tenancy-tenant-analytics/StarSchema.png)
 
-Finally, the analytics store is queried using **PowerBI** to highlight insights into tenant behavior and their use of the Wingtip Tickets application. You run queries that:
+Finally, the analytics store is queried using **Power BI** to highlight insights into tenant behavior and their use of the Wingtip Tickets application. You run queries that:
  
 - Show the relative popularity of each venue
 - Highlight patterns in ticket sales for different events
