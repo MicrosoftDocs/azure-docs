@@ -4,7 +4,7 @@ description: Learn about Azure Defender for IoT architecture and information flo
 services: defender-for-iot
 ms.service: defender-for-iot
 documentationcenter: na
-author: elazark
+author: rkarlin
 manager: rkarlin
 editor: ''
 
@@ -13,7 +13,7 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/08/2020
-ms.author: v-ekrieg
+ms.author: rkarlin
 ---
 
 # Azure Defender for IoT architecture
