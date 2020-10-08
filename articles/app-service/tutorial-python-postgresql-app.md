@@ -122,7 +122,7 @@ If the `az` command is not recognized, be sure you have the Azure CLI installed 
 Then create the Postgres database in Azure with the [`az postgres up`](/cli/azure/ext/db-up/postgres#ext-db-up-az-postgres-up) command:
 
 ```azurecli
-az postgres up --resource-group DjangoPostgres-tutorial-rg --location westus2 --sku-name B_Gen5_1 --server-name <postgre-server-name> --database-name pollsdb --admin-user <admin-username> --admin-password <admin-password> --ssl-enforcement Enabled
+az postgres up --resource-group DjangoPostgres-tutorial-rg --location westus2 --sku-name B_Gen5_1 --server-name <postgres-server-name> --database-name pollsdb --admin-user <admin-username> --admin-password <admin-password> --ssl-enforcement Enabled
 ```
 
 - Replace *\<postgres-server-name>* with a name that's unique across all Azure (the server endpoint is `https://<postgres-server-name>.postgres.database.azure.com`). A good pattern is to use a combination of your company name and another unique value.
@@ -132,9 +132,9 @@ az postgres up --resource-group DjangoPostgres-tutorial-rg --location westus2 --
 This command performs the following actions, which may take a few minutes:
 
 - Create a [resource group](../azure-resource-manager/management/overview.md#terminology) called `DjangoPostgres-tutorial-rg`, if it doesn't already exist.
-- Create a Postgres server.
-- Create a default administrator account with a unique user name and password. (To specify your own credentials, use the `--admin-user` and `--admin-password` arguments with the `az postgres up` command.)
-- Create a `pollsdb` database.
+- Create a Postgres server named by the `--server-name` argument.
+- Create an administrator account using the `--admin-user` and `--admin-password` arguments. You can omit these arguments to allow the command to generate unique credentials for you.
+- Create a `pollsdb` database as named by the `--database-name` argument.
 - Enable access from your local IP address.
 - Enable access from Azure services.
 - Create a database user with access to the `pollsdb` database.
@@ -198,7 +198,7 @@ az webapp config appsettings set --settings DJANGO_ENV="production" DBHOST="<pos
 ```
 
 - Replace *\<postgres-server-name>* with the name you used earlier with the `az postgres up` command.
-- Replace *\<username>* and *\<password>* with the credentials that the command also generated for you. The `DBUSER` argument must be in the form `<username>@<postgres-server-name>`.
+- Replace *\<username>* and *\<password>* with the administrator credentials that you used with the earlier `az postgres up` command (or that `az postgres up` generated for you). The `DBUSER` argument must be in the form `<username>@<postgres-server-name>`.
 - The resource group and app name are drawn from the cached values in the *.azure/config* file.
 - The command creates settings named `DJANGO_ENV`, `DBHOST`, `DBNAME`, `DBUSER`, and `DBPASS` as expected by the app code.
 - In your Python code, you access these settings as environment variables with statements like `os.environ.get('DJANGO_ENV')`. For more information, see [Access environment variables](configure-language-python.md#access-environment-variables).
@@ -247,6 +247,12 @@ Django database migrations ensure that the schema in the PostgreSQL on Azure dat
 ### Create a poll question in the app
 
 1. In a browser, open the URL `http://<app-name>.azurewebsites.net`. The app should display the message "No polls are available" because there are no specific polls yet in the database.
+
+    If you see "Application Error", then it's likely that you didn't create the required settings in the previous step, [Configure environment variables to connect the database](#configure-environment-variables-to-connect-the-database). Run the command `az webapp config appsettings list` to check the settings. You can also [check the diagnostic logs]() to see specific errors during app startup. For example, if you didn't create the settings, the logs will show the error, `KeyError: 'DBNAME'`.
+
+    If you see the error, "Invalid Username specified. Please check the Username and retry connection. The Username should be in <username@hostname> format.", then the `DBUSER` setting is not in the necessary format `<username>@<postgres-host-name>`. Run the command `az webapp config appsettings list` to check the value. To correct it, run the command `az webapp config appsettings set --settings DBUSER="<username>@<postgres-server-name>"`, replacing `<username>@<postgres-server-name>` with the appropriate names.
+
+    After updating the settings, give the app a minute to restart, then refresh the browser.
 
 1. Browse to `http://<app-name>.azurewebsites.net/admin`. Sign in using superuser credentials from the previous section (`root` and `Pollsdb1`). Under **Polls**, select **Add** next to **Questions** and create a poll question with some choices.
 
