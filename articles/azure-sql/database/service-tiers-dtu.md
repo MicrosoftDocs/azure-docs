@@ -38,6 +38,7 @@ Choosing a service tier depends primarily on business continuity, storage, and p
 |**IO latency (approximate)**|5 ms (read), 10 ms (write)|5 ms (read), 10 ms (write)|2 ms (read/write)|
 |**Columnstore indexing** |N/A|S3 and above|Supported|
 |**In-memory OLTP**|N/A|N/A|Supported|
+
 \* All read and write IOPS against data files, including background IO (checkpoint and lazy writer)
 
 > [!IMPORTANT]
@@ -47,7 +48,7 @@ Choosing a service tier depends primarily on business continuity, storage, and p
 >
 
 > [!TIP]
-> To see [resource governance](resource-limits-logical-server.md#resource-governance) limits for a database or elastic pool, query the [sys.dm_user_db_resource_governance](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-user-db-resource-governor-azure-sql-database) view.
+> To see actual [resource governance](resource-limits-logical-server.md#resource-governance) limits for a database or elastic pool, query the [sys.dm_user_db_resource_governance](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-user-db-resource-governor-azure-sql-database) view.
 
 > [!NOTE]
 > You can get a free database in Azure SQL Database at the Basic service tier in conjunction with an Azure free account to explore Azure. For information, see [Create a managed cloud database with your Azure free account](https://azure.microsoft.com/free/services/sql-database/).
