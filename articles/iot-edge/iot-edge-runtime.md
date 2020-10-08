@@ -4,7 +4,7 @@ description: Learn how the IoT Edge runtime manages modules, security, communica
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 11/01/2019
+ms.date: 10/08/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
@@ -130,11 +130,7 @@ As part of the anonymization, any personally or organizationally identifiable in
 The default frequency of RQT is one message sent to IoT Hub every 24 hours and local collection by edgeAgent every hour.
 
 > [!NOTE]
-> If you wish to opt out of RQT, there are two ways to do so:
->
-> * Uncheck option in portal during deployment authoring experience
-> OR
-> * Set the `SendRuntimeQualityTelemetry` environment variable to `false` for **edgeAgent**
+> If you wish to opt out of RQT, set the `SendRuntimeQualityTelemetry` environment variable to `false` for **edgeAgent**
 
 ## Next steps
 
