@@ -15,7 +15,7 @@ ms.custom: seo-lt-2019
 
 # Azure Synapse Analytics - dedicated SQL pool Videos
 
-Watch the latest decicated Synapse SQL pool videos to learn about new capabilities and performance improvements. 
+Watch the latest dedicated Synapse SQL pool videos to learn about new capabilities and performance improvements. 
 
 To get started, select the overview video below to learn about the new updates to dedicated Synapse SQL pool. Also, learn how modern data warehouse patterns can be used to tackle real world scenarios such as cybercrime.
 </br>
