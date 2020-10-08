@@ -3,7 +3,7 @@ title: Integrate Azure Service Bus with Azure Private Link Service
 description: Learn how to integrate Azure Service Bus with Azure Private Link Service
 author: spelluru
 ms.author: spelluru
-ms.date: 06/23/2020
+ms.date: 10/07/2020
 ms.topic: article
 ---
 

@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 10/05/2020
+ms.date: 10/07/2020
 ms.author: aahi
 ms.custom: cog-serv-seo-aug-2020
 keywords: on-premises, Docker, container
@@ -135,7 +135,7 @@ Container images for Speech are available in the following Container Registry.
 # [Speech Language Detection](#tab/lid)
 
 > [!TIP]
-> For best results, we recommend using the Speech language detection container with the Speech-to-text or Custom speech-to-text containers. 
+> To get the most useful results, we recommend using the Speech language detection container with the Speech-to-text or Custom speech-to-text containers. 
 
 | Container | Repository |
 |-----------|------------|
