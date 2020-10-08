@@ -62,6 +62,8 @@ landingContent:
             url: starter-kit-tutorial-1.md # update link
           - text: Power BI Tenant
             url: starter-kit-tutorial-1.md # update link
+          - text: Register and scan Azure Blob Storage
+            url: register-scan-azure-files-storage-source.md
   - title: Scan non-Azure data sources
     linkLists:
     - linkListType: how-to-guide
