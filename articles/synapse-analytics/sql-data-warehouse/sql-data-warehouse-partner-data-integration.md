@@ -15,7 +15,7 @@ ms.custom: seo-lt-2019
 
 # Azure Synapse Analytics data integration partners
 
-To create your data warehouse solution using the Synapse SQL pool feature of Azure Synapse, you can choose from a wide variety of industry-leading tools. This article highlights Microsoft partner companies with official data integration solutions that support Azure Synapse.
+To create your data warehouse solution using the dedicated SQL pool in Azure Synapse Analytics, you can choose from a wide variety of industry-leading tools. This article highlights Microsoft partner companies with official data integration solutions that support Azure Synapse.
 
 ## Data integration partners
 
