@@ -1,40 +1,37 @@
 ---
-title: Azure Batch task fail event
-description: Reference for Batch task fail event. This event will be emitted in addition to a task complete event and can be used to detect when a task has failed.
+title: Azure Batch task schedule fail event
+description: Reference for Batch task schedule fail event. This event is emitted when a task failed to be scheduled and will retry later.
 ms.topic: reference
-ms.date: 10/08/2020
+ms.date: 09/20/2020
 ---
 
-# Task fail event
+# Task schedule fail event
 
- This event is emitted when a task completes with a failure. Currently all nonzero exit codes are considered failures. This event will be emitted *in addition to* a task complete event and can be used to detect when a task has failed.
+ This event is emitted when a task failed to be scheduled and will be retried later. This is a temporary failure at task scheduling time due to resource limitation, for example not enough slots available on nodes to run a task with `requiredSlots` specified.
 
-
- The following example shows the body of a task fail event.
+ The following example shows the body of a task schedule fail event.
 
 ```
 {
-    "jobId": "myJob",
-    "id": "myTask",
+    "jobId": "job-01",
+    "id": "task-01",
     "taskType": "User",
-    "systemTaskVersion": 0,
+    "systemTaskVersion": 665378862,
     "requiredSlots": 1,
     "nodeInfo": {
-        "poolId": "pool-001",
-        "nodeId": "tvm-257509324_1-20160908t162728z"
+        "poolId": "pool-01",
+        "nodeId": " "
     },
     "multiInstanceSettings": {
         "numberOfInstances": 1
     },
     "constraints": {
-        "maxTaskRetryCount": 2
+        "maxTaskRetryCount": 0
     },
-    "executionInfo": {
-        "startTime": "2016-09-08T16:32:23.799Z",
-        "endTime": "2016-09-08T16:34:00.666Z",
-        "exitCode": 1,
-        "retryCount": 2,
-        "requeueCount": 0
+    "schedulingError": {
+        "category": "UserError",
+        "code": "JobPreparationTaskFailed",
+        "message": "Task cannot run because the job preparation task failed on node"
     }
 }
 ```
@@ -49,7 +46,7 @@ ms.date: 10/08/2020
 |[`nodeInfo`](#nodeInfo)|Complex Type|Contains information about the compute node on which the task ran.|
 |[`multiInstanceSettings`](#multiInstanceSettings)|Complex Type|Specifies that the task is a Multi-Instance Task requiring multiple compute nodes.  See [`multiInstanceSettings`](/rest/api/batchservice/get-information-about-a-task) for details.|
 |[`constraints`](#constraints)|Complex Type|The execution constraints that apply to this task.|
-|[`executionInfo`](#executionInfo)|Complex Type|Contains information about the execution of the task.|
+|[`schedulingError`](#schedulingError)|Complex Type|Contains information about the scheduling error of the task.|
 
 ###  <a name="nodeInfo"></a> nodeInfo
 
@@ -71,12 +68,10 @@ ms.date: 10/08/2020
 |`maxTaskRetryCount`|Int32|The maximum number of times the task may be retried. The Batch service retries a task if its exit code is nonzero.<br /><br /> Note that this value specifically controls the number of retries. The Batch service will try the task once, and may then retry up to this limit. For example, if the maximum retry count is 3, Batch tries a task up to 4 times (one initial try and 3 retries).<br /><br /> If the maximum retry count is 0, the Batch service does not retry tasks.<br /><br /> If the maximum retry count is -1, the Batch service retries tasks without limit.<br /><br /> The default value is 0 (no retries).|
 
 
-###  <a name="executionInfo"></a> executionInfo
+###  <a name="schedulingError"></a> schedulingError
 
 |Element name|Type|Notes|
 |------------------|----------|-----------|
-|`startTime`|DateTime|The time at which the task started running. 'Running' corresponds to the **running** state, so if the task specifies resource files or application packages, then the start time reflects the time at which the task started downloading or deploying these.  If the task has been restarted or retried, this is the most recent time at which the task started running.|
-|`endTime`|DateTime|The time at which the task completed.|
-|`exitCode`|Int32|The exit code of the task.|
-|`retryCount`|Int32|The number of times the task has been retried by the Batch service. The task is retried if it exits with a nonzero exit code, up to the specified MaxTaskRetryCount.|
-|`requeueCount`|Int32|The number of times the task has been requeued by the Batch service as the result of a user request.<br /><br /> When the user removes nodes from a pool (by resizing or shrinking the pool) or when the job is being disabled, the user can specify that running tasks on the nodes be requeued for execution. This count tracks how many times the task has been requeued for these reasons.|
+|`category`|String|The category of the error.|
+|`code`|String|An identifier for the task scheduling error. Codes are invariant and are intended to be consumed programmatically.|
+|`message`|String|A message describing the task scheduling error, intended to be suitable for display in a user interface.|
