@@ -95,7 +95,7 @@ To configure Azure AD single sign-on with [Application name], perform the follow
 
 4. On the **Basic SAML Configuration** section, If you wish to configure the application in **IDP** initiated mode, perform the following steps:
 
-    ![Adobe Experience Manager Domain and URLs single sign-on information](common/idp-intiated.png)
+    ![Screenshot that shows Basic SAML Configuration section and highlights the Identifier and Reply URL text boxes.](common/idp-intiated.png)
 
     a. In the **Identifier** text box, type a unique value that you define on your AEM server as well.
 
@@ -131,35 +131,35 @@ To configure Azure AD single sign-on with [Application name], perform the follow
 
 2. Select **Settings** > **Security** > **Users**.
 
-	![Configure the single sign-on save button](./media/adobeexperiencemanager-tutorial/tutorial_adobeexperiencemanager_user.png)
+	![Screenshot that shows the Users tile in the Adobe Experience Manager.](./media/adobeexperiencemanager-tutorial/tutorial_adobeexperiencemanager_user.png)
 
 3. Select **Administrator** or any other relevant user.
 
-	![Configure Single Sign-On Save button](./media/adobeexperiencemanager-tutorial/tutorial_adobeexperiencemanager_admin6.png)
+	![Screenshot that highlights the Adminisrator user.](./media/adobeexperiencemanager-tutorial/tutorial_adobeexperiencemanager_admin6.png)
 
 4. Select **Account settings** > **Manage TrustStore**.
 
-	![Configure Single Sign-On Save button](./media/adobeexperiencemanager-tutorial/tutorial_adobeexperiencemanager_managetrust.png)
+	![Screenshot that shows Manage TrustStore under Account settings.](./media/adobeexperiencemanager-tutorial/tutorial_adobeexperiencemanager_managetrust.png)
 
 5. Under **Add Certificate from CER file**, click **Select Certificate File**. Browse to and select the certificate file, which you already downloaded from the Azure portal.
 
-	![Configure single sign-on save button](./media/adobeexperiencemanager-tutorial/tutorial_adobeexperiencemanager_user2.png)
+	![Screenshot that highlights the Select Certificate File button.](./media/adobeexperiencemanager-tutorial/tutorial_adobeexperiencemanager_user2.png)
 
 6. The certificate is added to the TrustStore. Note the alias of the certificate.
 
-	![Configure Single Sign-On Save button](./media/adobeexperiencemanager-tutorial/tutorial_adobeexperiencemanager_admin7.png)
+	![Screenshot that shows that the certificate is added to the TrustStore.](./media/adobeexperiencemanager-tutorial/tutorial_adobeexperiencemanager_admin7.png)
 
 7. On the **Users** page, select **authentication-service**.
 
-	![Configure Single Sign-On Save button](./media/adobeexperiencemanager-tutorial/tutorial_adobeexperiencemanager_admin8.png)
+	![Sreenshot that highlights authentication-service on the screen.](./media/adobeexperiencemanager-tutorial/tutorial_adobeexperiencemanager_admin8.png)
 
 8. Select **Account settings** > **Create/Manage KeyStore**. Create KeyStore by supplying a password.
 
-	![Configure Single Sign-On Save button](./media/adobeexperiencemanager-tutorial/tutorial_adobeexperiencemanager_admin9.png)
+	![Screenshot that highlights Manage KeyStore.](./media/adobeexperiencemanager-tutorial/tutorial_adobeexperiencemanager_admin9.png)
 
 9. Go back to the admin screen. Then select **Settings** > **Operations** > **Web Console**.
 
-	![Configure Single Sign-On Save button](./media/adobeexperiencemanager-tutorial/tutorial_adobeexperiencemanager_admin1.png)
+	![Screenshot that highlights Web Console under Operations within the Settings section.](./media/adobeexperiencemanager-tutorial/tutorial_adobeexperiencemanager_admin1.png)
 
 	This opens the configuration page.
 
@@ -167,7 +167,7 @@ To configure Azure AD single sign-on with [Application name], perform the follow
 
 10. Find **Adobe Granite SAML 2.0 Authentication Handler**. Then select the **Add** icon.
 
-	![Configure Single Sign-On Save button](./media/adobeexperiencemanager-tutorial/tutorial_adobeexperiencemanager_admin3.png)
+	![Screenshot that highlights Adobe Granite SAML 2.0 Authentication Handler.](./media/adobeexperiencemanager-tutorial/tutorial_adobeexperiencemanager_admin3.png)
 
 11. Take the following actions on this page.
 

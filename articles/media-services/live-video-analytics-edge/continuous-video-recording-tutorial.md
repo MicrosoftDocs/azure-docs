@@ -155,11 +155,20 @@ When you use the Live Video Analytics on IoT Edge module to record the live vide
 
 ## Run the program 
 
-1. In Visual Studio Code, go to src/cloud-to-device-console-app/operations.json.
+1. In Visual Studio Code, open the **Extensions** tab (or press Ctrl+Shift+X) and search for Azure IoT Hub.
+1. Right click and select **Extension Settings**.
+
+    > [!div class="mx-imgBorder"]
+    > :::image type="content" source="./media/run-program/extensions-tab.png" alt-text="Extension Settings":::
+1. Search and enable “Show Verbose Message”.
+
+    > [!div class="mx-imgBorder"]
+    > :::image type="content" source="./media/run-program/show-verbose-message.png" alt-text="Show Verbose Message":::
+1. <!--In Visual Studio Code, go-->Go to src/cloud-to-device-console-app/operations.json.
 1. Under the **GraphTopologySet** node, edit the following:
 
     `"topologyUrl" : "https://raw.githubusercontent.com/Azure/live-video-analytics/master/MediaGraph/topologies/cvr-asset/topology.json" `
-1. Next, under the **GraphInstanceSet** node, ensure that the value of **topologyName** matches the value of the **name** property in the previous graph topology:
+1. Next, under the **GraphInstanceSet** and **GraphTopologyDelete** nodes, ensure that the value of **topologyName** matches the value of the **name** property in the previous graph topology:
 
     `"topologyName" : "CVRToAMSAsset"`  
 1. Open the [topology](https://raw.githubusercontent.com/Azure/live-video-analytics/master/MediaGraph/topologies/cvr-asset/topology.json) in a browser, and look at assetNamePattern. To make sure you have an asset with a unique name, you might want to change the graph instance name in the operations.json file (from the default value of Sample-Graph-1).
