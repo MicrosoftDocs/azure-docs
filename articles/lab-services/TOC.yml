@@ -54,20 +54,20 @@
         href: class-type-matlab.md
       - name: SolidWorks computer-aided design (CAD)
         href: class-type-solidworks.md
-    - name: Integration with Microsoft Teams
-      items:
-        - name: Overview
-          href: lab-services-with-teams-overview.md
-        - name: Create a lab within a Team
-          href: how-to-get-started-create-lab-within-teams.md
-        - name: Manage user lists
-          href: how-to-manage-user-lists-within-teams.md
-        - name: Manage VM pool
-          href: how-to-manage-vm-pool-within-teams.md
-        - name: Create schedules
-          href: how-to-create-schedules-within-teams.md
-        - name: Access a VM (student view)
-          href: how-to-access-vm-for-students-within-teams.md
+      - name: Integration with Microsoft Teams
+        items:
+          - name: Overview and benefits
+            href: lab-services-with-teams-overview.md
+          - name: Create a lab within a Team
+            href: how-to-get-started-create-lab-within-teams.md
+          - name: Manage user lists
+            href: how-to-manage-user-lists-within-teams.md
+          - name: Manage VM pool
+            href: how-to-manage-vm-pool-within-teams.md
+          - name: Create schedules
+            href: how-to-create-schedules-within-teams.md
+          - name: Access a VM (student view)
+            href: how-to-access-vm-for-students-within-teams.md
 - name: How-to guides
   items:
   - name: Administrator guide

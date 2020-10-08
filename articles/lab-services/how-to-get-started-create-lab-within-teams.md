@@ -13,7 +13,7 @@ This article shows how to add an Azure Lab Services app to Teams. Then, how to c
 
 You can add Lab Services directly in your Teams channels, and then the app is available for everyone in the team to use. Follow these three steps:
 
-1. Navigate to the Teams channel where you want to add the app and select **+** to add a tab. 
+1. Navigate to the Teams channel where you want to add the app and select **+** to add a tab by clicking on "..." from the top of the right window. 
 <!--   ![Select + to add a tab in Teams](./media/integrate-with-teams/add-tab.png)-->
 1. Search for **Azure Lab Services** from the tab options and add this app. 
 
@@ -69,6 +69,7 @@ Deletion of the tab or uninstalling the app will not result in deletion of the l
 
 See the following articles:
 
+- [Overview and benefits](lab-services-with-teams-overview.md)
 - [Manage Lab Services user lists from Teams](how-to-manage-user-lists-within-teams.md)
 - [Manage a VM pool in Lab Services from Teams](how-to-manage-vm-pool-within-teams.md)
 - [Create Lab Services schedules from Teams](how-to-create-schedules-within-teams.md)
