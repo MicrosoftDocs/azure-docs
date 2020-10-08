@@ -69,7 +69,7 @@ After geo-replication is configured, the following restrictions apply to your li
 
     You can also view the linking status on the **Overview** blade for both the primary and secondary caches.
 
-    ![Cache status](./media/cache-how-to-geo-replication/cache-geo-location-link-status.png)
+    ![Screenshot that highlights how to view the linking status for the primary and secondary caches.](./media/cache-how-to-geo-replication/cache-geo-location-link-status.png)
 
     Once the replication process is complete, the **Link status** changes to **Succeeded**.
 
