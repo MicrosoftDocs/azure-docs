@@ -4,7 +4,7 @@ description: Azure Queues provide reliable, asynchronous messaging between appli
 author: mhopkins-msft
 
 ms.author: mhopkins
-ms.date: 05/08/2020
+ms.date: 10/08/2020
 ms.service: storage
 ms.subservice: queues
 ms.topic: how-to
@@ -29,9 +29,6 @@ This tutorial shows how to write .NET code for some common scenarios using Azure
 ### Prerequisites
 
 - [Microsoft Visual Studio](https://www.visualstudio.com/downloads/)
-- [Azure Storage common client library for .NET](https://www.nuget.org/packages/Microsoft.Azure.Storage.Common/)
-- [Azure Storage Queue client library for .NET](https://www.nuget.org/packages/Microsoft.Azure.Storage.Queue/)
-- [Azure Configuration Manager for .NET](https://www.nuget.org/packages/Microsoft.Azure.ConfigurationManager/)
 - An [Azure storage account](../common/storage-account-create.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json)
 
 [!INCLUDE [storage-queue-concepts-include](../../../includes/storage-queue-concepts-include.md)]
