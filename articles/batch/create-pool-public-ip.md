@@ -2,7 +2,7 @@
 title: Create a pool with specified public IP addresses
 description: Learn how to create a Batch pool that uses your own public IP addresses.
 ms.topic: how-to
-ms.date: 07/20/2020
+ms.date: 10/08/2020
 ---
 
 # Create an Azure Batch pool with specified public IP addresses
