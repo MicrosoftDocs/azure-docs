@@ -22,5 +22,5 @@ Note: Server Trust Group is introduced in public preview of Distributed transact
 
 TODO(sasapopo): move the content from Word to this .md file.
 
-![SQL trust groups](.media\server-trust-group-overview/security-sql-trust-groups.png)
+   ![SQL trust groups](.media\server-trust-group-overview/security-sql-trust-groups.png)
 
