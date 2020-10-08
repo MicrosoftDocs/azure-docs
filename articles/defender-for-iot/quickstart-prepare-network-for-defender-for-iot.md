@@ -35,7 +35,7 @@ For more information, see the [Installation Guide](https://aka.ms/AzureDefenderf
 ## Onboard Sensors to the Azure Defender for IoT portal 
  TThis article provides an overview of deployment, onboarding, and update processes for Azure Defender for IoT sensors and the on-premises management console. This process is carried out by following instructions in the Welcome to Azure Defender for IoT page and subsequent pages.
 
-![Screenshot of Azure welcome page view](media/image4.png)
+![Screenshot of Azure welcome page view](media/updates/image4.png)
 
 To open the Welcome page:
 
