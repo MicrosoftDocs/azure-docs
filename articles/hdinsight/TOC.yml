@@ -830,7 +830,6 @@
         href: ./interactive-query/interactive-query-troubleshoot-hive-logs-diskspace-full-headnodes.md
       - name: Security options for Hive
         href: ./interactive-query/hdinsight-security-options-for-hive.md
-
 - name: ML Services
   items:
   - name: Overview
