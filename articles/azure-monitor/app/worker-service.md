@@ -330,19 +330,19 @@ You can customize the Application Insights SDK for Worker Service to change the 
 You can modify a few common settings by passing `ApplicationInsightsServiceOptions` to `AddApplicationInsightsTelemetryWorkerService`, as in this example:
 
 ```csharp
-    using Microsoft.ApplicationInsights.WorkerService;
+using Microsoft.ApplicationInsights.WorkerService;
 
-    public void ConfigureServices(IServiceCollection services)
-    {
-        Microsoft.ApplicationInsights.WorkerService.ApplicationInsightsServiceOptions aiOptions
-                    = new Microsoft.ApplicationInsights.WorkerService.ApplicationInsightsServiceOptions();
-        // Disables adaptive sampling.
-        aiOptions.EnableAdaptiveSampling = false;
+public void ConfigureServices(IServiceCollection services)
+{
+    Microsoft.ApplicationInsights.WorkerService.ApplicationInsightsServiceOptions aiOptions
+                = new Microsoft.ApplicationInsights.WorkerService.ApplicationInsightsServiceOptions();
+    // Disables adaptive sampling.
+    aiOptions.EnableAdaptiveSampling = false;
 
-        // Disables QuickPulse (Live Metrics stream).
-        aiOptions.EnableQuickPulseMetricStream = false;
-        services.AddApplicationInsightsTelemetryWorkerService(aiOptions);
-    }
+    // Disables QuickPulse (Live Metrics stream).
+    aiOptions.EnableQuickPulseMetricStream = false;
+    services.AddApplicationInsightsTelemetryWorkerService(aiOptions);
+}
 ```
 
 Note that `ApplicationInsightsServiceOptions` in this SDK is in the namespace `Microsoft.ApplicationInsights.WorkerService` as opposed to `Microsoft.ApplicationInsights.AspNetCore.Extensions` in the ASP.NET Core SDK.
@@ -361,7 +361,35 @@ See the [configurable settings in `ApplicationInsightsServiceOptions`](https://g
 
 ### Sampling
 
-The Application Insights SDK for Worker Service supports both fixed-rate and adaptive sampling. Adaptive sampling is enabled by default. Configuring sampling for Worker Service is done the same way as for [ASP.NET Core Applications](./sampling.md#configuring-adaptive-sampling-for-aspnet-core-applications).
+The Application Insights SDK for Worker Service supports both fixed-rate and adaptive sampling. Adaptive sampling is enabled by default. Sampling can be disabled by using `EnableAdaptiveSampling` option in [ApplicationInsightsServiceOptions](#using-applicationinsightsserviceoptions)
+
+To configure additional sampling settings, the following example can be used.
+
+```csharp
+using Microsoft.ApplicationInsights.WorkerService;
+
+public void ConfigureServices(IServiceCollection services)
+{
+    // ...
+
+    var aiOptions = new ApplicationInsightsServiceOptions();
+    // Disable the automatically added sampling
+    aiOptions.EnableAdaptiveSampling = false;
+    services.AddApplicationInsightsTelemetry(aiOptions);
+
+    // add Adaptive Sampling with custom setting.
+    // the following adds adaptive sampling with 15 items per sec.
+    services.Configure<TelemetryConfiguration>((telemetryConfig) =>
+        {
+            var builder = telemetryConfig.DefaultTelemetrySink.TelemetryProcessorChainBuilder;
+            builder.UseAdaptiveSampling(maxTelemetryItemsPerSecond: 15);
+            builder.Build();
+        });
+    //...
+}
+```
+
+More information can be found in the [Sampling](#sampling) document.
 
 ### Adding TelemetryInitializers
 
