@@ -17,7 +17,7 @@ Each client supports different device redirections. Check out [Compare the clien
 
 ## Customizing RDP properties for a host pool
 
-To learn more about customizing RDP properties for a host pool using PowerShell or the Azure Portal, check out [RDP properties](customize-rdp-properties.md). For the full list of supported RDP properties, see [Supported RDP file settings](https://docs.microsoft.com/windows-server/remote/remote-desktop-services/clients/rdp-files?context=/azure/virtual-desktop/context/context).
+To learn more about customizing RDP properties for a host pool using PowerShell or the Azure portal, check out [RDP properties](customize-rdp-properties.md). For the full list of supported RDP properties, see [Supported RDP file settings](https://docs.microsoft.com/windows-server/remote/remote-desktop-services/clients/rdp-files?context=/azure/virtual-desktop/context/context).
 
 ## Setup device redirections
 
