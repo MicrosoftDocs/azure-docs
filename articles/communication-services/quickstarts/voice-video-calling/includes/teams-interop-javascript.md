@@ -76,12 +76,18 @@ Now we bind the **Join Teams Meeting** button to code that will join the provide
 
 ```javascript
 meetingButton.addEventListener("click", () => {
-    // join a Teams meeting
-    const userToCall = meetingInput.value;
-    call = callAgent.call(
-        [{ communicationUserId: userToCall }],
-        {}
-    );
+    
+    // join with meeting link
+    call = callAgent.join({meetingLink: 'MEETING_LINK'}, {});
+
+     // join with meeting coordinates
+     call = callAgent.join({
+        threadId: 'CHAT_THREAD_ID,
+        organizerId: 'ORGANIZER_ID',
+        tenantId: 'TENANT_ID',
+        messageId: 'MESSAGE_ID'
+    }, {})
+    
     // toggle button states
     hangUpButton.disabled = false;
     callButton.disabled = true;
