@@ -12,7 +12,7 @@ ms.date: 10/09/2020
 
 # Tutorial: Create a cross-region Azure Load Balancer using the Azure portal
 
-A cross-region Azure load balancer ensures an application or service is available globally across multiple Azure regions. Configure regional redundancy by adding a global frontend public IP address to your existing load balancers. If one region fails, the traffic is routed to the next closest healthy regional load balancer.  
+A cross-region load balancer ensures a service is available globally across multiple Azure regions. If one region fails, the traffic is routed to the next closest healthy regional load balancer.  
 
 In this tutorial, you learn how to:
 
@@ -22,14 +22,14 @@ In this tutorial, you learn how to:
 > * Create a load balancer rule.
 > * Test the load balancer.
 
-If you don’t have a Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+If you don’t have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
 ## Prerequisites
 
 - An Azure subscription.
 - Two **standard** sku Azure Load Balancers with backend pools deployed in two different Azure regions.
     - For information on creating a regional standard load balancer and virtual machines for backend pools, see [Quickstart: Create a public load balancer to load balance VMs using the Azure portal](quickstart-load-balancer-standard-public-portal.md).
-    - For naming purposes, we recommend you append the name of the load balancers and virtual machines in each region with a **-R1** and **-R2** for ease of identification.
+        - Append the name of the load balancers and virtual machines in each region with a **-R1** and **-R2**. 
 
 ## Sign in to Azure portal
 
@@ -37,7 +37,7 @@ Sign in to the [Azure portal](https://portal.azure.com).
 
 ## Create cross-region load balancer
 
-In this section you'll create a cross-region load balancer and public IP address.
+In this section, you'll create a cross-region load balancer and public IP address.
 
 1. On the top left-hand side of the screen, select **Create a resource > Networking > Load Balancer**, or search for **Load Balancer** in the search box.
 
@@ -64,10 +64,10 @@ In this section you'll create a cross-region load balancer and public IP address
 
 ## Create backend pool
 
-In this section you'll add two regional standard load balancers to the backend pool of the cross-region load balancer.
+In this section, you'll add two regional standard load balancers to the backend pool of the cross-region load balancer.
 
 > [!IMPORTANT]
-> To complete these steps, ensure that two regional load balancers with backend pools have been deployed in your subscription.  For more information see, **[Quickstart: Create a public load balancer to load balance VMs using the Azure portal](quickstart-load-balancer-standard-public-portal.md)**.
+> To complete these steps, ensure that two regional load balancers with backend pools have been deployed in your subscription.  For more information, see, **[Quickstart: Create a public load balancer to load balance VMs using the Azure portal](quickstart-load-balancer-standard-public-portal.md)**.
 
 Create the backend address pool **myBackendPool-CR** to include the regional standard load balancers.
 
@@ -90,7 +90,7 @@ In this section, you'll create a load balancer rule:
 
 1. Select **All services** in the left-hand menu, select **All resources**, and then select **myLoadBalancer-CR** from the resources list.
 
-2. Under **Settings**, select **Load balancing rules**, then select **Add**.
+2. Under **Settings**, select **Load-balancing rules**, then select **Add**.
 
 3. Use these values to configure the load-balancing rule:
     
@@ -112,13 +112,13 @@ In this section, you'll create a load balancer rule:
 
 ## Test the load balancer
 
-In this section you'll test the load balancer by connecting to the public IP address of the cross-region load balancer in a web browser.  You will shutdown the virtual machines in one of the regional load balancer backend pools and observe the failover.
+In this section, you'll test the cross-region load balancer. You'll connect to the public IP address in a web browser.  You'll stop the virtual machines in one of the regional load balancer backend pools and observe the failover.
 
 1. Find the public IP address for the load balancer on the **Overview** screen. Select **All services** in the left-hand menu, select **All resources**, and then select **myPublicIP-CR**.
 
 2. Copy the public IP address, and then paste it into the address bar of your browser. The default page of IIS Web server is displayed on the browser.
 
-3. Shutdown the virtual machines in the backend pool of one of the regional load balancers.
+3. Stop the virtual machines in the backend pool of one of the regional load balancers.
 
 4. Refresh the web browser and observe the failover of the connection to the other regional load balancer.
 
@@ -128,12 +128,12 @@ When no longer needed, delete the resource group, load Balancer, and all related
 
 ## Next steps
 
-In this tutorial you:
+In this tutorial, you:
 
 * Created a cross-region load balancer.
 * Added regional load balancers to the backend pool of the cross-region load balancer.
-* Created a load balancing rule.
-* Tested the load balacner.
+* Created a load-balancing rule.
+* Tested the load balancer.
 
 
 Advance to the next article to learn how to...
