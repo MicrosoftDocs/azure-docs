@@ -89,7 +89,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 7. To modify the **Signing** options, click the **Edit** button to open the **SAML Signing Certificate** dialog.
 
-	![image](common/edit-certificate.png) 
+	![Screenshot that shows the "S A M L Signing Certificate" dialog with the "Edit" button selected.](common/edit-certificate.png) 
 
 	![image](./media/evernote-tutorial/samlassertion.png)
 
@@ -178,7 +178,7 @@ In the case of Evernote, provisioning is a manual task.
 
 3. From the **'Admin Console'**, go to **‘Add users’**.
 
-	![Add-testUser](./media/evernote-tutorial/create_aaduser_0001.png)
+	![Screenshot that shows the "Users" menu with "Add Users" selected.](./media/evernote-tutorial/create_aaduser_0001.png)
 
 4. **Add team members** in the **Email** textbox, type the email address of user account and click **Invite.**
 
