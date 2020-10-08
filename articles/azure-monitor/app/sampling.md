@@ -290,9 +290,9 @@ In Metrics Explorer, rates such as request and exception counts are multiplied b
 
         var builder = configuration.DefaultTelemetrySink.TelemetryProcessorChainBuilder;
         // For older versions of the Application Insights SDK, use the following line instead:
-        // var builder = TelemetryConfiguration.Active.TelemetryProcessorChainBuilder;
+        // var builder = configuration.TelemetryProcessorChainBuilder;
 
-        // Using fixed rate sampling   
+        // Using fixed rate sampling
         double fixedSamplingPercentage = 10;
         builder.UseSampling(fixedSamplingPercentage);
 

@@ -1,23 +1,31 @@
 ---
-title: PowerShell script to update RU/s for Azure Cosmos DB Table API
-description: Learn how to use a PowerShell script to update the throughput for a database or a container in Azure Cosmos DB Table API account
+title: PowerShell scripts for throughput (RU/s) operations for for Azure Cosmos DB Table API
+description: PowerShell scripts for throughput (RU/s) operations for for Azure Cosmos DB Table API
 author: markjbrown
 ms.service: cosmos-db
 ms.subservice: cosmosdb-table
 ms.topic: sample
-ms.date: 05/01/2020
+ms.date: 10/07/2020
 ms.author: mjbrown
 ---
 
-# Update RU/s for a table for Azure Cosmos DB - Table API
+# Throughput (RU/s) operations with PowerShell for a table for Azure Cosmos DB - Table API
 
 [!INCLUDE [updated-for-az](../../../../../includes/updated-for-az.md)]
 
 [!INCLUDE [sample-powershell-install](../../../../../includes/sample-powershell-install-no-ssh.md)]
 
-## Sample script
+## Get throughput
+
+[!code-powershell[main](../../../../../powershell_scripts/cosmosdb/table/ps-table-ru-get.ps1 "Get throughput on a table for Table API")]
+
+## Update throughput
 
 [!code-powershell[main](../../../../../powershell_scripts/cosmosdb/table/ps-table-ru-update.ps1 "Update throughput on a table for Table API")]
+
+## Migrate throughput
+
+[!code-powershell[main](../../../../../powershell_scripts/cosmosdb/table/ps-table-ru-migrate.ps1 "Migrate between standard and autoscale throughput on a table for Table API")]
 
 ## Clean up deployment
 
@@ -34,8 +42,9 @@ This script uses the following commands. Each command in the table links to comm
 | Command | Notes |
 |---|---|
 |**Azure Cosmos DB**| |
-| [Get-AzCosmosDBTableThroughput](https://docs.microsoft.com/powershell/module/az.cosmosdb/get-azcosmosdbtablethroughput) | Gets the throughput value of the Table API Table. |
+| [Get-AzCosmosDBTableThroughput](https://docs.microsoft.com/powershell/module/az.cosmosdb/get-azcosmosdbtablethroughput) | Gets the throughput value of the specified Table API Table. |
 | [Update-AzCosmosDBMongoDBCollectionThroughput](https://docs.microsoft.com/powershell/module/az.cosmosdb/update-azcosmosdbsqldatabasethroughput) | Updates the throughput value of the Table API Table. |
+| [Invoke-AzCosmosDBTableThroughputMigration](https://docs.microsoft.com/powershell/module/az.cosmosdb/invoke-azcosmosdbtablethroughputmigration) | Migrate throughput of a Table API Table. |
 |**Azure Resource Groups**| |
 | [Remove-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/remove-azresourcegroup) | Deletes a resource group including all nested resources. |
 |||
