@@ -422,6 +422,7 @@ Execute the following PowerShell commands to create the server endpoint, and be 
 ```powershell
 $serverEndpointPath = "<your-server-endpoint-path>"
 $cloudTieringDesired = $true
+$volumeFreeSpacePercentage = <your-volume-free-space>
 
 if ($cloudTieringDesired) {
     # Ensure endpoint path is not the system volume
