@@ -49,6 +49,32 @@ All of the identity and access recommendations are available within two security
 ![The two security controls with the recommendations related to identity and access](media/security-center-identity-access/two-security-controls-for-identity-and-access.png)
 
 
+## Identify accounts without multi-factor authentication (MFA) enabled
+
+To see which accounts don't have MFA enabled, use the Azure Resource Graph query below. The query returns all unhealthy resources (in this case, accounts) of the recommendation "MFA should be enabled on accounts with owner permissions on your subscription". 
+
+1. Open **Azure Resource Graph Explorer**.
+
+    :::image type="content" source="./media/security-center-identity-access/opening-resource-graph-explorer.png" alt-text="Launching Azure Resource Graph Explorer** recommendation page" :::
+
+1. Enter the following query and select **Run query**.
+
+    ```
+    securityresources
+     | where type == "microsoft.security/assessments"
+     | where properties.displayName == "MFA should be enabled on accounts with owner permissions on your subscription"
+     | where properties.status.code == "Unhealthy"
+    ```
+
+1. The `additionalData` property reveals the list of account object ids for accounts that don't have MFA enforced. 
+
+    > [!NOTE]
+    > The accounts are shown as object ids rather than account names to protect the pivacy of the account holders.
+
+> [!TIP]
+> Alternatively, you can use Security Center's REST API method [Assessments - Get ](https://docs.microsoft.com/rest/api/securitycenter/assessments/get).
+
+
 ## Enable multi-factor authentication (MFA)
 
 Enabling MFA requires [Azure Active Directory (AD) tenant permissions](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-assign-admin-roles). 
