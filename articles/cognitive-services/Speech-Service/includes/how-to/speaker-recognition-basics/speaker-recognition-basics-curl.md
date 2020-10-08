@@ -25,9 +25,9 @@ This article assumes that you have an Azure account and Speech service subscript
 
 Speaker Verification is the act of confirming that a speaker matches a known, or **enrolled** voice. The first step is to **enroll** a voice profile, so that the service has something to compare future voice samples against. In this example, you enroll the profile using a **text-dependent** strategy, which requires a specific passphrase to use for both enrollment and verification. See the [reference docs](https://docs.microsoft.com/rest/api/speakerrecognition/) for a list of supported passphrases.
 
-Start by [creating a voice profile](https://docs.microsoft.com/en-us/rest/api/speakerrecognition/verification/textdependent/createprofile).
+Start by [creating a voice profile](https://docs.microsoft.com/en-us/rest/api/speakerrecognition/verification/textdependent/createprofile). You will need to insert your Speech service subscription key and region into each the curl commands in this article.
 
-:::code language="curl" source="~/cognitive-services-quickstart-code/cpp/speech/speaker-recognition.sh" id="tdv_create_profile":::
+:::code language="curl" source="~/cognitive-services-quickstart-code/curl/speech/speaker-recognition.sh" id="tdv_create_profile":::
 
 Note there are three types of voice profile:
 
@@ -39,7 +39,7 @@ In this case you create a text-dependent verification voice profile. You should 
 
 :::code language="json" source="~/cognitive-services-quickstart-code/curl/speech/speaker-recognition.sh" id="tdv_create_profile_response":::
 
-Next, you [enroll the voice profile](https://docs.microsoft.com/en-us/rest/api/speakerrecognition/verification/textdependent/createenrollment).
+Next, you [enroll the voice profile](https://docs.microsoft.com/en-us/rest/api/speakerrecognition/verification/textdependent/createenrollment). For the `--data-binary` parameter value, specify an audio file on your computer that contains one of the supported passphrases, such as "my voice is my passport, verify me." You can record such an audio file with an app such as [Windows Voice Recorder](https://www.microsoft.com/en-us/p/windows-voice-recorder/9wzdncrfhwkn?activetab=pivot:overviewtab), or you can generate it using [text -to-speech](https://docs.microsoft.com/en-us/azure/cognitive-services/speech-service/index-text-to-speech).
 
 :::code language="curl" source="~/cognitive-services-quickstart-code/curl/speech/speaker-recognition.sh" id="tdv_enroll":::
 
@@ -53,7 +53,7 @@ After you have enrolled a total of three audio samples, you should receive the f
 
 :::code language="json" source="~/cognitive-services-quickstart-code/curl/speech/speaker-recognition.sh" id="tdv_enroll_response_2":::
 
-Now you are ready to [verify an audio sample against the voice profile](https://docs.microsoft.com/en-us/rest/api/speakerrecognition/verification/textdependent/verifyprofile).
+Now you are ready to [verify an audio sample against the voice profile](https://docs.microsoft.com/en-us/rest/api/speakerrecognition/verification/textdependent/verifyprofile). This audio sample should contain the same passphrase as the samples you used to enroll the voice profile.
 
 :::code language="curl" source="~/cognitive-services-quickstart-code/curl/speech/speaker-recognition.sh" id="tdv_verify":::
 
@@ -84,7 +84,7 @@ You should receive the following response.
 
 :::code language="json" source="~/cognitive-services-quickstart-code/curl/speech/speaker-recognition.sh" id="tiv_create_profile_response":::
 
-Next, you [enroll the voice profile](https://docs.microsoft.com/en-us/rest/api/speakerrecognition/verification/textindependent/createenrollment). Again, rather than submitting three audio samples, you need to submit audio samples that contain a total of 20 seconds of audio.
+Next, [enroll the voice profile](https://docs.microsoft.com/en-us/rest/api/speakerrecognition/verification/textindependent/createenrollment). Again, rather than submitting three audio samples, you need to submit audio samples that contain a total of 20 seconds of audio.
 
 :::code language="curl" source="~/cognitive-services-quickstart-code/curl/speech/speaker-recognition.sh" id="tiv_enroll":::
 
@@ -92,7 +92,7 @@ Once you have submitted enough audio samples, you should receive the following r
 
 :::code language="json" source="~/cognitive-services-quickstart-code/curl/speech/speaker-recognition.sh" id="tiv_enroll_response":::
 
-Now you are ready to [verify an audio sample against the voice profile](https://docs.microsoft.com/en-us/rest/api/speakerrecognition/verification/textindependent/verifyprofile).
+Now you are ready to [verify an audio sample against the voice profile](https://docs.microsoft.com/en-us/rest/api/speakerrecognition/verification/textindependent/verifyprofile). Again, this audio sample does not need to contain a passphrase. It can contain any speech, as long as it contains a total of at least four seconds of audio.
 
 :::code language="curl" source="~/cognitive-services-quickstart-code/curl/speech/speaker-recognition.sh" id="tiv_verify":::
 
@@ -120,7 +120,7 @@ You should receive the following response.
 
 :::code language="json" source="~/cognitive-services-quickstart-code/curl/speech/speaker-recognition.sh" id="tii_create_profile_response":::
 
-Next, you [enroll the voice profile](https://docs.microsoft.com/en-us/rest/api/speakerrecognition/identification/textindependent/createenrollment). Again, you need to submit audio samples that contain a total of 20 seconds of audio.
+Next, you [enroll the voice profile](https://docs.microsoft.com/en-us/rest/api/speakerrecognition/identification/textindependent/createenrollment). Again, you need to submit audio samples that contain a total of 20 seconds of audio. These samples do not need to contain a passphrase.
 
 :::code language="curl" source="~/cognitive-services-quickstart-code/curl/speech/speaker-recognition.sh" id="tii_enroll":::
 
