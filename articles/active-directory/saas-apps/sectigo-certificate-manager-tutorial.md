@@ -109,7 +109,7 @@ In this section, you configure Azure AD single sign-on with Sectigo Certificate 
 
 	1. Select **Set additional URLs**.
 
-	1. In the **Relay State** box, enter your Sectigo Certificate Manager customer-specific URL. For the main Sectigo Certificate Manager instance, enter **https:\//cert-manager.com/customer/\<*customerURI\>/idp**.
+	1. In the **Relay State** box, enter your Sectigo Certificate Manager customer-specific URL. For the main Sectigo Certificate Manager instance, enter **https:\//cert-manager.com/customer/\<customerURI\>/idp**.
 
     ![Sectigo Certificate Manager domain and URLs single sign-on information](common/idp-relay.png)
 
