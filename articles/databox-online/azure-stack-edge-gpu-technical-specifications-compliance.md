@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: conceptual
-ms.date: 08/26/2020
+ms.date: 10/07/2020
 ms.author: alkohli
 ---
 
@@ -75,7 +75,7 @@ For a full list of supported cables, switches, and transceivers for these networ
 
 ## Storage specifications
 
-The Azure Stack Edge Pro devices have five 2.5" NVMe DC P4610 SSDs, each with a capacity of 1.6 TB. The boot drive is a 240 GB SATA SSD. The total usable capacity for the device is roughly 8.28 TB. The following table lists the storage capacity of the device.
+The Azure Stack Edge Pro devices have five 2.5" NVMe DC P4610 SSDs, each with a capacity of 1.6 TB. The boot drive is a 240 GB SATA SSD. The total usable capacity for the device is roughly 4.19 TB. The following table lists the storage capacity of the device.
 
 |     Specification                          |     Value             |
 |--------------------------------------------|-----------------------|
@@ -83,12 +83,12 @@ The Azure Stack Edge Pro devices have five 2.5" NVMe DC P4610 SSDs, each with a 
 |    Number of NVMe SSDs                     |    5                  |
 |    Boot SSD capacity                       |    240 GB             |
 |    Single NVMe SSD capacity                |    1.6 TB             |
-|    Total capacity                          |    8.28 TB            |
-|    Total usable capacity*                  |    ~ 7.95 TB          |
+|    Total capacity                          |    8.0 TB            |
+|    Total usable capacity*                  |    ~ 4.19 TB          |
 |    SAS controller                          |    HBA330 12 Gbps     |
 
 
-**Some space is reserved for internal use.*
+**After parity resiliency and reserving space for internal use.*
 
 <!--Remove based on feedback from Ravi
 ## Other hardware specifications
