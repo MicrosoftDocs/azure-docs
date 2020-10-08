@@ -81,7 +81,8 @@ For Windows:
 | Configuration name | Possible values | Details |
 |:-----------|:---------------|:--------|
 | moduleName | string | Name of the security module identity. This name must correspond to the module identity name in the device. |
-| deviceId | string | ID of the device (as registered in Azure IoT Hub). || schedulerInterval | TimeSpan string | Internal scheduler interval. |
+| deviceId | string | ID of the device (as registered in Azure IoT Hub). |
+| schedulerInterval | TimeSpan string | Internal scheduler interval. |
 | gatewayHostname | string | Host name of the Azure Iot Hub. Usually <my-hub>.azure-devices.net |
 | filePath | string - path to file | Path to the file that contains the authentication secret.|
 | type | "SymmetricKey", "SelfSignedCertificate" | The user secret for authentication. Choose *SymmetricKey* if the user secret is a Symmetric key, choose *self-signed certificate* if the secret is a self-signed certificate. |
