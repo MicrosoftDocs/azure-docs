@@ -52,7 +52,7 @@ Use an [Azure Load Balancer](../../../load-balancer/load-balancer-overview.md) t
 
 The load balancer holds the IP addresses for the availability group listener. If you have more than one availability group, each group requires a listener. One load balancer can support multiple listeners.
 
-To get started, see [configure a load balancer](hadr-vnn-azure-load-balancer.md). 
+To get started, see [configure a load balancer](availability-group-vnn-azure-load-balancer.md). 
 
 ### DNN listener
 
@@ -62,7 +62,7 @@ The DNN listener is the recommended HADR connectivity solution in Azure as it si
 
 Use the DNN listener to replace an existing VNN listener, or alternatively, use it in conjunction with an existing VNN listener so that your availability group has two distinct connection points - one using the VNN listener name (and port if non-default), and one using the DNN listener name and port. 
 
-To get started, see [configure a DNN listener](hadr-distributed-network-name-dnn-configure.md).
+To get started, see [configure a DNN listener](availability-group-distributed-network-name-dnn-listener-configure.md).
 
 
 ## Deployment 
