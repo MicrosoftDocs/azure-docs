@@ -12,7 +12,7 @@
       href: get-started.md
     - name: 1 Create a Synapse workspace
       href: get-started-create-workspace.md
-    - name: 2 Analyze using a SQL Pool
+    - name: 2 Analyze using a dedicated SQL Pool
       href: get-started-analyze-sql-pool.md
     - name: 3 Analyze using Spark
       href: get-started-analyze-spark.md
@@ -54,9 +54,9 @@
       href: quickstart-create-apache-spark-pool-portal.md
     - name: Create Apache Spark pool using Synapse Studio
       href: quickstart-create-apache-spark-pool-studio.md
-    - name: Create SQL pool using Azure portal
+    - name: Create dedicated SQL pool using Azure portal
       href: quickstart-create-sql-pool-portal.md
-    - name: Create SQL pool using Synapse Studio
+    - name: Create dedicated SQL pool using Synapse Studio
       href: quickstart-create-sql-pool-studio.md
   - name: Load data with SQL pools
     items:
@@ -118,7 +118,7 @@
     items:
     - name: Pool monitoring
       items:
-      - name: SQL pool
+      - name: dedicated SQL pool
         items:
         - name: Overview
           href: ./sql-data-warehouse/sql-data-warehouse-overview-manageability-monitoring.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
@@ -168,7 +168,7 @@
         href: ../sql-database/transparent-data-encryption-byok-azure-sql.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
     # - name: Advanced Data Security
     #   items:
-    #   - name: SQL pool
+    #   - name: dedicated SQL pool
     #     items:
     #     - name: Overview
     #       href: ../sql-database/sql-database-advanced-data-security.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
@@ -258,7 +258,7 @@
         href: sql/overview-architecture.md
       - name: SQL on-demand
         href: sql/on-demand-workspace-overview.md
-      - name: SQL pool 
+      - name: dedicated SQL pool 
         href: ./sql-data-warehouse/sql-data-warehouse-overview-what-is.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
       - name: Architecture
         href: ./sql-data-warehouse/massively-parallel-processing-mpp-architecture.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
@@ -504,7 +504,7 @@
         href: ./synapse-link/how-to-connect-synapse-link-cosmos-db.md
       - name: Query Azure Cosmos DB analytical store with Apache Spark for Azure Synapse Analytics
         href: ./synapse-link/how-to-query-analytical-store-spark.md
-      - name: Copy data from Synapse Link into a SQL pool using Apache Spark
+      - name: Copy data from Synapse Link into a dedicated SQL pool using Apache Spark
         href: ./synapse-link/how-to-copy-to-sql-pool.md
     - name: Synapse SQL
       items:
