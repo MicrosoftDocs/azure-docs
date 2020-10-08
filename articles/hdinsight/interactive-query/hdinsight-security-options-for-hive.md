@@ -32,7 +32,7 @@ For ESP clusters, authorization through Ranger is enabled by default.
 
 ## SSL Encryption for HiveServer2
 
-Enabling Hiveserver2 SSL is not recommended for either standard or ESP clusters. SSL is enabled on gateway instead. [Encryption in Transit](https://docs.microsoft.com/azure/hdinsight/domain-joined/encryption-in-transit) can be enabled to encrypt communications among the cluster nodes using [Internet Protocol Security (IPSec)](https://en.wikipedia.org/wiki/IPsec).
+Enabling Hiveserver2 SSL is not recommended for either standard or ESP clusters. SSL is enabled on the gateway instead. [Encryption in transit](https://docs.microsoft.com/azure/hdinsight/domain-joined/encryption-in-transit) can be enabled to encrypt communications among the cluster nodes using [Internet Protocol Security (IPSec)](https://en.wikipedia.org/wiki/IPsec).
 
 
 ## Next steps
@@ -40,4 +40,3 @@ Enabling Hiveserver2 SSL is not recommended for either standard or ESP clusters.
 * [Overview of HiveServer2 Authorization](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+Authorization#:~:text=%20Overview%20of%20Authorization%20Modes%20%201%201,and%20Apache%20Sentry%20are%20apache%20projects...%20More%20)
 * [Enabling SQL Standards Based Hive Authorization](https://community.cloudera.com/t5/Community-Articles/Getting-started-with-SQLStdAuth/ta-p/244263)
 * [Apache Ranger with Hive](https://docs.microsoft.com/azure/hdinsight/domain-joined/apache-domain-joined-run-hive#:~:text=Create%20Hive%20ODBC%20data%20source%20%20%20,Enter%20hiveuser1%40contoso158.onmicrosoft.c%20...%20%205%20more%20rows%20)
-
