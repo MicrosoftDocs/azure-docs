@@ -231,6 +231,8 @@ Django database migrations ensure that the schema in the PostgreSQL on Azure dat
 
     On macOS and Linux, you can alternately connect to an SSH session with the [`az webapp ssh`](/cli/azure/webapp?view=azure-cli-latest&preserve-view=true#az_webapp_ssh) command.
 
+    If you cannot connect to the SSH session, then the app itself has failed to start. [Check the diagnostic logs](#stream-diagnostic-logs) for details. For example, if you haven't created the necessary app settings in the previous section, the logs will indicate `KeyError: 'DBNAME'`.
+
 1. In the SSH session, run the following commands (you can paste commands using **Ctrl**+**Shift**+**V**):
 
     ```bash
@@ -262,7 +264,7 @@ Django database migrations ensure that the schema in the PostgreSQL on Azure dat
 
 1. In a browser, open the URL `http://<app-name>.azurewebsites.net`. The app should display the message "No polls are available" because there are no specific polls yet in the database.
 
-    If you see "Application Error", then it's likely that you didn't create the required settings in the previous step, [Configure environment variables to connect the database](#configure-environment-variables-to-connect-the-database). Run the command `az webapp config appsettings list` to check the settings. You can also [check the diagnostic logs]() to see specific errors during app startup. For example, if you didn't create the settings, the logs will show the error, `KeyError: 'DBNAME'`.
+    If you see "Application Error", then it's likely that you didn't create the required settings in the previous step, [Configure environment variables to connect the database](#configure-environment-variables-to-connect-the-database). Run the command `az webapp config appsettings list` to check the settings. You can also [check the diagnostic logs](#stream-diagnostic-logs) to see specific errors during app startup. For example, if you didn't create the settings, the logs will show the error, `KeyError: 'DBNAME'`.
 
     If you see the error, "Invalid Username specified. Please check the Username and retry connection. The Username should be in <username@hostname> format.", see [Verify the DBUSER setting](#verify-the-dbuser-setting).
 
