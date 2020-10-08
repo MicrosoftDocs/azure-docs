@@ -2,7 +2,7 @@
 title: Get started and create an Azure Lab Services lab from Teams
 description: Learn how to get started and create an Azure Lab Services lab from Teams. 
 ms.topic: article
-ms.date: 06/26/2020
+ms.date: 10/08/2020
 ---
 
 # Get started and create a Lab Services lab from Teams
@@ -20,26 +20,26 @@ You can add Lab Services directly in your Teams channels, and then the app is av
     > [!NOTE]
     > Only Team **Owners** will be able to create labs for the team.
 <!--  ![Select Azure Lab Services from the Add a tab screen](./media/integrate-with-teams/azure-lab-services.png) -->
-1. Select a Lab Services account which you would like to use for creating labs in this team. 
+1. Select a Lab Services account, which you would like to use for creating classroom labs in this team. 
 
-    Azure Lab Services uses single sign-on into the [labs portal](labs.azure.com) and pulls all the lab accounts that you have access to. 
+    Azure Lab Services uses single sign-on into the [labs website](https://labs.azure.com) and pulls all the lab accounts that you have access to. 
 
     The accounts that are in the same tenant as Teams and for which you have **Owner**, **Contributor**, or **Creator** access are displayed. 
 
    ![Name the tab](./media/integrate-with-teams/welcome.png) 
-1. Press **Save** and the app gets added to Teams and the tab gets addeded to the channel. 
+1. Press **Save** and the app gets added to Teams and the tab gets added to the channel. 
 
     Now you can select the **Azure Lab Services** tab from your channel and start managing labs as described in the following step.
 
 Once one member of a team adds the tab, it shows up for everyone in the channel. Any users who have access to the app get single sign-on access with the credentials they use for Microsoft Teams. Any users who don't have access to the app can see the tab in Teams, but are blocked until you give them permissions to the on-premises app and the Azure portal published version of the app.
 
-If you would like to create labs in a different channel of the same team, You can just click on ‘+’ (Add a tab) icon and you will find **Azure Lab Services**.  
+If you would like to create labs in a different channel of the same team, you can just click on ‘+’ (Add a tab) icon and you will find **Azure Lab Services**.  
 
-## Create a lab
+## Create a classroom lab
 
 After the lab account is selected, Team owners will be able to create labs for the team. The entire lab creation process and all the tasks at the lab level can be performed within Teams. Users will have the option to create multiple labs within the same team and the Team owner, with appropriate access at the lab account level, will see only the labs associated with the specific team.
 
-## Give access to users of the lab account
+## Giving access to users of the lab account
 
 Provisioning access to users at the lab account level needs to happen in the [Azure](https://ms.portal.azure.com/) portal.
 
@@ -51,9 +51,19 @@ Provisioning access to users at the lab account level needs to happen in the [Az
 
     ![Add lab creator](./media/tutorial-setup-lab-account/add-lab-creator.png)
 
-## Create labs
+### Creating classroom labs
 
-The labs creation process is the same whether you are creating labs from Teams or the [labs portal](labs.azure.com). This article outline labs creation process: []().
+The classroom labs creation process is the same whether you are creating labs from Teams or the [labs website](https://labs.azure.com). 
+
+For details about setting up This article outline labs creation process: [Manage classroom labs in Azure Lab Services](how-to-manage-classroom-labs.md).
+
+## Deleting classroom labs
+
+A lab created within Teams can be deleted in the [labs website ](https://labs.azure.com) by deleting the lab directly, as described in [Manage classroom labs in Azure Lab Services](how-to-manage-classroom-labs.md). 
+
+Lab deletion is also triggered when the team is deleted. If the team in which the lab is created gets deleted, lab would be automatically deleted 24 hours after the automatic user list sync is triggered. 
+
+Deletion of the tab or uninstalling the app will not result in deletion of the lab. If the tab is deleted, users on the team membership list will still be able to access the VMs on the [labs website ](https://labs.azure.com) unless the lab deletion is explicitly triggered by deleting the lab on website or deleting the team. 
 
 ## Next steps
 
