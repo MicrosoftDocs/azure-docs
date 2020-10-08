@@ -114,6 +114,8 @@ When you use Azure Function in Elastic Premium Plan with Private Endpoint, to ru
 
 You can connect up to 100 Private Endpoint to a particular Web App.
 
+Remote Debugging functionality is not available when Private Endpoint is enabled for the Web App. The recommendation is to deploy the code to a slot and remote debug it there.
+
 Private Endpoint is available for PremiumV2, PremiumV3, Windows and Linux Web App, containerized or not, and the Azure Functions Premium plan (sometimes referred to as the Elastic Premium plan). 
 
 We are improving Private Link feature and Private Endpoint regularly, check [this article][pllimitations] for up-to-date information about limitations.
