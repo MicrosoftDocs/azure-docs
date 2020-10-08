@@ -19,7 +19,7 @@ Organizations might have several Azure subscriptions. Each subscription is assoc
 This article describes the basic steps you can follow to transfer a subscription to a different Azure AD directory and re-create some of the resources after the transfer.
 
 > [!NOTE]
-> For Azure Cloud Service Providers (CSP) subscriptions, changing the Azure AD directory for the subscription isn't supported.
+> For Azure Cloud Solution Providers (CSP) subscriptions, changing the Azure AD directory for the subscription isn't supported.
 
 ## Overview
 
@@ -69,7 +69,7 @@ Several Azure resources have a dependency on a subscription or a directory. Depe
 | Azure Data Lake Storage Gen1 | Yes | Yes |  | You must re-create any ACLs. |
 | Azure Files | Yes | Yes |  | You must re-create any ACLs. |
 | Azure File Sync | Yes | Yes |  |  |
-| Azure Managed Disks | Yes | N/A |  |  |
+| Azure Managed Disks | Yes | Yes |  |  If you are using Disk Encryption Sets to encrypt Managed Disks with customer-managed keys, you must disable and re-enable the system-assigned identities associated with Disk Encryption Sets. And you must re-create the role assignments i.e. again grant required permissions to Disk Encryption Sets in the Key Vaults. |
 | Azure Container Services for Kubernetes | Yes | Yes |  |  |
 | Azure Active Directory Domain Services | Yes | No |  |  |
 | App registrations | Yes | Yes |  |  |
