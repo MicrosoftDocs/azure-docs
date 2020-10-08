@@ -13,7 +13,7 @@ ms.date: 07/20/2020
 
 # Analyze data with serverless SQL pool in Azure Synapse Analytics
 
-In this tutorial, you'll learn how to analyze data with serverless SQL using an on-demand SQL pool using data located in Spark databases. 
+In this tutorial, you'll learn how to analyze data with serverless SQL pool using data located in Spark databases. 
 
 ## Analyze NYC Taxi data in blob storage using serverless SQL pool
 
