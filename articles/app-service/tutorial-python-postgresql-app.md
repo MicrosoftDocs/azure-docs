@@ -203,13 +203,17 @@ az webapp config appsettings set --settings DJANGO_ENV="production" DBHOST="<pos
 - The command creates settings named `DJANGO_ENV`, `DBHOST`, `DBNAME`, `DBUSER`, and `DBPASS` as expected by the app code.
 - In your Python code, you access these settings as environment variables with statements like `os.environ.get('DJANGO_ENV')`. For more information, see [Access environment variables](configure-language-python.md#access-environment-variables).
 
-To verify the settings, run `az webapp config app settings list`:
+#### Verify the DBUSER setting
+
+It's critical that the `DBUSER` setting is of the form `<username>@<postgres-server-name>`.
+
+To verify the setting, run `az webapp config app settings list` and look at the `DBUSER` value in the results:
 
 ```azurecli
 az webapp config app settings list
 ```
 
-Again, make sure that the `DBUSER` setting is of the form, `<username>@<postgres-server-name>`.
+If you need to correct the value, run the command `az webapp config appsettings set --settings DBUSER="<username>@<postgres-server-name>"`, replacing `<username>@<postgres-server-name>` with the appropriate names.
 
 [Having issues? Let us know.](https://aka.ms/DjangoCLITutorialHelp)
 
@@ -245,7 +249,9 @@ Django database migrations ensure that the schema in the PostgreSQL on Azure dat
     # Create the super user (follow prompts)
     python manage.py createsuperuser
     ```
-    
+
+1. If you see the error "The Username should be in <username@hostname> format." when running the database migrations, see [Verify the DBUSER setting](#verify-the-dbuser-setting).
+
 1. The `createsuperuser` command prompts you for superuser credentials. For the purposes of this tutorial, use the default username `root`, press **Enter** for the email address to leave it blank, and enter `Pollsdb1` for the password.
 
 1. If you see an error that the database is locked, make sure that you ran the `az webapp settings` command in the previous section. Without those settings, the migrate command cannot communicate with the database, resulting in the error.
@@ -258,9 +264,9 @@ Django database migrations ensure that the schema in the PostgreSQL on Azure dat
 
     If you see "Application Error", then it's likely that you didn't create the required settings in the previous step, [Configure environment variables to connect the database](#configure-environment-variables-to-connect-the-database). Run the command `az webapp config appsettings list` to check the settings. You can also [check the diagnostic logs]() to see specific errors during app startup. For example, if you didn't create the settings, the logs will show the error, `KeyError: 'DBNAME'`.
 
-    If you see the error, "Invalid Username specified. Please check the Username and retry connection. The Username should be in <username@hostname> format.", then the `DBUSER` setting is not in the necessary format `<username>@<postgres-host-name>`. Run the command `az webapp config appsettings list` to check the value. To correct it, run the command `az webapp config appsettings set --settings DBUSER="<username>@<postgres-server-name>"`, replacing `<username>@<postgres-server-name>` with the appropriate names.
+    If you see the error, "Invalid Username specified. Please check the Username and retry connection. The Username should be in <username@hostname> format.", see [Verify the DBUSER setting](#verify-the-dbuser-setting).
 
-    After updating the settings, give the app a minute to restart, then refresh the browser.
+    After updating the settings to correct any errors, give the app a minute to restart, then refresh the browser.
 
 1. Browse to `http://<app-name>.azurewebsites.net/admin`. Sign in using superuser credentials from the previous section (`root` and `Pollsdb1`). Under **Polls**, select **Add** next to **Questions** and create a poll question with some choices.
 
