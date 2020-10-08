@@ -32,7 +32,12 @@ If the database throughput is greater than 10,000 RU/s or if the data stored in 
 
 ## Next steps
 
-In this article, you learned how to update your RUs for Azure API for FHIR. Next deploy a fully managed Azure API for FHIR:
+In this article, you learned how to update your RUs for Azure API for FHIR. To learn about configuring customer-managed keys as a database setting:
+
+>[!div class="nextstepaction"]
+>[Configure customer-managed keys](bring-your-own-key.md)
+
+Or you can deploy a fully managed Azure API for FHIR:
  
 >[!div class="nextstepaction"]
 >[Deploy Azure API for FHIR](fhir-paas-portal-quickstart.md)

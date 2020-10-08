@@ -33,8 +33,10 @@ License Administrator  |  Can assign, remove, and update license assignments wit
 Password Administrator  |  Can reset passwords for non-administrators and Password Administrators within the assigned administrative unit only.
 User Administrator  |  Can manage all aspects of users and groups, including resetting passwords for limited admins within the assigned administrative unit only.
 
-## Security principals that can be assigned to an AU scoped role
-The following security principals can be assigned to an AU scoped role:
+## Security principals that can be assigned to a scoped role
+
+The following security principals can be assigned to a role with an administrative unit scope:
+
 * Users
 * Role assignable cloud groups (preview)
 * Service Principal Name (SPN)
