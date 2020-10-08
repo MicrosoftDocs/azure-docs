@@ -1,7 +1,7 @@
 ---
-title: 'Tutorial: Connect to a Azure Cosmos account using an Azure Private endpoint'
+title: 'Tutorial: Connect to an Azure Cosmos account using an Azure Private endpoint'
 titleSuffix: Azure Private Link
-description: Get started with Azure Private endpoint to connect to a Azure Cosmos account privately.
+description: Get started with Azure Private endpoint to connect to an Azure Cosmos account privately.
 author: asudbring
 ms.author: allensu
 ms.service: private-link
@@ -9,7 +9,7 @@ ms.topic: tutorial
 ms.date: 9/25/2020
 ---
 
-# Tutorial: Connect to a Azure Cosmos account using an Azure Private Endpoint
+# Tutorial: Connect to an Azure Cosmos account using an Azure Private Endpoint
 
 Azure Private endpoint is the fundamental building block for Private Link in Azure. It enables Azure resources, like virtual machines (VMs), to communicate with Private Link resources privately.
 
@@ -153,7 +153,7 @@ In this section, you'll create a Cosmos DB account and configure the private end
     | **Network connectivity** | |
     | Connectivity method | Select **Private endpoint**. |
     | **Configure Firewall** | |
-    | Allow access from the Azure Portal | Leave the default **Allow**. |
+    | Allow access from the Azure portal | Leave the default **Allow**. |
     | Allow access from my IP | Leave the default **Deny**. |
 
 5. In **Private endpoint**, select **+ Add**.
@@ -166,7 +166,7 @@ In this section, you'll create a Cosmos DB account and configure the private end
     | Resource Group | Select **myResourceGroup** |
     | Location | Select **East US** |
     | Name | Enter **myPrivateEndpoint** |
-    | Storage subresource | Leave the default **Core (SQL)** |
+    | Target subresource | Leave the default **Core (SQL)** |
     | **Networking** |  |
     | Virtual network | Select **myVNet** |
     | Subnet | Select **mySubnet** |
@@ -180,31 +180,108 @@ In this section, you'll create a Cosmos DB account and configure the private end
 
 9. Select **Create**.
 
+### Add a database and a container
+
+1. Select **Got to resource** or in the left-hand menu of the Azure portal, select **All Resources** > **mycosmosdb**.
+
+2. In the left-hand menu, select **Data Explorer**.
+
+3. In the **Data Explorer** window, select **New Container**.
+
+4. In **Add Container**, enter or select the following information:
+
+    | Setting | Value |
+    | ------- | ----- |
+    | Database ID | Leave the default of **Create new**. </br> Enter **mydatabaseid** in the text box. |
+    | Throughput (400 - 100,000 RU/s) | Leave the default of **Manual**. </br> Enter **400** in the text box. |
+    | Container ID | Enter **mycontainerid** |
+    | Partition key | Enter **/mykey** |
+
+5. Select **OK**.
+
+10. In the **Settings** section of the CosmosDB account, select **Keys**.
+
+11. Select **myResourceGroup**.
+
+12. Select the storage account you created in the previous steps.
+
+14. Select copy on the **PRIMARY CONNECTION STRING**.
+
+## Test connectivity to private endpoint
+
+In this section, you'll use the virtual machine you created in the previous step to connect to the Cosmos DB account across the private endpoint.
+
+1. Select **Resource groups** in the left-hand navigation pane.
+
+2. Select **myResourceGroup**.
+
+3. Select **myVM**.
+
+4. On the overview page for **myVM**, select **Connect** then **Bastion**.
+
+5. Select the blue **Use Bastion** button.
+
+6. Enter the username and password that you entered during the virtual machine creation.
+
+7. Open Windows PowerShell on the server after you connect.
+
+8. Enter `nslookup <storage-account-name>.documents.azure.com`. Replace **\<storage-account-name>** with the name of the storage account you created in the previous steps. 
+
+    ```powershell
+    Server:  UnKnown
+    Address:  168.63.129.16
+
+    Non-authoritative answer:
+    Name:    mycosmosdb8675.privatelink.documents.azure.com
+    Address:  10.1.0.5
+    Aliases:  mycosmosdb8675.documents.azure.com
+    ```
+
+    A private IP address of **10.1.0.5** is returned for the Cosmos DB account name.  This address is in the subnet of the virtual network you created previously.
+
+9. Install [Microsoft Azure Storage Explorer](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer?toc=%2Fazure%2Fstorage%2Fblobs%2Ftoc.json&tabs=windows) on the virtual machine.
+
+10. Select **Finish** after the **Microsoft Azure Storage Explorer** is installed.  Leave the box checked to open the application.
+
+11. In the **Connect to Azure Storage** screen, select **Cancel**.
+
+12. In Storage Explorer, right mouse click **Cosmos DB Accounts** and select **Connect to Cosmos DB**.
+
+13. Leave the default of **SQL** under **Select API**.
+
+14. In the box under **Connection String**, paste the connection string from the Cosmos DB account you copied in the previous steps.
+
+15. Select **Next**.
+
+16. Verify the settings are correct in **Connection Summary**.  
+
+17. Select **Connect**.
+
+18. Close the connection to **myVM**.
+
 
 ## Clean up resources
 
-If you're not going to continue to use this application, delete
-<resources> with the following steps:
+If you're not going to continue to use this application, delete the virtual network, virtual machine, and Cosmos DB account with the following steps:
 
-1. From the left-hand menu...
-2. ...click Delete, type...and then click Delete
+1. From the left-hand menu, select **Resource groups**.
 
-<!---Required:
-To avoid any costs associated with following the tutorial procedure, a
-Clean up resources (H2) should come just before Next steps (H2)
---->
+2. Select **myResourceGroup**.
+
+3. Select **Delete resource group**.
+
+4. Enter **myResourceGroup** in **TYPE THE RESOURCE GROUP NAME**.
+
+5. Select **Delete**.
 
 ## Next steps
 
-Advance to the next article to learn how to create...
-> [!div class="nextstepaction"]
-> [Next steps button](contribute-get-started-mvc.md)
+In this tutorial, you created a:
 
-<!--- Required:
-Tutorials should always have a Next steps H2 that points to the next
-logical tutorial in a series, or, if there are no other tutorials, to
-some other cool thing the customer can do. A single link in the blue box
-format should direct the customer to the next article - and you can
-shorten the title in the boxes if the original one doesn’t fit.
-Do not use a "More info section" or a "Resources section" or a "See also
-section". --->
+* Virtual network and bastion host.
+* Virtual Machine.
+* Cosmos DB Account.
+
+Learn how to create a Private Link service:
+> [!div class="nextstepaction"]
+> [Create a Private Link service](create-private-link-service-portal.md)
