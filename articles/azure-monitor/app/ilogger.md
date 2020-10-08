@@ -188,7 +188,7 @@ Microsoft.ApplicationInsights.AspNet SDK versions before 2.7.1 supported a loggi
 
 You can still use the old provider. (It will be removed only in a major version change to 3.*xx*.) But we recommend that you migrate to the new provider for the following reasons:
 
-- The previous provider lacks support for [log scopes](/aspnet/core/fundamentals/logging/?view=aspnetcore-2.2#log-scopes). In the new provider, properties from scope are automatically added as custom properties to the collected telemetry.
+- The previous provider lacks support for [log scopes](/aspnet/core/fundamentals/logging#log-scopes). In the new provider, properties from scope are automatically added as custom properties to the collected telemetry.
 - Logs can now be captured much earlier in the application startup pipeline. Logs from the **Program** and **Startup** classes can now be captured.
 - With the new provider, filtering is done at the framework level itself. You can filter logs to the Application Insights provider in the same way as for other providers, including built-in providers like Console, Debug, and so on. You can also apply the same filters to multiple providers.
 - In ASP.NET Core (2.0 and later), the recommended way to  [enable logging providers](https://github.com/aspnet/Announcements/issues/255) is by using extension methods on ILoggingBuilder in **Program.cs** itself.
