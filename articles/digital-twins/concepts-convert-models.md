@@ -37,11 +37,11 @@ Some common industry models include:
 
 Depending on your needs, you can also use DTDL to customize or extend industry models, or develop your own custom model from scratch. 
 
-## Creating models
+## Create and edit models
 
-Azure Digital Twins models are written using the JSON-LD-based **Digital Twin Definition Language (DTDL)**, which is based on RDF and JSON. You can read more about Azure DIgital Twins models and their components in [*Concepts: Custom models*](concepts-models.md)
+The first step in modeling is creating your models. You can create and complete editing of your industry-standard models before converting them to DTDL, or you can convert them to DTDL early and continue editing them as DTDL documents.
 
-When working with models in DTDL, you can use the [**DTDL extension**](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.vscode-dtdl) available for [Visual Studio Code](https://code.visualstudio.com/), which provides syntax validation and other features to facilitate writing DTDL models. 
+### Using industry standards
 
 Most industry models (also referred to as **ontologies**) are based on semantic web standards such as [OWL](https://www.w3.org/OWL/[), [RDF](https://www.w3.org/2001/sw/wiki/RDF), and [RDFS](https://www.w3.org/2001/sw/wiki/RDFS). 
 
@@ -49,9 +49,9 @@ In some cases, you many want to create or edit a model using OWL-based model too
 * [WebProtégé](https://protege.stanford.edu/products.php#web-protege) and [Protégé Desktop](https://protege.stanford.edu/products.php#desktop-protege) are popular examples. You can import industry models in multiple formats, edit or extend a model, and export the model. 
 * [WebVOWL](http://www.visualdataweb.de/webvowl/) is another popular tool for visualizing models. 
 
-Once your model is complete using whatever form you prefer, it will need to be converted to DTDL and uploaded to Azure Digital Twins. 
+If you create a model using some industry standard that is not DTDL, you will then need to convert it to DTDL and upload it to Azure Digital Twins. 
 
-### Model file formats 
+#### Common model file formats 
 
 RDF, OWL and RDFS are the basic building blocks of the semantic web. 
 
@@ -85,7 +85,17 @@ Models can be saved, imported, and exported in many file formats, including:
 * Turtle (TTL) 
 * OWL/XML 
 
-## Convert models
+### Using DTDL
+
+Azure Digital Twins uses the JSON-LD-based **Digital Twin Definition Language (DTDL)** for modeling. Any model that will be used with Azure Digital Twins will need to be either originally written in or converted into DTDL.
+
+When working with models in DTDL, you can use the [**DTDL extension**](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.vscode-dtdl) available for [Visual Studio Code](https://code.visualstudio.com/), which provides syntax validation and other features to facilitate writing DTDL models.
+
+You can read more about Azure Digital Twins models and their components in [*Concepts: Custom models*](concepts-models.md) and [*How-to: Manage custom models*](how-to-manage-models.md).
+
+## Convert models to DTDL
+
+To use a model with Azure Digital Twins, it must be in DTDL format. This section covers how to convert RDF-based models to DTDL so that they can be used with Azure Digital Twins.
 
 There are several third-party libraries that can be used when converting RDF-based models to DTDL. Some of these libraries allow you to load your model file into a graph. You can loop through the graph looking for specific RDFS and OWL constructs, and convert these to DTDL.   
 
@@ -149,11 +159,11 @@ var json = JsonConvert.SerializeObject(_interfaceList);
 //...
 ``` 
 
-## Validate models
+## Validate DTDL models
 
 [!INCLUDE [Azure Digital Twins: validate models info](../../includes/digital-twins-validate.md)]
 
-## Upload models
+## Upload DTDL models
 
 Once a model is converted and validated, you can upload it to your Azure Digital Twins instance. For more information on this process, see the [*Upload models*](how-to-manage-model.md#upload-models) section of *How-to: Manage custom models*.
 
@@ -161,7 +171,9 @@ Once a model is converted and validated, you can upload it to your Azure Digital
 
 There is a sample application available that converts an RDF-based model file to [DTDL (version 2)](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/dtdlv2.md) for use by the Azure Digital Twins service. The sample is a .NET Core command-line application called **RdfToDtdlConverter**.
 
-You can get the sample here: [**RdfToDtdlConverter**](https://docs.microsoft.com/samples/azure-samples/rdftodtdlconverter/digital-twins-model-conversion-samples/). To download the code to your machine, hit the *Download ZIP* button underneath the title on the sample landing page. This will download a *ZIP* file under the name *RdfToDtdlConverter_sample_application_to_convert_RDF_to_DTDL.zip*, which you can then unzip and explore.
+You can get the sample here: [**RdfToDtdlConverter**](https://docs.microsoft.com/samples/azure-samples/rdftodtdlconverter/digital-twins-model-conversion-samples/). 
+
+To download the code to your machine, hit the *Download ZIP* button underneath the title on the sample landing page. This will download a *ZIP* file under the name *RdfToDtdlConverter_sample_application_to_convert_RDF_to_DTDL.zip*, which you can then unzip and explore.
 
 You can use this sample to see the conversion patterns in context, and to have as a building block for your own applications performing model conversions according to your own specific needs.
 
