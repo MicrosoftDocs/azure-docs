@@ -38,7 +38,7 @@ You may want to update the mode that your sensor is managed. When you do this, y
 
 7. In the sensor console, select **System Settings** and then select **Reactivation**.
 
-   ![Screenshot of Reactivation view](media/image14.png)
+   ![Screenshot of Reactivation view](media/updates/image14.png)
 
 8. Select **Upload** and select the file you saved.
 
