@@ -11,6 +11,8 @@ zone_pivot_groups: programming-languages-set-functions
 
 In this tutorial, you create and deploy your code to Azure Functions as a custom Docker container using a Linux base image. You typically use a custom image when your functions require a specific language version or have a specific dependency or configuration that isn't provided by the built-in image.
 
+Deploying your function code in a custom Linux container requires [Premium plan](functions-premium-plan.md#features) or a [Dedicated (App Service) plan](functions-scale.md#app-service-plan) hosting. Completing this tutorial incurs costs of a few US dollars in your Azure account, which you can minimize by [cleaning-up resources](#clean-up-resources) when you're done.
+
 You can also use a default Azure App Service container as described on [Create your first function hosted on Linux](./functions-create-first-azure-function-azure-cli.md?pivots=programming-language-python). Supported base images for Azure Functions are found in the [Azure Functions base images repo](https://hub.docker.com/_/microsoft-azure-functions-base).
 
 In this tutorial, you learn how to:
@@ -26,7 +28,7 @@ In this tutorial, you learn how to:
 > * Enable SSH connections to the container.
 > * Add a Queue storage output binding. 
 
-You can follow this tutorial on any computer running Windows, macOS, or Linux. Completing the tutorial will incur costs of a few US dollars in your Azure account.
+You can follow this tutorial on any computer running Windows, macOS, or Linux. 
 
 [!INCLUDE [functions-requirements-cli](../../includes/functions-requirements-cli.md)]
 
@@ -238,7 +240,7 @@ You use Azure CLI commands to create these items. Each command provides JSON out
     az functionapp plan create --resource-group AzureFunctionsContainers-rg --name myPremiumPlan --location westeurope --number-of-workers 1 --sku EP1 --is-linux
     ```   
 
-    Linux hosting for custom functions containers are supported on [Dedicated (App Service) plans](functions-scale.md#app-service-plan) and [Premium plans](functions-premium-plan.md#features). We use the Premium plan here, which can scale as needed. To learn more about hosting, see [Azure Functions hosting plans comparison](functions-scale.md). To calculate costs, see the [Functions pricing page](https://azure.microsoft.com/pricing/details/functions/).
+    We use the Premium plan here, which can scale as needed. To learn more about hosting, see [Azure Functions hosting plans comparison](functions-scale.md). To calculate costs, see the [Functions pricing page](https://azure.microsoft.com/pricing/details/functions/).
 
     The command also provisions an associated Azure Application Insights instance in the same resource group, with which you can monitor your function app and view logs. For more information, see [Monitor Azure Functions](functions-monitoring.md). The instance incurs no costs until you activate it.
 

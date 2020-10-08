@@ -4,7 +4,7 @@ description: In this tutorial, you configure Azure Monitor logs for monitoring a
 
 ms.topic: tutorial
 ms.date: 07/22/2019
-ms.author: dekapur
+ms.author: gwallace
 ms.custom: mvc
 ---
 # Tutorial: Monitor Windows containers on Service Fabric using Azure Monitor logs

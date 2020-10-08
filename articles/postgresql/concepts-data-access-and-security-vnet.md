@@ -1,8 +1,8 @@
 ---
 title: Virtual network rules - Azure Database for PostgreSQL - Single Server
 description: Learn how to use virtual network (vnet) service endpoints to connect to Azure Database for PostgreSQL - Single Server.
-author: rachel-msft
-ms.author: raagyema
+author: niklarin
+ms.author: nlarin
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 07/17/2020
