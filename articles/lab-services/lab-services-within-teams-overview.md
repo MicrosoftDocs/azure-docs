@@ -1,11 +1,11 @@
 ---
-title: Azure Lab Services with Microsoft Teams
-description: Provides an overview of using Azure Lab Services with Microsoft Teams. 
+title: Azure Lab Services within Microsoft Teams
+description: Provides an overview of using Azure Lab Services within Microsoft Teams. 
 ms.topic: conceptual
 ms.date: 10/07/2020
 ---
 
-# Azure Lab Services with Microsoft Teams
+# Azure Lab Services within Microsoft Teams
 
 Azure Lab Services owners/creators are now able to create labs within Microsoft Teams.
 

@@ -11,7 +11,7 @@ ms.date: 10/07/2020
 
 See the following articles:
 
-- [Overview and benefits](lab-services-with-teams-overview.md)
+- [Use Azure Lab Services within Teams overview](lab-services-within-teams-overview.md)
 - [Get started and create a lab within a Team](how-to-get-started-create-lab-within-teams.md)
 - [Manage user lists](how-to-manage-user-lists-within-teams.md)
 - [Manage VM pool](how-to-manage-vm-pool-within-teams.md)

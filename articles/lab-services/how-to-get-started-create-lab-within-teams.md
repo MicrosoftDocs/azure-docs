@@ -61,7 +61,7 @@ A lab created within Teams can be deleted in the [Lab Services website](https://
 
 Lab deletion is also triggered when the team is deleted. If the team in which the lab is created gets deleted, lab would be automatically deleted 24 hours after the automatic user list sync is triggered. 
 
-Deletion of the tab or uninstalling the app will not result in deletion of the lab. If the tab is deleted, users on the team membership list will still be able to access the VMs on the [ Lab Services website](https://labs.azure.com) unless the lab deletion is explicitly triggered by deleting the lab on website or deleting the team. 
+Deletion of the tab or uninstalling the app will not result in deletion of the lab. If the tab is deleted, users on the team membership list will still be able to access the VMs on the [Lab Services website](https://labs.azure.com) unless the lab deletion is explicitly triggered by deleting the lab on website or deleting the team. 
 
 ## Next steps
 
@@ -73,7 +73,7 @@ When a lab is created within Teams, the lab user list is automatically populated
 
 Also see the following articles:
 
-- [Overview and benefits](lab-services-with-teams-overview.md)
+- [Use Azure Lab Services within Teams overview](lab-services-within-teams-overview.md)
 - [Manage a VM pool in Lab Services from Teams](how-to-manage-vm-pool-within-teams.md)
 - [Create Lab Services schedules from Teams](how-to-create-schedules-within-teams.md)
 - [Access a VM (student view) in Lab Services from Teams](how-to-access-vm-for-students-within-teams.md)
