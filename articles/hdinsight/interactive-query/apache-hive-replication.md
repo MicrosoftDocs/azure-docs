@@ -9,7 +9,7 @@ ms.topic: how-to
 ms.date: 10/07/2020
 ---
 
-## How to use Apache Hive replication in Azure HDInsight clusters
+# How to use Apache Hive replication in Azure HDInsight clusters
 
 In the context of databases and warehouses, replication is the process of duplicating entities from one warehouse to another. Duplication can apply to an entire database or to a smaller level, such as a table or partition. The objective is to have a replica that changes whenever the base entity changes. Replication on Apache Hive focuses on disaster recovery and offers unidirectional primary-copy replication. In HDInsight clusters, Hive Replication can be used to unidirectionally replicate the Hive metastore and the associated underlying data lake on Azure Data Lake Storage Gen2.  
 
@@ -129,13 +129,13 @@ The following steps are the sequential events that take place during the Hive Re
 
 Incremental replication follows the same process, and it requires the last replicated event ID as input. This leads to an incremental copy since the last replication event. Incremental replications are normally automated with a pre-determined frequency to achieve required recovery point objectives (RPO).
 
-:::image type="content" source="media/apache-hadoop-hive-replication/hive-replication-diagram.png" alt-text="Hive replication diagram":::
+:::image type="content" source="media/apache-hive-replication/hive-replication-diagram.png" alt-text="Hive replication diagram":::
 
 ## Replication patterns  
 
 Replication is normally configured in a unidirectional way between the primary and secondary, where the primary caters to read and write requests. The secondary cluster caters to read requests only. Writes are allowed on the secondary if there is a disaster, but reverse replication needs to be configured back to the primary.
 
-:::image type="content" source="media/apache-hadoop-hive-replication/replication-pattern.png" alt-text="Hive replication pattern":::
+:::image type="content" source="media/apache-hive-replication/replication-pattern.png" alt-text="Hive replication pattern":::
 
 There are many patterns suitable for Hive replication including Primary – Secondary, Hub and Spoke, and Relay.
 
@@ -220,7 +220,7 @@ repl status tpcds_orc;
 To learn more about the items discussed in this article, see:
 
 - [Apache Ambari REST Reference](https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/index.md)
-- [Install and configure the Azure CLI](https://docs.microsoft.com//cli/azure/install-azure-cli?view=azure-cli-latest)
+- [Install and configure the Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest&preserve-view=true)
 - [Install and configure Azure PowerShell module Az](/powershell/azure/)
-- [Manage HDInsight using Apache Ambari](hdinsight-hadoop-manage-ambari.md)
-- [Provision Linux-based HDInsight clusters](hdinsight-hadoop-provision-linux-clusters.md)
+- [Manage HDInsight using Apache Ambari](../hdinsight-hadoop-manage-ambari.md)
+- [Provision Linux-based HDInsight clusters](../hdinsight-hadoop-provision-linux-clusters.md)
