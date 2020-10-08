@@ -1,0 +1,32 @@
+M	articles/service-bus-messaging/TOC.yml
+A	articles/service-bus-messaging/media/service-bus-dotnet-get-started-with-queues-legacy/messages-sent-to-essentials.png
+A	articles/service-bus-messaging/media/service-bus-dotnet-get-started-with-queues-legacy/nuget-package.png
+A	articles/service-bus-messaging/media/service-bus-dotnet-get-started-with-queues-legacy/queue-message-receive-in-essentials.png
+A	articles/service-bus-messaging/media/service-bus-dotnet-get-started-with-queues-legacy/queue-message-receive.png
+A	articles/service-bus-messaging/media/service-bus-dotnet-get-started-with-queues-legacy/queue-message.png
+A	articles/service-bus-messaging/media/service-bus-dotnet-get-started-with-queues/final-output.png
+A	articles/service-bus-messaging/media/service-bus-dotnet-get-started-with-queues/queue-messages-size-final.png
+A	articles/service-bus-messaging/media/service-bus-dotnet-get-started-with-queues/select-queue.png
+A	articles/service-bus-messaging/media/service-bus-dotnet-get-started-with-queues/sent-messages-command-prompt.png
+A	articles/service-bus-messaging/media/service-bus-dotnet-get-started-with-queues/sent-messages-essentials.png
+A	articles/service-bus-messaging/media/service-bus-dotnet-how-to-use-topics-subscriptions/final-output.png
+A	articles/service-bus-messaging/media/service-bus-dotnet-how-to-use-topics-subscriptions/messages-size-final.png
+A	articles/service-bus-messaging/media/service-bus-dotnet-how-to-use-topics-subscriptions/sent-messages-command-prompt.png
+A	articles/service-bus-messaging/media/service-bus-dotnet-how-to-use-topics-subscriptions/sent-messages-essentials.png
+A	articles/service-bus-messaging/media/service-bus-java-how-to-use-queues/overview-incoming-outgoing-messages.png
+A	articles/service-bus-messaging/media/service-bus-java-how-to-use-queues/queue-details.png
+R100	articles/service-bus-messaging/media/service-bus-java-how-to-use-topics-subscriptions/eclipse-azure-libraries-java.png	articles/service-bus-messaging/media/service-bus-java-how-to-use-topics-subscriptions-legacy/eclipse-azure-libraries-java.png
+R100	articles/service-bus-messaging/media/service-bus-java-how-to-use-topics-subscriptions/sb-queues-04.png	articles/service-bus-messaging/media/service-bus-java-how-to-use-topics-subscriptions-legacy/sb-queues-04.png
+R100	articles/service-bus-messaging/media/service-bus-java-how-to-use-topics-subscriptions/sb-queues-09.png	articles/service-bus-messaging/media/service-bus-java-how-to-use-topics-subscriptions-legacy/sb-queues-09.png
+R100	articles/service-bus-messaging/media/service-bus-java-how-to-use-topics-subscriptions/sb-queues-13.png	articles/service-bus-messaging/media/service-bus-java-how-to-use-topics-subscriptions-legacy/sb-queues-13.png
+A	articles/service-bus-messaging/media/service-bus-java-how-to-use-topics-subscriptions-legacy/sb-topics-01.png
+A	articles/service-bus-messaging/media/service-bus-java-how-to-use-topics-subscriptions/active-message-count.png
+A	articles/service-bus-messaging/media/service-bus-java-how-to-use-topics-subscriptions/topic-page-portal.png
+A	articles/service-bus-messaging/service-bus-dotnet-get-started-with-queues-legacy.md
+M	articles/service-bus-messaging/service-bus-dotnet-get-started-with-queues.md
+A	articles/service-bus-messaging/service-bus-dotnet-how-to-use-topics-subscriptions-legacy.md
+M	articles/service-bus-messaging/service-bus-dotnet-how-to-use-topics-subscriptions.md
+A	articles/service-bus-messaging/service-bus-java-how-to-use-queues-legacy.md
+M	articles/service-bus-messaging/service-bus-java-how-to-use-queues.md
+A	articles/service-bus-messaging/service-bus-java-how-to-use-topics-subscriptions-legacy.md
+M	articles/service-bus-messaging/service-bus-java-how-to-use-topics-subscriptions.md
