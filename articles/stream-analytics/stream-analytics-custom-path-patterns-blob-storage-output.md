@@ -20,7 +20,7 @@ Custom field or input attributes improve downstream data-processing and reportin
 
 ### Partition key options
 
-The partition key, or column name, used to partition input data may contain alphanumeric characters with hyphens, underscores, and spaces. It is not possible to use nested fields as a partition key unless used in conjunction with aliases. The partition key must be NVARCHAR(MAX), BIGINT, FLOAT, or BIT (1.2 compatibility level or higher). For more information, see [Azure Stream Analytics Data types](https://docs.microsoft.com/stream-analytics-query/data-types-azure-stream-analytics).
+The partition key, or column name, used to partition input data may contain alphanumeric characters with hyphens, underscores, and spaces. It is not possible to use nested fields as a partition key unless used in conjunction with aliases. The partition key must be NVARCHAR(MAX).
 
 ### Example
 

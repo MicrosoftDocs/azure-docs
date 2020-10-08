@@ -18,7 +18,7 @@ landingContent:
       - linkListType: overview
         links:
           - text: What is Single Server?
-            url: ../concepts-servers.md
+            url: ../single-server-overview.md
       - linkListType: whats-new
         links:
           - text: Check out our blog

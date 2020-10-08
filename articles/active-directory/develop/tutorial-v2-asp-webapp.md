@@ -15,7 +15,7 @@ ms.author: jmprieur
 ms.custom: "devx-track-csharp, aaddev, identityplatformtop40"
 ---
 
-# Add sign-in to Microsoft to an ASP.NET web app
+# Tutorial: Add sign-in to Microsoft to an ASP.NET web app
 
 This guide demonstrates how to implement sign-in to Microsoft through an ASP.NET MVC solution by using a traditional web browser-based application and OpenID Connect.
 
@@ -65,7 +65,7 @@ This section describes how to install and configure the authentication pipeline 
 
 ## Add authentication components
 
-1. In Visual Studio: Go to **Tools** > **Nuget Package Manager** > **Package Manager Console**.
+1. In Visual Studio: Go to **Tools** > **NuGet Package Manager** > **Package Manager Console**.
 2. Add *OWIN middleware NuGet packages* by typing the following in the Package Manager Console window:
 
     ```powershell
@@ -291,7 +291,7 @@ This controller demonstrates the uses of the `[Authorize]` attribute to protect 
         {
             var userClaims = User.Identity as System.Security.Claims.ClaimsIdentity;
 
-            //You get the user’s first and last name below:
+            //You get the user's first and last name below:
             ViewBag.Name = userClaims?.FindFirst("name")?.Value;
 
             // The 'preferred_username' claim can be used for showing the username
@@ -309,7 +309,7 @@ This controller demonstrates the uses of the `[Authorize]` attribute to protect 
     ```
 
 ### More information
-Because of the use of the `[Authorize]` attribute, all methods of this controller can be executed only if the user is authenticated. If the user isn't authenticated and tries to access the controller, OWIN initiates an authentication challenge and forces the user to authenticate. The preceding code looks at the list of claims for specific user attributes included in the user’s Id token. These attributes include the user’s full name and username, as well as the global user identifier subject. It also contains the *Tenant ID*, which represents the ID for the user’s organization.
+Because of the use of the `[Authorize]` attribute, all methods of this controller can be executed only if the user is authenticated. If the user isn't authenticated and tries to access the controller, OWIN initiates an authentication challenge and forces the user to authenticate. The preceding code looks at the list of claims for specific user attributes included in the user's ID token. These attributes include the user's full name and username, as well as the global user identifier subject. It also contains the *Tenant ID*, which represents the ID for the user's organization.
 
 ## Create a view to display the user's claims
 
@@ -366,10 +366,10 @@ To quickly register your application, follow these steps:
 To register your application and add the app's registration information to your solution manually, follow these steps:
 
 1. Open Visual Studio, and then:
-   1. in Solution Explorer, select the project and view the Properties window (if you don’t see a Properties window, press F4).
+   1. in Solution Explorer, select the project and view the Properties window (if you don't see a Properties window, press F4).
    1. Change SSL Enabled to `True`.
    1. Right-click the project in Visual Studio, select **Properties**, and then select the **Web** tab. In the **Servers** section, change the **Project Url** setting to the **SSL URL**.
-   1. Copy the SSL URL. You'll add this URL to the list of Redirect URLs in the Registration portal’s list of Redirect URLs in the next step.<br/><br/>![Project properties](media/active-directory-develop-guidedsetup-aspnetwebapp-configure/vsprojectproperties.png)<br />
+   1. Copy the SSL URL. You'll add this URL to the list of Redirect URLs in the Registration portal's list of Redirect URLs in the next step.<br/><br/>![Project properties](media/active-directory-develop-guidedsetup-aspnetwebapp-configure/vsprojectproperties.png)<br />
 1. Sign in to the [Azure portal](https://portal.azure.com) by using a work or school account, or by using a personal Microsoft account.
 1. If your account gives you access to more than one tenant, select your account in the upper-right corner, and set your portal session to the Azure AD tenant that you want.
 1. Go to the Microsoft identity platform for developers [App registrations](https://go.microsoft.com/fwlink/?linkid=2083908) page.
@@ -411,7 +411,7 @@ For more information, refer to [Permissions and consent in the Microsoft identit
 
 ### View application results
 
-After you sign in, the user is redirected to the home page of your website. The home page is the HTTPS URL that's specified in your application registration info in the Microsoft Application Registration Portal. The home page includes a *"Hello \<user>"* welcome message, a link to sign out, and a link to view the user’s claims. The link for the user's claims connects to the Claims controller that you created earlier.
+After you sign in, the user is redirected to the home page of your website. The home page is the HTTPS URL that's specified in your application registration info in the Microsoft Application Registration Portal. The home page includes a *"Hello \<user>"* welcome message, a link to sign out, and a link to view the user's claims. The link for the user's claims connects to the Claims controller that you created earlier.
 
 ### View the user's claims
 
@@ -423,10 +423,10 @@ After you browse to the controller view, you should see a table that contains th
 
 |Property |Value |Description |
 |---|---|---|
-|**Name** |User's full name | The user’s first and last name
+|**Name** |User's full name | The user's first and last name
 |**Username** |user<span>@domain.com</span> | The username that's used to identify the user|
 |**Subject** |Subject |A string that uniquely identifies the user across the web|
-|**Tenant ID** |Guid | A **guid** that uniquely represents the user’s Azure AD organization|
+|**Tenant ID** |Guid | A **guid** that uniquely represents the user's Azure AD organization|
 
 Additionally, you should see a table of all claims that are in the authentication request. For more information, see the [list of claims that are in an ID token](./id-tokens.md).
 

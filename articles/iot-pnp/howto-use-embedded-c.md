@@ -36,7 +36,7 @@ The SDK for Embedded C repository contains [several samples](https://github.com/
 
 ## Using Azure RTOS
 
-Azure RTOS includes a lightweight layer that adds native connectivity to Azure IoT cloud services. This layer provides a simple mechanism to connect constrained devices to Azure IoT while using the advanced features of Azure RTOS.
+Azure RTOS includes a lightweight layer that adds native connectivity to Azure IoT cloud services. This layer provides a simple mechanism to connect constrained devices to Azure IoT while using the advanced features of Azure RTOS. To learn more, see the [What is Microsoft Azure RTOS](https://docs.microsoft.com/azure/rtos/overview-rtos).
 
 ### Toolchains
 
