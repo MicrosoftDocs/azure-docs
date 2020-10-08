@@ -7,7 +7,7 @@ ms.reviewer: jasonh
 keywords: hadoop high availability
 ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 10/01/2020
+ms.date: 10/07/2020
 ---
 
 # Azure HDInsight business continuity
@@ -32,7 +32,7 @@ This section discusses a few best practices for you to consider during business 
 
 * Use automation during cluster deployments and ensure cluster configuration settings are scripted as far as possible to ensure rapid and fully automated deployment if there is a disaster.
 
-* Use Azure monitoring tools on HDInsight to detect abnormal behavior in the cluster and set corresponding alert notifications. You can deploy the pre-configured HDInsight cluster-specific management solutions that collect important performance metrics of the specific cluster type. For more information, see [Azure Monitoring for HDInsight](./hdinsight/hdinsight-hadoop-oms-log-analytics-tutorial.md).  
+* Use Azure monitoring tools on HDInsight to detect abnormal behavior in the cluster and set corresponding alert notifications. You can deploy the pre-configured HDInsight cluster-specific management solutions that collect important performance metrics of the specific cluster type. For more information, see [Azure Monitoring for HDInsight](./hdinsight-hadoop-oms-log-analytics-tutorial.md).  
 
 * Subscribe to Azure health alerts to be notified about service issues, planned maintenance, health and security advisories for a subscription, service, or region. Health notifications that include the issue cause and resolute ETA help you to better execute failover and failbacks. For more information, see [Azure Service Health documentation](/azure/service-health/).
 
@@ -73,7 +73,7 @@ The following services are designed to be highly available:
 * YARN Resource Manager
 * HBase Master
 
-Refer documentation on [high availability services supported by Azure HDInsight](./hdinsight/hdinsight-high-availability-components.md) to learn more.
+Refer documentation on [high availability services supported by Azure HDInsight](./hdinsight-high-availability-components.md) to learn more.
 
 It doesn't always take a catastrophic event to impact business functionality. Service incidents in one or more of the following services in a single region can also lead to loss of expected business functionality.
 

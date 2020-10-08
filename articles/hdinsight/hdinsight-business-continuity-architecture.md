@@ -57,7 +57,7 @@ In an *active primary with standby secondary*, applications write to the active 
 
 Spark workloads may or may not involve a Hive component. To enable Spark SQL workloads to read and write data from Hive, HDInsight Spark clusters share Hive custom metastores from Hive/Interactive query clusters in the same region. In such scenarios, cross region replication of Spark workloads must also accompany the replication of Hive metastores and storage. The failover scenarios in this section apply to both:
 
-* [Spark SQL on ACID tables using Hive Warehouse Connector(HWC) Setup](./hdinsight/interactive-query/apache-hive-warehouse-connector.md) using an HDInsight Interactive Query cluster.
+* [Spark SQL on ACID tables using Hive Warehouse Connector(HWC) Setup](./interactive-query/apache-hive-warehouse-connector.md) using an HDInsight Interactive Query cluster.
 * Spark SQL workload on non-ACID tables using a HDInsight Hadoop cluster.
 
 For scenarios where Spark works in standalone mode, curated data and stored Spark Jars (for Livy jobs) need to be replicated from the primary region to the secondary region on a regular basis using Azure Data Factory's `DistCP`.
