@@ -535,10 +535,6 @@
   - name: Application configuration
     displayName: App configuration
     items:
-    - name: Azure portal app registration training guide
-      href: app-registrations-training-guide-for-app-registrations-legacy-users.md
-    - name: Azure portal app registration experience
-      href: app-registration-portal-training-guide.md
     - name: Convert a single-tenant app to a multi-tenant app
       href: howto-convert-app-to-be-multi-tenant.md
     - name: Create a service principal

@@ -31,10 +31,27 @@ $rg = New-AzResourceGroup -Name $fhirServiceName -Location westus2
 
 ## Deploy the FHIR server template
 
-The Microsoft FHIR Server for Azure [GitHub Repository](https://github.com/Microsoft/fhir-server) contains a template that will deploy all necessary resources. Deploy it with:
+The Microsoft FHIR Server for Azure [GitHub Repository](https://github.com/Microsoft/fhir-server) contains a template that will deploy all necessary resources. The deployment process takes several minutes as required Azure resources are created and configured. Deploy it with:
 
 ```azurepowershell-interactive
 New-AzResourceGroupDeployment -TemplateUri https://raw.githubusercontent.com/Microsoft/fhir-server/master/samples/templates/default-azuredeploy.json -ResourceGroupName $rg.ResourceGroupName -serviceName $fhirServiceName
+```
+
+> [!NOTE]
+> If you aren't already logged in, run the following commands first.
+
+```azurepowershell-interactive
+Connect-AzAccount
+get-azsubscription
+Set-AzContext -SubscriptionId yoursubscriptionid
+```
+
+To use an existing resource group, change $rg values in the $rg variable definition line and the Azure ARM template deployment command line, as shown in the code.
+
+```azurepowershell-interactive
+$fhirServiceName = "MyFhirService"
+$rg = "MyExistingResourceGroupName"
+New-AzResourceGroupDeployment -TemplateUri https://raw.githubusercontent.com/Microsoft/fhir-server/master/samples/templates/default-azuredeploy.json -ResourceGroupName $rg -serviceName $fhirServiceName
 ```
 
 ## Verify FHIR server is running

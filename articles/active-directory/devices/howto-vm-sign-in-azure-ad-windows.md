@@ -234,7 +234,7 @@ The AADLoginForWindows extension must install successfully in order for the VM t
    > [!NOTE]
    > If the extension restarts after the initial failure, the log with the deployment error will be saved as CommandExecution_YYYYMMDDHHMMSSSSS.log. 
 "
-1. Open a command prompt on the VM and verify these queries against the Instance Metadata Service (IMDS) Endpoint running on the Azure host returns:
+1. Open a PowerShell command prompt on the VM and verify these queries against the Instance Metadata Service (IMDS) Endpoint running on the Azure host returns:
 
    | Command to run | Expected output |
    | --- | --- |

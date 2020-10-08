@@ -176,7 +176,7 @@ The following screenshot shows the output from the simulated device application 
 
 The following screenshot shows the output from the back-end application and highlights how it creates the configuration to update the firmware desired properties:
 
-![Back-end application](./media/tutorial-firmware-update/BackEnd1.png)
+![Screenshot that shows the output from the back-end application.](./media/tutorial-firmware-update/BackEnd1.png)
 
 The following screenshot shows the output from the back-end application and highlights how it monitors the firmware update metrics from the simulated device:
 
