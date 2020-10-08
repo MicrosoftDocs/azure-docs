@@ -328,6 +328,8 @@
     href: partner-center-portal/support.md
   - name: Geographic availability and currencies
     href: marketplace-geo-availability-currencies.md
+  - name: Find Tenant and Object ID's
+    href: find-tenant-object-id.md
   - name: Supported countries and regions
     href: sell-from-countries.md  
   - name: Supported HTML tags
