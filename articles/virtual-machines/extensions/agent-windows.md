@@ -16,9 +16,9 @@ This article details installation and detection of the Azure Virtual Machine Age
 
 ## Install the VM Agent
 
-### Azure marketplace image
+### Azure Marketplace image
 
-The Azure VM Agent is installed by default on any Windows VM deployed from an Azure marketplace image. When you deploy an Azure marketplace image from the portal, PowerShell, Command Line Interface, or an Azure Resource Manager template, the Azure VM Agent is also installed.
+The Azure VM Agent is installed by default on any Windows VM deployed from an Azure Marketplace image. When you deploy an Azure Marketplace image from the portal, PowerShell, Command Line Interface, or an Azure Resource Manager template, the Azure VM Agent is also installed.
 
 The Windows Guest Agent Package is broken into two parts:
 
@@ -59,7 +59,7 @@ $vm | Update-AzVM
 
 ### Prerequisites
 
-- The Windows VM Agent needs at least Windows Server 2008 SP2 (64-bit) to run, with the .NET Framework 4.0. See [Minimum version support for virtual machine agents in Azure](https://support.microsoft.com/en-us/help/4049215/extensions-and-virtual-machine-agent-minimum-version-support)
+- The Windows VM Agent needs at least Windows Server 2008 SP2 (64-bit) to run, with the .NET Framework 4.0. See [Minimum version support for virtual machine agents in Azure](https://support.microsoft.com/help/4049215/extensions-and-virtual-machine-agent-minimum-version-support).
 
 - Ensure your VM has access to IP address 168.63.129.16. For more information, see [What is IP address 168.63.129.16](../../virtual-network/what-is-ip-address-168-63-129-16.md).
 
@@ -104,7 +104,7 @@ When logged in to a Windows VM, Task Manager can be used to examine running proc
 
 
 ## Upgrade the VM Agent
-The Azure VM Agent for Windows is automatically upgraded on images deployed from the Azure marketplace. As new VMs are deployed to Azure, they receive the latest VM agent at VM provision time. If you have installed the agent manually or are deploying custom VM images you will need to manually update to include the new VM agent at image creation time.
+The Azure VM Agent for Windows is automatically upgraded on images deployed from the Azure Marketplace. As new VMs are deployed to Azure, they receive the latest VM agent at VM provision time. If you have installed the agent manually or are deploying custom VM images you will need to manually update to include the new VM agent at image creation time.
 
 ## Windows Guest Agent Automatic Logs Collection
 Windows Guest Agent has a feature to automatically collect some logs. This feature is controller by the CollectGuestLogs.exe process. 
