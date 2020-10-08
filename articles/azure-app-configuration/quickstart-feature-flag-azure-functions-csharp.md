@@ -146,7 +146,7 @@ The .NET Feature Management libraries extend the framework with feature flag sup
 
 ## Next steps
 
-In this quickstart, you created a feature flag and used it with an Azure Functions app via the [App Configuration provider](https://go.microsoft.com/fwlink/?linkid=2074664).
+In this quickstart, you created a feature flag and used it with an Azure Functions app via the [App Configuration provider](/dotnet/api/Microsoft.Extensions.Configuration.AzureAppConfiguration).
 
 - Learn more about [feature management](./concept-feature-management.md).
 - [Manage feature flags](./manage-feature-flags.md).
