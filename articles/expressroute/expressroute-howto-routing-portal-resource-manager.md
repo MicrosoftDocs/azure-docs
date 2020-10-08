@@ -13,7 +13,7 @@ ms.author: duau
 ---
 # Tutorial: Create and modify peering for an ExpressRoute circuit using the Azure portal
 
-This tutorial shows you  how to create and manage routing configuration for an Azure Resource Manager (ARM) ExpressRoute circuit using the Azure portal. You can also check the status, update, or delete and deprovision peerings for an ExpressRoute circuit. If you want to use a different method to work with your circuit, select an article from the following list:
+This tutorial shows you  how to create and manage routing configuration for an Azure Resource Manager ExpressRoute circuit using the Azure portal. You can also check the status, update, or delete and deprovision peerings for an ExpressRoute circuit. If you want to use a different method to work with your circuit, select an article from the following list:
 
 > [!div class="op_single_selector"]
 > * [Azure portal](expressroute-howto-routing-portal-resource-manager.md)
@@ -100,7 +100,7 @@ This section helps you create, get, update, and delete the Microsoft peering con
 
 5. After the configuration has been accepted successfully, you'll see something similar to the following image:
 
-   ![Peering status: Configured](./media/expressroute-howto-routing-portal-resource-manager/configured-m.png "Peering status: Configured")]
+   ![Peering status: Configured](./media/expressroute-howto-routing-portal-resource-manager/configured-m.png "Peering status: Configured")
 
 ### <a name="getmsft"></a>To view Microsoft peering details
 
