@@ -16,7 +16,7 @@ In this tutorial you will:
 > * Examine the code.
 > * Run the sample code.
 > * Monitor events.
-
+ 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
 ## Suggested pre-reading
@@ -195,7 +195,16 @@ Then you can find `lvaEdge`, `rtspsim`, `spatialAnalysis` and `rtspsim` modules 
 
 To see these events, follow these steps:
 
-1. Open the Explorer pane in Visual Studio Code and look for Azure IoT Hub in the lower-left corner.
+1. In Visual Studio Code, open the **Extensions** tab (or press Ctrl+Shift+X) and search for Azure IoT Hub.
+1. Right click and select **Extension Settings**.
+
+    > [!div class="mx-imgBorder"]
+    > :::image type="content" source="./media/run-program/extensions-tab.png" alt-text="Extension Settings":::
+1. Search and enable “Show Verbose Message”.
+
+    > [!div class="mx-imgBorder"]
+    > :::image type="content" source="./media/run-program/show-verbose-message.png" alt-text="Show Verbose Message":::
+1. Open the Explorer pane and look for Azure IoT Hub in the lower-left corner.
 1. Expand the Devices node.
 1. Right-click on your Azure Stack Edge and select Start Monitoring Built-in Event Endpoint.
     

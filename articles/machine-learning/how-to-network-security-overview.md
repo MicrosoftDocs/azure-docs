@@ -155,6 +155,12 @@ Configure your firewall to control access to your Azure Machine Learning workspa
 
 For more information on firewall settings, see [Use workspace behind a Firewall](how-to-access-azureml-behind-firewall.md).
 
+## Custom DNS
+
+If you need to use a custom DNS solution for your virtual network, you must add host records for your workspace.
+
+For more information on the required domain names and IP addresses, see [how to use a workspace with a custom DNS server](how-to-custom-dns.md).
+
 ## Next steps
 
 This article is part one of a four-part virtual network series. See the rest of the articles to learn how to secure a virtual network:

@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: identity-protection
 ms.topic: how-to
-ms.date: 06/05/2020
+ms.date: 10/07/2020
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -41,8 +41,8 @@ To prevent an overload of e-mails, you will only receive one users at risk detec
 As an administrator, you can set:
 
 - **The user risk level that triggers the generation of this email** - By default, the risk level is set to “High” risk.
-- **The recipients of this email** - By default, recipients include all Global Admins. Global Admins can also add other Global Admins, Security Admins, Security Readers as recipients.
-   - Optionally you can **Add additional emails to receive alert notifications** this feature is a preview and users defined must have the appropriate permissions to view the linked reports in the Azure portal.
+- **The recipients of this email** - Users in the Global administrator, Security administrator, or Security reader roles are automatically added to this list. We attempt to send emails to the first 20 members of each role. If a user is enrolled in PIM to elevate to one of these roles on demand then **they will only receive emails if they are elevated at the time the email is sent**.
+   - Optionally you can **Add custom email here** users defined must have the appropriate permissions to view the linked reports in the Azure portal.
 
 Configure the users at risk email in the **Azure portal** under **Azure Active Directory** > **Security** > **Identity Protection** > **Users at risk detected alerts**.
 
@@ -57,7 +57,7 @@ It includes:
 
 ![Weekly digest email](./media/howto-identity-protection-configure-notifications/weekly-digest-email.png)
 
-By default, recipients include all Global Admins. Global Admins can also add other Global Admins, Security Admins, Security Readers as recipients.
+Users in the Global administrator, Security administrator, or Security reader roles are automatically added to this list. We attempt to send emails to the first 20 members of each role. If a user is enrolled in PIM to elevate to one of these roles on demand then **they will only receive emails if they are elevated at the time the email is sent**
 
 ### Configure weekly digest email
 

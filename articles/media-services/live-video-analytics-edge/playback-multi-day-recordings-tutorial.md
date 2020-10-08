@@ -75,7 +75,7 @@ Next, in Visual Studio code, open src/ams-asset-player. This folder contains the
 
     > [!div class="mx-imgBorder"]
     > :::image type="content" source="./media/run-program/show-verbose-message.png" alt-text="Show Verbose Message":::
-1. <!--In Visual Studio Code, you can click-->Click the **Run** icon on the left (or Ctrl+Shift+D) to bring up the available applications to run:
+1. <!--In Visual Studio Code, you can click-->Click the Run icon on the left (or Ctrl+Shift+D) to bring up the available applications to run:
 
     ![Screenshot shows a menu in Visual Studio Code with the run item selected.](./media/playback-multi-day-recordings-tutorial/run.png)
 1. Select the AMS Asset Player application from the drop down box, as shown below, and hit F5 to start debugging.

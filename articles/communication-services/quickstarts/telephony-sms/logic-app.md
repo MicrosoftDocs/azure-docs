@@ -53,6 +53,8 @@ To add the **Send SMS** action as a new step in your workflow by using the Azure
 
    1. Select **Create**.
 
+   :::image type="content" source="./media/logic-app/send-sms-configuration.png" alt-text="Screenshot that shows the Send SMS action configuration with sample information.":::
+
 1. In the **Send SMS** action, provide the following information: 
 
    * The source and destination phone numbers. For testing purposes, you can use your own phone number as the destination phone number.
