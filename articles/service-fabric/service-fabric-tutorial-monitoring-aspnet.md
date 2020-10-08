@@ -1,11 +1,11 @@
 ---
 title: Monitor and diagnose ASP.NET Core services
 description: In this tutorial, you learn how to set up monitoring and diagnostics for an Azure Service Fabric ASP.NET Core application.
-author: dkkapur
+author: georgewallace
 
 ms.topic: tutorial
 ms.date: 07/10/2019
-ms.author: dekapur
+ms.author: gwallace
 ms.custom: "mvc, devx-track-csharp"
 ---
 # Tutorial: Monitor and diagnose an ASP.NET Core application on Service Fabric using Application Insights

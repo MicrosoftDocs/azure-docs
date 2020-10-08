@@ -11,7 +11,7 @@ ms.reviewer: omafnan
 ---
 # Using SQL script in Azure Synapse Studio (preview)
 
-Azure Synapse Studio (preview) provides a SQL script web interface for you to author SQL queries. You can connect to SQL pool (preview) or SQL on-demand (preview). 
+Azure Synapse Studio (preview) provides a SQL script web interface for you to author SQL queries. You can connect to dedicated SQL pools (preview) or serverless SQL pools (preview). 
 
 ## Begin authoring in SQL script 
 
@@ -35,7 +35,7 @@ Alternatively, you can:
 1. Choose a name for your SQL script by selecting the **Property** button and replacing the default name assigned to the SQL script. 
 ![new sql script rename](media/author-sql-script/newsqlscriptrename.png)
 
-2. Choose the specific SQL pool or the SQL on-demand from the **Connect to** drop-down menu. Or if necessary, choose the database from **Use database**. 
+2. Choose the specific dedicated SQL pool or serverless SQL pool from the **Connect to** drop-down menu. Or if necessary, choose the database from **Use database**. 
 ![new sql choose pool](media/author-sql-script/newsqlchoosepool.png)
 
 3. Start authoring your SQL script using the intellisense feature.
@@ -70,7 +70,7 @@ By selecting the **Actions** menu under data, you can select several actions suc
 - CREATE
 - DROP and CREATE 
  
-Explore the available gesture by right-clicking the nodes of SQL pool and SQL on-demand.
+Explore the available gestures by right-clicking the nodes of the dedicated SQL pool or the serverless SQL pool.
  
 ![new script database](media/author-sql-script/newscriptdatabase.png)
 

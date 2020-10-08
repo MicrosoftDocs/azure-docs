@@ -89,21 +89,21 @@ When you provisioned your workspace, you had to pick an [Azure Data Lake Storage
 Access control to the underlying data is split into three parts:
 
 - Data-plane access to the storage account (already configured above in Step 2)
-- Data-plane access to the SQL Databases (for both SQL pools and SQL on-demand)
-- Creating a credential for SQL on-demand databases over the storage account
+- Data-plane access to the SQL Databases (for both dedicated SQL pools and serverless SQL pool)
+- Creating a credential for serverless SQL pool databases over the storage account
 
 ## Access control to SQL Databases
 
 > [!TIP]
 > The below steps need to be run for **each** SQL database to grant user access to all SQL databases except in section [Server level permission](#server-level-permission) where you can assign user a sysadmin role.
 
-### SQL on-demand
+### Serverless SQL pool
 
 In this section, you can find examples on how to give user a permission to a particular database or full server permissions.
 
 #### Database level permission
 
-To grant access to a user to a **single** SQL on-demand database, follow the steps in this example:
+To grant access to a user to a **single** serverless SQL pool database, follow the steps in this example:
 
 1. Create LOGIN
 
@@ -135,7 +135,7 @@ To grant access to a user to a **single** SQL on-demand database, follow the ste
 
 #### Server level permission
 
-To grant full access to a user to **all** SQL on-demand databases, follow the step in this example:
+To grant full access to a user to **all** serverless SQL pool databases, follow the step in this example:
 
 ```sql
 CREATE LOGIN [alias@domain.com] FROM EXTERNAL PROVIDER;
@@ -164,7 +164,7 @@ To grant access to a user to a **single** SQL Database, follow these steps:
 > *db_datareader* and *db_datawriter* can work for read/write permissions if granting *db_owner* permission is undesired.
 > For a Spark user to read and write directly from Spark into/from a SQL pool, *db_owner* permission is required.
 
-After creating the users, validate that SQL on-demand can query the storage account.
+After creating the users, validate that you can query the storage account using serverless SQL pool.
 
 ## Access control to workspace pipeline runs
 

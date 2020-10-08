@@ -113,8 +113,8 @@ The following authentication methods are supported for Azure AD server principal
 
 - To enhance manageability, we recommend you provision a dedicated Azure AD group as an administrator.
 - Only one Azure AD administrator (a user or group) can be configured for Synapse SQL pool at any time.
-  - The addition of Azure AD server principals (logins) for SQL on-demand (preview) allows the possibility of creating multiple Azure AD server principals (logins) that can be added to the `sysadmin` role.
-- Only an Azure AD administrator for Synapse SQL can initially connect to the Synapse SQL using an Azure Active Directory account. The Active Directory administrator can configure subsequent Azure AD database users.
+  - The addition of Azure AD server principals (logins) for Synapse SQL (preview) allows the possibility of creating multiple Azure AD server principals (logins) that can be added to the `sysadmin` role.
+- Only an Azure AD administrator for Synapse SQL can initially connect to Synapse SQL using an Azure Active Directory account. The Active Directory administrator can configure subsequent Azure AD database users.
 - We recommend setting the connection timeout to 30 seconds.
 - SQL Server 2016 Management Studio and SQL Server Data Tools for Visual Studio 2015 (version 14.0.60311.1April 2016 or later) support Azure Active Directory authentication. (Azure AD authentication is supported by the **.NET Framework Data Provider for SqlServer**; at least version .NET Framework 4.6). So, the newest versions of these tools and data-tier applications (DAC and .BACPAC) can use Azure AD authentication.
 - Beginning with version 15.0.1, [sqlcmd utility](/sql/tools/sqlcmd-utility?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) and [bcp utility](/sql/tools/bcp-utility?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) support Active Directory Interactive authentication with MFA.
