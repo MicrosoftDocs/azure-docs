@@ -45,7 +45,9 @@ To see a list of commands, type `azcopy -h` and then press the ENTER key.
 
 To learn about a specific command, just include the name of the command (For example: `azcopy list -h`).
 
-![Inline help](media/storage-use-azcopy-v10/azcopy-inline-help.png)
+> [!div class="mx-imgBorder"]
+> ![Inline help](media/storage-use-azcopy-v10/azcopy-inline-help.png)
+
 
 To find detailed reference documentation for each command and command parameter, see [azcopy](storage-ref-azcopy.md)
 
