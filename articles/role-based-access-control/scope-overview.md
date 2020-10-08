@@ -21,7 +21,7 @@ In Azure, you can specify a scope at four levels: [management group](../governan
 
 ![Scope for a role assignment](./media/scope-overview/rbac-scope-no-label.png)
 
-Conceptually, management groups are a level of scope above subscriptions, but management groups support more complex hierarchies. The following diagram shows an example of a hierarchy of management groups and subscriptions that you can define. For more information about management groups, see [What are Azure management groups?](../governance/management-groups/overview.md).
+Management groups are a level of scope above subscriptions, but management groups support more complex hierarchies. The following diagram shows an example of a hierarchy of management groups and subscriptions that you can define. For more information about management groups, see [What are Azure management groups?](../governance/management-groups/overview.md).
 
 ![Management group and subscription hierarchy](./media/scope-overview/rbac-scope-management-groups.png)
 
