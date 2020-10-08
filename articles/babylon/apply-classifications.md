@@ -16,8 +16,8 @@ Classifications can be system or custom types. System classifications come out o
 This document explains how to apply classifications to your data.
 
 ## Prerequisites
-1. Create custom classifications based on your need.
-2. Set up scan on your data sources.
+- Create custom classifications based on your need.
+- Set up scan on your data sources.
 
 ## Apply classifications
 
