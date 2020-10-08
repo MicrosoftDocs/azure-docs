@@ -40,7 +40,7 @@ There are separate instructions for each policy below.
 
 The policy checks all existing ARM objects of type “Microsoft.Network/networkSecurityGroups” i.e. it looks at all NSGs in a given scope, and checks for the existence of linked flowlogs via the flowlogs property. If the property doesn’t not exist, the NSG is flagged.
 
-If you want to see the full definition of the policy, you can visit the [Defintions tab](https://ms.portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyMenuBlade/Definitions) and search for "Flow logs" as shown below. Click
+If you want to see the full definition of the policy, you can visit the [Defintions tab](https://ms.portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyMenuBlade/Definitions) and search for "Flow logs" as shown below. 
 
 ### Assignment
 
@@ -62,35 +62,57 @@ You should see something like the below.
 To check the results, open the Compliance tab and search for the name of your Assignment.
 You should see something like the below once your policy runs. In case your policy hasn't run, please wait for some time. 
 
+![Audit Policy Review](./media/network-watcher-builtin-policy/7_1_audit-policy-results.png)
 
 ## Deploy-If-not-exists Policy 
 
 ### Policy Structure
 
-TK: <Insert huge DINE policy JSON>
-For a given region, the policy checks all NSGs for the existence of a flow log. If the flow logs don’t exist, they are deployed. 
-TK: Sync with Julio to get up to date on all the parameters. Especially the messy ones.
-  
+The policy checks all existing ARM objects of type “Microsoft.Network/networkSecurityGroups” i.e. it looks at all NSGs in a given scope, and checks for the existence of linked flowlogs via the flowlogs property. If the property doesn’t not exist, the policy deploys a Flow log. 
+
+If you want to see the full definition of the policy, you can visit the [Defintions tab](https://ms.portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyMenuBlade/Definitions) and search for "Flow logs" as shown below. 
+
 ### Assignment
-Insert complicated stuff 
+
+1. Fill in your policy details
+
+- Scope: This is typically a subscription, you can also choose a management group or resource group as relevant to you.  
+- Policy Definition: Should be chosen as shown above
+- AssignmentName: Choose a descriptive name 
+
+2. Add policy parameters 
+
+The Network Watcher service is a regional service. The details below allow the policy action of deploying flow logs to be executed. 
+- NSG Region: Azure regions at which the policy is targeted
+- Storage ID: Full resource ID of the storage account. Note: This storage account should be in the same region as the NSG. 
+- Network Watchers RG: Name of the resource group containing your Network Watcher resource. If you have not renamed it, this is 'NetworkWatcherRG' by default.
+- Network Watcher name: Name of the regional network watcher service. Format: NetworkWatcher_RegionName. Example: NetworkWatcher_centralus. See the [full list](example.com).
+
+![DINE Policy parameters](./media/network-watcher-builtin-policy/5_2_1_dine-policy-details-alt.png)
+
+3. Add Remediation details
+
+- Check mark on "Create Remediation task" if you want the policy to affect existing resources 
+- "Create a Managed Identity" should be already checked
+- Selected the same location as previous for your Managed Identity 
+- You will need Contributor or Owner permissions to use this policy. If you have these you should not see any errors.
+
+![DINE Policy parameters](./media/network-watcher-builtin-policy/5_2_2_dine-remediation.png) 
+
+4. Click on "Review + Create" to review your assignment
+You should see something like the below. 
+
+![DINE Policy remediation](./media/network-watcher-builtin-policy/5_2_3_dine-review.png) 
+
 
 ### Results
 
-========= Old crap below this ===================
+To check the results, open the Compliance tab and search for the name of your Assignment.
+You should see something like the below once your policy runs. In case your policy hasn't run, please wait for some time.
 
-### See the results of the policy
-Click on the Compliance tab to see the state of the policy 
-•	Search for the assignment name.
-•	If you see “Not Started”, please wait for some time 
-•	Else you should see the results 
+![DINE Policy results](./media/network-watcher-builtin-policy/7_2_dine-policy-results.png)  
 
-
-Show 
-•	Show state of RG after policy 
-
-### Clean up. 
-•	Delete assignment 
 
 ## Next steps 
-•	Go deeper with ARM templates 
-•	Learn more about Azure governance policies 
+•	Use this [tutorial](https://docs.microsoft.com/azure/network-watcher/quickstart-configure-network-security-group-flow-logs-from-arm-template) Go deeper by using ARM templates to deploy Flow Logs and Traffic Analytics.
+•	Learn more about [Network Watcher](https://docs.microsoft.com/azure/network-watcher/)
