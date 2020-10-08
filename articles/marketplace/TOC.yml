@@ -323,20 +323,28 @@
   - name: Commercial marketplace FAQ
     href: marketplace-faq-publisher-guide.md
   - name: Cloud Partner Portal migration FAQ
-    href: cloud-partner-portal-migration-faq.md     
+    href: cloud-partner-portal-migration-faq.md 
+  - name: Business opportunity office hours
+    href: https://aka.ms/marketplaceofficehours
+  - name: Technical and publishing office hours
+    href: https://aka.ms/marketplacepublishingofficehours   
   - name: Partner Center support options
     href: partner-center-portal/support.md
+  - name: Partner Center announcements
+    href: /partner-center/announcements
+  - name: Microsoft Partner Community
+    href: https://www.microsoftpartnercommunity.com/
+  - name: Partner Community forum
+    href: https://www.microsoftpartnercommunity.com/t5/Microsoft-AppSource-and-Azure/bd-p/2222
   - name: Geographic availability and currencies
     href: marketplace-geo-availability-currencies.md
-  - name: Find Tenant and Object ID's
+  - name: Find Tenant and Object IDs
     href: find-tenant-object-id.md
   - name: Supported countries and regions
     href: sell-from-countries.md  
-  - name: Supported HTML tags
-    href: supported-html-tags.md
   - name: Co-sell country and region codes
     href: partner-center-portal/commercial-marketplace-co-sell-countries.md 
   - name: Co-sell state codes
     href: partner-center-portal/commercial-marketplace-co-sell-states.md
-  - name: Forums, blogs, and quick links
-    href: marketplace-roadmap.md
+  - name: Supported HTML tags
+    href: supported-html-tags.md
