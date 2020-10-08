@@ -491,6 +491,8 @@
             href: 'https://aka.ms/csspeech/objectivecref'
           - name: Python
             href: 'https://aka.ms/csspeech/pythonref'
+          - name: Go
+            href: 'https://github.com/microsoft/cognitive-services-speech-sdk-go'
   - name: Speech CLI
     displayName: SPX
     items:
