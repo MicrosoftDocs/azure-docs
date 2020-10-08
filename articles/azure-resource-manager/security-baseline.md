@@ -14,10 +14,34 @@ ms.custom: subject-security-benchmark
 
 # Azure security baseline for Azure Resource Manager
 
-The Azure Security Baseline for Azure Resource Manager contains recommendations that will help you improve the security posture of your deployment. The baseline for this service is drawn from the [Azure Security Benchmark version 1.0](../security/benchmarks/overview.md), which provides recommendations on how you can secure your cloud solutions on Azure with our best practices guidance. For more information, see [Azure Security Baselines overview](../security/benchmarks/security-baselines-overview.md).
+This security
+baseline applies guidance from the [Azure Security Benchmark version
+1.0](../security/benchmarks/overview-v1.md) to Azure Resource Manager. The Azure Security Benchmark
+provides recommendations on how you can secure your cloud solutions on Azure.
+The content is grouped by the **security controls** defined by the Azure
+Security Benchmark and the related guidance applicable to Azure Resource Manager. **Controls** not applicable to Azure Resource Manager have been excluded.
+
+ To see how Azure Resource Manager completely maps to the Azure
+Security Benchmark, see the [full Azure Resource Manager security baseline mapping
+file](https://github.com/MicrosoftDocs/SecurityBenchmarks/tree/master/Azure%20Offer%20Security%20Baselines).
 
 >[!WARNING]
 >This preview version of the article is for review only. **DO NOT MERGE INTO MASTER!**
+
+## Network security
+
+*For more information, see the [Azure Security Benchmark: Network security](../security/benchmarks/security-control-network-security.md).*
+
+### 1.1: Protect Azure resources within virtual networks
+
+>[!NOTE]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/31986.).
+
+**Guidance**: In progress; After its release, customers should, where feasible, enable Private Link for control plane actions. This will block calls to Azure management and the control plane unless the caller is from a designated private endpoint/network or a trusted Microsoft source.
+
+**Azure Security Center monitoring**: Currently not available
+
+**Responsibility**: Shared
 
 ## Logging and monitoring
 
