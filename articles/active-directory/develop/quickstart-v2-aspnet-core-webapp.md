@@ -1,7 +1,7 @@
 ---
-title: Add sign-in with Microsoft to ASP.NET Core web apps | Azure
+title: "Quickstart: Add sign-in with Microsoft to an ASP.NET Core web app | Azure"
 titleSuffix: Microsoft identity platform
-description: Learn how to implement Microsoft sign-in on an ASP.NET Core web app using OpenID Connect
+description: In this quickstart, you learn how an app implements Microsoft sign-in on an ASP.NET Core web app using OpenID Connect
 services: active-directory
 author: jmprieur
 manager: CelesteDG
@@ -21,6 +21,11 @@ ms.custom: "devx-track-csharp, aaddev, identityplatformtop40, scenarios:getting-
 In this quickstart, you use a code sample to learn how an ASP.NET Core web app can sign in personal accounts (hotmail.com, outlook.com, others) and work and school accounts from any Azure Active Directory (Azure AD) instance. (See [How the sample works](#how-the-sample-works) for an illustration.)
 
 > [!div renderon="docs"]
+> ## Prerequisites
+>
+> * [Visual Studio 2019](https://visualstudio.microsoft.com/vs/) or [Visual Studio Code](https://code.visualstudio.com/)
+> * [.NET Core SDK 3.1+](https://dotnet.microsoft.com/download)
+>
 > ## Register and download your quickstart app
 > You have two options to start your quickstart application:
 > * [Express] [Option 1: Register and auto configure your app and then download your code sample](#option-1-register-and-auto-configure-your-app-and-then-download-your-code-sample)

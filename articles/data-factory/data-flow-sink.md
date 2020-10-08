@@ -51,7 +51,9 @@ Azure Data Factory has access to over [90 native connectors](connector-overview.
 
 ## Sink settings
 
-Once you have added a sink, configure via the **Sink** tab. Here you can pick or create the dataset your sink writes to. Below is a video explaining a number of different Sink options for text delimited file types:
+Once you have added a sink, configure via the **Sink** tab. Here you can pick or create the dataset your sink writes to. Development values for dataset parameters can be configured in [Debug settings](concepts-data-flow-debug-mode.md) (requires Debug mode to be turned on).
+
+Below is a video explaining a number of different Sink options for text delimited file types:
 
 > [!VIDEO https://www.microsoft.com/videoplayer/embed/RE4tf7T]
 

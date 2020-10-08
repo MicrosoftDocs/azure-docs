@@ -165,6 +165,21 @@ The following table shows the configuration settings for a command capability:
 | Request | If enabled, a definition of the request parameter, including: name, display name, schema, unit, and display unit. |
 | Response | If enabled, a definition of the command response, including: name, display name, schema, unit, and display unit. |
 
+#### Offline commands
+
+You can choose queue commands if a device is currently offline by enabling the **Queue if offline** option for a command in the device template.
+
+This option uses IoT Hub cloud-to-device messages to send notifications to devices. To learn more, see the IoT Hub article [Send cloud-to-device messages](../../iot-hub/iot-hub-devguide-messages-c2d.md).
+
+Cloud-to-device messages:
+
+- Are one-way notifications to the device from your solution.
+- Guarantee at-least-once message delivery. IoT Hub persists cloud-to-device messages in per-device queues, guaranteeing resiliency against connectivity and device failures.
+- Require the device to implement a message handler to process the cloud-to-device message.
+
+> [!NOTE]
+> This option is only available in the IoT Central web UI. This setting isn't included if you export a model or interface from the device template.
+
 ## Manage an interface
 
 If you haven't published the interface, you can edit the capabilities defined by the interface. After you publish the interface, if you want to make any changes, you'll need to create a new version of the device template and version the interface. You can make changes that don't require versioning, such as display names or units, in the **Customize** section.

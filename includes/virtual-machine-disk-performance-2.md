@@ -11,7 +11,7 @@
 ---
 ![Dsv3 Documentation](media/vm-disk-performance/dsv3-documentation.jpg)
 
-The max **uncached** disk throughput is the default storage maximum limit that the virtual machine is able to handle. The max **cached** storage throughput limit is a separate limit when you enable host caching. Host caching works by bringing storage closer to the VM that can be written or read to quickly. The amount of storage that is available to the VM for host caching is in the documentation. For example, you can see the Standard_D8s_v3 comes with 200 GiB of cache storage. Let's 
+The max **uncached** disk throughput is the default storage maximum limit that the virtual machine is able to handle. The max **cached** storage throughput limit is a separate limit when you enable host caching. Host caching works by bringing storage closer to the VM that can be written or read to quickly. The amount of storage that is available to the VM for host caching is in the documentation. For example, you can see the Standard_D8s_v3 comes with 200 GiB of cache storage.
 
 Enabling host caching can be done when creating your virtual machine and attaching disks. You can also adjust to turn on and off host caching your disks on an existing VM.
 
@@ -88,7 +88,7 @@ Set up:
     - Host Caching: Read/write
 - 2 P30 Data Disks X 2
     - IOPS: 5,000
-    - Host Caching: Read/write
+    - Host Caching: Disabled
 
 ![Host Caching Example With Remote Storage](media/vm-disk-performance/host-caching-example-with-remote.jpg)
 

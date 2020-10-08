@@ -5,7 +5,7 @@ author: ShaneBala-keyvault
 ms.author: sudbalas
 ms.service: key-vault
 ms.topic: tutorial
-ms.date: 08/25/2020
+ms.date: 09/25/2020
 ---
 
 # Tutorial: Configure and run the Azure Key Vault provider for the Secrets Store CSI driver on Kubernetes
@@ -110,7 +110,7 @@ To create your own custom SecretProviderClass object with provider-specific para
 
 In the sample SecretProviderClass YAML file, fill in the missing parameters. The following parameters are required:
 
-* **userAssignedIdentityID**: # [REQUIRED] If you're using a service principal, use the client id to specify which user-assigned managed identity to use. If you're using a user-assigned identity as the VM's managed identity, specify the identity's client id. If the value is empty, it defaults to use the system-assigned identity on the VM 
+* **userAssignedIdentityID**: # [REQUIRED] If you're using a service principal, use the client ID to specify which user-assigned managed identity to use. If you're using a user-assigned identity as the VM's managed identity, specify the identity's client ID. If the value is empty, it defaults to use the system-assigned identity on the VM 
 * **keyvaultName**: The name of your key vault
 * **objects**: The container for all of the secret content you want to mount
     * **objectName**: The name of the secret content
@@ -307,8 +307,8 @@ spec:
         readOnly: true
         volumeAttributes:
           secretProviderClass: azure-kvname
-          nodePublishSecretRef:
-              name: secrets-store-creds 
+        nodePublishSecretRef:
+          name: secrets-store-creds 
 ```
 
 Run the following command to deploy your pod:
