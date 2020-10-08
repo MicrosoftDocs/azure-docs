@@ -45,8 +45,6 @@
 
 - name: How to
   items:
-  - name: Connect privately to a Cosmos DB account
-    href: create-private-endpoint-cosmosdb-portal.md
   - name: Connect privately to a web app
     href: create-private-endpoint-webapp-portal.md
   - name: Disable network policies for a private endpoint
