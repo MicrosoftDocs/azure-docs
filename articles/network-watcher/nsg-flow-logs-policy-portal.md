@@ -16,7 +16,6 @@ ms.author: damendo
 
 ---
 
-
 # QuickStart: Deploy and manage NSG Flow Logs using Azure Policy 
 
 ## Overview
