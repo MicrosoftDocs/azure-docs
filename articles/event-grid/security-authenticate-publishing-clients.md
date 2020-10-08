@@ -72,7 +72,7 @@ def build_shared_access_signature(uri, key, expiry=3600):
     encoded_signature = b64encode(HMAC(b64decode(key), unsigned_sas.encode('utf-8'), sha256).digest()).decode()
     expiration = str(ttl)
     
-    signed_sas = 'SharedAccessSignature ' + f'r={encoded_resource}&e={encoded_expiration_utc}&s={encoded_signature}'
+    signed_sas = f'r={encoded_resource}&e={encoded_expiration_utc}&s={encoded_signature}'
 
     return signed_sas
 ```
