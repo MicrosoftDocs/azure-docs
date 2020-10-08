@@ -170,6 +170,9 @@ No. Network traffic inbound from the internet directly to private clouds isn't a
 
 Yes. You'll need to use NSX-T manager to create a firewall that restricts VM access to the internet.
 
+#### What is the correct storage policy for dedup?
+Use the *thin_provision* storage policy for your VM template.  The default is *thick_provision*.
+
 ## Accounts and privileges
 
 #### What accounts and privileges will I get with my new Azure VMware Solution private cloud?
