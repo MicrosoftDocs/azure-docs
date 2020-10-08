@@ -5,7 +5,7 @@ ms.topic: include
 ms.date: 08/14/2020
 ms.author: rgarcia
 ---
-Select **Build**. In the pane that opens, select a folder to export the Xcode project to.
+Select **Build**. On the pane that opens, select a folder to export the Xcode project to.
 
    When the export is complete, a folder that contains the exported Xcode project appears.
 
@@ -24,7 +24,7 @@ open ./Unity-iPhone.xcodeproj
 
 Select the root **Unity-iPhone** node to view the project settings, and then select the **General** tab.
 
-Under **Signing**, make sure that **Automatically manage signing** is enabled. If it's not, enable it, and then, to reset the build settings, select **Enable Automatic** in the pane that appears.
+Under **Signing**, make sure that **Automatically manage signing** is enabled. If it's not, enable it, and then, to reset the build settings, select **Enable Automatic** on the pane that appears.
 
 Under **Deployment Info**, make sure that **Deployment Target** is set to **11.0**.
 
