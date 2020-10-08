@@ -53,7 +53,7 @@ Verify that you have the following items before beginning configuration:
 
 ### To sign in
 
-1. Open your PowerShell console with elevated rights. Connect to your account using the Service Management command. Use the following example to help you connect:
+1. Open your PowerShell console with elevated rights. Connect to your account using the following example:
 
    ```powershell
    Add-AzureAccount

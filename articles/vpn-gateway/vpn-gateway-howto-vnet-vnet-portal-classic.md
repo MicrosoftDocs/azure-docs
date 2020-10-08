@@ -76,7 +76,7 @@ The following table shows an example of how to define your VNets. Use the ranges
 
 ## <a name="vnetvalues"></a>Step 2 - Create the virtual networks
 
-In this step, you create two  classic virtual networks. If you are using this article as an exercise, you can use the following example values:
+In this step, you create two classic virtual networks. If you are using this article as an exercise, you can use the following example values:
 
 **Values for TestVNet1**
 
