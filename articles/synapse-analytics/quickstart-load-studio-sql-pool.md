@@ -13,7 +13,7 @@ ms.reviewer: jrasnick
 
 # Quickstart: Bulk loading with Synapse SQL
 
-Loading data has never been easier when using the Bulk Load wizard in the Synapse Studio. This wizard will guide you through creating a T-SQL script with the [COPY statement](https://docs.microsoft.com/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest) to bulk load data. 
+Loading data has never been easier when using the Bulk Load wizard in the Synapse Studio. This wizard will guide you through creating a T-SQL script with the [COPY statement](/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest&preserve-view=true) to bulk load data. 
 
 ## Entry points to the Bulk Load wizard
 
@@ -24,9 +24,10 @@ You can now easily bulk load data using SQL pools with a simple right-click on t
 
 ## Prerequisites
 
-- This wizard generates a COPY statement, which uses Azure AD pass-through for authentication. Your [Azure AD user must have access](https://docs.microsoft.com/azure/synapse-analytics/sql-data-warehouse/quickstart-bulk-load-copy-tsql-examples#d-azure-active-directory-authentication-aad) to the workspace with at least the Storage Blob Data Contributor Azure role to the ADLS Gen2 Account.
+- This wizard generates a COPY statement, which uses Azure AD pass-through for authentication. Your [Azure AD user must have access](
+./sql-data-warehouse/quickstart-bulk-load-copy-tsql-examples#d-azure-active-directory-authentication) to the workspace with at least the Storage Blob Data Contributor Azure role to the ADLS Gen2 Account.
 
-- You must have the required [permissions to use the COPY statement](https://docs.microsoft.com/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest#permissions) and Create table permissions if you're creating a new table to load to.
+- You must have the required [permissions to use the COPY statement](/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest&preserve-view=true#permissions) and Create table permissions if you're creating a new table to load to.
 
 - The linked service associated with the ADLS Gen2 Account **must have access to the file**/**folder** to load. For example, if the linked service authentication mechanism is Managed Identity, the workspace managed identity must have at least Storage blob reader permission on the storage account.
 
@@ -55,5 +56,5 @@ You can now easily bulk load data using SQL pools with a simple right-click on t
 
 ## Next steps
 
-- Check the [COPY statement](https://docs.microsoft.com/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest#syntax) article for more information on COPY capabilities
-- Check the [data loading overview](https://docs.microsoft.com/azure/synapse-analytics/sql-data-warehouse/design-elt-data-loading#what-is-elt) article
+- Check the [COPY statement](/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest&preserve-view=true#syntax) article for more information on COPY capabilities
+- Check the [data loading overview](./sql-data-warehouse/design-elt-data-loading#what-is-elt) article

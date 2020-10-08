@@ -37,7 +37,7 @@ Sign in to the [Azure portal](https://portal.azure.com/)
 
 ## Create new dedicated SQL pool
 
-1. In the Synapse workspace where you want to create thededicated SQL pool, select **New dedicated SQL pool** command in the top bar.
+1. In the Synapse workspace where you want to create the dedicated SQL pool, select **New dedicated SQL pool** command in the top bar.
 ![Overview of Synapse workspace with a red box around the command to create a new SQL pool.](media/quickstart-create-sql-pool/create-sql-pool-portal-01.png)
 2. Enter the following details in the **Basics** tab:
 

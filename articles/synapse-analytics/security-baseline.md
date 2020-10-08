@@ -252,7 +252,7 @@ Alternatively, you may enable and on-board data to Azure Sentinel or a third-par
 
 * [How to enable Advanced Data Security for Azure SQL Database](https://docs.microsoft.com/azure/sql-database/sql-database-advanced-data-security)
 
-* [How to configure custom alerts for Azure SQL Database](https://docs.microsoft.com/azure/sql-database/sql-database-insights-alerts-portal?view=azps-1.4.0)
+* [How to configure custom alerts for Azure SQL Database](https://docs.microsoft.com/azure/sql-database/sql-database-insights-alerts-portal?view=azps-1.4.0&preserve-view=true)
 
 * [How to onboard Azure Sentinel](https://docs.microsoft.com/azure/sentinel/quickstart-onboard)
 
@@ -320,9 +320,9 @@ For management operations, use the Azure built-in roles which must be explicitly
 
 * [Use an Azure Active Directory account for authentication](https://docs.microsoft.com/azure/azure-sql/database/logins-create-manage#create-additional-logins-and-users-having-administrative-permissions)
 
-* [How to get a directory role in Azure AD with PowerShell](https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrole?view=azureadps-2.0)
+* [How to get a directory role in Azure AD with PowerShell](https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrole?view=azureadps-2.0&preserve-view=true)
 
-* [How to get members of a directory role in Azure AD with PowerShell](https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrolemember?view=azureadps-2.0)
+* [How to get members of a directory role in Azure AD with PowerShell](https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrolemember?view=azureadps-2.0&preserve-view=true)
 
 * [How to manage existing logins and admin accounts in Azure SQL](https://docs.microsoft.com/azure/azure-sql/database/logins-create-manage#existing-logins-and-user-accounts-after-creating-a-new-database)
 
@@ -414,7 +414,7 @@ SQL Server audit lets you create server audits, which can contain server audit s
 
 * [Understand logins and user accounts in Azure SQL](https://docs.microsoft.com/azure/azure-sql/database/logins-create-manage)
 
-* [Understand SQL Server Auditing](https://docs.microsoft.com/sql/relational-databases/security/auditing/sql-server-audit-database-engine?view=sql-server-ver15)
+* [Understand SQL Server Auditing](https://docs.microsoft.com/sql/relational-databases/security/auditing/sql-server-audit-database-engine?view=sql-server-ver15&preserve-view=true)
 
 **Azure Security Center monitoring**: Yes
 
@@ -704,7 +704,7 @@ Although classic Azure resources may be discovered via Azure Resource Graph, it 
 
 * [How to create queries with Azure Resource Graph](https://docs.microsoft.com/azure/governance/resource-graph/first-query-portal)
 
-* [How to view your Azure subscriptions](https://docs.microsoft.com/powershell/module/az.accounts/get-azsubscription?view=azps-3.0.0)
+* [How to view your Azure subscriptions](https://docs.microsoft.com/powershell/module/az.accounts/get-azsubscription?view=azps-3.0.0&preserve-view=true)
 
 * [Understand Azure RBAC](https://docs.microsoft.com/azure/role-based-access-control/overview)
 
@@ -848,7 +848,7 @@ Use Azure Resource Graph to query/discover resources within your subscription(s)
 - Deploy Threat Detection on SQL servers
 - SQL Server should use a virtual network service endpoint
 
-* [How to view available Azure Policy Aliases](https://docs.microsoft.com/powershell/module/az.resources/get-azpolicyalias?view=azps-3.3.0)
+* [How to view available Azure Policy Aliases](https://docs.microsoft.com/powershell/module/az.resources/get-azpolicyalias?view=azps-3.3.0&preserve-view=true)
 
 * [How to configure and manage Azure Policy](https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage)
 
@@ -888,9 +888,9 @@ Use Azure Resource Graph to query/discover resources within your subscription(s)
 
 **Guidance**: If using custom Azure Policy definitions, use Azure DevOps or Azure Repos to securely store and manage your code.
 
-* [How to store code in Azure DevOps](https://docs.microsoft.com/azure/devops/repos/git/gitworkflow?view=azure-devops)
+* [How to store code in Azure DevOps](https://docs.microsoft.com/azure/devops/repos/git/gitworkflow?view=azure-devops&preserve-view=true)
 
-* [Azure Repos documentation](https://docs.microsoft.com/azure/devops/repos/index?view=azure-devops)
+* [Azure Repos documentation](https://docs.microsoft.com/azure/devops/repos/index?view=azure-devops&preserve-view=true)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -1026,7 +1026,7 @@ If you are using a customer-managed key to encrypt your Database Encryption Key,
 
 * [Backup and restore in dedicated Synapse SQL pool](https://docs.microsoft.com/azure/synapse-analytics/sql-data-warehouse/backup-and-restore)
 
-* [How to backup Azure Key Vault keys](https://docs.microsoft.com/powershell/module/azurerm.keyvault/backup-azurekeyvaultkey?view=azurermps-6.13.0)
+* [How to backup Azure Key Vault keys](https://docs.microsoft.com/powershell/module/azurerm.keyvault/backup-azurekeyvaultkey?view=azurermps-6.13.0&preserve-view=true)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -1036,7 +1036,7 @@ If you are using a customer-managed key to encrypt your Database Encryption Key,
 
 **Guidance**: Periodically test your restore points to ensure your snapshots are valid. To restore an existing dedicated SQL pool from a restore point, you can use either the Azure portal or PowerShell. Test restoration of backed up customer-managed keys.
 
-* [How to restore Azure Key Vault keys](https://docs.microsoft.com/powershell/module/azurerm.keyvault/restore-azurekeyvaultkey?view=azurermps-6.13.0)
+* [How to restore Azure Key Vault keys](https://docs.microsoft.com/powershell/module/azurerm.keyvault/restore-azurekeyvaultkey?view=azurermps-6.13.0&preserve-view=true)
 
 * [Backup and restore in dedicated Synapse SQL pool](https://docs.microsoft.com/azure/synapse-analytics/sql-data-warehouse/backup-and-restore)
 
