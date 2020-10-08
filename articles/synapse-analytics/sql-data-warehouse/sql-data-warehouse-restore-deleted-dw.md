@@ -32,7 +32,7 @@ To restore a deleted dedicated SQL pool, use the [Restore-AzSqlDatabase](/powers
 3. Connect to your Azure account and list all the subscriptions associated with your account.
 4. Select the subscription that contains the deleted dedicated SQL pool to be restored.
 5. Get the specific deleted data warehouse.
-6. Restore the deleted dedicated QL pool
+6. Restore the deleted dedicated SQL pool
     1. To restore the deleted dedicated SQL pool to a different server, make sure to specify the other server name.  This server can also be in a different resource group and region.
     1. To restore to a different subscription, use the [Move](../../azure-resource-manager/management/move-resource-group-and-subscription.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json#use-the-portal) button to move the server to another subscription.
 7. Verify that the restored data warehouse is online.
