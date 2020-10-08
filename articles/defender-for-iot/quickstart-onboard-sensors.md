@@ -1,6 +1,6 @@
 ---
-title: "Quickstart: prepare for deployment"
-description: Learn how to prepare your network for Azure Defender for IoT deployment.
+title: "Quickstart: onboard sensors"
+description: Learn how to onboard sensors for Azure Defender for IoT deployment.
 services: defender-for-iot
 ms.service: defender-for-iot
 documentationcenter: na
