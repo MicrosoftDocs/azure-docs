@@ -23,7 +23,7 @@ To learn more about customizing RDP properties for a host pool using PowerShell 
 
 You can use the following RDP properties and Group Policy settings to enable device redirections.
 
-### Audio input redirection
+### Audio input (microphone) redirection
 
 Set the following RDP property to enable audio input (microphone) redirection:
 
