@@ -42,7 +42,7 @@ Before you begin this tutorial, make sure that you meet the following requiremen
 	>You can create a service principal only if you are an Azure AD administrator. Your Azure AD administrator must create a service principal before you can create an HDInsight cluster with Data Lake Storage Gen1. The service principal must be created with a certificate, as described in [Create a service principal with certificate](../active-directory/develop/howto-authenticate-service-principal-powershell.md#create-service-principal-with-certificate-from-certificate-authority).
 	>
 
-## Create a Azure Data Lake Storage Gen1 account
+## Create an Azure Data Lake Storage Gen1 account
 
 To create a Data Lake Storage Gen1 account, do the following:
 

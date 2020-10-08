@@ -115,7 +115,7 @@ To use a Data Lake Storage Gen1 as additional storage, grant the service princip
 
 For more information for creating service principal and grant access, see Configure Data Lake Storage access.
 
-## Use more than one Data Lake Storage Gen1 accounts
+## Use more than one Data Lake Storage Gen1 account
 
 Adding a Data Lake Storage account as additional and adding more than one Data Lake Storage accounts can be done. Give the HDInsight cluster permission on data in one or more Data Lake Storage accounts. See Configure Data Lake Storage Gen1 access below.
 

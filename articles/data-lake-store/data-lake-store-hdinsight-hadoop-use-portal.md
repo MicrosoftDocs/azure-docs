@@ -26,7 +26,7 @@ Learn how to use the Azure portal to create a HDInsight cluster with Azure Data 
 Before you begin, ensure that you've met the following requirements:
 
 * **An Azure subscription**. Go to [Get Azure free trial](https://azure.microsoft.com/pricing/free-trial/).
-* **A Azure Data Lake Storage Gen1 account**. Follow the instructions from [Get started with Azure Data Lake Storage Gen1 by using the Azure portal](data-lake-store-get-started-portal.md). You must also create a root folder on the account.  In this article, a root folder called __/clusters__ is used.
+* **An Azure Data Lake Storage Gen1 account**. Follow the instructions from [Get started with Azure Data Lake Storage Gen1 by using the Azure portal](data-lake-store-get-started-portal.md). You must also create a root folder on the account.  In this article, a root folder called __/clusters__ is used.
 * **An Azure Active Directory service principal**. This how-to guide provides instructions on how to create a service principal in Azure Active Directory (Azure AD). However, to create a service principal, you must be an Azure AD administrator. If you're an administrator, you can skip this prerequisite and continue.
 
 >[!NOTE]
@@ -56,7 +56,7 @@ To create an HDInsight cluster with a Data Lake Storage Gen1 as the default stor
 
 ### Create a cluster with Data Lake Storage Gen1 as additional storage
 
-The following instructions create a HDInsight cluster with an Azure Slob storage account as the default storage, and a storage account with Data Lake Storage Gen1 as an additional storage.
+The following instructions create a HDInsight cluster with an Azure Blob storage account as the default storage, and a storage account with Data Lake Storage Gen1 as an additional storage.
 
 To create a HDInsight cluster with Data Lake Storage Gen1 as an additional storage account:
 
@@ -64,7 +64,7 @@ To create a HDInsight cluster with Data Lake Storage Gen1 as an additional stora
 2. Follow [Create clusters](../hdinsight/hdinsight-hadoop-create-linux-clusters-portal.md#create-clusters) for the general information on creating HDInsight clusters.
 3. On the **Storage** blade, under **Primary storage type**, select **Azure Storage**, and then enter the following information:
 
-    ![HDInsight storage account settings additoinal storage](./media/data-lake-store-hdinsight-hadoop-use-portal/hdi.adl.1.png)
+    ![HDInsight storage account settings additional storage](./media/data-lake-store-hdinsight-hadoop-use-portal/hdi.adl.1.png)
 
     * **Selection method** - To specify a storage account that is part of your Azure subscription,  select **My subscriptions**, and then select the storage account. To specify a storage account that is outside your Azure subscription, select **Access key**, and then provide the information for the outside storage account.
 

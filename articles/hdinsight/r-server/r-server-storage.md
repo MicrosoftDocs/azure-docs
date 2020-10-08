@@ -113,9 +113,9 @@ You then use the storage in your R script much like you did a secondary Azure st
 
 You access Data Lake Storage Gen1 by using an Azure Active Directory (Azure AD) Service Principal that's associated with your HDInsight cluster.
 
-1. When you create your HDInsight cluster, select **Cluster AAD Identity** from the **Data Source** tab.
+1. When you create your HDInsight cluster, select **Cluster Azure AD Identity** from the **Data Source** tab.
 
-2. In the **Cluster AAD Identity** dialog box, under **Select AD Service Principal**, select **Create new**.
+2. In the **Cluster Azure AD Identity** dialog box, under **Select AD Service Principal**, select **Create new**.
 
 After you give the Service Principal a name and create a password for it, click **Manage ADLS Access** to associate the Service Principal with your Data Lake Storage.
 

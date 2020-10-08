@@ -72,7 +72,7 @@ The Resource Manager template creates a new storage account with Data Lake Stora
 ## Set relevant ACLs on the sample data
 To make sure the sample data you upload is accessible from the HDInsight cluster, you must ensure that the Azure AD application that is used to establish identity between the HDInsight cluster and Data Lake Storage Gen1 has access to the file/folder you are trying to access. To do this, perform the following steps.
 
-1. Find the name of the Azure AD application that is associated with HDInsight cluster and the storage account with Data Lake Storage Gen1. One way to look for the name is to open the HDInsight cluster blade that you created using the Resource Manager template, click the **Cluster AAD Identity** tab, and look for the value of **Service Principal Display Name**.
+1. Find the name of the Azure AD application that is associated with HDInsight cluster and the storage account with Data Lake Storage Gen1. One way to look for the name is to open the HDInsight cluster blade that you created using the Resource Manager template, click the **Cluster Azure AD Identity** tab, and look for the value of **Service Principal Display Name**.
 2. Now, provide access to this Azure AD application on the file/folder that you want to access from the HDInsight cluster. To set the right ACLs on the file/folder in Data Lake Storage Gen1, see [Securing data in Data Lake Storage Gen1](data-lake-store-secure-data.md#filepermissions).
 
 ## Run test jobs on the HDInsight cluster to use Data Lake Storage Gen1

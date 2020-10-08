@@ -128,7 +128,7 @@ Follow these steps to create a Data Lake Storage Gen1 account.
 
 ## Set up authentication for role-based access to Data Lake Storage Gen1
 
-Every Azure subscription is associated with an Azure Active Directory. Users and services that access resources of the subscription using the Azure portal or Azure Resource Manager API must first authenticate with that Azure Active Directory. Access is granted to Azure subscriptions and services by assigning them the appropriate role on an Azure resource.  For services, a service principal identifies the service in the Azure Active Directory (AAD). This section illustrates how to grant an application service, like HDInsight, access to an Azure resource (the storage account with Data Lake Storage Gen1 you created earlier) by creating a service principal for the application and assigning roles to that via Azure PowerShell.
+Every Azure subscription is associated with an Azure Active Directory. Users and services that access resources of the subscription using the Azure portal or Azure Resource Manager API must first authenticate with that Azure Active Directory. Access is granted to Azure subscriptions and services by assigning them the appropriate role on an Azure resource.  For services, a service principal identifies the service in the Azure Active Directory (Azure AD). This section illustrates how to grant an application service, like HDInsight, access to an Azure resource (the storage account with Data Lake Storage Gen1 you created earlier) by creating a service principal for the application and assigning roles to that via Azure PowerShell.
 
 To set up Active Directory authentication for Data Lake Storage Gen1, you must perform the following tasks.
 
