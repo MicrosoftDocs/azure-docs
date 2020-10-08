@@ -334,8 +334,7 @@ using Microsoft.ApplicationInsights.WorkerService;
 
 public void ConfigureServices(IServiceCollection services)
 {
-    Microsoft.ApplicationInsights.WorkerService.ApplicationInsightsServiceOptions aiOptions
-                = new Microsoft.ApplicationInsights.WorkerService.ApplicationInsightsServiceOptions();
+    var aiOptions = new ApplicationInsightsServiceOptions();
     // Disables adaptive sampling.
     aiOptions.EnableAdaptiveSampling = false;
 
@@ -373,11 +372,12 @@ public void ConfigureServices(IServiceCollection services)
     // ...
 
     var aiOptions = new ApplicationInsightsServiceOptions();
-    // Disable the automatically added sampling
+    
+    // Disable adaptive sampling.
     aiOptions.EnableAdaptiveSampling = false;
     services.AddApplicationInsightsTelemetry(aiOptions);
 
-    // add Adaptive Sampling with custom setting.
+    // Add Adaptive Sampling with custom settings.
     // the following adds adaptive sampling with 15 items per sec.
     services.Configure<TelemetryConfiguration>((telemetryConfig) =>
         {
