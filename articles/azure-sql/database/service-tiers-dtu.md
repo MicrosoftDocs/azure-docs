@@ -41,7 +41,7 @@ Choosing a service tier depends primarily on business continuity, storage, and p
 \* All read and write IOPS against data files, including background IO (checkpoint and lazy writer)
 
 > [!IMPORTANT]
-> The Basic, S0, S1 and S2 service objectives provide less than one vCore (CPU).  For CPU-intensive workloads, a service tier of S3 or greater is recommended. 
+> The Basic, S0, S1 and S2 service objectives provide less than one vCore (CPU).  For CPU-intensive workloads, a service objective of S3 or greater is recommended. 
 >
 > In the Basic, S0, and S1 service objectives, database files are stored in Azure Standard Storage, which uses hard disk drive (HDD)-based storage media. These service objectives are best suited for development, testing, and other infrequently accessed workloads that are less sensitive to performance variability.
 >
