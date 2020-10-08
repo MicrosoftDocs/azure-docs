@@ -14,7 +14,7 @@ You'll need to unblock certain URLs so your Windows Virtual Desktop deployment w
 
 ## Virtual machines
 
-The Azure virtual machines you create for Windows Virtual Desktop must have access to the following URLs in Azure Commercial cloud:
+The Azure virtual machines you create for Windows Virtual Desktop must have access to the following URLs in the Azure commercial cloud:
 
 |Address|Outbound TCP port|Purpose|Service Tag|
 |---|---|---|---|
@@ -36,7 +36,7 @@ The Azure virtual machines you create for Windows Virtual Desktop must have acce
 >
 >We recommend you use FQDN tags or service tags instead of URLs to prevent service issues. The listed URLs and tags only correspond to Windows Virtual Desktop sites and resources. They don't include URLs for other services like Azure Active Directory.
 
-The Azure virtual machines you create for Windows Virtual Desktop must have access to the following URLs in Azure Government cloud:
+The Azure virtual machines you create for Windows Virtual Desktop must have access to the following URLs in the Azure government cloud:
 
 |Address|Outbound TCP port|Purpose|Service Tag|
 |---|---|---|---|
@@ -81,14 +81,14 @@ The following table lists optional URLs that your Azure virtual machines can hav
 Any Remote Desktop clients you use must have access to the following URLs:
 
 |Address|Outbound TCP port|Purpose|Client(s)|Azure Gov|
-|---|---|---|---|
+|---|---|---|---|---|
 |*.wvd.microsoft.com|443|Service traffic|All|*.wvd.microsoft.us|
 |*.servicebus.windows.net|443|Troubleshooting data|All|*.servicebus.usgovcloudapi.net|
 |go.microsoft.com|443|Microsoft FWLinks|All|None|
-|aka.ms|443|Microsoft URL shortener|All||None|
-|docs.microsoft.com|443|Documentation|All||None|
-|privacy.microsoft.com|443|Privacy statement|All||None|
-|query.prod.cms.rt.microsoft.com|443|Client updates|Windows Desktop||None|
+|aka.ms|443|Microsoft URL shortener|All|None|
+|docs.microsoft.com|443|Documentation|All|None|
+|privacy.microsoft.com|443|Privacy statement|All|None|
+|query.prod.cms.rt.microsoft.com|443|Client updates|Windows Desktop|None|
 
 >[!IMPORTANT]
 >Opening these URLs is essential for a reliable client experience. Blocking access to these URLs is unsupported and will affect service functionality.
