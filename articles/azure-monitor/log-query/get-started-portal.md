@@ -5,7 +5,7 @@ ms.subservice: logs
 ms.topic: tutorial
 author: bwren
 ms.author: bwren
-ms.date: 03/17/2020
+ms.date: 10/07/2020
 
 ---
 
@@ -110,31 +110,14 @@ Click on the query called **Request Count by ResponseCode**. This will add the q
 
 The current query is the one that the cursor is positioned on. You can see that the first query is highlighted indicating it's the current query. Click anywhere in the new query to select it and then click the **Run** button to run it.
 
+[![Example query](media/get-started-portal/example-query-output-chart.png)](media/get-started-portal/example-query-output-chart.png#lightbox)
 
+Notice that this output is a chart instead of a table like the last query. That's because the example query uses a [render](/azure/data-explorer/kusto/query/renderoperator?pivots=azuremonitor) command at the end. Notice that there are various options for working with the chart such as changing it to another type.
 
+Try selecting **Results** to view the output of the query as a table. 
 
+[![Example query](media/get-started-portal/example-query-output-table.png)](media/get-started-portal/example-query-output-table.png#lightbox)
 
-## View and modify charts
-You can also see query results in visual formats. Enter the following query as an example:
-
-```Kusto
-Event 
-| where EventLevelName == "Error" 
-| where TimeGenerated > ago(1d) 
-| summarize count() by Source 
-```
-
-By default, results appear in a table. Select **Chart** above the table to see the results in a graphic view.
-
-![Bar chart](media/get-started-portal/bar-chart.png)
-
-The results appear in a stacked bar chart. Select other options like **Stacked Column** or **Pie** to show other views of the results.
-
-![Pie chart](media/get-started-portal/pie-chart.png)
-
-You can change properties of the view, such as x and y axes, or grouping and splitting preferences, manually from the control bar.
-
-You can also set the preferred view in the query itself, using the [render](/azure/kusto/query/renderoperator) operator.
 
 ## Pin results to a dashboard
 
@@ -152,44 +135,8 @@ A table or chart that you pin to a shared dashboard has the following simplifica
 - A table shows only up to four columns and the top seven rows.
 - Charts with many discrete categories automatically group less populated categories into a single **others** bin.
 
-## Save, load, or export queries
-
-Once you create a query, you can save or share the query or results with others. 
-
-### Save queries
-
-To save a query:
-
-1. Select **Save** on the top bar.
-   
-1. In the **Save** dialog, give the query a **Name**, using the characters a–z, A–Z, 0-9, space, hyphen, underscore, period, parenthesis, or pipe. 
-   
-1. Select whether to save the query as a **Query** or a **Function**. Functions are queries that other queries can reference. 
-   
-   To save a query as a function, provide a **Function Alias**, which is a short name for other queries to use to call this query.
-   
-1. If you are in a Log Analytics workspace, provide a **Category** for **Query explorer** to use for the query. (Categories aren't available for Applications Insights queries)
-   
-1. Select **Save**.
-   
-   ![Save function](media/get-started-portal/save-function.png)
-
-### Load queries
-To load a saved query, select **Query explorer** at upper right. The **Query explorer** pane opens, listing all queries by category. Expand the categories or enter a query name in the search bar, then select a query to load it into the **Query editor**. You can mark a query as a **Favorite** by selecting the star next to the query name.
-
-![Query explorer](media/get-started-portal/query-explorer.png)
-
-### Export and share queries
-To export a query, select **Export** on the top bar, and then select **Export to CSV - all columns**, **Export to CSV - displayed columns**, or **Export to Power BI (M query)** from the dropdown list.
-
-The following video shows you how to integrate Log Analytics with Excel.
-
-> [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE4Asme]
-
-To share a link to a query, select **Copy link** on the top bar, and then select **Copy link to query**, **Copy query text**, or **Copy query results** to copy to the clipboard. You can send the query link to others who have access to the same workspace.
-
 ## Next steps
 
-Advance to the next tutorial to learn more about writing Azure Monitor log queries.
+Now that you know how to use Log Analytics, complete the tutorial on using log queries.
 > [!div class="nextstepaction"]
 > [Write Azure Monitor log queries](get-started-queries.md)
