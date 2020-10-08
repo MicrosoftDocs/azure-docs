@@ -663,15 +663,6 @@ groups:
     title: Java
   - id: programming-language-csharp
     title: C#
-- id: sql-vm-hadr
-# Owner: mathoma
-  title: SQL VM HADR
-  prompt: Choose a HADR solution
-  pivots:
-  - id: fci
-    title: Failover cluster instance (FCI)
-  - id: ag
-    title: Availability group (AG)    
 - id: speech-full-stack-go
   # Owner: erhopf
   title: Programming languages
