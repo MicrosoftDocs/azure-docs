@@ -865,7 +865,7 @@ We are still working on enabling CLI SDK for billing APIs. Check back soon.
 
 ---
 
-### Create a subscription ans resource group via ARM template
+### Create a subscription and resource group via ARM template
 
 The following template creates a subscription named *Dev Team subscription* for the *Development* invoice section. The subscription will be billed to the *Contoso Billing Profile* billing profile and appear on the *Development* section of its invoice. You will be using the copied billing scope from previous step - `/providers/Microsoft.Billing/billingAccounts/5e98e158-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx_xxxx-xx-xx/billingProfiles/AW4F-xxxx-xxx-xxx/invoiceSections/SH3V-xxxx-xxx-xxx`. 
 
