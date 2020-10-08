@@ -28,13 +28,13 @@ Use the following table to determine the best authentication option based on you
 |---|---|---|
 | Fully OAuth | Enterprise Security Package + HDInsight ID Broker | Most secure option. (MFA is supported.) Pass hash sync is *not* required. No ssh/kinit/keytab access for on-premises accounts, which don't have password hash in Azure AD DS. Cloud-only accounts can still ssh/kinit/keytab. Web-based access to Ambari through OAuth. Requires updating legacy apps (for example, JDBC/ODBC) to support OAuth.|
 | OAuth + Basic Auth | Enterprise Security Package + HDInsight ID Broker | Web-based access to Ambari through OAuth. Legacy apps continue to use basic auth. MFA must be disabled for basic auth access. Pass hash sync is *not* required. No ssh/kinit/keytab access for on-premises accounts, which don't have password hash in Azure AD DS. Cloud-only accounts can still ssh/kinit. |
-| Fully Basic Auth | Enterprise Security Package | Most similar to on-premises setups. Password hash sync to Azure AD DS is required. On-premises accounts can ssh/kinit or use keytab. MFA must be disabled if the backing storage is ADLS Gen2. |
+| Fully Basic Auth | Enterprise Security Package | Most similar to on-premises setups. Password hash sync to Azure AD DS is required. On-premises accounts can ssh/kinit or use keytab. MFA must be disabled if the backing storage is Azure Data Lake Storage Gen2. |
 
 The following diagram shows the modern OAuth-based authentication flow for all users, including federated users, after HDInsight ID Broker is enabled:
 
 :::image type="content" source="media/identity-broker/identity-broker-architecture.png" alt-text="Diagram that shows authentication flow with HDInsight ID Broker.":::
 
-In this diagram, the client (that is, browser or app) needs to acquire the OAuth token first. Then it presents the token to the gateway in an HTTP request. If you've already signed in to other Azure services, such as the Azure portal, you can sign in to your HDInsight cluster with a single sign-on (SSO) experience.
+In this diagram, the client (that is, a browser or app) needs to acquire the OAuth token first. Then it presents the token to the gateway in an HTTP request. If you've already signed in to other Azure services, such as the Azure portal, you can sign in to your HDInsight cluster with a single sign-on experience.
 
 There still might be many legacy applications that only support basic authentication (that is, username and password). For those scenarios, you can still use HTTP basic authentication to connect to the cluster gateways. In this setup, you must ensure network connectivity from the gateway nodes to the Active Directory Federation Services (AD FS) endpoint to ensure a direct line of sight from gateway nodes.
 
@@ -114,7 +114,7 @@ If your organization isn't syncing password hashes to Azure AD DS, as a best pra
 
 To troubleshoot authentication issues, see this [guide](https://docs.microsoft.com/azure/hdinsight/domain-joined/domain-joined-authentication-issues).
 
-## Clients using OAuth to connect to HDInsight gateway with HDInsight ID Broker
+## Clients using OAuth to connect to an HDInsight gateway with HDInsight ID Broker
 
 In the HDInsight ID Broker setup, custom apps and clients that connect to the gateway can be updated to acquire the required OAuth token first. Follow the steps in this [document](https://docs.microsoft.com/azure/storage/common/storage-auth-aad-app) to acquire the token with the following information:
 
