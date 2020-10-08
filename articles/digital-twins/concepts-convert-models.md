@@ -21,7 +21,7 @@ Models in Azure Digital Twins are represented in the JSON-LD-based [**Digital Tw
 
 This article describes a pattern for converting RDF-based industry or custom models to DTDL. It includes:
 * **Strategy-level guidance** that can be applied to a variety of standards and model types
-* [Sample code for an RDF-specific converter](#sample-converter-application)
+* [**Sample code** for an RDF-specific converter](#sample-converter-application)
 
 ## Industry models  
 
@@ -41,7 +41,7 @@ Depending on your needs, you can also use DTDL to customize or extend industry m
 
 The first step in modeling is creating your models. You can create and complete editing of your industry-standard models before converting them to DTDL, or you can convert them to DTDL early and continue editing them as DTDL documents.
 
-### Using industry standards
+### With industry standards
 
 Most industry models (also referred to as **ontologies**) are based on semantic web standards such as [OWL](https://www.w3.org/OWL/[), [RDF](https://www.w3.org/2001/sw/wiki/RDF), and [RDFS](https://www.w3.org/2001/sw/wiki/RDFS). 
 
@@ -85,7 +85,7 @@ Models can be saved, imported, and exported in many file formats, including:
 * Turtle (TTL) 
 * OWL/XML 
 
-### Using DTDL
+### With DTDL
 
 Azure Digital Twins uses the JSON-LD-based **Digital Twin Definition Language (DTDL)** for modeling. Any model that will be used with Azure Digital Twins will need to be either originally written in or converted into DTDL.
 
@@ -159,13 +159,11 @@ var json = JsonConvert.SerializeObject(_interfaceList);
 //...
 ``` 
 
-## Validate DTDL models
+## Validate and upload DTDL models
 
 [!INCLUDE [Azure Digital Twins: validate models info](../../includes/digital-twins-validate.md)]
 
-## Upload DTDL models
-
-Once a model is converted and validated, you can upload it to your Azure Digital Twins instance. For more information on this process, see the [*Upload models*](how-to-manage-model.md#upload-models) section of *How-to: Manage custom models*.
+Once a model is converted and validated, you can **upload it to your Azure Digital Twins instance**. For more information on this process, see the [*Upload models*](how-to-manage-model.md#upload-models) section of *How-to: Manage custom models*.
 
 ## Sample converter application 
 
