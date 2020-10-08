@@ -15,9 +15,9 @@ ms.reviewer: jrasnick
 
 [!INCLUDE [preview](includes/note-preview.md)]
 
-Enterprise analytics must work massive scale on any kind of data, whether raw, refined, or highly curated. This required enterprises to stitch together big data and data warehousing technologies such as Spark and SQL into rich data pipelines that work across data in relational stores and data lakes. Solutions like this are difficult to build, secure, and maintain. The complexity delays deliverying the insight enteprises need.
+Enterprise analytics must work massive scale on any kind of data, whether raw, refined, or highly curated. This required enterprises to stitch together big data and data warehousing technologies such as Spark and SQL into rich data pipelines that work across data in relational stores and data lakes. Solutions like this are difficult to build, secure, and maintain. The complexity delays delivering the insight enterprises need.
 
-**Azure Synapse** is an integrated analytics service that accelerates time to insight across data warehouses and big data analytics systems. At its core, Azure Synapse brings together the best of **SQL** technologies used in enterprise data warehousing, **Spark** technologies used for big data, and **Pipelines** for data integration and ETL/ELT. Synapse has a web-based **Studio** that provides a single place for management, monitoring, coding, and security. Synapse features deep integration with other Azure services such as **PowerBI**, **CosmosDB**, and **AzureML**.
+**Azure Synapse** is an integrated analytics service that accelerates time to insight across data warehouses and big data analytics systems. At its core, Azure Synapse brings together the best of **SQL** technologies used in enterprise data warehousing, **Spark** technologies used for big data, and **Pipelines** for data integration and ETL/ELT. Synapse has a web-based **Studio** that provides a single place for management, monitoring, coding, and security. Synapse features deep integration with other Azure services such as **Power BI**, **Cosmos DB**, and **Azure Machine Learning**.
 
 ## Key features & benefits
 
@@ -28,7 +28,8 @@ scenarios using standard T-SQL experiences familiar to data engineers. It also e
 
 * Synapse SQL offers both **serverless** and **dedicated** resource models, offering consumption and billing options to fit your needs. For predictable performance and cost, create dedicated SQL pools to reserve processing power for data stored in SQL tables. For unplanned or bursty workloads, use the always-available, serverless SQL endpoint.
 * Use built-in **streaming** capabilities to land data from cloud data sources into SQL tables
-* Integrate AI with SQL, by using **machine learning** models to score data using the [T-SQL PREDICT function](https://docs.microsoft.com/sql/t-sql/queries/predict-transact-sql?view=azure-sqldw-latest&preserve-view=true)
+* Integrate AI with SQL, by using **machine learning** models to score data using the [T-SQL PREDICT function](/sql/t-sql/queries/predict-transact-sql?view=azure-sqldw-latest&preserve-view=true)
+
 
 ### Industry-standard Apache Spark
 
