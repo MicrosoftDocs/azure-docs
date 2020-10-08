@@ -20,7 +20,7 @@ On Azure, we provide integration with other Azure features and services, which m
 * **Service Fabric Cluster as an Azure Resource** A Service Fabric cluster is an Azure resource, so you can model it like you do other resources in Azure.
 * **Integration with Azure Infrastructure** Service Fabric coordinates with the underlying Azure infrastructure for OS, network, and other upgrades to improve availability and reliability of your applications.  
 * **Diagnostics:** On Azure, we provide integration with Azure diagnostics and Azure Monitor logs.
-* **Auto-scaling:** For clusters on Azure, we provide built-in auto-scaling functionality due to Virtual Machine scale-sets. In on-premises and other cloud environments, you have to build your own auto-scaling feature or scale manually using the APIs that Service Fabric exposes for scaling clusters.
+* **Autoscaling:** For clusters on Azure, we provide built-in autoscaling functionality through Virtual Machine scale-sets. In on-premises and other cloud environments, you have to build your own autoscaling feature or scale manually using the APIs that Service Fabric exposes for scaling clusters.
 
 ## Benefits of standalone clusters
 
