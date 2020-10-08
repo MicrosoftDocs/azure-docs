@@ -68,7 +68,7 @@ def generate_sas_token(uri, key, expiry=3600):
     encoded_expiration_utc = urllib.parse.quote_plus(ttl.isoformat())
 
     unsigned_sas = f'r={encoded_resource}&e={encoded_expiration_utc}'
-    signature = b64encode(HMAC(b64decode(key), unsigned_sas.encode('utf-8'), sha256).digest()).decode()
+    signature = b64encode(HMAC(b64decode(key), unsigned_sas.encode('utf-8'), sha256).digest())
     encoded_signature = urllib.parse.quote_plus(signature)
     
     token = f'r={encoded_resource}&e={encoded_expiration_utc}&s={encoded_signature}'
