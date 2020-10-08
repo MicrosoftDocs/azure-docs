@@ -28,7 +28,7 @@ For SQL pool, CETAS usage and syntax, check the [CREATE EXTERNAL TABLE AS SELECT
 
 ## CETAS in serverless SQL pool
 
-When using Sserverless SQL pool, CETAS is used to create an external table and export query results to Azure Storage Blob or Azure Data Lake Storage Gen2.
+When using serverless SQL pool, CETAS is used to create an external table and export query results to Azure Storage Blob or Azure Data Lake Storage Gen2.
 
 ## Syntax
 
