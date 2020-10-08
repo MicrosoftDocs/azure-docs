@@ -2,7 +2,7 @@
 title: Transfer artifacts
 description: Transfer collections of images or other artifacts from one container registry to another registry by creating a transfer pipeline using Azure storage accounts
 ms.topic: article
-ms.date: 10/05/2020
+ms.date: 10/07/2020
 ms.custom: 
 ---
 
@@ -64,7 +64,7 @@ Storage authentication uses SAS tokens, managed as secrets in key vaults. The pi
 
 ### Things to know
 * The ExportPipeline and ImportPipeline will typically be in different Active Directory tenants associated with the source and destination clouds. This scenario requires separate managed identities and key vaults for the export and import resources. For testing purposes, these resources can be placed in the same cloud, sharing identities.
-* By default, the pipeline examples enable system-assigned managed identities to access key vault secrets. ExportPipelines and ImportPipelines also support user-assigned identities. 
+* By default, the ExportPipeline and ImportPipeline each enable a system-assigned managed identity to access key vault secrets. The ExportPipeline and ImportPipeline also support a user-assigned identity that you provide. 
 
 ## Create and store SAS keys
 
@@ -154,7 +154,13 @@ The `options` property for the export pipelines supports optional boolean values
 
 ### Create the resource
 
-Run [az deployment group create][az-deployment-group-create] to create the resource. The following example names the deployment *exportPipeline*.
+Run [az deployment group create][az-deployment-group-create] to create a resource named *exportPipeline* as shown in the following examples. By default, with the first option, the example template enables a system-assigned identity in the ExportPipeline resource. 
+
+With the second option, you can provide the resource with a user-assigned identity. (Creation of the user-assigned identity not shown.)
+
+With either option, the template configures the identity to access the SAS token in the export key vault. 
+
+#### Option 1: Create resource and enable system-assigned identity
 
 ```azurecli
 az deployment group create \
@@ -164,18 +170,28 @@ az deployment group create \
   --parameters azuredeploy.parameters.json
 ```
 
+#### Option 2: Create resource and provide user-assigned identity
+
+In this command, provide the resource ID of the user-assigned identity as an additional parameter.
+
+```azurecli
+az deployment group create \
+  --resource-group $SOURCE_RG \
+  --template-file azuredeploy.json \
+  --name exportPipeline \
+  --parameters azuredeploy.parameters.json \
+  --parameters userAssignedIdentity="/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourcegroups/myResourceGroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/myUserAssignedIdentity"
+```
+
 In the command output, take note of the resource ID (`id`) of the pipeline. You can store this value in an environment variable for later use by running the [az deployment group show][az-deployment-group-show]. For example:
 
 ```azurecli
-EXPORT_RES_ID=$(az group deployment show \
+EXPORT_RES_ID=$(az deployment group show \
   --resource-group $SOURCE_RG \
   --name exportPipeline \
   --query 'properties.outputResources[1].id' \
   --output tsv)
 ```
-
-> [!NOTE]
-> By default, the example template enables a system-assigned identity in the ExportPipeline resource. The identity is configured to access the SAS token in the export key vault. 
 
 ## Create ImportPipeline with Resource Manager 
 
@@ -203,29 +219,44 @@ The `options` property for the import pipeline supports optional boolean values.
 
 ### Create the resource
 
-Run [az deployment group create][az-deployment-group-create] to create the resource.
+Run [az deployment group create][az-deployment-group-create] to create a resource named *importPipeline* as shown in the following examples. By default, with the first option, the example template enables a system-assigned identity in the ImportPipeline resource. 
+
+With the second option, you can provide the resource with a user-assigned identity. (Creation of the user-assigned identity not shown.)
+
+With either option, the template configures the identity to access the SAS token in the import key vault. 
+
+#### Option 1: Create resource and enable system-assigned identity
 
 ```azurecli
 az deployment group create \
   --resource-group $TARGET_RG \
   --template-file azuredeploy.json \
-  --parameters azuredeploy.parameters.json \
-  --name importPipeline
+  --name importPipeline \
+  --parameters azuredeploy.parameters.json 
 ```
 
-If you plan to run the import manually, take note of the resource ID (`id`) of the pipeline. You can store this value in an environment variable for later use by running the [az deployment group show][az-deployment-group-show]. For example:
+#### Option 2: Create resource and provide user-assigned identity
+
+In this command, provide the resource ID of the user-assigned identity as an additional parameter.
 
 ```azurecli
-IMPORT_RES_ID=$(az group deployment show \
+az deployment group create \
+  --resource-group $TARGET_RG \
+  --template-file azuredeploy.json \
+  --name importPipeline \
+  --parameters azuredeploy.parameters.json \
+  --parameters userAssignedIdentity="/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourcegroups/myResourceGroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/myUserAssignedIdentity"
+```
+
+If you plan to run the import manually, take note of the resource ID (`id`) of the pipeline. You can store this value in an environment variable for later use by running the [az deployment group show][az-deployment-group-show] command. For example:
+
+```azurecli
+IMPORT_RES_ID=$(az deployment group show \
   --resource-group $TARGET_RG \
   --name importPipeline \
   --query 'properties.outputResources[1].id' \
   --output tsv)
 ```
-
-
-> [!NOTE]
-> By default, the example template enables a system-assigned identity in the ImporttPipeline resource. The identity is configured to access the SAS token in the import key vault. 
 
 ## Create PipelineRun for export with Resource Manager 
 
@@ -255,12 +286,22 @@ az deployment group create \
   --parameters azuredeploy.parameters.json
 ```
 
+For later use, store the resource ID of the pipeline run in an environment variable:
+
+```azurecli
+EXPORT_RUN_RES_ID=$(az deployment group show \
+  --resource-group $SOURCE_RG \
+  --name exportPipelineRun \
+  --query 'properties.outputResources[0].id' \
+  --output tsv)
+```
+
 It can take several minutes for artifacts to export. When deployment completes successfully, verify artifact export by listing the exported blob in the *transfer* container of the source storage account. For example, run the [az storage blob list][az-storage-blob-list] command:
 
 ```azurecli
 az storage blob list \
-  --account-name $SOURCE_SA
-  --container transfer
+  --account-name $SOURCE_SA \
+  --container transfer \
   --output table
 ```
 
@@ -309,9 +350,19 @@ Run [az deployment group create][az-deployment-group-create] to run the resource
 ```azurecli
 az deployment group create \
   --resource-group $TARGET_RG \
+  --name importPipelineRun \
   --template-file azuredeploy.json \
   --parameters azuredeploy.parameters.json
 ```
+
+For later use, store the resource ID of the pipeline run in an environment variable:
+
+```azurecli
+IMPORT_RUN_RES_ID=$(az deployment group show \
+  --resource-group $TARGET_RG \
+  --name importPipelineRun \
+  --query 'properties.outputResources[0].id' \
+  --output tsv)
 
 When deployment completes successfully, verify artifact import by listing the repositories in the target container registry. For example, run [az acr repository list][az-acr-repository-list]:
 
@@ -338,20 +389,20 @@ az deployment group create \
 
 ## Delete pipeline resources
 
-To delete a pipeline resource, delete its Resource Manager deployment by using the [az deployment group delete][az-deployment-group-delete] command. The following examples delete the pipeline resources created in this article:
+The following example commands use [az resource delete][az-resource-delete] to delete the pipeline resources created in this article. The resource IDs were previously stored in environment variables.
 
-```azurecli
-az deployment group delete \
-  --resource-group $SOURCE_RG \
-  --name exportPipeline
+```
+# Delete export resources
+az resource delete \
+--resource-group $SOURCE_RG \
+--ids $EXPORT_RES_ID $EXPORT_RUN_RES_ID \
+--api-version 2019-12-01-preview
 
-az deployment group delete \
-  --resource-group $SOURCE_RG \
-  --name exportPipelineRun
-
-az deployment group delete \
-  --resource-group $TARGET_RG \
-  --name importPipeline  
+# Delete import resources
+az resource delete \
+--resource-group $TARGET_RG \
+--ids $IMPORT_RES_ID $IMPORT_RUN_RES_ID \
+--api-version 2019-12-01-preview
 ```
 
 ## Troubleshooting
@@ -394,3 +445,4 @@ To import single container images to an Azure container registry from a public r
 [az-deployment-group-show]: /cli/azure/deployment/group#az-deployment-group-show
 [az-acr-repository-list]: /cli/azure/acr/repository#az-acr-repository-list
 [az-acr-import]: /cli/azure/acr#az-acr-import
+[az-resource-delete]: /cli/azure/resource#az-resource-delete
