@@ -209,6 +209,8 @@ To verify the settings, run `az webapp config app settings list`:
 az webapp config app settings list
 ```
 
+Again, make sure that the `DBUSER` setting is of the form, `<username>@<postgres-server-name>`.
+
 [Having issues? Let us know.](https://aka.ms/DjangoCLITutorialHelp)
 
 ### Run Django database migrations
