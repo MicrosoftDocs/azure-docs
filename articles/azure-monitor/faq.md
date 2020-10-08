@@ -415,7 +415,7 @@ Unique customizations that commonly need to be manually recreated or updated for
 - Diagnostic settings in workspace-based resources would need to be configured again.
 
 > [!NOTE]
-> If the resource you are creating in a new region is replacing a classic resource we recommend exploring the benefits of [creating a new workspace-based resource](app/create-workspace-resource.md) or alternatively [migrating your existing resource to workspace-based](app/convert-classic-resource.md) 
+> If the resource you are creating in a new region is replacing a classic resource we recommend exploring the benefits of [creating a new workspace-based resource](app/create-workspace-resource.md) or alternatively [migrating your existing resource to workspace-based](app/convert-classic-resource.md). 
 
 ### Automation
 
