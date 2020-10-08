@@ -13,7 +13,7 @@ ms.service: virtual-machines-sql
 ms.topic: overview
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-ms.date: "01/13/2017"
+ms.date: "10/07/2020"
 ms.author: mathoma
 ms.custom: "seo-lt-2019, devx-track-azurecli"
 
@@ -48,7 +48,7 @@ With SQL Server on Azure VMs, configure a [load balancer](hadr-vnn-azure-load-ba
 
 ### Load balancer 
 
-Use an Azure [Load Balancer](../../../load-balancer/load-balancer-overview.md) to route traffic from the client to the availability group listener on the Azure network. 
+Use an [Azure Load Balancer](../../../load-balancer/load-balancer-overview.md) to route traffic from the client to the availability group listener on the Azure network. 
 
 The load balancer holds the IP addresses for the availability group listener. If you have more than one availability group, each group requires a listener. One load balancer can support multiple listeners.
 
@@ -56,7 +56,7 @@ To get started, see [configure a load balancer](hadr-vnn-azure-load-balancer.md)
 
 ### DNN listener
 
-SQL Server 2019 CU8 introduces support for the distributed network name (DNN) listener. The distributed network name replaces the traditional availability group listener, negating the need for an Azure Loud Balancer to route traffic on the Azure network. 
+SQL Server 2019 CU8 introduces support for the distributed network name (DNN) listener. The DNN listener replaces the traditional availability group listener, negating the need for an Azure Loud Balancer to route traffic on the Azure network. 
 
 The DNN listener is the recommended HADR connectivity solution in Azure as it simplifies deployment, reduces maintenance and cost, and reduces failover time in the event of a failure. 
 
@@ -73,6 +73,33 @@ To get started, see [configure a DNN listener](hadr-distributed-network-name-dnn
 | **[Azure CLI / PowerShell](availability-group-az-cli-configure.md)** | 2019 </br> 2016 | 2019 </br>2017 </br>2016   | Ent | Cloud witness | No | Yes | Yes | Yes | No | No |
 | **[Quickstart Templates](availability-group-quickstart-template-configure.md)** | 2019 </br> 2016 | 2019 </br>2017 </br>2016  | Ent | Cloud witness | No | Yes | Yes | Yes | No | No |
 | **[Manual](availability-group-manually-configure-prerequisites-tutorial.md)** | All | All | All | All | Yes | Yes | Yes | Yes | Yes | Yes |
+
+
+
+
+| |**[Azure portal](availability-group-azure-portal-configure.md)**|**[Azure CLI / PowerShell](availability-group-az-cli-configure.md)**|**[Quickstart Templates](availability-group-quickstart-template-configure.md)**|**[Manual](availability-group-manually-configure-prerequisites-tutorial.md)** | 
+|---------|---------|---------|--------- |---------|
+|SQL Server version |2016 + |2016 +|2016 +|2012 +|
+|Windows Server version| 2016 + | 2016 + | 2016 + | All| 
+|SQL Server edition |Enterprise |Enterprise |Enterprise |Enterprise, Standard|
+|Creates the cluster for you|Yes|Yes | Yes |No|
+|Creates the availability group for you |Yes |No|No|No|
+|Creates listener and load balancer independently |No|No|No|Yes|
+|Built-in DNN listener creation|No|No|No|No|
+|WSFC Quorum configuration|Cloud witness|Cloud witness|Cloud witness|All|
+|DR with multiple regions |No|No|No|Yes|
+|Multisubnet support |Yes|Yes|Yes|Yes|
+|Support for an existing AD|Yes|Yes|Yes|Yes|
+|DR with multizone in the same region|Yes|Yes|Yes|Yes|
+|Distributed AG with no AD |No|No|No|Yes|
+|Distributed AG with no cluster |No|No|No|Yes|
+|---------|---------|---------|--------- |---------|
+
+
+
+
+
+
 
 The **SQL Server AlwaysOn Cluster (preview)** template has been removed from the Azure Marketplace and is no longer available. 
 
