@@ -95,11 +95,11 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 6. In the Dynamic Signal admin console, navigate to **Admin > Advanced > API**.
 
-	![Dynamic Signal Provisioning](./media/dynamic-signal-provisioning-tutorial/secret-token-1.png)
+	:::image type="content" source="./media/dynamic-signal-provisioning-tutorial/secret-token-1.png" alt-text="Screenshot of the Dynamic Signal admin console. Advanced is highlighted in the Admin menu. The Advanced menu is also visible, with A P I highlighted." border="false":::
 
 	Copy the **SCIM API URL** to **Tenant URL**. Click on **Generate New Token** to generate a **Bearer Token** and copy the value to **Secret Token**.
 
-	![Dynamic Signal Provisioning](./media/dynamic-signal-provisioning-tutorial/secret-token-2.png)
+	:::image type="content" source="./media/dynamic-signal-provisioning-tutorial/secret-token-2.png" alt-text="Screenshot of the Tokens page, with S C I M A P I U R L, Generate new token, and Bearer token highlighted, and a placeholder in the Bearer token box." border="false":::
 
 7. Upon populating the fields shown in Step 5, click **Test Connection** to ensure Azure AD can connect to Dynamic Signal. If the connection fails, ensure your Dynamic Signal account has Admin permissions and try again.
 
