@@ -20,7 +20,7 @@ This document describes the recommended security options for Hive in HDInsight. 
 
 For standard clusters, the recommended setting for HiveServer2 authentication is the default which is none. To enable authentication, we recommend upgrading to an [ESP](https://docs.microsoft.com/azure/hdinsight/domain-joined/hdinsight-security-overview) (Enterprise Security Package) cluster. 
 
-For ESP clusters, [Kerberos](https://web.mit.edu/Kerberos/) authentication is enabled by default. Pluggable Authentication Modules (PAM) and Custom authentication schemes are not supported.
+For ESP clusters, [Kerberos](https://web.mit.edu/Kerberos/) authentication is enabled by default. Pluggable Authentication Modules (PAM) and custom authentication schemes are not supported.
 
 ## HiveServer2 Authorization
 
