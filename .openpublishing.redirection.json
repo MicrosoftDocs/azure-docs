@@ -21883,6 +21883,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/marketplace/marketplace-roadmap.md",
+      "redirect_url": "/partner-center/announcements",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/marketplace/ccp-saas-offer.md",
       "redirect_url": "/azure/marketplace/create-new-saas-offer",
       "redirect_document_id": false
@@ -58033,6 +58038,11 @@
     {
       "source_path": "articles/azure-monitor/app/performance-testing.md",
       "redirect_url": "/azure/azure-monitor/azure-monitor-app-hub",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/private-link/create-private-endpoint-cosmosdb-portal.md",
+      "redirect_url": "/azure/private-link/tutorial-private-endpoint-cosmosdb-portal",
       "redirect_document_id": false
     }
   ]
