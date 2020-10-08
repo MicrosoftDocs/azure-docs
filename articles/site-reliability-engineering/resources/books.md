@@ -9,7 +9,9 @@ ms.date: 10/08/2020
 ms.author: dnb
 
 ---
-# Core books about site reliability engineering
+# Site reliability engineering (SRE) books
+
+## Core SRE books
 
 For more detailed information about site reliability engineering (SRE), the best source is a trio of books that have been published on the subject
 
@@ -27,7 +29,7 @@ Each of those books provides an important set of information:
 
 Because these books describe the experience, environments and culture of organizations that may or may not resemble the one you are in, it is important to read these books with a critical eye. As you read, try to determine which practices would or would not succeed in your organization. Take some time to identify the information that you are certain can provide some positive value. Think about which parts of your organization's culture and values can support SRE work as described and which might make it more challenging. A careful, iterative embracing of SRE will almost always yield better results than a wholesale duplication of something you read in these books.
 
-# Additional books about site reliability engineering
+## Additional SRE books
 
 After reading the books mentioned above, if you'd like to go deeper into the practice of Service Level Indicators (SLIs)/Service Level Objectives (SLOs) the following book is an excellent resource:
 
