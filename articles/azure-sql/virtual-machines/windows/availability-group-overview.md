@@ -67,6 +67,9 @@ To get started, see [configure a DNN listener](hadr-distributed-network-name-dnn
 
 ## Deployment 
 
+There are multiple options for deploying an availability group to SQL Server on Azure VMs, some with more automation than others. The following table provides a comparison of the options available: 
+
+
 |  | Windows Server Version | SQL Server Version | SQL Server Edition | WSFC Quorum Config | DR with Multi-region | Multi-subnet support | Support for an existing AD | DR with multi-zone same region | Dist-AG support with no AD domain | Dist-AG support with no cluster |  
 | :------ | :-----| :-----| :-----| :-----| :-----| :-----| :-----| :-----| :-----| :-----|
 | **[Azure portal](availability-group-azure-portal-configure.md)** | 2019 </br> 2016 | 2019 </br>2017 </br>2016   | Ent | Cloud witness | No | Yes | Yes | Yes | No | No |
@@ -74,34 +77,6 @@ To get started, see [configure a DNN listener](hadr-distributed-network-name-dnn
 | **[Quickstart Templates](availability-group-quickstart-template-configure.md)** | 2019 </br> 2016 | 2019 </br>2017 </br>2016  | Ent | Cloud witness | No | Yes | Yes | Yes | No | No |
 | **[Manual](availability-group-manually-configure-prerequisites-tutorial.md)** | All | All | All | All | Yes | Yes | Yes | Yes | Yes | Yes |
 
-
-
-
-| |**[Azure portal](availability-group-azure-portal-configure.md)**|**[Azure CLI / PowerShell](availability-group-az-cli-configure.md)**|**[Quickstart Templates](availability-group-quickstart-template-configure.md)**|**[Manual](availability-group-manually-configure-prerequisites-tutorial.md)** | 
-|---------|---------|---------|--------- |---------|
-|SQL Server version |2016 + |2016 +|2016 +|2012 +|
-|Windows Server version| 2016 + | 2016 + | 2016 + | All| 
-|SQL Server edition |Enterprise |Enterprise |Enterprise |Enterprise, Standard|
-|Creates the cluster for you|Yes|Yes | Yes |No|
-|Creates the availability group for you |Yes |No|No|No|
-|Creates listener and load balancer independently |No|No|No|Yes|
-|Built-in DNN listener creation|No|No|No|No|
-|WSFC Quorum configuration|Cloud witness|Cloud witness|Cloud witness|All|
-|DR with multiple regions |No|No|No|Yes|
-|Multisubnet support |Yes|Yes|Yes|Yes|
-|Support for an existing AD|Yes|Yes|Yes|Yes|
-|DR with multizone in the same region|Yes|Yes|Yes|Yes|
-|Distributed AG with no AD |No|No|No|Yes|
-|Distributed AG with no cluster |No|No|No|Yes|
-|---------|---------|---------|--------- |---------|
-
-
-
-
-
-
-
-The **SQL Server AlwaysOn Cluster (preview)** template has been removed from the Azure Marketplace and is no longer available. 
 
 When you are ready to build a SQL Server availability group on Azure Virtual Machines, refer to these tutorials.
 
@@ -124,6 +99,28 @@ When you are ready to build a SQL Server availability group on Azure Virtual Mac
    - Creates the cluster but does not onboard it to the SQL VM resource provider metadata
    - Creates the listener separately from the load balancer
    - No native DNN listener support, DNN must be created separately
+
+
+here is another way to present this information
+
+| |**[Azure portal](availability-group-azure-portal-configure.md)**|**[Azure CLI / PowerShell](availability-group-az-cli-configure.md)**|**[Quickstart Templates](availability-group-quickstart-template-configure.md)**|**[Manual](availability-group-manually-configure-prerequisites-tutorial.md)** | 
+|---------|---------|---------|--------- |---------|
+|SQL Server version |2016 + |2016 +|2016 +|2012 +|
+|Windows Server version| 2016 + | 2016 + | 2016 + | All| 
+|SQL Server edition |Enterprise |Enterprise |Enterprise |Enterprise, Standard|
+|Creates the cluster for you|Yes|Yes | Yes |No|
+|Creates the availability group for you |Yes |No|No|No|
+|Creates listener and load balancer independently |No|No|No|Yes|
+|Built-in DNN listener creation|No|No|No|No|
+|WSFC Quorum configuration|Cloud witness|Cloud witness|Cloud witness|All|
+|DR with multiple regions |No|No|No|Yes|
+|Multisubnet support |Yes|Yes|Yes|Yes|
+|Support for an existing AD|Yes|Yes|Yes|Yes|
+|DR with multizone in the same region|Yes|Yes|Yes|Yes|
+|Distributed AG with no AD |No|No|No|Yes|
+|Distributed AG with no cluster |No|No|No|Yes|
+|---|---|---|---|---|
+
 
 
 ## Considerations 
