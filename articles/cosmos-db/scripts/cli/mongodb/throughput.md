@@ -19,7 +19,7 @@ If you choose to install and use the CLI locally, this topic requires that you a
 
 This script creates a MongoDB database with shared throughput and collection with dedicated throughput, then updates the throughput for both. The script then migrates from standard to autoscale throughput then reads the value of the autoscale throughput after it has been migrated.
 
-[!code-azurecli-interactive[main](../../../../../cli_scripts/cosmosdb/mongodb/throughput.sh "Throughput opertions for Azure Cosmos DB API for MongoDB.")]
+[!code-azurecli-interactive[main](../../../../../cli_scripts/cosmosdb/mongodb/throughput.sh "Throughput operations for Azure Cosmos DB API for MongoDB.")]
 
 ## Clean up deployment
 
