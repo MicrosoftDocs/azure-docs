@@ -375,7 +375,7 @@ public void ConfigureServices(IServiceCollection services)
     
     // Disable adaptive sampling.
     aiOptions.EnableAdaptiveSampling = false;
-    services.AddApplicationInsightsTelemetry(aiOptions);
+    services.AddApplicationInsightsTelemetryWorkerService(aiOptions);
 
     // Add Adaptive Sampling with custom settings.
     // the following adds adaptive sampling with 15 items per sec.
