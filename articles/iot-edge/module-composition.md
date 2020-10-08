@@ -4,7 +4,7 @@ description: Learn how a deployment manifest declares which modules to deploy, h
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 08/31/2020
+ms.date: 10/08/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
@@ -169,6 +169,9 @@ The edgeHub module and custom modules also have three properties that tell the I
 
   Startup order is helpful if some modules depend on others. For example, you may want the edgeHub module to start first so that it's ready to route messages when the other modules start. Or you may want to start a storage module before the modules that send data to it. However, you should always design your modules to handle failures of other modules. It's the nature of containers that they may stop and restart at any time, and any number of times.
 
+  >[!NOTE]
+  >Currently, startup order cannot be set in the Azure portal. Deployments using this feature should go through the Azure CLI, Visual Studio, or Visual Studio Code.
+
 ## Declare routes
 
 The IoT Edge hub manages communication between modules, IoT Hub, and any leaf devices. Therefore, the $edgeHub module twin contains a desired property called *routes* that declares how messages are passed within a deployment. You can have multiple routes within the same deployment.
@@ -261,6 +264,9 @@ IoT Edge provides at-least-once guarantees. The IoT Edge hub stores messages loc
 IoT Edge hub stores the messages up to the time specified in the `storeAndForwardConfiguration.timeToLiveSecs` property of the [IoT Edge hub desired properties](module-edgeagent-edgehub.md).
 
 ### Priority and time-to-live
+
+>[!NOTE]
+>Currently, route priority cannot be set in the Azure portal. Deployments using this feature should go through the Azure CLI, Visual Studio, or Visual Studio Code.
 
 Routes can be declared with either just a string defining the route, or as an object that takes a route string, a priority integer, and a time-to-live integer.
 
