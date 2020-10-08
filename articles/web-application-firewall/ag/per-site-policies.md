@@ -301,7 +301,7 @@ $appgw = Get-AzApplicationGateway `
   -Name myAppGateway
 
 $backendPool = Get-AzApplicationGatewayBackendAddressPool `
-  -Name defaultPool `
+  -Name appGatewayBackendPool `
   -ApplicationGateway $appgw
 
 $ipConfig = New-AzVmssIpConfig `
