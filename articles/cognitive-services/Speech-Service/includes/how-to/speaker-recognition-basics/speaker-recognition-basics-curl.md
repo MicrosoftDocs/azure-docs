@@ -25,7 +25,7 @@ This article assumes that you have an Azure account and Speech service subscript
 
 Speaker Verification is the act of confirming that a speaker matches a known, or **enrolled** voice. The first step is to **enroll** a voice profile, so that the service has something to compare future voice samples against. In this example, you enroll the profile using a **text-dependent** strategy, which requires a specific passphrase to use for both enrollment and verification. See the [reference docs](https://docs.microsoft.com/rest/api/speakerrecognition/) for a list of supported passphrases.
 
-Start by [creating a voice profile](https://docs.microsoft.com/rest/api/speakerrecognition/verification/textdependent/createprofile). You will need to insert your Speech service subscription key and region into each the curl commands in this article.
+Start by [creating a voice profile](https://docs.microsoft.com/rest/api/speakerrecognition/verification/textdependent/createprofile). You will need to insert your Speech service subscription key and region into each of the curl commands in this article.
 
 :::code language="curl" source="~/cognitive-services-quickstart-code/curl/speech/speaker-recognition.sh" id="tdv_create_profile":::
 
@@ -35,7 +35,7 @@ Note there are three types of voice profile:
 - Text-independent verification
 - Text-independent identification
 
-In this case you create a text-dependent verification voice profile. You should receive the following response.
+In this case, you create a text-dependent verification voice profile. You should receive the following response.
 
 :::code language="json" source="~/cognitive-services-quickstart-code/curl/speech/speaker-recognition.sh" id="tdv_create_profile_response":::
 
@@ -110,7 +110,7 @@ There is no response.
 
 ## Speaker identification
 
-Speaker Identification is used to determine **who** is speaking from a given group of enrolled voices. The process is very similar to **text-independent verification**, with the main difference being able to verify against multiple voice profiles at once, rather than verifying against a single profile.
+Speaker Identification is used to determine **who** is speaking from a given group of enrolled voices. The process is similar to **text-independent verification**, with the main difference being able to verify against multiple voice profiles at once, rather than verifying against a single profile.
 
 Start by [creating a text-independent identification profile](https://docs.microsoft.com/rest/api/speakerrecognition/identification/textindependent/createprofile).
 
