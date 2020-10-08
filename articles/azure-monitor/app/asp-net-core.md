@@ -130,7 +130,7 @@ Run your application and make requests to it. Telemetry should now flow to Appli
 
 ### ILogger logs
 
-Logs emitted via `ILogger` of severity `Warning` or greater are automatically captured. Follow [ILogger docs](ilogger.md#control-logging-level) to customize which log levels are captured by Application Insights.
+Logs emitted via `ILogger` of severity `Warning` and above are automatically captured. Follow [ILogger docs](ilogger.md#control-logging-level) to customize which log levels are captured by Application Insights.
 
 ### Dependencies
 
@@ -423,7 +423,7 @@ For more information about custom data reporting in Application Insights, see [A
 
 ### How do I customize ILogger logs collection?
 
-By default, only logs of severity `Warning` or greater are automatically captured. To change this behavior, explicitly override the logging configuration for the provider `ApplicationInsights` as shown below.
+By default, only logs of severity `Warning` and above are automatically captured. To change this behavior, explicitly override the logging configuration for the provider `ApplicationInsights` as shown below.
 The following configuration allows ApplicationInsights to capture all logs of severity `Information` and above.
 
 ```json
@@ -441,7 +441,7 @@ The following configuration allows ApplicationInsights to capture all logs of se
 }
 ```
 
-It is important to note that the following will not cause ApplicationInsights provider to capture Information logs. This is because SDK adds a default logging filter, instructing `ApplicationInsights` to capture only `Warning` or above. Because of this, an explicit override is required for ApplicationInsights.
+It is important to note that the following will not cause ApplicationInsights provider to capture `Information` logs. This is because SDK adds a default logging filter, instructing `ApplicationInsights` to capture only `Warning` and above. Because of this, an explicit override is required for ApplicationInsights.
 
 ```json
 {
