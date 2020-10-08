@@ -38,7 +38,7 @@ Before you follow the steps in this article, you should have a device with the I
 
 ## Register a new device
 
-Every device that connects to an IoT Hub has a device id that's used to track cloud-to-device or device-to-cloud communications. You configure a device with its connection information which includes the IoT hub hostname, the device id, and the information the device uses to authenticate to IoT Hub.
+Every device that connects to an IoT Hub has a device ID that's used to track cloud-to-device or device-to-cloud communications. You configure a device with its connection information, which includes the IoT hub hostname, the device ID, and the information the device uses to authenticate to IoT Hub.
 
 For symmetric key authentication, this information is gathered in a *connection string* that you can retrieve from IoT Hub and then place on your IoT Edge device.
 
@@ -137,7 +137,7 @@ You can also select **Get Device Info** from the right-click menu to see all the
 ### Prerequisites for the Azure CLI
 
 * An [IoT hub](../iot-hub/iot-hub-create-using-cli.md) in your Azure subscription.
-* [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli) in your environment. At a minimum, your Azure CLI version must be 2.0.70 or above. Use `az --version` to validate. This version supports az extension commands and introduces the Knack command framework.
+* [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli) in your environment. At a minimum, your Azure CLI version must be 2.0.70 or newer. Use `az --version` to validate. This version supports az extension commands and introduces the Knack command framework.
 * The [IoT extension for Azure CLI](https://github.com/Azure/azure-iot-cli-extension).
 
 ### Create an IoT Edge device with the Azure CLI

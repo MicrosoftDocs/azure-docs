@@ -200,10 +200,10 @@ Azure IoT Edge provides templates in Visual Studio Code to help you develop edge
      - For Linux containers, the format is **\<your storage path or volume>:/blobroot**. For example:
          - use [volume mount](https://docs.docker.com/storage/volumes/): `my-volume:/blobroot`
          - use [bind mount](https://docs.docker.com/storage/bind-mounts/): `/srv/containerdata:/blobroot`. Make sure to follow the steps to [grant directory access to the container user](how-to-store-data-blob.md#granting-directory-access-to-container-user-on-linux)
-     - For Windows containers, the format is **\<your storage path or volume>:C:/BlobRoot**. For example
-         - use [volume mount](https://docs.docker.com/storage/volumes/): `my-volume:C:/BlobRoot`.
-         - use [bind mount](https://docs.docker.com/storage/bind-mounts/): `C:/ContainerData:C:/BlobRoot`.
-         - Instead of using your local drive, you can map your SMB network location, for more information see [using SMB share as your local storage](how-to-store-data-blob.md#using-smb-share-as-your-local-storage)
+     - For Windows containers, the format is **\<your storage path or volume>:C:/BlobRoot**. For example:
+         - Use [volume mount](https://docs.docker.com/storage/volumes/): `my-volume:C:/BlobRoot`.
+         - Use [bind mount](https://docs.docker.com/storage/bind-mounts/): `C:/ContainerData:C:/BlobRoot`.
+         - Instead of using your local drive, you can map your SMB network location. For more information, see [using SMB share as your local storage](how-to-store-data-blob.md#using-smb-share-as-your-local-storage).
 
      > [!IMPORTANT]
      > Do not change the second half of the storage mount value, which points to a specific location in the Blob Storage on IoT Edge module. The storage mount must always end with **:/blobroot** for Linux containers and **:C:/BlobRoot** for Windows containers.
@@ -268,7 +268,7 @@ This process is described in [Configure an IoT Edge device to communicate throug
 
 In addition, a blob storage module also requires the HTTPS_PROXY setting in the manifest deployment file. You can directly edit the deployment manifest file, or use the Azure portal.
 
-1. Navigate to your Iot hub in the Azure portal and select **Iot Edge** from the left pane menu.
+1. Navigate to your Iot hub in the Azure portal and select **IoT Edge** from the left pane menu.
 
 1. Select the device with the module to configure.
 

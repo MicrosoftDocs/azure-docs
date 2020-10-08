@@ -155,7 +155,7 @@ If you use specific tags in your deployment (for example, mcr.microsoft.com/azur
 
    ![Configure runtime settings](./media/how-to-update-iot-edge/configure-runtime.png)
 
-1. In **Runtime Settings**, update the **Image** value for **Edge Hub** with the desired version. Don't select **Save** just yet.
+1. In **Runtime Settings**, update the **Image** value for **Edge Hub** with the desired version. Don't select **Save** yet.
 
    ![Update Edge Hub Image version](./media/how-to-update-iot-edge/runtime-settings-edgehub.png)
 

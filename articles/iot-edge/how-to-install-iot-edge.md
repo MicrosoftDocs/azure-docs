@@ -8,7 +8,7 @@ ms.reviewer: veyalla
 ms.service: iot-edge
 services: iot-edge
 ms.topic: conceptual
-ms.date: 10/06/2020
+ms.date: 10/07/2020
 ms.author: kgremban
 ---
 
@@ -70,7 +70,7 @@ Prepare your device to access the Microsoft installation packages.
 
 ### Windows version
 
-IoT Edge with Windows containers requires Windows version 1809/build 17762, which is the latest [Windows long term support build](/windows/release-information/). For development and test scenarios, any SKU (Pro, Enterprise, Server, etc) that supports the containers feature will work. However, be sure to review the supported systems list before going to production.
+IoT Edge with Windows containers requires Windows version 1809/build 17762, which is the latest [Windows long term support build](/windows/release-information/). For development and test scenarios, any SKU (Pro, Enterprise, Server, etc.) that supports the containers feature will work. However, be sure to review the supported systems list before going to production.
 
 IoT Edge with Linux containers can run on any version of Windows that meets the [requirements for Docker Desktop](https://docs.docker.com/docker-for-windows/install/#what-to-know-before-you-install).
 
@@ -140,7 +140,7 @@ Check to see which versions of IoT Edge are available.
    apt list -a iotedge
    ```
 
-If you want to install the most recent version of the security daemon, use the following command which also installs the latest version of the **libiothsm-std** package:
+If you want to install the most recent version of the security daemon, use the following command that also installs the latest version of the **libiothsm-std** package:
 
    ```bash
    sudo apt-get install iotedge
@@ -193,7 +193,7 @@ For more information about these additional parameters, see [PowerShell scripts 
 
 ---
 
-Now that the container engine and the IoT Edge runtime are installed on your device, you're ready for the next step which is to register your device with IoT Hub and set up the device with its cloud identity and authentication information.
+Now that the container engine and the IoT Edge runtime are installed on your device, you're ready for the next step, which is to register your device with IoT Hub and set up the device with its cloud identity and authentication information.
 
 Choose the next article based on which authentication type you want to use:
 
@@ -276,7 +276,7 @@ If your device will be offline during installation, or if you want to install a 
 
 ---
 
-Now that the container engine and the IoT Edge runtime are installed on your device, you're ready for the next step which is to [Authenticate an IoT Edge device in IoT Hub](how-to-manual-provision-symmetric-key.md).
+Now that the container engine and the IoT Edge runtime are installed on your device, you're ready for the next step, which is to [Authenticate an IoT Edge device in IoT Hub](how-to-manual-provision-symmetric-key.md).
 
 ## Uninstall IoT Edge
 
