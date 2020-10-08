@@ -1,6 +1,6 @@
 ---
-title: 'Register and scan Azure Data Lake Store (ADLS) Gen2'
-description: This tutorial describes how to scan ADLS Gen2. 
+title: 'Register and scan Azure Data Lake Storage (ADLS) Gen2'
+description: This tutorial describes how to scan Azure Data Lake Storage Gen2. 
 author: prmujumd
 ms.author: prmujumd
 ms.service: data-catalog
@@ -10,24 +10,24 @@ ms.date: 09/28/2020
 # Customer intent: As a data steward or catalog administrator, I need to understand how to scan data into the catalog.
 ---
 
-# Register and scan ADLS Gen2
+# Register and scan Azure Data Lake Storage Gen2
 
-This article outlines how to register ADLS Gen2 as data source in Babylon and set up a scan on it.
+This article outlines how to register Azure Data Lake Storage Gen2 as data source in Babylon and set up a scan on it.
 
-## Supported Capabilities
+## Supported capabilities
 
-The ADLS Gen2  data source supports the following functionality:
+The Azure Data Lake Storage Gen2  data source supports the following functionality:
 
-- **Full and incremental scans** to capture metadata and classification in ADLS Gen2 
+- **Full and incremental scans** to capture metadata and classification in Azure Data Lake Storage Gen2 
 
 - **Lineage** between data assets for ADF copy/dataflow activities
 
 
 ## Prerequisites
 
-1. **Create a new Babylon account.**
+* Create a new Babylon account.
 
-## Register ADLS Gen2 data source
+## Register Azure Data Lake Storage Gen2 data source
 
 1. Navigate to your Babylon catalog.
 
@@ -35,22 +35,21 @@ The ADLS Gen2  data source supports the following functionality:
 ![Babylon home page](media/register-scan-adls-gen2/image1.png)
 
 4. Click on *Data sources* under the Sources and scanning section.
-    Click on *New* to register a new data source. Select **Azure Data Lake Store Gen2** and
+    Click on *New* to register a new data source. Select **Azure Data Lake Storage Gen2** and
     click on Continue.
 
-    ![Set up the ADLS Gen2 data source](media/register-scan-adls-gen2/image2.png)
+    ![Set up the Azure Data Lake Storage Gen2 data source](media/register-scan-adls-gen2/image2.png)
 
-5. Provide a friendly name (E.g. Same as your ADLS resource name) and server endpoint and then click on finish to register the data source.
+5. Provide a friendly name (E.g. Same as your Azure Data Lake Storage resource name) and server endpoint and then click on finish to register the data source.
 
 
 ## Setting up authentication for a scan
 
-The following authentication methods are supported for ADLS Gen2:
+The following authentication methods are supported for Azure Data Lake Storage Gen2:
 
 * Managed Identity
 * Service principal
 * Account Key
-* SAS URL
 
 #### Authentication -- setting up scan using the catalogs MSI (Managed Service Identity)
 
@@ -68,7 +67,7 @@ on.
 > You need to be an owner of the subscription to be able to add a managed identity on an Azure resource.
 
 1. From the Azure portal <https://portal.azure.com/> , find either the
-    Subscription, Resource Group, or Resource (e.g. an ADLS Gen2 storage
+    Subscription, Resource Group, or Resource (e.g. an Azure Data Lake Storage Gen2 storage
     account) that you would like to allow the catalog to scan.
 
 1. Choose Access control (IAM)
@@ -104,10 +103,6 @@ After about 15 minutes, the catalog should have the appropriate permissions to b
 
 If you choose to use the account key for authorization, you can find this in the Azure portal. Search for your data source, and click on **Settings** > **Access keys**, copy the first key in the list.
 
-#### Authentication -- setting up a scan using SAS URL
-
-To use a SAS URL, you need to generate one. To learn more about how to do this, see this [article](https://docs.microsoft.com/azure/storage/common/storage-sas-overview)
-
 #### Authentication -- setting up scan using service principal
 
 To use a service principal, you must first create one
@@ -138,27 +133,27 @@ have to be real or work
 
 ## Creating and running a scan
 
-1. Navigate to the management center. Click on *Data sources* under the Sources and scanning section click on the ADLS Gen2 data source.
+1. Navigate to the management center. Click on *Data sources* under the Sources and scanning section click on the Azure Data Lake Storage Gen2 data source.
 
 2. Click on + New scan. Choose the authentication method that you want to use and provide required details.
 
-    ![setup scan](media/register-scan-adls-gen2/image4.png)
+    ![Choose scan authentication method](media/register-scan-adls-gen2/image4.png)
 
 3. If you plan to scan the entire server, we do not provide scope functionality. If you did however provided a database name, then you can scope your scan to specific tables.
 
 4. Choose your scan trigger. You can set up a schedule or ran the scan once.
 
-    ![trigger](media/register-scan-adls-gen2/image8.png)
+    ![Setup scan trigger](media/register-scan-adls-gen2/image8.png)
 
 5. The select a scan rule set for you scan. You can choose between the system default, the existing custom ones or create a new one inline.
 
-    ![SRS](media/register-scan-adls-gen2/image9.png)
+    ![Select scan rule set](media/register-scan-adls-gen2/image9.png)
 
 6. Review your scan and click on Save and run.
 
 ## Viewing your scans and scan runs
 
-1. Navigate to the management center. Click on *Data sources* under the Sources and scanning section click on the ADLS Gen2 data source.
+1. Navigate to the management center. Click on *Data sources* under the Sources and scanning section click on the Azure Data Lake Storage Gen2 data source.
 
 2. Click on the scan whose results you are interested to view.
 
@@ -166,10 +161,14 @@ have to be real or work
 
 ## Manage your scans
 
-1. Navigate to the management center. Click on *Data sources* under the Sources and scanning section click on the ADLS Gen2 data source.
+1. Navigate to the management center. Click on *Data sources* under the Sources and scanning section click on the Azure Data Lake Storage Gen2 data source.
 
 2. Select the scan you would like to manage. You can edit the scan by clicking on the edit.
 
     ![edit scan](media/register-scan-adls-gen2/image10.png)
 
 3. You can delete your scan by clicking on delete.
+
+## Next steps
+
+At this point the Azure Data Lake Storage Gen2 account is registered and scan is configured.
