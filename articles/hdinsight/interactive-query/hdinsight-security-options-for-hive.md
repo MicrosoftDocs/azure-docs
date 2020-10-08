@@ -16,7 +16,7 @@ This document describes the recommended security options for Hive in HDInsight. 
 
 ![`Security Options for Hive`](./media/hdinsight-security-options-for-hive/hive-security-options.PNG "Security Options for Hive")
 
-## HiveServer2 Authentication
+## HiveServer2 authentication
 
 For standard clusters, the recommended setting for HiveServer2 authentication is the default which is none. To enable authentication, we recommend upgrading to an [ESP](https://docs.microsoft.com/azure/hdinsight/domain-joined/hdinsight-security-overview) (Enterprise Security Package) cluster. 
 
