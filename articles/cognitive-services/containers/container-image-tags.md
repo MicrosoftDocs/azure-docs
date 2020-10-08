@@ -199,7 +199,9 @@ This container image has the following tags available:
 
 The [Text-to-speech][sp-tts] container image can be found on the `containerpreview.azurecr.io` container registry. It resides within the `microsoft` repository and is named `cognitive-services-text-to-speech`. The fully qualified container image name is, `containerpreview.azurecr.io/microsoft/cognitive-services-text-to-speech`.
 
-**v2.5.0 container release notes**
+# [Current version](tab/current-version)
+
+**v1.7.0 container release notes**
 
 * TBD
 * TBD
@@ -290,6 +292,25 @@ This container image has the following tags available:
 | `1.7.0-amd64-zh-tw-hanhanrus`               | Container image with the `zh-TW` locale and `zh-TW-HanHanRUS` voice.       |
 | `1.7.0-amd64-zh-tw-yating-apollo`           | Container image with the `zh-TW` locale and `zh-TW-Yating-Apollo` voice.   |
 | `1.7.0-amd64-zh-tw-zhiwei-apollo`           | Container image with the `zh-TW` locale and `zh-TW-Zhiwei-Apollo` voice.   |
+
+# [Previous versions](tab/previous-versions)
+
+**(example) v1.6.0 container release notes**
+
+* TBD
+* TBD
+
+This container image has the following tags available:
+
+| Image Tags                                  | Notes                                                                      |
+|---------------------------------------------|:---------------------------------------------------------------------------|
+| `latest`                                    | Container image with the `en-US` locale and `en-US-AriaRUS` voice.         |
+| `1.6.0-amd64-ar-eg-hoda`                    | Container image with the `ar-EG` locale and `ar-EG-Hoda` voice.            |
+| `1.6.0-amd64-ar-sa-naayf`                   | Container image with the `ar-SA` locale and `ar-SA-Naayf` voice.           |
+| `1.6.0-amd64-bg-bg-ivan`                    | Container image with the `bg-BG` locale and `bg-BG-Ivan` voice.            |
+| ... | ... |
+
+---
 
 ## Neural Text-to-speech
 
