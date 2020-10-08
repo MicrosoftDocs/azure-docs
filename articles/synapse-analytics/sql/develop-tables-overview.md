@@ -14,13 +14,13 @@ ms.reviewer: jrasnick
 
 # Design tables using Synapse SQL
 
-This document includes key concepts for designing tables with SQL pool and SQL on-demand (preview).  
+This document includes key concepts for designing tables with dedicated SQL pool and serverless SQL pool (preview).  
 
-[SQL on-demand (preview)](on-demand-workspace-overview.md) is a query service over the data in your data lake. It doesn't have local storage for data ingestion. [SQL pool](best-practices-sql-pool.md) represents a collection of analytic resources that are being provisioned when using Synapse SQL. The size of SQL pool is determined by Data Warehousing Units (DWU).
+[Serverless SQL pool (preview)](on-demand-workspace-overview.md) is a query service over the data in your data lake. It doesn't have local storage for data ingestion. [Dedicated SQL pool](best-practices-sql-pool.md) represents a collection of analytic resources that are being provisioned when using Synapse SQL. The size of a dedicated SQL pool is determined by Data Warehousing Units (DWU).
 
-The following table lists the topics that are relevant to SQL pool vs. SQL on-demand:
+The following table lists the topics that are relevant to dedicated SQL pool vs. serverless SQL pool:
 
-| Topic                                                        | SQL pool | SQL on-demand |
+| Topic                                                        | dedicated SQL pool | serverless SQL pool |
 | ------------------------------------------------------------ | ------------------ | ----------------------- |
 | [Determine table category](#determine-table-category)        | Yes                | No                      |
 | [Schema names](#schema-names)                                | Yes                | Yes                     |
@@ -89,7 +89,7 @@ CREATE TABLE MyTable (col1 int, col2 int );
 
 A temporary table only exists for the duration of the session. You can use a temporary table to prevent other users from seeing temporary results. Using temporary tables also reduces the need for cleanup.  Temporary tables utilize local storage and, in SQL pool, can offer faster performance.  
 
-SQL on-demand supports temporary tables. But, its usage is limited since you can select from temporary table but cannot join it with files in storage.
+serverless SQL pool supports temporary tables. But, its usage is limited since you can select from temporary table but cannot join it with files in storage.
 
 For more information, see  [Temporary tables](develop-tables-temporary.md).
 
@@ -99,15 +99,15 @@ For more information, see  [Temporary tables](develop-tables-temporary.md).
 
 Import data from external tables into SQL pool using the [CREATE TABLE AS SELECT](../sql-data-warehouse/sql-data-warehouse-develop-ctas.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) statement. For a loading tutorial, see [Use PolyBase to load data from Azure blob storage](../sql-data-warehouse/load-data-from-azure-blob-storage-using-polybase.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json).
 
-For SQL on-demand, you can use [CETAS](develop-tables-cetas.md) to save the query result to an external table in Azure Storage.
+For serverless SQL pool, you can use [CETAS](develop-tables-cetas.md) to save the query result to an external table in Azure Storage.
 
 ## Data types
 
-SQL pool supports the most commonly used data types. For a list of the supported data types, see [data types in CREATE TABLE reference](/sql/t-sql/statements/create-table-azure-sql-data-warehouse?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest#DataTypes&preserve-view=true) in the CREATE TABLE statement. For more information on using data types, see [Data types](../sql/develop-tables-data-types.md).
+Dedicated SQL pool supports the most commonly used data types. For a list of the supported data types, see [data types in CREATE TABLE reference](/sql/t-sql/statements/create-table-azure-sql-data-warehouse?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest#DataTypes&preserve-view=true) in the CREATE TABLE statement. For more information on using data types, see [Data types](../sql/develop-tables-data-types.md).
 
 ## Distributed tables
 
-A fundamental feature of SQL pool is the way it can store and operate on tables across [distributions](../sql-data-warehouse/massively-parallel-processing-mpp-architecture.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json#distributions).  SQL pool supports three methods for distributing data:
+A fundamental feature of dedicated SQL pool is the way it can store and operate on tables across [distributions](../sql-data-warehouse/massively-parallel-processing-mpp-architecture.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json#distributions).  Dedicated SQL pool supports three methods for distributing data:
 
 - Round-robin (default)
 - Hash
@@ -156,7 +156,7 @@ The code below switches the transformed daily data into a SalesFact partition an
 ALTER TABLE SalesFact_DailyFinalLoad SWITCH PARTITION 256 TO SalesFact PARTITION 256 WITH (TRUNCATE_TARGET = ON);  
 ```
 
-In SQL on-demand, you can limit the files/folders (partitions) that will be read by your query. Partitioning by path is supported using the filepath and fileinfo functions described in [Querying storage files](develop-storage-files-overview.md). The following example reads a folder with data for year 2017:
+In serverless SQL pool, you can limit the files/folders (partitions) that will be read by your query. Partitioning by path is supported using the filepath and fileinfo functions described in [Querying storage files](develop-storage-files-overview.md). The following example reads a folder with data for year 2017:
 
 ```sql
 SELECT
