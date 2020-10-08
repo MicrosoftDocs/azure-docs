@@ -62,17 +62,19 @@ static string BuildSharedAccessSignature(string resource, DateTime expirationUtc
 ```
 
 ```python
-def build_shared_access_signature(uri, key, expiry=3600):
+def generate_sas_token(uri, key, expiry=3600):
     ttl = datetime.datetime.utcnow() + datetime.timedelta(seconds=expiry)
     encoded_resource = urllib.parse.quote_plus(uri)
-    encoded_expiration_utc = urllib.parse.quote_plus(ttl.isoformat())    
+    encoded_expiration_utc = urllib.parse.quote_plus(ttl.isoformat())
+
     unsigned_sas = f'r={encoded_resource}&e={encoded_expiration_utc}'
-    encoded_signature = b64encode(HMAC(b64decode(key), unsigned_sas.encode('utf-8'), sha256).digest()).decode()
+    signature = b64encode(HMAC(b64decode(key), unsigned_sas.encode('utf-8'), sha256).digest()).decode()
+    encoded_signature = urllib.parse.quote_plus(signature)
     expiration = str(ttl)
     
-    signed_sas = f'r={encoded_resource}&e={encoded_expiration_utc}&s={encoded_signature}'
+    token = f'r={encoded_resource}&e={encoded_expiration_utc}&s={encoded_signature}'
 
-    return signed_sas
+    return token
 ```
 
 ### Using aeg-sas-token header
