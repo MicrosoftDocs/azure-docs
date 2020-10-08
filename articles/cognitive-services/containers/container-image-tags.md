@@ -110,6 +110,11 @@ This container image has the following tags available:
 
 The [Custom Speech-to-text][sp-cstt] container image can be found on the `containerpreview.azurecr.io` container registry. It resides within the `microsoft` repository and is named `cognitive-services-custom-speech-to-text`. The fully qualified container image name is, `containerpreview.azurecr.io/microsoft/cognitive-services-custom-speech-to-text`.
 
+**v2.5.0 container release notes**
+
+* TBD
+* TBD
+
 This container image has the following tags available:
 
 | Image Tags            | Notes |
@@ -122,6 +127,11 @@ This container image has the following tags available:
 
 The [Custom Text-to-speech][sp-ctts] container image can be found on the `containerpreview.azurecr.io` container registry. It resides within the `microsoft` repository and is named `cognitive-services-custom-text-to-speech`. The fully qualified container image name is, `containerpreview.azurecr.io/microsoft/cognitive-services-custom-text-to-speech`.
 
+**v1.7.0 container release notes**
+
+* TBD
+* TBD
+
 This container image has the following tags available:
 
 | Image Tags            | Notes |
@@ -133,6 +143,11 @@ This container image has the following tags available:
 
 The [Speech-to-text][sp-stt] container image can be found on the `containerpreview.azurecr.io` container registry. It resides within the `microsoft` repository and is named `cognitive-services-speech-to-text`. The fully qualified container image name is, `containerpreview.azurecr.io/microsoft/cognitive-services-speech-to-text`.
 Speech-to-text v2.5.0 images are supported in *US Government Virginia*. Please use *US Government Virginia* billing endpoint and api keys to try.
+
+**v2.5.0 container release notes**
+
+* TBD
+* TBD
 
 This container image has the following tags available:
 
@@ -183,6 +198,11 @@ This container image has the following tags available:
 ## Text-to-speech
 
 The [Text-to-speech][sp-tts] container image can be found on the `containerpreview.azurecr.io` container registry. It resides within the `microsoft` repository and is named `cognitive-services-text-to-speech`. The fully qualified container image name is, `containerpreview.azurecr.io/microsoft/cognitive-services-text-to-speech`.
+
+**v2.5.0 container release notes**
+
+* TBD
+* TBD
 
 This container image has the following tags available:
 
@@ -275,6 +295,11 @@ This container image has the following tags available:
 
 The [Neural Text-to-speech][sp-ntts] container image can be found on the `containerpreview.azurecr.io` container registry. It resides within the `microsoft` repository and is named `cognitive-services-neural-text-to-speech`. The fully qualified container image name is, `containerpreview.azurecr.io/microsoft/cognitive-services-neural-text-to-speech`.
 
+**v1.2.0 container release notes**
+
+* TBD
+* TBD
+
 This container image has the following tags available:
 
 | Image Tags                                  | Notes                                                                      |
@@ -298,6 +323,11 @@ This container image has the following tags available:
 | `1.2.0-amd64-zh-cn-xiaoxiaoneural-preview`  | Container image with the `zh-CN` locale and `zh-CN-XiaoxiaoNeural` voice.  |
 
 ## Speech language detection
+
+**v1.1.0 container release notes**
+
+* TBD
+* TBD
 
 | Image Tags                                  | Notes                                                                      |
 |---------------------------------------------|:---------------------------------------------------------------------------|
