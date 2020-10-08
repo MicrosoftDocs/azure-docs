@@ -76,7 +76,7 @@ HDInsight cluster depends on the built-in Python environment, both Python 2.7 an
 
     - Or use PyPi repo, change `seaborn` and `py35new` correspondingly:
         ```bash
-        sudo /usr/bin/anaconda/env/py35new/bin/pip install seaborn
+        sudo /usr/bin/anaconda/envs/py35new/bin/pip install seaborn
         ```
 
     Use below command if you would like to install a library with a specific version:
@@ -93,7 +93,7 @@ HDInsight cluster depends on the built-in Python environment, both Python 2.7 an
     - Or use PyPi repo, change `numpy==1.16.1` and `py35new` correspondingly:
 
         ```bash
-        sudo /usr/bin/anaconda/env/py35new/bin/pip install numpy==1.16.1
+        sudo /usr/bin/anaconda/envs/py35new/bin/pip install numpy==1.16.1
         ```
 
     if you don't know the virtual environment name, you can SSH to the head node of the cluster and run `/usr/bin/anaconda/bin/conda info -e` to show all virtual environments.
