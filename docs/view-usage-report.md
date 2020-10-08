@@ -61,4 +61,4 @@ You can view this data in a visual Map form, or toggle the setting to view it in
 
 ## See also
 
-- [View the acquisition report in the dashboard](view-acquisitions-report.md#acquisitions)
+- [View the acquisitions report in the dashboard](view-acquisitions-report.md#acquisitions)
