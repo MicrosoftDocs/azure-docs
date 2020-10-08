@@ -16,12 +16,11 @@ ms.custom: mvc
 Test out Azure IoT Edge in this quickstart by deploying containerized code to a virtual Linux IoT Edge device. IoT Edge allows you to remotely manage code on your devices so that you can send more of your workloads to the edge. For this quickstart, we recommend using an Azure virtual machine for your IoT Edge device, which allows you to quickly create a test machine with the IoT Edge service installed and then delete it when you're finished.
 
 In this quickstart you learn how to:
-> [!div class="checklist"]
->
-> * Create an IoT Hub.
-> * Register an IoT Edge device to your IoT hub.
-> * Install and start the IoT Edge runtime on your virtual device.
-> * Remotely deploy a module to an IoT Edge device.
+
+* Create an IoT Hub.
+* Register an IoT Edge device to your IoT hub.
+* Install and start the IoT Edge runtime on your virtual device.
+* Remotely deploy a module to an IoT Edge device.
 
 ![Diagram - Quickstart architecture for device and cloud](./media/quickstart-linux/install-edge-full.png)
 

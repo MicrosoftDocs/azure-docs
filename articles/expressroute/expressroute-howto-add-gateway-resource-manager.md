@@ -11,7 +11,7 @@ ms.author: duau
 ms.custom: seodec18
 
 ---
-# Configure a virtual network gateway for ExpressRoute using PowerShell
+# Tutorial: Configure a virtual network gateway for ExpressRoute using PowerShell
 > [!div class="op_single_selector"]
 > * [Resource Manager - Azure portal](expressroute-howto-add-gateway-portal-resource-manager.md)
 > * [Resource Manager - PowerShell](expressroute-howto-add-gateway-resource-manager.md)
@@ -25,8 +25,6 @@ In this tutorial, you learn how to:
 > [!div class="checklist"]
 > - Create a gateway subnet.
 > - Create Virtual Network gateway.
-
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
 ## Prerequisites
 
