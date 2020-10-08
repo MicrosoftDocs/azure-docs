@@ -422,8 +422,6 @@ groups:
     title: Python
   - id: programmer-tool-spx
     title: CLI
-  - id: programming-language-more
-    title: More languages...
 - id: programming-languages-set-two-with-js-go
 # Owner: erhopf
   title: Programming languages
