@@ -25,7 +25,7 @@ You can use the following RDP properties and Group Policy settings to enable dev
 
 ### Audio input (microphone) redirection
 
-Set the following RDP property to enable audio input (microphone) redirection:
+Set the following RDP property to configure audio input redirection:
 
 - `audiocapturemode:i:1` enables audio input redirection.
 - `audiocapturemode:i:0` disables audio input redirection.
