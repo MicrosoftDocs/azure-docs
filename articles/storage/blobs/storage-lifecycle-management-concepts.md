@@ -160,7 +160,7 @@ $filter = New-AzStorageAccountManagementPolicyFilter -PrefixMatch ab,cd
 $rule1 = New-AzStorageAccountManagementPolicyRule -Name Test -Action $action -Filter $filter
 
 #Set the policy
-$policy = Set-AzStorageAccountManagementPolicy -ResourceGroupName $rgname -StorageAccountName $accountName -Rule $rule1
+Set-AzStorageAccountManagementPolicy -ResourceGroupName $rgname -StorageAccountName $accountName -Rule $rule1
 ```
 
 # [Template](#tab/template)

@@ -13448,6 +13448,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/virtual-machines/windows/spot-portal.md",
+      "redirect_url": "/azure/virtual-machines/spot-portal",
+      "redirect_document_id": true
+    },
+    {
       "source_path": "articles/virtual-machines/windows/spot-vms.md",
       "redirect_url": "/azure/virtual-machines/spot-vms",
       "redirect_document_id": false
@@ -32301,6 +32306,11 @@
       "source_path": "articles/hdinsight/hdinsight-hbase-phoenix-squirrel.md",
       "redirect_url": "/azure/hdinsight/hbase/apache-hbase-query-with-phoenix",
       "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/hdinsight/hdinsight-high-availability-linux.md",
+      "redirect_url": "/azure/hdinsight/hdinsight-business-continuity",
+      "redirect_document_id": true
     },
     {
       "source_path": "articles/virtual-machines/windows/sqlclassic/virtual-machines-windows-classic-portal-sql-alwayson-availability-groups.md",

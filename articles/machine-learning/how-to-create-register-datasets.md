@@ -204,7 +204,7 @@ datastore = workspace.get_default_datastore()
 datastore.upload(src_dir='data', target_path='data')
 
 # create a dataset referencing the cloud location
-dataset = Dataset.Tabular.from_delimited_files(datastore.path('data/prepared.csv'))
+dataset = Dataset.Tabular.from_delimited_files(path = [(datastore, ('data/prepared.csv')]
 ```
 
 > [!TIP]
