@@ -367,6 +367,7 @@ This container image has the following tags available:
 [sp-cstt]: ../speech-service/speech-container-howto.md?tabs=cstt
 [sp-tts]: ../speech-service/speech-container-howto.md?tabs=tts
 [sp-ctts]: ../speech-service/speech-container-howto.md?tabs=ctts
+[sp-ntts]: ../speech-service/speech-container-howto.md?tabs=ntts
 [ta-kp]: ../text-analytics/how-tos/text-analytics-how-to-install-containers.md?tabs=keyphrase
 [ta-la]: ../text-analytics/how-tos/text-analytics-how-to-install-containers.md?tabs=language
 [ta-se]: ../text-analytics/how-tos/text-analytics-how-to-install-containers.md?tabs=sentiment
