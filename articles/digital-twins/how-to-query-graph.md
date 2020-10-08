@@ -48,7 +48,7 @@ WHERE ...
 
 ### Count items
 
-You can count the number of twins in a result set using the `Select COUNT` clause:
+You can count the number of items in a result set using the `Select COUNT` clause:
 
 ```sql
 SELECT COUNT() 
@@ -70,7 +70,7 @@ WHERE IS_OF_MODEL('dtmi:sample:Room;1') AND c.Capacity > 20
 You can also use `COUNT` along with the `JOIN` clause. Here is a query that counts all the light bulbs contained in the light panels of rooms 1 and 2:
 
 ```sql
-SELECT COUNT(LightBulb)  
+SELECT COUNT()  
 FROM DIGITALTWINS Room  
 JOIN LightPanel RELATED Room.contains  
 JOIN LightBulb RELATED LightPanel.contains  
@@ -81,7 +81,7 @@ AND Room.$dtId IN ['room1', 'room2']
 
 ### Specify return set with projections
 
-Using projections, you can choose which columns (or expressions) a query will return. 
+Using projections, you can choose which columns a query will return. 
 
 >[!NOTE]
 >At this time, complex properties are not supported. To make sure that projection properties are valid, combine the projections with an `IS_PRIMITIVE` check. 
