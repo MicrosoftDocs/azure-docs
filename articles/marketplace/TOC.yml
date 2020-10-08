@@ -323,7 +323,11 @@
   - name: Commercial marketplace FAQ
     href: marketplace-faq-publisher-guide.md
   - name: Cloud Partner Portal migration FAQ
-    href: cloud-partner-portal-migration-faq.md     
+    href: cloud-partner-portal-migration-faq.md 
+  - name: Commercial marketplace opportunity office hours
+    href: https://aka.ms/marketplaceofficehours
+  - name: Technical and publishing office hours
+    href: https://aka.ms/marketplacepublishingofficehours   
   - name: Partner Center support options
     href: partner-center-portal/support.md
   - name: Partner Center announcements
