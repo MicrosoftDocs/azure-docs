@@ -1,11 +1,11 @@
 ---
 title: Standalone Cluster Deployment Preparation 
 description: Documentation related to preparing the environment and creating the cluster configuration, to be considered prior to deploying a cluster intended for handling a production workload.
-author: dkkapur
+author: georgewallace
 
 ms.topic: conceptual
 ms.date: 9/11/2018
-ms.author: dekapur
+ms.author: gwallace
 ---
 # Plan and prepare your Service Fabric Standalone cluster deployment
 
