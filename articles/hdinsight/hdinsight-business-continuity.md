@@ -97,7 +97,7 @@ HDInsight recommends Azure Data Lake Storage Gen2 as the underlying storage laye
 
 [Azure DNS](https://azure.microsoft.com/support/legal/sla/dns/v1_1/) provides an SLA of 100%. HDInsight uses Azure DNS in various places for domain name resolution.
 
-## Cost and complexity optimizations for multi region setup
+## Multi-region cost and complexity optimizations
 
 Improving business continuity using cross region high availability disaster recovery requires architectural designs of higher complexity and higher cost. The following tables detail some technical areas that may increase total cost of ownership.
 

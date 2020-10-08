@@ -5,7 +5,7 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.topic: how-to
+ms.topic: conceptual
 ms.date: 10/07/2020
 ---
 
@@ -17,7 +17,7 @@ Hive Replication has evolved over the years with newer versions providing better
 
 ## Advantages of Replv2
 
-[Hive ReplicationV2](https://cwiki.apache.org/confluence/display/Hive/HiveReplicationv2Development) or (Replv2) has the following advantages over [the first version of Hive replication that used Hive [IMPORT-EXPORT](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+ImportExport):
+[Hive ReplicationV2](https://cwiki.apache.org/confluence/display/Hive/HiveReplicationv2Development) or (Replv2) has the following advantages over the first version of Hive replication that used Hive [IMPORT-EXPORT](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+ImportExport):
 
 - Event-based incremental replication
 - Point-in-time replication  
@@ -155,65 +155,65 @@ The following code sequence provides an example how bootstrapping and incrementa
 
 1. Set the table as the source for a replication policy.
 
-```sql
-ALTER DATABASE tpcds_orc SET DBPROPERTIES ('repl.source.for'='replpolicy1');
-```
+   ```sql
+   ALTER DATABASE tpcds_orc SET DBPROPERTIES ('repl.source.   for'='replpolicy1');
+   ```
 
 1. Bootstrap dump at the primary cluster.
 
-```sql
-repl dump tpcds_orc with ('hive.repl.rootdir'='/tmpag/hiveag/replag'); 
-```
-
-Example output:
-
-|dump_dir|last_repl_id|
-|-|-|
-|/tmpag/hiveag/replag/675d1bea-2361-4cad-bcbf-8680d305a27a|2925|
+   ```sql
+   repl dump tpcds_orc with ('hive.repl.rootdir'='/tmpag/hiveag/replag'); 
+   ```
+   
+   Example output:
+   
+   |dump_dir|last_repl_id|
+   |-|-|
+   |/tmpag/hiveag/replag/675d1bea-2361-4cad-bcbf-8680d305a27a|2925|
  
 1. Bootstrap load at the secondary cluster. 
 
-```sql
-repl load tpcds_orc from '/tmpag/hiveag/replag/675d1bea-2361-4cad-bcbf-8680d305a27a'; 
-```
+   ```sql
+   repl load tpcds_orc from '/tmpag/hiveag/replag 675d1bea-2361-4cad-bcbf-8680d305a27a'; 
+   ```
 
 1. Check the `REPL` status at the secondary cluster.
 
-```sql
-repl status tpcds_orc; 
-```
+   ```sql
+   repl status tpcds_orc; 
+   ```
  
-|last_repl_id|
-|-|
-|2925|
+   |last_repl_id|
+   |-|
+   |2925|
 
 1. Incremental dump at the primary cluster.
 
-```sql
-repl dump tpcds_orc from 2925 with ('hive.repl.rootdir'='/tmpag/hiveag/replag');
-```
+   ```sql
+   repl dump tpcds_orc from 2925 with ('hive.repl.rootdir'='/tmpag/hiveag/ replag');
+   ```
 
-Example output:
-
-|dump_dir | last_repl_id|
-|-|-|
-|/tmpag/hiveag/replag/31177ff7-a40f-4f67-a613-3b64ebe3bb31|2960|
+   Example output:
+   
+   |dump_dir | last_repl_id|
+   |-|-|
+   |/tmpag/hiveag/replag/31177ff7-a40f-4f67-a613-3b64ebe3bb31|2960|
 
 1. Incremental load at secondary cluster.  
 
-```sql
-repl load tpcds_orc from '/tmpag/hiveag/replag/31177ff7-a40f-4f67-a613-3b64ebe3bb31';
-```
+   ```sql
+   repl load tpcds_orc from '/tmpag/hiveag/replag/31177ff7-a40f-4f67-a613-3b64ebe3bb31';
+   ```
 
 1. Check `REPL` status at secondary cluster.
 
-```sql
-repl status tpcds_orc;
-```
+   ```sql
+   repl status tpcds_orc;
+   ```
 
-|last_repl_id|
-|-|
-|2960|
+   |last_repl_id|
+   |-|
+   |2960|
 
 ## Next steps
 
