@@ -82,7 +82,7 @@
   - name: Automate onboarding using PowerShell
     href: security-center-powershell-onboarding.md
   - name: Enable Security Center for a management group
-    href: onboarding-management-group.md
+    href: onboard-management-group.md
   - name: Configure data collection
     href: security-center-enable-data-collection.md
   - name: Set up email notifications
