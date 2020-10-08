@@ -290,7 +290,7 @@ Content-type: application/json
 ## Best practices and how to troubleshoot
 
 ### Using serverless cloud functions
-Serverless functions, like HTTP triggers in Azure Functions, provide a simple way create API endpoints to use with the API connector. You can use the serverless cloud function to, [for example](code-samples-self-service-sign-up.md#api-connector-azure-function-quickstarts), perform validation logic and limit sign-ups to specific email domains. The serverless cloud function can also call and invoke other web APIs, user stores, and other cloud services for more complex scenarios.
+Serverless functions, like HTTP triggers in Azure Functions, provide a simple way create API endpoints to use with the API connector. You can use the serverless cloud function to, [for example](code-samples.md#api-connectors), perform validation logic and limit sign-ups to specific email domains. The serverless cloud function can also call and invoke other web APIs, user stores, and other cloud services for more complex scenarios.
 
 ### Best practices
 Ensure that:
@@ -310,4 +310,4 @@ In general, it's helpful to use the logging tools enabled by your web API servic
 
 ## Next steps
 <!-- - Learn how to [add a custom approval workflow to sign-up](add-approvals.md) -->
-- Get started with our [Azure Function quickstart samples](code-samples-self-service-sign-up.md#api-connector-azure-function-quickstarts).
+- Get started with our [Azure Function quickstart samples](code-samples.md#api-connectors).
