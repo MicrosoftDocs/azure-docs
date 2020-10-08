@@ -44,7 +44,7 @@ You can now easily bulk load data using SQL pools with a simple right-click on t
 3. You can select "Preview data" to see how the COPY statement will parse the file to help you configure the file format settings. Select "Preview data" every time you change a file format setting to see how the COPY statement will parse the file with the updated setting:
    ![Previewing data](./sql/media/bulk-load/bulk-load-file-format-settings-preview-data.png) 
 
-4. Select the SQL pool you're using to load including whether the load will be for an existing table or new table:
+4. Select the dedicated SQL pool you're using to load including whether the load will be for an existing table or new table:
    ![Selecting target location](./sql/media/bulk-load/bulk-load-target-location.png)
 
 5. Select "Configure column mapping" to make sure you have the appropriate column mapping. For new tables, configuring the column mapping is critical for updating the target column data types:
