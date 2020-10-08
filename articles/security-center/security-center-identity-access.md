@@ -11,26 +11,25 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/16/2020
+ms.date: 10/08/2020
 ms.author: memildin
 ---
 
 # Monitor identity and access
 
-The security perimeter has evolved from a network perimeter to an identity perimeter. Security becomes less about defending your network and more about defending your data, as well as managing the security of your apps and users. Nowadays, with more data and more apps moving to the cloud, identity becomes the new perimeter.
+The security perimeter has evolved from a network perimeter to an identity perimeter. With this development, security is less about defending your network, and more about managing the security of your apps, data, and users.
 
-By monitoring the activities and configuration settings related to identity and multi-factor authentication (MFA), you can take proactive actions before an incident takes place, or reactive actions to stop an attack attempt.
+By monitoring the activities and configuration settings related to identity, you can take proactive actions before an incident takes place, or reactive actions to stop attempted attacks.
 
-## What identity and access safeguards does Security Center   
+## What identity and access safeguards does Security Center provide? 
 
-Azure Security Center has two dedicated security controls for ensuring you're meeting your organization's identity security requirements: 
+Azure Security Center has two dedicated security controls for ensuring you're meeting your organization's identity and security requirements: 
 
- - **Manage access and permissions** - Security Center encourages adoption of the [least privilege access model](https://docs.microsoft.com/windows-server/identity/ad-ds/plan/security-best-practices/implementing-least-privilege-administrative-models) to ensure your users have the necessary access to do their jobs but no more than that. In addition, this control has recommendations related to controlling access to your resources with role assignments with [role-based access control (RBAC)](https://docs.microsoft.com/azure/role-based-access-control/o.verview)
+ - **Manage access and permissions** - We encourage you to adopt the [least privilege access model](https://docs.microsoft.com/windows-server/identity/ad-ds/plan/security-best-practices/implementing-least-privilege-administrative-models) and ensure you grant your users only the access necessary for them to do their jobs. This control also includes recommendations for implementing [role-based access control (RBAC)](../role-based-access-control/overview.md) to control access to your resources.
  
  - **Enable MFA** - With [MFA](https://www.microsoft.com/security/business/identity/mfa) enabled, your accounts are more secure, and users can still authenticate to almost any application with single sign-on.
- 
 
-These are some examples of recommendations you might see in these two controls on Security Center's **Recommendations** page:
+Examples of recommendations you might see in these two controls on Security Center's **Recommendations** page:
 
 - MFA should be enabled on accounts with owner permissions on your subscription
 - A maximum of 3 owners should be designated for your subscription
@@ -39,16 +38,16 @@ These are some examples of recommendations you might see in these two controls o
     > [!TIP]
     > Deprecated accounts are accounts that are no longer needed, and blocked from signing in by Azure Active Directory)
 
-For more information about these recommendations as well as a full list of the recommendations you might see here, see [Identity and Access recommendations](recommendations-reference.md#recs-identity).
+For more information about these recommendations and the others you might see in these controls, see [Identity and Access recommendations](recommendations-reference.md#recs-identity).
 
 > [!NOTE]
-> If your subscription has more than 600 accounts, Security Center is unable to run the Identity recommendations against your subscription. Recommendations that are not run are listed under "unavailable assessments" below.
-Security Center is unable to run the Identity recommendations against a Cloud Solution Provider (CSP) partner's admin agents.
+> If your subscription has more than 600 accounts, Security Center is unable to run the Identity recommendations against your subscription. Recommendations that are not run are listed under "unavailable assessments".
 >
+> Security Center is unable to run the Identity recommendations against a Cloud Solution Provider (CSP) partner's admin agents.
 
 ## Identify accounts without multi-factor authentication (MFA) enabled
 
-To see which accounts don't have MFA enabled, use the Azure Resource Graph query below. The query returns all unhealthy resources (in this case, accounts) of the recommendation "MFA should be enabled on accounts with owner permissions on your subscription". 
+To see which accounts don't have MFA enabled, use the following Azure Resource Graph query. The query returns all unhealthy resources - accounts - of the recommendation "MFA should be enabled on accounts with owner permissions on your subscription". 
 
 1. Open **Azure Resource Graph Explorer**.
 
@@ -63,7 +62,7 @@ To see which accounts don't have MFA enabled, use the Azure Resource Graph query
      | where properties.status.code == "Unhealthy"
     ```
 
-1. The `additionalData` property reveals the list of account object ids for accounts that don't have MFA enforced. 
+1. The `additionalData` property reveals the list of account object IDs for accounts that don't have MFA enforced. 
 
     > [!NOTE]
     > The accounts are shown as object ids rather than account names to protect the pivacy of the account holders.
@@ -74,11 +73,10 @@ To see which accounts don't have MFA enabled, use the Azure Resource Graph query
 
 ## Enable multi-factor authentication (MFA)
 
-Enabling MFA requires [Azure Active Directory (AD) tenant permissions](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-assign-admin-roles). 
+Enabling MFA requires [Azure Active Directory (AD) tenant permissions](../active-directory/users-groups-roles/directory-assign-admin-roles.md).
 
 - If you have a premium edition of AD, enable MFA using [Conditional Access](../active-directory/conditional-access/concept-conditional-access-policy-common.md).
-- If you're using AD free edition, enable **security defaults** in Azure Active Directory as described in the [AD documentation](https://docs.microsoft.com/azure/active-directory/fundamentals/concept-fundamentals-security-defaults).
-
+- If you're using AD free edition, enable **security defaults** as described in [Azure Active Directory documentation](../active-directory/fundamentals/concept-fundamentals-security-defaults.md).
 
 ## Next steps
 To learn more about recommendations that apply to other Azure resource types, see the following article:
