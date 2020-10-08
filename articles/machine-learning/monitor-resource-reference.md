@@ -102,10 +102,11 @@ The following table lists the operations related to Azure Machine Learning that 
 
 | Operation | Description |
 |:---|:---|
+| Creates or updates a Machine Learning workspace | A workspace was created or updated |
 | CheckComputeNameAvailability | Check if a compute name is already in use |
 | Creates or updates the compute resources | A compute resource was created or updated |
 | Deletes the compute resources | A compute resource was deleted |
-| List secrets | Lists secrets for a Machine Learning workspace |
+| List secrets | On operation listed secrets for a Machine Learning workspace |
 
 ## Resource logs
 
