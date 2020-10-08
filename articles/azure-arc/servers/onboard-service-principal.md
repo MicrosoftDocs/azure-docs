@@ -62,7 +62,7 @@ The values from the following properties are used with parameters passed to the 
 > Make sure to use the service principal **ApplicationId** property, not the **Id** property.
 >
 
-The **Azure Connected Machine Onboarding** role contains only the permissions required to onboard a machine. You can assign the service principal permission to allow its scope to include a resource group or a subscription. To add role assignment, see [Add or remove role assignments using Azure RBAC and the Azure portal](../../role-based-access-control/role-assignments-portal.md) or [Add or remove role assignments using Azure RBAC and Azure CLI](../../role-based-access-control/role-assignments-cli.md).
+The **Azure Connected Machine Onboarding** role contains only the permissions required to onboard a machine. You can assign the service principal permission to allow its scope to include a resource group or a subscription. To add role assignment, see [Add or remove Azure role assignments using the Azure portal](../../role-based-access-control/role-assignments-portal.md) or [Add or remove Azure role assignments using Azure CLI](../../role-based-access-control/role-assignments-cli.md).
 
 ## Install the agent and connect to Azure
 
