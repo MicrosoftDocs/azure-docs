@@ -69,7 +69,7 @@ After geo-replication is configured, the following restrictions apply to your li
 
     You can also view the linking status on the **Overview** blade for both the primary and secondary caches.
 
-    ![Cache status](./media/cache-how-to-geo-replication/cache-geo-location-link-status.png)
+    ![Screenshot that highlights how to view the linking status for the primary and secondary caches.](./media/cache-how-to-geo-replication/cache-geo-location-link-status.png)
 
     Once the replication process is complete, the **Link status** changes to **Succeeded**.
 
@@ -107,6 +107,7 @@ After geo-replication is configured, the following restrictions apply to your li
 - [Why did the operation fail when I tried to delete my linked cache?](#why-did-the-operation-fail-when-i-tried-to-delete-my-linked-cache)
 - [What region should I use for my secondary linked cache?](#what-region-should-i-use-for-my-secondary-linked-cache)
 - [How does failing over to the secondary linked cache work?](#how-does-failing-over-to-the-secondary-linked-cache-work)
+- [Can i configure Firewall with geo-replication?](#can-i-configure-a-firewall-with-geo-replication)
 
 ### Can I use geo-replication with a Standard or Basic tier cache?
 
@@ -181,7 +182,12 @@ Automatic failover across Azure regions isn't supported for geo-replicated cache
 
 To start a customer-initiated failover, first unlink the caches. Then, change your Redis client to use the connection endpoint of the (formerly linked) secondary cache. When the two caches are unlinked, the secondary cache becomes a regular read-write cache again and accepts requests directly from Redis clients.
 
+### Can I configure a firewall with geo-replication?
+
+Yes, you can configure a [firewall](https://docs.microsoft.com/azure/azure-cache-for-redis/cache-configure#firewall) with geo-replication. For geo-replication to function alongside a firewall, ensure that the secondary cache's IP address is added to the primary cache's firewall rules.
+
 ## Next steps
+
 Learn more about Azure Cache for Redis features.
 
 * [Azure Cache for Redis service tiers](cache-overview.md#service-tiers)

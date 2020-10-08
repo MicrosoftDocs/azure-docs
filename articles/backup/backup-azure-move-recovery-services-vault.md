@@ -138,6 +138,50 @@ To move to a new subscription, provide the `--destination-subscription-id` param
 1. Set/verify the access controls for the resource groups.  
 2. The Backup reporting and monitoring feature needs to be configured again for the vault after the move completes. The previous configuration will be lost during the move operation.
 
+## Move an Azure virtual machine to a different recovery service vault. 
+
+If you want to move an Azure virtual machine that has Azure backup enabled, then you have two choices. They depend on your business requirements:
+
+- [Don’t need to preserve previous backed-up data](#dont-need-to-preserve-previous-backed-up-data)
+- [Must preserve previous backed-up data](#must-preserve-previous-backed-up-data)
+
+### Don’t need to preserve previous backed-up data
+
+To protect workloads in a new vault, the current protection and data will need to be deleted in the old vault and backup is configured again.
+
+>[!WARNING]
+>The following operation is destructive and can't be undone. All backup data and backup items associated with the protected server will be permanently deleted. Proceed with caution.
+
+**Stop and delete current protection on the old vault:**
+
+1. Disable soft delete in the vault properties. Follow [these steps](backup-azure-security-feature-cloud.md#disabling-soft-delete-using-azure-portal) to disable soft delete.
+
+2. Stop protection and delete backups from the current vault. In the Vault dashboard menu, select **Backup Items**. Items listed here that need to be moved to the new vault must be removed along with their backup data. See how to [delete protected items in the cloud](backup-azure-delete-vault.md#delete-protected-items-in-the-cloud) and [delete protected items on premises](backup-azure-delete-vault.md#delete-protected-items-on-premises).
+
+3. If you're planning to move AFS (Azure file shares), SQL servers or SAP HANA servers, then you'll need also to unregister them. In the vault dashboard menu, select **Backup Infrastructure**. See how to [unregister the SQL server](manage-monitor-sql-database-backup.md#unregister-a-sql-server-instance), [unregister a storage account associated with Azure file shares](manage-afs-backup.md#unregister-a-storage-account), and [unregister an SAP HANA instance](sap-hana-db-manage.md#unregister-an-sap-hana-instance).
+
+4. Once they're removed from the old vault, continue to configure the backups for your workload in the new vault.
+
+### Must preserve previous backed-up data
+
+If you need to keep the current protected data in the old vault and continue the protection in a new vault, there are limited options for some of the workloads:
+
+- For MARS, you can [stop protection with retain data](backup-azure-manage-mars.md#stop-protecting-files-and-folder-backup) and register the agent in the new vault.
+
+  - Azure Backup service will continue to retain all the existing recovery points of the old vault.
+  - You'll need to pay to keep the recovery points in the old vault.
+  - You'll be able to restore the backed-up data only for unexpired recovery points in the old vault.
+  - A new initial replica of the data will need to be created on the new vault.
+
+- For an Azure VM, you can [stop protection with retain data](backup-azure-manage-vms.md#stop-protecting-a-vm) for the VM in the old vault, move the VM to another resource group, and then protect the VM in the new vault. See [guidance and limitations](https://docs.microsoft.com/azure/azure-resource-manager/management/move-limitations/virtual-machines-move-limitations) for moving a VM to another resource group.
+
+  A VM can be protected in only one vault at a time. However, the VM in the new resource group can be protected on the new vault as it's considered a different VM.
+
+  - Azure Backup service will retain the recovery points that have been backed up on the old vault.
+  - You'll need to pay to keep the recovery points in the old vault (see [Azure Backup pricing](azure-backup-pricing.md) for details).
+  - You'll be able to restore the VM, if needed, from the old vault.
+  - The first backup on the new vault of the VM in the new resource will be an initial replica.
+
 ## Next steps
 
 You can move many different types of resources between resource groups and subscriptions.

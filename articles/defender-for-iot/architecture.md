@@ -14,6 +14,9 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/06/2019
 ms.author: rkarlin
+=======
+ms.date: 10/08/2020
+
 ---
 
 # Azure Defender for IoT architecture
@@ -100,7 +103,7 @@ In **Built-in** mode, Defender  for IoT is enabled when you elect to turn on the
 
 In **Enhanced** mode, after turning on the **Security** option in your IoT Hub and installing Defender  for IoT device agents on your devices, the agents collect, aggregate and analyze raw security events from your devices. Raw security events can include IP connections, process creation, user logins, and other security-relevant information. Defender  for IoT device agents also handle event aggregation to help avoid high network throughput. The agents are highly customizable, allowing you to use them for specific tasks, such as sending only important information at the fastest SLA, or for aggregating extensive security information and context into larger segments, avoiding higher service costs.
 
-Device agents, and other applications use the **Azure send security message SDK** to send security information into Azure IoT Hub. IoT Hub picks up this information and forwards it to the Defender  for IoT service.
+Device agents, and other applications use the **Azure send security message SDK** to send security information into Azure IoT Hub. IoT Hub gets this information and forwards it to the Defender for IoT service.
 
 Once the Defender  for IoT service is enabled, in addition to the forwarded data, IoT Hub also sends out all of its internal data for analysis by Defender  for IoT. This data includes device-cloud operation logs, device identities, and Hub configuration. All of this information helps to create the Defender  for IoT analytics pipeline.
 

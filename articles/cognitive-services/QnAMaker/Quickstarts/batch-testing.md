@@ -1,6 +1,8 @@
 ---
 title: "Quickstart: Test knowledge base with batch questions"
 description: Use the QnA Maker batch testing tool to test the knowledge bases in your QnA Maker resource for expected answers, confidence scores, and multi-turn prompts.
+ms.service: cognitive-services
+ms.subservice: qna-maker
 ms.topic: tutorial
 ms.date: 05/26/2020
 ---

@@ -100,7 +100,7 @@ After you create your virtual network, you can add the IP address of a DNS serve
 
 The local site typically refers to your on-premises location. It contains the IP address of the VPN device to which you will create a connection, and the IP address ranges that will be routed through the VPN gateway to the VPN device.
 
-1. On the page for your VNet, under **Settings**, click **Diagram**.
+1. On the page for your VNet, under **Monitoring**, click **Diagram**.
 1. On the **VPN connections** page, click **You don't have any existing VPN connections. Click here to get started**.
 1. For **Connection type**, leave **Site-to-site** selected.
 4. Click **Local site - Configure required settings** to open the **Local site** page. Configure the settings, and then click **OK** to save the settings.

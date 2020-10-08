@@ -165,22 +165,42 @@ Performance depends on whether your provisioning job is running an initial provi
 All operations run by the user provisioning service are recorded in the Azure AD [Provisioning logs (preview)](../reports-monitoring/concept-provisioning-logs.md?context=azure/active-directory/manage-apps/context/manage-apps-context). The logs include all read and write operations made to the source and target systems, and the user data that was read or written during each operation. For information on how to read the provisioning logs in the Azure portal, see the [provisioning reporting guide](./check-status-user-account-provisioning.md).
 
 ## De-provisioning
+The Azure AD provisioning service keeps source and target systems in sync by de-provisioning accounts when user access is removed.
 
-The Azure AD provisioning service keeps source and target systems in sync by de-provisioning accounts when users should not have access anymore. 
+The provisioning service supports both deleting and disabling (sometimes referred to as soft-deleting) users. The exact definition of disable and delete varies based on the target app's implementation, but generally a disable indicates that the user can't sign in. A delete indicates that the user has been removed completely from the application. For SCIM applications, a disable is a request to set the *active* property to false on a user. 
 
-The Azure AD provisioning service will soft delete a user in an application when the application supports soft deletes (update request with active = false) and any of the following events occur:
+**Configure your application to disable a user**
 
-* The user account is deleted in Azure AD
-*	The user is unassigned from the application
-*	The user no longer meets a scoping filter and goes out of scope
-    * By default, the Azure AD provisioning service soft deletes or disables users that go out of scope. If you want to override this default behavior, you can set a flag to [skip out-of-scope deletions](../app-provisioning/skip-out-of-scope-deletions.md).
-*	The AccountEnabled property is set to False
+Ensure that you have selected the checkbox for updates.
 
-If one of the above four events occurs and the target application does not support soft deletes, the provisioning service will send a DELETE request to permanently delete the user from the app. 
+Ensure that you have the mapping for *active* for your application. If your using an application from the app gallery, the mapping may be slightly different. Please ensure that you use the default / out of the box mapping for gallery applications.
 
-30 days after a user is deleted in Azure AD, they will be permanently deleted from the tenant. At this point, the provisioning service will send a DELETE request to permanently delete the user in the application. At any time during the 30-day window, you can [manually delete a user permanently](../fundamentals/active-directory-users-restore.md), which sends a delete request to the application.
 
-If you see an attribute IsSoftDeleted in your attribute mappings, it is used to determine the state of the user and whether to send an update request with active = false to soft delete the user. 
+**Configure your application to delete a user**
+
+The following scenarios will trigger a disable or a delete: 
+* A user is soft deleted in Azure AD (sent to the recycle bin / AccountEnabled property set to false).
+    30 days after a user is deleted in Azure AD, they will be permanently deleted from the tenant. At this point, the provisioning service will send a DELETE request to permanently delete the user in the application. At any time during the 30-day window, you can [manually delete a user permanently](../fundamentals/active-directory-users-restore.md), which sends a delete request to the application.
+* A user is permanently deleted / removed from the recycle bin in Azure AD.
+* A user is unassigned from an app.
+* A user goes from in scope to out of scope (doesn't pass a scoping filter anymore).
+	
+By default, the Azure AD provisioning service soft deletes or disables users that go out of scope. If you want to override this default behavior, you can set a flag to [skip out-of-scope deletions.](skip-out-of-scope-deletions.md)
+
+If one of the above four events occurs and the target application does not support soft deletes, the provisioning service will send a DELETE request to permanently delete the user from the app.
+
+If you see an attribute IsSoftDeleted in your attribute mappings, it is used to determine the state of the user and whether to send an update request with active = false to soft delete the user.
+
+**Known limitations**
+
+* If a user that was previously managed by the provisioning service is unassigned from an app, or from a group assigned to an app we will send a disable request. At that point, the user is not managed by the service and we will not send a delete request when they are deleted from the directory.
+* Provisioning a user that is disabled in Azure AD is not supported. They must be active in Azure AD before they are provisioned.
+* When a user goes from soft-deleted to active, the Azure AD provisioning service will activate the user in the target app, but will not automatically restore the group memberships. The target application should maintain the group memberships for the user in inactive state. If the target application does not support this, you can restart provisioning to update the group memberships. 
+
+**Recommendation**
+
+When developing an application, always support both soft deletes and hard deletes. It allows customers to recover when a user is accidentally disabled.
+
 
 ## Next Steps
 
