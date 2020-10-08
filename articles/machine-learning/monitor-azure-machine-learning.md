@@ -47,6 +47,8 @@ Azure Machine Learning collects the same kinds of monitoring data as other Azure
 
 See [Azure Machine Learning monitoring data reference](monitor-resource-reference.md) for a detailed reference of the logs and metrics created by Azure Machine Learning.
 
+<a id="configuration"></a>
+
 ## Collection and routing
 
 Platform metrics and the Activity log are collected and stored automatically, but can be routed to other locations by using a diagnostic setting.  
@@ -75,7 +77,7 @@ The metrics and logs you can collect are discussed in the following sections.
 
 You can analyze metrics for Azure Machine Learning, along with metrics from other Azure services, by opening **Metrics** from the **Azure Monitor** menu. See [Getting started with Azure Metrics Explorer](/azure/azure-monitor/platform/metrics-getting-started) for details on using this tool.
 
-For a list of the platform metrics collected for Azure Machine Learning, see [Monitoring Azure Machine Learning data reference metrics](monitor-resource-reference#metrics).
+For a list of the platform metrics collected for Azure Machine Learning, see [Monitoring Azure Machine Learning data reference metrics](monitor-resource-reference.md#metrics).
 
 All metrics for Azure Machine Learning are in the namespace **Machine Learning Service Workspace**.
 
@@ -91,9 +93,10 @@ You can also split a metric by dimension to visualize how different segments of 
 
 For more information of filtering and splitting, see [Advanced features of Azure Monitor](/azure/azure-monitor/platform/metrics-charts).
 
+<a id="analyzing-log-data"></a>
 ## Analyzing logs
 
-Using Azure Monitor Log Analytics requires you to create a diagnostic configuration and enable __Send information to Log Analytics__. For more information, see the [Configuration](#configuration) section.
+Using Azure Monitor Log Analytics requires you to create a diagnostic configuration and enable __Send information to Log Analytics__. For more information, see the [Collection and routing](#collection-and-routing) section.
 
 Data in Azure Monitor Logs is stored in tables, with each table having its own set of unique properties. Azure Machine Learning stores data in the following tables:
 
