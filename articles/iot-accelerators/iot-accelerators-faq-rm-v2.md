@@ -42,6 +42,6 @@ The previous version of the Remote Monitoring solution accelerator was known as 
 You can also explore some of the other features and capabilities of the IoT solution accelerators:
 
 * [Explore the capabilities of the Remote Monitoring solution accelerator](quickstart-remote-monitoring-deploy.md)
-* [Predictive Maintenance solution accelerator overview](./quickstart-predictive-maintenance-deploy.md)
+* [Predictive Maintenance solution accelerator overview](./iot-accelerators-predictive-walkthrough.md)
 * [Deploy Connected Factory solution accelerator](quickstart-connected-factory-deploy.md)
 * [IoT security from the ground up](../iot-fundamentals/iot-security-ground-up.md)
