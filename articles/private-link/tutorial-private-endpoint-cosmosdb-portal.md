@@ -1,149 +1,184 @@
 ---
-title: #Required; page title displayed in search results. Include the word "tutorial". Include the brand.
-description: #Required; article description that is displayed in search results. Include the word "tutorial".
-author: #Required; your GitHub user alias, with correct capitalization.
-ms.author: #Required; microsoft alias of author; optional team alias.
-ms.service: #Required; service per approved list. service slug assigned to your service by ACOM.
-ms.topic: tutorial #Required
-ms.date: #Required; mm/dd/yyyy format.
+title: 'Tutorial: Connect to a Azure Cosmos account using an Azure Private endpoint'
+titleSuffix: Azure Private Link
+description: Get started with Azure Private endpoint to connect to a Azure Cosmos account privately.
+author: asudbring
+ms.author: allensu
+ms.service: private-link
+ms.topic: tutorial
+ms.date: 9/25/2020
 ---
 
-<!---Recommended: Remove all the comments in this template before you
-sign-off or merge to master.--->
+# Tutorial: Connect to a Azure Cosmos account using an Azure Private Endpoint
 
-<!---Tutorials are scenario-based procedures for the top customer tasks
-identified in milestone one of the
-[Content + Learning content model](contribute-get-started-mvc.md).
-You only use tutorials to show the single best procedure for completing
-an approved top 10 customer task.
---->
-
-# Tutorial: <do something with X> 
-<!---Required:
-Starts with "Tutorial: "
-Make the first word following "Tutorial:" a verb.
---->
-
-Introductory paragraph.
-<!---Required:
-Lead with a light intro that describes, in customer-friendly language,
-what the customer will learn, or do, or accomplish. Answer the
-fundamental “why would I want to do this?” question.
---->
+Azure Private endpoint is the fundamental building block for Private Link in Azure. It enables Azure resources, like virtual machines (VMs), to communicate with Private Link resources privately.
 
 In this tutorial, you learn how to:
 
 > [!div class="checklist"]
-> * All tutorials include a list summarizing the steps to completion
-> * Each of these bullet points align to a key H2
-> * Use these green checkboxes in a tutorial
-<!---Required:
-The outline of the tutorial should be included in the beginning and at
-the end of every tutorial. These will align to the **procedural** H2
-headings for the activity. You do not need to include all H2 headings.
-Leave out the prerequisites, clean-up resources and next steps--->
+> * Create a virtual network and bastion host.
+> * Create a virtual machine.
+> * Create a Cosmos DB account with a private endpoint.
+> * Test connectivity to Cosmos DB account private endpoint.
 
-If you don’t have a <service> subscription, create a free trial account...
-<!--- Required, if a free trial account exists
-Because tutorials are intended to help new customers use the product or
-service to complete a top task, include a link to a free trial before the
-first H2, if one exists. You can find listed examples in
-[Write tutorials](contribute-how-to-mvc-tutorial.md)
---->
+If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
-<!---Avoid notes, tips, and important boxes. Readers tend to skip over
-them. Better to put that info directly into the article text.--->
+## Sign in to Azure
 
-## Prerequisites
+Sign in to the [Azure portal](https://portal.azure.com).
 
-- First prerequisite
-- Second prerequisite
-- Third prerequisite
-<!---If you need them, make Prerequisites your first H2 in a tutorial. If
-there’s something a customer needs to take care of before they start (for
-example, creating a VM) it’s OK to link to that content before they
-begin.--->
+## Create a virtual network and bastion host
 
-## Sign in to <service/product/tool name>
+In this section, you'll create a virtual network, subnet, and bastion host. 
 
-Sign in to the [<service> portal](url).
-<!---If you need to sign in to the portal to do the tutorial, this H2 and
-link are required.--->
+The bastion host will be used to connect securely to the virtual machine for testing the private endpoint.
 
-## Procedure 1
+1. On the upper-left side of the screen, select **Create a resource > Networking > Virtual network** or search for **Virtual network** in the search box.
 
-<!---Required:
-Tutorials are prescriptive and guide the customer through an end-to-end
-procedure. Make sure to use specific naming for setting up accounts and
-configuring technology.
-Don't link off to other content - include whatever the customer needs to
-complete the scenario in the article. For example, if the customer needs
-to set permissions, include the permissions they need to set, and the
-specific settings in the tutorial procedure. Don't send the customer to
-another article to read about it.
-In a break from tradition, do not link to reference topics in the
-procedural part of the tutorial when using cmdlets or code. Provide customers what they need to know in the tutorial to successfully complete
-the tutorial.
-For portal-based procedures, minimize bullets and numbering.
-For the CLI or PowerShell based procedures, don't use bullets or
-numbering.
---->
+2. In **Create virtual network**, enter or select this information in the **Basics** tab:
 
-Include a sentence or two to explain only what is needed to complete the
-procedure.
+    | **Setting**          | **Value**                                                           |
+    |------------------|-----------------------------------------------------------------|
+    | **Project Details**  |                                                                 |
+    | Subscription     | Select your Azure subscription                                  |
+    | Resource Group   | Select **myResourceGroup** |
+    | **Instance details** |                                                                 |
+    | Name             | Enter **myVNet**                                    |
+    | Region           | Select **East US** |
 
-1. Step 1 of the procedure
-1. Step 2 of the procedure
-1. Step 3 of the procedure
-   ![Browser](media/contribute-how-to-mvc-tutorial/browser.png)
-   <!---Use screenshots but be judicious to maintain a reasonable length. 
-   Make sure screenshots align to the
-   [current standards](https://review.docs.microsoft.com/help/contribute/contribute-how-to-create-screenshot?branch=master).
-   If users access your product/service via a web browser the first 
-   screenshot should always include the full browser window in Chrome or
-   Safari. This is to show users that the portal is browser-based - OS 
-   and browser agnostic.--->
-1. Step 4 of the procedure
+3. Select the **IP Addresses** tab or select the **Next: IP Addresses** button at the bottom of the page.
 
-## Procedure 2
+4. In the **IP Addresses** tab, enter this information:
 
-Include a sentence or two to explain only what is needed to complete the procedure.
+    | Setting            | Value                      |
+    |--------------------|----------------------------|
+    | IPv4 address space | Enter **10.1.0.0/16** |
 
-1. Step 1 of the procedure
-1. Step 2 of the procedure
-1. Step 3 of the procedure
+5. Under **Subnet name**, select the word **default**.
 
-## Procedure 3
+6. In **Edit subnet**, enter this information:
 
-Include a sentence or two to explain only what is needed to complete the
-procedure.
-<!---Code requires specific formatting. Here are a few useful examples of
-commonly used code blocks. Make sure to use the interactive functionality
-where possible.
+    | Setting            | Value                      |
+    |--------------------|----------------------------|
+    | Subnet name | Enter **mySubnet** |
+    | Subnet address range | Enter **10.1.0.0/24** |
 
-For the CLI or PowerShell based procedures, don't use bullets or
-numbering.
---->
+7. Select **Save**.
 
-Here is an example of a code block for Java:
+8. Select the **Security** tab.
 
-```java
-cluster = Cluster.build(new File("src/remote.yaml")).create();
-...
-client = cluster.connect();
-```
+9. Under **BastionHost**, select **Enable**. Enter this information:
 
-or a code block for Azure CLI:
+    | Setting            | Value                      |
+    |--------------------|----------------------------|
+    | Bastion name | Enter **myBastionHost** |
+    | AzureBastionSubnet address space | Enter **10.1.1.0/24** |
+    | Public IP Address | Select **Create new**. </br> For **Name**, enter **myBastionIP**. </br> Select **OK**. |
 
-```azurecli-interactive 
-az vm create --resource-group myResourceGroup --name myVM --image win2016datacenter --admin-username azureuser --admin-password myPassword12
-```
 
-or a code block for Azure PowerShell:
+8. Select the **Review + create** tab or select the **Review + create** button.
 
-```azurepowershell-interactive
-New-AzureRmContainerGroup -ResourceGroupName myResourceGroup -Name mycontainer -Image microsoft/iis:nanoserver -OsType Windows -IpAddressType Public
-```
+9. Select **Create**.
+
+## Create a virtual machine
+
+In this section, you'll create a virtual machine that will be used to test the private endpoint.
+
+1. On the upper-left side of the portal, select **Create a resource** > **Compute** > **Virtual machine** or search for **Virtual machine** in the search box.
+   
+2. In **Create a virtual machine**, type or select the values in the **Basics** tab:
+
+    | Setting | Value                                          |
+    |-----------------------|----------------------------------|
+    | **Project Details** |  |
+    | Subscription | Select your Azure subscription |
+    | Resource Group | Select **myResourceGroup** |
+    | **Instance details** |  |
+    | Virtual machine name | Enter **myVM** |
+    | Region | Select **East US** |
+    | Availability Options | Select **No infrastructure redundancy required** |
+    | Image | Select **Windows Server 2019 Datacenter - Gen1** |
+    | Azure Spot instance | Select **No** |
+    | Size | Choose VM size or take default setting |
+    | **Administrator account** |  |
+    | Username | Enter a username |
+    | Password | Enter a password |
+    | Confirm password | Reenter password |
+
+3. Select the **Networking** tab, or select **Next: Disks**, then **Next: Networking**.
+  
+4. In the Networking tab, select or enter:
+
+    | Setting | Value |
+    |-|-|
+    | **Network interface** |  |
+    | Virtual network | **myVNet** |
+    | Subnet | **mySubnet** |
+    | Public IP | Select **None**. |
+    | NIC network security group | **Basic**|
+    | Public inbound ports | Select **None**. |
+   
+5. Select **Review + create**. 
+  
+6. Review the settings, and then select **Create**.
+
+## Create a Cosmos DB account with a private endpoint
+
+In this section, you'll create a Cosmos DB account and configure the private endpoint.
+
+1. In the left-hand menu, select **Create a resource** > **Databases** > **Cosmos DB Account**, or search for **Cosmos DB account** in the search box.
+
+2. In the **Basics** tab of **Create Cosmos DB account** enter or select the following information:
+
+    | Setting | Value                                          |
+    |-----------------------|----------------------------------|
+    | **Project Details** |  |
+    | Subscription | Select your Azure subscription. |
+    | Resource Group | Select **myResourceGroup**. |
+    | **Instance details** |  |
+    | Account name | Enter **mycosmosdb**. If the name is unavailable, enter a unique name. |
+    | API | Select **Core (SQL)**. |
+    | Location | Select **East US**. |
+    | Capacity mode | Leave the default **Provisioned throughput**. |
+    | Apply Free Tier Discount | Leave the default **Do Not Apply**. |
+    | Geo-Redundancy | Leave the default **Disable**. |
+    | Multi-region Writes | Leave the default **Disable**. |
+   
+3. Select the **Networking** tab or select the **Next: Networking** button.
+
+4. In the **Networking** tab, enter or select the following information:
+
+    | Setting | Value |
+    | ------- | ----- |
+    | **Network connectivity** | |
+    | Connectivity method | Select **Private endpoint**. |
+    | **Configure Firewall** | |
+    | Allow access from the Azure Portal | Leave the default **Allow**. |
+    | Allow access from my IP | Leave the default **Deny**. |
+
+5. In **Private endpoint**, select **+ Add**.
+
+6. In **Create private endpoint** enter or select the following information:
+
+    | Setting | Value                                          |
+    |-----------------------|----------------------------------|
+    | Subscription | Select your Azure subscription |
+    | Resource Group | Select **myResourceGroup** |
+    | Location | Select **East US** |
+    | Name | Enter **myPrivateEndpoint** |
+    | Storage subresource | Leave the default **Core (SQL)** |
+    | **Networking** |  |
+    | Virtual network | Select **myVNet** |
+    | Subnet | Select **mySubnet** |
+    | **Private DNS integration** |
+    | Integrate with private DNS zone | Leave the default **Yes** |
+    | Private DNS Zone | Leave the default (New) privatelink.documents.azure.com |
+
+7. Select **OK**.
+
+8. Select **Review + create**.
+
+9. Select **Create**.
 
 
 ## Clean up resources
