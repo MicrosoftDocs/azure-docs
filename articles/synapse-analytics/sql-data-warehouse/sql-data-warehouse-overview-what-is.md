@@ -29,7 +29,7 @@ Azure Synapse has four components:
 - Synapse Pipelines: Hybrid data integration (preview)
 - Studio: Unified user experience. (preview)
 
-## Dedicated Synapse SQL pool in Azure Synapse
+## Dedicated SQL pool in Azure Synapse
 
 Dedicated Synapse SQL pool refers to the enterprise data warehousing features that are generally available in Azure Synapse.
 
