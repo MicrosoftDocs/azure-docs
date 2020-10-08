@@ -65,10 +65,15 @@ Deletion of the tab or uninstalling the app will not result in deletion of the l
 
 ## Next steps
 
-See the following articles:
+When a lab is created within Teams, the lab user list is automatically populated and synced with the team membership. Everyone on the team, including Owners, Members and Guests will be automatically added to the lab user list. Azure lab Services will maintain a sync with the team membership and an automatic sync is triggered every 24 hours. For details, see:
+
+[Manage Lab Services user lists from Teams](how-to-manage-user-lists-within-teams.md)
+
+### See also
+
+Also see the following articles:
 
 - [Overview and benefits](lab-services-with-teams-overview.md)
-- [Manage Lab Services user lists from Teams](how-to-manage-user-lists-within-teams.md)
 - [Manage a VM pool in Lab Services from Teams](how-to-manage-vm-pool-within-teams.md)
 - [Create Lab Services schedules from Teams](how-to-create-schedules-within-teams.md)
 - [Access a VM (student view) in Lab Services from Teams](how-to-access-vm-for-students-within-teams.md)
