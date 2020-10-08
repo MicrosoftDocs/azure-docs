@@ -79,11 +79,11 @@ The Azure Stack Edge Pro devices have five 2.5" NVMe DC P4610 SSDs, each with a 
 
 |     Specification                          |     Value             |
 |--------------------------------------------|-----------------------|
-|    Boot SATA solid-state drives (SSD)      |    1                  |
 |    Number of NVMe SSDs                     |    5                  |
-|    Boot SSD capacity                       |    240 GB             |
 |    Single NVMe SSD capacity                |    1.6 TB             |
-|    Total capacity                          |    8.0 TB            |
+|    Boot SATA solid-state drives (SSD)      |    1                  |
+|    Boot SSD capacity                       |    240 GB             |
+|    Total capacity                          |    8.0 TB             |
 |    Total usable capacity*                  |    ~ 4.19 TB          |
 |    SAS controller                          |    HBA330 12 Gbps     |
 
