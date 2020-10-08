@@ -142,8 +142,8 @@ The following schemas are in use by Azure Machine Learning
 | ResourceGroupName | Name of the resource group |
 | JobName | Name of the Job |
 | ClusterId | ID of the cluster |
-| EventType | Type of the Job event, e.g., JobSubmitted, JobRunning, JobFailed, JobSucceeded, etc. |
-| ExecutionState | State of the job (the Run), e.g., Queued, Running, Succeeded, Failed |
+| EventType | Type of the Job event. For example, JobSubmitted, JobRunning, JobFailed, JobSucceeded. |
+| ExecutionState | State of the job (the Run). For example, Queued, Running, Succeeded, Failed |
 | ErrorDetails | Details of job error |
 | CreationApiVersion | Api version used to create the job |
 | ClusterResourceGroupName | Resource group name of the cluster |
@@ -209,7 +209,7 @@ The following schemas are in use by Azure Machine Learning
 | VmSize | Vm size of the node |
 | VmFamilyName | Vm family to which the node belongs |
 | VmPriority | Priority of the node created Dedicated/LowPriority |
-| Publisher | Publisher of the vm image, e.g., microsoft-dsvm |
+| Publisher | Publisher of the vm image. For example, microsoft-dsvm |
 | Offer | Offer associated with the VM creation |
 | Sku | Sku of the Node/VM created |
 | Version | Version of the image used while Node/VM is created |
