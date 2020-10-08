@@ -172,10 +172,7 @@
       href: concepts-limits.md
     - name: Automatic recommendations
       href: automated-recommendations.md
-  - name: Cassandra, MongoDB, and other APIs
-    expanded: true
-    items:
-    - name: SQL/Core API
+  - name: SQL/Core API
       items:
       - name: Overview
         items:
@@ -847,7 +844,7 @@
           displayName: ARM
         - name: Emulator release notes
           href: local-emulator-release-notes.md
-    - name: Cassandra API
+  - name: Cassandra API
       items:
       - name: Overview
         items:
@@ -941,7 +938,7 @@
           href: /rest/api/cosmos-db-resource-provider/2020-04-01/cassandraresources
         - name: Resource Manager template
           href: /azure/templates/microsoft.documentdb/allversions
-    - name: MongoDB API
+  - name: MongoDB API
       items:
       - name: Overview
         items:
@@ -1048,7 +1045,7 @@
           href: /rest/api/cosmos-db-resource-provider/2020-04-01/mongodbresources
         - name: Resource Manager template
           href: /azure/templates/microsoft.documentdb/allversions
-    - name: Gremlin API
+  - name: Gremlin API
       displayName: graph, graph database
       items:
       - name: Overview
@@ -1118,7 +1115,7 @@
           href: /rest/api/cosmos-db-resource-provider/2020-04-01/gremlinresources
         - name: Resource Manager template
           href: /azure/templates/microsoft.documentdb/allversions
-    - name: Table API
+  - name: Table API
       items:
       - name: Overview
         items:
