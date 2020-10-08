@@ -12,8 +12,8 @@ An event handler is the place where the event is sent. The handler takes an acti
 
 To use an Azure function as a handler for events, follow one of these approaches: 
 
--	Use [Event Grid trigger for Azure Functions](functions-bindings-event-grid-trigger.md).  Specify Azure Function as the endpoint type. Then, specify the Azure function app and the function that will handle events. 
--	Use [HTTP trigger](functions-bindings-http-webhook.md).  Specify Web Hook as the endpoint type. Then, specify the URL for the Azure function that will handle events. 
+-	Use [Event Grid trigger for Azure Functions](../azure-functions/functions-bindings-event-grid-trigger.md).  Specify Azure Function as the endpoint type. Then, specify the Azure function app and the function that will handle events. 
+-	Use [HTTP trigger](../azure-functions/functions-bindings-http-webhook.md).  Specify Web Hook as the endpoint type. Then, specify the URL for the Azure function that will handle events. 
 
 We recommend that you use the first approach (Event Grid trigger for Azure Functions) as it has the following advantages over the second approach:
 -	Event Grid automatically validates Event Grid triggers. With generic HTTP triggers, you must implement the [validation response](webhook-event-delivery.md) yourself.
