@@ -67,6 +67,6 @@ To create a custom classification:
 
 1. Select the new classification in the custom classifications list.
 
-   The classification details page opens. Here, you find all the details about the classification. These details include the instances count, formal name, associated custom classification rules (if any), and the owners names.
+   The classification details page opens. Here, you find all the details about the classification. These details include the instances count, formal name, associated custom classification rules (if any), and the names of the owners.
 
    :::image type="content" source="media/create-a-custom-classification/classification-details-page.png" alt-text="Screenshot showing the custom classifications details page." lightbox="media/create-a-custom-classification/classification-details-page.png":::

@@ -83,4 +83,4 @@ To add a classification to a column:
 
 ## Next steps
 
-To learn how to create a custom classification, see [Create a custom classification](create-a-custom-classification).
+To learn how to create a custom classification, see [Create a custom classification](create-a-custom-classification.md).
