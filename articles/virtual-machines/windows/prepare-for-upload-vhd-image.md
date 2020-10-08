@@ -466,6 +466,7 @@ In particular, Sysprep requires the drives to be fully decrypted before executio
 
 1. Sign in to the Windows VM.
 1. Run a PowerShell session as an administrator.
+1. Delete the panther directory (C:\Windows\Panther).
 1. Change the directory to `%windir%\system32\sysprep`. Then run `sysprep.exe`.
 1. In the **System Preparation Tool** dialog box, select **Enter System Out-of-Box Experience
    (OOBE)**, and make sure the **Generalize** checkbox is selected.
@@ -485,7 +486,7 @@ generalized disk, see
 > [microsoft-windows-shell-setup](/windows-hardware/customize/desktop/unattend/microsoft-windows-shell-setup)
 > options into the *unattend.xml* file that the Azure provisioning agent uses. You can use, for
 > example,
-> [additionalUnattendContent](/dotnet/api/microsoft.azure.management.compute.models.additionalunattendcontent?view=azure-dotnet)
+> [additionalUnattendContent](/dotnet/api/microsoft.azure.management.compute.models.additionalunattendcontent?view=azure-dotnet&preserve-view=true)
 > to add FirstLogonCommands and LogonCommands. For more information, see
 > [additionalUnattendContent FirstLogonCommands example](https://github.com/Azure/azure-quickstart-templates/issues/1407).
 
