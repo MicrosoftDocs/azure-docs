@@ -21873,6 +21873,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/marketplace/marketplace-roadmap.md",
+      "redirect_url": "/partner-center/announcements",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/marketplace/ccp-saas-offer.md",
       "redirect_url": "/azure/marketplace/create-new-saas-offer",
       "redirect_document_id": false
