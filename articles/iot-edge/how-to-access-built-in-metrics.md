@@ -107,5 +107,5 @@ The **edgeAgent** module produces the following metrics:
 
 ## Next steps
 
-[Understand the Azure IoT Edge runtime and its architecture](iot-edge-runtime.md)
-[Properties of the IoT Edge agent and IoT Edge hub module twins](module-edgeagent-edgehub.md)
+* [Understand the Azure IoT Edge runtime and its architecture](iot-edge-runtime.md)
+* [Properties of the IoT Edge agent and IoT Edge hub module twins](module-edgeagent-edgehub.md)

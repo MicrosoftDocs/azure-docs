@@ -138,5 +138,5 @@ The default frequency of RQT is one message sent to IoT Hub every 24 hours and l
 
 ## Next steps
 
-[Understand Azure IoT Edge modules](iot-edge-modules.md)
-[Learn about IoT Edge runtime metrics](how-to-access-built-in-metrics.md)
+* [Understand Azure IoT Edge modules](iot-edge-modules.md)
+* [Learn about IoT Edge runtime metrics](how-to-access-built-in-metrics.md)
