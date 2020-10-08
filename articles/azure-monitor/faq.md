@@ -397,7 +397,7 @@ Each item that is transmitted carries an `itemCount` property that shows how man
 
 Moving existing Application Insights resources from one region to another is **currently not supported**. Historical data that you have collected **cannot be migrated** to a new region. The only partial workaround is to:
 
-1. Create a brand new Application Insights resource ([classic](app/create-new-resource.md) or [workspace-based](create-workspace-resource.md)) in the new region.
+1. Create a brand new Application Insights resource ([classic](app/create-new-resource.md) or [workspace-based](/app/create-workspace-resource.md)) in the new region.
 2. Recreate all unique customizations specific to the original resource in the new resource.
 3. Modify your application to use the new region resource's [instrumentation key](app/create-new-resource.md#copy-the-instrumentation-key) or [connection string](app/sdk-connection-string.md).  
 4. Test to confirm that everything is continuing to work as expected with your new Application Insights resource. 
