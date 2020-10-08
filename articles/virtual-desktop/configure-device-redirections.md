@@ -34,27 +34,28 @@ Set the following RDP property to configure audio input redirection:
 
 Set the following RDP property to configure audio output redirection:
 
-- `audiomode:i:0` enable audio output redirection.
-- `audiomode:i:0` enable audio output redirection.
+- `audiomode:i:0` enables audio output redirection.
+- `audiomode:i:1` or `audiomode:i:2` disable audio output redirection.
 
 ### Camera redirection
 
-Set the following RDP property to enable camera redirection:
+Set the following RDP property to configure camera redirection:
 
 - `camerastoredirect:s:*` redirects all cameras.
+- `camerastoredirect:s:` disables camera redirection.
 
 You can also redirect specific cameras using a semicolon-delimited list of KSCATEGORY_VIDEO_CAMERA interfaces, such as `camerastoredirect:s:\?\usb#vid_0bda&pid_58b0&mi`.
 
 ### Clipboard redirection
 
-Set the following RDP property to enable clipboard redirection:
+Set the following RDP property to configure clipboard redirection:
 
 - `redirectclipboard:i:1` enables clipboard redirection.
 - `redirectclipboard:i:0` disables clipboard redirection.
 
 ### COM port redirections
 
-Set the following RDP property to enable COM port redirection:
+Set the following RDP property to configure COM port redirection:
 
 - `redirectcomports:i:1` enables COM port redirection.
 - `redirectcomports:i:0` disables COM port redirection.
@@ -64,30 +65,43 @@ Set the following RDP property to enable COM port redirection:
 First, set the following RDP property to enable USB device redirection:
 
 - `usbdevicestoredirect:s:*` enables USB device redirection.
+- `usbdevicestoredirect:s:` disables USB device redirection.
 
-Second, set the following Group Policy on the session host:
+Second, set the following Group Policy on the user's local device:
 
 - Navigate to **Computer Configuration** > **Policies**> **Administrative Templates** > **Windows Components** > **Remote Desktop Services** > **Remote Desktop Connection Client** > **RemoteFX USB Device Redirection**.
 - Select **Allows RDP redirection of other supported RemoteFX USB devices from this computer**.
 - Select the **Enabled** option, and then select the **Administrators and Users in RemoteFX USB Redirection Access Rights** box.
 - Select **OK**.
 
+### Plug and play device redirection
+
+Set the following RDP property to configure plug and play device redirection:
+
+- `devicestoredirect:s:*` enables redirection of all plug and play devices.
+- `devicestoredirect:s:` disables redirection of plug and play devices.
+
+You can also select specific plug and play devices using a semicolon-delimited list, such as `devicestoredirect:s:root\*PNP0F08`.
+
 ### Local drive redirection
 
-Set the following RDP property to enable local drive redirection:
+Set the following RDP property to configure local drive redirection:
 
 - `drivestoredirect:s:*` enables redirection of all disk drives.
+- `drivestoredirect:s:` disables local drive redirection.
 
 You can also select specific drives using a semicolon-delimited list, such as `drivestoredirect:s:C:;E:;`.
 
 ### Printer redirection
+
+Set the following RDP property to configure printer redirection:
 
 - `redirectprinters:i:1` enables printer redirection.
 - `redirectprinters:i:0` disables printer redirection.
 
 ### Smart card redirection
 
-Set the following RDP property to enable smart card redirection:
+Set the following RDP property to configure smart card redirection:
 
 - `redirectsmartcards:i:1` enables smart card redirection.
 - `redirectsmartcards:i:0` disables smart card redirection.
