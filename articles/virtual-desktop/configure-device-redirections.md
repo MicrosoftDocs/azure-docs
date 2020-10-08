@@ -30,7 +30,7 @@ Set the following RDP property to enable audio input (microphone) redirection:
 - `audiocapturemode:i:1` enables audio input redirection.
 - `audiocapturemode:i:0` disables audio input redirection.
 
-### Audio output redirection
+### Audio output (speaker) redirection
 
 Set the following RDP property to enable audio output (speaker) redirection:
 
