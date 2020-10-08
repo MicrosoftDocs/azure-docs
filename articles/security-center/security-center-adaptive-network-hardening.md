@@ -9,17 +9,26 @@ manager: rkarlin
 ms.assetid: 09d62d23-ab32-41f0-a5cf-8d80578181dd
 ms.service: security-center
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/11/2020
 ms.author: memildin
 ---
 
-# Adaptive Network Hardening in Azure Security Center
+# Adaptive network hardening in Azure Security Center
 Learn how to configure Adaptive Network Hardening in Azure Security Center.
 
-## What is Adaptive Network Hardening?
+## Availability
+|Aspect|Details|
+|----|:----|
+|Release state:|Generally available (GA)|
+|Pricing:|Requires [Azure Defender for servers](defender-for-servers-introduction.md)|
+|Required roles and permissions:|Write permissions on the machine’s NSGs|
+|Clouds:|![Yes](./media/icons/yes-icon.png) Commercial clouds<br>![No](./media/icons/no-icon.png) National/Sovereign (US Gov, China Gov, Other Gov)|
+|||
+
+## What is adaptive network hardening?
 Applying [network security groups (NSG)](https://docs.microsoft.com/azure/virtual-network/security-overview) to filter traffic to and from resources, improves your network security posture. However, there can still be some cases in which the actual traffic flowing through the NSG is a subset of the NSG rules defined. In these cases, further improving the security posture can be achieved by hardening the NSG rules, based on the actual traffic patterns.
 
 Adaptive Network Hardening provides recommendations to further harden the NSG rules. It uses a machine learning algorithm that factors in actual traffic, known trusted configuration, threat intelligence, and other indicators of compromise, and then provides recommendations to allow traffic only from specific IP/port tuples.
@@ -33,6 +42,8 @@ For example, let's say the existing NSG rule is to allow traffic from 140.20.30.
 ![Network hardening view](./media/security-center-adaptive-network-hardening/traffic-hardening.png)
 
 
+
+
 ## View Adaptive Network Hardening alerts and rules
 
 1. In Security Center, select **Networking** -> **Adaptive Network Hardening**. The network VMs are listed under three separate tabs:
@@ -41,7 +52,7 @@ For example, let's say the existing NSG rule is to allow traffic from 140.20.30.
    * **Unscanned resources**: VMs that the Adaptive Network Hardening algorithm cannot be run on because of one of the following reasons:
       * **VMs are Classic VMs**: Only Azure Resource Manager VMs are supported.
       * **Not enough data is available**: In order to generate accurate traffic hardening recommendations, Security Center requires at least 30 days of traffic data.
-      * **VM is not protected by ASC standard**: Only VMs that are set to Security Center's standard pricing tier are eligible for this feature.
+      * **VM is not protected by Azure Defender**: Only VMs protected with [Azure Defender for servers](defender-for-servers-introduction.md) are eligible for this feature.
 
      ![unhealthy resources](./media/security-center-adaptive-network-hardening/unhealthy-resources.png)
 
@@ -54,7 +65,7 @@ For example, let's say the existing NSG rule is to allow traffic from 140.20.30.
 
 1. From the **Unhealthy resources** tab, select a VM. The alerts and recommended hardening rules are listed.
 
-     ![hardening rules](./media/security-center-adaptive-network-hardening/hardening-alerts.png)
+     ![Hardening rules](./media/security-center-adaptive-network-hardening/hardening-alerts.png)
 
    > [!NOTE]
    > The **Rules** tab lists the rules that Adaptive Network Hardening recommends you add. The **Alerts** tab lists the alerts that were generated due to traffic, flowing to the resource, which is not within the IP range allowed in the recommended rules.
@@ -91,14 +102,14 @@ Some important guidelines for modifying an Adaptive Network Hardening rule:
 
 1. To modify  some of the parameters of a rule, in the **Rules** tab, click on the three dots (...) at the end of the rule's row, and click **Edit**.
 
-   ![edit rule](./media/security-center-adaptive-network-hardening/edit-hard-rule.png)
+   ![Editing s rule](./media/security-center-adaptive-network-hardening/edit-hard-rule.png)
 
 1. In the **Edit rule** window, update the details that you want to change, and click **Save**.
 
    > [!NOTE]
-   > After clicking **Save**, you have successfully changed the rule. *However, you have not applied it to the NSG.* To apply it, you must select the rule in the list, and click **Enforce** (as explained in the next step).
+   > After clicking **Save**, you have successfully changed the rule. *However, you have not applied it to the NSG.* To apply it, you must select the rule in the list, and select **Enforce** (as explained in the next step).
 
-   ![edit rule](./media/security-center-adaptive-network-hardening/edit-hard-rule3.png)
+   ![Selecting Save](./media/security-center-adaptive-network-hardening/edit-hard-rule3.png)
 
 3. To apply the updated rule, from the list, select the updated rule and click **Enforce**.
 
@@ -135,4 +146,4 @@ When necessary, you can delete a recommended rule for the current session. For e
 
 1. In the **Rules** tab, click on the three dots (...) at the end of the rule's row, and click **Delete**.  
 
-    ![hardening rules](./media/security-center-adaptive-network-hardening/delete-hard-rule.png)
+    ![Deleting a rule](./media/security-center-adaptive-network-hardening/delete-hard-rule.png)

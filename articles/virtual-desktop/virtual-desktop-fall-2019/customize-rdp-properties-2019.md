@@ -1,10 +1,7 @@
 ---
 title: Customize RDP Properties with PowerShell Windows Virtual Desktop (classic) - Azure
 description: How to customize RDP Properties for  Windows Virtual Desktop (classic) with PowerShell cmdlets.
-services: virtual-desktop
 author: Heidilohr
-
-ms.service: virtual-desktop
 ms.topic: how-to
 ms.date: 03/30/2020
 ms.author: helohr
@@ -46,7 +43,7 @@ Set-RdsHostPool -TenantName <tenantname> -Name <hostpoolname> -CustomRdpProperty
 ```
 
 > [!div class="mx-imgBorder"]
-> ![A screenshot of PowerShell cmdlet Get-RDSRemoteApp with Name and FriendlyName highlighted.](../media/singlecustomrdpproperty.png)
+> ![A screenshot of PowerShell cmdlet Get-RDSRemoteApp with Name and FriendlyName highlighted to edit a custom R D P property.](../media/singlecustomrdpproperty.png)
 
 ## Add or edit multiple custom RDP properties
 
@@ -58,7 +55,7 @@ Set-RdsHostPool -TenantName <tenantname> -Name <hostpoolname> -CustomRdpProperty
 ```
 
 > [!div class="mx-imgBorder"]
-> ![A screenshot of PowerShell cmdlet Get-RDSRemoteApp with Name and FriendlyName highlighted.](../media/multiplecustomrdpproperty.png)
+> ![A screenshot of PowerShell cmdlet Set-RDSRemoteApp with Name and FriendlyName highlighted to edit a custom R D P property.](../media/multiplecustomrdpproperty.png)
 
 ## Reset all custom RDP properties
 

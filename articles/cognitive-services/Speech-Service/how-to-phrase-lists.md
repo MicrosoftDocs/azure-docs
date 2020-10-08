@@ -11,7 +11,7 @@ ms.topic: conceptual
 ms.date: 02/04/2020
 ms.author: trbye
 zone_pivot_groups: programming-languages-speech-services-one-nomore-no-go
-ms.custom: devx-track-javascript
+ms.custom: "devx-track-js, devx-track-csharp"
 ---
 
 # Phrase Lists for speech-to-text

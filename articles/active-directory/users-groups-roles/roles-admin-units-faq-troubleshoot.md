@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.topic: how-to
 ms.subservice: users-groups-roles
 ms.workload: identity
-ms.date: 04/16/2020
+ms.date: 09/22/2020
 ms.author: curtand
 ms.reviewer: anandy
 ms.custom: oldportal;it-pro;
@@ -19,7 +19,7 @@ ms.collection: M365-identity-device-management
 
 # Azure AD administrative units: Troubleshooting and FAQ
 
-For more granular administrative control in Azure Active Directory (Azure AD), you can assign users to an Azure AD role with a scope that's limited to one or more administrative units (AUs). For sample PowerShell scripts for common tasks, see [Work with administrative units](https://docs.microsoft.com/powershell/azure/active-directory/working-with-administrative-units?view=azureadps-2.0).
+For more granular administrative control in Azure Active Directory (Azure AD), you can assign users to an Azure AD role with a scope that's limited to one or more administrative units (AUs). For sample PowerShell scripts for common tasks, see [Work with administrative units](/powershell/azure/active-directory/working-with-administrative-units?view=azureadps-2.0&preserve-view=true).
 
 ## Frequently asked questions
 
@@ -63,9 +63,9 @@ To prevent an elevation of privilege, an administrative unit-scoped administrato
 
 **Q: Are administrative units supported in PowerShell and the Graph API?**
 
-**A:** Yes. You'll find support for administrative units in [PowerShell cmdlet documentation](https://docs.microsoft.com/powershell/module/Azuread/?view=azureadps-2.0-preview) and [sample scripts](https://docs.microsoft.com/powershell/azure/active-directory/working-with-administrative-units?view=azureadps-2.0-preview). 
+**A:** Yes. You'll find support for administrative units in [PowerShell cmdlet documentation](/powershell/module/Azuread/?view=azureadps-2.0&preserve-view=true) and [sample scripts](/powershell/azure/active-directory/working-with-administrative-units?view=azureadps-2.0&preserve-view=true).
 
-Find support for the [administrativeUnit resource type](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/administrativeunit) in Microsoft Graph.
+Find support for the [administrativeUnit resource type](/graph/api/resources/administrativeunit?view=graph-rest-1.0&preserve-view=true) in Microsoft Graph.
 
 ## Next steps
 

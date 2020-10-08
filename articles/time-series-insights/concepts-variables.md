@@ -5,7 +5,7 @@ author: shreyasharmamsft
 ms.author: shresha
 ms.service: time-series-insights
 ms.topic: conceptual
-ms.date: 07/07/2020
+ms.date: 10/01/2020
 ---
 
 # Time Series Model variables
@@ -22,14 +22,14 @@ The following table displays which properties are relevant for each variable kin
 
 [![Time Series Model variable table](media/v2-update-tsm/time-series-model-variable-table.png)](media/v2-update-tsm/time-series-model-variable-table.png#lightbox)
 
-#### Numeric variables
+## Numeric variables
 
 | Variable property | Description |
 | --- | ---|
 | Variable filter | Filters are optional conditional clauses to restrict the number of rows being considered for computation. |
 | Variable value | Telemetry values used for computation coming from the device or sensors or transformed by using Time Series Expressions. Numeric kind variables must be of the type *Double*.|
 | Variable interpolation | Interpolation specifies how to reconstruct a signal by using existing data. *Step* and *Linear* interpolation options are available for numeric variables. |
-| Variable aggregation | Perform computations through the supported [aggregation functions for Numeric variable kinds](https://docs.microsoft.com/rest/api/time-series-insights/preview#numeric-variable-kind-1). |
+| Variable aggregation | Perform computations through the supported [aggregation functions for Numeric variable kinds](https://docs.microsoft.com/rest/api/time-series-insights/reference-time-series-expression-syntax#numeric-variable-kind). |
 
 Variables conform to the following JSON example:
 
@@ -52,7 +52,7 @@ Variables conform to the following JSON example:
 }
 ```
 
-#### Categorical variables
+## Categorical variables
 
 | Variable property | Description |
 | --- | ---|
@@ -68,7 +68,7 @@ Variables conform to the following JSON example:
 "Status": {
   "kind": "categorical",
   "value": {
-     "tsx": "$event.Status.Long" 
+     "tsx": "$event.Status.Long"
 },
   "interpolation": {
     "kind": "step",
@@ -92,12 +92,12 @@ Variables conform to the following JSON example:
 }
 ```
 
-#### Aggregate variables
+## Aggregate variables
 
 | Variable property | Description |
 | --- | ---|
 | Variable filter | Filters are optional conditional clauses to restrict the number of rows being considered for computation. |
-| Variable aggregation | Perform computations through the supported [aggregation functions for Aggregate variable kinds](https://docs.microsoft.com/rest/api/time-series-insights/preview#aggregate-variable-kind-1). |
+| Variable aggregation | Perform computations through the supported [aggregation functions for Aggregate variable kinds](https://docs.microsoft.com/rest/api/time-series-insights/reference-time-series-expression-syntax#aggregate-variable-kind). |
 
 Variables conform to the following JSON example:
 
@@ -118,4 +118,3 @@ Variables are stored in the type definition of a time series model and can be pr
 * Learn more about [Time Series Model](./concepts-model-overview.md).
 
 * Read more about how to define variables inline using [Query APIs](./concepts-query-overview.md).
-

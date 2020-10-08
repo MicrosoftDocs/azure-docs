@@ -1,16 +1,12 @@
 ---
 title: 'Tutorial: Configure Workday inbound provisioning in Azure Active Directory | Microsoft Docs'
-description: Learn how to configure inbound provisioning from Workday to Azure AD 
+description: Learn how to configure inbound provisioning from Workday to Azure AD
 services: active-directory
 author: cmmdesai
-documentationcenter: na
-manager: daveba
-ms.assetid: fac4f61e-d942-4429-a297-9ba74db95077
+manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 05/26/2020
 ms.author: chmutali
@@ -25,13 +21,13 @@ The objective of this tutorial is to show the steps you need to perform to provi
 
 The [Azure Active Directory user provisioning service](../app-provisioning/user-provisioning.md) integrates with the [Workday Human Resources API](https://community.workday.com/sites/default/files/file-hosting/productionapi/Human_Resources/v21.1/Get_Workers.html) in order to provision user accounts. The Workday user provisioning workflows supported by the Azure AD user provisioning service enable automation of the following human resources and identity lifecycle management scenarios:
 
-* **Hiring new employees** - When a new employee is added to Workday, a user account is automatically created in Azure Active Directory and optionally Office 365 and [other SaaS applications supported by Azure AD](../app-provisioning/user-provisioning.md), with write-back of the email address to Workday.
+* **Hiring new employees** - When a new employee is added to Workday, a user account is automatically created in Azure Active Directory and optionally Microsoft 365 and [other SaaS applications supported by Azure AD](../app-provisioning/user-provisioning.md), with write-back of the email address to Workday.
 
-* **Employee attribute and profile updates** - When an employee record is updated in Workday (such as their name, title, or manager), their user account will be automatically updated Azure Active Directory and optionally Office 365 and [other SaaS applications supported by Azure AD](../app-provisioning/user-provisioning.md).
+* **Employee attribute and profile updates** - When an employee record is updated in Workday (such as their name, title, or manager), their user account will be automatically updated Azure Active Directory and optionally Microsoft 365 and [other SaaS applications supported by Azure AD](../app-provisioning/user-provisioning.md).
 
-* **Employee terminations** - When an employee is terminated in Workday, their user account is automatically disabled in Azure Active Directory and optionally Office 365 and [other SaaS applications supported by Azure AD](../app-provisioning/user-provisioning.md).
+* **Employee terminations** - When an employee is terminated in Workday, their user account is automatically disabled in Azure Active Directory and optionally Microsoft 365 and [other SaaS applications supported by Azure AD](../app-provisioning/user-provisioning.md).
 
-* **Employee rehires** - When an employee is rehired in Workday, their old account can be automatically reactivated or re-provisioned (depending on your preference) to Azure Active Directory and optionally Office 365 and [other SaaS applications supported by Azure AD](../app-provisioning/user-provisioning.md).
+* **Employee rehires** - When an employee is rehired in Workday, their old account can be automatically reactivated or re-provisioned (depending on your preference) to Azure Active Directory and optionally Microsoft 365 and [other SaaS applications supported by Azure AD](../app-provisioning/user-provisioning.md).
 
 ### Who is this user provisioning solution best suited for?
 
@@ -43,7 +39,7 @@ This Workday to Azure Active Directory user provisioning solution is ideally sui
 
 * Organizations that require users to be provisioned using data obtained from Workday
 
-* Organizations using Office 365 for email
+* Organizations using Microsoft 365 for email
 
 ## Solution architecture
 

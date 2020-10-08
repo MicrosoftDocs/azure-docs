@@ -14,10 +14,10 @@ ms.author: kenwith
 ms.collection: M365-identity-device-management
 ---
 # Develop line-of-business apps for Azure Active Directory
-This guide provides an overview of developing line-of-business (LoB) applications for Azure Active Directory (AD).The intended audience is Active Directory/Office 365 global administrators.
+This guide provides an overview of developing line-of-business (LoB) applications for Azure Active Directory (AD).The intended audience is Active Directory/Microsoft 365 global administrators.
 
 ## Overview
-Building applications integrated with Azure AD gives users in your organization single sign-on with Office 365. Having the application in Azure AD gives you control over the authentication policy for the application. To learn more about Conditional Access and how to protect apps with multi-factor authentication (MFA) see [Configuring access rules](../conditional-access/app-based-mfa.md).
+Building applications integrated with Azure AD gives users in your organization single sign-on with Microsoft 365. Having the application in Azure AD gives you control over the authentication policy for the application. To learn more about Conditional Access and how to protect apps with multi-factor authentication (MFA) see [Configuring access rules](../conditional-access/app-based-mfa.md).
 
 Register your application to use Azure Active Directory. Registering the application means that your developers can use Azure AD to authenticate users and request access to user resources such as email, calendar, and documents.
 
@@ -52,7 +52,7 @@ Here’s what you, the global administrator, need to do to help developers make 
 Configure per-application access rules to your SaaS apps. For example, you can require MFA or only allow access to users on trusted networks. The details for this are available in the document [Configuring access rules](../conditional-access/app-based-mfa.md).
 
 ## Configure the app to require user assignment and assign users
-By default, users can access applications without being assigned. However, if the application exposes roles or if you want the application to appear on a user’s access panel, you should require user assignment.
+By default, users can access applications without being assigned. However, if the application exposes roles or if you want the application to appear on a user’s My Apps, you should require user assignment.
 
 If you’re an Azure AD Premium or Enterprise Mobility Suite (EMS) subscriber, we strongly recommend using groups. Assigning groups to the application allows you to delegate ongoing access management to the owner of the group. You can create the group or ask the responsible party in your organization to create the group using your group management facility.
 

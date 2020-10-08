@@ -23,13 +23,13 @@ All client applications and tools use one or more of the Analysis Services [clie
 
 All three client libraries support both Azure AD interactive flow, and non-interactive authentication methods. The two non-interactive methods, Active Directory Password and Active Directory Integrated Authentication methods can be used in applications utilizing AMOMD and MSOLAP. These two methods never result in pop-up dialog boxes.
 
-Client applications like Excel and Power BI Desktop, and tools like SSMS and Analysis Services projects extension for Visual Studio install the latest versions of the libraries when updated to the latest release. Power BI Desktop, SSMS, and Analysis Services projects extension are updated monthly. Excel is [updated with Office 365](https://support.office.com/article/When-do-I-get-the-newest-features-in-Office-2016-for-Office-365-da36192c-58b9-4bc9-8d51-bb6eed468516). Office 365 updates are less frequent, and some organizations use the deferred channel, meaning updates are deferred up to three months.
+Client applications like Excel and Power BI Desktop, and tools like SSMS and Analysis Services projects extension for Visual Studio install the latest versions of the libraries when updated to the latest release. Power BI Desktop, SSMS, and Analysis Services projects extension are updated monthly. Excel is [updated with Microsoft 365](https://support.microsoft.com/office/when-do-i-get-the-newest-features-for-microsoft-365-da36192c-58b9-4bc9-8d51-bb6eed468516). Microsoft 365 updates are less frequent, and some organizations use the deferred channel, meaning updates are deferred up to three months.
 
 Depending on the client application or tool you use, the type of authentication and how you sign in may be different. Each application may support different features for connecting to cloud services like Azure Analysis Services.
 
 Power BI Desktop, Visual Studio, and SSMS support Active Directory Universal Authentication, an interactive method that also supports Azure Multi-Factor Authentication (MFA). Azure MFA helps safeguard access to data and applications while providing a simple sign-in process. It delivers strong authentication with several verification options (phone call, text message, smart cards with pin, or mobile app notification). Interactive MFA with Azure AD can result in a pop-up dialog box for validation. **Universal Authentication is recommended**.
 
-If signing in to Azure by using a Windows account, and Universal Authentication is not selected or available (Excel), [Active Directory Federation Services (AD FS)](../active-directory/hybrid/how-to-connect-fed-azure-adfs.md) is required. With Federation, Azure AD and Office 365 users are authenticated using on-premises credentials and can access Azure resources.
+If signing in to Azure by using a Windows account, and Universal Authentication is not selected or available (Excel), [Active Directory Federation Services (AD FS)](../active-directory/hybrid/how-to-connect-fed-azure-adfs.md) is required. With Federation, Azure AD and Microsoft 365 users are authenticated using on-premises credentials and can access Azure resources.
 
 ### SQL Server Management Studio (SSMS)
 
@@ -63,7 +63,7 @@ Excel users can connect to a server by using a Windows account, an organization 
 
 ![Access control in Azure portal](./media/analysis-services-manage-users/aas-manage-users-rbac.png)
 
-Roles at this level apply to users or accounts that need to perform tasks that can be completed in the portal or by using Azure Resource Manager templates. To learn more, see [Role-Based Access Control](../role-based-access-control/overview.md). 
+Roles at this level apply to users or accounts that need to perform tasks that can be completed in the portal or by using Azure Resource Manager templates. To learn more, see [Azure role-based access control (Azure RBAC)](../role-based-access-control/overview.md). 
 
 ## Database roles
 
@@ -76,4 +76,4 @@ Roles at this level apply to users or accounts that need to perform tasks that c
 [Manage access to resources with Azure Active Directory groups](../active-directory/fundamentals/active-directory-manage-groups.md)   
 [Manage database roles and users](analysis-services-database-users.md)  
 [Manage server administrators](analysis-services-server-admins.md)  
-[Role-Based Access Control](../role-based-access-control/overview.md)  
+[Azure role-based access control (Azure RBAC)](../role-based-access-control/overview.md)  

@@ -25,13 +25,13 @@ Check if the Azure file share is already protected in the same Recovery Services
 
 Yes. Protection of Azure File Shares connected to Sync Groups is enabled.
 
-### When trying to back up file shares, I clicked on a Storage Account for discovering the file shares in it. However, I didn't protect them. How do I protect these file shares with any other vault?
+### When trying to back up file shares, I selected a Storage Account to discover the file shares in it. However, I didn't protect them. How do I protect these file shares with any other vault?
 
 When trying to back up, selecting a Storage Account to discover file shares within it registers the Storage Account with the vault from which this is done. If you choose to protect the file shares with a different vault, [unregister](manage-afs-backup.md#unregister-a-storage-account) the chosen Storage Account from this vault.
 
 ### Why can't I change the vault to configure backup for the file share?
 
-If the storage account is already registered with a vault or other file shares in the storage account are protected using a vault , you are not given an option to change it as all file shares in a storage account can be protected only by the same vault. Incase you want to change the vault, you'll need to [stop protection for all file shares in the storage account](manage-afs-backup.md#stop-protection-on-a-file-share) from the connected vault, [unregister](manage-afs-backup.md#unregister-a-storage-account) the Storage Account, and then choose a different vault for protection.
+If the storage account is already registered with a vault or other file shares in the storage account are protected using a vault , you aren't given an option to change it. All file shares in a storage account can be protected only by the same vault. If you want to change the vault, you'll need to [stop protection for all file shares in the storage account](manage-afs-backup.md#stop-protection-on-a-file-share) from the connected vault, [unregister](manage-afs-backup.md#unregister-a-storage-account) the Storage Account, and then choose a different vault for protection.
 
 ### Can I change the Vault to which I back up my file shares?
 
@@ -70,6 +70,23 @@ Yes. Refer to the detailed documentation [here](backup-azure-afs-automation.md).
 ### Can I access the snapshots taken by Azure Backups and mount them?
 
 All snapshots taken by Azure Backup can be accessed by viewing snapshots in the portal, PowerShell, or CLI. To learn more about Azure Files share snapshots, see [Overview of share snapshots for Azure Files](../storage/files/storage-snapshots-files.md).
+
+### What happens after I move a backed up file share to a different subscription?
+
+Once a file share  is moved to a different subscription, it's considered as a new file share by Azure Backup. Below are the recommended steps :
+ 
+Scenario: Let's say you have a file share FS1 in subscription S1 and it is protected using V1 vault. Now you want to move your file share to subscription S2.
+ 
+1.	Move the desired storage account and file share (FS1) to different subscription (S2).
+2.	In V1 vault, trigger stop protection with delete data operation for FS1.
+3.	Unregister the storage account hosting FS1 from V1 vault.
+4.	Reconfigure backup for FS1 , now moved to S2, with a vault (V2) in S2 subscription. 
+ 
+Please note that after reconfiguring backup with V2, the snapshots that were taken with V1 will no longer be managed by Azure Backup and hence you will have to delete those snapshots manually as per your requirement.
+
+### Can I move my backed up file share to a different resource group?
+ 
+Yes, you can move your backed up file share to a different resource group. However, you will need to reconfigure backup for the file share as it would be treated as a new  resource by Azure Backup. Also, the snapshots that were created before the resource group move, will no longer be managed by Azure backup .Hence, you will have to delete those snapshots manually as per your requirement.
 
 ### What is the maximum retention I can configure for backups?
 

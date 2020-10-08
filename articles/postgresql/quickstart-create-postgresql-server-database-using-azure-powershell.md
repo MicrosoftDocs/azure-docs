@@ -1,8 +1,8 @@
 ---
 title: 'Quickstart: Create server - Azure PowerShell - Azure Database for PostgreSQL - Single Server'
 description: Quickstart guide to create an Azure Database for PostgreSQL - Single Server using Azure PowerShell.
-author: rachel-msft
-ms.author: raagyema
+author: lfittl-msft
+ms.author: lufittl
 ms.service: postgresql
 ms.devlang: azurepowershell
 ms.topic: quickstart
@@ -208,11 +208,11 @@ what is used in this Quickstart. Read the pgAdmin documentation if you need addi
 1. In the **Create - Server** dialog box, on the **General** tab, enter a unique friendly name for
    the server, such as **mydemoserver**.
 
-   ![The "General" tab](./media/quickstart-create-postgresql-server-database-using-azure-powershell/9-pgadmin-create-server.png)
+   :::image type="content" source="./media/quickstart-create-postgresql-server-database-using-azure-powershell/9-pgadmin-create-server.png" alt-text="The General tab":::
 
 1. In the **Create - Server** dialog box, on the **Connection** tab, fill in the settings table.
 
-   ![The "Connection" tab](./media/quickstart-create-postgresql-server-database-using-azure-powershell/10-pgadmin-create-server.png)
+   :::image type="content" source="./media/quickstart-create-postgresql-server-database-using-azure-powershell/10-pgadmin-create-server.png" alt-text="The Connection tab":::
 
     pgAdmin parameter |Value|Description
     ---|---|---
@@ -240,7 +240,7 @@ what is used in this Quickstart. Read the pgAdmin documentation if you need addi
 1. Select the **Owner** for the database from the list box. Choose your server admin login name,
    such as the example, **my admin**.
 
-   ![Create a database in pgAdmin](./media/quickstart-create-postgresql-server-database-using-azure-powershell/11-pgadmin-database.png)
+   :::image type="content" source="./media/quickstart-create-postgresql-server-database-using-azure-powershell/11-pgadmin-database.png" alt-text="Create a database in pgAdmin":::
 
 1. Select **Save** to create a new blank database.
 

@@ -5,12 +5,12 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: arthii, divswa, logicappspm
 ms.topic: article
-ms.date: 07/28/2020
+ms.date: 08/18/2020
 ---
 
 # Connect to on-premises data sources from Azure Logic Apps
 
-After you [install the *on-premises data gateway* on a local computer](../logic-apps/logic-apps-gateway-install.md) and before you can access data sources on premises from your logic apps, you need to create a gateway resource in Azure for your gateway installation. You can then select this gateway resource in the triggers and actions that you want to use for the [on-premises connectors](../connectors/apis-list.md#on-premises-connectors) available in Azure Logic Apps.
+After you [install the *on-premises data gateway* on a local computer](../logic-apps/logic-apps-gateway-install.md) and before you can access data sources on premises from your logic apps, you need to create a gateway resource in Azure for your gateway installation. You can then select this gateway resource in the triggers and actions that you want to use for the [on-premises connectors](../connectors/apis-list.md#on-premises-connectors) available in Azure Logic Apps. Azure Logic Apps supports read and write operations through the data gateway. However, these operations have [limits on their payload size](/data-integration/gateway/service-gateway-onprem#considerations).
 
 This article shows how to create your Azure gateway resource for a previously [installed gateway on your local computer](../logic-apps/logic-apps-gateway-install.md). For more information about the gateway, see [How the gateway works](../logic-apps/logic-apps-gateway-install.md#gateway-cloud-service).
 
@@ -44,7 +44,7 @@ In Azure Logic Apps, the on-premises data gateway supports the [on-premises conn
 * SQL Server
 * Teradata
 
-Azure Logic Apps supports read and write operations through the data gateway. However, these operations have [limits on their payload size](/data-integration/gateway/service-gateway-onprem#considerations). Although the gateway itself doesn't incur additional costs, the [Logic Apps pricing model](../logic-apps/logic-apps-pricing.md) applies to these connectors and other operations in Azure Logic Apps.
+You can also create [custom connectors](../logic-apps/custom-connector-overview.md) that connect to data sources over HTTP or HTTPS by using REST or SOAP. Although the gateway itself doesn't incur additional costs, the [Logic Apps pricing model](../logic-apps/logic-apps-pricing.md) applies to these connectors and other operations in Azure Logic Apps.
 
 ## Prerequisites
 

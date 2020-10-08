@@ -40,7 +40,8 @@ The script is designed to be flexible. It will first look for existing Immersive
         [Parameter(Mandatory=$true)] [String] $ResourceGroupLocation,
         [Parameter(Mandatory=$true)] [String] $AADAppDisplayName="ImmersiveReaderAAD",
         [Parameter(Mandatory=$true)] [String] $AADAppIdentifierUri,
-        [Parameter(Mandatory=$true)] [String] $AADAppClientSecret
+        [Parameter(Mandatory=$true)] [String] $AADAppClientSecret,
+        [Parameter(Mandatory=$true)] [String] $AADAppClientSecretExpiration
     )
     {
         $unused = ''
@@ -89,12 +90,13 @@ The script is designed to be flexible. It will first look for existing Immersive
         $clientId = az ad app show --id $AADAppIdentifierUri --query "appId" -o tsv
         if (-not $clientId) {
             Write-Host "Creating new Azure Active Directory app"
-            $clientId = az ad app create --password $AADAppClientSecret --display-name $AADAppDisplayName --identifier-uris $AADAppIdentifierUri --query "appId" -o tsv
+            $clientId = az ad app create --password $AADAppClientSecret --end-date "$AADAppClientSecretExpiration" --display-name $AADAppDisplayName --identifier-uris $AADAppIdentifierUri --query "appId" -o tsv
 
             if (-not $clientId) {
                 throw "Error: Failed to create Azure Active Directory app"
             }
-            Write-Host "Azure Active Directory app created successfully"
+            Write-Host "Azure Active Directory app created successfully."
+            Write-Host "NOTE: To manage your Active Directory app client secrets after this Immersive Reader Resource has been created please visit https://portal.azure.com and go to Home -> Azure Active Directory -> App Registrations -> $AADAppDisplayName -> Certificates and Secrets blade -> Client Secrets section" -ForegroundColor Yellow
         }
 
         # Create a service principal if it doesn't already exist
@@ -151,6 +153,7 @@ The script is designed to be flexible. It will first look for existing Immersive
       -AADAppDisplayName '<AAD_APP_DISPLAY_NAME>' `
       -AADAppIdentifierUri '<AAD_APP_IDENTIFIER_URI>' `
       -AADAppClientSecret '<AAD_APP_CLIENT_SECRET>'
+      -AADAppClientSecretExpiration '<AAD_APP_CLIENT_SECRET_EXPIRATION>'
     ```
 
     | Parameter | Comments |
@@ -164,7 +167,12 @@ The script is designed to be flexible. It will first look for existing Immersive
     | ResourceGroupLocation |If your resource group doesn't exist, you need to supply a location in which to create the group. To find a list of locations, run `az account list-locations`. Use the *name* property (without spaces) of the returned result. This parameter is optional if your resource group already exists. |
     | AADAppDisplayName |The Azure Active Directory application display name. If an existing Azure AD application is not found, a new one with this name will be created. This parameter is optional if the Azure AD application already exists. |
     | AADAppIdentifierUri |The URI for the Azure AD app. If an existing Azure AD app is not found, a new one with this URI will be created. For example, `https://immersivereaderaad-mycompany`. |
-    | AADAppClientSecret |A password you create that will be used later to authenticate when acquiring a token to launch the Immersive Reader. The password must be at least 16 characters long, contain at least 1 special character, and contain at least 1 numeric character. |
+    | AADAppClientSecret |A password you create that will be used later to authenticate when acquiring a token to launch the Immersive Reader. The password must be at least 16 characters long, contain at least 1 special character, and contain at least 1 numeric character. To manage Azure AD application client secrets after you've created this resource please visit https://portal.azure.com and go to Home -> Azure Active Directory -> App Registrations -> `[AADAppDisplayName]` -> Certificates and Secrets blade -> Client Secrets section (as shown in the "Manage your Azure AD application secrets" screenshot below). |
+    | AADAppClientSecretExpiration |The date or datetime after which your `[AADAppClientSecret]` will expire (e.g. '2020-12-31T11:59:59+00:00' or '2020-12-31'). |
+
+    Manage your Azure AD application secrets
+
+    ![Azure Portal Certificates and Secrets blade](./media/client-secrets-blade.png)
 
 1. Copy the JSON output into a text file for later use. The output should look like the following.
 

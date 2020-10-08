@@ -3,12 +3,12 @@ title: 'Configure ExpressRoute and S2S VPN coexisting connections: classic'
 description: This article walks you through configuring ExpressRoute and a Site-to-Site VPN connection that can coexist for the classic deployment model.
 documentationcenter: na
 services: expressroute
-author: charwen
+author: duongau
 
 ms.service: expressroute
 ms.topic: how-to
 ms.date: 12/06/2019
-ms.author: charwen
+ms.author: duau
 
 
 ---
@@ -50,7 +50,7 @@ You can configure a Site-to-Site VPN connection as a backup for ExpressRoute. Th
 > 
 > 
 
-![Coexist](media/expressroute-howto-coexist-classic/scenario1.jpg)
+![Diagram that shows a Site-to-Site VPN connection as a backup for ExpressRoute.](media/expressroute-howto-coexist-classic/scenario1.jpg)
 
 ### Configure a Site-to-Site VPN to connect to sites not connected through ExpressRoute
 You can configure your network where some sites connect directly to Azure over Site-to-Site VPN, and some sites connect through ExpressRoute. 

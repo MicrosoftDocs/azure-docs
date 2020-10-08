@@ -15,19 +15,17 @@ The Eav4-series and Easv4-series utilize AMD's 2.35Ghz EPYC<sup>TM</sup> 7452 pr
 
 ## Eav4-series
 
-ACU: 230 - 260
-
-Premium Storage: Not Supported
-
-Premium Storage caching: Not Supported
-
-Live Migration: Supported
-
-Memory Preserving Updates: Supported
+[ACU](acu.md): 230 - 260<br>
+[Premium Storage](premium-storage-performance.md): Not Supported<br>
+[Premium Storage caching](premium-storage-performance.md): Not Supported<br>
+[Live Migration](maintenance-and-updates.md): Supported<br>
+[Memory Preserving Updates](maintenance-and-updates.md): Supported<br>
+[VM Generation Support](generation-2.md): Generation 1<br>
+<br>
 
 Eav4-series sizes are based on the 2.35Ghz AMD EPYC<sup>TM</sup> 7452 processor that can achieve a boosted maximum frequency of 3.35GHz and use premium SSD. The Eav4-series sizes are ideal for memory-intensive enterprise applications. Data disk storage is billed separately from virtual machines. To use premium SSD, use the Easv4-series sizes. The pricing and billing meters for Easv4 sizes are the same as the Eav3-series.
 
-| Size | vCPU | Memory: GiB | Temp storage (SSD) GiB | Max data disks | Max temp storage throughput: IOPS / Read MBps / Write MBps | Max NICs | Expected network bandwidth (MBps) |
+| Size | vCPU | Memory: GiB | Temp storage (SSD) GiB | Max data disks | Max temp storage throughput: IOPS / Read MBps / Write MBps | Max NICs | Expected network bandwidth (Mbps) |
 | -----|-----|-----|-----|-----|-----|-----|-----|
 | Standard\_E2a\_v4|2|16|50|4|3000 / 46 / 23|2 | 1000 |
 | Standard\_E4a\_v4|4|32|100|8|6000 / 93 / 46|2 | 2000 |
@@ -41,15 +39,13 @@ Eav4-series sizes are based on the 2.35Ghz AMD EPYC<sup>TM</sup> 7452 processor 
 
 ## Easv4-series
 
-ACU: 230 - 260
-
-Premium Storage: Supported
-
-Premium Storage caching: Supported
-
-Live Migration: Supported
-
-Memory Preserving Updates: Supported
+[ACU](acu.md): 230 - 260<br>
+[Premium Storage](premium-storage-performance.md): Supported<br>
+[Premium Storage caching](premium-storage-performance.md): Supported<br>
+[Live Migration](maintenance-and-updates.md): Supported<br>
+[Memory Preserving Updates](maintenance-and-updates.md): Supported<br>
+[VM Generation Support](generation-2.md): Generation 1<br>
+<br>
 
 Easv4-series sizes are based on the 2.35Ghz AMD EPYC<sup>TM</sup> 7452 processor that can achieve a boosted maximum frequency of 3.35GHz and use premium SSD. The Easv4-series sizes are ideal for memory-intensive enterprise applications.
 
@@ -78,7 +74,7 @@ Easv4-series sizes are based on the 2.35Ghz AMD EPYC<sup>TM</sup> 7452 processor
 
 Pricing Calculator: [Pricing Calculator](https://azure.microsoft.com/pricing/calculator/)
 
-More information on Disks Types : [Disk Types](https://docs.microsoft.com/azure/virtual-machines/linux/disks-types#ultra-ssd-preview/)
+More information on Disks Types : [Disk Types](./disks-types.md#ultra-disk)
 
 ## Next steps
 

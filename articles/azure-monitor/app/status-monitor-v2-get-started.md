@@ -4,7 +4,8 @@ description: A quickstart guide for Application Insights Agent. Monitor website 
 ms.topic: conceptual
 author: TimothyMothra
 ms.author: tilee
-ms.date: 04/23/2019
+ms.date: 04/23/2019 
+ms.custom: devx-track-azurepowershell
 
 ---
 

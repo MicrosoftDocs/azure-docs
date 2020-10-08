@@ -9,9 +9,9 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: quickstart
-ms.date: 04/14/2020
+ms.date: 08/05/2020
 ms.author: pafarley
-ms.custom: devx-track-javascript
+ms.custom: devx-track-js
 #Customer intent: As a Node.js developer, I want to implement a simple Face detection scenario with REST calls, so that I can build more complex scenarios later on.
 ---
 
@@ -19,7 +19,7 @@ ms.custom: devx-track-javascript
 
 In this quickstart, you'll use the Azure Face REST API with Node.js to detect human faces in an image.
 
-If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin. 
+If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/cognitive-services/) before you begin. 
 
 ## Prerequisites
 

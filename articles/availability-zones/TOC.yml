@@ -83,6 +83,10 @@
       items:
       - name: Create a zone-redundant virtual network gateway
         href: ../vpn-gateway/create-zone-redundant-vnet-gateway.md
+    - name: Application Gateway v2
+      items:
+      - name: Autoscaling and Zone-redundant Application Gateway v2
+        href: ../application-gateway/application-gateway-autoscaling-zone-redundant.md
     - name: Identity
       items:
       - name: Create an Azure Active Directory Domain Services instance
@@ -91,6 +95,10 @@
     items:
     - name: What are Edge Zones?
       href: ../networking/edge-zones-overview.md
+  - name: Azure Orbital Documentation
+    items:
+    - name: What is Azure Orbital?
+      href: ../networking/azure-orbital-overview.md
 - name: Disaster Recovery
   items:
   - name: Use Azure Site Recovery

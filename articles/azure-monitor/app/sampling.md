@@ -182,6 +182,8 @@ Use extension methods of `TelemetryProcessorChainBuilder` as shown below to cust
 > If you use this method to configure sampling, please make sure to set the `aiOptions.EnableAdaptiveSampling` property to `false` when calling `AddApplicationInsightsTelemetry()`.
 
 ```csharp
+using Microsoft.ApplicationInsights.Extensibility
+
 public void Configure(IApplicationBuilder app, IHostingEnvironment env, TelemetryConfiguration configuration)
 {
     var builder = configuration.DefaultTelemetrySink.TelemetryProcessorChainBuilder;

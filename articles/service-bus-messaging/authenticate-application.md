@@ -6,7 +6,7 @@ ms.date: 06/23/2020
 ---
 
 # Authenticate and authorize an application with Azure Active Directory to access Azure Service Bus entities
-Azure Service Bus supports using Azure Active Directory (Azure AD) to authorize requests to Service Bus entities (queues, topics, subscriptions, or filters). With Azure AD, you can use role-based access control (RBAC) to grant permissions to a security principal, which may be a user, group, or application service principal. To learn more about roles and role assignments, see [Understanding the different roles](../role-based-access-control/overview.md).
+Azure Service Bus supports using Azure Active Directory (Azure AD) to authorize requests to Service Bus entities (queues, topics, subscriptions, or filters). With Azure AD, you can use Azure role-based access control (Azure RBAC) to grant permissions to a security principal, which may be a user, group, or application service principal. To learn more about roles and role assignments, see [Understanding the different roles](../role-based-access-control/overview.md).
 
 ## Overview
 When a security principal (a user, group, or application) attempts to access a Service Bus entity, the request must be authorized. With Azure AD, access to a resource is a two-step process. 
@@ -22,12 +22,12 @@ Native applications and web applications that make requests to Service Bus can a
 
 
 ## Assigning Azure roles for access rights
-Azure Active Directory (Azure AD) authorizes access rights to secured resources through [role-based access control (RBAC)](../role-based-access-control/overview.md). Azure Service Bus defines a set of Azure built-in roles that encompass common sets of permissions used to access Service Bus entities and you can also define custom roles for accessing the data.
+Azure Active Directory (Azure AD) authorizes access rights to secured resources through [Azure RBAC](../role-based-access-control/overview.md). Azure Service Bus defines a set of Azure built-in roles that encompass common sets of permissions used to access Service Bus entities and you can also define custom roles for accessing the data.
 
 When an Azure role is assigned to an Azure AD security principal, Azure grants access to those resources for that security principal. Access can be scoped to the level of subscription, the resource group, or the Service Bus namespace. An Azure AD security principal may be a user, a group, an application service principal, or a [managed identity for Azure resources](../active-directory/managed-identities-azure-resources/overview.md).
 
 ## Azure built-in roles for Azure Service Bus
-For Azure Service Bus, the management of namespaces and all related resources through the Azure portal and the Azure resource management API is already protected using the *role-based access control* (RBAC) model. Azure provides the below Azure built-in roles for authorizing access to a Service Bus namespace:
+For Azure Service Bus, the management of namespaces and all related resources through the Azure portal and the Azure resource management API is already protected using the Azure RBAC model. Azure provides the below Azure built-in roles for authorizing access to a Service Bus namespace:
 
 - [Azure Service Bus Data Owner](../role-based-access-control/built-in-roles.md#azure-service-bus-data-owner): Enables data access to Service Bus namespace and its entities (queues, topics, subscriptions, and filters)
 - [Azure Service Bus Data Sender](../role-based-access-control/built-in-roles.md#azure-service-bus-data-sender): Use this role to give send access to Service Bus namespace and its entities.
@@ -50,7 +50,7 @@ For more information about how built-in roles are defined, see [Understand role 
 
 
 ## Assign Azure roles using the Azure portal  
-To learn more on managing access to Azure resources using RBAC and the Azure portal, see [this article](..//role-based-access-control/role-assignments-portal.md). 
+To learn more on managing access to Azure resources using Azure RBAC and the Azure portal, see [this article](..//role-based-access-control/role-assignments-portal.md). 
 
 After you've determined the appropriate scope for a role assignment, navigate to that resource in the Azure portal. Display the access control (IAM) settings for the resource, and follow these instructions to manage role assignments:
 
@@ -97,7 +97,7 @@ After you've registered your application, you'll see the **Application (client) 
 
 ![Application ID of the registered application](./media/authenticate-application/application-id.png)
 
-For more information about registering an application with Azure AD, see [Integrating applications with Azure Active Directory](../active-directory/develop/quickstart-v2-register-an-app.md).
+For more information about registering an application with Azure AD, see [Integrating applications with Azure Active Directory](../active-directory/develop/quickstart-register-app.md).
 
 > [!IMPORTANT]
 > Make note of the **TenantId** and the **ApplicationId**. You will need these values to run the application.
@@ -145,16 +145,16 @@ When you run the console application, you are prompted to select a scenario. Sel
 
 
 ## Next steps
-- To learn more about RBAC, see [What is Azure role-based access control (Azure RBAC)](../role-based-access-control/overview.md)?
+- To learn more about Azure RBAC, see [What is Azure role-based access control (Azure RBAC)](../role-based-access-control/overview.md)?
 - To learn how to assign and manage Azure role assignments with Azure PowerShell, Azure CLI, or the REST API, see these articles:
-    - [Manage role-based access control (RBAC) with Azure PowerShell](../role-based-access-control/role-assignments-powershell.md)  
-    - [Manage role-based access control (RBAC) with Azure CLI](../role-based-access-control/role-assignments-cli.md)
-    - [Manage role-based access control (RBAC) with the REST API](../role-based-access-control/role-assignments-rest.md)
-    - [Manage role-based access control (RBAC) with Azure Resource Manager Templates](../role-based-access-control/role-assignments-template.md)
+    - [Add or remove Azure role assignments using Azure PowerShell](../role-based-access-control/role-assignments-powershell.md)  
+    - [Add or remove Azure role assignments using Azure CLI](../role-based-access-control/role-assignments-cli.md)
+    - [Add or remove Azure role assignments using the REST API](../role-based-access-control/role-assignments-rest.md)
+    - [Add or remove Azure role assignments using Azure Resource Manager Templates](../role-based-access-control/role-assignments-template.md)
 
 To learn more about Service Bus messaging, see the following topics.
 
-- [Service Bus RBAC samples](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.ServiceBus.Messaging/RoleBasedAccessControl)
+- [Service Bus Azure RBAC samples](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.ServiceBus.Messaging/RoleBasedAccessControl)
 - [Service Bus queues, topics, and subscriptions](service-bus-queues-topics-subscriptions.md)
 - [Get started with Service Bus queues](service-bus-dotnet-get-started-with-queues.md)
 - [How to use Service Bus topics and subscriptions](service-bus-dotnet-how-to-use-topics-subscriptions.md)

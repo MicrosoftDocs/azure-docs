@@ -4,7 +4,7 @@ description: How to create an Azure HPC Cache instance
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: how-to
-ms.date: 07/10/2020
+ms.date: 09/30/2020
 ms.author: v-erkel
 ---
 
@@ -24,7 +24,7 @@ Click the image below to watch a [video demonstration](https://azure.microsoft.c
 
 ![screenshot of project details page in Azure portal](media/hpc-cache-create-basics.png)
 
-In **Project Details**, select the subscription and resource group that will host the cache. Make sure the subscription is on the [access](hpc-cache-prerequisites.md#azure-subscription) list.
+In **Project Details**, select the subscription and resource group that will host the cache.
 
 In **Service Details**, set the cache name and these other attributes:
 
@@ -183,6 +183,117 @@ The message includes some useful information, including these items:
 
 * Client mount addresses - Use these IP addresses when you are ready to connect clients to the cache. Read [Mount the Azure HPC Cache](hpc-cache-mount.md) to learn more.
 * Upgrade status - When a software update is released, this message will change. You can [upgrade cache software](hpc-cache-manage.md#upgrade-cache-software) manually at a convenient time, or it will be applied automatically after several days.
+
+## [Azure PowerShell](#tab/azure-powershell)
+
+> [!CAUTION]
+> The Az.HPCCache PowerShell module is currently in public preview. This preview version is provided
+> without a service level agreement. It's not recommended for production workloads. Some features
+> might not be supported or might have constrained capabilities. For more information, see
+> [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
+## Requirements
+
+If you choose to use PowerShell locally, this article requires that you install the Az PowerShell
+module and connect to your Azure account using the
+[Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount) cmdlet. For more information
+about installing the Az PowerShell module, see
+[Install Azure PowerShell](/powershell/azure/install-az-ps). If you choose to use Cloud Shell, see
+[Overview of Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview) for
+more information.
+
+> [!IMPORTANT]
+> While the **Az.HPCCache** PowerShell module is in preview, you must install it separately using
+> the `Install-Module` cmdlet. After this PowerShell module becomes generally available, it will be
+> part of future Az PowerShell module releases and available natively from within Azure Cloud Shell.
+
+```azurepowershell-interactive
+Install-Module -Name Az.HPCCache
+```
+
+## Create the cache with Azure PowerShell
+
+> [!NOTE]
+> Azure PowerShell currently does not support creating a cache with customer-managed encryption
+> keys. Use the Azure portal.
+
+Use the [New-AzHpcCache](/powershell/module/az.hpccache/new-azhpccache) cmdlet to create a new Azure
+HPC Cache.
+
+Provide these values:
+
+* Cache resource group name
+* Cache name
+* Azure region
+* Cache subnet, in this format:
+
+  `-SubnetUri "/subscriptions/<subscription_id>/resourceGroups/<cache_resource_group>/providers/Microsoft.Network/virtualNetworks/<virtual_network_name>/sub
+nets/<cache_subnet_name>"`
+
+  The cache subnet needs at least 64 IP addresses (/24), and it can't house any other resources.
+
+* Cache capacity. Two values set the maximum throughput of your Azure HPC Cache:
+
+  * The cache size (in GB)
+  * The SKU of the virtual machines used in the cache infrastructure
+
+  [Get-AzHpcCacheSku](/powershell/module/az.hpccache/get-azhpccachesku) shows the available SKUs and
+  the valid cache size options for each one. Cache size options range from 3 TB to 48 TB, but only
+  some values are supported.
+
+  This chart shows which cache size and SKU combinations are valid at the time this document is
+  being prepared (July 2020).
+
+  | Cache size | Standard_2G | Standard_4G | Standard_8G |
+  |------------|-------------|-------------|-------------|
+  | 3072 GB    | yes         | no          | no          |
+  | 6144 GB    | yes         | yes         | no          |
+  | 12,288 GB   | yes         | yes         | yes         |
+  | 24,576 GB   | no          | yes         | yes         |
+  | 49,152 GB   | no          | no          | yes         |
+
+  Read the **Set cache capacity** section in the portal instructions tab for important information
+  about pricing, throughput, and how to size your cache appropriately for your workflow.
+
+Cache creation example:
+
+```azurepowershell-interactive
+$cacheParams = @{
+  ResourceGroupName = 'doc-demo-rg'
+  CacheName = 'my-cache-0619'
+  Location = 'eastus'
+  cacheSize = '3072'
+  SubnetUri = "/subscriptions/<subscription-ID>/resourceGroups/doc-demo-rg/providers/Microsoft.Network/virtualNetworks/vnet-doc0619/subnets/default"
+  Sku = 'Standard_2G'
+}
+New-AzHpcCache @cacheParams
+```
+
+Cache creation takes several minutes. On success, the create command returns the following output:
+
+```Output
+cacheSizeGb       : 3072
+health            : @{state=Healthy; statusDescription=The cache is in Running state}
+id                : /subscriptions/<subscription-ID>/resourceGroups/doc-demo-rg/providers/Microsoft.StorageCache/caches/my-cache-0619
+location          : eastus
+mountAddresses    : {10.3.0.17, 10.3.0.18, 10.3.0.19}
+name              : my-cache-0619
+provisioningState : Succeeded
+resourceGroup     : doc-demo-rg
+sku               : @{name=Standard_2G}
+subnet            : /subscriptions/<subscription-ID>/resourceGroups/doc-demo-rg/providers/Microsoft.Network/virtualNetworks/vnet-doc0619/subnets/default
+tags              :
+type              : Microsoft.StorageCache/caches
+upgradeStatus     : @{currentFirmwareVersion=5.3.42; firmwareUpdateDeadline=1/1/0001 12:00:00 AM; firmwareUpdateStatus=unavailable; lastFirmwareUpdate=4/1/2020 10:19:54 AM; pendingFirmwareVersion=}
+```
+
+The message includes some useful information, including these items:
+
+* Client mount addresses - Use these IP addresses when you are ready to connect clients to the
+  cache. Read [Mount the Azure HPC Cache](hpc-cache-mount.md) to learn more.
+* Upgrade status - When a software update is released, this message changes. You can
+  [upgrade cache software](hpc-cache-manage.md#upgrade-cache-software) manually at a convenient
+  time, or it is applied automatically after several days.
 
 ---
 

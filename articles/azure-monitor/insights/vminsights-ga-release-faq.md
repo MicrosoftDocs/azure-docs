@@ -35,7 +35,7 @@ When a Log Analytics workspace is upgraded to the latest version of Azure Monito
 Use the following command to upgrade a workspace using PowerShell:
 
 ```PowerShell
-Set-AzureRmOperationalInsightsIntelligencePack -ResourceGroupName <resource-group-name> -WorkspaceName <workspace-name> -IntelligencePackName "VMInsights" -Enabled $True
+Set-AzOperationalInsightsIntelligencePack -ResourceGroupName <resource-group-name> -WorkspaceName <workspace-name> -IntelligencePackName "VMInsights" -Enabled $True
 ```
 
 ## What should I do about the Performance counters in my workspace if I install the VMInsights solution?

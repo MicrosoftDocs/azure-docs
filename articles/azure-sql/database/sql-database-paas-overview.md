@@ -7,11 +7,11 @@ ms.service: sql-database
 ms.subservice: service
 ms.custom: sqldbrb=3
 ms.devlang: 
-ms.topic: conceptual
+ms.topic: overview
 author: stevestein
 ms.author: sstein
-ms.reviewer: carlrab
-ms.date: 04/08/2019
+ms.reviewer:
+ms.date: 09/21/2020
 ---
 
 # What is Azure SQL Database?
@@ -24,6 +24,9 @@ With Azure SQL Database, you can create a highly available and high-performance 
 Azure SQL Database is based on the latest stable version of the [Microsoft SQL Server database engine](https://docs.microsoft.com/sql/sql-server/sql-server-technical-documentation?toc=/azure/sql-database/toc.json). You can use advanced query processing features, such as [high-performance in-memory technologies](../in-memory-oltp-overview.md) and [intelligent query processing](https://docs.microsoft.com/sql/relational-databases/performance/intelligent-query-processing?toc=/azure/sql-database/toc.json). In fact, the newest capabilities of SQL Server are released first to SQL Database, and then to SQL Server itself. You get the newest SQL Server capabilities with no overhead for patching or upgrading, tested across millions of databases. 
 
 SQL Database enables you to easily define and scale performance within two different purchasing models: a [vCore-based purchasing model](service-tiers-vcore.md) and a [DTU-based purchasing model](service-tiers-dtu.md). SQL Database is a fully managed service that has built-in high availability, backups, and other common maintenance operations. Microsoft handles all patching and updating of the SQL and operating system code. You don't have to manage the underlying infrastructure.
+
+If you're new to Azure SQL Database, check out the *Azure SQL Database Overview* video from our in-depth [Azure SQL video series](https://channel9.msdn.com/Series/Azure-SQL-for-Beginners?WT.mc_id=azuresql4beg_azuresql-ch9-niner):
+> [!VIDEO https://channel9.msdn.com/Series/Azure-SQL-for-Beginners/Azure-SQL-Database-Overview-7-of-61/player]
 
 ## Deployment models
 
@@ -157,11 +160,8 @@ SQL Database provides a range of [built-in security and compliance features](../
 
 ### Advance threat protection
 
-Advanced data security is a unified package for advanced SQL security capabilities. It includes functionality for discovering and classifying sensitive data, managing your database vulnerabilities, and detecting anomalous activities that might indicate a threat to your database. It provides a single location for enabling and managing these capabilities.
+Azure Defender for SQL is a unified package for advanced SQL security capabilities. It includes functionality for managing your database vulnerabilities, and detecting anomalous activities that might indicate a threat to your database. It provides a single location for enabling and managing these capabilities.
 
-- [Data discovery and classification](data-discovery-and-classification-overview.md):
-
-  This feature provides capabilities built into Azure SQL Database for discovering, classifying, labeling, and protecting the sensitive data in your databases. It provides visibility into your database classification state, and tracks the access to sensitive data within the database and beyond its borders.
 - [Vulnerability assessment](sql-vulnerability-assessment.md):
 
   This service can discover, track, and help you remediate potential database vulnerabilities. It provides visibility into your security state, and includes actionable steps to resolve security issues, and enhance your database fortifications.
@@ -177,6 +177,10 @@ Advanced data security is a unified package for advanced SQL security capabiliti
 
 SQL Database helps secure your data by providing encryption. For data in motion, it uses [transport layer security](https://support.microsoft.com/kb/3135244). For data at rest, it uses [transparent data encryption](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql). For data in use, it uses [Always Encrypted](https://docs.microsoft.com/sql/relational-databases/security/encryption/always-encrypted-database-engine).
 
+### Data discovery and classification
+
+[Data discovery and classification](data-discovery-and-classification-overview.md) provides capabilities built into Azure SQL Database for discovering, classifying, labeling, and protecting the sensitive data in your databases. It provides visibility into your database classification state, and tracks the access to sensitive data within the database and beyond its borders.
+
 ### Azure Active Directory integration and multi-factor authentication
 
 SQL Database enables you to centrally manage identities of database user and other Microsoft services with [Azure Active Directory integration](authentication-aad-overview.md). This capability simplifies permission management and enhances security. Azure Active Directory supports [multi-factor authentication](authentication-mfa-ssms-overview.md) to increase data and application security, while supporting a single sign-in process.
@@ -188,10 +192,10 @@ SQL Database makes building and maintaining applications easier and more product
 |Tool|Description|
 |:---|:---|
 |[The Azure portal](https://portal.azure.com/)|A web-based application for managing all Azure services.|
-|[Azure Data Studio](/sql/azure-data-studio/)|A cross-platform database tool that runs on Windows, MacOS, and Linux.|
+|[Azure Data Studio](/sql/azure-data-studio/)|A cross-platform database tool that runs on Windows, macOS, and Linux.|
 |[SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms)|A free, downloadable client application for managing any SQL infrastructure, from SQL Server to SQL Database.|
 |[SQL Server Data Tools in Visual Studio](https://docs.microsoft.com/sql/ssdt/download-sql-server-data-tools-ssdt)|A free, downloadable client application for developing SQL Server relational databases, databases in Azure SQL Database, Integration Services packages, Analysis Services data models, and Reporting Services reports.|
-|[Visual Studio Code](https://code.visualstudio.com/docs)|A free, downloadable, open-source code editor for Windows, macOS, and Linux. It supports extensions, including the [mssql extension](https://aka.ms/mssql-marketplace) for querying Microsoft SQL Server, Azure SQL Database, and Azure SQL Data Warehouse.|
+|[Visual Studio Code](https://code.visualstudio.com/docs)|A free, downloadable, open-source code editor for Windows, macOS, and Linux. It supports extensions, including the [mssql extension](https://aka.ms/mssql-marketplace) for querying Microsoft SQL Server, Azure SQL Database, and Azure Azure Synapse Analytics (formerly SQL Data Warehouse).|
 
 SQL Database supports building applications with Python, Java, Node.js, PHP, Ruby, and .NET on macOS, Linux, and Windows. SQL Database supports the same [connection libraries](connect-query-content-reference-guide.md#libraries) as SQL Server.
 

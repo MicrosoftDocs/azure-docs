@@ -9,7 +9,7 @@ ms.author: brjohnst
 tags: complex data types; compound data types; aggregate data types
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 07/12/2020
+ms.date: 10/07/2020
 ---
 
 # How to model complex data types in Azure Cognitive Search
@@ -31,11 +31,13 @@ To get started, we recommend the [Hotels data set](https://github.com/Azure-Samp
 
 The following JSON document is composed of simple fields and complex fields. Complex fields, such as `Address` and `Rooms`, have sub-fields. `Address` has a single set of values for those sub-fields, since it's a single object in the document. In contrast, `Rooms` has multiple sets of values for its sub-fields, one for each object in the collection.
 
+
 ```json
 {
   "HotelId": "1",
   "HotelName": "Secret Point Motel",
   "Description": "Ideally located on the main commercial artery of the city in the heart of New York.",
+  "Tags": ["Free wifi", "on-site parking", "indoor pool", "continental breakfast"]
   "Address": {
     "StreetAddress": "677 5th Ave",
     "City": "New York",
@@ -44,21 +46,30 @@ The following JSON document is composed of simple fields and complex fields. Com
   "Rooms": [
     {
       "Description": "Budget Room, 1 Queen Bed (Cityside)",
-      "Type": "Budget Room",
-      "BaseRate": 96.99
+      "RoomNumber": 1105,
+      "BaseRate": 96.99,
     },
     {
       "Description": "Deluxe Room, 2 Double Beds (City View)",
       "Type": "Deluxe Room",
-      "BaseRate": 150.99
-    },
+      "BaseRate": 150.99,
+    }
+    . . .
   ]
 }
 ```
 
+<a name="indexing-complex-types></a>
+
+## Indexing complex types
+
+During indexing, you can have a maximum of 3000 elements across all complex collections within a single document. An element of a complex collection is a member of that collection, so in the case of Rooms (the only complex collection in the Hotel example), each room is an element. In the example above, if the "Secret Point Motel" had 500 rooms, the hotel document would have 500 room elements. For nested complex collections, each nested element is also counted, in addition to the outer (parent) element.
+
+This limit applies only to complex collections, and not complex types (like Address) or string collections (like Tags).
+
 ## Creating complex fields
 
-As with any index definition, you can use the portal, [REST API](https://docs.microsoft.com/rest/api/searchservice/create-index), or [.NET SDK](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.index?view=azure-dotnet) to create a schema that includes complex types. 
+As with any index definition, you can use the portal, [REST API](/rest/api/searchservice/create-index), or [.NET SDK](/dotnet/api/microsoft.azure.search.models.index) to create a schema that includes complex types. 
 
 The following example shows a JSON index schema with simple fields, collections, and complex types. Notice that within a complex type, each sub-field has a type and may have attributes, just as top-level fields do. The schema corresponds to the example data above. `Address` is a complex field that isn't a collection (a hotel has one address). `Rooms` is a complex collection field (a hotel has many rooms).
 
@@ -89,7 +100,7 @@ The following example shows a JSON index schema with simple fields, collections,
 
 ## Updating complex fields
 
-All of the [reindexing rules](search-howto-reindex.md) that apply to fields in general still apply to complex fields. Restating a few of the main rules here, adding a field doesn't require an index rebuild, but most modifications do.
+All of the [reindexing rules](search-howto-reindex.md) that apply to fields in general still apply to complex fields. Restating a few of the main rules here, adding a field to a complex type doesn't require an index rebuild, but most modifications do.
 
 ### Structural updates to the definition
 

@@ -61,7 +61,7 @@ Secrets resources are deployable independent of an application or service resour
 
 Containers often make temporary disks available. Temporary disks are ephemeral, however, so you get a new temporary disk and lose the information when a container crashes. It is also difficult to share information on temporary disks with other containers. Volumes are directories that get mounted inside your container instances that you can use to persist state. Volumes give you general-purpose file storage and allow you to read/write files using normal disk I/O file APIs. The Volume resource is a declarative way to describe how a directory is mounted and the backing storage for it (either Azure Files Volume or Service Fabric Reliable Volume).  For more information, read [storing state](service-fabric-mesh-storing-state.md#volumes).
 
-![Volumes][Image3]
+![Diagram shows a Service flowing to a disk volume, which flows to both Service Fabric Reliable Volume, then to a replicated local disk, and to Azure Files Volume, then to network storage.][Image3]
 
 ## Programming models
 Service resource only requires a container image to run, which is referenced in the code package(s) associated with the resource. You can run any code, written in any language, using any framework inside the container without requiring to know, or use, Service Fabric Mesh specific APIs. 

@@ -12,7 +12,8 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: infrastructure-services
 ms.date: 12/21/2018
 ms.author: mathoma
-ms.reviewer: jroth
+ms.reviewer: jroth 
+ms.custom: devx-track-azurepowershell
 ---
 
 # Quickstart: Create SQL Server on a Windows virtual machine with Azure PowerShell
@@ -167,7 +168,7 @@ Then during a maintenance window, upgrade to full mode:
 $vm = Get-AzVM -Name <vm_name> -ResourceGroupName <resource_group_name>
       
 # Register with SQL VM resource provider in full mode
-New-AzSqlVM -Name $vm.Name -ResourceGroupName $vm.ResourceGroupName -SqlManagementType Full
+Update-AzSqlVM -Name $vm.Name -ResourceGroupName $vm.ResourceGroupName -SqlManagementType Full
 ```
 
 

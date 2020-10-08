@@ -30,7 +30,7 @@ The Microsoft certification team reviews the video and files, then either approv
 
 ### Option 1: 30-minute conference call
 
-To schedule a final review call, contact [appsourceCRM@microsoft.com](mailto:appsourceCRM@microsoft.com) with the name of your offer and some potential time slots between 8 a.m. and 5 p.m. Pacific Time.
+To schedule a final review call, contact [appsourceCRM@microsoft.com](mailto:appsourceCRM@microsoft.com) with the name of your offer and some potential time slots between 8 AM and 5 PM Pacific Time.
 
 ### Option 2: Upload a demo video and LCS screenshots
 
@@ -53,7 +53,7 @@ To schedule a final review call, contact [appsourceCRM@microsoft.com](mailto:app
 
     | Field | Image <img src="" width="400px">|
     | --- | --- |
-    | Package overview | [![Package overview screen](media/dynamics-365-finance-operations/package-overview-45.png)](media/dynamics-365-finance-operations/package-overview.png#lightbox) |
+    | Package overview | [![Screenshot that shows the "Package overview" window.](media/dynamics-365-finance-operations/package-overview-45.png)](media/dynamics-365-finance-operations/package-overview.png#lightbox) |
     | <ul><li>Solution approvers</li></ul> | [![Package overview screen](media/dynamics-365-finance-operations/solution-approvers-45.png)](media/dynamics-365-finance-operations/solution-approvers.png#lightbox) |
     | Package contents<ul><li>Model</li><li>Software deployable package</li></ul> | [![Package contents screen one](media/dynamics-365-finance-operations/package-contents-1-45.png)](media/dynamics-365-finance-operations/package-contents-1.png#lightbox) |
     | <ul><li>GER configuration</li><li>Database backup</li></ul><br>Artifacts are not required in the **GER configuration** section. | [![Package contents screen two](media/dynamics-365-finance-operations/package-contents-2-45.png)](media/dynamics-365-finance-operations/package-contents-2.png#lightbox) |

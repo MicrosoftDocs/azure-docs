@@ -229,6 +229,8 @@ Enter the following parameter values in the file `azuredeploy.parameters.json`:
 |targetName     |  Name you choose for the artifacts blob exported to your source storage account, such as *myblob*
 |artifacts | Array of source artifacts to transfer, as tags or manifest digests<br/>Example: `[samples/hello-world:v1", "samples/nginx:v1" , "myrepository@sha256:0a2e01852872..."]` |
 
+If redeploying a PipelineRun resource with identical properties, you must also use the [forceUpdateTag](#redeploy-pipelinerun-resource) property.
+
 Run [az deployment group create][az-deployment-group-create] to create the PipelineRun resource. The following example names the deployment *exportPipelineRun*.
 
 ```azurecli
@@ -243,7 +245,7 @@ It can take several minutes for artifacts to export. When deployment completes s
 
 ```azurecli
 az storage blob list \
-  --account-name $SA_SOURCE
+  --account-name $SOURCE_SA
   --container transfer
   --output table
 ```
@@ -286,6 +288,8 @@ Enter the following parameter values in the file `azuredeploy.parameters.json`:
 |pipelineResourceId     |  Resource ID of the import pipeline.<br/>Example: `/subscriptions/<subscriptionID>/resourceGroups/<resourceGroupName>/providers/Microsoft.ContainerRegistry/registries/<sourceRegistryName>/importPipelines/myImportPipeline`       |
 |sourceName     |  Name of the existing blob for exported artifacts in your storage account, such as *myblob*
 
+If redeploying a PipelineRun resource with identical properties, you must also use the [forceUpdateTag](#redeploy-pipelinerun-resource) property.
+
 Run [az deployment group create][az-deployment-group-create] to run the resource.
 
 ```azurecli
@@ -299,6 +303,23 @@ When deployment completes successfully, verify artifact import by listing the re
 
 ```azurecli
 az acr repository list --name <target-registry-name>
+```
+
+## Redeploy PipelineRun resource
+
+If redeploying a PipelineRun resource with *identical properties*, you must leverage the **forceUpdateTag** property. This property indicates that the PipelineRun resource should be recreated even if the configuration has not changed. Please ensure forceUpdateTag is different each time you redeploy the PipelineRun resource. The example below recreates a PipelineRun for export. The current datetime is used to set forceUpdateTag, thereby ensuring this property is always unique.
+
+```console
+CURRENT_DATETIME=`date +"%Y-%m-%d:%T"`
+```
+
+```azurecli
+az deployment group create \
+  --resource-group $SOURCE_RG \
+  --template-file azuredeploy.json \
+  --name exportPipelineRun \
+  --parameters azuredeploy.parameters.json \
+  --parameters forceUpdateTag=$CURRENT_DATETIME
 ```
 
 ## Delete pipeline resources

@@ -64,7 +64,7 @@ Azure integration runtime provides the native compute to move data between cloud
 
 Activity dispatch is a lightweight operation to route the activity to the target compute service, so there isn't need to scale up the compute size for this scenario.
 
-For information about creating and configuring an Azure IR, reference how to create and configure Azure IR under how to guides. 
+For information about creating and configuring an Azure IR, see [How to create and configure Azure Integration Runtime](create-azure-integration-runtime.md). 
 
 > [!NOTE] 
 > Azure Integration runtime has properties related to Data Flow runtime, which defines the underlying compute infrastructure that would be used to run the data flows on. 
@@ -138,7 +138,7 @@ If you choose to use the auto-resolve Azure IR in public network, which is the d
   - When copy data to Salesforce of which the region is not detectable, copy activity is executed on IR in East US.
 
   >[!TIP] 
-  >If you have strict data compliance requirements and need ensure that data do not leave a certain geography, you can explicitly create an Azure IR in a certain region and point the Linked Service to this IR using ConnectVia property. For example, if you want to copy data from Blob in UK South to SQL DW in UK South and want to ensure data do not leave UK, create an Azure IR in UK South and link both Linked Services to this IR.
+  >If you have strict data compliance requirements and need ensure that data do not leave a certain geography, you can explicitly create an Azure IR in a certain region and point the Linked Service to this IR using ConnectVia property. For example, if you want to copy data from Blob in UK South to Azure Synapse Analytics in UK South and want to ensure data do not leave UK, create an Azure IR in UK South and link both Linked Services to this IR.
 
 - For Lookup/GetMetadata/Delete activity execution (also known as Pipeline activities), transformation activity dispatching (also known as External activities), and authoring operations (test connection, browse folder list and table list, preview data), ADF uses the IR in the data factory region.
 

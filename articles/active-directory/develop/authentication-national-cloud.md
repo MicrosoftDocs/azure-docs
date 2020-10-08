@@ -63,7 +63,7 @@ For single-tenant applications, replace "common" in the previous URLs with your 
 
 ## Microsoft Graph API
 
-To learn how to call the Microsoft Graph APIs in a national cloud environment, go to [Microsoft Graph in national cloud deployments](https://developer.microsoft.com/graph/docs/concepts/deployments).
+To learn how to call the Microsoft Graph APIs in a national cloud environment, go to [Microsoft Graph in national cloud deployments](/graph/deployments).
 
 > [!IMPORTANT]
 > Certain services and features that are in specific regions of the global service might not be available in all of the national clouds. To find out what services are available, go to [Products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=all&regions=usgov-non-regional,us-dod-central,us-dod-east,usgov-arizona,usgov-iowa,usgov-texas,usgov-virginia,china-non-regional,china-east,china-east-2,china-north,china-north-2,germany-non-regional,germany-central,germany-northeast).
@@ -74,7 +74,7 @@ To learn how to build an application by using the Microsoft identity platform, f
 
 Learn more about:
 
-- [Azure Government](https://docs.microsoft.com/azure/azure-government/)
-- [Azure China 21Vianet](https://docs.microsoft.com/azure/china/)
-- [Azure Germany](https://docs.microsoft.com/azure/germany/)
-- [Azure AD authentication basics](authentication-scenarios.md)
+- [Azure Government](../../azure-government/index.yml)
+- [Azure China 21Vianet](/azure/china/)
+- [Azure Germany](../../germany/index.yml)
+- [Azure AD authentication basics](./authentication-vs-authorization.md)

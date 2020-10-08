@@ -50,11 +50,11 @@ To view the utilization and availability of your storage accounts across all of 
 
 ### Overview workbook
 
-On the **Overview** workbook for the selected subscription, the table displays interactive storage metrics and service availability state for up to 10 storage accounts grouped within the subscription. You can filter the results based on the options you select from the following drop-down lists:
+On the **Overview** workbook for the selected subscription, the table displays interactive storage metrics and service availability state for up to 5 storage accounts grouped within the subscription. You can filter the results based on the options you select from the following drop-down lists:
 
 * **Subscriptions** - only subscriptions that have storage accounts are listed.  
 
-* **Storage Accounts** - by default, 10 storage accounts are pre-selected. If you select all or multiple storage accounts in the scope selector, up to 200 storage accounts will be returned. For example, if you had a total of 573 storage accounts across three subscriptions that you've selected, only 200 accounts would be displayed. 
+* **Storage Accounts** - by default, 5 storage accounts are pre-selected. If you select all or multiple storage accounts in the scope selector, up to 200 storage accounts will be returned. For example, if you had a total of 573 storage accounts across three subscriptions that you've selected, only 200 accounts would be displayed. 
 
 * **Time Range** - by default, displays the last 4 hours of information based on the corresponding selections made.
 

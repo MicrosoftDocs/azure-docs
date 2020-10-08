@@ -15,7 +15,7 @@ ms.author: allensu
 
 Private DNS zones and records are critical resources. Deleting a DNS zone or a single DNS record can result in a service outage. It's important that DNS zones and records are protected against unauthorized or accidental changes.
 
-This article explains how Azure DNS enables you to protect your private DNS zones and records against such changes.  We apply two powerful securities features provided by Azure Resource Manager: [role-based access control](../role-based-access-control/overview.md) and [resource locks](../azure-resource-manager/management/lock-resources.md).
+This article explains how Azure DNS enables you to protect your private DNS zones and records against such changes.  We apply two powerful securities features provided by Azure Resource Manager: [Azure role-based access control (Azure RBAC)](../role-based-access-control/overview.md) and [resource locks](../azure-resource-manager/management/lock-resources.md).
 
 ## Role-based access control
 
@@ -97,9 +97,9 @@ Permissions are applied at the record set level.  The user is granted control to
 
 Record-set level RBAC permissions can be configured via the Azure portal, using the **Access Control (IAM)** button in the record set page:
 
-![Record set level RBAC via the Azure portal](./media/dns-protect-private-zones-recordsets/rbac3.png)
+![Screenshot shows the Access Control (I A M) button.](./media/dns-protect-private-zones-recordsets/rbac3.png)
 
-![Record set level RBAC via the Azure portal](./media/dns-protect-private-zones-recordsets/rbac4.png)
+![Screenshot shows Access Control with Add role assignment selected.](./media/dns-protect-private-zones-recordsets/rbac4.png)
 
 Record-set level RBAC permissions can also be [granted using Azure PowerShell](../role-based-access-control/role-assignments-powershell.md):
 

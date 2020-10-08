@@ -2,14 +2,13 @@
 title: Azure Service Bus frequently asked questions (FAQ) | Microsoft Docs
 description: This article provides answers to some of the frequently asked questions (FAQ) about Azure Service Bus.
 ms.topic: article
-ms.date: 07/15/2020
+ms.date: 09/16/2020
 ---
 
 # Azure Service Bus - Frequently asked questions (FAQ)
 
 This article discusses some frequently asked questions about Microsoft Azure Service Bus. You can also visit the [Azure Support FAQs](https://azure.microsoft.com/support/faq/) for general Azure pricing and support information.
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## General questions about Azure Service Bus
 ### What is Azure Service Bus?
@@ -31,6 +30,9 @@ Ordering isn't ensured when using partitioned entities. In the event that a part
 
  Partitioned entities are no longer supported in the [Premium SKU](service-bus-premium-messaging.md). 
 
+### <a name="in-region-data-residency"></a>Where does Azure Service Bus store customer data?
+Azure Service Bus stores customer data. This data is automatically stored by Service Bus in a single region, so this service automatically satisfies in region data residency requirements including those specified in the [Trust Center](https://azuredatacentermap.azurewebsites.net/).
+
 ### What ports do I need to open on the firewall? 
 You can use the following protocols with Azure Service Bus to send and receive messages:
 
@@ -43,7 +45,7 @@ See the following table for the outbound ports you need to open to use these pro
 | Protocol | Ports | Details | 
 | -------- | ----- | ------- | 
 | AMQP | 5671 and 5672 | See [AMQP protocol guide](service-bus-amqp-protocol-guide.md) | 
-| SBMP | 9350 to 9354 | See [Connectivity mode](/dotnet/api/microsoft.servicebus.connectivitymode?view=azure-dotnet) |
+| SBMP | 9350 to 9354 | See [Connectivity mode](/dotnet/api/microsoft.servicebus.connectivitymode?view=azure-dotnet&preserve-view=true) |
 | HTTP, HTTPS | 80, 443 | 
 
 ### What IP addresses do I need to add to allow list?
@@ -52,16 +54,16 @@ To find the right IP addresses to add to allow list for your connections, follow
 1. Run the following command from a command prompt: 
 
     ```
-    nslookup <YourNamespaceName>.cloudapp.net
+    nslookup <YourNamespaceName>.servicebus.windows.net
     ```
-2. Note down the IP address returned in `Non-authoritative answer`. This IP address is static. The only time it would change is if you restore the namespace on to a different cluster.
+2. Note down the IP address returned in `Non-authoritative answer`. 
 
-If you use the zone redundancy for your namespace, you need to do a few additional steps: 
+If you use the **zone redundancy** for your namespace, you need to do a few additional steps: 
 
 1. First, you run nslookup on the namespace.
 
     ```
-    nslookup <yournamespace>.cloudapp.net
+    nslookup <yournamespace>.servicebus.windows.net
     ```
 2. Note down the name in the **non-authoritative answer** section, which is in one of the following formats: 
 
@@ -71,6 +73,9 @@ If you use the zone redundancy for your namespace, you need to do a few addition
     <name>-s3.cloudapp.net
     ```
 3. Run nslookup for each one with suffixes s1, s2, and s3 to get the IP addresses of all three instances running in three availability zones, 
+
+    > [!NOTE]
+    > The IP address returned by the `nslookup` command isn't a static IP address. However, it remains constant until the underlying deployment is deleted or moved to a different cluster.
 
 ### Where can I find the IP address of the client sending/receiving messages to/from a namespace? 
 We don't log the IP addresses of clients sending or receiving messages to/from your namespace. Regenerate keys so that all existing clients will fail to authenticate and review role-based access control ([RBAC](authenticate-application.md#azure-built-in-roles-for-azure-service-bus)) settings to ensure that only allowed users or applications have access to the namespace. 

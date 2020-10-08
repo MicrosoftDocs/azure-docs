@@ -1,8 +1,8 @@
 ---
 title: Secure WebHook delivery with Azure AD in Azure Event Grid
 description: Describes how to deliver events to HTTPS endpoints protected by Azure Active Directory using Azure Event Grid
-ms.topic: conceptual
-ms.date: 07/07/2020
+ms.topic: how-to
+ms.date: 10/05/2020
 ---
 
 # Publish events to Azure Active Directory protected endpoints
@@ -11,7 +11,6 @@ This article describes how to take advantage of Azure Active Directory to secure
 
 This article uses the Azure portal for demonstration, however the feature can also be enabled using CLI, PowerShell, or the SDKs.
 
-[!INCLUDE [event-grid-preview-feature-note.md](../../includes/event-grid-preview-feature-note.md)]
 
 ## Create an Azure AD Application
 
@@ -19,27 +18,46 @@ Begin by creating an Azure AD Application for your protected endpoint. See https
     - Configure your protected API to be called by a daemon app.
     
 ## Enable Event Grid to use your Azure AD Application
+This section shows you how to enable Event Grid to use your Azure AD application. 
 
-Use the PowerShell script below in order to create a role and service principal in your Azure AD Application. You will need the Tenant ID and Object ID from your Azure AD Application:
+> [!NOTE]
+> You must be a member of the [Azure AD Application Administrator role](../active-directory/users-groups-roles/directory-assign-admin-roles.md#available-roles) to execute this script.
 
-   > [!NOTE]
-   > You must be a member of the [Azure AD Application Administrator role](../active-directory/users-groups-roles/directory-assign-admin-roles.md#available-roles) to execute this script.
-    
-1. Modify the PowerShell script's $myTenantId to use your Azure AD Tenant ID.
-1. Modify the PowerShell script's $myAzureADApplicationObjectId to use the Object ID of your Azure AD Application
-1. Run the modified script.
+### Connect to your Azure tenant
+First, connect to your Azure tenant using the `Connect-AzureAD` command. 
 
 ```PowerShell
 # This is your Tenant Id. 
 $myTenantId = "<the Tenant Id of your Azure AD Application>"
-
 Connect-AzureAD -TenantId $myTenantId
-    
-# This is your Azure AD Application's ObjectId. 
-$myAzureADApplicationObjectId = "<the Object Id of your Azure AD Application>"
-    
+```
+
+### Create Microsoft.EventGrid service principal
+Run the following script to create the service principal for **Microsoft.EventGrid** if it doesn't already exist. 
+
+```PowerShell
 # This is the "Azure Event Grid" Azure Active Directory AppId
 $eventGridAppId = "4962773b-9cdb-44cf-a8bf-237846a00ab7"
+    
+$eventGridSP = Get-AzureADServicePrincipal -Filter ("appId eq '" + $eventGridAppId + "'")
+
+# Create the service principal if it doesn't exist
+if ($eventGridSP -match "Microsoft.EventGrid")
+{
+    Write-Host "The Service principal is already defined.`n"
+} else
+{
+    # Create a service principal for the "Azure Event Grid" Azure AD Application and add it to the role
+    $eventGridSP = New-AzureADServicePrincipal -AppId $eventGridAppId
+}
+```
+
+### Create a role for your application   
+Run the following script to create a role for your Azure AD application. In this example, the role name is: **AzureEventGridSecureWebhook**. Modify the PowerShell script's `$myTenantId` to use your Azure AD Tenant ID, and `$myAzureADApplicationObjectId` with the Object ID of your Azure AD Application
+
+```PowerShell
+# This is your Azure AD Application's ObjectId. 
+$myAzureADApplicationObjectId = "<the Object Id of your Azure AD Application>"
     
 # This is the name of the new role we will add to your Azure AD Application
 $eventGridRoleName = "AzureEventGridSecureWebhook"
@@ -57,11 +75,10 @@ Function CreateAppRole([string] $Name, [string] $Description)
     $appRole.Value = $Name;
     return $appRole
 }
-    
+
 # Get my Azure AD Application, it's roles and service principal
 $myApp = Get-AzureADApplication -ObjectId $myAzureADApplicationObjectId
 $myAppRoles = $myApp.AppRoles
-$eventGridSP = Get-AzureADServicePrincipal -Filter ("appId eq '" + $eventGridAppId + "'")
 
 Write-Host "App Roles before addition of new role.."
 Write-Host $myAppRoles
@@ -70,8 +87,7 @@ Write-Host $myAppRoles
 if ($myAppRoles -match $eventGridRoleName)
 {
     Write-Host "The Azure Event Grid role is already defined.`n"
-}
-else
+} else
 {
     $myServicePrincipal = Get-AzureADServicePrincipal -Filter ("appId eq '" + $myApp.AppId + "'")
     
@@ -80,25 +96,25 @@ else
     $myAppRoles.Add($newRole)
     Set-AzureADApplication -ObjectId $myApp.ObjectId -AppRoles $myAppRoles
 }
-    
-# Create the service principal if it doesn't exist
-if ($eventGridSP -match "Microsoft.EventGrid")
-{
-    Write-Host "The Service principal is already defined.`n"
-}
-else
-{
-    # Create a service principal for the "Azure Event Grid" Azure AD Application and add it to the role
-    $eventGridSP = New-AzureADServicePrincipal -AppId $eventGridAppId
-}
-    
+
+# print application's roles
+Write-Host "My Azure AD Application's Roles: "
+Write-Host $myAppRoles
+```
+
+### Add Event Grid service principal to the role    
+Now, run the `New-AzureADServiceAppRoleAssignment` command to assign Event Grid service principal to the role you created in the previous step. 
+
+```powershell
 New-AzureADServiceAppRoleAssignment -Id $myApp.AppRoles[0].Id -ResourceId $myServicePrincipal.ObjectId -ObjectId $eventGridSP.ObjectId -PrincipalId $eventGridSP.ObjectId
-    
+```
+
+Run the following commands to output information that you will use the next steps. 
+
+```powershell    
 Write-Host "My Azure AD Tenant Id: $myTenantId"
 Write-Host "My Azure AD Application Id: $($myApp.AppId)"
 Write-Host "My Azure AD Application ObjectId: $($myApp.ObjectId)"
-Write-Host "My Azure AD Application's Roles: "
-Write-Host $myApp.AppRoles
 ```
     
 ## Configure the event subscription

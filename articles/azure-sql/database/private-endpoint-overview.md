@@ -17,29 +17,7 @@ ms.date: 03/09/2020
 Private Link allows you to connect to various PaaS services in Azure via a **private endpoint**. For a list of PaaS services that support Private Link functionality, go to the [Private Link Documentation](../../private-link/index.yml) page. A private endpoint is a private IP address within a specific [VNet](../../virtual-network/virtual-networks-overview.md) and subnet.
 
 > [!IMPORTANT]
-> This article applies to both Azure SQL Database and Azure Synapse Analytics (formerly Azure SQL Data Warehouse). For simplicity, the term 'database' refers to both databases in Azure SQL Database and Azure Synapse Analytics. Likewise, any references to 'server' is referring to the [logical SQL server](logical-servers.md) that hosts Azure SQL Database and Azure Synapse Analytics. This article does *not* apply to **Azure SQL Managed Instance**.
-
-## Data exfiltration prevention
-
-Data exfiltration in Azure SQL Database is when an authorized user, such as a database admin is able extract data from one system and move it another location or system outside the organization. For example, the user moves the data to a storage account owned by a third party.
-
-Consider a scenario with a user running SQL Server Management Studio (SSMS) inside an Azure virtual machine connecting to a database in SQL Database. This database is in the West US data center. The example below shows how to limit access with public endpoints on SQL Database using network access controls.
-
-1. Disable all Azure service traffic to SQL Database via the public endpoint by setting Allow Azure Services to **OFF**. Ensure no IP addresses are allowed in the server and database level firewall rules. For more information, see [Azure SQL Database and Azure Synapse Analytics network access controls](network-access-controls-overview.md).
-1. Only allow traffic to the database in SQL Database using the Private IP address of the VM. For more information, see the articles on [Service Endpoint](vnet-service-endpoint-rule-overview.md) and [virtual network firewall rules](firewall-configure.md).
-1. On the Azure VM, narrow down the scope of outgoing connection by using [Network Security Groups (NSGs)](../../virtual-network/manage-network-security-group.md) and Service Tags as follows
-    - Specify an NSG rule to allow traffic for Service Tag = SQL.WestUs - only allowing connection to SQL Database in West US
-    - Specify an NSG rule (with a **higher priority**) to deny traffic for Service Tag = SQL - denying connections to SQL Database in all regions
-
-At the end of this setup, the Azure VM can connect only to a database in SQL Database in the West US region. However, the connectivity isn't restricted to a single database in SQL Database. The VM can still connect to any database in the West US region, including the databases that aren't part of the subscription. While we've reduced the scope of data exfiltration in the above scenario to a specific region, we haven't eliminated it altogether.
-
-With Private Link, customers can now set up network access controls like NSGs to restrict access to the private endpoint. Individual Azure PaaS resources are then mapped to specific private endpoints. A malicious insider can only access the mapped PaaS resource (for example a database in SQL Database) and no other resource. 
-
-## On-premises connectivity over private peering
-
-When customers connect to the public endpoint from on-premises machines, their IP address needs to be added to the IP-based firewall using a [Server-level firewall rule](firewall-create-server-level-portal-quickstart.md). While this model works well for allowing access to individual machines for dev or test workloads, it's difficult to manage in a production environment.
-
-With Private Link, customers can enable cross-premises access to the private endpoint using [ExpressRoute](../../expressroute/expressroute-introduction.md), private peering, or VPN tunneling. Customers can then disable all access via the public endpoint and not use the IP-based firewall to allow any IP addresses.
+> This article applies to both Azure SQL Database and Azure Synapse Analytics (formerly SQL Data Warehouse). For simplicity, the term 'database' refers to both databases in Azure SQL Database and Azure Synapse Analytics. Likewise, any references to 'server' is referring to the [logical SQL server](logical-servers.md) that hosts Azure SQL Database and Azure Synapse Analytics. This article does *not* apply to **Azure SQL Managed Instance**.
 
 ## How to set up Private Link for Azure SQL Database 
 
@@ -67,6 +45,12 @@ Once the network admin creates the Private Endpoint (PE), the SQL admin can mana
 
 1. After approval or rejection, the list will reflect the appropriate state along with the response text.
 ![Screenshot of all PECs after approval][5]
+
+## On-premises connectivity over private peering
+
+When customers connect to the public endpoint from on-premises machines, their IP address needs to be added to the IP-based firewall using a [Server-level firewall rule](firewall-create-server-level-portal-quickstart.md). While this model works well for allowing access to individual machines for dev or test workloads, it's difficult to manage in a production environment.
+
+With Private Link, customers can enable cross-premises access to the private endpoint using [ExpressRoute](../../expressroute/expressroute-introduction.md), private peering, or VPN tunneling. Customers can then disable all access via the public endpoint and not use the IP-based firewall to allow any IP addresses.
 
 ## Use cases of Private Link for Azure SQL Database 
 
@@ -151,6 +135,22 @@ select client_net_address from sys.dm_exec_connections
 where session_id=@@SPID
 ````
 
+## Data exfiltration prevention
+
+Data exfiltration in Azure SQL Database is when an authorized user, such as a database admin is able extract data from one system and move it another location or system outside the organization. For example, the user moves the data to a storage account owned by a third party.
+
+Consider a scenario with a user running SQL Server Management Studio (SSMS) inside an Azure virtual machine connecting to a database in SQL Database. This database is in the West US data center. The example below shows how to limit access with public endpoints on SQL Database using network access controls.
+
+1. Disable all Azure service traffic to SQL Database via the public endpoint by setting Allow Azure Services to **OFF**. Ensure no IP addresses are allowed in the server and database level firewall rules. For more information, see [Azure SQL Database and Azure Synapse Analytics network access controls](network-access-controls-overview.md).
+1. Only allow traffic to the database in SQL Database using the Private IP address of the VM. For more information, see the articles on [Service Endpoint](vnet-service-endpoint-rule-overview.md) and [virtual network firewall rules](firewall-configure.md).
+1. On the Azure VM, narrow down the scope of outgoing connection by using [Network Security Groups (NSGs)](../../virtual-network/manage-network-security-group.md) and Service Tags as follows
+    - Specify an NSG rule to allow traffic for Service Tag = SQL.WestUs - only allowing connection to SQL Database in West US
+    - Specify an NSG rule (with a **higher priority**) to deny traffic for Service Tag = SQL - denying connections to SQL Database in all regions
+
+At the end of this setup, the Azure VM can connect only to a database in SQL Database in the West US region. However, the connectivity isn't restricted to a single database in SQL Database. The VM can still connect to any database in the West US region, including the databases that aren't part of the subscription. While we've reduced the scope of data exfiltration in the above scenario to a specific region, we haven't eliminated it altogether.
+
+With Private Link, customers can now set up network access controls like NSGs to restrict access to the private endpoint. Individual Azure PaaS resources are then mapped to specific private endpoints. A malicious insider can only access the mapped PaaS resource (for example a database in SQL Database) and no other resource. 
+
 ## Limitations 
 Connections to private endpoint only support **Proxy** as the [connection policy](connectivity-architecture.md#connection-policy)
 
@@ -171,9 +171,9 @@ To establish connectivity from an on-premises environment to the database in SQL
 - [ExpressRoute circuit](../../expressroute/expressroute-howto-linkvnet-portal-resource-manager.md)
 
 
-## Connecting from Azure Synapse Analytics to Azure Storage using Polybase
+## Connecting from Azure Synapse Analytics to Azure Storage using Polybase and the COPY statement
 
-PolyBase is commonly used to load data into Azure Synapse Analytics from Azure Storage accounts. If the Azure Storage account that you're loading data from limits access only to a set of virtual network subnets via Private Endpoints, Service Endpoints, or IP-based firewalls, the connectivity from PolyBase to the account will break. For enabling both PolyBase import and export scenarios with Azure Synapse Analytics connecting to Azure Storage that's secured to a virtual network, follow the steps provided [here](vnet-service-endpoint-rule-overview.md#impact-of-using-vnet-service-endpoints-with-azure-storage). 
+PolyBase and the COPY statement is commonly used to load data into Azure Synapse Analytics from Azure Storage accounts. If the Azure Storage account that you're loading data from limits access only to a set of virtual network subnets via Private Endpoints, Service Endpoints, or IP-based firewalls, the connectivity from PolyBase and the COPY statement to the account will break. For enabling both  import and export scenarios with Azure Synapse Analytics connecting to Azure Storage that's secured to a virtual network, follow the steps provided [here](vnet-service-endpoint-rule-overview.md#impact-of-using-vnet-service-endpoints-with-azure-storage). 
 
 ## Next steps
 

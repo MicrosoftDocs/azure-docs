@@ -4,11 +4,11 @@ description: Learn to design your first relational database in Azure SQL Databas
 services: sql-database
 ms.service: sql-database
 ms.subservice: development
-ms.custom: seo-lt-2019, sqldbrb=1
+ms.custom: "seo-lt-2019, sqldbrb=1, devx-track-csharp"
 ms.topic: tutorial
 author: MightyPen
 ms.author: genemi
-ms.reviewer: carlrab
+ms.reviewer: sstein
 ms.date: 07/29/2019
 ---
 # Tutorial: Design a relational database in Azure SQL Database C&#x23; and ADO.NET
@@ -76,7 +76,7 @@ Follow these steps to create a blank database.
 
 9. On the toolbar, click **Notifications** to monitor the deployment process.
 
-   ![notification](./media/design-first-database-csharp-tutorial/notification.png)
+   ![Screenshot shows Notifications in the Azure portal with Deployment in progress.](./media/design-first-database-csharp-tutorial/notification.png)
 
 ## Create a server-level IP firewall rule
 

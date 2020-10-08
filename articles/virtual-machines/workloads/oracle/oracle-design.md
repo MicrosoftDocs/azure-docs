@@ -3,7 +3,7 @@ title: Design and implement an Oracle database on Azure | Microsoft Docs
 description: Design and implement an Oracle database in your Azure environment.
 services: virtual-machines-linux
 documentationcenter: virtual-machines
-author: rgardler
+author: dbakevlar
 manager: 
 editor: 
 tags: azure-resource-manager
@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 08/02/2018
-ms.author: rogardle
+ms.author: kegorman
 ---
 
 # Design and implement an Oracle database in Azure
@@ -184,7 +184,7 @@ After you have a clear picture of the I/O requirements, you can choose a combina
 - Use data compression to reduce I/O (for both data and indexes).
 - Separate redo logs, system, and temps, and undo TS on separate data disks.
 - Don't put any application files on default OS disks (/dev/sda). These disks aren't optimized for fast VM boot times, and they might not provide good performance for your application.
-- When using M-Series VMs on Premium storage, enable [Write Accelerator](../../linux/how-to-enable-write-accelerator.md) on redo logs disk.
+- When using M-Series VMs on Premium storage, enable [Write Accelerator](../../how-to-enable-write-accelerator.md) on redo logs disk.
 
 ### Disk cache settings
 

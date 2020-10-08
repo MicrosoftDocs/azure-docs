@@ -8,7 +8,7 @@ ms.service: iot-hub
 ms.devlang: dotnet
 ms.topic: tutorial
 ms.date: 06/28/2019
-ms.custom: [mvc, mqtt, 'Role: Cloud Development', 'Role: IoT Device', devx-track-javascript]
+ms.custom: [mvc, mqtt, 'Role: Cloud Development', 'Role: IoT Device', devx-track-js]
 
 #Customer intent: As a developer, I want to implement a device firmware update process that can be triggered from a back-end application connected to my IoT hub
 ---

@@ -8,7 +8,7 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 12/18/2019
-ms.custom: devx-track-javascript
+ms.custom: devx-track-js
 ---
 
 # Common query patterns in Azure Stream Analytics
@@ -858,10 +858,10 @@ For example, an ATM is being monitored at real time for failures, during the ope
 
 ```SQL
 SELECT *
-FROM intput TIMESTAMP BY time OVER ATM_id
+FROM input TIMESTAMP BY time OVER ATM_id
 MATCH_RECOGNIZE (
-	PARTITON BY ATM_id
 	LIMIT DURATION(minute, 1)
+	PARTITON BY ATM_id
 	MEASURES
 		First(Warning.ATM_id) AS ATM_id,
 		First(Warning.Operation_Id) AS First_Warning_Operation_id,

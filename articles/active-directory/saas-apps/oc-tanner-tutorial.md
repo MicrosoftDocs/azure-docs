@@ -2,20 +2,15 @@
 title: 'Tutorial: Azure Active Directory integration with O.C. Tanner - AppreciateHub | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and O.C. Tanner - AppreciateHub.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-
-ms.assetid: dee8fbca-0b60-4a21-8917-1fb6919de5a0
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 01/28/2020
 ms.author: jeedes
-
 ---
 # Tutorial: Azure Active Directory single sign-on (SSO) integration with O.C. Tanner - AppreciateHub
 

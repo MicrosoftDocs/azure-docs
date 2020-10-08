@@ -26,12 +26,8 @@ Azure Monitor logs are enabled and managed in the Azure portal. To enable log co
 1. Select your AKS cluster, such as *myAKSCluster*, then choose to **Add diagnostic setting**.
 1. Enter a name, such as *myAKSClusterLogs*, then select the option to **Send to Log Analytics**.
 1. Select an existing workspace or create a new one. If you create a workspace, provide a workspace name, a resource group, and a location.
-1. In the list of available logs, select the logs you wish to enable. Common logs include the *kube-apiserver*, *kube-controller-manager*, and *kube-scheduler*. You can enable additional logs, such as *kube-audit* and *cluster-autoscaler*. You can return and change the collected logs once Log Analytics workspaces are enabled.
+1. In the list of available logs, select the logs you wish to enable. For this example, enable the *kube-audit* logs. Common logs include the *kube-apiserver*, *kube-controller-manager*, and *kube-scheduler*. You can return and change the collected logs once Log Analytics workspaces are enabled.
 1. When ready, select **Save** to enable collection of the selected logs.
-
-The following example portal screenshot shows the *Diagnostics settings* window:
-
-![Enable Log Analytics workspace for Azure Monitor logs of AKS cluster](media/view-master-logs/enable-oms-log-analytics.png)
 
 ## Schedule a test pod on the AKS cluster
 
@@ -67,49 +63,48 @@ pod/nginx created
 
 ## View collected logs
 
-It may take a few minutes for the diagnostics logs to be enabled and appear in the Log Analytics workspace. In the Azure portal, select the resource group for your Log Analytics workspace, such as *myResourceGroup*, then choose your log analytics resource, such as *myAKSLogs*.
+It may take a few minutes for the diagnostics logs to be enabled and appear. In the Azure portal, navigate to your AKS cluster, and select **Logs** on the left-hand side. Close the *Example Queries* window if it appears.
 
-![Select the Log Analytics workspace for your AKS cluster](media/view-master-logs/select-log-analytics-workspace.png)
-
-On the left-hand side, choose **Logs**. To view the *kube-apiserver*, enter the following query in the text box:
+On the left-hand side, choose **Logs**. To view the *kube-audit* logs, enter the following query in the text box:
 
 ```
 AzureDiagnostics
-| where Category == "kube-apiserver"
+| where Category == "kube-audit"
 | project log_s
 ```
 
-Many logs are likely returned for the API server. To scope down the query to view the logs about the NGINX pod created in the previous step, add an additional *where* statement to search for *pods/nginx* as shown in the following example query:
+Many logs are likely returned. To scope down the query to view the logs about the NGINX pod created in the previous step, add an additional *where* statement to search for *nginx* as shown in the following example query:
 
 ```
 AzureDiagnostics
-| where Category == "kube-apiserver"
-| where log_s contains "pods/nginx"
+| where Category == "kube-audit"
+| where log_s contains "nginx"
 | project log_s
 ```
-
-The specific logs for your NGINX pod are displayed, as shown in the following example screenshot:
-
-![Log analytics query results for sample NGINX pod](media/view-master-logs/log-analytics-query-results.png)
-
-To view additional logs, you can update the query for the *Category* name to *kube-controller-manager* or *kube-scheduler*, depending on what additional logs you enable. Additional *where* statements can then be used to refine the events you are looking for.
 
 For more information on how to query and filter your log data, see [View or analyze data collected with log analytics log search][analyze-log-analytics].
 
 ## Log event schema
 
-To help analyze the log data, the following table details the schema used for each event:
+AKS logs the following events:
 
-| Field name               | Description |
-|--------------------------|-------------|
-| *resourceId*             | Azure resource that produced the log |
-| *time*                   | Timestamp of when the log was uploaded |
-| *category*               | Name of container/component generating the log |
-| *operationName*          | Always *Microsoft.ContainerService/managedClusters/diagnosticLogs/Read* |
-| *properties.log*         | Full text of the log from the component |
-| *properties.stream*      | *stderr* or *stdout* |
-| *properties.pod*         | Pod name that the log came from |
-| *properties.containerID* | ID of the docker container this log came from |
+* [AzureActivity][log-schema-azureactivity]
+* [AzureDiagnostics][log-schema-azurediagnostics]
+* [AzureMetrics][log-schema-azuremetrics]
+* [ContainerImageInventory][log-schema-containerimageinventory]
+* [ContainerInventory][log-schema-containerinventory]
+* [ContainerLog][log-schema-containerlog]
+* [ContainerNodeInventory][log-schema-containernodeinventory]
+* [ContainerServiceLog][log-schema-containerservicelog]
+* [Heartbeat][log-schema-heartbeat]
+* [InsightsMetrics][log-schema-insightsmetrics]
+* [KubeEvents][log-schema-kubeevents]
+* [KubeHealth][log-schema-kubehealth]
+* [KubeMonAgentEvents][log-schema-kubemonagentevents]
+* [KubeNodeInventory][log-schema-kubenodeinventory]
+* [KubePodInventory][log-schema-kubepodinventory]
+* [KubeServices][log-schema-kubeservices]
+* [Perf][log-schema-perf]
 
 ## Log Roles
 
@@ -136,3 +131,20 @@ In this article, you learned how to enable and review the logs for the Kubernete
 [az-feature-register]: /cli/azure/feature#az-feature-register
 [az-feature-list]: /cli/azure/feature#az-feature-list
 [az-provider-register]: /cli/azure/provider#az-provider-register
+[log-schema-azureactivity]: /azure/azure-monitor/reference/tables/azureactivity
+[log-schema-azurediagnostics]: /azure/azure-monitor/reference/tables/azurediagnostics
+[log-schema-azuremetrics]: /azure/azure-monitor/reference/tables/azuremetrics
+[log-schema-containerimageinventory]: /azure/azure-monitor/reference/tables/containerimageinventory
+[log-schema-containerinventory]: /azure/azure-monitor/reference/tables/containerinventory
+[log-schema-containerlog]: /azure/azure-monitor/reference/tables/containerlog
+[log-schema-containernodeinventory]: /azure/azure-monitor/reference/tables/containernodeinventory
+[log-schema-containerservicelog]: /azure/azure-monitor/reference/tables/containerservicelog
+[log-schema-heartbeat]: /azure/azure-monitor/reference/tables/heartbeat
+[log-schema-insightsmetrics]: /azure/azure-monitor/reference/tables/insightsmetrics
+[log-schema-kubeevents]: /azure/azure-monitor/reference/tables/kubeevents
+[log-schema-kubehealth]: /azure/azure-monitor/reference/tables/kubehealth
+[log-schema-kubemonagentevents]: /azure/azure-monitor/reference/tables/kubemonagentevents
+[log-schema-kubenodeinventory]: /azure/azure-monitor/reference/tables/kubenodeinventory
+[log-schema-kubepodinventory]: /azure/azure-monitor/reference/tables/kubepodinventory
+[log-schema-kubeservices]: /azure/azure-monitor/reference/tables/kubeservices
+[log-schema-perf]: /azure/azure-monitor/reference/tables/perf

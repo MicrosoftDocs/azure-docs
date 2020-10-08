@@ -1,7 +1,7 @@
 ---
-title: Set up a connection to Azure SQL Database using a managed identity (preview)
+title: Set up a connection to Azure SQL Database using a managed identity
 titleSuffix: Azure Cognitive Search
-description: Learn how to set up an indexer connection to Azure SQL Database  using a managed identity (preview)
+description: Learn how to set up an indexer connection to Azure SQL Database  using a managed identity
 
 manager: luisca
 author: markheff
@@ -9,14 +9,10 @@ ms.author: maheff
 ms.devlang: rest-api
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 05/18/2020
+ms.date: 09/22/2020
 ---
 
-# Set up an indexer connection to Azure SQL Database using a managed identity (preview)
-
-> [!IMPORTANT] 
-> Support for setting up a connection to a data source using a managed identity is currently in a gated public preview. Preview functionality is provided without a service level agreement, and is not recommended for production workloads.
-> You can request access to the preview by filling out [this form](https://aka.ms/azure-cognitive-search/mi-preview-request).
+# Set up an indexer connection to Azure SQL Database using a managed identity
 
 This page describes how to set up an indexer connection to Azure SQL Database using a managed identity instead of providing credentials in the data source object connection string.
 
@@ -41,7 +37,7 @@ After selecting **Save** you will see an Object ID that has been assigned to you
 
 When connecting to the database in the next step, you will need to connect with an Azure Active Directory (Azure AD) account that has admin access to the database in order to give your search service permission to access the database.
 
-Follow the instructions [here](https://docs.microsoft.com/azure/sql-database/sql-database-aad-authentication-configure?tabs=azure-powershell#provision-an-azure-active-directory-administrator-for-your-azure-sql-database-server) to give your Azure AD account admin access to the database.
+Follow the instructions [here](../azure-sql/database/authentication-aad-configure.md?tabs=azure-powershell#provision-azure-ad-admin-sql-database) to give your Azure AD account admin access to the database.
 
 ### 3 - Assign the search service permissions
 
@@ -94,7 +90,9 @@ In this step you will give your Azure Cognitive Search service permission to rea
 
 ### 5 - Create the data source
 
-When indexing from a SQL database, the data source must have the following required properties:
+The [REST API](/rest/api/searchservice/create-data-source), Azure portal, and the [.NET SDK](/dotnet/api/microsoft.azure.search.models.datasource) support the managed identity connection string. Below is an example of how to create a data source to index data from an Azure SQL Database using the [REST API](/rest/api/searchservice/create-data-source) and a managed identity connection string. The managed identity connection string format is the same for the REST API, .NET SDK, and the Azure portal.
+
+When creating a data source using the [REST API](/rest/api/searchservice/create-data-source), the data source must have the following required properties:
 
 * **name** is the unique name of the data source within your search service.
 * **type** is `azuresql`
@@ -104,7 +102,7 @@ When indexing from a SQL database, the data source must have the following requi
         * *Initial Catalog|Database=**database name**;ResourceId=/subscriptions/**your subscription ID**/resourceGroups/**your resource group name**/providers/Microsoft.Sql/servers/**your SQL Server name**/;Connection Timeout=**connection timeout length**;*
 * **container** specifies the name of the table or view that you would like to index.
 
-Example of how to create an Azure SQL data source object using the [REST API](https://docs.microsoft.com/rest/api/searchservice/create-data-source):
+Example of how to create an Azure SQL data source object using the [REST API](/rest/api/searchservice/create-data-source):
 
 ```
 POST https://[service name].search.windows.net/datasources?api-version=2020-06-30
@@ -118,8 +116,6 @@ api-key: [admin key]
     "container" : { "name" : "my-table" }
 } 
 ```
-
-The Azure portal and the [.NET SDK](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.datasource?view=azure-dotnet) also support the managed identities connection string. The Azure portal requires a feature flag that will be provided to you when signing up for the preview using the link at the top of this page. 
 
 ### 6 - Create the index
 
@@ -141,7 +137,7 @@ api-key: [admin key]
 }
 ```
 
-For more on creating indexes, see [Create Index](https://docs.microsoft.com/rest/api/searchservice/create-index)
+For more on creating indexes, see [Create Index](/rest/api/searchservice/create-index)
 
 ### 7 - Create the indexer
 
@@ -166,13 +162,13 @@ api-key: [admin key]
 
 This indexer will run every two hours (schedule interval is set to "PT2H"). To run an indexer every 30 minutes, set the interval to "PT30M". The shortest supported interval is 5 minutes. The schedule is optional - if omitted, an indexer runs only once when it's created. However, you can run an indexer on-demand at any time.   
 
-For more details on the Create Indexer API, check out [Create Indexer](https://docs.microsoft.com/rest/api/searchservice/create-indexer).
+For more details on the Create Indexer API, check out [Create Indexer](/rest/api/searchservice/create-indexer).
 
 For more information about defining indexer schedules see [How to schedule indexers for Azure Cognitive Search](search-howto-schedule-indexers.md).
 
 ## Troubleshooting
 
-If you get an error when the indexer tries to connect to the data source that says that the client is not allowed to access the server, take a look at [common indexer errors](https://docs.microsoft.com/azure/search/search-indexer-troubleshooting).
+If you get an error when the indexer tries to connect to the data source that says that the client is not allowed to access the server, take a look at [common indexer errors](./search-indexer-troubleshooting.md).
 
 ## See also
 

@@ -8,7 +8,7 @@ author: LiamCavanagh
 ms.author: liamca
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 11/04/2019
+ms.date: 09/25/2020
 ---
 
 # Design patterns for multitenant SaaS applications and Azure Cognitive Search
@@ -72,7 +72,8 @@ In the case of a multitenant scenario, the application developer consumes one or
 3. *Mix of both:* Larger, more-active tenants are assigned dedicated services while smaller tenants are assigned individual indexes within shared services.
 
 ## 1. Index per tenant
-![A portrayal of the index-per-tenant model](./media/search-modeling-multitenant-saas-applications/azure-search-index-per-tenant.png)
+
+:::image type="content" source="media/search-modeling-multitenant-saas-applications/azure-search-index-per-tenant.png" alt-text="A portrayal of the index-per-tenant model" border="false":::
 
 In an index-per-tenant model, multiple tenants occupy a single Azure Cognitive Search service where each tenant has their own index.
 
@@ -89,7 +90,8 @@ Azure Cognitive Search allows for the scale of both the individual indexes and t
 If the total number of indexes grows too large for a single service, another service has to be provisioned to accommodate the new tenants. If indexes have to be moved between search services as new services are added, the data from the index has to be manually copied from one index to the other as Azure Cognitive Search does not allow for an index to be moved.
 
 ## 2. Service per tenant
-![A portrayal of the service-per-tenant model](./media/search-modeling-multitenant-saas-applications/azure-search-service-per-tenant.png)
+
+:::image type="content" source="media/search-modeling-multitenant-saas-applications/azure-search-service-per-tenant.png" alt-text="A portrayal of the service-per-tenant model" border="false":::
 
 In a service-per-tenant architecture, each tenant has its own search service.
 
@@ -115,7 +117,7 @@ The above design patterns to model multitenant scenarios in Azure Cognitive Sear
 
 If service-per-tenant and index-per-tenant models are not sufficiently small scopes, it is possible to model an index to achieve an even finer degree of granularity.
 
-To have a single index behave differently for different client endpoints, a field can be added to an index which designates a certain value for each possible client. Each time a client calls Azure Cognitive Search to query or modify an index, the code from the client application specifies the appropriate value for that field using Azure Cognitive Search's [filter](https://msdn.microsoft.com/library/azure/dn798921.aspx) capability at query time.
+To have a single index behave differently for different client endpoints, a field can be added to an index which designates a certain value for each possible client. Each time a client calls Azure Cognitive Search to query or modify an index, the code from the client application specifies the appropriate value for that field using Azure Cognitive Search's [filter](./query-odata-filter-orderby-syntax.md) capability at query time.
 
 This method can be used to achieve functionality of separate user accounts, separate permission levels, and even completely separate applications.
 
@@ -128,4 +130,3 @@ This method can be used to achieve functionality of separate user accounts, sepa
 Azure Cognitive Search is a compelling choice for many applications. When evaluating the various design patterns for multitenant applications, consider the [various pricing tiers](https://azure.microsoft.com/pricing/details/search/) and the respective [service limits](search-limits-quotas-capacity.md) to best tailor Azure Cognitive Search to fit application workloads and architectures of all sizes.
 
 Any questions about Azure Cognitive Search and multitenant scenarios can be directed to azuresearch_contact@microsoft.com.
-

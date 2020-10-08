@@ -24,7 +24,7 @@ Network Performance Monitor offers three broad capabilities:
 
 * [Service Connectivity Monitor](network-performance-monitor-service-connectivity.md): You can monitor the connectivity from your users to the services you care about, determine what infrastructure is in the path, and identify where network bottlenecks occur. You can know about outages before your users, and see the exact location of the issues along your network path. 
 
-    This capability helps you perform tests based on HTTP, HTTPS, TCP, and ICMP to monitor in near real time or historically the availability and response time of your service. You also can monitor the contribution of the network in packet loss and latency. With a network topology map, you can isolate network slowdowns. You can identify problem spots that occur along the network path from the node to the service, with latency data on each hop. With built-in tests, you can monitor network connectivity to Office 365 and Dynamics CRM without any preconfiguration. With this capability, you can monitor network connectivity to any TCP-capable endpoint, such as websites, SaaS applications, PaaS applications, and SQL databases.
+    This capability helps you perform tests based on HTTP, HTTPS, TCP, and ICMP to monitor in near real time or historically the availability and response time of your service. You also can monitor the contribution of the network in packet loss and latency. With a network topology map, you can isolate network slowdowns. You can identify problem spots that occur along the network path from the node to the service, with latency data on each hop. With built-in tests, you can monitor network connectivity to Microsoft 365 and Dynamics CRM without any preconfiguration. With this capability, you can monitor network connectivity to any TCP-capable endpoint, such as websites, SaaS applications, PaaS applications, and SQL databases.
 
 * [ExpressRoute Monitor](network-performance-monitor-expressroute.md): Monitor end-to-end connectivity and performance between your branch offices and Azure, over Azure ExpressRoute.  
 
@@ -34,7 +34,9 @@ More information on the various capabilities supported by [Network Performance M
 NPM can monitor connectivity between networks and applications in any part of the world, from a workspace that is hosted in one of the following regions:
 * North Europe
 * West Europe
+* Switzerland North
 * France Central
+* South Africa North
 * Canada Central
 * West US
 * West Central US
@@ -54,6 +56,7 @@ NPM can monitor connectivity between networks and applications in any part of th
 * Korea Central
 * Central India
 * US Government Virginia
+* US Government Arizona
 * China East 2
 
 
@@ -75,7 +78,7 @@ Use the basic processes to install agents at [Connect Windows computers to Azure
 
     To monitor a network link, install agents on both endpoints of that link. If you're unsure about the topology of your network, install the agents on servers with critical workloads between which you want to monitor the network performance. For example, if you want to monitor the network connection between a web server and a server running SQL, install an agent on both servers. Agents monitor network connectivity (links) between hosts, not the hosts themselves. 
 
-* **Service Connectivity Monitor**: Install an Log Analytics agent on each node from which you want to monitor the network connectivity to the service endpoint. An example is if you want to monitor network connectivity to Office 365 from your office sites labeled O1, O2, and O3. Install the Log Analytics agent on at least one node each in O1, O2, and O3. 
+* **Service Connectivity Monitor**: Install an Log Analytics agent on each node from which you want to monitor the network connectivity to the service endpoint. An example is if you want to monitor network connectivity to Microsoft 365 from your office sites labeled O1, O2, and O3. Install the Log Analytics agent on at least one node each in O1, O2, and O3. 
 
 * **ExpressRoute Monitor**: Install at least one Log Analytics agent in your Azure virtual network. Also install at least one agent in your on-premises subnetwork, which is connected through ExpressRoute private peering.  
 
@@ -121,7 +124,7 @@ Network Performance Monitor uses synthetic transactions to monitor network perfo
 
    ![Performance Monitor view](media/network-performance-monitor/npm-synthetic-transactions.png)
     
-   **Service Connectivity Monitor**: The capability provides built-in preconfigured tests to monitor network connectivity to Office 365 and Dynamics 365 from your agents. Choose the Office 365 and Dynamics 365 services that you want to monitor by selecting the check boxes beside them. To choose the agents from which you want to monitor, select **Add Agents**. If you don't want to use this capability or want to set it up later, don't choose anything and select **Save & Continue**.
+   **Service Connectivity Monitor**: The capability provides built-in preconfigured tests to monitor network connectivity to Microsoft 365 and Dynamics 365 from your agents. Choose the Microsoft 365 and Dynamics 365 services that you want to monitor by selecting the check boxes beside them. To choose the agents from which you want to monitor, select **Add Agents**. If you don't want to use this capability or want to set it up later, don't choose anything and select **Save & Continue**.
 
    ![Service Connectivity Monitor view](media/network-performance-monitor/npm-service-endpoint-monitor.png)
 

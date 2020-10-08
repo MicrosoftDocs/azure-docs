@@ -1,7 +1,7 @@
 ---
 
 title: Send push notifications to iOS using Azure Notification Hubs and the iOS SDK version 2.0.4
-description: In this tutorial, you learn how to use Azure Notification Hubs and the Apple Push Notification service to send push notifications to iOS devices.
+description: In this tutorial, you learn how to use Azure Notification Hubs and the Apple Push Notification service to send push notifications to iOS devices (version 2.0.4).
 author: sethmanheim
 ms.author: sethm
 ms.date: 06/19/2020
@@ -453,7 +453,7 @@ Push notifications are normally sent in a back-end service like Mobile Apps or A
 
 Here is a list of some other tutorials you might want to review for sending notifications:
 
-- Azure Mobile Apps: For an example of how to send notifications from a Mobile Apps back end integrated with Notification Hubs, see [Add Push Notifications to your iOS App](/azure/app-service-mobile/app-service-mobile-ios-get-started-push).
+- Azure Mobile Apps: For an example of how to send notifications from a Mobile Apps back end integrated with Notification Hubs, see [Add Push Notifications to your iOS App](/previous-versions/azure/app-service-mobile/app-service-mobile-ios-get-started-push).
 - ASP.NET: [Use Notification Hubs to send push notifications to users](notification-hubs-aspnet-backend-ios-apple-apns-notification.md).
 - Azure Notification Hubs Java SDK: See [How to use Notification Hubs from Java](notification-hubs-java-push-notification-tutorial.md) for sending notifications from Java. This has been tested in Eclipse for Android Development.
 - PHP: [How to use Notification Hubs from PHP](notification-hubs-php-push-notification-tutorial.md).

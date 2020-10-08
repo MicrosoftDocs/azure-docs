@@ -2,21 +2,15 @@
 title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Kemp LoadMaster Azure AD integration | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and Kemp LoadMaster Azure AD integration.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-
-ms.assetid: f42e1731-0477-4955-9571-b69a0f3de0bc
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 07/28/2020
 ms.author: jeedes
-
-ms.collection: M365-identity-device-management
 ---
 
 # Tutorial: Azure Active Directory SSO integration with Kemp LoadMaster Azure AD integration
@@ -41,7 +35,7 @@ To get started, you need the following items:
 In this tutorial, you configure and test Azure AD SSO in a test environment.
 
 * Kemp LoadMaster Azure AD integration supports **IDP** initiated SSO
-* Once you configure Kemp LoadMaster Azure AD integration you can enforce session control, which protect exfiltration and infiltration of your organization’s sensitive data in real-time. Session control extend from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
+* Once you configure Kemp LoadMaster Azure AD integration you can enforce session control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
 
 ## Adding Kemp LoadMaster Azure AD integration from the gallery
 
@@ -142,7 +136,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 ### Create a Virtual Service 
 
-1. Go to Kemp LoadMaster Azure AD integration Load Master Web UI > Virtual Services > Add New.
+1. Go to Kemp LoadMaster Azure AD integration LoadMaster Web UI > Virtual Services > Add New.
 
 1. Click Add New.
 
@@ -200,11 +194,11 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 ### SSL Acceleration
  
-1. Go to Kemp Load Master Web UI > Virtual Services > Virtual Services.
+1. Go to Kemp LoadMaster Web UI > Virtual Services > View/Modify Services.
 
 1. Click in Modify under Operation.
 
-1. Under Properties for tcp/x.x.x.:443 (ID:6) - Operating at Layer 7, click on SSL Properties.
+1. Click on SSL Properties, (which operates at Layer 7).
     
     ![Kemp LoadMaster Azure AD integration webserver](./media/kemp-tutorial/kemp-3.png)
     

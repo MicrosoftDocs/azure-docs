@@ -4,7 +4,7 @@ description: Install the runtime, SDK, and tools and create a local development 
 author: peterpogorski
 ms.topic: conceptual
 ms.date: 06/16/2020
-ms.custom: sfrev
+ms.custom: sfrev, devx-track-azurepowershell
 ---
 # Prepare your development environment on Windows
 
@@ -62,8 +62,8 @@ If you only need the SDK, you can install this package:
 
 The current versions are:
 
-* Service Fabric SDK and Tools 4.1.428
-* Service Fabric runtime 7.1.428
+* Service Fabric SDK and Tools 4.1.458
+* Service Fabric runtime 7.1.458
 
 For a list of supported versions, see [Service Fabric versions](service-fabric-versions.md)
 

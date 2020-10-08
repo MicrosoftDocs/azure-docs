@@ -1,7 +1,7 @@
 ---
-title: Sign in users in JavaScript single-page apps (SPA) with auth code | Azure
+title: "Quickstart: Sign in users in JavaScript single-page apps (SPA) with auth code | Azure"
 titleSuffix: Microsoft identity platform
-description: Learn how a JavaScript app can call an API that requires access tokens using the Microsoft identity platform.
+description: In this quickstart, learn how a JavaScript single-page application (SPA) can sign in users of personal accounts, work accounts, and school accounts by using the authorization code flow.
 services: active-directory
 author: hahamil
 manager: CelesteDG
@@ -12,7 +12,7 @@ ms.topic: quickstart
 ms.workload: identity
 ms.date: 07/17/2020
 ms.author: hahamil
-ms.custom: aaddev, scenarios:getting-started, languages:JavaScript, devx-track-javascript
+ms.custom: aaddev, scenarios:getting-started, languages:JavaScript, devx-track-js
 #Customer intent: As an app developer, I want to learn how to get access tokens and refresh tokens by using the Microsoft identity platform endpoint so that my JavaScript app can sign in users of personal accounts, work accounts, and school accounts.
 ---
 
@@ -20,7 +20,7 @@ ms.custom: aaddev, scenarios:getting-started, languages:JavaScript, devx-track-j
 
 In this quickstart, you run a code sample that demonstrates how a JavaScript single-page application (SPA) can sign in users of personal accounts, work accounts, and school accounts by using the authorization code flow. The code sample also demonstrates obtaining an access token to call a web API, in this case the Microsoft Graph API. See [How the sample works](#how-the-sample-works) for an illustration.
 
-This quickstart uses MSAL.js 2.0 with the authorization code flow. For a similar quickstart that uses MSAL.js 1.0 with the implicit flow, see [Quickstart: Sign in users in JavaScript single-page apps](https://docs.microsoft.com/azure/active-directory/develop/quickstart-v2-javascript).
+This quickstart uses MSAL.js 2.0 with the authorization code flow. For a similar quickstart that uses MSAL.js 1.0 with the implicit flow, see [Quickstart: Sign in users in JavaScript single-page apps](./quickstart-v2-javascript.md).
 
 [!INCLUDE [MSAL.js 2.0 and Azure AD B2C temporary incompatibility notice](../../../includes/msal-b2c-cors-compatibility-notice.md)]
 
@@ -149,7 +149,7 @@ This quickstart uses MSAL.js 2.0 with the authorization code flow. For a similar
 >
 > [!div renderon="docs"]
 >
-> `Enter_the_Graph_Endpoint_Here` is the endpoint that API calls will be made against. For the main (global) Microsoft Graph API service, enter `https://graph.microsoft.com/` (include the trailing forward-slash). For more information about Microsoft Graph on national clouds, see [National cloud deployment](https://docs.microsoft.com/graph/deployments).
+> `Enter_the_Graph_Endpoint_Here` is the endpoint that API calls will be made against. For the main (global) Microsoft Graph API service, enter `https://graph.microsoft.com/` (include the trailing forward-slash). For more information about Microsoft Graph on national clouds, see [National cloud deployment](/graph/deployments).
 >
 > The `graphMeEndpoint` and `graphMailEndpoint` values in the *graphConfig.js* file should be similar to the following if you're using the main (global) Microsoft Graph API service:
 >
@@ -199,4 +199,4 @@ npm install @azure/msal-browser
 For a more detailed step-by-step guide on building the application used in this quickstart, see the following tutorial:
 
 > [!div class="nextstepaction"]
-> [Tutorial to sign in and call MS Graph >](https://docs.microsoft.com/azure/active-directory/develop/tutorial-v2-javascript-auth-code)
+> [Tutorial to sign in and call MS Graph >](./tutorial-v2-javascript-auth-code.md)

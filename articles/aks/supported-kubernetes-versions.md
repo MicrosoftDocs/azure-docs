@@ -3,15 +3,14 @@ title: Supported Kubernetes versions in Azure Kubernetes Service
 description: Understand the Kubernetes version support policy and lifecycle of clusters in Azure Kubernetes Service (AKS)
 services: container-service
 ms.topic: article
-ms.date: 07/08/2020
+ms.date: 09/08/2020
 author: palma21
 ms.author: jpalma
 ---
 
 # Supported Kubernetes versions in Azure Kubernetes Service (AKS)
 
-The Kubernetes community releases minor versions roughly every three months. These releases include new features and
-improvements. Patch releases are more frequent (sometimes weekly) and are only intended for critical bug fixes in a minor version. These patch releases include fixes for security vulnerabilities or major bugs.
+The Kubernetes community releases minor versions roughly every three months. Recently the Kubernetes community has [increased the window of support for each version from 9 months to 12 months](https://kubernetes.io/blog/2020/08/31/kubernetes-1-19-feature-one-year-support/), starting with version 1.19. These releases include new features and improvements. Patch releases are more frequent (sometimes weekly) and are intended for critical bug fixes within a minor version. These patch releases include fixes for security vulnerabilities or major bugs.
 
 ## Kubernetes versions
 
@@ -37,8 +36,8 @@ Users should aim to run the latest patch release of the minor version they're ru
 
 AKS defines a generally available version, as a version enabled in all SLO or SLA measurements and when available in all regions. AKS supports three GA minor versions of Kubernetes:
 
-* The latest GA minor version that is released in AKS (which we'll refer to as N). 
-* Two previous minor versions. 
+* The latest GA minor version that is released in AKS (which we'll refer to as N).
+* Two previous minor versions.
 * Each supported minor version also supports a maximum of two (2) stable patches.
 * AKS may also support preview versions, which are explicitly labeled and subject to [Preview terms and conditions][preview-terms].
 
@@ -134,14 +133,17 @@ For the past release history, see [here](https://en.wikipedia.org/wiki/Kubernete
 
 |  K8s version | Upstream Release  | AKS preview  | AKS GA  | End of Life |
 |--------------|-------------------|--------------|---------|-------------|
-| 1.17  | Dec-09-19  | Jan 19   | Jul 20  | 1.20 GA | 
-| 1.18  | Mar-23-20  | May 20   | Aug 20  | 1.21 GA | 
-| 1.19  | Aug-04-20  | Aug 20   | Nov 20  | 1.22 GA | 
-| 1.20  | *Nov 20    | *Dec 20   | *Jan 21  | 1.23 GA | 
-
-\* Pending Upstream release date confirmation.
+| 1.16  | Sep-19-19  | Jan 2019   | Mar 2020  | 1.19 GA | 
+| 1.17  | Dec-09-19  | Jan 2019   | Jul 2020  | 1.20 GA | 
+| 1.18  | Mar-23-20  | May 2020   | Aug 2020  | 1.21 GA | 
+| 1.19  | Aug-04-20  | Sep 2020   | Nov 2020  | 1.22 GA | 
+| 1.20  | Dec-08-20  | Jan 2021   | Mar 2021  | 1.23 GA | 
 
 ## FAQ
+
+**How often should I expect to upgrade Kubernetes versions to stay in support?**
+
+Stating with Kubernetes 1.19, the [open source community has expanded support to 1 year](https://kubernetes.io/blog/2020/08/31/kubernetes-1-19-feature-one-year-support/). AKS commits to enabling patches and support matching the upstream commitments, at a minimum. This means starting with AKS clusters on 1.19, you will be able to upgrade at a minimum of once a year to stay on a supported version. For versions on 1.18 or below, the window of support remains at 9 months which requires an upgrade once every 9 months to stay on a supported version. It is highly recommended to regularly test new versions and be prepared to upgrade to newer versions to capture the latest stable enhancements within Kubernetes.
 
 **What happens when a user upgrades a Kubernetes cluster with a minor version that isn't supported?**
 

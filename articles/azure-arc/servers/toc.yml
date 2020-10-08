@@ -1,0 +1,60 @@
+- name: Azure Arc enabled servers Documentation
+  href: index.yml
+- name: Overview
+  items:
+  - name: About Azure Arc enabled servers
+    href: overview.md
+  - name: What's new with Connected Machine agent
+    href: agent-release-notes.md
+- name: Quickstarts
+  items:
+  - name: Enable Arc enabled servers agent
+    href: ./learn/quick-enable-hybrid-vm.md
+- name: Tutorials
+  items:
+    - name: Assign policy to assess compliance
+      href: ./learn/tutorial-assign-policy-portal.md
+    - name: Monitor machine
+      href: ./learn/tutorial-enable-vm-insights.md
+- name: Concepts
+  items:
+  - name: Security
+    items:
+    - name: Security controls by Azure Policy
+      displayName: regulatory, compliance, standards, domains
+      href: security-controls-policy.md
+    - name: Security overview
+      href: security-overview.md
+- name: How-to guides
+  items:
+  - name: Connect to Azure Arc
+    items:
+    - name: Connected Machine agent overview
+      href: agent-overview.md
+    - name: Connect machines to Azure Arc from the Azure portal
+      href: onboard-portal.md
+    - name: Connect machines at scale using a service principal
+      href: onboard-service-principal.md
+    - name: Connect machines to Azure Arc with PowerShell DSC
+      href: onboard-dsc.md
+  - name: Manage
+    items:
+    - name: Manage and use Azure VM extensions
+      href: manage-vm-extensions.md
+    - name: Manage agent
+      href: manage-agent.md
+  - name: Troubleshooting
+    items:
+    - name: Agent connection issues
+      href: troubleshoot-agent-onboard.md
+    - name: VM Extension issues
+      href: troubleshoot-vm-extensions.md
+- name: Reference
+  items:
+    - name: Data residency
+      href: data-residency.md
+    - name: REST
+      href: /rest/api/hybridcompute
+    - name: Azure Policy built-ins 
+      displayName: samples, policies, definitions
+      href: policy-reference.md

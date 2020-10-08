@@ -12,7 +12,7 @@ metadata:
   ms.topic: landing-page
   author: MashaMSFT
   ms.author: mathoma
-  ms.reviewer: carlrab
+  ms.reviewer: sstein
   ms.date: 05/27/2020
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
@@ -32,6 +32,10 @@ landingContent:
             url: windows/sql-vm-create-powershell-quickstart.md
           - text: Create Linux SQL VM (portal)
             url: linux/sql-vm-create-portal-quickstart.md 
+      - linkListType: video
+        links:
+          - text: SQL Server on Azure VM overview
+            url: https://channel9.msdn.com/Series/Azure-SQL-for-Beginners/SQL-Server-on-Azure-VM-Overview-4-of-61
       - linkListType: overview 
         links:
           - text: What's new? 
@@ -44,7 +48,6 @@ landingContent:
             url: windows/migrate-to-vm-from-sql-server.md
           - text: Security considerations
             url: windows/security-considerations-best-practices.md
-
           - text: Performance guidelines
             url: windows/performance-guidelines-best-practices.md
           - text: Pricing guidance 
@@ -103,20 +106,34 @@ landingContent:
             url: linux/rhel-high-availability-listener-tutorial.md 
 
   # Card 
-  - title: Reference 
+  - title: Learn Azure SQL 
     linkLists:
       - linkListType: learn
         links:
+        - text: Azure SQL for beginners
+          url: https://aka.ms/azuresql4beginners
+        - text: Azure SQL fundamentals 
+          url: https://docs.microsoft.com/learn/paths/azure-sql-fundamentals/
+        - text: Azure SQL hands-on labs
+          url: https://aka.ms/asqlworkshop
+        - text: Azure SQL bootcamp 
+          url: https://aka.ms/azuresqlbootcamp
         - text: Educational SQL resources
           url: /sql/sql-server/educational-sql-resources
+
+  # Card 
+  - title: Reference 
+    linkLists:
       - linkListType: deploy
         links:
+        - text: Azure portal
+          url: windows/sql-vm-create-portal-quickstart.md
         - text: Azure CLI samples
-          url: /sql/ssms/download-sql-server-management-studio-ssms
+          url: /cli/azure/sql/vm
         - text: PowerShell samples
-          url: /sql/ssms/download-sql-server-management-studio-ssms
+          url: windows/sql-vm-create-powershell-quickstart.md
         - text: ARM template samples 
-          url: /sql/ssms/download-sql-server-management-studio-ssms
+          url: windows/create-sql-vm-resource-manager-template.md
       - linkListType: download
         links:
         - text: SQL Server Management Studio (SSMS)

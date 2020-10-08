@@ -7,7 +7,7 @@ author: MashaMSFT
 editor: monicar
 tags: azure-service-management
 ms.service: virtual-machines-sql
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: "06/02/2020"
@@ -31,26 +31,23 @@ Use a single NIC per server (cluster node) and a single subnet. Azure networking
 
 Although a two-node cluster will function without a [quorum resource](/windows-server/storage/storage-spaces/understand-quorum), customers are strictly required to use a quorum resource to have production support. Cluster validation won't pass any cluster without a quorum resource. 
 
-Technically, a three-node cluster can survive a single node loss (down to two nodes) without a quorum resource. But after the cluster is down to two nodes, there's risk of running into: 
+Technically, a three-node cluster can survive a single node loss (down to two nodes) without a quorum resource. But after the cluster is down to two nodes, there's a risk that the clustered resources will go offline in the case of a node loss or communication failure to prevent a split-brain scenario.
 
-- **Partition in space** (split brain): The cluster nodes become separated on the network due to the server, NIC, or switch issue. 
-- **Partition in time** (amnesia): A node joins or rejoins the cluster and tries to claim ownership of the cluster group or a cluster role inappropriately. 
-
-The quorum resource protects the cluster against either of these issues. 
+Configuring a quorum resource will allow the cluster to continue online with only one node online.
 
 The following table lists the quorum options available in the order recommended to use with an Azure VM, with the disk witness being the preferred choice: 
 
 
 ||[Disk witness](/windows-server/failover-clustering/manage-cluster-quorum#configure-the-cluster-quorum)  |[Cloud witness](/windows-server/failover-clustering/deploy-cloud-witness)  |[File share witness](/windows-server/failover-clustering/manage-cluster-quorum#configure-the-cluster-quorum)  |
 |---------|---------|---------|---------|
-|**Supported OS**| All |Windows Server 2016+| Windows Server 2012+|
+|**Supported OS**| All |Windows Server 2016+| All|
 
 
 
 
 ### Disk witness
 
-A disk witness is a small clustered disk in the Cluster Available Storage group. This disk is highly available and can fail over between nodes. It contains a copy of the cluster database, with a default size that's usually less than 1 GB. The disk witness is the preferred quorum option for an Azure VM as it can solve the partition in time problem, unlike the cloud witness and file share witness. 
+A disk witness is a small clustered disk in the Cluster Available Storage group. This disk is highly available and can fail over between nodes. It contains a copy of the cluster database, with a default size that's usually less than 1 GB. The disk witness is the preferred quorum option for any cluster that uses Azure Shared Disks (or any shared-disk solution like shared SCSI, iSCSI, or fiber channel SAN).  A Clustered Shared Volume cannot be used as a disk witness.
 
 Configure an Azure shared disk as the disk witness. 
 
@@ -91,8 +88,8 @@ The following table compares HADR connection supportability:
 
 | |**Virtual Network Name (VNN)**  |**Distributed Network Name (DNN)**  |
 |---------|---------|---------|
-|**Minimum OS version**| Windows Server 2012 | Windows Server 2016|
-|**Minimum SQL Server version** |SQL Server 2012 |SQL Server 2019 CU2|
+|**Minimum OS version**| All | All |
+|**Minimum SQL Server version** |All |SQL Server 2019 CU2|
 |**Supported HADR solution** | Failover cluster instance <br/> Availability group | Failover cluster instance|
 
 
@@ -104,9 +101,9 @@ There is a slight failover delay when you're using the load balancer, because th
 
 To get started, learn how to [configure Azure Load Balancer for an FCI](hadr-vnn-azure-load-balancer-configure.md). 
 
-**Supported OS**: Windows Server 2012 and later   
-**Supported SQL version**: SQL Server 2012 and later   
-**Supported HADR solution**: Failover cluster instance, and availability group 
+**Supported OS**: All   
+**Supported SQL version**: All   
+**Supported HADR solution**: Failover cluster instance, and availability group   
 
 
 ### Distributed Network Name (DNN)
@@ -134,9 +131,10 @@ To get started, learn how to [configure a DNN resource for an FCI](hadr-distribu
 Consider the following limitations when you're working with FCI or availability groups and SQL Server on Azure Virtual Machines. 
 
 ### MSDTC 
-Azure Virtual Machines supports Microsoft Distributed Transaction Coordinator (MSDTC) on Windows Server 2019 with storage on Clustered Shared Volumes (CSV) and [Azure Standard Load Balancer](../../../load-balancer/load-balancer-standard-overview.md).
 
-On Azure Virtual Machines, MSDTC isn't supported for Windows Server 2016 or earlier because:
+Azure Virtual Machines support Microsoft Distributed Transaction Coordinator (MSDTC) on Windows Server 2019 with storage on Clustered Shared Volumes (CSV) and [Azure Standard Load Balancer](../../../load-balancer/load-balancer-standard-overview.md) or on SQL Server VMs that are using Azure shared disks. 
+
+On Azure Virtual Machines, MSDTC isn't supported for Windows Server 2016 or earlier with Clustered Shared Volumes because:
 
 - The clustered MSDTC resource can't be configured to use shared storage. On Windows Server 2016, if you create an MSDTC resource, it won't show any shared storage available for use, even if storage is available. This issue has been fixed in Windows Server 2019.
 - The basic load balancer doesn't handle RPC ports.

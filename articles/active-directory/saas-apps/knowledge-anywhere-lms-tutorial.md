@@ -2,22 +2,15 @@
 title: 'Tutorial: Azure Active Directory integration with Knowledge Anywhere LMS | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and Knowledge Anywhere LMS.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: CelesteDG
 ms.reviewer: celested
-
-ms.assetid: 5cfa07b1-a792-4f0a-8c6f-1a13142193d9
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 05/22/2019
 ms.author: jeedes
-
-ms.collection: M365-identity-device-management
 ---
 
 # Tutorial: Integrate Knowledge Anywhere LMS with Azure Active Directory

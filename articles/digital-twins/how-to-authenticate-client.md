@@ -8,7 +8,7 @@ ms.author: baanders # Microsoft employees only
 ms.date: 4/22/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.custom: devx-track-javascript
+ms.custom: devx-track-js
 
 # Optional fields. Don't forget to remove # if you need a field.
 # ms.custom: can-be-multiple-comma-separated
@@ -18,33 +18,29 @@ ms.custom: devx-track-javascript
 
 # Write client app authentication code
 
-After you [set up an Azure Digital Twins instance and authentication](how-to-set-up-instance-scripted.md), you can create a client application that you will use to interact with the instance. Once you have set up a starter client project, this article shows you **how to write code in that client app to authenticate it** against the Azure Digital Twins instance.
+After you [set up an Azure Digital Twins instance and authentication](how-to-set-up-instance-portal.md), you can create a client application that you will use to interact with the instance. Once you have set up a starter client project, this article shows you **how to write code in that client app to authenticate it** against the Azure Digital Twins instance.
 
 There are two approaches to sample code in this article. You can use the one that's right for you, depending on your language of choice:
-* The first section of sample code uses the Azure Digital Twins .NET (C#) SDK. The SDK is part of the Azure SDK for .NET, and is located here: [*Azure IoT Digital Twin client library for .NET*](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/digitaltwins/Azure.DigitalTwins.Core).
-* The second section of sample code is for users not using the .NET SDK, and instead using AutoRest-generated SDKs in other languages. For more information on this strategy, see [*How-to: Create custom SDKs for Azure Digital Twins with AutoRest*](how-to-create-custom-sdks.md).
+* The first section of sample code uses the Azure Digital Twins .NET (C#) SDK. The SDK is part of the Azure SDK for .NET, and is located here: [*Azure IoT Digital Twin client library for .NET*](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/digitaltwins/Azure.DigitalTwins.Core). There are also supported SDKs for [Java](https://search.maven.org/artifact/com.azure/azure-digitaltwins-core/1.0.0-beta.1/jar ) and [JavaScript](https://www.npmjs.com/package/@azure/digital-twins/v/1.0.0-preview.1), which can be used in a similar way.
+* The second section of sample code is for users not using a provided SDK, and instead using AutoRest-generated SDKs in other languages. For more information on this strategy, see [*How-to: Create custom SDKs for Azure Digital Twins with AutoRest*](how-to-create-custom-sdks.md).
 
 You can also read more about the APIs and SDKs for Azure Digital Twins in [*How-to: Use the Azure Digital Twins APIs and SDKs*](how-to-use-apis-sdks.md).
 
 ## Prerequisites
 
-First, complete the setup steps in [*How-to: Set up an instance and authentication*](how-to-set-up-instance-scripted.md). This will ensure you have an Azure Digital Twins instance, your user has access permissions, and you've set up permissions for client applications. After all this setup, you are ready to write client app code.
+First, complete the setup steps in [*How-to: Set up an instance and authentication*](how-to-set-up-instance-portal.md). This will ensure you have an Azure Digital Twins instance, your user has access permissions, and you've set up permissions for client applications. After all this setup, you are ready to write client app code.
 
 To proceed, you will need a client app project in which you write your code. If you don't already have a client app project set up, create a basic project in your language of choice to use with this tutorial.
 
 ## Authentication and client creation: .NET (C#) SDK
 
+This section shows an example in C# for using the provided .NET SDK.
+
 First, include the following packages in your project in order to use the .NET SDK and authentication tools for this how-to:
-* `Azure.DigitalTwins.Core` (version `1.0.0-preview.2`)
+* `Azure.DigitalTwins.Core`
 * `Azure.Identity`
 
 Depending on your tools of choice, you can include the packages using the Visual Studio package manager or the `dotnet` command line tool. 
-
-To authenticate with the .NET SDK, use one of the credential-obtaining methods that are defined in the [Azure.Identity](https://docs.microsoft.com/dotnet/api/azure.identity?view=azure-dotnet) library.
-
-Here are two that are commonly used: 
-* [InteractiveBrowserCredential](https://docs.microsoft.com/dotnet/api/azure.identity.interactivebrowsercredential?view=azure-dotnet). This method is intended for interactive applications and will bring up a web browser for authentication.
-* [ManagedIdentityCredential](https://docs.microsoft.com/dotnet/api/azure.identity.managedidentitycredential?view=azure-dotnet). This method works great in cases where you need [managed identities (MSI)](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview)—for example, when working with Azure Functions. 
 
 You'll also need the following using statements:
 
@@ -52,6 +48,13 @@ You'll also need the following using statements:
 using Azure.Identity;
 using Azure.DigitalTwins.Core;
 ```
+To authenticate with the .NET SDK, use one of the credential-obtaining methods that are defined in the [Azure.Identity](https://docs.microsoft.com/dotnet/api/azure.identity?view=azure-dotnet&preserve-view=true) library. Here are two that are commonly used (even together in the same application):
+
+* [InteractiveBrowserCredential](https://docs.microsoft.com/dotnet/api/azure.identity.interactivebrowsercredential?view=azure-dotnet&preserve-view=true) is intended for interactive applications, and can be used to create an authenticated SDK client
+* [ManagedIdentityCredential](https://docs.microsoft.com/dotnet/api/azure.identity.managedidentitycredential?view=azure-dotnet&preserve-view=true) works great in cases where you need managed identities (MSI), and is a good candidate for working with Azure Functions
+
+### InteractiveBrowserCredential method
+The [InteractiveBrowserCredential](https://docs.microsoft.com/dotnet/api/azure.identity.interactivebrowsercredential?view=azure-dotnet&preserve-view=true) method is intended for interactive applications and will bring up a web browser for authentication.
 
 To use the interactive browser credentials to create an authenticated SDK client, add this code:
 
@@ -80,7 +83,9 @@ try
 >[!NOTE]
 > While you can place the client ID, tenant ID and instance URL directly into the code as shown above, it's a good idea to have your code get these values from a configuration file or environment variable instead.
 
-In an Azure function, you can then use the managed identity credentials like this:
+### ManagedIdentityCredential method
+ The [ManagedIdentityCredential](https://docs.microsoft.com/dotnet/api/azure.identity.managedidentitycredential?view=azure-dotnet&preserve-view=true) method works great in cases where you need [managed identities (MSI)](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview)—for example, when working with Azure Functions.
+In an Azure function, you can use the managed identity credentials like this:
 
 ```csharp
 ManagedIdentityCredential cred = new ManagedIdentityCredential(adtAppId);
@@ -98,7 +103,7 @@ Also, to use authentication in a function, remember to:
 
 ## Authentication with an AutoRest-generated SDK
 
-If you are not using .NET, you may opt to build an SDK library in a language of your choice, as described in [*How-to: Create custom SDKs for Azure Digital Twins with AutoRest*](how-to-create-custom-sdks.md).
+If you are not using one of the provided SDKs (.NET, Java, JavaScript), you may opt to build an SDK library in a language of your choice, as described in [*How-to: Create custom SDKs for Azure Digital Twins with AutoRest*](how-to-create-custom-sdks.md).
 
 This section explains how to authenticate in that case.
 

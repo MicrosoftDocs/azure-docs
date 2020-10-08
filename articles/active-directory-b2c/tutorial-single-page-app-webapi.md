@@ -8,7 +8,7 @@ manager: celestedg
 
 ms.author: mimart
 ms.date: 04/04/2020
-ms.custom: mvc, devx-track-javascript
+ms.custom: mvc, devx-track-js
 ms.topic: tutorial
 ms.service: active-directory
 ms.subservice: B2C

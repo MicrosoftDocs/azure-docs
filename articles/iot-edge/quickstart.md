@@ -61,7 +61,9 @@ IoT Edge device:
   az vm create --resource-group IoTEdgeResources --name EdgeVM --image MicrosoftWindowsDesktop:Windows-10:rs5-pro:latest --admin-username azureuser --admin-password {password} --size Standard_DS1_v2
   ```
 
-  It may take a few minutes to create and start the new virtual machine. You can then download an RDP file for use when connecting to your virtual machine:
+  It may take a few minutes to create and start the new virtual machine.
+
+  Once your virtual machine starts, you can download an RDP file for use when connecting to your virtual machine:
 
   1. Navigate to your new Windows virtual machine in the Azure portal.
   1. Select **Connect**.
@@ -70,6 +72,8 @@ IoT Edge device:
   Open this file with Remote Desktop Connection to connect to your Windows virtual machine using the administrator name and password you specified with the `az vm create` command.
 
 > [!NOTE]
+> Your Windows virtual machine starts with Windows version 1809 (build 17763), which is the latest [Windows long-term support build](https://docs.microsoft.com/windows/release-information/). Windows automatically checks for updates every 22 hours by default. After a check on your virtual machine, Windows pushes a version update that is incompatible with IoT Edge for Windows, which prevents further use of IoT Edge for Windows features. We recommend limiting use of your virtual machine to within 22 hours or [temporarily pausing Windows updates](https://support.microsoft.com/help/4028233/windows-10-manage-updates).
+>
 > This quickstart uses a Windows desktop virtual machine for simplicity. For information about which Windows operating systems are generally available for production scenarios, see [Azure IoT Edge supported systems](support.md).
 >
 > If you're ready to configure your own Windows device for IoT Edge, including devices running IoT Core, follow the steps in [Install the Azure IoT Edge runtime on Windows](how-to-install-iot-edge-windows.md).
@@ -110,7 +114,7 @@ Since IoT Edge devices behave and can be managed differently than typical IoT de
 2. View the connection string for your device, which links your physical device with its identity in IoT Hub. It contains the name of your IoT hub, the name of your device, and then a shared key that authenticates connections between the two.
 
    ```azurecli-interactive
-   az iot hub device-identity show-connection-string --device-id myEdgeDevice --hub-name {hub_name}
+   az iot hub device-identity connection-string show --device-id myEdgeDevice --hub-name {hub_name}
    ```
 
 3. Copy the value of the `connectionString` key from the JSON output and save it. This value is the device connection string. You'll use this connection string to configure the IoT Edge runtime in the next section.

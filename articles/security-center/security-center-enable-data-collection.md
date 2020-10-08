@@ -6,7 +6,7 @@ author: memildin
 manager: rkarlin
 
 ms.service: security-center
-ms.topic: conceptual
+ms.topic: quickstart
 ms.date: 04/27/2020
 ms.author: memildin
 
@@ -30,20 +30,23 @@ To collect the data from the machines, you should have the Log Analytics agent i
 When automatic provisioning is on, Security Center deploys the Log Analytics agent on all supported Azure VMs and any new ones that are created. Automatic provisioning is recommended but you can install the agent manually if necessary (see [Manual installation of the Log Analytics agent](#manual-agent)).
 
 
+
 To enable automatic provisioning of the Log Analytics agent:
-1. From Security Center's menu in the portal, select **Pricing & settings**.
-2. Select the relevant subscription.
 
-   ![Select subscription][7]
+1. From Security Center's menu, select **Pricing & settings**.
+1. Select the relevant subscription.
+1. In the **Data collection** page, set **Auto provisioning** to **On**.
+1. Select **Save**.
 
-3. Select **Data Collection**.
-4. Under **Auto Provisioning**, select **On** to enable automatic provisioning.
-5. Select **Save**. The agent will be deployed on all VMs within 15 minutes. 
+    :::image type="content" source="./media/security-center-enable-data-collection/enable-automatic-provisioning.png" alt-text="Enabling auto-provisioning of the Log Analytics agent":::
 
 >[!TIP]
 > If a workspace needs to be provisioned, agent installation might take up to 25 minutes.
 
-   ![Enable automatic provisioning][1]
+With the agent deployed to your machines, Security Center can provide additional recommendations related to system update status, OS security configurations, endpoint protection, as well as generate additional security alerts.
+
+>[!NOTE]
+> Setting auto provisioning to **Off** doesn't remove the Log Analytics agent from Azure VMs where the agent has already been provisioned. Disabling automatic provisioning limits security monitoring for your resources.
 
 >[!NOTE]
 > - For instructions on how to provision a pre-existing installation, see [Automatic provisioning in cases of a preexisting agent installation](#preexisting).
@@ -64,7 +67,7 @@ Security center can automatically create a default workspace in which to store t
 To select a workspace created by Security Center:
 
 1. Under **Default workspace configuration**, select Use workspace(s) created by Security center.
-   ![Select pricing tier][10] 
+    :::image type="content" source="./media/security-center-enable-data-collection/workspace-selection.png" alt-text="Using the default workspace in data collection options"::: 
 
 1. Click **Save**.<br>
 	Security Center creates a new resource group and default workspace in that geolocation, and connects the agent to that workspace. The naming convention for the workspace and resource group is:<br>
@@ -75,7 +78,7 @@ To select a workspace created by Security Center:
 1. Security Center will automatically enable a Security Center solution on the workspace per the pricing tier set for the subscription. 
 
 > [!NOTE]
-> The Log Analytics pricing tier of workspaces created by Security Center does not affect Security Center billing. Security Center billing is always based on your Security Center security policy and the solutions installed on a workspace. For the Free tier, Security Center enables the *SecurityCenterFree* solution on the default workspace. For the standard tier, Security Center enables the *Security* solution on the default workspace.
+> The Log Analytics pricing tier of workspaces created by Security Center does not affect Security Center billing. Security Center billing is always based on your Security Center security policy and the solutions installed on a workspace. For subscriptions without Azure Defender, Security Center enables the *SecurityCenterFree* solution on the default workspace. For subscriptions with Azure Defender, Security Center enables the *Security* solution on the default workspace.
 > Storing data in Log Analytics might incur additional charges for data storage. For more information, see the [pricing page](https://azure.microsoft.com/pricing/details/security-center/).
 
 For more information about existing log analytics accounts, see [Existing log analytics customers](./faq-azure-monitor-logs.md).
@@ -93,8 +96,7 @@ To use your existing Log Analytics workspace, you must have read and write permi
 To select an existing Log Analytics workspace:
 
 1. Under **Default workspace configuration**, select **Use another workspace**.
-
-   ![Select existing workspace][2]
+    :::image type="content" source="./media/security-center-enable-data-collection/use-another-workspace.png" alt-text="Setting a custom workspace in data collection options"::: 
 
 2. From the pull-down menu, select a workspace to store collected data.
 
@@ -114,24 +116,28 @@ To select an existing Log Analytics workspace:
    >
    >
 
-   - Select **Cancel** to cancel the operation.
+   - To cancel the operation, select **Cancel**.
 
-     ![Select existing workspace][3]
+     ![Review options to reconfigure monitored VMs][3]
 
-5. Select the pricing tier for the desired workspace you intend to set the Log Analytics agent. <br>To use an existing workspace, set the pricing tier for the workspace. This will install a security Center solution on the workspace if one is not already present.
+5. Select whether or not the workspace will have Azure Defender enabled.
 
-    a.  In the Security Center main menu, select **Pricing & settings**.
+    To use an existing workspace, set the pricing tier for the workspace. This will install a security Center solution on the workspace if one is not already present.
+
+    1. In the Security Center main menu, select **Pricing & settings**.
      
-    b.	Select the desired Workspace in which you intend to connect the agent.
-        ![Select workspace][7]
-    c. Set the pricing tier.
-        ![Select pricing tier][9]
+    1. Select the workspace to which you'll be connecting the agent.
+
+    1. Select **Azure Defender on** or **Azure Defender off**.
+
    
    >[!NOTE]
    >If the workspace already has a **Security** or **SecurityCenterFree** solution enabled, the pricing will be set automatically. 
 
+
 ## Cross-subscription workspace selection
 When you select a workspace in which to store your data, all the workspaces across all your subscriptions are available. Cross-subscription workspace selection allows you to collect data from virtual machines running in different subscriptions and store it in the workspace of your choice. This selection is useful if you are using a centralized workspace in your organization and want to use it for security data collection. For more information on how to manage workspaces, see [Manage workspace access](https://docs.microsoft.com/azure/log-analytics/log-analytics-manage-access).
+
 
 
 ## Data collection tier
@@ -148,7 +154,7 @@ Selecting a data collection tier in Azure Security Center will only affect the s
 
 
 > [!NOTE]
-> These security events sets are available only on Security Center’s standard tier. See [Pricing](security-center-pricing.md) to learn more about Security Center's pricing tiers.
+> These security events sets are available only with Azure Defender. See [Pricing](security-center-pricing.md) to learn more about Security Center's pricing tiers.
 These sets were designed to address typical scenarios. Make sure to evaluate which one fits your needs before implementing it.
 >
 >
@@ -181,10 +187,10 @@ Here is a complete breakdown of the Security and App Locker event IDs for each s
 >
 
 To choose your filtering policy:
-1. On the **Data Collection** page, select your filtering policy under **Security Events**.
-2. Select **Save**.
-
-   ![Choose filtering policy][5]
+1. On the **Data Collection** page, select your filtering policy under **Store additional raw data - Windows security events**.
+ 
+1. Select **Save**.
+    :::image type="content" source="./media/security-center-enable-data-collection/data-collection-tiers.png" alt-text="Select the Windows security events to collect":::
 
 ### Automatic provisioning in cases of a pre-existing agent installation <a name="preexisting"></a> 
 
@@ -214,7 +220,7 @@ To turn off automatic provisioning of the Log Analytics agent:
 1. From Security Center's menu in the portal, select **Pricing & settings**.
 2. Select the relevant subscription.
 
-   ![Select subscription][7]
+    :::image type="content" source="./media/security-center-enable-data-collection/select-subscription.png" alt-text="Select a subscription from pricing and settings page":::
 
 3. Select **Data Collection**.
 4. Under **Auto Provisioning**, select **Off** to disable automatic provisioning.
@@ -242,19 +248,16 @@ You can manually install the Log Analytics agent, so Security Center can collect
 
 1. Optionally, create a workspace.
 
-1. Set the workspace on which you're installing the Log Analytics agent to the standard pricing tier:
+1. Enable Azure Defender on the workspace on which you're installing the Log Analytics agent:
 
     1. From Security Center's menu, select **Pricing & settings**.
 
     1. Set the workspace on which you're installing the agent. Make sure the workspace is in the same subscription you use in Security Center and that you have read/write permissions on the workspace.
 
-    1. Set the standard pricing tier, and select **Save**.
-
-        ![Set a workspace to standard pricing tier](.\media\security-center-enable-data-collection\workspace-to-standard-tier.gif)
+    1. Set Azure Defender to on, and select **Save**.
 
        >[!NOTE]
        >If the workspace already has a **Security** or **SecurityCenterFree** solution enabled, the pricing will be set automatically. 
-   > 
 
 1. If  you want to deploy the agents on new VMs using a Resource Manager template, install the Log Analytics agent:
 
@@ -302,14 +305,7 @@ This article showed you how data collection and automatic provisioning in Securi
 
 
 <!--Image references-->
-[1]: ./media/security-center-enable-data-collection/enable-automatic-provisioning.png
-[2]: ./media/security-center-enable-data-collection/use-another-workspace.png
 [3]: ./media/security-center-enable-data-collection/reconfigure-monitored-vm.png
-[5]: ./media/security-center-enable-data-collection/data-collection-tiers.png
-[6]: ./media/security-center-enable-data-collection/disable-data-collection.png
-[7]: ./media/security-center-enable-data-collection/select-subscription.png
-[8]: ./media/security-center-enable-data-collection/manual-provision.png
 [9]: ./media/security-center-enable-data-collection/pricing-tier.png
-[10]: ./media/security-center-enable-data-collection/workspace-selection.png
 [11]: ./media/security-center-enable-data-collection/log-analytics.png
 [12]: ./media/security-center-enable-data-collection/log-analytics2.png

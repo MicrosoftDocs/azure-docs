@@ -2,23 +2,19 @@
 title: Set up private link
 description: Set up a private endpoint on a container registry and enable access over a private link in a local virtual network. Private link access is a feature of the Premium service tier.
 ms.topic: article
-ms.date: 06/26/2020
+ms.date: 10/01/2020
 ---
 
 # Connect privately to an Azure container registry using Azure Private Link
 
 
-Limit access to a registry by assigning virtual network private IP addresses to the registry endpoints and using [Azure Private Link](../private-link/private-link-overview.md). Network traffic between the clients on the virtual network and the registry's private endpoints traverses the virtual network and a private link on the Microsoft backbone network, eliminating exposure from the public internet. Private Link also enables enables private registry access from on-premises through [Azure ExpressRoute](../expressroute/expressroute-introduction.MD) private peering or a [VPN gateway](../vpn-gateway/vpn-gateway-about-vpngateways.md).
+Limit access to a registry by assigning virtual network private IP addresses to the registry endpoints and using [Azure Private Link](../private-link/private-link-overview.md). Network traffic between the clients on the virtual network and the registry's private endpoints traverses the virtual network and a private link on the Microsoft backbone network, eliminating exposure from the public internet. Private Link also enables private registry access from on-premises through [Azure ExpressRoute](../expressroute/expressroute-introduction.MD) private peering or a [VPN gateway](../vpn-gateway/vpn-gateway-about-vpngateways.md).
 
 You can [configure DNS settings](../private-link/private-endpoint-overview.md#dns-configuration) for the registry's private endpoints, so that the settings resolve to the registry's allocated private IP address. With DNS configuration, clients and services in the network can continue to access the registry at the registry's fully qualified domain name, such as *myregistry.azurecr.io*. 
 
-This feature is available in the **Premium** container registry service tier. For information about registry service tiers and limits, see [Azure Container Registry tiers](container-registry-skus.md).
+This feature is available in the **Premium** container registry service tier. Currently, a maximum of 10 private endpoints can be set up for a registry. For information about registry service tiers and limits, see [Azure Container Registry tiers](container-registry-skus.md).
 
-
-## Things to know
-
-* Currently, image scanning using Azure Security Center isn't available in a registry configured with a private endpoint.
-* Currently, a maximum of 10 private endpoints can be set up for a registry.
+[!INCLUDE [container-registry-scanning-limitation](../../includes/container-registry-scanning-limitation.md)]
 
 ## Prerequisites
 
@@ -78,7 +74,7 @@ az network vnet subnet update \
 
 ### Configure the private DNS zone
 
-Create a private DNS zone for the private Azure container registry domain. In later steps, you create DNS records for your registry domain in this DNS zone.
+Create a [private DNS zone](../dns/private-dns-privatednszone.md) for the private Azure container registry domain. In later steps, you create DNS records for your registry domain in this DNS zone.
 
 To use a private zone to override the default DNS resolution for your Azure container registry, the zone must be named **privatelink.azurecr.io**. Run the following [az network private-dns zone create][az-network-private-dns-zone-create] command to create the private zone:
 
@@ -305,28 +301,46 @@ You should validate that the resources within the subnet of the private endpoint
 
 To validate the private link connection, SSH to the virtual machine you set up in the virtual network.
 
-Run the `nslookup` command to resolve the IP address of your registry over the private link:
+Run a utility such as `nslookup` or `dig` to look up the IP address of your registry over the private link. For example:
 
 ```bash
-nslookup $REGISTRY_NAME.azurecr.io
+dig $REGISTRY_NAME.azurecr.io
 ```
 
 Example output shows the registry's IP address in the address space of the subnet:
 
 ```console
 [...]
-myregistry.azurecr.io       canonical name = myregistry.privatelink.azurecr.io.
-Name:   myregistry.privatelink.azurecr.io
-Address: 10.0.0.6
+; <<>> DiG 9.11.3-1ubuntu1.13-Ubuntu <<>> myregistry.azurecr.io
+;; global options: +cmd
+;; Got answer:
+;; ->>HEADER<<- opcode: QUERY, status: NOERROR, id: 52155
+;; flags: qr rd ra; QUERY: 1, ANSWER: 2, AUTHORITY: 0, ADDITIONAL: 1
+
+;; OPT PSEUDOSECTION:
+; EDNS: version: 0, flags:; udp: 65494
+;; QUESTION SECTION:
+;myregistry.azurecr.io.         IN      A
+
+;; ANSWER SECTION:
+myregistry.azurecr.io.  1783    IN      CNAME   myregistry.privatelink.azurecr.io.
+myregistry.privatelink.azurecr.io. 10 IN A      10.0.0.7
+
+[...]
 ```
 
-Compare this result with the public IP address in `nslookup` output for the same registry over a public endpoint:
+Compare this result with the public IP address in `dig` output for the same registry over a public endpoint:
 
 ```console
 [...]
-Non-authoritative answer:
-Name:   myregistry.westeurope.cloudapp.azure.com
-Address: 40.78.103.41
+;; ANSWER SECTION:
+myregistry.azurecr.io.	2881	IN	CNAME	myregistry.privatelink.azurecr.io.
+myregistry.privatelink.azurecr.io. 2881	IN CNAME xxxx.xx.azcr.io.
+xxxx.xx.azcr.io.	300	IN	CNAME	xxxx-xxx-reg.trafficmanager.net.
+xxxx-xxx-reg.trafficmanager.net. 300 IN	CNAME	xxxx.westeurope.cloudapp.azure.com.
+xxxx.westeurope.cloudapp.azure.com. 10	IN A 20.45.122.144
+
+[...]
 ```
 
 ### Registry operations over private link
@@ -360,9 +374,15 @@ When you set up a private endpoint connection using the steps in this article, t
 
 ## Add zone records for replicas
 
-As shown in this article, when you add a private endpoint connection to a registry, DNS records in the `privatelink.azurecr.io` zone are created for the registry and its data endpoints in the regions where the registry is [replicated](container-registry-geo-replication.md). 
+As shown in this article, when you add a private endpoint connection to a registry, you create DNS records in the `privatelink.azurecr.io` zone for the registry and its data endpoints in the regions where the registry is [replicated](container-registry-geo-replication.md). 
 
 If you later add a new replica, you need to manually add a new zone record for the data endpoint in that region. For example, if you create a replica of *myregistry* in the *northeurope* location, add a zone record for `myregistry.northeurope.data.azurecr.io`. For steps, see [Create DNS records in the private zone](#create-dns-records-in-the-private-zone) in this article.
+
+## DNS configuration options
+
+The private endpoint in this example integrates with a private DNS zone associated with a basic virtual network. This setup uses the Azure-provided DNS service directly to resolve the registry's public FQDN to its private IP address in the virtual network. 
+
+Private link supports additional DNS configuration scenarios that use the private zone, including with custom DNS solutions. For example, you might have a custom DNS solution deployed in the virtual network, or on-premises in a network you connect to the virtual network using a VPN gateway. To resolve the registry's public FQDN to the private IP address in these scenarios, you need to configure a server-level forwarder to the Azure DNS service (168.63.129.16). Exact configuration options and steps depend on your existing networks and DNS. For examples, see [Azure Private Endpoint DNS configuration](../private-link/private-endpoint-dns.md).
 
 ## Clean up resources
 

@@ -1,10 +1,10 @@
 ---
 title: Render custom data on a raster map | Microsoft Azure Maps
-description: In this article, you'll learn how to render custom data on a raster map by using Microsoft Azure Maps static image Service.
+description: Learn how to add pushpins, labels, and geometric shapes to a raster map. See how to use the static image service in Azure Maps for this purpose.
 author: anastasia-ms
 ms.author: v-stharr
 ms.date: 01/23/2020
-ms.topic: conceptual
+ms.topic: how-to
 ms.service: azure-maps
 services: azure-maps
 manager: timlt

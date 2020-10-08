@@ -9,11 +9,78 @@ ms.subservice:
 author: VasiyaKrishnan
 ms.author: vakrishn
 ms.reviewer: sstein
-ms.date: 06/05/2020
+ms.date: 09/22/2020
 ---
 # Azure SQL Edge release notes 
 
 This article describes what is new and what has changed with every new build of Azure SQL Edge.
+
+## Azure SQL Edge - 1.0.0 (RTM)
+
+### SQL Engine build number - 15.0.2000.1552
+
+### What's new?
+1. Ubuntu 18.04 based container images. 
+2. Support for `IGNORE NULL` and `RESPECT NULL` syntax with `LAST_VALUE()` and `FIRST_VALUE()` functions. 
+3. Reliability improvements for PREDICT with ONNX.
+4. Support for Data Retention policy based cleanup.
+   - Ring Buffer support for retention cleanup task for troubleshooting.
+5. New feature support 
+   - Fast Recovery
+   - Auto Tuning of queries
+   - Enable Parallel Execution scenarios
+6. Power saving improvements for low-power mode
+7. Streaming new feature support 
+   - [Snapshot Windows](https://docs.microsoft.com/stream-analytics-query/snapshot-window-azure-stream-analytics) : new window type allowing to group by events arriving at the exact same time. 
+   - Enable [TopOne](https://docs.microsoft.com/stream-analytics-query/topone-azure-stream-analytics) and [CollectTop](https://docs.microsoft.com/stream-analytics-query/collecttop-azure-stream-analytics) as analytic function, This will allow to return records ordered by the column of your choice, without the needed to be part of a window. 
+   - Improvements to [MATCH_RECOGNIZE](https://docs.microsoft.com/stream-analytics-query/match-recognize-stream-analytics). 
+
+### Fixes
+1. Additional error messages and details for troubleshooting TSQL Streaming operations. 
+2. Improvements to preserve Battery life in Idle mode. 
+3. TSQL Streaming engine fixes: 
+   - Cleanup for stopped streaming job 
+   - Fixes for localization and unicode handling improvements
+   - Improve debuggability for Edge TSQL-streaming, allow users to query job failure errors from get_streaming_job.
+4. Data Retention policy based cleanup
+   - Fixes for retention policy creation and cleanup scenarios.
+5. Fixes for background timer tasks to improve power savings for low-power mode.
+
+### Known Issues 
+1. Date_Bucket T-SQL Function cannot be used in a computed column.
+
+
+## CTP 2.3
+### SQL Engine build number - 15.0.2000.1549
+### What's new?
+1. Support for custom origins in the Date_Bucket() function. 
+2. Support for BacPac files as part of SQL deployment.
+3. Support for Data Retention policy based cleanup.      
+   - DDL support for enabling retention policy 
+   - Cleanup stored procedures and background cleanup task
+   - Extended Events to monitor cleanup tasks
+
+### Fixes
+1. Additional error messages and details for troubleshooting TSQL Streaming operations. 
+2. Improvements to preserve Battery life in Idle mode. 
+3. TSQL Streaming engine fixes: 
+   - Fix stuck watermark issue with substreamed hopping window 
+   - Fix framework exception handling to make sure it is collected as user actionable error
+
+
+## CTP 2.2
+### SQL Engine build number - 15.0.2000.1546
+### What's new?
+1. Support for non-root containers 
+2. Support for Usage and Diagnostic data collection 
+3. T-SQL Streaming updates
+   - Support for Unicode characters for stream object names
+
+### Fixes
+1. T-SQL Streaming updates
+   - Process cleanup improvements
+   - Logging and diagnostics improvements
+2. Performance improvement for data ingestion
 
 ## CTP 2.1 
 ### SQL Engine build number - 15.0.2000.1545

@@ -2,21 +2,15 @@
 title: 'Tutorial: Azure Active Directory integration with Panorama9 | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and Panorama9.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-
-ms.assetid: 5e28d7fa-03be-49f3-96c8-b567f1257d44
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/25/2019
 ms.author: jeedes
-
 ---
 # Tutorial: Azure Active Directory integration with Panorama9
 

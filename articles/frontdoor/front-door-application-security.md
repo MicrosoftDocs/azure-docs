@@ -3,14 +3,14 @@ title: Azure Front Door - Application layer security | Microsoft Docs
 description: This article helps you understand how Azure Front Door enables to protect and secure your application backends
 services: frontdoor
 documentationcenter: ''
-author: sharad4u
+author: duongau
 ms.service: frontdoor
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/10/2018
-ms.author: sharadag
+ms.author: duau
 ---
 
 # Application layer security with Front Door

@@ -6,10 +6,10 @@ ms.service: sql-database
 ms.subservice: single-database
 ms.custom: sqldbrb=1
 ms.devlang: 
-ms.topic: conceptual
+ms.topic: reference
 author: stevestein
 ms.author: sstein
-ms.reviewer: carlrab
+ms.reviewer:
 ms.date: 07/21/2020
 ---
 # Resource limits for single databases using the vCore purchasing model
@@ -91,7 +91,7 @@ The [serverless compute tier](serverless-tier-overview.md) is currently availabl
 |Columnstore support|Yes|Yes|Yes|Yes|Yes|
 |In-memory OLTP storage (GB)|N/A|N/A|N/A|N/A|N/A|
 |Max data size (GB)|3072|3072|4096|4096|4096|
-|Max log size (GB)|922|922|1229|1229|1229|
+|Max log size (GB)|922|922|1024|1024|1024|
 |TempDB max data size (GB)|576|640|768|1024|1280|
 |Storage type|Remote SSD|Remote SSD|Remote SSD|Remote SSD|Remote SSD|
 |IO latency (approximate)|5-7 ms (write)<br>5-10 ms (read)|5-7 ms (write)<br>5-10 ms (read)|5-7 ms (write)<br>5-10 ms (read)|5-7 ms (write)<br>5-10 ms (read)|5-7 ms (write)<br>5-10 ms (read)|
@@ -317,7 +317,7 @@ The [serverless compute tier](serverless-tier-overview.md) is currently availabl
 |Columnstore support|Yes|Yes|Yes|Yes|Yes|Yes|Yes|
 |In-memory OLTP storage (GB)|N/A|N/A|N/A|N/A|N/A|N/A|N/A|
 |Max data size (GB)|3072|3072|3072|4096|4096|4096|4096|
-|Max log size (GB)|922|922|922|1229|1229|1229|1229|
+|Max log size (GB)|922|922|922|1024|1024|1024|1024|
 |TempDB max data size (GB)|512|576|640|768|1024|1280|2560|
 |Storage type|Remote SSD|Remote SSD|Remote SSD|Remote SSD|Remote SSD|Remote SSD|Remote SSD|
 |IO latency (approximate)|5-7 ms (write)<br>5-10 ms (read)|5-7 ms (write)<br>5-10 ms (read)|5-7 ms (write)<br>5-10 ms (read)|5-7 ms (write)<br>5-10 ms (read)|5-7 ms (write)<br>5-10 ms (read)|5-7 ms (write)<br>5-10 ms (read)|5-7 ms (write)<br>5-10 ms (read)|
@@ -481,7 +481,7 @@ The [serverless compute tier](serverless-tier-overview.md) is currently availabl
 |Columnstore support|Yes|Yes|Yes|Yes|Yes|Yes|Yes|
 |In-memory OLTP storage (GB)|15.77|18.14|20.51|25.25|37.94|52.23|131.64|
 |Max data size (GB)|3072|3072|3072|4096|4096|4096|4096|
-|Max log size (GB)|922|922|922|1229|1229|1229|1229|
+|Max log size (GB)|922|922|922|1024|1024|1024|1024|
 |TempDB max data size (GB)|512|576|640|768|1024|1280|2560|
 |Storage type|Local SSD|Local SSD|Local SSD|Local SSD|Local SSD|Local SSD|Local SSD|
 |IO latency (approximate)|1-2 ms (write)<br>1-2 ms (read)|1-2 ms (write)<br>1-2 ms (read)|1-2 ms (write)<br>1-2 ms (read)|1-2 ms (write)<br>1-2 ms (read)|1-2 ms (write)<br>1-2 ms (read)|1-2 ms (write)<br>1-2 ms (read)|1-2 ms (write)<br>1-2 ms (read)|

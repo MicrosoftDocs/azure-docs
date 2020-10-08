@@ -3,7 +3,7 @@ title: "Quickstart: Your first JavaScript query"
 description: In this quickstart, you follow the steps to enable the Resource Graph library for JavaScript and run your first query.
 ms.date: 06/23/2020
 ms.topic: quickstart
-ms.custom: devx-track-javascript
+ms.custom: devx-track-js
 ---
 # Quickstart: Run your first Resource Graph query using JavaScript
 

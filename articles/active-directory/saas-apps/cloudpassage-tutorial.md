@@ -2,22 +2,15 @@
 title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with CloudPassage | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and CloudPassage.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-
-ms.assetid: bfe1f14e-74e4-4680-ac9e-f7355e1c94cc
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 10/22/2019
 ms.author: jeedes
-
-ms.collection: M365-identity-device-management
 ---
 
 # Tutorial: Azure Active Directory single sign-on (SSO) integration with CloudPassage
@@ -89,7 +82,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 	b. In the **Reply URL** text box, type a URL using the following pattern:
     `https://portal.cloudpassage.com/saml/consume/accountid`. You can get your value for this attribute by clicking **SSO Setup documentation** in the **Single Sign-on Settings** section of your CloudPassage portal.
 
-	![Configure Single Sign-On](./media/cloudpassage-tutorial/tutorial_cloudpassage_05.png)
+	![Screenshot shows the CloudPassage portal with the S S O Setup Documentation link called out.](./media/cloudpassage-tutorial/tutorial_cloudpassage_05.png)
 
 	> [!NOTE]
 	> These values are not real. Update these values with the actual Sign-On URL and Reply URL. Contact [CloudPassage Client support team](https://www.cloudpassage.com/company/contact/) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
@@ -150,15 +143,15 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 1. In the menu on the top, click **Settings**, and then click **Site Administration**. 
    
-    ![Configure Single Sign-On][12]
+    ![Screenshot shows the CloudPassage site with Site Administration selected.][12]
 
 1. Click the **Authentication Settings** tab. 
    
-    ![Configure Single Sign-On][13]
+    ![Screenshot shows the CloudPassage site with the Authentication Settings tab selected.][13]
 
 1. In the **Single Sign-on Settings** section, perform the following steps: 
    
-    ![Configure Single Sign-On][14]
+    ![Screenshot shows the Single Sign-on Settings section where you can enter the information in this step.][14]
 
 	a. Select **Enable Single sign-on(SSO)(SSO Setup Documentation)** checkbox.
 	
@@ -182,15 +175,15 @@ The objective of this section is to create a user called B.Simon in CloudPassage
 
 1. In the toolbar on the top, click **Settings**, and then click **Site Administration**. 
    
-	![Creating a CloudPassage test user][22] 
+	![Screenshot shows CloudPassage with Site Administration selected.][22] 
 
 1. Click the **Users** tab, and then click **Add New User**. 
    
-	![Creating a CloudPassage test user][23]
+	![Screenshot shows CloudPassage Site Administration with the Users tab selected and the option to Add New User.][23]
 
 1. In the **Add New User** section, perform the following steps: 
    
-	![Creating a CloudPassage test user][24]
+	![Screenshot shows the Add New User section where you can specify user information.][24]
 	
 	a. In the **First Name** textbox, type Britta. 
   

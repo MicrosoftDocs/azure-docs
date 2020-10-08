@@ -3,7 +3,7 @@ title: Azure Automation Update Management overview
 description: This article provides an overview of the Update Management feature that implements updates for your Windows and Linux machines.
 services: automation
 ms.subservice: update-management
-ms.date: 07/28/2020
+ms.date: 09/23/2020
 ms.topic: conceptual
 ---
 # Update Management overview
@@ -12,8 +12,8 @@ You can use Update Management in Azure Automation to manage operating system upd
 
 You can enable Update Management for VMs in the following ways:
 
-* From your [Azure Automation account](update-mgmt-enable-automation-account.md) for one or more Azure machines.
-* Manually for non-Azure machines.
+* From your [Azure Automation account](update-mgmt-enable-automation-account.md) for one or more Azure and non-Azure machines.
+* Manually for non-Azure machines, including machines or servers registered with [Azure Arc enabled servers](../../azure-arc/servers/overview.md) (preview).
 * For a single Azure VM from the Virtual machine page in the Azure portal. This scenario is available for [Linux](../../virtual-machines/linux/tutorial-config-management.md#enable-update-management) and [Windows](../../virtual-machines/windows/tutorial-config-management.md#enable-update-management) VMs.
 * For [multiple Azure VMs](update-mgmt-enable-portal.md) by selecting them from the Virtual machines page in the Azure portal.
 
@@ -25,6 +25,8 @@ An [Azure Resource Manager template](update-mgmt-enable-template.md) is availabl
 > [!NOTE]
 > You can't use a machine configured with Update Management to run custom scripts from Azure Automation. This machine can only run the Microsoft-signed update script.
 
+To download and install available *Critical* and *Security* patches automatically on your Azure VM, review [Automatic VM guest patching](../../virtual-machines/windows/automatic-vm-guest-patching.md) for Windows VMs.
+
 ## About Update Management
 
 Machines that are managed by Update Management use the following configurations to perform assessment and to update deployments:
@@ -34,28 +36,24 @@ Machines that are managed by Update Management use the following configurations 
 * Automation Hybrid Runbook Worker
 * Microsoft Update or Windows Server Update Services (WSUS) for Windows machines
 
-The following diagram illustrates how Update Management assesses and applies security updates to all connected Windows Server and Linux machines in a workspace:
+The following diagram illustrates how Update Management assesses and applies security updates to all connected Windows Server and Linux servers in a workspace:
 
 ![Update Management workflow](./media/update-mgmt-overview/update-mgmt-updateworkflow.png)
 
-Update Management can be used to natively deploy machines in multiple subscriptions in the same tenant.
+Update Management can be used to natively deploy to machines in multiple subscriptions in the same tenant.
 
-After a package is released, it takes 2 to 3 hours for the patch to show up for Linux machines for assessment. For Windows machines, it takes 12 to 15 hours for the patch to show up for assessment after it's been released.
-
-After a machine completes a scan for update compliance, the agent forwards the information in bulk to Azure Monitor logs. On a Windows machine, the compliance scan is run every 12 hours by default.
+After a package is released, it takes 2 to 3 hours for the patch to show up for Linux machines for assessment. For Windows machines, it takes 12 to 15 hours for the patch to show up for assessment after it's been released. When a machine completes a scan for update compliance, the agent forwards the information in bulk to Azure Monitor logs. On a Windows machine, the compliance scan is run every 12 hours by default. For a Linux machine, the compliance scan is performed every hour by default. If the Log Analytics agent is restarted, a compliance scan is started within 15 minutes.
 
 In addition to the scan schedule, the scan for update compliance is started within 15 minutes of the Log Analytics agent being restarted, before update installation, and after update installation.
 
-For a Linux machine, the compliance scan is performed every hour by default. If the Log Analytics agent is restarted, a compliance scan is started within 15 minutes.
-
-Update Management reports how up to date the machine is based on what source you're configured to sync with. If the Windows machine is configured to report to WSUS, depending on when WSUS last synced with Microsoft Update, the results might differ from what Microsoft Update shows. This behavior is the same for Linux machines that are configured to report to a local repo instead of to a public repo.
+Update Management reports how up to date the machine is based on what source you're configured to sync with. If the Windows machine is configured to report to [Windows Server Update Services](/windows-server/administration/windows-server-update-services/get-started/windows-server-update-services-wsus) (WSUS), depending on when WSUS last synced with Microsoft Update, the results might differ from what Microsoft Update shows. This behavior is the same for Linux machines that are configured to report to a local repo instead of to a public repo.
 
 > [!NOTE]
 > To properly report to the service, Update Management requires certain URLs and ports to be enabled. To learn more about these requirements, see [Network configuration](../automation-hybrid-runbook-worker.md#network-planning).
 
 You can deploy and install software updates on machines that require the updates by creating a scheduled deployment. Updates classified as optional aren't included in the deployment scope for Windows machines. Only required updates are included in the deployment scope.
 
-The scheduled deployment defines which target machines receive the applicable updates. It does so either by explicitly specifying certain machines or by selecting a [computer group](../../azure-monitor/platform/computer-groups.md) that's based on log searches of a specific set of machines (or on an [Azure query]update-mgmt-view-logs.md) that dynamically selects Azure VMs based on specified criteria). These groups differ from [scope configuration](../../azure-monitor/insights/solution-targeting.md), which is used to control the targeting of machines that receive the configuration to enable Update Management. This prevents them from performing and reporting update compliance, and install approved required updates.
+The scheduled deployment defines which target machines receive the applicable updates. It does so either by explicitly specifying certain machines or by selecting a [computer group](../../azure-monitor/platform/computer-groups.md) that's based on log searches of a specific set of machines (or on an [Azure query](update-mgmt-query-logs.md) that dynamically selects Azure VMs based on specified criteria). These groups differ from [scope configuration](../../azure-monitor/insights/solution-targeting.md), which is used to control the targeting of machines that receive the configuration to enable Update Management. This prevents them from performing and reporting update compliance, and install approved required updates.
 
 While defining a deployment, you also specify a schedule to approve and set a time period during which updates can be installed. This period is called the maintenance window. A 20-minute span of the maintenance window is reserved for reboots, assuming one is needed and you selected the appropriate reboot option. If patching takes longer than expected and there's less than 20 minutes in the maintenance window, a reboot won't occur.
 
@@ -80,7 +78,7 @@ The following table lists the supported operating systems for update assessments
 |Windows Server 2008 R2 (RTM and SP1 Standard)| Update Management supports assessments and patching for this operating system. The [Hybrid Runbook Worker](../automation-windows-hrw-install.md) is supported for Windows Server 2008 R2. |
 |CentOS 6 (x86/x64) and 7 (x64)      | Linux agents require access to an update repository. Classification-based patching requires `yum` to return security data that CentOS doesn't have in its RTM releases. For more information on classification-based patching on CentOS, see [Update classifications on Linux](update-mgmt-view-update-assessments.md#linux).          |
 |Red Hat Enterprise 6 (x86/x64) and 7 (x64)     | Linux agents require access to an update repository.        |
-|SUSE Linux Enterprise Server 11 (x86/x64) and 12 (x64)     | Linux agents require access to an update repository.        |
+|SUSE Linux Enterprise Server 12 (x64)     | Linux agents require access to an update repository.        |
 |Ubuntu 14.04 LTS, 16.04 LTS, and 18.04 (x86/x64)      |Linux agents require access to an update repository.         |
 
 > [!NOTE]
@@ -106,7 +104,7 @@ Windows agents must be configured to communicate with a WSUS server, or they req
 
 You can use Update Management with Microsoft Endpoint Configuration Manager. To learn more about integration scenarios, see [Integrate Update Management with Windows Endpoint Configuration Manager](update-mgmt-mecmintegration.md). The [Log Analytics agent for Windows](../../azure-monitor/platform/agent-windows.md) is required for Windows servers managed by sites in your Configuration Manager environment. 
 
-By default, Windows VMs that are deployed from the Azure Marketplace are set to receive automatic updates from Windows Update Service. This behavior doesn't change when you add Windows VMs to your workspace. If you don't actively manage updates by using Update Management, the default behavior (to automatically apply updates) applies.
+By default, Windows VMs that are deployed from Azure Marketplace are set to receive automatic updates from Windows Update Service. This behavior doesn't change when you add Windows VMs to your workspace. If you don't actively manage updates by using Update Management, the default behavior (to automatically apply updates) applies.
 
 > [!NOTE]
 > You can modify Group Policy so that machine reboots can be performed only by the user, not by the system. Managed machines can get stuck if Update Management doesn't have rights to reboot the machine without manual interaction from the user. For more information, see [Configure Group Policy settings for Automatic Updates](/windows-server/administration/windows-server-update-services/deploy/4-configure-group-policy-settings-for-automatic-updates).
@@ -120,7 +118,7 @@ For Linux, the machine requires access to an update repository, either private o
 
 For information about how to install the Log Analytics agent for Linux and to download the latest version, see [Log Analytics agent for Linux](../../azure-monitor/platform/agent-linux.md).
 
-VMs created from the on-demand Red Hat Enterprise Linux (RHEL) images that are available in the Azure Marketplace are registered to access the [Red Hat Update Infrastructure (RHUI)](../../virtual-machines/workloads/redhat/redhat-rhui.md) that's deployed in Azure. Any other Linux distribution must be updated from the distribution's online file repository by using methods supported by the distribution.
+VMs created from the on-demand Red Hat Enterprise Linux (RHEL) images that are available in Azure Marketplace are registered to access the [Red Hat Update Infrastructure (RHUI)](../../virtual-machines/workloads/redhat/redhat-rhui.md) that's deployed in Azure. Any other Linux distribution must be updated from the distribution's online file repository by using methods supported by the distribution.
 
 ## Permissions
 
@@ -134,7 +132,7 @@ Update Management uses the resources described in this section. These resources 
 
 After you enable Update Management, any Windows machine that's directly connected to your Log Analytics workspace is automatically configured as a Hybrid Runbook Worker to support the runbooks that support Update Management.
 
-Each Windows machine that's managed by Update Management is listed in the Hybrid worker groups pane as a System hybrid worker group for the Automation account. The groups use the `Hostname FQDN_GUID` naming convention. You can't target these groups with runbooks in your account. If you try, the attempt fails. These groups are intended to support only Update Management.
+Each Windows machine that's managed by Update Management is listed in the Hybrid worker groups pane as a System hybrid worker group for the Automation account. The groups use the `Hostname FQDN_GUID` naming convention. You can't target these groups with runbooks in your account. If you try, the attempt fails. These groups are intended to support only Update Management. To learn more about viewing the list of Windows machines configured as a Hybrid Runbook Worker, see [view Hybrid Runbook Workers](../automation-hybrid-runbook-worker.md#view-hybrid-runbook-workers).
 
 You can add the Windows machine to a Hybrid Runbook Worker group in your Automation account to support Automation runbooks if you use the same account for Update Management and the Hybrid Runbook Worker group membership. This functionality was added in version 7.2.12024.0 of the Hybrid Runbook Worker.
 
@@ -170,11 +168,11 @@ The following table describes the connected sources that Update Management suppo
 
 Update Management scans managed machines for data using the following rules. It can take between 30 minutes and 6 hours for the dashboard to display updated data from managed machines.
 
-* Each Windows machine - Update Management does a scan twice per day for each machine. Every 15 minutes, it queries the Windows API for the last update time to determine whether the status has changed. If the status has changed, Update Management starts a compliance scan.
+* Each Windows machine - Update Management does a scan twice per day for each machine.
 
 * Each Linux machine - Update Management does a scan every hour.
 
-The average data usage by Azure Monitor logs for a machine using Update Management is approximately 25 MB per month. This value is only an approximation and is subject to change, depending on your environment. We recommend that you monitor your environment to keep track of your exact usage. For more information to analyze data usage, see [Manage usage and cost](../../azure-monitor/platform/manage-cost-storage.md).
+The average data usage by Azure Monitor logs for a machine using Update Management is approximately 25 MB per month. This value is only an approximation and is subject to change, depending on your environment. We recommend that you monitor your environment to keep track of your exact usage. For more information about analyzing Azure Monitor Logs data usage, see [Manage usage and cost](../../azure-monitor/platform/manage-cost-storage.md).
 
 ## <a name="ports"></a>Network planning
 
@@ -232,7 +230,7 @@ For Linux, Update Management can distinguish between critical updates and securi
 sudo yum -q --security check-update
 ```
 
-There's currently no supported method to enable native classification-data availability on CentOS. At this time, only best-effort support is provided to customers who might have enabled this feature on their own.
+There's currently no supported method to enable native classification-data availability on CentOS. At this time, limited support is provided to customers who might have enabled this feature on their own.
 
 To classify updates on Red Hat Enterprise version 6, you need to install the yum-security plugin. On Red Hat Enterprise Linux 7, the plugin is already a part of yum itself and there's no need to install anything. For more information, see the following Red Hat [knowledge article](https://access.redhat.com/solutions/10021).
 
@@ -250,9 +248,10 @@ An Azure [Resource Manager template](update-mgmt-enable-template.md) is availabl
 
 Here are the ways that you can enable Update Management and select machines to be managed:
 
-* [From a virtual machine](update-mgmt-enable-vm.md)
-* [From browsing multiple machines](update-mgmt-enable-portal.md)
+* [From an Azure virtual machine](update-mgmt-enable-vm.md)
+* [From browsing multiple Azure virtual machines](update-mgmt-enable-portal.md)
 * [From an Azure Automation account](update-mgmt-enable-automation-account.md)
+* For Arc enabled servers (preview) or non-Azure machines, install the [Log Analytics agent](../../azure-monitor/platform/log-analytics-agent.md) and then [enable machines in the workspace](update-mgmt-enable-automation-account.md#enable-machines-in-the-workspace) to Update Management.
 
 ## Next steps
 

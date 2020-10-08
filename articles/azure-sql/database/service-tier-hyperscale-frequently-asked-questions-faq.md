@@ -108,11 +108,11 @@ Yes, [Azure Hybrid Benefit](https://azure.microsoft.com/pricing/hybrid-benefit/)
 
 Hyperscale supports all SQL Server workloads, but it is primarily optimized for OLTP. You can bring Hybrid (HTAP) and Analytical (data mart) workloads as well.
 
-### How can I choose between Azure SQL Data Warehouse and Azure SQL Database Hyperscale
+### How can I choose between Azure Synapse Analytics and Azure SQL Database Hyperscale
 
 If you are currently running interactive analytics queries using SQL Server as a data warehouse, Hyperscale is a great option because you can host small and mid-size data warehouses (such as a few TB up to 100 TB) at a lower cost, and you can migrate your SQL Server data warehouse workloads to Hyperscale with minimal T-SQL code changes.
 
-If you are running data analytics on a large scale with complex queries and sustained ingestion rates higher than 100 MB/s, or  using Parallel Data Warehouse (PDW), Teradata, or other Massively Parallel Processing (MPP) data warehouses, SQL Data Warehouse may be the best choice.
+If you are running data analytics on a large scale with complex queries and sustained ingestion rates higher than 100 MB/s, or  using Parallel Data Warehouse (PDW), Teradata, or other Massively Parallel Processing (MPP) data warehouses, Azure Synapse Analytics (formerly SQL Data Warehouse) may be the best choice.
   
 ## Hyperscale compute questions
 
@@ -223,7 +223,7 @@ Downtime for migration to Hyperscale is the same as the downtime when you migrat
 
 Hyperscale is capable of consuming 100 MB/s of new/changed data, but the time needed to move data into databases in Azure SQL Database is also affected by available network throughput, source read speed and the target database service level objective.
 
-### Can I read data from blob storage and do fast load (like Polybase in SQL Data Warehouse)
+### Can I read data from blob storage and do fast load (like Polybase in Azure Synapse Analytics)
 
 You can have a client application read data from Azure Storage and load data load into a Hyperscale database (just like you can with any other database in Azure SQL Database). Polybase is currently not supported in Azure SQL Database. As an alternative to provide fast load, you can use [Azure Data Factory](https://docs.microsoft.com/azure/data-factory/), or use a Spark job in [Azure Databricks](https://docs.microsoft.com/azure/azure-databricks/) with the [Spark connector for SQL](spark-connector.md). The Spark connector to SQL supports bulk insert.
 

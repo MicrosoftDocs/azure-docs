@@ -1,14 +1,14 @@
 ---
 title: Getting started with Microsoft Azure Maps web map control
-description: Learn how to use the Microsoft Azure Maps web map control client-side JavaScript library to render maps and embedded Azure Maps functionality into your web or mobile application. 
+description: Find out how to add maps to web and mobile applications by using the Map Control client-side JavaScript library in Azure Maps. See how to localize maps. 
 author: anastasia-ms
 ms.author: v-stharr
 ms.date: 07/20/2020
-ms.topic: conceptual
+ms.topic: how-to
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.custom: devx-track-javascript
+ms.custom: devx-track-js
 ---
 
 # Use the Azure Maps map control
@@ -29,22 +29,22 @@ You can embed a map in a web page by using the Map Control client-side JavaScrip
 
 1. Create a new HTML file.
 
-2. Load in the Azure Maps Web SDK. You can choose one of two options;
+2. Load in the Azure Maps Web SDK. You can choose one of two options:
 
     * Use the globally hosted CDN version of the Azure Maps Web SDK by adding references to the JavaScript and stylesheet in the `<head>` element of the HTML file:
 
-        ```HTML
-        <link rel="stylesheet" href="https://atlas.microsoft.com/sdk/javascript/mapcontrol/2/atlas.min.css" type="text/css">
-        <script src="https://atlas.microsoft.com/sdk/javascript/mapcontrol/2/atlas.min.js"></script>
-        ```
+      ```html
+      <link rel="stylesheet" href="https://atlas.microsoft.com/sdk/javascript/mapcontrol/2/atlas.min.css" type="text/css">
+      <script src="https://atlas.microsoft.com/sdk/javascript/mapcontrol/2/atlas.min.js"></script>
+      ```
 
     * Load the Azure Maps Web SDK source code locally using the [azure-maps-control](https://www.npmjs.com/package/azure-maps-control) NPM package and host it with your app. This package also includes TypeScript definitions.
 
-    > **npm install azure-maps-control**
+      > **npm install azure-maps-control**
 
     Then add references to the Azure Maps stylesheet to the `<head>` element of the file:
 
-    ```HTML
+    ```html
     <link rel="stylesheet" href="https://atlas.microsoft.com/sdk/javascript/mapcontrol/2/atlas.min.css" type="text/css" />
      ```
 
@@ -246,6 +246,15 @@ var searchURL = new atlas.service.SearchURL(pipeline, 'atlas.azure.us');
 ```
 
 If directly accessing the Azure Maps REST services, change the URL domain to `atlas.azure.us`. For example, if using the search API service, change the URL domain from `https://atlas.microsoft.com/search/` to `https://atlas.azure.us/search/`.
+
+## JavaScript frameworks
+
+If developing using a JavaScript framework, one of the following open-source projects may be useful:
+
+- [ng-azure-maps](https://github.com/arnaudleclerc/ng-azure-maps) - Angular 10 wrapper around Azure maps.
+- [AzureMapsControl.Components](https://github.com/arnaudleclerc/AzureMapsControl.Components) - An Azure Maps Blazor component.
+- [Azure Maps React Component](https://github.com/WiredSolutions/react-azure-maps) - A react wrapper for the Azure Maps control.
+- [Vue Azure Maps](https://github.com/rickyruiz/vue-azure-maps) - An Azure Maps component for Vue application.
 
 ## Next steps
 

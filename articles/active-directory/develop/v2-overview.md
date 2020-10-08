@@ -1,5 +1,6 @@
 ---
 title: Microsoft identity platform overview - Azure
+titleSuffix: Microsoft identity platform
 description: Learn about the components of the Microsoft identity platform and how they can help you build identity and access management (IAM) support into your applications.
 services: active-directory
 author: rwike77
@@ -16,7 +17,7 @@ ms.custom: identityplatformtop40
 # Customer intent: As an application developer, I want a quick introduction to the Microsoft identity platform so I can decide if this platform meets my application development requirements.
 ---
 
-# Microsoft identity platform overview
+# What is the Microsoft identity platform?
 
 The Microsoft identity platform helps you build applications your users and customers can sign in to using their Microsoft identities or social accounts, and provide authorized access to your own APIs or Microsoft APIs like Microsoft Graph.
 
@@ -56,7 +57,7 @@ As you work with the Microsoft identity platform to integrate authentication and
 
 Learn how core authentication and Azure AD concepts apply to the Microsoft identity platform in this recommended set of articles:
 
-- [Authentication basics](authentication-scenarios.md)
+- [Authentication basics](./authentication-vs-authorization.md)
 - [Application and service principals](app-objects-and-service-principals.md)
 - [Audiences](v2-supported-account-types.md)
 - [Permissions and consent](v2-permissions-and-consent.md)
@@ -68,7 +69,7 @@ Learn how core authentication and Azure AD concepts apply to the Microsoft ident
 
 [Azure AD B2C](../../active-directory-b2c/overview.md) - Build customer-facing applications your users can sign in to using their social accounts like Facebook or Google, or by using an email address and password.
 
-[Azure AD B2B](../b2b/what-is-b2b.md) - Invite external users into your Azure AD tenant as "guest" users, and assign permissions for authorization while they use their existing credentials for authentication.
+[Azure AD B2B](../external-identities/what-is-b2b.md) - Invite external users into your Azure AD tenant as "guest" users, and assign permissions for authorization while they use their existing credentials for authentication.
 
 > [!TIP]
 > Looking for *Azure Active Directory developer platform (v1.0)* documentation? See the [Azure Active Directory for developers (v1.0) overview](../azuread-dev/v1-overview.md).

@@ -9,7 +9,7 @@ ms.devlang:
 ms.topic: conceptual
 author: stevestein
 ms.author: sstein
-ms.reviewer: carlrab
+ms.reviewer:
 ms.date: 12/20/2018
 ---
 # Best practices for Azure SQL Data Sync 

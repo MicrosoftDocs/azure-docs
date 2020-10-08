@@ -2,22 +2,15 @@
 title: 'Tutorial: Azure Active Directory integration with FileCloud | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and FileCloud.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-
-ms.assetid: 2263e583-3eb2-4a06-982d-33f5f54858f4
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 02/12/2019
 ms.author: jeedes
-
-ms.collection: M365-identity-device-management
 ---
 # Tutorial: Azure Active Directory integration with FileCloud
 
@@ -133,19 +126,19 @@ To configure Azure AD single sign-on with FileCloud, perform the following steps
 
 2. On the left navigation pane, click **Settings**. 
    
-    ![Configure Single Sign-On On App side](./media/filecloud-tutorial/tutorial_filecloud_000.png)
+    ![Screenshot that shows "Settings" highlighted in the left navigation pane.](./media/filecloud-tutorial/tutorial_filecloud_000.png)
 
 3. Click **SSO** tab on Settings section. 
    
-    ![Configure Single Sign-On On App side](./media/filecloud-tutorial/tutorial_filecloud_001.png)
+    ![Screenshot that shows the "Settings" section with the "S S O" tab selected.](./media/filecloud-tutorial/tutorial_filecloud_001.png)
 
 4. Select **SAML** as **Default SSO Type** on **Single Sign On (SSO) Settings** panel.
    
-    ![Configure Single Sign-On On App side](./media/filecloud-tutorial/tutorial_filecloud_002.png)
+    ![Screenshot that shows the "Single Sign On (S S O) Settings" panel with "S A M L" selected.](./media/filecloud-tutorial/tutorial_filecloud_002.png)
 
 5. In the **IdP End Point URL** textbox, paste the value of **Azure Ad Identifier** which you have copied from Azure portal.
 
-    ![Configure Single Sign-On On App side](./media/filecloud-tutorial/tutorial_filecloud_003.png)
+    ![Screenshot that shows the "S A M L Settings" section with "I d P End Point U R L" highlighted.](./media/filecloud-tutorial/tutorial_filecloud_003.png)
 
 6. Open your downloaded metadata file in notepad, copy the content of it into your clipboard, and then paste it to the **IdP Meta Data** textbox on **SAML Settings** panel.
 

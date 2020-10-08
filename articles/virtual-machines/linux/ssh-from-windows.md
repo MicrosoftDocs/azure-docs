@@ -40,7 +40,7 @@ Recent versions of Windows 10 include [OpenSSH client commands](https://blogs.ms
 
 You can also use Bash in the [Azure Cloud Shell](../../cloud-shell/overview.md) to connect to your VM. You can use Cloud Shell in a [web browser](https://shell.azure.com/bash), from the [Azure portal](https://portal.azure.com), or as a terminal in Visual Studio Code using the [Azure Account extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode.azure-account).
 
-You can also install the [Windows Subsystem for Linux](https://docs.microsoft.com/windows/wsl/about) to connect to your VM over SSH and use other native Linux tools within a Bash shell.
+You can also install the [Windows Subsystem for Linux](/windows/wsl/about) to connect to your VM over SSH and use other native Linux tools within a Bash shell.
 
 ## Create an SSH key pair
 

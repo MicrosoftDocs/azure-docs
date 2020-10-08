@@ -66,7 +66,9 @@ Depending on your choice of partition key, you might receive this _warning_:
 
 It's important to choose a partition key property that has a number of distinct values, and that lets you distribute your workload evenly across these values. As a natural artifact of partitioning, requests that involve the same partition key are limited by the maximum throughput of a single partition. 
 
-The storage size for documents that belong to the same partition key is limited to 20 GB. An ideal partition key is one that appears frequently as a filter in your queries and has sufficient cardinality to ensure that your solution is scalable.
+The storage size for documents that belong to the same partition key value is limited to 20 GB (the [physical partition size limit](../cosmos-db/partition-data.md) is 50 GB). An [ideal partition key](../cosmos-db/partitioning-overview.md#choose-partitionkey) is one that appears frequently as a filter in your queries and has sufficient cardinality to ensure that your solution is scalable.
+
+Partition keys used for Stream Analytics queries and Cosmos DB don't need to be identical. Fully parallel topologies recommend using *Input Partition key*, `PartitionId`, as the Stream Analytics query's partition key but that may not be the recommended choice for a Cosmos DB container's partition key.
 
 A partition key is also the boundary for transactions in stored procedures and triggers for Azure Cosmos DB. You should choose the partition key so that documents that occur together in transactions share the same partition key value. The article [Partitioning in Azure Cosmos DB](../cosmos-db/partitioning-overview.md) gives more details on choosing a partition key.
 

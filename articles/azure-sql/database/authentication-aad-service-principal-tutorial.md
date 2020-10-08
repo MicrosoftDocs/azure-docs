@@ -8,7 +8,7 @@ ms.topic: tutorial
 author: GithubMirek
 ms.author: mireks
 ms.reviewer: vanto
-ms.date: 07/27/2020
+ms.date: 08/17/2020
 ---
 
 # Tutorial: Create Azure AD users using Azure AD applications
@@ -89,18 +89,20 @@ To grant this required permission, run the following script.
 
 > [!NOTE] 
 > This script must be executed by an Azure AD `Global Administrator` or a `Privileged Roles Administrator`.
+>
+> In **public preview**, you can assign the `Directory Readers` role to a group in Azure AD. The group owners can then add the managed identity as a member of this group, which would bypass the need for a `Global Administrator` or `Privileged Roles Administrator` to grant the `Directory Readers` role. For more information on this feature, see [Directory Readers role in Azure Active Directory for Azure SQL](authentication-aad-directory-readers-role.md).
 
 - Replace `<TenantId>` with your `TenantId` gathered earlier.
 - Replace `<server name>` with your SQL logical server name. If your server name is `myserver.database.windows.net`, replace `<server name>` with `myserver`.
 
 ```powershell
-# This script grants Azure “Directory Readers” permission to a Service Principal representing the Azure SQL logical server
-# It can be executed only by a "Global Administrator" or “Privileged Roles Administrator” type of user.
-# To check if the “Directory Readers" permission was granted, execute this script again
+# This script grants Azure "Directory Readers" permission to a Service Principal representing the Azure SQL logical server
+# It can be executed only by a "Global Administrator" or "Privileged Roles Administrator" type of user.
+# To check if the "Directory Readers" permission was granted, execute this script again
 
-Import-Module AzureAd
-connect-azuread -TenantId "<TenantId>"     #Enter your actual TenantId
- $AssignIdentityName = "<server name>"     #Enter Azure SQL logical server name
+Import-Module AzureAD
+Connect-AzureAD -TenantId "<TenantId>"    #Enter your actual TenantId
+$AssignIdentityName = "<server name>"     #Enter Azure SQL logical server name
  
 # Get Azure AD role "Directory Users" and create if it doesn't exist
 $roleName = "Directory Readers"
@@ -115,14 +117,13 @@ if ($role -eq $null) {
 # Get service principal for managed instance
 $roleMember = Get-AzureADServicePrincipal -SearchString $AssignIdentityName
 $roleMember.Count
-if ($roleMember -eq $null)
-{
-    Write-Output "Error: No Service Principals with name '$    ($AssignIdentityName)', make sure that AssignIdentityName parameter was     entered correctly."
+if ($roleMember -eq $null) {
+    Write-Output "Error: No Service Principals with name '$($AssignIdentityName)', make sure that AssignIdentityName parameter was entered correctly."
     exit
 }
-if (-not ($roleMember.Count -eq 1))
-{
-    Write-Output "Error: More than one service principal with name pattern '$    ($AssignIdentityName)'"
+
+if (-not ($roleMember.Count -eq 1)) {
+    Write-Output "Error: More than one service principal with name pattern '$($AssignIdentityName)'"
     Write-Output "Dumping selected service principals...."
     $roleMember
     exit
@@ -130,21 +131,18 @@ if (-not ($roleMember.Count -eq 1))
  
 # Check if service principal is already member of readers role
 $allDirReaders = Get-AzureADDirectoryRoleMember -ObjectId $role.ObjectId
-$selDirReader = $allDirReaders | where{$_.ObjectId -match     $roleMember.ObjectId}
+$selDirReader = $allDirReaders | where{$_.ObjectId -match $roleMember.ObjectId}
  
-if ($selDirReader -eq $null)
-{
+if ($selDirReader -eq $null) {
     # Add principal to readers role
-    Write-Output "Adding service principal '$($msName)' to     'Directory Readers' role'..."
-    Add-AzureADDirectoryRoleMember -ObjectId $role.ObjectId -RefObjectId     $roleMember.ObjectId
-    Write-Output "'$($AssignIdentityName)' service principal added to     'Directory Readers' role'..."
+    Write-Output "Adding service principal '$($AssignIdentityName)' to 'Directory Readers' role'..."
+    Add-AzureADDirectoryRoleMember -ObjectId $role.ObjectId -RefObjectId $roleMember.ObjectId
+    Write-Output "'$($AssignIdentityName)' service principal added to 'Directory Readers' role'..."
  
     #Write-Output "Dumping service principal '$($AssignIdentityName)':"
     #$allDirReaders = Get-AzureADDirectoryRoleMember -ObjectId $role.ObjectId
     #$allDirReaders | where{$_.ObjectId -match $roleMember.ObjectId}
-}
-else
-{
+} else {
     Write-Output "Service principal '$($AssignIdentityName)' is already member of 'Directory Readers' role'."
 }
 ```
@@ -160,11 +158,11 @@ For a similar approach on how to set the **Directory Readers** permission for SQ
 
     Make sure to add the **Application permissions** as well as the **Delegated permissions**.
 
-    :::image type="content" source="media/authentication-aad-service-principals-tutorial/aad-apps.png" alt-text="aad-apps":::
+    :::image type="content" source="media/authentication-aad-service-principals-tutorial/aad-apps.png" alt-text="Screenshot showing the App registrations page for Azure Active Directory. An app with the Display name AppSP is highlighted.":::
 
     :::image type="content" source="media/authentication-aad-service-principals-tutorial/aad-app-registration-api-permissions.png" alt-text="api-permissions":::
 
-2. You will also need to create a client secret for signing in. Follow the guide here to [Upload a certificate or create a secret for signing in](../../active-directory/develop/howto-create-service-principal-portal.md#upload-a-certificate-or-create-a-secret-for-signing-in).
+2. You will also need to create a client secret for signing in. Follow the guide here to [upload a certificate or create a secret for signing in](../../active-directory/develop/howto-create-service-principal-portal.md#authentication-two-options).
 
 3. Record the following from your application registration. It should be available from your **Overview** pane:
     - **Application ID**
@@ -299,3 +297,4 @@ Once a service principal is created in Azure AD, create the user in SQL Database
 - [Azure AD Service Principal authentication to SQL DB - Code Sample](https://techcommunity.microsoft.com/t5/azure-sql-database/azure-ad-service-principal-authentication-to-sql-db-code-sample/ba-p/481467)
 - [Application and service principal objects in Azure Active Directory](../../active-directory/develop/app-objects-and-service-principals.md)
 - [Create an Azure service principal with Azure PowerShell](https://docs.microsoft.com/powershell/azure/create-azure-service-principal-azureps)
+- [Directory Readers role in Azure Active Directory for Azure SQL](authentication-aad-directory-readers-role.md)

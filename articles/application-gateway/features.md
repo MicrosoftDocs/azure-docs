@@ -5,7 +5,7 @@ services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: conceptual
-ms.date: 04/07/2020
+ms.date: 09/25/2020
 ms.author: victorh
 ---
 
@@ -113,13 +113,13 @@ Application Gateway provides native support for the WebSocket and HTTP/2 protoco
 
 The WebSocket and HTTP/2 protocols enable full duplex communication between a server and a client over a long running TCP connection. This allows for a more interactive communication between the web server and the client, which can be bidirectional without the need for polling as required in HTTP-based implementations. These protocols have low overhead, unlike HTTP, and can reuse the same TCP connection for multiple request/responses resulting in a more efficient resource utilization. These protocols are designed to work over traditional HTTP ports of 80 and 443.
 
-For more information, see [WebSocket support](application-gateway-websocket.md) and [HTTP/2 support](configuration-overview.md#http2-support).
+For more information, see [WebSocket support](application-gateway-websocket.md) and [HTTP/2 support](configuration-listeners.md#http2-support).
 
 ## Connection draining
 
 Connection draining helps you achieve graceful removal of backend pool members during planned service updates. This setting is enabled via the backend http setting and can be applied to all members of a backend pool during rule creation. Once enabled, Application Gateway ensures all deregistering instances of a backend pool don't receive any new request while allowing existing requests to complete within a configured time limit. This applies to both backend instances that are explicitly removed from the backend pool by a user configuration change, and backend instances that are reported as unhealthy as determined by the health probes. The only exception to this are requests bound for deregistering instances, which have been deregistered explicitly, because of gateway-managed session affinity and continues to be proxied to the deregistering instances.
 
-For more information, see [Application Gateway Configuration Overview](configuration-overview.md#connection-draining).
+For more information, see [Application Gateway Configuration Overview](configuration-http-settings.md#connection-draining).
 
 ## Custom error pages
 
@@ -143,9 +143,9 @@ For more information, see [Rewrite HTTP headers and URL](rewrite-http-headers-ur
 
 ## Sizing
 
-Application Gateway Standard_v2 can be configured for autoscaling or fixed size deployments. This SKU doesn't offer different instance sizes. For more information on v2 performance and pricing, see [Autoscaling v2 SKU](application-gateway-autoscaling-zone-redundant.md#pricing).
+Application Gateway Standard_v2 can be configured for autoscaling or fixed size deployments. The v2 SKU doesn't offer different instance sizes. For more information on v2 performance and pricing, see [Autoscaling V2](application-gateway-autoscaling-zone-redundant.md) and [Understanding pricing](understanding-pricing.md).
 
-The Application Gateway Standard is offered in three sizes: **Small**, **Medium**, and **Large**. Small instance sizes are intended for development and testing scenarios.
+The Application Gateway Standard (v1) is offered in three sizes: **Small**, **Medium**, and **Large**. Small instance sizes are intended for development and testing scenarios.
 
 For a complete list of application gateway limits, see [Application Gateway service limits](../azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2fazure%2fapplication-gateway%2ftoc.json#application-gateway-limits).
 

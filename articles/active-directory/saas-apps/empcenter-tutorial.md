@@ -2,22 +2,15 @@
 title: 'Tutorial: Azure Active Directory integration with EmpCenter | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and EmpCenter.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-
-ms.assetid: a00ecf6e-917a-4284-b998-41506931585e
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 02/05/2019
 ms.author: jeedes
-
-ms.collection: M365-identity-device-management
 ---
 # Tutorial: Azure Active Directory integration with EmpCenter
 

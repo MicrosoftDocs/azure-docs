@@ -1,6 +1,6 @@
 ---
 title: Use Azure Table storage or the Azure Cosmos DB Table API from Java
-description: Store structured data in the cloud using Azure Table storage or the Azure Cosmos DB Table API.
+description: Store structured data in the cloud using Azure Table storage or the Azure Cosmos DB Table API from Java.
 ms.service: cosmos-db
 ms.subservice: cosmosdb-table
 ms.devlang: Java
@@ -628,3 +628,4 @@ For more information, visit [Azure for Java developers](/java/azure).
 [Azure Storage SDK for Android]: https://github.com/azure/azure-storage-android
 [Azure Storage Client SDK Reference]: https://azure.github.io/azure-storage-java/
 [Azure Storage REST API]: https://msdn.microsoft.com/library/azure/dd179355.aspx
+[Azure Storage Team Blog]: https://blogs.msdn.microsoft.com/windowsazurestorage/

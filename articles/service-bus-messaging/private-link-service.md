@@ -3,7 +3,7 @@ title: Integrate Azure Service Bus with Azure Private Link Service
 description: Learn how to integrate Azure Service Bus with Azure Private Link Service
 author: spelluru
 ms.author: spelluru
-ms.date: 06/23/2020
+ms.date: 10/07/2020
 ms.topic: article
 ---
 
@@ -229,7 +229,7 @@ There are four provisioning states:
 
 ## Validate that the private link connection works
 
-You should validate that the resources within the same subnet of the private endpoint resource are connecting to your Service Bus namespace over a private IP address, and that they have the correct private DNS zone integration.
+You should validate that resources within the virtual network of the private endpoint are connecting to your Service Bus namespace over a private IP address, and that they have the correct private DNS zone integration.
 
 First, create a virtual machine by following the steps in [Create a Windows virtual machine in the Azure portal](../virtual-machines/windows/quick-create-portal.md)
 

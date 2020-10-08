@@ -179,7 +179,7 @@ To configure the native app to connect to Azure Active Directory and call the AP
 
 After you configure the parameters, build and run the native app. When you select the **Sign In** button, the app lets you sign in, and then displays a success screen to confirm that it successfully connected to the SecretAPI.
 
-![Success](./media/application-proxy-secure-api-access/success.png)
+![Screenshot shows a message Secret A P I Successful and an OK button.](./media/application-proxy-secure-api-access/success.png)
 
 ## Next steps
 

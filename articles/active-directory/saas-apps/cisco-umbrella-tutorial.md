@@ -2,22 +2,15 @@
 title: 'Tutorial: Azure Active Directory integration with Cisco Umbrella | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and Cisco Umbrella.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: daveba
-ms.reviewer: barbkess
-
-ms.assetid: 675dca98-f119-4463-8350-d6a45d5601e3
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 01/17/2019
 ms.author: jeedes
-
-ms.collection: M365-identity-device-management
 ---
 # Tutorial: Azure Active Directory integration with Cisco Umbrella
 

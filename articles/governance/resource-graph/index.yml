@@ -110,7 +110,7 @@ landingContent:
           - text: Azure SDK for Go
             url: https://godoc.org/github.com/Azure/azure-sdk-for-go/services/resourcegraph/mgmt/2019-04-01/resourcegraph
           - text: Azure SDK for Java
-            url: /java/api/overview/azure/resourcegraph/management?view=azure-java-stable
+            url: /java/api/overview/azure/resourcegraph/management
           - text: Azure SDK for JavaScript
             url: /javascript/api/@azure/arm-resourcegraph
           - text: Azure SDK for Python

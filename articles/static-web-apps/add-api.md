@@ -7,7 +7,7 @@ ms.service: static-web-apps
 ms.topic:  how-to
 ms.date: 05/29/2020
 ms.author: wachegha
-ms.custom: devx-track-javascript
+ms.custom: devx-track-js
 ---
 
 # Add an API to Azure Static Web Apps Preview with Azure Functions
@@ -23,7 +23,7 @@ You can add serverless APIs to Azure Static Web Apps via integration with Azure 
 - [Live Server Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer) extension.
 - [Node.js](https://nodejs.org/download/) to run the API app locally
 
-## Create a git repository
+## Create a Git repository
 
 The following steps demonstrate how to create a new repository and clone the files to your computer.
 
@@ -142,7 +142,7 @@ Visual Studio Code integrates with [Azure Functions Core Tools](../azure-functio
 
     :::image type="content" source="media/add-api/create-azure-functions-vscode-2.png" alt-text="Create a new Azure Functions using Visual Studio Code":::
 
-1. With Core Tools running, navigate to the following URL to verify the API is running correctly: <http://localhost:7071/api/message>.
+1. With Core Tools running, navigate to the following URL to verify the API is running correctly: `http://localhost:7071/api/message`.
 
    The response in the browser should look similar to the following example:
 

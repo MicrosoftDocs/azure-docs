@@ -20,7 +20,7 @@ landingContent:
           - text: Azure Active Directory for developers (v1.0)
             url: v1-overview.md
           - text: Evolution of Microsoft identity platform
-            url: ../develop/about-microsoft-identity-platform.md
+            url: ./about-microsoft-identity-platform.md
           - text: Microsoft identity platform (v2.0)
             url: ../develop/v2-overview.md          
       - linkListType: concept

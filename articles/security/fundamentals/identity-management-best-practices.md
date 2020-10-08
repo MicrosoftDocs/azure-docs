@@ -192,7 +192,7 @@ Organizations that don’t add extra layers of identity protection, such as two-
 
 ## Use role-based access control
 
-Access management for cloud resources is critical for any organization that uses the cloud. [Role-based access control (RBAC)](/azure/role-based-access-control/overview)helps you manage who has access to Azure resources, what they can do with those resources, and what areas they have access to.
+Access management for cloud resources is critical for any organization that uses the cloud. [Azure role-based access control (Azure RBAC)](/azure/role-based-access-control/overview)helps you manage who has access to Azure resources, what they can do with those resources, and what areas they have access to.
 
 Designating groups or individual roles responsible for specific functions in Azure helps avoid confusion that can lead to human and automation errors that create security risks. Restricting access based on the [need to know](https://en.wikipedia.org/wiki/Need_to_know) and [least privilege](https://en.wikipedia.org/wiki/Principle_of_least_privilege) security principles is imperative for organizations that want to enforce security policies for data access.
 
@@ -226,7 +226,7 @@ Securing privileged access is a critical first step to protecting business asset
 
 Privileged accounts are accounts that administer and manage IT systems. Cyber attackers target these accounts to gain access to an organization’s data and systems. To secure privileged access, you should isolate the accounts and systems from the risk of being exposed to a malicious user.
 
-We recommend that you develop and follow a roadmap to secure privileged access against cyber attackers. For information about creating a detailed roadmap to secure identities and access that are managed or reported in Azure AD, Microsoft Azure, Office 365, and other cloud services, review [Securing privileged access for hybrid and cloud deployments in Azure AD](/azure/active-directory/users-groups-roles/directory-admin-roles-secure).
+We recommend that you develop and follow a roadmap to secure privileged access against cyber attackers. For information about creating a detailed roadmap to secure identities and access that are managed or reported in Azure AD, Microsoft Azure, Microsoft 365, and other cloud services, review [Securing privileged access for hybrid and cloud deployments in Azure AD](/azure/active-directory/users-groups-roles/directory-admin-roles-secure).
 
 The following summarizes the best practices found in [Securing privileged access for hybrid and cloud deployments in Azure AD](/azure/active-directory/users-groups-roles/directory-admin-roles-secure):
 
@@ -237,7 +237,7 @@ The following summarizes the best practices found in [Securing privileged access
 **Detail**: Remove any consumer accounts from critical admin roles (for example, Microsoft accounts like hotmail.com, live.com, and outlook.com).
 
 **Best practice**: Ensure all critical admin roles have a separate account for administrative tasks in order to avoid phishing and other attacks to compromise administrative privileges.
-**Detail**: Create a separate admin account that’s assigned the privileges needed to perform the administrative tasks. Block the use of these administrative accounts for daily productivity tools like Microsoft Office 365 email or arbitrary web browsing.
+**Detail**: Create a separate admin account that’s assigned the privileges needed to perform the administrative tasks. Block the use of these administrative accounts for daily productivity tools like Microsoft 365 email or arbitrary web browsing.
 
 **Best practice**: Identify and categorize accounts that are in highly privileged roles.   
 **Detail**: After turning on Azure AD Privileged Identity Management, view the users who are in the global administrator, privileged role administrator, and other highly privileged roles. Remove any accounts that are no longer needed in those roles, and categorize the remaining accounts that are assigned to admin roles:
@@ -278,7 +278,7 @@ Require Azure Multi-Factor Authentication at sign-in for all individual users wh
 **Detail**: Have a process in place that disables or deletes admin accounts when employees leave your organization.
 
 **Best practice**: Regularly test admin accounts by using current attack techniques.
-**Detail**: Use Office 365 Attack Simulator or a third-party offering to run realistic attack scenarios in your organization. This can help you find vulnerable users before a real attack occurs.
+**Detail**: Use Microsoft 365 Attack Simulator or a third-party offering to run realistic attack scenarios in your organization. This can help you find vulnerable users before a real attack occurs.
 
 **Best practice**: Take steps to mitigate the most frequently used attacked techniques.  
 **Detail**:
@@ -292,11 +292,11 @@ Require Azure Multi-Factor Authentication at sign-in for all individual users wh
 
 [Require Multi-Factor Authentication for users in all privileged roles as well as exposed users](/azure/active-directory/users-groups-roles/directory-admin-roles-secure#require-multi-factor-authentication-mfa-for-users-in-all-privileged-roles-as-well-as-exposed-users)  
 
-[Obtain your Office 365 Secure Score (if using Office 365)](/azure/active-directory/users-groups-roles/directory-admin-roles-secure#obtain-your-office-365-secure-score-if-using-office-365)  
+[Obtain your Microsoft 365 Secure Score (if using Microsoft 365)](/azure/active-directory/users-groups-roles/directory-admin-roles-secure#obtain-your-office-365-secure-score-if-using-office-365)  
 
-[Review the Office 365 security and compliance guidance (if using Office 365)](/azure/active-directory/users-groups-roles/directory-admin-roles-secure#review-the-office-365-security-and-compliance-guidance-if-using-office-365)  
+[Review the Microsoft 365 security guidance (if using Microsoft 365)](/azure/active-directory/users-groups-roles/directory-admin-roles-secure#review-the-office-365-security-and-compliance-guidance-if-using-office-365)  
 
-[Configure Office 365 Activity Monitoring (if using Office 365)](/azure/active-directory/users-groups-roles/directory-admin-roles-secure#configure-office-365-activity-monitoring-if-using-office-365)  
+[Configure Microsoft 365 Activity Monitoring (if using Microsoft 365)](/azure/active-directory/users-groups-roles/directory-admin-roles-secure#configure-office-365-activity-monitoring-if-using-office-365)  
 
 [Establish incident/emergency response plan owners](/azure/active-directory/users-groups-roles/directory-admin-roles-secure#establish-incidentemergency-response-plan-owners)  
 

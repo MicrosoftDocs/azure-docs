@@ -4,7 +4,7 @@ description: Describes Azure HPC Cache, a file access accelerator solution for h
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: overview
-ms.date: 07/16/2020
+ms.date: 09/03/2020
 ms.author: v-erkel
 ms.custom: references_regions
 ---
@@ -59,12 +59,6 @@ The [customer-managed keys feature](customer-keys.md) is supported only in these
 * West Europe
 * US Gov Arizona
 * US Gov Virginia
-
-## Service availability
-
-You must request access for each subscription you will use with Azure HPC Cache. This restriction helps ensure service quality.
-
-Request access by filling out [this form](https://aka.ms/onboard-hpc-cache). After your subscription is added to the access list, you can create caches.
 
 ## Next steps
 

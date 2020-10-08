@@ -10,8 +10,8 @@ ms.devlang:
 ms.topic: conceptual
 author: sashan
 ms.author: sashan
-ms.reviewer: carlrab, sashan
-ms.date: 04/02/2020
+ms.reviewer: sstein, sashan
+ms.date: 08/12/2020
 ---
 
 # High availability for Azure SQL Database and SQL Managed Instance
@@ -86,7 +86,7 @@ The zone redundant version of the high availability architecture is illustrated 
 
 ## Accelerated Database Recovery (ADR)
 
-[Accelerated Database Recovery (ADR)](../accelerated-database-recovery.md) is a new database engine feature that greatly improves database availability, especially in the presence of long running transactions. ADR is currently available for Azure SQL Database, Azure SQL Managed Instance, and Azure SQL Data Warehouse.
+[Accelerated Database Recovery (ADR)](../accelerated-database-recovery.md) is a new database engine feature that greatly improves database availability, especially in the presence of long running transactions. ADR is currently available for Azure SQL Database, Azure SQL Managed Instance, and Azure Synapse Analytics (formerly SQL Data Warehouse).
 
 ## Testing application fault resiliency
 
@@ -98,7 +98,7 @@ A failover can be initiated using PowerShell, REST API, or Azure CLI:
 |:---|:---|:---|:---|
 |Database|[Invoke-AzSqlDatabaseFailover](https://docs.microsoft.com/powershell/module/az.sql/invoke-azsqldatabasefailover)|[Database failover](/rest/api/sql/databases(failover)/failover/)|[az rest](https://docs.microsoft.com/cli/azure/reference-index#az-rest) may be used to invoke a REST API call from Azure CLI|
 |Elastic pool|[Invoke-AzSqlElasticPoolFailover](https://docs.microsoft.com/powershell/module/az.sql/invoke-azsqlelasticpoolfailover)|[Elastic pool failover](/rest/api/sql/elasticpools(failover)/failover/)|[az rest](https://docs.microsoft.com/cli/azure/reference-index#az-rest) may be used to invoke a REST API call from Azure CLI|
-|Managed Instance|[Invoke-AzSqlInstanceFailover](/powershell/module/az.sql/Invoke-AzSqlInstanceFailover/)|[Managed Instances - Failover](/powershell/module/az.sql/Invoke-AzSqlInstanceFailover/)|[az sql mi failover](/cli/azure/sql/mi/#az-sql-mi-failover)|
+|Managed Instance|[Invoke-AzSqlInstanceFailover](/powershell/module/az.sql/Invoke-AzSqlInstanceFailover/)|[Managed Instances - Failover](https://docs.microsoft.com/rest/api/sql/managed%20instances%20-%20failover/failover)|[az sql mi failover](/cli/azure/sql/mi/#az-sql-mi-failover)|
 
 > [!IMPORTANT]
 > The Failover command is not available for readable secondary replicas of Hyperscale databases.
@@ -112,4 +112,5 @@ Azure SQL Database and Azure SQL Managed Instance feature a built-in high availa
 - Learn about [Azure Availability Zones](../../availability-zones/az-overview.md)
 - Learn about [Service Fabric](../../service-fabric/service-fabric-overview.md)
 - Learn about [Azure Traffic Manager](../../traffic-manager/traffic-manager-overview.md)
+- Learn [How to initiate a manual failover on SQL Managed Instance](../managed-instance/user-initiated-failover.md)
 - For more options for high availability and disaster recovery, see [Business Continuity](business-continuity-high-availability-disaster-recover-hadr-overview.md)

@@ -38,7 +38,7 @@ You can use these links to bootstrap the creation of your web application:
 > The portal to use is different depending on whether your application runs in the Microsoft Azure public cloud or in a national or sovereign cloud. For more information, see [National clouds](./authentication-national-cloud.md#app-registration-endpoints).
 
 
-1. Sign in to the [Azure portal](https://portal.azure.com) by using either a work or school account, or a personal Microsoft account. Alternatively, sign in to the [Azure portal of choice](https://docs.microsoft.com/azure/active-directory/develop/authentication-national-cloud#app-registration-endpoints) for the national cloud.
+1. Sign in to the [Azure portal](https://portal.azure.com) by using either a work or school account, or a personal Microsoft account. Alternatively, sign in to the [Azure portal of choice](./authentication-national-cloud.md#app-registration-endpoints) for the national cloud.
 2. If your account gives you access to more than one tenant, select your account in the upper-right corner. Then, set your portal session to the desired Azure Active Directory (Azure AD) tenant.
 3. In the left pane, select the **Azure Active Directory** service, and then select **App registrations** > **New registration**.
 
@@ -118,7 +118,7 @@ and personal Microsoft Accounts (e.g. Skype, Xbox, Outlook.com)**,
 > - MyOrg (accounts in this organizational directory only)
 > - AnyOrg (accounts in any organizational directory)
 >
-> You can create an application that signs in users with their personal Microsoft accounts (for example, Skype, Xbox, or Outlook.com). First, create a multitenant application. Supported account types are accounts in any organizational directory. Then, change the [`accessTokenAcceptedVersion`](https://docs.microsoft.com/azure/active-directory/develop/reference-app-manifest#accesstokenacceptedversion-attribute) property to **2** and the [`signInAudience`](https://docs.microsoft.com/azure/active-directory/develop/reference-app-manifest#signinaudience-attribute) property to `AzureADandPersonalMicrosoftAccount` in the [application manifest](https://docs.microsoft.com/azure/active-directory/develop/reference-app-manifest) from the Azure portal. For more information, see [step 1.3](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/tree/master/1-WebApp-OIDC/1-3-AnyOrgOrPersonal#step-1-register-the-sample-with-your-azure-ad-tenant) in the ASP.NET Core tutorial. You can generalize this step to web apps in any language.
+> You can create an application that signs in users with their personal Microsoft accounts (for example, Skype, Xbox, or Outlook.com). First, create a multitenant application. Supported account types are accounts in any organizational directory. Then, change the [`accessTokenAcceptedVersion`](./reference-app-manifest.md#accesstokenacceptedversion-attribute) property to **2** and the [`signInAudience`](./reference-app-manifest.md#signinaudience-attribute) property to `AzureADandPersonalMicrosoftAccount` in the [application manifest](./reference-app-manifest.md) from the Azure portal. For more information, see [step 1.3](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/tree/master/1-WebApp-OIDC/1-3-AnyOrgOrPersonal#step-1-register-the-sample-with-your-azure-ad-tenant) in the ASP.NET Core tutorial. You can generalize this step to web apps in any language.
 
 ## Next steps
 

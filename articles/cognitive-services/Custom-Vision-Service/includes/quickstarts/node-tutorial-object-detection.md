@@ -2,11 +2,14 @@
 author: areddish
 ms.author: areddish
 ms.service: cognitive-services
-ms.date: 04/14/2020
-ms.custom: devx-track-javascript
+ms.date: 09/15/2020
+ms.custom: devx-track-js
 ---
 
-This article shows you how to get started using the Custom Vision SDK with Node.js to build an object detection model. After it's created, you can add tagged regions, upload images, train the project, obtain the project's published prediction endpoint URL, and use the endpoint to programmatically test an image. Use this example as a template for building your own Node.js application.
+This guide provides instructions and sample code to help you get started using the Custom Vision client library for Node.js to build an object detection model. You'll create a project, add tags, train the project, and use the project's prediction endpoint URL to programmatically test it. Use this example as a template for building your own image recognition app.
+
+> [!NOTE]
+> If you want to build and train an object detection model _without_ writing code, see the [browser-based guidance](../../get-started-build-detector.md) instead.
 
 ## Prerequisites
 
@@ -19,9 +22,9 @@ This article shows you how to get started using the Custom Vision SDK with Node.
 [!INCLUDE [node-get-images](../../includes/node-get-images.md)]
 
 
-## Install the Custom Vision SDK
+## Install the Custom Vision client library
 
-To install the Custom Vision service SDKs for Node.js in your project, run the following commands:
+To write an image analysis app with Custom Vision for Node.js, you'll need the Custom Vision NPM packages. To install them, run the following command in PowerShell:
 
 ```shell
 npm install @azure/cognitiveservices-customvision-training
@@ -32,7 +35,7 @@ npm install @azure/cognitiveservices-customvision-prediction
 
 Create a new file called *sample.js* in your preferred project directory.
 
-### Create the Custom Vision service project
+## Create the Custom Vision project
 
 Add the following code to your script to create a new Custom Vision service project. Insert your subscription keys in the appropriate definitions and set the sampleDataRoot path value to your image folder path. Make sure the endPoint value matches the training and prediction endpoints you have created at [Customvision.ai](https://www.customvision.ai/). Note that the difference between creating an object detection and image classification project is the domain specified in the **createProject** call.
 
@@ -73,7 +76,7 @@ async function asyncForEach (array, callback) {
     const sampleProject = await trainer.createProject("Sample Obj Detection Project", { domainId: objDetectDomain.id });
 ```
 
-### Create tags in the project
+## Create tags in the project
 
 To create classification tags to your project, add the following code to the end of *sample.js*:
 
@@ -82,7 +85,7 @@ To create classification tags to your project, add the following code to the end
     const scissorsTag = await trainer.createTag(sampleProject.id, "Scissors");
 ```
 
-### Upload and tag images
+## Upload and tag images
 
 When you tag images in object detection projects, you need to specify the region of each tagged object using normalized coordinates. 
 
@@ -168,7 +171,7 @@ await asyncForEach(scissorsFiles, async (file) => {
 await Promise.all(fileUploadPromises);
 ```
 
-### Train the project and publish
+## Train and publish the project
 
 This code creates the first iteration of the prediction model and then publishes that iteration to the prediction endpoint. The name given to the published iteration can be used to send prediction requests. An iteration is not available in the prediction endpoint until it is published.
 
@@ -224,7 +227,11 @@ The output of the application should appear in the console. You can then verify 
 
 ## Next steps
 
-Now you've seen how every step of the object detection process can be done in code. This sample executes a single training iteration, but often you'll need to train and test your model multiple times in order to make it more accurate. The following training guide deals with image classification, but its principles are similar to object detection.
+Now you've done every step of the object detection process in code. This sample executes a single training iteration, but often you'll need to train and test your model multiple times in order to make it more accurate. The following guide deals with image classification, but its principles are similar to object detection.
 
 > [!div class="nextstepaction"]
 > [Test and retrain a model](../../test-your-model.md)
+
+* [What is Custom Vision?](../../overview.md)
+* [SDK reference documentation (training)](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-customvision-training/?view=azure-node-latest)
+* [SDK reference documentation (prediction)](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-customvision-prediction/?view=azure-node-latest)

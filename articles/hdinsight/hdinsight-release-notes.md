@@ -7,7 +7,7 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 07/14/2020
+ms.date: 09/27/2020
 ---
 # Azure HDInsight release notes
 
@@ -17,43 +17,43 @@ This article provides information about the **most recent** Azure HDInsight rele
 
 Azure HDInsight is one of the most popular services among enterprise customers for open-source analytics on Azure.
 
-## Release date: 07/13/2020
+## Release date: 09/28/2020
 
-This release applies both for HDInsight 3.6 and 4.0. HDInsight release is made available to all regions over several days. The release date here indicates the first region release date. If you don't see below changes, wait for the release being live in your region in several days.
+This release applies for both HDInsight 3.6 and HDInsight 4.0. HDInsight release is made available to all regions over several days. The release date here indicates the first region release date. If you don't see below changes, wait for the release being live in your region in several days.
 
 ## New features
-### Support for Customer Lockbox for Microsoft Azure
-Azure HDInsight now supports Azure Customer Lockbox. It provides an interface for customers to review and approve, or reject customer data access requests. It is used when Microsoft engineer needs to access customer data during a support request. For more information, see [Customer Lockbox for Microsoft Azure](https://docs.microsoft.com/azure/security/fundamentals/customer-lockbox-overview#supported-services-and-scenarios-in-preview).
+### Autoscale for Interactive Query with HDInsight 4.0 is now generally available
+Auto scale for Interactive Query cluster type is now General Available (GA) for HDInsight 4.0. All Interactive Query 4.0 clusters created after 27 August 2020 will have GA support for auto scale.
 
-### Service endpoint policies for storage
-Customers can now use Service Endpoint Policies (SEP) on the HDInsight cluster subnet. Learn more about [Azure service endpoint policy](https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoint-policies-overview).
+### HBase cluster supports Premium ADLS Gen2
+HDInsight now supports Premium ADLS Gen2 as primary storage account for HDInsight HBase 3.6 and 4.0 clusters. Together with [Accelerated Writes](./hbase/apache-hbase-accelerated-writes.md), you can get better performance for your HBase clusters.
+
+### Kafka partition distribution on Azure fault domains
+A fault domain is a logical grouping of underlying hardware in an Azure data center. Each fault domain shares a common power source and network switch. Before HDInsight Kafka may store all partition replicas in the same fault domain. Starting from this release, HDInsight now supports automatically distribution of Kafka partitions based on Azure fault domains. 
+
+### Encryption in transit
+Customers can enable encryption in transit between cluster nodes using IPSec encryption with platform-managed keys. This option can be enabled at the cluster creation time. See more details about [how to enable encryption in transit](./domain-joined/encryption-in-transit.md).
+
+### Encryption at host
+When you enable encryption at host, data stored on the VM host is encrypted at rest and flows encrypted to the storage service. From this release, you can **Enable encryption at host on temp data disk** when creating the cluster. Encryption at host is only supported on [certain VM SKUs in limited regions](https://docs.microsoft.com/azure/virtual-machines/linux/disks-enable-host-based-encryption-portal). HDInsight supports the [following node configuration and SKUs](./hdinsight-supported-node-configuration.md). See more details about [how to enable encryption at host](https://docs.microsoft.com/azure/hdinsight/disk-encryption#encryption-at-host-using-platform-managed-keys).
+
+### Moving to Azure virtual machine scale sets
+HDInsight now uses Azure virtual machines to provision the cluster. Starting from this release, the service will gradually migrate to [Azure virtual machine scale sets](https://docs.microsoft.com/azure/virtual-machine-scale-sets/overview). The entire process may take months. After your regions and subscriptions are migrated, newly created HDInsight clusters will run on virtual machine scale sets without customer actions. No breaking change is expected.
 
 ## Deprecation
-### Deprecation of Spark 2.1 and 2.2 in HDInsight 3.6 Spark cluster
-Starting from July 1 2020, customers cannot create new Spark clusters with Spark 2.1 and 2.2 on HDInsight 3.6. Existing clusters will run as is without the support from Microsoft. Consider to move to Spark 2.3 on HDInsight 3.6 by June 30 2020 to avoid potential system/support interruption.
- 
-### Deprecation of Spark 2.3 in HDInsight 4.0 Spark cluster
-Starting from July 1 2020, customers cannot create new Spark clusters with Spark 2.3 on HDInsight 4.0. Existing clusters will run as is without the support from Microsoft. Consider moving to Spark 2.4 on HDInsight 4.0 by June 30 2020 to avoid potential system/support interruption.
- 
-### Deprecation of Kafka 1.1 in HDInsight 4.0 Kafka cluster
-Starting from July 1 2020, customers will not be able to create new Kafka clusters with Kafka 1.1 on HDInsight 4.0. Existing clusters will run as is without the support from Microsoft. Consider moving to Kafka 2.1 on HDInsight 4.0 by June 30 2020 to avoid potential system/support interruption.
+No deprecation for this release.
 
 ## Behavior changes
-No behavior changes you need to pay attention to.
+No behavior change for this release.
 
 ## Upcoming changes
-The following changes will happen in upcoming releases. 
+The following changes will happen in upcoming releases.
 
 ### Ability to select different Zookeeper SKU for Spark, Hadoop, and ML Services
-HDInsight today doesn't support changing Zookeeper SKU for Spark, Hadoop, and ML Services cluster types. It uses A2_v2/A2 SKU for Zookeeper nodes and customers aren't charged for them. In the upcoming release, customers will be able to change Zookeeper SKU for Spark, Hadoop, and ML Services as needed. Zookeeper nodes with SKU other than A2_v2/A2 will be charged. The default SKU will still be A2_V2/A2 and free of charge.
+HDInsight today doesn't support changing Zookeeper SKU for Spark, Hadoop, and ML Services cluster types. It uses A2_v2/A2 SKU for Zookeeper nodes and customers aren't charged for them. In the upcoming release, customers can change Zookeeper SKU for Spark, Hadoop, and ML Services as needed. Zookeeper nodes with SKU other than A2_v2/A2 will be charged. The default SKU will still be A2_V2/A2 and free of charge.
 
 ## Bug fixes
 HDInsight continues to make cluster reliability and performance improvements. 
-### Fixed Hive Warehouse Connector issue
-There was an issue for Hive Warehouse connector usability in previous release. The issue has been fixed. 
-
-### Fixed Zeppelin notebook truncates leading zeros issue
-Zeppelin was incorrectly truncating leading zeros in the table output for String format. We've fixed this issue in this release.
 
 ## Component version change
 No component version change for this release. You can find the current component versions for HDInsight 4.0 and HDInsight 3.6 in [this doc](https://docs.microsoft.com/azure/hdinsight/hdinsight-component-versioning#apache-hadoop-components-available-with-different-hdinsight-versions).

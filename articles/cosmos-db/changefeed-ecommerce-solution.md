@@ -310,7 +310,7 @@ Power BI is a suite of business analytics tools to analyze data and share insigh
 
    This is how a sample dashboard looks with these charts:
 
-   :::image type="content" source="./media/changefeed-ecommerce-solution/visualizations.png" alt-text="visualizations":::
+   :::image type="content" source="./media/changefeed-ecommerce-solution/visualizations.png" alt-text="Screenshot shows a sample dashboard with charts named Average Price of Items by Action, Unique Visitors, Revenue, and Top 5 Items Purchased.":::
 
 ## Optional: Visualize with an E-commerce site
 

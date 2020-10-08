@@ -42,9 +42,9 @@ Before you begin this application development tutorial, you must have the follow
 
   [!INCLUDE [cosmos-db-emulator-docdb-api](../../includes/cosmos-db-emulator-docdb-api.md)]
 
-* [Java Development Kit (JDK) 7+](/java/azure/jdk/?view=azure-java-stable).
+* [Java Development Kit (JDK) 7+](/java/azure/jdk/?view=azure-java-stable&preserve-view=true).
 * [Eclipse IDE for Java EE Developers.](https://www.eclipse.org/downloads/packages/release/luna/sr1/eclipse-ide-java-ee-developers)
-* [An Azure Web Site with a Java runtime environment (e.g. Tomcat or Jetty) enabled.](../app-service/app-service-web-get-started-java.md)
+* [An Azure Web Site with a Java runtime environment (e.g. Tomcat or Jetty) enabled.](../app-service/quickstart-java.md)
 
 If you're installing these tools for the first time, coreservlets.com provides a walk-through of the installation process in the quickstart section of their [Tutorial: Installing TomCat7 and Using it with Eclipse](http://www.coreservlets.com/Apache-Tomcat-Tutorial/tomcat-7-with-eclipse.html) article.
 

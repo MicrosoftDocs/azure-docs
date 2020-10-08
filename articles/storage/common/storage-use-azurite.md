@@ -8,6 +8,7 @@ ms.date: 07/15/2020
 ms.service: storage
 ms.subservice: common
 ms.topic: how-to
+ms.custom: devx-track-csharp
 ---
 
 # Use the Azurite emulator for local Azure Storage development
@@ -323,7 +324,7 @@ If you're using the Azure SDKs, start Azurite with the `--oauth basic and --cert
 
 ### Well-known storage account and key
 
-Azurite accepts the same well-known account and key used by the legacy Azure storage emulator.
+Azurite accepts the same well-known account and key used by the legacy Azure Storage Emulator.
 
 - Account name: `devstoreaccount1`
 - Account key: `Eby8vdM02xNOcqFlqUwJPLlmEtlCDXJ1OUzFT50uSRZ6IFsuFq2UVErCz4I6tq/K1SZFPTOtr/KBHBeksoGMGw==`
@@ -551,11 +552,17 @@ Azurite supports read-access geo-redundant replication (RA-GRS). For storage res
 
 `http://127.0.0.1:10000/devstoreaccount1-secondary/mycontainer/myblob.txt`
 
+### Table support
+
+Support for tables in Azurite is currently under development and open to contribution! For the latest progress, check the [Azurite V3 Table](https://github.com/Azure/Azurite/wiki/Azurite-V3-Table) project.
+
+Support for durable functions requires tables.
+
 ## Azurite is open-source
 
 Contributions and suggestions for Azurite are welcome. Go to the Azurite [GitHub project](https://github.com/Azure/Azurite/projects) page or [GitHub issues](https://github.com/Azure/Azurite/issues) for milestones and work items we're tracking for upcoming features and bug fixes. Detailed work items are also tracked in GitHub.
 
 ## Next steps
 
-- [Use the Azure storage emulator for development and testing](storage-use-emulator.md) documents the legacy Azure storage emulator, which is being superseded by Azurite.
+- [Use the Azure Storage Emulator for development and testing](storage-use-emulator.md) documents the legacy Azure Storage Emulator, which is being superseded by Azurite.
 - [Configure Azure Storage connection strings](storage-configure-connection-string.md) explains how to assemble a valid Azure Storage connection string.
