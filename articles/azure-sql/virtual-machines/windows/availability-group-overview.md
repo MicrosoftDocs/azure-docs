@@ -119,7 +119,7 @@ here is another way to present this information
 |DR with multizone in the same region|Yes|Yes|Yes|Yes|
 |Distributed AG with no AD |No|No|No|Yes|
 |Distributed AG with no cluster |No|No|No|Yes|
-|---|---|---|---|---|
+||||||
 
 
 
