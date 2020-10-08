@@ -140,7 +140,7 @@ Create a load balancer rule with [az network lb rule create](https://docs.micros
 In this section, you'll add two regional standard load balancers to the backend pool of the cross-region load balancer.
 
 > [!IMPORTANT]
-> To complete these steps, ensure that two regional load balancers with backend pools have been deployed in your subscription.  For more information, see, **[Quickstart: Create a public load balancer to load balance VMs using Azure PowerShell](quickstart-load-balancer-standard-public-powershell.md)**.
+> To complete these steps, ensure that two regional load balancers with backend pools have been deployed in your subscription.  For more information, see, **[Quickstart: Create a public load balancer to load balance VMs using Azure CLI](quickstart-load-balancer-standard-public-cli.md)**.
 
 **FINISH INSTRUCTIONS HERE WHEN CLI IS DONE**
 
