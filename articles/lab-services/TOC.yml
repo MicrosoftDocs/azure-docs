@@ -58,7 +58,7 @@
         items:
           - name: Overview and benefits
             href: lab-services-with-teams-overview.md
-          - name: Create a lab within a Team
+          - name: Create a lab from Teams
             href: how-to-get-started-create-lab-within-teams.md
           - name: Manage user lists
             href: how-to-manage-user-lists-within-teams.md
