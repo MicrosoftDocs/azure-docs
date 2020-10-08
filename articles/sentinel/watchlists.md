@@ -40,8 +40,8 @@ Common scenarios for using watchlists include:
 
 1. On the **Source** page, select the dataset type, upload a file, and then select **Next**.
 
-    > [!div class="mx-imgBorder"]
-    > ![watchlist source page](./media/watchlists/sentinel-watchlist-source.png)
+    :::image type="content" source="./media/watchlists/sentinel-watchlist-source.png" alt-text="watchlist source page" lightbox="./media/watchlists/sentinel-watchlist-source.png":::
+
 
 1. Review the information, verify that it is correct, and then select **Create**.
 
@@ -50,35 +50,35 @@ Common scenarios for using watchlists include:
 
     A notification appears once the watchlist is created.
 
-    > [!div class="mx-imgBorder"]
-    > ![watchlist successful creation notification](./media/watchlists/sentinel-watchlist-complete.png)
+    :::image type="content" source="./media/watchlists/sentinel-watchlist-complete.png" alt-text="watchlist successful creation notification" lightbox="./media/watchlists/sentinel-watchlist-complete.png":::
+
 
 ## Use watchlists in queries
 
 1. From the Azure portal, navigate to **Azure Sentinel** > **Configuration** > **Watchlist**, select the watchlist you want to use, and then select **View in Log Analytics**.
 
-    > [!div class="mx-imgBorder"]
-    > ![use watchlists in queries](./media/watchlists/sentinel-watchlist-queries-list.png)
+    :::image type="content" source="./media/watchlists/sentinel-watchlist-queries-list.png" alt-text="use watchlists in queries" lightbox="./media/watchlists/sentinel-watchlist-queries-list.png":::
+
 
 1. To extract the contents of the **IpAddress** field for your query, on the **Results** tab, expand the **WatchlistItem** field, and to the left of the **IpAddress** field, select the more menu (...), and then select **Extend column**.
 
     > [!NOTE]
     > The timestamp on your queries will be ignored in both the query UI and in scheduled alerts.
 
-    > [!div class="mx-imgBorder"]
-    > ![extract watchlist fields in queries](./media/watchlists/sentinel-watchlist-queries-run.png)
+    :::image type="content" source="./media/watchlists/sentinel-watchlist-queries-run.png" alt-text="extract watchlist fields in queries" lightbox="./media/watchlists/sentinel-watchlist-queries-run.png":::
+
 
 Once the query runs, you should see a new column with the **IpAddress** field.
 
-> [!div class="mx-imgBorder"]
-> ![queries with watchlist fields](./media/watchlists/sentinel-watchlist-queries-extract.png)
+:::image type="content" source="./media/watchlists/sentinel-watchlist-queries-extract.png" alt-text="queries with watchlist fields" lightbox="./media/watchlists/sentinel-watchlist-queries-extract.png":::
+
 
 ## Use watchlists in analytics rules
 
 To use watchlists in analytics rules, from the Azure portal, navigate to **Azure Sentinel** > **Configuration** > **Analytics**, and create a rule using the `_GetWatchlist('<watchlist>')` function in the query.
 
-> [!div class="mx-imgBorder"]
-> ![use watchlists in analytics rules](./media/watchlists/sentinel-watchlist-analytics-rule.png)
+:::image type="content" source="./media/watchlists/sentinel-watchlist-analytics-rule.png" alt-text="use watchlists in analytics rules" lightbox="./media/watchlists/sentinel-watchlist-analytics-rule.png":::
+
 
 ## View list of watchlists aliases
 
@@ -86,3 +86,10 @@ To get a list of watchlist aliases, from the Azure portal, navigate to **Azure S
 
 > [!div class="mx-imgBorder"]
 > ![list watchlists](./media/watchlists/sentinel-watchlist-alias.png)
+
+## Next steps
+In this document, you learned how to use watchlists in Azure Sentinel to enrich data and improve investigations. To learn more about Azure Sentinel, see the following articles:
+- Learn how to [get visibility into your data, and potential threats](quickstart-get-visibility.md).
+- Get started [detecting threats with Azure Sentinel](tutorial-detect-threats.md).
+- [Use workbooks](tutorial-monitor-your-data.md) to monitor your data.
+
