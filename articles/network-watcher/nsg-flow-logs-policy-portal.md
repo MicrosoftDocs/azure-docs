@@ -23,15 +23,16 @@ Navigate to Azure Policy page by searching for Policy in the top search bar
 
 ![Assign Policy Button](./media/network-watcher-builtin-policy/3_assign-policy-button.png)
 
-4. Click the three dots menu under "Policy Definitions" to bring up the available policies
+4. Click the three dots menu under "Policy Definitions" to see available policies
 
 5. Use the Type filter and choose "Built-in". Then search for "Flow log"
-This should bring up the two built-in policies for Flow logs
+
+You should see the two built-in policies for Flow logs
 ![Policy List](./media/network-watcher-builtin-policy/4_filter-for-flow-log-policies.png)
 
 6. Choose the policy you want to assign
 
-- *"Flow log should be configured for every network security group"* is the audit policy that flags non-compliant NSGs i.e. NSGs without Flow logging enabled
+- *"Flow log should be configured for every network security group"* is the audit policy that flags non-compliant NSGs, that is NSGs without Flow logging enabled
 - *"Deploy a flow log resource with target network security group"* is the policy with a deployment action, it enables Flow logs on all NSGs without Flow logs
 
 There are separate instructions for each policy below.  
@@ -40,29 +41,28 @@ There are separate instructions for each policy below.
 
 ### How the policy works
 
-The policy checks all existing ARM objects of type “Microsoft.Network/networkSecurityGroups” i.e. it looks at all NSGs in a given scope, and checks for the existence of linked flowlogs via the flowlogs property. If the property doesn’t not exist, the NSG is flagged.
+The policy checks all existing ARM objects of type “Microsoft.Network/networkSecurityGroups”, that is it looks at all NSGs in a given scope, and checks for the existence of linked Flow logs via the Flow Logs property of the NSG. If the property does not exist, the NSG is flagged.
 
-If you want to see the full definition of the policy, you can visit the [Defintions tab](https://ms.portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyMenuBlade/Definitions) and search for "Flow logs" to find the policy
+If you want to see the full definition of the policy, you can visit the [Definitions tab](https://ms.portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyMenuBlade/Definitions) and search for "Flow logs" to find the policy
 
 ### Assignment
 
 1. Fill in your policy details
 
-- Scope: This is typically a subscription, you can also choose a management group or resource group as relevant to you.  
-- Policy Definition: Should be chosen as shown above
+- Scope: A subscription is the common choice, you can also choose a management group or resource group as relevant to you.  
+- Policy Definition: Should be chosen as shown in the "Locate the policies" section.
 - AssignmentName: Choose a descriptive name 
 
 2. Click on "Review + Create" to review your assignment
-This policy does not require any parameters. Since this is an audit policy, you do not need to fill the details in the "Remediation" tab.  
 
-You should see something like the below. 
+The policy does not require any parameters. As you are assigning an audit policy, you do not need to fill the details in the "Remediation" tab.  
 
 ![Audit Policy Review](./media/network-watcher-builtin-policy/5_1_audit-policy-review.png)
 
 ### Results
 
 To check the results, open the Compliance tab and search for the name of your Assignment.
-You should see something like the below once your policy runs. In case your policy hasn't run, please wait for some time. 
+You should see something similar to the following screenshot once your policy runs. In case your policy hasn't run, wait for some time. 
 
 ![Audit Policy Review](./media/network-watcher-builtin-policy/7_1_audit-policy-results.png)
 
@@ -70,24 +70,24 @@ You should see something like the below once your policy runs. In case your poli
 
 ### Policy Structure
 
-The policy checks all existing ARM objects of type “Microsoft.Network/networkSecurityGroups” i.e. it looks at all NSGs in a given scope, and checks for the existence of linked flowlogs via the flowlogs property. If the property doesn’t not exist, the policy deploys a Flow log. 
+The policy checks all existing ARM objects of type “Microsoft.Network/networkSecurityGroups”, that is it looks at all NSGs in a given scope, and checks for the existence of linked Flow logs via the Flow Logs property of the NSG. If the property does not exist, the policy deploys a Flow log. 
 
-If you want to see the full definition of the policy, you can visit the [Defintions tab](https://ms.portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyMenuBlade/Definitions) and search for "Flow logs" to find the policy. 
+If you want to see the full definition of the policy, you can visit the [Definitions tab](https://ms.portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyMenuBlade/Definitions) and search for "Flow logs" to find the policy. 
 
 ### Assignment
 
 1. Fill in your policy details
 
-- Scope: This is typically a subscription, you can also choose a management group or resource group as relevant to you.  
-- Policy Definition: Should be chosen as shown above
+- Scope: A subscription is the common choice, you can also choose a management group or resource group as relevant to you.  
+- Policy Definition: Should be chosen as shown in the "Locate the policies" section.
 - AssignmentName: Choose a descriptive name 
 
 2. Add policy parameters 
 
-The Network Watcher service is a regional service. The details below allow the policy action of deploying flow logs to be executed. 
+The Network Watcher service is a regional service. These paramters allow the policy action of deploying flow logs to be executed. 
 - NSG Region: Azure regions at which the policy is targeted
 - Storage ID: Full resource ID of the storage account. Note: This storage account should be in the same region as the NSG. 
-- Network Watchers RG: Name of the resource group containing your Network Watcher resource. If you have not renamed it, this is 'NetworkWatcherRG' by default.
+- Network Watchers RG: Name of the resource group containing your Network Watcher resource. If you have not renamed it, you can enter 'NetworkWatcherRG' which is the default.
 - Network Watcher name: Name of the regional network watcher service. Format: NetworkWatcher_RegionName. Example: NetworkWatcher_centralus. See the [full list](example.com).
 
 ![DINE Policy parameters](./media/network-watcher-builtin-policy/5_2_1_dine-policy-details-alt.png)
@@ -97,12 +97,12 @@ The Network Watcher service is a regional service. The details below allow the p
 - Check mark on "Create Remediation task" if you want the policy to affect existing resources 
 - "Create a Managed Identity" should be already checked
 - Selected the same location as previous for your Managed Identity 
-- You will need Contributor or Owner permissions to use this policy. If you have these you should not see any errors.
+- You will need Contributor or Owner permissions to use this policy. If you have these permissions, you should not see any errors.
 
 ![DINE Policy parameters](./media/network-watcher-builtin-policy/5_2_2_dine-remediation.png) 
 
 4. Click on "Review + Create" to review your assignment
-You should see something like the below. 
+You should see something similar to the following screenshot.
 
 ![DINE Policy remediation](./media/network-watcher-builtin-policy/5_2_3_dine-review.png) 
 
@@ -110,7 +110,7 @@ You should see something like the below.
 ### Results
 
 To check the results, open the Compliance tab and search for the name of your Assignment.
-You should see something like the below once your policy runs. In case your policy hasn't run, please wait for some time.
+You should see something like following screenshot once your policy. In case your policy hasn't run, wait for some time.
 
 ![DINE Policy results](./media/network-watcher-builtin-policy/7_2_dine-policy-results.png)  
 
