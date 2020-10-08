@@ -43,7 +43,7 @@ After your Azure Synapse workspace is created, you have two ways to open Synapse
 
 ## Create a SQL pool
 
-1. In Synapse Studio, on the left-side pane, select **Manage** > **SQL pools**.
+1. In Synapse Studio, on the left-side pane, select **Synapse resources** > **SQL pools**.
 1. Select **New** and enter these settings:
 
     |Setting | Suggested value | 
@@ -58,7 +58,7 @@ A SQL pool consumes billable resources as long as it's active. You can pause the
 
 ## Create an Apache Spark pool
 
-1. In Synapse Studio, on the left-side pane, select **Manage** > **Apache Spark pools**.
+1. In Synapse Studio, on the left-side pane, select **Synapse resources** > **Apache Spark pools**.
 1. Select **New** and enter these settings:
 
     |Setting | Suggested value | 
