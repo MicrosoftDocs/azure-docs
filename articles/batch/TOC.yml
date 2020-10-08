@@ -83,7 +83,7 @@
     href: high-availability-disaster-recovery.md
   - name: Task runtime environment variables
     href: batch-compute-node-environment-variables.md
-- name: How-to guides 
+- name: How-to guides
   items:
   - name: Manage Batch accounts
     items:
@@ -110,9 +110,9 @@
     - name: Using certificates with Batch
       href: batch-certificates.md
   - name: Copy files and applications to pool nodes
-    items: 
+    items:
     - name: Copying applications and data to pool nodes
-      href: batch-applications-to-pool-nodes.md 
+      href: batch-applications-to-pool-nodes.md
     - name: Using application packages
       href: batch-application-packages.md
     - name: Create resource files
@@ -152,7 +152,7 @@
   - name: Create a CI/CD pipeline for Batch
     href: batch-ci-cd.md
   - name: Manage jobs and tasks
-    items:  
+    items:
     - name: Job preparation and completion tasks
       href: batch-job-prep-release.md
     - name: Concurrent node tasks
@@ -192,7 +192,7 @@
     - name: Use Azure CLI
       href: batch-cli-get-started.md
       items:
-      - name: Use Batch CLI templates 
+      - name: Use Batch CLI templates
         href: batch-cli-templates.md
   - name: Use Batch Node.js SDK
     href: batch-nodejs-get-started.md
@@ -219,7 +219,7 @@
       - name: Storage and data movement
         href: batch-rendering-storage-data-movement.md
       - name: Rendering architectures
-        href: batch-rendering-architectures.md 
+        href: batch-rendering-architectures.md
     - name: Data processing with Batch and Data Factory
       href: ../data-factory/transform-data-using-dotnet-custom-activity.md?toc=%2fazure%2fbatch%2ftoc.json
 - name: Reference
@@ -257,12 +257,16 @@
       href: batch-pool-resize-start-event.md
     - name: Pool resize complete event
       href: batch-pool-resize-complete-event.md
+    - name: Pool autoscale event
+      href: batch-pool-autoscale-event.md
     - name: Task start event
       href: batch-task-start-event.md
     - name: Task complete event
       href: batch-task-complete-event.md
     - name: Task fail event
       href: batch-task-fail-event.md
+    - name: Task schedule fail event
+      href: batch-task-schedule-fail-event.md
   - name: Azure Policy built-ins
     displayName: samples, policies, definitions
     href: ./policy-reference.md

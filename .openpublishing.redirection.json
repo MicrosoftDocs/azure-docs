@@ -57916,11 +57916,6 @@
       "redirect_document_id": false
     },
     {
-      "source_path": "https://docs.microsoft.com/azure/cognitive-services/translator/quickstart-translate",
-      "redirect_url": "/azure/cognitive-services/Translator/quickstart-translator.md",
-      "redirect_document_id": false
-    },
-    {
       "source_path": "https://docs.microsoft.com/azure/cognitive-services/translator/quickstart-dictionary",
       "redirect_url": "/azure/cognitive-services/Translator/quickstart-translator.md",
       "redirect_document_id": false
