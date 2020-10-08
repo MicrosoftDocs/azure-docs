@@ -1,5 +1,6 @@
 ---
-title: QuickStart: Deploy and manage NSG Flow Logs using Azure Policy 
+
+title: QuickStart - Deploy and manage NSG Flow Logs using Azure Policy 
 titleSuffix: Azure Network Watcher
 description: This article explains how to use the built-in policies to manage the deployment of NSG flow logs 
 services: network-watcher
@@ -101,7 +102,7 @@ If you want to see the full definition of the policy, you can visit the [Definit
 
 2. Add policy parameters 
 
-The Network Watcher service is a regional service. These paramters allow the policy action of deploying flow logs to be executed. 
+The Network Watcher service is a regional service. These parameters allow the policy action of deploying flow logs to be executed. 
 - NSG Region: Azure regions at which the policy is targeted
 - Storage ID: Full resource ID of the storage account. Note: This storage account should be in the same region as the NSG. 
 - Network Watchers RG: Name of the resource group containing your Network Watcher resource. If you have not renamed it, you can enter 'NetworkWatcherRG' which is the default.
