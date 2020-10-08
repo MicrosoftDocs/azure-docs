@@ -664,10 +664,9 @@ GET https://management.azure.com/providers/Microsoft.Subscription/aliases/sample
 }
 ```
 
-An in-progress status will be returned as an `Accepted` state under `provisioningState`
+An in-progress status will be returned as an `Accepted` state under `provisioningState`. 
 
-TODO:
-Pass the optional *resellerId* copied from the second step in the request parameters of the API.
+Pass the optional *resellerId* copied from the second step in the request body of the API.
 
 ### [PowerShell](#tab/azure-powershell-MPA)
 
