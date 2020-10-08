@@ -183,19 +183,19 @@ If your cluster is behind an outbound proxy server, Azure CLI and the Arc enable
 
     * If you are using bash, run the following command with appropriate values:
 
-    ```bash
-    export HTTP_PROXY=<proxy-server-ip-address>:<port>
-    export HTTPS_PROXY=<proxy-server-ip-address>:<port>
-    export NO_PROXY=<cluster-apiserver-ip-address>:<port>
-    ```
+        ```bash
+        export HTTP_PROXY=<proxy-server-ip-address>:<port>
+        export HTTPS_PROXY=<proxy-server-ip-address>:<port>
+        export NO_PROXY=<cluster-apiserver-ip-address>:<port>
+        ```
 
     * If you are using PowerShell, run the following command with appropriate values:
 
-    ```powershell
-    $Env:HTTP_PROXY = "<proxy-server-ip-address>:<port>"
-    $Env:HTTPS_PROXY = "<proxy-server-ip-address>:<port>"
-    $Env:NO_PROXY = "<cluster-apiserver-ip-address>:<port>"
-    ```
+        ```powershell
+        $Env:HTTP_PROXY = "<proxy-server-ip-address>:<port>"
+        $Env:HTTPS_PROXY = "<proxy-server-ip-address>:<port>"
+        $Env:NO_PROXY = "<cluster-apiserver-ip-address>:<port>"
+        ```
 
 3. Run the connect command with proxy parameters specified:
 
