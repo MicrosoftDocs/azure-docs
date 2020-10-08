@@ -109,7 +109,7 @@ In this section, you configure Azure AD single sign-on with Sectigo Certificate 
 
 	1. Select **Set additional URLs**.
 
-	1. In the **Relay State** box, enter your Sectigo Certificate Manager customer-pecific URL. For the main Sectigo Certificate Manager instance, enter **https:\//cert-manager.com/customer/\>*customerURI\>/idp**.
+	1. In the **Relay State** box, enter your Sectigo Certificate Manager customer-specific URL. For the main Sectigo Certificate Manager instance, enter **https:\//cert-manager.com/customer/\<*customerURI\>/idp**.
 
     ![Sectigo Certificate Manager domain and URLs single sign-on information](common/idp-relay.png)
 
@@ -121,7 +121,7 @@ In this section, you configure Azure AD single sign-on with Sectigo Certificate 
 	
         | Name | Namespace | Source | Source attribute | Description |
         | --- | --- | --- | --- | --- |
-        | eduPersonPrincipalName | empty | Attribute | user.userprincipalname | Must match the **IdP Person Id** field in Sectigo Certificate Manager for Admins. |
+        | eduPersonPrincipalName | empty | Attribute | user.userprincipalname | Must match the **IdP Person ID** field in Sectigo Certificate Manager for Admins. |
         | mail | empty | Attribute | user.mail | Required |
         | givenName | empty | Attribute | user.givenname | Optional |
         | sn | empty | Attribute | user.surname | Optional |
@@ -154,7 +154,7 @@ In this section, you create a test user named Britta Simon in the Azure portal.
   
     1. In the **User name** box, enter **brittasimon\@\<your-company-domain>.\<extension\>**. For example, **brittasimon\@contoso.com**.
 
-    1. Select the **Show password** check box. Write down the value that's displayed in the **Password** box.
+    1. Select the **Show password** check box. Record the value that's displayed in the **Password** box.
 
     1. Select **Create**.
 
@@ -162,7 +162,7 @@ In this section, you create a test user named Britta Simon in the Azure portal.
 
 ### Assign the Azure AD test user
 
-In this section, you grant Britta Simon access to Sectigo Certificate Manager so she can use Azure single sign-on.
+In this section, you grant Britta Simon access to Sectigo Certificate Manager so that the user can use Azure single sign-on.
 
 1. In the Azure portal, select **Enterprise applications** > **All applications** > **Sectigo Certificate Manager**.
 
