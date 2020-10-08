@@ -365,6 +365,7 @@ The Application Insights SDK for Worker Service supports both fixed-rate and ada
 To configure additional sampling settings, the following example can be used.
 
 ```csharp
+using Microsoft.ApplicationInsights.Extensibility;
 using Microsoft.ApplicationInsights.WorkerService;
 
 public void ConfigureServices(IServiceCollection services)
