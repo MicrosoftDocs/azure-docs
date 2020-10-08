@@ -407,7 +407,7 @@ Unique customizations that commonly need to be manually recreated or updated for
 
 - Recreate custom dashboards and workbooks. 
 - Recreate or update the scope of any custom log/metric alerts. 
-- Recreate availability alerts
+- Recreate availability alerts.
 - Recreate any custom Role-Based Access Control (RBAC) settings that are required for your users to access the new resource. 
 - Replicate settings involving ingestion sampling, data retention, daily cap, and custom metrics enablement. These settings are controlled via the **Usage and estimated costs** pane.
 - Any integration that relies on API keys such as [release annotations](/app/annotations.md), [live metrics secure control channel](app/live-stream.md#secure-the-control-channel) etc. You will need to generate new API keys and update the associated integration. 
