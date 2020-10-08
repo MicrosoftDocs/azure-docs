@@ -1,23 +1,31 @@
 ---
-title: PowerShell script to update RU/s in Azure Cosmos DB Cassandra API resources
-description: Learn how to use a PowerShell script to update the throughput for a keyspace or a table in Azure Cosmos DB Cassandra API
+title: PowerShell scripts for throughput (RU/s) operations for Azure Cosmos DB Cassandra API resources
+description: PowerShell scripts for throughput (RU/s) operations for Azure Cosmos DB Cassandra API resources
 author: markjbrown
 ms.service: cosmos-db
 ms.subservice: cosmosdb-cassandra
 ms.topic: sample
-ms.date: 05/01/2020
+ms.date: 10/07/2020
 ms.author: mjbrown
 ---
 
-# Update RU/s for a keyspace or table for Azure Cosmos DB - Cassandra API
+# Throughput (RU/s) operations with PowerShell for a keyspace or table for Azure Cosmos DB - Cassandra API
 
 [!INCLUDE [updated-for-az](../../../../../includes/updated-for-az.md)]
 
 [!INCLUDE [sample-powershell-install](../../../../../includes/sample-powershell-install-no-ssh.md)]
 
-## Sample script
+## Get throughput
+
+[!code-powershell[main](../../../../../powershell_scripts/cosmosdb/cassandra/ps-cassandra-ru-get.ps1 "Get throughput on a keyspace or table for Cassandra API")]
+
+## Update throughput
 
 [!code-powershell[main](../../../../../powershell_scripts/cosmosdb/cassandra/ps-cassandra-ru-update.ps1 "Update throughput on a keyspace or table for Cassandra API")]
+
+## Migrate throughput
+
+[!code-powershell[main](../../../../../powershell_scripts/cosmosdb/cassandra/ps-cassandra-ru-migrate.ps1 "Migrate between standard and autoscale throughput on a keyspace or table for Cassandra API")]
 
 ## Clean up deployment
 
@@ -34,8 +42,12 @@ This script uses the following commands. Each command in the table links to comm
 | Command | Notes |
 |---|---|
 |**Azure Cosmos DB**| |
+| [Get-AzCosmosDBCassandraKeyspaceThroughput](https://docs.microsoft.com/powershell/module/az.cosmosdb/get-azcosmosdbcassandrakeyspacethroughput) | Gets the throughput value of the Cassandra API Keyspace. |
 | [Get-AzCosmosDBCassandraTableThroughput](https://docs.microsoft.com/powershell/module/az.cosmosdb/get-azcosmosdbcassandratablethroughput) | Gets the throughput value of the Cassandra API Table. |
+| [Update-AzCosmosDBCassandraKeyspaceThroughput](https://docs.microsoft.com/powershell/module/az.cosmosdb/update-azcosmosdbcassandrakeyspacethroughput) | Updates the throughput value of the Cassandra API Keyspace. |
 | [Update-AzCosmosDBCassandraTableThroughput](https://docs.microsoft.com/powershell/module/az.cosmosdb/update-azcosmosdbcassandratablethroughput) | Updates the throughput value of the Cassandra API Table. |
+| [Invoke-AzCosmosDBCassandraKeyspaceThroughputMigration](https://docs.microsoft.com/powershell/module/az.cosmosdb/invoke-azcosmosdbcassandrakeyspacethroughputmigration) | Migrate throughput for a Cassandra API Keyspace. |
+| [Invoke-AzCosmosDBCassandraTableThroughputMigration](https://docs.microsoft.com/powershell/module/az.cosmosdb/invoke-azcosmosdbcassandratablethroughputmigration) | Migrate throughput for a Cassandra API Table. |
 |**Azure Resource Groups**| |
 | [Remove-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/remove-azresourcegroup) | Deletes a resource group including all nested resources. |
 |||
