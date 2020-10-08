@@ -112,7 +112,7 @@ If you want to update to a specific version of the security daemon, find the ver
 >[!NOTE]
 >The `-OfflineInstallationPath` parameter looks for a file named **Microsoft-Azure-IoTEdge.cab** in the directory provided. Starting with IoT Edge version 1.0.9-rc4, there are two .cab files available to use, one for AMD64 devices and one for ARM32. Download the correct file for your device, then rename the file to remove the architecture suffix.
 
-For more information about update options, use the command `Get-Help Update-IoTEdge -full` or refer to [all installation parameters](how-to-install-iot-edge-windows.md#all-installation-parameters).
+For more information about update options, use the command `Get-Help Update-IoTEdge -full` or refer to [PowerShell script for IoT Edge on Windows](reference-windows-scripts.md).
 
 ## Update the runtime containers
 
@@ -155,7 +155,7 @@ If you use specific tags in your deployment (for example, mcr.microsoft.com/azur
 
    ![Configure runtime settings](./media/how-to-update-iot-edge/configure-runtime.png)
 
-1. In **Runtime Settings**, update the **Image** value for **Edge Hub** with the desired version. Don't select **Save** just yet.
+1. In **Runtime Settings**, update the **Image** value for **Edge Hub** with the desired version. Don't select **Save** yet.
 
    ![Update Edge Hub Image version](./media/how-to-update-iot-edge/runtime-settings-edgehub.png)
 
@@ -208,10 +208,7 @@ As previews, release candidate versions aren't included as the latest version th
 
 Use the sections in this article to learn how to update an IoT Edge device to a specific version of the security daemon or runtime modules.
 
-If you're installing IoT Edge on a new machine, use the following links to learn how to install a specific version depending on your device operating system:
-
-* [Linux](how-to-install-iot-edge-linux.md#install-runtime-using-release-assets)
-* [Windows](how-to-install-iot-edge-windows.md#offline-or-specific-version-installation)
+If you're installing IoT Edge, rather than upgrading an existing installation, use the steps in [Offline or specific version installation](how-to-install-iot-edge.md#offline-or-specific-version-installation).
 
 ## Next steps
 
