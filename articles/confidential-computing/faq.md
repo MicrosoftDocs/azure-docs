@@ -52,9 +52,9 @@ DC-Series VMs run on older 6-core Intel Processors with Intel SGX and have less 
 
 No. At this time, these virtual machines are only available in select regions. Check the [products by regions page](https://azure.microsoft.com/global-infrastructure/services/?products=virtual-machines) for the latest available regions. 
 
-**Is Hyper-threading OFF on these machines?**
+**Is hyper-threading OFF on these machines?**
 
-Hyper-threading is disabled for all Azure confidential computing clusters
+Hyper-threading is disabled for all Azure confidential computing clusters.
 
 **How do I install the Open Enclave SDK on the DCsv2 virtual machines?**
    
