@@ -14,7 +14,7 @@ ms.date: 1/8/2019
 Learn how to create users in Azure Database for PostgreSQL - Hyperscale (Citus).
 
 > [!NOTE]
-> _Users_ refers to users in a Hyperscale (Citus) server group. Hyperscale (Citus) doesn't support role-based access control (RBAC). For more information, see [RBAC in Hyperscale PostgreSQL](https://docs.microsoft.com/azure/postgresql/postgresql-hyperscale-security-baseline#31-maintain-an-inventory-of-administrative-accounts).
+> _Users_ refers to users in a Hyperscale (Citus) server group. Hyperscale (Citus) doesn't support role-based access control (RBAC). For more information, see [RBAC in Hyperscale PostgreSQL](postgresql-hyperscale-security-baseline.md#31-maintain-an-inventory-of-administrative-accounts).
 >
 
 ## The server admin account
