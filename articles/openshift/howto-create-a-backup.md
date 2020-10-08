@@ -134,6 +134,9 @@ oc get backups -n velero <name of backup> -o yaml
 ```
 
 A successful backup with output `phase:Completed` and the objects will live in the container in the storage account.
+
+For more information about how to create backups and restores using Velero see [Backup OpenShift resources the native way](https://www.openshift.com/blog/backup-openshift-resources-the-native-way)
+
 ## Next steps
 
 In this article, an Azure Red Hat OpenShift 4 cluster application was backed up. You learned how to:
