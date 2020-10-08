@@ -131,15 +131,15 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 1. Click on **Team** and select **Settings**.
 
-    ![InVision Configuration](./media/invision-tutorial/config1.png)
+    ![Screenshot shows the Team tab with Settings selected.](./media/invision-tutorial/config1.png)
 
 1. Scroll down to **Single sign-on** and then click **Change**.
 
-    ![InVision Configuration](./media/invision-tutorial/config3.png)
+    ![Screenshot shows the Change button for Single sign-on.](./media/invision-tutorial/config3.png)
 
 1. On the **Single sign-on** page, perform the following steps:
 
-    ![InVision Configuration](./media/invision-tutorial/config4.png)
+    ![Screenshot shows the Single sign-on page where you enter the values in this step.](./media/invision-tutorial/config4.png)
 
     a. Change **Require SSO for every member of < account name >** to **On**.
 
@@ -167,19 +167,19 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 1. Click on **Team** and select **People**.
 
-    ![InVision Configuration](./media/invision-tutorial/config2.png)
+    ![Screenshot shows the Team tab with People selected.](./media/invision-tutorial/config2.png)
 
 1. Click on the **+ ICON** to add new user.
 
-    ![InVision Configuration](./media/invision-tutorial/user1.png)
+    ![Screenshot shows the + icon to add a user.](./media/invision-tutorial/user1.png)
 
 1. Enter the email address of the user and click **Next**.
 
-    ![InVision Configuration](./media/invision-tutorial/user2.png)
+    ![Screenshot shows the Invite to dialog box where you can enter addresses.](./media/invision-tutorial/user2.png)
 
 1. Once verify the email address and then click **Invite**.
 
-    ![InVision Configuration](./media/invision-tutorial/user3.png)
+    ![Screenshot shows the Invite dialog where you can select Invite to proceed.](./media/invision-tutorial/user3.png)
 
 ## Test SSO
 
