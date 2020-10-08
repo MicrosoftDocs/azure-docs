@@ -178,7 +178,7 @@ The [QueueClient](/dotnet/api/azure.storage.queues.queueclient) class enables yo
 
 # [\.NET v11](#tab/dotnetv11)
 
-The [CloudQueueClient](/dotnet/api/microsoft.azure.storage.queue.cloudqueueclient?view=azure-dotnet-legacy) class enables you to retrieve queues stored in Queue storage. Here's one way to create the service client:
+The [CloudQueueClient](/dotnet/api/microsoft.azure.storage.queue.cloudqueueclient?view=azure-dotnet-legacy&preserve-view=true) class enables you to retrieve queues stored in Queue storage. Here's one way to create the service client:
 
 ```csharp
 // Retrieve storage account from connection string
@@ -230,7 +230,7 @@ To insert a message into an existing queue, call the [SendMessage](/dotnet/api/a
 
 # [\.NET v11](#tab/dotnetv11)
 
-To insert a message into an existing queue, first create a new [CloudQueueMessage](/dotnet/api/microsoft.azure.storage.queue.cloudqueuemessage?view=azure-dotnet-legacy). Next, call the [AddMessage](/dotnet/api/microsoft.azure.storage.queue.cloudqueue.addmessage?view=azure-dotnet-legacy) method. A `CloudQueueMessage` can be created from either a `string` (in UTF-8 format) or a `byte` array. Here is code which creates a queue (if it doesn't exist) and inserts the message "Hello, World":
+To insert a message into an existing queue, first create a new [CloudQueueMessage](/dotnet/api/microsoft.azure.storage.queue.cloudqueuemessage?view=azure-dotnet-legacy&preserve-view=true). Next, call the [AddMessage](/dotnet/api/microsoft.azure.storage.queue.cloudqueue.addmessage?view=azure-dotnet-legacy&preserve-view=true) method. A `CloudQueueMessage` can be created from either a `string` (in UTF-8 format) or a `byte` array. Here is code which creates a queue (if it doesn't exist) and inserts the message "Hello, World":
 
 ```csharp
 // Retrieve storage account from connection string
@@ -263,7 +263,7 @@ You can peek at the messages in the queue without removing them from the queue b
 
 # [\.NET v11](#tab/dotnetv11)
 
-You can peek at the message in the front of a queue without removing it from the queue by calling the [PeekMessage](/dotnet/api/microsoft.azure.storage.queue.cloudqueue.peekmessage?view=azure-dotnet-legacy) method.
+You can peek at the message in the front of a queue without removing it from the queue by calling the [PeekMessage](/dotnet/api/microsoft.azure.storage.queue.cloudqueue.peekmessage?view=azure-dotnet-legacy&preserve-view=true) method.
 
 ```csharp
 // Retrieve storage account from connection string
@@ -326,7 +326,7 @@ De-queue a message from a queue in two steps. When you call [ReceiveMessages](/d
 
 # [\.NET v11](#tab/dotnetv11)
 
-Your code de-queues a message from a queue in two steps. When you call [GetMessage](/dotnet/api/microsoft.azure.storage.queue.cloudqueue.getmessage?view=azure-dotnet-legacy), you get the next message in a queue. A message returned from `GetMessage` becomes invisible to any other code reading messages from this queue. By default, this message stays invisible for 30 seconds. To finish removing the message from the queue, you must also call [DeleteMessage](/dotnet/api/microsoft.azure.storage.queue.cloudqueue.deletemessage?view=azure-dotnet-legacy). This two-step process of removing a message assures that if your code fails to process a message due to hardware or software failure, another instance of your code can get the same message and try again. Your code calls `DeleteMessage` right after the message has been processed.
+Your code de-queues a message from a queue in two steps. When you call [GetMessage](/dotnet/api/microsoft.azure.storage.queue.cloudqueue.getmessage?view=azure-dotnet-legacy&preserve-view=true), you get the next message in a queue. A message returned from `GetMessage` becomes invisible to any other code reading messages from this queue. By default, this message stays invisible for 30 seconds. To finish removing the message from the queue, you must also call [DeleteMessage](/dotnet/api/microsoft.azure.storage.queue.cloudqueue.deletemessage?view=azure-dotnet-legacy&preserve-view=true). This two-step process of removing a message assures that if your code fails to process a message due to hardware or software failure, another instance of your code can get the same message and try again. Your code calls `DeleteMessage` right after the message has been processed.
 
 ```csharp
 // Retrieve storage account from connection string
@@ -399,7 +399,7 @@ The following code example uses the [ReceiveMessages](/dotnet/api/azure.storage.
 
 # [\.NET v11](#tab/dotnetv11)
 
-The following code example uses the [GetMessages](/dotnet/api/microsoft.azure.storage.queue.cloudqueue.getmessages?view=azure-dotnet-legacy) method to get 20 messages in one call. Then it processes each message using a `foreach` loop. It also sets the invisibility timeout to five minutes for each message. Note that the 5 minutes starts for all messages at the same time, so after 5 minutes have passed since
+The following code example uses the [GetMessages](/dotnet/api/microsoft.azure.storage.queue.cloudqueue.getmessages?view=azure-dotnet-legacy&preserve-view=true) method to get 20 messages in one call. Then it processes each message using a `foreach` loop. It also sets the invisibility timeout to five minutes for each message. Note that the 5 minutes starts for all messages at the same time, so after 5 minutes have passed since
 the call to `GetMessages`, any messages which have not been deleted will become visible again.
 
 ```csharp
@@ -432,7 +432,7 @@ You can get an estimate of the number of messages in a queue. The [GetProperties
 
 # [\.NET v11](#tab/dotnetv11)
 
-You can get an estimate of the number of messages in a queue. The [FetchAttributes](/dotnet/api/microsoft.azure.storage.queue.cloudqueue.fetchattributes?view=azure-dotnet-legacy) method asks the Queue service to retrieve the queue attributes, including the message count. The [ApproximateMessageCount](/dotnet/api/microsoft.azure.storage.queue.cloudqueue.approximatemessagecount?view=azure-dotnet-legacy) property returns the last value retrieved by the `FetchAttributes` method, without calling the Queue service.
+You can get an estimate of the number of messages in a queue. The [FetchAttributes](/dotnet/api/microsoft.azure.storage.queue.cloudqueue.fetchattributes?view=azure-dotnet-legacy&preserve-view=true) method asks the Queue service to retrieve the queue attributes, including the message count. The [ApproximateMessageCount](/dotnet/api/microsoft.azure.storage.queue.cloudqueue.approximatemessagecount?view=azure-dotnet-legacy&preserve-view=true) property returns the last value retrieved by the `FetchAttributes` method, without calling the Queue service.
 
 ```csharp
 // Retrieve storage account from connection string.
@@ -467,7 +467,7 @@ To delete a queue and all the messages contained in it, call the [Delete](/dotne
 
 # [\.NET v11](#tab/dotnetv11)
 
-To delete a queue and all the messages contained in it, call the [Delete](/dotnet/api/microsoft.azure.storage.queue.cloudqueue.delete?view=azure-dotnet-legacy) method on the queue object.
+To delete a queue and all the messages contained in it, call the [Delete](/dotnet/api/microsoft.azure.storage.queue.cloudqueue.delete?view=azure-dotnet-legacy&preserve-view=true) method on the queue object.
 
 ```csharp
 // Retrieve storage account from connection string.
