@@ -290,21 +290,45 @@ In this function, the value of the `name` query parameter is obtained from the `
 
 Likewise, you can set the `status_code` and `headers` for the response message in the returned [HttpResponse] object.
 
-## Scaling and concurrency
+## Scaling and Performance
 
+### Horizontal Scaling
 By default, Azure Functions automatically monitors the load on your application and creates additional host instances for Python as needed. Functions uses built-in (not user configurable) thresholds for different trigger types to decide when to add instances, such as the age of messages and queue size for QueueTrigger. For more information, see [How the Consumption and Premium plans work](functions-scale.md#how-the-consumption-and-premium-plans-work).
 
-This scaling behavior is sufficient for many applications. Applications with any of the following characteristics, however, may not scale as effectively:
+### Improving Throughput Performance
+#### Understanding your workload
+
+The default configurations are suitable for most of Azure Functions applications. However, you can improve the performance of your applications' throughput by employing configurations based on your workload profile. The first step is to understand the type of workload that you are running.
+
+##### I/O Bound workload
+
+I/O bound workload has the following characteristics :
 
 - The application needs to handle many concurrent invocations.
-- The application processes a large number of I/O events.
-- The application is I/O bound.
+- The application processes a large number of I/O events e.g. network calls, disk I/O, etc.
 
-In such cases, you can improve performance further by employing async patterns and by using multiple language worker processes.
+Examples of I/O bound application is Serverless Web API applications.
 
-### Async
+##### CPU Bound workload
 
-Because Python is a single-threaded runtime, a host instance for Python can process only one function invocation at a time. For applications that process a large number of I/O events and/or is I/O bound, you can improve performance by running functions asynchronously.
+CPU bound workload has the following characteristics:
+
+- The application does long running computation e.g. image resizing, more example
+- The application does transformation on input data
+
+Examples of CPU bound applications are Data Processing and Machine Learning inference applications.
+ 
+> [!NOTE]
+>  As real world functions workload are most of often a mix of I/O and CPU bound, we recommend to profile the workload under realistic production loads.
+
+
+#### Performance specific configurations
+
+After understanding the workload profile of your Function applications, the following are configurations that can be employed to improve the throughput performance of your function applications.
+
+##### Async
+
+Because Python is a single-threaded runtime, a host instance for Python can process only one function invocation at a time. For applications that process a large number of I/O events and/or is I/O bound, you can improve performance significantly by running functions asynchronously.
 
 To run a function asynchronously, use the `async def` statement, which runs the function with [asyncio](https://docs.python.org/3/library/asyncio.html) directly:
 
@@ -312,6 +336,18 @@ To run a function asynchronously, use the `async def` statement, which runs the 
 async def main():
     await some_nonblocking_socket_io_op()
 ```
+Here is an example of a function with HTTP trigger that uses [aiohttp-requests](https://pypi.org/project/aiohttp-requests/) http client:
+
+```python
+from aiohttp_requests import requests as r
+
+import azure.functions as func
+
+async def main(req: func.HttpRequest) -> func.HttpResponse:
+    response = await r.get("PUT_YOUR_URL_HERE")
+    return func.HttpResponse(await response.text())
+```
+
 
 A function without the `async` keyword is run automatically in an asyncio thread-pool:
 
@@ -321,12 +357,26 @@ A function without the `async` keyword is run automatically in an asyncio thread
 def main():
     some_blocking_socket_io()
 ```
+>[!NOTE]
+> In order to achieve the full benefit of running functions asynchronously, the I/O operation/library that is used in your code needs to have async implemented as well. Using synchronous I/O operations in functions that are defined as asynchronous **may hurt** the overall performance.
+>
+>Here are a few examples of client libraries that has implemented async pattern:
+>- [aiohttp-requests](https://pypi.org/project/aiohttp-requests/) - Http client/server for asyncio 
+>- [Streams API](https://docs.python.org/3/library/asyncio-stream.html) - High-level async/await-ready primitives to work with network connection
+>- [Janus Queue](https://pypi.org/project/janus/) - Thread-safe asyncio-aware queue for Python
+>- [pyzmq](https://pypi.org/project/pyzmq/) - Python bindings for ZeroMQ
+ 
 
-### Use multiple language worker processes
+##### Use multiple language worker processes
 
 By default, every Functions host instance has a single language worker process. You can increase the number of worker processes per host (up to 10) by using the [FUNCTIONS_WORKER_PROCESS_COUNT](functions-app-settings.md#functions_worker_process_count) application setting. Azure Functions then tries to evenly distribute simultaneous function invocations across these workers.
 
+For CPU bound applications, it is recommended to set the number of language worker to be the same as or higher than the number of cores that are available per function app ([Learn more about the different SKU options available for Azure Functions](https://docs.microsoft.com/en-us/azure/azure-functions/functions-premium-plan#available-instance-skus)). 
+
+IO bound applications may also benefit from increasing the number of worker process beyond the number of cores available, however setting it higher than that may hurt the overall performance due to increased number of context switching. 
+
 The FUNCTIONS_WORKER_PROCESS_COUNT applies to each host that Functions creates when scaling out your application to meet demand.
+
 
 ## Context
 
