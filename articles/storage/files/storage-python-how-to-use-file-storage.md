@@ -61,13 +61,13 @@ pip install azure-storage-file
 
 To view and run a sample application that shows how to use Python with Azure Files, see [Azure Storage: Getting Started with Azure Files in Python](https://github.com/Azure-Samples/storage-file-python-getting-started).
 
-To run the sample application, make sure you have installed both the `azure-storage-file` and `azure-storage-common` packages.
+To run the sample application, make sure you've installed both the `azure-storage-file` and `azure-storage-common` packages.
 
 ---
 
 ## Set up your application to use Azure Files
 
-Add the following near the top of an Python source file to use the code snippets in this article.
+Add the following near the top of a Python source file to use the code snippets in this article.
 
 # [Python v12](#tab/python)
 
@@ -85,13 +85,13 @@ from azure.storage.file import FileService
 
 # [Python v12](#tab/python)
 
-[ShareServiceClient](/azure/developer/python/sdk/storage/azure-storage-file-share/azure.storage.fileshare.shareserviceclient) lets you work with shares, directories and files. The following code creates a `ShareServiceClient` object using the storage account connection string.
+[ShareServiceClient](/azure/developer/python/sdk/storage/azure-storage-file-share/azure.storage.fileshare.shareserviceclient) lets you work with shares, directories, and files. The following code creates a `ShareServiceClient` object using the storage account connection string.
 
 :::code language="python" source="~/azure-storage-snippets/files/howto/python/python-v12/file_share_ops.py" id="Snippet_CreateShareServiceClient":::
 
 # [Python v2](#tab/python2)
 
-The `FileService` object lets you work with shares, directories and files. The following code creates a `FileService` object using the storage account name and account key. Replace `<myaccount>` and `<mykey>` with your account name and key.
+The `FileService` object lets you work with shares, directories, and files. The following code creates a `FileService` object using the storage account name and account key. Replace `<myaccount>` and `<mykey>` with your account name and key.
 
 ```python
 file_service = FileService(account_name='myaccount', account_key='mykey')
@@ -149,7 +149,7 @@ The following method uploads the contents of the specified file into the specifi
 
 # [Python v2](#tab/python2)
 
-An Azure file share contains, at the very least, a root directory where files can reside. To create a file and upload data, use the `create_file_from_path`, `create_file_from_stream`, `create_file_from_bytes` or `create_file_from_text` methods. They are high-level methods that perform the necessary chunking when the size of the data exceeds 64 MB.
+An Azure file share contains, at the least, a root directory where files can reside. To create a file and upload data, use the `create_file_from_path`, `create_file_from_stream`, `create_file_from_bytes`, or `create_file_from_text` methods. They're high-level methods that perform the necessary chunking when the size of the data exceeds 64 MB.
 
 `create_file_from_path` uploads the contents of a file from the specified path, and `create_file_from_stream` uploads the contents from an already opened file/stream. `create_file_from_bytes` uploads an array of bytes, and `create_file_from_text` uploads the specified text value using the specified encoding (defaults to UTF-8).
 
@@ -199,7 +199,7 @@ The following example demonstrates using `download_file` to get the contents of 
 
 # [Python v2](#tab/python2)
 
-To download data from a file, use `get_file_to_path`, `get_file_to_stream`, `get_file_to_bytes`, or `get_file_to_text`. They are high-level methods that perform the necessary chunking when the size of the data exceeds 64 MB.
+To download data from a file, use `get_file_to_path`, `get_file_to_stream`, `get_file_to_bytes`, or `get_file_to_text`. They're high-level methods that perform the necessary chunking when the size of the data exceeds 64 MB.
 
 The following example demonstrates using `get_file_to_path` to download the contents of the **myfile** file and store it to the *out-sunset.png* file.
 
