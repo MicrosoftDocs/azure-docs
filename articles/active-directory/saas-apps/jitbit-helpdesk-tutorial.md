@@ -132,7 +132,7 @@ To configure Azure AD single sign-on with Jitbit Helpdesk, perform the following
 
 1. Click **General settings**.
 
-    ![Users, companies, and permissions](./media/jitbit-helpdesk-tutorial/ic777680.png "Users, companies, and permissions")
+    ![Screenshot shows the General Settings link.](./media/jitbit-helpdesk-tutorial/ic777680.png "Users, companies, and permissions")
 
 1. In the **Authentication settings** configuration section, perform the following steps:
 
