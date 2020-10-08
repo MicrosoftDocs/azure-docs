@@ -5,7 +5,7 @@ author: markjbrown
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: sample
-ms.date: 07/29/2020
+ms.date: 10/07/2020
 ms.author: mjbrown 
 ms.custom: devx-track-azurecli
 ---
@@ -35,7 +35,7 @@ These samples apply to all Azure Cosmos DB APIs
 |---|---|
 | [Create an Azure Cosmos account, database and container](scripts/cli/sql/create.md?toc=%2fcli%2fazure%2ftoc.json)| Creates an Azure Cosmos DB account, database, and container for Core (SQL) API. |
 | [Create an Azure Cosmos account, database and container with autoscale](scripts/cli/sql/autoscale.md?toc=%2fcli%2fazure%2ftoc.json)| Creates an Azure Cosmos DB account, database, and container with autoscale for Core (SQL) API. |
-| [Change throughput](scripts/cli/sql/throughput.md?toc=%2fcli%2fazure%2ftoc.json) | Update RU/s on a database and container.|
+| [Throughput operations](scripts/cli/sql/throughput.md?toc=%2fcli%2fazure%2ftoc.json) | Read, update and migrate between autoscale and standard throughput on a database and container.|
 | [Lock resources from deletion](scripts/cli/sql/lock.md?toc=%2fcli%2fazure%2ftoc.json)| Prevent resources from being deleted with  resource locks.|
 |||
 
@@ -45,7 +45,7 @@ These samples apply to all Azure Cosmos DB APIs
 |---|---|
 | [Create an Azure Cosmos account, database and collection](scripts/cli/mongodb/create.md?toc=%2fcli%2fazure%2ftoc.json)| Creates an Azure Cosmos DB account, database, and collection for MongoDB API. |
 | [Create an Azure Cosmos account, database with autoscale and two collections with shared throughput](scripts/cli/mongodb/autoscale.md?toc=%2fcli%2fazure%2ftoc.json)| Creates an Azure Cosmos DB account, database with autoscale and two collections with shared throughput for MongoDB API. |
-| [Change throughput](scripts/cli/mongodb/throughput.md?toc=%2fcli%2fazure%2ftoc.json) | Update RU/s on a database and collection.|
+| [Throughput operations](scripts/cli/mongodb/throughput.md?toc=%2fcli%2fazure%2ftoc.json) | Read, update and migrate between autoscale and standard throughput on a database and collection.|
 | [Lock resources from deletion](scripts/cli/mongodb/lock.md?toc=%2fcli%2fazure%2ftoc.json)| Prevent resources from being deleted with  resource locks.|
 |||
 
@@ -55,7 +55,7 @@ These samples apply to all Azure Cosmos DB APIs
 |---|---|
 | [Create an Azure Cosmos account, keyspace and table](scripts/cli/cassandra/create.md?toc=%2fcli%2fazure%2ftoc.json)| Creates an Azure Cosmos DB account, keyspace, and table for Cassandra API. |
 | [Create an Azure Cosmos account, keyspace and table with autoscale](scripts/cli/cassandra/autoscale.md?toc=%2fcli%2fazure%2ftoc.json)| Creates an Azure Cosmos DB account, keyspace, and table with autoscale for Cassandra API. |
-| [Change throughput](scripts/cli/cassandra/throughput.md?toc=%2fcli%2fazure%2ftoc.json) | Update RU/s on a keyspace and table.|
+| [Throughput operations](scripts/cli/cassandra/throughput.md?toc=%2fcli%2fazure%2ftoc.json) | Read, update and migrate between autoscale and standard throughput on a keyspace and table.|
 | [Lock resources from deletion](scripts/cli/cassandra/lock.md?toc=%2fcli%2fazure%2ftoc.json)| Prevent resources from being deleted with  resource locks.|
 |||
 
@@ -65,7 +65,7 @@ These samples apply to all Azure Cosmos DB APIs
 |---|---|
 | [Create an Azure Cosmos account, database and graph](scripts/cli/gremlin/create.md?toc=%2fcli%2fazure%2ftoc.json)| Creates an Azure Cosmos DB account, database, and graph for Gremlin API. |
 | [Create an Azure Cosmos account, database and graph with autoscale](scripts/cli/gremlin/autoscale.md?toc=%2fcli%2fazure%2ftoc.json)| Creates an Azure Cosmos DB account, database, and graph with autoscale for Gremlin API. |
-| [Change throughput](scripts/cli/gremlin/throughput.md?toc=%2fcli%2fazure%2ftoc.json) | Update RU/s on a database and graph.|
+| [Throughput operations](scripts/cli/gremlin/throughput.md?toc=%2fcli%2fazure%2ftoc.json) | Read, update and migrate between autoscale and standard throughput on a database and graph.|
 | [Lock resources from deletion](scripts/cli/gremlin/lock.md?toc=%2fcli%2fazure%2ftoc.json)| Prevent resources from being deleted with  resource locks.|
 |||
 
@@ -75,6 +75,6 @@ These samples apply to all Azure Cosmos DB APIs
 |---|---|
 | [Create an Azure Cosmos account and table](scripts/cli/table/create.md?toc=%2fcli%2fazure%2ftoc.json)| Creates an Azure Cosmos DB account and table for Table API. |
 | [Create an Azure Cosmos account and table with autoscale](scripts/cli/table/autoscale.md?toc=%2fcli%2fazure%2ftoc.json)| Creates an Azure Cosmos DB account and table with autoscale for Table API. |
-| [Change throughput](scripts/cli/table/throughput.md?toc=%2fcli%2fazure%2ftoc.json) | Update RU/s on a table.|
+| [Throughput operations](scripts/cli/table/throughput.md?toc=%2fcli%2fazure%2ftoc.json) | Read, update and migrate between autoscale and standard throughput on a table.|
 | [Lock resources from deletion](scripts/cli/table/lock.md?toc=%2fcli%2fazure%2ftoc.json)| Prevent resources from being deleted with resource locks.|
 |||

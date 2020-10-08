@@ -19,7 +19,7 @@ ms.collection: M365-identity-device-management
 
 # PowerShell and Graph examples for group-based licensing in Azure AD
 
-Full functionality for group-based licensing is available through the [Azure portal](https://portal.azure.com), and currently PowerShell and Microsoft Graph support is limited to read-only operations. However, there are some useful tasks that can be performed using the existing [MSOnline PowerShell
+Full functionality for group-based licensing is available through the [Azure portal](https://portal.azure.com), and currently there are some useful tasks that can be performed using the existing [MSOnline PowerShell
 cmdlets](/powershell/module/msonline) and Microsoft Graph. This document provides examples of what is possible.
 
 > [!NOTE]
@@ -27,6 +27,44 @@ cmdlets](/powershell/module/msonline) and Microsoft Graph. This document provide
 
 > [!WARNING]
 > This code is provided as an example for demonstration purposes. If you intend to use it in your environment, consider testing it first on a small scale, or in a separate test organization. You may have to adjust the code to meet the specific needs of your environment.
+
+## Assign licenses to a group
+
+Use the following sample to assign licenses to a group by using Microsoft Graph:
+
+```
+POST https://graph.microsoft.com/v1.0/groups/1ad75eeb-7e5a-4367-a493-9214d90d54d0/assignLicense
+Content-type: application/json
+{
+  "addLicenses": [
+    {
+      "disabledPlans": [ "11b0131d-43c8-4bbb-b2c8-e80f9a50834a" ],
+      "skuId": "c7df2760-2c81-4ef7-b578-5b5392b571df"
+    },
+    {
+      "disabledPlans": [ "a571ebcc-fqe0-4ca2-8c8c-7a284fd6c235" ],
+      "skuId": "sb05e124f-c7cc-45a0-a6aa-8cf78c946968"
+    }
+  ],
+  "removeLicenses": []
+}
+
+```
+Output:
+```
+HTTP/1.1 202 Accepted
+Content-type: application/json
+location: https://graph.microsoft.com/v2/d056d009-17b3-4106-8173-cd3978ada898/directoryObjects/1ad75eeb-7e5a-4367-a493-9214d90d54d0/Microsoft.DirectoryServices.Group
+
+{
+  "id": "1ad75eeb-7e5a-4367-a493-9214d90d54d0",
+  "deletedDateTime": null,
+  "classification": null,
+  "createdDateTime": "2018-04-18T22:05:03Z",
+  "securityEnabled": true,
+
+}
+```
 
 ## View product licenses assigned to a group
 

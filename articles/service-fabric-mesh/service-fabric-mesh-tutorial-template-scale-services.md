@@ -1,10 +1,10 @@
 ---
 title: Tutorial- Scale an app running in Azure Service Fabric Mesh 
 description: In this tutorial, you learn how to scale the services in an application running in Service Fabric Mesh.
-author: dkkapur
+author: georgewallace
 ms.topic: tutorial
 ms.date: 01/11/2019
-ms.author: dekapur
+ms.author: gwallace
 ms.custom: mvc, devcenter
 #Customer intent: As a developer, I want learn how to create a Service Fabric Mesh app that communicates with another service, and then publish it to Azure.
 ---
