@@ -60,6 +60,12 @@ AKS supports the creation of GPU enabled node pools. Azure currently provides si
 
 For more information, see [Using GPUs on AKS][aks-gpu].
 
+### Confidential computing nodes (public preview)
+
+AKS supports the creation of Intel SGX based confidential computing node pools (DCSv2 VMs). Confidential computing nodes allow containers to run in a hardware based trusted and isolated execution environment (enclaves). Isolation between containers combined with code integrity through attestation can help with your defense-in-depth container security strategy. Confidential computing nodes supports both confidential containers (existing docker apps) and enclave aware containers.
+
+For more information, see [Confidential computing nodes on AKS][conf-com-node]
+
 ### Storage volume support
 
 To support application workloads, you can mount storage volumes for persistent data. Both static and dynamic volumes can be used. Depending on how many connected pods are to share the storage, you can use storage backed by either Azure Disks for single pod access, or Azure Files for multiple concurrent pod access.
@@ -139,3 +145,4 @@ Learn more about deploying and managing AKS with the Azure CLI quickstart.
 [kubernetes-rbac]: concepts-identity.md#kubernetes-role-based-access-control-rbac
 [concepts-identity]: concepts-identity.md
 [concepts-storage]: concepts-storage.md
+[conf-com-node]: ../confidential-computing/confidential-nodes-aks-overview.md
