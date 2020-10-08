@@ -32,7 +32,7 @@ Set the following RDP property to configure audio input redirection:
 
 ### Audio output (speaker) redirection
 
-Set the following RDP property to enable audio output (speaker) redirection:
+Set the following RDP property to configure audio output redirection:
 
 - `audiomode:i:0` enable audio output redirection.
 - `audiomode:i:0` enable audio output redirection.
