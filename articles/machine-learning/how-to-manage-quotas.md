@@ -16,72 +16,79 @@ ms.custom: troubleshooting,contperfq4
 # Manage & increase quotas for resources with Azure Machine Learning
 
 
-In this article, you will learn about preconfigured limits on Azure resources for your [Azure Machine Learning](overview-what-is-azure-ml.md) subscription and what quotas you can manage. These limits are put in place to prevent budget over-runs due to fraud, and to honor Azure capacity constraints. 
+In this article, you learn about limits and quotas on Azure resources related to your [Azure Machine Learning](overview-what-is-azure-ml.md) subscription. Limits are put in place to prevent budget over-runs due to fraud, and to honor Azure capacity constraints. 
 
-As with other Azure services, there are limits on certain resources associated with Azure Machine Learning. These limits range from a cap on the number of [workspaces](concept-workspace.md) to limits on the actual underlying compute that gets used for model training or inference/scoring. 
 
-As you design and scale your Azure Machine Learning resources for production workloads, consider these limits. For example, if your cluster doesn't reach the target number of nodes, then you may have reached an Azure Machine Learning Compute cores limit for your subscription. If you want to raise the limit or quota above the Default Limit, open an online customer support request at no charge. The limits can't be raised above the Maximum Limit value shown in the following tables due to Azure Capacity constraints. If there is no Maximum Limit column, then the resource doesn't have adjustable limits.
-
+Consider these limits as you design and scale resources for production workloads. If you want to raise the limit above the Default Limit, open an online customer support request at no charge.
 
 Along with managing quotas, you can also learn how to [plan & manage costs for Azure Machine Learning](concept-plan-manage-cost.md).
 
 ## Special considerations
 
-+ A quota is a credit limit, not a capacity guarantee. If you have large-scale capacity needs, contact Azure support. You can also [increase your quotas](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-quota-errors).
++ A quota is a credit limit, not a capacity guarantee. If you have large-scale capacity needs, contact Azure support to increase your quota.
 
-+ Your quota is shared across all the services in your subscriptions including Azure Machine Learning. The only exception is Azure Machine Learning compute which has a separate quota from the core compute quota. Be sure to calculate the quota usage across all services when evaluating your capacity needs.
++ Your quota is shared across all the services in your subscriptions including Azure Machine Learning. Be sure to calculate the quota usage across all services when evaluating your capacity needs.
+    + The only exception is Azure Machine Learning compute, which has a separate quota from the core compute quota. 
 
-+ Default limits vary by offer Category Type, such as Free Trial, Pay-As-You-Go, and VM series, such as Dv2, F, G, and so on.
++ Default limits vary by offer Category Type, such as Free Trial, Pay-As-You-Go, and virtual machine (VM) series, such as Dv2, F, G, and so on.
 
 ## Default resource quotas
-
-Here is a breakdown of the quota limits by various resource types within your Azure subscription.
 
 > [!IMPORTANT]
 > Limits are subject to change. The latest can always be found at the service-level quota [document](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits/) for all of Azure.
 
 ### Virtual machines
-For each Azure subscription, there is a limit on the number of virtual machines across your services or standalone. Virtual machine cores have a regional total limit and a regional per size series (Dv2, F, etc.) limit, both of which are separately enforced. For example, consider a subscription with a US East total VM core limit of 30, an A series core limit of 30, and a D series core limit of 30. This subscription would be allowed to deploy 30 A1 VMs, or 30 D1 VMs, or a combination of the two not to exceed a total of 30 cores (for example, 10 A1 VMs and 20 D1 VMs).
+Each Azure subscription has is a limit on the number of virtual machines across your services. Virtual machine cores have a regional total limit and a regional limit per size series (Dv2, F, etc.). Both limits are separately enforced.
+
+For example, consider a subscription with a US East total VM core limit of 30, an A series core limit of 30, and a D series core limit of 30. This subscription would be allowed to deploy 30 A1 VMs, or 30 D1 VMs, or a combination of the two not to exceed a total of 30 cores (for example, 10 A1 VMs and 20 D1 VMs).
+
+Limits for virtual machines cannot be raised above the value shown in the following table.
 
 [!INCLUDE [azure-subscription-limits-azure-resource-manager](../../includes/azure-subscription-limits-azure-resource-manager.md)]
 
 ### Azure Machine Learning Compute
-For [Azure Machine Learning Compute](concept-compute-target.md#azure-machine-learning-compute-managed), there is a default quota limit on both the number of cores and number of unique compute resources allowed per region in a subscription. This quota is separate from the VM core quota above and the core limits are not shared between the two resource types since AmlCompute is a managed service that deploys resources in a hosted-on-behalf-of model.
+[Azure Machine Learning Compute](concept-compute-target.md#azure-machine-learning-compute-managed) has a default quota limit on both the number of cores and number of unique compute resources allowed per region in a subscription. This quota is separate from the VM core quota from the previous section.
+
+[Request a quota increase](#request-quota-increases) to raise the limits in this section up to the **Maximum limit** shown in the table.
 
 Available resources:
-+ Dedicated cores per region have a default limit of 24 - 300 depending on your subscription offer type with higher defaults for EA and CSP offer types.  The number of dedicated cores per subscription can be increased and is different for each VM family. Certain specialized VM families like NCv2, NCv3, or ND series start with a default of zero cores. Contact Azure support by raising a quota request to discuss increase options.
++ **Dedicated cores per region** have a default limit of 24 - 300 depending on your subscription offer type.  The number of dedicated cores per subscription can be increased for each VM family. Specialized VM families like NCv2, NCv3, or ND series start with a default of zero cores.
 
-+ Low-priority cores per region have a default limit of 100 - 3000 depending on your subscription offer type with higher defaults for EA and CSP offer types. The number of low-priority cores per subscription can be increased and is a single value across VM families. Contact Azure support to discuss increase options.
++ **Low-priority cores per region** have a default limit of 100 - 3000 depending on your subscription offer type with higher defaults for EA and CSP offer types. The number of low-priority cores per subscription can be increased and is a single value across VM families.
 
-+ Clusters per region have a default limit of 200. These are shared between a training cluster and a compute instance (which is considered as a single node cluster for quota purposes). Contact Azure support if you want to request an increase beyond this limit.
++ **Clusters per region** have a default limit of 200. These are shared between a training cluster and a compute instance (which is considered as a single node cluster for quota purposes).
 
-+ There are other strict limits  that cannot be exceeded once hit.
+The following table shows additional limits that cannot be exceeded.
 
 | **Resource** | **Maximum limit** |
 | --- | --- |
-| Maximum workspaces per resource group | 800 |
-| Maximum nodes in a single Azure Machine Learning Compute (AmlCompute) resource | 100 nodes |
-| Maximum GPU MPI processes per node | 1-4 |
-| Maximum GPU workers per node | 1-4 |
-| Maximum job lifetime | 21 days<sup>1</sup> |
-| Maximum job lifetime on a Low-Priority Node | 7 days<sup>2</sup> |
-| Maximum parameter servers per node | 1 |
+| Workspaces per resource group | 800 |
+| Wodes in a single Azure Machine Learning Compute (AmlCompute) resource | 100 nodes |
+| GPU MPI processes per node | 1-4 |
+| GPU workers per node | 1-4 |
+| Job lifetime | 21 days<sup>1</sup> |
+| Job lifetime on a Low-Priority Node | 7 days<sup>2</sup> |
+| Parameter servers per node | 1 |
 
 <sup>1</sup> The maximum lifetime refers to the time that a run start and when it finishes. Completed runs persist indefinitely; data for runs not completed within the maximum lifetime is not accessible.
 <sup>2</sup> Jobs on a Low-Priority node could be preempted anytime there is a capacity constraint. We recommend you implement checkpointing in your job.
 
 ### Azure Machine Learning Pipelines
-For [Azure Machine Learning Pipelines](concept-ml-pipelines.md), there is a quota limit on the number of steps in a pipeline and on the number of schedule-based runs of published pipelines per region in a subscription.
-- Maximum number of steps allowed in a pipeline is 30,000
-- Maximum number of the sum of schedule-based runs and blob pulls for blog-triggered schedules of published pipelines per subscription per month is 100,000
+[Azure Machine Learning Pipelines](concept-ml-pipelines.md) have a quota limit on the number of steps in a pipeline and on the number of schedule-based runs of published pipelines per region in a subscription.
+
+| **Resource** | **Limit** |
+| --- | --- |
+| Steps in a pipeline | 30,000 |
+| Workspaces per resource group | 800 |
 
 ### Container instances
 
-There is also a limit on the number of container instances that you can spin up in a given time period (scoped hourly) or across your entire subscription.
-For the limits, see [Container Instances limits](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#container-instances-limits).
+For more information, see [Container Instances limits](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#container-instances-limits).
 
 ### Storage
-There is a limit on the number of storage accounts per region as well in a given subscription. The default limit is 250 and includes both Standard and Premium Storage accounts. If you require more than 250 storage accounts in a given region, make a request through [Azure Support](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest/). The Azure Storage team will review your business case and may approve up to 250 storage accounts for a given region.
+There is a limit on the number of storage accounts per region and in a given subscription. The default limit is 250 and includes both Standard and Premium Storage accounts.
+
+If you require more than 250 storage accounts in a given region, make a request through [Azure Support](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest/).The Azure Storage team will review your business case and may approve up to 250 storage accounts for a given region.
 
 
 ## Workspace level quota
