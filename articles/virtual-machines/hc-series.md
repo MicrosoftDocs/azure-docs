@@ -18,7 +18,7 @@ HC-series VMs feature 100 Gb/sec Mellanox EDR InfiniBand. These VMs are connecte
 
 [ACU](acu.md): 297-315<br>
 [Premium Storage](premium-storage-performance.md): Supported<br>
-[Premium Storage caching](premium-storage-performance.md): Not Supported<br>
+[Premium Storage caching](premium-storage-performance.md): Supported<br>
 [Live Migration](maintenance-and-updates.md): Not Supported<br>
 [Memory Preserving Updates](maintenance-and-updates.md): Not Supported<br>
 [VM Generation Support](generation-2.md): Generation 1 and 2<br>
