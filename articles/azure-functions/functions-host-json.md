@@ -119,7 +119,8 @@ The following sample *host.json* file for version 2.x+ has all possible options 
       "lockAcquisitionTimeout": "00:01:00",
       "lockAcquisitionPollingInterval": "00:00:03"
     },
-    "watchDirectories": [ "Shared", "Test" ]
+    "watchDirectories": [ "Shared", "Test" ],
+    "watchFiles": [ "myFile.txt" ]
 }
 ```
 
@@ -388,6 +389,16 @@ A set of [shared code directories](functions-reference-csharp.md#watched-directo
 ```json
 {
     "watchDirectories": [ "Shared" ]
+}
+```
+
+## watchFiles
+
+A set of files that should be monitored for changes.  Ensures that when code in these files is changed, the changes are picked up by your functions.
+
+```json
+{
+    "watchFiles": [ "myFile.txt" ]
 }
 ```
 
