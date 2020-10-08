@@ -65,7 +65,7 @@ The `Accept` means the passphrase matched and the verification was successful. T
 
 To finish, [delete the voice profile](https://docs.microsoft.com/rest/api/speakerrecognition/verification/textdependent/deleteprofile).
 
-:::code language="json" source="~/cognitive-services-quickstart-code/curl/speech/speaker-recognition.sh" id="tdv_delete_profile":::
+:::code language="curl" source="~/cognitive-services-quickstart-code/curl/speech/speaker-recognition.sh" id="tdv_delete_profile":::
 
 There is no response.
 
@@ -78,7 +78,7 @@ In contrast to **text-dependent** verification, **text-independent** verificatio
 
 Start by [creating a text-independent verification profile](https://docs.microsoft.com/rest/api/speakerrecognition/verification/textindependent/createprofile).
 
-:::code language="json" source="~/cognitive-services-quickstart-code/curl/speech/speaker-recognition.sh" id="tiv_create_profile":::
+:::code language="curl" source="~/cognitive-services-quickstart-code/curl/speech/speaker-recognition.sh" id="tiv_create_profile":::
 
 You should receive the following response.
 
@@ -104,7 +104,7 @@ The `Accept` means the verification was successful. The response also contains a
 
 To finish, [delete the voice profile](https://docs.microsoft.com/rest/api/speakerrecognition/verification/textindependent/deleteprofile).
 
-:::code language="json" source="~/cognitive-services-quickstart-code/curl/speech/speaker-recognition.sh" id="tiv_delete_profile":::
+:::code language="curl" source="~/cognitive-services-quickstart-code/curl/speech/speaker-recognition.sh" id="tiv_delete_profile":::
 
 There is no response.
 
@@ -114,7 +114,7 @@ Speaker Identification is used to determine **who** is speaking from a given gro
 
 Start by [creating a text-independent identification profile](https://docs.microsoft.com/rest/api/speakerrecognition/identification/textindependent/createprofile).
 
-:::code language="json" source="~/cognitive-services-quickstart-code/curl/speech/speaker-recognition.sh" id="tii_create_profile":::
+:::code language="curl" source="~/cognitive-services-quickstart-code/curl/speech/speaker-recognition.sh" id="tii_create_profile":::
 
 You should receive the following response.
 
@@ -140,6 +140,6 @@ The response contains the ID of the voice profile that most closely matches the 
 
 To finish, [delete the voice profile](https://docs.microsoft.com/rest/api/speakerrecognition/identification/textindependent/deleteprofile).
 
-:::code language="json" source="~/cognitive-services-quickstart-code/curl/speech/speaker-recognition.sh" id="tii_delete_profile":::
+:::code language="curl" source="~/cognitive-services-quickstart-code/curl/speech/speaker-recognition.sh" id="tii_delete_profile":::
 
 There is no response.
