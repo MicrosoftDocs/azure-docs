@@ -199,7 +199,7 @@ This container image has the following tags available:
 
 The [Text-to-speech][sp-tts] container image can be found on the `containerpreview.azurecr.io` container registry. It resides within the `microsoft` repository and is named `cognitive-services-text-to-speech`. The fully qualified container image name is, `containerpreview.azurecr.io/microsoft/cognitive-services-text-to-speech`.
 
-# [Current version](tab/current-version)
+# [Current version](#tab/current-version)
 
 **v1.7.0 container release notes**
 
@@ -293,7 +293,7 @@ This container image has the following tags available:
 | `1.7.0-amd64-zh-tw-yating-apollo`           | Container image with the `zh-TW` locale and `zh-TW-Yating-Apollo` voice.   |
 | `1.7.0-amd64-zh-tw-zhiwei-apollo`           | Container image with the `zh-TW` locale and `zh-TW-Zhiwei-Apollo` voice.   |
 
-# [Previous versions](tab/previous-versions)
+# [Previous versions](#tab/previous-versions)
 
 **(example) v1.6.0 container release notes**
 
