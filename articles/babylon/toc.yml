@@ -44,7 +44,6 @@
     href: supported-stores-and-classifications.md
 - name: How-to guides
   items:
-<<<<<<< HEAD
   - name: Scan
     items:
     - name: Register and scan Azure Files
