@@ -69,71 +69,18 @@ Application Insights also defines the [extension](https://github.com/lmolkova/co
 The [W3C Trace-Context](https://w3c.github.io/trace-context/) and Application Insights data models map in the following way:
 
 | Application Insights                   | W3C TraceContext                                      |
-|------------------------------------    |-------------------------------------------------    |
-| `Request`, `PageView`                  | `SpanKind` is server if synchronous; `SpanKind` is consumer if asynchronous                    |
-| `Dependency`                           | `SpanKind` is client if synchronous; `SpanKind` is producer if asynchronous                   |
-| `Id` of `Request` and `Dependency`     | `SpanId`                                            |
-| `Operation_Id`                         | `TraceId`                                           |
-| `Operation_ParentId`                   | `SpanId` of this span's parent span. If this is a root span, then this field must be empty.     |
+|------------------------------------    |-------------------------------------------------|
+| `Id` of `Request` and `Dependency`     | [parent-id](https://w3c.github.io/trace-context/#parent-id)                                     |
+| `Operation_Id`                         | [trace-id](https://w3c.github.io/trace-context/#trace-id)                                           |
+| `Operation_ParentId`                   | [parent-id](https://w3c.github.io/trace-context/#parent-id) of this span's parent span. If this is a root span, then this field must be empty.     |
+
 
 For more information, see [Application Insights telemetry data model](../../azure-monitor/app/data-model.md).
 
-### Enable W3C distributed tracing support for classic ASP.NET apps
- 
-  > [!NOTE]
-  >  Starting with `Microsoft.ApplicationInsights.Web` and `Microsoft.ApplicationInsights.DependencyCollector`, no configuration is needed.
+### Enable W3C distributed tracing support for .NET apps
 
-W3C Trace-Context support is implemented in a backward-compatible way. Correlation is expected to work with applications that are instrumented with previous versions of the SDK (without W3C support).
-
-If you want to keep using the legacy `Request-Id` protocol, you can disable Trace-Context by using this configuration:
-
-```csharp
-  Activity.DefaultIdFormat = ActivityIdFormat.Hierarchical;
-  Activity.ForceDefaultIdFormat = true;
-```
-
-If you run an older version of the SDK, we recommend that you update it or apply the following configuration to enable Trace-Context.
-This feature is available in the `Microsoft.ApplicationInsights.Web` and `Microsoft.ApplicationInsights.DependencyCollector` packages, starting with version 2.8.0-beta1.
-It's disabled by default. To enable it, make these changes to `ApplicationInsights.config`:
-
-- Under `RequestTrackingTelemetryModule`, add the `EnableW3CHeadersExtraction` element and set its value to `true`.
-- Under `DependencyTrackingTelemetryModule`, add the `EnableW3CHeadersInjection` element and set its value to `true`.
-- Add `W3COperationCorrelationTelemetryInitializer` under `TelemetryInitializers`. It will look similar to this example:
-
-```xml
-<TelemetryInitializers>
-  <Add Type="Microsoft.ApplicationInsights.Extensibility.W3C.W3COperationCorrelationTelemetryInitializer, Microsoft.ApplicationInsights"/>
-   ...
-</TelemetryInitializers>
-```
-
-### Enable W3C distributed tracing support for ASP.NET Core apps
-
- > [!NOTE]
-  > Starting with `Microsoft.ApplicationInsights.AspNetCore` version 2.8.0, no configuration is needed.
- 
-W3C Trace-Context support is implemented in a backward-compatible way. Correlation is expected to work with applications that are instrumented with previous versions of the SDK (without W3C support).
-
-If you want to keep using the legacy `Request-Id` protocol, you can disable Trace-Context by using this configuration:
-
-```csharp
-  Activity.DefaultIdFormat = ActivityIdFormat.Hierarchical;
-  Activity.ForceDefaultIdFormat = true;
-```
-
-If you run an older version of the SDK, we recommend that you update it or apply the following configuration to enable Trace-Context.
-
-This feature is in `Microsoft.ApplicationInsights.AspNetCore` version 2.5.0-beta1 and in `Microsoft.ApplicationInsights.DependencyCollector` version 2.8.0-beta1.
-It's disabled by default. To enable it, set `ApplicationInsightsServiceOptions.RequestCollectionOptions.EnableW3CDistributedTracing` to `true`:
-
-```csharp
-public void ConfigureServices(IServiceCollection services)
-{
-    services.AddApplicationInsightsTelemetry(o => 
-        o.RequestCollectionOptions.EnableW3CDistributedTracing = true );
-    // ....
-}
-```
+W3C TraceContext based distributed tracing is enabled by default in all recent
+.NET Framework/.NET Core SDKs, along with backward compatibility with legacy Request-Id protocol.
 
 ### Enable W3C distributed tracing support for Java apps
 
@@ -299,24 +246,9 @@ You can export the log data by using `AzureLogHandler`. For more information, se
 
 ## Telemetry correlation in .NET
 
-Over time, .NET has defined several ways to correlate telemetry and diagnostics logs:
+.NET runtime supports distributed with the help of [Activity](https://github.com/dotnet/runtime/blob/master/src/libraries/System.Diagnostics.DiagnosticSource/src/ActivityUserGuide.md) and [DiagnosticSource](https://github.com/dotnet/runtime/blob/master/src/libraries/System.Diagnostics.DiagnosticSource/src/DiagnosticSourceUsersGuide.md)
 
-- `System.Diagnostics.CorrelationManager` allows the tracking of [LogicalOperationStack and ActivityId](/dotnet/api/system.diagnostics.correlationmanager?view=netcore-3.1).
-- `System.Diagnostics.Tracing.EventSource` and Event Tracing for Windows (ETW) define the [SetCurrentThreadActivityId](/dotnet/api/system.diagnostics.tracing.eventsource.setcurrentthreadactivityid?view=netcore-3.1#overloads) method.
-- `ILogger` uses [Log scopes](/aspnet/core/fundamentals/logging#log-scopes).
-- Windows Communication Foundation (WCF) and HTTP wire up "current" context propagation.
-
-But those methods didn't enable automatic distributed tracing support. `DiagnosticSource` supports automatic cross-machine correlation. .NET libraries support `DiagnosticSource` and allow automatic cross-machine propagation of the correlation context via the transport, such as HTTP.
-
-The [Activity User Guide](https://github.com/dotnet/runtime/blob/master/src/libraries/System.Diagnostics.DiagnosticSource/src/ActivityUserGuide.md) in `DiagnosticSource` explains the basics of tracking activities.
-
-ASP.NET Core 2.0 supports extraction of HTTP headers and starting new activities.
-
-`System.Net.Http.HttpClient`, starting with version 4.1.0, supports automatic injection of correlation HTTP headers and tracking HTTP calls as activities.
-
-There's a new HTTP module, [Microsoft.AspNet.TelemetryCorrelation](https://www.nuget.org/packages/Microsoft.AspNet.TelemetryCorrelation/), for classic ASP.NET. This module implements telemetry correlation by using `DiagnosticSource`. It starts an activity based on incoming request headers. It also correlates telemetry from the different stages of request processing, even when every stage of Internet Information Services (IIS) processing runs on a different managed thread.
-
-The Application Insights SDK, starting with version 2.4.0-beta1, uses `DiagnosticSource` and `Activity` to collect telemetry and associate it with the current activity.
+The Application Insights .NET SDK uses `DiagnosticSource` and `Activity` to collect and correlate telemetry.
 
 <a name="java-correlation"></a>
 ## Telemetry correlation in Java
