@@ -81,7 +81,7 @@ To try out message enrichments, see the [message enrichments tutorial](tutorial-
 
 * The total message size, including the enrichments, can't exceed 256 KB. If a message size exceeds 256 KB, the IoT Hub will drop the message. You can use [IoT Hub metrics](iot-hub-metrics.md) to identify and debug errors when messages are dropped. For example, you can monitor d2c.telemetry.egress.invalid.
 
-* Message enrichments don't apply to digital twin change events (part of the [IoT Plug and Play public preview](../iot-pnp/overview-iot-plug-and-play.md)).
+* Message enrichments don't apply to digital twin change events.
 
 ## Pricing
 

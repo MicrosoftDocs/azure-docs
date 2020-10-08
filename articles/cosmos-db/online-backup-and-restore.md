@@ -85,6 +85,13 @@ When you accidentally delete or modify one or more items within a container (the
 
 If you have accidentally deleted or corrupted your data, you should contact [Azure support](https://azure.microsoft.com/support/options/) within 8 hours so that the Azure Cosmos DB team can help you restore the data from the backups. This way the Azure Cosmos DB support team will have enough time to restore your account.
 
+> [!NOTE]
+> After you restore the data, not all the source capabilities or settings are carried over to the restored account. The following settings are not carried over to the new account:
+
+> * VNET access control lists
+> * Stored procedures, triggers and user-defined functions
+> * Multi-region settings  
+
 If you provision throughput at the database level, the backup and restore process in this case happen at the entire database level, and not at the individual containers level. In such cases, you can't select a subset of containers to restore.
 
 ## Migrate data to the original account

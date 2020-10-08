@@ -45,14 +45,21 @@ You can quickly deploy a new IoT Central application and then customize it to yo
 
 As a solution builder, you use the web-based tools to create a _device template_ for the devices that connect to your application. A device template is the blueprint that defines the characteristics and behavior of a type of device such as the:
 
-- Telemetry it sends.
-- Business properties that an operator can modify.
-- Device properties that are set by a device and are read-only in the application.
-- Properties, that an operator sets, that determine the behavior of the device.
+- Telemetry it sends. Examples include temperature and humidity. Telemetry is streaming data.
+- Business properties that an operator can modify. Examples include a customer address and a last serviced date.
+- Device properties that are set by a device and are read-only in the application. For example, the state of a valve as either open or shut.
+- Properties, that an operator sets, that determine the behavior of the device. For example, a target temperature for the device.
+- Commands, that an operator can call, that run on a device. For example, a command to remotely reboot a device.
 
 This [device template](howto-set-up-template.md) includes:
 
-- A _device capability model_ that describes the capabilities a device should implement such as the telemetry it sends and the properties it reports.
+- A _device capability model_ that describes the capabilities a device should implement. The device capabilities include:
+
+  - The telemetry it streams to IoT Central.
+  - The read-only properties it uses to report state to IoT Central.
+  - The writable properties it receives from IoT Central to set device state.
+  - The commands called from IoT Central.
+
 - Cloud properties that aren't stored on the device.
 - Customizations, dashboards, and forms that are part of your IoT Central application.
 
@@ -139,7 +146,6 @@ Each Azure subscription has default quotas that could impact the scope of your I
 - Array schema types aren't supported.
 - Only the C device SDK and the Node.js device and service SDKs are supported.
 - IoT Central is currently available in the United States, Europe, Asia Pacific, Australia, United Kingdom, and Japan locations.
-- You cannot use the **Custom application (legacy)** application template in the United Kingdom and Japan locations.
 - Device capability models must have all the interfaces defined inline in the same file.
 
 ## Next steps

@@ -113,7 +113,7 @@ Example: `<demo0-qa>`.mypolicies.com.
 
 9. Under the **Mappings** section, select **Synchronize Azure Active Directory Users to myPolicies**.
 
-	![myPolicies User Mappings](media/mypolicies-provisioning-tutorial/usermapping.png)
+	:::image type="content" source="media/mypolicies-provisioning-tutorial/usermapping.png" alt-text="Screenshot of the Mappings section. Under Name, Synchronize Azure Active Directory Users to customappsso is visible." border="false":::
 
 10. Review the user attributes that are synchronized from Azure AD to myPolicies in the **Attribute Mapping** section. The attributes selected as **Matching** properties are used to match the user accounts in myPolicies for update operations. Select the **Save** button to commit any changes.
 
