@@ -239,7 +239,7 @@
         href: log-query/log-analytics-overview.md
       - name: Tutorial
         displayname: Log Analytics workspace, log query, log queries, query, queries
-        href: log-query/get-started-portal.md
+        href: log-query/log-analytics-tutorial.md
       - name: Query scope
         href: log-query/scope.md
       - name: Simple logs experience
