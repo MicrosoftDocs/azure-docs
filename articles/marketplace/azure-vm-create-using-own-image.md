@@ -43,3 +43,7 @@ Configure and prepare the VM to be uploaded as described in [Prepare a Windows V
 
 - If you encountered difficulty creating your new Azure-based VHD, see [Common issues during VHD creation](azure-vm-common-issues-during-vhd-creation.md).
 - If not, Test Virtual Machine (VM) deployed from VHD explains how to test and submit a VM image for Azure Marketplace certification, including where to get the Certification Test Tool for Azure Certified tool and how to use it to certify your VM image.
+
+## Next steps
+
+- TBD

@@ -11,7 +11,7 @@ ms.date: 10/09/2020
 
 # Create a virtual machine from an approved base
 
-This article describes how to use Azure to create a VM containing a pre-configured, endorsed operating system. If this isn't compatible with your solution, it's possible to [create and configure an on-premises VM](azure-vm-create-using-own image.md) using an approved operating system, then configure and prepare it for upload as described in [Prepare a Windows VHD or VHDX to upload to Azure](../virtual-machines/windows/prepare-for-upload-vhd-image.md).
+This article describes how to use Azure to create a VM containing a pre-configured, endorsed operating system. If this isn't compatible with your solution, it's possible to [create and configure an on-premises VM](azure-vm-create-using-own-image.md) using an approved operating system, then configure and prepare it for upload as described in [Prepare a Windows VHD or VHDX to upload to Azure](../virtual-machines/windows/prepare-for-upload-vhd-image.md).
 
 ## Select an approved base Image
 
@@ -74,15 +74,9 @@ Azure begins provisioning the virtual machine you specified. Track its progress 
 
 Connect to your [Windows](../virtual-machines/windows/connect-logon.md) or [Linux](../virtual-machines/linux/ssh-from-windows.md#connect-to-your-vm) VM.
 
-:::image type="content" source="media/create-vm/putty-configuration.png" alt-text="Connect to Windows or Linux VM dialog box.":::
-
 ## Configure the VM
 
 This section describes how to size, update, and generalize an Azure VM. These steps are necessary to prepare your VM to be deployed on Azure Marketplace.
-
-## Size the VHDs
-
-[!INCLUDE [Discussion of VHD sizing](includes/vhd-size.md)]
 
 ## Install the most current updates
 
@@ -122,3 +116,7 @@ The following process generalizes a Linux VM and redeploys it as a separate VM. 
 
     1. In the Azure portal, select your resource group (RG) and de-allocate the VM.
     2. Your VHD is now generalized and you can create a new VM using this VHD.
+
+## Next steps
+
+- TBD
