@@ -17,7 +17,11 @@ ms.service: digital-twins
 
 # Convert industry-standard models to DTDL for Azure Digital Twins
 
-Models in Azure Digital Twins are represented in the JSON-LD-based [**Digital Twins Definition Language (DTDL)**](concepts-models.md). If you have existing models outside of Azure Digital Twins that are based on an industry standard, such as RDF or OWL, you can convert them to DTDL to use them with Azure Digital Twins. This article describes a pattern for converting RDF-based industry or custom models to DTDL. 
+Models in Azure Digital Twins are represented in the JSON-LD-based [**Digital Twins Definition Language (DTDL)**](concepts-models.md). If you have existing models outside of Azure Digital Twins that are based on an industry standard, such as RDF or OWL, you'll need to **convert them to DTDL** to use them with Azure Digital Twins. The DTDL version will then become the source of truth for the model within Azure Digital Twins.
+
+This article describes a pattern for converting RDF-based industry or custom models to DTDL. It includes:
+* **Strategy-level guidance** that can be applied to a variety of standards and model types
+* [Sample code for an RDF-specific converter](#sample-converter-application)
 
 ## Industry models  
 
