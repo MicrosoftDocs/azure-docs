@@ -33,8 +33,6 @@ You can add Lab Services directly in your Teams channels, and then the app is av
 
 Once one member of a team adds the tab, it shows up for everyone in the channel. Any users who have access to the app get single sign-on access with the credentials they use for Microsoft Teams. Any users who don't have access to the app can see the tab in Teams, but are blocked until you give them permissions to the on-premises app and the Azure portal published version of the app.
 
-If you would like to create labs in a different channel of the same team, you can just click on ‘+’ (Add a tab) icon and you will find **Azure Lab Services**.  
-
 ## Create a classroom lab
 
 After the lab account is selected, Team owners will be able to create labs for the team. The entire lab creation process and all the tasks at the lab level can be performed within Teams. Users will have the option to create multiple labs within the same team and the Team owner, with appropriate access at the lab account level, will see only the labs associated with the specific team.
