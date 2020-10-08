@@ -203,6 +203,12 @@ az webapp config appsettings set --settings DJANGO_ENV="production" DBHOST="<pos
 - The command creates settings named `DJANGO_ENV`, `DBHOST`, `DBNAME`, `DBUSER`, and `DBPASS` as expected by the app code.
 - In your Python code, you access these settings as environment variables with statements like `os.environ.get('DJANGO_ENV')`. For more information, see [Access environment variables](configure-language-python.md#access-environment-variables).
 
+To verify the settings, run `az webapp config app settings list`:
+
+```azurecli
+az webapp config app settings list
+```
+
 [Having issues? Let us know.](https://aka.ms/DjangoCLITutorialHelp)
 
 ### Run Django database migrations
