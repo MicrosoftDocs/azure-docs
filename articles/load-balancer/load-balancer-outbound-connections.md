@@ -1,6 +1,6 @@
 ---
-title: Egress with Azure Load Balancer
-description: Describes how Azure Load Balancer is used for outbound internet connectivity
+title: Outbound proxy Azure Load Balancer
+description: Describes how Azure Load Balancer is used as a proxy for outbound internet connectivity
 services: load-balancer
 author: asudbring
 ms.service: load-balancer
@@ -10,9 +10,9 @@ ms.date: 10/06/2020
 ms.author: allensu
 ---
 
-# Egress with Azure Load Balancer
+# Outbound proxy Azure Load Balancer
 
-The load balancer (LB) can be used for egress of internet connections. This configuration enables **IP masquerading** of the backend instance. This masquerading prevents outside sources from having a direct address to the backend instances. 
+The load balancer (LB) can be used as a proxy for outbound internet connectivity. This configuration enables **IP masquerading** of the backend instance. This masquerading prevents outside sources from having a direct address to the backend instances. 
 
 Sharing an IP address between backend instances also reduces the cost of static public IPs and supports scenarios such as simplifying IP allow lists with traffic from known public IPs. 
 
