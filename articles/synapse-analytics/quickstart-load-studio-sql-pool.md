@@ -25,7 +25,7 @@ You can now easily bulk load data using SQL pools with a simple right-click on t
 ## Prerequisites
 
 - This wizard generates a COPY statement, which uses Azure AD pass-through for authentication. Your [Azure AD user must have access](
-./sql-data-warehouse/quickstart-bulk-load-copy-tsql-examples#d-azure-active-directory-authentication) to the workspace with at least the Storage Blob Data Contributor Azure role to the ADLS Gen2 Account.
+./sql-data-warehouse/quickstart-bulk-load-copy-tsql-examples#d-azure-active-directory-authentication.md) to the workspace with at least the Storage Blob Data Contributor Azure role to the ADLS Gen2 Account.
 
 - You must have the required [permissions to use the COPY statement](/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest&preserve-view=true#permissions) and Create table permissions if you're creating a new table to load to.
 
@@ -57,4 +57,4 @@ You can now easily bulk load data using SQL pools with a simple right-click on t
 ## Next steps
 
 - Check the [COPY statement](/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest&preserve-view=true#syntax) article for more information on COPY capabilities
-- Check the [data loading overview](./sql-data-warehouse/design-elt-data-loading#what-is-elt) article
+- Check the [data loading overview](./sql-data-warehouse/design-elt-data-loading#what-is-elt.md) article
