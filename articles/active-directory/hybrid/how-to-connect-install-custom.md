@@ -31,7 +31,7 @@ To set up a custom installation for Azure AD Connect, go through the wizard page
 ### Express settings
 On the **Express Settings** page, select **Customize** to start a customized-settings installation.  The rest of this article guides you through the custom installation process. Use the following links to quickly go to the information for a particular page:
 
-- [Required Components](#required-components)
+- [Required Components](#install-required-components)
 - [User Sign-In](#user-sign-in)
 - [Connect to Azure AD](#connect-to-azure-ad)
 - [Sync](#sync-pages)
