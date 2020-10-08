@@ -4,7 +4,7 @@ description: Use features like storage analytics, client-side logging, and other
 author: normesta
 ms.service: storage
 ms.topic: troubleshooting
-ms.date: 10/02/2020
+ms.date: 10/08/2020
 ms.author: normesta
 ms.reviewer: fryu
 ms.subservice: common
@@ -17,8 +17,6 @@ ms.custom: "monitoring, devx-track-csharp"
 Diagnosing and troubleshooting issues in a distributed application hosted in a cloud environment can be more complex than in traditional environments. Applications can be deployed in a PaaS or IaaS infrastructure, on premises, on a mobile device, or in some combination of these environments. Typically, your application's network traffic may traverse public and private networks and your application may use multiple storage technologies such as Microsoft Azure Storage Tables, Blobs, Queues, or Files in addition to other data stores such as relational and document databases.
 
 To manage such applications successfully you should monitor them proactively and understand how to diagnose and troubleshoot all aspects of them and their dependent technologies. As a user of Azure Storage services, you should continuously monitor the Storage services your application uses for any unexpected changes in behavior (such as slower than usual response times), and use logging to collect more detailed data and to analyze a problem in depth. The diagnostics information you obtain from both monitoring and logging will help you to determine the root cause of the issue your application encountered. Then you can troubleshoot the issue and determine the appropriate steps you can take to remediate it. Azure Storage is a core Azure service, and forms an important part of the majority of solutions that customers deploy to the Azure infrastructure. Azure Storage includes capabilities to simplify monitoring, diagnosing, and troubleshooting storage issues in your cloud-based applications.
-
-For a hands-on guide to end-to-end troubleshooting in Azure Storage applications, see [End-to-End Troubleshooting using Azure Storage Metrics and Logging, AzCopy, and Message Analyzer](../storage-e2e-troubleshooting.md).
 
 * [Introduction]
   * [How this guide is organized]
@@ -62,7 +60,6 @@ For a hands-on guide to end-to-end troubleshooting in Azure Storage applications
 * [Appendices]
   * [Appendix 1: Using Fiddler to capture HTTP and HTTPS traffic]
   * [Appendix 2: Using Wireshark to capture network traffic]
-  * [Appendix 3: Using Microsoft Message Analyzer to capture network traffic]
   * [Appendix 4: Using Excel to view metrics and log data]
   * [Appendix 5: Monitoring with Application Insights for Azure DevOps]
 
@@ -86,7 +83,7 @@ The section "[End-to-end tracing]" describes how you can correlate the informati
 
 The section "[Troubleshooting guidance]" provides troubleshooting guidance for some of the common storage-related issues you might encounter.
 
-The "[Appendices]" include information about using other tools such as Wireshark and Netmon for analyzing network packet data, Fiddler for analyzing HTTP/HTTPS messages, and Microsoft Message Analyzer for correlating log data.
+The "[Appendices]" include information about using other tools such as Wireshark and Netmon for analyzing network packet data, and Fiddler for analyzing HTTP/HTTPS messages.
 
 ## <a name="monitoring-your-storage-service"></a>Monitoring your storage service
 If you are familiar with Windows performance monitoring, you can think of Storage Metrics as being an Azure Storage equivalent of Windows Performance Monitor counters. In Storage Metrics, you will find a comprehensive set of metrics (counters in Windows Performance Monitor terminology) such as service availability, total number of requests to service, or percentage of successful requests to service. For a full list of the available metrics, see [Storage Analytics Metrics Table Schema](https://msdn.microsoft.com/library/azure/hh343264.aspx). You can specify whether you want the storage service to collect and aggregate metrics every hour or every minute. For more information about how to enable metrics and monitor your storage accounts, see [Enabling storage metrics and viewing metrics data](https://go.microsoft.com/fwlink/?LinkId=510865).
@@ -215,10 +212,9 @@ You can capture the traffic between the client and server to provide detailed in
 
 * [Fiddler](https://www.telerik.com/fiddler) is a free web debugging proxy that enables you to examine the headers and payload data of HTTP and HTTPS request and response messages. For more information, see [Appendix 1: Using Fiddler to capture HTTP and HTTPS traffic](#appendix-1).
 * [Microsoft Network Monitor (Netmon)](https://cnet-downloads.com/network-monitor) and [Wireshark](https://www.wireshark.org/) are free network protocol analyzers that enable you to view detailed packet information for a wide range of network protocols. For more information about Wireshark, see "[Appendix 2: Using Wireshark to capture network traffic](#appendix-2)".
-* Microsoft Message Analyzer is a tool from Microsoft that supersedes Netmon and that in addition to capturing network packet data, helps you to view and analyze the log data captured from other tools. For more information, see "[Appendix 3: Using Microsoft Message Analyzer to capture network traffic](#appendix-3)".
 * If you want to perform a basic connectivity test to check that your client machine can connect to the Azure storage service over the network, you cannot do this using the standard **ping** tool on the client. However, you can use the [**tcping** tool](https://www.elifulkerson.com/projects/tcping.php) to check connectivity.
 
-In many cases, the log data from Storage Logging and the Storage Client Library will be sufficient to diagnose an issue, but in some scenarios, you may need the more detailed information that these network logging tools can provide. For example, using Fiddler to view HTTP and HTTPS messages enables you to view header and payload data sent to and from the storage services, which would enable you to examine how a client application retries storage operations. Protocol analyzers such as Wireshark operate at the packet level enabling you to view TCP data, which would enable you to troubleshoot lost packets and connectivity issues. Message Analyzer can operate at both HTTP and TCP layers.
+In many cases, the log data from Storage Logging and the Storage Client Library will be sufficient to diagnose an issue, but in some scenarios, you may need the more detailed information that these network logging tools can provide. For example, using Fiddler to view HTTP and HTTPS messages enables you to view header and payload data sent to and from the storage services, which would enable you to examine how a client application retries storage operations. Protocol analyzers such as Wireshark operate at the packet level enabling you to view TCP data, which would enable you to troubleshoot lost packets and connectivity issues. 
 
 ## <a name="end-to-end-tracing"></a>End-to-end tracing
 End-to-end tracing using a variety of log files is a useful technique for investigating potential issues. You can use the date/time information from your metrics data as an indication of where to start looking in the log files for the detailed information that will help you troubleshoot the issue.
@@ -380,11 +376,9 @@ queueServicePoint.UseNagleAlgorithm = false;
 You should check the client-side logs to see how many requests your client application is submitting, and check for general .NET related performance bottlenecks in your client such as CPU, .NET garbage collection, network utilization, or memory. As a starting point for troubleshooting .NET client applications, see [Debugging, Tracing, and Profiling](https://msdn.microsoft.com/library/7fe0dd2y).
 
 #### Investigating network latency issues
-Typically, high end-to-end latency caused by the network is due to transient conditions. You can investigate both transient and persistent network issues such as dropped packets by using tools such as Wireshark or Microsoft Message Analyzer.
+Typically, high end-to-end latency caused by the network is due to transient conditions. You can investigate both transient and persistent network issues such as dropped packets by using tools such as Wireshark.
 
 For more information about using Wireshark to troubleshoot network issues, see "[Appendix 2: Using Wireshark to capture network traffic]."
-
-For more information about using Microsoft Message Analyzer to troubleshoot network issues, see "[Appendix 3: Using Microsoft Message Analyzer to capture network traffic]."
 
 ### <a name="metrics-show-low-AverageE2ELatency-and-low-AverageServerLatency"></a>Metrics show low AverageE2ELatency and low AverageServerLatency but the client is experiencing high latency
 In this scenario, the most likely cause is a delay in the storage requests reaching the storage service. You should investigate why requests from the client are not making it through to the blob service.
@@ -397,11 +391,9 @@ Also check whether the client is performing multiple retries, and investigate th
 * Examine the client logs. Verbose logging will indicate that a retry has occurred.
 * Debug your code, and check the properties of the **OperationContext** object associated with the request. If the operation has retried, the **RequestResults** property will include multiple unique server request IDs. You can also check the start and end times for each request. For more information, see the code sample in the section [Server request ID].
 
-If there are no issues in the client, you should investigate potential network issues such as packet loss. You can use tools such as Wireshark or Microsoft Message Analyzer to investigate network issues.
+If there are no issues in the client, you should investigate potential network issues such as packet loss. You can use tools such as Wireshark to investigate network issues.
 
 For more information about using Wireshark to troubleshoot network issues, see "[Appendix 2: Using Wireshark to capture network traffic]."
-
-For more information about using Microsoft Message Analyzer to troubleshoot network issues, see "[Appendix 3: Using Microsoft Message Analyzer to capture network traffic]."
 
 ### <a name="metrics-show-high-AverageServerLatency"></a>Metrics show high AverageServerLatency
 In the case of high **AverageServerLatency** for blob download requests, you should use the Storage Logging logs to see if there are repeated requests for the same blob (or set of blobs). For blob upload requests, you should investigate what block size the client is using (for example, blocks less than 64 K in size can result in overheads unless the reads are also in less than 64 K chunks), and if multiple clients are uploading blocks to the same blob in parallel. You should also check the per-minute metrics for spikes in the number of requests that result in exceeding the per second scalability targets: also see "[Metrics show an increase in PercentTimeoutError]."
@@ -471,7 +463,7 @@ Server timeouts indicate a problem with the storage service that requires furthe
 ### <a name="metrics-show-an-increase-in-PercentNetworkError"></a>Metrics show an increase in PercentNetworkError
 Your metrics show an increase in **PercentNetworkError** for one of your storage services. The **PercentNetworkError** metric is an aggregation of the following metrics: **NetworkError**, **AnonymousNetworkError**, and **SASNetworkError**. These occur when the storage service detects a network error when the client makes a storage request.
 
-The most common cause of this error is a client disconnecting before a timeout expires in the storage service. Investigate the code in your client to understand why and when the client disconnects from the storage service. You can also use Wireshark, Microsoft Message Analyzer, or Tcping to investigate network connectivity issues from the client. These tools are described in the [Appendices].
+The most common cause of this error is a client disconnecting before a timeout expires in the storage service. Investigate the code in your client to understand why and when the client disconnects from the storage service. You can also use Wireshark, or Tcping to investigate network connectivity issues from the client. These tools are described in the [Appendices].
 
 ### <a name="the-client-is-receiving-403-messages"></a>The client is receiving HTTP 403 (Forbidden) messages
 If your client application is throwing HTTP 403 (Forbidden) errors, a likely cause is that the client is using an expired Shared Access Signature (SAS) when it sends a storage request (although other possible causes include clock skew, invalid keys, and empty headers). If an expired SAS key is the cause, you will not see any entries in the server-side Storage Logging log data. The following table shows a sample from the client-side log generated by the Storage Client Library that illustrates this issue occurring:
@@ -714,13 +706,11 @@ If the previous troubleshooting sections do not include the issue you are having
 
 * Check your metrics to see if there is any change from your expected base-line behavior. From the metrics, you may be able to determine whether the issue is transient or permanent, and which storage operations the issue is affecting.
 * You can use the metrics information to help you search your server-side log data for more detailed information about any errors that are occurring. This information may help you troubleshoot and resolve the issue.
-* If the information in the server-side logs is not sufficient to troubleshoot the issue successfully, you can use the Storage Client Library client-side logs to investigate the behavior of your client application, and tools such as Fiddler, Wireshark, and Microsoft Message Analyzer to investigate your network.
+* If the information in the server-side logs is not sufficient to troubleshoot the issue successfully, you can use the Storage Client Library client-side logs to investigate the behavior of your client application, and tools such as Fiddler, Wireshark to investigate your network.
 
 For more information about using Fiddler, see "[Appendix 1: Using Fiddler to capture HTTP and HTTPS traffic]."
 
 For more information about using Wireshark, see "[Appendix 2: Using Wireshark to capture network traffic]."
-
-For more information about using Microsoft Message Analyzer, see "[Appendix 3: Using Microsoft Message Analyzer to capture network traffic]."
 
 ## <a name="appendices"></a>Appendices
 The appendices describe several tools that you may find useful when you are diagnosing and troubleshooting issues with Azure Storage (and other services). These tools are not part of Azure Storage and some are third-party products. As such, the tools discussed in these appendices are not covered by any support agreement you may have with Microsoft Azure or Azure Storage, and therefore as part of your evaluation process you should examine the licensing and support options available from the providers of these tools.
@@ -771,40 +761,6 @@ You can also choose to view the TCP data as the application layer sees it by rig
 > For more information about using Wireshark, see the [Wireshark Users Guide](https://www.wireshark.org/docs/wsug_html_chunked).
 >
 >
-
-### <a name="appendix-3"></a>Appendix 3: Using Microsoft Message Analyzer to capture network traffic
-You can use Microsoft Message Analyzer to capture HTTP and HTTPS traffic in a similar way to Fiddler, and capture network traffic in a similar way to Wireshark.
-
-#### Configure a web tracing session using Microsoft Message Analyzer
-To configure a web tracing session for HTTP and HTTPS traffic using Microsoft Message Analyzer, run the Microsoft Message Analyzer application and then on the **File** menu, click **Capture/Trace**. In the list of available trace scenarios, select **Web Proxy**. Then in the **Trace Scenario Configuration** panel, in the **HostnameFilter** textbox, add the names of your storage endpoints (you can look up these names in the [Azure portal](https://portal.azure.com)). For example, if the name of your Azure storage account is **contosodata**, you should add the following to the **HostnameFilter** textbox:
-
-```
-contosodata.blob.core.windows.net contosodata.table.core.windows.net contosodata.queue.core.windows.net
-```
-
-> [!NOTE]
-> A space character separates the hostnames.
->
->
-
-When you are ready to start collecting trace data, click the **Start With** button.
-
-For more information about the Microsoft Message Analyzer **Web Proxy** trace, see [Microsoft-PEF-WebProxy Provider](https://technet.microsoft.com/library/jj674814.aspx).
-
-The built-in **Web Proxy** trace in Microsoft Message Analyzer is based on Fiddler; it can capture client-side HTTPS traffic and display unencrypted HTTPS messages. The **Web Proxy** trace works by configuring a local proxy for all HTTP and HTTPS traffic that gives it access to unencrypted messages.
-
-#### Diagnosing network issues using Microsoft Message Analyzer
-In addition to using the Microsoft Message Analyzer **Web Proxy** trace to capture details of the HTTP/HTTPs traffic between the client application and the storage service, you can also use the built-in **Local Link Layer** trace to capture network packet information. This enables you to capture data similar to that which you can capture with Wireshark, and diagnose network issues such as dropped packets.
-
-The following screenshot shows an example **Local Link Layer** trace with some **informational** messages in the **DiagnosisTypes** column. Clicking on an icon in the **DiagnosisTypes** column shows the details of the message. In this example, the server retransmitted message #305 because it did not receive an acknowledgment from the client:
-
-![Screenshot that shows an example Local Link Layer trace with some informational messages in the DiagnosisTypes column][9]
-
-When you create the trace session in Microsoft Message Analyzer, you can specify filters to reduce the amount of noise in the trace. On the **Capture / Trace** page where you define the trace, click on the **Configure** link next to **Microsoft-Windows-NDIS-PacketCapture**. The following screenshot shows a configuration that filters TCP traffic for the IP addresses of three storage services:
-
-![Screenshot that shows a configuration that filters TCP traffic for the IP addresses of three storage services.][10]
-
-For more information about the Microsoft Message Analyzer Local Link Layer trace, see [Microsoft-PEF-NDIS-PacketCapture Provider](https://technet.microsoft.com/library/jj659264.aspx).
 
 ### <a name="appendix-4"></a>Appendix 4: Using Excel to view metrics and log data
 Many tools enable you to download the Storage Metrics data from Azure table storage in a delimited format that makes it easy to load the data into Excel for viewing and analysis. Storage Logging data from Azure blob storage is already in a delimited format that you can load into Excel. However, you will need to add appropriate column headings based in the information at [Storage Analytics Log Format](https://msdn.microsoft.com/library/azure/hh343259.aspx) and [Storage Analytics Metrics Table Schema](https://msdn.microsoft.com/library/azure/hh343264.aspx).
@@ -892,7 +848,6 @@ For more information about analytics in Azure Storage, see these resources:
 [Appendices]: #appendices
 [Appendix 1: Using Fiddler to capture HTTP and HTTPS traffic]: #appendix-1
 [Appendix 2: Using Wireshark to capture network traffic]: #appendix-2
-[Appendix 3: Using Microsoft Message Analyzer to capture network traffic]: #appendix-3
 [Appendix 4: Using Excel to view metrics and log data]: #appendix-4
 [Appendix 5: Monitoring with Application Insights for Azure DevOps]: #appendix-5
 
