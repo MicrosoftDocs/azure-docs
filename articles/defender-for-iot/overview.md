@@ -28,7 +28,7 @@ Traditional network security monitoring tools developed for corporate IT network
 
 Azure Defender for IoT is a holistic solution that continuously discovers, monitors, and manages IoT and OT threats, risks, and vulnerabilities across all IoT and OT devices, whether they are newer devices managed via Azure IoT Hub or legacy unmanaged devices. Azure Defender for IoT helps accelerate incident response, provides insight into operational challenges, and simplifies hybrid workload protection by delivering unified IoT and OT visibility and control.
 
-Purpose-built for IoT and OT networks, Azure Defender for IoT delivers deep visibility into IoT and OT risk within minutes of being connected to the network, with zero impact on the network and network devices due to its passive, non-invasive, Network Traffic Analysis (NTA) approach. It leverages patented, IoT- and OT-aware behavioral analytics to detect advanced IoT and OT threats (such as fileless malware) based on anomalous or unauthorized activity. This holistic solution addresses key use cases that include:
+This holistic solution addresses key use cases that include:
 - Automatic asset discovery for all IoT and OT devices
 - Continuous IoT and OT risk and vulnerability management
 - IoT and OT threat hunting and incident response
@@ -53,5 +53,4 @@ Use advanced analytics and the Microsoft Intelligent Security Graph to get an ed
 In this overview, you learned about the features and services of Defender for IoT. To learn more about Defender for IoT architecture, prerequisites, and learn how to get started, see the following articles:
 
 - [Architecture](architecture.md)
-- [Service prerequisites](service-prerequisites.md)
 - [Getting started](getting-started.md)

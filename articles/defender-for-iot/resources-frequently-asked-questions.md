@@ -21,10 +21,6 @@ ms.author: rkarlin
 
 This article provides a list of frequently asked questions and answers about Defender for IoT.
 
-## Does Azure provide support for IoT security?
-
-Azure provides an integrated view for monitoring and managing your IoT security as part of your overall security solution through Azure Security Center. If you are an application developer, you can use IoT Hub view to manage your IoT application security.
-
 ## What is Azure's unique value proposition for IoT security?
 
 Defender for IoT enables enterprises to extend their existing cyber security view to their entire IoT solution. Azure provides an end to end view of your business solution, enabling you to take business-related actions and decisions based on your enterprise security posture and collected data. Combined security using Azure IoT, Azure IoT Edge, and Azure Security Center enable you to create the solution you want with the security you need.
@@ -36,14 +32,15 @@ Azure Defender for IoT provides comprehensive protocol support. In addition to e
 - Secure proprietary information by developing on-site as an external plugin. 
 - Localize text for alerts, events, and protocol parameters.
 
-Azure Defender for IoT the largest knowledge base of industrial protocols. This unique solution for developing protocols as plugins, does not require dedicated developer teams or version releases in order to support a new protocol. Developers, partners, and customers can securely develop protocols and share insights and knowledge using Horizon. 
+This unique solution for developing protocols as plugins, does not require dedicated developer teams or version releases in order to support a new protocol. Developers, partners, and customers can securely develop protocols and share insights and knowledge using Horizon. 
 
 Microsoft is the only vendor that can support virtually any protocol via Horizon SDK.
 
-Our approach is to support all existing systems and versions that use the protocols we support. This includes old and new versions up to their latest version. For every new solution version that is released by an industrial vendor, Microsoft tests its effect on the protocol and in the rare occasion that a protocol change has occurred – we update our DPI with the matching changes to support the new version as well as the old ones.
-
 ## Do I have to purchase hardware appliances from Microsoft partners?
-The Azure Defender for IoT platform is 100% vendor-agnostic. It interoperates on all server hardware vendors such as Dell, HP, Microsoft etc. 
+Azure Defender for IoT sensor runs on specific hardware specs as described in the [Hardware Specifications Guide](https://aka.ms/AzureDefenderforIoTBareMetalAppliance), customers can purchase certified hardware from Microsoft partners or use the supplied bill of materials  (BOM) and purchase it on their own. 
+
+Certified hardware has been tested in our labs for driver stability, packet drops and network sizing.
+
 
 ## Regulation does not allow us to connect our system to the Internet. Can we still utilize Defender for IoT?
 
@@ -57,43 +54,44 @@ For example:
 - A single appliance (virtual of physical) can be in the Shop Floor DMZ layer, having all Shop Floor cell traffic routed to this layer.
 - Alternatively, locate small mini-sensors in each Shop Floor cell with either cloud or local management that will reside in the Shop Floor DMZ layer. Another appliance (virtual or physical) can monitor the traffic in the Shop Floor DMZ layer (for SCADA, Historian, or MES).
 
-## Who is Defender for IoT made for?
-
-Defender for IoT is integrated within Azure IoT Hub Security and provides management for the day to day business solution security operations. Defender for IoT is also integrated into Azure Security Center capabilities and provide an integrated view for monitoring and managing your IoT security as part of your overall security solution.
-
 ## How does Defender for IoT compare to the competition?
 
 While other solutions provide a set of capabilities that allow customers to create their own solutions, Defender for IoT provides a unique end-to-end IoT security solution that provides a wide view across the security of all of your related Azure resources. Azure enables fast deployment and full integration with IoT Hub module twins for easy integration with existing device management tools.
 
-## Do I have to be an Azure Security Center customer to use this service?
-
-No, but it is recommended. Without Azure Security Center, Defender for IoT receives limited connected resource data and provides a limited analysis of your potential attack surface, threats, and potential attacks.
 
 ## Do I have to be an Azure IoT customer?
 
-Yes. Defender for IoT relies on Azure IoT connectivity and infrastructure.
+Yes. For cloud connected deployments, Azure Defender for IoT relies on Azure IoT connectivity and infrastructure.
+## Can I create my own alerts?
 
-## Do I have to install an agent?
+Yes. You can set a customized alert on pre-determined set of behaviors such as IP address and open ports. See [Create custom alerts](quickstart-create-custom-alerts.md) to learn more about custom alerts and how to make them.
+
+## Where can I see logs? Can I customize logs?
+
+- View alerts and recommendations using your connected Log Analytics workspace. Configure storage size and duration in the workspace.
+
+- Raw data from your security agent can also be stored in your Log Analytics account. Consider size, duration, storage requirements, and associated costs before changing the configuration of this option.
+
+## Why should I add Defender for IoT to the module identity? What is it used for?
+
+The Defender for IoT module is used for agent configuration and management.
+## Do I have to install an embedded security agent?
 
 Agent installation on your IoT devices isn't mandatory in order to enable Defender for IoT. You can choose between the following three options, gaining different levels of security monitoring and management capabilities according to your selection:
 
-1. Install the Defender for IoT security agent with or without modifications. This option provides the highest level of enhanced security insights into device behavior and access.
+- Passive, non-invasive (Agentless) deployment using NTA (Network Traffic Analysis) sensors to monitor and provide deep visibility into IoT/OT risk with zero performance impact on the network and devices
+- Install the Defender for IoT embedded security agent with or without modifications. This option provides the highest level of enhanced security insights into device behavior and access.
 
-1. Create your own agent and implement the Defender for IoT security message schema. This option enables usage of Defender for IoT analysis tools on top of your device security agent.
+- Create your own agent and implement the Defender for IoT security message schema. This option enables usage of Defender for IoT analysis tools on top of your device security agent.
 
-1. No security agent installation on your IoT devices. This option enables IoT Hub communication monitoring, with reduced security monitoring  and management capabilities.
+- No security agent installation on your IoT devices. This option enables IoT Hub communication monitoring, with reduced security monitoring  and management capabilities.
 
 ## What does the Defender for IoT agent do?
 
 Defender for IoT agent provides device level threat coverage for device configuration, behavior, and access (by scanning the configuration), process & connectivity. The Defender for IoT security agent does not scan business-related data or activity.
 
-## Where can I get the Defender for IoT security agent?
-
 The Defender for IoT security agent is open source and available on GitHub in 32 bit and 64-bit Windows and Linux versions: https://github.com/Azure/Azure-IoT-Security.
 
-## Where does the Defender for IoT agent get installed?
-
-Detailed installation and agent deployment information can be found in GitHub: https://github.com/Azure/Azure-IoT-Security.
 
 ## What are the dependencies and prerequisites of the agent?
 
@@ -106,10 +104,6 @@ Connectivity, access, firewall configuration, process list & OS baseline are col
 ## How much data will the agent generate?
 
 Agent data generation is driven by device, application, connectivity type, and customer agent configuration. Due to the high variability between devices and IoT solutions, we recommend first deploying the agent in a lab or test setting to observe, learn, and set the specific configuration that fits your needs, while measuring the amount of generated data. After starting the service, the Defender for IoT agent provides operational recommendations for optimizing agent throughput to help you with the configuration and customization process.
-
-## How can I control my billing?
-
-Defender for IoT provides configurable agent scans, data buffers, and the ability to create custom alerts that increase or reduce the amount of data generated by the agent.
 
 ## Do agent messages use up quota from IoT Hub?
 
@@ -129,11 +123,7 @@ If the activities or logs are still unavailable, contact your Defender for IoT p
 
 ## What happens when the internet connection stops working?
 
-The agent continues to run and store data as long as the device is running. Data is stored in the security message cache according to size configuration. When the device regains connectivity, security messages resume sending.
-
-## If the device is restarted, will the security agent self-recover?
-
-The security agent is designed to rerun automatically with each device restart.
+The sensors and agents continue to run and store data as long as the device is running. Data is stored in the security message cache according to size configuration. When the device regains connectivity, security messages resume sending.
 
 ## Can the agent affect the performance of the device or other installed software?
 
@@ -147,19 +137,7 @@ The agent cannot be turned off.
 
 If the agent stops communicating or fails to send security messages, a **Device is silent** alert is generated.
 
-## Can I create my own alerts?
 
-Yes. You can set a customized alert on pre-determined set of behaviors such as IP address and open ports. See [Create custom alerts](quickstart-create-custom-alerts.md) to learn more about custom alerts and how to make them.
-
-## Where can I see logs? Can I customize logs?
-
-- View alerts and recommendations using your connected Log Analytics workspace. Configure storage size and duration in the workspace.
-
-- Raw data from your security agent can also be stored in your Log Analytics account. Consider size, duration, storage requirements, and associated costs before changing the configuration of this option.
-
-## Why should I add Defender for IoT to the module identity? What is it used for?
-
-The Defender for IoT module is used for agent configuration and management.
 
 ## Next steps
 

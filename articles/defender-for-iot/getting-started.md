@@ -17,28 +17,58 @@ ms.date: 09/09/2020
 ms.author: mlottner
 ---
 
-# Get started with Defender for IoT
+# Getting started
 
-This article provides an explanation of the different components of the Defender for IoT service and explains how to get started with the service using two possible deployment options.
+This article describes the deployment and onboarding processes necessary to get Azure Defender for IoT up and running. Additional steps are also required. It is recommended that you understand these steps and familiarize yourself with information in accompanying documents.
 
-Looking for get started with the Security Module for Azure RTOS? Go to the [Quickstart for Security Module for Azure RTOS](quickstart-azure-rtos-security-module.md) section. 
+Once you complete all the steps, Azure Defender for IoT sensors will monitor your network. Depending on how you set up your solution, detections can also be sent to the on-premises management console, or to the IoT Hub.
 
-## Deployment options
+The complete setup includes 5 main steps:
 
-Choose the service scenario that best meets your IoT device and environment requirements.
+1. **[Set up Azure](#1-set-up-azure)**
 
-### Built-in deployment
+2. **[Deploy hardware, software and onboard to sensor](#2-deploy-hardware-software-and-onboard-to-sensor)**
 
-Using the seamless, built-in deployment option, Defender for IoT can be quickly integrated into your IoT Hub and provide security analysis of the IoT hub configuration, device identity and management, and hub-device communication patterns.
+3. **[Perform network setup for sensor monitoring and management](#3-perform-network-setup-for-sensor-monitoring-and-management)**
 
-Start a [Built-in deployment](iot-hub-integration.md) featuring IoT Hub monitoring and recommendations.
-    <br>
+4. **[Start discovering your network](#4-start-discovering-your-network)**
 
-### Enhanced deployment
+5. **[Populate Azure Sentinel with alert information](#5-populate-sentinel-with-alert-information)**
 
-For enhanced security capabilities, deploying Defender for IoT agents in addition to enabling IoT Hub security provides agent-based event collection, analysis and threat detection of key security data from your IoT devices as well as comprehensive security posture management capabilities.
+## Set up Azure
 
-Start an [Enhanced deployment](security-agents.md) featuring an agent-based comprehensive threat protection and security posture management solution.
+- Setup an Azure Account. For more information, see [Create an Azure account](https://docs.microsoft.com/learn/modules/create-an-azure-account/).
+
+- Firewall or proxy: If you have a firewall or similar intervening network device that is configured to allow specific connections verify that either *.azure-devices.net:443 is opened to the firewall or proxy. If wildcards are not supported or you want more control, the specific IoT Hub FQDN should be opened in your FW or proxy. For more information, see [Reference - IoT Hub endpoints](../iot-hub/iot-hub-devguide-endpoints).
+
+## Deploy hardware, software and onboard to sensor
+
+- Purchase sensor hardware and install software. Follow the steps outlined here, and for more information, see this article and the [Defender for IoT Hardware Guide](https://aka.ms/AzureDefenderforIoTBareMetalAppliance) and the [Installation Guide](https://aka.ms/AzureDefenderforIoTInstallSensorISO).
+
+  - After you install your sensor, securely record the sensor log in credentials. You will need the credentials to upload the activation file to the sensor.
+
+  - If you are working with sensors that are locally managed, securely record the IP address of the sensor or the sensor name defined in the installation. You may want to use it when creating a sensor name during sensor registration in the Defender for IoT portal. This will ensure easier tracking and consistent naming between the registration name in the Azure Defender for IoT portal and the IP address of the deployed sensor displayed in the sensor console.
+
+- Register the sensor with the Defender for IoT portal and download a sensor activation file.
+
+- Upload the activation file to your sensor.
+
+## Perform network setup for sensor monitoring and management
+
+- Connect your sensor to the network. Described in the [Network setup guide](https://aka.ms/AzureDefenderForIoTNetworkSetup).
+
+## Start discovering your network
+
+- Tweak system settings in the sensor console.
+
+- Connect sensors to an on-premises management console.
+
+For more information, see the [Azure Defender for IoT Sensor User Guide](https://aka.ms/AzureDefenderforIoTUserGuide) and the [Defender for IoT on-premises management console user's guide].
+
+## Populate Azure Sentinel with alert information
+
+- To send alert information to Azure Sentinel, configure Azure Sentinel: [Connect your data from Defender for IoT to Azure Sentinel](how-to-configure-with-sentinel.md).
+ 
 
 ## Next steps
 

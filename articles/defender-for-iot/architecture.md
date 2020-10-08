@@ -22,41 +22,59 @@ This article describes the functional system architecture of the Defender for Io
 
 ## Defender for IoT components
 
-The Defender for IoT platform connects both to the Azure cloud as well as to on-premises components. The solution is designed for scalability in large and geographically distributed environments with multiple remote locations. This enables a multi-layered distributed architecture by country, region, business unit, or zone. 
+Defender for IoT connects both to the Azure cloud as well as to on-premises components. The solution is designed for scalability in large and geographically distributed environments with multiple remote locations. This enables a multi-layered distributed architecture by country, region, business unit, or zone. 
 
 The components include: 
-- Smart network traffic sensors
+- Azure Defender for IoT sensors
 - Management consoles:
+    - Sensor console
     - On-premises management console
     - Azure portal
 - Embedded security agent (security module and IoT SDK)
 
 ![Defender  for IoT architecture](./media/architecture/defender-iot-security-architecture.png)
 
-## Defender for IoT workflows
+### Azure Defender for IoT sensors
 
-The platform features 5 analytics detection engines. The engines trigger alerts based on analysis of both real-time and pre-recorded traffic. The following engines are available: 
+Defender for IoT sensors discover and continuously monitor network devices. Sensors collect ICS network traffic using passive (agentless) monitoring on IoT and OT devices. 
+ 
+Purpose-built for IoT and OT networks, the agentless technology delivers deep visibility into IoT and OT risk within minutes of being connected to the network. It has zero performance impact on the network and network devices due to its non-invasive, Network Traffic Analysis (NTA) approach. 
+ 
+Leveraging patented, IoT and OT-aware behavioral analytics and Layer-7 Deep Packet Inspection (DPI), it allows you to analyze beyond traditional signature-based solutions to immediately detect advanced IoT and OT threats (such as fileless malware) based on anomalous or unauthorized activity. 
+  
+Defender for IoT sensors connect to a SPAN port or network TAP and immediately begins performing DPI on IoT and OT network traffic. 
+ 
+Data collection, processing, analysis, and alerting takes place directly on the sensor. This makes it ideally suited for locations with low bandwidth or high latency connectivity, because only metadata is transferred to the management console.
 
-1. **Protocol violation detection engine**: The protocol violation detection engine identifies the use of packet structures and field values that violate ICS protocol specifications, for example: Modbus exception, and Initiation of an obsolete function code alerts.
+The sensor includes 5 analytics detection engines. The engines trigger alerts based on analysis of both real-time and pre-recorded traffic. The following engines are available: 
 
-1. **Policy violation detection engine**: Using machine learning, the policy violation detection engine alerts users of any deviation from baseline behavior, such as unauthorized use of specific function codes, access to specific objects, or changes to device configuration. For example: DeltaV software version changed, and Unauthorized PLC programming alerts. Specifically, the policy violation engine models the ICS networks as deterministic sequences of states and transitions — using a patented technique called Industrial Finite State Modeling (IFSM). This establishes a baseline of the ICS networks. This means that the platform requires a shorter learning period to build a baseline of the network than generic mathematical approaches or analytics, which were originally developed for IT rather than OT networks.
+#### Protocol violation detection engine
+The protocol violation detection engine identifies the use of packet structures and field values that violate ICS protocol specifications, for example: Modbus exception, and Initiation of an obsolete function code alerts.
 
-1. **Industrial malware detection engine**: The industrial malware detection engine identifies behaviors that indicate the presence of known malware, such as Conficker, Black Energy, Havex, WannaCry,NotPetya, and Triton. 
+#### Policy violation detection engine
+Using machine learning, the policy violation detection engine alerts users of any deviation from baseline behavior, such as unauthorized use of specific function codes, access to specific objects, or changes to device configuration. For example: DeltaV software version changed, and Unauthorized PLC programming alerts. Specifically, the policy violation engine models the ICS networks as deterministic sequences of states and transitions — using a patented technique called Industrial Finite State Modeling (IFSM). This establishes a baseline of the ICS networks. This means that the platform requires a shorter learning period to build a baseline of the network than generic mathematical approaches or analytics, which were originally developed for IT rather than OT networks.
 
-1. **Anomaly detection engine**: The anomaly detection engine detects unusual machine-to-machine (M2M) communications and behaviors. By modeling ICS networks as deterministic sequences of states and transitions, the platform requires a shorter learning period than generic mathematical approaches or analytics originally developed for IT rather than OT. It also detects anomalies faster, with minimal false positives. Anomaly detection engine alerts include Excessive SMB login attempts, and PLC Scan Detected alerts.
+#### Industrial malware detection engine
+The industrial malware detection engine identifies behaviors that indicate the presence of known malware, such as Conficker, Black Energy, Havex, WannaCry,NotPetya, and Triton. 
 
-1. **Operational incident detection**: The operational incident detection detects operational issues such as intermittent connectivity that can indicate early signs of equipment failure. For example, the device is suspected to be disconnected (unresponsive), and Siemens S7 stop PLC command was sent alerts.
+#### Anomaly detection engine
+The anomaly detection engine detects unusual machine-to-machine (M2M) communications and behaviors. By modeling ICS networks as deterministic sequences of states and transitions, the platform requires a shorter learning period than generic mathematical approaches or analytics originally developed for IT rather than OT. It also detects anomalies faster, with minimal false positives. Anomaly detection engine alerts include Excessive SMB login attempts, and PLC Scan Detected alerts.
 
-### Smart network traffic sensor 
+#### Operational incident detection
+The operational incident detection detects operational issues such as intermittent connectivity that can indicate early signs of equipment failure. For example, the device is suspected to be disconnected (unresponsive), and Siemens S7 stop PLC command was sent alerts.
 
-Azure Defender for IoT network sensors implement our patent-pending approach for auto-discovering all your unmanaged devices including every type of IoT & ICS device--regardless of protocol, manufacturer, or device type. 
-
-The smart sensors do not require constant connection to the management component, and all data collection, processing, analysis, and alerting takes place directly on the sensor. This makes it ideally suited for locations with low bandwidth or high latency connectivity, because only metadata is transferred to the management console. If a sensor gets disconnected from the management console, it will continue to operate independently, while remaining fully operational.
 
 ### Management consoles
 Managing Azure Defender for IoT across hybrid environments is accomplished via two mangement portals: 
+- Sensor console
 - The on-premises management console
 - The Azure portal
+
+#### Sensor console
+Sensor detections are displayed in the sensor console, where they can be viewed, investigated, and analyzed in a network map, asset inventory, and in an extensive range of reports, for example risk assessment reports, data mining queries and attack vectors. You can also use the console to view and handle threats detected by sensor engines, forward information to 3rd party systems, manage users, and more.
+
+![Defender for IoT sensor console](./media/architecture/sensor-console.png)
+
 #### On-premises management console
 The on-premises management console enables security operations center (SOC) operators to manage and analyze alerts aggregated from multiple sensors into one single dashboard and provides an overall view of the health of the OT networks.
 
@@ -65,6 +83,7 @@ This architecture provides a comprehensive unified view of the network at a SOC 
 In addition to multi-tenancy, monitoring, data analysis, and centralized sensor remote control, the management console provides additional system maintenance tools (such as alert exclusion) and fully customized reporting features for each of the remote appliances. This scalable architecture supports both local management at a site level, zone level, and global management within the SOC.
 
 The management console can be deployed for high-availability configuration which provides a backup console that periodically receives backups of all configuration files required for recovery. If the master console fails, the local site management appliances will automatically failover to synchronize with the backup console to maintain availability without interruption.
+
 #### Azure portal
 
 The Defender for IoT portal in Azure is used to help you:
@@ -75,7 +94,7 @@ The Defender for IoT portal in Azure is used to help you:
 
 ## Embedded security agent: Built-in mode
 
-In **Built-in** mode, Defender  for IoT is enabled when you elect to turn on the **Security** option in your IoT Hub. Offering real-time monitoring, recommendations and alerts, Built-in mode offers single-step device visibility and unmatched security. Build-in mode does not require agent installation on any devices and uses advanced analytics on logged activities to analyze and protect your field device.
+In **Built-in** mode, Defender  for IoT is enabled when you elect to turn on the **Security** option in your IoT Hub. Offering real-time monitoring, recommendations and alerts, Built-in mode offers single-step device visibility and unmatched security. Build-in mode does not require agent installation on any devices and uses advanced analytics on logged activities to analyze and protect your field device and IoT hub.
 
 ## Embedded security agent: Enhanced mode
 
