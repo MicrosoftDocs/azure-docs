@@ -7,6 +7,54 @@ ms.date: 06/26/2020
 
 # Get started and create a Lab Services lab from Teams
 
+This article shows how to add an Azure Lab Services app to Teams. Then, how to create a lab from Teams.
+
+## Add a Lab Services app to Teams
+
+You can add Lab Services directly in your Teams channels, and then the app is available for everyone in the team to use. Follow these three steps:
+
+1. Navigate to the Teams channel where you want to add the app and select **+** to add a tab. 
+<!--   ![Select + to add a tab in Teams](./media/integrate-with-teams/add-tab.png)-->
+1. Search for **Azure Lab Services** from the tab options and add this app. 
+
+    > [!NOTE]
+    > Only Team **Owners** will be able to create labs for the team.
+<!--  ![Select Azure Lab Services from the Add a tab screen](./media/integrate-with-teams/azure-lab-services.png) -->
+1. Select a Lab Services account which you would like to use for creating labs in this team. 
+
+    Azure Lab Services uses single sign-on into the [labs portal](labs.azure.com) and pulls all the lab accounts that you have access to. 
+
+    The accounts that are in the same tenant as Teams and for which you have **Owner**, **Contributor**, or **Creator** access are displayed. 
+
+   ![Name the tab](./media/integrate-with-teams/welcome.png) 
+1. Press **Save** and the app gets added to Teams and the tab gets addeded to the channel. 
+
+    Now you can select the **Azure Lab Services** tab from your channel and start managing labs as described in the following step.
+
+Once one member of a team adds the tab, it shows up for everyone in the channel. Any users who have access to the app get single sign-on access with the credentials they use for Microsoft Teams. Any users who don't have access to the app can see the tab in Teams, but are blocked until you give them permissions to the on-premises app and the Azure portal published version of the app.
+
+If you would like to create labs in a different channel of the same team, You can just click on ‘+’ (Add a tab) icon and you will find **Azure Lab Services**.  
+
+## Create a lab
+
+After the lab account is selected, Team owners will be able to create labs for the team. The entire lab creation process and all the tasks at the lab level can be performed within Teams. Users will have the option to create multiple labs within the same team and the Team owner, with appropriate access at the lab account level, will see only the labs associated with the specific team.
+
+## Give access to users of the lab account
+
+Provisioning access to users at the lab account level needs to happen in the [Azure](https://ms.portal.azure.com/) portal.
+
+1. In the Azure portal, navigate to your Azure Lab Services account. 
+1. On the **Lab Account** page, select **Access control (IAM)**, select **+ Add** on the toolbar, and then select **+ Add role assignment** on the toolbar. 
+
+    ![Access Control -> Add Role Assignment button](./media/tutorial-setup-lab-account/add-role-assignment-button.png)
+1. On the **Add role assignment** page, select **Lab Creator** for **Role**, select the user you want to add to the Lab Creators role, and select **Save**. 
+
+    ![Add lab creator](./media/tutorial-setup-lab-account/add-lab-creator.png)
+
+## Create labs
+
+The labs creation process is the same whether you are creating labs from Teams or the [labs portal](labs.azure.com). This article outline labs creation process: []().
+
 ## Next steps
 
 See the following articles:
