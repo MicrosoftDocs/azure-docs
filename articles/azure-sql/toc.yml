@@ -69,6 +69,8 @@
           href: database/sql-vulnerability-assessment.md
         - name: Vulnerability assessment rules
           href: database/sql-database-vulnerability-assessment-rules.md
+        - name: Vulnerability assessment rules changelog
+          href: database/sql-database-vulnerability-assessment-rules-changelog.md
         - name: Store vulnerability scans in storage
           href: database/sql-database-vulnerability-assessment-storage.md
       - name: Logins, user accounts, roles, and permissions
