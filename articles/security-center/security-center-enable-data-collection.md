@@ -27,7 +27,7 @@ This article describes how to install a Log Analytics agent and set a Log Analyt
 > Users of Azure Sentinel: note that security events collection within the context of a single workspace can be configured from either Azure Security Center or Azure Sentinel, but not both. If you're planning to add Azure Sentinel to a workspace that is already getting Azure Defender alerts from Azure Security Center, and is set to collect Security Events, you have two options:
 > - Leave the Security Events collection in Azure Security Center as is. You will be able to query and analyze these events in Azure Sentinel as well as in Azure Defender. You will not, however, be able to monitor the connector's connectivity status or change its configuration in Azure Sentinel. If this is important to you, consider the second option.
 >
-> - [Disable Security Events collection](#eventscollection) in Azure Security Center, and only then add the Security Events connector in Azure Sentinel. As with the first option, you will be able to query and analyze events in both Azure Sentinel and Azure Defender/ASC, but you will now be able to monitor the connector's connectivity status or change its configuration in - and only in - Azure Sentinel.
+> - [Disable Security Events collection](#data-collection-tier) in Azure Security Center, and only then add the Security Events connector in Azure Sentinel. As with the first option, you will be able to query and analyze events in both Azure Sentinel and Azure Defender/ASC, but you will now be able to monitor the connector's connectivity status or change its configuration in - and only in - Azure Sentinel.
 
 
 To collect the data from the machines, you should have the Log Analytics agent installed. Installation of the agent can be done automatically (recommended) or you can install the agent manually. By default, automatic provisioning is off.
@@ -134,7 +134,7 @@ When you select a workspace in which to store your data, all the workspaces acro
 
 
 
-## Data collection tier <a name="eventscollection"></a>
+## Data collection tier
 Selecting a data collection tier in Azure Security Center will only affect the storage of security events in your Log Analytics workspace. The Log Analytics agent will still collect and analyze the security events required for Azure Security Center’s threat protection, regardless of which tier of security events you choose to store in your Log Analytics workspace (if any). Choosing to store security events in your workspace will enable investigation, search, and auditing of those events in your workspace. 
 > [!NOTE]
 > Storing data in log analytics might incur additional charges for data storage. For more information, see the [pricing page](https://azure.microsoft.com/pricing/details/security-center/).
