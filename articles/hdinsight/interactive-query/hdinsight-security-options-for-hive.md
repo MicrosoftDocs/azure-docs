@@ -10,7 +10,7 @@ ms.topic: conceptual
 ms.date: 10/02/2020
 ---
 
-# Security Options for Hive in HDInsight
+# Security options for Hive in Azure HDInsight
 
 This document describes the recommended security options for Hive in HDInsight. These options can be configured through Ambari.
 
