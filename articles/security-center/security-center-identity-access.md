@@ -17,21 +17,27 @@ ms.author: memildin
 
 # Monitor identity and access
 
-> [!TIP]
-> From March 2020, Azure Security Center's identity and access recommendations are included in all subscriptions on the free pricing tier. If you have subscriptions on the free tier, their Secure Score will be affected as they were not previously assessed for their identity and access security. 
-
-When Security Center identifies potential security vulnerabilities, it creates recommendations that guide you through the process of configuring the needed controls to harden and protect your resources.
-
 The security perimeter has evolved from a network perimeter to an identity perimeter. Security becomes less about defending your network and more about defending your data, as well as managing the security of your apps and users. Nowadays, with more data and more apps moving to the cloud, identity becomes the new perimeter.
 
-By monitoring identity activities, you can take proactive actions before an incident takes place, or reactive actions to stop an attack attempt. For example, Security Center might flag deprecated accounts (accounts that are no longer needed, and blocked from signing in by Azure Active Directory) for removal. 
+By monitoring the activities and configuration settings related to identity and multi-factor authentication (MFA), you can take proactive actions before an incident takes place, or reactive actions to stop an attack attempt.
 
-Examples of recommendations you might see on the **Identity and access** resource security section of Azure Security Center include:
+## What identity and access safeguards does Security Center   
+
+Azure Security Center has two dedicated security controls for ensuring you're meeting your organization's identity security requirements: 
+
+ - **Manage access and permissions** - Security Center encourages adoption of the [least privilege access model](https://docs.microsoft.com/windows-server/identity/ad-ds/plan/security-best-practices/implementing-least-privilege-administrative-models) to ensure your users have the necessary access to do their jobs but no more than that. In addition, this control has recommendations related to controlling access to your resources with role assignments with [role-based access control (RBAC)](https://docs.microsoft.com/azure/role-based-access-control/o.verview)
+ 
+ - **Enable MFA** - With [MFA](https://www.microsoft.com/security/business/identity/mfa) enabled, your accounts are more secure, and users can still authenticate to almost any application with single sign-on.
+ 
+
+These are some examples of recommendations you might see in these two controls on Security Center's **Recommendations** page:
 
 - MFA should be enabled on accounts with owner permissions on your subscription
 - A maximum of 3 owners should be designated for your subscription
 - External accounts with read permissions should be removed from your subscription
 - Deprecated accounts should be removed from your subscription
+    > [!TIP]
+    > Deprecated accounts are accounts that are no longer needed, and blocked from signing in by Azure Active Directory)
 
 For more information about these recommendations as well as a full list of the recommendations you might see here, see [Identity and Access recommendations](recommendations-reference.md#recs-identity).
 
@@ -39,15 +45,6 @@ For more information about these recommendations as well as a full list of the r
 > If your subscription has more than 600 accounts, Security Center is unable to run the Identity recommendations against your subscription. Recommendations that are not run are listed under "unavailable assessments" below.
 Security Center is unable to run the Identity recommendations against a Cloud Solution Provider (CSP) partner's admin agents.
 >
-
-
-All of the identity and access recommendations are available within two security controls in the **Recommendations** page:
-
-- Manage access and permissions 
-- Enable MFA
-
-![The two security controls with the recommendations related to identity and access](media/security-center-identity-access/two-security-controls-for-identity-and-access.png)
-
 
 ## Identify accounts without multi-factor authentication (MFA) enabled
 
@@ -80,11 +77,10 @@ To see which accounts don't have MFA enabled, use the Azure Resource Graph query
 Enabling MFA requires [Azure Active Directory (AD) tenant permissions](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-assign-admin-roles). 
 
 - If you have a premium edition of AD, enable MFA using [Conditional Access](../active-directory/conditional-access/concept-conditional-access-policy-common.md).
-
 - If you're using AD free edition, enable **security defaults** in Azure Active Directory as described in the [AD documentation](https://docs.microsoft.com/azure/active-directory/fundamentals/concept-fundamentals-security-defaults).
 
 
 ## Next steps
-To learn more about recommendations that apply to other Azure resource types, see the following articles:
+To learn more about recommendations that apply to other Azure resource types, see the following article:
 
 - [Protecting your network in Azure Security Center](security-center-network-recommendations.md)
