@@ -82,7 +82,7 @@ The policy does not require any parameters. As you are assigning an audit policy
 To check the results, open the Compliance tab and search for the name of your Assignment.
 You should see something similar to the following screenshot once your policy runs. In case your policy hasn't run, wait for some time. 
 
-![Audit Policy Review](./media/network-watcher-builtin-policy/7_1_audit-policy-results.png)
+![Audit Policy Results](./media/network-watcher-builtin-policy/7_1_audit-policy-results.png)
 
 ## Deploy-If-not-exists Policy 
 
@@ -106,7 +106,7 @@ The Network Watcher service is a regional service. These parameters allow the po
 - NSG Region: Azure regions at which the policy is targeted
 - Storage ID: Full resource ID of the storage account. Note: This storage account should be in the same region as the NSG. 
 - Network Watchers RG: Name of the resource group containing your Network Watcher resource. If you have not renamed it, you can enter 'NetworkWatcherRG' which is the default.
-- Network Watcher name: Name of the regional network watcher service. Format: NetworkWatcher_RegionName. Example: NetworkWatcher_centralus. See the [full list](example.com).
+- Network Watcher name: Name of the regional network watcher service. Format: NetworkWatcher_RegionName. Example: NetworkWatcher_centralus. See the full list.
 
 ![DINE Policy parameters](./media/network-watcher-builtin-policy/5_2_1_dine-policy-details-alt.png)
 
@@ -117,12 +117,12 @@ The Network Watcher service is a regional service. These parameters allow the po
 - Selected the same location as previous for your Managed Identity 
 - You will need Contributor or Owner permissions to use this policy. If you have these permissions, you should not see any errors.
 
-![DINE Policy parameters](./media/network-watcher-builtin-policy/5_2_2_dine-remediation.png) 
+![DINE Policy remediation](./media/network-watcher-builtin-policy/5_2_2_dine-remediation.png) 
 
 4. Click on "Review + Create" to review your assignment
 You should see something similar to the following screenshot.
 
-![DINE Policy remediation](./media/network-watcher-builtin-policy/5_2_3_dine-review.png) 
+![DINE Policy review](./media/network-watcher-builtin-policy/5_2_3_dine-review.png) 
 
 
 ### Results
