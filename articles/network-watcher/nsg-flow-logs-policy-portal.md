@@ -116,5 +116,6 @@ You should see something like the below once your policy runs. In case your poli
 
 
 ## Next steps 
-•	Use this [tutorial](https://docs.microsoft.com/azure/network-watcher/quickstart-configure-network-security-group-flow-logs-from-arm-template) Go deeper by using ARM templates to deploy Flow Logs and Traffic Analytics.
-•	Learn more about [Network Watcher](https://docs.microsoft.com/azure/network-watcher/)
+
+-	Use this [tutorial](https://docs.microsoft.com/azure/network-watcher/quickstart-configure-network-security-group-flow-logs-from-arm-template) Go deeper by using ARM templates to deploy Flow Logs and Traffic Analytics.
+-	Learn more about [Network Watcher](https://docs.microsoft.com/azure/network-watcher/)
