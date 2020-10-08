@@ -73,7 +73,7 @@ Azure Database for MySQL provides the Replication lag in seconds metric in [Azur
   A typical output will look like:
   
 >[!div class="mx-imgBorder"]
-> :::image type="content" source=".media/howto-troubleshoot-replication-latency/show_slave_status.png" alt-text="SHow SLAVE STATUS OUTPUT":::
+> :::image type="content" source="./media/howto-troubleshoot-replication-latency/show_slave_status.png" alt-text="SHow SLAVE STATUS OUTPUT":::
 
 
 The output contains a lot of information, but normally it's only important to focus on the following columns:
@@ -86,16 +86,16 @@ The output contains a lot of information, but normally it's only important to fo
 |Relay_Master_Log_File| Indicated represents the binary log file that the replica server is reading from the master.|
 |Slave_IO_Running| Indicates whether the IO thread is running. It should be "Yes". If "NO", then most likely the replication is broken.|
 |Slave_SQL_Running| Indicates whether the SQL thread is running. It should be "Yes". If "NO", then most likely the replication is broken.|
-|Exec_Master_Log_Pos| Displays position of the above Relay_Master_Log_File the replica is applying. If there is latency, this position sequence should be smaller than Read_Master_Log_Pos.|
+|Exec_Master_Log_Pos| Displays position of the Relay_Master_Log_File the replica is applying. If there is latency, this position sequence should be smaller than Read_Master_Log_Pos.|
 |Relay_Log_Space|Displays upper limit of relay log size. You can check the size by querying show global variables like "relay_log_space_limit".|
-|Seconds_Behind_Master| This shows the replication latency, in seconds.|
+|Seconds_Behind_Master| Displays replication latency in seconds.|
 |Last_IO_Errno|Displays the IO thread error code, if any. For more information about these codes, see [MySQL documentation](https://dev.mysql.com/doc/refman/5.7/en/server-error-reference.html).|
 |Last_IO_Error| Displays the IO thread error message, if any.|
 |Last_SQL_Errno|Displays the SQL thread error code, if any. For more information about these codes, see [MySQL documentation](https://dev.mysql.com/doc/refman/5.7/en/server-error-reference.html).|
 |Last_SQL_Error|Displays the SQL thread error message, if any.|
-|Slave_SQL_Running_State| Indicates the current SQL thread status. Please note that "System lock" shown in this state is a normal behavior. As the example above shows, "Waiting for dependent transaction to commit", which means that it is waiting for the master to update committed transactions, is also normal.|
+|Slave_SQL_Running_State| Indicates the current SQL thread status. Note that "System lock" shown in this state is a normal behavior. It is normal to see status as "Waiting for dependent transaction to commit". It indicates that replica is waiting for the master to update committed transactions.|
 
-From the output above, if Slave_IO_Running: Yes and Slave_SQL_Running: Yes then the replication is running fine. 
+If Slave_IO_Running is Yes and Slave_SQL_Running is Yes, then the replication is running fine. 
 
 Next, you need to check Last_IO_Errno/Last_IO_Error or Last_SQL_Errno/Last_SQL_Error that will hold the error number and error message of the most recent error that caused the SQL thread to stop. An error number 0 and empty message mean there is no error. A non-zero value in the error must be investigated further by looking up for the error code in [MySQL documentation](https://dev.mysql.com/doc/refman/5.7/en/server-error-reference.html).
 
@@ -105,10 +105,11 @@ Next, you need to check Last_IO_Errno/Last_IO_Error or Last_SQL_Errno/Last_SQL_E
 
 If you observe the following in the SHOW SLAVE STATUS OUTPUT, the most common cause of the replication latency is high network latency. As seen in the output below, the IO thread is running and waiting on the master, and the master has already written to binary log file #20 while replica received just file #10. Since the IO thread connects to master via TCP/IP, the only contributing factor for high replication latency is the network speed.  In Azure, the network latency within a region typically ranges in milliseconds and across region can go up to seconds. If you see high network latency abnormally all of a sudden, we recommend you check [Azure status page](https://status.azure.com/status) to ensure there are non known issues or outages. If there is no known issue and the issue still persists for few hours, we recommend you to open a support ticket for troubleshooting assistance.
 
-> [!OUTPUT]
-> Slave_IO_State: Waiting for master to send event
-> Master_Log_File: the binary file sequence is larger then Relay_Master_Log_File, e.g. mysql-bin.00020
-> Relay_Master_Log_File: the file sequence is smaller then above, e.g. mysql-bin.00010
+```
+Slave_IO_State: Waiting for master to send event
+Master_Log_File: the binary file sequence is larger then Relay_Master_Log_File, e.g. mysql-bin.00020
+Relay_Master_Log_File: the file sequence is smaller than Master_Log_File, e.g. mysql-bin.00010
+```
 
 Following are the common causes of the latency in this category:
 
@@ -116,10 +117,11 @@ Following are the common causes of the latency in this category:
 
 If you observe the following in the SHOW SLAVE STATUS OUTPUT, the most common cause of the replication latency is, heavy burst of transactions on source server where replica server is fails to catch up. In the output below, though the replica can retrieve the binary log behind the master, the replica IO thread indicates that the relay log space is full already. So network speed isn't causing the delay, because the replica has already been trying to catch up as fast as it can. Instead, the updated binary log size exceeds the upper limit of the relay log space. To troubleshoot this issue further, [slow query log](concepts-server-logs.md) should be enabled on the master server. Slow query logs enables you to identify long running transactions on the source server. The identified queries needs to be tuned to reduce the latency on the server. 
 
-> [!OUTPUT]
-> Slave_IO_State: Waiting for the slave SQL thread to free enough relay log space
-> Master_Log_File: the binary file sequence is larger then Relay_Master_Log_File, e.g. mysql-bin.00020
-> Relay_Master_Log_File: the file sequence is smaller then above, e.g. mysql-bin.00010
+```
+Slave_IO_State: Waiting for the slave SQL thread to free enough relay log space
+Master_Log_File: the binary file sequence is larger then Relay_Master_Log_File, e.g. mysql-bin.00020
+Relay_Master_Log_File: the file sequence is smaller then Master_Log_File, e.g. mysql-bin.00010
+```
 
 Following are the common causes of the latency in this category:
 
@@ -131,15 +133,16 @@ In some cases, there are weekly or monthly data load on source servers. Unfortun
 
 If you observe the following in the SHOW SLAVE STATUS OUTPUT, the most common cause can be some issue on the replica server that needs further investigation. In this scenario, as seen in the output, both the IO and SQL threads are running well and the replica is reading the same binary log file as the master writes. However, some latency occurs on the replica server to reflect the same transaction from the source server. 
 
-> [!OUTPUT]
-> Slave_IO_State: Waiting for master to send event
-> Master_Log_File: The binary log file sequence equals to Relay_Master_Log_File, e.g. mysql-bin.000191
-> Read_Master_Log_Pos: The position of master server written to the above file is larger than Relay_Log_Pos, e.g. 103978138
-> Relay_Master_Log_File: mysql-bin.000191
-> Slave_IO_Running: Yes
-> Slave_SQL_Running: Yes
-> Exec_Master_Log_Pos: The position of slave reads from master binary log file is smaller than Read_Master_Log_Pos, e.g. 13468882
-> Seconds_Behind_Master: There is latency and the value here is greater than 0
+```
+Slave_IO_State: Waiting for master to send event
+Master_Log_File: The binary log file sequence equals to Relay_Master_Log_File, e.g. mysql-bin.000191
+Read_Master_Log_Pos: The position of master server written to the above file is larger than Relay_Log_Pos, e.g. 103978138
+Relay_Master_Log_File: mysql-bin.000191
+Slave_IO_Running: Yes
+Slave_SQL_Running: Yes
+Exec_Master_Log_Pos: The position of slave reads from master binary log file is smaller than Read_Master_Log_Pos, e.g. 13468882
+Seconds_Behind_Master: There is latency and the value here is greater than 0
+```
 
 Following are the common causes of the latency in this category:
 
@@ -147,11 +150,11 @@ Following are the common causes of the latency in this category:
 
 Azure Database for MySQL uses row-based replication. With row-based replication, the master server writes events to the binary log about individual table row change, while the SQL Thread from the replica server will execute those changes to the corresponding table rows. Having no primary or unique key on a table is one of the common causes of replication latency, as some DML queries will need to scan all table rows to apply the changes from SQL thread.
 
-In MySQL the primary key is an associated index that ensures fast query performance as it cannot include NULL values. With InnoDB storage engine, the table data is physically organized to do ultra-fast lookups and sorts based on the primary key column or columns. Therefore, to ensure that the replica is able to keep up with changes from the source, it is recommended to add a primary key on tables in the source server before creating the replica server or re-creating the replica server if you already have one.
+In MySQL the primary key is an associated index that ensures fast query performance as it cannot include NULL values. With InnoDB storage engine, the table data is physically organized to do ultra-fast lookups and sorts based on the primary key column or columns. Therefore, to ensure that the replica is able to keep-up with changes from the source, it is recommended to add a primary key on tables in the source server before creating the replica server or re-creating the replica server if you already have one.
 
 #### Replication latency due to long running queries on replica server
 
-It is possible that the workload on replica server can prevent SQL thread to keep up with the IO thread. This is one of the common causes of high replication latency if there is a long running query on the replica server. In this case, [slow query log](concepts-server-logs.md) should be enabled on the replica server to help troubleshooting the issue. Slow queries can increase resource consumptions or slow down the server, thus replica will not be able to catch up with the master. In this scenario, the slow queries need to be tuned to run faster thereby unblocking SQL thread to run faster and apply the logs to catchup with the source server.
+It is possible that the workload on replica server can prevent SQL thread to keep-up with the IO thread. This is one of the common causes of high replication latency if there is a long running query on the replica server. In this case, [slow query log](concepts-server-logs.md) should be enabled on the replica server to help troubleshooting the issue. Slow queries can increase resource consumptions or slow down the server, thus replica will not be able to catch-up with the master. In this scenario, the slow queries need to be tuned to run faster thereby unblocking SQL thread to run faster and apply the logs to catch-up with the source server.
 
 
 #### Replication latency due to DDL queries on source server
