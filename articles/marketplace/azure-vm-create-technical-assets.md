@@ -1,12 +1,12 @@
 ---
-title: Create Azure virtual machine offer technical assets on Azure Marketplace
-description: Learn how to publish virtual machine offer technical assets to Azure Marketplace.
+title: Create virtual machine technical assets for Azure Marketplace
+description: Learn how to create virtual machine technical assets for Azure Marketplace.
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 author: emuench
 ms.author: mingshen
-ms.date: 10/09/2020
+ms.date: 10/16/2020
 ---
 
 # Create virtual machine technical assets for Azure Marketplace

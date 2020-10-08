@@ -6,7 +6,7 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 author: emuench
 ms.author: mingshen
-ms.date: 10/09/2020
+ms.date: 10/16/2020
 ---
 
 # Create a virtual machine using your own image
@@ -46,4 +46,4 @@ Configure and prepare the VM to be uploaded as described in [Prepare a Windows V
 
 ## Next steps
 
-- TBD
+- [Test and publish a virtual machine offer on Azure Marketplace](azure-vm-create-test-publish.md)

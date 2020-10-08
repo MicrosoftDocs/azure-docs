@@ -1,20 +1,29 @@
 ---
-title: Publishing guide for virtual machine offers on Azure Marketplace
-description: This article describes the requirements for publishing a virtual machine and a software free trial to be deployed from Azure Marketplace.
+title: PPlan a virtual machine offer on Azure Marketplace
+description: This article describes the requirements for publishing a virtual machine offer to Azure Marketplace.
 services:  Azure, Marketplace, Compute, Storage, Networking, Blockchain, Security
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 author: iqshahmicrosoft
 ms.author: iqshah
-ms.date: 09/04/2020
+ms.date: 10/16/2020
 ---
 
-# How to plan a virtual machine offer
+# Plan a virtual machine offer
 
 This article explains the different options and requirements for publishing a virtual machine (VM) offer to the commercial marketplace. VM offers are transactable offers deployed and billed through Azure Marketplace).
 
 Before you start, [Create a commercial marketplace account in Partner Center](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-account) and ensure your account is enrolled in the commercial marketplace program.
+
+## Benefits of publishing to Azure Marketplace
+
+When you publish your offers on Azure Marketplace, you can:
+
+- Promote your company with the help of the Microsoft brand.
+- Reach over 100 million Microsoft 365 and Dynamics 365 users and more than 200,000 organizations.
+- Get high-quality leads from these marketplaces.
+- Get your services promoted by the Microsoft field sales and telesales teams.
 
 ## Fundamentals in technical knowledge
 
