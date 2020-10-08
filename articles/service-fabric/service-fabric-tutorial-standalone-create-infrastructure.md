@@ -1,7 +1,6 @@
 ---
 title: Create infrastructure for a cluster on AWS
 description: In this tutorial, you learn how to set up the AWS infrastructure to run a Service Fabric cluster.
-
 ms.topic: tutorial
 ms.date: 05/11/2018
 ms.custom: mvc

@@ -1,7 +1,6 @@
 ---
 title: Upgrade the configuration of a standalone cluster 
 description: Learn how to upgrade the configuration that runs a standalone Service Fabric cluster.
-
 ms.topic: conceptual
 ms.date: 11/09/2018
 ---

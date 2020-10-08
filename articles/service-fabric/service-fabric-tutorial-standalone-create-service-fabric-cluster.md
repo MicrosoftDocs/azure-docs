@@ -1,7 +1,6 @@
 ---
 title: Install Service Fabric standalone client
 description: In this tutorial, learn how to install the Service Fabric standalone client on the cluster.
-
 ms.topic: tutorial
 ms.date: 07/22/2019
 ms.custom: mvc

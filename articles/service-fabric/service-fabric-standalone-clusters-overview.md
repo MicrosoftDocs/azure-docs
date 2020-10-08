@@ -1,7 +1,6 @@
 ---
 title: Standalone Service Fabric clusters overview 
 description: Service Fabric clusters run on Windows Server and Linux, which means you'll be able to deploy and host Service Fabric applications anywhere you can run Windows Server or Linux.
-
 ms.topic: conceptual
 ms.date: 02/01/2019
 ---
