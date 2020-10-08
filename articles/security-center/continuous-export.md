@@ -145,7 +145,7 @@ If you want to analyze Azure Security Center data inside a Log Analytics workspa
 
 ### Requirements
 
-To export to a Log Analytics workspace, you must have Security Center's Log Analytics solutions enabled on your workspace. If you're using the Azure portal, Security Center's free solution is automatically enabled when you enable continuous export. However, if you're configuring your continuous export settings via the REST API, you need you must manually enable then disable Azure Defender from within the **Pricing & settings** page.
+To export to a Log Analytics workspace, you must have Security Center's Log Analytics solutions enabled on your workspace. If you're using the Azure portal, Security Center's free solution is automatically enabled when you enable continuous export. However, if you're configuring your continuous export settings via the REST API, you must manually enable then disable Azure Defender from within the **Pricing & settings** page.
 
 ### Log Analytics tables and schemas
 
