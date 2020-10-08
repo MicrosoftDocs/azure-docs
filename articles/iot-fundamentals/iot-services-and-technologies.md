@@ -4,7 +4,7 @@ description: Describes the collection of technologies and services you can use t
 author: dominicbetts
 ms.service: iot-fundamentals
 services: iot-fundamentals
-ms.topic: overview
+ms.topic: conceptual
 ms.date: 01/15/2020
 ms.author: dobett
 ---
