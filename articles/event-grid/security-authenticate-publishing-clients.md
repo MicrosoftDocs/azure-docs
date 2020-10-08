@@ -38,6 +38,7 @@ First, programmatically generate a SAS token and then use the `aeg-sas-token` he
 ### Generate SAS token programmatically
 The following example creates a SAS token for use with Event Grid:
 
+**C#**
 ```cs
 static string BuildSharedAccessSignature(string resource, DateTime expirationUtc, string key)
 {
@@ -61,6 +62,7 @@ static string BuildSharedAccessSignature(string resource, DateTime expirationUtc
 }
 ```
 
+**Python**
 ```python
 def build_shared_access_signature(uri, key, expiry=3600):
     ttl = datetime.datetime.utcnow() + datetime.timedelta(seconds=expiry)
