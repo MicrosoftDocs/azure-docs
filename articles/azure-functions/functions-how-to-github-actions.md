@@ -228,7 +228,7 @@ Use the `Azure/functions-action` action to deploy your code to a function app. T
 |_**publish-profile**_ | (Optional) The name of the GitHub secret for your publish profile. |
 
 
-### Publish profile deploy examples
+### Publish profile deploy
 
 The following examples use version 1 of the `functions-action` and a `publish profile` for authentication:
 
@@ -531,7 +531,7 @@ jobs:
 
 ---
 
-### Service principal deploy examples
+### Service principal deploy
 
 The following example uses version 1 of the `functions-action` and a `service principal` for authentication. The workflow sets up a Windows .NET environment. 
 
