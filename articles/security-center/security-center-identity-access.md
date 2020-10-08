@@ -29,21 +29,32 @@ Azure Security Center has two dedicated security controls for ensuring you're me
  
  - **Enable MFA** - With [MFA](https://www.microsoft.com/security/business/identity/mfa) enabled, your accounts are more secure, and users can still authenticate to almost any application with single sign-on.
 
+### Example recommendations for identity and access
+
 Examples of recommendations you might see in these two controls on Security Center's **Recommendations** page:
 
 - MFA should be enabled on accounts with owner permissions on your subscription
 - A maximum of 3 owners should be designated for your subscription
 - External accounts with read permissions should be removed from your subscription
-- Deprecated accounts should be removed from your subscription
-    > [!TIP]
-    > Deprecated accounts are accounts that are no longer needed, and blocked from signing in by Azure Active Directory)
+- Deprecated accounts should be removed from your subscription (Deprecated accounts are accounts that are no longer needed, and blocked from signing in by Azure Active Directory)
 
-For more information about these recommendations and the others you might see in these controls, see [Identity and Access recommendations](recommendations-reference.md#recs-identity).
+> [!TIP]
+> For more information about these recommendations and the others you might see in these controls, see [Identity and Access recommendations](recommendations-reference.md#recs-identity).
 
-> [!NOTE]
-> If your subscription has more than 600 accounts, Security Center is unable to run the Identity recommendations against your subscription. Recommendations that are not run are listed under "unavailable assessments".
->
-> Security Center is unable to run the Identity recommendations against a Cloud Solution Provider (CSP) partner's admin agents.
+### Limitations
+
+There are some limitations to Security Center's identity and access protections:
+
+- Identity recommendations aren't available for subscriptions with more than 600 accounts. In such cases, these recommendations will be listed under "unavailable assessments".
+- Identity recommendations aren't available for Cloud Solution Provider (CSP) partner's admin agents.
+- Identity recommendations don’t identify accounts that are managed with a privileged identity management (PIM) system. If you're using a PIM tool, you may see inaccurate results in the **Manage access and permissions** control.
+
+## Multi-factor authentication (MFA) and Azure Active Directory 
+
+Enabling MFA requires [Azure Active Directory (AD) tenant permissions](../active-directory/users-groups-roles/directory-assign-admin-roles.md).
+
+- If you have a premium edition of AD, enable MFA using [Conditional Access](../active-directory/conditional-access/concept-conditional-access-policy-common.md).
+- If you're using AD free edition, enable **security defaults** as described in [Azure Active Directory documentation](../active-directory/fundamentals/concept-fundamentals-security-defaults.md).
 
 ## Identify accounts without multi-factor authentication (MFA) enabled
 
@@ -55,7 +66,7 @@ To see which accounts don't have MFA enabled, use the following Azure Resource G
 
 1. Enter the following query and select **Run query**.
 
-    ```
+    ```kusto
     securityresources
      | where type == "microsoft.security/assessments"
      | where properties.displayName == "MFA should be enabled on accounts with owner permissions on your subscription"
@@ -65,18 +76,11 @@ To see which accounts don't have MFA enabled, use the following Azure Resource G
 1. The `additionalData` property reveals the list of account object IDs for accounts that don't have MFA enforced. 
 
     > [!NOTE]
-    > The accounts are shown as object ids rather than account names to protect the privacy of the account holders.
+    > The accounts are shown as object IDs rather than account names to protect the privacy of the account holders.
 
 > [!TIP]
 > Alternatively, you can use Security Center's REST API method [Assessments - Get](https://docs.microsoft.com/rest/api/securitycenter/assessments/get).
 
-
-## Enable multi-factor authentication (MFA)
-
-Enabling MFA requires [Azure Active Directory (AD) tenant permissions](../active-directory/users-groups-roles/directory-assign-admin-roles.md).
-
-- If you have a premium edition of AD, enable MFA using [Conditional Access](../active-directory/conditional-access/concept-conditional-access-policy-common.md).
-- If you're using AD free edition, enable **security defaults** as described in [Azure Active Directory documentation](../active-directory/fundamentals/concept-fundamentals-security-defaults.md).
 
 ## Next steps
 To learn more about recommendations that apply to other Azure resource types, see the following article:
