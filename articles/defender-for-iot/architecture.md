@@ -1,10 +1,10 @@
 ---
-title: Solution architecture
-description: Learn about the flow of information in the Azure Defender for IoT service.
+title: Azure Defender for IoT architecture
+description: Learn about Azure Defender for IoT architecture and information flow.
 services: defender-for-iot
 ms.service: defender-for-iot
 documentationcenter: na
-author: rkarlin
+author: elazark
 manager: rkarlin
 editor: ''
 
@@ -12,11 +12,8 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/06/2019
-ms.author: rkarlin
-=======
 ms.date: 10/08/2020
-
+ms.author: v-ekrieg
 ---
 
 # Azure Defender for IoT architecture
