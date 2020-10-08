@@ -4,7 +4,7 @@ description: Learn more about the Defender for IoT security service, security ag
 services: defender-for-iot
 ms.service: defender-for-iot
 documentationcenter: na
-author: mlottner
+author: elazark
 manager: rkarlin
 editor: ''
 
@@ -13,8 +13,8 @@ ms.custom: devx-track-csharp
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/26/2019
-ms.author: mlottner
+ms.date: 10/08/2020
+ms.author: v-ekrieg
 ---
 
 # Understanding the local configuration file (C# agent)
