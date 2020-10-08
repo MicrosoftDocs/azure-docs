@@ -6,7 +6,7 @@ ms.author: csugunan
 ms.service: data-catalog
 ms.subservice: data-catalog-gen2
 ms.topic: conceptual
-ms.date: 10/06/2020
+ms.date: 10/07/2020
 ---
 
 # Catalog lineage user guide
@@ -145,7 +145,7 @@ Lineage of Azure Blob/ADLS Gen1/Gen2 -\> Azure Blob/ADLS Gen1/Gen2 file(s):
 
 * 1 process: *CopyGen2ToBlob\#CustomerCall.csv* (ADF Copy activity)  
 
-:::image type="content" source="./media/catalog-lineage-user-guide/lineage-adf-copy-wildcard.png" alt-text="Screenshot showing the lineage for a one to one A D F Copy operation with wildcard support.":::
+:::image type="content" source="./media/catalog-lineage-user-guide/lineage-adf-copy-wildcard.png" alt-text="Screenshot showing the lineage for a one to one A D F Copy operation with wildcard support." lightbox="./media/catalog-lineage-user-guide/lineage-adf-copy-wildcard.png":::
 
 ### Data movement with n:1 lineage
 
@@ -173,7 +173,7 @@ In the following example, an Azure Data Lake Gen2 resource set is produced from 
 
 * 1 process: *CopyBlobToAdlsGen2\_RS* (ADF Copy activity)
 
-:::image type="content" source="./media/catalog-lineage-user-guide/lineage-adf-resource-set.png" alt-text="Screenshot showing the lineage for a resource set.":::
+:::image type="content" source="./media/catalog-lineage-user-guide/lineage-adf-resource-set.png" alt-text="Screenshot showing the lineage for a resource set." lightbox="./media/catalog-lineage-user-guide/lineage-adf-resource-set.png":::
 
 ## Column-level lineage
 
@@ -183,15 +183,15 @@ Azure Babylon supports column-level lineage for the ADF Copy and ADF Data Flow a
 
    The list of columns belonging to the data node appears in a list in the left pane.
 
-   :::image type="content" source="./media/catalog-lineage-user-guide/select-view-columns-from-lineage.png" alt-text="Screenshot showing how to select View columns in the lineage page.":::
+   :::image type="content" source="./media/catalog-lineage-user-guide/select-view-columns-from-lineage.png" alt-text="Screenshot showing how to select View columns in the lineage page." lightbox="./media/catalog-lineage-user-guide/select-view-columns-from-lineage.png":::
 
 1. In the left pane, select the check box next to each column you want to display in the data lineage.
 
-   :::image type="content" source="./media/catalog-lineage-user-guide/select-columns-to-show-in-lineage.png" alt-text="Screenshot showing how to select columns to display in the lineage page.":::
+   :::image type="content" source="./media/catalog-lineage-user-guide/select-columns-to-show-in-lineage.png" alt-text="Screenshot showing how to select columns to display in the lineage page." lightbox="./media/catalog-lineage-user-guide/select-columns-to-show-in-lineage.png":::
 
 1. Hover over a selected column on the left pane or in a data asset node in the lineage canvas to see the column flow in the data lineage path. All the column instances are highlighted.
 
-   :::image type="content" source="./media/catalog-lineage-user-guide/show-column-flow-in-lineage.png" alt-text="Screenshot showing how to hover over a column name to highlight the column flow in a data lineage path.":::
+   :::image type="content" source="./media/catalog-lineage-user-guide/show-column-flow-in-lineage.png" alt-text="Screenshot showing how to hover over a column name to highlight the column flow in a data lineage path." lightbox="./media/catalog-lineage-user-guide/show-column-flow-in-lineage.png":::
 
 1. If the number of columns is larger than can be displayed in the left pane, use the filter option to select a specific column by name. Alternatively, you can use your mouse to scroll through the list.
 
@@ -207,8 +207,8 @@ Azure Babylon supports column-level lineage for the ADF Copy and ADF Data Flow a
 
 1. Select **Switch to asset** in the data node to view another data asset from the lineage view. Doing so is an effective way to browse to another asset in the catalog from the lineage view.
 
-   :::image type="content" source="./media/catalog-lineage-user-guide/select-switch-to-asset.png" alt-text="Screenshot how to select Switch to asset in a lineage data asset.":::
+   :::image type="content" source="./media/catalog-lineage-user-guide/select-switch-to-asset.png" alt-text="Screenshot how to select Switch to asset in a lineage data asset." lightbox="./media/catalog-lineage-user-guide/select-switch-to-asset.png":::
 
 1. Use the smart buttons in the lineage canvas to get an optimal view of the lineage. Auto layout, zoom to fit, zoom in/out, full screen, and navigation map are available for an immersive lineage experience in the catalog.
 
-   :::image type="content" source="./media/catalog-lineage-user-guide/use-lineage-smart-buttons.png" alt-text="Screenshot showing how to select the lineage smart buttons.":::
+   :::image type="content" source="./media/catalog-lineage-user-guide/use-lineage-smart-buttons.png" alt-text="Screenshot showing how to select the lineage smart buttons." lightbox="./media/catalog-lineage-user-guide/use-lineage-smart-buttons.png":::
