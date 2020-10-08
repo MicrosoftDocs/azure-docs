@@ -140,7 +140,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 1. From the left side of menu, click **Security** and then click **Agent Single Sign-On**.
 
-   ![Comm100 Live Chat security](./media/comm100livechat-tutorial/tutorial_comm100livechat_security.png)
+   ![Screenshot that shows the left-side account menu with "Security" and "Agent Single Sign-On" highlighted.](./media/comm100livechat-tutorial/tutorial_comm100livechat_security.png)
 
 1. On the **Agent Single Sign-On** page, perform the following steps:
 
