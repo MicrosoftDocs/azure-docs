@@ -107,11 +107,11 @@ In this section, you'll add the [Secret Manager tool](https://docs.microsoft.com
     ```csharp
     public void ConfigureServices(IServiceCollection services)
     {
-        services.AddSignalR();
+        services.AddAzureSignalR();
     }
     ```
 
-    By not passing a parameter to `AddSignalR()`, this code uses the default configuration key for the SignalR Service resource connection string. The default configuration key is *Azure:SignalR:ConnectionString*.
+    By not passing a parameter to `AddAzureSignalR()`, this code uses the default configuration key for the SignalR Service resource connection string. The default configuration key is *Azure:SignalR:ConnectionString*.
 
 5. In *Startup.cs*, update the `Configure` method by replacing it with the following code.
 
