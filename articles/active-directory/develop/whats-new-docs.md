@@ -61,7 +61,7 @@ Welcome to what's new in the Microsoft identity platform docs from August 1, 202
 
 ## Community contributors
 
-The following people contributed to the Microsoft identity platform docs during this period. Thank you! Learn how to contribute by following the links under "Get involved" in the [what's new landing page](index.yml).
+The following people contributed to the Microsoft identity platform docs during this period. Thank you!
 
 - [changeworld](https://github.com/changeworld) - Takashi Takebayashi (1)
 - [ChrisMissal](https://github.com/ChrisMissal) - Chris Missal (1)
