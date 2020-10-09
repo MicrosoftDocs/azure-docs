@@ -108,7 +108,7 @@ This section helps you create, get, update, and delete the Microsoft peering con
    * A valid VLAN ID to establish this peering on. Ensure that no other peering in the circuit uses the same VLAN ID.
    * AS number for peering. You can use both 2-byte and 4-byte AS numbers.
    * Advertised prefixes: Provide a list of all prefixes you plan to advertise over the BGP session. Only public IP address prefixes are accepted. If you plan to send a set of prefixes, you can send a comma-separated list. These prefixes must be registered to you in an RIR / IRR.
-   * **Optional -** Customer ASN: If you're advertising prefixes that are not registered to the peering AS number, you can specify the AS number to which they're registered to.
+   * **Optional -** Customer ASN: If you're advertising prefixes that are not registered to the peering AS number, you can specify the AS number to which they're registered with.
    * Routing Registry Name: You can specify the RIR / IRR against which the AS number and prefixes are registered.
    * **Optional -** An MD5 hash if you choose to use one.
 
