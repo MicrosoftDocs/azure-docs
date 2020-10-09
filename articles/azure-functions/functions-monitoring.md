@@ -12,13 +12,15 @@ ms.custom: "devx-track-csharp, fasttrack-edit"
 
 [Azure Functions](functions-overview.md) offers built-in integration with [Azure Application Insights](../azure-monitor/app/app-insights-overview.md) to monitor functions. This article provides an overview of the monitoring capabilities provided by Azure for monitoring Azure Functions.
 
-We recommend using Application Insights because it collects log, performance, and error data. It automatically detects performance anomalies and includes powerful analytics tools to help you diagnose issues and to understand how your functions are used. It's designed to help you continuously improve performance and usability. You can even use Application Insights during local function app project development. For more information, see [What is Application Insights?](../azure-monitor/app/app-insights-overview.md).
+Application Insights collects log, performance, and error data. By automatically detecting performance anomalies and featuring powerful analytics tools, you can more easily  diagnose issues and better understand how your functions are used. These tools are designed to help you continuously improve performance and usability of your functions. You can even use Application Insights during local function app project development. For more information, see [What is Application Insights?](../azure-monitor/app/app-insights-overview.md).
 
-Because Application Insights instrumentation is built into Azure Functions, you just need a valid instrumentation key to connect your function app to an Application Insights resource. The instrumentation key should be added to your application settings when your function app resource is created in Azure. If your function app doesn't already have this key, you can [set it manually](configure-monitoring.md#enable-application-insights-integration).  
+As Application Insights instrumentation is built into Azure Functions, you need a valid instrumentation key to connect your function app to an Application Insights resource. The instrumentation key is added to your application settings as you create your function app resource in Azure. If your function app doesn't already have this key, you can [set it manually](configure-monitoring.md#enable-application-insights-integration).  
 
 ## Application Insights pricing and limits
 
-You can try out Application Insights integration with Azure Functions for free. There's a daily limit to how much data can be processed for free. You might hit this limit during testing. Azure provides portal and email notifications when you're approaching your daily limit. If you miss those alerts and hit the limit, new logs won't appear in Application Insights queries. Be aware of the limit to avoid unnecessary troubleshooting time. For more information, see [Manage pricing and data volume in Application Insights](../azure-monitor/app/pricing.md).
+You can try out Application Insights integration with Azure Functions for free featuring a daily limit to how much data is processed for free.
+
+If you enable Applications Insights during development, you might hit this limit during testing. Azure provides portal and email notifications when you're approaching your daily limit. If you miss those alerts and hit the limit, new logs won't appear in Application Insights queries. Be aware of the limit to avoid unnecessary troubleshooting time. For more information, see [Manage pricing and data volume in Application Insights](../azure-monitor/app/pricing.md).
 
 > [!IMPORTANT]
 > Application Insights has a [sampling](../azure-monitor/app/sampling.md) feature that can protect you from producing too much telemetry data on completed executions at times of peak load. Sampling is enabled by default. If you appear to be missing data, you might need to adjust the sampling settings to fit your particular monitoring scenario. To learn more, see [Configure sampling](configure-monitoring.md#configure-sampling).
@@ -48,7 +50,7 @@ By assigning logged items to a category, you have more control over telemetry ge
 
 ### Custom telemetry data
 
-For some languages, you can also use an Application Insights SDK to write custom telemetry data. To learn more, see the [C# developer reference](functions-dotnet-class-library.md#log-custom-telemetry-in-c-functions) or the [JavaScript developer reference](functions-reference-node.md#log-custom-telemetry).    
+In [C#](functions-dotnet-class-library.md#log-custom-telemetry-in-c-functions) and [JavaScript](functions-reference-node.md#log-custom-telemetry), you can use an Application Insights SDK to write custom telemetry data.
 
 ### Dependencies
 
@@ -121,4 +123,3 @@ For more information, see the following resources:
 
 * [Application Insights](/azure/application-insights/)
 * [ASP.NET Core logging](/aspnet/core/fundamentals/logging/)
-
