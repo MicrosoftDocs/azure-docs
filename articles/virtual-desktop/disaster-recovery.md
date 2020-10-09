@@ -30,13 +30,13 @@ To summarize, to keep your users connected during an outage, you'll need to do t
 
 First, you'll need to replicate your VMs to the secondary location. Your options for doing so depend on how your VMs are configured:
 
-- You can configure all your VMs for both pooled and personal host pools with Azure Site Recovery (ASR). With this method, you'll only need to set up one host pool and its related app groups and workspaces.
-- YYou can create a new host pool in the failover region while keeping all resources in your failover location turned off. For this method, you'd need to set up new app groups and workspaces in the failover region. You can then use an ASR Recovery Plan to turn host pools on.
-- You can create a host pool that's populated by VMs built in both the primary and failover regions while keeping the VMs in the failover region turned off. In this case, you only need to set up one host pool and its related app groups and workspaces. You can use an ASR Recovery Plan to power on host pools with this method.
+- You can configure all your VMs for both pooled and personal host pools with Azure Site Recovery. With this method, you'll only need to set up one host pool and its related app groups and workspaces.
+- You can create a new host pool in the failover region while keeping all resources in your failover location turned off. For this method, you'd need to set up new app groups and workspaces in the failover region. You can then use an Azure Site Recovery plan to turn host pools on.
+- You can create a host pool that's populated by VMs built in both the primary and failover regions while keeping the VMs in the failover region turned off. In this case, you only need to set up one host pool and its related app groups and workspaces. You can use an Azure Site Recovery plan to power on host pools with this method.
 
-We recommend you use [Azure Site Recovery](../site-recovery/site-recovery-overview.md) to manage replicating VMs in other Azure locations, as described in [Azure-to-Azure disaster recovery architecture](../site-recovery/azure-to-azure-architecture.md). We especially recommend using ASR for personal host pools, because ASR supports both [server-based and client-based SKUs](../site-recovery/azure-to-azure-support-matrix.md#replicated-machine-operating-systems).
+We recommend you use [Azure Site Recovery](../site-recovery/site-recovery-overview.md) to manage replicating VMs in other Azure locations, as described in [Azure-to-Azure disaster recovery architecture](../site-recovery/azure-to-azure-architecture.md). We especially recommend using Azure Site Recovery for personal host pools, because Azure Site Recovery supports both [server-based and client-based SKUs](../site-recovery/azure-to-azure-support-matrix.md#replicated-machine-operating-systems).
 
-If you use ASR, you won't need to register these VMs manually. The Windows Virtual Desktop agent in the secondary VM will automatically use the latest security token to connect to the service instance closest to it. The VM (session host) in the secondary location will automatically become part of the host pool. The end-user will have to reconnect during the process, but apart from that, there are no other manual operations.
+If you use Azure Site Recovery, you won't need to register these VMs manually. The Windows Virtual Desktop agent in the secondary VM will automatically use the latest security token to connect to the service instance closest to it. The VM (session host) in the secondary location will automatically become part of the host pool. The end-user will have to reconnect during the process, but apart from that, there are no other manual operations.
 
 If there are existing user connections during the outage, before the admin can start failover to the secondary region, you need to end the user connections in the current region.
 
@@ -58,7 +58,7 @@ Once you've signed out all users in the primary region, you can fail over the VM
 
 Next, consider your network connectivity during the outage. You'll need to make sure you've set up a virtual network (VNET) in your secondary region. If your users need to access on-premises resources, you'll need to configure this VNET to access them. You can establish on-premises connections with a VPN, ExpressRoute, or virtual WAN.
 
-We recommend you use ASR to set up the VNET in the failover region because it preserves your primary network's settings and doesn't need peering.
+We recommend you use Azure Site Recovery to set up the VNET in the failover region because it preserves your primary network's settings and doesn't need peering.
 
 ## User identities
 
@@ -87,7 +87,7 @@ If you're setting up disaster recovery for profiles, these are your options:
    - Set up Native Azure Replication (for example, Azure Files Standard storage account replication, Azure NetApp Files replication, or Azure Files Sync for file servers).
     
      >[!NOTE]
-     >NetApp replication is automatic after you first set it up. With ASR recovery plans, you can add pre-scripts and post-scripts to fail over non-VM resources replicate Azure Storage resources.
+     >NetApp replication is automatic after you first set it up. With Azure Site Recovery plans, you can add pre-scripts and post-scripts to fail over non-VM resources replicate Azure Storage resources.
 
    - Set up FSLogix Cloud Cache for both app and user data.
    - Set up disaster recovery for app data only to ensure access to business-critical data at all times. With this method, you can retrieve user data after the outage is over.
@@ -146,7 +146,7 @@ Learn more about Azure NetApp Files at [Create replication peering for Azure Net
 
 ## App dependencies
 
-Finally, make sure that any business apps that rely on data located in the primary region can fail over to the secondary location. Also, be sure to configure the settings the apps need to work in the new location. For example, if one of the apps is dependent on the SQL backend, make sure to replicate SQL in the secondary location. You should configure the app to use the secondary location as either part of the failover process or as its default configuration. You can model app dependencies on ASR recovery plans. To learn more, see [About recovery plans](../site-recovery/recovery-plan-overview.md).
+Finally, make sure that any business apps that rely on data located in the primary region can fail over to the secondary location. Also, be sure to configure the settings the apps need to work in the new location. For example, if one of the apps is dependent on the SQL backend, make sure to replicate SQL in the secondary location. You should configure the app to use the secondary location as either part of the failover process or as its default configuration. You can model app dependencies on Azure Site Recovery plans. To learn more, see [About recovery plans](../site-recovery/recovery-plan-overview.md).
 
 ## Disaster recovery testing
 
