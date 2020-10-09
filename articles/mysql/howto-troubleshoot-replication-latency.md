@@ -1,5 +1,5 @@
 ---
-title: Troubleshoot Replication Latency - Azure Database for MySQL
+title: Troubleshoot replication latency - Azure Database for MySQL
 description: Learn how to troubleshoot replication latency with Azure Database for MySQL read replicas
 keywords: mysql, troubleshoot, replication latency in seconds
 author: savjani
@@ -8,9 +8,7 @@ ms.service: mysql
 ms.topic: troubleshooting
 ms.date: 10/08/2020
 ---
-# Troubleshoot Replication latency in Azure Database for MySQL
-
-[!INCLUDEapplies-to-single-flexible-server]
+# Troubleshoot replication latency in Azure Database for MySQL
 
 The [read replica](concepts-read-replicas.md) feature allows you to replicate data from an Azure Database for MySQL server to a read-only replica server. Read Replicas are used to scale out workload by routing read/reporting queries from the application to replica servers. This reduces the pressure on primary server and improves overall performance and latency of the application as it scales. Replicas are updated asynchronously using the MySQL engine's native binary log (binlog) file position-based replication technology. To learn more about binlog replication, see the [MySQL binlog replication overview](https://dev.mysql.com/doc/refman/5.7/en/binlog-replication-configuration-overview.html). 
 
@@ -23,14 +21,14 @@ The replication lag on the secondary read replicas depends on number of factors 
 
 In this document, you will learn on how to troubleshoot replication latency in Azure Database for MySQL. In addition, you will also understand some of the common causes of increased replication latency on replica servers.
 
-## Replication Concepts
+## Replication concepts
 
 When binary log is enabled, the source server writes committed transaction into the binary log, which is used for replication. The binary log is turned ON by default for all newly provisioned servers that supports up to 16 TB storage. On replica servers, there are two threads running per replica server, one called the IO thread and the other called the SQL thread.
 
 - The **IO thread** connects to the source server and requests updated binary logs. After this thread receives the binary log updates, they are saved on a replica server, in a local log called the relay log.
 - The **SQL thread** reads the relay log and apply the data change(s) on replica servers.
 
-## Monitoring Replication Latency
+## Monitoring replication latency
 
 Azure Database for MySQL provides the Replication lag in seconds metric in [Azure Monitor](concepts-monitoring.md). This metric is available on read replicas servers only. This metric is calculated using the seconds_behind_master metric available in MySQL. To understand root cause of increased replication latency, connect to the replica server using [MySQL Workbench](connect-workbench.md) or [Azure Cloud shell](https://shell.azure.com) and execute following command:
 
@@ -65,7 +63,7 @@ Azure Database for MySQL provides the Replication lag in seconds metric in [Azur
   Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
   mysql>
   ```
-3. In the same Azure Cloud Shell terminal, execute following command
+  In the same Azure Cloud Shell terminal, execute following command
 
   ```
   mysql> SHOW SLAVE STATUS;
@@ -100,9 +98,9 @@ If Slave_IO_Running is Yes and Slave_SQL_Running is Yes, then the replication is
 
 Next, you need to check Last_IO_Errno, Last_IO_Error, Last_SQL_Errno and Last_SQL_Error.  These fields hold the error number and error message of the most recent error that caused the SQL thread to stop. An error number 0 and empty message mean there is no error. A non-zero value in the error must be investigated further by looking up for the error code in [MySQL documentation](https://dev.mysql.com/doc/refman/5.7/en/server-error-reference.html).
 
-## Common Scenarios for high replication latency
+## Common scenarios for high replication latency
 
-### Network Latency Or High CPU on source server
+### Network latency or high cpu on source server
 
 If you observe the following values, the most common cause of the replication latency is high network latency or high cpu consumption on the source server. In this case, the IO thread is running and waiting on the master. The master (source server) has already written to binary log file #20, while replica received only up to file #10. The primary contributing factors for high replication latency in this scenario are network speed or high cpu utilization on source server.  In Azure, the network latency within a region typically ranges in milliseconds and across region can go up to seconds. In most cases, the delay in IO thread to connect to the source server is caused due to high cpu utilization on the source server causing the IO thread processing to be slow. This can be detected by monitoring the cpu utilization and observing the number of concurrent connections on the source server using Azure monitor.
 
@@ -114,7 +112,7 @@ Master_Log_File: the binary file sequence is larger then Relay_Master_Log_File, 
 Relay_Master_Log_File: the file sequence is smaller than Master_Log_File, e.g. mysql-bin.00010
 ```
 
-### Heavy Burst of transactions on source server
+### Heavy burst of transactions on source server
 
 If you observe the following values, the most common cause of the replication latency is, heavy burst of transactions on source server. In the output below, though the replica can retrieve the binary log behind the master, the replica IO thread indicates that the relay log space is full already. So network speed isn't causing the delay, because the replica has already been trying to catch up as fast as it can. Instead, the updated binary log size exceeds the upper limit of the relay log space. To troubleshoot this issue further, [slow query log](concepts-server-logs.md) should be enabled on the master server. Slow query logs enables you to identify long running transactions on the source server. The identified queries needs to be tuned to reduce the latency on the server. 
 
@@ -126,11 +124,11 @@ Relay_Master_Log_File: the file sequence is smaller then Master_Log_File, e.g. m
 
 Following are the common causes of the latency in this category:
 
-#### Replication Latency due to data load on source server
+#### Replication latency due to data load on source server
 In some cases, there are weekly or monthly data load on source servers. Unfortunately, the replication latency is unavoidable in this case. In this scenario, the replica servers eventually catch-up after the data load on source server is completed.
 
 
-### Slowness on the Replica server
+### Slowness on the replica server
 
 If you observe the following values, the most common cause can be some issue on the replica server that needs further investigation. In this scenario, as seen in the output, both the IO and SQL threads are running well and the replica is reading the same binary log file as the master writes. However, some latency occurs on the replica server to reflect the same transaction from the source server. 
 
@@ -147,7 +145,7 @@ Seconds_Behind_Master: There is latency and the value here is greater than 0
 
 Following are the common causes of the latency in this category:
 
-#### No Primary or Unique key on a table
+#### No primary or unique key on a table
 
 Azure Database for MySQL uses row-based replication. With row-based replication, the master server writes events to the binary log about individual table row change. The SQL Thread in-turn executes those changes to the corresponding table rows on replica server. No primary or unique key on a table is one of the common causes of replication latency. Lack of primary or unique keys leads to scan of all rows in the target table by SQL thread to apply the changes.
 
@@ -189,7 +187,9 @@ Unfortunately, for DDL statement that requires a lock, replication latency canno
 
 In Azure Database for MySQL read replicas are created with the same server configuration as the master server. The replica server configuration can be changed after it has been created. However, if the replica server will be downgraded, the workload can cause higher resource consumption that in turn can lead to replication latency. This can be observed by monitoring the CPU and Memory consumption of the replica server from Azure Monitor. In this scenario, it is recommended that the replica server's configuration should be kept at equal or greater values than the source to ensure the replica is able to keep up with the master.
 
-#### Improving Replication Latency using server parameter tuning on source server
+#### Improving replication latency using server parameter tuning on source server
 
 In Azure Database for MySQL, replication is optimized to run with parallel threads on replicas by default. For high concurrency workloads on source server where replica server is failing to catch-up, the replication latency can improved by configuring parameter binlog_group_commit_sync_delay on the source server. This parameter controls how many microseconds the binary log commit waits before synchronizing the binary log file. The benefit is that instead of immediately applying every transaction committed, the master send the binary log updates in bulk. This reduces IO on the replica and helps to improve performance. In this scenario, it might be useful to set binlog_group_commit_sync_delay to 1000 or so and monitor the replication latency. This parameter should be set cautiously and leveraged for high concurrent workloads only. For low concurrency scenario with lot of singleton transactions, setting binlog_group_commit_sync_delay can add to the latency because the IO thread is waiting for bulk binary log updates while only few transactions may be committed. 
 
+## Next Steps
+Learn more about [MySQL binlog replication overview](https://dev.mysql.com/doc/refman/5.7/en/binlog-replication-configuration-overview.html).
