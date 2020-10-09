@@ -56,7 +56,7 @@ Select *Microsoft Azure Spring Cloud*.
 
 8. Select the permissions.
 
-  [ ![Create Developler permissions](media/spring-cloud-permissions/developer-permissions-box.png) ](media/spring-cloud-permissions/developer-permissions-box.png#lightbox)
+    [ ![Create Developler permissions](media/spring-cloud-permissions/developer-permissions-box.png) ](media/spring-cloud-permissions/developer-permissions-box.png#lightbox)
 
 9. Click **Add**.
 
@@ -71,7 +71,7 @@ This procedure defines a role with permissions to deploy, test, and restart Azur
 
 2. Select the permissions:
 
-   [ ![App platform permissions](media/spring-cloud-permissions/app-platform-permissions.png) ](media/spring-cloud-permissions/ops-sre-permissions.png#lightbox)
+   [ ![App platform permissions](media/spring-cloud-permissions/ops-sre-permissions.png) ](media/spring-cloud-permissions/ops-sre-permissions.png#lightbox)
 
 3. Click **Add**.
 
@@ -88,7 +88,7 @@ This Jenkins/Github Actions role can create and configure everything in Azure Sp
 
 3. Select the permissions:
   
-   [ ![App platform permissions](media/spring-cloud-permissions/app-platform-permissions.png) ](media/spring-cloud-permissions/pipelines-permissions-box.png#lightbox)  
+   [ ![App platform permissions](media/spring-cloud-permissions/pipelines-permissions-box.png) ](media/spring-cloud-permissions/pipelines-permissions-box.png#lightbox)  
 
 4. Click **Add**.
 
