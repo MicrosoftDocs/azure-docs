@@ -188,15 +188,15 @@ In this section, you create a user called Britta Simon in moconavi. Work with [
 
 3. Click **Connect setting** button.
 
-	![Testing single sign-on](./media/moconavi-tutorial/testing1.png)
+	![Screenshot shows moconavi with the Connection setting button.](./media/moconavi-tutorial/testing1.png)
 
 4. Enter `https://mcs-admin.moconavi.biz/gateway` into **Connect to URL** textbox and then click **Done** button.
 
-	![Testing single sign-on](./media/moconavi-tutorial/testing2.png)
+	![Screenshot shows the Connect to U R L box and Done button.](./media/moconavi-tutorial/testing2.png)
 
 5. On the following screenshot, perform the following steps:
 
-	![Testing single sign-on](./media/moconavi-tutorial/testing3.png)
+	![Screenshot shows the moconavi page where you can enter the values described.](./media/moconavi-tutorial/testing3.png)
 
 	a. Enter **Input Authentication Key**:`azureAD` into **Input Authentication Key** textbox.
 
@@ -206,11 +206,11 @@ In this section, you create a user called Britta Simon in moconavi. Work with [
 
 6. Input your Azure AD password to **Password** textbox and then click **Login** button.
 
-	![Testing single sign-on](./media/moconavi-tutorial/testing4.png)
+	![Screenshot shows where to enter your Azure A D password.](./media/moconavi-tutorial/testing4.png)
 
 7. Azure AD authentication is successful when the menu is displayed.
 
-	![Testing single sign-on](./media/moconavi-tutorial/testing5.png)
+	![Screenshot shows the Telephone icon in moconavi.](./media/moconavi-tutorial/testing5.png)
 
 ## Additional Resources
 

@@ -93,7 +93,7 @@ To configure Azure AD single sign-on with MobileIron, perform the following step
 
 4. On the **Basic SAML Configuration** section, perform the following steps if you wish to configure the application in **IDP** initiated mode:
 
-    ![MobileIron Domain and URLs single sign-on information](common/idp-intiated.png)
+    ![Screenshot shows the Basic SAML Configuration, where you can enter Identifier, Reply U R L, and select Save.](common/idp-intiated.png)
 
     a. In the **Identifier** text box, type a URL using the following pattern:
     `https://www.mobileiron.com/<key>`
@@ -103,7 +103,7 @@ To configure Azure AD single sign-on with MobileIron, perform the following step
 
     c. Click **Set additional URLs** and perform the following step if you wish to configure the application in **SP** initiated mode:
 
-    ![MobileIron Domain and URLs single sign-on information](common/metadata-upload-additional-signon.png)
+    ![Screenshot shows Set additional U R Ls where you can enter a Sign on U R L.](common/metadata-upload-additional-signon.png)
 
 	In the **Sign-on URL** text box, type a URL using the following pattern:
     `https://<host>.mobileiron.com/user/login.html`
@@ -121,11 +121,11 @@ To configure Azure AD single sign-on with MobileIron, perform the following step
 
 2. Go to **Admin** > **Identity** and select **AAD** option in the **Info on Cloud IDP Setup** field.
 
-    ![Configure Single Sign-On Admin button](./media/mobileiron-tutorial/tutorial_mobileiron_admin.png)
+    ![Screenshot shows the Admin tab of MobileIron site with Identity selected.](./media/mobileiron-tutorial/tutorial_mobileiron_admin.png)
 
 3. Copy the values of **Key** and **Host** and paste them to complete the URLs in the **Basic SAML Configuration** section in Azure portal.
 
-    ![Configure Single Sign-On Admin button](./media/mobileiron-tutorial/key.png)
+    ![Screenshot shows the Setting Up SAML option with a key and host value.](./media/mobileiron-tutorial/key.png)
 
 4. In the **Export​​ ​metadata​ file ​from​ ​A​AD​ and import to MobileIron Cloud Field** click **Choose File** to upload the downloaded metadata from Azure portal. Click **Done** once uploaded.
 
