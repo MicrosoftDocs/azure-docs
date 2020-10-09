@@ -26,7 +26,7 @@ The Azure Synapse Apache Spark pool to Synapse SQL connector is a data source im
 
 Authentication between systems is made seamless in Azure Synapse Analytics. The Token Service connects with Azure Active Directory to obtain security tokens for use when accessing the storage account or the data warehouse server.
 
-For this reason, there's no need to create credentials or specify them in the connector API as long as AAD-Auth is configured at the storage account and the data warehouse server. If not, SQL Auth can be specified. Find more details in the [Usage](#usage) section.
+For this reason, there's no need to create credentials or specify them in the connector API as long as Azure AD-Auth is configured at the storage account and the data warehouse server. If not, SQL Auth can be specified. Find more details in the [Usage](#usage) section.
 
 ## Constraints
 
@@ -154,7 +154,7 @@ option(Constants.SERVER, "samplews.database.windows.net").
 sqlanalytics("<DBName>.<Schema>.<TableName>", <TableType>)
 ```
 
-### Use SQL Auth instead of AAD
+### Use SQL Auth instead of Azure AD
 
 #### Read API
 
@@ -221,7 +221,7 @@ You need to be Storage Blob Data Owner on the ADLS Gen2 storage account connecte
 
 - You should be able to ACL all folders from "synapse" and downward from Azure portal. To ACL the root "/" folder, please follow the instructions below.
 
-- Connect to the storage account connected with the workspace from Storage Explorer using AAD
+- Connect to the storage account connected with the workspace from Storage Explorer using Azure AD
 - Select your Account and give the ADLS Gen2 URL and default file system for the workspace
 - Once you can see the storage account listed, right-click on the listing workspace and select "Manage Access"
 - Add the User to the / folder with "Execute" Access Permission. Select "Ok"
