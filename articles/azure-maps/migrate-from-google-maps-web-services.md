@@ -1,17 +1,17 @@
 ---
-title: 'Migrate web services from Google Maps | Microsoft Azure Maps'
-description: How to migrate web services from Google Maps to Microsoft Azure Maps
+title: 'Tutorial - Migrate web services from Google Maps | Microsoft Azure Maps'
+description: Tutorial on how to migrate web services from Google Maps to Microsoft Azure Maps
 author: rbrundritt
 ms.author: richbrun
 ms.date: 08/19/2020
-ms.topic: how-to
+ms.topic: tutorial
 ms.service: azure-maps
 services: azure-maps
 manager: cpendle
 ms.custom: 
 ---
 
-# Migrate web service from Google Maps
+# Tutorial - Migrate web service from Google Maps
 
 Both Azure and Google Maps provide access to spatial APIs through REST web services. The API interfaces of these platforms perform similar functionalities. But, they each use different naming conventions and response objects.
 
