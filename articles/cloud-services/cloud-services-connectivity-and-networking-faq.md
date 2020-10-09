@@ -34,7 +34,7 @@ No, not by using the normal "ping"/ICMP protocol. The ICMP protocol is not permi
 
 To test connectivity, we recommend that you do a port ping. While Ping.exe uses ICMP, you can use other tools, such as PSPing, Nmap, and telnet, to test connectivity to a specific TCP port.
 
-For more information, see [Use port pings instead of ICMP to test Azure VM connectivity](https://blogs.msdn.microsoft.com/mast/2014/06/22/use-port-pings-instead-of-icmp-to-test-azure-vm-connectivity/).
+For more information, see [Use port pings instead of ICMP to test Azure VM connectivity](/archive/blogs/mast/use-port-pings-instead-of-icmp-to-test-azure-vm-connectivity).
 
 ## How do I prevent receiving thousands of hits from unknown IP addresses that might indicate a malicious attack to the cloud service?
 Azure implements a multilayer network security to protect its platform services against distributed denial-of-service (DDoS) attacks. The Azure DDoS defense system is part of Azure's continuous monitoring process, which is continually improved through penetration testing. This DDoS defense system is designed to withstand not only attacks from the outside but also from other Azure tenants. For more information, see [Azure network security](https://download.microsoft.com/download/C/A/3/CA3FC5C0-ECE0-4F87-BF4B-D74064A00846/AzureNetworkSecurity_v3_Feb2015.pdf).
@@ -61,7 +61,7 @@ The distribution algorithm used is a 5-tuple (source IP, source port, destinatio
 
 The URL Rewrite module of IIS can be used to redirect traffic that comes to the default URL for the cloud service (for example, \*.cloudapp.net) to some custom name/URL. Because the URL Rewrite module is enabled on web roles by default and its rules are configured in the application's web.config, it's always available on the VM regardless of reboots/reimages.For more information, see:
 
-- [Create rewrite rules for the URL Rewrite module](https://docs.microsoft.com/iis/extensions/url-rewrite-module/creating-rewrite-rules-for-the-url-rewrite-module)
+- [Create rewrite rules for the URL Rewrite module](/iis/extensions/url-rewrite-module/creating-rewrite-rules-for-the-url-rewrite-module)
 - [Remove a default link](https://stackoverflow.com/questions/32286487/azure-website-how-to-remove-default-link?answertab=votes#tab-top)
 
 ## How can I block/disable incoming traffic to the default URL of my cloud service?

@@ -71,7 +71,7 @@ This article includes frequently asked questions about configuration and managem
 
 ### Why is the certificate chain of my Cloud Service TLS/SSL certificate incomplete?
     
-We recommend that customers install the full certificate chain (leaf cert, intermediate certs, and root cert) instead of just the leaf certificate. When you install just the leaf certificate, you rely on Windows to build the certificate chain by walking the CTL. If intermittent network or DNS issues occur in Azure or Windows Update when Windows is trying to validate the certificate, the certificate may be considered invalid. By installing the full certificate chain, this problem can be avoided. The blog at [How to install a chained SSL certificate](https://blogs.msdn.microsoft.com/azuredevsupport/2010/02/24/how-to-install-a-chained-ssl-certificate/) shows how to do this.
+We recommend that customers install the full certificate chain (leaf cert, intermediate certs, and root cert) instead of just the leaf certificate. When you install just the leaf certificate, you rely on Windows to build the certificate chain by walking the CTL. If intermittent network or DNS issues occur in Azure or Windows Update when Windows is trying to validate the certificate, the certificate may be considered invalid. By installing the full certificate chain, this problem can be avoided. The blog at [How to install a chained SSL certificate](/archive/blogs/azuredevsupport/how-to-install-a-chained-ssl-certificate) shows how to do this.
 
 ### What is the purpose of the "Windows Azure Tools Encryption Certificate for Extensions"?
 
@@ -105,11 +105,11 @@ You can automate this task by using a startup script (batch/cmd/PowerShell) and 
 
 ### What is the purpose of the "Microsoft Azure Service Management for MachineKey" certificate?
 
-This certificate is used to encrypt machine keys on Azure Web Roles. To learn more, check out [this advisory](https://docs.microsoft.com/security-updates/securityadvisories/2018/4092731).
+This certificate is used to encrypt machine keys on Azure Web Roles. To learn more, check out [this advisory](/security-updates/securityadvisories/2018/4092731).
 
 For more information, see the following articles:
-- [How to configure and run startup tasks for a Cloud Service](https://docs.microsoft.com/azure/cloud-services/cloud-services-startup-tasks)
-- [Common Cloud Service startup tasks](https://docs.microsoft.com/azure/cloud-services/cloud-services-startup-tasks-common)
+- [How to configure and run startup tasks for a Cloud Service](./cloud-services-startup-tasks.md)
+- [Common Cloud Service startup tasks](./cloud-services-startup-tasks-common.md)
 
 ## Monitoring and logging
 
@@ -133,16 +133,16 @@ You have exhausted the local storage quota for writing to the log directory.�
 * Increase quota limit for local resources.
 
 For more information, see the following documents:
-* [Store and view diagnostic data in Azure Storage](/azure/storage/common/storage-introduction)
-* [IIS Logs stop writing in Cloud Service](https://blogs.msdn.microsoft.com/cie/2013/12/21/iis-logs-stops-writing-in-cloud-service/)
+* [Store and view diagnostic data in Azure Storage](../storage/common/storage-introduction.md)
+* [IIS Logs stop writing in Cloud Service](/archive/blogs/cie/iis-logs-stops-writing-in-cloud-service)
 
 ### How do I enable WAD logging for Cloud Services?
 You can enable Windows Azure Diagnostics (WAD) logging through following options:
-1. [Enable from Visual Studio](https://docs.microsoft.com/visualstudio/azure/vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines#turn-on-diagnostics-in-cloud-service-projects-before-you-deploy-them)
-2. [Enable through .NET code](https://docs.microsoft.com/azure/cloud-services/cloud-services-dotnet-diagnostics)
-3. [Enable through Powershell](https://docs.microsoft.com/azure/cloud-services/cloud-services-diagnostics-powershell)
+1. [Enable from Visual Studio](/visualstudio/azure/vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines#turn-on-diagnostics-in-cloud-service-projects-before-you-deploy-them)
+2. [Enable through .NET code](./cloud-services-dotnet-diagnostics.md)
+3. [Enable through Powershell](./cloud-services-diagnostics-powershell.md)
 
-In order to get the current WAD settings of your Cloud Service, you can use [Get-AzureServiceDiagnosticsExtensions](https://docs.microsoft.com/azure/cloud-services/cloud-services-diagnostics-powershell#get-current-diagnostics-extension-configuration) ps cmd or you can view it through portal from “Cloud Services --> Extensions” blade.
+In order to get the current WAD settings of your Cloud Service, you can use [Get-AzureServiceDiagnosticsExtensions](./cloud-services-diagnostics-powershell.md#get-current-diagnostics-extension-configuration) ps cmd or you can view it through portal from “Cloud Services --> Extensions” blade.
 
 
 ## Network configuration
@@ -242,7 +242,7 @@ For more details on how to utilize a custom metric via Application Insights to c
 
 For more information on how to integrate Azure Diagnostics with Application Insights for Cloud Services, see [Send Cloud Service, Virtual Machine, or Service Fabric diagnostic data to Application Insights](../azure-monitor/platform/diagnostics-extension-to-application-insights.md)
 
-For more information about to enable Application Insights for Cloud Services, see [Application Insights for Azure Cloud Services](https://docs.microsoft.com/azure/application-insights/app-insights-cloudservices)
+For more information about to enable Application Insights for Cloud Services, see [Application Insights for Azure Cloud Services](../azure-monitor/app/cloudservices.md)
 
 For more information about how to enable Azure Diagnostics Logging for Cloud Services, see [Set up diagnostics for Azure Cloud Services and virtual machines](/visualstudio/azure/vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines#turn-on-diagnostics-in-cloud-service-projects-before-you-deploy-them)
 
@@ -307,7 +307,7 @@ The SNI binding can be configured using the PowerShell cmdlet **New-WebBinding**
 New-WebBinding -Name $WebsiteName -Protocol "https" -Port 443 -IPAddress $IPAddress -HostHeader $HostHeader -SslFlags $sslFlags
 ```
 
-As described [here](https://technet.microsoft.com/library/ee790567.aspx), the $sslFlags could be one of the values as the following:
+As described [here](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/ee790567(v=technet.10)), the $sslFlags could be one of the values as the following:
 
 |Value|Meaning|
 ------|------
@@ -318,7 +318,7 @@ As described [here](https://technet.microsoft.com/library/ee790567.aspx), the $s
  
 **Method 2: Use code**
 
-The SNI binding could also be configured via code in the role startup as described on this [blog post](https://blogs.msdn.microsoft.com/jianwu/2014/12/17/expose-ssl-service-to-multi-domains-from-the-same-cloud-service/):
+The SNI binding could also be configured via code in the role startup as described on this [blog post](/archive/blogs/jianwu/expose-ssl-service-to-multi-domains-from-the-same-cloud-service):
 
 ```csharp
 //<code snip> 
@@ -350,7 +350,6 @@ An already deployed Cloud Service gets billed for the Compute and Storage it use
 
 Here is what you can do to reduce your billing without losing the IP address for your service:
 
-1. [Reserve the IP address](../virtual-network/virtual-networks-reserved-public-ip.md) before you delete the deployments.  You will only be billed for this IP address. For more information about IP address billing, see [IP addresses pricing](https://azure.microsoft.com/pricing/details/ip-addresses/).
+1. [Reserve the IP address](/previous-versions/azure/virtual-network/virtual-networks-reserved-public-ip) before you delete the deployments.  You will only be billed for this IP address. For more information about IP address billing, see [IP addresses pricing](https://azure.microsoft.com/pricing/details/ip-addresses/).
 2. Delete the deployments. Don’t delete the xxx.cloudapp.net, so that you can use it for future.
 3. If you want to redeploy the Cloud Service by using the same reserve IP that you reserved in your subscription, see [Reserved IP addresses for Cloud Services and Virtual Machines](https://azure.microsoft.com/blog/reserved-ip-addresses/).
-
