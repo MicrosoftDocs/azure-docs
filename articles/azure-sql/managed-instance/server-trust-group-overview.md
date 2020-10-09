@@ -15,7 +15,8 @@ ms.date: 10/08/2020
 ---
 # Use Server Trust Groups to setup and manage trust between SQL Managed Instances
 
-Server Trust Group is a concept used for managing trust between Azure SQL Managed Instances. By creating a group and adding instances to it certificate-based trust is established between all members and this can be used for different cross-instance scenarios. Removing servers from the group or deleting the group results in removing the trust between the servers. Server Trust Group is an ARM object that corresponds to Azure portal entity named SQL trust group. < TODO(sasapopo): insert link to Server Trust Group ARM object.>
+Server Trust Group is a concept used for managing trust between Azure SQL Managed Instances. By creating a group and adding instances to it certificate-based trust is established between all members and this can be used for different cross-instance scenarios. Removing servers from the group or deleting the group results in removing the trust between the servers. 
+[Server Trust Group](https://aka.ms/mi-server-trust-group-arm) is an ARM object that corresponds to Azure portal entity named SQL trust group.
 
 > [!NOTE]
 > Server Trust Group is introduced in public preview of Distributed transactions between Azure SQL Managed Instances and currently has some limitations that will be described later in this article.
@@ -41,17 +42,6 @@ The following section describes setup of Server Trust Group.
 
 6. After all required fields are populated, click Save.
 
-## Limitations
-
-During public  preview the following limitations apply to Server Trust Groups.
- * Name of the Server Trust Group must be unique in all regions where its members reside.
- * Group can contain only Azure SQL Managed Instances and they must be under the same Azure Subscription.
- * Group can have exactly two instances.
- * Distributed transactions are the only applicable scope for the Server Trust Groups.
- * Server Trust Group can only be managed from Azure portal. PowerShell and CLI support will come later.
- * Server Trust Group cannot be edited on the Azure portal. It can only be created or dropped.
- * Additional limitations of distributed transactions may be related to your scenario. Most notable one is that SQL Managed Instances that participate in Server Trust Group must be reachable via private endpoints, or in other connectivity must work on the virtual network level. Please make sure that you are aware of the current [distributed transactions limitations for Azure SQL Managed Instance](https://docs.microsoft.com/en-us/azure/azure-sql/database/elastic-transactions-overview#limitations).
-
 ## Server Trust Group maintenance and deletion
 
 There is no way to edit SQL trust group . To remove a SQL Managed Instance from a group you need to delete the group and create a new one.
@@ -67,5 +57,14 @@ Following section describes SQL trust group deletion process.
 6. Type in the trust group name to confirm deletion and click Delete.
    ![Confirm SQL trust group deletion](./media/server-trust-group-overview/stg-manage-delete-confirm.png)
 
+## Limitations
 
+During public  preview the following limitations apply to Server Trust Groups.
+ * Name of the Server Trust Group must be unique in all regions where its members reside.
+ * Group can contain only Azure SQL Managed Instances and they must be under the same Azure Subscription.
+ * Group can have exactly two instances.
+ * Distributed transactions are the only applicable scope for the Server Trust Groups.
+ * Server Trust Group can only be managed from Azure portal. PowerShell and CLI support will come later.
+ * Server Trust Group cannot be edited on the Azure portal. It can only be created or dropped.
+ * Additional limitations of distributed transactions may be related to your scenario. Most notable one is that SQL Managed Instances that participate in Server Trust Group must be reachable via private endpoints, or in other connectivity must work on the virtual network level. Please make sure that you are aware of the current [distributed transactions limitations for Azure SQL Managed Instance](https://docs.microsoft.com/en-us/azure/azure-sql/database/elastic-transactions-overview#limitations).
 
