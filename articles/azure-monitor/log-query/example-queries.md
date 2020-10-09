@@ -8,7 +8,7 @@ ms.author: robb
 ms.date: 06/16/2020
 ---
 
-# Saved queries in Azure Monitor Log Analytics
+# Example queries in Azure Monitor Log Analytics
 
 Log Analytics offers sets of example queries that you can run on their own or use as a starting point for your own queries. This article describes example queries and how to use them.
 

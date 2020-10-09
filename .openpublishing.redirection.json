@@ -43658,7 +43658,7 @@
       "redirect_document_id": false
     },
     {
-      "source_path": "articles/azure-monitor/log-query/sample-queries.md",
+      "source_path": "articles/azure-monitor/log-query/saved-queries.md",
       "redirect_url": "/azure/azure-monitor/log-query/example-queries",
       "redirect_document_id": false
     },
