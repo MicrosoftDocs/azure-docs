@@ -124,7 +124,7 @@ To detach a circuit from the route filter, right-click on the circuit and select
 ![Screenshot that shows the "Overview" page with the "Dissociate" action highlighted.](./media/how-to-routefilter-portal/DetachRouteFilter.png) 
 
 
-### <a name="delete"></a>Clean up resources
+## <a name="delete"></a>Clean up resources
 
 You can delete a route filter by selecting the delete button. 
 
