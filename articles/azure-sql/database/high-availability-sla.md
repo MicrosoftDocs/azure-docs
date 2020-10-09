@@ -41,7 +41,7 @@ The standard availability model includes two layers:
 
 Whenever the database engine or the operating system is upgraded, or a failure is detected, Azure Service Fabric will move the stateless `sqlservr.exe` process to another stateless compute node with sufficient free capacity. Data in Azure Blob storage is not affected by the move, and the data/log files are attached to the newly initialized `sqlservr.exe` process. This process guarantees 99.99% availability, but a heavy workload may experience some performance degradation during the transition since the new `sqlservr.exe` process starts with cold cache.
 
-## General Purpose service tier zone redundant availability
+## General Purpose service tier zone redundant availability (Preview)
 
 Zone redundant configuration for the general purpose service tier utilizes [Azure Availability Zones](../../availability-zones/az-overview.md)  to replicate databases across multiple physical locations within an Azure region. By selecting zone redundancy, you can make your new and existing general purpose single databases and elastic pools resilient to a much larger set of failures, including catastrophic datacenter outages, without any changes of the application logic.
 
