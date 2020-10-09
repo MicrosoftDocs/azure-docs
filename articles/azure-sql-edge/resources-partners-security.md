@@ -1,5 +1,5 @@
 ---
-title: External partners for security solutions 
+title: External partners for security solutions for Azure SQL Edge
 description: Providing details about external partners who are working with Azure SQL Edge 
 keywords: security partners Azure SQL Edge
 services: sql-edge
