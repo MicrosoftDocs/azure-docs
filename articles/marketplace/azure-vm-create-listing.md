@@ -36,11 +36,11 @@ Provide a longer description of your offer, to be displayed in Azure Marketplace
 
 ### Description
 
-[!INCLUDE [Long description-1](./includes/long-description-1.md)]
+[!INCLUDE [Long description-1](includes/long-description-1.md)]
 
-[!INCLUDE [Long description-2](./includes/long-description-2.md)]
+[!INCLUDE [Long description-2](includes/long-description-2.md)]
 
-[!INCLUDE [Long description-3](./includes/long-description-3.md)]
+[!INCLUDE [Long description-3](includes/long-description-3.md)]
 
 ### Privacy policy link
 
@@ -80,7 +80,7 @@ Provide contact information for Microsoft to use when there are issues with your
 
 Provide logos and images to use with your offer. All images must be in PNG format. Blurry images will cause your submission to be rejected.
 
-[!INCLUDE [logo tips](../includes/graphics-suggestions.md)]
+[!INCLUDE [logo tips](includes/graphics-suggestions.md)]
 
 >[!NOTE]
 >If you have an issue uploading files, ensure that your local network doesn't block the https://upload.xboxlive.com service that's used by Partner Center.
@@ -95,9 +95,9 @@ Provide a PNG file for the **Large** size logo. Partner Center will use this to 
 
 These logos are used in different places in the listing:
 
-[!INCLUDE [logos-azure-marketplace-only](../includes/logos-azure-marketplace-only.md)]
+[!INCLUDE [logos-azure-marketplace-only](includes/logos-azure-marketplace-only.md)]
 
-[!INCLUDE [Logo tips](../includes/graphics-suggestions.md)]
+[!INCLUDE [Logo tips](includes/graphics-suggestions.md)]
 
 ### Screenshots
 
@@ -107,7 +107,7 @@ Add up to five screenshots that show how your offer works. Each screenshot must 
 
 Add up to five videos that demonstrate your offer. The videos should be hosted on an external video service. Enter each video's name, web address, and a thumbnail PNG image of the video at 1280 x 720 pixels.
 
-For additional marketplace listing resources, see [Best practices for marketplace offer listings](../gtm-offer-listing-best-practices.md).
+For additional marketplace listing resources, see [Best practices for marketplace offer listings](gtm-offer-listing-best-practices.md).
 
 Select **Save draft** before you continue.
 
