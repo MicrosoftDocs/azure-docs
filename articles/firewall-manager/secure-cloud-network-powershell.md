@@ -5,16 +5,13 @@ services: firewall-manager
 author: jomore
 ms.topic: tutorial
 ms.service: firewall-manager
-ms.date: 10/08/2020
+ms.date: 10/09/2020
 ms.author: victorh
 ---
 
 # Tutorial: Secure your virtual hub using Azure PowerShell
 
 In this tutorial, you create a Virtual WAN instance with a Virtual Hub in one region, and you deploy an Azure Firewall in the Virtual Hub to secure connectivity. In this example you demonstrate secure connectivity between Virtual Networks. Traffic between virtual networks and site-to-site, point-to-site or ExpressRoute branches is supported by Virtual Secure Hub as well.
-
-> [!NOTE]
-> This article has been verified with version 3.2.0 of the Az.Network Azure PowerShell module. If you have version 3.4.0 you might need to downgrade to use some of the commands used described here. You can check the version of your Az.Network module with the command `Get-InstalledModule -Name Az.Network`
 
 In this tutorial, you learn how to:
 
@@ -27,11 +24,21 @@ In this tutorial, you learn how to:
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
+> [!NOTE]
+> This tutorial requires that you run Azure PowerShell locally, and it has been verified with the 3.2.0 version of the `Az.Network` Azure PowerShell module. If you have version 3.4.0, you will need to downgrade to use some of the commands. You can check the version of your Az.Network module with the command `Get-InstalledModule -Name Az.Network`. To uninstall the Az.Network module, run `Uninstall-Module -name az.network`. To install the Az.Network 3.2.0 module, run `Install-Module az.network -RequiredVersion 3.2.0`. 
+
+## Sign in to Azure
+
+```azurepowershell
+Connect-AzAccount
+Select-AzSubscription -Subscription "<sub name>"
+```
+
 ## Initial Virtual WAN deployment
 
 As a first step, you need to set some variables and create the resource group, the virtual WAN instance, and the virtual hub:
 
-```azure PowerShell
+```azurepowershell
 # Variable definition
 $RG = "vwan"
 $Location = "westeurope"
@@ -45,7 +52,7 @@ $Hub = New-AzVirtualHub -Name $HubName -ResourceGroupName $RG -VirtualWan $Vwan 
 
 Create two virtual networks and connect them to the hub as spokes:
 
-```azure PowerShell
+```azurepowershell
 # Create Virtual Network
 $Spoke1 = New-AzVirtualNetwork -Name "spoke1" -ResourceGroupName $RG -Location $Location -AddressPrefix "10.1.1.0/24"
 $Spoke2 = New-AzVirtualNetwork -Name "spoke2" -ResourceGroupName $RG -Location $Location -AddressPrefix "10.1.2.0/24"
