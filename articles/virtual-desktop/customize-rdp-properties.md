@@ -40,8 +40,8 @@ To configure RDP properties in the Azure portal:
 4. At the Windows Virtual Desktop page, select **host pools** in the menu on the left side of the screen.
 5. Select **the name of the host pool** you want to update.
 6. Select **RDP Properties** in the menu on the left side of the screen.
-7. Set the property you want, then select **Save**.
-   - Alternatively, you can open the **Advanced** tab and add your RDP properties in a semicolon-separated format like the PowerShell examples in the following sections, then select **Save**.
+7. Set the property you want.
+   - Alternatively, you can open the **Advanced** tab and add your RDP properties in a semicolon-separated format like the PowerShell examples in the following sections.
 8. When you're done, select **Save** to save your changes.
 
 The next sections will tell you how to edit custom RDP properties manually in PowerShell.
