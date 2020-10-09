@@ -1,6 +1,6 @@
 ---
-title: 'Quickstart: Create a dedicated Synapse SQL pool using Synapse Studio' 
-description: Create a dedicated Synapse SQL pool using Synapse Studio by following the steps in this guide.  
+title: 'Quickstart: Create a dedicated dedicated SQL pool using Synapse Studio' 
+description: Create a dedicated SQL pool using Synapse Studio by following the steps in this guide.  
 services: synapse-analytics 
 author: julieMSFT
 ms.service: synapse-analytics 
@@ -11,7 +11,7 @@ ms.author: jrasnick
 ms.reviewer: jrasnick
 ---
 
-# Quickstart: Create a dedicated Synapse SQL pool using Synapse Studio
+# Quickstart: Create a dedicated SQL pool using Synapse Studio
 
 Azure Synapse Analytics offers various analytics engines to help you ingest, transform, model, and analyze your data. A dedicated SQL pool offers T-SQL based compute and storage capabilities. After creating a dedicated SQL pool in your Synapse workspace, data can be loaded, modeled, processed, and delivered for faster analytic insight.
 
@@ -46,7 +46,7 @@ Sign in to the [Azure portal](https://portal.azure.com/)
 1. On the Synapse Studio home page, navigate to the **Management Hub** in the left navigation by selecting the **Manage** icon.
 ![Synapse Studio home page with Management Hub section highlighted.](media/quickstart-create-apache-spark-pool/create-spark-pool-studio-21.png)
 
-1. Once in the Management Hub, navigate to the **SQL pools** section to see the current list of SQL pools that are available in the workspace.
+1. Once in the Management Hub, navigate to the **SQL pools** section to see the current list of dedicated SQL pools that are available in the workspace.
 ![Synapse Studio management hub with SQL pools navigation selected](media/quickstart-create-sql-pool/create-sql-pool-studio-22.png)
 
 1. Select **+ New** command and the new dedicated SQL pool create wizard will appear. 
@@ -61,7 +61,7 @@ Sign in to the [Azure portal](https://portal.azure.com/)
 
     ![SQL pools create flow - basics tab.](media/quickstart-create-sql-pool/create-sql-pool-studio-24.png)
     > [!IMPORTANT]
-    > Note that there are specific limitations for the names that SQL pools can use. Names can't contain special characters, must be 15 or less characters, not contain reserved words, and be unique in the workspace.
+    > Note that there are specific limitations for the names that dedicated SQL pools can use. Names can't contain special characters, must be 15 or less characters, not contain reserved words, and be unique in the workspace.
 
 4. In the next tab, **Additional settings**, select **none** to provision the dedicated SQL pool without data. Leave the default collation as selected.
 ![dedicated SQL pool create flow - additional settings tab.](media/quickstart-create-sql-pool/create-sql-pool-studio-25.png)
@@ -96,4 +96,4 @@ If you want to delete the dedicated SQL pool, do the following:
 
 ## Next steps 
 - See [Quickstart: Create an Apache Spark notebook](quickstart-apache-spark-notebook.md).
-- See [Quickstart: Create a dedicated Synapse SQL pool using the Azure portal](quickstart-create-sql-pool-portal.md).
+- See [Quickstart: Create a dedicated SQL pool using the Azure portal](quickstart-create-sql-pool-portal.md).

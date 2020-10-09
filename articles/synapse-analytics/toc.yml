@@ -58,7 +58,7 @@
       href: quickstart-create-sql-pool-portal.md
     - name: Create dedicated SQL pool using Synapse Studio
       href: quickstart-create-sql-pool-studio.md
-  - name: Load data with SQL pools
+  - name: Load data with dedicated SQL pools
     items:
     - name: COPY statement
       href: ./sql-data-warehouse/quickstart-bulk-load-copy-tsql.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
@@ -268,7 +268,7 @@
         href: sql/resource-consumption-models.md
       - name: Best practices SQL on-demand
         href: sql/best-practices-sql-on-demand.md
-      - name: Best practices SQL pools
+      - name: Best practices dedicated SQL pools
         href: sql/best-practices-sql-pool.md
       # - name: FAQ
       #   href: sql/faq.md

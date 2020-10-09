@@ -38,7 +38,7 @@ Sign in to the [Azure portal](https://portal.azure.com/)
 ## Create new dedicated SQL pool
 
 1. In the Synapse workspace where you want to create the dedicated SQL pool, select **New dedicated SQL pool** command in the top bar.
-![Overview of Synapse workspace with a red box around the command to create a new SQL pool.](media/quickstart-create-sql-pool/create-sql-pool-portal-01.png)
+![Overview of Synapse workspace with a red box around the command to create a new dedicated SQL pool.](media/quickstart-create-sql-pool/create-sql-pool-portal-01.png)
 2. Enter the following details in the **Basics** tab:
 
     | Setting | Suggested value | Description |
@@ -73,7 +73,7 @@ After the dedicated SQL pool is created, it will be available in the workspace f
 
 Follow the steps below to delete the dedicated SQL pool from the workspace.
 > [!WARNING]
-> Deleting a dedicated SQL pool will both remove the analytics engine and the data stored in the database of the deleted dedicated SQL pool from the workspace. It will no longer be possible to connect to the dedicated SQL pool, and all queries, pipelines, and notebooks that read or write to this SQL pool will no longer work.
+> Deleting a dedicated SQL pool will both remove the analytics engine and the data stored in the database of the deleted dedicated SQL pool from the workspace. It will no longer be possible to connect to the dedicated SQL pool, and all queries, pipelines, and notebooks that read or write to this dedicated SQL pool will no longer work.
 
 If you want to delete the dedicated SQL pool, complete the following steps:
 

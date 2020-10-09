@@ -17,14 +17,10 @@ This tutorial is a step-by-step guide through the major feature areas of Azure S
 
 
 
-
-
-
-
 Follow the steps *in order* as shown below and you'll take a tour through many of the capabilities and learn how to exercise its core features.
 
 * [STEP 1 - Create and setup a Synapse workspace](get-started-create-workspace.md)
-* [STEP 2 - Analyze using a SQL Pool](get-started-analyze-sql-pool.md)
+* [STEP 2 - Analyze using a dedicated SQL Pool](get-started-analyze-sql-pool.md)
 * [STEP 3 - Analyze using Spark](get-started-analyze-spark.md)
 * [STEP 4 - Analyze using SQL on-demand](get-started-analyze-sql-on-demand.md)
 * [STEP 5 - Analyze data in a storage account](get-started-analyze-storage.md)

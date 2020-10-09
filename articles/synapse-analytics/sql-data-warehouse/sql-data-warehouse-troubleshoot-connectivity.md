@@ -101,7 +101,7 @@ jdbc:sqlserver://yourserver.database.windows.net:1433;database=yourdatabase;user
 
 ## Intermittent connection issues
 
-Check to see if you're experiencing heavy load on the server with a high number of queued requests. You may need to scale up your  SQL pool for additional resources.
+Check to see if you're experiencing heavy load on the server with a high number of queued requests. You may need to scale up your dedicated SQL pool for additional resources.
 
 ## Common error messages
 

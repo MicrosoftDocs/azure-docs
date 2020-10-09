@@ -1,6 +1,6 @@
 ---
 title: Import and Export data between serverless Apache Spark pools (preview) and SQL pools
-description: This article provides information on how to use the custom connector for moving data back and forth between SQL pools and Spark pools (preview).
+description: This article provides information on how to use the custom connector for moving data between dedicated SQL pools and serverless Apache Spark pools (preview).
 services: synapse-analytics 
 author: euangMS 
 ms.service: synapse-analytics
@@ -18,7 +18,7 @@ The Azure Synapse Apache Spark to Synapse SQL connector is designed to efficient
 
 Transferring data between Spark pools and SQL pools can be done using JDBC. However, given two distributed systems such as Spark and SQL pools, JDBC tends to be a bottleneck with serial data transfer.
 
-The Azure Synapse Apache Spark pool to Synapse SQL connector is a data source implementation for Apache Spark. It uses the Azure Data Lake Storage Gen2 and Polybase in SQL pools to efficiently transfer data between the Spark cluster and the Synapse SQL instance.
+The Azure Synapse Apache Spark pool to Synapse SQL connector is a data source implementation for Apache Spark. It uses the Azure Data Lake Storage Gen2 and Polybase in dedicated SQL pools to efficiently transfer data between the Spark cluster and the Synapse SQL instance.
 
 ![Connector Architecture](./media/synapse-spark-sqlpool-import-export/arch1.png)
 
@@ -61,7 +61,7 @@ EXEC sp_addrolemember 'db_exporter',[mike@contoso.com]
 
 The import statements aren't required, they're pre-imported for the notebook experience.
 
-### Transfer data to or from a SQL pool attached with the workspace
+### Transfer data to or from a dedicated SQL pool attached within the workspace
 
 > [!NOTE]
 > **Imports not needed in notebook experience**
@@ -85,12 +85,12 @@ The above API will work for both Internal (Managed) as well as External Tables i
 df.write.sqlanalytics("<DBName>.<Schema>.<TableName>", <TableType>)
 ```
 
-The write API creates the table in SQL pool and then invokes Polybase to load the data.  The table must not exist in SQL pool or and error will be returned stating that "There is already an object named..."
+The write API creates the table in the dedicated SQL pool and then invokes Polybase to load the data.  The table must not exist in the dedicated SQL pool or an error will be returned stating that "There is already an object named..."
 
 TableType values
 
-- Constants.INTERNAL - Managed table in SQL pool
-- Constants.EXTERNAL - External table in SQL pool
+- Constants.INTERNAL - Managed table in dedicated SQL pool
+- Constants.EXTERNAL - External table in dedicated SQL pool
 
 SQL pool-managed table
 
@@ -100,10 +100,10 @@ df.write.sqlanalytics("<DBName>.<Schema>.<TableName>", Constants.INTERNAL)
 
 SQL pool external table
 
-To write to a SQL pool external table, an EXTERNAL DATA SOURCE and an EXTERNAL FILE FORMAT must exist on the SQL pool.  For more information, read [creating an external data source](/sql/t-sql/statements/create-external-data-source-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) and [external file formats](/sql/t-sql/statements/create-external-file-format-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) in SQL pool.  Below are examples for creating an external data source and external file formats in SQL pool.
+To write to a dedicated SQL pool external table, an EXTERNAL DATA SOURCE and an EXTERNAL FILE FORMAT must exist on the dedicated SQL pool.  For more information, read [creating an external data source](/sql/t-sql/statements/create-external-data-source-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) and [external file formats](/sql/t-sql/statements/create-external-file-format-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) in dedicated SQL pool.  Below are examples for creating an external data source and external file formats in dedicated SQL pool.
 
 ```sql
---For an external table, you need to pre-create the data source and file format in SQL pool using SQL queries:
+--For an external table, you need to pre-create the data source and file format in dedicated SQL pool using SQL queries:
 CREATE EXTERNAL DATA SOURCE <DataSourceName>
 WITH
   ( LOCATION = 'abfss://...' ,
@@ -128,7 +128,7 @@ df.write.
 
 ```
 
-### If you transfer data to or from a SQL pool or database outside the workspace
+### Transfer data to or from a dedicated SQL pool or database outside the workspace
 
 > [!NOTE]
 > Imports not needed in notebook experience
@@ -158,7 +158,7 @@ sqlanalytics("<DBName>.<Schema>.<TableName>", <TableType>)
 
 #### Read API
 
-Currently the connector doesn't support token-based auth to a SQL pool that is outside of the workspace. You'll need to use SQL Auth.
+Currently the connector doesn't support token-based auth to a dedicated SQL pool that is outside of the workspace. You'll need to use SQL Auth.
 
 ```scala
 val df = spark.read.
@@ -231,5 +231,5 @@ You need to be Storage Blob Data Owner on the ADLS Gen2 storage account connecte
 
 ## Next steps
 
-- [Create a SQL pool using the Azure portal](../../synapse-analytics/quickstart-create-apache-spark-pool-portal.md)
+- [Create a dedicated SQL pool using the Azure portal](../../synapse-analytics/quickstart-create-apache-spark-pool-portal.md)
 - [Create a new Apache Spark pool using the Azure portal](../../synapse-analytics/quickstart-create-apache-spark-pool-portal.md) 

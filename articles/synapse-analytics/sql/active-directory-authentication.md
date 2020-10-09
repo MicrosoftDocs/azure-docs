@@ -49,7 +49,7 @@ The following diagram indicates the federation, trust, and hosting relationships
 
 Customer 1 can represent an Azure Active Directory with native users or an Azure AD with federated users. Customer 2 represents a possible solution including imported users; in this example coming from a federated Azure Active Directory with ADFS being synchronized with Azure Active Directory. 
 
-It's important to understand that access to a database using Azure AD authentication requires that the hosting subscription is associated to the Azure AD. The same subscription must be used to create the SQL Server hosting the Azure SQL Database or SQL pool.
+It's important to understand that access to a database using Azure AD authentication requires that the hosting subscription is associated to the Azure AD. The same subscription must be used to create the SQL Server hosting the Azure SQL Database or dedicated SQL pool.
 
 ![subscription relationship](./media/aad-authentication/2-subscription-relationship.png)
 
