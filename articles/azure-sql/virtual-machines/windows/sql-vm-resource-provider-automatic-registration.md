@@ -21,7 +21,7 @@ This article teaches you to enable the automatic registration feature. Alternati
 
 The [SQL VM resource provider](sql-vm-resource-provider-register.md#overview) allows you to manage your SQL Server VM from the Azure portal. Additionally, the resource provider enables a robust feature set, including [automated patching](automated-patching.md), [automated backup](automated-backup.md), as well as monitoring and manageability capabilities. It also unlocks [licensing](licensing-model-azure-hybrid-benefit-ahb-change.md) and [edition](change-sql-server-edition.md) flexibility. Previously, these features were only available to SQL Server VM images deployed from Azure Marketplace. 
 
-The automatic registration feature allows customers to automatically register all current and future SQL Server VMs in their Azure subscription with the SQL VM resource provider. This is different from manual registration , which only focus on current SQL Server VMs. 
+The automatic registration feature allows customers to automatically register all current and future SQL Server VMs in their Azure subscription with the SQL VM resource provider. This is different from manual registration, which only focus on current SQL Server VMs. 
 
 Automatic registration registers your SQL Server VMs in lightweight mode. You still need to [manually upgrade to full manageability mode](sql-vm-resource-provider-register.md#upgrade-to-full) to take advantage of the full feature set. 
 
