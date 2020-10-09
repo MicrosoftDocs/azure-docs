@@ -22,7 +22,7 @@ This article provides an introduction to the manual Quality of Service (QoS) cap
 
 ## How manual QoS differs from auto QoS
 
-The [QoS type](azure-netapp-files-understand-storage-hierarchy.md#qos_types) is an attribute of a capacity pool. Azure NetApp Files provides two QoS types of capacity pools – auto (default), or manual.  
+The [QoS type](azure-netapp-files-understand-storage-hierarchy.md#qos_types) is an attribute of a capacity pool. Azure NetApp Files provides two QoS types of capacity pools – auto (default) and manual.  
 
 In a *manual* QoS capacity pool, you can assign the capacity and throughput for a volume independently. The total throughput of all volumes created with a manual QoS capacity pool is limited by the total throughput of the pool. It is determined by the combination of the pool size and the service-level throughput. 
 
@@ -32,7 +32,7 @@ See [Storage hierarchy of Azure NetApp Files](azure-netapp-files-understand-stor
 
 ## How to specify the manual QoS type
 
-When you [create a capacity pool](azure-netapp-files-set-up-capacity-pool.md), you can specify for the capacity pool to use the manual QoS Type.  You can also [change an existing capacity pool](manage-manual-qos-capacity-pool.md#change-to-qos) to use the manual QoS type. 
+When you [create a capacity pool](azure-netapp-files-set-up-capacity-pool.md), you can specify for the capacity pool to use the manual QoS type.  You can also [change an existing capacity pool](manage-manual-qos-capacity-pool.md#change-to-qos) to use the manual QoS type. 
 
 Setting the capacity type to manual QoS is a permanent change. You cannot convert a manual QoS type capacity tool to an auto QoS capacity pool. 
 
