@@ -76,6 +76,8 @@
     href: upgrade-virtual-wan.md
   - name: Create an NVA in a virtual hub
     href: How-to-nva-hub.md
+  - name: Create a cross-tenant VNet connection
+    href: cross-tenant-vnet.md
   - name: ExpressRoute
     items:
     - name: Create an ExpressRoute connection
@@ -132,14 +134,12 @@
     items:
     - name: Install Azure Firewall in a hub
       href: howto-firewall.md
+    - name: Configure Private Link connectivity
+      href: howto-private-link.md
   - name: Monitoring
     items:
     - name: Logs and metrics
       href: logs-metrics.md
-  - name: Private Link
-    items: 
-    - name: Configure Private Link connectivity
-      href: howto-private-link.md
 - name: Reference
   items:
   - name: Azure PowerShell

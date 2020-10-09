@@ -91,11 +91,11 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 1. On the **Set up Single Sign-On with SAML** page, in the **SAML Signing Certificate** section, click **Download** to download the **Certificate (Base64)** from the given options as per your requirement and save it on your computer.
 
-	![The Certificate download link](common/certificatebase64.png)
+	![Screenshot shows SAML Signing Certificate page with a download link for a base64 certificate.](common/certificatebase64.png)
 
 1. On the **Set up Single Sign-On with SAML** page, In the **SAML Signing Certificate** section, click copy button to copy **App Federation Metadata Url** and save it on your computer.
 
-	![The Certificate download link](common/copy-metadataurl.png)
+	![Screenshot shows SAML Signing Certificate page where you can copy App Federation Metadata U r l.](common/copy-metadataurl.png)
 
 ### Create an Azure AD test user
 

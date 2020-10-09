@@ -7,11 +7,11 @@ tags: billing
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.date: 09/15/2020
+ms.date: 10/07/2020
 ms.author: banders
 ---
 
-# Delete an Azure billing payment method (Preview)
+# Delete an Azure billing payment method
 
 This document provides instructions to help you delete a payment method, like a credit card, from different types of Azure subscriptions. You can delete a payment method for:
 

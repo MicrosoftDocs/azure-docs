@@ -6,18 +6,15 @@ author: cherylmc
 
 ms.service: vpn-gateway
 ms.topic: how-to
-ms.date: 09/03/2020
-ms.author: alzam
+ms.date: 10/07/2020
+ms.author: cherylmc
 
 ---
 # Create an Azure Active Directory tenant for P2S OpenVPN protocol connections
 
 When connecting to your VNet, you can use certificate-based authentication or RADIUS authentication. However, when you use the Open VPN protocol, you can also use Azure Active Directory authentication. This article helps you set up an Azure AD tenant for P2S Open VPN authentication.
 
-> [!NOTE]
-> Azure AD authentication is supported only for OpenVPN® protocol connections and requires the Azure VPN client, which is available only for Windows 10.
->
-
+[!INCLUDE [Windows 10 and OpenVPN note](../../includes/vpn-gateway-openvpn-auth-include.md)]
 
 ## <a name="tenant"></a>1. Verify Azure AD tenant
 
@@ -43,7 +40,7 @@ Use the steps in [this article](../active-directory/fundamentals/add-users-azure
 
 1. Locate the Directory ID of the directory that you want to use for authentication. It is listed in the properties section of the Active Directory page.
 
-    ![Directory ID](./media/openvpn-create-azure-ad-tenant/directory-id.png)
+    ![Screenshot that shows the "Directory Properties" page with "Directory ID" highlighted.](./media/openvpn-create-azure-ad-tenant/directory-id.png)
 
 2. Copy the Directory ID.
 
@@ -85,7 +82,7 @@ Use the steps in [this article](../active-directory/fundamentals/add-users-azure
 
 7. Under your Azure AD, in **Enterprise applications**, you see **Azure VPN** listed.
 
-    ![Azure VPN](./media/openvpn-create-azure-ad-tenant/azurevpn.png)
+    ![Screenshot that shows the "All applications" page.](./media/openvpn-create-azure-ad-tenant/azurevpn.png)
     
 8. If you don't already have a functioning point-to-site environment, follow the instruction to create one. See [Create a point-to-site VPN](vpn-gateway-howto-point-to-site-resource-manager-portal.md) to create and configure a point-to-site VPN gateway. 
 

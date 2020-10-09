@@ -87,7 +87,26 @@ conceptualContent:
       footerLink:
         text: More
         url: index-intent-recognition.yml
-    - title: Conversation scenarios
+    - title: Speaker Recognition
+      links:
+        - itemType: overview
+          text: About Speaker Recognition
+          url: speaker-recognition-overview.md
+        - itemType: quickstart
+          text: Get started with Speaker Recognition          
+          url: speaker-recognition-basics.md
+        - itemType: how-to-guide
+          text: Speaker Recognition API reference
+          url: https://docs.microsoft.com/rest/api/speakerrecognition/
+    - title: Custom Keyword
+      links:
+        - itemType: overview
+          text: About Custom Keyword
+          url: custom-keyword-overview.md
+        - itemType: quickstart
+          text: Get started with Custom Keyword       
+          url: custom-keyword-basics.md
+    - title: Scenario deep-dives
       links:
         - itemType: overview
           text: About Conversation Transcription (meetings)
@@ -95,37 +114,18 @@ conceptualContent:
         - itemType: overview
           text: About multi-device conversations (meetings)
           url: multi-device-conversation.md
-        - itemType: how-to-guide
-          text: Call center transcription
-          url: call-center-transcription.md
-      footerLink:
-        text: More
-        url: index-conversation-scenarios.yml
-    - title: Voice assistants
-      links:
         - itemType: overview
           text: About Voice Assistants
           url: voice-assistants.md
         - itemType: quickstart
           text: Create a voice assistant using Custom Commands
           url: custom-commands.md
-        - itemType: get-started
+        - itemType: quickstart
           text: Create a voice assistant using the Bot Framework
           url: direct-line-speech.md
-      footerLink:
-        text: More
-        url: index-voice-assistants.yml
-    - title: Speaker Recognition
-      links:
         - itemType: how-to-guide
-          text: About Speaker Recognition
-          url: speaker-recognition-overview.md
-        - itemType: how-to-guide
-          text: Speaker Recognition basics          
-          url: speaker-recognition-basics.md
-        - itemType: how-to-guide
-          text: Speaker Recognition API reference
-          url: https://docs.microsoft.com/rest/api/speakerrecognition/
+          text: Enable call center transcription
+          url: call-center-transcription.md
     - title: Tools
       links:
         - itemType: overview

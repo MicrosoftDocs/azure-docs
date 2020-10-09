@@ -4,7 +4,7 @@ description: Tutorial - Use the Spark & Hive Tools for VSCode to develop Spark a
 services: synapse-analytics 
 author: hrasheed-msft
 ms.author: jejiang
-ms.reviewer: jrasnick, carlrab
+ms.reviewer: jrasnick 
 ms.service: synapse-analytics
 ms.topic: tutorial
 ms.subservice: spark

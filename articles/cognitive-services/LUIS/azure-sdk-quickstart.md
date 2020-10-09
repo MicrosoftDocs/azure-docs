@@ -3,6 +3,8 @@ title: "Quickstart: Language Understanding (LUIS) SDK client libraries"
 description: Create and query a LUIS app with the LUIS SDK client libraries with this quickstart using C#, Python, or JavaScript.
 ms.topic: quickstart
 ms.date: 09/14/2020
+ms.service: cognitive-services
+ms.subservice: language-understanding
 keywords: Azure, artificial intelligence, ai, natural language processing, nlp, LUIS, azure luis, natural language understanding, ai chatbot, chatbot maker,  understanding natural language
 ms.custom: "devx-track-python, devx-track-js, devx-track-csharp, cog-serv-seo-aug-2020"
 zone_pivot_groups: programming-languages-set-diberry-3core

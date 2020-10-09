@@ -6,10 +6,10 @@ ms.service: sql-db-mi
 ms.subservice: features
 ms.custom: sqldbrb=1
 ms.devlang: 
-ms.topic: overview
-author: jovanpop-msft
-ms.author: jovanpop
-ms.reviewer: sstein
+ms.topic: conceptual
+author: stevestein
+ms.author: sstein
+ms.reviewer:
 ms.date: 03/10/2020
 ---
 # Automate management tasks using database jobs
@@ -243,7 +243,7 @@ The following examples show how different target group definitions are dynamical
 **Example 4** shows a target group that contains an elastic pool as a target. Similar to *Example 2*, the pool will be dynamically enumerated at job run time to determine the list of databases in the pool.
 <br><br>
 
-![Target group examples](./media/job-automation-overview/targetgroup-examples2.png)
+![Additional target group examples](./media/job-automation-overview/targetgroup-examples2.png)
 
 **Example 5** and **Example 6** show advanced scenarios where servers, elastic pools, and databases can be combined using include and exclude rules.<br>
 **Example 7** shows that the shards in a shard map can also be evaluated at job run time.

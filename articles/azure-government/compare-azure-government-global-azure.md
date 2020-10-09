@@ -34,7 +34,7 @@ Azure Government services operate the same way as the corresponding services in 
 ||Language Understanding|See [LUIS REST API docs](https://docs.microsoft.com/azure/cognitive-services/luis/developer-reference-resource)|\*.cognitiveservices.azure.us </br>[Portal](https://luis.azure.us/)||
 ||Personalizer|See [Personalizer docs](https://docs.microsoft.com/azure/cognitive-services/personalizer/quickstart-personalizer-sdk#prerequisites)|\*.cognitiveservices.azure.us||
 ||QnA Maker|See [QnA Maker docs](https://docs.microsoft.com/azure/cognitive-services/qnamaker/how-to/set-up-qnamaker-service-azure)|\*.cognitiveservices.azure.us||
-||Speech Service|See [STT API docs](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-speech-to-text#regions-and-endpoints)|[Speech Studio](https://speech.azure.us/)||
+||Speech Service|See [STT API docs](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-speech-to-text#regions-and-endpoints)|[Speech Studio](https://speech.azure.us/)<br><br>**Speech-to-text endpoints**<br>Virginia: https://usgovvirginia.stt.speech.azure.us<br>Arizona: https://usgovarizona.stt.speech.azure.us <br><br>**Text-to-speech endpoints**<br>Virginia: https://virginia.tts.speech.azure.us<br>Arizona: https://arizona.tts.speech.azure.us<br><br>**Speech translation endpoints**<br>Virginia: https://usgovvirginia.s2s.speech.azure.us<br>Arizona: https://usgovarizona.s2s.speech.azure.us<br><br>**Auth token service**<br>Virginia: https://usgovvirginia.api.cognitive.microsoft.us/sts/v1.0/issueToken <br>Arizona: https://usgovarizona.api.cognitive.microsoft.us/sts/v1.0/issueToken <br>||
 ||Translator|See [Translator API docs](https://docs.microsoft.com/azure/cognitive-services/Translator/reference/v3-0-reference#base-urls)|\*.cognitiveservices.azure.us||
 |**Analytics**|HDInsight|\*.azurehdinsight.net|\*.azurehdinsight.us||
 ||Power BI|app.powerbi.com|app.powerbigov.us|[Power BI US Gov](https://powerbi.microsoft.com/documentation/powerbi-service-govus-overview/)|
@@ -347,7 +347,7 @@ Azure ExpressRoute is used to create private connections between Azure Governmen
 
 - By default, all Azure Government ExpressRoute connectivity is configured active-active redundant with support for bursting, and it delivers up to 10 G circuit capacity (smallest is 50 MB).
 - Microsoft owns and operates all fiber infrastructure between Azure Government regions and Azure Government ExpressRoute Meet-Me locations.
-- Azure Government ExpressRoute provides connectivity to Microsoft Azure, Office 365, and Dynamics 365 cloud services.
+- Azure Government ExpressRoute provides connectivity to Microsoft Azure, Microsoft 365, and Dynamics 365 cloud services.
 
 Aside from ExpressRoute, customers can also use an [IPSec protected VPN](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways) (site-to-site for a typical organization) to connect securely from their on-premises infrastructure to Azure Government.  For network services to support Azure Government customer applications and solutions, it is strongly recommended that ExpressRoute (private connectivity) is implemented to connect to Azure Government. If VPN connections are used, the following should be considered:
 
@@ -403,7 +403,7 @@ The following features have known limitations in Azure Government:
     - B2B Collaboration is available in most Azure US Government tenants created after June, 2019. Over time, more tenants will get access to this functionality. See [How can I tell if B2B collaboration is available in my Azure US Government tenant?](https://docs.microsoft.com/azure/active-directory/b2b/current-limitations#how-can-i-tell-if-b2b-collaboration-is-available-in-my-azure-us-government-tenant)
     - B2B collaboration is currently only supported between tenants that are both within Azure US Government cloud and that both support B2B collaboration. If you invite a user in a tenant that isn't part of the Azure US Government cloud or that doesn't yet support B2B collaboration, the invitation will fail or the user will be unable to redeem the invitation.
     - B2B collaboration via Power BI is not supported. When you invite a guest user from within Power BI, the B2B flow is not used and the guest user won't appear in the tenant's user list. If a guest user is invited through other means, they'll appear in the Power BI user list, but any sharing request to the user will fail and display a 403 Forbidden error.
-    - Office 365 Groups are not supported for B2B users and can't be enabled.
+    - Microsoft 365 Groups are not supported for B2B users and can't be enabled.
     - Some SQL tools such as SSMS require you to set the appropriate cloud parameter. In the tool's Azure Service setup options, set the cloud parameter to Azure US Government.
 
 - Limitations with Multi-factor Authentication:
@@ -454,7 +454,7 @@ Azure Security Center is deployed on Azure Government regions but not DoD region
 ### [Azure Sentinel](https://docs.microsoft.com/azure/sentinel/overview)
 The following **features have known limitations** in Azure Government:
 - Office 365 data connector
-    - The Office 365 data connector can be used only for [Office 365 GCC High](https://docs.microsoft.com/office365/servicedescriptions/office-365-platform-service-description/office-365-us-government/gcc-high-and-dod).
+    - The Office 365 data connector can be used only for [Office 365 GCC High](/office365/servicedescriptions/office-365-platform-service-description/office-365-us-government/gcc-high-and-dod).
 - AWS CloudTrail data connector
     - The AWS CloudTrail data connector can be used only for [AWS in the Public Sector](https://aws.amazon.com/government-education/).
 

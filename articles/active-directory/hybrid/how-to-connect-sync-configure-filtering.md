@@ -108,7 +108,7 @@ To set the domain filter, do the following steps:
    ![Connector properties](./media/how-to-connect-sync-configure-filtering/connectorproperties.png)  
 4. Click **Configure Directory Partitions**.
 5. In the **Select directory partitions** list, select and unselect domains as needed. Verify that only the partitions that you want to synchronize are selected.  
-   ![Partitions](./media/how-to-connect-sync-configure-filtering/connectorpartitions.png)  
+   ![Screenshot that shows the directory partitions in the "Properties" window.](./media/how-to-connect-sync-configure-filtering/connectorpartitions.png)  
    If you've changed your on-premises Active Directory infrastructure and added or removed domains from the forest, then click the **Refresh** button to get an updated list. When you refresh, you're asked for credentials. Provide any credentials with read access to Windows Server Active Directory. It doesn't have to be the user that is prepopulated in the dialog box.  
    ![Refresh needed](./media/how-to-connect-sync-configure-filtering/refreshneeded.png)  
 6. When you're done, close the **Properties** dialog by clicking **OK**. If you removed domains from the forest, a message pop-up says that a domain was removed and that configuration will be cleaned up.

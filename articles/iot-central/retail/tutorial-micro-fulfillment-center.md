@@ -57,11 +57,11 @@ From the dashboard, you can:
    * View the floor plan and location of the robotic carriers within the fulfillment structure.
    * Trigger commands, such as resetting the control system, updating the carrier's firmware, and reconfiguring the network.
 
-     ![Screenshot of the top half of the Northwind Traders micro-fulfillment center dashboard](./media/tutorial-micro-fulfillment-center-app/mfc-dashboard1.png)
+     ![Screenshot of the top half of the Northwind Traders micro-fulfillment center dashboard.](./media/tutorial-micro-fulfillment-center-app/mfc-dashboard1.png)
    * See an example of the dashboard that an operator can use to monitor conditions within the fulfillment center. 
    * Monitor the health of the payloads that are running on the gateway device within the fulfillment center.    
 
-     ![Screenshot of the botton half of the Northwind Traders micro-fulfillment center dashboard](./media/tutorial-micro-fulfillment-center-app/mfc-dashboard2.png)
+     ![Screenshot of the botton half of the Northwind Traders micro-fulfillment center dashboard.](./media/tutorial-micro-fulfillment-center-app/mfc-dashboard2.png)
 
 ## Device template
 If you select the device templates tab, you see that there are two different device types that are part of the template: 
@@ -91,4 +91,4 @@ Learn more about
 > [!div class="nextstepaction"]
 > [micro-fulfillment center solution architecture](./architecture-micro-fulfillment-center.md)
 * Learn more about the [Azure IoT Central retail templates](./overview-iot-central-retail.md)
-* Learn more about other [Azure IoT Central overview](../preview/overview-iot-central.md)
+* Learn more about [Azure IoT Central](../preview/overview-iot-central.md)

@@ -1,6 +1,8 @@
 ---
 title: "Quickstart: Get intent with REST APIs - LUIS"
 description: In this REST API quickstart, use an available public LUIS app to determine a user's intention from conversational text.
+ms.service: cognitive-services
+ms.subservice: language-understanding
 ms.topic: quickstart
 ms.date: 05/18/2020
 ms.custom: "devx-track-python, devx-track-js, devx-track-csharp"

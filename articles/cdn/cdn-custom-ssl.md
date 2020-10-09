@@ -77,7 +77,7 @@ To enable HTTPS on a custom domain, follow these steps:
 
 4. In the list of custom domains, select the custom domain for which you want to enable HTTPS.
 
-    ![Custom domains list](./media/cdn-custom-ssl/cdn-custom-domain.png)
+    ![Screenshot shows the Custom domain page with the option to Use my own certificate.](./media/cdn-custom-ssl/cdn-custom-domain.png)
 
     The **Custom domain** page appears.
 

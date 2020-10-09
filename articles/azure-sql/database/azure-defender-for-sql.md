@@ -33,7 +33,7 @@ For more information about Azure Defender for SQL pricing, see the [Azure Securi
 
 The following steps get you started with Azure Defender.
 
-## 1. Enable Azure Defender
+## Enable Azure Defender
 
 Azure Defender can be accessed through the [Azure portal](https://portal.azure.com). Enable Azure Defender by navigating to **Security center** under the **Security** heading for your server or managed instance.
 
@@ -42,15 +42,15 @@ Azure Defender can be accessed through the [Azure portal](https://portal.azure.c
 >
 > The cost of Azure Defender is aligned with Azure Security Center standard tier pricing per node, where a node is the entire server or managed instance. You are thus paying only once for protecting all databases on the server or managed instance with Azure Defender. You can try Azure Defender out initially with a free trial.
 
-## 2. Start tracking vulnerabilities and investigating threat alerts
+## Start tracking vulnerabilities and investigating threat alerts
 
 Click the **Vulnerability Assessment** card to view and manage vulnerability scans and reports, and to track your security stature. If security alerts have been received, click the **Advanced Threat Protection** card to view details of the alerts and to see a consolidated report on all alerts in your Azure subscription via the Azure Security Center security alerts page.
 
-## 3. Manage Azure Defender settings
+## Manage Azure Defender settings
 
 To view and manage Azure Defender settings, navigate to **Security center** under the **Security** heading for your server or managed instance. On this page, you can enable or disable Azure Defender, and modify vulnerability assessment and Advanced Threat Protection settings for your entire server or managed instance.
 
-## 4. Manage Azure Defender settings for a database
+## Manage Azure Defender settings for a database
 
 To override Azure Defender settings for a particular database, check the **Enable Azure Defender for SQL at the database level** checkbox. Use this option only if you have a particular requirement to receive separate Advanced Threat Protection alerts or vulnerability assessment results for the individual database, in place of or in addition to the alerts and results received for all databases on the server or managed instance.
 
@@ -60,6 +60,6 @@ Azure Defender for SQL settings for your server or managed instance can also be 
 
 ## Next steps
 
-- Learn more about [vulnerability Assessment](sql-vulnerability-assessment.md)
+- Learn more about [Vulnerability Assessment](sql-vulnerability-assessment.md)
 - Learn more about [Advanced Threat Protection](threat-detection-configure.md)
 - Learn more about [Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-intro)

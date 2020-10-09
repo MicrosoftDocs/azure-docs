@@ -58,7 +58,7 @@ Below you'll find more information on prerequisites and steps to set up the samp
 - Create an Azure account with an active subscription. For details, see [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - [Node.js (8.11.2 and above)](https://nodejs.org/en/download/)
 - [Visual Studio (2017 and above)](https://visualstudio.microsoft.com/vs/)
-- [.NET Core 2.2](https://dotnet.microsoft.com/download/dotnet-core/2.2) (Make sure to install version that corresponds with your visual studio instance, 32 vs 64 bit)
+- [.NET Core 3.1](https://dotnet.microsoft.com/download/dotnet-core/3.1) (Make sure to install version that corresponds with your visual studio instance, 32 vs 64 bit)
 - Create an Azure Communication Services resource. For details, see [Create an Azure Communication Resource](../quickstarts/create-communication-resource.md). You'll need to record your resource **connection string** for this quickstart.
 
 ## Locally deploying the service & client app
@@ -113,6 +113,6 @@ For more information, see the following articles:
 
 - [Azure Communication GitHub](https://github.com/Azure/communication) - Find more examples and information on the official GitHub page
 - [Redux](https://redux.js.org/) - Client-side state management
-- [FluentUI](https://developer.microsoft.com/fluentui#/) - Microsoft powered UI library
+- [FluentUI](https://aka.ms/fluent-ui) - Microsoft powered UI library
 - [React](https://reactjs.org/) - Library for building user interfaces
 - [ASP.NET Core](https://docs.microsoft.com/aspnet/core/introduction-to-aspnet-core?view=aspnetcore-3.1&preserve-view=true) - Framework for building web applications

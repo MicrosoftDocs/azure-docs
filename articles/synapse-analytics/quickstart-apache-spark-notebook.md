@@ -4,7 +4,7 @@ description: This quickstart shows how to use the web tools to create an Apache 
 services: synapse-analytics
 author: euangMS
 ms.author: euang 
-ms.reviewer: jrasnick, carlrab
+ms.reviewer: jrasnick 
 ms.service: synapse-analytics
 ms.subservice: spark
 ms.topic: quickstart
@@ -80,7 +80,7 @@ A notebook is an interactive environment that supports various programming langu
 
     ![Storage explorer view of the output](./media/quickstart-apache-spark-notebook/spark-get-started-default-storage.png "Storage explorer view of the output ")
 
-    ![Storage explorer view of the output](./media/quickstart-apache-spark-notebook/spark-get-started-default-storage2.png "Storage explorer view of the output ")
+    ![Screenshot that highlights default > demodata > demo_df path.](./media/quickstart-apache-spark-notebook/spark-get-started-default-storage2.png "Storage explorer view of the output ")
 
 ## Run Spark SQL statements
 

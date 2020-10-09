@@ -54,7 +54,7 @@ Open the **pom.xml** file in your text editor. Add the following dependency elem
 <dependency>
     <groupId>com.azure</groupId>
     <artifactId>azure-communication-sms</artifactId>
-    <version>1.0.0-beta.1</version>
+    <version>1.0.0-beta.2</version>
 </dependency>
 ```
 
@@ -157,7 +157,7 @@ SendSmsResponse response = client.sendMessage(
 System.out.println("MessageId: " + response.getMessageId());
 ```
 
-You should replace `<leased-phone-number>` with an SMS enabled phone number associated with your Communication Services resource and `<to-phone-number>` with the phone number you wish to send a message to. All phone number parameters should adhere to the [E.164 standard](../../../concepts/telephony-sms/plan-solution.md#optional-reading-international-public-telecommunication-numbering-plan-e164).
+You should replace `<leased-phone-number>` with an SMS enabled phone number associated with your Communication Services resource and `<to-phone-number>` with the phone number you wish to send a message to.
 
 The `enableDeliveryReport` parameter is an optional parameter that you can use to configure Delivery Reporting. This is useful for scenarios where you want to emit events when SMS messages are delivered. See the [Handle SMS Events](../handle-sms-events.md) quickstart to configure Delivery Reporting for your SMS messages.
 

@@ -1,6 +1,8 @@
 ---
 title: Best practices - QnA Maker
 description: Use these best practices to improve your knowledge base and provide better results to your application/chat bot's end users.
+ms.service: cognitive-services
+ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 02/15/2020
 ---

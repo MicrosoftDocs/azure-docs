@@ -5,7 +5,7 @@ ms.subservice:
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 09/22/2020
+ms.date: 09/24/2020
 
 ---
 
@@ -104,6 +104,44 @@ Diagnostic Toolkit provides access to all Diagnostic features available for trou
 
 ![Diagnostic toolkit tab](media/network-insights-overview/azure-monitor-for-networks-diagnostic-toolkit.png)
 
+## Troubleshooting 
+
+For general troubleshooting guidance, refer to the dedicated workbook-based insights [troubleshooting article](troubleshoot-workbooks.md).
+
+This section will help you with the diagnosis and troubleshooting of some of the common issues you may encounter when using Azure Monitor for Networks. Use the list below to locate the information relevant to your specific issue.
+
+### Resolving performance issues or failures
+
+To help troubleshoot any networking related issues you identify with Azure Monitor for Networks, see the troubleshooting documentation of the malfunctioning resource. 
+Trouble-shooting links for high used services are listed below.
+* Virtual Network (VNET)
+* Application Gateway
+* VPN Gateway
+* ExpressRoute 
+* Load Balancer 
+
+### Why don't I see the resources from all the subscriptions I have selected
+
+Network Insights can only show resources from 5 subscriptions at a time. 
+
+### I want to make changes or add additional visualizations to Network Insights, how do I do so
+
+To make changes, select the "Edit Mode" to modify the workbook, then you can save your work as a new workbook that is tied to a designated subscription and resource group.
+
+### What is the time-grain once we pin any part of the Workbooks
+
+We utilize the "Auto" time grain, therefore it depends on what time range is selected.
+
+### What is the time range when any part of the workbook is pinned
+
+The time range will depend on the dashboard settings.
+
+### What if I want to see other data or make my own visualizations? How can I make changes to the Network Insights
+
+You can edit the workbook you see in any side-panel and detailed metric view, through the use of the edit mode, and then save your work as a new workbook that will have all your new changes.
+
+
 ## Next steps
 
 - Learn more about network monitoring at [What is Azure Network Watcher?](../../network-watcher/network-watcher-monitoring-overview.md).
+- Learn the scenarios workbooks are designed to support, how to author new and customize existing reports, and more by reviewing [Create interactive reports with Azure Monitor workbooks](../platform/workbooks-overview.md).

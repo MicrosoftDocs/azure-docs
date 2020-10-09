@@ -2,7 +2,7 @@
 title: Troubleshoot Azure Automation Update Management issues
 description: This article tells how to troubleshoot and resolve issues with Azure Automation Update Management.
 services: automation
-ms.date: 06/30/2020
+ms.date: 09/30/2020
 ms.topic: conceptual
 ms.service: automation
 ---
@@ -52,27 +52,25 @@ Old updates are appearing for an Automation account as missing even though they'
 
 ### Cause
 
-Superseded updates aren't correctly indicated as declined so that they can be considered not applicable.
+Superseded updates aren't declined in Windows Server Update Services (WSUS) so that they can be considered not applicable.
 
 ### Resolution
 
-When a superseded update becomes 100 percent not applicable, you should change the approval state of that update to `Declined`. To change approval state for all your updates:
+When a superseded update becomes 100 percent not applicable, you should change the approval state of that update to `Declined` in WSUS. To change approval state for all your updates:
 
 1. In the Automation account, select **Update Management** to view machine status. See [View update assessments](../update-management/update-mgmt-view-update-assessments.md).
 
-2. Check the superseded update to make sure that it's 100 percent not applicable. 
+2. Check the superseded update to make sure that it's 100 percent not applicable.
 
-3. Mark the update as declined unless you have a question about the update. 
+3. On the WSUS server the machines report to, [decline the update](/windows-server/administration/windows-server-update-services/manage/updates-operations#declining-updates).
 
 4. Select **Computers** and, in the **Compliance** column, force a rescan for compliance. See [Manage updates for VMs](../update-management/update-mgmt-manage-updates-for-vm.md).
 
 5. Repeat the steps above for other superseded updates.
 
-6. Run the cleanup wizard to delete files from the declined updates. 
+6. For Windows Server Update Services (WSUS), clean all superseded updates to refresh the infrastructure using the WSUS [Server cleanup Wizard](/windows-server/administration/windows-server-update-services/manage/the-server-cleanup-wizard).
 
-7. For Windows Server Update Services (WSUS), manually clean all superseded updates to refresh the infrastructure.
-
-8. Repeat this procedure regularly to correct the display issue and minimize the amount of disk space used for update management.
+7. Repeat this procedure regularly to correct the display issue and minimize the amount of disk space used for update management.
 
 ## <a name="nologs"></a>Scenario: Machines don't show up in the portal under Update Management
 
@@ -107,9 +105,9 @@ This issue can be caused by local configuration issues or by improperly configur
    | summarize by Computer, Solutions
    ```
 
-4. If you don't see your machine in the query results, it hasn't recently checked in. There's probably a local configuration issue and you should [reinstall the agent](../../azure-monitor/learn/quick-collect-windows-computer.md#install-the-agent-for-windows). 
+4. If you don't see your machine in the query results, it hasn't recently checked in. There's probably a local configuration issue and you should [reinstall the agent](../../azure-monitor/learn/quick-collect-windows-computer.md#install-the-agent-for-windows).
 
-5. If your machine shows up in the query results, check for scope configuration problems. The [scope configuration](../update-management/update-mgmt-scope-configuration.md) determines which machines are configured for Update Management. 
+5. If your machine shows up in the query results, check for scope configuration problems. The [scope configuration](../update-management/update-mgmt-scope-configuration.md) determines which machines are configured for Update Management.
 
 6. If your machine is showing up in your workspace but not in Update Management, you must configure the scope configuration to target the machine. To learn how to do this, see [Enable machines in the workspace](../update-management/update-mgmt-enable-automation-account.md#enable-machines-in-the-workspace).
 
@@ -175,7 +173,7 @@ If your subscription isn't configured for the Automation resource provider, you 
 
 1. In the [Azure portal](../../azure-resource-manager/management/resource-providers-and-types.md#azure-portal), access the Azure service list.
 
-2. Select **All services**, and then select **Subscriptions** in the General service group. 
+2. Select **All services**, and then select **Subscriptions** in the General service group.
 
 3. Find the subscription defined in the scope for your deployment.
 
@@ -221,7 +219,7 @@ Here are possible causes for this issue:
 
 #### Incorrect access on selected scopes
 
-The Azure portal only displays machines for which you have write access in a given scope. If you don't have the correct access for a scope, see [Tutorial: Grant a user access to Azure resources using RBAC and the Azure portal](../../role-based-access-control/quickstart-assign-role-user-portal.md).
+The Azure portal only displays machines for which you have write access in a given scope. If you don't have the correct access for a scope, see [Tutorial: Grant a user access to Azure resources using the Azure portal](../../role-based-access-control/quickstart-assign-role-user-portal.md).
 
 #### ARG query doesn't return expected machines
 
@@ -246,7 +244,7 @@ Follow the steps below to find out if your queries are working correctly.
     | project id, location, name, tags
     ```
 
-2. Check to see if the machines you're looking for are listed in the query results. 
+2. Check to see if the machines you're looking for are listed in the query results.
 
 3. If the machines aren't listed, there is probably an issue with the filter selected in the dynamic group. Adjust the group configuration as needed.
 
@@ -320,7 +318,7 @@ If you're using a cloned image, different computer names have the same source co
 
 3. Run `Restart-Service HealthService` to restart the health service. This operation recreates the key and generates a new UUID.
 
-4. If this approach doesn't work, run sysprep on the image first and then install the MMA.
+4. If this approach doesn't work, run sysprep on the image first and then install the Log Analytics agent for Windows.
 
 ## <a name="multi-tenant"></a>Scenario: You receive a linked subscription error when you create an update deployment for machines in another Azure tenant
 
@@ -338,7 +336,7 @@ This error occurs when you create an update deployment that has Azure VMs in ano
 
 ### Resolution
 
-Use the following workaround to get these items scheduled. You can use the [New-AzAutomationSchedule](/powershell/module/az.automation/new-azautomationschedule?view=azps-3.7.0) cmdlet with the `ForUpdateConfiguration` parameter to create a schedule. Then, use the [New-AzAutomationSoftwareUpdateConfiguration](/powershell/module/Az.Automation/New-AzAutomationSoftwareUpdateConfiguration?view=azps-3.7.0) cmdlet and pass the machines in the other tenant to the `NonAzureComputer` parameter. The following example shows how to do this:
+Use the following workaround to get these items scheduled. You can use the [New-AzAutomationSchedule](/powershell/module/az.automation/new-azautomationschedule) cmdlet with the `ForUpdateConfiguration` parameter to create a schedule. Then, use the [New-AzAutomationSoftwareUpdateConfiguration](/powershell/module/Az.Automation/New-AzAutomationSoftwareUpdateConfiguration) cmdlet and pass the machines in the other tenant to the `NonAzureComputer` parameter. The following example shows how to do this:
 
 ```azurepowershell-interactive
 $nonAzurecomputers = @("server-01", "server-02")
@@ -381,24 +379,15 @@ This error can occur for one of the following reasons:
 * The machine doesn't exist anymore.
 * The machine is turned off and unreachable.
 * The machine has a network connectivity issue, and therefore the hybrid worker on the machine is unreachable.
-* There was an update to the MMA that changed the source computer ID.
+* There was an update to the Log Analytics agent that changed the source computer ID.
 * Your update run was throttled if you hit the limit of 200 concurrent jobs in an Automation account. Each deployment is considered a job, and each machine in an update deployment counts as a job. Any other automation job or update deployment currently running in your Automation account counts toward the concurrent job limit.
 
 ### Resolution
 
 When applicable, use [dynamic groups](../update-management/update-mgmt-groups.md) for your update deployments. In addition, you can take the following steps.
 
-1. Verify that the machine still exists and is reachable. 
-2. If the machine doesn't exist, edit your deployment and remove the machine.
-3. See the [network planning](../update-management/update-mgmt-overview.md#ports) section for a list of ports and addresses that are required for Update Management, and then verify that your machine meets these requirements.
-4. Verify connectivity to the Hybrid Runbook Worker using the Hybrid Runbook Worker agent troubleshooter. To learn more about the troubleshooter, see [Troubleshoot update agent issues](update-agent-issues.md).
-5. Run the following query in Log Analytics to find machines in your environment for which the source computer ID has changed. Look for computers that have the same `Computer` value but a different `SourceComputerId` value.
-
-   ```kusto
-   Heartbeat | where TimeGenerated > ago(30d) | distinct SourceComputerId, Computer, ComputerIP
-   ```
-
-6. After you find affected machines, edit the update deployments that target those machines, and then remove and readd them so that `SourceComputerId` reflects the correct value.
+1. Verify that your machine or server meets the [requirements](../update-management/update-mgmt-overview.md#client-requirements).
+2. Verify connectivity to the Hybrid Runbook Worker using the Hybrid Runbook Worker agent troubleshooter. To learn more about the troubleshooter, see [Troubleshoot update agent issues](update-agent-issues.md).
 
 ## <a name="updates-nodeployment"></a>Scenario: Updates are installed without a deployment
 
@@ -461,7 +450,7 @@ Access is denied. (Exception form HRESULT: 0x80070005(E_ACCESSDENIED))
 
 ### Cause
 
-A proxy, gateway, or firewall might be blocking network communication. 
+A proxy, gateway, or firewall might be blocking network communication.
 
 ### Resolution
 

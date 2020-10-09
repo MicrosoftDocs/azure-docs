@@ -26,7 +26,7 @@ Verify you have the following requirements ready:
 * You'll need a kubeconfig file to access the cluster and cluster-admin role on the cluster for deployment of Arc enabled Kubernetes agents.
 * The user or service principal used with `az login` and `az connectedk8s connect` commands must have the 'Read' and 'Write' permissions on the 'Microsoft.Kubernetes/connectedclusters' resource type. The "Kubernetes Cluster - Azure Arc Onboarding" role has these permissions and can be used for role assignments on the user or service principal.
 * Helm 3 is required for the onboarding the cluster using connectedk8s extension. [Install the latest release of Helm 3](https://helm.sh/docs/intro/install) to meet this requirement.
-* Azure CLI version 2.3+ is required for installing the Azure Arc enabled Kubernetes CLI extensions. [Install Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest) or update to the latest version to ensure that you have Azure CLI version 2.3+.
+* Azure CLI version 2.3+ is required for installing the Azure Arc enabled Kubernetes CLI extensions. [Install Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest&preserve-view=true) or update to the latest version to ensure that you have Azure CLI version 2.3+.
 * Install the Arc enabled Kubernetes CLI extensions:
   
   Install the `connectedk8s` extension, which helps you connect Kubernetes clusters to Azure:
@@ -64,10 +64,8 @@ Azure Arc agents require the following protocols/ports/outbound URLs to function
 | ------------------------------------------------------------------------------------------------------------ | --------------------------------------------------------------------------------------------------------------------------- |
 | `https://management.azure.com`                                                                                 | Required for the agent to connect to Azure and register the cluster                                                        |
 | `https://eastus.dp.kubernetesconfiguration.azure.com`, `https://westeurope.dp.kubernetesconfiguration.azure.com` | Data plane endpoint for the agent to push status and fetch configuration information                                      |
-| `https://docker.io`                                                                                            | Required to pull container images                                                                                         |
-| `https://github.com`, git://github.com                                                                         | Example GitOps repos are hosted on GitHub. Configuration agent requires connectivity to whichever git endpoint you specify. |
 | `https://login.microsoftonline.com`                                                                            | Required to fetch and update Azure Resource Manager tokens                                                                                    |
-| `https://azurearcfork8s.azurecr.io`                                                                            | Required to pull container images for Azure Arc agents                                                                  |
+| `https://mcr.microsoft.com`                                                                            | Required to pull container images for Azure Arc agents                                                                  |
 | `https://eus.his.arc.azure.com`, `https://weu.his.arc.azure.com`                                                                            |  Required to pull system-assigned managed identity certificates                                                                  |
 
 ## Register the two providers for Azure Arc enabled Kubernetes:
@@ -175,32 +173,40 @@ If your cluster is behind an outbound proxy server, Azure CLI and the Arc enable
 
 1. Check the version of `connectedk8s` extension installed on your machine by running this command:
 
-    ```bash
+    ```console
     az -v
     ```
 
-    You need `connectedk8s` extension version >= 0.2.3 to set up agents with outbound proxy. If you have version < 0.2.3 on your machine, follow the [update steps](#before-you-begin) to get the latest version of extension on your machine.
+    You need `connectedk8s` extension version >= 0.2.5 to set up agents with outbound proxy. If you have version < 0.2.3 on your machine, follow the [update steps](#before-you-begin) to get the latest version of extension on your machine.
 
-2. Set the environment variables needed for Azure CLI:
+2. Set the environment variables needed for Azure CLI to use the outbound proxy server:
 
-    ```bash
-    export HTTP_PROXY=<proxy-server-ip-address>:<port>
-    export HTTPS_PROXY=<proxy-server-ip-address>:<port>
-    export NO_PROXY=<cluster-apiserver-ip-address>:<port>
-    ```
+    * If you are using bash, run the following command with appropriate values:
+
+        ```bash
+        export HTTP_PROXY=<proxy-server-ip-address>:<port>
+        export HTTPS_PROXY=<proxy-server-ip-address>:<port>
+        export NO_PROXY=<cluster-apiserver-ip-address>:<port>
+        ```
+
+    * If you are using PowerShell, run the following command with appropriate values:
+
+        ```powershell
+        $Env:HTTP_PROXY = "<proxy-server-ip-address>:<port>"
+        $Env:HTTPS_PROXY = "<proxy-server-ip-address>:<port>"
+        $Env:NO_PROXY = "<cluster-apiserver-ip-address>:<port>"
+        ```
 
 3. Run the connect command with proxy parameters specified:
 
-    ```bash
-    az connectedk8s connect -n <cluster-name> -g <resource-group> \
-    --proxy-https https://<proxy-server-ip-address>:<port> \
-    --proxy-http http://<proxy-server-ip-address>:<port> \
-    --proxy-skip-range <excludedIP>,<excludedCIDR>
+    ```console
+    az connectedk8s connect -n <cluster-name> -g <resource-group> --proxy-https https://<proxy-server-ip-address>:<port> --proxy-http http://<proxy-server-ip-address>:<port> --proxy-skip-range <excludedIP>,<excludedCIDR> --proxy-cert <path-to-cert-file>
     ```
 
 > [!NOTE]
 > 1. Specifying excludedCIDR under --proxy-skip-range is important to ensure in-cluster communication is not broken for the agents.
-> 2. The above proxy specification currently is applied only for Arc agents and not for the flux pods used in sourceControlConfiguration. The Arc enabled Kubernetes team is actively working on this feature and it will be available soon.
+> 2. While --proxy-http, --proxy-https and --proxy-skip-range are expected for most outbound proxy environments, --proxy-cert is only required if there are trusted certificates from proxy that need to be injected into trusted certificate store of agent pods.
+> 3. The above proxy specification is currently applied only for Arc agents and not for the flux pods used in sourceControlConfiguration. The Arc enabled Kubernetes team is actively working on this feature and it will be available soon.
 
 ## Azure Arc agents for Kubernetes
 
