@@ -66,7 +66,7 @@ For more information about Azure Identity client libarary, see:
 |--|--|--|--|
 |[Azure Identity SDK .NET](https://docs.microsoft.com/dotnet/api/overview/azure/identity-readme)|[Azure Identity SDK Python](https://docs.microsoft.com/python/api/overview/azure/identity-readme)|[Azure Identity SDK Java](https://docs.microsoft.com/java/api/overview/azure/identity-readme)|[Azure Identity SDK JavaScript](https://docs.microsoft.com/javascript/api/overview/azure/identity-readme)|     
 
-For tutorials on how to authenticate to Key Vault in applications guides, see:
+For tutorials on how to authenticate to Key Vault in applications, see:
 - [Authenticate to Key Vault in application hosted in VM in .NET](https://docs.microsoft.com/azure/key-vault/general/tutorial-net-virtual-machine)
 - [Authenticate to Key Vault in application hosted in VM in Python](https://docs.microsoft.com/azure/key-vault/general/tutorial-python-virtual-machine)
 - [Authenticate to Key Vault with App Service](https://docs.microsoft.com/azure/key-vault/general/tutorial-net-create-vault-azure-web-app)
