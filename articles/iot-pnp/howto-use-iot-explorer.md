@@ -33,7 +33,7 @@ To use the Azure IoT explorer tool, you need:
 Go to [Azure IoT explorer releases](https://github.com/Azure/azure-iot-explorer/releases) and expand the list of assets for the most recent release. Download and install the most recent version of the application.
 
 >[!Important]
->From version 0.11.0 IoT Explorer only supports the IoT Plug and Play GA release (from September 2020). To use the features available in the previous preview-release from Aug 2019 install a 0.10.x version.
+> Update to version 0.13.x to resolve models from any repository based on [https://github.com/Azure/iot-plugandplay-models](https://github.com/Azure/iot-plugandplay-models)
 
 ## Use Azure IoT explorer
 
