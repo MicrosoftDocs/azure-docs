@@ -27,4 +27,4 @@ Select **Save draft** before you proceed to the next section.
 
 ## Next steps
 
-- [Add technical assets for your VM offer](azure-vm-create-technical-assets.md)
+- [Create plans for a VM offer](azure-vm-create-plans.md)

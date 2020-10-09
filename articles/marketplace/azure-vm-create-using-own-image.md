@@ -42,4 +42,4 @@ Configure and prepare the VM to be uploaded as described in [Prepare a Windows V
 ## Next steps
 
 - If you encountered difficulty creating your new Azure-based VHD, see [Common issues during VHD creation](azure-vm-common-issues-during-vhd-creation.md).
-- [Test and publish a VM offer on Azure Marketplace](azure-vm-create-test-publish.md)
+- [Configure VM offer properties](azure-vm-create-properties.md)

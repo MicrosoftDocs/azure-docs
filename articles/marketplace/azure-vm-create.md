@@ -98,4 +98,4 @@ Select **Create** to generate the offer and continue.
 
 ## Next steps
 
-- [Configure VM offer properties](azure-vm-create-properties.md)
+- [Create VM technical assets](azure-vm-create-technical-assets.md)

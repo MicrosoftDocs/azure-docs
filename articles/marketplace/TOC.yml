@@ -113,20 +113,20 @@
       items: 
       - name: Create a VM offer
         href: azure-vm-create.md
+      - name: Create VM technical assets
+        items:
+        - name: Create VM technical assets
+          href: azure-vm-create-technical-assets.md
+        - name: Create VM from an approved base
+          href: azure-vm-create-using-approved-base.md
+        - name: Create VM using your own image
+          href: azure-vm-create-using-own-image.md
       - name: Configure VM offer properties
         href: azure-vm-create-properties.md
       - name: Configure VM offer listing
         href: azure-vm-create-listing.md
       - name: Add a preview audience
         href: azure-vm-create-preview.md
-      - name: Create Azure VM technical assets
-        items:
-        - name: Create VM technical assets
-          href: azure-vm-create-technical-assets.md
-        - name: Create a VM from an approved base
-          href: azure-vm-create-using-approved-base.md
-        - name: Create a VM using your own image
-          href: azure-vm-create-using-own-image.md
       - name: Create plans
         href: azure-vm-create-plans.md
       - name: Test and publish a VM offer

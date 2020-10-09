@@ -119,4 +119,4 @@ The following process generalizes a Linux VM and redeploys it as a separate VM. 
 
 ## Next steps
 
-- [Test and publish a virtual machine offer on Azure Marketplace](azure-vm-create-test-publish.md)
+- [Configure VM offer properties](azure-vm-create-properties.md)
