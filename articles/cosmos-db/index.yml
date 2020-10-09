@@ -80,10 +80,6 @@ landingContent:
             url: sql-api-query-metrics.md
           - text: Define stored procedures, triggers, UDFs
             url: how-to-write-stored-procedures-triggers-udfs.md                                
-      - linkListType: learn
-        links:
-          - text: Create and manage SQL API data  
-            url: /learn/modules/store-access-data-cosmos-table-api/
 
   # Card
   - title: Use Azure Cosmos DB API for MongoDB
@@ -144,10 +140,6 @@ landingContent:
             url: graph-partitioning.md
           - text: Optimize Gremlin queries
             url: graph-execution-profile.md
-      - linkListType: learn
-        links:
-          - text: Store and access graph data
-            url: /learn/modules/store-access-data-cosmos-graph-api/
 
   # Card
   - title: Use Azure Cosmos DB Cassandra API
