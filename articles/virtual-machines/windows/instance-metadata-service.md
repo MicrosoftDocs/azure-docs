@@ -46,7 +46,7 @@ Below is the sample code to retrieve all metadata for an instance, to access spe
 Invoke-RestMethod -Headers @{"Metadata"="true"} -Method GET -NoProxy -Uri http://169.254.169.254/metadata/instance?api-version=2020-06-01 | ConvertTo-Json
 ```
 > [!NOTE]
-> The -NoProxy flag is only available in PowerShell 6 or greater. You may omit the flag if you don't
+> The `-NoProxy` flag is only available in PowerShell 6 or greater. You may omit the flag if you don't
 > have a proxy setup.
 
 **Response**
