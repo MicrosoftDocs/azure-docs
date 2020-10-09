@@ -24,30 +24,37 @@ A native browsing experience with hierarchical namespace is provided for each of
 ## Launch browse experience
 
 1. The browse experience can be launched by selecting the "Browse by asset type" tile in homepage.
-   ![Babylon home page ](./media/how-to-browse-catalog/image1.jpg)
+
+:::image type="content" source="media/how-to-browse-catalog/home.jpg" alt-text="Babylon home page":::
 
 2. On browse asset types page, tiles are categorized by data sources. To further explore assets in each data source, select the corresponding tile.
-   ![Browse asset types page](./media/how-to-browse-catalog/image2.jpg)
+
+:::image type="content" source="media/how-to-browse-catalog/browse-asset-types.jpg" alt-text="Browse asset types page":::
 
 3. On the next page, top-level assets under chosen type are listed. Pick one of the assets to further explore the contents within.
-   ![Asset type specific browse page. Example shown is Azure Storage account](./media/how-to-browse-catalog/image3.jpg)
+
+:::image type="content" source="media/how-to-browse-catalog/asset-type-specific-browse.jpg" alt-text="Asset type specific browse page. Example shown is Azure Storage account":::
 
 4. The explorer view will open. Start browsing by selecting the asset on the left panel. Children assets will be listed on the right panel of the page.
 
-   ![Explorer view](./media/how-to-browse-catalog/image6.jpg)
+:::image type="content" source="media/how-to-browse-catalog/explorer-view.jpg" alt-text="Explorer view":::
 
 5. To view the details of an asset, select the name or the ellipses button on the far right.
 
-   ![View asset detail by clicking the ellipses button](./media/how-to-browse-catalog/image7.jpg)
+:::image type="content" source="media/how-to-browse-catalog/view-asset-detail-click-ellipses.jpg" alt-text="":::
 
 ## Launch related experience from asset detail page
 
 Once the data consumer is in the asset detail page, they can launch an experience to see other related assets. For example, the data consumer can navigate to the parent folder of 'DateDimension' to see the 'Dimensions' folder or even navigate to the container to see the assets under the specific hierarchy. 
 
 1. From the asset detail page, select the Related tab to see other related assets.
-   ![Launch Related tab](./media/how-to-browse-catalog/image10.jpg)
+
+:::image type="content" source="media/how-to-browse-catalog/launch-related-tab.jpg" alt-text="Launch Related tab":::
+
 2. The Current asset's full relationship will be listed in hierarchical namespace.
-   ![Hierarchical structure](./media/how-to-browse-catalog/image11.jpg)
+
+:::image type="content" source="media/how-to-browse-catalog/hierarchical-structure.jpg" alt-text="Hierarchical structure":::
 
 3. Select any level on the hierarchical map to list the immediate assets under that hierarchy.
-   ![Select different hierarchy](./media/how-to-browse-catalog/image13.jpg)
+
+:::image type="content" source="media/how-to-browse-catalog/select-different-hierarchy.jpg" alt-text="Select different hierarchy":::
