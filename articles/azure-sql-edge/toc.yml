@@ -146,6 +146,6 @@
   expanded: true
   items:
   -name: Partners
-    items: 
+   items: 
     - name: Security
       href: resources-partners-security.md
