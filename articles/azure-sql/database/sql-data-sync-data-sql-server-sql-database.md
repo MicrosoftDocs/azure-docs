@@ -120,7 +120,7 @@ Provisioning and deprovisioning during sync group creation, update, and deletion
 > - Data between hub and member can be lost even though sync does not report any issue.
 > - Sync can fail because the tracking table has a non-existing row from source due to the primary key change.
 
-- Snapshot isolation must be enabled. For more info, see [Snapshot Isolation in SQL Server](https://docs.microsoft.com/dotnet/framework/data/adonet/sql/snapshot-isolation-in-sql-server).
+- Snapshot isolation must be enabled for both Sync members and hub. For more info, see [Snapshot Isolation in SQL Server](https://docs.microsoft.com/dotnet/framework/data/adonet/sql/snapshot-isolation-in-sql-server).
 
 ### General limitations
 

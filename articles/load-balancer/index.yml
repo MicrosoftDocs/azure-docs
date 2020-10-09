@@ -104,6 +104,10 @@ landingContent:
             url: load-balancer-common-deployment-errors.md
           - text: Resolve common outbound connection issues
             url: troubleshoot-outbound-connection.md
+      - linkListType: video
+        links:
+          - text: Build & monitor highly available apps with Azure Load Balancer
+            url: https://techcommunity.microsoft.com/t5/video-hub/build-amp-monitor-highly-available-apps-w-azure-load-balancer/m-p/1703353
       
      # Card
   - title: Reference
