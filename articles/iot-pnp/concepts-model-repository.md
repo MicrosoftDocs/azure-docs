@@ -35,7 +35,7 @@ The public digital twin models stored in the model repository are available to e
 
 Refer to the [Submit a model](#submit-a-model) section for instructions on how to publish a model in the model repository to make it public.
 
-Users can browse, search, and view public interfaces from the official GitHub repository: [https://github.com/Azure/device-models](https://github.com/Azure/device-models). 
+Users can browse, search, and view public interfaces from the official GitHub repository: [https://github.com/Azure/iot-plugandplay-models](https://github.com/Azure/iot-plugandplay-models). 
 
 All interfaces in the `dtmi` folders are also available from the public endpoint [https://devicemodels.azure.com](https://devicemodels.azure.com)
 
@@ -77,13 +77,13 @@ string modelContent = await _httpClient.GetStringAsync(fullyQualifiedPath);
 > [!Important]
 > You must have a GitHub account to be able to submit models to the public DMR.
 
-1. Fork the public GitHub repo: [https://github.com/Azure/device-models](https://github.com/Azure/device-models).
+1. Fork the public GitHub repo: [https://github.com/Azure/iot-plugandplay-models](https://github.com/Azure/iot-plugandplay-models).
 1. Clone the forked repo. Optionally create a new branch to keep your changes isolated from the `main` branch.
 1. Add the new interfaces to the `dtmi` folder using the folder/filename convention. See the [add-model](#add-model) tool.
 1. Validate the models locally using the [scripts to validate changes](#validate-files) section.
 1. Commit the changes locally and push to your fork.
 1. From your fork, create a PR that targets the `main` branch.
-1. Review the [PR requirements](https://github.com/Azure/device-models/pr-reqs.md)
+1. Review the [PR requirements](https://github.com/Azure/iot-plugandplay-models/pr-reqs.md)
 
 The PR triggers a series of GitHub actions that will validate the new submitted interfaces, and make sure your PR satisfies all the checks.
 
