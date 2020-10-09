@@ -20,7 +20,7 @@ Select categories and subcategories to place your offer in the appropriate marke
 - At least one and up to two categories, including a primary and a secondary category (optional).
 - Up to two subcategories for each primary and/or secondary category. If no subcategory is applicable to your offer, select **Not applicable**.
 
-See the full list of categories and subcategories in [Offer Listing Best Practices](../gtm-offer-listing-best-practices.md). Virtual machine offers always appear under the **Compute** category on Azure Marketplace.
+See the full list of categories and subcategories in [Offer Listing Best Practices](gtm-offer-listing-best-practices.md). Virtual machine offers always appear under the **Compute** category on Azure Marketplace.
 
 ## Legal
 
@@ -43,7 +43,7 @@ You must provide offer terms and conditions to your customers. You have two opti
   > [!NOTE]
   > After you publish an offer by using the Standard Contract for the commercial marketplace, you can't use your own custom terms and conditions. You can offer a solution under either the Standard Contract or your own terms and conditions.
 
-  For more information, see [Standard Contract for the Microsoft commercial marketplace](../standard-contract.md). Download the [Standard Contract](https://go.microsoft.com/fwlink/?linkid=2041178) PDF file (make sure your pop-up blocker is turned off).
+  For more information, see [Standard Contract for the Microsoft commercial marketplace](standard-contract.md). Download the [Standard Contract](https://go.microsoft.com/fwlink/?linkid=2041178) PDF file (make sure your pop-up blocker is turned off).
 
   ## Standard Contract amendments
 

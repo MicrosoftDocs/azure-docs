@@ -38,10 +38,10 @@ The **Offer overview** page shows a visual representation of the steps, both com
 
 This page also includes links to help you work with the offer, depending on its status:
 
-- If the offer is a draft: [Delete draft offer](update-existing-offer.md#delete-a-draft-offer)
-- If the offer is live: [Stop selling the offer](update-existing-offer.md#stop-selling-an-offer-or-plan)
-- If the offer is in preview: [Go-live](publishing-status.md#publisher-approval)
-- If you haven't completed publisher sign-out: [Cancel publishing](update-existing-offer.md#cancel-publishing)
+- If the offer is a draft: [Delete draft offer](partner-center-portal/update-existing-offer.md#delete-a-draft-offer)
+- If the offer is live: [Stop selling the offer](partner-center-portal/update-existing-offer.md#stop-selling-an-offer-or-plan)
+- If the offer is in preview: **Go-live** (publishing-status.md#publisher-approval link invalid)
+- If you haven't completed publisher sign-out: [Cancel publishing](partner-center-portal/update-existing-offer.md#cancel-publishing)
 
 ## Marketplace examples
 
@@ -114,4 +114,4 @@ Here's an example of how offer information appears in Azure Marketplace:
 
 ## Next steps
 
-- [Market your VM offer](azure-vm-market.md)
+- [Market your VM offer](azure-vm-create-marketing.md)

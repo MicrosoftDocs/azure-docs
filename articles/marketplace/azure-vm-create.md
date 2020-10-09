@@ -23,13 +23,13 @@ If you haven't done so yet, review [Plan a virtual machine offer](marketplace-vi
   - [Azure quickstart templates](https://azure.microsoft.com/resources/templates/)
   - [GitHub Azure quickstart templates](https://github.com/azure/azure-quickstart-templates)
 - Tutorials
-  - [Linux VMs](../../virtual-machines/linux/tutorial-manage-vm.md)
-  - [Windows VMs](../../virtual-machines/windows/tutorial-manage-vm.md)
+  - [Linux VMs](../virtual-machines/linux/tutorial-manage-vm.md)
+  - [Windows VMs](../virtual-machines/windows/tutorial-manage-vm.md)
 - Samples
-  - [Azure CLI samples for Linux VMs](../../virtual-machines/linux/cli-samples.md)
-  - [Azure PowerShell for Linux VMs](../../virtual-machines/linux/powershell-samples.md)
-  - [Azure CLI samples for Windows VMs](../../virtual-machines/windows/cli-samples.md)
-  - [Azure PowerShell for Windows VMs](../../virtual-machines/scripts/virtual-machines-windows-powershell-sample-create-vm-quick.md)
+  - [Azure CLI samples for Linux VMs](../virtual-machines/linux/cli-samples.md)
+  - [Azure PowerShell for Linux VMs](../virtual-machines/linux/powershell-samples.md)
+  - [Azure CLI samples for Windows VMs](../virtual-machines/windows/cli-samples.md)
+  - [Azure PowerShell for Windows VMs](../virtual-machines/scripts/virtual-machines-windows-powershell-sample-create-vm-quick.md)
 
 ## Fundamentals in technical knowledge
 
@@ -70,7 +70,7 @@ To enable a Test Drive, select the **Enable a test drive** check box on the **Of
 
 Additional Test Drive resources:
 
-- [Marketing best practices](../what-is-test-drive.md)
+- [Marketing best practices](what-is-test-drive.md)
 - [Technical best practices](https://github.com/Azure/AzureTestDrive/wiki/Test-Drive-Best-Practices)
 - [Test drive overview](https://assetsprod.microsoft.com/mpn/azure-marketplace-appsource-test-drives.pdf) PDF file (make sure that your pop-up blocker is turned off)
 
@@ -79,12 +79,12 @@ Additional Test Drive resources:
 When you're publishing your offer to the commercial marketplace with Partner Center, connect it to your Customer Relationship Management (CRM) system. This lets you receive customer contact information as soon as someone expresses interest in or uses your product. Connecting to a CRM is required if you want to enable a Test Drive (see the preceding section). Otherwise, connecting to a CRM is optional.
 
 1. Select a lead destination where you want us to send customer leads. Partner Center supports the following CRM systems:
-    - [Dynamics 365](commercial-marketplace-lead-management-instructions-dynamics.md) for customer engagement
-    - [Marketo](commercial-marketplace-lead-management-instructions-marketo.md)
-    - [Salesforce](commercial-marketplace-lead-management-instructions-salesforce.md)
+    - [Dynamics 365](partner-center-portal/commercial-marketplace-lead-management-instructions-dynamics.md) for customer engagement
+    - [Marketo](partner-center-portal/commercial-marketplace-lead-management-instructions-marketo.md)
+    - [Salesforce](partner-center-portal/commercial-marketplace-lead-management-instructions-salesforce.md)
 
     > [!NOTE]
-    > If your CRM system isn't listed here, use [Azure Table storage](commercial-marketplace-lead-management-instructions-azure-table.md) or an [HTTPS endpoint](commercial-marketplace-lead-management-instructions-https.md) to store your customer lead data. Then export the data to your CRM system.
+    > If your CRM system isn't listed here, use [Azure Table storage](partner-center-portal/commercial-marketplace-lead-management-instructions-azure-table.md) or an [HTTPS endpoint](partner-center-portal/commercial-marketplace-lead-management-instructions-https.md) to store your customer lead data. Then export the data to your CRM system.
 
 1. Connect your offer to the lead destination when you're publishing in Partner Center.
 1. Confirm that the connection to the lead destination is configured properly. After you publish it in Partner Center, Microsoft validates the connection and sends you a test lead. While you're previewing the offer before it goes live, you can also test your lead connection by trying to deploy the offer yourself in the preview environment.

@@ -18,7 +18,7 @@ Microsoft provides support for a wide variety of products and services. Finding 
 
 ## Support options for publishers
 
-1. Sign in to the [commercial marketplace program on Partner Center](https://partner.microsoft.com/dashboard/commercial-marketplace/overview) with your work account (if you have not yet done so, you will need to [create a Partner Center account](partner-center/create-account.md).
+1. Sign in to the [commercial marketplace program on Partner Center](https://partner.microsoft.com/dashboard/commercial-marketplace/overview) with your work account (if you have not yet done so, you will need to [create a Partner Center account](create-account.md).
 
 2. In the upper menu on the right side of the page, select the **Support** icon.
 
