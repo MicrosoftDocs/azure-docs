@@ -8,10 +8,9 @@ ms.service: mysql
 ms.topic: troubleshooting
 ms.date: 10/08/2020
 ---
+# Troubleshoot Replication latency in Azure Database for MySQL
 
 [!INCLUDEapplies-to-single-flexible-server]
-
-# Troubleshoot Replication latency in Azure Database for MySQL
 
 The [read replica](concepts-read-replicas.md) feature allows you to replicate data from an Azure Database for MySQL server to a read-only replica server. Read Replicas are used to scale out workload by routing read/reporting queries from the application to replica servers. This reduces the pressure on primary server and improves overall performance and latency of the application as it scales. Replicas are updated asynchronously using the MySQL engine's native binary log (binlog) file position-based replication technology. To learn more about binlog replication, see the [MySQL binlog replication overview](https://dev.mysql.com/doc/refman/5.7/en/binlog-replication-configuration-overview.html). 
 
