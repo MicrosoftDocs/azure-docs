@@ -570,7 +570,7 @@ The recommended way to monitor the execution of your functions is by integrating
 
 ### Application Insights integration
 
-Application Insights integration should be enabled when you create your function app in Azure. If for some reason your function app isn't connected to an Application Insights instance, it's easy to do this integration in the Azure portal. To learn more, see [Enable Application Insights integration](manually-connect-an-app-insights-resource).
+Application Insights integration should be enabled when you create your function app in Azure. If for some reason your function app isn't connected to an Application Insights instance, it's easy to do this integration in the Azure portal. To learn more, see [Enable Application Insights integration](configure-monitoring.md#enable-application-insights-integration).
 
 ### Enable streaming logs
 

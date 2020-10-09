@@ -12,4 +12,4 @@ ms.author: glenga
 |**`<VERBOSITY>`** | Specifies the level of logging. Supported values are `None`, `Warning`, and `Verbose`.<br/>When set to `Verbose`, the scale controller logs a reason for every change in the worker count, as well as information about the triggers that factor into those decisions. Verbose logs include trigger warnings and the hashes used by the triggers before and after the scale controller runs. |
 
 > [!TIP]
-> Keep in mind that while you leave scale controller logging enabled, it impacts the potential costs of monitoring your function app. Consider enabling logging until you have collected enough data to understand how the scale controller is behaving, and then disabling it.
+> Keep in mind that while you leave scale controller logging enabled, it impacts the [potential costs of monitoring your function app](../articles/azure-functions/functions-monitoring.md#application-insights-pricing-and-limits). Consider enabling logging until you have collected enough data to understand how the scale controller is behaving, and then disabling it.
