@@ -64,6 +64,20 @@ Select *Microsoft Azure Spring Cloud*.
 
 11. Click **Review and create**.
 
+## Define DevOps engineer role
+This procedure defines a role with permissions to deploy, test, and restart Azure Spring Cloud apps.
+
+1. Repeat the procedure to navigate subscription, resource group,and access Access control (IAM).
+2. Select the permissions:
+
+   [ ![App platform permissions](media/spring-cloud-permissions/dev-ops-permissions.png) ](media/spring-cloud-permissions/dev-ops-permissions.png#lightbox)
+
+3. Click **Add**.
+
+4. Review the permissions.
+
+5. Click **Review and create**.
+
 ## Define Ops - Site Reliability Engineering role
 This procedure defines a role with permissions to deploy, test, and restart Azure Spring Cloud apps.
 
