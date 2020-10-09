@@ -18,7 +18,7 @@ CycleCloud can be configured to publish to an Event Grid *topic* by connecting i
 The events are in the standard Event Grid schema. All CycleCloud-specific elements are in the `data` property on the event.
 
 | Name | Type | Description |
-| - | - | - | 
+| - | - | - |
 | eventId | String | Uniquely identifies the event |
 | eventTime | String | The time of this event (yyyy-MM-ddTHH:mm:ss.SSSZZ) |
 | eventType | String | The kind of state transition that happened (e.g., `Microsoft.CycleCloud.NodeCreated`)|
@@ -34,13 +34,12 @@ In addition, there are several custom properties in `data` for almost all events
 | message | String | A human-readable summary of this event |
 | errorCode | String | The code for this operation if it failed or was unavailable. Note this may come directly from Azure calls and may not be present for all failures |
 
-
 ### Cluster events
 
 CycleCloud sends events when clusters are modified. Cluster events contain the following common properties in `data`:
 
 | Property | Type | Description |
-| - | - | - | 
+| - | - | - |
 | clusterName | String | The name of the cluster |
 
 #### Microsoft.CycleCloud.ClusterStarted
@@ -60,7 +59,7 @@ This event is fired when a cluster is deleted.
 This event is fired when nodes are added to the cluster. There is one event for each set of nodes added. (Nodes in a set all have the same definition.)
 
 | Property | Type | Description |
-| - | - | - | 
+| - | - | - |
 | nodesRequested | Integer | How many nodes were requested for this set |
 | nodesAdded | Integer | How many nodes were actually added to the cluster |
 | nodeArray | String | The nodearray these nodes were created from |
@@ -75,7 +74,7 @@ This event is fired when nodes are added to the cluster. There is one event for 
 CycleCloud sends events when nodes change state. Node events contain additional information in the `data` property:
 
 | Property | Type | Description |
-| - | - | - | 
+| - | - | - |
 | status | [Status](#status) (String) | Whether this event was successful or not |
 | clusterName | String | The name of the cluster this node is in. Names are not unique over time |
 | nodeName | String | The name of the node that is affected. Names are not unique over time |
@@ -92,36 +91,36 @@ CycleCloud sends events when nodes change state. Node events contain additional 
 
 #### Microsoft.CycleCloud.NodeAdded
 
-This event is fired for each node that is added to a cluster. (To get an event for a set of nodes added at once, see `Microsoft.CycleCloud.ClusterSizeIncreased`.) This is sent when the node first appears in the UI, so it does not have any timing information.
+This event is fired for each node that is added to a cluster. (To get an event for a set of nodes added at once, see [ClusterSizeIncreased](#microsoftcyclecloudclustersizeincreased).) This is sent when the node first appears in the UI, so it does not have any timing information.
 
 #### Microsoft.CycleCloud.NodeCreated
 
 This event is fired each time a node is started for the first time (i.e., a VM is created for it). This event contains the following timing information:
 
-  - `Create`: How long it took to create the node, in total
-  - `CreateVM`: How long it took to create the VM
-  - `Configure`: How long it took to install software on the node
+  - `Create`: The total time to create the node. This includes creating the VM and configuring the VM.
+  - `CreateVM`: How long it took to create the VM.
+  - `Configure`: How long it took to install software and configure the node.
 
 #### Microsoft.CycleCloud.NodeDeallocated
 
 This event is fired each time a node is deallocated. This event contains the following timing information:
 
-  - `Deallocate`: How long it took to deallocate the node, in total
-  - `DeallocateVM`: How long it took to deallocate the VM
+  - `Deallocate`: The total time to deallocate the node.
+  - `DeallocateVM`: How long it took to deallocate the VM.
 
 #### Microsoft.CycleCloud.NodeStarted
 
 This event is fired each time a node is re-started from a deallocated state. This event contains the following timing information:
 
-  - `Start`: How long it took to start the node, in total
-  - `StartVM`: How long it took to start the VM
+  - `Start`: The total time it took to restart the deallocated node.
+  - `StartVM`: How long it took to start the deallocated VM.
 
 #### Microsoft.CycleCloud.NodeTerminated
 
 This event is fired each time a node is terminated and its VM is deleted. This event contains the following timing information:
 
-  - `Terminate`: How long it took to terminate the node, in total
-  - `DeleteVM`: How long it took to delete the VM
+  - `Terminate`: The total time it took to terminate the node.
+  - `DeleteVM`: How long it took to delete the VM.
 
 ### Subject
 
@@ -151,11 +150,11 @@ Some events have a reason that they were initiated. Unless otherwise indicated, 
   - `AllocationFailed`: the VM could not be allocated due to placement or capacity constraints (NodeTerminated/NodeDeallocated events only, with the status indicating the result of the terminate/deallocate operation)
 
 > [!NOTE]
-> The `reason` is set on NodeTerminated events to indicate why the node was terminated. 
+> The `reason` is set on NodeTerminated events to indicate why the node was terminated.
 > When a node fails to be created due to capacity, it fails with the specific error code from Azure (of which there are several).
-> The node is then automatically terminated, and the reason for the termination is `AllocationFailed`. 
-> When a running spot VM is evicted, the create operation had already succeeded. 
-> The node is then automatically terminated and the reason given for the termination event is `SpotEvicted`. 
+> The node is then automatically terminated, and the reason for the termination is `AllocationFailed`.
+> When a running spot VM is evicted, the create operation had already succeeded.
+> The node is then automatically terminated and the reason given for the termination event is `SpotEvicted`.
 
 ### Timing
 
