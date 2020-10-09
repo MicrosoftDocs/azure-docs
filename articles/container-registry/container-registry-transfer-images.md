@@ -64,7 +64,7 @@ Storage authentication uses SAS tokens, managed as secrets in key vaults. The pi
 
 ### Things to know
 * The ExportPipeline and ImportPipeline will typically be in different Active Directory tenants associated with the source and destination clouds. This scenario requires separate managed identities and key vaults for the export and import resources. For testing purposes, these resources can be placed in the same cloud, sharing identities.
-* By default, the ExportPipeline and ImportPipeline each enable a system-assigned managed identity to access key vault secrets. The ExportPipeline and ImportPipeline also support a user-assigned identity that you provide. 
+* By default, the ExportPipeline and ImportPipeline templates each enable a system-assigned managed identity to access key vault secrets. The ExportPipeline and ImportPipeline templates also support a user-assigned identity that you provide. 
 
 ## Create and store SAS keys
 
