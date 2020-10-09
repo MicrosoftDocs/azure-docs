@@ -15,6 +15,6 @@ A *log level* is assigned to every log. `LogLevel` is an enumeration, where the 
 |Warning     | 3 | Logs that highlight an abnormal or unexpected event in the application flow, but don't otherwise cause the application execution to stop. |
 |Error       | 4 | Logs that highlight when the current flow of execution is stopped because of a failure. These errors should indicate a failure in the current activity, not an application-wide failure. |
 |Critical    | 5 | Logs that describe an unrecoverable application or system crash, or a catastrophic failure that requires immediate attention. |
-|None        | 6 | Not used for writing log messages. Specifies that a logging category shouldn't write any messages. |
+|None        | 6 | Disables logging for the specified category. |
 
-The host.json file configuration determines how much logging a function app sends to Application Insights. 
+The [*host.json* file](../articles/azure-functions/functions-host-json.md) configuration determines how much logging a functions app sends to Application Insights.  
