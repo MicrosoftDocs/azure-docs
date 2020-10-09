@@ -44,7 +44,7 @@ See [the list of known issues](resource-known-issues.md) to learn about known bu
     + azureml-interpret package updated to depend on interpret-community 0.15.0
     + fix pypi package descriptions for azureml-interpret, azureml-explain-model, azureml-contrib-interpret and azureml-tensorboard
   + **azureml-pipeline-core**
-    +  Fixed pipeline hanging issue with `OutputFileDatasetConfig` when`register_on_complete` is called with the `name` parameter set to a pre-existing dataset name.
+    +  Fixed pipeline issue with `OutputFileDatasetConfig` where the system may stop responding when`register_on_complete` is called with the `name` parameter set to a pre-existing dataset name.
   + **azureml-pipeline-steps**
     + Removed stale databricks notebooks.
   + **azureml-tensorboard**

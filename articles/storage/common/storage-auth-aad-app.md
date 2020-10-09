@@ -27,7 +27,7 @@ The sample application provides an end-to-end experience that shows how to confi
 
 ## Assign a role to an Azure AD security principal
 
-To authenticate a security principal from your Azure Storage application, first configure role-based access control (RBAC) settings for that security principal. Azure Storage defines built-in roles that encompass permissions for containers and queues. When the RBAC role is assigned to a security principal, that security principal is granted access to that resource. For more information, see [Manage access rights to Azure Blob and Queue data with RBAC](storage-auth-aad-rbac.md).
+To authenticate a security principal from your Azure Storage application, first configure Azure role-based access control (Azure RBAC) settings for that security principal. Azure Storage defines built-in roles that encompass permissions for containers and queues. When the Azure role is assigned to a security principal, that security principal is granted access to that resource. For more information, see [Manage access rights to Azure Blob and Queue data with Azure RBAC](storage-auth-aad-rbac.md).
 
 ## Register your application with an Azure AD tenant
 
@@ -123,7 +123,7 @@ To request the token, you will need the following values from your app's registr
 
 To run the code sample, create a storage account within the same subscription as your Azure Active Directory. Then create a container within that storage account. The sample code will create a block blob in this container.
 
-Next, explicitly assign the **Storage Blob Data Contributor** role to the user account under which you will run the sample code. For instructions on how to assign this role in the Azure portal, see [Grant access to Azure blob and queue data with RBAC in the Azure portal](storage-auth-aad-rbac-portal.md).
+Next, explicitly assign the **Storage Blob Data Contributor** role to the user account under which you will run the sample code. For instructions on how to assign this role in the Azure portal, see [Use the Azure portal to assign an Azure role for access to blob and queue data](storage-auth-aad-rbac-portal.md).
 
 > [!NOTE]
 > When you create an Azure Storage account, you are not automatically assigned permissions to access data via Azure AD. You must explicitly assign yourself an Azure role for Azure Storage. You can assign it at the level of your subscription, resource group, storage account, or container or queue.
@@ -287,5 +287,5 @@ https://<storage-account>.blob.core.windows.net/<container>/Blob1.txt
 ## Next steps
 
 - [Microsoft identity platform](https://docs.microsoft.com/azure/active-directory/develop/)
-- [Manage access rights to storage data with RBAC](storage-auth-aad-rbac.md)
+- [Manage access rights to storage data with Azure RBAC](storage-auth-aad-rbac.md)
 - [Authenticate access to blobs and queues with Azure Active Directory and managed identities for Azure Resources](storage-auth-aad-msi.md)

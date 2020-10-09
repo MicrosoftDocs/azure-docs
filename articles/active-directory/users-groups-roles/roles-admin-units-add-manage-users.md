@@ -26,21 +26,30 @@ For steps to prepare to use PowerShell and Microsoft Graph for administrative un
 
 ### Azure portal
 
-You can assign users to administrative units in two ways.
+You can assign users to administrative units individually or in a bulk operation.
 
-1. Individual assignment
+- Individual assignment from a user profile
 
-    1. You can go to the Azure AD in the portal and select Users and select the user to be assigned to an administrative unit. You can then select Administrative units in the left panel. The user can be assigned to one or more administrative units by clicking on **Assign to administrative unit and selecting the administrative units where the user is to be assigned.
+   1. Sign in to the [Azure AD admin center](https://portal.azure.com) with Privileged Role Administrator permissions.
+   1. Select **Users** and select the user to be assigned to an administrative unit to open the user's profile.
+   1. Select **Administrative units**. The user can be assigned to one or more administrative units by selecting **Assign to administrative unit** and selecting the administrative units where the user is to be assigned.
 
        ![select Add and then enter a name for the administrative unit](./media/roles-admin-units-add-manage-users/assign-users-individually.png)
 
-    1. You can go to Azure AD in the portal and select Administrative units in the left pane and then select the administrative unit where the users are to be assigned. Select **All users** and then select **Add member**. You can then go ahead and select one or more users to be assigned to the administrative unit from the right pane.
+- Individual assignment from an administrative unit
+
+   1. Sign in to the [Azure AD admin center](https://portal.azure.com) with Privileged Role Administrator permissions.
+   1. Select **Administrative units** and then select the administrative unit where the users are to be assigned.
+   1. Select **All users** and then select **Add member** to select one or more users to be assigned to the administrative unit from the **Add member** pane.
 
         ![select an administrative unit and then select Add member](./media/roles-admin-units-add-manage-users/assign-to-admin-unit.png)
 
-1. Bulk assignment
+- Bulk assignment
 
-    Go to Azure AD in the portal and select Administrative units. Select the administrative unit where users are to be added. Proceed by clicking on All users -> Add members from .csv file. You can then download the CSV template and edit the file. The format is simple and needs a single UPN to be added in each line. Once the file is ready, save it at an appropriate location and then upload it in step 3 as highlighted in the snapshot.
+   1. Sign in to the [Azure AD admin center](https://portal.azure.com) with Privileged Role Administrator permissions.
+   1. Select **Administrative units**.
+   1. Select the administrative unit where users are to be added.
+   1. Open **All users** > **Add members from .csv file**. You can then download the comma-separated values (CSV) template and edit the file. The format is simple and needs a single User Principal Name to be added in each line. Once the file is ready, save it at an appropriate location and then upload it as part of this step.
 
     ![bulk assign users to an administrative unit](./media/roles-admin-units-add-manage-users/bulk-assign-to-admin-unit.png)
 
@@ -92,6 +101,7 @@ In the Azure portal you can open a user's profile by:
 ```powershell
 Get-AzureADMSAdministrativeUnit | where { Get-AzureADMSAdministrativeUnitMember -Id $_.ObjectId | where {$_.RefObjectId -eq $userObjId} }
 ```
+Note: By default, Get-AzureADAdministrativeUnitMember only returns 100 members, you can add "-All $true" to retrieve more members.
 
 ### Microsoft Graph
 

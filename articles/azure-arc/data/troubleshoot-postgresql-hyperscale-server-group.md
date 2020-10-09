@@ -12,7 +12,7 @@ ms.topic: how-to
 ---
 
 # Troubleshooting PostgreSQL Hyperscale server groups
-This article describes some techniques you may use to troubleshoot your server group. In addition to this article you may want to read how to use [Kibana](monitor-grafana-kibana.md) to seach the logs or use [Grafana](monitor-grafana-kibana.md) to visualize metrics about your server group. 
+This article describes some techniques you may use to troubleshoot your server group. In addition to this article you may want to read how to use [Kibana](monitor-grafana-kibana.md) to search the logs or use [Grafana](monitor-grafana-kibana.md) to visualize metrics about your server group. 
 
 ## Getting more details about the execution of an azdata command
 You may add the parameter **--debug** to any azdata command you execute. Doing so will display to your console additional information about the execution of that command. You should find it useful to get details to help you understand the behavior of that command.

@@ -22,8 +22,8 @@ RDP files have the following properties by default:
 
 |RDP property|On Desktop|As a RemoteApp|
 |---|---|---|
-|Multi-monitor mode|Enabled|N/A|
-|Drive redirections enabled|Drives, clipboard, printers, COM ports, USB devices and smartcards|Drives, clipboard, and printers|
+|Multi-monitor mode|Disabled|Enabled|
+|Drive redirections enabled|Drives, clipboard, printers, COM ports, and smart cards|Drives, clipboard, and printers|
 |Remote audio mode|Play locally|Play locally|
 
 ## Prerequisites

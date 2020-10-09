@@ -117,15 +117,10 @@
     items:
     - name: Overview
       href: platform/data-platform.md
-    - name: Data locations
-      href: platform/data-locations.md
-    - name: Metrics
-      href: platform/data-platform-metrics.md
     - name: Logs
       href: platform/data-platform-logs.md
-    - name: Log data ingestion time
-      displayname: latency
-      href: platform/data-ingestion-time.md 
+    - name: Metrics
+      href: platform/data-platform-metrics.md
     - name: Stream data to Event Hubs
       href: platform/stream-monitoring-data-event-hubs.md 
   - name: Insights
@@ -209,39 +204,42 @@
       href: platform/diagnostic-settings.md
   - name: Log Analytics
     items:
-    - name: Log query overview
-      displayname: log query, log queries, query, queries
+    - name: Overview
+      displayname: Log Analytics, log query, log queries, query, queries
       href: log-query/log-query-overview.md
+    - name: Tutorial
+      displayname: Log Analytics workspace, log query, log queries, query, queries
+      href: log-query/get-started-portal.md
+    - name: Query scope
+      href: log-query/scope.md
     - name: Simple logs experience
       href: log-query/simple-logs.md
-    - name: Audit log queries
-      href: log-query/query-audit.md
-    - name: Tutorials
+    - name: Log queries
       items:
-      - name: Log Analytics tutorial
-        href: log-query/get-started-portal.md
-      - name: Log queries tutorial
-        href: log-query/get-started-queries.md
-    - name: Log data
-      items:
-      - name: Query scope
-        href: log-query/scope.md
       - name: Standard columns
         href: platform/log-standard-columns.md
+      - name: Audit queries
+        href: log-query/query-audit.md
+      - name: Optimize queries
+        href: log-query/query-optimization.md
+      - name: Functions
+        href: log-query/functions.md
+      - name: Parse text data
+        href: log-query/parse-text.md
+      - name: Example queries
+        href: log-query/saved-queries.md
       - name: Computer groups
         href: platform/computer-groups.md
     - name: Query language
       items:
-      - name: Query language Documentation
-        href: log-query/query-language.md
-      - name: Language differences
+      - name: KQL reference
+        href: /azure/data-explorer/kusto/query/
+      - name: Difference from Azure Data Explorer
         href: log-query/data-explorer-difference.md
-      - name: Useful operators
-        href: log-query/useful-operators.md
-      - name: Functions
-        href: log-query/functions.md
-      - name: Transition from log search
-        href: log-query/log-search-transition.md
+      - name: Examples
+        href: log-query/examples.md
+      - name: Smart analytics examples
+        href: log-query/smart-analytics.md
       - name: Lessons
         items:
         - name: String operations
@@ -268,9 +266,9 @@
           href: log-query/sql-cheatsheet.md
         - name: Splunk
           href: log-query/splunk-cheatsheet.md
-    - name: Cross resource
+    - name: Cross resource queries
       items:
-      - name: Cross-resource queries
+      - name: Overview
         href: log-query/cross-workspace-query.md
       - name: app expression
         href: log-query/app-expression.md
@@ -280,38 +278,29 @@
         href: log-query/resource-expression.md   
       - name: Unify application data resources
         href: log-query/unify-app-resource-data.md
-    - name: Examples and guidance
-      items:
-      - name: Example queries
-        href: log-query/saved-queries.md
-      - name: Log query examples
-        href: log-query/examples.md
-      - name: Smart analytics examples
-        href: log-query/smart-analytics.md
-      - name: Optimize queries
-        href: log-query/query-optimization.md
-      - name: Parse text data
-        href: log-query/parse-text.md
     - name: Workspaces and clusters
       items:
       - name: Design a workspace deployment
         href: platform/design-logs-deployment.md
       - name: Create a workspace
         items:
-        - name: Use Azure portal
+        - name: Azure portal
           href: learn/quick-create-workspace.md 
-        - name: Use Azure CLI
+        - name: Azure CLI
           href: learn/quick-create-workspace-cli.md
-        - name: Use PowerShell
+        - name: PowerShell
           href: platform/powershell-workspace-configuration.md
+        - name: Resource Manager template
+          href: platform/template-workspace-configuration.md
       - name: Delete and recover a workspace
         href: platform/delete-workspace.md
+      - name: Manage access
+        displayName: Log Analytics workspace
+        href: platform/manage-access.md
       - name: Move a workspace
         href: platform/move-workspace.md
       - name: Design for service providers
         href: platform/service-providers.md
-      - name: Manage access
-        href: platform/manage-access.md
       - name: Dedicated clusters
         href: log-query/logs-dedicated-clusters.md
   - name: Metrics explorer
@@ -328,6 +317,9 @@
     items:
     - name: Data collection rules
       href: platform/data-collection-rule-overview.md
+    - name: Log data ingestion time
+      displayname: latency
+      href: platform/data-ingestion-time.md 
     - name: Agent data sources
       items:
       - name: Overview
@@ -666,6 +658,8 @@
             href: app/javascript-react-plugin.md
           - name: React Native plugin
             href: app/javascript-react-native-plugin.md 
+          - name: Angular plugin
+            href: app/javascript-angular-plugin.md
         - name: Troubleshoot
           items: 
           - name: SDK load failure 
@@ -757,8 +751,6 @@
       - name: Availability alerts
         displayname: alerts, global, alerting
         href: app/availability-alerts.md
-      - name: Performance testing
-        href: app/performance-testing.md
       - name: Troubleshooting
         displayname: availability, troubleshoot, troubleshoot availability
         href: app/troubleshoot-availability.md
@@ -982,6 +974,8 @@
       href: insights/vminsights-maps.md
     - name: Monitor performance
       href: insights/vminsights-performance.md
+    - name: Monitor changes
+      href: insights/vminsights-change-analysis.md
     - name: Analyze data with log queries
       href: insights/vminsights-log-search.md
     - name: Visualize data with workbooks
@@ -1167,12 +1161,18 @@
         href: platform/workbooks-time.md
       - name: Text parameters
         href: platform/workbooks-text.md
+      - name: Resource parameters
+        href: platform/workbooks-resources.md
     - name: Configuration
       items:
       - name: Access control
         href: platform/workbooks-access-control.md
       - name: Deploy with Azure Resource Manager
         href: platform/workbooks-automate.md
+      - name: Groups
+        href: platform/workbooks-groups.md
+      - name: Transform JSON data with JSONPath
+        href: platform/workbooks-jsonpath.md
       - name: Move Workbooks to another region
         href: platform/workbooks-move-region.md
       - name: Move Workbook Templates to another region
@@ -1324,6 +1324,8 @@
     href: samples/policy-reference.md
   - name: Feature and API Retirement 
     items:
+    - name: OperationalInsights API
+      href: platform/operationalinsights-api-retirement.md
     - name: Classic autoscale & metrics API
       href: ./platform/classic-api-retirement-metrics-autoscale.md 
     - name: Classic alerting & monitoring 
