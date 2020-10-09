@@ -35,14 +35,22 @@ landingContent:
             url: add-security-principal.md
       - linkListType: tutorial
         links:
-          - text: Homepage and search
-            url: starter-kit-tutorial-1.md # update link
+          - text: 1 - Run starter kit and scan data 
+            url: starter-kit-tutorial-1.md
+          - text: 2 - Home page and search
+            url: starter-kit-tutorial-2.md
+          - text: 3 - Browse and lineage 
+            url: starter-kit-tutorial-3.md
+          - text: 4 - Resource sets, assets, schemas, classifications 
+            url: starter-kit-tutorial-4.md
+          - text: 5 - Glossary terms
+            url: starter-kit-tutorial-5.md
   # Card
   - title: Scan Azure data sources
     linkLists:
       - linkListType: tutorial
         links:
-          - text: Run the starter kit and scan data 
+          - text: 1 - Run starter kit and scan data 
             url: starter-kit-tutorial-1.md
       - linkListType: how-to-guide
         links:
@@ -54,6 +62,8 @@ landingContent:
             url: starter-kit-tutorial-1.md # update link
           - text: Power BI Tenant
             url: starter-kit-tutorial-1.md # update link
+          - text: Register and scan Azure Blob Storage
+            url: register-scan-azure-files-storage-source.md
   - title: Scan non-Azure data sources
     linkLists:
     - linkListType: how-to-guide
@@ -78,10 +88,10 @@ landingContent:
     linkLists:
     - linkListType: tutorial
       links:
-        - text: Resource set, asset details, schema, and classification
-          url: starter-kit-tutorial-1.md # update link
-        - text: Glossary, terms, and import
-          url: starter-kit-tutorial-1.md # update link
+        - text: 4 - Resource sets, assets, schemas, classifications
+          url: starter-kit-tutorial-4.md # update link
+        - text: 5 - Glossary terms
+          url: starter-kit-tutorial-5.md # update link
     - linkListType: how-to-guide
       links:
         - text: Create, edit, & delete custom classifications and rules
@@ -92,8 +102,8 @@ landingContent:
     linkLists:
     - linkListType: tutorial
       links:
-        - text: Browse and lineage
-          url: starter-kit-tutorial-1.md # update link
+        - text: 3 - Browse and lineage
+          url: starter-kit-tutorial-3.md # update link
     - linkListType: how-to-guide
       links:
         - text: Browse by asset type
