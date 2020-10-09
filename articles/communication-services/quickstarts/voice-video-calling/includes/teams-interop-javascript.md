@@ -18,7 +18,7 @@ In this quickstart, you'll learn how your Azure application can join a Teams mee
 The Teams interoperability feature is currently in private preview. To enable, please email [acsfeedback@microsoft.com](mailto:acsfeedback@microsoft.com) with:
 
 1. Applicable Azure subscription id
-2. Teams orgid
+2. Teams tenant id. The easiest way to obtain this is to [obtain and share a link to the Team](https://support.microsoft.com/en-us/office/create-a-link-or-a-code-for-joining-a-team-11b0de3b-9288-4cb4-bc49-795e7028296f#:~:text=Create%20a%20link%20If%20you%E2%80%99re%20a%20team%20owner%2C,link%20into%20any%20browser%20to%20join%20the%20team.).
 
 You must be the owning organization of both entities to use this feature.
 
