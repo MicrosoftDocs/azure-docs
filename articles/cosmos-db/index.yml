@@ -180,20 +180,6 @@ landingContent:
             url: cassandra-change-feed?tabs=java.md 
 
   # Card
-  - title: Use Azure Cosmos DB Table API
-    linkLists:
-      - linkListType: quickstart
-        links:
-          - text: Manage your data using a .NET app
-            url: create-table-dotnet.md            
-          - text: Manage your data using a Java app
-            url: create-table-java.md                     
-      - linkListType: concept
-        links:
-          - text: Differences between Table API and Azure Table storage
-            url: table-support.md 
-
-  # Card
   - title: Migrate your data to Cosmos DB
     linkLists:
       - linkListType: tutorial
@@ -234,3 +220,17 @@ landingContent:
         links:
           - text: Configure Azure Synapse Link
             url: configure-synapse-link.md
+
+  # Card
+  - title: Use Azure Cosmos DB Table API
+    linkLists:
+      - linkListType: quickstart
+        links:
+          - text: Manage your data using a .NET app
+            url: create-table-dotnet.md            
+          - text: Manage your data using a Java app
+            url: create-table-java.md                     
+      - linkListType: concept
+        links:
+          - text: Differences between Table API and Azure Table storage
+            url: table-support.md 
