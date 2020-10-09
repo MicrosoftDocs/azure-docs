@@ -162,7 +162,9 @@
       - name: Device issues 
         href: azure-stack-edge-gpu-troubleshoot.md
       - name: Ordering issues
-        href: azure-stack-edge-troubleshoot-ordering.md       
+        href: azure-stack-edge-troubleshoot-ordering.md   
+      - name: Activation issues
+        href: azure-stack-edge-gpu-troubleshoot-activation.md    
       - name: Contact Microsoft Support
         href: azure-stack-edge-contact-microsoft-support.md 
   
