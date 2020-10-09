@@ -57,7 +57,7 @@ During security principal-based authorization, permissions are evaluated in the 
 > [!div class="mx-imgBorder"]
 > ![data lake storage permission flow](./media/control-access-permissions-data-lake-storage/data-lake-storage-permissions-flow.png)
 
-Based on this model, you should choose Azure RBAC roles that provide only the minimal level of required access, and then use ACLs to grant **elevated** access permissions to directories and files. Because of the way that access permissions are evaluated by the system, you **cannot** use an ACL to **restrict** access that has already been granted by a role assignment. That's because the system evaluates Azure RBAC role assignments first, and if the assignment grants sufficient access permission, ACLs are ignored. 
+Because of the way that access permissions are evaluated by the system, you **cannot** use an ACL to **restrict** access that has already been granted by a role assignment. That's because the system evaluates Azure RBAC role assignments first, and if the assignment grants sufficient access permission, ACLs are ignored. 
 
 The following diagram shows the permission flow for three common operations: listing directory contents, reading a file, and writing a file.
 
