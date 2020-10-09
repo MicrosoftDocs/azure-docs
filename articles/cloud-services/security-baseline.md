@@ -38,11 +38,11 @@ file](https://github.com/MicrosoftDocs/SecurityBenchmarks/tree/master/Azure%20Of
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32173.).
 
-**Guidance**: By default, Cloud service (Classic) operates in an Azure Classic deployment model which includes a classic Azure Virtual Network. Create a classic Azure Virtual Network with separate public and private subnets to enforce isolation based on trusted ports and IP ranges. These virtual Network and subnets must be classic virtual network (deployment) resources, not the current Azure Resource Manager resources.  
+**Guidance**: Create a classic Azure Virtual Network with separate public and private subnets to enforce isolation based on trusted ports and IP ranges. These virtual Network and subnets must be classic virtual network (deployment) resources, not the current Azure Resource Manager resources.  
 
-Within a classic virtual network deployment, network security groups can be used to control traffic to one or more virtual machines (VMs), role instances, network interface cards, or subnets in that virtual network. An network security group contains access control rules that allow or deny traffic based on traffic direction, protocol, source address and port, and destination address and port. The rules of an network security group can be changed at any time, and changes are applied to all associated instances.
+Allow or deny traffic using a network security group contains access control rules that  based on traffic direction, protocol, source address and port, and destination address and port. The rules of an network security group can be changed at any time, and changes are applied to all associated instances.
 
-It is important to note that Cloud service (Classic) cannot be placed in Azure Resource Manager virtual networks. However, Resource Manager virtual networks and classic deployment virtual networks can be connected through peering. If needed, you can perform a one-time migration from a classic virtual network to an existing Resource Manager virtual network. After moving to the Resource Manager virtual network, you'll be able to take advantage of the additional and upgraded features such as, fine-grained password policies, email notifications, and audit logs.
+Cloud service (Classic) cannot be placed in Azure Resource Manager virtual networks. However, Resource Manager virtual networks and classic deployment virtual networks can be connected through peering. 
 
 - [Network Security Group (NSG)](/azure/virtual-network/security-overview)
 
@@ -76,11 +76,9 @@ For monitoring purposes, It is also recommended to enable network security group
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32175.).
 
-**Guidance**: It is recommended to deploy an Azure Web Application Firewall (WAF) with an Application Gateway in front of a Cloud service (Classic) to protect against application layer attacks. 
+**Guidance**: Deploy an Azure Web Application Firewall (WAF) with an Application Gateway in front of a Cloud service (Classic) to protect against application layer attacks. 
 
-Within the WAF, Microsoft uses the Transport Layer Security (TLS) protocol to protect data when it’s traveling between the Cloud service (Classic) and customers. Microsoft datacenters negotiate a TLS connection with client systems that connect to Azure services. TLS provides strong authentication, message privacy, and integrity (enabling detection of message tampering, interception, and forgery), interoperability, algorithm flexibility, and ease of deployment and use.
-
-Perfect Forward Secrecy (PFS) protects connections between customers’ client systems and Microsoft Cloud service (Classic) by unique keys. Connections also use RSA-based 2,048-bit encryption key lengths. This combination makes it difficult for someone to intercept and access data that is in transit.
+Microsoft uses the Transport Layer Security (TLS) protocol v1.2 to protect data when it’s traveling between the Cloud service (Classic) and customers. Microsoft datacenters negotiate a TLS connection with client systems that connect to Azure services. TLS provides strong authentication, message privacy, and integrity (enabling detection of message tampering, interception, and forgery), interoperability, algorithm flexibility, and ease of deployment and use.
 
 - [Encryption Fundamentals](../security/fundamentals/encryption-overview.md)
 
@@ -119,7 +117,23 @@ https://docs.microsoft.com/azure/cloud-services/cloud-services-connectivity-and-
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32177.).
 
-**Guidance**: NSG logs are tested and supported. 
+**Guidance**: NSG logs are tested and supported. Install the Network Watcher Agent virtual machine extension, and turning on NSG flow logs.
+
+Azure Network Watcher is a network performance monitoring, diagnostic, and analytics service that allows monitoring of Azure networks. The Network Watcher Agent virtual machine extension is a requirement for capturing network traffic on demand, and other advanced functionality on Azure virtual machines. The extension is used by features like Connection Monitor, Connection Monitor (Preview), Connection Troubleshoot and Packet Capture.
+
+Configure flow logging on a network security group: "az network watcher flow-log configure" On Linux Virtual Machines, 
+
+The following example deploys the Network Watcher Agent VM extension to an existing VM deployed through the classic deployment model:
+
+azure config mode asm
+
+azure vm extension set myVM1 NetworkWatcherAgentLinux Microsoft.Azure.NetworkWatcher 1.4
+
+- [Configure flow logging on a network security group: "az network watcher flow-log configure" On Linux Virtual Machines](../virtual-machines/extensions/network-watcher-linux.md)
+
+For more information about configuring flow logs visit
+
+https://docs.microsoft.com/cli/azure/network/watcher/flow-log?view=azure-cli-latest
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -130,11 +144,11 @@ https://docs.microsoft.com/azure/cloud-services/cloud-services-connectivity-and-
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32178.).
 
-**Guidance**: Azure has IPS/IDS in datacenter physical servers to defend against threats. In addition, customers can deploy third-party security solutions, such as web application firewalls, network firewalls, antimalware, intrusion detection, prevention systems (IDS/IPS), and more. 
+**Guidance**: Azure has IPS/IDS in datacenter physical servers to defend against threats. Customers can deploy third-party security solutions, such as web application firewalls, network firewalls, antimalware, intrusion detection, prevention systems (IDS/IPS), and more based on requirements. 
 
-For more information, see Protect your data and assets and comply with global security standards.
+Microsoft Antimalware for Azure protects Azure Cloud service (Classic) and virtual machines.
 
-Microsoft continuously monitors servers, networks, and applications to detect threats. Azure's multipronged threat-management approach uses intrusion detection, distributed denial-of-service (DDoS) attack prevention, penetration testing, behavioral analytics, anomaly detection, and machine learning to constantly strengthen its defense and reduce risks. Microsoft Antimalware for Azure protects Azure Cloud service (Classic) and virtual machines. You have the option to deploy third-party security solutions in addition, such as web application fire walls, network firewalls, antimalware, intrusion detection and prevention systems (IDS/IPS), and more.
+Azure's multipronged threat-management approach uses intrusion detection, distributed denial-of-service (DDoS) attack prevention, penetration testing, behavioral analytics, anomaly detection, and machine learning to constantly strengthen its defense and reduce risks. 
 
 https://docs.microsoft.com/azure/cloud-services/cloud-services-configuration-and-management-faq?view=vs-2019#what-are-the-features-and-capabilities-that-azure-basic-ipsids-and-ddos-provides
 
@@ -212,15 +226,15 @@ The service configuration file specifies the number of role instances to deploy 
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32183.).
 
-**Guidance**: Azure Traffic Manager includes built-in endpoint monitoring and automatic endpoint failover. This feature helps you deliver high-availability applications that are resilient to endpoint failure, including Azure region failures. To configure endpoint monitoring, you must specify certain settings on your Traffic Manager profile
+**Guidance**: Use Azure Traffic Manager's built-in endpoint monitoring and automatic endpoint failover features. They help you deliver high-availability applications, which are resilient to endpoint and Azure region failures. To configure endpoint monitoring, you must specify certain settings on your Traffic Manager profile.
 
-The Activity log is a platform log in Azure that provides insight into subscription-level events. This includes such information as when a resource is modified or when a virtual machine is started. You can view the Activity log in the Azure portal or retrieve entries with PowerShell and CLI. 
+Gather insight from Activity log, a platform log in Azure, into subscription-level events. It includes such information as when a resource is modified or when a virtual machine is started. View the Activity log in the Azure portal or retrieve entries with PowerShell and CLI. 
 
-- [You can also create a diagnostic setting to send the Activity log to Azure Monitor Logs, to Azure Event Hubs to forward outside of Azure, or to Azure Storage for archiving](../azure-monitor/platform/activity-log.md)
+Create a diagnostic setting to send the Activity log to Azure Monitor Logs, to Azure Event Hubs to forward outside of Azure, or to Azure Storage for archival. Configure Azure Monitor for notification alerts when critical resources in your service are changed. 
 
-You can also configure Azure Monitor for notification alerts when critical resources in your service are changed. 
+- [Azure Activity log](../azure-monitor/platform/activity-log.md)
 
-../azure-monitor/platform/alerts-activity-log.md
+- [Create, view, and manage activity log alerts by using Azure Monitor](../azure-monitor/platform/alerts-activity-log.md)
 
 - [Traffic Manager Monitoring](../traffic-manager/traffic-manager-monitoring.md)
 
@@ -240,13 +254,11 @@ You can also configure Azure Monitor for notification alerts when critical resou
 **Guidance**: Choose among basic and advanced monitoring modes for Cloud service (Classic). Advanced monitoring requires installation of the Windows Azure Diagnostics (WAD) extension on your classic VM or Cloud service (Classic).,Optionally install the Application Insights SDK. The diagnostics extension uses a config file (per role) named diagnostics.wadcfgx to configure the monitored diagnostics metrics . The Azure Diagnostic extension collects and stores data in an Azure Storage account.
 
 Consume streaming data programmatically with Azure Event Hubs. Integrate and send all this data to Azure Sentinel to monitor and review your logs, or use  a third-party SIEM. To configure central security log management, you should configure continuous export of your chosen Security Center data to Azure Event Hubs and set up the appropriate connector for your SIEM. Here are some options for Azure Sentinel including third party tools:
-Azure Sentinel - Use the native Security Center alerts data connector
 
-Splunk - Use the Azure Monitor add-on for Splunk
-
-IBM QRadar - Use a manually configured log source
-
-ArcSight – Use SmartConnector
+- Azure Sentinel - Use the native Security Center alerts data connector
+- Splunk - Use the Azure Monitor add-on for Splunk
+- IBM QRadar - Use a manually configured log source
+- ArcSight – Use SmartConnector
 
 - [Integrate with a SIEM](../security-center/continuous-export.md#to-integrate-with-a-siem)
 
