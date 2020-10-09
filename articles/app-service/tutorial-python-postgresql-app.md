@@ -210,7 +210,7 @@ It's critical that the `DBUSER` setting is of the form `<username>@<postgres-ser
 To verify the setting, run `az webapp config app settings list` and look at the `DBUSER` value in the results:
 
 ```azurecli
-az webapp config app settings list
+az webapp config appsettings list
 ```
 
 If you need to correct the value, run the command `az webapp config appsettings set --settings DBUSER="<username>@<postgres-server-name>"`, replacing `<username>@<postgres-server-name>` with the appropriate names.
