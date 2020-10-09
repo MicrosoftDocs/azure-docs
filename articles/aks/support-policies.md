@@ -128,8 +128,7 @@ You may only customize the NSGs on custom subnets. You may not customize NSGs on
 
 ## Stopped or de-allocated clusters
 
-As per above manually de-allocating all cluster nodes via the IaaS APIs/CLI/Portal renders the cluster out of support.
-The only supported way to stop/de-allocate all node is to [stop the aks cluster, which will preserve the cluster state for up to 12 months.
+As stated earlier, manually de-allocating all cluster nodes via the IaaS APIs/CLI/portal renders the cluster out of support. The only supported way to stop/de-allocate all nodes is to [stop the AKS cluster](start-stop-cluster.md#stop-an-aks-cluster), which preserves the cluster state for up to 12 months.
 
 Clusters that are stopped for more than 12 months will no longer preserve state. 
 

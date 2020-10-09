@@ -141,11 +141,11 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 1. In **Account Center**, click **Global Settings** under **Settings**. Also, select **Sales Navigator** from the dropdown list.
 
-	![Configure Single Sign-On](./media/linkedinsalesnavigator-tutorial/tutorial_linkedin_admin_01.png)
+	![Screenshot shows the Application Settings where you can select Sales Navigator.](./media/linkedinsalesnavigator-tutorial/tutorial_linkedin_admin_01.png)
 
 1. Click on **OR Click Here to load and copy individual fields from the form** and perform the following steps:
 
-	![Configure Single Sign-On](./media/linkedinsalesnavigator-tutorial/tutorial_linkedin_admin_031.png)
+	![Screenshot shows Single Sign-On where you can enter the values described.](./media/linkedinsalesnavigator-tutorial/tutorial_linkedin_admin_031.png)
 
 	a. Copy **Entity Id** and paste it into the **Identifier** text box in the **Basic SAML Configuration** in the Azure portal.
 
@@ -153,11 +153,11 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 1. Go to **LinkedIn Admin Settings** section. Upload the XML file that you have downloaded from the Azure portal by clicking on the **Upload XML file** option.
 
-	![Configure Single Sign-On](./media/linkedinsalesnavigator-tutorial/tutorial_linkedin_metadata_03.png)
+	![Screenshot shows Configure the LinkedIn service provider S S O settings where you can upload an X M L file.](./media/linkedinsalesnavigator-tutorial/tutorial_linkedin_metadata_03.png)
 
 1. Click **On** to enable SSO. SSO status changes from **Not Connected** to **Connected**
 
-	![Configure Single Sign-On](./media/linkedinsalesnavigator-tutorial/tutorial_linkedin_admin_05.png)
+	![Screenshot shows Single Sign-On where you can enable Authenticate users with S S O.](./media/linkedinsalesnavigator-tutorial/tutorial_linkedin_admin_05.png)
 
 ### Create LinkedIn Sales Navigator test user
 

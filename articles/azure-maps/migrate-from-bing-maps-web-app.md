@@ -1,6 +1,6 @@
 ---
 title: 'Tutorial: Migrate a web app from Bing Maps | Microsoft Azure Maps'
-description: How to migrate a web app from Bing Maps to Microsoft Azure Maps.
+description: Tutorial on how to migrate a web app from Bing Maps to Microsoft Azure Maps.
 author: rbrundritt
 ms.author: richbrun
 ms.date: 9/10/2020
@@ -11,7 +11,7 @@ manager: cpendle
 ms.custom: devx-track-js
 ---
 
-# Migrate a web app from Bing Maps
+# Tutorial - Migrate a web app from Bing Maps
 
 Web apps that use Bing Maps often use the Bing Maps V8 JavaScript SDK. The Azure Maps Web SDK is the suitable Azure-based SDK to migrate to. The Azure Maps Web SDK lets you customize interactive maps with your own content and imagery for display in your web or mobile applications. This control makes use of WebGL, allowing you to render large data sets with high performance. Develop with this SDK using JavaScript or TypeScript.
 
