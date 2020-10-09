@@ -46,7 +46,7 @@ This section helps you create, get, update, and delete the Microsoft peering con
 > [!IMPORTANT]
 > Microsoft peering of ExpressRoute circuits that were configured prior to August 1, 2017 will have all service prefixes advertised through the Microsoft peering, even if route filters are not defined. Microsoft peering of ExpressRoute circuits that are configured on or after August 1, 2017 will not have any prefixes advertised until a route filter is attached to the circuit. For more information, see [Configure a route filter for Microsoft peering](how-to-routefilter-powershell.md).
 > 
-> 
+
 
 ### To create Microsoft peering
 
@@ -61,9 +61,10 @@ This section helps you create, get, update, and delete the Microsoft peering con
    ```azurecli
    az account set --subscription "<subscription ID>"
    ```
-2. Create an ExpressRoute circuit. Follow the instructions to create an [ExpressRoute circuit](howto-circuit-cli.md) and have it provisioned by the connectivity provider. If your connectivity provider offers managed Layer 3 services, you can ask your connectivity provider to enable Microsoft peering for you. In that case, you won't need to follow instructions listed in the next sections. However, if your connectivity provider does not manage routing for you, after creating your circuit, continue your configuration using the next steps. 
 
-3. Check the ExpressRoute circuit to make sure it is provisioned and also enabled. Use the following example:
+1. Create an ExpressRoute circuit. Follow the instructions to create an [ExpressRoute circuit](howto-circuit-cli.md) and have it provisioned by the connectivity provider. If your connectivity provider offers managed Layer 3 services, you can ask your connectivity provider to enable Microsoft peering for you. In that case, you won't need to follow instructions listed in the next sections. However, if your connectivity provider does not manage routing for you, after creating your circuit, continue your configuration using the next steps. 
+
+1. Check the ExpressRoute circuit to make sure it is provisioned and also enabled. Use the following example:
 
    ```azurecli
    az network express-route list
