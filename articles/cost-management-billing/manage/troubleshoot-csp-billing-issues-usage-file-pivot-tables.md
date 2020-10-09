@@ -105,3 +105,5 @@ The file contains the following columns.
 [!INCLUDE [Transform data before using large usage files](../../../includes/cost-management-billing-transform-data-before-using-large-usage-files.md)]
 
 ## Next steps
+
+- [Get started with Azure Cost Management for partners](../costs/get-started-partners.md).

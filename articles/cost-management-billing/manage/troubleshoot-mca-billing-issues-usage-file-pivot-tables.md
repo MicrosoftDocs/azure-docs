@@ -22,7 +22,7 @@ This article helps you troubleshoot Microsoft Customer Agreement (MCA) billing i
 
 By using the information from your usage files, you can get a better understanding of usage issues and diagnose them. Usage files are generated in comma delimited (CSV) format. Because the usage files might be large CSV files, they're easier to manipulate and view as pivot tables in a spreadsheet application like Excel. Examples in this article use Excel, but you can use any spreadsheet application that you want.
 
-Only Billing profile owners, Contributors, Readers, or Invoice Managers have access to download usage files. For more information, see [Download usage for your Microsoft Customer Agreement](https://docs.microsoft.com/azure/cost-management-billing/manage/download-azure-invoice-daily-usage-date#download-usage-for-your-microsoft-customer-agreement)
+Only Billing profile owners, Contributors, Readers, or Invoice Managers have access to download usage files. For more information, see [Download usage for your Microsoft Customer Agreement](https://docs.microsoft.com/azure/cost-management-billing/manage/download-azure-invoice-daily-usage-date#download-usage-for-your-microsoft-customer-agreement). 
 
 ## Get the data and format it
 
@@ -80,3 +80,5 @@ A single resource can incur several charges for different services. For example,
 [!INCLUDE [Transform data before using large usage files](../../../includes/cost-management-billing-transform-data-before-using-large-usage-files.md)]
 
 ## Next steps
+
+- [Explore and analyze costs with cost analysis](../costs/quick-acm-cost-analysis.md).

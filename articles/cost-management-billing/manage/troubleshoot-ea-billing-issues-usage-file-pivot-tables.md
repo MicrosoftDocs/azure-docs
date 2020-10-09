@@ -57,7 +57,7 @@ In this section, you create a pivot table where you can troubleshoot overall gen
 1. Add the **Date** column to the **Columns** area to see daily consumption for the product.  
     :::image type="content" source="./media/troubleshoot-ea-billing-issues-usage-file-pivot-tables/pivot-table-date.png" alt-text="Example showing where to put Date in the columns area" lightbox="./media/troubleshoot-ea-billing-issues-usage-file-pivot-tables/pivot-table-date.png" :::
 1. Expand and collapse months with the **+** symbols for each month's column.  
-    :::image type="content" source="./media/troubleshoot-ea-billing-issues-usage-file-pivot-tables/pivot-table-month-expand-collapse.png" alt-text="Example showing the + symbol" lightbox="./media/troubleshoot-ea-billing-issues-usage-file-pivot-tables/pivot-table-month-expand-collapse.png" :::
+    :::image type="content" source="./media/troubleshoot-ea-billing-issues-usage-file-pivot-tables/pivot-table-month-expand-collapse.png" alt-text="Example showing the + symbol" lightbox="./media/troubleshoot-ea-billing-issues-usage-file-pivot-tables/pivot-table-month-expand-collapse.png" :::  
     Adding both the **Cost** and **Quantity** columns in the **Values** area is optional. Doing so creates two columns for each data section below each month and day when the Date column is in the Columns section of the pivot table.
 1. For additional filters, you can add the SubscriptionID, Department, ResourceGroup, Tags, or Cost Center columns to the **Filters** area and select the item you want.
 
@@ -77,3 +77,5 @@ A single resource can incur several charges for different services. For example,
 [!INCLUDE [Transform data before using large usage files](../../../includes/cost-management-billing-transform-data-before-using-large-usage-files.md)]
 
 ## Next steps
+
+- [Explore and analyze costs with cost analysis](../costs/quick-acm-cost-analysis.md).
