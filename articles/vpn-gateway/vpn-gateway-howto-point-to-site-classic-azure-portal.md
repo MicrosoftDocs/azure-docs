@@ -212,7 +212,7 @@ After updating has completed, the certificate can no longer be used to connect. 
 
 ## <a name="faq"></a>FAQ
 
-[!INCLUDE Point-to-Site FAQ]
+[!INCLUDE [Point-to-Site FAQ](../../includes/vpn-gateway-faq-point-to-site-classic-include.md)]
 
 ## Next steps
 
