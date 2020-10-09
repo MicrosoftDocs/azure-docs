@@ -403,6 +403,8 @@
                       href: how-to-custom-commands-send-activity-to-client.md
                     - name: Set up web endpoints
                       href: how-to-custom-commands-setup-web-endpoints.md
+                    - name: Export your Custom Commands app as a skill
+                      href: how-to-custom-commands-integrate-remote-skills.md
                 - name: Deploy
                   items:
                     - name: Continuous Deployment with Azure DevOps
