@@ -13,7 +13,7 @@ ms.date: 10/09/2020
 ---
 # Convert to Image Directory
 
-This article describes how to use the Convert to Image Directory module to help convert image dataset to *Image Directory* data type, which is standardized data format in image related tasks like image classification in Azure Machine Learning designer.
+This article describes how to use the Convert to Image Directory module to help convert image dataset to *Image Directory* data type, which is standardized data format in image-related tasks like image classification in Azure Machine Learning designer.
 
 ## How to use Convert to Image Directory  
 
@@ -31,20 +31,20 @@ This article describes how to use the Convert to Image Directory module to help 
     Your_image_folder_name/Category_2/asd932_.png
     ```
     
-    In the image dataset folder, there are multiple sub-folders. Each sub-folder contain images of one category respectively. The names of sub-folders are considered as the labels for tasks like image classification. Please refer to [torchvision datasets](https://pytorch.org/docs/stable/torchvision/datasets.html#imagefolder) for more information.
+    In the image dataset folder, there are multiple subfolders. Each subfolder contains images of one category respectively. The names of subfolders are considered as the labels for tasks like image classification. Refer to [torchvision datasets](https://pytorch.org/docs/stable/torchvision/datasets.html#imagefolder) for more information.
 
     > [!WARNING]
     > Currently labeled datasets exported from Data Labeling are not supported in the designer.
 
     Images with these extensions (in lowercase) are supported: '.jpg', '.jpeg', '.png', '.ppm', '.bmp', '.pgm', '.tif', '.tiff', '.webp'. You can also have multiple types of images in one folder. It is not necessary to contain the same count of images in each category folder.
 
-    You can either use the folder or compressed file with extension '.zip', '.tar', '.gz', and '.bz2'. **Compressed file are recommended for better performance.** 
+    You can either use the folder or compressed file with extension '.zip', '.tar', '.gz', and '.bz2'. **Compressed files are recommended for better performance.** 
     
     ![Image sample dataset](./media/module/image_sample_dataset.png)
 
-    For scoring, the image dataset folder only need to contain un-classified images.
+    For scoring, the image dataset folder only needs to contain unclassified images.
 
-1. [Register the image datset as a file dataset](https://docs.microsoft.com/azure/machine-learning/how-to-create-register-datasets) in your workspace, since the input of Convert to Image Directory module must be a **File dataset**.
+1. [Register the image dataset as a file dataset](https://docs.microsoft.com/azure/machine-learning/how-to-create-register-datasets) in your workspace, since the input of Convert to Image Directory module must be a **File dataset**.
 
 1. Add the registered image dataset to the canvas. You can find your registered dataset in the **Datasets** category in the module list in the left of canvas. Currently Designer does not support visualize image dataset.
 
@@ -57,7 +57,7 @@ This article describes how to use the Convert to Image Directory module to help 
 
 ## Results
 
-The output of **Convert to Image Directory** module is in **Image Directory** format, and can be connected to other image related modules of which the input port format is also Image Directory.
+The output of **Convert to Image Directory** module is in **Image Directory** format, and can be connected to other image-related modules of which the input port format is also Image Directory.
 
 ![Convert to Image Directory output](./media/module/convert-to-image-directory-output.png)
 
