@@ -17,7 +17,7 @@ ROBOTS: NOINDEX
 
 # Upgrade from Read v2.x to Read v3.x
 
-This guide shows how to upgrade your existing container or cloud API code from Read v2.x to Read v3.0 and v3.1 preview.
+This guide shows how to upgrade your existing container or cloud API code from Read v2.x to Read v3.0 and v3.2 preview.
 
 ## Determine your API path
 Use the following table to determine the **version string** in the API path based on the Read 3.x version you are migrating to.
@@ -26,9 +26,9 @@ Use the following table to determine the **version string** in the API path base
 |:-----|:----|:----|
 |Service | Read 3.0 | **v3.0** |
 |Container | Read 3.0 preview | **v3.0** |
-|Service/Container | Read 3.1 preview | **v3.1-preview.2** |
+|Service/Container | Read 3.2 preview | **v3.2-preview.2** |
 
-Next, use the following sections to narrow your operations and replace the **version string** in your API path with the value from the table. For example, for **Read v3.1 preview** cloud and container versions, update the API path to **https://{endpoint}/vision/v3.1-preview.2/read/analyze[?language]**.
+Next, use the following sections to narrow your operations and replace the **version string** in your API path with the value from the table. For example, for **Read v3.2 preview** cloud and container versions, update the API path to **https://{endpoint}/vision/v3.2-preview.2/read/analyze[?language]**.
 
 ## Service/Container
 
@@ -52,7 +52,7 @@ When the call to `Get Read Operation Result` is successful, it returns a status 
  
 |Read 2.x |Read 3.x  |
 |----------|-----------|
-|`"NotStarted"` |	`"notStarted"`|
+|`"NotStarted"` |    `"notStarted"`|
 |`"Running"` | `"running"`|
 |`"Failed"` | `"failed"`|
 |`"Succeeded"` | `"succeeded"`|
@@ -191,7 +191,7 @@ When the call to `Get Recognize Text Operation Result` is successful, it returns
  
 |Recognize Text 2.x |Read 3.x  |
 |----------|-----------|
-|`"NotStarted"` |	`"notStarted"`|
+|`"NotStarted"` |    `"notStarted"`|
 |`"Running"` | `"running"`|
 |`"Failed"` | `"failed"`|
 |`"Succeeded"` | `"succeeded"`|
