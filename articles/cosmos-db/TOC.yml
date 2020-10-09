@@ -4,6 +4,8 @@
     items:
     - name: Welcome to Azure Cosmos DB
       href: introduction.md
+    - name: NoSQL vs. relational databases
+      href: relational-nosql.md
   - name: Samples
     items:
     - name: PowerShell
@@ -1386,7 +1388,7 @@
     - name: Videos
       href: https://azure.microsoft.com/resources/videos/index/?services=cosmos-db
     - name: Azure Roadmap
-      href: https://azure.microsoft.com/roadmap/
+      href: https://azure.microsoft.com/updates/?query=Cosmos%20DB
     - name: Try Azure Cosmos DB for free
       href: https://azure.microsoft.com/try/cosmosdb/
     - name: Pricing
