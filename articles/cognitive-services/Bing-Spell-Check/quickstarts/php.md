@@ -14,6 +14,11 @@ ms.author: aahi
 ---
 # Quickstart: Check spelling with the Bing Spell Check REST API and PHP
 
+> [!WARNING]
+> Bing Search APIs are moving from Cognitive Services to Bing Search Services. Starting **October 30, 2020**, any new instances of Bing Search need to be provisioned following the process documented [here](https://aka.ms/cogsvcs/bingmove).
+> Bing Search APIs provisioned using Cognitive Services will be supported for the next three years or until the end of your Enterprise Agreement, whichever happens first.
+> For migration instructions, see [Bing Search Services](https://aka.ms/cogsvcs/bingmigration).
+
 Use this quickstart to make your first call to the Bing Spell Check REST API. This simple PHP application sends a request to the API and returns a list of suggested corrections. 
 
 Although this application is written in PHP, the API is a RESTful Web service compatible with most programming languages.
