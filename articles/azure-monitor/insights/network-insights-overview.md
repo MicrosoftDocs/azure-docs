@@ -25,7 +25,7 @@ The Azure Monitor for Networks **Overview** page provides an easy way to visuali
 ![Screenshot that shows the Overview page.](media/network-insights-overview/overview.png)
 
 ### Search and filtering
-You can customize the resource health and alerts view by using filters like **Subscription**, **Resource Group**, and **Type**. You can use the search box to search through resource properties.
+You can customize the resource health and alerts view by using filters like **Subscription**, **Resource Group**, and **Type**.
 
 You can use the search box to search for resources and their associated resources. For example, a public IP is associated with an application gateway. A search for the public IP's DNS name will return both the public IP and the associated application gateway:
 
@@ -55,7 +55,7 @@ The dependency view for Application Gateway provides a simplified view of how th
 
 ![Screenshot that shows dependency view in Azure Monitor for Networks.](media/network-insights-overview/dependency-view.png)
 
-The dependency graph provides easy navigation to configuration settings. Right-click on a backend pool to access other information. For example, if the backend pool is a VM, you can directly access VM Insights and Azure Network Watcher connection troubleshooting to identify connectivity issues:
+The dependency graph provides easy navigation to configuration settings. Right-click a backend pool to access other information. For example, if the backend pool is a VM, you can directly access VM Insights and Azure Network Watcher connection troubleshooting to identify connectivity issues:
 
 ![Screenshot that shows the dependency view menu in Azure Monitor for Networks.](media/network-insights-overview/dependency-view-menu.png)
 
@@ -91,7 +91,7 @@ The **Traffic** tab provides access to all NSGs configured for [NSG flow logs](.
 
 ![Screenshot that shows the Traffic tab in Azure Monitor for Networks.](media/network-insights-overview/azure-monitor-for-networks-traffic-view.png)
 
-If you select any region tile, a grid view appears. The grid provides NSG flow logs and Traffic Analytics in view that's easy to read and configure:  
+If you select any region tile, a grid view appears. The grid provides NSG flow logs and Traffic Analytics in a view that's easy to read and configure:  
 
 ![Screenshot that shows the traffic region view in Azure Monitor for Networks.](media/network-insights-overview/azure-monitor-for-networks-traffic-region-view.png)
 
@@ -125,7 +125,7 @@ Here are some links to troubleshooting articles for frequently used services:
 
 Network Insights can show resources for only five subscriptions at a time. 
 
-### How do I make changes or add visualizations to Networks Insights?
+### How do I make changes or add visualizations to Network Insights?
 
 To make changes, select **Edit Mode** to modify the workbook. You can then save your changes as a new workbook that's tied to a designated subscription and resource group.
 
