@@ -22,9 +22,9 @@ Azure Cache for Redis has different cache offerings, which provide flexibility i
 ## Virtual network support
 Virtual Network (VNet) support is configured on the **New Azure Cache for Redis** blade during cache creation. 
 
-1. To create a premium cache, sign in to the [Azure portal](https://portal.azure.com) and select **Create a resource**. Note, in addition to creating caches in the Azure portal, you can also create them using Resource Manager templates, PowerShell, or Azure CLI. For more information about creating an Azure Cache for Redis, see [Create a cache](../articles/azure-cache-for-redis/cache-dotnet-how-to-use-azure-redis-cache.md#create-a-cache).
+1. To create a premium cache, sign in to the [Azure portal](https://portal.azure.com) and select **Create a resource**. Note, in addition to creating caches in the Azure portal, you can also create them using Resource Manager templates, PowerShell, or Azure CLI. For more information about creating an Azure Cache for Redis, see [Create a cache](cache-dotnet-how-to-use-azure-redis-cache.md#create-a-cache).
 
-    :::image type="content" source="media/cache-private-link/1-create-resource.png" alt-text="Select Azure Cache for Redis.":::
+    :::image type="content" source="media/cache-private-link/1-create-resource.png" alt-text="Create resource.":::
    
 2. On the **New** page, select **Databases** and then select **Azure Cache for Redis**.
 
@@ -38,7 +38,7 @@ Virtual Network (VNet) support is configured on the **New Azure Cache for Redis*
    | **Subscription** | Drop down and select your subscription. | The subscription under which to create this new Azure Cache for Redis instance. | 
    | **Resource group** | Drop down and select a resource group, or select **Create new** and enter a new resource group name. | Name for the resource group in which to create your cache and other resources. By putting all your app resources in one resource group, you can easily manage or delete them together. | 
    | **Location** | Drop down and select a location. | Select a [region](https://azure.microsoft.com/regions/) near other services that will use your cache. |
-   | **Cache type** | Drop down and select a premium cache to configure premium features. For details, see [Azure Cache for Redis pricing](https://azure.microsoft.com/pricing/details/cache/). |  The pricing tier determines the size, performance, and features that are available for the cache. For more information, see [Azure Cache for Redis Overview](../articles/azure-cache-for-redis/cache-overview.md). |
+   | **Cache type** | Drop down and select a premium cache to configure premium features. For details, see [Azure Cache for Redis pricing](https://azure.microsoft.com/pricing/details/cache/). |  The pricing tier determines the size, performance, and features that are available for the cache. For more information, see [Azure Cache for Redis Overview](cache-overview.md). |
 
 4. Select the **Networking** tab or click the **Networking** button at the bottom of the page.
 

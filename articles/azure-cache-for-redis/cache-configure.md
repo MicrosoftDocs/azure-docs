@@ -210,7 +210,7 @@ To change the cluster size, use the slider or type a number between 1 and 10 in 
 
 
 ### Redis data persistence
-Click **Data persistence** to enable, disable, or configure data persistence for your premium cache. Azure Cache for Redis offers Redis persistence using either [RDB persistence](cache-how-to-premium-persistence.md#configure-rdb-persistence) or [AOF persistence](cache-how-to-premium-persistence.md#configure-aof-persistence).
+Click **Data persistence** to enable, disable, or configure data persistence for your premium cache. Azure Cache for Redis offers Redis persistence using either RDB persistence or AOF persistence.
 
 For more information, see [How to configure persistence for a Premium Azure Cache for Redis](cache-how-to-premium-persistence.md).
 
