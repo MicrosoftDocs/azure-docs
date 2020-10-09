@@ -37,12 +37,12 @@ allprojects {
     }
 }
 ```
-Then, in your module level build.gradle add the the following lines to the dependencies section
+Then, in your module level build.gradle add the following lines to the dependencies section
 
 ```groovy
 dependencies {
     ...
-    implementation 'com.azure.android:azure-communication-calling:1.0.0-beta.1'
+    implementation 'com.azure.android:azure-communication-calling:1.0.0-beta.2'
     ...
 }
 
@@ -78,7 +78,7 @@ DeviceManage deviceManager = await callClient.getDeviceManager().get();
 To create and start a call you need to call the `CallAgent.call()` method and provide the `Identifier` of the callee(s).
 To join a group call you need to call the `CallAgent.join()` method and provide the groupId. Group Ids must be in GUID or UUID format.
 
-Call creation and start is synchronous. The call instance allows you to subscribe to all events on the call.
+Call creation and start are synchronous. The call instance allows you to subscribe to all events on the call.
 
 ### Place a 1:1 call to a user
 To place a call to another Communication Services user, invoke the `call` method on `callAgent` and pass an object with `communicationUserId` key.
@@ -104,7 +104,7 @@ Context appContext = this.getApplicationContext();
 Call groupCall = callAgent.call(participants, startCallOptions);
 ```
 
-### Place a 1:1 call with with video camera
+### Place a 1:1 call with video camera
 > [!WARNING]
 > Currently only one outgoing local video stream is supported
 To place a call with video you have to enumerate local cameras using the `deviceManager` `getCameraList` API.
@@ -133,17 +133,17 @@ JoinCallOptions joinCallOptions = new JoinCallOptions();
 call = callAgent.join(context, groupCallContext, joinCallOptions);
 ```
 
-## Push Notification
+## Push notifications
 
 ### Overview
-Mobile push notification are the pop up notification you get on a mobile device. For calling, we will be focusing on VoIP (Voice over Internet Protocol) push notifications. We will be offering you the capabilities to register for push notification, to handle push notification, and to un-register push notifications.
+Mobile push notifications are the pop-up notifications you see on mobile devices. For calling, we'll be focusing on VoIP (Voice over Internet Protocol) push notifications. We'll register for push notifications, handle push notifications, and then un-register push notifications.
 
-### Prerequisite
+### Prerequisites
 
-This tutorial presumes you have a Firebase account setup with Cloud Messaging (FCM) enabled and your Firebase Cloud Messaging is connected to an Azure Notification Hub (ANH) instance. See [Connect Firebase to Azure](https://docs.microsoft.com/azure/notification-hubs/notification-hubs-android-push-notification-google-fcm-get-started) for more on that.
-Additionally, the tutorial assumes you're using Android Studio version 3.6 or higher to build your application.
+To complete this section, create a Firebase account and enable Cloud Messaging (FCM). Ensure that Firebase Cloud Messaging is connected to an Azure Notification Hub (ANH) instance. See [Connect Firebase to Azure](https://docs.microsoft.com/azure/notification-hubs/notification-hubs-android-push-notification-google-fcm-get-started) for instructions.
+This section also assumes that you're using Android Studio version 3.6 or higher to build your application.
 
-A set of permissions are required for the Android application in order to be able to receive notifications messages from FCM. In your AndroidManifest.xml file, add the following set of permissions right after the *<manifest ...>* or below the *</application>* tag
+A set of permissions is required for the Android application in order to be able to receive notifications messages from Firebase Cloud Messaging. In your `AndroidManifest.xml` file, add the following set of permissions right after the *<manifest ...>* or below the *</application>* tag
 
 ```XML
     <uses-permission android:name="android.permission.INTERNET"/>
@@ -151,39 +151,41 @@ A set of permissions are required for the Android application in order to be abl
     <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE" />
 ```
 
-### Register for Push Notification
+### Register for push notifications
 
-- In order to register for push notification, the application needs to call registerPushNotification() on a *CallAgent* instance with a device registration token.
+To register for push notifications, the application needs to call `registerPushNotification()` on a *CallAgent* instance with a device registration token.
 
-- How to obtain the device registration token
-1. Make sure to add the Firebase client library to your application module's *build.gradle* file by adding the following lines in the *dependencies* section if it's not already there:
+To obtain the device registration token, add the Firebase client library to your application module's *build.gradle* file by adding the following lines in the `dependencies` section if it's not already there:
+
 ```
     // Add the client library for Firebase Cloud Messaging
     implementation 'com.google.firebase:firebase-core:16.0.8'
     implementation 'com.google.firebase:firebase-messaging:20.2.4'
 ```
 
-2. In your project level's *build.gradle* file, add the following in the *dependencies* section if it's not already there
+In your project level's *build.gradle* file, add the following in the `dependencies` section if it's not already there:
+
 ```
     classpath 'com.google.gms:google-services:4.3.3'
 ```
 
-3. Add the following plugin to the beginning of the file if it's not already there
+Add the following plugin to the beginning of the file if it's not already there:
+
 ```
 apply plugin: 'com.google.gms.google-services'
 ```
 
-4. Select *Sync Now* in the toolbar
+Select *Sync Now* in the toolbar. Add the following code snippet to get the device registration token generated by the Firebase Cloud Messaging client library for the client application instance Be sure to add the below imports to the header of the main Activity for the instance. They're required for the snippet to retrieve the token:
 
-5. Add the following code snippet to get the device registration token generated by the FCM client library for the client application instance 
-- Add these import in the header of the main Activity for instance. They are required for the snippet to retrieve the token
 ```
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.iid.FirebaseInstanceId;
 import com.google.firebase.iid.InstanceIdResult;
 ```
-- Add this snippet to retrieve the token
+
+Add this snippet to retrieve the token:
+
 ```
         FirebaseInstanceId.getInstance().getInstanceId()
                 .addOnCompleteListener(new OnCompleteListener<InstanceIdResult>() {
@@ -201,7 +203,7 @@ import com.google.firebase.iid.InstanceIdResult;
                     }
                 });
 ```
-6. Register the device registration token with the Calling Services client library for incoming calls Push Notifications
+Register the device registration token with the Calling Services client library for incoming call push notifications:
 
 ```java
 String deviceRegistrationToken = "some_token";
@@ -213,12 +215,11 @@ catch(Exception e) {
 }
 ```
 
-### Push Notification Handling
+### Push notification handling
 
-- In order to receive incoming call push notifications, call *handlePushNotification()* on a *CallAgent* instance with a payload.
+To receive incoming call push notifications, call *handlePushNotification()* on a *CallAgent* instance with a payload.
 
-1. To obtain the payload from FCM, here are the necessary steps:
-- Create a new Service (File > New > Service > Service) that extends the *FirebaseMessagingService* Firebase client library class and make sure to override the *onMessageReceived* method. This method is the event handler called when FCM delivers the push notification to the application.
+To obtain the payload from Firebase Cloud Messaging, begin by creating a new Service (File > New > Service > Service) that extends the *FirebaseMessagingService* Firebase client library class and override the `onMessageReceived` method. This method is the event handler called when Firebase Cloud Messaging delivers the push notification to the application.
 
 ```java
 public class MyFirebaseMessagingService extends FirebaseMessagingService {
@@ -236,7 +237,7 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
     }
 }
 ```
-- Also Add the following service definition to the AndroidManifest.xml file, inside the <application> tag.
+Add the following service definition to the `AndroidManifest.xml` file, inside the <application> tag:
 
 ```
         <service
@@ -248,7 +249,7 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
         </service>
 ```
 
-- Once the payload is retrieved, it can be passed to the *Communication Services* client library to be handled by calling the *handlePushNotification* method on a *CallAgent* instance.
+Once the payload is retrieved, it can be passed to the Communication Services client library to be handled by calling the `handlePushNotification` method on a `CallAgent` instance.
 
 ```java
 java.util.Map<String, String> pushNotificationMessageDataFromFCM = remoteMessage.getData();
@@ -259,11 +260,12 @@ catch(Exception e) {
     System.out.println("Something went wrong while handling the Incoming Calls Push Notifications.");
 }
 ```
+
 When the handling of the Push notification message is successful, and the all events handlers are registered properly, the application will ring.
 
-### Unregister Push Notification
+### Unregister push notifications
 
-- Applications can unregister push notification at any time. Call the `unregisterPushNotification()` method on callAgent to unregister.
+Applications can unregister push notification at any time. Call the `unregisterPushNotification()` method on callAgent to unregister.
 
 ```java
 try {
@@ -278,25 +280,31 @@ catch(Exception e) {
 You can access call properties and perform various operations during a call to manage settings related to video and audio.
 
 ### Call properties
-* Get the unique ID for this Call.
+
+Get the unique ID for this Call:
+
 ```java
 String callId = call.getCallId();
 ```
 
-* To learn about other participants in the call inspect `remoteParticipant` collection on the `call` instance:
+To learn about other participants in the call inspect `remoteParticipant` collection on the `call` instance:
+
 ```java
 List<RemoteParticipant> remoteParticipants = call.getRemoteParticipants();
 ```
 
-* The identity of caller if the call is incoming.
+The identity of caller if the call is incoming:
+
 ```java
 CommunicationIdentifier callerId = call.getCallerId();
 ```
 
-* Get the state of the Call.
+Get the state of the Call: 
+
 ```java
 CallState callState = call.getState();
 ```
+
 It returns a string representing the current state of a call:
 * 'None' - initial call state
 * 'Incoming' - indicates that call is incoming, it has to be either accepted or rejected
@@ -309,39 +317,45 @@ It returns a string representing the current state of a call:
 * 'Disconnected' - final call state
 
 
-* To learn why a call ended, inspect `callEndReason` property.
-It contains code/subcode (TODO Link to documentation)
+To learn why a call ended, inspect `callEndReason` property. It contains code/subcode: 
+
 ```java
 CallEndReason callEndReason = call.getCallEndReason();
 int code = callEndReason.getCode();
 int subCode = callEndReason.getSubCode();
 ```
 
-* To see if the current call is an incoming call, inspect `isIncoming` property:
+To see if the current call is an incoming call, inspect `isIncoming` property:
+
 ```java
 boolean isIncoming = call.getIsIncoming();
 ```
 
-*  To see if the current microphone is muted, inspect the `muted` property:
+To see if the current microphone is muted, inspect the `muted` property:
+
 ```java
 boolean muted = call.getIsMicrophoneMuted();
 ```
 
-* To inspect active video streams, check the `localVideoStreams` collection:
+To inspect active video streams, check the `localVideoStreams` collection:
+
 ```java
 List<LocalVideoStream> localVideoStreams = call.getLocalVideoStreams();
 ```
 
 ### Mute and unmute
+
 To mute or unmute the local endpoint you can use the `mute` and `unmute` asynchronous APIs:
+
 ```java
 call.mute().get();
 call.unmute().get();
 ```
 
 ### Start and stop sending local video
-To start a video, you have to enumerate cameras using the `getCameraList` API on `deviceManager` object.
-Then create a new instance of `LocalVideoStream` passing the desired camera, and pass it in the `startVideo` API as an argument
+
+To start a video, you have to enumerate cameras using the `getCameraList` API on `deviceManager` object. Then create a new instance of `LocalVideoStream` passing the desired camera, and pass it in the `startVideo` API as an argument:
+
 ```java
 VideoDeviceInfo desiredCamera = <get-video-device>;
 Context appContext = this.getApplicationContext();
@@ -352,11 +366,13 @@ startVideoFuture.get();
 ```
 
 Once you successfully start sending video, a `LocalVideoStream` instance will be added to the `localVideoStreams` collection on the call instance.
+
 ```java
 currentVideoStream == call.getLocalVideoStreams().get(0);
 ```
 
 To stop local video, pass the `localVideoStream` instance available in `localVideoStreams` collection:
+
 ```java
 call.stopVideo(localVideoStream).get();
 ```
@@ -380,7 +396,7 @@ List<RemoteParticipant> remoteParticipants = call.getRemoteParticipants(); // [r
 Any given remote participant has a set of properties and collections associated with it:
 
 * Get the identifier for this remote participant.
-Identity is one is one of the 'Identifier' types
+Identity is one of the 'Identifier' types
 ```java
 CommunicationIdentifier participantIdentity = remoteParticipant.getIdentifier();
 ```
@@ -450,11 +466,10 @@ MediaStreamType streamType = remoteParticipantStream.getType(); // of type Media
 ```
  
 To render a `RemoteVideoStream` from a remote participant, you have to subscribe to a `OnVideoStreamsUpdated` event.
-Within the event, the change of `isAvailable` property to true indicates that remote participant is currently sending a stream
-Once that happens, create new instance of a `Renderer`, then create a new `RendererView` using asynchronous
-`createView` API and attach `view.target` anywhere in the UI of your application.
-Whenever availability of a remote stream changes you can can choose to destroy the whole Renderer, a specific `RendererView`
-or keep them, but this will result in displaying blank video frame.
+
+Within the event, the change of `isAvailable` property to true indicates that remote participant is currently sending a stream. Once that happens, create new instance of a `Renderer`, then create a new `RendererView` using asynchronous `createView` API and attach `view.target` anywhere in the UI of your application.
+
+Whenever availability of a remote stream changes you can choose to destroy the whole Renderer, a specific `RendererView` or keep them, but this will result in displaying blank video frame.
 
 ```java
 Renderer remoteVideoRenderer = new Renderer(remoteParticipantStream, appContext);
@@ -505,7 +520,7 @@ renderer.createView()
 renderer.dispose()
 ```
 
-* `StreamSize` - size ( width/height ) of a remote video stream
+* `StreamSize` - size (width/height) of a remote video stream
 ```java
 StreamSize renderStreamSize = remoteVideoStream.getSize();
 int width = renderStreamSize.getWidth();

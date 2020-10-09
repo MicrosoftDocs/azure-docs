@@ -45,7 +45,7 @@ For agent versions 9 and newer, the minimum file size for a file to tier is base
 |32 KB (32768)               | 64 KB   |
 |64 KB (65536) and larger    | 128 KB  |
 
-With Windows Server 2019 and Azure File Sync agent version 9 and newer, cluster sizes up to 2 MB are also supported and tiering on those larger cluster sizes works the same way. Older OS or agent versions support cluster sizes up to 64 KB but beyond that, cloud tiering does not work.
+With Windows Server 2019 and Azure File Sync agent version 12 (future agent version), cluster sizes up to 2 MB are also supported and tiering on those larger cluster sizes works the same way. Older OS or agent versions support cluster sizes up to 64 KB but beyond that, cloud tiering does not work.
 
 All file systems that are used by Windows, organize your hard disk based on cluster size (also known as allocation unit size). Cluster size represents the smallest amount of disk space that can be used to hold a file. When file sizes do not come out to an even multiple of the cluster size, additional space must be used to hold the file - up to the next multiple of the cluster size.
 

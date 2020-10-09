@@ -5,7 +5,7 @@
  author: roygara
  ms.service: virtual-machines
  ms.topic: include
- ms.date: 09/22/2020
+ ms.date: 09/30/2020
  ms.author: rogarana
  ms.custom: include file
 ---
@@ -25,7 +25,6 @@ Shared ultra disks are available in all regions that support ultra disks by defa
 
 ### Premium SSDs
 
-- Currently only supported in [a subset of regions](#regional-availability).
 - Currently limited to Azure Resource Manager or SDK support. 
 - Can only be enabled on data disks, not OS disks.
 - **ReadOnly** host caching is not available for premium SSDs with `maxShares>1`.
@@ -37,24 +36,4 @@ Shared ultra disks are available in all regions that support ultra disks by defa
 
 #### Regional availability
 
-Shared premium SSDs are only supported in the following regions:
-
-- East US
-- East US 2
-- West US
-- West US 2
-- West Central US
-- South Central US
-- North Central US
-- Central US
-- West Europe
-- North Europe
-- Korea Central
-- Canada Central
-- Canada East
-- Japan East
-- Japan West
-- South East Asia
-- East Asia
-- US Gov Virginia
-- US Gov Arizona
+Shared premium SSDs are available in all regions that managed disks are available.

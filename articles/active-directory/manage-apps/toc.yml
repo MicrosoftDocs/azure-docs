@@ -57,10 +57,16 @@
         href: developer-guidance-for-integrating-applications.md
     - name: Single sign-on
       items:
-      - name: Single sign-on options 
-        href: sso-options.md
       - name: Plan a single sign-on deployment
         href: plan-sso-deployment.md
+      - name: Single sign-on options 
+        href: sso-options.md
+      - name: SAML-based SSO
+        href: configure-saml-single-sign-on.md
+      - name: Password-based SSO
+        href: configure-password-single-sign-on-non-gallery-applications.md
+      - name: Linked-based SSO
+        href: configure-linked-sign-on.md
       - name: One-click SSO
         href: one-click-sso-tutorial.md
     - name: Application security
@@ -102,28 +108,28 @@
   - name: How-to guides
     expanded: false
     items:
-    - name: Configure single sign-on
-      items:
-      - name: Configure SAML-based single sign-on
-        href: configure-saml-single-sign-on.md
-      - name: Configure password-based sign-on
-        href: configure-password-single-sign-on-non-gallery-applications.md
-      - name: Configure linked sign-on
-        href: configure-linked-sign-on.md
     - name: Assign users and manage access to apps
       items:
-      - name: Configure user consent
-        href: configure-user-consent.md
-      - name: Manage and evaluate consent requests
-        href: manage-consent-requests.md
-      - name: Grant tenant-wide admin consent
-        href: grant-admin-consent.md
-      - name: Configure admin consent workflow (preview)
-        href: configure-admin-consent-workflow.md
+      - name: Consent and permissions
+        items:
+        - name: Configure user consent
+          href: configure-user-consent.md
+        - name: Configure group owner consent
+          href: configure-user-consent-groups.md
+        - name: Configure permission classifications
+          href: configure-permission-classifications.md
+        - name: Manage app consent policies
+          href: manage-app-consent-policies.md
+        - name: Configure admin consent workflow (preview)
+          href: configure-admin-consent-workflow.md
+        - name: Manage and evaluate consent requests
+          href: manage-consent-requests.md
+        - name: Grant tenant-wide admin consent
+          href: grant-admin-consent.md
+        - name: Review permissions granted to apps
+          href: manage-application-permissions.md
       - name: Manage user assignment for an app
         href: assign-user-or-group-access-portal.md
-      - name: Review permissions granted to apps
-        href: manage-application-permissions.md
       - name: Create collections on My Apps
         href: access-panel-collections.md
       - name: Use self-service app access

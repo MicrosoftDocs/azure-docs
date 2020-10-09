@@ -32,6 +32,7 @@ Translator supports the following languages for text to text translation.
 |:-----|:-----:|
 |Afrikaans|	`af`|
 |Arabic|	`ar`	|
+|Assamese|	`as`	|
 |Bangla|	`bn`	|
 |Bosnian (Latin)|	`bs`	|
 |Bulgarian|	`bg`	|
