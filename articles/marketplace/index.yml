@@ -132,7 +132,7 @@ landingContent:
     - linkListType: get-started
       links:
       - text: Support options
-        url: ./partner-center-portal/support.md
+        url: ./support.md
       - text: Troubleshoot authentication errors
         url: ./cloud-partner-portal-api-troubleshooting-authentication-errors.md
       - text: Geographic availability and currencies

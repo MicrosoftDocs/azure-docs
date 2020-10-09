@@ -15,7 +15,7 @@ This article describes how to test and submit a virtual machine (VM) image in th
 
 Complete these steps before submitting your VM offer:
 
-- Deploy an Azure VM using your generalized image. See here for more information on [Generalized images](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-azure-vm-technical-asset#generalize-the-image).
+- Deploy an Azure VM using your generalized image; see [Create a virtual machine from an approved base](azure-vm-create-using-approved-base.md).
 - Run validations.
 
 ## Deploy an Azure VM using your generalized image
@@ -757,6 +757,6 @@ https://isvapp.azure-api.net/selftest-vm -d '{ "DNSName":"XXXX.westus.cloudapp.a
 
 ![JSON results from the CURL call.](media/vm/test-results-json-viewer-3.png)
 
-## Next step
+## Next steps
 
-- Read [Common SAS URI issues and fixes](common-sas-uri-issues.md).
+- [Get SAS URI](azure-vm-get-sas-uri.md)

@@ -40,6 +40,6 @@ Open a ticket with Microsoft [marketplace publisher support](https://aka.ms/mark
 ## Next steps
 
 * Visit the [commercial marketplace publisher guide page](index.yml).
-* Learn more about [support for the commercial marketplace program in Partner Center](partner-center-portal/support.md).
+* Learn more about [support for the commercial marketplace program in Partner Center](support.md).
 
 ---

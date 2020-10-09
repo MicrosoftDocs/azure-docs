@@ -15,7 +15,7 @@ These frequently asked questions (FAQ) cover common issues you might encounter w
 
 ## How do I create a VM from the Azure portal using a VHD in premium storage?
 
-Azure Marketplace does not currently support creating VM offers from images on managed storage or from Azure Premium Storage. For details, see [Azure Managed Disks Overview](../../virtual-machines/managed-disks-overview.md).
+Azure Marketplace does not currently support creating VM offers from images on managed storage or from Azure Premium Storage. For details, see [Azure Managed Disks Overview](../virtual-machines/managed-disks-overview.md).
 
 ## Can I use Generation 2 VMs for offers?
 
@@ -40,9 +40,9 @@ Generation of certificates is explained in [Azure VM image certification](https:
 
 If you are using the Azure Resource Manager deployment model, you have three options:
 
-* [Create a route-based VPN gateway using the Azure portal](../../vpn-gateway/create-routebased-vpn-gateway-portal.md)
-* [Create a route-based VPN gateway using Azure PowerShell](../../vpn-gateway/create-routebased-vpn-gateway-powershell.md)
-* [Create a route-based VPN gateway using CLI](../../vpn-gateway/create-routebased-vpn-gateway-cli.md)
+* [Create a route-based VPN gateway using the Azure portal](../vpn-gateway/create-routebased-vpn-gateway-portal.md)
+* [Create a route-based VPN gateway using Azure PowerShell](../vpn-gateway/create-routebased-vpn-gateway-powershell.md)
+* [Create a route-based VPN gateway using CLI](../vpn-gateway/create-routebased-vpn-gateway-cli.md)
 
 ## What are Microsoft support policies for running Microsoft server software on Azure-based VMs?
 

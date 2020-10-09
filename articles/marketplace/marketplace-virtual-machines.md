@@ -1,64 +1,80 @@
 ---
-title: Publishing guide for virtual machine offers on Azure Marketplace
-description: This article describes the requirements for publishing a virtual machine and a software free trial to be deployed from Azure Marketplace.
+title: Plan a virtual machine offer on Azure Marketplace
+description: This article describes the requirements for publishing a virtual machine offer to Azure Marketplace.
 services:  Azure, Marketplace, Compute, Storage, Networking, Blockchain, Security
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 author: iqshahmicrosoft
 ms.author: iqshah
-ms.date: 09/04/2020
+ms.date: 10/16/2020
 ---
 
-# Publishing guide for virtual machine offers
+# Plan a virtual machine offer
 
-Publishing virtual machine (VM) images is one of the main ways to publish a solution to Azure Marketplace. Use this guide to understand the requirements for this type of offer. 
+This article explains the different options and requirements for publishing a virtual machine (VM) offer to the commercial marketplace. VM offers are transactable offers deployed and billed through Azure Marketplace).
 
-Virtual machine offers are transaction offers that are deployed and billed through Azure Marketplace. The listing option that a user sees is *Get It Now*.
+Before you start, [Create a commercial marketplace account in Partner Center](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-account) and ensure your account is enrolled in the commercial marketplace program.
 
-## Free trial 
+## Benefits of publishing to Azure Marketplace
 
-To arrange for users to test your offer, access limited-term software licenses when you use the bring-your-own-license (BYOL) billing model. 
+When you publish your offers on Azure Marketplace, you can:
 
-## Test drive
+- Promote your company with the help of the Microsoft brand.
+- Reach over 100 million Microsoft 365 and Dynamics 365 users and more than 200,000 organizations.
+- Get high-quality leads from these marketplaces.
+- Get your services promoted by the Microsoft field sales and telesales teams.
 
-You can deploy one or more virtual machines through infrastructure as a service (IaaS) or software as a service (SaaS) apps. A benefit of the *test drive* publishing option is the automated setup of a virtual machine or entire solution led by a partner-hosted guided tour. A test drive lets your customers evaluate VMs at no additional cost to them. A customer doesn't need to be an existing Azure customer to engage with the trial experience. 
+## Fundamentals in technical knowledge
 
-For more information about test drives, see [What is a test drive?](what-is-test-drive.md)
+The process of designing, building, and testing offers takes time and requires expertise in both the Azure platform and the technologies used to build your offer.
 
-|Requirements  |Details |
-|---------|---------|
-| You have an Azure Marketplace app   |  One or more virtual machines through IaaS or SaaS.      |
+Your engineering team should have a working knowledge of the following Microsoft technologies:
 
-## Interactive demo
+- [Azure services](https://azure.microsoft.com/services/)
+- [Design and architecture of Azure applications](https://azure.microsoft.com/solutions/architecture/)
+- [Azure Virtual Machines](https://azure.microsoft.com/services/virtual-machines/), [Azure Storage](https://azure.microsoft.com/services/?filter=storage#storage), and [Azure Networking](https://azure.microsoft.com/services/?filter=networking#networking)
 
-With this offer, you give your customers a guided experience of your solution by using an interactive demonstration. The benefit of an interactive demo publishing option is that you can offer a trial experience without having to provide a complicated setup of your complex solution. 
+## Licensing options
+
+As you prepare to publish a new VM offer, you need to decide which licensing option to choose. This will determine what additional information you'll need to provide later as you create your offer in Partner Center.
+
+These are the available listing options for VM offers:
+
+| Listing option | Transaction process |
+| --- | --- |
+| Free trial | Offer your customers a one-, three- or six-month free trial. |
+| Test drive | This option lets your customers evaluate VMs at no additional cost to them. They don't need to be an existing Azure customer to engage with the trial experience. For details, see [What is a test drive?](https://docs.microsoft.com/azure/marketplace/what-is-test-drive) |
+| BYOL | This Bring Your Own Licensing option lets your customers bring existing software licenses to Azure.\* |
+| Usage-based | Also known as pay-as-you-go, this option lets your customers pay per hour. |
+| Interactive demo  | Give your customers a guided experience of your solution using an interactive demonstration. The benefit is that you can offer a trial experience without having to provide a complicated setup of your complex solution. |
+|
+
+\* As the publisher, you support all aspects of the software license transaction, including (but not limited to) order, fulfillment, metering, billing, invoicing, payment, and collection.
+
+For more information on these listing options, see [Commercial marketplace transact capabilities](https://docs.microsoft.com/azure/marketplace/marketplace-commercial-transaction-capabilities-and-considerations).
+
+After your offer is published, the listing option you chose for your offer appears as a button in the upper-left corner of your offer's listing page. The following example shows an offer page in Azure Marketplace with the  **Get it now** button.
+
+:::image type="content" source="media/vm/sample-offer-screen.png" alt-text="Sample VM offer screen.":::
 
 ## Virtual machine offer
 
-Use the *virtual machine* offer type when you deploy a virtual appliance to the subscription that's associated with your customer. VMs are fully commerce-enabled, using pay-as-you-go or bring-your-own-license (BYOL) licensing models. Microsoft hosts the commerce transaction and bills your customer on your behalf. You get the benefit of using the preferred payment relationship between your customer and Microsoft, including any Enterprise Agreements.
+Use this offer type when your offer is deployed as a virtual machine to the subscription that's associated with your customer. VMs are fully commerce-enabled, using pay-as-you-go or bring-your-own-license (BYOL) licensing models. Microsoft hosts the commerce transaction and bills your customer on your behalf. You get the benefit of using the preferred payment relationship between your customer and Microsoft, including any Enterprise Agreements.
 
 > [!NOTE]
-> At this time, the monetary commitments associated with an Enterprise Agreement can be used against the Azure usage of your VM, but not against your software licensing fees.  
-> 
+> The monetary commitments associated with an Enterprise Agreement can be used against the Azure usage of your VM, but not against your software licensing fees.
+
+You can restrict the discovery and deployment of your VM to a specific set of customers by publishing the image and pricing as a Private Offer. Private Offers unlock the ability for you to create exclusive offers for your closest customers and offer customized software and terms. The customized terms enable you to highlight a variety of scenarios, including field-led deals with specialized pricing and terms as well as early access to limited release software. Private Offers enable you to give specific pricing or products to a limited set of customers by creating a new plan with those details.
+
+For more information, see [**Private Offers on Azure Marketplace**](https://azure.microsoft.com/blog/private-offers-on-azure-marketplace).
+
 > [!NOTE]
-> You can restrict the discovery and deployment of your VM to a specific set of customers by publishing the image and pricing as a Private Offer. Private Offers unlock the ability for you to create exclusive offers for your closest customers and offer customized software and terms. The customized terms enable you to highlight a variety of scenarios, including field-led deals with specialized pricing and terms as well as early access to limited release software. Private Offers enable you to give specific pricing or products to a limited set of customers by creating a new plan with those details.  
->
-> For more information, see [Private Offers on Azure Marketplace](https://azure.microsoft.com/blog/private-offers-on-azure-marketplace).  
-
-| Requirement | Details |  
-|:--- |:--- | 
-| Billing and metering | Your VM must support either BYOL or pay-as-you-go monthly billing. |  
-| Azure-compatible virtual hard disk (VHD) | VMs must be built on Windows or Linux. For more information about creating a VHD, see: <ul> <li>[Linux distributions endorsed on Azure](../virtual-machines/linux/endorsed-distros.md) (for Linux VHDs).</li> <li>[Create an Azure-compatible VHD](./partner-center-portal/azure-vm-create-offer.md) (for Windows VHDs).</li> </ul> |  
-
->[!Note]
->The Cloud Solution Provider (CSP) partner channel opt-in is now available. For more information about marketing your offer through Microsoft CSP partner channels, see [Cloud Solution Providers](./cloud-solution-providers.md).
+> The Cloud Solution Provider (CSP) partner channel opt-in is now available. For more information about marketing your offer through Microsoft CSP partner channels, see [**Cloud Solution Providers**](https://docs.microsoft.com/azure/marketplace/cloud-solution-providers).
 
 ## Next steps
 
-If you haven't already done so, learn how to [Grow your cloud business with Azure Marketplace](https://azuremarketplace.microsoft.com/sell).
-
-To register for and start working in Partner Center:
-
+- Learn how to [Grow your cloud business with Azure Marketplace](https://azuremarketplace.microsoft.com/sell).
 - [Sign in to Partner Center](https://partner.microsoft.com/dashboard/account/v3/enrollment/introduction/partnership) to create or complete your offer.
-- See [Create a virtual machine offer](./partner-center-portal/azure-vm-create-offer.md) for more information.
+- Get started at [How to create a VM offer in the commercial marketplace](https://docs.microsoft.com/azure/marketplace/partner-center-portal/azure-vm-create-offer).
+ 
