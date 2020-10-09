@@ -52,6 +52,10 @@
       href: register-scan-teradata-source.md
     - name: Register and scan Azure Blob Storage
       href: register-scan-azure-blob-storage-source.md
+    - name: Register and scan Azure Data Lake Storage Gen 1
+      href: register-scan-adls-gen1.md
+    - name: Register and scan Azure Data Lake Storage Gen 2
+      href: register-scan-adls-gen2.md
     - name: Create a scan rule set
       href: create-a-scan-rule-set.md
     - name: Apply classifications
@@ -76,4 +80,3 @@
     href: how-to-provide-feedback.md
 #- name: Reference
 #- name: Resources
-
