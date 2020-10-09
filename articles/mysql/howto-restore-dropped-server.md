@@ -25,20 +25,18 @@ To restore a dropped Azure Database for MySQL server, you need following:
 
     - **Subscription** = Your Subscription hosting the deleted server
     - **Resource Type** = Azure Database for MySQL servers (Microsoft.DBforMySQL/servers) 
-    - **Operation** = Delete MySQL Server (Microsoft.DBforMySQL/servers/delete)
-
->[!div class="mx-imgBorder"]
-> :::image type="content" source="./media/howto-restore-dropped-server/activity-log.png" alt-text="Activity log filtered for Dropped MySQL server event" lightbox="./media/howto-restore-dropped-server/activity-log.png" :::
-    
+    - **Operation** = Delete MySQL Server (Microsoft.DBforMySQL/servers/delete) 
+ 
+     [![Activity log filtered for delete MySQL server operation](./media/howto-restore-dropped-server/activity-log.png)](./media/howto-restore-dropped-server/activity-log.png#lightbox)
+   
  3. Double Click on the Delete MySQL Server event and click on the JSON tab and note the "resourceId" and "submissionTimestamp" attributes in JSON output. The resourceId is in the following format: /subscriptions/ffffffff-ffff-ffff-ffff-ffffffffffff/resourceGroups/TargetResourceGroup/providers/Microsoft.DBforMySQL/servers/deletedserver.
  
  4. Go to [Create Server REST API Page](https://docs.microsoft.com/rest/api/mysql/servers/create) and click on "Try It" tab highlighted in green and login in with your Azure account.
  
  5. Provide the resourceGroupName, serverName (deleted server name), subscriptionId, derived from resourceId attribute captured in Step 3, while api-version is pre-populated as shown in image.
  
->[!div class="mx-imgBorder"]
-> :::image type="content" source="./media/howto-restore-dropped-server/create-server-from-rest-api.png" alt-text="Create Server from backup using REST API" lightbox=source="./media/howto-restore-dropped-server/create-server-from-rest-api.png" :::
- 
+     [![Create server using REST API](./media/howto-restore-dropped-server/create-server-from-rest-api.png)](./media/howto-restore-dropped-server/create-server-from-rest-api.png#lightbox)
+  
  6. Scroll below on Request Body section and paste the following replacing the "Dropped server Location", "submissionTimestamp", and "resourceId". For "restorePointInTime", specify a value of "submissionTimestamp" minus **15 minutes** to ensure the command does not error out.
  
     ```json
