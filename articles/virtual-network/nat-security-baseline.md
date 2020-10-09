@@ -14,12 +14,17 @@ ms.custom: subject-security-benchmark
 
 # Azure security baseline for Virtual Network NAT
 
-This security baseline applies guidance from the [Azure Security Benchmark](../security/benchmarks/overview.md) to Virtual
-Network NAT. The Azure Security Benchmark provides recommendations on how you can secure your cloud solutions on Azure. The content is grouped by the **security controls** defined by the Azure Security Benchmark and the related guidance applicable to Virtual
-Network NAT. **Controls** not applicable to Virtual
-Network NAT have been excluded. To see how Virtual
-Network NAT completely maps to the Azure Security Benchmark, see the [full Virtual
-Network NAT security baseline mapping file](https://github.com/MicrosoftDocs/SecurityBenchmarks/tree/master/Azure%20Offer%20Security%20Baselines).
+This security
+baseline applies guidance from the [Azure Security Benchmark version
+1.0](../security/benchmarks/overview-v1.md) to Virtual Network NAT. The Azure Security Benchmark
+provides recommendations on how you can secure your cloud solutions on Azure.
+The content is grouped by the **security controls** defined by the Azure
+Security Benchmark and the related guidance applicable to Virtual Network NAT. **Controls** not applicable to Virtual Network NAT have been excluded.
+
+ 
+To see how Virtual Network NAT completely maps to the Azure
+Security Benchmark, see the [full Virtual Network NAT security baseline mapping
+file](https://github.com/MicrosoftDocs/SecurityBenchmarks/tree/master/Azure%20Offer%20Security%20Baselines).
 
 >[!WARNING]
 >This preview version of the article is for review only. **DO NOT MERGE INTO MASTER!**
