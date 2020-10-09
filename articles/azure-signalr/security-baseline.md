@@ -14,12 +14,17 @@ ms.custom: subject-security-benchmark
 
 # Azure security baseline for Azure SignalR Service
 
-This security baseline applies guidance from the [Azure Security Benchmark](../security/benchmarks/overview.md) to Azure
-SignalR Service. The Azure Security Benchmark provides recommendations on how you can secure your cloud solutions on Azure. The content is grouped by the **security controls** defined by the Azure Security Benchmark and the related guidance applicable to Azure
-SignalR Service. **Controls** not applicable to Azure
-SignalR Service have been excluded. To see how Azure
-SignalR Service completely maps to the Azure Security Benchmark, see the [full Azure
-SignalR Service security baseline mapping file](https://github.com/MicrosoftDocs/SecurityBenchmarks/tree/master/Azure%20Offer%20Security%20Baselines).
+This security
+baseline applies guidance from the [Azure Security Benchmark version
+1.0](../security/benchmarks/overview-v1.md) to Azure SignalR. The Azure Security Benchmark
+provides recommendations on how you can secure your cloud solutions on Azure.
+The content is grouped by the **security controls** defined by the Azure
+Security Benchmark and the related guidance applicable to Azure SignalR. **Controls** not applicable to Azure SignalR have been excluded.
+
+ 
+To see how Azure SignalR completely maps to the Azure
+Security Benchmark, see the [full Azure SignalR security baseline mapping
+file](https://github.com/MicrosoftDocs/SecurityBenchmarks/tree/master/Azure%20Offer%20Security%20Baselines).
 
 >[!WARNING]
 >This preview version of the article is for review only. **DO NOT MERGE INTO MASTER!**
