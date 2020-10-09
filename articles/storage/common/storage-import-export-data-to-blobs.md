@@ -89,6 +89,8 @@ Perform the following steps to prepare the drives.
 
 ## Step 2: Create an import job
 
+### [Portal](#tab/azure-portal)
+
 Perform the following steps to create an import job in the Azure portal.
 
 1. Log on to https://portal.azure.com/.
@@ -136,6 +138,40 @@ Perform the following steps to create an import job in the Azure portal.
    * Click **OK** to create the import job.
 
      ![Create import job - Step 4](./media/storage-import-export-data-to-blobs/import-to-blob6.png)
+
+### [Azure CLI](#tab/azure-cli)
+
+To get a list of the locations to which you can ship disks, use the [az import-export location list](/cli/azure/ext/import-export/import-export/location#ext_import_export_az_import_export_location_list) command.
+
+```azurecli
+az import-export location list
+```
+
+Get the details for your location by using the [az import-export location show](/cli/azure/ext/import-export/import-export/location#ext_import_export_az_import_export_location_show) command for your region.
+
+```azurecli
+az import-export location show --location "West US"
+```
+
+The following command uses [az import-export create](/cli/azure/ext/import-export/import-export#ext_import_export_az_import_export_create) to create an import job.
+
+```azurecli
+
+```
+
+Use the [az import-export list](/cli/azure/ext/import-export/import-export#ext_import_export_az_import_export_list) command to see all the jobs for a resource group.
+
+```azurecli
+az import-export list --resource-group myierg
+```
+
+To update your job or cancel your job, use the [az import-export update](https://docs.microsoft.com/en-us/cli/azure/ext/import-export/import-export#ext_import_export_az_import_export_update) command.
+
+```azurecli
+az import-export update --resource-group myierg --name MyIEjob1 --cancel-requested true
+```
+
+---
 
 ## Step 3 (Optional): Configure customer managed key
 
