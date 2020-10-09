@@ -64,6 +64,9 @@ conceptualContent:
         - url: ../speech-service/speech-container-howto.md
           itemType: overview
           text: Neural text to speech 
+        - url: ../speech-service/speech-container-howto.md
+          itemType: overview
+          text: Speech language detection
     - title: Language containers
       summary: Detect sentiment in text, extract key phrases, identify and identify the language of written text. 
       links:
