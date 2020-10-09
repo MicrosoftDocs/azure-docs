@@ -143,7 +143,7 @@ Synapse Studio will behave differently based on user roles. Some items may be hi
 | Data Hub / See linked ADLS Gen2 accounts and containers | YES [1] | YES[1] | YES[1] |
 | Data Hub / See Databases | YES | YES | YES |
 | Data Hub / See objects in databases | YES | YES | YES |
-| Data Hub / Access data in Synapse pool databases | YES   | NO   | YES   |
+| Data Hub / Access data in Synapse SQL databases | YES   | NO   | YES   |
 | Data Hub / Access data in serverless SQL pool databases | YES [2]  | NO  | YES [2]  |
 | Data Hub / Access data in Spark databases | YES [2] | YES [2] | YES [2] |
 | Use the Develop hub | YES | YES | YES |
