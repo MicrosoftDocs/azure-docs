@@ -19,7 +19,7 @@ With Azure Logic Apps and the File System connector, you can create automated ta
 - Get file content and metadata.
 
   > [!IMPORTANT]
-  > The File System connector currently supports only Windows file system on a Windows machine.  
+  > The File System connector currently supports only Windows file systems on Windows operating systems.  
 
 This article shows how you can connect to an on-premises file system as described by this example scenario: copy a file that's uploaded to Dropbox to a file share, and then send an email. To securely connect and access on-premises systems, logic apps use the [on-premises data gateway](../logic-apps/logic-apps-gateway-connection.md). If you're new to logic apps, review [What is Azure Logic Apps?](../logic-apps/logic-apps-overview.md). For connector-specific technical information, see the [File System connector reference](/connectors/filesystem/).
 
