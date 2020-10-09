@@ -54097,7 +54097,7 @@
     },
     {
       "source_path": "articles/azure-sql/virtual-machines/windows/hadr-vnn-azure-load-balancer-configure.md",
-      "redirect_url": "/azure/azure-sql/virtual-machines/windows/availability-group-hadr-vnn-azure-load-balancer-configure",
+      "redirect_url": "/azure/azure-sql/virtual-machines/windows/availability-group-vnn-azure-load-balancer-configure",
       "redirect_document_id": true
     },
     {

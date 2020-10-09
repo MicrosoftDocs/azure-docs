@@ -97,7 +97,7 @@ After you've unregistered from the resource provider, you can uninstall SQL Serv
 
 On each virtual machine, open the Windows Firewall TCP port that SQL Server uses. By default, this is port 1433. But you can change the SQL Server port on an Azure VM deployment, so open the port that SQL Server uses in your environment. This port is automatically open on SQL Server images deployed from Azure Marketplace. 
 
-If you use a [load balancer](failover-cluster-intance-vnn-azure-load-balancer-configure.md), you'll also need to open the port that the health probe uses. By default, this is port 59999. But it can be any TCP port that you specify when you create the load balancer. 
+If you use a [load balancer](failover-cluster-instance-vnn-azure-load-balancer-configure.md), you'll also need to open the port that the health probe uses. By default, this is port 59999. But it can be any TCP port that you specify when you create the load balancer. 
 
 This table details the ports that you might need to open, depending on your FCI configuration: 
 
