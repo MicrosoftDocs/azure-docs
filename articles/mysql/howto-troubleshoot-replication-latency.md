@@ -102,17 +102,17 @@ Next, you need to check Last_IO_Errno, Last_IO_Error, Last_SQL_Errno and Last_SQ
 
 ## Common Scenarios for high replication latency
 
-### Network Latency
+### Network Latency Or High CPU on source server
 
-If you observe the following values, the most common cause of the replication latency is high network latency. In this case, the IO thread is running and waiting on the master. The master has already written to binary log file #20, while replica received only up to file #10. Since the IO thread connects to master via TCP/IP, the only contributing factor for high replication latency is the network speed.  In Azure, the network latency within a region typically ranges in milliseconds and across region can go up to seconds. If you see high network latency abnormally all of a sudden, we recommend you check [Azure status page](https://status.azure.com/status) to ensure there are non known issues or outages. If there is no known issue and the issue still persists for few hours, we recommend you to open a support ticket for troubleshooting assistance.
+If you observe the following values, the most common cause of the replication latency is high network latency or high cpu consumption on the source server. In this case, the IO thread is running and waiting on the master. The master (source server) has already written to binary log file #20, while replica received only up to file #10. The primary contributing factors for high replication latency in this scenario are network speed or high cpu utilization on source server.  In Azure, the network latency within a region typically ranges in milliseconds and across region can go up to seconds. In most cases, the delay in IO thread to connect to the source server is caused due to high cpu utilization on the source server causing the IO thread processing to be slow. This can be detected by monitoring the cpu utilization and observing the number of concurrent connections on the source server using Azure monitor.
+
+If you do not see high cpu utilization on the source server, the possible causes can be network latency. if you see high network latency abnormally all of a sudden, we recommend you check [Azure status page](https://status.azure.com/status) to ensure there are non known issues or outages. 
 
 ```
 Slave_IO_State: Waiting for master to send event
 Master_Log_File: the binary file sequence is larger then Relay_Master_Log_File, e.g. mysql-bin.00020
 Relay_Master_Log_File: the file sequence is smaller than Master_Log_File, e.g. mysql-bin.00010
 ```
-
-Following are the common causes of the latency in this category:
 
 ### Heavy Burst of transactions on source server
 
@@ -171,13 +171,13 @@ order by tab.table_schema, tab.table_name;
 
 #### Replication latency due to long running queries on replica server
 
-It is possible that the workload on replica server can prevent SQL thread to keep-up with the IO thread. This is one of the common causes of high replication latency if there is a long running query on the replica server. In this case, [slow query log](concepts-server-logs.md) should be enabled on the replica server to help troubleshooting the issue. Slow queries can increase resource consumptions or slow down the server, thus replica will not be able to catch-up with the master. In this scenario, you need to tune slow queries. Faster queries prevent unblocking of SQL thread and improves replication latency significantly.
+It is possible that the workload on replica server can prevent SQL thread to keep-up with the IO thread. This is one of the common causes of high replication latency if there is a long running query on the replica server. In this case, [slow query log](concepts-server-logs.md) should be enabled on the replica server to help troubleshooting the issue. Slow queries can increase resource consumptions or slow down the server, thus replica will not be able to catch-up with the master. In this scenario, you need to tune slow queries. Faster queries prevent blocking of SQL thread and improves replication latency significantly.
 
 
 #### Replication latency due to DDL queries on source server
-If there is an online DDL executed on source server and say it took 1 hour to execute. During that time, if there are thousands of other queries running in parallel on source server. When the DDL gets replicated to the replica, to ensure consistency of the database, MySQL engine has to run the DDL in a single replication thread. So all other replicated queries will be blocked and will need to wait for 1 hour until the DDL operation is completed on replica server. This is true regardless of online DDL operation or not. With DDL operations, the replication is expected to see an increased replication latency.
+If there is an long running DDL command like [ALTER TABLE](https://dev.mysql.com/doc/refman/5.7/en/alter-table.html) executed on source server and say it took 1 hour to execute. During that time, there may be thousands of other queries running in parallel on source server. When the DDL gets replicated to the replica, to ensure consistency of the database, MySQL engine has to run the DDL in a single replication thread. So all other replicated queries will be blocked and will need to wait for a hour or more until the DDL operation is completed on replica server. This is true regardless of online DDL operation or not. With DDL operations, the replication is expected to see an increased replication latency.
 
-This scenario can be detected by enabling [slow query log](concepts-server-logs.md) on source server. Though Index dropping, renaming and creation should use INPLACE algorithm for the ALTER TABLE it will avoid copying table data, but may rebuild the table. Typically for INPLACE algorithm concurrent DML is supported, but an exclusive metadata lock on the table may be taken briefly during preparation and execution phases of the operation. As such, for CREATE INDEX statement the clauses ALGORITHM and LOCK may be used to influence the table copying method and level of concurrency for reading and writing, nevertheless adding a FULLTEXT or SPATIAL index will still prevent DML operations. See below an example of creating an index with ALGORITHM and LOCK clauses:
+If you have [slow query log](concepts-server-logs.md) enabled on the source server, this scenario can be detected by looking at the slow query logs to see if a DDL command was executed on source server. Though Index dropping, renaming and creation should use INPLACE algorithm for the ALTER TABLE it may involve copying table data, and rebuild the table. Typically for INPLACE algorithm concurrent DML is supported, but an exclusive metadata lock on the table may be taken briefly during preparation and execution phases of the operation. As such, for CREATE INDEX statement the clauses ALGORITHM and LOCK may be used to influence the table copying method and level of concurrency for reading and writing, nevertheless adding a FULLTEXT or SPATIAL index will still prevent DML operations. See below an example of creating an index with ALGORITHM and LOCK clauses:
 
 ```sql
 ALTER TABLE table_name ADD INDEX index_name (column), ALGORITHM=INPLACE, LOCK=NONE;
@@ -188,4 +188,8 @@ Unfortunately, for DDL statement that requires a lock, replication latency canno
 #### Replication latency due to replica server lower SKU
 
 In Azure Database for MySQL read replicas are created with the same server configuration as the master server. The replica server configuration can be changed after it has been created. However, if the replica server will be downgraded, the workload can cause higher resource consumption that in turn can lead to replication latency. This can be observed by monitoring the CPU and Memory consumption of the replica server from Azure Monitor. In this scenario, it is recommended that the replica server's configuration should be kept at equal or greater values than the source to ensure the replica is able to keep up with the master.
+
+#### Improving Replication Latency using server parameter tuning on source server
+
+In Azure Database for MySQL, replication is optimized to run with parallel threads on replicas by default. For high concurrency workloads on source server where replica server is failing to catch-up, the replication latency can improved by configuring parameter binlog_group_commit_sync_delay on the source server. This parameter controls how many microseconds the binary log commit waits before synchronizing the binary log file. The benefit is that instead of immediately applying every transaction committed, the master send the binary log updates in bulk. This reduces IO on the replica and helps to improve performance. In this scenario, it might be useful to set binlog_group_commit_sync_delay to 1000 or so and monitor the replication latency. This parameter should be set cautiously and leveraged for high concurrent workloads only. For low concurrency scenario with lot of singleton transactions, setting binlog_group_commit_sync_delay can add to the latency because the IO thread is waiting for bulk binary log updates while only few transactions may be committed. 
 
