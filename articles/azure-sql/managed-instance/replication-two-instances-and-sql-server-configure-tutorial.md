@@ -45,7 +45,7 @@ To complete the tutorial, make sure you have the following prerequisites:
 - The latest version of [Azure PowerShell](/powershell/azure/install-az-ps?view=azps-1.7.0).
 - Ports 445 and 1433 allow SQL traffic on both the Azure firewall and the Windows firewall.
 
-## 1 - Create the resource group
+## Create the resource group
 
 Use the following PowerShell code snippet to create a new resource group:
 
@@ -58,7 +58,7 @@ $Location = "East US 2"
 New-AzResourceGroup -Name  $ResourceGroupName -Location $Location
 ```
 
-## 2 - Create two managed instances
+## Create two managed instances
 
 Create two managed instances within this new resource group using the [Azure portal](https://portal.azure.com).
 
@@ -72,7 +72,7 @@ For more information about creating a managed instance, see [Create a managed in
   > [!NOTE]
   > For the sake of simplicity, and because it is the most common configuration, this tutorial suggests placing the distributor managed instance within the same virtual network as the publisher. However, it's possible to create the distributor in a separate virtual network. To do so, you will need to configure VPN peering between the virtual networks of the publisher and distributor, and then configure VPN peering between the virtual networks of the distributor and subscriber.
 
-## 3 - Create a SQL Server VM
+## Create a SQL Server VM
 
 Create a SQL Server virtual machine using the [Azure portal](https://portal.azure.com). The SQL Server virtual machine should have the following characteristics:
 
@@ -83,7 +83,7 @@ Create a SQL Server virtual machine using the [Azure portal](https://portal.azur
 
 For more information about deploying a SQL Server VM to Azure, see [Quickstart: Create a SQL Server VM](../virtual-machines/windows/sql-vm-create-portal-quickstart.md).
 
-## 4 - Configure VPN peering
+## Configure VNet peering
 
 Configure VPN peering to enable communication between the virtual network of the two managed instances, and the virtual network of SQL Server. To do so, use this PowerShell code snippet:
 
@@ -134,7 +134,7 @@ Once VPN peering is established, test connectivity by launching SQL Server Manag
 
 ![Test connectivity to the managed instances](./media/replication-two-instances-and-sql-server-configure-tutorial/test-connectivity-to-mi.png)
 
-## 5 - Create a private DNS zone
+## Create a private DNS zone
 
 A private DNS zone allows DNS routing between the managed instances and SQL Server.
 
@@ -174,7 +174,7 @@ A private DNS zone allows DNS routing between the managed instances and SQL Serv
 1. Select **OK** to link your virtual network.
 1. Repeat these steps to add a link for the subscriber virtual network, with a name such as `Sub-link`.
 
-## 6 - Create an Azure storage account
+## Create an Azure storage account
 
 [Create an Azure storage account](https://docs.microsoft.com/azure/storage/common/storage-create-storage-account#create-a-storage-account) for the working directory, and then create a [file share](../../storage/files/storage-how-to-create-file-share.md) within the storage account.
 
@@ -190,7 +190,7 @@ Example: `DefaultEndpointsProtocol=https;AccountName=replstorage;AccountKey=dYT5
 
 For more information, see [Manage storage account access keys](../../storage/common/storage-account-keys-manage.md).
 
-## 7 - Create a database
+## Create a database
 
 Create a new database on the publisher managed instance. To do so, follow these steps:
 
@@ -238,7 +238,7 @@ SELECT * FROM ReplTest
 GO
 ```
 
-## 8 - Configure distribution
+## Configure distribution
 
 Once connectivity is established and you have a sample database, you can configure distribution on your `sql-mi-distributor` managed instance. To do so, follow these steps:
 
@@ -273,7 +273,7 @@ Once connectivity is established and you have a sample database, you can configu
    EXEC sys.sp_adddistributor @distributor = 'sql-mi-distributor.b6bf57.database.windows.net', @password = '<distributor_admin_password>'
    ```
 
-## 9 - Create the publication
+## Create the publication
 
 Once distribution has been configured, you can now create the publication. To do so, follow these steps:
 
@@ -294,7 +294,7 @@ Once distribution has been configured, you can now create the publication. To do
 1. On the **Complete the Wizard** page, name your publication `ReplTest` and select **Next** to create your publication.
 1. Once your publication has been created, refresh the **Replication** node in **Object Explorer** and expand **Local Publications** to see your new publication.
 
-## 10 - Create the subscription
+## Create the subscription
 
 Once the publication has been created, you can create the subscription. To do so, follow these steps:
 
@@ -327,7 +327,7 @@ exec sp_addpushsubscription_agent
 GO
 ```
 
-## 11 - Test replication
+## Test replication
 
 Once replication has been configured, you can test it by inserting new items on the publisher and watching the changes propagate to the subscriber.
 
