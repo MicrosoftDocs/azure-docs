@@ -247,13 +247,11 @@
     - name: Log queries
       items:
       - name: Query language
-        items:
-        - name: KQL reference
-          href: /azure/data-explorer/kusto/query/
-        - name: Examples
-          href: https://review.docs.microsoft.com/azure/data-explorer/kusto/query/samples?branch=pr-en-us-826&pivots=azuremonitor
-        - name: Difference from Azure Data Explorer
-          href: log-query/data-explorer-difference.md
+        href: log-query/data-explorer-difference.md
+      - name: KQL reference
+        href: /azure/data-explorer/kusto/query/
+      - name: Examples
+        href: https://review.docs.microsoft.com/azure/data-explorer/kusto/query/samples?branch=pr-en-us-826&pivots=azuremonitor
       - name: Standard columns
         href: platform/log-standard-columns.md
       - name: Optimize queries

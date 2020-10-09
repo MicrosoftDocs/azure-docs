@@ -1,5 +1,5 @@
 ---
-title: Azure Monitor log query language differences | Microsoft Docs
+title: Azure Monitor log query language differences
 description: Reference information for Kusto query language used by Azure Monitor. Includes additional elements specific to Azure Monitor and elements not supported in Azure Monitor log queries.
 ms.subservice: logs
 ms.topic: conceptual
