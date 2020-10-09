@@ -34,7 +34,7 @@ To use Spark analytics, create and use **serverless Apache Spark pools** in your
 ## SQL Terminology
 | Term                         | Definition      |
 |:---                                 |:---                 |
-| **SQL Request**  |   Operation such as a query run through a dedicated SQL pool or a serverless SQL pool. |
+| **SQL Request**  |   Operation such as a query run through dedicated SQL pool or serverless SQL pool. |
 
 ## Spark Terminology
 | Term                         | Definition      |

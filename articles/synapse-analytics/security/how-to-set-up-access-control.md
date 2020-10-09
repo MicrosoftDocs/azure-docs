@@ -109,7 +109,7 @@ Users in each role need to complete the following steps:
 | Number | Step | Workspace admins | Spark admins | SQL admins |
 | --- | --- | --- | --- | --- |
 | 1 | Upload a parquet file into CNT1 | YES | YES | YES |
-| 2 | Read the parquet file using SQL on-demand | YES | NO | YES |
+| 2 | Read the parquet file using serverless SQL pool | YES | NO | YES |
 | 3 | Create a serverless Apache Spark pool | YES [1] | YES [1] | NO  |
 | 4 | Reads the parquet file with a Notebook | YES | YES | NO |
 | 5 | Create a pipeline from the Notebook and Trigger the pipeline to run now | YES | NO | NO |
@@ -144,7 +144,7 @@ Synapse Studio will behave differently based on user roles. Some items may be hi
 | Data Hub / See Databases | YES | YES | YES |
 | Data Hub / See objects in databases | YES | YES | YES |
 | Data Hub / Access data in SQL pool databases | YES   | NO   | YES   |
-| Data Hub / Access data in SQL on-demand databases | YES [2]  | NO  | YES [2]  |
+| Data Hub / Access data in serverless SQL pool databases | YES [2]  | NO  | YES [2]  |
 | Data Hub / Access data in Spark databases | YES [2] | YES [2] | YES [2] |
 | Use the Develop hub | YES | YES | YES |
 | Develop Hub / author SQL Scripts | YES | NO | YES |

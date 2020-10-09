@@ -16,7 +16,7 @@
       href: get-started-analyze-sql-pool.md
     - name: 3 Analyze using Spark
       href: get-started-analyze-spark.md
-    - name: 4 Analyze using SQL on-demand
+    - name: 4 Analyze using serverless SQL pool
       href: get-started-analyze-sql-on-demand.md
     - name: 5 Analyze data in a storage account
       href: get-started-analyze-storage.md
@@ -66,7 +66,7 @@
       href: ./sql-data-warehouse/quickstart-bulk-load-copy-tsql-examples.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
     - name: Synapse Studio
       href: quickstart-load-studio-sql-pool.md
-  - name: Use SQL on-demand
+  - name: Use serverless SQL pool
     href: quickstart-sql-on-demand.md
   - name: Connect to Synapse Link for Cosmos DB
     href: quickstart-connect-synapse-link-cosmos-db.md
@@ -84,7 +84,7 @@
       href: ./spark/apache-spark-machine-learning-mllib-notebook.md 
   - name: Data Analyst
     items:
-    - name: Use SQL on-demand to analyze data
+    - name: Use serverless SQL pool to analyze data
       href: ./sql/tutorial-data-analyst.md
 - name: Samples
   href: https://github.com/Azure-Samples/Synapse
@@ -256,7 +256,7 @@
       items:
       - name: Synapse SQL architecture
         href: sql/overview-architecture.md
-      - name: SQL on-demand
+      - name: serverless SQL pool
         href: sql/on-demand-workspace-overview.md
       - name: dedicated SQL pool 
         href: ./sql-data-warehouse/sql-data-warehouse-overview-what-is.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
@@ -266,7 +266,7 @@
         href: sql/overview-features.md
       - name: Resource consumption models
         href: sql/resource-consumption-models.md
-      - name: Best practices SQL on-demand
+      - name: Best practices serverless SQL pool
         href: sql/best-practices-sql-on-demand.md
       - name: Best practices dedicated SQL pools
         href: sql/best-practices-sql-pool.md
@@ -975,7 +975,7 @@
     href: ./sql-data-warehouse/sql-data-warehouse-get-started-create-support-ticket.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
   - name: Customer self-help
     items:
-    - name: SQL on-demand
+    - name: serverless SQL pool
       href: sql/resources-self-help-sql-on-demand.md
   - name: Partners
     items:

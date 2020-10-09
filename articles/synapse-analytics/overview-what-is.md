@@ -30,6 +30,7 @@ scenarios using standard T-SQL experiences familiar to data engineers. It also e
 * Use built-in **streaming** capabilities to land data from cloud data sources into SQL tables
 * Integrate AI with SQL, by using **machine learning** models to score data using the [T-SQL PREDICT function](/sql/t-sql/queries/predict-transact-sql?view=azure-sqldw-latest&preserve-view=true)
 
+
 ### Industry-standard Apache Spark
 
 **Apache Spark for Azure Synapse** deeply and seamlessly integrates Apache Spark--the most popular open source big data engine used for data preparation, data engineering, ETL, and machine learning.
@@ -75,4 +76,4 @@ Azure Synapse provides a single way for enterprises to manage analytics resource
 
 * [Get started with Azure Synapse Analytics](get-started.md)
 * [Create a workspace](quickstart-create-workspace.md)
-* [Use SQL on-demand](quickstart-sql-on-demand.md)
+* [Use serverless SQL pool](quickstart-sql-on-demand.md)
