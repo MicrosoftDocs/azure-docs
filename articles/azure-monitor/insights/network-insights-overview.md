@@ -41,10 +41,10 @@ If you select the unavailable ER and VPN connections, you'll see a metric view:
 
 ![Screenshot that shows the metric view in Azure Monitor for Networks.](media/network-insights-overview/metric-view.png)
 
-You can select any item in the grid view. Select the icon in the **Health** column to get resource health for that connection. Select the icon in the **Alert** column to go to the alerts and metrics page for the connection. 
+You can select any item in the grid view. Select the icon in the **Health** column to get resource health for that connection. Select the value in the **Alert** column to go to the alerts and metrics page for the connection. 
 
 ### Alerts
-The **Alert** box on the right provides a view of all alerts generated for the selected resources across all subscriptions. Select the alert counts to go to detailed alerts pages.
+The **Alert** box on the right side of the page provides a view of all alerts generated for the selected resources across all subscriptions. Select the alert counts to go to a detailed alerts page.
 
 ### Dependency view
 Dependency view helps you visualize how a resource is configured. Dependency view is currently available for Azure Application Gateway, Azure Virtual WAN, and Azure Load Balancer. For example, in the case of Application Gateway, you can access dependency view by selecting the Application Gateway resource name in the metrics grid view. You can do the same thing for Virtual WAN and Load Balancer.
@@ -79,28 +79,28 @@ Tests are grouped by **Sources** and **Destinations** tiles and display the reac
 
 You can select any source or destination tile to open a metric view:
 
-![Screenshot that shows connectivity metrics in Azure Monitor for Networks](media/network-insights-overview/azure-monitor-for-networks-connectivity-metrics.png)
+![Screenshot that shows connectivity metrics in Azure Monitor for Networks.](media/network-insights-overview/azure-monitor-for-networks-connectivity-metrics.png)
 
 
-You can select any item in the grid view. Select the icon in the **Reachability** column to go to the **Connection Monitor** portal page to view the hop by hop topology and connectivity impacting issues identified. Click on **Alerts** to redirect to alerts and **Checks Failed Percent/Round-Trip Time** to redirect to metrics page for the selected Connection Monitor.
+You can select any item in the grid view. Select the icon in the **Reachability** column to go to the Connection Monitor portal page and view the hop-by-hop topology and connectivity affecting issues identified. Select the value in the **Alert** column to go to alerts. Select the graphs in the **Checks Failed Percent** and **Round-Trip Time (ms)** columns to go to the metrics page for the selected connection monitor.
 
-The **Alerts** grid on the right provides a view of all the alerts generated for the connectivity tests configured across all subscriptions. Click on the alert counts to navigate to detailed alerts page.
+The **Alert** box on the right side of the page provides a view of all alerts generated for the connectivity tests configured across all subscriptions. Select the alert counts to go to a detailed alerts page.
 
 ## <a name="traffic"></a>Traffic
-Traffic tab provides access to all NSGs configured for [NSG Flow logs](../../network-watcher/network-watcher-nsg-flow-logging-overview.md) and [Traffic Analytics](../../network-watcher/traffic-analytics.md) for the selected set of subscriptions and grouped by locations. The search functionality provided on this tab enables identifying the NSGs configured for the searched IP address. You can search for any IP address in your environment and the tiled regional view will display all NSGs along with the NSG Flow logs and Traffic analytics configuration status.
+The **Traffic** tab provides access to all NSGs configured for [NSG flow logs](../../network-watcher/network-watcher-nsg-flow-logging-overview.md) and [Traffic Analytics](../../network-watcher/traffic-analytics.md) for the selected set of subscriptions, grouped by location. The search functionality provided on this tab enables you to identify the NSGs configured for the searched IP address. You can search for any IP address in your environment. The tiled regional view will display all NSGs along with the NSG flow logs and Traffic Analytics configuration status.
 
-![Traffic view in Azure Monitor for Networks](media/network-insights-overview/azure-monitor-for-networks-traffic-view.png)
+![The traffic tab in Azure Monitor for Networks.](media/network-insights-overview/azure-monitor-for-networks-traffic-view.png)
 
-Clicking on any region tile launches a grid view that provides easy to view and configure NSG flow logs and Traffic Analytics.  
+If you select any region tile, a grid view appears. The grid provides NSG flow logs and Traffic Analytics in view that's easy to read and configure:  
 
-![Traffic region view in Azure Monitor for Networks](media/network-insights-overview/azure-monitor-for-networks-traffic-region-view.png)
+![Traffic region view in Azure Monitor for Networks.](media/network-insights-overview/azure-monitor-for-networks-traffic-region-view.png)
 
-You can click on each element in the grid view. Click on configuration status to edit the NSG flow log and Traffic Analytics configuration. Click on alerts to redirect to the Traffic Alerts configured for the selected NSG. Similarly, you can navigate to the Traffic Analytics view by clicking on the Workspace.  
+You can select any item in the grid view. Select the icon in the **Flowlog Configuration Status** column to edit the NSG flow log and Traffic Analytics configuration. Select the value in the **Alert** column to go to the traffic alerts configured for the selected NSG. Similarly, you can go to the Traffic Analytics view by selecting the **Traffic Analytics Workspace**.  
 
-The **Alerts** grid on the right provides a view of all the Traffic Analytics workspace based alerts across all subscriptions. Click on the alert counts to navigate to detailed alerts page.
+The **Alert** box on the right side of the page provides a view of all Traffic Analytics workspace-based alerts across all subscriptions. Select the alert counts to go to a detailed alerts page.
 
-## <a name="diagnostictoolkit"></a> Diagnostic toolkit
-Diagnostic Toolkit provides access to all Diagnostic features available for troubleshooting the network. From this dropdown you get can access to features such as [Packet Capture](../../network-watcher/network-watcher-packet-capture-overview.md), [VPN Troubleshoot](../../network-watcher/network-watcher-troubleshoot-overview.md), [Connection Troubleshoot](../../network-watcher/network-watcher-connectivity-overview.md), [Next Hop](../../network-watcher/network-watcher-next-hop-overview.md) and [IP Flow Verify](../../network-watcher/network-watcher-ip-flow-verify-overview.md).
+## <a name="diagnostictoolkit"></a> Diagnostic Toolkit
+Diagnostic Toolkit provides access to all the diagnostic features available for troubleshooting the network. You can use this drop-down list to access features like [packet capture](../../network-watcher/network-watcher-packet-capture-overview.md), [VPN troubleshooting](../../network-watcher/network-watcher-troubleshoot-overview.md), [connection troubleshooting](../../network-watcher/network-watcher-connectivity-overview.md), [next hop](../../network-watcher/network-watcher-next-hop-overview.md), and [IP flow verify](../../network-watcher/network-watcher-ip-flow-verify-overview.md).
 
 ![Diagnostic toolkit tab](media/network-insights-overview/azure-monitor-for-networks-diagnostic-toolkit.png)
 
