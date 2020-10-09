@@ -1,6 +1,6 @@
 ---
 title: Designing tables
-description: Introduction to designing tables in dedicated Synapse SQL pool. 
+description: Introduction to designing tables using dedicated SQL pool in Azure Synapse Analytics. 
 services: synapse-analytics
 author: XiaoyuMSFT
 manager: craigg

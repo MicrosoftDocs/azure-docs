@@ -118,5 +118,5 @@ print(accountKey)
 
 ## Next steps
 
-- [Write to SQL pool](./synapse-spark-sql-pool-import-export.md)
+- [Write to dedicated SQL pool](./synapse-spark-sql-pool-import-export.md)
 

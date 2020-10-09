@@ -33,7 +33,7 @@ The configuration steps include the following procedures to configure and use Az
 3. Assign role to created Azure Active Directory identity in Synapse workspace (preview)
 4. Connect to Synapse Studio by using Azure AD identities.
 
-## AAD pass-through in Azure Synapse Analytics
+## Azure AD pass-through in Azure Synapse Analytics
 
 Azure Synapse Analytics enables you to access the data in the data lake using your Azure Active Directory identity.
 
@@ -43,13 +43,13 @@ Defining access rights on the files and data that is respected in different data
 
 The following high-level diagram summarizes the solution architecture of using Azure AD authentication with Synapse SQL. To support Azure AD native user password, only the Cloud portion and Azure AD/Synapse Synapse SQL is considered. To support Federated authentication (or user/password for Windows credentials), the communication with ADFS block is required. The arrows indicate communication pathways.
 
-![aad auth diagram](./media/aad-authentication/1-active-directory-authentication-diagram.png)
+![azure ad auth diagram](./media/aad-authentication/1-active-directory-authentication-diagram.png)
 
 The following diagram indicates the federation, trust, and hosting relationships that allow a client to connect to a database by submitting a token. The token is authenticated by an Azure AD, and is trusted by the database. 
 
 Customer 1 can represent an Azure Active Directory with native users or an Azure AD with federated users. Customer 2 represents a possible solution including imported users; in this example coming from a federated Azure Active Directory with ADFS being synchronized with Azure Active Directory. 
 
-It's important to understand that access to a database using Azure AD authentication requires that the hosting subscription is associated to the Azure AD. The same subscription must be used to create the SQL Server hosting the Azure SQL Database or SQL pool.
+It's important to understand that access to a database using Azure AD authentication requires that the hosting subscription is associated to the Azure AD. The same subscription must be used to create the SQL Server hosting the Azure SQL Database or dedicated SQL pool.
 
 ![subscription relationship](./media/aad-authentication/2-subscription-relationship.png)
 

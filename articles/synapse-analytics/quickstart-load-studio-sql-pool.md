@@ -1,6 +1,6 @@
 ---
-title: 'Quickstart: Bulk load data with Synapse SQ'
-description: Use the Synapse Studio to bulk load data in Synapse SQL
+title: 'Quickstart: Bulk load data with dedicated SQL pool'
+description: Use the Synapse Studio to bulk load data into dedicated SQL pool in Azure Synapse Analytics.
 services: synapse-analytics
 author: kevinvngo
 ms.service: synapse-analytics
@@ -17,7 +17,7 @@ Loading data has never been easier when using the Bulk Load wizard in the Synaps
 
 ## Entry points to the Bulk Load wizard
 
-You can now easily bulk load data using SQL pools with a simple right-click on the following areas within the Synapse Studio:
+You can now easily bulk load data using dedicated SQL pools with a simple right-click on the following areas within the Synapse Studio:
 
 - A file or folder from an Azure storage account attached to your workspace
 ![Right-clicking on a file or folder from a storage account](./sql/media/bulk-load/bulk-load-entry-point-0.png)

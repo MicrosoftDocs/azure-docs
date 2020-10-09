@@ -24,10 +24,12 @@ A **Synapse workspace** is a securable collaboration boundary for doing cloud-ba
 A workspace allows you to perform analytics with SQL and Apache spark. Resources available for SQL and Spark analytics are organized into SQL and Spark **pools**. 
 
 ## Synapse SQL
-**Synapse SQL** is the ability to do T-SQL based analytics in Synapse workspace. Synapse SQL has two consumption models: dedicated and serverless.  For the dedicated  model, use dedicated **SQL pools**. A workspace can have any number of these pools. To use the serverless model, use serverless SQL pool. Every workspace has one of these pools.
+
+**Synapse SQL** is the ability to do T-SQL based analytics in Synapse workspace. Synapse SQL has two consumption models: dedicated and serverless.  For the dedicated model, use **dedicated SQL pools**. A workspace can have any number of these pools. To use the serverless model, use the **serverless SQL pools**. Every workspace has one of these pools.
 
 ## Apache Spark for Synapse
-To use Spark analytics, create and use **Spark pools** in your Synapse workspace.
+
+To use Spark analytics, create and use **serverless Apache Spark pools** in your Synapse workspace.
 
 ## SQL Terminology
 | Term                         | Definition      |
@@ -57,7 +59,7 @@ To use Spark analytics, create and use **Spark pools** in your Synapse workspace
 
 - [Create a workspace](quickstart-create-workspace.md)
 - [Use Synapse Studio](quickstart-synapse-studio.md)
-- [Create a SQL pool](quickstart-create-sql-pool-portal.md)
+- [Create a dedicated SQL pool](quickstart-create-sql-pool-portal.md)
 - [Create a serverless Apache Spark pool](quickstart-create-apache-spark-pool-portal.md)
 - [Use serverless SQL pool](quickstart-sql-on-demand.md)
 
