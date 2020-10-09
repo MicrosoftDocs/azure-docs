@@ -164,6 +164,8 @@ Use the following PowerShell cmdlets to manage cross-server communication relati
 
 Elastic database transactions are supported across different servers in Azure SQL Managed Instance. When transactions cross SQL Managed Instance boundaries, the participating instances first need to be entered into a mutual security and communication relationship. This is done by setting up [Server trust group](https://aka.ms/mitrusted-groups).
 
+  ![Distributed transactions with Azure SQL Managed Instance using elastic transactions][2]
+
 ## Monitoring transaction status
 
 Use Dynamic Management Views (DMVs) to monitor status and progress of your ongoing elastic database transactions. All DMVs related to transactions are relevant for distributed transactions in SQL Database and SQL Managed Instance. You can find the corresponding list of DMVs here: [Transaction Related Dynamic Management Views and Functions (Transact-SQL)](https://msdn.microsoft.com/library/ms178621.aspx).
@@ -198,4 +200,5 @@ For questions, please reach out to us on the [Microsoft Q&A question page for SQ
 
 <!--Image references-->
 [1]: ./media/elastic-transactions-overview/distributed-transactions.png
+[2]: ./media/elastic-transactions-overview/sql-mi-distributed-transactions.png
  
