@@ -143,7 +143,7 @@ $ckt.Peerings[0].RouteFilter = $null
 Set-AzExpressRouteCircuit -ExpressRouteCircuit $ckt
 ```
 
-### <a name="delete"></a>Clean up resources
+## <a name="delete"></a>Clean up resources
 
 You can only delete a route filter if it isn't attached to any circuit. Ensure that the route filter isn't attached to any circuit before attempting to delete it. You can delete a route filter using the following command:
 
@@ -152,8 +152,6 @@ Remove-AzRouteFilter -Name "MyRouteFilter" -ResourceGroupName "MyResourceGroup"
 ```
 
 ## Next Steps
-
-For more information about ExpressRoute, see the [ExpressRoute FAQ](expressroute-faqs.md).
 
 For information about router configuration samples, see:
 
