@@ -25,9 +25,9 @@ Once the automatic or manual sync is complete the following is true depending on
 
 ## Next steps
 
-Once the template VM is configured and when the educator selects to publish a lab, number of VMs equivalent to the number of users in the lab’s user list will be created. 
+Once the template VM is configured and when the educator selects to publish the template, number of VMs equivalent to the number of users in the lab’s user list will be created. Once the lab is published and VMs are created, Users will be automatically registered to the lab and VMs will be assigned to them on their first login to Azure Lab Services that is, when they first access the tab having **Azure Lab Services** App. 
 
-Once the lab is published and VMs are created, Users will be automatically registered to the lab and VMs will be assigned to them on their first login to Azure Lab Services, for example, when they first access the tab having **Azure Lab Services** app. 
+To publish the template VM, go to the Teams Lab Services window, select **Template** tab -> **...** -> **Publish**.
 
 To manage VM pools, see [Manage a VM pool in Lab Services from Teams](how-to-manage-vm-pool-within-teams.md).
 
