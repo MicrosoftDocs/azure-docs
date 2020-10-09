@@ -2,12 +2,12 @@
 title: Registry service tiers and features
 description: Learn about the features and limits in the Basic, Standard, and Premium service tiers (SKUs) of Azure Container Registry.
 ms.topic: article
-ms.date: 05/18/2020
+ms.date: 10/08/2020
 ---
 
 # Azure Container Registry service tiers
 
-Azure Container Registry is available in multiple service tiers (also known as SKUs). These tiers provide predictable pricing and several options for aligning to the capacity and usage patterns of your private Docker registry in Azure.
+Azure Container Registry is available in multiple service tiers (also known as SKUs). These tiers provide predictable pricing and several options for aligning to the capacity and usage patterns of your private Docker registry in Azure. Change your registry's service tier when your needs for registry performance, scale, or features change.
 
 | Tier | Description |
 | --- | ----------- |
@@ -19,9 +19,29 @@ The Basic, Standard, and Premium tiers all provide the same programmatic capabil
 
 ## Service tier features and limits
 
-The following table details the features and registry limits of the Basic, Standard, and Premium service tiers.
+The following table details the features and registry limits (quotas) of the Basic, Standard, and Premium service tiers.
 
 [!INCLUDE [container-instances-limits](../../includes/container-registry-limits.md)]
+
+## Registry performance and throttling
+
+The different service tiers for Azure Container Registry have different limits for read operations, write operations, and download and upload bandwidth. These limits are for the Azure infrastructure supporting Azure Container Registry. The performance you experience for different volumes of registry operations such as pulling or pushing Docker images is affected not only by these limits, but also by factors including:
+
+* image size, number of layers, and reuse of layers or base images across images
+* the number of API calls required for each pull or push 
+* whether you generate a "burst" of registry requests in a very short period
+* your Docker daemon configuration for concurrent operations
+* your network connection to the registry's data endpoint
+
+Because of these additional factors, throughput of image pulls or pushes generally is lower than a number based only on limits supported in the service tier. You could also experience throttling of high-rate image pull or push operations.
+
+For example, a push of a single 133 MB `nginx:latest` image to a container registry would require multiple registry operations, including: 
+
+* Read operations to read the image manifest, if it exists in the registry
+* Write operations to write each of 5 image layers
+* Write operations to write the image manifest
+ 
+For details, see documentation for the [Docker HTTP API V2](https://docs.docker.com/registry/spec/api/).
 
 ## Changing tiers
 
