@@ -103,7 +103,7 @@ Although not required for this example, additional settings for an API operation
 1. Select **Save**.
 
     > [!TIP]
-    > A yellow bar with the text **Mocking is enabled** for your API indicates that responses returned from API Management send a [mocking policy](https://docs.microsoft.com/en-us/azure/api-management/api-management-advanced-policies#mock-response) and not an actual backend response.
+    > A yellow bar with the text **Mocking is enabled** for your API indicates that responses returned from API Management send a [mocking policy](api-management-advanced-policies.md#mock-response) and not an actual backend response.
 
 ## Test the mocked API
 
