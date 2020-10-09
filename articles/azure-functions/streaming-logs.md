@@ -2,7 +2,7 @@
 title: Stream execution logs in Azure Functions
 description: 115-145 characters including spaces. This abstract displays in the search result.
 ms.date: 9/1/2020
-ms.topic: conceptual
+ms.topic: how-to
 ms.service: azure-functions
 
 ms.custom: can-be-multiple-comma-separated

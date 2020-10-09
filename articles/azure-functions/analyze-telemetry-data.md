@@ -1,7 +1,7 @@
 ---
 title: Analyze Azure Functions telemetry data
 description: Learn how to view and query for Azure Functions telemetry data collected by and stored in Azure Application Insights.
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 09/22/2020
 # Customer intent: As a developer, I want to view and query the data being collected from my function app so I can know if it's running correctly and to make improvements.
 ---

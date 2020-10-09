@@ -289,6 +289,9 @@
         - name: Analyze telemetry data
           href: analyze-telemetry-data.md  
           displayName: App Insights, Application Insights, Kusto
+        - name: Streaming logs
+          href: streaming-logs.md
+          displayName: monitoring
         - name: Diagnostic logs
           href: functions-monitor-log-analytics.md
           displayName: Azure Monitor, Kusto, Log Analytics, metrics
