@@ -107,7 +107,7 @@ Improving business continuity using cross region high availability disaster reco
 |----|------------------------|-----------------------|
 |Data Storage|Duplicating primary data/tables in a secondary region|Replicate only curated data|
 |Data Egress|Outbound cross region data transfers come at a price. Review Bandwidth pricing guidelines|Replicate only curated data to reduce the region egress footprint|
-|Cluster Compute|Additional HDInsight cluster/s in secondary region|Use automated scripts to deploy secondary compute after primary failure.Use Autoscaling to keep secondary cluster size to a minimum.Use cheaper VM SKUs.Create secondaries in regions where VM SKUs may be discounted.|
+|Cluster Compute|Additional HDInsight cluster/s in secondary region|Use automated scripts to deploy secondary compute after primary failure. Use Autoscaling to keep secondary cluster size to a minimum. Use cheaper VM SKUs. Create secondaries in regions where VM SKUs may be discounted.|
 |Authentication |Multiuser scenarios in secondary region will incur additional Azure AD DS setups|Avoid multiuser setups in secondary region.|
 
 ### Complexity optimizations
