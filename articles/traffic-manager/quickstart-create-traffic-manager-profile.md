@@ -10,7 +10,7 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 11/28/2018
+ms.date: 10/09/2020
 ms.author: duau
 ---
 
@@ -22,13 +22,11 @@ In this quickstart, you'll read about two instances of a web application. Each o
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) now.
 
-## Sign in to Azure
-
-Sign in to the [Azure portal](https://portal.azure.com).
-
 ## Prerequisites
 
 For this quickstart, you'll need two instances of a web application deployed in two different Azure regions (*East US* and *West Europe*). Each will serve as primary and failover endpoints for Traffic Manager.
+
+1. Sign in to the [Azure portal](https://portal.azure.com).
 
 1. On the upper-left side of the screen, select **Create a resource** > **Web** > **Web App**.
 
