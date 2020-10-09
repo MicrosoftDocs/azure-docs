@@ -34,7 +34,7 @@ For more information, see [What is Azure Synapse Analytics](https://docs.microso
 
 A: Azure Synapse has the following capabilities:
 
-- Analytics capabilities are offered through SQL pool or SQL on-demand (preview) (Serverless).
+- Analytics capabilities are offered through dedicated SQL pool or serverless SQL pool (preview).
 - Serverless Apache Spark pool (preview) with full support for Scala, Python, SparkSQL, and C#
 - Data Flow offering a code-free big data transformation experience
 - Data Integration & Orchestration to integrate your data and operationalize all of your code development
@@ -68,9 +68,9 @@ Another use case for Spark is for a Data Scientist to:
 - explore data
 - train a model
 
-### Q: What is a good use case for SQL on-demand in Synapse
+### Q: What is a good use case for serverless SQL pool in Azure Synapse
 
-A: SQL on-demand is a query service over the data in your data lake. It enables you to democratize access to all your data by providing a familiar T-SQL syntax to query data in place, without a need to copy or load data into a specialized store.
+A: Serverless SQL pool is a query service over the data in your data lake. It enables you to democratize access to all your data by providing a familiar T-SQL syntax to query data in place, without a need to copy or load data into a specialized store.
 
 Use case examples include the following:
 
@@ -92,12 +92,12 @@ A: Access to files and folders is currently managed through ADLS Gen2. For more 
 
 ### Q: Can I use third-party business intelligence tools to access Azure Synapse Analytics
 
-A: Yes, you can use your third-party business applications, like Tableau and Power BI, to connect to SQL pool and SQL on-demand. Spark supports IntelliJ.
+A: Yes, you can use your third-party business applications, like Tableau and Power BI, to connect to dedicated SQL pool and serverless SQL pool. Spark supports IntelliJ.
 
 ## Next steps
 
 - [Create a workspace](quickstart-create-workspace.md)
 - [Use Synapse Studio](quickstart-synapse-studio.md)
 - [Create a SQL pool](quickstart-create-sql-pool-portal.md)
-- [Use SQL on-demand](quickstart-sql-on-demand.md)
+- [Use serverless SQL pool](quickstart-sql-on-demand.md)
 - [Create an Apache Spark pool](quickstart-create-apache-spark-pool-portal.md) 

@@ -55,11 +55,11 @@ You can create new folders and upload files using the links in toolbar to organi
 
    ![See the content of file](./media/quickstart-synapse-studio/query-files-on-storage-result.png)
 
-4. You can change the query to filter and sort results. Find language features that are available in SQL on-demand in [SQL features overview](sql/overview-features.md).
+4. You can change the query to filter and sort results. Find language features that are available in serverless SQL pool in [SQL features overview](sql/overview-features.md).
 
 ## Next steps
 
 - Enable Azure AD users to query files [by assigning **Storage Blob Data Reader** or **Storage Blob Data Contributor** RBAC permissions on Azure Storage](../storage/common/storage-auth-aad-rbac-portal.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json#assign-an-azure-built-in-role)
-- [Query files on Azure Storage using SQL On-Demand](sql/on-demand-workspace-overview.md)
+- [Query files on Azure Storage using serverless SQL pool](sql/on-demand-workspace-overview.md)
 - [Create a serverless Apache Spark pool using Azure portal](quickstart-create-apache-spark-pool-portal.md)
 - [Create Power BI report on files stored on Azure Storage](sql/tutorial-connect-power-bi-desktop.md)

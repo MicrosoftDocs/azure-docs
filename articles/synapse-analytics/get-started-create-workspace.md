@@ -80,14 +80,14 @@ When you perform Spark activity in Azure Synapse, you specify a Spark pool to us
 > [!NOTE]
 > Spark databases are independently created from Spark pools. A workspace always has a Spark database called **default**. You can create additional Spark databases.
 
-## The SQL on-demand pool
+## The serverless SQL pool
 
-Every workspace comes with a pre-built pool called **SQL on-demand**. This pool can't be deleted. The SQL on-demand pool allows you to work with SQL without having to create or think about managing a SQL pool in Azure Synapse.
+Every workspace comes with a pre-built pool called **serverless SQL pool**. This pool can't be deleted. The serverless SQL pool allows you to work with SQL without having to create or think about managing a SQL pool in Azure Synapse.
 
-Unlike the other kinds of pools, billing for SQL on-demand is based on the amount of data scanned to run the query, not the number of resources used to execute the query.
+Unlike the other kinds of pools, billing for serverless SQL pool is based on the amount of data scanned to run the query, not the number of resources used to execute the query.
 
-* SQL on-demand has its own SQL on-demand databases that exist independently from any SQL on-demand pool.
-* A workspace always has exactly one SQL on-demand pool named **SQL on-demand**.
+* Serverless SQL pool has its own databases that exist independently from other serverless SQL pools.
+* A workspace always has exactly one serverless SQL pool named **serverless SQL pool**.
 
 ## Preparing a ADLSGEN2 storage account
 
