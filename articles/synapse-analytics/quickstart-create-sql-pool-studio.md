@@ -78,7 +78,7 @@ Sign in to the [Azure portal](https://portal.azure.com/)
 
 1. Once the dedicated SQL pool is created, it will be available in the workspace for loading data, processing streams, reading from the lake, etc.
 
-## Clean up SQL pools using Synapse Studio    
+## Clean up dedicated SQL pool using Synapse Studio    
 
 Follow the steps below to delete the dedicated SQL pool from the workspace using Synapse Studio.
 > [!WARNING]

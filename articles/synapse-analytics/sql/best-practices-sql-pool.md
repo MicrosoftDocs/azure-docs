@@ -1,6 +1,6 @@
 ---
-title: Best practices for SQL pools
-description: Recommendations and best practices you should know as you work with SQL pools. 
+title: Best practices for dedicated SQL pools
+description: Recommendations and best practices you should know as you work with dedicated SQL pools. 
 services: synapse-analytics
 author: mlee3gsd
 manager: craigg
@@ -12,13 +12,13 @@ ms.author: martinle
 ms.reviewer: igorstan
 ---
 
-# Best practices for SQL pools in Azure Synapse Analytics
+# Best practices for dedicated SQL pools in Azure Synapse Analytics
 
-This article provides a collection of best practices to help you achieve optimal performance for SQL pools in Azure Synapse Analytics. Below you'll find basic guidance and important areas to focus on as you build your solution. Each section introduces you to a concept and then points you to more detailed articles that cover the concept in more depth.
+This article provides a collection of best practices to help you achieve optimal performance for dedicated SQL pools in Azure Synapse Analytics. Below you'll find basic guidance and important areas to focus on as you build your solution. Each section introduces you to a concept and then points you to more detailed articles that cover the concept in more depth.
 
-## SQL pools loading
+## Dedicated SQL pools loading
 
-For SQL pools loading guidance, see [Guidance for loading data](data-loading-best-practices.md).
+For dedicated SQL pools loading guidance, see [Guidance for loading data](data-loading-best-practices.md).
 
 ## Reduce cost with pause and scale
 
@@ -26,7 +26,7 @@ For more information about reducing costs through pausing and scaling, see [Mana
 
 ## Maintain statistics
 
-While SQL Server automatically detects and creates or updates statistics on columns, SQL pools require manual maintenance of statistics. You'll want to maintain your statistics to ensure that the SQL pool plans are optimized.  The plans created by the optimizer are only as good as the available statistics.
+While SQL Server automatically detects and creates or updates statistics on columns, dedicated SQL pools require manual maintenance of statistics. You'll want to maintain your statistics to ensure that the SQL pool plans are optimized.  The plans created by the optimizer are only as good as the available statistics.
 
 > [!TIP]
 > Creating sampled statistics on every column is an easy way to get started with statistics.  
@@ -64,7 +64,7 @@ To maximize throughput when using Gzip text files, break up files into 60 or mor
 
 ## Load then query external tables
 
-Polybase isn't optimal for queries. Polybase tables for SQL pools currently only support Azure blob files and Azure Data Lake storage. These files don't have any compute resources backing them. As a result, SQL pools can't offload this work and must read the entire file by loading it to tempdb so it can read the data.
+Polybase isn't optimal for queries. Polybase tables for dedicated SQL pools currently only support Azure blob files and Azure Data Lake storage. These files don't have any compute resources backing them. As a result, dedicated SQL pools can't offload this work and must read the entire file by loading it to tempdb so it can read the data.
 
 If you have several queries for querying this data, it's better to load this data once and have queries use the local table. Further Polybase guidance is included in the  [Guide for using PolyBase](data-loading-best-practices.md) article.
 
@@ -89,9 +89,9 @@ The article links provided below will give you additional details about improvin
 
 ## Do not over-partition
 
-While partitioning data can be effective for maintaining your data through partition switching or optimizing scans by with partition elimination, having too many partitions can slow down your queries.  Often a high granularity partitioning strategy that may work well on SQL Server may not work well on SQL pool.  
+While partitioning data can be effective for maintaining your data through partition switching or optimizing scans by with partition elimination, having too many partitions can slow down your queries.  Often a high granularity partitioning strategy that may work well on SQL Server may not work well on dedicated SQL pool.  
 
-Having too many partitions can reduce the effectiveness of clustered columnstore indexes if each partition has fewer than 1 million rows. SQL pools automatically partition your data into 60 databases. So, if you create a table with 100 partitions, the result will be 6000 partitions. Each workload is different, so the best advice is to experiment with partitioning to see what works best for your workload.  
+Having too many partitions can reduce the effectiveness of clustered columnstore indexes if each partition has fewer than 1 million rows. dedicated SQL pools automatically partition your data into 60 databases. So, if you create a table with 100 partitions, the result will be 6000 partitions. Each workload is different, so the best advice is to experiment with partitioning to see what works best for your workload.  
 
 One option to consider is using a granularity that is lower than what you've implemented using SQL Server. For example, consider using weekly or monthly partitions instead of daily partitions.
 
@@ -129,7 +129,7 @@ Please see the [Table overview](develop-tables-overview.md), [Table data types](
 
 ## Use temporary heap tables for transient data
 
-When you're temporarily landing data on SQL pools, heap tables will generally make the overall process faster.  If you're loading data only to stage it before running more transformations, loading the table to a heap table will be quicker than loading the data to a clustered columnstore table.  
+When you're temporarily landing data on dedicated SQL pools, heap tables will generally make the overall process faster.  If you're loading data only to stage it before running more transformations, loading the table to a heap table will be quicker than loading the data to a clustered columnstore table.  
 
 Loading data to a temp table will also load much faster than loading a table to permanent storage.  Temporary tables start with a "#" and are only accessible by the session that created it. Consequently, they may only work in limited scenarios. Heap tables are defined in the WITH clause of a CREATE TABLE.  If you do use a temporary table, remember to create statistics on that temporary table too.
 
@@ -137,13 +137,13 @@ For additional guidance, refer to the [Temporary tables](/sql/t-sql/statements/a
 
 ## Optimize clustered columnstore tables
 
-Clustered columnstore indexes are one of the most efficient ways you can store your data in SQL pool.  By default, tables in SQL pool are created as Clustered ColumnStore.  To get the best performance for queries on columnstore tables, having good segment quality is important.  When rows are written to columnstore tables under memory pressure, columnstore segment quality may suffer.  
+Clustered columnstore indexes are one of the most efficient ways you can store your data in dedicated SQL pool.  By default, tables in dedicated SQL pool are created as Clustered ColumnStore.  To get the best performance for queries on columnstore tables, having good segment quality is important.  When rows are written to columnstore tables under memory pressure, columnstore segment quality may suffer.  
 
 Segment quality can be measured by the number of rows in a compressed Row Group. See the [Causes of poor columnstore index quality](../sql-data-warehouse/sql-data-warehouse-tables-index.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json#causes-of-poor-columnstore-index-quality) in the [Table indexes](../sql-data-warehouse/sql-data-warehouse-tables-index.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) article for step-by-step instructions on detecting and improving segment quality for clustered columnstore tables.  
 
 Because high-quality columnstore segments are important, it's a good idea to use users IDs that are in the medium or large resource class for loading data. Using lower [data warehouse units](resource-consumption-models.md) means you want to assign a larger resource class to your loading user.
 
-Columnstore tables generally won't push data into a compressed columnstore segment until there are more than 1 million rows per table. Each SQL pool table is partitioned into 60 tables. As such, columnstore tables won't benefit a query unless the table has more than 60 million rows.  
+Columnstore tables generally won't push data into a compressed columnstore segment until there are more than 1 million rows per table. Each dedicated SQL pool table is partitioned into 60 tables. As such, columnstore tables won't benefit a query unless the table has more than 60 million rows.  
 
 > [!TIP]
 > For tables with less than 60 million rows, having a columnstore index may not be the optimal solution.  
