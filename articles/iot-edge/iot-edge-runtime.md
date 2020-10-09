@@ -129,8 +129,10 @@ As part of the anonymization, any personally or organizationally identifiable in
 
 The default frequency of RQT is one message sent to IoT Hub every 24 hours and local collection by edgeAgent every hour.
 
-> [!NOTE]
-> If you wish to opt out of RQT, set the `SendRuntimeQualityTelemetry` environment variable to `false` for **edgeAgent**
+If you wish to opt out of RQT, there are two ways to do so:
+
+* Set the `SendRuntimeQualityTelemetry` environment variable to `false` for **edgeAgent**, or
+* Uncheck the option in the Azure portal during deployment.
 
 ## Next steps
 
