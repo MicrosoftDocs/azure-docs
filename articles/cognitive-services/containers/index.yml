@@ -32,7 +32,7 @@ conceptualContent:
 # itemType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new
   items:
     - title: Vision containers
-      summary: Use the Computer Vision containers to recognize text in images, and detect people in physical spaces.
+      summary: Recognize text in images, forms, and detect people in physical spaces.
       links:
         - url: ../computer-vision/computer-vision-how-to-install-containers.md
           itemType: overview
@@ -46,8 +46,26 @@ conceptualContent:
         - url: ../form-recognizer/form-recognizer-container-howto.md
           itemType: overview
           text: Form Recognizer
+    - title: Language containers
+      summary: Detect sentiment in text, extract key phrases, and identify the language of written text. 
+      links:
+        - url: ../text-analytics/how-tos/text-analytics-how-to-install-containers.md
+          itemType: overview
+          text: Sentiment Analysis
+        - url: ../text-analytics/how-tos/text-analytics-how-to-install-containers.md
+          itemType: overview
+          text: Key phrase extraction
+        - url: ../text-analytics/how-tos/text-analytics-how-to-install-containers.md
+          itemType: overview
+          text: Text language detection
+        - url: ../text-analytics/how-tos/text-analytics-how-to-install-containers.md
+          itemType: overview
+          text: Text Analytics for health     
+        - url: ../luis/luis-container-howto.md
+          itemType: overview
+          text: LUIS container
     - title: Speech containers
-      summary: Use the Speech services containers to convert speech to text, generate speech, or identify a spoken language.
+      summary: Convert speech to text, generate speech, or identify a spoken language.
       links:
         - url: ../speech-service/speech-container-howto.md
           itemType: overview
@@ -67,24 +85,6 @@ conceptualContent:
         - url: ../speech-service/speech-container-howto.md
           itemType: overview
           text: Speech language detection
-    - title: Language containers
-      summary: Detect sentiment in text, extract key phrases, identify and identify the language of written text. 
-      links:
-        - url: ../text-analytics/how-tos/text-analytics-how-to-install-containers.md
-          itemType: overview
-          text: Sentiment Analysis
-        - url: ../text-analytics/how-tos/text-analytics-how-to-install-containers.md
-          itemType: overview
-          text: Key phrase extraction
-        - url: ../text-analytics/how-tos/text-analytics-how-to-install-containers.md
-          itemType: overview
-          text: Text language detection
-        - url: ../text-analytics/how-tos/text-analytics-how-to-install-containers.md
-          itemType: overview
-          text: Text Analytics for health     
-        - url: ../luis/luis-container-howto.md
-          itemType: overview
-          text: LUIS container
     - title: Decision container
       summary: Detect anomalies in your time series data.
       links:
