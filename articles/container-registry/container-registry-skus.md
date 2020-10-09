@@ -23,25 +23,29 @@ The following table details the features and registry limits (quotas) of the Bas
 
 [!INCLUDE [container-instances-limits](../../includes/container-registry-limits.md)]
 
-## Registry performance and throttling
+## Registry throughput and throttling
 
-The different service tiers for Azure Container Registry have different limits for read operations, write operations, and download and upload bandwidth. These limits are for the Azure infrastructure supporting Azure Container Registry. The performance you experience for different volumes of registry operations such as pulling or pushing Docker images is affected not only by these limits, but also by factors including:
+The different service tiers for Azure Container Registry have different limits for the rates of read and write operations, and download and upload bandwidth. These limits are for the Azure infrastructure supporting Azure Container Registry. 
+
+When generating a high rate of registry operations such as Docker image pulls or pushes, be aware that each image pull or push potentially generates a large number of atomic read and/or write operations on the registry. The number depends on:
 
 * image size, number of layers, and reuse of layers or base images across images
-* the number of API calls required for each pull or push 
-* whether you generate a "burst" of registry requests in a very short period
-* your Docker daemon configuration for concurrent operations
-* your network connection to the registry's data endpoint
+* additional API calls that might be required for each pull or push 
 
-Because of these additional factors, throughput of image pulls or pushes generally is lower than a number based only on limits supported in the service tier. You could also experience throttling of high-rate image pull or push operations.
+For details, see documentation for the [Docker HTTP API V2](https://docs.docker.com/registry/spec/api/).
 
-For example, a push of a single 133 MB `nginx:latest` image to a container registry would require multiple registry operations, including: 
+For example, a push of a single 133 MB `nginx:latest` image to a container registry requires multiple read and write operations, including: 
 
 * Read operations to read the image manifest, if it exists in the registry
 * Write operations to write each of 5 image layers
 * Write operations to write the image manifest
- 
-For details, see documentation for the [Docker HTTP API V2](https://docs.docker.com/registry/spec/api/).
+
+In some cases, you could experience throttling of image pull or push operations, when the registry determines the rate of requests is too high. Throttling could occur when you generate a burst of registry requests in a very short period, even when the average rate of read and write operations is within registry limits.
+
+When evaluating or troubleshooting throughput of image pulls or pushes to a registry, also consider the configuration of your client environment. For example:
+
+* your Docker daemon configuration for concurrent operations
+* your network connection to the registry's data endpoint or endpoints
 
 ## Changing tiers
 
