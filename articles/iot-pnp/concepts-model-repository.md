@@ -11,10 +11,9 @@ services: iot-pnp
 
 # Device model repository
 
-The device model repository (DMR) enables device builders to manage and share IoT Plug and Play device models. The device models are JSON LD documents defined using the [Digital Twins Modeling Language (DTDL)](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/dtdlv2.md). 
+The device model repository (DMR) enables device builders to manage and share IoT Plug and Play device models. The device models are JSON LD documents defined using the [Digital Twins Modeling Language (DTDL)](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/dtdlv2.md).
 
-The DMR defines a pattern to store DTDL interfaces in a folder structure based on the device twin model identifier (DTMI). You can locate an interface in the DMR by converting the DTMI to a relative path. For example, the `dtmi:com:example:Thermostat;1` DTMI translates to `/dtmi/com/example/thermostat-1.json` 
-
+The DMR defines a pattern to store DTDL interfaces in a folder structure based on the device twin model identifier (DTMI). You can locate an interface in the DMR by converting the DTMI to a relative path. For example, the `dtmi:com:example:Thermostat;1` DTMI translates to `/dtmi/com/example/thermostat-1.json`.
 
 ## Public device model repository
 
@@ -36,11 +35,11 @@ The public digital twin models stored in the model repository are available to e
 
 Refer to the [Publish a Model](#publish-a-model) section for instructions on how to publish a model in the model repository to make it public.
 
-Users can browse, search and view public interfaces from the official GitHub repository: [https://github.com/Azure/device-models](https://github.com/Azure/device-models). 
+Users can browse, search, and view public interfaces from the official GitHub repository: [https://github.com/Azure/device-models](https://github.com/Azure/device-models). 
 
 All interfaces in the `dtmi` folders are also available from the public endpoint [https://devicemodels.azure.com](https://devicemodels.azure.com)
 
-To programmatically access these interfaces you need to convert a dtmi to a relative path that you can use to query the public endpoint. The following code sample shows you how to do this:
+To programmatically access these interfaces, you need to convert a dtmi to a relative path that you can use to query the public endpoint. The following code sample shows you how:
 
 To convert a DTMI to an absolute path we use the `DtmiToPath` function, with `IsValidDtmi`:
 
@@ -79,7 +78,7 @@ string modelContent = await _httpClient.GetStringAsync(fullyQualifiedPath);
 
 1. Fork the public GitHub repo: [https://github.com/Azure/device-models](https://github.com/Azure/device-models).
 1. Clone the forked repo. Optionally create a new branch to keep your changes isolated from the `main` branch.
-1. Add the new interfaces to the `dtmi` folder using the folder/filename convention. See the [add-model](#add-model) tool below.
+1. Add the new interfaces to the `dtmi` folder using the folder/filename convention. See the [add-model](#add-model) tool.
 1. Validate the models locally using the [scripts to validate changes](#validate-files) section.
 1. Commit the changes locally and push to your fork.
 1. From your fork, create a PR that targets the `main` branch.
@@ -87,13 +86,13 @@ string modelContent = await _httpClient.GetStringAsync(fullyQualifiedPath);
 
 The PR triggers a series of GitHub actions that will validate the new submitted interfaces, and make sure your PR satisfies all the checks.
 
-Microsoft will respond to a PR with all checks in 3 business days.
+Microsoft will respond to a PR with all checks in three business days.
 
 ### add-model
 
 The following steps show you how the add-model.js script helps you add a new interface. This script requires Node.js to run:
 
-1. From a command prompt navigate to the local git repo
+1. From a command prompt, navigate to the local git repo
 1. Run `npm install`
 1. Run `npm run add-model <path-to-file-to-add>`
 
@@ -101,7 +100,7 @@ Watch the console output for any error messages.
 
 ### Local validation
 
-You can run the same validation checks locally before submitting the PR to help diagnosing issues in advance. 
+You can run the same validation checks locally before submitting the PR to help diagnosing issues in advance.
 
 #### validate-files
 
