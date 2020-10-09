@@ -33,7 +33,7 @@ Open the [Log Analytics demo environment](https://ms.portal.azure.com/#blade/Mic
 
 You can view the scope in the top left corner of the screen. If you're using your own environment, you'll see an option to select a different scope, but this option isn't available in the demo environment.
 
-[![Scope](media/log-analytics-tutorial/scope.png)](media/log-analytics-tutorial/scope.png#lightbox)
+[![Query scope](media/log-analytics-tutorial/scope.png)](media/log-analytics-tutorial/scope.png#lightbox)
 
 ## Table schema
 The left side of the screen includes the **Tables** tab which allows you to inspect the tables that are available in the current scope. These are grouped by **Solution** by default, but you change their grouping or filter them. 
@@ -106,17 +106,17 @@ Click on **Queries** in the left pane. This pane includes example queries that y
 
 Click on the query called **Request Count by ResponseCode**. This will add the query to the query window. Notice that the new query is separated from the other by a blank line. A query in KQL ends when it encounters a blank line, so these are seen as separate queries. 
 
-[![Example query](media/log-analytics-tutorial/example-query.png)](media/log-analytics-tutorial/example-query.png#lightbox)
+[![New query](media/log-analytics-tutorial/example-query.png)](media/log-analytics-tutorial/example-query.png#lightbox)
 
 The current query is the one that the cursor is positioned on. You can see that the first query is highlighted indicating it's the current query. Click anywhere in the new query to select it and then click the **Run** button to run it.
 
-[![Example query](media/log-analytics-tutorial/example-query-output-chart.png)](media/log-analytics-tutorial/example-query-output-chart.png#lightbox)
+[![Query results chart](media/log-analytics-tutorial/example-query-output-chart.png)](media/log-analytics-tutorial/example-query-output-chart.png#lightbox)
 
 Notice that this output is a chart instead of a table like the last query. That's because the example query uses a [render](/azure/data-explorer/kusto/query/renderoperator?pivots=azuremonitor) command at the end. Notice that there are various options for working with the chart such as changing it to another type.
 
 Try selecting **Results** to view the output of the query as a table. 
 
-[![Example query](media/log-analytics-tutorial/example-query-output-table.png)](media/log-analytics-tutorial/example-query-output-table.png#lightbox)
+[![Query results table](media/log-analytics-tutorial/example-query-output-table.png)](media/log-analytics-tutorial/example-query-output-table.png#lightbox)
 
 
 
