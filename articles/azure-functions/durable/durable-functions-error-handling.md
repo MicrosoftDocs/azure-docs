@@ -193,7 +193,7 @@ The activity function call in the previous example takes a parameter for configu
 * **Retry timeout**: The maximum amount of time to spend doing retries. The default behavior is to retry indefinitely.
 * **Handle**: A user-defined callback can be specified to determine whether a function should be retried. 
 > [!NOTE]
-> Custom Handle callbacks are not available within the Javascript implimentation of Durable Functions (context.df.RetryOptions)
+> Custom Handle callbacks are not available within the Javascript implementation of Durable Functions (context.df.RetryOptions)
 
 
 ## Function timeouts
