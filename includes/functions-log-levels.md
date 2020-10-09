@@ -5,7 +5,7 @@ ms.topic: include
 ms.date: 05/04/2020	
 ms.author: glenga
 ---
-A *log level* is assigned to every log. `LogLevel` is an enumeration, where the integer code value indicates relative importance:
+A *log level* is assigned to every log. The value is an integer that indicates relative importance:
 
 |LogLevel    |Code| Description |
 |------------|---|--------------|
