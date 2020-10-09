@@ -20,7 +20,7 @@ You can also define cloud properties in an Azure IoT Central application. Cloud 
 
 ## Define your properties
 
-Properties are data fields that represent the state of your device. Use properties to represent the durable state of the device, such as the on-off state of a device. Properties can also represent basic device properties, such as the software version of the device. You can declare properties as read-only or writable.
+Properties are data fields that represent the state of your device. Use properties to represent the durable state of the device, such as the on/off state of a device. Properties can also represent basic device properties, such as the software version of the device. You can declare properties as read-only or writable.
 
 The following screenshot shows a property definition in an Azure IoT Central application.
 
@@ -92,7 +92,7 @@ This example shows five properties. These properties can be related to the prope
 * `@type` to specify the type of capability: `Property`
 * `name` for the property value.
 * `schema` specify the data type for the property. This value can be a primitive type, such as double, integer, Boolean, or string. Complex object types, arrays, and maps are also supported.
-* `writable` By default, properties are read-only. You can mark a property as writeable by using this field
+* `writable` By default, properties are read-only. You can mark a property as writeable by using this field.
 
 Optional fields, such as display name and description, let you add more details to the interface and capabilities.
 
@@ -261,4 +261,4 @@ The following view shows the writable properties. When you enter the value and s
 Now that you've learned how to use properties in your Azure IoT Central application, see:
 
 * [Payloads](concepts-telemetry-properties-commands.md)
-* [Create and connect a client application to your Azure IoT Central application (Node.js)](tutorial-connect-device-nodejs.md).
+* [Create and connect a client application to your Azure IoT Central application (Node.js)](tutorial-connect-device-nodejs.md)
