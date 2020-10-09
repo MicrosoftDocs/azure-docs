@@ -20,14 +20,10 @@ With Azure Monitor, you can visualize, query, route, archive, and take actions o
 In this tutorial, you learn how to:
 
 > [!div class="checklist"]
-> * View activity logs
-> * View resource logs
 > * View metrics of your API 
 > * Set up an alert rule when your API gets unauthorized calls
-
-The following video shows how to monitor API Management using Azure Monitor. 
-
-> [!VIDEO https://channel9.msdn.com/Blogs/AzureApiMgmt/Monitor-API-Management-with-Azure-Monitor/player]
+> * View activity logs
+> * View resource logs
 
 ## Prerequisites
 
@@ -41,23 +37,23 @@ The following video shows how to monitor API Management using Azure Monitor.
 
 API Management emits metrics every minute, giving you near real-time visibility into the state and health of your APIs. Below are the two most frequently used metrics. For a list of all available metrics, please see [supported metrics](../azure-monitor/platform/metrics-supported.md#microsoftapimanagementservice).
 
-* Capacity: helps you make decisions about upgrading/downgrading your APIM services. The metric is emitted per minute and reflects the gateway capacity at the time of reporting. The metric ranges from 0-100 calculated based on gateway resources such as CPU and memory utilization.
-* Requests: helps you to analyze API traffic going through your APIM services. The metric is emitted per minute and reports the number of gateway requests with dimensions including response codes, location, hostname, and errors. 
+* **Capacity** - helps you make decisions about upgrading/downgrading your APIM services. The metric is emitted per minute and reflects the gateway capacity at the time of reporting. The metric ranges from 0-100 calculated based on gateway resources such as CPU and memory utilization.
+* **Requests** - helps you analyze API traffic going through your APIM services. The metric is emitted per minute and reports the number of gateway requests with dimensions including response codes, location, hostname, and errors. 
 
 > [!IMPORTANT]
 > The following metrics have been deprecated as of May 2019 and will be retired in August 2023: Total Gateway Requests, Successful Gateway Requests, Unauthorized Gateway Requests, Failed Gateway Requests, Other Gateway Requests. Please migrate to the Requests metric which provides equivalent functionality.
 
-![metrics chart](./media/api-management-azure-monitor/apim-monitor-metrics.png)
+:::image type="content" source="media/api-management-azure-monitor/apim-monitor-metrics.png" alt-text="Metrics in API Management":::
 
 To access metrics:
 
 1. Select **Metrics** from the menu near the bottom of the page.
 
-    ![metrics](./media/api-management-azure-monitor/api-management-metrics-blade.png)
+    :::image type="content" source="media/api-management-azure-monitor/api-management-metrics-blade.png" alt-text="Metrics in Monitoring menu":::
 
 2. From the drop-down, select metrics you are interested in. For example, **Requests**. 
 3. The chart shows the total number of API calls.
-4. The chart can be filtered using the dimensions of the **Requests** metric. For example, click on **Add filter**, choose **Backend Response Code**, enter 500 as the value. Now the chart shows the number of requests that were failed in the API backend.   
+4. The chart can be filtered using the dimensions of the **Requests** metric. For example, select **Add filter**, select **Backend Response Code Catgory**, enter 500 as the value. Now the chart shows the number of requests that were failed in the API backend.   
 
 ## Set up an alert rule for unauthorized request
 
@@ -106,7 +102,7 @@ You can access activity logs in your API Management service, or access logs of a
 To view activity logs:
 
 1. Select your APIM service instance.
-2. Click **Activity log**.
+2. Select **Activity log**.
 
     ![activity log](./media/api-management-azure-monitor/api-management-activity-logs-blade.png)
 
