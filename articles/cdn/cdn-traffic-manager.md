@@ -57,20 +57,20 @@ Create an Azure Traffic Manager profile and configure load balancing across your
 
 1. Create an Azure Traffic Manager profile by following the steps in [Create a Traffic Manager profile](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-create-profile). 
 
-    For **Routing method**, select **Priority**.
+    * **Routing method**, select **Priority**.
 
 2. Add your CDN endpoints in your Traffic Manager profile by following the steps in [Add Traffic Manager endpoints](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-create-profile#add-traffic-manager-endpoints)
 
     * **Type**, select **External endpoints**.
     * **Priority**, enter a number.
 
-    For example, create *cdndemo101akamai.azureedge.net* with a priority of *1* and *cdndemo101verizon.azureedge.net* with a priority of *2*.
+    For example, create **cdndemo101akamai.azureedge.net** with a priority of **1** and **cdndemo101verizon.azureedge.net** with a priority of **2**.
 
    ![CDN traffic manager endpoints](./media/cdn-traffic-manager/cdn-traffic-manager-endpoints.png)
 
 
 ## Configure custom domain on Azure CDN and Azure Traffic Manager
-After you configure your CDN and Traffic Manager profiles, follow these steps to add DNS mapping and register custom domain to the CDN endpoints. For this example, the custom domain name is *cdndemo101.dustydogpetcare.online*.
+After you configure your CDN and Traffic Manager profiles, follow these steps to add DNS mapping and register custom domain to the CDN endpoints. For this example, the custom domain name is **cdndemo101.dustydogpetcare.online**.
 
 1. Go to the web site for the domain provider of your custom domain, such as GoDaddy, and create two DNS CNAME entries. 
 
@@ -91,9 +91,9 @@ After you configure your CDN and Traffic Manager profiles, follow these steps to
     >
 
 
-2.	From your Azure CDN profile, select the first CDN endpoint (Akamai). Select **Add custom domain** and input *cdndemo101.dustydogpetcare.online*. Verify that the checkmark to validate the custom domain is green. 
+2.	From your Azure CDN profile, select the first CDN endpoint (Akamai). Select **Add custom domain** and input **cdndemo101.dustydogpetcare.online**. Verify that the checkmark to validate the custom domain is green. 
 
-    Azure CDN uses the *cdnverify* subdomain to validate the DNS mapping to complete this registration process. For more information, see [Create a CNAME DNS record](cdn-map-content-to-custom-domain.md#create-a-cname-dns-record). This step enables Azure CDN to recognize the custom domain so that it can respond to its requests.
+    Azure CDN uses the **cdnverify** subdomain to validate the DNS mapping to complete this registration process. For more information, see [Create a CNAME DNS record](cdn-map-content-to-custom-domain.md#create-a-cname-dns-record). This step enables Azure CDN to recognize the custom domain so that it can respond to its requests.
     
     > [!NOTE]
     > To enable TLS on an **Azure CDN from Akamai** profiles, you must directly cname the custom domain to your endpoint. cdnverify for enabling TLS is not yet supported. 
@@ -105,7 +105,7 @@ After you configure your CDN and Traffic Manager profiles, follow these steps to
 
     `cdnverify.cdndemo101.dustydogpetcare.online  CNAME  cdnverify.cdndemo101verizon.azureedge.net`  
 
-4. From your Azure CDN profile, select the second CDN endpoint (Verizon) and repeat step 2. Select **Add custom domain**, and input *cdndemo101.dustydogpetcare.online*.
+4. From your Azure CDN profile, select the second CDN endpoint (Verizon) and repeat step 2. Select **Add custom domain**, and enter **cdndemo101.dustydogpetcare.online**.
  
 After you complete these steps, your multi-CDN service with failover capabilities is configured with Azure Traffic Manager. 
 
