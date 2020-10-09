@@ -24,7 +24,7 @@ To summarize, to keep your users connected during an outage, you'll need to do t
 - Replicate the VMs in a secondary location.
 - If you're using profile containers, set up data replication in the secondary location.
 - Make sure user identities you set up in the primary location are available in the secondary location.
-- Make sure any line of business applications relying on data in your primary location are failed over to the secondary location.
+- Make sure any line-of-business applications relying on data in your primary location are failed over to the secondary location.
 
 ## VM replication
 
