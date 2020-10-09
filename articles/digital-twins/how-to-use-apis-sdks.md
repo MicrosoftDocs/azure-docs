@@ -27,7 +27,7 @@ This article gives an overview of the APIs available, and the methods for intera
 
 The control plane APIs are [ARM](https://docs.microsoft.com/azure/azure-resource-manager/management/overview) APIs used to manage your Azure Digital Twins instance as a whole, so they cover operations like creating or deleting your entire instance. You will also use these to create and delete endpoints.
 
-The most current control plane API version for public preview is _**2020-03-01-preview**_.
+The most current control plane API version is _**2020-10-31**_.
 
 To use the control plane APIs:
 * You can call the APIs directly by referencing the latest [Swagger folder](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/digitaltwins/resource-manager/Microsoft.DigitalTwins/stable/2020-10-31). This repo also includes a folder of examples that show the usage.
@@ -48,7 +48,7 @@ The data plane APIs are the Azure Digital Twins APIs used to manage the elements
 * **Query** - The Query category lets developers [find sets of digital twins in the twin graph](how-to-query-graph.md) across relationships.
 * **EventRoutes** - The EventRoutes category contains APIs to [route data](concepts-route-events.md), through the system and to downstream services.
 
-The most current data plane API version for public preview is _**2020-05-31-preview**_. The _2020-03-01-preview_ API version for data plane operations has now been deprecated.
+The most current data plane API version is _**2020-10-31**_.
 
 To use the data plane APIs:
 * You can call the APIs directly, by...
