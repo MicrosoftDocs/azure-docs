@@ -15,6 +15,11 @@ ms.author: aahi
 
 # Configure your Bing Custom Search experience
 
+> [!WARNING]
+> Bing Search APIs are moving from Cognitive Services to Bing Search Services. Starting **October 30, 2020**, any new instances of Bing Search need to be provisioned following the process documented [here](https://aka.ms/cogsvcs/bingmove).
+> Bing Search APIs provisioned using Cognitive Services will be supported for the next three years or until the end of your Enterprise Agreement, whichever happens first.
+> For migration instructions, see [Bing Search Services](https://aka.ms/cogsvcs/bingmigration).
+
 A Custom Search instance lets you tailor the search experience to include content only from websites that your users care about. Instead of performing a web-wide search, Bing searches only the slices of the web that interest you. To create your custom view of the web, use the Bing Custom Search [portal](https://customsearch.ai).
 
 The portal lets you create a search instance that specifies the slices of the web: domains, subpages, and webpages, that you want Bing to search, and those that you don’t want it to search. The portal can also suggest content that you may want to include.
