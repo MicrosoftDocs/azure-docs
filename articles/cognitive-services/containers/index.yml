@@ -31,7 +31,7 @@ highlightedContent:
 conceptualContent:
 # itemType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new
   items:
-    - title: Computer Vision containers
+    - title: Vision containers
       summary: Use the Computer Vision containers to recognize text in images, and detect people in physical spaces.
       links:
         - url: ../computer-vision/computer-vision-how-to-install-containers.md
@@ -39,7 +39,13 @@ conceptualContent:
           text: Read OCR (Optical Character Recognition) 
         - url: ../computer-vision/spatial-analysis-container.md
           itemType: overview
-          text: Spatial analysis     
+          text: Spatial analysis   
+        - url: ../face/face-how-to-install-containers.md
+          itemType: overview
+          text: Face  
+        - url: ../form-recognizer/form-recognizer-container-howto.md
+          itemType: overview
+          text: Form Recognizer
     - title: Speech containers
       summary: Use the Speech services containers to convert speech to text, generate speech, or identify a spoken language.
       links:
@@ -58,7 +64,7 @@ conceptualContent:
         - url: ../speech-service/speech-container-howto.md
           itemType: overview
           text: Neural text to speech 
-    - title: Text Analytics containers
+    - title: Language containers
       summary: Detect sentiment in text, extract key phrases, identify and identify the language of written text. 
       links:
         - url: ../text-analytics/how-tos/text-analytics-how-to-install-containers.md
@@ -73,27 +79,12 @@ conceptualContent:
         - url: ../text-analytics/how-tos/text-analytics-how-to-install-containers.md
           itemType: overview
           text: Text Analytics for health     
-    - title: Anomaly Detector container
+        - url: ../luis/luis-container-howto.md
+          itemType: overview
+          text: LUIS container
+    - title: Decision container
       summary: Detect anomalies in your time series data.
       links:
         - url: ../anomaly-detector/anomaly-detector-container-howto.md
           itemType: overview
           text: Anomaly Detector 
-    - title: Language Understanding (LUIS) container
-      summary: Load a published LUIS model (also called a LUIS app), into a Docker container and query the prediction endpoints. 
-      links:
-        - url: ../luis/luis-container-howto.md
-          itemType: overview
-          text: LUIS container
-    - title: Form Recognizer
-      summary:  Identify and extract key-value pairs and tables from forms.
-      links:
-        - url: ../form-recognizer/form-recognizer-container-howto.md
-          itemType: overview
-          text: Form Recognizer
-    - title: Face
-      summary: Detect human faces in images and identify attributes, such as face landmarks (such as noses and eyes), gender, and age. 
-      links:
-        - url: ../face/face-how-to-install-containers.md
-          itemType: overview
-          text: Face
