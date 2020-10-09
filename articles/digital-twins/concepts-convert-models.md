@@ -60,9 +60,9 @@ RDF, OWL, and RDFS are the basic building blocks of the semantic web.
 Here are some examples of RDF triples:
 
 ```
-<Microsoft> <hasCEO> <SatyaNadella> 
-<http://example.com/person/tom> <hasFather> <http://example.com/person/david> 
-<Oranges> <eats> <Oranges> 
+<LogicalDevice> <hasCapabiity> <Temperature>
+<Chiller> <locatedIn> <Level1>
+<Asset> <isPartOf> <Asset>  
 ```
 
 These examples are all valid RDF, but the last statement is semantically invalid. This situation is where the OWL specification enters the picture. **OWL** defines what you can write with RDF in order to have valid ontology.
@@ -70,14 +70,14 @@ These examples are all valid RDF, but the last statement is semantically invalid
 Here is an example making use of OWL: 
 
 ```
-<Joe> <eats> <Oranges> 
-<Joe> <isType> <Human> 
+<Asset> <isPartOf> <Building>
+<TemperatureSensor> <isType> <Sensor>
 ```
 
 **RDFS** provides additional vocabulary semantics that help you define and describe classes. For example, one such class is `rdfs:subClassOf`:
 
 ```
-<Human> <subClassOf> <Mammal> 
+<Equipment> <subClassOf> <Asset>
 ```
 
 Models can be saved, imported, and exported in many file formats, including:  
