@@ -62,7 +62,7 @@ else:
 if 'COMPUTER_VISION_ENDPOINT' in os.environ:
     endpoint = os.environ['COMPUTER_VISION_ENDPOINT']
 
-analyze_url = endpoint + "vision/v3.0/analyze"
+analyze_url = endpoint + "vision/v3.1/analyze"
 
 # Set image_url to the URL of an image that you want to analyze.
 image_url = "https://upload.wikimedia.org/wikipedia/commons/thumb/1/12/" + \

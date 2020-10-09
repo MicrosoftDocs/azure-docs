@@ -1,7 +1,7 @@
 ---
-title: "Quickstart: Extract text using the Computer Vision 3.0 REST API Read operation and C#"
+title: "Quickstart: Extract text using the Computer Vision 3.1 REST API Read operation and C#"
 titleSuffix: "Azure Cognitive Services"
-description: In this quickstart, apply OCR to an image using the Computer Vision 3.0 REST API Read operations and C#.
+description: In this quickstart, apply OCR to an image using the Computer Vision 3.1 REST API Read operations and C#.
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
@@ -13,12 +13,12 @@ ms.date: 08/11/2020
 ms.author: pafarley
 ms.custom: "seodec18, devx-track-csharp"
 ---
-# Quickstart: Extract text using the Computer Vision 3.0 REST API Read operation and C#
+# Quickstart: Extract text using the Computer Vision 3.1 REST API Read operation and C#
 
-In this quickstart, you'll extract printed and handwritten text from an image using the new OCR technology available as part of the Computer Vision 3.0 REST API. With the new [Read](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-ga/operations/5d986960601faab4bf452005) and [Get Read Result](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-ga/operations/5d9869604be85dee480c8750) methods, you can detect text in an image and extract recognized characters into a machine-readable character stream. 
+In this quickstart, you'll extract printed and handwritten text from an image using the new OCR technology available as part of the Computer Vision 3.1 REST API. With the new [Read](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-ga/operations/5d986960601faab4bf452005) and [Get Read Result](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-ga/operations/5d9869604be85dee480c8750) methods, you can detect text in an image and extract recognized characters into a machine-readable character stream. 
 
 > [!IMPORTANT]
-> The [Read](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-ga/operations/5d986960601faab4bf452005) method runs asynchronously. This method does not return any information in the body of a successful response. Instead, the Batch Read method returns a URI in the value of the `Operation-Location` response header field. You can then call this URI, which represents the [Get Read Result](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-ga/operations/5d9869604be85dee480c8750) API, to both check the status and return the results of the Read method call.
+> The [Read](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-ga/operations/5d986960601faab4bf452005) method runs asynchronously. This method does not return any information in the body of a successful response. Instead, the Batch Read method returns a URI in the value of the `Operation-Location` response header field. You can then call this URI, which represents the [Get Read Result](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-ga/operations/5d9869604be85dee480c8750) API, to both check the status and return the results of the Read method call.
 
 ## Prerequisites
 
@@ -63,7 +63,7 @@ namespace CSHttpClientSample
         static string endpoint = Environment.GetEnvironmentVariable("COMPUTER_VISION_ENDPOINT");
 
         // the Batch Read method endpoint
-        static string uriBase = endpoint + "/vision/v3.0/read/analyze";
+        static string uriBase = endpoint + "/vision/v3.1/read/analyze";
 
         // Add a local image with text here (png or jpg is OK)
         static string imageFilePath = @"my-image.png";
@@ -208,7 +208,7 @@ A successful response is returned in JSON. The sample application parses and dis
   "createdDateTime": "2020-05-28T05:13:21Z",
   "lastUpdatedDateTime": "2020-05-28T05:13:22Z",
   "analyzeResult": {
-    "version": "3.0.0",
+    "version": "3.1.0",
     "readResults": [
       {
         "page": 1,

@@ -59,7 +59,7 @@ func main() {
     subscriptionKey := os.Getenv("COMPUTER_VISION_SUBSCRIPTION_KEY")
     endpoint := os.Getenv("COMPUTER_VISION_ENDPOINT")
 
-    uriBase := endpoint + "vision/v3.0/ocr"
+    uriBase := endpoint + "vision/v3.1/ocr"
     const imageUrl = "https://upload.wikimedia.org/wikipedia/commons/thumb/a/af/" +
         "Atomist_quote_from_Democritus.png/338px-Atomist_quote_from_Democritus.png"
 
