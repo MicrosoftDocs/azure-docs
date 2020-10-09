@@ -9,14 +9,6 @@ ms.date: 10/02/2020
 
 In this article, we'll go through the steps to establish a VPN (IPsec IKEv1 and IKEv2) site-to-site tunnel terminating in the Microsoft Azure Virtual WAN hub. We'll create an Azure Virtual WAN hub and a VPN gateway with a public IP address attached to it. Then we'll create an Azure ExpressRoute gateway and establish an Azure VMware Solution endpoint. We'll also go over the details of enabling a policy-based VPN on-premises setup. 
 
-We'll walk you through the necessary procedures to:
-
-> [!div class="checklist"]
-> * Create an Azure Virtual WAN hub.
-> * Create a VPN site.
-> * Set up an on-premises, policy-based VPN site.
-> * Connect your VPN site to the hub.
-
 ## Topology
 
 ![VPN site-to-site tunnel architecture.](media/create-ipsec-tunnel/vpn-s2s-tunnel-architecture.png)
