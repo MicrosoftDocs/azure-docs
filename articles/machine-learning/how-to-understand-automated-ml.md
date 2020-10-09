@@ -154,7 +154,7 @@ You can compare the lift of the model built automatically with Azure Machine Lea
 
 ### What does a good model look like?
 
-A higher lift curve, that is the higher your model is above the baseline random model, indicates a better performing model. 
+A higher lift curve, that is the higher your model is above the baseline, indicates a better performing model. 
 
 #### Example 1: A classification model that does worse than a random selection model
 ![A classification model that does worse than a random selection model](./media/how-to-understand-automated-ml/azure-machine-learning-auto-ml-lift-curve1.png)
@@ -166,13 +166,14 @@ A higher lift curve, that is the higher your model is above the baseline random 
 
 ## Cumulative gains chart
 
-A cumulative gains chart evaluates the performance of a classification model by each portion of the data. For each percentile of the data set, the chart shows how many more samples have been accurately classified. This information provides another way of looking at the results in the accompanying lift chart.
+A cumulative gains chart evaluates the performance of a classification model by each portion of the data. For each percentile of the data set, the chart shows how many more samples have been accurately classified compared to a model that's always incorrect. This information provides another way of looking at the results in the accompanying lift chart.
 
 The cumulative gains chart helps you choose the classification cutoff using a percentage that corresponds to a desired gain from the model. 
+You can compare the cumulative gains chart to the baseline (incorrect model) to see the percent of samples that were correctly classified at each confidence percentile.
 
 #### What does a good model look like?
 
-Similar to a the lift chart, the higher your cumulative gains curve is above the baseline, the better your model is performing. For instance, the chart in example 2 shows that at the 0.1 percentile of predictions, the model shows a 100% gain (or correctly classifies 100% of the percentile of predictions), the same at 0.2 percentile and so on. Whereas in example 1, at the 0.1 percentile, the model only shows about a 10% gain, or correctly classifies about 10% of the percentile of predictions.
+Similar to a lift chart, the higher your cumulative gains curve is above the baseline, the better your model is performing. Additionally, the closer your cumulative gains curve is to the top left corner of the graph, the greater gain your model is achieving versus the baseline. 
 
 ##### Example 1: A classification model with minimal gain
 ![a classification model with minimal gain](./media/how-to-understand-automated-ml/azure-machine-learning-auto-ml-gains-curve1.png)
@@ -201,6 +202,7 @@ A well-calibrated model aligns with the y=x line, where it correctly predicts th
 
 
 <a name="regression"></a> 
+
 ## Regression performance metrics
 
 The following table summarizes the model performance metrics that AutoML calculates for each regression or forecasting model that is generated for your experiment. 
