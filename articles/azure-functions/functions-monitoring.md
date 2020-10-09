@@ -44,7 +44,7 @@ When you write traces from your application code, you should assign a log level 
 
 To learn more about log levels, see [Configure log levels](configure-monitoring.md#configure-log-levels).
 
-By assigning logged items to a category, you have more control over telemetry generated from specific sources in your function app. By using categories, it's also easier to run analytics over collected data. These categories range from status messages logged by the runtime host to data in the aggregate. Traces written from your function code are assigned to individual categories based on the function name. To learn more about categories, see [Configure categories](configure-monitoring.md#configure-categories).
+By assigning logged items to a category, you have more control over telemetry generated from specific sources in your function app. Categories make it easier to run analytics over collected data. Traces written from your function code are assigned to individual categories based on the function name. To learn more about categories, see [Configure categories](configure-monitoring.md#configure-categories).
 
 ### Custom telemetry data
 
@@ -52,7 +52,7 @@ For some languages, you can also use an Application Insights SDK to write custom
 
 ### Dependencies
 
-Starting with version 2.x of Functions, the runtime automatically collects data for certain dependencies. Because Functions bindings use instrumented client SDKs for the following services, dependencies for these services are captured:
+Starting with version 2.x of Functions, the runtime automatically collects data on dependencies for bindings that use certain client SDKs. Application Insights collects data on the following dependencies:
 
 + Azure Cosmos DB 
 + Azure Event Hubs
