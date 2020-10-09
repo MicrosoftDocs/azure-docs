@@ -72,7 +72,7 @@ Azure Database for MySQL provides the Replication lag in seconds metric in [Azur
   A typical output will look like:
   
 >[!div class="mx-imgBorder"]
-> :::image type="content" source="./media/howto-troubleshoot-replication-latency/show_status.png" alt-text="Monitoring replication latency":::
+> :::image type="content" source="./media/howto-troubleshoot-replication-latency/show-status.png" alt-text="Monitoring replication latency":::
 
 
 The output contains a lot of information, but normally it's only important to focus on the following columns:
