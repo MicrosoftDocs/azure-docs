@@ -199,17 +199,6 @@ You can also onboard alerts to a Log Analytics workspace to Azure Sentinel as it
 
 **Responsibility**: Customer
 
-### 3.2: Change default passwords where applicable
-
->[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/33702.).
-
-**Guidance**: Not applicable to Site Recovery. Site Recovery does not have a concept of default passwords.
-
-**Azure Security Center monitoring**: Not applicable
-
-**Responsibility**: Customer
-
 ### 3.3: Use dedicated administrative accounts
 
 >[!NOTE]
@@ -217,7 +206,7 @@ You can also onboard alerts to a Log Analytics workspace to Azure Sentinel as it
 
 **Guidance**: Create standard operating procedures around the use of dedicated administrative accounts. Use Security Center's Identity and Access Management features to monitor the number of administrative accounts.
 
-Additionally, to help you keep track of dedicated administrative accounts, you may use recommendations from Security Center or built-in Azure policies, such as: 
+Additionally, to help you keep track of dedicated administrative accounts, use recommendations from Security Center or built-in Azure policies, such as: 
 - There should be more than one owner assigned to your subscription 
 
 - Deprecated accounts with owner permissions should be removed from your subscription 
@@ -447,7 +436,7 @@ Microsoft manages the underlying platform used by Site Recovery and treats all c
 
 **Azure Security Center monitoring**: Not applicable
 
-**Responsibility**: Customer
+**Responsibility**: Shared
 
 ### 4.4: Encrypt all sensitive information in transit
 
@@ -567,12 +556,14 @@ Although classic Azure resources may be discovered via Resource Graph, it is hig
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/33730.).
 
-**Guidance**: Use tagging, management groups, and separate subscriptions, where appropriate, to organize and track Site Recovery (Recovery Services vaults) and other related resources. Reconcile inventory on a regular basis and ensure unauthorized resources are deleted from the subscription in a timely manner.
+**Guidance**: Use tagging, management groups, and separate subscriptions, where appropriate, to organize and track Site Recovery (Recovery Services vaults) and other related resources. 
 
 In addition, use Azure Policy to put restrictions on the type of resources that can be created in customer subscriptions using the following built-in policy definitions: 
 - Not allowed resource types
 
 - Allowed resource types
+
+Reconcile inventory on a regular basis and ensure unauthorized resources are deleted from the subscription in a timely manner.
 
 - [How to create additional Azure subscriptions](../cost-management-billing/manage/create-subscription.md)
 
@@ -619,15 +610,15 @@ In addition, use Azure Resource Graph to query for and discover resources within
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/33736.).
 
-**Guidance**: Use Azure Policy to put restrictions on the type of resources that can be created in customer subscriptions using the following built-in policy definitions
-
-- Not allowed resource types 
+**Guidance**: Use Azure Policy to put restrictions on the type of resources that can be created in customer subscriptions using the following built-in policy definitions- Not allowed resource types 
 
 - Allowed resource types
 
+Understanding how to create and manage policies in Azure is important for staying compliant with your corporate standards and service level agreements.
+
 - [How to configure and manage Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
-- [How to deny a specific resource type with Azure Policy](/azure/governance/policy/samples/)
+- [How to deny a specific resource type with Azure Policy](/azure/governance/policy/samples)
 
 **Azure Security Center monitoring**: Not applicable
 
