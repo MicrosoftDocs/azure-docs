@@ -66,6 +66,8 @@
       href: use-classifications.md
     - name: Create a custom classification
       href: create-a-custom-classification.md
+    - name: Create a custom classification rule
+      href: create-custom-classification-rule.md      
   - name: Security
     items:
     - name: View classification insights
