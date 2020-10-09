@@ -3,8 +3,8 @@ title: Encrypt deployment data
 description: Learn about encryption of data persisted for your container instance resources and how to encrypt the data with a customer-managed key
 ms.topic: article
 ms.date: 01/17/2020
-author: dkkapur
-ms.author: dekapur
+author: macolso
+ms.author: macolso
 ---
 
 # Encrypt deployment data

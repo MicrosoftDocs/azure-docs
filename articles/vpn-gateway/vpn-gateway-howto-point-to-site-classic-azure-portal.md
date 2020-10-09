@@ -1,12 +1,12 @@
 ---
-title: 'Connect a computer to a virtual network using Point-to-Site and certificate authentication: Azure Portal classic | Microsoft Docs'
+title: 'Connect a computer to a virtual network using Point-to-Site and certificate authentication: Azure portal classic | Microsoft Docs'
 description: Create a classic a Point-to-Site VPN gateway connection using the Azure portal.
 services: vpn-gateway
 author: cherylmc
 
 ms.service: vpn-gateway
 ms.topic: how-to
-ms.date: 01/09/2020
+ms.date: 10/08/2020
 ms.author: cherylmc
 
 ---
@@ -76,31 +76,11 @@ Before you begin, verify that you have an Azure subscription. If you don't alrea
 
 ### Part 1: Create a virtual network
 
-If you don't already have a virtual network (VNet), create one. Screenshots are provided as examples. Be sure to replace the values with your own. To create a VNet by using the Azure portal, use the following steps:
+If you already have a VNet, verify that the settings are compatible with your VPN gateway design. Pay particular attention to any subnets that may overlap with other networks.
 
-1. On the [Azure portal](https://portal.azure.com) menu or from the **Home** page, select **Create a resource**. The **New** page opens.
+[!INCLUDE [basic classic vnet](../../includes/vpn-gateway-vnet-classic.md)]
 
-2. In the **Search the marketplace** field, enter *virtual network* and select **Virtual network** from the returned list. The **Virtual network** page opens.
-
-3. From the **Select a deployment model** list, select **Classic**, and then select **Create**. The **Create virtual network** page opens.
-
-4. On the **Create virtual network** page, configure the VNet settings. On this page, you add your first address space and a single subnet address range. After you finish creating the VNet, you can go back and add additional subnets and address spaces.
-
-   ![Create virtual network page](./media/vpn-gateway-howto-point-to-site-classic-azure-portal/vnet125.png)
-
-5. Select the **Subscription** you want to use from the drop-down list.
-
-6. Select an existing **Resource Group**. Or, create a new resource group by selecting **Create new** and entering a name. If you're creating a new resource group, name the resource group according to your planned configuration values. For more information about resource groups, see [Azure Resource Manager overview](../azure-resource-manager/management/overview.md#resource-groups).
-
-7. Select a **Location** for your VNet. This setting determines the geographical location of the resources that you deploy to this VNet.
-
-8. Select **Create** to create the VNet. From the **Notifications** page, you'll see a **Deployment in progress** message.
-
-8. After your virtual network has been created, the message on the **Notifications** page changes to **Deployment succeeded**. Select **Pin to dashboard** if you want to easily find your VNet on the dashboard. 
-
-10. Add a DNS server (optional). After you create your virtual network, you can add the IP address of a DNS server for name resolution. The DNS server IP address that you specify should be the address of a DNS server that can resolve the names for the resources in your VNet.
-
-    To add a DNS server, select **DNS servers** from your VNet page. Then, enter the IP address of the DNS server that you want to use and select **Save**.
+[!INCLUDE [basic classic DNS](../../includes/vpn-gateway-dns-classic.md)]
 
 ### Part 2: Create a gateway subnet and a dynamic routing gateway
 
