@@ -144,7 +144,5 @@
     href: https://docs.microsoft.com/sql/t-sql/language-reference
 - name: Resources
   items:
-  - name: Partners
-    items: 
-    - name: Security
-      href: resources-partners-security.md
+  - name: Security partners
+    href: resources-partners-security.md
