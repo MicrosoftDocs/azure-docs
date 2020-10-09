@@ -28,7 +28,7 @@ There are two high availability architectural models:
 
 SQL Database and SQL Managed Instance both run on the latest stable version of the SQL Server database engine and Windows operating system, and most users would not notice that upgrades are performed continuously.
 
-## Basic, Standard, and General Purpose service tier availability
+## Basic, Standard, and General Purpose service tier locally redundant availability
 
 The Basic, Standard, and General Purpose service tiers leverage the standard availability architecture for both serverless and provisioned compute. The following figure shows four different nodes with the separated compute and storage layers.
 
@@ -41,7 +41,26 @@ The standard availability model includes two layers:
 
 Whenever the database engine or the operating system is upgraded, or a failure is detected, Azure Service Fabric will move the stateless `sqlservr.exe` process to another stateless compute node with sufficient free capacity. Data in Azure Blob storage is not affected by the move, and the data/log files are attached to the newly initialized `sqlservr.exe` process. This process guarantees 99.99% availability, but a heavy workload may experience some performance degradation during the transition since the new `sqlservr.exe` process starts with cold cache.
 
-## Premium and Business Critical service tier availability
+## Basic, Standard, and General Purpose service tier zone redundant availability
+
+Zone redundant configuration for the general purpose service tier utilizes [Azure Availability Zones](../../availability-zones/az-overview.md)  to replicate databases across multiple physical locations within an Azure region. By selecting zone redundancy, you can make your new and existing general purpose single databases and elastic pools resilient to a much larger set of failures, including catastrophic datacenter outages, without any changes of the application logic.
+
+Zone redundant configuration for the general purpose tier has two layers:  
+
+- A stateful data layer with the database files (.mdf/.ldf) that are stored in ZRS PFS (zone-redundant [storage premium file share](../../storage/files/storage-how-to-create-premium-fileshare.md). Using [zone-redundant storage](../../storage/common/storage-redundancy.md) the data and log files are synchronously copied across three physically-isolated Azure availability zones.
+- A stateless compute layer that runs the sqlservr.exe process and contains only transient and cached data, such as TempDB, model databases on the attached SSD, and plan cache, buffer pool, and columnstore pool in memory. This stateless node is operated by Azure Service Fabric that initializes sqlservr.exe, controls health of the node, and performs failover to another node if necessary. For zone redundant general purpose databases, nodes with spare capacity are readily available in other Availability Zones for failover.
+
+The zone redundant version of the high availability architecture for the general purpose service tier is illustrated by the following diagram:
+
+![Zone redundant configuration for general purpose](./media/high-availability-sla/zone-redundant-for-general-purpose.png)
+
+> [!IMPORTANT]
+> For up to date information about the regions that support zone redundant databases, see [Services support by region](../../availability-zones/az-region.md). Zone redundant configuration is only available when the Gen5 compute hardware is selected. This feature is not available in SQL Managed Instance.
+
+> [!NOTE]
+> General Purpose databases with a size of 80 vcore may experience performance degradation with zone redundant configuration. Operations such as backup, restore, database copy, and setting up Geo-DR relationships may experience slower performance for single databases larger than 1 TB. 
+
+## Premium and Business Critical service tier locally redundant availability
 
 Premium and Business Critical service tiers leverage the Premium availability model, which integrates compute resources (`sqlservr.exe` process) and storage (locally attached SSD) on a single node. High availability is achieved by replicating both compute and storage to additional nodes creating a three to four-node cluster.
 
@@ -50,6 +69,23 @@ Premium and Business Critical service tiers leverage the Premium availability mo
 The underlying database files (.mdf/.ldf) are placed on the attached SSD storage to provide very low latency IO to your workload. High availability is implemented using a technology similar to SQL Server [Always On availability groups](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/overview-of-always-on-availability-groups-sql-server). The cluster includes a single primary replica that is accessible for read-write customer workloads, and up to three secondary replicas (compute and storage) containing copies of data. The primary node constantly pushes changes to the secondary nodes in order and ensures that the data is synchronized to at least one secondary replica before committing each transaction. This process guarantees that if the primary node crashes for any reason, there is always a fully synchronized node to fail over to. The failover is initiated by the Azure Service Fabric. Once the secondary replica becomes the new primary node, another secondary replica is created to ensure the cluster has enough nodes (quorum set). Once failover is complete, Azure SQL connections are automatically redirected to the new primary node.
 
 As an extra benefit, the premium availability model includes the ability to redirect read-only Azure SQL connections to one of the secondary replicas. This feature is called [Read Scale-Out](read-scale-out.md). It provides 100% additional compute capacity at no extra charge to off-load read-only operations, such as analytical workloads, from the primary replica.
+
+## Premium and Business Critical service tier zone redundant availability 
+
+By default, the cluster of nodes for the premium availability model is created in the same datacenter. With the introduction of [Azure Availability Zones](../../availability-zones/az-overview.md), SQL Database can place different replicas of the Business Critical database to different availability zones in the same region. To eliminate a single point of failure, the control ring is also duplicated across multiple zones as three gateway rings (GW). The routing to a specific gateway ring is controlled by [Azure Traffic Manager](../../traffic-manager/traffic-manager-overview.md) (ATM). Because the zone redundant configuration in the Premium or Business Critical service tiers does not create additional database redundancy, you can enable it at no extra cost. By selecting a zone redundant configuration, you can make your Premium or Business Critical databases resilient to a much larger set of failures, including catastrophic datacenter outages, without any changes to the application logic. You can also convert any existing Premium or Business Critical databases or pools to the zone redundant configuration.
+
+Because the zone redundant databases have replicas in different datacenters with some distance between them, the increased network latency may increase the commit time and thus impact the performance of some OLTP workloads. You can always return to the single-zone configuration by disabling the zone redundancy setting. This process is an online operation similar to the regular service tier upgrade. At the end of the process, the database or pool is migrated from a zone redundant ring to a single zone ring or vice versa.
+
+> [!IMPORTANT]
+> Zone redundant databases and elastic pools are currently only supported in the Premium and Business Critical service tiers in select regions. When using the Business Critical tier, zone redundant configuration is only available when the Gen5 compute hardware is selected. For up to date information about the regions that support zone redundant databases, see [Services support by region](../../availability-zones/az-region.md).
+
+> [!NOTE]
+> This feature is not available in SQL Managed Instance.
+
+The zone redundant version of the high availability architecture is illustrated by the following diagram:
+
+![high availability architecture zone redundant](./media/high-availability-sla/zone-redundant-business-critical-service-tier.png)
+
 
 ## Hyperscale service tier availability
 
@@ -68,21 +104,6 @@ Compute nodes in all Hyperscale layers run on Azure Service Fabric, which contro
 
 For more information on high availability in Hyperscale, see [Database High Availability in Hyperscale](https://docs.microsoft.com/azure/sql-database/sql-database-service-tier-hyperscale#database-high-availability-in-hyperscale).
 
-## Zone redundant configuration
-
-By default, the cluster of nodes for the premium availability model is created in the same datacenter. With the introduction of [Azure Availability Zones](../../availability-zones/az-overview.md), SQL Database can place different replicas of the Business Critical database to different availability zones in the same region. To eliminate a single point of failure, the control ring is also duplicated across multiple zones as three gateway rings (GW). The routing to a specific gateway ring is controlled by [Azure Traffic Manager](../../traffic-manager/traffic-manager-overview.md) (ATM). Because the zone redundant configuration in the Premium or Business Critical service tiers does not create additional database redundancy, you can enable it at no extra cost. By selecting a zone redundant configuration, you can make your Premium or Business Critical databases resilient to a much larger set of failures, including catastrophic datacenter outages, without any changes to the application logic. You can also convert any existing Premium or Business Critical databases or pools to the zone redundant configuration.
-
-Because the zone redundant databases have replicas in different datacenters with some distance between them, the increased network latency may increase the commit time and thus impact the performance of some OLTP workloads. You can always return to the single-zone configuration by disabling the zone redundancy setting. This process is an online operation similar to the regular service tier upgrade. At the end of the process, the database or pool is migrated from a zone redundant ring to a single zone ring or vice versa.
-
-> [!IMPORTANT]
-> Zone redundant databases and elastic pools are currently only supported in the Premium and Business Critical service tiers in select regions. When using the Business Critical tier, zone redundant configuration is only available when the Gen5 compute hardware is selected. For up to date information about the regions that support zone redundant databases, see [Services support by region](../../availability-zones/az-region.md).
-
-> [!NOTE]
-> This feature is not available in SQL Managed Instance.
-
-The zone redundant version of the high availability architecture is illustrated by the following diagram:
-
-![high availability architecture zone redundant](./media/high-availability-sla/zone-redundant-business-critical-service-tier.png)
 
 ## Accelerated Database Recovery (ADR)
 
