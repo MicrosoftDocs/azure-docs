@@ -100,6 +100,14 @@ traces
 
 The runtime provides the `customDimensions.LogLevel` and `customDimensions.Category` fields. You can provide additional fields in logs that you write in your function code. For an example in C#, see [Structured logging](functions-dotnet-class-library.md#structured-logging) in the .NET class library developer guide.
 
+## Consumption plan-specific metrics
+
+When running in a [Consumption plan](functions-scale.md#consumption-plan), the execution *cost* of a single function execution is measured in *GB-seconds*. Execution cost is calculated by combining its memory usage with its execution time. To learn more, see [Estimating Consumption plan costs](functions-consumption-costs.md).
+
+The following telemetry queries are specific to metrics that impact the cost of running functions in the Consumption plan.
+
+[!INCLUDE [functions-consumption-metrics-queries](../../includes/functions-consumption-metrics-queries.md)]
+
 ## Next steps
 
 Learn more about monitoring Azure Functions:
