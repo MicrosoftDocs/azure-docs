@@ -114,13 +114,7 @@
   - name: Data sources
     href: platform/data-sources.md
   - name: Data platform
-    items:
-    - name: Overview
-      href: platform/data-platform.md
-    - name: Metrics
-      href: platform/data-platform-metrics.md
-    - name: Stream data to Event Hubs
-      href: platform/stream-monitoring-data-event-hubs.md 
+    href: platform/data-platform.md
   - name: Insights
     href: insights/insights-overview.md
   - name: Data security
@@ -200,7 +194,7 @@
     - name: Diagnostic settings
       displayName: Platform logs, Resource logs, Activity log
       href: platform/diagnostic-settings.md
-  - name: Logs
+  - name: Azure Monitor Logs
     items:
     - name: Overview
       displayname: Azure Monitor Logs, Logs, Log Analytics, log query, log queries, query, queries
@@ -247,6 +241,7 @@
     - name: Log queries
       items:
       - name: Overview
+        displayname: log query, log queries, query, queries
         href: log-query/log-query-overview.md
       - name: KQL reference
         href: /azure/data-explorer/kusto/query/
@@ -267,6 +262,7 @@
       - name: Cross resource queries
         items:
         - name: Overview
+          displayname: cross-resource queries
           href: log-query/cross-workspace-query.md
         - name: app expression
           href: log-query/app-expression.md
@@ -276,16 +272,21 @@
           href: log-query/resource-expression.md   
         - name: Unify application data resources
           href: log-query/unify-app-resource-data.md
-  - name: Metrics explorer
+  - name: Azure Monitor Metrics
     items:
-    - name: Getting started with Metrics Explorer
-      href: platform/metrics-getting-started.md
-    - name: Advanced features of Metrics Explorer
-      href: platform/metrics-charts.md
-    - name: Examples of metric charts
-      href: platform/metric-chart-samples.md
-    - name: Troubleshooting metric charts
-      href: platform/metrics-troubleshoot.md
+    - name: Overview
+      displayname: Metrics
+      href: platform/data-platform-metrics.md
+    - name: Metrics explorer
+      items:
+      - name: Getting started with Metrics Explorer
+        href: platform/metrics-getting-started.md
+      - name: Advanced features of Metrics Explorer
+        href: platform/metrics-charts.md
+      - name: Examples of metric charts
+        href: platform/metric-chart-samples.md
+      - name: Troubleshooting metric charts
+        href: platform/metrics-troubleshoot.md
   - name: Data collection
     items:
     - name: Data collection rules
