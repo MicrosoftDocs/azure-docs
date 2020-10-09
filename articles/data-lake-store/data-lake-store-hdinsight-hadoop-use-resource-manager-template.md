@@ -20,7 +20,7 @@ ms.author: twooley
 
 Learn how to use Azure PowerShell to configure an HDInsight cluster with Azure Data Lake Storage Gen1, **as additional storage**.
 
-For supported cluster types, Data Lake Storage Gen1 can be used as a default storage or as an additional storage account. When Data Lake Storage Gen1 is used as additional storage, the default storage account for the clusters will still be Azure Storage Blobs (WASB) and the cluster-related files (such as logs, etc.) are still written to the default storage, while the data that you want to process can be stored in a Data Lake Storage Gen1 account. Using Data Lake Storage Gen1 as an additional storage account does not impact performance or the ability to read/write to the storage from the cluster.
+For supported cluster types, Data Lake Storage Gen1 can be used as a default storage or as an additional storage account. When Data Lake Storage Gen1 is used as additional storage, the default storage account for the clusters will still be Azure Blob storage (WASB) and the cluster-related files (such as logs, etc.) are still written to the default storage, while the data that you want to process can be stored in a Data Lake Storage Gen1 account. Using Data Lake Storage Gen1 as an additional storage account does not impact performance or the ability to read/write to the storage from the cluster.
 
 ## Using Data Lake Storage Gen1 for HDInsight cluster storage
 
@@ -67,16 +67,16 @@ The template deploys these resource types:
 * [Microsoft.HDInsight/clusters](/azure/templates/microsoft.hdinsight/clusters)
 
 ## Upload sample data to Data Lake Storage Gen1
-The Resource Manager template creates a new Data Lake Storage Gen1 account and associates it with the HDInsight cluster. You must now upload some sample data to Data Lake Storage Gen1. You'll need this data later in the tutorial to run jobs from an HDInsight cluster that access data in the Data Lake Storage Gen1 account. For instructions on how to upload data, see [Upload a file to your Data Lake Storage Gen1 account](data-lake-store-get-started-portal.md#uploaddata). If you are looking for some sample data to upload, you can get the **Ambulance Data** folder from the [Azure Data Lake Git Repository](https://github.com/Azure/usql/tree/master/Examples/Samples/Data/AmbulanceData).
+The Resource Manager template creates a new storage account with Data Lake Storage Gen1 and associates it with the HDInsight cluster. You must now upload some sample data to Data Lake Storage Gen1. You'll need this data later in the tutorial to run jobs from an HDInsight cluster that access data in the storage account with Data Lake Storage Gen1. For instructions on how to upload data, see [Upload a file to Data Lake Storage Gen1](data-lake-store-get-started-portal.md#uploaddata). If you are looking for some sample data to upload, you can get the **Ambulance Data** folder from the [Azure Data Lake Git Repository](https://github.com/Azure/usql/tree/master/Examples/Samples/Data/AmbulanceData).
 
 ## Set relevant ACLs on the sample data
 To make sure the sample data you upload is accessible from the HDInsight cluster, you must ensure that the Azure AD application that is used to establish identity between the HDInsight cluster and Data Lake Storage Gen1 has access to the file/folder you are trying to access. To do this, perform the following steps.
 
-1. Find the name of the Azure AD application that is associated with HDInsight cluster and the Data Lake Storage Gen1 account. One way to look for the name is to open the HDInsight cluster blade that you created using the Resource Manager template, click the **Cluster AAD Identity** tab, and look for the value of **Service Principal Display Name**.
+1. Find the name of the Azure AD application that is associated with HDInsight cluster and the storage account with Data Lake Storage Gen1. One way to look for the name is to open the HDInsight cluster blade that you created using the Resource Manager template, click the **Cluster Azure AD Identity** tab, and look for the value of **Service Principal Display Name**.
 2. Now, provide access to this Azure AD application on the file/folder that you want to access from the HDInsight cluster. To set the right ACLs on the file/folder in Data Lake Storage Gen1, see [Securing data in Data Lake Storage Gen1](data-lake-store-secure-data.md#filepermissions).
 
 ## Run test jobs on the HDInsight cluster to use Data Lake Storage Gen1
-After you have configured an HDInsight cluster, you can run test jobs on the cluster to test that the HDInsight cluster can access Data Lake Storage Gen1. To do so, we will run a sample Hive job that creates a table using the sample data that you uploaded earlier to your Data Lake Storage Gen1 account.
+After you have configured an HDInsight cluster, you can run test jobs on the cluster to test that the HDInsight cluster can access Data Lake Storage Gen1. To do so, we will run a sample Hive job that creates a table using the sample data that you uploaded earlier to your storage account with Data Lake Storage Gen1.
 
 In this section, you SSH into an HDInsight Linux cluster and run the sample Hive query. If you are using a Windows client, we recommend using **PuTTY**, which can be downloaded from [https://www.chiark.greenend.org.uk/~sgtatham/putty/download.html](https://www.chiark.greenend.org.uk/~sgtatham/putty/download.html).
 
@@ -118,10 +118,10 @@ In this section, you SSH into an HDInsight Linux cluster and run the HDFS comman
 
 For more information on using PuTTY, see [Use SSH with Linux-based Hadoop on HDInsight from Windows](../hdinsight/hdinsight-hadoop-linux-use-ssh-windows.md).
 
-Once connected, use the following HDFS filesystem command to list the files in the Data Lake Storage Gen1 account.
+Once connected, use the following HDFS filesystem command to list the files in the storage account with Data Lake Storage Gen1.
 
 ```
-hdfs dfs -ls adl://<Data Lake Storage Gen1 account name>.azuredatalakestore.net:443/
+hdfs dfs -ls adl://<storage account with Data Lake Storage Gen1 name>.azuredatalakestore.net:443/
 ```
 
 This should list the file that you uploaded earlier to Data Lake Storage Gen1.
@@ -137,4 +137,4 @@ You can also use the `hdfs dfs -put` command to upload some files to Data Lake S
 
 ## Next steps
 * [Copy data from Azure Storage Blobs to Data Lake Storage Gen1](data-lake-store-copy-data-wasb-distcp.md)
-* [Use Data Lake Storage Gen1 with Azure HDInsight clusters](../hdinsight/hdinsight-hadoop-use-data-lake-store.md)
+* [Use Data Lake Storage Gen1 with Azure HDInsight clusters](../hdinsight/hdinsight-hadoop-use-data-lake-storage-gen1.md)

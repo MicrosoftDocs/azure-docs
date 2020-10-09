@@ -106,12 +106,16 @@
         iconUrl: 
     - name: Use cluster storage
       items:
-      - name: Using Azure Storage
+      - name: Use Azure Storage
         href: hdinsight-hadoop-use-blob-storage.md
-      - name: Using Azure Data Lake Storage Gen2
+      - name: Use Data Lake Storage Gen2
         href: hdinsight-hadoop-use-data-lake-storage-gen2.md
-      - name: Using Azure Data Lake Storage Gen1
-        href: hdinsight-hadoop-use-data-lake-store.md
+      - name: Use Data Lake Storage Gen2 in the portal
+        href: hdinsight-hadoop-use-data-lake-storage-gen2-portal.md
+      - name: Use Data Lake Storage Gen2 with Azure CLI
+        href: hdinsight-hadoop-use-data-lake-storage-gen2-azure-cli.md
+      - name: Use Data Lake Storage Gen1
+        href: hdinsight-hadoop-use-data-lake-storage-gen1.md
     - name: Extend clusters
       items:
       - name: Install HDInsight apps
