@@ -1,5 +1,5 @@
 ---
-title: 'Connect a computer to a virtual network using Point-to-Site and certificate authentication: Azure Portal classic | Microsoft Docs'
+title: 'Connect a computer to a virtual network using Point-to-Site and certificate authentication: Azure portal classic | Microsoft Docs'
 description: Create a classic a Point-to-Site VPN gateway connection using the Azure portal.
 services: vpn-gateway
 author: cherylmc
