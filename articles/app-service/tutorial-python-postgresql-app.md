@@ -199,8 +199,8 @@ To set environment variables in App Service, create "app settings" with the foll
 az webapp config appsettings set --settings DJANGO_ENV="production" DBHOST="<postgres-server-name>" DBNAME="pollsdb" DBUSER="<username>" DBPASS="<password>"
 ```
 
-- Replace *\<postgres-server-name>* with the name you used earlier with the `az postgres up` command. The code in `azuresite/production.py` automatically appends `.postgres.database.azure.com` to create the full Postgres server URL.
-- Replace *\<username>* and *\<password>* with the administrator credentials that you used with the earlier `az postgres up` command, or those that `az postgres up` generated for you. The code in `azuresite/production.py` automatically constructs the full Postgres username from `DBUSER` and `DBHOST`.
+- Replace *\<postgres-server-name>* with the name you used earlier with the `az postgres up` command. The code in *azuresite/production.py* automatically appends `.postgres.database.azure.com` to create the full Postgres server URL.
+- Replace *\<username>* and *\<password>* with the administrator credentials that you used with the earlier `az postgres up` command, or those that `az postgres up` generated for you. The code in *azuresite/production.py* automatically constructs the full Postgres username from `DBUSER` and `DBHOST`.
 - The resource group and app names are drawn from the cached values in the *.azure/config* file.
 
 In your Python code, you access these settings as environment variables with statements like `os.environ.get('DJANGO_ENV')`. For more information, see [Access environment variables](configure-language-python.md#access-environment-variables).
