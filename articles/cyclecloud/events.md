@@ -160,18 +160,18 @@ Some events have a reason that they were initiated. Unless otherwise indicated, 
 
 Some events contain timing information. The `timing` entry in `data` is an object with keys corresponding to stages of the event, and values as total seconds. The time is the cumulative time for that stage within the attempt to bring about the target state. For instance, suppose a node is added to a cluster, started, and terminated:
 
-- T1: User adds a node. A `Microsoft.CycleCloud.NodeAdded` event is sent, with no timing.
-- T2: The create-VM operation fails, so `Microsoft.CycleCloud.NodeCreated` is sent with a status of Failed and the following timing information:
+- T1: User adds a node. A `NodeAdded` event is sent, with no timing.
+- T2: The create-VM operation fails, so `NodeCreated` is sent with a status of Failed and the following timing information:
   - `Create`: T2-T1
   - `CreateVM`: T2-T1
 - T3: User clicks Retry
 - T4: The create-VM operation succeeds, so the node starts installing software.
-- T5. The software installs successfully, so `Microsoft.CycleCloud.NodeCreated` is sent with a status of Succeeded and the following timing information:
+- T5. The software installs successfully, so `NodeCreated` is sent with a status of Succeeded and the following timing information:
   - `Create`: (T5-T3) + (T2-T1)
   - `CreateVM`: (T5-T3) + (T2-T1)
   - `Configure`: (T5-T4)
 - T6: User clicks Terminate.
-- T7: The delete-VM operation succeeds, so `Microsoft.CycleCloud.NodeTerminated` is sent with a state of Succeeded and the following timing information:
+- T7: The delete-VM operation succeeds, so `NodeTerminated` is sent with a state of Succeeded and the following timing information:
   - `Started`: T6-T5
   - `Terminate`: T7-T6
   - `DeleteVM`: T7-T6
@@ -187,5 +187,5 @@ This can be used, for instance, to track how long a spot VM was running before i
 
 ### Retry Count
 
-Some operations can be retried in CycleCloud if they fail. These operations are reflected in the `Microsoft.CycleCloud.NodeCreated`, `Microsoft.CycleCloud.NodeDeallocated`, `Microsoft.CycleCloud.NodeStarted`, and `Microsoft.CycleCloud.NodeTerminated` events. These events contain an optional `retryCount` property on the event's `data` property indicating how many times prior to this the operation was attempted. This property is included on subsequent retries, whether those attempts succeeded or failed.
+Some operations can be retried in CycleCloud if they fail. These operations are reflected in the `NodeCreated`, `NodeDeallocated`, `NodeStarted`, and `NodeTerminated` events. These events contain an optional `retryCount` property on the event's `data` property indicating how many times prior to this the operation was attempted. This property is included on subsequent retries, whether those attempts succeeded or failed.
 
