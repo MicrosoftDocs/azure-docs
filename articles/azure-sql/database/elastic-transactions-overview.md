@@ -44,6 +44,35 @@ After installation, you can use the distributed transaction APIs in System.Trans
 
 Remember that elastic database transactions don't require installing MSDTC. Instead, elastic database transactions are directly managed by and within the service. This significantly simplifies cloud scenarios since a deployment of MSDTC isn't necessary to use distributed transactions with SQL Database or Managed Instance. Section 4 explains in more detail how to deploy elastic database transactions and the required .NET framework together with your cloud applications to Azure.
 
+## .NET installation for Azure Cloud Services
+
+Azure provides several offerings to host .NET applications. A comparison of the different offerings is available in [Azure App Service, Cloud Services, and Virtual Machines comparison](/azure/architecture/guide/technology-choices/compute-decision-tree). If the guest OS of the offering is smaller than .NET 4.6.1 required for elastic transactions, you need to upgrade the guest OS to 4.6.1.
+
+For Azure App Service, upgrades to the guest OS are currently not supported. For Azure Virtual Machines, simply log into the VM and run the installer for the latest .NET framework. For Azure Cloud Services, you need to include the installation of a newer .NET version into the startup tasks of your deployment. The concepts and steps are documented in [Install .NET on a Cloud Service Role](../../cloud-services/cloud-services-dotnet-install-dotnet.md).  
+
+Note that the installer for .NET 4.6.1 may require more temporary storage during the bootstrapping process on Azure cloud services than the installer for .NET 4.6. To ensure a successful installation, you need to increase temporary storage for your Azure cloud service in your ServiceDefinition.csdef file in the LocalResources section and the environment settings of your startup task, as shown in the following sample:
+
+```xml
+    <LocalResources>
+    ...
+        <LocalStorage name="TEMP" sizeInMB="5000" cleanOnRoleRecycle="false" />
+        <LocalStorage name="TMP" sizeInMB="5000" cleanOnRoleRecycle="false" />
+    </LocalResources>
+    <Startup>
+        <Task commandLine="install.cmd" executionContext="elevated" taskType="simple">
+            <Environment>
+        ...
+                <Variable name="TEMP">
+                    <RoleInstanceValue xpath="/RoleEnvironment/CurrentInstance/LocalResources/LocalResource[@name='TEMP']/@path" />
+                </Variable>
+                <Variable name="TMP">
+                    <RoleInstanceValue xpath="/RoleEnvironment/CurrentInstance/LocalResources/LocalResource[@name='TMP']/@path" />
+                </Variable>
+            </Environment>
+        </Task>
+    </Startup>
+```
+
 ## .Net Development experience
 
 ### Multi-database applications
@@ -99,36 +128,7 @@ The following code sample illustrates this approach. It assumes that a variable 
     }
 ```
 
-## .NET installation for Azure Cloud Services
-
-Azure provides several offerings to host .NET applications. A comparison of the different offerings is available in [Azure App Service, Cloud Services, and Virtual Machines comparison](/azure/architecture/guide/technology-choices/compute-decision-tree). If the guest OS of the offering is smaller than .NET 4.6.1 required for elastic transactions, you need to upgrade the guest OS to 4.6.1.
-
-For Azure App Service, upgrades to the guest OS are currently not supported. For Azure Virtual Machines, simply log into the VM and run the installer for the latest .NET framework. For Azure Cloud Services, you need to include the installation of a newer .NET version into the startup tasks of your deployment. The concepts and steps are documented in [Install .NET on a Cloud Service Role](../../cloud-services/cloud-services-dotnet-install-dotnet.md).  
-
-Note that the installer for .NET 4.6.1 may require more temporary storage during the bootstrapping process on Azure cloud services than the installer for .NET 4.6. To ensure a successful installation, you need to increase temporary storage for your Azure cloud service in your ServiceDefinition.csdef file in the LocalResources section and the environment settings of your startup task, as shown in the following sample:
-
-```xml
-    <LocalResources>
-    ...
-        <LocalStorage name="TEMP" sizeInMB="5000" cleanOnRoleRecycle="false" />
-        <LocalStorage name="TMP" sizeInMB="5000" cleanOnRoleRecycle="false" />
-    </LocalResources>
-    <Startup>
-        <Task commandLine="install.cmd" executionContext="elevated" taskType="simple">
-            <Environment>
-        ...
-                <Variable name="TEMP">
-                    <RoleInstanceValue xpath="/RoleEnvironment/CurrentInstance/LocalResources/LocalResource[@name='TEMP']/@path" />
-                </Variable>
-                <Variable name="TMP">
-                    <RoleInstanceValue xpath="/RoleEnvironment/CurrentInstance/LocalResources/LocalResource[@name='TMP']/@path" />
-                </Variable>
-            </Environment>
-        </Task>
-    </Startup>
-```
-
-## Transact-SQL Development experience
+## Transact-SQL development experience
 
 A server-side distributed transactions using T-SQL is available only for Azure SQL Managed Instance. Distributed transaction can be executed only between Managed Instances that belong to the same [Server trust group](https://aka.ms/mitrusted-groups). In this scenario Managed Instances need to use [linked server](https://docs.microsoft.com/sql/relational-databases/linked-servers/create-linked-servers-sql-server-database-engine#TsqlProcedure) to reference each other.
 
@@ -166,7 +166,7 @@ The following sample Transact-SQL code uses [BEGIN DISTRIBUTED TRANSACTION](http
     GO
 ```
 
-## Combining .Net and Transact-SQL Development experience
+## Combining .Net and Transact-SQL development experience
 
 .Net applications that use System.Transaction classes can combine TransactionScope class with Transact-SQL statement BEGIN DISTRIBUTED TRANSACTION. Within TransactionScope, inner transaction that executes BEGIN DITRIBUTED TRANSACTION will explicitely be promoted to distributed transaction. Also, when second SqlConnecton is opened within the TransactionScope it will be implicitly promoted to distributed transaction. Once distributed transaction is started, all subsequent transactions requests, whether they are comming from .NET or Transact-SQL, will join the parent distributed transaction. As consequence all nested transaction scopes initiated by BEGIN statement will end up in same transaction and COMMIT/ROLLBACK statements will have following effect on overall outcome:
  * COMMIT statement will not have any effect on transaction scope initiated by BEGIN statement, i.e. no results will be committed before Complete() method is invoked on TransactionScope object. If TransactionScope object is destroyed before being completed, all changes done within the scope are rolled back.
@@ -268,7 +268,7 @@ The following limitations currently apply to distributed transactions in Managed
 * Only transactions across databases in Managed Instance are supported. Other [X/Open XA](https://en.wikipedia.org/wiki/X/Open_XA) resource providers and databases outside of Azure SQL Managed Instance can't participate in distributed transactions. That means that distributed transactions can't stretch across on premises SQL Server and Azure SQL Managed Instance. For distributed transactions on premises, continue to use MSDTC.
 * Transactions across WCF services aren't supported. For example, you have a WCF service method that executes a transaction. Enclosing the call within a transaction scope will fail as a [System.ServiceModel.ProtocolException](https://msdn.microsoft.com/library/system.servicemodel.protocolexception).
 * Managed Instances that participate in distributed transactions need to have visibility over private endpoint (using private IP address from the virtual network where they are deployed) and need to be mutually referenced using private FQDNs. Client applications that rely on Transact-SQL can use either private or public endpoint to run transactions against all instances within the Server Trust Group.
-* Azure SQL Managed Instance must to be part of a [Server trust group]((https://aka.ms/mitrusted-groups)) in order to participate in distributed transaction.
+* Azure SQL Managed Instance must to be part of a [Server trust group](https://aka.ms/mitrusted-groups) in order to participate in distributed transaction.
 * Limitations of [Server trust groups](https://aka.ms/mitrusted-groups) affect distributed transactions.
 
 ## Next steps

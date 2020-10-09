@@ -67,5 +67,5 @@ During public  preview the following limitations apply to Server Trust Groups.
  * Distributed transactions are the only applicable scope for the Server Trust Groups.
  * Server Trust Group can only be managed from Azure portal. PowerShell and CLI support will come later.
  * Server Trust Group cannot be edited on the Azure portal. It can only be created or dropped.
- * Additional limitations of distributed transactions may be related to your scenario. Most notable one is that SQL Managed Instances that participate in Server Trust Group must be reachable via private endpoints, or in other connectivity must work on the virtual network level. Please make sure that you are aware of the current [distributed transactions limitations for Azure SQL Managed Instance](https://docs.microsoft.com/en-us/azure/azure-sql/database/elastic-transactions-overview#limitations).
+ * Additional limitations of distributed transactions may be related to your scenario. Most notable one is that SQL Managed Instances that participate in Server Trust Group must be reachable via private endpoints, or in other connectivity must work on the virtual network level. Please make sure that you are aware of the current [distributed transactions limitations for Azure SQL Managed Instance](https://docs.microsoft.com/azure/azure-sql/database/elastic-transactions-overview#limitations).
 
