@@ -58,7 +58,7 @@ To create a virtual machine scale set with system-assigned managed identity enab
    az group create --name myResourceGroup --location westus
    ```
 
-2. Create a [network interface](/cli/azure/network/nic?view=azure-cli-latest#az-network-nic-create) for your virtual machine scale set:
+2. Create a [network interface](/cli/azure/network/nic#az-network-nic-create) for your virtual machine scale set:
 
    ```azurecli-interactive
     az network nic create -g myResourceGroup --vnet-name myVnet --subnet mySubnet -n myNic
@@ -317,7 +317,7 @@ In this section, you learn how to add and remove user-assigned managed identity 
    az account get-access-token
    ```
 
-2. Create a [network interface](/cli/azure/network/nic?view=azure-cli-latest#az-network-nic-create) for your virtual machine scale set:
+2. Create a [network interface](/cli/azure/network/nic#az-network-nic-create) for your virtual machine scale set:
 
    ```azurecli-interactive
     az network nic create -g myResourceGroup --vnet-name myVnet --subnet mySubnet -n myNic
