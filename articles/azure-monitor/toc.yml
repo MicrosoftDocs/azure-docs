@@ -252,8 +252,6 @@
           href: /azure/data-explorer/kusto/query/
         - name: Examples
           href: https://review.docs.microsoft.com/azure/data-explorer/kusto/query/samples?branch=pr-en-us-826&pivots=azuremonitor
-        - name: Smart analytics examples
-          href: log-query/smart-analytics.md
         - name: Difference from Azure Data Explorer
           href: log-query/data-explorer-difference.md
       - name: Standard columns

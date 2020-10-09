@@ -43653,6 +43653,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/azure-monitor/log-query/smart-analytics.md",
+      "redirect_url": "/azure/data-explorer/kusto/query/samples&pivots=azuremonitor",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/advisor/advisor-alerts.md",
       "redirect_url": "/azure/advisor/advisor-alerts-portal",
       "redirect_document_id": false
