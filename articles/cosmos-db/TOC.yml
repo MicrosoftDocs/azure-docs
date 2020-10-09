@@ -176,8 +176,6 @@
       href: automated-recommendations.md
   - name: SQL/Core API
     items:
-    - name: Overview
-      items:
     - name: Quickstarts
       expanded: true
       items:
