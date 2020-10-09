@@ -236,6 +236,8 @@
         href: log-query/log-analytics-tutorial.md
       - name: Query scope
         href: log-query/scope.md
+      - name: Example queries
+        href: log-query/example-queries.md
       - name: Simple logs experience
         href: log-query/simple-logs.md
     - name: Log queries
@@ -245,10 +247,8 @@
         href: log-query/log-query-overview.md
       - name: KQL reference
         href: /azure/data-explorer/kusto/query/
-      - name: KQL samples
+      - name: Sample queries
         href: /azure/data-explorer/kusto/query/samples?&pivots=azuremonitor
-      - name: Example queries
-        href: log-query/example-queries.md
       - name: Standard columns
         href: platform/log-standard-columns.md
       - name: Optimize queries
