@@ -137,7 +137,7 @@ In this example the Windows cluster uses a file share to create a cluster quorum
 
 1. Right-click **Shares**, and select **New Share...**.
 
-   ![New Share](./media/availability-group-manually-configure-tutorial/48-newshare.png)
+   ![Right-click shares and select new share](./media/availability-group-manually-configure-tutorial/48-newshare.png)
 
    Use **Create a Shared Folder Wizard** to create a share.
 
@@ -151,7 +151,7 @@ In this example the Windows cluster uses a file share to create a cluster quorum
 
 1. Make sure that the account used to create the cluster has full control.
 
-   ![New Share](./media/availability-group-manually-configure-tutorial/50-filesharepermissions.png)
+   ![Make sure the account used to create the cluster has full control](./media/availability-group-manually-configure-tutorial/50-filesharepermissions.png)
 
 1. Select **OK**.
 
@@ -167,7 +167,7 @@ Next, set the cluster quorum.
 
 1. In **Failover Cluster Manager**, right-click the cluster, point to **More Actions**, and select **Configure Cluster Quorum Settings...**.
 
-   ![New Share](./media/availability-group-manually-configure-tutorial/52-configurequorum.png)
+   ![Select configure cluster quorum settings](./media/availability-group-manually-configure-tutorial/52-configurequorum.png)
 
 1. In **Configure Cluster Quorum Wizard**, select **Next**.
 
@@ -240,7 +240,7 @@ Repeat these steps on the second SQL Server.
 
 1. Right-click **Shares**, and select **New Share...**.
 
-   ![New Share](./media/availability-group-manually-configure-tutorial/48-newshare.png)
+   ![Select New Share](./media/availability-group-manually-configure-tutorial/48-newshare.png)
 
    Use **Create a Shared Folder Wizard** to create a share.
 
@@ -254,7 +254,7 @@ Repeat these steps on the second SQL Server.
 
 1. Make sure that the SQL Server and SQL Server Agent service accounts for both servers have full control.
 
-   ![New Share](./media/availability-group-manually-configure-tutorial/68-backupsharepermission.png)
+   ![Make sure that the SQL Server and SQL Server Agent service accounts for both servers have full control.](./media/availability-group-manually-configure-tutorial/68-backupsharepermission.png)
 
 1. Select **OK**.
 
@@ -315,7 +315,7 @@ You are now ready to configure an Availability Group using the following steps:
    >Full synchronization takes a full backup of the database on the first instance of SQL Server and restores it to the second instance. For large databases, full synchronization is not recommended because it may take a long time. You can reduce this time by manually taking a backup of the database and restoring it with `NO RECOVERY`. If the database is already restored with `NO RECOVERY` on the second SQL Server before configuring the Availability Group, choose **Join only**. If you want to take the backup after configuring the Availability Group, choose **Skip initial data synchronization**.
    >
 
-   ![New Availability Group Wizard, Select Initial Data Synchronization](./media/availability-group-manually-configure-tutorial/70-datasynchronization.png)
+   ![Choose Skip initial data synchronization](./media/availability-group-manually-configure-tutorial/70-datasynchronization.png)
 
 9. In the **Validation** page, select **Next**. This page should look similar to the following image:
 
@@ -365,7 +365,7 @@ A load balancer in Azure can be either a Standard Load Balancer or a Basic Load 
 1. In the Azure portal, go to the resource group where your SQL Servers are and select **+ Add**.
 1. Search for **Load Balancer**. Choose the load balancer published by Microsoft.
 
-   ![Availability Group in Failover Cluster Manager](./media/availability-group-manually-configure-tutorial/82-azureloadbalancer.png)
+   ![Choose the load balancer published by Microsoft](./media/availability-group-manually-configure-tutorial/82-azureloadbalancer.png)
 
 1. Select **Create**.
 1. Configure the following parameters for the load balancer.

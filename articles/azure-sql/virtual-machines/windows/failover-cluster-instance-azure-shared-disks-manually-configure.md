@@ -32,7 +32,7 @@ Before you complete the instructions in this article, you should already have:
 - An Azure subscription. Get started for [free](https://azure.microsoft.com/free/). 
 - [Two or more Windows Azure virtual machines](failover-cluster-instance-prepare-vm.md). [Availability sets](../../../virtual-machines/windows/tutorial-availability-sets.md) and [proximity placement groups](../../../virtual-machines/windows/co-location.md#proximity-placement-groups) (PPGs) are both supported. If you use a PPG, all nodes must exist in the same group.
 - An account that has permissions to create objects on both Azure virtual machines and in Active Directory.
-- The latest version of [PowerShell](/powershell/azure/install-az-ps?view=azps-4.2.0). 
+- The latest version of [PowerShell](/powershell/azure/install-az-ps). 
 
 
 ## Add Azure shared disk
@@ -210,7 +210,7 @@ New-AzSqlVM -Name $vm.Name -ResourceGroupName $vm.ResourceGroupName -Location $v
 
 ## Configure connectivity 
 
-To route traffic appropriately to the current primary node, configure the connectivity option that's suitable for your environment. You can create an [Azure load balancer](hadr-vnn-azure-load-balancer-configure.md) or, if you're using SQL Server 2019 CU2+ and Windows Server 2016 (or later) you can preview the [distributed network name](hadr-distributed-network-name-dnn-configure.md) feature instead. 
+To route traffic appropriately to the current primary node, configure the connectivity option that's suitable for your environment. You can create an [Azure load balancer](failover-cluster-instance-vnn-azure-load-balancer-configure.md) or, if you're using SQL Server 2019 CU2 (or later) and Windows Server 2016 (or later), you can preview the [distributed network name](failover-cluster-instance-distributed-network-name-dnn-configure.md) feature instead. 
 
 ## Limitations
 
@@ -218,7 +218,8 @@ To route traffic appropriately to the current primary node, configure the connec
 
 ## Next steps
 
-If you haven't already done so, configure connectivity to your FCI with a [virtual network name and an Azure load balancer](hadr-vnn-azure-load-balancer-configure.md) or [distributed network name (DNN)](hadr-distributed-network-name-dnn-configure.md). 
+If you haven't already done so, configure connectivity to your FCI with a [virtual network name and an Azure load balancer](failover-cluster-intsance-vnn-azure-load-balancer-configure.md) or [distributed network name (DNN)](failover-cluster-instance-distributed-network-name-dnn-configure.md). 
+
 
 If Azure shared disks are not the appropriate FCI storage solution for you, consider creating your FCI using [premium file shares](failover-cluster-instance-premium-file-share-manually-configure.md) or [Storage Spaces Direct](failover-cluster-instance-storage-spaces-direct-manually-configure.md) instead. 
 

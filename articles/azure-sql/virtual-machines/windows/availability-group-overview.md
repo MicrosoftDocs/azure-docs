@@ -41,9 +41,9 @@ An availability set is a grouping of resources which are configured such that no
 
 ## Connectivity 
 
-In a traditional on-premises deployment, clients connect to the availability group listener using the virtual network name (VNN), and the listener routes traffic to the appropriate SQL Server replica in the availability group. However, in Azure, there is an extra requirement to route traffic on the Azure network. 
+In a traditional on-premises deployment, clients connect to the availability group listener using the virtual network name (VNN), and the listener routes traffic to the appropriate SQL Server replica in the availability group. However, there is an extra requirement to route traffic on the Azure network. 
 
-With SQL Server on Azure VMs, configure a [load balancer](hadr-vnn-azure-load-balancer.md) to route traffic to your availability group listener, or, if you're on SQL Server 2019 CU8 and above, configure a [distributed network name (DNN) listener](hadr-distributed-network-name-dnn-configure.md) to replace the traditional availability group listener. 
+With SQL Server on Azure VMs, configure a [load balancer](availability-group-vnn-azure-load-balancer-configure.md) to route traffic to your availability group listener, or, if you're on SQL Server 2019 CU8 and above, configure a [distributed network name (DNN) listener](availability-group-distributed-network-name-dnn-listener-configure.md) to replace the traditional VNN availability group listener. 
 
 
 ### Load balancer 
@@ -52,7 +52,7 @@ Use an [Azure Load Balancer](../../../load-balancer/load-balancer-overview.md) t
 
 The load balancer holds the IP addresses for the availability group listener. If you have more than one availability group, each group requires a listener. One load balancer can support multiple listeners.
 
-To get started, see [configure a load balancer](availability-group-vnn-azure-load-balancer.md). 
+To get started, see [configure a load balancer](availability-group-vnn-azure-load-balancer-configure.md). 
 
 ### DNN listener
 
@@ -131,4 +131,4 @@ On an Azure IaaS VM guest failover cluster, we recommend a single NIC per server
 
 Review the [HADR best practices](hadr-cluster-best-practices.md) and then get started with deploying your availability group using the [Azure Portal](availability-group-azure-portal-configure.md), [Azure CLI / PowerShell](availability-group-az-cli-configure.md), [Quickstart Templates](availability-group-quickstart-template-configure.md) or [manually](availability-group-manually-configure-prerequisites-tutorial.md).
 
-Alternatively, you can deploy a [clusterless availability group](availability-group-clusterless-workgroup-configure.md) or an availability group in [multiple regions](availability-group-configure-multiple-regions.md). 
+Alternatively, you can deploy a [clusterless availability group](availability-group-clusterless-workgroup-configure.md) or an availability group in [multiple regions](availability-group-manually-configure-multiple-regions.md). 

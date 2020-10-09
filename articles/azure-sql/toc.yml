@@ -1105,7 +1105,7 @@
           - name: Configure VNN 
             href: virtual-machines/windows/failover-cluster-instance-vnn-azure-load-balancer-configure.md
           - name: Configure DNN 
-            href: virtual-machines/windows/failover-cluster-instance-distributed-network-name-dnn-listener-configure.md
+            href: virtual-machines/windows/failover-cluster-instance-distributed-network-name-dnn-configure.md
           - name: DNN Interoperability
             href: virtual-machines/windows/failover-cluster-instance-dnn-interoperability.md
 
