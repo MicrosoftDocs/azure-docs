@@ -41735,7 +41735,7 @@
     {
       "source_path": "articles/log-analytics/log-analytics-queries.md",
       "redirect_url": "/azure/azure-monitor/log-query/log-query-overview",
-      "redirect_document_id": true
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/log-analytics/query-language/splunk-cheatsheet.md",

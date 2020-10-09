@@ -245,7 +245,7 @@
         href: log-query/log-query-overview.md
       - name: KQL reference
         href: /azure/data-explorer/kusto/query/
-      - name: Samples
+      - name: KQL samples
         href: /azure/data-explorer/kusto/query/samples?&pivots=azuremonitor
       - name: Example queries
         href: log-query/example-queries.md
