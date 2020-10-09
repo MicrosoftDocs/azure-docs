@@ -30,11 +30,11 @@ Persistence writes Redis data into an Azure Storage account that you own and man
 
     :::image type="content" source="media/cache-private-link/1-create-resource.png" alt-text="Select Azure Cache for Redis.":::
    
-1. On the **New** page, select **Databases** and then select **Azure Cache for Redis**.
+2. On the **New** page, select **Databases** and then select **Azure Cache for Redis**.
 
     :::image type="content" source="media/cache-private-link/2-select-cache.png" alt-text="Select Azure Cache for Redis.":::
 
-1. On the **New Redis Cache** page, configure the settings for your new premium cache.
+3. On the **New Redis Cache** page, configure the settings for your new premium cache.
    
    | Setting      | Suggested value  | Description |
    | ------------ |  ------- | -------------------------------------------------- |
@@ -44,15 +44,15 @@ Persistence writes Redis data into an Azure Storage account that you own and man
    | **Location** | Drop down and select a location. | Select a [region](https://azure.microsoft.com/regions/) near other services that will use your cache. |
    | **Cache type** | Drop down and select a premium cache to configure premium features. For details, see [Azure Cache for Redis pricing](https://azure.microsoft.com/pricing/details/cache/). |  The pricing tier determines the size, performance, and features that are available for the cache. For more information, see [Azure Cache for Redis Overview](../articles/azure-cache-for-redis/cache-overview.md). |
 
-1. Select the **Networking** tab or click the **Networking** button at the bottom of the page.
+4. Select the **Networking** tab or click the **Networking** button at the bottom of the page.
 
-1. In the **Networking** tab, select your connectivity method. For premium cache instances, you can connect either publicly, via Public IP addresses or service endpoints, or privately, using a private endpoint.
+5. In the **Networking** tab, select your connectivity method. For premium cache instances, you can connect either publicly, via Public IP addresses or service endpoints, or privately, using a private endpoint.
 
-1. Select the **Next: Advanced** tab or click the **Next: Advanced** button on the bottom of the page.
+6. Select the **Next: Advanced** tab or click the **Next: Advanced** button on the bottom of the page.
 
-1. In the **Advanced** tab for a premium cache instance, configure the settings for non-TLS port, clustering, and data persistence. For data persistence, you can choose either **RDB** or **AOF** persistence. 
+7. In the **Advanced** tab for a premium cache instance, configure the settings for non-TLS port, clustering, and data persistence. For data persistence, you can choose either **RDB** or **AOF** persistence. 
 
-1. To enable RDB persistence, click **RDB** and configure the settings. 
+8. To enable RDB persistence, click **RDB** and configure the settings. 
    
    | Setting      | Suggested value  | Description |
    | ------------ |  ------- | -------------------------------------------------- |
@@ -62,7 +62,7 @@ Persistence writes Redis data into an Azure Storage account that you own and man
 
 The first backup is initiated once the backup frequency interval elapses.
 
-1. To enable AOF persistence, click **AOF** and configure the settings. 
+9. To enable AOF persistence, click **AOF** and configure the settings. 
    
    | Setting      | Suggested value  | Description |
    | ------------ |  ------- | -------------------------------------------------- |
@@ -73,13 +73,13 @@ The first backup is initiated once the backup frequency interval elapses.
 
 When AOF persistence is enabled, write operations to the cache are saved to the designated storage account (or accounts if you have configured a second storage account). In the event of a catastrophic failure that takes down both the primary and replica cache, the stored AOF log is used to rebuild the cache.
 
-1. Select the **Next: Tags** tab or click the **Next: Tags** button at the bottom of the page.
+10. Select the **Next: Tags** tab or click the **Next: Tags** button at the bottom of the page.
 
-1. Optionally, in the **Tags** tab, enter the name and value if you wish to categorize the resource. 
+11. Optionally, in the **Tags** tab, enter the name and value if you wish to categorize the resource. 
 
-1. Select **Review + create**. You're taken to the Review + create tab where Azure validates your configuration.
+12. Select **Review + create**. You're taken to the Review + create tab where Azure validates your configuration.
 
-1. After the green Validation passed message appears, select **Create**.
+13. After the green Validation passed message appears, select **Create**.
 
 It takes a while for the cache to create. You can monitor progress on the Azure Cache for Redis **Overview** page. When **Status** shows as **Running**, the cache is ready to use. 
 
