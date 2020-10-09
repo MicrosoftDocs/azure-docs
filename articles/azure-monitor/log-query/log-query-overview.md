@@ -33,11 +33,11 @@ The best way to get started learning to write log queries using KQL is leveragin
 ## Reference documentation
 [Documentation for KQL](/azure/data-explorer/kusto/query/) including the reference for all commands and operators is available in the Azure Data Explorer documentation. Even as you get proficient using KQL, you'll still regularly use the reference to investigate new commands and scenarios that you haven't used before.
 
-Most of the documentation for KQL will apply to both Azure Monitor and Azure Data Explorer. It will specify those operators that aren't supported by Azure Monitor or that have different functionality. Operators specific to Azure Monitor are documented in the Azure Monitor content. The following sections list the differences between versions of the language.
 
+## Language differences
+While Azure Monitor uses the same KQL as azure Data Explorer, there are some differences. The KQL documentation will specify those operators that aren't supported by Azure Monitor or that have different functionality. Operators specific to Azure Monitor are documented in the Azure Monitor content. 
 
-## KQL elements not supported in Azure Monitor
-The following sections describe elements of the Kusto query language that aren't supported by Azure Monitor.
+The following sections provide a list the differences between versions of the language for quick reference.
 
 ### Statements not supported in Azure Monitor
 
@@ -65,7 +65,7 @@ The following sections describe elements of the Kusto query language that aren't
 * [sql_request plugin](/azure/kusto/query/sqlrequestplugin)
 
 
-## Additional operators in Azure Monitor
+### Additional operators in Azure Monitor
 The following operators support specific Azure Monitor features and are not available outside of Azure Monitor.
 
 * [app()](app-expression.md)
