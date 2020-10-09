@@ -73,7 +73,7 @@ landingContent:
           - text: Write app authentication code
             url: how-to-authenticate-client.md
             
-  - title: API reference
+  - title: View API reference
     linkLists:
       - linkListType: how-to-guide
         links:
@@ -88,7 +88,7 @@ landingContent:
           - text: REST APIs
             url:  https://docs.microsoft.com/rest/api/azure-digitaltwins/ 
 
-  - title: Samples
+  - title: Explore code samples
     linkLists:
       - linkListType: sample
         links:
