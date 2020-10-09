@@ -115,7 +115,7 @@ Microsoft works with a number of partners to continually expand the Azure IoT un
 
 ## Connecting to IoT Hub without an SDK
 
-If you're not able to use one of the IoT Hub device SDKs, you can connect directly to IoT Hub using the [IoT Hub REST APIs](https://docs.microsoft.com/rest/api/iothub/) from any application capable of sending and receiving HTTPS requests and responses.
+If you're not able to use one of the IoT Hub device SDKs, you can connect directly to IoT Hub using a supported communication protocol. To learn more, see [Develop without an Azure IoT SDK](iot-hub-devguide-no-sdk.md).
 
 ## Support and other resources
 
