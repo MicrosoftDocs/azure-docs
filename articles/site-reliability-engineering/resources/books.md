@@ -11,6 +11,8 @@ ms.author: dnb
 ---
 # Site reliability engineering (SRE) books
 
+One of the best ways to learn about or deepen your knowledge of SRE is through reading about it. Here are some of the best written sources of information we've seen on the topic.
+
 ## Core SRE books
 
 For more detailed information about site reliability engineering (SRE), the best source is a trio of books that have been published on the subject
