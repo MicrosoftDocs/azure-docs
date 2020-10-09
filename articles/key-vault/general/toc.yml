@@ -168,6 +168,8 @@
     href: client-libraries.md
   - name: REST API error codes - Azure Key Vault
     href: rest-error-codes.md
+  - name: Common error codes - Azure Key Vault
+    href: common-error-codes.md
   - name: Common parameters and headers 
     href: common-parameters-and-headers.md
   - name: Key vault versions 
