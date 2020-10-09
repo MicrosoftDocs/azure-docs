@@ -182,6 +182,8 @@
         href: manage/create-subscription.md
       - name: Create subscriptions programmatically
         href: manage/programmatically-create-subscription.md
+      - name: Create subscriptions programmatically (Preview)
+        href: manage/programmatically-create-subscription-preview.md
       - name: Grant access to create EA subscriptions
         href: manage/grant-access-to-create-subscription.md
       - name: Export subscription information
