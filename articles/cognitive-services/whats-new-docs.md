@@ -94,3 +94,5 @@ The following people contributed to the Cognitive Services docs during this peri
 - [iAmBipinPaul](https://github.com/iAmBipinPaul) - Bipin Paul (1)
 - [rexwan](https://github.com/rexwan) - Rex Wang (1)
 - [rglidden](https://github.com/rglidden) - Richard Glidden (1)
+
+[!INCLUDE [Service specific updates](./includes/service-specific-updates.md)]
