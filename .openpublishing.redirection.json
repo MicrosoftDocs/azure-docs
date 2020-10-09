@@ -42615,7 +42615,7 @@
     {
       "source_path": "articles/application-insights/app-insights-asp-net.md",
       "redirect_url": "/azure/azure-monitor/app/asp-net",
-      "redirect_document_id": true
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/application-insights/app-insights-asp-net-core.md",

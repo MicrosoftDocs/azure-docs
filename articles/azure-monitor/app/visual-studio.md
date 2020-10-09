@@ -2,6 +2,7 @@
 title: Debug in Visual Studio with Azure Application Insights
 description: Web app performance analysis and diagnostics during debugging and in production.
 ms.topic: conceptual
+ms.date: 03/17/2017
 ms.custom: vs-azure
 ---
 
