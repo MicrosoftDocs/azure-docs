@@ -33,19 +33,19 @@ landingContent:
       - linkListType: quickstart
         links:
           - text: .NET
-            url: /azure/devops-project/azure-devops-project-aspnet-core
+            url: ./azure-devops-project-aspnet-core.md
           - text: Node.js
-            url: /azure/devops-project/azure-devops-project-nodejs
+            url: ./azure-devops-project-nodejs.md
           - text: Java
-            url: /azure/devops-project/azure-devops-project-java
+            url: ./azure-devops-project-java.md
           - text: Python
-            url: /azure/devops-project/azure-devops-project-python
+            url: ./azure-devops-project-python.md
           - text: PHP
-            url: /azure/devops-project/azure-devops-project-php
+            url: ./azure-devops-project-php.md
           - text: Ruby
-            url: /azure/devops-project/azure-devops-project-ruby
+            url: ./azure-devops-project-ruby.md
           - text: Go
-            url: /azure/devops-project/azure-devops-project-go
+            url: ./azure-devops-project-go.md
 
   # Card
   - title: Create release pipelines
