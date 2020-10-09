@@ -100,36 +100,6 @@ VMware 6.7 onwards had TLS enabled as the communication protocol.
 
 1. Right-click the TLS.REG file, and select **Merge** or **Open** to add the settings to the registry.
 
-## Add the provisioning IP address 
-
-During the preview, Azure VMware Solution doesn't resolve the ESX host from the virtual machine deployed in the virtual network. You'll need to perform additional steps to add the host file entry on the Azure Backup Server virtual machine.
-
-### Identify the IP address for ESXi hosts
-
-1. Open the browser, and sign in to the vCenter URLs. 
-
-   > [!TIP]
-   > You can find the URLs in [Connect to the local vCenter of your private cloud](tutorial-access-private-cloud.md#connect-to-the-local-vcenter-of-your-private-cloud).
-
-1. In the vSphere Client, select the cluster that you plan to enable backup for.
-
-   :::image type="content" source="media/azure-vmware-solution-backup/vsphere-client-select-host.png" alt-text="VSphere Client - Select host":::
-
-1. Select **Configure** > **Networking** > **VMKernel adapters**. Under the list of devices, identify the network adapter that has the **Provisioning** role enabled. Make a note of the **IP Address** and ESXi hostname.
-
-   :::image type="content" source="media/azure-vmware-solution-backup/vmkernel-adapters-provisioning-enabled.png" alt-text="VMKernel adapters - provisioning enabled devices":::
-
-1. Repeat the previous step for each ESXi host under every cluster that you plan to enable backup for.
-
-### Update the host file on Azure Backup Server
-
-1. Open Notepad as an administrator.
-
-1. Select **File** > **Open**, and search for c:\Windows\System32\Drivers\etc\hosts.
-
-1. Add the entry for each ESXi host along with the IP address that you identified in the previous section.
-
-1. Save your changes, and close Notepad.
 
 ## Add the account on Azure Backup Server
 
