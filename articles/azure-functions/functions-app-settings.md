@@ -199,7 +199,7 @@ To learn more, see [Custom dependencies](functions-reference-python.md#remote-bu
 
 _This setting is currently in preview._  
 
-This setting controls logging from the Azure Functions scale controller. For more information, see [Scale controller logs](functions-monitoring.md#scale-controller-logs-preview).
+This setting controls logging from the Azure Functions scale controller. For more information, see [Scale controller logs](functions-monitoring.md#scale-controller-logs).
 
 |Key|Sample value|
 |-|-|
