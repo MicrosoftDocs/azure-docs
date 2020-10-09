@@ -10,7 +10,7 @@ ms.date: 09/24/2020
 ---
 
 # Azure Monitor for Networks Preview
-Azure Monitor for Networks provides a comprehensive view of [health](https://docs.microsoft.com/azure/service-health/resource-health-checks-resource-types) and [metrics](../platform/metrics-supported.md) for all deployed network resources without requiring  any configuration. It also provides access to network monitoring capabilities like [Connection Monitor](../../network-watcher/connection-monitor-preview.md), [flow logging for network security groups (NSGs)](../../network-watcher/network-watcher-nsg-flow-logging-overview.md), and [Traffic Analytics](../../network-watcher/traffic-analytics.md). And it provides other network [diagnostic](../../network-watcher/network-watcher-monitoring-overview.md#diagnostics) features.
+Azure Monitor for Networks provides a comprehensive view of [health](https://docs.microsoft.com/azure/service-health/resource-health-checks-resource-types) and [metrics](../platform/metrics-supported.md) for all deployed network resources, without requiring  any configuration. It also provides access to network monitoring capabilities like [Connection Monitor](../../network-watcher/connection-monitor-preview.md), [flow logging for network security groups (NSGs)](../../network-watcher/network-watcher-nsg-flow-logging-overview.md), and [Traffic Analytics](../../network-watcher/traffic-analytics.md). And it provides other network [diagnostic](../../network-watcher/network-watcher-monitoring-overview.md#diagnostics) features.
 
 Azure Monitor for Networks is structured around these key components of monitoring:
 - [Network health and metrics](#networkhealth)
@@ -20,7 +20,7 @@ Azure Monitor for Networks is structured around these key components of monitori
 
 ## <a name="networkhealth"></a>Network health and metrics
 
-The Azure Monitor for Networks **Overview** page provides an easy way to visualize the inventory of your networking resources, together with resource health and alerts. It's divided into four key functional areas: search and filtering, resource health and metrics, alerts. and dependency view.
+The Azure Monitor for Networks **Overview** page provides an easy way to visualize the inventory of your networking resources, together with resource health and alerts. It's divided into four key functional areas: search and filtering, resource health and metrics, alerts, and dependency view.
 
 ![Screenshot that shows the Overview page.](media/network-insights-overview/overview.png)
 
@@ -47,7 +47,7 @@ You can select any item in the grid view. Select the icon in the **Health** colu
 The **Alert** box on the right side of the page provides a view of all alerts generated for the selected resources across all subscriptions. Select the alert counts to go to a detailed alerts page.
 
 ### Dependency view
-Dependency view helps you visualize how a resource is configured. Dependency view is currently available for Azure Application Gateway, Azure Virtual WAN, and Azure Load Balancer. For example, in the case of Application Gateway, you can access dependency view by selecting the Application Gateway resource name in the metrics grid view. You can do the same thing for Virtual WAN and Load Balancer.
+Dependency view helps you visualize how a resource is configured. Dependency view is currently available for Azure Application Gateway, Azure Virtual WAN, and Azure Load Balancer. For example, for Application Gateway, you can access dependency view by selecting the Application Gateway resource name in the metrics grid view. You can do the same thing for Virtual WAN and Load Balancer.
 
 ![Sreenshot that shows Application Gateway view in Azure Monitor for Networks.](media/network-insights-overview/application-gateway.png)
 
@@ -89,59 +89,59 @@ The **Alert** box on the right side of the page provides a view of all alerts 
 ## <a name="traffic"></a>Traffic
 The **Traffic** tab provides access to all NSGs configured for [NSG flow logs](../../network-watcher/network-watcher-nsg-flow-logging-overview.md) and [Traffic Analytics](../../network-watcher/traffic-analytics.md) for the selected set of subscriptions, grouped by location. The search functionality provided on this tab enables you to identify the NSGs configured for the searched IP address. You can search for any IP address in your environment. The tiled regional view will display all NSGs along with the NSG flow logs and Traffic Analytics configuration status.
 
-![The traffic tab in Azure Monitor for Networks.](media/network-insights-overview/azure-monitor-for-networks-traffic-view.png)
+![Screenshot that shows the Traffic tab in Azure Monitor for Networks.](media/network-insights-overview/azure-monitor-for-networks-traffic-view.png)
 
 If you select any region tile, a grid view appears. The grid provides NSG flow logs and Traffic Analytics in view that's easy to read and configure:  
 
-![Traffic region view in Azure Monitor for Networks.](media/network-insights-overview/azure-monitor-for-networks-traffic-region-view.png)
+![Screenshot that shows the traffic region view in Azure Monitor for Networks.](media/network-insights-overview/azure-monitor-for-networks-traffic-region-view.png)
 
 You can select any item in the grid view. Select the icon in the **Flowlog Configuration Status** column to edit the NSG flow log and Traffic Analytics configuration. Select the value in the **Alert** column to go to the traffic alerts configured for the selected NSG. Similarly, you can go to the Traffic Analytics view by selecting the **Traffic Analytics Workspace**.  
 
 The **Alert** box on the right side of the page provides a view of all Traffic Analytics workspace-based alerts across all subscriptions. Select the alert counts to go to a detailed alerts page.
 
 ## <a name="diagnostictoolkit"></a> Diagnostic Toolkit
-Diagnostic Toolkit provides access to all the diagnostic features available for troubleshooting the network. You can use this drop-down list to access features like [packet capture](../../network-watcher/network-watcher-packet-capture-overview.md), [VPN troubleshooting](../../network-watcher/network-watcher-troubleshoot-overview.md), [connection troubleshooting](../../network-watcher/network-watcher-connectivity-overview.md), [next hop](../../network-watcher/network-watcher-next-hop-overview.md), and [IP flow verify](../../network-watcher/network-watcher-ip-flow-verify-overview.md).
+Diagnostic Toolkit provides access to all the diagnostic features available for troubleshooting the network. You can use this drop-down list to access features like [packet capture](../../network-watcher/network-watcher-packet-capture-overview.md), [VPN troubleshooting](../../network-watcher/network-watcher-troubleshoot-overview.md), [connection troubleshooting](../../network-watcher/network-watcher-connectivity-overview.md), [next hop](../../network-watcher/network-watcher-next-hop-overview.md), and [IP flow verify](../../network-watcher/network-watcher-ip-flow-verify-overview.md):
 
-![Diagnostic toolkit tab](media/network-insights-overview/azure-monitor-for-networks-diagnostic-toolkit.png)
+![Screenshot that shows the Diagnostic Toolkit tab.](media/network-insights-overview/azure-monitor-for-networks-diagnostic-toolkit.png)
 
 ## Troubleshooting 
 
-For general troubleshooting guidance, refer to the dedicated workbook-based insights [troubleshooting article](troubleshoot-workbooks.md).
+For general troubleshooting guidance, see the dedicated workbook-based insights [troubleshooting article](troubleshoot-workbooks.md).
 
-This section will help you with the diagnosis and troubleshooting of some of the common issues you may encounter when using Azure Monitor for Networks. Use the list below to locate the information relevant to your specific issue.
+This section will help you diagnose and troubleshoot some common problems you might encounter when you use Azure Monitor for Networks. 
 
-### Resolving performance issues or failures
+### How do I resolve performance problems or failures?
 
-To help troubleshoot any networking related issues you identify with Azure Monitor for Networks, see the troubleshooting documentation of the malfunctioning resource. 
-Trouble-shooting links for high used services are listed below.
-* Virtual Network (VNET)
-* Application Gateway
-* VPN Gateway
-* ExpressRoute 
-* Load Balancer 
+To learn about troubleshooting any networking-related problems you identify with Azure Monitor for Networks, see the troubleshooting documentation for the malfunctioning resource. 
 
-### Why don't I see the resources from all the subscriptions I have selected
+Here are some links to troubleshooting articles for frequently used services:
+* Azure Virtual Network
+* Azure Application Gateway
+* Azure VPN Gateway
+* Azure ExpressRoute 
+* Azure Load Balancer 
 
-Network Insights can only show resources from 5 subscriptions at a time. 
+### Why don't I see the resources for all the subscriptions I've selected?
 
-### I want to make changes or add additional visualizations to Network Insights, how do I do so
+Network Insights can show resources for only five subscriptions at a time. 
 
-To make changes, select the "Edit Mode" to modify the workbook, then you can save your work as a new workbook that is tied to a designated subscription and resource group.
+### How do I make changes or add visualizations to Networks Insights?
 
-### What is the time-grain once we pin any part of the Workbooks
+To make changes, select **Edit Mode** to modify the workbook. You can then save your changes as a new workbook that's tied to a designated subscription and resource group.
 
-We utilize the "Auto" time grain, therefore it depends on what time range is selected.
+### What's the time grain after I pin any part of the workbooks?
 
-### What is the time range when any part of the workbook is pinned
+Network Insights uses the **Auto** time grain, so the time grain is based on the selected time range.
 
-The time range will depend on the dashboard settings.
+### What's the time range when any part of a workbook is pinned?
 
-### What if I want to see other data or make my own visualizations? How can I make changes to the Network Insights
+The time range depends on the dashboard settings.
 
-You can edit the workbook you see in any side-panel and detailed metric view, through the use of the edit mode, and then save your work as a new workbook that will have all your new changes.
+### What if I want to see other data or make my own visualizations? How can I make changes to Network Insights?
 
+You can edit the workbook you see in any side-panel or detailed metric view by using the edit mode. You can then save your changes as a new workbook.
 
 ## Next steps
 
-- Learn more about network monitoring at [What is Azure Network Watcher?](../../network-watcher/network-watcher-monitoring-overview.md).
-- Learn the scenarios workbooks are designed to support, how to author new and customize existing reports, and more by reviewing [Create interactive reports with Azure Monitor workbooks](../platform/workbooks-overview.md).
+- Learn more about network monitoring: [What is Azure Network Watcher?](../../network-watcher/network-watcher-monitoring-overview.md)
+- Learn the scenarios workbooks are designed to support, how to create reports and customize existing reports, and more: [Create interactive reports with Azure Monitor workbooks](../platform/workbooks-overview.md)
