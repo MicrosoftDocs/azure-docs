@@ -75,7 +75,7 @@ landingContent:
           url: batch-parallel-node-tasks.md
         - text: Use application packages
           url: batch-application-packages.md
-        - text: Container workloads
+        - text: Run container applications
           url: batch-docker-container-workloads.md
       - linkListType: concept
         links:
