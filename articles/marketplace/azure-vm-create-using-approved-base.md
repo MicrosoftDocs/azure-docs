@@ -59,7 +59,7 @@ Follow these steps to create the base VM image on the [Azure portal](https://ms.
     1. If you plan to develop the VHD on-premises, the size doesn't matter. Consider using one of the smaller VMs.
     2. If you plan to develop the image in Azure, consider using one of the recommended VM sizes for the selected image.
 
-    :::image type="content" source="media/create-vm/create-virtual-machine-sizes.png" alt-text="Select a recommended VM size for teh selected image.":::
+    :::image type="content" source="media/create-vm/create-virtual-machine-sizes.png" alt-text="Select a recommended VM size for the selected image.":::
 
 6. Gen 1 only: On the **Disks** tab, expand the **Advanced** section and set the **Use managed disks** option to **No**.
 
