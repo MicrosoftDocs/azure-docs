@@ -198,7 +198,7 @@ For a new Data Lake Storage Gen2 container, the mask for the access ACL of the r
 |Entity|Directories|Files|
 |--|--|--|
 |Owning user|`rwx`|`r-w`|
-|Owning group|`r-x`|`r`|
+|Owning group|`r-x`|`r--`|
 |Other|`---`|`---`|
 
 Files do not receive the X bit as it is irrelevant to files in a store-only system. 
