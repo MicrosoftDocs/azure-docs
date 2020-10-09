@@ -5,7 +5,7 @@
   - name: What is Microsoft identity platform?
     href: v2-overview.md
   - name: What's new in docs?
-    href: whats-new-docs
+    href: whats-new-docs.md
 - name: Quickstarts
   expanded: true
   items:
