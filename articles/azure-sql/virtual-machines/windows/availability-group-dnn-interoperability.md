@@ -63,11 +63,7 @@ Distributed availability groups are not currently supported with the DNN listene
 
 ## Replication
 
-Transactional, Merge and Snapshot replication all support replacing the VNN listener with the DNN listener in replication objects that connect to the listener. 
-
-Use the default port 1433 if the Subscriber is an availability group database or the distributor is an availability group database. 
-
-It may be necessary to change the SQL Server agent account to a SQL Server account with necessary priviliges. 
+Transactional, Merge and Snapshot Replication all support replacing the VNN listener with the DNN listener and port in replication objects that connect to the listener. 
 
 For more information on how to use replication with availability groups, see [Publisher and AG](/sql/database-engine/availability-groups/windows/configure-replication-for-always-on-availability-groups-sql-server), [Subscriber and AG](/sql/database-engine/availability-groups/windows/replication-subscribers-and-always-on-availability-groups-sql-server), and [Distributor and AG](/sql/relational-databases/replication/configure-distribution-availability-group)
 
