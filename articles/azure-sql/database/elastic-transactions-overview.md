@@ -13,7 +13,7 @@ ms.reviewer:
 ms.date: 03/12/2019
 ---
 # Distributed transactions across cloud databases (preview)
-[!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
+[!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
 
 Elastic database transactions for Azure SQL Database and Azure SQL Managed Instance allow you to run transactions that span several databases. Elastic database transactions are available for .NET applications using ADO.NET and integrate with the familiar programming experience using the [System.Transaction](https://msdn.microsoft.com/library/system.transactions.aspx) classes. To get the library, see [.NET Framework 4.6.1 (Web Installer)](https://www.microsoft.com/download/details.aspx?id=49981).
 In addition to this, for Azure SQL Managed Instance elastic database transactions are available for [Transact-SQL](https://docs.microsoft.com/sql/t-sql/language-elements/begin-distributed-transaction-transact-sql).
