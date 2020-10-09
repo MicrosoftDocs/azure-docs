@@ -2,7 +2,7 @@
 title: Configure Azure Monitor for containers agent data collection | Microsoft Docs
 description: This article describes how you can configure the Azure Monitor for containers agent to control stdout/stderr and environment variables log collection.
 ms.topic: conceptual
-ms.date: 06/01/2020
+ms.date: 10/09/2020
 ---
 
 # Configure agent data collection for Azure Monitor for containers
@@ -38,13 +38,21 @@ The following are the settings that can be configured to control data collection
 | `[log_collection_settings.enrich_container_logs] enabled =` | Boolean | true or false | This setting controls container log enrichment to populate the Name and Image property values<br> for every log record written to the ContainerLog table for all container logs in the cluster.<br> It defaults to `enabled = false` when not specified in ConfigMap. |
 | `[log_collection_settings.collect_all_kube_events]` | Boolean | true or false | This setting allows the collection of Kube events of all types.<br> By default the Kube events with type *Normal* are not collected. When this setting is set to `true`, the *Normal* events are no longer filtered and all events are collected.<br> By default, this is set to `false`. |
 
+### Metric collection settings
+
+The following are the settings that can be configured to control metric collection.
+
+| Key | Data type | Value | Description |
+|--|--|--|--|
+| `[metric_collection_settings.collect_kube_system_pv_metrics] enabled =` | Boolean | true or false | This setting allows persistent volume (PV) usage metrics to be collected in the kube-system namespace. By default, usage metrics for persistent volumes with persistent volume claims in the kube-system namespace are not collected. When this setting is set to true, PV usage metrics for all namespaces are collected. By default, this is set to false. |
+
 ConfigMaps is a global list and there can be only one ConfigMap applied to the agent. You cannot have another ConfigMaps overruling the collections.
 
 ## Configure and deploy ConfigMaps
 
 Perform the following steps to configure and deploy your ConfigMap configuration file to your cluster.
 
-1. [Download](https://github.com/microsoft/OMS-docker/blob/ci_feature_prod/Kubernetes/container-azm-ms-agentconfig.yaml) the template ConfigMap yaml file and save it as container-azm-ms-agentconfig.yaml. 
+1. [Download](https://github.com/microsoft/Docker-Provider/blob/ci_prod/kubernetes/container-azm-ms-agentconfig.yaml.) the template ConfigMap yaml file and save it as container-azm-ms-agentconfig.yaml. 
 
    >[!NOTE]
    >This step is not required when working with Azure Red Hat OpenShift since the ConfigMap template already exists on the cluster.

@@ -2,7 +2,7 @@
 title: How to update Azure Monitor for containers for metrics | Microsoft Docs
 description: This article describes how you update Azure Monitor for containers to enable the custom metrics feature that supports exploring and alerting on aggregated metrics.
 ms.topic: conceptual
-ms.date: 09/24/2020 
+ms.date: 10/09/2020 
 ms.custom: devx-track-azurecli
 
 ---
@@ -22,6 +22,7 @@ The following metrics are enabled as part of this feature:
 | Insights.container/nodes | cpuUsageMillicores, cpuUsagePercentage, memoryRssBytes, memoryRssPercentage, memoryWorkingSetBytes, memoryWorkingSetPercentage, nodesCount, diskUsedPercentage, | As *node* metrics, they include *host* as a dimension. They also include the<br> node's name as value for the *host* dimension. |
 | Insights.container/pods | podCount, completedJobsCount, restartingContainerCount, oomKilledContainerCount, podReadyPercentage | As *pod* metrics, they include the following as dimensions - ControllerName, Kubernetes namespace, name, phase. |
 | Insights.container/containers | cpuExceededPercentage, memoryRssExceededPercentage, memoryWorkingSetExceededPercentage | |
+| Insights.container/persistentvolumes | pvUsageExceededPercentage | |
 
 To support these new capabilities, a new containerized agent is included in the release, version **microsoft/oms:ciprod05262020** for AKS and version **microsoft/oms:ciprod09252020** for Azure Arc enabled Kubernetes clusters. New deployments of AKS automatically include this configuration change and capabilities. Updating your cluster to support this feature can be performed from the Azure portal, Azure PowerShell, or with Azure CLI. With Azure PowerShell and CLI. You can enable this per-cluster or for all clusters in your subscription.
 
