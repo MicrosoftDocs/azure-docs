@@ -74,6 +74,6 @@ A single resource can incur several charges for different services. For example,
 1. You can expand and reduce using the **+** symbols in each month's column.  
     :::image type="content" source="./media/troubleshoot-ea-billing-issues-usage-file-pivot-tables/pivot-table-month-expand-collapse.png" alt-text="Example showing the + symbol" :::
 
-[!INCLUDE [Transform data before using large usage files](../../../includes/transform-data-before-using-large-usage-files.md)]
+[!INCLUDE [Transform data before using large usage files](../../../includes/cost-management-billing-transform-data-before-using-large-usage-files.md)]
 
 ## Next steps

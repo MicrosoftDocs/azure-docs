@@ -102,6 +102,6 @@ The file contains the following columns.
 1. To filter by a specific resource, add **Properties** to the **Filters** area and select the desired usage. You can use Search to find a resource name.
     To view the cost for the resource, find the total consumed quantity and multiply the value by the list price. The list price is specific for each Resource GUID (MeteredResourceID). If a resource is consuming several MeteredResourceIDs, you have to note the total value for each ID.
 
-[!INCLUDE [Transform data before using large usage files](../../../includes/transform-data-before-using-large-usage-files.md)]
+[!INCLUDE [Transform data before using large usage files](../../../includes/cost-management-billing-transform-data-before-using-large-usage-files.md)]
 
 ## Next steps
