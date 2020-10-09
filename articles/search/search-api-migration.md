@@ -8,7 +8,7 @@ author: brjohnstmsft
 ms.author: brjohnst
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 08/26/2020
+ms.date: 10/09/2020
 ---
 
 # Upgrade to the latest REST API in Azure Cognitive Search
@@ -46,7 +46,7 @@ Features are now generally available in this API version include:
 
 Existing code written against earlier API versions will break on api-version=2020-06-30 and later if code contains the following functionality:
 
-* 
+* Edm.Date literals (a date composed of year-month-day, such as `2020-12-12`) must be reconstructed as Edm.DateOffset instead: `2020-12-12T00:00:00Z`. The `Z` is for Universal Time Coordinated (UTC), to which Azure Search normalizes all DateTimeOffset values. This change was necessary to handle erroneous or unexpected query results due to timezone differences.
 
 ### Behavior changes
 
