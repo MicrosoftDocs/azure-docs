@@ -759,4 +759,4 @@ https://isvapp.azure-api.net/selftest-vm -d '{ "DNSName":"XXXX.westus.cloudapp.a
 
 ## Next steps
 
-- [Get SAS URI](get-sas-uri)
+- [Get SAS URI](azure-vm-get-sas-uri.md)
