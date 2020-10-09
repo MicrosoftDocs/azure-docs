@@ -85,12 +85,9 @@ The following snippets are all taken from the `MongoService` class, found at the
 
 * Initialize the Mongo Client.
     ```cs
-    MongoClientSettings settings = MongoClientSettings.FromUrl(
-        new MongoUrl(APIKeys.ConnectionString)
-    );
+    MongoClientSettings settings = MongoClientSettings.FromUrl(new MongoUrl(APIKeys.ConnectionString));
 
-    settings.SslSettings =
-        new SslSettings() { EnabledSslProtocols = SslProtocols.Tls12 };
+    settings.SslSettings = new SslSettings() { EnabledSslProtocols = SslProtocols.Tls12 };
 
     settings.RetryWrites = false;
 
@@ -104,7 +101,8 @@ The following snippets are all taken from the `MongoService` class, found at the
 
     var db = mongoClient.GetDatabase(dbName);
 
-    var collectionSettings = new MongoCollectionSettings {
+    var collectionSettings = new MongoCollectionSettings 
+    {
         ReadPreference = ReadPreference.Nearest
     };
 
