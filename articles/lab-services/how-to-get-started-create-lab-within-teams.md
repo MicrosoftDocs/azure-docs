@@ -26,7 +26,7 @@ You can add Lab Services directly in your Teams channels, and then the app is av
 
     The accounts that are in the same tenant as Teams and for which you have **Owner**, **Contributor**, or **Creator** access are displayed. 
 
-   ![Name the tab](./media/integrate-with-teams/welcome.png) 
+   ![Welcome to ALS](./media/integrate-with-teams/welcome.png) 
 1. Press **Save** and the app gets added to Teams and the tab gets added to the channel. 
 
     Now you can select the **Azure Lab Services** tab from your channel and start managing labs as described in the following step.
