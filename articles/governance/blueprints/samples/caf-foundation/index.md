@@ -31,17 +31,18 @@ enterprise-ready foundation. This environment is composed of:
   [Storage Accounts](../../../../storage/common/storage-introduction.md) for diagnostic logging
 - Deploy [Azure Security Center](../../../../security-center/security-center-intro.md) (standard
   version) provides threat protection for your migrated workloads
-- The blueprint also defines and deploys [Azure Policies](../../../policy/overview.md), for 
-  - Tagging (CostCenter) applied to resources groups
-  - Append resources in resource group with the CostCenter Tag
-  - Allowed Azure Region for Resources and Resource Groups
-  - Allowed Storage Account SKUs (choose while deploying)
-  - Allowed Azure VM SKUs (choose while deploying)
-  - Require Network Watcher to be deployed 
-  - Require Azure Storage Account Secure transfer Encryption
-  - Deny resource types (choose while deploying)  
-- Initiatives
-  - Enable Monitoring in Azure Security Center (100+ policy definitions)
+- The blueprint also defines and deploys [Azure Policy](../../../policy/overview.md) definitions:
+  - Policy definitions:
+    - Tagging (CostCenter) applied to resources groups
+    - Append resources in resource group with the CostCenter Tag
+    - Allowed Azure Region for Resources and Resource Groups
+    - Allowed Storage Account SKUs (choose while deploying)
+    - Allowed Azure VM SKUs (choose while deploying)
+    - Require Network Watcher to be deployed 
+    - Require Azure Storage Account Secure transfer Encryption
+    - Deny resource types (choose while deploying)  
+  - Policy initiatives:
+    - Enable Monitoring in Azure Security Center (100+ policy definitions)
 
 All these elements abide to the proven practices published in the
 [Azure Architecture Center - Reference Architectures](/azure/architecture/reference-architectures/).
