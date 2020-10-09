@@ -35,7 +35,7 @@ You can get to example queries from two different locations.
 
 When you first enter the Log Analytics experience, the *Example queries dialog* is shown automatically.  It can also be accessed by clicking in the upper right of the screen on **Example queries**.
 
-![Sidebar](media/saved-queries/sidebar-2.png)
+![Sidebar - example queries](media/saved-queries/sidebar-2.png)
 
 The example query dialog then appears as shown below:  
 
