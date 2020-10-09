@@ -92,7 +92,7 @@ landingContent:
     linkLists:
       - linkListType: sample
         links:
-          - text: Azure Digital Twins samples
+          - text: End-to-end sample
             url: https://docs.microsoft.com/samples/azure-samples/digital-twins-samples/digital-twins-samples/   
       - linkListType: sample
         links:
@@ -112,5 +112,5 @@ landingContent:
             url:  https://docs.microsoft.com/samples/azure-samples/digitaltwins-signalr-webapp-sample/digital-twins-samples/ 
       - linkListType: sample
         links:
-          - text: Azure Digital Twins Custom Swaggers
+          - text: Custom Swagger for Logic Apps connector
             url: https://docs.microsoft.com/samples/azure-samples/digital-twins-custom-swaggers/azure-digital-twins-custom-swaggers/ 
