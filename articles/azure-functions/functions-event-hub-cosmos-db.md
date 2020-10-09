@@ -27,7 +27,7 @@ In this tutorial, you'll:
 
 To complete this tutorial, you must have the following installed:
 
-* [Java Developer Kit](https://aka.ms/azure-jdks), version 8
+* [Java Developer Kit](/azure/developer/java/fundamentals/java-jdk-long-term-support), version 8
 * [Apache Maven](https://maven.apache.org), version 3.0 or above
 * [Azure CLI](/cli/azure/install-azure-cli) if you prefer not to use Cloud Shell
 * [Azure Functions Core Tools](https://www.npmjs.com/package/azure-functions-core-tools) version 2.6.666 or above

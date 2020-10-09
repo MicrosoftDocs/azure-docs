@@ -21,7 +21,7 @@ This section guides you on configuring and running your function app as securely
 
 ### Security Center
 
-Security Center integrates with your function app in the portal. It provides, for free, a quick assessment of potential configuration-related security vulnerabilities. Function apps running in a dedicated plan can also use the real-time security features of Security Center, for an additional cost. To learn more, see [Protect your Azure App Service web apps and APIs](https://docs.microsoft.com/azure/security-center/defender-for-app-service-introduction). 
+Security Center integrates with your function app in the portal. It provides, for free, a quick assessment of potential configuration-related security vulnerabilities. Function apps running in a dedicated plan can also use the real-time security features of Security Center, for an additional cost. To learn more, see [Protect your Azure App Service web apps and APIs](../security-center/defender-for-app-service-introduction.md). 
 
 ### Log and monitor
 

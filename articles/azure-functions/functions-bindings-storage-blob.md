@@ -33,7 +33,7 @@ Working with the trigger and bindings requires that you reference the appropriat
 [core tools]: ./functions-run-local.md
 [extension bundle]: ./functions-bindings-register.md#extension-bundles
 [NuGet package]: https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.Storage
-[Update your extensions]: ./install-update-binding-extensions-manual.md
+[Update your extensions]: ./functions-bindings-register.md
 [Azure Tools extension]: https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-node-azure-pack
 
 ### Functions 1.x
