@@ -18,7 +18,7 @@ ms.subservice: general
 > [!NOTE]
 > **Microsoft.Azure.Services.AppAuthentication** is no longer recommended to use with new Key Vault SDK. 
 > It is replaced with new **Azure Identity client library** available for .NET, Java, TypeScript and Python and should be used for all new development. 
-> More information can be found here: [Authentication to Key Vault in code](https://docs.microsoft.com/en-us/azure/key-vault/general/developers-guide#azure-identity-client-libraries).
+> More information can be found here: [Authentication to Key Vault in code](https://docs.microsoft.com/azure/key-vault/general/developers-guide#azure-identity-client-libraries).
 
 To authenticate to Azure Key Vault, you need an Azure Active Directory (Azure AD) credential, either a shared secret or a certificate.
 
