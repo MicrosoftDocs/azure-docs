@@ -165,7 +165,7 @@ Also, use built-in policy definitions related to AKS, such as:
 
 - [How to configure and manage Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
-- [Azure Policy samples for networking](../governance/policy/samples/index.md#network)
+- [Azure Policy samples for networking](../governance/policy/samples/built-in-policies.md#network)
 
 **Azure Security Center monitoring**: Not applicable
 
