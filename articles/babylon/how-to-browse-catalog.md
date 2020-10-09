@@ -41,7 +41,7 @@ A native browsing experience with hierarchical namespace is provided for each of
 
 5. To view the details of an asset, select the name or the ellipses button on the far right.
 
-:::image type="content" source="media/how-to-browse-catalog/view-asset-detail-click-ellipses.jpg" alt-text="":::
+:::image type="content" source="media/how-to-browse-catalog/view-asset-detail-click-ellipses.jpg" alt-text="Select the ellipses button to see asset details page":::
 
 ## Launch related experience from asset detail page
 
