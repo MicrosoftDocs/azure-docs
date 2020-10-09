@@ -1,5 +1,5 @@
 ---
-title: Feature interoperability with DNN listener
+title: Feature interoperability with availability groups and DNN listener
 description: "Learn about the additional considerations when working with certain SQL Server features and a distributed network name (DNN) listener with an Always On availability group on SQL Server on Azure VMs. " 
 services: virtual-machines
 documentationCenter: na
@@ -15,13 +15,12 @@ ms.author: mathoma
 
 ---
 
-# Feature interoperability with SQL Server AG & DNN
+# Feature interoperability with AG and DNN listener
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
 
 There are certain SQL Server features that rely on a hard-coded virtual network name (VNN). As such, when using the distributed network name (DNN) listener with your Always On availability group and SQL Server on Azure VMs, there are some additional considerations. 
 
-This article details SQL Server features and interoperability with the DNN listener. 
-
+This article details SQL Server features and interoperability with the availability group DNN listener. 
 
 
 ## Client drivers
