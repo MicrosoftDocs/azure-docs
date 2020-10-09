@@ -75,12 +75,12 @@ Large Object (LOB) columns are columns that could grow large in size. For MySQL,
 
     **Workaround**: Replace primary key with other datatypes or columns that aren't LOB.
 
-- **Limitation**: If the length of Large Object (LOB) column is bigger than 32 KB, data might be truncated at the target. You can check the length of LOB column using this query:
+- **Limitation**: If the length of Large Object (LOB) column is bigger than the "Limit LOB size" parameter (should not be greater than 64 KB), data might be truncated at the target. You can check the length of LOB column using this query:
     ```
     SELECT max(length(description)) as LEN from catalog;
     ```
 
-    **Workaround**: If you have LOB object that is bigger than 32 KB, contact engineering team at [Ask Azure Database Migrations](mailto:AskAzureDatabaseMigrations@service.microsoft.com).
+    **Workaround**: If you have LOB object that is bigger than 64 KB, use the "Allow unlimited LOB size" parameter. Note that migrations using "Allow unlimited LOB size" parameter will be slower than migrations using "Limit LOB size" parameter.
 
 ## Limitations when migrating online from AWS RDS MySQL
 
