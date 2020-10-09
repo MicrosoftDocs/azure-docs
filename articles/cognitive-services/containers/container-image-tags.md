@@ -20,19 +20,21 @@ Azure Cognitive Services offers many container images. The container registries 
 
 ## Anomaly Detector
 
-The [Anomaly Detector][ad-containers] container image can be found on the `mcr.microsoft.com` container registry syndicate. It resides within the `azure-cognitive-services` repository and is named `anomaly-detector`. The fully qualified container image name is, `mcr.microsoft.com/azure-cognitive-services/anomaly-detector`.
+The [Anomaly Detector][ad-containers] container image can be found on the `mcr.microsoft.com` container registry syndicate. It resides within the `azure-cognitive-services/decision` repository and is named `anomaly-detector`. The fully qualified container image name is, `mcr.microsoft.com/azure-cognitive-services/decision/anomaly-detector`.
 
-This container image has the following tags available:
+This container image has the following tags available. You can also find a full list of [tags on the MCR](https://mcr.microsoft.com/v2/azure-cognitive-services/decision/anomaly-detector/tags/list).
 
 | Image Tags                    | Notes |
 |-------------------------------|:------|
 | `latest`                      |       |
+| `1.1.012300001-amd64-preview` |       |
+| `1.1.013560003-amd64-preview` |      |
 
-## Computer Vision
+## Read OCR (Optical Character Recognition)
 
-The [Computer Vision][cv-containers] Read OCR container image can be found on the `containerpreview.azurecr.io` container registry. It resides within the `microsoft` repository and is named `cognitive-services-read`. The fully qualified container image name is, `containerpreview.azurecr.io/microsoft/cognitive-services-read`.
+The [Computer Vision][cv-containers] Read OCR container image can be found on the `mcr.microsoft.com` container registry syndicate. It resides within the `azure-cognitive-services` repository and is named `read`. The fully qualified container image name is, `mcr.microsoft.com/azure-cognitive-services/vision/read`.
 
-This container image has the following tags available:
+This container image has the following tags available. You can also find a full list of [tags on the MCR](https://mcr.microsoft.com/v2/azure-cognitive-services/vision/read/tags/list).
 
 | Image Tags                    | Notes |
 |-------------------------------|:------|
@@ -57,29 +59,11 @@ This container image has the following tags available:
 | `1.1.009920003-amd64-preview` |       |
 | `1.1.009910003-amd64-preview` |       |
 
-## Face
-
-The [Face][fa-containers] container image can be found on the `containerpreview.azurecr.io` container registry. It resides within the `microsoft` repository and is named `cognitive-services-face`. The fully qualified container image name is, `containerpreview.azurecr.io/microsoft/cognitive-services-face`.
-
-This container image has the following tags available:
-
-| Image Tags                    | Notes |
-|-------------------------------|:------|
-| `latest`                      |       |
-| `1.1.009301-amd64-preview`    |       |
-| `1.1.008710001-amd64-preview` |       |
-| `1.1.007750002-amd64-preview` |       |
-| `1.1.007360001-amd64-preview` |       |
-| `1.1.006770001-amd64-preview` |       |
-| `1.1.006490002-amd64-preview` |       |
-| `1.0.005940002-amd64-preview` |       |
-| `1.0.005550001-amd64-preview` |       |
-
 ## Form Recognizer
 
-The [Form Recognizer][fr-containers] container image can be found on the `containerpreview.azurecr.io` container registry. It resides within the `microsoft` repository and is named `cognitive-services-form-recognizer`. The fully qualified container image name is, `containerpreview.azurecr.io/microsoft/cognitive-services-form-recognizer`.
+The [Form Recognizer][fr-containers] container image can be found on the `mcr.microsoft.com` container registry syndicate. It resides within the `azure-cognitive-services/custom-form` repository and is named `labeltool`. The fully qualified container image name is, `mcr.microsoft.com/azure-cognitive-services/custom-form/labeltool`.
 
-This container image has the following tags available:
+This container image has the following tags available. You can also find a full list of [tags on the MCR](https://mcr.microsoft.com/v2/azure-cognitive-services/custom-form/labeltool/tags/list).
 
 | Image Tags                    | Notes |
 |-------------------------------|:------|
@@ -90,9 +74,9 @@ This container image has the following tags available:
 
 ## Language Understanding (LUIS)
 
-The [LUIS][lu-containers] container image can be found on the `mcr.microsoft.com` container registry syndicate. It resides within the `azure-cognitive-services` repository and is named `luis`. The fully qualified container image name is, `mcr.microsoft.com/azure-cognitive-services/luis`.
+The [LUIS][lu-containers] container image can be found on the `mcr.microsoft.com` container registry syndicate. It resides within the `azure-cognitive-services/language` repository and is named `luis`. The fully qualified container image name is, `mcr.microsoft.com/azure-cognitive-services/language/luis`.
 
-This container image has the following tags available:
+This container image has the following tags available. You can also find a full list of [tags on the MCR](https://mcr.microsoft.com/v2/azure-cognitive-services/language/luis/tags/list).
 
 | Image Tags                    | Notes |
 |-------------------------------|:------|
@@ -108,7 +92,7 @@ This container image has the following tags available:
 
 ## Custom Speech-to-text
 
-The [Custom Speech-to-text][sp-cstt] container image can be found on the `containerpreview.azurecr.io` container registry. It resides within the `microsoft` repository and is named `cognitive-services-custom-speech-to-text`. The fully qualified container image name is, `containerpreview.azurecr.io/microsoft/cognitive-services-custom-speech-to-text`.
+The [Custom Speech-to-text][sp-cstt] container image can be found on the `mcr.microsoft.com` container registry syndicate. It resides within the `azure-cognitive-services/speechservices/` repository and is named `custom-speech-to-text`. The fully qualified container image name is, `mcr.microsoft.com/azure-cognitive-services/speechservices/custom-speech-to-text`. You can also find a full list of [tags on the MCR](https://mcr.microsoft.com/v2/azure-cognitive-services/speechservices/custom-speech-to-text/tags/list).
 
 **v2.5.0 container release notes**
 
@@ -125,7 +109,8 @@ This container image has the following tags available:
 
 ## Custom Text-to-speech
 
-The [Custom Text-to-speech][sp-ctts] container image can be found on the `containerpreview.azurecr.io` container registry. It resides within the `microsoft` repository and is named `cognitive-services-custom-text-to-speech`. The fully qualified container image name is, `containerpreview.azurecr.io/microsoft/cognitive-services-custom-text-to-speech`.
+The [Custom Text-to-speech][sp-ctts] container image can be found on the `mcr.microsoft.com` container registry syndicate. It resides within the `azure-cognitive-services/speechservices/` repository and is named `custom-text-to-speech`. The fully qualified container image name is, `mcr.microsoft.com/azure-cognitive-services/speechservices/custom-text-to-speech`. You can also find a full list of [tags on the MCR](https://mcr.microsoft.com/v2/azure-cognitive-services/speechservices/custom-text-to-speech/tags/list).
+
 
 **v1.7.0 container release notes**
 
@@ -141,7 +126,8 @@ This container image has the following tags available:
 
 ## Speech-to-text
 
-The [Speech-to-text][sp-stt] container image can be found on the `containerpreview.azurecr.io` container registry. It resides within the `microsoft` repository and is named `cognitive-services-speech-to-text`. The fully qualified container image name is, `containerpreview.azurecr.io/microsoft/cognitive-services-speech-to-text`.
+The [Speech-to-text][sp-stt] container image can be found on the `mcr.microsoft.com` container registry syndicate. It resides within the `azure-cognitive-services/speechservices/` repository and is named `speech-to-text`. The fully qualified container image name is, `mcr.microsoft.com/azure-cognitive-services/speechservices/speech-to-text`.
+
 Speech-to-text v2.5.0 images are supported in *US Government Virginia*. Please use *US Government Virginia* billing endpoint and api keys to try.
 
 **v2.5.0 container release notes**
@@ -149,7 +135,7 @@ Speech-to-text v2.5.0 images are supported in *US Government Virginia*. Please u
 * TBD
 * TBD
 
-This container image has the following tags available:
+This container image has the following tags available. You can also find a full list of [tags on the MCR](https://mcr.microsoft.com/v2/azure-cognitive-services/speechservices/speech-to-text/tags/list).
 
 | Image Tags                  | Notes                                    |
 |-----------------------------|:-----------------------------------------|
@@ -197,16 +183,14 @@ This container image has the following tags available:
 
 ## Text-to-speech
 
-The [Text-to-speech][sp-tts] container image can be found on the `containerpreview.azurecr.io` container registry. It resides within the `microsoft` repository and is named `cognitive-services-text-to-speech`. The fully qualified container image name is, `containerpreview.azurecr.io/microsoft/cognitive-services-text-to-speech`.
-
-# [Current version](#tab/current-version)
+The [Text-to-speech][sp-tts] container image can be found on the `mcr.microsoft.com` container registry syndicate. It resides within the `azure-cognitive-services/speechservices/` repository and is named `text-to-speech`. The fully qualified container image name is, `mcr.microsoft.com/azure-cognitive-services/speechservices/text-to-speech`.
 
 **v1.7.0 container release notes**
 
 * TBD
 * TBD
 
-This container image has the following tags available:
+This container image has the following tags available. You can also find a full list of [tags on the MCR](https://mcr.microsoft.com/v2/azure-cognitive-services/speechservices/text-to-speech/tags/list).
 
 | Image Tags                                  | Notes                                                                      |
 |---------------------------------------------|:---------------------------------------------------------------------------|
@@ -293,35 +277,17 @@ This container image has the following tags available:
 | `1.7.0-amd64-zh-tw-yating-apollo`           | Container image with the `zh-TW` locale and `zh-TW-Yating-Apollo` voice.   |
 | `1.7.0-amd64-zh-tw-zhiwei-apollo`           | Container image with the `zh-TW` locale and `zh-TW-Zhiwei-Apollo` voice.   |
 
-# [Previous versions](#tab/previous-versions)
-
-**(example) v1.6.0 container release notes**
-
-* TBD
-* TBD
-
-This container image has the following tags available:
-
-| Image Tags                                  | Notes                                                                      |
-|---------------------------------------------|:---------------------------------------------------------------------------|
-| `latest`                                    | Container image with the `en-US` locale and `en-US-AriaRUS` voice.         |
-| `1.6.0-amd64-ar-eg-hoda`                    | Container image with the `ar-EG` locale and `ar-EG-Hoda` voice.            |
-| `1.6.0-amd64-ar-sa-naayf`                   | Container image with the `ar-SA` locale and `ar-SA-Naayf` voice.           |
-| `1.6.0-amd64-bg-bg-ivan`                    | Container image with the `bg-BG` locale and `bg-BG-Ivan` voice.            |
-| ... | ... |
-
----
 
 ## Neural Text-to-speech
 
-The [Neural Text-to-speech][sp-ntts] container image can be found on the `containerpreview.azurecr.io` container registry. It resides within the `microsoft` repository and is named `cognitive-services-neural-text-to-speech`. The fully qualified container image name is, `containerpreview.azurecr.io/microsoft/cognitive-services-neural-text-to-speech`.
+The [Neural Text-to-speech][sp-ntts] container image can be found on the `mcr.microsoft.com` container registry syndicate. It resides within the `azure-cognitive-services/speechservices/` repository and is named `neural-text-to-speech`. The fully qualified container image name is, `mcr.microsoft.com/azure-cognitive-services/speechservices/neural-text-to-speech`.
 
 **v1.2.0 container release notes**
 
 * TBD
 * TBD
 
-This container image has the following tags available:
+This container image has the following tags available. You can also find a full list of [tags on the MCR](https://mcr.microsoft.com/v2/azure-cognitive-services/speechservices/neural-text-to-speech/tags/list).
 
 | Image Tags                                  | Notes                                                                      |
 |---------------------------------------------|:---------------------------------------------------------------------------|
@@ -345,20 +311,25 @@ This container image has the following tags available:
 
 ## Speech language detection
 
+The [Speech language detection][sp-lid] container image can be found on the `mcr.microsoft.com` container registry syndicate. It resides within the `azure-cognitive-services/speechservices/` repository and is named `language-detection`. The fully qualified container image name is, `mcr.microsoft.com/azure-cognitive-services/speechservices/language-detection`.
+
 **v1.1.0 container release notes**
 
 * TBD
 * TBD
 
+This container image has the following tags available. You can also find a full list of [tags on the MCR](https://mcr.microsoft.com/v2/azure-cognitive-services/speechservices/language-detection/tags/list).
+
 | Image Tags                                  | Notes                                                                      |
 |---------------------------------------------|:---------------------------------------------------------------------------|
+| `latest`                       |      |
 | `1.1.0-amd64-preview`                       |      |
 
 ## Key Phrase Extraction
 
-The [Key Phrase Extraction][ta-kp] container image can be found on the `mcr.microsoft.com` container registry syndicate. It resides within the `azure-cognitive-services` repository and is named `keyphrase`. The fully qualified container image name is, `mcr.microsoft.com/azure-cognitive-services/keyphrase`.
+container image can be found on the `mcr.microsoft.com` container registry syndicate. It resides within the `azure-cognitive-services/textanalytics/` repository and is named `keyphrase`. The fully qualified container image name is, `mcr.microsoft.com/azure-cognitive-services/textanalytics/keyphrase`.
 
-This container image has the following tags available:
+This container image has the following tags available. You can also find a full list of [tags on the MCR](https://mcr.microsoft.com/v2/azure-cognitive-services/textanalytics/keyphrase/tags/list).
 
 | Image Tags                    | Notes |
 |-------------------------------|:------|
@@ -371,9 +342,10 @@ This container image has the following tags available:
 
 ## Text language detection
 
-The [Language Detection][ta-la] container image can be found on the `mcr.microsoft.com` container registry syndicate. It resides within the `azure-cognitive-services` repository and is named `language`. The fully qualified container image name is, `mcr.microsoft.com/azure-cognitive-services/language`.
+The [Language Detection][ta-la] container image can be found on the `mcr.microsoft.com` container registry syndicate. It resides within the `azure-cognitive-services/textanalytics/` repository and is named `language`. The fully qualified container image name is, `mcr.microsoft.com/azure-cognitive-services/textanalytics/language`
 
-This container image has the following tags available:
+
+This container image has the following tags available. You can also find a full list of [tags on the MCR](https://mcr.microsoft.com/v2/azure-cognitive-services/textanalytics/language/tags/list).
 
 | Image Tags                    | Notes |
 |-------------------------------|:------|
@@ -386,9 +358,10 @@ This container image has the following tags available:
 
 ## Sentiment analysis
 
-The [Sentiment Analysis][ta-se] container image can be found on the `mcr.microsoft.com` container registry syndicate. It resides within the `azure-cognitive-services` repository and is named `sentiment`. The fully qualified container image name is, `mcr.microsoft.com/azure-cognitive-services/sentiment`.
+The [Sentiment Analysis][ta-se] container image can be found on the `mcr.microsoft.com` container registry syndicate. It resides within the `azure-cognitive-services/textanalytics/` repository and is named `sentiment`. The fully qualified container image name is, `mcr.microsoft.com/azure-cognitive-services/textanalytics/sentiment`
 
-This container image has the following tags available:
+
+This container image has the following tags available. You can also find a full list of [tags on the MCR](https://mcr.microsoft.com/v2/azure-cognitive-services/textanalytics/sentiment/tags/list).
 
 | Image Tags | Notes                                         |
 |------------|:----------------------------------------------|
@@ -419,6 +392,7 @@ This container image has the following tags available:
 [sp-tts]: ../speech-service/speech-container-howto.md?tabs=tts
 [sp-ctts]: ../speech-service/speech-container-howto.md?tabs=ctts
 [sp-ntts]: ../speech-service/speech-container-howto.md?tabs=ntts
+[sp-lid]: ../speech-service/speech-container-howto.md?tabs=lid
 [ta-kp]: ../text-analytics/how-tos/text-analytics-how-to-install-containers.md?tabs=keyphrase
 [ta-la]: ../text-analytics/how-tos/text-analytics-how-to-install-containers.md?tabs=language
 [ta-se]: ../text-analytics/how-tos/text-analytics-how-to-install-containers.md?tabs=sentiment
