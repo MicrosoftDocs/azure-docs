@@ -2,10 +2,10 @@
 title: Azure Cosmos Emulator download and release notes
 description: Get the Azure Cosmos emulator release notes for different versions and download information. 
 ms.service: cosmos-db
-ms.topic: tutorial
+ms.topic: conceptual
 author: milismsft
 ms.author: adrianmi
-ms.date: 06/20/2019
+ms.date: 09/21/2020
 ---
 
 # Azure Cosmos Emulator - Release notes and download information
@@ -21,14 +21,29 @@ This article shows the Azure Cosmos emulator release notes with a list of featur
 
 ## Release notes
 
-### 2.11.1
+### 2.11.6 (6 October 2020)
 
-- This release fixes couple bugs related to emulator Data Explorer. In certain cases when using the emulator Data Explorer through a web browser, it fails to connect to the Cosmos emulator endpoint and all the related actions such as creating a database or a container will error. The second issue fixed is related to creating an item from a JSON file using Data Explorer upload action.
+ - This release addresses a concurrency related issue when multiple containers might be created at the same time. In such cases emulator's data is left in a corrupted state and following API requests to the emulator's endpoint could fail with "service unavailable" errors, requiring a restart and a reset of the emulator's local data.
+
+### 2.11.5 (23 August 2020)
+
+This release adds two new Cosmos emulator startup options: 
+
+* "/EnablePreview" - it enables preview features for the emulator. The preview features that are still under development and they can be accessed via CI and sample writing.
+* "/EnableAadAuthentication" - it enables the emulator to accept custom Azure Active Directory tokens as an alternative to the Azure Cosmos primary keys. This feature is still under development; specific role assignments and other permission-related settings aren't currently supported.
+
+### 2.11.2 (07 July 2020)
+
+- This release changes how ETL traces required when troubleshooting the Cosmos emulator are collected. WPR (Windows Performance Runtime tools) is now the default tools for capturing ETL-based traces while old LOGMAN based capturing has been deprecated. This change is required in part because latest Windows security updates had an unexpected impact on how LOGMAN works when executed through the Cosmos emulator.
+
+### 2.11.1 (10 June 2020)
+
+- This release fixes couple bugs related to emulator Data Explorer. In certain cases when using the emulator Data Explorer through a web browser, it fails to connect to the Cosmos emulator endpoint and all the related actions such as creating a database or a container will result in error. The second issue fixed is related to creating an item from a JSON file using Data Explorer upload action.
 
 ### 2.11.0
 
 - This release introduces support for autoscale provisioned throughput. These new features include the ability to set a custom maximum provisioned throughput level in request units (RU/s), enable autoscale on existing databases and containers, and programmatic support through Azure Cosmos DB SDKs.
-- Fix an issue while querying through large amount of documents (over 1GB) were the emulator will fail with internal error status code 500.
+- Fix an issue while querying through large number of documents (over 1 GB) were the emulator will fail with internal error status code 500.
 
 ### 2.9.2
 
@@ -48,11 +63,11 @@ This article shows the Azure Cosmos emulator release notes with a list of featur
 
 ### 2.7.0
 
-- This release fixes a regression which prevented users from executing queries against the SQL API account from the emulator when using .NET core or x86 .NET based clients.
+- This release fixes a regression, which prevented users from executing queries against the SQL API account from the emulator when using .NET core or x86 .NET based clients.
 
 ### 2.4.6
 
-- This release provides parity with the features in the Azure Cosmos service as of July 2019, with the exceptions noted in [Develop locally with Azure Cosmos emulator](local-emulator.md). It also fixes several bugs related to emulator shutdown when invoked via command line and internal IP address overrides for SDK clients using direct mode connectivity.
+- This release provides parity with the features in the Azure Cosmos service as of July 2019, with the exceptions noted in [Develop locally with Azure Cosmos emulator](local-emulator.md). It also fixes several bugs related to emulator shut down when invoked via command line and internal IP address overrides for SDK clients using direct mode connectivity.
 
 ### 2.4.3
 

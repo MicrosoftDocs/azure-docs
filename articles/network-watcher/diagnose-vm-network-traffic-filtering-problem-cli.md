@@ -1,7 +1,7 @@
 ---
 title: 'Quickstart: Diagnose a VM network traffic filter problem - Azure CLI'
 titleSuffix: Azure Network Watcher
-description:  In this quickstart, you learn how to diagnose a virtual machine network traffic filter problem using the IP flow verify  capability of Azure Network Watcher.
+description:  Learn how to use Azure CLI to diagnose a virtual machine network traffic filter problem using the IP flow verify capability of Azure Network Watcher.
 services: network-watcher
 documentationcenter: network-watcher
 author: KumudD
@@ -17,7 +17,7 @@ ms.tgt_pltfrm: network-watcher
 ms.workload: infrastructure
 ms.date: 04/20/2018
 ms.author: kumud
-ms.custom: mvc
+ms.custom: mvc, devx-track-azurecli
 ---
 
 # Quickstart: Diagnose a virtual machine network traffic filter problem - Azure CLI

@@ -1,647 +1,762 @@
 ---
-title: Azure virtual machine certification - Azure Marketplace
-description: Learn how to test and submit a virtual machine offer in the commercial marketplace.
-author: emuench
-ms.author: mingshen
+title: Test an Azure virtual machine image for Azure Marketplace
+description: Learn how to test and submit an Azure virtual machine offer in the Microsoft commercial marketplace.
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
-ms.topic: conceptual
-ms.date: 04/09/2020
+ms.topic: how-to
+author: github-2407
+ms.author: krsh
+ms.date: 08/14/2020
 ---
 
-# Azure virtual machine (VM) image certification
+# Test a virtual machine image for Azure Marketplace
 
 This article describes how to test and submit a virtual machine (VM) image in the commercial marketplace to ensure it meets the latest Azure Marketplace publishing requirements.
 
 Complete these steps before submitting your VM offer:
 
-1. Create and deploy certificates.
-2. Deploy an Azure VM using your generalized image.
-3. Run validations.
-
-## Create and deploy certificates for Azure Key Vault
-
-This section describes how to create and deploy the self-signed certificates required to set up Windows Remote Management (WinRM) connectivity to an Azure-hosted virtual machine.
-
-### Create certificates for Azure Key Vault
-
-This process consists of three steps:
-
-1. Create the security certificate.
-2. Create the Azure Key Vault to store the certificate.
-3. Store the certificates to the key vault.
-
-You can use either a new or an existing Azure resource group for this work.
-
-#### Create the security certificate
-
-Edit and run the following Azure PowerShell script to create the certificate file (.pfx) in a local folder. Replace the values for the parameters shown in the following table.
-
-| **Parameter** | **Description** |
-| --- | --- |
-| $certroopath | Local folder to save the .pfx file to. |
-| $location | One of the Azure standard geographic locations. |
-| $vmName | Name of the planned Azure virtual machine. |
-| $certname | Name of the certificate; must match the fully qualified domain name of the planned VM. |
-| $certpassword | Password for the certificates, must match the password used for the planned VM. |
-| | |
-
-```PowerShell
-   # Certification creation script
-
-    # pfx certification stored path
-    $certroopath = "C:\certLocation"
-
-    # location of the resource group
-    $location = "westus"
-
-    # Azure virtual machine name that we are going to create
-    $vmName = "testvm000000906"
-
-    # Certification name - should match with FQDN of Windows Azure creating VM
-    $certname = "$vmName.$location.cloudapp.azure.com"
-
-    # Certification password - should be match with password of Windows Azure creating VM
-    $certpassword = "SecretPassword@123"
-
-    $cert=New-SelfSignedCertificate -DnsName "$certname" -CertStoreLocation cert:\LocalMachine\My
-    $pwd = ConvertTo-SecureString -String $certpassword -Force -AsPlainText
-    $certwithThumb="cert:\localMachine\my\"+$cert.Thumbprint
-    $filepath="$certroopath\$certname.pfx"
-    Export-PfxCertificate -cert $certwithThumb -FilePath $filepath -Password $pwd
-    Remove-Item -Path $certwithThumb
-
-```
-
-> [!TIP]
-> Keep the same Azure PowerShell console session open and running during these steps to retain the values of the various parameters.
-
-> [!WARNING]
-> If you save this script, only save it in a secure location because it contains security information (a password).
-
-#### Create the Azure key vault to store the certificate
-
-Copy the contents of the template below to a file on your local machine. In the example script below, this resource is `C:\certLocation\keyvault.json`).
-
-```json
-{
-  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-  "contentVersion": "1.0.0.0",
-  "parameters": {
-    "keyVaultName": {
-      "type": "string",
-      "defaultValue":"isvkv0001",
-      "metadata": {
-        "description": "Name of the Vault"
-      }
-    },
-    "tenantId": {
-      "type": "string",
-      "defaultValue":"72f988bf-86f1-41af-91ab-2d7cd011db47",
-      "metadata": {
-        "description": "Tenant Id of the subscription. Get using Get-AzureSubscription cmdlet or Get Subscription API"
-      }
-    },
-    "objectId": {
-      "type": "string",
-      "defaultValue":"d55739bf-d5d6-4ce0-be1c-49ade53c4315",
-      "metadata": {
-        "description": "Object Id of the AD user. Get using Get-AzureADUser or Get-AzureADServicePrincipal cmdlets"
-      }
-    },
-    "keysPermissions": {
-      "type": "array",
-      "defaultValue": ["all"],
-      "metadata": {
-        "description": "Permissions to keys in the vault. Valid values are: all, create, import, update, get, list, delete, backup, restore, encrypt, decrypt, wrapkey, unwrapkey, sign, and verify."
-      }
-    },
-    "secretsPermissions": {
-      "type": "array",
-      "defaultValue": ["all"],
-      "metadata": {
-        "description": "Permissions to secrets in the vault. Valid values are: all, get, set, list, and delete."
-      }
-    },
-    "skuName": {
-      "type": "string",
-      "defaultValue": "Standard",
-      "allowedValues": [
-        "Standard",
-        "Premium"
-      ],
-      "metadata": {
-        "description": "SKU for the vault"
-      }
-    },
-    "enableVaultForDeployment": {
-      "type": "bool",
-      "defaultValue": true,
-      "allowedValues": [
-        true,
-        false
-      ],
-      "metadata": {
-        "description": "Specifies if the vault is enabled for a VM deployment"
-      }
-    }
-  },
-  "resources": [
-    {
-      "type": "Microsoft.KeyVault/vaults",
-      "name": "[parameters('keyVaultName')]",
-      "apiVersion": "2015-06-01",
-      "location": "[resourceGroup().location]",
-      "properties": {
-        "enabledForDeployment": "[parameters('enableVaultForDeployment')]",
-        "tenantId": "[parameters('tenantId')]",
-        "accessPolicies": [
-          {
-            "tenantId": "[parameters('tenantId')]",
-            "objectId": "[parameters('objectId')]",
-            "permissions": {
-              "keys": "[parameters('keysPermissions')]",
-              "secrets": "[parameters('secretsPermissions')]"
-            }
-          }
-        ],
-        "sku": {
-          "name": "[parameters('skuName')]",
-          "family": "A"
-        }
-      }
-    }
-  ]
-}
-
-```
-
-Edit and run the following Azure PowerShell script to create an Azure Key Vault and the associated resource group. Replace the values for the parameters shown in the following table
-
-| **Parameter** | **Description** |
-| --- | --- |
-| $postfix | Random numeric string attached to deployment identifiers. |
-| $rgName | Azure resource group (RG) name to create. |
-| $location | One of the Azure standard geographic locations. |
-| $kvTemplateJson | Path of file (keyvault.json) containing Resource Manager template for key vault. |
-| $kvname | Name of the new key vault.|
-|   |   |
-
-```PowerShell
-    # Creating Key vault in resource group
-
-    # "Random" number for deployment identifiers
-    $postfix = "0101048"
-
-    # Resource group name
-    $rgName = "TestRG$postfix"
-
-    # Location of Resource Group
-    $location = "westus"
-
-    # Key vault template location
-    $kvTemplateJson = "C:\certLocation\keyvault.json"
-
-    # Key vault name
-    $kvname = "isvkv$postfix"
-
-    # code snippet to get the Azure user object ID
-    try
-       {
-        $accounts = Get-AzureAccount
-        $accountNum = 0
-        $accounts.Id | %{ ++$accountNum; Write-Host $accountNum $_}
-        Write-Host "`nPlease select User, e.g. 1:" -ForegroundColor DarkYellow
-        [Int] $accountChoice = Read-Host
-
-        While($accountChoice -lt 1 -or $accountChoice -gt $accounts.Length)
-        {
-            Write-Host "incorrect input" -ForegroundColor Red
-            Write-Host "`nPlease select User, e.g. 1:" -ForegroundColor DarkYellow
-            [Int] $accountChoice = Read-Host
-        }
-
-        $accountSelected = $accounts[$accountChoice-1]
-        echo $accountSelected
-        $id = $accountSelected.Id
-
-        Write-Host "User $id Selected"
-        $myobjectId=(Get-AzADUser -Mail $id)[0].Id
-      }
-      catch
-      {
-      Write-Host $_.Exception.Message
-      Break
-      }
-
-    # code snippet to get Azure User Tenant Id
-      # SELECT Subscriptions
-        #**************************************
-        try
-        {
-        $subslist=Get-AzureSubscription
-        for($i=1; $i -le $subslist.Length;$i++)
-        {
-           Write-Host ($i.ToString() +":"+ $subslist[$i-1].SubscriptionName)
-        }
-        Write-Host "`nPlease pick subscription from above, e.g. 1:" -ForegroundColor DarkYellow
-        [int] $selectedsub=Read-Host
-
-        While($selectedsub -lt 1 -or $selectedsub -gt $subslist.Length)
-        {
-            Write-Host "incorrect input" -ForegroundColor Red
-            for($i=1; $i -le $subslist.Length;$i++)
-             {
-              Write-Host ($i.ToString() +":"+ $subslist[$i-1].SubscriptionName)
-             }
-            Write-Host "`nPlease pick subscription from above, e.g. 1:" -ForegroundColor DarkYellow
-           [int] $selectedsub=Read-Host
-        }
-        if($selectedsub -ge 1 -and $selectedsub -le $subslist.Length)
-        {
-        $mysubid=$subslist[$selectedsub-1].SubscriptionId
-        $mysubName=$subslist[$selectedsub-1].SubscriptionName
-        $mytenantId=$subslist[$selectedsub-1].TenantId
-        Write-Host "$mysubName selected"
-        }
-        }
-        catch
-        {
-        Write-Host $_.Exception.Message
-        Break
-        }
-
-    # Create a resource group
-     Write-Host "Creating Resource Group $rgName"
-     Create-ResourceGroup -rgName $rgName -location $location
-     Write-Host "-----------------------------------"
-
-    # Create key vault and configure access
-    New-AzResourceGroupDeployment -Name "kvdeploy$postfix" -ResourceGroupName $rgName -TemplateFile $kvTemplateJson -keyVaultName $kvname -tenantId $mytenantId -objectId $myobjectId
-
-    Set-AzKeyVaultAccessPolicy -VaultName $kvname -ObjectId $myobjectId -PermissionsToKeys all -PermissionsToSecrets all
-
-```
-
-#### Store the certificates to the key vault
-
-Store the certificates contained in the .pfx file to the new key vault using this script:
-
-```PowerShell
-     $fileName =$certroopath+"\$certname"+".pfx"
-
-     $fileContentBytes = get-content $fileName -Encoding Byte
-     $fileContentEncoded = [System.Convert]::ToBase64String($fileContentBytes)
-
-            $jsonObject = @"
-    {
-    "data": "$filecontentencoded",
-    "dataType" :"pfx",
-    "password": "$certpassword"
-    }
-"@
-            echo $certpassword
-            $jsonObjectBytes = [System.Text.Encoding]::UTF8.GetBytes($jsonObject)
-            $jsonEncoded = [System.Convert]::ToBase64String($jsonObjectBytes)
-            $secret = ConvertTo-SecureString -String $jsonEncoded -AsPlainText -Force
-            $objAzureKeyVaultSecret=Set-AzureKeyVaultSecret -VaultName $kvname -Name "ISVSecret$postfix" -SecretValue $secret
-            echo $objAzureKeyVaultSecret.Id
-
-```
+- Deploy an Azure VM using your generalized image. See here for more information on [Generalized images](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-azure-vm-technical-asset#generalize-the-image).
+- Run validations.
 
 ## Deploy an Azure VM using your generalized image
 
-This section describes how to deploy a generalized VHD image to create a new Azure VM resource. For this process, we'll use the supplied Azure Resource Manager template and Azure PowerShell script.
+This section describes how to deploy a generalized virtual hard disk (VHD) image to create a new Azure VM resource. For this process, we’ll use the supplied Azure Resource Manager template and Azure PowerShell script.
 
 ### Prepare an Azure Resource Manager template
 
-Copy the following Azure Resource Manager template for VHD deployment to a local file named VHDtoImage.json. The next script will request the location on the local machine to use this JSON.
+This section describes how to create and deploy a user-provided virtual machine (VM) image. You can do this by providing operating system and data disk VHD images from an Azure-deployed virtual hard disk. These steps deploy the VM using generalized VHD.
+
+1. Sign in to the [Azure portal](https://portal.azure.com/).
+2. Upload your generalized operating system VHD and data disk VHDs to your Azure Storage account.
+3. On the home page, select **Create a resource**, search for “Template Deployment”, and select **Create**.
+4. Choose **Build your own template in the editor**.
+
+    :::image type="content" source="media/vm/template-deployment.png" alt-text="Shows the selection of a template.":::
+
+5. Paste the following JSON template into the editor and select **Save**.
 
 ```JSON
 {
-    "$schema": "https://schema.management.azure.com/schemas/2014-04-01-preview/deploymentTemplate.json",
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
         "userStorageAccountName": {
-            "type": "string"
+            "type": "String"
         },
         "userStorageContainerName": {
-            "type": "string",
-            "defaultValue": "vhds"
+            "defaultValue": "vhds",
+            "type": "String"
         },
         "dnsNameForPublicIP": {
-            "type": "string"
+            "type": "String"
         },
         "adminUserName": {
             "defaultValue": "isv",
-            "type": "string"
+            "type": "String"
         },
         "adminPassword": {
-            "type": "securestring",
-            "defaultValue": "Password@123"
+            "defaultValue": "",
+            "type": "SecureString"
         },
         "osType": {
-            "type": "string",
             "defaultValue": "windows",
             "allowedValues": [
                 "windows",
                 "linux"
-            ]
+            ],
+            "type": "String"
         },
         "subscriptionId": {
-            "type": "string"
+            "type": "String"
         },
         "location": {
-            "type": "string"
+            "type": "String"
         },
         "vmSize": {
-            "type": "string"
+            "type": "String"
         },
         "publicIPAddressName": {
-            "type": "string"
+            "type": "String"
         },
         "vmName": {
-            "type": "string"
+            "type": "String"
         },
         "virtualNetworkName": {
-            "type": "string"
+            "type": "String"
         },
         "nicName": {
-            "type": "string"
-        },
-        "vaultName": {
-            "type": "string",
-            "metadata": {
-                "description": "Name of the KeyVault"
-            }
-        },
-        "vaultResourceGroup": {
-            "type": "string",
-            "metadata": {
-                "description": "Resource Group of the KeyVault"
-            }
-        },
-        "certificateUrl": {
-            "type": "string",
-            "metadata": {
-                "description": "Url of the certificate with version in KeyVault e.g. https://testault.vault.azure.net/secrets/testcert/b621es1db241e56a72d037479xab1r7"
-            }
+            "type": "String"
         },
         "vhdUrl": {
-            "type": "string",
+            "type": "String",
             "metadata": {
                 "description": "VHD Url..."
             }
         }
     },
-        "variables": {
-            "addressPrefix": "10.0.0.0/16",
-            "subnet1Name": "Subnet-1",
-            "subnet2Name": "Subnet-2",
-            "subnet1Prefix": "10.0.0.0/24",
-            "subnet2Prefix": "10.0.1.0/24",
-            "publicIPAddressType": "Dynamic",
-            "vnetID": "[resourceId('Microsoft.Network/virtualNetworks',parameters('virtualNetworkName'))]",
-            "subnet1Ref": "[concat(variables('vnetID'),'/subnets/',variables('subnet1Name'))]",
-            "osDiskVhdName": "[concat('http://',parameters('userStorageAccountName'),'.blob.core.windows.net/',parameters('userStorageContainerName'),'/',parameters('vmName'),'osDisk.vhd')]"
-        },
-        "resources": [
-            {
-                "apiVersion": "2015-05-01-preview",
-                "type": "Microsoft.Network/publicIPAddresses",
-                "name": "[parameters('publicIPAddressName')]",
-                "location": "[parameters('location')]",
-                "properties": {
-                    "publicIPAllocationMethod": "[variables('publicIPAddressType')]",
-                    "dnsSettings": {
-                        "domainNameLabel": "[parameters('dnsNameForPublicIP')]"
-                    }
-                }
-            },
-            {
-                "apiVersion": "2015-05-01-preview",
-                "type": "Microsoft.Network/virtualNetworks",
-                "name": "[parameters('virtualNetworkName')]",
-                "location": "[parameters('location')]",
-                "properties": {
-                    "addressSpace": {
-                        "addressPrefixes": [
-                            "[variables('addressPrefix')]"
-                        ]
-                    },
-                    "subnets": [
-                        {
-                            "name": "[variables('subnet1Name')]",
-                            "properties": {
-                                "addressPrefix": "[variables('subnet1Prefix')]"
-                            }
-                        },
-                        {
-                            "name": "[variables('subnet2Name')]",
-                            "properties": {
-                                "addressPrefix": "[variables('subnet2Prefix')]"
-                            }
-                        }
-                    ]
-                }
-            },
-            {
-                "apiVersion": "2015-05-01-preview",
-                "type": "Microsoft.Network/networkInterfaces",
-                "name": "[parameters('nicName')]",
-                "location": "[parameters('location')]",
-                "dependsOn": [
-                    "[concat('Microsoft.Network/publicIPAddresses/', parameters('publicIPAddressName'))]",
-                    "[concat('Microsoft.Network/virtualNetworks/', parameters('virtualNetworkName'))]"
-                ],
-                "properties": {
-                    "ipConfigurations": [
-                        {
-                            "name": "ipconfig1",
-                            "properties": {
-                                "privateIPAllocationMethod": "Dynamic",
-                                "publicIPAddress": {
-                                    "id": "[resourceId('Microsoft.Network/publicIPAddresses',parameters('publicIPAddressName'))]"
-                                },
-                                "subnet": {
-                                    "id": "[variables('subnet1Ref')]"
-                                }
-                            }
-                        }
-                    ]
-                }
-            },
-            {
-                "apiVersion": "2015-06-15",
-                "type": "Microsoft.Compute/virtualMachines",
-                "name": "[parameters('vmName')]",
-                "location": "[parameters('location')]",
-                "dependsOn": [
-                    "[concat('Microsoft.Network/networkInterfaces/', parameters('nicName'))]"
-                ],
-                "properties": {
-                    "hardwareProfile": {
-                        "vmSize": "[parameters('vmSize')]"
-                    },
-                    "osProfile": {
-                        "computername": "[parameters('vmName')]",
-                        "adminUsername": "[parameters('adminUsername')]",
-                        "adminPassword": "[parameters('adminPassword')]",
-                        "secrets": [
-                            {
-                                "sourceVault": {
-                                    "id": "[resourceId(parameters('vaultResourceGroup'), 'Microsoft.KeyVault/vaults', parameters('vaultName'))]"
-                                },
-                                "vaultCertificates": [
-                                    {
-                                        "certificateUrl": "[parameters('certificateUrl')]",
-                                        "certificateStore": "My"
-                                    }
-                                ]
-                            }
-                        ],
-                        "windowsConfiguration": {
-                            "provisionVMAgent": "true",
-                            "winRM": {
-                                "listeners": [
-                                    {
-                                        "protocol": "http"
-                                    },
-                                    {
-                                        "protocol": "https",
-                                        "certificateUrl": "[parameters('certificateUrl')]"
-                                    }
-                                ]
-                            },
-                            "enableAutomaticUpdates": "true"
-                        }
-                    },
-                    "storageProfile": {
-                        "osDisk": {
-                            "name": "[concat(parameters('vmName'),'-osDisk')]",
-                            "osType": "[parameters('osType')]",
-                            "caching": "ReadWrite",
-                            "image": {
-                                "uri": "[parameters('vhdUrl')]"
-                            },
-                            "vhd": {
-                                "uri": "[variables('osDiskVhdName')]"
-                            },
-                            "createOption": "FromImage"
-                        }
-                    },
-                    "networkProfile": {
-                        "networkInterfaces": [
-                            {
-                                "id": "[resourceId('Microsoft.Network/networkInterfaces',parameters('nicName'))]"
-                            }
-                        ]
-                    },
-                "diagnosticsProfile": {
-                    "bootDiagnostics": {
-                        "enabled": true,
-                        "storageUri": "[concat('http://', parameters('userStorageAccountName'), '.blob.core.windows.net')]"
-                    }
-                }
+    "variables": {
+        "addressPrefix": "10.0.0.0/16",
+        "subnet1Name": "Subnet-1",
+        "subnet2Name": "Subnet-2",
+        "subnet1Prefix": "10.0.0.0/24",
+        "subnet2Prefix": "10.0.1.0/24",
+        "publicIPAddressType": "Dynamic",
+        "vnetID": "[resourceId('Microsoft.Network/virtualNetworks',parameters('virtualNetworkName'))]",
+        "subnet1Ref": "[concat(variables('vnetID'),'/subnets/',variables('subnet1Name'))]",
+        "hostDNSNameScriptArgument": "[concat(parameters('dnsNameForPublicIP'),'.',parameters('location'),'.cloudapp.azure.com')]",
+        "osDiskVhdName": "[concat('http://',parameters('userStorageAccountName'),'.blob.core.windows.net/',parameters('userStorageContainerName'),'/',parameters('vmName'),'osDisk.vhd')]"
+    },
+    "resources": [
+        {
+            "type": "Microsoft.Network/publicIPAddresses",
+            "apiVersion": "2015-06-15",
+            "name": "[parameters('publicIPAddressName')]",
+            "location": "[parameters('location')]",
+            "properties": {
+                "publicIPAllocationMethod": "[variables('publicIPAddressType')]",
+                "dnsSettings": {
+                    "domainNameLabel": "[parameters('dnsNameForPublicIP')]"
                 }
             }
-        ]
-    }
-
+        },
+        {
+            "type": "Microsoft.Network/virtualNetworks",
+            "apiVersion": "2015-06-15",
+            "name": "[parameters('virtualNetworkName')]",
+            "location": "[parameters('location')]",
+            "properties": {
+                "addressSpace": {
+                    "addressPrefixes": [
+                        "[variables('addressPrefix')]"
+                    ]
+                },
+                "subnets": [
+                    {
+                        "name": "[variables('subnet1Name')]",
+                        "properties": {
+                            "addressPrefix": "[variables('subnet1Prefix')]"
+                        }
+                    },
+                    {
+                        "name": "[variables('subnet2Name')]",
+                        "properties": {
+                            "addressPrefix": "[variables('subnet2Prefix')]"
+                        }
+                    }
+                ]
+            }
+        },
+        {
+            "type": "Microsoft.Network/networkInterfaces",
+            "apiVersion": "2015-06-15",
+            "name": "[parameters('nicName')]",
+            "location": "[parameters('location')]",
+            "dependsOn": [
+                "[concat('Microsoft.Network/publicIPAddresses/', parameters('publicIPAddressName'))]",
+                "[concat('Microsoft.Network/virtualNetworks/', parameters('virtualNetworkName'))]"
+            ],
+            "properties": {
+                "ipConfigurations": [
+                    {
+                        "name": "ipconfig1",
+                        "properties": {
+                            "privateIPAllocationMethod": "Dynamic",
+                            "publicIPAddress": {
+                                "id": "[resourceId('Microsoft.Network/publicIPAddresses',parameters('publicIPAddressName'))]"
+                            },
+                            "subnet": {
+                                "id": "[variables('subnet1Ref')]"
+                            }
+                        }
+                    }
+                ]
+            }
+        },
+        {
+            "type": "Microsoft.Compute/virtualMachines",
+            "apiVersion": "2015-06-15",
+            "name": "[parameters('vmName')]",
+            "location": "[parameters('location')]",
+            "dependsOn": [
+                "[concat('Microsoft.Network/networkInterfaces/', parameters('nicName'))]"
+            ],
+            "properties": {
+                "hardwareProfile": {
+                    "vmSize": "[parameters('vmSize')]"
+                },
+                "osProfile": {
+                    "computername": "[parameters('vmName')]",
+                    "adminUsername": "[parameters('adminUsername')]",
+                    "adminPassword": "[parameters('adminPassword')]"
+                },
+                "storageProfile": {
+                    "osDisk": {
+                        "name": "[concat(parameters('vmName'),'-osDisk')]",
+                        "osType": "[parameters('osType')]",
+                        "caching": "ReadWrite",
+                        "image": {
+                            "uri": "[parameters('vhdUrl')]"
+                        },
+                        "vhd": {
+                            "uri": "[variables('osDiskVhdName')]"
+                        },
+                        "createOption": "FromImage"
+                    }
+                },
+                "networkProfile": {
+                    "networkInterfaces": [
+                        {
+                            "id": "[resourceId('Microsoft.Network/networkInterfaces',parameters('nicName'))]"
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "type": "Microsoft.Compute/virtualMachines/extensions",
+            "apiVersion": "2015-06-15",
+            "name": "[concat(parameters('vmName'),'/WinRMCustomScriptExtension')]",
+            "location": "[parameters('location')]",
+            "dependsOn": [
+                "[concat('Microsoft.Compute/virtualMachines/', parameters('vmName'))]"
+            ],
+            "properties": {
+                "publisher": "Microsoft.Compute",
+                "type": "CustomScriptExtension",
+                "typeHandlerVersion": "1.4",
+                "settings": {
+                    "fileUris": [
+                        "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-vm-winrm-windows/ConfigureWinRM.ps1",
+                        "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-vm-winrm-windows/makecert.exe",
+                        "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-vm-winrm-windows/winrmconf.cmd"
+                    ],
+                    "commandToExecute": "[concat('powershell -ExecutionPolicy Unrestricted -file ConfigureWinRM.ps1 ',variables('hostDNSNameScriptArgument'))]"
+                }
+            }
+        }
+    ]
+}
 ```
 
-Edit this file to provide values for these parameters:
+<br>
 
-| **Parameter** | **Description** |
-| --- | --- |
-| ResourceGroupName | Existing Azure resource group name. Typically, use the same RG as your key vault. |
-| TemplateFile | Full pathname to the file VHDtoImage.json. |
-| userStorageAccountName | Name of the storage account. |
-| sNameForPublicIP | DNS name for the public IP; must be lowercase. |
-| subscriptionId | Azure subscription identifier. |
-| Location | Standard Azure geographic location of the resource group. |
-| vmName | Name of the virtual machine. |
-| vaultName | Name of the key vault. |
-| vaultResourceGroup | Resource group of the key vault. |
-| certificateUrl | Web address (URL) of the certificate, including version stored in the key vault, for example: `https://testault.vault.azure.net/secrets/testcert/b621es1db241e56a72d037479xab1r7`. |
-| vhdUrl | Web address of the virtual hard disk. |
-| vmSize | Size of the virtual machine instance. |
-| publicIPAddressName | Name of the public IP address. |
-| virtualNetworkName | Name of the virtual network. |
-| nicName | Name of the network interface card for the virtual network. |
-| adminUserName | Username of the administrator account. |
-| adminPassword | Administrator password. |
-|   |   |
+6. Provide the parameter values for the displayed Custom deployment property pages.
 
-### Deploy an Azure VM
+    | ResourceGroupName | Existing Azure resource group name. Typically, use the same RG as your key vault. |
+    | --- | --- |
+    | TemplateFile | Full pathname to the file VHDtoImage.json. |
+    | userStorageAccountName | Name of the storage account. |
+    | dnsNameForPublicIP | DNS name for the public IP; must be lowercase. |
+    | subscriptionId | Azure subscription identifier. |
+    | Location | Standard Azure geographic location of the resource group. |
+    | vmName | Name of the virtual machine. |
+    | vhdUrl | Web address of the virtual hard disk. |
+    | vmSize | Size of the virtual machine instance. |
+    | publicIPAddressName | Name of the public IP address. |
+    | virtualNetworkName | Name of the virtual network. |
+    | nicName | Name of the network interface card for the virtual network. |
+    | adminUserName | Username of the administrator account. |
+    | adminPassword | Administrator password. |
+
+
+7. After you supply these values, select **Purchase**.
+
+Azure will begin deployment. It creates a new VM with the specified unmanaged VHD in the specified storage account path. You can track the progress in the Azure portal by selecting **Virtual Machines** on the left side of the portal. When the VM is created, the status will change from Starting to Running.
+
+#### For generation 2 VM deployment, use this template:
+
+```JSON
+{
+   "$schema":"https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+   "contentVersion":"1.0.0.0",
+   "parameters":{
+      "userStorageAccountName":{
+         "type":"String"
+      },
+      "userStorageContainerName":{
+         "type":"String",
+         "defaultValue":"vhds-86350-720-f4efbbb2-611b-4cd7-ad1e-afdgfuadfluad"
+      },
+      "dnsNameForPublicIP":{
+         "type":"String"
+      },
+      "adminUserName":{
+         "defaultValue":"isv",
+         "type":"String"
+      },
+      "adminPassword":{
+         "type":"securestring",
+         "defaultValue":"Certcare@86350"
+      },
+      "osType":{
+         "type":"string",
+         "defaultValue":"linux",
+         "allowedValues":[
+            "windows",
+            "linux"
+         ]
+      },
+      "subscriptionId":{
+         "type":"string"
+      },
+      "location":{
+         "type":"string"
+      },
+      "vmSize":{
+         "type":"string"
+      },
+      "publicIPAddressName":{
+         "type":"string"
+      },
+      "vmName":{
+         "type":"string"
+      },
+      "vNetNewOrExisting":{
+         "defaultValue":"existing",
+         "allowedValues":[
+            "new",
+            "existing"
+         ],
+         "type":"String",
+         "metadata":{
+            "description":"Specify whether to create a new or existing virtual network for the VM."
+         }
+      },
+      "virtualNetworkName":{
+         "type":"String",
+         "defaultValue":""
+      },
+      "SubnetName":{
+         "defaultValue":"subnet-5",
+         "type":"String"
+      },
+      "SubnetPrefix":{
+         "defaultValue":"10.0.5.0/24",
+         "type":"String"
+      },
+      "nicName":{
+         "type":"string"
+      },
+      "vhdUrl":{
+         "type":"string",
+         "metadata":{
+            "description":"VHD Url..."
+         }
+      },
+      "Datadisk1":{
+         "type":"string",
+         "metadata":{
+            "description":"datadisk1 Url..."
+         }
+      },
+      "Datadisk2":{
+         "type":"string",
+         "metadata":{
+            "description":"datadisk2 Url..."
+         }
+      },
+      "Datadisk3":{
+         "type":"string",
+         "metadata":{
+            "description":"datadisk2 Url..."
+         }
+      }
+   },
+   "variables":{
+      "addressPrefix":"10.0.0.0/16",
+      "subnet1Name":"[parameters('SubnetName')]",
+      "subnet1Prefix":"[parameters('SubnetPrefix')]",
+      "publicIPAddressType":"Static",
+      "vnetID":"[resourceId('Microsoft.Network/virtualNetworks',parameters('virtualNetworkName'))]",
+      "subnet1Ref":"[concat(variables('vnetID'),'/subnets/',variables('subnet1Name'))]",
+      "osDiskVhdName":"[concat('http://',parameters('userStorageAccountName'),'.blob.core.windows.net/',parameters('userStorageContainerName'),'/',parameters('vmName'),'osDisk.vhd')]",
+      "dataDiskVhdName":"[concat('http://',parameters('userStorageAccountName'),'.blob.core.windows.net/',parameters('userStorageContainerName'),'/',parameters('vmName'),'datadisk')]",
+      "imageName":"[concat(parameters('vmName'), '-image')]"
+   },
+   "resources":[
+      {
+         "apiVersion":"2015-05-01-preview",
+         "type":"Microsoft.Network/publicIPAddresses",
+         "name":"[parameters('publicIPAddressName')]",
+         "location":"[parameters('location')]",
+         "properties":{
+            "publicIPAllocationMethod":"[variables('publicIPAddressType')]",
+            "dnsSettings":{
+               "domainNameLabel":"[parameters('dnsNameForPublicIP')]"
+            }
+         }
+      },
+      {
+         "type":"Microsoft.Compute/images",
+         "apiVersion":"2019-12-01",
+         "name":"[variables('imageName')]",
+         "location":"[parameters('location')]",
+         "properties":{
+            "storageProfile":{
+               "osDisk":{
+                  "osType":"[parameters('osType')]",
+                  "osState":"Generalized",
+                  "blobUri":"[parameters('vhdUrl')]",
+                  "storageAccountType":"Standard_LRS"
+               },
+               "dataDisks":[
+                  {
+                     "lun":0,
+                     "blobUri":"[parameters('Datadisk1')]",
+                     "storageAccountType":"Standard_LRS"
+                  },
+                  {
+                     "lun":1,
+                     "blobUri":"[parameters('Datadisk2')]",
+                     "storageAccountType":"Standard_LRS"
+                  },
+                  {
+                     "lun":2,
+                     "blobUri":"[parameters('Datadisk3')]",
+                     "storageAccountType":"Standard_LRS"
+                  }
+               ]
+            },
+            "hyperVGeneration":"V2"
+         }
+      },
+      {
+         "apiVersion":"2015-05-01-preview",
+         "type":"Microsoft.Network/virtualNetworks",
+         "name":"[parameters('virtualNetworkName')]",
+         "location":"[parameters('location')]",
+         "properties":{
+            "addressSpace":{
+               "addressPrefixes":[
+                  "[variables('addressPrefix')]"
+               ]
+            },
+            "subnets":[
+               {
+                  "name":"[variables('subnet1Name')]",
+                  "properties":{
+                     "addressPrefix":"[variables('subnet1Prefix')]"
+                  }
+               }
+            ]
+         },
+         "condition":"[equals(parameters('vNetNewOrExisting'), 'new')]"
+      },
+      {
+         "apiVersion":"2016-09-01",
+         "type":"Microsoft.Network/networkInterfaces",
+         "name":"[parameters('nicName')]",
+         "location":"[parameters('location')]",
+         "dependsOn":[
+            "[concat('Microsoft.Network/publicIPAddresses/', parameters('publicIPAddressName'))]",
+            "[concat('Microsoft.Network/virtualNetworks/', parameters('virtualNetworkName'))]"
+         ],
+         "properties":{
+            "ipConfigurations":[
+               {
+                  "name":"ipconfig1",
+                  "properties":{
+                     "privateIPAllocationMethod":"Dynamic",
+                     "publicIPAddress":{
+                        "id":"[resourceId('Microsoft.Network/publicIPAddresses',parameters('publicIPAddressName'))]"
+                     },
+                     "subnet":{
+                        "id":"[variables('subnet1Ref')]"
+                     }
+                  }
+               }
+            ]
+         }
+      },
+      {
+         "apiVersion":"2019-12-01",
+         "type":"Microsoft.Compute/virtualMachines",
+         "name":"[parameters('vmName')]",
+         "location":"[parameters('location')]",
+         "dependsOn":[
+            "[concat('Microsoft.Network/networkInterfaces/', parameters('nicName'))]",
+            "[variables('imageName')]"
+         ],
+         "properties":{
+            "hardwareProfile":{
+               "vmSize":"[parameters('vmSize')]"
+            },
+            "osProfile":{
+               "computername":"[parameters('vmName')]",
+               "adminUsername":"[parameters('adminUsername')]",
+               "adminPassword":"[parameters('adminPassword')]"
+            },
+            "storageProfile":{
+               "imageReference":{
+                  "id":"[resourceId('Microsoft.Compute/images', variables('imageName'))]"
+               },
+               "dataDisks":[
+                  {
+                     "name":"[concat(parameters('vmName'),'_DataDisk0')]",
+                     "lun":0,
+                     "createOption":"FromImage",
+                     "managedDisk":{
+                        "storageAccountType":"Standard_LRS"
+                     }
+                  },
+                  {
+                     "name":"[concat(parameters('vmName'),'_DataDisk1')]",
+                     "lun":1,
+                     "createOption":"FromImage",
+                     "managedDisk":{
+                        "storageAccountType":"Standard_LRS"
+                     }
+                  },
+                  {
+                     "name":"[concat(parameters('vmName'),'_DataDisk2')]",
+                     "lun":2,
+                     "createOption":"FromImage",
+                     "managedDisk":{
+                        "storageAccountType":"Standard_LRS"
+                     }
+                  }
+               ],
+               "osDisk":{
+                  "name":"[concat(parameters('vmName'),'-OSDisk')]",
+                  "createOption":"FromImage",
+                  "managedDisk":{
+                     "storageAccountType":"Standard_LRS"
+                  }
+               }
+            },
+            "networkProfile":{
+               "networkInterfaces":[
+                  {
+                     "id":"[resourceId('Microsoft.Network/networkInterfaces',parameters('nicName'))]"
+                  }
+               ]
+            }
+         }
+      }
+   ]
+}
+```
+
+### Deploy an Azure VM using PowerShell
 
 Copy and edit the following script to provide values for the `$storageaccount` and `$vhdUrl` variables. Execute it to create an Azure VM resource from your existing generalized VHD.
 
 ```PowerShell
-
 # storage account of existing generalized VHD
-
 $storageaccount = "testwinrm11815"
-
 # generalized VHD URL
-
 $vhdUrl = "https://testwinrm11815.blob.core.windows.net/vhds/testvm1234562016651857.vhd"
 
-echo "New-AzResourceGroupDeployment -Name "dplisvvm$postfix" -ResourceGroupName "$rgName" -TemplateFile "C:\certLocation\VHDtoImage.json" -userStorageAccountName "$storageaccount" -dnsNameForPublicIP "$vmName" -subscriptionId "$mysubid" -location "$location" -vmName "$vmName" -vaultName "$kvname" -vaultResourceGroup "$rgName" -certificateUrl $objAzureKeyVaultSecret.Id  -vhdUrl "$vhdUrl" -vmSize "Standard\_A2" -publicIPAddressName "myPublicIP1" -virtualNetworkName "myVNET1" -nicName "myNIC1" -adminUserName "isv" -adminPassword $pwd"
+echo "New-AzResourceGroupDeployment -Name "dplisvvm$postfix" -ResourceGroupName "$rgName" -TemplateFile "C:\certLocation\VHDtoImage.json" -userStorageAccountName "$storageaccount" -dnsNameForPublicIP "$vmName" -subscriptionId "$mysubid" -location "$location" -vmName "$vmName" -vaultName "$kvname" -vaultResourceGroup "$rgName" -certificateUrl
+$objAzureKeyVaultSecret.Id -vhdUrl "$vhdUrl" -vmSize "Standard\_A2" -publicIPAddressName "myPublicIP1" -virtualNetworkName "myVNET1" -nicName "myNIC1" -adminUserName "isv" -adminPassword $pwd"
 
 # deploying VM with existing VHD
-
-New-AzResourceGroupDeployment -Name"dplisvvm$postfix" -ResourceGroupName"$rgName" -TemplateFile"C:\certLocation\VHDtoImage.json" -userStorageAccountName"$storageaccount" -dnsNameForPublicIP"$vmName" -subscriptionId"$mysubid" -location"$location" -vmName"$vmName" -vaultName"$kvname" -vaultResourceGroup"$rgName" -certificateUrl$objAzureKeyVaultSecret.Id  -vhdUrl"$vhdUrl" -vmSize"Standard\_A2" -publicIPAddressName"myPublicIP1" -virtualNetworkName"myVNET1" -nicName"myNIC1" -adminUserName"isv" -adminPassword$pwd
-
+New-AzResourceGroupDeployment -Name "dplisvvm$postfix" -ResourceGroupName "$rgName" -TemplateFile "C:\certLocation\VHDtoImage.json" -userStorageAccountName "$storageaccount" -dnsNameForPublicIP "$vmName" -subscriptionId "$mysubid" -location "$location" -vmName "$vmName" -vaultName "$kvname" -vaultResourceGroup "$rgName" -certificateUrl $objAzureKeyVaultSecret.Id -vhdUrl "$vhdUrl" -vmSize "Standard\_A2" -publicIPAddressName "myPublicIP1" -virtualNetworkName "myVNET1" -nicName "myNIC1" -adminUserName "isv" -adminPassword $pwd
 ```
 
 ## Run validations
 
-There are two ways to run validations on the deployed image:
+There are two ways to run validations on the deployed image.
 
-- Use Certification Test Tool for Azure Certified
-- Use the self-test API
+### Use Certification Test Tool for Azure Certified
 
-### Download and run the certification test tool
+#### Download and run the certification test tool
 
-The Certification Test Tool for Azure Certified runs on a local Windows machine but tests an Azure-based Windows or Linux VM. It certifies that your user VM image can be used with Microsoft Azure and that the guidance and requirements around preparing your VHD have been met. The output of the tool is a compatibility report that you will upload to the Partner Center portal to request VM certification.
+The Certification Test Tool for Azure Certified runs on a local Windows machine but tests an Azure-based Windows or Linux VM. It certifies that your user VM image can be used with Microsoft Azure and that the guidance and requirements around preparing your VHD have been met.
 
 1. Download and install the most recent [Certification Test Tool for Azure Certified](https://www.microsoft.com/download/details.aspx?id=44299).
 2. Open the certification tool, then select **Start New Test**.
-3. From the **Test Information** screen, enter a **Test Name** for the test run.
-4. Select the **Platform** for your VM, either Windows Server or Linux. Your platform choice affects the remaining options.
+3. From the Test Information screen, enter a **Test Name** for the test run.
+4. Select the Platform for your VM, either **Windows Server** or **Linux**. Your platform choice affects the remaining options.
 5. If your VM is using this database service, select the **Test for Azure SQL Database** check box.
 
-### Connect the certification tool to a VM image
+#### Connect the certification tool to a VM image
 
-The tool connects to Windows-based VMs with [Azure PowerShell](https://docs.microsoft.com/powershell/) and connects to Linux VMs through [SSH.Net](https://www.ssh.com/ssh/protocol/).
+1. Select the SSH Authentication mode: Password Authentication or Key File Authentication.
+2. If using password-based authentication, enter values for the **VM DNS Name**, **User name**, and **Password**. You can also change the default SSH Port number.
 
-### Connect the certification tool to a Linux VM image
+    :::image type="content" source="media/vm/azure-vm-cert-2.png" alt-text="Shows the selection of VM test information.":::
 
-1. Select the **SSH Authentication** mode: Password Authentication or Key File Authentication.
-2. If using password-­based authentication, enter values for the **VM DNS Name**, **User name**, and **Password**. You can also change the default **SSH Port** number.
+3. If using key file-based authentication, enter values for the VM DNS Name, User name, and Private key location. You can also include a Passphrase or change the default SSH Port number.
+4. Enter the fully qualified VM DNS name (for example, MyVMName.Cloudapp.net).
+5. Enter **User Name** and **Password**.
 
-    ![Azure Certified Test Tool, password authentication of Linux VM Image](media/avm-cert2.png)
+    :::image type="content" source="media/vm/azure-vm-cert-4.png" alt-text="Shows the selection of VM user name and password.":::
 
-3. If using key file-based authentication, enter values for the **VM DNS Name**, **User name**, and **Private key** location. You can also include a **Passphrase** or change the default **SSH Port** number.
+6. Select **Next**.
 
-### **Connect the certification tool to a Windows-based VM image**
+#### Run a certification test
 
-1. Enter the fully qualified **VM DNS name** (for example, MyVMName.Cloudapp.net).
-2. Enter values for the **User Name** and **Password**.
+After you’ve given the parameter values for your VM image in the certification tool, select Test Connection to create a valid connection to your VM. After a connection is verified, select **Next** to start the test. When the test is complete, the results display in a table. The Status column shows (Pass/Fail/Warning) for each test. If any of the tests fail, your image is not certified. In this case, review the requirements and failure messages, make the suggested changes, and run the test again.
 
-    ![Azure Certified Test Tool, password authentication of Windows-based VM Image](media/avm-cert4.png)
+After the automated test completes, provide additional information about your VM image on the two tabs of the Questionnaire screen, General Assessment and Kernel Customization, and then select Next.
 
-### Run a certification test
+The last screen lets you provide more information, such as SSH access information for a Linux VM image, and an explanation for any failed assessments if you’re looking for exceptions.
 
-After you've given the parameter values for your VM image in the certification tool, select **Test Connection** to create a valid connection to your VM. After a connection is verified, select **Next** to start the test. When the test is complete, the test results are shown in a table. The Status column shows (Pass/Fail/Warning) for each test. If any of the tests fail, your image is _not_ certified. In this case, review the requirements and failure messages, make the suggested changes, and run the test again.
+Finally, select Generate Report to download the test results and log files for the executed test cases along with your answers to the questionnaire. 
+> [!Note]
+> Few publishers have scenarios where VMs need to be locked as they have software such as firewalls installed on the VM. In this case, publishers can download the [Certified Test Tool](https://aka.ms/AzureCertificationTestTool) here, and provide the report at [Marketplace Publisher Support](https://aka.ms/marketplacepublishersupport)
 
-After the automated test completes, provide additional information about your VM image on the two tabs of the **Questionnaire** screen, **General Assessment** and **Kernel Customization**, and then select **Next**.
+## How to use PowerShell to consume the Self-Test API
 
-The last screen lets you provide more information, such as SSH access information for a Linux VM image, and an explanation for any failed assessments if you're looking for exceptions.
+### On Linux OS
 
-Finally, select **Generate Report** to download the test results and log files for the executed test cases along with your answers to the questionnaire. Save the results in the same container as your VHDs.
+Call the API in PowerShell:
+
+1. Use the Invoke-WebRequest command to call the API.
+2. The method is Post and content type is JSON, as shown in the following code example and screen capture.
+3. Specify the body parameters in JSON format.
+
+This following example shows a PowerShell call to the API:
+
+```POWERSHELL
+$accesstoken = "token"
+$headers = @{ "Authorization" = "Bearer $accesstoken" }
+$DNSName = "<Machine DNS Name>"
+$UserName = "<User ID>"
+$Password = "<Password>"
+$OS = "Linux"
+$PortNo = "22"
+$CompanyName = "ABCD"
+$AppID = "<Application ID>"
+$TenantId = "<Tenant ID>"
+
+$body = @{
+   "DNSName" = $DNSName
+   "UserName" = $UserName
+   "Password" = $Password
+   "OS" = $OS
+   "PortNo" = $PortNo
+   "CompanyName" = $CompanyName
+   "AppID" = $AppID
+   "TenantId" = $TenantId
+} | ConvertTo-Json
+
+$body
+
+$uri = "URL"
+
+$res = (Invoke-WebRequest -Method "Post" -Uri $uri -Body $body -ContentType "application/json" -Headers $headers).Content
+```
+
+<br>Here's an example of calling the API in PowerShell:
+
+[![Screen example for calling the API in PowerShell.](media/vm/call-api-in-powershell.png)](media/vm/call-api-in-powershell.png#lightbox)
+
+<br>Using the previous example, you can retrieve the JSON and parse it to get the following details:
+
+```PowerShell
+$resVar = $res | ConvertFrom-Json
+$actualresult = $resVar.Response | ConvertFrom-Json
+
+Write-Host "OSName: $($actualresult.OSName)"
+Write-Host "OSVersion: $($actualresult.OSVersion)"
+Write-Host "Overall Test Result: $($actualresult.TestResult)"
+
+For ($i = 0; $i -lt $actualresult.Tests.Length; $i++) {
+   Write-Host "TestID: $($actualresult.Tests[$i].TestID)"
+   Write-Host "TestCaseName: $($actualresult.Tests[$i].TestCaseName)"
+   Write-Host "Description: $($actualresult.Tests[$i].Description)"
+   Write-Host "Result: $($actualresult.Tests[$i].Result)"
+   Write-Host "ActualValue: $($actualresult.Tests[$i].ActualValue)"
+}
+```
+
+<br>This sample screen, which shows `$res.Content`, shows details of your test results in JSON format:
+
+[![Screen example for calling the API in PowerShell with details of test results.](media/vm/call-api-in-powershell-details.png)](media/vm/call-api-in-powershell-details.png#lightbox)
+
+<br>Here's an example of JSON test results viewed in an online JSON viewer (such as [Code Beautify](https://codebeautify.org/jsonviewer) or [JSON Viewer](https://jsonformatter.org/json-viewer)).
+
+![More test results in an online JSON viewer.](media/vm/test-results-json-viewer-1.png)
+
+### On Windows OS
+
+Call the API in PowerShell:
+
+1. Use the Invoke-WebRequest command to call the API.
+2. The method is Post and content type is JSON, as shown in the following code example and sample screen.
+3. Create the body parameters in JSON format.
+
+This code sample shows a PowerShell call to the API:
+
+```PowerShell
+$accesstoken = "Get token for your Client AAD App"
+$headers = @{ "Authorization" = "Bearer $accesstoken" }
+$Body = @{ 
+   "DNSName" = "XXXX.westus.cloudapp.azure.com"
+   "UserName" = "XXX"
+   "Password" = "XXX@123456"
+   "OS" = "Windows"
+   "PortNo" = "5986"
+   "CompanyName" = "ABCD"
+   "AppID" = "XXXX-XXXX-XXXX"
+   "TenantId" = "XXXX-XXXX-XXXX"
+} | ConvertTo-Json
+
+$res = Invoke-WebRequest -Method "Post" -Uri $uri -Body $Body -ContentType "application/json" –Headers $headers;
+$Content = $res | ConvertFrom-Json
+```
+
+These sample screens show example for calling the API in PowerShell:
+
+**With SSH key**:
+
+ :::image type="content" source="media/vm/call-api-with-ssh-key.png" alt-text="Calling the API in PowerShell with an SSH Key.":::
+
+**With password**:
+
+ :::image type="content" source="media/vm/call-api-with-password.png" alt-text="Calling the API in PowerShell with a password.":::
+
+<br>Using the previous example, you can retrieve the JSON and parse it to get the following details:
+
+```PowerShell
+$resVar = $res | ConvertFrom-Json
+$actualresult = $resVar.Response | ConvertFrom-Json
+
+Write-Host "OSName: $($actualresult.OSName)"
+Write-Host "OSVersion: $($actualresult.OSVersion)"
+Write-Host "Overall Test Result: $($actualresult.TestResult)"
+
+For ($i = 0; $i -lt $actualresult.Tests.Length; $i++) {
+   Write-Host "TestID: $($actualresult.Tests[$i].TestID)"
+   Write-Host "TestCaseName: $($actualresult.Tests[$i].TestCaseName)"
+   Write-Host "Description: $($actualresult.Tests[$i].Description)"
+   Write-Host "Result: $($actualresult.Tests[$i].Result)"
+   Write-Host "ActualValue: $($actualresult.Tests[$i].ActualValue)"
+}
+```
+
+<br>This screen, which shows `$res.Content`, shows the details of your test results in JSON format:
+
+ :::image type="content" source="media/vm/test-results-json-format.png" alt-text="Details of test results in JSON format.":::
+
+<br>Here's an example of test results viewed in an online JSON viewer (such as [Code Beautify](https://codebeautify.org/jsonviewer) or [JSON Viewer](https://jsonformatter.org/json-viewer)).
+
+![Test results in an online JSON viewer.](media/vm/test-results-json-viewer-2.png)
+
+## How to use CURL to consume the Self-Test API on Linux OS
+
+Call the API in CURL:
+
+1. Use the curl command to call the API.
+2. The method is Post and content type is JSON, as shown in the following code snippet.
+
+```shell
+curl POST -H "Content-Type:application/json" -H "Authorization: Bearer XXXXXX-Token-XXXXXXXX"
+https://isvapp.azure-api.net/selftest-vm -d '{ "DNSName":"XXXX.westus.cloudapp.azure.com", "UserName":"XXX",
+"Password":"XXXX@123456", "OS":"Linux", "PortNo":"22", "CompanyName":"ABCD", "AppId":"XXXX-XXXX-XXXX",
+"TenantId "XXXX-XXXX-XXXX"}'
+```
+
+<br>Here's an example of using CURL to call the API:
+
+![Example of using CURL to call the API.](media/vm/use-curl-call-api.png)
+
+<br>Here's the JSON results from the CURL call:
+
+![JSON results from the CURL call.](media/vm/test-results-json-viewer-3.png)
 
 ## Next step
 
-- [Generate a uniform resource identifiers (URI) for each VHD](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/virtual-machine/cpp-get-sas-uri)
+- Read [Common SAS URI issues and fixes](common-sas-uri-issues.md).

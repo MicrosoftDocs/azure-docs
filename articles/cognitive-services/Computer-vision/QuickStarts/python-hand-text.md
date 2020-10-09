@@ -9,9 +9,9 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: quickstart
-ms.date: 05/28/2020
+ms.date: 08/05/2020
 ms.author: pafarley
-ms.custom: seodec18, tracking-python
+ms.custom: seodec18, devx-track-python
 ---
 # Quickstart: Extract printed and handwritten text using the Computer Vision REST API and Python
 
@@ -63,14 +63,14 @@ missing_env = False
 if 'COMPUTER_VISION_ENDPOINT' in os.environ:
     endpoint = os.environ['COMPUTER_VISION_ENDPOINT']
 else:
-    print("From Azure Cogntivie Service, retrieve your endpoint and subscription key.")
+    print("From Azure Cognitive Service, retrieve your endpoint and subscription key.")
     print("\nSet the COMPUTER_VISION_ENDPOINT environment variable, such as \"https://westus2.api.cognitive.microsoft.com\".\n")
     missing_env = True
 
 if 'COMPUTER_VISION_SUBSCRIPTION_KEY' in os.environ:
     subscription_key = os.environ['COMPUTER_VISION_SUBSCRIPTION_KEY']
 else:
-    print("From Azure Cogntivie Service, retrieve your endpoint and subscription key.")
+    print("From Azure Cognitive Service, retrieve your endpoint and subscription key.")
     print("\nSet the COMPUTER_VISION_SUBSCRIPTION_KEY environment variable, such as \"1234567890abcdef1234567890abcdef\".\n")
     missing_env = True
 

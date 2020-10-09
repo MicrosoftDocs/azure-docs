@@ -2,22 +2,15 @@
 title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with LinkedIn Elevate | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and LinkedIn Elevate.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-
-ms.assetid: 2ad9941b-c574-42c3-bd0f-5d6ec68537ef
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 10/21/2019
 ms.author: jeedes
-
-ms.collection: M365-identity-device-management
 ---
 
 # Tutorial: Azure Active Directory single sign-on (SSO) integration with LinkedIn Elevate
@@ -147,11 +140,11 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 1. In **Account Center**, click **Global Settings** under **Settings**. Also, select **Elevate - Elevate AAD Test** from the dropdown list.
 
-	![Configure Single Sign-On](./media/linkedinelevate-tutorial/tutorial_linkedin_admin_01.png)
+	![Screenshot shows the Global Settings where you can select Elevate A A D Test.](./media/linkedinelevate-tutorial/tutorial_linkedin_admin_01.png)
 
 1. Click on **OR Click Here to load and copy individual fields from the form** and perform the following steps:
 
-	![Configure Single Sign-On](./media/linkedinelevate-tutorial/tutorial_linkedin_admin_03.png)
+	![Screenshot shows Single Sign-On where you can enter the values described.](./media/linkedinelevate-tutorial/tutorial_linkedin_admin_03.png)
 
 	a. Copy **Entity ID** and paste it into the **Identifier** text box in the **Basic SAML Configuration** in the Azure portal.
 
@@ -159,11 +152,11 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 1. Go to **LinkedIn Admin Settings** section. Upload the XML file that you have downloaded from the Azure portal by clicking on the Upload XML file option.
 
-	![Configure Single Sign-On](./media/linkedinelevate-tutorial/tutorial_linkedin_metadata_03.png)
+	![Screenshot shows Configure the LinkedIn service provider S S O settings where you can upload an X M L file.](./media/linkedinelevate-tutorial/tutorial_linkedin_metadata_03.png)
 
 1. Click **On** to enable SSO. SSO status will change from **Not Connected** to **Connected**
 
-	![Configure Single Sign-On](./media/linkedinelevate-tutorial/tutorial_linkedin_admin_05.png)
+	![Screenshot shows Single Sign-On where you can select Automatically assign licenses.](./media/linkedinelevate-tutorial/tutorial_linkedin_admin_05.png)
 
 ### Create LinkedIn Elevate test user
 

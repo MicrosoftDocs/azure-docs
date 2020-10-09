@@ -1,18 +1,18 @@
 ---
 title: Monitor and tune - Azure Database for PostgreSQL - Single Server
 description: This article describes monitoring and tuning features in Azure Database for PostgreSQL - Single Server.
-author: rachel-msft
-ms.author: raagyema
+author: lfittl-msft
+ms.author: lufittl
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 06/19/2019
+ms.date: 07/10/2020
 ---
 
 # Monitor and tune Azure Database for PostgreSQL - Single Server
 Monitoring data about your servers helps you troubleshoot and optimize for your workload. Azure Database for PostgreSQL provides various monitoring options to provide insight into the behavior of your server.
 
 ## Metrics
-Azure Database for PostgreSQL provides various metrics that give insight into the behavior of the resources supporting the PostgreSQL server. Each metric is emitted at a one-minute frequency, and has up to 30 days of history. You can configure alerts on the metrics. For step by step guidance, see [How to set up alerts](howto-alert-on-metric.md). Other tasks include setting up automated actions, performing advanced analytics, and archiving history. For more information, see the [Azure Metrics Overview](../monitoring-and-diagnostics/monitoring-overview-metrics.md).
+Azure Database for PostgreSQL provides various metrics that give insight into the behavior of the resources supporting the PostgreSQL server. Each metric is emitted at a one-minute frequency, and has up to [93 days of history](https://docs.microsoft.com/azure/azure-monitor/platform/data-platform-metrics#retention-of-metrics). You can configure alerts on the metrics. For step by step guidance, see [How to set up alerts](howto-alert-on-metric.md). Other tasks include setting up automated actions, performing advanced analytics, and archiving history. For more information, see the [Azure Metrics Overview](../monitoring-and-diagnostics/monitoring-overview-metrics.md).
 
 ### List of metrics
 These metrics are available for Azure Database for PostgreSQL:
@@ -21,7 +21,7 @@ These metrics are available for Azure Database for PostgreSQL:
 |---|---|---|---|
 |cpu_percent|CPU percent|Percent|The percentage of CPU in use.|
 |memory_percent|Memory percent|Percent|The percentage of memory in use.|
-|io_consumption_percent|IO percent|Percent|The percentage of IO in use.|
+|io_consumption_percent|IO percent|Percent|The percentage of IO in use. (Not applicable for Basic tier servers.)|
 |storage_percent|Storage percentage|Percent|The percentage of storage used out of the server's maximum.|
 |storage_used|Storage used|Bytes|The amount of storage in use. The storage used by the service may include the database files, transaction logs, and the server logs.|
 |storage_limit|Storage limit|Bytes|The maximum storage for this server.|
@@ -29,11 +29,11 @@ These metrics are available for Azure Database for PostgreSQL:
 |serverlog_storage_usage|Server Log storage used|Bytes|The amount of server log storage in use.|
 |serverlog_storage_limit|Server Log storage limit|Bytes|The maximum server log storage for this server.|
 |active_connections|Active Connections|Count|The number of active connections to the server.|
-|connections_failed|Failed Connections|Count|The number of failed connections to the server.|
+|connections_failed|Failed Connections|Count|The number of established connections that failed.|
 |network_bytes_egress|Network Out|Bytes|Network Out across active connections.|
 |network_bytes_ingress|Network In|Bytes|Network In across active connections.|
-|backup_storage_used|Backup Storage Used|Bytes|The amount of backup storage used.|
-|pg_replica_log_delay_in_bytes|Max Lag Across Replicas|Bytes|The lag in bytes between the master and the most-lagging replica. This metric is available on the master server only.|
+|backup_storage_used|Backup Storage Used|Bytes|The amount of backup storage used. This metric represents the sum of storage consumed by all the full database backups, differential backups, and log backups retained based on the backup retention period set for the server. The frequency of the backups is service managed and explained in the [concepts article](concepts-backup.md). For geo-redundant storage, backup storage usage is twice that of the locally redundant storage.|
+|pg_replica_log_delay_in_bytes|Max Lag Across Replicas|Bytes|The lag in bytes between the primary and the most-lagging replica. This metric is available on the primary server only.|
 |pg_replica_log_delay_in_seconds|Replica Lag|Seconds|The time since the last replayed transaction. This metric is available for replica servers only.|
 
 ## Server logs

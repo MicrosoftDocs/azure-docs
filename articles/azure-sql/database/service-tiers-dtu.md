@@ -4,13 +4,13 @@ description: Learn about service tiers in the DTU-based purchase model for Azure
 services: sql-database
 ms.service: sql-database
 ms.subservice: service
-ms.custom:
+ms.custom: references_regions
 ms.devlang: 
 ms.topic: conceptual
 author: stevestein
 ms.author: sstein
-ms.reviewer: carlrab
-ms.date: 11/26/2019
+ms.date: 10/07/2020
+ms.reviewer:
 ---
 # Service tiers in the DTU-based purchase model
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -30,21 +30,25 @@ Choosing a service tier depends primarily on business continuity, storage, and p
 
 ||Basic|Standard|Premium|
 | :-- | --: |--:| --:|
-|Target workload|Development and production|Development and production|Development and production|
-|Uptime SLA|99.99%|99.99%|99.99%|
-|Maximum backup retention|7 days|35 days|35 days|
-|CPU|Low|Low, Medium, High|Medium, High|
-|IO throughput (approximate) |1-5 IOPS per DTU| 1-5 IOPS per DTU | 25 IOPS per DTU|
-|IO latency (approximate)|5 ms (read), 10 ms (write)|5 ms (read), 10 ms (write)|2 ms (read/write)|
-|Columnstore indexing |N/A|S3 and above|Supported|
-|In-memory OLTP|N/A|N/A|Supported|
-|||||
+|**Target workload**|Development and production|Development and production|Development and production|
+|**Uptime SLA**|99.99%|99.99%|99.99%|
+|**Maximum backup retention**|7 days|35 days|35 days|
+|**CPU**|Low|Low, Medium, High|Medium, High|
+|**IOPS (approximate)**\* |1-5 IOPS per DTU| 1-5 IOPS per DTU | 25 IOPS per DTU|
+|**IO latency (approximate)**|5 ms (read), 10 ms (write)|5 ms (read), 10 ms (write)|2 ms (read/write)|
+|**Columnstore indexing** |N/A|S3 and above|Supported|
+|**In-memory OLTP**|N/A|N/A|Supported|
+
+\* All read and write IOPS against data files, including background IO (checkpoint and lazy writer)
 
 > [!IMPORTANT]
-> The Basic, Standard S0, S1 and S2 service tiers provide less than one vCore (CPU).  For CPU-intensive workloads, a service tier of S3 or greater is recommended. 
+> The Basic, S0, S1 and S2 service objectives provide less than one vCore (CPU).  For CPU-intensive workloads, a service objective of S3 or greater is recommended. 
 >
->Regarding data storage, the Basic, Standard S0, and S1 service tiers are placed on Standard Page Blobs. Standard Page Blobs use hard disk drive (HDD)-based storage media and are best suited for development, testing, and other infrequently accessed workloads that are less sensitive to performance variability.
+> In the Basic, S0, and S1 service objectives, database files are stored in Azure Standard Storage, which uses hard disk drive (HDD)-based storage media. These service objectives are best suited for development, testing, and other infrequently accessed workloads that are less sensitive to performance variability.
 >
+
+> [!TIP]
+> To see actual [resource governance](resource-limits-logical-server.md#resource-governance) limits for a database or elastic pool, query the [sys.dm_user_db_resource_governance](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-user-db-resource-governor-azure-sql-database) view.
 
 > [!NOTE]
 > You can get a free database in Azure SQL Database at the Basic service tier in conjunction with an Azure free account to explore Azure. For information, see [Create a managed cloud database with your Azure free account](https://azure.microsoft.com/free/services/sql-database/).
@@ -55,26 +59,24 @@ Compute sizes are expressed in terms of Database Transaction Units (DTUs) for si
 
 ||Basic|Standard|Premium|
 | :-- | --: | --: | --: |
-| Maximum storage size | 2 GB | 1 TB | 4 TB  |
-| Maximum DTUs | 5 | 3000 | 4000 | 
-|||||
+| **Maximum storage size** | 2 GB | 1 TB | 4 TB  |
+| **Maximum DTUs** | 5 | 3000 | 4000 |
 
 > [!IMPORTANT]
 > Under some circumstances, you may need to shrink a database to reclaim unused space. For more information, see [Manage file space in Azure SQL Database](file-space-manage.md).
 
 ## Elastic pool eDTU, storage, and pooled database limits
 
-| | **Basic** | **Standard** | **Premium** |
+|| **Basic** | **Standard** | **Premium** |
 | :-- | --: | --: | --: |
-| Maximum storage size per database  | 2 GB | 1 TB | 1 TB |
-| Maximum storage size per pool | 156 GB | 4 TB | 4 TB |
-| Maximum eDTUs per database | 5 | 3000 | 4000 |
-| Maximum eDTUs per pool | 1600 | 3000 | 4000 |
-| Maximum number of databases per pool | 500  | 500 | 100 |
-|||||
+| **Maximum storage size per database**  | 2 GB | 1 TB | 1 TB |
+| **Maximum storage size per pool** | 156 GB | 4 TB | 4 TB |
+| **Maximum eDTUs per database** | 5 | 3000 | 4000 |
+| **Maximum eDTUs per pool** | 1600 | 3000 | 4000 |
+| **Maximum number of databases per pool** | 500  | 500 | 100 |
 
 > [!IMPORTANT]
-> More than 1 TB of storage in the Premium tier is currently available in all regions except: China East, China North, Germany Central, Germany Northeast, West Central US, US DoD regions, and US Government Central. In these regions, the storage max in the Premium tier is limited to 1 TB.  For more information, see [P11-P15 current limitations](single-database-scale.md#p11-and-p15-constraints-when-max-size-greater-than-1-tb).  
+> More than 1 TB of storage in the Premium tier is currently available in all regions except: China East, China North, Germany Central, and Germany Northeast. In these regions, the storage max in the Premium tier is limited to 1 TB.  For more information, see [P11-P15 current limitations](single-database-scale.md#p11-and-p15-constraints-when-max-size-greater-than-1-tb).  
 > [!IMPORTANT]
 > Under some circumstances, you may need to shrink a database to reclaim unused space. For more information, see [manage file space in Azure SQL Database](file-space-manage.md).
 

@@ -6,7 +6,7 @@ ms.author: mbaldwin
 ms.date: 01/28/2020
 ms.service: key-vault
 ms.subservice: general
-ms.topic: quickstart
+ms.topic: how-to
 
 ---
 
@@ -146,7 +146,14 @@ The policy evaluation of existing components in a vault may take up to 1 hour (a
 If the compliance results show up as "Not Started" it may be due to the following reasons:
 - The policy valuation has not completed yet. Initial evaluation latency can take up to 2 hours in the worst-case scenario. 
 - There are no key vaults in the scope of the policy assignment.
-- There are no key vaults with certificates within the scope of the policy assignment. 
+- There are no key vaults with certificates within the scope of the policy assignment.
+
+> [!NOTE]
+> Azure Policy
+> [Resouce Provider modes](../../governance/policy/concepts/definition-structure.md#resource-provider-modes),
+> such as those for Azure Key Vault, provide information about compliance on the
+> [Component Compliance](../../governance/policy/how-to/get-compliance-data.md#component-compliance)
+> page.
 
 ## Next Steps
 

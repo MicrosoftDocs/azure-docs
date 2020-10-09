@@ -6,7 +6,8 @@ ms.service: iot-central
 author: dominicbetts
 ms.author: dobett
 ms.date: 03/27/2020
-ms.topic: how-to
+ms.topic: how-to 
+ms.custom: devx-track-azurepowershell
 manager: philmea
 ---
 
@@ -14,7 +15,7 @@ manager: philmea
 
 [!INCLUDE [iot-central-selector-manage](../../../includes/iot-central-selector-manage.md)]
 
-Instead of creating and managing IoT Central applications on the [Azure IoT Central application manager](https://aka.ms/iotcentral) website, you can use [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview) to manage your applications.
+Instead of creating and managing IoT Central applications on the [Azure IoT Central application manager](https://aka.ms/iotcentral) website, you can use [Azure PowerShell](https://docs.microsoft.com/powershell/azure/) to manage your applications.
 
 ## Prerequisites
 

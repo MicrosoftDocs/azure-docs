@@ -1,5 +1,5 @@
 ---
-title: "Custom roles: Online SQL Server to SQL managed instance migrations"
+title: "Custom roles: Online SQL Server to SQL Managed Instance migrations"
 titleSuffix: Azure Database Migration Service
 description: Learn to use the custom roles for SQL Server to Azure SQL Managed Instance online migrations.
 services: database-migration
@@ -10,7 +10,7 @@ ms.reviewer: craigg
 ms.service: dms
 ms.workload: data-services
 ms.custom: "seo-lt-2019"
-ms.topic: article
+ms.topic: conceptual
 ms.date: 10/25/2019
 ---
 
@@ -78,7 +78,7 @@ We currently recommend creating a minimum of two custom roles for the APP ID, on
 
 The json above must be stored in three text files, and you can use either the AzureRM, AZ PowerShell cmdlets, or Azure CLI to create the roles using either **New-AzureRmRoleDefinition (AzureRM)** or **New-AzRoleDefinition (AZ)**.
 
-For more information, see the article [Custom roles for Azure resources](https://docs.microsoft.com/azure/role-based-access-control/custom-roles).
+For more information, see the article [Azure custom roles](https://docs.microsoft.com/azure/role-based-access-control/custom-roles).
 
 After you create these custom roles, you must add role assignments to users and APP ID(s) to the appropriate resources or resource groups:
 

@@ -1,6 +1,6 @@
 ---
 title: Troubleshooting network virtual appliance issues in Azure | Microsoft Docs
-description: Learn how to troubleshoot the network virtual appliance issues in Azure.
+description: Troubleshoot Network Virtual Appliance (NVA) issues in Azure and validate basic Azure Platform requirements for NVA configurations.
 services: virtual-network
 documentationcenter: na
 author: genlin
@@ -100,11 +100,15 @@ When using a Standard SKU and Public IPs, there must be an NSG created and an ex
 
     For Windows:
 
-        netstat -an
+    ```console
+   netstat -an
+    ```
 
     For Linux:
 
-        netstat -an | grep -i listen
+    ```console
+   netstat -an | grep -i listen
+    ```
 2. If you don't see the TCP port that's used by the NVA software that's listed in the results you must configure the application on the NVA and VM to listen and respond to traffic that reaches those ports. [Contact the NVA vendor for assistance as needed](https://support.microsoft.com/help/2984655/support-for-azure-market-place-for-virtual-machines).
 
 ## Check NVA Performance
@@ -133,7 +137,7 @@ Capture a simultaneous network trace on the source VM, the NVA, and the destinat
    sudo tcpdump -s0 -i eth0 -X -w vmtrace.cap
 
 2. Use **PsPing** or **Nmap** from the source VM to the destination VM (for example: `PsPing 10.0.0.4:80` or `Nmap -p 80 10.0.0.4`).
-3. Open the network trace from the destination VM by using [Network Monitor](https://www.microsoft.com/download/details.aspx?id=4865) or tcpdump. Apply a display filter for the IP of the Source VM you ran **PsPing** or **Nmap** from, such as `IPv4.address==10.0.0.4 (Windows netmon)` or `tcpdump -nn -r vmtrace.cap src or dst host 10.0.0.4` (Linux).
+3. Open the network trace from the destination VM by using [Network Monitor](https://cnet-downloads.com/network-monitor) or tcpdump. Apply a display filter for the IP of the Source VM you ran **PsPing** or **Nmap** from, such as `IPv4.address==10.0.0.4 (Windows netmon)` or `tcpdump -nn -r vmtrace.cap src or dst host 10.0.0.4` (Linux).
 
 ### Analyze traces
 

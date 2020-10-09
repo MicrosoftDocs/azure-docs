@@ -7,7 +7,7 @@ manager: craigg-msft
 ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: sql-dw 
-ms.date: 04/30/2020
+ms.date: 06/26/2020
 ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: azure-synapse
@@ -66,3 +66,7 @@ When you have a large working set, you can experience a low cache hit percentage
 ## Tempdb contention
 
 Query performance can degrade when there is high tempdb contention.  Tempdb contention can occur via user-defined temporary tables or when there is a large amount of data movement. For this scenario, you can scale for more tempdb allocation and [configure resource classes and workload management](https://docs.microsoft.com/azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-workload-management) to provide more memory to your queries. 
+
+## Data loading misconfiguration
+
+You should always load data from a storage account in the same region as your SQL pool to minimize latency. Use the [COPY statement for high throughput data ingestion](https://docs.microsoft.com/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest) and split your staged files in your storage account to maximize throughput. If you can't use the COPY statement, you can use the SqlBulkCopy API or bcp with a high batch size for better throughput. For additional data loading guidance, visit the following [documentation](https://docs.microsoft.com/azure/synapse-analytics/sql-data-warehouse/guidance-for-loading-data). 

@@ -7,8 +7,8 @@ ms.subservice: security
 ms.topic: tutorial
 author: VanMSFT
 ms.author: vanto
-ms.reviewer: carlrab
-ms.date: 09/03/2019
+ms.reviewer:
+ms.date: 09/21/2020
 ms.custom: seoapril2019 sqldbrb=1
 ---
 # Tutorial: Secure a database in Azure SQL Database
@@ -21,7 +21,7 @@ In this tutorial you learn how to:
 > - Create server-level and database-level firewall rules
 > - Configure an Azure Active Directory (Azure AD) administrator
 > - Manage user access with SQL authentication, Azure AD authentication, and secure connection strings
-> - Enable security features, such as advanced data security, auditing, data masking, and encryption
+> - Enable security features, such as Azure Defender for SQL, auditing, data masking, and encryption
 
 Azure SQL Database secures data by allowing you to:
 
@@ -56,7 +56,7 @@ For all steps in the tutorial, sign in to the [Azure portal](https://portal.azur
 
 Databases in SQL Database are protected by firewalls in Azure. By default, all connections to the server and database are rejected. To learn more, see [server-level and database-level firewall rules](firewall-configure.md).
 
-Set **Allow access to Azure services** to **OFF** for the most secure configuration. Then, create a [reserved IP (classic deployment)](/previous-versions/azure/virtual-network/virtual-networks-reserved-public-ip) for the resource that needs to connect, such as an Azure VM or cloud service, and only allow that IP address access through the firewall. If you're using the [resource manager](/azure/virtual-network/virtual-network-ip-addresses-overview-arm) deployment model, a dedicated public IP address is required for each resource.
+Set **Allow access to Azure services** to **OFF** for the most secure configuration. Then, create a [reserved IP (classic deployment)](/previous-versions/azure/virtual-network/virtual-networks-reserved-public-ip) for the resource that needs to connect, such as an Azure VM or cloud service, and only allow that IP address access through the firewall. If you're using the [Resource Manager](/azure/virtual-network/virtual-network-ip-addresses-overview-arm) deployment model, a dedicated public IP address is required for each resource.
 
 > [!NOTE]
 > SQL Database communicates over port 1433. If you're trying to connect from within a corporate network, outbound traffic over port 1433 may not be allowed by your network's firewall. If so, you can't connect to the server unless your administrator opens port 1433.
@@ -140,7 +140,7 @@ For information about configuring Azure AD, see:
 - [Add your own domain name to Azure AD](../../active-directory/fundamentals/add-custom-domain.md)
 - [Microsoft Azure now supports federation with Windows Server AD](https://azure.microsoft.com/blog/20../../windows-azure-now-supports-federation-with-windows-server-active-directory/)
 - [Administer your Azure AD directory](../../active-directory/fundamentals/active-directory-whatis.md)
-- [Manage Azure AD using PowerShell](/powershell/azure/overview?view=azureadps-2.0)
+- [Manage Azure AD using PowerShell](/powershell/azure/?view=azureadps-2.0)
 - [Hybrid identity required ports and protocols](../../active-directory/hybrid/reference-connect-ports.md)
 
 ## Manage database access
@@ -184,7 +184,7 @@ To add a user with SQL authentication:
 Azure Active Directory authentication requires that database users are created as contained. A contained database user maps to an identity in the Azure AD directory associated with the database and has no login in the *master* database. The Azure AD identity can either be for an individual user or a group. For more information, see [Contained database users, make your database portable](/sql/relational-databases/security/contained-database-users-making-your-database-portable) and review the [Azure AD tutorial](authentication-aad-configure.md) on how to authenticate using Azure AD.
 
 > [!NOTE]
-> Database users (excluding administrators) cannot be created using the Azure portal. Azure RBAC roles do not propagate to SQL servers, databases, or data warehouses. They are only used to manage Azure resources and do not apply to database permissions.
+> Database users (excluding administrators) cannot be created using the Azure portal. Azure roles do not propagate to SQL servers, databases, or data warehouses. They are only used to manage Azure resources and do not apply to database permissions.
 >
 > For example, the *SQL Server Contributor* role does not grant access to connect to a database or data warehouse. This permission must be granted within the database using T-SQL statements.
 
@@ -227,30 +227,30 @@ To copy a secure connection string:
 
 ## Enable security features
 
-Azure SQL Database provides security features that are accessed using the Azure portal. These features are available for both the database and server, except for data masking, which is only available on the database. To learn more, see [Advanced data security](advanced-data-security.md), [Auditing](../../azure-sql/database/auditing-overview.md), [Dynamic data masking](dynamic-data-masking-overview.md), and [Transparent data encryption](transparent-data-encryption-tde-overview.md).
+Azure SQL Database provides security features that are accessed using the Azure portal. These features are available for both the database and server, except for data masking, which is only available on the database. To learn more, see [Azure Defender for SQL](azure-defender-for-sql.md), [Auditing](../../azure-sql/database/auditing-overview.md), [Dynamic data masking](dynamic-data-masking-overview.md), and [Transparent data encryption](transparent-data-encryption-tde-overview.md).
 
-### Advanced data security
+### Azure Defender for SQL
 
-The advanced data security feature detects potential threats as they occur and provides security alerts on anomalous activities. Users can explore these suspicious events using the auditing feature, and determine if the event was to access, breach, or exploit data in the database. Users are also provided a security overview that includes a vulnerability assessment and the data discovery and classification tool.
+The Azure Defender for SQL feature detects potential threats as they occur and provides security alerts on anomalous activities. Users can explore these suspicious events using the auditing feature, and determine if the event was to access, breach, or exploit data in the database. Users are also provided a security overview that includes a vulnerability assessment and the data discovery and classification tool.
 
 > [!NOTE]
 > An example threat is SQL injection, a process where attackers inject malicious SQL into application inputs. An application can then unknowingly execute the malicious SQL and allow attackers access to breach or modify data in the database.
 
-To enable advanced data security:
+To enable Azure Defender for SQL:
 
 1. In the Azure portal, select **SQL databases** from the left-hand menu, and select your database on the **SQL databases** page.
 
 1. On the **Overview** page, select the **Server name** link. The server page will open.
 
-1. On the **SQL server** page, find the **Security** section and select **Advanced Data Security**.
+1. On the **SQL server** page, find the **Security** section and select **Security center**.
 
-   1. Select **ON** under **Advanced Data Security** to enable the feature. Choose a storage account for saving vulnerability assessment results. Then select **Save**.
+   1. Select **ON** under **Azure Defender for SQL** to enable the feature. Choose a storage account for saving vulnerability assessment results. Then select **Save**.
 
       ![Navigation pane](./media/secure-database-tutorial/threat-settings.png)
 
       You can also configure emails to receive security alerts, storage details, and threat detection types.
 
-1. Return to the **SQL databases** page of your database and select **Advanced Data Security** under the **Security** section. Here you'll find various security indicators available for the database.
+1. Return to the **SQL databases** page of your database and select **Security center** under the **Security** section. Here you'll find various security indicators available for the database.
 
     ![Threat status](./media/secure-database-tutorial/threat-status.png)
 
@@ -341,7 +341,7 @@ In this tutorial, you've learned to improve the security of your database with j
 > - Create server-level and database-level firewall rules
 > - Configure an Azure Active Directory (AD) administrator
 > - Manage user access with SQL authentication, Azure AD authentication, and secure connection strings
-> - Enable security features, such as advanced data security, auditing, data masking, and encryption
+> - Enable security features, such as Azure Defender for SQL, auditing, data masking, and encryption
 
 Advance to the next tutorial to learn how to implement geo-distribution.
 

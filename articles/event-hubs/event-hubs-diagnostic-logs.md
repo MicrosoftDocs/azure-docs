@@ -56,18 +56,18 @@ Archive log JSON strings include elements listed in the following table:
 
 Name | Description
 ------- | -------
-TaskName | Description of the task that failed
-ActivityId | Internal ID, used for tracking
-trackingId | Internal ID, used for tracking
-resourceId | Azure Resource Manager resource ID
-eventHub | Event hub full name (includes namespace name)
-partitionId | Event Hub partition being written to
-archiveStep | possible values: ArchiveFlushWriter, DestinationInit
-startTime | Failure start time
-failures | Number of times the failure occurred
-durationInSeconds | Duration of failure
-message | Error message
-category | ArchiveLogs
+`TaskName` | Description of the task that failed
+`ActivityId` | Internal ID, used for tracking
+`trackingId` | Internal ID, used for tracking
+`resourceId` | Azure Resource Manager resource ID
+`eventHub` | Event hub full name (includes namespace name)
+`partitionId` | Event Hub partition being written to
+`archiveStep` | possible values: ArchiveFlushWriter, DestinationInit
+`startTime` | Failure start time
+`failures` | Number of times the failure occurred
+`durationInSeconds` | Duration of failure
+`message` | Error message
+`category` | ArchiveLogs
 
 The following code is an example of an archive log JSON string:
 
@@ -94,15 +94,15 @@ Operational log JSON strings include elements listed in the following table:
 
 Name | Description
 ------- | -------
-ActivityId | Internal ID, used for tracking purposes |
-EventName | Operation name |
-resourceId | Azure Resource Manager resource ID |
-SubscriptionId | Subscription ID |
-EventTimeString | Operation time |
-EventProperties | Operation properties |
-Status | Operation status |
-Caller | Caller of operation (Azure portal or management client) |
-Category | OperationalLogs |
+`ActivityId` | Internal ID, used for tracking purposes |
+`EventName` | Operation name |
+`resourceId` | Azure Resource Manager resource ID |
+`SubscriptionId` | Subscription ID |
+`EventTimeString` | Operation time |
+`EventProperties` | Operation properties |
+`Status` | Operation status |
+`Caller` | Caller of operation (Azure portal or management client) |
+`Category` | OperationalLogs |
 
 The following code is an example of an operational log JSON string:
 
@@ -126,9 +126,9 @@ Autoscale log JSON includes elements listed in the following table:
 
 | Name | Description |
 | ---- | ----------- | 
-| TrackingId | Internal ID, which is used for tracing purposes |
-| ResourceId | Azure Resource Manager resource ID. |
-| Message | Informational message, which provides details about auto-inflate action. The message contains previous and current value of throughput unit for a given namespace and what triggered the inflate of the TU. |
+| `TrackingId` | Internal ID, which is used for tracing purposes |
+| `ResourceId` | Azure Resource Manager resource ID. |
+| `Message` | Informational message, which provides details about auto-inflate action. The message contains previous and current value of throughput unit for a given namespace and what triggered the inflate of the TU. |
 
 Here's an example autoscale event: 
 
@@ -145,13 +145,13 @@ Kafka coordinator log JSON includes elements listed in the following table:
 
 | Name | Description |
 | ---- | ----------- | 
-| RequestId | Request ID, which is used for tracing purposes |
-| ResourceId | Azure Resource Manager resource ID |
-| Operation | Name of the operation that's done during the group coordination |
-| ClientId | Client ID |
-| NamespaceName | Namespace name | 
-| SubscriptionId | Azure subscription ID |
-| Message | Informational or warning message, which provides details about actions done during the group coordination. |
+| `RequestId` | Request ID, which is used for tracing purposes |
+| `ResourceId` | Azure Resource Manager resource ID |
+| `Operation` | Name of the operation that's done during the group coordination |
+| `ClientId` | Client ID |
+| `NamespaceName` | Namespace name | 
+| `SubscriptionId` | Azure subscription ID |
+| `Message` | Informational or warning message, which provides details about actions done during the group coordination. |
 
 ### Example
 
@@ -173,14 +173,14 @@ Kafka user error log JSON includes elements listed in the following table:
 
 | Name | Description |
 | ---- | ----------- |
-| TrackingId | Tracking ID, which is used for tracing purposes. |
-| NamespaceName | Namespace name |
-| Eventhub | Event hub name |
-| PartitionId | Partition ID |
-| GroupId | Group ID |
-| ClientId | Client ID |
-| ResourceId | Azure Resource Manager resource ID. |
-| Message | Informational message, which provides details about an error |
+| `TrackingId` | Tracking ID, which is used for tracing purposes. |
+| `NamespaceName` | Namespace name |
+| `Eventhub` | Event hub name |
+| `PartitionId` | Partition ID |
+| `GroupId` | Group ID |
+| `ClientId` | Client ID |
+| `ResourceId` | Azure Resource Manager resource ID. |
+| `Message` | Informational message, which provides details about an error |
 
 ## Event Hubs virtual network connection event schema
 
@@ -188,13 +188,13 @@ Event Hubs virtual network (VNet) connection event JSON includes elements listed
 
 | Name | Description |
 | ---  | ----------- | 
-| SubscriptionId | Azure subscription ID |
-| NamespaceName | Namespace name |
-| IPAddress | IP address of a client connecting to the Event Hubs service |
-| Action | Action done by the Event Hubs service when evaluating connection requests. Supported actions are **Accept Connection** and **Deny Connection**. |
-| Reason | Provides a reason why the action was done |
-| Count | Number of occurrences for the given action |
-| ResourceId | Azure Resource Manager resource ID. |
+| `SubscriptionId` | Azure subscription ID |
+| `NamespaceName` | Namespace name |
+| `IPAddress` | IP address of a client connecting to the Event Hubs service |
+| `Action` | Action done by the Event Hubs service when evaluating connection requests. Supported actions are **Accept Connection** and **Deny Connection**. |
+| `Reason` | Provides a reason why the action was done |
+| `Count` | Number of occurrences for the given action |
+| `ResourceId` | Azure Resource Manager resource ID. |
 
 ### Example
 
@@ -216,22 +216,22 @@ Customer-managed key user log JSON includes elements listed in the following tab
 
 | Name | Description |
 | ---- | ----------- | 
-| Category | Type of category for a message. It's one of the following values: **error** and **info** |
-| ResourceId | Internal resource ID, which includes Azure subscription ID and namespace name |
-| KeyVault | Name of the Key Vault resource |
-| Key | Name of the Key Vault key. |
-| Version | Version of the Key Vault key |
-| Operation | The name of an operation done to serve requests |
-| Code | Status code |
-| Message | Message, which provides details about an error or informational message |
+| `Category` | Type of category for a message. It's one of the following values: **error** and **info** |
+| `ResourceId` | Internal resource ID, which includes Azure subscription ID and namespace name |
+| `KeyVault` | Name of the Key Vault resource |
+| `Key` | Name of the Key Vault key. |
+| `Version` | Version of the Key Vault key |
+| `Operation` | The name of an operation done to serve requests |
+| `Code` | Status code |
+| `Message` | Message, which provides details about an error or informational message |
 
 
 
 ## Next steps
-- [Introduction to Event Hubs](event-hubs-what-is-event-hubs.md)
+- [Introduction to Event Hubs](./event-hubs-about.md)
 - [Event Hubs samples](sdks.md)
 - Get started with Event Hubs
-    - [.NET Core](get-started-dotnet-standard-send-v2.md)
-    - [Java](get-started-java-send-v2.md)
-    - [Python](get-started-python-send-v2.md)
-    - [JavaScript](get-started-java-send-v2.md)
+    - [.NET Core](event-hubs-dotnet-standard-getstarted-send.md)
+    - [Java](event-hubs-java-get-started-send.md)
+    - [Python](event-hubs-python-get-started-send.md)
+    - [JavaScript](event-hubs-java-get-started-send.md)

@@ -1,20 +1,8 @@
 ---
 title: Accelerated classroom lab setup guide for Azure Lab Services
 description: This guide helps lab creators quickly set up a lab account for use within their school.
-services: lab-services
-documentationcenter: na
-author: spelluru
-manager: 
-editor: ''
-
-ms.service: lab-services
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 05/19/2020
-ms.author: spelluru
-
+ms.date: 06/26/2020
 ---
 
 # Classroom lab setup guide
@@ -67,9 +55,6 @@ Lab Services uses a pay-as-you-go pricing model, which means that you only pay f
 - **Schedule**: A schedule allows you to automatically control when your labs' VMs are started and shut down.
 - **Quota**: The quota controls the number of hours that students will have access to a VM outside of the scheduled hours. If the quota is reached while a student is using it, the VM is automatically shut down. The student isn't able to restart the VM unless the quota is increased.
 - **Auto-shutdown**: When enabled, the auto-shutdown setting causes Windows VMs to automatically shut down after a certain length of time, after a student has disconnected from a Remote Desktop Protocol (RDP) session. By default, this setting is disabled.  
-
-    > [!NOTE]
-    > This setting currently only exists for Windows.
 
 ### How will students save their work?
 

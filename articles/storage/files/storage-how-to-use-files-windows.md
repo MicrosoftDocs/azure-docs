@@ -1,12 +1,13 @@
 ---
 title: Use an Azure file share with Windows | Microsoft Docs
-description: Learn how to use an Azure file share with Windows and Windows Server.
+description: Learn to use Azure file shares with Windows and Windows Server. Use Azure file shares with SMB 3.0 on Windows installations running on-premises or on Azure VMs.
 author: roygara
 ms.service: storage
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 06/22/2020
 ms.author: rogarana
-ms.subservice: files
+ms.subservice: files 
+ms.custom: devx-track-azurepowershell
 ---
 
 # Use an Azure file share with Windows
@@ -28,8 +29,8 @@ You can use Azure file shares on a Windows installation that is running either i
 | Windows 7<sup>3</sup> | SMB 2.1 | Yes | No |
 | Windows Server 2008 R2<sup>3</sup> | SMB 2.1 | Yes | No |
 
-<sup>1</sup>Windows 10, versions 1507, 1607, 1709, 1803, 1809, 1903, and 1909.  
-<sup>2</sup>Windows Server, versions 1809, 1903, and 1909.  
+<sup>1</sup>Windows 10, versions 1507, 1607, 1803, 1809, 1903, 1909, and 2004.  
+<sup>2</sup>Windows Server, versions 1809, 1903, 1909, 2004.  
 <sup>3</sup>Regular Microsoft support for Windows 7 and Windows Server 2008 R2 has ended. It is possible to purchase additional support for security updates only through the [Extended Security Update (ESU) program](https://support.microsoft.com/help/4497181/lifecycle-faq-extended-security-updates). We strongly recommend migrating off of these operating systems.
 
 > [!Note]  

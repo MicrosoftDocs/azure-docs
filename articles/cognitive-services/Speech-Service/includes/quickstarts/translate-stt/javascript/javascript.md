@@ -3,7 +3,8 @@ author: IEvangelist
 ms.service: cognitive-services
 ms.topic: include
 ms.date: 04/03/2020
-ms.author: dapine
+ms.author: trbye
+ms.custom: devx-track-js
 ---
 
 ## Prerequisites
@@ -20,7 +21,7 @@ Create a new, empty folder. In case you want to host the sample on a web server,
 
 ## Unpack the Speech SDK for JavaScript into that folder
 
-Download the Speech SDK as a [.zip package](https://aka.ms/csspeech/jsbrowserpackage) and unpack it into the newly created folder. This results in two files being unpacked, `microsoft.cognitiveservices.speech.sdk.bundle.js` and `microsoft.cognitiveservices.speech.sdk.bundle.js.map`.
+Download the Speech SDK as a [.zip package](https://aka.ms/csspeech/jsbrowserpackage) and unpack it into the newly created folder. This results in five files being unpacked, including `microsoft.cognitiveservices.speech.sdk.bundle.js` and `microsoft.cognitiveservices.speech.sdk.bundle.js.map`.
 The latter file is optional, and is useful for debugging into the SDK code.
 
 ## Create an index.html page
@@ -36,7 +37,7 @@ Create a new file in the folder, named `index.html` and open this file with a te
 In case you want to host the web page on a web server, you can optionally provide a token source for your demo application.
 That way, your subscription key will never leave your server while allowing users to use speech capabilities without entering any authorization code themselves.
 
-Create a new file named `token.php`. In this example we assume your web server supports the PHP scripting language. Enter the following code:
+Create a new file named `token.php`. In this example we assume your web server supports the PHP scripting language with curl enabled. Enter the following code:
 
 ```php
 <?php
@@ -62,11 +63,11 @@ echo curl_exec($ch);
 
 ## Build and run the sample locally
 
-To launch the app, double-click on the index.html file or open index.html with your favorite web browser. It will present a simple GUI allowing you to enter your subscription key and [region](../../../../regions.md) and trigger synthesis of the input text.
+To launch the app, double-click on the index.html file or open index.html with your favorite web browser. It will present a simple GUI allowing you to enter your subscription key and [region](../../../../regions.md) and trigger text transcription of the input speech.
 
 ## Build and run the sample via a web server
 
-To launch your app, open your favorite web browser and point it to the public URL that you host the folder on, enter your [region](../../../../regions.md), and trigger synthesis of the input text. If configured, it will acquire a token from your token source.
+To launch your app, open your favorite web browser and point it to the public URL that you host the folder on, enter your [region](../../../../regions.md), and trigger text transcription of the input speech. If configured, it will acquire a token from your token source.
 
 ## Next steps
 

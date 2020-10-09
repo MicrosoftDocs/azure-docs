@@ -1,21 +1,10 @@
 ---
 title: How to test your app in Azure | Microsoft Docs
 description: Learn how to create a file share in a lab and mount it on your local machine and a virtual machine in the lab, and then deploy desktop/web applications to the file share and test them.  
-services: devtest-lab,virtual-machines,lab-services
-documentationcenter: na
-author: spelluru
-manager: femila
-
-ms.service: lab-services
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 09/04/2018
-ms.author: spelluru
-
-
+ms.date: 06/26/2020
 ---
+
 # Test your app in Azure 
 This article provides steps for testing your application in Azure using DevTest Labs. First, you set up a file share within a lab and mount it as a drive on your local development machine and a VM inside a lab. Then, you use Visual Studio 2019 to deploy your app to the file share so that you can run the app on the VM in the lab.  
 
@@ -24,7 +13,7 @@ This article provides steps for testing your application in Azure using DevTest 
 ## Prerequisites 
 1. [Create an Azure subscription](https://azure.microsoft.com/free/) if you don't already have one, and sign into [Azure portal](https://portal.azure.com).
 2. Follow instructions in [this article](devtest-lab-create-lab.md) to create a lab using Azure DevTest Labs. Pin the lab to your dashboard so that you can easily find it next time you sign in. Azure DevTest Labs enables you to create resources within Azure quickly by minimizing waste and controlling cost. To learn more about DevTest Labs, see [overview](devtest-lab-overview.md). 
-3. Create an Azure Storage account in the lab's resource group by following instructions in the [Create a storage account](../storage/common/storage-create-storage-account.md) article. On the **Create storage account** page, select **Use existing** for **Resource group**, and select the **lab's resource group**. 
+3. Create an Azure Storage account in the lab's resource group by following instructions in the [Create a storage account](../storage/common/storage-account-create.md) article. On the **Create storage account** page, select **Use existing** for **Resource group**, and select the **lab's resource group**. 
 4. Create a file share in your Azure storage by following instructions in the [Create a file share in Azure Files](../storage/files/storage-how-to-create-file-share.md) article. 
 
 ## Mount the file share on your local machine

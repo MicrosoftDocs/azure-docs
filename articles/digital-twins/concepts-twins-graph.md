@@ -8,7 +8,6 @@ ms.author: baanders # Microsoft employees only
 ms.date: 3/12/2020
 ms.topic: conceptual
 ms.service: digital-twins
-ROBOTS: NOINDEX, NOFOLLOW
 
 # Optional fields. Don't forget to remove # if you need a field.
 # ms.custom: can-be-multiple-comma-separated
@@ -18,18 +17,32 @@ ROBOTS: NOINDEX, NOFOLLOW
 
 # Understand digital twins and their twin graph
 
-[!INCLUDE [Azure Digital Twins current preview status](../../includes/digital-twins-preview-status.md)]
-
 In an Azure Digital Twins solution, the entities in your environment are represented by Azure **digital twins**. A digital twin is an instance of one of your custom-defined [models](concepts-models.md). It can be connected to other digital twins via **relationships** to form a **twin graph**: this twin graph is the representation of your entire environment.
 
 > [!TIP]
 > "Azure Digital Twins" refers to this Azure service as a whole. "Digital twin(s)" or just "twin(s)" refers to individual twin nodes inside your instance of the service.
 
-## Creating digital twins
+## Digital twins
 
-Before you can create a digital twin in your Azure Digital Twins instance, you need to have a *model* uploaded to the service. A model describes the set of properties, telemetry messages, and relationships that a particular twin can have, among other things. For the types of information that are defined in a model, see [Concepts: Custom models](concepts-models.md).
+Before you can create a digital twin in your Azure Digital Twins instance, you need to have a *model* uploaded to the service. A model describes the set of properties, telemetry messages, and relationships that a particular twin can have, among other things. For the types of information that are defined in a model, see [*Concepts: Custom models*](concepts-models.md).
 
 After creating and uploading a model, your client app can create an instance of the type; this is a digital twin. For example, after creating a model of *Floor*, you may create one or several digital twins that use this type (like a *Floor*-type twin called *GroundFloor*, another called *Floor2*, etc.). 
+
+## Relationships: a graph of digital twins
+
+Twins are connected into a twin graph by their relationships. The relationships that a twin can have are defined as part of its model.  
+
+For example, the model *Floor* might define a *contains* relationship that targets twins of type *room*. With this definition, Azure Digital Twins will allow you to create *contains* relationships from any *Floor* twin to any *Room* twin (including twins that are of *Room* subtypes). 
+
+The result of this process is a set of nodes (the digital twins) connected via edges (their relationships) in a graph.
+
+[!INCLUDE [visualizing with Azure Digital Twins explorer](../../includes/digital-twins-visualization.md)]
+
+## Create with the APIs
+
+This section shows what it looks like to create digital twins and relationships from a client application. It contains .NET code examples that utilize the [DigitalTwins APIs](how-to-use-apis-sdks.md), to provide additional context on what goes on inside each of these concepts.
+
+### Create digital twins
 
 Below is a snippet of client code that uses the [DigitalTwins APIs](how-to-use-apis-sdks.md) to instantiate a twin of type *Room*.
 
@@ -63,11 +76,7 @@ public Task<boolean> CreateRoom(string id, double temperature, double humidity)
 }
 ```
 
-## Relationships: Creating a graph of digital twins
-
-Twins are connected into a twin graph by their relationships. The relationships that a twin can have are defined as part of its model.  
-
-For example, the model *Floor* might define a *contains* relationship that targets twins of type *room*. With this definition, Azure Digital Twins will allow you to create *contains* relationships from any *Floor* twin to any *Room* twin (including twins that are of *Room* subtypes). 
+### Create relationships
 
 Here is some example client code that uses the [DigitalTwins APIs](how-to-use-apis-sdks.md) to build a relationship between a *Floor*-type digital twin called *GroundFloor* and a *Room*-type digital twin called *Cafe*.
 
@@ -89,8 +98,6 @@ try
 }
 ```
 
-The result of this process is a set of nodes (the digital twins) connected via edges (their relationships) in a graph.
-
 ## JSON representations of graph elements
 
 Digital twin data and relationship data are both stored in JSON format. This means that when you [query the twin graph](how-to-query-graph.md) in your Azure Digital Twins instance, the result will be a JSON representation of digital twins and relationships you have created.
@@ -102,6 +109,7 @@ When represented as a JSON object, a digital twin will display the following fie
 | Field name | Description |
 | --- | --- |
 | `$dtId` | A user-provided string representing the ID of the digital twin |
+| `$etag` | Standard HTTP field assigned by the web server |
 | `$conformance` | An enum containing the conformance status of this digital twin (*conformant*, *non-conformant*, *unknown*) |
 | `{propertyName}` | The value of a property in JSON (`string`, number type, or object) |
 | `$relationships` | The URL of the path to the relationships collection. This field is absent if the digital twin has no outgoing relationship edges. |
@@ -120,6 +128,7 @@ Here is an example of a digital twin formatted as a JSON object:
 ```json
 {
   "$dtId": "Cafe",
+  "$etag": "W/\"e59ce8f5-03c0-4356-aea9-249ecbdc07f9\"",
   "Temperature": 72,
   "Location": {
     "x": 101,
@@ -128,7 +137,6 @@ Here is an example of a digital twin formatted as a JSON object:
   "component": {
     "TableOccupancy": 1,
     "$metadata": {
-      "$model": "dtmi:com:contoso:Table;1",
       "TableOccupancy": {
         "desiredValue": 1,
         "desiredVersion": 3,
@@ -167,7 +175,8 @@ When represented as a JSON object, a relationship from a digital twin will displ
 
 | Field name | Description |
 | --- | --- |
-| `$edgeId` | A user-provided string representing the ID of this relationship edge. This string is unique in the context of the source digital twin, which also means that `sourceId` + `edgeId` is unique in the context of the Azure Digital Twins instance. |
+| `$relationshipId` | A user-provided string representing the ID of this relationship. This string is unique in the context of the source digital twin, which also means that `sourceId` + `relationshipId` is unique in the context of the Azure Digital Twins instance. |
+| `$etag` | Standard HTTP field assigned by the web server |
 | `$sourceId` | The ID of the source digital twin |
 | `$targetId` | The ID of the target digital twin |
 | `$relationshipName` | The name of the relationship |
@@ -177,10 +186,11 @@ Here is an example of a relationship formatted as a JSON object:
 
 ```json
 {
-  "$edgeId": "Edge-01",
+  "$relationshipId": "relationship-01",
+  "$etag": "W/\"506e8391-2b21-4ac9-bca3-53e6620f6a90\"",
   "$sourceId": "GroundFloor",
-  "$relationship": "contains",
   "$targetId": "Cafe",
+  "$relationshipName": "contains",
   "startDate": "2020-02-04"
 }
 ```
@@ -188,8 +198,8 @@ Here is an example of a relationship formatted as a JSON object:
 ## Next steps
 
 See how to manage graph elements with Azure Digital Twin APIs:
-* [How-to: Manage a digital twin](how-to-manage-twin.md)
-* [How-to: Manage a twin graph with relationships](how-to-manage-graph.md)
+* [*How-to: Manage digital twins*](how-to-manage-twin.md)
+* [*How-to: Manage the twin graph with relationships*](how-to-manage-graph.md)
 
 Or, learn about querying the Azure Digital Twins twin graph for information:
-* [Concepts: Query language](concepts-query-language.md)
+* [*Concepts: Query language*](concepts-query-language.md)

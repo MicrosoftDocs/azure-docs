@@ -34,9 +34,9 @@ The table summarizes VMware hypervisor requirements.
 
 **VMware** | **Details**
 --- | ---
-**VMware vCenter Server** | Version 5.5, 6.0, 6.5, or 6.7.
-**VMware vSphere ESXI host** | Version 5.5, 6.0, 6.5, or 6.7.
-**vCenter Server permissions** | Agentless migration uses the [Migrate Appliance](migrate-appliance.md). The appliance needs these permissions in vCenter Server:<br/><br/> - **Datastore.Browse**: Allow browsing of VM log files to troubleshoot snapshot creation and deletion.<br/><br/> - **Datastore.LowLevelFileOperations**: Allow read/write/delete/rename operations in the datastore browser, to troubleshoot snapshot creation and deletion.<br/><br/> - **VirtualMachine.Configuration.DiskChangeTracking**: Allow enable or disable change tracking of VM disks, to pull changed blocks of data between snapshots.<br/><br/> - **VirtualMachine.Configuration.DiskLease**: Allow disk lease operations for a VM, to read the disk using the VMware vSphere Virtual Disk Development Kit (VDDK).<br/><br/> - **VirtualMachine.Provisioning.AllowDiskAccess**: (specifically for vSphere 6.0 and above) Allow opening a disk on a VM for random read access on the disk using the VDDK.<br/><br/> - **VirtualMachine.Provisioning.AllowReadOnlyDiskAccess**: Allow opening a disk on a VM, to read the disk using the VDDK.<br/><br/> - **VirtualMachine.Provisioning.AllowDiskRandomAccess**: Allow opening a disk on a VM, to read the disk using the VDDK.<br/><br/> - **VirtualMachine.Provisioning.AllowVirtualMachineDownload**: Allows read operations on files associated with a VM, to download the logs and troubleshoot if failure occurs.<br/><br/> - **VirtualMachine.SnapshotManagement.***: Allow creation and management of VM snapshots for replication.<br/><br/> - **Virtual Machine.Interaction.Power Off**: Allow the VM to be powered off during migration to Azure.
+**VMware vCenter Server** | Version 5.5, 6.0, 6.5, 6.7, 7.0.
+**VMware vSphere ESXI host** | Version 5.5, 6.0, 6.5, 6.7, 7.0.
+**vCenter Server permissions** | Agentless migration uses the [Migrate Appliance](migrate-appliance.md). The appliance needs these permissions in vCenter Server:<br/><br/> - **Datastore.Browse**: Allow browsing of VM log files to troubleshoot snapshot creation and deletion.<br/><br/> - **Datastore.FileManagement**: Allow read/write/delete/rename operations in the datastore browser, to troubleshoot snapshot creation and deletion.<br/><br/> - **VirtualMachine.Config.ChangeTracking**: Allow enable or disable change tracking of VM disks, to pull changed blocks of data between snapshots.<br/><br/> - **VirtualMachine.Config.DiskLease**: Allow disk lease operations for a VM, to read the disk using the VMware vSphere Virtual Disk Development Kit (VDDK).<br/><br/> - **VirtualMachine.Provisioning.DiskAccess**: (specifically for vSphere 6.0 and above) Allow opening a disk on a VM for random read access on the disk using the VDDK.<br/><br/> - **VirtualMachine.Provisioning.DiskRandomRead**: Allow opening a disk on a VM, to read the disk using the VDDK.<br/><br/> - **VirtualMachine.Provisioning.DiskRandomAccess**: Allow opening a disk on a VM, to read the disk using the VDDK.<br/><br/> - **VirtualMachine.Provisioning.GetVmFiles**: Allows read operations on files associated with a VM, to download the logs and troubleshoot if failure occurs.<br/><br/> - **VirtualMachine.State.\***: Allow creation and management of VM snapshots for replication.<br/><br/> - **VirtualMachine.Interact.PowerOff**: Allow the VM to be powered off during migration to Azure.
 
 
 
@@ -46,12 +46,12 @@ The table summarizes agentless migration requirements for VMware VMs.
 
 **Support** | **Details**
 --- | ---
-**Supported operating systems** | You can migrate [Windows](https://support.microsoft.com/help/2721672/microsoft-server-software-support-for-microsoft-azure-virtual-machines) and [Linux](https://docs.microsoft.com/azure/virtual-machines/linux/endorsed-distros) operating systems that are supported by Azure.
+**Supported operating systems** | You can migrate [Windows](https://support.microsoft.com/help/2721672/microsoft-server-software-support-for-microsoft-azure-virtual-machines) and [Linux](../virtual-machines/linux/endorsed-distros.md) operating systems that are supported by Azure.
 **Windows VMs in Azure** | You might need to [make some changes](prepare-for-migration.md#verify-required-changes-before-migrating) on VMs before migration. 
-**Linux VMs in Azure** | Some VMs might require changes so that they can run in Azure.<br/><br/> For Linux, Azure Migrate makes the changes automatically for these operating systems:<br/> - Red Hat Enterprise Linux 6.5+, 7.0+<br/> - CentOS 6.5+, 7.0+</br> - SUSE Linux Enterprise Server 12 SP1+<br/> - Ubuntu 14.04LTS, 16.04LTS, 18.04LTS<br/> - Debian 7, 8. For other operating systems you make the [required changes](prepare-for-migration.md#verify-required-changes-before-migrating) manually.
+**Linux VMs in Azure** | Some VMs might require changes so that they can run in Azure.<br/><br/> For Linux, Azure Migrate makes the changes automatically for these operating systems:<br/> - Red Hat Enterprise Linux  7.8, 7.7, 7.6, 7.5, 7.4, 7.0, 6.x<br/> - Cent OS 7.7, 7.6, 7.5, 7.4, 6.x</br> - SUSE Linux Enterprise Server 12 SP1+<br/> - SUSE Linux Enterprise Server 15 SP1 <br/>- Ubuntu 19.04, 19.10, 14.04LTS, 16.04LTS, 18.04LTS<br/> - Debian 7, 8 <br/> Oracle Linux 7.7, 7.7-CI<br/> For other operating systems you make the [required changes](prepare-for-migration.md#verify-required-changes-before-migrating) manually.
 **Linux boot** | If /boot is on a dedicated partition, it should reside on the OS disk, and not be spread across multiple disks.<br/> If /boot is part of the root (/) partition, then the '/' partition should be on the OS disk, and not span other disks.
-**UEFI boot** | VMs with UEFI boot aren't supported for migration.
-**Disk size** | 2 TB OS disk; 8 TB for data disks.
+**UEFI boot** | Supported. UEFI-based VMs will be migrated to Azure generation 2 VMs. 
+**Disk size** | 2 TB OS disk (BIOS boot); 4 TB OS disk (UEFI boot); 8 TB for data disks.
 **Disk limits** |  Up to 60 disks per VM.
 **Encrypted disks/volumes** | VMs with encrypted disks/volumes aren't supported for migration.
 **Shared disk cluster** | Not supported.
@@ -63,13 +63,13 @@ The table summarizes agentless migration requirements for VMware VMs.
 **Storage vMotion** | Not supported. Replication won't work if a VM uses storage vMotion.
 **Teamed NICs** | Not supported.
 **IPv6** | Not supported.
-**Target disk** | VMs can only be migrated to managed disks (standard HDD, premium SSD) in Azure.
+**Target disk** | VMs can only be migrated to managed disks (standard HDD, standard SSD, premium SSD) in Azure.
 **Simultaneous replication** | 300 VMs per vCenter Server. If you have more, migrate them in batches of 300.
 
 
 ### Appliance requirements (agentless)
 
-Agentless migration uses the [Azure Migrate appliance](migrate-appliance.md). You can deploy the appliance as a VMWare VM using an OVA template, imported into vCenter Server, or using a [PowerShell script](deploy-appliance-script.md).
+Agentless migration uses the [Azure Migrate appliance](migrate-appliance.md). You can deploy the appliance as a VMware VM using an OVA template, imported into vCenter Server, or using a [PowerShell script](deploy-appliance-script.md).
 
 - Learn about [appliance requirements](migrate-appliance.md#appliance---vmware) for VMware.
 - Learn about URLs that the appliance needs to access in [public](migrate-appliance.md#public-cloud-urls) and [government](migrate-appliance.md#government-cloud-urls) clouds.
@@ -81,7 +81,7 @@ Agentless migration uses the [Azure Migrate appliance](migrate-appliance.md). Yo
 --- | ---
 Appliance | Outbound connections on port 443 to upload replicated data to Azure, and to communicate with Azure Migrate services orchestrating replication and migration.
 vCenter server | Inbound connections on port 443 to allow the appliance to orchestrate replication - create snapshots, copy data, release snapshots
-vSphere/EXSI host | Inbound on TCP port 902 for the appliance to replicate data from snapshots.
+vSphere/ESXI host | Inbound on TCP port 902 for the appliance to replicate data from snapshots.
 
 ## Agent-based migration 
 
@@ -111,16 +111,17 @@ The table summarizes VMware VM support for VMware VMs you want to migrate using 
 **Network/Storage** | For the latest information, review the [network](../site-recovery/vmware-physical-azure-support-matrix.md#network) and [storage](../site-recovery/vmware-physical-azure-support-matrix.md#storage) prerequisites for Site Recovery. Azure Migrate provides identical network/storage requirements.
 **Azure requirements** | For the latest information, review the [Azure network](../site-recovery/vmware-physical-azure-support-matrix.md#azure-vm-network-after-failover), [storage](../site-recovery/vmware-physical-azure-support-matrix.md#azure-storage), and [compute](../site-recovery/vmware-physical-azure-support-matrix.md#azure-compute) requirements for Site Recovery. Azure Migrate has identical requirements for VMware migration.
 **Mobility service** | The Mobility service agent must be installed on each VM you want to migrate.
-**UEFI boot** | The migrated VM in Azure will be automatically converted to a BIOS boot VM.<br/><br/> The OS disk should have up to four partitions, and volumes should be formatted with NTFS.
-**Target disk** | VMs can only be migrated to managed disks (standard HDD, premium SSD) in Azure.
-**Disk size** | 2 TB OS disk; 8 TB for data disks.
+**UEFI boot** | Supported. UEFI-based VMs will be migrated to Azure generation 2 VMs. 
+**UEFI - Secure boot**         | Not supported for migration.
+**Target disk** | VMs can only be migrated to managed disks (standard HDD, standard SSD, premium SSD) in Azure.
+**Disk size** | 2 TB OS disk (BIOS boot); 4 TB OS disk (UEFI boot); 8 TB for data disks.
 **Disk limits** |  Up to 63 disks per VM.
 **Encrypted disks/volumes** | VMs with encrypted disks/volumes aren't supported for migration.
 **Shared disk cluster** | Not supported.
 **Independent disks** | Supported.
 **Passthrough disks** | Supported.
 **NFS** | NFS volumes mounted as volumes on the VMs won't be replicated.
-**iSCSI targets** | VMs with iSCSI targets aren't supported for agentless migration.
+**iSCSI targets** | Supported.
 **Multipath IO** | Not supported.
 **Storage vMotion** | Supported
 **Teamed NICs** | Not supported.
@@ -148,7 +149,7 @@ Process server | The process server receives replication data, optimizes, and en
 
 ## Azure VM requirements
 
-All on-premises VMs replicated to Azure, with agentless or agent-based migration) must meet the Azure VM requirements summarized in this table. 
+All on-premises VMs replicated to Azure (with agentless or agent-based migration) must meet the Azure VM requirements summarized in this table. 
 
 **Component** | **Requirements** 
 --- | --- | ---
@@ -157,7 +158,7 @@ Guest operating system architecture | 64-bit.
 Operating system disk size | Up to 2,048 GB. 
 Operating system disk count | 1 
 Data disk count | 64 or less. 
-Data disk size | Up to 4,095 GB 
+Data disk size | Up to 8,095 GB
 Network adapters | Multiple adapters are supported.
 Shared VHD | Not supported. 
 FC disk | Not supported. 

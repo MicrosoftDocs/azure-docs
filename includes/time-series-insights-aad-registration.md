@@ -8,7 +8,7 @@ ms.service: time-series-insights
 author: deepakpalled
 ms.author: dpalled
 manager: cshankar
-ms.date: 02/03/2020
+ms.date: 10/02/2020
 ---
 
 1. In the [Azure portal](https://ms.portal.azure.com/), select **Azure Active Directory** > **App registrations** > **New registration**.
@@ -17,7 +17,7 @@ ms.date: 02/03/2020
 
     Your app will be listed here after you register it.
 
-1. Give the application a name and select **Accounts in this organizational directory only** to specify the **Supported account types** that may access the API. Choose a valid URI  to redirect users to after they authenticate, then **Register**.
+1. Give the application a name and select **Accounts in this organizational directory only** to specify the **Supported account types** that may access the API. If you're creating a [public client app](https://docs.microsoft.com/azure/active-directory/develop/msal-client-application-configuration#redirect-uri), add a valid redirect URI, then **Register**.
 
    [![Create the application in Azure Active Directory](media/time-series-insights-aad-registration/active-directory-registration.png)](media/time-series-insights-aad-registration/active-directory-registration.png#lightbox)
 
@@ -27,7 +27,7 @@ ms.date: 02/03/2020
 
    Copy your **Application (client) ID** to use in your client application.
 
-1. The **Authentication** blade specifies important authentication configuration settings. 
+1. The **Authentication** blade specifies important authentication configuration settings.
 
     1. Add **Redirect URIs** and configure **Access Tokens** by selecting **+ Add a platform**.
 
@@ -61,7 +61,7 @@ ms.date: 02/03/2020
    > [!NOTE]
    > You have the ability to import a certificate instead. For enhanced security, a certificate is recommended. To use a certificate, select **Upload certificate**.
 
-1. Associate your Azure Active Directory app Azure TIme Series Insights. Select **API permissions** > **Add a permission** > **APIs my organization uses**. 
+1. Associate your Azure Active Directory app Azure Time Series Insights. Select **API permissions** > **Add a permission** > **APIs my organization uses**.
 
     [![Associate an API with your Azure Active Directory app](media/time-series-insights-aad-registration/active-directory-app-api-permission.png)](media/time-series-insights-aad-registration/active-directory-app-api-permission.png#lightbox)
 

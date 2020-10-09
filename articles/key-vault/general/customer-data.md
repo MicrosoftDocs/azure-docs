@@ -1,6 +1,6 @@
 ---
 title: Azure Key Vault customer data features - Azure Key Vault | Microsoft Docs
-description: Learn about customer data in Key Vault
+description: Learn about customer data, which Azure Key Vault receives during creation or update of vaults, keys, secrets, certificates, and managed storage accounts.
 services: key-vault
 author: msmbaldwin
 manager: rkarlin
@@ -14,7 +14,7 @@ ms.author: mbaldwin
 ---
 # Azure Key Vault customer data features​
 
-Azure Key Vault receives customer data during creation or update of vaults, keys, secrets, certificates, and managed storage accounts. This Customer data is directly visible in the Azure portal and through the REST API. Customer data can be edited or deleted by updating or deleting the object that contains the data.
+Azure Key Vault receives customer data during creation or update of vaults, managed HSM pools, keys, secrets, certificates, and managed storage accounts. This Customer data is directly visible in the Azure portal and through the REST API. Customer data can be edited or deleted by updating or deleting the object that contains the data.
 
 System access logs are generated when a user or application accesses Key Vault. Detailed access logs are available to customers using Azure Insights.
 
@@ -48,7 +48,7 @@ Azure Key Vault diagnostic logs that contain personal data can be retrieved by m
 
 ## Next steps
 
-- [Azure Key Vault Logging](logging.md))
+- [Azure Key Vault Logging](logging.md)
 
 - [Azure Key Vault soft-delete overview](soft-delete-cli.md)
 

@@ -1,11 +1,11 @@
 ---
 title: Power BI app creation overview - Microsoft AppSource
 description: This article describes the high-level steps for publishing a Power BI app to Microsoft AppSource. The technical and business requirements your Power BI app must meet to be published to the commercial marketplace are also provided.
-author: anbene
-ms.author: mingshen
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
+author: navits09
+ms.author: navits
 ms.date: 04/02/2020
 ---
 
@@ -18,7 +18,7 @@ This article explains how to publish a Power BI app to Microsoft [AppSource](htt
 Benefits of publishing to the commercial marketplace:
 
 - Promote your company by using the Microsoft brand.
-- Potentially reach more than 100 million Office 365 and Dynamics 365 users on AppSource and more than 200,000 organizations through Azure Marketplace.
+- Potentially reach more than 100 million Microsoft 365 and Dynamics 365 users on AppSource and more than 200,000 organizations through Azure Marketplace.
 - Receive high-quality leads from these marketplaces.
 - Have your services promoted by the Microsoft field and telesales teams.
 
@@ -61,16 +61,16 @@ You can only build a Power BI app within the [Power BI](https://powerbi.microsof
 2. Create and test your app in Power BI.
 3. When you receive the app installation web address, add it to the **Technical Configuration** page in Partner Center.
 
-After your app is created and tested in Power BI, save the application installation web address, as you'll need it to [create a Power BI app offer](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-power-bi-app-offer).
+After your app is created and tested in Power BI, save the application installation web address, as you'll need it to [create a Power BI app offer](create-power-bi-app-offer.md).
 
 ### Business requirements
 
 The business requirements include procedural, contractual, and legal obligations. You must:
 
-- Be a registered commercial marketplace publisher. If you're not registered, follow the steps in [Become a Commercial Marketplace Publisher](https://docs.microsoft.com/azure/marketplace/become-publisher).
+- Be a registered commercial marketplace publisher. If you're not registered, follow the steps in [Create a commercial marketplace account in Partner Center](create-account.md).
 - Provide content that meets the criteria for your offering to be listed on AppSource. For more information, see [Have an app to list on AppSource? Here's how](https://appsource.microsoft.com/blogs/have-an-app-to-list-on-appsource-here-s-how).
 - Agree to and follow the [Microsoft Privacy Statement](https://privacy.microsoft.com/privacystatement).
 
 ## Next step
 
-- [Create a Power BI app offer in Partner Center](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-power-bi-app-offer)
+- [Create a Power BI app offer in Partner Center](create-power-bi-app-offer.md)

@@ -6,7 +6,7 @@ ms.subservice: logs
 ms.topic: conceptual
 author: danimir
 ms.author: danil
-ms.date: 02/21/2020
+ms.date: 09/19/2020
 
 ms.reviewer: carlrab
 ---
@@ -31,7 +31,7 @@ Azure SQL Analytics is a cloud only monitoring solution supporting streaming of 
 | Connected Source | Supported | Description |
 | --- | --- | --- |
 | [Diagnostics settings](../platform/diagnostic-settings.md) | **Yes** | Azure metric and log data are sent to Azure Monitor Logs directly by Azure. |
-| [Azure storage account](../platform/collect-azure-metrics-logs.md) | No | Azure Monitor doesn't read the data from a storage account. |
+| [Azure storage account](../platform/resource-logs.md#send-to-log-analytics-workspace) | No | Azure Monitor doesn't read the data from a storage account. |
 | [Windows agents](../platform/agent-windows.md) | No | Direct Windows agents aren't used by Azure SQL Analytics. |
 | [Linux agents](../learn/quick-collect-linux-computer.md) | No | Direct Linux agents aren't used by Azure SQL Analytics. |
 | [System Center Operations Manager management group](../platform/om-agents.md) | No | A direct connection from the Operations Manager agent to Azure Monitor is not used by Azure SQL Analytics. |
@@ -53,7 +53,7 @@ The below table outlines supported options for two versions of the Azure SQL Ana
 
 ## Configuration
 
-Use the process described in [Add Azure Monitor solutions from the Solutions Gallery](../../azure-monitor/insights/solutions.md) to add Azure SQL Analytics (Preview) to your Log Analytics workspace.
+Use the process described in [Add Azure Monitor solutions from the Solutions Gallery](./solutions.md) to add Azure SQL Analytics (Preview) to your Log Analytics workspace.
 
 ### Configure Azure SQL Database to stream diagnostics telemetry
 
@@ -69,7 +69,7 @@ When you add Azure SQL Analytics to your workspace, the Azure SQL Analytics tile
 
 ![Azure SQL Analytics summary tile](./media/azure-sql/azure-sql-sol-tile-01.png)
 
-Once loaded, the tile shows the number of databases and elastic pools in SQL Database and managed instances and instance databases in SQL Managed Instance from which Azure SQL Analytics is receiving diagnostics telemetry.
+Once loaded, the tile shows the number of databases and elastic pools in SQL Database and instances and instance databases in SQL Managed Instance from which Azure SQL Analytics is receiving diagnostics telemetry.
 
 ![Azure SQL Analytics tile](./media/azure-sql/azure-sql-sol-tile-02.png)
 
@@ -87,11 +87,11 @@ If some metrics or logs are not streamed into Azure Monitor, the tiles in Azure 
 
 Once the Azure SQL Analytics tile for the database is selected, the monitoring dashboard is shown.
 
-![Azure SQL Analytics Overview](./media/azure-sql/azure-sql-sol-overview.png)
+![Screenshot that shows the monitoring dashboard.](./media/azure-sql/azure-sql-sol-overview.png)
 
 Selecting any of the tiles, opens a drill-down report into the specific perspective. Once the perspective is selected, the drill-down report is opened.
 
-![Azure SQL Analytics Timeouts](./media/azure-sql/azure-sql-sol-metrics.png)
+![Screenshot that shows the drill-down report into the specific perspective.](./media/azure-sql/azure-sql-sol-metrics.png)
 
 Each perspective in this view provides summaries at the subscription, server, elastic pool, and database levels. In addition, each perspective shows a perspective specific to the report on the right. Selecting subscription, server, pool, or database from the list continues the drill-down.
 
@@ -103,7 +103,7 @@ Once the Azure SQL Analytics tile for the databases is selected, the monitoring 
 
 Selecting any of the tiles, opens a drill-down report into the specific perspective. Once the perspective is selected, the drill-down report is opened.
 
-Selecting the SQL Managed Instance view, shows details on the managed instance utilization, databases it contains, and telemetry on the queries executed across the instance.
+Selecting the SQL Managed Instance view, shows details on the instance utilization, instance databases, and telemetry on the queries executed across the managed instance.
 
 ![Azure SQL Analytics Timeouts](./media/azure-sql/azure-sql-sol-metrics-mi.png)
 
@@ -228,6 +228,9 @@ AzureMetrics
 
 #### Alert on Intelligent insights
 
+> [!IMPORTANT]
+> In case a database is performing well, and that no Intelligent Insights have been generated, this query will fail with an error message: Failed to resolve scalar expression named 'rootCauseAnalysis_s'. This behavior is expected for all cases where there exist no intelligent insights for the database.
+
 ```
 let alert_run_interval = 1h;
 let insights_string = "hitting its CPU limits";
@@ -266,7 +269,7 @@ AzureDiagnostics
 
 > [!NOTE]
 >
-> - Pre-requirement of setting up this alert is that monitored the managed instance has the streaming of ResourceUsageStats log enabled to Azure SQL Analytics.
+> - Pre-requirement of setting up this alert is that the monitored managed instance has the streaming of ResourceUsageStats log enabled to Azure SQL Analytics.
 > - This query requires an alert rule to be set up to fire off an alert when there exist results (> 0 results) from the query, denoting that the condition exists on the managed instance. The output is storage percentage consumption on the managed instance.
 
 #### CPU average consumption is above 95% in the last 1 hr
@@ -294,3 +297,4 @@ While Azure SQL Analytics is free to use, consumption of diagnostics telemetry a
 - Use [log queries](../log-query/log-query-overview.md) in Azure Monitor to view detailed Azure SQL data.
 - [Create your own dashboards](../learn/tutorial-logs-dashboards.md) showing Azure SQL data.
 - [Create alerts](../platform/alerts-overview.md) when specific Azure SQL events occur.
+

@@ -1,13 +1,14 @@
 ---
 title: Use the graph bulk executor .NET library with Azure Cosmos DB Gremlin API
 description: Learn how to use the bulk executor library to massively import graph data into an Azure Cosmos DB Gremlin API container.
-author: luisbosquez
+author: jasonwhowell
 ms.service: cosmos-db
 ms.subservice: cosmosdb-graph
 ms.topic: how-to
 ms.date: 05/28/2019
-ms.author: lbosq
+ms.author: jasonh
 ms.reviewer: sngun
+ms.custom: devx-track-csharp
 ---
 
 # Using the graph bulk executor .NET library to perform bulk operations in Azure Cosmos DB Gremlin API
@@ -18,12 +19,12 @@ As opposed to sending Gremlin queries to a database, where the command is evalua
 
 ## Bulk operations with graph data
 
-The [bulk executor library](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmosdb.bulkexecutor.graph?view=azure-dotnet) contains a `Microsoft.Azure.CosmosDB.BulkExecutor.Graph` namespace to provide functionality for creating and importing graph objects. 
+The [bulk executor library](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmosdb.bulkexecutor.graph?view=azure-dotnet&preserve-view=true) contains a `Microsoft.Azure.CosmosDB.BulkExecutor.Graph` namespace to provide functionality for creating and importing graph objects. 
 
 The following process outlines how data migration can be used for a Gremlin API container:
 1. Retrieve records from the data source.
 2. Construct `GremlinVertex` and `GremlinEdge` objects from the obtained records and add them into an `IEnumerable` data structure. In this part of the application the logic to detect and add relationships should be implemented, in case the data source is not a graph database.
-3. Use the [Graph BulkImportAsync method](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmosdb.bulkexecutor.graph.graphbulkexecutor.bulkimportasync?view=azure-dotnet) to insert the graph objects into the collection.
+3. Use the [Graph BulkImportAsync method](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmosdb.bulkexecutor.graph.graphbulkexecutor.bulkimportasync?view=azure-dotnet&preserve-view=true) to insert the graph objects into the collection.
 
 This mechanism will improve the data migration efficiency as compared to using a Gremlin client. This improvement is experienced because inserting data with Gremlin will require the application send a query at a time that will need to be validated, evaluated, and then executed to create the data. The bulk executor library will handle the validation in the application and send multiple graph objects at a time for each network request.
 
@@ -134,7 +135,7 @@ In the `App.config` file, the following are the configuration values that can be
 Setting|Description
 ---|---
 `EndPointUrl`|This is **your .NET SDK endpoint** found in the Overview blade of your Azure Cosmos DB Gremlin API database account. This has the format of `https://your-graph-database-account.documents.azure.com:443/`
-`AuthorizationKey`|This is the Primary or Secondary key listed under your Azure Cosmos DB account. Learn more about [Securing Access to Azure Cosmos DB data](https://docs.microsoft.com/azure/cosmos-db/secure-access-to-data#master-keys)
+`AuthorizationKey`|This is the Primary or Secondary key listed under your Azure Cosmos DB account. Learn more about [Securing Access to Azure Cosmos DB data](https://docs.microsoft.com/azure/cosmos-db/secure-access-to-data#primary-keys)
 `DatabaseName`, `CollectionName`|These are the **target database and collection names**. When `ShouldCleanupOnStart` is set to `true` these values, along with `CollectionThroughput`, will be used to drop them and create a new database and collection. Similarly, if `ShouldCleanupOnFinish` is set to `true`, they will be used to delete the database as soon as the ingestion is over. Note that the target collection must be **an unlimited collection**.
 `CollectionThroughput`|This is used to create a new collection if the `ShouldCleanupOnStart` option is set to `true`.
 `ShouldCleanupOnStart`|This will drop the database account and collections before the program is run, and then create new ones with the `DatabaseName`, `CollectionName` and `CollectionThroughput` values.
@@ -150,6 +151,7 @@ Setting|Description
 3. Evaluate the results by querying the graph database. If the `ShouldCleanupOnFinish` option is set to true, then the database will automatically be deleted.
 
 ## Next steps
-* To learn about Nuget package details and release notes of bulk executor .NET library, see [bulk executor SDK details](sql-api-sdk-bulk-executor-dot-net.md). 
+
+* To learn about NuGet package details and release notes of bulk executor .NET library, see [bulk executor SDK details](sql-api-sdk-bulk-executor-dot-net.md). 
 * Check out the [Performance Tips](https://docs.microsoft.com/azure/cosmos-db/bulk-executor-dot-net#performance-tips) to further optimize the usage of bulk executor.
-* Review the [BulkExecutor.Graph Reference article](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmosdb.bulkexecutor.graph?view=azure-dotnet) for more details about the classes and methods defined in this namespace.
+* Review the [BulkExecutor.Graph Reference article](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmosdb.bulkexecutor.graph?view=azure-dotnet&preserve-view=true) for more details about the classes and methods defined in this namespace.

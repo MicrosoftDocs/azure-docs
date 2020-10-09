@@ -1,6 +1,6 @@
 ---
 title: Safe deployment across regions - Azure Deployment Manager
-description: Describes how to deploy a service over many regions with Azure Deployment Manager. It shows safe deployment practices to verify the stability of your deployment before rolling out to all regions.
+description: Learn how to deploy a service over many regions with Azure Deployment Manager and about safe deployment practices.
 ms.topic: conceptual
 ms.date: 11/21/2019
 ms.custom: seodec18
@@ -24,14 +24,14 @@ You deploy the topology template before deploying the rollout template.
 
 Additional resources:
 
-- The [Azure Deployment Manager REST API reference](https://docs.microsoft.com/rest/api/deploymentmanager/).
+- The [Azure Deployment Manager REST API reference](/rest/api/deploymentmanager/).
 - [Tutorial: Use Azure Deployment Manager with Resource Manager templates](./deployment-manager-tutorial.md).
 - [Tutorial: Use health check in Azure Deployment Manager](./deployment-manager-tutorial-health-check.md).
 - [An Azure Deployment Manager sample](https://github.com/Azure-Samples/adm-quickstart).
 
 ## Identity and access
 
-With Deployment Manager, a [user-assigned managed identity](../../active-directory/managed-identities-azure-resources/overview.md) performs the deployment actions. You create this identity before starting your deployment. It must have access to the subscription you're deploying the service to, and sufficient permission to complete the deployment. For information about the actions granted through roles, see [Built-in roles for Azure resources](../../role-based-access-control/built-in-roles.md).
+With Deployment Manager, a [user-assigned managed identity](../../active-directory/managed-identities-azure-resources/overview.md) performs the deployment actions. You create this identity before starting your deployment. It must have access to the subscription you're deploying the service to, and sufficient permission to complete the deployment. For information about the actions granted through roles, see [Azure built-in roles](../../role-based-access-control/built-in-roles.md).
 
 The identity must reside in the same location as the rollout.
 

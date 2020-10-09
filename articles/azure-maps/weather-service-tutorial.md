@@ -1,14 +1,14 @@
 ---
 title: 'Tutorial: Join sensor data with weather forecast data by using Azure Notebooks(Python) | Microsoft Azure Maps'
-description: This tutorial shows you how to join sensor data with weather forecast data from Microsoft Azure Maps Weather Service using Azure Notebooks(Python).
-author: philmea
-ms.author: philmea
+description: Tutorial on how to join sensor data with weather forecast data from Microsoft Azure Maps Weather Service using Azure Notebooks(Python).
+author: anastasia-ms
+ms.author: v-stharr
 ms.date: 01/29/2020
 ms.topic: tutorial
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.custom: mvc, tracking-python
+ms.custom: mvc, devx-track-python
 ---
 
 # Tutorial: Join sensor data with weather forecast data by using Azure Notebooks (Python)
@@ -30,7 +30,7 @@ In this tutorial, you will:
 
 To complete this tutorial, you first need to:
 
-1. Create an Azure Maps account subscription in the S0 pricing tier by following instructions in [Create an account](quick-demo-map-app.md#create-an-account-with-azure-maps).
+1. Create an Azure Maps account subscription in the S0 pricing tier by following instructions in [Create an account](quick-demo-map-app.md#create-an-azure-maps-account).
 2. Get the primary subscription key for your account, follow the instructions in [get primary key](quick-demo-map-app.md#get-the-primary-key-for-your-account).
 
 
@@ -177,9 +177,6 @@ The graphs below visualize the forecast data. For the change of wind speed, see 
 
 ![Wind speed plot](./media/weather-service-tutorial/speed-date-plot.png) ![Wind direction plot](./media/weather-service-tutorial/direction-date-plot.png)</center>
 
-
-## Next steps
-
 In this tutorial you learned, how to call Azure Maps REST APIs to get weather forecast data. You also learned how to visualize the data on graphs.
 
 To learn more about how to call Azure Maps REST APIs inside Azure Notebooks, see [EV routing using Azure Notebooks](https://docs.microsoft.com/azure/azure-maps/tutorial-ev-routing).
@@ -191,4 +188,9 @@ To explore the Azure Maps APIs that are used in this tutorial, see:
 
 For a complete list of Azure Maps REST APIs, see [Azure Maps REST APIs](https://docs.microsoft.com/azure/azure-maps/consumption-model).
 
-To learn more about Azure Notebooks, see [Azure Notebooks](https://docs.microsoft.com/azure/notebooks).
+## Next steps
+
+To learn more about Azure Notebooks, see
+
+> [!div class="nextstepaction"]
+> [Azure Notebooks](https://docs.microsoft.com/azure/notebooks)

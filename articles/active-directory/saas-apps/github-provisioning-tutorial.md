@@ -2,21 +2,14 @@
 title: 'Tutorial: User provisioning for GitHub - Azure AD'
 description: Learn how to configure Azure Active Directory to automatically provision and de-provision user accounts to GitHub.
 services: active-directory
-documentationcenter: ''
 author: ArvindHarinder1
 manager: CelesteDG
-
-ms.assetid: d4ca2365-6729-48f7-bb7f-c0f5ffe740a3
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 03/27/2019
 ms.author: arvinh
-
-ms.collection: M365-identity-device-management
 ---
 # Tutorial: Configure GitHub for automatic user provisioning
 
@@ -29,7 +22,9 @@ The scenario outlined in this tutorial assumes that you already have the followi
 * An Azure Active directory tenant
 * A GitHub organization created in [GitHub Enterprise Cloud](https://help.github.com/articles/github-s-products/#github-enterprise), which requires the [GitHub Enterprise billing plan](https://help.github.com/articles/github-s-billing-plans/#billing-plans-for-organizations)
 * A user account in GitHub with Admin permissions to the organization
+* [SAML configured for the GitHub Enterprise Cloud organization](https://docs.microsoft.com/azure/active-directory/saas-apps/github-tutorial)
 * Ensure that OAuth access has been provided for your organization as described [here](https://help.github.com/en/github/setting-up-and-managing-organizations-and-teams/approving-oauth-apps-for-your-organization)
+* SCIM provisioning to a single organization is supported only when SSO is enabled at the organization level
 
 > [!NOTE]
 > The Azure AD provisioning integration relies on the [GitHub SCIM API](https://developer.github.com/v3/scim/), which is available to [GitHub Enterprise Cloud](https://help.github.com/articles/github-s-products/#github-enterprise) customers on the [GitHub Enterprise billing plan](https://help.github.com/articles/github-s-billing-plans/#billing-plans-for-organizations).
@@ -52,9 +47,6 @@ Before configuring and enabling the provisioning service, you need to decide wha
 
 This section guides you through connecting your Azure AD to GitHub's user account provisioning API, and configuring the provisioning service to create, update, and disable assigned user accounts in GitHub based on user and group assignment in Azure AD.
 
-> [!TIP]
-> You may also choose to enabled SAML-based Single Sign-On for GitHub, following the instructions provided in [Azure portal](https://portal.azure.com). Single sign-on can be configured independently of automatic provisioning, though these two features compliment each other.
-
 ### Configure automatic user account provisioning to GitHub in Azure AD
 
 1. In the [Azure portal](https://portal.azure.com), browse to the **Azure Active Directory > Enterprise Apps > All applications**  section.
@@ -71,11 +63,11 @@ This section guides you through connecting your Azure AD to GitHub's user accoun
 
 6. In the new window, sign into GitHub using your Admin account. In the resulting authorization dialog, select the GitHub team that you want to enable provisioning for, and then select **Authorize**. Once completed, return to the Azure portal to complete the provisioning configuration.
 
-	![Authorization Dialog](./media/github-provisioning-tutorial/GitHub2.png)
+	![Screenshot shows the sign-in page for GitHub.](./media/github-provisioning-tutorial/GitHub2.png)
 
 7. In the Azure portal, input **Tenant URL** and click **Test Connection** to ensure Azure AD can connect to your GitHub app. If the connection fails, ensure your GitHub account has Admin permissions and **Tenant URl** is inputted correctly, then try the "Authorize" step again (you can constitute **Tenant URL** by rule: `https://api.github.com/scim/v2/organizations/<Organization_name>`, you can find your organizations under your GitHub account: **Settings** > **Organizations**).
 
-	![Authorization Dialog](./media/github-provisioning-tutorial/GitHub3.png)
+	![Screenshot shows Organizations page in GitHub.](./media/github-provisioning-tutorial/GitHub3.png)
 
 8. Enter the email address of a person or group who should receive provisioning error notifications in the **Notification Email** field, and check the checkbox "Send an email notification when a failure occurs."
 

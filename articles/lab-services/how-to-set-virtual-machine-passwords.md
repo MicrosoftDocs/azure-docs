@@ -1,21 +1,10 @@
 ---
 title: Set passwords for VMs in Azure Lab Services | Microsoft Docs
 description: Learn how to set and reset passwords for virtual machines (VMs) in classroom labs of Azure Lab Services. 
-services: lab-services
-documentationcenter: na
-author: spelluru
-manager: 
-editor: ''
-
-ms.service: lab-services
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 02/20/2020
-ms.author: spelluru
-
+ms.date: 06/26/2020
 ---
+
 # Set up and manage virtual machine pool 
 This article shows you how to do the following tasks:
 
@@ -30,7 +19,7 @@ To increase or decrease the lab capacity (number of virtual machines in a lab), 
 2. Enter the new **number of VMs** you want in the lab. This number must be greater than or equal to the number of users registered in the lab. 
 3. Then, select **Save**. 
 
-    ![Start all button](./media/how-to-set-virtual-machine-passwords/number-of-vms-in-lab.png)
+    ![Screenshot that shows the "Lab capacity" window with the "Maximum machines in lab" and "Save" button selected.](./media/how-to-set-virtual-machine-passwords/number-of-vms-in-lab.png)
 4. If you increased the capacity, you can see the VM or VMs being created. If you don't see the new VM in the list, refresh the page. 
 
     ![VM being created](./media/how-to-set-virtual-machine-passwords/vm-being-created.png)

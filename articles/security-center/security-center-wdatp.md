@@ -7,15 +7,28 @@ author: memildin
 manager: rkarlin
 ms.service: security-center
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/07/2020
+ms.date: 10/07/2020
 ms.author: memildin
 ---
 # Microsoft Defender Advanced Threat Protection with Azure Security Center
 
 Azure Security Center integrates with [Microsoft Defender Advanced Threat Protection (ATP)](https://www.microsoft.com/microsoft-365/windows/microsoft-defender-atp) to provide comprehensive Endpoint Detection and Response (EDR) capabilities.
+
+
+## Availability
+
+|Aspect|Details|
+|----|:----|
+|Release state:|Generally available (GA)|
+|Pricing:|Requires [Azure Defender](security-center-pricing.md)|
+|Supported machines:|![Yes](./media/icons/yes-icon.png) Azure machines running Windows<br>![Yes](./media/icons/yes-icon.png) Azure Arc machines running Windows|
+|Required roles and permissions:|To enable/disable the integration: **Security admin** or **Owner**<br>To view MDATP alerts in Security Center: **Security reader**, **Reader**, **Resource Group Contributor**, **Resource Group Owner**, **Security admin**, **Subscription owner**, or **Subscription Contributor**|
+|Clouds:|![Yes](./media/icons/yes-icon.png) Commercial clouds.<br>![No](./media/icons/no-icon.png) GCC customers running workloads in public Azure clouds<br>![Yes](./media/icons/yes-icon.png) US Gov<br>![No](./media/icons/no-icon.png) China Gov, Other Gov|
+|||
+
 
 ## Microsoft Defender ATP features in Security Center
 
@@ -38,34 +51,42 @@ By integrating Defender ATP with Azure Security Center, you can also benefit fro
 
 ## Platform support
 
-Microsoft Defender ATP in Security Center supports detection on Windows Server 2016, 2012 R2, and 2008 R2 SP1. For Azure VMs you need a Standard tier subscription and for Non-Azure VMs you need Standard tier in the workspace level only.
+Microsoft Defender ATP in Security Center supports detection on Windows Server 2016, 2012 R2, and 2008 R2 SP1. For Azure VMs you need a to enable Azure Defender on your subscription, and for Non-Azure VMs you need Azure Defender to be enabled at the workspace level only.
 
-> [!NOTE]
-> When you use Azure Security Center to monitor servers, a Microsoft Defender ATP tenant is automatically created and the Microsoft Defender ATP data is stored in Europe by default. If you need to move your data to another location, you need to contact Microsoft Support to reset the tenant. Server endpoint monitoring utilizing this integration has been disabled for Office 365 GCC customers.
+Server endpoint monitoring using this integration has been disabled for Office 365 GCC customers.
 
-## Onboarding servers to Security Center 
+## Data storage location
+
+When you use Azure Security Center to monitor servers, a Microsoft Defender ATP tenant is automatically created. Data collected by Microsoft Defender ATP is stored in the geo-location of the tenant as identified during provisioning. Customer data in pseudonymized form may also be stored in the central storage and processing systems in the United States. 
+
+Once configured, you cannot change the location where your data is stored. If you need to move your data to another location, contact Microsoft Support to reset the tenant.
+
+
+## Onboard servers to Security Center 
 
 To onboard servers to Security Center, click **Go to Azure Security Center to onboard servers** from the Microsoft Defender ATP server onboarding.
 
-1. In the **Onboarding** area, select or create a workspace in which to store the data. <br>
-2. If you can't see all your workspaces, it may be due to a lack of permissions, make sure your workspace is set to Azure Security Standard tier. For more information, see [Upgrade to Security Center's Standard tier for enhanced security](security-center-pricing.md).
+1. In the **Onboarding** area, select or create a workspace in which to store the data.
+
+2. If you can't see all your workspaces, it may be due to a lack of permissions, make sure your workspace is protected by Azure Defender.
     
 3. Select **Add servers** to view instructions on how to install the Log Analytics agent. 
 
-4. After onboarding, you can monitor the machines under **Compute and apps**.
+4. After onboarding, you can monitor the machines in [asset inventory](asset-inventory.md).
 
    ![Onboard computers](media/security-center-wdatp/onboard-computers.png)
 
 ## Enable Microsoft Defender ATP integration
 
-To view if Microsoft Defender ATP integration is enabled, select **Security center** > **Pricing & settings** > click on your subscription.
+To view if Microsoft Defender ATP integration is enabled, select **Security center** > **Pricing & settings** > select your subscription.
+
 Here you can see the integrations currently enabled.
 
   ![Azure Security Center threat detection settings page with Microsoft Defender ATP integration enabled](media/security-center-wdatp/enable-integrations.png)
 
-- If you've already onboarded the servers to Azure Security Center standard tier, you need take no further action. Azure Security Center will automatically onboard the servers to Microsoft Defender ATP. Onboarding might take up to 24 hours.
+- If you've already enabled Azure Defender, no further action is necessary. Azure Security Center will automatically onboard the servers to Microsoft Defender ATP. Onboarding might take up to 24 hours.
 
-- If you've never onboarded the servers to Azure Security Center standard tier, onboard them to Azure Security Center as usual.
+- If you've never onboarded the servers to Azure Security Center, onboard them to Azure Security Center and enable Azure Defender as usual.
 
 - If you've onboarded the servers through Microsoft Defender ATP:
   - Refer to the documentation for guidance on [how to offboard server machines](https://go.microsoft.com/fwlink/p/?linkid=852906).

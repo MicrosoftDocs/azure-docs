@@ -3,18 +3,18 @@ title: Set up authentication
 titleSuffix: Azure Machine Learning
 description: Learn how to set up and configure authentication for various resources and workflows in Azure Machine Learning. There are multiple ways to configure and use authentication within the service, ranging from simple UI-based auth for development or testing purposes, to full Azure Active Directory service principal authentication.
 services: machine-learning
-author: larryfr
-ms.author: larryfr
+author: cjgronlund
+ms.author: cgronlun
 ms.reviewer: larryfr
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: how-to
 ms.date: 06/17/2020
-ms.custom: has-adal-ref
+ms.topic: conceptual
+ms.custom: how-to, has-adal-ref, devx-track-js
 ---
 
 # Set up authentication for Azure Machine Learning resources and workflows
-[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
+
 
 Learn how to authenticate to your Azure Machine Learning workspace, and to models deployed as web services.
 
@@ -31,6 +31,9 @@ Regardless of the authentication type used, role-based access control (RBAC) is 
 * [Configure your development environment](how-to-configure-environment.md) to install the Azure Machine Learning SDK, or use a [Azure Machine Learning Notebook VM](concept-azure-machine-learning-architecture.md#compute-instance) with the SDK already installed.
 
 ## Interactive authentication
+
+> [!IMPORTANT]
+> Interactive authentication uses your browser, and requires cookies (including 3rd party cookies). If you have disabled cookies, you may receive an error such as "we couldn't sign you in." This error may also occur if you have enabled [Azure multi-factor authentication](/azure/active-directory/authentication/concept-mfa-howitworks).
 
 Most examples in the documentation and samples use interactive authentication. For example, when using the SDK there are two function calls that will automatically prompt you with a UI-based authentication flow:
 
@@ -62,14 +65,14 @@ Most examples in the documentation and samples use interactive authentication. F
 
 ## Service principal authentication
 
-To use service principal (SP) authentication, you must first create the SP and grant it access to your workspace. As mentioned earlier, Azure role-based access control (RBAC) is used to control access, so you must also decide what access to grant the SP.
+To use service principal (SP) authentication, you must first create the SP and grant it access to your workspace. As mentioned earlier, Azure role-based access control (Azure RBAC) is used to control access, so you must also decide what access to grant the SP.
 
 > [!IMPORTANT]
 > When using a service principal, grant it the __minimum access required for the task__ it is used for. For example, you would not grant a service principal owner or contributor access if all it is used for is reading the access token for a web deployment.
 >
 > The reason for granting the least access is that a service principal uses a password to authenticate, and the password may be stored as part of an automation script. If the password is leaked, having the minimum access required for a specific tasks minimizes the malicious use of the SP.
 
-The easiest way to create an SP and grant access to your workspace is by using the [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest). To create a service principal and grant it access to your workspace, use the following steps:
+The easiest way to create an SP and grant access to your workspace is by using the [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest&preserve-view=true). To create a service principal and grant it access to your workspace, use the following steps:
 
 > [!NOTE]
 > You must be an admin on the subscription to perform all of these steps.
@@ -84,7 +87,7 @@ The easiest way to create an SP and grant access to your workspace is by using t
 
     [!INCLUDE [select-subscription](../../includes/machine-learning-cli-subscription.md)] 
 
-    For other methods of authenticating, see [Sign in with Azure CLI](https://docs.microsoft.com/cli/azure/authenticate-azure-cli?view=azure-cli-latest).
+    For other methods of authenticating, see [Sign in with Azure CLI](https://docs.microsoft.com/cli/azure/authenticate-azure-cli?view=azure-cli-latest&preserve-view=true).
 
 1. Install the Azure Machine Learning extension:
 
@@ -182,7 +185,7 @@ ws.get_details()
 
 ### Use a service principal from the Azure CLI
 
-You can use a service principal for Azure CLI commands. For more information, see [Sign in using a service principal](https://docs.microsoft.com/cli/azure/create-an-azure-service-principal-azure-cli?view=azure-cli-latest#sign-in-using-a-service-principal).
+You can use a service principal for Azure CLI commands. For more information, see [Sign in using a service principal](https://docs.microsoft.com/cli/azure/create-an-azure-service-principal-azure-cli?view=azure-cli-latest&preserve-view=true#sign-in-using-a-service-principal).
 
 ### Use a service principal with the REST API (preview)
 

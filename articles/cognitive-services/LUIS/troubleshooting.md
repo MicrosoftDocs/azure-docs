@@ -1,9 +1,11 @@
 ---
 title: Frequently asked questions (FAQ) - LUIS
 description: This article contains answers to frequently asked questions about Language Understanding (LUIS).
+ms.service: cognitive-services
+ms.subservice: language-understanding
 ms.topic: troubleshooting
 ms.date: 05/06/2020
-ms.author: diberry
+
 ---
 # Language Understanding Frequently Asked Questions (FAQ)
 
@@ -37,7 +39,7 @@ Yes, it is good to train your **None** intent with more utterances as you add mo
 See the [Bing Spell Check API V7](luis-tutorial-bing-spellcheck.md) tutorial. LUIS enforces limits imposed by Bing Spell Check API V7.
 
 ### How do I edit my LUIS app programmatically?
-To edit your LUIS app programmatically, use the [Authoring API](https://go.microsoft.com/fwlink/?linkid=2092087). See [Call LUIS authoring API](./get-started-get-model-rest-apis.md) and [Build a LUIS app programmatically using Node.js](./luis-tutorial-node-import-utterances-csv.md) for examples of how to call the Authoring API. The Authoring API requires that you use an [authoring key](luis-concept-keys.md#azure-resources-for-luis) rather than an endpoint key. Programmatic authoring allows up to 1,000,000 calls per month and five transactions per second. For more info on the keys you use with LUIS, see [Manage keys](./luis-concept-keys.md).
+To edit your LUIS app programmatically, use the [Authoring API](https://go.microsoft.com/fwlink/?linkid=2092087). See [Call LUIS authoring API](./get-started-get-model-rest-apis.md) and [Build a LUIS app programmatically using Node.js](./luis-tutorial-node-import-utterances-csv.md) for examples of how to call the Authoring API. The Authoring API requires that you use an [authoring key](luis-how-to-azure-subscription.md#azure-resources-for-luis) rather than an endpoint key. Programmatic authoring allows up to 1,000,000 calls per month and five transactions per second. For more info on the keys you use with LUIS, see [Manage keys](./luis-how-to-azure-subscription.md).
 
 ### Where is the Pattern feature that provided regular expression matching?
 The previous **Pattern feature** is currently deprecated, replaced by **[Patterns](luis-concept-patterns.md)**.
@@ -117,7 +119,7 @@ Review the [best practices](luis-concept-best-practices.md) for other tips.
 LUIS [tokenizes](luis-glossary.md#token) the utterance based on the [culture](luis-language-support.md#tokenization). Both the original value and the tokenized value are available for [data extraction](luis-concept-data-extraction.md#tokenized-entity-returned).
 
 ### How do I create and assign a LUIS endpoint key?
-[Create the endpoint key](luis-how-to-azure-subscription.md) in Azure for your [service](https://azure.microsoft.com/pricing/details/cognitive-services/language-understanding-intelligent-services/) level. [Assign the key](luis-how-to-azure-subscription.md) on the **[Azure Resources](luis-how-to-azure-subscription.md)** page. There is no corresponding API for this action. Then you must change the HTTP request to the endpoint to [use the new endpoint key](luis-concept-keys.md).
+[Create the endpoint key](luis-how-to-azure-subscription.md) in Azure for your [service](https://azure.microsoft.com/pricing/details/cognitive-services/language-understanding-intelligent-services/) level. [Assign the key](luis-how-to-azure-subscription.md) on the **[Azure Resources](luis-how-to-azure-subscription.md)** page. There is no corresponding API for this action. Then you must change the HTTP request to the endpoint to [use the new endpoint key](luis-how-to-azure-subscription.md).
 
 ### How do I interpret LUIS scores?
 Your system should use the highest scoring intent regardless of its value. For example, a score below 0.5 (less than 50%) does not necessarily mean that LUIS has low confidence. Providing more training data can help increase the [score](luis-concept-prediction-score.md) of the most-likely intent.
@@ -138,10 +140,10 @@ Get-AzCognitiveServicesAccountUsage -ResourceGroupName <your-resource-group> -Na
 ```
 
 ### My LUIS app was working yesterday but today I'm getting 403 errors. I didn't change the app. How do I fix it?
-Follow these [instructions](#how-do-i-create-and-assign-a-luis-endpoint-key) to create a LUIS endpoint key and assign it to the app. Then you must change the client application's HTTP request to the endpoint to [use the new endpoint key](luis-concept-keys.md). If you created a new resource in a different region, change the HTTP client request's region too.
+Follow these [instructions](#how-do-i-create-and-assign-a-luis-endpoint-key) to create a LUIS endpoint key and assign it to the app. Then you must change the client application's HTTP request to the endpoint to [use the new endpoint key](luis-how-to-azure-subscription.md). If you created a new resource in a different region, change the HTTP client request's region too.
 
 ### How do I secure my LUIS endpoint?
-See [Securing the endpoint](luis-concept-keys.md#securing-the-endpoint).
+See [Securing the endpoint](luis-how-to-azure-subscription.md#securing-the-endpoint).
 
 ## Working within LUIS limits
 
@@ -200,7 +202,7 @@ If your app existed before LUIS was generally available (GA), LUIS endpoint keys
 
 ### How do I know what key I need, where I get it, and what I do with it?
 
-See [Authoring and query prediction endpoint keys in LUIS](luis-concept-keys.md) to learn about the differences between the authoring key and the prediction runtime key.
+See [Authoring and query prediction endpoint keys in LUIS](luis-how-to-azure-subscription.md) to learn about the differences between the authoring key and the prediction runtime key.
 
 ### I got an error about being out of quota. How do I fix it?
 

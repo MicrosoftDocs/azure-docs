@@ -10,7 +10,7 @@ ms.author: sngun
 
 # How to use Azure Kubernetes with Azure Cosmos DB (preview)
 
-The etcd API in Azure Cosmos DB allows you to use Azure Cosmos DB as the backend store for Azure Kubernetes. Azure Cosmos DB implements the etcd wire protocol, which allows the master node’s API servers to use Azure Cosmos DB just like it would access a locally installed etcd. etcd API in Azure Cosmos DB is currently in preview. When you use Azure Cosmos etcd API as the backing store for Kubernetes, you get the following benefits: 
+The etcd API in Azure Cosmos DB allows you to use Azure Cosmos DB as the backend store for Azure Kubernetes. Azure Cosmos DB implements the etcd wire protocol, which allows the primary node’s API servers to use Azure Cosmos DB just like it would access a locally installed etcd. etcd API in Azure Cosmos DB is currently in preview. When you use Azure Cosmos etcd API as the backing store for Kubernetes, you get the following benefits: 
 
 * No need to manually configure and manage etcd.
 * High availability of etcd, guaranteed by Cosmos (99.99% in single region, 99.999% in multiple regions).
@@ -22,13 +22,13 @@ To learn more about etcd API in Azure Cosmos DB, see the [overview](etcd-api-int
 
 ## Prerequisites
 
-1. Install the latest version of [Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest). You can download Azure CLI specific to your operating system and install.
+1. Install the latest version of [Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest&preserve-view=true). You can download Azure CLI specific to your operating system and install.
 
 1. Install the [latest version](https://github.com/Azure/aks-engine/releases) of Azure Kubernetes Engine. The installation instructions for different operating systems are available in [Azure Kubernetes Engine](https://github.com/Azure/aks-engine/blob/master/docs/tutorials/quickstart.md#install-aks-engine) page. You just need the steps from **Install AKS Engine** section of the linked doc. After downloading, extract the zip file.
 
    The Azure Kubernetes Engine (**aks-engine**) generates Azure Resource Manager templates for Kubernetes clusters on Azure. The input to aks-engine is a cluster definition file that describes the desired cluster, including orchestrator, features, and agents. The structure of the input files is similar to the public API for Azure Kubernetes Service.
 
-1. The etcd API in Azure Cosmos DB is currently in preview. Sign up to use the preview version at: https://aka.ms/cosmosetcdapi-signup. After you submit the form, your subscription will be whitelisted to use the Azure Cosmos etcd API. 
+1. The etcd API in Azure Cosmos DB is currently in preview. Sign up to use the preview version at: https://aka.ms/cosmosetcdapi-signup. After you submit the form, your subscription will be allowed to use the Azure Cosmos etcd API. 
 
 ## Deploy the cluster with Azure Cosmos DB
 
@@ -38,7 +38,7 @@ To learn more about etcd API in Azure Cosmos DB, see the [overview](etcd-api-int
    az login 
    ```
 
-1. If you have more than one subscription, switch to the subscription that has been whitelisted for Azure Cosmos DB etcd API. You can switch to the required subscription using the following command:
+1. If you have more than one subscription, switch to the subscription that has been allowed for Azure Cosmos DB etcd API. You can switch to the required subscription using the following command:
 
    ```azurecli-interactive
    az account set --subscription "<Name of your subscription>"

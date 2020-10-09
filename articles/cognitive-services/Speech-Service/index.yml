@@ -36,43 +36,40 @@ conceptualContent:
   items:
     - title: Speech-to-text
       links:
+        - itemType: overview
+          text: About speech-to-text
+          url: speech-to-text.md
         - itemType: quickstart
-          text: Recognize speech from a microphone
-          url: quickstarts/speech-to-text-from-microphone.md
-        - itemType: quickstart
-          text: Recognize speech from an audio file
-          url: quickstarts/speech-to-text-from-file.md
+          text: Get started with speech-to-text
+          url: get-started-speech-to-text.md
         - itemType: how-to-guide
-          text: Speech recognition basics
-          url: speech-to-text-basics.md          
+          text: Improve accuracy with Custom Speech
+          url: how-to-custom-speech.md       
       footerLink:
         text: More
         url: index-speech-to-text.yml
     - title: Text-to-speech
       links:
+        - itemType: overview
+          text: About text-to-speech
+          url: text-to-speech.md
         - itemType: quickstart
-          text: Synthesize speech to a speaker
-          url: quickstarts/text-to-speech.md
-        - itemType: quickstart
-          text: Synthesize speech into an audio file
-          url: quickstarts/text-to-speech-audio-file.md
+          text: Get started with text-to-speech
+          url: get-started-text-to-speech.md
         - itemType: how-to-guide
-          text: Speech synthesis basics
-          url: text-to-speech-basics.md          
+          text: Improve synthesis with SSML
+          url: speech-synthesis-markup.md  
       footerLink:
         text: More
         url: index-text-to-speech.yml
     - title: Speech translation
       links:
+      - itemType: overview
+        text: About speech translation
+        url: speech-translation.md
       - itemType: quickstart
-        text: Translate speech-to-text
-        url: quickstarts/translate-speech-to-text.md
-      - itemType: quickstart
-        text: Translate speech to multiple languages
-        url: quickstarts/translate-speech-to-text-multiple-languages.md
-      - itemType: how-to-guide
-        text: Speech translation basics
-        url: speech-translation-basics.md        
+        text: Get started with speech translation
+        url: get-started-speech-translation.md      
       footerLink:
         text: More
         url: index-speech-translation.yml
@@ -90,7 +87,26 @@ conceptualContent:
       footerLink:
         text: More
         url: index-intent-recognition.yml
-    - title: Conversation scenarios
+    - title: Speaker Recognition
+      links:
+        - itemType: overview
+          text: About Speaker Recognition
+          url: speaker-recognition-overview.md
+        - itemType: quickstart
+          text: Get started with Speaker Recognition          
+          url: speaker-recognition-basics.md
+        - itemType: how-to-guide
+          text: Speaker Recognition API reference
+          url: https://docs.microsoft.com/rest/api/speakerrecognition/
+    - title: Custom Keyword
+      links:
+        - itemType: overview
+          text: About Custom Keyword
+          url: custom-keyword-overview.md
+        - itemType: quickstart
+          text: Get started with Custom Keyword       
+          url: custom-keyword-basics.md
+    - title: Scenario deep-dives
       links:
         - itemType: overview
           text: About Conversation Transcription (meetings)
@@ -98,34 +114,18 @@ conceptualContent:
         - itemType: overview
           text: About multi-device conversations (meetings)
           url: multi-device-conversation.md
-        - itemType: how-to-guide
-          text: Call center transcription
-          url: call-center-transcription.md
-      footerLink:
-        text: More
-        url: index-conversation-scenarios.yml
-    - title: Voice assistants
-      links:
         - itemType: overview
           text: About Voice Assistants
           url: voice-assistants.md
         - itemType: quickstart
           text: Create a voice assistant using Custom Commands
           url: custom-commands.md
-        - itemType: get-started
+        - itemType: quickstart
           text: Create a voice assistant using the Bot Framework
           url: direct-line-speech.md
-      footerLink:
-        text: More
-        url: index-voice-assistants.yml
-    - title: Speaker Recognition
-      links:
         - itemType: how-to-guide
-          text: About Speaker Recognition
-          url: speaker-recognition-overview.md
-        - itemType: how-to-guide
-          text: Speaker Recognition API reference
-          url: https://docs.microsoft.com/rest/api/speakerrecognition/
+          text: Enable call center transcription
+          url: call-center-transcription.md
     - title: Tools
       links:
         - itemType: overview

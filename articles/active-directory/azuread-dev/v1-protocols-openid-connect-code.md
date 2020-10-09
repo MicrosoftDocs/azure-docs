@@ -104,7 +104,7 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 &nonce=7362CAEA-9CA5-4B43-9BA3-34D7C303EBA7
 ```
 
-| Parameter |  | Description |
+| Parameter | Type | Description |
 | --- | --- | --- |
 | tenant |required |The `{tenant}` value in the path of the request can be used to control who can sign into the application. The allowed values are tenant identifiers, for example, `8eaef023-2b34-4da1-9baa-8bc8c9d6a490` or `contoso.onmicrosoft.com` or `common` for tenant-independent tokens |
 | client_id |required |The Application ID assigned to your app when you registered it with Azure AD. You can find this in the Azure portal. Click **Azure Active Directory**, click **App Registrations**, choose the application and locate the Application ID on the application page. |
@@ -193,7 +193,7 @@ post_logout_redirect_uri=http%3A%2F%2Flocalhost%2Fmyapp%2F
 
 ```
 
-| Parameter |  | Description |
+| Parameter | Type | Description |
 | --- | --- | --- |
 | post_logout_redirect_uri |recommended |The URL that the user should be redirected to after successful sign out.  This URL must match one of the redirect URIs registered for your application in the app registration portal.  If *post_logout_redirect_uri* is not included, the user is shown a generic message. |
 

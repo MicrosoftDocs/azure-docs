@@ -1,4 +1,4 @@
-﻿---
+---
 title: Describe a cluster by using Cluster Resource Manager 
 description: Describe a Service Fabric cluster by specifying fault domains, upgrade domains, node properties, and node capacities for Cluster Resource Manager.
 author: masnider
@@ -6,6 +6,7 @@ author: masnider
 ms.topic: conceptual
 ms.date: 08/18/2017
 ms.author: masnider
+ms.custom: devx-track-csharp
 ---
 
 # Describe a Service Fabric cluster by using Cluster Resource Manager
@@ -32,7 +33,7 @@ In the Azure environment, Service Fabric uses the fault domain information provi
 > [!WARNING]
 > It's important that the fault domain information provided to Service Fabric is accurate. For example, let's say that your Service Fabric cluster's nodes are running inside 10 virtual machines, running on 5 physical hosts. In this case, even though there are 10 virtual machines, there are only 5 different (top level) fault domains. Sharing the same physical host causes VMs to share the same root fault domain, because the VMs experience coordinated failure if their physical host fails.  
 >
-> Service Fabric expects the fault domain of a node not to change. Other mechanisms of ensuring high availability of the VMs, such as [HA-VMs](https://technet.microsoft.com/library/cc967323.aspx), might cause conflicts with Service Fabric. These mechanisms use transparent migration of VMs from one host to another. They don't reconfigure or notify the running code inside the VM. As such, they're *not supported* as environments for running Service Fabric clusters. 
+> Service Fabric expects the fault domain of a node not to change. Other mechanisms of ensuring high availability of the VMs, such as [HA-VMs](/previous-versions/system-center/virtual-machine-manager-2008-r2/cc967323(v=technet.10)), might cause conflicts with Service Fabric. These mechanisms use transparent migration of VMs from one host to another. They don't reconfigure or notify the running code inside the VM. As such, they're *not supported* as environments for running Service Fabric clusters. 
 >
 > Service Fabric should be the only high-availability technology employed. Mechanisms like live VM migration and SANs are not necessary. If these mechanisms are used in conjunction with Service Fabric, they _reduce_ application availability and reliability. The reason is that they introduce additional complexity, add centralized sources of failure, and use reliability and availability strategies that conflict with those in Service Fabric. 
 >

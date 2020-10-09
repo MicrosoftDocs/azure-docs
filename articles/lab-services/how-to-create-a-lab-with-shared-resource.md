@@ -1,14 +1,10 @@
 ---
 title: How to Create a Lab with a Shared Resource | Azure Lab Services
 description: Learn how to create a lab that requires a resource shared among the students.  
-services: lab-services
 author: emaher
-
-ms.service: lab-services
 ms.topic: article
-ms.date: 06/05/2020
+ms.date: 06/26/2020
 ms.author: enewman
-
 ---
 
 # How to create a lab with a shared resource in Azure Lab Services
@@ -30,6 +26,20 @@ The shared resource can be software running on a virtual machine or an Azure pro
 The diagram also shows a network security group (NSG) which can be used to restrict traffic coming from the student VM.  For example, you can write a security rule that states traffic from the student VM's IP addresses can only access one shared resource and nothing else.  For more information how to set security rules, see [manage network security group](../virtual-network/manage-network-security-group.md#work-with-security-rules). If you want to restrict access to a shared resource to a specific lab, get the IP address for the lab from the [lab settings from the lab account](manage-labs.md#view-labs-in-a-lab-account) and set an inbound rule to allow access only from that IP address.  Don’t forget to allow ports 49152 to 65535 for that IP address.  Optionally you can find the private IP address of the student’s VMs by using the [virtual machine pool page](how-to-set-virtual-machine-passwords.md).
 
 If your shared resource is an Azure virtual machine running necessary software, you may have to modify the default firewall rules for the virtual machine.
+
+### Tips for shared resources - License server
+One of the more common shared resources is a License server, here are a few tips on how to be successful with setting one up.
+#### Server region
+The License server will need to be connected to the virtual network that is peered to the lab, so the license server needs to be located in the same region as the lab account.
+
+#### Static private IP and MAC address
+By default virtual machines have a dynamic private ip, [before you setup any software set the private ip to static](https://docs.microsoft.com/azure/virtual-network/virtual-networks-static-private-ip-arm-pportal). This sets the private IP and the MAC address to be static.  
+
+#### Control Access
+Controlling access to the license server is key.  Once the VM is setup access will still be needed for maintenance, troubleshooting, and updating.  Here are a few different ways to do this.
+- [Setting up Just in Time (JIT) access within Azure Security Center.](https://docs.microsoft.com/azure/security-center/security-center-just-in-time?tabs=jit-config-asc%2Cjit-request-asc)
+- [Setting up a Network Security Group to restrict access.](https://docs.microsoft.com/azure/virtual-network/network-security-groups-overview)
+- [Setup Bastion to allow secure access to the license server.](https://azure.microsoft.com/services/azure-bastion/)
 
 ## Lab Account
 

@@ -6,10 +6,12 @@ ms.service: spring-cloud
 ms.topic: conceptual
 ms.date: 02/03/2020
 ms.author: brendm
-
+ms.custom: devx-track-java, devx-track-azurecli
 ---
 
 # Set up a staging environment in Azure Spring Cloud
+
+**This article applies to:** ✔️ Java
 
 This article discusses how to set up a staging deployment by using the blue-green deployment pattern in Azure Spring Cloud. Blue/green deployment is an Azure DevOps Continuous Delivery pattern that relies on keeping an existing (blue) version live, while a new (green) one is deployed. This article shows you how to put that staging deployment into production without changing the production deployment directly.
 
@@ -98,3 +100,7 @@ Alternatively, delete your staging deployment from the Azure CLI by running the 
 ```azurecli
 az spring-cloud app deployment delete -n <staging-deployment-name> -g <resource-group-name> -s <service-instance-name> --app gateway
 ```
+
+## Next steps
+
+* [Quickstart: Deploy your first Azure Spring Cloud application](spring-cloud-quickstart.md)

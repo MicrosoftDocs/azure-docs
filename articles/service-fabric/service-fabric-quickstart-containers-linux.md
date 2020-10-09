@@ -4,7 +4,6 @@ description: In this quickstart, you will build a Docker image with your applica
 
 ms.topic: quickstart
 ms.date: 07/22/2019
-ms.author: suhuruli
 ms.custom: mvc
 ---
 # Quickstart: Deploy Linux containers to Service Fabric
@@ -48,14 +47,14 @@ To deploy the application to Azure, you need a Service Fabric cluster to run the
 #!/bin/bash
 
 # Variables
-ResourceGroupName="containertestcluster" 
-ClusterName="containertestcluster" 
-Location="eastus" 
-Password="q6D7nN%6ck@6" 
-Subject="containertestcluster.eastus.cloudapp.azure.com" 
-VaultName="containertestvault" 
-VmPassword="Mypa$$word!321"
-VmUserName="sfadminuser"
+ResourceGroupName='containertestcluster' 
+ClusterName='containertestcluster' 
+Location='eastus' 
+Password='q6D7nN%6ck@6' 
+Subject='containertestcluster.eastus.cloudapp.azure.com' 
+VaultName='containertestvault' 
+VmPassword='Mypa$$word!321'
+VmUserName='sfadminuser'
 
 # Login to Azure and set the subscription
 az login
@@ -174,7 +173,7 @@ az group delete --name $ResourceGroupName
 ```
 
 If you are finished working with your cluster, you can remove the certificate from your certificate store. For example:
-- On Windows: Use the [Certificates MMC snap-in](https://docs.microsoft.com/dotnet/framework/wcf/feature-details/how-to-view-certificates-with-the-mmc-snap-in). Be sure to select **My user account** when adding the snap-in. Navigate to `Certificates - Current User\Personal\Certificates` and remove the certificate.
+- On Windows: Use the [Certificates MMC snap-in](/dotnet/framework/wcf/feature-details/how-to-view-certificates-with-the-mmc-snap-in). Be sure to select **My user account** when adding the snap-in. Navigate to `Certificates - Current User\Personal\Certificates` and remove the certificate.
 - On Mac: Use the Keychain app.
 - On Ubuntu: Follow the steps you used to view certificates and remove the certificate.
 

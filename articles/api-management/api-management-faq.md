@@ -48,7 +48,7 @@ You have several options to secure the connection between the API Management gat
 
 * Use HTTP basic authentication. For more information, see [Import and publish your first API](import-and-publish.md).
 * Use TLS mutual authentication as described in [How to secure back-end services by using client certificate authentication in Azure API Management](api-management-howto-mutual-certificates.md).
-* Use IP whitelisting on your back-end service. In all tiers of API Management with the exception of Consumption tier, the IP address of the gateway remains constant, with a few caveats described in [the IP documentation article](api-management-howto-ip-addresses.md).
+* Use IP filtering on your back-end service. In all tiers of API Management with the exception of Consumption tier, the IP address of the gateway remains constant, with a few caveats described in [the IP documentation article](api-management-howto-ip-addresses.md).
 * Connect your API Management instance to an Azure Virtual Network.
 
 ### How do I copy my API Management service instance to a new instance?
@@ -63,7 +63,7 @@ Yes, you can manage API Management programmatically by using:
 
 * The [API Management REST API](/rest/api/apimanagement/).
 * The [Microsoft Azure ApiManagement Service Management Library SDK](https://aka.ms/apimsdk).
-* The [Service deployment](https://docs.microsoft.com/powershell/module/wds) and [Service management](https://docs.microsoft.com/powershell/azure/servicemanagement/overview) PowerShell cmdlets.
+* The [Service deployment](/powershell/module/wds) and [Service management](/powershell/azure/servicemanagement/overview) PowerShell cmdlets.
 
 ### How do I add a user to the Administrators group?
 Here's how you can add a user to the Administrators group:
@@ -72,7 +72,7 @@ Here's how you can add a user to the Administrators group:
 2. Go to the resource group that has the API Management instance you want to update.
 3. In API Management, assign the **Api Management Service Contributor** role to the user.
 
-Now the newly added contributor can use Azure PowerShell [cmdlets](https://docs.microsoft.com/powershell/azure/overview). Here's how to sign in as an administrator:
+Now the newly added contributor can use Azure PowerShell [cmdlets](/powershell/azure/). Here's how to sign in as an administrator:
 
 1. Use the `Connect-AzAccount` cmdlet to sign in.
 2. Set the context to the subscription that has the service by using `Set-AzContext -SubscriptionID <subscriptionGUID>`.
@@ -80,7 +80,7 @@ Now the newly added contributor can use Azure PowerShell [cmdlets](https://docs.
 4. Use the URL to access the admin portal.
 
 ### Why is the policy that I want to add unavailable in the policy editor?
-If the policy that you want to add appears dimmed or shaded in the policy editor, be sure that you are in the correct scope for the policy. Each policy statement is designed for you to use in specific scopes and policy sections. To review the policy sections and scopes for a policy, see the policy's Usage section in [API Management policies](/azure/api-management/api-management-policies).
+If the policy that you want to add appears dimmed or shaded in the policy editor, be sure that you are in the correct scope for the policy. Each policy statement is designed for you to use in specific scopes and policy sections. To review the policy sections and scopes for a policy, see the policy's Usage section in [API Management policies](./api-management-policies.md).
 
 ### How do I set up multiple environments in a single API?
 To set up multiple environments, for example, a test environment and a production environment, in a single API, you have two options. You can:
@@ -89,7 +89,7 @@ To set up multiple environments, for example, a test environment and a productio
 * Host the same APIs on different tenants.
 
 ### Can I use SOAP with API Management?
-[SOAP pass-through](https://blogs.msdn.microsoft.com/apimanagement/2016/10/13/soap-pass-through/) support is now available. Administrators can import the WSDL of their SOAP service, and Azure API Management will create a SOAP front end. Developer portal documentation, test console, policies and analytics are all available for SOAP services.
+[SOAP pass-through](https://azure.microsoft.com/blog/soap-pass-through/) support is now available. Administrators can import the WSDL of their SOAP service, and Azure API Management will create a SOAP front end. Developer portal documentation, test console, policies and analytics are all available for SOAP services.
 
 ### Can I configure an OAuth 2.0 authorization server with AD FS security?
 To learn how to configure an OAuth 2.0 authorization server with Active Directory Federation Services (AD FS) security, see [Using ADFS in API Management](https://phvbaars.wordpress.com/2016/02/06/using-adfs-in-api-management/).
@@ -104,7 +104,7 @@ Yes. See the [Azure API Management Service](https://aka.ms/apimtemplate) quickst
 Yes. This can be done through PowerShell or by directly submitting to the API. This will disable certificate chain validation and will allow you to use self-signed or privately-signed certificates when communicating from API Management to the back end services.
 
 #### Powershell method ####
-Use the [`New-AzApiManagementBackend`](https://docs.microsoft.com/powershell/module/az.apimanagement/new-azapimanagementbackend) (for new back end) or [`Set-AzApiManagementBackend`](https://docs.microsoft.com/powershell/module/az.apimanagement/set-azapimanagementbackend) (for existing back end) PowerShell cmdlets and set the `-SkipCertificateChainValidation` parameter to `True`.
+Use the [`New-AzApiManagementBackend`](/powershell/module/az.apimanagement/new-azapimanagementbackend) (for new back end) or [`Set-AzApiManagementBackend`](/powershell/module/az.apimanagement/set-azapimanagementbackend) (for existing back end) PowerShell cmdlets and set the `-SkipCertificateChainValidation` parameter to `True`.
 
 ```powershell
 $context = New-AzApiManagementContext -resourcegroup 'ContosoResourceGroup' -servicename 'ContosoAPIMService'

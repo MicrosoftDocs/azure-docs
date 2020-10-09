@@ -1,13 +1,13 @@
 ---
 title: Tutorial to copy data to Azure Data Box via NFS| Microsoft Docs
-description: Learn how to copy data to your Azure Data Box via NFS
+description: In this tutorial, learn how to connect to and copy data from your host computer to Azure Data Box by using NFS with the local web UI.
 services: databox
 author: alkohli
 
 ms.service: databox
 ms.subservice: pod
 ms.topic: tutorial
-ms.date: 06/25/2019
+ms.date: 09/29/2020
 ms.author: alkohli
 #Customer intent: As an IT admin, I need to be able to copy data to Data Box to upload on-premises data from my server onto Azure.
 ---
@@ -44,7 +44,7 @@ Under block blob and page blob shares, first-level entities are containers, and 
 
 The following table shows the UNC path to the shares on your Data Box and Azure Storage path URL where the data is uploaded. The final Azure Storage path URL can be derived from the UNC share path.
  
-|                   |                                                            |
+| Azure Storage type| Data Box shares                                       |
 |-------------------|--------------------------------------------------------------------------------|
 | Azure Block blobs | <li>UNC path to shares: `//<DeviceIPAddress>/<StorageAccountName_BlockBlob>/<ContainerName>/files/a.txt`</li><li>Azure Storage URL: `https://<StorageAccountName>.blob.core.windows.net/<ContainerName>/files/a.txt`</li> |  
 | Azure Page blobs  | <li>UNC path to shares: `//<DeviceIPAddres>/<StorageAccountName_PageBlob>/<ContainerName>/files/a.txt`</li><li>Azure Storage URL: `https://<StorageAccountName>.blob.core.windows.net/<ContainerName>/files/a.txt`</li>   |  
@@ -54,7 +54,7 @@ If you are using a Linux host computer, perform the following steps to configure
 
 1. Supply the IP addresses of the allowed clients that can access the share. In the local web UI, go to **Connect and copy** page. Under **NFS settings**, click **NFS client access**. 
 
-    ![Configure NFS client access 1](media/data-box-deploy-copy-data/nfs-client-access.png)
+    ![Configure NFS client access](media/data-box-deploy-copy-data/nfs-client-access-1.png)
 
 2. Supply the IP address of the NFS client and click **Add**. You can configure access for multiple NFS clients by repeating this step. Click **OK**.
 
@@ -81,7 +81,7 @@ If you are using a Linux host computer, perform the following steps to configure
 Once you are connected to the Data Box shares, the next step is to copy data. Before you begin the data copy, review the following considerations:
 
 * Ensure that you copy the data to shares that correspond to the appropriate data format. For instance, copy the block blob data to the share for block blobs. Copy VHDs to page blobs. If the data format does not match the appropriate share type, then at a later step, the data upload to Azure will fail.
-*  While copying data, ensure that the data size conforms to the size limits described in the [Azure storage and Data Box limits](data-box-limits.md). 
+*  While copying data, ensure that the data size conforms to the size limits described in the [Azure storage account size limits](data-box-limits.md#azure-storage-account-size-limits).
 * If data, which is being uploaded by Data Box, is concurrently uploaded by other applications outside of Data Box, then this could result in upload job failures and data corruption.
 * We recommend that you do not use both SMB and NFS concurrently or copy same data to same end destination on Azure. In such cases, the final outcome cannot be determined.
 * **Always create a folder for the files that you intend to copy under the share and then copy the files to that folder**. The folder created under block blob and page blob shares represents a container to which data is uploaded as blobs. You cannot copy files directly to *root* folder in the storage account.
@@ -135,7 +135,19 @@ If using rsync option for a multi-threaded copy, follow these guidelines:
 > [!IMPORTANT]
 > The following Linux file types are not supported: symbolic links, character files, block files, sockets, and pipes. These file types will result in failures during the **Prepare to ship** step.
 
-Open the target folder to view and verify the copied files. If you have any errors during the copy process, download the error files for troubleshooting. For more information, see [View error logs during data copy to Data Box](data-box-logs.md#view-error-log-during-data-copy). For a detailed list of errors during data copy, see [Troubleshoot Data Box issues](data-box-troubleshoot.md).
+During the copy process, if there are any errors, you will see a notification.
+
+![Download and view errors on Connect and copy](media/data-box-deploy-copy-data/view-errors-1.png)
+
+Select **Download issue list**.
+
+![Download the issues list for a copy error](media/data-box-deploy-copy-data/view-errors-2.png)
+
+Open the list to view the details of the error and select the resolution URL to view the recommended resolution.
+
+![Issues in a copy error issues list](media/data-box-deploy-copy-data/view-errors-3.png)
+
+For more information, see [View error logs during data copy to Data Box](data-box-logs.md#view-error-log-during-data-copy). For a detailed list of errors during data copy, see [Troubleshoot Data Box issues](data-box-troubleshoot.md).
 
 To ensure data integrity, checksum is computed inline as the data is copied. Once the copy is complete, verify the used space and the free space on your device.
 

@@ -6,8 +6,9 @@ author: v-miegge
 manager: dcscontentpm
 tags: billing
 ms.service: cost-management-billing
-ms.topic: conceptual
-ms.date: 02/12/2020
+ms.subservice: billing
+ms.topic: troubleshooting
+ms.date: 08/20/2020
 ms.author: v-miegge
 ---
 
@@ -125,7 +126,7 @@ Use the following steps to update your browser's cookie settings.
 
 ### I saw a charge on my free trial account
 
-You may see a small, temporary verification hold on your credit card account after you sign up. This hold is removed within three to five days. If you are worried about managing costs, read more about [preventing unexpected costs](https://docs.microsoft.com/azure/cost-management-billing/manage/getting-started).
+You may see a small, temporary verification hold on your credit card account after you sign up. This hold is removed within three to five days. If you are worried about managing costs, read more about [Analyzing unexpected charges](../understand/analyze-unexpected-charges.md).
 
 ## Agreement
 

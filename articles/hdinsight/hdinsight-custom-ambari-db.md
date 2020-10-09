@@ -5,8 +5,8 @@ author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.topic: conceptual
-ms.date: 10/29/2019
+ms.topic: how-to
+ms.date: 06/24/2019
 ms.author: hrasheed
 ---
 # Set up HDInsight clusters with a custom Ambari DB
@@ -32,6 +32,7 @@ You can deploy a custom Ambari DB with all cluster types and versions. Multiple 
 
 The custom Ambari DB has the following other requirements:
 
+- The name of the database cannot contain hyphens or spaces
 - You must have an existing Azure SQL DB server and database.
 - The database that you provide for Ambari setup must be empty. There should be no tables in the default dbo schema.
 - The user used to connect to the database should have SELECT, CREATE TABLE, and INSERT permissions on the database.

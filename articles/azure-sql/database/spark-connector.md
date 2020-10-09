@@ -2,24 +2,27 @@
 title: Use the Spark connector with Microsoft Azure SQL and SQL Server
 description: Learn how to use the Spark Connector with Azure SQL Database, Azure SQL Managed Instance, and SQL Server.
 services: sql-database
-ms.service: sql-database
+ms.service: sql-db-mi
 ms.subservice: development
 ms.custom: sqldbrb=2
-ms.devlang: 
+ms.devlang:
 ms.topic: conceptual
 author: denzilribeiro
 ms.author: denzilr
-ms.reviewer: carlrab
-ms.date: 09/25/2018
+ms.reviewer: sstein
+ms.date: 09/02/2020
 ---
-# Accelerate real-time big data analytics using the Spark connector 
+# Accelerate real-time big data analytics using the Spark connector
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
+
+> [!NOTE]
+> As of Sep 2020, this connector is not actively maintained. However, [Apache Spark Connector for SQL Server and Azure SQL](https://docs.microsoft.com/sql/connect/spark/connector) is now available, with support for Python and R bindings, an easier-to use interface to bulk insert data, and many other improvements. We strongly encourage you to evaluate and use the new connector instead of this one. The information about the old connector (this page) is only retained for archival purposes.
 
 The Spark connector enables databases in Azure SQL Database, Azure SQL Managed Instance, and SQL Server to act as the input data source or output data sink for Spark jobs. It allows you to utilize real-time transactional data in big data analytics and persist results for ad hoc queries or reporting. Compared to the built-in JDBC connector, this connector provides the ability to bulk insert data into your database. It can outperform row-by-row insertion with 10x to 20x faster performance. The Spark connector supports Azure Active Directory (Azure AD) authentication to connect to Azure SQL Database and Azure SQL Managed Instance, allowing you to connect your database from Azure Databricks using your Azure AD account. It provides similar interfaces with the built-in JDBC connector. It is easy to migrate your existing Spark jobs to use this new connector.
 
 ## Download and build a Spark connector
 
-To get started, download the Spark connector from the [azure-sqldb-spark repository](https://github.com/Azure/azure-sqldb-spark) on GitHub.
+The GitHub repo for the old connector previously linked to from this page is not actively maintained. Instead, we strongly encourage you to evaluate and use the [new connector](https://github.com/microsoft/sql-spark-connector).
 
 ### Official supported versions
 
@@ -42,7 +45,7 @@ The dataflow is as follows:
 
 The following diagram illustrates the data flow.
 
-   ![architecture](./media/spark-connector/architecture.png)
+   ![Diagram shows the described flow, with a master node connecting directly to the database and connecting to three worker nodes, which connect to the database.](./media/spark-connector/architecture.png)
 
 ### Build the Spark connector
 

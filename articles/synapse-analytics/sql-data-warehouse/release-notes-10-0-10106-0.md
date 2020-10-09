@@ -24,7 +24,6 @@ As new features are rolled out to all regions, check the version deployed to you
 
 For tooling improvements, make sure you have the correct version installed specified in the release note. 
 
-
 > [!NOTE]
 > The product name returned by SELECT @@VERSION will change from Microsoft Azure SQL Data Warehouse to Microsoft Azure Synapse Analytics. We will send advanced notice before the change is made. This change is relevant for customers who parse product name from the result of SELECT @@VERSION in their application code. To avoid application code changes due to product rebranding, please use these commands to query SERVERPROPERTY for the database product name and version:
 > To return version number XX.X.XXXXX.X (without product name) use this command:
@@ -32,10 +31,26 @@ For tooling improvements, make sure you have the correct version installed speci
 > ```sql
 > SELECT SERVERPROPERTY('ProductVersion')
 >
-> --To return engine edition, use this command that returns 6 for Azure Synapse Analytics (Formerly SQL Data Warehouse):
+> --To return engine edition, use this command that returns 6 for Azure Synapse Analytics (formerly SQL Data Warehouse):
 >
 > SELECT SERVERPROPERTY('EngineEdition')
 > ```
+
+## Aug 2020
+
+| Service improvements | Details |
+| --- | --- |
+|**Workload Management – Portal Experience**|Users can configure and manage their workload management settings via the Azure portal. The ability to configure [workload groups](/azure/synapse-analytics/sql-data-warehouse/quickstart-configure-workload-isolation-portal) and [workload classifiers](/azure/synapse-analytics/sql-data-warehouse/quickstart-create-a-workload-classifier-portal) with importance is possible.|
+|**Improved table mappings catalog view**|The new catalog view [sys.pdw_permanent_table_mappings](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-pdw-permanent-table-mappings-transact-sql?view=sqlallproducts-allversions) maps **object_ids** of permanent user tables to their physical table names.|
+
+## July 2020
+
+| Service improvements | Details |
+| --- | --- |
+|**Column-Level Encryption (Public Preview)**|Protect sensitive information in your Azure Synapse Analytics by applying symmetric encryption to a column of data using Transact-SQL. Column-level encryption has built-in functions you can use to encrypt data using symmetric keys that are further protected with a certificate, password, symmetric key, or asymmetric key. For more information, please visit [Encrypt a Column of Data](/sql/relational-databases/security/encryption/encrypt-a-column-of-data?view=azure-sqldw-latest).|
+|**Compatibility Level support (GA)**|With this release, users can now set a database's compatibility level to get the Transact-SQL language and query processing behaviors of a specific version of the Synapse SQL engine. For more information, see [sys.database_scoped_configurations](/sql/relational-databases/system-catalog-views/sys-database-scoped-configurations-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) and [Alter Database Scoped Configuration](/sql/t-sql/statements/alter-database-scoped-configuration-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest).|
+|**Row Level Security**|This release includes an improvement for update and delete operations on rows with RLS enforced on them. With this release, update and delete operations with intrinsic functions like ‘is_rolemember’ will succeed if the intrinsic does not reference any column in the DML target table. Before this improvement, these operations failed due to limitation in the underlying DML operations.|
+|**DBCC SHRINKDATABASE (GA)**|You can now shrink the size of the data and log files in the specified database. For more info, see the [documentation](https://docs.microsoft.com/sql/t-sql/database-console-commands/dbcc-shrinkdatabase-transact-sql?view=sql-server-ver15).|
 
 ## May 2020
 

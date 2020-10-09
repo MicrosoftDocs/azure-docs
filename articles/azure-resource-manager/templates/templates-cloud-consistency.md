@@ -565,11 +565,11 @@ In contrast, to specify a managed disk configuration in a template, remove the `
 }
 ```
 
-The same changes also apply [data disks](../../virtual-machines/windows/using-managed-disks-template-deployments.md).
+The same changes also apply [data disks](../../virtual-machines/using-managed-disks-template-deployments.md).
 
 ### Verify that VM extensions are available in Azure Stack
 
-Another consideration for cloud consistency is the use of [virtual machine extensions](../../virtual-machines/windows/extensions-features.md) to configure the resources inside a VM. Not all VM extensions are available in Azure Stack. A template can specify the resources dedicated to the VM extension, creating dependencies and conditions within the template.
+Another consideration for cloud consistency is the use of [virtual machine extensions](../../virtual-machines/extensions/features-windows.md) to configure the resources inside a VM. Not all VM extensions are available in Azure Stack. A template can specify the resources dedicated to the VM extension, creating dependencies and conditions within the template.
 
 For example, if you want to configure a VM running Microsoft SQL Server, the VM extension can configure SQL Server as part the template deployment. Consider what happens if the deployment template also contains an application server configured to create a database on the VM running SQL Server. Besides also using a VM extension for the application servers, you can configure the dependency of the application server on the successful return of the SQL Server VM extension resource. This approach ensures the VM running SQL Server is configured and available when the application server is instructed to create the database.
 
@@ -650,7 +650,7 @@ It's a challenge to keep track of all related settings, capabilities, and limita
 
 The following image shows a typical example of a development process for a team using an integrated development environment (IDE). At different stages in the timeline, different test types are executed. Here, two developers are working on the same solution, but this scenario applies equally to a single developer or a large team. Each developer typically creates a local copy of a central repository, enabling each one to work on the local copy without impacting the others who may be working on the same files.
 
-![Workflow](./media/templates-cloud-consistency/workflow.png)
+![Diagram shows two sets of unit tests and integration tests in parallel on local I D E, which merge in the C I / C D development flow into unit tests, then integration tests, then test deployment, then deployment.](./media/templates-cloud-consistency/workflow.png)
 
 Consider the following tips for testing and automation:
 

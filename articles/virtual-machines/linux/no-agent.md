@@ -6,7 +6,7 @@ ms.service: virtual-machines-linux
 ms.subservice: imaging
 ms.topic: how-to
 ms.workload: infrastructure
-ms.date: 06/22/2020
+ms.date: 09/01/2020
 ms.author: danis
 ms.reviewer: cynthn
 ---
@@ -16,7 +16,7 @@ ms.reviewer: cynthn
 
 Microsoft Azure provides provisioning agents for Linux VMs in the form of the [walinuxagent](https://github.com/Azure/WALinuxAgent) or [cloud-init](https://github.com/canonical/cloud-init) (recommended). But there could be a scenario when you don't want to use either of these applications for your provisioning agent, such as:
 
-- Your Linux distro/version does not support cloud-init.
+- Your Linux distro/version does not support cloud-init/Linux Agent.
 - You require specific VM properties to be set, such as hostname.
 
 > [!NOTE] 
@@ -66,7 +66,7 @@ $ az vm create \
 Once the VM is provisioning, you can SSH into it and remove the Linux Agent:
 
 ```bash
-$ sudo apt remove -y waagent
+$ sudo apt purge -y waagent
 $ sudo rm -rf /var/lib/waagent /etc/waagent.conf /var/log/waagent.log
 ```
 
@@ -195,7 +195,7 @@ WantedBy=multi-user.target
 This systemd service does three things for basic provisioning:
 
 1. Reports ready to Azure (to indicate that it came up successfully).
-1. Renames the VM based off of the user-supplied VM name by pulling this data from IMDS.
+1. Renames the VM based off of the user-supplied VM name by pulling this data from [Azure Instance Metadata Service (IMDS)](https://docs.microsoft.com/azure/virtual-machines/linux/instance-metadata-service). **Note** IMDS also provides other [instance metadata](https://docs.microsoft.com/azure/virtual-machines/linux/instance-metadata-service#accessing-azure-instance-metadata-service), such as SSH Public Keys, so you can set more than the hostname.
 1. Disables itself so that it only runs on first boot and not on subsequent reboots.
 
 With the unit on the filesystem, run the following to enable it:

@@ -7,7 +7,7 @@ manager: celestedg
 
 ms.service: active-directory
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 05/18/2020
 ms.author: mimart
 ms.subservice: B2C
@@ -38,7 +38,7 @@ The following JSON code illustrates the data Azure AD B2C will send to your REST
 ```json
 {
     "objectId": "User objectId",
-    "language": "Current UI language"
+    "lang": "Current UI language"
 }
 ```
 

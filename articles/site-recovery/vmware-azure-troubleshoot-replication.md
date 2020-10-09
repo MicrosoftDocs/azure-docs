@@ -90,16 +90,16 @@ To resolve the issue, use the following steps to verify the network connectivity
    - InMage Scout Application Service
 4. On the Source Machine, examine the logs at the location for error details:
 
-       C:\Program Files (X86)\Microsoft Azure Site Recovery\agent\svagents*log
+    *C:\Program Files (X86)\Microsoft Azure Site Recovery\agent\svagents\*.log*
 
 ### Process server with no heartbeat [error 806]
 In case there is no heartbeat from the Process Server (PS), check that:
 1. PS VM is up and running
 2. Check following logs on the PS for error details:
 
-       C:\ProgramData\ASR\home\svsystems\eventmanager*.log
-       and
-       C:\ProgramData\ASR\home\svsystems\monitor_protection*.log
+    *C:\ProgramData\ASR\home\svsystems\eventmanager\*.log*\
+    and\
+    *C:\ProgramData\ASR\home\svsystems\monitor_protection\*.log*
 
 ### Master target server with no heartbeat [error 78022]
 
@@ -112,7 +112,7 @@ To resolve the issue, use the following steps to verify the service status:
     - Verify that the svagents service is running. If it is running, restart the service
     - Check the logs at the location for error details:
 
-          C:\Program Files (X86)\Microsoft Azure Site Recovery\agent\svagents*log
+        *C:\Program Files (X86)\Microsoft Azure Site Recovery\agent\svagents\*.log*
 3. To register master target with configuration server, navigate to folder **%PROGRAMDATA%\ASR\Agent**, and run the following on command prompt:
    ```
    cmd
@@ -142,25 +142,25 @@ Some of the most common issues are listed below
 **How to fix** : Refer Kb [article](https://support.microsoft.com/help/4493364/fix-error-occurs-when-you-back-up-a-virtual-machine-with-non-component)
 
 #### Cause 4: App-Consistency not enabled on Linux servers
-**How to fix** : Azure Site Recovery for Linux Operation System supports application custom scripts for app-consistency. The custom script with pre and post options will be used by the Azure Site Recovery Mobility Agent for app-consistency. [Here](https://docs.microsoft.com/azure/site-recovery/site-recovery-faq#replication) are the steps to enable it.
+**How to fix** : Azure Site Recovery for Linux Operation System supports application custom scripts for app-consistency. The custom script with pre and post options will be used by the Azure Site Recovery Mobility Agent for app-consistency. [Here](./site-recovery-faq.md#replication) are the steps to enable it.
 
 ### More causes due to VSS related issues:
 
 To troubleshoot further, Check the files on the source machine to get the exact error code for failure:
 
-    C:\Program Files (x86)\Microsoft Azure Site Recovery\agent\Application Data\ApplicationPolicyLogs\vacp.log
+*C:\Program Files (x86)\Microsoft Azure Site Recovery\agent\Application Data\ApplicationPolicyLogs\vacp.log*
 
 How to locate the errors in the file?
 Search for the string "vacpError"  by opening the vacp.log file in an editor
 
-    Ex: vacpError:220#Following disks are in FilteringStopped state [\\.\PHYSICALDRIVE1=5, ]#220|^|224#FAILED: CheckWriterStatus().#2147754994|^|226#FAILED to revoke tags.FAILED: CheckWriterStatus().#2147754994|^|
+`Ex: `**`vacpError`**`:220#Following disks are in FilteringStopped state [\\.\PHYSICALDRIVE1=5, ]#220|^|224#FAILED: CheckWriterStatus().#2147754994|^|226#FAILED to revoke tags.FAILED: CheckWriterStatus().#2147754994|^|`
 
 In the above example **2147754994** is the error code that tells you about the failure as shown below
 
 #### VSS writer is not installed - Error 2147221164
 
 *How to fix*: To generate application consistency tag, Azure Site Recovery uses Microsoft Volume Shadow copy Service (VSS). It installs a VSS Provider for its operation to take app consistency snapshots. This VSS Provider is installed as a service. In case the VSS Provider service is not installed, the application consistency snapshot creation fails with the error ID 0x80040154  "Class not registered". </br>
-Refer [article for VSS writer installation troubleshooting](https://docs.microsoft.com/azure/site-recovery/vmware-azure-troubleshoot-push-install#vss-installation-failures)
+Refer [article for VSS writer installation troubleshooting](./vmware-azure-troubleshoot-push-install.md#vss-installation-failures)
 
 #### VSS writer is disabled - Error 2147943458
 
@@ -188,6 +188,24 @@ Verify that the startup type of the VSS Provider service is set to **Automatic**
         - Azure Site Recovery VSS Provider
         - VDS service
 
+## Error ID 95001 - Insufficient permissions found
+
+This error occurs when trying to enable replication and the application folders don't have enough permissions.
+
+**How to fix**: To resolve this issue, make sure the IUSR user has owner role for all the below mentioned folders -
+
+- *C\ProgramData\Microsoft Azure Site Recovery\private*
+- The installation directory. For example, if installation directory is F drive, then provide the correct permissions to -
+    - *F:\Program Files (x86)\Microsoft Azure Site Recovery\home\svsystems*
+- The *\pushinstallsvc* folder in installation directory. For example, if installation directory is F drive, provide the correct permissions to -
+    - *F:\Program Files (x86)\Microsoft Azure Site Recovery\home\svsystems\pushinstallsvc*
+- The *\etc* folder in installation directory. For example, if installation directory is F drive, provide the correct permissions to -
+    - *F:\Program Files (x86)\Microsoft Azure Site Recovery\home\svsystems\etc*
+- *C:\Temp*
+- *C:\thirdparty\php5nts*
+- All the items under the below path -
+    - *C:\thirdparty\rrdtool-1.2.15-win32-perl58\rrdtool\Release\**
+
 ## Next steps
 
-If you need more help, post your question in the [Microsoft Q&A question page for Azure Site Recovery](https://docs.microsoft.com/answers/topics/azure-site-recovery.html). We have an active community, and one of our engineers can assist you.
+If you need more help, post your question in the [Microsoft Q&A question page for Azure Site Recovery](/answers/topics/azure-site-recovery.html). We have an active community, and one of our engineers can assist you.

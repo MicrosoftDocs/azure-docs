@@ -12,7 +12,7 @@ ms.date: 02/25/2020
 
 You can create an Azure Database for MySQL server in one of three different pricing tiers: Basic, General Purpose, and Memory Optimized. The pricing tiers are differentiated by the amount of compute in vCores that can be provisioned, memory per vCore, and the storage technology used to store the data. All resources are provisioned at the MySQL server level. A server can have one or many databases.
 
-|    | **Basic** | **General Purpose** | **Memory Optimized** |
+| Attribute   | **Basic** | **General Purpose** | **Memory Optimized** |
 |:---|:----------|:--------------------|:---------------------|
 | Compute generation | Gen 4, Gen 5 | Gen 4, Gen 5 | Gen 5 |
 | vCores | 1, 2 | 2, 4, 8, 16, 32, 64 |2, 4, 8, 16, 32 |
@@ -38,7 +38,7 @@ Compute resources are provided as vCores, which represent the logical CPU of the
 
 The storage you provision is the amount of storage capacity available to your Azure Database for MySQL server. The storage is used for the database files, temporary files, transaction logs, and the MySQL server logs. The total amount of storage you provision also defines the I/O capacity available to your server.
 
-|    | **Basic** | **General Purpose** | **Memory Optimized** |
+| Storage attribute   | Basic | General purpose | Memory optimized |
 |:---|:----------|:--------------------|:---------------------|
 | Storage type | Basic Storage | General Purpose Storage | General Purpose Storage |
 | Storage size | 5 GB to 1 TB | 5 GB to 16 TB | 5 GB to 16 TB |
@@ -78,9 +78,9 @@ For example, if you have provisioned 1000 GB of storage, and the actual utilizat
 
 Remember that storage can only be scaled up, not down.
 
-## Backup
+## Backup storage 
 
-The service automatically takes backups of your server. You can select a retention period from a range of 7 to 35 days. General Purpose and Memory Optimized servers can choose to have geo-redundant storage for backups. Learn more about backups in the [concepts article](concepts-backup.md).
+Azure Database for MySQL provides up to 100% of your provisioned server storage as backup storage at no additional cost. Any backup storage you use in excess of this amount is charged in GB per month. For example, if you provision a server with 250 GB of storage, you’ll have 250 GB of additional storage available for server backups at no charge. Storage for backups in excess of the 250 GB is charged as per the [pricing model](https://azure.microsoft.com/pricing/details/mysql/). To understand factors influencing backup storage usage, monitoring and controlling backup storage cost, you can refer to the [backup documentation](concepts-backup.md).
 
 ## Scale resources
 

@@ -1,8 +1,9 @@
 ---
 title: Customer-managed transparent data encryption (TDE)
 description: "Bring Your Own Key (BYOK) support for Transparent Data Encryption (TDE) with Azure Key Vault for SQL Database and Azure Synapse Analytics. TDE with BYOK overview, benefits, how it works, considerations, and recommendations."
+titleSuffix: Azure SQL Database & SQL Managed Instance & Azure Synapse Analytics 
 services: sql-database
-ms.service: sql-database
+ms.service: sql-db-mi
 ms.subservice: security
 ms.custom: seo-lt-2019, azure-synapse
 ms.devlang:
@@ -23,6 +24,9 @@ For Azure SQL Database and Azure Synapse Analytics, the TDE protector is set at 
 
 > [!IMPORTANT]
 > For those using service-managed TDE who would like to start using customer-managed TDE, data remains encrypted during the process of switching over, and there is no downtime nor re-encryption of the database files. Switching from a service-managed key to a customer-managed key only requires re-encryption of the DEK, which is a fast and online operation.
+
+> [!NOTE]
+> To provide Azure SQL customers with two layers of encryption of data at rest, infrastructure encryption (using AES-256 encryption algorithm) with platform managed keys is being rolled out. This provides an addition layer of encryption at rest along with TDE with customer-managed keys, which is already available. At this time, customers must request access to this capability. If you are interested in this capability, contact AzureSQLDoubleEncryptionAtRest@service.microsoft.com .
 
 ## Benefits of the customer-managed TDE
 
@@ -52,7 +56,7 @@ For server to be able to use TDE protector stored in AKV for encryption of the D
 
 - **unwrapKey** - to be able to unprotect (decrypt) DEK
 
-Key vault administrator can also [enable logging of key vault audit events](../../azure-monitor/insights/azure-key-vault.md), so they can be audited later.
+Key vault administrator can also [enable logging of key vault audit events](../../azure-monitor/insights/key-vault-insights-overview.md), so they can be audited later.
 
 When server is configured to use a TDE protector from AKV, the server sends the DEK of each TDE-enabled database to the key vault for encryption. Key vault returns the encrypted DEK, which is then stored in the user database.
 
@@ -68,7 +72,7 @@ Auditors can use Azure Monitor to review key vault AuditEvent logs, if logging i
 
 - Key vault and SQL Database/managed instance must belong to the same Azure Active Directory tenant. Cross-tenant key vault and server interactions are not supported. To move resources afterwards, TDE with AKV will have to be reconfigured. Learn more about [moving resources](../../azure-resource-manager/management/move-resource-group-and-subscription.md).
 
-- [Soft-delete](../../key-vault/general/overview-soft-delete.md) feature must be enabled on the key vault, to protect from data loss accidental key (or key vault) deletion happens. Soft-deleted resources are retained for 90 days, unless recovered or purged by the customer in the meantime. The *recover* and *purge* actions have their own permissions associated in a key vault access policy. Soft-delete feature is off by default and can be enabled via [PowerShell](../../key-vault/general/soft-delete-powershell.md#enabling-soft-delete) or [the CLI](../../key-vault/general/soft-delete-cli.md#enabling-soft-delete). It cannot be enabled via the Azure portal.  
+- [Soft-delete](../../key-vault/general/soft-delete-overview.md) feature must be enabled on the key vault, to protect from data loss accidental key (or key vault) deletion happens. Soft-deleted resources are retained for 90 days, unless recovered or purged by the customer in the meantime. The *recover* and *purge* actions have their own permissions associated in a key vault access policy. Soft-delete feature is off by default and can be enabled via [PowerShell](../../key-vault/general/soft-delete-powershell.md#enabling-soft-delete) or [the CLI](../../key-vault/general/soft-delete-cli.md#enabling-soft-delete). It cannot be enabled via the Azure portal.  
 
 - Grant the server or managed instance access to the key vault (get, wrapKey, unwrapKey) using its Azure Active Directory identity. When using the Azure portal, the Azure AD identity gets automatically created. When using PowerShell or the CLI, the Azure AD identity must be explicitly created and completion should be verified. See [Configure TDE with BYOK](transparent-data-encryption-byok-configure.md) and [Configure TDE with BYOK for SQL Managed Instance](../managed-instance/scripts/transparent-data-encryption-byok-powershell.md) for detailed step-by-step instructions when using PowerShell.
 
@@ -83,6 +87,11 @@ Auditors can use Azure Monitor to review key vault AuditEvent logs, if logging i
 - The key must be in the *Enabled* state.
 
 - If you are importing existing key into the key vault, make sure to provide it in the supported file formats (.pfx, .byok, or .backup).
+
+> [!NOTE]
+> Azure SQL now supports using a RSA key stored in a Managed HSM as TDE Protector. This feature is in **public preview**. 
+Azure Key Vault Managed HSM is a fully managed, highly available, single-tenant, standards-compliant cloud service that enables you to safeguard cryptographic keys for your cloud applications, using FIPS 140-2 Level 3 validated HSMs. Learn more about [Managed HSMs](https://aka.ms/mhsm).
+
 
 ## Recommendations when configuring customer-managed TDE
 
@@ -122,6 +131,11 @@ After access to the key is restored, taking database back online requires additi
 - If key access is restored within 8 hours, the database will auto-heal within next hour.
 
 - If key access is restored after more than 8 hours, auto-heal is not possible and bringing the database back requires additional steps on the portal and can take a significant amount of time depending on the size of the database. Once the database is back online, previously configured server-level settings such as [failover group](auto-failover-group-overview.md) configuration, point-in-time-restore history, and tags **will be lost**. Therefore, it's recommended implementing a notification system that allows you to identify and address the underlying key access issues within 8 hours.
+
+Below is a view of the additional steps required on the portal to bring an inaccessible database back online.
+
+![TDE BYOK Inaccessible Database](./media/transparent-data-encryption-byok-overview/customer-managed-tde-inaccessible-database.jpg)
+
 
 ### Accidental TDE protector access revocation
 

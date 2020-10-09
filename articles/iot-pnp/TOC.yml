@@ -4,85 +4,115 @@
   items:
   - name: What is IoT Plug and Play?
     href: overview-iot-plug-and-play.md
+  - name: What's in the current release
+    href: overview-iot-plug-and-play-current-release.md
 - name: Quickstarts
   expanded: true
   items:
-  - name: Create a device
-    items:
-      - name: C Linux
-        href: quickstart-create-pnp-device-linux.md
-      - name: C Windows
-        href: quickstart-create-pnp-device-windows.md
+  - name: Set up your environment
+    href: set-up-environment.md
   - name: Connect a device to IoT Hub
     items:
-      - name: C Linux
-        href: quickstart-connect-pnp-device-c-linux.md
-      - name: C Windows
-        href: quickstart-connect-pnp-device-c-windows.md
-      - name: C#
-        href: quickstart-connect-pnp-device-csharp.md
-      - name: Java
-        href: quickstart-connect-pnp-device-java.md
+      - name: C
+        href: quickstart-connect-device-c.md
       - name: Node.js
-        href: quickstart-connect-pnp-device-node.md
-  - name: Connect a device to IoT Central
-    href: ../iot-central/core/tutorial-connect-pnp-device.md
-  - name: Connect to a device in your solution
+        href: quickstart-connect-device-node.md
+      - name: Python
+        href: quickstart-connect-device-python.md
+      - name: C#
+        href: quickstart-connect-device-csharp.md
+      - name: Java
+        href: quickstart-connect-device-java.md
+  - name: Interact with a device from your solution
     items:
-      - name: C#
-        href: quickstart-connect-pnp-device-solution-csharp.md
-      - name: Java
-        href: quickstart-connect-pnp-device-solution-java.md
       - name: Node.js
-        href: quickstart-connect-pnp-device-solution-node.md
+        href: quickstart-service-node.md
+      - name: Python
+        href: quickstart-service-python.md
+      - name: C#
+        href: quickstart-service-csharp.md
+      - name: Java
+        href: quickstart-service-java.md
 - name: Tutorials
   items:
-  - name: Create a device using VS Code
-    href: tutorial-pnp-visual-studio-code.md
-  - name: Build a device ready for certification
-    href: tutorial-build-device-certification.md
-  - name: Certify your device
-    href: tutorial-certification-test.md
+  - name: Connect a multiple component device (C)
+    href: tutorial-multiple-components-c.md
+  - name: Connect a multiple component device (C#)
+    href: tutorial-multiple-components-csharp.md
+  - name: Connect a multiple component device (Java)
+    href: tutorial-multiple-components-java.md
+  - name: Connect a multiple component device (Node.js)
+    href: tutorial-multiple-components-node.md
+  - name: Connect a multiple component device (Python)
+    href: tutorial-multiple-components-python.md
+  - name: Use MQTT to connect a device
+    href: tutorial-use-mqtt.md
+  - name: Interact with an MXChip device (Sample)
+    href: https://docs.microsoft.com/samples/azure-samples/mxchip-iot-devkit-pnp-get-started/sample/
+  - name: Migrate a device to a module
+    href: tutorial-migrate-device-to-module.md
 - name: Concepts
   items:
-  - name: Glossary
-    href: iot-plug-and-play-glossary.md
-  - name: Developer guide
-    href: concepts-developer-guide.md
-  - name: Common interfaces
-    href: concepts-common-interfaces.md
-  - name: Model discovery
+  - name: Architecture
+    href: concepts-architecture.md
+  - name: Device developer guide
+    items:
+    - name: C#
+      href: concepts-developer-guide-device-csharp.md
+    - name: Node.js
+      href: concepts-developer-guide-device-node.md
+    - name: Java
+      href: concepts-developer-guide-device-java.md
+    - name: Python
+      href: concepts-developer-guide-device-python.md
+    - name: C
+      href: concepts-developer-guide-device-c.md
+  - name: Service developer guide
+    href: concepts-developer-guide-service.md
+  - name: Components
+    href: concepts-components.md
+  - name: IoT Plug and Play conventions
+    href: concepts-convention.md
+  - name: IoT Plug and Play bridge
+    href: concepts-iot-pnp-bridge.md
+  - name: Digital twins
+    href: concepts-digital-twin.md
+  - name: Device certification
+    href: concepts-certification-program.md
+  - name: Model repository
+    href: concepts-model-repository.md
+  - name: Use models in a solution
     href: concepts-model-discovery.md
+  - name: Model parser
+    href: concepts-model-parser.md
   - name: Limits and quotas
     href: concepts-limits-quotas.md
+  - name: Glossary
+    href: iot-plug-and-play-glossary.md
 - name: How-to guides
   items:
-  - name: Develop with Visual Studio and Visual Studio Code
-    href: howto-develop-with-vs-vscode.md
-  - name: Install IoT explorer
-    href: howto-install-iot-explorer.md
-  - name: Install Azure CLI extension
-    href: howto-install-pnp-cli.md    
-  - name: Onboard to the IoT portal
-    href: howto-onboard-portal.md
-  - name: Manage models
-    href: howto-manage-models.md
-  - name: Connect to and interact with a device
-    href: howto-develop-solution.md
+  - name: Install and use IoT explorer
+    href: howto-use-iot-explorer.md
+  - name: Install and use IoT Plug and Play bridge
+    href: howto-use-iot-pnp-bridge.md
+  - name: Install and use Azure IoT CLI extension
+    href: howto-use-iot-pnp-cli.md
+  - name: Install and use DTDL authoring tools
+    href: howto-use-dtdl-authoring-tools.md
+  - name: Use embedded C
+    href: howto-use-embedded-c.md
+  - name: Manage digital twins
+    href: howto-manage-digital-twin.md
+  - name: Certify a device
+    href: howto-certify-device.md
 - name: Reference
   items:
   - name: Libraries and SDKs
     href: libraries-sdks.md
-  - name: REST API
-    items:
-    - name: Digital Twin
-      href: https://docs.microsoft.com/rest/api/iothub/digitaltwinmodel/digitaltwin
-    - name: Digital Twin service
-      href: https://docs.microsoft.com/rest/api/iothub/digitaltwinmodel/service
-    - name: Digital Twin model repository
-      href: https://docs.microsoft.com/rest/api/iothub/digitaltwinmodelrepositoryservice/createorupdatemodel
-    - name: Generate a REST security token
-      href: howto-generate-sas-token.md
+  - name: Digital Twin REST API
+    href: https://docs.microsoft.com/rest/api/iothub/service/digitaltwin
+  - name: Azure CLI
+    href: /cli/azure/azure-cli-reference-for-IoT
 - name: Resources
   items:
   - name: Support and help options

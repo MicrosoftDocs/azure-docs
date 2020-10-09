@@ -10,7 +10,7 @@ ms.devlang:
 ms.topic: conceptual
 author: bonova
 ms.author: bonova
-ms.reviewer: sstein, carlrab
+ms.reviewer: sstein
 ms.date: 09/05/2019
 ---
 # What is an Azure SQL Managed Instance pool (preview)?
@@ -73,6 +73,7 @@ There are several resource limitations regarding instance pools and instances in
 - In addition to instance-level limits, there are also two limits imposed *at the instance pool level*:
   - Total storage size per pool (8 TB).
   - Total number of databases per pool (100).
+- AAD Admin cannot be set for the instances deployed inside the instance pool therefore AAD Authentication can't be used.
 
 Total storage allocation and number of databases across all instances must be lower than or equal to the limits exposed by instance pools.
 

@@ -19,7 +19,7 @@ ms.custom: devops
 
 # Tutorial - Configure the rolling deployment strategy for Azure Linux virtual machines
 
-Azure DevOps is a built-in Azure service that automates each part of the DevOps process for any Azure resource. Whether your app uses virtual machines, web apps, Kubernetes, or any other resource, you can implement infrastructure as code (IaaC), continuous integration, continuous testing, continuous delivery, and continuous monitoring with Azure and Azure DevOps.
+Azure DevOps is a built-in Azure service that automates each part of the DevOps process for any Azure resource. Whether your app uses virtual machines, web apps, Kubernetes, or any other resource, you can implement infrastructure as code (IaC), continuous integration, continuous testing, continuous delivery, and continuous monitoring with Azure and Azure DevOps.
 
 ![The Azure portal with Azure DevOps selected under Services](media/tutorial-devops-azure-pipelines-classic/azdevops-view.png)
 
@@ -31,7 +31,7 @@ This article shows how to set up a CI/CD pipeline for rolling multimachine deplo
 
 ### Configure CI/CD on virtual machines
 
-You can add virtual machines as targets to a [deployment group](https://docs.microsoft.com/azure/devops/pipelines/release/deployment-groups). You can then target them for multimachine updates. After you deploy to machines, view **Deployment History** within a deployment group. This view lets you trace from VM to the pipeline and then to the commit.
+You can add virtual machines as targets to a [deployment group](/azure/devops/pipelines/release/deployment-groups). You can then target them for multimachine updates. After you deploy to machines, view **Deployment History** within a deployment group. This view lets you trace from VM to the pipeline and then to the commit.
 
 ### Rolling deployments
 
@@ -91,5 +91,5 @@ You can get started with Azure easily. With Azure DevOps Projects, start running
  
 ## Additional resources
 
-- [Deploy to Azure virtual machines by using Azure DevOps Projects](https://docs.microsoft.com/azure/devops-project/azure-devops-project-vms)
-- [Implement continuous deployment of your app to an Azure virtual machine scale set](https://docs.microsoft.com/azure/devops/pipelines/apps/cd/azure/deploy-azure-scaleset)
+- [Deploy to Azure virtual machines by using Azure DevOps Projects](../../devops-project/azure-devops-project-vms.md)
+- [Implement continuous deployment of your app to an Azure virtual machine scale set](/azure/devops/pipelines/apps/cd/azure/deploy-azure-scaleset)

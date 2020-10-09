@@ -1,4 +1,4 @@
-- name: Virtual Network Documentation
+- name: Virtual Network documentation
   href: index.yml
 - name: Overview
   items:
@@ -12,6 +12,8 @@
     href: quick-create-powershell.md
   - name: Create virtual network - Azure CLI
     href: quick-create-cli.md
+  - name: Create virtual network - ARM template
+    href: quick-create-template.md
   expanded: true
 - name: Tutorials
   items:
@@ -35,9 +37,6 @@
     href: powershell-samples.md
   - name: Resource Manager templates
     href: template-samples.md
-  - name: Azure Policy built-ins
-    displayName: samples, policies, definitions
-    href: ./policy-samples.md
 - name: Concepts
   items:
   - name: Business continuity
@@ -92,10 +91,18 @@
       href: ipv6-public-ip-address-prefix.md
     - name: Routing preference
       href: routing-preference-overview.md 
+    - name: Public IP security baseline
+      href: public-ip-security-baseline.md
   - name: Security
     items:
+    - name: Security baseline
+      href: security-baseline.md
     - name: Network security groups
-      href: security-overview.md
+      items:
+      - name: Overview
+        href: network-security-groups-overview.md
+      - name: How it works
+        href: network-security-group-how-it-works.md
     - name: Application security groups
       href: application-security-groups.md
     - name: Service tags 
@@ -108,6 +115,9 @@
       href: ddos-protection-overview.md
     - name: Virtual network TAP
       href: virtual-network-tap-overview.md
+    - name: Security controls by Azure Policy
+      displayName: regulatory, compliance, standards, domains
+      href: ./security-controls-policy.md
   - name: Subnets
     items:
     - name: Subnet extension
@@ -220,6 +230,12 @@
         href: ipv6-reserve-public-ip-address-prefix.md       
     - name: IP addressing
       items:
+      - name: Create public IP addresses - portal
+        href: create-public-ip-portal.md
+      - name: Create public IP addresses - PowerShell
+        href: create-public-ip-powershell.md
+      - name: Create public IP addresses - Azure CLI
+        href: create-public-ip-cli.md                
       - name: Manage public IP addresses
         href: virtual-network-public-ip-address.md
       - name: Manage public IP prefix
@@ -347,7 +363,7 @@
         - name: Setup DPDK
           href: setup-dpdk.md
     - name: TCP/IP Performance Tuning for Azure VMs
-      href: virtual-network-tcpip-performance-tuning.md    
+      href: virtual-network-tcpip-performance-tuning.md
     - name: Virtual machine network throughput
       href: virtual-machine-network-throughput.md
   - name: Move across regions
@@ -427,6 +443,9 @@
     href: /azure/templates/microsoft.network/allversions
   - name: Code samples
     href: https://azure.microsoft.com/resources/samples/?service=virtual-network
+  - name: Azure Policy built-ins
+    displayName: samples, policies, definitions
+    href: ./policy-reference.md
 - name: Resources
   items:
   - name: Build your skills with Microsoft Learn

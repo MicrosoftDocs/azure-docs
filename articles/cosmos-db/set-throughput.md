@@ -5,7 +5,7 @@ author: markjbrown
 ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 05/19/2020
+ms.date: 08/19/2020
 ---
 
 # Introduction to provisioned throughput in Azure Cosmos DB
@@ -35,7 +35,7 @@ We recommend that you configure throughput at the container granularity when you
 
 The following image shows how a physical partition hosts one or more logical partitions of a container:
 
-:::image type="content" source="./media/set-throughput/resource-partition.png" alt-text="Physical partition" border="false":::
+:::image type="content" source="./media/set-throughput/resource-partition.png" alt-text="Physical partition that hosts one or more logical partitions of a container" border="false":::
 
 ## Set throughput on a database
 
@@ -62,7 +62,7 @@ All containers created inside a database with provisioned throughput must be cre
 
 If the workload on a logical partition consumes more than the throughput that's allocated to a specific logical partition, your operations are rate-limited. When rate-limiting occurs, you can either increase the throughput for the entire database or retry the operations. For more information on partitioning, see [Logical partitions](partition-data.md).
 
-Containers in a shared throughput database share the throughput (RU/s) allocated to that database. You can have up to four containers with a minimum of 400 RU/s on the database. With standard (manual) provisioned throughput, each new container after the first four will require an additional 100 RU/s minimum. For example, if you have a shared throughput database with eight containers, the minimum RU/s on the database will be 800 RU/s. With autoscale provisioned throughput, you can have up to 25 containers in a database with autoscale max RU/s 4000 RU/s (scales between 400 - 4000 RU/s).
+Containers in a shared throughput database share the throughput (RU/s) allocated to that database. You can have up to four containers with a minimum of 400 RU/s on the database. With standard (manual) provisioned throughput, each new container after the first four will require an additional 100 RU/s minimum. For example, if you have a shared throughput database with eight containers, the minimum RU/s on the database will be 800 RU/s. With autoscale provisioned throughput, you can have up to 25 containers in a database with autoscale max 4000 RU/s (scales between 400 - 4000 RU/s).
 
 > [!NOTE]
 > In February 2020, we introduced a change that allows you to have a maximum of 25 containers in a shared throughput database, which  better enables throughput sharing across the containers. After the first 25 containers, you can add more containers to the database only if they are [provisioned with dedicated throughput](#set-throughput-on-a-database-and-a-container), which is separate from the shared throughput of the database.<br>
@@ -70,7 +70,7 @@ If your Azure Cosmos DB account already contains a shared throughput database wi
 
 If your workloads involve deleting and recreating all the collections in a database, it is recommended that you drop the empty database and recreate a new database prior to collection creation. The following image shows how a physical partition can host one or more logical partitions that belong to different containers within a database:
 
-:::image type="content" source="./media/set-throughput/resource-partition2.png" alt-text="Physical partition" border="false":::
+:::image type="content" source="./media/set-throughput/resource-partition2.png" alt-text="Physical partition that hosts one or more logical partitions that belong to different containers " border="false":::
 
 ## Set throughput on a database and a container
 
@@ -91,7 +91,7 @@ You can combine the two models. Provisioning throughput on both the database and
 
 After you create an Azure Cosmos container or a database, you can update the provisioned throughput. There is no limit on the maximum provisioned throughput that you can configure on the database or the container. 
 
-To estimate the [minimum provisioned throughput](concepts-limits.md#storage-and-throughput) of a database or container, find the maximum of:
+To estimate the [minimum provisioned throughput](concepts-limits.md#storage-and-database-operations) of a database or container, find the maximum of:
 
 * 400 RU/s 
 * Current storage in GB * 10 RU/s
@@ -100,11 +100,11 @@ To estimate the [minimum provisioned throughput](concepts-limits.md#storage-and-
 
 The actual minimum RU/s may vary depending on your account configuration. You can use [Azure Monitor metrics](monitor-cosmos-db.md#view-operation-level-metrics-for-azure-cosmos-db) to view the history of provisioned throughput (RU/s) and storage on a resource.
 
-You can retrieve the minimum throughput of a container or a database programmatically by using the SDKs or view the value in the Azure portal. When using the .NET SDK, the [DocumentClient.ReplaceOfferAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.documents.client.documentclient.replaceofferasync?view=azure-dotnet) method allows you to scale the provisioned throughput value. When using the Java SDK, the [RequestOptions.setOfferThroughput](sql-api-java-sdk-samples.md) method allows you to scale the provisioned throughput value. 
+You can retrieve the minimum throughput of a container or a database programmatically by using the SDKs or view the value in the Azure portal. When using the .NET SDK, the [container.ReplaceThroughputAsync](/dotnet/api/microsoft.azure.cosmos.container.replacethroughputasync?view=azure-dotnet&preserve-view=true) method allows you to scale the provisioned throughput value. When using the Java SDK, the [CosmosContainer.replaceProvisionedThroughput](sql-api-java-sdk-samples.md) method allows you to scale the provisioned throughput value.
 
-When using the .NET SDK, the [DocumentClient.ReadOfferAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.documents.client.documentclient.readofferasync?view=azure-dotnet) method allows you to retrieve the minimum throughput of a container or a database. 
+When using the .NET SDK, the [Container.ReadThroughputAsync](/dotnet/api/microsoft.azure.cosmos.container.readthroughputasync?view=azure-dotnet&preserve-view=true) method allows you to retrieve the minimum throughput of a container or a database. 
 
-You can scale the provisioned throughput of a container or a database at any time. When a scale operation is performed to increase the throughput, it can take longer time due to the system tasks to provision the required resources. You can check the status of the scale operation in Azure portal or programmatically using the SDKs. When using the .NET SDK, you can get the status of the scale operation by using the `DocumentClient.ReadOfferAsync` method.
+You can scale the provisioned throughput of a container or a database at any time. When a scale operation is performed to increase the throughput, it can take longer time due to the system tasks to provision the required resources. You can check the status of the scale operation in Azure portal or programmatically using the SDKs. When using the .NET SDK, you can get the status of the scale operation by using the `Container.ReadThroughputAsync` method.
 
 ## Comparison of models
 This table shows a comparison between provisioning standard (manual) throughput on a database vs. on a container. 

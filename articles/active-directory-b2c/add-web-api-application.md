@@ -8,7 +8,7 @@ manager: celestedg
 ms.author: mimart
 ms.date: 04/16/2019
 ms.custom: mvc
-ms.topic: conceptual
+ms.topic: how-to
 ms.service: active-directory
 ms.subservice: B2C
 ---

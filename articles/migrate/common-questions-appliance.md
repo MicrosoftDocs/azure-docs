@@ -2,7 +2,7 @@
 title: Azure Migrate appliance FAQ
 description: Get answers to common questions about the Azure Migrate appliance.
 ms.topic: conceptual
-ms.date: 06/03/2020
+ms.date: 09/15/2020
 ---
 
 # Azure Migrate appliance: Common questions
@@ -16,7 +16,7 @@ This article answers common questions about the Azure Migrate appliance. If you 
 
 ## What is the Azure Migrate appliance?
 
-The Azure Migrate appliance is a lightweight appliance that the Azure Migrate: Server Assessment tool uses to discover and assess on-premises servers. The Azure Migrate: Server Migration tool also uses the appliance for agentless migration of on-premises VMware VMs.
+The Azure Migrate appliance is a lightweight appliance that the Azure Migrate: Server Assessment tool uses to discover and assess physical or virtual servers from on-premises or any cloud. The Azure Migrate: Server Migration tool also uses the appliance for agentless migration of on-premises VMware VMs.
 
 Here's more information about the Azure Migrate appliance:
 
@@ -30,14 +30,19 @@ Here's more information about the Azure Migrate appliance:
 
 The appliance can be deployed as follows:
 
-- Using a template for VMware VMs and Hyper-V VMs (OVA template for VMware or VHD for Hyper-V).
-- If you don't want to use a template, or you're in Azure Government, you can deploy the appliance for VMware or Hyper-V using a PowerShell script.
-- For physical servers, you always deploy the appliance using a script.
-
+- Using a template for discovery of VMware VMs (.OVA file) and Hyper-V VMs (.VHD file) to create a new VM which hosts the appliance.
+- If you don't want to use a template, you can deploy the appliance on an existing physical or virtual machine for discovery of VMware VMs or Hyper-V VMs using a PowerShell installer script, available for download in a zip file from portal.
+- For physical or virtual servers from on-premises or any cloud, you always deploy the appliance using a script on an existing server.
+- For Azure Government, all three appliances can only be deployed using the PowerShell installer script.
 
 ## How does the appliance connect to Azure?
 
-The appliance can connect over the internet or by using Azure ExpressRoute with public/Microsoft peering.
+The appliance can connect via the internet or by using Azure ExpressRoute. Make sure these [URLs](https://docs.microsoft.com/azure/migrate/migrate-appliance#url-access) are approved for the appliance to connect to Azure.
+
+- To use Azure ExpressRoute for Azure Migrate replication traffic, Microsoft peering or an existing public peering is required (Public peering is deprecated for new ER creations).
+- Replication over Azure ExpressRoute with (only) private peering enabled is not supported.
+
+Azure ExpressRoute with Microsoft peering configured is the recommended routing domain for replication traffic.
 
 ## Does appliance analysis affect performance?
 
@@ -49,15 +54,15 @@ When you use the downloaded template to create the appliance VM, you can add com
 
 ## What network connectivity is required?
 
-
 The appliance needs access to Azure URLs. [Review](migrate-appliance.md#url-access) the URL list.
 
 ## What data does the appliance collect?
 
 See the following articles for information about data that the Azure Migrate appliance collects on VMs:
 
-- **VMware VM**: [Review](migrate-appliance.md#collected-data---vmware) collected data. [
+- **VMware VM**: [Review](migrate-appliance.md#collected-data---vmware) collected data.
 - **Hyper-V VM**: [Review](migrate-appliance.md#collected-data---hyper-v) collected data.
+- **Physical or virtual servers**:[Review](migrate-appliance.md#collected-data---physical) collected data.
 
 ## How is data stored?
 
@@ -66,7 +71,7 @@ Data that's collected by the Azure Migrate appliance is stored in the Azure loca
 Here's more information about how data is stored:
 
 - The collected data is securely stored in CosmosDB in a Microsoft subscription. The data is deleted when you delete the Azure Migrate project. Storage is handled by Azure Migrate. You can't specifically choose a storage account for collected data.
-- If you use [dependency visualization](concepts-dependency-visualization.md), the data that's collected is stored in the United States in an Azure Log Analytics workspace created in your Azure subscription. The data is deleted when you delete the Log Analytics workspace in your subscription.
+- If you use [dependency visualization](concepts-dependency-visualization.md), the data that's collected is stored in an Azure Log Analytics workspace created in your Azure subscription. The data is deleted when you delete the Log Analytics workspace in your subscription. 
 
 ## How much data is uploaded during continuous profiling?
 
@@ -94,11 +99,12 @@ These steps describe how the appliance connects to VMware vCenter Server:
 No. There's a one-to-one mapping between an [Azure Migrate appliance](migrate-appliance.md) and vCenter Server. To discover VMs on multiple vCenter Server instances, you must deploy multiple appliances. 
 
 ## Can an Azure Migrate project have multiple appliances?
+
 A project can have multiple appliances attached to it. However, an appliance can only be associated with one project. 
 
 ## Can the Azure Migrate appliance/Replication appliance connect to the same vCenter?
-Yes. You can add both the Azure Migrate appliance (used for assessment and agentless VMware migration), and the replication appliance (used for agent-based migration of VMware VMs) to the same vCenter server.
 
+Yes. You can add both the Azure Migrate appliance (used for assessment and agentless VMware migration), and the replication appliance (used for agent-based migration of VMware VMs) to the same vCenter server. But make sure that you are not setting up both appliances on the same VM and that is currently not supported.
 
 ## How many VMs or servers can I discover with an appliance?
 
@@ -114,7 +120,9 @@ However, deleting the resource group also deletes other registered appliances, t
 
 ## Can I use the appliance with a different subscription or project?
 
-After you use the appliance to initiate discovery, you can't reconfigure the appliance to use with a different Azure subscription, and you can't use it in a different Azure Migrate project. You also can't discover VMs on a different instance of vCenter Server. Set up a new appliance for these tasks.
+To use the appliance with a different subscription or project, you would need to re-configure the existing appliance by running the PowerShell installer script for the specific scenario (VMware/Hyper-V/Physical) on the appliance machine. The script will clean up the existing appliance components and settings to deploy a fresh appliance. Please ensure to clear the browser cache before you start using the newly deployed appliance configuration manager.
+
+Also, you cannot re-use an existing Azure Migrate project key on a re-configured appliance. Make sure you generate a new key from the desired subscription/project to complete the appliance registration.
 
 ## Can I set up the appliance on an Azure VM?
 

@@ -39,11 +39,11 @@ Validate the following before you begin the HANA installation:
 
 After you receive the HANA Large Instance unit from Microsoft, validate the following settings and adjust as necessary.
 
-The **first step** after you receive the HANA Large Instance and establish access and connectivity to the instances, is to check in Azure portal whether the instance(s) are showing up with the correct SKUs and OS. Read [Azure HANA Large Instances control through Azure portal](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-li-portal) for the steps necessary to perform the checks.
+The **first step** after you receive the HANA Large Instance and establish access and connectivity to the instances, is to check in Azure portal whether the instance(s) are showing up with the correct SKUs and OS. Read [Azure HANA Large Instances control through Azure portal](./hana-li-portal.md) for the steps necessary to perform the checks.
 
 The **second step** after you receive the HANA Large Instance and establish access and connectivity to the instances, is to register the OS of the instance with your OS provider. This step includes registering your SUSE Linux OS in an instance of SUSE SMT that's deployed in a VM in Azure. 
 
-The HANA Large Instance unit can connect to this SMT instance. (For more information, see [How to set up SMT server for SUSE Linux](hana-setup-smt.md)). Alternatively, your Red Hat OS needs to be registered with the Red Hat Subscription Manager that you need to connect to. For more information, see the remarks in [What is SAP HANA on Azure (Large Instances)?](https://docs.microsoft.com/azure/virtual-machines/linux/sap-hana-overview-architecture?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). 
+The HANA Large Instance unit can connect to this SMT instance. (For more information, see [How to set up SMT server for SUSE Linux](hana-setup-smt.md)). Alternatively, your Red Hat OS needs to be registered with the Red Hat Subscription Manager that you need to connect to. For more information, see the remarks in [What is SAP HANA on Azure (Large Instances)?](./hana-overview-architecture.md?toc=/azure/virtual-machines/linux/toc.json). 
 
 This step is necessary for patching the OS, which is the responsibility of the customer. For SUSE, find the documentation for installing and configuring SMT on this page about [SMT installation](https://www.suse.com/documentation/sles-12/book_smt/data/smt_installation.html).
 
@@ -124,10 +124,10 @@ As a result, you must set up a separate time server that can be used by SAP appl
 ## Networking
 We assume that you followed the recommendations in designing your Azure virtual networks and in connecting those virtual networks to the HANA Large Instances, as described in the following documents:
 
-- [SAP HANA (Large Instance) overview and architecture on Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-architecture)
+- [SAP HANA (Large Instance) overview and architecture on Azure](./hana-overview-architecture.md)
 - [SAP HANA (Large Instances) infrastructure and connectivity on Azure](hana-overview-infrastructure-connectivity.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
-There are some details worth mentioning about the networking of the single units. Every HANA Large Instance unit comes with two or three IP addresses that are assigned to two or three NIC ports. Three IP addresses are used in HANA scale-out configurations and the HANA system replication scenario. One of the IP addresses that's assigned to the NIC of the unit is out of the server IP pool that's described in [SAP HANA (Large Instances) overview and architecture on Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-architecture).
+There are some details worth mentioning about the networking of the single units. Every HANA Large Instance unit comes with two or three IP addresses that are assigned to two or three NIC ports. Three IP addresses are used in HANA scale-out configurations and the HANA system replication scenario. One of the IP addresses that's assigned to the NIC of the unit is out of the server IP pool that's described in [SAP HANA (Large Instances) overview and architecture on Azure](./hana-overview-architecture.md).
 
 For more information about Ethernet details for your architecture, see the [HLI supported scenarios](hana-supported-scenario.md).
 
@@ -176,7 +176,7 @@ These mount points are configured in /etc/fstab as shown in the following graphi
 
 The output of the command df -h on a S72m HANA Large Instance unit looks like:
 
-![fstab of mounted volumes in HANA Large Instance unit](./media/hana-installation/image2_df_output.PNG)
+![Screenshot shows output of the command for HANA Large Instance unit.](./media/hana-installation/image2_df_output.PNG)
 
 
 The storage controller and nodes in the Large Instance stamps are synchronized to NTP servers. When you synchronize the SAP HANA on Azure (Large Instances) units and Azure VMs against an NTP server, there should be no significant time drift between the infrastructure and the compute units in Azure or Large Instance stamps.
@@ -262,7 +262,3 @@ Refer to [HLI supported scenarios](hana-supported-scenario.md) to learn more abo
 
 
  
-
-
-
-

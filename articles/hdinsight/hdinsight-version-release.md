@@ -6,7 +6,7 @@ ms.author: hrasheed
 ms.reviewer: hrasheed
 ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 05/14/2020
+ms.date: 08/21/2020
 ---
 
 # Azure HDInsight 4.0 overview
@@ -86,7 +86,8 @@ There's no supported upgrade path from previous versions of HDInsight to HDInsig
 
 * HDInsight 4.0 doesn't support MapReduce for Apache Hive. Use Apache Tez instead. Learn more about [Apache Tez](https://tez.apache.org/).
 * HDInsight 4.0 doesn't support Apache Storm.
-* Hive View is no longer available in HDInsight 4.0.
+* HDInsight 4.0 doesn't support the ML Services cluster type.
+* Hive View is only available on HDInsight 4.0 clusters with a version number equal to or greater than 4.1. This version number is available in Ambari Admin -> Versions.
 * Shell interpreter in Apache Zeppelin isn't supported in Spark and Interactive Query clusters.
 * You can't *disable* LLAP on a Spark-LLAP cluster. You can only turn LLAP off.
 * Azure Data Lake Storage Gen2 can't save Jupyter notebooks in a Spark cluster.

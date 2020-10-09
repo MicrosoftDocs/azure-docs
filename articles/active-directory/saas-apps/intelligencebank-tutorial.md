@@ -2,21 +2,15 @@
 title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with IntelligenceBank | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and IntelligenceBank.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-
-ms.assetid: 7479c06a-e1fb-4f1d-81f8-9f255ff1b9fc
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 06/15/2020
 ms.author: jeedes
-
-ms.collection: M365-identity-device-management
 ---
 
 # Tutorial: Azure Active Directory single sign-on (SSO) integration with IntelligenceBank
@@ -86,12 +80,9 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
     b. In the **Identifier (Entity ID)** text box, use anyone of the following:
 
-	| |
-	|--|
-    | `IB`| 
-	| `IntelligenceBank`|
-	| `https://<SUBDOMAIN>.intelligencebank.com`|
-    | |
+    - `IB`
+    - `IntelligenceBank`
+    - `https://<SUBDOMAIN>.intelligencebank.com`
 
 	c. In the **Reply URL** text box, type a URL using the following pattern:
 	`https://<SUBDOMAIN>.intelligencebank.com/auth`
@@ -143,11 +134,11 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 1. Click on **Authenticator** and click on **Add New**
 
-    ![IntelligenceBank Configuration](./media/intelligencebank-tutorial/authenticator.PNG)
+    ![Screenshot shows the Administrator tab selected and the Add New icon.](./media/intelligencebank-tutorial/authenticator.PNG)
 
 1. Perform the following steps:
 
-    ![IntelligenceBank Configuration](./media/intelligencebank-tutorial/urls.PNG)
+    ![Screenshot shows the fields where you enter the information in this step.](./media/intelligencebank-tutorial/urls.PNG)
 
     a. In the **Name** textbox, enter the name for example like `azureadsso`.
 
@@ -171,11 +162,11 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 1. Go to **Admin** -> **Users** and select **Add New User Icon** to add the **User**.
 
-    ![IntelligenceBank Configuration](./media/intelligencebank-tutorial/creating-user.PNG)
+    ![Screenshot shows the Users icon selected in the Users tab.](./media/intelligencebank-tutorial/creating-user.PNG)
 
 1. Fill the necessary fields as per your organization requirements and click **Save**.
 
-    ![IntelligenceBank Configuration](./media/intelligencebank-tutorial/creating-user-1.PNG)
+    ![Screenshot show the Add New User page where you enter user information.](./media/intelligencebank-tutorial/creating-user-1.PNG)
 
 ## Test SSO 
 

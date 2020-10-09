@@ -1,20 +1,8 @@
 ---
 title: Enable graphical remote desktop for Linux in Azure Lab Services | Microsoft Docs
 description: Learn how to enable remote desktop for Linux virtual machines in a lab in Azure Lab Services.  
-services: lab-services
-documentationcenter: na
-author: spelluru
-manager: 
-editor: ''
-
-ms.service: lab-services
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 05/11/2020
-ms.author: spelluru
-
+ms.date: 06/26/2020
 ---
 
 # Enable graphical remote desktop for Linux virtual machines in Azure Lab Services
@@ -53,7 +41,7 @@ This step is only needed to connect using RDP.  If instead you plan to use X2Go,
 
 1.  During lab creation, the instructor has the option to **Enable Remote Desktop Connection**.  The instructor must **enable** this option to open the port on the Linux VM that is needed for an RDP remote desktop session.  Otherwise, if this option is left **disabled**, only the port for SSH is opened.
   
-    ![Enable remote desktop connection for a Linux image](./media/how-to-enable-remote-desktop-linux/enable-rdp-option.png)
+    ![Screenshot that shows the "New lab" window with the "Enable Remote Desktop Connection" option.](./media/how-to-enable-remote-desktop-linux/enable-rdp-option.png)
 
 2. On the **Enabling Remote Desktop Connection** message box, select **Continue with Remote Desktop**. 
 

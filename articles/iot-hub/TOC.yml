@@ -53,6 +53,9 @@
           href: quickstart-device-streams-proxy-nodejs.md
         - name: C
           href: quickstart-device-streams-proxy-c.md
+    - name: Auto-route messages using an ARM template
+      displayName: Resource Manager
+      href: horizontal-arm-route-messages.md
 - name: Tutorials
   items:
     - name: Routing messages
@@ -81,11 +84,6 @@
       href: tutorial-firmware-update.md
     - name: Test device connectivity
       href: tutorial-connectivity.md
-- name: Samples
-  items:
-  - name: Azure Policy built-ins
-    displayName: samples, policies, definitions
-    href: ./policy-samples.md
 - name: Concepts
   items:
     - name: TLS support
@@ -175,6 +173,8 @@
           href: iot-hub-devguide-glossary.md
     - name: Security
       items:
+        - name: Security baseline
+          href: security-baseline.md
         - name: Recommendations
           href: /azure/iot-fundamentals/security-recommendations?context=azure/iot-hub/rc/rc
         - name: Security from the ground up
@@ -185,6 +185,9 @@
           href: /azure/iot-fundamentals/iot-security-architecture?context=azure/iot-hub/rc/rc
         - name: Secure your IoT deployment
           href: /azure/iot-fundamentals/iot-security-deployment?context=azure/iot-hub/rc/rc
+        - name: Security controls by Azure Policy
+          displayName: regulatory, compliance, standards, domains
+          href: ./security-controls-policy.md
     - name: Secure using X.509 CA certificates
       items:
         - name: X.509 CA certificate security overview
@@ -324,6 +327,8 @@
           href: iot-hub-distributed-tracing.md
         - name: Configure IP filtering
           href: iot-hub-ip-filtering.md
+        - name: Manage public network access
+          href: iot-hub-public-network-access.md
         - name: Automatic device management at scale
           items:
             - name: Use Azure portal
@@ -416,9 +421,9 @@
 - name: Reference
   items:
     - name: Azure CLI
-      href: /cli/azure/iot
+      href: /cli/azure/azure-cli-reference-for-IoT
     - name: Azure PowerShell
-      href: /powershell/module/az.iothub#iot
+      href: /powershell/module/az.iothub#iothub
     - name: .NET (Device)
       href: /dotnet/api/microsoft.azure.devices.client
     - name: .NET (Service)
@@ -453,6 +458,9 @@
       href: https://docs.microsoft.com/rest/api/iothub/certificates
     - name: Resource Manager template
       href: /azure/templates/microsoft.devices/iothub-allversions
+    - name: Azure Policy built-ins
+      displayName: samples, policies, definitions
+      href: ./policy-reference.md
     - name: Feature and API retirement
       items:
         - name: Operations monitoring

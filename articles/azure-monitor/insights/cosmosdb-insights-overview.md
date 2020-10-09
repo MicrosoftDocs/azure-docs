@@ -1,10 +1,9 @@
 ---
 title: Monitor Azure Cosmos DB with Azure Monitor for Cosmos DB| Microsoft Docs
 description: This article describes the Azure Monitor for Cosmos DB feature that provides Cosmos DB owners with a quick understanding of performance and utilization issues with their CosmosDB accounts.
-ms.subservice: 
-ms.topic: conceptual
-author: mrbullwinkle    
+author: mrbullwinkle
 ms.author: mbullwin
+ms.topic: conceptual
 ms.date: 05/11/2020
 
 ---
@@ -74,7 +73,7 @@ Select **Failures** at the top of the page and the **Failures** portion of the w
 | `201 Created` | A POST operation to create a resource is successful. |
 | `404 Not Found` | The operation is attempting to act on a resource that no longer exists. For example, the resource may have already been deleted. |
 
-For a full list of status codes, consult the [Azure Cosmos DB HTTP status code article](https://docs.microsoft.com/rest/api/cosmos-db/http-status-codes-for-cosmosdb).
+For a full list of status codes, consult the [Azure Cosmos DB HTTP status code article](/rest/api/cosmos-db/http-status-codes-for-cosmosdb).
 
 ### Capacity
 
@@ -94,7 +93,7 @@ So in the example below you see that `eastus-billingint` is predominantly receiv
 
 ## Pin, export, and expand
 
-You can pin any one of the metric sections to an [Azure Dashboard](https://docs.microsoft.com/azure/azure-portal/azure-portal-dashboards) by selecting the pushpin icon at the top right of the section.
+You can pin any one of the metric sections to an [Azure Dashboard](../../azure-portal/azure-portal-dashboards.md) by selecting the pushpin icon at the top right of the section.
 
 ![Metric section pin to dashboard example](./media/cosmosdb-insights-overview/pin.png)
 
@@ -123,6 +122,6 @@ For troubleshooting guidance, refer to the dedicated workbook-based insights [tr
 
 ## Next steps
 
-* Configure [metric alerts](../platform/alerts-metric.md) and [service health notifications](../../service-health/alerts-activity-log-service-notifications.md) to set up automated alerting to aid in detecting issues.
+* Configure [metric alerts](../platform/alerts-metric.md) and [service health notifications](../../service-health/alerts-activity-log-service-notifications-portal.md) to set up automated alerting to aid in detecting issues.
 
 * Learn the scenarios workbooks are designed to support, how to author new and customize existing reports, and more by reviewing [Create interactive reports with Azure Monitor workbooks](../platform/workbooks-overview.md).

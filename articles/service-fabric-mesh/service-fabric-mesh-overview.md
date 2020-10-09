@@ -1,8 +1,8 @@
 ---
 title: Overview of Azure Service Fabric Mesh 
 description: Learn about Azure Service Fabric Mesh. With Service Fabric Mesh, you can deploy and scale your application without worrying about the infrastructure needs of your application.
-author: dkkapur
-ms.author: dekapur
+author: georgewallace
+ms.author: gwallace
 ms.date: 10/1/2018
 ms.topic: overview
 #Customer intent: As a developer, I want to deploy and manage services in containers on a serverless platform.
@@ -38,7 +38,7 @@ With Service Fabric Mesh you can:
 
 - Deploy and manage applications without having to explicitly provision and manage infrastructure.  Service Fabric Mesh provisions, upgrades, patches, and maintains the underlying infrastructure for you.
 - Set up continuous integration using the integrated tooling to easily package and deploy applications.
-- Leverage all the features of Azure Resource Manager resources. Examples of these features include audit trail and [role-based access control](/azure/role-based-access-control/overview)). All resources that you deploy to the Service Fabric Mesh service in Azure are Azure Resource Manager resources. These resources include applications, services, secrets, and so on.
+- Leverage all the features of Azure Resource Manager resources. Examples of these features include audit trail and [Azure role-based access control (Azure RBAC)](../role-based-access-control/overview.md)). All resources that you deploy to the Service Fabric Mesh service in Azure are Azure Resource Manager resources. These resources include applications, services, secrets, and so on.
 - Deploy and manage resources using the [Azure portal](https://portal.azure.com), Resource Manager templates, or Azure CLI/PowerShell libraries.
 - Set up operational monitoring and alerting using [Application Insights](/azure/application-insights/) (or your tool of choice) to capture operational and diagnostic traces from the platform.
 - Access application diagnostics information emitted from the application model using [Application Insights](/azure/application-insights/) or your tool of choice.
@@ -46,14 +46,14 @@ With Service Fabric Mesh you can:
 
 ## Mission critical platform capabilities
 
-Service Fabric Mesh creates a collection of clusters that span [Azure Availability Zones](/azure/availability-zones/az-overview) and/or geo-political regional boundaries. Service Fabric Mesh describes applications with a set of intents such as scale, hardware requirements, durability requirements, and security policies.  When the application deploys, Service Fabric Mesh finds the optimal place to run it.
+Service Fabric Mesh creates a collection of clusters that span [Azure Availability Zones](../availability-zones/az-overview.md) and/or geo-political regional boundaries. Service Fabric Mesh describes applications with a set of intents such as scale, hardware requirements, durability requirements, and security policies.  When the application deploys, Service Fabric Mesh finds the optimal place to run it.
 
 With Service Fabric Mesh you can:
 
 - Take advantage of high availability, scaling in/out, discoverability, orchestration, message routing, reliable messaging, no-downtime upgrades, security/secrets management, disaster recovery, state management, configuration management, and distributed transactions.
 - Choose between multiple application models when creating applications.
 - Use platform capabilities exposed through REST endpoints by consuming language-specific bindings generated using Swagger.
-- Deploy applications across [Availability Zones](/azure/availability-zones/az-overview) and multiple regions for geo-reliability.
+- Deploy applications across [Availability Zones](../availability-zones/az-overview.md) and multiple regions for geo-reliability.
 - Use all the security and compliance features that Azure provides.
 
 ## Next steps

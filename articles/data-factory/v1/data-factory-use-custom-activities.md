@@ -11,10 +11,11 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 author: nabhishek
 ms.author: abnarain
+ms.custom: devx-track-csharp
 manager: anandsub
 robots: noindex
 ---
-# Use custom activities in an Azure Data Factory pipeline
+# Use custom activities in an Azure Data Factory version 1 pipeline
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
 > * [Version 1](data-factory-use-custom-activities.md)
 > * [Version 2 (current version)](../transform-data-using-dotnet-custom-activity.md)

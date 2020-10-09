@@ -9,15 +9,17 @@ ms.date: 06/23/2020
 The [Troubleshoot connectivity issues](troubleshooting-guide.md) article provides tips for troubleshooting connectivity issues with Azure Event Hubs. This article provides tips and recommendations for troubleshooting authentication and authorization issues with Azure Event Hubs. 
 
 ## If you are using Azure Active Directory
-If you are using Azure Active Directory (Azure AD) to authenticate and authorize with Azure Event Hubs, confirm that the identity accessing the event hub is a member of the right **role-based access control (RBAC) role** at the right **resource scope** (consumer group, event hub, namespace, resource group, or subscription).
+If you are using Azure Active Directory (Azure AD) to authenticate and authorize with Azure Event Hubs, confirm that the identity accessing the event hub is a member of the right **Azure role** at the right **resource scope** (consumer group, event hub, namespace, resource group, or subscription).
 
-### RBAC roles
+### Azure roles
 - [Azure Event Hubs Data owner](../role-based-access-control/built-in-roles.md#azure-event-hubs-data-owner) for complete access to Event Hubs resources.
 - [Azure Event Hubs Data sender](../role-based-access-control/built-in-roles.md#azure-event-hubs-data-receiver) for the send access.
 - [Azure Event Hubs Data receiver](../role-based-access-control/built-in-roles.md#azure-event-hubs-data-sender) for the receive access.
 
+For Schema Registry built-in roles, see [Schema Registry roles](schema-registry-overview.md#role-based-access-control).
+
 ### Resource scopes
-- **Consumer group**: At this scope, role assignment applies only to this entity. Currently, the Azure portal doesn't support assigning an RBAC role to a security principal at this level. 
+- **Consumer group**: At this scope, role assignment applies only to this entity. Currently, the Azure portal doesn't support assigning an Azure role to a security principal at this level. 
 - **Event hub**: Role assignment applies to the Event Hub entity and the consumer group under it.
 - **Namespace**: Role assignment spans the entire topology of Event Hubs under the namespace and to the consumer group associated with it.
 - **Resource group**: Role assignment applies to all the Event Hubs resources under the resource group.

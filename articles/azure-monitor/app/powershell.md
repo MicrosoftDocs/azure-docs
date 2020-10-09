@@ -10,7 +10,7 @@ ms.date: 05/02/2020
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-This article shows you how to automate the creation and update of [Application Insights](../../azure-monitor/app/app-insights-overview.md) resources automatically by using Azure Resource Management. You might, for example, do so as part of a build process. Along with the basic Application Insights resource, you can create [availability web tests](../../azure-monitor/app/monitor-web-app-availability.md), set up [alerts](../../azure-monitor/platform/alerts-log.md), set the [pricing scheme](pricing.md), and create other Azure resources.
+This article shows you how to automate the creation and update of [Application Insights](./app-insights-overview.md) resources automatically by using Azure Resource Management. You might, for example, do so as part of a build process. Along with the basic Application Insights resource, you can create [availability web tests](./monitor-web-app-availability.md), set up [alerts](../platform/alerts-log.md), set the [pricing scheme](pricing.md), and create other Azure resources.
 
 The key to creating these resources is JSON templates for [Azure Resource Manager](../../azure-resource-manager/management/manage-resources-powershell.md). The basic procedure is: download the JSON definitions of existing resources; parameterize certain values such as names; and then run the template whenever you want to create a new resource. You can package several resources together, to create them all in one go - for example, an app monitor with availability tests, alerts, and storage for continuous export. There are some subtleties to some of the parameterizations, which we'll explain here.
 
@@ -22,7 +22,7 @@ Install the Azure PowerShell module on the machine where you want to run the scr
 1. Install [Microsoft Web Platform Installer (v5 or higher)](https://www.microsoft.com/web/downloads/platform.aspx).
 2. Use it to install Microsoft Azure PowerShell.
 
-In addition to using Resource Manager templates, there is a rich set of [Application Insights PowerShell cmdlets](https://docs.microsoft.com/powershell/module/az.applicationinsights), which make it easy to configure Application Insights resources programatically. The capabilities enabled by the cmdlets include:
+In addition to using Resource Manager templates, there is a rich set of [Application Insights PowerShell cmdlets](/powershell/module/az.applicationinsights), which make it easy to configure Application Insights resources programatically. The capabilities enabled by the cmdlets include:
 
 * Create and delete Application Insights resources
 * Get lists of Application Insights resources and their properties
@@ -33,7 +33,7 @@ In addition to using Resource Manager templates, there is a rich set of [Applica
 
 ## Create Application Insights resources using a PowerShell cmdlet
 
-Here's how to create a new Application Insights resource in the Azure East US datacenter using the [New-AzApplicationInsights](https://docs.microsoft.com/powershell/module/az.applicationinsights/New-AzApplicationInsights) cmdlet:
+Here's how to create a new Application Insights resource in the Azure East US datacenter using the [New-AzApplicationInsights](/powershell/module/az.applicationinsights/new-azapplicationinsights) cmdlet:
 
 ```PS
 New-AzApplicationInsights -ResourceGroupName <resource group> -Name <resource name> -location eastus
@@ -223,7 +223,7 @@ Additional properties are available via the cmdlets:
 * `Get-AzApplicationInsightsApiKey`
 * `Get-AzApplicationInsightsContinuousExport`
 
-Refer to the [detailed documentation](https://docs.microsoft.com/powershell/module/az.applicationinsights) for the parameters for these cmdlets.  
+Refer to the [detailed documentation](/powershell/module/az.applicationinsights) for the parameters for these cmdlets.  
 
 ## Set the data retention
 
@@ -326,7 +326,7 @@ Set-ApplicationInsightsRetention `
 
 ## Set the daily cap
 
-To get the daily cap properties, use the [Set-AzApplicationInsightsPricingPlan](https://docs.microsoft.com/powershell/module/az.applicationinsights/Set-AzApplicationInsightsPricingPlan) cmdlet: 
+To get the daily cap properties, use the [Set-AzApplicationInsightsPricingPlan](/powershell/module/az.applicationinsights/set-azapplicationinsightspricingplan) cmdlet: 
 
 ```PS
 Set-AzApplicationInsightsDailyCap -ResourceGroupName <resource group> -Name <resource name> | Format-List
@@ -355,7 +355,7 @@ armclient PUT /subscriptions/00000000-0000-0000-0000-00000000000/resourceGroups/
 <a id="price"></a>
 ## Set the pricing plan 
 
-To get current pricing plan, use the [Set-AzApplicationInsightsPricingPlan](https://docs.microsoft.com/powershell/module/az.applicationinsights/Set-AzApplicationInsightsPricingPlan) cmdlet:
+To get current pricing plan, use the [Set-AzApplicationInsightsPricingPlan](/powershell/module/az.applicationinsights/set-azapplicationinsightspricingplan) cmdlet:
 
 ```PS
 Set-AzApplicationInsightsPricingPlan -ResourceGroupName <resource group> -Name <resource name> | Format-List
@@ -400,12 +400,12 @@ This will set the daily cap to 200 GB/day, configure the daily cap reset time to
 
 ## Add a metric alert
 
-To automate the creation of metric alerts, consult the [metric alerts template article](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-metric-create-templates#template-for-a-simple-static-threshold-metric-alert)
+To automate the creation of metric alerts, consult the [metric alerts template article](../platform/alerts-metric-create-templates.md#template-for-a-simple-static-threshold-metric-alert)
 
 
 ## Add an availability test
 
-To automate availability tests, consult the [metric alerts template article](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-metric-create-templates#template-for-an-availability-test-along-with-a-metric-alert).
+To automate availability tests, consult the [metric alerts template article](../platform/alerts-metric-create-templates.md#template-for-an-availability-test-along-with-a-metric-alert).
 
 ## Add more resources
 
@@ -465,8 +465,9 @@ Azure should set up the resources in strict order. To make sure one setup comple
 ## Next steps
 Other automation articles:
 
-* [Create an Application Insights resource](https://docs.microsoft.com/azure/azure-monitor/app/create-new-resource#creating-a-resource-automatically) - quick method without using a template.
+* [Create an Application Insights resource](./create-new-resource.md#creating-a-resource-automatically) - quick method without using a template.
 * [Set up Alerts](powershell-alerts.md)
 * [Create web tests](https://azure.microsoft.com/blog/creating-a-web-test-alert-programmatically-with-application-insights/)
 * [Send Azure Diagnostics to Application Insights](powershell-azure-diagnostics.md)
-* [Create release annotations](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/API/CreateReleaseAnnotation.ps1)
+* [Create release annotations](https://github.com/MohanGsk/ApplicationInsights-Home/blob/master/API/CreateReleaseAnnotation.ps1)
+

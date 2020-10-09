@@ -8,12 +8,13 @@ ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: include
 ms.date: 12/19/2019
+ms.custom: devx-track-java
 ms.author: pafarley
 ---
 
 <a name="HOLTop"></a>
 
-[Reference documentation](https://docs.microsoft.com/java/api/overview/azure/cognitiveservices/client/computervision?view=azure-java-stable) | [Artifact (Maven)](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Vision.ComputerVision/) | [Samples](https://azure.microsoft.com/resources/samples/?service=cognitive-services&term=vision&sort=0)
+[Reference documentation](https://docs.microsoft.com/java/api/overview/azure/cognitiveservices/client/computervision?view=azure-java-stable) | [Artifact (Maven)](https://search.maven.org/artifact/com.microsoft.azure.cognitiveservices/azure-cognitiveservices-computervision) | [Samples](https://azure.microsoft.com/resources/samples/?service=cognitive-services&term=vision&sort=0)
 
 ## Prerequisites
 
@@ -72,13 +73,13 @@ Then add a class definition for **ComputerVisionQuickstarts**.
 
 ### Install the client library
 
-This quickstart uses the Gradle dependency manager. You can find the client library and information for other dependency managers on the [Maven Central Repository](https://search.maven.org/artifact/com.microsoft.azure.cognitiveservices/azure-cognitiveservices-textanalytics/).
+This quickstart uses the Gradle dependency manager. You can find the client library and information for other dependency managers on the [Maven Central Repository](https://search.maven.org/artifact/com.microsoft.azure.cognitiveservices/azure-cognitiveservices-computervision).
 
 In your project's *build.gradle.kts* file, include the Computer Vision client library as a dependency.
 
 ```kotlin
 dependencies {
-    compile(group = "com.microsoft.azure.cognitiveservices", name = "azure-cognitiveservices-computervision", version = "1.0.2-beta")
+    compile(group = "com.microsoft.azure.cognitiveservices", name = "azure-cognitiveservices-computervision", version = "1.0.4-beta")
 }
 ```
 
@@ -198,26 +199,47 @@ The following code prints information about the type of image&mdash;whether it i
 
 ## Read printed and handwritten text
 
-Computer Vision can read visible text in an image and convert it to a character stream.
+Computer Vision can read visible text in an image and convert it to a character stream. This section defines a method, `ReadFromFile`, that takes a local file path and prints the image's text to the console.
 
 > [!NOTE]
 > You can also read text in a remote image using its URL. See the sample code on [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/java/ComputerVision/src/main/java/ComputerVisionQuickstart.java) for scenarios involving remote images.
 
-### Call the Recognize API
+### Set up test image
 
-First, use the following code to call the **recognizePrintedTextInStream** method for the given image. When you add this code to your project, you need to replace the value of `localTextImagePath` with the path to your local image. 
+Create a **resources/** folder in the **src/main/** folder of your project, and add an image you'd like to read text from. You can download a [sample image](https://raw.githubusercontent.com/MicrosoftDocs/azure-docs/master/articles/cognitive-services/Computer-vision/Images/readsample.jpg) to use here.
+
+Then add the following method definition to your **ComputerVisionQuickstarts** class. If necessary, change the value of the `localFilePath` to match your image file. 
+
+[!code-java[](~/cognitive-services-quickstart-code/java/ComputerVision/src/main/java/ComputerVisionQuickstart.java?name=snippet_read_setup)]
+
+### Call the Read API
+
+Then, add the following code to call the **readInStreamWithServiceResponseAsync** method for the given image.
 
 [!code-java[](~/cognitive-services-quickstart-code/java/ComputerVision/src/main/java/ComputerVisionQuickstart.java?name=snippet_read_call)]
 
-### Print Recognize results
 
-The following block of code processes the returned text and parses it to print out the first word in each line. You can use this code to quickly understand the structure of an **OcrResult** instance.
+The following block of code extracts the operation ID from the response of the Read call. It uses this ID with a helper method to print the text read results to the console. 
 
-[!code-java[](~/cognitive-services-quickstart-code/java/ComputerVision/src/main/java/ComputerVisionQuickstart.java?name=snippet_read_print)]
+[!code-java[](~/cognitive-services-quickstart-code/java/ComputerVision/src/main/java/ComputerVisionQuickstart.java?name=snippet_read_response)]
 
-Finally, close out the try/catch block and the method definition.
+Close out the try/catch block and the method definition.
 
 [!code-java[](~/cognitive-services-quickstart-code/java/ComputerVision/src/main/java/ComputerVisionQuickstart.java?name=snippet_read_catch)]
+
+### Get Read results
+
+Then, add a definition for the helper method. This method uses the operation ID from the previous step to query the read operation and get OCR results when they're available.
+
+[!code-java[](~/cognitive-services-quickstart-code/java/ComputerVision/src/main/java/ComputerVisionQuickstart.java?name=snippet_read_result_helper_call)]
+
+The rest of the method parses the OCR results and prints them to the console.
+
+[!code-java[](~/cognitive-services-quickstart-code/java/ComputerVision/src/main/java/ComputerVisionQuickstart.java?name=snippet_read_result_helper_print)]
+
+Finally, add the other helper method used above, which extracts the operation ID from the initial response.
+
+[!code-java[](~/cognitive-services-quickstart-code/java/ComputerVision/src/main/java/ComputerVisionQuickstart.java?name=snippet_opid_extract)]
 
 ## Run the application
 
@@ -247,5 +269,5 @@ In this quickstart, you learned how to use the Computer Vision Java library to d
 > [!div class="nextstepaction"]
 >[Computer Vision reference (Java)](https://docs.microsoft.com/java/api/overview/azure/cognitiveservices/client/computervision?view=azure-java-stable)
 
-* [What is Computer Vision?](../../Home.md)
+* [What is Computer Vision?](../../overview.md)
 * The source code for this sample can be found on [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/java/ComputerVision/src/main/java/ComputerVisionQuickstart.java).

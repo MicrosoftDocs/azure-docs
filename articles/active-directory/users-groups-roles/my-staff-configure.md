@@ -59,16 +59,17 @@ Once you have configured AUs, you can apply this scope to your users who access 
 
 You can protect the My Staff portal using Azure AD Conditional Access policy. Use it for tasks like requiring multi-factor authentication before accessing My Staff.
 
-We strongly recommend that you protect My Staff using [Azure AD Conditional Access policies](https://docs.microsoft.com/azure/active-directory/conditional-access/). To apply a Conditional Access policy to My Staff, you must manually create the My Staff service principal using PowerShell.
+We strongly recommend that you protect My Staff using [Azure AD Conditional Access policies](../conditional-access/index.yml). To apply a Conditional Access policy to My Staff, you must manually create the My Staff service principal using PowerShell.
 
 ### Apply a Conditional Access policy to My Staff
 
 1. Install the [Microsoft Graph Beta PowerShell cmdlets](https://github.com/microsoftgraph/msgraph-sdk-powershell/blob/dev/samples/0-InstallModule.ps1).
 1. Run the following commands:
 
-        Connect-Graph -Scopes "Directory.AccessAsUser.All"
-        New-MgServicePrincipal -DisplayName "My Staff" -AppId "ba9ff945-a723-4ab5-a977-bd8c9044fe61"
-
+   ```powershell
+   Connect-Graph -Scopes "Directory.AccessAsUser.All"
+   New-MgServicePrincipal -DisplayName "My Staff" -AppId "ba9ff945-a723-4ab5-a977-bd8c9044fe61"
+   ```
 1. Create a Conditional Access policy that applies to the My Staff cloud application.
 
     ![Create a conditional access policy for the My Staff app](media/my-staff-configure/conditional-access.png)

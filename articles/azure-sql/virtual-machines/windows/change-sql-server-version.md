@@ -8,7 +8,7 @@ manager: ramakoni1
 tags: azure-resource-manager
 ms.service: virtual-machines-sql
 
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/08/2020
@@ -103,7 +103,7 @@ After you change the version of SQL Server, register your SQL Server VM with the
 :::image type="content" source="./media/change-sql-server-version/verify-portal.png" alt-text="Verify version":::
 
 > [!NOTE]
-> If you already have Resource Provider installed, [unregister the SQL VM Resource](sql-vm-resource-provider-register.md#unregister-from-the-resource-provider) and then [Register the SQL VM resource](sql-vm-resource-provider-register.md#register-a-subscription-with-the-resource-provider) again so that it detects the correct version and edition of SQL Server that is installed on the VM. This updates the metadata and billing information that is associated with this VM.
+> If you have already registered with the SQL VM resource provider, [unregister from the RP](sql-vm-resource-provider-register.md#unregister-from-rp) and then [Register the SQL VM resource](sql-vm-resource-provider-register.md#register-with-rp) again so that it detects the correct version and edition of SQL Server that is installed on the VM. This updates the metadata and billing information that is associated with this VM.
 
 ## Remarks
 

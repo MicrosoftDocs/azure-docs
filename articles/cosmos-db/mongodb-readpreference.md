@@ -8,6 +8,7 @@ ms.subservice: cosmosdb-mongo
 ms.devlang: nodejs
 ms.topic: how-to
 ms.date: 02/26/2019
+ms.custom: devx-track-js
 ---
 # How to globally distribute reads using Azure Cosmos DB's API for MongoDB
 

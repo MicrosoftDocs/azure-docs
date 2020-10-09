@@ -6,8 +6,8 @@ services: germany
 cloud: Azure Germany
 ms.author: juliako 
 ms.service: germany
-ms.date: 11/12/2019
-ms.topic: article
+ms.date: 05/27/2020
+ms.topic: how-to
 ms.custom: bfmigrate
 ---
 
@@ -43,13 +43,14 @@ For more information:
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## SQL Data Warehouse
+## Azure Synapse Analytics
 
-To migrate Azure SQL Data Warehouse resources from Azure Germany to global Azure, follow the steps that are described in Azure SQL Database.
+To migrate Azure Synapse Analytics resources from Azure Germany to global Azure, follow the steps that are described in Azure SQL Database.
 
 ## Azure Cosmos DB
 
-You can use Azure Cosmos DB Data Migration Tool to migrate data to Azure Cosmos DB. Azure Cosmos DB Data Migration Tool is an open-source solution that imports data to Azure Cosmos DB from different sources.
+You can use Azure Cosmos DB Data Migration Tool to migrate data to Azure Cosmos DB. Azure Cosmos DB Data Migration Tool is an open-source solution that imports data to Azure Cosmos DB from different sources including: JSON files, MongoDB, SQL Server, CSV files, Azure Table storage, Amazon DynamoDB, HBase, and Azure Cosmos containers.
+
 
 Azure Cosmos DB Data Migration Tool is available as a graphical interface tool or as command-line tool. The source code is available in the [Azure Cosmos DB Data Migration Tool](https://github.com/azure/azure-documentdb-datamigrationtool) GitHub repository. A [compiled version of the tool](https://www.microsoft.com/download/details.aspx?id=46436) is available in the Microsoft Download Center.
 
@@ -69,8 +70,9 @@ To migrate Azure Cosmos DB resources, we recommend that you complete the followi
 
 For more information:
 
-- Read an [introduction to Azure Cosmos DB](../cosmos-db/introduction.md).
-- Learn how to [import data to Azure Cosmos DB](../cosmos-db/import-data.md).
+- To learn how to use the Data migration tool, see [Tutorial: Use Data migration tool to migrate your data to Azure Cosmos DB](../cosmos-db/import-data.md).
+- To learn about Cosmos DB, see [Welcome to Azure Cosmos DB](../cosmos-db/introduction.md).
+
 
 ## Azure Cache for Redis
 

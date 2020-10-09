@@ -31,7 +31,7 @@ This feature is available in the **Premium** container registry service tier. Fo
 * **Storage accounts** - Create source and target storage accounts in a subscription and location of your choice. For testing purposes, you can use the same subscription or subscriptions as your source and target registries. For cross-cloud scenarios, typically you create a separate storage account in each cloud. If needed, create the storage accounts with the [Azure CLI](../storage/common/storage-account-create.md?tabs=azure-cli) or other tools. 
 
   Create a blob container for artifact transfer in each account. For example, create a container named *transfer*. Two or more transfer pipelines can share the same storage account, but should use different storage container scopes.
-* **Key vaults** - Key vaults are needed to store SAS token secrets used to access source and target storage accounts. Create the source and target key vaults in the same Azure subscription or subscriptions as your source and target registries. If needed, create key vaults with the [Azure CLI](../key-vault/quick-create-cli.md) or other tools.
+* **Key vaults** - Key vaults are needed to store SAS token secrets used to access source and target storage accounts. Create the source and target key vaults in the same Azure subscription or subscriptions as your source and target registries. If needed, create key vaults with the [Azure CLI](../key-vault/secrets/quick-create-cli.md) or other tools.
 * **Environment variables** - For example commands in this article, set the following environment variables for the source and target environments. All examples are formatted for the Bash shell.
   ```console
   SOURCE_RG="<source-resource-group>"
@@ -53,7 +53,7 @@ Storage authentication uses SAS tokens, managed as secrets in key vaults. The pi
 * **[PipelineRun](#create-pipelinerun-for-export-with-resource-manager)** - Resource used to invoke either an ExportPipeline or ImportPipeline resource.  
   * You run the ExportPipeline manually by creating a PipelineRun resource and specify the artifacts to export.  
   * If an import trigger is enabled, the ImportPipeline runs automatically. It can also be run manually using a PipelineRun. 
-  * Currently a maximum of **10 artifacts** can be transferred with each PipelineRun.
+  * Currently a maximum of **50 artifacts** can be transferred with each PipelineRun.
 
 ### Things to know
 * The ExportPipeline and ImportPipeline will typically be in different Active Directory tenants associated with the source and destination clouds. This scenario requires separate managed identities and key vaults for the export and import resources. For testing purposes, these resources can be placed in the same cloud, sharing identities.
@@ -229,6 +229,8 @@ Enter the following parameter values in the file `azuredeploy.parameters.json`:
 |targetName     |  Name you choose for the artifacts blob exported to your source storage account, such as *myblob*
 |artifacts | Array of source artifacts to transfer, as tags or manifest digests<br/>Example: `[samples/hello-world:v1", "samples/nginx:v1" , "myrepository@sha256:0a2e01852872..."]` |
 
+If redeploying a PipelineRun resource with identical properties, you must also use the [forceUpdateTag](#redeploy-pipelinerun-resource) property.
+
 Run [az deployment group create][az-deployment-group-create] to create the PipelineRun resource. The following example names the deployment *exportPipelineRun*.
 
 ```azurecli
@@ -243,7 +245,7 @@ It can take several minutes for artifacts to export. When deployment completes s
 
 ```azurecli
 az storage blob list \
-  --account-name $SA_SOURCE
+  --account-name $SOURCE_SA
   --container transfer
   --output table
 ```
@@ -252,7 +254,7 @@ az storage blob list \
 
 Use the AzCopy tool or other methods to [transfer blob data](../storage/common/storage-use-azcopy-blobs.md#copy-blobs-between-storage-accounts) from the source storage account to the target storage account.
 
-For example, the following [`azcopy copy`](/azure/storage/common/storage-ref-azcopy-copy) command copies myblob from the *transfer* container in the source account to the *transfer* container in the target account. If the blob exists in the target account, it's overwritten. Authentication uses SAS tokens with appropriate permissions for the source and target containers. (Steps to create tokens are not shown.)
+For example, the following [`azcopy copy`](../storage/common/storage-ref-azcopy-copy.md) command copies myblob from the *transfer* container in the source account to the *transfer* container in the target account. If the blob exists in the target account, it's overwritten. Authentication uses SAS tokens with appropriate permissions for the source and target containers. (Steps to create tokens are not shown.)
 
 ```console
 azcopy copy \
@@ -286,6 +288,8 @@ Enter the following parameter values in the file `azuredeploy.parameters.json`:
 |pipelineResourceId     |  Resource ID of the import pipeline.<br/>Example: `/subscriptions/<subscriptionID>/resourceGroups/<resourceGroupName>/providers/Microsoft.ContainerRegistry/registries/<sourceRegistryName>/importPipelines/myImportPipeline`       |
 |sourceName     |  Name of the existing blob for exported artifacts in your storage account, such as *myblob*
 
+If redeploying a PipelineRun resource with identical properties, you must also use the [forceUpdateTag](#redeploy-pipelinerun-resource) property.
+
 Run [az deployment group create][az-deployment-group-create] to run the resource.
 
 ```azurecli
@@ -299,6 +303,23 @@ When deployment completes successfully, verify artifact import by listing the re
 
 ```azurecli
 az acr repository list --name <target-registry-name>
+```
+
+## Redeploy PipelineRun resource
+
+If redeploying a PipelineRun resource with *identical properties*, you must leverage the **forceUpdateTag** property. This property indicates that the PipelineRun resource should be recreated even if the configuration has not changed. Please ensure forceUpdateTag is different each time you redeploy the PipelineRun resource. The example below recreates a PipelineRun for export. The current datetime is used to set forceUpdateTag, thereby ensuring this property is always unique.
+
+```console
+CURRENT_DATETIME=`date +"%Y-%m-%d:%T"`
+```
+
+```azurecli
+az deployment group create \
+  --resource-group $SOURCE_RG \
+  --template-file azuredeploy.json \
+  --name exportPipelineRun \
+  --parameters azuredeploy.parameters.json \
+  --parameters forceUpdateTag=$CURRENT_DATETIME
 ```
 
 ## Delete pipeline resources
@@ -332,7 +353,7 @@ az deployment group delete \
 * **AzCopy issues**
   * See [Troubleshoot AzCopy issues](../storage/common/storage-use-azcopy-configure.md#troubleshoot-issues).  
 * **Artifacts transfer problems**
-  * Not all artifacts, or none, are transferred. Confirm spelling of artifacts in export run, and name of blob in export and import runs. Confirm you are transferring a maximum of 10 artifacts.
+  * Not all artifacts, or none, are transferred. Confirm spelling of artifacts in export run, and name of blob in export and import runs. Confirm you are transferring a maximum of 50 artifacts.
   * Pipeline run might not have completed. An export or import run can take some time. 
   * For other pipeline issues, provide the deployment [correlation ID](../azure-resource-manager/templates/deployment-history.md) of the export run or import run to the Azure Container Registry team.
 
@@ -361,6 +382,3 @@ To import single container images to an Azure container registry from a public r
 [az-deployment-group-show]: /cli/azure/deployment/group#az-deployment-group-show
 [az-acr-repository-list]: /cli/azure/acr/repository#az-acr-repository-list
 [az-acr-import]: /cli/azure/acr#az-acr-import
-
-
-

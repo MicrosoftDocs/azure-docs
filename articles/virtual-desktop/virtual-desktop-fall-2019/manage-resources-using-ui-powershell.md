@@ -1,20 +1,18 @@
 ---
-title: Deploy a management tool for Windows Virtual Desktop using service principal - Azure
-description: How to deploy the management tool for Windows Virtual Desktop using PowerShell.
-services: virtual-desktop
+title: Deploy a management tool for Windows Virtual Desktop (classic) using service principal - Azure
+description: How to deploy the management tool for Windows Virtual Desktop (classic) using PowerShell.
 author: Heidilohr
-
-ms.service: virtual-desktop
 ms.topic: how-to
 ms.date: 03/30/2020
-ms.author: helohr
+ms.author: helohr 
+ms.custom: devx-track-azurepowershell
 manager: lizross
 ---
 
-# Deploy a management tool with PowerShell
+# Deploy a Windows Virtual Desktop (classic) management tool with PowerShell
 
 >[!IMPORTANT]
->This content applies to the Fall 2019 release that doesn't support Azure Resource Manager Windows Virtual Desktop objects.
+>This content applies to Windows Virtual Desktop (classic), which doesn't support Azure Resource Manager Windows Virtual Desktop objects.
 
 This article will show you how to deploy the management tool using PowerShell.
 
@@ -36,7 +34,7 @@ The following browsers are compatible with the management tool:
 Before deploying the management tool, you'll need an Azure Active Directory (Azure AD) user to create an app registration and deploy the management UI. This user must:
 
 - Have permission to create resources in your Azure subscription
-- Have permission to create an Azure AD application. Follow these steps to check if your user has the required permissions by following the instructions in [Required permissions](../../active-directory/develop/howto-create-service-principal-portal.md#required-permissions).
+- Have permission to create an Azure AD application. Follow these steps to check if your user has the required permissions by following the instructions in [Required permissions](../../active-directory/develop/howto-create-service-principal-portal.md#permissions-required-for-registering-an-app).
 
 After you deploy and configure the management tool, we recommend you ask a user to launch the management UI to make sure everything works. The user who launches the management UI must have a role assignment that lets them view or edit the Windows Virtual Desktop tenant.
 

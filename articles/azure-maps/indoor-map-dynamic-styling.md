@@ -16,7 +16,7 @@ Azure Maps Creator [Feature State service](https://docs.microsoft.com/rest/api/m
 
 ## Prerequisites
 
-1. [Create an Azure Maps account](quick-demo-map-app.md#create-an-account-with-azure-maps)
+1. [Create an Azure Maps account](quick-demo-map-app.md#create-an-azure-maps-account)
 2. [Obtain a primary subscription key](quick-demo-map-app.md#get-the-primary-key-for-your-account), also known as the primary key or the subscription key.
 3. [Create a Creator resource](how-to-manage-creator.md)
 4. Download the [sample Drawing package](https://github.com/Azure-Samples/am-creator-indoor-data-examples).

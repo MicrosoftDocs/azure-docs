@@ -1,6 +1,6 @@
 ---
 title: 'Configure VPN gateway transit for virtual network peering'
-description: Configure VPN gateway transit for virtual network peering.
+description: Configure gateway transit for virtual network peering, to seamlessly connect two Azure virtual networks into one for connectivity purposes.
 services: vpn-gateway
 titleSuffix: Azure VPN Gateway
 author: yushwang
@@ -8,7 +8,7 @@ author: yushwang
 ms.service: vpn-gateway
 ms.topic: how-to
 ms.tgt_pltfrm: na
-ms.date: 03/25/2018
+ms.date: 09/02/2020
 ms.author: yushwang
 
 ---

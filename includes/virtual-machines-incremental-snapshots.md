@@ -12,7 +12,7 @@ ms.custom: "include file"
 
 
 ## Overview
-Azure Storage provides the capability to take snapshots of blobs. Snapshots capture the blob state at that point in time. In this article, we describe a scenario in which you can maintain backups of virtual machine disks using snapshots. You can use this methodology when you choose not to use Azure Backup and Recovery Service, and wish to create a custom backup strategy for your virtual machine disks.
+Azure Storage provides the capability to take snapshots of blobs. Snapshots capture the blob state at that point in time. In this article, we describe a scenario in which you can maintain backups of virtual machine disks using snapshots. You can use this methodology when you choose not to use Azure Backup and Recovery Service, and wish to create a custom backup strategy for your virtual machine disks. For virtual machines running business or mission critical workloads, it's recommended to use [Azure Backup](https://docs.microsoft.com/azure/backup/backup-azure-vms-introduction) as part of the backup strategy.  
 
 Azure virtual machine disks are stored as page blobs in Azure Storage. Since we are describing a backup strategy for virtual machine disks in this article, we refer to snapshots in the context of page blobs. To learn more about snapshots, refer to [Creating a Snapshot of a Blob](https://docs.microsoft.com/rest/api/storageservices/Creating-a-Snapshot-of-a-Blob).
 
@@ -53,7 +53,8 @@ Provided the following conditions are met,
 * The blob was created on Jan-1-2016 or later.
 * The blob was not overwritten with [PutPage](https://docs.microsoft.com/rest/api/storageservices/Put-Page) or [Copy Blob](https://docs.microsoft.com/rest/api/storageservices/Copy-Blob) between two snapshots.
 
-**Note**: This feature is available for Premium and Standard Azure Page Blobs.
+>[!NOTE]
+>This feature is available for Premium and Standard Azure Page Blobs.
 
 When you have a custom backup strategy using snapshots, copying the snapshots from one storage account to another can be slow and can consume much storage space. Instead of copying the entire snapshot to a backup storage account, you can write the difference between consecutive snapshots to a backup page blob. This way, the time to copy and the space to store backups is substantially reduced.
 

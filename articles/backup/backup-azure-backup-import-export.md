@@ -84,7 +84,7 @@ This section describes the offline backup workflow so that your data can be deli
 
     * **Staging Location**: The temporary storage location to which the initial backup copy is written. The staging location might be on a network share or a local computer. If the copy computer and source computer are different, specify the full network path of the staging location.
     * **Azure Resource Manager Storage Account**: The name of the Resource Manager type storage account (general purpose v1 or general purpose v2) in any Azure subscription.
-    * **Azure Storage Container**: The name of the destination storage blob in the Azure storage account where the backup data is imported before being copied to the Recovery Services vault.
+    * **Azure Storage Container**: The name of the destination blob storage container in the Azure storage account where the backup data is imported before being copied to the Recovery Services vault.
     * **Azure Subscription ID**: The ID for the Azure subscription where the Azure storage account is created.
     * **Azure Import Job Name**: The unique name by which the Azure Import/Export service and Azure Backup track the transfer of data sent on disks to Azure.
   
@@ -130,7 +130,7 @@ The *AzureOfflineBackupDiskPrep* utility prepares the SATA drives that are sent 
     | Parameter | Description |
     | --- | --- |
     | s:&lt;*Staging Location Path*&gt; |This mandatory input is used to provide the path to the staging location that you entered in the workflow in the "Initiate offline backup" section. |
-    | p:&lt;*Path to PublishSettingsFile*&gt; |This optional input is used to provide the path to the Azure publish settings file that you entered in the workflow in the "Initiate offline backup" section. |
+    | p:&lt;*Path to PublishSettingsFile*&gt; |This optional input is used to provide the path to the Azure publish settings file.  |
 
     When you run the command, the utility requests the selection of the Azure import job that corresponds to the drives that need to be prepared. If only a single import job is associated with the provided staging location, you see a page like this one.
 
@@ -142,7 +142,7 @@ The *AzureOfflineBackupDiskPrep* utility prepares the SATA drives that are sent 
 
     ![Azure subscription sign-in](./media/backup-azure-backup-import-export/signindiskprep.png) <br/>
 
-    The tool then begins to prepare the disk and copy the backup data. You might need to attach additional disks when prompted by the tool in case the provided disk doesn't have sufficient space for the backup data. <br/>
+    The tool then begins to prepare the disk and copy the backup data. You might need to attach additional disks when prompted by the tool if the provided disk doesn't have sufficient space for the backup data. <br/>
 
     At the end of successful execution of the tool, the command prompt provides three pieces of information:
 

@@ -1,20 +1,8 @@
 ---
 title: Create multi-VM environments and PaaS resources with templates
 description: Learn how to create multi-VM environments and PaaS resources in Azure DevTest Labs from an Azure Resource Manager template
-services: devtest-lab,virtual-machines,lab-services
-documentationcenter: na
-author: spelluru
-manager: femila
-editor: ''
-
-ms.assetid:
-ms.service: lab-services
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 01/16/2020
-ms.author: spelluru
+ms.date: 08/12/2020
 ---
 
 # Create multi-VM environments and PaaS resources with Azure Resource Manager templates
@@ -210,10 +198,10 @@ The following sample script creates an environment in your lab. The comments hel
    Set-AzContext -SubscriptionId $SubscriptionId | Out-Null
 
    # Get information about the user, specifically the user ID, which is used later in the script.  
-   $UserId = $((Get-AzADUser -UserPrincipalName (Get-AzContext).Account).Id.Guid)
+   $UserId = $((Get-AzADUser -UserPrincipalName ((Get-AzContext).Account).Id).Id)
 
    # Get information about the lab, such as lab location.
-   $lab = Get-AzResource -ResourceType "Microsoft.DevTestLab/labs" -Name $LabName -ResourceGroupName $ResourceGroupName
+   $lab = Get-AzResource -ResourceType "Microsoft.DevTestLab/labs" -Name $LabName
    if ($lab -eq $null) { throw "Unable to find lab $LabName in subscription $SubscriptionId." }
 
    # Get information about the repository in the lab.

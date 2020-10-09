@@ -1,13 +1,12 @@
 ---
-title: Azure Resource Manager templates
-titleSuffix: Azure SQL Database & SQL Managed Instance
+title: Azure Resource Manager templates - Azure SQL Database & SQL Managed Instance
 description: Use Azure Resource Manager templates to create and configure Azure SQL Database and Azure SQL Managed Instance. 
 services: sql-database
-ms.service: sql-database
+ms.service: sql-db-mi
 ms.subservice: service
 ms.custom: overview-samples sqldbrb=2
 ms.devlang: 
-ms.topic: sample
+ms.topic: guide
 author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: sstein
@@ -23,7 +22,7 @@ Azure Resource Manager templates enable you to define your infrastructure as cod
 
 The following table includes links to Azure Resource Manager templates for Azure SQL Database.
 
-| |  |
+|Link |Description|
 |---|---|
 | [SQL Database](https://github.com/Azure/azure-quickstart-templates/tree/master/201-sql-database-transparent-encryption-create) | This Azure Resource Manager template creates a single database in Azure SQL Database and configures server-level IP firewall rules. |
 | [Server](https://github.com/Azure/azure-quickstart-templates/tree/master/101-sql-logical-server) | This Azure Resource Manager template creates a server for Azure SQL Database. |
@@ -42,7 +41,7 @@ The following table includes links to Azure Resource Manager templates for Azure
 
 The following table includes links to Azure Resource Manager templates for Azure SQL Managed Instance.
 
-| |  |
+|Link|Description|
 |---|---|
 | [SQL Managed Instance in a new VNet](https://github.com/Azure/azure-quickstart-templates/tree/master/101-sqlmi-new-vnet) | This Azure Resource Manager template creates a new configured Azure virtual network and managed instance in the virtual network. |
 | [Network environment for SQL Managed Instance](https://github.com/Azure/azure-quickstart-templates/tree/master/101-sql-managed-instance-azure-environment) | This deployment will create a configured Azure virtual network with two subnets, one that will be dedicated to your managed instances and another where you can place other resources (for example VMs, App Service environments, etc.). This template will create a properly configured networking environment where you can deploy managed instances. |

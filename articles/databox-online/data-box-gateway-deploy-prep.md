@@ -117,7 +117,7 @@ To create a Data Box Gateway resource, take the following steps in the Azure por
 
 The resource creation takes a few minutes. After the resource is successfully created and deployed, you're notified. Select **Go to resource**.
 
-![Review Data Box Gateway resource details](media/data-box-gateway-deploy-prep/data-box-gateway-resource2.png)
+![Review Data Box Gateway resource details 2](media/data-box-gateway-deploy-prep/data-box-gateway-resource2.png)
 
 ## Download the virtual device image
 
@@ -135,7 +135,7 @@ Follow these steps in the [Azure portal](https://portal.azure.com/) to download 
 2. On the **Download image** tile, select the virtual device image corresponding to the operating system on the host server used to provision the VM. The image files are approximately 5.6 GB.
    
    * [VHDX for Hyper-V on Windows Server 2012 R2 and later](https://aka.ms/dbe-vhdx-2012).
-   * [VMDK for VMWare ESXi 6.0, 6.5, or 6.7](https://aka.ms/dbe-vmdk).
+   * [VMDK for VMware ESXi 6.0, 6.5, or 6.7](https://aka.ms/dbe-vmdk).
 
     ![Download Data Box Gateway virtual device image](media/data-box-gateway-deploy-prep/data-box-gateway-download-image.png)
 

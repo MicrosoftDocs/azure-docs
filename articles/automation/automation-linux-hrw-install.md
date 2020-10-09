@@ -3,9 +3,10 @@ title: Deploy a Linux Hybrid Runbook Worker in Azure Automation
 description: This article tells how to install an Azure Automation Hybrid Runbook Worker to run runbooks on Linux-based machines in your local datacenter or cloud environment.
 services: automation
 ms.subservice: process-automation
-ms.date: 06/17/2020
+ms.date: 10/06/2020
 ms.topic: conceptual
 ---
+
 # Deploy a Linux Hybrid Runbook Worker
 
 You can use the Hybrid Runbook Worker feature of Azure Automation to run runbooks directly on the machine that's hosting the role and against resources in the environment to manage those local resources. The Linux Hybrid Runbook Worker executes runbooks as a special user that can be elevated for running commands that need elevation. Azure Automation stores and manages runbooks and then delivers them to one or more designated machines. This article describes how to install the Hybrid Runbook Worker on a Linux machine, how to remove the worker, and how to remove a Hybrid Runbook Worker group.
@@ -22,23 +23,27 @@ The Hybrid Runbook Worker role depends on an Azure Monitor Log Analytics workspa
 
 If you don't have an Azure Monitor Log Analytics workspace, review the [Azure Monitor Log design guidance](../azure-monitor/platform/design-logs-deployment.md) before you create the workspace.
 
-If you have a workspace, but it is not linked to your Automation account, enabling an Automation feature adds functionality for Azure Automation, including support for the Hybrid Runbook Worker. When you enable one of the Azure Automation features in your Log Analytics workspace, specifically [Update Management](automation-update-management.md) or [Change Tracking and Inventory](change-tracking.md), the worker components are automatically pushed to the agent machine.
+If you have a workspace, but it is not linked to your Automation account, enabling an Automation feature adds functionality for Azure Automation, including support for the Hybrid Runbook Worker. When you enable one of the Azure Automation features in your Log Analytics workspace, specifically [Update Management](update-management/update-mgmt-overview.md) or [Change Tracking and Inventory](change-tracking.md), the worker components are automatically pushed to the agent machine.
 
-   To add the Update Management feature to your workspace, run the following PowerShell cmdlet:
+To add the Update Management feature to your workspace, run the following PowerShell cmdlet:
 
-    ```powershell-interactive
+```powershell-interactive
     Set-AzOperationalInsightsIntelligencePack -ResourceGroupName <logAnalyticsResourceGroup> -WorkspaceName <logAnalyticsWorkspaceName> -IntelligencePackName "Updates" -Enabled $true
-    ```
+```
 
-   To add the Change Tracking and Inventory feature to your workspace, run the following PowerShell cmdlet:
+To add the Change Tracking and Inventory feature to your workspace, run the following PowerShell cmdlet:
 
-    ```powershell-interactive
+```powershell-interactive
     Set-AzOperationalInsightsIntelligencePack -ResourceGroupName <logAnalyticsResourceGroup> -WorkspaceName <logAnalyticsWorkspaceName> -IntelligencePackName "ChangeTracking" -Enabled $true
-    ```
+```
 
 ### Log Analytics agent
 
 The Hybrid Runbook Worker role requires the [Log Analytics agent](../azure-monitor/platform/log-analytics-agent.md) for the supported Linux operating system.
+
+>[!NOTE]
+>After installing the Log Analytics agent for Linux, you should not change the permissions of the `sudoers.d` folder or its ownership. Sudo permission is required for the **nxautomation** account, which is the user context the Hybrid Runbook Worker runs under. The permissions should not be removed. Restricting this to certain folders or commands may result in a breaking change.
+>
 
 ### Supported Linux operating systems
 
@@ -50,7 +55,7 @@ The Hybrid Runbook Worker feature supports the following distributions:
 * Red Hat Enterprise Linux Server 5, 6, and 7 (x86/x64)
 * Debian GNU/Linux 6, 7, and 8 (x86/x64)
 * Ubuntu 12.04 LTS, 14.04 LTS, 16.04 LTS, and 18.04 (x86/x64)
-* SUSE Linux Enterprise Server 11 and 12 (x86/x64)
+* SUSE Linux Enterprise Server 12 (x86/x64)
 
 ### Minimum requirements
 
@@ -69,6 +74,12 @@ The minimum requirements for a Linux Hybrid Runbook Worker are:
 |PAM | Pluggable Authentication Modules|
 | **Optional package** | **Description** | **Minimum version**|
 | PowerShell Core | To run PowerShell runbooks, PowerShell Core needs to be installed. See [Installing PowerShell Core on Linux](/powershell/scripting/install/installing-powershell-core-on-linux) to learn how to install it. | 6.0.0 |
+
+## Supported Linux hardening
+
+The following are not yet supported:
+
+* CIS
 
 ## Supported runbook types
 
@@ -114,13 +125,25 @@ To install and configure a Linux Hybrid Runbook Worker, perform the following st
 
     In the search results, you should see heartbeat records for the machine, indicating that it is connected and reporting to the service. By default, every agent forwards a heartbeat record to its assigned workspace.
 
-3. Run the following command to add the machine to a Hybrid Runbook Worker group, changing the values for the parameters *-w*, *-k*, *-g*, and *-e*. For the *-g* parameter, replace the value with the name of the Hybrid Runbook Worker group that the new Linux Hybrid Runbook Worker should join. If the name doesn't exist in your Automation account, a new Hybrid Runbook Worker group is created with that name.
+3. Run the following command to add the machine to a Hybrid Runbook Worker group, specifying the values for the parameters `-w`, `-k`, `-g`, and `-e`.
+
+    You can get the information required for parameters `-k` and `-e` from the **Keys** page in your Automation account. Select **Keys** under the **Account settings** section from the left-hand side of the page.
+
+    ![Manage Keys page](media/automation-hybrid-runbook-worker/elements-panel-keys.png)
+
+    * For the `-e` parameter, copy the value for **URL**.
+
+    * For the `-k` parameter, copy the value for **PRIMARY ACCESS KEY**.
+
+    * For the `-g` parameter, specify the name of the Hybrid Runbook Worker group that the new Linux Hybrid Runbook worker should join. If this group already exists in the Automation account, the current machine is added to it. If this group doesn't exist, it is created with that name.
+
+    * For the `-w` parameter, specify your Log Analytics workspace ID.
 
    ```bash
    sudo python /opt/microsoft/omsconfig/modules/nxOMSAutomationWorker/DSCResources/MSFT_nxOMSAutomationWorkerResource/automationworker/scripts/onboarding.py --register -w <logAnalyticsworkspaceId> -k <automationSharedKey> -g <hybridGroupName> -e <automationEndpoint>
    ```
 
-4. After the command is completed, the Hybrid Worker Groups page in the Azure portal shows the new group and the number of members. If this is an existing group, the number of members is incremented. You can select the group from the list on the Hybrid Worker Groups page and select the **Hybrid Workers** tile. On the Hybrid Workers page, you see each member of the group listed.
+4. After the command is completed, the Hybrid Worker Groups page in your Automation account shows the new group and the number of members. If this is an existing group, the number of members is incremented. You can select the group from the list on the Hybrid Worker Groups page and select the **Hybrid Workers** tile. On the Hybrid Workers page, you see each member of the group listed.
 
     > [!NOTE]
     > If you are using the Log Analytics virtual machine extension for Linux for an Azure VM, we recommend setting `autoUpgradeMinorVersion` to `false` as auto-upgrading versions can cause issues with the Hybrid Runbook Worker. To learn how to upgrade the extension manually, see [Azure CLI deployment](../virtual-machines/extensions/oms-linux.md#azure-cli-deployment).

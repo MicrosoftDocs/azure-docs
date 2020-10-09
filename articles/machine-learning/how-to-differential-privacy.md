@@ -1,21 +1,22 @@
 ---
-title: How to preserve data privacy using the WhiteNoise packages
+title: How to preserve data privacy using the WhiteNoise packages (preview)
 titleSuffix: Azure Machine Learning
 description: Learn how to apply differential privacy best practices to Azure Machine Learning models by using the WhiteNoise packages.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: how-to
+ms.topic: conceptual
+ms.custom: how-to
 ms.author: slbird
 author: slbird
 ms.reviewer: luquinta
-ms.date: 05/17/2020
+ms.date: 07/09/2020
 # Customer intent: As an experienced data scientist, I want to use differential privacy in Azure Machine Learning.
 ---
 
-# Use differential privacy in Azure Machine Learning
+# Use differential privacy in Azure Machine Learning (preview)
 
-[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
+
 
 Learn how to apply differential privacy best practices to Azure Machine Learning models by using the WhiteNoise Python packages.
 
@@ -151,7 +152,7 @@ You can use the library to compose more complex analysis graphs, with several me
 | Sum           |            | Imputation |
 | Variance/Covariance |      | Transform  |
 
-See the [basic data analysis notebook](https://github.com/opendifferentialprivacy/whitenoise-samples/blob/master/analysis/basic_data_analysis.ipynb) for more details.
+See the [data analysis notebook](https://github.com/opendifferentialprivacy/whitenoise-samples/blob/master/analysis/basic_data_analysis.ipynb) for more details.
 
 ## Approximate utility of differentially private releases
 

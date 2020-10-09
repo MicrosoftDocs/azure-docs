@@ -3,12 +3,12 @@ title: Monitor Node.js services with Azure Application Insights | Microsoft Docs
 description: Monitor performance and diagnose problems in Node.js services with Application Insights.
 ms.topic: conceptual
 ms.date: 06/01/2020
-
+ms.custom: devx-track-js
 ---
 
 # Monitor your Node.js services and apps with Application Insights
 
-[Application Insights](../../azure-monitor/app/app-insights-overview.md) monitors your backend services and components after deployment, to help you discover and rapidly diagnose performance and other issues. You can use Application Insights for Node.js services that are hosted in your datacenter, Azure VMs and web apps, and even in other public clouds.
+[Application Insights](./app-insights-overview.md) monitors your backend services and components after deployment, to help you discover and rapidly diagnose performance and other issues. You can use Application Insights for Node.js services that are hosted in your datacenter, Azure VMs and web apps, and even in other public clouds.
 
 To receive, store, and explore your monitoring data, include the SDK in your code, and then set up a corresponding Application Insights resource in Azure. The SDK sends data to that resource for further analysis and exploration.
 
@@ -25,7 +25,7 @@ Complete the following tasks to set up monitoring for an app or service.
 Before you begin, make sure that you have an Azure subscription, or [get a new one for free][azure-free-offer]. If your organization already has an Azure subscription, an administrator can follow [these instructions][add-aad-user] to add you to it.
 
 [azure-free-offer]: https://azure.microsoft.com/free/
-[add-aad-user]: https://docs.microsoft.com/azure/active-directory/active-directory-users-create-azure-portal
+[add-aad-user]: ../../active-directory/fundamentals/add-users-azure-active-directory.md
 
 ### <a name="resource"></a> Set up an Application Insights resource
 
@@ -76,8 +76,8 @@ Because the SDK batches data for submission, there might be a delay before items
 
 * Continue to use the application. Take more actions to generate more telemetry.
 * Click **Refresh** in the portal resource view. Charts periodically refresh on their own, but manually refreshing forces them to refresh immediately.
-* Verify that [required outgoing ports](../../azure-monitor/app/ip-addresses.md) are open.
-* Use [Search](../../azure-monitor/app/diagnostic-search.md) to look for specific events.
+* Verify that [required outgoing ports](./ip-addresses.md) are open.
+* Use [Search](./diagnostic-search.md) to look for specific events.
 * Check the [FAQ][FAQ].
 
 ## Basic Usage
@@ -212,7 +212,7 @@ appInsights
 
 ## TelemetryClient API
 
-For a full description of the TelemetryClient API, see [Application Insights API for custom events and metrics](../../azure-monitor/app/api-custom-events-metrics.md).
+For a full description of the TelemetryClient API, see [Application Insights API for custom events and metrics](./api-custom-events-metrics.md).
 
 You can track any request, event, metric, or exception by using the Application Insights Node.js SDK. The following code example demonstrates some of the APIs that you can use:
 
@@ -410,10 +410,11 @@ These properties are client specific, so you can configure `appInsights.defaultC
 
 ## Next steps
 
-* [Monitor your telemetry in the portal](../../azure-monitor/app/overview-dashboard.md)
-* [Write Analytics queries over your telemetry](../../azure-monitor/log-query/get-started-portal.md)
+* [Monitor your telemetry in the portal](./overview-dashboard.md)
+* [Write Analytics queries over your telemetry](../log-query/get-started-portal.md)
 
 <!--references-->
 
 [portal]: https://portal.azure.com/
-[FAQ]: ../../azure-monitor/app/troubleshoot-faq.md
+[FAQ]: ../faq.md
+

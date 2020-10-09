@@ -12,10 +12,7 @@ This article shows you how to set up activity log alerts for resource health not
 
 Azure Resource Health keeps you informed about the current and historical health status of your Azure resources. Azure Resource Health alerts can notify you in near real-time when these resources have a change in their health status. Creating Resource Health alerts programmatically allow for users to create and customize alerts in bulk.
 
-> [!NOTE]
-> Resource Health alerts currently are in preview.
-
-Resource health notifications are stored in the [Azure activity log](https://docs.microsoft.com/azure/azure-monitor/platform/platform-logs-overview) Given the possibly large volume of information stored in the activity log, there is a separate user interface to make it easier to view and set up alerts on resource health notifications.
+Resource health notifications are stored in the [Azure activity log](../azure-monitor/platform/platform-logs-overview.md) Given the possibly large volume of information stored in the activity log, there is a separate user interface to make it easier to view and set up alerts on resource health notifications.
 You can receive an alert when Azure resource sends resource health notifications to your Azure subscription. You can configure the alert based on:
 
 * The subscription affected.
@@ -31,9 +28,9 @@ You also can configure who the alert should be sent to:
 * Select an existing action group.
 * Create a new action group (that can be used for future alerts).
 
-To learn more about action groups, see [Create and manage action groups](https://docs.microsoft.com/azure/azure-monitor/platform/action-groups).
+To learn more about action groups, see [Create and manage action groups](../azure-monitor/platform/action-groups.md).
 
-For information on how to configure resource health notification alerts by using Azure Resource Manager templates, see [Resource Manager templates](https://docs.microsoft.com/azure/service-health/resource-health-alert-arm-template-guide).
+For information on how to configure resource health notification alerts by using Azure Resource Manager templates, see [Resource Manager templates](./resource-health-alert-arm-template-guide.md).
 Resource Health Alert using Azure portal
 
 ## Resource Health Alert Using Azure Portal
@@ -41,7 +38,7 @@ Resource Health Alert using Azure portal
 1. In the Azure [portal](https://portal.azure.com/), select **Service Health**.
 
     ![Service Health Selection](./media/resource-health-alert-monitor-guide/service-health-selection.png)
-2. In the **Resource Health** section, select **Resource Health**.
+2. In the **Resource Health** section, select **Service Health**.
 3. Select **Add resource health alert** and fill in the fields.
 4. Under Alert target, select the **Subscription**, **Resource Types**, **Resource Groups** and **Resource** you want to be alerted for.
 
@@ -56,12 +53,12 @@ Resource Health Alert using Azure portal
     1. **Alert rule name**: The name for the new alert rule.
     2. **Description**: The description for the new alert rule.
     3. **Save alert to resource group**: Select the resource group where you want to save this new rule.
-7. Under **Action group**, from the drop-down menu, specify the action group that you want to assign to this new alert rule. Or, [create a new action group](https://docs.microsoft.com/azure/azure-monitor/platform/action-groups) and assign it to the new rule. To create a new group, select + **New group**.
+7. Under **Action group**, from the drop-down menu, specify the action group that you want to assign to this new alert rule. Or, [create a new action group](../azure-monitor/platform/action-groups.md) and assign it to the new rule. To create a new group, select + **New group**.
 8. To enable the rules after you create them, select **Yes** for the **Enable rule upon creation** option.
 9. Select **Create alert rule**.
 
 The new alert rule for the activity log is created, and a confirmation message appears in the upper-right corner of the window.
-You can enable, disable, edit, or delete a rule. Learn more about [how to manage activity log rules](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-activity-log#view-and-manage-in-the-azure-portal).
+You can enable, disable, edit, or delete a rule. Learn more about [how to manage activity log rules](../azure-monitor/platform/alerts-activity-log.md#view-and-manage-in-the-azure-portal).
 
 ## Next steps
 
@@ -72,6 +69,6 @@ Learn more about Resource Health:
 
 Create Service Health Alerts:
 
-* [Configure Alerts for Service Health](../azure-monitor/platform/alerts-activity-log-service-notifications.md) 
+* [Configure Alerts for Service Health](./alerts-activity-log-service-notifications-portal.md) 
 * [Azure Activity Log event schema](../azure-monitor/platform/activity-log-schema.md)
-* [Configure resource health alerts using Resource Manager templates](https://docs.microsoft.com/azure/service-health/resource-health-alert-arm-template-guide)
+* [Configure resource health alerts using Resource Manager templates](./resource-health-alert-arm-template-guide.md)

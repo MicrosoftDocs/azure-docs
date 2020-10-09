@@ -6,10 +6,10 @@ ms.service: sql-database
 ms.subservice: performance
 ms.custom: sqldbrb=1
 ms.devlang: 
-ms.topic: conceptual
+ms.topic: how-to
 author: danimir
 ms.author: danil
-ms.reviewer: jrasnik, carlrab
+ms.reviewer: jrasnik, sstein
 ms.date: 03/10/2020
 ---
 # Query Performance Insight for Azure SQL Database
@@ -26,14 +26,14 @@ Query Performance Insight provides intelligent query analysis for single and poo
 
 ## Prerequisites
 
-Query Performance Insight requires that [Query Store](https://msdn.microsoft.com/library/dn817826.aspx) is active on your database. It's automatically enabled for all databases in Azure SQL Databases by default. If Query Store is not running, the Azure portal will prompt you to enable it.
+Query Performance Insight requires that [Query Store](https://msdn.microsoft.com/library/dn817826.aspx) is active on your database. It's automatically enabled for all databases in Azure SQL Database by default. If Query Store is not running, the Azure portal will prompt you to enable it.
 
 > [!NOTE]
 > If the "Query Store is not properly configured on this database" message appears in the portal, see [Optimizing the Query Store configuration](#optimize-the-query-store-configuration).
 
 ## Permissions
 
-You need the following [role-based access control](../../role-based-access-control/overview.md) permissions to use Query Performance Insight:
+You need the following [Azure role-based access control (Azure RBAC)](../../role-based-access-control/overview.md) permissions to use Query Performance Insight:
 
 * **Reader**, **Owner**, **Contributor**, **SQL DB Contributor**, or **SQL Server Contributor** permissions are required to view the top resource-consuming queries and charts.
 * **Owner**, **Contributor**, **SQL DB Contributor**, or **SQL Server Contributor** permissions are required to view query text.

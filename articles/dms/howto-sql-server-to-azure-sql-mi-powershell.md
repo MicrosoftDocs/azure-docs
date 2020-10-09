@@ -1,5 +1,5 @@
 ---
-title: "PowerShell: Migrate SQL Server to SQL managed instance"
+title: "PowerShell: Migrate SQL Server to SQL Managed Instance"
 titleSuffix: Azure Database Migration Service
 description: Learn to migrate from SQL Server to Azure SQL Managed Instance by using Azure PowerShell and the Azure Database Migration Service.
 services: database-migration
@@ -9,8 +9,8 @@ manager: craigg
 ms.reviewer: craigg
 ms.service: dms
 ms.workload: data-services
-ms.custom: "seo-lt-2019,fasttrack-edit"
-ms.topic: article
+ms.custom: "seo-lt-2019,fasttrack-edit, devx-track-azurepowershell"
+ms.topic: how-to
 ms.date: 02/20/2020
 ---
 
@@ -116,13 +116,11 @@ $sourceConnInfo = New-AzDmsConnInfo -ServerType SQL `
   -TrustServerCertificate:$true
 ```
 
-The next example shows creation of Connection Info for a Azure SQL Managed Instance named ‘targetmanagedinstance.database.windows.net’ using sql authentication:
+The next example shows creation of Connection Info for a Azure SQL Managed Instance named ‘targetmanagedinstance’:
 
 ```powershell
-$targetConnInfo = New-AzDmsConnInfo -ServerType SQL `
-  -DataSource "targetmanagedinstance.database.windows.net" `
-  -AuthType SqlAuthentication `
-  -TrustServerCertificate:$false
+$targetResourceId = (Get-AzSqlInstance -Name "targetmanagedinstance").Id
+$targetConnInfo = New-AzDmsConnInfo -ServerType SQLMI -MiResourceId $targetResourceId
 ```
 
 ### Provide databases for the migration project

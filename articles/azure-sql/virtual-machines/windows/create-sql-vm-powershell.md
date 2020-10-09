@@ -9,12 +9,13 @@ tags: azure-resource-manager
 ms.assetid: 98d50dd8-48ad-444f-9031-5378d8270d7b
 ms.service: virtual-machines-sql
 
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 12/21/2018
 ms.author: mathoma
-ms.reviewer: jroth
+ms.reviewer: jroth 
+ms.custom: devx-track-azurepowershell
 ---
 # How to use Azure PowerShell to provision SQL Server on Azure Virtual Machines
 
@@ -55,7 +56,7 @@ $ResourceGroupName = "sqlvm2"
 
 Define the storage account and the type of storage to be used by the virtual machine.
 
-Modify as you want, and then run the following cmdlet to initialize these variables. We recommend using [premium SSDs](../../../virtual-machines/windows/disks-types.md#premium-ssd) for production workloads.
+Modify as you want, and then run the following cmdlet to initialize these variables. We recommend using [premium SSDs](../../../virtual-machines/disks-types.md#premium-ssd) for production workloads.
 
 ```powershell
 $StorageName = $ResourceGroupName + "storage"
@@ -147,7 +148,7 @@ New-AzResourceGroup -Name $ResourceGroupName -Location $Location
 
 ## Create a storage account
 
-The virtual machine requires storage resources for the operating system disk and for the SQL Server data and log files. For simplicity, you'll create a single disk for both. You can attach additional disks later using the [Add-Azure Disk](https://docs.microsoft.com/powershell/module/servicemanagement/azure/add-azuredisk) cmdlet to place your SQL Server data and log files on dedicated disks. Use the [New-AzStorageAccount](https://docs.microsoft.com/powershell/module/az.storage/new-azstorageaccount) cmdlet to create a standard storage account in your new resource group. Specify the variables that you previously initialized for the storage account name, storage SKU name, and location.
+The virtual machine requires storage resources for the operating system disk and for the SQL Server data and log files. For simplicity, you'll create a single disk for both. You can attach additional disks later using the [Add-Azure Disk](/powershell/module/servicemanagement/azure.service/add-azuredisk) cmdlet to place your SQL Server data and log files on dedicated disks. Use the [New-AzStorageAccount](https://docs.microsoft.com/powershell/module/az.storage/new-azstorageaccount) cmdlet to create a standard storage account in your new resource group. Specify the variables that you previously initialized for the storage account name, storage SKU name, and location.
 
 Run this cmdlet to create your new storage account.
 

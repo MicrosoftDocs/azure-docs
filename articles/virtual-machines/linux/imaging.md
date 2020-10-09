@@ -1,6 +1,6 @@
 ---
 title: Overview of creating Linux images for Azure
-description: Overview of how to bring your Linux VM images or create new images to use in Azure.
+description: How to bring your Linux VM images or create new images to use in Azure.
 author: danielsollondon
 ms.service: virtual-machines-linux
 ms.subservice: imaging
@@ -21,7 +21,7 @@ This article will talk through the image decision points and requirements, expla
 ## Difference between managed disks and images
 
 
-Azure allows you to bring a VHD to the platform, to use as a [Managed Disk](https://docs.microsoft.com/azure/virtual-machines/windows/faq-for-disks#managed-disks), or use as a source for an image. 
+Azure allows you to bring a VHD to the platform, to use as a [Managed Disk](../faq-for-disks.md#managed-disks), or use as a source for an image. 
 
 Azure managed disks are single VHDs. You can either take an existing VHD and create a managed disk from it, or create an empty managed disk from scratch. You can create VMs from managed disks by attaching the disk to the VM, but you can only use a VHD with one VM. You can't modify any OS properties, Azure will just try to turn on the VM and start up using that disk. 
 
@@ -42,19 +42,19 @@ Azure offers two main image types, generalized and specialized. The terms genera
 
 ### Generalized images
 
-A generalized image is an image that requires setup to be completed on first boot. For example, on first boot you set the hostname, admin user and other VM-specific configurations. This is useful when you want the image to be reused multiple times, and when you want to pass in parameters during creation. If the generalized image contains the Azure agent, the agent will process the parameters, and signal back to the platform that the initial configuration has completed. This process is called **provisioning**. 
+A generalized image is an image that requires setup to be completed on first boot. For example, on first boot you set the hostname, admin user and other VM-specific configurations. This is useful when you want the image to be reused multiple times, and when you want to pass in parameters during creation. If the generalized image contains the Azure agent, the agent will process the parameters, and signal back to the platform that the initial configuration has completed. This process is called [provisioning](https://docs.microsoft.com/azure/virtual-machines/linux/provisioning). 
 
 Provisioning requires that a provisioner is included in the image. There are two provisioners:
-- [Azure Linux Agent](https://docs.microsoft.com/azure/virtual-machines/extensions/agent-linux)
-- [cloud-init](https://docs.microsoft.com/azure/virtual-machines/linux/using-cloud-init)
+- [Azure Linux Agent](../extensions/agent-linux.md)
+- [cloud-init](./using-cloud-init.md)
 
-These are [prerequisites](https://docs.microsoft.com/azure/virtual-machines/linux/create-upload-generic) for creating an image.
+These are [prerequisites](./create-upload-generic.md) for creating an image.
 
 
 ### Specialized images
 These are images that are completely configured and not require VM and special parameters, the platform will just turn the VM on, you need handle uniqueness within the VM, like setting a hostname, to avoid DNS conflicts on the same VNET. 
 
-Provisioning agents are not required for these images, however, you may want to have extension handling capabilities. You can install the Linux Agent, but disable the provisioning option. Even though you do not need a provisioning agent, the image must fulfill [prerequisites](https://docs.microsoft.com/azure/virtual-machines/linux/create-upload-generic)  for Azure Images.
+Provisioning agents are not required for these images, however, you may want to have extension handling capabilities. You can install the Linux Agent, but disable the provisioning option. Even though you do not need a provisioning agent, the image must fulfill [prerequisites](./create-upload-generic.md)  for Azure Images.
 
 
 ## Image storage options
@@ -90,13 +90,14 @@ At a high level, you create a SIG, and it is made up of:
 
 ## Hyper-V generation
 
-Azure supports Hyper-V Generation 1 (Gen1) and Generation 2 (Gen2), Gen2 is the latest generation, and offers additional functionality over Gen1. For example: increased memory, Intel Software Guard Extensions (Intel SGX), and virtualized persistent memory (vPMEM). Generation 2 VMs running on-premises, have some features that aren't supported in Azure yet. For more information, see the Features and capabilities section. For more information see this [article](https://docs.microsoft.com/azure/virtual-machines/windows/generation-2). Create Gen2 images if you require the additional functionality.
+Azure supports Hyper-V Generation 1 (Gen1) and Generation 2 (Gen2), Gen2 is the latest generation, and offers additional functionality over Gen1. For example: increased memory, Intel Software Guard Extensions (Intel SGX), and virtualized persistent memory (vPMEM). Generation 2 VMs running on-premises, have some features that aren't supported in Azure yet. For more information, see the Features and capabilities section. For more information see this [article](../windows/generation-2.md). Create Gen2 images if you require the additional functionality.
 
-If you still need to create your own image, ensure it meets the [image prerequisites](https://docs.microsoft.com/azure/virtual-machines/linux/create-upload-generic), and upload to Azure. Distribution specific requirements:
+If you still need to create your own image, ensure it meets the [image prerequisites](./create-upload-generic.md), and upload to Azure. Distribution specific requirements:
 
 
-- [CentOS-based distributions](create-upload-centos.md)
+- [CentOS-based Distributions](create-upload-centos.md)
 - [Debian Linux](debian-create-upload-vhd.md)
+- [Flatcar Container Linux](flatcar-create-upload-vhd.md)
 - [Oracle Linux](oracle-create-upload-vhd.md)
 - [Red Hat Enterprise Linux](redhat-create-upload-vhd.md)
 - [SLES & openSUSE](suse-create-upload-vhd.md)
@@ -106,6 +107,3 @@ If you still need to create your own image, ensure it meets the [image prerequis
 ## Next steps
 
 Learn how to create a [Shared Image Gallery](tutorial-custom-images.md).
-
-
-

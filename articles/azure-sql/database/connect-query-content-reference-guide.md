@@ -7,7 +7,7 @@ ms.service: sql-database
 ms.subservice: service
 ms.custom: sqldbrb=1
 ms.devlang: 
-ms.topic: quickstart
+ms.topic: guide
 author: stevestein
 ms.author: sstein
 ms.reviewer: 
@@ -20,7 +20,7 @@ The following document includes links to Azure examples showing how to connect a
 
 ## Quickstarts
 
-| |  |
+| Quickstart | Description |
 |---|---|
 |[SQL Server Management Studio](connect-query-ssms.md)|This quickstart demonstrates how to use SSMS to connect to a database, and then use Transact-SQL statements to query, insert, update, and delete data in the database.|
 |[Azure Data Studio](https://docs.microsoft.com/sql/azure-data-studio/quickstart-sql-database?toc=/azure/sql-database/toc.json)|This quickstart demonstrates how to use Azure Data Studio to connect to a database, and then use Transact-SQL (T-SQL) statements to create the TutorialDB used in Azure Data Studio tutorials.|
@@ -57,7 +57,7 @@ Non-Microsoft drivers might not use TLS by default. This can be a factor when co
 
 You can use various libraries and frameworks to connect to Azure SQL Database or Azure SQL Managed Instance. Check out our [Get started tutorials](https://aka.ms/sqldev) to quickly get started with programming languages such as C#, Java, Node.js, PHP, and Python. Then build an app by using SQL Server on Linux or Windows or Docker on macOS.
 
-The following table lists connectivity libraries or *drivers* that client applications can use from a variety of languages to connect to and use SQL Server running on-premises or in the cloud. You can use them on Linux, Windows, or Docker and use them to connect to Azure SQL Database, Azure SQL Managed Instance, and Azure SQL Data Warehouse.
+The following table lists connectivity libraries or *drivers* that client applications can use from a variety of languages to connect to and use SQL Server running on-premises or in the cloud. You can use them on Linux, Windows, or Docker and use them to connect to Azure SQL Database, Azure SQL Managed Instance, and Azure Synapse Analytics (formerly SQL Data Warehouse).
 
 | Language | Platform | Additional resources | Download | Get started |
 | :-- | :-- | :-- | :-- | :-- |

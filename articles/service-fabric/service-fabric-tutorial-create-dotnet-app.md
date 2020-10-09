@@ -4,7 +4,7 @@ description: In this tutorial, you learn how to create an application with an AS
 
 ms.topic: tutorial
 ms.date: 07/10/2019
-ms.custom: mvc
+ms.custom: "mvc, devx-track-js, devx-track-csharp"
 ---
 # Tutorial: Create and deploy an application with an ASP.NET Core Web API front-end service and a stateful back-end service
 
@@ -37,7 +37,7 @@ Before you begin this tutorial:
 ## Create an ASP.NET Web API service as a reliable service
 
 First, create the web front-end of the voting application using ASP.NET Core. ASP.NET Core is a lightweight, cross-platform web development framework that you can use to create modern web UI and web APIs. 
-To get a complete understanding of how ASP.NET Core integrates with Service Fabric, we strongly recommend reading through the [ASP.NET Core in Service Fabric Reliable Services](service-fabric-reliable-services-communication-aspnetcore.md) article. For now, you can follow this tutorial to get started quickly. To learn more about ASP.NET Core, see the [ASP.NET Core Documentation](https://docs.microsoft.com/aspnet/core/).
+To get a complete understanding of how ASP.NET Core integrates with Service Fabric, we strongly recommend reading through the [ASP.NET Core in Service Fabric Reliable Services](service-fabric-reliable-services-communication-aspnetcore.md) article. For now, you can follow this tutorial to get started quickly. To learn more about ASP.NET Core, see the [ASP.NET Core Documentation](/aspnet/core/).
 
 1. Launch Visual Studio as an **administrator**.
 

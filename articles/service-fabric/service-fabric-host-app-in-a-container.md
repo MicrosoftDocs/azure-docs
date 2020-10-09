@@ -8,7 +8,7 @@ ms.date: 07/08/2019
 
 # Tutorial: Deploy a .NET application in a Windows container to Azure Service Fabric
 
-This tutorial shows you how to containerize an existing ASP.NET application and package it as a Service Fabric application.  Run the containers locally on the Service Fabric development cluster and then deploy the application to Azure.  The application persists data in [Azure SQL Database](/azure/sql-database/sql-database-technical-overview).
+This tutorial shows you how to containerize an existing ASP.NET application and package it as a Service Fabric application.  Run the containers locally on the Service Fabric development cluster and then deploy the application to Azure.  The application persists data in [Azure SQL Database](../azure-sql/database/sql-database-paas-overview.md).
 
 In this tutorial, you learn how to:
 
@@ -35,13 +35,13 @@ In this tutorial, you learn how to:
 
 2. Verify that the Fabrikam Fiber CallCenter application builds and runs without error.  Launch Visual Studio as an **administrator** and open the [FabrikamFiber.CallCenter.sln][link-fabrikam-github] file.  Press F5 to debug and run the application.
 
-   ![Fabrikam web sample][fabrikam-web-page]
+   ![Screenshot of the Fabrikam Fiber CallCenter application home page running on the local host. The page shows a dashboard with a list of support calls.][fabrikam-web-page]
 
 ## Containerize the application
 
 1. Right-click the **FabrikamFiber.Web** project > **Add** > **Container Orchestrator Support**.  Select **Service Fabric** as the container orchestrator and click **OK**.
 
-2. Click **Yes** to switch Docker to Windows containers now.
+2. If prompted, click **Yes** to switch Docker to Windows containers now.
 
    A new project Service Fabric application project **FabrikamFiber.CallCenterApplication** is created in the solution.  A Dockerfile is added to the existing **FabrikamFiber.Web** project.  A **PackageRoot** directory is also added to the **FabrikamFiber.Web** project, which contains the service manifest and settings for the new FabrikamFiber.Web service.
 
@@ -51,7 +51,7 @@ In this tutorial, you learn how to:
 
 When running the Fabrikam Fiber CallCenter application in production, the data needs to be persisted in a database. There is currently no way to guarantee persistent data in a container, therefore you cannot store production data in SQL Server in a container.
 
-We recommend [Azure SQL Database](/azure/sql-database/sql-database-get-started-powershell). To set up and run a managed SQL Server DB in Azure, run the following script.  Modify the script variables as necessary. *clientIP* is the IP address of your development computer. Take note of the name of the server outputted by the script.
+We recommend [Azure SQL Database](../azure-sql/database/powershell-script-content-guide.md). To set up and run a managed SQL Server DB in Azure, run the following script.  Modify the script variables as necessary. *clientIP* is the IP address of your development computer. Take note of the name of the server outputted by the script.
 
 ```powershell
 $subscriptionID="<subscription ID>"
@@ -105,7 +105,7 @@ Write-Host "Server name is $servername"
 
 ## Update the web config
 
-Back in the **FabrikamFiber.Web** project, update the connection string in the **web.config** file, to point to the SQL Server in the container.  Update the *Server* part of the connection string to be the server name created by the previous script. It should be something like "fab-fiber-751718376.database.windows.net".
+Back in the **FabrikamFiber.Web** project, update the connection string in the **web.config** file, to point to the SQL Server in the container.  Update the *Server* part of the connection string to be the server name created by the previous script. It should be something like "fab-fiber-751718376.database.windows.net". In the following XML, you need to update only the `connectionString` attribute; the `providerName` and `name` attributes don't need to be changed.
 
 ```xml
 <add name="FabrikamFiber-Express" connectionString="Server=<server name>,1433;Initial Catalog=call-center-db;Persist Security Info=False;User ID=ServerAdmin;Password=Password@123;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;" providerName="System.Data.SqlClient" />
@@ -122,7 +122,7 @@ Press **F5** to run and debug the application in a container on the local Servic
 
 ## Create a container registry
 
-Now that the application runs locally, start preparing to deploy to Azure.  Container images need to be stored in a container registry.  Create an [Azure container registry](/azure/container-registry/container-registry-intro) using the following script. The container registry name is visible by other Azure subscriptions, so it must be unique.
+Now that the application runs locally, start preparing to deploy to Azure.  Container images need to be stored in a container registry.  Create an [Azure container registry](../container-registry/container-registry-intro.md) using the following script. The container registry name is visible by other Azure subscriptions, so it must be unique.
 Before deploying the application to Azure, you push the container image to this registry.  When the application deploys to the cluster in Azure, the container image is pulled from this registry.
 
 ```powershell
@@ -175,7 +175,7 @@ When creating the cluster:
 
 ## Allow your application running in Azure to access SQL Database
 
-Previously, you created a SQL firewall rule to give access to your application running locally.  Next, you need to enable the application running in Azure to access the SQL DB.  Create a [virtual network service endpoint](/azure/sql-database/sql-database-vnet-service-endpoint-rule-overview) for the Service Fabric cluster and then create a rule to allow that endpoint to access the SQL DB. Be sure to specify the cluster resource group variable that you took note of when creating the cluster.
+Previously, you created a SQL firewall rule to give access to your application running locally.  Next, you need to enable the application running in Azure to access the SQL DB.  Create a [virtual network service endpoint](../azure-sql/database/vnet-service-endpoint-rule-overview.md) for the Service Fabric cluster and then create a rule to allow that endpoint to access the SQL DB. Be sure to specify the cluster resource group variable that you took note of when creating the cluster.
 
 ```powershell
 # Create a virtual network service endpoint
@@ -231,7 +231,7 @@ Now that the application is ready, you can deploy it to the cluster in Azure dir
 
 Follow the deployment progress in the output window. When the application is deployed, open a browser and type in the cluster address and application port. For example, `https://fabrikamfibercallcenter.southcentralus.cloudapp.azure.com:8659/`.
 
-![Fabrikam web sample][fabrikam-web-page-deployed]
+![Screenshot of the Fabrikam Fiber CallCenter application home page running on azure.com. The page shows a dashboard with a list of support calls.][fabrikam-web-page-deployed]
 
 ## Set up Continuous Integration and Deployment (CI/CD) with a Service Fabric cluster
 

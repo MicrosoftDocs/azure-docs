@@ -2,10 +2,15 @@
 title: Use portal to upload, encode, and stream content  - Azure
 description: This quickstart shows you how to use portal to upload, encode, and stream content with Azure Media Services.
 ms.topic: quickstart
-ms.date: 06/08/2020
+ms.date: 08/31/2020
+author: IngridAtMicrosoft
+ms.author: inhenkel
+manager: femila
  
 ---
 # Quickstart: Upload, encode, and stream content with portal
+
+[!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
 This quickstart shows you how to use the Azure portal to upload, encode, and stream content with Azure Media Services.
 
@@ -23,14 +28,13 @@ This quickstart shows you how to use the Azure portal to upload, encode, and str
 
   * [Cloud upload and storage](storage-account-concept.md)
   * [Assets concept](assets-concept.md)
-  * [Managing assets](manage-asset-concept.md)
 * Once you upload your high-quality digital media file into an asset (an input asset), you can process it (encode or analyze). The processed content goes into another asset (output asset). 
     * [Encode](encoding-concept.md) your uploaded file into formats that can be played on a wide variety of browsers and devices.
     * [Analyze](analyzing-video-audio-files-concept.md) your uploaded file. 
 
         Currently, when using the Azure portal, you can do the following: generate a TTML and WebVTT closed caption files. Files in these formats can be used to make audio and video files accessible to people with hearing disability. You can also extract keywords from your content.
 
-        For a rich experience that enables you to extract insights from your video and audio files, use Media Services v3 presets (as described in [Tutorial: Analyze videos with Media Services v3](analyze-videos-tutorial-with-api.md)). <br/>If you want more detailed insights, use [Video Indexer](https://docs.microsoft.com/azure/media-services/video-indexer/) directly.    
+        For a rich experience that enables you to extract insights from your video and audio files, use Media Services v3 presets (as described in [Tutorial: Analyze videos with Media Services v3](analyze-videos-tutorial-with-api.md)). <br/>If you want more detailed insights, use [Video Indexer](../video-indexer/index.yml) directly.    
 * Once your content is processed, you can deliver media content to client players. To make videos in the output asset available to clients for playback, you have to create a **streaming locator**. When creating the **streaming locator**, you need to specify a **streaming policy**. **Streaming policies** enable you to define streaming protocols and encryption options (if any) for your **streaming locators**.
     
     Review:
@@ -53,11 +57,11 @@ This quickstart shows you how to use the Azure portal to upload, encode, and str
 1. Locate and click on your Media Services account.
 1. Select **Assets (new)**.
 1. Press **Upload** in the top of the window. 
-1. Drag and drop or browse to a file tha you want to upload.
+1. Drag and drop or browse to a file that you want to upload.
 
 If you navigate to your assets window, you will see that a new asset was added to the list:
 
-![Upload](./media/manage-assets-quickstart/upload.png)
+![Screenshot of the Azure portal showing the Assets window opened by selecting Assets (new), and a new asset added by selecting the Upload button.](./media/manage-assets-quickstart/upload.png)
 
 ## Encode
 
@@ -69,7 +73,7 @@ If you navigate to your assets window, you will see that a new asset was added t
 
 If you navigate to your assets window, you will see that the output asset was added to the list:
 
-![Encode](./media/manage-assets-quickstart/encode.png)
+![Screenshot of the Assets window in Azure portal showing the asset ignite.mp4 Media Encoded Standard encoded added to the list of assets.](./media/manage-assets-quickstart/encode.png)
 
 ## Monitor the job progress
 

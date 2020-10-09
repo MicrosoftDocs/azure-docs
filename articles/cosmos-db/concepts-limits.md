@@ -5,32 +5,35 @@ author: abhijitpai
 ms.author: abpai
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 04/03/2020
+ms.date: 09/02/2020
 ---
 
 # Azure Cosmos DB service quotas
 
 This article provides an overview of the default quotas offered to different resources in the Azure Cosmos DB.
 
-## Storage and throughput
+## Storage and database operations
 
-After you create an Azure Cosmos account under your subscription, you can manage data in your account by [creating databases, containers, and items](databases-containers-items.md). You can provision throughput at a container-level or a database-level in terms of [request units (RU/s or RUs)](request-units.md). The following table lists the limits for storage and throughput per container/database.
+After you create an Azure Cosmos account under your subscription, you can manage data in your account by [creating databases, containers, and items](databases-containers-items.md).
+
+### Provisioned throughput
+
+You can provision throughput at a container-level or a database-level in terms of [request units (RU/s or RUs)](request-units.md). The following table lists the limits for storage and throughput per container/database.
 
 | Resource | Default limit |
 | --- | --- |
-| Maximum RUs per container ([dedicated throughput provisioned mode](databases-containers-items.md#azure-cosmos-containers)) | 1,000,000 by default. You can increase it by [filing an Azure support ticket](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request) |
-| Maximum RUs per database ([shared throughput provisioned mode](databases-containers-items.md#azure-cosmos-containers)) | 1,000,000 by default. You can increase it by [filing an Azure support ticket](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request) |
-| Maximum RUs per (logical) partition key | 10,000 |
-| Maximum storage across all items per (logical) partition key| 20 GB |
+| Maximum RUs per container ([dedicated throughput provisioned mode](databases-containers-items.md#azure-cosmos-containers)) | 1,000,000 by default. You can increase it by [filing an Azure support ticket](create-support-request-quota-increase.md) |
+| Maximum RUs per database ([shared throughput provisioned mode](databases-containers-items.md#azure-cosmos-containers)) | 1,000,000 by default. You can increase it by [filing an Azure support ticket](create-support-request-quota-increase.md) |
+| Maximum RUs per (logical) partition | 10,000 |
+| Maximum storage across all items per (logical) partition | 20 GB |
 | Maximum number of distinct (logical) partition keys | Unlimited |
 | Maximum storage per container | Unlimited |
 | Maximum storage per database | Unlimited |
-| Maximum attachment size per Account (Attachment feature is being depreciated) | 2 GB |
+| Maximum attachment size per Account (Attachment feature is being deprecated) | 2 GB |
 | Minimum RUs required per 1 GB | 10 RU/s |
 
 > [!NOTE]
 > To learn about best practices for managing workloads that have partition keys requiring higher limits for storage or throughput, see [Create a synthetic partition key](synthetic-partition-keys.md).
->
 
 A Cosmos container (or shared throughput database) must have a minimum throughput of 400 RU/s. As the container grows, the minimum supported throughput also depends on the following factors:
 
@@ -42,7 +45,6 @@ The current and minimum throughput of a container or a database can be retrieved
 
 > [!NOTE]
 > In some cases, you may be able to lower throughput to lesser than 10%. Use the API to get the exact minimum RUs per container.
->
 
 In summary, here are the minimum provisioned RU limits. 
 
@@ -54,14 +56,26 @@ In summary, here are the minimum provisioned RU limits.
 
 Cosmos DB supports elastic scaling of throughput (RUs) per container or database via the SDKs or portal. Each container can scale synchronously and immediately within a scale range of 10 to 100 times, between minimum and maximum values. If the requested throughput value is outside the range, scaling is performed asynchronously. Asynchronous scaling may take minutes to hours to complete depending on the requested throughput and data storage size in the container.  
 
+### Serverless
+
+[Serverless](serverless.md) lets you use your Azure Cosmos DB resources in a consumption-based fashion. The following table lists the limits for storage and throughput burstability per container/database.
+
+| Resource | Limit |
+| --- | --- |
+| Maximum RU/s per container | 5,000 |
+| Maximum RU/s per (logical) partition | 5,000 |
+| Maximum storage across all items per (logical) partition | 20 GB |
+| Maximum number of distinct (logical) partition keys | Unlimited |
+| Maximum storage per container | 50 GB |
+
 ## Control plane operations
 
 You can [provision and manage your Azure Cosmos account](how-to-manage-database-account.md) using the Azure portal, Azure PowerShell, Azure CLI, and Azure Resource Manager templates. The following table lists the limits per subscription, account, and number of operations.
 
 | Resource | Default limit |
 | --- | --- |
-| Maximum database accounts per subscription | 50 by default. You can increase it by [filing an Azure support ticket](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request)|
-| Maximum number of regional failovers | 1/hour by default. You can increase it by [filing an Azure support ticket](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request)|
+| Maximum database accounts per subscription | 50 by default. You can increase it by [filing an Azure support ticket](create-support-request-quota-increase.md)|
+| Maximum number of regional failovers | 1/hour by default. You can increase it by [filing an Azure support ticket](create-support-request-quota-increase.md)|
 
 > [!NOTE]
 > Regional failovers only apply to single region writes accounts. Multi-region write accounts do not require or have any limits on changing the write region.
@@ -70,12 +84,22 @@ Cosmos DB automatically takes backups of your data at regular intervals. For det
 
 ## Per-account limits
 
+### Provisioned throughput
+
 | Resource | Default limit |
 | --- | --- |
 | Maximum number of databases | Unlimited |
 | Maximum number of containers per database with shared throughput |25 |
 | Maximum number of containers per database or account with dedicated throughput  |unlimited |
 | Maximum number of regions | No limit (All Azure regions) |
+
+### Serverless
+
+| Resource | Limit |
+| --- | --- |
+| Maximum number of databases | Unlimited |
+| Maximum number of containers per account  | 100 |
+| Maximum number of regions | 1 (Any Azure region) |
 
 ## Per-container limits
 
@@ -89,8 +113,9 @@ Depending on which API you use, an Azure Cosmos container can represent either a
 | Maximum number of paths in indexing policy| 100 <sup>*</sup>|
 | Maximum number of unique keys per container|10 <sup>*</sup>|
 | Maximum number of paths per unique key constraint|16 <sup>*</sup>|
+| Maximum TTL value |2147483647|
 
-<sup>*</sup> You can increase any of these per-container limits by contacting Azure Support.
+<sup>*</sup> You can increase any of these per-container limits by creating an [Azure Support request](create-support-request-quota-increase.md).
 
 ## Per-item limits
 
@@ -107,12 +132,14 @@ Depending on which API you use, an Azure Cosmos item can represent either a docu
 | Maximum length of property value | No practical limit |
 | Maximum length of string property value | No practical limit |
 | Maximum length of numeric property value | IEEE754 double-precision 64-bit |
+| Maximum level of nesting for embedded objects / arrays | 128 |
+| Maximum TTL value |2147483647|
 
 There are no restrictions on the item payloads like number of properties and nesting depth, except for the length restrictions on partition key and ID values, and the overall size restriction of 2 MB. You may have to configure indexing policy for containers with large or complex item structures to reduce RU consumption. See [Modeling items in Cosmos DB](how-to-model-partition-example.md) for a real-world example, and patterns to manage large items.
 
 ## Per-request limits
 
-Azure Cosmos DB supports [CRUD and query operations](https://docs.microsoft.com/rest/api/cosmos-db/) against resources like containers, items, and databases. It also supports [transactional batch requests](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.transactionalbatch) against multiple items with the same partition key in a container.
+Azure Cosmos DB supports [CRUD and query operations](/rest/api/cosmos-db/) against resources like containers, items, and databases. It also supports [transactional batch requests](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.transactionalbatch) against multiple items with the same partition key in a container.
 
 | Resource | Default limit |
 | --- | --- |
@@ -123,16 +150,26 @@ Azure Cosmos DB supports [CRUD and query operations](https://docs.microsoft.com/
 
 Once an operation like query reaches the execution timeout or response size limit, it returns a page of results and a continuation token to the client to resume execution. There is no practical limit on the duration a single query can run across pages/continuations.
 
-Cosmos DB uses HMAC for authorization. You can use either a master key, or a [resource tokens](secure-access-to-data.md) for fine-grained access control to resources like containers, partition keys, or items. The following table lists limits for authorization tokens in Cosmos DB.
+Cosmos DB uses HMAC for authorization. You can use either a primary key, or a [resource tokens](secure-access-to-data.md) for fine-grained access control to resources like containers, partition keys, or items. The following table lists limits for authorization tokens in Cosmos DB.
 
 | Resource | Default limit |
 | --- | --- |
-| Maximum master token expiry time | 15 min  |
+| Maximum primary token expiry time | 15 min  |
 | Minimum resource token expiry time | 10 min  |
-| Maximum resource token expiry time | 24 h by default. You can increase it by [filing an Azure support ticket](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request)|
+| Maximum resource token expiry time | 24 h by default. You can increase it by [filing an Azure support ticket](create-support-request-quota-increase.md)|
 | Maximum clock skew for token authorization| 15 min |
 
-Cosmos DB supports execution of triggers during writes. The service supports a maximum of one pre-trigger and one post-trigger per write operation. 
+Cosmos DB supports execution of triggers during writes. The service supports a maximum of one pre-trigger and one post-trigger per write operation.
+
+## Metadata request limits
+
+Azure Cosmos DB maintains system metadata for each account. This metadata allows you to enumerate collections, databases, other Azure Cosmos DB resources, and their configurations for free of charge.
+
+| Resource | Default limit |
+| --- | --- |
+|Maximum collection create rate per minute|	5|
+|Maximum Database create rate per minute|	5|
+|Maximum provisioned throughput update rate per minute|	5|
 
 ## Limits for autoscale provisioned throughput
 
@@ -161,7 +198,7 @@ Cosmos DB supports querying items using [SQL](how-to-sql-query.md). The followin
 | Maximum excluded paths per container| 500 |
 | Maximum properties in a composite index| 8 |
 
-<sup>*</sup> You can increase these SQL query limits by contacting Azure Support.
+<sup>*</sup> You can increase any of these SQL query limits by creating an [Azure Support request](create-support-request-quota-increase.md).
 
 ## MongoDB API-specific limits
 
@@ -175,7 +212,7 @@ The following table lists the limits specific to MongoDB feature support. Other 
 | Maximum execution time for MongoDB operations| 30s |
 | Idle connection timeout for server side connection closure* | 30 minutes |
 
-\* We recommend that client applications set the idle connection timeout in the driver settings to 2-3 minutes because the [default timeout for Azure LoadBalancer is 4 minutes](../load-balancer/load-balancer-tcp-idle-timeout.md#tcp-idle-timeout).  This timeout will ensure that idle connections are not closed by an intermediate load balancer between the client machine and Azure Cosmos DB.
+\* We recommend that client applications set the idle connection timeout in the driver settings to 2-3 minutes because the [default timeout for Azure LoadBalancer is 4 minutes](../load-balancer/load-balancer-tcp-idle-timeout.md).  This timeout will ensure that idle connections are not closed by an intermediate load balancer between the client machine and Azure Cosmos DB.
 
 ## Try Cosmos DB Free limits
 

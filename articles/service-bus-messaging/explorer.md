@@ -1,15 +1,8 @@
 ---
 title: Use Azure Service Bus Explorer to perform data operations on Service Bus (Preview)
 description: This article provides information on how to use the portal-based Azure Service Bus Explorer to access Azure Service Bus data. 
-services: service-bus-messaging
-ms.service: service-bus
-documentationcenter: ''
-author: axisc
-
 ms.topic: conceptual
-ms.date: 03/04/2020
-ms.author: aschhab
-
+ms.date: 06/23/2020
 ---
 
 # Use Service Bus Explorer to perform data operations on Service Bus (Preview)
@@ -106,7 +99,7 @@ To receive a message from a Queue (or its deadletter subqueue)
 
 When the receive operation is successful, the message details will display on the grid as below. You can select the message from the grid to display its details.
 
-:::image type="content" source="./media/service-bus-explorer/receive-message-from-queue-2.png" alt-text="ReceiveMessageFromQueue":::
+:::image type="content" source="./media/service-bus-explorer/receive-message-from-queue-2.png" alt-text="Screenshot of the Queues window in the Azure Service Bus Explorer with message details displayed for an active message that is selected in the queue.":::
 
 
 ### Peeking a message from a Queue
@@ -158,7 +151,7 @@ Just like with a queue, the ***Receive*** operation can be performed against a s
 
 When the receive operation is successful, the received message will display on the grid as below. To view the message details, click on the message.
 
-:::image type="content" source="./media/service-bus-explorer/receive-message-from-subscription.png" alt-text="ReceiveMessageFromQueue":::
+:::image type="content" source="./media/service-bus-explorer/receive-message-from-subscription.png" alt-text="Screenshot of the Receive tab in the Azure Service Bus Explorer with message details displayed for an active message that has been received.":::
 
 ### Peeking a message from a Subscription
 

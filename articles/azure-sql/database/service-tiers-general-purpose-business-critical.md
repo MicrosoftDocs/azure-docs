@@ -3,14 +3,14 @@ title: General purpose and business critical service tiers
 titleSuffix: Azure SQL Database & SQL Managed Instance
 description: The article discusses the general purpose and business critical service tiers in the vCore-based purchasing model used by Azure SQL Database and Azure SQL Managed Instance. 
 services: sql-database
-ms.service: sql-database
-ms.subservice: service
+ms.service: sql-db-mi
+ms.subservice: features
 ms.custom: sqldbrb=2
 ms.devlang: 
 ms.topic: conceptual
 author: stevestein
 ms.author: sstein
-ms.reviewer: sashan, moslake, carlrab
+ms.reviewer: sashan, moslake
 ms.date: 01/30/2020
 ---
 # Azure SQL Database and Azure SQL Managed Instance service tiers
@@ -31,7 +31,7 @@ This article discusses differences between the service tiers, storage and backup
 
 The following table describes the key differences between service tiers for the latest generation (Gen5). Note that service tier characteristics might be different in SQL Database and SQL Managed Instance.
 
-| | Resource type | General Purpose |  Hyperscale | Business Critical |
+|-| Resource type | General Purpose |  Hyperscale | Business Critical |
 |:---:|:---:|:---:|:---:|:---:|
 | **Best for** | |  Offers budget oriented balanced compute and storage options. | Most business workloads. Auto-scaling storage size up to 100 TB, fluid vertical and horizontal compute scaling, fast database restore. | OLTP applications with high transaction rate and low IO latency. Offers highest resilience to failures and fast failovers using multiple synchronously updated replicas.|
 |  **Available in resource type:** ||SQL Database / SQL Managed Instance | Single Azure SQL Database | SQL Database / SQL Managed Instance |

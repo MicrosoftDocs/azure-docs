@@ -2,12 +2,13 @@
 title: Troubleshoot common connection issues to Azure SQL Database
 description: Provides steps to troubleshoot Azure SQL Database connection issues and resolve other Azure SQL Database or Azure SQL Managed Instance specific issues
 services: sql-database
-ms.service: sql-database
+ms.service: sql-db-mi
+ms.subservice: development
 ms.topic: troubleshooting
 ms.custom: seo-lt-2019, OKR 11/2019, sqldbrb=1
 author: ramakoni1
 ms.author: ramakoni
-ms.reviewer: carlrab,vanto
+ms.reviewer: sstein,vanto
 ms.date: 01/14/2020
 ---
 
@@ -188,7 +189,7 @@ To work around this issue, try one of the following methods:
 2. Determine the **input buffer** for the head blocker.
 3. Tune the head blocker query.
 
-   For an in-depth troubleshooting procedure, see [Is my query running fine in the cloud?](https://blogs.msdn.com/b/sqlblog/archive/2013/11/01/is-my-query-running-fine-in-the-cloud.aspx).
+   For an in-depth troubleshooting procedure, see [Is my query running fine in the cloud?](https://docs.microsoft.com/archive/blogs/sqlblog/is-my-query-running-fine-in-the-cloud).
 
 If the database consistently reaches its limit despite addressing blocking and long-running queries, consider upgrading to an edition with more resources [Editions](https://azure.microsoft.com/pricing/details/sql-database/)).
 
@@ -255,7 +256,7 @@ If you repeatedly encounter this error, try to resolve the issue by following th
 
 Also consider batching your queries. For information on batching, see [How to use batching to improve SQL Database application performance](https://docs.microsoft.com/azure/sql-database/sql-database-use-batching-to-improve-performance).
 
-For an in-depth troubleshooting procedure, see [Is my query running fine in the cloud?](https://blogs.msdn.com/b/sqlblog/archive/2013/11/01/is-my-query-running-fine-in-the-cloud.aspx).
+For an in-depth troubleshooting procedure, see [Is my query running fine in the cloud?](https://docs.microsoft.com/archive/blogs/sqlblog/is-my-query-running-fine-in-the-cloud).
 
 ### Error 40551: The session has been terminated because of excessive TEMPDB usage
 
@@ -286,7 +287,7 @@ Try to reduce the number of rows that are operated on immediately by implementin
 
 To work around this issue, try to optimize the query.
 
-For an in-depth troubleshooting procedure, see [Is my query running fine in the cloud?](https://blogs.msdn.com/b/sqlblog/archive/2013/11/01/is-my-query-running-fine-in-the-cloud.aspx).
+For an in-depth troubleshooting procedure, see [Is my query running fine in the cloud?](https://docs.microsoft.com/archive/blogs/sqlblog/is-my-query-running-fine-in-the-cloud).
 
 ### Table of additional resource governance error messages
 
@@ -350,7 +351,7 @@ System.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry)
 ClientConnectionId:<Client connection ID>
 ```
 
-When the exception is triggered by query issues, you'll notice a call stack that's similar to the following (note the reference to the **SqlCommand** class). In this situation, [tune your queries](https://blogs.msdn.com/b/sqlblog/archive/2013/11/01/is-my-query-running-fine-in-the-cloud.aspx).
+When the exception is triggered by query issues, you'll notice a call stack that's similar to the following (note the reference to the **SqlCommand** class). In this situation, [tune your queries](https://docs.microsoft.com/archive/blogs/sqlblog/is-my-query-running-fine-in-the-cloud).
 
 ```
   at System.Data.SqlClient.SqlCommand.ExecuteReader()

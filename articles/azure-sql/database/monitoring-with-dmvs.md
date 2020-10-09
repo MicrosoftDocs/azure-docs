@@ -3,14 +3,14 @@ title: Monitor performance using DMVs
 titleSuffix: Azure SQL Database & SQL Managed Instance
 description: Learn how to detect and diagnose common performance problems by using dynamic management views to monitor Microsoft Azure SQL Database and Azure SQL Managed Instance.
 services: sql-database
-ms.service: sql-database
+ms.service: sql-db-mi
 ms.subservice: performance
 ms.custom: sqldbrb=2
 ms.devlang: 
-ms.topic: conceptual
+ms.topic: how-to
 author: juliemsft
 ms.author: jrasnick
-ms.reviewer: carlrab
+ms.reviewer: sstein
 ms.date: 04/19/2020
 ---
 # Monitoring Microsoft Azure SQL Database and Azure SQL Managed Instance performance using dynamic management views

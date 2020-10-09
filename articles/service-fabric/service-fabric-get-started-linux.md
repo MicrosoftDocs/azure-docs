@@ -4,6 +4,7 @@ description: Install the runtime and SDK and create a local development cluster 
 
 ms.topic: conceptual
 ms.date: 2/23/2018
+ms.custom: devx-track-js
 ---
 # Prepare your development environment on Linux
 > [!div class="op_single_selector"]
@@ -56,23 +57,22 @@ To install the SDK and associated runtime package via the apt-get command-line t
 
 1. Open a terminal.
 
-2. Add the `dotnet` repo to your sources list.
+2. Add the `dotnet` repo to your sources list corresponding to your distribution.
 
     ```bash
-    wget -q https://packages.microsoft.com/config/ubuntu/18.04/packages-microsoft-prod.deb
+    wget -q https://packages.microsoft.com/config/ubuntu/$(lsb_release -rs)/packages-microsoft-prod.deb
     sudo dpkg -i packages-microsoft-prod.deb
     ```
 
-3. Add the new Gnu Privacy Guard (GnuPG or GPG) key to your APT keyring.
+3. Add the new MS Open Tech Gnu Privacy Guard (GnuPG or GPG) key to your APT keyring.
 
     ```bash
-    curl -fsSL https://packages.microsoft.com/keys/msopentech.asc | sudo apt-key add -
+    sudo curl -fsSL https://packages.microsoft.com/keys/msopentech.asc | sudo apt-key add -
     ```
 
 4. Add the official Docker GPG key to your APT keyring.
 
     ```bash
-    sudo apt-get install curl
     sudo curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
     ```
 
@@ -157,8 +157,8 @@ The Service Fabric runtime that comes with the SDK installation includes the pac
 
  | | DotNetCore | Java | Python | NodeJS | 
 --- | --- | --- | --- |---
-Ubuntu | 2.0.0 | AzulJDK 1.8 | Implicit from npm | latest |
-RHEL | - | OpenJDK 1.8 | Implicit from npm | latest |
+**Ubuntu** | 2.0.0 | AzulJDK 1.8 | Implicit from npm | latest |
+**RHEL** | - | OpenJDK 1.8 | Implicit from npm | latest |
 
 ## Set up a local cluster
 Start a local cluster after the installation finishes.

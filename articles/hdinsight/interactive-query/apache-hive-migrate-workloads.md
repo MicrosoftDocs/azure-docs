@@ -5,7 +5,7 @@ author: msft-tacox
 ms.author: tacox
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 11/13/2019
 ---
 
@@ -204,30 +204,9 @@ Once you've confirmed that the release is complete and fully operational, you ca
 
 ## Query execution across HDInsight versions
 
-There are two ways to execute and debug Hive/LLAP queries within an HDInsight 3.6 cluster. HiveCLI provides a command-line experience and the Tez view/Hive view provides a GUI-based workflow.
+There are two ways to execute and debug Hive/LLAP queries within an HDInsight 3.6 cluster. HiveCLI provides a command-line experience and the [Tez view/Hive view](https://docs.microsoft.com/azure/hdinsight/hadoop/apache-hadoop-use-hive-ambari-view) provides a GUI-based workflow.
 
-In HDInsight 4.0, HiveCLI has been replaced with Beeline. HiveCLI is a thrift client for Hiveserver 1, and Beeline is a JDBC client that provides access to Hiveserver 2. Beeline can also be used to connect to any other JDBC-compatible database endpoint. Beeline is available out-of-box on HDInsight 4.0 without any installation needed.
-
-In HDInsight 3.6, the GUI client for interacting with Hive server is the Ambari Hive View. HDInsight 4.0 does not ship with Ambari View. We have provided a way for our customers to use Data Analytics Studio (DAS), which is not a core HDInsight service. DAS doesn't ship with HDInsight clusters out-of-the-box and isn't an officially supported package. However, DAS can be installed on the cluster using a [script action](../hdinsight-hadoop-customize-cluster-linux.md) as follows:
-
-|Property | Value |
-|---|---|
-|Script type|- Custom|
-|Name|DAS|
-|Bash script URI|`https://hdiconfigactions.blob.core.windows.net/dasinstaller/LaunchDASInstaller.sh`|
-|Node type(s)|Head|
-
-Wait 10 to 15 minutes, then launch Data Analytics Studio by using this URL: `https://CLUSTERNAME.azurehdinsight.net/das/`.
-
-A refresh of the Ambari UI and/or a restart of all Ambari components may be required before accessing DAS.
-
-Once DAS is installed, if you don't see the queries you’ve run in the queries viewer, do the following steps:
-
-1. Set the configurations for Hive, Tez, and DAS as described in [this guide for troubleshooting DAS installation](https://docs.hortonworks.com/HDPDocuments/DAS/DAS-1.2.0/troubleshooting/content/das_queries_not_appearing.html).
-2. Make sure that the following Azure storage directory configs are Page blobs, and that they're listed under `fs.azure.page.blob.dirs`:
-    * `hive.hook.proto.base-directory`
-    * `tez.history.logging.proto-base-dir`
-3. Restart HDFS, Hive, Tez, and DAS on both headnodes.
+In HDInsight 4.0, HiveCLI has been replaced with Beeline. The Tez view/Hive view provides a GUI-based workflow. HiveCLI is a thrift client for Hiveserver 1, and Beeline is a JDBC client that provides access to Hiveserver 2. Beeline also can be used to connect to any other JDBC-compatible database endpoint. Beeline is available out-of-box on HDInsight 4.0 without any installation needed.
 
 ## Next steps
 

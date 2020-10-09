@@ -1,16 +1,16 @@
 ---
 title: "Tutorial: Manage queries in Azure portal"
 description: In this tutorial, you create a Resource Graph Query and share the new query with others in the Azure portal.
-ms.date: 05/20/2020
+ms.date: 06/29/2020
 ms.topic: tutorial
 ---
 # Tutorial: Create and share an Azure Resource Graph query in the Azure portal
 
 Azure Resource Graph Explorer lets you save your Resource Graph queries directly in the Azure
 portal. There are two types of queries: _Private_ and _Shared_. A Private query is saved in your
-Azure portal settings. Whereas a Shared query is a Resource Manager resource that can be managed
-with role-based access controls (RBAC) and protected with resource locks. Both types of queries are
-encrypted at rest.
+Azure portal settings. Whereas a Shared query is a Azure Resource Manager resource that can be
+managed with Azure role-based access control (Azure RBAC) and protected with resource locks. Both types of
+queries are encrypted at rest.
 
 By saving queries in the Azure portal, you save the time you might otherwise spend looking for your
 favorite or commonly used queries. When you share queries, you help your team realize goals of
@@ -52,7 +52,6 @@ follow these steps:
    For more information about this query, see
    [Samples – Count virtual machines by OS type](../samples/starter.md#count-os).
 
-
 1. Select **Save** or **Save as**, enter **Count VMs by OS** as the name, leave the type as
    **Private query**, and then select **Save** at the bottom of the **Save query** pane. The tab
    title changes from **Query 1** to **Count VMs by OS**.
@@ -77,7 +76,7 @@ follow these steps:
 ## Create a Shared query
 
 Unlike a Private query, a Shared query is a Resource Manager resource. This fact means the query
-gets saved to a resource group, can be managed and controlled with RBAC, and can even be protected
+gets saved to a resource group, can be managed and controlled with Azure RBAC, and can even be protected
 with resource locks. As a resource, anyone who has the appropriate permissions can see and use it.
 To create a new Shared query, follow these steps:
 
@@ -99,8 +98,7 @@ To create a new Shared query, follow these steps:
 
 1. Select **Save** or **Save as**.
 
-   
-   ![Save the new query using the save button](../media/create-share-query/save-shared-query-buttons.png)
+   :::image type="content" source="../media/create-share-query/save-shared-query-buttons.png" alt-text="Save the new query using the save button" border="false":::
 
 1. In the **Save query** pane, enter **Count VMs by OS** for the name.
 
@@ -114,7 +112,7 @@ To create a new Shared query, follow these steps:
    to **Count VMs by OS**. The first time the **resource-graph-queries** resource group is used, the
    save takes longer than expected as the resource group gets created.
    
-   ![Save the new query as a Shared query](../media/create-share-query/save-shared-query-window.png)
+   :::image type="content" source="../media/create-share-query/save-shared-query-window.png" alt-text="Save the new query as a Shared query" border="false":::
 
    > [!NOTE] 
    > You can clear the **Publish to resource-graph-queries resource group** check box if you
@@ -132,7 +130,7 @@ To create a new Shared query, follow these steps:
    load it into a new tab with that query's name. As a Shared query, it displays an icon in the tab
    next to the title, denoting it as shared.
 
-   ![Show the Shared Query with icon](../media/create-share-query/show-saved-shared-query.png)
+   :::image type="content" source="../media/create-share-query/show-saved-shared-query.png" alt-text="Show the Shared Query with icon" border="false":::
 
    > [!NOTE] 
    > When a saved query is open and the tab shows its name, the **Save** button updates it
@@ -180,6 +178,11 @@ Resources
 | where type == "microsoft.resourcegraph/queries"
 | project name, properties.timeModified, properties.query
 ```
+
+## Run a shared query
+
+A Resource Graph shared query can be run with the `{{shared-query-uri}}` syntax (preview). For more
+information, see [Shared query syntax](../concepts/query-language.md#shared-query-syntax).
 
 ## Delete a Shared query
 

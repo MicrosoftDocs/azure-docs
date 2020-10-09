@@ -1,6 +1,6 @@
 ---
 title: Azure App Configuration best practices | Microsoft Docs
-description: Learn how to best use Azure App Configuration
+description: Learn best practices while using Azure App Configuration. Topics covered include key groupings, key-value compositions, App Configuration bootstrap, and more.
 services: azure-app-configuration
 documentationcenter: ''
 author: lisaguthrie
@@ -12,7 +12,7 @@ ms.service: azure-app-configuration
 ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: lcozzens
-ms.custom: mvc
+ms.custom: "devx-track-csharp, mvc"
 ---
 
 # Azure App Configuration best practices
@@ -77,11 +77,15 @@ Excessive requests to App Configuration can result in throttling or overage char
 
 * Watch a single *sentinel key*, rather than watching individual keys. Refresh all configuration only if the sentinel key changes. See [Use dynamic configuration in an ASP.NET Core app](enable-dynamic-configuration-aspnet-core.md) for an example.
 
-* Use Azure Event Grid to receive notifications when configuration changes, rather than constantly polling for any changes. See [Route Azure App Configuration events to a web endpoint](./howto-app-configuration-event.md) for more information
+* Use Azure Event Grid to receive notifications when configuration changes, rather than constantly polling for any changes. For more information, see [Route Azure App Configuration events to a web endpoint](./howto-app-configuration-event.md)
 
 ## Importing configuration data into App Configuration
 
 App Configuration offers the option to bulk [import](https://aka.ms/azconfig-importexport1) your configuration settings from your current configuration files using either the Azure portal or CLI. You can also use the same options to export values from App Configuration, for example between related stores. If you’d like to set up an ongoing sync with your GitHub repo, you can use our [GitHub Action](https://aka.ms/azconfig-gha2) so that you can continue using your existing source control practices while getting the benefits of App Configuration.
+
+## Multi-region deployment in App Configuration
+
+App Configuration is regional service. For applications with different configurations per region, storing these configurations in one instance can create a single point of failure. Deploying one App Configuration instances per region across multiple regions may be a better option. It can help with regional disaster recovery, performance, and security siloing. Configuring by region also improves latency and uses separated throttling quotas, since throttling is per instance. To apply disaster recovery mitigation, you can use [multiple configuration stores](./concept-disaster-recovery.md). 
 
 ## Next steps
 

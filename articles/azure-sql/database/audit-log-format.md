@@ -4,7 +4,7 @@ description: Understand how Azure SQL Database audit logs are structured.
 services: sql-database
 ms.service: sql-database
 ms.subservice: security
-ms.topic: conceptual
+ms.topic: reference
 author: DavidTrigano
 ms.author: datrigan
 ms.reviewer: vanto
@@ -26,7 +26,7 @@ Audit logs stored in Azure Blob storage are stored in a container named `sqldbau
 
 For example, for database `Database1` on `Server1` the following is a possible valid path:
 
-    Server1/Database1/SqlDbAuditing_ServerAudit_NoRetention/2019-02-03/12_23_30_794_0.xel
+`Server1/Database1/SqlDbAuditing_ServerAudit_NoRetention/2019-02-03/12_23_30_794_0.xel`
 
 [Read-only Replicas](read-scale-out.md) audit logs are stored in the same container. The directory hierarchy within the container is of the form `<ServerName>/<DatabaseName>/<AuditName>/<Date>/RO/`. The Blob file name shares the same format. The Audit Logs of Read-only Replicas are stored in the same container.
 

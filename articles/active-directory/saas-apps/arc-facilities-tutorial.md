@@ -1,23 +1,16 @@
-﻿---
+---
 title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with ARC Facilities | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and ARC Facilities.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-
-ms.assetid: aa05894b-fe71-4a68-9c46-839a7cc164d6
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 09/05/2019
 ms.author: jeedes
-
-ms.collection: M365-identity-device-management
 ---
 
 # Tutorial: Azure Active Directory single sign-on (SSO) integration with ARC Facilities
@@ -86,15 +79,15 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 1. ARC Facilities application expects the SAML assertions in a specific format, which requires you to add custom attribute mappings to your SAML token attributes configuration. The following screenshot shows the list of default attributes. Click **Edit** icon to open User Attributes dialog.
 
-	![image](common/edit-attribute.png)
+	![Screenshot shows the User Attributes dialog box with the Edit icon called out.](common/edit-attribute.png)
 
 1. In addition to above, ARC Facilities application expects few more attributes to be passed back in SAML response. In the **User Attributes & Claims** section on the **Group Claims (Preview)** dialog, perform the following steps:
 
 	a. Click the **pen** next to **Groups returned in claim**.
 
-	![image](./media/arc-facilities-tutorial/config01.png)
+	![Screenshot shows User Attributes & Claims with the pen next to Groups returned in claim called out.](./media/arc-facilities-tutorial/config01.png)
 
-	![image](./media/arc-facilities-tutorial/config02.png)
+	![Screenshot shows Group Claims with All groups and Group I D selected and the Save button called out.](./media/arc-facilities-tutorial/config02.png)
 
 	b. Select **All Groups** from the radio list.
 

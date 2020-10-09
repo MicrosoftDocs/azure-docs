@@ -4,14 +4,14 @@ titleSuffix: Azure SQL Database & SQL Managed Instance
 description: Learn how Azure SQL Database and SQL Managed Instance support cloud business continuity and database recovery and help keep mission-critical cloud applications running.
 keywords: business continuity,cloud business continuity,database disaster recovery,database recovery
 services: sql-database
-ms.service: sql-database
+ms.service: sql-db-mi
 ms.subservice: high-availability
 ms.custom: sqldbrb=2
 ms.devlang: 
 ms.topic: conceptual
 author: anosov1960
 ms.author: sashan
-ms.reviewer: mathoma, carlrab
+ms.reviewer: mathoma, sstein
 ms.date: 06/25/2019
 ---
 # Overview of business continuity with Azure SQL Database
@@ -59,14 +59,14 @@ If the maximum supported backup retention period for point-in-time restore (PITR
 
 |                                              | Geo-replication | Failover groups  |
 |:---------------------------------------------| :-------------- | :----------------|
-| Automatic failover                           |     No          |      Yes         |
-| Fail over multiple databases simultaneously  |     No          |      Yes         |
-| User must update connection string after failover      |     Yes         |      No          |
-| SQL Managed Instance support                   |     No          |      Yes         |
-| Can be in same region as primary             |     Yes         |      No          |
-| Multiple replicas                            |     Yes         |      No          |
-| Supports read-scale                          |     Yes         |      Yes         |
-| &nbsp; | &nbsp; | &nbsp; |
+| **Automatic failover**                          |     No          |      Yes         |
+| **Fail over multiple databases simultaneously**  |     No          |      Yes         |
+| **User must update connection string after failover**      |     Yes         |      No          |
+| **SQL Managed Instance support**                   |     No          |      Yes         |
+| **Can be in same region as primary**             |     Yes         |      No          |
+| **Multiple replicas**                            |     Yes         |      No          |
+| **Supports read-scale**                          |     Yes         |      Yes         |
+
 
 ## Recover a database to the existing server
 

@@ -76,6 +76,6 @@ This script uses the following commands. Each command in the table links to comm
 
 ## Next steps
 
-For more information about PowerShell, see [Azure PowerShell documentation](/powershell/azure/overview).
+For more information about PowerShell, see [Azure PowerShell documentation](/powershell/azure/).
 
 Additional PowerShell script samples for Azure SQL Database can be found in [Azure SQL Database PowerShell scripts](../../database/powershell-script-content-guide.md).

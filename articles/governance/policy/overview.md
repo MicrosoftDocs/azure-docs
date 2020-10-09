@@ -1,7 +1,7 @@
 ---
 title: Overview of Azure Policy
 description: Azure Policy is a service in Azure, that you use to create, assign and, manage policy definitions in your Azure environment.
-ms.date: 06/17/2020
+ms.date: 10/05/2020
 ms.topic: overview
 ---
 # What is Azure Policy?
@@ -27,8 +27,9 @@ _policySet_). Once your business rules have been formed, the policy definition o
 [management groups](../management-groups/overview.md), subscriptions,
 [resource groups](../../azure-resource-manager/management/overview.md#resource-groups), or
 individual resources. The assignment applies to all resources within the
-[scope](../../azure-resource-manager/management/overview.md#understand-scope) of that assignment.
-Subscopes can be excluded, if necessary.
+[Resource Manager scope](../../azure-resource-manager/management/overview.md#understand-scope) of
+that assignment. Subscopes can be excluded, if necessary. For more information, see
+[Scope in Azure Policy](./concepts/scope.md).
 
 Azure Policy uses a [JSON format](./concepts/definition-structure.md) to form the logic the
 evaluation uses to determine if a resource is compliant or not. Definitions include metadata and the
@@ -82,23 +83,23 @@ on Channel 9.
 
 ## Getting started
 
-### Azure Policy and RBAC
+### Azure Policy and Azure RBAC
 
-There are a few key differences between Azure Policy and role-based access control (RBAC). Azure
+There are a few key differences between Azure Policy and Azure role-based access control (Azure RBAC). Azure
 Policy evaluates state by examining properties on resources that are represented in Resource
 Manager and properties of some Resource Providers. Azure Policy doesn't restrict actions (also
 called _operations_). Azure Policy ensures that resource state is compliant to your business rules
 without concern for who made the change or who has permission to make a change.
 
-RBAC focuses on managing user
+Azure RBAC focuses on managing user
 [actions](../../role-based-access-control/resource-provider-operations.md) at different scopes. If
-control of an action is required, then RBAC is the correct tool to use. Even if an individual has
+control of an action is required, then Azure RBAC is the correct tool to use. Even if an individual has
 access to perform an action, if the result is a non-compliant resource, Azure Policy still blocks
 the create or update.
 
-The combination of RBAC and Azure Policy provide full scope control in Azure.
+The combination of Azure RBAC and Azure Policy provide full scope control in Azure.
 
-### RBAC Permissions in Azure Policy
+### Azure RBAC permissions in Azure Policy
 
 Azure Policy has several permissions, known as operations, in two Resource Providers:
 
@@ -108,22 +109,24 @@ Azure Policy has several permissions, known as operations, in two Resource Provi
 Many Built-in roles grant permission to Azure Policy resources. The **Resource Policy Contributor**
 role includes most Azure Policy operations. **Owner** has full rights. Both **Contributor** and
 **Reader** have access to all _read_ Azure Policy operations. **Contributor** may trigger resource
-remediation, but can't _create_ definitions or assignments.
+remediation, but can't _create_ definitions or assignments. **User Access Administrator** is
+necessary to grant the managed identity on **deployIfNotExists** or **modify** assignments necessary
+permissions.
 
 If none of the Built-in roles have the permissions required, create a
 [custom role](../../role-based-access-control/custom-roles.md).
 
 > [!NOTE]
-> The managed identity of a **deployIfNotExists** policy assignment needs enough permissions to
-> create or update resources included in the template. For more information, see
+> The managed identity of a **deployIfNotExists** or **modify** policy assignment needs enough
+> permissions to create or update targetted resources. For more information, see
 > [Configure policy definitions for remediation](./how-to/remediate-resources.md#configure-policy-definition).
 
 ### Resources covered by Azure Policy
 
-Azure Policy evaluates all resources in Azure. For certain resource providers such as
-[Guest Configuration](./concepts/guest-configuration.md),
+Azure Policy evaluates all resources in Azure and Arc enabled resources. For certain resource
+providers such as [Guest Configuration](./concepts/guest-configuration.md),
 [Azure Kubernetes Service](../../aks/intro-kubernetes.md), and
-[Azure Key Vault](../../key-vault/key-vault-overview.md), there's a deeper integration for managing
+[Azure Key Vault](../../key-vault/general/overview.md), there's a deeper integration for managing
 settings and objects. To find out more, see
 [Resource Provider modes](./concepts/definition-structure.md).
 
@@ -147,7 +150,7 @@ Here are a few pointers and tips to keep in mind:
   similar to _policyDefA_, you can add it under _initiativeDefC_ and track them together.
 
 - Once you've created an initiative assignment, policy definitions added to the initiative also
-  become part of that initiatives assignments.
+  become part of that initiative's assignments.
 
 - When an initiative assignment is evaluated, all policies within the initiative are also evaluated.
   If you need to evaluate a policy individually, it's better to not include it in an initiative.
@@ -173,8 +176,6 @@ In Azure Policy, we offer several built-in policies that are available by defaul
   deploy.
 - **Add a tag to resources** (Modify): Applies a required tag and its default value if it's not
   specified by the deploy request.
-- **Append tag and its default value** (Append): Enforces a required tag and its value to a
-  resource.
 - **Not allowed resource types** (Deny): Prevents a list of resource types from being deployed.
 
 To implement these policy definitions (both built-in and custom definitions), you'll need to assign

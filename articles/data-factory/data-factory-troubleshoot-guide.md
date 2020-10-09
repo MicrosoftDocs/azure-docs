@@ -5,7 +5,7 @@ services: data-factory
 author: nabhishek
 ms.service: data-factory
 ms.topic: troubleshooting
-ms.date: 8/26/2019
+ms.date: 09/01/2020
 ms.author: abnarain
 ms.reviewer: craigg
 ---
@@ -118,6 +118,14 @@ For connector issues such as an encounter error using the copy activity, refer t
 - **Cause**: Error messages indicate various issues, such as an unexpected cluster state or a specific activity. Often, no error message appears.
 
 - **Recommendation**: N/A
+
+### Error code: 3208
+
+- **Message**: `An error occurred while sending the request.`
+
+- **Cause**: The network connection to the Databricks service was interrupted.
+
+- **Recommendation**: If you're using a self-hosted integration runtime, make sure that the network connection is reliable from the integration runtime nodes. If you're using Azure integration runtime, retry usually works.
  
 ## Azure Data Lake Analytics
 
@@ -808,7 +816,7 @@ The following table applies to Azure Batch.
 
 - **Message**: `User name and password cannot be null or empty to connect to the HDInsight cluster.`
 
-- **Cause**: Either the user name or password are empty.
+- **Cause**: Either the user name or the password is empty.
 
 - **Recommendation**: Provide the correct credentials to connect to HDI and try again.
 
@@ -1042,6 +1050,11 @@ To use **Fiddler** to create an HTTP session of the monitored web application:
 1. Go to: **File** > **Save** > **All Sessions**.
 
 For more information, see [Getting started with Fiddler](https://docs.telerik.com/fiddler/Configure-Fiddler/Tasks/ConfigureFiddler).
+
+## General
+
+### Activity stuck issue
+When you observe that the activity is running much longer than your normal runs with barely no progress, it may happen to be stuck. You can try canceling it and retry to see if it helps. If it’s a copy activity, you can learn about the performance monitoring and troubleshooting from [Troubleshoot copy activity performance](copy-activity-performance-troubleshooting.md); if it’s a data flow, learn from [Mapping data flows performance](concepts-data-flow-performance.md) and tuning guide.
 
 ## Next steps
 

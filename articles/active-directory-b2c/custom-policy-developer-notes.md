@@ -8,8 +8,9 @@ manager: celestedg
 
 ms.service: active-directory
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: reference
 ms.date: 05/19/2020
+ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
 ---
@@ -97,7 +98,7 @@ Custom policy/Identity Experience Framework capabilities are under constant and 
 | [One-time password](one-time-password-technical-profile.md) |  | X |  |  |
 | [Azure Active Directory](active-directory-technical-profile.md) as local directory |  |  | X |  |
 | Azure email subsystem for email verification |  |  | X |  |
-| [Third party email service providers](custom-email.md) |  |X  |  |  |
+| [Third party email service providers](custom-email-mailjet.md) |  |X  |  |  |
 | [Multi-language support](localization.md)|  |  | X |  |
 | [Predicate validations](predicates.md) |  |  | X | For example, password complexity. |
 | [Display controls](display-controls.md) |  |X  |  |  |
@@ -107,10 +108,10 @@ Custom policy/Identity Experience Framework capabilities are under constant and 
 
 | Feature | Development | Preview | GA | Notes |
 | ------- | :-----------: | :-------: | :--: | ----- |
-| [2.0.0](page-layout.md#200) |  | X |  |  |
-| [1.2.0](page-layout.md#120) |  | X |  |  |
-| [1.1.0](page-layout.md#110) |  |  | X |  |
-| [1.0.0](page-layout.md#100) |  |  | X |  |
+| [2.0.0](page-layout.md) |  | X |  |  |
+| [1.2.0](page-layout.md) |  | X |  |  |
+| [1.1.0](page-layout.md) |  |  | X |  |
+| [1.0.0](page-layout.md) |  |  | X |  |
 | [JavaScript support](javascript-samples.md) |  | X |  |  |
 
 ### App-IEF integration

@@ -2,21 +2,15 @@
 title: 'Tutorial: Azure Active Directory integration with Powerschool Performance Matters | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and Powerschool Performance Matters.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-
-ms.assetid: 3e6fb0e7-d7c1-4eea-9bc1-69be1daadc45
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/08/2019
 ms.author: jeedes
-
 ---
 # Tutorial: Azure Active Directory integration with Powerschool Performance Matters
 
@@ -103,11 +97,10 @@ To configure Azure AD single sign-on with Powerschool Performance Matters, perfo
 
     In the **Sign-on URL** text box, type a URL using the following pattern:
     
-    | |
-    |-|
-    | `https://ola.performancematters.com/ola/?clientcode=<Client Code>`|
-    | `https://unify.performancematters.com/?idp=<IDP>`|
-    | |
+    ```https
+        https://ola.performancematters.com/ola/?clientcode=<Client Code>
+        https://unify.performancematters.com/?idp=<IDP>
+    ```
 
 	> [!NOTE]
 	> The value is not real. Update the value with the actual Sign-On URL. Contact [Powerschool Performance Matters Client support team](mailto:pmsupport@powerschoo.com) to get the value. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.

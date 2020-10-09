@@ -1,13 +1,8 @@
 ---
 title: Monitor topics and event subscriptions - Azure Event Grid IoT Edge | Microsoft Docs 
 description: Monitor topics and event subscriptions 
-author: femila
-ms.author: femila
-ms.reviewer: spelluru
-ms.date: 01/09/2020
+ms.date: 07/08/2020
 ms.topic: article
-ms.service: event-grid
-services: event-grid
 ---
 
 # Monitor topics and event subscriptions

@@ -8,8 +8,8 @@ manager: celestedg
 
 ms.service: active-directory
 ms.workload: identity
-ms.topic: troubleshooting
-ms.date: 01/10/2020
+ms.topic: reference
+ms.date: 10/02/2020
 ms.author: mimart
 ms.subservice: B2C
 ---
@@ -70,6 +70,7 @@ The following errors can be returned by the Azure Active Directory B2C service.
 | `AADB2C90086` | The supplied grant_type [{0}] is not supported. |
 | `AADB2C90087` | The provided grant has not been issued for this version of the protocol endpoint. |
 | `AADB2C90088` | The provided grant has not been issued for this endpoint. Actual Value : {0} and Expected Value : {1} |
+| `AADB2C90091` | User cancellation. |
 | `AADB2C90092` | The provided application with ID '{0}' is disabled for the tenant '{1}'. Please enable the application and try again. |
 | `AADB2C90107` | The application with ID '{0}' cannot get an ID token either because the openid scope was not provided in the request or the application is not authorized for it. |
 | `AADB2C90108` | The orchestration step '{0}' does not specify a CpimIssuerTechnicalProfileReferenceId when one was expected. |

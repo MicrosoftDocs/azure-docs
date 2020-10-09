@@ -25,7 +25,7 @@ Alert types:
 
 * Virtual Machine Behavioral Analysis (VMBA)
 * Network Analysis
-* SQL Database and SQL Data Warehouse Analysis
+* SQL Database and Azure Synapse Analytics (formerly SQL Data Warehouse) Analysis
 * Contextual Information
 
 Depending on the alert types, customers can gather the necessary information to investigate the alert by using the following resources:
@@ -128,7 +128,7 @@ If you experience issues loading the Security Center dashboard, ensure that the 
 
 ## Contacting Microsoft Support
 
-Some issues can be identified using the guidelines provided in this article, others you can also find documented at the Security Center public [Microsoft Q&A question page](https://docs.microsoft.com/answers/topics/azure-security-center.html). However if you need further troubleshooting, you can open a new support request using **Azure portal** as shown below:
+Some issues can be identified using the guidelines provided in this article, others you can also find documented at the Security Center public [Microsoft Q&A page](https://docs.microsoft.com/answers/topics/azure-security-center.html). However if you need further troubleshooting, you can open a new support request using **Azure portal** as shown below:
 
 ![Microsoft Support](./media/security-center-troubleshooting-guide/security-center-troubleshooting-guide-fig2.png)
 
@@ -147,4 +147,4 @@ In this document, you learned how to configure security policies in Azure Securi
 * [Azure Security Center detection capabilities](security-center-detection-capabilities.md)
 * [Monitoring partner solutions with Azure Security Center](security-center-partner-solutions.md) — Learn how to monitor the health status of your partner solutions.
 * [Azure Security Center FAQ](faq-general.md) — Find frequently asked questions about using the service
-* [Azure Security Blog](https://blogs.msdn.com/b/azuresecurity/) — Find blog posts about Azure security and compliance
+* [Azure Security Blog](https://docs.microsoft.com/archive/blogs/azuresecurity/) — Find blog posts about Azure security and compliance

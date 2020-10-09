@@ -1,5 +1,5 @@
 ---
-title: Distributed transactions across cloud databases
+title: Distributed transactions across cloud databases (preview)
 description: Overview of Elastic Database Transactions with Azure SQL Database.
 services: sql-database
 ms.service: sql-database
@@ -12,10 +12,10 @@ ms.author: sstein
 ms.reviewer:
 ms.date: 03/12/2019
 ---
-# Distributed transactions across cloud databases
+# Distributed transactions across cloud databases (preview)
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
-Elastic database transactions for Azure SQL Database allow you to run transactions that span several databases in SQL Database. Elastic database transactions for SQL Database are available for .NET applications using ADO .NET and integrate with the familiar programming experience using the [System.Transaction](https://msdn.microsoft.com/library/system.transactions.aspx) classes. To get the library, see [.NET Framework 4.6.1 (Web Installer)](https://www.microsoft.com/download/details.aspx?id=49981).
+Elastic database transactions for Azure SQL Database allow you to run transactions that span several databases in SQL Database. Elastic database transactions for SQL Database are available for .NET applications using ADO.NET and integrate with the familiar programming experience using the [System.Transaction](https://msdn.microsoft.com/library/system.transactions.aspx) classes. To get the library, see [.NET Framework 4.6.1 (Web Installer)](https://www.microsoft.com/download/details.aspx?id=49981).
 
 On premises, such a scenario usually requires running Microsoft Distributed Transaction Coordinator (MSDTC). Since MSDTC isn't available for Platform-as-a-Service application in Azure, the ability to coordinate distributed transactions has now been directly integrated into SQL Database. Applications can connect to any database in SQL Database to launch distributed transactions, and one of the databases will transparently coordinate the distributed transaction, as shown in the following figure.
 
@@ -44,6 +44,7 @@ Remember that elastic database transactions don't require installing MSDTC. Inst
 
 The following sample code uses the familiar programming experience with .NET System.Transactions. The TransactionScope class establishes an ambient transaction in .NET. (An “ambient transaction” is one that lives in the current thread.) All connections opened within the TransactionScope participate in the transaction. If different databases participate, the transaction is automatically elevated to a distributed transaction. The outcome of the transaction is controlled by setting the scope to complete to indicate a commit.
 
+```csharp
     using (var scope = new TransactionScope())
     {
         using (var conn1 = new SqlConnection(connStrDb1))
@@ -64,12 +65,14 @@ The following sample code uses the familiar programming experience with .NET Sys
 
         scope.Complete();
     }
+```
 
 ### Sharded database applications
 
 Elastic database transactions for SQL Database also support coordinating distributed transactions where you use the OpenConnectionForKey method of the elastic database client library to open connections for a scaled out data tier. Consider cases where you need to guarantee transactional consistency for changes across several different sharding key values. Connections to the shards hosting the different sharding key values are brokered using OpenConnectionForKey. In the general case, the connections can be to different shards such that ensuring transactional guarantees requires a distributed transaction.
 The following code sample illustrates this approach. It assumes that a variable called shardmap is used to represent a shard map from the elastic database client library:
 
+```csharp
     using (var scope = new TransactionScope())
     {
         using (var conn1 = shardmap.OpenConnectionForKey(tenantId1, credentialsStr))
@@ -90,6 +93,7 @@ The following code sample illustrates this approach. It assumes that a variable 
 
         scope.Complete();
     }
+```
 
 ## .NET installation for Azure Cloud Services
 
@@ -99,6 +103,7 @@ For Azure App Service, upgrades to the guest OS are currently not supported. For
 
 Note that the installer for .NET 4.6.1 may require more temporary storage during the bootstrapping process on Azure cloud services than the installer for .NET 4.6. To ensure a successful installation, you need to increase temporary storage for your Azure cloud service in your ServiceDefinition.csdef file in the LocalResources section and the environment settings of your startup task, as shown in the following sample:
 
+```xml
     <LocalResources>
     ...
         <LocalStorage name="TEMP" sizeInMB="5000" cleanOnRoleRecycle="false" />
@@ -117,6 +122,7 @@ Note that the installer for .NET 4.6.1 may require more temporary storage during
             </Environment>
         </Task>
     </Startup>
+```
 
 ## Transactions across multiple servers
 

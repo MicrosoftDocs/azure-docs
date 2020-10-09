@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: forms-recognizer
 ms.topic: quickstart
-ms.date: 05/27/2020
+ms.date: 10/05/2020
 ms.author: pafarley
 #Customer intent: As a developer or data scientist familiar with cURL, I want to learn how to use a prebuilt Form Recognizer model to extract my receipt data.
 ---
@@ -17,7 +17,7 @@ ms.author: pafarley
 
 In this quickstart, you'll use the Azure Form Recognizer REST API with cURL to extract and identify relevant information from USA sales receipts.
 
-If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/cognitive-services/) before you begin.
 
 ## Prerequisites
 
@@ -31,63 +31,63 @@ To complete this quickstart, you must have:
 
 ## Analyze a receipt
 
-To start analyzing a receipt, you call the **[Analyze Receipt](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-previewoperations/AnalyzeReceiptAsync)** API using the cURL command below. Before you run the command, make these changes:
+To start analyzing a receipt, you call the **[Analyze Receipt](https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-1/operations/AnalyzeReceiptAsync)** API using the cURL command below. Before you run the command, make these changes:
 
 1. Replace `<Endpoint>` with the endpoint that you obtained with your Form Recognizer subscription.
 1. Replace `<your receipt URL>` with the URL address of a receipt image.
 1. Replace `<subscription key>` with the subscription key you copied from the previous step.
 
 ```bash
-curl -i -X POST "https://<Endpoint>/formrecognizer/v2.0/prebuilt/receipt/analyze" -H "Content-Type: application/json" -H "Ocp-Apim-Subscription-Key: <subscription key>" --data-ascii "{ \"url\": \"<your receipt URL>\"}"
+curl -i -X POST "https://<Endpoint>/formrecognizer/v2.1-preview.1/prebuilt/receipt/analyze" -H "Content-Type: application/json" -H "Ocp-Apim-Subscription-Key: <subscription key>" --data-ascii "{ \"source\": \"<your receipt URL>\"}"
 ```
 
 You'll receive a `202 (Success)` response that includes am **Operation-Location** header. The value of this header contains an operation ID that you can use to query the status of the asynchronous operation and get the results. In the following example, the string after `operations/` is the operation ID.
 
 ```console
-https://cognitiveservice/formrecognizer/v2.0/prebuilt/receipt/operations/54f0b076-4e38-43e5-81bd-b85b8835fdfb
+https://cognitiveservice/formrecognizer/v2.1-preview.1/prebuilt/receipt/operations/54f0b076-4e38-43e5-81bd-b85b8835fdfb
 ```
 
 ## Get the receipt results
 
-After you've called the **Analyze Receipt** API, you call the **[Get Analyze Receipt Result](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-previewoperations/GetAnalyzeReceiptResult)** API to get the status of the operation and the extracted data. Before you run the command, make these changes:
+After you've called the **Analyze Receipt** API, you call the **[Get Analyze Receipt Result](https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-1/operations/GetAnalyzeReceiptResult)** API to get the status of the operation and the extracted data. Before you run the command, make these changes:
 
 1. Replace `<Endpoint>` with the endpoint that you obtained with your Form Recognizer subscription key. You can find it on your Form Recognizer resource **Overview** tab.
 1. Replace `<operationId>` with the operation ID from the previous step.
 1. Replace `<subscription key>` with your subscription key.
 
 ```bash
-curl -X GET "https://<Endpoint>/formrecognizer/v2.0/prebuilt/receipt/analyzeResults/<operationId>" -H "Ocp-Apim-Subscription-Key: <subscription key>"
+curl -X GET "https://<Endpoint>/formrecognizer/v2.1-preview.1/prebuilt/receipt/analyzeResults/<operationId>" -H "Ocp-Apim-Subscription-Key: <subscription key>"
 ```
 
 ### Examine the response
 
-You'll receive a `200 (Success)` response with JSON output. The first field, `"status"`, indicates the status of the operation. If the operation is complete, the `"recognitionResults"` field contains every line of text that was extracted from the receipt, and the `"understandingResults"` field contains key/value information for the most relevant parts of the receipt. If the operation is not complete, the value of `"status"` will be `"running"` or `"notStarted"`, and you should call the API again, either manually or through a script. We recommend an interval of one second or more between calls.
+You'll receive a `200 (Success)` response with JSON output. The first field, `"status"`, indicates the status of the operation. If the operation is complete, the `"readResults"` field contains every line of text that was extracted from the receipt, and the `"documentResults"` field contains key/value information for the most relevant parts of the receipt. If the operation is not complete, the value of `"status"` will be `"running"` or `"notStarted"`, and you should call the API again, either manually or through a script. We recommend an interval of one second or more between calls.
 
 See the following receipt image and its corresponding JSON output. The output has been shortened for readability.
 
 ![A receipt from Contoso store](../media/contoso-allinone.jpg)
 
-The `"recognitionResults"` node contains all of the recognized text. Text is organized by page, then by line, then by individual words. The `"understandingResults"` node contains the receipt-specific values that the model discovered. This is where you'll find useful key/value pairs like the tax, total, merchant address, and so on.
+The `"readResults"` node contains all of the recognized text (if you set the optional *includeTextDetails* parameter to `true`). Text is organized by page, then by line, then by individual words. The `"documentResults"` node contains the receipt-specific values that the model discovered. This is where you'll find useful key/value pairs like the tax, total, merchant address, and so on.
 
 ```json
-{ 
+{
   "status":"succeeded",
   "createdDateTime":"2019-12-17T04:11:24Z",
   "lastUpdatedDateTime":"2019-12-17T04:11:32Z",
-  "analyzeResult":{ 
-    "version":"2.0.0",
-    "readResults":[ 
-      { 
+  "analyzeResult":{
+    "version":"2.1.0",
+    "readResults":[
+      {
         "page":1,
         "angle":0.6893,
         "width":1688,
         "height":3000,
         "unit":"pixel",
         "language":"en",
-        "lines":[ 
-          { 
+        "lines":[
+          {
             "text":"Contoso",
-            "boundingBox":[ 
+            "boundingBox":[
               635,
               510,
               1086,
@@ -97,10 +97,10 @@ The `"recognitionResults"` node contains all of the recognized text. Text is org
               643,
               604
             ],
-            "words":[ 
-              { 
+            "words":[
+              {
                 "text":"Contoso",
-                "boundingBox":[ 
+                "boundingBox":[
                   639,
                   510,
                   1087,
@@ -118,24 +118,24 @@ The `"recognitionResults"` node contains all of the recognized text. Text is org
         ]
       }
     ],
-    "documentResults":[ 
-      { 
+    "documentResults":[
+      {
         "docType":"prebuilt:receipt",
-        "pageRange":[ 
+        "pageRange":[
           1,
           1
         ],
-        "fields":{ 
-          "ReceiptType":{ 
+        "fields":{
+          "ReceiptType":{
             "type":"string",
             "valueString":"Itemized",
             "confidence":0.692
           },
-          "MerchantName":{ 
+          "MerchantName":{
             "type":"string",
             "valueString":"Contoso Contoso",
             "text":"Contoso Contoso",
-            "boundingBox":[ 
+            "boundingBox":[
               378.2,
               292.4,
               1117.7,
@@ -147,16 +147,16 @@ The `"recognitionResults"` node contains all of the recognized text. Text is org
             ],
             "page":1,
             "confidence":0.613,
-            "elements":[ 
+            "elements":[
               "#/readResults/0/lines/0/words/0",
               "#/readResults/0/lines/1/words/0"
             ]
           },
-          "MerchantAddress":{ 
+          "MerchantAddress":{
             "type":"string",
             "valueString":"123 Main Street Redmond, WA 98052",
             "text":"123 Main Street Redmond, WA 98052",
-            "boundingBox":[ 
+            "boundingBox":[
               302,
               675.8,
               848.1,
@@ -168,7 +168,7 @@ The `"recognitionResults"` node contains all of the recognized text. Text is org
             ],
             "page":1,
             "confidence":0.99,
-            "elements":[ 
+            "elements":[
               "#/readResults/0/lines/2/words/0",
               "#/readResults/0/lines/2/words/1",
               "#/readResults/0/lines/2/words/2",
@@ -177,11 +177,11 @@ The `"recognitionResults"` node contains all of the recognized text. Text is org
               "#/readResults/0/lines/3/words/2"
             ]
           },
-          "MerchantPhoneNumber":{ 
+          "MerchantPhoneNumber":{
             "type":"phoneNumber",
             "valuePhoneNumber":"+19876543210",
             "text":"987-654-3210",
-            "boundingBox":[ 
+            "boundingBox":[
               278,
               1004,
               656.3,
@@ -193,15 +193,15 @@ The `"recognitionResults"` node contains all of the recognized text. Text is org
             ],
             "page":1,
             "confidence":0.99,
-            "elements":[ 
+            "elements":[
               "#/readResults/0/lines/4/words/0"
             ]
           },
-          "TransactionDate":{ 
+          "TransactionDate":{
             "type":"date",
             "valueDate":"2019-06-10",
             "text":"6/10/2019",
-            "boundingBox":[ 
+            "boundingBox":[
               265.1,
               1228.4,
               525,
@@ -213,15 +213,15 @@ The `"recognitionResults"` node contains all of the recognized text. Text is org
             ],
             "page":1,
             "confidence":0.99,
-            "elements":[ 
+            "elements":[
               "#/readResults/0/lines/5/words/0"
             ]
           },
-          "TransactionTime":{ 
+          "TransactionTime":{
             "type":"time",
             "valueTime":"13:59:00",
             "text":"13:59",
-            "boundingBox":[ 
+            "boundingBox":[
               541,
               1248,
               677.3,
@@ -233,20 +233,20 @@ The `"recognitionResults"` node contains all of the recognized text. Text is org
             ],
             "page":1,
             "confidence":0.977,
-            "elements":[ 
+            "elements":[
               "#/readResults/0/lines/5/words/1"
             ]
           },
-          "Items":{ 
+          "Items":{
             "type":"array",
-            "valueArray":[ 
-              { 
+            "valueArray":[
+              {
                 "type":"object",
-                "valueObject":{ 
-                  "Quantity":{ 
+                "valueObject":{
+                  "Quantity":{
                     "type":"number",
                     "text":"1",
-                    "boundingBox":[ 
+                    "boundingBox":[
                       245.1,
                       1581.5,
                       300.9,
@@ -258,15 +258,15 @@ The `"recognitionResults"` node contains all of the recognized text. Text is org
                     ],
                     "page":1,
                     "confidence":0.92,
-                    "elements":[ 
+                    "elements":[
                       "#/readResults/0/lines/7/words/0"
                     ]
                   },
-                  "Name":{ 
+                  "Name":{
                     "type":"string",
                     "valueString":"Cappuccino",
                     "text":"Cappuccino",
-                    "boundingBox":[ 
+                    "boundingBox":[
                       322,
                       1586,
                       654.2,
@@ -278,15 +278,15 @@ The `"recognitionResults"` node contains all of the recognized text. Text is org
                     ],
                     "page":1,
                     "confidence":0.923,
-                    "elements":[ 
+                    "elements":[
                       "#/readResults/0/lines/7/words/1"
                     ]
                   },
-                  "TotalPrice":{ 
+                  "TotalPrice":{
                     "type":"number",
                     "valueNumber":2.2,
                     "text":"$2.20",
-                    "boundingBox":[ 
+                    "boundingBox":[
                       1107.7,
                       1584,
                       1263,
@@ -298,7 +298,7 @@ The `"recognitionResults"` node contains all of the recognized text. Text is org
                     ],
                     "page":1,
                     "confidence":0.918,
-                    "elements":[ 
+                    "elements":[
                       "#/readResults/0/lines/8/words/0"
                     ]
                   }
@@ -307,11 +307,11 @@ The `"recognitionResults"` node contains all of the recognized text. Text is org
               ...
             ]
           },
-          "Subtotal":{ 
+          "Subtotal":{
             "type":"number",
             "valueNumber":11.7,
             "text":"11.70",
-            "boundingBox":[ 
+            "boundingBox":[
               1146,
               2221,
               1297.3,
@@ -323,15 +323,15 @@ The `"recognitionResults"` node contains all of the recognized text. Text is org
             ],
             "page":1,
             "confidence":0.955,
-            "elements":[ 
+            "elements":[
               "#/readResults/0/lines/13/words/1"
             ]
           },
-          "Tax":{ 
+          "Tax":{
             "type":"number",
             "valueNumber":1.17,
             "text":"1.17",
-            "boundingBox":[ 
+            "boundingBox":[
               1190,
               2359,
               1304,
@@ -343,15 +343,15 @@ The `"recognitionResults"` node contains all of the recognized text. Text is org
             ],
             "page":1,
             "confidence":0.979,
-            "elements":[ 
+            "elements":[
               "#/readResults/0/lines/15/words/1"
             ]
           },
-          "Tip":{ 
+          "Tip":{
             "type":"number",
             "valueNumber":1.63,
             "text":"1.63",
-            "boundingBox":[ 
+            "boundingBox":[
               1094,
               2479,
               1267.7,
@@ -363,15 +363,15 @@ The `"recognitionResults"` node contains all of the recognized text. Text is org
             ],
             "page":1,
             "confidence":0.941,
-            "elements":[ 
+            "elements":[
               "#/readResults/0/lines/17/words/1"
             ]
           },
-          "Total":{ 
+          "Total":{
             "type":"number",
             "valueNumber":14.5,
             "text":"$14.50",
-            "boundingBox":[ 
+            "boundingBox":[
               1034.2,
               2617,
               1387.5,
@@ -383,7 +383,7 @@ The `"recognitionResults"` node contains all of the recognized text. Text is org
             ],
             "page":1,
             "confidence":0.985,
-            "elements":[ 
+            "elements":[
               "#/readResults/0/lines/19/words/0"
             ]
           }
@@ -399,4 +399,4 @@ The `"recognitionResults"` node contains all of the recognized text. Text is org
 In this quickstart, you used the Form Recognizer REST API with cURL to extract the content of a sales receipt. Next, see the reference documentation to explore the Form Recognizer API in more depth.
 
 > [!div class="nextstepaction"]
-> [REST API reference documentation](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-previewoperations/AnalyzeReceiptAsync)
+> [REST API reference documentation](https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-1/operations/AnalyzeReceiptAsync)

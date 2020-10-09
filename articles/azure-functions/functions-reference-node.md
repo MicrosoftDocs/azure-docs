@@ -3,19 +3,23 @@ title: JavaScript developer reference for Azure Functions
 description: Understand how to develop functions by using JavaScript.
 
 ms.assetid: 45dedd78-3ff9-411f-bb4b-16d29a11384c
-ms.topic: reference
-ms.date: 12/17/2019
-
+ms.topic: conceptual
+ms.date: 07/17/2020
+ms.custom: devx-track-js
 ---
 # Azure Functions JavaScript developer guide
 
-This guide contains information about the intricacies of writing Azure Functions with JavaScript.
+This guide contains detailed information to help you succeed developing Azure Functions using JavaScript.
 
-A JavaScript function is an exported `function` that executes when triggered ([triggers are configured in function.json](functions-triggers-bindings.md)). The first argument passed to every function is a `context` object, which is used for receiving and sending binding data, logging, and communicating with the runtime.
+As an Express.js, Node.js, or JavaScript developer, if you are new to Azure Functions, please consider first reading one of the following articles:
 
-This article assumes that you have already read the [Azure Functions developer reference](functions-reference.md). Complete the Functions quickstart to create your first function, using [Visual Studio Code](functions-create-first-function-vs-code.md) or [in the portal](functions-create-first-azure-function.md).
+| Getting started | Concepts| Guided learning |
+| -- | -- | -- | 
+| <ul><li>[Node.js function using Visual Studio Code](./functions-create-first-function-vs-code.md?pivots=programming-language-javascript)</li><li>[Node.js function with terminal/command prompt](./functions-create-first-azure-function-azure-cli.md?pivots=programming-language-javascript)</li></ul> | <ul><li>[Developer guide](functions-reference.md)</li><li>[Hosting options](functions-scale.md)</li><li>[TypeScript functions](#typescript)</li><li>[Performance&nbsp; considerations](functions-best-practices.md)</li></ul> | <ul><li>[Create serverless applications](/learn/paths/create-serverless-applications/)</li><li>[Refactor Node.js and Express APIs to Serverless APIs](/learn/modules/shift-nodejs-express-apis-serverless/)</li></ul> |
 
-This article also supports [TypeScript app development](#typescript).
+## JavaScript function basics
+
+A JavaScript (Node.js) function is an exported `function` that executes when triggered ([triggers are configured in function.json](functions-triggers-bindings.md)). The first argument passed to every function is a `context` object, which is used for receiving and sending binding data, logging, and communicating with the runtime.
 
 ## Folder structure
 
@@ -114,7 +118,7 @@ Input are divided into two categories in Azure Functions: one is the trigger inp
    };
    ```
    
- - **As inputs using the JavaScript [`arguments`](https://msdn.microsoft.com/library/87dw3w1k.aspx) object.** This is essentially the same as passing inputs as parameters, but allows you to dynamically handle inputs.
+ - **As inputs using the JavaScript [`arguments`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/arguments) object.** This is essentially the same as passing inputs as parameters, but allows you to dynamically handle inputs.
  
    ```javascript
    module.exports = async function(context) { 
@@ -174,15 +178,38 @@ To define the data type for an input binding, use the `dataType` property in the
 Options for `dataType` are: `binary`, `stream`, and `string`.
 
 ## context object
-The runtime uses a `context` object to pass data to and from your function and to let you communicate with the runtime. The context object can be used for reading and setting data from bindings, writing logs, and using the `context.done` callback when your exported function is synchronous.
 
-The `context` object is always the first parameter to a function. It should be included because it has important methods such as `context.done` and `context.log`. You can name the object whatever you would like (for example, `ctx` or `c`).
+The runtime uses a `context` object to pass data to and from your function and the runtime. Used to read and set data from bindings and for writing to logs, the `context` object is always the first parameter passed to a function.
+
+For functions featuring synchronous code, the context object includes the `done` callback which you call when the function is done processing. Explicitly calling `done` is unnecessary when writing asynchronous code; the `done` callback is called implicitly.
 
 ```javascript
-// You must include a context, but other arguments are optional
-module.exports = function(ctx) {
-    // function logic goes here :)
-    ctx.done();
+module.exports = (context) => {
+
+    // function logic goes here
+
+    context.log("The function has executed.");
+
+    context.done();
+};
+```
+
+The context passed into your function exposes an `executionContext` property, which is an object with the following properties:
+
+| Property name  | Type  | Description |
+|---------|---------|---------|
+| `invocationId` | String | Provides a unique identifier for the specific function invocation. |
+| `functionName` | String | Provides the name of the running function |
+| `functionDirectory` | String | Provides the functions app directory. |
+
+The following example shows how to return the `invocationId`.
+
+```javascript
+module.exports = (context, req) => {
+    context.res = {
+        body: context.executionContext.invocationId
+    };
+    context.done();
 };
 ```
 
@@ -555,11 +582,11 @@ In this example, it is important to note that although an object is being export
 
 When started with the `--inspect` parameter, a Node.js process listens for a debugging client on the specified port. In Azure Functions 2.x, you can specify arguments to pass into the Node.js process that runs your code by adding the environment variable or App Setting `languageWorkers:node:arguments = <args>`. 
 
-To debug locally, add `"languageWorkers:node:arguments": "--inspect=5858"` under `Values` in your [local.settings.json](https://docs.microsoft.com/azure/azure-functions/functions-run-local#local-settings-file) file and attach a debugger to port 5858.
+To debug locally, add `"languageWorkers:node:arguments": "--inspect=5858"` under `Values` in your [local.settings.json](./functions-run-local.md#local-settings-file) file and attach a debugger to port 5858.
 
 When debugging using VS Code, the `--inspect` parameter is automatically added using the `port` value in the project's launch.json file.
 
-In version 1.x, setting `languageWorkers:node:arguments` will not work. The debug port can be selected with the [`--nodeDebugPort`](https://docs.microsoft.com/azure/azure-functions/functions-run-local#start) parameter on Azure Functions Core Tools.
+In version 1.x, setting `languageWorkers:node:arguments` will not work. The debug port can be selected with the [`--nodeDebugPort`](./functions-run-local.md#start) parameter on Azure Functions Core Tools.
 
 ## TypeScript
 
@@ -628,7 +655,7 @@ When you work with JavaScript functions, be aware of the considerations in the f
 
 ### Choose single-vCPU App Service plans
 
-When you create a function app that uses the App Service plan, we recommend that you select a single-vCPU plan rather than a plan with multiple vCPUs. Today, Functions runs JavaScript functions more efficiently on single-vCPU VMs, and using larger VMs does not produce the expected performance improvements. When necessary, you can manually scale out by adding more single-vCPU VM instances, or you can enable autoscale. For more information, see [Scale instance count manually or automatically](../monitoring-and-diagnostics/insights-how-to-scale.md?toc=%2fazure%2fapp-service%2ftoc.json).
+When you create a function app that uses the App Service plan, we recommend that you select a single-vCPU plan rather than a plan with multiple vCPUs. Today, Functions runs JavaScript functions more efficiently on single-vCPU VMs, and using larger VMs does not produce the expected performance improvements. When necessary, you can manually scale out by adding more single-vCPU VM instances, or you can enable autoscale. For more information, see [Scale instance count manually or automatically](../azure-monitor/platform/autoscale-get-started.md?toc=/azure/app-service/toc.json).
 
 ### Cold Start
 

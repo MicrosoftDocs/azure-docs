@@ -9,7 +9,7 @@ ms.topic: conceptual
 ms.date: 03/12/2020
 ---
 
-# Use IP filters
+# Use Azure IoT DPS IP connection filters
 
 Security is an important aspect of any IoT solution. Sometimes you need to explicitly specify the IP addresses from which devices can connect as part of your security configuration. The *IP filter* feature for an Azure IoT Hub Device Provisioning Service (DPS) enables you to configure rules for rejecting or accepting traffic from specific IPv4 addresses.
 

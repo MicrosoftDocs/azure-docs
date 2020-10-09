@@ -6,7 +6,7 @@ ms.author: mimckitt
 ms.topic: conceptual
 ms.service: virtual-machine-scale-sets
 ms.subservice: faq
-ms.date: 05/24/2019
+ms.date: 06/30/2020
 ms.reviewer: jushiman
 ms.custom: mimckitt
 
@@ -67,15 +67,15 @@ Yes! For more information, see the [scale set zone doc](./virtual-machine-scale-
 
 ### What are best practices for Azure Autoscale?
 
-For best practices for Autoscale, see [Best practices for autoscaling virtual machines](https://docs.microsoft.com/azure/monitoring-and-diagnostics/insights-autoscale-best-practices).
+For best practices for Autoscale, see [Best practices for autoscaling virtual machines](../azure-monitor/platform/autoscale-best-practices.md).
 
 ### Where do I find metric names for autoscaling that uses host-based metrics?
 
-For metric names for autoscaling that uses host-based metrics, see [Supported metrics with Azure Monitor](https://azure.microsoft.com/documentation/articles/monitoring-supported-metrics/).
+For metric names for autoscaling that uses host-based metrics, see [Supported metrics with Azure Monitor](../azure-monitor/platform/metrics-supported.md).
 
 ### Are there any examples of autoscaling based on an Azure Service Bus topic and queue length?
 
-Yes. For examples of autoscaling based on an Azure Service Bus topic and queue length, see [Azure Monitor autoscaling common metrics](https://azure.microsoft.com/documentation/articles/insights-autoscale-common-metrics/).
+Yes. For examples of autoscaling based on an Azure Service Bus topic and queue length, see [Azure Monitor autoscaling common metrics](../azure-monitor/platform/autoscale-common-metrics.md).
 
 For a Service Bus queue, use the following JSON:
 
@@ -100,9 +100,9 @@ Replace example values with your resource Uniform Resource Identifiers (URIs).
 
 You can create an autoscale setting on a VM to use host-level metrics or guest OS-based metrics.
 
-For a list of supported metrics, see [Azure Monitor autoscaling common metrics](https://docs.microsoft.com/azure/monitoring-and-diagnostics/insights-autoscale-common-metrics).
+For a list of supported metrics, see [Azure Monitor autoscaling common metrics](../azure-monitor/platform/autoscale-common-metrics.md).
 
-For a full sample for virtual machine scale sets, see [Advanced autoscale configuration by using Resource Manager templates for virtual machine scale sets](https://docs.microsoft.com/azure/monitoring-and-diagnostics/insights-advanced-autoscale-virtual-machine-scale-sets).
+For a full sample for virtual machine scale sets, see [Advanced autoscale configuration by using Resource Manager templates for virtual machine scale sets](../azure-monitor/platform/autoscale-virtual-machine-scale-sets.md).
 
 The sample uses the host-level CPU metric and a message count metric.
 
@@ -110,13 +110,13 @@ The sample uses the host-level CPU metric and a message count metric.
 
 ### How do I set alert rules on a virtual machine scale set?
 
-You can create alerts on metrics for virtual machine scale sets via PowerShell or Azure CLI. For more information, see [Azure Monitor PowerShell quickstart samples](https://azure.microsoft.com/documentation/articles/insights-powershell-samples/#create-alert-rules) and [Azure Monitor cross-platform CLI quickstart samples](https://azure.microsoft.com/documentation/articles/insights-cli-samples/#work-with-alerts).
+You can create alerts on metrics for virtual machine scale sets via PowerShell or Azure CLI. For more information, see [Azure Monitor PowerShell quickstart samples](../azure-monitor/samples/powershell-samples.md#create-metric-alerts) and [Azure Monitor cross-platform CLI quickstart samples](../azure-monitor/samples/cli-samples.md#work-with-alerts).
 
 The TargetResourceId of the virtual machine scale set looks like this:
 
 /subscriptions/yoursubscriptionid/resourceGroups/yourresourcegroup/providers/Microsoft.Compute/virtualMachineScaleSets/yourvmssname
 
-You can choose any VM performance counter as the metric to set an alert for. For more information, see [Guest OS metrics for Resource Manager-based Windows VMs](https://azure.microsoft.com/documentation/articles/insights-autoscale-common-metrics/#guest-os-metrics-resource-manager-based-windows-vms) and [Guest OS metrics for Linux VMs](https://azure.microsoft.com/documentation/articles/insights-autoscale-common-metrics/#guest-os-metrics-linux-vms) in the [Azure Monitor autoscaling common metrics](https://azure.microsoft.com/documentation/articles/insights-autoscale-common-metrics/) article.
+You can choose any VM performance counter as the metric to set an alert for. For more information, see [Guest OS metrics for Resource Manager-based Windows VMs](../azure-monitor/platform/autoscale-common-metrics.md#guest-os-metrics-for-resource-manager-based-windows-vms) and [Guest OS metrics for Linux VMs](../azure-monitor/platform/autoscale-common-metrics.md#guest-os-metrics-linux-vms) in the [Azure Monitor autoscaling common metrics](../azure-monitor/platform/autoscale-common-metrics.md) article.
 
 ### How do I set up autoscale on a virtual machine scale set by using PowerShell?
 
@@ -155,7 +155,7 @@ Use the following JSON:
 
 The code supports Windows and Linux.
 
-For more information, see [Create or update a virtual machine scale set](https://msdn.microsoft.com/library/mt589035.aspx).
+For more information, see [Create or update a virtual machine scale set](/rest/api/compute/virtualmachinescalesets/createorupdate).
 
 
 ### How do I use self-signed certificates provisioned for Azure Service Fabric Clusters?
@@ -165,7 +165,7 @@ For the latest example use the following azure CLI statement within azure shell,
 az sf cluster create -h
 ```
 
-Self-signed certificates can not be used for distributed trust provided by a Certificate Authority, and should not be used for any Service Fabric Cluster intended to host enterprise production solutions; for additional Service Fabric Security guidance, review [Azure Service Fabric Security Best Practices](https://docs.microsoft.com/azure/security/fundamentals/service-fabric-best-practices) and [Service Fabric cluster security scenarios](https://azure.microsoft.com/documentation/articles/service-fabric-cluster-security/).
+Self-signed certificates can not be used for distributed trust provided by a Certificate Authority, and should not be used for any Service Fabric Cluster intended to host enterprise production solutions; for additional Service Fabric Security guidance, review [Azure Service Fabric Security Best Practices](../security/fundamentals/service-fabric-best-practices.md) and [Service Fabric cluster security scenarios](../service-fabric/service-fabric-cluster-security.md).
 
 ### Can I specify an SSH key pair to use for SSH authentication with a Linux virtual machine scale set from a Resource Manager template?
 
@@ -193,7 +193,7 @@ Include **osProfile** in your template:
 
 This JSON block is used in [this Azure quickstart template](https://github.com/Azure/azure-quickstart-templates/blob/master/101-vm-sshkey/azuredeploy.json).
 
-For more information, see [Create or update a virtual machine scale set](https://msdn.microsoft.com/library/azure/mt589035.aspx#linuxconfiguration).
+For more information, see [Create or update a virtual machine scale set](/rest/api/compute/virtualmachinescalesets/createorupdate#linuxconfiguration).
 
 ### How do I remove deprecated certificates?
 
@@ -236,7 +236,7 @@ This can happen if you try to re-add the same vault instead of using a new vault
 
 To add more secrets from the same key vault, update the $vmss.properties.osProfile.secrets[0].vaultCertificates list.
 
-For the expected input structure, see [Create or update a virtual machine set](https://msdn.microsoft.com/library/azure/mt589035.aspx).
+For the expected input structure, see [Create or update a virtual machine set](/rest/api/compute/virtualmachinescalesets/createorupdate).
 
 Find the secret in the virtual machine scale set object that is in the key vault. Then, add your certificate reference (the URL and the secret store name) to the list associated with the vault.
 
@@ -264,7 +264,7 @@ Certificates are added to all your VMs, even pre-existing ones. If your virtual 
 
 ### Where do I put certificates for Linux VMs?
 
-To learn how to deploy certificates for Linux VMs, see [Deploy certificates to VMs from a customer-managed key vault](https://blogs.technet.microsoft.com/kv/2015/07/14/deploy-certificates-to-vms-from-customer-managed-key-vault/).
+To learn how to deploy certificates for Linux VMs, see [Deploy certificates to VMs from a customer-managed key vault](/archive/blogs/kv/deploy-certificates-to-vms-from-customer-managed-key-vault).
 
 ### How do I add a new vault certificate to a new certificate object?
 
@@ -300,7 +300,7 @@ If you create a VM and then update your secret in the key vault, the new certifi
 
 To deploy .cer public keys to a virtual machine scale set, you can generate a .pfx file that contains only .cer files. To do this, use `X509ContentType = Pfx`. For example, load the .cer file as an x509Certificate2 object in C# or PowerShell, and then call the method.
 
-For more information, see [X509Certificate.Export Method (X509ContentType, String)](https://msdn.microsoft.com/library/24ww6yzk(v=vs.110.aspx)).
+For more information, see [X509Certificate.Export Method (X509ContentType, String)](/dotnet/api/system.security.cryptography.x509certificates.x509certificate.export?view=netcore-3.1#system_security_cryptography_x509certificates_x509certificate_export_system_security_cryptography_x509certificates_x509contenttype_system_string_).
 
 ### How do I pass in certificates as base64 strings?
 
@@ -330,7 +330,7 @@ From a compliance perspective, virtual machine scale sets are a fundamental part
 
 For more information, see [the Microsoft Trust Center](https://www.microsoft.com/TrustCenter/Compliance/PCI).
 
-### Does [managed identities for Azure resources](https://docs.microsoft.com/azure/active-directory/msi-overview) work with virtual machine scale sets?
+### Does [managed identities for Azure resources](../active-directory/managed-identities-azure-resources/overview.md) work with virtual machine scale sets?
 
 Yes. You can see some example MSI templates in Azure Quickstart templates for [Linux](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-msi) and [Windows](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-msi).
 
@@ -432,7 +432,7 @@ Update-AzVmss -ResourceGroupName $rgname -Name $vmssname -VirtualMachineScaleSet
 
 ### How do I execute a custom script that's hosted in a private storage account?
 
-To execute a custom script that's hosted in a private storage account, set up protected settings with the storage account key and name. For more information, see [Custom Script Extension](https://azure.microsoft.com/documentation/articles/virtual-machines-windows-extensions-customscript/#template-example-for-a-windows-vm-with-protected-settings).
+To execute a custom script that's hosted in a private storage account, set up protected settings with the storage account key and name. For more information, see [Custom Script Extension](../virtual-machines/extensions/custom-script-windows.md?toc=/azure/virtual-machines/windows/toc.json#property-managedidentity).
 
 ## Passwords
 
@@ -444,7 +444,7 @@ There are two main ways to change the password for VMs in scale sets.
 
     Update the admin credentials directly in the scale set model (for example using the Azure Resource Explorer, PowerShell or CLI). Once the scale set is updated, all new VMs have the new credentials. Existing VMs only have the new credentials if they are reimaged.
 
-- Reset the password using the VM access extensions. Make sure to follow the password requirements as described [here](https://docs.microsoft.com/azure/virtual-machines/windows/faq#what-are-the-password-requirements-when-creating-a-vm).
+- Reset the password using the VM access extensions. Make sure to follow the password requirements as described [here](../virtual-machines/windows/faq.md#what-are-the-password-requirements-when-creating-a-vm).
 
     Use the following PowerShell example:
 
@@ -631,7 +631,7 @@ Yes, you can move scale set resources to a new subscription or resource group.
 
 ### How to I update my virtual machine scale set to a new image? How do I manage patching?
 
-To update your virtual machine scale set to a new image, and to manage patching, see [Upgrade a virtual machine scale set](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-upgrade-scale-set).
+To update your virtual machine scale set to a new image, and to manage patching, see [Upgrade a virtual machine scale set](./virtual-machine-scale-sets-upgrade-scale-set.md).
 
 ### Can I use the reimage operation to reset a VM without changing the image? (That is, I want reset a VM to factory settings rather than to a new image.)
 

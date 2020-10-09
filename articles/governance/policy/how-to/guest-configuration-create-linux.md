@@ -1,13 +1,14 @@
 ---
 title: How to create Guest Configuration policies for Linux
 description: Learn how to create an Azure Policy Guest Configuration policy for Linux.
-ms.date: 03/20/2020
-ms.topic: how-to
+ms.date: 08/17/2020
+ms.topic: how-to 
+ms.custom: devx-track-azurepowershell
 ---
 # How to create Guest Configuration policies for Linux
 
-Before creating custom policies, read the overview information
-at [Azure Policy Guest Configuration](../concepts/guest-configuration.md).
+Before creating custom policies, read the overview information at
+[Azure Policy Guest Configuration](../concepts/guest-configuration.md).
  
 To learn about creating Guest Configuration policies for Windows, see the page
 [How to create Guest Configuration policies for Windows](./guest-configuration-create.md)
@@ -26,23 +27,21 @@ non-Azure machine.
 > [!IMPORTANT]
 > Custom policies with Guest Configuration is a Preview feature.
 >
-> The Guest Configuration extension is required to perform audits in Azure virtual machines.
-> To deploy the extension at scale across all Linux machines, assign the following policy definition:
->   - [Deploy prerequisites to enable Guest Configuration Policy on Linux VMs.](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Ffb27e9e0-526e-4ae1-89f2-a2a0bf0f8a50)
+> The Guest Configuration extension is required to perform audits in Azure virtual machines. To
+> deploy the extension at scale across all Linux machines, assign the following policy definition:
+> `Deploy prerequisites to enable Guest Configuration Policy on Linux VMs`
 
 ## Install the PowerShell module
 
-The Guest Configuration module automates the process of creating custom content
-including:
+The Guest Configuration module automates the process of creating custom content including:
 
 - Creating a Guest Configuration content artifact (.zip)
 - Automated testing of the artifact
 - Creating a policy definition
 - Publishing the policy
 
-The module can be installed on a machine running Windows, macOS, or Linux with
-PowerShell 6.2 or later running locally, or with [Azure Cloud Shell](https://shell.azure.com), or
-with the
+The module can be installed on a machine running Windows, macOS, or Linux with PowerShell 6.2 or
+later running locally, or with [Azure Cloud Shell](https://shell.azure.com), or with the
 [Azure PowerShell Core Docker image](https://hub.docker.com/r/azuresdk/azure-powershell-core).
 
 > [!NOTE]
@@ -56,13 +55,17 @@ Operating Systems where the module can be installed:
 - macOS
 - Windows
 
+> [!NOTE]
+> The cmdlet 'Test-GuestConfigurationPackage' requires OpenSSL version 1.0, due to a dependency on
+> OMI. This causes an error on any environment with OpenSSL 1.1 or later.
+
 The Guest Configuration resource module requires the following software:
 
 - PowerShell 6.2 or later. If it isn't yet installed, follow
   [these instructions](/powershell/scripting/install/installing-powershell).
 - Azure PowerShell 1.5.0 or higher. If it isn't yet installed, follow
   [these instructions](/powershell/azure/install-az-ps).
-  - Only the AZ modules 'Az.Accounts' and 'Az.Resources' are required.
+  - Only the Az modules 'Az.Accounts' and 'Az.Resources' are required.
 
 ### Install the module
 
@@ -86,16 +89,16 @@ To install the **GuestConfiguration** module in PowerShell:
 
 Even in Linux environments, Guest Configuration uses Desired State Configuration as a language
 abstraction. The implementation is based in native code (C++) so it doesn't require loading
-PowerShell. However, it does require a configuration MOF describing details
-about the environment. DSC is acting as a wrapper for InSpec to standardize how it's executed, how
-parameters are provided, and how output is returned to the
-service. Little knowledge of DSC is required when working with custom InSpec content.
+PowerShell. However, it does require a configuration MOF describing details about the environment.
+DSC is acting as a wrapper for InSpec to standardize how it's executed, how parameters are provided,
+and how output is returned to the service. Little knowledge of DSC is required when working with
+custom InSpec content.
 
 #### Configuration requirements
 
-The name of the custom configuration must be consistent everywhere. The name of
-the .zip file for the content package, the configuration name in the MOF file, and the guest
-assignment name in the Resource Manager template, must be the same.
+The name of the custom configuration must be consistent everywhere. The name of the .zip file for
+the content package, the configuration name in the MOF file, and the guest assignment name in the
+Azure Resource Manager template (ARM template), must be the same.
 
 ### Custom Guest Configuration configuration on Linux
 
@@ -127,9 +130,11 @@ describe file('/tmp') do
 end
 ```
 
-Save this file with name `linux-path.rb` in a new folder named `controls` inside the `linux-path` directory.
+Save this file with name `linux-path.rb` in a new folder named `controls` inside the `linux-path`
+directory.
 
-Finally, create a configuration, import the **PSDesiredStateConfiguration** resource module, and compile the configuration.
+Finally, create a configuration, import the **PSDesiredStateConfiguration** resource module, and
+compile the configuration.
 
 ```powershell
 # Define the configuration and import GuestConfiguration
@@ -151,14 +156,12 @@ import-module PSDesiredStateConfiguration
 AuditFilePathExists -out ./Config
 ```
 
-Save this file with name `config.ps1` in the project folder. Run it in PowerShell by executing `./config.ps1`
-in the terminal. A new mof file will be created.
+Save this file with name `config.ps1` in the project folder. Run it in PowerShell by executing
+`./config.ps1` in the terminal. A new mof file will be created.
 
 The `Node AuditFilePathExists` command isn't technically required but it produces a file named
 `AuditFilePathExists.mof` rather than the default, `localhost.mof`. Having the .mof file name follow
 the configuration makes it easy to organize many files when operating at scale.
-
-
 
 You should now have a project structure as below:
 
@@ -194,7 +197,9 @@ New-GuestConfigurationPackage `
   -ChefInSpecProfilePath './'
 ```
 
-After creating the Configuration package but before publishing it to Azure, you can test the package from your workstation or CI/CD environment. The GuestConfiguration cmdlet `Test-GuestConfigurationPackage` includes the same agent in your
+After creating the Configuration package but before publishing it to Azure, you can test the package
+from your workstation or continuous integration and continuous deployment (CI/CD) environment. The
+GuestConfiguration cmdlet `Test-GuestConfigurationPackage` includes the same agent in your
 development environment as is used inside Azure machines. Using this solution, you can perform
 integration testing locally before releasing to billed cloud environments.
 
@@ -221,8 +226,8 @@ The cmdlet also supports input from the PowerShell pipeline. Pipe the output of
 New-GuestConfigurationPackage -Name AuditFilePathExists -Configuration ./Config/AuditFilePathExists.mof -ChefProfilePath './' | Test-GuestConfigurationPackage
 ```
 
-The next step is to publish the file to blob storage. The script below contains a function you can
-use to automate this task. The commands used in the `publish` function require the `Az.Storage`
+The next step is to publish the file to Azure Blob Storage. The script below contains a function you
+can use to automate this task. The commands used in the `publish` function require the `Az.Storage`
 module.
 
 ```azurepowershell-interactive
@@ -279,8 +284,9 @@ $uri = publish `
   -filePath ./AuditFilePathExists.zip `
   -blobName 'AuditFilePathExists'
 ```
-Once a Guest Configuration custom policy package has been created and uploaded, create the Guest Configuration policy definition. The
-`New-GuestConfigurationPolicy` cmdlet takes a custom policy package and creates a policy definition.
+Once a Guest Configuration custom policy package has been created and uploaded, create the Guest
+Configuration policy definition. The `New-GuestConfigurationPolicy` cmdlet takes a custom policy
+package and creates a policy definition.
 
 Parameters of the `New-GuestConfigurationPolicy` cmdlet:
 
@@ -291,8 +297,11 @@ Parameters of the `New-GuestConfigurationPolicy` cmdlet:
 - **Version**: Policy version.
 - **Path**: Destination path where policy definitions are created.
 - **Platform**: Target platform (Windows/Linux) for Guest Configuration policy and content package.
+- **Tag** adds one or more tag filters to the policy definition
+- **Category** sets the category metadata field in the policy definition
 
-The following example creates the policy definitions in a specified path from a custom policy package:
+The following example creates the policy definitions in a specified path from a custom policy
+package:
 
 ```azurepowershell-interactive
 New-GuestConfigurationPolicy `
@@ -314,20 +323,13 @@ The following files are created by `New-GuestConfigurationPolicy`:
 The cmdlet output returns an object containing the initiative display name and path of the policy
 files.
 
-> [!Note]
-> The latest Guest Configuration module includes a new parameters:
-> - **Tag** adds one or more tag filters to the policy definition
->   - See the section [Filtering Guest Configuration policies using Tags](#filtering-guest-configuration-policies-using-tags).
-> - **Category** sets the category metadata field in the policy definition
->   - If the parameter is not included, the category will default to Guest Configuration.
-> These features are currently in preview and require Guest Configuration module
-> version 1.20.1, which can be installed using `Install-Module GuestConfiguration -AllowPrerelease`.
+Finally, publish the policy definitions using the `Publish-GuestConfigurationPolicy` cmdlet. The
+cmdlet only has the **Path** parameter that points to the location of the JSON files created by
+`New-GuestConfigurationPolicy`.
 
-Finally, publish the policy definitions using the `Publish-GuestConfigurationPolicy` cmdlet.
-The cmdlet only has the **Path** parameter that points to the location of the JSON files
-created by `New-GuestConfigurationPolicy`.
-
-To run the Publish command, you need access to create Policies in Azure. The specific authorization requirements are documented in the [Azure Policy Overview](../overview.md) page. The best built-in role is **Resource Policy Contributor**.
+To run the Publish command, you need access to create Policies in Azure. The specific authorization
+requirements are documented in the [Azure Policy Overview](../overview.md) page. The best built-in
+role is **Resource Policy Contributor**.
 
 ```azurepowershell-interactive
 Publish-GuestConfigurationPolicy `
@@ -346,9 +348,9 @@ Publish-GuestConfigurationPolicy `
  | Publish-GuestConfigurationPolicy
  ```
 
-With the policy created in Azure, the last step is to assign the
-initiative. See how to assign the initiative with [Portal](../assign-policy-portal.md), [Azure CLI](../assign-policy-azurecli.md),
-and [Azure PowerShell](../assign-policy-powershell.md).
+With the policy created in Azure, the last step is to assign the initiative. See how to assign the
+initiative with [Portal](../assign-policy-portal.md), [Azure CLI](../assign-policy-azurecli.md), and
+[Azure PowerShell](../assign-policy-powershell.md).
 
 > [!IMPORTANT]
 > Guest Configuration policies must **always** be assigned using the initiative that combines the
@@ -356,7 +358,7 @@ and [Azure PowerShell](../assign-policy-powershell.md).
 > assigned, the prerequisites aren't deployed and the policy always shows that '0' servers are
 > compliant.
 
-Assigning an policy definition with _DeployIfNotExists_ effect requires an additional level of
+Assigning a policy definition with _DeployIfNotExists_ effect requires an additional level of
 access. To grant the least privilege, you can create a custom role definition that extends
 **Resource Policy Contributor**. The example below creates a role named **Resource Policy
 Contributor DINE** with the additional permission _Microsoft.Authorization/roleAssignments/write_.
@@ -399,11 +401,11 @@ end
 ```
 
 The cmdlets `New-GuestConfigurationPolicy` and `Test-GuestConfigurationPolicyPackage` include a
-parameter named **Parameters**. This parameter takes a hashtable including all details
-about each parameter and automatically creates all the required sections of the files used to create
-each Azure Policy definition.
+parameter named **Parameter**. This parameter takes a hashtable including all details about each
+parameter and automatically creates all the required sections of the files used to create each Azure
+Policy definition.
 
-The following example creates an policy definition to audit a file path, where the user provides the
+The following example creates a policy definition to audit a file path, where the user provides the
 path at the time of policy assignment.
 
 ```azurepowershell-interactive
@@ -426,7 +428,7 @@ New-GuestConfigurationPolicy
     -DisplayName 'Audit Linux file path.' `
     -Description 'Audit that a file path exists on a Linux machine.' `
     -Path './policies' `
-    -Parameters $PolicyParameterInfo `
+    -Parameter $PolicyParameterInfo `
     -Version 1.0.0
 ```
 
@@ -469,14 +471,10 @@ updated.
 
 ### Filtering Guest Configuration policies using Tags
 
-> [!Note]
-> This feature is currently in preview and requires Guest Configuration module
-> version 1.20.1, which can be installed using `Install-Module GuestConfiguration -AllowPrerelease`.
-
-The policies created by cmdlets in the Guest Configuration module can optionally include
-a filter for tags. The **-Tag** parameter of `New-GuestConfigurationPolicy` supports
-an array of hashtables containing individual tag entires. The tags will be added
-to the `If` section of the policy definition and cannot be modified by a policy assignment.
+The policies created by cmdlets in the Guest Configuration module can optionally include a filter
+for tags. The **-Tag** parameter of `New-GuestConfigurationPolicy` supports an array of hashtables
+containing individual tag entires. The tags will be added to the `If` section of the policy
+definition and cannot be modified by a policy assignment.
 
 An example snippet of a policy definition that will filter for tags is given below.
 
@@ -552,5 +550,5 @@ recent information.
 ## Next steps
 
 - Learn about auditing VMs with [Guest Configuration](../concepts/guest-configuration.md).
-- Understand how to [programmatically create policies](programmatically-create.md).
-- Learn how to [get compliance data](get-compliance-data.md).
+- Understand how to [programmatically create policies](./programmatically-create.md).
+- Learn how to [get compliance data](./get-compliance-data.md).

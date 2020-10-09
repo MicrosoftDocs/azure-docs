@@ -5,7 +5,7 @@ author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 3/18/2020
+ms.date: 7/17/2020
 ---
 # Use Virtual Network service endpoints and rules for Azure Database for MySQL
 
@@ -13,11 +13,13 @@ ms.date: 3/18/2020
 
 To create a virtual network rule, there must first be a [virtual network][vm-virtual-network-overview] (VNet) and a [virtual network service endpoint][vm-virtual-network-service-endpoints-overview-649d] for the rule to reference. The following picture illustrates how a Virtual Network service endpoint works with Azure Database for MySQL:
 
-![Example of how a VNet Service Endpoint works](media/concepts-data-access-and-security-vnet/vnet-concept.png)
+:::image type="content" source="media/concepts-data-access-and-security-vnet/vnet-concept.png" alt-text="Example of how a VNet Service Endpoint works":::
 
 > [!NOTE]
 > This feature is available in all regions of Azure where Azure Database for MySQL is deployed for General Purpose and Memory Optimized servers.
 > In case of VNet peering, if traffic is flowing through a common VNet Gateway with service endpoints and is supposed to flow to the peer, please create an ACL/VNet rule to allow Azure Virtual Machines in the Gateway VNet to access the Azure Database for MySQL server.
+
+You can also consider using [Private Link](concepts-data-access-security-private-link.md) for connections. Private Link provides a private IP address in your VNet for the Azure Database for MySQL server.
 
 <a name="anch-terminology-and-description-82f"></a>
 
@@ -57,12 +59,6 @@ You can salvage the IP option by obtaining a *static* IP address for your VM. Fo
 
 However, the static IP approach can become difficult to manage, and it is costly when done at scale. Virtual network rules are easier to establish and to manage.
 
-### C. Cannot yet have Azure Database for MySQL on a subnet without defining a service endpoint
-
-If your **Microsoft.Sql** server was a node on a subnet in your virtual network, all nodes within the virtual network could communicate with your Azure Database for MySQL server. In this case, your VMs could communicate with Azure Database for MySQL without needing any virtual network rules or IP rules.
-
-However as of August 2018, the Azure Database for MySQL service is not yet among the services that can be assigned directly to a subnet.
-
 <a name="anch-details-about-vnet-rules-38q"></a>
 
 ## Details about virtual network rules
@@ -90,7 +86,7 @@ There is a separation of security roles in the administration of Virtual Network
 
 The roles of Network Admin and Database Admin have more capabilities than are needed to manage virtual network rules. Only a subset of their capabilities is needed.
 
-You have the option of using [role-based access control (RBAC)][rbac-what-is-813s] in Azure to create a single custom role that has only the necessary subset of capabilities. The custom role could be used instead of involving either the Network Admin or the Database Admin. The surface area of your security exposure is lower if you add a user to a custom role, versus adding the user to the other two major administrator roles.
+You have the option of using [Azure role-based access control (Azure RBAC)][rbac-what-is-813s] in Azure to create a single custom role that has only the necessary subset of capabilities. The custom role could be used instead of involving either the Network Admin or the Database Admin. The surface area of your security exposure is lower if you add a user to a custom role, versus adding the user to the other two major administrator roles.
 
 > [!NOTE]
 > In some cases the Azure Database for MySQL and the VNet-subnet are in different subscriptions. In these cases you must ensure the following configurations:
@@ -110,9 +106,11 @@ For Azure Database for MySQL, the virtual network rules feature has the followin
 
 - Virtual network rules apply only to Azure Resource Manager virtual networks; and not to [classic deployment model][arm-deployment-model-568f] networks.
 
-- Turning ON virtual network service endpoints to Azure Database for MySQL using the **Microsoft.Sql** service tag also enables the endpoints for all Azure Database services: Azure Database for MySQL, Azure Database for PostgreSQL, Azure SQL Database and Azure SQL Data Warehouse.
+- Turning ON virtual network service endpoints to Azure Database for MySQL using the **Microsoft.Sql** service tag also enables the endpoints for all Azure Database services: Azure Database for MySQL, Azure Database for PostgreSQL, Azure SQL Database and Azure Synapse Analytics (formerly SQL Data Warehouse).
 
 - Support for VNet service endpoints is only for General Purpose and Memory Optimized servers.
+
+- If **Microsoft.Sql** is enabled in a subnet, it indicates that you only want to use VNet rules to connect. [Non-VNet firewall rules](concepts-firewall-rules.md) of resources in that subnet will not work.
 
 - On the firewall, IP address ranges do apply to the following networking items, but virtual network rules do not:
     - [Site-to-Site (S2S) virtual private network (VPN)][vpn-gateway-indexmd-608y]
@@ -124,9 +122,9 @@ If your network is connected to the Azure network through use of [ExpressRoute][
 
 To allow communication from your circuit to Azure Database for MySQL, you must create IP network rules for the public IP addresses of your circuits. In order to find the public IP addresses of your ExpressRoute circuit, open a support ticket with ExpressRoute by using the Azure portal.
 
-## Adding a VNET Firewall rule to your server without turning On VNET Service Endpoints
+## Adding a VNET Firewall rule to your server without turning on VNET Service Endpoints
 
-Merely setting a Firewall rule does not help secure the server to the VNet. You must also turn VNet service endpoints **On** for the security to take effect. When you turn service endpoints **On**, your VNet-subnet experiences downtime until it completes the transition from **Off** to **On**. This is especially true in the context of large VNets. You can use the **IgnoreMissingServiceEndpoint** flag to reduce or eliminate the downtime during transition.
+Merely setting a VNet firewall rule does not help secure the server to the VNet. You must also turn VNet service endpoints **On** for the security to take effect. When you turn service endpoints **On**, your VNet-subnet experiences downtime until it completes the transition from **Off** to **On**. This is especially true in the context of large VNets. You can use the **IgnoreMissingServiceEndpoint** flag to reduce or eliminate the downtime during transition.
 
 You can set the **IgnoreMissingServiceEndpoint** flag by using the Azure CLI or portal.
 

@@ -2,22 +2,15 @@
 title: 'Tutorial: Azure Active Directory integration with Bonusly | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and Bonusly.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-
-ms.assetid: 29fea32a-fa20-47b2-9e24-26feb47b0ae6
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 04/14/2019
 ms.author: jeedes
-
-ms.collection: M365-identity-device-management
 ---
 # Tutorial: Azure Active Directory integration with Bonusly
 
@@ -224,11 +217,11 @@ In order to enable Azure AD users to sign in to Bonusly, they must be provisione
 
 1. Click **Add User**.
 
-    ![Add User](./media/bonus-tutorial/ic781044.png "Add User")
+    ![Screenshot shows Manage Users where you can select Add User.](./media/bonus-tutorial/ic781044.png "Add User")
 
 1. On the **Add User** dialog, perform the following steps:
 
-    ![Add User](./media/bonus-tutorial/ic781045.png "Add User")  
+    ![Screenshot shows the Add User dialog box where you can enter this information.](./media/bonus-tutorial/ic781045.png "Add User")  
 
     a. In the **First name** textbox, enter the first name of user like **Britta**.
 

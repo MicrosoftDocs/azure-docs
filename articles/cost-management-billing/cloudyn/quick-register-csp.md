@@ -1,13 +1,14 @@
 ---
 
 title: Register using CSP Partner information with Cloudyn in Azure
-description: This quickstart details the registration process needed to create a Cloudyn trial subscription and sign in to the Cloudyn portal.
+description: Learn details about the registration process needed to create a Cloudyn trial subscription and sign in to the Cloudyn portal.
 author: bandersmsft
 ms.author: banders
 ms.date: 03/12/2020
 ms.topic: quickstart
 ms.custom: seodec18
 ms.service: cost-management-billing
+ms.subservice: cloudyn
 ms.reviewer: benshy
 ROBOTS: NOINDEX
 ---

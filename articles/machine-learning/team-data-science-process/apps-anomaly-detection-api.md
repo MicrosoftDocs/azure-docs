@@ -58,44 +58,48 @@ In order to call the API, you will need to know the endpoint location and API ke
 ### Sample Request Body
 The request contains two objects: `Inputs` and `GlobalParameters`.  In the example request below, some parameters are sent explicitly while others are not (scroll down for a full list of parameters for each endpoint).  Parameters that are not sent explicitly in the request will use the default values given below.
 
-	{
-                "Inputs": {
-                        "input1": {
-                                "ColumnNames": ["Time", "Data"],
-                                "Values": [
-                                        ["5/30/2010 18:07:00", "1"],
-                                        ["5/30/2010 18:08:00", "1.4"],
-                                        ["5/30/2010 18:09:00", "1.1"]
-                                ]
-                        }
-                },
-		"GlobalParameters": {
-			"tspikedetector.sensitivity": "3",
-			"zspikedetector.sensitivity": "3",
-			"bileveldetector.sensitivity": "3.25",
-			"detectors.spikesdips": "Both"
-		}
+```json
+{
+            "Inputs": {
+                    "input1": {
+                            "ColumnNames": ["Time", "Data"],
+                            "Values": [
+                                    ["5/30/2010 18:07:00", "1"],
+                                    ["5/30/2010 18:08:00", "1.4"],
+                                    ["5/30/2010 18:09:00", "1.1"]
+                            ]
+                    }
+            },
+	"GlobalParameters": {
+		"tspikedetector.sensitivity": "3",
+		"zspikedetector.sensitivity": "3",
+		"bileveldetector.sensitivity": "3.25",
+		"detectors.spikesdips": "Both"
 	}
+}
+```
 
 ### Sample Response
 In order to see the `ColumnNames` field, you must include `details=true` as a URL parameter in your request.  See the tables below for the meaning behind each of these fields.
 
-	{
-		"Results": {
-			"output1": {
-				"type": "table",
-				"value": {
-					"Values": [
-						["5/30/2010 6:07:00 PM", "1", "1", "0", "0", "-0.687952590518378", "0", "-0.687952590518378", "0", "-0.687952590518378", "0"],
-						["5/30/2010 6:08:00 PM", "1.4", "1.4", "0", "0", "-1.07030497733224", "0", "-0.884548154298423", "0", "-1.07030497733224", "0"],
-						["5/30/2010 6:09:00 PM", "1.1", "1.1", "0", "0", "-1.30229513613974", "0", "-1.173800281031", "0", "-1.30229513613974", "0"]
-					],
-					"ColumnNames": ["Time", "OriginalData", "ProcessedData", "TSpike", "ZSpike", "BiLevelChangeScore", "BiLevelChangeAlert", "PosTrendScore", "PosTrendAlert", "NegTrendScore", "NegTrendAlert"],
-					"ColumnTypes": ["DateTime", "Double", "Double", "Double", "Double", "Double", "Int32", "Double", "Int32", "Double", "Int32"]
-				}
+```json
+{
+	"Results": {
+		"output1": {
+			"type": "table",
+			"value": {
+				"Values": [
+					["5/30/2010 6:07:00 PM", "1", "1", "0", "0", "-0.687952590518378", "0", "-0.687952590518378", "0", "-0.687952590518378", "0"],
+					["5/30/2010 6:08:00 PM", "1.4", "1.4", "0", "0", "-1.07030497733224", "0", "-0.884548154298423", "0", "-1.07030497733224", "0"],
+					["5/30/2010 6:09:00 PM", "1.1", "1.1", "0", "0", "-1.30229513613974", "0", "-1.173800281031", "0", "-1.30229513613974", "0"]
+				],
+				"ColumnNames": ["Time", "OriginalData", "ProcessedData", "TSpike", "ZSpike", "BiLevelChangeScore", "BiLevelChangeAlert", "PosTrendScore", "PosTrendAlert", "NegTrendScore", "NegTrendAlert"],
+				"ColumnTypes": ["DateTime", "Double", "Double", "Double", "Double", "Double", "Int32", "Double", "Int32", "Double", "Int32"]
 			}
 		}
 	}
+}
+```
 
 
 ## Score API

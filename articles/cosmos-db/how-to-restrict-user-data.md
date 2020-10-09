@@ -8,11 +8,12 @@ ms.date: 12/9/2019
 ms.author: tvoellm
 ---
 
-# Restrict user access to data operations only
+# Restrict user access to data operations in Azure Cosmos DB
 
 In Azure Cosmos DB, there are two ways to authenticate your interactions with the database service:
+
 - using your Azure Active Directory identity when interacting with the Azure portal,
-- using Azure Cosmos DB [keys](secure-access-to-data.md#master-keys) or [resource tokens](secure-access-to-data.md#resource-tokens) when issuing calls from APIs and SDKs.
+- using Azure Cosmos DB [keys](secure-access-to-data.md#primary-keys) or [resource tokens](secure-access-to-data.md#resource-tokens) when issuing calls from APIs and SDKs.
 
 Each authentication method gives access to different sets of operations, with some overlap:
 
@@ -46,7 +47,7 @@ Select-AzSubscription $MySubscriptionId
 
 ## Create the custom Azure Active Directory role
 
-The following script creates an Azure Active Directory role assignment with "Key Only" access for Azure Cosmos accounts. The role is based on [Custom roles for Azure resources](../role-based-access-control/custom-roles.md) and [Granular actions for Azure Cosmos DB](../role-based-access-control/resource-provider-operations.md#microsoftdocumentdb). These roles and actions are part of the `Microsoft.DocumentDB` Azure Active Directory namespace.
+The following script creates an Azure Active Directory role assignment with "Key Only" access for Azure Cosmos accounts. The role is based on [Azure custom roles](../role-based-access-control/custom-roles.md) and [Granular actions for Azure Cosmos DB](../role-based-access-control/resource-provider-operations.md#microsoftdocumentdb). These roles and actions are part of the `Microsoft.DocumentDB` Azure Active Directory namespace.
 
 1. First, create a JSON document named `AzureCosmosKeyOnlyAccess.json` with the following content:
 

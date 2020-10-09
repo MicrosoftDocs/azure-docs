@@ -1,4 +1,4 @@
-- name: Azure Maps Documentation 
+- name: Azure Maps documentation 
   href: index.yml
 - name: Overview
   items:
@@ -33,6 +33,14 @@
       href: tutorial-ev-routing.md
     - name: Analyze weather data using Azure Notebooks (Python)
       href: weather-service-tutorial.md
+  - name: Migrate from Bing Maps
+    items:
+    - name: Migrate from Bing Maps
+      href: migrate-from-bing-maps.md
+    - name: Migrate a web app
+      href: migrate-from-bing-maps-web-app.md
+    - name: Migrate a web service
+      href: migrate-from-bing-maps-web-services.md
   - name: Migrate from Google Maps
     items:
     - name: Migrate from Google Maps
@@ -232,6 +240,24 @@
       href: how-to-add-tile-layer-android-map.md
     - name: Show traffic data 
       href: how-to-show-traffic-android.md
+  - name: Use Azure Maps in Power BI
+    items: 
+    - name: Getting started
+      href: power-bi-visual-getting-started.md
+    - name: Understanding layers
+      href: power-bi-visual-understanding-layers.md
+    - name: Add a bubble layer
+      href: power-bi-visual-add-bubble-layer.md
+    - name: Add a bar chart layer
+      href: power-bi-visual-add-bar-chart-layer.md
+    - name: Add a reference layer
+      href: power-bi-visual-add-reference-layer.md
+    - name: Add a tile layer
+      href: power-bi-visual-add-tile-layer.md
+    - name: Show real-time traffic
+      href: power-bi-visual-show-real-time-traffic.md
+    - name: Manage access
+      href: power-bi-visual-manage-access.md
   - name: Provide data feedback
     href: how-to-use-feedback-tool.md
 - name: Reference

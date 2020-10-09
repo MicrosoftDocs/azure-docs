@@ -5,7 +5,7 @@ author: haroldwongms
 manager: mdotson
 ms.service: virtual-machines-linux
 ms.subservice: workloads
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 10/14/2019
@@ -14,7 +14,7 @@ ms.author: haroldw
 
 # Configure prerequisites
 
-Before using the Marketplace offer to deploy a self-managed OpenShift Container Platform 3.11 cluster in Azure, a few prerequisites must be configured.  Read the [OpenShift prerequisites](https://docs.microsoft.com/azure/virtual-machines/linux/openshift-container-platform-3x-prerequisites) article for instructions to create an ssh key (without a passphrase), Azure key vault, key vault secret, and a service principal.
+Before using the Marketplace offer to deploy a self-managed OpenShift Container Platform 3.11 cluster in Azure, a few prerequisites must be configured.  Read the [OpenShift prerequisites](./openshift-container-platform-3x-prerequisites.md) article for instructions to create an ssh key (without a passphrase), Azure key vault, key vault secret, and a service principal.
 
  
 ## Deploy using the Marketplace offer

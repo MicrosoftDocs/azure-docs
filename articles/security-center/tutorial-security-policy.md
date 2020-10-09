@@ -29,14 +29,14 @@ Security Center policies are based on policy initiatives created in Azure Policy
 
 Security Center offers the following options for working with security policies:
 
-* **View and edit the built-in default policy** - When you enable Security Center, a built-in initiative named 'ASC default' is automatically assigned to all Security Center registered subscriptions (Free or Standard tiers). To customize this initiative, you can enable or disable individual policies within it. See the list of [built-in security policies](security-center-policy-definitions.md) to understand the options available out-of-the-box.
+* **View and edit the built-in default policy** - When you enable Security Center, a built-in initiative named 'ASC default' is automatically assigned to all Security Center registered subscriptions. To customize this initiative, you can enable or disable individual policies within it. See the list of [built-in security policies](security-center-policy-definitions.md) to understand the options available out-of-the-box.
 
 * **Add your own custom policies** - If you want to customize the security initiatives applied to your subscription, you can do so within Security Center. You'll then receive recommendations if your machines don't follow the policies you create. For instructions on building and assigning custom policies, see [Using custom security policies](custom-security-policies.md).
 
 * **Add regulatory compliance policies** - Security Center's regulatory compliance dashboard shows the status of all the assessments within your environment in the context of a particular standard or regulation (such as Azure CIS, NIST SP 800-53 R4, SWIFT CSP CSCF-v2020). For more information, see [Improve your regulatory compliance](security-center-compliance-dashboard.md).
 
 
-## Managing your security policies
+## Manage your security policies
 
 To view your security policies in Security Center:
 
@@ -50,7 +50,7 @@ To view your security policies in Security Center:
 
 1. The security policy page for that subscription or management group appears. It shows the available and assigned policies.
 
-   ![policy screen](./media/tutorial-security-policy/security-policy-page.png)
+   ![policy page](./media/tutorial-security-policy/security-policy-page.png)
 
     > [!NOTE]
     > If there is a label "MG Inherited" alongside your default policy, it means that the policy has been assigned to a management group and inherited by the subscription you're viewing.
@@ -82,14 +82,18 @@ To view your security policies in Security Center:
 
 You can edit security policies through the Azure Policy portal, via REST API or using Windows PowerShell.
 
-Security Center uses Role-Based Access Control (RBAC), which provides built-in roles that can be assigned to users, groups, and services in Azure. When users open Security Center, they see only information that's related to resources they have access to. Which means that users are assigned the role of *owner*, *contributor*, or *reader* to the resource's subscription. As well as these roles, there are two specific Security Center roles:
+Security Center uses Role-Based Access Control (RBAC), which provides built-in roles you can assign to Azure users, groups, and services. When users open Security Center, they see only information related to the resources they can access. Which means users are assigned the role of *owner*, *contributor*, or *reader* to the resource's subscription. There are also two specific Security Center roles:
 
-- **Security reader**: Have view rights to Security Center, which includes recommendations, alerts, policy, and health, but they can't make changes.
-- **Security admin**: Have the same view rights as *security reader*, and they can also update the security policy and dismiss recommendations and alerts.
+- **Security reader**: Has rights to view Security Center items such as recommendations, alerts, policy, and health. Can't make changes.
+- **Security admin**: Has the same view rights as *security reader*. Can also update the security policy and dismiss alerts.
 
 
-## Disable security policies
-If the default security policy is generating a recommendation that's not relevant for your environment, you can stop it by disabling the policy definition that sends the recommendation.
+## Disable security policies and disable recommendations
+
+When your security initiative triggers a recommendation that's irrelevant for your environment, you can prevent that recommendation from appearing again. To disable a recommendation, disable the specific policy that generates the recommendation.
+
+The recommendation you want to disable will still appear if it's required for a regulatory standard you've applied with Security Center's regulatory compliance tools. Even if you've disabled a policy in the built-in initiative, a policy in the regulatory standard's initiative will still trigger the recommendation if it's necessary for compliance. You can't disable policies from regulatory standard initiatives.
+
 For more information about recommendations, see [Managing security recommendations](security-center-recommendations.md).
 
 1. In Security Center, from the **Policy & Compliance** section, select **Security policy**.
@@ -103,11 +107,11 @@ For more information about recommendations, see [Managing security recommendatio
 
 1. Select **View effective policy**.
 
-   ![disable policy](./media/tutorial-security-policy/view-effective-policy.png)
+   ![view policy](./media/tutorial-security-policy/view-effective-policy.png)
 
 1. Select the assigned policy.
 
-   ![disable policy](./media/tutorial-security-policy/security-policy.png)
+   ![select policy](./media/tutorial-security-policy/security-policy.png)
 
 1. In the **PARAMETERS** section, search for the policy that invokes the recommendation that you want to disable, and from the dropdown list, select **Disabled**
 
@@ -121,7 +125,7 @@ For more information about recommendations, see [Managing security recommendatio
 
 
 ## Next steps
-In this article, you learned about security policies. For related information, see the following articles:
+This article explained security policies. For related information, see the following articles:
 
 * For instructions on how to set policies using PowerShell, see [Quickstart: Create a policy assignment to identify non-compliant resources using the Azure PowerShell module](../governance/policy/assign-policy-powershell.md)
 

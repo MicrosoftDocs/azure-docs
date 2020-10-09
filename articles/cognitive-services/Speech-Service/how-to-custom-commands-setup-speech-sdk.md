@@ -1,7 +1,7 @@
 ---
 title: 'Integrate with a client app using Speech SDK'                              
 titleSuffix: Azure Cognitive Services
-description: In this article, you learn how to make requests to a published Custom Commands application from the Speech SDK running in a UWP application.
+description: how to make requests to a published Custom Commands application from the Speech SDK running in a UWP application.
 services: cognitive-services
 author: xiaojul
 manager: yetian
@@ -10,11 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 06/18/2020
 ms.author: xiaojul
+ms.custom: devx-track-csharp
 ---
 
 # Integrate with a client application using Speech SDK
 
-In this article, you learn how to make requests to a published Custom Commands application from the Speech SDK running in a UWP application. In order to establish a connection to the Custom Commands application, you do the following tasks:
+In this article, you learn how to make requests to a published Custom Commands application from the Speech SDK running in an UWP application. In order to establish a connection to the Custom Commands application, you need:
 
 - Publish a Custom Commands application and get an application identifier (App ID)
 - Create a Universal Windows Platform (UWP) client app using the Speech SDK to allow you to talk to your Custom Commands application
@@ -27,13 +28,19 @@ A Custom Commands application is required to complete this article. If you haven
 
 You'll also need:
 > [!div class = "checklist"]
-> * [Visual Studio 2019](https://visualstudio.microsoft.com/downloads/)
-> * An Azure subscription key for Speech Services. [Get one for free](get-started.md) or create it on the [Azure portal](https://portal.azure.com)
+> * [Visual Studio 2019](https://visualstudio.microsoft.com/downloads/) or higher. This guide is based on Visual Studio 2019.
+> * An Azure subscription key for Speech Services. [Get one for free](overview.md#try-the-speech-service-for-free) or create it on the [Azure portal](https://portal.azure.com)
 > * [Enable your device for development](https://docs.microsoft.com/windows/uwp/get-started/enable-your-device-for-development)
 
 ## Step 1: Publish Custom Commands application
 
-1. Open your previously created Custom Commands application (Preview) and select **Publish**
+1. Open your previously created Custom Commands application
+1. Go to **Settings**, select **LUIS resource**
+1. If **Prediction resource** is not assigned, select a query prediction key or create a new one
+
+    Query prediction key is always required before publishing an application. For more information about LUIS resources, reference [Create LUIS Resource](https://docs.microsoft.com/azure/cognitive-services/luis/luis-how-to-azure-subscription)
+
+1. Go back to editing Commands, Select **Publish**
 
    > [!div class="mx-imgBorder"]
    > ![Publish application](media/custom-commands/setup-speech-sdk-publish-application.png)
@@ -126,11 +133,8 @@ Add the code-behind source as follows:
    using Microsoft.CognitiveServices.Speech.Audio;
    using Microsoft.CognitiveServices.Speech.Dialog;
    using System;
-   using System.Diagnostics;
    using System.IO;
    using System.Text;
-   using Windows.Foundation;
-   using Windows.Storage.Streams;
    using Windows.UI.Xaml;
    using Windows.UI.Xaml.Controls;
    using Windows.UI.Xaml.Media;
@@ -319,7 +323,7 @@ Add the code-behind source as follows:
    // speech recognition results, and other information.
    //
    // ActivityReceived is the main way your client will receive messages, audio, and events
-   connector.ActivityReceived += async (sender, activityReceivedEventArgs) =>
+   connector.ActivityReceived += (sender, activityReceivedEventArgs) =>
    {
        NotifyUser(
            $"Activity received, hasAudio={activityReceivedEventArgs.HasAudio} activity={activityReceivedEventArgs.Activity}");

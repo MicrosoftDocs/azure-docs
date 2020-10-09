@@ -117,6 +117,11 @@ Then make sure your redirect URL is set to your external URL:
 1. Select the link next to **Redirect URIs**, showing the number of redirect URIs set up for web and public clients. The **\<application name> - Authentication** page appears.
 1. Check whether the external URL that you assigned to your application earlier is in the **Redirect URIs** list. If it isn't, add the external URL now, using a redirect URI type of **Web**, and select **Save**.
 
+In addition to the external URL, an authorize endpoint of Azure Active Directory on the external URL should be added to the Redirect URIs list.
+
+`https://*.msappproxy.net/pa/oidc/cb`
+`https://*.msappproxy.net/`
+
 Finally, set up your on-premises application so that users have read access and other applications have read/write access:
 
 1. From the **App registrations** sidebar for your application, select **API permissions** > **Add a permission** > **Microsoft APIs** > **Microsoft Graph**. The **Request API permissions** page for **Microsoft Graph** appears, which contains the APIs for Windows Azure Active Directory.

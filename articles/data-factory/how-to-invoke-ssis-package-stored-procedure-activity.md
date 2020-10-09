@@ -11,12 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: 
 ms.devlang: powershell
 ms.topic: conceptual
-ms.date: 04/17/2018
-ms.author: sawinark
+ms.date: 07/09/2020
+ms.author: sawinark 
+ms.custom: devx-track-azurepowershell
 ---
 # Run an SSIS package with the Stored Procedure activity in Azure Data Factory
 
-[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
+[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
 This article describes how to run an SSIS package in an Azure Data Factory pipeline by using a Stored Procedure activity. 
 

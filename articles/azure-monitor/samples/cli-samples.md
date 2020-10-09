@@ -5,7 +5,8 @@ ms.subservice: ""
 ms.topic: sample
 author: bwren
 ms.author: bwren
-ms.date: 05/16/2018
+ms.date: 05/16/2018 
+ms.custom: devx-track-azurecli
 
 ---
 
@@ -14,7 +15,7 @@ This article shows you sample command-line interface (CLI) commands to help you 
 
 ## Prerequisites
 
-If you haven't already installed the Azure CLI, follow the instructions for [Install the Azure CLI](/cli/azure/install-azure-cli). You can also use [Azure Cloud Shell](/azure/cloud-shell) to run the CLI as an interactive experience in your browser. See a full reference of all available commands in the [Azure Monitor CLI reference](https://docs.microsoft.com/cli/azure/monitor?view=azure-cli-latest). 
+If you haven't already installed the Azure CLI, follow the instructions for [Install the Azure CLI](/cli/azure/install-azure-cli). You can also use [Azure Cloud Shell](/azure/cloud-shell) to run the CLI as an interactive experience in your browser. See a full reference of all available commands in the [Azure Monitor CLI reference](/cli/azure/monitor?view=azure-cli-latest). 
 
 ## Log in to Azure
 The first step is to log in to your Azure account.
@@ -202,4 +203,3 @@ az monitor autoscale create --name <settings name> --resource-group <group name>
     --count <# instances> \
     --resource <target resource ID>
 ```
-

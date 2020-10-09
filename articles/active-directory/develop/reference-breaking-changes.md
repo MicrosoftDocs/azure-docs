@@ -8,7 +8,7 @@ manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: reference
 ms.date: 5/4/2020
 ms.author: ryanwi
 ms.reviewer: hirsin
@@ -17,7 +17,7 @@ ms.custom: aaddev
 
 # What's new for authentication?
 
->Get notified about updates to this page. Just add [this URL](https://docs.microsoft.com/api/search/rss?search=%22whats%20new%20for%20authentication%22&locale=en-us) to your RSS feed reader.
+> Get notified of updates to this page by pasting this URL into your RSS feed reader:<br/>`https://docs.microsoft.com/api/search/rss?search=%22whats%20new%20for%20authentication%22&locale=en-us`
 
 The authentication system alters and adds features on an ongoing basis to improve security and standards compliance. To stay up-to-date with the most recent developments, this article provides you with information about the following details:
 
@@ -45,7 +45,7 @@ None scheduled at this time.  Please see below for the changes that are in or ar
 
 On 1 June 2018, the official Azure Active Directory (AAD) Authority for Azure Government changed from `https://login-us.microsoftonline.com` to `https://login.microsoftonline.us`. This change also applied to Microsoft 365 GCC High and DoD, which Azure Government AAD also services. If you own an application within a US Government tenant, you must update your application to sign users in on the `.us` endpoint.  
 
-Starting May 5th, Azure AD will begin enforcing the endpoint change, blocking government users from signing into apps hosted in US Government tenants using the public endpoint (`microsoftonline.com`).  Impacted apps will begin seeing an error `AADSTS900439` - `USGClientNotSupportedOnPublicEndpoint`. This error indicates that the app is attempting to sign in a US Government user on the public cloud endpoint. If your app is in a public cloud tenant and intended to support US Government users, you will need to [update your app to support them explicitly](https://docs.microsoft.com/azure/active-directory/develop/authentication-national-cloud). This may require creating a new app registration in the US Government cloud. 
+Starting May 5th, Azure AD will begin enforcing the endpoint change, blocking government users from signing into apps hosted in US Government tenants using the public endpoint (`microsoftonline.com`).  Impacted apps will begin seeing an error `AADSTS900439` - `USGClientNotSupportedOnPublicEndpoint`. This error indicates that the app is attempting to sign in a US Government user on the public cloud endpoint. If your app is in a public cloud tenant and intended to support US Government users, you will need to [update your app to support them explicitly](./authentication-national-cloud.md). This may require creating a new app registration in the US Government cloud. 
 
 Enforcement of this change will be done using a gradual rollout based on how frequently users from the US Government cloud sign in to the application - apps signing in US Government users infrequently will see enforcement first, and apps frequently used by US Government users will be last to have enforcement applied. We expect enforcement to be complete across all apps in June 2020. 
 
@@ -94,7 +94,7 @@ When an authentication response is sent from login.microsoftonline.com to an app
 
 **Endpoints impacted**: Both v1.0 and v2.0
 
-**Protocol impacted**: Anywhere POST is used ([client credentials](https://docs.microsoft.com/azure/active-directory/develop/v2-oauth2-client-creds-grant-flow), [authorization code redemption](https://docs.microsoft.com/azure/active-directory/develop/v2-oauth2-auth-code-flow), [ROPC](https://docs.microsoft.com/azure/active-directory/develop/v2-oauth-ropc), [OBO](https://docs.microsoft.com/azure/active-directory/develop/v2-oauth2-on-behalf-of-flow), and [refresh token redemption](https://docs.microsoft.com/azure/active-directory/develop/v2-oauth2-auth-code-flow#refresh-the-access-token))
+**Protocol impacted**: Anywhere POST is used ([client credentials](./v2-oauth2-client-creds-grant-flow.md), [authorization code redemption](./v2-oauth2-auth-code-flow.md), [ROPC](./v2-oauth-ropc.md), [OBO](./v2-oauth2-on-behalf-of-flow.md), and [refresh token redemption](./v2-oauth2-auth-code-flow.md#refresh-the-access-token))
 
 Starting the week of 9/2, authentication requests that use the POST method will be validated using stricter HTTP standards.  Specifically, spaces and double-quotes (“) will no longer be removed from request form values. These changes are not expected to break any existing clients, and will ensure that requests sent to Azure AD are reliably handled every time. In the future (see above) we plan to additionally reject duplicate parameters and ignore the BOM within requests.
 
@@ -109,9 +109,9 @@ Today, `?e=    "f"&g=h` is parsed identically as `?e=f&g=h` - so `e` == `f`.  Wi
 
 **Effective date**: July 26, 2019
 
-**Endpoints impacted**: Both [v1.0](https://docs.microsoft.com/azure/active-directory/develop/v1-oauth2-client-creds-grant-flow) and [v2.0](https://docs.microsoft.com/azure/active-directory/develop/v2-oauth2-client-creds-grant-flow)
+**Endpoints impacted**: Both [v1.0](../azuread-dev/v1-oauth2-client-creds-grant-flow.md) and [v2.0](./v2-oauth2-client-creds-grant-flow.md)
 
-**Protocol impacted**: [Client Credentials (app-only tokens)](https://docs.microsoft.com/azure/active-directory/develop/v1-oauth2-client-creds-grant-flow)
+**Protocol impacted**: [Client Credentials (app-only tokens)](../azuread-dev/v1-oauth2-client-creds-grant-flow.md)
 
 A security change went live July 26th that changes the way app-only tokens (via the client credentials grant) are issued. Previously, applications were allowed to get tokens to call any other app, regardless of presence in the tenant or roles consented to for that application.  This behavior has been updated so that for resources (sometimes called web APIs) set to be single-tenant (the default), the client application must exist within the resource tenant.  Note that existing consent between the client and the API is still not required, and apps should still be doing their own authorization checks to ensure that a `roles` claim is present and contains the expected value for the API.
 

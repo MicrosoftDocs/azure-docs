@@ -1,6 +1,6 @@
 ---
 title: Create a data source for a map | Microsoft Azure Maps
-description: In this article, you'll learn how to create a data source and add it to a map using the Microsoft Azure Maps Web SDK.
+description: "Find out how to create a data source for a map. Learn about the data sources that the Azure Maps Web SDK uses: GeoJSON sources and vector tiles."
 author: rbrundritt
 ms.author: richbrun
 ms.date: 08/08/2019
@@ -8,18 +8,21 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: cpendle
-ms.custom: codepen
+ms.custom: codepen, devx-track-js
 ---
 
 # Create a data source
 
 The Azure Maps Web SDK stores data in data sources. Using data sources optimizes the data operations for querying and rendering. Currently there are two types of data sources:
 
-**GeoJSON data source**
+- **GeoJSON source**: Manages raw location data in GeoJSON format locally. Good for small to medium data sets (upwards of hundreds of thousands of shapes).
+- **Vector tile source**: Loads data formatted as vector tiles for the current map view, based on the maps tiling system. Ideal for large to massive data sets (millions or billions of shapes).
+
+## GeoJSON data source
 
 A GeoJSON based data source load and store data locally using the `DataSource` class. GeoJSON data can be manually created or created using the helper classes in the [atlas.data](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.data) namespace. The `DataSource` class provides functions to import local or remote GeoJSON files. Remote GeoJSON files must be hosted on a CORs enabled endpoint. The `DataSource` class provides functionality for clustering point data. And, data can easily be added, removed, and updated with the `DataSource` class. The following code shows how GeoJSON data can be created in Azure Maps.
 
-```Javascript
+```javascript
 //Create raw GeoJSON object.
 var rawGeoJson = {
      "type": "Feature",
@@ -32,7 +35,7 @@ var rawGeoJson = {
      }
 };
 
-//Create GeoJSON using helper classes (less error prone).
+//Create GeoJSON using helper classes (less error prone and less typing).
 var geoJsonClass = new atlas.data.Feature(new atlas.data.Point([-100, 45]), {
     "custom-property": "value"
 }); 
@@ -48,7 +51,7 @@ map.sources.add(dataSource);
 
 The following code shows the different ways GeoJSON data can be added to a `DataSource`.
 
-```Javascript
+```javascript
 //GeoJsonData in the following code can be a single or array of GeoJSON features or geometries, a GeoJSON feature colleciton, or a single or array of atlas.Shape objects.
 
 //Add geoJSON object to data source. 
@@ -64,18 +67,72 @@ dataSource.setShapes(geoJsonData);
 > [!TIP]
 > Lets say you want to overwrite all data in a `DataSource`. If you make calls to the `clear` then `add` functions, the map might re-render twice, which might cause a bit of a delay. Instead use the `setShapes` function, which will remove and replace all data in the data source and only trigger a single re-render of the map.
 
-**Vector tile source**
+## Vector tile source
 
-A vector tile source describes how to access a vector tile layer. Use the [VectorTileSource](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.source.vectortilesource) class to instantiate a vector tile source. Vector tile layers are similar to tile layers, but they aren't the same. A tile layer is a raster image. Vector tile layers are a compressed file, in PBF format. This compressed file contains vector map data, and one or more layers. The file can be rendered and styled on the client, based on the style of each layer. The data in a vector tile contain geographic features in the form of points, lines, and polygons. There are several advantages of using vector tile layers instead of raster tile layers:
+A vector tile source describes how to access a vector tile layer. Use the [VectorTileSource](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.source.vectortilesource) class to instantiate a vector tile source. Vector tile layers are similar to tile layers, but they aren't the same. A tile layer is a raster image. Vector tile layers are a compressed file, in **PBF** format. This compressed file contains vector map data, and one or more layers. The file can be rendered and styled on the client, based on the style of each layer. The data in a vector tile contain geographic features in the form of points, lines, and polygons. There are several advantages of using vector tile layers instead of raster tile layers:
 
  - A file size of a vector tile is typically much smaller than an equivalent raster tile. As such, less bandwidth is used. It means lower latency, a faster map, and a better user experience.
  - Since vector tiles are rendered on the client, they adapt to the resolution of the device they're being displayed on. As a result, the rendered maps appear more well defined, with crystal clear labels.
- - Changing the style of the data in the vector maps doesn’t require downloading the data again, since the new style can be applied on the client. In contrast, changing the style of a raster tile layer typically requires loading tiles from the server then applying the new style.
+ - Changing the style of the data in the vector maps doesn't require downloading the data again, since the new style can be applied on the client. In contrast, changing the style of a raster tile layer typically requires loading tiles from the server then applying the new style.
  - Since the data is delivered in vector form, there's less server-side processing required to prepare the data. As a result, the newer data can be made available faster.
 
-All layers that use a vector source must specify a `sourceLayer` value.
+Azure Maps adheres to the [Mapbox Vector Tile Specification](https://github.com/mapbox/vector-tile-spec), an open standard. Azure Maps provides the following vector tiles services as part of the platform:
 
-Azure Maps adheres to the [Mapbox Vector Tile Specification](https://github.com/mapbox/vector-tile-spec), an open standard.
+- Road tiles [documentation](https://docs.microsoft.com/rest/api/maps/renderv2/getmaptilepreview) | [data format details](https://developer.tomtom.com/maps-api/maps-api-documentation-vector/tile)
+- Traffic incidents [documentation](https://docs.microsoft.com/rest/api/maps/traffic/gettrafficincidenttile) | [data format details](https://developer.tomtom.com/traffic-api/traffic-api-documentation-traffic-incidents/vector-incident-tiles)
+- Traffic flow [documentation](https://docs.microsoft.com/rest/api/maps/traffic/gettrafficflowtile) | [data format details](https://developer.tomtom.com/traffic-api/traffic-api-documentation-traffic-flow/vector-flow-tiles)
+- Azure Maps Creator also allows custom vector tiles to be created and accessed through the [Get Tile Render V2](https://docs.microsoft.com/rest/api/maps/renderv2/getmaptilepreview)
+
+> [!TIP]
+> When using vector or raster image tiles from the Azure Maps render service with the web SDK, you can replace `atlas.microsoft.com` with the placeholder `{azMapsDomain}`. This placeholder will be replaced with the same domain used by the map and will automatically append the same authentication details as well. This greatly simplifies authentication with the render service when using Azure Active Directory authentication.
+
+To display data from a vector tile source on the map, connect the source to one of the data rendering layers. All layers that use a vector source must specify a `sourceLayer` value in the options. The following code loads the Azure Maps traffic flow vector tile service as a vector tile source, then displays it on a map using a line layer. This vector tile source has a single set of data in the source layer called "Traffic flow". The line data in this data set has a property called `traffic_level` that is used in this code to select the color and scale the size of lines.
+
+```javascript
+//Create a vector tile source and add it to the map.
+var datasource = new atlas.source.VectorTileSource(null, {
+	tiles: ['https://{azMapsDomain}/traffic/flow/tile/pbf?api-version=1.0&style=relative&zoom={z}&x={x}&y={y}'],
+	maxZoom: 22
+});
+map.sources.add(datasource);
+
+//Create a layer for traffic flow lines.
+var flowLayer = new atlas.layer.LineLayer(datasource, null, {
+	//The name of the data layer within the data source to pass into this rendering layer.
+	sourceLayer: 'Traffic flow',
+
+	//Color the roads based on the traffic_level property. 
+	strokeColor: [
+		'interpolate',
+		['linear'],
+		['get', 'traffic_level'],
+		0, 'red',
+		0.33, 'orange',
+		0.66, 'green'
+	],
+
+	//Scale the width of roads based on the traffic_level property. 
+	strokeWidth: [
+		'interpolate',
+		['linear'],
+		['get', 'traffic_level'],
+		0, 6,
+		1, 1
+	]
+});
+
+//Add the traffic flow layer below the labels to make the map clearer.
+map.layers.add(flowLayer, 'labels');
+```
+
+<br/>
+
+<iframe height="500" style="width: 100%;" scrolling="no" title="Vector tile line layer" src="https://codepen.io/azuremaps/embed/wvMXJYJ?height=500&theme-id=default&default-tab=js,result&editable=true" frameborder="no" allowtransparency="true" allowfullscreen="true">
+  See the Pen <a href='https://codepen.io/azuremaps/pen/wvMXJYJ'>Vector tile line layer</a> by Azure Maps
+  (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) on <a href='https://codepen.io'>CodePen</a>.
+</iframe>
+
+<br/>
 
 ## Connecting a data source to a layer
 
@@ -152,16 +209,16 @@ map.layers.add([polygonLayer, lineLayer, bubbleLayer]);
 Learn more about the classes and methods used in this article:
 
 > [!div class="nextstepaction"]
-> [DataSource](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.source.datasource?view=azure-maps-typescript-latest)
+> [DataSource](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.source.datasource)
 
 > [!div class="nextstepaction"]
-> [DataSourceOptions](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.datasourceoptions?view=azure-maps-typescript-latest)
+> [DataSourceOptions](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.datasourceoptions)
 
 > [!div class="nextstepaction"]
-> [VectorTileSource](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.source.vectortilesource?view=azure-maps-typescript-latest)
+> [VectorTileSource](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.source.vectortilesource)
 
 > [!div class="nextstepaction"]
-> [VectorTileSourceOptions](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.vectortilesourceoptions?view=azure-maps-typescript-latest)
+> [VectorTileSourceOptions](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.vectortilesourceoptions)
 
 See the following articles for more code samples to add to your maps:
 

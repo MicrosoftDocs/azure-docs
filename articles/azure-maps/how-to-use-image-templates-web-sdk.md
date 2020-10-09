@@ -1,14 +1,14 @@
 ---
 title: Image templates in the Azure Maps Web SDK | Microsoft Azure Maps
-description: In this article, you'll learn how to use image templates with HTML markers and various layers in the Microsoft Azure Maps Web SDK.
+description: Learn how to add image icons and pattern-filled polygons to maps by using the Azure Maps Web SDK. View available image and fill pattern templates.
 author: rbrundritt
 ms.author: richbrun
 ms.date: 8/6/2019
-ms.topic: conceptual
+ms.topic: how-to
 ms.service: azure-maps
 services: azure-maps
 manager: cpendleton
-ms.custom: codepen
+ms.custom: codepen, devx-track-js
 ---
 
 # How to use image templates
@@ -53,7 +53,7 @@ The following sample renders a symbol layer using the `marker-flat` image templa
 
 <br/>
 
-<iframe height="500" style="width: 100%;" scrolling="no" title="Symbol layer with built-in icon template" src="//codepen.io/azuremaps/embed/VoQMPp/?height=500&theme-id=0&default-tab=js,result&editable=true" frameborder="no" allowtransparency="true" allowfullscreen="true">
+<iframe height="500" style="width: 100%;" scrolling="no" title="Symbol layer with built-in icon template" src="//codepen.io/azuremaps/embed/VoQMPp/?height=500&theme-id=0&default-tab=js,result&editable=true" frameborder='no' loading="lazy" allowtransparency="true" allowfullscreen="true">
   See the Pen <a href='https://codepen.io/azuremaps/pen/VoQMPp/'>Symbol layer with built-in icon template</a> by Azure Maps
   (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) on <a href='https://codepen.io'>CodePen</a>.
 </iframe>
@@ -66,7 +66,7 @@ The following sample renders a pink line on the map and uses a symbol layer usin
 
 <br/>
 
-<iframe height="500" style="width: 100%;" scrolling="no" title="Line layer with built-in icon template" src="//codepen.io/azuremaps/embed/KOQvJe/?height=500&theme-id=0&default-tab=js,result&editable=true" frameborder="no" allowtransparency="true" allowfullscreen="true">
+<iframe height="500" style="width: 100%;" scrolling="no" title="Line layer with built-in icon template" src="//codepen.io/azuremaps/embed/KOQvJe/?height=500&theme-id=0&default-tab=js,result&editable=true" frameborder='no' loading="lazy" allowtransparency="true" allowfullscreen="true">
   See the Pen <a href='https://codepen.io/azuremaps/pen/KOQvJe/'>Line layer with built-in icon template</a> by Azure Maps
   (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) on <a href='https://codepen.io'>CodePen</a>.
 </iframe>
@@ -82,7 +82,7 @@ The following sample renders a polygon layer using the `dot` image template with
 
 <br/>
 
-<iframe height="500" style="width: 100%;" scrolling="no" title="Fill polygon with built-in icon template" src="//codepen.io/azuremaps/embed/WVMEmz/?height=500&theme-id=0&default-tab=js,result&editable=true" frameborder="no" allowtransparency="true" allowfullscreen="true">
+<iframe height="500" style="width: 100%;" scrolling="no" title="Fill polygon with built-in icon template" src="//codepen.io/azuremaps/embed/WVMEmz/?height=500&theme-id=0&default-tab=js,result&editable=true" frameborder='no' loading="lazy" allowtransparency="true" allowfullscreen="true">
   See the Pen <a href='https://codepen.io/azuremaps/pen/WVMEmz/'>Fill polygon with built-in icon template</a> by Azure Maps
   (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) on <a href='https://codepen.io'>CodePen</a>.
 </iframe>
@@ -98,7 +98,7 @@ The following sample uses the `marker-arrow` template with a red primary color, 
 
 <br/>
 
-<iframe height="500" style="width: 100%;" scrolling="no" title="HTML Marker with built-in icon template" src="//codepen.io/azuremaps/embed/EqQvzq/?height=500&theme-id=0&default-tab=js,result&editable=true" frameborder="no" allowtransparency="true" allowfullscreen="true">
+<iframe height="500" style="width: 100%;" scrolling="no" title="HTML Marker with built-in icon template" src="//codepen.io/azuremaps/embed/EqQvzq/?height=500&theme-id=0&default-tab=js,result&editable=true" frameborder='no' loading="lazy" allowtransparency="true" allowfullscreen="true">
   See the Pen <a href='https://codepen.io/azuremaps/pen/EqQvzq/'>HTML Marker with built-in icon template</a> by Azure Maps
   (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) on <a href='https://codepen.io'>CodePen</a>.
 </iframe>
@@ -137,7 +137,7 @@ The following example shows how to take an SVG template, and add it to the Azure
 
 <br/>
 
-<iframe height="500" style="width: 100%;" scrolling="no" title="Add custom icon template to atlas namespace" src="//codepen.io/azuremaps/embed/NQyvEX/?height=500&theme-id=0&default-tab=js,result&editable=true" frameborder="no" allowtransparency="true" allowfullscreen="true">
+<iframe height="500" style="width: 100%;" scrolling="no" title="Add custom icon template to atlas namespace" src="//codepen.io/azuremaps/embed/NQyvEX/?height=500&theme-id=0&default-tab=js,result&editable=true" frameborder='no' loading="lazy" allowtransparency="true" allowfullscreen="true">
   See the Pen <a href='https://codepen.io/azuremaps/pen/NQyvEX/'>Add custom icon template to atlas namespace</a> by Azure Maps
   (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) on <a href='https://codepen.io'>CodePen</a>.
 </iframe>
@@ -148,44 +148,337 @@ This table lists all image templates currently available within the Azure Maps w
 
 **Symbol icon templates**
 
-|||||
-|:-:|:-:|:-:|:-:|
-| marker | marker-thick | marker-circle | marker-flat |
-|![marker icon](./media/image-templates/marker.png)|![marker-thick icon](./media/image-templates/marker-thick.png)|![marker-circle icon](./media/image-templates/marker-circle.png)|![marker-flat icon](./media/image-templates/marker-flat.png)|
-||||
-| marker-square | marker-square-cluster | marker-arrow | marker-ball-pin | 
-|![marker-square icon](./media/image-templates/marker-square.png)|![marker-square-cluster icon](./media/image-templates/marker-square-cluster.png)|![marker-arrow icon](./media/image-templates/marker-arrow.png)|![marker-ball-pin icon](./media/image-templates/marker-ball-pin.png)|
-||||
-| marker-square-rounded | marker-square-rounded-cluster | flag | flag-triangle |
-| ![marker-square-rounded icon](./media/image-templates/marker-square-rounded.png) | ![marker-square-rounded-cluster icon](./media/image-templates/marker-square-rounded-cluster.png) | ![flag icon](./media/image-templates/flag.png) | ![flag-triangle icon](./media/image-templates/flag-triangle.png) |
-||||
-| triangle | triangle-thick | triangle-arrow-up | triangle-arrow-left |
-| ![triangle icon](./media/image-templates/triangle.png) | ![triangle-thick icon](./media/image-templates/triangle-thick.png) | ![triangle-arrow-up icon](./media/image-templates/triangle-arrow-up.png) | ![triangle-arrow-left icon](./media/image-templates/triangle-arrow-left.png) |
-||||
-| hexagon | hexagon-thick | hexagon-rounded | hexagon-rounded-thick |
-| ![hexagon icon](./media/image-templates/hexagon.png) | ![hexagon-thick icon](./media/image-templates/hexagon-thick.png) | ![hexagon-rounded icon](./media/image-templates/hexagon-rounded.png) | ![hexagon-rounded-thick icon](./media/image-templates/hexagon-rounded-thick.png) |
-||||
-| pin | pin-round | rounded-square | rounded-square-thick |
-| ![pin icon](./media/image-templates/pin.png) | ![pin-round icon](./media/image-templates/pin-round.png) | ![rounded-square icon](./media/image-templates/rounded-square.png) | ![rounded-square-thick icon](./media/image-templates/rounded-square-thick.png) |
-||||
-| arrow-up | arrow-up-thin | car ||
-| ![arrow-up icon](./media/image-templates/arrow-up.png) | ![arrow-up-thin icon](./media/image-templates/arrow-up-thin.png) | ![car icon](./media/image-templates/car.png) | |
+:::row:::
+   :::column span="":::
+      marker
+   :::column-end:::
+   :::column span="":::
+      marker-thick
+   :::column-end:::
+   :::column span="":::
+      marker-circle
+   :::column-end:::
+   :::column span="":::
+      marker-flat
+   :::column-end:::
+:::row-end:::
+:::row:::
+   :::column span="":::
+      ![marker icon](./media/image-templates/marker.png)
+   :::column-end:::
+   :::column span="":::
+      ![marker-thick icon](./media/image-templates/marker-thick.png)
+   :::column-end:::
+   :::column span="":::
+      ![marker-circle icon](./media/image-templates/marker-circle.png)
+   :::column-end:::
+   :::column span="":::
+      ![marker-flat icon](./media/image-templates/marker-flat.png)
+   :::column-end:::
+:::row-end:::
+<br>
+
+:::row:::
+   :::column span="":::
+      marker-square
+   :::column-end:::
+   :::column span="":::
+      marker-square-cluster
+   :::column-end:::
+   :::column span="":::
+      marker-arrow
+   :::column-end:::
+   :::column span="":::
+      marker-ball-pin
+   :::column-end:::
+:::row-end:::
+:::row:::
+   :::column span="":::
+      ![marker-square icon](./media/image-templates/marker-square.png)
+   :::column-end:::
+   :::column span="":::
+      ![marker-square-cluster icon](./media/image-templates/marker-square-cluster.png)
+   :::column-end:::
+   :::column span="":::
+      ![marker-arrow icon](./media/image-templates/marker-arrow.png)
+   :::column-end:::
+   :::column span="":::
+      ![marker-ball-pin icon](./media/image-templates/marker-ball-pin.png)
+   :::column-end:::
+:::row-end:::
+<br>
+
+:::row:::
+   :::column span="":::
+      marker-square-rounded
+   :::column-end:::
+   :::column span="":::
+      marker-square-rounded-cluster
+   :::column-end:::
+   :::column span="":::
+      flag
+   :::column-end:::
+   :::column span="":::
+      flag-triangle
+   :::column-end:::
+:::row-end:::
+:::row:::
+   :::column span="":::
+      ![marker-square-rounded icon](./media/image-templates/marker-square-rounded.png)
+   :::column-end:::
+   :::column span="":::
+      ![marker-square-rounded-cluster icon](./media/image-templates/marker-square-rounded-cluster.png)
+   :::column-end:::
+   :::column span="":::
+      ![flag icon](./media/image-templates/flag.png)
+   :::column-end:::
+   :::column span="":::
+      ![flag-triangle icon](./media/image-templates/flag-triangle.png)
+   :::column-end:::
+:::row-end:::
+<br>
+
+:::row:::
+   :::column span="":::
+      triangle
+   :::column-end:::
+   :::column span="":::
+      triangle-thick
+   :::column-end:::
+   :::column span="":::
+      triangle-arrow-up
+   :::column-end:::
+   :::column span="":::
+      triangle-arrow-left
+   :::column-end:::
+:::row-end:::
+:::row:::
+   :::column span="":::
+      ![triangle icon](./media/image-templates/triangle.png)
+   :::column-end:::
+   :::column span="":::
+      ![triangle-thick icon](./media/image-templates/triangle-thick.png)
+   :::column-end:::
+   :::column span="":::
+      ![triangle-arrow-up icon](./media/image-templates/triangle-arrow-up.png)
+   :::column-end:::
+   :::column span="":::
+      ![triangle-arrow-left icon](./media/image-templates/triangle-arrow-left.png)
+   :::column-end:::
+:::row-end:::
+<br>
+
+:::row:::
+   :::column span="":::
+      hexagon
+   :::column-end:::
+   :::column span="":::
+      hexagon-thick
+   :::column-end:::
+   :::column span="":::
+      hexagon-rounded
+   :::column-end:::
+   :::column span="":::
+      hexagon-rounded-thick
+   :::column-end:::
+:::row-end:::
+:::row:::
+   :::column span="":::
+      ![hexagon icon](./media/image-templates/hexagon.png)
+   :::column-end:::
+   :::column span="":::
+      ![hexagon-thick icon](./media/image-templates/hexagon-thick.png)
+   :::column-end:::
+   :::column span="":::
+      ![hexagon-rounded icon](./media/image-templates/hexagon-rounded.png)
+   :::column-end:::
+   :::column span="":::
+      ![hexagon-rounded-thick icon](./media/image-templates/hexagon-rounded-thick.png)
+   :::column-end:::
+:::row-end:::
+<br>
+
+:::row:::
+   :::column span="":::
+      pin
+   :::column-end:::
+   :::column span="":::
+      pin-round
+   :::column-end:::
+   :::column span="":::
+      rounded-square
+   :::column-end:::
+   :::column span="":::
+      rounded-square-thick
+   :::column-end:::
+:::row-end:::
+:::row:::
+   :::column span="":::
+      ![pin icon](./media/image-templates/pin.png)
+   :::column-end:::
+   :::column span="":::
+      ![pin-round icon](./media/image-templates/pin-round.png)
+   :::column-end:::
+   :::column span="":::
+      ![rounded-square icon](./media/image-templates/rounded-square.png)
+   :::column-end:::
+   :::column span="":::
+      ![rounded-square-thick icon](./media/image-templates/rounded-square-thick.png)
+   :::column-end:::
+:::row-end:::
+<br>
+
+:::row:::
+   :::column span="":::
+      arrow-up
+   :::column-end:::
+   :::column span="":::
+      arrow-up-thin
+   :::column-end:::
+   :::column span="":::
+      car
+   :::column-end:::
+   :::column span="":::
+      &nbsp;
+   :::column-end:::
+:::row-end:::
+:::row:::
+   :::column span="":::
+      ![arrow-up icon](./media/image-templates/arrow-up.png)
+   :::column-end:::
+   :::column span="":::
+      ![arrow-up-thin icon](./media/image-templates/arrow-up-thin.png)
+   :::column-end:::
+   :::column span="":::
+      ![car icon](./media/image-templates/car.png)
+   :::column-end:::
+   :::column span="":::
+      &nbsp;
+   :::column-end:::
+:::row-end:::
+
 
 **Polygon fill pattern templates**
 
-|||||
-|:-:|:-:|:-:|:-:|
-| checker | checker-rotated | circles | circles-spaced |
-| ![checker icon](./media/image-templates/checker.png) | ![checker-rotated icon](./media/image-templates/checker-rotated.png) | ![circles icon](./media/image-templates/circles.png) | ![circles-spaced icon](./media/image-templates/circles-spaced.png) |
-|||||
-| diagonal-lines-up | diagonal-lines-down | diagonal-stripes-up | diagonal-stripes-down |
-| ![diagonal-lines-up icon](./media/image-templates/diagonal-lines-up.png) | ![diagonal-lines-down icon](./media/image-templates/diagonal-lines-down.png) | ![diagonal-stripes-up icon](./media/image-templates/diagonal-stripes-up.png) | ![diagonal-stripes-down icon](./media/image-templates/diagonal-stripes-down.png) |
-|||||
-| grid-lines | rotated-grid-lines | rotated-grid-stripes | x-fill |
-| ![grid-lines icon](./media/image-templates/grid-lines.png) | ![rotated-grid-lines icon](./media/image-templates/rotated-grid-lines.png) | ![rotated-grid-stripes icon](./media/image-templates/rotated-grid-stripes.png) | ![x-fill icon](./media/image-templates/x-fill.png) |
-|||||
-| zig-zag | zig-zag-vertical | dots |  |
-| ![zig-zag icon](./media/image-templates/zig-zag.png) | ![zig-zag-vertical icon](./media/image-templates/zig-zag-vertical.png) | ![dots icon](./media/image-templates/dots.png) | |
+:::row:::
+   :::column span="":::
+      checker
+   :::column-end:::
+   :::column span="":::
+      checker-rotated
+   :::column-end:::
+   :::column span="":::
+      circles
+   :::column-end:::
+   :::column span="":::
+      circles-spaced
+   :::column-end:::
+:::row-end:::
+:::row:::
+   :::column span="":::
+      ![checker icon](./media/image-templates/checker.png)
+   :::column-end:::
+   :::column span="":::
+      ![checker-rotated icon](./media/image-templates/checker-rotated.png)
+   :::column-end:::
+   :::column span="":::
+      ![circles icon](./media/image-templates/circles.png)
+   :::column-end:::
+   :::column span="":::
+      ![circles-spaced icon](./media/image-templates/circles-spaced.png)
+   :::column-end:::
+:::row-end:::
+<br>
+
+:::row:::
+   :::column span="":::
+      diagonal-lines-up
+   :::column-end:::
+   :::column span="":::
+      diagonal-lines-down
+   :::column-end:::
+   :::column span="":::
+      diagonal-stripes-up
+   :::column-end:::
+   :::column span="":::
+      diagonal-stripes-down
+   :::column-end:::
+:::row-end:::
+:::row:::
+   :::column span="":::
+      ![diagonal-lines-up icon](./media/image-templates/diagonal-lines-up.png)
+   :::column-end:::
+   :::column span="":::
+      ![diagonal-lines-down icon](./media/image-templates/diagonal-lines-down.png)
+   :::column-end:::
+   :::column span="":::
+      ![diagonal-stripes-up icon](./media/image-templates/diagonal-stripes-up.png)
+   :::column-end:::
+   :::column span="":::
+      ![diagonal-stripes-down icon](./media/image-templates/diagonal-stripes-down.png)
+   :::column-end:::
+:::row-end:::
+<br>
+
+:::row:::
+   :::column span="":::
+      grid-lines
+   :::column-end:::
+   :::column span="":::
+      rotated-grid-lines
+   :::column-end:::
+   :::column span="":::
+      rotated-grid-stripes
+   :::column-end:::
+   :::column span="":::
+      x-fill
+   :::column-end:::
+:::row-end:::
+:::row:::
+   :::column span="":::
+      ![grid-lines icon](./media/image-templates/grid-lines.png)
+   :::column-end:::
+   :::column span="":::
+      ![rotated-grid-lines icon](./media/image-templates/rotated-grid-lines.png)
+   :::column-end:::
+   :::column span="":::
+      ![rotated-grid-stripes icon](./media/image-templates/rotated-grid-stripes.png)
+   :::column-end:::
+   :::column span="":::
+      ![x-fill icon](./media/image-templates/x-fill.png)
+   :::column-end:::
+:::row-end:::
+<br>
+
+:::row:::
+   :::column span="":::
+      zig-zag
+   :::column-end:::
+   :::column span="":::
+      zig-zag-vertical
+   :::column-end:::
+   :::column span="":::
+      dots
+   :::column-end:::
+   :::column span="":::
+      &nbsp;
+   :::column-end:::
+:::row-end:::
+:::row:::
+   :::column span="":::
+      ![zig-zag icon](./media/image-templates/zig-zag.png)
+   :::column-end:::
+   :::column span="":::
+      ![zig-zag-vertical icon](./media/image-templates/zig-zag-vertical.png)
+   :::column-end:::
+   :::column span="":::
+      ![dots icon](./media/image-templates/dots.png)
+   :::column-end:::
+   :::column span="":::
+      &nbsp;
+   :::column-end:::
+:::row-end:::
+<br>
 
 **Preloaded image icons**
 
@@ -212,7 +505,7 @@ With the following tool, you can render the different built-in image templates i
 
 <br/>
 
-<iframe height="500" style="width: 100%;" scrolling="no" title="Icon template options" src="//codepen.io/azuremaps/embed/NQyaaO/?height=500&theme-id=0&default-tab=result" frameborder="no" allowtransparency="true" allowfullscreen="true">
+<iframe height="500" style="width: 100%;" scrolling="no" title="Icon template options" src="//codepen.io/azuremaps/embed/NQyaaO/?height=500&theme-id=0&default-tab=result" frameborder='no' loading="lazy" allowtransparency="true" allowfullscreen="true">
   See the Pen <a href='https://codepen.io/azuremaps/pen/NQyaaO/'>Icon template options</a> by Azure Maps
   (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) on <a href='https://codepen.io'>CodePen</a>.
 </iframe>
@@ -225,7 +518,7 @@ Learn more about the classes and methods used in this article:
 > [ImageSpriteManager](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.imagespritemanager)
 
 > [!div class="nextstepaction"]
-> [atlas namespace](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas?view=azure-maps-typescript-latest#functions
+> [atlas namespace](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas#functions
 )
 
 See the following articles for more code samples where image templates can be used:

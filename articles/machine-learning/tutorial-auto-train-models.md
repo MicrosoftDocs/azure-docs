@@ -9,12 +9,12 @@ ms.topic: tutorial
 author: aniththa
 ms.author: anumamah
 ms.reviewer: nibaccam
-ms.date: 02/10/2020
-ms.custom: tracking-python
+ms.date: 08/14/2020
+ms.custom: devx-track-python
 ---
 
 # Tutorial: Use automated machine learning to predict taxi fares
-[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
+
 
 In this tutorial, you use automated machine learning in Azure Machine Learning to create a regression model to predict NYC taxi fare prices. This process accepts training data and configuration settings, and automatically iterates through combinations of different feature normalization/standardization methods, models, and hyperparameter settings to arrive at the best model.
 
@@ -65,293 +65,18 @@ for sample_month in range(12):
 green_taxi_df.head(10)
 ```
 
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>vendorID</th>
-      <th>lpepPickupDatetime</th>
-      <th>lpepDropoffDatetime</th>
-      <th>passengerCount</th>
-      <th>tripDistance</th>
-      <th>puLocationId</th>
-      <th>doLocationId</th>
-      <th>pickupLongitude</th>
-      <th>pickupLatitude</th>
-      <th>dropoffLongitude</th>
-      <th>...</th>
-      <th>paymentType</th>
-      <th>fareAmount</th>
-      <th>extra</th>
-      <th>mtaTax</th>
-      <th>improvementSurcharge</th>
-      <th>tipAmount</th>
-      <th>tollsAmount</th>
-      <th>ehailFee</th>
-      <th>totalAmount</th>
-      <th>tripType</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>131969</th>
-      <td>2</td>
-      <td>2015-01-11 05:34:44</td>
-      <td>2015-01-11 05:45:03</td>
-      <td>3</td>
-      <td>4.84</td>
-      <td>None</td>
-      <td>None</td>
-      <td>-73.88</td>
-      <td>40.84</td>
-      <td>-73.94</td>
-      <td>...</td>
-      <td>2</td>
-      <td>15.00</td>
-      <td>0.50</td>
-      <td>0.50</td>
-      <td>0.3</td>
-      <td>0.00</td>
-      <td>0.00</td>
-      <td>nan</td>
-      <td>16.30</td>
-      <td>1.00</td>
-    </tr>
-    <tr>
-      <th>1129817</th>
-      <td>2</td>
-      <td>2015-01-20 16:26:29</td>
-      <td>2015-01-20 16:30:26</td>
-      <td>1</td>
-      <td>0.69</td>
-      <td>None</td>
-      <td>None</td>
-      <td>-73.96</td>
-      <td>40.81</td>
-      <td>-73.96</td>
-      <td>...</td>
-      <td>2</td>
-      <td>4.50</td>
-      <td>1.00</td>
-      <td>0.50</td>
-      <td>0.3</td>
-      <td>0.00</td>
-      <td>0.00</td>
-      <td>nan</td>
-      <td>6.30</td>
-      <td>1.00</td>
-    </tr>
-    <tr>
-      <th>1278620</th>
-      <td>2</td>
-      <td>2015-01-01 05:58:10</td>
-      <td>2015-01-01 06:00:55</td>
-      <td>1</td>
-      <td>0.45</td>
-      <td>None</td>
-      <td>None</td>
-      <td>-73.92</td>
-      <td>40.76</td>
-      <td>-73.91</td>
-      <td>...</td>
-      <td>2</td>
-      <td>4.00</td>
-      <td>0.00</td>
-      <td>0.50</td>
-      <td>0.3</td>
-      <td>0.00</td>
-      <td>0.00</td>
-      <td>nan</td>
-      <td>4.80</td>
-      <td>1.00</td>
-    </tr>
-    <tr>
-      <th>348430</th>
-      <td>2</td>
-      <td>2015-01-17 02:20:50</td>
-      <td>2015-01-17 02:41:38</td>
-      <td>1</td>
-      <td>0.00</td>
-      <td>None</td>
-      <td>None</td>
-      <td>-73.81</td>
-      <td>40.70</td>
-      <td>-73.82</td>
-      <td>...</td>
-      <td>2</td>
-      <td>12.50</td>
-      <td>0.50</td>
-      <td>0.50</td>
-      <td>0.3</td>
-      <td>0.00</td>
-      <td>0.00</td>
-      <td>nan</td>
-      <td>13.80</td>
-      <td>1.00</td>
-    </tr>
-    <tr>
-      <th>1269627</th>
-      <td>1</td>
-      <td>2015-01-01 05:04:10</td>
-      <td>2015-01-01 05:06:23</td>
-      <td>1</td>
-      <td>0.50</td>
-      <td>None</td>
-      <td>None</td>
-      <td>-73.92</td>
-      <td>40.76</td>
-      <td>-73.92</td>
-      <td>...</td>
-      <td>2</td>
-      <td>4.00</td>
-      <td>0.50</td>
-      <td>0.50</td>
-      <td>0</td>
-      <td>0.00</td>
-      <td>0.00</td>
-      <td>nan</td>
-      <td>5.00</td>
-      <td>1.00</td>
-    </tr>
-    <tr>
-      <th>811755</th>
-      <td>1</td>
-      <td>2015-01-04 19:57:51</td>
-      <td>2015-01-04 20:05:45</td>
-      <td>2</td>
-      <td>1.10</td>
-      <td>None</td>
-      <td>None</td>
-      <td>-73.96</td>
-      <td>40.72</td>
-      <td>-73.95</td>
-      <td>...</td>
-      <td>2</td>
-      <td>6.50</td>
-      <td>0.50</td>
-      <td>0.50</td>
-      <td>0.3</td>
-      <td>0.00</td>
-      <td>0.00</td>
-      <td>nan</td>
-      <td>7.80</td>
-      <td>1.00</td>
-    </tr>
-    <tr>
-      <th>737281</th>
-      <td>1</td>
-      <td>2015-01-03 12:27:31</td>
-      <td>2015-01-03 12:33:52</td>
-      <td>1</td>
-      <td>0.90</td>
-      <td>None</td>
-      <td>None</td>
-      <td>-73.88</td>
-      <td>40.76</td>
-      <td>-73.87</td>
-      <td>...</td>
-      <td>2</td>
-      <td>6.00</td>
-      <td>0.00</td>
-      <td>0.50</td>
-      <td>0.3</td>
-      <td>0.00</td>
-      <td>0.00</td>
-      <td>nan</td>
-      <td>6.80</td>
-      <td>1.00</td>
-    </tr>
-    <tr>
-      <th>113951</th>
-      <td>1</td>
-      <td>2015-01-09 23:25:51</td>
-      <td>2015-01-09 23:39:52</td>
-      <td>1</td>
-      <td>3.30</td>
-      <td>None</td>
-      <td>None</td>
-      <td>-73.96</td>
-      <td>40.72</td>
-      <td>-73.91</td>
-      <td>...</td>
-      <td>2</td>
-      <td>12.50</td>
-      <td>0.50</td>
-      <td>0.50</td>
-      <td>0.3</td>
-      <td>0.00</td>
-      <td>0.00</td>
-      <td>nan</td>
-      <td>13.80</td>
-      <td>1.00</td>
-    </tr>
-    <tr>
-      <th>150436</th>
-      <td>2</td>
-      <td>2015-01-11 17:15:14</td>
-      <td>2015-01-11 17:22:57</td>
-      <td>1</td>
-      <td>1.19</td>
-      <td>None</td>
-      <td>None</td>
-      <td>-73.94</td>
-      <td>40.71</td>
-      <td>-73.95</td>
-      <td>...</td>
-      <td>1</td>
-      <td>7.00</td>
-      <td>0.00</td>
-      <td>0.50</td>
-      <td>0.3</td>
-      <td>1.75</td>
-      <td>0.00</td>
-      <td>nan</td>
-      <td>9.55</td>
-      <td>1.00</td>
-    </tr>
-    <tr>
-      <th>432136</th>
-      <td>2</td>
-      <td>2015-01-22 23:16:33</td>
-      <td>2015-01-22 23:20:13</td>
-      <td>1</td>
-      <td>0.65</td>
-      <td>None</td>
-      <td>None</td>
-      <td>-73.94</td>
-      <td>40.71</td>
-      <td>-73.94</td>
-      <td>...</td>
-      <td>2</td>
-      <td>5.00</td>
-      <td>0.50</td>
-      <td>0.50</td>
-      <td>0.3</td>
-      <td>0.00</td>
-      <td>0.00</td>
-      <td>nan</td>
-      <td>6.30</td>
-      <td>1.00</td>
-    </tr>
-  </tbody>
-</table>
-<p>10 rows × 23 columns</p>
-</div>
-
+|vendorID| lpepPickupDatetime|	lpepDropoffDatetime|	passengerCount|	tripDistance|	puLocationId|	doLocationId|	pickupLongitude|	pickupLatitude|	dropoffLongitude	|...|	paymentType	|fareAmount	|extra|	mtaTax|	improvementSurcharge|	tipAmount|	tollsAmount|	ehailFee|	totalAmount|	tripType|
+|----|----|----|----|----|----|---|--|---|---|---|----|----|----|--|---|----|-----|----|----|----|----|---|
+|131969|2|2015-01-11 05:34:44|2015-01-11 05:45:03|3|4.84|None|None|-73.88|40.84|-73.94|...|2|15.00|0.50|0.50|0.3|0.00|0.00|nan|16.30|1.00
+|1129817|2|2015-01-20 16:26:29|2015-01-20 16:30:26|1|0.69|None|None|-73.96|40.81|-73.96|...|2|4.50|1.00|0.50|0.3|0.00|0.00|nan|6.30|1.00
+|1278620|2|2015-01-01 05:58:10|2015-01-01 06:00:55|1|0.45|None|None|-73.92|40.76|-73.91|...|2|4.00|0.00|0.50|0.3|0.00|0.00|nan|4.80|1.00
+|348430|2|2015-01-17 02:20:50|2015-01-17 02:41:38|1|0.00|None|None|-73.81|40.70|-73.82|...|2|12.50|0.50|0.50|0.3|0.00|0.00|nan|13.80|1.00
+1269627|1|2015-01-01 05:04:10|2015-01-01 05:06:23|1|0.50|None|None|-73.92|40.76|-73.92|...|2|4.00|0.50|0.50|0|0.00|0.00|nan|5.00|1.00
+|811755|1|2015-01-04 19:57:51|2015-01-04 20:05:45|2|1.10|None|None|-73.96|40.72|-73.95|...|2|6.50|0.50|0.50|0.3|0.00|0.00|nan|7.80|1.00
+|737281|1|2015-01-03 12:27:31|2015-01-03 12:33:52|1|0.90|None|None|-73.88|40.76|-73.87|...|2|6.00|0.00|0.50|0.3|0.00|0.00|nan|6.80|1.00
+|113951|1|2015-01-09 23:25:51|2015-01-09 23:39:52|1|3.30|None|None|-73.96|40.72|-73.91|...|2|12.50|0.50|0.50|0.3|0.00|0.00|nan|13.80|1.00
+|150436|2|2015-01-11 17:15:14|2015-01-11 17:22:57|1|1.19|None|None|-73.94|40.71|-73.95|...|1|7.00|0.00|0.50|0.3|1.75|0.00|nan|9.55|1.00
+|432136|2|2015-01-22 23:16:33	2015-01-22 23:20:13	1	0.65|None|None|-73.94|40.71|-73.94|...|2|5.00|0.50|0.50|0.3|0.00|0.00|nan|6.30|1.00
 
 Now that the initial data is loaded, define a function to create various time-based features from the pickup datetime field. This will create new fields for the month number, day of month, day of week, and hour of day, and will allow the model to factor in time-based seasonality. Use the `apply()` function on the dataframe to iteratively apply the `build_time_features()` function to each row in the taxi data.
 
@@ -369,292 +94,18 @@ green_taxi_df[["month_num", "day_of_month","day_of_week", "hour_of_day"]] = gree
 green_taxi_df.head(10)
 ```
 
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>vendorID</th>
-      <th>lpepPickupDatetime</th>
-      <th>lpepDropoffDatetime</th>
-      <th>passengerCount</th>
-      <th>tripDistance</th>
-      <th>puLocationId</th>
-      <th>doLocationId</th>
-      <th>pickupLongitude</th>
-      <th>pickupLatitude</th>
-      <th>dropoffLongitude</th>
-      <th>...</th>
-      <th>improvementSurcharge</th>
-      <th>tipAmount</th>
-      <th>tollsAmount</th>
-      <th>ehailFee</th>
-      <th>totalAmount</th>
-      <th>tripType</th>
-      <th>month_num</th>
-      <th>day_of_month</th>
-      <th>day_of_week</th>
-      <th>hour_of_day</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>131969</th>
-      <td>2</td>
-      <td>2015-01-11 05:34:44</td>
-      <td>2015-01-11 05:45:03</td>
-      <td>3</td>
-      <td>4.84</td>
-      <td>None</td>
-      <td>None</td>
-      <td>-73.88</td>
-      <td>40.84</td>
-      <td>-73.94</td>
-      <td>...</td>
-      <td>0.3</td>
-      <td>0.00</td>
-      <td>0.00</td>
-      <td>nan</td>
-      <td>16.30</td>
-      <td>1.00</td>
-      <td>1</td>
-      <td>11</td>
-      <td>6</td>
-      <td>5</td>
-    </tr>
-    <tr>
-      <th>1129817</th>
-      <td>2</td>
-      <td>2015-01-20 16:26:29</td>
-      <td>2015-01-20 16:30:26</td>
-      <td>1</td>
-      <td>0.69</td>
-      <td>None</td>
-      <td>None</td>
-      <td>-73.96</td>
-      <td>40.81</td>
-      <td>-73.96</td>
-      <td>...</td>
-      <td>0.3</td>
-      <td>0.00</td>
-      <td>0.00</td>
-      <td>nan</td>
-      <td>6.30</td>
-      <td>1.00</td>
-      <td>1</td>
-      <td>20</td>
-      <td>1</td>
-      <td>16</td>
-    </tr>
-    <tr>
-      <th>1278620</th>
-      <td>2</td>
-      <td>2015-01-01 05:58:10</td>
-      <td>2015-01-01 06:00:55</td>
-      <td>1</td>
-      <td>0.45</td>
-      <td>None</td>
-      <td>None</td>
-      <td>-73.92</td>
-      <td>40.76</td>
-      <td>-73.91</td>
-      <td>...</td>
-      <td>0.3</td>
-      <td>0.00</td>
-      <td>0.00</td>
-      <td>nan</td>
-      <td>4.80</td>
-      <td>1.00</td>
-      <td>1</td>
-      <td>1</td>
-      <td>3</td>
-      <td>5</td>
-    </tr>
-    <tr>
-      <th>348430</th>
-      <td>2</td>
-      <td>2015-01-17 02:20:50</td>
-      <td>2015-01-17 02:41:38</td>
-      <td>1</td>
-      <td>0.00</td>
-      <td>None</td>
-      <td>None</td>
-      <td>-73.81</td>
-      <td>40.70</td>
-      <td>-73.82</td>
-      <td>...</td>
-      <td>0.3</td>
-      <td>0.00</td>
-      <td>0.00</td>
-      <td>nan</td>
-      <td>13.80</td>
-      <td>1.00</td>
-      <td>1</td>
-      <td>17</td>
-      <td>5</td>
-      <td>2</td>
-    </tr>
-    <tr>
-      <th>1269627</th>
-      <td>1</td>
-      <td>2015-01-01 05:04:10</td>
-      <td>2015-01-01 05:06:23</td>
-      <td>1</td>
-      <td>0.50</td>
-      <td>None</td>
-      <td>None</td>
-      <td>-73.92</td>
-      <td>40.76</td>
-      <td>-73.92</td>
-      <td>...</td>
-      <td>0</td>
-      <td>0.00</td>
-      <td>0.00</td>
-      <td>nan</td>
-      <td>5.00</td>
-      <td>1.00</td>
-      <td>1</td>
-      <td>1</td>
-      <td>3</td>
-      <td>5</td>
-    </tr>
-    <tr>
-      <th>811755</th>
-      <td>1</td>
-      <td>2015-01-04 19:57:51</td>
-      <td>2015-01-04 20:05:45</td>
-      <td>2</td>
-      <td>1.10</td>
-      <td>None</td>
-      <td>None</td>
-      <td>-73.96</td>
-      <td>40.72</td>
-      <td>-73.95</td>
-      <td>...</td>
-      <td>0.3</td>
-      <td>0.00</td>
-      <td>0.00</td>
-      <td>nan</td>
-      <td>7.80</td>
-      <td>1.00</td>
-      <td>1</td>
-      <td>4</td>
-      <td>6</td>
-      <td>19</td>
-    </tr>
-    <tr>
-      <th>737281</th>
-      <td>1</td>
-      <td>2015-01-03 12:27:31</td>
-      <td>2015-01-03 12:33:52</td>
-      <td>1</td>
-      <td>0.90</td>
-      <td>None</td>
-      <td>None</td>
-      <td>-73.88</td>
-      <td>40.76</td>
-      <td>-73.87</td>
-      <td>...</td>
-      <td>0.3</td>
-      <td>0.00</td>
-      <td>0.00</td>
-      <td>nan</td>
-      <td>6.80</td>
-      <td>1.00</td>
-      <td>1</td>
-      <td>3</td>
-      <td>5</td>
-      <td>12</td>
-    </tr>
-    <tr>
-      <th>113951</th>
-      <td>1</td>
-      <td>2015-01-09 23:25:51</td>
-      <td>2015-01-09 23:39:52</td>
-      <td>1</td>
-      <td>3.30</td>
-      <td>None</td>
-      <td>None</td>
-      <td>-73.96</td>
-      <td>40.72</td>
-      <td>-73.91</td>
-      <td>...</td>
-      <td>0.3</td>
-      <td>0.00</td>
-      <td>0.00</td>
-      <td>nan</td>
-      <td>13.80</td>
-      <td>1.00</td>
-      <td>1</td>
-      <td>9</td>
-      <td>4</td>
-      <td>23</td>
-    </tr>
-    <tr>
-      <th>150436</th>
-      <td>2</td>
-      <td>2015-01-11 17:15:14</td>
-      <td>2015-01-11 17:22:57</td>
-      <td>1</td>
-      <td>1.19</td>
-      <td>None</td>
-      <td>None</td>
-      <td>-73.94</td>
-      <td>40.71</td>
-      <td>-73.95</td>
-      <td>...</td>
-      <td>0.3</td>
-      <td>1.75</td>
-      <td>0.00</td>
-      <td>nan</td>
-      <td>9.55</td>
-      <td>1.00</td>
-      <td>1</td>
-      <td>11</td>
-      <td>6</td>
-      <td>17</td>
-    </tr>
-    <tr>
-      <th>432136</th>
-      <td>2</td>
-      <td>2015-01-22 23:16:33</td>
-      <td>2015-01-22 23:20:13</td>
-      <td>1</td>
-      <td>0.65</td>
-      <td>None</td>
-      <td>None</td>
-      <td>-73.94</td>
-      <td>40.71</td>
-      <td>-73.94</td>
-      <td>...</td>
-      <td>0.3</td>
-      <td>0.00</td>
-      <td>0.00</td>
-      <td>nan</td>
-      <td>6.30</td>
-      <td>1.00</td>
-      <td>1</td>
-      <td>22</td>
-      <td>3</td>
-      <td>23</td>
-    </tr>
-  </tbody>
-</table>
-<p>10 rows × 27 columns</p>
-</div>
+|vendorID| lpepPickupDatetime|	lpepDropoffDatetime|	passengerCount|	tripDistance|	puLocationId|	doLocationId|	pickupLongitude|	pickupLatitude|	dropoffLongitude	|...|	paymentType|fareAmount	|extra|	mtaTax|	improvementSurcharge|	tipAmount|	tollsAmount|	ehailFee|	totalAmount|tripType|month_num|day_of_month|day_of_week|hour_of_day
+|----|----|----|----|----|----|---|--|---|---|---|----|----|----|--|---|----|-----|----|----|----|----|---|----|----|----
+|131969|2|2015-01-11 05:34:44|2015-01-11 05:45:03|3|4.84|None|None|-73.88|40.84|-73.94|...|2|15.00|0.50|0.50|0.3|0.00|0.00|nan|16.30|1.00|1|11|6|5
+|1129817|2|2015-01-20 16:26:29|2015-01-20 16:30:26|1|0.69|None|None|-73.96|40.81|-73.96|...|2|4.50|1.00|0.50|0.3|0.00|0.00|nan|6.30|1.00|1|20|1|16
+|1278620|2|2015-01-01 05:58:10|2015-01-01 06:00:55|1|0.45|None|None|-73.92|40.76|-73.91|...|2|4.00|0.00|0.50|0.3|0.00|0.00|nan|4.80|1.00|1|1|3|5
+|348430|2|2015-01-17 02:20:50|2015-01-17 02:41:38|1|0.00|None|None|-73.81|40.70|-73.82|...|2|12.50|0.50|0.50|0.3|0.00|0.00|nan|13.80|1.00|1|17|5|2
+1269627|1|2015-01-01 05:04:10|2015-01-01 05:06:23|1|0.50|None|None|-73.92|40.76|-73.92|...|2|4.00|0.50|0.50|0|0.00|0.00|nan|5.00|1.00|1|1|3|5
+|811755|1|2015-01-04 19:57:51|2015-01-04 20:05:45|2|1.10|None|None|-73.96|40.72|-73.95|...|2|6.50|0.50|0.50|0.3|0.00|0.00|nan|7.80|1.00|1|4|6|19
+|737281|1|2015-01-03 12:27:31|2015-01-03 12:33:52|1|0.90|None|None|-73.88|40.76|-73.87|...|2|6.00|0.00|0.50|0.3|0.00|0.00|nan|6.80|1.00|1|3|5|12
+|113951|1|2015-01-09 23:25:51|2015-01-09 23:39:52|1|3.30|None|None|-73.96|40.72|-73.91|...|2|12.50|0.50|0.50|0.3|0.00|0.00|nan|13.80|1.00|1|9|4|23
+|150436|2|2015-01-11 17:15:14|2015-01-11 17:22:57|1|1.19|None|None|-73.94|40.71|-73.95|...|1|7.00|0.00|0.50|0.3|1.75|0.00|nan|9.55|1.00|1|11|6|17
+|432136|2|2015-01-22 23:16:33	2015-01-22 23:20:13	1	0.65|None|None|-73.94|40.71|-73.94|...|2|5.00|0.50|0.50|0.3|0.00|0.00|nan|6.30|1.00|1|22|3|23
 
 Remove some of the columns that you won't need for training or additional feature building.
 
@@ -677,162 +128,16 @@ Run the `describe()` function on the new dataframe to see summary statistics for
 green_taxi_df.describe()
 ```
 
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>vendorID</th>
-      <th>passengerCount</th>
-      <th>tripDistance</th>
-      <th>pickupLongitude</th>
-      <th>pickupLatitude</th>
-      <th>dropoffLongitude</th>
-      <th>dropoffLatitude</th>
-      <th>totalAmount</th>
-      <th>month_num</th>
-      <th>day_of_month</th>
-      <th>day_of_week</th>
-      <th>hour_of_day</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>count</th>
-      <td>48000.00</td>
-      <td>48000.00</td>
-      <td>48000.00</td>
-      <td>48000.00</td>
-      <td>48000.00</td>
-      <td>48000.00</td>
-      <td>48000.00</td>
-      <td>48000.00</td>
-      <td>48000.00</td>
-      <td>48000.00</td>
-      <td>48000.00</td>
-      <td>48000.00</td>
-    </tr>
-    <tr>
-      <th>mean</th>
-      <td>1.78</td>
-      <td>1.37</td>
-      <td>2.87</td>
-      <td>-73.83</td>
-      <td>40.69</td>
-      <td>-73.84</td>
-      <td>40.70</td>
-      <td>14.75</td>
-      <td>6.50</td>
-      <td>15.13</td>
-      <td>3.27</td>
-      <td>13.52</td>
-    </tr>
-    <tr>
-      <th>std</th>
-      <td>0.41</td>
-      <td>1.04</td>
-      <td>2.93</td>
-      <td>2.76</td>
-      <td>1.52</td>
-      <td>2.61</td>
-      <td>1.44</td>
-      <td>12.08</td>
-      <td>3.45</td>
-      <td>8.45</td>
-      <td>1.95</td>
-      <td>6.83</td>
-    </tr>
-    <tr>
-      <th>min</th>
-      <td>1.00</td>
-      <td>0.00</td>
-      <td>0.00</td>
-      <td>-74.66</td>
-      <td>0.00</td>
-      <td>-74.66</td>
-      <td>0.00</td>
-      <td>-300.00</td>
-      <td>1.00</td>
-      <td>1.00</td>
-      <td>0.00</td>
-      <td>0.00</td>
-    </tr>
-    <tr>
-      <th>25%</th>
-      <td>2.00</td>
-      <td>1.00</td>
-      <td>1.06</td>
-      <td>-73.96</td>
-      <td>40.70</td>
-      <td>-73.97</td>
-      <td>40.70</td>
-      <td>7.80</td>
-      <td>3.75</td>
-      <td>8.00</td>
-      <td>2.00</td>
-      <td>9.00</td>
-    </tr>
-    <tr>
-      <th>50%</th>
-      <td>2.00</td>
-      <td>1.00</td>
-      <td>1.90</td>
-      <td>-73.94</td>
-      <td>40.75</td>
-      <td>-73.94</td>
-      <td>40.75</td>
-      <td>11.30</td>
-      <td>6.50</td>
-      <td>15.00</td>
-      <td>3.00</td>
-      <td>15.00</td>
-    </tr>
-    <tr>
-      <th>75%</th>
-      <td>2.00</td>
-      <td>1.00</td>
-      <td>3.60</td>
-      <td>-73.92</td>
-      <td>40.80</td>
-      <td>-73.91</td>
-      <td>40.79</td>
-      <td>17.80</td>
-      <td>9.25</td>
-      <td>22.00</td>
-      <td>5.00</td>
-      <td>19.00</td>
-    </tr>
-    <tr>
-      <th>max</th>
-      <td>2.00</td>
-      <td>9.00</td>
-      <td>97.57</td>
-      <td>0.00</td>
-      <td>41.93</td>
-      <td>0.00</td>
-      <td>41.94</td>
-      <td>450.00</td>
-      <td>12.00</td>
-      <td>30.00</td>
-      <td>6.00</td>
-      <td>23.00</td>
-    </tr>
-  </tbody>
-</table>
-</div>
+|vendorID|passengerCount|tripDistance|pickupLongitude|pickupLatitude|dropoffLongitude|dropoffLatitude|	totalAmount|month_num	day_of_month|day_of_week|hour_of_day
+|----|----|---|---|----|---|---|---|---|---|---|---
+|count|48000.00|48000.00|48000.00|48000.00|48000.00|48000.00|48000.00|48000.00|48000.00|48000.00|48000.00|48000.00
+|mean|1.78|1.37|2.87|-73.83|40.69|-73.84|40.70|14.75|6.50|15.13|3.27|13.52
+|std|0.41|1.04|2.93|2.76|1.52|2.61|1.44|12.08|3.45|8.45|1.95|6.83
+|min|1.00|0.00|0.00|-74.66|0.00|-74.66|0.00|-300.00|1.00|1.00|0.00|0.00
+|25%|2.00|1.00|1.06|-73.96|40.70|-73.97|40.70|7.80|3.75|8.00|2.00|9.00
+|50%|2.00|1.00|1.90|-73.94|40.75|-73.94|40.75|11.30|6.50|15.00|3.00|15.00
+|75%|2.00|1.00|3.60|-73.92|40.80|-73.91|40.79|17.80|9.25|22.00|5.00|19.00
+|max|2.00|9.00|97.57|0.00|41.93|0.00|41.94|450.00|12.00|30.00|6.00|23.00
 
 
 From the summary statistics, you see that there are several fields that have outliers or values that will reduce model accuracy. First filter the lat/long fields to be within the bounds of the Manhattan area. This will filter out longer taxi trips or trips that are outliers in respect to their relationship with other features.
@@ -863,7 +168,7 @@ final_df.describe()
 
 ## Configure workspace
 
-Create a workspace object from the existing workspace. A [Workspace](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace.workspace?view=azure-ml-py) is a class that accepts your Azure subscription and resource information. It also creates a cloud resource to monitor and track your model runs. `Workspace.from_config()` reads the file **config.json** and loads the authentication details into an object named `ws`. `ws` is used throughout the rest of the code in this tutorial.
+Create a workspace object from the existing workspace. A [Workspace](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace.workspace?view=azure-ml-py&preserve-view=true) is a class that accepts your Azure subscription and resource information. It also creates a cloud resource to monitor and track your model runs. `Workspace.from_config()` reads the file **config.json** and loads the authentication details into an object named `ws`. `ws` is used throughout the rest of the code in this tutorial.
 
 ```python
 from azureml.core.workspace import Workspace
@@ -879,10 +184,7 @@ The `test_size` parameter determines the percentage of data to allocate to testi
 ```python
 from sklearn.model_selection import train_test_split
 
-y_df = final_df.pop("totalAmount")
-x_df = final_df
-
-x_train, x_test, y_train, y_test = train_test_split(x_df, y_df, test_size=0.2, random_state=223)
+x_train, x_test = train_test_split(final_df, test_size=0.2, random_state=223)
 ```
 
 The purpose of this step is to have data points to test the finished model that haven't been used to train the model, in order to measure true accuracy.
@@ -897,12 +199,12 @@ To automatically train a model, take the following steps:
 
 ### Define training settings
 
-Define the experiment parameter and model settings for training. View the full list of [settings](how-to-configure-auto-train.md). Submitting the experiment with these default settings will take approximately 5-20 min, but if you want a shorter run time, reduce the `experiment_timeout_minutes` parameter.
+Define the experiment parameter and model settings for training. View the full list of [settings](how-to-configure-auto-train.md). Submitting the experiment with these default settings will take approximately 5-20 min, but if you want a shorter run time, reduce the `experiment_timeout_hours` parameter.
 
 |Property| Value in this tutorial |Description|
 |----|----|---|
 |**iteration_timeout_minutes**|2|Time limit in minutes for each iteration. Reduce this value to decrease total runtime.|
-|**experiment_timeout_minutes**|20|Maximum amount of time in minutes that all iterations combined can take before the experiment terminates.|
+|**experiment_timeout_hours**|0.3|Maximum amount of time in hours that all iterations combined can take before the experiment terminates.|
 |**enable_early_stopping**|True|Flag to enable early termination if the score is not improving in the short term.|
 |**primary_metric**| spearman_correlation | Metric that you want to optimize. The best-fit model will be chosen based on this metric.|
 |**featurization**| auto | By using **auto**, the experiment can preprocess the input data (handling missing data, converting text to numeric, etc.)|
@@ -914,7 +216,7 @@ import logging
 
 automl_settings = {
     "iteration_timeout_minutes": 2,
-    "experiment_timeout_minutes": 20,
+    "experiment_timeout_hours": 0.3,
     "enable_early_stopping": True,
     "primary_metric": 'spearman_correlation',
     "featurization": 'auto',
@@ -930,8 +232,8 @@ from azureml.train.automl import AutoMLConfig
 
 automl_config = AutoMLConfig(task='regression',
                              debug_log='automated_ml_errors.log',
-                             X=x_train.values,
-                             y=y_train.values.flatten(),
+                             training_data=x_train,
+                             label_column_name="totalAmount",
                              **automl_settings)
 ```
 
@@ -953,48 +255,50 @@ experiment = Experiment(ws, "taxi-experiment")
 local_run = experiment.submit(automl_config, show_output=True)
 ```
 
-    Running on local machine
-    Parent Run ID: AutoML_1766cdf7-56cf-4b28-a340-c4aeee15b12b
-    Current status: DatasetFeaturization. Beginning to featurize the dataset.
-    Current status: DatasetEvaluation. Gathering dataset statistics.
-    Current status: FeaturesGeneration. Generating features for the dataset.
-    Current status: DatasetFeaturizationCompleted. Completed featurizing the dataset.
-    Current status: DatasetCrossValidationSplit. Generating individually featurized CV splits.
-    Current status: ModelSelection. Beginning model selection.
+```output
+Running on local machine
+Parent Run ID: AutoML_1766cdf7-56cf-4b28-a340-c4aeee15b12b
+Current status: DatasetFeaturization. Beginning to featurize the dataset.
+Current status: DatasetEvaluation. Gathering dataset statistics.
+Current status: FeaturesGeneration. Generating features for the dataset.
+Current status: DatasetFeaturizationCompleted. Completed featurizing the dataset.
+Current status: DatasetCrossValidationSplit. Generating individually featurized CV splits.
+Current status: ModelSelection. Beginning model selection.
 
-    ****************************************************************************************************
-    ITERATION: The iteration being evaluated.
-    PIPELINE: A summary description of the pipeline being evaluated.
-    DURATION: Time taken for the current iteration.
-    METRIC: The result of computing score on the fitted pipeline.
-    BEST: The best observed score thus far.
-    ****************************************************************************************************
+****************************************************************************************************
+ITERATION: The iteration being evaluated.
+PIPELINE: A summary description of the pipeline being evaluated.
+DURATION: Time taken for the current iteration.
+METRIC: The result of computing score on the fitted pipeline.
+BEST: The best observed score thus far.
+****************************************************************************************************
 
-     ITERATION   PIPELINE                                       DURATION      METRIC      BEST
-             0   StandardScalerWrapper RandomForest             0:00:16       0.8746    0.8746
-             1   MinMaxScaler RandomForest                      0:00:15       0.9468    0.9468
-             2   StandardScalerWrapper ExtremeRandomTrees       0:00:09       0.9303    0.9468
-             3   StandardScalerWrapper LightGBM                 0:00:10       0.9424    0.9468
-             4   RobustScaler DecisionTree                      0:00:09       0.9449    0.9468
-             5   StandardScalerWrapper LassoLars                0:00:09       0.9440    0.9468
-             6   StandardScalerWrapper LightGBM                 0:00:10       0.9282    0.9468
-             7   StandardScalerWrapper RandomForest             0:00:12       0.8946    0.9468
-             8   StandardScalerWrapper LassoLars                0:00:16       0.9439    0.9468
-             9   MinMaxScaler ExtremeRandomTrees                0:00:35       0.9199    0.9468
-            10   RobustScaler ExtremeRandomTrees                0:00:19       0.9411    0.9468
-            11   StandardScalerWrapper ExtremeRandomTrees       0:00:13       0.9077    0.9468
-            12   StandardScalerWrapper LassoLars                0:00:15       0.9433    0.9468
-            13   MinMaxScaler ExtremeRandomTrees                0:00:14       0.9186    0.9468
-            14   RobustScaler RandomForest                      0:00:10       0.8810    0.9468
-            15   StandardScalerWrapper LassoLars                0:00:55       0.9433    0.9468
-            16   StandardScalerWrapper ExtremeRandomTrees       0:00:13       0.9026    0.9468
-            17   StandardScalerWrapper RandomForest             0:00:13       0.9140    0.9468
-            18   VotingEnsemble                                 0:00:23       0.9471    0.9471
-            19   StackEnsemble                                  0:00:27       0.9463    0.9471
+ ITERATION   PIPELINE                                       DURATION      METRIC      BEST
+         0   StandardScalerWrapper RandomForest             0:00:16       0.8746    0.8746
+         1   MinMaxScaler RandomForest                      0:00:15       0.9468    0.9468
+         2   StandardScalerWrapper ExtremeRandomTrees       0:00:09       0.9303    0.9468
+         3   StandardScalerWrapper LightGBM                 0:00:10       0.9424    0.9468
+         4   RobustScaler DecisionTree                      0:00:09       0.9449    0.9468
+         5   StandardScalerWrapper LassoLars                0:00:09       0.9440    0.9468
+         6   StandardScalerWrapper LightGBM                 0:00:10       0.9282    0.9468
+         7   StandardScalerWrapper RandomForest             0:00:12       0.8946    0.9468
+         8   StandardScalerWrapper LassoLars                0:00:16       0.9439    0.9468
+         9   MinMaxScaler ExtremeRandomTrees                0:00:35       0.9199    0.9468
+        10   RobustScaler ExtremeRandomTrees                0:00:19       0.9411    0.9468
+        11   StandardScalerWrapper ExtremeRandomTrees       0:00:13       0.9077    0.9468
+        12   StandardScalerWrapper LassoLars                0:00:15       0.9433    0.9468
+        13   MinMaxScaler ExtremeRandomTrees                0:00:14       0.9186    0.9468
+        14   RobustScaler RandomForest                      0:00:10       0.8810    0.9468
+        15   StandardScalerWrapper LassoLars                0:00:55       0.9433    0.9468
+        16   StandardScalerWrapper ExtremeRandomTrees       0:00:13       0.9026    0.9468
+        17   StandardScalerWrapper RandomForest             0:00:13       0.9140    0.9468
+        18   VotingEnsemble                                 0:00:23       0.9471    0.9471
+        19   StackEnsemble                                  0:00:27       0.9463    0.9471
+```
 
 ## Explore the results
 
-Explore the results of automatic training with a [Jupyter widget](https://docs.microsoft.com/python/api/azureml-widgets/azureml.widgets?view=azure-ml-py). The widget allows you to see a graph and table of all individual run iterations, along with training accuracy metrics and metadata. Additionally, you can filter on different accuracy metrics than your primary metric with the dropdown selector.
+Explore the results of automatic training with a [Jupyter widget](https://docs.microsoft.com/python/api/azureml-widgets/azureml.widgets?view=azure-ml-py&preserve-view=true). The widget allows you to see a graph and table of all individual run iterations, along with training accuracy metrics and metadata. Additionally, you can filter on different accuracy metrics than your primary metric with the dropdown selector.
 
 ```python
 from azureml.widgets import RunDetails
@@ -1019,7 +323,9 @@ print(fitted_model)
 Use the best model to run predictions on the test data set to predict taxi fares. The function `predict` uses the best model and predicts the values of y, **trip cost**, from the `x_test` data set. Print the first 10 predicted cost values from `y_predict`.
 
 ```python
-y_predict = fitted_model.predict(x_test.values)
+y_test = x_test.pop("totalAmount")
+
+y_predict = fitted_model.predict(x_test)
 print(y_predict[:10])
 ```
 
@@ -1055,11 +361,13 @@ print("Model Accuracy:")
 print(1 - mean_abs_percent_error)
 ```
 
-    Model MAPE:
-    0.14353867606052823
+```output
+Model MAPE:
+0.14353867606052823
 
-    Model Accuracy:
-    0.8564613239394718
+Model Accuracy:
+0.8564613239394718
+```
 
 
 From the two prediction accuracy metrics, you see that the model is fairly good at predicting taxi fares from the data set's features, typically within +- $4.00, and approximately 15% error.

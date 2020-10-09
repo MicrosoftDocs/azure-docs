@@ -1,7 +1,7 @@
 ---
 title: Overview of Azure API Management developer portal
 titleSuffix: Azure API Management
-description: Learn about the developer portal in API Management.
+description: Learn about the developer portal in API Management. The developer portal is where consumers can find your APIs.
 services: api-management
 documentationcenter: API Management
 author: mikebudzynski
@@ -12,7 +12,7 @@ ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 03/15/2020
+ms.date: 07/28/2020
 ms.author: apimpm
 ---
 
@@ -25,6 +25,9 @@ This article describes the differences between self-hosted and managed versions 
 ![API Management developer portal](media/api-management-howto-developer-portal/cover.png)
 
 [!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
+
+> [!NOTE]
+> <a name="migrate-from-legacy"></a> The new developer portal is incompatible with the legacy developer portal and automated migration isn't possible. You need to manually recreate the content (pages, text, media files) and customize the look of the new portal. Refer to [the developer portal tutorial](api-management-howto-developer-portal-customize.md) for guidance.
 
 ## <a name="managed-vs-self-hosted"></a> Managed and self-hosted versions
 
@@ -66,31 +69,25 @@ In this section, we answer common questions about the developer portal, which ar
 
 ### <a id="preview-to-ga"></a> How can I migrate from the preview version of the portal?
 
-By using the preview version of the developer portal, you provisioned the preview content in your API Management service. The default content has been significantly modified in the generally available version for better user experience. It also includes new widgets.
+When you first launched the preview version of developer portal, you provisioned the preview version of its default content in your API Management service. The default content has been significantly modified in the generally available version. For example, the preview version of default content doesn't include OAuth buttons in the log-in pages, it uses different widgets for displaying APIs, and relies on limited capabilities for structuring developer portal pages. Even though there are differences in the content, the portal's engine (including underlying widgets) is automatically updated every time you publish your developer portal.
 
-If you're using the managed version, reset the content of the portal by clicking **Reset content** in the **Operations** menu section. Confirming this operation will remove all the content of the portal and provision the new default content. The portal's engine has been automatically updated in your API Management service.
+If you heavily customized your portal based on the preview version of content, you may continue to use it as is and place new widgets manually on portal's pages. Otherwise, we recommend replacing your portal's content with the new default content.
+
+To reset the content in a managed portal, click **Reset content** in the **Operations** menu section. This operation will remove all the content of the portal and provision new default content. You will lose all developer portal customizations and changes. **You can't undo this action**.
 
 ![Reset portal content](media/api-management-howto-developer-portal/reset-content.png)
 
-If you're using the self-hosted version, use the `scripts/cleanup.bat` and `scripts/generate.bat` from the GitHub repository to remove existing content and provision new content. Make sure you upgrade your portal's code to the latest release from the GitHub repository beforehand.
+If you're using the self-hosted version, run `scripts.v2/cleanup.bat` and `scripts.v2/generate.bat` scripts from the GitHub repository to remove existing content and provision new content. Make sure to upgrade your portal's code to the latest release from the GitHub repository beforehand.
 
-If you don't want to reset the content of the portal, you may consider using newly available widgets throughout your pages. Existing widgets have been automatically updated to the latest versions.
+If you first accessed the portal after the general availability announcement in November 2019, it should already feature the new default content and no further action is required.
 
-If your portal was provisioned after the general availability announcement, it should already feature the new default content. No action is required from your side.
+### Does the portal have all the features of the legacy portal?
 
-### How can I migrate from the old developer portal to the developer portal?
+The developer portal no longer supports *Applications*, *Issues*, and direct integration with Facebook, Microsoft, Twitter, and Google as identity providers (you can use Azure AD B2C instead).
 
-Portals are incompatible and you need to migrate the content manually.
+### Has the legacy portal been deprecated?
 
-### Does the portal have all the features of the old portal?
-
-The developer portal no longer supports *Applications* and *Issues*.
-
-Authentication with OAuth in the interactive developer console is not yet supported. You can track the progress through [the GitHub issue](https://github.com/Azure/api-management-developer-portal/issues/208).
-
-### Has the old portal been deprecated?
-
-The old developer and publisher portals are now *legacy* features - they will be receiving security updates only. New features will be implemented in the new developer portal only.
+The legacy developer and publisher portals are now *legacy* features - they will be receiving security updates only. New features will be implemented in the new developer portal only.
 
 Deprecation of the legacy portals will be announced separately. If you have questions, concerns, or comments, raise them [in a dedicated GitHub issue](https://github.com/Azure/api-management-developer-portal/issues/121).
 
@@ -104,7 +101,19 @@ You can programmatically access and manage the developer portal's content throug
 
 The API is documented in [the GitHub repository's wiki section][2]. It can be used for automating migrations of portal content between environments - for example, from a test environment to the production environment. You can learn more about this process [in this documentation article](https://aka.ms/apimdocs/migrateportal) on GitHub.
 
+### How do I move from the managed to the self-hosted version?
+
+Refer to the detailed article in [the Wiki section of the developer portal repository on GitHub][2].
+
+### Can I have multiple developer portals in one API Management service?
+
+You can have one managed portal and multiple self-hosted portals. The content of all portals is stored in the same API Management service, so they will be identical. If you want to differentiate portals' appearance and functionality, you can self-host them with your own custom widgets that dynamically customize pages on runtime, for example based on the URL.
+
 ### Does the portal support Azure Resource Manager templates and/or is it compatible with API Management DevOps Resource Kit?
+
+No.
+
+### Is the portal's content saved with the backup/restore functionality in API Management?
 
 No.
 
@@ -159,7 +168,7 @@ You can also enable CORS manually.
 
 ### What permissions do I need to edit the developer portal?
 
-If you're seeing the `Oops. Something went wrong. Please try again later.` error when you open the portal in the administrative mode, you may be lacking the required permissions (RBAC).
+If you're seeing the `Oops. Something went wrong. Please try again later.` error when you open the portal in the administrative mode, you may be lacking the required permissions (Azure RBAC).
 
 The legacy portals required the permission `Microsoft.ApiManagement/service/getssotoken/action` at the service scope (`/subscriptions/<subscription-id>/resourceGroups/<resource-group>/providers/Microsoft.ApiManagement/service/<apim-service-name>`) to allow the user administrator access to the portals. The new portal requires the permission `Microsoft.ApiManagement/service/users/token/action` at the scope `/subscriptions/<subscription-id>/resourceGroups/<resource-group>/providers/Microsoft.ApiManagement/service/<apim-service-name>/users/1`.
 

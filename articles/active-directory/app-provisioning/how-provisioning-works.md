@@ -39,7 +39,7 @@ To request an automatic Azure AD provisioning connector for an app that doesn't 
 
 Credentials are required for Azure AD to connect to the application's user management API. While you're configuring automatic user provisioning for an application, you'll need to enter valid credentials. You can find credential types and requirements for the application by referring to the app tutorial. In the Azure portal, you'll be able to test the credentials by having Azure AD attempt to connect to the app's provisioning app using the supplied credentials.
 
-If SAML-based single sign-on is also configured for the application, Azure AD's internal, per-application storage limit is 1024 bytes. This limit includes all certificates, secret tokens, credentials, and related configuration data associated with a single instance of an application (also known as a service principal record in Azure AD). When SAML-based single sign-on is configured, the certificate used to sign the SAML tokens often consumes over 50% percent of the space. Any additional items (secret tokens, URIs, notification email addresses, user names, and passwords) that you enter during user provisioning setup could exceed the storage limit. For more information, see [Problem saving administrator credentials while configuring user provisioning](../manage-apps/application-provisioning-config-problem-storage-limit.md).
+If SAML-based single sign-on is also configured for the application, Azure AD's internal, per-application storage limit is 1024 bytes. This limit includes all certificates, secret tokens, credentials, and related configuration data associated with a single instance of an application (also known as a service principal record in Azure AD). When SAML-based single sign-on is configured, the certificate used to sign the SAML tokens often consumes over 50% percent of the space. Any additional items (secret tokens, URIs, notification email addresses, user names, and passwords) that you enter during user provisioning setup could exceed the storage limit. For more information, see [Problem saving administrator credentials while configuring user provisioning](./application-provisioning-config-problem-storage-limit.md).
 
 ## Mapping attributes
 
@@ -49,7 +49,7 @@ There's a pre-configured set of attributes and attribute mappings between Azure 
 
 When setting up provisioning, it's important to review and configure the attribute mappings and workflows that define which user (or group) properties flow from Azure AD to the application. Review and configure the matching property (**Match objects using this attribute**) that is used to uniquely identify and match users/groups between the two systems.
 
-You can customize the default attribute-mappings according to your business needs. So, you can change or delete existing attribute-mappings, or create new attribute-mappings. For details, see [Customizing user provisioning attribute-mappings for SaaS applications](../manage-apps/customize-application-attributes.md).
+You can customize the default attribute-mappings according to your business needs. So, you can change or delete existing attribute-mappings, or create new attribute-mappings. For details, see [Customizing user provisioning attribute-mappings for SaaS applications](./customize-application-attributes.md).
 
 When you configure provisioning to a SaaS application, one of the types of attribute mappings that you can specify is an expression mapping. For these mappings, you must write a script-like expression that allows you to transform your users’ data into formats that are more acceptable for the SaaS application. For details, see [Writing expressions for attribute mappings](functions-for-customizing-application-data.md).
 
@@ -77,13 +77,13 @@ You can use scoping filters to define attribute-based rules that determine which
 ### B2B (guest) users
 
 It's possible to use the Azure AD user provisioning service to provision B2B (or guest) users in Azure AD to SaaS applications. 
-However, for B2B users to sign in to the SaaS application using Azure AD, the SaaS application must have its SAML-based single sign-on capability configured in a specific way. For more information on how to configure SaaS applications to support sign-ins from B2B users, see [Configure SaaS apps for B2B collaboration](../b2b/configure-saas-apps.md).
+However, for B2B users to sign in to the SaaS application using Azure AD, the SaaS application must have its SAML-based single sign-on capability configured in a specific way. For more information on how to configure SaaS applications to support sign-ins from B2B users, see [Configure SaaS apps for B2B collaboration](../external-identities/configure-saas-apps.md).
 
 Note that the userPrincipalName for a guest user is often stored as "alias#EXT#@domain.com". when the userPrincipalName is included in your attribute mappings as a source attribute, the #EXT# is stripped from the userPrincipalName. If you require the #EXT# to be present, replace userPrincipalName with originalUserPrincipalName as the source attribute. 
 
 ## Provisioning cycles: Initial and incremental
 
-When Azure AD is the source system, the provisioning service uses the [Use delta query to track changes in Microsoft Graph data](https://docs.microsoft.com/graph/delta-query-overview) to monitor users and groups. The provisioning service runs an initial cycle against the source system and target system, followed by periodic incremental cycles.
+When Azure AD is the source system, the provisioning service uses the [Use delta query to track changes in Microsoft Graph data](/graph/delta-query-overview) to monitor users and groups. The provisioning service runs an initial cycle against the source system and target system, followed by periodic incremental cycles.
 
 ### Initial cycle
 
@@ -150,44 +150,64 @@ Resolve these failures by adjusting the attribute values for the affected user i
 
 ### Quarantine
 
-If most or all of the calls that are made against the target system consistently fail because of an error (for example invalid admin credentials) the provisioning job goes into a "quarantine" state. This state is indicated in the [provisioning summary report](../manage-apps/check-status-user-account-provisioning.md) and via email if email notifications were configured in the Azure portal.
+If most or all of the calls that are made against the target system consistently fail because of an error (for example invalid admin credentials) the provisioning job goes into a "quarantine" state. This state is indicated in the [provisioning summary report](./check-status-user-account-provisioning.md) and via email if email notifications were configured in the Azure portal.
 
 When in quarantine, the frequency of incremental cycles is gradually reduced to once per day.
 
-The provisioning job exits quarantine after all of the offending errors are fixed and the next sync cycle starts. If the provisioning job stays in quarantine for more than four weeks, the provisioning job is disabled. Learn more here about quarantine status [here](../manage-apps/application-provisioning-quarantine-status.md).
+The provisioning job exits quarantine after all of the offending errors are fixed and the next sync cycle starts. If the provisioning job stays in quarantine for more than four weeks, the provisioning job is disabled. Learn more here about quarantine status [here](./application-provisioning-quarantine-status.md).
 
 ### How long provisioning takes
 
-Performance depends on whether your provisioning job is running an initial provisioning cycle or an incremental cycle. For details about how long provisioning takes and how to monitor the status of the provisioning service, see [Check the status of user provisioning](../manage-apps/application-provisioning-when-will-provisioning-finish-specific-user.md).
+Performance depends on whether your provisioning job is running an initial provisioning cycle or an incremental cycle. For details about how long provisioning takes and how to monitor the status of the provisioning service, see [Check the status of user provisioning](application-provisioning-when-will-provisioning-finish-specific-user.md).
 
 ### How to tell if users are being provisioned properly
 
-All operations run by the user provisioning service are recorded in the Azure AD [Provisioning logs (preview)](../reports-monitoring/concept-provisioning-logs.md?context=azure/active-directory/manage-apps/context/manage-apps-context). The logs include all read and write operations made to the source and target systems, and the user data that was read or written during each operation. For information on how to read the provisioning logs in the Azure portal, see the [provisioning reporting guide](../manage-apps/check-status-user-account-provisioning.md).
+All operations run by the user provisioning service are recorded in the Azure AD [Provisioning logs (preview)](../reports-monitoring/concept-provisioning-logs.md?context=azure/active-directory/manage-apps/context/manage-apps-context). The logs include all read and write operations made to the source and target systems, and the user data that was read or written during each operation. For information on how to read the provisioning logs in the Azure portal, see the [provisioning reporting guide](./check-status-user-account-provisioning.md).
 
 ## De-provisioning
+The Azure AD provisioning service keeps source and target systems in sync by de-provisioning accounts when user access is removed.
 
-The Azure AD provisioning service keeps source and target systems in sync by de-provisioning accounts when users should not have access anymore. 
+The provisioning service supports both deleting and disabling (sometimes referred to as soft-deleting) users. The exact definition of disable and delete varies based on the target app's implementation, but generally a disable indicates that the user can't sign in. A delete indicates that the user has been removed completely from the application. For SCIM applications, a disable is a request to set the *active* property to false on a user. 
 
-The Azure AD provisioning service will soft delete a user in an application when the application supports soft deletes (update request with active = false) and any of the following events occur:
+**Configure your application to disable a user**
 
-* The user account is deleted in Azure AD
-*	The user is unassigned from the application
-*	The user no longer meets a scoping filter and goes out of scope
-    * By default, the Azure AD provisioning service soft deletes or disables users that go out of scope. If you want to override this default behavior, you can set a flag to [skip out-of-scope deletions](../app-provisioning/skip-out-of-scope-deletions.md).
-*	The AccountEnabled property is set to False
+Ensure that you have selected the checkbox for updates.
 
-If one of the above four events occurs and the target application does not support soft deletes, the provisioning service will send a DELETE request to permanently delete the user from the app. 
+Ensure that you have the mapping for *active* for your application. If your using an application from the app gallery, the mapping may be slightly different. Please ensure that you use the default / out of the box mapping for gallery applications.
 
-30 days after a user is deleted in Azure AD, they will be permanently deleted from the tenant. At this point, the provisioning service will send a DELETE request to permanently delete the user in the application. At any time during the 30-day window, you can [manually delete a user permanently](../fundamentals/active-directory-users-restore.md), which sends a delete request to the application.
 
-If you see an attribute IsSoftDeleted in your attribute mappings, it is used to determine the state of the user and whether to send an update request with active = false to soft delete the user. 
+**Configure your application to delete a user**
+
+The following scenarios will trigger a disable or a delete: 
+* A user is soft deleted in Azure AD (sent to the recycle bin / AccountEnabled property set to false).
+    30 days after a user is deleted in Azure AD, they will be permanently deleted from the tenant. At this point, the provisioning service will send a DELETE request to permanently delete the user in the application. At any time during the 30-day window, you can [manually delete a user permanently](../fundamentals/active-directory-users-restore.md), which sends a delete request to the application.
+* A user is permanently deleted / removed from the recycle bin in Azure AD.
+* A user is unassigned from an app.
+* A user goes from in scope to out of scope (doesn't pass a scoping filter anymore).
+	
+By default, the Azure AD provisioning service soft deletes or disables users that go out of scope. If you want to override this default behavior, you can set a flag to [skip out-of-scope deletions.](skip-out-of-scope-deletions.md)
+
+If one of the above four events occurs and the target application does not support soft deletes, the provisioning service will send a DELETE request to permanently delete the user from the app.
+
+If you see an attribute IsSoftDeleted in your attribute mappings, it is used to determine the state of the user and whether to send an update request with active = false to soft delete the user.
+
+**Known limitations**
+
+* If a user that was previously managed by the provisioning service is unassigned from an app, or from a group assigned to an app we will send a disable request. At that point, the user is not managed by the service and we will not send a delete request when they are deleted from the directory.
+* Provisioning a user that is disabled in Azure AD is not supported. They must be active in Azure AD before they are provisioned.
+* When a user goes from soft-deleted to active, the Azure AD provisioning service will activate the user in the target app, but will not automatically restore the group memberships. The target application should maintain the group memberships for the user in inactive state. If the target application does not support this, you can restart provisioning to update the group memberships. 
+
+**Recommendation**
+
+When developing an application, always support both soft deletes and hard deletes. It allows customers to recover when a user is accidentally disabled.
+
 
 ## Next Steps
 
 [Plan an automatic user provisioning deployment](../app-provisioning/plan-auto-user-provisioning.md)
 
-[Configure provisioning for a gallery app](../manage-apps/configure-automatic-user-provisioning-portal.md)
+[Configure provisioning for a gallery app](./configure-automatic-user-provisioning-portal.md)
 
 [Build a SCIM endpoint and configure provisioning when creating your own app](../app-provisioning/use-scim-to-provision-users-and-groups.md)
 
-[Troubleshoot problems with configuring and provisioning users to an application](../manage-apps/application-provisioning-config-problem.md).
+[Troubleshoot problems with configuring and provisioning users to an application](./application-provisioning-config-problem.md).

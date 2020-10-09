@@ -2,21 +2,15 @@
 title: 'Tutorial: Azure Active Directory integration with 123FormBuilder SSO | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and 123FormBuilder SSO.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-
-ms.assetid: 5211910a-ab96-4709-959a-524c4d57c43e
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 04/14/2020
 ms.author: jeedes
-
-ms.collection: M365-identity-device-management
 ---
 
 # Tutorial: Azure Active Directory single sign-on (SSO) integration with 123FormBuilder SSO
@@ -134,7 +128,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 1. To configure single sign-on on **123FormBuilder SSO** side, go to [https://www.123formbuilder.com/form-2709121/](https://www.123formbuilder.com/form-2709121/) and perform the following steps:
 
-	![Configure Single Sign-On](./media/123formbuilder-tutorial/submit.png) 
+	![Screenshot that shows the SSO SAML - Identity Provider configuration screen.](./media/123formbuilder-tutorial/submit.png) 
 
 	a. In the **Email** textbox, type the email of the user like `B.Simon@Contoso.com`.
 

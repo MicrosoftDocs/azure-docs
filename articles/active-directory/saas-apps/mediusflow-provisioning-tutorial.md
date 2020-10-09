@@ -2,17 +2,12 @@
 title: 'Tutorial: Configure MediusFlow for automatic user provisioning with Azure Active Directory | Microsoft Docs'
 description: Learn how to automatically provision and de-provision user accounts from Azure AD to MediusFlow.
 services: active-directory
-documentationcenter: ''
 author: zchia
 writer: zchia
-manager: beatrizd
-
-ms.assetid: c6c65170-c5cb-44f6-81f8-25d972759e2c
+manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 04/30/2020
 ms.author: Zhchia
@@ -48,21 +43,21 @@ The scenario outlined in this tutorial assumes that you already have the followi
 
 ## Step 2. Configure MediusFlow to support provisioning with Azure AD
 
-### Activate the Office 365 app within MediusFlow
+### Activate the Microsoft 365 app within MediusFlow
 Start by enabling the access of the Azure AD login and the Azure AD configuration feature within MediusFlow by performing the following steps:
 
 #### User login
-To, enable the login flow to Office 365/Azure AD refer [this] (https://success.mediusflow.com/documentation/administration_guide/user_login_and_transfer/office365userintegration/#user-login-setup) article.
+To enable the login flow to Microsoft 365/Azure AD refer to [this] (https://success.mediusflow.com/documentation/administration_guide/user_login_and_transfer/office365userintegration/#user-login-setup) article.
 
 #### User transfer configuration
-To, enable the configuration portal of the users for provisioning from Azure AD refer [this](
+To enable the configuration portal of the users for provisioning from Azure AD refer to [this](
 https://success.mediusflow.com/documentation/administration_guide/user_login_and_transfer/office365userintegration/#user-sync-setup) article.
 
 #### Configure user provisioning
 
 1.  Login to [MediusFlow admin console](https://office365.cloudapp.mediusflow.com/) by providing the tenant ID.
 
-	![Authenticate](./media/mediusflow-provisioning-tutorial/1-auth.png)
+	:::image type="content" source="./media/mediusflow-provisioning-tutorial/1-auth.png" alt-text="Screenshot of the MediusFlow admin console. The MediusFlow tenant name box and the Authenticate button are highlighted in the first integration step." border="false":::
 
 2. Verify the connection with MediusFlow.
 
@@ -76,35 +71,35 @@ https://success.mediusflow.com/documentation/administration_guide/user_login_and
 
 4. Save the configuration.
 
-	![Authenticate](./media/mediusflow-provisioning-tutorial/4-save-config.png)
+	:::image type="content" source="./media/mediusflow-provisioning-tutorial/4-save-config.png" alt-text="Screenshot of the MediusFlow admin console that shows the fourth integration step. The Save configuration button is highlighted." border="false":::
 
 5. Select user provisioning and click **OK**.
 
-	![Authenticate](./media/mediusflow-provisioning-tutorial/5-select-user-provisioning.png)
+	:::image type="content" source="./media/mediusflow-provisioning-tutorial/5-select-user-provisioning.png" alt-text="Screenshot of the MediusFlow admin console that shows the fifth integration step. The Use user provisioning and Ok buttons are highlighted." border="false":::
 
 6. Click on **Generate Secret Key**. Copy and save this value.This value will be entered in the **Secret Token** field in the **Provisioning** tab of your MediusFLow application in the Azure portal.
 
-	![Authenticate](./media/mediusflow-provisioning-tutorial/6-create-secret-1.png)
+	:::image type="content" source="./media/mediusflow-provisioning-tutorial/6-create-secret-1.png" alt-text="Screenshot of the User provisioning configuration tab in the MediusFlow admin console. The Generate secret key and Copy buttons are highlighted." border="false":::
 
 7. Click on **OK**.
 
-	![Authenticate](./media/mediusflow-provisioning-tutorial/7-confirm-secret.png)
+	:::image type="content" source="./media/mediusflow-provisioning-tutorial/7-confirm-secret.png" alt-text="Screenshot of the MediusFlow admin console with a notification telling users to click Ok to generate a new secret key. The Ok button is highlighted." border="false":::
 
-8. To get the users imported with a pre-defined set of roles, companies and other general configurations in MediusFlow, you will need to configure it that first. Start by adding the configuration by clicking on **Add new configuration**.
+8. To get the users imported with a pre-defined set of roles, companies and other general configurations in MediusFlow, you will need to configure it first. Start by adding the configuration by clicking on **Add new configuration**.
 
-	![Config users](./media/mediusflow-provisioning-tutorial/8-configure-user-configuration-1.png)
+	:::image type="content" source="./media/mediusflow-provisioning-tutorial/8-configure-user-configuration-1.png" alt-text="Screenshot of the User provisioning configuration tab in the MediusFlow admin console. The Add new configuration button is highlighted." border="false":::
 
 9. Provide the default settings for the users. In this view, it is possible to set the default attribute. If the standard settings are ok, it is enough to provide just a valid company name. Since these configuration settings are fetched from Mediusflow, they need to be configured first. For more information see the **Prerequisites** section of this article.
 
-	![Config users](./media/mediusflow-provisioning-tutorial/9-configure-user-config-detail-1.png)
+	:::image type="content" source="./media/mediusflow-provisioning-tutorial/9-configure-user-config-detail-1.png" alt-text="Screenshot of the MediusFlow Add new configuration window. Many settings are visible, including locale settings, a filter, and user roles." border="false":::
 
 10. Click on **Save** to save the user configuration.
 
-	![Config users](./media/mediusflow-provisioning-tutorial/10-done-1.png)
+	:::image type="content" source="./media/mediusflow-provisioning-tutorial/10-done-1.png" alt-text="Screenshot of the User provisioning configuration tab in the MediusFlow admin console. The Save button is highlighted." border="false":::
 
 11. To get the user provisioning link click on **Copy SCIM Link**. Copy and save this value. This value is entered in the **Tenant URL** field in the **Provisioning** tab of your MediusFLow application in the Azure portal.
  
-	![Config users](./media/mediusflow-provisioning-tutorial/11-get-scim-link.png)
+	:::image type="content" source="./media/mediusflow-provisioning-tutorial/11-get-scim-link.png" alt-text="Screenshot of the User provisioning configuration tab in the MediusFlow admin console. The Copy S C I M link button is highlighted." border="false":::
 
 ## Step 3. Add MediusFlow from the Azure AD application gallery
 
@@ -135,15 +130,15 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 3. Select the **Provisioning** tab.
 
-	![Provisioning tab](common/provisioning.png)
+	![Screenshot of the Manage options with the Provisioning option called out.](common/provisioning.png)
 
 4. Set the **Provisioning Mode** to **Automatic**.
 
-	![Provisioning tab](common/provisioning-automatic.png)
+	![Screenshot of the Provisioning Mode dropdown list with the Automatic option called out.](common/provisioning-automatic.png)
 
 5. Under the **Admin Credentials** section, input the tenant URL value retrieved earlier in **Tenant URL**. Input the secret Token value retrieved earlier in **Secret Token**. Click **Test Connection** to ensure Azure AD can connect to MediusFlow. If the connection fails, ensure your MediusFlow account has Admin permissions and try again.
 
-      ![provisioning](./media/mediusflow-provisioning-tutorial/provisioning.png)
+      ![Screenshot shows the Admin Credentials dialog box, where you can enter your Tenant U R L and Secret Token.](./media/mediusflow-provisioning-tutorial/provisioning.png)
 
 6. In the **Notification Email** field, enter the email address of a person or group who should receive the provisioning error notifications and select the **Send an email notification when a failure occurs** check box.
 
@@ -198,7 +193,7 @@ This operation starts the initial synchronization cycle of all users and groups 
 Once you've configured provisioning, use the following resources to monitor your deployment:
 
 1. Use the [provisioning logs](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-provisioning-logs) to determine which users have been provisioned successfully or unsuccessfully
-2. Check the [progress bar](https://docs.microsoft.com/azure/active-directory/manage-apps/application-provisioning-when-will-provisioning-finish-specific-user) to see the status of the provisioning cycle and how close it is to completion
+2. Check the [progress bar](https://docs.microsoft.com/azure/active-directory/app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user) to see the status of the provisioning cycle and how close it is to completion
 3. If the provisioning configuration seems to be in an unhealthy state, the application will go into quarantine. Learn more about quarantine states [here](https://docs.microsoft.com/azure/active-directory/manage-apps/application-provisioning-quarantine-status).
 
 ## Additional resources

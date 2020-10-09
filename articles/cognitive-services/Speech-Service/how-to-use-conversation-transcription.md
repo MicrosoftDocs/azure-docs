@@ -10,6 +10,7 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.author: weixu
+ms.custom: devx-track-csharp
 ---
 
 # Real time Conversation Transcription (Preview)
@@ -32,7 +33,7 @@ The Speech Device SDK provides sample code in Java for real-time audio capture u
 
 ## Prerequisites
 
-A Speech service subscription. You can [get a Speech trial subscription](https://azure.microsoft.com/try/cognitive-services/) if you don't have one.
+A Speech service subscription. You can create [a free Azure account](https://azure.microsoft.com/free/cognitive-services/) if you don't have one.
 
 ## Create voice signatures
 
@@ -135,7 +136,7 @@ public class MyConversationTranscriber
             using (var conversation = await Conversation.CreateConversationAsync(config, meetingId).ConfigureAwait(false))
             {
                 // Create a conversation transcriber using audio stream input
-                using (var conversationTranscriber = new ConversationTranscriber    (audioInput))
+                using (var conversationTranscriber = new ConversationTranscriber(audioInput))
                 {
                     await conversationTranscriber.JoinConversationAsync(conversation);
 

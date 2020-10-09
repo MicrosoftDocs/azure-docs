@@ -8,7 +8,7 @@ ms.devlang: nodejs
 ms.topic: tutorial
 ms.date: 12/26/2018
 ms.author: jopapa
-ms.custom: seodec18
+ms.custom: seodec18, devx-track-js
 ms.reviewer: sngun
 ---
 # Create an Angular app with Azure Cosmos DB's API for MongoDB - Add CRUD functions to the app
@@ -30,7 +30,7 @@ Before starting this part of the tutorial, ensure you've completed the steps in 
 
 ## Add a Post function to the hero service
 
-1. In Visual Studio Code, open **routes.js** and **hero.service.js** side by side by pressing the **Split Editor** button ![Split Editor button in Visual Studio](./media/tutorial-develop-mongodb-nodejs-part6/split-editor-button.png).
+1. In Visual Studio Code, open **routes.js** and **hero.service.js** side by side by pressing the **Split Editor** button :::image type="icon" source="./media/tutorial-develop-mongodb-nodejs-part6/split-editor-button.png":::.
 
     See that routes.js line 7 is calling the `getHeroes` function on line 5 in **hero.service.js**.  We need to create this same pairing for the post, put, and delete functions. 
 
@@ -78,7 +78,7 @@ Before starting this part of the tutorial, ensure you've completed the steps in 
     });
     ```
 
-5. Check that everything worked by running the app. In Visual Studio Code, save all your changes, select the **Debug** button ![Debug icon in Visual Studio Code](./media/tutorial-develop-mongodb-nodejs-part6/debug-button.png) on the left side, then select the **Start Debugging** button ![Start debugging icon in Visual Studio Code](./media/tutorial-develop-mongodb-nodejs-part6/start-debugging-button.png).
+5. Check that everything worked by running the app. In Visual Studio Code, save all your changes, select the **Debug** button :::image type="icon" source="./media/tutorial-develop-mongodb-nodejs-part6/debug-button.png"::: on the left side, then select the **Start Debugging** button :::image type="icon" source="./media/tutorial-develop-mongodb-nodejs-part6/start-debugging-button.png":::.
 
 6. Now go back to your internet browser and open the Developer tools Network tab by pressing F12 on most machines. Navigate to `http://localhost:3000` to watch the calls made over the network.
 
@@ -163,7 +163,7 @@ Before starting this part of the tutorial, ensure you've completed the steps in 
     };
     ```
 
-4. Now that we've updated the code, select the **Restart** button ![Restart button in Visual Studio Code](./media/tutorial-develop-mongodb-nodejs-part6/restart-debugger-button.png) in Visual Studio Code.
+4. Now that we've updated the code, select the **Restart** button :::image type="icon" source="./media/tutorial-develop-mongodb-nodejs-part6/restart-debugger-button.png"::: in Visual Studio Code.
 
 5. Refresh the page in your internet browser and select the **Add New Hero** button. Add a new hero with an ID of "9", name of "Starlord", and saying "Hi". Select the **Save** button to save the new hero.
 

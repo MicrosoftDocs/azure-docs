@@ -72,7 +72,7 @@ To handle throttling at this level, you have these options:
 
 ## Connector throttling
 
-Each connector has its own throttling limits, which you can find on the connector's technical reference page. For example, the [Azure Service Bus connector](https://docs.microsoft.com/connectors/servicebus/) has a throttling limit that permits up to 6,000 calls per minute, while the SQL Server connector has [throttling limits that vary based on the operation type](https://docs.microsoft.com/connectors/sql/).
+Each connector has its own throttling limits, which you can find on the connector's technical reference page. For example, the [Azure Service Bus connector](/connectors/servicebus/) has a throttling limit that permits up to 6,000 calls per minute, while the SQL Server connector has [throttling limits that vary based on the operation type](/connectors/sql/).
 
 Some triggers and actions, such as HTTP, have a ["retry policy"](../logic-apps/logic-apps-exception-handling.md#retry-policies) that you can customize based on the [retry policy limits](../logic-apps/logic-apps-limits-and-config.md#retry-policy-limits) to implement exception handling. This policy specifies whether and how often a trigger or action retries a request when the original request fails or times out and results in a 408, 429, or 5xx response. So, when throttling starts and returns a 429 error, Logic Apps follows the retry policy where supported.
 

@@ -3,8 +3,8 @@ title: Architectures to deploy Oracle apps on Azure Virtual Machines | Microsoft
 description: Application architectures to deploy Oracle apps including E-Business Suite, JD Edwards EnterpriseOne, and PeopleSoft on Microsoft Azure virtual machines with databases in Azure or in Oracle Cloud Infrastructure (OCI).
 services: virtual-machines-linux
 documentationcenter: ''
-author: BorisB2015
-manager: gwallace
+author: dbakevlar
+manager: 
 tags: 
 
 ms.service: virtual-machines
@@ -13,7 +13,7 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 07/18/2019
-ms.author: borisb
+ms.author: kegorman
 ms.custom: 
 ---
 # Architectures to deploy Oracle applications on Azure

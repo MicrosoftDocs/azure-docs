@@ -1,10 +1,9 @@
 ---
 title: Azure Functions networking options
 description: An overview of all networking options available in Azure Functions.
-author: alexkarcher-msft
 ms.topic: conceptual
 ms.date: 4/11/2019
-ms.author: alkarche
+ms.custom: fasttrack-edit
 
 ---
 # Azure Functions networking options
@@ -83,7 +82,7 @@ Currently, you can use non-HTTP trigger functions from within a virtual network 
 
 ### Premium plan with virtual network triggers
 
-When you run a Premium plan, you can connect non-HTTP trigger functions to services that run inside a virtual network. To do this, you must enable virtual network trigger support for your function app. The **virtual network trigger support** setting is found in the [Azure portal](https://portal.azure.com) under **Configuration** > **Function runtime settings**.
+When you run a Premium plan, you can connect non-HTTP trigger functions to services that run inside a virtual network. To do this, you must enable virtual network trigger support for your function app. The **Runtime Scale Monitoring** setting is found in the [Azure portal](https://portal.azure.com) under **Configuration** > **Function runtime settings**.
 
 :::image type="content" source="media/functions-networking-options/virtual-network-trigger-toggle.png" alt-text="VNETToggle":::
 
@@ -114,7 +113,7 @@ For example, assume you want to configure Azure Cosmos DB to accept traffic only
 
 ## Hybrid Connections
 
-[Hybrid Connections](../service-bus-relay/relay-hybrid-connections-protocol.md) is a feature of Azure Relay that you can use to access application resources in other networks. It provides access from your app to an application endpoint. You can't use it to access your application. Hybrid Connections is available to functions that run on Windows in all but the Consumption plan.
+[Hybrid Connections](../azure-relay/relay-hybrid-connections-protocol.md) is a feature of Azure Relay that you can use to access application resources in other networks. It provides access from your app to an application endpoint. You can't use it to access your application. Hybrid Connections is available to functions that run on Windows in all but the Consumption plan.
 
 As used in Azure Functions, each hybrid connection correlates to a single TCP host and port combination. This means that the hybrid connection's endpoint can be on any operating system and any application as long as you're accessing a TCP listening port. The Hybrid Connections feature doesn't know or care what the application protocol is or what you're accessing. It just provides network access.
 

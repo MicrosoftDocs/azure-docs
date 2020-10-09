@@ -8,7 +8,7 @@ ms.topic: conceptual
 ms.tgt_pltfrm: arduino
 ms.date: 06/25/2019
 ms.author: wesmc
-ms.custom:  mqtt
+ms.custom:  [mqtt, 'Role: Cloud Development']
 ---
 
 # Connect IoT DevKit AZ3166 to Azure IoT Hub
@@ -169,7 +169,7 @@ Follow these steps to prepare the development environment for the DevKit:
 
 4. Look for [Azure IoT Tools](https://aka.ms/azure-iot-tools) in the extension marketplace and install it.
 
-    ![Install Azure IoT Tools](media/iot-hub-arduino-devkit-az3166-get-started/getting-started/install-azure-iot-tools.png)
+    ![Screenshot that shows Azure IoT Tools in the extension marketplace.](media/iot-hub-arduino-devkit-az3166-get-started/getting-started/install-azure-iot-tools.png)
 
     Or copy and paste this URL into a browser window: `vscode:extension/vsciot-vscode.azure-iot-tools`
 
@@ -355,7 +355,7 @@ You can use [Azure IoT Tools](https://marketplace.visualstudio.com/items?itemNam
 
 1. In **OUTPUT** pane, you can see the incoming D2C messages to the IoT Hub.
 
-    ![D2C message](media/iot-hub-arduino-devkit-az3166-get-started/getting-started/d2c-output.png)
+    ![Screenshot that shows the incoming D2C messages to the IoT Hub.](media/iot-hub-arduino-devkit-az3166-get-started/getting-started/d2c-output.png)
 
 ## Review the code
 

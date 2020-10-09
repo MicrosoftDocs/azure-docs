@@ -1,23 +1,23 @@
 ---
 title: "Pattern: Deploy resources with a policy definition"
-description: This Azure Policy pattern provides an example of how to deploy resources with a policy definition.
-ms.date: 01/31/2020
+description: This Azure Policy pattern provides an example of how to deploy resources with a deployIfNotExists policy definition.
+ms.date: 08/17/2020
 ms.topic: sample
 ---
 # Azure Policy pattern: deploy resources
 
 The [deployIfNotExists](../concepts/effects.md#deployifnotexists) effect makes it possible to deploy
-an [Azure Resource Manager template](../../../azure-resource-manager/templates/overview.md) when
-creating or updating a resource that isn't compliant. This approach can be preferred to using the
-[deny](../concepts/effects.md#deny) effect as it lets resources continue to be created, but ensures
-the changes are made to make them compliant.
+an [Azure Resource Manager template](../../../azure-resource-manager/templates/overview.md) (ARM
+template) when creating or updating a resource that isn't compliant. This approach can be preferred
+to using the [deny](../concepts/effects.md#deny) effect as it lets resources continue to be created,
+but ensures the changes are made to make them compliant.
 
 ## Sample policy definition
 
 This policy definition uses the **field** operator to evaluate the `type` of resource created or
 updated. When that resource is a _Microsoft.Network/virtualNetworks_, the policy looks for a network
 watcher in the location of the new or updated resource. If a matching network watcher isn't located,
-the Resource Manager template is deployed to create the missing resource.
+the ARM template is deployed to create the missing resource.
 
 :::code language="json" source="~/policy-templates/patterns/pattern-deploy-resources.json":::
 

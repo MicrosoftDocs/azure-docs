@@ -4,8 +4,8 @@ description: Learn how to create export jobs in Azure portal to transfer data fr
 author: alkohli
 services: storage
 ms.service: storage
-ms.topic: article
-ms.date: 03/12/2020
+ms.topic: how-to
+ms.date: 09/17/2020
 ms.author: alkohli
 ms.subservice: common
 ---
@@ -26,7 +26,7 @@ You must:
   - Generate a tracking number for the export job.
   - Every job should have a separate tracking number. Multiple jobs with the same tracking number are not supported.
   - If you do not have a carrier account, go to:
-    - [Create a FedEX account](https://www.fedex.com/en-us/create-account.html), or
+    - [Create a FedEx account](https://www.fedex.com/en-us/create-account.html), or
     - [Create a DHL account](http://www.dhl-usa.com/en/express/shipping/open_account.html).
 
 ## Step 1: Create an export job
@@ -79,7 +79,7 @@ Perform the following steps to create an export job in the Azure portal.
 
     - Select the carrier from the dropdown list. If you want to use a carrier other than FedEx/DHL, choose an existing option from the dropdown. Contact Azure Data Box Operations team at `adbops@microsoft.com`  with the information regarding the carrier you plan to use.
     - Enter a valid carrier account number that you have created with that carrier. Microsoft uses this account to ship the drives back to you once your export job is complete.
-    - Provide a complete and valid contact name, phone, email, street address, city, zip, state/province and country/region.
+    - Provide a complete and valid contact name, phone, email, street address, city, zip, state/province, and country/region.
 
         > [!TIP]
         > Instead of specifying an email address for a single user, provide a group email. This ensures that you receive notifications even if an admin leaves.
@@ -113,7 +113,7 @@ When the dashboard reports the job is complete, the disks are shipped to you and
 1. After you receive the drives with exported data, you need to get the BitLocker keys to unlock the drives. Go to the export job in the Azure portal. Click **Import/Export** tab.
 2. Select and click your export job from the list. Go to **Encryption** and copy the keys.
 
-   ![View BitLocker keys for export job](./media/storage-import-export-service/export-job-bitlocker-keys-02.png)
+   ![View BitLocker keys for export job](./media/storage-import-export-data-from-blobs/export-from-blob-7.png)
 
 3. Use the BitLocker keys to unlock the disks.
 
@@ -121,15 +121,13 @@ The export is complete.
 
 ## Step 5: Unlock the disks
 
-If using version 1.4.0.300 of the WAImportExport tool, use the following command to unlock the drive:
+Use the following command to unlock the drive:
 
-   `WAImportExport Unlock /bk:<BitLocker key (base 64 string) copied from journal (*.jrn*) file> /driveLetter:<Drive letter>`  
+   `WAImportExport Unlock /bk:<BitLocker key (base 64 string) copied from Encryption blade in Azure portal> /driveLetter:<Drive letter>`  
 
 Here is an example of the sample input.
 
    `WAImportExport.exe Unlock /bk:CAAcwBoAG8AdQBsAGQAIABiAGUAIABoAGkAZABkAGUAbgA= /driveLetter:e`
-
-If using earlier versions of the tool, use the BitLocker dialog to unlock the drive.
 
 At this time, you can delete the job or leave it. Jobs automatically get deleted after 90 days.
 

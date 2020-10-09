@@ -1,20 +1,9 @@
 ---
 title: Azure CLI - Create and verify a virtual machine in a lab
 description: This Azure CLI script creates a virtual machine in a lab, and verifies that it's available. 
-services: lab-services
-author: spelluru
-manager: 
-editor: 
-
-ms.assetid:
-ms.service: lab-services
 ms.devlang: azurecli
 ms.topic: sample
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 01/16/2020
-ms.author: spelluru
-ms.custom: mvc
+ms.date: 08/11/2020
 ---
 
 # Use Azure CLI to create and verify availability of a virtual machine in a lab in Azure DevTest Labs
@@ -49,6 +38,6 @@ This script uses the following commands:
 
 ## Next steps
 
-For more information on the Azure CLI, see [Azure CLI documentation](https://docs.microsoft.com/cli/azure).
+For more information on the Azure CLI, see [Azure CLI documentation](/cli/azure).
 
 Additional Azure Lab Services CLI script samples can be found in the [Azure Lab Services CLI samples](../samples-cli.md).

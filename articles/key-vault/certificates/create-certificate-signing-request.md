@@ -15,7 +15,7 @@ ms.author: sebansal
 
 # Creating and merging CSR in Key Vault
 
-Azure Key Vault supports to create the certificate signing request with private-public key pair and get it signed by any Certificate Authority of your choice. It could be internal enterprise CA or external public CA. A certificate  signing request (also CSR or certification request) is a message that is sent by the user to a certificate authority (CA) in order to request issuance of a digital certificate.
+Azure Key Vault supports storing digital certificate issued by any Certificate Authority of your choice in your key vault. It supports creating the certificate signing request with private-public key pair which can be signed by any chosen Certificate Authority. It could be internal enterprise CA or external public CA. A certificate  signing request (also CSR or certification request) is a message that is sent by the user to a certificate authority (CA) in order to request issuance of a digital certificate.
 
 For more general information about Certificates, see [Azure Key Vault Certificates](/azure/key-vault/certificates/about-certificates).
 
@@ -79,9 +79,33 @@ After the certificate request has been signed by the Issuer, you can bring back 
 
 Certificate request has now been successfully merged.
 
+## Adding more information to CSR
+
+If you want to add more information when creating CSR, for instance - 
+    - Country:
+    - City / Locality:
+    - State / Province:
+    - Organisation:
+    - Organisational Unit:
+You can add all that information when creating a CSR by defining that in subjectName.
+
+Example
+    ```SubjectName="CN = docs.microsoft.com, OU = Microsoft Corporation, O = Microsoft Corporation, L = Redmond, S = WA, C = US"
+    ```
+
+>[!Note]
+>If you are requesting a DV cert with all those details in the CSR, the CA might reject the request as CA might not be able to validate all that information in the request. If you are requesting an OV cert then it would be more appropriate to add all that information in the CSR.
+
+
 ## Troubleshoot
 
-If the certificate issued is in 'disabled' status in the Azure portal, proceed to view the **Certificate Operation** to review the error message for that certificate.
+- **Error type 'The public key of the end-entity certificate in the specified X.509 certificate content does not match the public part of the specified private key. Please check if certificate is valid'**
+    This error can occur if you are not merging the CSR with the same CSR request initiated. Each time a CSR is created, it creates a private key which has to be matched when merging the signed request.
+    
+- When CSR is merged, would it merge the entire chain?
+    Yes, it will merge the entire chain, provided the user has brought back p7b file to merge.
+
+- If the certificate issued is in 'disabled' status in the Azure portal, proceed to view the **Certificate Operation** to review the error message for that certificate.
 
 For more information, see the [Certificate operations in the Key Vault REST API reference](/rest/api/keyvault). For information on establishing permissions, see [Vaults - Create or Update](/rest/api/keyvault/vaults/createorupdate) and [Vaults - Update Access Policy](/rest/api/keyvault/vaults/updateaccesspolicy).
 

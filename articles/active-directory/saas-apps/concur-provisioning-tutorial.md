@@ -2,21 +2,14 @@
 title: 'Tutorial: Configure Concur for automatic user provisioning with Azure Active Directory| Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and Concur.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: daveba
-
-ms.assetid: df47f55f-a894-4e01-a82e-0dbf55fc8af1
+manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 01/26/2018
 ms.author: jeedes
-
-ms.collection: M365-identity-device-management
 ---
 # Tutorial: Configure Concur for automatic user provisioning
 
@@ -97,7 +90,7 @@ For the following reasons, this action should not be done with the profile they 
 
 9. Set the **Provisioning Mode** to **Automatic**. 
  
-    ![provisioning](./media/concur-provisioning-tutorial/provisioning.png)
+    ![Screenshot of the Provisioning tab for Concur in Azure portal. Provisioning Mode is set to Automatic and the Test Connection button is highlighted.](./media/concur-provisioning-tutorial/provisioning.png)
 
 10. Under the **Admin Credentials** section, enter the **user name** and the **password** of your Concur administrator.
 

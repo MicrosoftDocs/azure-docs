@@ -22,9 +22,6 @@
    | ------------------------------ | ------------------------------ |
    | apikey                         | <your_api_key>                 |
 
-   > [!NOTE]
-   > This can be found in **Config.local_secrets.cs** from within the **PushDemo** project.
-
 1. Choose the **raw** option for the **Body**, then choose **JSON** from the list of format options, and then include some placeholder **JSON** content:
 
     ```json

@@ -2,21 +2,15 @@
 title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with EasySSO for Bamboo | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and EasySSO for Bamboo.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-
-ms.assetid: f594613d-0cd8-4046-a7c5-2da2971afecd
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 05/28/2020
 ms.author: jeedes
-
-ms.collection: M365-identity-device-management
 ---
 
 # Tutorial: Azure Active Directory single sign-on (SSO) integration with EasySSO for Bamboo
@@ -101,13 +95,13 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 1. In addition to above, EasySSO for Bamboo application expects few more attributes to be passed back in SAML response which are shown below. These attributes are also pre populated but you can review them as per your requirements.
 	
-	| Name |  |  Source Attribute|
-	| ---------------| --------------- | --------- |
-	| urn:oid:0.9.2342.19200300.100.1.1 | | user.userprincipalname |
-	| urn:oid:0.9.2342.19200300.100.1.3 | | user.mail |
-	| urn:oid:2.16.840.1.113730.3.1.241 | | user.displayname |
-	| urn:oid:2.5.4.4 | | user.surname |
-	| urn:oid:2.5.4.42 | | user.givenname |
+	| Name | Source Attribute |
+	| ---------------| --------- |
+	| urn:oid:0.9.2342.19200300.100.1.1 | user.userprincipalname |
+	| urn:oid:0.9.2342.19200300.100.1.3 | user.mail |
+	| urn:oid:2.16.840.1.113730.3.1.241 | user.displayname |
+	| urn:oid:2.5.4.4 | user.surname |
+	| urn:oid:2.5.4.42 | user.givenname |
     
 	In case your Azure AD users have **sAMAccountName** configured you would have to map **urn:oid:0.9.2342.19200300.100.1.1** onto **sAMAccountName** attribute.
     

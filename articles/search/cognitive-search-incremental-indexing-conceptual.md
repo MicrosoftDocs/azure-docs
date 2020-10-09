@@ -15,7 +15,7 @@ ms.date: 06/18/2020
 
 > [!IMPORTANT] 
 > Incremental enrichment is currently in public preview. This preview version is provided without a service level agreement, and it's not recommended for production workloads. For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). 
-> The [REST API version 2019-05-06-Preview](search-api-preview.md) provides this feature. There is no portal or .NET SDK support at this time.
+> [REST API preview versions](search-api-preview.md) provide this feature. There is no portal or .NET SDK support at this time.
 
 *Incremental enrichment* is a feature that targets [skillsets](cognitive-search-working-with-skillsets.md). It leverages Azure Storage to save the processing output emitted by an enrichment pipeline for reuse in future indexer runs. Wherever possible, the indexer reuses any cached output that is still valid. 
 
@@ -25,9 +25,9 @@ A workflow that uses incremental caching includes the following steps:
 
 1. [Create or identify an Azure storage account](../storage/common/storage-account-create.md) to store the cache.
 1. [Enable incremental enrichment](search-howto-incremental-index.md) in the indexer.
-1. [Create an indexer](https://docs.microsoft.com/rest/api/searchservice/create-indexer) - plus a [skillset](https://docs.microsoft.com/rest/api/searchservice/create-skillset) - to invoke the pipeline. During processing, stages of enrichment are saved for each document in Blob storage for future use.
-1. Test your code, and after making changes, use [Update Skillset](https://docs.microsoft.com/rest/api/searchservice/update-skillset) to modify a definition.
-1. [Run Indexer](https://docs.microsoft.com/rest/api/searchservice/run-indexer) to invoke the pipeline, retrieving cached output for faster and more cost-effective processing.
+1. [Create an indexer](/rest/api/searchservice/create-indexer) - plus a [skillset](/rest/api/searchservice/create-skillset) - to invoke the pipeline. During processing, stages of enrichment are saved for each document in Blob storage for future use.
+1. Test your code, and after making changes, use [Update Skillset](/rest/api/searchservice/update-skillset) to modify a definition.
+1. [Run Indexer](/rest/api/searchservice/run-indexer) to invoke the pipeline, retrieving cached output for faster and more cost-effective processing.
 
 For more information about steps and considerations when working with an existing indexer, see [Set up incremental enrichment](search-howto-incremental-index.md).
 
@@ -91,7 +91,7 @@ Setting this parameter ensures that only updates to the skillset definition are 
 The following example shows an Update Skillset request with the parameter:
 
 ```http
-PUT https://customerdemos.search.windows.net/skillsets/callcenter-text-skillset?api-version=2019-05-06-Preview&disableCacheReprocessingChangeDetection=true
+PUT https://customerdemos.search.windows.net/skillsets/callcenter-text-skillset?api-version=2020-06-30-Preview&disableCacheReprocessingChangeDetection=true
 ```
 
 ### Bypass data source validation checks
@@ -99,14 +99,14 @@ PUT https://customerdemos.search.windows.net/skillsets/callcenter-text-skillset?
 Most changes to a data source definition will invalidate the cache. However, for scenarios where you know that a change should not invalidate the cache - such as changing a connection string or rotating the key on the storage account - append the`ignoreResetRequirement` parameter on the data source update. Setting this parameter to `true` allows the commit to go through, without triggering a reset condition that would result in all objects being rebuilt and populated from scratch.
 
 ```http
-PUT https://customerdemos.search.windows.net/datasources/callcenter-ds?api-version=2019-05-06-Preview&ignoreResetRequirement=true
+PUT https://customerdemos.search.windows.net/datasources/callcenter-ds?api-version=2020-06-30-Preview&ignoreResetRequirement=true
 ```
 
 ### Force skillset evaluation
 
 The purpose of the cache is to avoid unnecessary processing, but suppose you make a change to a skill that the indexer doesn't detect (for example, changing something in external code, such as a custom skill).
 
-In this case, you can use the [Reset Skills](https://docs.microsoft.com/rest/api/searchservice/2019-05-06-preview/reset-skills) to force reprocessing of a particular skill, including any downstream skills that have a dependency on that skill's output. This API accepts a POST request with a list of skills that should be invalidated and marked for reprocessing. After Reset Skills, run the indexer to invoke the pipeline.
+In this case, you can use the [Reset Skills](/rest/api/searchservice/preview-api/reset-skills) to force reprocessing of a particular skill, including any downstream skills that have a dependency on that skill's output. This API accepts a POST request with a list of skills that should be invalidated and marked for reprocessing. After Reset Skills, run the indexer to invoke the pipeline.
 
 ## Change detection
 
@@ -147,23 +147,23 @@ Incremental processing evaluates your skillset definition and determines which s
 
 ## API reference
 
-REST API version `2019-05-06-Preview` provides incremental enrichment through additional properties on indexers, skillsets, and data sources. In addition to the reference documentation, see  [Configure caching for incremental enrichment](search-howto-incremental-index.md) for details on how to call the APIs.
+REST API version `2020-06-30-Preview` provides incremental enrichment through additional properties on indexers. Skillsets and data sources can use the generally available version. In addition to the reference documentation, see  [Configure caching for incremental enrichment](search-howto-incremental-index.md) for details on how to call the APIs.
 
-+ [Create Indexer (api-version=2019-05-06-Preview)](https://docs.microsoft.com/rest/api/searchservice/2019-05-06-preview/create-indexer) 
++ [Create Indexer (api-version=2020-06-30-Preview)](/rest/api/searchservice/create-indexer) 
 
-+ [Update Indexer (api-version=2019-05-06-Preview)](https://docs.microsoft.com/rest/api/searchservice/2019-05-06-preview/update-indexer) 
++ [Update Indexer (api-version=2020-06-30-Preview)](/rest/api/searchservice/update-indexer) 
 
-+ [Update Skillset (api-version=2019-05-06-Preview)](https://docs.microsoft.com/rest/api/searchservice/2019-05-06-preview/update-skillset) (New URI parameter on the request)
++ [Update Skillset (api-version=2020-06-30)](/rest/api/searchservice/update-skillset) (New URI parameter on the request)
 
-+ [Reset Skills (api-version=2019-05-06-Preview)](https://docs.microsoft.com/rest/api/searchservice/2019-05-06-preview/reset-skills)
++ [Reset Skills (api-version=2020-06-30)](/rest/api/searchservice/preview-api/reset-skills)
 
-+ Database indexers (Azure SQL, Cosmos DB). Some indexers retrieve data through queries. For queries that retrieve data, [Update Data Source](https://docs.microsoft.com/rest/api/searchservice/update-data-source) supports a new parameter on a request **ignoreResetRequirement**, which should be set to `true` when your update action should not invalidate the cache. 
++ Database indexers (Azure SQL, Cosmos DB). Some indexers retrieve data through queries. For queries that retrieve data, [Update Data Source](/rest/api/searchservice/update-data-source) supports a new parameter on a request **ignoreResetRequirement**, which should be set to `true` when your update action should not invalidate the cache. 
 
   Use **ignoreResetRequirement** sparingly as it could lead to unintended inconsistency in your data that will not be detected easily.
 
 ## Next steps
 
-Incremental enrichment is a powerful feature that extends change tracking to skillsets and AI enrichment. AIncremental enrichment enables reuse of existing processed content as you iterate over skillset design.
+Incremental enrichment is a powerful feature that extends change tracking to skillsets and AI enrichment. Incremental enrichment enables reuse of existing processed content as you iterate over skillset design.
 
 As a next step, enable caching on an existing indexer or add a cache when defining a new indexer.
 

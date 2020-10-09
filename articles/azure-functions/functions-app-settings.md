@@ -13,6 +13,9 @@ App settings in a function app contain global configuration options that affect 
 
 There are other global configuration options in the [host.json](functions-host-json.md) file and in the [local.settings.json](functions-run-local.md#local-settings-file) file.
 
+> [!NOTE]  
+> You can use application settings to override host.json setting values without having to change the host.json file itself. This is helpful for scenarios where you need to configure or modify specific host.json settings for a specific environment. This also lets you change host.json settings without having to republish your project. To learn more, see the [host.json reference article](functions-host-json.md#override-hostjson-values).  
+
 ## APPINSIGHTS_INSTRUMENTATIONKEY
 
 The instrumentation key for Application Insights. Only use one of `APPINSIGHTS_INSTRUMENTATIONKEY` or `APPLICATIONINSIGHTS_CONNECTION_STRING`. For more information, see [Monitor Azure Functions](functions-monitoring.md). 
@@ -28,6 +31,42 @@ The connection string for Application Insights. Use `APPLICATIONINSIGHTS_CONNECT
 |Key|Sample value|
 |---|------------|
 |APPLICATIONINSIGHTS_CONNECTION_STRING|InstrumentationKey=[key];IngestionEndpoint=[url];LiveEndpoint=[url];ProfilerEndpoint=[url];SnapshotEndpoint=[url];|
+
+## AZURE_FUNCTION_PROXY_DISABLE_LOCAL_CALL
+
+By default, [Functions proxies](functions-proxies.md) use a shortcut to send API calls from proxies directly to functions in the same function app. This shortcut is used instead of creating a new HTTP request. This setting allows you to disable that shortcut behavior.
+
+|Key|Value|Description|
+|-|-|-|
+|AZURE_FUNCTION_PROXY_DISABLE_LOCAL_CALL|true|Calls with a backend URL pointing to a function in the local function app won't be sent directly to the function. Instead, the requests are directed back to the HTTP frontend for the function app.|
+|AZURE_FUNCTION_PROXY_DISABLE_LOCAL_CALL|false|Calls with a backend URL pointing to a function in the local function app are forwarded directly to the function. This is the default value. |
+
+## AZURE_FUNCTION_PROXY_BACKEND_URL_DECODE_SLASHES
+
+This setting controls whether the characters `%2F` are decoded as slashes in route parameters when they are inserted into the backend URL. 
+
+|Key|Value|Description|
+|-|-|-|
+|AZURE_FUNCTION_PROXY_BACKEND_URL_DECODE_SLASHES|true|Route parameters with encoded slashes are decoded. |
+|AZURE_FUNCTION_PROXY_BACKEND_URL_DECODE_SLASHES|false|All route parameters are passed along unchanged, which is the default behavior. |
+
+For example, consider the proxies.json file for a function app at the `myfunction.com` domain.
+
+```JSON
+{
+    "$schema": "http://json.schemastore.org/proxies",
+    "proxies": {
+        "root": {
+            "matchCondition": {
+                "route": "/{*all}"
+            },
+            "backendUri": "example.com/{all}"
+        }
+    }
+}
+```
+
+When `AZURE_FUNCTION_PROXY_BACKEND_URL_DECODE_SLASHES` is set to `true`, the URL `example.com/api%2ftest` resolves to `example.com/api/test`. By default, the URL remains unchanged as `example.com/test%2fapi`. For more information, see [Functions proxies](functions-proxies.md).
 
 ## AZURE_FUNCTIONS_ENVIRONMENT
 
@@ -146,7 +185,31 @@ The language worker runtime to load in the function app.  This will correspond t
 |---|------------|
 |FUNCTIONS\_WORKER\_RUNTIME|dotnet|
 
-## WEBSITE_CONTENTAZUREFILECONNECTIONSTRING
+## PIP\_EXTRA\_INDEX\_URL
+
+The value for this setting indicates a custom package index URL for Python apps. Use this setting when you need to run a remote build using custom dependencies that are found in an extra package index.   
+
+|Key|Sample value|
+|---|------------|
+|PIP\_EXTRA\_INDEX\_URL|http://my.custom.package.repo/simple |
+
+To learn more, see [Custom dependencies](functions-reference-python.md#remote-build-with-extra-index-url) in the Python developer reference.
+
+## SCALE\_CONTROLLER\_LOGGING\_ENABLE
+
+_This setting is currently in preview._  
+
+This setting controls logging from the Azure Functions scale controller. For more information, see [Scale controller logs](functions-monitoring.md#scale-controller-logs-preview).
+
+|Key|Sample value|
+|-|-|
+|SCALE_CONTROLLER_LOGGING_ENABLE|AppInsights:Verbose|
+
+The value for this key is supplied in the format `<DESTINATION>:<VERBOSITY>`, which is defined as follows:
+
+[!INCLUDE [functions-scale-controller-logging](../../includes/functions-scale-controller-logging.md)]
+
+## WEBSITE\_CONTENTAZUREFILECONNECTIONSTRING
 
 For Consumption & Premium plans only. Connection string for storage account where the function app code and configuration are stored. See [Create a function app](functions-infrastructure-as-code.md#create-a-function-app).
 
@@ -166,8 +229,8 @@ For Consumption & Premium plans only. The file path to the function app code and
 
 The maximum number of instances that the function app can scale out to. Default is no limit.
 
-> [!NOTE]
-> This setting is a preview feature - and only reliable if set to a value <= 5
+> [!IMPORTANT]
+> This setting is in preview.  An [app property for function max scale out](./functions-scale.md#limit-scale-out) has been added and is the recommended way to limit scale out.
 
 |Key|Sample value|
 |---|------------|
@@ -192,47 +255,16 @@ Enables your function app to run from a mounted package file.
 
 Valid values are either a URL that resolves to the location of a deployment package file, or `1`. When set to `1`, the package must be in the `d:\home\data\SitePackages` folder. When using zip deployment with this setting, the package is automatically uploaded to this location. In preview, this setting was named `WEBSITE_RUN_FROM_ZIP`. For more information, see [Run your functions from a package file](run-functions-from-deployment-package.md).
 
-## AZURE_FUNCTION_PROXY_DISABLE_LOCAL_CALL
+## WEBSITE\_TIME\_ZONE
 
-By default Functions proxies will utilize a shortcut to send API calls from proxies directly to functions in the same Function App, rather than creating a new HTTP request. This setting allows you to disable that behavior.
+Allows you to set the timezone for your function app. 
 
-|Key|Value|Description|
-|-|-|-|
-|AZURE_FUNCTION_PROXY_DISABLE_LOCAL_CALL|true|Calls with a backend URL pointing to a function in the local Function App will no longer be sent directly to the function, and will instead be directed back to the HTTP front end for the Function App|
-|AZURE_FUNCTION_PROXY_DISABLE_LOCAL_CALL|false|This is the default value. Calls with a  backend URL pointing to a function in the local Function App will be forwarded directly to that Function|
+|Key|OS|Sample value|
+|---|--|------------|
+|WEBSITE\_TIME\_ZONE|Windows|Eastern Standard Time|
+|WEBSITE\_TIME\_ZONE|Linux|America/New_York|
 
-
-## AZURE_FUNCTION_PROXY_BACKEND_URL_DECODE_SLASHES
-
-This setting controls whether %2F is decoded as slashes in route parameters when they are inserted into the backend URL. 
-
-|Key|Value|Description|
-|-|-|-|
-|AZURE_FUNCTION_PROXY_BACKEND_URL_DECODE_SLASHES|true|Route parameters with encoded slashes will have them decoded. `example.com/api%2ftest` will become `example.com/api/test`|
-|AZURE_FUNCTION_PROXY_BACKEND_URL_DECODE_SLASHES|false|This is the default behavior. All route parameters will be passed along unchanged|
-
-### Example
-
-Here is an example proxies.json in a function app at the URL myfunction.com
-
-```JSON
-{
-    "$schema": "http://json.schemastore.org/proxies",
-    "proxies": {
-        "root": {
-            "matchCondition": {
-                "route": "/{*all}"
-            },
-            "backendUri": "example.com/{all}"
-        }
-    }
-}
-```
-|URL Decoding|Input|Output|
-|-|-|-|
-|true|myfunction.com/test%2fapi|example.com/test/api
-|false|myfunction.com/test%2fapi|example.com/test%2fapi|
-
+[!INCLUDE [functions-timezone](../../includes/functions-timezone.md)]
 
 ## Next steps
 

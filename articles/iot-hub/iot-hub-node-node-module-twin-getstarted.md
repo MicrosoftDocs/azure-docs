@@ -9,7 +9,7 @@ services: iot-hub
 ms.devlang: nodejs
 ms.topic: conceptual
 ms.date: 04/26/2018
-ms.custom: amqp
+ms.custom: amqp, devx-track-js
 ---
 
 # Get started with IoT Hub module identity and module twin (Node.js)

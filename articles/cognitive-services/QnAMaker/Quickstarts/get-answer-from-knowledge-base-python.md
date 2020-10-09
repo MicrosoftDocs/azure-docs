@@ -1,9 +1,11 @@
 ---
 title: "Quickstart: Get answer from knowledge base - REST, Python - QnA Maker"
 description: This Python REST-based quickstart walks you through getting an answer from a knowledge base, programmatically.
+ms.service: cognitive-services
+ms.subservice: qna-maker
 ms.date: 02/08/2020
 ROBOTS: NOINDEX,NOFOLLOW
-ms.custom: RESTCURL2020FEB27, tracking-python
+ms.custom: RESTCURL2020FEB27, devx-track-python
 ms.topic: how-to
 #Customer intent: As an API or REST developer new to the QnA Maker service, I want to programmatically get an answer a knowledge base using Python.
 ---
@@ -33,7 +35,7 @@ Open VSCode and create a new file named `get-answer-3x.py`.
 
 At the top of the `get-answer-3x.py` file, add necessary dependencies to the project:
 
-[!code-python[Add the required dependencies](~/samples-qnamaker-python/documentation-samples/quickstarts/get-answer/get-answer-3x.py?range=1-2 "Add the required dependencies")]
+:::code language="python" source="~/cognitive-services-quickstart-code/python/QnAMaker/rest/query-kb.py" id="dependencies":::
 
 <!--TBD - reword this following paragraph -->
 
@@ -43,13 +45,13 @@ The host and route are different than how they appear on the **Publish** page. T
 
 Add the required constants to access QnA Maker. These values are on the **Publish** page after you publish the knowledge base.
 
-[!code-python[Add the required constants](~/samples-qnamaker-python/documentation-samples/quickstarts/get-answer/get-answer-3x.py?range=5-25 "Add the required constants")]
+:::code language="python" source="~/cognitive-services-quickstart-code/python/QnAMaker/rest/query-kb.py" id="constants":::
 
 ## Add a POST request to send question and get an answer
 
 The following code makes an HTTPS request to the QnA Maker API to send the question to the knowledge base and receives the response:
 
-[!code-python[Add a POST request to send question to knowledge base](~/samples-qnamaker-python/documentation-samples/quickstarts/get-answer/get-answer-3x.py?range=27-48 "Add a POST request to send question to knowledge base")]
+:::code language="python" source="~/cognitive-services-quickstart-code/python/QnAMaker/rest/query-kb.py" id="main":::
 
 The `Authorization` header's value includes the string `EndpointKey`.
 

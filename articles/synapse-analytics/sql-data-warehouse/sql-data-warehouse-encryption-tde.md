@@ -13,7 +13,7 @@ ms.reviewer: rortloff
 ms.custom: seo-lt-2019
 ---
 
-# Get started with Transparent Data Encryption (TDE)
+# Get started with Transparent Data Encryption (TDE) in Azure Synapse Analytics
 
 > [!div class="op_single_selector"]
 >

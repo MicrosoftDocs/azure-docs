@@ -13,7 +13,7 @@ services: iot-edge
 
 # Create and provision an IoT Edge device using X.509 certificates
 
-With the [Azure IoT Hub Device Provisioning Service (DPS)](../iot-dps/index.yml), you can automatically provision IoT Edge devices using X.509 certificates. If you're unfamiliar with the process of auto-provisioning, review the [auto-provisioning concepts](../iot-dps/concepts-auto-provisioning.md) before continuing.
+With the [Azure IoT Hub Device Provisioning Service (DPS)](../iot-dps/index.yml), you can automatically provision IoT Edge devices using X.509 certificates. If you're unfamiliar with the process of auto-provisioning, review the [provisioning](../iot-dps/about-iot-dps.md#provisioning-process) overview before continuing.
 
 This article shows you how to create a Device Provisioning Service enrollment using X.509 certificates on an IoT Edge device with the following steps:
 
@@ -46,6 +46,9 @@ You need the following files to set up automatic provisioning with X.509:
 * A full chain certificate, which should have at least the device identity and the intermediate certificates in it. The full chain certificate is passed to the IoT Edge runtime.
 * An intermediate or root CA certificate from the certificate chain of trust. This certificate is uploaded to DPS if you create a group enrollment.
 
+> [!NOTE]
+> Currently, a limitation in libiothsm prevents the use of certificates that expire on or after January 1, 2038.
+
 ### Use test certificates
 
 If you don't have a certificate authority available to create new identity certs and want to try out this scenario, the Azure IoT Edge git repository contains scripts that you can use to generate test certificates. These certificates are designed for development testing only, and must not be used in production.
@@ -75,7 +78,7 @@ When you create an enrollment in DPS, you have the opportunity to declare an **I
 For more information about enrollments in the Device Provisioning Service, see [How to manage device enrollments](../iot-dps/how-to-manage-enrollments.md).
 
    > [!TIP]
-   > In the Azure CLI, you can create an [enrollment](https://docs.microsoft.com/cli/azure/ext/azure-iot/iot/dps/enrollment) or an [enrollment group](https://docs.microsoft.com/cli/azure/ext/azure-iot/iot/dps/enrollment-group) and use the **edge-enabled** flag to specify that a device, or group of devices, is an IoT Edge device.
+   > In the Azure CLI, you can create an [enrollment](/cli/azure/ext/azure-iot/iot/dps/enrollment) or an [enrollment group](/cli/azure/ext/azure-iot/iot/dps/enrollment-group) and use the **edge-enabled** flag to specify that a device, or group of devices, is an IoT Edge device.
 
 1. In the [Azure portal](https://portal.azure.com), navigate to your instance of IoT Hub Device Provisioning Service.
 

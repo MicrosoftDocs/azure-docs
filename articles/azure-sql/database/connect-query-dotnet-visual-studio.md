@@ -5,13 +5,13 @@ titleSuffix: Azure SQL Database & SQL Managed Instance
 services: sql-database
 ms.service: sql-database
 ms.subservice: development
-ms.custom: sqldbrb=2 
+ms.custom: "devx-track-csharp, sqldbrb=2"
 ms.devlang: dotnet
 ms.topic: quickstart
 author: stevestein
 ms.author: sstein
 ms.reviewer: 
-ms.date: 05/29/2020
+ms.date: 08/10/2020
 ---
 # Quickstart: Use .NET and C# in Visual Studio to connect to and query a database in Azure SQL Database or Azure SQL Managed Instance
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -25,7 +25,7 @@ To complete this quickstart, you need:
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 - A database in Azure SQL Database. You can use one of these quickstarts to create and then configure a database in Azure SQL Database:
 
-  || SQL Database | SQL Managed Instance | SQL Server on Azure VM |
+  | Action | SQL Database | SQL Managed Instance | SQL Server on Azure VM |
   |:--- |:--- |:---|:---|
   | Create| [Portal](single-database-create-quickstart.md) | [Portal](../managed-instance/instance-create-quickstart.md) | [Portal](../virtual-machines/windows/sql-vm-create-portal-quickstart.md)
   || [CLI](scripts/create-and-configure-database-cli.md) | [CLI](https://medium.com/azure-sqldb-managed-instance/working-with-sql-managed-instance-using-azure-cli-611795fe0b44) |
@@ -56,30 +56,30 @@ Get the connection information you need to connect to the database. You'll need 
 
 ## Create code to query the database in Azure SQL Database
 
-1. In Visual Studio, select **File** > **New** > **Project**. 
+1. In Visual Studio, create a new project. 
    
-1. In the **New Project** dialog, select **Visual C#**, and then select **Console App (.NET Framework)**.
+1. In the **New Project** dialog, select the **Visual C#**, **Console App (.NET Framework)**.
    
 1. Enter *sqltest* for the project name, and then select **OK**. The new project is created. 
    
 1. Select **Project** > **Manage NuGet Packages**. 
    
-1. In **NuGet Package Manager**, select the **Browse** tab, then search for and select **System.Data.SqlClient**.
+1. In **NuGet Package Manager**, select the **Browse** tab, then search for and select **Microsoft.Data.SqlClient**.
    
-1. On the **System.Data.SqlClient** page, select **Install**. 
+1. On the **Microsoft.Data.SqlClient** page, select **Install**. 
    - If prompted, select **OK** to continue with the installation. 
    - If a **License Acceptance** window appears, select **I Accept**.
    
 1. When the install completes, you can close **NuGet Package Manager**. 
    
-1. In the code editor, replace the **Program.cs** contents with the following code. Replace your values for `<server>`, `<username>`, `<password>`, and `<database>`.
+1. In the code editor, replace the **Program.cs** contents with the following code. Replace your values for `<your_server>`, `<your_username>`, `<your_password>`, and `<your_database>`.
    
    >[!IMPORTANT]
    >The code in this example uses the sample AdventureWorksLT data, which you can choose as source when creating your database. If your database has different data, use tables from your own database in the SELECT query. 
    
    ```csharp
    using System;
-   using System.Data.SqlClient;
+   using Microsoft.Data.SqlClient;
    using System.Text;
    
    namespace sqltest
@@ -91,10 +91,10 @@ Get the connection information you need to connect to the database. You'll need 
                try 
                { 
                    SqlConnectionStringBuilder builder = new SqlConnectionStringBuilder();
-                   builder.DataSource = "<server>.database.windows.net"; 
-                   builder.UserID = "<username>";            
-                   builder.Password = "<password>";     
-                   builder.InitialCatalog = "<database>";
+                   builder.DataSource = "<your_server>.database.windows.net"; 
+                   builder.UserID = "<your_username>";            
+                   builder.Password = "<your_password>";     
+                   builder.InitialCatalog = "<your_database>";
    
                    using (SqlConnection connection = new SqlConnection(builder.ConnectionString))
                    {

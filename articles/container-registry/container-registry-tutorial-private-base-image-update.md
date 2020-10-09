@@ -3,6 +3,7 @@ title: Tutorial - Trigger image build by private base image update
 description: In this tutorial, you configure an Azure Container Registry Task to automatically trigger container image builds in the cloud when a base image in another private Azure container registry is updated.
 ms.topic: tutorial
 ms.date: 01/22/2020
+ms.custom: devx-track-js
 ---
 
 # Tutorial: Automate container image builds when a base image is updated in another private container registry 
@@ -165,7 +166,7 @@ docker run -d -p 8080:80 --name myapp --rm $ACR_NAME.azurecr.io/helloworld:<run-
 
 Navigate to `http://localhost:8080` in your browser, and you should see the Node.js version number rendered in the web page, similar to the following. In a later step, you bump the version by adding an "a" to the version string.
 
-![Screenshot of sample application rendered in browser][base-update-01]
+![Screenshot that shows a sample application rendered in a browser.][base-update-01]
 
 To stop and remove the container, run the following command:
 

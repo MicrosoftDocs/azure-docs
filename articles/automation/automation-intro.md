@@ -37,7 +37,7 @@ Change Tracking and Inventory combines change tracking and inventory functions t
 
 ## Update management
 
-Azure Automation includes the [Update Management](automation-update-management.md) feature for Windows and Linux systems across hybrid environments. Update Management gives you visibility into update compliance across Azure and other clouds, and on-premises. The feature allows you to create scheduled deployments that orchestrate the installation of updates within a defined maintenance window. If an update shouldn't be installed on a machine, you can use Update Management functionality to exclude it from a deployment.
+Azure Automation includes the [Update Management](update-management/update-mgmt-overview.md) feature for Windows and Linux systems across hybrid environments. Update Management gives you visibility into update compliance across Azure and other clouds, and on-premises. The feature allows you to create scheduled deployments that orchestrate the installation of updates within a defined maintenance window. If an update shouldn't be installed on a machine, you can use Update Management functionality to exclude it from a deployment.
 
 ## Shared capabilities
 
@@ -47,18 +47,18 @@ Azure Automation offers a number of shared capabilities, including shared resour
 
 Azure Automation consists of a set of shared resources that make it easier to automate and configure your environments at scale.
 
-* **[Schedules](automation-schedules.md)** - Trigger Automation operations at predefined times.
-* **[Modules](automation-integration-modules.md)** - Manage Azure and other systems. You can import modules into the Automation account for Microsoft, third-party, community, and custom-defined cmdlets and DSC resources.
+* **[Schedules](./shared-resources/schedules.md)** - Trigger Automation operations at predefined times.
+* **[Modules](./shared-resources/modules.md)** - Manage Azure and other systems. You can import modules into the Automation account for Microsoft, third-party, community, and custom-defined cmdlets and DSC resources.
 * **[Modules gallery](automation-runbook-gallery.md)** - Supports native integration with the PowerShell Gallery to let you view runbooks and import them into the Automation account. The gallery allows you to quickly get started integrating and authoring your processes from PowerShell gallery and Microsoft Script Center.
 * **[Python 2 packages](python-packages.md)** - Support Python 2 runbooks for your Automation account.
-* **[Credentials](automation-credentials.md)** - Securely store sensitive information that runbooks and configurations can use at runtime.
+* **[Credentials](./shared-resources/credentials.md)** - Securely store sensitive information that runbooks and configurations can use at runtime.
 * **[Connections](automation-connections.md)** - Store name-value pairs of common information for connections to systems. The module author defines connections in runbooks and configurations for use at runtime.
-* **[Certificates](automation-certificates.md)** - Define information to be used in authentication and securing of deployed resources when accessed by runbooks or DSC configurations at runtime. 
-* **[Variables](automation-variables.md)** - Hold content that can be used across runbooks and configurations. You can change variable values without having to modify any of the runbooks or configurations that reference them.
+* **[Certificates](./shared-resources/certificates.md)** - Define information to be used in authentication and securing of deployed resources when accessed by runbooks or DSC configurations at runtime. 
+* **[Variables](./shared-resources/variables.md)** - Hold content that can be used across runbooks and configurations. You can change variable values without having to modify any of the runbooks or configurations that reference them.
 
 ### Role-based access control
 
-Azure Automation supports role-based access control (RBAC) to regulate access to the Automation account and its resources. To learn more about configuring RBAC on your Automation account, runbooks, and jobs, see [Role-based access control for Azure Automation](automation-role-based-access-control.md).
+Azure Automation supports Azure role-based access control (Azure RBAC) to regulate access to the Automation account and its resources. To learn more about configuring Azure RBAC on your Automation account, runbooks, and jobs, see [Role-based access control for Azure Automation](automation-role-based-access-control.md).
 
 ### Source control integration
 
@@ -80,7 +80,7 @@ Azure Automation supports management throughout the lifecycle of your infrastruc
 * **Find changes** - Identify changes that can cause misconfiguration and improve operational compliance.
 * **Monitor** - Isolate machine changes that are causing issues and remediate or escalate them to management systems.
 * **Protect** - Quarantine machines if security alerts are raised. Set in-guest requirements.
-* **Govern** - Set up RBAC for teams. Recover unused resources.
+* **Govern** - Set up Azure RBAC for teams. Recover unused resources.
 
 [!INCLUDE [azure-lighthouse-supported-service](../../includes/azure-lighthouse-supported-service.md)]
 

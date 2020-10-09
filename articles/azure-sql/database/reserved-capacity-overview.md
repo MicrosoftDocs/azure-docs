@@ -3,14 +3,14 @@ title: Save compute costs with reserved capacity
 titleSuffix: Azure SQL Database & SQL Managed Instance
 description: Learn how to buy Azure SQL Database and SQL Managed Instance reserved capacity to save on your compute costs.
 services: sql-database
-ms.service: sql-database
-ms.subservice: service
+ms.service: sql-db-mi
+ms.subservice: features
 ms.custom: sqldbrb=2
 ms.devlang:
 ms.topic: conceptual
 author: anosov1960
 ms.author: sashan
-ms.reviewer: sstein, carlrab
+ms.reviewer: sstein
 ms.date: 08/29/2019
 ---
 # Save costs for resources with reserved capacity - Azure SQL Database & SQL Managed Instance
@@ -38,7 +38,7 @@ For example, let's suppose that you are running one general purpose, Gen5 – 16
 1. Sign in to the [Azure portal](https://portal.azure.com).
 2. Select **All services** > **Reservations**.
 3. Select **Add** and then in the **Purchase Reservations** pane, select **SQL Database** to purchase a new reservation for SQL Database.
-4. Fill in the required fields. Existing databases (single or pooled) or managed instances that match the attributes you select qualify to get the reserved capacity discount. The actual number of databases or managed instances that get the discount depends on the scope and quantity selected.
+4. Fill in the required fields. Existing databases in SQL Database and SQL Managed Instance that match the attributes you select qualify to get the reserved capacity discount. The actual number of databases or managed instances that get the discount depends on the scope and quantity selected.
 
     ![Screenshot before submitting the reserved capacity purchase](./media/reserved-capacity-overview/sql-reserved-vcores-purchase.png)
 

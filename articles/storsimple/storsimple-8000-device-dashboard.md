@@ -10,7 +10,7 @@ editor: ''
 ms.assetid: 
 ms.service: storsimple
 ms.devlang: NA
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 07/03/2017
@@ -82,7 +82,7 @@ The essentials area captures some of the important properties such as, the statu
 
 * The **Capacity** tile displays the primary storage that is provisioned and remaining across the device relative to the total storage available for the same. **Provisioned** refers to the amount of storage that is prepared and allocated for use, **Remaining** refers to the remaining capacity that can be provisioned across this device. 
 
-    ![Usage tile](./media/storsimple-8000-device-dashboard/device-summary8.png)
+    ![Usage tile 2](./media/storsimple-8000-device-dashboard/device-summary8.png)
 
     Click this tile to view how the capacity is provisioned across tiered and locally pinned volumes. The **Remaining Tiered** capacity is the available capacity that can be provisioned including cloud, while the **Remaining Local** is the capacity remaining on the disks attached to this device.
 

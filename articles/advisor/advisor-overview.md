@@ -2,7 +2,7 @@
 title: Introduction to Azure Advisor
 description: Use Azure Advisor to optimize your Azure deployments.
 ms.topic: article
-ms.date: 02/01/2019
+ms.date: 09/27/2020
 ---
 
 # Introduction to Azure Advisor
@@ -46,13 +46,13 @@ You can also view Advisor recommendations through the virtual machine resource i
 
 ### What permissions do I need to access Advisor?
  
-You can access Advisor recommendations as *Owner*, *Contributor*, or *Reader* of a subscription.
+You can access Advisor recommendations as *Owner*, *Contributor*, or *Reader* of a subscription, Resource Group or Resource.
 
 ### What resources does Advisor provide recommendations for?
 
-Advisor provides recommendations for Application Gateway, App Services, availability sets, Azure Cache, Azure Data Factory, Azure Database for MySQL, Azure Database for PostgreSQL, Azure Database for MariaDB, Azure ExpressRoute, Azure Cosmos DB, Azure public IP addresses, SQL Data Warehouse, SQL servers, storage accounts, Traffic Manager profiles, and virtual machines.
+Advisor provides recommendations for Application Gateway, App Services, availability sets, Azure Cache, Azure Data Factory, Azure Database for MySQL, Azure Database for PostgreSQL, Azure Database for MariaDB, Azure ExpressRoute, Azure Cosmos DB, Azure public IP addresses, Azure Synapse Analytics, SQL servers, storage accounts, Traffic Manager profiles, and virtual machines.
 
-Azure Advisor also includes your recommendations from [Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-recommendations) which may include recommendations for additional resource types.
+Azure Advisor also includes your recommendations from [Azure Security Center](../security-center/security-center-recommendations.md) which may include recommendations for additional resource types.
 
 ### Can I postpone or dismiss a recommendation?
 
@@ -63,7 +63,9 @@ To postpone or dismiss a recommendation, click the **Postpone** link. You can sp
 To learn more about Advisor recommendations, see:
 
 * [Get started with Advisor](advisor-get-started.md)
+* [Advisor score](azure-advisor-score.md)
 * [Advisor Reliability recommendations](advisor-high-availability-recommendations.md)
 * [Advisor Security recommendations](advisor-security-recommendations.md)
 * [Advisor Performance recommendations](advisor-performance-recommendations.md)
 * [Advisor Cost recommendations](advisor-cost-recommendations.md)
+* [Advisor operational excellence recommendations](advisor-operational-excellence-recommendations.md)

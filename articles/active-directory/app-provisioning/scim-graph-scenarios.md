@@ -16,11 +16,11 @@ ms.reviewer: arvinh, celested
 
 # Using SCIM and Microsoft Graph together to provision users and enrich your application with the data it needs
 
-**Target audience:** This article is targeted towards developers building applications to be integrated with Azure Active Directory (Azure AD). If you're looking to use applications already integrated with Azure AD, such as Zoom, ServiceNow, and DropBox, you can skip this article and review the application specific [tutorials](https://docs.microsoft.com/azure/active-directory/saas-apps/tutorial-list) or review [how the provisioning service works](https://docs.microsoft.com/azure/active-directory/app-provisioning/how-provisioning-works).
+**Target audience:** This article is targeted towards developers building applications to be integrated with Azure Active Directory (Azure AD). If you're looking to use applications already integrated with Azure AD, such as Zoom, ServiceNow, and DropBox, you can skip this article and review the application specific [tutorials](../saas-apps/tutorial-list.md) or review [how the provisioning service works](./how-provisioning-works.md).
 
 **Common scenarios**
 
-Azure AD provides an out of the box service for provisioning and an extensible platform to build your applications on. The decision tree outlines how a developer would use [SCIM](https://aka.ms/scimoverview) and the [Microsoft Graph](https://docs.microsoft.com/graph/overview) to automate provisioning. 
+Azure AD provides an out of the box service for provisioning and an extensible platform to build your applications on. The decision tree outlines how a developer would use [SCIM](https://aka.ms/scimoverview) and the [Microsoft Graph](/graph/overview) to automate provisioning. 
 
 > [!div class="checklist"]
 > * Automatically create users in my application
@@ -93,15 +93,15 @@ My application relies on groups for access to various resources, and customers w
 ## Scenario 4: Enrich my app with data from Microsoft services such as Teams, Outlook, and OneDrive
 My application is built into Microsoft Teams and relies on message data. In addition, we store files for users in OneDrive. How can I enrich my application with the data from these services and across Microsoft?
 
-**Recommendation:** The [Microsoft Graph](https://docs.microsoft.com/graph/) is your entry point to access Microsoft data. Each workload exposes APIs with the data that you need. The Microsoft graph can be used along with [SCIM provisioning](https://docs.microsoft.com/azure/active-directory/app-provisioning/use-scim-to-provision-users-and-groups) for the scenarios above. You can use SCIM to provision basic user attributes into your application while calling into graph to get any other data that you need. 
+**Recommendation:** The [Microsoft Graph](/graph/) is your entry point to access Microsoft data. Each workload exposes APIs with the data that you need. The Microsoft graph can be used along with [SCIM provisioning](./use-scim-to-provision-users-and-groups.md) for the scenarios above. You can use SCIM to provision basic user attributes into your application while calling into graph to get any other data that you need. 
 
 ## Scenario 5: Track changes in Microsoft services such as Teams, Outlook, and Azure AD
 I need to be able to track changes to Teams and Outlook messages and react to them in real time. How can I get these changes pushed to my application?
 
-**Recommendation:** The Microsoft Graph provides [change notifications](https://docs.microsoft.com/graph/webhooks) and [change tracking](https://docs.microsoft.com/graph/delta-query-overview) for various resources. Note the following limitations of change notifications:
+**Recommendation:** The Microsoft Graph provides [change notifications](/graph/webhooks) and [change tracking](/graph/delta-query-overview) for various resources. Note the following limitations of change notifications:
 - If an event receiver acknowledges an event, but fails to act on it for any reason, the event may be lost.
 - The order in which changes are received are not guaranteed to be chronological.
-- Change notifications don't always contain the [resource data](https://docs.microsoft.com/graph/webhooks-with-resource-data)
+- Change notifications don't always contain the [resource data](/graph/webhooks-with-resource-data)
 For the reasons above, developers often use change notifications along with change tracking for synchronization scenarios. 
 
 ## Scenario 6: Provision users and groups in Azure AD
@@ -114,5 +114,5 @@ My application creates information about a user that customers need in Azure AD.
 
 ## Related articles
 
-- [Review the synchronization Microsoft Graph documentation](https://docs.microsoft.com/graph/api/resources/synchronization-overview?view=graph-rest-beta)
+- [Review the synchronization Microsoft Graph documentation](/graph/api/resources/synchronization-overview?view=graph-rest-beta)
 - [Integrating a custom SCIM app with Azure AD](use-scim-to-provision-users-and-groups.md)

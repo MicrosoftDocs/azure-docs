@@ -23,7 +23,7 @@ Each [node type](../service-fabric-cluster-nodetypes.md) in a Service Fabric clu
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-If needed, install the Azure PowerShell using the instruction found in the [Azure PowerShell guide](/powershell/azure/overview). 
+If needed, install the Azure PowerShell using the instruction found in the [Azure PowerShell guide](/powershell/azure/). 
 
 ## Sample script
 
@@ -45,6 +45,6 @@ A single node type with five nodes, for example, has a duration of 45 to 60 minu
 
 ## Next steps
 
-For more information on the Azure PowerShell module, see [Azure PowerShell documentation](/powershell/azure/overview).
+For more information on the Azure PowerShell module, see [Azure PowerShell documentation](/powershell/azure/).
 
 Additional Azure Powershell samples for Azure Service Fabric can be found in the [Azure PowerShell samples](../service-fabric-powershell-samples.md).

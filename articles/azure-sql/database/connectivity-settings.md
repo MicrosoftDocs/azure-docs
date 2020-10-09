@@ -1,14 +1,14 @@
 ---
 title: Connectivity settings for Azure SQL Database and Data Warehouse
-description: This document explains TLS version choice and Proxy vs. Redirect setting for Azure SQL Database and Azure Synapse Analytics
+description: This document explains Transport Layer Security (TLS) version choice and Proxy vs. Redirect setting for Azure SQL Database and Azure Synapse Analytics
 services: sql-database
 ms.service: sql-database
-titleSuffix: Azure SQL Database and SQL Data Warehouse
-ms.topic: conceptual
+titleSuffix: Azure SQL Database and Azure Synapse Analytics (formerly SQL Data Warehouse)
+ms.topic: how-to
 author: rohitnayakmsft
 ms.author: rohitna
-ms.reviewer: carlrab, vanto
-ms.date: 03/09/2020
+ms.reviewer: sstein, vanto
+ms.date: 07/06/2020
 ---
 
 # Azure SQL Connectivity Settings
@@ -17,7 +17,7 @@ ms.date: 03/09/2020
 This article introduces settings that control connectivity to the server for Azure SQL Database and Azure Synapse Analytics. These settings apply to **all** SQL Database and Azure Synapse databases associated with the server.
 
 > [!IMPORTANT]
-> This article does *not* apply to **Azure SQL Managed Instance**
+> This article does *not* apply to **Azure SQL Managed Instance**.
 
 The connectivity settings are accessible from the **Firewalls and virtual networks** screen as shown in the following screenshot:
 
@@ -28,9 +28,20 @@ The connectivity settings are accessible from the **Firewalls and virtual networ
 
 ## Deny public network access
 
-In the Azure portal, when the **Deny public network access** setting is set to **Yes**, only connections via private endpoints are allowed. When this setting is set to **No**, clients can connect using the private or public endpoint.
+When **Deny public network access** setting is set to **Yes**, only connections via private endpoints are allowed. When this setting is set to **No** (default), clients can connect using either public endpoints (IP-based firewall rules, VNET-based firewall rules) or private endpoints (using Private Link) as outlined in the [network access overview](network-access-controls-overview.md). 
 
-Customers can connect to SQL Database using  public endpoints (IP-based firewall rules, VNET based firewall rules) or private endpoints (using Private Link) as outlined in the [network access overview](network-access-controls-overview.md). 
+ ![Screenshot of connectivity with deny public network access][2]
+
+Any attempts to set **Deny public network access** setting to **Yes** without any existing private endpoints at the logical server will fail with an error message similar to:  
+
+> [!NOTE]
+> To define virtual network firewall rules on a logical server that's already configured with private endpoints, set **Deny public network access** to **No**.
+
+```output
+Error 42102
+Unable to set Deny Public Network Access to Yes since there is no private endpoint enabled to access the server. 
+Please set up private endpoints and retry the operation. 
+```
 
 When **Deny public network access** setting is set to **Yes**, only connections via private endpoints are allowed and all connections via public endpoints are denied with an error message similar to:  
 
@@ -39,6 +50,14 @@ Error 47073
 An instance-specific error occurred while establishing a connection to SQL Server. 
 The public network interface on this server is not accessible. 
 To connect to this server, use the Private Endpoint from inside your virtual network.
+```
+
+When **Deny public network access** setting is set to **Yes**, any attempts to add or update firewall rules will be denied with an error message similar to:
+
+```output
+Error 42101
+Unable to create or modify firewall rules when public network interface for the server is disabled. 
+To manage server or database level firewall rules, please enable the public network interface.
 ```
 
 ## Change Public Network Access via PowerShell
@@ -55,7 +74,7 @@ The following PowerShell script shows how to `Get` and `Set` the **Public Networ
 # Update Public Network Access to Disabled
 $SecureString = ConvertTo-SecureString "password" -AsPlainText -Force
 
-Set-AzSqlServer -ServerName sql-server-name -ResourceGroupName sql-server-group -SqlAdministratorPassword $SecureString -PublicNetworkAccess "Enabled"
+Set-AzSqlServer -ServerName sql-server-name -ResourceGroupName sql-server-group -SqlAdministratorPassword $SecureString -PublicNetworkAccess "Disabled"
 ```
 
 ## Change Public Network Access via CLI
@@ -81,9 +100,12 @@ az sql server update -n sql-server-name -g sql-server-group --set publicNetworkA
 
 The Minimal [Transport Layer Security (TLS)](https://support.microsoft.com/help/3135244/tls-1-2-support-for-microsoft-sql-server) Version setting allows customers to control the version of TLS used by their Azure SQL Database.
 
-At present we support TLS 1.0, 1.1 and 1.2. Setting a Minimal TLS Version ensures that subsequent, newer TLS versions are supported. For example,  e.g.,  choosing  a TLS version greater than 1.1. means only connections with TLS 1.1 and 1.2 are accepted and TLS 1.0 is rejected. After testing to confirm your applications supports the it, we recommend setting minimal TLS version to 1.2 since it includes fixes for vulnerabilities found in previous versions and is the highest version of TLS supported in Azure SQL Database.
+At present, we support TLS 1.0, 1.1 and 1.2. Setting a Minimal TLS Version ensures that subsequent, newer TLS versions are supported. For example, choosing  a TLS version greater than 1.1. means only connections with TLS 1.1 and 1.2 are accepted and TLS 1.0 is rejected. After testing to confirm your applications supports it, we recommend setting Minimal TLS Version to 1.2 since it includes fixes for vulnerabilities found in previous versions and is the highest version of TLS supported in Azure SQL Database.
 
-For customers with applications that rely on older versions of TLS, we recommend setting the Minimal TLS Version per the requirements of your applications. For customers that rely on applications to connect using an unencrypted connection, we recommend not setting any Minimal TLS Version. 
+> [!IMPORTANT]
+> The default for Minimal TLS Version is to allow all versions. However, once you enforce a version of TLS it is not possible to revert to the default.
+
+For customers with applications that rely on older versions of TLS, we recommend setting the Minimal TLS Version per the requirements of your applications. For customers that rely on applications to connect using an unencrypted connection, we recommend not setting any Minimal TLS Version.
 
 For more information, see [TLS considerations for SQL Database connectivity](connect-query-content-reference-guide.md#tls-considerations-for-database-connectivity).
 
@@ -149,7 +171,7 @@ $sqlserverid=(Get-AzSqlServer -ServerName sql-server-name -ResourceGroupName sql
 $id="$sqlserverid/connectionPolicies/Default"
 
 # Get current connection policy
-(Get-AzResource -ResourceId $id).Properties.connectionType
+(Get-AzResource -ResourceId $id -ApiVersion 2014-04-01 -Verbose).Properties.ConnectionType
 
 # Update connection policy
 Set-AzResource -ResourceId $id -Properties @{"connectionType" = "Proxy"} -f
@@ -200,3 +222,4 @@ az resource update --ids %sqlserverid% --set properties.connectionType=Proxy
 
 <!--Image references-->
 [1]: media/single-database-create-quickstart/manage-connectivity-settings.png
+[2]: media/single-database-create-quickstart/manage-connectivity-flowchart.png

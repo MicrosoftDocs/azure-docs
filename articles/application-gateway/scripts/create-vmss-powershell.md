@@ -1,4 +1,4 @@
-﻿---
+---
 title: Azure PowerShell Script Sample - Manage web traffic | Microsoft Docs
 description: Azure PowerShell Script Sample - Manage web traffic with an application gateway and a virtual machine scale set.
 services: application-gateway
@@ -14,7 +14,7 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 01/29/2018
 ms.author: victorh
-ms.custom: mvc
+ms.custom: mvc, devx-track-azurepowershell
 ---
 
 # Manage web traffic with Azure PowerShell
@@ -65,6 +65,6 @@ This script uses the following commands to create the deployment. Each item in t
 
 ## Next steps
 
-For more information on the Azure PowerShell module, see [Azure PowerShell documentation](/powershell/azure/overview).
+For more information on the Azure PowerShell module, see [Azure PowerShell documentation](/powershell/azure/).
 
 Additional application gateway PowerShell script samples can be found in the [Azure Application Gateway documentation](../powershell-samples.md).

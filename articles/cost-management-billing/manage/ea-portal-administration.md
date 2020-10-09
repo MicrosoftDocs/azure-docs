@@ -3,9 +3,10 @@ title: Azure EA portal administration
 description: This article explains the common tasks that an administrator accomplishes in the Azure EA portal.
 author: bandersmsft
 ms.author: banders
-ms.date: 06/01/2020
+ms.date: 09/03/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
+ms.subservice: enterprise
 ms.reviewer: boalcsva
 ---
 
@@ -28,7 +29,7 @@ Enterprise Administrators can associate existing accounts to Departments under t
 
 ## Department spending quotas
 
-EA customers can set or change spending quotas for each department under an enrollment. The spending quota amount is set for the current commitment term. At the end of the current commitment term, the system will extend the existing spending quota to the next commitment term unless the values are updated.
+EA customers can set or change spending quotas for each department under an enrollment. The spending quota amount is set for the current Prepayment term. At the end of the current Prepayment term, the system will extend the existing spending quota to the next Prepayment term unless the values are updated.
 
 The department administrator can view the spending quota but only the enterprise administrator can update the quota amount. The enterprise administrator and the department administrator and will receive notifications once quota has reached 50%, 75%, 90%, and 100%.
 
@@ -43,9 +44,9 @@ The department administrator can view the spending quota but only the enterprise
     - The Department Name and Cost Center can also be edited at this time.
  1. Select **Save**.
 
-The department spending quota will now be visible in the Department List view under the Department tab. At the end of the current commitment, the Azure EA Portal will maintain the spending quotas for the next commitment term.
+The department spending quota will now be visible in the Department List view under the Department tab. At the end of the current Prepayment, the Azure EA Portal will maintain the spending quotas for the next Prepayment term.
 
-The department quota amount is independent of the current monetary commitment, and the quota amount and alerts apply only to first party usage. The department spending quota is for informational purposes only and doesn't enforce spending limits.
+The department quota amount is independent of the current Azure Prepayment, and the quota amount and alerts apply only to first party usage. The department spending quota is for informational purposes only and doesn't enforce spending limits.
 
 ### Department administrator to view the quota:
 
@@ -169,7 +170,7 @@ This document answers commonly asked questions relating to account subscription 
 
 ### How many Azure account owners can you have per subscription?
 
-Only one account owner is permitted per subscription.  Additional roles can be added using Role-Based Access or (Access Control (IAM)) in the subscription tab in the upper left corner of the page on [portal.azure.com]](https://portal.azure.com).
+Only one account owner is permitted per subscription.  Additional roles can be added using Azure role-based access control (Azure RBAC) in the subscription tab in the upper left corner of the page of the [Azure portal](https://portal.azure.com).
 
 ### Can an Azure account owner be listed under more than one department?
 
@@ -185,7 +186,7 @@ An Azure account owner can create and manage an unlimited number of subscription
 
 ### How can I access/view all my organization's subscriptions?
 
-Today this must be done by policy; meaning you would need to require that for every subscription created, your account is added to a subscription role using role-based access.
+Today this must be done by policy; meaning you would need to require that for every subscription created, your account is added to a subscription role using Azure role-based access control (Azure RBAC).
 
 ### Where do I go to create a subscription?
 

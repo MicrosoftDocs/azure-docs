@@ -90,7 +90,7 @@ This XML defines a simple UI to interact with your bot.
 
 The text and graphical representation of your UI should now look like this:
 
-![](~/articles/cognitive-services/speech-service/media/sdk/qs-java-android-assistant-designer-ui.png)
+![Screenshot of how your Talk to your bot UI should look.](~/articles/cognitive-services/speech-service/media/sdk/qs-java-android-assistant-designer-ui.png)
 
 ## Add sample code
 

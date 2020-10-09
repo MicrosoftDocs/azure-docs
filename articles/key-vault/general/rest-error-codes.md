@@ -85,7 +85,7 @@ Tokens are base64 encoded and the values can be decoded at websites such as [htt
 
 We can see many important parts in this token:
 
-- aud (audience): The resource of the token. Notice that this is <https://vault.azure.net>. This token will NOT work for any resource that does not explicitly match this value, such as graph.
+- aud (audience): The resource of the token. Notice that this is `https://vault.azure.net`. This token will NOT work for any resource that does not explicitly match this value, such as graph.
 - iat (issued at): The number of ticks since the start of the epoch when the token was issued.
 - nbf (not before): The number of ticks since the start of the epoch when this token becomes valid.
 - exp (expiration): The number of ticks since the start of the epoch when this token expires.
@@ -108,7 +108,7 @@ Content-Length: 192
 resource=https%3A%2F%2Fvault.azure.net&client_id=<registered-app-ID>&client_secret=<registered-app-secret>&client_info=1&grant_type=client_credentials
 ```
 
-The following user-supplied information mush be correct:
+The following user-supplied information must be correct:
 
 - The key vault tenant ID
 - Resource value set to https%3A%2F%2Fvault.azure.net (URL encoded)
@@ -124,13 +124,13 @@ If you can only get the response access token, you can decode it (as shown above
 HTTP 403 means that the request was authenticated (it knows the requesting identity) but the identity does not have permission to access the requested resource. There are two causes:
 
 - There is no access policy for the identity.
-- The IP address of the requesting resource is not whitelisted in the key vault's firewall settings.
+- The IP address of the requesting resource is not approved in the key vault's firewall settings.
 
 HTTP 403 often occurs when the customer's application is not using the client ID that the customer thinks it is. That usually means that the access policies is not correctly set up for the actual calling identity.
 
 ### Troubleshooting 403
 
-First, turn on logging. For instructions on how to do so, see [Azure Key Vault logging](logging.md)).
+First, turn on logging. For instructions on how to do so, see [Azure Key Vault logging](logging.md).
 
 Once logging is turned on, you can determine if the 403 is due to access policy or firewall policy.
 
@@ -162,5 +162,3 @@ Throttling is worked around using these techniques:
 - If the number of requests cannot be reduced by caching and timed backoff does not work, then consider splitting the keys up into multiple Key Vaults. The service limit for a single subscription is 5x the individual Key Vault limit. If using more than 5 Key Vaults, consideration should be given to using multiple subscriptions. 
 
 Detailed guidance including request to increase limits, can be find here: [Key Vault throttling guidance](overview-throttling.md)
-
-

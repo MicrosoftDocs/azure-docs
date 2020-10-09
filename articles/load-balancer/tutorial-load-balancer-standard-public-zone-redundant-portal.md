@@ -73,9 +73,9 @@ In this section you'll need to replace the following parameters in the steps wit
 | **\<resource-group-name>**  | myResourceGroupLBAZ (Select existing resource group) |
 | **\<virtual-network-name>** | myVNet          |
 | **\<region-name>**          | West Europe      |
-| **\<IPv4-address-space>**   | 10.0.0.0\16          |
+| **\<IPv4-address-space>**   | 10.0.0.0/16          |
 | **\<subnet-name>**          | myBackendSubnet        |
-| **\<subnet-address-range>** | 10.0.0.0\24          |
+| **\<subnet-address-range>** | 10.0.0.0/24          |
 
 [!INCLUDE [virtual-networks-create-new](../../includes/virtual-networks-create-new.md)]
 
@@ -88,7 +88,7 @@ Create network security group to define inbound connections to your virtual netw
     - *myNetworkSecurityGroup*  - for the name of the network security group.
     - *myResourceGroupLBAZ* - for the name of the existing resource group.
    
-![Create a virtual network](./media/load-balancer-standard-public-availability-zones-portal/create-nsg.png)
+![Screenshot shows the Create network security group pane.](./media/load-balancer-standard-public-availability-zones-portal/create-nsg.png)
 
 ### Create network security group rules
 
@@ -107,7 +107,7 @@ In this section, you create network security group rules to allow inbound connec
     - *Allow HTTP* - for description of the load balancer rule.
 4. Click **OK**.
  
-   ![Create a virtual network](./media/load-balancer-standard-public-availability-zones-portal/8-load-balancer-nsg-rules.png)
+   ![Screenshot shows the Add inbound security rule pane.](./media/load-balancer-standard-public-availability-zones-portal/8-load-balancer-nsg-rules.png)
 5. Repeat steps 2 to 4 to create another rule named *myRDPRule* to allow for an inbound RDP connection using port 3389 with the following values:
     - *Service Tag* - for **Source**.
     - *Internet* - for **Source service tag**

@@ -3,7 +3,7 @@ title: Create and upload a CentOS-based Linux VHD
 description: Learn to create and upload an Azure virtual hard disk (VHD) that contains a CentOS-based Linux operating system.
 author: gbowerman
 ms.service: virtual-machines-linux
-ms.topic: article
+ms.topic: how-to
 ms.date: 11/25/2019
 ms.author: guybo
 
@@ -18,7 +18,7 @@ Learn to create and upload an Azure virtual hard disk (VHD) that contains a Cent
 
 ## Prerequisites
 
-This article assumes that you have already installed a CentOS (or similar derivative) Linux operating system to a virtual hard disk. Multiple tools exist to create .vhd files, for example a virtualization solution such as Hyper-V. For instructions, see [Install the Hyper-V Role and Configure a Virtual Machine](https://technet.microsoft.com/library/hh846766.aspx).
+This article assumes that you have already installed a CentOS (or similar derivative) Linux operating system to a virtual hard disk. Multiple tools exist to create .vhd files, for example a virtualization solution such as Hyper-V. For instructions, see [Install the Hyper-V Role and Configure a Virtual Machine](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/hh846766(v=ws.11)).
 
 **CentOS installation notes**
 
@@ -158,7 +158,7 @@ This article assumes that you have already installed a CentOS (or similar deriva
     sudo yum install microsoft-hyper-v
     ```
 
-    Alternatively, you can follow the manual installation instructions on the [LIS download page](https://www.microsoft.com/download/details.aspx?id=51612) to install the RPM onto your VM.
+    Alternatively, you can follow the manual installation instructions on the [LIS download page](https://www.microsoft.com/download/details.aspx?id=55106) to install the RPM onto your VM.
 
 12. Install the Azure Linux Agent and dependencies. Start and enable waagent service:
 

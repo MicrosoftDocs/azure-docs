@@ -280,13 +280,13 @@ public class AzureSpatialAnchorsScript : MonoBehaviour
         {
             return;
         }
+        
         tapExecuted = true;
 
         // We have saved an anchor, so we will now look for it.
         if (!String.IsNullOrEmpty(cloudSpatialAnchorId))
         {
             Debug.Log("ASA Info: We will look for a placed anchor.");
-            tapExecuted = true;
 
             ResetSession(() =>
             {
