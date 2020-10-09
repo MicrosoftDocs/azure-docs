@@ -37,7 +37,7 @@
     - name: 1 - Create a video analytics application
       items:
       - name: Object and motion detection (YOLO v3)
-        href: tutorial-video-analytics-create-app-yolov3.md
+        href: tutorial-video-analytics-create-app-yolo-v3.md
       - name: Object and motion detection (OpenVINO)
         href: tutorial-video-analytics-create-app-openvino.md
     - name: 2 - Configure an IoT Edge device

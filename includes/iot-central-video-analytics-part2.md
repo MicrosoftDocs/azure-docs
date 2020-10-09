@@ -33,7 +33,7 @@ When the deployment is complete, navigate to the **Properties** page for your **
 
 Next, configure an Azure Active Directory service principal for your Media Services resource. Select **API access** and then **Service principal authentication**. Create a new Azure Active Directory app with the same name as your Media Services resource, and create a secret with a description *IoT Edge Access*.
 
-:::image type="content" source="./media/iot-central-video-analytics-part2/media-service-authentication.png" alt-text="Configure AAD app for AMS":::
+:::image type="content" source="./media/iot-central-video-analytics-part2/media-service-authentication.png" alt-text="Configure Azure A D app for Azure Media Services":::
 
 When the secret is generated, scroll down to the **Copy your credentials to connect your service principal application** section. Then select **JSON**. You can copy all the credential information from here in one go. Make a note of this information in the *scratchpad.txt* file, you use it later when you configure the IoT Edge device.
 
