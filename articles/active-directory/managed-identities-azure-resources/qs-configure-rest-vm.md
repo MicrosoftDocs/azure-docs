@@ -29,9 +29,11 @@ In this article, using CURL to make calls to the Azure Resource Manager REST end
 - Enable and disable the system-assigned managed identity on an Azure VM
 - Add and remove a user-assigned managed identity on an Azure VM
 
+If you don't already have an Azure account, [sign up for a free account](https://azure.microsoft.com/free/) before continuing.
+
 [!INCLUDE [azure-cli-prepare-your-environment.md](../../../includes/azure-cli-prepare-your-environment.md)]
 
-If you're unfamiliar with managed identities for Azure resources, see [What are managed identities for Azure resources?](overview.md). To learn about  system-assigned and user-assigned managed identity types, see [Managed identity types](overview.md#managed-identity-types).
+- If you're unfamiliar with managed identities for Azure resources, see [What are managed identities for Azure resources?](overview.md). To learn about  system-assigned and user-assigned managed identity types, see [Managed identity types](overview.md#managed-identity-types).
 
 ## System-assigned managed identity
 

@@ -25,9 +25,11 @@ Managed identities for Azure resources provides Azure services with an automatic
 
 In this article, you learn how to view the service principal of a managed identity using Azure CLI.
 
+If you don't already have an Azure account, [sign up for a free account](https://azure.microsoft.com/free/) before continuing.
+
 [!INCLUDE [azure-cli-prepare-your-environment.md](../../../includes/azure-cli-prepare-your-environment.md)]
 
-If you're unfamiliar with managed identities for Azure resources, see [What are managed identities for Azure resources?](overview.md).
+- If you're unfamiliar with managed identities for Azure resources, see [What are managed identities for Azure resources?](overview.md).
 
 ## View the service principal
 
