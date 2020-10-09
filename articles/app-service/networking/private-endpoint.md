@@ -91,7 +91,7 @@ For example, the name resolution will be:
 |mywebapp.azurewebsites.net|CNAME|mywebapp.privatelink.azurewebsites.net|
 |mywebapp.privatelink.azurewebsites.net|A|10.10.10.8|<--You manage this entry in your DNS system to point to your Private Endpoint IP address|
 
-After this DNS configuration you can reach your Web App privately with the default name mywebappname.azurewebsites.net.
+After this DNS configuration you can reach your Web App privately with the default name mywebappname.azurewebsites.net. You must use this name, because the default certificate is issued for *.azurewebsites.net.
 
 
 If you need to use a custom DNS name, you must add the custom name in your Web App. 
