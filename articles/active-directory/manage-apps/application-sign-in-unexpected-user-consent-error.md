@@ -74,10 +74,12 @@ These errors all occur when the application a user is trying to consent to is re
     -   Adding the application from the Azure AD Application Gallery
 
 ## Risky app error and warning
+* **AADSTS900941:** Administrator consent is required. App is considered risky. (AdminConsentRequiredDueToRiskyApp)
 * This app may be risky. If you trust this app, please ask your admin to grant you access.
+* **AADSTS900981:** An admin consent request was received for a risky app. (AdminConsentRequestRiskyAppWarning)
 * This app may be risky. Only continue if you trust this app.
 
-Both of these messages will be displayed when Microsoft has determined that the consent request may be risky. Among a number of other factors, this may occur if a [verified publisher](../develop/publisher-verification-overview.md) has not been added to the app registration. The first message will be shown to end-users when the [Admin consent workflow](configure-admin-consent-workflow.md) is disabled. The second message will be shown to end-users when the admin consent workflow is enabled and to admins. 
+Both of these messages will be displayed when Microsoft has determined that the consent request may be risky. Among a number of other factors, this may occur if a [verified publisher](../develop/publisher-verification-overview.md) has not been added to the app registration. The first error code and message will be shown to end-users when the [Admin consent workflow](configure-admin-consent-workflow.md) is disabled. The second code and message will be shown to end-users when the admin consent workflow is enabled and to admins. 
 
 End-users will not be able to grant consent to apps that have been detected as risky. Admins are able to, but should evaluate the app very carefuly and proceed with caution. If the app seems suspicious upon further review, it can be reported to Microsoft from the consent screen. 
 
