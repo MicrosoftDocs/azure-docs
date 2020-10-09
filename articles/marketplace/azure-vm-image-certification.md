@@ -757,6 +757,6 @@ https://isvapp.azure-api.net/selftest-vm -d '{ "DNSName":"XXXX.westus.cloudapp.a
 
 ![JSON results from the CURL call.](media/vm/test-results-json-viewer-3.png)
 
-## Next step
+## Next steps
 
-- Read [Common SAS URI issues and fixes](common-sas-uri-issues.md).
+- [Get SAS URI](get-sas-uri)

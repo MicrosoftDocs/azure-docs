@@ -131,18 +131,20 @@
         href: azure-vm-create-plans.md
       - name: Test and publish a VM offer
         href: azure-vm-create-test-publish.md
-      - name: VM certification, issues and solutions
-        href: azure-vm-certification-issues-solutions.md
-      - name: VHD creation FAQ
-        href: azure-vm-common-issues-during-vhd-creation.md
-      - name: Test a VM image
-        href: azure-vm-image-certification.md
-      - name: SAS URI
-        items:
-        - name: Get SAS URI
-          href: get-sas-uri.md
-        - name: SAS URI FAQ
-          href: common-sas-uri-issues.md
+    - name: Market your VM offer
+      href: azure-vm-create-marketing.md
+    - name: Test a VM image
+      href: azure-vm-image-certification.md
+    - name: SAS URI
+      items:
+      - name: Get SAS URI
+        href: azure-vm-get-sas-uri.md
+      - name: SAS URI FAQ
+        href: azure-vm-common-sas-uri-issues.md
+    - name: VHD creation FAQ
+      href: azure-vm-common-issues-during-vhd-creation.md
+    - name: VM certification, issues, and solutions
+      href: azure-vm-certification-issues-solutions.md
   - name: Consulting services
     items: 
     - name: Plan a consulting services offer

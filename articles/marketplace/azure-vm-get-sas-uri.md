@@ -107,4 +107,4 @@ Check the SAS URI before publishing it on Partner Center to avoid any issues rel
 
 ## Next step
 
-- Read [Create an Azure virtual machine offer](azure-vm-create.md).
+- Read [Common SAS URI issues and fixes](common-sas-uri-issues.md).

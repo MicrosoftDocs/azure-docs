@@ -25,5 +25,4 @@ If you elect to make your offer available in the Cloud Solution Provider (CSP) p
 
 ## Next steps
 
-- [Review and publish an offer to the commercial marketplace](review-publish-offer.md)
-- [Active marketplace rewards](partner-center-portal/marketplace-rewards.md)
+- [Test a VM image](azure-vm-image-certification.md)

@@ -191,7 +191,7 @@ For details on how to enter prices for specific offer types, refer to these arti
 
 - [Create an Azure application offer](partner-center-portal/create-new-azure-apps-offer.md)
 - [Create an Azure container offer](partner-center-portal/create-azure-container-offer.md)
-- [Create an Azure virtual machine offer](partner-center-portal/azure-vm-create-offer.md)
+- [Create an Azure virtual machine offer](azure-vm-create.md)
 - [Create a consulting service offer](partner-center-portal/create-consulting-service-offer.md)
 - [Create a Dynamics 365 for Customer Engagement & PowerApps offer](partner-center-portal/create-new-customer-engagement-offer.md)
 - [Create a Dynamics 365 for Operations offer](partner-center-portal/create-new-operations-offer.md)
