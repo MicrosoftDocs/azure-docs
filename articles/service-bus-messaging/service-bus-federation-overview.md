@@ -188,6 +188,10 @@ In this article, we explored a range of federation patterns and explained the ro
 Next, you might want to read up how to set up a replicator application with Azure Functions and then how to replicate event flows between Event Hubs and various other eventing and messaging systems:
 
 - [Replication applications in Azure Functions](service-bus-federation-replicator-functions.md)
-- Replicating messages between Service Bus entities
+- [Replicating events between Service Bus entities](service-bus-federation-service-bus.md)
+- [Routing events from and to Azure Event Hubs and IoT Hub](service-bus-federation-event-hubs.md)
+- [Routing events from and to Azure Event Grid](service-bus-federation-event-grid.md)
+- [Replicating events from and to Apache Kafka](service-bus-federation-kafka.md)
+ 
 
 [1]: ./media/service-bus-auto-forwarding/IC628632.gif 
