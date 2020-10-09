@@ -171,10 +171,10 @@ If you want to create node pools with the Moby (docker) runtime, you can do so b
 
 ## Generation 2 virtual machines (Preview)
 
-Azure supports [Generation 2 (Gen2) virtual machines (VMs)](../virtual-machines/windows/generation-2.md). Generation 2 VMs support key features that aren't supported in generation 1 VMs (Gen1). These features include increased memory, Intel Software Guard Extensions (Intel SGX), and virtualized persistent memory (vPMEM).
+Azure supports [Generation 2 (Gen2) virtual machines (VMs)](../virtual-machines/generation-2.md). Generation 2 VMs support key features that aren't supported in generation 1 VMs (Gen1). These features include increased memory, Intel Software Guard Extensions (Intel SGX), and virtualized persistent memory (vPMEM).
 
 Generation 2 VMs use the new UEFI-based boot architecture rather than the BIOS-based architecture used by generation 1 VMs.
-Only specific SKUs and sizes support Gen2 VMs. Check the [list of supported sizes](../virtual-machines/windows/generation-2.md#generation-2-vm-sizes), to see if your SKU supports or requires Gen2.
+Only specific SKUs and sizes support Gen2 VMs. Check the [list of supported sizes](../virtual-machines/generation-2.md#generation-2-vm-sizes), to see if your SKU supports or requires Gen2.
 
 Additionally not all VM images support Gen2, on AKS Gen2 VMs will use the new [AKS Ubuntu 18.04 image](#os-configuration). This image supports all Gen2 SKUs and sizes.
 

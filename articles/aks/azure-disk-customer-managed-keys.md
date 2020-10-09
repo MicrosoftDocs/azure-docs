@@ -147,7 +147,7 @@ Review [best practices for AKS cluster security][best-practices-security]
 [az-extension-add]: /cli/azure/extension#az-extension-add
 [az-extension-update]: /cli/azure/extension#az-extension-update
 [best-practices-security]: ./operator-best-practices-cluster-security.md
-[byok-azure-portal]: ../storage/common/storage-encryption-keys-portal.md
+[byok-azure-portal]: ../storage/common/customer-managed-keys-configure-key-vault.md
 [customer-managed-keys-windows]: ../virtual-machines/windows/disk-encryption.md#customer-managed-keys
 [customer-managed-keys-linux]: ../virtual-machines/linux/disk-encryption.md#customer-managed-keys
 [key-vault-generate]: ../key-vault/general/manage-with-cli2.md
