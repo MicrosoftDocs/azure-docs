@@ -209,19 +209,19 @@ Once you complete these steps, close all the *cshtml* documents in Visual Studio
 
 ### <a name="initialize-services"></a>Declare and initialize services
 
-First, we'll add a class that contains the logic to connect to and use Azure Cosmos DB. For this tutorial, we'll encapsulate this logic into a class called `CosmosDBService` and an interface called `ICosmosDBService`. This service does the CRUD operations. It also does read feed operations such as listing incomplete items, creating, editing, and deleting the items.
+First, we'll add a class that contains the logic to connect to and use Azure Cosmos DB. For this tutorial, we'll encapsulate this logic into a class called `CosmosDbService` and an interface called `ICosmosDbService`. This service does the CRUD operations. It also does read feed operations such as listing incomplete items, creating, editing, and deleting the items.
 
 1. In **Solution Explorer**, right-click your project and select **Add** > **New Folder**. Name the folder *Services*.
 
-1. Right-click the **Services** folder, select **Add** > **Class**. Name the new class *CosmosDBService* and select **Add**.
+1. Right-click the **Services** folder, select **Add** > **Class**. Name the new class *CosmosDbService* and select **Add**.
 
-1. Replace the contents of *CosmosDBService.cs* with the following code:
+1. Replace the contents of *CosmosDbService.cs* with the following code:
 
    :::code language="csharp" source="~/samples-cosmosdb-dotnet-core-web-app/src/Services/CosmosDbService.cs":::
 
-1. Right-click the **Services** folder, select **Add** > **Class**. Name the new class *ICosmosDBService* and select **Add**.
+1. Right-click the **Services** folder, select **Add** > **Class**. Name the new class *ICosmosDbService* and select **Add**.
 
-1. Add the following code to *ICosmosDBService* class:
+1. Add the following code to *ICosmosDbService* class:
 
    :::code language="csharp" source="~/samples-cosmosdb-dotnet-core-web-app/src/Services/ICosmosDbService.cs":::
 
