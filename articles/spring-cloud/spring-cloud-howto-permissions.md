@@ -80,52 +80,15 @@ This procedure defines a role with permissions to deploy, test, and restart Azur
 5. Click **Review and create**.
 
 ## Define Azure Pipelines/Provisioning role
-This Jenkins/Github Actions role can create and configure everything in Azure Spring Cloud and apps with a service instance. 
+This Jenkins/Github Actions role can create and configure everything in Azure Spring Cloud and apps with a service instance. This role is for releasing or deploying code.
 
-Need permissions specs <-------
- 
-## Define Pipelines role
-This role is for releasing or deploying code.
-
-1. Repeat the procedure to navigate subscription, resource group,and access Access control (IAM).
+1. Repeat the procedure to navigate subscription, resource group, and access Access control (IAM).
 
 2. Open the **Permissions** options.
 
 3. Select the permissions:
   
-From: **Microsoft.AppPlatform/Spring**, select:
- 
-* Write : Create or Update Azure Spring Cloud service instance
-
-* Read : Get Azure Spring Cloud service instance
-
-* Other : Get Microsoft Azure Spring Cloud application resource upload URL
-
-From: **Microsoft.AppPlatform/Spring/apps**, select:
-
-* Write : Write Microsoft Azure Spring Cloud application
-
-* Delete : Delete Microsoft Azure Spring Cloud application
-
-* Read : Read Microsoft Azure Spring Cloud application
-
-* Other : Get Microsoft Azure Spring Cloud application resource upload URL
-
-From **Microsoft.AppPlatform/Spring/apps/deployments**, select:
-
-* Write : Write Microsoft Azure Spring Cloud application deployment
-
-* Delete : Delete Microsoft Azure Spring Cloud application deployment
-
-* Read : Read Microsoft Azure Spring Cloud application deployment
-
-* Other : Start Microsoft Azure Spring Cloud application deployment
-
-* Other : Stop Microsoft Azure Spring Cloud application deployment
-
-From: **Microsoft.AppPlatform/Spring/apps/deployments/skus**, select:
-
-* Read: List application deployment available skus    
+   [ ![App platform permissions](media/spring-cloud-permissions/app-platform-permissions.png) ](media/spring-cloud-permissions/pipelines-permissions-box.png#lightbox)  
 
 4. Click **Add**.
 
