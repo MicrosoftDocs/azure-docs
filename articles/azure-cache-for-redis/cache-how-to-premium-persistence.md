@@ -8,7 +8,7 @@ ms.topic: conceptual
 ms.date: 10/09/2020
 ---
 # How to configure data persistence for a Premium Azure Cache for Redis
-In this article, you will learn how to configure persistence in a premium Azure Cache for Redis instance through the Azure Portal. Azure Cache for Redis has different cache offerings which provide flexibility in the choice of cache size and features, including Premium tier features such as clustering, persistence, and virtual network support. 
+In this article, you will learn how to configure persistence in a premium Azure Cache for Redis instance through the Azure portal. Azure Cache for Redis has different cache offerings, which provide flexibility in the choice of cache size and features, including Premium tier features such as clustering, persistence, and virtual network support. 
 
 ## What is data persistence?
 [Redis persistence](https://redis.io/topics/persistence) allows you to persist data stored in Redis. You can also take snapshots and back up the data, which you can load in case of a hardware failure. This is a huge advantage over Basic or Standard tier where all the data is stored in memory and there can be potential data loss in case of a failure where Cache nodes are down. 
@@ -38,11 +38,11 @@ Persistence writes Redis data into an Azure Storage account that you own and man
    
    | Setting      | Suggested value  | Description |
    | ------------ |  ------- | -------------------------------------------------- |
-   | **DNS name** | Enter a globally unique name. | The cache name must be a string between 1 and 63 characters that contains only numbers, letters, or hyphens. The name must start and end with a number or letter, and can't contain consecutive hyphens. Your cache instance's *host name* will be *\<DNS name>.redis.cache.windows.net*. | 
-   | **Subscription** | Drop down and select your subscription. | The subscription under which to create this new Azure Cache for Redis instance. | 
-   | **Resource group** | Drop down and select a resource group, or select **Create new** and enter a new resource group name. | Name for the resource group in which to create your cache and other resources. By putting all your app resources in one resource group, you can easily manage or delete them together. | 
-   | **Location** | Drop down and select a location. | Select a [region](https://azure.microsoft.com/regions/) near other services that will use your cache. |
-   | **Cache type** | Drop down and select a premium cache to configure premium features. For details, see [Azure Cache for Redis pricing](https://azure.microsoft.com/pricing/details/cache/). |  The pricing tier determines the size, performance, and features that are available for the cache. For more information, see [Azure Cache for Redis Overview](cache-overview.md). |
+   | **DNS name** | Enter a globally unique name. | The cache name must be a string between 1 and 63 characters that contain only numbers, letters, or hyphens. The name must start and end with a number or letter, and can't contain consecutive hyphens. Your cache instance's *host name* will be *\<DNS name>.redis.cache.windows.net*. | 
+   | **Subscription** | Drop-down and select your subscription. | The subscription under which to create this new Azure Cache for Redis instance. | 
+   | **Resource group** | Drop-down and select a resource group, or select **Create new** and enter a new resource group name. | Name for the resource group in which to create your cache and other resources. By putting all your app resources in one resource group, you can easily manage or delete them together. | 
+   | **Location** | Drop-down and select a location. | Select a [region](https://azure.microsoft.com/regions/) near other services that will use your cache. |
+   | **Cache type** | Drop-down and select a premium cache to configure premium features. For details, see [Azure Cache for Redis pricing](https://azure.microsoft.com/pricing/details/cache/). |  The pricing tier determines the size, performance, and features that are available for the cache. For more information, see [Azure Cache for Redis Overview](cache-overview.md). |
 
 4. Select the **Networking** tab or click the **Networking** button at the bottom of the page.
 
@@ -56,9 +56,9 @@ Persistence writes Redis data into an Azure Storage account that you own and man
    
    | Setting      | Suggested value  | Description |
    | ------------ |  ------- | -------------------------------------------------- |
-   | **Backup Frequency** | Drop down and select a backup interval, choices include **15 Minutes**, **30 minutes**, **60 minutes**, **6 hours**, **12 hours**, and **24 hours** | This interval starts counting down after the previous backup operation successfully completes and when it elapses a new backup is initiated. | 
-   | **Storage Account** | Drop down and select your storage account. | You must choose a storage account in the same region as the cache, and a **Premium Storage** account is recommended because premium storage has higher throughput.  | 
-   | **Storage Key** | Drop down and choose either the **Primary key** or **Secondary key** to use. | If the storage key for your persistence account is regenerated, you must reconfigure the desired key from the **Storage Key** drop down. | 
+   | **Backup Frequency** | Drop-down and select a backup interval, choices include **15 Minutes**, **30 minutes**, **60 minutes**, **6 hours**, **12 hours**, and **24 hours** | This interval starts counting down after the previous backup operation successfully completes and when it elapses a new backup is initiated. | 
+   | **Storage Account** | Drop-down and select your storage account. | You must choose a storage account in the same region as the cache, and a **Premium Storage** account is recommended because premium storage has higher throughput.  | 
+   | **Storage Key** | Drop-down and choose either the **Primary key** or **Secondary key** to use. | If the storage key for your persistence account is regenerated, you must reconfigure the desired key from the **Storage Key** drop-down. | 
 
 The first backup is initiated once the backup frequency interval elapses.
 
@@ -66,10 +66,10 @@ The first backup is initiated once the backup frequency interval elapses.
    
    | Setting      | Suggested value  | Description |
    | ------------ |  ------- | -------------------------------------------------- |
-   | **First Storage Account** | Drop down and select your storage account. | This storage account must be in the same region as the cache, and a **Premium Storage** account is recommended because premium storage has higher throughput. | 
-   | **First Storage Key** | Drop down and choose either the **Primary key** or **Secondary key** to use. | If the storage key for your persistence account is regenerated, you must reconfigure the desired key from the **Storage Key** drop down. | 
-   | **Second Storage Account** | (Optional) Drop down and choose either the **Primary key** or **Secondary key** to use | You can optionally configure an additional storage account. If a second storage account is configured, the writes to the replica cache are written to this second storage account. | 
-   | **Second Storage Key** | (Optional) Drop down and choose either the **Primary key** or **Secondary key** to use | If the storage key for your persistence account is regenerated, you must reconfigure the desired key from the **Storage Key** drop down. | 
+   | **First Storage Account** | Drop-down and select your storage account. | This storage account must be in the same region as the cache, and a **Premium Storage** account is recommended because premium storage has higher throughput. | 
+   | **First Storage Key** | Drop-down and choose either the **Primary key** or **Secondary key** to use. | If the storage key for your persistence account is regenerated, you must reconfigure the desired key from the **Storage Key** drop-down. | 
+   | **Second Storage Account** | (Optional) Drop-down and choose either the **Primary key** or **Secondary key** to use | You can optionally configure an additional storage account. If a second storage account is configured, the writes to the replica cache are written to this second storage account. | 
+   | **Second Storage Key** | (Optional) Drop-down and choose either the **Primary key** or **Secondary key** to use | If the storage key for your persistence account is regenerated, you must reconfigure the desired key from the **Storage Key** drop-down. | 
 
 When AOF persistence is enabled, write operations to the cache are saved to the designated storage account (or accounts if you have configured a second storage account). In the event of a catastrophic failure that takes down both the primary and replica cache, the stored AOF log is used to rebuild the cache.
 
