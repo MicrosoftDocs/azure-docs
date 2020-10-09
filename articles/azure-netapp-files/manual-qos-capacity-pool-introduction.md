@@ -20,7 +20,7 @@ ms.author: b-juche
 
 This article provides an introduction to the manual Quality of Service (QoS) capacity pool functionality.
 
-## How manual QoS differs from Auto QoS
+## How manual QoS differs from auto QoS
 
 The [QoS type](azure-netapp-files-understand-storage-hierarchy.md#qos_types) is an attribute of a capacity pool. Azure NetApp Files provides two QoS types of capacity pools – auto (default), or manual.  
 
