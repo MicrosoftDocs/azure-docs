@@ -9,6 +9,8 @@ ms.topic: troubleshooting
 ms.date: 10/08/2020
 ---
 
+[!INCLUDEapplies-to-single-flexible-server]
+
 # Troubleshoot Replication latency in Azure Database for MySQL
 
 The [read replica](concepts-read-replicas.md) feature allows you to replicate data from an Azure Database for MySQL server to a read-only replica server. Read Replicas are used to scale out workload by routing read/reporting queries from the application to replica servers. This reduces the pressure on primary server and improves overall performance and latency of the application as it scales. Replicas are updated asynchronously using the MySQL engine's native binary log (binlog) file position-based replication technology. To learn more about binlog replication, see the [MySQL binlog replication overview](https://dev.mysql.com/doc/refman/5.7/en/binlog-replication-configuration-overview.html). 
@@ -152,19 +154,33 @@ Azure Database for MySQL uses row-based replication. With row-based replication,
 
 In MySQL the primary key is an associated index that ensures fast query performance as it cannot include NULL values. With InnoDB storage engine, the table data is physically organized to do ultra-fast lookups and sorts based on the primary key. It is therefore recommended to add a primary key on tables in the source server before creating the replica server. In this scenario, you need to add primary keys on the source server and recreate read replicas to help improve replication latency.
 
+You can use the following query to determine the tables with primary key missing on the source server:
+
+```sql 
+select tab.table_schema as database_name, tab.table_name 
+from information_schema.tables tab left join 
+information_schema.table_constraints tco 
+on tab.table_schema = tco.table_schema 
+and tab.table_name = tco.table_name 
+and tco.constraint_type = 'PRIMARY KEY' 
+where tco.constraint_type is null 
+and tab.table_schema not in('mysql', 'information_schema', 'performance_schema', 'sys') 
+and tab.table_type = 'BASE TABLE' 
+order by tab.table_schema, tab.table_name;
+
+```
+
 #### Replication latency due to long running queries on replica server
 
 It is possible that the workload on replica server can prevent SQL thread to keep-up with the IO thread. This is one of the common causes of high replication latency if there is a long running query on the replica server. In this case, [slow query log](concepts-server-logs.md) should be enabled on the replica server to help troubleshooting the issue. Slow queries can increase resource consumptions or slow down the server, thus replica will not be able to catch-up with the master. In this scenario, you need to tune slow queries. Faster queries prevent unblocking of SQL thread and improves replication latency significantly.
 
 
 #### Replication latency due to DDL queries on source server
-Some DDL queries, especially ALTER TABLE can require a lock on a table, therefore it should be used with caution in a replication environment. Depending on the ALTER TABLE statement executed, it might allow concurrent DML operations, for more details check [MySQL Online DDL Operations](https://dev.mysql.com/doc/refman/5.7/en/innodb-online-ddl-operations.html). Also, some operations like CREATE INDEX will only finish when all transactions that access the table are completed. In a replication scenario, first the DDL command will be executed on the master server and only when completed, it is propagated to the replica server(s).
-
-An ALTER TABLE statement on the source server could take long time to complete depending on the size of the table. When the operation completes, it will be propagated to the read replica server and depending on the ALTER statement it might require a lock on the table. In case a lock is required, the binary log replication is delayed until the lock is released. In such a case, the replication latency will also depend on the workload on the replica or if there are long running transactions on the table that will increase the time furthermore. 
+If there is an online DDL executed on source server and say it took 1 hour to execute. During that time, if there are thousands of other queries running in parallel on source server. When the DDL gets replicated to the replica, to ensure consistency of the database, MySQL engine has to run the DDL in a single replication thread. So all other replicated queries will be blocked and will need to wait for 1 hour until the DDL operation is completed on replica server. This is true regardless of online DDL operation or not. With DDL operations, the replication is expected to see an increased replication latency.
 
 This scenario can be detected by enabling [slow query log](concepts-server-logs.md) on source server. Though Index dropping, renaming and creation should use INPLACE algorithm for the ALTER TABLE it will avoid copying table data, but may rebuild the table. Typically for INPLACE algorithm concurrent DML is supported, but an exclusive metadata lock on the table may be taken briefly during preparation and execution phases of the operation. As such, for CREATE INDEX statement the clauses ALGORITHM and LOCK may be used to influence the table copying method and level of concurrency for reading and writing, nevertheless adding a FULLTEXT or SPATIAL index will still prevent DML operations. See below an example of creating an index with ALGORITHM and LOCK clauses:
 
-```
+```sql
 ALTER TABLE table_name ADD INDEX index_name (column), ALGORITHM=INPLACE, LOCK=NONE;
 ```
 
