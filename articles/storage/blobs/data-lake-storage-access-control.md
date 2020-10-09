@@ -193,10 +193,17 @@ return ( (desired_perms & perms & mask ) == desired_perms)
 
 As illustrated in the Access Check Algorithm, the mask limits access for named users, the owning group, and named groups.  
 
-> [!NOTE]
-> For a new Data Lake Storage Gen2 container, the mask for the access ACL of the root directory ("/") defaults to 750 for directories and 640 for files. Files do not receive the X bit as it is irrelevant to files in a store-only system.
->
-> The mask may be specified on a per-call basis. This allows different consuming systems, such as clusters, to have different effective masks for their file operations. If a mask is specified on a given request, it completely overrides the default mask.
+For a new Data Lake Storage Gen2 container, the mask for the access ACL of the root directory ("/") defaults to **750** for directories and **640** for files. The following table shows the symbolic notation of these permission levels.
+
+|Entity|Directories|Files|
+|--|--|--|
+|Owning user|`rwx`|`r-w`|
+|Owning group|`r-x`|`r`|
+|Other|`---`|`---`|
+
+Files do not receive the X bit as it is irrelevant to files in a store-only system. 
+
+The mask may be specified on a per-call basis. This allows different consuming systems, such as clusters, to have different effective masks for their file operations. If a mask is specified on a given request, it completely overrides the default mask.
 
 ### The sticky bit
 
