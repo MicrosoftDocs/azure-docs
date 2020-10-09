@@ -2,7 +2,7 @@
 title: Template functions - objects
 description: Describes the functions to use in an Azure Resource Manager template for working with objects.
 ms.topic: conceptual
-ms.date: 04/27/2020
+ms.date: 10/08/2020
 ---
 # Object functions for ARM templates
 
@@ -231,17 +231,17 @@ The output from the preceding example with the default values is:
 
 `json(arg1)`
 
-Returns a JSON object.
+Converts a valid JSON string into a JSON data type.
 
 ### Parameters
 
 | Parameter | Required | Type | Description |
 |:--- |:--- |:--- |:--- |
-| arg1 |Yes |string |The value to convert to JSON. |
+| arg1 |Yes |string |The value to convert to JSON. The string must be a properly formatted JSON string. |
 
 ### Return value
 
-The JSON object from the specified string, or an empty object when **null** is specified.
+The JSON data type from the specified string, or an empty value when **null** is specified.
 
 ### Remarks
 
@@ -249,22 +249,38 @@ If you need to include a parameter value or variable in the JSON object, use the
 
 ### Example
 
-The following [example template](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/json.json) shows how to use the json function. Notice that you can either pass in a string that represents the object or use **null** when no value is needed.
+The following [example template](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/json.json) shows how to use the json function. Notice that you can pass in **null** for an empty object.
 
 ```json
 {
     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
-        "jsonObject1": {
+        "jsonEmptyObject": {
             "type": "string",
             "defaultValue": "null"
         },
-        "jsonObject2": {
+        "jsonObject": {
             "type": "string",
             "defaultValue": "{\"a\": \"b\"}"
         },
-        "testValue": {
+        "jsonString": {
+            "type": "string",
+            "defaultValue": "\"test\""
+        },
+        "jsonBoolean": {
+            "type": "string",
+            "defaultValue": "true"
+        },
+        "jsonInt": {
+            "type": "string",
+            "defaultValue": "3"
+        },
+        "jsonArray": {
+            "type": "string",
+            "defaultValue": "[[1,2,3 ]"
+        },
+        "concatValue": {
             "type": "string",
             "defaultValue": "demo value"
         }
@@ -272,17 +288,33 @@ The following [example template](https://github.com/Azure/azure-docs-json-sample
     "resources": [
     ],
     "outputs": {
-        "jsonOutput1": {
+        "emptyObjectOutput": {
             "type": "bool",
-            "value": "[empty(json(parameters('jsonObject1')))]"
+            "value": "[empty(json(parameters('jsonEmptyObject')))]"
         },
-        "jsonOutput2": {
+        "objectOutput": {
             "type": "object",
-            "value": "[json(parameters('jsonObject2'))]"
+            "value": "[json(parameters('jsonObject'))]"
         },
-        "paramOutput": {
+        "stringOutput": {
+            "type": "string",
+            "value": "[json(parameters('jsonString'))]"
+        },
+        "booleanOutput": {
+            "type": "bool",
+            "value": "[json(parameters('jsonBoolean'))]"
+        },
+        "intOutput": {
+            "type": "int",
+            "value": "[json(parameters('jsonInt'))]"
+        },
+        "arrayOutput": {
+            "type": "array",
+            "value": "[json(parameters('jsonArray'))]"
+        },
+        "concatObjectOutput": {
             "type": "object",
-            "value": "[json(concat('{\"a\": \"', parameters('testValue'), '\"}'))]"
+            "value": "[json(concat('{\"a\": \"', parameters('concatValue'), '\"}'))]"
         }
     }
 }
@@ -292,9 +324,13 @@ The output from the preceding example with the default values is:
 
 | Name | Type | Value |
 | ---- | ---- | ----- |
-| jsonOutput1 | Boolean | True |
-| jsonOutput2 | Object | {"a": "b"} |
-| paramOutput | Object | {"a": "demo value"}
+| emptyObjectOutput | Boolean | True |
+| objectOutput | Object | {"a": "b"} |
+| stringOutput | String | test |
+| booleanOutput | Boolean | True |
+| intOutput | Integer | 3 |
+| arrayOutput | Array | [ 1, 2, 3 ] |
+| concatObjectOutput | Object | { "a": "demo value" } |
 
 ## length
 
