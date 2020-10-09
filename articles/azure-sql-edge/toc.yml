@@ -142,3 +142,10 @@
   items:
   - name: Transact-SQL (T-SQL) Reference
     href: https://docs.microsoft.com/sql/t-sql/language-reference
+- name: Resources
+  expanded: true
+  items:
+  -name: Partners
+    items: 
+    - name: Security
+      href: resources-partners-security.md
