@@ -13,7 +13,7 @@ ms.topic: how-to
 
 For each run of the Unity editor only one of the two can be used. To use the other one, restart Unity first.
 
-## Use Unity play mode to preview on Hololens 2
+## Use Unity play mode to preview on HoloLens 2
 
  Unity play mode can still be used, for example to test the UI of the application. However, it is vital that ARR is never initialized. Otherwise it will crash.
 

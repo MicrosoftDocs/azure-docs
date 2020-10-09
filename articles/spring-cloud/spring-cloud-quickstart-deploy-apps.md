@@ -7,10 +7,172 @@ ms.service: spring-cloud
 ms.topic: quickstart
 ms.date: 08/03/2020
 ms.custom: devx-track-java
+zone_pivot_groups: programming-languages-spring-cloud
 ---
 
 # Quickstart: Build and deploy apps to Azure Spring Cloud
 
+::: zone pivot="programming-language-csharp"
+In this quickstart, you build and deploy microservice applications to Azure Spring Cloud using the Azure CLI.
+
+## Prerequisites
+
+* Complete the previous quickstarts in this series:
+
+  * [Provision Azure Spring Cloud service](spring-cloud-quickstart-provision-service-instance.md).
+  * [Set up Azure Spring Cloud configuration server](spring-cloud-quickstart-setup-config-server.md).
+
+## Download the sample app
+
+If you've been using the Azure Cloud Shell up to this point, switch to a local command prompt for the following steps.
+
+1. Create a new folder and clone the sample app repository.
+
+   ```console
+   mkdir source-code
+   ```
+
+   ```console
+   cd source-code
+   ```
+
+   ```console
+   git clone https://github.com/Azure-Samples/Azure-Spring-Cloud-Samples
+   ```
+
+1. Navigate into the repository directory.
+
+   ```console
+   cd Azure-Spring-Cloud-Samples
+   ```
+
+## Deploy PlanetWeatherProvider
+
+1. Create an app for the PlanetWeatherProvider project in your Azure Spring Cloud instance.
+
+   ```azurecli
+   az spring-cloud app create --name planet-weather-provider --runtime-version NetCore_31
+   ```
+
+   To enable automatic service registration, you have given the app the same name as the value of `spring.application.name` in the project's *appsettings.json* file:
+
+   ```json
+   "spring": {
+     "application": {
+       "name": "planet-weather-provider"
+     }
+   }
+   ```
+
+   This command may take several minutes to run.
+
+1. Change directory to the `PlanetWeatherProvider` project folder.
+
+   ```console
+   cd steeltoe-sample/src/planet-weather-provider
+   ```
+
+1. Create the binaries and the *.zip* file to be deployed.
+
+   ```console
+   dotnet publish -c release -o ./publish
+   ```
+
+   > [!TIP]
+   > The project file contains the following XML to package the binaries in a *.zip* file after writing them to the *./publish* folder:
+   >
+   > ```xml
+   > <Target Name="Publish-Zip" AfterTargets="Publish">
+   >   <ZipDirectory SourceDirectory="$(PublishDir)" DestinationFile="$(MSBuildProjectDirectory)/publish-deploy-planet.zip" Overwrite="true" />
+   > </Target>
+   > ```
+
+1. Deploy to Azure.
+
+   Make sure that the command prompt is in the project folder before running the following command.
+
+   ```console
+   az spring-cloud app deploy -n planet-weather-provider --runtime-version NetCore_31 --main-entry Microsoft.Azure.SpringCloud.Sample.PlanetWeatherProvider.dll --artifact-path ./publish-deploy-planet.zip
+   ```
+
+   The `--main-entry` option specifies the relative path from the *.zip* file's root folder to the *.dll* file that contains the application's entry point. After the service uploads the *.zip* file, it extracts all the files and folders and tries to execute the entry point in the specified *.dll* file.
+
+   This command may take several minutes to run.
+
+## Deploy SolarSystemWeather
+
+1. Create another app in your Azure Spring Cloud instance, this time for the SolarSystemWeather project:
+
+   ```azurecli
+   az spring-cloud app create --name solar-system-weather --runtime-version NetCore_31
+   ```
+
+   `solar-system-weather` is the name that is specified in the `SolarSystemWeather` project's *appsettings.json* file.
+
+   This command may take several minutes to run.
+
+1. Change directory to the `SolarSystemWeather` project.
+
+   ```console
+   cd ../solar-system-weather
+   ```
+
+1. Create the binaries and *.zip* file to be deployed.
+
+   ```console
+   dotnet publish -c release -o ./publish
+   ```
+
+1. Deploy to Azure.
+
+   ```console
+   az spring-cloud app deploy -n solar-system-weather --runtime-version NetCore_31 --main-entry Microsoft.Azure.SpringCloud.Sample.SolarSystemWeather.dll --artifact-path ./publish-deploy-solar.zip
+   ```
+   
+   This command may take several minutes to run.
+
+## Assign public endpoint
+
+To test the application, send an HTTP GET request to the `solar-system-weather` application from a browser.  To do that, you need a public endpoint for the request.
+
+1. To assign the endpoint, run the following command.
+
+   ```azurecli
+   az spring-cloud app update -n solar-system-weather --is-public true
+   ```
+
+1. To get the URL of the endpoint, run the following command.
+
+   Windows:
+
+   ```azurecli
+   az spring-cloud app show -n solar-system-weather -o table
+   ```
+
+   Linux:
+
+   ```azurecli
+   az spring-cloud app show --name solar-system-weather | grep url
+   ```
+
+## Test the application
+
+Send a GET request to the `solar-system-weather` app. In a browser, navigate to the public URL with `/weatherforecast` appended to the end of it. For example:
+
+```
+https://servicename-solar-system-weather.azuremicroservices.io/weatherforecast
+```
+
+The output is JSON:
+
+```json
+[{"Key":"Mercury","Value":"very warm"},{"Key":"Venus","Value":"quite unpleasant"},{"Key":"Mars","Value":"very cool"},{"Key":"Saturn","Value":"a little bit sandy"}]
+```
+
+This response shows that both microservice apps are working. The `SolarSystemWeather` app returns data that it retrieved from the `PlanetWeatherProvider` app.
+::: zone-end
+
+::: zone pivot="programming-language-java"
 This document explains how to build and deploy microservice applications to Azure Spring Cloud using:
 * Azure CLI
 * Maven Plugin
@@ -20,10 +182,10 @@ Before deployment using Azure CLI or Maven, complete the examples that [provisio
 
 ## Prerequisites
 
-* [Install JDK 8](https://docs.microsoft.com/java/azure/jdk/?view=azure-java-stable)
+* [Install JDK 8](https://docs.microsoft.com/java/azure/jdk/?view=azure-java-stable&preserve-view=true)
 * [Sign up for an Azure subscription](https://azure.microsoft.com/free/)
-* (Optional) [Install the Azure CLI version 2.0.67 or higher](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) and install the Azure Spring Cloud extension with command: `az extension add --name spring-cloud`
-* (Optional) [Install the Azure Toolkit for IntelliJ](https://plugins.jetbrains.com/plugin/8053-azure-toolkit-for-intellij/) and [sign-in](https://docs.microsoft.com/azure/developer/java/toolkit-for-intellij/create-hello-world-web-app#installation-and-sign-in)
+* (Optional) [Install the Azure CLI version 2.0.67 or higher](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest&preserve-view=true) and install the Azure Spring Cloud extension with command: `az extension add --name spring-cloud`
+* (Optional) [Install the Azure Toolkit for IntelliJ](https://plugins.jetbrains.com/plugin/8053-azure-toolkit-for-intellij/) and [sign in](https://docs.microsoft.com/azure/developer/java/toolkit-for-intellij/create-hello-world-web-app#installation-and-sign-in)
 
 ## Deployment procedures
 
@@ -106,7 +268,7 @@ We need a way to access the application via a web browser. Our gateway applicati
 
 ### Generate configurations and deploy to the Azure Spring Cloud
 
-1. Generate configurations by running the following command in the root folder of PiggyMetrics containing the parent POM. If you have already signed-in with Azure CLI, the command will automatically pick up the credentials. Otherwise, it will sign you in with prompt instructions. See our [wiki page](https://github.com/microsoft/azure-maven-plugins/wiki/Authentication) for more details.
+1. Generate configurations by running the following command in the root folder of PiggyMetrics containing the parent POM. If you have already signed-in with Azure CLI, the command will automatically pick up the credentials. Otherwise, it will sign you in with prompt instructions. For more information, see our [wiki page](https://github.com/microsoft/azure-maven-plugins/wiki/Authentication).
 
     ```
     mvn com.microsoft.azure:azure-spring-cloud-maven-plugin:1.1.0:config
@@ -137,13 +299,13 @@ We need a way to access the application via a web browser. Our gateway applicati
     ![Import Project](media/spring-cloud-intellij-howto/revision-import-project-1.png)
 
 ### Deploy gateway app to Azure Spring Cloud
-In order to deploy to Azure you must sign-in with your Azure account with Azure Toolkit for IntelliJ, and choose your subscription. For sign-in details, see [Installation and sign-in](https://docs.microsoft.com/azure/developer/java/toolkit-for-intellij/create-hello-world-web-app#installation-and-sign-in).
+In order to deploy to Azure you must sign in with your Azure account with Azure Toolkit for IntelliJ, and choose your subscription. For sign-in details, see [Installation and sign-in](https://docs.microsoft.com/azure/developer/java/toolkit-for-intellij/create-hello-world-web-app#installation-and-sign-in).
 
 1. Right-click your project in IntelliJ project explorer, and select **Azure** -> **Deploy to Azure Spring Cloud**.
 
     ![Deploy to Azure 1](media/spring-cloud-intellij-howto/revision-deploy-to-azure-1.png)
 
-1. In the **Name** field append *:gateway* to the existing **Name** refers to the configuration.
+1. In the **Name** field, append *:gateway* to the existing **Name**.
 1. In the **Artifact** textbox, select *com.piggymetrics:gateway:1.0-SNAPSHOT*.
 1. In the **Subscription** textbox, verify your subscription.
 1. In the **Spring Cloud** textbox, select the instance of Azure Spring Cloud that you created in [Provision Azure Spring Cloud instance](https://docs.microsoft.com/azure/spring-cloud/spring-cloud-quickstart-provision-service-instance).
@@ -153,7 +315,7 @@ In order to deploy to Azure you must sign-in with your Azure account with Azure 
 
     ![Deploy to Azure OK](media/spring-cloud-intellij-howto/revision-deploy-to-azure-2.png)
 
-1. In the **Before launch** section of the dialog, double click *Run Maven Goal*.
+1. In the **Before launch** section of the dialog, double-click *Run Maven Goal*.
 1. In the **Working directory** textbox, navigate to the *piggymetrics/gateway* folder.
 1. In the **Command line** textbox, enter *package -DskipTests*. Click **OK**.
 1. Start the deployment by clicking **Run** button at the bottom of the **Deploy Azure Spring Cloud app** dialog. The plug-in will run the command `mvn package` on the `gateway` app and deploy the jar generated by the `package` command.
@@ -169,7 +331,7 @@ You can repeat the steps above to deploy `auth-service` and the `account-service
 1. Repeat these procedures to configure and deploy the `account-service`.
 ---
 
-Navigate to the URL provided in the output the previous steps to access the PiggyMetrics application. e.g. `https://<service instance name>-gateway.azuremicroservices.io`
+Navigate to the URL provided in the output the previous steps to access the PiggyMetrics application. For example: `https://<service instance name>-gateway.azuremicroservices.io`
 
 ![Access PiggyMetrics](media/spring-cloud-quickstart-launch-app-cli/launch-app.png)
 
@@ -184,15 +346,11 @@ You can also navigate the Azure portal to find the URL.
 
     ![Navigate app second](media/spring-cloud-quickstart-launch-app-cli/navigate-app2-url.png)
 
-## Clean up resources
-In the preceding steps, you created Azure resources in a resource group. If you don't expect to need these resources in the future, delete the resource group from portal, or by running the following command in the Cloud Shell:
-```azurecli
-az group delete --name <your resource group name; for example: helloworld-1558400876966-rg> --yes
-```
-In the preceding steps, you also set the default resource group name. To clear out that default, run the following command in the Cloud Shell:
-```azurecli
-az configure --defaults group=
-```
+::: zone-end
+
 ## Next steps
+
+In this quickstart, you created Azure resources that will continue to accrue charges if they remain in your subscription. If you don't intend to continue on to the next quickstart, see [Clean up resources](spring-cloud-quickstart-logs-metrics-tracing.md#clean-up-resources). Otherwise, advance to the next quickstart:
+
 > [!div class="nextstepaction"]
 > [Logs, Metrics and Tracing](spring-cloud-quickstart-logs-metrics-tracing.md)

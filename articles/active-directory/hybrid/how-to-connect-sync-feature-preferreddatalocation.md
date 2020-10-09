@@ -113,7 +113,7 @@ Not all Azure AD attributes are imported into the on-premises Active Directory c
 4. Make sure the source attribute you selected to use is checked in the attribute list. If you do not see your attribute, select the **Show All** check box.
 5. To save, select **OK**.
 
-![Screenshot of Synchronization Service Manager and Properties dialog box](./media/how-to-connect-sync-feature-preferreddatalocation/preferreddatalocation-step2.png)
+![Screenshot that shows the Synchronization Service Manager and Properties dialog box with the "Attributes" list highlighted.](./media/how-to-connect-sync-feature-preferreddatalocation/preferreddatalocation-step2.png)
 
 ## Step 4: Add **preferredDataLocation** to the Azure AD Connector schema
 **This step is only needed if you run Connect version 1.3.21 or older. If you are on 1.4.18 or newer, then skip to step 5.**  

@@ -375,7 +375,7 @@ You are now ready to run the console apps.
     mvn exec:java -Dexec.mainClass="com.mycompany.app.App"
     ```
 
-    ![Java IoT Hub service app to update tag values and run device queries](./media/iot-hub-java-java-twin-getstarted/service-app-1.png)
+    ![Screenshot that shows the output from the command to run the add tags query service app.](./media/iot-hub-java-java-twin-getstarted/service-app-1.png)
 
     You can see the **plant** and **region** tags added to the device twin. The first query returns your device, but the second does not.
 
@@ -385,7 +385,7 @@ You are now ready to run the console apps.
     mvn exec:java -Dexec.mainClass="com.mycompany.app.App"
     ```
 
-    ![The device client adds the **connectivityType** reported property](./media/iot-hub-java-java-twin-getstarted/device-app-1.png)
+    ![The device client adds the connectivity Type reported property](./media/iot-hub-java-java-twin-getstarted/device-app-1.png)
 
 3. At a command prompt in the **add-tags-query** folder, run the following command to run the **add-tags-query** service app a second time:
 

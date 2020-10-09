@@ -38,7 +38,7 @@ The DEKs, encrypted with the KEKs, are stored separately. Only an entity with ac
 
 ## How data encryption with a customer-managed key work
 
-![Diagram that shows an overview of Bring Your Own Key](media/concepts-data-access-and-security-data-encryption/postgresql-data-encryption-overview.png)
+:::image type="content" source="media/concepts-data-access-and-security-data-encryption/postgresql-data-encryption-overview.png" alt-text="Diagram that shows an overview of Bring Your Own Key":::
 
 For a PostgreSQL server to use customer-managed keys stored in Key Vault for encryption of the DEK, a Key Vault administrator gives the following access rights to the server:
 
@@ -74,7 +74,7 @@ When you're using data encryption by using a customer-managed key, here are reco
 * Ensure that Key Vault and Azure Database for PostgreSQL Single server reside in the same region, to ensure a faster access for DEK wrap, and unwrap operations.
 * Lock down the Azure KeyVault to only **private endpoint and selected networks** and allow only *trusted Microsoft* services to secure the resources.
 
-    ![trusted-service-with-AKV](media/concepts-data-access-and-security-data-encryption/keyvault-trusted-service.png)
+    :::image type="content" source="media/concepts-data-access-and-security-data-encryption/keyvault-trusted-service.png" alt-text="trusted-service-with-AKV":::
 
 Here are recommendations for configuring a customer-managed key:
 
@@ -116,9 +116,9 @@ To monitor the database state, and to enable alerting for the loss of transparen
 
 After Azure Database for PostgreSQL Single server is encrypted with a customer's managed key stored in Key Vault, any newly created copy of the server is also encrypted. You can make this new copy either through a local or geo-restore operation, or through read replicas. However, the copy can be changed to reflect a new customer's managed key for encryption. When the customer-managed key is changed, old backups of the server start using the latest key.
 
-To avoid issues while setting up customer-managed data encryption during restore or read replica creation, it's important to follow these steps on the master and restored/replica servers:
+To avoid issues while setting up customer-managed data encryption during restore or read replica creation, it's important to follow these steps on the primary and restored/replica servers:
 
-* Initiate the restore or read replica creation process from the master Azure Database for PostgreSQL Single server.
+* Initiate the restore or read replica creation process from the primary Azure Database for PostgreSQL Single server.
 * Keep the newly created server (restored/replica) in an inaccessible state, because its unique identity hasn't yet been given permissions to Key Vault.
 * On the restored/replica server, revalidate the customer-managed key in the data encryption settings. This ensures that the newly created server is given wrap and unwrap permissions to the key stored in Key Vault.
 

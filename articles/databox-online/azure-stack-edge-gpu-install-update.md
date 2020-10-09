@@ -1,23 +1,25 @@
 ---
-title: Install Update on Azure Stack Edge GPU device | Microsoft Docs
-description: Describes how to apply updates using the Azure portal and local web UI for Azure Stack Edge GPU device and the Kubernetes cluster on the device
+title: Install Update on Azure Stack Edge Pro GPU device | Microsoft Docs
+description: Describes how to apply updates using the Azure portal and local web UI for Azure Stack Edge Pro GPU device and the Kubernetes cluster on the device
 services: databox
 author: alkohli
 
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 08/31/2020
+ms.date: 09/29/2020
 ms.author: alkohli
 ---
-# Update your Azure Stack Edge with GPU 
+# Update your Azure Stack Edge Pro GPU 
 
-This article describes the steps required to install update on your Azure Stack Edge with GPU via the local web UI and via the Azure portal. You apply the software updates or hotfixes to keep your Azure Stack Edge device and the associated Kubernetes cluaster on the device up-to-date. 
+This article describes the steps required to install update on your Azure Stack Edge Pro with GPU via the local web UI and via the Azure portal. You apply the software updates or hotfixes to keep your Azure Stack Edge Pro device and the associated Kubernetes cluster on the device up-to-date. 
+
+The procedure described in this article was performed using a different version of software, but the process remains the same for the current software version.
 
 > [!IMPORTANT]
-> - Update **2008** corresponds to **2.1.1328.1904** software version on your device. For information on this update, go to [Release notes](azure-stack-edge-gpu-2008-release-notes.md).
+> - Update **2009** corresponds to **2.1.1364.2110** software version on your device. For information on this update, go to [Release notes](azure-stack-edge-gpu-2009-release-notes.md).
 >
-> - Keep in mind that installing an update or hotfix restarts your device. This update requires you to apply two updates sequentially. First you apply the device software updates and then Kubernetes updates. Given that the Azure Stack Edge is a single node device, any I/O in progress is disrupted and your device experiences a downtime of up to 30 minutes for the device software update.
+> - Keep in mind that installing an update or hotfix restarts your device. This update requires you to apply two updates sequentially. First you apply the device software updates and then Kubernetes updates. Given that the Azure Stack Edge Pro is a single node device, any I/O in progress is disrupted and your device experiences a downtime of up to 30 minutes for the device software update.
 
 To install updates on your device, you first need to configure the location of the update server. After the update server is configured, you can apply the updates via the Azure portal UI or the local web UI.
 
@@ -154,9 +156,9 @@ Do the following steps to download the update from the Microsoft Update Catalog.
 
     ![Search catalog](./media/azure-stack-edge-gpu-install-update/download-update-1.png)
 
-2. In the search box of the Microsoft Update Catalog, enter the Knowledge Base (KB) number of the hotfix or terms for the update you want to download. For example, enter **Azure Stack Edge**, and then click **Search**.
+2. In the search box of the Microsoft Update Catalog, enter the Knowledge Base (KB) number of the hotfix or terms for the update you want to download. For example, enter **Azure Stack Edge Pro**, and then click **Search**.
    
-    The update listing appears as **Azure Stack Edge 2006**.
+    The update listing appears as **Azure Stack Edge Pro 2006**.
    
     ![Search catalog](./media/azure-stack-edge-gpu-install-update/download-update-2b.png)
 
@@ -210,4 +212,4 @@ This procedure takes around 20 minutes to complete. Perform the following steps 
 
 ## Next steps
 
-Learn more about [administering your Azure Stack Edge](azure-stack-edge-manage-access-power-connectivity-mode.md).
+Learn more about [administering your Azure Stack Edge Pro](azure-stack-edge-manage-access-power-connectivity-mode.md).

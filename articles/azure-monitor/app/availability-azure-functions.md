@@ -131,7 +131,7 @@ On the right under view files, select **Add**. Call the new file **function.proj
         <TargetFramework>netstandard2.0</TargetFramework>
     </PropertyGroup>
     <ItemGroup>
-        <PackageReference Include="Microsoft.ApplicationInsights.AspNetCore" Version="2.8.2" /> <!-- Ensure you’re using the latest version -->
+        <PackageReference Include="Microsoft.ApplicationInsights" Version="2.15.0" /> <!-- Ensure you’re using the latest version -->
     </ItemGroup>
 </Project>
 
@@ -179,7 +179,7 @@ You can use Logs(analytics) to view you availability results, dependencies, and 
 >![Availability results](media/availability-azure-functions/availabilityresults.png)
 
 >[!div class="mx-imgBorder"]
->![Dependencies](media/availability-azure-functions/dependencies.png)
+>![Screenshot shows New Query tab with dependencies limited to 50.](media/availability-azure-functions/dependencies.png)
 
 ## Next steps
 

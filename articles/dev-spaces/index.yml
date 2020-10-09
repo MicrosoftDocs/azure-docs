@@ -54,13 +54,13 @@ landingContent:
 
 
   # Card
-  - title: Preview features
+  - title: Bridge to Kubernetes
     linkLists:
       - linkListType: how-to-guide
         links:
-          - text: Use GitHub Actions with Azure Dev Spaces
-            url: how-to/github-actions.md
-          - text: Use Local Process with Kubernetes with Visual Studio Code
-            url: https://code.visualstudio.com/docs/containers/local-process-kubernetes
-          - text: Use Local Process with Kubernetes with Visual Studio
-            url: /visualstudio/containers/local-process-kubernetes
+          - text: Use Bridge to Kubernetes with Visual Studio Code
+            url: https://code.visualstudio.com/docs/containers/bridge-to-kubernetes
+          - text: Use Bridge to Kubernetes with Visual Studio
+            url: /visualstudio/containers/bridge-to-kubernetes
+          - text: Migrating to Bridge to Kubernetes
+            url: migrate-to-bridge-to-kubernetes.md

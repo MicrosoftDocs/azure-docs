@@ -42,12 +42,12 @@ To assign an Azure role to an Azure AD identity, using the [Azure portal](https:
 1. In the Azure portal, go to your file share, or [create a file share](storage-how-to-create-file-share.md).
 1. Select **Access Control (IAM)**.
 1. Select **Add a role assignment**
-1. In the **Add role assignment** blade, select the appropriate built-in role (Storage File Data SMB Share Reader, Storage File Data SMB Share Contributor) from the **Role** list. Leave **Assign access to** at the default setting: **Azure AD user, group, or service principal**. Select the target Azure AD identity by name or email address. The selected Azure AD identity must be a hybrid identity and cannot be a cloud only identity. This means that the same identity is also represented in AD DS.
+1. In the **Add role assignment** blade, select the appropriate built-in role (Storage File Data SMB Share Reader, Storage File Data SMB Share Contributor) from the **Role** list. Leave **Assign access to** at the default setting: **Azure AD user, group, or service principal**. Select the target Azure AD identity by name or email address. **The selected Azure AD identity must be a hybrid identity and cannot be a cloud only identity.** This means that the same identity is also represented in AD DS.
 1. Select **Save** to complete the role assignment operation.
 
 ### PowerShell
 
-The following PowerShell sample shows how to assign an Azure role to an Azure AD identity, based on sign-in name. For more information about assigning Azure roles with PowerShell, see [Manage access using RBAC and Azure PowerShell](../../role-based-access-control/role-assignments-powershell.md).
+The following PowerShell sample shows how to assign an Azure role to an Azure AD identity, based on sign-in name. For more information about assigning Azure roles with PowerShell, see [Add or remove Azure role assignments using the Azure PowerShell module](../../role-based-access-control/role-assignments-powershell.md).
 
 Before you run the following sample script, replace placeholder values, including brackets, with your values.
 
@@ -62,7 +62,7 @@ New-AzRoleAssignment -SignInName <user-principal-name> -RoleDefinitionName $File
 
 ### CLI
   
-The following CLI 2.0 command assigns an Azure role to an Azure AD identity, based on sign-in name. For more information about assigning Azure roles with Azure CLI, see [Manage access by using RBAC and Azure CLI](../../role-based-access-control/role-assignments-cli.md). 
+The following CLI 2.0 command assigns an Azure role to an Azure AD identity, based on sign-in name. For more information about assigning Azure roles with Azure CLI, see [Add or remove Azure role assignments using the Azure CLI](../../role-based-access-control/role-assignments-cli.md). 
 
 Before you run the following sample script, remember to replace placeholder values, including brackets, with your own values.
 

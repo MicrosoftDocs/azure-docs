@@ -8,14 +8,14 @@ manager: rkarlin
 ms.assetid: 1b71e8ad-3bd8-4475-b735-79ca9963b823
 ms.service: security-center
 ms.topic: conceptual
-ms.date: 07/14/2020
+ms.date: 10/05/2020
 ms.author: memildin
 ---
 # Security alerts in Azure Security Center
 
-In Azure Security Center, there are a variety of alerts for many different resource types. Security Center generates alerts for resources deployed on Azure, and also for resources deployed on on-premises and hybrid cloud environments.
+In Security Center, there are a variety of alerts for many different resource types. Security Center generates alerts for resources deployed on Azure, and also for resources deployed on on-premises and hybrid cloud environments.
 
-Security alerts are triggered by advanced detections and are available only in the standard tier of Azure Security Center. A free trial is available. You can upgrade from the **Pricing & settings** page. Learn more about [Security Center pricing](https://azure.microsoft.com/pricing/details/security-center/).
+Security alerts are triggered by advanced detections and are available only with Azure Defender. A free trial is available. You can upgrade from the **Pricing & settings** page. Learn more about [Security Center pricing](https://azure.microsoft.com/pricing/details/security-center/).
 
 ## Respond to today's threats <a name="respond-threats"> </a>
 
@@ -39,7 +39,7 @@ Using incidents, Security Center provides you with a single view of an attack ca
 
 ## How does Security Center detect threats? <a name="detect-threats"> </a>
 
-Microsoft security researchers are constantly on the lookout for threats. Because of Microsoft's global presence in the cloud and on-premises, they have access to an expansive set of telemetry. The wide-reaching and diverse collection of datasets enables the discovering of new attack patterns and trends across its on-premises consumer and enterprise products, as well as its online services. As a result, Security Center can rapidly update its detection algorithms as attackers release new and increasingly sophisticated exploits. This approach helps you keep pace with a fast moving threat environment.
+Microsoft security researchers are constantly on the lookout for threats. Because of our global presence in the cloud and on-premises, we have access to an expansive set of telemetry. The wide-reaching and diverse collection of datasets enables us to discover new attack patterns and trends across our on-premises consumer and enterprise products, as well as our online services. As a result, Security Center can rapidly update its detection algorithms as attackers release new and increasingly sophisticated exploits. This approach helps you keep pace with a fast moving threat environment.
 
 To detect real threats and reduce false positives, Security Center collects, analyzes, and integrates log data from your Azure resources and the network. It also works with connected partner solutions, like firewall and endpoint protection solutions. Security Center analyzes this information, often correlating information from multiple sources, to identify threats.
 
@@ -81,11 +81,18 @@ Azure Security Center benefits from having security research and data science te
 
 These combined efforts culminate in new and improved detections, which you can benefit from instantly – there's no action for you to take.
 
+## Export alerts
+
+You have a range of options for viewing your alerts outside of Security Center, including:
+
+- **Download CSV report** on the alerts dashboard provides a one-time export to CSV.
+- **Continuous export** from pricing & settings allows you to configure streams of security alerts and recommendations to Log Analytics workspaces and Event Hubs. [Learn more about continuous export](continuous-export.md)
+- **Azure Sentinel connector** streams Azure Defender alerts from Azure Security Center into Azure Sentinel. [Learn more about connecting Azure Security Center with Sentinel](../sentinel/connect-azure-security-center.md)
+
 
 ## Next steps
 
 In this article, you learned about the different types of alerts available in Security Center. For more information, see:
 
-* [Threat protection in Azure Security Center](threat-protection.md) - For a brief description of the sources of the security alerts displayed by Azure Security Center 
-* **Security alerts in Azure Activity Log** - In addition to being available in the Azure portal or programmatically, Security alerts and incidents are audited as events in [Azure Activity Log](https://docs.microsoft.com/azure/azure-monitor/platform/activity-log-view). For more information on the event schema, see [Security Alerts in Azure Activity log](https://go.microsoft.com/fwlink/?linkid=2114113)
+- **Security alerts in Azure Activity Log** - In addition to being available in the Azure portal or programmatically, Security alerts and incidents are audited as events in [Azure Activity Log](https://docs.microsoft.com/azure/azure-monitor/platform/activity-log-view). For more information on the event schema, see [Security Alerts in Azure Activity log](https://go.microsoft.com/fwlink/?linkid=2114113)
 

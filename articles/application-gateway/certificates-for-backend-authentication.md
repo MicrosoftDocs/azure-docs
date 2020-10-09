@@ -32,7 +32,7 @@ From your TLS/SSL certificate, export the public key .cer file (not the private 
 
 1. To obtain a .cer file from the certificate, open **Manage user certificates**. Locate the certificate, typically in 'Certificates - Current User\Personal\Certificates', and right-click. Click **All Tasks**, and then click **Export**. This opens the **Certificate Export Wizard**. If you can't find the certificate under Current User\Personal\Certificates, you may have accidentally opened "Certificates - Local Computer", rather than "Certificates - Current User"). If you want to open Certificate Manager in current user scope using PowerShell, you type *certmgr* in the console window.
 
-   ![Export](./media/certificates-for-backend-authentication/export.png)
+   ![Screenshot shows the Certificate Manager with Certificates selected and a contextual menu with All tasks, then Export selected.](./media/certificates-for-backend-authentication/export.png)
 
 2. In the Wizard, click **Next**.
 
@@ -48,19 +48,19 @@ From your TLS/SSL certificate, export the public key .cer file (not the private 
 
 5. For **File to Export**, **Browse** to the location to which you want to export the certificate. For **File name**, name the certificate file. Then, click **Next**.
 
-   ![Browse](./media/certificates-for-backend-authentication/browse.png)
+   ![Screenshot shows the Certificate Export Wizard where you specify a file to export.](./media/certificates-for-backend-authentication/browse.png)
 
 6. Click **Finish** to export the certificate.
 
-   ![Finish](./media/certificates-for-backend-authentication/finish.png)
+   ![Screenshot shows the Certificate Export Wizard after you complete the file export.](./media/certificates-for-backend-authentication/finish.png)
 
 7. Your certificate is successfully exported.
 
-   ![Success](./media/certificates-for-backend-authentication/success.png)
+   ![Screenshot shows the Certificate Export Wizard with a success message.](./media/certificates-for-backend-authentication/success.png)
 
    The exported certificate looks similar to this:
 
-   ![Exported](./media/certificates-for-backend-authentication/exported.png)
+   ![Screenshot shows a certificate symbol.](./media/certificates-for-backend-authentication/exported.png)
 
 8. If you open the exported certificate using Notepad, you see something similar to this example. The section in blue contains the information that is uploaded to application gateway. If you open your certificate with Notepad and it doesn't look similar to this, typically this means you didn't export it using the Base-64 encoded X.509(.CER) format. Additionally, if you want to use a different text editor, understand that some editors can introduce unintended formatting in the background. This can create problems when uploaded the text from this certificate to Azure.
 

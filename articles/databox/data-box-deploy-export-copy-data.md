@@ -49,7 +49,7 @@ If using a Windows Server host computer, follow these steps to connect to the Da
 
 1. The first step is to authenticate and start a session. Go to **Connect and copy**. Select **Get credentials** to get the access credentials for the shares associated with your storage account. 
 
-    ![Get share credentials 1](media/data-box-deploy-export-copy-data/get-share-credentials-1.png)
+    ![Get share credentials](media/data-box-deploy-export-copy-data/get-share-credentials-1.png)
 
 2. In the Access share and copy data dialog box, copy the **Username** and the **Password** corresponding to the share. Select **OK**.
     
@@ -74,7 +74,7 @@ If using a Windows Server host computer, follow these steps to connect to the Da
 
 4. Press  Windows + R. In the **Run** window, specify the `\\<device IP address>`. Select **OK** to open File Explorer.
     
-    ![Connect to share via File Explorer 2](media/data-box-deploy-export-copy-data/connect-shares-file-explorer-1.png)
+    ![Connect to share via File Explorer](media/data-box-deploy-export-copy-data/connect-shares-file-explorer-1.png)
 
     You should now see the shares as folders.
     

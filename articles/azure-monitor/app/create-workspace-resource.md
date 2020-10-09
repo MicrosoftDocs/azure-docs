@@ -1,14 +1,12 @@
 ---
 title: Create a new Azure Monitor Application Insights workspace-based resource | Microsoft Docs
 description: Learn about the steps required to enable the new Azure Monitor Application Insights workspace-based resources. 
-author: mrbullwinkle
-ms.author: mbullwin
 ms.topic: conceptual
-ms.date: 08/24/2020
+ms.date: 09/10/2020
 
 ---
 
-# Workspace-based Application Insights resources (preview)
+# Workspace-based Application Insights resources
 
 Workspace-based resources support full integration between Application Insights and Log Analytics. You can now choose to send your Application Insights telemetry to a common Log Analytics workspace, which allows you full access to all the features of Log Analytics while keeping application, infrastructure, and platform logs in a single consolidated location.
 
@@ -17,7 +15,19 @@ This also allows for common Role-Based Access Control (RBAC) across your resourc
 > [!NOTE]
 > Data ingestion and retention for workspace-based Application Insights resources are billed through the Log Analytics workspace where the data is located. [Learn more]( ./pricing.md#workspace-based-application-insights) about billing for workspace-based Application Insights resources.
 
-To test out the new experience, sign in to the [Azure portal](https://portal.azure.com), and create an Application Insights resource:
+## New capabilities
+
+Workspace-based Application Insights allows you to take advantage of the latest capabilities of Azure Monitor and Log Analytics including:
+
+* [Customer-Managed Keys (CMK)](../platform/customer-managed-keys.md) provides encryption at rest for your data with encryption keys that only you have access to.
+* [Azure Private Link](../platform/private-link-security.md) allows you to securely link Azure PaaS services to your virtual network using private endpoints.
+* [Bring Your Own Storage (BYOS) for Profiler and Snapshot Debugger](./profiler-bring-your-own-storage.md) gives you full control over the encryption-at-rest policy, the lifetime management policy, and network access for all data associated with Application Insights Profiler and Snapshot Debugger. 
+* [Capacity Reservation tiers](../platform/manage-cost-storage.md#pricing-model) enable you to save as much as 25% compared to the Pay-As-You-Go price. 
+* Faster data ingestion via Log Analytics streaming ingestion.
+
+## Create workspace-based resource
+
+Sign in to the [Azure portal](https://portal.azure.com), and create an Application Insights resource:
 
 ![Workspace-based Application Insights resource](./media/create-workspace-resource/create-workspace-based.png)
 
@@ -32,7 +42,7 @@ Once your resource is created, you will see the corresponding workspace info in 
 Clicking the blue link text will take you to the associated Log Analytics workspace where you can take advantage of the new unified workspace query environment.
 
 > [!NOTE]
-> We still provide full backwards compatibility for your Application Insights classic resource queries, workbooks, and log-based alerts within the Application Insights experience. To query/view against the [new workspace-based table structure/schema](apm-tables.md) you must first navigate to your Log Analytics workspace. During the preview, selecting **Logs** from within the Application Insights panes will give you access to the classic Application Insights query experience.
+> We still provide full backwards compatibility for your Application Insights classic resource queries, workbooks, and log-based alerts within the Application Insights experience. To query/view against the [new workspace-based table structure/schema](apm-tables.md) you must first navigate to your Log Analytics workspace. Selecting **Logs (Analytics)** from within the Application Insights panes will give you access to the classic Application Insights query experience.
 
 ## Copy the connection string
 
@@ -181,14 +191,6 @@ The `New-AzApplicationInsights` PowerShell command does not currently support cr
 
 ```
 
-## New capabilities
-
-Workspace-based Application Insights allows you to take advantage of all the latest capabilities of Azure Monitor including:
-
-* [Customer-Managed Keys (CMK)](../platform/customer-managed-keys.md) provides encryption at rest for your data with encryption keys that only you have access to.
-* [Azure Private Link](../platform/private-link-security.md) allows you to securely link Azure PaaS services to your virtual network using private endpoints.
-* [Bring Your Own Storage (BYOS) for Profiler and Snapshot Debugger](./profiler-bring-your-own-storage.md) gives you full control over the encryption-at-rest policy, the lifetime management policy, and network access for all data associated with Application Insights Profiler and Snapshot Debugger. 
-
 ## Modifying the associated workspace
 
 Once a workspace-based Application Insights resource has been created, you can modify the associated Log Analytics Workspace.
@@ -203,8 +205,3 @@ The legacy continuous export functionality is not supported for workspace-based 
 
 * [Explore metrics](../platform/metrics-charts.md)
 * [Write Analytics queries](../log-query/log-query-overview.md)
-
-[api]: ./api-custom-events-metrics.md
-[diagnostic]: ./diagnostic-search.md
-[metrics]: ../platform/metrics-charts.md
-[start]: ./app-insights-overview.md

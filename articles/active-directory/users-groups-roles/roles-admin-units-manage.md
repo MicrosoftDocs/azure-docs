@@ -1,5 +1,5 @@
 ---
-title: Add and remove administrative units (preview) - Azure Active Directory | Microsoft Docs
+title: Add and remove administrative units - Azure Active Directory | Microsoft Docs
 description: Use administrative units to restrict the scope of role permissions in Azure Active Directory.
 services: active-directory
 documentationcenter: ''
@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.topic: how-to
 ms.subservice: users-groups-roles
 ms.workload: identity
-ms.date: 04/16/2020
+ms.date: 09/22/2020
 ms.author: curtand
 ms.reviewer: anandy
 ms.custom: oldportal;it-pro;
@@ -28,9 +28,6 @@ For more granular administrative control in Azure Active Directory (Azure AD), y
 
     ![Screenshot showing link to "Grant admin consent"](./media/roles-admin-units-manage/select-graph-explorer.png)
 
-    b. In Graph Explorer, select the **beta** version.
-
-    ![Screenshot showing the beta version selected](./media/roles-admin-units-manage/select-beta-version.png)
 
 1. Use the preview version of Azure AD PowerShell.
 
@@ -40,7 +37,7 @@ For more granular administrative control in Azure Active Directory (Azure AD), y
 
 1. In the Azure portal, go to Azure AD, and then, in the left pane, select **Administrative units**.
 
-    ![Screenshot of the Administrative units (Preview) link in Azure AD](./media/roles-admin-units-manage/nav-to-admin-units.png)
+    ![Screenshot of the Administrative unitslink in Azure AD](./media/roles-admin-units-manage/nav-to-admin-units.png)
 
 1. Select **Add** and then enter the name of the administrative unit. Optionally, add a description of the administrative unit.
 
@@ -54,7 +51,7 @@ Install Azure AD PowerShell (preview) before you try to run the following comman
 
 ```powershell
 Connect-AzureAD
-New-AzureADAdministrativeUnit -Description "West Coast region" -DisplayName "West Coast"
+New-AzureADMSAdministrativeUnit -Description "West Coast region" -DisplayName "West Coast"
 ```
 
 You can modify the values that are enclosed in quotation marks, as required.
@@ -86,8 +83,8 @@ In Azure AD, you can remove an administrative unit that you no longer need as a 
 ### Use PowerShell
 
 ```powershell
-$delau = Get-AzureADAdministrativeUnit -Filter "displayname eq 'DeleteMe Admin Unit'"
-Remove-AzureADAdministrativeUnit -ObjectId $delau.ObjectId
+$delau = Get-AzureADMSAdministrativeUnit -Filter "displayname eq 'DeleteMe Admin Unit'"
+Remove-AzureADMSAdministrativeUnit -ObjectId $delau.ObjectId
 ```
 
 You can modify the values that are enclosed in quotation marks, as required for the specific environment.

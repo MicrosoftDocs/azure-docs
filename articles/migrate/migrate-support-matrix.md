@@ -87,9 +87,12 @@ France | France Central
 India | Central India or South India
 Japan |  Japan East or Japan West
 Korea | Korea Central or Korea South
+Switzerland | Switzerland North
 United Kingdom | UK South or UK West
 United States | Central US or West US 2
 
+> [!NOTE]
+> For Switzerland geography, Switzerland West is only available for REST API users and need an approved subscription.
 
 ## Supported geographies (Azure Government)
 

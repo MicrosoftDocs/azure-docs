@@ -142,19 +142,19 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 2. Click on **Coggle** account and select **My Settings**.
 
-    ![Coggle Configuration](./media/Coggle-tutorial/configure1.png)
+    ![Screenshot shows your Coggle company site with My Settings selected.](./media/Coggle-tutorial/configure1.png)
 
 3. Click on following **Logo** and select **Authentication**.
 
-    ![Coggle Configuration](./media/Coggle-tutorial/configure2.png)
+    ![Screenshot shows a whale icon and Authentication selected.](./media/Coggle-tutorial/configure2.png)
 
 4. Click on **Edit SAML Config**.
 
-    ![Coggle Configuration](./media/Coggle-tutorial/configure3.png)
+    ![Screenshot shows the SAML Integration page with the Edit SAML Config option.](./media/Coggle-tutorial/configure3.png)
 
 5. On the **SAML Integration** dialog page, perform the following steps:
 
-    ![Coggle Configuration](./media/Coggle-tutorial/configure4.png)
+    ![Screenshot shows the SAML Integration page where you can enter the information in this step.](./media/Coggle-tutorial/configure4.png)
 
     a. In the **Entrypoint (ID Provider SSO URL)** textbox, paste the **Login URL** value, which you have copied from the Azure portal.
 

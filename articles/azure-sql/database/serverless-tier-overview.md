@@ -9,8 +9,8 @@ ms.devlang:
 ms.topic: conceptual
 author: oslake
 ms.author: moslake
-ms.reviewer: sstein, carlrab
-ms.date: 9/8/2020
+ms.reviewer: sstein
+ms.date: 9/17/2020
 ---
 # Azure SQL Database serverless
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -91,7 +91,7 @@ Unlike provisioned compute databases, memory from the SQL cache is reclaimed fro
 
 In both serverless and provisioned compute databases, cache entries may be evicted if all available memory is used.
 
-Note that when CPU utilization is low, active cache utilization can remain high depending on the usage pattern and prevent memory reclamation.  Also, there can be additional delay after user activity stops before memory reclamation occurs due to periodic background processes responding to prior user activity.  For example, delete operations generate ghost records that are marked for deletion, but are not physically deleted until the ghost cleanup process runs which can involve reading data pages into cache.
+Note that when CPU utilization is low, active cache utilization can remain high depending on the usage pattern and prevent memory reclamation.  Also, there can be additional delay after user activity stops before memory reclamation occurs due to periodic background processes responding to prior user activity.  For example, delete operations and QDS cleanup tasks generate ghost records that are marked for deletion, but are not physically deleted until the ghost cleanup process runs which can involve reading data pages into cache.
 
 #### Cache hydration
 

@@ -1,6 +1,6 @@
 ---
 title: Deactivate and delete a StorSimple 8000 series device | Microsoft Docs
-description: Describes how to remove StorSimple device from service by  first deactivating it and then deleting it.
+description: Learn how to deactivate and delete a StorSimple device that is connected to a StorSimple Device Manager service.
 services: storsimple
 documentationcenter: ''
 author: alkohli
@@ -59,16 +59,16 @@ If you are interested in deleting the device completely and do not want to retai
         ![Deactivate StorSimple device](./media/storsimple-8000-deactivate-and-delete-device/deactivate1.png)
    2. In the **Deactivate** blade, type the device name to confirm and then click **Deactivate**. The deactivate process starts and takes a few minutes to complete.
 
-        ![Deactivate StorSimple device](./media/storsimple-8000-deactivate-and-delete-device/deactivate2.png)
+        ![Deactivate StorSimple device 2](./media/storsimple-8000-deactivate-and-delete-device/deactivate2.png)
 
 3. After deactivation, you can delete the device completely. Deleting a device removes it from the list of devices connected to the service. The service can then no longer manage the deleted device. Use the following steps to delete the device:
    
    1. Go to your StorSimple Device Manager service and click **Devices**. In the **Devices** blade, select the deactivated device that you wish to delete, right-click, and then click **Delete**.
 
-        ![Deactivate StorSimple device](./media/storsimple-8000-deactivate-and-delete-device/deactivate5.png)
+        ![Deactivate StorSimple device 3](./media/storsimple-8000-deactivate-and-delete-device/deactivate5.png)
    2. In the **Delete** blade, type the device name to confirm and then click **Delete**. The deletion takes a few minutes to complete.
 
-        ![Deactivate StorSimple device](./media/storsimple-8000-deactivate-and-delete-device/deactivate6.png)
+        ![Deactivate StorSimple device 4](./media/storsimple-8000-deactivate-and-delete-device/deactivate6.png)
    3. After the deletion is successfully complete, you are notified. The device list also updates to reflect the deletion.
 
 ## Deactivate and retain data
@@ -81,19 +81,19 @@ If you are interested in deleting the device but want to retain the data, then c
    
    1. Go to your StorSimple Device Manager service and click **Devices**. In the **Devices** blade, select the device that you wish to deactivate, right-click, and then click **Deactivate**.
 
-         ![Deactivate StorSimple device](./media/storsimple-8000-deactivate-and-delete-device/deactivate1.png)
+         ![Deactivate StorSimple device 5](./media/storsimple-8000-deactivate-and-delete-device/deactivate1.png)
    2. In the **Deactivate** blade, type the device name to confirm and then click **Deactivate**. The deactivate process starts and takes a few minutes to complete.
 
-         ![Deactivate StorSimple device](./media/storsimple-8000-deactivate-and-delete-device/deactivate2.png)
+         ![Deactivate StorSimple device 6](./media/storsimple-8000-deactivate-and-delete-device/deactivate2.png)
 2. You can now fail over the volume containers and the associated snapshots. For procedures, go to [Failover and disaster recovery for your StorSimple device](storsimple-8000-device-failover-disaster-recovery.md).
 3. After deactivation and failover, you can delete the device completely. Deleting a device removes it from the list of devices connected to the service. The service can then no longer manage the deleted device. To delete the device, complete the following steps:
    
    1. Go to your StorSimple Device Manager service and click **Devices**. In the **Devices** blade, select the deactivated device that you wish to delete, right-click, and then click **Delete**.
 
-       ![Deactivate StorSimple device](./media/storsimple-8000-deactivate-and-delete-device/deactivate5.png)
+       ![Deactivate StorSimple device 7](./media/storsimple-8000-deactivate-and-delete-device/deactivate5.png)
    2. In the **Delete** blade, type the device name to confirm and then click **Delete**. The deletion takes a few minutes to complete.
 
-       ![Deactivate StorSimple device](./media/storsimple-8000-deactivate-and-delete-device/deactivate6.png)
+       ![Deactivate StorSimple device 8](./media/storsimple-8000-deactivate-and-delete-device/deactivate6.png)
    3. After the deletion is successfully complete, you are notified. The device list also updates to reflect the deletion.
 
 ## Deactivate and delete a cloud appliance

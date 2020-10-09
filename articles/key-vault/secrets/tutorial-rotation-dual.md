@@ -7,7 +7,7 @@ manager: rkarlin
 tags: 'rotation'
 
 ms.service: key-vault
-ms.subservice: general
+ms.subservice: secrets
 ms.topic: tutorial
 ms.date: 06/22/2020
 ms.author: jalichwa
@@ -63,6 +63,8 @@ akvrotationstorage2    akvrotation      eastus      Microsoft.Storage/storageAcc
 ```
 
 ## Create and deploy storage account key rotation function
+> [!IMPORTANT]
+> Below template requires Key Vault, Azure Storage Account and Azure Function to be in the same resource group
 
 Next, create a function app with a system-managed identity, in addition to the other required components, and deploy storage account key rotation functions
 

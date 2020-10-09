@@ -1,13 +1,16 @@
 ---
 title:  Overview of the Connected Machine Windows agent
-description: This article provides a detailed overview of the Azure Arc enabled servers (preview) agent available, which supports monitoring virtual machines hosted in hybrid environments.
-ms.date: 08/06/2020
+description: This article provides a detailed overview of the Azure Arc enabled servers agent available, which supports monitoring virtual machines hosted in hybrid environments.
+ms.date: 09/30/2020
 ms.topic: conceptual
 ---
 
-# Overview of Azure Arc enabled servers (preview) agent
+# Overview of Azure Arc enabled servers agent
 
-The Azure Arc enabled servers (preview) Connected Machine agent enables you to manage your Windows and Linux machines hosted outside of Azure on your corporate network or other cloud provider. This article provides a detailed overview of the agent, system and network requirements, and the different deployment methods.
+The Azure Arc enabled servers Connected Machine agent enables you to manage your Windows and Linux machines hosted outside of Azure on your corporate network or other cloud provider. This article provides a detailed overview of the agent, system and network requirements, and the different deployment methods.
+
+>[!NOTE]
+>Starting with the general release of Azure Arc enabled servers in September 2020, all pre-release versions of the Azure Connected Machine agent (agents with versions less than 1.0) are being **deprecated** by **February 2, 2021**.  This time frame allows you to upgrade to version 1.0 or higher before the pre-released agents are no longer able to communicate with the Azure Arc enabled servers service.
 
 ## Agent component details
 
@@ -39,18 +42,14 @@ The Azure Connected Machine agent for Windows and Linux can be upgraded to the l
 
 ### Supported operating systems
 
-The following versions of the Windows and Linux operating system are officially supported for the Azure Connected Machine agent: 
+The following versions of the Windows and Linux operating system are officially supported for the Azure Connected Machine agent:
 
 - Windows Server 2012 R2 and higher (including Windows Server Core)
-- Ubuntu 16.04 and 18.04 (x64)
+- Ubuntu 16.04 and 18.04 LTS (x64)
 - CentOS Linux 7 (x64)
 - SUSE Linux Enterprise Server (SLES) 15 (x64)
 - Red Hat Enterprise Linux (RHEL) 7 (x64)
 - Amazon Linux 2 (x64)
-
->[!NOTE]
->This preview release of the Connected Machine agent for Windows only supports Windows Server configured to use the English language.
->
 
 ### Required permissions
 
@@ -60,7 +59,7 @@ The following versions of the Windows and Linux operating system are officially 
 
 ### Azure subscription and service limits
 
-Before configuring your machines with Azure Arc enabled servers (preview), review the Azure Resource Manager [subscription limits](../../azure-resource-manager/management/azure-subscription-service-limits.md#subscription-limits) and [resource group limits](../../azure-resource-manager/management/azure-subscription-service-limits.md#resource-group-limits) to plan for the number of machines to be connected.
+Before configuring your machines with Azure Arc enabled servers, review the Azure Resource Manager [subscription limits](../../azure-resource-manager/management/azure-subscription-service-limits.md#subscription-limits) and [resource group limits](../../azure-resource-manager/management/azure-subscription-service-limits.md#resource-group-limits) to plan for the number of machines to be connected.
 
 ### Transport Layer Security 1.2 protocol
 
@@ -81,6 +80,7 @@ Service Tags:
 
 * AzureActiveDirectory
 * AzureTrafficManager
+* AzureArcInfrastructure
 
 URLs:
 
@@ -100,7 +100,7 @@ The URLs in the previous table are required in addition to the Service Tag IP ad
 
 ### Register Azure resource providers
 
-Azure Arc enabled servers (preview) depends on the following Azure resource providers in your subscription in order to use this service:
+Azure Arc enabled servers depends on the following Azure resource providers in your subscription in order to use this service:
 
 * **Microsoft.HybridCompute**
 * **Microsoft.GuestConfiguration**
@@ -129,6 +129,9 @@ You can also register the resource providers in the Azure portal by following th
 ## Installation and configuration
 
 Connecting machines in your hybrid environment directly with Azure can be accomplished using different methods depending on your requirements. The following table highlights each method to determine which works best for your organization.
+
+> [!IMPORTANT]
+> The Connected Machine agent cannot be installed on an Azure Windows virtual machine. If you attempt to, the installation detects this and rolls back.
 
 | Method | Description |
 |--------|-------------|
@@ -227,7 +230,7 @@ After installing the Connected Machine agent for Linux, the following additional
     |/opt/logs/dsc.log |Records details of the DSC service activity,<br> in particular the connectivity between the himds service and Azure Policy.|
     |/opt/logs/dsc.telemetry.txt |Records details about DSC service telemetry and verbose logging.|
     |/var/lib/GuestConfig/ext_mgr_logs |Records details about the Extension agent component.|
-    |/var/log/GuestConfig/extension_logs|Records details from the installed extension.|
+    |/var/lib/GuestConfig/extension_logs|Records details from the installed extension.|
 
 * The following environmental variables are created during agent installation. These variables are set in `/lib/systemd/system.conf.d/azcmagent.conf`.
 
@@ -243,4 +246,6 @@ After installing the Connected Machine agent for Linux, the following additional
 
 ## Next steps
 
-To begin evaluating Azure Arc enabled servers (preview), follow the article [Connect hybrid machines to Azure from the Azure portal](onboard-portal.md).
+* To begin evaluating Azure Arc enabled servers, follow the article [Connect hybrid machines to Azure from the Azure portal](onboard-portal.md).
+
+* Troubleshooting information can be found in the [Troubleshoot Connected Machine agent guide](troubleshoot-agent-onboard.md).

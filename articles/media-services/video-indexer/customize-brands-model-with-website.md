@@ -37,7 +37,7 @@ You have the option to set whether or not you want brands from the Bing brands d
 
 3. To edit brands, select the **Brands** tab.
 
-    ![Customize brands model in Video Indexer](./media/customize-brand-model/customize-brand-model.png)
+    ![Screenshot shows the Brands tab of the Content model customization dialog box.](./media/customize-brand-model/customize-brand-model.png)
 
 4. Check the **Show brands suggested by Bing** option if you want Video Indexer to detect brands suggested by Bing—leave the option unchecked if you don't.
 
@@ -49,7 +49,7 @@ The **Include brands** section represents custom brands that you want Video Inde
 
 1. Select **+ Add brand**.
 
-    ![Customize brands model in Video Indexer](./media/customize-brand-model/add-brand.png)
+    ![Screenshot shows the Include brands dialog box, where you can add brands.](./media/customize-brand-model/add-brand.png)
 
     Provide a name (required), category (optional), description (optional), and reference URL (optional).
     The category field is meant to help you tag your brands. This field shows up as the brand's *tags* when using the Video Indexer APIs. For example, the brand "Azure" can be tagged or categorized as "Cloud".

@@ -1,8 +1,8 @@
 ---
 title: Logs - Azure Database for PostgreSQL - Single Server
 description: Describes logging configuration, storage and analysis in Azure Database for PostgreSQL - Single Server
-author: rachel-msft
-ms.author: raagyema
+author: lfittl-msft
+ms.author: lufittl
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 06/25/2020
@@ -18,7 +18,7 @@ Audit logging is made available through a Postgres extension, pgaudit. To learn 
 ## Configure logging 
 You can configure Postgres standard logging on your server using the logging server parameters. On each Azure Database for PostgreSQL server, `log_checkpoints` and `log_connections` are on by default. There are additional parameters you can adjust to suit your logging needs: 
 
-![Azure Database for PostgreSQL - Logging parameters](./media/concepts-server-logs/log-parameters.png)
+:::image type="content" source="./media/concepts-server-logs/log-parameters.png" alt-text="Azure Database for PostgreSQL - Logging parameters":::
 
 To learn more about Postgres log parameters, visit the [When To Log](https://www.postgresql.org/docs/current/runtime-config-logging.html#RUNTIME-CONFIG-LOGGING-WHEN) and [What To Log](https://www.postgresql.org/docs/current/runtime-config-logging.html#RUNTIME-CONFIG-LOGGING-WHAT) sections of the Postgres documentation. Most, but not all, Postgres logging parameters are available to configure in Azure Database for PostgreSQL.
 

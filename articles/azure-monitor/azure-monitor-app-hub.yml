@@ -158,9 +158,6 @@ conceptualContent:
         - url: ./app/availability-alerts.md
           itemType: how-to-guide
           text:  Availability alerts
-        - url: ./app/performance-testing.md
-          itemType: how-to-guide
-          text:  Performance testing
 
     - title: Metrics, logs, & traces 
       links: 
@@ -435,9 +432,6 @@ conceptualContent:
 
     - title:  Reference
       links: 
-        - url: ./app/nuget.md
-          itemType: reference
-          text:  NuGet packages
         - url: ./app/platforms.md
           itemType: reference
           text:  Platforms

@@ -49,7 +49,7 @@ Alternate login ID allows you to configure a sign-in experience where users can 
 
 To enable Alternate login ID with Azure AD, no additional configurations steps are needed when using Azure AD Connect. Alternate ID can be configured directly from the wizard. See Azure AD sign-in configuration for your users under the section Sync. Under the **User Principal Name** drop-down, select the attribute for Alternate login ID.
 
-![Unverified domains](./media/plan-connect-userprincipalname/altloginid.png)  
+![Screenshot that highlights User Principal Name list where you select the Alternate login ID attribute.](./media/plan-connect-userprincipalname/altloginid.png)  
 
 For more information, see [Configure Alternate login ID](/windows-server/identity/ad-fs/operations/configuring-alternate-login-id) and [Azure AD sign-in configuration](how-to-connect-install-custom.md#azure-ad-sign-in-configuration)
 

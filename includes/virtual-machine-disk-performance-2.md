@@ -5,17 +5,55 @@
  author: albecker1
  ms.service: virtual-machines
  ms.topic: include
- ms.date: 07/07/2020
+ ms.date: 09/25/2020
  ms.author: albecker1
  ms.custom: include file
 ---
 ![Dsv3 Documentation](media/vm-disk-performance/dsv3-documentation.jpg)
 
-The max **uncached** disk throughput is the default storage maximum limit that the virtual machine is able to handle. The max **cached** storage throughput limit is a separate limit when you enable host caching. Enabling host caching can be done when creating your virtual machine and attaching disks. You can also adjust to turn on and off host caching your disks on an existing VM:
+The max **uncached** disk throughput is the default storage maximum limit that the virtual machine is able to handle. The max **cached** storage throughput limit is a separate limit when you enable host caching. Host caching works by bringing storage closer to the VM that can be written or read to quickly. The amount of storage that is available to the VM for host caching is in the documentation. For example, you can see the Standard_D8s_v3 comes with 200 GiB of cache storage.
+
+Enabling host caching can be done when creating your virtual machine and attaching disks. You can also adjust to turn on and off host caching your disks on an existing VM.
 
 ![Host Caching](media/vm-disk-performance/host-caching.jpg)
 
-The host caching can be adjusted to match your workload requirements for each disk. You can set your host caching to be Read-Only for workloads that only do reading operations and Read/Write for workloads that do a balance of read and write operations. If your workload doesn't follow either of those patterns, you unfortunately won't be able to use host caching. 
+The host caching can be adjusted to match your workload requirements for each disk. You can set your host caching to be Read-only for workloads that only do reading operations and Read/write for workloads that do a balance of read and write operations. If your workload doesn't follow either of those patterns, we don't recommend using use host caching. 
+
+Let's run through a couple examples of different host cache settings and see how it effects the data flow and performance. In this first example, we will take a look at what happens with IO requests when the host caching setting is set to **Read-only**.
+
+Set up:
+- Standard_D8s_v3 
+    - Cached IOPS: 16,000
+    - Uncached IOPS: 12,800
+- P30 Data Disk 
+    - IOPS: 5,000
+    - **Host Caching: Read-only** 
+
+When a read is performed and the desired data is available on the cache, the cache returns the requested data and there is no need to read from the disk. This read is counted towards the VM's cached limits.
+
+![Read Host Caching Read Hit](media/vm-disk-performance/host-caching-read-hit.jpg)
+
+When a read is performed and the desired data is **not** available on the cache, the read request is then relayed to the disk who then surfaces it to both the cache and the VM. This read is counted towards both the VM's uncached limit and the VM's cached limit.
+
+![Read Host Caching Read miss](media/vm-disk-performance/host-caching-read-miss.jpg)
+
+When a write is performed, the write has to be written to both the cache and the disk before it is considered complete. This write is counted towards the VM's uncached limit and the VM's cached limit.
+
+![Read Host Caching Write](media/vm-disk-performance/host-caching-write.jpg)
+
+In this next example, let's take a look at what happens with IO requests when the host cache setting is set to **Read/write**.
+
+Set up:
+- Standard_D8s_v3 
+    - Cached IOPS: 16,000
+    - Uncached IOPS: 12,800
+- P30 Data Disk 
+    - IOPS: 5,000
+    - **Host Caching: Read/write** 
+
+Reads are handled the exact same way as Read-only, writes are the only thing that is different with Read/write caching. When writing with host caching set to Read/write, the write only needs to be written to the host cache to be considered complete. The write is then lazily written to the disk as a background process. This means that writes will be counted towards cached IO when it is written to the cache and when it is lazily written to the disk it will count towards the uncached IO.
+
+![Read/Write Host Caching Write](media/vm-disk-performance/host-caching-read-write.jpg)
 
 Let’s continue with an example with our Standard_D8s_v3 virtual machine. Except this time, we'll enable host caching on the disks and now the VM's IOPS limit is 16,000 IOPS. Attached to the VM are three underlying P30 disks that can handle 5,000 IOPS.
 
@@ -25,10 +63,10 @@ Set up:
     - Uncached IOPS: 12,800
 - P30 OS Disk 
     - IOPS: 5,000
-    - Host caching enabled 
+    - Host Caching: Read/write 
 - 2 P30 Data Disks
     - IOPS: 5,000
-    - Host caching enabled
+    - Host Caching: Read/write
 
 ![Host Caching Example](media/vm-disk-performance/host-caching-example-without-remote.jpg)
 
@@ -44,13 +82,13 @@ Set up:
     - Uncached IOPS: 12,800
 - P30 OS Disk 
     - IOPS: 5,000
-    - Host caching enabled 
+    - Host Caching: Read/write
 - 2 P30 Data Disks X 2
     - IOPS: 5,000
-    - Host caching enabled
+    - Host Caching: Read/write
 - 2 P30 Data Disks X 2
     - IOPS: 5,000
-    - Host caching disabled
+    - Host Caching: Disabled
 
 ![Host Caching Example With Remote Storage](media/vm-disk-performance/host-caching-example-with-remote.jpg)
 
@@ -75,7 +113,14 @@ We have metrics on Azure that provides insight on how your virtual machines and 
 
 ## Storage IO utilization metrics
 Metrics that help diagnose disk IO capping:
-- **Data Disk IOPS Consumed Percentage** - the percentage calculated by the data disk IOPs completed over the provisioned data disk IOPs. If this amount is at 100%, your application running will be IO capped from your data disk's IOPS limit.
-- **Data Disk Bandwidth Consumed Percentage** - the percentage calculated by the data disk throughput completed over the provisioned data disk throughput. If this amount is at 100%, your application running will be IO capped from your data disk's Bandwidth limit.
-- **OS Disk IOPS Consumed Percentage** - the percentage calculated by the OS disk IOPs completed over the provisioned OS disk IOPs. If this amount is at 100%, you'll your application running will be IO capped from your OS disk's IOPS limit.
-- **OS Disk Bandwidth Consumed Percentage** - the percentage calculated by the OS disk throughput completed over the provisioned OS disk throughput. If this amount is at 100%, your application running will be IO capped from your OS disk's Bandwidth limit.
+- **Data Disk IOPS Consumed Percentage** - the percentage calculated by the data disk IOPS completed over the provisioned data disk IOPS. If this amount is at 100%, your application running will be IO capped from your data disk's IOPS limit.
+- **Data Disk Bandwidth Consumed Percentage** - the percentage calculated by the data disk throughput completed over the provisioned data disk throughput. If this amount is at 100%, your application running will be IO capped from your data disk's bandwidth limit.
+- **OS Disk IOPS Consumed Percentage** - the percentage calculated by the OS disk IOPS completed over the provisioned OS disk IOPS. If this amount is at 100%, you'll your application running will be IO capped from your OS disk's IOPS limit.
+- **OS Disk Bandwidth Consumed Percentage** - the percentage calculated by the OS disk throughput completed over the provisioned OS disk throughput. If this amount is at 100%, your application running will be IO capped from your OS disk's bandwidth limit.
+
+Metrics that help diagnose VM IO capping:
+- **VM Cached IOPS Consumed Percentage** - the percentage calculated by the total IOPS completed over the max cached virtual machine IOPS limit. If this amount is at 100%, your application running will be IO capped from your VM's cached IOPS limit.
+- **VM Cached Bandwidth Consumed Percentage** - the percentage calculated by the total disk throughput completed over the max cached virtual machine throughput. If this amount is at 100%, your application running will be IO capped from your VM's cached bandwidth limit.
+- **VM uncached IOPS Consumed Percentage** - the percentage calculated by the total IOPS on a virtual machine completed over the max uncached  virtual machine IOPS limit. If this amount is at 100%, your application running will be IO capped from your VM's uncached IOPS limit.
+- **VM Uncached Bandwidth Consumed Percentage** - the percentage calculated by the total disk throughput on a virtual machine completed over the max provisioned virtual machine throughput. If this amount is at 100%, your application running will be IO capped from your VM's uncached bandwidth limit.
+

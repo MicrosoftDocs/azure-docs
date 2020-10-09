@@ -200,11 +200,16 @@ Before proceeding any further, you'll need to create an Azure Spatial Anchors ac
 
 Once you have your Azure Spatial Anchors account Identifier, Key, and Domain, go and paste the `Account Id` into `SpatialAnchorsAccountId`, the `Account Key` into `SpatialAnchorsAccountKey`, and the `Account Domain` into `SpatialAnchorsAccountDomain`.
 
-Finally, let's hook everything together. In your `SpawnNewAnchoredObject()` method, add the following code. It will invoke the `CreateAnchorAsync()` method as soon as your sphere is created. Once the method returns, the code below will update your sphere one last time, changing its color to blue.
+Finally, let's hook everything together. In your `CreateAndSaveSphere()` method, add the following code. It will invoke the `CreateAnchorAsync()` method as soon as your sphere is created. Once the method returns, the code below will update your sphere one last time, changing its color to blue.
 
 [!code-csharp[AzureSpatialAnchorsScript](../../../includes/spatial-anchors-new-unity-hololens-app-finished.md?range=320-397&highlight=26-77)]
 
-Run your app from **Visual Studio** once more. Move around your head and then air tap to place your sphere. Once we have enough frames, the sphere will turn yellow, and the cloud upload will start. Once the upload finishes, your sphere will turn blue. Optionally, you can also use the Output window inside **Visual Studio** to monitor the log messages your app is sending. You can watch the `RecommendedForCreateProgress`, and once the upload is complete, you'll be able to see the anchor identifier returned from the cloud.
+Run your app from **Visual Studio** once more. Move around your head and then air tap to place your sphere. Once we have
+enough frames, the sphere will turn yellow, and the cloud upload will start. Once the upload finishes, your sphere will
+turn blue. Optionally, you can also use the [Output window](https://docs.microsoft.com/visualstudio/ide/reference/output-window)
+while debugging inside **Visual Studio** to monitor the log messages your app is sending. Make sure you deploy the `Debug`
+configuration of your app from Visual Studio to see the log messages. You can watch the `RecommendedForCreateProgress`,
+and once the upload is complete, you'll be able to see the anchor identifier returned from the cloud.
 
 > [!NOTE]
 > If you get "DllNotFoundException: Unable to load DLL 'AzureSpatialAnchors': The specified module could not be found.", you should **Clean** and **Build** your solution again.

@@ -1,4 +1,4 @@
-- name: Azure IoT Edge Documentation
+- name: Azure IoT Edge documentation
   href: index.yml
 - name: Overview
   items:
@@ -101,6 +101,8 @@
       href: iot-edge-security-manager.md
     - name: IoT Edge certificates
       href: iot-edge-certs.md
+    - name: Confidential computing
+      href: deploy-trusted-applications.md
   - name: Platform support
     href: support.md
   - name: Production deployment checklist

@@ -9,7 +9,7 @@ ms.devlang: PowerShell
 ms.topic: sample
 author: MashaMSFT
 ms.author: mathoma
-ms.reviewer: carlrab
+ms.reviewer: sstein
 ms.date: 07/16/2019
 ---
 # Use PowerShell to add an elastic pool to a failover group

@@ -82,7 +82,7 @@ conceptualContent:
           text: Create a telemetry rule 
         - url: ./core/howto-export-data.md
           itemType: how-to-guide
-          text: Export data to cloud destinations - preview
+          text: Export data to cloud destinations
       footerLink: 
         url: ./core/index.yml
         text: See more
@@ -108,7 +108,7 @@ productDirectory:
           - text: Create a digital distribution center application
             url: ./retail/tutorial-iot-central-digital-distribution-center.md 
           - text: Create a video analytics application
-            url: ./retail/tutorial-video-analytics-create-app.md 
+            url: ./retail/tutorial-video-analytics-create-app-yolo-v3.md 
 
     # Card
     - title: Build for healthcare

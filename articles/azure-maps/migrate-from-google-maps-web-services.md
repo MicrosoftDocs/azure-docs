@@ -1,9 +1,9 @@
 ---
-title: 'Tutorial: Migrate web services from Google Maps | Microsoft Azure Maps'
-description: How to migrate web services from Google Maps to Microsoft Azure Maps.
+title: 'Tutorial - Migrate web services from Google Maps | Microsoft Azure Maps'
+description: Tutorial on how to migrate web services from Google Maps to Microsoft Azure Maps
 author: rbrundritt
 ms.author: richbrun
-ms.date: 12/17/2019
+ms.date: 08/19/2020
 ms.topic: tutorial
 ms.service: azure-maps
 services: azure-maps
@@ -11,7 +11,7 @@ manager: cpendle
 ms.custom: 
 ---
 
-# Migrate web service from Google Maps
+# Tutorial - Migrate web service from Google Maps
 
 Both Azure and Google Maps provide access to spatial APIs through REST web services. The API interfaces of these platforms perform similar functionalities. But, they each use different naming conventions and response objects.
 
@@ -289,9 +289,8 @@ For example, let's add a red, mid-sized marker to the map at longitude: -110, la
 &markers=color:red|size:mid|45,-110
 ```
 
-<center>
 
-![Google Maps marker](media/migrate-google-maps-web-services/google-maps-marker.png)</center>
+![Google Maps marker](media/migrate-google-maps-web-services/google-maps-marker.png)
 
 **After: Azure Maps**
 
@@ -332,9 +331,8 @@ Let's add a red (`FF0000`) default icon, with the label "Space Needle", position
 &pins=default|coFF0000|la15 50||'Space Needle' -122.349300 47.620180
 ```
 
-<center>
 
-![Azure Maps marker](media/migrate-google-maps-web-services/azure-maps-marker.png)</center>
+![Azure Maps marker](media/migrate-google-maps-web-services/azure-maps-marker.png)
 
 Add three pins with the label values '1', '2', and '3':
 
@@ -342,9 +340,9 @@ Add three pins with the label values '1', '2', and '3':
 &pins=default||'1'-122 45|'2'-119.5 43.2|'3'-121.67 47.12
 ```
 
-<center>
 
-![Azure Maps multiple markers](media/migrate-google-maps-web-services/azure-maps-multiple-markers.png)</center>
+
+![Azure Maps multiple markers](media/migrate-google-maps-web-services/azure-maps-multiple-markers.png)
 
 ### Path URL parameter format comparison
 
@@ -373,9 +371,7 @@ Add a red line opacity and pixel thickness to the map between the coordinates, i
 &path=color:0xFF000088|weight:4|45,-110|50,-100
 ```
 
-<center>
-
-![Google Maps polyline](media/migrate-google-maps-web-services/google-maps-polyline.png)</center>
+![Google Maps polyline](media/migrate-google-maps-web-services/google-maps-polyline.png)
 
 **After: Azure Maps**
 
@@ -402,9 +398,7 @@ Add a red line opacity and pixel thickness between the coordinates, in the URL p
 &path=lcFF0000|la.5|lw4||-110 45|-100 50
 ```
 
-<center>
-
-![Azure Maps polyline](media/migrate-google-maps-web-services/azure-maps-polyline.png)</center>
+![Azure Maps polyline](media/migrate-google-maps-web-services/azure-maps-polyline.png)
 
 ## Calculate a distance matrix
 
@@ -479,22 +473,5 @@ The following are additional documentation and resources for the Azure Maps REST
 - [Search for an address](how-to-search-for-address.md)
 - [Best practices for routing](how-to-use-best-practices-for-routing.md)
 - [Azure Maps REST Service API reference documentation](https://docs.microsoft.com/rest/api/maps/)
-
-## Next steps
-
-Learn more about the Azure Maps REST services.
-
-> [!div class="nextstepaction"]
-> [Best practices for using the search service](how-to-use-best-practices-for-search.md)
-
-> [!div class="nextstepaction"]
-> [Best practices for using the routing service](how-to-use-best-practices-for-search.md)
-
-> [!div class="nextstepaction"]
-> [How to use the services module (Web SDK)](how-to-use-best-practices-for-routing.md)
-
-> [!div class="nextstepaction"]
-> [Azure Maps REST Service API reference documentation](https://docs.microsoft.com/rest/api/maps/)
-
-> [!div class="nextstepaction"]
-> [Code samples](https://docs.microsoft.com/samples/browse/?products=azure-maps)
+- [Code samples](https://docs.microsoft.com/samples/browse/?products=azure-maps)
+- [How to use the services module (Web SDK)](how-to-use-best-practices-for-routing.md)

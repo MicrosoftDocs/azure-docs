@@ -30,9 +30,9 @@ The Conversion service is unable to create a map feature from an invalid entity 
 
 * The two images below show examples of self-intersecting polygons.
 
-     ![Example of a self-intersecting polygon](./media/drawing-conversion-error-codes/geometry-warning-1.png)
+     ![Example of a self-intersecting polygon, example one.](./media/drawing-conversion-error-codes/geometry-warning-1.png)
 
-     ![Example of a self-intersecting polygon](./media/drawing-conversion-error-codes/geometry-warning-2.png)
+     ![Example of a self-intersecting polygon, example two.](./media/drawing-conversion-error-codes/geometry-warning-2.png)
 
 * Below is an image that shows a non-closed PolyLine. Assume that the layer only supports closed geometry.
 

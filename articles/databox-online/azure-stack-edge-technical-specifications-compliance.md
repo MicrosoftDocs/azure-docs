@@ -1,6 +1,6 @@
 ---
-title: Microsoft Azure Stack Edge technical specifications and compliance| Microsoft Docs
-description: Learn about the technical specifications and compliance for your Azure Stack Edge
+title: Microsoft Azure Stack Edge Pro technical specifications and compliance| Microsoft Docs
+description: Learn about the technical specifications and compliance for your Azure Stack Edge Pro
 services: databox
 author: alkohli
 
@@ -10,22 +10,22 @@ ms.topic: article
 ms.date: 03/02/2020
 ms.author: alkohli
 ---
-# Azure Stack Edge technical specifications
+# Azure Stack Edge Pro technical specifications
 
-The hardware components of your Microsoft Azure Stack Edge device adhere to the technical specifications and regulatory standards outlined in this article. The technical specifications describe the Power supply units (PSUs), storage capacity, enclosures, and environmental standards.
+The hardware components of your Microsoft Azure Stack Edge Pro device adhere to the technical specifications and regulatory standards outlined in this article. The technical specifications describe the Power supply units (PSUs), storage capacity, enclosures, and environmental standards.
 
 ## Compute, memory specifications
 
-The Azure Stack Edge device has the following specifications for compute and memory:
+The Azure Stack Edge Pro device has the following specifications for compute and memory:
 
 | Specification           | Value                  |
 |-------------------------|----------------------------|
-| CPU    | 2 X 10 core CPU                     |
-| Memory              | 128 GB RAM                  |
+| CPU    | 2 X 10 core CPU Intel Xeon Silver 4114 2.2G                    |
+| Memory              | 128 GB RAM (8x 16GB RDIMM)                 |
 
 ## FPGA specifications
 
-A Field Programmable Gate Array (FPGA) is included on every Azure Stack Edge device that enables Machine Learning (ML) scenarios.
+A Field Programmable Gate Array (FPGA) is included on every Azure Stack Edge Pro device that enables Machine Learning (ML) scenarios.
 
 | Specification           | Value                  |
 |-------------------------|----------------------------|
@@ -33,7 +33,7 @@ A Field Programmable Gate Array (FPGA) is included on every Azure Stack Edge dev
 
 ## Power supply unit specifications
 
-The Azure Stack Edge device has two 100-240 V Power supply units (PSUs) with high-performance fans. The two PSUs provide a redundant power configuration. If a PSU fails, the device continues to operate normally on the other PSU until the failed module is replaced. The following table lists the technical specifications of the PSUs.
+The Azure Stack Edge Pro device has two 100-240 V Power supply units (PSUs) with high-performance fans. The two PSUs provide a redundant power configuration. If a PSU fails, the device continues to operate normally on the other PSU until the failed module is replaced. The following table lists the technical specifications of the PSUs.
 
 | Specification           | 750 W PSU                  |
 |-------------------------|----------------------------|
@@ -42,26 +42,35 @@ The Azure Stack Edge device has two 100-240 V Power supply units (PSUs) with hig
 | Voltage range selection | Auto ranging: 100-240 V AC |
 | Hot pluggable           | Yes                        |
 
-### Azure Stack Edge power cord specifications by region
+### Azure Stack Edge Pro power cord specifications by region
 
-Your Azure Stack Edge device needs a power cord that varies depending on your Azure region.
-For technical specifications of all the supported power cords, see [Azure Stack Edge power cord specifications by region](azure-stack-edge-technical-specifications-power-cords-regional.md).
+Your Azure Stack Edge Pro device needs a power cord that varies depending on your Azure region.
+For technical specifications of all the supported power cords, see [Azure Stack Edge Pro power cord specifications by region](azure-stack-edge-technical-specifications-power-cords-regional.md).
 
 <!--## Power consumption statistics
 
-The following table lists the typical power consumption data (actual values may vary from the published) for the Azure Stack Edge device.-->
+The following table lists the typical power consumption data (actual values may vary from the published) for the Azure Stack Edge Pro device.-->
 
 ## Network interface specifications
 
-Your Azure Stack Edge device has 6 network interfaces, PORT1- PORT6.
+Your Azure Stack Edge Pro device has 6 network interfaces, PORT1- PORT6.
 
 | Specification           | Description                 |
 |-------------------------|----------------------------|
 |  Network interfaces    | 2 X 1 GbE interfaces – 1 management, not user configurable, used for initial setup. The other interface is user configurable, can be used for data transfer, and is DHCP by default. <br>2 X 25 GbE interfaces – These can also operate as 10 GbE interfaces. These data interfaces can be configured by user as DHCP (default) or static. <br> 2 X 25 GbE interfaces - These data interfaces can be configured by user as DHCP (default) or static.                  |
 
+The Network Adapters used are: 
+
+| Specification           | Description                 |
+|-------------------------|----------------------------|
+|Network Daughter Card (rNDC) |QLogic FastLinQ 41264 Dual Port 25GbE SFP+, Dual Port 1GbE, rNDC|
+|PCI Network Adapter |QLogic FastLinQ 41262 zwei Ports 25Gbit/s SFP28 Adapter|
+
+Please consult the Hardware Compatibility List from Intel QLogic for compatible Gigabit Interface Converter (GBIC). Gigabit Interface Converter (GBIC) are not included in the delivery of Azure Stack Edge. 
+
 ## Storage specifications
 
-The Azure Stack Edge devices have 9 X 2.5" NVMe SSDs, each with a capacity of 1.6 TB. Of these SSDs, 1 is an operating system disk, and the other 8 are data disks. The total usable capacity for the device is roughly 12.5 TB. The following table has the details for the storage capacity of the device.
+The Azure Stack Edge Pro devices have 9 X 2.5" NVMe SSDs, each with a capacity of 1.6 TB. Of these SSDs, 1 is an operating system disk, and the other 8 are data disks. The total usable capacity for the device is roughly 12.5 TB. The following table has the details for the storage capacity of the device.
 
 |     Specification                          |     Value             |
 |--------------------------------------------|-----------------------|
@@ -141,4 +150,4 @@ This section lists the specifications related to the enclosure environment such 
 
 ## Next steps
 
-- [Deploy your Azure Stack Edge](azure-stack-edge-deploy-prep.md)
+- [Deploy your Azure Stack Edge Pro](azure-stack-edge-deploy-prep.md)
