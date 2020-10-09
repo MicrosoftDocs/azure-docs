@@ -191,5 +191,5 @@ In Azure Database for MySQL read replicas are created with the same server confi
 
 In Azure Database for MySQL, replication is optimized to run with parallel threads on replicas by default. For high concurrency workloads on source server where replica server is failing to catch-up, the replication latency can improved by configuring parameter binlog_group_commit_sync_delay on the source server. This parameter controls how many microseconds the binary log commit waits before synchronizing the binary log file. The benefit is that instead of immediately applying every transaction committed, the master send the binary log updates in bulk. This reduces IO on the replica and helps to improve performance. In this scenario, it might be useful to set binlog_group_commit_sync_delay to 1000 or so and monitor the replication latency. This parameter should be set cautiously and leveraged for high concurrent workloads only. For low concurrency scenario with lot of singleton transactions, setting binlog_group_commit_sync_delay can add to the latency because the IO thread is waiting for bulk binary log updates while only few transactions may be committed. 
 
-## Next Steps
+## Next steps
 Learn more about [MySQL binlog replication overview](https://dev.mysql.com/doc/refman/5.7/en/binlog-replication-configuration-overview.html).
