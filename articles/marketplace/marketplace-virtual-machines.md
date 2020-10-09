@@ -1,5 +1,5 @@
 ---
-title: PPlan a virtual machine offer on Azure Marketplace
+title: Plan a virtual machine offer on Azure Marketplace
 description: This article describes the requirements for publishing a virtual machine offer to Azure Marketplace.
 services:  Azure, Marketplace, Compute, Storage, Networking, Blockchain, Security
 ms.service: marketplace
