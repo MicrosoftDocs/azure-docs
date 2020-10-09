@@ -122,7 +122,7 @@ The following features are enabled in the SQL Managed Instance deployment model 
 
 ### BULK INSERT and BACKUP/RESTORE statements cannot use Managed Identity to access Azure storage
 
-Bulk insert statement cannot use `DATABASE SCOPED CREDENTIAL` with Managed Identity to authenticate to Azure storeage. As a workaround, switch to SHARED ACCESS SIGNATURE authentication. The following example will not work on Azure SQL (both Database and Managed Instance):
+Bulk insert statement cannot use `DATABASE SCOPED CREDENTIAL` with Managed Identity to authenticate to Azure storage. As a workaround, switch to SHARED ACCESS SIGNATURE authentication. The following example will not work on Azure SQL (both Database and Managed Instance):
 
 ```sql
 CREATE DATABASE SCOPED CREDENTIAL msi_cred WITH IDENTITY = 'Managed Identity';
