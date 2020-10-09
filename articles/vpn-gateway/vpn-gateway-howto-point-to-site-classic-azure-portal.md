@@ -63,11 +63,9 @@ Use the following values to create a test environment, or refer to these values 
 * **Connection type**: Select **Point-to-site**.
 * **GatewaySubnet Address range (CIDR block):** 192.168.200.0/24
 
-## Create a virtual network and a VPN gateway
-
 Before you begin, verify that you have an Azure subscription. If you don't already have an Azure subscription, you can activate your [MSDN subscriber benefits](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details) or sign up for a [free account](https://azure.microsoft.com/pricing/free-trial).
 
-### Part 1: Create a virtual network
+## <a name="vnet"></a>Create a virtual network
 
 If you already have a VNet, verify that the settings are compatible with your VPN gateway design. Pay particular attention to any subnets that may overlap with other networks.
 
@@ -75,7 +73,7 @@ If you already have a VNet, verify that the settings are compatible with your VP
 
 [!INCLUDE [basic classic DNS](../../includes/vpn-gateway-dns-classic.md)]
 
-### Part 2: Create a gateway subnet and a dynamic routing gateway
+## <a name="gateway"></a>Create a VPN gateway
 
 1. Navigate to the VNet that you created.
 1. On the VNet page, under Settings, select **Gateway**. On the **Gateway** page, you can view the gateway for your virtual network. This virtual network does not yet have a gateway. Click the note that says **Click here to add a connection and a gateway**.
