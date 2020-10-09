@@ -12,7 +12,7 @@ zone_pivot_groups: app-service-platform-windows-linux
 
 # Quickstart: Create App Service app using an ARM template
 
-Get started with [Azure App Service](overview.md) by deploying a app to the cloud using an Azure Resource Manager template (ARM template) and [Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli) in Cloud Shell. Because you use a free App Service tier, you incur no costs to complete this quickstart.
+Get started with [Azure App Service](overview.md) by deploying a app to the cloud using an Azure Resource Manager template (ARM template) and [Azure CLI](/cli/azure/get-started-with-azure-cli) in Cloud Shell. Because you use a free App Service tier, you incur no costs to complete this quickstart.
 
  [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
@@ -29,7 +29,11 @@ Use the following button to deploy on **Linux**:
 ## Review the template
 
 ::: zone pivot="platform-windows"
+<<<<<<< HEAD
 The template used in this quickstart is from [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/101-app-service-docs-windows). It deploys an App Service plan and an App Service app on Windows. It's compatible with .NET Core, .NET Framework, PHP, Node.js, and Static HTML apps. For Java, see [Create Java app](app-service-web-get-started-java.md).
+=======
+The template used in this quickstart is from [Azure Quickstart templates](https://github.com/Azure/azure-quickstart-templates/). It deploys an App Service plan and an App Service app on Windows. It's compatible with .NET Core, .NET Framework, PHP, Node.js, and Static HTML apps. For Java, see [Create Java app](./quickstart-java.md). 
+>>>>>>> f988c815acf... Links: Azure - app-service (2020-10)
 
 :::code language="json" source="~/quickstart-templates/101-app-service-docs-windows/azuredeploy.json":::
 
@@ -42,8 +46,8 @@ This template contains several parameters that are predefined for your convenien
 
 | Parameters | Type    | Default value                | Description |
 |------------|---------|------------------------------|-------------|
-| webAppName | string  | "webApp-**[`<uniqueString>`](/azure/azure-resource-manager/templates/template-functions-string#uniquestring)**" | App name |
-| location   | string  | "[[resourceGroup().location](/azure/azure-resource-manager/templates/template-functions-resource#resourcegroup)]" | App region |
+| webAppName | string  | "webApp-**[`<uniqueString>`](../azure-resource-manager/templates/template-functions-string.md#uniquestring)**" | App name |
+| location   | string  | "[[resourceGroup().location](../azure-resource-manager/templates/template-functions-resource.md#resourcegroup)]" | App region |
 | sku        | string  | "F1"                         | Instance size (F1 = Free Tier) |
 | language   | string  | ".net"                       | Programming language stack (.net, php, node, html) |
 | helloWorld | boolean | False                        | True = Deploy "Hello World" app |
@@ -63,8 +67,8 @@ This template contains several parameters that are predefined for your convenien
 
 | Parameters | Type    | Default value                | Description |
 |------------|---------|------------------------------|-------------|
-| webAppName | string  | "webApp-**[`<uniqueString>`](/azure/azure-resource-manager/templates/template-functions-string#uniquestring)**" | App name |
-| location   | string  | "[[resourceGroup().location](/azure/azure-resource-manager/templates/template-functions-resource#resourcegroup)]" | App region |
+| webAppName | string  | "webApp-**[`<uniqueString>`](../azure-resource-manager/templates/template-functions-string.md#uniquestring)**" | App name |
+| location   | string  | "[[resourceGroup().location](../azure-resource-manager/templates/template-functions-resource.md#resourcegroup)]" | App region |
 | sku        | string  | "F1"                         | Instance size (F1 = Free Tier) |
 | linuxFxVersion   | string  | "DOTNETCORE&#124;3.0        | "Programming language stack &#124; Version" |
 | repoUrl    | string  | " "                          | External Git repo (optional) |
@@ -136,7 +140,7 @@ When no longer needed, [delete the resource group](../azure-resource-manager/man
 > [PHP with MySQL](tutorial-php-mysql-app.md)
 
 > [!div class="nextstepaction"]
-> [Connect to Azure SQL database with Java](/azure/sql-database/sql-database-connect-query-java?toc=%2Fazure%2Fjava%2Ftoc.json)
+> [Connect to Azure SQL database with Java](../azure-sql/database/connect-query-java.md?toc=%252fazure%252fjava%252ftoc.json)
 
 > [!div class="nextstepaction"]
 > [Map custom domain](app-service-web-tutorial-custom-domain.md)
