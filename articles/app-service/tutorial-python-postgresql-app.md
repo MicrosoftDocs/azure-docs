@@ -242,8 +242,6 @@ Django database migrations ensure that the schema in the PostgreSQL on Azure dat
     python manage.py createsuperuser
     ```
 
-1. If you see the error "The Username should be in <username@hostname> format." when running the database migrations, see [Verify the DBUSER setting](#verify-the-dbuser-setting).
-
 1. The `createsuperuser` command prompts you for superuser credentials. For the purposes of this tutorial, use the default username `root`, press **Enter** for the email address to leave it blank, and enter `Pollsdb1` for the password.
 
 1. If you see an error that the database is locked, make sure that you ran the `az webapp settings` command in the previous section. Without those settings, the migrate command cannot communicate with the database, resulting in the error.
