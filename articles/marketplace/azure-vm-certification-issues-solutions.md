@@ -369,15 +369,17 @@ In this case, Publishers are requested to provide the custom templates at [Marke
 
 Publishers must reach out to the support at [Marketplace Publisher Support](https://aka.ms/marketplacepublishersupport) for requesting exceptions for the above scenario with the additional following information:
 
-   1.	Publisher ID – The publisher ID on Partner Center portal
-   2.	Offer ID/name – The Offer ID/name for which exception is requested
-   3.	SKU/Plan ID – The plan ID/sku of the VM offer for which exception is requested
-   4.	Version – The version of the VM offer for which exception is requested
-   5.	Exception Type –Tests, Locked Down VM, Custom Templates
-   6.	Reason of request – Reason for this exception and information on tests to be exempted
+   1. Publisher ID – The publisher ID on Partner Center portal
+   2. Offer ID/name – The Offer ID/name for which exception is requested
+   3. SKU/Plan ID – The plan ID/sku of the VM offer for which exception is requested
+   4. Version – The version of the VM offer for which exception is requested
+   5. Exception Type –Tests, Locked Down VM, Custom Templates
+   6. Reason of request – Reason for this exception and information on tests to be exempted
    7. Timeline - Date till which this exception has been requested
-   8.	Attachment - Attach any importance evidence documents. For Locked Down VMs, attach the test report and for custom templates, provide the custom ARM template as attachment. Failure to attach report for Locked Down VMs and custom ARM template for custom templates will result in denial of request
+   8. Attachment - Attach any importance evidence documents. For Locked Down VMs, attach the test report and for custom templates, provide the custom ARM template as attachment. Failure to attach report for Locked Down VMs and custom ARM template for custom templates will result in denial of request
 
 ## Next steps
 
-If you have questions or feedback for improvement, contact [Partner Center Support](https://partner.microsoft.com/support/v2/?stage=1).
+- [Review and publish an offer to the commercial marketplace](review-publish-offer.md)
+- [Active marketplace rewards](partner-center-portal/marketplace-rewards.md)
+- If you have questions or feedback for improvement, contact [Partner Center Support](https://partner.microsoft.com/support/v2/?stage=1).
