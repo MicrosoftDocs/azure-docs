@@ -87,7 +87,7 @@ Before you configure and set up your Azure Stack Edge Pro device with GPU, make 
  
 The device activation is complete. You can now add shares on your device.
 
-If you encounter any issues during activation, go to [Troubleshoot activation and Azure Key Vault errors](azure-stack-edge-gpu-troubleshoot-activation.md#activation-issues).
+If you encounter any issues during activation, go to [Troubleshoot activation and Azure Key Vault errors](azure-stack-edge-gpu-troubleshoot-activation.md#activation-errors).
 
 ## Next steps
 
