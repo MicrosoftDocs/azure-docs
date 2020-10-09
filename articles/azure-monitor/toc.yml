@@ -247,7 +247,7 @@
     - name: Log queries
       items:
       - name: Query language
-        href: log-query/data-explorer-difference.md
+        href: log-query/query-language.md
       - name: KQL reference
         href: /azure/data-explorer/kusto/query/
       - name: Examples
@@ -261,7 +261,7 @@
       - name: Parse text data
         href: log-query/parse-text.md
       - name: Example queries
-        href: log-query/saved-queries.md
+        href: log-query/example-queries.md
       - name: Computer groups
         href: platform/computer-groups.md
       - name: Cross resource queries
