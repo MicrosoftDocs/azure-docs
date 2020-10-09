@@ -1,6 +1,6 @@
 ---
 title: Manual QoS capacity pool of Azure NetApp Files | Microsoft Docs
-description: Provides an introduction to the manual QoS capacity pool functionality, including how it differs from the auto QoS capacity pool and where to find additional information. 
+description: Provides an introduction to the manual QoS capacity pool and references for additional information. 
 services: azure-netapp-files
 documentationcenter: ''
 author: b-juche
@@ -26,7 +26,7 @@ The [QoS type](azure-netapp-files-understand-storage-hierarchy.md#qos_types) is 
 
 In a *manual* QoS capacity pool, you can assign the capacity and throughput for a volume independently. The total throughput of all volumes created with a manual QoS capacity pool is limited by the total throughput of the pool. It is determined by the combination of the pool size and the service-level throughput. 
 
-On the other hand, in an *auto* QoS capacity pool, throughput is assigned automatically to the volumes in the pool, proportional to the size quota assigned to the volumes.  
+In an *auto* QoS capacity pool, throughput is assigned automatically to the volumes in the pool, proportional to the size quota assigned to the volumes.  
 
 See [Storage hierarchy of Azure NetApp Files](azure-netapp-files-understand-storage-hierarchy.md) and [Performance considerations for Azure NetApp Files](azure-netapp-files-performance-considerations.md) for considerations about QoS types.
 
