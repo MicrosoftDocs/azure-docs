@@ -49006,6 +49006,14 @@
       "redirect_url": "/azure/iot-central/core/howto-export-data",
       "redirect_document_id": true
     },
+
+    {
+      "source_path": "articles/iot-central/retail/tutorial-video-analytics-create-app.md",
+      "redirect_url": "/azure/iot-central/retail/tutorial-video-analytics-create-app-yolo-v3",
+      "redirect_document_id": true
+    },
+
+
     {
       "source_path": "articles/iot-accelerators/iot-accelerators-arduino-iot-devkit-az3166-devkit-remote-monitoringV2.md",
       "redirect_url": "/azure/iot-accelerators/iot-accelerators-arduino-iot-devkit-az3166-devkit-remote-monitoring-v2",
