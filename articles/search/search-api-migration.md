@@ -46,7 +46,7 @@ Features are now generally available in this API version include:
 
 Existing code written against earlier API versions will break on api-version=2020-06-30 and later if code contains the following functionality:
 
-* Any Edm.Date literals (a date composed of year-month-day, such as `2020-12-12`) in your code or indexes must be reconstructed as an Edm.DateOffset: `2020-12-12T00:00:00Z`. The `Z` is for Universal Time Coordinated (UTC), to which Azure Search normalizes all DateTimeOffset values. This change was necessary to handle erroneous or unexpected query results due to timezone differences.
+* Any Edm.Date literals (a date composed of year-month-day, such as `2020-12-12`) in filter expressions must follow the Edm.DateTimeOffset format: `2020-12-12T00:00:00Z`. This change was necessary to handle erroneous or unexpected query results due to timezone differences.
 
 ### Behavior changes
 
