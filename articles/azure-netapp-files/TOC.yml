@@ -39,6 +39,8 @@
     href: azure-netapp-files-cost-model.md
   - name: Guidelines for Azure NetApp Files network planning 
     href: azure-netapp-files-network-topologies.md
+  - name: Manual QoS capacity pool
+    href: manual-qos-capacity-pool-introduction.md
   - name: Cross-region replication
     items: 
     - name: Understand cross-region replication
