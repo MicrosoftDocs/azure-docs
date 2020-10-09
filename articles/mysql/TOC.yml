@@ -245,6 +245,10 @@
       - name: Azure PowerShell
         href: howto-restore-server-powershell.md
         displayName: restore server, backup, geo-restore powershell
+      - name: Restore a dropped server
+        href: howto-restore-droppedserver.md
+        displayName: restore server,dropped, recover
+        
     - name: Connect applications
       items:
           - name: Configure SSL
