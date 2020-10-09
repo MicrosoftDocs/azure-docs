@@ -45,7 +45,7 @@ The first step in modeling is creating your models. You can create and complete 
 
 Most industry models (also referred to as **ontologies**) are based on semantic web standards such as [OWL](https://www.w3.org/OWL/[), [RDF](https://www.w3.org/2001/sw/wiki/RDF), and [RDFS](https://www.w3.org/2001/sw/wiki/RDFS). 
 
-In some cases, you many want to create or edit a model using OWL-based model tools. You can use any number of model authoring tools to design an OWL-based model, including the following.
+In some cases, you may want to create or edit a model using OWL-based model tools. You can use any number of model authoring tools to design an OWL-based model, including the following.
 * [WebProtégé](https://protege.stanford.edu/products.php#web-protege) and [Protégé Desktop](https://protege.stanford.edu/products.php#desktop-protege) are popular examples. You can import industry models in multiple formats, edit or extend a model, and export the model. 
 * [WebVOWL](http://www.visualdataweb.de/webvowl/) is another popular tool for visualizing models. 
 
@@ -53,9 +53,9 @@ If you create a model using some industry standard that is not DTDL, you will th
 
 #### Common model file formats 
 
-RDF, OWL and RDFS are the basic building blocks of the semantic web. 
+RDF, OWL, and RDFS are the basic building blocks of the semantic web. 
 
-**RDF** provides a conceptual structure for describing things, in the form of **triples**. Triples consist of three parts: **subject**, **predicate**, and **object**. These can be made of up URIs. 
+**RDF** provides a conceptual structure for describing things, in the form of **triples**. Triples consist of three parts: **subject**, **predicate**, and **object**. Objects can be made of URIs. 
 
 Here are some examples of RDF triples:
 
@@ -65,7 +65,7 @@ Here are some examples of RDF triples:
 <Oranges> <eats> <Oranges> 
 ```
 
-These examples are all valid RDF, but the last statement is semantically invalid. This is where the OWL specification enters the picture. **OWL** defines what you can write with RDF in order to have valid ontology.
+These examples are all valid RDF, but the last statement is semantically invalid. This situation is where the OWL specification enters the picture. **OWL** defines what you can write with RDF in order to have valid ontology.
 
 Here is an example making use of OWL: 
 
@@ -103,12 +103,12 @@ The following table is an example of how RDFS and OWL constructs can be mapped t
 
 | RDFS/OWL concept | RDFS/OWL construct | DTDL concept | DTDL construct |
 | --- | --- | --- | --- |
-| Classes | owl:Class<br>IRI suffix<br>rdfs:label<br>rdfs:comment | Interface | @type:Interface<br>@id<br>displayName<br>comment 
-| Subclasses | owl:Class<br>IRI suffix<br>rdfs:label<br>rdfs:comment<br>rdfs:subClassOf | Interface | @type:Interface<br>@id<br>displayName<br>comment<br>extends 
-| Datatype Properties | owl:DatatypeProperty<br>rdfs:label or INode<br>rdfs:label<br>rdfs:range | Interface Properties | @type:Property<br>name<br>displayName<br>schema 
-| Object Properties | owl:ObjectProperty<br>rdfs:label or INode<br>rdfs:range<br>rdfs:comment<br>rdfs:label | Relationship | type:Relationship<br>name<br>target or omitted if no rdfs:range<br>comment<br>displayName<br>
+| Classes | `owl:Class`<br>IRI suffix<br>``rdfs:label``<br>``rdfs:comment`` | Interface | `@type:Interface`<br>`@id`<br>`displayName`<br>`comment` 
+| Subclasses | `owl:Class`<br>IRI suffix<br>`rdfs:label`<br>`rdfs:comment`<br>`rdfs:subClassOf` | Interface | `@type:Interface`<br>`@id`<br>`displayName`<br>`comment`<br>`extends` 
+| Datatype Properties | `owl:DatatypeProperty`<br>`rdfs:label` or `INode`<br>`rdfs:label`<br>`rdfs:range` | Interface Properties | `@type:Property`<br>`name`<br>`displayName`<br>`schema` 
+| Object Properties | `owl:ObjectProperty`<br>`rdfs:label` or `INode`<br>`rdfs:range`<br>`rdfs:comment`<br>`rdfs:label` | Relationship | `type:Relationship`<br>`name`<br>`target` (or omitted if no `rdfs:range`)<br>`comment`<br>`displayName`<br>
 
-The following C# code snippet shows how a RDF model file is loaded into a graph and converted to DTDL, using the [**dotNetRDF**](https://www.dotnetrdf.org/) library. 
+The following C# code snippet shows how an RDF model file is loaded into a graph and converted to DTDL, using the [**dotNetRDF**](https://www.dotnetrdf.org/) library. 
 
 ```csharp
 using VDS.RDF.Ontology; 
