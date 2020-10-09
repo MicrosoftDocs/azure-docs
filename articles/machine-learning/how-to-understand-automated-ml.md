@@ -123,7 +123,7 @@ Depending on the goal of the business problem, the ideal precision-recall curve 
 ![A classification model with low precision and low recall](./media/how-to-understand-automated-ml/azure-machine-learning-auto-ml-precision-recall1.png)
 
 ##### Example 2: A classification model with ~100% precision and ~100% recall 
-![A classification model high precision and recall](./media/how-to-understand-automated-ml/azure-machine-learning-auto-ml-precision-recall2.png)
+![A classification model high precision and recall](./media/how-to-understand-automated-ml/azure-machine-learning-auto-ml-precision-recall3.png)
 
 <a name="roc"></a>
 
@@ -140,19 +140,21 @@ An ROC curve that approaches the top left corner with 100% true positive rate an
 ![Classification model with low true labels and high false labels](./media/how-to-understand-automated-ml/azure-machine-learning-auto-ml-roc-1.png)
 
 #### Example 2: A classification model with high true labels and low false labels
-![a classification model with high true labels and low false labels](./media/how-to-understand-automated-ml/azure-machine-learning-auto-ml-roc-2.png)
+
+![a classification model with high true labels and low false labels](./media/how-to-understand-automated-ml/azure-machine-learning-auto-ml-roc-4.png)
+
 
 <a name="lift-curve"></a>
 
 ## Lift chart
 
-Lift charts evaluate the performance of classification models. A lift chart shows how many times better a model performs compared to a random model. This gives you a relative performance that takes into account the fact that classification gets harder as you increase the number of classes. 
+Lift charts evaluate the performance of classification models. A lift chart shows how many times better a model performs compared to a random model. This gives you a relative performance that takes into account the fact that classification gets harder as you increase the number of classes. A random model incorrectly predicts a higher fraction of samples from a dataset with ten classes compared to a dataset with two classes.
 
-You can compare the lift of the model built automatically with Azure Machine Learning to the baseline in order to view the value gain of that particular model.
+You can compare the lift of the model built automatically with Azure Machine Learning to the baseline (random model) in order to view the value gain of that particular model.
 
 ### What does a good model look like?
 
-A random model incorrectly predicts a higher fraction of samples from a dataset with ten classes compared to a dataset with two classes.
+A higher lift curve, that is the higher your model is above the baseline random model, indicates a better performing model. 
 
 #### Example 1: A classification model that does worse than a random selection model
 ![A classification model that does worse than a random selection model](./media/how-to-understand-automated-ml/azure-machine-learning-auto-ml-lift-curve1.png)
@@ -164,11 +166,13 @@ A random model incorrectly predicts a higher fraction of samples from a dataset 
 
 ## Cumulative gains chart
 
-A cumulative gains chart evaluates the performance of a classification model by each portion of the data. For each percentile of the data set, the chart shows how many more samples have been accurately classified.
+A cumulative gains chart evaluates the performance of a classification model by each portion of the data. For each percentile of the data set, the chart shows how many more samples have been accurately classified. This information provides another way of looking at the results in the accompanying lift chart.
 
-The cumulative gains chart helps you choose the classification cutoff using a percentage that corresponds to a desired gain from the model. This information provides another way of looking at the results in the accompanying lift chart.
+The cumulative gains chart helps you choose the classification cutoff using a percentage that corresponds to a desired gain from the model. 
 
 #### What does a good model look like?
+
+Similar to a the lift chart, the higher your cumulative gains curve is above the baseline, the better your model is performing. For instance, the chart in example 2 shows that at the 0.1 percentile of predictions, the model shows a 100% gain (or correctly classifies 100% of the percentile of predictions), the same at 0.2 percentile and so on. Whereas in example 1, at the 0.1 percentile, the model only shows about a 10% gain, or correctly classifies about 10% of the percentile of predictions.
 
 ##### Example 1: A classification model with minimal gain
 ![a classification model with minimal gain](./media/how-to-understand-automated-ml/azure-machine-learning-auto-ml-gains-curve1.png)
@@ -190,10 +194,10 @@ For all classification problems, you can review the calibration line for micro-a
 A well-calibrated model aligns with the y=x line, where it correctly predicts the probability that samples belong to each class. An over-confident model will over-predict probabilities close to zero and one, rarely being uncertain about the class of each sample.
 
 #### Example 1: A well-calibrated model
-![ more well-calibrated model](./media/how-to-understand-automated-ml/azure-machine-learning-auto-ml-calib-curve1.png)
+![ more well-calibrated model](./media/how-to-understand-automated-ml/azure-machine-learning-auto-ml-calib-curve3.png)
 
 #### Example 2: An over-confident model
-![An over-confident model](./media/how-to-understand-automated-ml/azure-machine-learning-auto-ml-calib-curve2.png)
+![An over-confident model](./media/how-to-understand-automated-ml/azure-machine-learning-auto-ml-calib-curve4.png)
 
 
 <a name="regression"></a> 
