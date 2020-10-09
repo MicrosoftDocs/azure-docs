@@ -246,12 +246,14 @@
         href: log-query/simple-logs.md
     - name: Log queries
       items:
-      - name: Query language
-        href: log-query/query-language.md
+      - name: Overview
+        href: log-query/log-query-overview.md
       - name: KQL reference
         href: /azure/data-explorer/kusto/query/
-      - name: Examples
-        href: https://review.docs.microsoft.com/azure/data-explorer/kusto/query/samples?branch=pr-en-us-826&pivots=azuremonitor
+      - name: Samples
+        href: /azure/data-explorer/kusto/query/samples?&pivots=azuremonitor
+      - name: Example queries
+        href: log-query/example-queries.md
       - name: Standard columns
         href: platform/log-standard-columns.md
       - name: Optimize queries
@@ -260,8 +262,6 @@
         href: log-query/functions.md
       - name: Parse text data
         href: log-query/parse-text.md
-      - name: Example queries
-        href: log-query/example-queries.md
       - name: Computer groups
         href: platform/computer-groups.md
       - name: Cross resource queries

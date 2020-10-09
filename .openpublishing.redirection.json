@@ -41829,7 +41829,7 @@
     },
     {
       "source_path": "articles/log-analytics/query-language/data-explorer-difference.md",
-      "redirect_url": "/azure/azure-monitor/log-query/data-explorer-difference",
+      "redirect_url": "/azure/azure-monitor/log-query/log-query-overview",
       "redirect_document_id": true
     },
     {
@@ -43645,11 +43645,6 @@
     {
       "source_path": "articles/azure-monitor/log-query/get-started-portal.md",
       "redirect_url": "/azure/azure-monitor/log-query/log-analytics-tutorial",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/azure-monitor/log-query/log-query-overview.md",
-      "redirect_url": "/azure/azure-monitor/platform/data-platform-logs",
       "redirect_document_id": false
     },
     {
