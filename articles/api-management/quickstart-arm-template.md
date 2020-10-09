@@ -7,7 +7,7 @@ ms.service: azure-resource-manager
 ms.topic: quickstart
 ms.custom: subject-armqs
 ms.author: danlep
-ms.date: 10/06/2020
+ms.date: 10/09/2020
 ---
 
 # Quickstart: Create a new Azure API Management service instance using an ARM template
@@ -74,7 +74,7 @@ More Azure API Management template samples can be found in [Azure Quickstart Tem
 Use the Azure portal to check the deployed resources, or use tools such as the Azure CLI or Azure PowerShell to list the deployed resources.
 
 
-1. In the portal, search for and select **API Management services**, and select the service instance you created.
+1. In the [Azure portal](https://portal.azure.com), search for and select **API Management services**, and select the service instance you created.
 1. Review the properties of your service on the **Overview** page.
 
 :::image type="content" source="media/quickstart-arm-template/service-instance-created.png" alt-text="Service overview page":::
@@ -85,7 +85,7 @@ When your API Management service instance is online, you're ready to use it. Sta
 
 If you plan to continue working with subsequent tutorials, you might want to leave the API Management instance in place. When no longer needed, delete the resource group, which deletes the resources in the resource group.
 
-1. In the Azure portal, search for and select **Resource groups**. You can also select **Resource groups** on the **Home** page.
+1. In the [Azure portal](https://portal.azure.com), search for and select **Resource groups**. You can also select **Resource groups** on the **Home** page.
 1. On the **Resource groups** page, select your resource group.
 1. On the resource group page, select **Delete resource group**.
 
