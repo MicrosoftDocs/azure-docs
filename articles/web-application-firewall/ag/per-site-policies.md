@@ -256,13 +256,13 @@ $policySettingURI = New-AzApplicationGatewayFirewallPolicySetting `
   -MaxFileUploadInMb 5
 
 $wafPolicyURI = New-AzApplicationGatewayFirewallPolicy `
-  -Name wafpolicySite `
+  -Name wafpolicyURI `
   -ResourceGroup myResourceGroupAG `
   -Location eastus `
   -PolicySetting $PolicySettingURI `
   -CustomRule $rule4, $rule5
 
-$Gateway = Get-AzApplicationGateway -Name "myAppGateway"
+$AppGw = Get-AzApplicationGateway -Name "myAppGateway"
 
 $PathRuleConfig = New-AzApplicationGatewayPathRuleConfig -Name "base" `
   -Paths "/base" `
@@ -277,8 +277,8 @@ $PathRuleConfig1 = New-AzApplicationGatewayPathRuleConfig `
 
 $URLPathMap = New-AzApplicationGatewayUrlPathMapConfig -Name "PathMap" `
   -PathRules $PathRuleConfig, $PathRuleConfig1 `
-  -DefaultBackendAddressPoolId $defaultPool.Id `
-  -DefaultBackendHttpSettingsId $poolSettings.Id
+  -DefaultBackendAddressPool $defaultPool `
+  -DefaultBackendHttpSettings $poolSettings
 
 Add-AzApplicationGatewayRequestRoutingRule -ApplicationGateway $AppGw `
   -Name "RequestRoutingRule" `
@@ -296,6 +296,8 @@ $vnet = Get-AzVirtualNetwork `
   -ResourceGroupName myResourceGroupAG `
   -Name myVNet
 
+$myBackEndSubnetID = $vnet.Subnets | where Name -match myBackendSubnet | foreach Id
+
 $appgw = Get-AzApplicationGateway `
   -ResourceGroupName myResourceGroupAG `
   -Name myAppGateway
@@ -306,7 +308,7 @@ $backendPool = Get-AzApplicationGatewayBackendAddressPool `
 
 $ipConfig = New-AzVmssIpConfig `
   -Name myVmssIPConfig `
-  -SubnetId $vnet.Subnets[1].Id `
+  -SubnetId $myBackEndSubnetID `
   -ApplicationGatewayBackendAddressPoolsId $backendPool.Id
 
 $vmssConfig = New-AzVmssConfig `
