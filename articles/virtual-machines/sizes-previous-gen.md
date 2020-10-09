@@ -365,7 +365,7 @@ Memory Preserving Updates: Not Supported
 1 GPU = one-half M60 card.
 <br>
 
-# NC-series
+# NC series
 **Newer size recommendation**: [NC T4 v3-series](nct4-v3-series.md)
 
 NC-series VMs are powered by the [NVIDIA Tesla K80](https://www.nvidia.com/content/dam/en-zz/Solutions/Data-Center/tesla-product-literature/Tesla-K80-BoardSpec-07317-001-v05.pdf) card and the Intel Xeon E5-2690 v3 (Haswell) processor. Users can crunch through data faster by leveraging CUDA for energy exploration applications, crash simulations, ray traced rendering, deep learning, and more. The NC24r configuration provides a low latency, high-throughput network interface optimized for tightly coupled parallel computing workloads.
@@ -392,7 +392,7 @@ NC-series VMs are powered by the [NVIDIA Tesla K80](https://www.nvidia.com/conte
 <br>
 
 
-# NCv2-series
+# NCv2 series
 **Newer size recommendation**: [NC T4 v3-series](nct4-v3-series.md) and [NC V100 v3-series](ncv3-series.md)
 
 NCv2-series VMs are powered by NVIDIA Tesla P100 GPUs. These GPUs can provide more than 2x the computational performance of the NC-series. Customers can take advantage of these updated GPUs for traditional HPC workloads such as reservoir modeling, DNA sequencing, protein analysis, Monte Carlo simulations, and others. In addition to the GPUs, the NCv2-series VMs are also powered by Intel Xeon E5-2690 v4 (Broadwell) CPUs.
@@ -420,7 +420,7 @@ The NC24rs v2 configuration provides a low latency, high-throughput network inte
 
 <br>
 
-# ND-series
+# ND series
 **Newer size recommendation**: [NDv2-series](ndv2-series.md) and [NC V100 v3-series](ncv3-series.md)
 
 The ND-series virtual machines are a new addition to the GPU family designed for AI, and Deep Learning workloads. They offer excellent performance for training and inference. ND instances are powered by [NVIDIA Tesla P40](https://images.nvidia.com/content/pdf/tesla/184427-Tesla-P40-Datasheet-NV-Final-Letter-Web.pdf) GPUs and Intel Xeon E5-2690 v4 (Broadwell) CPUs. These instances provide excellent performance for single-precision floating point operations, for AI workloads utilizing Microsoft Cognitive Toolkit, TensorFlow, Caffe, and other frameworks. The ND-series also offers a much larger GPU memory size (24 GB), enabling to fit much larger neural net models. Like the NC-series, the ND-series offers a configuration with a secondary low-latency, high-throughput network through RDMA, and InfiniBand connectivity so you can run large-scale training jobs spanning many GPUs.
