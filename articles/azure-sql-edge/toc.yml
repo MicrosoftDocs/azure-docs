@@ -145,6 +145,6 @@
 - name: Resources
   items:
   - name: Partners
-   items: 
-   - name: Security
-     href: resources-partners-security.md
+    items: 
+    - name: Security
+      href: resources-partners-security.md
