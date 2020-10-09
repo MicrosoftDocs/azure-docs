@@ -33,7 +33,7 @@ When binary log is enabled, the source server writes committed transaction into 
 
 ## Monitoring Replication Latency
 
-Azure Database for MySQL provides the Replication lag in seconds metric in [Azure Monitor](concepts-monitoring.md). This metric is available on read replicas servers only. This metric is calculated using the seconds_behind_master metric available in MySQL's SHOW SLAVE STATUS command. To understand root cause of increased replication latency, connect to the replica server using [MySQL Workbench](connect-workbench.md) or [Azure Cloud shell](https://shell.azure.com) and execute following command:
+Azure Database for MySQL provides the Replication lag in seconds metric in [Azure Monitor](concepts-monitoring.md). This metric is available on read replicas servers only. This metric is calculated using the seconds_behind_master metric available in MySQL. To understand root cause of increased replication latency, connect to the replica server using [MySQL Workbench](connect-workbench.md) or [Azure Cloud shell](https://shell.azure.com) and execute following command:
 
  Replace values with your actual replica server name and admin user login name. The admin username requires '@\<servername>' for Azure Database for MySQL:
 
@@ -66,7 +66,7 @@ Azure Database for MySQL provides the Replication lag in seconds metric in [Azur
   Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
   mysql>
   ```
-3. In the same Azure Cloud Shell terminal, execute SHOW SLAVE STATUS
+3. In the same Azure Cloud Shell terminal, execute following command
 
   ```
   mysql> SHOW SLAVE STATUS;
@@ -75,7 +75,7 @@ Azure Database for MySQL provides the Replication lag in seconds metric in [Azur
   A typical output will look like:
   
 >[!div class="mx-imgBorder"]
-> :::image type="content" source="./media/howto-troubleshoot-replication-latency/show_slave_status.png" alt-text="SHow SLAVE STATUS OUTPUT":::
+> :::image type="content" source="./media/howto-troubleshoot-replication-latency/show_status.png" alt-text="Monitoring replication latency":::
 
 
 The output contains a lot of information, but normally it's only important to focus on the following columns:
@@ -105,7 +105,7 @@ Next, you need to check Last_IO_Errno, Last_IO_Error, Last_SQL_Errno and Last_SQ
 
 ### Network Latency
 
-If you observe the following output in the SHOW SLAVE STATUS OUTPUT, the most common cause of the replication latency is high network latency. In this case, the IO thread is running and waiting on the master. The master has already written to binary log file #20, while replica received only up to file #10. Since the IO thread connects to master via TCP/IP, the only contributing factor for high replication latency is the network speed.  In Azure, the network latency within a region typically ranges in milliseconds and across region can go up to seconds. If you see high network latency abnormally all of a sudden, we recommend you check [Azure status page](https://status.azure.com/status) to ensure there are non known issues or outages. If there is no known issue and the issue still persists for few hours, we recommend you to open a support ticket for troubleshooting assistance.
+If you observe the following values, the most common cause of the replication latency is high network latency. In this case, the IO thread is running and waiting on the master. The master has already written to binary log file #20, while replica received only up to file #10. Since the IO thread connects to master via TCP/IP, the only contributing factor for high replication latency is the network speed.  In Azure, the network latency within a region typically ranges in milliseconds and across region can go up to seconds. If you see high network latency abnormally all of a sudden, we recommend you check [Azure status page](https://status.azure.com/status) to ensure there are non known issues or outages. If there is no known issue and the issue still persists for few hours, we recommend you to open a support ticket for troubleshooting assistance.
 
 ```
 Slave_IO_State: Waiting for master to send event
@@ -117,7 +117,7 @@ Following are the common causes of the latency in this category:
 
 ### Heavy Burst of transactions on source server
 
-If you observe the following in the SHOW SLAVE STATUS OUTPUT, the most common cause of the replication latency is, heavy burst of transactions on source server. In the output below, though the replica can retrieve the binary log behind the master, the replica IO thread indicates that the relay log space is full already. So network speed isn't causing the delay, because the replica has already been trying to catch up as fast as it can. Instead, the updated binary log size exceeds the upper limit of the relay log space. To troubleshoot this issue further, [slow query log](concepts-server-logs.md) should be enabled on the master server. Slow query logs enables you to identify long running transactions on the source server. The identified queries needs to be tuned to reduce the latency on the server. 
+If you observe the following values, the most common cause of the replication latency is, heavy burst of transactions on source server. In the output below, though the replica can retrieve the binary log behind the master, the replica IO thread indicates that the relay log space is full already. So network speed isn't causing the delay, because the replica has already been trying to catch up as fast as it can. Instead, the updated binary log size exceeds the upper limit of the relay log space. To troubleshoot this issue further, [slow query log](concepts-server-logs.md) should be enabled on the master server. Slow query logs enables you to identify long running transactions on the source server. The identified queries needs to be tuned to reduce the latency on the server. 
 
 ```
 Slave_IO_State: Waiting for the slave SQL thread to free enough relay log space
@@ -133,7 +133,7 @@ In some cases, there are weekly or monthly data load on source servers. Unfortun
 
 ### Slowness on the Replica server
 
-If you observe the following in the SHOW SLAVE STATUS OUTPUT, the most common cause can be some issue on the replica server that needs further investigation. In this scenario, as seen in the output, both the IO and SQL threads are running well and the replica is reading the same binary log file as the master writes. However, some latency occurs on the replica server to reflect the same transaction from the source server. 
+If you observe the following values, the most common cause can be some issue on the replica server that needs further investigation. In this scenario, as seen in the output, both the IO and SQL threads are running well and the replica is reading the same binary log file as the master writes. However, some latency occurs on the replica server to reflect the same transaction from the source server. 
 
 ```
 Slave_IO_State: Waiting for master to send event
