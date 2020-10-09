@@ -42,7 +42,7 @@ To complete the tutorial, make sure you have the following prerequisites:
 - Experience with deploying two managed instances within the same virtual network.
 - A SQL Server subscriber, either on-premises or on an Azure VM. This tutorial uses an Azure VM.  
 - [SQL Server Management Studio (SSMS) 18.0 or greater](/sql/ssms/download-sql-server-management-studio-ssms).
-- The latest version of [Azure PowerShell](/powershell/azure/install-az-ps?view=azps-1.7.0).
+- The latest version of [Azure PowerShell](/powershell/azure/install-az-ps).
 - Ports 445 and 1433 allow SQL traffic on both the Azure firewall and the Windows firewall.
 
 ## Create the resource group
