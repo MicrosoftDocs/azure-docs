@@ -85,7 +85,7 @@ If you plan to use an existing server admin (sa) user to scan your on-premises S
 
 #### Creating a new login and user
 
-If you would like to create a new login and user to be able tos can your SQL server, follow the steps below:
+If you would like to create a new login and user to be able to scan your SQL server, follow the steps below:
 
 1. Navigate to SQL Server Management Studio (SSMS), connect to the server, navigate to security, right-click on login and create New login. Make sure to select SQL authentication.
 
