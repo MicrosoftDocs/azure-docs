@@ -786,12 +786,14 @@ Most security standards address data availability in terms of operational contin
 
 - Azure offers built-in high-availability: [High-availability with SQL Database and SQL Managed Instance](high-availability-sla.md)
 
-- The Business Critical tier includes failover groups, multi-availability zones, full and differential log backups, and point-in-time-restore backups enabled by default:  
-  - [High-availability - Zone redundant configuration](high-availability-sla.md#zone-redundant-configuration)
+- The Business Critical tier includes failover groups, full and differential log backups, and point-in-time-restore backups enabled by default:  
   - [Automated backups](automated-backups-overview.md)
   - [Recover a database using automated database backups - Point-in-time restore](recovery-using-backups.md#point-in-time-restore)
 
-- Additional business continuity features such as auto-failover groups across different Azure geos can be configured as described here: [Overview of business continuity](business-continuity-high-availability-disaster-recover-hadr-overview.md)
+- Additional business continuity features such as the zone redundant configuration and auto-failover groups across different Azure geos can be configured: 
+    - [High-availability - Zone redundant configuration for Premium & Business Critical service tiers](high-availability-sla.md#premium-and-business-critical-service-tier-zone-redundant-availability)
+    - [High-availability - Zone redundant configuration for General Purpose service tier](../azure-sql/database/high-availability-sla.md#general-purpose-service-tier-zone-redundant-availability-(Preview))
+    - [Overview of business continuity](business-continuity-high-availability-disaster-recover-hadr-overview.md)
 
 ## Next steps
 

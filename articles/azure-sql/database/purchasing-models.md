@@ -66,7 +66,7 @@ For more information about storage prices, see the [pricing](https://azure.micro
 
 A virtual core (vCore) represents a logical CPU and offers you the option to choose between generations of hardware and the physical characteristics of the hardware (for example, the number of cores, the memory, and the storage size). The vCore-based purchasing model gives you flexibility, control, transparency of individual resource consumption, and a straightforward way to translate on-premises workload requirements to the cloud. This model allows you to choose compute, memory, and storage resources based on your workload needs.
 
-In the vCore-based purchasing model, you can choose between the [General Purpose](high-availability-sla.md#basic-standard-and-general-purpose-service-tier-availability) and [Business Critical](high-availability-sla.md#premium-and-business-critical-service-tier-availability) service tiers for SQL Database and SQL Managed Instance.  For single databases, you can also choose the [Hyperscale service tier](service-tier-hyperscale.md).
+In the vCore-based purchasing model, you can choose between the [General Purpose](high-availability-sla.md#basic-standard-and-general-purpose-service-tier-locally-redundant-availability) and [Business Critical](high-availability-sla.md#premium-and-business-critical-service-tier-locally-redundant-availability) service tiers for SQL Database and SQL Managed Instance.  For single databases, you can also choose the [Hyperscale service tier](service-tier-hyperscale.md).
 
 The vCore-based purchasing model lets you independently choose compute and storage resources, match on-premises performance, and optimize price. In the vCore-based purchasing model, you pay for:
 

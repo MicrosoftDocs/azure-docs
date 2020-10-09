@@ -46,8 +46,8 @@ Services that are available in each region, along with upcoming roadmap for avai
 | [Azure Cache for Redis](https://docs.microsoft.com/azure/azure-cache-for-redis/cache-overview) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 | [Azure Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/high-availability#availability-zone-support) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 | [Azure Data Explorer](https://docs.microsoft.com/azure/data-explorer/create-cluster-database-portal) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| [Azure SQL Database](https://docs.microsoft.com/azure/azure-sql/database/high-availability-sla)  (General Purpose Tier)                     | :x: | :heavy_check_mark (Preview): | :heavy_check_mark (Preview): | :heavy_check_mark (Preview): | :x: |
-| [Azure SQL Database](https://docs.microsoft.com/azure/azure-sql/database/high-availability-sla) (Premium & Business Critical Tiers)                       | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
+| [Azure SQL Database (General Purpose Tier)](../azure-sql/database/high-availability-sla.md#general-purpose-service-tier-zone-redundant-availability) | :x: | :heavy_check_mark:(Preview) | :heavy_check_mark:(Preview) | :heavy_check_mark:(Preview) | :x: |
+| [Azure SQL Database (Premium & Business Critical Tiers)](../azure-sql/database/high-availability-sla.md#premium-and-business-critical-service-tier-zone-redundant-availability) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 | **Analytics** |  |  |  |  |  |
 | [Event Hubs](../event-hubs/index.yml) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 | **Integration** |  |  |  |  |  |
@@ -84,8 +84,8 @@ Services that are available in each region, along with upcoming roadmap for avai
 | [Azure Cache for Redis](https://docs.microsoft.com/azure/azure-cache-for-redis/cache-overview) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 | [Azure Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/high-availability#availability-zone-support) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 | [Azure Data Explorer](https://docs.microsoft.com/azure/data-explorer/create-cluster-database-portal) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| [Azure SQL Database](https://docs.microsoft.com/azure/azure-sql/database/high-availability-sla) (General Purpose Tier)                       | :x: | :heavy_check_mark (Preview): | :x: | :heavy_check_mark (Preview): |
-| [Azure SQL Database](https://docs.microsoft.com/azure/azure-sql/database/high-availability-sla) (Premium & Business Critical Tiers)                       | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
+| [Azure SQL Database (General Purpose Tier)](../azure-sql/database/high-availability-sla.md#general-purpose-service-tier-zone-redundant-availability) | :x: | :heavy_check_mark:(Preview) | :x: | :heavy_check_mark:(Preview) |
+| [Azure SQL Database (Premium & Business Critical Tiers)](../azure-sql/database/high-availability-sla.md#premium-and-business-critical-service-tier-zone-redundant-availability) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 | **Analytics** |  |  |  |  |
 | [Event Hubs](../event-hubs/index.yml) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 | **Integration** |  |  |  |  |
@@ -124,8 +124,8 @@ Services that are available in each region, along with upcoming roadmap for avai
 | [Azure Cache for Redis](https://docs.microsoft.com/azure/azure-cache-for-redis/cache-overview) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 | [Azure Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/high-availability#availability-zone-support) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 | [Azure Data Explorer](https://docs.microsoft.com/azure/data-explorer/create-cluster-database-portal) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| [Azure SQL Database](https://docs.microsoft.com/azure/azure-sql/database/high-availability-sla) (General Purpose Tier)                         | :x: | :heavy_check_mark (Preview): | :heavy_check_mark (Preview): |
-| [Azure SQL Database](https://docs.microsoft.com/azure/azure-sql/database/high-availability-sla) (Premium & Business Critical Tiers)                      | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
+| [Azure SQL Database (General Purpose Tier)](../azure-sql/database/high-availability-sla.md#general-purpose-service-tier-zone-redundant-availability) | :x: | :heavy_check_mark:(Preview) | :heavy_check_mark:(Preview) |
+| [Azure SQL Database (Premium & Business Critical Tiers)](../azure-sql/database/high-availability-sla.md#premium-and-business-critical-service-tier-zone-redundant-availability) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 | **Analytics** |  |  |  |
 | [Event Hubs](../event-hubs/index.yml) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 | **Integration** |  |  |  |
