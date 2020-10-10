@@ -353,9 +353,9 @@ You can check the replication status for a blob in the source account using the 
 
 To check the replication status for a blob in the source account in the Azure portal, follow these steps:
 
-1. Navigate to the destination storage account in the Azure portal.
-1. Locate the container that includes the blob for which you wish to check the replication status.
-1. Select the blob to display its properties. If the blob has replicated successfully, you'll see in the **Object replication** section that the status is set to *Complete*. The replication policy ID and the ID for the rule governing replication for this container are also listed.
+1. Navigate to the source account in the Azure portal.
+1. Locate the container that includes the source blob.
+1. Select the blob to display its properties. If the blob has been replicated successfully, you'll see in the **Object replication** section that the status is set to *Complete*. The replication policy ID and the ID for the rule governing object replication for this container are also listed.
 
 :::image type="content" source="media/object-replication-configure/check-replication-status-source.png" alt-text="Screenshot showing replication status for a blob in the source account":::
 
@@ -365,14 +365,14 @@ N/A
 
 # [Azure CLI](#tab/azure-cli)
 
-To check the replication status for a blob in the source account with Azure CLI, get the value of the **status** property, as shown in the following example:
+To check the replication status for a blob in the source account with Azure CLI, get the value of the object replication **status** property, as shown in the following example:
 
 ```azurecli
 az storage blob show \
     --account-name <source-account-name> \
     --container-name <source-container-name> \
     --name <source-blob-name> \
-    --query objectReplicationSourceProperties[].rules[].status \
+    --query 'objectReplicationSourceProperties[].rules[].status' \
     --output tsv \
     --auth-mode login
 ```
