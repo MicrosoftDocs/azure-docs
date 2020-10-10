@@ -152,11 +152,11 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 2. In the toolbar on the left, click **Admin Console > SAML Single Sign-on**, and then click **New**.
    
-    ![Configure Single Sign-On](./media/moxtra-tutorial/tutorial_moxtra_06.png) 
+    ![Screenshot shows the SAML Single Sign-on page with the option to create a new SAML Single Sign-on.](./media/moxtra-tutorial/tutorial_moxtra_06.png) 
 
 3. On the **SAML** page, perform the following steps:
    
-    ![Configure Single Sign-On](./media/moxtra-tutorial/tutorial_moxtra_08.png)   
+    ![Screenshot shows the SAML page where you can enter the values described.](./media/moxtra-tutorial/tutorial_moxtra_08.png)   
  
     a. In the **Name** textbox, type a name for your configuration (e.g.: *SAML*). 
   
@@ -187,7 +187,7 @@ The objective of this section is to create a user called B.simon in Moxtra.
 
 1. In the toolbar on the left, click **Admin Console > User Management**, and then **Add User**.
    
-    ![Configure Single Sign-On](./media/moxtra-tutorial/tutorial_moxtra_10.png) 
+    ![Screenshot shows the User Management page with Add User selected.](./media/moxtra-tutorial/tutorial_moxtra_10.png) 
 
 1. On the **Add User** dialog, perform the following steps:
   
