@@ -17,11 +17,11 @@ This article describes how to access an Azure Data Explorer databases from Synap
 
 ## Prerequisites
 
-* [Create an Azure Data Explorer cluster and database](https://docs.microsoft.com/azure/data-explorer/create-cluster-database-portal).
+* [Create an Azure Data Explorer cluster and database](/azure/data-explorer/create-cluster-database-portal).
 * Existing Synapse workspace or create a new workspace following this [quickstart](./quickstart-create-workspace.md) 
 * Existing Synapse Apache Spark pool  or create a new pool following this [quickstart](./quickstart-create-apache-spark-pool-portal.md)
-* [Create Azure AD app by provisioning an Azure AD application.](https://docs.microsoft.com/azure/data-explorer/kusto/management/access-control/how-to-provision-aad-app)
-* Grant your Azure AD app access your database following [Manage Azure Data Explorer database permissions](https://docs.microsoft.com/azure/data-explorer/manage-database-permissions)
+* [Create Azure AD app by provisioning an Azure AD application.](/azure/data-explorer/kusto/management/access-control/how-to-provision-aad-app)
+* Grant your Azure AD app access your database following [Manage Azure Data Explorer database permissions](/azure/data-explorer/manage-database-permissions)
 
 ## Navigate to Synapse Studio
 
@@ -44,14 +44,14 @@ From the Data Object Explorer, follow these steps to directly connect an Azure D
 10. Click **Test connection** to ensure you have the right permissions
 11. Select **Create**
 
-    ![New Linked Service](./media/quickstart-connect-azure-data-explorer/003-NewLinkService.png)
+    ![New Linked Service](./media/quickstart-connect-azure-data-explorer/003-new-linked-service.png)
 
     > [!NOTE]
     > (Optional) Test connection does not validate write access, ensure your Service principal Id has write access to the Azure Data Explorer database.
 
 12. Azure Data Explorer clusters and databases are visible under the  **Linked** tab in the Azure Data Explorer section. 
 
-    ![Browse Clusters](./media/quickstart-connect-azure-data-explorer/004-BrowseClusters.png)
+    ![Browse Clusters](./media/quickstart-connect-azure-data-explorer/004-browse-clusters.png)
 
     > [!NOTE] 
     > In the current release, the database objects are populated based on your AAD account permissions on the Azure Data Explorer databases. When you run the Apache Spark notebooks or integration jobs, the credential in the link service will be used (i.e. Service principal).
@@ -60,10 +60,10 @@ From the Data Object Explorer, follow these steps to directly connect an Azure D
 ## Quickly interact with code-generated actions
 
 * When you right-click on a database or table, you'll have a list of gestures that will trigger a sample Spark notebook for reading data, writing data, streaming data to Azure Data Explorer. 
-    ![New Sample Notebooks](./media/quickstart-connect-azure-data-explorer/005-NewNotebook.png)
+    ![New Sample Notebooks](./media/quickstart-connect-azure-data-explorer/005-new-notebook.png)
 
 * Here is an example of reading data. Attached the Notebook to your Spark pool and run the cell
-    ![New Read Notebook](./media/quickstart-connect-azure-data-explorer/006-ReadData.png)
+    ![New Read Notebook](./media/quickstart-connect-azure-data-explorer/006-read-data.png)
 
    > [!NOTE] 
    > First time execution may take more than three minutes to initiate the Spark session. Subsequent executions will be significantly faster.  
