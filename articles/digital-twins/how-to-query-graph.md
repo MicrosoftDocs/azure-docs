@@ -56,7 +56,7 @@ FROM DIGITALTWINS
 ``` 
 
 Add a `WHERE` clause to count the number of items that meet a certain criteria. Here are some examples of counting with an applied filter based on the type of twin model (for more on this syntax, see [*Query by model*](#query-by-model) below):
- 
+
 ```sql
 SELECT COUNT() 
 FROM DIGITALTWINS 

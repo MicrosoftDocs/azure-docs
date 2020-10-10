@@ -30,7 +30,7 @@ The control plane APIs are [ARM](https://docs.microsoft.com/azure/azure-resource
 The most current control plane API version is _**2020-10-31**_.
 
 To use the control plane APIs:
-* You can call the APIs directly by referencing the latest [Swagger folder](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/digitaltwins/resource-manager/Microsoft.DigitalTwins/stable/2020-10-31). This repo also includes a folder of examples that show the usage.
+* You can call the APIs directly by referencing the latest Swagger in the [control plane Swagger folder](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/digitaltwins/resource-manager/Microsoft.DigitalTwins). This repo also includes a folder of examples that show the usage.
 * You can currently access SDKs for control APIs in...
   - [.NET (C#)](https://www.nuget.org/packages/Microsoft.Azure.Management.DigitalTwins/1.0.0-preview.1) ([source](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/digitaltwins/Microsoft.Azure.Management.DigitalTwins)) ([reference [auto-generated]](https://docs.microsoft.com/dotnet/api/overview/azure/digitaltwins/management?view=azure-dotnet&preserve-view=true))
   - [Java](https://search.maven.org/artifact/com.microsoft.azure.digitaltwins.v2020_03_01_preview/azure-mgmt-digitaltwins) ([source](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/digitaltwins)) ([reference [auto-generated]](https://docs.microsoft.com/java/api/overview/azure/digitaltwins/management?view=azure-java&preserve-view=true))
@@ -52,7 +52,7 @@ The most current data plane API version is _**2020-10-31**_.
 
 To use the data plane APIs:
 * You can call the APIs directly, by...
-   - referencing the latest [Swagger folder](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/digitaltwins/data-plane/Microsoft.DigitalTwins). This repo also includes a folder of examples that show the usage. 
+   - referencing the latest Swagger in the [data plane Swagger folder](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/digitaltwins/data-plane/Microsoft.DigitalTwins). This repo also includes a folder of examples that show the usage. 
    - viewing the [API reference documentation](https://docs.microsoft.com/rest/api/azure-digitaltwins/).
 * You can use the **.NET (C#)** SDK. To use the .NET SDK...
    - you can view and add the package from NuGet: [Azure.DigitalTwins.Core](https://www.nuget.org/packages/Azure.DigitalTwins.Core). 
