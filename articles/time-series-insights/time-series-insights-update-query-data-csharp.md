@@ -9,7 +9,7 @@ manager: diviso
 ms.devlang: csharp
 ms.workload: big-data
 ms.topic: conceptual
-ms.date: 08/14/2020
+ms.date: 10/02/2020
 ms.custom: seodec18
 ---
 
@@ -66,7 +66,7 @@ Alternatively, add each package using [NuGet 2.12+](https://www.nuget.org/). For
 
 ## C# sample code
 
-Please refer to the [Azure Time Series Insights](https://github.com/Azure-Samples/Azure-Time-Series-Insights/tree/master/gen2-sample/csharp-tsi-gen2-sample) repo to access the C# sample code. 
+Please refer to the [Azure Time Series Insights](https://github.com/Azure-Samples/Azure-Time-Series-Insights/tree/master/gen2-sample/csharp-tsi-gen2-sample) repo to access the C# sample code.
 
 > [!NOTE]
 >

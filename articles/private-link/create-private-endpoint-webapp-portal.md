@@ -1,24 +1,24 @@
 ---
-title: Connect privately to a web app by using Azure Private Endpoint (Preview)
-description: This article explains how to connect privately to a web app by using Azure Private Endpoint (Preview).
+title: Connect privately to a web app by using Azure Private Endpoint
+description: This article explains how to connect privately to a web app by using Azure Private Endpoint.
 author: ericgre
 ms.assetid: b8c5c7f8-5e90-440e-bc50-38c990ca9f14
 ms.topic: how-to
-ms.date: 09/08/2020
+ms.date: 10/07/2020
 ms.author: ericg
 ms.service: app-service
 ms.workload: web
 
 ---
 
-# Connect privately to a web app by using Azure Private Endpoint (Preview)
+# Connect privately to a web app by using Azure Private Endpoint
 
-Azure Private Endpoint (Preview) is the fundamental building block for Azure Private Link. By using Private Endpoint, you can connect privately to your web app. In this article, you'll learn how to deploy a web app by using Private Endpoint and then connect to the web app from a virtual machine (VM).
+Azure Private Endpoint is the fundamental building block for Azure Private Link. By using Private Endpoint, you can connect privately to your web app. In this article, you'll learn how to deploy a web app by using Private Endpoint and then connect to the web app from a virtual machine (VM).
 
 For more information, see [Use private endpoints for an Azure web app][privateendpointwebapp].
 
 > [!Note]
-> Private Endpoint (Preview) is available in public regions for PremiumV2-tier Windows web apps, Linux web apps, and the Azure Functions Premium plan (sometimes referred to as the Elastic Premium plan). 
+> Private Endpoint is available in public regions for PremiumV2-tier, PremiumV3-tier Windows web apps, Linux web apps, and the Azure Functions Premium plan (sometimes referred to as the Elastic Premium plan). 
 
 ## Sign in to the Azure portal
 
@@ -82,7 +82,7 @@ To create the virtual machine, do the following:
 In this section, you create a private web app that uses a private endpoint.
 
 > [!Note]
-> The Private Endpoint feature is available only for the PremiumV2 tier.
+> The Private Endpoint feature is available only for the PremiumV2 and PremiumV3 tier.
 
 ### Create the web app
 
@@ -99,20 +99,20 @@ In this section, you create a private web app that uses a private endpoint.
 
 ### Create the private endpoint
 
-1. In web app properties, under **Settings**, select **Networking**, and then, under **Private Endpoint connections (Preview)**, select **Configure your private endpoint connections**.
+1. In web app properties, under **Settings**, select **Networking**, and then, under **Private Endpoint connections **, select **Configure your private endpoint connections**.
 
    > [!div class="mx-imgBorder"]
    > ![Screenshot of the "Configure your private endpoint connections" link on the web app Networking pane.][7]
 
-1. In the **Private Endpoint connections (Preview)** wizard, select **Add**.
+1. In the **Private Endpoint connections** wizard, select **Add**.
 
    > [!div class="mx-imgBorder"]
-   > ![Screenshot of the Add button in the "Private Endpoint connections (Preview)" wizard.][8]
+   > ![Screenshot of the Add button in the "Private Endpoint connections" wizard.][8]
 
 1. Select the correct information in the **Subscription**, **Virtual network**, and **Subnet** drop-down lists, and then select **OK**.
 
    > [!div class="mx-imgBorder"]
-   > ![Screenshot of the "Add Private Endpoint (Preview)" pane.][9]
+   > ![Screenshot of the "Add Private Endpoint" pane.][9]
 
 1. Monitor the progress of the private endpoint creation.
 
@@ -176,9 +176,6 @@ In this section, you connect privately to the web app by using the private endpo
    > [!div class="mx-imgBorder"]
    > ![Screenshot of an "Error 403 - Forbidden" error page.][17]
 
-   > [!Important]
-   > Because this feature is in preview, you need to manually manage the Domain Name Service (DNS) entry.
-
    For the DNS, do either of the following:
  
    - Use the Azure DNS private zone service.  
@@ -219,7 +216,7 @@ When you're done using the private endpoint, the web app, and the VM, delete the
 
 In this article, you created a VM on a virtual network, a web app, and a private endpoint. You connected to a VM from the internet and securely communicated to the web app by using Private Link. 
 
-To learn more about Private Endpoint (Preview), see [What is Azure Private Endpoint?][privateendpoint].
+To learn more about Private Endpoint, see [What is Azure Private Endpoint?][privateendpoint].
 
 <!--Image references-->
 [1]: ./media/create-private-endpoint-webapp-portal/createnetwork.png

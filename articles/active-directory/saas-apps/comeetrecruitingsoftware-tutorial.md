@@ -93,7 +93,7 @@ To configure Azure AD single sign-on with Comeet Recruiting Software, perform th
 
 4. On the **Basic SAML Configuration** section, If you wish to configure the application in **IDP** initiated mode, perform the following steps:
 
-    ![Comeet Recruiting Software Domain and URLs single sign-on information](common/idp-intiated.png)
+    ![Screenshot that shows the "Basic S A M L Configuration" section with the "Save" action, "Identifier" field, and "Reply U R L" field highlighted.](common/idp-intiated.png)
 
     a. In the **Identifier** text box, type a URL using the following pattern:
     `https://app.comeet.co/adfs_auth/acs/<UNIQUEID>/`
@@ -113,7 +113,7 @@ To configure Azure AD single sign-on with Comeet Recruiting Software, perform th
 
 5. Comeet Recruiting Software application expects the SAML assertions in a specific format. Configure the following claims for this application. You can manage the values of these attributes from the **User Attributes** section on application integration page. On the **Set up Single Sign-On with SAML** page, click **Edit** button to open **User Attributes** dialog.
 
-	![image](common/edit-attribute.png)
+	![Screenshot that shows the "User Attributes" section with the "Edit" button selected.](common/edit-attribute.png)
 
 6. In the **User Claims** section on the **User Attributes** dialog, edit the claims by using **Edit icon** or add the claims by using **Add new claim** to configure SAML token attribute as shown in the image above and perform the following steps: 
 
@@ -124,7 +124,7 @@ To configure Azure AD single sign-on with Comeet Recruiting Software, perform th
 
 	a. Click **Add new claim** to open the **Manage user claims** dialog.
 
-	![image](common/new-save-attribute.png)
+	![Screenshot that shows the "User claims" section with the "Add new claim" and "Save" actions highlighted.](common/new-save-attribute.png)
 
 	![image](common/new-attribute-details.png)
 

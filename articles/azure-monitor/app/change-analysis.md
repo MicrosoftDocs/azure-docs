@@ -97,7 +97,7 @@ Application Change Analysis is a standalone detector in the Web App diagnose and
 
    ![Screenshot of the "Application Crashes" button](./media/change-analysis/application-changes.png)
 
-3. To enable Change Analysis, select **Enable now**.
+3. The link leads to Application Change Aalysis UI scoped to the web app. If web app in-guest change tracking is not enabled, follow the banner to get file and app settings changes.
 
    ![Screenshot of "Application Crashes" options](./media/change-analysis/enable-changeanalysis.png)
 
@@ -105,17 +105,40 @@ Application Change Analysis is a standalone detector in the Web App diagnose and
 
     ![Screenshot of the "Enable Change Analysis" user interface](./media/change-analysis/change-analysis-on.png)
 
-5. To access Change Analysis, select **Diagnose and solve problems** > **Availability and Performance** > **Application Crashes**. You'll see a graph that summarizes the type of changes over time along with details on those changes. By default, changes in the past 24 hours are displayed to help with immediate problems.
+5. Change data is also available in select **Web App Down** and **Application Crashes** detectors. You'll see a graph that summarizes the type of changes over time along with details on those changes. By default, changes in the past 24 hours are displayed to help with immediate problems.
 
      ![Screenshot of the change diff view](./media/change-analysis/change-view.png)
 
-### Enable Change Analysis at scale
+
+
+### Virtual Machine Diagnose and Solve Problems
+
+Go to Diagnose and Solve Problems tool for a Virtual Machine.  Go to **Troubleshooting Tools**, browse down the page and select **Analyze recent changes** to view changes on the Virtual Machine.
+
+![Screenshot of the VM Diagnose and Solve Problems](./media/change-analysis/vm-dnsp-troubleshootingtools.png)
+
+![Change analyzer in troubleshooting tools](./media/change-analysis/analyze-recent-changes.png)
+
+### Activity Log Change History
+The [View change history](https://docs.microsoft.com/azure/azure-monitor/platform/activity-log#view-change-history) feature in Activity Log calls Application Change Analysis service backend to get changes associated with an operation. **Change history** used to call [Azure Resource Graph](https://docs.microsoft.com/azure/governance/resource-graph/overview) directly, but swapped the backend to call Application Change Analysis so changes returned will include resource level changes from [Azure Resource Graph](https://docs.microsoft.com/azure/governance/resource-graph/overview), resource properties from [Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/management/overview), and in-guest changes from PaaS services such as App Services web app. 
+In order for the Application Change Analysis service to be able to scan for changes in users' subscriptions, a resource provider needs to be registered. The first time entering **Change History** tab, the tool will automatically start to register **Microsoft.ChangeAnalysis** resource provider. After registered, changes from **Azure Resource Graph** will be available immediately and cover the past 14 days. Changes from other sources will be available after ~4 hours after subscription is onboard.
+
+![Activity Log change history integration](./media/change-analysis/activity-log-change-history.png)
+
+### VM Insights integration
+Users having [VM Insights](https://docs.microsoft.com/azure/azure-monitor/insights/vminsights-overview) enabled can view what changed in their virtual machines that might caused any spikes in a metrics chart such as CPU or Memory and wonder what caused it. Change data is integrated in the VM Insights side navigation bar. User can view if any changes happened in the VM and click **Investigate Changes** to view change details in Application Change Analysis standalone UI.
+
+[![VM insights integration](./media/change-analysis/vm-insights.png)](./media/change-analysis/vm-insights.png#lightbox)
+
+
+
+## Enable Change Analysis at scale
 
 If your subscription includes numerous web apps, enabling the service at the level of the web app would be inefficient. Run the following script to enable all web apps in your subscription.
 
 Pre-requisites:
 
-- PowerShell Az Module. Follow instructions at [Install the Azure PowerShell module](/powershell/azure/install-az-ps?view=azps-2.6.0)
+- PowerShell Az Module. Follow instructions at [Install the Azure PowerShell module](/powershell/azure/install-az-ps)
 
 Run the following script:
 
@@ -143,13 +166,25 @@ foreach ($webapp in $webapp_list)
 
 ```
 
-### Virtual Machine Diagnose and Solve Problems
+## Troubleshoot
 
-Go to Diagnose and Solve Problems tool for a Virtual Machine.  Go to **Troubleshooting Tools**, browse down the page and select **Analyze recent changes** to view changes on the Virtual Machine.
+### Having trouble registering Microsoft.Change Analysis resource provider from Change history tab
+If it's the first time you view Change history after its integration with Application Change Analysis, you will see it automatically registering a resource provider **Microsoft.ChangeAnalysis**. In rare cases it might fail for the following reasons:
 
-![Screenshot of the VM Diagnose and Solve Problems](./media/change-analysis/vm-dnsp-troubleshootingtools.png)
+- **You don't have enough permissions to register Microsoft.ChangeAnalysis resource provider**. This error message means your role in the current subscription does not have the **Microsoft.Support/register/action** scope associated with it. This might happen if you are not the owner of a subscription and got shared access permissions through a coworker. i.e. view access to a resource group. To fix this, You can contact the owner of your subscription to register the **Microsoft.ChangeAnalysis** resource provider. This can be done in Azure portal through **Subscriptions | Resource providers** and search for ```Microsoft.ChangeAnalysis``` and register in the UI, or through Azure PowerShell or Azure CLI.
 
-![Screenshot of the VM Diagnose and Solve Problems](./media/change-analysis/analyze-recent-changes.png)
+    Register resource provider through PowerShell: 
+    ```PowerShell
+    # Register resource provider
+    Register-AzResourceProvider -ProviderNamespace "Microsoft.ChangeAnalysis"
+    ```
+
+- **Failed to register Microsoft.ChangeAnalysis resource provider**. This message means something failed immediately as the UI sent request to register the resource provider, and it's not related to permission issue. Likely it might be a temporary internet connectivity issue. Try refreshing the page and checking your internet connection. If the error persists, contact changeanalysishelp@microsoft.com
+
+- **This is taking longer than expected**. This message means the registration is taking longer than 2 minutes. This is unusual but does not necessarily mean something went wrong. You can go to **Subscriptions | Resource provider** to check for **Microsoft.ChangeAnalysis** resource provider registration status. You can try to use the UI to unregister, re-register or refresh to see if it helps. If issue persists, contact changeanalysishelp@microsoft.com for support.
+    ![Troubleshoot RP registration taking too long](./media/change-analysis/troubleshoot-registration-taking-too-long.png)
+
+
 
 ## Next steps
 

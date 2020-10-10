@@ -70,7 +70,7 @@
     - name: Create stateful or stateless workflows in Visual Studio Code
       href: create-stateful-stateless-workflows-visual-studio-code.md
     - name: Call logic apps from Power Automate and Power Apps
-      href: call-logic-apps-from-power-automate-power-apps.md
+      href: call-from-power-automate-power-apps.md
     - name: Control workflow execution
       items:
       - name: Conditional statements
