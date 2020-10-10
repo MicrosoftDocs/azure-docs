@@ -7,7 +7,7 @@ author: tamram
 
 ms.service: storage
 ms.topic: how-to
-ms.date: 10/02/2020
+ms.date: 10/09/2020
 ms.author: tamram
 ms.subservice: blobs 
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
@@ -347,7 +347,7 @@ az storage account or-policy create \
 
 ## Check the replication status of a blob
 
-You can check the replication status for a blob using the Azure portal, PowerShell, or Azure CLI. Object replication properties are not populated until replication has either completed or failed.
+You can check the replication status for a blob in the source account using the Azure portal, PowerShell, or Azure CLI. Object replication properties are not populated until replication has either completed or failed.
 
 # [Azure portal](#tab/portal)
 
@@ -359,54 +359,23 @@ To check the replication status for a blob in the source account in the Azure po
 
 :::image type="content" source="media/object-replication-configure/check-replication-status-source.png" alt-text="Screenshot showing replication status for a blob in the source account":::
 
-To check the replication status for a blob in the destination account in the Azure portal, follow these steps:
-
-1. Navigate to the destination storage account in the Azure portal.
-1. Locate the container that includes the blob for which you wish to check the replication status.
-1. Select the blob to display its properties. If the blob has replicated successfully, you'll see that the **Copy status** field is set to *Success*. The **Copy completion time** field indicates the time that the blob was last replicated, after being created or updated.
-
-    :::image type="content" source="media/object-replication-configure/check-replication-status-destination.png" alt-text="Screenshot showing replication status for a blob in the destination account":::
-
 # [PowerShell](#tab/powershell)
 
-To check the replication status for a blob with PowerShell, read the object replication properties on the blob in the destination account.
-
-```powershell
-$ctxDest = (Get-AzStorageAccount -ResourceGroupName $rgname -StorageAccountName $destAccountName).Context
-$blobDest = Get-AzStorageBlob -Container $destContainerName1 -Context $ctxDest -Blob "blob1.txt"
-
-$blobDest.BlobProperties.CopyStatus
-$blobDest.BlobProperties.CopyCompletedOn
-```
-
-Running these commands returns values similar to the following output:
-
-```powershell
-Success
-
-
-DateTime      : 10/2/2020 8:35:24 PM
-UtcDateTime   : 10/2/2020 8:35:24 PM
-LocalDateTime : 10/2/2020 1:35:24 PM
-Date          : 10/2/2020 12:00:00 AM
-Day           : 2
-DayOfWeek     : Friday
-DayOfYear     : 276
-Hour          : 20
-Millisecond   : 0
-Minute        : 35
-Month         : 10
-Offset        : 00:00:00
-Second        : 24
-Ticks         : 637372677240000000
-UtcTicks      : 637372677240000000
-TimeOfDay     : 20:35:24
-Year          : 2020
-```
+N/A
 
 # [Azure CLI](#tab/azure-cli)
 
-TBD
+To check the replication status for a blob in the source account with Azure CLI, get the value of the **status** property, as shown in the following example:
+
+```azurecli
+az storage blob show \
+    --account-name <source-account-name> \
+    --container-name <source-container-name> \
+    --name <source-blob-name> \
+    --query objectReplicationSourceProperties[].rules[].status \
+    --output tsv \
+    --auth-mode login
+```
 
 ---
 
