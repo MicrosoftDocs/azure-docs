@@ -11,9 +11,9 @@ ms.date: 10/10/2020
 ms.author: alkohli
 ---
 
-# Azure Key Vault integration for your Azure Stack Edge resource during device activation
+# Azure Key Vault integration with Azure Stack Edge 
 
-Azure Key Vault is integrated with Azure Stack Edge resource for secret management. This article provides details on how Azure Key Vault is created for Azure Stack Edge resource during device activation and is then used for secret management. 
+Azure Key Vault is integrated with Azure Stack Edge resource for secret management. This article provides details on how an Azure Key Vault is created for Azure Stack Edge resource during device activation and is then used for secret management. 
 
 
 ## About Key vault and Azure Stack Edge
@@ -27,11 +27,13 @@ For Azure Stack Edge service, one of the secrets used is Channel Integrity Key (
 
 A key vault is created for Azure Stack Edge resource during the process of activation key generation. 
 
+- When you create Azure Stack Edge resource, you need to register the *Microsoft.KeyVault* resource provider.
+
 - After you have created the Azure Stack Edge resource and you generate an activation key from the Azure portal, a key vault is created. This key vault is used for secret management and persists for as long as the Azure Stack Edge resource exists. 
 
     ![Key Vault created during activation key generation](media/azure-stack-edge-gpu-deploy-prep/azure-stack-edge-resource-3.png)
 
-- You can choose to accept the default key name or specify a custom name for the key vault. The key vault name must be between 3 to 34 characters long and cannot You cannot use an existing key vault.
+- You can choose to accept the default key name or specify a custom name for the key vault. The key vault name must be between 3 to 34 characters long. You cannot use a key vault that is already in use. 
 
 - When you create an Azure Stack Edge resource, a Managed Service Identity (MSI) is also created that persists for the lifetime of the resource. When the MSI is enabled, Azure creates a trusted identity for the Azure Stack Edge resource.The MSI is then used to authenticate to key vault to retrieve secrets. 
 
@@ -43,10 +45,16 @@ A key vault is created for Azure Stack Edge resource during the process of activ
 
 - If you had an existing Azure Stack Edge resource before the Azure Key Vault was integrated with Azure Stack Edge resource, you are not affected. You can continue to use your existing Azure Stack Edge resource. 
 
+- When your Azure Stack Edge resource is deleted, the Azure Key Vault is also deleted with the resource. If this key vault was used to store other keys, then you can still restore it within 90 days of deletion. During that purge protection period, the key vault name can't be used to create a new key vault.
 
 ## Key vault secret management
 
+When you generate an activation key, the following events occur:
 
+1. You request an activation key in the Azure portal which is sent to Key Vault resource provider. 
+1. An standard tier key vault with access policy is created and is locked by default. This key vault uses the default name or the custom name that you specified.
+1. The key vault authenticates with MSI the request to generate activation key. The MSI is also added the key vault access policy and a channel integrity key is generated and placed in the key vault.
+1. The activation key is returned to Azure portal. You can then copy this key and use it in the local UI to activate your device.
  
 
 ## Next steps
