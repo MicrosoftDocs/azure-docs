@@ -75,17 +75,17 @@ To create a custom file type:
 
 1. Enter a **File Extension** and an optional **Description**.
 
-   :::image type="content" source="./media/create-a-scan-rule-set/new-custom-file-type-page.png" alt-text="Screenshot showing the New custom file type page.":::
+   :::image type="content" source="./media/create-a-scan-rule-set/new-custom-file-type-page.png" alt-text="Screenshot showing the New custom file type page." lightbox="./media/create-a-scan-rule-set/new-custom-file-type-page.png":::
 
 1. Make one of the following selections for **File contents within** to specify the type of file contents within your file:
 
    - Select **Custom Delimiter** and enter your own **Custom delimiter** (single character only).
 
-      :::image type="content" source="./media/create-a-scan-rule-set/select-custom-delimiter.png" alt-text="Screenshot showing how to select the Custom Delimiter option on the New custom file type page.":::
+      :::image type="content" source="./media/create-a-scan-rule-set/select-custom-delimiter.png" alt-text="Screenshot showing how to select the Custom Delimiter option on the New custom file type page." lightbox="./media/create-a-scan-rule-set/select-custom-delimiter.png":::
 
    - Select **System File Type** and choose a system file type (for example XML) from the **System file type** drop-down list.
 
-      :::image type="content" source="./media/create-a-scan-rule-set/select-system-file-type.png" alt-text="Screenshot showing how to select the System File Type option for the New custom file type page.":::
+      :::image type="content" source="./media/create-a-scan-rule-set/select-system-file-type.png" alt-text="Screenshot showing how to select the System File Type option for the New custom file type page." lightbox="./media/create-a-scan-rule-set/select-system-file-type.png":::
 
 1. Select **Create** to save the custom file.
 
