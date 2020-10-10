@@ -40,7 +40,7 @@ This article describes how to use the Convert to Image Directory module to help 
 
     You can either use the folder or compressed file with extension '.zip', '.tar', '.gz', and '.bz2'. **Compressed files are recommended for better performance.** 
     
-    ![Image sample dataset](./media/module/image_sample_dataset.png)
+    ![Image sample dataset](./media/module/image-sample-dataset.png)
 
     For scoring, the image dataset folder only needs to contain unclassified images.
 
