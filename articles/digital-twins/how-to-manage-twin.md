@@ -45,13 +45,13 @@ The model and initial property values are provided through the `initData` parame
 
 The twin creation API accepts an object that is serialized into a valid JSON description of the twin properties. See [*Concepts: Digital twins and the twin graph*](concepts-twins-graph.md) for a description of the JSON format for a twin. 
 
-So first, you will create a data object to represent the twin and its property data. Then you can use `JsonSerializer` to pass a serialized version of this object into the API call for the `initdata` parameter.
+So first, you can create a data object to represent the twin and its property data. Then you can use `JsonSerializer` to pass a serialized version of this object into the API call for the `initdata` parameter.
 
 ```await client.CreateDigitalTwinAsync(srcId, JsonSerializer.Serialize<BasicDigitalTwin>(twin));```
 
 You can create a parameter object either manually, or by using a provided helper class. Here is an example of each.
 
-#### Create twins using manually-created data
+#### Create twins using manually created data
 
 You can represent a twin's properties in a `Dictionary<string, object>` without the use of any custom helper classes. The `string` is the name of the property and the `object` is an object representing the property and its value.
 
@@ -90,7 +90,7 @@ Console.WriteLine("The twin is created successfully");
 ```
 
 >[!NOTE]
-> `BasicDigitalTwin` objects come with an `Id` field. You can leave this field empty, but if you do add an ID value, it needs to match the ID parameter passed to the `CreateDigitalTwin` call. For the example above, this would look like:
+> `BasicDigitalTwin` objects come with an `Id` field. You can leave this field empty, but if you do add an ID value, it needs to match the ID parameter passed to the `CreateDigitalTwin` call. For example:
 >
 >```csharp
 >twin.Id = "myRoomID";
@@ -257,9 +257,9 @@ await client.UpdateDigitalTwinAsync(twin_Id, uou.Serialize());
 
 ### Update properties in digital twin components
 
-Recall that a model may contain components, allowing it to be made up of other models. 
+Recall that a model may contain components, allowing it to be made of other models. 
 
-To patch properties in a digital twin's components, you will use path syntax in JSON Patch:
+To patch properties in a digital twin's components, you can use path syntax in JSON Patch:
 
 ```json
 [
@@ -326,9 +326,9 @@ The two calls that modify *Twin1* are executed one after another, and change mes
 
 ## Delete a digital twin
 
-You can delete twins using `DeleteDigitalTwin(ID)`. However, you can only delete a twin when it has no more relationships. You must delete all relationships first. 
+You can delete twins using `DeleteDigitalTwin()` method. However, you can only delete a twin when it has no more relationships. So, delete the twin's incoming and outgoing relationships first.
 
-Here is an example of the code for this:
+Here is an example of the code to delete twins and its relationships:
 
 ```csharp
 static async Task DeleteTwin(string id)
@@ -390,7 +390,7 @@ async Task FindAndDeleteIncomingRelationshipsAsync(string dtId)
 
 ## Manage twins using runnable code sample
 
-You can use the runnable code sample below to create a twin, update its details and delete twin. Make sure your _model-name_ and _model-ID_ matches the line of code `twin.Metadata.ModelId = "dtmi:com:contoso:<model-name>;<model-id>";`. You can refer to [this](https://docs.microsoft.com/azure/digital-twins/tutorial-command-line-app#explore-with-the-sample-solution) link for a sample model code.
+You can use the runnable code sample below to create a twin, update its details and delete twin. You can refer to [this](https://docs.microsoft.com/azure/digital-twins/tutorial-command-line-app#explore-with-the-sample-solution) link for a sample model code.
 
 Replace the placeholders  _clientId_, _tenantId_ and _adtInstanceUrl_ with the details of your Azure-digital-twins-instance and run the sample.
 
@@ -532,7 +532,7 @@ namespace minimal
 ```
 Here is the console output of the above program: 
 
-:::image type="content" source="media/how-to-manage-graph/console-output-manage-twins.png" alt-text="Console output showing that the twin is created, updated and deleted":::
+:::image type="content" source="media/how-to-manage-twin/console-output-manage-twins.png" alt-text="Console output showing that the twin is created, updated and deleted":::
 
 ### Delete all digital twins
 
