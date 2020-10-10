@@ -158,17 +158,19 @@ Some events have a reason that they were initiated. Unless otherwise indicated, 
 
 ### Timing
 
-Some events contain timing information. The `timing` entry in `data` is an object with keys corresponding to stages of the event, and values as total seconds. The time is the cumulative time for that stage within the attempt to bring about the target state. For instance, suppose a node is added to a cluster, started, and terminated:
+Some events contain timing information. The `timing` entry in `data` is an object with keys corresponding to stages of the event, and values as total seconds. Each event may have multiple timing stages associated with it. For instance, suppose a node is added to a cluster, started, and terminated:
+
+:::image type="content" source="~/images/event-grid-timing.png" alt-text="Event Grid Timing Diagram":::
 
 - T1: User adds a node. A `NodeAdded` event is sent, with no timing.
 - T2: The create-VM operation fails, so `NodeCreated` is sent with a status of Failed and the following timing information:
   - `Create`: T2-T1
   - `CreateVM`: T2-T1
 - T3: User clicks Retry
-- T4: The create-VM operation succeeds, so the node starts installing software.
+- T4: The Create-VM operation succeeds, so the node starts installing software.
 - T5. The software installs successfully, so `NodeCreated` is sent with a status of Succeeded and the following timing information:
-  - `Create`: (T5-T3) + (T2-T1)
-  - `CreateVM`: (T5-T3) + (T2-T1)
+  - `Create`: (T5-T3)
+  - `CreateVM`: (T4-T3)
   - `Configure`: (T5-T4)
 - T6: User clicks Terminate.
 - T7: The delete-VM operation succeeds, so `NodeTerminated` is sent with a state of Succeeded and the following timing information:
@@ -177,6 +179,7 @@ Some events contain timing information. The `timing` entry in `data` is an objec
   - `DeleteVM`: T7-T6
 
 #### Previous State Timing
+
 The first time a node transitions to a state (whether successfully or not), it has no previous state. When the target state is then changed after that point, the time spent in the previous state is included in the event for the new target state. Note that this is only included if it reached the previous state successfully. Thus these timing entries measure the length of time for the following:
 
   - `Started`: prior to this event, the node had been running (i.e., green)
