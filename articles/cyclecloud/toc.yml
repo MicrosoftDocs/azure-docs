@@ -60,6 +60,8 @@
       href: ./how-to/running-behind-proxy.md
     - name: Run in Locked Down Network
       href: ./how-to/running-in-locked-down-network.md
+    - name: Configure Event Grid
+      href: ./how-to/event-grid.md
     - name: Customize UI Theme
       href: ./how-to/theming.md
     - name: Configure SSL
@@ -189,6 +191,8 @@
       href: lsf.md
   - name: Log Locations
     href: log_locations.md
+  - name: Events
+    href: events.md
   - name: Error Messages
     href: error_messages.md
 - name: Resources
