@@ -21,7 +21,7 @@ Microsoft Power BI is Microsoft’s data visualization platform. For more inform
 
 In general, you can use free Power BI features to integrate and create visually appealing reports and dashboards.
 
-More advanced features may require purchasing a Power BI Pro or premium account. These features include 
+More advanced features may require purchasing a Power BI Pro or premium account. These features include: 
  - sharing your work 
  - scheduled refreshes
  - Power BI apps 
@@ -36,14 +36,13 @@ Power BI uses the [M query language](/powerquery-m/power-query-m-language-specif
 
 Log Analytics queries can be exported to M and used in Power BI directly. After running a successful query, select the **Export to Power BI (M query)** from the **Export** button in Log Analytics UI top action bar.
 
-[!Export in the Log Analytics UI](TODO)
+:::image type="content" source="media/log-powerbi-excel/export-query2.png" alt-text="Log Analytics query showing export option menu pulldown" border="true":::
 
 Log Analytics creates a .txt file containing the M code that can be used directly in Power BI.
 
 ## Connecting your logs to a dataset 
 
 A Power BI dataset is a source of data ready for reporting and visualization. To connect a Log Analytics query to a dataset, simply copy the M code exported from Log Analytics into a blank query in Power BI. 
-
 
 For more information, see [Understanding Power BI datasets](/power-bi/service-datasets-understand/). 
 
@@ -53,40 +52,29 @@ Power BI dataflows also allow you to collect and store data. For more informaito
 
 A dataflow is a type of "cloud ETL" designed to help you collect and prep your data. A dataset is the "model" designed to help you connect different entities and model them for your needs.
 
-Incremental refresh 
+## Incremental refresh 
 
-media\log-powerbi-excel
-
-Both Power BI datasets and Power BI dataflow offer an incremental refresh option. 
-
-Incremental refresh is a great way to run small queries and update smaller amounts of data per run. 
-
-You should use incremental refresh when you want to update a small portion of the data with each run instead of ingesting all of the data again and again for each run. 
-
-Using incremental refresh both Power BI dataflows and Power BI datasets allows an option to save large amounts of data, adding an increment of data every time, making them an ideal solution for longer running reports. 
-
-Power BI incremental refresh relies on the existence of a datatime filed in the result set that Power BI can run increments on. 
-Before configuring incremental refresh – make sure your Log Analytics query result set includes at least one datetime filed. 
-
-To learn more about Power BI dataset incremental refresh and how to configure it click here <link: https://docs.microsoft.com/en-us/power-bi/service-premium-incremental-refresh> 
-
-To learn more about Power BI dataflows incremental refresh and how to configure it click here <link: https://docs.microsoft.com/en-us/power-bi/service-dataflows-incremental-refresh> 
-
-Please note that you will need a Power BI premium capacity for using Power BI incremental refresh  
-
-Using Power BI 
-
-After your data is ingested to Power BI you can continue using Power BI to create reports and dashboards. 
-
-For a guide into how to create your first Power BI model and report click here <Link: https://docs.microsoft.com/en-us/learn/modules/build-your-first-power-bi-report/> 
-
-Excel 
-
-It is possible to use the same M integration used in Power BI to integrate with an Excel spreadsheet. 
-
-To integrate with excel simple follow this guide : https://support.office.com/en-us/article/import-data-from-external-data-sources-power-query-be4330b3-5356-486c-a168-b68e9e616f5a and paste the M query exported from Log Analytics. 
+Both Power BI datasets and Power BI dataflows have an incremental refresh option. Power BI dataflows and Power BI datasets support this feature, but you need Power BI Premium to use it.  
 
 
+Incremental refresh runs small queries and updates smaller amounts of data per run instead of ingesting all of the data again and again when you run the query. You have the option to save large amounts of data, but add an new increment of data every time the query is run. This behavior is ideal for longer running reports.
 
+Power BI incremental refresh relies on the existence of a *datetime* filed in the result set. Before configuring incremental refresh, make sure your Log Analytics query result set includes at least one *datetime* filed. 
+
+To learn more and how to configure incremental refresh, see [PowerBI Datasets and Incremental refresh](/power-bi/service-premium-incremental-refresh) and [Power BI dataflows and incremental refresh](/power-bi/service-dataflows-incremental-refresh).
+
+## Reports and dashboards
+
+After your data is sent to Power BI, you can continue to use Power BI to create reports and dashboards.
+
+For more information, see [this guide on how to create your first Power BI model and report](/learn/modules/build-your-first-power-bi-report/).  
+
+## Excel integration
+
+You can use the same M integration used in Power BI to integrate with an Excel spreadsheet. For more information, see this [guide on how to integrate with excel](article/import-data-from-external-data-sources-power-query-be4330b3-5356-486c-a168-b68e9e616f5a) and then paste the M query exported from Log Analytics.
+
+Additional information can be found in [Integrate Log Analytics and Excel](log-excel.md)
 
 ## Next steps
+
+Get started with [Log Analytics queries](log-query.md).

@@ -1,5 +1,5 @@
 ---
-title: Integrate Log Analytics and excel step by step
+title: Integrate Log Analytics and Excel
 description: Get a Log Analytics query into Excel and refresh it there. 
 ms.subservice: logs
 ms.topic: conceptual
@@ -22,7 +22,9 @@ You can integrate Azure Monitor Log Analytics and Microsoft Excel using M query 
   
 2. **Export Query** - Once you are happy with the query and its results, export the query to M using Log Analytics **Export to Power BI (M query)** menu choice under the *Export* menu:
 
-![query with date and export option](media/log-excel/export-query.png)
+:::image type="content" source="media/log-excel/export-query.png" alt-text="Log Analytics query with the data and export option" border="true":::
+
+
 
 Choosing this option downloads a .txt file containing the M code you can use in Excel.
 
@@ -76,15 +78,17 @@ To import the query.
 1. Open Microsoft Excel. 
 1. In the ribbon, go to the **Data** menu. Select **get data**. From **other sources**, select **blank query**:
  
-   ![import query in Excel](media/log-excel/excel-import-blank-query.png)
+   :::image type="content" source="media/log-excel/excel-import-blank-query.png" alt-text="Import from blank in Excel option" border="true":::
 
 1. In the Power query window select **Advanced editor**:
 
-   ![import query in Excel](media/log-excel/advanced-editor.png)
+   :::image type="content" source="media/log-excel/advanced-editor.png" alt-text="Excel Advanced query editor" border="true":::
+
  
 1. Replace the text in the advanced editor with the query exported from Log Analytics:
 
    ![import query in Excel](media/log-excel/advanced-editor-2.png)
+   :::image type="content" source="media/log-excel/advanced-editor-2.png" alt-text="Paste Log Analytics query into Advanced editor" border="true":::
  
 1. Select **Done**, and then **Load and close**. Excel executes the query using the Log analytics API and the result set then shown.
  
