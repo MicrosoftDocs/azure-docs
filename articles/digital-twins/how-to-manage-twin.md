@@ -5,7 +5,7 @@ titleSuffix: Azure Digital Twins
 description: See how to retrieve, update, and delete individual twins and relationships.
 author: baanders
 ms.author: baanders # Microsoft employees only
-ms.date: 09/28/2020
+ms.date: 10/09/2020
 ms.topic: how-to
 ms.service: digital-twins
 
@@ -28,9 +28,7 @@ This article focuses on managing digital twins; to work with relationships and t
 
 To create a twin, you use the `CreateDigitalTwin` method on the service client like this:
 
-```csharp
-await client.CreateDigitalTwinAsync("myTwinID", initData);
-```
+```await client.CreateDigitalTwinAsync("myTwinID", initData); ```
 
 To create a digital twin, you need to provide:
 * The desired ID for the digital twin
@@ -41,19 +39,21 @@ Optionally, you can provide initial values for all properties of the digital twi
 The model and initial property values are provided through the `initData` parameter, which is a JSON string containing the relevant data. For more information on structuring this object, continue to the next section.
 
 > [!TIP]
-> After creating or updating a twin, there may be a latency of up to 10 seconds before the changes will be reflected in [queries](how-to-query-graph.md). The `GetDigitalTwin` API (described [later in this article](#get-data-for-a-digital-twin)) does not experience this delay, so use the API call instead of querying to see your newly-created twins if you need an instant response. 
+> After creating or updating a twin, there may be a latency of up to 10 seconds before the changes will be reflected in [queries](how-to-query-graph.md). The `GetDigitalTwin` API (described [later in this article](#get-data-for-a-digital-twin)) does not experience this delay. If you need an instant response, use the API call instead of querying to see your newly-created twins. 
 
 ### Initialize model and properties
 
 The twin creation API accepts an object that is serialized into a valid JSON description of the twin properties. See [*Concepts: Digital twins and the twin graph*](concepts-twins-graph.md) for a description of the JSON format for a twin. 
 
-So first, you will create a data object to represent the twin and its property data. Then you can use `JsonSerializer` to pass a serialized version of this into the API call for the `initdata` parameter.
+So first, you will create a data object to represent the twin and its property data. Then you can use `JsonSerializer` to pass a serialized version of this object into the API call for the `initdata` parameter.
+
+```await client.CreateDigitalTwinAsync(srcId, JsonSerializer.Serialize<BasicDigitalTwin>(twin));```
 
 You can create a parameter object either manually, or by using a provided helper class. Here is an example of each.
 
 #### Create twins using manually-created data
 
-Without the use of any custom helper classes, you can represent a twin's properties in a `Dictionary<string, object>`, where the `string` is the name of the property and the `object` is an object representing the property and its value.
+You can represent a twin's properties in a `Dictionary<string, object>` without the use of any custom helper classes. The `string` is the name of the property and the `object` is an object representing the property and its value.
 
 ```csharp
 // Define the model type for the twin to be created
@@ -73,19 +73,20 @@ client.CreateDigitalTwin("myRoomID", JsonSerializer.Serialize<Dictionary<string,
 
 #### Create twins with the helper class
 
-The helper class of `BasicDigitalTwin` allows you to store property fields in a "twin" object more directly. You may still want to build the list of properties using a `Dictionary<string, object>`, which can then be added to the twin object as its `CustomProperties` directly.
+The helper class of `BasicDigitalTwin` allows you to store property fields in a "twin" object directly. You may still want to build the list of properties using a `Dictionary<string, object>`. It can then be added to the twin object as its `CustomProperties`.
 
 ```csharp
 BasicDigitalTwin twin = new BasicDigitalTwin();
 twin.Metadata = new DigitalTwinMetadata();
-twin.Metadata.ModelId = "dtmi:example:Room;10";
+twin.Metadata.ModelId = "dtmi:example:Room;1";
 // Initialize properties
 Dictionary<string, object> props = new Dictionary<string, object>();
 props.Add("Temperature", 25.0);
 props.Add("Humidity", 50.0);
 twin.CustomProperties = props;
 
-client.CreateDigitalTwin("myRoomID", JsonSerializer.Serialize<BasicDigitalTwin>(twin));
+client.CreateDigitalTwinAsync("myRoomID", JsonSerializer.Serialize<BasicDigitalTwin>(twin));
+Console.WriteLine("The twin is created successfully");
 ```
 
 >[!NOTE]
@@ -97,77 +98,23 @@ client.CreateDigitalTwin("myRoomID", JsonSerializer.Serialize<BasicDigitalTwin>(
 
 ## Get data for a digital twin
 
-You can access the full data of any digital twin by calling:
+You can access the details of any digital twin by calling GetDigitalTwin() method like this:
 
 ```csharp
 object result = await client.GetDigitalTwin(id);
 ```
-Following is the runnable source code to print twin details.
+This call returns twin data as a JSON string. Now, you can use the below code sample to view the twin details.
 
 ```csharp
-using System;
-using Azure.DigitalTwins.Core;
-using Azure.Identity;
-using System.Threading.Tasks;
-using System.IO;
-using System.Collections.Generic;
-using Azure;
-using Azure.DigitalTwins.Core.Serialization;
-using System.Text.Json;
-
-namespace minimal
+Response<string> res = client.GetDigitalTwin("myRoomID");
+twin = JsonSerializer.Deserialize<BasicDigitalTwin>(res.Value);
+Console.WriteLine($"Model id: {twin.Metadata.ModelId}");
+foreach (string prop in twin.CustomProperties.Keys)
 {
-    class Program
-    {
-
-        static async Task Main(string[] args)
-        {
-            Console.WriteLine("Hello World!");
-
-            string clientId = "<your-client-id";
-            string tenantId = "<your-tenant-id>";
-            string adtInstanceUrl = "https://<your-instance-hostname>";
-            var credentials = new InteractiveBrowserCredential(tenantId, clientId);
-            Console.WriteLine();
-            Console.WriteLine($"Upload a model");
-            BasicDigitalTwin twin = new BasicDigitalTwin();
-            var typeList = new List<string>();
-            string dtdl = File.ReadAllText("Room.json");
-            typeList.Add(dtdl);
-            // Upload the model to the service
-            DigitalTwinsClient client = new DigitalTwinsClient(new Uri(adtInstanceUrl), credentials);
-            Console.WriteLine($"Service client created – ready to go");
-            // await client.CreateModelsAsync(typeList);
-            twin.Metadata = new DigitalTwinMetadata();
-            twin.Metadata.ModelId = "dtmi:com:contoso:room;10";
-            // Initialize properties
-            Dictionary<string, object> props = new Dictionary<string, object>();
-            props.Add("Temperature", 25.0);
-            props.Add("Humidity", 50.0);
-            twin.CustomProperties = props;
-            await client.CreateDigitalTwinAsync("myRoomID", JsonSerializer.Serialize<BasicDigitalTwin>(twin));
-            Console.WriteLine("Twin created successfully");
-            Response<string> res = client.GetDigitalTwin("myRoomID");
-            twin = JsonSerializer.Deserialize<BasicDigitalTwin>(res.Value);
-            Console.WriteLine($"Model id: {twin.Metadata.ModelId}");
-            foreach (string prop in twin.CustomProperties.Keys)
-            {
-                if (twin.CustomProperties.TryGetValue(prop, out object value))
-                    Console.WriteLine($"Property '{prop}': {value}");
-            }
-
-        }
-    }
+  if (twin.CustomProperties.TryGetValue(prop, out object value))
+  Console.WriteLine($"Property '{prop}': {value}");
 }
-
 ```
-
-The output of this program looks like this:
-
-:::image type="content" source="media/how-to-manage-twin/twin-data.png" alt-text="Console output showing the twin details.":::
-
-This call returns twin data as a JSON string. 
-
 Only properties that have been set at least once are returned when you retrieve a twin with `GetDigitalTwin`.
 
 >[!TIP]
@@ -440,6 +387,152 @@ async Task FindAndDeleteIncomingRelationshipsAsync(string dtId)
     }
 }
 ```
+
+## Manage twins using runnable code sample
+
+You can use the runnable code sample below to create a twin, update its details and delete twin. Make sure your _model-name_ and _model-ID_ matches the line of code `twin.Metadata.ModelId = "dtmi:com:contoso:<model-name>;<model-id>";`. You can refer to [this](https://docs.microsoft.com/azure/digital-twins/tutorial-command-line-app#explore-with-the-sample-solution) link for a sample model code.
+
+Replace the placeholders  _clientId_, _tenantId_ and _adtInstanceUrl_ with the details of your Azure-digital-twins-instance and run the sample.
+
+```csharp
+using System;
+using Azure.DigitalTwins.Core;
+using Azure.Identity;
+using System.Threading.Tasks;
+using System.IO;
+using System.Collections.Generic;
+using Azure;
+using Azure.DigitalTwins.Core.Serialization;
+using System.Text.Json;
+
+namespace minimal
+{
+    class Program
+    {
+
+        static async Task Main(string[] args)
+        {
+            Console.WriteLine("Hello World!");
+
+            string clientId = "<your-client-id>";
+            string tenantId = "<your-tenant-id>";
+            string adtInstanceUrl = "https://<your-instance-hostname>";
+            var credentials = new InteractiveBrowserCredential(tenantId, clientId);
+            Console.WriteLine();
+            Console.WriteLine($"Upload a model");
+            BasicDigitalTwin twin = new BasicDigitalTwin();
+            var typeList = new List<string>();
+            string twin_id = "myNewRoomID";
+            string dtdl = File.ReadAllText("room.json");
+            typeList.Add(dtdl);
+            // Upload the model to the service
+            DigitalTwinsClient client = new DigitalTwinsClient(new Uri(adtInstanceUrl), credentials);
+            Console.WriteLine($"Service client created – ready to go");
+            await client.CreateModelsAsync(typeList);
+            twin.Metadata = new DigitalTwinMetadata();
+            twin.Metadata.ModelId = "dtmi:com:contoso:room;1";
+            // Initialize properties
+            Dictionary<string, object> props = new Dictionary<string, object>();
+            props.Add("Temperature", 35.0);
+            props.Add("Humidity", 55.0);
+            twin.CustomProperties = props;
+            await client.CreateDigitalTwinAsync(twin_id, JsonSerializer.Serialize<BasicDigitalTwin>(twin));
+            Console.WriteLine("Twin created successfully");
+            twin = FetchAndPrintTwin(twin_id, client);
+            List<object> twinData = new List<object>();
+            twinData.Add(new Dictionary<string, object>() 
+            {
+                { "op", "add"},
+                { "path", "/Temperature"},
+                { "value", 25.0}
+            });
+
+            await client.UpdateDigitalTwinAsync(twin_id, JsonSerializer.Serialize(twinData));
+            Console.WriteLine("Updated Twin Properties");
+            FetchAndPrintTwin(twin_id, client);
+            await DeleteTwin(client, twin_id);
+        }
+
+        private static BasicDigitalTwin FetchAndPrintTwin(string twin_id, DigitalTwinsClient client)
+        {
+            BasicDigitalTwin twin;
+            Response<string> res = client.GetDigitalTwin(twin_id);
+            twin = JsonSerializer.Deserialize<BasicDigitalTwin>(res.Value);
+            Console.WriteLine($"Model id: {twin.Metadata.ModelId}");
+            foreach (string prop in twin.CustomProperties.Keys)
+            {
+                if (twin.CustomProperties.TryGetValue(prop, out object value))
+                    Console.WriteLine($"Property '{prop}': {value}");
+            }
+
+            return twin;
+        }
+        static async Task DeleteTwin(DigitalTwinsClient client, string id)
+        {
+            await FindAndDeleteOutgoingRelationshipsAsync(client, id);
+            await FindAndDeleteIncomingRelationshipsAsync(client, id);
+            try
+            {
+                await client.DeleteDigitalTwinAsync(id);
+                Console.WriteLine("Twin deleted successfully");
+                FetchAndPrintTwin(id, client);
+            }
+            catch (RequestFailedException exc)
+            {
+                Console.WriteLine($"*** Error:{exc.Message}");
+            }
+        }
+
+        public static async Task FindAndDeleteOutgoingRelationshipsAsync(DigitalTwinsClient client, string dtId)
+        {
+            // Find the relationships for the twin
+
+            try
+            {
+                // GetRelationshipsAsync will throw an error if a problem occurs
+                AsyncPageable<string> relsJson = client.GetRelationshipsAsync(dtId);
+
+                await foreach (string relJson in relsJson)
+                {
+                    var rel = System.Text.Json.JsonSerializer.Deserialize<BasicRelationship>(relJson);
+                    await client.DeleteRelationshipAsync(dtId, rel.Id).ConfigureAwait(false);
+                    Console.WriteLine($"Deleted relationship {rel.Id} from {dtId}");
+                }
+            }
+            catch (RequestFailedException ex)
+            {
+                Console.WriteLine($"*** Error {ex.Status}/{ex.ErrorCode} retrieving or deleting relationships for {dtId} due to {ex.Message}");
+            }
+        }
+
+       static async Task FindAndDeleteIncomingRelationshipsAsync(DigitalTwinsClient client, string dtId)
+        {
+            // Find the relationships for the twin
+
+            try
+            {
+                // GetRelationshipssAsync will throw an error if a problem occurs
+                AsyncPageable<IncomingRelationship> incomingRels = client.GetIncomingRelationshipsAsync(dtId);
+
+                await foreach (IncomingRelationship incomingRel in incomingRels)
+                {
+                    await client.DeleteRelationshipAsync(incomingRel.SourceId, incomingRel.RelationshipId).ConfigureAwait(false);
+                    Console.WriteLine($"Deleted incoming relationship {incomingRel.RelationshipId} from {dtId}");
+                }
+            }
+            catch (RequestFailedException ex)
+            {
+                Console.WriteLine($"*** Error {ex.Status}/{ex.ErrorCode} retrieving or deleting incoming relationships for {dtId} due to {ex.Message}");
+            }
+        }
+
+    }
+}
+
+```
+Here is the console output of the above program: 
+
+:::image type="content" source="media/how-to-manage-graph/console-output-manage-twins.png" alt-text="Console output showing that the twin is created, updated and deleted":::
 
 ### Delete all digital twins
 
