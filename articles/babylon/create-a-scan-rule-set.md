@@ -43,9 +43,9 @@ To create a scan rule set:
 
    The **Document file types** selection on this page allows you to include or exclude the following office file types: .doc, .docm, .docx, .dot, .odp, .ods, .odt, .pdf, .pot, .pps, .ppsx, .ppt, .pptm, .pptx, .xlc, .xls, .xlsb, .xlsm, .xlsx, and .xlt.
 
-1. Enable or disable a file type tile by selecting or clearing its checkbox. If you choose a Data Lake type data source (for example, Azure Data Lake Storage Gen2 or Azure Blob), enable file types for which you want to have schema extracted and classified.
+1. Enable or disable a file type tile by selecting or clearing its check box. If you choose a Data Lake type data source (for example, Azure Data Lake Storage Gen2 or Azure Blob), enable the file types for which you want to have schema extracted and classified.
 
-1. For certain data source types, you can also [Create a custom file type](#create-custom-file-types).
+1. For certain data source types, you can also [Create a custom file type](#create-a-custom-file-type).
 
 1. Select **Continue**.
 
@@ -61,7 +61,7 @@ To create a scan rule set:
 
 1. Select **Create** to finish creating the scan rule set.
 
-### Create custom file types
+### Create a custom file type
 
 Azure Babylon supports adding a custom extension and defining a custom column delimiter in a scan rule set.
 
@@ -73,19 +73,19 @@ To create a custom file type:
 
    :::image type="content" source="./media/create-a-scan-rule-set/select-new-file-type.png" alt-text="Screenshot showing how to select New file type from the Select file types page.":::
 
-1. Enter a **File Extension** and optional **Description**.
+1. Enter a **File Extension** and an optional **Description**.
 
-   :::image type="content" source="./media/create-a-scan-rule-set/new-custom-file-type-page.png" alt-text="Screenshot showing the New custom file type page." ":::
+   :::image type="content" source="./media/create-a-scan-rule-set/new-custom-file-type-page.png" alt-text="Screenshot showing the New custom file type page.":::
 
 1. Make one of the following selections for **File contents within** to specify the type of file contents within your file:
 
-   a. Select **Custom Delimiter** and enter your own **Custom delimiter** (single character only).
+   - Select **Custom Delimiter** and enter your own **Custom delimiter** (single character only).
 
-   :::image type="content" source="./media/create-a-scan-rule-set/select-custom-delimiter.png" alt-text="Screenshot showing how to select the Custom Delimiter option on the New custom file type page.":::
+      :::image type="content" source="./media/create-a-scan-rule-set/select-custom-delimiter.png" alt-text="Screenshot showing how to select the Custom Delimiter option on the New custom file type page.":::
 
-   b. Select **System File Type** and choose a system file type (for example XML) from the **System file type** drop-down list.
+   - Select **System File Type** and choose a system file type (for example XML) from the **System file type** drop-down list.
 
-   :::image type="content" source="./media/create-a-scan-rule-set/select-system-file-type.png" alt-text="Screenshot showing how to select the System File Type option for the New custom file type page.":::
+      :::image type="content" source="./media/create-a-scan-rule-set/select-system-file-type.png" alt-text="Screenshot showing how to select the System File Type option for the New custom file type page.":::
 
 1. Select **Create** to save the custom file.
 
@@ -99,13 +99,13 @@ To create a custom file type:
 
 ## System scan rule sets
 
-System scan rule sets are Microsoft-defined scan rule sets that are created for each Azure Babylon catalog. Each system scan rule set is associated with a data source type. When you create a scan, you can associate it with a system scan rule set. Every time Microsoft makes an update to these system rule sets, you can update them in your catalog, and apply the update to all the associated scans.
+System scan rule sets are Microsoft-defined scan rule sets that are automatically created for each Azure Babylon catalog. Each system scan rule set is associated with a specific data source type. When you create a scan, you can associate it with a system scan rule set. Every time Microsoft makes an update to these system rule sets, you can update them in your catalog, and apply the update to all the associated scans.
 
 1. To view the list of system scan rule sets, select **Scan rule sets** in the **Management Center** and choose the **System** tab.
 
    :::image type="content" source="./media/create-a-scan-rule-set/system-scan-rule-sets.jpg" alt-text="Screenshot showing the list of system scan rule sets." lightbox="./media/create-a-scan-rule-set/system-scan-rule-sets.jpg":::
 
-1. Each system scan rule set has a **Name**, **Source type**, and a **Version**. If you select the version number of a scan rule set in the **Version** column, you see the rules associated with the current version and the previous version (if any).
+1. Each system scan rule set has a **Name**, **Source type**, and a **Version**. If you select the version number of a scan rule set in the **Version** column, you see the rules associated with the current version and the previous versions (if any).
 
    :::image type="content" source="./media/create-a-scan-rule-set/system-scan-rule-set-page.jpg" alt-text="Screenshot showing a system scan rule set page." lightbox="./media/create-a-scan-rule-set/system-scan-rule-set-page.jpg":::
 
