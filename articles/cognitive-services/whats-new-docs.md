@@ -1,62 +1,98 @@
 ---
-title: "Cognitive Services docs: What's new for August 1, 2020 - August 31, 2020"
-description: "What's new in the Cognitive Services docs for August 1, 2020 - August 31, 2020."
+title: "Cognitive Services docs: What's new for September 1, 2020 - September 30, 2020"
+description: "What's new in the Cognitive Services docs for September 1, 2020 - September 30, 2020."
 author: erhopf
 manager: nitinme
 ms.topic: conceptual
 ms.author: erhopf
 ms.service: cognitive-services
-ms.date: 09/08/2020
+ms.date: 10/02/2020
 ---
 
-# Cognitive Services docs: What's new for August 1, 2020 - August 31, 2020
+# Cognitive Services docs: What's new for September 1, 2020 - September 30, 2020
 
-Welcome to what's new in the Cognitive Services docs from August 1, 2020 through August 31, 2020. This article lists some of the major changes to docs during this period.
+Welcome to what's new in the Cognitive Services docs from September 1, 2020 through September 31, 2020. This article lists some of the major changes to docs during this period.
+
+## Cognitive Services
+
+### Updated articles
+
+- [Quickstart: Create a Cognitive Services resource using the Azure Command-Line Interface(CLI)](cognitive-services-apis-create-account-cli.md)
+- [Quickstart: Create a Cognitive Services resource using the Azure Management client library](cognitive-services-apis-create-account-client-library.md)
+- [Quickstart: Create a Cognitive Services resource using the Azure portal](cognitive-services-apis-create-account.md)
+- [Quickstart: Create a Cognitive Services resource using an ARM template](create-account-resource-manager-template.md)
 
 ## Computer Vision
 
 ### New articles
 
-- [Upgrade to v3.0 of Computer Vision API from v2.0 and v2.1](/azure/cognitive-services/computer-vision/upgrade-api-versions)
+- [Introduction to Computer Vision spatial analysis](https://docs.microsoft.com/legal/cognitive-services/computer-vision/intro-to-spatial-analysis-public-preview?context=/azure/cognitive-services/Computer-vision/context/context)
+- [Responsible use in AI deployment for Computer Vision spatial analysis](https://docs.microsoft.com/legal/cognitive-services/computer-vision/responsible-use-deployment?context=/azure/cognitive-services/Computer-vision/context/context)
+- [Research Insights for Computer Vision spatial analysis](https://docs.microsoft.com/legal/cognitive-services/computer-vision/research-insights?context=/azure/cognitive-services/Computer-vision/context/context)
+- [Disclosure Design Guidelines for Computer Vision spatial analysis](https://docs.microsoft.com/legal/cognitive-services/computer-vision/disclosure-design?context=/azure/cognitive-services/Computer-vision/context/context)
+- [Compliance, privacy, and security for Computer Vision spatial analysis](https://docs.microsoft.com/legal/cognitive-services/computer-vision/compliance-privacy-security-2?context=/azure/cognitive-services/Computer-vision/context/context)
+- [Characteristics and limitations for Computer Vision spatial analysis](https://docs.microsoft.com/legal/cognitive-services/computer-vision/accuracy-and-limitations?context=/azure/cognitive-services/Computer-vision/context/context)
 
 ## Containers
 
+### New articles
+
+- [Install and run the spatial analysis container (preview)](/azure/cognitive-services/computer-vision/spatial-analysis-container.md)
+
 ### Updated articles
 
-- [Azure Cognitive Services container image tags](/azure/cognitive-services/containers/container-image-tags)
+- [Azure Cognitive Services container image tags](/azure/cognitive-services/containers/container-image-tags.md)
 
 ## Form Recognizer
 
-### New articles
+### Updated articles
 
-- [Business card concepts](/azure/cognitive-services/form-recognizer/concept-business-cards)
-- [Receipt concepts](/azure/cognitive-services/form-recognizer/concept-receipts)
-- [Quickstart: Extract business card data using the Form Recognizer REST API with Python](/azure/cognitive-services/form-recognizer/quickstarts/python-business-cards)
+- [Language support for Form Recognizer](/azure/cognitive-services/form-recognizer/language-support.md)
+- [Build a training data set for a custom model](/azure/cognitive-services/form-recognizer/build-training-data-set.md)
+- [Receipt concepts](/azure/cognitive-services/form-recognizer/concept-receipts.md)
+- [Form Recognizer encryption of data at rest](/azure/cognitive-services/form-recognizer/form-recognizer-encryption-of-data-at-rest.md)
+- [What's new in Form Recognizer?](/azure/cognitive-services/form-recognizer/whats-new.md)
+- [Business card concepts](/azure/cognitive-services/form-recognizer/concept-business-cards.md)
+- [What is Form Recognizer?](/azure/cognitive-services/form-recognizer/overview.md)
+- [Quickstart: Use the Form Recognizer client library](/azure/cognitive-services/form-recognizer/quickstarts/client-library.md)
+
+## Immersive Reader
 
 ### Updated articles
 
-- [Quickstart: Train a Form Recognizer model and extract form data by using the REST API with cURL](/azure/cognitive-services/form-recognizer/quickstarts/curl-train-extract)
-- [Quickstart: Train a Form Recognizer model with labels using REST API and Python](/azure/cognitive-services/form-recognizer/quickstarts/python-labeled-data)
-- [Quickstart: Extract text and layout information using the Form Recognizer REST API with Python](/azure/cognitive-services/form-recognizer/quickstarts/python-layout)
-- [Quickstart: Train a Form Recognizer model and extract form data by using the REST API with Python](/azure/cognitive-services/form-recognizer/quickstarts/python-train-extract)
+- [Language support for Immersive Reader](/azure/cognitive-services/immersive-reader/language-support.md)
+- [Immersive Reader JavaScript SDK Reference (v1.1)](/azure/cognitive-services/immersive-reader/reference.md)
+- [Quickstart: Get started with Immersive Reader](/azure/cognitive-services/immersive-reader/quickstarts/client-libraries.md)
+- [Tutorial: Start the Immersive Reader using the Python sample project](/azure/cognitive-services/immersive-reader/tutorial-python.md)
+- [Create an Immersive Reader resource and configure Azure Active Directory authentication](/azure/cognitive-services/immersive-reader/how-to-create-immersive-reader.md)
 
-## Speech Service
+## Metrics Advisor
 
 ### New articles
 
-- [Speech Services quotas and limits](/azure/cognitive-services/speech-service/speech-services-quotas-and-limits)
+- [How to: Configure metrics and fine tune detecting configuration](/azure/cognitive-services/metrics-advisor/how-tos/configure-metrics.md)
+- [Add data feeds from different data sources to Metrics Advisor](/azure/cognitive-services/metrics-advisor/data-feeds-from-different-sources.md)
+- [Quickstart: Use the REST APIs to customize your solution](/azure/cognitive-services/metrics-advisor/quickstarts/rest-api.md)
+- [How-to: Configure alerts and get notifications using a hook](/azure/cognitive-services/metrics-advisor/how-tos/alerts.md)
+
+## Text Analytics
 
 ### Updated articles
 
-- [Long Audio API (Preview)](/azure/cognitive-services/speech-service/long-audio-api)
+- [How to use Named Entity Recognition in Text Analytics](/azure/cognitive-services/text-analytics/how-tos/text-analytics-how-to-entity-linking.md)
+- [Model versioning in the Text Analytics API](/azure/cognitive-services/text-analytics/concepts/model-versioning.md)
+- [Quickstart: Use the Text Analytics client library](/azure/cognitive-services/text-analytics/quickstarts/text-analytics-sdk.md)
 
 ## Community contributors
 
-The following people contributed to the Cognitive Services docs during this period. Thank you! 
+The following people contributed to the Cognitive Services docs during this period. Thank you! Learn how to contribute by following the links under "Get involved" in the [what's new landing page](index.yml).
 
-- [hyoshioka0128](https://github.com/hyoshioka0128) - Hiroshi Yoshioka (2)
-- [anwesh-b](https://github.com/anwesh-b) - Anwesh Budhathoki (1)
-- [jangelfdez](https://github.com/jangelfdez) - José Ángel Fernández (1)
-- [xhan742](https://github.com/xhan742) (1)
+- [AzureMentor](https://github.com/AzureMentor) (1)
+- [BeigeBadger](https://github.com/BeigeBadger) - Matt Stannett (1)
+- [gurry](https://github.com/gurry) - Gurinder Singh (1)
+- [hyoshioka0128](https://github.com/hyoshioka0128) - Hiroshi Yoshioka (1)
+- [iAmBipinPaul](https://github.com/iAmBipinPaul) - Bipin Paul (1)
+- [rexwan](https://github.com/rexwan) - Rex Wang (1)
+- [rglidden](https://github.com/rglidden) - Richard Glidden (1)
 
 [!INCLUDE [Service specific updates](./includes/service-specific-updates.md)]

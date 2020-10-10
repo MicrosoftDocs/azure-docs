@@ -301,8 +301,6 @@
         href: platform/move-workspace.md
       - name: Design for service providers
         href: platform/service-providers.md
-      - name: Manage access
-        href: platform/manage-access.md
       - name: Dedicated clusters
         href: log-query/logs-dedicated-clusters.md
   - name: Metrics explorer
@@ -660,6 +658,8 @@
             href: app/javascript-react-plugin.md
           - name: React Native plugin
             href: app/javascript-react-native-plugin.md 
+          - name: Angular plugin
+            href: app/javascript-angular-plugin.md
         - name: Troubleshoot
           items: 
           - name: SDK load failure 
@@ -751,8 +751,6 @@
       - name: Availability alerts
         displayname: alerts, global, alerting
         href: app/availability-alerts.md
-      - name: Performance testing
-        href: app/performance-testing.md
       - name: Troubleshooting
         displayname: availability, troubleshoot, troubleshoot availability
         href: app/troubleshoot-availability.md
@@ -1326,6 +1324,8 @@
     href: samples/policy-reference.md
   - name: Feature and API Retirement 
     items:
+    - name: OperationalInsights API
+      href: platform/operationalinsights-api-retirement.md
     - name: Classic autoscale & metrics API
       href: ./platform/classic-api-retirement-metrics-autoscale.md 
     - name: Classic alerting & monitoring 

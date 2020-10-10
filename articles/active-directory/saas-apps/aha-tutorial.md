@@ -145,7 +145,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 6. Click **Security and single sign-on**.
 
-	![Security and single sign-on](./media/aha-tutorial/IC798952.png "Security and single sign-on")
+	![Screenshot that highlights the Security and single sign-on menu option.](./media/aha-tutorial/IC798952.png "Security and single sign-on")
 
 7. In **Single Sign-On** section, as **Identity Provider**, select **SAML2.0**.
 

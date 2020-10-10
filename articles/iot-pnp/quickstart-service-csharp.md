@@ -63,7 +63,7 @@ In this quickstart, you use a sample thermostat device that's written in C# as t
 In [Set up your environment for the IoT Plug and Play quickstarts and tutorials](set-up-environment.md) you created two environment variables to configure the sample to connect to your IoT hub and device:
 
 * **IOTHUB_CONNECTION_STRING**: the IoT hub connection string you made a note of previously.
-* **DEVICE_ID**: `"my-pnp-device"`.
+* **IOTHUB_DEVICE_ID**: `"my-pnp-device"`.
 
 In this quickstart, you use a sample IoT solution in C# to interact with the sample device you just set up.
 
@@ -73,7 +73,7 @@ In this quickstart, you use a sample IoT solution in C# to interact with the sam
 
     | Name | Value |
     | ---- | ----- |
-    | DEVICE_ID | my-pnp-device |
+    | IOTHUB_DEVICE_ID | my-pnp-device |
     | IOTHUB_CONNECTION_STRING | The value you made a note of when you completed [Set up your environment](set-up-environment.md) |
 
 1. You can now build the sample in Visual Studio and run it in debug mode.

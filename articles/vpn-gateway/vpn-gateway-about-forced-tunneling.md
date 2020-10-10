@@ -6,7 +6,7 @@ author: cherylmc
 
 ms.service: vpn-gateway
 ms.topic: article
-ms.date: 08/01/2017
+ms.date: 10/08/2020
 ms.author: cherylmc
 
 ---
@@ -53,12 +53,7 @@ Verify that you have the following items before beginning configuration:
 
 ### To sign in
 
-1. Open your PowerShell console with elevated rights. To switch to service management, use this command:
-
-   ```powershell
-   azure config mode asm
-   ```
-2. Connect to your account. Use the following example to help you connect:
+1. Open your PowerShell console with elevated rights. Connect to your account using the following example:
 
    ```powershell
    Add-AzureAccount
