@@ -18,7 +18,7 @@ You can add non-Azure computers in any of the following ways:
 - Using Azure Arc (**recommended**)
 - From Security Center's pages in the Azure portal (**Getting started** and **Inventory**)
 
-Each of these is described below.
+Each of these is described on this page.
 
 ::: zone pivot="azure-arc"
 
