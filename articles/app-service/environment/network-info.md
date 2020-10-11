@@ -156,7 +156,7 @@ The required entries in an NSG, for an ASE to function, are to allow traffic:
 * UDP to all IPs on port 53
 * UDP to all IPs on port 123
 * TCP to all IPs on ports 80, 443
-* TCP to the IP service tag AzureSQL on ports 1433
+* TCP to the IP service tag `Sql` on ports 1433
 * TCP to all IPs on port 12000
 * to the ASE subnet on all ports
 

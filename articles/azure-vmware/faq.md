@@ -97,6 +97,10 @@ As far as we know, any backup solution that uses VMware VADP with the HotAdd tra
 
 As these backup solutions are installed and managed by customers, they can reach out to the respective ISV for support. 
 
+#### What is the correct storage policy for the dedup set up?
+
+Use the *thin_provision* storage policy for your VM template.  The default is *thick_provision*.
+
 ## Hosts, clusters, and private clouds
 
 #### Is the underlying infrastructure shared?
@@ -169,6 +173,8 @@ No. Network traffic inbound from the internet directly to private clouds isn't a
 #### Do I need to restrict internet access from VMs on logical networks to the internet?
 
 Yes. You'll need to use NSX-T manager to create a firewall that restricts VM access to the internet.
+
+
 
 ## Accounts and privileges
 
