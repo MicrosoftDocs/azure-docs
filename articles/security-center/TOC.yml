@@ -51,7 +51,7 @@
       displayName: KV, akv
       href: defender-for-key-vault-introduction.md
     - name: Azure Defender for Kubernetes
-      displayName: clusters, k8s
+      displayName: clusters, k8s, aks
       href: defender-for-kubernetes-introduction.md
     - name: Azure Defender for container registries
       displayName: ACR, registry, images
@@ -59,7 +59,7 @@
     - name: Additional threat protections
       href: other-threat-protections.md
   - name: Container security features of Security Center
-    displayName: kubernetes, aks, acr, registries
+    displayName: kubernetes, aks, acr, registries, k8s
     href: container-security.md
   - name: Pricing
     href: security-center-pricing.md
@@ -244,7 +244,7 @@
       displayName: workflow
       href: workflow-automation.md
   - name: Protect your Kubernetes workloads
-    displayName: k8s, containers
+    displayName: k8s, containers, aks
     href: kubernetes-workload-protections.md
   - name: Manage investigation user data
     href: security-center-investigation-user-data.md
