@@ -20,7 +20,7 @@ Use the Custom Vision client library for .NET to:
 * Publish the current iteration
 * Test the prediction endpoint
 
-[Reference documentation](https://docs.microsoft.com/en-us/dotnet/api/overview/azure/cognitiveservices/client/customvision?view=azure-dotnet) | Library source code [(training)](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/cognitiveservices/Vision.CustomVision.Training) [(prediction)](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/cognitiveservices/Vision.CustomVision.Prediction) | Package (NuGet) [(training)](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Vision.CustomVision.Training/) [(prediction)](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Vision.CustomVision.Prediction/) | [Samples](https://docs.microsoft.com/en-us/samples/browse/?products=azure&term=vision&terms=vision)
+[Reference documentation](https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client/customvision?view=azure-dotnet) | Library source code [(training)](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/cognitiveservices/Vision.CustomVision.Training) [(prediction)](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/cognitiveservices/Vision.CustomVision.Prediction) | Package (NuGet) [(training)](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Vision.CustomVision.Training/) [(prediction)](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Vision.CustomVision.Prediction/) | [Samples](https://docs.microsoft.com/samples/browse/?products=azure&term=vision&terms=vision)
 
 
 ## Prerequisites
@@ -103,22 +103,22 @@ In the application's **Main** method, add calls for the methods used in this qui
 
 |Name|Description|
 |---|---|
-|[CustomVisionTrainingClient](https://docs.microsoft.com/en-us/dotnet/api/microsoft.azure.cognitiveservices.vision.customvision.training.customvisiontrainingclient?view=azure-dotnet) | This class handles the creation, training, and publishing of your models. |
-|[CustomVisionPredictionClient](https://docs.microsoft.com/en-us/dotnet/api/microsoft.azure.cognitiveservices.vision.customvision.prediction.customvisionpredictionclient?view=azure-dotnet-preview)| This class handles the querying of your models for image classification predictions.|
-|[PredictionModel](https://docs.microsoft.com/en-us/dotnet/api/microsoft.azure.cognitiveservices.vision.customvision.prediction.models.predictionmodel?view=azure-dotnet-preview)| This class defines a single prediction on a single image. It includes properties for the object ID and name, and a confidence score.|
+|[CustomVisionTrainingClient](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.vision.customvision.training.customvisiontrainingclient?view=azure-dotnet) | This class handles the creation, training, and publishing of your models. |
+|[CustomVisionPredictionClient](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.vision.customvision.prediction.customvisionpredictionclient?view=azure-dotnet-preview)| This class handles the querying of your models for image classification predictions.|
+|[PredictionModel](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.vision.customvision.prediction.models.predictionmodel?view=azure-dotnet-preview)| This class defines a single prediction on a single image. It includes properties for the object ID and name, and a confidence score.|
 
 ## Code examples
 
 These code snippets show you how to do the following tasks with the Custom Vision client library for .NET:
 
 * [Authenticate the client](#authenticate-the-client)
-* [Create a new Custom Vision project](#Create-a-new-Custom-Vision-project)
-* [Add tags to the project](#Add-tags-to-the-project)
-* [Upload and tag images](#Upload-and-tag-images)
-* [Train the project](#Train-the-project)
-* [Publish the current iteration](#Publish-the-current-iteration)
-* [Create a prediction endpoint](#Create-a-prediction-endpoint)
-* [Test the prediction endpoint](#Test-the-prediction-endpoint)
+* [Create a new Custom Vision project](#create-a-new-custom-vision-project)
+* [Add tags to the project](#add-tags-to-the-project)
+* [Upload and tag images](#upload-and-tag-images)
+* [Train the project](#train-the-project)
+* [Publish the current iteration](#publish-the-current-iteration)
+* [Create a prediction endpoint](#create-a-prediction-endpoint)
+* [Test the prediction endpoint](#test-the-prediction-endpoint)
 
 
 ## Authenticate the client
@@ -129,7 +129,7 @@ In a new method, instantiate training and prediction clients using your endpoint
 
 ## Create a new Custom Vision project
 
-This next bit of code creates an image classification project. The created project will show up on the [Custom Vision website](https://customvision.ai/). See the [CreateProject](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.vision.customvision.training.customvisiontrainingclientextensions.createproject?view=azure-dotnet#Microsoft_Azure_CognitiveServices_Vision_CustomVision_Training_CustomVisionTrainingClientExtensions_CreateProject_Microsoft_Azure_CognitiveServices_Vision_CustomVision_Training_ICustomVisionTrainingClient_System_String_System_String_System_Nullable_System_Guid__System_String_System_Collections_Generic_IList_System_String__&preserve-view=true) method to specify other options when you create your project (explained in the [Build a classifier](../../geting-started-build-a-classifier.md) web portal guide).  
+This next bit of code creates an image classification project. The created project will show up on the [Custom Vision website](https://customvision.ai/). See the [CreateProject](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.vision.customvision.training.customvisiontrainingclientextensions.createproject?view=azure-dotnet#Microsoft_Azure_CognitiveServices_Vision_CustomVision_Training_CustomVisionTrainingClientExtensions_CreateProject_Microsoft_Azure_CognitiveServices_Vision_CustomVision_Training_ICustomVisionTrainingClient_System_String_System_String_System_Nullable_System_Guid__System_String_System_Collections_Generic_IList_System_String__&preserve-view=true) method to specify other options when you create your project (explained in the [Build a classifier](../../getting-started-build-a-classifier.md) web portal guide).  
 
 [!code-csharp[](~/cognitive-services-quickstart-code/dotnet/CustomVision/ImageClassification/Program.cs?name=snippet_create)]
 
