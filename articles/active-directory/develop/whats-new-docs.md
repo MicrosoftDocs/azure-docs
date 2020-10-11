@@ -17,13 +17,12 @@ manager: CelesteDG
 
 Welcome to what's new in Microsoft identity platform documentation. This article lists new docs that have been added and those that have had significant updates in the last three months.
 
-## September 1, 2020 - September 30, 2020
+## September 2020
 
 ### New articles
 
 - [Quickstart: Protect an ASP.NET Core web API with Microsoft identity platform](quickstart-v2-aspnet-core-web-api.md)
 - [Tutorial: Create a Blazor Server app that uses the Microsoft identity platform for authentication](tutorial-blazor-server.md)
-- [Configure token lifetime policies (preview)](configure-token-lifetimes.md)
 
 ### Updated articles
 
@@ -34,7 +33,6 @@ Welcome to what's new in Microsoft identity platform documentation. This article
 - [Configurable token lifetimes in Microsoft identity platform (preview)](active-directory-configurable-token-lifetimes.md)
 - [A web app that calls web APIs: Code configuration](scenario-web-app-call-api-app-configuration.md)
 - [A web app that calls web APIs: Call a web API](scenario-web-app-call-api-call-api.md)
-- [How to: Add app roles in your application and receive them in the token](howto-add-app-roles-in-azure-ad-apps.md)
 - [A web API that calls web APIs: Code configuration](scenario-web-api-call-api-app-configuration.md)
 - [A web API that calls web APIs: Call an API](scenario-web-api-call-api-call-api.md)
 - [Troubleshoot publisher verification](troubleshoot-publisher-verification.md)
@@ -49,7 +47,7 @@ Welcome to what's new in Microsoft identity platform documentation. This article
 - [Quickstart: Configure an application to expose a web API](quickstart-configure-app-expose-web-apis.md)
 - [Quickstart: Register an application with the Microsoft identity platform](quickstart-register-app.md)
 
-## August 1, 2020 - August 31, 2020
+## August 2020
 
 ### New articles
 
@@ -69,7 +67,7 @@ Welcome to what's new in Microsoft identity platform documentation. This article
 - [Microsoft identity platform videos](identity-videos.md)
 - [Quickstart: Call an ASP.NET web API protected by Microsoft identity platform](quickstart-v2-dotnet-native-aspnet.md)
 
-## July 1, 2020 - July 30, 2020
+## July 2020
 
 ### New articles
 
