@@ -35,11 +35,11 @@ A key vault is created for Azure Stack Edge resource during the process of activ
 
 - You can choose to accept the default key name or specify a custom name for the key vault. The key vault name must be between 3 to 34 characters long. You cannot use a key vault that is already in use. 
 
-- When you create an Azure Stack Edge resource, a Managed Service Identity (MSI) is also created that persists for the lifetime of the resource. When the MSI is enabled, Azure creates a trusted identity for the Azure Stack Edge resource.The MSI is then used to authenticate to key vault to retrieve secrets. 
+- When you create an Azure Stack Edge resource, a Managed Service Identity (MSI) is also created that persists for the lifetime of the resource. When the MSI is enabled, Azure creates a trusted identity for the Azure Stack Edge resource. The MSI is then used to authenticate to key vault to retrieve secrets. 
 
     ![MSI created during Azure Stack Edge resource creation](media/azure-stack-edge-gpu-deploy-prep/create-resource-8.png)
 
-- To prevent accidental deletion, a lock is enabled on the key vault. A soft delete is also enabled on the key vault that allows the key vault to be restored within 90 days in case of an accidental deletion. 
+- To prevent accidental deletion, a lock is enabled on the key vault. A soft delete is also enabled on the key vault that allows the key vault to be restored within 90 days if there is an accidental deletion. 
 
     If the key vault is accidentally deleted and the purge protection duration of 90 days hasn't elapsed, follow these steps to [Recover your key vault](../key-vault/general/soft-delete-powershell.md#recovering-a-key-vault). 
 
@@ -51,11 +51,12 @@ A key vault is created for Azure Stack Edge resource during the process of activ
 
 When you generate an activation key, the following events occur:
 
-1. You request an activation key in the Azure portal which is sent to Key Vault resource provider. 
-1. An standard tier key vault with access policy is created and is locked by default. This key vault uses the default name or the custom name that you specified.
-1. The key vault authenticates with MSI the request to generate activation key. The MSI is also added the key vault access policy and a channel integrity key is generated and placed in the key vault.
-1. The activation key is returned to Azure portal. You can then copy this key and use it in the local UI to activate your device.
- 
+1. You request an activation key in the Azure portal. The request is then sent to Key Vault resource provider. 
+1. A standard tier key vault with access policy is created and is locked by default. This key vault uses the default name or the custom name that you specified.
+1. The key vault authenticates with MSI the request to generate activation key. The MSI is also added to the key vault access policy and a channel integrity key is generated and placed in the key vault.
+1. The activation key is returned to the Azure portal. You can then copy this key and use it in the local UI to activate your device.
+
+If you run into any issues related to key vault and device activation, see [Troubleshoot device activation issues](azure-stack-edge-gpu-troubleshoot-device-activation.md).
 
 ## Next steps
 
