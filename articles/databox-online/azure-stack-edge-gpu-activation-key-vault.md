@@ -39,7 +39,7 @@ A key vault is created for Azure Stack Edge resource during the process of activ
 
     ![MSI created during Azure Stack Edge resource creation](media/azure-stack-edge-gpu-deploy-prep/create-resource-8.png)
 
-- To prevent accidental deletion, a lock is enabled on the key vault. A soft delete is also enabled on the key vault that allows the key vault to be restored within 90 days if there is an accidental deletion. 
+- To prevent accidental deletion, a lock is enabled on the key vault. A soft-delete is also enabled on the key vault that allows the key vault to be restored within 90 days if there is an accidental deletion. For more information, see [Azure Key Vault soft-delete overview](../key-vault/general/soft-delete-overview.md)
 
     If the key vault is accidentally deleted and the purge protection duration of 90 days hasn't elapsed, follow these steps to [Recover your key vault](../key-vault/general/soft-delete-powershell.md#recovering-a-key-vault). 
 
