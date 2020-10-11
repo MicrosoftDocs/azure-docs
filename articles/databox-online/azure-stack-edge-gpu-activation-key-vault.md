@@ -56,7 +56,7 @@ When you generate an activation key, the following events occur:
 1. The key vault authenticates with MSI the request to generate activation key. The MSI is also added to the key vault access policy and a channel integrity key is generated and placed in the key vault.
 1. The activation key is returned to the Azure portal. You can then copy this key and use it in the local UI to activate your device.
 
-If you run into any issues related to key vault and device activation, see [Troubleshoot device activation issues](azure-stack-edge-gpu-troubleshoot-device-activation.md).
+If you run into any issues related to key vault and device activation, see [Troubleshoot device activation issues](azure-stack-edge-gpu-troubleshoot-activation.md).
 
 ## Next steps
 
