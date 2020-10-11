@@ -29,7 +29,6 @@ Welcome to what's new in Microsoft identity platform documentation. This article
 - [Tutorial: Sign in users and call the Microsoft Graph API from an Android application](tutorial-v2-android.md)
 - [A web app that calls web APIs: Code configuration](scenario-web-app-call-api-app-configuration.md)
 - [A web app that calls web APIs: Call a web API](scenario-web-app-call-api-call-api.md)
-- [How to: Add app roles in your application and receive them in the token](howto-add-app-roles-in-azure-ad-apps.md)
 - [A web API that calls web APIs: Code configuration](scenario-web-api-call-api-app-configuration.md)
 - [A web API that calls web APIs: Call an API](scenario-web-api-call-api-call-api.md)
 - [Sign in users and call Microsoft Graph from an iOS or macOS app](tutorial-v2-ios.md)
