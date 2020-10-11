@@ -7,7 +7,11 @@ ms.date: 10/07/2020
 
 # Manage a VM pool in Lab Services from Teams
 
-Virtual Machine (VM) creation starts as soon as the template VM is first published. VMs equaling the number of users in the lab user list will be created. VMs are automatically assigned to students upon their first login to Azure Lab Services. To publish the template, go to the Teams Lab Services window, select **Template** tab -> **...** -> **Publish**.
+Virtual Machine (VM) creation starts as soon as the template VM is first published. VMs equaling the number of users in the lab user list will be created. VMs are automatically assigned to students upon their first login to Azure Lab Services. 
+
+## Publish a template and manage a VM pool
+
+To publish the template, go to the Teams Lab Services window, select **Template** tab -> **...** -> **Publish**.
 
 Once the template VM is configured and when the educator selects to publish the template, number of VMs equivalent to the number of users in the lab’s user list will be created. Once the lab is published and VMs are created, Users will be automatically registered to the lab and VMs will be assigned to them on their first login to Azure Lab Services that is, when they first access the tab having **Azure Lab Services** App. 
 
