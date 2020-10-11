@@ -52,14 +52,24 @@
       href: register-scan-azure-files-storage-source.md
     - name: Register and scan Teradata
       href: register-scan-teradata-source.md
+    - name: Register and scan Azure Blob Storage
+      href: register-scan-azure-blob-storage-source.md
+    - name: Register and scan Azure Data Lake Storage Gen 1
+      href: register-scan-adls-gen1.md
+    - name: Register and scan Azure Data Lake Storage Gen 2
+      href: register-scan-adls-gen2.md
     - name: Create a scan rule set
       href: create-a-scan-rule-set.md
+    - name: Apply classifications
+      href: apply-classifications.md
   - name: Classify
     items: 
     - name: Apply classifications
       href: use-classifications.md
     - name: Create a custom classification
       href: create-a-custom-classification.md
+    - name: Create a custom classification rule
+      href: create-custom-classification-rule.md      
   - name: Security
     items:
     - name: View classification insights

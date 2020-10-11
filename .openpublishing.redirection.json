@@ -13448,6 +13448,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/virtual-machines/windows/spot-portal.md",
+      "redirect_url": "/azure/virtual-machines/spot-portal",
+      "redirect_document_id": true
+    },
+    {
       "source_path": "articles/virtual-machines/windows/spot-vms.md",
       "redirect_url": "/azure/virtual-machines/spot-vms",
       "redirect_document_id": false
@@ -21865,6 +21870,11 @@
     {
       "source_path": "articles/marketplace/marketplace-terms.md",
       "redirect_url": "/legal/marketplace/terms",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/marketplace/marketplace-roadmap.md",
+      "redirect_url": "/partner-center/announcements",
       "redirect_document_id": false
     },
     {
@@ -32303,6 +32313,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/hdinsight/hdinsight-high-availability-linux.md",
+      "redirect_url": "/azure/hdinsight/hdinsight-business-continuity",
+      "redirect_document_id": true
+    },
+    {
       "source_path": "articles/virtual-machines/windows/sqlclassic/virtual-machines-windows-classic-portal-sql-alwayson-availability-groups.md",
       "redirect_url": "/azure/virtual-machines/windows/sql/virtual-machines-windows-portal-sql-availability-group-overview",
       "redirect_document_id": false
@@ -42620,7 +42635,7 @@
     {
       "source_path": "articles/application-insights/app-insights-asp-net-more.md",
       "redirect_url": "/azure/azure-monitor/app/asp-net-more",
-      "redirect_document_id": true
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/application-insights/app-insights-asp-net-trace-logs.md",
@@ -48991,6 +49006,14 @@
       "redirect_url": "/azure/iot-central/core/howto-export-data",
       "redirect_document_id": true
     },
+
+    {
+      "source_path": "articles/iot-central/retail/tutorial-video-analytics-create-app.md",
+      "redirect_url": "/azure/iot-central/retail/tutorial-video-analytics-create-app-yolo-v3",
+      "redirect_document_id": true
+    },
+
+
     {
       "source_path": "articles/iot-accelerators/iot-accelerators-arduino-iot-devkit-az3166-devkit-remote-monitoringV2.md",
       "redirect_url": "/azure/iot-accelerators/iot-accelerators-arduino-iot-devkit-az3166-devkit-remote-monitoring-v2",
@@ -57906,11 +57929,6 @@
       "redirect_document_id": false
     },
     {
-      "source_path": "https://docs.microsoft.com/azure/cognitive-services/translator/quickstart-translate",
-      "redirect_url": "/azure/cognitive-services/Translator/quickstart-translator.md",
-      "redirect_document_id": false
-    },
-    {
       "source_path": "https://docs.microsoft.com/azure/cognitive-services/translator/quickstart-dictionary",
       "redirect_url": "/azure/cognitive-services/Translator/quickstart-translator.md",
       "redirect_document_id": false
@@ -58017,6 +58035,16 @@
     },
     {
       "source_path": "articles/azure-monitor/app/performance-testing.md",
+      "redirect_url": "/azure/azure-monitor/azure-monitor-app-hub",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/private-link/create-private-endpoint-cosmosdb-portal.md",
+      "redirect_url": "/azure/private-link/tutorial-private-endpoint-cosmosdb-portal",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-monitor/asp-net-more.md",
       "redirect_url": "/azure/azure-monitor/azure-monitor-app-hub",
       "redirect_document_id": false
     }

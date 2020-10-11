@@ -88,11 +88,9 @@ At the prompt, enter the password for the user account.
 
 ## Monitor replication
 
-Azure Database for MySQL provides the **Replication lag in seconds** metric in Azure Monitor. This metric is available for replicas only.
+Azure Database for MySQL provides the **Replication lag in seconds** metric in Azure Monitor. This metric is available for replicas only. This metric is calculated using the `seconds_behind_master` metric available in MySQL's `SHOW SLAVE STATUS` command. Set an alert to inform you when the replication lag reaches a value that isn’t acceptable for your workload.
 
-This metric is calculated using the `seconds_behind_master` metric available in MySQL's `SHOW SLAVE STATUS` command.
-
-Set an alert to inform you when the replication lag reaches a value that isn’t acceptable for your workload.
+If you see increased replication lag, refer [troubleshoot replication latency](howto-troubleshoot-replication-latency.md) to troubleshoot and understand possible causes.
 
 ## Stop replication
 

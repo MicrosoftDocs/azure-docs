@@ -40,6 +40,8 @@ landingContent:
             url: signalr-quickstart-azure-functions-java.md
           - text: Azure Functions - Python
             url: signalr-quickstart-azure-functions-python.md
+          - text: Azure SignalR Service deployment - ARM template
+            url: signalr-quickstart-azure-signalr-service-arm-template.md
           - text: REST API
             url: signalr-quickstart-rest-api.md            
 

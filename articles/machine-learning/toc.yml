@@ -15,7 +15,7 @@
 - name: Tutorials
   expanded: true
   items: 
-    - name: "Python day 1 get started"
+    - name: "Python get started (Day 1)"
       expanded: true
       items:
         - name: 1. Set up local computer
@@ -188,6 +188,8 @@
             - name: Use Private Link
               displayName: private endpoint
               href: how-to-configure-private-link.md
+            - name: Use custom DNS
+              href: how-to-custom-dns.md
             - name: Configure secure web services
               displayName: ssl, tls
               href: how-to-secure-web-service.md
