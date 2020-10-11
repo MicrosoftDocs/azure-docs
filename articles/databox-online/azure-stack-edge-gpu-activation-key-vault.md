@@ -35,7 +35,9 @@ A key vault is created for Azure Stack Edge resource during the process of activ
 
 - You can choose to accept the default key name or specify a custom name for the key vault. The key vault name must be between 3 to 34 characters long. You cannot use a key vault that is already in use. 
 
-- When you create an Azure Stack Edge resource, a Managed Service Identity (MSI) is also created that persists for the lifetime of the resource. When the MSI is enabled, Azure creates a trusted identity for the Azure Stack Edge resource. The MSI is then used to authenticate to key vault to retrieve secrets. 
+- When you create an Azure Stack Edge resource, a Managed Service Identity (MSI) is also created that persists for the lifetime of the resource and communicates with the resource provider on the cloud. 
+
+    When the MSI is enabled, Azure creates a trusted identity for the Azure Stack Edge resource. The MSI is then used to authenticate to key vault to retrieve secrets. 
 
     ![MSI created during Azure Stack Edge resource creation](media/azure-stack-edge-gpu-deploy-prep/create-resource-8.png)
 
