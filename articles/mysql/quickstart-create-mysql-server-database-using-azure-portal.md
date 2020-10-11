@@ -26,7 +26,7 @@ Go to the [Azure portal](https://portal.azure.com/) to create an MySQL Single Se
 
 <!-- with a defined set of [compute and storage resources](./concepts-compute-unit-and-storage.md). You create the server within an [Azure resource group](../azure-resource-manager/management/overview.md).-->
 
-1. Select Add.
+1. Select **Add**.
 
 2. On the Create a Azure Database for MySQL page , select  **Single server**.
 >[!div class="mx-imgBorder"]
@@ -60,6 +60,7 @@ Compute + Storage | **General Purpose**, **Gen 5**, **2 vCores**, **5 GB**, **7 
 >[!div class="mx-imgBorder"]
 > :::image type="content" source="./media/quickstart-create-mysql-server-database-using-azure-portal/deploymentcomplete.png" alt-text="successful deployment":::
 
+[Having issues? Let us know](https://aka.ms/mysql-doc-feedback)
 
 ## Configure a server-level firewall rule
 
@@ -76,6 +77,8 @@ By default the server created is protected with a firewall. To connect you must 
 > Check if your network allows outbound traffic over port 3306 that is used by Azure Database for MySQL to avoid connectivity issues.
 
 You can add additional IPs or provide an IP range to connect to your server from those IPs. For more information, see [How to manage firewall rules on Azure Database for MySQL server](./concepts-firewall-rules.md)
+
+[Having issues? Let us know](https://aka.ms/mysql-doc-feedback)
 
 ## Connect to Azure Database for MySQL server using mysql command-line client
 You can choose either [mysql.exe](https://dev.mysql.com/doc/refman/8.0/en/mysql.html) or [MySQL Workbench](./connect-workbench.md) to connect to the server from your local environment. In this quickstart, we will run **mysql.exe** in [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview) to connect to the server.
@@ -130,6 +133,8 @@ You can choose either [mysql.exe](https://dev.mysql.com/doc/refman/8.0/en/mysql.
   ```
 5. Type ```quit```, and then select the Enter key to quit mysql.
 
+[Having issues? Let us know](https://aka.ms/mysql-doc-feedback)
+
 ## Clean up resources
 You have successfully created an Azure Database for MySQL server in a resource group.  If you don't expect to need these resources in the future, you can delete them by deleting the resource group or just delete the MySQL server. To delete the resource group, follow these steps:
 1. In the Azure portal, search for and select **Resource groups**.
@@ -143,6 +148,8 @@ To delete the server, you can click on **Delete** button on **Overview** page of
 
 ## Next steps
 > [!div class="nextstepaction"]
->[Build a PHP app on Windows with MySQL](../app-service/app-service-web-tutorial-php-mysql.md)
->[Build PHP app on Linux with MySQL](../app-service/containers/tutorial-php-mysql-app.md)
+>[Build a PHP app on Windows with MySQL](../app-service/app-service-web-tutorial-php-mysql.md) <br/>
+>[Build PHP app on Linux with MySQL](../app-service/containers/tutorial-php-mysql-app.md)<br/>
 >[Build Java based Spring App with MySQL](https://docs.microsoft.com/azure/developer/java/spring-framework/spring-app-service-e2e?tabs=bash)
+
+[Cannot find what you are looking for? Let us know.](https://aka.ms/mysql-doc-feedback)
