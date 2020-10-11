@@ -60,7 +60,8 @@ To configure your application Logout URL:
 1. Make sure you're using the directory that contains your Azure AD B2C tenant by selecting the **Directory + subscription** filter in the top menu and choosing the directory that contains your Azure AD B2C tenant.
 1. Choose **All services** in the top-left corner of the Azure portal, and then search for and select **Azure AD B2C**.
 1. Select **App registrations**, and then select your application.
-1. Select **Settings**, select **Properties**, and then find the **Logout URL** text box. 
+1. Select **Authentication**
+1. In the **Logout URL** text box, type your post logout redirect URI. And select **Save**.
 
 ### Single sign-out
 
@@ -71,7 +72,8 @@ When you redirect the user to the Azure AD B2C sign-out endpoint (for both OAuth
 1. Navigate to the [Azure portal](https://portal.azure.com).
 1. Choose your Azure AD B2C directory by clicking your account in the top right corner of the page.
 1. In the left menu, choose **Azure AD B2C**, select **App registrations**, and then select your application.
-1. Select **Settings**, select **Properties**, and then find the **Logout URL** text box. 
+1. Select **Authentication**
+1. In the **Logout URL** text box, type your post logout redirect URI. And select **Save**.
 
 #### Configure the token issuer 
 

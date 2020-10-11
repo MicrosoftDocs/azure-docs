@@ -58,7 +58,8 @@ After logout, the user is redirected to the URI specified in the `post_logout_re
 1. Enable the **Require ID Token in logout requests**.
 1. Go back to  **Azure AD B2C**.
 1. Select **App registrations**, and then select your application.
-1. Select **Settings**, select **Properties**, and then find the **Logout URL** text box. 
+1. Select **Authentication**
+1. In the **Logout URL** text box, type your post logout redirect URI. And select **Save**.
 
 ## Next steps
 

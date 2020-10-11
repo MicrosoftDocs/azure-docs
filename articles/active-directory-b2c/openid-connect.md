@@ -279,7 +279,7 @@ GET https://{tenant}.b2clogin.com/{tenant}.onmicrosoft.com/{policy}/oauth2/v2.0/
 
 After logout, the user is redirected to the URI specified in the `post_logout_redirect_uri` parameter, regardless of the reply URLs that have been specified for the application. However, if a valid `id_token_hint` is passed, and the **Require ID Token in logout requests** is turn on, Azure AD B2C verifies that the value of `post_logout_redirect_uri` matches one of the application's configured redirect URIs before performing the redirect. If no matching reply URL was configured for the application, an error message is displayed and the user is not redirected.
 
-To set the require ID Token in logout requests see [Configure session behavior in Azure Active Directory B2C]session-behavior-custom-policy.md#secure-your-logout-redirect), and [Configure session behavior using custom policies in Azure Active Directory B2C](session-behavior-custom-policy.md#secure-your-logout-redirect)
+To set the require ID Token in logout requests, see [Configure session behavior in Azure Active Directory B2C](session-behavior-custom-policy.md#secure-your-logout-redirect), and [Configure session behavior using custom policies in Azure Active Directory B2C](session-behavior-custom-policy.md#secure-your-logout-redirect)
 
 ## Next steps
 
