@@ -6,45 +6,40 @@ ms.author: andrela
 ms.service: mysql
 ms.custom: mvc
 ms.topic: quickstart
-ms.date: 5/26/2020
+ms.date: 10/01/2020
 ---
 
 # Quickstart: Use PHP to connect and query data in Azure Database for MySQL
 This quickstart demonstrates how to connect to an Azure Database for MySQL using a [PHP](https://secure.php.net/manual/intro-whatis.php) application. It shows how to use SQL statements to query, insert, update, and delete data in the database. This topic assumes that you are familiar with development using PHP and that you are new to working with Azure Database for MySQL.
 
 ## Prerequisites
-This quickstart uses the resources created in either of these guides as a starting point:
+For this quickstart you will need: 
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/en-us/free).
+- Azure Database for MySQL single server.You can use one of these quickstarts to create the server using portal or CLI. 
 
   |Task| How to guide|
   |:--- |:--- |
   | **Create a server**| [Portal](./quickstart-create-mysql-server-database-using-azure-portal.md) <br/> [CLI](./quickstart-create-mysql-server-database-using-azure-cli.md)
-  | **Configure firewall for your server** | [Portal](./howto-manage-firewall-using-portal.md) <br> [CLI](./howto-manage-firewall-using-cli.md)|
-
-
-## Install PHP
-Install PHP on your own server, or create an Azure [web app](../app-service/overview.md) that includes PHP.
-
-### MacOS
-- Download [PHP 7.1.4 version](https://secure.php.net/downloads.php).
-- Install PHP and refer to the [PHP manual](https://secure.php.net/manual/install.macosx.php) for further configuration.
-
-### Linux (Ubuntu)
-- Download [PHP 7.1.4 non-thread safe (x64) version](https://secure.php.net/downloads.php).
-- Install PHP and refer to the [PHP manual](https://secure.php.net/manual/install.unix.php) for further configuration.
-
-### Windows
-- Download [PHP 7.1.4 non-thread safe (x64) version](https://windows.php.net/download#php-7.1).
-- Install PHP and refer to the [PHP manual](https://secure.php.net/manual/install.windows.php) for further configuration.
+  | **Configure firewall to allow access** | [Portal](./howto-manage-firewall-using-portal.md) <br> [CLI](./howto-manage-firewall-using-cli.md)|
+  
+- Install PHP for your operating system
+    - [PHP on MacOS](https://secure.php.net/manual/install.macosx.php) 
+    - [PHP on Linux](https://secure.php.net/manual/install.unix.php) 
+    - [PHP on Windows](https://secure.php.net/manual/install.windows.php) 
 
 ## Get connection information
 Get the connection information needed to connect to the Azure Database for MySQL. You need the fully qualified server name and login credentials.
 
 1. Log in to the [Azure portal](https://portal.azure.com/).
-2. From the left-hand menu in Azure portal, click **All resources**, and then search for the server you have created (such as **mydemoserver**).
-3. Click the server name.
-4. From the server's **Overview** panel, make a note of the **Server name** and **Server admin login name**. If you forget your password, you can also reset the password from this panel.
- :::image type="content" source="./media/connect-php/1_server-overview-name-login.png" alt-text="Azure Database for MySQL server name":::
+2. Navigate to the Azure Databases for MySQL page. You can search for and select **Azure Database for MySQL**.
 
+[!div class="mx-imgBorder"] :::image type="content" source="./media/quickstart-create-mysql-server-database-using-azure-portal/findazuremysqlinportal.png" alt-text="Find Azure Database for MySQL":::
+2. Select your  MySQL server (such as **mydemoserver**).
+3. In the **Overview** page, copy the fully qualified server name next to **Server name** and the admin user name next to **Server admin login name**. To copy the server name or host name, hover over it and select the **Copy** icon. 
+
+> [!IMPORTANT]
+> If you forgot your password, you can [reset the password](./howto-create-manage-server-portal.md#update-admin-password).
+ 
 ## Connect and create a table
 Use the following code to connect and create a table by using **CREATE TABLE** SQL statement.
 
