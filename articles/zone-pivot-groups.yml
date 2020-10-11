@@ -860,3 +860,12 @@ groups:
     title: Go
   - id: platform-powershell
     title: PowerShell
+# Owner: memildin
+- id: non-azure-machines
+  title: Non-Azure machines
+  prompt: How will you connect the non-Azure machine?
+  pivots:
+  - id: azure-arc
+    title: Azure Arc
+  - id: azure-portal
+    title: Security Center's portal pages
