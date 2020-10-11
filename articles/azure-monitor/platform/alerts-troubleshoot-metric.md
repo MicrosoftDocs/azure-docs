@@ -4,7 +4,7 @@ description: Common issues with Azure Monitor metric alerts and possible solutio
 author: harelbr
 ms.author: harelbr
 ms.topic: troubleshooting
-ms.date: 10/04/2020
+ms.date: 10/05/2020
 ms.subservice: alerts
 ---
 # Troubleshooting problems in Azure Monitor metric alerts 
@@ -75,8 +75,10 @@ For more information about collecting data from the guest operating system of a 
 
 ## Can’t find the metric to alert on
 
-If you’re looking to alert on a specific metric but can’t see any metrics for the resource, [check if the resource type is supported for metric alerts](./alerts-metric-near-real-time.md).
-If you can see some metrics for the resource but can’t find a specific metric, [check if that metric is available](./metrics-supported.md), and if so, see the metric description to see if it’s only available in specific versions or editions of the resource.
+If you’re looking to alert on a specific metric but can’t see it when creating an alert rule, check the following:
+- If you can't see any metrics for the resource, [check if the resource type is supported for metric alerts](./alerts-metric-near-real-time.md).
+- If you can see some metrics for the resource, but can’t find a specific metric, [check if that metric is available](./metrics-supported.md), and if so, see the metric description to check if it’s only available in specific versions or editions of the resource.
+- If the metric isn't available for the resource, it might be available in the resource logs, and can be monitored using log alerts. See here for more information on how to [collect and analyze resource logs from an Azure resource](https://docs.microsoft.com/azure/azure-monitor/learn/tutorial-resource-logs).
 
 ## Can’t find the metric dimension to alert on
 

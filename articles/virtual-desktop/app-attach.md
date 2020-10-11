@@ -336,20 +336,25 @@ Remove-AppxPackage -PreserveRoamableApplicationData $packageName
 
 ### Destage PowerShell script
 
-For this script, replace the placeholder for **$packageName** with the name of the package you're testing.
+For this script, replace the placeholder for **$packageName** with the name of the package you're testing. In a production deployment it would be best to run this on Shutdown.
 
 ```powershell
 #MSIX app attach de staging sample
 
+$vhdSrc="<path to vhd>"
+
 #region variables
 $packageName = "<package name>"
-$msixJunction = "C:\temp\AppAttach\"
+$msixJunction = "C:\temp\AppAttach"
 #endregion
 
 #region deregister
 Remove-AppxPackage -AllUsers -Package $packageName
-cd $msixJunction
-rmdir $packageName -Force -Verbose
+Remove-Item "$msixJunction\$packageName" -Recurse -Force -Verbose
+#endregion
+
+#region Detach VHD
+Dismount-DiskImage -ImagePath $vhdSrc -Confirm:$false
 #endregion
 ```
 

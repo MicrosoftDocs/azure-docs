@@ -13,7 +13,7 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 09/22/2019
+ms.date: 10/06/2020
 ms.author: b-juche
 ---
 # Service levels for Azure NetApp Files
@@ -54,14 +54,14 @@ The diagram below shows throughput limit examples of volumes in an auto QoS capa
 
 ### Throughput limit examples of volumes in a manual QoS capacity pool 
 
-If you use a manual QoS capacity pool, you can assign the capacity and throughput for a volume independently. When you create a volume in a manual QoS capacity pool, you can specify the throughput (MiB/S) value. The total throughput assigned to volumes in a manual QoS capacity pool depends on the size of the pool and the service level. It is capped by (Capacity Pool Size in TiB x Service Level Throughput/TiB). For instance, a 10-TiB capacity pool with the Ultra service level have a total throughput capacity of 1280 MiB/s (10 TiB x 128 MiB/s/TiB) available for the volumes.
+If you use a manual QoS capacity pool, you can assign the capacity and throughput for a volume independently. When you create a volume in a manual QoS capacity pool, you can specify the throughput (MiB/S) value. The total throughput assigned to volumes in a manual QoS capacity pool depends on the size of the pool and the service level. It is capped by (Capacity Pool Size in TiB x Service Level Throughput/TiB). For instance, a 10-TiB capacity pool with the Ultra service level has a total throughput capacity of 1280 MiB/s (10 TiB x 128 MiB/s/TiB) available for the volumes.
 
 For an SAP HANA system, this capacity pool can be used to create the following volumes. Each volume provides the individual size and throughput to meet your application requirements:
 
-* SAP HANA data volume: Size 4 TB with up to 704 MiB/s
-* SAP HANA log volume: Size 0.5 TB with up to 256 MiB/s
-* SAP HANA shared volume: Size 1 TB with up to 64 MiB/s
-* SAP HANA backup volume: Size 4.5 TB with up to 256 MiB/s
+* SAP HANA data volume: Size 4 TiB with up to 704 MiB/s
+* SAP HANA log volume: Size 0.5 TiB with up to 256 MiB/s
+* SAP HANA shared volume: Size 1 TiB with up to 64 MiB/s
+* SAP HANA backup volume: Size 4.5 TiB with up to 256 MiB/s
 
 The diagram below illustrates the scenarios for the SAP HANA volumes:
 
