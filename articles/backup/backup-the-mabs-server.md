@@ -11,18 +11,16 @@ To ensure that data can be recovered if Microsoft Azure Backup Server (MABS) fai
 
 ## Back up the MABS database
 
-As part of your MABS backup strategy, you'll have to back up the MABS database. The MABS database is named DPMDB. This database contains the MABS configuration together with data about backups of MaBS. If there's a disaster, you can rebuild most of the functionality of a MABS server by using a recent backup of the database. Assuming you can restore the database, tape-based backups are accessible, and they maintain all protection group settings and backup schedules. If the MABS storage pool disks were not affected by the outage, disk-based backups are also usable after a rebuild. You can back up the database by using several different methods.
+As part of your MABS backup strategy, you'll have to back up the MABS database. The MABS database is named DPMDB. This database contains the MABS configuration together with data about backups of MABS. If there's a disaster, you can rebuild most of the functionality of a MABS server by using a recent backup of the database. Assuming you can restore the database, tape-based backups are accessible, and they maintain all protection group settings and backup schedules. If the MABS storage pool disks were not affected by the outage, disk-based backups are also usable after a rebuild. You can back up the database by using several different methods.
 
 |Database backup method|Advantages|Disadvantages|
 |--------------------------|--------------|-----------------|
-|[Back up to Azure](#back-up-to-azure)|Easily configured and monitored in MABS.<br /><br />Multiple locations of the backup database files.<br /><br />Cloud storage provides a robust solution for disaster recovery.<br /><br />Very secure storage for the database.<br /><br />Supports 120 online recovery points.|Requires Azure account and additional MABS configuration. Incurs some cost for Azure storage.<br /><br /> Requires a supported version of Windows Server based system with the Azure agent to gain access to MABS backups stored in the Azure backup vault. This can't be another MABS server.<br /><br />Not an option if the database is hosted locally and you want to enable secondary protection. A workaround would be to use a remote SQL Server to host the database.<br /><br />Some extra preparation and recovery time is incurred.|
-|[Back up the database by backing up the MABS storage pool](#back-up-the-database-by-backing-up-the-mabs-storage-pool)|Simple to configure and monitor.<br /><br />The backup is kept on the MABS storage pool disks and is easy to access locally.<br /><br />MABS scheduled backups support 512 express full backups. If you back up hourly, you'll have 21 days of full protection.|Not a good option for disaster recovery. It's online and recovery might not work as expected if the MABS server or storage pool disk fails.<br /><br />Not an option if the database is hosted locally and you want to enable secondary protection. A workaround would be to use a remote SQL Server to host the database.<br /><br />Some preparation and special steps are required to gain access to the recovery points if the MABS service or console isn't running or working.|
+|[Back up to Azure](#back-up-to-azure)|Easily configured and monitored in MABS.<br /><br />Multiple locations of the backup database files.<br /><br />Cloud storage provides a robust solution for disaster recovery.<br /><br />Very secure storage for the database.<br /><br />Supports 120 online recovery points.|Requires Azure account and additional MABS configuration. Incurs some cost for Azure storage.<br /><br /> Requires a supported version of Windows Server based system with the Azure agent to gain access to MABS backups stored in the Azure backup vault. This can't be another MABS server.<br /><br />Not an option if the database is hosted locally and you want to enable secondary protection. <br /><br />Some extra preparation and recovery time is incurred.|
+|[Back up the database by backing up the MABS storage pool](#back-up-the-database-by-backing-up-the-mabs-storage-pool)|Simple to configure and monitor.<br /><br />The backup is kept on the MABS storage pool disks and is easy to access locally.<br /><br />MABS scheduled backups support 512 express full backups. If you back up hourly, you'll have 21 days of full protection.|Not a good option for disaster recovery. It's online and recovery might not work as expected if the MABS server or storage pool disk fails.<br /><br />Not an option if the database is hosted locally and you want to enable secondary protection. <br /><br />Some preparation and special steps are required to gain access to the recovery points if the MABS service or console isn't running or working.|
 |[Back up with native SQL Server backup to a local disk](#back-up-with-native-sql-server-backup-to-a-local-disk)|Built-in to SQL Server.<br /><br />The backup is kept on a local disk that is easily accessible.<br /><br />It can be scheduled to run as often as you like.<br /><br />Totally independent of MABS.<br /><br />You can schedule a backup file cleanup.|Not a good option for disaster recovery unless the backups are copied to a remote location.<br /><br />Requires local storage for backups, which may limit retention and frequency.|
-|[Back up with native SQL backup and MABS protection to a share protected by MABS](#back-up-with-native-sql-server-backup-to-a-share-protected-by-mabs)|Easily monitored in MABS.<br /><br />Multiple locations of the backup database files.<br /><br />Easily accessible from any Windows machine on the network.<br /><br />Potentially the fastest recovery method.|Only supports 64 recovery points.<br /><br />Not a good option for site disaster recovery. MABS server or MABS storage pool disk failure may hinder recovery efforts.<br /><br />Not an option if the MABS DB is hosted locally and you want to enable secondary protection. A workaround would be to use a remote SQL Server to host the DPMDB.<br /><br />Some extra preparation is needed to get it configured and tested.<br /><br />Some extra preparation and recovery time is needed should the MABS server itself be down but MABS storage pool disks are fine.|
+|[Back up with native SQL backup and MABS protection to a share protected by MABS](#back-up-with-native-sql-server-backup-to-a-share-protected-by-mabs)|Easily monitored in MABS.<br /><br />Multiple locations of the backup database files.<br /><br />Easily accessible from any Windows machine on the network.<br /><br />Potentially the fastest recovery method.|Only supports 64 recovery points.<br /><br />Not a good option for site disaster recovery. MABS server or MABS storage pool disk failure may hinder recovery efforts.<br /><br />Not an option if the MABS DB is hosted locally and you want to enable secondary protection. <br /><br />Some extra preparation is needed to get it configured and tested.<br /><br />Some extra preparation and recovery time is needed should the MABS server itself be down but MABS storage pool disks are fine.|
 
 - If you back up by using a MABS protection group, we recommend that you use a unique protection group for the database.
-
-- If the MABS SQL Server instance isn't running on the MABS server, install the MABS protection agent on the SQL Server computer before you can protect the MABS databases on that server.
 
     > [!NOTE]
     > For restore purposes, the MABS installation you want to restore with the MABS database must match the version of the MABS database itself.  For example, if the database you want to recover is from a MABS V3 with Update Rollup 1 installation, the MABS server must be running the same version with Update Rollup 1. This means that you might have to uninstall and reinstall MABS with a compatible version before you restore the database.  To check the database version you might have to mount it manually to a temporary database name and then run a SQL query against the database to check the last installed rollup, based on the major and minor versions.
@@ -80,7 +78,7 @@ You can recover the database from Azure using any MABS server that's registered 
 
 1. In the MABS console, select **Protection** > **Create protection group**.
 2. On the **Select Protection Group Type** page, select **Servers**.
-3. On the **Select group members** page, select **DPM database**. If you're running SQL Server remotely, select the remote SQL Server installed and select the MABS database. If SQL Server is running on the MABS server, expand the MABS server and select DPMDB.
+3. On the **Select group members** page, select **DPM database**. Expand the MABS server and select DPMDB.
 4. On the **Select Data Protection Method** page, select **I want short-term protection using disk**. Specify the short-term protection policy options.
 5. After initial replication of the MABS database, run the following SQL script:
 
@@ -120,7 +118,7 @@ To reconstruct your MABS with the same DB, you need to first recover the MABS da
 2. Navigate to any PIT vhd path, for example `\<MABSServer FQDN\>\<PhysicalReplicaId\>\<PITId\>` and mount the **disk0.vhdx** present in it using the `mount-vhd disk0.vhdx` command.
 3. Once the replica VHD is mounted, use `mountvol.exe` to assign a drive letter to the replica volume, using the physical replica ID from the SQL script output. For example: `mountvol X: \?\Volume{}\`
 
-   All of the terms that appear with angular braces in the above steps are place holders. Replace the with appropriate values as follows:
+   All of the terms that appear with angular braces in the above steps are place holders. Replace them with appropriate values as follows:
    - **ReFSVolume** - Access path from the SQL script output
    - **MABSServer FQDN** - Fully qualified name of the MABS server
    - **PhysicalReplicaId** - Physical replica ID from the SQL script out
@@ -155,7 +153,7 @@ and servername like '%dpmsqlservername%' --netbios name of server hosting DPMDB
 
 2. On the **Select Protection Group Type** page, select  **Servers**.
 
-3. On the **Select group members** page, select the MABS database. If you're running SQL Server remotely, select the remote SQL Server installed and select the MABS database. If SQL Server is running on the MABS server, expand the MABS server item and select **DPMDB**.
+3. On the **Select group members** page, select the MABS database. Expand the MABS server item and select **DPMDB**.
 
 4. On the  **Select Data Protection Method** page, select **I want short-term protection using disk**. Specify the short-term protection policy options. We recommend a retention range of two weeks for MABS databases.
 
@@ -191,25 +189,19 @@ This backup option uses native SQL to back up the MABS database to a share, prot
 
 ### Before you start
 
-1. If the MABS database is located on a remote SQL Server, install the MABS agent on that server.
+1. On the SQL Server, make a folder on a drive with enough free space to hold a single copy of a backup. For example: `C:\MABSBACKUP`.
 
-2. On the SQL Server, make a folder on a drive with enough free space to hold a single copy of a backup. For example: `C:\MABSBACKUP`.
+1. Share the folder. For example, share `C:\MABSBACKUP` folder as *DPMBACKUP*.
 
-3. Share the folder. For example, share `C:\MABSBACKUP` folder as *DPMBACKUP*.
-
-4. Copy and paste the OSQL command below into Notepad and save it to a file named `C:\MABSACKUP\bkupdb.cmd`. Make sure there's no .txt extension. Modify the SQL_Instance_name and DPMDB_NAME to match the instance and DPMDB name used by your MABS server.
+1. Copy and paste the OSQL command below into Notepad and save it to a file named `C:\MABSACKUP\bkupdb.cmd`. Make sure there's no .txt extension. Modify the SQL_Instance_name and DPMDB_NAME to match the instance and DPMDB name used by your MABS server.
 
     ```SQL
     OSQL -E -S localhost\SQL_INSTANCE_NAME -Q "BACKUP DATABASE DPMDB_NAME TO DISK='C:\DPMBACKUP\dpmdb.bak' WITH FORMAT"
     ```
 
-5. Using Notepad, open the **ScriptingConfig.xml** file located under the `...\DPM\Scripting` folder.
+1. Using Notepad, open the **ScriptingConfig.xml** file located under the `C:\Program Files\Microsoft System Center\DPM\DPM\Scripting` folder on the MABS server.
 
-    - On a remote SQL Server: **C:\Program Files\Microsoft Data Protection Manager\DPM\Scripting**
-
-    - On a MABS server: **C:\Program Files\Microsoft System Center\DPM\DPM\Scripting**
-
-6. Modify **ScriptingConfig.xml** and change **DataSourceName=** to be the drive letter that contains the DPMDBBACKUP folder/share. Change the PreBackupScript entry to the full path and name of **thebkupdb.cmd** saved in step 5.
+1. Modify **ScriptingConfig.xml** and change **DataSourceName=** to be the drive letter that contains the DPMDBBACKUP folder/share. Change the PreBackupScript entry to the full path and name of **bkupdb.cmd** saved in step 3.
 
     ```xml
     <?xml version="1.0" encoding="utf-8"?>
@@ -223,11 +215,11 @@ This backup option uses native SQL to back up the MABS database to a share, prot
     </ScriptConfiguration>
     ```
 
-7. Save the changes to **ScriptingConfig.xml**.
+1. Save the changes to **ScriptingConfig.xml**.
 
-8. Protect the C:\MABSBACKUP folder or the `\sqlservername\MABSBACKUP` share using MABS and wait for the initial replica to be created. There should be a **dpmdb.bak** in the C:\MABSBACKUPfolder as a result of the pre-backup script running, which was in turn copied to the MABS replica.
+1. Protect the C:\MABSBACKUP folder or the `\sqlservername\MABSBACKUP` share using MABS and wait for the initial replica to be created. There should be a **dpmdb.bak** in the C:\MABSBACKUP folder as a result of the pre-backup script running, which was in turn copied to the MABS replica.
 
-9. If you don't enable self-service recovery, you'll need some additional steps to share out the MABSBACKUP folder on the replica:
+1. If you don't enable self-service recovery, you'll need some additional steps to share out the MABSBACKUP folder on the replica:
 
     1. In the MABS console > **Protection**, locate the MABSBACKUP data source and select it. In the details section, select **Click to view details** on the link to the replica path and copy the path into Notepad. Remove the source path and retain the destination path. The path should look similar to the following: `C:\Program Files\Microsoft System Center\DPM\DPM\Volumes\Replica\File System\vol_c9aea05f-31e6-45e5-880c-92ce5fba0a58\454d81a0-0d9d-4e07-9617-d49e3f2aa5de\Full\DPMBACKUP`.
 
