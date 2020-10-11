@@ -10,7 +10,7 @@ ms.topic: conceptual
 author: shkale-msft
 ms.author: shkale
 ms.reviewer: mathoma, stevestein, danil
-ms.date: 09/25/2020
+ms.date: 10/05/2020
 ---
 # Automated backups - Azure SQL Database & SQL Managed Instance
 
@@ -44,7 +44,7 @@ For a SQL Database the backup storage redundancy can be configured at the time o
 > Zone-redundant storage is currently only available in [certain regions](../../storage/common/storage-redundancy.md#zone-redundant-storage). 
 
 > [!NOTE]
-> Azure SQL Database Configurable Backup Storage Redundancy is currently available in public preview in Southeast Asia Azure region only.  
+> Configurable Backup Storage Redundancy for Azure SQL Database is currently available in public preview in Southeast Asia Azure region only. This feature is not yet available for Hyperscale tier. 
 
 ### Backup usage
 

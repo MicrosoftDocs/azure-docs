@@ -34,7 +34,8 @@ During an investigation of an incident, analysts often need extra context to rea
 > [!TIP]
 > For a list of security incident alerts that can be produced by the fusion analytics, see the [Reference table of alerts](alerts-reference.md#alerts-fusion).
 
-![Screenshot of Security incident detected report](./media/security-center-alerts-cloud-smart/security-incident.png)
+:::image type="content" source="./media/security-center-alerts-cloud-smart/security-incident.png" alt-text="Screenshot of security incident detected report":::
 
-To better understand security incidents, see [How to handle security incidents in Azure Security Center](security-center-incident.md).
+
+To better understand security incidents, see [How to manage security incidents in Azure Security Center](security-center-incident.md).
 

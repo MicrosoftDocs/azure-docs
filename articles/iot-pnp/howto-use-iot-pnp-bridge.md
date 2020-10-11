@@ -86,7 +86,7 @@ When you download the code in the step below it includes the sample model files 
 Open a command prompt in the directory of your choice. Execute the following command to clone the [IoT Plug and Play bridge](https://aka.ms/iotplugandplaybridge) GitHub repository into this location:
 
 ```cmd
-git clone https://github.com/Azure/AzurePnPBridgePreview.git
+git clone https://github.com/Azure/iot-plug-and-play-bridge.git
 ```
 
 After cloning the IoT Plug and Play bridge repo to your machine, open an administrative cmd prompt and navigate to the directory of the cloned repo:

@@ -52,7 +52,7 @@ Now, you'll want to construct a URL to your endpoint by combining this informati
 https://<ip address>:<port>
 
 Example:
-https://52.;154.152.24:30080
+https://52.154.152.24:30080
 ```
 
 Take note of your IP address as you will use it in the next step.

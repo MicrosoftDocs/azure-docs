@@ -60,12 +60,12 @@ The table below defines the relationship between consistency model and data dura
 
 |**Region(s)**|**Replication mode**|**Consistency level**|**RPO**|**RTO**|
 |---------|---------|---------|---------|---------|
-|1|Single or Multi-Master|Any Consistency Level|< 240 Minutes|<1 Week|
-|>1|Single Master|Session, Consistent Prefix, Eventual|< 15 minutes|< 15 minutes|
-|>1|Single Master|Bounded Staleness|*K* & *T*|< 15 minutes|
-|>1|Single Master|Strong|0|< 15 minutes|
-|>1|Multi-Master|Session, Consistent Prefix, Eventual|< 15 minutes|0|
-|>1|Multi-Master|Bounded Staleness|*K* & *T*|0|
+|1|Single or Multiple write regions|Any Consistency Level|< 240 Minutes|<1 Week|
+|>1|Single write region|Session, Consistent Prefix, Eventual|< 15 minutes|< 15 minutes|
+|>1|Single write region|Bounded Staleness|*K* & *T*|< 15 minutes|
+|>1|Single write region|Strong|0|< 15 minutes|
+|>1|Multiple write regions|Session, Consistent Prefix, Eventual|< 15 minutes|0|
+|>1|Multiple write regions|Bounded Staleness|*K* & *T*|0|
 
 *K* = The number of *"K"* versions (i.e., updates) of an item.
 
@@ -81,4 +81,4 @@ Learn more about global distribution and general consistency tradeoffs in distri
 
 - [Consistency tradeoffs in modern distributed database systems design](https://www.computer.org/csdl/magazine/co/2012/02/mco2012020037/13rRUxjyX7k)
 - [High availability](high-availability.md)
-- [Azure Cosmos DB SLA](https://azure.microsoft.com/support/legal/sla/cosmos-db/v1_2/)
+- [Azure Cosmos DB SLA](https://azure.microsoft.com/support/legal/sla/cosmos-db/v1_3/)

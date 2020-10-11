@@ -53,7 +53,7 @@ Below is the pricing page for an example subscription. You'll notice that each p
 :::image type="content" source="./media/security-center-pricing/pricing-tier-page.png" alt-text="Security Center's pricing page in the portal":::
 
 > [!NOTE]
-> To enable all Security Center features including threat protection capabilities, you must enable Azure Defender on the subscription containing the applicable workloads. Enabling it at the workspace level doesn't enable just-in-time VM access, adaptive application controls, and network detections for Azure resources. 
+> To enable all Security Center features including threat protection capabilities, you must enable Azure Defender on the subscription containing the applicable workloads. Enabling it at the workspace level doesn't enable just-in-time VM access, adaptive application controls, and network detections for Azure resources. In addition, the only Azure Defender plans available at the workspace level are Azure Defender for servers and Azure Defender for SQL servers on machines.
 >
 > You can enable **Azure Defender for Storage accounts** at either the subscription level or resource level.
 > You can enable **Azure Defender for SQL** at either the subscription level or resource level.

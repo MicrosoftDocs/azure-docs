@@ -131,11 +131,11 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 1. Click on **Admin** on the top of the page then navigate to **Single Sign-On** and click **Add provider**.
 
-	 ![ExpenseIn configuration](./media/expenseIn-tutorial/config01.png)
+	 ![Screenshot that shows the "Admin" tab and the "Single Sign-On - Providers" page and "Add Provider" selected.](./media/expenseIn-tutorial/config01.png)
 
 1. On the **New Identity Provider** pop-up, Perform the following steps:
 
-    ![ExpenseIn configuration](./media/expenseIn-tutorial/config02.png)
+    ![Screenshot that shows the "Edit Identity Provider" pop-up with values entered.](./media/expenseIn-tutorial/config02.png)
 
 	a. In the **Provider Name** text box, type the name; for example, Azure.
 
@@ -159,7 +159,7 @@ To enable Azure AD users to sign in to ExpenseIn, they must be provisioned into 
 
 2. Click on **Admin** on the top of the page then navigate to **Users** and click **New User**.
 
-	 ![ExpenseIn configuration](./media/expenseIn-tutorial/config03.png)
+	 ![Screenshot that shows the "Admin" tab and the "Manage Users" page with "New User" selected.](./media/expenseIn-tutorial/config03.png)
 
 3. On the **Details** pop-up, perform the following steps:
 
