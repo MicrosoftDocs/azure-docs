@@ -19,7 +19,8 @@ When a user list sync is triggered, Lab Capacity (number of VMs in the lab) will
 
 Educators can continue to access student VMs directly from the VM Pool tab. And educators can access VMs assigned to themselves either from the **Virtual machine pool** tab or by clicking on the **My Virtual Machines** button (top/right corner of the screen). 
 
-![VM pool](./media/how-to-manage-vm-pool-with-teams/vm-pool.png)
+> [!div class="mx-imgBorder"]
+> :::image type="content" source="./media/how-to-manage-vm-pool-with-teams/vm-pool.png" alt-text="VM pool":::
 
 ## Next steps
 
