@@ -29,8 +29,6 @@ The following table summarizes the errors related to device activation and the c
 | If the activation key generation fails due to any error, then you receive this error. Additional details are present in the notification. <br> ![Key vault error 4](./media/azure-stack-edge-gpu-troubleshoot-activation/key-vault-error-4.png)   | Wait a few minutes and retry the operation. If the problem persists, contact Microsoft Support. |
 | If the user has read-only permissions, then the user is not allowed to generate an activation key and this error is presented. <br> ![Key vault error 5](./media/azure-stack-edge-gpu-troubleshoot-activation/key-vault-error-5.png) | This could be because you don't have the right access or  *Microsoft.KeyVault* is not registered.<li>Make sure that you have owner or contributor access at the resource group level used for your Azure Stack Edge resource.</li><li>Make sure that the Microsoft.KeyVault resource provider is registered. To register a resource provider, go to the subscription used for Azure Stack Edge resource. Go to **Resource providers**, search for *Microsoft.KeyVault* and select and **Register**.</li> |
 
-
-
 ## Next steps
 
 - Learn more on how to [Troubleshoot device issues](azure-stack-edge-gpu-troubleshoot.md).
