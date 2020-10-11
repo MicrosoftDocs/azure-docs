@@ -171,8 +171,10 @@
               href: howto-show-hide-chat.md
     - name: Troubleshoot
       items:
-      -name: Device connections
-      href: troubleshoot-connection.md
+      - name: Device connections
+        href: troubleshoot-connection.md
+    - name: FAQ
+      href: howto-faq.md
 - name: Reference
   items:
   - name: Azure CLI
