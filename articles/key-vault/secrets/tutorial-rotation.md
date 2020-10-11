@@ -7,7 +7,7 @@ manager: rkarlin
 tags: 'rotation'
 
 ms.service: key-vault
-ms.subservice: general
+ms.subservice: secrets
 ms.topic: tutorial
 ms.date: 01/26/2020
 ms.author: mbaldwin

@@ -17,7 +17,7 @@ ms.date: 12/10/2018
 
 In this article, you'll learn how to create a shared pool of Data Science Virtual Machines (DSVMs) for a team. The benefits of using a shared pool include better resource utilization, easier sharing and collaboration, and more effective management of DSVM resources.
 
-You can use many methods and technologies to create a pool of DSVMs. This article focuses on pools for interactive virtual machines (VMs). An alternative managed compute infrastructure is Azure Machine Learning Compute. For more information, see [Create compute targets with Python SDK](../how-to-create-attach-compute-sdk.md).
+You can use many methods and technologies to create a pool of DSVMs. This article focuses on pools for interactive virtual machines (VMs). An alternative managed compute infrastructure is Azure Machine Learning Compute. For more information, see [Create compute cluster](../how-to-create-attach-compute-cluster.md).
 
 ## Interactive VM pool
 

@@ -27,7 +27,7 @@ The .NET Core Feature Management libraries extend the framework with comprehensi
 
 [!INCLUDE[Azure App Configuration resource creation steps](../../includes/azure-app-configuration-create.md)]
 
-7. Select **Operations** > **Feature manager** > **Add** to add a feature flag called *Beta*.
+8. Select **Operations** > **Feature manager** > **Add** to add a feature flag called *Beta*.
 
     > [!div class="mx-imgBorder"]
     > ![Enable feature flag named Beta](media/add-beta-feature-flag.png)

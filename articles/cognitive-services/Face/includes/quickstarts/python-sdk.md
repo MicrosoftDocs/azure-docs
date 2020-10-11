@@ -1,13 +1,13 @@
 ---
 title: "Face Python client library quickstart"
-description: Use the Face client library for Python to detect faces, find similar (face search by image), identify faces (facial recognition search) and migrate your face data.
+description: Use the Face client library for Python to detect faces, find similar (face search by image), and identify faces (facial recognition search).
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: include
-ms.date: 09/17/2020
+ms.date: 10/07/2020
 ms.author: pafarley
 ---
 Get started with facial recognition using the Face client library for Python. Follow these steps to install the package and try out the example code for basic tasks. The Face service provides you with access to advanced algorithms for detecting and recognizing human faces in images.
@@ -19,7 +19,6 @@ Use the Face client library for Python to:
 * Create and train a person group
 * Identify a face
 * Verify faces
-* Take a snapshot for data migration
 
 [Reference documentation](https://docs.microsoft.com/python/api/azure-cognitiveservices-vision-face/?view=azure-python) | [Library source code](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/cognitiveservices/azure-cognitiveservices-vision-face) | [Package (PiPy)](https://pypi.org/project/azure-cognitiveservices-vision-face/) | [Samples](https://docs.microsoft.com/samples/browse/?products=azure&term=face)
 
@@ -79,7 +78,6 @@ These code snippets show you how to do the following tasks with the Face client 
 * [Create and train a person group](#create-and-train-a-person-group)
 * [Identify a face](#identify-a-face)
 * [Verify faces](#verify-faces)
-* [Take a snapshot for data migration](#take-a-snapshot-for-data-migration)
 
 ## Authenticate the client
 
@@ -201,52 +199,6 @@ The following code compares each of the source images to the target image and pr
 
 [!code-python[](~/cognitive-services-quickstart-code/python/Face/FaceQuickstart.py?name=snippet_verify)]
 
-## Take a snapshot for data migration
-
-The Snapshots feature lets you move your saved face data, such as a trained **PersonGroup**, to a different Azure Cognitive Services Face subscription. You may want to use this feature if, for example, you've created a **PersonGroup** object using a free subscription and now want to migrate it to a paid subscription. See the [Migrate your face data](../../Face-API-How-to-Topics/how-to-migrate-face-data.md) for a broad overview of the Snapshots feature.
-
-In this example, you will migrate the **PersonGroup** you created in [Create and train a person group](#create-and-train-a-person-group). You can either complete that section first, or use your own Face data construct(s).
-
-### Set up target subscription
-
-First, you must have a second Azure subscription with a Face resource; you can do this by following the steps in the [Setting up](#setting-up) section. 
-
-Then, create the following variables near the top of your script. You'll also need to create new environment variables for the subscription ID of your Azure account, as well as the key, endpoint, and subscription ID of your new (target) account. 
-
-[!code-python[](~/cognitive-services-quickstart-code/python/Face/FaceQuickstart.py?name=snippet_snapshotvars)]
-
-### Authenticate target client
-
-Later in your script, save your current client object as the source client, and then authenticate a new client object for your target subscription. 
-
-[!code-python[](~/cognitive-services-quickstart-code/python/Face/FaceQuickstart.py?name=snippet_snapshot_auth)]
-
-### Use a snapshot
-
-The rest of the snapshot operations take place within an asynchronous function. 
-
-1. The first step is to **take** the snapshot, which saves your original subscription's face data to a temporary cloud location. This method returns an ID that you use to query the status of the operation.
-
-    [!code-python[](~/cognitive-services-quickstart-code/python/Face/FaceQuickstart.py?name=snippet_snapshot_take)]
-
-1. Next, query the ID until the operation has completed.
-
-    [!code-python[](~/cognitive-services-quickstart-code/python/Face/FaceQuickstart.py?name=snippet_snapshot_wait)]
-
-    This code makes use of the `wait_for_operation` function, which you should define separately:
-
-    [!code-python[](~/cognitive-services-quickstart-code/python/Face/FaceQuickstart.py?name=snippet_waitforop)]
-
-1. Go back to your asynchronous function. Use the **apply** operation to write your face data to your target subscription. This method also returns an ID.
-
-    [!code-python[](~/cognitive-services-quickstart-code/python/Face/FaceQuickstart.py?name=snippet_snapshot_apply)]
-
-1. Again, use the `wait_for_operation` function to query the ID until the operation has completed.
-
-    [!code-python[](~/cognitive-services-quickstart-code/python/Face/FaceQuickstart.py?name=snippet_snapshot_wait2)]
-
-Once you've completed these steps, you'll be able to access your face data constructs from your new (target) subscription.
-
 ## Run the application
 
 Run your face recognition app from the application directory with the `python` command.
@@ -265,10 +217,6 @@ If you want to clean up and remove a Cognitive Services subscription, you can de
 If you created a **PersonGroup** in this quickstart and you want to delete it, run the following code in your script:
 
 [!code-python[](~/cognitive-services-quickstart-code/python/Face/FaceQuickstart.py?name=snippet_deletegroup)]
-
-If you migrated data using the Snapshot feature in this quickstart, you'll also need to delete the **PersonGroup** saved to the target subscription.
-
-[!code-python[](~/cognitive-services-quickstart-code/python/Face/FaceQuickstart.py?name=snippet_deletetargetgroup)]
 
 ## Next steps
 

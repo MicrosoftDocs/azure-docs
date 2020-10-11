@@ -106,11 +106,11 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 4. Click on the **Account settings** from the left navigation panel.
 
-    ![AlertOps configuration](./media/alertops-tutorial/configure1.png)
+    ![Screenshot shows the AlertOps menu with Account Settings called out.](./media/alertops-tutorial/configure1.png)
 
 5. On the **Subscription Settings** page select **SSO** and perform the following steps:
 
-    ![AlertOps configuration](./media/alertops-tutorial/configure2.png)
+    ![Screenshot shows the Subscription Settings window for S S O with values entered as described in this step.](./media/alertops-tutorial/configure2.png)
 
     a. Select **Use Single Sign-On(SSO)** checkbox.
 
@@ -162,15 +162,15 @@ In this section, you'll enable Britta Simon to use Azure single sign-on by grant
 
 2. Click on the **Users** from the left navigation panel.
 
-    ![AlertOps configuration](./media/alertops-tutorial/user1.png)
+    ![Screenshot shows the AlertOps menu with Users called out.](./media/alertops-tutorial/user1.png)
 
 3. Select **Add User**.
 
-    ![AlertOps configuration](./media/alertops-tutorial/user2.png)
+    ![Screenshot shows the Users window with the Add User button.](./media/alertops-tutorial/user2.png)
 
 4. On the **Add User** dialog, perform the following steps:
 
-    ![AlertOps configuration](./media/alertops-tutorial/user3.png)
+    ![Screenshot shows the Add Users pane with values entered as described in this step.](./media/alertops-tutorial/user3.png)
 
     a. In the **Login User Name** textbox, enter the user name of the user like **Brittasimon**.
 

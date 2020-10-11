@@ -33,8 +33,10 @@ License Administrator  |  Can assign, remove, and update license assignments wit
 Password Administrator  |  Can reset passwords for non-administrators and Password Administrators within the assigned administrative unit only.
 User Administrator  |  Can manage all aspects of users and groups, including resetting passwords for limited admins within the assigned administrative unit only.
 
-## Security principals that can be assigned to an AU scoped role
-The following security principals can be assigned to an AU scoped role:
+## Security principals that can be assigned to a scoped role
+
+The following security principals can be assigned to a role with an administrative unit scope:
+
 * Users
 * Role assignable cloud groups (preview)
 * Service Principal Name (SPN)
@@ -53,7 +55,7 @@ Select the role to be assigned and then select **Add assignments**. A panel open
 
 > [!Note]
 >
-> To assign a role on an administrative unit using PIM, follow the steps [here](/active-directory/privileged-identity-management/pim-how-to-add-role-to-user.md#assign-a-role-with-restricted-scope).
+> To assign a role on an administrative unit using PIM, follow the steps [here](https://docs.microsoft.com/azure/active-directory/privileged-identity-management/pim-how-to-add-role-to-user?tabs=new#assign-a-role-with-restricted-scope).
 
 ### PowerShell
 

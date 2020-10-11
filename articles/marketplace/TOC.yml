@@ -15,11 +15,15 @@
     href: partner-center-portal/account-migration-from-cpp-to-pc.md 
 - name: Concepts
   items: 
+  - name: Publishing options and considerations
+    href: determine-your-listing-type.md
+  - name: Transacting in the commercial marketplace
+    href: marketplace-commercial-transaction-capabilities-and-considerations.md
   - name: Private offers
     href: private-offers.md
   - name: Plans and pricing
     href: plans-pricing.md
-  - name: Legal contracts
+  - name: Standard contract
     href: standard-contract.md  
   - name: Azure Marketplace listing requirements
     href: marketplace-criteria-content-validation.md
@@ -35,13 +39,13 @@
         href: azure-resource-manager-test-drive.md
   - name: Azure partner customer usage attribution
     href: azure-partner-customer-usage-attribution.md
-  - name: Publishing options and considerations
-    href: determine-your-listing-type.md
   - name: Go-to-market options
     items:
     - name: Your marketplace benefits
       href: gtm-your-marketplace-benefits.md 
-    - name: Co-sell with Microsoft
+    - name: Co-sell partner engagement
+      href: marketplace-co-sell.md 
+    - name: Co-sell option in Partner Center
       href: partner-center-portal/commercial-marketplace-co-sell.md 
     - name: Resell through CSP Partners
       href: cloud-solution-providers.md  
@@ -73,6 +77,8 @@
       href: /partner-center/payout-faq?context=/azure/marketplace/context/context
 - name: Create and manage offers
   items:
+  - name: Publishing guide by offer type
+    href: publisher-guide-by-offer-type.md 
   - name: Enable offer authentication with Azure AD
     href: enable-appsource-marketplace-using-azure-ad.md
   - name: Azure application offers
@@ -109,13 +115,13 @@
         href: partner-center-portal/azure-vm-create-offer.md
       - name: Create Azure VM technical asset
         items:
-          - name: Virtual machine certification - issues and solutions
+          - name: Virtual machine certification issues
             href: partner-center-portal/vm-certification-issues-solutions.md
           - name: Create an Azure VM technical asset
             href: partner-center-portal/create-azure-vm-technical-asset.md
           - name: Azure VM technical asset FAQ
             href: partner-center-portal/common-issues-during-vhd-creation.md
-          - name: Test Virtual Machine deployed from VHD 
+          - name: Test virtual machine deployed from VHD 
             href: partner-center-portal/azure-vm-image-certification.md
           - name: SAS URI
             items:
@@ -151,6 +157,8 @@
         href: partner-center-portal/create-new-business-central-offer.md
     - name: IoT Edge module offers
       items:
+      - name: Plan an IoT Edge module offer
+        href: iot-edge-module.md
       - name: Create an IoT Edge module offer
         href: partner-center-portal/azure-iot-edge-module-creation.md
       - name: Prepare IoT Edge module technical assets
@@ -315,18 +323,28 @@
   - name: Commercial marketplace FAQ
     href: marketplace-faq-publisher-guide.md
   - name: Cloud Partner Portal migration FAQ
-    href: cloud-partner-portal-migration-faq.md     
+    href: cloud-partner-portal-migration-faq.md 
+  - name: Business opportunity office hours
+    href: https://aka.ms/marketplaceofficehours
+  - name: Technical and publishing office hours
+    href: https://aka.ms/marketplacepublishingofficehours   
   - name: Partner Center support options
     href: partner-center-portal/support.md
+  - name: Partner Center announcements
+    href: /partner-center/announcements
+  - name: Microsoft Partner Community
+    href: https://www.microsoftpartnercommunity.com/
+  - name: Partner Community forum
+    href: https://www.microsoftpartnercommunity.com/t5/Microsoft-AppSource-and-Azure/bd-p/2222
   - name: Geographic availability and currencies
     href: marketplace-geo-availability-currencies.md
+  - name: Find Tenant and Object IDs
+    href: find-tenant-object-id.md
   - name: Supported countries and regions
     href: sell-from-countries.md  
-  - name: Supported HTML tags
-    href: supported-html-tags.md
   - name: Co-sell country and region codes
     href: partner-center-portal/commercial-marketplace-co-sell-countries.md 
   - name: Co-sell state codes
     href: partner-center-portal/commercial-marketplace-co-sell-states.md
-  - name: Forums, blogs, and quick links
-    href: marketplace-roadmap.md
+  - name: Supported HTML tags
+    href: supported-html-tags.md
