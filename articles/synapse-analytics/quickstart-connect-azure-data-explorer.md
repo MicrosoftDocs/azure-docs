@@ -60,10 +60,10 @@ From the Data Object Explorer, follow these steps to directly connect an Azure D
 ## Quickly interact with code-generated actions
 
 * When you right-click on a database or table, you'll have a list of gestures that will trigger a sample Spark notebook for reading data, writing data, streaming data to Azure Data Explorer. 
-    ![New Sample Notebooks](./media/quickstart-connect-azure-data-explorer/005-new-notebook.png)
+    [![New Sample Notebooks](./media/quickstart-connect-azure-data-explorer/005-new-notebook.png)](./media/quickstart-connect-azure-data-explorer/005-new-notebook.png#lightbox)
 
 * Here is an example of reading data. Attached the Notebook to your Spark pool and run the cell
-    ![New Read Notebook](./media/quickstart-connect-azure-data-explorer/006-read-data.png)
+    [![New Read Notebook](./media/quickstart-connect-azure-data-explorer/006-read-data.png)](./media/quickstart-connect-azure-data-explorer/006-read-data.png#lightbox)
 
    > [!NOTE] 
    > First time execution may take more than three minutes to initiate the Spark session. Subsequent executions will be significantly faster.  
