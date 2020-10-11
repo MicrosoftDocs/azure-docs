@@ -13,7 +13,7 @@ This article outlines the benefits of Teams integration and provides links to ot
 
 ## Benefits
 
-Azure Lab Services integration with Microsoft Teams will help educators set up a classroom environment and provide virtual lab environments within the team(class) 
+Azure Lab Services integration with Microsoft Teams will help educators set up a classroom environment and provide virtual lab environments within the team(class): 
 
 * Educators can set up classroom labs so the students can access their VMs from within Teams, without leaving Teams and having to navigate to the [Azure Lab Services website](https://labs.azure.com).
 * Single Sign-on (SSO) from Teams to Azure Lab Services.
