@@ -109,11 +109,11 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 8. Under the **Mappings** section, select **Synchronize Azure Active Directory Users to iPass SmartConnect**.
 
-	![iPass SmartConnect User Mappings](media/ipass-smartconnect-provisioning-tutorial/usermapping.png)
+	:::image type="content" source="media/ipass-smartconnect-provisioning-tutorial/usermapping.png" alt-text="Screenshot of the Mappings section. Under Name, Synchronize Azure Active Directory Users to iPass SmartConnect is visible." border="false":::
 
 9. Review the user attributes that are synchronized from Azure AD to iPass SmartConnect in the **Attribute Mapping** section. The attributes selected as **Matching** properties are used to match the user accounts in iPass SmartConnect for update operations. Select the **Save** button to commit any changes.
 
-	![iPass SmartConnect User Mappings](media/ipass-smartconnect-provisioning-tutorial/userattribute.png)
+	:::image type="content" source="media/ipass-smartconnect-provisioning-tutorial/userattribute.png" alt-text="Screenshot of the Attribute Mappings page. A table lists Azure Active Directory and iPass SmartConnect attributes and the matching precedence." border="false":::
 
 
 10. To configure scoping filters, refer to the following instructions provided in the [Scoping filter tutorial](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).

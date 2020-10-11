@@ -295,7 +295,7 @@ Learn more about the [AnchorLocatedDelegate](https://docs.microsoft.com/dotnet/a
 Learn more about the [DeleteAnchorAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.spatialanchors.cloudspatialanchorsession.deleteanchorasync) method.
 
 ```csharp
-    await this.cloudSession..DeleteAnchorAsync(cloudAnchor);
+    await this.cloudSession.DeleteAnchorAsync(cloudAnchor);
     // Perform any processing you may want when delete finishes
 ```
 
