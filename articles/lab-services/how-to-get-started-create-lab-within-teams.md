@@ -14,12 +14,10 @@ This article shows how to add an Azure Lab Services app to Teams. Then, how to c
 You can add Lab Services directly in your Teams channels, and then the app is available for everyone in the team to use. Follow these three steps:
 
 1. Navigate to the Teams channel where you want to add the app and select **+** to add a tab by clicking on "..." from the top of the right window. 
-<!--   ![Select + to add a tab in Teams](./media/integrate-with-teams/add-tab.png)-->
 1. Search for **Azure Lab Services** from the tab options and add this app. 
 
     > [!NOTE]
     > Only Team **Owners** will be able to create labs for the team.
-<!--  ![Select Azure Lab Services from the Add a tab screen](./media/integrate-with-teams/azure-lab-services.png) -->
 1. Select a Lab Services account, which you would like to use for creating classroom labs in this team. 
 
     Azure Lab Services uses single sign-on into the [Azure Lab Services website](https://labs.azure.com) and pulls all the lab accounts that you have access to. 
@@ -31,7 +29,7 @@ You can add Lab Services directly in your Teams channels, and then the app is av
 
     Now you can select the **Azure Lab Services** tab from your channel and start managing labs as described in the following step.
 
-Once one member of a team adds the tab, it shows up for everyone in the channel. Any users who have access to the app get single sign-on access with the credentials they use for Microsoft Teams. Any users who don't have access to the app can see the tab in Teams, but are blocked until you give them permissions to the on-premises app and the Azure portal published version of the app.
+    Once one member of a team adds the tab, it shows up for everyone in the channel. Any users who have access to the app get single sign-on access with the credentials they use for Microsoft Teams. Any users who don't have access to the app can see the tab in Teams, but are blocked until you give them permissions to the on-premises app and the Azure portal published version of the app.
 
 ## Create a classroom lab
 
