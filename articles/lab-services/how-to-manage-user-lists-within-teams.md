@@ -13,7 +13,8 @@ When a lab is created within Teams (see [Get started and create a Lab Services l
 
 Educators can use the **Sync** button to trigger a manual sync once the team membership is updated. 
 
-![Sync users](./media/how-to-manage-users-with-teams/sync-users.png) 
+> [!div class="mx-imgBorder"]
+> :::image type="content" source="./media/how-to-manage-users-with-teams/sync-users.png" alt-text="Sync users":::
 
 Once the automatic or manual sync is complete the following is true depending on whether the lab has been published.
 
