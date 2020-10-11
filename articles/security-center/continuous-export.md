@@ -143,13 +143,14 @@ To deploy your continuous export configurations across your organization, use th
 
 If you want to analyze Azure Security Center data inside a Log Analytics workspace or use Azure alerts together with Security Center alerts, set up continuous export to your Log Analytics workspace.
 
-### Requirements
-
-To export to a Log Analytics workspace, you must have Security Center's Log Analytics solutions enabled on your workspace. If you're using the Azure portal, Security Center's free solution is automatically enabled when you enable continuous export. However, if you're configuring your continuous export settings via the REST API, you must manually enable then disable Azure Defender from within the **Pricing & settings** page.
-
 ### Log Analytics tables and schemas
 
-Security alerts and recommendations are stored in the *SecurityAlert* and *SecurityRecommendations* tables respectively. The name of the Log Analytics solution containing these tables depends on whether you have Azure Defender enabled: Security ('Security and Audit') or SecurityCenterFree.
+Security alerts and recommendations are stored in the *SecurityAlert* and *SecurityRecommendations* tables respectively. 
+
+The name of the Log Analytics solution containing these tables depends on whether you have Azure Defender enabled: Security ('Security and Audit') or SecurityCenterFree. 
+
+> [!TIP]
+> To see the data on the destination workspace, you must enable one of these solutions **Security and Audit** or **SecurityCenterFree**.
 
 ![The *SecurityAlert* table in Log Analytics](./media/continuous-export/log-analytics-securityalert-solution.png)
 
@@ -177,7 +178,7 @@ To view alerts and recommendations from Security Center in Azure Monitor, config
     * Optionally, configure the [Action Group](https://docs.microsoft.com/azure/azure-monitor/platform/action-groups) that you'd like to trigger. Action groups can trigger email sending, ITSM tickets, WebHooks, and more.
     ![Azure Monitor alert rule](./media/continuous-export/azure-monitor-alert-rule.png)
 
-You'll now see new Azure Security Center alerts or recommendations (depending on your the configured continuous export rules and the condition you defined in your Azure Monitor alert rule) in Azure Monitor alerts, with automatic triggering of an action group (if provided).
+You'll now see new Azure Security Center alerts or recommendations (depending on your configured continuous export rules and the condition you defined in your Azure Monitor alert rule) in Azure Monitor alerts, with automatic triggering of an action group (if provided).
 
 ## Manual one-time export of alerts and recommendations
 
@@ -198,6 +199,8 @@ There is no cost for enabling a continuous export. Costs might be incurred for i
 Learn more about [Log Analytics workspace pricing](https://azure.microsoft.com/pricing/details/monitor/).
 
 Learn more about [Azure Event Hub pricing](https://azure.microsoft.com/pricing/details/event-hubs/).
+
+
 
 
 ## Next steps
