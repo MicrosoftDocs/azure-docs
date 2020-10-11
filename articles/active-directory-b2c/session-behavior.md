@@ -45,9 +45,9 @@ You can use the following properties to manage web application sessions:
 
 ## Configure sign-out behavior
 
-### Require ID Token in logout requests
+### Secure your logout redirect
 
-When you redirect the user to the Azure AD B2C sign-out endpoint, Azure AD B2C clears the user's session from the browser and redirect the user back to the the application as specifies in the `post_logout_redirect_uri`. With the **Require ID Token in logout requests** you can enforce a previously issued ID token to pass to the logout endpoint as a hint about the end user's current authenticated session with the client. The id_token_hint ensures that the post_logout_redirect_uri is a registered reply URL in your Azure AD B2C application settings. 
+After logout, the user is redirected to the URI specified in the `post_logout_redirect_uri` parameter, regardless of the reply URLs that have been specified for the application. However, if a valid `id_token_hint` is passed and the **Require ID Token in logout requests** is turn on, Azure AD B2C verifies that the value of `post_logout_redirect_uri` matches one of the application's configured redirect URIs before performing the redirect. If no matching reply URL was configured for the application, an error message is displayed and the user is not redirected. To require ID Token in logout requests:
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 1. Make sure you're using the directory that contains your Azure AD B2C tenant by selecting the **Directory + subscription** filter in the top menu and choosing the directory that contains your Azure AD B2C tenant.
