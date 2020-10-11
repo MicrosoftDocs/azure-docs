@@ -90,6 +90,10 @@ Key applications that are included in the Office 365 client app:
    - PowerApps
    - Skype for Business Online
    - Sway
+   
+   Note: There are some limitation with the One drive sync app, OWA works fine but with desktop app it has some limitation on which MS is working continously.Reference article:
+          https://docs.microsoft.com/en-us/onedrive/enable-conditional-access#recommendations-for-windows
+
 
 ### Microsoft Azure Management
 
