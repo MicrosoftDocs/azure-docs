@@ -113,7 +113,6 @@ These code snippets show you how to do the following tasks with the Custom Visio
 * [Upload and tag images](#upload-and-tag-images)
 * [Train the project](#train-the-project)
 * [Publish the current iteration](#publish-the-current-iteration)
-* [Create a prediction endpoint](#create-a-prediction-endpoint)
 * [Test the prediction endpoint](#test-the-prediction-endpoint)
 
 ## Authenticate the client
