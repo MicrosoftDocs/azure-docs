@@ -11,7 +11,7 @@ manager: cpendle
 ms.custom: 
 ---
 
-# Migrate from Bing Maps to Azure Maps
+# Tutorial - Migrate from Bing Maps to Azure Maps
 
 This guide provides insights on how to migrate web, mobile and server-based applications from Bing Maps to the Azure Maps platform. This guide includes comparative code samples, migration suggestions, and best practices for migrating to Azure Maps.
 

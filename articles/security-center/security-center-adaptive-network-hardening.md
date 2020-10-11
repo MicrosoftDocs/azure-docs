@@ -39,7 +39,7 @@ For example, let's say the existing NSG rule is to allow traffic from 140.20.30.
 > Adaptive network hardening recommendations are only supported on the following specific ports (for both UDP and TCP): 13, 17, 19, 22, 23, 53, 69, 81, 111, 119, 123, 135, 137, 138, 139, 161, 162, 389, 445, 512, 514, 593, 636, 873, 1433, 1434, 1900, 2049, 2301, 2323, 2381, 3268, 3306, 3389, 4333, 5353, 5432, 5555, 5800, 5900, 5900, 5985, 5986, 6379, 6379, 7000, 7001, 7199, 8081, 8089, 8545, 9042, 9160, 9300, 11211, 16379, 26379, 27017, 37215
 
 
-## View and manage adaptive network hardening alerts and rules
+## View and manage hardening alerts and rules
 
 1. From Security Center's menu, open the **Azure Defender** dashboard and select the adaptive network hardening tile (1), or the insights panel item related to adaptive network hardening (2). 
 
@@ -56,7 +56,7 @@ For example, let's say the existing NSG rule is to allow traffic from 140.20.30.
       * **Not enough data is available**: In order to generate accurate traffic hardening recommendations, Security Center requires at least 30 days of traffic data.
       * **VM is not protected by Azure Defender**: Only VMs protected with [Azure Defender for servers](defender-for-servers-introduction.md) are eligible for this feature.
 
-    :::image type="content" source="./media/security-center-adaptive-network-hardening/anh-recmmendation-details-page.png" alt-text="Details page of the recommendation Adaptive Network Hardening recommendations should be applied on internet facing virtual machines":::
+    :::image type="content" source="./media/security-center-adaptive-network-hardening/recommendation-details-page.png" alt-text="Details page of the recommendation Adaptive Network Hardening recommendations should be applied on internet facing virtual machines":::
 
 1. From the **Unhealthy resources** tab, select a VM to view its alerts and the recommended hardening rules to apply.
 
