@@ -26,7 +26,7 @@ Persistence writes Redis data into an Azure Storage account that you own and man
 > 
 > 
 
-1. To create a premium cache, sign in to the [Azure portal](https://portal.azure.com) and select **Create a resource**. Note, in addition to creating caches in the Azure portal, you can also create them using Resource Manager templates, PowerShell, or Azure CLI. For more information about creating an Azure Cache for Redis, see [Create a cache](cache-dotnet-how-to-use-azure-redis-cache.md#create-a-cache).
+1. To create a premium cache, sign in to the [Azure portal](https://portal.azure.com) and select **Create a resource**. In addition to creating caches in the Azure portal, you can also create them using Resource Manager templates, PowerShell, or Azure CLI. For more information about creating an Azure Cache for Redis, see [Create a cache](cache-dotnet-how-to-use-azure-redis-cache.md#create-a-cache).
 
     :::image type="content" source="media/cache-private-link/1-create-resource.png" alt-text="Create resource.":::
    
@@ -60,7 +60,7 @@ Persistence writes Redis data into an Azure Storage account that you own and man
    | **Storage Account** | Drop-down and select your storage account. | You must choose a storage account in the same region as the cache, and a **Premium Storage** account is recommended because premium storage has higher throughput.  | 
    | **Storage Key** | Drop-down and choose either the **Primary key** or **Secondary key** to use. | If the storage key for your persistence account is regenerated, you must reconfigure the desired key from the **Storage Key** drop-down. | 
 
-The first backup is initiated once the backup frequency interval elapses.
+    The first backup is initiated once the backup frequency interval elapses.
 
 9. To enable AOF persistence, click **AOF** and configure the settings. 
    
@@ -71,7 +71,7 @@ The first backup is initiated once the backup frequency interval elapses.
    | **Second Storage Account** | (Optional) Drop-down and choose either the **Primary key** or **Secondary key** to use. | You can optionally configure an additional storage account. If a second storage account is configured, the writes to the replica cache are written to this second storage account. | 
    | **Second Storage Key** | (Optional) Drop-down and choose either the **Primary key** or **Secondary key** to use. | If the storage key for your persistence account is regenerated, you must reconfigure the desired key from the **Storage Key** drop-down. | 
 
-When AOF persistence is enabled, write operations to the cache are saved to the designated storage account (or accounts if you have configured a second storage account). In the event of a catastrophic failure that takes down both the primary and replica cache, the stored AOF log is used to rebuild the cache.
+    When AOF persistence is enabled, write operations to the cache are saved to the designated storage account (or accounts if you have configured a second storage account). In the event of a catastrophic failure that takes down both the primary and replica cache, the stored AOF log is used to rebuild the cache.
 
 10. Select the **Next: Tags** tab or click the **Next: Tags** button at the bottom of the page.
 

@@ -25,7 +25,7 @@ In Azure, Redis cluster is offered as a primary/replica model where each shard h
 ## Clustering
 Clustering is enabled on the **New Azure Cache for Redis** blade during cache creation. 
 
-1. To create a premium cache, sign in to the [Azure portal](https://portal.azure.com) and select **Create a resource**. Note, in addition to creating caches in the Azure portal, you can also create them using Resource Manager templates, PowerShell, or Azure CLI. For more information about creating an Azure Cache for Redis, see [Create a cache](cache-dotnet-how-to-use-azure-redis-cache.md#create-a-cache).
+1. To create a premium cache, sign in to the [Azure portal](https://portal.azure.com) and select **Create a resource**. In addition to creating caches in the Azure portal, you can also create them using Resource Manager templates, PowerShell, or Azure CLI. For more information about creating an Azure Cache for Redis, see [Create a cache](cache-dotnet-how-to-use-azure-redis-cache.md#create-a-cache).
 
     :::image type="content" source="media/cache-private-link/1-create-resource.png" alt-text="Create resource.":::
    
@@ -51,7 +51,7 @@ Clustering is enabled on the **New Azure Cache for Redis** blade during cache cr
 
 7. In the **Advanced** tab for a premium cache instance, configure the settings for non-TLS port, clustering, and data persistence. To enable clustering, click **Enable**.
 
-:::image type="content" source="media/cache-how-to-premium-clustering/redis-cache-clustering.png" alt-text="Clustering toggle.":::
+    :::image type="content" source="media/cache-how-to-premium-clustering/redis-cache-clustering.png" alt-text="Clustering toggle.":::
 
 You can have up to 10 shards in the cluster. After clicking **Enable**, slide the slider or type a number between 1 and 10 for **Shard count** and click **OK**.
 
