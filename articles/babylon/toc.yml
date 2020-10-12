@@ -60,6 +60,8 @@
       href: create-a-scan-rule-set.md
     - name: Apply classifications
       href: apply-classifications.md
+    - name: Register and scan Amazon S3 standard buckets
+      href: connector for Amazon S3.md
   - name: Classify
     items: 
     - name: Apply classifications
@@ -73,11 +75,11 @@
     - name: Create senstivity labels
       href: create-sensitivity-label.md
     - name: View classification insights
-      href: classification-insights.md.md
+      href: classification-insights.md
     - name: View sensitivity label insights
       href: sensitivity-insights.md
     - name: View file extension insights
-      href: file-extension-isights.md
+      href: file-extension-insights.md
   - name: Map and discover insights
     href: map-discover.md
   - name: Frequently asked questions

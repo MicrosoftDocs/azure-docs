@@ -1,12 +1,12 @@
 ---
 title: Set up, configure and scan for Amazon S3 data sources
 description: This how-to guide describes how to set up, configure and scan using the Babylon connector for Amazon S3 service. 
-author: mlottner
-ms.author: mlottner
+author: batamig
+ms.author: bagol
 ms.service: data-catalog
 ms.subservice: data-catalog-gen2
 ms.topic: how-to
-ms.date: 09/02/2020
+ms.date: 10/12/2020
 # Customer intent: As a security officer, I need to understand how to use Babylon connector for Amazon S3 service to set up, configure, and scan my Amazon S3 buckets. 
 ---
 
@@ -23,11 +23,11 @@ In this how-to guide, you'll learn about:
 - **Review results** 
  
 > [!TIP]
-> If you're blocked at any point in your setup and configuration of the Babylon connector for Amazon S3 service, contact your Microsoft PM team contact. For all other Babylon related questions, refer to the existing Babylon private preview documentation PDF, or speak to a member of the Babylon product team for guidance.
+> If you're blocked at any point in your setup and configuration of the Babylon connector for Amazon S3 service, contact your Microsoft PM team contact. For all other Babylon related questions, refer to the existing Babylon documentation, or speak to a member of the Babylon product team for guidance.
 
 ## Scope 
 
-The private preview scope detailed here is specific and limited to **Babylon connector for Amazon S3** part of the Babylon service. 
+The scope detailed below is specific and limited to **Babylon connector for Amazon S3** part of the Babylon service. 
 
 - The Babylon connector for Amazon S3 scanner service is currently deployed in the US Ohio region.  
 - Babylon scanner service currently supports up to 100 GB of data per tenant.
@@ -41,7 +41,7 @@ The private preview scope detailed here is specific and limited to **Babylon con
 
 If you already have a Babylon account, you can skip these instructions and continue to Babylon connector for Amazon S3 [configuration](#configuration). 
 
-If you need to create a Babylon account, follow the instructions in [Quickstart: Create a Babylon Account](create-catalog-portal.md#quickstart-create-a-babylon-account). After creating your account, return here to complete configuration and begin using Babylon connector for Amazon S3.  
+If you need to create a Babylon account, follow the instructions in [Create an Azure Babylon account instance](create-catalog-portal.md#create-an-azure-babylon-account-instance). After creating your account, return here to complete configuration and begin using Babylon connector for Amazon S3.  
 
 ## Configuration 
 
@@ -51,7 +51,7 @@ Complete the following steps to set up and configure your Babylon and AWS accoun
 
 To complete configuring access for this service to your Amazon S3 buckets, follow these steps in your Babylon account. 
 
-1. Launch the Babylon portal using the dedicated Babylon connector for Amazon S3 private preview URL provided to you by the Babylon connector product management team. 
+1. Launch the Babylon portal using the dedicated Babylon connector for Amazon S3 URL provided to you by the Babylon connector product management team. 
     ![Launch Connector for Amazon S3 dedicated Babylon portal](./media/setup-configuration-connector-amazon-s3/babylon-portal-amazons3.png)
  
 1. Open the Azure Babylon **Management Center**, **Data Sources** page and select **+ New**, choose **New data source** and from the **All** tab,  select **Amazon S3**, then click **Continue**. 
@@ -204,7 +204,7 @@ To learn more, see:
 
 ## Limitations
 
-The private preview limitations described here are specific and limited to **Babylon connector for Amazon S3** part of the Babylon service. 
+The limitations described here are specific and limited to **Babylon connector for Amazon S3** part of the Babylon service. 
 
 1. The **Cancel scan run** option is not supported for Amazon S3 data sources, although it appears in Babylon screens.
     ![Cancel scan run option in Babylon is not available](./media/setup-configuration-connector-amazon-s3/cancel-scan-amazons3.png)
