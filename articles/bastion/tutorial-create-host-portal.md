@@ -50,7 +50,7 @@ This section helps you create the bastion object in your VNet. This is required 
 1. Select **Create**.
 1. On the **Create a Bastion** page, configure a new Bastion resource.
 
-    ![Create a Bastion](./media/tutorial-create-host-portal/bastion-basics.png)
+   :::image type="content" source="./media/tutorial-create-host-portal/bastion-basics.png" alt-text="Create a Bastion host" lightbox="./media/tutorial-create-host-portal/bastion-basics.png":::
 
     * **Subscription**: The Azure subscription you want to use to create a new Bastion resource.
     * **Resource Group**: The Azure resource group in which the new Bastion resource will be created. If you don't have an existing resource group, you can create a new one.
