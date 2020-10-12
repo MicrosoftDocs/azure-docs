@@ -101,7 +101,7 @@ landingContent:
           - text: What is an Azure Cosmos account?
             url: account-overview.md
           - text: Azure Cosmos databases, containers, and items
-            url: databases-containers-items.md
+            url: account-databases-containers-items.md
           - text: How is data indexed in Cosmos DB 
             url: index-overview.md
           - text: Indexing policies, include and exclude properties 

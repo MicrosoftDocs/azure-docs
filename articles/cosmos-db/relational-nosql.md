@@ -91,7 +91,7 @@ Learn how to manage your Azure Cosmos account and other concepts:
 * [How-to manage your Azure Cosmos account](how-to-manage-database-account.md)
 * [Global distribution](distribute-data-globally.md)
 * [Consistency levels](consistency-levels.md)
-* [Working with Azure Cosmos containers and items](databases-containers-items.md)
+* [Working with Azure Cosmos containers and items](account-databases-containers-items.md)
 * [VNET service endpoint for your Azure Cosmos account](vnet-service-endpoint.md)
 * [IP-firewall for your Azure Cosmos account](firewall-support.md)
 * [How-to add and remove Azure regions to your Azure Cosmos account](how-to-manage-database-account.md)
