@@ -109,7 +109,7 @@ In the *Edit Logic Apps Custom Connector* page that follows, configure this info
 * **Custom connectors**
     - API Endpoint: REST (leave default)
     - Import mode: OpenAPI file (leave default)
-    - File: This will be the custom Swagger file you downloaded earlier. Hit *Import*, locate the file on your machine (*Azure_Digital_Twins_Custom_Swaggers\LogicApps\preview\2020-05-31-preview\digitaltwins.json*), and hit *Open*.
+    - File: This will be the custom Swagger file you downloaded earlier. Hit *Import*, locate the file on your machine (*Azure_Digital_Twins_Custom_Swaggers\LogicApps\...\digitaltwins.json*), and hit *Open*.
 * **General information**
     - Icon: Upload an icon that you like
     - Icon background color: Enter hexadecimal code in the format '#xxxxxx' for your color.
@@ -202,7 +202,7 @@ You may be asked to sign in with your Azure credentials to connect to the connec
 In the new *DigitalTwinsAdd* box, fill the fields as follows:
 * _id_: Fill the *Twin ID* of the digital twin in your instance that you'd like the Logic App to update.
 * _twin_: This field is where you'll enter the body that the chosen API request requires. For *DigitalTwinsUpdate*, this body is in the form of JSON Patch code. For more about structuring a JSON Patch to update your twin, see the [Update a digital twin](how-to-manage-twin.md#update-a-digital-twin) section of *How-to: Manage digital twins*.
-* _api-version_: In the current public preview, this value is *2020-05-31-preview*
+* _api-version_: The latest API version. In the current public preview, this value is *2020-05-31-preview*
 
 Hit *Save* in the Logic Apps Designer.
 

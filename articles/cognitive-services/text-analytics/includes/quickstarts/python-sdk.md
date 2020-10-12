@@ -3,7 +3,7 @@ author: aahill
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: include
-ms.date: 09/21/2020
+ms.date: 10/07/2020
 ms.author: aahi
 ---
 
@@ -112,6 +112,7 @@ These code snippets show you how to do the following tasks with the Text Analyti
 
 * [Authenticate the client](#authenticate-the-client)
 * [Sentiment Analysis](#sentiment-analysis)
+* [Opinion mining](#opinion-mining)
 * [Language detection](#language-detection)
 * [Named Entity recognition](#named-entity-recognition-ner) 
 * [Personally Identifiable Information recognition](#personally-identifiable-information-recognition) 
