@@ -65,7 +65,7 @@ az group create --name myResourceGroup --location westus
 
 ### Create an availability set
 
-The following step is optional but recommended. For more information, see [Azure availability sets guide](../../windows/infrastructure-example.md).
+The following step is optional but recommended. For more information, see [Azure availability sets guide](/previous-versions/azure/virtual-machines/windows/infrastructure-example).
 
 ```azurecli
 az vm availability-set create \
