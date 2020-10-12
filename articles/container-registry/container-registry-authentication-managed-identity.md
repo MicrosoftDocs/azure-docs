@@ -225,6 +225,8 @@ You should see a `Login succeeded` message. You can then run `docker` commands w
 ```
 docker pull mycontainerregistry.azurecr.io/aci-helloworld:v1
 ```
+> [!NOTE]
+> System-assigned managed service identities can be used to interact with ACRs and App Service can use system-assigned managed service identities. However, you cannot combine these, as App Service cannot use MSI to talk to an ACR. The only way is to enable admin on the ACR and use the admin username/password.
 
 ## Next steps
 

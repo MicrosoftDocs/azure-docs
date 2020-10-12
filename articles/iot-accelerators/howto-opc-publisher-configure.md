@@ -8,9 +8,13 @@ ms.topic: conceptual
 ms.service: industrial-iot
 services: iot-industrialiot
 manager: philmea
+ms.custom: devx-track-csharp
 ---
 
 # Configure OPC Publisher
+
+> [!IMPORTANT]
+> While we update this article, see [Azure Industrial IoT](https://azure.github.io/Industrial-IoT/) for the most up to date content.
 
 You can configure OPC Publisher to specify:
 

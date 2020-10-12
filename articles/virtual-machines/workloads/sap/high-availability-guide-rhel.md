@@ -14,7 +14,7 @@ ms.service: virtual-machines-windows
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 03/26/2020
+ms.date: 08/04/2020
 ms.author: radeltch
 
 ---
@@ -477,9 +477,11 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
    #Restart_Program_01 = local $(_EN) pf=$(_PF)
    Start_Program_01 = local $(_EN) pf=$(_PF)
    
-   # Add the keep alive parameter
+   # Add the keep alive parameter, if using ENSA1
    enque/encni/set_so_keepalive = true
    </code></pre>
+
+   For both ENSA1 and ENSA2, make sure that the `keepalive` OS parameters are set as described in SAP note [1410736](https://launchpad.support.sap.com/#/notes/1410736).    
 
    * ERS profile
 
@@ -497,8 +499,6 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
 1. **[A]** Configure Keep Alive
 
    The communication between the SAP NetWeaver application server and the ASCS/SCS is routed through a software load balancer. The load balancer disconnects inactive connections after a configurable timeout. To prevent this, you need to set a parameter in the SAP NetWeaver ASCS/SCS profile and change the Linux system settings. Read [SAP Note 1410736][1410736] for more information.
-
-   The ASCS/SCS profile parameter enque/encni/set_so_keepalive was already added in the last step.
 
    <pre><code># Change the Linux system configuration
    sudo sysctl net.ipv4.tcp_keepalive_time=120

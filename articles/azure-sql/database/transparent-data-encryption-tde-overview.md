@@ -11,7 +11,7 @@ ms.topic: conceptual
 author: jaszymas
 ms.author: jaszymas
 ms.reviewer: vanto
-ms.date: 06/15/2020
+ms.date: 10/12/2020
 ---
 # Transparent data encryption for SQL Database, SQL Managed Instance, and Azure Synapse Analytics
 [!INCLUDE[appliesto-sqldb-sqlmi-asa](../includes/appliesto-sqldb-sqlmi-asa.md)]
@@ -20,13 +20,13 @@ ms.date: 06/15/2020
 
 TDE performs real-time I/O encryption and decryption of the data at the page level. Each page is decrypted when it's read into memory and then encrypted before being written to disk. TDE encrypts the storage of an entire database by using a symmetric key called the Database Encryption Key (DEK). On database startup, the encrypted DEK is decrypted and then used for decryption and re-encryption of the database files in the SQL Server database engine process. DEK is protected by the TDE protector. TDE protector is either a service-managed certificate (service-managed transparent data encryption) or an asymmetric key stored in [Azure Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-secure-your-key-vault) (customer-managed transparent data encryption).
 
-For Azure SQL Database and Azure Synapse, the TDE protector is set at the [server](logical-servers.md) level and is inherited by all databases associated with that server. For Azure SQL Managed Instance (BYOK feature in preview), the TDE protector is set at the instance level and it is inherited by all encrypted databases on that instance. The term *server* refers both to server and instance throughout this document, unless stated differently.
+For Azure SQL Database and Azure Synapse, the TDE protector is set at the [server](logical-servers.md) level and is inherited by all databases associated with that server. For Azure SQL Managed Instance, the TDE protector is set at the instance level and it is inherited by all encrypted databases on that instance. The term *server* refers both to server and instance throughout this document, unless stated differently.
 
 > [!IMPORTANT]
 > All newly created databases in SQL Database are encrypted by default by using service-managed transparent data encryption. Existing SQL databases created before May 2017 and SQL databases created through restore, geo-replication, and database copy are not encrypted by default. Existing SQL Managed Instance databases created before February 2019 are not encrypted by default. SQL Managed Instance databases created through restore inherit encryption status from the source.
 
 > [!NOTE]
-> TDE cannot be used to encrypt the **master** database in SQL Database.  The **master** database contains objects that are needed to perform the TDE operations on the user databases.
+> TDE cannot be used to encrypt the **master** database in Azure SQL Database and Azure SQL Managed Instance. The **master** database contains objects that are needed to perform the TDE operations on the user databases.
 
 ## Service-managed transparent data encryption
 

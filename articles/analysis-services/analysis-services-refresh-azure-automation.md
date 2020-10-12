@@ -2,7 +2,7 @@
 title: Refresh Azure Analysis Services models with Azure Automation | Microsoft Docs
 description: This article describes how to code model refreshes for Azure Analysis Services by using Azure Automation.
 author: chrislound
-ms.service: analysis-services
+ms.service: azure-analysis-services
 ms.topic: conceptual
 ms.date: 05/07/2020
 ms.author: chlound
@@ -49,17 +49,20 @@ The Service Principal you create must have server administrator permissions on t
 
 1. In the Automation Account, create a **Credentials** resource which will be used to securely store the Service Principal.
 
-    ![Create credential](./media/analysis-services-refresh-azure-automation/6.png)
+    ![Screenshot that shows the "Credentials" page with the "Add a credential" action selected.](./media/analysis-services-refresh-azure-automation/6.png)
 
-2. Enter the details for the credential. In **User name**, enter the service principal Application Id (appid), and then in **Password**, enter the service principal Secret.
+2. Enter the details for the credential. In **User name**, enter the service principal Application ID (appid), and then in **Password**, enter the service principal Secret.
 
     ![Create credential](./media/analysis-services-refresh-azure-automation/7.png)
 
-3. Import the Automation Runbook
+3. Import the Automation Runbook.
 
-    ![Import Runbook](./media/analysis-services-refresh-azure-automation/8.png)
+    ![Screenshot that shows the "Runbooks" page with the "Import a runbook" action selected.](./media/analysis-services-refresh-azure-automation/8.png)
 
-4. Browse for the **Refresh-Model.ps1** file, provide a **Name** and **Description**, and then click **Create**.
+4. Browse for the [Refresh-Model.ps1](#sample-powershell-runbook) file, provide a **Name** and **Description**, and then click **Create**.
+
+    > [!NOTE]
+    > Use script from [Sample Powershell Runbook](#sample-powershell-runbook) section at the bottom of this document to create a file called Refresh-Model.ps1 and save to local machine to import into Runbook.
 
     ![Import Runbook](./media/analysis-services-refresh-azure-automation/9.png)
 
@@ -72,7 +75,7 @@ The Service Principal you create must have server administrator permissions on t
 
 6. Test the runbook by clicking **Start**.
 
-    ![Start the Runbook](./media/analysis-services-refresh-azure-automation/11.png)
+    ![Screenshot that shows the "Overview" page with the "Start" action selected.](./media/analysis-services-refresh-azure-automation/11.png)
 
 7. Fill out the **DATABASENAME**, **ANALYSISSERVER**, and **REFRESHTYPE** parameters, and then click **OK**. The **WEBHOOKDATA** parameter is not required when the Runbook is run manually.
 

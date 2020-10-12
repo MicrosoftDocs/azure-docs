@@ -2,12 +2,12 @@
 title: FAQs about FHIR services in Azure - Azure API for FHIR
 description: Get answers to frequently asked questions about the Azure API for FHIR, such as the storage location of data behind FHIR APIs and version support.
 services: healthcare-apis
-author: hansenms
+author: matjazl
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: reference
-ms.date: 02/07/2019
-ms.author: mihansen
+ms.date: 08/03/2020
+ms.author: matjazl
 ---
 
 # Frequently asked questions about the Azure API for FHIR
@@ -44,38 +44,71 @@ From a development standpoint, every feature is deployed to the open-source Micr
 SMART (Substitutable Medical Applications and Reusable Technology) on FHIR is a set of open specifications to integrate partner applications with FHIR Servers and other Health IT systems, such as Electronic Health Records and Health Information Exchanges. By creating a SMART on FHIR application, you can ensure that your application can be accessed and leveraged by a plethora of different systems.
 Authentication and Azure API for FHIR. To learn more about SMART, visit [SMART Health IT](https://smarthealthit.org/).
 
+### Can I create a custom FHIR resource?
 
-## IoT Connector (preview)
+We do not allow custom FHIR resources. If you need a custom FHIR resource, you can build a custom resource on top of the [Basic resource](http://www.hl7.org/fhir/basic.html) with extensions. 
+
+### Are [extensions](https://www.hl7.org/fhir/extensibility.html) supported on Azure API for FHIR?
+
+We allow you to load any valid FHIR JSON data into the server. If you want to store the structure definition that defines the extension, you could save this as a structure definition resource. Currently, you cannot search on extensions.
+
+### What is the limit on _count?
+
+The current limit on count is 100.
+
+### Are there any limitations on the Group Export functionality?
+
+For Group Export we only export the included references from the group, not all the characteristics of the [group resource](https://www.hl7.org/fhir/group.html).
+
+### Can I post a bundle to the Azure API for FHIR?
+
+We currently support posting [batch bundles](https://www.hl7.org/fhir/valueset-bundle-type.html) but do not support posting transaction bundles in the Azure API for FHIR. You can use the open-source FHIR Server backed by SQL to post transaction bundles.
+
+### How can I get all resources for a single patient in the Azure API for FHIR?
+
+We support [compartment search](https://www.hl7.org/fhir/compartmentdefinition.html) in the Azure API for FHIR. This allows you to get all the resources related to a specific patient. Note that right now compartment includes all the resources related to the patient but not the patient itself so you will need to also search to get the patient if you need the patient resource in your results.
+
+Some examples of this are below:
+
+* GET Patient/<id>/*
+* GET Patient/<id>/Observation
+* GET Patient/<id>/Observation?code=8302-2
+
+### Where can I see some examples of using the Azure API for FHIR within a workflow?
+
+We have a collection of reference architectures available on the [Health Architecture GitHub page](https://github.com/microsoft/health-architectures).
+
+## Azure IoT Connector for FHIR (preview)
 
 ### What is IoMT?
 IoMT stands for Internet of Medical Things and it's a category of IoT devices that capture and exchange health and wellness data with other healthcare IT systems over a network. Some examples of IoMT devices include fitness and clinical wearables, monitoring sensors, activity trackers, point of care kiosks, or even a smart pill.
 
-### How many IoT Connectors do I need?
-A single IoT Connector can be used to ingest data from a large number of different types of devices. You may still decide to use different connectors for the following reasons:
-- **Scale**: For public preview, IoT Connector resource capacity is fixed and expected to provide a throughput of about 200 messages per second. You may add more IoT Connectors, if higher throughput is needed.
-- **Device type**: You may setup a separate IoT Connector for each type of IoMT devices you have for device management reasons.
+### How many Azure IoT Connector for FHIR (preview) do I need?
+A single Azure IoT Connector for FHIR* can be used to ingest data from a large number of different types of devices. You may still decide to use different connectors for the following reasons:
+- **Scale**: For public preview, Azure IoT Connector for FHIR resource capacity is fixed and expected to provide a throughput of about 200 messages per second. You may add more Azure IoT Connector for FHIR, if higher throughput is needed.
+- **Device type**: You may setup a separate Azure IoT Connector for FHIR for each type of IoMT devices you have for device management reasons.
 
-### Is there a limit on number of IoT Connectors during public preview?
-Yes, you can create only two IoT Connectors per subscription while the feature is in public preview. This limit exists to prevent unexpected expense as the feature is available for free during the preview. On request this limit could be raised up to a maximum of five IoT Connectors.
+### Is there a limit on number of Azure IoT Connector for FHIR (preview) during public preview?
+Yes, you can create only two Azure IoT Connector for FHIR per subscription while the feature is in public preview. This limit exists to prevent unexpected expense as the feature is available for free during the preview. On request this limit could be raised up to a maximum of five Azure IoT Connector for FHIR.
 
-### What Azure regions IoT Connector feature is available during public preview?
-IoT Connector is available in all Azure regions where Azure API for FHIR is available.
+### What Azure regions Azure IoT Connector for FHIR (preview) feature is available during public preview?
+Azure IoT Connector for FHIR is available in all Azure regions where Azure API for FHIR is available.
 
-### Can I configure scaling capacity for IoT Connector?
-Since IoT Connector is free of charge during public preview, its scaling capacity is fixed and limited. IoT Connector configuration available in public preview is expected to provide a throughput of about 200 messages per second. Some form of resource capacity configuration will be made available in General Availability (GA).
+### Can I configure scaling capacity for Azure IoT Connector for FHIR (preview)?
+Since Azure IoT Connector for FHIR is free of charge during public preview, its scaling capacity is fixed and limited. Azure IoT Connector for FHIR configuration available in public preview is expected to provide a throughput of about 200 messages per second. Some form of resource capacity configuration will be made available in General Availability (GA).
 
-### What FHIR version does IoT Connector support?
-IoT Connector currently supports only FHIR version R4. Hence, this feature is visible only on the R4 instances of Azure API for FHIR and Microsoft doesn't plan to support version STU3 at this time.
+### What FHIR version does Azure IoT Connector for FHIR (preview) support?
+Azure IoT Connector for FHIR currently supports only FHIR version R4. Hence, this feature is visible only on the R4 instances of Azure API for FHIR and Microsoft doesn't plan to support version STU3 at this time.
 
-### Why can't I install IoT Connector when Private Link is enabled on Azure API for FHIR?
-IoT Connector doesn't support Private Link capability at this time. Hence, if you have Private Link enabled on Azure API for FHIR, you can't install IoT Connector and vice-versa. This limitation is expected to go away when IoT Connector is available for General Availability (GA).
+### Why can't I install Azure IoT Connector for FHIR (preview) when Private Link is enabled on Azure API for FHIR?
+Azure IoT Connector for FHIR doesn't support Private Link capability at this time. Hence, if you have Private Link enabled on Azure API for FHIR, you can't install Azure IoT Connector for FHIR and vice-versa. This limitation is expected to go away when Azure IoT Connector for FHIR is available for General Availability (GA).
 
-### What's the difference between the open-source IoMT FHIR Connector for Azure and IoT Connector feature of Azure API for FHIR service?
-IoT Connector is a hosted and managed version of the open-source IoMT FHIR Connector for Azure. In the managed service, Microsoft provides all maintenance and updates.
+### What's the difference between the open-source IoMT FHIR Connector for Azure and Azure IoT Connector for FHIR (preview) feature of Azure API for FHIR service?
+Azure IoT Connector for FHIR is a hosted and managed version of the open-source IoMT FHIR Connector for Azure. In the managed service, Microsoft provides all maintenance and updates.
 
 When you're running IoMT FHIR Connector for Azure, you have direct access to the underlying resources. But you're also responsible for maintaining and updating the server and all required compliance work if you're storing PHI data.
 
-From a development standpoint, every feature is deployed to the open-source IoMT FHIR Connector for Azure first. Once it has been validated in open-source, it will be released to the PaaS IoT Connector feature of Azure API for FHIR service. The time between the release in open-source and PaaS depends on the complexity of the feature and other road-map priorities.
+From a development standpoint, every feature is deployed to the open-source IoMT FHIR Connector for Azure first. Once it has been validated in open-source, it will be released to the PaaS Azure IoT Connector for FHIR feature of Azure API for FHIR service. The time between the release in open-source and PaaS depends on the complexity of the feature and other road-map priorities.
 
 ## Next steps
 
@@ -83,3 +116,7 @@ In this article, you've read some of the frequently asked questions about the Az
  
 >[!div class="nextstepaction"]
 >[Supported FHIR features](fhir-features-supported.md)
+
+*In the Azure portal, the Azure IoT Connector for FHIR is referred to as IoT Connector (preview).
+
+FHIR is the registered trademark of HL7 and is used with the permission of HL7.

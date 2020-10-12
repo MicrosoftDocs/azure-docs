@@ -6,7 +6,7 @@ ms.service: virtual-machines
 author: bobbytreed
 ms.author: robreed
 ms.date: 04/26/2019
-ms.topic: article
+ms.topic: how-to
 manager: carmonm
 ---
 # Run shell scripts in your Linux VM by using Run Command
@@ -53,7 +53,7 @@ The entity was not found in this Azure location
 The following example uses the [az vm run-command](/cli/azure/vm/run-command?view=azure-cli-latest#az-vm-run-command-invoke) command to run a shell script on an Azure Linux VM.
 
 ```azurecli-interactive
-az vm run-command invoke -g myResourceGroup -n myVm --command-id RunShellScript --scripts "sudo apt-get update && sudo apt-get install -y nginx"
+az vm run-command invoke -g myResourceGroup -n myVm --command-id RunShellScript --scripts "apt-get update && apt-get install -y nginx"
 ```
 
 > [!NOTE]

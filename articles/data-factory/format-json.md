@@ -4,16 +4,15 @@ description: 'This topic describes how to deal with JSON format in Azure Data Fa
 author: linda33wj
 manager: shwang
 ms.reviewer: craigg
-
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 06/05/2020
+ms.date: 09/15/2020
 ms.author: jingwang
-
 ---
 
 # JSON format in Azure Data Factory
+
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 Follow this article when you want to **parse the JSON files or write the data into JSON format**. 
@@ -30,8 +29,8 @@ For a full list of sections and properties available for defining datasets, see 
 | location         | Location settings of the file(s). Each file-based connector has its own location type and supported properties under `location`. **See details in connector article -> Dataset properties section**. | Yes      |
 | encodingName     | The encoding type used to read/write test files. <br>Allowed values are as follows: "UTF-8", "UTF-16", "UTF-16BE", "UTF-32", "UTF-32BE", "US-ASCII", "UTF-7", "BIG5", "EUC-JP", "EUC-KR", "GB2312", "GB18030", "JOHAB", "SHIFT-JIS", "CP875", "CP866", "IBM00858", "IBM037", "IBM273", "IBM437", "IBM500", "IBM737", "IBM775", "IBM850", "IBM852", "IBM855", "IBM857", "IBM860", "IBM861", "IBM863", "IBM864", "IBM865", "IBM869", "IBM870", "IBM01140", "IBM01141", "IBM01142", "IBM01143", "IBM01144", "IBM01145", "IBM01146", "IBM01147", "IBM01148", "IBM01149", "ISO-2022-JP", "ISO-2022-KR", "ISO-8859-1", "ISO-8859-2", "ISO-8859-3", "ISO-8859-4", "ISO-8859-5", "ISO-8859-6", "ISO-8859-7", "ISO-8859-8", "ISO-8859-9", "ISO-8859-13", "ISO-8859-15", "WINDOWS-874", "WINDOWS-1250", "WINDOWS-1251", "WINDOWS-1252", "WINDOWS-1253", "WINDOWS-1254", "WINDOWS-1255", "WINDOWS-1256", "WINDOWS-1257", "WINDOWS-1258".| No       |
 | compression | Group of properties to configure file compression. Configure this section when you want to do compression/decompression during activity execution. | No |
-| type | The compression codec used to read/write JSON files. <br>Allowed values are **bzip2**, **gzip**, **deflate**, **ZipDeflate**, **snappy**, or **lz4**. to use when saving the file. Default is not compressed.<br>**Note** currently Copy activity doesn’t support "snappy" & "lz4", and mapping data flow doesn’t support "ZipDeflate".<br>**Note** when using copy activity to decompress **ZipDeflate** file(s) and write to file-based sink data store, by default files are extracted to the folder: `<path specified in dataset>/<folder named as source zip file>/`, use `preserveZipFileNameAsFolder` on [copy activity source](#json-as-source) to control whether to preserve zip file name as folder structure. | No.  |
-| level | The compression ratio. <br>Allowed values are **Optimal** or **Fastest**.<br>- **Fastest:** The compression operation should complete as quickly as possible, even if the resulting file is not optimally compressed.<br>- **Optimal**: The compression operation should be optimally compressed, even if the operation takes a longer time to complete. For more information, see [Compression Level](https://msdn.microsoft.com/library/system.io.compression.compressionlevel.aspx) topic. | No       |
+| type<br/>(*under `compression`*) | The compression codec used to read/write JSON files. <br>Allowed values are **bzip2**, **gzip**, **deflate**, **ZipDeflate**, **TarGzip**, **snappy**, or **lz4**. Default is not compressed.<br>**Note** currently Copy activity doesn’t support "snappy" & "lz4", and mapping data flow doesn’t support "ZipDeflate".<br>**Note** when using copy activity to decompress **ZipDeflate**/**TarGzip** file(s) and write to file-based sink data store, by default files are extracted to the folder:`<path specified in dataset>/<folder named as source compressed file>/`, use `preserveZipFileNameAsFolder`/`preserveCompressionFileNameAsFolder` on [copy activity source](#json-as-source) to control whether to preserve the name of the compressed file(s) as folder structure.| No.  |
+| level<br/>(*under `compression`*) | The compression ratio. <br>Allowed values are **Optimal** or **Fastest**.<br>- **Fastest:** The compression operation should complete as quickly as possible, even if the resulting file is not optimally compressed.<br>- **Optimal**: The compression operation should be optimally compressed, even if the operation takes a longer time to complete. For more information, see [Compression Level](https://msdn.microsoft.com/library/system.io.compression.compressionlevel.aspx) topic. | No       |
 
 Below is an example of JSON dataset on Azure Blob Storage:
 
@@ -63,6 +62,8 @@ Below is an example of JSON dataset on Azure Blob Storage:
 
 For a full list of sections and properties available for defining activities, see the [Pipelines](concepts-pipelines-activities.md) article. This section provides a list of properties supported by the JSON source and sink.
 
+Learn about how to extract data from JSON files and map to sink data store/format or vice versa from [schema mapping](copy-activity-schema-and-type-mapping.md).
+
 ### JSON as source
 
 The following properties are supported in the copy activity ***\*source\**** section.
@@ -79,7 +80,8 @@ Supported **JSON read settings** under `formatSettings`:
 | ------------- | ------------------------------------------------------------ | -------- |
 | type          | The type of formatSettings must be set to **JsonReadSettings**. | Yes      |
 | compressionProperties | A group of properties on how to decompress data for a given compression codec. | No       |
-| preserveZipFileNameAsFolder<br>(*under `compressionProperties`*) | Applies when input dataset is configured with **ZipDeflate** compression. Indicates whether to preserve the source zip file name as folder structure during copy. When set to true (default), Data Factory writes unzipped files to `<path specified in dataset>/<folder named as source zip file>/`; when set to false, Data Factory writes unzipped files directly to `<path specified in dataset>`.  | No |
+| preserveZipFileNameAsFolder<br>(*under `compressionProperties`->`type` as `ZipDeflateReadSettings`*)  | Applies when input dataset is configured with **ZipDeflate** compression. Indicates whether to preserve the source zip file name as folder structure during copy.<br>- When set to **true (default)**, Data Factory writes unzipped files to `<path specified in dataset>/<folder named as source zip file>/`.<br>- When set to **false**, Data Factory writes unzipped files directly to `<path specified in dataset>`. Make sure you don’t have duplicated file names in different source zip files to avoid racing or unexpected behavior.  | No |
+| preserveCompressionFileNameAsFolder<br>(*under `compressionProperties`->`type` as `TarGZipReadSettings`*) | Applies when input dataset is configured with **TarGzip** compression. Indicates whether to preserve the source compressed file name as folder structure during copy.<br>- When set to **true (default)**, Data Factory writes decompressed files to `<path specified in dataset>/<folder named as source compressed file>/`. <br>- When set to **false**, Data Factory writes decompressed files directly to `<path specified in dataset>`. Make sure you don’t have duplicated file names in different source files to avoid racing or unexpected behavior. | No |
 
 ### JSON as sink
 
@@ -206,10 +208,11 @@ The below table lists the properties supported by a json source. You can edit th
 | After completion | Delete or move the files after processing. File path starts from the container root | no | Delete: `true` or `false` <br> Move: `['<from>', '<to>']` | purgeFiles <br> moveFiles |
 | Filter by last modified | Choose to filter files based upon when they were last altered | no | Timestamp | modifiedAfter <br> modifiedBefore |
 | Single document | Mapping data flows read one JSON document from each file | no | `true` or `false` | singleDocument |
-| Unquoted column names | If **Unquoted column names** is selected, mapping data flows reads JSON columns that aren't surrounded by quotes. | no | `true` or `false` |  unquotedColumnNames
+| Unquoted column names | If **Unquoted column names** is selected, mapping data flows reads JSON columns that aren't surrounded by quotes. | no | `true` or `false` |  unquotedColumnNames |
 | Has comments | Select **Has comments** if the JSON data has C or C++ style commenting | no | `true` or `false` | asComments |
 | Single quoted | Reads JSON columns that aren't surrounded by quotes | no | `true` or `false` | singleQuoted |
 | Backslash escaped | Select **Backslash escaped** if backslashes are used to escape characters in the JSON data | no | `true` or `false` | backslashEscape |
+| Allow no files found | If true, an error is not thrown if no files are found | no | `true` or `false` | ignoreNoFilesFound |
 
 ### Source format options
 
@@ -305,11 +308,11 @@ You can add a complex column to your data flow via the derived column expression
 
 In the output schema side pane, hover over a column and click the plus icon. Select **Add subcolumn** to make the column a complex type.
 
-![Add subcolumn](media/data-flow/addsubcolumn.png "Add Subcolumn")
+![Add subcolumn](media/data-flow/derive-add-subcolumn.png "Add Subcolumn")
 
 You can add additional columns and subcolumns in the same way. For each non-complex field, an expression can be added in the expression editor to the right.
 
-![Complex column](media/data-flow/complexcolumn.png "Complex column")
+![Add complex column](media/data-flow/derive-complex-column.png "Add columns")
 
 #### Entering the JSON structure manually
 

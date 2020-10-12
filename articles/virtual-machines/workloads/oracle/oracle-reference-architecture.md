@@ -2,7 +2,7 @@
 title: Reference architectures for Oracle databases on Azure | Microsoft Docs
 description: References architectures for running Oracle Database Enterprise Edition databases on Microsoft Azure Virtual Machines.
 services: virtual-machines-linux
-author: rgardler
+author: dbakevlar
 manager: 
 tags: 
 
@@ -12,7 +12,7 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 12/13/2019
-ms.author: rogardle
+ms.author: kegorman
 ms.custom: 
 ---
 # Reference architectures for Oracle Database Enterprise Edition on Azure
@@ -75,7 +75,7 @@ The following diagram is a recommended architecture for using Oracle Data Guard 
 
 ![Oracle Database using availability zones with Data Guard Broker - FSFO](./media/oracle-reference-architecture/oracledb_dg_fsfo_az.png)
 
-In the preceding diagram, the client system accesses a custom application with Oracle backend via the web. The web frontend is configured in a load balancer. The web frontend makes a call to the appropriate application server to handle the work. The application server queries the primary Oracle database. The Oracle database has been configured using a hyperthreaded [memory optimized virtual machine](../../sizes-memory.md) with [constrained core vCPUs](../../../virtual-machines/windows/constrained-vcpu.md) to save on licensing costs and maximize performance. Multiple premium or ultra disks (Managed Disks) are used for performance and high availability.
+In the preceding diagram, the client system accesses a custom application with Oracle backend via the web. The web frontend is configured in a load balancer. The web frontend makes a call to the appropriate application server to handle the work. The application server queries the primary Oracle database. The Oracle database has been configured using a hyperthreaded [memory optimized virtual machine](../../sizes-memory.md) with [constrained core vCPUs](../../../virtual-machines/constrained-vcpu.md) to save on licensing costs and maximize performance. Multiple premium or ultra disks (Managed Disks) are used for performance and high availability.
 
 The Oracle databases are placed in multiple availability zones for high availability. Each zone is made up of one or more data centers equipped with independent power, cooling, and networking. To ensure resiliency, a minimum of three separate zones are set up in all enabled regions. The physical separation of availability zones within a region protects the data from data center failures. Additionally, two FSFO observers are set up across two availability zones to initiate and fail over the database to the secondary when an outage occurs. 
 
@@ -109,7 +109,7 @@ The following diagram is an architecture utilizing Oracle Data Guard FSFO and Fa
 
 GoldenGate enables the exchange and manipulation of data at the transaction level among multiple, heterogeneous platforms across the enterprise. It moves committed transactions with transaction integrity and minimal overhead on your existing infrastructure. Its modular architecture gives you the flexibility to extract and replicate selected data records, transactional changes, and changes to DDL (data definition language) across a variety of topologies.
 
-Oracle GoldenGate allows you to configure your database for high availability by providing bidirectional replication. This allows you to set up a **multi-master** or **active-active configuration**. The following diagram is a recommended architecture for Oracle GoldenGate active-active setup on Azure. In the following architecture, the Oracle database has been configured using a hyperthreaded [memory optimized virtual machine](../../sizes-memory.md) with [constrained core vCPUs](../../../virtual-machines/windows/constrained-vcpu.md) to save on licensing costs and maximize performance. Multiple premium or ultra disks (managed disks) are used for performance and availability.
+Oracle GoldenGate allows you to configure your database for high availability by providing bidirectional replication. This allows you to set up a **multi-master** or **active-active configuration**. The following diagram is a recommended architecture for Oracle GoldenGate active-active setup on Azure. In the following architecture, the Oracle database has been configured using a hyperthreaded [memory optimized virtual machine](../../sizes-memory.md) with [constrained core vCPUs](../../../virtual-machines/constrained-vcpu.md) to save on licensing costs and maximize performance. Multiple premium or ultra disks (managed disks) are used for performance and availability.
 
 ![Oracle Database using availability zones with Data Guard Broker - FSFO](./media/oracle-reference-architecture/oracledb_gg_az.png)
 
@@ -207,11 +207,11 @@ During the initial request, the application server connects to the shard directo
 
 When deploying your Oracle workloads to Azure, Microsoft takes care of all host OS-level patching. Any planned OS-level maintenance is communicated to customers in advance to allow the customer for this planned maintenance. Two servers from two different Availability Zones are never patched simultaneously. See [Manage the availability of virtual machines](../../../virtual-machines/linux/manage-availability.md) for more details on VM maintenance and patching. 
 
-Patching your virtual machine operating system can be automated using [Azure Automation](../../../automation/automation-tutorial-update-management.md). Patching and maintaining your Oracle database can be automated and scheduled using [Azure Pipelines](/azure/devops/pipelines/get-started/what-is-azure-pipelines?view=azure-devops) or [Azure Automation](../../../automation/automation-tutorial-update-management.md) to minimize downtime. See [Continuous Delivery and Blue/Green Deployments](/azure/devops/learn/what-is-continuous-delivery) to understand how it can be used in the context of your Oracle databases.
+Patching your virtual machine operating system can be automated using [Azure Automation Update Management](../../../automation/update-management/update-mgmt-overview.md). Patching and maintaining your Oracle database can be automated and scheduled using [Azure Pipelines](/azure/devops/pipelines/get-started/what-is-azure-pipelines?view=azure-devops) or [Azure Automation Update Management](../../../automation/update-management/update-mgmt-overview.md) to minimize downtime. See [Continuous Delivery and Blue/Green Deployments](/azure/devops/learn/what-is-continuous-delivery) to understand how it can be used in the context of your Oracle databases.
 
 ## Architecture and design considerations
 
-- Consider using hyperthreaded [memory optimized virtual machine](../../sizes-memory.md) with [constrained core vCPUs](../../../virtual-machines/windows/constrained-vcpu.md) for your Oracle Database VM to save on licensing costs and maximize performance. Use multiple premium or ultra disks (managed disks) for performance and availability.
+- Consider using hyperthreaded [memory optimized virtual machine](../../sizes-memory.md) with [constrained core vCPUs](../../../virtual-machines/constrained-vcpu.md) for your Oracle Database VM to save on licensing costs and maximize performance. Use multiple premium or ultra disks (managed disks) for performance and availability.
 - When using managed disks, the disk/device name may change on reboots. It's recommended that you use the device UUID instead of the name to ensure your mounts persist across reboots. More information can be found [here](../../../virtual-machines/linux/configure-raid.md#add-the-new-file-system-to-etcfstab).
 - Use availability zones to achieve high availability in-region.
 - Consider using ultra disks (when available) or premium disks for your Oracle database.

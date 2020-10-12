@@ -6,7 +6,7 @@ services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: how-to
-ms.date: 11/14/2019
+ms.date: 07/20/2020
 ms.author: victorh
 ms.custom: mvc
 #Customer intent: As an IT administrator, I want to use Azure PowerShell to configure Application Gateway to host multiple web sites , so I can ensure my customers can access the web information they need.
@@ -18,15 +18,14 @@ You can use Azure Powershell to [configure the hosting of multiple web sites](mu
 
 In this article, you learn how to:
 
-> [!div class="checklist"]
-> * Set up the network
-> * Create an application gateway
-> * Create backend listeners
-> * Create routing rules
-> * Create virtual machine scale sets with the backend pools
-> * Create a CNAME record in your domain
+* Set up the network
+* Create an application gateway
+* Create backend listeners
+* Create routing rules
+* Create virtual machine scale sets with the backend pools
+* Create a CNAME record in your domain
 
-![Multi-site routing example](./media/tutorial-multiple-sites-powershell/scenario.png)
+:::image type="content" source="./media/tutorial-multiple-sites-powershell/scenario.png" alt-text="Multi-site Application Gateway":::
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
@@ -121,6 +120,10 @@ $poolSettings = New-AzApplicationGatewayBackendHttpSettings `
 Listeners are required to enable the application gateway to route traffic appropriately to the backend address pools. In this article, you create two listeners for your two domains. Listeners are created for the *contoso.com* and *fabrikam.com* domains.
 
 Create the first listener using [New-AzApplicationGatewayHttpListener](/powershell/module/az.network/new-azapplicationgatewayhttplistener) with the frontend configuration and frontend port that you previously created. A rule is required for the listener to know which backend pool to use for incoming traffic. Create a basic rule named *contosoRule* using [New-AzApplicationGatewayRequestRoutingRule](/powershell/module/az.network/new-azapplicationgatewayrequestroutingrule).
+
+>[!NOTE]
+> With Application Gateway or WAF v2 SKU, you can also configure up to 5 host names per listener and you can use wildcard characters in the host name. See [wildcard host names in listener](multiple-site-overview.md#wildcard-host-names-in-listener-preview) for more information.
+>To use multiple host names and wildcard characters in a listener using Azure PowerShell, you must use `-HostNames` instead of `-HostName`. With HostNames, you can mention up to 5 host names as comma-separated values. For example, `-HostNames "*.contoso.com,*.fabrikam.com"`
 
 ```azurepowershell-interactive
 $contosolistener = New-AzApplicationGatewayHttpListener `

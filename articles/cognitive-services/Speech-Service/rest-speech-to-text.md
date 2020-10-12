@@ -3,25 +3,29 @@ title: Speech-to-text API reference (REST) - Speech service
 titleSuffix: Azure Cognitive Services
 description: Learn how to use the speech-to-text REST API. In this article, you'll learn about authorization options, query options, how to structure a request and receive a response.
 services: cognitive-services
-author: yinhew
+author: trevorbye
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 05/13/2020
-ms.author: yinhew
+ms.author: trbye
+ms.custom: devx-track-csharp
 ---
 
 # Speech-to-text REST API
 
 As an alternative to the [Speech SDK](speech-sdk.md), the Speech service allows you to convert speech-to-text using a REST API. Each accessible endpoint is associated with a region. Your application requires a subscription key for the endpoint you plan to use. The REST API is very limited, and it should only be used in cases were the [Speech SDK](speech-sdk.md) cannot.
 
-Before using the speech-to-text REST API, understand:
+Before using the speech-to-text REST API, consider the following:
 
 * Requests that use the REST API and transmit audio directly can only contain up to 60 seconds of audio.
 * The speech-to-text REST API only returns final results. Partial results are not provided.
 
 If sending longer audio is a requirement for your application, consider using the [Speech SDK](speech-sdk.md) or a file-based REST API, like [batch transcription](batch-transcription.md).
+
+> [!TIP]
+> See the  Azure government [documentation](https://docs.microsoft.com/azure/azure-government/compare-azure-government-global-azure) for government cloud (FairFax) endpoints.
 
 [!INCLUDE [](../../../includes/cognitive-services-speech-service-rest-auth.md)]
 
@@ -218,10 +222,10 @@ The object in the `NBest` list can include:
 | `ITN` | The inverse-text-normalized ("canonical") form of the recognized text, with phone numbers, numbers, abbreviations ("doctor smith" to "dr smith"), and other transformations applied. |
 | `MaskedITN` | The ITN form with profanity masking applied, if requested. |
 | `Display` | The display form of the recognized text, with punctuation and capitalization added. This parameter is the same as `DisplayText` provided when format is set to `simple`. |
-| `AccuracyScore` | The score indicating the pronunciation accuracy of the given speech. |
-| `FluencyScore` | The score indicating the fluency of the given speech. |
-| `CompletenessScore` | The score indicating the completeness of the given speech by calculating the ratio of pronounced words towards entire input. |
-| `PronScore` | The overall score indicating the pronunciation quality of the given speech. This is calculated from `AccuracyScore`, `FluencyScore` and `CompletenessScore` with weight. |
+| `AccuracyScore` | Pronunciation accuracy of the speech. Accuracy indicates how closely the phonemes match a native speaker's pronunciation. Word and full text level accuracy score is aggregated from phoneme level accuracy score. |
+| `FluencyScore` | Fluency of the given speech. Fluency indicates how closely the speech matches a native speaker's use of silent breaks between words. |
+| `CompletenessScore` | Completeness of the speech, determined by calculating the ratio of pronounced words to reference text input. |
+| `PronScore` | Overall score indicating the pronunciation quality of the given speech. This is aggregated from `AccuracyScore`, `FluencyScore` and `CompletenessScore` with weight. |
 | `ErrorType` | This value indicates whether a word is omitted, inserted or badly pronounced, compared to `ReferenceText`. Possible values are `None` (meaning no error on this word), `Omission`, `Insertion` and `Mispronunciation`. |
 
 ## Sample responses
@@ -297,6 +301,6 @@ A typical response for recognition with pronunciation assessment:
 
 ## Next steps
 
-- [Get your Speech trial subscription](https://azure.microsoft.com/try/cognitive-services/)
+- [Create a free Azure account](https://azure.microsoft.com/free/cognitive-services/)
 - [Customize acoustic models](how-to-customize-acoustic-models.md)
 - [Customize language models](how-to-customize-language-model.md)

@@ -7,6 +7,8 @@ ms.service: static-web-apps
 ms.topic:  conceptual
 ms.date: 05/08/2020
 ms.author: cshoe
+ms.custom: devx-track-js
+
 ---
 
 # Accessing user information in Azure Static Web Apps Preview
@@ -58,6 +60,10 @@ console.log(getUserInfo());
 
 ## API functions
 
+The API functions available in Static Web Apps via the Azure Functions backend have access to the same user information as a client application. While the API does receive user-identifiable information, it does not perform its own checks if the user is authenticated or if they match a required role. Access control rules are defined in the [`routes.json`](routes.md) file.
+
+# [JavaScript](#tab/javascript)
+
 Client principal data is passed to API functions in the `x-ms-client-principal` request header. The client principal data is sent as a [Base64](https://www.wikipedia.org/wiki/Base64)-encoded string containing a serialized JSON object.
 
 The following example function shows how to read and return user information.
@@ -86,8 +92,49 @@ async function getUser() {
   return clientPrincipal;
 }
 
-console.log(getUser());
+console.log(await getUser());
 ```
+
+# [C#](#tab/csharp)
+
+In a C# function, the user information is available from the `x-ms-client-principal` header which can be deserialized into a `ClaimsPrincipal` object, or your own custom type. The following code demonstrates how to unpack the header into an intermediary type, `ClientPrincipal`, which is then turned into a `ClaimsPrincipal` instance.
+
+```csharp
+  public static class StaticWebAppsAuth
+  {
+    private class ClientPrincipal
+    {
+        public string IdentityProvider { get; set; }
+        public string UserId { get; set; }
+        public string UserDetails { get; set; }
+        public IEnumerable<string> UserRoles { get; set; }
+    }
+
+    public static ClaimsPrincipal Parse(HttpRequest req)
+    {
+        var header = req.Headers["x-ms-client-principal"];
+        var data = header.Value[0];
+        var decoded = System.Convert.FromBase64String(data);
+        var json = System.Text.ASCIIEncoding.ASCII.GetString(decoded);
+        var principal = JsonSerializer.Deserialize<ClientPrincipal>(json, new JsonSerializerOptions { PropertyNameCaseInsensitive = true });
+  
+        principal.UserRoles = principal.UserRoles.Except(new string[] { "anonymous" }, StringComparer.CurrentCultureIgnoreCase);
+  
+        if (!principal.UserRoles.Any())
+        {
+            return new ClaimsPrincipal();
+        }
+  
+        var identity = new ClaimsIdentity(principal.IdentityProvider);
+        identity.AddClaim(new Claim(ClaimTypes.NameIdentifier, principal.UserId));
+        identity.AddClaim(new Claim(ClaimTypes.Name, principal.UserDetails));
+        identity.AddClaims(principal.UserRoles.Select(r => new Claim(ClaimTypes.Role, r)));
+        return new ClaimsPrincipal(identity);
+    }
+  }
+```
+
+---
 
 <sup>1</sup> The [fetch](https://caniuse.com/#feat=fetch) API and [await](https://caniuse.com/#feat=mdn-javascript_operators_await) operator aren't supported in Internet Explorer.
 

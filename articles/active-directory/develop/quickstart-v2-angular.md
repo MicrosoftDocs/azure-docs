@@ -1,14 +1,14 @@
 ---
-title: Sign in users in Angular single-page apps - Azure
+title: "Quickstart: Sign in users in Angular single-page apps - Azure"
 titleSuffix: Microsoft identity platform
-description: Learn how an Angular app can call an API that requires access tokens by using the Microsoft identity platform.
+description: In this quickstart, you learn how an Angular app can call an API that requires access tokens issued by the Microsoft identity platform.
 services: active-directory
 author: jasonnutter
 manager: CelesteDG
 
 ms.service: active-directory
 ms.subservice: develop
-ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:JavaScript
+ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:JavaScript, devx-track-js
 ms.topic: quickstart
 ms.workload: identity
 ms.date: 03/18/2020
@@ -45,7 +45,7 @@ In this quickstart, you use a code sample to learn how an Angular single-page ap
 >
 > 1. Sign in to the [Azure portal](https://portal.azure.com).
 > 1. If your account has access to more than one tenant, select your account at the upper right, and set your portal session to the Azure AD tenant that you want to use.
-> 1. Follow the instructions to [register a single-page application](https://docs.microsoft.com/azure/active-directory/develop/scenario-spa-app-registration) in the Azure portal.
+> 1. Follow the instructions to [register a single-page application](./scenario-spa-app-registration.md) in the Azure portal.
 > 1. Add a new platform on the **Authentication** pane of your app registration and register the redirect URI: `http://localhost:4200/`.
 > 1. This quickstart uses the [implicit grant flow](v2-oauth2-implicit-grant-flow.md). Select the **Implicit grant** settings for **ID tokens** and **Access tokens**. ID tokens and access tokens are required because this app signs in users and calls an API.
 
@@ -97,7 +97,7 @@ In this quickstart, you use a code sample to learn how an Angular single-page ap
 >|Value name|Description|
 >|---------|---------|
 >|Enter_the_Application_Id_Here|On the **Overview** page of your application registration, this is your **Application(client) ID** value. |
->|Enter_the_Cloud_Instance_Id_Here|This is the instance of the Azure cloud. For the main or global Azure cloud, enter **https://login.microsoftonline.com**. For national clouds (for example, China), see [National clouds](https://docs.microsoft.com/azure/active-directory/develop/authentication-national-cloud).|
+>|Enter_the_Cloud_Instance_Id_Here|This is the instance of the Azure cloud. For the main or global Azure cloud, enter **https://login.microsoftonline.com**. For national clouds (for example, China), see [National clouds](./authentication-national-cloud.md).|
 >|Enter_the_Tenant_Info_Here| Set to one of the following options: If your application supports *accounts in this organizational directory*, replace this value with the directory (tenant) ID or tenant name (for example, **contoso.microsoft.com**). If your application supports *accounts in any organizational directory*, replace this value with **organizations**. If your application supports *accounts in any organizational directory and personal Microsoft accounts*, replace this value with **common**. To restrict support to *personal Microsoft accounts only*, replace this value with **consumers**. |
 >|Enter_the_Redirect_Uri_Here|Replace with **http://localhost:4200**.|
 >|cacheLocation  | (Optional) Set the browser storage for the authentication state. The default is **sessionStorage**.   |
@@ -105,7 +105,7 @@ In this quickstart, you use a code sample to learn how an Angular single-page ap
 > > [!TIP]
 > > To find the values of **Application (client) ID**, **Directory (tenant) ID**, and **Supported account types**, go to the app's **Overview** page in the Azure portal.
 
-For more information about available configurable options, see [Initialize client applications](msal-js-initializing-client-applications.md). 
+For more information about available configurable options, see [Initialize client applications](msal-js-initializing-client-applications.md).
 
 You can find the source code for the MSAL.js library in the [AzureAD/microsoft-authentication-library-for-js](https://github.com/AzureAD/microsoft-authentication-library-for-js) repository on GitHub.
 
@@ -132,7 +132,7 @@ After the browser loads the application, select **Login**. The first time you st
 
 ## How the sample works
 
-![Diagram that shows how the sample app in this quickstart works](media/quickstart-v2-javascript/javascriptspa-intro.svg)
+![Diagram that shows how the sample app in this quickstart works](./media/quickstart-v2-angular/diagram-auth-flow-spa-angular.svg)
 
 
 ## Next steps
@@ -140,5 +140,4 @@ After the browser loads the application, select **Login**. The first time you st
 Next, learn how to sign in a user and acquire tokens in the Angular tutorial:
 
 > [!div class="nextstepaction"]
-> [Angular tutorial](https://docs.microsoft.com/azure/active-directory/develop/tutorial-v2-angular)
-
+> [Angular tutorial](./tutorial-v2-angular.md)

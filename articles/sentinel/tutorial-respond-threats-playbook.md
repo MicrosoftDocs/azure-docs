@@ -56,7 +56,7 @@ Security playbooks can be run either manually or automatically. Running them man
 Follow these steps to create a new security playbook in Azure Sentinel:
 
 1. Open the **Azure Sentinel** dashboard.
-2. Under **Management**, select **Playbooks**.
+2. Under **Configuration**, select **Playbooks**.
 
    ![Logic App](./media/tutorial-respond-threats-playbook/playbookimg.png)
 
@@ -68,7 +68,7 @@ Follow these steps to create a new security playbook in Azure Sentinel:
 
 5. In the [**Logic App Designer**](../logic-apps/logic-apps-overview.md), select the template you want to use. If you select a template that necessitates credentials, you will have to provide them. Alternatively, you can create a new blank playbook from scratch. Select **Blank Logic App**. 
 
-   ![Logical app designer](./media/tutorial-respond-threats-playbook/playbook-template.png)
+   ![Screenshot that shows the Blank Logic App panel.](./media/tutorial-respond-threats-playbook/playbook-template.png)
 
 6. You are taken to the Logic App Designer where you can either build new or edit the template. For more information on creating a playbook with [Logic Apps](../logic-apps/logic-apps-create-logic-apps-from-templates.md).
 

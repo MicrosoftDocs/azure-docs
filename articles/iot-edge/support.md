@@ -4,7 +4,7 @@ description: Learn which operating systems can run the Azure IoT Edge daemon and
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 06/19/2020
+ms.date: 09/10/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
@@ -103,13 +103,13 @@ IoT Edge components can be installed or updated individually, and are backwards 
 
 | Release | Security daemon | Edge hub<br>Edge agent | Libiothsm | Moby |
 |--|--|--|--|--|
-| **1.0.9** | 1.0.9.3<br>1.0.9.2<br>1.0.9.1<br>1.0.9 | 1.0.9.3<br>1.0.9.2<br>1.0.9.1<br>1.0.9 | 1.0.9.3<br>1.0.9.2<br>1.0.9.1<br>1.0.9 |  |
+| **1.0.9** | 1.0.9.5<br>1.0.9.4<br>1.0.9.3<br>1.0.9.2<br>1.0.9.1<br>1.0.9 | 1.0.9.5<br>1.0.9.4<br>1.0.9.3<br>1.0.9.2<br>1.0.9.1<br>1.0.9 | 1.0.9.5<br>1.0.9.4<br>1.0.9.3<br>1.0.9.2<br>1.0.9.1<br>1.0.9 |  |
 | **1.0.8** | 1.0.8 | 1.0.8.5<br>1.0.8.4<br>1.0.8.3<br>1.0.8.2<br>1.0.8.1<br>1.0.8 | 1.0.8 | 3.0.6 |
 | **1.0.7** | 1.0.7.1<br>1.0.7 | 1.0.7.1<br>1.0.7 | 1.0.7.1<br>1.0.7 | 3.0.5<br>3.0.4 (ARMv7hl, CentOS) |
 | **1.0.6** | 1.0.6.1<br>1.0.6 | 1.0.6.1<br>1.0.6 | 1.0.6.1<br>1.0.6 |  |
 | **1.0.5** | 1.0.5 | 1.0.5 | 1.0.5 | 3.0.2 |
 
-IoT Edge uses the Microsoft.Azure.Device.Client SDK. For more information, see the [Azure IoT C# SDK GitHub repo](https://github.com/Azure/azure-iot-sdk-csharp) or the [Azure SDK for .NET reference content](https://docs.microsoft.com/dotnet/api/overview/azure/iot/client?view=azure-dotnet). The following list shows the version of the client SDK that each release is tested against:
+IoT Edge uses the Microsoft.Azure.Device.Client SDK. For more information, see the [Azure IoT C# SDK GitHub repo](https://github.com/Azure/azure-iot-sdk-csharp) or the [Azure SDK for .NET reference content](/dotnet/api/overview/azure/iot/client). The following list shows the version of the client SDK that each release is tested against:
 
 * **IoT Edge 1.0.9**: Client SDK 1.21.1
 * **IoT Edge 1.0.8**: Client SDK 1.20.3

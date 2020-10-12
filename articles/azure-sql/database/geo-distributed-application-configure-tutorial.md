@@ -4,12 +4,12 @@ description: Learn to configure your database in Azure SQL Database and client a
 services: sql-database
 ms.service: sql-database
 ms.subservice: high-availability
-ms.custom: sqldbrb=1
+ms.custom: sqldbrb=1, devx-track-azurecli, devx-track-azurepowershell
 ms.devlang: 
 ms.topic: conceptual
 author: anosov1960
 ms.author: sashan
-ms.reviewer: mathoma, carlrab
+ms.reviewer: mathoma, sstein
 ms.date: 03/12/2019
 ---
 # Tutorial: Implement a geo-distributed database (Azure SQL Database)
@@ -34,7 +34,7 @@ If you don't have an Azure subscription, [create a free account](https://azure.m
 
 To complete the tutorial, make sure you've installed the following items:
 
-- [Azure PowerShell](/powershell/azureps-cmdlets-docs)
+- [Azure PowerShell](/powershell/azure/)
 - A single database in Azure SQL Database. To create one use,
   - [The Azure Portal](single-database-create-quickstart.md)
   - [The Azure CLI](az-cli-script-samples-content-guide.md)

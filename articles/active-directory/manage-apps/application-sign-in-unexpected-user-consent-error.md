@@ -34,6 +34,8 @@ This error occurs when a user who is not a company administrator attempts to use
 
 This error can also occur when a user is prevented from consenting to an application due to Microsoft detecting that the permissions request is risky. In this case, an audit event will also be logged with a Category of "ApplicationManagement", Activity Type of "Consent to application" and Status Reason of "Risky application detected".
 
+Another scenario in which this error might occur is when the user assignment is required for the application, but no administrator consent was provided. In this case, the administrator must first provide administrator consent.   
+
 ## Policy prevents granting permissions error
 * **AADSTS90093:** An administrator of &lt;tenantDisplayName&gt; has set a policy that prevents you from granting &lt;name of app&gt; the permissions it is requesting. Contact an administrator of &lt;tenantDisplayName&gt;, who can grant permissions to this app on your behalf.
 
@@ -70,6 +72,16 @@ These errors all occur when the application a user is trying to consent to is re
     -   Granting the application permissions via the Azure portal
 
     -   Adding the application from the Azure AD Application Gallery
+
+## Risky app error and warning
+* **AADSTS900941:** Administrator consent is required. App is considered risky. (AdminConsentRequiredDueToRiskyApp)
+* This app may be risky. If you trust this app, please ask your admin to grant you access.
+* **AADSTS900981:** An admin consent request was received for a risky app. (AdminConsentRequestRiskyAppWarning)
+* This app may be risky. Only continue if you trust this app.
+
+Both of these messages will be displayed when Microsoft has determined that the consent request may be risky. Among a number of other factors, this may occur if a [verified publisher](../develop/publisher-verification-overview.md) has not been added to the app registration. The first error code and message will be shown to end-users when the [Admin consent workflow](configure-admin-consent-workflow.md) is disabled. The second code and message will be shown to end-users when the admin consent workflow is enabled and to admins. 
+
+End-users will not be able to grant consent to apps that have been detected as risky. Admins are able to, but should evaluate the app very carefuly and proceed with caution. If the app seems suspicious upon further review, it can be reported to Microsoft from the consent screen. 
 
 ## Next steps 
 

@@ -15,7 +15,8 @@ ms.topic: sample
 ms.tgt_pltfrm: vm-Windows
 ms.workload: infrastructure
 ms.date: 02/23/2017
-ms.author: rclaus
+ms.author: rclaus 
+ms.custom: devx-track-azurecli
 ---
 
 # Create a virtual machine with the Azure CLI

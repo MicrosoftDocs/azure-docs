@@ -2,22 +2,15 @@
 title: 'Tutorial: Azure Active Directory integration with LockPath Keylight | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and LockPath Keylight.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-
-ms.assetid: 234a32f1-9f56-4650-9e31-7b38ad734b1a
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 04/14/2019
 ms.author: jeedes
-
-ms.collection: M365-identity-device-management
 ---
 # Tutorial: Azure Active Directory integration with LockPath Keylight
 
@@ -136,15 +129,15 @@ To configure Azure AD single sign-on with LockPath Keylight, perform the followi
 
     b. In the menu on the top, click **Person**, and select **Keylight Setup**.
 
-    ![Configure Single Sign-On](./media/keylight-tutorial/401.png)
+    ![Screenshot that shows the "Person" icon selected, and "Keylight Setup" selected from the drop-down.](./media/keylight-tutorial/401.png)
 
     c. In the treeview on the left, click **SAML**.
 
-    ![Configure Single Sign-On](./media/keylight-tutorial/402.png)
+    ![Screenshot that shows "S A M L" selected in the tree view.](./media/keylight-tutorial/402.png)
 
     d. On the **SAML Settings** dialog, click **Edit**.
 
-    ![Configure Single Sign-On](./media/keylight-tutorial/404.png)
+    ![Screenshot that shows the "S A M L Settings" window with the "Edit" button selected.](./media/keylight-tutorial/404.png)
 
 1. On the **Edit SAML Settings** dialog page, perform the following steps:
 

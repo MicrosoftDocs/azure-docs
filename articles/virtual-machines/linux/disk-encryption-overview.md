@@ -4,7 +4,7 @@ description: This article provides instructions on enabling Microsoft Azure Disk
 author: msmbaldwin
 ms.service: virtual-machines-linux
 ms.subservice: security
-ms.topic: article
+ms.topic: conceptual
 ms.author: mbaldwin
 ms.date: 08/06/2019
 ms.custom: seodec18
@@ -30,7 +30,7 @@ You can learn the fundamentals of Azure Disk Encryption for Linux in just a few 
 
 ### Supported VMs
 
-Linux VMs are available in a [range of sizes](sizes.md). Azure Disk Encryption is not available on [Basic, A-series VMs](https://azure.microsoft.com/pricing/details/virtual-machines/series/), or on virtual machines that do not meet these minimum memory requirements:
+Linux VMs are available in a [range of sizes](../sizes.md). Azure Disk Encryption is not available on [Basic, A-series VMs](https://azure.microsoft.com/pricing/details/virtual-machines/series/), or on virtual machines that do not meet these minimum memory requirements:
 
 | Virtual machine | Minimum memory requirement |
 |--|--|
@@ -135,7 +135,7 @@ The following table defines some of the common terms used in Azure disk encrypti
 | Azure CLI | [The Azure CLI](/cli/azure/install-azure-cli) is optimized for managing and administering Azure resources from the command line.|
 | DM-Crypt |[DM-Crypt](https://gitlab.com/cryptsetup/cryptsetup/wikis/DMCrypt) is the Linux-based, transparent disk-encryption subsystem that's used to enable disk encryption on Linux VMs. |
 | Key encryption key (KEK) | The asymmetric key (RSA 2048) that you can use to protect or wrap the secret. You can provide a hardware security module (HSM)-protected key or software-protected key. For more information, see the [Azure Key Vault](https://azure.microsoft.com/services/key-vault/) documentation and [Creating and configuring a key vault for Azure Disk Encryption](disk-encryption-key-vault.md). |
-| PowerShell cmdlets | For more information, see [Azure PowerShell cmdlets](/powershell/azure/overview). |
+| PowerShell cmdlets | For more information, see [Azure PowerShell cmdlets](/powershell/azure/). |
 
 
 ## Next steps

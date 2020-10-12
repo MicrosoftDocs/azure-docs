@@ -2,22 +2,15 @@
 title: 'Tutorial: Azure Active Directory integration with Benefitsolver | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and Benefitsolver.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-
-ms.assetid: 333394c1-b5a7-489c-8f7b-d1a5b4e782ea
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 02/06/2019
 ms.author: jeedes
-
-ms.collection: M365-identity-device-management
 ---
 # Tutorial: Azure Active Directory integration with Benefitsolver
 
@@ -116,7 +109,7 @@ To configure Azure AD single sign-on with Benefitsolver, perform the following s
 
 5. Benefitsolver application expects the SAML assertions in a specific format. Configure the following claims for this application. You can manage the values of these attributes from the **User Attributes** section on application integration page. On the **Set up Single Sign-On with SAML** page, click **Edit** button to open **User Attributes** dialog.
 
-	![image](common/edit-attribute.png)
+	![Screenshot shows User Attributes with the edit control called out.](common/edit-attribute.png)
 
 6. In the **User Claims** section on the **User Attributes** dialog, edit the claims by using **Edit icon** or add the claims by using **Add new claim** to configure SAML token attribute as shown in the image above and perform the following steps: 
 
@@ -130,9 +123,9 @@ To configure Azure AD single sign-on with Benefitsolver, perform the following s
 
 	a. Click **Add new claim** to open the **Manage user claims** dialog.
 
-	![image](common/new-save-attribute.png)
+	![Screenshot shows User claims with Add new claim and Save called out.](common/new-save-attribute.png)
 
-	![image](common/new-attribute-details.png)
+	![Screenshot shows Manage user claims where you can enter the values described in this step.](common/new-attribute-details.png)
 
 	b. In the **Name** textbox, type the attribute name shown for that row.
 

@@ -4,7 +4,7 @@
   expanded: true
   items:
   - name: What is Computer Vision?
-    href: Home.md
+    href: overview.md
   - name: What's new
     href: whats-new.md
 - name: Quickstarts
@@ -109,17 +109,37 @@
     href: concept-recognizing-text.md
   - name: Adult content detection
     href: concept-detecting-adult-content.md
-- name: How-to guides
+- name: Responsible AI
   items:
-  - name: Call the Computer Vision API
-    href: Vision-API-How-to-Topics/HowToCallVisionAPI.md
-  - name: Use containers
+  - name: Spatial Analysis
     items:
+    - name: Transparency Note
+      items:
+      - name: Introduction to Spatial Analysis
+        href: https://docs.microsoft.com/legal/cognitive-services/computer-vision/intro-to-spatial-analysis-public-preview?context=/azure/cognitive-services/Computer-vision/context/context
+      - name: Characteristics and limitations
+        href: https://docs.microsoft.com/legal/cognitive-services/computer-vision/accuracy-and-limitations?context=/azure/cognitive-services/Computer-vision/context/context
+    - name: Deployment Guidelines
+      items:
+      - name: Responsible use in AI deployment 
+        href: https://docs.microsoft.com/legal/cognitive-services/computer-vision/responsible-use-deployment?context=/azure/cognitive-services/Computer-vision/context/context
+      - name: Disclosure design guidelines
+        href: https://docs.microsoft.com/legal/cognitive-services/computer-vision/disclosure-design?context=/azure/cognitive-services/Computer-vision/context/context
+      - name: Research insights
+        href: https://docs.microsoft.com/legal/cognitive-services/computer-vision/research-insights?context=/azure/cognitive-services/Computer-vision/context/context
+    - name: Compliance, privacy, and security
+      href: https://docs.microsoft.com/legal/cognitive-services/computer-vision/compliance-privacy-security-2?context=/azure/cognitive-services/Computer-vision/context/context
+- name: Containers
+  items:
+  - name: Read API container
+    items: 
     - name: Install and run containers
       href: computer-vision-how-to-install-containers.md
       displayName: docker, container, package, packaged app, swagger, open api, openapi, train, publish, az, acr, cli, tps, core, curl, try it now, import, pull, on-premises
     - name: Configure containers
       href: computer-vision-resource-container-config.md
+    - name: Migrate to v3 of the Read container
+      href: read-container-migration-guide.md
       displayName: docker, container, billing, apikey, pull, logging, on-premises
     - name: Use with Kubernetes and Helm
       href: deploy-computer-vision-on-premises.md
@@ -127,6 +147,25 @@
     - name: Use container instances
       href: deploy-computer-vision-on-container-instances.md
       displayName: container instances, container, containers, images
+  - name: Spatial Analysis container
+    items:
+    - name: Setup the host machine and run the container
+      href: spatial-analysis-container.md
+    - name: Configure operations
+      href: spatial-analysis-operations.md
+    - name: Deploy a people counting web app
+      href: Spatial-analysis-web-app.md
+    - name: Logging and troubleshooting
+      href: spatial-analysis-logging.md
+    - name: Zone and line placement
+      href: spatial-analysis-zone-line-placement.md
+    - name: Camera placement
+      href: spatial-analysis-camera-placement.md
+
+- name: How-to guides
+  items:
+  - name: Call the Computer Vision API
+    href: Vision-API-How-to-Topics/HowToCallVisionAPI.md
   - name: Analyze videos in real time
     href: Vision-API-How-to-Topics/HowtoAnalyzeVideo_Vision.md
 - name: Reference
@@ -135,6 +174,8 @@
     href: https://docs.microsoft.com/cli/azure/cognitiveservices?view=azure-cli-latest#az_cognitiveservices_list
   - name: Azure PowerShell
     href: https://aka.ms/azure-powershell-cognitiveservices
+  - name: Computer Vision API v3.1 preview
+    href: https://westus2.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-preview-2/operations/5d986960601faab4bf452005
   - name: Computer Vision API v3.0
     href: https://aka.ms/computer-vision-v3-ref
   - name: Computer Vision API v2.1
@@ -181,3 +222,5 @@
     href: https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services
   - name: Compliance
     href: https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/
+  - name: Upgrade to v3.0 from 2.0 or 2.1
+    href: upgrade-api-versions.md

@@ -16,9 +16,19 @@ This article answers common questions about backing up data with the Microsoft A
 
 The latest MARS agent used when backing up Windows Server machines, System Center DPM, and Microsoft Azure Backup server is available for [download](https://aka.ms/azurebackup_agent).
 
+### Where can I download the vault credentials file?
+
+In the Azure portal, navigate to **Properties** for your vault. Under **Backup Credentials**, select the checkbox for **Already using the latest Recovery Services Agent**. Select **Download**.
+
+![Download credentials](./media/backup-azure-file-folder-backup-faq/download-credentials.png)
+
 ### How long are vault credentials valid?
 
 Vault credentials expire after 10 days. If the credentials file expires, download the file again from the Azure portal.
+
+### What characters are allowed for the passphrase?
+
+The passphrase should use characters from the ASCII character set, with [ASCII values less than or equal to 127](https://docs.microsoft.com/office/vba/language/reference/user-interface-help/character-set-0127).
 
 ### From what drives can I back up files and folders?
 
@@ -70,11 +80,11 @@ When you rename a Windows machine, all currently configured backups are stopped.
 
 ### What is the maximum file path length for backup?
 
-The MARS agent relies on NTFS, and uses the filepath length specification limited by the [Windows API](/windows/desktop/FileIO/naming-a-file#fully-qualified-vs-relative-paths). If the files you want to protect are longer than the allowed value, back up the parent folder or the disk drive.  
+The MARS agent relies on NTFS, and uses the filepath length specification limited by the [Windows API](/windows/win32/FileIO/naming-a-file#fully-qualified-vs-relative-paths). If the files you want to protect are longer than the allowed value, back up the parent folder or the disk drive.  
 
 ### What characters are allowed in file paths?
 
-The MARS agent relies on NTFS, and allows [supported characters](/windows/desktop/FileIO/naming-a-file#naming-conventions) in file names/paths.
+The MARS agent relies on NTFS, and allows [supported characters](/windows/win32/FileIO/naming-a-file#naming-conventions) in file names/paths.
 
 ### The warning "Azure Backups have not been configured for this server" appears
 
@@ -108,7 +118,7 @@ The size of the cache folder determines the amount of data that you're backing u
 1. Run this command in an elevated command prompt to stop the Backup engine:
 
     ```Net stop obengine```
-2. If you have configured System State backup, open Disk Management and unmount the disk(s) with names in the format `"CBSSBVol_<ID>"`.
+2. If you've configured System State backup, open Disk Management and unmount the disk(s) with names in the format `"CBSSBVol_<ID>"`.
 3. By default, the scratch folder is located at `\Program Files\Microsoft Azure Recovery Services Agent\Scratch`
 4. Copy the entire `\Scratch` folder to a different drive that has sufficient space. Ensure the contents are copied, not moved.
 5. Update the following registry entries with the path of the newly moved scratch folder.
@@ -161,12 +171,12 @@ The Azure Backup agent requires a passphrase (that you provided during registrat
 
 | Original Machine <br> *(source machine where backups were taken)* | Passphrase | Available Options |
 | --- | --- | --- |
-| Available |Lost |If your original machine (where backups were taken) is available and still registered with the same Recovery Services vault, then you can regenerate the passphrase by following these [steps](https://docs.microsoft.com/azure/backup/backup-azure-manage-mars#re-generate-passphrase).  |
+| Available |Lost |If your original machine (where backups were taken) is available and still registered with the same Recovery Services vault, then you can regenerate the passphrase by following these [steps](./backup-azure-manage-mars.md#re-generate-passphrase).  |
 | Lost |Lost |Not possible to recover the data or data isn't available |
 
 Consider the following conditions:
 
-* If you uninstall and re-register the agent on the same original machine with thee
+* If you uninstall and re-register the agent on the same original machine with the
   * *Same passphrase*, then you can restore your backed-up data.
   * *Different passphrase*, then you can't restore your backed-up data.
 * If you install the agent on a *different machine* with the
@@ -180,12 +190,12 @@ If you have the same passphrase (that you provided during registration) of the o
 
 | Original Machine | Passphrase | Available Options |
 | --- | --- | --- |
-| Lost |Available |You can install and register the MARS agent on another machine with the same passphrase that you provided during registration of the original machine. Choose **Recovery Option** > **Another location** to perform your restore. For more information, see this [article](https://docs.microsoft.com/azure/backup/backup-azure-restore-windows-server#use-instant-restore-to-restore-data-to-an-alternate-machine).
+| Lost |Available |You can install and register the MARS agent on another machine with the same passphrase that you provided during registration of the original machine. Choose **Recovery Option** > **Another location** to perform your restore. For more information, see this [article](./backup-azure-restore-windows-server.md#use-instant-restore-to-restore-data-to-an-alternate-machine).
 | Lost |Lost |Not possible to recover the data or data isn't available |
 
 ### My backup jobs have been failing or not running for a long time. I'm past the retention period. Can I still restore?
 
-As a safety measure, Azure Backup will preserve the last recovery point, even if it's past the retention period. Once backups resume and fresh recovery points become available, the older recovery point will be removed according to the specified retention.
+As a safety measure, Azure Backup will preserve the most recent recovery point, even if it's past the retention period. Once backups resume and fresh recovery points become available, the older recovery point will be removed according to the specified retention.
 
 ### What happens if I cancel an ongoing restore job?
 

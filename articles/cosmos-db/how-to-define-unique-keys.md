@@ -6,7 +6,7 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 12/02/2019
 ms.author: thweiss
-ms.custom: tracking-python
+ms.custom: devx-track-python, devx-track-js, devx-track-csharp
 
 ---
 

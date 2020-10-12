@@ -15,6 +15,7 @@ The Service Bus messaging samples demonstrate key features in [Service Bus messa
 | .NET, Java, and Management | https://github.com/Azure/azure-service-bus/ |
 | Node.js | https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/servicebus/service-bus/samples |
 | Python | https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/servicebus/azure-servicebus |
+| Go| https://github.com/Azure/azure-service-bus-go/ |
 
 ## Service Bus Explorer
 
@@ -25,5 +26,4 @@ In addition, the [Service Bus Explorer](https://github.com/paolosalvatori/Servic
 See the following topics for conceptual overviews of Service Bus.
 
 * [Service Bus messaging overview](service-bus-messaging-overview.md)
-* [Service Bus architecture](service-bus-architecture.md)
-
+* [Service Bus architecture](./service-bus-messaging-overview.md)

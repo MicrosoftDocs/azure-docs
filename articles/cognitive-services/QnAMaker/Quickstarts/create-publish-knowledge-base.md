@@ -1,6 +1,8 @@
 ---
 title: "Quickstart: Create, train, and publish knowledge base - QnA Maker"
 description: You can create a QnA Maker knowledge base (KB) from your own content, such as FAQs or product manuals. This article includes an example of creating a QnA Maker knowledge base from a simple FAQ webpage, to answer questions QnA Maker.
+ms.service: cognitive-services
+ms.subservice: qna-maker
 ms.topic: quickstart
 ms.date: 05/26/2020
 
@@ -13,7 +15,7 @@ You can create a QnA Maker knowledge base (KB) from your own content, such as FA
 ## Prerequisites
 
 > [!div class="checklist"]
-> * If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+> * If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/cognitive-services/) before you begin.
 > * A QnA Maker [resource](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesQnAMaker) created in the Azure portal. Remember your Azure Active Directory ID, Subscription, QnA resource name you selected when you created the resource.
 
 ## Create your first QnA Maker knowledge base
@@ -85,7 +87,7 @@ In the upper right, select **Save and train** to save your edits and train QnA M
 
 ## Publish the knowledge base
 
-When you publish a knowledge base, the contents of your knowledge base moves from the `test` index to a `prod` index in Azure search.
+When you publish a knowledge base, the contents of your knowledge base move from the `test` index to a `prod` index in Azure search.
 
 ![Screenshot of moving the contents of your knowledge base](../media/qnamaker-how-to-publish-kb/publish-prod-test.png)
 

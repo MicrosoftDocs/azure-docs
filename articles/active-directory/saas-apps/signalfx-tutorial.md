@@ -2,21 +2,15 @@
 title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with SignalFx | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and SignalFx.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-
-ms.assetid: 6d5ab4b0-29bc-4b20-8536-d64db7530f32
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 02/24/2020
 ms.author: jeedes
-
-ms.collection: M365-identity-device-management
 ---
 
 # Tutorial: Azure Active Directory single sign-on (SSO) integration with SignalFx
@@ -160,7 +154,7 @@ Review the following information regarding how to test SSO, as well as expectati
         * For more information about the Access Panel, see [Introduction to the Access Panel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 * SignalFx application can be accessed from the Access Panel or via a custom login page assigned to the organization. The test user should test the integration starting from either of these location.
-    * The test user can use the credentials created earlier in this process for **b.simon@contoso.com**.
+    * The test user can use the credentials created earlier in this process for **b.simon\@contoso.com**.
 
 ### First-time logins
 

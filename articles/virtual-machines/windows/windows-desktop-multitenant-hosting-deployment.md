@@ -1,6 +1,6 @@
 ---
 title: How to deploy Windows 10 on Azure with Multitenant Hosting Rights 
-description: Learn how to maximize your Windows Software Assurance benefits to bring on-premises licenses to Azure
+description: Learn how to maximize your Windows Software Assurance benefits to bring on-premises licenses to Azure with Multitenant Hosting Rights.
 author: xujing
 ms.service: virtual-machines-windows
 ms.topic: how-to
@@ -50,7 +50,7 @@ For more information:
 
 
 ## Deploying Windows 10 with Multitenant Hosting Rights
-Make sure you have [installed and configured the latest Azure PowerShell](/powershell/azure/overview). Once you have prepared your VHD, upload the VHD to your Azure Storage account using the `Add-AzVhd` cmdlet as follows:
+Make sure you have [installed and configured the latest Azure PowerShell](/powershell/azure/). Once you have prepared your VHD, upload the VHD to your Azure Storage account using the `Add-AzVhd` cmdlet as follows:
 
 ```powershell
 Add-AzVhd -ResourceGroupName "myResourceGroup" -LocalFilePath "C:\Path\To\myvhd.vhd" `

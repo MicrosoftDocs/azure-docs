@@ -9,6 +9,7 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/20/2020
+ms.custom: devx-track-csharp
 ---
 
 # Analyzers for text processing in Azure Cognitive Search
@@ -44,7 +45,7 @@ The following list describes which analyzers are available in Azure Cognitive Se
 |----------|-------------|
 | [Standard Lucene analyzer](https://lucene.apache.org/core/6_6_1/core/org/apache/lucene/analysis/standard/StandardAnalyzer.html) | Default. No specification or configuration is required. This general-purpose analyzer performs well for many languages and scenarios.|
 | Predefined analyzers | Offered as a finished product intended to be used as-is. <br/>There are two types: specialized and language. What makes them "predefined" is that you reference them by name, with no configuration or customization. <br/><br/>[Specialized (language-agnostic) analyzers](index-add-custom-analyzers.md#AnalyzerTable) are used when text inputs require specialized processing or minimal processing. Non-language predefined analyzers include **Asciifolding**, **Keyword**, **Pattern**, **Simple**, **Stop**, **Whitespace**.<br/><br/>[Language analyzers](index-add-language-analyzers.md) are used when you need rich linguistic support for individual languages. Azure Cognitive Search supports 35 Lucene language analyzers and 50 Microsoft natural language processing analyzers. |
-|[Custom analyzers](https://docs.microsoft.com/rest/api/searchservice/Custom-analyzers-in-Azure-Search) | Refers to a user-defined configuration of a combination of existing elements, consisting of one tokenizer (required) and optional filters (char or token).|
+|[Custom analyzers](/rest/api/searchservice/Custom-analyzers-in-Azure-Search) | Refers to a user-defined configuration of a combination of existing elements, consisting of one tokenizer (required) and optional filters (char or token).|
 
 A few predefined analyzers, such as **Pattern** or **Stop**, support a limited set of configuration options. To set these options, you effectively create a custom analyzer, consisting of the predefined analyzer and one of the alternative options documented in [Predefined Analyzer Reference](index-add-custom-analyzers.md#AnalyzerTable). As with any custom configuration, provide your new configuration with a name, such as *myPatternAnalyzer* to distinguish it from the Lucene Pattern analyzer.
 
@@ -52,7 +53,7 @@ A few predefined analyzers, such as **Pattern** or **Stop**, support a limited s
 
 Setting an analyzer is optional. As a general rule, try using the default standard Lucene analyzer first to see how it performs. If queries fail to return the expected results, switching to a different analyzer is often the right solution.
 
-1. When creating a field definition in the [index](https://docs.microsoft.com/rest/api/searchservice/create-index), set the  **analyzer** property to one of the following: a [predefined analyzer](index-add-custom-analyzers.md#AnalyzerTable) such as `keyword`, a [language analyzer](index-add-language-analyzers.md) such as `en.microsoft`, or a custom analyzer (defined in the same index schema).  
+1. When creating a field definition in the [index](/rest/api/searchservice/create-index), set the  **analyzer** property to one of the following: a [predefined analyzer](index-add-custom-analyzers.md#AnalyzerTable) such as `keyword`, a [language analyzer](index-add-language-analyzers.md) such as `en.microsoft`, or a custom analyzer (defined in the same index schema).  
  
    ```json
      "fields": [
@@ -84,7 +85,7 @@ Setting an analyzer is optional. As a general rule, try using the default standa
     },
    ```
 
-1. For custom analyzers only, create an entry in the **[analyzers]** section of the index, and then assign your custom analyzer to the field definition per either of the previous two steps. For more information, see [Create Index](https://docs.microsoft.com/rest/api/searchservice/create-index) and also [Add custom analyzers](index-add-custom-analyzers.md).
+1. For custom analyzers only, create an entry in the **[analyzers]** section of the index, and then assign your custom analyzer to the field definition per either of the previous two steps. For more information, see [Create Index](/rest/api/searchservice/create-index) and also [Add custom analyzers](index-add-custom-analyzers.md).
 
 ## When to add analyzers
 
@@ -92,11 +93,11 @@ The best time to add and assign analyzers is during active development, when dro
 
 Because analyzers are used to tokenize terms, you should assign an analyzer when the field is created. In fact, assigning **analyzer** or **indexAnalyzer** to a field that has already been physically created is not allowed (although you can change the **searchAnalyzer** property at any time with no impact to the index).
 
-To change the analyzer of an existing field, you'll have to [rebuild the index entirely](search-howto-reindex.md) (you cannot rebuild individual fields). For indexes in production, you can defer a rebuild by creating a new field with the new analyzer assignment, and start using it in place of the old one. Use [Update Index](https://docs.microsoft.com/rest/api/searchservice/update-index) to incorporate the new field and [mergeOrUpload](https://docs.microsoft.com/rest/api/searchservice/addupdate-or-delete-documents) to populate it. Later, as part of planned index servicing, you can clean up the index to remove obsolete fields.
+To change the analyzer of an existing field, you'll have to [rebuild the index entirely](search-howto-reindex.md) (you cannot rebuild individual fields). For indexes in production, you can defer a rebuild by creating a new field with the new analyzer assignment, and start using it in place of the old one. Use [Update Index](/rest/api/searchservice/update-index) to incorporate the new field and [mergeOrUpload](/rest/api/searchservice/addupdate-or-delete-documents) to populate it. Later, as part of planned index servicing, you can clean up the index to remove obsolete fields.
 
-To add a new field to an existing index, call [Update Index](https://docs.microsoft.com/rest/api/searchservice/update-index) to add the field, and [mergeOrUpload](https://docs.microsoft.com/rest/api/searchservice/addupdate-or-delete-documents) to populate it.
+To add a new field to an existing index, call [Update Index](/rest/api/searchservice/update-index) to add the field, and [mergeOrUpload](/rest/api/searchservice/addupdate-or-delete-documents) to populate it.
 
-To add a custom analyzer to an existing index, pass the **allowIndexDowntime** flag in [Update Index](https://docs.microsoft.com/rest/api/searchservice/update-index) if you want to avoid this error:
+To add a custom analyzer to an existing index, pass the **allowIndexDowntime** flag in [Update Index](/rest/api/searchservice/update-index) if you want to avoid this error:
 
 *"Index update not allowed because it would cause downtime. In order to add new analyzers, tokenizers, token filters, or character filters to an existing index, set the 'allowIndexDowntime' query parameter to 'true' in the index update request. Note that this operation will put your index offline for at least a few seconds, causing your indexing and query requests to fail. Performance and write availability of the index can be impaired for several minutes after the index is updated, or longer for very large indexes."*
 
@@ -116,7 +117,7 @@ Overriding the standard analyzer requires an index rebuild. If possible, decide 
 
 ### Inspect tokenized terms
 
-If a search fails to return expected results, the most likely scenario is token discrepancies between term inputs on the query, and tokenized terms in the index. If the tokens aren't the same, matches fail to materialize. To inspect tokenizer output, we recommend using the [Analyze API](https://docs.microsoft.com/rest/api/searchservice/test-analyzer) as an investigation tool. The response consists of tokens, as generated by a specific analyzer.
+If a search fails to return expected results, the most likely scenario is token discrepancies between term inputs on the query, and tokenized terms in the index. If the tokens aren't the same, matches fail to materialize. To inspect tokenizer output, we recommend using the [Analyze API](/rest/api/searchservice/test-analyzer) as an investigation tool. The response consists of tokens, as generated by a specific analyzer.
 
 <a name="examples"></a>
 
@@ -142,7 +143,7 @@ Walking through this example:
 * In this case, the custom analyzer is "my_analyzer", which in turn uses a customized standard tokenizer "my_standard_tokenizer" and two token filters: lowercase and customized asciifolding filter "my_asciifolding".
 * It also defines 2 custom char filters "map_dash" and "remove_whitespace". The first one replaces all dashes with underscores while the second one removes all spaces. Spaces need to be UTF-8 encoded in the mapping rules. The char filters are applied before tokenization and will affect the resulting tokens (the standard tokenizer breaks on dash and spaces but not on underscore).
 
-~~~~
+```json
   {
      "name":"myindex",
      "fields":[
@@ -201,7 +202,7 @@ Walking through this example:
         }
      ]
   }
-~~~~
+```
 
 <a name="Per-field-analyzer-assignment-example"></a>
 
@@ -211,7 +212,7 @@ The Standard analyzer is the default. Suppose you want to replace the default wi
 
 The "analyzer" element overrides the Standard analyzer on a field-by-field basis. There is no global override. In this example, `text1` uses the pattern analyzer and `text2`, which doesn't specify an analyzer, uses the default.
 
-~~~~
+```json
   {
      "name":"myindex",
      "fields":[
@@ -234,7 +235,7 @@ The "analyzer" element overrides the Standard analyzer on a field-by-field basis
         }
      ]
   }
-~~~~
+```
 
 <a name="Mixing-analyzers-for-indexing-and-search-operations"></a>
 
@@ -243,7 +244,7 @@ The "analyzer" element overrides the Standard analyzer on a field-by-field basis
 The APIs include additional index attributes for specifying different analyzers for indexing and search. The **searchAnalyzer** and **indexAnalyzer** attributes must be specified as a pair, replacing the single **analyzer** attribute.
 
 
-~~~~
+```json
   {
      "name":"myindex",
      "fields":[
@@ -262,7 +263,7 @@ The APIs include additional index attributes for specifying different analyzers 
         },
      ],
   }
-~~~~
+```
 
 <a name="Language-analyzer-example"></a>
 
@@ -270,7 +271,7 @@ The APIs include additional index attributes for specifying different analyzers 
 
 Fields containing strings in different languages can use a language analyzer, while other fields retain the default (or use some other predefined or custom analyzer). If you use a language analyzer, it must be used for both indexing and search operations. Fields that use a language analyzer cannot have different analyzers for indexing and search.
 
-~~~~
+```json
   {
      "name":"myindex",
      "fields":[
@@ -295,7 +296,7 @@ Fields containing strings in different languages can use a language analyzer, wh
         }
      ],
   }
-~~~~
+```
 
 ## C# examples
 
@@ -312,7 +313,7 @@ Any analyzer that is used as-is, with no configuration, is specified on a field 
 
 This example assigns Microsoft English and French analyzers to description fields. It's a snippet taken from a larger definition of the hotels index, creating using the Hotel class in the hotels.cs file of the [DotNetHowTo](https://github.com/Azure-Samples/search-dotnet-getting-started/tree/master/DotNetHowTo) sample.
 
-Call [Analyzer](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.analyzer?view=azure-dotnet), specifying the [AnalyzerName](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.analyzername?view=azure-dotnet) type providing a text analyzer supported in Azure Cognitive Search.
+Call [Analyzer](/dotnet/api/microsoft.azure.search.models.analyzer), specifying the [AnalyzerName](/dotnet/api/microsoft.azure.search.models.analyzername) type providing a text analyzer supported in Azure Cognitive Search.
 
 ```csharp
     public partial class Hotel
@@ -338,7 +339,7 @@ Call [Analyzer](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.mod
 
 When customization or configuration is required, you will need to add an analyzer construct to an index. Once you define it, you can add it the field definition as demonstrated in the previous example.
 
-Create a [CustomAnalyzer](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.customanalyzer?view=azure-dotnet) object. For more examples, see [CustomAnalyzerTests.cs](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/search/Microsoft.Azure.Search/tests/Tests/CustomAnalyzerTests.cs).
+Create a [CustomAnalyzer](/dotnet/api/microsoft.azure.search.models.customanalyzer) object. For more examples, see [CustomAnalyzerTests.cs](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/search/Microsoft.Azure.Search/tests/Tests/CustomAnalyzerTests.cs).
 
 ```csharp
 {
@@ -364,7 +365,7 @@ Create a [CustomAnalyzer](https://docs.microsoft.com/dotnet/api/microsoft.azure.
 
 + Review our comprehensive explanation of [how full text search works in Azure Cognitive Search](search-lucene-query-architecture.md). This article uses examples to explain behaviors that might seem counter-intuitive on the surface.
 
-+ Try additional query syntax from the [Search Documents](https://docs.microsoft.com/rest/api/searchservice/search-documents#bkmk_examples) example section or from [Simple query syntax](query-simple-syntax.md) in Search explorer in the portal.
++ Try additional query syntax from the [Search Documents](/rest/api/searchservice/search-documents#bkmk_examples) example section or from [Simple query syntax](query-simple-syntax.md) in Search explorer in the portal.
 
 + Learn how to apply [language-specific lexical analyzers](index-add-language-analyzers.md).
 
@@ -372,7 +373,7 @@ Create a [CustomAnalyzer](https://docs.microsoft.com/dotnet/api/microsoft.azure.
 
 ## See also
 
- [Search Documents REST API](https://docs.microsoft.com/rest/api/searchservice/search-documents) 
+ [Search Documents REST API](/rest/api/searchservice/search-documents) 
 
  [Simple query syntax](query-simple-syntax.md) 
 

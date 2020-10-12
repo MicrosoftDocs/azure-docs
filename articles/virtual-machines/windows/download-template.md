@@ -5,7 +5,7 @@ author: cynthn
 manager: gwallace
 ms.service: virtual-machines
 ms.workload: infrastructure-services
-ms.topic: article
+ms.topic: how-to
 ms.date: 11/17/2017
 ms.author: cynthn
 

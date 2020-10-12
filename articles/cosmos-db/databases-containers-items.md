@@ -43,7 +43,7 @@ You can interact with an Azure Cosmos database with Azure Cosmos APIs as describ
 
 ## Azure Cosmos containers
 
-An Azure Cosmos container is the unit of scalability both for provisioned throughput and storage. A container is horizontally partitioned and then replicated across multiple regions. The items that you add to the container and the throughput that you provision on it are automatically distributed across a set of logical partitions based on the partition key. To learn more about partitioning and partition keys, see [Partition data](partition-data.md). 
+An Azure Cosmos container is the unit of scalability both for provisioned throughput and storage. A container is horizontally partitioned and then replicated across multiple regions. The items that you add to the container are automatically grouped into logical partitions, which are distributed across physical partitions, based on the partition key. The throughput on a container is evenly distributed across the physical partitions. To learn more about partitioning and partition keys, see [Partition data](partition-data.md). 
 
 When you create an Azure Cosmos container, you configure throughput in one of the following modes:
 
@@ -109,7 +109,7 @@ Depending on which API you use, an Azure Cosmos item can represent either a docu
 
 | Cosmos entity | SQL API | Cassandra API | Azure Cosmos DB API for MongoDB | Gremlin API | Table API |
 | --- | --- | --- | --- | --- | --- |
-|Azure Cosmos item | Document | Row | Document | Node or edge | Item |
+|Azure Cosmos item | Item | Row | Document | Node or edge | Item |
 
 ### Properties of an item
 

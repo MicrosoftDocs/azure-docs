@@ -2,22 +2,15 @@
 title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with F5 | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and F5.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-
-ms.assetid: 59a87abb-1ec1-4438-be07-5b115676115f
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 11/19/2019
 ms.author: jeedes
-
-ms.collection: M365-identity-device-management
 ---
 
 # Tutorial: Configure single sign-on (SSO) between Azure Active Directory and F5
@@ -75,15 +68,15 @@ To get started, you need the following items:
 
 1. On the **Guided Configuration** page, click on **Upgrade Guided Configuration** on the top left-hand corner.
 
-	![F5 (Header Based) configuration](./media/headerf5-tutorial/configure14.png) 
+	![Screenshot shows the Guided Configuration page with the Update Guided Configuration link.](./media/headerf5-tutorial/configure14.png) 
 
 1. On the Upgrade Guide Configuration pop screen, select **Choose File** to upload the downloaded use case pack and click on **Upload and Install** button.
 
-	![F5 (Header Based) configuration](./media/headerf5-tutorial/configure15.png) 
+	![Screenshot shows the Upgrade Guided Configuration dialog box with Choose File selected.](./media/headerf5-tutorial/configure15.png) 
 
 1. When upgrade is completed, click on the **Continue** button.
 
-	![F5 (Header Based) configuration](./media/headerf5-tutorial/configure16.png)
+	![Screenshot shows the Upgrade Guided Configuration dialog box with a completion message.](./media/headerf5-tutorial/configure16.png)
 
 ## Scenario description
 
@@ -216,39 +209,39 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 1. Navigate to **System > Certificate Management > Traffic Certificate Management > SSL Certificate List**. Select **Import** from the right-hand corner. Specify a **Certificate Name** (will be referenced Later in the config). In the **Certificate Source**, select Upload File specify the certificate downloaded from Azure while configuring SAML Single Sign on. Click **Import**.
 
-	![F5 (Header Based) configuration](./media/headerf5-tutorial/configure12.png)
+	![Screenshot shows the S S L Certificate List where you select the Certificate Name and Certificate Source.](./media/headerf5-tutorial/configure12.png)
  
 1. Additionally, you will require **SSL Certificate for the Application Hostname. Navigate to System > Certificate Management > Traffic Certificate Management > SSL Certificate List**. Select **Import** from the right-hand corner. **Import Type** will be **PKCS 12(IIS)**. Specify a **Key Name** (will be referenced Later in the config) and the specify the PFX file. Specify the **Password** for the PFX. Click **Import**.
 
 	>[!NOTE]
 	>In the example our app name is `Headerapp.superdemo.live`, we are using a Wild Card Certificate our keyname is `WildCard-SuperDemo.live`.
 
-	![F5 (Header Based) configuration](./media/headerf5-tutorial/configure13.png)
+	![Screenshot shows the S S L Certificate/Key Source page.](./media/headerf5-tutorial/configure13.png)
 
 1. We will use the Guided Experience to setup the Azure AD Federation and Application Access. Go to – F5 BIG-IP **Main** and select **Access > Guided Configuration > Federation > SAML Service Provider**. Click **Next** then click **Next** to begin configuration.
 
-	![F5 (Header Based) configuration](./media/headerf5-tutorial/configure01.png)
+	![Screenshot shows the Guided Configuration page with Federation selected.](./media/headerf5-tutorial/configure01.png)
 
-	![F5 (Header Based) configuration](./media/headerf5-tutorial/configure02.png)
+	![Screenshot shows the SAML Service Provider page.](./media/headerf5-tutorial/configure02.png)
  
 1. Provide a **Configuration Name**. Specify the **Entity ID** (same as what you configured on the Azure AD Application Configuration). Specify the **Host name**. Add a **Description** for reference. Accept the remaining default entries and select and then click **Save & Next**.
 
-	![F5 (Header Based) configuration](./media/headerf5-tutorial/configure03.png) 
+	![Screenshot shows the Service Provider Properties page.](./media/headerf5-tutorial/configure03.png) 
 
 1. In this example we are creating a new Virtual Server as 192.168.30.20 with port 443. Specify the Virtual Server IP address in the **Destination Address**. Select the Client **SSL Profile**, select Create new. Specify previously uploaded application certificate, (the wild card certificate in this example) and the associated key, and then click **Save & Next**.
 
 	>[!NOTE]
 	>in this example our Internal webserver is running on port 888 and we want to publish it with 443.
 
-	![F5 (Header Based) configuration](./media/headerf5-tutorial/configure04.png) 
+	![Screenshot shows the Virtual Server Properties page.](./media/headerf5-tutorial/configure04.png) 
 
 1. Under **Select method to configure your IdP connector**, specify Metadata, click on Choose File and upload the Metadata XML file downloaded earlier from Azure AD. Specify a unique **Name** for SAML IDP connector. Choose the **Metadata Signing Certificate** which was upload earlier. Click **Save & Next**.
 
-	![F5 (Header Based) configuration](./media/headerf5-tutorial/configure05.png)
+	![Screenshot shows the External Identity Provider Connector Settings page.](./media/headerf5-tutorial/configure05.png)
  
 1. Under **Select a Pool**, specify **Create New** (alternatively select a pool it already exists). Let other value be default.	Under Pool Servers, type the IP Address under **IP Address/Node Name**. Specify the **Port**. Click **Save & Next**.
 
-	![F5 (Header Based) configuration](./media/headerf5-tutorial/configure06.png)
+	![Screenshot shows the Pool Properties page.](./media/headerf5-tutorial/configure06.png)
 
 1. On the Single Sign-On Settings screen, select **Enable Single Sign-On**. Under Selected Single Sign-On Type choose **HTTP header-based**. Replace **session.saml.last.Identity** with **session.saml.last.attr.name.Identity** under Username Source ( this variable it set using claims mapping in the Azure AD ). Under SSO Headers.
 
@@ -263,21 +256,21 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 	>[!NOTE]
 	>Account Name Is the F5 Delegation Account Created (Check F5 Documentation).
 
-	![F5 (Header Based) configuration](./media/headerf5-tutorial/configure07.png) 
+	![Screenshot shows the Single Sign-On Settings page.](./media/headerf5-tutorial/configure07.png) 
 
 1. For purposes of this guidance, we will skip endpoint checks.  Refer to F5 documentation for details. Select **Save & Next**.
 
-	![F5 (Header Based) configuration](./media/headerf5-tutorial/configure08.png)
+	![Screenshot shows the Endpoint Checks Properties page.](./media/headerf5-tutorial/configure08.png)
 
 1. Accept the defaults and click **Save & Next**. Refer F5 documentation for details regarding SAML session management settings.
 
-	![F5 (Header Based) configuration](./media/headerf5-tutorial/configure09.png)
+	![Screenshot shows the Timeout Settings page.](./media/headerf5-tutorial/configure09.png)
 
 1. Review the summary screen and select **Deploy** to configure the BIG-IP. click on **Finish**.
 
-	![F5 (Header Based) configuration](./media/headerf5-tutorial/configure10.png)
+	![Screenshot shows the Your application is ready to be deployed page.](./media/headerf5-tutorial/configure10.png)
 
-	![F5 (Header Based) configuration](./media/headerf5-tutorial/configure11.png)
+	![Screenshot shows the Your application is deployed page.](./media/headerf5-tutorial/configure11.png)
 
 ## Advanced Configuration
 
@@ -288,7 +281,7 @@ This section is intended to be used if you cannot use the Guided configuration o
 	>[!NOTE]
 	>In the example our app name is `Headerapp.superdemo.live`, we are using a Wild Card Certificate our keyname is `WildCard-SuperDemo.live`.
   
-	![F5 (Header Based) configuration](./media/headerf5-tutorial/configure17.png)
+	![Screenshot shows the S S L Certificate/Key Source page for Advanced Configuration.](./media/headerf5-tutorial/configure17.png)
 
 ### Adding a new Web Server to BigIP-F5
 
@@ -296,7 +289,7 @@ This section is intended to be used if you cannot use the Guided configuration o
 
 1. Provide the **Name** and under **Template** choose **f5.http**.
  
-	![F5 (Header Based) configuration](./media/headerf5-tutorial/configure18.png)
+	![Screenshot shows the Application Services page with Template Selection.](./media/headerf5-tutorial/configure18.png)
 
 1. We will publish our HeaderApp2 externally as HTTPS in this case, **how should the BIG-IP system handle SSL Traffic**? we specify **Terminate SSL from Client, Plaintext to servers (SSL Offload)**. Specify your Certificate and Key under **Which SSL certificate do you want to use?** and **Which SSL private key do you want to use?**. Specify the Virtual Server IP under **What IP Address do you want to use for the Virtual Server?**. 
 
@@ -308,15 +301,15 @@ This section is intended to be used if you cannot use the Guided configuration o
 
 		* If creating a new App Server specify **internal IP Address** and **port number**.
 
-		![F5 (Header Based) configuration](./media/headerf5-tutorial/configure19.png) 
+		![Screenshot shows the pane where you can specify these details.](./media/headerf5-tutorial/configure19.png) 
 
 1. Click **Finished**.
 
-	![F5 (Header Based) configuration](./media/headerf5-tutorial/configure20.png) 
+	![Screenshot shows the page after completion.](./media/headerf5-tutorial/configure20.png) 
 
 1. Ensure the App Properties can be modified. Click **Main > IApps > Application Services: Applications >> HeaderApp2**. Uncheck **Strict Updates** (we will modify some setting outside of the GUI). Click **Update** button.
 
-	![F5 (Header Based) configuration](./media/headerf5-tutorial/configure21.png) 
+	![Screenshot shows the Application Services page with the Properties tab selected.](./media/headerf5-tutorial/configure21.png) 
 
 1. At this point you should be able to browse the virtual Server.
 
@@ -324,27 +317,27 @@ This section is intended to be used if you cannot use the Guided configuration o
 
 1.	Click **Access > Federation> SAML Service Provider > Local SP Service > click create or + sign**.
 
-	![F5 (Header Based) configuration](./media/headerf5-tutorial/configure22.png)
+	![Screenshot shows the About this BIG I P page. ](./media/headerf5-tutorial/configure22.png)
 
 1. Specify Details for the Service Provider Service. Specify **Name** representing F5 SP Configuration. Specify **Entity ID** (generally same as application URL).
 
-	![F5 (Header Based) configuration](./media/headerf5-tutorial/configure23.png)
+	![Screenshot shows the SAML Service Provider page with the Create New SAML S P Service dialog box.](./media/headerf5-tutorial/configure23.png)
 
-	![F5 (Header Based) configuration](./media/headerf5-tutorial/configure24.png)
+	![Screenshot shows the Create New SAML S P Service dialog box with Endpoint Settings selected.](./media/headerf5-tutorial/configure24.png)
 
-	![F5 (Header Based) configuration](./media/headerf5-tutorial/configure25.png)
+	![Screenshot shows the Create New SAML S P Service dialog box with Security Settings selected.](./media/headerf5-tutorial/configure25.png)
 
-	![F5 (Header Based) configuration](./media/headerf5-tutorial/configure26.png)
+	![Screenshot shows the Create New SAML S P Service dialog box with Authentication Context selected.](./media/headerf5-tutorial/configure26.png)
 
-	![F5 (Header Based) configuration](./media/headerf5-tutorial/configure27.png)
+	![Screenshot shows the Create New SAML S P Service dialog box with Requested Attributes selected.](./media/headerf5-tutorial/configure27.png)
 
-	![F5 (Header Based) configuration](./media/headerf5-tutorial/configure28.png)
+	![Screenshot shows the Edit SAML S P Service dialog box with Advanced Settings selected.](./media/headerf5-tutorial/configure28.png)
 
 ### Create Idp Connector
 
 1. Click **Bind/Unbind IdP Connectors** button, select **Create New IdP Connector** and choose From **Metadata** option then perform the following steps:
  
-	![F5 (Header Based) configuration](./media/headerf5-tutorial/configure29.png)
+	![Screenshot shows the Edit SAML I d Ps that use this S P dialog box with Create New I d P Connector selected.](./media/headerf5-tutorial/configure29.png)
 
 	a. Browse to metadata.xml file downloaded from Azure AD and specify an **Identity Provider Name**.
 
@@ -352,7 +345,7 @@ This section is intended to be used if you cannot use the Guided configuration o
 
 	c. The connector is created, and certificate is ready automatically from the metadata xml file.
 	
-	![F5 (Header Based) configuration](./media/headerf5-tutorial/configure30.png)
+	![Screenshot shows the Create New SAML I d P Connector dialog box.](./media/headerf5-tutorial/configure30.png)
 
 	d. Configure F5BIG-IP to send all request to Azure AD.
 
@@ -368,7 +361,7 @@ This section is intended to be used if you cannot use the Guided configuration o
 
 	j. **SAML IDP setup is completed**
 	
-	![F5 (Header Based) configuration](./media/headerf5-tutorial/configure31.png)
+	![Screenshot shows the Edit SAML I d Ps that user this S P dialog box.](./media/headerf5-tutorial/configure31.png)
 
 ### Configure F5 Policy to redirect users to Azure SAML IDP
 
@@ -378,39 +371,39 @@ This section is intended to be used if you cannot use the Guided configuration o
 
 	b. Click on the **Create** button.
 
-	![F5 (Header Based) configuration](./media/headerf5-tutorial/configure32.png)
+	![Screenshot shows the Access Profiles page.](./media/headerf5-tutorial/configure32.png)
  
 	c. Specify **Name** (HeaderAppAzureSAMLPolicy in the example).
 
 	d. You can customize other settings please refer to F5 Documentation.
 
-	![F5 (Header Based) configuration](./media/headerf5-tutorial/configure33.png)
+	![Screenshot shows the General Properties page.](./media/headerf5-tutorial/configure33.png)
 
-	![F5 (Header Based) configuration](./media/headerf5-tutorial/configure34.png) 
+	![Screenshot shows the General Properties page continued.](./media/headerf5-tutorial/configure34.png) 
 
 	e. Click **Finished**.
 
 	f. Once the Policy creation is completed, click on the Policy and go to the **Access Policy** Tab.
 
-	![F5 (Header Based) configuration](./media/headerf5-tutorial/configure35.png)
+	![Screenshot shows the Access Policy tab with General Properties.](./media/headerf5-tutorial/configure35.png)
  
 	g. Click on the **Visual Policy editor**, edit **Access Policy for Profile** link.
 
 	h. Click on the + Sign in the Visual Policy editor and choose **SAML Auth**.
 
-	![F5 (Header Based) configuration](./media/headerf5-tutorial/configure36.png)
+	![Screenshot shows an Access Policy.](./media/headerf5-tutorial/configure36.png)
 
-	![F5 (Header Based) configuration](./media/headerf5-tutorial/configure37.png)
+	![Screenshot shows a search dialog box with SAML Auth selected.](./media/headerf5-tutorial/configure37.png)
  
 	i. Click **Add Item**.
 
 	j. Under **Properties** specify **Name** and under **AAA Server** select the previously configured SP, click **SAVE**.
  
-	![F5 (Header Based) configuration](./media/headerf5-tutorial/configure38.png)
+	![Screenshot shows the Properties of the item including its A A A server.](./media/headerf5-tutorial/configure38.png)
 
 	k. The basic Policy is ready you can customize the policy to incorporate additional sources/attribute stores.
 
-	![F5 (Header Based) configuration](./media/headerf5-tutorial/configure39.png)
+	![Screenshot shows the customized policy.](./media/headerf5-tutorial/configure39.png)
  
 	l. Ensure you click on the **Apply Access Policy** link on the top.
 
@@ -420,21 +413,21 @@ This section is intended to be used if you cannot use the Guided configuration o
 
 	a. Click **Main** > **Local Traffic** > **Virtual Servers**.
 
-	![F5 (Header Based) configuration](./media/headerf5-tutorial/configure40.png)
+	![Screenshot shows the Virtual Servers List page.](./media/headerf5-tutorial/configure40.png)
  
 	b. Click on the virtual server, scroll to **Access Policy** section, in the **Access Profile** drop down and select the SAML Policy created (in the example HeaderAppAzureSAMLPolicy)
 
 	c. Click **update**
  
-	![F5 (Header Based) configuration](./media/headerf5-tutorial/configure41.png)
+	![Screenshot shows the Access Policy pane.](./media/headerf5-tutorial/configure41.png)
 
 	d. create an F5 BIG-IP iRule® to extract the custom SAML attributes from the incoming assertion and pass them as HTTP headers to the backend test application. Click **Main > Local Traffic > iRules > iRule List > click create**
 
-	![F5 (Header Based) configuration](./media/headerf5-tutorial/configure42.png)
+	![Screenshot shows the Local Traffic iRule List.](./media/headerf5-tutorial/configure42.png)
  
 	e. Paste the F5 BIG-IP iRule text below into the Definition window.
 
-	![F5 (Header Based) configuration](./media/headerf5-tutorial/configure43.png)
+	![Screenshot shows the New iRule page.](./media/headerf5-tutorial/configure43.png)
  
 	when RULE_INIT {
  	set static::debug 0
@@ -460,7 +453,7 @@ This section is intended to be used if you cannot use the Guided configuration o
 
 	**Sample output below**
 
-	![F5 (Header Based) configuration](./media/headerf5-tutorial/configure44.png)
+	![Screenshot shows the sample output.](./media/headerf5-tutorial/configure44.png)
  
 ### Create F5 test user
 

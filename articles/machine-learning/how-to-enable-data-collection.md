@@ -5,17 +5,17 @@ description: Learn how to collect data from a deployed Azure Machine Learning mo
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: how-to
 ms.reviewer: sgilley
 ms.author: copeters
 author: lostmygithubaccount
 ms.date: 07/14/2020
-ms.custom: seodec18
+ms.topic: conceptual
+ms.custom: how-to
 
 ---
 # Collect data from models in production
 
-[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
+
 
 This article shows how to collect data from an Azure Machine Learning model deployed on an Azure Kubernetes Service (AKS) cluster. The collected data is then stored in Azure Blob storage.
 
@@ -63,11 +63,11 @@ The path to the output data in the blob follows this syntax:
 
 - You need an AKS cluster. For information on how to create one and deploy to it, see [How to deploy and where](how-to-deploy-and-where.md).
 
-- [Set up your environment](how-to-configure-environment.md) and install the [Azure Machine Learning Monitoring SDK](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py).
+- [Set up your environment](how-to-configure-environment.md) and install the [Azure Machine Learning Monitoring SDK](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py&preserve-view=true).
 
 ## Enable data collection
 
-You can enable data collection regardless of the model you deploy through Azure Machine Learning or other tools.
+You can enable [data collection](https://docs.microsoft.com/python/api/azureml-monitoring/azureml.monitoring.modeldatacollector.modeldatacollector?view=azure-ml-py&preserve-view=true) regardless of the model you deploy through Azure Machine Learning or other tools.
 
 To enable data collection, you need to:
 

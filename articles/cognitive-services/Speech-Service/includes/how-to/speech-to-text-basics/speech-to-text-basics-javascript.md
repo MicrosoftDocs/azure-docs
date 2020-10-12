@@ -4,11 +4,18 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 04/15/2020
 ms.author: trbye
+ms.custom: devx-track-js
 ---
+
+One of the core features of the Speech service is the ability to recognize and transcribe human speech (often referred to as speech-to-text). In this quickstart, you learn how to use the Speech SDK in your apps and products to perform high-quality speech-to-text conversion.
+
+## Skip to samples on GitHub
+
+If you want to skip straight to sample code, see the [JavaScript quickstart samples](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/javascript/node) on GitHub.
 
 ## Prerequisites
 
-This article assumes that you have an Azure account and Speech service subscription. If you don't have an account and subscription, [try the Speech service for free](../../../get-started.md).
+This article assumes that you have an Azure account and Speech service subscription. If you don't have an account and subscription, [try the Speech service for free](../../../overview.md#try-the-speech-service-for-free).
 
 ## Install the Speech SDK
 
@@ -20,18 +27,21 @@ class="docon docon-navigate-external x-hidden-focus"></span></a>
 
 Additionally, depending on the target environment use one of the following:
 
+# [script](#tab/script)
+
+Download and extract the <a href="https://aka.ms/csspeech/jsbrowserpackage" target="_blank">Speech SDK for JavaScript <span class="docon docon-navigate-external x-hidden-focus"></span></a> *microsoft.cognitiveservices.speech.sdk.bundle.js* file, and place it in a folder accessible to your HTML file.
+
+```html
+<script src="microsoft.cognitiveservices.speech.sdk.bundle.js"></script>;
+```
+
+> [!TIP]
+> If you're targeting a web browser, and using the `<script>` tag; the `sdk` prefix is not needed. The `sdk` prefix is an alias used to name the `require` module.
+
 # [import](#tab/import)
 
 ```javascript
-import {
-    AudioConfig,
-    CancellationDetails,
-    CancellationReason,
-    PhraseListGrammar,
-    ResultReason,
-    SpeechConfig,
-    SpeechRecognizer
-} from "microsoft-cognitiveservices-speech-sdk";
+import * from "microsoft-cognitiveservices-speech-sdk";
 ```
 
 For more information on `import`, see <a href="https://javascript.info/import-export" target="_blank">export and import <span class="docon docon-navigate-external x-hidden-focus"></span></a>.
@@ -43,18 +53,6 @@ const sdk = require("microsoft-cognitiveservices-speech-sdk");
 ```
 
 For more information on `require`, see <a href="https://nodejs.org/en/knowledge/getting-started/what-is-require/" target="_blank">what is require? <span class="docon docon-navigate-external x-hidden-focus"></span></a>.
-
-
-# [script](#tab/script)
-
-Download and extract the <a href="https://aka.ms/csspeech/jsbrowserpackage" target="_blank">Speech SDK for JavaScript <span class="docon docon-navigate-external x-hidden-focus"></span></a> *microsoft.cognitiveservices.speech.sdk.bundle.js* file, and place it in a folder accessible to your HTML file.
-
-```html
-<script src="microsoft.cognitiveservices.speech.sdk.bundle.js"></script>;
-```
-
-> [!TIP]
-> If you're targeting a web browser, and using the `<script>` tag; the `sdk` prefix is not needed. The `sdk` prefix is an alias used to name the `require` module.
 
 ---
 
@@ -80,27 +78,30 @@ const speechConfig = SpeechConfig.fromSubscription("YourSubscriptionKey", "YourS
 
 ## Initialize a recognizer
 
-After you've created a [`SpeechConfig`](https://docs.microsoft.com/javascript/api/microsoft-cognitiveservices-speech-sdk/speechconfig?view=azure-node-latest), the next step is to initialize a [`SpeechRecognizer`](https://docs.microsoft.com/javascript/api/microsoft-cognitiveservices-speech-sdk/speechrecognizer?view=azure-node-latest). When you initialize a [`SpeechRecognizer`](https://docs.microsoft.com/javascript/api/microsoft-cognitiveservices-speech-sdk/speechrecognizer?view=azure-node-latest), you'll need to pass it your `speechConfig`. This provides the credentials that the speech service requires to validate your request.
-
-If you're recognizing speech using your device's default microphone, here's what the [`SpeechRecognizer`](https://docs.microsoft.com/javascript/api/microsoft-cognitiveservices-speech-sdk/speechrecognizer?view=azure-node-latest) should look like:
+After you've created a [`SpeechConfig`](https://docs.microsoft.com/javascript/api/microsoft-cognitiveservices-speech-sdk/speechconfig?view=azure-node-latest), the next step is to initialize a [`SpeechRecognizer`](https://docs.microsoft.com/javascript/api/microsoft-cognitiveservices-speech-sdk/speechrecognizer?view=azure-node-latest). When you initialize a [`SpeechRecognizer`](https://docs.microsoft.com/javascript/api/microsoft-cognitiveservices-speech-sdk/speechrecognizer?view=azure-node-latest), you pass it your `speechConfig`. This provides the credentials that the speech service requires to validate your request.
 
 ```javascript
 const recognizer = new SpeechRecognizer(speechConfig);
 ```
 
-If you want to specify the audio input device, then you'll need to create an [`AudioConfig`](https://docs.microsoft.com/javascript/api/microsoft-cognitiveservices-speech-sdk/audioconfig?view=azure-node-latest) and provide the `audioConfig` parameter when initializing your [`SpeechRecognizer`](https://docs.microsoft.com/javascript/api/microsoft-cognitiveservices-speech-sdk/speechrecognizer?view=azure-node-latest).
+## Recognize from microphone or file
 
-> [!TIP]
-> [Learn how to get the device ID for your audio input device](../../../how-to-select-audio-input-devices.md).
+If you want to specify the audio input device, you need to create an [`AudioConfig`](https://docs.microsoft.com/javascript/api/microsoft-cognitiveservices-speech-sdk/audioconfig?view=azure-node-latest) and pass it as a parameter when initializing your [`SpeechRecognizer`](https://docs.microsoft.com/javascript/api/microsoft-cognitiveservices-speech-sdk/speechrecognizer?view=azure-node-latest).
 
-Reference the `AudioConfig` object as follows:
+To recognize speech using your device microphone, create an `AudioConfig` using `fromDefaultMicrophoneInput()`, then pass the audio config when creating your `SpeechRecognizer` object.
 
 ```javascript
 const audioConfig = AudioConfig.fromDefaultMicrophoneInput();
 const recognizer = new SpeechRecognizer(speechConfig, audioConfig);
 ```
 
-If you want to provide an audio file instead of using a microphone, you'll still need to provide an `audioConfig`. However, this can only be done when targeting **Node.js** and when you create an [`AudioConfig`](https://docs.microsoft.com/javascript/api/microsoft-cognitiveservices-speech-sdk/audioconfig?view=azure-node-latest), instead of calling `fromDefaultMicrophoneInput`, you'll call `fromWavFileOutput` and pass the `filename` parameter.
+> [!TIP]
+> [Learn how to get the device ID for your audio input device](../../../how-to-select-audio-input-devices.md).
+
+If you want to recognize speech from an audio file instead of using a microphone, you still need to provide an `AudioConfig`. However, when you create the [`AudioConfig`](https://docs.microsoft.com/javascript/api/microsoft-cognitiveservices-speech-sdk/audioconfig?view=azure-node-latest), instead of calling `fromDefaultMicrophoneInput()`, you call `fromWavFileInput()` and pass the `filename` parameter.
+
+> [!IMPORTANT]
+> Recognizing speech from a file is *only* supported in the **Node.js** SDK
 
 ```javascript
 const audioConfig = AudioConfig.fromWavFileInput("YourAudioFile.wav");

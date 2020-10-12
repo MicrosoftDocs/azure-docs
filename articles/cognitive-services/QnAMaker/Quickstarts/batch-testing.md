@@ -1,6 +1,8 @@
 ---
 title: "Quickstart: Test knowledge base with batch questions"
 description: Use the QnA Maker batch testing tool to test the knowledge bases in your QnA Maker resource for expected answers, confidence scores, and multi-turn prompts.
+ms.service: cognitive-services
+ms.subservice: qna-maker
 ms.topic: tutorial
 ms.date: 05/26/2020
 ---
@@ -11,7 +13,7 @@ Use the QnA Maker batch testing tool to test the knowledge bases in your QnA Mak
 
 ## Prerequisites
 
-* Azure subscription - [create one for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
+* Azure subscription - [create one for free](https://azure.microsoft.com/free/cognitive-services/)
 * Either [create a QnA Maker service](create-publish-knowledge-base.md) or use an existing service, which uses the English language.
 * Download the [multi-turn sample `.docx` file](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/data-source-formats/multi-turn.docx)
 * Download the [batch testing tool](https://aka.ms/qnamakerbatchtestingtool), extract the executable file from the `.zip` file.
@@ -56,7 +58,7 @@ Use the QnA Maker batch testing tool to test the knowledge bases in your QnA Mak
 
 ## Create batch test file with question IDs
 
-In order to use the batch test tool, create a file named `batch-test-data-1.tsv` with a text editor. The file needs to have the following columns separated by a tab.
+In order to use the batch test tool, create a file named `batch-test-data-1.tsv` with a text editor. The file should be in UTF-8 format and it needs to have the following columns separated by a tab.
 
 |TSV input file fields|Notes|Example|
 |--|--|--|

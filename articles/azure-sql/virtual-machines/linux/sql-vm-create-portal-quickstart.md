@@ -6,7 +6,7 @@ author: MashaMSFT
 ms.date: 10/22/2019
 tags: azure-service-management
 
-ms.topic: conceptual
+ms.topic: quickstart
 ms.service: virtual-machines-sql
 ms.workload: iaas-sql-server
 ms.author: mathoma
@@ -68,7 +68,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 1. Then, type or select the following values:
    * **Region**: Select the Azure region that's right for you.
    * **Availability options**: Choose the availability and redundancy option that's best for your apps and data.
-   * **Change size**: Select this option to pick a machine size and when done, choose **Select**. For more information about VM machine sizes, see [Linux VM sizes](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-sizes).
+   * **Change size**: Select this option to pick a machine size and when done, choose **Select**. For more information about VM machine sizes, see [VM sizes](../../../virtual-machines/sizes.md).
 
      ![Choose a VM size](./media/sql-vm-create-portal-quickstart/vmsizes.png)
 
@@ -78,7 +78,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
    * **Authentication type**: Select **SSH public key**.
 
      > [!Note]
-     > You have the choice of using an SSH public key or a Password for authentication. SSH is more secure. For instructions on how to generate an SSH key, see [Create SSH keys on Linux and Mac for Linux VMs in Azure](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-mac-create-ssh-keys).
+     > You have the choice of using an SSH public key or a Password for authentication. SSH is more secure. For instructions on how to generate an SSH key, see [Create SSH keys on Linux and Mac for Linux VMs in Azure](../../../virtual-machines/linux/mac-create-ssh-keys.md).
 
    * **Username**: Enter the Administrator name for the VM.
    * **SSH public key**: Enter your RSA public key.
@@ -118,7 +118,7 @@ If you're running on Windows and don't have a BASH shell, install an SSH client,
 
 1. Select **Open** and enter your username and password at the prompts.
 
-For more information about connecting to Linux VMs, see [Create a Linux VM on Azure using the Portal](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-quick-create-portal).
+For more information about connecting to Linux VMs, see [Create a Linux VM on Azure using the Portal](../../../virtual-machines/linux/quick-create-portal.md).
 
 > [!NOTE]
 > If you see a PuTTY security alert about the server's host key not being cached in the registry, choose from the following options. If you trust this host, select **Yes** to add the key to PuTTy's cache and continue connecting. If you want to carry on connecting just once, without adding the key to the cache, select **No**. If you don't trust this host, select **Cancel** to abandon the connection.

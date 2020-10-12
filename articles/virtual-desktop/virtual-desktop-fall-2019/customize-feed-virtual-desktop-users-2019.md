@@ -1,19 +1,16 @@
 ---
-title: Customize feed for Windows Virtual Desktop Fall 2019 users - Azure
-description: How to customize feed for Windows Virtual Desktop users with PowerShell cmdlets.
-services: virtual-desktop
+title: Customize feed for Windows Virtual Desktop (classic) users - Azure
+description: How to customize feed for Windows Virtual Desktop (classic) users with PowerShell cmdlets.
 author: Heidilohr
-
-ms.service: virtual-desktop
 ms.topic: how-to
 ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
 ---
-# Customize feed for Windows Virtual Desktop users
+# Customize feed for Windows Virtual Desktop (classic) users
 
 >[!IMPORTANT]
->This content applies to the Fall 2019 release that doesn't support Azure Resource Manager Windows Virtual Desktop objects. If you're trying to manage Azure Resource Manager Windows Virtual Desktop objects introduced in the Spring 2020 update, see [this article](../customize-feed-for-virtual-desktop-users.md).
+>This content applies to Windows Virtual Desktop (classic), which doesn't support Azure Resource Manager Windows Virtual Desktop objects. If you're trying to manage Azure Resource Manager Windows Virtual Desktop objects, see [this article](../customize-feed-for-virtual-desktop-users.md).
 
 You can customize the feed so the RemoteApp and remote desktop resources appear in a recognizable way for your users.
 
@@ -34,7 +31,7 @@ Get-RdsRemoteApp -TenantName <tenantname> -HostPoolName <hostpoolname> -AppGroup
 ```
 
 > [!div class="mx-imgBorder"]
-> ![A screenshot of PowerShell cmdlet Get-RDSRemoteApp with Name and FriendlyName highlighted.](../media/get-rdsremoteapp.png)
+> ![A screenshot of PowerShell cmdlet Get-RDSRemoteApp with Name and FriendlyName highlighted to customize display name.](../media/get-rdsremoteapp.png)
 
 To assign a friendly name to a RemoteApp, run the following PowerShell cmdlet:
 
@@ -43,7 +40,7 @@ Set-RdsRemoteApp -TenantName <tenantname> -HostPoolName <hostpoolname> -AppGroup
 ```
 
 > [!div class="mx-imgBorder"]
-> ![A screenshot of PowerShell cmdlet Set-RDSRemoteApp with Name and New FriendlyName highlighted.](../media/set-rdsremoteapp.png)
+> ![A screenshot of PowerShell cmdlet Set-RDSRemoteApp with Name and New FriendlyName highlighted to customize display name.](../media/set-rdsremoteapp.png)
 
 ## Customize the display name for a Remote Desktop
 

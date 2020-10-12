@@ -35,7 +35,7 @@ Ensure that the following prerequisites are in place:
    - If your firewall or proxy allows, add the connections to the allowed list for **\*.msappproxy.net** URLs over port 443. If not, allow access to the [Azure datacenter IP ranges](https://www.microsoft.com/download/details.aspx?id=41653), which are updated weekly. This prerequisite is applicable only when you enable the feature. It is not required for actual user sign-ins.
 
     >[!NOTE]
-    >Azure AD Connect versions 1.1.557.0, 1.1.558.0, 1.1.561.0, and 1.1.614.0 have a problem related to password hash synchronization. If you _don't_ intend to use password hash synchronization in conjunction with Pass-through Authentication, read the [Azure AD Connect release notes](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-version-history#116470) to learn more.
+    >Azure AD Connect versions 1.1.557.0, 1.1.558.0, 1.1.561.0, and 1.1.614.0 have a problem related to password hash synchronization. If you _don't_ intend to use password hash synchronization in conjunction with Pass-through Authentication, read the [Azure AD Connect release notes](./reference-connect-version-history.md) to learn more.
 
 * **Use a supported Azure AD Connect topology**: Ensure that you are using one of Azure AD Connect's supported topologies described [here](plan-connect-topologies.md).
 
@@ -46,9 +46,9 @@ Ensure that the following prerequisites are in place:
     * You synchronize to Azure AD through Azure AD Connect.
     * Contains users you want to enable for Seamless SSO.
     
-* **Enable modern authentication**: You need to enable [modern authentication](https://docs.microsoft.com/office365/enterprise/modern-auth-for-office-2013-and-2016) on your tenant for this feature to work.
+* **Enable modern authentication**: You need to enable [modern authentication](/office365/enterprise/modern-auth-for-office-2013-and-2016) on your tenant for this feature to work.
 
-* **Use the latest versions of Office 365 clients**: To get a silent sign-on experience with Office 365 clients (Outlook, Word, Excel, and others), your users need to use versions 16.0.8730.xxxx or above.
+* **Use the latest versions of Microsoft 365 clients**: To get a silent sign-on experience with Microsoft 365 clients (Outlook, Word, Excel, and others), your users need to use versions 16.0.8730.xxxx or above.
 
 ## Step 2: Enable the feature
 
@@ -120,7 +120,7 @@ There are two ways to modify users' Intranet zone settings:
 1. Open the Group Policy Management Editor tool.
 2. Edit the group policy that's applied to some or all your users. This example uses **Default Domain Policy**.
 3. Browse to **User Configuration** > **Policy** > **Administrative Templates** > **Windows Components** > **Internet Explorer** > **Internet Control Panel** > **Security Page**. Then select **Site to Zone Assignment List**.
-    ![Single sign-on](./media/how-to-connect-sso-quick-start/sso6.png)
+    ![Screenshot that shows the "Security Page" with "Site to Zone Assignment List" selected.](./media/how-to-connect-sso-quick-start/sso6.png)
 4. Enable the policy, and then enter the following values in the dialog box:
    - **Value name**: The Azure AD URL where the Kerberos tickets are forwarded.
    - **Value** (Data): **1** indicates the Intranet zone.
@@ -137,15 +137,15 @@ There are two ways to modify users' Intranet zone settings:
 
 5. Select **OK**, and then select **OK** again.
 
-    ![Single sign-on](./media/how-to-connect-sso-quick-start/sso7.png)
+    ![Screenshot that shows the "Show Contents" window with a zone assignment selected.](./media/how-to-connect-sso-quick-start/sso7.png)
 
 6. Browse to **User Configuration** > **Policy** > **Administrative Templates** > **Windows Components** > **Internet Explorer** > **Internet Control Panel** > **Security Page** > **Intranet Zone**. Then select **Allow updates to status bar via script**.
 
-    ![Single sign-on](./media/how-to-connect-sso-quick-start/sso11.png)
+    ![Screenshot that shows the "Intranet Zone" page with "Allow updates to status bar via script" selected.](./media/how-to-connect-sso-quick-start/sso11.png)
 
 7. Enable the policy setting, and then select **OK**.
 
-    ![Single sign-on](./media/how-to-connect-sso-quick-start/sso12.png)
+    ![Screenshot that shows "Allow updates to status bar via script" window with the policy setting enabled.](./media/how-to-connect-sso-quick-start/sso12.png)
 
 ### "Group policy preference" option - Detailed steps
 
@@ -153,15 +153,15 @@ There are two ways to modify users' Intranet zone settings:
 2. Edit the group policy that's applied to some or all your users. This example uses **Default Domain Policy**.
 3. Browse to **User Configuration** > **Preferences** > **Windows Settings** > **Registry** > **New** > **Registry item**.
 
-    ![Single sign-on](./media/how-to-connect-sso-quick-start/sso15.png)
+    ![Screenshot that shows "Registry" selected and "Registry Item" selected.](./media/how-to-connect-sso-quick-start/sso15.png)
 
 4. Enter the following values in appropriate fields and click **OK**.
    - **Key Path**: ***Software\Microsoft\Windows\CurrentVersion\Internet Settings\ZoneMap\Domains\microsoftazuread-sso.com\autologon***
-   - **Value name**: ***https***.
-   - **Value type**: ***REG_DWORD***.
-   - **Value data**: ***00000001***.
+   - **Value name**: ***https***
+   - **Value type**: ***REG_DWORD***
+   - **Value data**: ***00000001***
  
-     ![Single sign-on](./media/how-to-connect-sso-quick-start/sso16.png)
+     ![Screenshot that shows the "New Registry Properties" window.](./media/how-to-connect-sso-quick-start/sso16.png)
  
      ![Single sign-on](./media/how-to-connect-sso-quick-start/sso17.png)
 
@@ -182,11 +182,11 @@ Ensure that the machine running the macOS is joined to AD. Instructions for AD-j
 
 #### Microsoft Edge based on Chromium (all platforms)
 
-If you have overridden the [AuthNegotiateDelegateAllowlist](https://docs.microsoft.com/DeployEdge/microsoft-edge-policies#authnegotiatedelegateallowlist) or the [AuthServerAllowlist](https://docs.microsoft.com/DeployEdge/microsoft-edge-policies#authserverallowlist) policy settings in your environment, ensure that you add Azure AD's URL (`https://autologon.microsoftazuread-sso.com`) to them as well.
+If you have overridden the [AuthNegotiateDelegateAllowlist](/DeployEdge/microsoft-edge-policies#authnegotiatedelegateallowlist) or the [AuthServerAllowlist](/DeployEdge/microsoft-edge-policies#authserverallowlist) policy settings in your environment, ensure that you add Azure AD's URL (`https://autologon.microsoftazuread-sso.com`) to them as well.
 
 #### Microsoft Edge based on Chromium (macOS and other non-Windows platforms)
 
-For Microsoft Edge based on Chromium on macOS and other non-Windows platforms, refer to [the Microsoft Edge based on Chromium Policy List](https://docs.microsoft.com/DeployEdge/microsoft-edge-policies#authserverallowlist) for information on how to add the Azure AD URL for integrated authentication to your allow-list.
+For Microsoft Edge based on Chromium on macOS and other non-Windows platforms, refer to [the Microsoft Edge based on Chromium Policy List](/DeployEdge/microsoft-edge-policies#authserverallowlist) for information on how to add the Azure AD URL for integrated authentication to your allow-list.
 
 #### Google Chrome (all platforms)
 
@@ -206,7 +206,7 @@ Seamless SSO doesn't work in private browsing mode on Firefox and Microsoft Edge
 
 To test the feature for a specific user, ensure that all the following conditions are in place:
   - The user signs in on a corporate device.
-  - The device is joined to your Active Directory domain. The device _doesn't_ need to be [Azure AD Joined](../active-directory-azureadjoin-overview.md).
+  - The device is joined to your Active Directory domain. The device _doesn't_ need to be [Azure AD Joined](../devices/overview.md).
   - The device has a direct connection to your domain controller (DC), either on the corporate wired or wireless network or via a remote access connection, such as a VPN connection.
   - You have [rolled out the feature](#step-3-roll-out-the-feature) to this user through Group Policy.
 

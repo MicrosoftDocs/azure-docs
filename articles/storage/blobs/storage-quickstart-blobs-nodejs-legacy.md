@@ -4,15 +4,19 @@ description: Create, upload, and delete blobs and containers in Node.js with the
 author: mhopkins-msft
 
 ms.author: mhopkins
-ms.date: 01/24/2020
+ms.date: 07/24/2020
 ms.service: storage
 ms.subservice: blobs
 ms.topic: quickstart
+ms.custom: devx-track-js
 ---
 
 # Quickstart: Manage blobs with JavaScript v10 SDK in Node.js
 
 In this quickstart, you learn to manage blobs by using Node.js. Blobs are objects that can hold large amounts of text or binary data, including images, documents, streaming media, and archive data. You'll upload, download, list, and delete blobs, and you'll manage containers.
+
+> [!NOTE]
+> This quickstart uses a legacy version of the Azure Blob storage client library. To get started with the latest version, see [Quickstart: Manage blobs with JavaScript v12 SDK in Node.js](storage-quickstart-blobs-nodejs.md).
 
 ## Prerequisites
 

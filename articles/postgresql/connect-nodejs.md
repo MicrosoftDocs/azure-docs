@@ -1,10 +1,10 @@
 ---
-title: Use Node.js to connect to Azure Database for PostgreSQL - Single Server
+title: 'Quickstart: Use Node.js to connect to Azure Database for PostgreSQL - Single Server'
 description: This quickstart provides a Node.js code sample you can use to connect and query data from Azure Database for PostgreSQL  - Single Server.
-author: rachel-msft
-ms.author: raagyema
+author: mksuni
+ms.author: sumuth
 ms.service: postgresql
-ms.custom: [mvc, devcenter, seo-javascript-september2019, seo-javascript-october2019]
+ms.custom: [mvc, devcenter, seo-javascript-september2019, seo-javascript-october2019, devx-track-js]
 ms.devlang: nodejs
 ms.topic: quickstart
 ms.date: 5/6/2019
@@ -42,7 +42,7 @@ Get the connection information needed to connect to the Azure Database for Postg
 
 1. From the server's **Overview** panel, make a note of the **Server name** and **Admin username**. If you forget your password, you can also reset the password from this panel.
 
-   ![Azure Database for PostgreSQL connection string](./media/connect-nodejs/server-details-azure-database-postgresql.png)
+   :::image type="content" source="./media/connect-nodejs/server-details-azure-database-postgresql.png" alt-text="Azure Database for PostgreSQL connection string":::
 
 ## Running the JavaScript code in Node.js
 You may launch Node.js from the Bash shell, Terminal, or Windows Command Prompt by typing `node`, then run the example JavaScript code interactively by copy and pasting it onto the prompt. Alternatively, you may save the JavaScript code into a text file and launch `node filename.js` with the file name as a parameter to run it.

@@ -25,12 +25,7 @@ You choose the application template when you create your application. You can't 
 
 ## Custom templates
 
-If you want to create your application from scratch, choose one of the two custom application templates:
-
-- Custom application
-- Custom application (legacy)
-
-Choose the **Custom application** template unless you have a specific reason to use the legacy template.
+If you want to create your application from scratch, choose one of the **Custom application** template.
 
 ## Industry focused templates
 
@@ -42,6 +37,7 @@ Azure IoT Central is an industry agnostic application platform. Application temp
   - In-store analytics - condition monitoring
   - In-store analytics - checkout
   - Smart Inventory Management
+  - Video analytics - object and motion detection
 - [Energy](../energy/overview-iot-central-energy.md)
   - Smart meter monitoring
   - Solar panel monitoring

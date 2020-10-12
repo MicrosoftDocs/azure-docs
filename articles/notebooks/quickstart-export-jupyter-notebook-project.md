@@ -1,17 +1,18 @@
 ---
-title: Export a Jupyter notebook project from the Azure Notebooks Preview
-description: Quickly export a Jupyter notebook project.
+title: Export a Jupyter Notebook project from the Azure Notebooks Preview
+description: Quickly export a Jupyter Notebook project.
 ms.topic: quickstart
 ms.date: 06/29/2020
 ---
 
-# Quickstart: Export a Jupyter notebook project in Azure Notebooks Preview
+# Quickstart: Export a Jupyter Notebook project in Azure Notebooks Preview
 
 [!INCLUDE [notebooks-status](../../includes/notebooks-status.md)]
 
-In this quickstart, you will download an Azure Notebooks project for use in other Jupyter notebook solutions. 
+In this quickstart, you will download an Azure Notebooks project for use in other Jupyter Notebook solutions. 
 
 ## Prerequisites
+
 An existing Azure Notebooks project.
 
 ## Export an Azure Notebooks project
@@ -28,7 +29,7 @@ An existing Azure Notebooks project.
 
 After downloading your project files, you can use them with other Jupyter Notebook solutions. Some options described in the sections below include: 
 - [Visual Studio Code](#use-notebooks-in-visual-studio-code)
-- [Visual Studio Codespaces](#use-notebooks-in-visual-studio-codespaces)
+- [GitHub Codespaces](#use-notebooks-in-github-codespaces)
 - [Azure Machine Learning](#use-notebooks-with-azure-machine-learning)
 - [Azure Lab Services](#use-azure-lab-services)
 - [GitHub](#use-github)
@@ -44,7 +45,7 @@ If you'd like to create an environment that matches that of the Azure Notebooks 
 
 ## Use Notebooks in Visual Studio Code
 
-[VS Code](https://code.visualstudio.com/) is a free code editor that you can use locally or connected to remote compute. Combined with the Python extension, it offers a full environment for Python development including a rich native experience for working with Jupyter notebooks. 
+[VS Code](https://code.visualstudio.com/) is a free code editor that you can use locally or connected to remote compute. Combined with the Python extension, it offers a full environment for Python development including a rich native experience for working with Jupyter Notebooks. 
 
 ![VS Code Jupyter Notebook support](media/vs-code-jupyter-notebook.png)
 
@@ -52,14 +53,13 @@ After [downloading](#export-an-azure-notebooks-project) your project files you c
 
 You can also use the [Azure Notebooks environment script](#create-an-environment-for-notebooks) with Visual Studio Code to create an environment that matches the Azure Notebooks Preview.
 
-## Use Notebooks in Visual Studio Codespaces
+## Use Notebooks in GitHub Codespaces
 
-Visual Studio Codespaces provides cloud hosted environments where you can edit your notebooks using Visual Studio Code or your web browser. It offers the same great Jupyter experience as VS Code, but without needing to install anything on your device. If you don’t want to set up a local environment and prefer a cloud-backed solution, then creating a codespace is a great option. To get started:
-
+GitHub Codespaces provides cloud hosted environments where you can edit your notebooks using Visual Studio Code or in your web browser. It offers the same great Jupyter experience as VS Code, but without needing to install anything on your device. If you don’t want to set up a local environment and prefer a cloud-backed solution, then creating a codespace is a great option. To get started:
 1. [Download](#export-an-azure-notebooks-project) your project files.
-1. [Create a GitHub repository](https://help.github.com/github/getting-started-with-github/create-a-repo) for storing your notebooks. 
+1. [Create a GitHub repository](https://help.github.com/github/getting-started-with-github/create-a-repo) for storing your notebooks. 	
 1. [Add your files](https://help.github.com/github/managing-files-in-a-repository/adding-a-file-to-a-repository) to the repository.
-1. Setup Visual Studio Codespaces in the [browser](https://docs.microsoft.com/visualstudio/online/how-to/browser), [Visual Studio](https://docs.microsoft.com/visualstudio/online/how-to/vside), or [Visual Studio Code](https://docs.microsoft.com/visualstudio/online/how-to/vscode).
+1. [Request Access to the GitHub Codespaces Preview](https://github.com/features/codespaces)
 
 ## Use Notebooks with Azure Machine Learning
 
@@ -87,7 +87,7 @@ For additional information about Azure ML and running Jupyter Notebooks, you can
 
 ## Use GitHub
 
-GitHub provides a free, source-control-backed way to store notebooks (and other files), share your notebooks with others, and work collaboratively. If you’re looking for a way to share your projects and collaborate with others, GitHub is a great option and can be combined with [Visual Studio Codespaces](#use-notebooks-in-visual-studio-codespaces) for a great development experience. To get started with GitHub
+GitHub provides a free, source-control-backed way to store notebooks (and other files), share your notebooks with others, and work collaboratively. If you’re looking for a way to share your projects and collaborate with others, GitHub is a great option and can be combined with [GitHub Codespaces](#use-notebooks-in-github-codespaces) for a great development experience. To get started with GitHub
 
 1. [Download](#export-an-azure-notebooks-project) your project files.
 1. [Create a GitHub repository](https://help.github.com/github/getting-started-with-github/create-a-repo) for storing your notebooks. 
@@ -97,6 +97,6 @@ GitHub provides a free, source-control-backed way to store notebooks (and other 
 
 - [Learn about Python in Visual Studio Code](https://code.visualstudio.com/docs/python/python-tutorial)
 - [Learn about Azure Machine Learning and Jupyter Notebooks](../machine-learning/how-to-run-jupyter-notebooks.md)
-- [Learn about Visual Studio Codespaces](https://visualstudio.microsoft.com/services/visual-studio-codespaces/)
+- [Learn about GitHub Codespaces](https://github.com/features/codespaces)
 - [Learn about Azure Lab Services](https://azure.microsoft.com/services/lab-services/)
 - [Learn about GitHub](https://help.github.com/github/getting-started-with-github/)

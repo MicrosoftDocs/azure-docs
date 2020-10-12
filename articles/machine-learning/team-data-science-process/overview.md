@@ -20,7 +20,7 @@ This article provides an overview of TDSP and its main components. We provide a 
 
 ## Key components of the TDSP
 
-TDSP hads the following key components:
+TDSP has the following key components:
 
 - A **data science lifecycle** definition
 - A **standardized project structure**
@@ -45,7 +45,7 @@ The lifecycle outlines the major stages that projects typically execute, often i
 
 Here is a visual representation of the **Team Data Science Process lifecycle**. 
 
-![TDSP-Lifecycle2](./media/overview/tdsp-lifecycle2.png) 
+![Diagram shows the data science lifecycle, including business understanding, data acquisition / understanding, modeling and deployment.](./media/overview/tdsp-lifecycle2.png) 
 
 The goals, tasks, and documentation artifacts for each stage of the lifecycle in TDSP are described in the [Team Data Science Process lifecycle](lifecycle.md) topic. These tasks and artifacts are associated with project roles:
 

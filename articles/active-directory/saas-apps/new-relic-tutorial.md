@@ -2,20 +2,15 @@
 title: 'Tutorial: Azure Active Directory integration with New Relic by Account | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and New Relic by Account.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-
-ms.assetid: 3186b9a8-f4d8-45e2-ad82-6275f95e7aa6
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 04/16/2020
 ms.author: jeedes
-
 ---
 
 # Tutorial: Azure Active Directory single sign-on (SSO) integration with New Relic by Account
@@ -135,7 +130,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 2. In the menu on the top, click **Account Settings**.
    
-    ![Account Settings](./media/new-relic-tutorial/ic797036.png "Account Settings")
+    ![Screenshot shows the Welcome page with Account settings selected.](./media/new-relic-tutorial/ic797036.png "Account Settings")
 
 3. Click the **Security and authentication** tab, and then click the **Single sign on** tab.
    
@@ -159,11 +154,11 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 2. In the menu on the top, click **Account Settings**.
    
-    ![Account Settings](./media/new-relic-tutorial/ic797040.png "Account Settings")
+    ![Screenshot shows Account settings selected from the Welcome page.](./media/new-relic-tutorial/ic797040.png "Account Settings")
 
 3. In the **Account** pane on the left side, click **Summary**, and then click **Add user**.
    
-    ![Account Settings](./media/new-relic-tutorial/ic797041.png "Account Settings")
+    ![Screenshot shows the Summary pane where you can select Add user.](./media/new-relic-tutorial/ic797041.png "Account Settings")
 
 4. On the **Active users** dialog, perform the following steps:
    

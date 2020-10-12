@@ -48,6 +48,8 @@ Returns the ID of the ongoing conversion, wrapped in a JSON document. The field 
 
 #### Request body
 
+> [!NOTE]
+> Everything under `input.folderPath` will get retrieved to perform the conversion on Azure. If `input.folderPath` is not specified, the whole contents of the container will get retrieved. All blobs and folders which get retrieved must have [valid Windows file names](https://docs.microsoft.com/windows/win32/fileio/naming-a-file#naming-conventions).
 
 ```json
 {
@@ -74,7 +76,7 @@ If your ARR account isn't linked to your storage account, this REST interface al
 |-----------|:-----------|
 | /v1/accounts/**accountID**/conversions/createWithSharedAccessSignature | POST |
 
-Returns the ID of the ongoing conversion, wrapped in a JSON document. The field name is "conversionId".
+Returns the ID of the ongoing conversion, wrapped in a JSON document. The field name is `conversionId`.
 
 #### Request body
 
@@ -84,6 +86,8 @@ These tokens provide access to the storage account for reading the input and wri
 > [!NOTE]
 > These SAS URI tokens are the query strings and not the full URI. 
 
+> [!NOTE]
+> Everything under `input.folderPath` will get retrieved to perform the conversion on Azure. If `input.folderPath` is not specified, the whole contents of the container will get retrieved. All blobs and folders which get retrieved must have [valid Windows file names](https://docs.microsoft.com/windows/win32/fileio/naming-a-file#naming-conventions).
 
 ```json
 {

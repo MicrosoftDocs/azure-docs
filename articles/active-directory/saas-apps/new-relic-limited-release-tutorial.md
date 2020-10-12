@@ -2,21 +2,15 @@
 title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with New Relic (By Organization) | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and New Relic (By Organization).
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-
-ms.assetid: 2ffbcf4a-b6b4-45ac-922f-358abe4c05e8
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 02/04/2020
 ms.author: jeedes
-
-ms.collection: M365-identity-device-management
 ---
 
 # Tutorial: Azure Active Directory single sign-on (SSO) integration with New Relic (By Organization)
@@ -83,15 +77,15 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 	a. Click **Upload metadata file**.
 
-    ![image](common/upload-metadata.png)
+    ![Screenshot shows Basic SAML Configuration with the Upload metadata file link.](common/upload-metadata.png)
 
 	b. Click on **folder logo** to select the metadata file and click **Upload**.
 
-	![image](common/browse-upload-metadata.png)
+	![Screenshot shows a dialog box where you can select and upload a file.](common/browse-upload-metadata.png)
 
 	c. Once the metadata file is successfully uploaded, the **Identifier** and **Reply URL** values get auto populated in Basic SAML Configuration section:
 
-	![image](common/idp-intiated.png)
+	![Screenshot shows the Basic SAML Configuration, where you can enter Identifier, Reply U R L, and select Save.](common/idp-intiated.png)
 
 	> [!Note]
 	> If the **Identifier** and **Reply URL** values are not getting auto polulated, then fill in the values manually according to your requirement.

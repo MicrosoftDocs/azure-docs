@@ -13,7 +13,7 @@ ms.author: rogarana
 
 Before you begin this article, make sure you complete the previous article, [configure directory and file level permissions over SMB](storage-files-identity-ad-ds-configure-permissions.md).
 
-The process described in this article verifies that your file share and access permissions are set up correctly and that you can access an Azure File share from a domain-joined VM. Share-level RBAC role assignment can take some time to take effect. 
+The process described in this article verifies that your file share and access permissions are set up correctly and that you can access an Azure File share from a domain-joined VM. Share-level Azure role assignment can take some time to take effect. 
 
 Sign in to the client by using the credentials that you granted permissions to, as shown in the following image.
 
@@ -28,9 +28,18 @@ Before you can mount the file share, make sure you've gone through the following
 
 Replace the placeholder values with your own values, then use the following command to mount the Azure file share:
 
-```cli
+```PSH
 # Always mount your share using.file.core.windows.net, even if you setup a private endpoint for your share.
-net use <desired-drive-letter>: \\<storage-account-name>.file.core.windows.net\<share-name>
+$connectTestResult = Test-NetConnection -ComputerName <storage-account-name>.file.core.windows.net -Port 445
+if ($connectTestResult.TcpTestSucceeded)
+{
+  net use <desired-drive letter>: \\<storage-account-name>.file.core.windows.net\<fileshare-name>
+} 
+else 
+{
+  Write-Error -Message "Unable to reach the Azure storage account via port 445. Check to make sure your organization or ISP is not blocking port 445, or use Azure P2S VPN, Azure S2S VPN, or Express Route to tunnel SMB traffic over a different port."
+}
+
 ```
 
 If you run into issues mounting with AD DS credentials, refer to [Unable to mount Azure Files with AD credentials](storage-troubleshoot-windows-file-connection-problems.md#unable-to-mount-azure-files-with-ad-credentials) for guidance.

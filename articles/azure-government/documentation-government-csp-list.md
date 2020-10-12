@@ -108,7 +108,7 @@ Below you can find a list of all the authorized Cloud Solution Providers, which 
 |[Cybercore Solutions LLC](https://cybercoresolutions.com/)|
 |[Dalecheck Technology Group](https://www.dalechek.com/)|
 |[Dasher Technologies, Inc.](https://www.dasher.com)|
-|[Data:Architect](https://data.arcah.tech/)|
+|Data:Architect|
 |[Data Center Services Inc](https://www.d8acenter.com)|
 |[Datapipe (RackSpace Company)](https://www.rackspace.com)|
 |[Dataprise, Inc.](https://www.dataprise.com/)|
@@ -157,7 +157,7 @@ Below you can find a list of all the authorized Cloud Solution Providers, which 
 |[Gov4Miles](https://www.milestechnologies.com)|
 |Gravity Pro Consulting|
 |[Green House Data](https://www.greenhousedata.com/)|
-|[Hanu Software Solutions Inc.](https://hanusoftware.com/contact)|
+|[Hanu Software Solutions Inc.](https://www.hanusoftware.com/contact)|
 |[Harmonia Holdings Group LLC](https://www.harmonia.com)|
 |[HCL Technologies](https://www.hcltech.com/aerospace-and-defense)|
 |[HD Dynamics](https://www.hddynamics.com/)|
@@ -230,14 +230,14 @@ Below you can find a list of all the authorized Cloud Solution Providers, which 
 |[Nanavati Consulting, Inc.](https://www.nanavaticonsulting.com)|
 |[Navisite LLC](https://www.navisite.com/)|
 |[NCI](https://www.nciinc.com/)|
-|[NeoTech Solutions Inc.](https://www.neotechsolutions.com)|
+|[NeoTech Solutions Inc.](https://neotechreps.com)|
 |[Netwize](https://www.netwize.com)|
 |[NewWave Telecom & Technologies, Inc](https://www.newwave.io)|
 |[NexustTek](https://www.nexustek.com/)|
 |[Nihilent Inc](https://nihilent.com)|
 |[Norseman, Inc](https://www.norseman.com)|
-|[Northern Sky Technologies, Inc](https://www.northernskytech.com)|
-|[Nortrop Grumman](https://www.northropgrumman.com)|
+|[Northern Sky Technologies, Inc]|
+|[Northrop Grumman](https://www.northropgrumman.com)|
 |[NTS Cloud](http://ntscloud.com/ )|
 |[NTT America, Inc.](https://www.us.ntt.net)|
 |[Nubelity LLC](http://www.nubelity.com)|
@@ -247,7 +247,7 @@ Below you can find a list of all the authorized Cloud Solution Providers, which 
 |[Om Group, Inc.](http://www.omgroupinc.us/)|
 |[OneNeck IT Solutions](https://www.oneneck.com)|
 |[Onyx Point, Inc.](https://www.onyxpoint.com)|
-|[Open Analyze Technologies, Inc.](https://www.openanalyze.com/)|
+|Open Analyze Technologies, Inc.|
 |[Opsgility](https://www.opsgility.com)|
 |[OpsPro](https://opspro.com/)|
 |[Orion Communications, Inc.](https://www.orioncom.com)|
@@ -279,7 +279,7 @@ Below you can find a list of all the authorized Cloud Solution Providers, which 
 |[Ravnur Inc.](https://www.ravnur.com)|
 |[Razor Technology, LLC](https://www.razor-tech.com)|
 |[Re:discovery Software, Inc.](https://rediscoverysoftware.com)|
-|[REAN Cloud LLC.](https://www.reancloud.com)|
+|[Hitachi Vantara](https://www.hitachivantarafederal.com/rean-cloud/)|
 |[Red Level](https://redlevelgroup.com/)|
 |[Redapt Attunix](https://www.redapt.com)|
 |[Redhorse Corporation](https://www.redhorsecorp.com)|
@@ -317,7 +317,6 @@ Below you can find a list of all the authorized Cloud Solution Providers, which 
 |[Strongbridge LLC](https://www.sb-llc.com)|
 |[Summit 7 Systems, Inc.](https://summit7systems.com/)|
 |[Sumo Logic](https://www.sumologic.com/)|
-|[Surveillance and Cyber Security Solutions, LLC](https://www.scssllc.com)|
 |[SWC Technology Partners](https://www.swc.com)|
 |[Sybatech, Inc](http://www.sybatech.com)|
 |[Synergy Technical, LLC](https://www.syntechva.com/)|
@@ -362,7 +361,7 @@ Below you can find a list of all the authorized Cloud Solution Providers, which 
 |[VVL Systems & Consulting, LLC](https://www.vvlsystems.com/)|
 |[Vistronix, LLC](http://www.vistronix.com/)|
 |[Vology Inc.](https://www.vology.com/)|
-|[vSolvIT](https://www.vsolvit.com/)|
+|[vSolvIT]|
 |[Wintellect, LLC](https://www.wintellect.com)|
 |[Workspot, Inc.](https://workspot.com)|
 |[WWT](https://www2.wwt.com)|
@@ -397,7 +396,7 @@ Below you can find a list of all the authorized Cloud Solution Providers, which 
 |----------------------------|---------------------------|-----------------------------------|
 |CDW Corp.|cdwgsales@cdwg.com|800-808-4239|
 |Dell Corp.|Get_Azure@Dell.com|888-375-9857|
-|Insight Public Sector||800-467-4448|
+|Insight Public Sector|federal@insight.com|800-467-4448|
 |PC Connection|govccollections@govconnection.com|800-998-0009|
 |SHI, Inc.|msftgov@shi.com|888-764-8888|
 |Minburn Technology Group|microsoft@minburntech.com |571-699-0705 Opt. 1|
@@ -420,7 +419,7 @@ Below you can find a list of all the authorized Cloud Solution Providers, which 
 |[Four Points Technolgy, LLC](https://www.4points.com)|
 |[KTL Solutions, Inc.](https://www.ktlsolutions.com)|
 |[LiftOff LLC](https://www.liftoffllc.com)|
-|[Permuta Technologies, Inc.](https://www.permuta.com/)|
+|[Permuta Technologies, Inc.](http://www.permuta.com/)|
 |[Planet Technologies, Inc.](https://go-planet.com)|
 |[Quiet Professionals, LLC](https://quietprofessionalsllc.com)|
 |[Smartronix](https://www.smartronix.com)|

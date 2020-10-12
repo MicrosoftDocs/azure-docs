@@ -30,7 +30,7 @@ Beginning in November 2019, the Azure AD roles portion of Privileged Identity Ma
 1. Sign in to the [Azure portal](https://portal.azure.com/) with a user who is in the [Privileged role administrator](../users-groups-roles/directory-assign-admin-roles.md#privileged-role-administrator) role.
 1. Open **Azure AD Privileged Identity Management**. If you have a banner on the top of the overview page, follow the instructions in the **New version** tab of this article. Otherwise, follow the instructions in the **Previous version** tab.
 
-    [![](media/pim-how-to-add-role-to-user/pim-new-version.png "Select Azure AD > Privileged Identity Management")](media/pim-how-to-add-role-to-user/pim-new-version.png#lightbox)
+    [![Select Azure AD > Privileged Identity Management.](media/pim-how-to-add-role-to-user/pim-new-version.png)](media/pim-how-to-add-role-to-user/pim-new-version.png#lightbox)
 
 Follow the steps in this article to approve or deny requests for Azure AD roles.
 
@@ -54,7 +54,7 @@ As a delegated approver, you'll receive an email notification when an Azure AD r
 
 1. Find and select the request that you want to approve. An approve or deny page appears.
 
-    ![Approve requests - approve or deny pane with details and Justification box](./media/azure-ad-pim-approval-workflow/resources-approve-pane.png)
+    ![Screenshot that shows the "Approve requests - Azure AD roles" page.](./media/azure-ad-pim-approval-workflow/resources-approve-pane.png)
 
 1. In the **Justification** box, enter the business justification.
 

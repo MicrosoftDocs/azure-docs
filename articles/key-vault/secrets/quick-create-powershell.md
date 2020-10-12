@@ -3,21 +3,18 @@ title: "Quickstart: Set & retrieve a secret from Key Vault using PowerShell"
 description: In this quickstart, learn how to create, retrieve, and delete secrets from an Azure Key Vault using Azure PowerShell.
 services: key-vault
 author: msmbaldwin
-manager: rkarlin
 tags: azure-resource-manager
 
 ms.service: key-vault
 ms.subservice: secrets
 ms.topic: quickstart
 ms.custom: mvc
-ms.date: 11/08/2019
+ms.date: 09/30/2020
 ms.author: mbaldwin
 #Customer intent:As a security admin who is new to Azure, I want to use Key Vault to securely store keys and passwords in Azure
 
 ---
 # Quickstart: Set and retrieve a secret from Azure Key Vault using PowerShell
-
-[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 Azure Key Vault is a cloud service that works as a secure secrets store. You can securely store keys, passwords, certificates, and other secrets. For more information on Key Vault, you may review the [Overview](../general/overview.md). In this quickstart, you use PowerShell to create a key vault. You then store a secret in the newly created vault.
 
@@ -33,7 +30,7 @@ Login-AzAccount
 
 ## Create a resource group
 
-Create an Azure resource group with [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup). A resource group is a logical container into which Azure resources are deployed and managed. 
+Create an Azure resource group with [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup). A resource group is a logical container into which Azure resources are deployed and managed.
 
 ```azurepowershell-interactive
 New-AzResourceGroup -Name ContosoResourceGroup -Location EastUS
@@ -59,8 +56,6 @@ The output of this cmdlet shows properties of the newly created key vault. Take 
 * **Vault URI**: In this example that is https://Contoso-Vault2.vault.azure.net/. Applications that use your vault through its REST API must use this URI.
 
 After vault creation your Azure account is the only account allowed to do anything on this new vault.
-
-![Output after Key Vault creation command completes](../media/quick-create-powershell/output-after-creating-keyvault.png)
 
 ## Give your user account permissions to manage secrets in Key Vault
 

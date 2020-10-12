@@ -2,10 +2,10 @@
 title: How to secure a daemon application
 titleSuffix: Azure Maps
 description: Use the Azure portal to manage authentication to configure a trusted daemon application.
-author: philmea
-ms.author: philmea
+author: anastasia-ms
+ms.author: v-stharr
 ms.date: 06/12/2020
-ms.topic: conceptual
+ms.topic: how-to
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
@@ -16,7 +16,7 @@ manager: timlt
 The following guide is for background processes, timers, and jobs which are hosted in a trusted and secured environment. Examples include Azure Web Jobs, Azure Function Apps, Windows Services, and any other reliable background service.
 
 > [!Tip]
-> Microsoft recommends implementing Azure Active Directory (Azure AD) and Role based access control (RBAC) for production applications. For an overview of concepts, see [Azure Maps Authentication](./azure-maps-authentication.md).
+> Microsoft recommends implementing Azure Active Directory (Azure AD) and Azure role-based access control (Azure RBAC) for production applications. For an overview of concepts, see [Azure Maps Authentication](./azure-maps-authentication.md).
 
 [!INCLUDE [authentication details](./includes/view-authentication-details.md)]
 
@@ -41,7 +41,7 @@ The following steps outline this process:
 > [!Tip]
 > If the app is hosted in Azure environment, you should implement a Managed Identity to reduce the cost and complexity of managing a secret to authenticate to Azure Key Vault. See the following Azure Key Vault [tutorial to connect via managed identity](https://docs.microsoft.com/azure/key-vault/general/tutorial-net-create-vault-azure-web-app).
 
-The daemon application is responsible for retrieving the shared key from a secure storage. The implementation with Azure Key Vault requires authentication through Azure AD to access the secret. Instead, we encourage direct Azure AD RBAC authentication to Azure Maps as a result of the additional complexity and operational requirements of using shared key authentication.
+The daemon application is responsible for retrieving the shared key from a secure storage. The implementation with Azure Key Vault requires authentication through Azure AD to access the secret. Instead, we encourage direct Azure AD authentication to Azure Maps as a result of the additional complexity and operational requirements of using shared key authentication.
 
 > [!IMPORTANT]
 > To simplify key regeneration, we recommend applications use one key at a time. Applications can then regenerate the unused key and deploy the new regenerated key to a secured secret store such as Azure Key Vault.
@@ -102,9 +102,9 @@ When running on a non-Azure environment Managed Identities are not available. Th
         > [!div class="mx-imgBorder"]
         > ![Add a client secret](./media/how-to-manage-authentication/add-key.png)
 
-### Grant role based access for the daemon application to Azure Maps
+### Grant role-based access for the daemon application to Azure Maps
 
-You grant *role-based access control* (RBAC) by assigning either the created Managed Identity or the service principal to one or more Azure Maps access control role definitions. To view RBAC role definitions that are available for Azure Maps, go to **Access control (IAM)**. Select **Roles**, and then search for roles that begin with *Azure Maps*. These Azure Maps roles are the roles that you can grant access to.
+You grant *Azure role-based access control (Azure RBAC)* by assigning either the created Managed Identity or the service principal to one or more Azure Maps role definitions. To view Azure role definitions that are available for Azure Maps, go to **Access control (IAM)**. Select **Roles**, and then search for roles that begin with *Azure Maps*. These Azure Maps roles are the roles that you can grant access to.
 
 > [!div class="mx-imgBorder"]
 > ![View available roles](./media/how-to-manage-authentication/how-to-view-avail-roles.png)
@@ -112,17 +112,17 @@ You grant *role-based access control* (RBAC) by assigning either the created Man
 1. Go to your **Azure Maps Account**. Select **Access control (IAM)** > **Role assignments**.
 
     > [!div class="mx-imgBorder"]
-    > ![Grant RBAC](./media/how-to-manage-authentication/how-to-grant-rbac.png)
+    > ![Grant access using Azure RBAC](./media/how-to-manage-authentication/how-to-grant-rbac.png)
 
 2. On the **Role assignments** tab, **Add** a role assignment. 
-    
+
     > [!div class="mx-imgBorder"]
-    > ![Add role assignment](./media/how-to-manage-authentication/add-role-assignment.png)
+    > ![Screenshot shows the roll assignments with Add selected.](./media/how-to-manage-authentication/add-role-assignment.png)
 
 3. Select a built-in Azure Maps role definition such as **Azure Maps Data Reader** or **Azure Maps Data Contributor**. Under **Assign access to**, select **Azure AD user, group, or service principal** or Managed Identity with **User assigned managed identity** / **System assigned Managed identity**. Select the principal. Then select **Save**.
 
     > [!div class="mx-imgBorder"]
-    > ![Add role assignment](./media/how-to-manage-authentication/how-to-add-role-assignment.png)
+    > ![How to add role assignment](./media/how-to-manage-authentication/how-to-add-role-assignment.png)
 
 4. You can confirm the role assignment was applied on the role assignment tab.
 

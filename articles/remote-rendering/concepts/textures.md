@@ -5,6 +5,7 @@ author: florianborn71
 ms.author: flborn
 ms.date: 02/05/2020
 ms.topic: conceptual
+ms.custom: devx-track-csharp
 ---
 
 # Textures
@@ -64,7 +65,7 @@ void LoadMyTexture(ApiHandle<AzureSession> session, std::string textureUri)
     ApiHandle<LoadTextureAsync> textureLoad = *session->Actions()->LoadTextureFromSASAsync(params);
     textureLoad->Completed([](ApiHandle<LoadTextureAsync> res)
     {
-        if (res->IsRanToCompletion())
+        if (res->GetIsRanToCompletion())
         {
             //use res->Result()
         }
@@ -76,11 +77,19 @@ void LoadMyTexture(ApiHandle<AzureSession> session, std::string textureUri)
 }
 ```
 
-
 Depending on what the texture is supposed to be used for, there may be restrictions for the texture type and content. For example, the roughness map of a [PBR material](../overview/features/pbr-materials.md) must be grayscale.
 
 > [!CAUTION]
 > All *Async* functions in ARR return asynchronous operation objects. You must store a reference to those objects until the operation is completed. Otherwise the C# garbage collector may delete the operation early and it can never finish. In the sample code above the member variable '_textureLoad' is used to hold a reference until the *Completed* event arrives.
+
+## API documentation
+
+* [C# Texture class](https://docs.microsoft.com/dotnet/api/microsoft.azure.remoterendering.texture)
+* [C# RemoteManager.LoadTextureAsync()](https://docs.microsoft.com/dotnet/api/microsoft.azure.remoterendering.remotemanager.loadtextureasync)
+* [C# RemoteManager.LoadTextureFromSASAsync()](https://docs.microsoft.com/dotnet/api/microsoft.azure.remoterendering.remotemanager.loadtexturefromsasasync)
+* [C++ Texture class](https://docs.microsoft.com/cpp/api/remote-rendering/texture)
+* [C++ RemoteManager::LoadTextureAsync()](https://docs.microsoft.com/cpp/api/remote-rendering/remotemanager#loadtextureasync)
+* [C++ RemoteManager::LoadTextureFromSASAsync()](https://docs.microsoft.com/cpp/api/remote-rendering/remotemanager#loadtexturefromsasasync)
 
 ## Next steps
 

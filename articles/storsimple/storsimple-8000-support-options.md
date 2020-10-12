@@ -23,8 +23,8 @@ Microsoft offers flexible support options for StorSimple enterprise storage cust
 
 ## StorSimple support plans
 
-|                                                                                                                                                     | **STANDARD** <sup>1                                                 |  **PREMIUM** <sup>1                                                                         |
-|---------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------|--------------------------------------------------------------------------------|
+| Support feature | STANDARD <sup>1 | PREMIUM <sup>1 |
+| --------------- | --------------- | -------------- |
 | Billing and subscription management                                                                     | ✓                                                                               | ✓                                                                              |
 | Azure portal ticket submission                                                                          | ✓                                                                               | ✓                                                                              |
 | Online support portal access                                                                            | ✓                                                                               | ✓                                                                              |

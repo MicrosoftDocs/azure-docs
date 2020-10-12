@@ -1,9 +1,10 @@
-﻿---
+---
 title: Service Fabric App upgrade using PowerShell
 description: This article walks through the experience of deploying a Service Fabric application, changing the code, and rolling out an upgrade using PowerShell.
 
 ms.topic: conceptual
-ms.date: 2/23/2018
+ms.date: 8/5/2020 
+ms.custom: devx-track-azurepowershell
 ---
 # Service Fabric application upgrade using PowerShell
 > [!div class="op_single_selector"]
@@ -19,6 +20,21 @@ The most frequently used and recommended upgrade approach is the monitored rolli
 A monitored application upgrade can be performed using the managed or native APIs, PowerShell, Azure CLI, Java, or REST. For instructions on performing an upgrade using Visual Studio, see [Upgrading your application using Visual Studio](service-fabric-application-upgrade-tutorial.md).
 
 With Service Fabric monitored rolling upgrades, the application administrator can configure the health evaluation policy that Service Fabric uses to determine if the application is healthy. In addition, the administrator can configure the action to be taken when the health evaluation fails (for example, doing an automatic rollback.) This section walks through a monitored upgrade for one of the SDK samples that uses PowerShell. 
+
+> [!NOTE]
+> [ApplicationParameter](https://docs.microsoft.com/dotnet/api/system.fabric.description.applicationdescription.applicationparameters?view=azure-dotnet#System_Fabric_Description_ApplicationDescription_ApplicationParameters)s are not preserved across an application upgrade. In order to preserve current application parameters, the user should get the parameters first and pass them into the upgrade API call like below:
+```powershell
+$myApplication = Get-ServiceFabricApplication -ApplicationName fabric:/myApplication
+$appParamCollection = $myApplication.ApplicationParameters
+
+$applicationParameterMap = @{}
+foreach ($pair in $appParamCollection)
+{
+    $applicationParameterMap.Add($pair.Name, $pair.Value);
+}
+
+Start-ServiceFabricApplicationUpgrade -ApplicationName fabric:/myApplication -ApplicationTypeVersion 2.0.0 -ApplicationParameter $applicationParameterMap -Monitored -FailureAction Rollback
+```
 
 ## Step 1: Build and deploy the Visual Objects sample
 Build and publish the application by right-clicking on the application project, **VisualObjectsApplication,** and selecting the **Publish** command.  For more information, see [Service Fabric application upgrade tutorial](service-fabric-application-upgrade-tutorial.md).  Alternatively, you can use PowerShell to deploy your application.

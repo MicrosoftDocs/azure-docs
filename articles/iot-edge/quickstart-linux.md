@@ -1,6 +1,6 @@
 ---
 title: Quickstart create an Azure IoT Edge device on Linux | Microsoft Docs 
-description: In this quickstart, learn how to create an IoT Edge device and then deploy prebuilt code remotely from the Azure portal. 
+description: In this quickstart, learn how to create an IoT Edge device on Linux and then deploy prebuilt code remotely from the Azure portal. 
 author: kgremban
 manager: philmea
 ms.author: kgremban
@@ -17,10 +17,10 @@ Test out Azure IoT Edge in this quickstart by deploying containerized code to a 
 
 In this quickstart you learn how to:
 
-1. Create an IoT Hub.
-2. Register an IoT Edge device to your IoT hub.
-3. Install and start the IoT Edge runtime on your virtual device.
-4. Remotely deploy a module to an IoT Edge device.
+* Create an IoT Hub.
+* Register an IoT Edge device to your IoT hub.
+* Install and start the IoT Edge runtime on your virtual device.
+* Remotely deploy a module to an IoT Edge device.
 
 ![Diagram - Quickstart architecture for device and cloud](./media/quickstart-linux/install-edge-full.png)
 
@@ -87,7 +87,7 @@ Since IoT Edge devices behave and can be managed differently than typical IoT de
 2. View the connection string for your device, which links your physical device with its identity in IoT Hub. It contains the name of your IoT hub, the name of your device, and then a shared key that authenticates connections between the two. We'll refer to this connection string again in the next section when you set up your IoT Edge device.
 
    ```azurecli-interactive
-   az iot hub device-identity show-connection-string --device-id myEdgeDevice --hub-name {hub_name}
+   az iot hub device-identity connection-string show --device-id myEdgeDevice --hub-name {hub_name}
    ```
 
    ![View connection string from CLI output](./media/quickstart/retrieve-connection-string.png)
@@ -111,14 +111,7 @@ Use the following CLI command to create your IoT Edge device based on the prebui
 * For bash or Cloud Shell users, copy the following command into a text editor, replace the placeholder text with your information, then copy into your bash or Cloud Shell window:
 
    ```azurecli-interactive
-   az deployment group create \
-   --resource-group IoTEdgeResources \
-   --template-uri "https://aka.ms/iotedge-vm-deploy" \
-   --parameters dnsLabelPrefix='my-edge-vm' \
-   --parameters adminUsername='azureUser' \
-   --parameters deviceConnectionString=$(az iot hub device-identity show-connection-string --device-id myEdgeDevice --hub-name <REPLACE_WITH_HUB_NAME> -o tsv) \
-   --parameters authenticationType='password' \
-   --parameters adminPasswordOrKey="<REPLACE_WITH_PASSWORD>"
+   az deployment group create --resource-group IoTEdgeResources --template-uri "https://aka.ms/iotedge-vm-deploy" --parameters dnsLabelPrefix='my-edge-vm' --parameters adminUsername='azureUser' --parameters deviceConnectionString=$(az iot hub device-identity connection-string show --device-id myEdgeDevice --hub-name <REPLACE_WITH_HUB_NAME> -o tsv) --parameters authenticationType='password' --parameters adminPasswordOrKey="<REPLACE_WITH_PASSWORD>"
    ```
 
 * For PowerShell users, copy the following command into your PowerShell window, then replace the placeholder text with your own information:
@@ -129,7 +122,7 @@ Use the following CLI command to create your IoT Edge device based on the prebui
    --template-uri "https://aka.ms/iotedge-vm-deploy" `
    --parameters dnsLabelPrefix='my-edge-vm1' `
    --parameters adminUsername='azureUser' `
-   --parameters deviceConnectionString=$(az iot hub device-identity show-connection-string --device-id myEdgeDevice --hub-name <REPLACE_WITH_HUB_NAME> -o tsv) `
+   --parameters deviceConnectionString=$(az iot hub device-identity connection-string show --device-id myEdgeDevice --hub-name <REPLACE_WITH_HUB_NAME> -o tsv) `
    --parameters authenticationType='password' `
    --parameters adminPasswordOrKey="<REPLACE_WITH_PASSWORD>"
    ```

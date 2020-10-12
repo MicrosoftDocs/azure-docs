@@ -11,7 +11,7 @@ ms.custom: fasttrack-edit
 
 # Zero-downtime deployment for Durable Functions
 
-The [reliable execution model](durable-functions-checkpointing-and-replay.md) of Durable Functions requires that orchestrations be deterministic, which creates an additional challenge to consider when you deploy updates. When a deployment contains changes to activity function signatures or orchestrator logic, in-flight orchestration instances fail. This situation is especially a problem for instances of long-running orchestrations, which might represent hours or days of work.
+The [reliable execution model](./durable-functions-orchestrations.md) of Durable Functions requires that orchestrations be deterministic, which creates an additional challenge to consider when you deploy updates. When a deployment contains changes to activity function signatures or orchestrator logic, in-flight orchestration instances fail. This situation is especially a problem for instances of long-running orchestrations, which might represent hours or days of work.
 
 To prevent these failures from happening, you have two options: 
 - Delay your deployment until all running orchestration instances have completed.
@@ -48,7 +48,7 @@ Use the following procedure to set up this scenario.
 
 1. For each slot, set the [AzureWebJobsStorage application setting](../functions-app-settings.md#azurewebjobsstorage) to the connection string of a shared storage account. This storage account connection string is used by the Azure Functions runtime. This account is used by the Azure Functions runtime and manages the function's keys.
 
-1. For each slot, create a new app setting, for example, `DurableManagementStorage`. Set its value to the connection string of different storage accounts. These storage accounts are used by the Durable Functions extension for [reliable execution](durable-functions-checkpointing-and-replay.md). Use a separate storage account for each slot. Don't mark this setting as a deployment slot setting.
+1. For each slot, create a new app setting, for example, `DurableManagementStorage`. Set its value to the connection string of different storage accounts. These storage accounts are used by the Durable Functions extension for [reliable execution](./durable-functions-orchestrations.md). Use a separate storage account for each slot. Don't mark this setting as a deployment slot setting.
 
 1. In your function app's [host.json file's durableTask section](durable-functions-bindings.md#hostjson-settings), specify `azureStorageConnectionStringName` as the name of the app setting you created in step 3.
 
@@ -168,4 +168,3 @@ For more information, see [Manage instances in Durable Functions in Azure](durab
 
 > [!div class="nextstepaction"]
 > [Versioning Durable Functions](durable-functions-versioning.md)
-

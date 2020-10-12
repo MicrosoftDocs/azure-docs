@@ -20,7 +20,10 @@ Throughput must be provisioned to ensure that sufficient system resources are av
 > As different operations consume different number of RU, we return the actual number of RUs consumed in every API call in response header. This way you can profile the number of RUs consumed by your application.
 
 ## Update throughput
+
 To change this setting in the Azure portal, navigate to your Azure API for FHIR and open the Database blade. Next, change the Provisioned throughput to the desired value depending on your performance needs. You can change the value up to a maximum of 10,000 RU/s. If you need a higher value, contact Azure support.
+
+If the database throughput is greater than 10,000 RU/s or if the data stored in the database is more than 50 GB, your client application must be capable of handling continuation tokens. A new partition is created in the database for every throughput increase of 10,000 RU/s or if the amount of data stored is more than 50 GB. Multiple partitions creates a multi-page response in which pagination is implemented by using continuation tokens.
 
 > [!NOTE] 
 > Higher value means higher Azure API for FHIR throughput and higher cost of the service.
@@ -29,7 +32,12 @@ To change this setting in the Azure portal, navigate to your Azure API for FHIR 
 
 ## Next steps
 
-In this article, you learned how to update your RUs for Azure API for FHIR. Next deploy a fully managed Azure API for FHIR:
+In this article, you learned how to update your RUs for Azure API for FHIR. To learn about configuring customer-managed keys as a database setting:
+
+>[!div class="nextstepaction"]
+>[Configure customer-managed keys](bring-your-own-key.md)
+
+Or you can deploy a fully managed Azure API for FHIR:
  
 >[!div class="nextstepaction"]
 >[Deploy Azure API for FHIR](fhir-paas-portal-quickstart.md)

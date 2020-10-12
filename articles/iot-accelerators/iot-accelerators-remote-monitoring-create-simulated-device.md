@@ -8,7 +8,7 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 03/08/2019
 ms.topic: conceptual
-ms.custom:  mqtt
+ms.custom:  mqtt, devx-track-js
 
 # As a developer, I want to know how to create and test a new simulated device before I deploy it to the cloud.
 ---

@@ -2,22 +2,15 @@
 title: 'Tutorial: Azure Active Directory single sign-on integration with Citrix NetScaler (header-based authentication) | Microsoft Docs'
 description: Learn how to configure single sign-on (SSO) between Azure Active Directory and Citrix NetScaler by using header-based authentication.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-
-ms.assetid: b0adc7bf-696d-44c9-a57a-f9e9471b8710
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 12/13/2019
 ms.author: jeedes
-
-ms.collection: M365-identity-device-management
 ---
 
 # Tutorial: Azure Active Directory single sign-on integration with Citrix NetScaler (header-based authentication)
@@ -397,7 +390,7 @@ To bind a rewrite policy to a virtual server by using the GUI:
 
 1. On the **Load Balancing Virtual Server** pane, under **Advanced Settings**, select **Policies**. All policies that are configured for your NetScaler instance appear in the list.
  
-    ![Citrix NetScaler configuration - Load Balancing Virtual Server pane](./media/header-citrix-netscaler-tutorial/header05.png)
+    ![Screenshot that shows the "Configuration" tab with the "Name", "Action", and "Expression" fields highlighted and "Create" button selected.](./media/header-citrix-netscaler-tutorial/header05.png)
 
     ![Citrix NetScaler configuration - Load Balancing Virtual Server pane](./media/header-citrix-netscaler-tutorial/header06.png)
 

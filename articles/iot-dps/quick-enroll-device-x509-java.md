@@ -1,5 +1,5 @@
 ---
-title: Enroll X.509 devices to Azure Device Provisioning Service using Java
+title: Quickstart - Enroll X.509 devices to Azure Device Provisioning Service using Java
 description: This quickstart uses both group and individual enrollments. In this quickstart, you will enroll X.509 devices to the Azure IoT Hub Device Provisioning Service (DPS) using Java.
 author: wesmc7777
 ms.author: wesmc
@@ -8,7 +8,7 @@ ms.topic: quickstart
 ms.service: iot-dps
 services: iot-dps 
 ms.devlang: java
-ms.custom: mvc
+ms.custom: mvc, devx-track-java
 ---
 
 # Quickstart: Enroll X.509 devices to the Device Provisioning Service using Java

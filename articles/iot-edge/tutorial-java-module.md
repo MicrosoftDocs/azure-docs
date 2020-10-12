@@ -6,10 +6,10 @@ author: kgremban
 manager: philmea
 
 ms.author: kgremban
-ms.date: 04/04/2019
+ms.date: 07/30/2020
 ms.topic: tutorial
 ms.service: iot-edge
-ms.custom: [mvc, mqtt]
+ms.custom: [mvc, mqtt, devx-track-java]
 ---
 
 # Tutorial: Develop a Java IoT Edge module for Linux devices
@@ -54,6 +54,9 @@ To develop an IoT Edge module in Java, install the following additional prerequi
 * [Java SE Development Kit 10](https://aka.ms/azure-jdks), and [set the `JAVA_HOME` environment variable](https://docs.oracle.com/cd/E19182-01/820-7851/inst_cli_jdk_javahome_t/) to point to your JDK installation.
 * [Maven](https://maven.apache.org/)
 
+   >[!TIP]
+   >The Java and Maven installation processes add environment variables to your system. Restart any open Visual Studio Code terminal, Powershell, or command prompt instances after completing installation. This step ensures that these utilities can recognize the Java and Maven commands going forward.
+
 ## Create a module project
 
 The following steps create an IoT Edge module project that's based on the Azure IoT Edge maven template package and Azure IoT Java device SDK. You create the project by using Visual Studio Code and the Azure IoT Tools.
@@ -71,9 +74,9 @@ Create a Java solution template that you can customize with your own code.
    | Select folder | Choose the location on your development machine for VS Code to create the solution files. |
    | Provide a solution name | Enter a descriptive name for your solution or accept the default **EdgeSolution**. |
    | Select module template | Choose **Java Module**. |
-   | Provide value for groupId | Enter a group ID value or accept the default **com.edgemodule**. |
    | Provide a module name | Name your module **JavaModule**. |
-   | Provide Docker image repository for the module | An image repository includes the name of your container registry and the name of your container image. Your container image is prepopulated from the name you provided in the last step. Replace **localhost:5000** with the login server value from your Azure container registry. You can retrieve the login server from the Overview page of your container registry in the Azure portal. <br><br>The final image repository looks like \<registry name\>.azurecr.io/javamodule. |
+   | Provide Docker image repository for the module | An image repository includes the name of your container registry and the name of your container image. Your container image is prepopulated from the name you provided in the last step. Replace **localhost:5000** with the **Login server** value from your Azure container registry. You can retrieve the Login server from the Overview page of your container registry in the Azure portal. <br><br>The final image repository looks like \<registry name\>.azurecr.io/javamodule. |
+   | Provide value for groupId | Enter a group ID value or accept the default **com.edgemodule**. |
 
    ![Provide Docker image repository](./media/tutorial-java-module/repository.png)
 
@@ -90,6 +93,8 @@ If you didn't specify a container registry when creating your solution, but acce
 ### Add your registry credentials
 
 The environment file stores the credentials for your container registry and shares them with the IoT Edge runtime. The runtime needs these credentials to pull your private images onto the IoT Edge device.
+
+The IoT Edge extension tries to pull your container registry credentials from Azure and populate them in the environment file. Check to see if your credentials are already included. If not, add them now:
 
 1. In the VS Code explorer, open the .env file.
 2. Update the fields with the **username** and **password** values that you copied from your Azure container registry.
@@ -230,7 +235,7 @@ In the previous section, you created an IoT Edge solution and added code to the 
 
 1. Open the VS Code integrated terminal by selecting **View** > **Terminal**.
 
-1. Sign in to Docker by entering the following command in the terminal. Sign in with the username, password, and login server from your Azure container registry. You can retrieve these values from the **Access keys** section of your registry in the Azure portal.
+2. Sign in to Docker by entering the following command in the terminal. Sign in with the username, password, and login server from your Azure container registry. You can retrieve these values from the **Access keys** section of your registry in the Azure portal.
 
    ```bash
    docker login -u <ACR username> -p <ACR password> <ACR login server>
@@ -238,29 +243,31 @@ In the previous section, you created an IoT Edge solution and added code to the 
 
    You may receive a security warning recommending the use of `--password-stdin`. While that best practice is recommended for production scenarios, it's outside the scope of this tutorial. For more information, see the [docker login](https://docs.docker.com/engine/reference/commandline/login/#provide-a-password-using-stdin) reference.
 
-1. In the VS Code explorer, right-click the **deployment.template.json** file and select **Build and Push IoT Edge solution**.
+3. In the VS Code explorer, right-click the **deployment.template.json** file and select **Build and Push IoT Edge Solution**.
 
    The build and push command starts three operations. First, it creates a new folder in the solution called **config** that holds the full deployment manifest, which is built out of information in the deployment template and other solution files. Second, it runs `docker build` to build the container image based on the appropriate dockerfile for your target architecture. Then, it runs `docker push` to push the image repository to your container registry.
 
+   This process may take several minutes the first time, but is faster the next time that you run the commands.
+
 ## Deploy modules to device
 
-Use the Visual Studio Code explorer and the Azure IoT Tools extension to deploy the module project to your IoT Edge device. You already have a deployment manifest prepared for your scenario, the **deployment.json** file in the config folder. All you need to do now is select a device to receive the deployment.
+Use the Visual Studio Code explorer and the Azure IoT Tools extension to deploy the module project to your IoT Edge device. You already have a deployment manifest prepared for your scenario, the **deployment.amd64.json** file in the config folder. All you need to do now is select a device to receive the deployment.
 
 Make sure that your IoT Edge device is up and running.
 
-1. In the Visual Studio Code explorer, expand the **Azure IoT Hub Devices** section to see your list of IoT devices.
+1. In the Visual Studio Code explorer, under the **Azure IoT Hub** section, expand **Devices** to see your list of IoT devices.
 
 2. Right-click the name of your IoT Edge device, then select **Create Deployment for Single Device**.
 
-3. Select the **deployment.json** file in the **config** folder and then click **Select Edge Deployment Manifest**. Do not use the deployment.template.json file.
+3. Select the **deployment.amd64.json** file in the **config** folder and then click **Select Edge Deployment Manifest**. Do not use the deployment.template.json file.
 
-4. Click the refresh button. You should see the new **JavaModule** running along with the **SimulatedTemperatureSensor** module and the **$edgeAgent** and **$edgeHub**.  
+4. Under your device, expand **Modules** to see a list of deployed and running modules. Click the refresh button. You should see the new **JavaModule** running along with the **SimulatedTemperatureSensor** module and the **$edgeAgent** and **$edgeHub**.  
+
+    It may take a few minutes for the modules to start. The IoT Edge runtime needs to receive its new deployment manifest, pull down the module images from the container runtime, then start each new module.
 
 ## View the generated data
 
 Once you apply the deployment manifest to your IoT Edge device, the IoT Edge runtime on the device collects the new deployment information and starts executing on it. Any modules running on the device that aren't included in the deployment manifest are stopped. Any modules missing from the device are started.
-
-You can view the status of your IoT Edge device using the **Azure IoT Hub Devices** section of the Visual Studio Code explorer. Expand the details of your device to see a list of deployed and running modules.
 
 1. In the Visual Studio Code explorer, right-click the name of your IoT Edge device and select **Start Monitoring Built-in Event Endpoint**.
 
@@ -292,7 +299,7 @@ Otherwise, you can delete the local configurations and the Azure resources that 
 
 ## Next steps
 
-In this tutorial, you created an IoT Edge module that filters raw data generated by your IoT Edge device. When you're ready to build your own modules, you can learn more about [developing IoT Edge modules](module-development.md) or how to [develop modules with Visual Studio Code](how-to-vs-code-develop-module.md). See [IoT Edge module samples](https://github.com/Azure/iotedge/tree/master/edge-modules) for code examples, including the simulated temperature module.
+In this tutorial, you created an IoT Edge module that filters raw data generated by your IoT Edge device.
 
 Continue to the next tutorials to learn how Azure IoT Edge helps you deploy Azure cloud services to process and analyze data at the edge.
 

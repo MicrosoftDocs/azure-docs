@@ -29,7 +29,7 @@ A privileged role administrator can change the role settings that apply to a use
 > [!NOTE]
 > Azure AD custom roles are not integrated with the built-in directory roles during preview. Once the capability is generally available, role management will take place in the built-in roles experience. If you see the following banner, these roles should be managed [in the built-in roles experience](pim-how-to-activate-role.md) and this article does not apply:
 >
-> [![](media/pim-how-to-add-role-to-user/pim-new-version.png "Select Azure AD > Privileged Identity Management")](media/pim-how-to-add-role-to-user/pim-new-version.png#lightbox)
+> [![Select Azure AD > Privileged Identity Management](media/pim-how-to-add-role-to-user/pim-new-version.png)](media/pim-how-to-add-role-to-user/pim-new-version.png#lightbox)
 
 ## Open role settings
 
@@ -43,7 +43,7 @@ Follow these steps to open the settings for an Azure AD role.
 1. Select **Setting** to open the **Settings** page. Select the role for the settings you want to configure.
 1. Select **Edit** to open the **Role settings** page.
 
-    ![Open the Azure AD custom role to edit settings](./media/azure-ad-custom-roles-configure/edit-settings.png)
+    ![Screenshot that shows the "Role setting details" page with the "Edit" action selected.](./media/azure-ad-custom-roles-configure/edit-settings.png)
 
 ## Role settings
 

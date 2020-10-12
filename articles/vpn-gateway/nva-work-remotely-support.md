@@ -6,7 +6,7 @@ author: scottnap
 
 ms.service: vpn-gateway
 ms.topic: conceptual
-ms.date: 03/21/2020
+ms.date: 09/08/2020
 ms.author: scottnap
 
 ---
@@ -49,6 +49,8 @@ Each NVA solution has its own tools and resources for monitoring the performance
 Most major NVA partners have posted guidance around scaling for sudden, unexpected growth during COVID-19. Here are a few useful links to partner resources.
 
 [Barracuda Enable Work from home while securing your data during COVID-19](https://www.barracuda.com/covid-19/work-from-home "Enable Work from home while securing your data during COVID-19")
+
+[Check Point Secure Remote Workforce During Coronavirus](https://www.checkpoint.com/solutions/secure-remote-workforce-during-coronavirus/ "Secure Remote Workforce During Coronavirus")
 
 [Cisco AnyConnect Implementation and Performance/Scaling Reference for COVID-19 Preparation](https://www.cisco.com/c/en/us/support/docs/security/anyconnect-secure-mobility-client/215331-anyconnect-implementation-and-performanc.html "Cisco AnyConnect Implementation and Performance/Scaling Reference for COVID-19 Preparation")
 

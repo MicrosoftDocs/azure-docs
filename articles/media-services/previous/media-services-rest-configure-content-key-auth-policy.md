@@ -15,9 +15,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
+ms.custom: devx-track-csharp
 
 ---
-# Dynamic encryption: Configure a content key authorization policy  
+# Dynamic encryption: Configure a content key authorization policy
+
+[!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
+ 
 [!INCLUDE [media-services-selector-content-key-auth-policy](../../../includes/media-services-selector-content-key-auth-policy.md)]
 
 ## Overview
@@ -27,7 +31,7 @@ If you want Media Services to encrypt an asset, you need to associate an encrypt
 
 When a stream is requested by a player, Media Services uses the specified key to dynamically encrypt your content by using AES or PlayReady encryption. To decrypt the stream, the player requests the key from the key delivery service. To determine whether the user is authorized to get the key, the service evaluates the authorization policies that you specified for the key.
 
-Media Services supports multiple ways of authenticating users who make key requests. The content key authorization policy can have one or more authorization restrictions by using either the open or token restriction. The token-restricted policy must be accompanied by a token issued by a security token service (STS). Media Services supports tokens in the simple web token ([SWT](https://msdn.microsoft.com/library/gg185950.aspx#BKMK_2)) and JSON Web Token (JWT) formats.
+Media Services supports multiple ways of authenticating users who make key requests. The content key authorization policy can have one or more authorization restrictions by using either the open or token restriction. The token-restricted policy must be accompanied by a token issued by a security token service (STS). Media Services supports tokens in the simple web token ([SWT](/previous-versions/azure/azure-services/gg185950(v=azure.100)#BKMK_2)) and JSON Web Token (JWT) formats.
 
 Media Services doesn't provide STS. You can create a custom STS or use Azure Active Directory (Azure AD) to issue tokens. The STS must be configured to create a token signed with the specified key and issue claims that you specified in the token restriction configuration (as described in this article). If the token is valid and the claims in the token match those configured for the content key, the Media Services key delivery service returns the encryption key to the client.
 
@@ -486,4 +490,3 @@ public enum ContentKeyDeliveryType
 
 ## Next steps
 Now that you have configured a content key's authorization policy, see [Configure asset delivery policy](media-services-rest-configure-asset-delivery-policy.md).
-

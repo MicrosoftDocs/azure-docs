@@ -50,7 +50,13 @@ If you are a Global Administrator or a Privileged Role Administrator, you can ea
 
 When you're viewing a role's members, select **Description** to see the complete list of permissions granted by the role assignment. The page includes links to relevant documentation to help guide you through managing directory roles.
 
-![list of permissions for an admin role](./media/directory-manage-roles-portal/role-description.png)
+![Screenshot that shows the "Global administrator - Description" page.](./media/directory-manage-roles-portal/role-description.png)
+
+## Download role assignments
+
+To download all assignments for a specific role, on the **Roles and administrators** page, select a role, and then select **Download role assignments**. A CSV file that lists assignments at all scopes for that role is downloaded.
+
+![download all assignments for a role](./media/directory-manage-roles-portal/download-role-assignments.png)
 
 ## Assign a role
 
@@ -60,7 +66,7 @@ When you're viewing a role's members, select **Description** to see the complete
 
 1. Select a role to see its assignments.
 
-    ![list of permissions for an admin role](./media/directory-manage-roles-portal/member-list.png)
+    ![Screenshot that shows the "User administrator - Assignments" page with the "Manage in PIM" action selected.](./media/directory-manage-roles-portal/member-list.png)
 
 1. Select **Add assignments** and select the roles you want to assign. You can select **Manage in PIM** for additional management capabilities. If you see something different from the following picture, read the Note in [View assignments for privileged roles](#view-assignments-for-privileged-roles) to verify whether you're in PIM.
 

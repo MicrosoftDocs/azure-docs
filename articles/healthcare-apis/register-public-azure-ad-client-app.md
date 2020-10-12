@@ -2,12 +2,12 @@
 title: Register a public client app in Azure AD - Azure API for FHIR
 description: This article explains how to register a public client application in Azure Active Directory, in preparation for deploying FHIR API in Azure.
 services: healthcare-apis
-author: hansenms
+author: matjazl
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: conceptual
 ms.date: 02/07/2019
-ms.author: mihansen
+ms.author: matjazl
 ---
 
 # Register a public client application in Azure Active Directory
@@ -40,7 +40,8 @@ Similarly to the [confidential client application](register-confidential-azure-a
 
 1. Open the **API permissions**.
 
-    If you are using the Azure API for FHIR, you will add a permission to the Azure Healthcare APIs by searching for Azure Healthcare APIs under **APIs my organization uses** (image below).
+    If you are using the Azure API for FHIR, you will add a permission to the Azure Healthcare APIs by searching for Azure Healthcare APIs under **APIs my organization uses**. You will only be able to find this if you have already [deployed the Azure API for FHIR](fhir-paas-powershell-quickstart.md).
+
     
     If you are referencing a different Resource Application, select your [FHIR API Resource Application Registration](register-resource-azure-ad-client-app.md) that you created previously under **My APIs**:
 

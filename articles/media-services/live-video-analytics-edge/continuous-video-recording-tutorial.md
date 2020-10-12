@@ -44,7 +44,7 @@ At the end of these steps, you'll have relevant Azure resources deployed in your
 * Azure IoT Hub
 * Azure Storage account
 * Azure Media Services account
-* Linux VM in Azure, with the [IoT Edge runtime](https://docs.microsoft.com/azure/iot-edge/how-to-install-iot-edge-linux) installed
+* Linux VM in Azure, with the [IoT Edge runtime](../../iot-edge/how-to-install-iot-edge-linux.md) installed
 
 ## Concepts
 
@@ -56,7 +56,8 @@ As explained in the [media graph concept](media-graph-concept.md) article, a med
  
  To accomplish CVR, you need to capture the video from an RTSP-capable camera and continuously record it to an [Azure Media Services asset](terminology.md#asset). This diagram shows a graphical representation of that media graph.
 
-![Media graph](./media/continuous-video-recording-tutorial/continuous-video-recording-overview.png)
+> [!div class="mx-imgBorder"]
+> :::image type="content" source="./media/continuous-video-recording-tutorial/continuous-video-recording-overview.svg" alt-text="Media graph":::
 
 In this tutorial, you'll use one edge module built by using the [Live555 Media Server](https://github.com/Azure/live-video-analytics/tree/master/utilities/rtspsim-live555) to simulate an RTSP camera. Inside the media graph, you'll use an [RTSP source](media-graph-concept.md#rtsp-source) node to get the live feed and send that video to the [asset sink node](media-graph-concept.md#asset-sink), which records the video to an asset.
 
@@ -154,7 +155,16 @@ When you use the Live Video Analytics on IoT Edge module to record the live vide
 
 ## Run the program 
 
-1. In Visual Studio Code, go to src/cloud-to-device-console-app/operations.json.
+1. In Visual Studio Code, open the **Extensions** tab (or press Ctrl+Shift+X) and search for Azure IoT Hub.
+1. Right click and select **Extension Settings**.
+
+    > [!div class="mx-imgBorder"]
+    > :::image type="content" source="./media/run-program/extensions-tab.png" alt-text="Extension Settings":::
+1. Search and enable “Show Verbose Message”.
+
+    > [!div class="mx-imgBorder"]
+    > :::image type="content" source="./media/run-program/show-verbose-message.png" alt-text="Show Verbose Message":::
+1. <!--In Visual Studio Code, go-->Go to src/cloud-to-device-console-app/operations.json.
 1. Under the **GraphTopologySet** node, edit the following:
 
     `"topologyUrl" : "https://raw.githubusercontent.com/Azure/live-video-analytics/master/MediaGraph/topologies/cvr-asset/topology.json" `
@@ -226,7 +236,7 @@ When you use the Live Video Analytics on IoT Edge module to record the live vide
 
 ## Interpret the results 
 
-When you run the media graph, the Live Video Analytics on IoT Edge module sends certain diagnostic and operational events to the IoT Edge hub. These events are the messages you see in the **OUTPUT** window of Visual Studio Code. They contain a body section and an applicationProperties section. To understand what these sections represent, see [Create and read IoT Hub messages](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messages-construct).
+When you run the media graph, the Live Video Analytics on IoT Edge module sends certain diagnostic and operational events to the IoT Edge hub. These events are the messages you see in the **OUTPUT** window of Visual Studio Code. They contain a body section and an applicationProperties section. To understand what these sections represent, see [Create and read IoT Hub messages](../../iot-hub/iot-hub-devguide-messages-construct.md).
 
 In the following messages, the application properties and the content of the body are defined by the Live Video Analytics module.
 
@@ -347,7 +357,7 @@ You can examine the Media Services asset that was created by the media graph by 
 1. Locate your Media Services account among the resources you have in your subscription, and open the account pane.
 1. Select **Assets** in the **Media Services** list.
 
-    ![Assets](./media/continuous-video-recording-tutorial/assets.png)
+    ![Media Services assets](./media/continuous-video-recording-tutorial/assets.png)
 1. You'll find an asset listed with the name sampleAsset-CVRToAMSAsset-Sample-Graph-1. This is the naming pattern chosen in your graph topology file.
 1. Select the asset.
 1. On the asset details page, select **Create new** under the **Streaming URL** text box.
@@ -370,4 +380,4 @@ If you intend to try the other tutorials, hold on to the resources you created. 
 ## Next steps
 
 * Use an [IP camera](https://en.wikipedia.org/wiki/IP_camera) with support for RTSP instead of using the RTSP simulator. You can search for IP cameras with RTSP support on the [ONVIF conformant products page](https://www.onvif.org/conformant-products/) by looking for devices that conform with profiles G, S, or T.
-* Use an AMD64 or X64 Linux device (vs. using an Azure Linux VM). This device must be in the same network as the IP camera. Follow the instructions in [Install Azure IoT Edge runtime on Linux](https://docs.microsoft.com/azure/iot-edge/how-to-install-iot-edge-linux). Then follow the instructions in the [Deploy your first IoT Edge module to a virtual Linux device](https://docs.microsoft.com/azure/iot-edge/quickstart-linux) quickstart to register the device with Azure IoT Hub.
+* Use an AMD64 or X64 Linux device (vs. using an Azure Linux VM). This device must be in the same network as the IP camera. Follow the instructions in [Install Azure IoT Edge runtime on Linux](../../iot-edge/how-to-install-iot-edge-linux.md). Then follow the instructions in the [Deploy your first IoT Edge module to a virtual Linux device](../../iot-edge/quickstart-linux.md) quickstart to register the device with Azure IoT Hub.

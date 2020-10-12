@@ -1,6 +1,6 @@
 ---
-title: Azure PowerShell Script Sample - Azure Monitor logs 
-description: Azure PowerShell Script Sample - Azure Monitor logs
+title: Azure PowerShell Linux script sample - Azure Monitor logs 
+description: Azure PowerShell Linux Script Sample - Azure Monitor logs.
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: cynthn
@@ -16,7 +16,7 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 03/01/2017
 ms.author: cynthn
-ms.custom: mvc
+ms.custom: mvc, devx-track-azurepowershell
 ---
 
 # Create an Azure Monitor VM with PowerShell
@@ -62,6 +62,6 @@ This script uses the following commands to create the deployment. Each item in t
 
 ## Next steps
 
-For more information on the Azure PowerShell module, see [Azure PowerShell documentation](/powershell/azure/overview).
+For more information on the Azure PowerShell module, see [Azure PowerShell documentation](/powershell/azure/).
 
 Additional virtual machine PowerShell script samples can be found in the [Azure Linux VM documentation](../linux/powershell-samples.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).

@@ -3,9 +3,9 @@ title: Overview - Automate deployment for Azure Logic Apps
 description: Learn about Azure Resource Manager templates to automate deployment for Azure Logic Apps
 services: logic-apps
 ms.suite: integration
-ms.reviewer: klam, logicappspm
+ms.reviewer: logicappspm
 ms.topic: article
-ms.date: 07/25/2019
+ms.date: 08/17/2020
 ---
 
 # Overview: Automate deployment for Azure Logic Apps by using Azure Resource Manager templates
@@ -29,12 +29,14 @@ For more information about Resource Manager templates, see these topics:
 * [Azure Resource Manager template best practices](../azure-resource-manager/templates/template-best-practices.md)
 * [Develop Azure Resource Manager templates for cloud consistency](../azure-resource-manager/templates/templates-cloud-consistency.md)
 
+For template resource information specific to logic apps, integration accounts, integration account artifacts, and integration service environments, see [Microsoft.Logic resource types](/azure/templates/microsoft.logic/allversions).
+
 For sample logic app templates, see these examples:
 
 * [Full template](#full-example-template) that's used for this topic's examples
 * [Sample quickstart logic app template](https://github.com/Azure/azure-quickstart-templates/blob/master/101-logic-app-create) in GitHub
 
-For template resource information specific to logic apps, integration accounts, and integration account artifacts, see [Microsoft.Logic resource types](/azure/templates/microsoft.logic/allversions).
+For the Logic Apps REST API, start with the [Azure Logic Apps REST API overview](/rest/api/logic).
 
 <a name="template-structure"></a>
 
@@ -232,7 +234,7 @@ This example parameters file specifies the values for the template parameters de
 
 ## Template resources
 
-Your template has a `resources` object, which is an array that contains definitions for each resource to create and deploy in Azure, such as your [logic app's resource definition](#logic-app-resource-definition), any [connection resource definitions](#connection-resource-definitions), and any other resources that your logic app needs for deployment.
+Your template has a `resources` object, which is an array that contains definitions for each resource to create and deploy in Azure, such as your [logic app's resource definition](#logic-app-resource-definition), [connection resource definitions](#connection-resource-definitions), and any other resources that your logic app needs for deployment.
 
 ```json
 {
@@ -260,6 +262,12 @@ Your template has a `resources` object, which is an array that contains definiti
 > [!NOTE]
 > Templates can include resource definitions for multiple logic apps, so make sure that all your logic app resources specify the same Azure resource group. When you deploy the template to an Azure resource group by using Visual Studio, you're prompted for which logic app that you want to open. Also, your Azure resource group project can contain more than one template, so make sure that you select the correct parameters file when prompted.
 
+<a name="view-resource-definitions"></a>
+
+### View resource definitions
+
+To review the resource definitions for all the resources in an Azure resource group, [download your logic app from Azure into Visual Studio](../logic-apps/manage-logic-apps-with-visual-studio.md), which is the easiest way to create a valid parameterized logic app template that's mostly ready for deployment.
+
 For general information about template resources and their attributes, see these topics:
 
 * [Resources - Resource Manager template structure and syntax](../azure-resource-manager/templates/template-syntax.md#resources)
@@ -269,7 +277,7 @@ For general information about template resources and their attributes, see these
 
 ### Logic app resource definition
 
-Your logic app's resource definition starts with the `properties` object, which includes this information:
+Your logic app's [workflow resource definition in a template](/azure/templates/microsoft.logic/workflows) starts with the `properties` object, which includes this information:
 
 * Your logic app's state at deployment
 * The ID for any integration account used by your logic app
@@ -323,7 +331,31 @@ Here are the attributes that are specific to your logic app resource definition:
 | `accessControl` | No | Object | For specifying security attributes for your logic app, such as restricting IP access to request triggers or run history inputs and outputs. For more information, see [Secure access to logic apps](../logic-apps/logic-apps-securing-a-logic-app.md). |
 ||||
 
-For template resource information specific to logic apps, integration accounts, and integration account artifacts, see [Microsoft.Logic resource types](/azure/templates/microsoft.logic/allversions).
+For more information about resource definitions for these Logic Apps objects, see [Microsoft.Logic resource types](/azure/templates/microsoft.logic/allversions):
+
+* [Workflow resource definition](/azure/templates/microsoft.logic/workflows)
+* [Integration service environment resource definition](/azure/templates/microsoft.logic/integrationserviceenvironments)
+* [Integration service environment managed API resource definition](/azure/templates/microsoft.logic/integrationserviceenvironments/managedapis)
+
+* [Integration account resource definition](/azure/templates/microsoft.logic/integrationaccounts)
+
+* Integration account artifacts:
+
+  * [Agreement resource definition](/azure/templates/microsoft.logic/integrationaccounts/agreements)
+
+  * [Assembly resource definition](/azure/templates/microsoft.logic/integrationaccounts/assemblies)
+
+  * [Batch configuration resource definition](/azure/templates/microsoft.logic/integrationaccounts/batchconfigurations)
+
+  * [Certificate resource definition](/azure/templates/microsoft.logic/integrationaccounts/certificates)
+
+  * [Map resource definition](/azure/templates/microsoft.logic/integrationaccounts/maps)
+
+  * [Partner resource definition](/azure/templates/microsoft.logic/integrationaccounts/partners)
+
+  * [Schema resource definition](/azure/templates/microsoft.logic/integrationaccounts/schemas)
+
+  * [Session resource definition](/azure/templates/microsoft.logic/integrationaccounts/sessions)
 
 <a name="workflow-definition-parameters"></a>
 
@@ -566,7 +598,7 @@ For more information about workflow definition parameters, see [Parameters - Wor
 
 ## Connection resource definitions
 
-When your logic app creates and uses connections to other services and system by using [managed connectors](../connectors/apis-list.md), your template's `resources` object contains the resource definitions for those connections.
+When your logic app creates and uses connections to other services and system by using [managed connectors](../connectors/apis-list.md), your template's `resources` object contains the resource definitions for those connections. Although you create connections from within a logic app, connections are separate Azure resources with their own resource definitions. To review these connection resource definitions, [download your logic app from Azure into Visual Studio](../logic-apps/manage-logic-apps-with-visual-studio.md), which is the easiest way to create a valid parameterized logic app template that's mostly ready for deployment.
 
 ```json
 {

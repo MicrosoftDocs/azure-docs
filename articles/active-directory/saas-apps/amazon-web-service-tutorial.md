@@ -2,21 +2,15 @@
 title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Amazon Web Services (AWS) | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and Amazon Web Services (AWS).
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-
-ms.assetid: 7561c20b-2325-4d97-887f-693aa383c7be
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
 ms.topic: tutorial
-ms.date: 04/20/2020
+ms.date: 07/14/2020
 ms.author: jeedes
-
-ms.collection: M365-identity-device-management
 ---
 
 # Tutorial: Azure Active Directory single sign-on (SSO) integration with Amazon Web Services (AWS)
@@ -78,7 +72,7 @@ To configure the integration of Amazon Web Services (AWS) into Azure AD, you nee
 1. In the **Add from the gallery** section, type **Amazon Web Services (AWS)** in the search box.
 1. Select **Amazon Web Services (AWS)** from results panel and then add the app. Wait a few seconds while the app is added to your tenant.
 
-## Configure and test Azure AD single sign-on for Amazon Web Services (AWS)
+## Configure and test Azure AD SSO for Amazon Web Services (AWS)
 
 Configure and test Azure AD SSO with Amazon Web Services (AWS) using a test user called **B.Simon**. For SSO to work, you need to establish a link relationship between an Azure AD user and the related user in Amazon Web Services (AWS).
 
@@ -102,7 +96,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
    ![Edit Basic SAML Configuration](common/edit-urls.png)
 
-1. On the **Basic SAML Configuration** section, the application is pre-configured, and the necessary URLs are already pre-populated with Azure. The user needs to save the configuration by selecting **Save**.
+1. In the **Basic SAML Configuration** section, update both **Identifier (Entity ID)** and **Reply URL** with the same default value: `https://signin.aws.amazon.com/saml`. You must select **Save** to save the configuration changes.
 
 1. When you are configuring more than one instance, provide an identifier value. From second instance onwards, use the following format, including a **#** sign to specify a unique SPN value.
 
@@ -120,11 +114,19 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 	| Role 			  | user.assignedroles |  `https://aws.amazon.com/SAML/Attributes` |
 	| SessionDuration 			  | "provide a value between 900 seconds (15 minutes) to 43200 seconds (12 hours)" |  `https://aws.amazon.com/SAML/Attributes` |
 
-1. On the **Set up single sign-on with SAML** page, in the **SAML Signing Certificate** section,  find **Federation Metadata XML** and select **Download** to download the certificate and save it on your computer.
+1. On the **Set up single sign-on with SAML** page, in the **SAML Signing Certificate** (Step 3) dialog box, select **Add a certificate**.
 
-    ![The Certificate download link](common/metadataxml.png)
+    ![Create new SAML Certificate](common/add-saml-certificate.png)
 
-1. On the **Set up Amazon Web Services (AWS)** section, copy the appropriate URL(s) based on your requirement.
+1. Generate a new SAML signing certificate, and then select **New Certificate**. Enter an email address for certificate notifications.
+   
+    ![New SAML Certificate](common/new-saml-certificate.png) 
+
+1. In the **SAML Signing Certificate** section, find **Federation Metadata XML** and select **Download** to download the certificate and save it on your computer.
+
+    ![The Certificate download link](./media/amazon-web-service-tutorial/certificate.png)
+
+1. In the **Set up Amazon Web Services (AWS)** section, copy the appropriate URL(s) based on your requirement.
 
     ![Copy configuration URLs](common/copy-configuration-urls.png)
 
@@ -297,7 +299,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 18. Create a new policy for this user.
 
-    ![Screenshot of Add user](./media/amazon-web-service-tutorial/adduser2.png)
+    ![Screenshot shows the Add user page where you can create a policy for the user.](./media/amazon-web-service-tutorial/adduser2.png)
 
     a. Select **Attach existing policies directly**.
 
@@ -315,7 +317,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 20. Download the user credentials of a user.
 
-    ![Screenshot of Add user](./media/amazon-web-service-tutorial/adduser4.png)
+    ![Screenshot shows the Add user page with a Download c s v button to get user credentials.](./media/amazon-web-service-tutorial/adduser4.png)
 
     a. Copy the user **Access key ID** and **Secret access key**.
 
@@ -374,8 +376,6 @@ When you click the Amazon Web Services (AWS) tile in the Access Panel, you shoul
 * Roles must meet the following requirements to be eligible to be imported from AWS into Azure AD:
 
   * Roles must have exactly one saml-provider defined in AWS
-
-  * The combined length of the role ARN and the saml-provider ARN for a role being imported must be 119 characters or less
 
 ## Additional resources
 

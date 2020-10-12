@@ -9,8 +9,8 @@ manager: craigg
 ms.reviewer: craigg
 ms.service: dms
 ms.workload: data-services
-ms.custom: "seo-lt-2019,fasttrack-edit"
-ms.topic: article
+ms.custom: "seo-lt-2019,fasttrack-edit, devx-track-azurepowershell"
+ms.topic: how-to
 ms.date: 02/20/2020
 ---
 

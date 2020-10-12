@@ -5,7 +5,7 @@ author: jeffhollan
 ms.topic: how-to
 ms.date: 07/01/2018
 ms.author: jehollan
-ms.custom: mvc, devcenter
+ms.custom: mvc, devcenter, devx-track-java
 ---
 
 # Create your first Azure function with Java and IntelliJ
@@ -39,7 +39,7 @@ To develop a function with Java and IntelliJ, install the following software:
 2. To sign in to your Azure account, open sidebar **Azure Explorer**, and then click the **Azure Sign In** icon in the bar on top (or from IDEA menu **Tools/Azure/Azure Sign in**).
     ![The IntelliJ Azure Sign In command][intellij-azure-login]
 
-3. In the **Azure Sign In** window, select **Device Login**, and then click **Sign in** ([other sign in options](https://docs.microsoft.com/azure/developer/java/toolkit-for-intellij/sign-in-instructions)).
+3. In the **Azure Sign In** window, select **Device Login**, and then click **Sign in** ([other sign in options](/azure/developer/java/toolkit-for-intellij/sign-in-instructions)).
 
    ![The Azure Sign In window with device login selected][intellij-azure-popup]
 
@@ -151,7 +151,7 @@ In this section, you use Azure Toolkit for IntelliJ to create a local Azure Func
 You've created a Java functions project with an HTTP triggered function, run it on your local machine, and deployed it to Azure. Now, extend your function by...
 
 > [!div class="nextstepaction"]
-> [Adding an Azure Storage queue output binding](/azure/azure-functions/functions-add-output-binding-storage-queue-java)
+> [Adding an Azure Storage queue output binding](./functions-add-output-binding-storage-queue-java.md)
 
 
 [marketplace]:./media/functions-create-first-java-intellij/marketplace.png

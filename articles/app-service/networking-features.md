@@ -14,7 +14,7 @@ ms.custom: seodec18
 
 Applications in the Azure App Service can be deployed in multiple ways. By default, App Service hosted apps are directly internet accessible and can only reach internet hosted endpoints. Many customer applications however need to control the inbound and outbound network traffic. There are several features available in the App Service to satisfy those needs. The challenge is knowing what feature should be used to solve a given problem. This document is intended to help customers determine what feature should be used based on some example use cases.
 
-There are two primary deployment types for the Azure App Service. There is the multi-tenant public service, which hosts App Service plans in the Free, Shared, Basic, Standard, Premium, and Premiumv2 pricing SKUs. Then there is the single tenant App Service Environment(ASE), which hosts Isolated SKU App Service plans directly in your Azure Virtual Network (VNet). The features you use will vary on if you are in the multi-tenant service or in an ASE. 
+There are two primary deployment types for the Azure App Service. There is the multi-tenant public service, which hosts App Service plans in the Free, Shared, Basic, Standard, Premium, PremiumV2, and PremiumV3 pricing SKUs. Then there is the single tenant App Service Environment(ASE), which hosts Isolated SKU App Service plans directly in your Azure Virtual Network (VNet). The features you use will vary on if you are in the multi-tenant service or in an ASE. 
 
 ## Multi-tenant App Service networking features 
 
@@ -58,7 +58,7 @@ The following outbound use cases suggest how to use App Service networking featu
 
 ### Default networking behavior
 
-The Azure App Service scale units support many customers in each deployment. The Free and Shared SKU plans host customer workloads on multi-tenant workers. The Basic, and above plans host customer workloads that are dedicated to only one App Service plan (ASP). If you had a Standard App Service plan, then all of the apps in that plan will run on the same worker. If you scale out the worker, then all of the apps in that ASP will be replicated on a new worker for each instance in your ASP. The workers that are used for Premiumv2 are different from the workers used for the other plans. Each App Service deployment has one IP address that is used for all of the inbound traffic to the apps in that App Service deployment. There are however anywhere from 4 to 11 addresses used for making outbound calls. These addresses are shared by all of the apps in that App Service deployment. The outbound addresses are different based on the different worker types. That means that the addresses used by the Free, Shared, Basic, Standard and Premium ASPs are different than the addresses used for outbound calls from the Premiumv2 ASPs. If you look in the properties for your app, you can see the inbound and outbound addresses that are used by your app. If you need to lock down a dependency with an IP ACL, use the possibleOutboundAddresses. 
+The Azure App Service scale units support many customers in each deployment. The Free and Shared SKU plans host customer workloads on multi-tenant workers. The Basic, and above plans host customer workloads that are dedicated to only one App Service plan (ASP). If you had a Standard App Service plan, then all of the apps in that plan will run on the same worker. If you scale out the worker, then all of the apps in that ASP will be replicated on a new worker for each instance in your ASP. The workers that are used for PremiumV2 and PremiumV3 are different from the workers used for the other plans. Each App Service deployment has one IP address that is used for all of the inbound traffic to the apps in that App Service deployment. There are however anywhere from 4 to 11 addresses used for making outbound calls. These addresses are shared by all of the apps in that App Service deployment. The outbound addresses are different based on the different worker types. That means that the addresses used by the Free, Shared, Basic, Standard and Premium ASPs are different than the addresses used for outbound calls from the PremiumV2 and PremiumV3 ASPs. If you look in the properties for your app, you can see the inbound and outbound addresses that are used by your app. If you need to lock down a dependency with an IP ACL, use the possibleOutboundAddresses. 
 
 ![App properties](media/networking-features/app-properties.png)
 
@@ -219,12 +219,12 @@ A multi-tier application is an application where the API backend apps can only b
 You can have multiple front-end apps use the same API app by using VNet Integration from the other front-end apps and service endpoints from the API app with their subnets.  
 
 <!--Links-->
-[appassignedaddress]: https://docs.microsoft.com/azure/app-service/configure-ssl-certificate
-[iprestrictions]: https://docs.microsoft.com/azure/app-service/app-service-ip-restrictions
-[serviceendpoints]: https://docs.microsoft.com/azure/app-service/app-service-ip-restrictions
-[hybridconn]: https://docs.microsoft.com/azure/app-service/app-service-hybrid-connections
-[vnetintegrationp2s]: https://docs.microsoft.com/azure/app-service/web-sites-integrate-with-vnet
-[vnetintegration]: https://docs.microsoft.com/azure/app-service/web-sites-integrate-with-vnet
-[networkinfo]: https://docs.microsoft.com/azure/app-service/environment/network-info
-[appgwserviceendpoints]: https://docs.microsoft.com/azure/app-service/networking/app-gateway-with-service-endpoints
-[privateendpoints]: https://docs.microsoft.com/azure/app-service/networking/private-endpoint
+[appassignedaddress]: ./configure-ssl-certificate.md
+[iprestrictions]: ./app-service-ip-restrictions.md
+[serviceendpoints]: ./app-service-ip-restrictions.md
+[hybridconn]: ./app-service-hybrid-connections.md
+[vnetintegrationp2s]: ./web-sites-integrate-with-vnet.md
+[vnetintegration]: ./web-sites-integrate-with-vnet.md
+[networkinfo]: ./environment/network-info.md
+[appgwserviceendpoints]: ./networking/app-gateway-with-service-endpoints.md
+[privateendpoints]: ./networking/private-endpoint.md

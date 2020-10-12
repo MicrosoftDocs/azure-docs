@@ -9,6 +9,7 @@ ms.author: flborn
 ms.date: 12/11/2019
 ms.topic: conceptual
 ms.service: azure-remote-rendering
+ms.custom: devx-track-csharp
 ---
 # Graphics binding
 
@@ -109,12 +110,14 @@ if (*wmrBinding->UpdateUserCoordinateSystem(ptr) == Result::Success)
 }
 ```
 
-
 Where the above `ptr` must be a pointer to a native `ABI::Windows::Perception::Spatial::ISpatialCoordinateSystem` object that defines the world space coordinate system in which coordinates in the API are expressed in.
 
 #### Render remote image
 
-At the start of each frame the remote frame needs to be rendered into the back buffer. This is done by calling `BlitRemoteFrame`, which will fill both color and depth information into the currently bound render target. Thus it is important that this is done after binding the back buffer as a render target.
+At the start of each frame, the remote frame needs to be rendered into the back buffer. This is done by calling `BlitRemoteFrame`, which will fill both color and depth information for both eyes into the currently bound render target. Thus it is important to do so after binding the full back buffer as a render target.
+
+> [!WARNING]
+> After the remote image was blit into the backbuffer, the local content should be rendered using a single-pass stereo rendering technique, e.g. using **SV_RenderTargetArrayIndex**. Using other stereo rendering techniques, such as rendering each eye in a separate pass, can result in major performance degradation or graphical artifacts and should be avoided.
 
 ```cs
 AzureSession currentSession = ...;
@@ -131,12 +134,24 @@ wmrBinding->BlitRemoteFrame();
 ### Simulation
 
 `GraphicsApiType.SimD3D11` is the simulation binding and if selected it creates the `GraphicsBindingSimD3d11` graphics binding. This interface is used to simulate head movement, for example in a desktop application and renders a monoscopic image.
+
+To implement the simulation binding, it is important to understand the difference between the local camera and the remote frame as described on the [camera](../overview/features/camera.md) page.
+
+Two cameras are needed:
+
+* **Local camera**: This camera represents the current camera position that is driven by the application logic.
+* **Proxy camera**: This camera matches the current *Remote Frame* that was sent by the server. As there is a time delay between the client requesting a frame and its arrival, the *Remote Frame* is always a bit behind the movement of the local camera.
+
+The basic approach here is that both the remote image and the local content are rendered into an off-screen target using the proxy camera. The proxy image is then reprojected into the local camera space, which is further explained in [late stage reprojection](../overview/features/late-stage-reprojection.md).
+
 The setup is a bit more involved and works as follows:
 
 #### Create proxy render target
 
 Remote and local content needs to be rendered to an offscreen color / depth render target called 'proxy' using
-the proxy camera data provided by the `GraphicsBindingSimD3d11.Update` function. The proxy must match the resolution of the back buffer. Once a session is ready, `GraphicsBindingSimD3d11.InitSimulation` needs to be called before connecting to it:
+the proxy camera data provided by the `GraphicsBindingSimD3d11.Update` function.
+
+The proxy must match the resolution of the back buffer and should be int the *DXGI_FORMAT_R8G8B8A8_UNORM* or *DXGI_FORMAT_B8G8R8A8_UNORM* format. Once a session is ready, `GraphicsBindingSimD3d11.InitSimulation` needs to be called before connecting to it:
 
 ```cs
 AzureSession currentSession = ...;
@@ -226,6 +241,19 @@ else
 }
 ```
 
+## API documentation
+
+* [C# RemoteManagerStatic.StartupRemoteRendering()](https://docs.microsoft.com/dotnet/api/microsoft.azure.remoterendering.remotemanagerstatic.startupremoterendering)
+* [C# GraphicsBinding class](https://docs.microsoft.com/dotnet/api/microsoft.azure.remoterendering.graphicsbinding)
+* [C# GraphicsBindingWmrD3d11 class](https://docs.microsoft.com/dotnet/api/microsoft.azure.remoterendering.graphicsbindingwmrd3d11)
+* [C# GraphicsBindingSimD3d11 class](https://docs.microsoft.com/dotnet/api/microsoft.azure.remoterendering.graphicsbindingsimd3d11)
+* [C++ RemoteRenderingInitialization struct](https://docs.microsoft.com/cpp/api/remote-rendering/remoterenderinginitialization)
+* [C++ GraphicsBinding class](https://docs.microsoft.com/cpp/api/remote-rendering/graphicsbinding)
+* [C++ GraphicsBindingWmrD3d11 class](https://docs.microsoft.com/cpp/api/remote-rendering/graphicsbindingwmrd3d11)
+* [C++ GraphicsBindingSimD3d11 class](https://docs.microsoft.com/cpp/api/remote-rendering/graphicsbindingsimd3d11)
+
 ## Next steps
 
+* [Camera](../overview/features/camera.md)
+* [Late stage reprojection](../overview/features/late-stage-reprojection.md)
 * [Tutorial: Viewing remotely rendered models](../tutorials/unity/view-remote-models/view-remote-models.md)

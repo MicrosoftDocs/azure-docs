@@ -20,8 +20,8 @@ The Azure CLI 2.0 is used to create and manage Azure resources from the command 
 
 For other sources, such as Azure VMs and Windows or Linux VMs in your environment, see the following topics:
 
-* [Collect data from Azure virtual machines](../learn/quick-collect-azurevm.md)
-* [Collect data from hybrid Linux computer](../learn/quick-collect-linux-computer.md)
+* [Collect data from Azure virtual machines](./quick-collect-azurevm.md)
+* [Collect data from hybrid Linux computer](./quick-collect-linux-computer.md)
 * [Collect data from hybrid Windows computer](quick-collect-windows-computer.md)
 
 If you don't have an Azure subscription, create [a free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
@@ -129,3 +129,4 @@ Now that you have a workspace available, you can configure collection of monitor
 * Add [System Center Operations Manager as a data source](../platform/om-agents.md) to collect data from agents reporting your Operations Manager management group and store it in your Log Analytics workspace.  
 * Connect [Configuration Manager](../platform/collect-sccm.md) to import computers that are members of collections in the hierarchy.  
 * Review the [monitoring solutions](../insights/solutions.md) available and how to add or remove a solution from your workspace.
+

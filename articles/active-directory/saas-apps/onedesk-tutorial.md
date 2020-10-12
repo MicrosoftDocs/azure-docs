@@ -2,22 +2,15 @@
 title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with OneDesk | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and OneDesk.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-
-ms.assetid: 1c88fba6-4056-4f18-be11-f689cc1618da
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 11/18/2019
 ms.author: jeedes
-
-ms.collection: M365-identity-device-management
 ---
 
 # Tutorial: Azure Active Directory single sign-on (SSO) integration with OneDesk
@@ -146,7 +139,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 1. Click on the **Integrations** tab.
 
-    ![Settings tab](./media/onedesk-tutorial/img-integration.png)
+    ![Screenshot that shows the "Integrations" tab selected.](./media/onedesk-tutorial/img-integration.png)
 
 1. Click on the **Single Sign On**, select **Upload Metadata File** and click on the **Choose File** to upload the metadata file, which you have downloaded from the Azure portal.
 

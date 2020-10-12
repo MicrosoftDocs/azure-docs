@@ -8,12 +8,12 @@ ms.service: notification-hubs
 ms.topic: quickstart
 ms.custom: subject-armqs
 ms.author: sethm
-ms.date: 05/15/2020
+ms.date: 08/04/2020
 ms.reviewer: thsomasu
 ms.lastreviewed: 05/15/2020
 ---
 
-# Quickstart: create a notification hub using an ARM template
+# Quickstart: Create a notification hub using an ARM template
 
 Azure Notification Hubs provides an easy-to-use and scaled-out push engine that enables you to send notifications to any platform (iOS, Android, Windows, Kindle, etc.) from any backend (cloud or on-premises). For more information about the service, see [What is Azure Notification Hubs](notification-hubs-push-notification-overview.md).
 
@@ -33,7 +33,7 @@ If you don't have an Azure subscription, create a [free](https://azure.microsoft
 
 The template used in this quickstart is from [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/101-notification-hub/).
 
-:::code language="json" source="~/quickstart-templates/101-notification-hub/azuredeploy.json" range="1-45" highlight="22-40":::
+:::code language="json" source="~/quickstart-templates/101-notification-hub/azuredeploy.json":::
 
 * [Microsoft.NotificationHubs/namespaces](/azure/templates/microsoft.notificationhubs/namespaces)
 * [Microsoft.NotificationHubs/namespaces/notificationHubs](/azure/templates/microsoft.notificationhubs/namespaces/notificationhubs)
@@ -85,4 +85,4 @@ Write-Host "Press [ENTER] to continue..."
 For a step-by-step tutorial that guides you through the process of creating a template, see:
 
 > [!div class="nextstepaction"]
-> [Tutorial: Create and deploy your first ARM template](/azure/azure-resource-manager/templates/template-tutorial-create-first-template)
+> [Tutorial: Create and deploy your first ARM template](../azure-resource-manager/templates/template-tutorial-create-first-template.md)

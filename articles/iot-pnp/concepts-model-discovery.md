@@ -1,75 +1,143 @@
 ---
-title: Implement IoT Plug and Play Preview model discovery | Microsoft Docs
-description: As a solution developer, learn about how you can implement IoT Plug and Play model discovery in your solution.
-author: Philmea
-ms.author: philmea
-ms.date: 12/26/2019
+title: Use IoT Plug and Play models in a solution | Microsoft Docs
+description: As a solution builder, learn about how you can use IoT Plug and Play models in your IoT solution.
+author: arunmannengal
+ms.author: arunmann
+ms.date: 07/23/2020
 ms.topic: conceptual
-ms.custom: mvc
 ms.service: iot-pnp
 services: iot-pnp
-manager: philmea
 ---
 
-# Implement IoT Plug and Play Preview model discovery in an IoT solution
+# Use IoT Plug and Play models in an IoT solution
 
-This article describes how, as a solution developer, you can implement IoT Plug and Play Preview model discovery in an IoT solution.  IoT Plug and Play model discovery is how IoT Plug and Play devices identify their supported capability models and interfaces, and how an IoT solution retrieves those capability models and interfaces.
+This article describes how, in an IoT solution, you can identify model ID of an IoT Plug and Play device and then retrieve its model definition.
 
-There are two broad categories of IoT solution: purpose-built solutions that work with a known set of IoT Plug and Play devices, and model-driven solutions that work with any IoT Plug and Play device.
+There are two broad categories of an IoT solution:
 
-This concept article describes how to implement model discovery in both types of solution.
+- A *purpose-built solution* works with a known set of models for the IoT Plug and Play devices that will connect to the solution. You use these models when you develop the solution.
 
-## Model discovery
+- A *model-driven* solution can work with the model of any IoT Plug and Play device. Building a model-driven solution is more complex, but the benefit is that your solution works with any devices that may be added in the future. A model-driven IoT solution retrieves a model and uses it to determine the telemetry, properties, and commands the device implements.
 
-When an IoT Plug and Play device first connects to your IoT hub, it sends a model information telemetry message. This message includes the IDs of the interfaces the device implements. For your solution to work with the device, it must resolve those IDs and retrieve the definitions for each interface.
+To use an IoT Plug and Play model, an IoT solution:
 
-Here are the steps an IoT Plug and Play device takes when it uses the Device Provisioning Service (DPS) to connect to a hub:
+1. Identifies the model ID of the model implemented by the IoT Plug and Play device, module, or IoT Edge module connected to the solution.
 
-1. When the device is turned on, it connects to the global end point for DPS and authenticates using one of the allowed methods.
-1. DPS then authenticates the device and looks up the rule that tells it which IoT hub to assign the device to. DPS then registers the device with that hub.
-1. DPS returns an IoT Hub connection string to the device.
-1. The device then sends a discovery telemetry message to your IoT Hub. The discovery telemetry message contains the IDs of the interfaces the device implements.
-1. The IoT Plug and Play device is now ready to work with a solution that uses your IoT hub.
+1. Uses the model ID to retrieve the model definition of the connected device from a model repository or custom store.
 
-If the device connects directly to your IoT hub, it connects using a connection string that's embedded in the device code. The device then sends a discovery telemetry message to your IoT Hub.
+## Identify model ID
 
-See the [ModelInformation](concepts-common-interfaces.md) interface to learn more about the model information telemetry message.
+When an IoT Plug and Play device connects to IoT Hub, it registers the model ID of the model it implements with IoT Hub.
 
-### Purpose-built IoT solutions
+IoT Hub notifies the solution with the device model ID as part of the device connection flow.
 
-A purpose-built IoT solution works with a known set of IoT Plug and Play device capability models and interfaces.
+A solution can get the model ID of the IoT Plug and Play device by using one of the following three methods:
 
-You'll have the capability model and interfaces for the devices that will connect to your solution ahead of time. Use the following steps to prepare your solution:
+### Get Device Twin API
 
-1. Store the interface JSON files in a [model repository](./howto-manage-models.md) where your solution can read them.
-1. Write logic in your IoT solution based on the expected IoT Plug and Play capability models and interface.
-1. Subscribe to notifications from the IoT hub your solution uses.
+The solution can use the [Get Device Twin](https://docs.microsoft.com/java/api/com.microsoft.azure.sdk.iot.device.deviceclient.getdevicetwin?view=azure-java-stable&preserve-view=true) API to retrieve model ID of the IoT Plug and Play device.
 
-When you receive a notification for a new device connection, follow these steps:
+> [!TIP]
+> For modules and IoT Edge modules, use [ModuleClient.getTwin](https://docs.microsoft.com/java/api/com.microsoft.azure.sdk.iot.device.moduleclient.gettwin?view=azure-java-stable&preserve-view=true).
 
-1. Read the discovery telemetry message to retrieve the IDs of the capability model and interfaces implemented by the device.
-1. Compare the ID of the capability model against the IDs of the capability models you stored ahead of time.
-1. Now you know what type of device has connected. Use the logic you wrote earlier to enable users to interact with the device appropriately.
+In the following device twin response snippet, `modelId` contains the model ID of an IoT Plug and Play device:
 
-### Model-driven solutions
+```json
+{
+    "deviceId": "sample-device",
+    "etag": "AAAAAAAAAAc=",
+    "deviceEtag": "NTk0ODUyODgx",
+    "status": "enabled",
+    "statusUpdateTime": "0001-01-01T00:00:00Z",
+    "connectionState": "Disconnected",
+    "lastActivityTime": "2020-07-17T06:12:26.8402249Z",
+    "cloudToDeviceMessageCount": 0,
+    "authenticationType": "sas",
+    "x509Thumbprint": {
+        "primaryThumbprint": null,
+        "secondaryThumbprint": null
+    },
+    "modelId": "dtmi:com:example:TemperatureController;1",
+    "version": 15,
+    "properties": {...}
+    }
+}
+```
 
-A model-driven IoT solution can work with any IoT Plug and Play device. Building a model driven IoT Solution is more complex, but the benefit is that your solution works with any devices added in the future.
+### Get Digital Twin API
 
-To build a model-driven IoT solution, you need to build logic against the IoT Plug and Play interface primitives: telemetry, properties, and commands. Your IoT solution's logic represent a device by combining multiple telemetry, property, and command capabilities.
+The solution can use the [Get Digital Twin](https://docs.microsoft.com/rest/api/iothub/service/digitaltwin/getdigitaltwin) API to retrieve the model ID of the model implemented by the IoT Plug and Play device.
 
-Your solution must also subscribe to notifications from the IoT hub it uses.
+In the following digital twin response snippet, `$metadata.$model` contains the model ID of an IoT Plug and Play device:
 
-When your solution receives a notification for a new device connection, follow these steps:
+```json
+{
+    "$dtId": "sample-device",
+    "$metadata": {
+        "$model": "dtmi:com:example:TemperatureController;1",
+        "serialNumber": {
+            "lastUpdateTime": "2020-07-17T06:10:31.9609233Z"
+        }
+    }
+}
+```
 
-1. Read the discovery telemetry message to retrieve the IDs of the capability model and interfaces implemented by the device.
-1. For each ID, read the full JSON file to find the device's capabilities.
-1. Check to see if each interface is present in any caches you've built for storing the JSON files retrieved earlier by your solution.
-1. Then, check if an interface with that ID is present in the public model repository. For more information, see [Public model repository](howto-manage-models.md).
-1. If the interface isn't present in the public model repository, try looking for it in any company model repositories known to your solution. You need a connection string to access a company model repository. For more information, see [Company model repository](howto-manage-models.md).
-1. If you can't find all the interfaces in either the public model repository, or in a company model repository, you can check if the device can provide the interface definition. A device can implement the standard [ModelDefinition](concepts-common-interfaces.md) interface to publish information about how to retrieve interface files with a command.
-1. If you found JSON files for each interface implemented by the device, you can enumerate the capabilities of the device. Use the logic you wrote earlier to enable users to interact with the device.
-1. At any time, you can call the digital twins API to retrieve the capability model ID and interface IDs for the device.
+### Digital twin change event notification
+
+A device connection results in a [Digital Twin change event](concepts-digital-twin.md#digital-twin-change-events) notification. A solution needs to subscribe to this event notification. To learn how to enable routing for digital twin events, see [Use IoT Hub message routing to send device-to-cloud messages to different endpoints](../iot-hub/iot-hub-devguide-messages-d2c.md#non-telemetry-events).
+
+The solution can use the event shown in the following snippet to learn about the IoT Plug and Play device that's connecting and get its model ID:
+
+```json
+iothub-connection-device-id:sample-device
+iothub-enqueuedtime:7/22/2020 8:02:27 PM
+iothub-message-source:digitalTwinChangeEvents
+correlation-id:100f322dc2c5
+content-type:application/json-patch+json
+content-encoding:utf-8
+[
+  {
+    "op": "replace",
+    "path": "/$metadata/$model",
+    "value": "dtmi:com:example:TemperatureController;1"
+  }
+]
+```
+
+## Retrieve a model definition
+
+A solution uses model ID identified above to retrieve the corresponding model definition.
+
+A solution can get the model definition by using one of the following options:
+
+### Model repository
+
+Solutions can use the [model repository](concepts-model-repository.md) to retrieve models. Either the device builders or the solution builders must upload their models to the repository beforehand so the solution can retrieve them.
+
+After you identify the model ID for a new device connection, follow these steps:
+
+1. Retrieve the model definition using the model ID from the model repository. For more information, see [Get Models](https://docs.microsoft.com/rest/api/iothub/digitaltwinmodelrepositoryservice/getmodelasync/getmodelasync).
+
+1. Using the model definition of the connected device, you can enumerate the capabilities of the device.
+
+1. Using the enumerated capabilities of the device, you can allow users to [interact with the device](quickstart-service-node.md).
+
+### Custom store
+
+Solutions can store these model definitions in a local file system, in a public file store, or use a custom implementation.
+
+After you identify the model ID for a new device connection, follow these steps:
+
+1. Retrieve the model definition using the model ID from your custom store.
+
+1. Using the model definition of the connected device, you can enumerate the capabilities of the device. 
+
+1. Using the enumerated capabilities of the device, you can allow users to [interact with the device](quickstart-service-node.md).  
 
 ## Next steps
 
-Now that you've learned about model discovery an IoT solution, learn more about the [Azure IoT Platform](overview-iot-plug-and-play.md) to leverage other capabilities for your solution.
+Now that you've learned how to integrate IoT Plug and Play models in an IoT solution, some suggested next steps are:
+
+- [Interact with a device from your solution](quickstart-service-node.md)
+- [IoT Digital Twin REST API](https://docs.microsoft.com/rest/api/iothub/service/digitaltwin)
+- [Azure IoT explorer](howto-use-iot-explorer.md)

@@ -9,8 +9,9 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: quickstart
-ms.date: 04/14/2020
+ms.date: 08/05/2020
 ms.author: pafarley
+ms.custom: devx-track-js
 #Customer intent: As a Node.js developer, I want to implement a simple Face detection scenario with REST calls, so that I can build more complex scenarios later on.
 ---
 
@@ -18,7 +19,7 @@ ms.author: pafarley
 
 In this quickstart, you'll use the Azure Face REST API with Node.js to detect human faces in an image.
 
-If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin. 
+If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/cognitive-services/) before you begin. 
 
 ## Prerequisites
 
@@ -42,64 +43,11 @@ Paste the following code into *facedetection.js*. These fields specify how to co
 
 [!INCLUDE [subdomains-note](../../../../includes/cognitive-services-custom-subdomains-note.md)]
 
-```javascript
-'use strict';
-
-const axios = require('axios').default;
-
-// Add a valid subscription key and endpoint to your environment variables.
-let subscriptionKey = process.env['FACE_SUBSCRIPTION_KEY']
-let endpoint = process.env['FACE_ENDPOINT'] + '/face/v1.0/detect'
-
-// Optionally, replace with your own image URL (for example a .jpg or .png URL).
-let imageUrl = 'https://raw.githubusercontent.com/Azure-Samples/cognitive-services-sample-data-files/master/ComputerVision/Images/faces.jpg'
-```
+:::code language="javascript" source="~/cognitive-services-quickstart-code/javascript/Face/rest/detect.js" id="environment":::
 
 Then, add the following code to call the Face API and get face attribute data from the input image. The `returnFaceAttributes` field specifies which face attributes to retrieve. You may wish to change this string depending on your intended use.
 
-
-```javascript
-// Send a POST request
-axios({
-    method: 'post',
-    url: endpoint,
-    params : {
-        returnFaceId: true,
-        returnFaceLandmarks: false,
-        returnFaceAttributes: 'age,gender,headPose,smile,facialHair,glasses,emotion,hair,makeup,occlusion,accessories,blur,exposure,noise'
-    },
-    data: {
-        url: imageUrl,
-    },
-    headers: { 'Ocp-Apim-Subscription-Key': subscriptionKey }
-}).then(function (response) {
-    console.log('Status text: ' + response.status)
-    console.log('Status text: ' + response.statusText)
-    console.log()
-    //console.log(response.data)
-    response.data.forEach((face) => {
-      console.log('Face ID: ' + face.faceId)
-      console.log('Face rectangle: ' + face.faceRectangle.top + ', ' + face.faceRectangle.left + ', ' + face.faceRectangle.width + ', ' + face.faceRectangle.height)
-      console.log('Smile: ' + face.faceAttributes.smile)
-      console.log('Head pose: ' + JSON.stringify(face.faceAttributes.headPose))
-      console.log('Gender: ' + face.faceAttributes.gender)
-      console.log('Age: ' + face.faceAttributes.age)
-      console.log('Facial hair: ' + JSON.stringify(face.faceAttributes.facialHair))
-      console.log('Glasses: ' + face.faceAttributes.glasses)
-      console.log('Smile: ' + face.faceAttributes.smile)
-      console.log('Emotion: ' + JSON.stringify(face.faceAttributes.emotion))
-      console.log('Blur: ' + JSON.stringify(face.faceAttributes.blur))
-      console.log('Exposure: ' + JSON.stringify(face.faceAttributes.exposure))
-      console.log('Noise: ' + JSON.stringify(face.faceAttributes.noise))
-      console.log('Makeup: ' + JSON.stringify(face.faceAttributes.makeup))
-      console.log('Accessories: ' + JSON.stringify(face.faceAttributes.accessories))
-      console.log('Hair: ' + JSON.stringify(face.faceAttributes.hair))
-      console.log()
-    });
-}).catch(function (error) {
-    console.log(error)
-});
-```
+:::code language="javascript" source="~/cognitive-services-quickstart-code/javascript/Face/rest/detect.js" id="main":::
 
 ## Save and run the script
 
@@ -109,7 +57,35 @@ After you've made your changes, open a command prompt and run the file with the 
 node facedetection.js
 ```
 
-Here is the complete JSON data from `response.data`. For example:
+A successful response will display Face data in easily readable JSON format. For example:
+
+```json
+[
+   {
+      "faceId": "f7eda569-4603-44b4-8add-cd73c6dec644",
+      "faceRectangle": {
+         "top": 131,
+         "left": 177,
+         "width": 162,
+         "height": 162
+      }
+   }
+]
+```
+
+## Extract Face Attributes
+ 
+To extract face attributes, use detection model 1 and add the `returnFaceAttributes` query parameter. Edit the parameters as follows:
+
+```javascript
+    params : {
+		detectionModel: 'detection_01',
+		returnFaceAttributes: 'age,gender,headPose,smile,facialHair,glasses,emotion,hair,makeup,occlusion,accessories,blur,exposure,noise',
+        returnFaceId: true
+    },
+```
+
+The response now includes face attributes. For example:
 
 ```json
 [

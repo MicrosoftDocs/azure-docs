@@ -57,7 +57,7 @@ The [Microsoft Azure portal](https://portal.azure.com) is a central place where 
 
 ## Azure PowerShell
 
-[Azure PowerShell](/powershell/azure/overview) is a collection of cmdlets you can use to manage Azure with Windows PowerShell. You can use the cmdlets to create, test, deploy, and manage solutions and services delivered through the Azure platform.
+[Azure PowerShell](/powershell/azure/) is a collection of cmdlets you can use to manage Azure with Windows PowerShell. You can use the cmdlets to create, test, deploy, and manage solutions and services delivered through the Azure platform.
 
 ## Azure Resource Manager
 

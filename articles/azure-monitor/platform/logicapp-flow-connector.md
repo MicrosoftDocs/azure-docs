@@ -10,8 +10,8 @@ ms.date: 03/13/2020
 
 ---
 
-# Azure Monitor Logs connector for Logic Apps and Flow
-[Azure Logic Apps](../../logic-apps/index.yml) and [Power Automate](https://ms.flow.microsoft.com) allow you to create automated workflows using hundreds of actions for a variety of services. The Azure Monitor Logs connector allows you to build workflows that retrieve data from a Log Analytics workspace or an Application Insights application in Azure Monitor. This article describes the actions included with the connector and provides a walkthrough to build a workflow using this data.
+# Azure Monitor Logs connector for Logic Apps and Power Automate
+[Azure Logic Apps](../../logic-apps/index.yml) and [Power Automate](https://flow.microsoft.com) allow you to create automated workflows using hundreds of actions for a variety of services. The Azure Monitor Logs connector allows you to build workflows that retrieve data from a Log Analytics workspace or an Application Insights application in Azure Monitor. This article describes the actions included with the connector and provides a walkthrough to build a workflow using this data.
 
 For example, you can create a logic app to use Azure Monitor log data in an email notification from Office 365, create a bug in Azure DevOps, or post a Slack message.  You can trigger a workflow by a simple schedule or from some action in a connected service such as when a mail or a tweet is received. 
 
@@ -64,7 +64,7 @@ Click **+ New step** to add an action that runs after the recurrence action. Und
 
 Click **Azure Log Analytics – Run query and visualize results**.
 
-![Run query and visualize results action](media/logicapp-flow-connector/select-query-action-visualize.png)
+![Screenshot of a new action being added to a step in the Logic App Designer. Azure Monitor Logs is highlighted under Choose an action.](media/logicapp-flow-connector/select-query-action-visualize.png)
 
 
 ### Add Azure Monitor Logs action
@@ -83,7 +83,7 @@ Event
 
 Select *Set in query* for the **Time Range** and **HTML Table** for the **Chart Type**.
    
-![Run query and visualize results action](media/logicapp-flow-connector/run-query-visualize-action.png)
+![Screenshot of the settings for the new Azure Monitor Logs action named Run query and visualize results.](media/logicapp-flow-connector/run-query-visualize-action.png)
 
 The mail will be sent by the account associated with the current connection. You can specify another account by clicking on **Change connection**.
 
@@ -122,4 +122,4 @@ When the logic app completes, check the mail of the recipient that you specified
 
 - Learn more about [log queries in Azure Monitor](../log-query/log-query-overview.md).
 - Learn more about [Logic Apps](../../logic-apps/index.yml)
-- Learn more about [Microsoft Flow](https://ms.flow.microsoft.com).
+- Learn more about [Power Automate](https://flow.microsoft.com).

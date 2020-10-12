@@ -1,29 +1,30 @@
 ---
-title: Use PowerShell to assign an RBAC role for data access 
+title: Use PowerShell to assign an Azure role for data access 
 titleSuffix: Azure Storage
-description: Learn how to use PowerShell to assign permissions to an Azure Active Directory security principal with role-based access control (RBAC). Azure Storage supports built-in and custom RBAC roles for authentication via Azure AD.
+description: Learn how to use the Azure PowerShell module to assign permissions to an Azure Active Directory security principal with Azure role-based access control (Azure RBAC). Azure Storage supports built-in and Azure custom roles for authentication via Azure AD.
 services: storage
 author: tamram
 
 ms.service: storage
 ms.topic: how-to
-ms.date: 12/04/2019
+ms.date: 07/16/2020
 ms.author: tamram
 ms.reviewer: ozgun
-ms.subservice: common
+ms.subservice: common 
+ms.custom: devx-track-azurepowershell
 ---
 
-# Use PowerShell to assign an RBAC role for access to blob and queue data
+# Use PowerShell to assign an Azure role for access to blob and queue data
 
-Azure Active Directory (Azure AD) authorizes access rights to secured resources through [role-based access control (RBAC)](../../role-based-access-control/overview.md). Azure Storage defines a set of built-in RBAC roles that encompass common sets of permissions used to access containers or queues.
+Azure Active Directory (Azure AD) authorizes access rights to secured resources through [Azure role-based access control (Azure RBAC)](../../role-based-access-control/overview.md). Azure Storage defines a set of Azure built-in roles that encompass common sets of permissions used to access containers or queues.
 
-When an RBAC role is assigned to an Azure AD security principal, Azure grants access to those resources for that security principal. Access can be scoped to the level of the subscription, the resource group, the storage account, or an individual container or queue. An Azure AD security principal may be a user, a group, an application service principal, or a [managed identity for Azure resources](../../active-directory/managed-identities-azure-resources/overview.md).
+When an Azure role is assigned to an Azure AD security principal, Azure grants access to those resources for that security principal. Access can be scoped to the level of the subscription, the resource group, the storage account, or an individual container or queue. An Azure AD security principal may be a user, a group, an application service principal, or a [managed identity for Azure resources](../../active-directory/managed-identities-azure-resources/overview.md).
 
-This article describes how to use Azure PowerShell to list built-in RBAC roles and assign them to users. For more information about using Azure PowerShell, see [Overview of Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview).
+This article describes how to use Azure PowerShell to list Azure built-in roles and assign them to users. For more information about using Azure PowerShell, see [Overview of Azure PowerShell](https://docs.microsoft.com/powershell/azure/).
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-## RBAC roles for blobs and queues
+## Azure roles for blobs and queues
 
 [!INCLUDE [storage-auth-rbac-roles-include](../../../includes/storage-auth-rbac-roles-include.md)]
 
@@ -31,9 +32,9 @@ This article describes how to use Azure PowerShell to list built-in RBAC roles a
 
 [!INCLUDE [storage-auth-resource-scope-include](../../../includes/storage-auth-resource-scope-include.md)]
 
-## List available RBAC roles
+## List available Azure roles
 
-To list available built-in RBAC roles with Azure PowerShell, use the [Get-AzRoleDefinition](/powershell/module/az.resources/get-azroledefinition) command:
+To list available Azure built-in roles with Azure PowerShell, use the [Get-AzRoleDefinition](/powershell/module/az.resources/get-azroledefinition) command:
 
 ```powershell
 Get-AzRoleDefinition | FT Name, Description
@@ -51,9 +52,9 @@ Storage Queue Data Message Sender         Allows for sending of Azure Storage qu
 Storage Queue Data Reader                 Allows for read access to Azure Storage queues and queue messages
 ```
 
-## Assign an RBAC role to a security principal
+## Assign an Azure role to a security principal
 
-To assign an RBAC role to a security principal, use the [New-AzRoleAssignment](/powershell/module/az.resources/new-azroleassignment) command. The format of the command can differ based on the scope of the assignment. In order to run the command, you need to have Owner or Contributor role assigned at the corresponding scope. The following examples show how to assign a role to a user at various scopes, but you can use the same command to assign a role to any security principal.
+To assign an Azure role to a security principal, use the [New-AzRoleAssignment](/powershell/module/az.resources/new-azroleassignment) command. The format of the command can differ based on the scope of the assignment. In order to run the command, you need to have Owner or Contributor role assigned at the corresponding scope. The following examples show how to assign a role to a user at various scopes, but you can use the same command to assign a role to any security principal.
 
 ### Container scope
 
@@ -131,6 +132,6 @@ New-AzRoleAssignment -SignInName <email> `
 
 ## Next steps
 
-- [Manage access to Azure resources using RBAC and Azure PowerShell](../../role-based-access-control/role-assignments-powershell.md)
-- [Grant access to Azure blob and queue data with RBAC using Azure CLI](storage-auth-aad-rbac-cli.md)
-- [Grant access to Azure blob and queue data with RBAC in the Azure portal](storage-auth-aad-rbac-portal.md)
+- [Add or remove Azure role assignments using the Azure PowerShell module](../../role-based-access-control/role-assignments-powershell.md)
+- [Use the Azure CLI to assign an Azure role for access to blob and queue data](storage-auth-aad-rbac-cli.md)
+- [Use the Azure portal to assign an Azure role for access to blob and queue data](storage-auth-aad-rbac-portal.md)

@@ -2,22 +2,15 @@
 title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Netskope User Authentication | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and Netskope User Authentication.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-
-ms.assetid: e9bb71cd-aaf9-4403-aca5-c5a349ec562a
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 11/01/2019
 ms.author: jeedes
-
-ms.collection: M365-identity-device-management
 ---
 
 # Tutorial: Azure Active Directory single sign-on (SSO) integration with Netskope User Authentication
@@ -141,15 +134,15 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 1. Click **Active Platform** tab.
 
-    ![Netskope User Authentication Configuration](./media/netskope-user-authentication-tutorial/user1.png)
+    ![Screenshot shows Active Platform selected from Settings.](./media/netskope-user-authentication-tutorial/user1.png)
 
 1. Scroll down to **FORWARD PROXY** and select **SAML**.
 
-    ![Netskope User Authentication Configuration](./media/netskope-user-authentication-tutorial/config-saml.png)
+    ![Screenshot shows SAML selected from Active Platform.](./media/netskope-user-authentication-tutorial/config-saml.png)
 
 1. On the **SAML Settings** page, perform the following steps:
 
-    ![Netskope User Authentication Configuration](./media/netskope-user-authentication-tutorial/configure-copyurls.png)
+    ![Screenshot shows SAML Settings where you can enter the values described.](./media/netskope-user-authentication-tutorial/configure-copyurls.png)
 
     a. Copy **SAML Entity ID** value and paste it into the **Identifier** textbox in the **Basic SAML Configuration** section in the Azure portal.
 
@@ -157,11 +150,11 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 1. Click **ADD ACCOUNT**.
 
-    ![Netskope User Authentication Configuration](./media/netskope-user-authentication-tutorial/config-addaccount.png)
+    ![Screenshot shows ADD ACCOUNT selected in the SAML pane.](./media/netskope-user-authentication-tutorial/config-addaccount.png)
 
 1. On the **Add SAML Account** page, perform the following steps:
 
-    ![Netskope User Authentication Configuration](./media/netskope-user-authentication-tutorial/config-settings1.png)
+    ![Screenshot shows Add SAML Account where you can enter the values described.](./media/netskope-user-authentication-tutorial/config-settings1.png)
 
     a. In the **NAME** textbox, provide the name like Azure AD.
 
@@ -179,23 +172,23 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 1. Click on the **Settings** tab from the left navigation pane.
 
-    ![Netskope User Authentication User Creation](./media/netskope-user-authentication-tutorial/config-settings.png)
+    ![Screenshot shows Setting selected.](./media/netskope-user-authentication-tutorial/config-settings.png)
 
 1. Click **Active Platform** tab.
 
-    ![Netskope User Authentication User Creation](./media/netskope-user-authentication-tutorial/user1.png)
+    ![Screenshot shows Active Platform selected from Settings.](./media/netskope-user-authentication-tutorial/user1.png)
 
 1. Click **Users** tab.
 
-    ![Netskope User Authentication User Creation](./media/netskope-user-authentication-tutorial/add-user.png)
+    ![Screenshot shows Users selected from Active Platform.](./media/netskope-user-authentication-tutorial/add-user.png)
 
 1. Click **ADD USERS**.
 
-    ![Netskope User Authentication User Creation](./media/netskope-user-authentication-tutorial/user-add.png)
+    ![Screenshot shows the Users dialog box where you can select ADD USERS.](./media/netskope-user-authentication-tutorial/user-add.png)
 
 1. Enter the email address of the user you want to add and click **ADD**.
 
-    ![Netskope User Authentication User Creation](./media/netskope-user-authentication-tutorial/add-user-popup.png)
+    ![Screenshot shows Add Users where you can enter a list of users.](./media/netskope-user-authentication-tutorial/add-user-popup.png)
 
 ## Test SSO
 

@@ -127,7 +127,7 @@ Assuming the request is successful, the webhook response contains the job ID in 
 {"JobIds":["<JobId>"]}
 ```
 
-The client can't determine when the runbook job completes or its completion status from the webhook. It can find out this information using the job ID with another mechanism, such as [Windows PowerShell](/powershell/module/servicemanagement/azure/get-azureautomationjob) or the [Azure Automation API](/rest/api/automation/job).
+The client can't determine when the runbook job completes or its completion status from the webhook. It can find out this information using the job ID with another mechanism, such as [Windows PowerShell](/powershell/module/servicemanagement/azure.service/get-azureautomationjob) or the [Azure Automation API](/rest/api/automation/job).
 
 ## Renew a webhook
 

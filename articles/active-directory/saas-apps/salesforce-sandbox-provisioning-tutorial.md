@@ -1,22 +1,15 @@
 ---
 title: 'Tutorial: Configure Salesforce Sandbox for automatic user provisioning with Azure Active Directory| Microsoft Docs'
-description: Learn how to configure single sign-on between Azure Active Directory and Salesforce Sandbox.
+description: Learn the steps you need to perform in Salesforce Sandbox and Azure AD to automatically provision and de-provision user accounts from Azure AD to Salesforce Sandbox.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: daveba
-
-ms.assetid: bab73fda-6754-411d-9288-f73ecdaa486d
+manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 01/26/2018
 ms.author: jeedes
-
-ms.collection: M365-identity-device-management
 ---
 # Tutorial: Configure Salesforce Sandbox for automatic user provisioning
 
@@ -64,7 +57,7 @@ The objective of this section is to outline how to enable user provisioning of A
 
 1. Set the **Provisioning Mode** to **Automatic**.
 
-    ![provisioning](./media/salesforce-sandbox-provisioning-tutorial/provisioning.png)
+    ![Screenshot shows the Salesforce Sandbox Provisioning page, with Provisioning Mode set to Automatic and other values you can set.](./media/salesforce-sandbox-provisioning-tutorial/provisioning.png)
 
 1. Under the **Admin Credentials** section, provide the following configuration settings:
    

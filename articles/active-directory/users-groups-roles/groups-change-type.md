@@ -1,6 +1,6 @@
 ---
 title: Change static group membership to dynamic - Azure AD | Microsoft Docs
-description: How to create membership rules to automatically populate groups, and a rule reference.
+description: Learn how to convert existing groups from static to dynamic membership using either Azure AD Admin center or PowerShell cmdlets.
 services: active-directory
 documentationcenter: ''
 author: curtand
@@ -52,7 +52,7 @@ The following steps are an example of changing a group from static to dynamic me
 ## Change membership type for a group (PowerShell)
 
 > [!NOTE]
-> To change dynamic group properties you will need to use cmdlets from **the preview version of** [Azure AD PowerShell Version 2](https://docs.microsoft.com/powershell/azure/active-directory/install-adv2?view=azureadps-2.0). You can install the preview from the [PowerShell Gallery](https://www.powershellgallery.com/packages/AzureADPreview).
+> To change dynamic group properties you will need to use cmdlets from **the preview version of** [Azure AD PowerShell Version 2](/powershell/azure/active-directory/install-adv2?view=azureadps-2.0). You can install the preview from the [PowerShell Gallery](https://www.powershellgallery.com/packages/AzureADPreview).
 
 Here is an example of functions that switch membership management on an existing group. In this example, care is taken to correctly manipulate the GroupTypes property and preserve any values that are unrelated to dynamic membership.
 

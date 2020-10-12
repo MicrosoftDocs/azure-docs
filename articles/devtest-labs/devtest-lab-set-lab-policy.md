@@ -65,7 +65,7 @@ The auto shutdown policy helps minimize lab waste by letting you specify the tim
 
 1. Specify **Yes** or **No** for the option to send a notification 15 minutes before the specified auto shutdown time. If you choose **Yes**, enter a webhook URL endpoint or an email address specifying where you want the notification to be posted or sent. The user receives notification and is given the option to postpone the shutdown.
 
-   For more information about webhooks, see [Create a webhook or API Azure Function](../azure-functions/functions-create-a-web-hook-or-api-function.md). 
+   For more information about webhooks, see [Create a webhook or API Azure Function](../azure-functions/functions-bindings-http-webhook.md). 
 
 1. Select **Save**.
 
@@ -100,7 +100,7 @@ The autostart policy lets you specify when the VMs in the current lab should be 
 
 1. On the lab's **Configuration and policies** pane, select **Autostart**.
    
-    ![Auto-start](./media/devtest-lab-set-lab-policy/auto-start.png)
+    ![Screen capture shows the automatic start options for a virtual machine.](./media/devtest-lab-set-lab-policy/auto-start.png)
 
 2. Select **On** to enable this policy, and **Off** to disable it.
 
@@ -127,4 +127,3 @@ Once you've defined and applied the various VM policy settings for your lab, her
   illustrates how to specify which, if any, Azure Marketplace images can be used when creating VMs in a lab.
 * [Create a VM in a lab](devtest-lab-add-vm.md) - Illustrates how to create a VM from a base image (either custom or Marketplace), and how to work with
   artifacts in your VM.
-

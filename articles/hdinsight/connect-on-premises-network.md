@@ -40,7 +40,7 @@ In the following diagram, green lines are requests for resources that end in the
 ## Prerequisites
 
 * An SSH client. For more information, see [Connect to HDInsight (Apache Hadoop) using SSH](./hdinsight-hadoop-linux-use-ssh-unix.md).
-* If using PowerShell, you'll need the [AZ Module](https://docs.microsoft.com/powershell/azure/overview).
+* If using PowerShell, you'll need the [AZ Module](https://docs.microsoft.com/powershell/azure/).
 * If wanting to use Azure CLI and you haven't yet installed it, see [Install the Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli).
 
 ## Create virtual network configuration

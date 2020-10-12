@@ -1,5 +1,5 @@
 ---
-title: Mapping data flow Unpivot Transformation
+title: Unpivot transformation in mapping data flow
 description: Azure Data Factory mapping data flow Unpivot Transformation
 author: kromerm
 ms.author: makromer
@@ -9,7 +9,7 @@ ms.custom: seo-lt-2019
 ms.date: 07/14/2020
 ---
 
-# Azure Data Factory Unpivot Transformation
+# Unpivot transformation in mapping data flow
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
@@ -17,7 +17,7 @@ Use Unpivot in ADF mapping data flow as a way to turn an unnormalized dataset in
 
 ![Unpivot Transformation](media/data-flow/unpivot1.png "Unpivot options 1")
 
-[!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE4B1RR]
+> [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE4B1RR]
 
 ## Ungroup By
 
@@ -41,7 +41,7 @@ Lastly, choose the aggregation that you wish to use for the pivoted values and h
 
 For instance, pivoting "Sales" by "Region" would simply give you new column values from each sales value. For example: "25", "50", "1000", ... However, if you set a prefix value of "Sales", then "Sales" will be prefixed to the values.
 
-<img src="media/data-flow/unpivot3.png" width="400">
+![Image showing the PO, Vendor, and Fruit columns before and after a unipivot transformation using the Fruit column as the unipivot key.](media/data-flow/unpivot3.png)
 
 Setting the Column Arrangement to "Normal" will group together all of the pivoted columns with their aggregated values. Setting the columns arrangement to "Lateral" will alternate between column and value.
 

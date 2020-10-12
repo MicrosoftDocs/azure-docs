@@ -6,10 +6,10 @@ ms.service: sql-db-mi
 ms.subservice: security
 ms.custom: azure-synapse, sqldbrb=1
 ms.devlang: 
-ms.topic: conceptual
+ms.topic: how-to
 author: GithubMirek
 ms.author: mireks
-ms.reviewer: vanto, carlrab
+ms.reviewer: vanto, sstein
 ms.date: 04/23/2020
 ---
 
@@ -17,7 +17,7 @@ ms.date: 04/23/2020
 
 [!INCLUDE[appliesto-sqldb-sqlmi-asa](../includes/appliesto-sqldb-sqlmi-asa.md)]
 
-Azure Active Directory (Azure AD) authentication is a mechanism for connecting to [Azure SQL Database](sql-database-paas-overview.md), [Azure SQL Managed Instance](../managed-instance/sql-managed-instance-paas-overview.md), and [Azure Synapse Analytics (formerly Azure SQL Data Warehouse)](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md) by using identities in Azure AD.
+Azure Active Directory (Azure AD) authentication is a mechanism for connecting to [Azure SQL Database](sql-database-paas-overview.md), [Azure SQL Managed Instance](../managed-instance/sql-managed-instance-paas-overview.md), and [Azure Synapse Analytics (formerly SQL Data Warehouse)](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md) by using identities in Azure AD.
 
 > [!NOTE]
 > This article applies to Azure SQL Database, SQL Managed Instance, and Azure Synapse Analytics.
@@ -163,7 +163,7 @@ The following authentication methods are supported for Azure AD server principal
 - For an overview of logins, users, database roles, and permissions in SQL Database, see [Logins, users, database roles, and permissions](logins-create-manage.md).
 - For more information about database principals, see [Principals](https://msdn.microsoft.com/library/ms181127.aspx).
 - For more information about database roles, see [Database roles](https://msdn.microsoft.com/library/ms189121.aspx).
-- For syntax on creating Azure AD server principals (logins) for SQL Managed Instance, see  [CREATE LOGIN](/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current).
+- For syntax on creating Azure AD server principals (logins) for SQL Managed Instance, see  [CREATE LOGIN](/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current&preserve-view=true).
 - For more information about firewall rules in SQL Database, see [SQL Database firewall rules](firewall-configure.md).
 
 <!--Image references-->

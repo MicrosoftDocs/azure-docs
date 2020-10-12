@@ -3,13 +3,11 @@ title: Adding chit-chat to a QnA Maker knowledge base
 titleSuffix: Azure Cognitive Services
 description: Adding personal chit-chat to your bot makes it more conversational and engaging when you create a KB. QnA Maker allows you to easily add a pre-populated set of the top chit-chat, into your KB.
 services: cognitive-services
-author: diberry
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.author: diberry
 ms.custom: seodec18
 ---
 
@@ -69,7 +67,7 @@ To view the metadata, select **View Options** in the toolbar, then select **Show
 ## Add additional chit-chat questions and answers
 You can add a new chit-chat QnA pair that is not in the predefined data set. Ensure that you are not duplicating a QnA pair that is already covered in the chit-chat set. When you add any new chit-chat QnA, it gets added to your **Editorial** source. To ensure the ranker understands that this is chit-chat, add the metadata key/value pair "Editorial: chitchat", as seen in the following image:
 
-![![Add chit-chat QnAs](../media/qnamaker-how-to-chit-chat/add-new-chit-chat.png)](../media/qnamaker-how-to-chit-chat/add-new-chit-chat.png#lightbox)
+:::image type="content" source="../media/qnamaker-how-to-chit-chat/add-new-chit-chat.png" alt-text="Add chit-chat QnAs" lightbox="../media/qnamaker-how-to-chit-chat/add-new-chit-chat.png":::
 
 ## Delete chit-chat from an existing KB
 Select your KB, and navigate to the **Settings** page. Your specific chit-chat source is listed as a file, with the selected personality name. You can delete this as a source file.

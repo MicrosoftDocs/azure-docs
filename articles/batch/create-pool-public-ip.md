@@ -2,7 +2,7 @@
 title: Create a pool with specified public IP addresses
 description: Learn how to create a Batch pool that uses your own public IP addresses.
 ms.topic: how-to
-ms.date: 06/16/2020
+ms.date: 10/08/2020
 ---
 
 # Create an Azure Batch pool with specified public IP addresses
@@ -19,7 +19,7 @@ For information about creating pools without public IP addresses, read [Create a
 
 - **An Azure VNet**. You must use a [virtual network](batch-virtual-network.md) from the same Azure subscription in which you are creating your pool and your IP addresses. Only Azure Resource Manager-based VNets may be used. Be sure that the VNet meets all of the [general requirements](batch-virtual-network.md#vnet-requirements).
 
-- **At least one Azure public IP address**. To create one or more public IP addresses, you can use the [Azure portal](../virtual-network/virtual-network-public-ip-address.md#create-a-public-ip-address), the [Azure Command-Line Interface (CLI)](/cli/azure/network/public-ip?view=azure-cli-latest#az-network-public-ip-create), or [Azure PowerShell](/powershell/module/az.network/new-azpublicipaddress). Be sure to follow the requirements listed below.
+- **At least one Azure public IP address**. To create one or more public IP addresses, you can use the [Azure portal](../virtual-network/virtual-network-public-ip-address.md#create-a-public-ip-address), the [Azure Command-Line Interface (CLI)](/cli/azure/network/public-ip#az-network-public-ip-create), or [Azure PowerShell](/powershell/module/az.network/new-azpublicipaddress). Be sure to follow the requirements listed below.
 
 > [!NOTE]
 > Batch automatically allocates additional networking resources in the resource group containing the public IP addresses. For each 100 dedicated nodes, Batch generally allocates one network security group (NSG) and one load balancer. These resources are limited by the subscription's resource quotas. When using larger pools, you may need to [request a quota increase](batch-quota-limit.md#increase-a-quota) for one or more of these resources.
@@ -66,19 +66,21 @@ Request Body
         "nodeAgentSKUId": "batch.node.ubuntu 16.04"
       },
 "networkConfiguration": {
-          "subnetId": "/subscriptions/subid/resourceGroups/rg1234/providers/Microsoft.Network/virtualNetworks/network1234/subnets/subnet123",
-          "publicIPs": [
-            "/subscriptions/subid1/resourceGroups/rg13/providers/Microsoft.Network/publicIPAddresses/ip135"
+          "subnetId": "/subscriptions/<subId>/resourceGroups/<rgId>/providers/Microsoft.Network/virtualNetworks/<vNetId>/subnets/<subnetId>",
+          "publicIPAddressConfiguration": {
+            "provision": "usermanaged",
+            "ipAddressIds": [
+              "/subscriptions/<subId>/resourceGroups/<rgId>/providers/Microsoft.Network/publicIPAddresses/<publicIpId>"
           ]
         },
 
        "resizeTimeout":"PT15M",
       "targetDedicatedNodes":5,
       "targetLowPriorityNodes":0,
-      "maxTasksPerNode":3,
+      "taskSlotsPerNode":3,
       "taskSchedulingPolicy": {
         "nodeFillType":"spread"
-      }, 
+      },
       "enableAutoScale":false,
       "enableInterNodeCommunication":true,
       "metadata": [ {

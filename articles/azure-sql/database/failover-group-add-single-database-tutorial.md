@@ -4,12 +4,12 @@ description: Add a database in Azure SQL Database to an autofailover group using
 services: sql-database
 ms.service: sql-database
 ms.subservice: high-availability
-ms.custom: sqldbrb=1
+ms.custom: sqldbrb=1, devx-track-azurecli
 ms.devlang: 
-ms.topic: conceptual
+ms.topic: tutorial
 author: MashaMSFT
 ms.author: mathoma
-ms.reviewer: sstein, carlrab
+ms.reviewer: sstein
 ms.date: 06/19/2019
 ---
 # Tutorial: Add an Azure SQL Database to an autofailover group
@@ -36,7 +36,7 @@ To complete this tutorial, make sure you have:
 To complete the tutorial, make sure you have the following items:
 
 - An Azure subscription. [Create a free account](https://azure.microsoft.com/free/) if you don't already have one.
-- [Azure PowerShell](/powershell/azureps-cmdlets-docs)
+- [Azure PowerShell](/powershell/azure/)
 
 # [The Azure CLI](#tab/azure-cli)
 

@@ -85,8 +85,8 @@ To create a custom OU, you use the Active Directory Administrative Tools from a 
 
 For more information on using the administrative tools or creating and using service accounts, see the following articles:
 
-* [Active Directory Administrative Center: Getting Started](https://technet.microsoft.com/library/dd560651.aspx)
-* [Service Accounts Step-by-Step Guide](https://technet.microsoft.com/library/dd548356.aspx)
+* [Active Directory Administrative Center: Getting Started](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd560651(v=ws.10))
+* [Service Accounts Step-by-Step Guide](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd548356(v=ws.10))
 
 <!-- INTERNAL LINKS -->
 [create-azure-ad-tenant]: ../active-directory/fundamentals/sign-up-organization.md

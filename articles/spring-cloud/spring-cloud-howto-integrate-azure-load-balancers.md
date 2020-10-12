@@ -6,9 +6,12 @@ ms.author: brendm
 ms.service: spring-cloud
 ms.topic: how-to
 ms.date: 04/20/2020
+ms.custom: devx-track-java
 ---
 
 # Integrate Azure Spring Cloud with Azure Load Balance Solutions
+
+**This article applies to:** ✔️ Java ✔️ C#
 
 Azure Spring Cloud supports microservices on Azure.  Increasing business can require multiple data centers with management of multiple instances of Azure Spring Cloud.
 
@@ -20,7 +23,7 @@ Azure already provides different load-balance solutions. There are three options
 
 ## Prerequisites
 
-* Azure Spring Cloud: [How to create an Azure spring cloud service](https://docs.microsoft.com/azure/spring-cloud/spring-cloud-quickstart-launch-app-portal)
+* Azure Spring Cloud: [How to create an Azure spring cloud service](https://docs.microsoft.com/azure/spring-cloud/spring-cloud-quickstart)
 * Azure Traffic Manager: [How to create a traffic manager](https://docs.microsoft.com/azure/traffic-manager/quickstart-create-traffic-manager-profile/)
 * Azure App Gateway: [How to create an application gateway](https://docs.microsoft.com/azure/application-gateway/quick-create-portal)
 * Azure Front Door: [How to create a front door](https://docs.microsoft.com/azure/frontdoor/quickstart-create-front-door)
@@ -48,7 +51,7 @@ To finish the configuration:
 
 ## Integrate Azure Spring Cloud with Azure App Gateway
 
-To integrate with azure spring cloud service, complete the following configurations:
+To integrate with Azure Spring Cloud service, complete the following configurations:
 
 ### Configure Backend Pool
 1. Specify **Target type** as *IP address* or *FQDN*.

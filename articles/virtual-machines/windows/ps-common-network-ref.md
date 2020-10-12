@@ -13,7 +13,7 @@ ms.author: cynthn
 
 If you want to create a virtual machine, you need to create a [virtual network](../../virtual-network/virtual-networks-overview.md) or know about an existing virtual network in which the VM can be added. Typically, when you create a VM, you also need to consider creating the resources described in this article.
 
-See [How to install and configure Azure PowerShell](/powershell/azure/overview) for information about installing the latest version of Azure PowerShell, selecting your subscription, and signing in to your account.
+See [How to install and configure Azure PowerShell](/powershell/azure/) for information about installing the latest version of Azure PowerShell, selecting your subscription, and signing in to your account.
 
 Some variables might be useful for you if running more than one of the commands in this article:
 

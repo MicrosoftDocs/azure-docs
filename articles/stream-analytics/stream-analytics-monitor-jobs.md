@@ -7,6 +7,7 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 04/20/2017
+ms.custom: devx-track-csharp
 ---
 
 # Programmatically create a Stream Analytics job monitor

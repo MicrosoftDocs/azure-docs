@@ -21,12 +21,15 @@ You can use the following options to configure your DNS settings for private end
 - **Use your DNS forwarder (optional)**. You can use your DNS forwarder to override the DNS resolution for a particular private link resource. If your [DNS server](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-that-uses-your-own-dns-server) is hosted on a virtual network, you can create a DNS forwarding rule to use a private DNS zone to simplify the configuration for all private link resources.
  
 > [!IMPORTANT]
-> We don't recommend that you override a zone that's actively in use to resolve public endpoints. Connections to resources won't be able to resolve correctly without DNS forwarding to the public DNS. To avoid issues, create a different domain name or follow the suggested name for each service below. 
+> Is not recommended to override a zone that's actively in use to resolve public endpoints. Connections to resources won't be able to resolve correctly without DNS forwarding to the public DNS. To avoid issues, create a different domain name or follow the suggested name for each service below. 
 
 ## Azure services DNS zone configuration
 Azure services will create a canonical name DNS record (CNAME) on the public DNS service to redirect the resolution to the suggested private domain name. You can override the resolution with the private IP address of your private endpoints. 
  
 Your applications don't need to change the connection URL. When trying to resolve using a public DNS service, the DNS server will now resolve to your private endpoints. The process does not affect your existing applications. 
+
+> [!IMPORTANT]
+> Private networks already using the private DNS zone for a given type, can only connect to public resources if they don't have any private endpoint connections, otherwise a corresponding DNS configuration is required on the private DNS zone in order to complete the DNS resolution sequence. 
 
 For Azure services, use the recommended zone names as described in the following table:
 
@@ -65,8 +68,9 @@ For Azure services, use the recommended zone names as described in the following
 | Azure Machine Learning (Microsoft.MachineLearningServices/workspaces) / workspace | privatelink.api.azureml.ms | api.azureml.ms |
 | IoT Hub (Microsoft.Devices/IotHubs) / IotHub | privatelink.azure-devices.net | azure-devices.net |
 | SignalR (Microsoft.SignalRService/SignalR ) / signalR | privatelink.service.signalr.net | service.signalr.net |
-| Azure Monitor (Microsoft.Insights/privateLinkScopes) / azuremonitor | privatelink.monitor.azure.com | monitor.azure.com |
+| Azure Monitor (Microsoft.Insights/privateLinkScopes) / azuremonitor | privatelink.monitor.azure.com<br/> privatelink.oms.opinsights.azure.com <br/> privatelink.ods.opinsights.azure.com <br/> privatelink.agentsvc.azure-automation.net | monitor.azure.com<br/> oms.opinsights.azure.com<br/> ods.opinsights.azure.com<br/> agentsvc.azure-automation.net |
 | Cognitive Services (Microsoft.CognitiveServices/accounts) / account | privatelink.cognitiveservices.azure.com  | cognitiveservices.azure.com  |
+| Azure File Sync (Microsoft.StorageSync/storageSyncServices) / afs |  privatelink.afs.azure.net  |  afs.azure.net  |
 
  
 ## DNS configuration scenarios

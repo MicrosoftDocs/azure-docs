@@ -1,14 +1,14 @@
 ---
 title: Playbook for addressing common security requirements 
 titleSuffix: Azure SQL Database & Azure SQL Managed Instance
-description: This article provides common security requirements and best practices in Azure SQL Database and Azure SQL Managed Instance
+description: This article provides common security requirements and best practices in Azure SQL Database and Azure SQL Managed Instance.
 ms.service: sql-db-mi
 ms.subservice: security
 ms.custom: sqldbrb=2
 author: VanMSFT
 ms.author: vanto
 ms.topic: article
-ms.date: 02/20/2020
+ms.date: 09/21/2020
 ms.reviewer: ""
 ---
 
@@ -28,7 +28,7 @@ This document provides guidance on how to solve common security requirements for
 
 ### Deployment offers not covered in this guide
 
-- Azure SQL Data Warehouse
+- Azure Synapse Analytics (formerly SQL Data Warehouse)
 - Azure SQL VMs (IaaS)
 - SQL Server
 
@@ -235,9 +235,9 @@ Assign only the necessary [permissions](https://docs.microsoft.com/sql/relationa
   - Make sure to not assign users to unnecessary roles.
 
 - In Azure Resource Manager:
-  - Use built-in roles if available or custom RBAC roles and assign the necessary permissions.
-    - [Built-in roles for Azure](../../role-based-access-control/built-in-roles.md)
-    - [Custom roles for Azure resources](../../role-based-access-control/custom-roles.md)
+  - Use built-in roles if available or Azure custom roles and assign the necessary permissions.
+    - [Azure built-in roles](../../role-based-access-control/built-in-roles.md)
+    - [Azure custom roles](../../role-based-access-control/custom-roles.md)
 
 **Best practices**:
 
@@ -286,7 +286,7 @@ Separation of Duties, also called Segregation of Duties describes the requiremen
 - Identify a comprehensive hierarchy of users (and automated processes) that access the system.
 
 - Create roles according to the needed user-groups and assign permissions to roles.
-  - For management-level tasks in Azure portal or via PowerShell-automation use RBAC roles. Either find a built-in role matching the requirement, or create a custom RBAC role using the available permissions
+  - For management-level tasks in Azure portal or via PowerShell-automation use Azure roles. Either find a built-in role matching the requirement, or create an Azure custom role using the available permissions
   - Create Server roles for server-wide tasks (creating new logins, databases) in a managed instance.
   - Create Database Roles for database-level tasks.
 
@@ -313,13 +313,13 @@ Separation of Duties, also called Segregation of Duties describes the requiremen
 
 - Create and use user-defined roles when built-in roles grant too many permissions or insufficient permissions.
 
-- Role assignments can also be done temporarily, also known as Dynamic Separation of Duties (DSD), either within SQL Agent Job steps in T-SQL or using Azure PIM for RBAC roles.
+- Role assignments can also be done temporarily, also known as Dynamic Separation of Duties (DSD), either within SQL Agent Job steps in T-SQL or using Azure PIM for Azure roles.
 
 - Make sure that DBAs don't have access to the encryption keys or key stores, and that Security Administrators with access to the keys have no access to the database in turn. The use of [Extensible Key Management (EKM)](https://docs.microsoft.com/sql/relational-databases/security/encryption/extensible-key-management-ekm) can make this separation easier to achieve. [Azure Key Vault](https://azure.microsoft.com/services/key-vault/) can be used to implement EKM.
 
 - Always make sure to have an Audit trail for security-related actions.
 
-- You can retrieve the definition of the built-in RBAC roles to see the permissions used and create a custom role based on excerpts and cumulations of these via PowerShell.
+- You can retrieve the definition of the Azure built-in roles to see the permissions used and create a custom role based on excerpts and cumulations of these via PowerShell.
 
 - Because any member of the db_owner database role can change security settings like Transparent Data Encryption (TDE), or change the SLO, this membership should be granted with care. However, there are many tasks that require db_owner privileges. Task like changing any database setting such as changing DB options. Auditing plays a key role in any solution.
 
@@ -337,8 +337,8 @@ For the readers that want to dive deeper into SoD, we recommend the following re
   - [Signing Stored Procedures](https://docs.microsoft.com/dotnet/framework/data/adonet/sql/signing-stored-procedures-in-sql-server)
 
 - For Azure Resource Management:
-  - [Built-in roles for Azure](../../role-based-access-control/built-in-roles.md)
-  - [Custom roles for Azure resources](../../role-based-access-control/custom-roles.md)
+  - [Azure built-in roles](../../role-based-access-control/built-in-roles.md)
+  - [Azure custom roles](../../role-based-access-control/custom-roles.md)
   - [Using Azure AD Privileged Identity Management for elevated access](https://www.microsoft.com/itshowcase/using-azure-ad-privileged-identity-management-for-elevated-access)
 
 ### Perform regular code reviews
@@ -642,7 +642,7 @@ Advanced threat protection enables you to detect and respond to potential threat
 
 **Best practices**:
 
-- Configure [Advanced Data Security (ADS)](advanced-data-security.md#getting-started-with-ads) for a specific server or a managed instance. You can also configure ADS for all servers and managed instances in a subscription by switching to [Azure Security Center Standard tier](../../security-center/security-center-pricing.md).
+- Configure [Azure Defender for SQL](azure-defender-for-sql.md) for a specific server or a managed instance. You can also configure Azure Defender for SQL for all servers and managed instances in a subscription by switching to [Azure Security Center Standard tier](../../security-center/security-center-pricing.md).
 
 - For a full investigation experience, it's recommended to enable [SQL Database Auditing](../../azure-sql/database/auditing-overview.md). With auditing, you can track database events and write them to an audit log in an Azure Storage account or Azure Log Analytics workspace.
 

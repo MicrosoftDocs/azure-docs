@@ -5,8 +5,9 @@ author: bandersmsft
 ms.reviewer: adwise
 tags: billing
 ms.service: cost-management-billing
-ms.topic: reference
-ms.date: 05/04/2020
+ms.subservice: cost-management
+ms.topic: how-to
+ms.date: 08/20/2020
 ms.author: banders
 ---
 
@@ -148,7 +149,7 @@ Use a conditional statement to check whether the threshold amount has reached 80
 1. Select **OK** to set the expression.
 1. Select **is greater than or equal to** in the dropdown box of the **Condition**.
 1. In the **Choose a value** box of the condition, enter `.8`.  
-    ![Azure - Logic app - Float expression with a value](./media/cost-management-budget-scenario/billing-cost-management-budget-scenario-12.png)
+    ![Screenshot shows the Condition dialog box with values selected.](./media/cost-management-budget-scenario/billing-cost-management-budget-scenario-12.png)
 1. Select **Add** > **Add row** within the Condition box to add an additional part of the condition.
 1. In the **Condition** box, select the textbox containing `Choose a value`.
 1. Select **Expression** at the top of the list and enter the following expression in the expression editor:
@@ -157,7 +158,7 @@ Use a conditional statement to check whether the threshold amount has reached 80
 1. Select **OK** to set the expression.
 1. Select **is less than** in the dropdown box of the **Condition**.
 1. In the **Choose a value** box of the condition, enter `1`.  
-    ![Azure - Logic app - Float expression with a value](./media/cost-management-budget-scenario/billing-cost-management-budget-scenario-13.png)
+    ![Screenshot shows the Condition dialog box with two conditions.](./media/cost-management-budget-scenario/billing-cost-management-budget-scenario-13.png)
 1. In the **If true** box, select **Add an action**. You'll add an HTTP POST action that will shut down optional VMs.  
     ![Azure - Logic app - Add an action](./media/cost-management-budget-scenario/billing-cost-management-budget-scenario-14.png)
 1. Enter **HTTP** to search for the HTTP action and select the **HTTP – HTTP** action.  
@@ -180,7 +181,7 @@ Use a conditional statement to check whether the threshold amount has reached 80
 Use a conditional statement to check whether the threshold amount has reached or exceeded 100% of the budget value. If the threshold amount has been reached, send an HTTP POST using the webhook named **Complete**. This action will shut down all remaining VMs.
 
 1. Select **New step** > **Add a Condition**.  
-    ![Azure - Logic app - Add action](./media/cost-management-budget-scenario/billing-cost-management-budget-scenario-20.png)
+    ![Screenshot shows the If true dialog box with Add an action called out.](./media/cost-management-budget-scenario/billing-cost-management-budget-scenario-20.png)
 1. In the **Condition** box, select the textbox containing `Choose a value` to display a list of available values.
 1. Select **Expression** at the top of the list and enter the following expression in the expression editor:
     `float()`
@@ -192,11 +193,11 @@ Use a conditional statement to check whether the threshold amount has reached or
 1. In the **Choose a value box** for the condition, enter `1`.  
     ![Azure - Logic app - Set condition value](./media/cost-management-budget-scenario/billing-cost-management-budget-scenario-21.png)
 1. In the **If true** box, select **Add an action**. You'll add an HTTP POST action that will shut down all the remaining VMs.  
-    ![Azure - Logic app - Add an action](./media/cost-management-budget-scenario/billing-cost-management-budget-scenario-22.png)
+    ![Screenshot shows the If true dialog box with where you can add an H T T P POST action.](./media/cost-management-budget-scenario/billing-cost-management-budget-scenario-22.png)
 1. Enter **HTTP** to search for the HTTP action and select the **HTTP – HTTP** action.
 1. Select **Post** as the **Method** value.
 1. Enter the URL for the webhook named **Complete** that you created earlier in this tutorial as the **Uri** value.  
-    ![Azure - Logic app - Add an action](./media/cost-management-budget-scenario/billing-cost-management-budget-scenario-23.png)
+    ![Screenshot shows the H T T P dialog box where you can enter the U R L value.](./media/cost-management-budget-scenario/billing-cost-management-budget-scenario-23.png)
 1. Select **Add an action** in the **If true** box. You'll add an email action that will send an email notifying the recipient that the remaining VMs have been shut down.
 1. Search for "send email" and select a *send email* action based on the email service you use.
 1. Add the **To**, **Subject**, and **Body** text for the email that notifies the recipient that the optional VMs have been shut down. Use the **BudgetName** and the **NotificationThresholdAmount** dynamic content to populate the subject and body fields.  
@@ -285,28 +286,26 @@ Next, you'll configure **Postman** to create a budget by calling the Azure Consu
                 "startDate": "2018-06-01T00:00:00Z",
                 "endDate": "2018-10-31T00:00:00Z"
                 },
-                "filters": {
-                },
+                "filters": {},
             "notifications": {
                 "Actual_GreaterThan_80_Percent": {
                     "enabled": true,
                     "operator": "GreaterThan",
                     "threshold": 80,
-                    "contactEmails": [
-                    ],
-                    "contactRoles": [
-                    ],
+                    "contactEmails": [],
+                    "contactRoles": [],
                     "contactGroups": [
-                    "/subscriptions/{subscriptionid}/resourceGroups/{resourcegroupname}/providers/microsoft.insights/actionGroups/{actiongroupname}
+                        "/subscriptions/{subscriptionid}/resourceGroups/{resourcegroupname}/providers/microsoft.insights/actionGroups/{actiongroupname}"
                     ]
                 },
-            "Actual_EqualTo_100_Percent": {
-                    "operator": "EqualTo",
-                    "threshold": 100,
-                    "contactGroups": [
-                "/subscriptions/{subscriptionid}/resourceGroups/{resourcegroupname}/providers/microsoft.insights/actionGroups/{actiongroupname}"
-                    ]
-                }
+               "Actual_EqualTo_100_Percent": {
+                       "operator": "EqualTo",
+                       "threshold": 100,
+                       "contactGroups": [
+                           "/subscriptions/{subscriptionid}/resourceGroups/{resourcegroupname}/providers/microsoft.insights/actionGroups/{actiongroupname}"
+                       ]
+                   }
+               }
             }
         }
     ```

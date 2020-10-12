@@ -2,22 +2,15 @@
 title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with NetDocuments | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and NetDocuments.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-
-ms.assetid: 1a47dc42-1a17-48a2-965e-eca4cfb2f197
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 09/03/2019
 ms.author: jeedes
-
-ms.collection: M365-identity-device-management
 ---
 
 # Tutorial: Azure Active Directory single sign-on (SSO) integration with NetDocuments
@@ -141,7 +134,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 3. Select **Security Center**.
    
-    ![Repository](./media/netdocuments-tutorial/security-center.png "Security Center")
+    ![Screenshot shows Security Center selected from Legal Documents.](./media/netdocuments-tutorial/security-center.png "Security Center")
 
 4. Select **Advanced Authentication**.
     
@@ -171,7 +164,7 @@ To enable Azure AD users to sign in to NetDocuments, they must be provisioned in
 
 3. Select **Users and groups**.
    
-    ![Repository](./media/netdocuments-tutorial/users-groups.png "Repository")
+    ![Screenshot shows Users & Groups selected from Legal Documents.](./media/netdocuments-tutorial/users-groups.png "Repository")
 
 4. In the **Email Address** textbox, type the email address of a valid Azure Active Directory account you want to provision, and then click **Add User**.
    

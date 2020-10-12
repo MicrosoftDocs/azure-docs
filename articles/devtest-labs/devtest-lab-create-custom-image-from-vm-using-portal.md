@@ -38,7 +38,7 @@ You can create a custom image from a provisioned VM, and afterwards use that cus
 
 ## Related blog posts
 
-- [Custom images or formulas?](https://blogs.msdn.microsoft.com/devtestlab/2016/04/06/custom-images-or-formulas/)
+- [Custom images or formulas?](./devtest-lab-faq.md#blog-post)
 - [Copying Custom Images between Azure DevTest Labs](https://www.visualstudiogeeks.com/blog/DevOps/How-To-Move-CustomImages-VHD-Between-AzureDevTestLabs#copying-custom-images-between-azure-devtest-labs)
 
 ## Next steps

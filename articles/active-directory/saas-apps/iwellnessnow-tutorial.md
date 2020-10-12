@@ -2,22 +2,15 @@
 title: 'Tutorial: Azure Active Directory integration with iWellnessNow | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and iWellnessNow.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-
-ms.assetid: 24ffc841-7a77-481c-9cc4-6f8bda58fe66
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 08/07/2019
 ms.author: jeedes
-
-ms.collection: M365-identity-device-management
 ---
 
 # Tutorial: Integrate iWellnessNow with Azure Active Directory
@@ -89,7 +82,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 	c. After the metadata file is successfully uploaded, the **Identifier** and **Reply URL** values get auto populated in Basic SAML Configuration section.
 
-	![image](common/idp-intiated.png)
+	![Screenshot shows the Basic SAML Configuration, where you can enter Reply U R L, and select Save.](common/idp-intiated.png)
 
 	> [!Note]
 	> If the **Identifier** and **Reply URL** values do not get auto polulated, then fill in the values manually according to your requirement.
@@ -104,7 +97,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 1. Click **Set additional URLs** and perform the following step if you wish to configure the application in **SP** initiated mode:
 
-	![image](common/metadata-upload-additional-signon.png)
+	![Screenshot shows Set additional U R Ls where you can enter a Sign on U R L.](common/metadata-upload-additional-signon.png)
 
 	In the **Sign-on URL** text box, type a URL using the following pattern:
     `https://<CustomerName>.iwellnessnow.com/`

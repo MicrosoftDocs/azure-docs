@@ -1,6 +1,6 @@
 ---
 title: Frequently asked questions - Azure Event Hubs for Apache Kafka 
-description: This article shows how consumers and producers that use different protocols (AMQP, Apache Kafka, and HTTPS) can exchange events when using Azure Event Hubs. 
+description: This article answers frequent questions asked about Azure Event Hubs' support for Apache Kafka clients not covered elsewhere.
 ms.topic: article
 ms.date: 06/23/2020
 ---
@@ -8,9 +8,9 @@ ms.date: 06/23/2020
 # Frequently asked questions - Event Hubs for Apache Kafka 
 This article provides answers to some of the frequently asked questions on migrating to Event Hubs for Apache Kafka.
 
-## Do you run Apache Kafka?
+## Does Azure Event Hubs run on Apache Kafka?
 
-No.  We execute Kafka API operations against Event Hubs infrastructure.  Because there's a tight correlation between Apache Kafka and Event Hubs AMQP functionality (that is, produce, receive, management, so on.), we're able to bring the known reliability of Event Hubs to the Kafka PaaS space.
+No. Azure Event Hubs is a cloud-native multi-tier broker with support for multiple protocols that is developed and maintained by Microsoft and does not use any Apache Kafka code. One of the supported protocols is the Kafka RPC protocol for the Kafka client's consumer and producer APIs. Event Hubs works with many of your existing Kafka applications. For more information, see [Event Hubs for Apache Kafka](event-hubs-for-kafka-ecosystem-overview.md). Because the concepts of Apache Kafka and Azure Event Hubs are very similar (but not identical), we are able to offer the unmatched reliability of Azure Event Hubs to customers with existing Apache Kafka investments. 
 
 ## Event Hubs consumer group vs. Kafka consumer group
 What's the difference between an Event Hub consumer group and a Kafka consumer group on Event Hubs? Kafka consumer groups on Event Hubs are fully distinct from standard Event Hubs consumer groups.
@@ -36,5 +36,5 @@ To learn more about Event Hubs and Event Hubs for Kafka, see the following artic
 - [Apache Kafka developer guide for Event Hubs](apache-kafka-developer-guide.md)
 - [Apache Kafka migration guide for Event Hubs](apache-kafka-migration-guide.md)
 - [Apache Kafka troubleshooting guide for Event Hubs](apache-kafka-troubleshooting-guide.md)
-- [Recommended configurations](https://github.com/Azure/azure-event-hubs-for-kafka/blob/master/CONFIGURATION.md)
+- [Recommended configurations](apache-kafka-configurations.md)
 

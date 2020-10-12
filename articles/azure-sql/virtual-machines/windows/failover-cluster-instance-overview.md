@@ -7,7 +7,7 @@ author: MashaMSFT
 editor: monicar
 tags: azure-service-management
 ms.service: virtual-machines-sql
-ms.topic: article
+ms.topic: overview
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: "06/02/2020"
@@ -44,30 +44,30 @@ SQL Server on Azure VMs offers various options as a shared storage solution for 
 
 ||[Azure shared disks](../../../virtual-machines/windows/disks-shared.md)|[Premium file shares](../../../storage/files/storage-how-to-create-premium-fileshare.md) |[Storage Spaces Direct (S2D)](/windows-server/storage/storage-spaces/storage-spaces-direct-overview)|
 |---------|---------|---------|---------|
-|**Minimum OS version**| Windows Server 2016|Windows Server 2012|Windows Server 2016|
-|**Minimum SQL Server version**|SQL Server 2019|SQL Server 2012|SQL Server 2016|
+|**Minimum OS version**| All |Windows Server 2012|Windows Server 2016|
+|**Minimum SQL Server version**|All|SQL Server 2012|SQL Server 2016|
 |**Supported VM availability** |Availability sets with proximity placement groups |Availability sets and availability zones|Availability sets |
-|**Supports FileStream**|No|No|Yes |
+|**Supports FileStream**|Yes|No|Yes |
 |**Azure blob cache**|No|No|Yes|
 
 The rest of this section lists the benefits and limitations of each storage option available for SQL Server on Azure VMs. 
 
 ### Azure shared disks
 
-[Azure shared disks](../../../virtual-machines/windows/disks-shared.md) are a feature of [Azure managed disks](../../../virtual-machines/windows/managed-disks-overview.md). Windows Server Failover Clustering supports using Azure shared disks with a failover cluster instance. 
+[Azure shared disks](../../../virtual-machines/windows/disks-shared.md) are a feature of [Azure managed disks](../../../virtual-machines/managed-disks-overview.md). Windows Server Failover Clustering supports using Azure shared disks with a failover cluster instance. 
 
-**Supported OS**: Windows Server 2019   
-**Supported SQL version**: SQL Server 2019   
+**Supported OS**: All   
+**Supported SQL version**: All     
 
 **Benefits**: 
 - Useful for applications looking to migrate to Azure while keeping their high-availability and disaster recovery (HADR) architecture as is. 
 - Can migrate clustered applications to Azure as is because of SCSI Persistent Reservations (SCSI PR) support. 
-- Supports shared Azure Premium SSD for all versions of SQL Server and shared Azure Ultra Disk Storage for SQL Server 2019. 
+- Supports shared Azure Premium SSD and Azure Ultra Disk storage.
 - Can use a single shared disk or stripe multiple shared disks to create a shared storage pool. 
+- Supports Filestream.
 
 
 **Limitations**: 
-- Available only for SQL Server 2019 and Windows Server 2019 while in preview. 
 - Virtual machines must be placed in the same availability set and proximity placement group.
 - Availability zones are not supported.
 - Premium SSD disk caching is not supported.
@@ -94,7 +94,7 @@ To get started, see [SQL Server failover cluster instance with Azure shared disk
 - High network bandwidth is required to achieve high performance because of ongoing disk replication. 
 - Requires a larger VM size and double pay for storage, because storage is attached to each VM. 
 
-To get started, see [SQL Server failover cluster instance with Storage Spaces Direct](failover-cluster-instance-azure-shared-disks-manually-configure.md). 
+To get started, see [SQL Server failover cluster instance with Storage Spaces Direct](failover-cluster-instance-storage-spaces-direct-manually-configure.md). 
 
 ### Premium file share
 
@@ -150,10 +150,11 @@ At this time, SQL Server failover cluster instances on Azure virtual machines ar
 
 The full extension supports features such as automated backup, patching, and advanced portal management. These features will not work for SQL Server VMs after the agent is reinstalled in lightweight management mode.
 
-### MSDTC   
-Azure Virtual Machines supports MSDTC on Windows Server 2019 with storage on Clustered Shared Volumes (CSV) and [Azure Standard Load Balancer](../../../load-balancer/load-balancer-standard-overview.md).
+### MSDTC 
 
-On Azure Virtual Machines, MSDTC isn't supported for Windows Server 2016 or earlier because:
+Azure Virtual Machines support Microsoft Distributed Transaction Coordinator (MSDTC) on Windows Server 2019 with storage on Clustered Shared Volumes (CSV) and [Azure Standard Load Balancer](../../../load-balancer/load-balancer-standard-overview.md) or on SQL Server VMs that are using Azure shared disks. 
+
+On Azure Virtual Machines, MSDTC isn't supported for Windows Server 2016 or earlier with Clustered Shared Volumes because:
 
 - The clustered MSDTC resource can't be configured to use shared storage. On Windows Server 2016, if you create an MSDTC resource, it won't show any shared storage available for use, even if storage is available. This issue has been fixed in Windows Server 2019.
 - The basic load balancer doesn't handle RPC ports.

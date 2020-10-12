@@ -3,7 +3,7 @@ title: Enable double encryption at rest - Azure CLI - managed disks
 description: Enable double encryption at rest for your managed disk data using the Azure CLI.
 author: roygara
 
-ms.date: 07/10/2020
+ms.date: 08/24/2020
 ms.topic: how-to
 ms.author: rogarana
 ms.service: virtual-machines-linux
@@ -11,7 +11,7 @@ ms.subservice: disks
 ms.custom: references_regions
 ---
 
-# Azure CLI - Enable double encryption at rest on your managed disks
+# Use the Azure CLI to enable double encryption at rest for managed disks
 
 Azure Disk Storage supports double encryption at rest for managed disks. For conceptual information on double encryption at rest, as well as other managed disk encryption types, see the [Double encryption at rest](disk-encryption.md#double-encryption-at-rest) section of our disk encryption article.
 
@@ -69,5 +69,5 @@ Install the latest [Azure CLI](/cli/azure/install-az-cli2) and log in to an Azur
 
 Now that you've created and configured these resources, you can use them to secure your managed disks. The following links contain example scripts, each with a respective scenario, that you can use to secure your managed disks.
 
-[Azure Resource Manager template samples](https://github.com/Azure-Samples/managed-disks-powershell-getting-started/tree/master/DoubleEncryption)
-[Enable customer-managed keys with server-side encryption - Examples](disks-enable-customer-managed-keys-cli.md#examples)
+- [Azure Resource Manager template samples](https://github.com/Azure-Samples/managed-disks-powershell-getting-started/tree/master/DoubleEncryption)
+- [Enable customer-managed keys with server-side encryption - Examples](disks-enable-customer-managed-keys-cli.md#examples)

@@ -88,7 +88,7 @@ Use the following procedure.
     - **Description**: The description for the new alert rule.
     - **Save alert to resource group**: Select the resource group where you want to save this new rule.
 
-5. Under **Action group**, from the drop-down menu, specify the action group that you want to assign to this new alert rule. Or, [create a new action group](../../azure-monitor/platform/action-groups.md) and assign it to the new rule. To create a new group, select **+ New group**.
+5. Under **Action group**, from the drop-down menu, specify the action group that you want to assign to this new alert rule. Or, [create a new action group](./action-groups.md) and assign it to the new rule. To create a new group, select **+ New group**.
 
 6. To enable the rules after you create them, select **Yes** for the **Enable rule upon creation** option.
 7. Select **Create alert rule**.
@@ -107,7 +107,7 @@ A simple analogy for understanding conditions on which alert rules can be create
 
 1. In the Azure portal, select **Monitor** > **Alerts**. Select **Manage alert rules** in the upper-left corner of the window.
 
-    ![Manage alert rules](media/alerts-activity-log/manage-alert-rules.png)
+    ![Screenshot shows the activity log with the search box highlighted.](media/alerts-activity-log/manage-alert-rules.png)
 
     The list of available rules appears.
 
@@ -282,7 +282,8 @@ Activity log alert rule resources can be removed by using the Azure CLI command 
 
 ## Next steps
 
-- Learn about [webhook schema for activity logs](../../azure-monitor/platform/activity-log-alerts-webhook.md).
-- Read an [overview of activity logs](../../azure-monitor/platform/activity-log-alerts.md).
-- Learn more about [action groups](../../azure-monitor/platform/action-groups.md).  
+- Learn about [webhook schema for activity logs](./activity-log-alerts-webhook.md).
+- Read an [overview of activity logs](./activity-log-alerts.md).
+- Learn more about [action groups](./action-groups.md).  
 - Learn about [service health notifications](../../service-health/service-notifications.md).
+

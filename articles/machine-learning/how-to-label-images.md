@@ -7,7 +7,7 @@ ms.author: sgilley
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: tutorial
-ms.date: 04/09/2020
+ms.date: 07/27/2020
 
 ---
 
@@ -33,11 +33,9 @@ After your project administrator [creates a labeling project](https://docs.micro
 
 1. Select **Data labeling** on the left-hand side to find the project.  
 
-1. Select the project name in the list.
-
 ## Understand the labeling task
 
-Once you've selected the project, at the top of the page, select **Label data**.
+In the table of data labeling projects, select **Label link** for your project.
 
 You see instructions that are specific to your project. They explain the type of data that you're facing, how you should make your decisions, and other relevant information. After you read this information, at the top of the page select **Tasks**.  Or at the bottom of the page, select **Start labeling**.
 
@@ -110,7 +108,7 @@ If your project is of type "Object Identification (Bounding Boxes)," you'll spec
 1. Select the **Rectangular box** tool ![Rectangular box tool](./media/how-to-label-images/rectangular-box-tool.png) or select "R."
 3. Click and drag diagonally across your target to create a rough bounding box. To adjust the bounding box, drag the edges or corners.
 
-![A screenshot shows basic bounding box creation.](./media/how-to-label-images/bounding-box-sequence.png)
+![Bounding box creation](./media/how-to-label-images/bounding-box-sequence.png)
 
 To delete a bounding box, click the X-shaped target that appears next to the bounding box after creation.
 

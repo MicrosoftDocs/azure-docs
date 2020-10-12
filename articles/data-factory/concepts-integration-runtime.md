@@ -40,13 +40,10 @@ The following table describes the capabilities and network support for each of t
 
 IR type | Public network | Private network
 ------- | -------------- | ---------------
-Azure | Data Flow<br/>Data movement<br/>Activity dispatch | &nbsp;
+Azure | Data Flow<br/>Data movement<br/>Activity dispatch | Data Flow<br/>Data movement<br/>Activity dispatch
 Self-hosted | Data movement<br/>Activity dispatch | Data movement<br/>Activity dispatch
 Azure-SSIS | SSIS package execution | SSIS package execution
 
-The following diagram shows how the different integration runtimes can be used in combination to offer rich data integration capabilities and network support:
-
-![Different types of integration runtimes](media/concepts-integration-runtime/different-integration-runtimes.png)
 
 ## Azure integration runtime
 
@@ -58,7 +55,7 @@ An Azure integration runtime can:
 
 ### Azure IR network environment
 
-Azure Integration Runtime supports connecting to data stores and computes services with public accessible endpoints. Use a self-hosted integration runtime for Azure Virtual Network environment.
+Azure Integration Runtime supports connecting to data stores and computes services with public accessible endpoints. Enabling Managed Virtual Network, Azure Integration Runtime supports connecting to data stores using private link service in private network environment.
 
 ### Azure IR compute resource and scaling
 Azure integration runtime provides a fully managed, serverless compute in Azure.  You don't have to worry about infrastructure provision, software installation, patching, or capacity scaling.  In addition, you only pay for the duration of the actual utilization.
@@ -67,7 +64,7 @@ Azure integration runtime provides the native compute to move data between cloud
 
 Activity dispatch is a lightweight operation to route the activity to the target compute service, so there isn't need to scale up the compute size for this scenario.
 
-For information about creating and configuring an Azure IR, reference how to create and configure Azure IR under how to guides. 
+For information about creating and configuring an Azure IR, see [How to create and configure Azure Integration Runtime](create-azure-integration-runtime.md). 
 
 > [!NOTE] 
 > Azure Integration runtime has properties related to Data Flow runtime, which defines the underlying compute infrastructure that would be used to run the data flows on. 
@@ -131,7 +128,7 @@ The IR Location defines the location of its back-end compute, and essentially th
 
 You can set a certain location of an Azure IR, in which case the activity execution or dispatch will happen in that specific region.
 
-If you choose to use the auto-resolve Azure IR, which is the default,
+If you choose to use the auto-resolve Azure IR in public network, which is the default,
 
 - For copy activity, ADF will make a best effort to automatically detect your sink data store's location, then use the IR in either the same region if available or the closest one in the same geography; if the sink data store's region is not detectable, IR in the data factory region as alternative is used.
 
@@ -141,7 +138,7 @@ If you choose to use the auto-resolve Azure IR, which is the default,
   - When copy data to Salesforce of which the region is not detectable, copy activity is executed on IR in East US.
 
   >[!TIP] 
-  >If you have strict data compliance requirements and need ensure that data do not leave a certain geography, you can explicitly create an Azure IR in a certain region and point the Linked Service to this IR using ConnectVia property. For example, if you want to copy data from Blob in UK South to SQL DW in UK South and want to ensure data do not leave UK, create an Azure IR in UK South and link both Linked Services to this IR.
+  >If you have strict data compliance requirements and need ensure that data do not leave a certain geography, you can explicitly create an Azure IR in a certain region and point the Linked Service to this IR using ConnectVia property. For example, if you want to copy data from Blob in UK South to Azure Synapse Analytics in UK South and want to ensure data do not leave UK, create an Azure IR in UK South and link both Linked Services to this IR.
 
 - For Lookup/GetMetadata/Delete activity execution (also known as Pipeline activities), transformation activity dispatching (also known as External activities), and authoring operations (test connection, browse folder list and table list, preview data), ADF uses the IR in the data factory region.
 
@@ -149,6 +146,8 @@ If you choose to use the auto-resolve Azure IR, which is the default,
 
   > [!TIP] 
   > A good practice would be to ensure Data flow runs in the same region as your corresponding data stores (if possible). You can either achieve this by auto-resolve Azure IR (if data store location is same as Data Factory location), or by creating a new Azure IR instance in the same region as your data stores and then execute the data flow on it. 
+
+If you enable Managed Virtual Network for auto-resolve Azure IR, ADF uses the IR in the data factory region. 
 
 You can monitor which IR location takes effect during activity execution in pipeline activity monitoring view on UI or activity monitoring payload.
 

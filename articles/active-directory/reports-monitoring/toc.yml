@@ -26,7 +26,8 @@
     href: tutorial-access-api-with-certificates.md
   - name: Stream logs to event hub
     href: tutorial-azure-monitor-stream-logs-to-event-hub.md
-
+  - name: Log analytics wizard
+    href: tutorial-log-analytics-wizard.md
 
 - name: Concepts
   items:
@@ -34,16 +35,18 @@
     href: plan-monitoring-and-reporting.md
   - name: Audit logs
     href: concept-audit-logs.md
+  - name: New sign-in logs - preview
+    href: concept-all-sign-ins.md
   - name: Sign-in logs
     href: concept-sign-ins.md
   - name: Usage and Insights report
     href: concept-usage-insights-report.md
   - name: Risky sign-ins
-    href: concept-risky-sign-ins.md
+    href: ../identity-protection/overview-identity-protection.md
   - name: Risk detections
-    href: concept-risk-events.md
+    href: ../identity-protection/overview-identity-protection.md
   - name: Users at risk
-    href: concept-user-at-risk.md
+    href: ../identity-protection/overview-identity-protection.md
   - name: Provisioning logs
     href: concept-provisioning-logs.md
   - name: Reporting APIs
@@ -92,7 +95,8 @@
       href: troubleshoot-missing-data-download.md
     - name: Cannot access Graph APIs for reporting
       href: troubleshoot-graph-api.md
-
+    - name: Audit data on verified domain change
+      href: troubleshoot-audit-data-verified-domain.md
 
 - name: Reference
   expanded: true
@@ -100,9 +104,9 @@
   - name: Azure AD PowerShell cmdlets for reporting
     href: reference-powershell-reporting.md
   - name: Audit logs API reference
-    href: https://developer.microsoft.com/graph/docs/api-reference/beta/resources/directoryaudit
+    href: /graph/api/resources/directoryaudit?view=graph-rest-beta
   - name: Sign-in logs API reference
-    href: https://developer.microsoft.com/graph/docs/api-reference/beta/resources/signin
+    href: /graph/api/resources/signin?view=graph-rest-beta
   - name: Audit activities
     href: reference-audit-activities.md
   - name: Data retention policies
@@ -117,4 +121,3 @@
     href: reference-azure-monitor-audit-log-schema.md
   - name: Sign-in log schema
     href: reference-azure-monitor-sign-ins-log-schema.md
-

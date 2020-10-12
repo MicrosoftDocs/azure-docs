@@ -39,7 +39,7 @@ This problem may occur if the VM cannot locate the BitLocker Recovery Key (BEK) 
 
 ## Solution
 
-To resolve this problem, stop and deallocate the VM, and then restart it. This operation forces the VM to retrieve the BEK file from the Azure Key Vault, and then put it on the encrypted disk. 
+To resolve this problem, stop and deallocate the VM, and then start it. This operation forces the VM to retrieve the BEK file from the Azure Key Vault, and then put it on the encrypted disk. 
 
 If this method does not the resolve the problem, follow these steps to restore the BEK file manually:
 
@@ -66,7 +66,7 @@ If this method does not the resolve the problem, follow these steps to restore t
     ```
      You cannot attach a managed disk to a VM that was restored from a blob image.
 
-3. After the disk is attached, make a remote desktop connection to the recovery VM so that you can run some Azure PowerShell scripts. Make sure that you have the [latest version of Azure PowerShell](/powershell/azure/overview) installed on the recovery VM.
+3. After the disk is attached, make a remote desktop connection to the recovery VM so that you can run some Azure PowerShell scripts. Make sure that you have the [latest version of Azure PowerShell](/powershell/azure/) installed on the recovery VM.
 
 4. Open an elevated Azure PowerShell session (Run as administrator). Run the following commands to sign in to Azure subscription:
 

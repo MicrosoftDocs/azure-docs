@@ -2,10 +2,10 @@
 title: How to secure input constrained device with Azure AD and Azure Maps REST APIs
 titleSuffix: Azure Maps
 description: How to configure a browser-less application which supports sign-in to Azure AD and calls Azure Maps REST APIs.
-author: philmea
-ms.author: philmea
+author: anastasia-ms
+ms.author: v-stharr
 ms.date: 06/12/2020
-ms.topic: conceptual
+ms.topic: how-to
 ms.service: azure-maps
 services: azure-maps
 manager: timlt

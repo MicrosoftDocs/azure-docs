@@ -8,7 +8,7 @@ ms.topic: how-to
 ms.date: 03/20/2020
 author: timsander1
 ms.author: tisande
-ms.custom: seodec18
+ms.custom: seodec18, devx-track-js
 ---
 # Connect a Node.js Mongoose application to Azure Cosmos DB
 
@@ -88,7 +88,10 @@ After you create the database, you'll use the name in the `COSMOSDB_DBNAME` envi
       auth: {
         user: process.env.COSMODDB_USER,
         password: process.env.COSMOSDB_PASSWORD
-      }
+      },
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+    retryWrites: false
     })
     .then(() => console.log('Connection to CosmosDB successful'))
     .catch((err) => console.error(err));

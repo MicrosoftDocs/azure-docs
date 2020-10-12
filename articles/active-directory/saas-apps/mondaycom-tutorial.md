@@ -2,22 +2,15 @@
 title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with monday.com | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and monday.com.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-
-ms.assetid: 9e8ad807-0664-4e31-91de-731097c768e2
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 12/17/2019
 ms.author: jeedes
-
-ms.collection: M365-identity-device-management
 ---
 
 # Tutorial: Azure Active Directory single sign-on (SSO) integration with monday.com
@@ -90,14 +83,14 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
     c. After the metadata file is successfully uploaded, the **Identifier** and **Reply URL** values get auto populated in Basic SAML Configuration section.
 
-    ![image](common/idp-intiated.png)
+    ![Screenshot shows the Basic SAML Configuration, where you can enter Identifier, Reply U R L, and select Save.](common/idp-intiated.png)
 
     > [!Note]
     > If the **Identifier** and **Reply URL** values do not get populated automatically, then fill in the values manually. The **Identifier** and the **Reply URL** are the same and value is in the following pattern: `https://<your-domain>.monday.com/saml/saml_callback`
 
 1. Click **Set additional URLs** and perform the following step if you wish to configure the application in **SP** initiated mode:
 
-    ![image](common/metadata-upload-additional-signon.png)
+    ![Screenshot shows Set additional U R Ls where you can enter a Sign on U R L.](common/metadata-upload-additional-signon.png)
 
     In the **Sign-on URL** text box, type a URL using the following pattern:
     `https://<YOUR_DOMAIN>.monday.com`
@@ -107,7 +100,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 1. monday.com application expects the SAML assertions in a specific format, which requires you to add custom attribute mappings to your SAML token attributes configuration. The following screenshot shows the list of default attributes.
 
-    ![image](common/default-attributes.png)
+    ![Screenshot shows User Attributes & Claims with default values such as Givenname user.givenname and Emailaddress User.mail.](common/default-attributes.png)
 
 1. In addition to above, monday.com application expects few more attributes to be passed back in SAML response which are shown below. These attributes are also pre populated but you can review them as per your requirements.
 
@@ -169,15 +162,15 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 1. Go to the **Profile** on the top right corner of page and click on **Admin**.
 
-    ![monday.com configuration](./media/mondaycom-tutorial/configuration01.png)
+    ![Screenshot shows the Admin profile selected.](./media/mondaycom-tutorial/configuration01.png)
 
 1. Select **Security** and make sure to click on **Open** next to SAML.
 
-    ![monday.com configuration](./media/mondaycom-tutorial/configuration02.png)
+    ![Screenshot shows the Security tab with the option to Open next to SAML.](./media/mondaycom-tutorial/configuration02.png)
 
 1. Fill in the details below from your IDP.
 
-    ![monday.com configuration](./media/mondaycom-tutorial/configuration03.png)
+    ![Screenshot shows the SAML provider where you can enter information from your I D P.](./media/mondaycom-tutorial/configuration03.png)
 
     > [!NOTE]
     > For more details refer [this](https://support.monday.com/hc/articles/360000460605-SAML-Single-Sign-on?abcb=34642) article

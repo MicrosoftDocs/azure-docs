@@ -5,7 +5,7 @@ description: Learn about using JavaScript in Azure Active Directory B2C.
 services: active-directory-b2c
 author: msmimart
 manager: celestedg
-
+ms.custom: devx-track-js
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to

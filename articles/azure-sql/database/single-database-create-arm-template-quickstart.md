@@ -9,7 +9,7 @@ ms.devlang:
 ms.topic: quickstart
 author: mumian
 ms.author: jgao
-ms.reviewer: carlrab
+ms.reviewer: sstein
 ms.date: 06/24/2020
 ---
 
@@ -33,7 +33,7 @@ A single database has a defined set of compute, memory, IO, and storage resource
 
 The template used in this quickstart is from [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/101-sql-database/).
 
-:::code language="json" source="~/quickstart-templates/101-sql-database/azuredeploy.json" range="1-67" highlight="41-65":::
+:::code language="json" source="~/quickstart-templates/101-sql-database/azuredeploy.json":::
 
 These resources are defined in the template:
 

@@ -2,22 +2,15 @@
 title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Kanbanize | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and Kanbanize.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-
-ms.assetid: b436d2f6-bfa5-43fd-a8f9-d2144dc25669
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 10/09/2019
 ms.author: jeedes
-
-ms.collection: M365-identity-device-management
 ---
 
 # Tutorial: Azure Active Directory single sign-on (SSO) integration with Kanbanize
@@ -158,7 +151,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 5. On the Administration panel page from the left side of menu click **Integrations** and then enable **Single Sign-On**.
 
-	![Kanbanize integrations](./media/kanbanize-tutorial/tutorial-kanbanize-admin.png)
+	![Screenshot shows the Administration panel with Integration selected.](./media/kanbanize-tutorial/tutorial-kanbanize-admin.png)
 
 6. Under Integrations section, click on **CONFIGURE** to open **Single Sign-On Integration** page.
 
@@ -166,7 +159,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 7. On the **Single Sign-On Integration** page under **Configurations**, perform the following steps:
 
-	![Kanbanize integrations](./media/kanbanize-tutorial/tutorial-kanbanize-save.png)
+	![Screenshot shows the Single Sign-On Integration page where you enter the values in this step.](./media/kanbanize-tutorial/tutorial-kanbanize-save.png)
 
 	a. In the **Idp Entity ID** textbox, paste the value of **Azure AD Identifier**, which you have copied from the Azure portal.
 

@@ -9,7 +9,7 @@ manager: nitinme
 
 ms.service: cognitive-search
 ms.topic: tutorial
-ms.date: 05/19/2020
+ms.date: 09/25/2020
 ---
 
 # Tutorial: Diagnose, repair, and commit changes to your skillset
@@ -36,7 +36,7 @@ This tutorial uses Azure Cognitive Search and Azure Storage services.
 
 * [Download sample data](https://github.com/Azure-Samples/azure-search-sample-data/tree/master/clinical-trials-pdf-19) consisting of 19 files.
 
-* [Create an Azure storage account](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account?tabs=azure-portal) or [find an existing account](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Storage%2storageAccounts/). 
+* [Create an Azure storage account](../storage/common/storage-account-create.md?tabs=azure-portal) or [find an existing account](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Storage%2storageAccounts/). 
 
    Choose the same region as Azure Cognitive Search to avoid bandwidth charges.
    
@@ -56,7 +56,7 @@ REST calls require the service URL and an access key on every request. A search 
 
 1. In **Settings** > **Keys**, get an admin key for full rights on the service. There are two interchangeable admin keys, provided for business continuity in case you need to roll one over. You can use either the primary or secondary key on requests for adding, modifying, and deleting objects.
 
-![Get an HTTP endpoint and access key](media/search-get-started-postman/get-url-key.png "Get an HTTP endpoint and access key")
+:::image type="content" source="media/search-get-started-postman/get-url-key.png" alt-text="Get an HTTP endpoint and access key" border="false":::
 
 All requests require an api-key on every request sent to your service. Having a valid key establishes trust, on a per request basis, between the application sending the request and the service that handles it.
 
@@ -70,20 +70,18 @@ In this section, Postman and a provided collection are used to create the search
 1. Under **Files** > **New**, select the collection to import.
 1. After the collection is imported, expand the actions list (...).
 1. Click **Edit**.
-1. Enter the name of your searchService (for example, if the endpoint is https://mydemo.search.windows.net, then the service name is "mydemo").
+1. Enter the name of your searchService (for example, if the endpoint is `https://mydemo.search.windows.net`, then the service name is "`mydemo`").
 1. Enter the apiKey with either the primary or secondary key of your search service.
 1. Enter the storageConnectionString from the keys page of your Azure Storage account.
 1. Enter the containerName for the container you created in the storage account.
 
-> [!div class="mx-imgBorder"]
-> ![edit variables in Postman](media/cognitive-search-debug/postman-enter-variables.png)
+> :::image type="content" source="media/cognitive-search-debug/postman-enter-variables.png" alt-text="edit variables in Postman":::
 
 The collection contains four different REST calls that are used to complete this section.
 
 The first call creates the data source. `clinical-trials-ds`. The second call creates the skillset, `clinical-trials-ss`. The third call creates the index, `clinical-trials`. The fourth and final call creates the indexer, `clinical-trials-idxr`. After  all of the calls in the collection have been completed, close Postman and return to the Azure portal.
 
-> [!div class="mx-imgBorder"]
-> ![using Postman to create data source](media/cognitive-search-debug/postman-create-data-source.png)
+> :::image type="content" source="media/cognitive-search-debug/postman-create-data-source.png" alt-text="using Postman to create data source":::
 
 ## Check the results
 
@@ -106,8 +104,7 @@ Return to the search service overview screen.
 
 ## Start your debug session
 
-> [!div class="mx-imgBorder"]
-> ![start a new debug session](media/cognitive-search-debug/new-debug-session-screen-required.png)
+> :::image type="content" source="media/cognitive-search-debug/new-debug-session-screen-required.png" alt-text="start a new debug session":::
 
 1. Click on the Debug sessions (preview) tab.
 1. Select +NewDebugSession
@@ -120,8 +117,7 @@ Return to the search service overview screen.
 > [!Important]
 > A debug session only works with a single document. A specific document in the data set can be > selected or the session will default to the first document.
 
-> [!div class="mx-imgBorder"]
-> ![New debug session started](media/cognitive-search-debug/debug-execution-complete1.png)
+> :::image type="content" source="media/cognitive-search-debug/debug-execution-complete1.png" alt-text="New debug session started":::
 
 When the debug session has finished executing, the session defaults to the AI Enrichments tab, highlighting the Skill Graph.
 
@@ -141,8 +137,7 @@ In the Errors/Warnings tab, there is an error for an operation labeled `Enrichme
 1. Select the **</>** symbol at the beginning of the line and open the Expression Evaluator.
 1. Click the **Evaluate** button to confirm that this expression is resulting in an error. It will confirm that the "languageCode" property is not a valid input.
 
-> [!div class="mx-imgBorder"]
-> ![Expression Evaluator](media/cognitive-search-debug/expression-evaluator-language.png)
+> :::image type="content" source="media/cognitive-search-debug/expression-evaluator-language.png" alt-text="Expression Evaluator":::
 
 There are two ways to research this error in the session. The first is to look at where the input is coming from - what skill in the hierarchy is supposed to produce this result? The Executions tab in the skill details pane should display the source of the input. If there is no source, this indicates a field mapping error.
 
@@ -150,8 +145,7 @@ There are two ways to research this error in the session. The first is to look a
 1. Look at the INPUTS and find "languageCode". There is no source for this input listed. 
 1. Switch the left pane to display the Enriched Data Structure. There is no mapped path corresponding to "languageCode".
 
-> [!div class="mx-imgBorder"]
-> ![Enriched Data Structure](media/cognitive-search-debug/enriched-data-structure-language.png)
+> :::image type="content" source="media/cognitive-search-debug/enriched-data-structure-language.png" alt-text="Enriched Data Structure":::
 
 There is a mapped path for "language." So, there is a typo in the skill settings. To fix this the expression in the #1 skill with the expression '/document/language' will need to be updated.
 
@@ -167,13 +161,11 @@ Once the debug session execution completes, click the Errors/Warnings tab and it
 
 ## Fix missing skill output values
 
-> [!div class="mx-imgBorder"]
-> ![Errors and warnings](media/cognitive-search-debug/warnings-missing-value-locations-organizations.png)
+> :::image type="content" source="media/cognitive-search-debug/warnings-missing-value-locations-organizations.png" alt-text="Errors and warnings":::
 
 There are missing output values from a skill. To identify the skill with the error go to the Enriched Data Structure, find the value name and look at its Originating Source. In the case of the missing organizations and locations values, they are outputs from skill #1. Opening the Expression Evaluator </> for each path, will display the expressions listed as '/document/content/organizations' and '/document/content/locations', respectively.
 
-> [!div class="mx-imgBorder"]
-> ![Expression evaluator organizations entity](media/cognitive-search-debug/expression-eval-missing-value-locations-organizations.png)
+> :::image type="content" source="media/cognitive-search-debug/expression-eval-missing-value-locations-organizations.png" alt-text="Expression evaluator organizations entity":::
 
 The output for these entities is empty and it should not be empty. What are the inputs producing this result?
 
@@ -181,16 +173,14 @@ The output for these entities is empty and it should not be empty. What are the 
 1. Select **Executions** tab in the right skill details pane.
 1. Open the Expression Evaluator **</>** for the INPUT "text."
 
-> [!div class="mx-imgBorder"]
-> ![Input for text skill](media/cognitive-search-debug/input-skill-missing-value-locations-organizations.png)
+> :::image type="content" source="media/cognitive-search-debug/input-skill-missing-value-locations-organizations.png" alt-text="Input for text skill":::
 
 The displayed result for this input doesn’t look like a text input. It looks like an image that is surrounded by new lines. The lack of text means that no entities can be identified. Looking at the hierarchy of the skillset displays the content is first processed by the #6 (OCR) skill and then passed to the #5 (Merge) skill. 
 
 1. Select the #5 (Merge) skill in the **Skill Graph**.
 1. Select the **Executions** tab in the right skill details pane and open the Expression Evaluator **</>** for the OUTPUTS "mergedText".
 
-> [!div class="mx-imgBorder"]
-> ![Output for Merge skill](media/cognitive-search-debug/merge-output-detail-missing-value-locations-organizations.png)
+> :::image type="content" source="media/cognitive-search-debug/merge-output-detail-missing-value-locations-organizations.png" alt-text="Output for Merge skill":::
 
 Here the text is paired with the image. Looking at the expression '/document/merged_content' the error in the "organizations" and "locations" paths for the #1 skill is visible. Instead of using '/document/content' it should use '/document/merged_content' for the "text" inputs.
 
@@ -210,8 +200,7 @@ After the indexer has finished running, the errors are still there. Go back to s
 1. Navigate the **Skill Settings** to find "outputs."
 1. Open the Expression Evaluator **</>** for the "organizations" entity.
 
-> [!div class="mx-imgBorder"]
-> ![Output for organizations entity](media/cognitive-search-debug/skill-output-detail-missing-value-locations-organizations.png)
+> :::image type="content" source="media/cognitive-search-debug/skill-output-detail-missing-value-locations-organizations.png" alt-text="Output for organizations entity":::
 
 Evaluating the result of the expression gives the correct result. The skill is working to identify the correct value for the entity, "organizations." However, the output mapping in the entity's path is still throwing an error. In comparing the output path in the skill to the output path in the error, the skill that is parenting the outputs, organizations and locations under the /document/content node. While the output field mapping is expecting the results to be parented under the /document/merged_content node. In the previous step, the input changed from '/document/content' to '/document/merged_content'. The context in the skill settings needs to be changed in order to ensure the output is generated with the right context.
 
@@ -222,8 +211,7 @@ Evaluating the result of the expression gives the correct result. The skill is w
 1. Click **Save** in the right, skill details pane.
 1. Click **Run** in the sessions window menu. This will kick off another execution of the skillset using the document.
 
-> [!div class="mx-imgBorder"]
-> ![Context correction in skill setting](media/cognitive-search-debug/skill-setting-context-correction-missing-value-locations-organizations.png)
+> :::image type="content" source="media/cognitive-search-debug/skill-setting-context-correction-missing-value-locations-organizations.png" alt-text="Context correction in skill setting":::
 
 All of the errors have been resolved.
 
@@ -255,5 +243,5 @@ If you are using a free service, remember that you are limited to three indexes,
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Learn more about skillsets](https://docs.microsoft.com/azure/search/cognitive-search-working-with-skillsets)
-> [Learn more about incremental enrichment and caching](https://docs.microsoft.com/azure/search/cognitive-search-incremental-indexing-conceptual)
+> [Learn more about skillsets](./cognitive-search-working-with-skillsets.md)
+> [Learn more about incremental enrichment and caching](./cognitive-search-incremental-indexing-conceptual.md)

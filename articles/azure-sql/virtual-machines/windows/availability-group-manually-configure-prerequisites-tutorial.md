@@ -3,18 +3,18 @@ title: "Tutorial: Prerequisites for an availability group"
 description: "This tutorial shows how to configure the prerequisites for creating a SQL Server Always On availability group on Azure Virtual Machines."
 services: virtual-machines
 documentationCenter: na
-author: MikeRayMSFT
+author: MashaMSFT
 editor: monicar
 tags: azure-service-management
 
 ms.assetid: c492db4c-3faa-4645-849f-5a1a663be55a
 ms.service: virtual-machines-sql
 
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 03/29/2018
-ms.author: mikeray
+ms.author: mathoma
 ms.custom: "seo-lt-2019"
 
 ---
@@ -378,7 +378,7 @@ Before you proceed consider the following design decisions.
 
 * **Storage - Azure Managed Disks**
 
-   For the virtual machine storage, use Azure Managed Disks. Microsoft recommends Managed Disks for SQL Server virtual machines. Managed Disks handles storage behind the scenes. In addition, when virtual machines with Managed Disks are in the same availability set, Azure distributes the storage resources to provide appropriate redundancy. For additional information, see [Azure Managed Disks Overview](../../../virtual-machines/linux/managed-disks-overview.md). For specifics about managed disks in an availability set, see [Use Managed Disks for VMs in an availability set](../../../virtual-machines/linux/manage-availability.md#use-managed-disks-for-vms-in-an-availability-set).
+   For the virtual machine storage, use Azure Managed Disks. Microsoft recommends Managed Disks for SQL Server virtual machines. Managed Disks handles storage behind the scenes. In addition, when virtual machines with Managed Disks are in the same availability set, Azure distributes the storage resources to provide appropriate redundancy. For additional information, see [Azure Managed Disks Overview](../../../virtual-machines/managed-disks-overview.md). For specifics about managed disks in an availability set, see [Use Managed Disks for VMs in an availability set](../../../virtual-machines/linux/manage-availability.md#use-managed-disks-for-vms-in-an-availability-set).
 
 * **Network - Private IP addresses in production**
 

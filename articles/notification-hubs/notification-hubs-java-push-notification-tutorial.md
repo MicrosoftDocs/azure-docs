@@ -17,6 +17,7 @@ ms.date: 01/04/2019
 ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 01/04/2019
+ms.custom: devx-track-java
 ---
 
 # How to use Notification Hubs from Java
@@ -26,7 +27,7 @@ ms.lastreviewed: 01/04/2019
 This topic describes the key features of the new fully supported official Azure Notification Hub Java SDK.
 This project is an open-source project and you can view the entire SDK code at [Java SDK].
 
-In general, you can access all Notification Hubs features from a Java/PHP/Python/Ruby back-end using the Notification Hub REST interface as described in the MSDN topic [Notification Hubs REST APIs](https://msdn.microsoft.com/library/dn223264.aspx). This Java SDK provides a thin wrapper over these REST interfaces in Java.
+In general, you can access all Notification Hubs features from a Java/PHP/Python/Ruby back-end using the Notification Hub REST interface as described in the MSDN topic [Notification Hubs REST APIs](/previous-versions/azure/reference/dn223264(v=azure.100)). This Java SDK provides a thin wrapper over these REST interfaces in Java.
 
 The SDK currently supports:
 
@@ -383,7 +384,7 @@ This topic showed you how to create a simple Java REST client for Notification H
   * [Send cross-platform notifications to authenticated users]
 
 [Java SDK]: https://github.com/Azure/azure-notificationhubs-java-backend
-[Get started tutorial]: notification-hubs-ios-apple-push-notification-apns-get-started.md
+[Get started tutorial]: ./notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md
 [Get Started with Notification Hubs]: notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md
 [Send breaking news]: notification-hubs-windows-notification-dotnet-push-xplat-segmented-wns.md
 [Send localized breaking news]: notification-hubs-windows-store-dotnet-xplat-localized-wns-push-notification.md

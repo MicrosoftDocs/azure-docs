@@ -9,7 +9,7 @@ ms.service: virtual-machines-linux
 ms.subservice: imaging
 ms.reviewer: danis
 ---
-# Preview: Create a Linux image and distribute it to a Shared Image Gallery 
+# Preview: Create a Linux image and distribute it to a Shared Image Gallery by using Azure CLI
 
 This article shows you how you can use the Azure Image Builder, and the Azure CLI, to create an image version in a [Shared Image Gallery](../windows/shared-image-galleries.md), then distribute the image globally. You can also do this using [Azure PowerShell](../windows/image-builder-gallery.md).
 
@@ -101,7 +101,7 @@ imgBuilderCliId=$(az identity show -g $sigResourceGroup -n $identityName | grep 
 # get the user identity URI, needed for the template
 imgBuilderId=/subscriptions/$subscriptionID/resourcegroups/$sigResourceGroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/$identityName
 
-# this command will download a Azure Role Definition template, and update the template with the parameters specified earlier.
+# this command will download an Azure role definition template, and update the template with the parameters specified earlier.
 curl https://raw.githubusercontent.com/danielsollondon/azvmimagebuilder/master/solutions/12_Creating_AIB_Security_Roles/aibRoleImageCreation.json -o aibRoleImageCreation.json
 
 imageRoleDefName="Azure Image Builder Image Def"$(date +'%s')

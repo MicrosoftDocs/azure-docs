@@ -324,7 +324,7 @@ Consider the following.
 
 ```json
 Author documents:
-{"id": "a1", "name": "Thomas Andersen", "books": ["b1, "b2", "b3"]}
+{"id": "a1", "name": "Thomas Andersen", "books": ["b1", "b2", "b3"]}
 {"id": "a2", "name": "William Wakefield", "books": ["b1", "b4"]}
 
 Book documents:

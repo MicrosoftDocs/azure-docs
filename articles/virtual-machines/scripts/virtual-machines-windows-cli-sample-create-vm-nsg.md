@@ -16,7 +16,7 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 02/23/2017
 ms.author: rclaus
-ms.custom: mvc
+ms.custom: mvc, devx-track-azurecli
 ---
 
 # Secure network traffic between virtual machines

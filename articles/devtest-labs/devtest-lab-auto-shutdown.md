@@ -66,7 +66,7 @@ Once autoshutdown set up by the lab owner, notifications will be sent to the lab
 - Skip the autoshutdown for this time
 - Snooze the autoshutdown for an hour or 2 hours, so that they can keep working on the VM.
 
-Notification is sent through the configured web hook endpoint or an email address specified by lab owners in the autoshutdown settings. Webhooks allow you to build or set up integrations that subscribe to certain events. When one of those events is triggered, DevTest Labs will send an HTTP POST payload to the webhook's configured URL. For more information about webhooks, see [Create a webhook or API Azure Function](../azure-functions/functions-create-a-web-hook-or-api-function.md). 
+Notification is sent through the configured web hook endpoint or an email address specified by lab owners in the autoshutdown settings. Webhooks allow you to build or set up integrations that subscribe to certain events. When one of those events is triggered, DevTest Labs will send an HTTP POST payload to the webhook's configured URL. For more information about webhooks, see [Create a webhook or API Azure Function](../azure-functions/functions-bindings-http-webhook.md). 
 
 We recommend you to use web hooks because they're extensively supported by various apps (for example, Slack, Azure Logic Apps, and so on.) and allows you to implement your own way for sending notifications. As an example, this article walks you through how to get autoshutdown notification from emails by using Azure Logic Apps. First, let's quickly go through the basic steps to enable autoshutdown notification in your lab.   
 
@@ -157,7 +157,7 @@ To get started, create a logic app in your Azure subscription by using the follo
     }
     ```
     
-    ![Request Body JSON Schema](./media/devtest-lab-auto-shutdown/request-json.png)
+    ![Screenshot that shows the "Request Body JSON Schema".](./media/devtest-lab-auto-shutdown/request-json.png)
 7. Select **+ New step** in the designer, and follow these steps:
     1. Search for **Office 365 Outlook - Send an email**. 
     2. Select **Send an email** from **Actions**. 
@@ -206,4 +206,3 @@ When you update the autoshutdown setting, you will see the activity logged in th
 
 ## Next steps
 To learn how to set all policies, see [Define lab policies in Azure DevTest Labs](devtest-lab-set-lab-policy.md).
-

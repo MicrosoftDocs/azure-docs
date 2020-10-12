@@ -8,7 +8,7 @@ ms.service: iot-hub
 ms.devlang: dotnet
 ms.topic: tutorial
 ms.date: 06/28/2019
-ms.custom: [mvc, mqtt]
+ms.custom: [mvc, mqtt, 'Role: Cloud Development', 'Role: IoT Device', devx-track-js]
 
 #Customer intent: As a developer, I want to implement a device firmware update process that can be triggered from a back-end application connected to my IoT hub
 ---
@@ -176,7 +176,7 @@ The following screenshot shows the output from the simulated device application 
 
 The following screenshot shows the output from the back-end application and highlights how it creates the configuration to update the firmware desired properties:
 
-![Back-end application](./media/tutorial-firmware-update/BackEnd1.png)
+![Screenshot that shows the output from the back-end application.](./media/tutorial-firmware-update/BackEnd1.png)
 
 The following screenshot shows the output from the back-end application and highlights how it monitors the firmware update metrics from the simulated device:
 

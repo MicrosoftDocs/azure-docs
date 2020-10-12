@@ -8,6 +8,7 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 05/15/2019
 ms.author: asrastog
+ms.custom: ['Role: Cloud Development', devx-track-csharp]
 ---
 
 # Use IoT Hub message routing to send device-to-cloud messages to different endpoints
@@ -30,7 +31,6 @@ An IoT hub has a default built-in-endpoint (**messages/events**) that is compati
 
 Each message is routed to all endpoints whose routing queries it matches. In other words, a message can be routed to multiple endpoints.
 
-
 If your custom endpoint has firewall configurations, consider using the Microsoft trusted first party exception, to give your IoT Hub access to the specific endpoint - [Azure Storage](./virtual-network-support.md#egress-connectivity-to-storage-account-endpoints-for-routing), [Azure Event Hubs](./virtual-network-support.md#egress-connectivity-to-event-hubs-endpoints-for-routing) and [Azure Service Bus](./virtual-network-support.md#egress-connectivity-to-service-bus-endpoints-for-routing). This is available in select regions for IoT Hubs with [managed service identity](./virtual-network-support.md).
 
 IoT Hub currently supports the following endpoints:
@@ -40,19 +40,23 @@ IoT Hub currently supports the following endpoints:
  - Service Bus Queues and Service Bus Topics
  - Event Hubs
 
-### Built-in endpoint
+## Built-in endpoint as a routing endpoint
 
 You can use standard [Event Hubs integration and SDKs](iot-hub-devguide-messages-read-builtin.md) to receive device-to-cloud messages from the built-in endpoint (**messages/events**). Once a Route is created, data stops flowing to the built-in-endpoint unless a Route is created to that endpoint.
 
-### Azure Storage
+## Azure Storage as a routing endpoint
 
 There are two storage services IoT Hub can route messages to -- [Azure Blob Storage](../storage/blobs/storage-blobs-introduction.md) and [Azure Data Lake Storage Gen2](../storage/blobs/data-lake-storage-introduction.md) (ADLS Gen2) accounts. Azure Data Lake Storage accounts are [hierarchical namespace](../storage/blobs/data-lake-storage-namespace.md)-enabled storage accounts built on top of blob storage. Both of these use blobs for their storage.
 
-IoT Hub supports writing data to Azure Storage in the [Apache Avro](https://avro.apache.org/) format as well as in JSON format. The default is AVRO. The encoding format can be only set when the blob storage endpoint is configured. The format cannot be edited for an existing endpoint. When using JSON encoding, you must set the contentType to **application/json** and contentEncoding to **UTF-8** in the message [system properties](iot-hub-devguide-routing-query-syntax.md#system-properties). Both of these values are case-insensitive. If the content encoding is not set, then IoT Hub will write the messages in base 64 encoded format. You can select the encoding format using the IoT Hub Create or Update REST API, specifically the [RoutingStorageContainerProperties](https://docs.microsoft.com/rest/api/iothub/iothubresource/createorupdate#routingstoragecontainerproperties), the Azure portal, [Azure CLI](https://docs.microsoft.com/cli/azure/iot/hub/routing-endpoint?view=azure-cli-latest), or the [Azure PowerShell](https://docs.microsoft.com/powershell/module/az.iothub/add-aziothubroutingendpoint?view=azps-1.3.0). The following diagram shows how to select the encoding format in the Azure portal.
+IoT Hub supports writing data to Azure Storage in the [Apache Avro](https://avro.apache.org/) format as well as in JSON format. The default is AVRO. When using JSON encoding, you must set the contentType to **application/json** and contentEncoding to **UTF-8** in the message [system properties](iot-hub-devguide-routing-query-syntax.md#system-properties). Both of these values are case-insensitive. If the content encoding is not set, then IoT Hub will write the messages in base 64 encoded format.
+
+The encoding format can be only set when the blob storage endpoint is configured; it can't be edited for an existing endpoint. To switch encoding formats for an existing endpoint, you'll need to delete and re-create the custom endpoint with the format you want. One helpful strategy might be to create a new custom endpoint with your desired encoding format and add a parallel route to that endpoint. In this way you can verify your data before deleting the existing endpoint.
+
+You can select the encoding format using the IoT Hub Create or Update REST API, specifically the [RoutingStorageContainerProperties](https://docs.microsoft.com/rest/api/iothub/iothubresource/createorupdate#routingstoragecontainerproperties), the Azure portal, [Azure CLI](https://docs.microsoft.com/cli/azure/iot/hub/routing-endpoint?view=azure-cli-latest), or the [Azure PowerShell](https://docs.microsoft.com/powershell/module/az.iothub/add-aziothubroutingendpoint). The following image shows how to select the encoding format in the Azure portal.
 
 ![Blob storage endpoint encoding](./media/iot-hub-devguide-messages-d2c/blobencoding.png)
 
-IoT Hub batches messages and writes data to storage whenever the batch reaches a certain size or a certain amount of time has elapsed. IoT Hub defaults to the following file naming convention: 
+IoT Hub batches messages and writes data to storage whenever the batch reaches a certain size or a certain amount of time has elapsed. IoT Hub defaults to the following file naming convention:
 
 ```
 {iothub}/{partition}/{YYYY}/{MM}/{DD}/{HH}/{mm}
@@ -82,12 +86,11 @@ To create an Azure Data Lake Gen2-compatible storage account, create a new V2 st
 
 ![Select Azure Date Lake Gen2 storage](./media/iot-hub-devguide-messages-d2c/selectadls2storage.png)
 
-
-### Service Bus Queues and Service Bus Topics
+## Service Bus Queues and Service Bus Topics as a routing endpoint
 
 Service Bus queues and topics used as IoT Hub endpoints must not have **Sessions** or **Duplicate Detection** enabled. If either of those options are enabled, the endpoint appears as **Unreachable** in the Azure portal.
 
-### Event Hubs
+## Event Hubs as a routing endpoint
 
 Apart from the built-in-Event Hubs compatible endpoint, you can also route data to custom endpoints of type Event Hubs. 
 
@@ -116,7 +119,7 @@ You can enable/disable the fallback route in the Azure portal->Message Routing b
 
 ## Non-telemetry events
 
-In addition to device telemetry, message routing also enables sending device twin change events, device lifecycle events, and digital twin change events (in public preview). For example, if a route is created with data source set to **device twin change events**, IoT Hub sends messages to the endpoint that contain the change in the device twin. Similarly, if a route is created with data source set to **device lifecycle events**, IoT Hub sends a message indicating whether the device was deleted or created. Finally, as part of the [IoT Plug and Play public preview](../iot-pnp/overview-iot-plug-and-play.md), a developer can create routes with data source set to **digital twin change events** and IoT Hub sends messages whenever a digital twin [property](../iot-pnp/iot-plug-and-play-glossary.md) is set or changed, a [digital twin](../iot-pnp/iot-plug-and-play-glossary.md) is replaced, or when a change event happens for the underlying device twin.
+In addition to device telemetry, message routing also enables sending device twin change events, device lifecycle events, and digital twin change events. For example, if a route is created with data source set to **device twin change events**, IoT Hub sends messages to the endpoint that contain the change in the device twin. Similarly, if a route is created with data source set to **device lifecycle events**, IoT Hub sends a message indicating whether the device was deleted or created. Finally, as part of the [IoT Plug and Play](../iot-pnp/overview-iot-plug-and-play.md), a developer can create routes with data source set to **digital twin change events** and IoT Hub sends messages whenever a digital twin [property](../iot-pnp/iot-plug-and-play-glossary.md) is set or changed, a [digital twin](../iot-pnp/iot-plug-and-play-glossary.md) is replaced, or when a change event happens for the underlying device twin.
 
 [IoT Hub also integrates with Azure Event Grid](iot-hub-event-grid.md) to publish device events to support real-time integrations and automation of workflows based on these events. See key [differences between message routing and Event Grid](iot-hub-event-grid-routing-comparison.md) to learn which works best for your scenario.
 

@@ -7,6 +7,7 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 10/28/2017
+ms.custom: devx-track-js
 ---
 # Azure Stream Analytics JavaScript user-defined aggregates
  

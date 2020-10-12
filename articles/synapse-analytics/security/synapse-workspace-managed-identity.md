@@ -1,5 +1,5 @@
 ---
-title: Managed identity in Azure Synapse workspace
+title: Managed identity in Synapse workspace
 description: An article that explains managed identity in Azure Synapse workspace
 author: RonyMSFT 
 ms.service: synapse-analytics 
@@ -53,4 +53,4 @@ In the next window, choose **Managed Identity** for **Authentication method**. Y
 
 ## Next steps
 
-[Granting permissions to Azure Synapse workspace managed identity](./how-to-grant-workspace-managed-identity-permissions.md)
+Learn more about [Granting permissions to Azure Synapse workspace managed identity](./how-to-grant-workspace-managed-identity-permissions.md)

@@ -7,6 +7,7 @@ ms.service: static-web-apps
 ms.topic: how-to
 ms.date: 05/08/2020
 ms.author: buhollan
+ms.custom: devx-track-js
 ---
 
 # Set up local development for Azure Static Web Apps Preview

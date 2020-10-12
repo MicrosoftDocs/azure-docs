@@ -10,6 +10,7 @@ editor: ''
 ms.assetid: 
 ms.service: azure-app-configuration
 ms.devlang: csharp
+ms.custom: devx-track-csharp
 ms.topic: quickstart
 ms.tgt_pltfrm: .NET
 ms.workload: tbd
@@ -22,7 +23,7 @@ ms.author: lcozzens
 
 In this quickstart, you incorporate Azure App Configuration into a .NET Framework app to create an end-to-end implementation of feature management. You can use the App Configuration service to centrally store all your feature flags and control their states. 
 
-The .NET Feature Management libraries extend the framework with comprehensive feature flag support. These libraries are built on top of the .NET configuration system. They seamlessly integrate with App Configuration through its .NET configuration provider.
+The .NET Feature Management libraries extend the framework with feature flag support. These libraries are built on top of the .NET configuration system. They integrate with App Configuration through its .NET configuration provider.
 
 ## Prerequisites
 
@@ -34,7 +35,7 @@ The .NET Feature Management libraries extend the framework with comprehensive fe
 
 [!INCLUDE [azure-app-configuration-create](../../includes/azure-app-configuration-create.md)]
 
-6. Select **Feature Manager** > **+Add** to add a feature flag called `Beta`.
+7. Select **Feature Manager** > **+Add** to add a feature flag called `Beta`.
 
     > [!div class="mx-imgBorder"]
     > ![Enable feature flag named Beta](media/add-beta-feature-flag.png)

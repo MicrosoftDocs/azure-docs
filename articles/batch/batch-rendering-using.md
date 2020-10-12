@@ -14,7 +14,7 @@ There are several ways to use Azure Batch rendering:
 * APIs:
   * Write code using any of the Batch APIs.  Developers can integrate Azure Batch capabilities into their existing applications or workflow, whether cloud or based on-premises.
 * Command line tools:
-  * The [Azure command line](/cli/azure/) or [PowerShell](/powershell/azure/overview) can be used to script Batch use.
+  * The [Azure command line](/cli/azure/) or [PowerShell](/powershell/azure/) can be used to script Batch use.
   * In particular, the [Batch CLI template support](./batch-cli-templates.md) makes it much easier to create pools and submit jobs.
 * Batch Explorer UI:
   * [Batch Explorer](https://github.com/Azure/BatchLabs) is a cross-platform client tool that also allows Batch accounts to be managed and monitored.

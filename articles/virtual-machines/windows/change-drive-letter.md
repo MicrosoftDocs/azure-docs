@@ -6,7 +6,7 @@ author: cynthn
 ms.service: virtual-machines-windows
 ms.subservice: disks
 ms.workload: infrastructure-services
-ms.topic: article
+ms.topic: how-to
 ms.date: 01/02/2018
 ms.author: cynthn
 

@@ -5,7 +5,8 @@ author: dglover
 ms.service: azure-functions
 ms.topic: quickstart
 ms.date: 03/25/2020
-ms.author: dglover
+ms.author: dglover 
+ms.custom: devx-track-azurepowershell
 ---
 
 # Quickstart: Create your first function with Kotlin and Maven
@@ -20,7 +21,7 @@ To develop functions using Kotlin, you must have the following installed:
 
 - [Java Developer Kit](https://aka.ms/azure-jdks), version 8
 - [Apache Maven](https://maven.apache.org), version 3.0 or above
-- [Azure CLI](https://docs.microsoft.com/cli/azure)
+- [Azure CLI](/cli/azure)
 - [Azure Functions Core Tools](./functions-run-local.md#v2) version 2.6.666 or above
 
 > [!IMPORTANT]
@@ -74,7 +75,7 @@ The `com.fabrikam.functions` and `fabrikam-functions` identifiers below are used
 [INFO] Parameter: artifactId, Value: fabrikam-function
 </pre>
 
-Maven creates the project files in a new folder with a name of _artifactId_, in this example `fabrikam-functions`. The ready to run generated code in the project is a simple [HTTP triggered](/azure/azure-functions/functions-bindings-http-webhook) function that echoes the body of the request:
+Maven creates the project files in a new folder with a name of _artifactId_, in this example `fabrikam-functions`. The ready to run generated code in the project is a simple [HTTP triggered](./functions-bindings-http-webhook.md) function that echoes the body of the request:
 
 ```kotlin
 class Function {

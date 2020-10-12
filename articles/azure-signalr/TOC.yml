@@ -21,6 +21,9 @@
     href: signalr-quickstart-azure-functions-java.md
   - name: Azure Functions - Python
     href: signalr-quickstart-azure-functions-python.md
+  - name: Azure SignalR Service deployment - ARM template
+    href: signalr-quickstart-azure-signalr-service-arm-template.md
+    displayName: deploy azure resource manager template
   - name: REST API
     href: signalr-quickstart-rest-api.md
 
@@ -28,6 +31,8 @@
   items:
   - name: Build a serverless real-time app with authentication
     href: signalr-tutorial-authenticate-azure-functions.md
+  - name: Build a Blazor Server chat app
+    href: signalr-tutorial-build-blazor-server-chat-app.md
 
 - name: Samples
   items:
@@ -35,13 +40,13 @@
     href: https://github.com/aspnet/AzureSignalR-samples
   - name: Azure CLI
     href: signalr-reference-cli.md
-  - name: Azure Policy built-ins
-    href: ./policy-samples.md
 
 - name: Concepts
   items:
   - name: Azure SignalR Service internals
     href: signalr-concept-internals.md
+  - name: Service mode
+    href: concept-service-mode.md
   - name: Scale ASP.NET Core SignalR
     href: signalr-concept-scale-aspnet-core.md
   - name: Serverless
@@ -109,6 +114,9 @@
     href: https://docs.microsoft.com/aspnet/core/signalr
   - name: Azure SignalR Service Protocol
     href: https://github.com/Azure/azure-signalr/blob/dev/specs/ServiceProtocol.md
+  - name: Azure Policy built-ins
+    displayName: samples, policies, definitions
+    href: ./policy-reference.md
 
 - name: Resources
   items:

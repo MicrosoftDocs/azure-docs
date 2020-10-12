@@ -1,7 +1,7 @@
 ---
 title: "Quickstart: Check spelling with the REST API and Java - Bing Spell Check"
 titleSuffix: Azure Cognitive Services
-description: Get started using the Bing Spell Check REST API to check spelling and grammar.
+description: Get started using the Bing Spell Check REST API and Java to check spelling and grammar.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -10,6 +10,7 @@ ms.service: cognitive-services
 ms.subservice: bing-spell-check
 ms.topic: quickstart
 ms.date: 05/21/2020
+ms.custom: devx-track-java
 ms.author: aahi
 ---
 

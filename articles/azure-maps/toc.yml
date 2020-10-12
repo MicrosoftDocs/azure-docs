@@ -1,4 +1,4 @@
-- name: Azure Maps Documentation 
+- name: Azure Maps documentation 
   href: index.yml
 - name: Overview
   items:
@@ -33,6 +33,14 @@
       href: tutorial-ev-routing.md
     - name: Analyze weather data using Azure Notebooks (Python)
       href: weather-service-tutorial.md
+  - name: Migrate from Bing Maps
+    items:
+    - name: Migrate from Bing Maps
+      href: migrate-from-bing-maps.md
+    - name: Migrate a web app
+      href: migrate-from-bing-maps-web-app.md
+    - name: Migrate a web service
+      href: migrate-from-bing-maps-web-services.md
   - name: Migrate from Google Maps
     items:
     - name: Migrate from Google Maps

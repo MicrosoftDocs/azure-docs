@@ -2,22 +2,15 @@
 title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Evernote | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and Evernote.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-
-ms.assetid: 28acce3e-22a0-4a37-8b66-6e518d777350
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 09/17/2019
 ms.author: jeedes
-
-ms.collection: M365-identity-device-management
 ---
 
 # Tutorial: Azure Active Directory single sign-on (SSO) integration with Evernote
@@ -96,7 +89,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 7. To modify the **Signing** options, click the **Edit** button to open the **SAML Signing Certificate** dialog.
 
-	![image](common/edit-certificate.png) 
+	![Screenshot that shows the "S A M L Signing Certificate" dialog with the "Edit" button selected.](common/edit-certificate.png) 
 
 	![image](./media/evernote-tutorial/samlassertion.png)
 
@@ -185,7 +178,7 @@ In the case of Evernote, provisioning is a manual task.
 
 3. From the **'Admin Console'**, go to **‘Add users’**.
 
-	![Add-testUser](./media/evernote-tutorial/create_aaduser_0001.png)
+	![Screenshot that shows the "Users" menu with "Add Users" selected.](./media/evernote-tutorial/create_aaduser_0001.png)
 
 4. **Add team members** in the **Email** textbox, type the email address of user account and click **Invite.**
 

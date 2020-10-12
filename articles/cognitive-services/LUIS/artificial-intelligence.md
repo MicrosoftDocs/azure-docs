@@ -1,15 +1,18 @@
 ---
-title: Artificial intelligence
-description: LUIS uses artificial intelligence to provide language understanding to your data, based on the schema you defined.
+title: Artificial intelligence (AI)
+description: LUIS uses artificial intelligence (AI) to provide language understanding to your data, based on the schema you defined.
 ms.topic: conceptual
-ms.date: 06/29/2020
+ms.service: cognitive-services
+ms.subservice: language-understanding
+ms.date: 08/07/2020
+ms.custom: cog-serv-seo-aug-2020
 ---
 
 # Artificial intelligence in Language Understanding (LUIS)
 
-LUIS uses artificial intelligence to provide natural language understanding (NLU) to your data, based on the schema you defined.
+LUIS uses artificial intelligence (AI) to provide natural language understanding (NLU) to your data, based on the schema you defined.
 
-## Natural language processing
+## Natural language processing (NLP)
 
 Natural Language Understanding (NLU) is a specific subtopic of Natural Language Processing (NLP).
 
@@ -26,14 +29,14 @@ Natural language processing is a broader concept that handles any form of proces
 ## Natural language processing in LUIS
 
 Natural language processing is available to your LUIS app in the following ways:
-* [Natural language understanding](#natural-language-understanding) (LUIS)
+* [Natural language understanding](#natural-language-processing-nlp) (LUIS)
 * Configurable NLP aspects in LUIS:
     * [Tokenization](luis-language-support.md#tokenization)
     * Morphology through diacritics, punctuation, and word forms [API settings](luis-reference-application-settings.md)
 * Pre- or post-processing of the query utterance provided by other [Cognitive Services](../Welcome.md) such as:
     * [Translation](../translator/translator-info-overview.md)
 
-## Natural language understanding
+## Natural language understanding (NLU)
 
 NLU is the ability to _transform_ a linguistic statement to a representation that enables you to understand your users naturally. Natural language understanding remains a very challenging problem and is defined as an _AI-hard_ problem.
 
