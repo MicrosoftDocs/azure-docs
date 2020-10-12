@@ -1,7 +1,7 @@
 ---
-title: Upgrade to Read v3.1 of the Computer Vision API
+title: Upgrade to Read v3.0 of the Computer Vision API
 titleSuffix: Azure Cognitive Services
-description: Learn how to upgrade to Computer Vision v3.1 Read API from v2.0/v2.1.
+description: Learn how to upgrade to Computer Vision v3.0 Read API from v2.0/v2.1.
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
@@ -17,18 +17,18 @@ ROBOTS: NOINDEX
 
 # Upgrade from Read v2.x to Read v3.x
 
-This guide shows how to upgrade your existing container or cloud API code from Read v2.x to Read v3.1 and v3.2 preview.
+This guide shows how to upgrade your existing container or cloud API code from Read v2.x to Read v3.0 and v3.1 preview.
 
 ## Determine your API path
 Use the following table to determine the **version string** in the API path based on the Read 3.x version you are migrating to.
 
 |Product type| Version | Version string in 3.x API path |
 |:-----|:----|:----|
-|Service | Read 3.1 | **v3.1** |
+|Service | Read 3.0 | **v3.0** |
 |Container | Read 3.0 preview | **v3.0** |
-|Service/Container | Read 3.2 preview | **v3.2-preview.2** |
+|Service/Container | Read 3.1 preview | **v3.1-preview.2** |
 
-Next, use the following sections to narrow your operations and replace the **version string** in your API path with the value from the table. For example, for **Read v3.2 preview** cloud and container versions, update the API path to **https://{endpoint}/vision/v3.2-preview.2/read/analyze[?language]**.
+Next, use the following sections to narrow your operations and replace the **version string** in your API path with the value from the table. For example, for **Read v3.1 preview** cloud and container versions, update the API path to **https://{endpoint}/vision/v3.1-preview.2/read/analyze[?language]**.
 
 ## Service/Container
 
@@ -60,11 +60,11 @@ When the call to `Get Read Operation Result` is successful, it returns a status 
 ### API response (JSON) 
 
 Note the following changes to the json:
-* In v2.x, `Get Read Operation Result` will return the OCR recognition json when the status is `Succeeded"`. In v3.1, this field is `succeeded`.
+* In v2.x, `Get Read Operation Result` will return the OCR recognition json when the status is `Succeeded"`. In v3.0, this field is `succeeded`.
 * To get the root for page array,  change the json hierarchy from `recognitionResults` to `analyzeResult`/`readResults`. The per-page line and words json hierarchy remains unchanged, so no code changes are required.
 * The page angle `clockwiseOrientation` has been renamed to `angle` and the range has been changed from 0 - 360 degrees to -180 to 180 degrees. Depending on your code, you may or may not have to makes changes as most math functions can handle either range.
 
-The v3.1 API also introduces the following improvements you can optionally leverage:
+The v3.0 API also introduces the following improvements you can optionally leverage:
 * `createdDateTime` and `lastUpdatedDateTime` are added so you can track the duration of processing. See documentation for more details. 
 * `version` tells you the version of the API used to generate results
 * A per-word `confidence` has been added. This value is calibrated so that a value 0.95 means that there is a 95% chance the recognition is correct. The confidence score can be used to select which text to send to human review. 
@@ -116,7 +116,7 @@ In 2.X, the output format is as follows:
 }
 ```
     
-In v3.1, it has been adjusted:
+In v3.0, it has been adjusted:
     
 ```json
     {
@@ -125,7 +125,7 @@ In v3.1, it has been adjusted:
             "createdDateTime": "2020-05-28T05:13:21Z",
             "lastUpdatedDateTime": "2020-05-28T05:13:22Z",
             "analyzeResult": {
-            "version": "3.1.0",
+            "version": "3.0.0",
             "readResults": [
                 {
                 "page": 1,
@@ -170,7 +170,7 @@ In v3.1, it has been adjusted:
 ## Service only
 
 ### `Recognize Text`
-`Recognize Text` is a *preview* operation which is being *deprecated in all versions of Computer Vision API*. You must migrate from `Recognize Text` to `Read` (v3.1) or `Batch Read File` (v2.0, v2.1). v3.1 of `Read` includes newer, better models for text recognition and additional features, so it is recommended. To upgrade from `Recognize Text` to `Read`:
+`Recognize Text` is a *preview* operation which is being *deprecated in all versions of Computer Vision API*. You must migrate from `Recognize Text` to `Read` (v3.0) or `Batch Read File` (v2.0, v2.1). v3.0 of `Read` includes newer, better models for text recognition and additional features, so it is recommended. To upgrade from `Recognize Text` to `Read`:
 
 |Recognize Text 2.x |Read 3.x  |
 |----------|-----------|
@@ -178,7 +178,7 @@ In v3.1, it has been adjusted:
     
 The _mode_ parameter is not supported in `Read`. Both handwritten and printed text will automatically be supported.
     
-A new optional _language_ parameter is available in v3.1. If you do not know the language of your document, or it may be multilingual, don't include it. 
+A new optional _language_ parameter is available in v3.0. If you do not know the language of your document, or it may be multilingual, don't include it. 
 
 ### `Get Recognize Text Operation Result`
 
@@ -202,7 +202,7 @@ Note the following changes to the json:
 * In v2.x, `Get Read Operation Result` will return the OCR recognition json when the status is `Succeeded`. In v3.x, this field is `succeeded`.
 * To get the root for page array,  change the json hierarchy from `recognitionResult` to `analyzeResult`/`readResults`. The per-page line and words json hierarchy remains unchanged, so no code changes are required.
 
-The v3.1 API also introduces the following improvements you can optionally leverage. See the API reference for more details:
+The v3.0 API also introduces the following improvements you can optionally leverage. See the API reference for more details:
 * `createdDateTime` and `lastUpdatedDateTime` are added so you can track the duration of processing. See documentation for more details. 
 * `version` tells you the version of the API used to generate results
 * A per-word `confidence` has been added. This value is calibrated so that a value 0.95 means that there is a 95% chance the recognition is correct. The confidence score can be used to select which text to send to human review. 
@@ -261,7 +261,7 @@ In v3.x, it has been adjusted:
             "createdDateTime": "2020-05-28T05:13:21Z",
             "lastUpdatedDateTime": "2020-05-28T05:13:22Z",
             "analyzeResult": {
-            "version": "3.1.0",
+            "version": "3.0.0",
             "readResults": [
                 {
                 "page": 1,
