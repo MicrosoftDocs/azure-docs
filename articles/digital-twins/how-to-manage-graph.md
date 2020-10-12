@@ -189,11 +189,11 @@ You can now call this function in your main method like this:
 
 ## Create a twin graph 
 
-The following code snippet uses the relationship operations from this article to create a twin graph out of digital twins and relationships.
+The following runnable code snippet uses the relationship operations from this article to create a twin graph out of digital twins and relationships.
 
-You can use the runnable code sample below to create a twin graph which shows the relationship between the twins. You can refer to [this](https://docs.microsoft.com/azure/digital-twins/tutorial-command-line-app#explore-with-the-sample-solution) link for a sample model code.
+You can refer to [this](https://docs.microsoft.com/azure/digital-twins/tutorial-command-line-app#explore-with-the-sample-solution) link for a sample model code.
 
-Replace the placeholders  _clientId_, _tenantId_ and _adtInstanceUrl_ with the details of your Azure-digital-twins-instance and run the sample.
+Replace the placeholders  _clientId_, _tenantId_ and _adtInstanceUrl_ with your Azure-digital-twins-instance details and run the sample.
 
 ```csharp 
 using System;
@@ -250,7 +250,7 @@ namespace minimal
             Console.WriteLine();
             Console.WriteLine("Deleting existing relationships to the twin");
             Console.WriteLine();
-            await DeleteRelationShip(client, srcId);
+            await DeleteRelationship(client, srcId);
             Console.WriteLine("Twin created successfully");
             await CreateRelationship(client, srcId, targetId, "contains");
             await CreateRelationship(client, srcId, targetId, "has");
@@ -265,7 +265,7 @@ namespace minimal
 
         }
 
-        private static async Task DeleteRelationShip(DigitalTwinsClient client, string srcId)
+        private static async Task DeleteRelationship(DigitalTwinsClient client, string srcId)
         {
             List<BasicRelationship> lists = await FindOutgoingRelationshipsAsync(client, srcId);
             foreach(BasicRelationship rel in lists) {
@@ -375,18 +375,18 @@ Here is the console output of the above program:
 :::image type="content" source="media/how-to-manage-graph/console-output-twin-graph.png" alt-text="Console output showing the twin details, incoming and outgoing relationships of the twins.":::
 
 > [!NOTE]
-> The graph is a concept of creating relationships between twins. If you want to view the visual representation of a graph, you can checkout [Visualization](https://docs.microsoft.com/azure/digital-twins/how-to-manage-graph#visualization) section of this article. 
+> The twin graph is a concept of creating relationships between twins. If you want to view the visual representation of the twin graph, you can checkout [visualization](https://docs.microsoft.com/azure/digital-twins/how-to-manage-graph#visualization) section of this article. 
 
 ## Delete relationships
 
 You can delete relationships using DeleteRelationshipAsync(srcId, relId) method.
 
-`await DeleteRelationShip(client, srcId, $"{targetId}-contains->{srcId}");` in your main method.
+`await DeleteRelationship(client, srcId, $"{targetId}-contains->{srcId}");` in your main method.
 
 The first parameter specifies the source twin (the twin where the relationship originates). The other parameter is the relationship ID. You need both the twin ID and the relationship ID, because relationship IDs are only unique within the scope of a twin.
 
 ```csharp
-private static async Task DeleteRelationShip(DigitalTwinsClient client, string srcId, string relId)
+private static async Task DeleteRelationship(DigitalTwinsClient client, string srcId, string relId)
         {
             try
             {
@@ -396,7 +396,7 @@ private static async Task DeleteRelationShip(DigitalTwinsClient client, string s
             }
             catch (RequestFailedException Ex)
             {
-                Console.WriteLine(Ex.ErrorCode);
+                Console.WriteLine($"Error {Ex.ErrorCode}");
             }
         }
 ```
@@ -461,7 +461,7 @@ foreach (JsonElement row in data.RootElement.EnumerateArray())
     }
     catch (RequestFailedException e)
     {
-       Console.Writeline($"Error {e.Status}: {e.Message}");
+       Console.WriteLine($"Error {e.Status}: {e.Message}");
     }
     foreach (BasicRelationship rec in RelationshipRecordList)
     { 
@@ -470,7 +470,7 @@ foreach (JsonElement row in data.RootElement.EnumerateArray())
         }
         catch (RequestFailedException e)
         {
-            Console.Writeline($"Error {e.Status}: {e.Message}");
+            Console.WriteLine($"Error {e.Status}: {e.Message}");
         }
     }
 }

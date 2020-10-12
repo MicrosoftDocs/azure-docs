@@ -28,11 +28,11 @@ This article focuses on managing digital twins; to work with relationships and t
 
 To create a twin, you use the `CreateDigitalTwin` method on the service client like this:
 
-```await client.CreateDigitalTwinAsync("myTwinID", initData); ```
+```await client.CreateDigitalTwinAsync("myTwinID", initData);```
 
 To create a digital twin, you need to provide:
 * The desired ID for the digital twin
-* The [model](concepts-models.md) you want to use 
+* The [model](concepts-models.md) you want to use
 
 Optionally, you can provide initial values for all properties of the digital twin. 
 
@@ -45,7 +45,7 @@ The model and initial property values are provided through the `initData` parame
 
 The twin creation API accepts an object that is serialized into a valid JSON description of the twin properties. See [*Concepts: Digital twins and the twin graph*](concepts-twins-graph.md) for a description of the JSON format for a twin. 
 
-So first, you can create a data object to represent the twin and its property data. Then you can use `JsonSerializer` to pass a serialized version of this object into the API call for the `initdata` parameter.
+So first, you can create a data object to represent the twin and its property data. Then you can use `JsonSerializer` to pass a serialized version of this object into the API call for the `initdata` parameter like this:
 
 ```await client.CreateDigitalTwinAsync(srcId, JsonSerializer.Serialize<BasicDigitalTwin>(twin));```
 
@@ -53,7 +53,7 @@ You can create a parameter object either manually, or by using a provided helper
 
 #### Create twins using manually created data
 
-You can represent a twin's properties in a `Dictionary<string, object>` without the use of any custom helper classes. The `string` is the name of the property and the `object` is an object representing the property and its value.
+Without the use of any custom helper classes, you can represent a twin's properties in a `Dictionary<string, object>`, where the `string` is the name of the property and the `object` is an object representing the property and its value.
 
 ```csharp
 // Define the model type for the twin to be created
@@ -73,7 +73,7 @@ client.CreateDigitalTwin("myRoomID", JsonSerializer.Serialize<Dictionary<string,
 
 #### Create twins with the helper class
 
-The helper class of `BasicDigitalTwin` allows you to store property fields in a "twin" object directly. You may still want to build the list of properties using a `Dictionary<string, object>`. It can then be added to the twin object as its `CustomProperties`.
+The helper class of `BasicDigitalTwin` allows you to store property fields in a "twin" object directly. You may still want to build the list of properties using a `Dictionary<string, object>`. It can then be added to the twin object as its `CustomProperties` directly.
 
 ```csharp
 BasicDigitalTwin twin = new BasicDigitalTwin();
@@ -176,7 +176,7 @@ The result of calling `object result = await client.GetDigitalTwinAsync("my-moon
 
 The defined properties of the digital twin are returned as top-level properties on the digital twin. Metadata or system information that is not part of the DTDL definition is returned with a `$` prefix. Metadata properties include:
 * The ID of the digital twin in this Azure Digital Twins instance, as `$dtId`.
-* `$etag`, a standard HTTP field assigned by the web server
+* `$etag`, a standard HTTP field assigned by the web server.
 * Other properties in a `$metadata` section. These include:
     - The DTMI of the model of the digital twin.
     - Synchronization status for each writeable property. This is most useful for devices, where it's possible that the service and the device have diverging statuses (for example, when a device is offline). Currently, this property only applies to physical devices connected to IoT Hub. With the data in the metadata section, it is possible to understand the full status of a property, as well as the last modified timestamps. For more information about sync status, see [this IoT Hub tutorial](../iot-hub/tutorial-device-twins.md) on synchronizing device state.
@@ -372,7 +372,7 @@ async Task FindAndDeleteIncomingRelationshipsAsync(string dtId)
 
     try
     {
-        // GetRelationshipssAsync will throw an error if a problem occurs
+        // GetRelationshipsAsync will throw an error if a problem occurs
         AsyncPageable<IncomingRelationship> incomingRels = client.GetIncomingRelationshipsAsync(dtId);
 
         await foreach (IncomingRelationship incomingRel in incomingRels)
@@ -390,7 +390,9 @@ async Task FindAndDeleteIncomingRelationshipsAsync(string dtId)
 
 ## Manage twins using runnable code sample
 
-You can use the runnable code sample below to create a twin, update its details and delete twin. You can refer to [this](https://docs.microsoft.com/azure/digital-twins/tutorial-command-line-app#explore-with-the-sample-solution) link for a sample model code.
+You can use the runnable code sample below to create a twin, update its details and delete twin. 
+
+You can refer to [this](https://docs.microsoft.com/azure/digital-twins/tutorial-command-line-app#explore-with-the-sample-solution) link for a sample model code.
 
 Replace the placeholders  _clientId_, _tenantId_ and _adtInstanceUrl_ with the details of your Azure-digital-twins-instance and run the sample.
 
@@ -511,7 +513,7 @@ namespace minimal
 
             try
             {
-                // GetRelationshipssAsync will throw an error if a problem occurs
+                // GetRelationshipsAsync will throw an error if a problem occurs
                 AsyncPageable<IncomingRelationship> incomingRels = client.GetIncomingRelationshipsAsync(dtId);
 
                 await foreach (IncomingRelationship incomingRel in incomingRels)
