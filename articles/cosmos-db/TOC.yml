@@ -99,13 +99,6 @@
       - name: Consistency levels
         displayName: session, consistency prefix, strong, eventual, bounded staleness
         href: consistency-levels.md
-      - name: Choose the right consistency level
-        displayName: session, consistency prefix, strong, eventual, bounded staleness
-        href: consistency-levels-choosing.md
-      - name: Consistency levels and Azure Cosmos DB APIs
-        href: consistency-levels-across-apis.md
-      - name: Consistency, availability, and performance tradeoffs
-        href: consistency-levels-tradeoffs.md
       - name: High availability
         href: high-availability.md
       - name: Globally scale provisioned throughput
@@ -662,7 +655,9 @@
         - name: Partitioning
           href: cassandra-partitioning.md          
         - name: Secondary Indexes
-          href: cassandra-secondary-index.md          
+          href: cassandra-secondary-index.md
+        - name: Mapping consistency levels
+          href: cassandra-consistency.md
       - name: How-to guides
         items:
         - name: Migrate to Cassandra API
@@ -760,6 +755,8 @@
           href: mongodb-feature-support.md
         - name: FAQ
           href: mongodb-api-faq.md
+        - name: Mapping consistency levels
+          href: mongodb-consistency.md
       - name: How-to guides
         items:
         - name: Migrate to MongoDB API

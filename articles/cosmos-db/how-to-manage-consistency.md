@@ -283,7 +283,6 @@ How eventual is eventual consistency? For the average case, can we offer stalene
 Learn more about how to manage data conflicts, or move on to the next key concept in Azure Cosmos DB. See the following articles:
 
 * [Consistency Levels in Azure Cosmos DB](consistency-levels.md)
-* [Manage conflicts between regions](how-to-manage-conflicts.md)
 * [Partitioning and data distribution](partition-data.md)
 * [Consistency tradeoffs in modern distributed database systems design](https://www.computer.org/csdl/magazine/co/2012/02/mco2012020037/13rRUxjyX7k)
 * [High availability](high-availability.md)

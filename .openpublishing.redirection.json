@@ -15129,7 +15129,22 @@
     },
     {
       "source_path": "articles/cosmos-db/multi-master-oss-nosql.md",
-      "redirect_url": "/azure/cosmos-db/consistency-levels-across-apis",
+      "redirect_url": "/azure/cosmos-db/consistency-levels",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cosmos-db/consistency-levels-choosing.md",
+      "redirect_url": "/azure/cosmos-db/consistency-levels",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cosmos-db/consistency-levels-across-apis.md",
+      "redirect_url": "/azure/cosmos-db/consistency-levels",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cosmos-db/consistency-levels-tradeoffs.md",
+      "redirect_url": "/azure/cosmos-db/consistency-levels",
       "redirect_document_id": false
     },
     {
