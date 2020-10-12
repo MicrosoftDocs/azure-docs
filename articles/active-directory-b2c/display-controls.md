@@ -108,13 +108,13 @@ The **Action** element contains the following attribute:
 
 | Attribute | Required | Description |
 | --------- | -------- | ----------- |
-| Id | Yes | The type of the operation. Possible values: `SendCode`, or `VerifyCode`. The `SendCode` sends a code to the user. This action usually contains two validation technical profile, to generate a code and to send it. The `VerifyCode` verifies the code. This action usually contains a single validation technical profile.|
+| Id | Yes | The type of the operation. Possible values: `SendCode`, or `VerifyCode`. The `SendCode` sends a code to the user. This action may contain two validation technical profile, to generate a code and to send it. The `VerifyCode` verifies the code the user typed in the input textbox. |
 
 The **Action** element contains the following elements:
 
 | Element | Occurrences | Description |
 | ------- | ----------- | ----------- |
-| ValidationClaimsExchange | 1:1 | The identifiers of technical profiles that are used validate some or all of the output claims of the referencing technical profile. All of the input claims of the referenced technical profile must appear in the output claims of the referencing technical profile. |
+| ValidationClaimsExchange | 1:1 | The identifiers of technical profiles that are used validate some or all of the display claims of the referencing technical profile. All of the input claims of the referenced technical profile must appear in the display claims of the referencing technical profile. |
 
 #### ValidationClaimsExchange
 
@@ -122,7 +122,7 @@ The **ValidationClaimsExchange** element contains the following elements:
 
 | Element | Occurrences | Description |
 | ------- | ----------- | ----------- |
-| ValidationTechnicalProfile | 1:n | A technical profile to be used for validating some or all of the output claims of the referencing technical profile. |
+| ValidationTechnicalProfile | 1:n | A technical profile to be used for validating some or all of the display claims of the referencing technical profile. |
 
 The **ValidationTechnicalProfile** element contains the following attribute:
 
@@ -152,8 +152,32 @@ The **Precondition** element contains following elements:
 | Value | 1:n | The data that is used by the check. If the type of this check is `ClaimsExist`, this field specifies a ClaimTypeReferenceId to query for. If the type of check is `ClaimEquals`, this field specifies a ClaimTypeReferenceId to query for. While another value element contains the value to be checked.|
 | Action | 1:1 | The action that should be taken if the precondition check within an orchestration step is true. The value of the **Action** is set to `SkipThisValidationTechnicalProfile`. Specifies that the associated validation technical profile should not be executed. |
 
+The following example sends and verifiy eamil address, using [Azure AD SSPR technical profile](aad-sspr-technical-profile.md).
 
-The following example sends a code either in email or SMS based on the user's selection of the **mfaType** claim.
+```xml
+<DisplayControl Id="emailVerificationControl" UserInterfaceControlType="VerificationControl">
+  <InputClaims></InputClaims>
+  <DisplayClaims>
+    <DisplayClaim ClaimTypeReferenceId="email" Required="true" />
+    <DisplayClaim ClaimTypeReferenceId="verificationCode" ControlClaimType="VerificationCode" Required="true" />
+  </DisplayClaims>
+  <OutputClaims></OutputClaims>
+  <Actions>
+    <Action Id="SendCode">
+      <ValidationClaimsExchange>
+        <ValidationClaimsExchangeTechnicalProfile TechnicalProfileReferenceId="AadSspr-SendCode" />
+      </ValidationClaimsExchange>
+    </Action>
+    <Action Id="VerifyCode">
+      <ValidationClaimsExchange>
+        <ValidationClaimsExchangeTechnicalProfile TechnicalProfileReferenceId="AadSspr-VerifyCode" />
+      </ValidationClaimsExchange>
+    </Action>
+  </Actions>
+</DisplayControl>
+```
+
+The following example sends a code either in email or SMS based on the user's selection of the **mfaType** claim with preconditions.
 
 ```xml
 <Action Id="SendCode">
@@ -196,3 +220,10 @@ For example:
     <DisplayClaim ClaimTypeReferenceId="givenName" Required="true" />
     <DisplayClaim ClaimTypeReferenceId="surName" Required="true" />
 ```
+
+## Next steps
+
+For samples of using display control, see: 
+
+- [Custom email verification with Mailjet](custom-email-mailjet.md)
+- [Custom email verification with SendGrid](custom-email-sendgrid.md)
