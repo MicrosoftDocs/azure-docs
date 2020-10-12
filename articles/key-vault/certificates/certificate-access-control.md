@@ -13,7 +13,7 @@ ms.date: 10/12/2020
 ms.author: sebansal
 ---
 
-## Certificate Access Control
+# Certificate Access Control
 
  Access control for certificates is managed by Key Vault, and is provided by the Key Vault that contains those certificates. The access control policy for certificates is distinct from the access control policies for keys and secrets in the same Key Vault. Users may create one or more vaults to hold certificates, to maintain scenario appropriate segmentation and management of certificates.  
 
