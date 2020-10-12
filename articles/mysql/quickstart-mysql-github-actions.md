@@ -12,11 +12,11 @@ ms.custom: github-actions-azure
 
 # Use GitHub Actions to connect to Azure MySQL
 
-Get started with [GitHub Actions](https://docs.github.com/en/actions) by using a workflow to deploy database updates to Azure MySQL. 
+Get started with [GitHub Actions](https://docs.github.com/en/actions) by using a workflow to deploy database updates to [Azure Database for MySQL](https://azure.microsoft.com/en-us/services/mysql/). 
 
 ## Prerequisites
 
-An Azure subscription and GitHub account. 
+You will need: 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - A GitHub repository with sample data (`data.sql`). If you don't have a GitHub account, [sign up for free](https://github.com/join).  
 - An Azure Database for MySQL server.
@@ -111,7 +111,7 @@ You will use the connection string as a GitHub secret.
 1. Rename your workflow `MySQL for GitHub Actions` and add the checkout and login actions. These actions will checkout your site code and authenticate with Azure using the `AZURE_CREDENTIALS` GitHub secret you created earlier. 
 
     ```yaml
-    name: Blob storage website CI
+    name: MySQL for GitHub Actions
 
     on:
     push:
@@ -129,14 +129,14 @@ You will use the connection string as a GitHub secret.
             creds: ${{ secrets.AZURE_CREDENTIALS }}
     ```
 
-1. Use the Azure MySQL Deploy action to connect to your MySQL instance. Replace `MYSQL_SERVER_NAME` with the name of your server. 
+1. Use the Azure MySQL Deploy action to connect to your MySQL instance. Replace `MYSQL_SERVER_NAME` with the name of your server. You should have a MySQL data file named `data.sql` at the root level of your repository. 
 
     ```yaml
     - uses: azure/mysql@v1
       with:
         server-name: MYSQL_SERVER_NAME
         connection-string: ${{ secrets.AZURE_MYSQL_CONNECTION_STRING }}
-        sql-file: './sqlFile.sql'
+        sql-file: './data.sql'
     ``` 
 
 1. Complete your workflow by adding an action to logout of Azure. Here is the completed workflow. The file will appear in the `.github/workflows` folder of your repository.
