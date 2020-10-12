@@ -92,7 +92,7 @@ Use this method to install updates on a device running GA or Update 0.1 software
 
 1. In the local web UI, go to **Maintenance** > **Software Update**. Make a note of the software version that you are running. If you are running **10.0.10290.0**, you do not need to update the MDS agent in step 6.
    
-    ![update device](./media/storsimple-virtual-array-install-update-05/update1m.png)
+    ![update device 1](./media/storsimple-virtual-array-install-update-05/update1m.png)
 
 2. In **Update file path**, enter the file name for the update or the hotfix. You can also browse to the update or hotfix installation file if placed on a network share. Click **Apply**.
    
