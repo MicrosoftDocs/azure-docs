@@ -42,6 +42,7 @@ Get the connection information needed to connect to the Azure Database for MySQL
 
 > [!NOTE]
 > **Replace the host, username, password, and db_name parameters with your own values**
+
 ## Connect with MySQLi and Create a Table
 Use the following code to connect. This code calls: 
 - [mysqli_init](https://secure.php.net/manual/mysqli.init.php) to initialize MySQLi.
@@ -80,6 +81,9 @@ printf("Table created\n");
 mysqli_close($conn);
 ?>
 ```
+
+[Having issues? Let us know](https://aka.ms/mysql-doc-feedback)
+
 
 ## Insert data
 Use the following code to connect and insert data by using an **INSERT** SQL statement. This code uses the methods:
@@ -215,3 +219,5 @@ mysqli_close($conn);
 ## Next steps
 > [!div class="nextstepaction"]
 > [Manage Azure Database for MySQL server](./howto-create-manage-server-portal.md)
+
+[Cannot find what you are looking for? Let us know.](https://aka.ms/mysql-doc-feedback)
