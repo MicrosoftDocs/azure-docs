@@ -89,7 +89,7 @@ az dt endpoint create eventhub --endpoint-name <Event-Hub-endpoint-name> --event
 
 ### Create an endpoint with dead-lettering
 
-In order to cerate an endpoint with dead-letter queues enabled, you must use the ARM APIs to create your endpoint. 
+In order to create an endpoint with dead-letter queues enabled, you must use the ARM APIs to create your endpoint. 
 
 Before setting the dead-letter location, you must have a storage account with a container. You provide the endpoint for this container when creating the event subscription. The endpoint is in the format of:
 `/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.Storage/storageAccounts/<storage-name>/blobServices/default/containers/<container-name>`
@@ -108,9 +108,9 @@ When creating an endpoint, add a `deadLetterSecret` to the `properties` object i
 }
 ```
 
-See our REST API documentation for more information: [Endpoints - DigitalTwinsEndpoint CreateOrUpdate](https://docs.microsoft.com/rest/api/digital-twins/controlplane/endpoints/digitaltwinsendpoint_createorupdate).
+For more information, see our REST API documentation: [Endpoints - DigitalTwinsEndpoint CreateOrUpdate](https://docs.microsoft.com/rest/api/digital-twins/controlplane/endpoints/digitaltwinsendpoint_createorupdate).
 
-To learn more see [Concepts: Event Routes](./concepts-route-events.md#-Dead-letter-events)
+To learn more, see [Concepts: Event Routes](./concepts-route-events.md#-Dead-letter-events)
 
 ## Event routes (with APIs and the C# SDK)
 

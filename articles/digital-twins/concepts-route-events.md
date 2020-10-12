@@ -38,7 +38,7 @@ The following diagram illustrates the flow of event data through a larger IoT so
 Typical downstream targets for event routes are resources like TSI, Azure Maps, storage, and analytics solutions.
 
 ### Dead-letter events
-When an endpoint can't deliver an event within a certain time period or after trying to deliver the event a certain number of times, it can send the undelivered event to a storage account. This process is known as **dead-lettering**. Digital Twins will dead-letters an event when **one of the following** conditions is met. 
+When an endpoint can't deliver an event within a certain time period or after trying to deliver the event a certain number of times, it can send the undelivered event to a storage account. This process is known as **dead-lettering**. Digital Twins will dead-letter an event when **one of the following** conditions is met. 
 
 - Event isn't delivered within the time-to-live period
 - The number of tries to deliver the event has exceeded the limit
