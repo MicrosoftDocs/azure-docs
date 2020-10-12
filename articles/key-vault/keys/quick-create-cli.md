@@ -70,7 +70,7 @@ Type the commands below to create a called **ExampleKey** :
 az keyvault key create --vault-name "Contoso-Vault2" -n ExampleKey --protection software
 ```
 
-You can now reference this key that you added to Azure Key Vault by using its URI. Use **https://Contoso-Vault2.vault.azure.net/keys/ExampleKey** to get the current version. 
+You can now reference this key that you added to Azure Key Vault by using its URI. Use **'https://Contoso-Vault2.vault.azure.net/keys/ExampleKey'** to get the current version. 
 
 To view previously stored key:
 
