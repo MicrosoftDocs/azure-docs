@@ -17,7 +17,9 @@ ms.service: digital-twins
 
 # Integrate Azure Digital Twins with other services
 
-Azure Digital Twins is typically used together with other services. Using [**event routes**](concepts-route-events.md), Azure Digital Twins receives data from upstream services such as [IoT Hub](../iot-hub/about-iot-hub.md) or [Logic Apps](../logic-apps/logic-apps-overview.md), which are used to deliver telemetry and notifications. 
+Azure Digital Twins is typically used together with other services to create flexible, connected solutions that use your data in a variety of ways.
+
+Using [**event routes**](concepts-route-events.md), Azure Digital Twins can receive data from upstream services such as [IoT Hub](../iot-hub/about-iot-hub.md) or [Logic Apps](../logic-apps/logic-apps-overview.md), which are used to deliver telemetry and notifications. 
 
 Azure Digital Twins can also route data to downstream services, such as [Azure Maps](../azure-maps/about-azure-maps.md) and [Time Series Insights](../time-series-insights/time-series-insights-update-overview.md), for storage, workflow integration, analytics, and more. 
 
