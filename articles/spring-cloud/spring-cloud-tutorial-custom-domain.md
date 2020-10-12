@@ -24,9 +24,52 @@ Certificates encrypt web traffic. These TLS/SSL certificates can be stored in Az
 * A deployed instance of [Azure Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-overview)
 
 ## Import certificate
+### Prepare your certificate file in PFX (optional)
+Azure Key Vault support importing private certificate in PEM and PFX format. If the PEM file you obtained from your certificate provider doesn't work in [section below](#save-certificate-in-key-vault), follow the steps here to generate a PFX for Azure Key Valut.
+
+#### Merge intermediate certificates
+
+If your certificate authority gives you multiple certificates in the certificate chain, you need to merge the certificates in order.
+
+To do this, open each certificate you received in a text editor.
+
+Create a file for the merged certificate, called _mergedcertificate.crt_. In a text editor, copy the content of each certificate into this file. The order of your certificates should follow the order in the certificate chain, beginning with your certificate and ending with the root certificate. It looks like the following example:
+
+```
+-----BEGIN CERTIFICATE-----
+<your entire Base64 encoded SSL certificate>
+-----END CERTIFICATE-----
+
+-----BEGIN CERTIFICATE-----
+<The entire Base64 encoded intermediate certificate 1>
+-----END CERTIFICATE-----
+
+-----BEGIN CERTIFICATE-----
+<The entire Base64 encoded intermediate certificate 2>
+-----END CERTIFICATE-----
+
+-----BEGIN CERTIFICATE-----
+<The entire Base64 encoded root certificate>
+-----END CERTIFICATE-----
+```
+
+#### Export certificate to PFX
+
+Export your merged TLS/SSL certificate with the private key that your certificate request was generated with.
+
+If you generated your certificate request using OpenSSL, then you have created a private key file. To export your certificate to PFX, run the following command. Replace the placeholders _&lt;private-key-file>_ and _&lt;merged-certificate-file>_ with the paths to your private key and your merged certificate file.
+
+```bash
+openssl pkcs12 -export -out myserver.pfx -inkey <private-key-file> -in <merged-certificate-file>
+```
+
+When prompted, define an export password. You'll use this password when uploading your TLS/SSL certificate to Azure Key Vault later.
+
+If you used IIS or _Certreq.exe_ to generate your certificate request, install the certificate to your local machine, and then [export the certificate to PFX](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc754329(v=ws.11)).
+
 ### Save certificate in Key Vault
 The procedure to import a certificate requires the PEM or PFX encoded file to be on disk and you must have the private key. 
-
+#### [Portal](#tab/Azure-portal)
 To upload your certificate to key vault:
 1. Go to your key vault instance.
 1. In the left navigation pane, click **Certificates**.
@@ -37,6 +80,12 @@ To upload your certificate to key vault:
 1. Click **Create**.
 
     ![Import certificate 1](./media/custom-dns-tutorial/import-certificate-a.png)
+
+#### [CLI](#tab/Azure-CLI)
+
+```azurecli
+az keyvault certificate import --file <path to .pfx file> --name <certificate name> --vault-name <key vault name> --password <export password>
+```
 
 ### Grant Azure Spring Cloud access to your key vault
 
