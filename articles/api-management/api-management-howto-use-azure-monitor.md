@@ -1,18 +1,16 @@
 ---
-# Mandatory fields. See more on aka.ms/skyeye/meta.
-title: Monitor published APIs in Azure API Management | Microsoft Docs
+title: Tutorial - Monitor published APIs in Azure API Management | Microsoft Docs
 description: Follow the steps of this tutorial to learn how to monitor your API in Azure API Management.
 services: api-management
 author: vladvino
 
 ms.service: api-management
-ms.workload: mobile
 ms.custom: mvc
 ms.topic: tutorial
 ms.date: 10/12/2020
 ms.author: apimpm
 ---
-# Monitor published APIs
+# Tutorial: Monitor published APIs
 
 With Azure Monitor, you can visualize, query, route, archive, and take actions on the metrics or logs coming from Azure API Management resources.
 
@@ -51,9 +49,9 @@ To access metrics:
 
     :::image type="content" source="media/api-management-azure-monitor/api-management-metrics-blade.png" alt-text="Metrics in Monitoring menu":::
 
-2. From the drop-down, select metrics you are interested in. For example, **Requests**. 
-3. The chart shows the total number of API calls.
-4. The chart can be filtered using the dimensions of the **Requests** metric. For example, select **Add filter**, select **Backend Response Code Catgory**, enter 500 as the value. Now the chart shows the number of requests that were failed in the API backend.   
+1. From the drop-down, select metrics you are interested in. For example, **Requests**. 
+1. The chart shows the total number of API calls.
+1. The chart can be filtered using the dimensions of the **Requests** metric. For example, select **Add filter**, select **Backend Response Code Catgory**, enter 500 as the value. Now the chart shows the number of requests that were failed in the API backend.   
 
 ## Set up an alert rule for unauthorized request
 
@@ -70,7 +68,7 @@ To configure an alert based on a metric:
 
     :::image type="content" source="media/api-management-azure-monitor/alert-menu-item.png" alt-text="Alerts in Monitoring menu":::
 
-2. Select **+ New alert rule**.
+1. Select **+ New alert rule**.
 1. In the **Create alert rule** window, select **Select condition**.
 1. In the **Configure signal logic** window:
     1. In **Signal type**, select **Metrics**.
@@ -84,8 +82,6 @@ To configure an alert based on a metric:
     :::image type="content" source="media/api-management-azure-monitor/threshold.png" alt-text="Configure signal logic":::
 
 7. Select an existing action group or create a new one. In the following example, a notification email will be sent to the admins. 
-
-    ![alerts](./media/api-management-azure-monitor/action-details.png)
 
     :::image type="content" source="media/api-management-azure-monitor/action-details.png" alt-text="Notification for action":::
 
@@ -125,9 +121,34 @@ To configure resource logs:
     :::image type="content" source="media/api-management-azure-monitor/api-management-diagnostic-logs-blade.png" alt-text="Diagnostic settings menu":::
 
 
-3. Select **+ Add diagnostic setting**. You can archive resource logs along with metrics to a storage account, stream them to an Event Hub, or send them to Azure Monitor logs. 
+3. Select **+ Add diagnostic setting**. Select the logs or metrics that you want to collect.
 
-API Management currently provides resource logs (batched hourly) about individual API request with each entry having the following schema:
+You can archive resource logs along with metrics to a storage account, stream them to an Event Hub, or send them to Azure Monitor logs. 
+
+For more information, see [Create diagnostic settings to send platform logs and metrics to different destinations](../azure-monitor/platform/diagnostic-settings.md).
+
+## View data in Azure Monitor
+
+If you enable collection of diagnostic logs in Log Analytics, it can take a few minutes for data to appear in Azure Monitor. To view the data:
+
+1. In the Azure portal, navigate to your API Management instance.
+1. Select **Logs** from the menu near the bottom of the page.
+
+Run queries to view the data. Several [sample queries](../azure-monitor/log-query/saved-queries.md) are provided, or run your own. For example, the following query retrieves the most recent 24 hours of data from the ApiManagementGatewayLogs table:
+
+```kusto
+ApiManagementGatewayLogs
+| where TimeGenerated > ago(1d) 
+```
+
+For more information about using resource logs for API Management, see:
+
+* [Schema reference](gateway-logs-schema-reference) for the ApiManagementGatewaylogs table. 
+
+* [Get started with Azure Monitor Log Analytics](../azure-monitor/log-query/get-started-portal.md), or try the [Log Analytics Demo environment](https://portal.loganalytics.io/demo).
+
+* [Overview of log queries in Azure Monitor](../azure-monitor/log-query/log-query-overview.md).
+
 
 ```json
 {  
