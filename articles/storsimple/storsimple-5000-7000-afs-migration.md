@@ -3,7 +3,7 @@ title: Migrate data from StorSimple 5000-7000 series to Azure File Sync| Microso
 description: Describes how to migrate data from StorSimple 5000/7000 series to Azure File Sync (AFS).
 services: storsimple
 documentationcenter: NA
-author: alkohli
+author: v-dalc
 manager: twooley
 
 ms.assetid: 
