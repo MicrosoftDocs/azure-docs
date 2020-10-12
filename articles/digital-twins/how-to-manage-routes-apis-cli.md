@@ -87,6 +87,31 @@ az dt endpoint create servicebus --endpoint-name <Service-Bus-endpoint-name> --s
 az dt endpoint create eventhub --endpoint-name <Event-Hub-endpoint-name> --eventhub-resource-group <Event-Hub-resource-group> --eventhub-namespace <Event-Hub-namespace> --eventhub <Event-Hub-name> --eventhub-policy <Event-Hub-policy> -n <your-Azure-Digital-Twins-instance-name>
 ```
 
+### Create an endpoint with dead-lettering
+
+In order to cerate an endpoint with dead-letter queues enabled, you must use the ARM APIs to create your endpoint. 
+
+Before setting the dead-letter location, you must have a storage account with a container. You provide the endpoint for this container when creating the event subscription. The endpoint is in the format of:
+`/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.Storage/storageAccounts/<storage-name>/blobServices/default/containers/<container-name>`
+
+When creating an endpoint, add a `deadLetterSecret` to the `properties` object in the body of the request which contains a SAS token for your storage account.
+
+```json
+{
+  "properties": {
+    "endpointType": "EventGrid",
+    "TopicEndpoint": "https://contosoGrid.westus2-1.eventgrid.azure.net/api/events",
+    "accessKey1": "0000000000000000000000000000000000000000000=",
+    "accessKey2": "0000000000000000000000000000000000000000000=",
+    "deadLetterSecret":"https://contosoStorage.blob.core.windows.net/contosoStorage?SASTokenInformation"
+  }
+}
+```
+
+See our REST API documentation for more information: [Endpoints - DigitalTwinsEndpoint CreateOrUpdate](https://docs.microsoft.com/rest/api/digital-twins/controlplane/endpoints/digitaltwinsendpoint_createorupdate).
+
+To learn more see [Concepts: Event Routes](./concepts-route-events.md#-Dead-letter-events)
+
 ## Event routes (with APIs and the C# SDK)
 
 To actually send data from Azure Digital Twins to an endpoint, you'll need to define an **event route**. Azure Digital Twins **EventRoutes APIs** let developers wire up event flow, throughout the system and to downstream services. Read more about event routes in [*Concepts: Routing Azure Digital Twins events*](concepts-route-events.md).
