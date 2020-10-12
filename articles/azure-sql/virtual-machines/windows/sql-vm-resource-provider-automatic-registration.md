@@ -71,6 +71,24 @@ Unregister-AzProviderFeature -FeatureName BulkRegistration -ProviderNamespace Mi
 
 ---
 
+## Multiple subscriptions
+
+You can enable the automatic registration feature for multiple Azure subscriptions by using PowerShell. 
+
+To do so, follow these steps:
+
+1. Save [this script](https://github.com/microsoft/tigertoolbox/blob/master/AzureSQLVM/RegisterSubscriptionsToSqlVmAutomaticRegistration.ps1) to a `.ps1` file, such as `EnableBySubscription.ps1`. 
+1. Navigate to where you saved the script using an administrative Command prompt or PowerShell window. 
+1. Connect to Azure. 
+1. Execute the script, passing in SubscriptionIds as parameters   
+   such as `.\EnableBySubscription.ps1 -SubscriptionList SubscriptionId1,SubscriptionId2`
+
+   For example: 
+
+   ```console
+   .\EnableBySubscription.ps1 -SubscriptionList a1aa1a1a-aa11-11aa-a1a1-a11a11aa11a1,b2bb22b2-bb22-22bb-b2b2-b2b222b2b2bb
+
+Failed registration will be stored in `RegistrationErrors.csv` located in the same directory where you saved and executed the `.ps1` script from. 
 
 ## Next steps
 
