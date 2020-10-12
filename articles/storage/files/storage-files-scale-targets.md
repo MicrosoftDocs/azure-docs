@@ -90,7 +90,9 @@ To help you plan your deployment for each of the stages, below are the results o
 ### Initial one-time provisioning
 
 **Initial cloud change enumeration**: When a new sync group is created, initial cloud change enumeration is the first step that will execute. In this process, the system will enumerate all the items in the Azure File Share. During this process, there will be no sync activity i.e. no items will be downloaded from cloud endpoint to server endpoint and no items will be uploaded from server endpoint to cloud endpoint. Sync activity will resume once initial cloud change enumeration completes.
-The rate of performance is 7 objects per second. Customers can estimate the time it will take to complete initial cloud change enumeration by determining the number of items in the cloud share and using the following formulae to get the time in days. Time (in days) for initial cloud enumeration = (Number of objects in cloud endpoint)/(7*60*60*24)
+The rate of performance is 7 objects per second. Customers can estimate the time it will take to complete initial cloud change enumeration by determining the number of items in the cloud share and using the following formulae to get the time in days. 
+
+   **Time (in days) for initial cloud enumeration = (Number of objects in cloud endpoint)/(7 * 60 * 60 * 24)**
 
 **Namespace download throughput** When a new server endpoint is added to an existing sync group, the Azure File Sync agent does not download any of the file content from the cloud endpoint. It first syncs the full namespace and then triggers background recall to download the files, either in their entirety or, if cloud tiering is enabled, to the cloud tiering policy set on the server endpoint.
 
