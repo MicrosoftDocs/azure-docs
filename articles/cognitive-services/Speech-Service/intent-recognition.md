@@ -52,12 +52,6 @@ Yes?
 
 Yes?
 
-## Migration guides
-
-If your applications, tools, or products are using the [Translator Speech API](https://docs.microsoft.com/azure/cognitive-services/translator-speech/overview), we've created guides to help you migrate to the Speech service.
-
-* [Migrate from the Translator Speech API to the Speech service](how-to-migrate-from-translator-speech-api.md)
-
 ## Reference docs
 
 * [Speech SDK](speech-sdk-reference.md)
