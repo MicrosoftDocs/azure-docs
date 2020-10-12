@@ -147,7 +147,7 @@ In the custom domain table, select **Add ssl binding** as shown in the previous 
 
 #### [CLI](#tab/Azure-CLI)
 ```
-az spring-cloud app custom-domain update --domain-name <domain name> --certificate <cert name> --app <app name> 
+az spring-cloud app custom-domain update --domain-name <domain name> --certificate <cert name> --app <app name> --resource-group <resource group name> --service <service name>
 ```
 ---
 
@@ -157,16 +157,16 @@ After you successfully add SSL binding, the domain state will be secure: **Healt
 
 ## Enforce HTTPS
 By default, anyone can still access your app using HTTP, but you can redirect all HTTP requests to the HTTPS port.
-
+#### [Portal](#tab/Azure-portal)
 In your app page, in the left navigation, select **Custom Domain**. Then, set **HTTPS Only**, to *True*.
 
 ![Add SSL binding 3](./media/custom-dns-tutorial/enforce-http.png)
 
-Or, you can use the Azure CLI to enforce HTTPS:
+#### [CLI](#tab/Azure-CLI)
 ```
-az spring-cloud app custom-domain update --domain-name <domain name> --certificate <cert name> --app <app name> --resource-group <resource group name> --service <service name>
+az spring-cloud app update -n <app name> --resource-group <resource group name> --service <service name> --https-only
 ```
-
+---
 When the operation is complete, navigate to any of the HTTPS URLs that point to your app. Note that HTTP URLs don't work.
 
 ## See also
