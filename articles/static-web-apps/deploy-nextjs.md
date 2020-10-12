@@ -69,7 +69,7 @@ When you build a Next.js site using `npm run build`, the app is built as a tradi
 
     ```javascript
     module.exports = {
-      exportTrailingSlash: true,
+      trailingSlash: true,
       exportPathMap: function() {
         return {
           '/': { page: '/' }
@@ -203,7 +203,7 @@ The reason for this error is because Next.js only generated the home page based 
    const data = require('./utils/projectsData');
 
    module.exports = {
-     exportTrailingSlash: true,
+     trailingSlash: true,
      exportPathMap: async function () {
        const { projects } = data;
        const paths = {
