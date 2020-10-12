@@ -18,7 +18,7 @@ Reserved instances are available with some exceptions.
 
 -   **Insufficient quota** - A reservation that is scoped to a single/shared subscription must have hosts quota available in the subscription for the new reserved instance. You can [create quota increase request](enable-azure-vmware-solution.md) to resolve this issue.
 
--   **Offer Eligibility**- You'll need an [Azure Enterprise Agreement (EA)](https://docs.microsoft.com/azure/cost-management-billing/manage/ea-portal-agreements) with Microsoft.
+-   **Offer Eligibility**- You'll need an [Azure Enterprise Agreement (EA)](../cost-management-billing/manage/ea-portal-agreements.md) with Microsoft.
 
 -   **Capacity restrictions** - In rare circumstances, Azure limits the purchase of new reservations for Azure VMware Solution host SKUs, because of low capacity in a region.
 

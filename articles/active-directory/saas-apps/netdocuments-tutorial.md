@@ -134,7 +134,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 3. Select **Security Center**.
    
-    ![Repository](./media/netdocuments-tutorial/security-center.png "Security Center")
+    ![Screenshot shows Security Center selected from Legal Documents.](./media/netdocuments-tutorial/security-center.png "Security Center")
 
 4. Select **Advanced Authentication**.
     
@@ -164,7 +164,7 @@ To enable Azure AD users to sign in to NetDocuments, they must be provisioned in
 
 3. Select **Users and groups**.
    
-    ![Repository](./media/netdocuments-tutorial/users-groups.png "Repository")
+    ![Screenshot shows Users & Groups selected from Legal Documents.](./media/netdocuments-tutorial/users-groups.png "Repository")
 
 4. In the **Email Address** textbox, type the email address of a valid Azure Active Directory account you want to provision, and then click **Add User**.
    
