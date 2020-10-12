@@ -147,11 +147,11 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 2. Go to **Settings** and click **Connectors**.
 
-	![Configure Single Sign-On On App Side](./media/officespace-tutorial/tutorial_officespace_002.png)
+	![Screenshot that shows the "Settings" drop-down with "Connectors" selected.](./media/officespace-tutorial/tutorial_officespace_002.png)
 
 3. Click **SAML Authentication**.
 
-	![Configure Single Sign-On On App Side](./media/officespace-tutorial/tutorial_officespace_003.png)
+	![Screenshot that shows the "Authentication" section with the "S A M L Authentication" action selected.](./media/officespace-tutorial/tutorial_officespace_003.png)
 
 4. In the **SAML Authentication** section, perform the following steps:
 
