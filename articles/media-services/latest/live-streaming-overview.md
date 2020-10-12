@@ -56,7 +56,7 @@ Dynamic filtering is used to control the number of tracks, formats, bitrates, an
 
 ### Pass-through
 
-![pass-through](./media/live-streaming/pass-through.svg)
+![Diagram showing how the video and audio feeds from a pass-through Live Event are ingested and processed.](./media/live-streaming/pass-through.svg)
 
 When using the pass-through **Live Event**, you rely on your on-premises live encoder to generate a multiple bitrate video stream and send that as the contribution feed to the Live Event (using RTMP or fragmented-MP4 input protocol). The Live Event then carries through the incoming video streams  to the dynamic packager (Streaming Endpoint) without any further transcoding. Such a pass-through Live Event is optimized for long-running live events or 24x365 linear live streaming. 
 

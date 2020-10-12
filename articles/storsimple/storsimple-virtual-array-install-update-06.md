@@ -1,6 +1,6 @@
 ---
 title: Install Update 0.6 on StorSimple Virtual Array | Microsoft Docs
-description: Describes how to use the StorSimple Virtual Array web UI to apply updates using the Azure portal and hotfix method
+description: Describes how to use the StorSimple Virtual Array web UI to apply Update 0.6 using the Azure portal and hot fix method.
 services: storsimple
 documentationcenter: NA
 author: alkohli
@@ -92,26 +92,26 @@ Use this method to install updates on a device running GA or Update 0.1 software
 
 1. In the local web UI, go to **Maintenance** > **Software Update**. Make a note of the software version that you are running. If you are running **10.0.10290.0**, you do not need to update the MDS agent in step 6.
    
-    ![update device](./media/storsimple-virtual-array-install-update-05/update1m.png)
+    ![update device 1](./media/storsimple-virtual-array-install-update-05/update1m.png)
 
 2. In **Update file path**, enter the file name for the update or the hotfix. You can also browse to the update or hotfix installation file if placed on a network share. Click **Apply**.
    
-    ![update device](./media/storsimple-virtual-array-install-update-05/update2m.png)
+    ![update device 2](./media/storsimple-virtual-array-install-update-05/update2m.png)
 
 3. A warning is displayed. Given the virtual array is a single node device, after the update is applied, the device restarts and there is downtime. Click the check icon.
    
-   ![update device](./media/storsimple-virtual-array-install-update-05/update3m.png)
+   ![update device 3](./media/storsimple-virtual-array-install-update-05/update3m.png)
 
 4. The update starts. After the device is successfully updated, it restarts. The local UI is not accessible in this duration.
    
-    ![update device](./media/storsimple-virtual-array-install-update-05/update5m.png)
+    ![update device 4](./media/storsimple-virtual-array-install-update-05/update5m.png)
 
 5. After the restart is complete, you are taken to the **Sign in** page. To verify that the device software has updated, in the local web UI, go to **Maintenance** > **Software Update**. The displayed software version should be **10.0.0.0.0.10293** for Update 0.6.
    
    > [!NOTE]
    > We report the software versions in a slightly different way in the local web UI and the Azure portal. For example, the local web UI reports **10.0.0.0.0.10293** and the Azure portal reports **10.0.10293.0** for the same version.
    
-    ![update device](./media/storsimple-virtual-array-install-update-06/update6m.png)
+    ![update device 5](./media/storsimple-virtual-array-install-update-06/update6m.png)
 
 6. Skip this step if you were running StorSimple Virtual Array Update 0.5 (**10.0.10290.0**) before you applied this update. You made a note of the software version in step 1 before you began to update. If you were running Update 0.5, your MDS agent is already up-to-date .
 

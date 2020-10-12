@@ -21,7 +21,8 @@ The following ITSM products/services are supported. Select the product to view d
 
 > [!NOTE]
 > 
-> ITSM Connector can only connect to cloud-based ServiceNow instances. On-premises ServiceNow instances are currently not supported.
+> As of 1-Oct-2020 Cherwell and Provance ITSM integrations with Azure Alert will no longer will be enabled for new customers. New ITSM Connections will not be supported. 
+> Existing ITSM connections will be supported.
 
 ## Connect System Center Service Manager to IT Service Management Connector in Azure
 
@@ -36,6 +37,10 @@ Ensure the following prerequisites are met:
 - Hybrid connection created and configured. More information: [Configure the hybrid Connection](#configure-the-hybrid-connection).
 - Supported versions of Service Manager:  2012 R2 or 2016.
 - User role:  [Advanced operator](/previous-versions/system-center/service-manager-2010-sp1/ff461054(v=technet.10)).
+
+> [!NOTE]
+> 
+> ITSM Connector can only connect to cloud-based ServiceNow instances. On-premises ServiceNow instances are currently not supported.
 
 ### Connection procedure
 

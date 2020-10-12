@@ -1,7 +1,7 @@
 ---
 title: Create a tenant model (preview) - Speech Service
 titleSuffix: Azure Cognitive Services
-description: Automatically generate a secure, compliant tenant model (Custom Speech with Office 365 data) that uses your Office 365 data to deliver optimal speech recognition for organization-specific terms.
+description: Automatically generate a secure, compliant tenant model (Custom Speech with Microsoft 365 data) that uses your Microsoft 365 data to deliver optimal speech recognition for organization-specific terms.
 services: cognitive-services
 author: erhopf
 manager: nitinme
@@ -15,10 +15,10 @@ ms.custom: devx-track-csharp
 
 # Tutorial: Create a tenant model (preview)
 
-Tenant Model (Custom Speech with Office 365 data) is an opt-in service for Office 365 enterprise customers that automatically generates a custom speech recognition model from your organization's Office 365 data. The model is optimized for technical terms, jargon, and people's names, all in a secure and compliant way.
+Tenant Model (Custom Speech with Microsoft 365 data) is an opt-in service for Microsoft 365 enterprise customers that automatically generates a custom speech recognition model from your organization's Microsoft 365 data. The model is optimized for technical terms, jargon, and people's names, all in a secure and compliant way.
 
 > [!IMPORTANT]
-> If your organization enrolls by using the Tenant Model service, Speech Service may access your organization’s language model. The model is generated from Office 365 public group emails and documents, which can be seen by anyone in your organization. Your organization's Office 365 admin can turn on or turn off the use of the organization-wide language model from the Office 365 admin portal.
+> If your organization enrolls by using the Tenant Model service, Speech Service may access your organization’s language model. The model is generated from Microsoft 365 public group emails and documents, which can be seen by anyone in your organization. Your organization's admin can turn on or turn off the use of the organization-wide language model from the admin portal.
 
 In this tutorial, you learn how to:
 
@@ -31,7 +31,7 @@ In this tutorial, you learn how to:
 
 ## Enroll in the Tenant Model service
 
-Before you can deploy your tenant model, you need to be enrolled in the Tenant Model service. Enrollment is completed in the Microsoft 365 admin center and can be done only by your Microsoft 365 admin.
+Before you can deploy your tenant model, you need to be enrolled in the Tenant Model service. Enrollment is completed in the Microsoft 365 admin center and can be done only by your admin.
 
 1. Sign in to the [Microsoft 365 admin center](https://admin.microsoft.com).
 
@@ -64,7 +64,7 @@ To use your tenant model with the Speech SDK, you need a Speech resource and its
 
 ## Create a language model
 
-After your admin has enabled Tenant Model for your organization, you can create a language model that's based on your Office 365 data.
+After your admin has enabled Tenant Model for your organization, you can create a language model that's based on your Microsoft 365 data.
 
 1. Sign in to [Speech Studio](https://speech.microsoft.com/).
 1. At the top right, select **Settings** (gear icon), and then select **Tenant Model settings**.
@@ -74,7 +74,7 @@ After your admin has enabled Tenant Model for your organization, you can create 
    Speech Studio displays a message that lets you know whether you're qualified to create a tenant model.
 
    > [!NOTE]
-   > Office 365 enterprise customers in North America are eligible to create a tenant model (English). If you're a Customer Lockbox, Customer Key, or Office 365 Government customer, this feature isn't available. To determine whether you're a Customer Lockbox or Customer Key customer, see:
+   > Enterprise customers in North America are eligible to create a tenant model (English). If you're a Customer Lockbox, Customer Key, or Office 365 Government customer, this feature isn't available. To determine whether you're a Customer Lockbox or Customer Key customer, see:
    > * [Customer Lockbox](/microsoft-365/compliance/customer-lockbox-requests)
    > * [Customer Key](/microsoft-365/compliance/customer-key-overview)
    > * [Office 365 Government](https://www.microsoft.com/microsoft-365/government)
@@ -297,7 +297,7 @@ Next, you need to rebuild and run the project from the command line. Before you 
    dotnet TenantLMSample.dll --Username=<Username> --Password=<Password> --SubscriptionKey=<Subscription-Key> --EndpointUri=<Endpoint-Uri>
    ```
 
-In this tutorial, you've learned how to use Office 365 data to create a custom speech recognition model, deploy it, and use it with the Speech SDK.
+In this tutorial, you've learned how to use Microsoft 365 data to create a custom speech recognition model, deploy it, and use it with the Speech SDK.
 
 ## Next steps
 

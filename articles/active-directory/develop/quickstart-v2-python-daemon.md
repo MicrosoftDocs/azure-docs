@@ -1,6 +1,7 @@
 ---
-title: Microsoft identity platform Python daemon | Azure
-description: Learn how a Python process can get an access token and call an API protected by Microsoft identity platform endpoint, using the app's own identity
+title: "Quickstart: Call Microsoft Graph from a Python daemon | Azure"
+titleSuffix: Microsoft identity platform
+description: In this quickstart, you learn how a Python process can get an access token and call an API protected by Microsoft identity platform endpoint, using the app's own identity
 services: active-directory
 author: jmprieur
 manager: CelesteDG
@@ -221,18 +222,3 @@ To learn more about daemon applications, see the scenario landing page
 
 > [!div class="nextstepaction"]
 > [Daemon application that calls web APIs](scenario-daemon-overview.md)
-
-For the daemon application tutorial, see:
-
-> [!div class="nextstepaction"]
-> [Daemon Python console tutorial](https://github.com/Azure-Samples/ms-identity-python-daemon)
-
-Learn more about permissions and consent:
-
-> [!div class="nextstepaction"]
-> [Permissions and Consent](v2-permissions-and-consent.md)
-
-To know more about the auth flow for this scenario, see the Oauth 2.0 client credentials flow:
-
-> [!div class="nextstepaction"]
-> [Client credentials Oauth flow](v2-oauth2-client-creds-grant-flow.md)

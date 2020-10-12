@@ -1,5 +1,5 @@
 ---
-title: Use the Azure IoT extension for Azure CLI to interact with IoT Plug and Play Preview devices | Microsoft Docs
+title: Use the Azure IoT extension for Azure CLI to interact with IoT Plug and Play devices | Microsoft Docs
 description: Install the Azure IoT extension for Azure CLI and use it to interact with the IoT Plug and Play devices connected to my IoT hub.
 author: dominicbetts
 ms.author: dobett
@@ -13,9 +13,9 @@ services: iot-pnp
 
 # Install and use the Azure IoT extension for the Azure CLI
 
-[The Azure CLI](https://docs.microsoft.com/cli/azure?view=azure-cli-latest) is an open-source cross platform command-line tool for managing Azure resources such as IoT Hub. The Azure CLI is available on Windows, Linux, and macOS. The Azure CLI lets you manage Azure IoT Hub resources, Device Provisioning Service instances, and linked-hubs without installing any extensions.
+[The Azure CLI](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest&preserve-view=true) is an open-source cross platform command-line tool for managing Azure resources such as IoT Hub. The Azure CLI is available on Windows, Linux, and macOS. The Azure CLI lets you manage Azure IoT Hub resources, Device Provisioning Service instances, and linked-hubs without installing any extensions.
 
-The Azure IoT extension for the Azure CLI is a command-line tool for interacting with, and testing IoT Plug and Play Preview devices. You can use the extension to:
+The Azure IoT extension for the Azure CLI is a command-line tool for interacting with, and testing IoT Plug and Play devices. You can use the extension to:
 
 - Connect to a device.
 - View the telemetry the device sends.
@@ -31,11 +31,11 @@ This article shows you how to:
 
 ### Step 1 - Install the Azure CLI
 
-Follow the [installation instructions](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) to set up the Azure CLI in your environment. For the best experience, your Azure CLI version should be version 2.9.1 or above. Use `az -–version` to validate.
+Follow the [installation instructions](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest&preserve-view=true) to set up the Azure CLI in your environment. For the best experience, your Azure CLI version should be version 2.9.1 or above. Use `az -–version` to validate.
 
 ### Step 2 - Install IoT extension
 
-[The IoT extension readme](https://github.com/Azure/azure-iot-cli-extension) describes several ways to install the extension. The simplest way is to run `az extension add --name azure-iot`. After installation, you can use `az extension list` to validate the currently installed extensions or `az extension show --name azure-iot` to see details about the IoT extension. At the time of writing, the extension version  number is `0.9.7`.
+[The IoT extension readme](https://github.com/Azure/azure-iot-cli-extension) describes several ways to install the extension. The simplest way is to run `az extension add --name azure-iot`. After installation, you can use `az extension list` to validate the currently installed extensions or `az extension show --name azure-iot` to see details about the IoT extension. At the time of writing, the extension version  number is `0.10.0`.
 
 To remove the extension, you can use `az extension remove --name azure-iot`.
 

@@ -1,13 +1,13 @@
 ---
-title: Create an ExpressRoute circuit by using an Azure Resource Manager template (ARM template)
-description: Learn how to create an ExpressRoute circuit by using Azure Resource Manager template (ARM template).
+title: 'Quickstart: Create an ExpressRoute circuit by using an Azure Resource Manager template (ARM template)'
+description: This quickstart shows you how to create an ExpressRoute circuit by using Azure Resource Manager template (ARM template).
 services: expressroute
 author: duongau
 mnager: kumud
 ms.service: expressroute
 ms.topic: quickstart
 ms.custom: subject-armsq
-ms.date: 08/31/2020
+ms.date: 10/12/2020
 ms.author: duau
 ---
 
@@ -71,9 +71,9 @@ To find more templates that are related to ExpressRoute, see [Azure Quickstart T
 
     The resource group name is the project name with **rg** appended.
 
-It takes about 20 minutes to deploy the template. When completed, the output is similar to:
+    It takes about 20 minutes to deploy the template. When completed, the output is similar to:
 
-:::image type="content" source="./media/quickstart-create-expressroute-vnet/expressroute-powershell-output.png" alt-text="ExpressRoute Resource Manager template PowerShell deployment output":::
+    :::image type="content" source="./media/quickstart-create-expressroute-vnet/expressroute-powershell-output.png" alt-text="ExpressRoute Resource Manager template PowerShell deployment output":::
 
 Azure PowerShell is used to deploy the template. In addition to Azure PowerShell, you can also use the Azure portal, Azure CLI, and REST API. To learn other deployment methods, see [Deploy templates](../azure-resource-manager/templates/deploy-portal.md).
 
@@ -115,11 +115,7 @@ In this quickstart, you created a:
 * Public IP
 * network security groups
 
-To learn more about linking a virtual network to a circuit, continue to the ExpressRoute tutorials.
+To learn how to link a virtual network to a circuit, continue to the ExpressRoute tutorials.
 
 > [!div class="nextstepaction"]
 > [ExpressRoute tutorials](expressroute-howto-linkvnet-portal-resource-manager.md)
-
-* For more information about ExpressRoute workflows, see [ExpressRoute workflows](expressroute-workflows.md).
-* For more information about circuit peering, see [ExpressRoute circuits and routing domains](expressroute-circuit-peerings.md).
-* For more information about working with virtual networks, see [Virtual network overview](../virtual-network/virtual-networks-overview.md).

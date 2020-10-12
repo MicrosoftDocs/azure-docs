@@ -59,7 +59,7 @@ The objective of this section is to outline how to enable user provisioning of A
 
 1. Set the **Provisioning Mode** to **Automatic**. 
 
-    ![provisioning](./media/docusign-provisioning-tutorial/provisioning.png)
+    ![Screenshot of the Provisioning tab for DocuSign in Azure portal. Provisioning Mode is set to Automatic and Admin Username, Password and Test Connection are highlighted.](./media/docusign-provisioning-tutorial/provisioning.png)
 
 1. Under the **Admin Credentials** section, provide the following configuration settings:
    

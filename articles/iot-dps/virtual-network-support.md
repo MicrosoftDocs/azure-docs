@@ -71,7 +71,7 @@ To set up a private endpoint, follow these steps:
 
 2. On the _Create a private endpoint_ Basics page, enter the information mentioned in the table below.
 
-    ![Configure the resource that a new private endpoint maps to](./media/virtual-network-support/create-private-endpoint-basics.png)
+    ![Create private endpoints basics](./media/virtual-network-support/create-private-endpoint-basics.png)
 
     | Field | Value |
     | :---- | :-----|
@@ -84,7 +84,7 @@ To set up a private endpoint, follow these steps:
 
 3. On the _Create a private endpoint Resource_ page, enter the information mentioned in the table below.
 
-    ![Configure the resource that a new private endpoint maps to](./media/virtual-network-support/create-private-endpoint-resource.png)
+    ![Create private endpoint resource](./media/virtual-network-support/create-private-endpoint-resource.png)
 
     | Field | Value |
     | :---- | :-----|
@@ -103,7 +103,7 @@ To set up a private endpoint, follow these steps:
  
     Click **Next : Tags**, and optionally provide any tags for your resource.
 
-    ![Configure the resource that a new private endpoint maps to](./media/virtual-network-support/create-private-endpoint-configuration.png)
+    ![Configure private endpoint](./media/virtual-network-support/create-private-endpoint-configuration.png)
 
 6. Click **Review + create** and then **Create** to create your private endpoint resource.
 
@@ -137,7 +137,7 @@ You can request a private endpoint to a DPS resource by resource ID. In order to
 
 5. The DPS owner will see the private endpoint request in the **Private endpoint connections** list on DPS networking tab. On that page, the owner can **Approve** or **Reject** the private endpoint request as shown below.
 
-    ![DPS Properties tab](./media/virtual-network-support/approve-dps-private-endpoint.png)
+    ![DPS approval](./media/virtual-network-support/approve-dps-private-endpoint.png)
 
 
 ## Pricing private endpoints

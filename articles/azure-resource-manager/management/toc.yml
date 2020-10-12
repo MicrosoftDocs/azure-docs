@@ -14,6 +14,8 @@
     href: deployment-models.md
   - name: Resource providers by service
     href: azure-services-resource-providers.md
+  - name: Control plane and data plane
+    href: control-plane-and-data-plane.md
   - name: Extension resource types
     href: extension-resource-types.md
   - name: Resource instance limit
@@ -71,6 +73,8 @@
         href: ../../batch/best-practices.md?toc=/azure/azure-resource-manager/management/toc.json#moving-batch-accounts-across-regions
       - name: Azure Cognitive Search
         href: ../../search/search-howto-move-across-regions.md?toc=/azure/azure-resource-manager/management/toc.json
+      - name: Azure Cosmos DB
+        href: ../../cosmos-db/how-to-move-regions.md?toc=/azure/azure-resource-manager/management/toc.json    
       - name: Azure Dev Spaces
         href: ../../dev-spaces/faq.md?toc=/azure/azure-resource-manager/management/toc.json#can-i-migrate-my-aks-cluster-with-azure-dev-spaces-to-another-region  
       - name: Azure Event Hubs

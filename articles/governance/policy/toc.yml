@@ -17,6 +17,12 @@
   - name: Assign a policy - Azure PowerShell
     displayName: assign, compliance
     href: ./assign-policy-powershell.md
+  - name: Assign a policy - .NET
+    displayName: assign, compliance
+    href: ./assign-policy-dotnet.md  
+  - name: Assign a policy - JavaScript
+    displayName: assign, compliance
+    href: ./assign-policy-javascript.md
   - name: Assign a policy - Python
     displayName: assign, compliance
     href: ./assign-policy-python.md
@@ -86,12 +92,18 @@
   - name: Understand effects
     displayName: order, evaluation
     href: ./concepts/effects.md
+  - name: Scope
+    displayName: location, notScope, exemption, waiver, save
+    href: ./concepts/scope.md
   - name: Initiative structure
     displayName: parameters, groups, domains, policies
     href: ./concepts/initiative-definition-structure.md
   - name: Assignment structure
     displayName: parameters, enforcementmode, policyDefinitionId
     href: ./concepts/assignment-structure.md
+  - name: Exemption structure
+    displayName: waiver, mitigated, compliance
+    href: ./concepts/exemption-structure.md
   - name: Evaluate the impact of a new policy
     displayName: audit, enforcementmode, compliance
     href: ./concepts/evaluate-impact.md
@@ -106,10 +118,10 @@
     href: ./concepts/policy-as-code.md
   - name: Kubernetes integration
     items:
-    - name: Azure Policy for Kubernetes (preview)
+    - name: Azure Policy for Kubernetes
       displayName: aks, engine, k8s, rego, opa, open policy agent, gatekeeper, v3, crd, constraints, arc
       href: ./concepts/policy-for-kubernetes.md
-    - name: Secure pods with Azure Policy (preview)
+    - name: Secure pods with Azure Policy
       displayName: aks, psp, rego, opa
       href: ../../aks/use-pod-security-on-azure-policy.md?toc=/azure/governance/policy/toc.json&bc=/azure/governance/policy/breadcrumb/toc.json
   - name: Audit VMs with Guest Configuration
@@ -130,6 +142,9 @@
   - name: Author policies for array properties
     displayName: array property, alias, aliases, in, notIn, type, defaultValue
     href: ./how-to/author-policies-for-arrays.md
+  - name: Export Azure Policy resources
+    displayName: github, json, definition
+    href: ./how-to/export-resources.md
   - name: Guest Configuration
     items:
     - name: Create a Guest Configuration policy on Windows
@@ -184,9 +199,9 @@
   - name: Azure PowerShell
     items:
     - name: Policy
-      href: /powershell/module/az.resources/#policies
+      href: /powershell/module/az.resources#policy
     - name: Policy Insights
-      href: /powershell/module/az.policyinsights#policy_insights
+      href: /powershell/module/az.policyinsights
     - name: Guest Configuration
       href: https://www.powershellgallery.com/packages/Az.GuestConfiguration
   - name: Azure SDK for .NET

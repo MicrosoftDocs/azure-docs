@@ -1,6 +1,6 @@
 ---
-title: Office 365 external sharing and B2B collaboration - Azure AD
-description: Discusses sharing resources with external partners using O365 and Azure Active Directory B2B collaboration.
+title: Microsoft 365 external sharing and B2B collaboration - Azure AD
+description: Discusses sharing resources with external partners using Microsoft 365 and Azure Active Directory B2B collaboration.
 
 services: active-directory
 ms.service: active-directory
@@ -16,9 +16,9 @@ ms.reviewer: mal
 ms.collection: M365-identity-device-management
 ---
 
-# Office 365 external sharing and Azure Active Directory (Azure AD) B2B collaboration
+# Microsoft 365 external sharing and Azure Active Directory (Azure AD) B2B collaboration
 
-In both Azure AD B2B collaboration and Office 365 external sharing (OneDrive, SharePoint Online, Unified Groups, etc.), external users are authenticated by using Azure AD B2B.
+In both Azure AD B2B collaboration and Microsoft 365 external sharing (OneDrive, SharePoint Online, Unified Groups, etc.), external users are authenticated by using Azure AD B2B.
 
 ## How does Azure AD B2B differ from external sharing in SharePoint Online?
 
@@ -35,7 +35,7 @@ OneDrive/SharePoint Online has a separate invitation manager. Support for extern
 To manage external sharing in OneDrive/SharePoint Online with Azure AD B2B collaboration, set the OneDrive/SharePoint Online external sharing setting to **Allow sharing only with the external users that already exist in your organization's directory**. Users can go to externally shared sites and pick from external collaborators that the admin has added. The admin can add the external collaborators through the B2B collaboration invitation APIs.
 
 
-![The OneDrive/SharePoint Online external sharing setting](media/o365-external-user/odsp-sharing-setting.png)
+![The OneDrive/SharePoint external sharing setting](media/o365-external-user/odsp-sharing-setting.png)
 
 After enabling external sharing, the ability to search for existing guest users in the SharePoint Online (SPO) people picker is OFF by default to match legacy behavior.
 

@@ -6,7 +6,7 @@ author: cherylmc
 
 ms.service: virtual-wan
 ms.topic: conceptual
-ms.date: 02/12/2020
+ms.date: 09/22/2020
 ms.author: cherylmc
 Customer intent: As someone with a networking background, I want to find a Virtual WAN partner
 ---
@@ -18,7 +18,7 @@ Azure Virtual WAN is a networking service that provides optimized and automated 
 
 Connectivity from the on-premises device is established in an automated way to the Virtual Hub. A virtual hub is a Microsoft-managed virtual network. The hub contains various service endpoints to enable connectivity from your on-premises network (vpnsite). You can only have one hub per region.
 
-## <a name="automation"></a>Automation from connectivity partners
+## <a name="automation"></a>Branch IPSec connectivity automation from partners
 
 Devices that connect to Azure Virtual WAN have built-in automation to connect. This is typically set up in the device-management UI (or equivalent), which sets up the connectivity and configuration management between the VPN branch device to an Azure Virtual Hub VPN endpoint (VPN gateway).
 
@@ -31,11 +31,31 @@ The following high-level automation is set up in the device console/management c
 
 Some connectivity partners may extend the automation to include creating the Azure Virtual Hub VNet and VPN Gateway. If you want to know more about automation, see [Automation guidelines for Virtual WAN partners](virtual-wan-configure-automation-providers.md).
 
-## <a name="partners"></a>Connectivity through partners
+## <a name="partners"></a>Branch IPSec Connectivity partners
 
 [!INCLUDE [partners](../../includes/virtual-wan-partners-include.md)]
 
-The following partners are slated on our roadmap for the near future: 128 Technologies, Arista, Aruba HPE, Cisco Systems (Viptela), F5 Networks, Open Systems, Oracle SD-WAN and SharpLink.
+The following partners are slated on our roadmap for the near future: 128 Technologies, Arista, Cisco Systems (Viptela), F5 Networks, Oracle SD-WAN and SharpLink.
+
+## Partners with integrated Virtual Hub offerings
+In addition to having automated branch office IPSec connectivity, some partners offer **Network Virtual Appliances (NVAs)** that can be integrated directly into the Azure Virtual WAN hub.  This allows the customers the option to terminate their branch connections into a compatible third-party appliance in the Virtual Hub.  
+
+Partners that offer NVA in the Virtual WAN Hub must:
+
+* Have implemented IPSec Connectivity Automation from their branch device and have on-boarded their NVA offering to Azure Virtual WAN hub.
+* Have an existing Network Virtual Appliance offer available in Azure Marketplace.
+
+If you are a partner and have questions about the Managed NVA in the Virtual Hub offering, please contact us by sending email to vwannvaonboarding@microsoft.com
+
+## Integrated Virtual Hub NVA partners
+These partners have **Managed Application** offers that are available now to deploy into the Virtual WAN hub.
+
+|Partners|Configuration/How-to/Deployment Guide|
+|---|---|
+|[Barracuda Networks](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/barracudanetworks.barracuda_cloudgenwan_gateway?tab=Overviewus/marketplace/apps/barracudanetworks.barracuda_cloudgenwan_gateway?tab=Overview)| [Barracuda CloudGen WAN Deployment Guide](https://campus.barracuda.com/product/cloudgenwan/doc/91980640/deployment/)|
+|[Cisco Cloud Service Router(CSR) VWAN](https://aka.ms/ciscoMarketPlaceOffer)| During the Public Preview of Cisco Cloud Services (CSR) WAN into VWAN hub, Cisco requires the end customer to register as a Cisco EFT (Early Field Trial) customer by sending an email to vwan_public_preview@external.cisco.com and requesting the vManage Deployment Guide. |
+
+The following partners are slated to bring NVA in the Virtual Hub offers in the near future: Citrix, Versa Networks and VeloCloud.
 
 ## <a name="locations"></a>Locations
 

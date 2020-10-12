@@ -109,19 +109,21 @@ On the **General settings** page of **Integration runtime setup** pane, complete
 
    1. For **Name**, enter the name of your integration runtime.
 
-   1. For **Description**, enter the description of your integration runtime.
+   2. For **Description**, enter the description of your integration runtime.
 
-   1. For **Location**, select the location of your integration runtime. Only supported locations are displayed. We recommend that you select the same location of your database server to host SSISDB.
+   3. For **Location**, select the location of your integration runtime. Only supported locations are displayed. We recommend that you select the same location of your database server to host SSISDB.
 
-   1. For **Node Size**, select the size of the node in your integration runtime cluster. Only supported node sizes are displayed. Select a large node size (scale up) if you want to run many compute-intensive or memory-intensive packages.
+   4. For **Node Size**, select the size of the node in your integration runtime cluster. Only supported node sizes are displayed. Select a large node size (scale up) if you want to run many compute-intensive or memory-intensive packages.
+   > [!NOTE]
+   > If you require [compute isolation](https://docs.microsoft.com/azure/azure-government/azure-secure-isolation-guidance#compute-isolation), please select the **Standard_E64i_v3** node size. This node size represents isolated virtual machines that consume their entire physical host and provide the necessary level of isolation required by certain workloads, such as the US Department of Defense's Impact Level 5 (IL5) workloads.
+   
+   5. For **Node Number**, select the number of nodes in your integration runtime cluster. Only supported node numbers are displayed. Select a large cluster with many nodes (scale out) if you want to run many packages in parallel.
 
-   1. For **Node Number**, select the number of nodes in your integration runtime cluster. Only supported node numbers are displayed. Select a large cluster with many nodes (scale out) if you want to run many packages in parallel.
+   6. For **Edition/License**, select the SQL Server edition for your integration runtime: Standard or Enterprise. Select Enterprise if you want to use advanced features on your integration runtime.
 
-   1. For **Edition/License**, select the SQL Server edition for your integration runtime: Standard or Enterprise. Select Enterprise if you want to use advanced features on your integration runtime.
+   7. For **Save Money**, select the Azure Hybrid Benefit option for your integration runtime: **Yes** or **No**. Select **Yes** if you want to bring your own SQL Server license with Software Assurance to benefit from cost savings with hybrid use.
 
-   1. For **Save Money**, select the Azure Hybrid Benefit option for your integration runtime: **Yes** or **No**. Select **Yes** if you want to bring your own SQL Server license with Software Assurance to benefit from cost savings with hybrid use.
-
-   1. Select **Next**.
+   8. Select **Next**.
 
 #### Deployment settings page
 

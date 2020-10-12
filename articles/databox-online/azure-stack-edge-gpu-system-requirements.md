@@ -1,20 +1,20 @@
 ---
 title: Microsoft Azure Stack Edge system requirements| Microsoft Docs
-description: Learn about the software and networking requirements for your Azure Stack Edge
+description: Learn about the system requirements for your Microsoft Azure Stack Edge solution and for the clients connecting to Azure Stack Edge.
 services: databox
 author: alkohli
 
 ms.service: databox
 ms.subservice: edge
 ms.topic: conceptual
-ms.date: 08/28/2020
+ms.date: 10/12/2020
 ms.author: alkohli
 ---
-# System requirements for Azure Stack Edge with GPU 
+# System requirements for Azure Stack Edge Pro with GPU 
 
-This article describes the important system requirements for your Microsoft Azure Stack Edge solution and for the clients connecting to Azure Stack Edge. We recommend that you review the information carefully before you deploy your Azure Stack Edge. You can refer back to this information as necessary during the deployment and subsequent operation.
+This article describes the important system requirements for your Microsoft Azure Stack Edge Pro solution and for the clients connecting to Azure Stack Edge Pro. We recommend that you review the information carefully before you deploy your Azure Stack Edge Pro. You can refer back to this information as necessary during the deployment and subsequent operation.
 
-The system requirements for the Azure Stack Edge include:
+The system requirements for the Azure Stack Edge Pro include:
 
 - **Software requirements for hosts** - describes the supported platforms, browsers for the local configuration UI, SMB clients, and any additional requirements for the clients that access the device.
 - **Networking requirements for the device** - provides information about any networking requirements for the operation of the physical device.
@@ -27,21 +27,20 @@ The system requirements for the Azure Stack Edge include:
 
 [!INCLUDE [Supported protocols for clients accessing device](../../includes/azure-stack-edge-gateway-supported-client-protocols.md)]
 
-## Supported storage accounts
+## Supported Azure Storage accounts
 
 [!INCLUDE [Supported storage accounts](../../includes/azure-stack-edge-gateway-supported-storage-accounts.md)]
 
-## Supported tiered storage accounts
+## Supported Edge storage accounts
 
-When managed from Azure Stack, the following tiered storage accounts are supported with SMB/NFS/REST interfaces.
+The following Edge storage accounts are supported with REST interface of the device. The Edge storage accounts are created on the device. For more information, see [Edge storage accounts](azure-stack-edge-j-series-manage-storage-accounts.md#about-edge-storage-accounts).
 
 |Type  |Storage account  |Comments  |
 |---------|---------|---------|
 |Standard     |GPv1: Block Blob         |         |
-|    |  Blob storage: Block Blob       | Supported only for NAS     |
 
-*Page blobs and Azure Files are currently not supported in Azure Stack.
-**Hot and cold tier do not exist in Azure Stack. Use the Azure PowerShell to move the data to the archive tier once the data is uploaded. For step-by-step instructions, go to [Use Azure PowerShell to set the blob tier]()
+*Page blobs and Azure Files are currently not supported.
+
 
 ## Supported storage types
 
@@ -54,9 +53,9 @@ When managed from Azure Stack, the following tiered storage accounts are support
 
 ## Networking port requirements
 
-### Port requirements for Azure Stack Edge
+### Port requirements for Azure Stack Edge Pro
 
-The following table lists the ports that need to be opened in your firewall to allow for SMB, cloud, or management traffic. In this table, *in* or *inbound* refers to the direction from which incoming client requests access to your device. *Out* or *outbound* refers to the direction in which your Azure Stack Edge device sends data externally, beyond the deployment, for example, outbound to the internet.
+The following table lists the ports that need to be opened in your firewall to allow for SMB, cloud, or management traffic. In this table, *in* or *inbound* refers to the direction from which incoming client requests access to your device. *Out* or *outbound* refers to the direction in which your Azure Stack Edge Pro device sends data externally, beyond the deployment, for example, outbound to the internet.
 
 [!INCLUDE [Port configuration for device](../../includes/azure-stack-edge-gateway-port-config.md)]
 
@@ -74,9 +73,9 @@ For complete information, go to [Firewall and port configuration rules for IoT E
 
 ## URL patterns for firewall rules
 
-Network administrators can often configure advanced firewall rules based on the URL patterns to filter the inbound and the outbound traffic. Your Azure Stack Edge device and the service depend on other Microsoft applications such as Azure Service Bus, Azure Active Directory Access Control, storage accounts, and Microsoft Update servers. The URL patterns associated with these applications can be used to configure firewall rules. It is important to understand that the URL patterns associated with these applications can change. These changes require the network administrator to monitor and update firewall rules for your Azure Stack Edge as and when needed.
+Network administrators can often configure advanced firewall rules based on the URL patterns to filter the inbound and the outbound traffic. Your Azure Stack Edge Pro device and the service depend on other Microsoft applications such as Azure Service Bus, Azure Active Directory Access Control, storage accounts, and Microsoft Update servers. The URL patterns associated with these applications can be used to configure firewall rules. It is important to understand that the URL patterns associated with these applications can change. These changes require the network administrator to monitor and update firewall rules for your Azure Stack Edge Pro as and when needed.
 
-We recommend that you set your firewall rules for outbound traffic, based on Azure Stack Edge fixed IP addresses, liberally in most cases. However, you can use the information below to set advanced firewall rules that are needed to create secure environments.
+We recommend that you set your firewall rules for outbound traffic, based on Azure Stack Edge Pro fixed IP addresses, liberally in most cases. However, you can use the information below to set advanced firewall rules that are needed to create secure environments.
 
 > [!NOTE]
 > - The device (source) IPs should always be set to all the cloud-enabled network interfaces.
@@ -112,7 +111,7 @@ We recommend that you set your firewall rules for outbound traffic, based on Azu
 
 ## Compute sizing considerations
 
-Use your experience while developing and testing your solution to ensure there is enough capacity on your Azure Stack Edge device and you get the optimal performance from your device.
+Use your experience while developing and testing your solution to ensure there is enough capacity on your Azure Stack Edge Pro device and you get the optimal performance from your device.
 
 Factors you should consider include:
 
@@ -132,8 +131,8 @@ To understand and refine the performance of your solution, you could use:
 - The compute metrics available in the Azure portal. Go to your Azure Stack Edge resource and then go to **Monitoring > Metrics**. Look at the **Edge compute - Memory usage** and **Edge compute - Percentage CPU** to understand the available resources and how are the resources getting consumed.
 - To monitor and troubleshoot compute modules, go to [Debug Kubernetes issues](azure-stack-edge-gpu-connect-powershell-interface.md#debug-kubernetes-issues-related-to-iot-edge).
 
-Finally, make sure that you validate your solution on your dataset and quantify the performance on Azure Stack Edge before deploying in production.
+Finally, make sure that you validate your solution on your dataset and quantify the performance on Azure Stack Edge Pro before deploying in production.
 
 ## Next step
 
-- [Deploy your Azure Stack Edge](azure-stack-edge-gpu-deploy-prep.md)
+- [Deploy your Azure Stack Edge Pro](azure-stack-edge-gpu-deploy-prep.md)

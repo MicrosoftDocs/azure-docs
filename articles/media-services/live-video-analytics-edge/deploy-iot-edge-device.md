@@ -2,23 +2,27 @@
 title: Deploy Live Video Analytics on an IoT Edge device - Azure
 description: This article lists the steps that will help you deploy Live Video Analytics on your IoT Edge device. You would do this, for example, if you have access to a local Linux machine, and/or have previously created an Azure Media Services account.
 ms.topic: how-to
-ms.date: 04/27/2020
+ms.date: 09/09/2020
 
 ---
 # Deploy Live Video Analytics on an IoT Edge device
 
 This article lists the steps that will help you deploy Live Video Analytics on your IoT Edge device. You would do this, for example, if you have access to a local Linux machine, and/or have previously created an Azure Media Services account.
 
+> [!NOTE]
+> Support for ARM64 devices is available in Live Video Analytics on IoT Edge builds `1.0.4` and newer.
+> Support for running Azure IoT Edge runtime on ARM64 devices is in [public preview](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
 ## Prerequisites
 
-* A Linux machine that meets the HW/SW constraints for Live Video Analytics
+* An x86-64 or an ARM64 device running one of the [supported Linux operating systems](https://docs.microsoft.com/azure/iot-edge/support#operating-systems)
 * Azure subscription to which you have [owner privileges](../../role-based-access-control/built-in-roles.md#owner)
 * [Create and setup IoT Hub](../../iot-hub/iot-hub-create-through-portal.md)
 * [Register IoT Edge device](../../iot-edge/how-to-register-device.md)
 * [Install the Azure IoT Edge runtime on Debian-based Linux systems](../../iot-edge/how-to-install-iot-edge-linux.md)
 * [Create an Azure Media Services account](../latest/create-account-howto.md)
 
-    * Use one of these regions: East US 2, Central US, North Central US, Japan East, West US 2, West Central US, Canada East, UK South, France Central, France South, Switzerland North, Switzerland West, and Japan West.
+    * Use one of these regions: East US 2, East US, Central US, North Central US, Japan East, West US, West US 2, West Central US, Canada East, UK South, France Central, France South, Switzerland North, Switzerland West, and Japan West.
     * It is recommended that you use General-purpose v2 (GPv2) Storage accounts
 
 ## Configuring Azure resources for using Live Video Analytics
@@ -76,7 +80,6 @@ sudo chown -R edgeuser /var/media
 
 ## Deploy Live Video Analytics Edge module
 
-<!-- (To JuliaKo: this is similar to https://docs.microsoft.com/azure/iot-edge/how-to-deploy-blob)-->
 The Live Video Analytics on IoT Edge exposes module twin properties that are documented in [Module Twin configuration schema](module-twin-configuration-schema.md). 
 
 ### Deploy using the Azure portal
@@ -102,7 +105,7 @@ A deployment manifest is a JSON document that describes which modules to deploy,
     * **IoT Edge Module Name**: lvaEdge
     * **Image URI**: mcr.microsoft.com/media/live-video-analytics:1.0	 
     
-    ![Add](./media/deploy-iot-edge-device/add.png)
+    ![Screenshot shows the Module Settings tab.](./media/deploy-iot-edge-device/add.png)
     
     > [!TIP]
     > Don't select **Add** until you've specified values on the **Module Settings**, **Container Create Options**, and **Module Twin Settings** tabs as described in this procedure.
@@ -213,7 +216,7 @@ After you create the deployment, you return to the IoT Edge page of your IoT hub
 It may take a few moments for the module to be started on the device and then reported back to IoT Hub. Refresh the page to see an updated status.
 Status code: 200 –OK means that [the IoT Edge runtime](../../iot-edge/iot-edge-runtime.md) is healthy and is operating fine.
 
-![Status](./media/deploy-iot-edge-device/status.png)
+![Screenshot shows a status value for an IoT Edge runtime.](./media/deploy-iot-edge-device/status.png)
 
 #### Invoke a direct method
 
@@ -221,7 +224,7 @@ Next, lets test the sample by invoking a direct method. Read [direct methods for
 
 1. Clicking on the edge module you created, will take you to its configuration page.  
 
-    ![Modules](./media/deploy-iot-edge-device/modules.png)
+    ![Screenshot shows the configuration page of an edge module.](./media/deploy-iot-edge-device/modules.png)
 1. Click on the Direct Method menu option.
 
     > [!NOTE] 
@@ -248,4 +251,4 @@ Next, lets test the sample by invoking a direct method. Read [direct methods for
 Try [Quickstart: Get started - Live Video Analytics on IoT Edge](get-started-detect-motion-emit-events-quickstart.md#deploy-modules-on-your-edge-device)
 
 > [!TIP]
-> In the command, you will run next, use your `device-id` instead of the default `lva-sample-device`.
+> If you proceed with the above quickstart, when invoking the direct methods using Visual Studio Code, you will use the device that was added to the IoT Hub via this article, instead of the default `lva-sample-device`.

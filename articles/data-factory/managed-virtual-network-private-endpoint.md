@@ -10,7 +10,7 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.custom: seo-lt-2019
+ms.custom: [seo-lt-2019, references_regions]
 ms.date: 07/15/2020
 ---
 
@@ -84,7 +84,7 @@ Below data sources are supported to connect through private link from ADF Manage
 - Azure Database for PostgreSQL
 - Azure Database for MariaDB
 
-### Supported Regions
+### Azure Data Factory Managed Virtual Network is available in the following Azure regions:
 - East US
 - East US 2
 - West Central US
@@ -100,6 +100,10 @@ Below data sources are supported to connect through private link from ADF Manage
 ### Outbound communications through public endpoint from ADF Managed Virtual Network
 - Only port 443 is opened for outbound communications.
 - Azure Storage and Azure Data Lake Gen2 are not supported to be connected through public endpoint from ADF Managed Virtual Network.
+
+### Linked Service creation of Azure Key Vault 
+- When you create a Linked Service for Azure Key Vault, there is no Azure Integration Runtime reference. So you can't create Private Endpoint during Linked Service creation of Azure Key Vault. But when you create Linked Service for data stores which references Azure Key Vault Linked Service and this Linked Service references Azure Integration Runtime with Managed Virtual Network enabled, then you are able to create a Private Endpoint for the Azure Key Vault Linked Service during the creation. 
+- **Test connection** operation for Linked Service of Azure Key Vault only validates the URL format, but doesn't do any network operation.
 
 ## Next steps
 

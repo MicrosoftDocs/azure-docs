@@ -1,6 +1,6 @@
 ---
-title: Azure security baseline for Azure Database for PostgreSQL - Hyperscale
-description: The Azure Database for PostgreSQL - Hyperscale security baseline provides procedural guidance and resources for implementing the security recommendations specified in the Azure Security Benchmark.
+title: Azure security baseline for Azure Database for PostgreSQL - Hyperscale (Citus)
+description: The Azure Database for PostgreSQL - Hyperscale (Citus) security baseline provides procedural guidance and resources for implementing the security recommendations specified in the Azure Security Benchmark.
 author: msmbaldwin
 ms.service: postgresql
 ms.topic: conceptual
@@ -12,9 +12,9 @@ ms.custom: subject-security-benchmark
 
 ---
 
-# Azure security baseline for Azure Database for PostgreSQL - Hyperscale
+# Azure security baseline for Azure Database for PostgreSQL - Hyperscale (Citus)
 
-The Azure Security Baseline for Azure Database for PostgreSQL - Hyperscale contains recommendations that will help you improve the security posture of your deployment.
+The Azure Security Baseline for Azure Database for PostgreSQL - Hyperscale (Citus) contains recommendations that will help you improve the security posture of your deployment.
 
 The baseline for this service is drawn from the [Azure Security Benchmark version 1.0](https://docs.microsoft.com/azure/security/benchmarks/overview), which provides recommendations on how you can secure your cloud solutions on Azure with our best practices guidance.
 

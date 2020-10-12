@@ -421,7 +421,7 @@ query=1st%20Avenue%20%26%20E%20111th%20St%2C%20New%20York
 You can use the following methods.
 
 JavaScript or TypeScript:
-```Javascript
+```javascript
 encodeURIComponent(query)
 ```
 

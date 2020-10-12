@@ -7,7 +7,8 @@ ms.date: 06/26/2020
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
-ms.custom:  [amqp, mqtt]
+manager: philmea
+ms.custom:  [amqp, mqtt, device-developer]
 
 ---
 
@@ -93,7 +94,7 @@ To add and verify a root or intermediate certificate to your enrollment group:
 
     :::image type="content" source="media/concepts-get-connected/upload-primary-certificate.png" alt-text="Primary certificate screenshot":::
 
-1. Use the **Verification code** to generate a verification code in the tool you're using. Then select **Verify** to upload the verification certificate.
+1. Click **Generate verification code** to generate a code for the tool you're using to generate the verification certificate. Then select **Verify** to upload the verification certificate.
 
 1. When the verification is successful, you see the following confirmation:
 

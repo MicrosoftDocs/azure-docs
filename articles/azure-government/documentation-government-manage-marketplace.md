@@ -44,22 +44,22 @@ If your subscription is under an Enterprise Agreement (EA), the Azure Government
 
 1. Click on **+New**.
 
-   ![alt text](./media/government-manage-marketplace-launch.png)  
+   ![Screenshot shows Azure Government portal New page with Compute selected.](./media/government-manage-marketplace-launch.png)  
 
 1. Browse through different products to find the right one. The marketplace publisher provides a list of certifications as part of the product description to help you make the right choice. 
 
-   ![alt text](./media/government-manage-marketplace-service.png)
+   ![Screenshot shows marketplace Compute page and recommended apps.](./media/government-manage-marketplace-service.png)
 
 1. Choose an product\image and click **Create**.
 
-   ![alt text](./media/government-manage-marketplace-image.png)
+   ![Screenshot shows selected example Red Hat Enterprise Linux 7.2 description and the Create button.](./media/government-manage-marketplace-image.png)
 
 1. Enter the required parameters for deployment.
 
    > [!NOTE]
    > In the Location dropdown, only Azure Government locations are visible
   
-   ![alt text](./media/government-manage-marketplace-deployment.png)
+   ![Screenshot shows the Basics window with example parameters entered.](./media/government-manage-marketplace-deployment.png)
 
 1. To start the provisioning process, click **Ok**.
 

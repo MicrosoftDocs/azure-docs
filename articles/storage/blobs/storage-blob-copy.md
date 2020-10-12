@@ -45,7 +45,7 @@ To copy a blob, call one of the following methods:
 - [StartCopyFromUri](/dotnet/api/azure.storage.blobs.specialized.blobbaseclient.startcopyfromuri)
 - [StartCopyFromUriAsync](/dotnet/api/azure.storage.blobs.specialized.blobbaseclient.startcopyfromuriasync)
 
-The **StartCopyFromUri** and **StartCopyFromUriAsync** methods return a [CopyFromUriOperation](/dotnet/api/azure.storage.blobs.models.copyfromurioperation) object containing information about the copy operation.
+The `StartCopyFromUri` and `StartCopyFromUriAsync` methods return a [CopyFromUriOperation](/dotnet/api/azure.storage.blobs.models.copyfromurioperation) object containing information about the copy operation.
 
 The following code example gets a [BlobClient](/dotnet/api/azure.storage.blobs.blobclient) representing a previously created blob and copies it to a new blob in the same container:
 
@@ -58,7 +58,7 @@ To copy a blob, call one of the following methods:
 - [StartCopy](/dotnet/api/microsoft.azure.storage.blob.cloudblob.startcopy)
 - [StartCopyAsync](/dotnet/api/microsoft.azure.storage.blob.cloudblob.startcopyasync)
 
-The **StartCopy** and **StartCopyAsync** methods return a copy ID value that is used to check status or abort the copy operation.
+The `StartCopy` and `StartCopyAsync` methods return a copy ID value that is used to check status or abort the copy operation.
 
 The following code example gets a reference to a previously created blob and copies it to a new blob in the same container:
 
@@ -121,7 +121,7 @@ private static async Task CopyBlockBlobAsync(CloudBlobContainer container)
 
 # [Python v12](#tab/python)
 
-To copy a blob, call the [start_copy_from_url](/azure/developer/python/sdk/storage/azure-storage-blob/azure.storage.blob.blobclient#start-copy-from-url-source-url--metadata-none--incremental-copy-false----kwargs-) method. The **start_copy_from_url** method returns a dictionary containing information about the copy operation.
+To copy a blob, call the [start_copy_from_url](/azure/developer/python/sdk/storage/azure-storage-blob/azure.storage.blob.blobclient#start-copy-from-url-source-url--metadata-none--incremental-copy-false----kwargs-) method. The `start_copy_from_url` method returns a dictionary containing information about the copy operation.
 
 The following code example gets a [BlobClient](/azure/developer/python/sdk/storage/azure-storage-blob/azure.storage.blob.blobclient) representing a previously created blob and copies it to a new blob in the same container:
 

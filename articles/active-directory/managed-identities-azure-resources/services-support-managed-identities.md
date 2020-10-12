@@ -4,7 +4,7 @@ description: List of services that support managed identities for Azure resource
 services: active-directory
 author: barclayn
 ms.author: barclayn
-ms.date: 07/09/2020
+ms.date: 10/07/2020
 ms.topic: conceptual
 ms.service: active-directory
 ms.subservice: msi
@@ -247,6 +247,12 @@ Refer to the following list to configure managed identity for Azure Service Fabr
 
 For more information, see [How to enable system-assigned managed identity for Azure Spring Cloud application](~/articles/spring-cloud/spring-cloud-howto-enable-system-assigned-managed-identity.md).
 
+### Azure Stack Edge
+
+Managed identity type | All Generally Available<br>Global Azure Regions | Azure Government | Azure Germany | Azure China 21Vianet |
+| --- | --- | --- | --- | --- |
+| System assigned | Available in the region where Azure Stack Edge service is available | Not available | Not available | Not available |
+| User assigned | Not available | Not available | Not available | Not available |
 
 ### Azure Virtual Machine Scale Sets
 
@@ -279,6 +285,7 @@ Refer to the following list to configure managed identity for Azure Virtual Mach
 - [Azure CLI](qs-configure-cli-windows-vm.md)
 - [Azure Resource Manager templates](qs-configure-template-windows-vm.md)
 - [REST](qs-configure-rest-vm.md)
+- [Azure SDKs](qs-configure-sdk-windows-vm.md)
 
 
 ### Azure VM Image Builder

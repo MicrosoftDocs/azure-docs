@@ -156,7 +156,7 @@ Azure Container Instances virtual nodes that run the Linux OS are shown after th
 
 From an expanded node, you can drill down from the pod or container that runs on the node to the controller to view performance data filtered for that controller. Select the value under the **Controller** column for the specific node.
 
-![Example drill-down from node to controller in the performance view](./media/container-insights-analyze/drill-down-node-controller.png)
+![Screenshot shows the drill-down from node to controller in the performance view](./media/container-insights-analyze/drill-down-node-controller.png)
 
 Select controllers or containers at the top of the page to review the status and resource utilization for those objects. To review memory utilization, in the **Metric** drop-down list, select **Memory RSS** or **Memory working set**. **Memory RSS** is supported only for Kubernetes version 1.8 and later. Otherwise, you view values for **Min&nbsp;%** as *NaN&nbsp;%*, which is a numeric data type value that represents an undefined or unrepresentable value.
 

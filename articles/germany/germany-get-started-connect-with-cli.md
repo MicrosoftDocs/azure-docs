@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/12/2019
 ms.author: ralfwi
-ms.custom: devx-track-javascript, devx-track-azurecli
+ms.custom: devx-track-js, devx-track-azurecli
 
 ---
 

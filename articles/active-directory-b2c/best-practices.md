@@ -52,7 +52,6 @@ During the implementation phase, consider the following recommendations.
 | Learn how to troubleshoot Azure AD B2C | Learn how to [troubleshoot custom policies](https://docs.microsoft.com/azure/active-directory-b2c/troubleshoot-custom-policies?tabs=applications) during development. Learn what a normal authentication flow looks like and use tools for discovering anomalies and errors. For example, use [Application Insights](troubleshoot-with-application-insights.md) to review output logs of user journeys. |
 | Leverage our library of proven custom policy patterns | Find [samples](https://github.com/azure-ad-b2c/samples) for several enhanced Azure AD B2C customer identity and access management (CIAM) user journeys. |
 
-
 ## Testing
 
 Test and automate your Azure AD B2C implementation.
@@ -75,11 +74,10 @@ Manage your Azure AD B2C environment.
 |--|--|
 | Create multiple environments | For easier operations and deployment roll-out, create separate environments for development, testing, pre-production, and production. Create Azure AD B2C tenants for each. |
 | Use version control for your custom policies | Consider using GitHub, Azure Repos, or another cloud-based version control system for your Azure AD B2C custom policies. |
-| Use the Microsoft Graph API to automate the management of your B2C tenants | Microsoft Graph APIs:<br/>Manage [Identity Experience Framework](https://docs.microsoft.com/graph/api/resources/trustframeworkpolicy?view=graph-rest-beta) (custom policies)<br/>[Keys](https://docs.microsoft.com/graph/api/resources/trustframeworkkeyset?view=graph-rest-beta)<br/>[User Flows](https://docs.microsoft.com/graph/api/resources/identityuserflow?view=graph-rest-beta) |
+| Use the Microsoft Graph API to automate the management of your B2C tenants | Microsoft Graph APIs:<br/>Manage [Identity Experience Framework](https://docs.microsoft.com/graph/api/resources/trustframeworkpolicy?view=graph-rest-beta&preserve-view=true) (custom policies)<br/>[Keys](https://docs.microsoft.com/graph/api/resources/trustframeworkkeyset?view=graph-rest-beta&preserve-view=true)<br/>[User Flows](https://docs.microsoft.com/graph/api/resources/identityuserflow?view=graph-rest-beta&preserve-view=true) |
 | Integrate with Azure DevOps | A [CI/CD pipeline](deploy-custom-policies-devops.md) makes moving code between different environments easy and ensures production readiness at all times.   |
 | Integrate with Azure Monitor | [Audit log events](view-audit-logs.md) are only retained for seven days. [Integrate with Azure Monitor](azure-monitor.md) to retain the logs for long-term use, or integrate with third-party security information and event management (SIEM) tools to gain insights into your environment. |
 | Setup active alerting and monitoring | [Track user behavior](active-directory-b2c-custom-guide-eventlogger-appins.md) in Azure AD B2C using Application Insights. |
-
 
 ## Support and Status Updates
 

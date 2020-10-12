@@ -100,7 +100,7 @@ To turn on debug, click the **Data flow debug** slider in the factory top bar. C
 
 ## Ingest data using the copy activity
 
-In this section, you'll create a pipeline with a copy activity that ingests one table from an Azure SQL DB into an ADLS Gen2 storage account. You'll learn how to add a pipeline, configure a dataset and debug a pipeline via the ADF UX. The configuration pattern used in this section can be applies to copying from a relational data store to a file-based data store.
+In this section, you'll create a pipeline with a copy activity that ingests one table from an Azure SQL DB into an ADLS Gen2 storage account. You'll learn how to add a pipeline, configure a dataset and debug a pipeline via the ADF UX. The configuration pattern used in this section can be applied to copying from a relational data store to a file-based data store.
 
 In Azure Data Factory, a pipeline is a logical grouping of activities that together perform a task. An activity defines an operation to perform on your data. A dataset points to the data you wish to use in a linked service.
 

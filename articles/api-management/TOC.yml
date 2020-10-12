@@ -11,10 +11,17 @@
 - name: Quickstarts
   expanded: true
   items:
+      - name: Create an instance - CLI
+        href: get-started-create-service-instance-cli.md
       - name: Create an instance - Portal
         href: get-started-create-service-instance.md
       - name: Create an instance - PowerShell
         href: powershell-create-service-instance.md
+      - name: Create an instance - Visual Studio Code
+        href: vscode-create-service-instance.md
+      - name: Create an instance - ARM template
+        displayName: Resource Manager
+        href: quickstart-arm-template.md
 - name: Tutorials
   items:
       - name: 1 - Import your first API
@@ -54,7 +61,7 @@
       - name: Security
         items:
             - name: Security baseline
-              href: security-baseline.md        
+              href: security-baseline.md
             - name: Built-in security controls
               href: api-management-security-controls.md
       - name: Subscriptions
@@ -194,6 +201,8 @@
         items:
             - name: Set or edit policies
               href: set-edit-policies.md
+            - name: Debug policies
+              href: api-management-debug-policies.md
             - name: Policy expressions
               href: api-management-policy-expressions.md
             - name: Custom caching
@@ -218,6 +227,8 @@
               href: api-management-cross-domain-policies.md
             - name: Transformation policies
               href: api-management-transformation-policies.md
+            - name: Distributed Application Runtime (Dapr) integration policies
+              href: api-management-dapr-policies.md
       - name: Manage in production
         items:
             - name: Export APIs to the Power Platform

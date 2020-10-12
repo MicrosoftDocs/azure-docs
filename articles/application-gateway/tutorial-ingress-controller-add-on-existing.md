@@ -1,11 +1,11 @@
 ---
-title: Enable Ingress Controller Add-On for existing AKS cluster with existing Azure Application Gateway 
+title: 'Tutorial: Enable Ingress Controller Add-On for existing AKS cluster with existing Azure Application Gateway'
 description: Use this tutorial to enable the Ingress Controller Add-On for your existing AKS cluster with an existing Application Gateway
 services: application-gateway
 author: caya
 ms.service: application-gateway
 ms.topic: tutorial
-ms.date: 06/10/2020
+ms.date: 09/24/2020
 ms.author: caya
 ---
 
@@ -23,6 +23,8 @@ In this tutorial, you learn how to:
 > * Peer the Application Gateway virtual network with the AKS cluster virtual network
 > * Deploy a sample application using AGIC for Ingress on the AKS cluster
 > * Check that the application is reachable through Application Gateway
+
+## Prerequisites
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
@@ -146,7 +148,6 @@ az group delete --name myResourceGroup
 ```
 
 ## Next steps
-* [Learn more about disabling the AGIC add-on](./ingress-controller-disable-addon.md)
-* [Learn more about which annotations are supported with AGIC](./ingress-controller-annotations.md)
-* [Troubleshoot issues with AGIC](./ingress-controller-troubleshoot.md)
 
+> [!div class="nextstepaction"]
+> [Learn more about disabling the AGIC add-on](./ingress-controller-disable-addon.md)

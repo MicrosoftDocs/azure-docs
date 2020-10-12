@@ -26,7 +26,7 @@ In this tutorial, you'll learn how to integrate Fivetran with Azure Active Direc
 To get started, you need the following items:
 
 * An Azure AD subscription. If you don't have a subscription, you can get a [free account](https://azure.microsoft.com/free/).
-* Fivetran single sign-on (SSO) enabled subscription.
+* A Fivetran account.
 
 ## Scenario description
 
@@ -91,7 +91,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 	![The Certificate download link](common/certificatebase64.png)
 
-1. On the **Set up Fivetran** section, copy the appropriate URL(s) based on your requirement.
+1. On the **Set up Fivetran** section, copy the **Login URL** and **Azure Ad Identifier** values.
 
 	![Copy configuration URLs](common/copy-configuration-urls.png)
 
@@ -121,7 +121,22 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 ## Configure Fivetran SSO
 
-To configure single sign-on on **Fivetran** side, you need to send the downloaded **Certificate (Base64)** and appropriate copied URLs from Azure portal to [Fivetran support team](mailto:support@fivetran.com). They set this setting to have the SAML SSO connection set properly on both sides.
+In this section, you'll configure single sign-on on the **Fivetran** side.
+
+1. In a different web browser window, sign in to your Fivetran account as the account owner.
+1. Select the arrow in the top left corner of the window, and then select **Manage Account** from the drop-down list.
+
+   ![Screenshot that shows the Manage Account menu option selected.](media/fivetran-tutorial/fivetran-1.png)
+
+1. Go to the **SAML Config** section of the **Settings** page.
+
+   ![Screenshot that shows the SAML Config pane with configuration options highlighted.](media/fivetran-tutorial/fivetran-2.png)
+
+   1. For **Enable SAML authentication**, select **ON**.
+   1. In **Sign on URL**, paste the value of **Login URL**, which you copied from the Azure portal.
+   1. In **Issuer**, paste the value of **Azure Ad Identifier**, which you copied from the Azure portal.
+   1. Open your downloaded certificate file in a text editor, copy the certificate into your clipboard, and then paste it to in the **Public certificate** text box.
+   1. Select **SAVE CONFIG**.
 
 ### Create Fivetran test user
 

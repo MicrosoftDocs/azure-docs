@@ -8,6 +8,7 @@
     - name: What is Azure HDInsight?
       href: ./hdinsight-overview.md
   - name: Tutorials
+    expanded: true
     items:
       - name: Create HDInsight clusters
         href: ./hdinsight-hadoop-provision-linux-clusters.md
@@ -63,8 +64,14 @@
       href: ./hdinsight-capacity-planning.md
     - name: Cluster management best practices
       href: ./cluster-management-best-practices.md
-    - name: Availability and reliability
-      href: ./hdinsight-high-availability-linux.md
+    - name: Business continuity
+      items:
+        - name: Business continuity overview
+          href: hdinsight-business-continuity.md
+        - name: Business continuity architecture
+          href: ./hdinsight-business-continuity-architecture.md
+        - name: High availability case study
+          href: ./hdinsight-high-availability-case-study.md
     - name: Understand managed identities
       href: ./hdinsight-managed-identities.md
     - name: Compare storage options
@@ -99,12 +106,16 @@
         iconUrl: 
     - name: Use cluster storage
       items:
-      - name: Using Azure Storage
+      - name: Use Azure Storage
         href: hdinsight-hadoop-use-blob-storage.md
-      - name: Using Azure Data Lake Storage Gen2
+      - name: Use Data Lake Storage Gen2
         href: hdinsight-hadoop-use-data-lake-storage-gen2.md
-      - name: Using Azure Data Lake Storage Gen1
-        href: hdinsight-hadoop-use-data-lake-store.md
+      - name: Use Data Lake Storage Gen2 in the portal
+        href: hdinsight-hadoop-use-data-lake-storage-gen2-portal.md
+      - name: Use Data Lake Storage Gen2 with Azure CLI
+        href: hdinsight-hadoop-use-data-lake-storage-gen2-azure-cli.md
+      - name: Use Data Lake Storage Gen1
+        href: hdinsight-hadoop-use-data-lake-storage-gen1.md
     - name: Extend clusters
       items:
       - name: Install HDInsight apps
@@ -392,14 +403,20 @@
           href: ./spark/apache-spark-analyze-application-insight-logs.md
     - name: Manage
       items:
+      - name: Manage dependencies
+        items:
+        - name: Manage Spark application dependencies
+          href: ./spark/apache-spark-manage-dependencies.md
+        - name: Safely manage jar dependencies
+          href: ./spark/safely-manage-jar-dependency.md
+        - name: Safely manage Python environment
+          href: ./spark/apache-spark-python-package-installation.md
       - name: Manage cluster resources
         href: ./spark/apache-spark-resource-manager.md
       - name: Manage Apache Spark applications using extended History Server
         href: ./spark/apache-azure-spark-history-server.md
       - name: Enable caching with IO Cache
         href: ./spark/apache-spark-improve-performance-iocache.md
-      - name: Manage Jar dependencies
-        href: ./spark/manage-jar-dependency.md
       - name: Use notebooks with Apache Spark
         items: 
         - name: Use a local Jupyter notebook
@@ -408,8 +425,6 @@
           href: ./spark/apache-spark-jupyter-notebook-kernels.md
         - name: Use external packages with Jupyter using cell magic
           href: ./spark/apache-spark-jupyter-notebook-use-external-packages.md
-        - name: Safely manage Python environment on Azure HDInsight using Script Action
-          href: ./spark/apache-spark-python-package-installation.md
         - name: Use Apache Zeppelin notebooks
           href: ./spark/apache-spark-zeppelin-notebook.md
       - name: Use with other Azure services
@@ -752,6 +767,8 @@
       href: ./interactive-query/gateway-best-practices.md
     - name: Sizing guidelines
       href: ./interactive-query/sizing-guidelines.md
+    - name: Hive replication
+      href: ./interactive-query/apache-hive-replication.md
   - name: How-to guides
     items:
     - name: Develop

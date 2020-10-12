@@ -12,7 +12,7 @@ ms.custom: devx-track-csharp
 
 # Customer intent: As a developer I want storage credentials and SAS tokens to be managed securely by Azure Key Vault.
 ---
-# Fetch shared access signature tokens in code
+# Create SAS definition and fetch shared access signature tokens in code
 
 You can manage your storage account with shared access signature (SAS) tokens stored in your key vault. For more information, see [Grant limited access to Azure Storage resources using SAS](../../storage/common/storage-sas-overview.md).
 
@@ -37,9 +37,12 @@ Once the SAS definition is created, you can retrieve SAS tokens like secrets usi
 
 If your shared access signature token is about to expire, you can fetch the same secret again to generate a new one.
 
+For guide on how to use retrieved from Key Vault SAS token to access Azure Storage services, see [Use an account SAS to access Blob service](https://docs.microsoft.com/azure/storage/common/storage-account-sas-create-dotnet#use-an-account-sas-from-a-client)
+
+> [!NOTE]
+> Your app needs to be prepared to refresh the SAS if it gets a 403 from Storage so that you can handle the case where a key was compromised and you need to rotate them faster than the normal rotation period. 
+
 ## Next steps
 - Learn how to [Grant limited access to Azure Storage resources using SAS](../../storage/common/storage-sas-overview.md).
 - Learn how to [Manage storage account keys with Key Vault and the Azure CLI](overview-storage-keys.md) or [Azure PowerShell](overview-storage-keys-powershell.md).
-- See the full [ShareLink](https://docs.microsoft.com/samples/azure/azure-sdk-for-net/share-link/) sample.
-- More [Key Vault samples](https://docs.microsoft.com/samples/browse/?expanded=azure&products=azure-key-vault)
 - See [Managed storage account key samples](https://github.com/Azure-Samples?utf8=%E2%9C%93&q=key+vault+storage&type=&language=)

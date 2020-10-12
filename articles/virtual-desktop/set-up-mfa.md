@@ -3,7 +3,7 @@ title: Set up Azure Multi-Factor Authentication for Windows Virtual Desktop - Az
 description: How to set up Azure Multi-Factor Authentication for increased security in Windows Virtual Desktop.
 author: Heidilohr
 ms.topic: how-to
-ms.date: 08/27/2020
+ms.date: 09/14/2020
 ms.author: helohr
 manager: lizross
 ---
@@ -42,10 +42,19 @@ Here's how to create a Conditional Access policy that requires multi-factor auth
 7. Select **Done**.
 8. Under **Cloud apps or actions** > **Include**, select **Select apps**.
 9. Select one of the following apps based on which version of Windows Virtual Desktop you're using.
-   - If you're using Windows Virtual Desktop (classic), choose this app:
+   
+   - If you're using Windows Virtual Desktop (classic), choose these apps:
+       
        - **Windows Virtual Desktop** (App ID 5a0aa725-4958-4b0c-80a9-34562e23f3b7)
+       - **Windows Virtual Desktop Client** (App ID fa4345a4-a730-4230-84a8-7d9651b86739), which will let you set policies on the web client
+       
+        After that, skip ahead to step 11.
+
    - If you're using Windows Virtual Desktop, choose this app instead:
+       
        -  **Windows Virtual Desktop** (App ID 9cdead84-a844-4324-93f2-b2e6bb768d07)
+       
+        After that, go to step 10.
 
    >[!IMPORTANT]
    > Don't select the app called Windows Virtual Desktop Azure Resource Manager Provider (50e95039-b200-4007-bc97-8d5790743a63). This app is only used for retrieving the user feed and shouldn't have MFA.

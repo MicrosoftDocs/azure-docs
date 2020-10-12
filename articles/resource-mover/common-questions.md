@@ -5,7 +5,7 @@ author: rayne-wiselman
 manager: evansma
 ms.service: resource-move
 ms.topic: conceptual
-ms.date: 09/07/2020
+ms.date: 09/14/2020
 ms.author: raynew
 
 ---
@@ -20,7 +20,13 @@ This article answers common questions about [Azure Resource Mover](overview.md).
 
 Resource Mover is currently in public preview. Production workloads are supported.
 
-## Region move
+
+
+## Moving across regions
+
+### Can I move resources across any regions?
+
+Currently, you can move resources from any source public region to any target public region, depending on the [resource types available in that region](https://azure.microsoft.com/global-infrastructure/services/). Moving resources in Azure Government regions isn't currently supported.
 
 ### What resources can I move across regions using Resource Mover?
 
@@ -31,13 +37,18 @@ Using Resource Mover, you can currently move the following resources across regi
 - Availability sets 
 - Azure virtual networks 
 - Public IP addresses
-Network security groups (NSGs)
+- Network security groups (NSGs)
 - Internal and public load balancers 
 - Azure SQL databases and elastic pools
 
-### Where is the metadata about a region move stored?
 
-It's stored in an [Azure Cosmos](../cosmos-db/database-encryption-at-rest.md) database, and in [Azure blob storage](../storage/common/storage-service-encryption.md), in a Microsoft subscription.
+### Can I move resources across subscriptions when I move them across regions?
+
+You can change the subscription after moving resources to the destination region. [Learn more](../azure-resource-manager/management/move-resource-group-and-subscription.md) about moving resources to a different subscription. 
+
+### Where is the metadata for moving across regions stored?
+
+It's stored in an [Azure Cosmos](../cosmos-db/database-encryption-at-rest.md) database, and in [Azure blob storage](../storage/common/storage-service-encryption.md), in a Microsoft subscription. Currently metadata is stored in East US 2 and North Europe. We will expand this coverage to other regions. This doesn't restrict you from moving resources across any public regions.
 
 ### Is the collected metadata encrypted?
 
@@ -75,6 +86,9 @@ Resource Mover managed identity doesn't have the required role. | Add the 'Contr
 Resource Mover managed identity was reset to *None*. | Reenable a system-assigned identity in the move collection > **Identity**. Alternatively, add the resource again in **Add resources**, which does the same thing.  
 Subscription was moved to a different tenant. | Disable and then enable managed identity for the move collection.
 
+### How can I do multiple moves together?
+
+Change the source/target combinations as needed using the change option in the portal.
 
 ## Next steps
 

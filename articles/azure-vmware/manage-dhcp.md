@@ -6,7 +6,7 @@ ms.date: 05/04/2020
 ---
 # How to create and manage DHCP in Azure VMWare Solution
 
-NSX-T provides the ability to configure DHCP for your private cloud. If you plan to use NSX-T to host your DHCP server, see [Create DHCP server](#create-dhcp-server). Otherwise, if you have a 3rd party external DHCP server in your network and you want to relay requests to that DHCP server, see [Create DHCP relay service](#create-dhcp-relay-service).
+NSX-T provides the ability to configure DHCP for your private cloud. If you plan to use NSX-T to host your DHCP server, see [Create DHCP server](#create-dhcp-server). Otherwise, if you have a third-party external DHCP server in your network and you want to relay requests to that DHCP server, see [Create DHCP relay service](#create-dhcp-relay-service).
 
 ## Create DHCP server
 
@@ -18,7 +18,7 @@ From NSX manager, navigate to the **Networking** tab and select **DHCP** under *
 
 ### Connect DHCP server to the Tier-1 gateway.
 
-1. Select **Tier 1 Gateways**, select the gateway and select **Edit**
+1. Select **Tier 1 Gateways**, the gateway, and then select **Edit**
 
    :::image type="content" source="./media/manage-dhcp/edit-tier-1-gateway.png" alt-text="select the gateway to use" border="true":::
 
