@@ -16398,11 +16398,6 @@
       "redirect_document_id": false
     },
     {
-      "source_path": "articles/documentdb/documentdb-change-feed.md",
-      "redirect_url": "/azure/cosmos-db/change-feed",
-      "redirect_document_id": false
-    },
-    {
       "source_path": "articles/documentdb/table-powershell.md",
       "redirect_url": "/azure/cosmos-db/table-introduction",
       "redirect_document_id": false
