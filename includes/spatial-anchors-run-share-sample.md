@@ -66,7 +66,7 @@ Replace the `index.html` in the URL with `api/anchors`. It should look like this
 
 On the **Project** pane, go to `Assets\AzureSpatialAnchors.Examples\Resources`. 
 
-Select **SpatialAnchorSamplesConfig** and then, in the **Inspector** pane, enter the `Sharing Anchors Service` URL (from your ASP.NET web app Azure deployment) as the value for `Base Sharing Url`, replacing `index.html` with `api/anchors`. It should look like this: `https://<app_name>.azurewebsites.net/api/anchors`.
+Select **SpatialAnchorSamplesConfig**. Then, in the **Inspector** pane, enter the `Sharing Anchors Service` URL (from your ASP.NET web app Azure deployment) as the value for `Base Sharing Url`. Replace `index.html` with `api/anchors`. It should look like this: `https://<app_name>.azurewebsites.net/api/anchors`.
 
 Save the scene by selecting **File** > **Save**.
 
