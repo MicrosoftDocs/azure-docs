@@ -8,4 +8,4 @@ ms.reviewer: jroth
 ---
 
 > [!NOTE]
-> Customers on SQL Server 2019 CU8 and later on Windows 2016 and later can replace the traditional VNN listener and Azure Load Balancer with a [distributed network name (DNN) listener (Preview)](../virtual-machines/windows/availability-group-distributed-network-name-dnn-listener-configure.md) instead. Skip the rest of the steps in this article for creating the listener and load balancer.
+> Customers on SQL Server 2019 CU8 and later on Windows 2016 and later can replace the traditional VNN listener and Azure Load Balancer with a [distributed network name (DNN) listener (Preview)](../virtual-machines/windows/availability-group-distributed-network-name-dnn-listener-configure.md) instead. Skip the rest of the steps in this article that create the listener and load balancer.
