@@ -48,12 +48,12 @@ Get started with ML model lift and shift to ONNX runtime [here](https://aka.ms/c
 
 ## Container Samples Implementations
 
-[Azure samples for enclave aware containers on AKS](https://github.com/Azure-Samples/enclave-aware-container-samples)
+[Azure samples for enclave aware containers on AKS](https://github.com/Azure-Samples/confidential-computing/tree/main/containersamples)
 
 <!-- LINKS - external -->
-[Azure Attestation]: https://docs.microsoft.com/en-us/azure/attestation/
+[Azure Attestation](https://docs.microsoft.com/en-us/azure/attestation/)
 
 
 <!-- LINKS - internal -->
-[DC Virtual Machine]: /confidential-computing/virtual-machine-solutions
-[Confidential Containers]: /confidential-computing/containercompute/confidential-containers
+[DC Virtual Machine](/confidential-computing/virtual-machine-solutions)
+[Confidential Containers](/confidential-computing/containercompute/confidential-containers)
