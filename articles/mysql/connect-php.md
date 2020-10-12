@@ -40,13 +40,14 @@ Get the connection information needed to connect to the Azure Database for MySQL
 > [!IMPORTANT]
 > If you forgot your password, you can [reset the password](./howto-create-manage-server-portal.md#update-admin-password).
  
-## Connect and create a table
-Use the following code to connect and create a table by using **CREATE TABLE** SQL statement.
+## Step 1 : Connect with MySQLi and Create a Table
+Use the following code to connect and create a table by using **CREATE TABLE** SQL statement. This code calls: 
+- [mysqli_init](https://secure.php.net/manual/mysqli.init.php) to initialize MySQLi.
+- [mysqli_real_connect](https://secure.php.net/manual/mysqli.real-connect.php) to connect to MySQL.
+- [mysqli_query](https://secure.php.net/manual/mysqli.query.php) to run the query. 
+- [mysqli_close](https://secure.php.net/manual/mysqli.close.php) to close the connection.
 
-The code uses the **MySQL Improved extension** (mysqli) class included in PHP. The code calls methods [mysqli_init](https://secure.php.net/manual/mysqli.init.php) and [mysqli_real_connect](https://secure.php.net/manual/mysqli.real-connect.php) to connect to MySQL. Then it calls method
-[mysqli_query](https://secure.php.net/manual/mysqli.query.php) to run the query. Then it calls method [mysqli_close](https://secure.php.net/manual/mysqli.close.php) to close the connection.
-
-Replace the host, username, password, and db_name parameters with your own values.
+**Replace the host, username, password, and db_name parameters with your own values**
 
 ```php
 <?php
@@ -61,6 +62,7 @@ mysqli_real_connect($conn, $host, $username, $password, $db_name, 3306);
 if (mysqli_connect_errno($conn)) {
 die('Failed to connect to MySQL: '.mysqli_connect_error());
 }
+
 
 // Run the create table query
 if (mysqli_query($conn, '
@@ -81,27 +83,17 @@ mysqli_close($conn);
 ```
 
 ## Insert data
-Use the following code to connect and insert data by using an **INSERT** SQL statement.
-
-The code uses the **MySQL Improved extension** (mysqli) class included in PHP. The code uses method [mysqli_prepare](https://secure.php.net/manual/mysqli.prepare.php) to create a prepared insert statement, then binds the parameters for each inserted column value using method [mysqli_stmt_bind_param](https://secure.php.net/manual/mysqli-stmt.bind-param.php). The code runs the statement by using method [mysqli_stmt_execute](https://secure.php.net/manual/mysqli-stmt.execute.php) and afterwards closes the statement by using method [mysqli_stmt_close](https://secure.php.net/manual/mysqli-stmt.close.php).
+Use the following code to connect and insert data by using an **INSERT** SQL statement. This code uses the methods:
+- [mysqli_prepare](https://secure.php.net/manual/mysqli.prepare.php) to create a prepared insert statement
+- [mysqli_stmt_bind_param](https://secure.php.net/manual/mysqli-stmt.bind-param.php) to bind the parameters for each inserted column value.
+- [mysqli_stmt_execute](https://secure.php.net/manual/mysqli-stmt.execute.php)
+- [mysqli_stmt_close](https://secure.php.net/manual/mysqli-stmt.close.php) to close the statement by using method
 
 Replace the host, username, password, and db_name parameters with your own values.
 
 ```php
 <?php
-$host = 'mydemoserver.mysql.database.azure.com';
-$username = 'myadmin@mydemoserver';
-$password = 'your_password';
-$db_name = 'your_database';
-
-//Establishes the connection
-$conn = mysqli_init();
-mysqli_real_connect($conn, $host, $username, $password, $db_name, 3306);
-if (mysqli_connect_errno($conn)) {
-die('Failed to connect to MySQL: '.mysqli_connect_error());
-}
-
-//Create an Insert prepared statement and run it
+//Once connection is established ..Create an Insert prepared statement and run it
 $product_name = 'BrandNewProduct';
 $product_color = 'Blue';
 $product_price = 15.5;
