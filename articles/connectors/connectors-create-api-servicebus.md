@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: logicappspm
 ms.topic: conceptual
-ms.date: 09/14/2020
+ms.date: 10/12/2020
 tags: connectors
 ---
 
@@ -78,7 +78,7 @@ Confirm that your logic app has permissions for accessing your Service Bus names
    Some triggers, such as the **When one or more messages arrive in a queue (auto-complete)** trigger, can return one or more messages. When these triggers fire, they return between one and the number of messages that's specified by the trigger's **Maximum message count** property.
 
     > [!NOTE]
-    > The auto-complete trigger automatically completes a message, but completion happens only at the next trigger run. This behavior can affect your logic app's design. For example, avoid changing the concurrency on the auto-complete trigger because this change might result in duplicate messages if your logic app enters a throttled state. Changing the concurrency control creates these conditions: throttled triggers are skipped with the `WorkflowRunInProgress` code, the completion operation won't happen, and next trigger run occurs after the polling interval. You have to set the service bus lock duration to a value that's longer than the polling interval. However, despite this setting, the message still might not complete if your logic app remains in a throttled state at next polling interval.
+    > The auto-complete trigger automatically completes a message, but completion happens only at the subsequent call to Service Bus. This behavior can affect your logic app's design. For example, avoid changing the concurrency on the auto-complete trigger because this change might result in duplicate messages if your logic app enters a throttled state. Changing the concurrency control creates these conditions: throttled triggers are skipped with the `WorkflowRunInProgress` code, the completion operation won't happen, and next trigger run occurs after the polling interval. You have to set the service bus lock duration to a value that's longer than the polling interval. However, despite this setting, the message still might not complete if your logic app remains in a throttled state at next polling interval.
 
 1. If your trigger is connecting to your Service Bus namespace for the first time, follow these steps when the Logic App Designer prompts you for connection information.
 
@@ -161,6 +161,10 @@ Confirm that your logic app has permissions for accessing your Service Bus names
 When you need to send related messages in a specific order, you can use the [*sequential convoy* pattern](/azure/architecture/patterns/sequential-convoy) by using the [Azure Service Bus connector](../connectors/connectors-create-api-servicebus.md). Correlated messages have a property that defines the relationship between those messages, such as the ID for the [session](../service-bus-messaging/message-sessions.md) in Service Bus.
 
 When you create a logic app, you can select the **Correlated in-order delivery using service bus sessions** template, which implements the sequential convoy pattern. For more information, see [Send related messages in order](../logic-apps/send-related-messages-sequential-convoy.md).
+
+## Update a logic app with Service Bus connector trigger
+
+If the trigger polling interval is small (e.g 10 seconds), it can take up to 10 minutes before an update to the logic app take effect. You can temporarily increase the polling interval to a larger value like 1 minute, then make update to the logic app.  Once the update is done, you can reset the polling interval back to its original value. 
 
 <a name="connector-reference"></a>
 
