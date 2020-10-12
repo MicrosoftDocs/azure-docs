@@ -242,7 +242,7 @@ Distributed transactions are supported across different servers in Azure SQL Man
 
   ![Server Trust Groups on Azure Portal][3]
 
-Following diagram shows multiple Managed Instances within Server Trust Group as an entity that can execute distributed transactions with .NET or Transact-SQL.
+Following diagram shows Server Trust Group with Managed Instances that can execute distributed transactions with .NET or Transact-SQL.
   ![Distributed transactions with Azure SQL Managed Instance using elastic transactions][2]
 
 ## Monitoring transaction status
