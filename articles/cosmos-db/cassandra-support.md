@@ -146,6 +146,7 @@ Azure Cosmos DB supports the following database commands on Cassandra API accoun
 | CREATE USER (Deprecated in native Apache Cassandra) | No |
 | DELETE | Yes |
 | DELETE (lightweight transactions with IF CONDITION)| Yes |
+| DISTINCT | No |
 | DROP AGGREGATE | No |
 | DROP FUNCTION | No |
 | DROP INDEX | Yes |
