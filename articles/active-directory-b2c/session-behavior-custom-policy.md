@@ -44,9 +44,9 @@ To change your session behavior and SSO configurations, you add a **UserJourneyB
 
 ### Secure your logout redirect
 
-After logout, the user is redirected to the URI specified in the `post_logout_redirect_uri` parameter, regardless of the reply URLs that have been specified for the application. However, if a valid `id_token_hint` is passed and the **Require ID Token in logout requests** is turn on, Azure AD B2C verifies that the value of `post_logout_redirect_uri` matches one of the application's configured redirect URIs before performing the redirect. If no matching reply URL was configured for the application, an error message is displayed and the user is not redirected. 
+After logout, the user is redirected to the URI specified in the `post_logout_redirect_uri` parameter, regardless of the reply URLs that have been specified for the application. However, if a valid `id_token_hint` is passed and the **Require ID Token in logout requests** is turned on, Azure AD B2C verifies that the value of `post_logout_redirect_uri` matches one of the application's configured redirect URIs before performing the redirect. If no matching reply URL was configured for the application, an error message is displayed and the user is not redirected. 
 
-To require ID Token in logout requests, add a **UserJourneyBehaviors** element inside of the [RelyingParty](relyingparty.md) element. Then set the **EnforceIdTokenHintOnLogout** of the **SingleSignOn** element to `true`. Your **UserJourneyBehavors** element should look like this example:
+To require an ID Token in logout requests, add a **UserJourneyBehaviors** element inside of the [RelyingParty](relyingparty.md) element. Then set the **EnforceIdTokenHintOnLogout** of the **SingleSignOn** element to `true`. Your **UserJourneyBehaviors** element should look like this example:
 
 ```xml
 <UserJourneyBehaviors>
@@ -60,8 +60,8 @@ To configure your application Logout URL:
 1. Make sure you're using the directory that contains your Azure AD B2C tenant by selecting the **Directory + subscription** filter in the top menu and choosing the directory that contains your Azure AD B2C tenant.
 1. Choose **All services** in the top-left corner of the Azure portal, and then search for and select **Azure AD B2C**.
 1. Select **App registrations**, and then select your application.
-1. Select **Authentication**
-1. In the **Logout URL** text box, type your post logout redirect URI. And select **Save**.
+1. Select **Authentication**.
+1. In the **Logout URL** text box, type your post logout redirect URI, and then select **Save**.
 
 ### Single sign-out
 
@@ -72,8 +72,8 @@ When you redirect the user to the Azure AD B2C sign-out endpoint (for both OAuth
 1. Navigate to the [Azure portal](https://portal.azure.com).
 1. Choose your Azure AD B2C directory by clicking your account in the top right corner of the page.
 1. In the left menu, choose **Azure AD B2C**, select **App registrations**, and then select your application.
-1. Select **Authentication**
-1. In the **Logout URL** text box, type your post logout redirect URI. And select **Save**.
+1. Select **Authentication**.
+1. In the **Logout URL** text box, type your post logout redirect URI, and then select **Save**.
 
 #### Configure the token issuer 
 
