@@ -12,7 +12,7 @@ ms.author: alkohli
 ms.custom: devx-track-csharp
 ---
 
-# Develop a C# IoT Edge module to move files on Azure Stack Edge Pro
+# Develop a C# IoT Edge module to move files with Azure Stack Edge Pro
 
 This article steps you through how to create an IoT Edge module for deployment with your Azure Stack Edge Pro device. Azure Stack Edge Pro is a storage solution that allows you to process data and send it over network to Azure.
 
