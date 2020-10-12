@@ -148,7 +148,7 @@ You can use Azure Security Center's Just In Time Network access to limit exposur
 
 * [Learn about virtual machine scale set templates](./virtual-machine-scale-sets-mvss-start.md)
 
-* [Azure Policy samples for networking](../governance/policy/samples/index.md#network)
+* [Azure Policy samples for networking](../governance/policy/samples/built-in-policies.md#network)
 
 * [How to create an Azure Blueprint](../governance/blueprints/create-blueprint-portal.md)
 
@@ -182,7 +182,7 @@ Use Azure Policy to validate (and/or remediate) configurations for network resou
 
 * [How to configure and manage Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
-* [Azure Policy samples for networking](../governance/policy/samples/index.md#network)
+* [Azure Policy samples for networking](../governance/policy/samples/built-in-policies.md#network)
 
 **Azure Security Center monitoring**: Currently not available
 
