@@ -25,7 +25,7 @@ Certificates encrypt web traffic. These TLS/SSL certificates can be stored in Az
 
 ## Import certificate
 ### Prepare your certificate file in PFX (optional)
-Azure Key Vault support importing private certificate in PEM and PFX format. If the PEM file you obtained from your certificate provider doesn't work in [section below](#save-certificate-in-key-vault), follow the steps here to generate a PFX for Azure Key Valut.
+Azure Key Vault support importing private certificate in PEM and PFX format. If the PEM file you obtained from your certificate provider doesn't work in section below: [Save certificate in Key Vault](#save-certificate-in-key-vault), follow the steps here to generate a PFX for Azure Key Valut.
 
 #### Merge intermediate certificates
 
@@ -137,7 +137,7 @@ az spring-cloud certificate list --resource-group <resource group name> --servic
 ---
 
 > [!IMPORTANT] 
-> To secure a custom domain with this certificate, you still need to bind the certificate to a specific domain. Follow the steps in this document under the heading **Add SSL Binding**.
+> To secure a custom domain with this certificate, you still need to bind the certificate to a specific domain. Follow the steps in this section: [Add SSL Binding](#add-ssl-binding).
 
 ## Add Custom Domain
 You can use a CNAME record to map a custom DNS name to Azure Spring Cloud. 
