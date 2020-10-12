@@ -98,11 +98,11 @@ Make sure that anyone needing to use a licensed Azure AD service has the appropr
 
 1. On the **Assign** page, select **Users and groups**, and then search for and select the group you're assigning the license.
 
-    ![Assign license page, with highlighted search and Select options](media/license-users-groups/assign-group-license-blade-with-highlight.png)
+    ![Assign license page, with highlighted search and Select options 2](media/license-users-groups/assign-group-license-blade-with-highlight.png)
 
 1. Select **Assignment options**, make sure you have the appropriate license options turned on, and then select **OK**.
 
-    ![License option page, with all options available in the license plan](media/license-users-groups/license-option-blade-group-assignments.png)
+    ![License option page, with all options available in the license plan 2](media/license-users-groups/license-option-blade-group-assignments.png)
 
     The **Assign license** page updates to show that a user is selected and that the assignments are configured.
 
