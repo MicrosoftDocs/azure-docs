@@ -53,13 +53,13 @@ Clustering is enabled on the **New Azure Cache for Redis** blade during cache cr
 
     :::image type="content" source="media/cache-how-to-premium-clustering/redis-cache-clustering.png" alt-text="Clustering toggle.":::
 
-You can have up to 10 shards in the cluster. After clicking **Enable**, slide the slider or type a number between 1 and 10 for **Shard count** and click **OK**.
+    You can have up to 10 shards in the cluster. After clicking **Enable**, slide the slider or type a number between 1 and 10 for **Shard count** and click **OK**.
 
-Each shard is a primary/replica cache pair managed by Azure, and the total size of the cache is calculated by multiplying the number of shards by the cache size selected in the pricing tier.
+    Each shard is a primary/replica cache pair managed by Azure, and the total size of the cache is calculated by multiplying the number of shards by the cache size selected in the pricing tier.
 
-:::image type="content" source="media/cache-how-to-premium-clustering/redis-cache-clustering-selected.png" alt-text="Clustering toggle selected.":::
+    :::image type="content" source="media/cache-how-to-premium-clustering/redis-cache-clustering-selected.png" alt-text="Clustering toggle selected.":::
 
-Once the cache is created you connect to it and use it just like a non-clustered cache, and Redis distributes the data throughout the Cache shards. If diagnostics is [enabled](cache-how-to-monitor.md#enable-cache-diagnostics), metrics are captured separately for each shard and can be [viewed](cache-how-to-monitor.md) in the Azure Cache for Redis blade. 
+    Once the cache is created you connect to it and use it just like a non-clustered cache, and Redis distributes the data throughout the Cache shards. If diagnostics is [enabled](cache-how-to-monitor.md#enable-cache-diagnostics), metrics are captured separately for each shard and can be [viewed](cache-how-to-monitor.md) in the Azure Cache for Redis blade. 
 
 8. Select the **Next: Tags** tab or click the **Next: Tags** button at the bottom of the page.
 
