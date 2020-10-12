@@ -43,9 +43,9 @@ Export the template before deployment or from the history, when:
 
 When exporting from a resource group or resource, the exported template is generated from the [published schemas](https://github.com/Azure/azure-resource-manager-schemas/tree/master/schemas) for each resource type. Occasionally, the schema doesn't have the latest version for a resource type. Check your exported template to make sure it includes the properties you need. If necessary, edit the exported template to use the API version you need.
 
-The export template feature doesn't support exporting Azure Data Factory resources. To learn about how you can export Data Factory resources, see [Copy or clone a data factory in Azure Data Factory](https://aka.ms/exportTemplateViaAdf).
+The export template feature doesn't support exporting Azure Data Factory resources. To learn about how you can export Data Factory resources, see [Copy or clone a data factory in Azure Data Factory](../../data-factory/copy-clone-data-factory.md).
 
-To export resources created through classic deployment model, you must [migrate them to the Resource Manager deployment model](https://aka.ms/migrateclassicresourcetoarm).
+To export resources created through classic deployment model, you must [migrate them to the Resource Manager deployment model](../../virtual-machines/windows/migration-classic-resource-manager-overview.md).
 
 If you get a warning when exporting a template that indicates a resource type wasn't exported, you can still discover the properties for that resource. To learn about the different options for viewing resource properties, see [Discover resource properties](view-resources.md). You can also look at the [Azure REST API](/rest/api/azure/) for the resource type.
 
