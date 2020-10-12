@@ -107,11 +107,11 @@ sourceDiskName=<sourceDiskNameHere>
 sourceRG=<sourceResourceGroupHere>
 targetDiskName=<targetDiskNameHere>
 targetRG=<targetResourceGroupHere>
-targetLocale=<yourTargetLocationHere>
+targetLocation=<yourTargetLocationHere>
 
 sourceDiskSizeBytes=$(az disk show -g $sourceRG -n $sourceDiskName --query '[diskSizeBytes]' -o tsv)
 
-az disk create -g $targetRG -n $targetDiskName -l $targetLocale --for-upload --upload-size-bytes $(($sourceDiskSizeBytes+512)) --sku standard_lrs
+az disk create -g $targetRG -n $targetDiskName -l $targetLocation --for-upload --upload-size-bytes $(($sourceDiskSizeBytes+512)) --sku standard_lrs
 
 targetSASURI=$(az disk grant-access -n $targetDiskName -g $targetRG  --access-level Write --duration-in-seconds 86400 -o tsv)
 
