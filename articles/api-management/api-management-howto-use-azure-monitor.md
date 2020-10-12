@@ -4,18 +4,17 @@ title: Monitor published APIs in Azure API Management | Microsoft Docs
 description: Follow the steps of this tutorial to learn how to monitor your API in Azure API Management.
 services: api-management
 author: vladvino
-manager: cfowler
 
 ms.service: api-management
 ms.workload: mobile
 ms.custom: mvc
 ms.topic: tutorial
-ms.date: 06/15/2018
+ms.date: 10/12/2020
 ms.author: apimpm
 ---
 # Monitor published APIs
 
-With Azure Monitor, you can visualize, query, route, archive, and take actions on the metrics or logs coming from Azure resources.
+With Azure Monitor, you can visualize, query, route, archive, and take actions on the metrics or logs coming from Azure API Management resources.
 
 In this tutorial, you learn how to:
 
@@ -35,18 +34,19 @@ In this tutorial, you learn how to:
 
 ## View metrics of your APIs
 
-API Management emits metrics every minute, giving you near real-time visibility into the state and health of your APIs. Below are the two most frequently used metrics. For a list of all available metrics, please see [supported metrics](../azure-monitor/platform/metrics-supported.md#microsoftapimanagementservice).
+API Management emits [metrics](../azure-monitor/platform/data-platform-metrics.md) every minute, giving you near real-time visibility into the state and health of your APIs. The following are the two most frequently used metrics. For a list of all available metrics, see [supported metrics](../azure-monitor/platform/metrics-supported.md#microsoftapimanagementservice).
 
 * **Capacity** - helps you make decisions about upgrading/downgrading your APIM services. The metric is emitted per minute and reflects the gateway capacity at the time of reporting. The metric ranges from 0-100 calculated based on gateway resources such as CPU and memory utilization.
-* **Requests** - helps you analyze API traffic going through your APIM services. The metric is emitted per minute and reports the number of gateway requests with dimensions including response codes, location, hostname, and errors. 
+* **Requests** - helps you analyze API traffic going through your API Management services. The metric is emitted per minute and reports the number of gateway requests with dimensions including response codes, location, hostname, and errors. 
 
 > [!IMPORTANT]
-> The following metrics have been deprecated as of May 2019 and will be retired in August 2023: Total Gateway Requests, Successful Gateway Requests, Unauthorized Gateway Requests, Failed Gateway Requests, Other Gateway Requests. Please migrate to the Requests metric which provides equivalent functionality.
+> The following metrics have been depr    ecated as of May 2019 and will be retired in August 2023: Total Gateway Requests, Successful Gateway Requests, Unauthorized Gateway Requests, Failed Gateway Requests, Other Gateway Requests. Please migrate to the Requests metric which provides equivalent functionality.
 
 :::image type="content" source="media/api-management-azure-monitor/apim-monitor-metrics.png" alt-text="Metrics in API Management":::
 
 To access metrics:
 
+1. In the Azure portal, navigate to your API Management instance.
 1. Select **Metrics** from the menu near the bottom of the page.
 
     :::image type="content" source="media/api-management-azure-monitor/api-management-metrics-blade.png" alt-text="Metrics in Monitoring menu":::
@@ -57,38 +57,43 @@ To access metrics:
 
 ## Set up an alert rule for unauthorized request
 
-You can configure to receive alerts based on metrics and activity logs. Azure Monitor allows you to configure an alert to do the following when it triggers:
+You can receive [alerts](../azure-monitor/platform/alerts-metric-overview.md) based on metrics and activity logs. Azure Monitor allows you to [configure an alert](../azure-monitor/platform/alerts-metric.md) to do the following when it triggers:
 
 * Send an email notification
 * Call a webhook
 * Invoke an Azure Logic App
 
-To configure alerts:
+To configure an alert based on a metric:
 
+1. In the Azure portal, navigate to your API Management instance.
 1. Select **Alerts** from the menu bar near the bottom of the page.
 
-    ![alerts](./media/api-management-azure-monitor/alert-menu-item.png)
+    :::image type="content" source="media/api-management-azure-monitor/alert-menu-item.png" alt-text="Alerts in Monitoring menu":::
 
-2. Click on a **New alert rule** for this alert.
-3. Click on **Add condition**.
-4. Select **Metrics** in the Signal type drop down.
-5. Select **Unauthorized Gateway Request** as the signal to monitor.
+2. Select **+ New alert rule**.
+1. In the **Create alert rule** window, select **Select condition**.
+1. In the **Configure signal logic** window:
+    1. In **Signal type**, select **Metrics**.
+    1. In **Signal name**, select **Requests**.
+1. In the **Configure signal logic** window:
+    1. In **Split by dimensions**, in **Dimension**, select **Backend response category**.
+    1. In **Add custom value**, enter *401* for unauthorized access
+    1. In **Dimenstion values**, select 401.
+    1. In **Alert logic**, specify a threshold after which the alert should be triggered and select **Done**.
 
-    ![alerts](./media/api-management-azure-monitor/signal-type.png)
+    :::image type="content" source="media/api-management-azure-monitor/threshold.png" alt-text="Configure signal logic":::
 
-6. In the **Configure signal logic** view, specify a threshold after which the alert should be triggered and click **Done**.
-
-    ![alerts](./media/api-management-azure-monitor/threshold.png)
-
-7. Select an existing Action Group or create a new one. In the example below, an email will be sent to the admins. 
+7. Select an existing action group or create a new one. In the following example, a notification email will be sent to the admins. 
 
     ![alerts](./media/api-management-azure-monitor/action-details.png)
 
-8. Provide a name, description of the alert rule and choose the severity level. 
-9. Press **Create alert rule**.
+    :::image type="content" source="media/api-management-azure-monitor/action-details.png" alt-text="Notification for action":::
+
+8. Enter a name and description of the alert rule and select the severity level. 
+9. Select **Create alert rule**.
 10. Now, try to call the Conference API without an API key. The alert will be triggered and email will be sent to the admins. 
 
-## Activity Logs
+## Activity logs
 
 Activity logs provide insight into the operations that were performed on your API Management services. Using activity logs, you can determine the "what, who, and when" for any write operations (PUT, POST, DELETE) taken on your API Management services.
 
@@ -97,29 +102,30 @@ Activity logs provide insight into the operations that were performed on your AP
 
 You can access activity logs in your API Management service, or access logs of all your Azure resources in Azure Monitor. 
 
-![activity logs](./media/api-management-azure-monitor/apim-monitor-activity-logs.png)
+:::image type="content" source="media/api-management-azure-monitor/api-management-activity-logs.png" alt-text="Activity logs":::
 
-To view activity logs:
+To view the activity log:
 
-1. Select your APIM service instance.
-2. Select **Activity log**.
+1. In the Azure portal, navigate to your API Management instance.
 
-    ![activity log](./media/api-management-azure-monitor/api-management-activity-logs-blade.png)
+1. Select **Activity log**.
 
-3. Select desired filtering scope and click **Apply**.
+    :::image type="content" source="media/api-management-azure-monitor/api-management-activity-logs-blade.png" alt-text="Activity log menu":::
+3. Select desired filtering scope and then **Apply**.
 
-## Resource Logs
+## Resource logs
 
-Resource logs provide rich information about operations and errors that are important for auditing as well as troubleshooting purposes. Resource logs differ from activity logs. The activity logs provides insights into the operations that were performed on your Azure resources. Resource logs provide insight into operations that your resource performed.
+Resource logs provide rich information about operations and errors that are important for auditing as well as troubleshooting purposes. Resource logs differ from activity logs. The activity log provides insights into the operations that were performed on your Azure resources. Resource logs provide insight into operations that your resource performed.
 
 To configure resource logs:
 
-1. Select your APIM service instance.
-2. Click **Diagnostic settings**.
+1. In the Azure portal, navigate to your API Management instance.
+2. Select **Diagnostic settings**.
 
-    ![resource logs](./media/api-management-azure-monitor/api-management-diagnostic-logs-blade.png)
+    :::image type="content" source="media/api-management-azure-monitor/api-management-diagnostic-logs-blade.png" alt-text="Diagnostic settings menu":::
 
-3. Click **Turn on diagnostics**. You can archive resource logs along with metrics to a storage account, stream them to an Event Hub, or send them to Azure Monitor logs. 
+
+3. Select **+ Add diagnostic setting**. You can archive resource logs along with metrics to a storage account, stream them to an Event Hub, or send them to Azure Monitor logs. 
 
 API Management currently provides resource logs (batched hourly) about individual API request with each entry having the following schema:
 
