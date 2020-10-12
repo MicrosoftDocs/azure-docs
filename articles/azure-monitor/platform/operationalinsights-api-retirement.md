@@ -14,53 +14,51 @@ Microsoft provides notification at least 12 months in advance of retiring an API
 
 After October 31, 2023 Azure Monitor will no longer support earlier APIs versions than 2020-08-01. If you prefer not to upgrade, requests sent from earlier versions will continue to be served by the Azure Monitor service until October 31, 2023.
 
-Depending on the configuration method you use, you should update the new version in REST requests and Resource Manager templates per the following examples:
+## Migration steps
+Depending on the configuration method you use, you should update the new version in **REST** requests and **Resource Manager templates**. Follow the examples below to update the API version:
+
+1. REST API requests use the API version in the URL of the request. Replace that version with the latest version (2020-08-01) as shown in the following example.
+
+    ```rest
+    https://management.azure.com/subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/providers/Microsoft.OperationalInsights/workspaces/{workspaceName}?api-version=2020-08-01
+    ```
+
+2. Azure Resource Manager templates use the API version in the **apiVersion** property of the resource. Replace that version with the latest version (2020-08-01) as shown in the following example.
 
 
-## REST
-REST API requests use the API version in the URL of the request. Replace that version with the latest version as shown in the following example.
-
-```rest
-https://management.azure.com/subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/providers/Microsoft.OperationalInsights/workspaces/{workspaceName}?api-version=2020-08-01
-```
-
-## Azure Resource Manager
-Resource Manager templates use the API version in the **apiVersion** property of the resource. Replace that version with the latest version as shown in the following example.
-
-
-```json
-{
-    "$schema": "https://schema.management.azure.com/schemas/2019-08-01/deploymentTemplate.json#",
-    "contentVersion": "1.0.0.0",
-    "parameters": {
-        "workspaceName": {
-            "type": "string",
-            "metadata": {
-              "description": "Name of the workspace."
-            }
-        },
-        "resources": [
-        {
-            "type": "Microsoft.OperationalInsights/workspaces",
-            "name": "[parameters('workspaceName')]",
-            "apiVersion": "2020-08-01",
-            "location": "westus",
-            "properties": {
-                "sku": {
-                    "name": "pergb2018"
-                },
-                "retentionInDays": 30,
-                "features": {
-                    "searchVersion": 1,
-                    "legacy": 0,
-                    "enableLogAccessUsingOnlyResourcePermissions": true
+    ```json
+    {
+        "$schema": "https://schema.management.azure.com/schemas/2019-08-01/deploymentTemplate.json#",
+        "contentVersion": "1.0.0.0",
+        "parameters": {
+            "workspaceName": {
+                "type": "string",
+                "metadata": {
+                "description": "Name of the workspace."
+                }
+            },
+            "resources": [
+            {
+                "type": "Microsoft.OperationalInsights/workspaces",
+                "name": "[parameters('workspaceName')]",
+                "apiVersion": "2020-08-01",
+                "location": "westus",
+                "properties": {
+                    "sku": {
+                        "name": "pergb2018"
+                    },
+                    "retentionInDays": 30,
+                    "features": {
+                        "searchVersion": 1,
+                        "legacy": 0,
+                        "enableLogAccessUsingOnlyResourcePermissions": true
+                    }
                 }
             }
-        }
-    ]
-  }
-}
-```
+        ]
+    }
+    }
+    ```
 
 
 ## Next steps

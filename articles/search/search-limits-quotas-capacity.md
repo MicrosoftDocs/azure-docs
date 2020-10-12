@@ -100,7 +100,7 @@ Maximum running times exist to provide balance and stability to the service as a
 ### Shared private link resource limits
 
 > [!NOTE]
-> Indexers can access resources securely over private endpoints managed via the [shared private link resource API](https://docs.microsoft.com/rest/api/searchmanagement/sharedprivatelinkresources) as described in [this how-to guide](search-indexer-howto-access-private.md)
+> Indexers can access resources securely over private endpoints managed via the [shared private link resource API](/rest/api/searchmanagement/sharedprivatelinkresources) as described in [this how-to guide](search-indexer-howto-access-private.md)
 
 | Resource | Free | Basic | S1 | S2 | S3 | S3 HD | L1 | L2
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |

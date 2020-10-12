@@ -55,7 +55,7 @@ Select the role to be assigned and then select **Add assignments**. A panel open
 
 > [!Note]
 >
-> To assign a role on an administrative unit using PIM, follow the steps [here](/active-directory/privileged-identity-management/pim-how-to-add-role-to-user.md#assign-a-role-with-restricted-scope).
+> To assign a role on an administrative unit using PIM, follow the steps [here](https://docs.microsoft.com/azure/active-directory/privileged-identity-management/pim-how-to-add-role-to-user?tabs=new#assign-a-role-with-restricted-scope).
 
 ### PowerShell
 

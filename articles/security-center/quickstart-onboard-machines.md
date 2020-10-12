@@ -7,9 +7,8 @@ ms.date: 10/01/2020
 ms.topic: quickstart
 ms.service: security-center
 manager: rkarlin
-
+zone_pivot_groups: non-azure-machines
 ---
-
 #  Connect your non-Azure machines to Security Center
 
 Security Center can monitor the security posture of your non-Azure computers but you need to first onboard these resources. 
@@ -19,7 +18,9 @@ You can add non-Azure computers in any of the following ways:
 - Using Azure Arc (**recommended**)
 - From Security Center's pages in the Azure portal (**Getting started** and **Inventory**)
 
-Each of these is described below.
+Each of these is described on this page.
+
+::: zone pivot="azure-arc"
 
 ## Add non-Azure machines with Azure Arc
 
@@ -38,6 +39,10 @@ Learn more about [Azure Arc](../azure-arc/servers/overview.md).
 
 > [!TIP]
 > If you're onboarding AWS machines, Security Center's connector for AWS transparently handles the Azure Arc deployment for you. Learn more in [Connect your AWS accounts to Azure Security Center](quickstart-onboard-aws.md).
+
+::: zone-end
+
+::: zone pivot="azure-portal"
 
 ## Add non-Azure machines from Security Center's portal pages
 
@@ -111,6 +116,7 @@ When complete, the **Log Analytics agent** appears in **Control Panel**. You can
 
 For further information on installing and configuring the agent, see [Connect Windows machines](../azure-monitor/platform/agent-windows.md#install-agent-using-setup-wizard).
 
+::: zone-end
 
 ## Verifying
 Congratulations! Now you can see your Azure and non-Azure machines together in one place. Open the [asset inventory page](asset-inventory.md) and filter to the relevant resource types. These icons distinguish the types:
