@@ -123,7 +123,7 @@ landingContent:
       - linkListType: whats-new
         links:
           - text: "What's new in docs?" # 9/26/2020
-            url: whats-new-docs-server.md
+            url: whats-new-docs.md
           - text: "Microsoft Identity Web library overview" # 10/07/2020
             url: microsoft-identity-web.md
           - text: "Tutorial: Blazor Server" # 9/26/2020
