@@ -193,11 +193,11 @@ The Following are the IDs for a content definition with an ID of `api.phonefacto
 
 The following example shows the use of some of the user interface elements in the MFA enrollment page:
 
-![Sign-up page email verification UX elements](./media/localization-string-ids/localization-mfa1.png)
+![Phone factor authentication enrollment UX elements](./media/localization-string-ids/localization-mfa1.png)
 
 The following example shows the use of some of the user interface elements in the MFA validation page:
 
-![Sign-up page email verification UX elements](./media/localization-string-ids/localization-mfa2.png)
+![Phone factor authentication validation UX elements](./media/localization-string-ids/localization-mfa2.png)
 
 ## Verification display control user interface elements
 
