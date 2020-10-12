@@ -138,6 +138,22 @@ In this section, you test your Azure AD single sign-on configuration using the A
 
 When you click the Datadog tile in the Access Panel, you should be automatically signed in to the Datadog for which you set up SSO. For more information about the Access Panel, see [Introduction to the Access Panel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
+### Enable all users from your tenant to authenticate with the app
+
+In this section, you'll enable everyone within your tenant to access to Datadog if one has an account on the Datadog side.
+
+1. In the Azure portal, select **Enterprise Applications**, and then select **All applications**.
+1. In the applications list, select **Datadog**.
+1. In the app's overview page, find the **Manage** section and select **Properties**.
+
+    ![The "Properties" link](common/properties.png)
+
+1. Find **User assignment required?**, then select **No**
+
+    ![User assignment not required](common/user-assignment-not-required.png)
+
+1. Click **Save**
+
 ## Additional resources
 
 - [ List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
