@@ -334,6 +334,8 @@
       items:
       - name: MongoDB (legacy)
         href: connector-mongodb-legacy.md
+    - name: MongoDB Atlas
+      href: connector-mongodb-atlas.md
     - name: MySQL
       href: connector-mysql.md
     - name: Netezza
@@ -544,6 +546,8 @@
       href: data-flow-new-branch.md
     - name: Pivot
       href: data-flow-pivot.md
+    - name: Rank
+      href: data-flow-rank.md
     - name: Select
       href: data-flow-select.md
     - name: Sink
@@ -700,6 +704,8 @@
         href: how-to-data-flow-error-rows.md
       - name: Azure SQL DB to Azure Cosmos DB
         href: how-to-sqldb-to-cosmosdb.md
+      - name: Dedupe and NULL check with snippets
+        href: how-to-data-flow-dedupe-nulls-snippets.md
     - name: SSIS migration from on-premises
       items:
       - name: SSIS migration overview

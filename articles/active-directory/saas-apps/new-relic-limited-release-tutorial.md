@@ -77,15 +77,15 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 	a. Click **Upload metadata file**.
 
-    ![image](common/upload-metadata.png)
+    ![Screenshot shows Basic SAML Configuration with the Upload metadata file link.](common/upload-metadata.png)
 
 	b. Click on **folder logo** to select the metadata file and click **Upload**.
 
-	![image](common/browse-upload-metadata.png)
+	![Screenshot shows a dialog box where you can select and upload a file.](common/browse-upload-metadata.png)
 
 	c. Once the metadata file is successfully uploaded, the **Identifier** and **Reply URL** values get auto populated in Basic SAML Configuration section:
 
-	![image](common/idp-intiated.png)
+	![Screenshot shows the Basic SAML Configuration, where you can enter Identifier, Reply U R L, and select Save.](common/idp-intiated.png)
 
 	> [!Note]
 	> If the **Identifier** and **Reply URL** values are not getting auto polulated, then fill in the values manually according to your requirement.

@@ -31,7 +31,7 @@ To complete this quickstart on Windows, you need the following software installe
 
 If you completed [Quickstart: Connect a sample IoT Plug and Play device application running on Windows to IoT Hub (C#)](quickstart-connect-device-csharp.md), you've already cloned the repository.
 
-Clone the samples from the Microsoft Azure IoT SDK for .NET GitHub repository. Open a command prompt in a folder of your choice. Run the following command to clone the [Microsoft Azure IoT Samples for .NET](https://github.com/Azure-Samples/azure-iot-samples-csharp) GitHub repository:
+Clone the samples from the Azure IoT Samples for C# GitHub repository. Open a command prompt in a folder of your choice. Run the following command to clone the [Microsoft Azure IoT Samples for .NET](https://github.com/Azure-Samples/azure-iot-samples-csharp) GitHub repository:
 
 ```cmd
 git clone https://github.com/Azure-Samples/azure-iot-samples-csharp.git
@@ -53,7 +53,6 @@ In this quickstart, you use a sample thermostat device that's written in C# as t
     | IOTHUB_DEVICE_DPS_DEVICE_ID | my-pnp-device |
     | IOTHUB_DEVICE_DPS_DEVICE_KEY | The value you made a note of when you completed [Set up your environment](set-up-environment.md) |
 
-
 1. You can now build the sample in Visual Studio and run it in debug mode.
 
 1. You see messages saying that the device has sent some information and reported itself online. These messages indicate that the device has begun sending telemetry data to the hub, and is now ready to receive commands and property updates. Don't close this instance of Visual Studio, you need it to confirm the service sample is working.
@@ -63,7 +62,7 @@ In this quickstart, you use a sample thermostat device that's written in C# as t
 In [Set up your environment for the IoT Plug and Play quickstarts and tutorials](set-up-environment.md) you created two environment variables to configure the sample to connect to your IoT hub and device:
 
 * **IOTHUB_CONNECTION_STRING**: the IoT hub connection string you made a note of previously.
-* **DEVICE_ID**: `"my-pnp-device"`.
+* **IOTHUB_DEVICE_ID**: `"my-pnp-device"`.
 
 In this quickstart, you use a sample IoT solution in C# to interact with the sample device you just set up.
 
@@ -73,14 +72,14 @@ In this quickstart, you use a sample IoT solution in C# to interact with the sam
 
     | Name | Value |
     | ---- | ----- |
-    | DEVICE_ID | my-pnp-device |
+    | IOTHUB_DEVICE_ID | my-pnp-device |
     | IOTHUB_CONNECTION_STRING | The value you made a note of when you completed [Set up your environment](set-up-environment.md) |
 
 1. You can now build the sample in Visual Studio and run it in debug mode.
 
-### Get digital twin
+### Get device twin
 
-The following code snippet shows how the service application retrieves the digital twin:
+The following code snippet shows how the service application retrieves the device twin:
 
 ```C#
 // Get a Twin and retrieves model Id set by Device client
@@ -89,7 +88,7 @@ s_logger.LogDebug($"Model Id of this Twin is: {twin.ModelId}");
 ```
 
 > [!NOTE]
-> This sample uses the **Microsoft.Azure.Devices.Client;** namespace from the **IoT Hub service client**. To learn more about how to retrieve the model ID, see the [developer guide](concepts-developer-guide.md).
+> This sample uses the **Microsoft.Azure.Devices.Client** namespace from the **IoT Hub service client**. To learn more about the APIs, including the digital twins API, see the [service developer guide](concepts-developer-guide-service.md).
 
 This code generates the following output:
 
@@ -98,7 +97,7 @@ This code generates the following output:
       Model Id of this Twin is: dtmi:com:example:Thermostat;1
 ```
 
-The following code snippet shows how to use a *patch* to update properties through the digital twin:
+The following code snippet shows how to use a *patch* to update properties through the device twin:
 
 ```C#
 // Update the twin

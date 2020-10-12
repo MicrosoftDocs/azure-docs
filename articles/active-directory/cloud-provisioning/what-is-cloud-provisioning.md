@@ -26,6 +26,14 @@ Azure AD Connect cloud provisioning is a new Microsoft agent designed to meet an
 ## How is Azure AD Connect cloud provisioning different from Azure AD Connect sync?
 With Azure AD Connect cloud provisioning, provisioning from AD to Azure AD is orchestrated in Microsoft Online Services. An organization only needs to deploy, in their on-premises and IaaS-hosted environment, a lightweight agent that acts as a bridge between Azure AD and AD. The provisioning configuration is stored in Azure AD and managed as part of the service.
 
+## Azure AD Connect cloud provisioning video
+The following short video provides an excellent overveiw of Azure AD Connect cloud provisioning:
+
+> [!VIDEO https://youtube.com/embed/mOT3ID02_YQ]
+
+
+## Comparison between Azure AD Connect and cloud provisioning
+
 The following table provides a comparison between Azure AD Connect and Azure AD Connect cloud provisioning:
 
 | Feature | Azure Active Directory Connect sync| Azure Active Directory Connect cloud provisioning |

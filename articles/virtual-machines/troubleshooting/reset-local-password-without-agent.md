@@ -55,7 +55,7 @@ Always try to reset a password using the [Azure portal or Azure PowerShell](rese
      Version=1
      ```
      
-     :::image type="content" source="./media/reset-local-password-without-agent/create-gpt-ini.png" alt-text="Create gpt.ini":::
+     :::image type="content" source="./media/reset-local-password-without-agent/create-gpt-ini.png" alt-text="Screenshot that shows the updates made to the gpt.ini file.":::
 
 4. Create `scripts.ini` in `\Windows\System32\GroupPolicy\Machine\Scripts\`. Make sure hidden folders are shown. If needed, create the `Machine` or `Scripts` folders. 
    
@@ -67,7 +67,7 @@ Always try to reset a password using the [Azure portal or Azure PowerShell](rese
      0Parameters=
      ```
      
-     :::image type="content" source="./media/reset-local-password-without-agent/create-scripts-ini-1.png" alt-text="Create scripts.ini":::
+     :::image type="content" source="./media/reset-local-password-without-agent/create-scripts-ini-1.png" alt-text="Screenshot that shows the updates made to the script.ini file.":::
 
 5. Create `FixAzureVM.cmd` in `\Windows\System32\GroupPolicy\Machine\Scripts\Startup\` with the following contents, replacing `<username>` and `<newpassword>` with your own values:
    
@@ -77,7 +77,7 @@ Always try to reset a password using the [Azure portal or Azure PowerShell](rese
     net localgroup "remote desktop users" <username> /add
     ```
 
-    :::image type="content" source="./media/reset-local-password-without-agent/create-fixazure-cmd-1.png" alt-text="Create FixAzureVM.cmd":::
+    :::image type="content" source="./media/reset-local-password-without-agent/create-fixazure-cmd-1.png" alt-text="Screenshot that shows the newly created FixAzureVM.cmd file where you update the username and password.":::
    
     You must meet the configured password complexity requirements for your VM when defining the new password.
 
