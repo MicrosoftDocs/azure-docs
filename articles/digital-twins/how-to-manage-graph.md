@@ -133,6 +133,7 @@ You can use the retrieved relationships to navigate to other twins in your graph
 
 Azure Digital Twins also has an API to find all **incoming** relationships to a given twin. This is often useful for reverse navigation, or when deleting a twin.
 
+
 The previous code sample is focused on finding outgoing relationships from a twin. The following example is structured similarly, but finds *incoming* relationships to the twin instead.
 
 Note that the `IncomingRelationship` calls don't return the full body of the relationship.
