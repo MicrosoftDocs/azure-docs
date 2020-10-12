@@ -202,7 +202,7 @@ The Azure CLI can be used to deploy the Key Vault VM extension to an existing vi
 Please be aware of the following restrictions/requirements:
 - Key Vault restrictions:
   - It must exist at the time of the deployment 
-  - The Key Vault Access Policy must be set for VM/VMSS Identity using a Managed Identity. See [How to Authenticate to Key Vault](/azure/key-vault/general/authentication) and [Assign a Key Vault access policy](/azure/key-vault/general/assign-access-policy-cli).
+  - The Key Vault Access Policy must be set for VM/VMSS Identity using a Managed Identity. See [How to Authenticate to Key Vault](../../key-vault/general/authentication.md) and [Assign a Key Vault access policy](../../key-vault/general/assign-access-policy-cli.md).
 
 
 ## Troubleshoot and support

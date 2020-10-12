@@ -74,7 +74,7 @@ Now that you have a SAS for your empty managed disk, you can use it to set your 
 
 Use AzCopy v10 to upload your local VHD file to a managed disk by specifying the SAS URI you generated.
 
-This upload has the same throughput as the equivalent [standard HDD](disks-types.md#standard-hdd). For example, if you have a size that equates to S4, you will have a throughput of up to 60 MiB/s. But, if you have a size that equates to S70, you will have a throughput of up to 500 MiB/s.
+This upload has the same throughput as the equivalent [standard HDD](../disks-types.md#standard-hdd). For example, if you have a size that equates to S4, you will have a throughput of up to 60 MiB/s. But, if you have a size that equates to S70, you will have a throughput of up to 500 MiB/s.
 
 ```bash
 AzCopy.exe copy "c:\somewhere\mydisk.vhd" "sas-URI" --blob-type PageBlob
@@ -126,4 +126,4 @@ az disk revoke-access -n $targetDiskName -g $targetRG
 
 ## Next steps
 
-Now that you've successfully uploaded a VHD to a managed disk, you can attach the disk as a [data disk to an existing VM](add-disk.md) or [attach the disk to a VM as an OS disk](upload-vhd.md#create-the-vm), to create a new VM. 
+Now that you've successfully uploaded a VHD to a managed disk, you can attach the disk as a [data disk to an existing VM](add-disk.md) or [attach the disk to a VM as an OS disk](upload-vhd.md#create-the-vm), to create a new VM.
