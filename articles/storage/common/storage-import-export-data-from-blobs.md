@@ -31,6 +31,8 @@ You must:
 
 ## Step 1: Create an export job
 
+### [Portal](#tab/azure-portal)
+
 Perform the following steps to create an export job in the Azure portal.
 
 1. Log on to <https://portal.azure.com/>.
@@ -93,6 +95,57 @@ Perform the following steps to create an export job in the Azure portal.
         > Always send the disks to the datacenter noted in the Azure portal. If the disks are shipped to the wrong datacenter, the job will not be processed.
 
     - Click **OK** to complete export job creation.
+
+### [Azure CLI](#tab/azure-cli)
+
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../../includes/azure-cli-prepare-your-environment-h3.md)]
+
+### Create a job
+
+1. Use the [az extension add](/cli/azure/extension#az_extension_add) command to get the [az import-export](/cli/azure/ext/import-export/import-export) extension.
+
+    ```azurecli
+    az extension add --name import-export
+    ```
+
+1. To get a list of the locations from which you can receive disks, use the [az import-export location list](/cli/azure/ext/import-export/import-export/location#ext_import_export_az_import_export_location_list) command.
+
+    ```azurecli
+    az import-export location list
+    ```
+
+1. Use the following [az import-export create](/cli/azure/ext/import-export/import-export#ext_import_export_az_import_export_create) command to create an export job.
+
+    ```azurecli
+    az import-export create \
+        --resource-group myierg \
+        --name Myexportjob1 \
+        --location "West US" \
+        --backup-drive-manifest true \
+        --diagnostics-path waimportexport \
+        --drive-list bit-locker-key=439675-460165-128202-905124-487224-524332-851649-442187 \
+            drive-header-hash= drive-id=AZ31BGB1 manifest-file=\\DriveManifest.xml \
+            manifest-hash=69512026C1E8D4401816A2E5B8D7420D \
+        --type Export \
+        --log-level Verbose \
+        --return-address city=Sunnyvale country-or-region=USA email=gus@contoso.com phone=4085555555 \
+            postal-code=94089 recipient-name="Gus Poland" state-or-province=CA street-address1="1020 Enterprise way" \
+        --storage-account myssdocsstorage
+    ```
+
+1. Use the [az import-export list](/cli/azure/ext/import-export/import-export#ext_import_export_az_import_export_list) command to see all the jobs for a resource group.
+
+    ```azurecli
+    az import-export list --resource-group myierg
+    ```
+
+1. To update your job or cancel your job, use the [az import-export update](/cli/azure/ext/import-export/import-export#ext_import_export_az_import_export_update) command.
+
+    ```azurecli
+    az import-export update --resource-group myierg --name MyIEjob1 --cancel-requested true
+    ```
+
+---
 
 <!--## (Optional) Step 2: -->
 
