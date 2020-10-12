@@ -25,6 +25,8 @@ This article teaches you to configure a DNN resource to route traffic to your fa
 
 The DNN feature is currently in preview and only available on SQL Server 2019 CU2 and later on Windows Server 2016 and later. 
 
+For an alternative connectivity option for customers, consider a [virtual network name & Azure Load Balancer](failover-cluster-instsance-vnn-azure-load-balancer-configure.md) instead. 
+
 ## Overview
 
 The distributed network name (DNN) replaces the virtual network name (VNN) as the connection point when used with an [Always On failover cluster instance on SQL Server VMs](failover-cluster-instance-overview.md). This negates the need for an Azure Load Balancer routing traffic to the VNN, simplifying deployment, maintenance, and improving failover. 

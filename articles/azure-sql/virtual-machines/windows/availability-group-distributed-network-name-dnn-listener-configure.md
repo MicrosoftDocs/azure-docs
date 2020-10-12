@@ -25,6 +25,8 @@ This article teaches you to configure a DNN listener to replace the VNN listener
 
 The DNN listener feature is currently in preview and only available for SQL Server 2019 CU8 on Windows Server 2016 and later. 
 
+For an alternative connectivity option, consider a [VNN listener + Azure Load Balancer](availability-group-vnn-azure-load-balancer-configure.md) instead. 
+
 ## Overview
 
 A distributed network name (DNN) listener replaces the traditional virtual network name (VNN) availability group listener when used with [Always On availability groups on SQL Server VMs](availability-group-overview.md). This negates the need for an Azure Load Balancer to route traffic, simplifying deployment, maintenance, and improving failover. 
@@ -128,7 +130,7 @@ Use Transact-SQL to view the status of the DNN listener:
 SELECT * FROM SYS.AVAILABILITY_GROUP_LISTENERS
 ```
 
-A value of `1` for `is_distributed_network_name` indicates that the listener is a distributed network name (DNN) listener: 
+A value of `1` for `is_distributed_network_name` indicates the listener is a distributed network name (DNN) listener: 
 
 :::image type="content" source="media/availability-group-distributed-network-name-dnn-listener-configure/dnn-listener-tsql.png" alt-text="Use sys.availability_group_listeners to identify DNN listeners that have a value of 1 in is_distributed_network_name":::
 

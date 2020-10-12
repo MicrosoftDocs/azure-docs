@@ -23,6 +23,8 @@ On Azure Virtual Machines, clusters use a load balancer to hold an IP address th
 
 This article teaches you to configure a load balancer by using the Azure Load Balancer service. The load balancer will route traffic to your [availability group (AG) listener](availability-group-overview.md) with SQL Server on Azure VMs for high availability and disaster recovery (HADR). 
 
+For an alternative connectivity option for customers that are on SQL Server 2019 CU8 and later, consider a [DNN listener](availability-group-vnn-azure-load-balancer-configure.md) instead for simplified configuration and improved failover.  
+
 
 
 ## Prerequisites
