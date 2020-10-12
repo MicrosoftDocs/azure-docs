@@ -1,5 +1,5 @@
 ---
-title: Update the Network Watcher Extension to the latest the version 
+title: Update the Network Watcher Extension to the latest version 
 description: Learn how to Update Network Watcher Extension to the latest the version 
 services: virtual-machines-windows
 documentationcenter: ''
