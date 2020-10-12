@@ -19,13 +19,13 @@ A planned maintenance is an maintenance window when these service updates are de
 
 ## How long is a planned maintenance expected to run and what to expect during planned maintenance?
 
-A planned maintenance for a given Azure region is typically expected to run 12 hrs. The window also includes buffer time to execute a rollback plan if required. During planned maintenance, there can be database server restarts or failovers which might lead to brief unavailability of the database servers for end users. Azure Database for MySQL servers are running in containers so database server restarts are typically quick, expected to complete typically in 30-60 seconds. The entire planned maintenance event including each server restarts is carefully monitored by the engineering team. The server failovers time is dependent on database recovery time which can cause the database to come online longer if you have heavy transactional activity on the server at the time of failover. To avoid longer restart time, it is recommended to avoid any long running transactions (bulk loads) during planned maintenance events.
+A planned maintenance for a given Azure region is typically expected to run 15 hrs. The window also includes buffer time to execute a rollback plan if required. During planned maintenance, there can be database server restarts or failovers which might lead to brief unavailability of the database servers for end users. Azure Database for MySQL servers are running in containers so database server restarts are typically quick, expected to complete typically in 30-60 seconds. The entire planned maintenance event including each server restarts is carefully monitored by the engineering team. The server failovers time is dependent on database recovery time which can cause the database to come online longer if you have heavy transactional activity on the server at the time of failover. To avoid longer restart time, it is recommended to avoid any long running transactions (bulk loads) during planned maintenance events.
 
-In summary, while the planned maintenance event runs for 12 hours, the individual server impact generally lasts 60 seconds depending on the transactional activity on the server. A notification is sent when the planned maintenance starts and another one when it is completed for a given region.
+In summary, while the planned maintenance event runs for 15 hours, the individual server impact generally lasts 60 seconds depending on the transactional activity on the server. A notification is sent 72 calendar hours before planned maintenance starts and another one while maintenance is in progress for a given region.
 
 ## How can I get notified of planned maintenance?
 
-You can utilize the planned maintenance notifications feature to receive alerts for an upcoming planned maintenance event. You will receive the notification about the upcoming maintenance 72 calendar hours before the event. 
+You can utilize the planned maintenance notifications feature to receive alerts for an upcoming planned maintenance event. You will receive the notification about the upcoming maintenance 72 calendar hours before the event and another one while maintenance is in-progress for a given region.
 
 ### Planned maintenance notification
 
