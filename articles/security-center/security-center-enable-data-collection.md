@@ -7,29 +7,34 @@ manager: rkarlin
 
 ms.service: security-center
 ms.topic: quickstart
-ms.date: 04/27/2020
+ms.date: 10/08/2020
 ms.author: memildin
 
 ---
 # Data collection in Azure Security Center
 Security Center collects data from your Azure virtual machines (VMs), virtual machine scale sets, IaaS containers, and non-Azure (including on-premises) computers to monitor for security vulnerabilities and threats. Data is collected using the Log Analytics agent, which reads various security-related configurations and event logs from the machine and copies the data to your workspace for analysis. Examples of such data are: operating system type and version, operating system logs (Windows event logs), running processes, machine name, IP addresses, and logged in user.
 
-Data collection is required to provide visibility into missing updates, misconfigured OS security settings, endpoint protection status, and health and threat protection. 
+Data collection is required to provide visibility into missing updates, misconfigured OS security settings, endpoint protection status, and health and threat protection. Data collection is only needed for compute resources (VMs, virtual machine scale sets, IaaS containers, and non-Azure computers). You can benefit from Azure Security Center even if you don’t provision agents; however, you will have limited security and the capabilities listed above are not supported.  
 
-This article describes how to install a Log Analytics agent and set a Log Analytics workspace in which to store the collected data. Both operations are required to enable data collection. 
+This article describes how to install a Log Analytics agent and set a Log Analytics workspace in which to store the collected data. Both operations are required to enable data collection. Storing data in Log Analytics, whether you use a new or existing workspace, might incur additional charges for data storage. For more information, see the [pricing page](https://azure.microsoft.com/pricing/details/security-center/).
 
-> [!NOTE]
-> - Data collection is only needed for Compute resources (VMs, virtual machine scale sets, IaaS containers, and non-Azure computers). You can benefit from Azure Security Center even if you don’t provision agents; however, you will have limited security and the capabilities listed above are not supported.  
-> - For the list of supported platforms, see [Supported platforms in Azure Security Center](security-center-os-coverage.md).
-> - Storing data in Log Analytics, whether you use a new or existing workspace, might incur additional charges for data storage. For more information, see the [pricing page](https://azure.microsoft.com/pricing/details/security-center/).
+> [!TIP]
+> For the list of supported platforms, see [Supported platforms in Azure Security Center](security-center-os-coverage.md).
 
 ## Enable automatic provisioning of the Log Analytics agent <a name="auto-provision-mma"></a>
+
+> [!NOTE]
+> Users of Azure Sentinel: note that security events collection within the context of a single workspace can be configured from either Azure Security Center or Azure Sentinel, but not both. If you're planning to add Azure Sentinel to a workspace that is already getting Azure Defender alerts from Azure Security Center, and is set to collect Security Events, you have two options:
+> - Leave the Security Events collection in Azure Security Center as is. You will be able to query and analyze these events in Azure Sentinel as well as in Azure Defender. You will not, however, be able to monitor the connector's connectivity status or change its configuration in Azure Sentinel. If this is important to you, consider the second option.
+>
+> - [Disable Security Events collection](#data-collection-tier) in Azure Security Center, and only then add the Security Events connector in Azure Sentinel. As with the first option, you will be able to query and analyze events in both Azure Sentinel and Azure Defender/ASC, but you will now be able to monitor the connector's connectivity status or change its configuration in - and only in - Azure Sentinel.
+
 
 To collect the data from the machines, you should have the Log Analytics agent installed. Installation of the agent can be done automatically (recommended) or you can install the agent manually. By default, automatic provisioning is off.
 
 When automatic provisioning is on, Security Center deploys the Log Analytics agent on all supported Azure VMs and any new ones that are created. Automatic provisioning is recommended but you can install the agent manually if necessary (see [Manual installation of the Log Analytics agent](#manual-agent)).
 
-
+With the agent deployed to your machines, Security Center can provide additional recommendations related to system update status, OS security configurations, endpoint protection, as well as generate additional security alerts.
 
 To enable automatic provisioning of the Log Analytics agent:
 
@@ -40,20 +45,9 @@ To enable automatic provisioning of the Log Analytics agent:
 
     :::image type="content" source="./media/security-center-enable-data-collection/enable-automatic-provisioning.png" alt-text="Enabling auto-provisioning of the Log Analytics agent":::
 
->[!TIP]
-> If a workspace needs to be provisioned, agent installation might take up to 25 minutes.
+    >[!TIP]
+    > If a workspace needs to be provisioned, agent installation might take up to 25 minutes.
 
-With the agent deployed to your machines, Security Center can provide additional recommendations related to system update status, OS security configurations, endpoint protection, as well as generate additional security alerts.
-
->[!NOTE]
-> Setting auto provisioning to **Off** doesn't remove the Log Analytics agent from Azure VMs where the agent has already been provisioned. Disabling automatic provisioning limits security monitoring for your resources.
-
->[!NOTE]
-> - For instructions on how to provision a pre-existing installation, see [Automatic provisioning in cases of a preexisting agent installation](#preexisting).
-> - For instructions on manual provisioning, see [Install the Log Analytics agent extension manually](#manual-agent).
-> - For instructions on turning off automatic provisioning, see [Turn off automatic provisioning](#offprovisioning).
-> - For instructions on how to onboard Security Center using PowerShell, see [Automate onboarding of Azure Security Center using PowerShell](security-center-powershell-onboarding.md).
->
 
 ## Workspace configuration
 Data collected by Security Center is stored in Log Analytics workspace(s). Your data can be collected from Azure VMs stored in workspaces created by Security Center or in an existing workspace you created. 
@@ -144,20 +138,16 @@ When you select a workspace in which to store your data, all the workspaces acro
 Selecting a data collection tier in Azure Security Center will only affect the storage of security events in your Log Analytics workspace. The Log Analytics agent will still collect and analyze the security events required for Azure Security Center’s threat protection, regardless of which tier of security events you choose to store in your Log Analytics workspace (if any). Choosing to store security events in your workspace will enable investigation, search, and auditing of those events in your workspace. 
 > [!NOTE]
 > Storing data in log analytics might incur additional charges for data storage. For more information, see the [pricing page](https://azure.microsoft.com/pricing/details/security-center/).
-> 
-> You can choose the right filtering policy for your subscriptions and workspaces from four sets of events to be stored in your workspace: 
 
+You can choose the right filtering policy for your subscriptions and workspaces from four sets of events to be stored in your workspace: 
 - **None** – Disable security event storage. This is the default setting.
 - **Minimal** – A smaller set of events for customers who want to minimize the event volume.
 - **Common** – This is a set of events that satisfies most customers and allows them a full audit trail.
 - **All events** – For customers who want to make sure all events are stored.
 
+These security events sets are available only with Azure Defender. See [Pricing](security-center-pricing.md) to learn more about Security Center's pricing tiers.
 
-> [!NOTE]
-> These security events sets are available only with Azure Defender. See [Pricing](security-center-pricing.md) to learn more about Security Center's pricing tiers.
 These sets were designed to address typical scenarios. Make sure to evaluate which one fits your needs before implementing it.
->
->
 
 To determine the events that will belong to the **Common** and **Minimal** event sets, we worked with customers and industry standards to learn about the unfiltered frequency of each event and their usage. We used the following guidelines in this process:
 
@@ -261,9 +251,8 @@ You can manually install the Log Analytics agent, so Security Center can collect
 
 1. If  you want to deploy the agents on new VMs using a Resource Manager template, install the Log Analytics agent:
 
-   a.  [Install the Log Analytics agent for Windows](../virtual-machines/extensions/oms-windows.md)
-    
-   b.  [Install the Log Analytics agent for Linux](../virtual-machines/extensions/oms-linux.md)
+   - [Install the Log Analytics agent for Windows](../virtual-machines/extensions/oms-windows.md)
+   - [Install the Log Analytics agent for Linux](../virtual-machines/extensions/oms-linux.md)
 
 1. To deploy the extensions on existing VMs, follow the instructions in [Collect data about Azure Virtual Machines](../azure-monitor/learn/quick-collect-azurevm.md).
 
@@ -274,7 +263,6 @@ You can manually install the Log Analytics agent, so Security Center can collect
 1. To use PowerShell to deploy the extension, use the instructions from the virtual machines documentation:
 
     - [For Windows machines](https://docs.microsoft.com/azure/virtual-machines/extensions/oms-windows?toc=%2Fazure%2Fazure-monitor%2Ftoc.json#powershell-deployment)
-
     - [For Linux machines](https://docs.microsoft.com/azure/virtual-machines/extensions/oms-linux?toc=%2Fazure%2Fazure-monitor%2Ftoc.json#azure-cli-deployment)
 
 
@@ -299,8 +287,8 @@ You can manually install the Log Analytics agent, so Security Center can collect
 ## Next steps
 This article showed you how data collection and automatic provisioning in Security Center works. To learn more about Security Center, see the following pages:
 
-* [Azure Security Center FAQ](faq-general.md)--Find frequently asked questions about using the service.
-* [Security health monitoring in Azure Security Center](security-center-monitoring.md)--Learn how to monitor the health of your Azure resources.
+- [Azure Security Center FAQ](faq-general.md)--Find frequently asked questions about using the service.
+- [Security health monitoring in Azure Security Center](security-center-monitoring.md)--Learn how to monitor the health of your Azure resources.
 
 
 
