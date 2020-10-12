@@ -31,7 +31,7 @@ The table below lists the functional limits of Azure Digital Twins.
 
 ### Rate limits
 
-The following table reflects the rate limits of different APIs **across the entire instance**.
+The following table reflects the rate limits of different APIs.
 
 | API | Capability | Default limit | Adjustable? |
 | --- | --- | --- | --- |
