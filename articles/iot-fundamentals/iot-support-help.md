@@ -10,7 +10,7 @@ ms.date: 6/10/2020
 
 ---
 
-# What is Azure IoT support and help options?
+# What are the Azure IoT support and help options?
 
 Here are suggestions for where you can get help when developing your Azure IoT solutions.
 

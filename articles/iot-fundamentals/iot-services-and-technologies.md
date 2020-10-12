@@ -9,7 +9,7 @@ ms.date: 01/15/2020
 ms.author: dobett
 ---
 
-# What are Azure technologies and services for creating IoT solutions?
+# What Azure technologies and services can you use to create IoT solutions?
 
 Azure IoT technologies and services provide you with options to create a wide variety of IoT solutions that enable digital transformation for your organization. For example, you can:
 
