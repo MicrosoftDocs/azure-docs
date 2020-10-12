@@ -73,7 +73,7 @@ Follow these steps to configure the network for your device.
 
     Once the device network is configured, the page updates as shown below.
 
-    ![Local web UI "Network settings" page](./media/azure-stack-edge-gpu-deploy-configure-network-compute-web-proxy/network-2.png)
+    ![Local web UI "Network settings" page 2](./media/azure-stack-edge-gpu-deploy-configure-network-compute-web-proxy/network-2.png)
 
 
      >[!NOTE]
