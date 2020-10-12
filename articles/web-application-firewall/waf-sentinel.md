@@ -47,8 +47,8 @@ The WAF workbook works for all Azure Front Door, Application Gateway, and CDN WA
 
 To enable log analytics for each resource, go to your individual Azure Front Door, Application Gateway, or CDN resource:
 
-1. Select Diagnostic settings
-2. Select + Add diagnostic setting. 
+1. Select **Diagnostic settings**.
+2. Select **+ Add diagnostic setting**. 
 3. In the Diagnostic setting page:
    1. Type a name. 
    1. Select **Send to Log Analytics**. 
