@@ -8,6 +8,6 @@ ms.author: rgarcia
 
 Deploy the app to your device. 
 
-After the app starts, on the **Choose A Demo** pane, use the left and right arrows to select the **LocalShare** option, and then tap **Go!**. 
+After the app starts, on the **Choose A Demo** pane, use the left and right arrows to select the **LocalShare** option. Then tap **Go!**. 
 
 Follow the instructions in the app. You can select **Create & Share Anchor** or **Locate Shared Anchor**.
