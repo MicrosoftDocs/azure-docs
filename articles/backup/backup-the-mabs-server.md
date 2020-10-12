@@ -312,7 +312,7 @@ DpmSync -ReallocateReplica
 DpmSync –RestoreDb -DbLoc G:\DPM\Backups\2005\November\DPMDB.bak –InstanceName contoso\ms$dpm
 ```
 
-After you restore the MABS database, to synchronize the databases, run the following command on the DPM Server:
+After you restore the MABS database, to synchronize the databases, run the following command on the MABS server:
 
 ```cmd
 DpmSync -Sync
