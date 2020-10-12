@@ -47,7 +47,7 @@ Communication Services has three types of logs you can enable:
 
 ### Usage logs schema
 
-| Category | Description |
+| Property | Description |
 | -------- | ---------------|
 | Timestamp | The timestamp (UTC) of when the log was generated. |
 | Operation Name | The operation associated with log record. |
@@ -62,7 +62,7 @@ Communication Services has three types of logs you can enable:
 
 ### Chat operational logs
 
-| Category | Description |
+| Property | Description |
 | -------- | ---------------|
 | TimeGenerated | The timestamp (UTC) of when the log was generated. |
 | OperationName | The operation associated with log record. |
@@ -84,7 +84,7 @@ Communication Services has three types of logs you can enable:
 
 ### SMS operational logs
 
-| Category | Description |
+| Property | Description |
 | -------- | ---------------|
 | TimeGenerated | The timestamp (UTC) of when the log was generated. |
 | OperationName | The operation associated with log record. |
