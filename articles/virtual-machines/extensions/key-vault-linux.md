@@ -29,6 +29,11 @@ The Key Vault VM extension supports these Linux distributions:
 - PKCS #12
 - PEM
 
+## Prerequisities
+  - Key Vault instance with certificate. See [Create a Key Vault](quick-create-portal.md)
+  - VM/VMSS must have assigned [managed identity](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview)
+  - The Key Vault Access Policy must be set with secrets `get` and `list` permission for VM/VMSS managed identity to retrieve a secret's portion of certificate. See [How to Authenticate to Key Vault](/azure/key-vault/general/authentication) and [Assign a Key Vault access policy](/azure/key-vault/general/assign-access-policy-cli).
+
 ## Extension schema
 
 The following JSON shows the schema for the Key Vault VM extension. The extension does not require protected settings - all its settings are considered information without security impact. The extension requires a list of monitored secrets, polling frequency, and the destination certificate store. Specifically:  
