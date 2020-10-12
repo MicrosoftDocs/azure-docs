@@ -103,7 +103,7 @@ To edit a support package before uploading it on the Microsoft Support site, fir
    
     `Close-HcsSupportPackage <Path to the folder that contains support package files>`
    
-    ![Edit support package](./media/storsimple-8000-create-manage-support-package/IC750707.png)
+    ![Edit support package 2](./media/storsimple-8000-create-manage-support-package/IC750707.png)
 8. When prompted, provide an encryption passphrase for the modified support package.
    
     ```powershell
