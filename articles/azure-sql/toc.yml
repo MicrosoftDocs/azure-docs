@@ -1088,9 +1088,9 @@
                 href: virtual-machines/windows/availability-group-listener-powershell-configure.md
           - name: Configure connectivity
             items:  
-            - name: Configure VNN listener
+            - name: Virtual network name (VNN) listener
               href: virtual-machines/windows/availability-group-vnn-azure-load-balancer-configure.md
-            - name: Configure DNN listener
+            - name: Distributed network name (DNN) listener
               href: virtual-machines/windows/availability-group-distributed-network-name-dnn-listener-configure.md
             - name: DNN interoperability
               href: virtual-machines/windows/availability-group-dnn-interoperability.md
@@ -1109,9 +1109,9 @@
               href: virtual-machines/windows/failover-cluster-instance-premium-file-share-manually-configure.md
           - name: Configure connectivity
             items: 
-            - name: Configure VNN 
+            - name: Virtual network name (VNN)
               href: virtual-machines/windows/failover-cluster-instance-vnn-azure-load-balancer-configure.md
-            - name: Configure DNN 
+            - name: Distributed network name (DNN) 
               href: virtual-machines/windows/failover-cluster-instance-distributed-network-name-dnn-configure.md
             - name: DNN interoperability
               href: virtual-machines/windows/failover-cluster-instance-dnn-interoperability.md
