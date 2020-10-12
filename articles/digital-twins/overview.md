@@ -91,8 +91,6 @@ The following diagram shows where Azure Digital Twins lies in the context of a l
 
 :::image type="content" source="media/overview/solution-context.png" alt-text="Diagram showing input sources, output services, and two-way communication with both client apps and external compute resources." border="false" lightbox="media/overview/solution-context.png":::
 
-[!INCLUDE [visualizing with Azure Digital Twins explorer](../../includes/digital-twins-visualization.md)]
-
 ## Service limits in public preview
 
 > [!IMPORTANT]
