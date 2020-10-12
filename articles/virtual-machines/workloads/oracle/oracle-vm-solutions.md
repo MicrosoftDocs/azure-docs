@@ -128,7 +128,7 @@ With Oracle Data Guard, high availability can be achieved with a primary databas
 
 The tutorial [Implement Oracle GoldenGate on Azure](configure-oracle-golden-gate.md) walks you through the basic setup procedure on Azure.
 
-In addition to having an HA and DR solution architected in Azure, you should have a backup strategy in place to restore your database. The tutorial [Backup and recover an Oracle Database](oracle-backup-recovery.md) walks you through the basic procedure for establishing a consistent backup.
+In addition to having an HA and DR solution architected in Azure, you should have a backup strategy in place to restore your database. The tutorial [Backup and recover an Oracle Database](./oracle-overview.md) walks you through the basic procedure for establishing a consistent backup.
 
 ## Support for JD Edwards
 
