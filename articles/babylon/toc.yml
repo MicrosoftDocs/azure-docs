@@ -61,7 +61,7 @@
     - name: Apply classifications
       href: apply-classifications.md
     - name: Register and scan Amazon S3 standard buckets
-      href: connector for Amazon S3.md
+      href: setup-configuration-connector-amazon-s3.md
   - name: Classify
     items: 
     - name: Apply classifications
