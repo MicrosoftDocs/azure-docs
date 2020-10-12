@@ -22,7 +22,7 @@ Sync data with SQL Server databases by installing and configuring the Data Sync 
 
 ## Download and install
 
-To download the Data Sync Agent, go to [SQL Data Sync Agent](https://www.microsoft.com/download/details.aspx?id=27693).
+To download the Data Sync Agent, go to [SQL Data Sync Agent](https://www.microsoft.com/download/details.aspx?id=27693). To upgrade the Data Sync Agent, install the Agent in the same location as the old Agent and it will override the original one.
 
 ### Install silently
 

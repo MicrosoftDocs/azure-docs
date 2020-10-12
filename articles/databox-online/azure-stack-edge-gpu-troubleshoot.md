@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: troubleshooting
-ms.date: 08/19/2020
+ms.date: 10/07/2020
 ms.author: alkohli
 ---
 # Troubleshoot issues on your Azure Stack Edge Pro GPU device 
@@ -46,7 +46,7 @@ Do the following steps to collect a Support package.
  
 2. After the Support package is created, select **Download Support package**. A zipped package is downloaded on the path you chose. You can unzip the package and the view the system log files.
 
-    ![Select add user](media/azure-stack-edge-gpu-troubleshoot/collect-logs-2.png)
+    ![Select add user 2](media/azure-stack-edge-gpu-troubleshoot/collect-logs-2.png)
 
 ## Gather advanced security logs
 
@@ -195,6 +195,7 @@ Here are the errors related to blob storage on Azure Stack Edge Pro/ Data Box Ga
 |The connection times out.|Sign into the Azure Stack Edge Pro and then check that it's unlocked. Any time the device restarts, it stays locked until someone signs in.|
 
 
+
 ## Next steps
 
-- Learn more about the [known issues in this release](azure-stack-edge-gpu-2008-release-notes.md).
+- Learn more on how to [Troubleshoot device activation issues](azure-stack-edge-gpu-troubleshoot-activation.md).

@@ -86,6 +86,8 @@ If you want to restrict registry access using a virtual network in a different A
 
 If Azure Firewall or a similar solution is configured in the network, check that egress traffic from other resources such as an AKS cluster is enabled to reach the registry endpoints.
 
+If a private endpoint is configured, confirm that DNS resolves the registry's public FQDN such as *myregistry.azurecr.io* to the registry's private IP address. Use a network utility such as `dig` or `nslookup` for DNS lookup.
+
 Related links:
 
 * [Connect privately to an Azure container registry using Azure Private Link](container-registry-private-link.md)

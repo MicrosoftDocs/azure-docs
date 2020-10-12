@@ -13,7 +13,7 @@ ms.service: azure-communication-services
 ---
 # Quickstart: Handle SMS events
 
-[!INCLUDE [Private Preview Notice](../../includes/private-preview-include.md)]
+[!INCLUDE [Public Preview Notice](../../includes/public-preview-include.md)]
 
 Get started with Azure Communication Services by using Azure Event Grid to handle Communication Services SMS events. 
 
@@ -91,7 +91,7 @@ Once you complete either action above you will notice that  `SMS Received` and `
 
 :::image type="content" source="./media/handle-sms-events/sms-received.png" alt-text="Screenshot showing the Event Grid Schema for an SMS Received Event.":::
 
-:::image type="content" source="./media/handle-sms-events/SMS-Delivery-Report-Received.png" alt-text="Screenshot showing the Event Grid Schema for an SMS Delivery Report Event.":::
+:::image type="content" source="./media/handle-sms-events/sms-delivery-report-received.png" alt-text="Screenshot showing the Event Grid Schema for an SMS Delivery Report Event.":::
 
 Learn more about the [event schemas and other eventing concepts](../../concepts/event-handling.md)
 

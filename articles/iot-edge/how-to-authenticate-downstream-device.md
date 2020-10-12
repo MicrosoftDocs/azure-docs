@@ -54,7 +54,7 @@ When you create the new device identity, provide the following information:
 
 * Select **Symmetric key** as the authentication type.
 
-* Optionally, choose to **Set a parent device** and select the IoT Edge gateway device that this downstream device will connect through. This step is optional for symmetric key authentication, but it's recommended because setting a parent device enables [offline capabilities](offline-capabilities.md) for your downstream device. You can always update the device details to add or change the parent later.
+* Select **Set a parent device** and select the IoT Edge gateway device that this downstream device will connect through. This step enables [offline capabilities](offline-capabilities.md) for your downstream device. You can always change the parent later.
 
    ![Create device ID with symmetric key auth in portal](./media/how-to-authenticate-downstream-device/symmetric-key-portal.png)
 
@@ -196,7 +196,7 @@ Or:
 HostName=myiothub.azure-devices.net;DeviceId=myDownstreamDevice;x509=true;GatewayHostName=myGatewayDevice
 ```
 
-If you established a parent/child relationship for this downstream device, then you can simplify the connection string by calling the gateway directly as the connection host. Parent/child relationships are required for X.509 authentication but optional for symmetric key authentication. For example:
+Thanks to the parent/child relationship, you can simplify the connection string by calling the gateway directly as the connection host. For example:
 
 ```
 HostName=myGatewayDevice;DeviceId=myDownstreamDevice;SharedAccessKey=xxxyyyzzz
