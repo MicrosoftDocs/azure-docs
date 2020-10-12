@@ -1,6 +1,6 @@
 ---
-title: Azure Guide - Create an Azure key vault and a vault access policy by using Azure Resource Manager template | Microsoft Docs
-description: Shows how to create Azure key vaults and vault access policies by using Azure Resource Manager template.
+title: Create an Azure key vault and a vault access policy by using ARM template
+description: This article shows how to create Azure key vaults and vault access policies by using an Azure Resource Manager template.
 services: key-vault
 author: msmbaldwin
 manager: rkarlin
@@ -11,26 +11,26 @@ ms.topic: how-to
 ms.date: 10/5/2020
 ms.author: mbaldwin
 
-#Customer intent: As a security admin who is new to Azure, I want to use Key Vault to securely store keys and passwords in Azure.
+#Customer intent: As a security admin who's new to Azure, I want to use Key Vault to securely store keys and passwords in Azure.
 
 ---
 
-# How to create Azure Key Vault and vault access policy using a Resource Manager template
+# How to create an Azure key vault and vault access policy by using a Resource Manager template
 
-[Azure Key Vault](../general/overview.md) is a cloud service that provides a secure store for secrets, such as keys, passwords, certificates, and other secrets. This guide focuses on the process of deploying an Azure Resource Manager template (ARM template) to create a key vault.
+[Azure Key Vault](../general/overview.md) is a cloud service that provides a secure store for secrets like keys, passwords, and certificates. This article describes the process for deploying an Azure Resource Manager template (ARM template) to create a key vault.
 
 [!INCLUDE [About Azure Resource Manager](../../../includes/resource-manager-quickstart-introduction.md)]
 
 ## Prerequisites
 
-To complete this article:
+To complete the steps in this article:
 
-* If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+* If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you start.
 
 
-## Create Key Vault Resource Manager template
+## Create a Key Vault Resource Manager template
 
-The following template shows a basic way to create key vault. Some values are specified within the template.
+The following template shows a basic way to create a key vault. Some values are specified in the template.
 
 ```json
 {
@@ -85,11 +85,11 @@ The following template shows a basic way to create key vault. Some values are sp
 For more about Key Vault template settings, see [Key Vault ARM template reference](https://docs.microsoft.com/azure/templates/microsoft.keyvault/vaults).
 
 > [!IMPORTANT]
-> If template is redeployed it will override any existing access policies in the key vault. It is recommended to populate `accessPolicies` property with existing access policies to avoid loosing access to key vault. 
+> If a template is redeployed, any existing access policies in the key vault will be overridden. We recommend that you populate the `accessPolicies` property with existing access policies to avoid losing access to the key vault. 
 
-## Add access policy to Key Vault Resource Manager template
+## Add an access policy to a Key Vault Resource Manager template
 
-You can deploy access policies to existing key vault without redeployment of entire key vault template. The following template shows a basic way to create access policies.
+You can deploy access policies to an existing key vault without redeploying the entire key vault template. The following template shows a basic way to create access policies:
 
 ```json
 {
@@ -158,15 +158,15 @@ You can deploy access policies to existing key vault without redeployment of ent
 }
 
 ```
-For more about Key Vault template settings, see [Key Vault ARM template reference](https://docs.microsoft.com/azure/templates/microsoft.keyvault/vaults/accesspolicies).
+For more information about Key Vault template settings, see [Key Vault ARM template reference](https://docs.microsoft.com/azure/templates/microsoft.keyvault/vaults/accesspolicies).
 
-## Other available Key Vault Resource Manager templates
+## More Key Vault Resource Manager templates
 
 There are other Resource Manager templates available for Key Vault objects:
 
 | Secrets | Keys | Certificates |
 |--|--|--|
-|[Quickstart](https://docs.microsoft.com/azure/key-vault/secrets/quick-create-template)<br>[Reference](https://docs.microsoft.com/azure/templates/microsoft.keyvault/vaults/secrets)|N/A|N/A|
+|<ul><li>[Quickstart](https://docs.microsoft.com/azure/key-vault/secrets/quick-create-template)<li>[Reference](https://docs.microsoft.com/azure/templates/microsoft.keyvault/vaults/secrets)|N/A|N/A|
 
 More Key Vault templates you can find here: [Key Vault Resource Manager reference](https://docs.microsoft.com/azure/templates/microsoft.keyvault/allversions)
 
