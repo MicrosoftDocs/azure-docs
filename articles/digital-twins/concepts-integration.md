@@ -25,7 +25,7 @@ Azure Digital Twins can also route data to downstream services, such as [Azure M
 
 Azure Digital Twins can be driven with data and events from any service—[IoT Hub](../iot-hub/about-iot-hub.md), [Logic Apps](../logic-apps/logic-apps-overview.md), your own custom service, and more. This allows you to collect telemetry from physical devices in your environment, and process this data using the Azure Digital Twins graph in the cloud.
 
-Azure Digital Twins does not have a built-in IoT Hub. You can use an existing IoT Hub you currently have in production, or deploy a new one. This gives you full access to all of the device management capabilities of IoT Hub.
+Instead of having a built-in IoT Hub behind the scenes, Azure Digital Twins allows you to "bring your own" IoT Hub to use with the service. You can use an existing IoT Hub you currently have in production, or deploy a new one to be used for this purpose. This gives you full access to all of the device management capabilities of IoT Hub.
 
 To ingest data from any source into Azure Digital Twins, use an [**Azure function**](../azure-functions/functions-overview.md). Learn more about this pattern in [*How-to: Ingest telemetry from IoT Hub*](how-to-ingest-iot-hub-data.md), or try it out yourself in the Azure Digital Twins [*Tutorial: Connect an end-to-end solution*](tutorial-end-to-end.md). 
 
