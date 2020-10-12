@@ -34,7 +34,7 @@ This topic shows how to set up and specify your own encryption key to use when y
 
 * An Azure key vault that has the **Soft Delete** and **Do Not Purge** properties enabled
 
-  For more information about enabling these properties, see [Azure Key Vault soft-delete overview](../key-vault/general/soft-delete-overview.md) and [Configure customer-managed keys with Azure Key Vault](../storage/common/storage-encryption-keys-portal.md). If you're new to Azure Key Vault, learn [how to create a key vault](../key-vault/secrets/quick-create-portal.md#create-a-vault) by using the Azure portal or by using the Azure PowerShell command, [New-AzKeyVault](/powershell/module/az.keyvault/new-azkeyvault).
+  For more information about enabling these properties, see [Azure Key Vault soft-delete overview](../key-vault/general/soft-delete-overview.md) and [Configure customer-managed keys with Azure Key Vault](../storage/common/customer-managed-keys-configure-key-vault.md). If you're new to Azure Key Vault, learn [how to create a key vault](../key-vault/secrets/quick-create-portal.md#create-a-vault) by using the Azure portal or by using the Azure PowerShell command, [New-AzKeyVault](/powershell/module/az.keyvault/new-azkeyvault).
 
 * In your key vault, a key that's created with these property values:
 
@@ -47,7 +47,7 @@ This topic shows how to set up and specify your own encryption key to use when y
 
   ![Create your customer-managed encryption key](./media/customer-managed-keys-integration-service-environment/create-customer-managed-key-for-encryption.png)
 
-  For more information, see [Configure customer-managed keys with Azure Key Vault](../storage/common/storage-encryption-keys-portal.md) or the Azure PowerShell command, [Add-AzKeyVaultKey](/powershell/module/az.keyvault/add-azkeyvaultkey).
+  For more information, see [Configure customer-managed keys with Azure Key Vault](../storage/common/customer-managed-keys-configure-key-vault.md) or the Azure PowerShell command, [Add-AzKeyVaultKey](/powershell/module/az.keyvault/add-azkeyvaultkey).
 
 * A tool that you can use to create your ISE by calling the Logic Apps REST API with an HTTPS PUT request. For example, you can use [Postman](https://www.getpostman.com/downloads/), or you can build a logic app that performs this task.
 
@@ -223,7 +223,7 @@ For this task, you can use either the Azure PowerShell [Set-AzKeyVaultAccessPoli
 
    1. When you're finished with the **Access policies** pane, select **Save**.
 
-For more information, see [How to authenticate to Key Vault](/azure/key-vault/general/authentication) and [Assign a Key Vault access policy](/azure/key-vault/general/assign-access-policy-portal).
+For more information, see [How to authenticate to Key Vault](../key-vault/general/authentication.md) and [Assign a Key Vault access policy](../key-vault/general/assign-access-policy-portal.md).
 
 ## Next steps
 
