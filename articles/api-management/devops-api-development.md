@@ -44,16 +44,16 @@ The key in this proposed approach is to keep all API Management configurations i
 |Service template     | Service-level configurations of the API Management instance, such as pricing tier and custom domains         |
 |Shared templates     |  Shared resources throughout an API Management instance, such as groups, products, and loggers    |
 |API templates     |  Configurations of APIs and their subresources: operations, policies, diagnostic settings        |
-|Main template     |   Ties everything together by [linking](../azure-resource-manager/resource-group-linked-templates.md) to all templates and deploying them in order. To deploy all configurations to an API Management instance, deploy the main template. Each template can also be deployed individually.       |
+|Master (main) template     |   Ties everything together by [linking](../azure-resource-manager/resource-group-linked-templates.md) to all templates and deploying them in order. To deploy all configurations to an API Management instance, deploy the main template. Each template can also be deployed individually.       |
 
 API developers will fork the Publisher repository to a Developer repository and work on the changes for their APIs. In most cases, they focus on the API templates for their APIs and don't need to change the shared or service templates.
 
 ## Migrate configurations to templates
 There are challenges for API developers when working with Resource Manager templates:
 
-* API developers often work with the [OpenAPI Specification](https://github.com/OAI/OpenAPI-Specification) and may not be familiar with Resource Manager schemas. Authoring templates manually might be an error-prone task. 
+* API developers often work with the [OpenAPI Specification](https://github.com/OAI/OpenAPI-Specification) and may not be familiar with Resource Manager schemas. Authoring templates manually might be error-prone. 
 
-   A utility tool called [**Creator**](https://github.com/Azure/azure-api-management-devops-resource-kit/blob/master/src/APIM_ARMTemplate/README.md#Creator) in the resource kit can help automate the creation of API templates based on an Open API Specification file. Optionally, developers can supply API Management policies for an API in XML format. 
+   A utility tool called [**Creator**](https://github.com/Azure/azure-api-management-devops-resource-kit/blob/master/src/APIM_ARMTemplate/README.md#Creator) in the resource kit can help automate the creation of API templates based on an Open API Specification file. Aditionally, developers can supply API Management policies for an API in XML format. 
 
 * For customers who are already using API Management, another challenge is to extract existing configurations into Resource Manager templates. For those customers, a tool called [**Extractor**](https://github.com/Azure/azure-api-management-devops-resource-kit/blob/master/src/APIM_ARMTemplate/README.md#extractor) in the resource kit can help generate templates by extracting configurations from their API Management instances.  
 
@@ -66,5 +66,5 @@ With this approach, the deployment of API changes into API Management instances 
 
 ## Next steps
 
-- See the open-source [Azure API Management DevOps Resource Kit](hhttps://aka.ms/apimdevops) for additional information, tools, and sample templates.
-- See [a video that explains the CI/CD approach and demonstrates a sample implementation. 
+- See the open-source [Azure API Management DevOps Resource Kit](https://aka.ms/apimdevops) for additional information, tools, and sample templates.
+- See [a video](https://www.youtube.com/watch?v=4Sp2Qvmg6j8) that explains the CI/CD approach and demonstrates a sample implementation. 
