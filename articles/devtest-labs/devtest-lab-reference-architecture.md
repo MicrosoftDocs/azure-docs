@@ -25,7 +25,7 @@ These are the key elements of the reference architecture:
     - You have on-premises data that can't be moved to the cloud.
     - You prefer to join the lab's virtual machines to the on-premises domain.
     - You want to force all network traffic in and out of the cloud environment through an on-premises firewall for security/compliance.
-- **Network security groups**: A common way to restrict traffic to the cloud environment (or within the cloud environment) based on source and destination IP addresses is to use a [network security group](../virtual-network/security-overview.md). For example, you want to allow only traffic that originates from the corporate network into the lab’s networks.
+- **Network security groups**: A common way to restrict traffic to the cloud environment (or within the cloud environment) based on source and destination IP addresses is to use a [network security group](../virtual-network/network-security-groups-overview.md). For example, you want to allow only traffic that originates from the corporate network into the lab’s networks.
 - **Remote desktop gateway**: Enterprises typically block outgoing remote desktop connections at the corporate firewall. There are several options to enable connectivity to the cloud-based environment in DevTest Labs, including:
   - Use a [remote desktop gateway](/windows-server/remote/remote-desktop-services/desktop-hosting-logical-architecture), and allow the static IP address of the gateway load balancer.
   - [Direct all incoming RDP traffic](../vpn-gateway/vpn-gateway-forced-tunneling-rm.md) over the ExpressRoute/site-to-site VPN connection. This functionality is a common consideration when enterprises plan a DevTest Labs deployment.

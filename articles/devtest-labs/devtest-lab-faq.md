@@ -140,7 +140,7 @@ Separate resource group scenario:
 -	DevTest Labs creates a resource group for shared IP machines that belong to the same size.
 
 Common resource group scenario:
--	All virtual machines are spun up in the common resource group you specify. Learn more [resource group allocation for the lab](https://aka.ms/RGControl).
+-	All virtual machines are spun up in the common resource group you specify. Learn more [resource group allocation for the lab](./resource-group-control.md).
 
 ### How do I maintain a naming convention across my DevTest Labs environment?
 You may want to extend current enterprise naming conventions to Azure operations and make them consistent across the DevTest Labs environment. When deploying DevTest Labs, we recommend that you have specific starting policies. You deploy these policies by a central script and JSON templates to enforce consistency. Naming policies can be implemented through Azure policies applied at the subscription level. For JSON samples for Azure Policy, see [Azure Policy samples](../governance/policy/samples/index.md).
@@ -195,7 +195,7 @@ To copy your existing VMs to DevTest Labs:
 Yes, you can attach multiple disks to your VMs.
 
 ### Are Gen 2 images supported by DevTest Labs?
-Yes. The DevTest Labs service supports [Gen 2 images](../virtual-machines/windows/generation-2.md). However, if both Gen 1 and Gen 2 versions are available for an image, DevTest Labs shows only the Gen 1 version of the image when creating a VM. You see the image if there is only Gen 2 version of it available. 
+Yes. The DevTest Labs service supports [Gen 2 images](../virtual-machines/generation-2.md). However, if both Gen 1 and Gen 2 versions are available for an image, DevTest Labs shows only the Gen 1 version of the image when creating a VM. You see the image if there is only Gen 2 version of it available. 
 
 ### If I want to use a Windows OS image for my testing, do I have to purchase an MSDN subscription?
 To use Windows client OS images (Windows 7 or a later version) for your development or testing in Azure, take one of the following steps:
