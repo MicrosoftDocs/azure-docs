@@ -29,14 +29,14 @@ The service SDKs let you access device information from a solution, such as a de
 
 | Platform | IoT Hub service client | Digital Twins service client |
 | -------- | ---------------------- | ---------------------------- |
-| .NET     | [Documentation](https://docs.microsoft.com/dotnet/api/microsoft.azure.devices.shared.twin.modelid?view=azure-dotnet#Microsoft_Azure_Devices_Shared_Twin_ModelId&preserve-view=true) <br/> [Samples](https://github.com/Azure-Samples/azure-iot-samples-csharp/tree/master/iot-hub/Samples/service/PnpServiceSamples)| [Samples](https://github.com/Azure-Samples/azure-iot-samples-csharp/tree/master/iot-hub/Samples/service/DigitalTwinClientSamples) |
+| .NET     | [Documentation](https://docs.microsoft.com/dotnet/api/microsoft.azure.devices) <br/> [Samples](https://github.com/Azure-Samples/azure-iot-samples-csharp/tree/master/iot-hub/Samples/service/PnpServiceSamples)| [Samples](https://github.com/Azure-Samples/azure-iot-samples-csharp/tree/master/iot-hub/Samples/service/DigitalTwinClientSamples) |
 | Java     | [Documentation](https://docs.microsoft.com/java/api/com.microsoft.azure.sdk.iot.service.devicetwin.devicetwindevice?view=azure-java-stable&preserve-view=true) <br/> [Samples](https://github.com/Azure/azure-iot-sdk-java/blob/master/service/iot-service-samples/pnp-service-sample)| [Samples](https://github.com/Azure/azure-iot-sdk-java/tree/master/service/iot-service-samples/digitaltwin-service-samples) |
 | Node.js  | [Documentation](https://docs.microsoft.com/javascript/api/azure-iothub/twin?view=azure-node-latest&preserve-view=true) <br/> [Sample](https://github.com/Azure/azure-iot-sdk-node/blob/master/service/samples/javascript/twin.js)| [Documentation](https://docs.microsoft.com/javascript/api/azure-iot-digitaltwins-service/?view=azure-node-latest&preserve-view=true) <br/> [Sample](https://github.com/Azure/azure-iot-sdk-node/blob/master/service/samples/javascript/get_digital_twin.js) |
 | Python   | [Documentation](https://docs.microsoft.com/python/api/azure-iot-hub/azure.iot.hub.iothubregistrymanager?view=azure-python&preserve-view=true) <br/> [Sample](https://github.com/Azure/azure-iot-sdk-python/blob/master/azure-iot-hub/samples/iothub_registry_manager_method_sample.py)| [Documentation](https://docs.microsoft.com/python/api/azure-iot-hub/azure.iot.hub.iothubdigitaltwinmanager?view=azure-python&preserve-view=true) <br/> [Sample](https://github.com/Azure/azure-iot-sdk-python/blob/master/azure-iot-hub/samples/get_digital_twin_sample.py) |
 
 ## IoT Hub service client examples
 
-This section shows C# examples using the IoT Hub service client and the **RegistryManager** and **ServiceClient** classes. You use the **RegistryManager** class to interact with the device state using device twins. You use the **ServiceClient** class to call commands on the device. The [DTDL](concepts-digital-twin.md) model for the device defines the properties and commands the device implements. In the code snippets, the `_deviceTwinId` variable holds the device ID of the IoT Plug and Play device registered with your IoT hub.
+This section shows C# examples using the IoT Hub service client and the **RegistryManager** and **ServiceClient** classes. You use the **RegistryManager** class to interact with the device state using device twins. You can also use the **RegistryManager** class to [query device registrations](..\iot-hub\iot-hub-devguide-query-language.md) in your IoT Hub. You use the **ServiceClient** class to call commands on the device. The [DTDL](concepts-digital-twin.md) model for the device defines the properties and commands the device implements. In the code snippets, the `deviceTwinId` variable holds the device ID of the IoT Plug and Play device registered with your IoT hub.
 
 ### Get the device twin and model ID
 
@@ -45,17 +45,17 @@ To get the device twin and model ID of the IoT Plug and Play device that connect
 ```csharp
 RegistryManager registryManager = RegistryManager.CreateFromConnectionString(parameters.HubConnectionString);
 
-Twin twin = await registryManager.GetTwinAsync(_deviceTwinId);
+Twin twin = await registryManager.GetTwinAsync(deviceTwinId);
 Console.WriteLine($"Device twin: \n{JsonConvert.SerializeObject(twin, Formatting.Indented)}");
 Console.WriteLine($"Model ID: {twin.ModelId}.");
 ```
 
 ### Update device twin
 
-The following code snippet shows how to update the `targetTemperature` property on a device. The property is defined in the default component of the device:
+The following code snippet shows how to update the `targetTemperature` property on a device. The sample shows how you need to get the twin's `ETag` before you update it. The property is defined in the default component of the device:
 
 ```csharp
-Twin twin = await registryManager.GetTwinAsync(_deviceTwinId);
+Twin twin = await registryManager.GetTwinAsync(deviceTwinId);
 
 int desiredTargetTemperature = 60;
 
@@ -65,37 +65,31 @@ twinPatch.Properties.Desired["targetTemperature"] = desiredTargetTemperature;
 
 Console.WriteLine($"Update the targetTemperature property to {desiredTargetTemperature}.");
 
-await registryManager.UpdateTwinAsync(_deviceTwinId, twinPatch, twin.ETag);
+await registryManager.UpdateTwinAsync(deviceTwinId, twinPatch, twin.ETag);
 ```
 
-The following snippet shows how to update the `targetTemperature` property on a component. The property is defined in the **Thermostat1** interface:
+The following snippet shows how to update the `targetTemperature` property on a component. The sample shows how you need to get the twin's `ETag` before you update it. The property is defined in the **Thermostat1** interface:
 
 ```csharp
-Twin twin = await registryManager.GetTwinAsync(_deviceTwinId);
+Twin twin = await registryManager.GetTwinAsync(deviceTwinId);
 
 int desiredTargetTemperature = 60;
 
-string propertyUpdate = CreatePropertyPatch("targetTemperature",
-    JsonConvert.SerializeObject(desiredTargetTemperature),
-    "thermostat1");
-var twinPatch = new Twin();
-twinPatch.Properties.Desired["targetTemperature"] = propertyUpdate;
+var twinPatch = CreatePropertyPatch("targetTemperature", desiredTargetTemperature, "thermostat1");
 
-Twin twin = await _registryManager.GetTwinAsync(_deviceTwinId);
-
-await _registryManager.UpdateTwinAsync(_deviceTwinId, twinPatch, twin.ETag);
+await registryManager.UpdateTwinAsync(deviceTwinId, twinPatch, twin.ETag);
 
 // ...
 
-private static string CreatePropertyPatch(string propertyName, string serializedPropertyValue, string componentName)
+private static Twin CreatePropertyPatch(string propertyName, object propertyValue, string componentName)
 {
-  return $"{{" +
-          $"  \"{componentName}\": " +
-          $"      {{" +
-          $"          \"__t\": \"c\"," +
-          $"          \"{propertyName}\": {serializedPropertyValue}" +
-          $"      }} " +
-          $"}}";
+    var twinPatch = new Twin();
+    twinPatch.Properties.Desired[componentName] = new
+    {
+        __t = "c"
+    };
+    twinPatch.Properties.Desired[componentName][propertyName] = JsonConvert.SerializeObject(propertyValue);
+    return twinPatch;
 }
 ```
 
@@ -127,14 +121,14 @@ commandInvocation.SetPayloadJson(componentCommandPayload);
 
 try
 {
-  CloudToDeviceMethodResult result = await serviceClient.InvokeDeviceMethodAsync(_deviceTwinId, commandInvocation);
+  CloudToDeviceMethodResult result = await serviceClient.InvokeDeviceMethodAsync(deviceTwinId, commandInvocation);
 
   Console.WriteLine($"Command getMaxMinReport was invoked." +
       $"\nDevice returned status: {result.Status}. \nReport: {result.GetPayloadAsJson()}");
 }
 catch (DeviceNotFoundException)
 {
-    Console.WriteLine($"Unable to execute command getMaxMinReport on {_deviceTwinId}.";
+    Console.WriteLine($"Unable to execute command getMaxMinReport on {deviceTwinId}.";
 }
 ```
 
@@ -152,7 +146,7 @@ commandInvocation.SetPayloadJson(componentCommandPayload);
 
 try
 {
-    CloudToDeviceMethodResult result = await _serviceClient.InvokeDeviceMethodAsync(_deviceTwinId, commandInvocation);
+    CloudToDeviceMethodResult result = await serviceClient.InvokeDeviceMethodAsync(deviceTwinId, commandInvocation);
     Console.WriteLine($"Command getMaxMinReport was invoked on component thermostat1." +
         $"\nDevice returned status: {result.Status}. \nReport: {result.GetPayloadAsJson()}");
 }
@@ -231,7 +225,7 @@ namespace Microsoft.Azure.Devices.Samples
 }
 ```
 
-The `_digitalTwinId` variable holds the device ID of the IoT Plug and Play device registered with your IoT hub.
+The `digitalTwinId` variable holds the device ID of the IoT Plug and Play device registered with your IoT hub.
 
 ### Get the digital twin and model ID
 
@@ -240,7 +234,7 @@ To get the digital twin and model ID of the IoT Plug and Play device that connec
 ```csharp
 DigitalTwinClient digitalTwinClient = DigitalTwinClient.CreateFromConnectionString(parameters.HubConnectionString);
 HttpOperationResponse<ThermostatTwin, DigitalTwinGetHeaders> getDigitalTwinResponse = await digitalTwinClient
-    .GetDigitalTwinAsync<ThermostatTwin>(_digitalTwinId);
+    .GetDigitalTwinAsync<ThermostatTwin>(digitalTwinId);
 ThermostatTwin thermostatTwin = getDigitalTwinResponse.Body;
 Console.WriteLine($"Model ID: {thermostatTwin.Metadata.ModelId}.");
 Console.WriteLine($"Digital Twin: \n{JsonConvert.SerializeObject(thermostatTwin, Formatting.Indented)}");
@@ -257,7 +251,7 @@ int desiredTargetTemperature = 60;
 
 // Get the current value of the targetTemperature property
 HttpOperationResponse<ThermostatTwin, DigitalTwinGetHeaders> getDigitalTwinResponse = await digitalTwinClient
-    .GetDigitalTwinAsync<ThermostatTwin>(_digitalTwinId);
+    .GetDigitalTwinAsync<ThermostatTwin>(digitalTwinId);
 double? currentTargetTemperature = getDigitalTwinResponse.Body.TargetTemperature;
 
 // Has the targetTemperature property previously been set?
@@ -276,9 +270,9 @@ else
 
 // Update the targetTemperature property on the digital twin
 HttpOperationHeaderResponse<DigitalTwinUpdateHeaders> updateDigitalTwinResponse = await digitalTwinClient
-    .UpdateDigitalTwinAsync(_digitalTwinId, updateOperation.Serialize());
+    .UpdateDigitalTwinAsync(digitalTwinId, updateOperation.Serialize());
 
-Console.WriteLine($"Update {_digitalTwinId} digital twin response: {updateDigitalTwinResponse.Response.StatusCode}.");
+Console.WriteLine($"Update {digitalTwinId} digital twin response: {updateDigitalTwinResponse.Response.StatusCode}.");
 ```
 
 The following snippet shows how to update the `targetTemperature` property on a component. The property is defined in the **Thermostat1** component:
@@ -289,8 +283,8 @@ int desiredTargetTemperature = 60;
 var updateOperation = new UpdateOperationsUtility();
 
 // Look at when the property was updated and what was it set to.
-HttpOperationResponse<TemperatureControllerTwin, DigitalTwinGetHeaders> getDigitalTwinResponse = await _digitalTwinClient
-  .GetDigitalTwinAsync<TemperatureControllerTwin>(_digitalTwinId);
+HttpOperationResponse<TemperatureControllerTwin, DigitalTwinGetHeaders> getDigitalTwinResponse = await digitalTwinClient
+  .GetDigitalTwinAsync<TemperatureControllerTwin>(digitalTwinId);
 
 ThermostatTwin thermostat1 = getDigitalTwinResponse.Body.Thermostat1;
 
@@ -320,10 +314,10 @@ else
     updateOperation.AppendAddComponentOp("/thermostat1", componentProperty);
 }
 
-HttpOperationHeaderResponse<DigitalTwinUpdateHeaders> updateDigitalTwinResponse = await _digitalTwinClient
-    .UpdateDigitalTwinAsync(_digitalTwinId, updateOperation.Serialize());
+HttpOperationHeaderResponse<DigitalTwinUpdateHeaders> updateDigitalTwinResponse = await digitalTwinClient
+    .UpdateDigitalTwinAsync(digitalTwinId, updateOperation.Serialize());
 
-Console.WriteLine($"Update {_digitalTwinId} digital twin response: {updateDigitalTwinResponse.Response.StatusCode}.");
+Console.WriteLine($"Update {digitalTwinId} digital twin response: {updateDigitalTwinResponse.Response.StatusCode}.");
 ```
 
 ### Call command
@@ -336,7 +330,7 @@ DateTimeOffset since = DateTimeOffset.Now.Subtract(TimeSpan.FromMinutes(2));
 try
 {
   HttpOperationResponse<DigitalTwinCommandResponse, DigitalTwinInvokeCommandHeaders> invokeCommandResponse = await digitalTwinClient
-    .InvokeCommandAsync(_digitalTwinId, "getMaxMinReport", JsonConvert.SerializeObject(since));
+    .InvokeCommandAsync(digitalTwinId, "getMaxMinReport", JsonConvert.SerializeObject(since));
 
   Console.WriteLine($"Command getMaxMinReport was invoked. \nDevice returned status: {invokeCommandResponse.Body.Status}." +
     $"\nReport: {invokeCommandResponse.Body.Payload}");
@@ -345,7 +339,7 @@ catch (HttpOperationException e)
 {
   if (e.Response.StatusCode == HttpStatusCode.NotFound)
   {
-    Console.WriteLine($"Unable to execute command getMaxMinReport on {_digitalTwinId}.");
+    Console.WriteLine($"Unable to execute command getMaxMinReport on {digitalTwinId}.");
   }
 }
 ```
@@ -357,8 +351,8 @@ DateTimeOffset since = DateTimeOffset.Now.Subtract(TimeSpan.FromMinutes(2));
 
 try
 {
-    HttpOperationResponse<DigitalTwinCommandResponse, DigitalTwinInvokeCommandHeaders> invokeCommandResponse = await _digitalTwinClient
-        .InvokeComponentCommandAsync(_digitalTwinId, "thermostat1", "getMaxMinReport", JsonConvert.SerializeObject(since));
+    HttpOperationResponse<DigitalTwinCommandResponse, DigitalTwinInvokeCommandHeaders> invokeCommandResponse = await digitalTwinClient
+        .InvokeComponentCommandAsync(digitalTwinId, "thermostat1", "getMaxMinReport", JsonConvert.SerializeObject(since));
 
     Console.WriteLine("Command getMaxMinReport was invoked on component thermostat1." +
         $"\nDevice returned status: {invokeCommandResponse.Body.Status}. \nReport: {invokeCommandResponse.Body.Payload}");
