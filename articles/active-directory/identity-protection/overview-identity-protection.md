@@ -112,7 +112,7 @@ Conditional Access administrators can also create policies that factor in sign-i
 | Notifications | Weekly digest| No | No | Yes | 
 | | MFA registration policy | No | No | Yes |
 
-More information on these rich reports can be found in the article, [How To: Investigate risk](howto-identity-protection-investigate-risk#navigating-the-reports.md).
+More information on these rich reports can be found in the article, [How To: Investigate risk](howto-identity-protection-investigate-risk.md#navigating-the-reports).
 
 ## Next steps
 
