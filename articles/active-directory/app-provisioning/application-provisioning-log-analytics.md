@@ -31,7 +31,7 @@ Once you've configured on Azure Monitoring, you can enable logs for Application 
 > If you have just recently provisioned a workspace, it can take some time before you can send logs to it. If you receive an error that the subscription is not registered to use *microsoft.insights* then check back after a few minutes.
  
 ## Understanding the data
-The underlying data stream that Application Provisioning sends to Azure Monitor logs is almost the same as what you see in the provisioning logs in the Azure portal UI and Azure API. There are only a few **differences** in the log fields as outlined in the following table. To learn more about these fields, see [List provisioningObjectSummary](https://docs.microsoft.com/graph/api/provisioningobjectsummary-list?view=graph-rest-beta&tabs=http).
+The underlying data stream that Provisioning sends log viewers is almost identical. Azure Monitor logs gets nearly the same stream as the Azure portal UI and Azure API. There are only a few **differences** in the log fields as outlined in the following table. To learn more about these fields, see [List provisioningObjectSummary](https://docs.microsoft.com/graph/api/provisioningobjectsummary-list?view=graph-rest-beta&tabs=http&preserve-view=true).
 
 |Azure Monitor logs   |Azure portal UI   |Azure API |
 |----------|-----------|------------|
@@ -52,7 +52,7 @@ Application Provisioning comes with a set of pre-built workbooks. You can find t
 
 ## Custom queries
 
-You can create custom queries and show the data on Azure dashboards. To learn how, see [Create and share dashboards of Log Analytics data](../../azure-monitor/log-query/get-started-queries.md) and [Overview of log queries in Azure Monitor](../../azure-monitor/log-query/log-query-overview.md).
+You can create custom queries and show the data on Azure dashboards. To learn how, see [Create and share dashboards of Log Analytics data](../../azure-monitor/log-query/get-started-queries.md). Also, be sure to check out [Overview of log queries in Azure Monitor](../../azure-monitor/log-query/log-query-overview.md).
 
 Here are some samples to get started with Application Provisioning.
 
@@ -89,7 +89,7 @@ AADProvisioningLogs
 
 ## Custom alerts
 
-Azure Monitor lets you configure custom alerts so that you can get notified about key events related to Application Provisioning. For example, you might want to receive an alert on spikes in failures, disables, or deletes. Another example of where you might want to be alerted is a lack of any provisioning, which indicates something is wrong.
+Azure Monitor lets you configure custom alerts so that you can get notified about key events related to Provisioning. For example, you might want to receive an alert on spikes in failures. Or perhaps spikes in disables or deletes. Another example of where you might want to be alerted is a lack of any provisioning, which indicates something is wrong.
 
 To learn more about alerts, see [Respond to events with Azure Monitor Alerts](../../azure-monitor/learn/tutorial-response.md).
 
@@ -108,7 +108,7 @@ Alert when there's a spike in disables or deletes.
 
 ## Community contributions
 
-We're taking an open source and community-based approach to Application Provisioning queries and dashboards. If you've built a query, alert, or workbook that you think others would find useful, be sure to publish it to the AzureMonitorCommunity GitHub repo. Then shoot us an email with a link. We'll review and publish it to the service so others can benefit too. You can contact us at provisioningfeedback@microsoft.com.
+We're taking an open source and community-based approach to Application Provisioning queries and dashboards. If you've built a query, alert, or workbook that you think others would find useful, be sure to publish it to the [AzureMonitorCommunity GitHub repo](https://github.com/microsoft/AzureMonitorCommunity). Then shoot us an email with a link. We'll review and publish it to the service so others can benefit too. You can contact us at provisioningfeedback@microsoft.com.
 
 ## Next steps
 
