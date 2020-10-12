@@ -11,7 +11,7 @@ ms.date: 09/10/2020
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to connect and activate Azure Stack Edge Pro so I can use it to transfer data to Azure. 
 ---
-# Tutorial: Configure device settings for Azure Stack Edge Pro with GPU
+# Tutorial: Configure the device settings for Azure Stack Edge Pro with GPU
 
 This tutorial describes how you configure device related settings for your Azure Stack Edge Pro device with an onboard GPU. You can set up your device name, update server, and time server via the local web UI.
 
