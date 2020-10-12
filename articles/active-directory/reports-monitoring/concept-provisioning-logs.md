@@ -211,7 +211,7 @@ The **summary** tab provides an overview of what happened and identifiers for th
 
 - You can use the Change ID attribute as unique identifier. This is, for example, helpful when interacting with product support.
 
-- There is currently no option to download provisioning data as a CSV file, but you can export the data using [Microsoft Graph](https://docs.microsoft.com/graph/api/provisioningobjectsummary-list?view=graph-rest-beta&tabs=http).
+- There is currently no option to download provisioning data as a CSV file, but you can export the data using [Microsoft Graph](/graph/api/provisioningobjectsummary-list?tabs=http&view=graph-rest-beta).
 
 - You may see skipped events for users that are not in scope. This is expected, especially when the sync scope is set to all users and groups. Our service will evaluate all the objects in the tenant, even the ones that are out of scope. 
 
@@ -241,10 +241,10 @@ Use the table below to better understand how to resolve errors you may find in t
 |DuplicateSourceEntries | The operation could not be completed because more than one user was found with the configured matching attributes. Either remove the duplicate user, or reconfigure your attribute mappings as described [here](../app-provisioning/customize-application-attributes.md).|
 |ImportSkipped | When each user is evaluated, we attempt to import the user from the source system. This error commonly occurs when the user being imported is missing the matching property defined in your attribute mappings. Without a value present on the user object for the matching attribute, we cannot evaluate scoping, matching, or export changes. Note, presence of this error does not indicate that the user is in scope as we have not yet evaluated scoping for the user.|
 |EntrySynchronizationSkipped | The provisioning service has successfully queried the source system and identified the user. No further action was taken on the user and they were skipped. The skip could be due to the user being out of scope or the user already existing in the target system with no further changes required.|
-|SystemForCrossDomainIdentityManagementMultipleEntriesInResponse| When performing a GET request to retrieve a user or group, we received multiple users or groups in the response. We expected to receive only one user or group in the response. If, [for example](https://docs.microsoft.com/azure/active-directory/app-provisioning/use-scim-to-provision-users-and-groups#get-group), we do a GET request to retrieve a group and provide a filter to exclude members and your SCIM endpoint returns the members, we will throw this error.|
+|SystemForCrossDomainIdentityManagementMultipleEntriesInResponse| When performing a GET request to retrieve a user or group, we received multiple users or groups in the response. We expected to receive only one user or group in the response. If, [for example](../app-provisioning/use-scim-to-provision-users-and-groups.md#get-group), we do a GET request to retrieve a group and provide a filter to exclude members and your SCIM endpoint returns the members, we will throw this error.|
 
 ## Next steps
 
 * [Check the status of user provisioning](../app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user.md)
 * [Problem configuring user provisioning to an Azure AD Gallery application](../app-provisioning/application-provisioning-config-problem.md)
-* [Provisioning logs graph API](https://docs.microsoft.com/graph/api/resources/provisioningobjectsummary?view=graph-rest-beta)
+* [Provisioning logs graph API](/graph/api/resources/provisioningobjectsummary?view=graph-rest-beta)
