@@ -21,7 +21,7 @@ ms.author: blehr
 
 # Upgrade public IP addresses
 
-Azure public IP addresses are created with a SKU-- either Basic or Standard-- which determines aspects of their functionality (including allocation method, usage across availability zones, and which resources they can be associated with).  For more information on the differences between the SKU types, please see [Public IP Addresses - SKU](https://docs.microsoft.com/azure/virtual-network/public-ip-addresses#sku).
+Azure public IP addresses are created with a SKU--either Basic or Standard--which determines aspects of their functionality (including allocation method, usage across availability zones, and which resources they can be associated with).  For more information on the differences between the SKU types, please see [Public IP Addresses - SKU](https://docs.microsoft.com/azure/virtual-network/public-ip-addresses#sku).
 
 The following scenarios are reviewed in this article:
 * How to upgrade a Basic SKU public IP to a Standard SKU public IP (using Portal, PowerShell, or CLI)
@@ -75,16 +75,22 @@ $rg = 'myResourceGroup'
 $name = 'myBasicPublicIP'
 
 ## This section is only needed if the Basic IP is not already set to Static ##
-az network public-ip update --resource-group $rg --name $name --allocation-method Static 
+az network public-ip update \
+--resource-group $rg \
+--name $name \
+--allocation-method Static 
 
 ## This section is for conversion to Standard ##
-az network public-ip update --resource-group $rg --name $name --sku Standard
+az network public-ip update \
+--resource-group $rg \
+--name $name \
+--sku Standard
 ```
 ---
 
 ## Migrate a classic Azure Reserved IP to an Azure Resource Manager (ARM) Basic SKU public IP
 
-To benefit from the new capabilities in Azure Resource Manager, you can migrate existing public static IP address-- called Reserved IPs-- from the Classic model.
+To benefit from the new capabilities in Azure Resource Manager, you can migrate existing public static IP address--called Reserved IPs--from the Classic model to the modern Azure Resource Manager (ARM) model.
 
 ---
 # [**Reserved to Basic - PowerShell**](#tab/option-migrate-powershell)
@@ -147,4 +153,4 @@ A new resource group in Azure Resource Manager is created using the name of the 
 
 - Learn more about [public IP addresses](virtual-network-ip-addresses-overview-arm.md#public-ip-addresses) in Azure.
 - Learn more about all [public IP address settings](virtual-network-public-ip-address.md#create-a-public-ip-address).
-- Learn how to [Upgrade Azure Public Load Balancers from Basic to Standard](load-balancer/upgrade-basic-standard).
+- Learn how to [Upgrade Azure Public Load Balancers from Basic to Standard](../load-balancer/upgrade-basic-standard).
