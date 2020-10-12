@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: conceptual
-ms.date: 09/12/2020
+ms.date: 10/07/2020
 ms.author: aahi
 ---
 # Text Analytics API v3 language support 
@@ -30,6 +30,7 @@ ms.author: aahi
 | French                |     `fr`      |     ✓      |     ✓      |         2019-10-01         |                    |
 | German                |     `de`      |     ✓      |     ✓      |         2019-10-01         |                    |
 | Greek                 |     `el`      |     ✓      |            |                            |                    |
+| Hindi                 |     `hi`      |           |      ✓      |          2020-04-01                  |                    |
 | Italian               |     `it`      |     ✓      |     ✓      |         2019-10-01         |                    |
 | Japanese              |     `ja`      |     ✓      |     ✓      |         2019-10-01         |                    |
 | Korean                |     `ko`      |            |     ✓      |         2019-10-01         |                    |
