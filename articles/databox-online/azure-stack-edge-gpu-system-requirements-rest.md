@@ -25,7 +25,7 @@ We recommend that you review the information carefully before you connect to the
 |    Service encryption for data at Rest                  |    256-bit AES encryption                             |    256-bit AES encryption |
 |    Storage account type                                 |    General-purpose and Azure blob storage accounts    |    General-purpose v1 only|
 |    Blob name                                            |    1,024 characters (2,048 bytes)                     |    880 characters (1,760 bytes)|
-|    Block blob maximum size                              |    4.75 TB (100 MB X 50,000 blocks)                   |    4.75 TB (100 MB x 50,000 blocks) for Azure Stack Edge v 2.1.1377.2170 onwards.|
+|    Block blob maximum size                              |    4.75 TB (100 MB X 50,000 blocks)                   |    4.75 TB (100 MB x 50,000 blocks) for Azure Stack Edge v 2.1.1377.2170 onwards|
 |    Page blob maximum size                               |    8 TB                                               |    1 TB                   |
 |    Page blob page size                                  |    512 bytes                                          |    4 KB                   |
 
