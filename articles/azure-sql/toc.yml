@@ -907,6 +907,8 @@
         href: managed-instance/public-endpoint-overview.md
       - name: Auditing
         href: managed-instance/auditing-configure.md
+      - name: Server trust groups
+        href: managed-instance/server-trust-group-overview.md
 
   - name: How to
     items:
