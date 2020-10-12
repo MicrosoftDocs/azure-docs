@@ -247,6 +247,16 @@ from azureml.pipeline.core import Pipeline
 pipeline1 = Pipeline(workspace=ws, steps=[compare_models])
 ```
 
+### How Python environments work with pipeline parameters
+
+{>> BUG 866280 <<}
+As discussed previously in [Configure the training run's environment](#configure-the-training-runs-environment), environment state and Python library dependencies are specified using an `Environment` object. 
+
+You may choose to use `PipelineParameter` objects to dynamically set variables at runtime for your pipeline steps. For instance, you might use a pipeline parameter to pass the path to your training data, so that you can retrain without touching your code. However, `PipelineParameter` objects change the environment's definition. 
+
+If you choose to use a named `Environment` and a `PipelineParameter`, you must specify 
+
+
 ### Use a dataset 
 
 Datasets created from Azure Blob storage, Azure Files, Azure Data Lake Storage Gen1,  Azure Data Lake Storage Gen2, Azure SQL Database, and Azure Database for PostgreSQL can be used as input to any pipeline step. You can write output to a [DataTransferStep](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.datatransferstep?view=azure-ml-py&preserve-view=true), [DatabricksStep](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.databricks_step.databricksstep?view=azure-ml-py&preserve-view=true), or if you want to write data to a specific datastore use [PipelineData](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.pipelinedata?view=azure-ml-py&preserve-view=true). 
@@ -333,6 +343,8 @@ When you first run a pipeline, Azure Machine Learning:
 ![Diagram of running an experiment as a pipeline](./media/how-to-create-your-first-pipeline/run_an_experiment_as_a_pipeline.png)
 
 For more information, see the [Experiment class](https://docs.microsoft.com/python/api/azureml-core/azureml.core.experiment.experiment?view=azure-ml-py&preserve-view=true) reference.
+
+## Use pipeline parameters for arguments that change at inference time
 
 ## View results of a pipeline
 
