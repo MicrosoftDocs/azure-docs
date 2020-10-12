@@ -16,7 +16,7 @@ ms.reviewer: igorstan
 
 This article describes guidance and best practices as you develop your data warehouse solution. 
 
-## sedicated SQL pool development best practices
+## Dedicated SQL pool development best practices
 
 ### Reduce cost with pause and scale
 
