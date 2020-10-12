@@ -30,18 +30,18 @@ The following section describes setup of Server Trust Group.
 
 2. Navigate to Azure SQL Managed Instance that you plan to add to a newly created Server trust group.
 
-3. On the **Security** settings, select the **SQL trust group** tab.
+3. On the **Security** settings, select the **SQL trust groups** tab.
 
    :::image type="content" source="./media/server-trust-group-overview/security-sql-trust-groups.png" alt-text="Server trust groups":::
 
-4. In the Server Trust Group configuration page select the *New Group* icon.
+4. In the Server Trust Group configuration page select the **New Group** icon.
 
    :::image type="content" source="./media/server-trust-group-overview/server-trust-group-create-new-group.png" alt-text="New Group":::
 
-5. On the *SQL trust group* create blade set the **Group name**. It needs to be unique in all regions where the group members reside. **Trust scope** defines type of cross-instance scenario that is enabled with the Server trust group and in preview the only applicable trust scope is **Distributed transactions**, so it is preselected and cannot be changed. All **Group members** must belong to the same **subscription** but can be under different resource groups. Select the **Resource group** and **SQL Server / instance** to choose the Azure SQL Managed Instance that will be member of the group.
+5. On the **SQL trust group** create blade set the **Group name**. It needs to be unique in all regions where the group members reside. **Trust scope** defines type of cross-instance scenario that is enabled with the Server trust group and in preview the only applicable trust scope is **Distributed transactions**, so it is preselected and cannot be changed. All **Group members** must belong to the same **subscription** but can be under different resource groups. Select the **Resource group** and **SQL Server / instance** to choose the Azure SQL Managed Instance that will be member of the group.
    :::image type="content" source="./media/server-trust-group-overview/server-trust-group-create-blade.png" alt-text="Server trust group create blade":::
 
-6. After all required fields are populated, click Save.
+6. After all required fields are populated, click **Save**.
 
 ## Server Trust Group maintenance and deletion
 
@@ -50,12 +50,12 @@ There is no way to edit Server trust group. To remove a Managed Instance from a 
 Following section describes Server trust group deletion process. 
 1. Go to the Azure portal.
 2. Navigate to a Managed Instance that belongs to the trust group.
-3. On the Security settings select the SQL trust groups tab.
+3. On the **Security** settings select the **SQL trust groups** tab.
 4. Select the trust group you want to delete.
    :::image type="content" source="./media/server-trust-group-overview/server-trust-group-manage-select.png" alt-text="Select Server trust group":::
-5. Click Delete Group.
+5. Click **Delete Group**.
    :::image type="content" source="./media/server-trust-group-overview/server-trust-group-manage-delete.png" alt-text="Delete Server trust group":::
-6. Type in the Server trust group name to confirm deletion and click Delete.
+6. Type in the Server Trust Group name to confirm deletion and click **Delete**.
    :::image type="content" source="./media/server-trust-group-overview/server-trust-group-manage-delete-confirm.png" alt-text="Confirm Server trust group deletion":::
 
 > [!NOTE]
