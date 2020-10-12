@@ -206,7 +206,7 @@ While all of the above examples have discussed how you can submit an encoding ta
 
 ### JSON preset
 
-For information about schema, see [this](/azure/media-services/previous/media-services-mes-schema) article.
+For information about schema, see [this](../previous/media-services-mes-schema.md) article.
 
 ```json
 {

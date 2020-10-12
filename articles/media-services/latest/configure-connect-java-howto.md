@@ -122,7 +122,7 @@ When you run the command, the `pom.xml`, `App.java`, and other files are created
 
 - [Media Services concepts](concepts-overview.md)
 - [Java SDK](https://aka.ms/ams-v3-java-sdk)
-- [Java reference](https://aka.ms/ams-v3-java-ref)
+- [Java reference](/java/api/overview/azure/mediaservices/management)
 - [com.microsoft.azure.mediaservices.v2018_07_01:azure-mgmt-media](https://search.maven.org/artifact/com.microsoft.azure.mediaservices.v2018_07_01/azure-mgmt-media/1.0.0-beta/jar)
 
 ## Next steps
