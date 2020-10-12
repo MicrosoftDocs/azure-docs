@@ -86,6 +86,7 @@ To upload your certificate to key vault:
 ```azurecli
 az keyvault certificate import --file <path to .pfx file> --name <certificate name> --vault-name <key vault name> --password <export password>
 ```
+---
 
 ### Grant Azure Spring Cloud access to your key vault
 
