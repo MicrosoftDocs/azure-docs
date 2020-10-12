@@ -233,7 +233,7 @@ public static double EstimateObjectSize(object data)
 The function requires an `SearchClient` as well as the number of tries you'd like to test for each batch size. As there may be some variability in indexing times for each batch, we try each batch three times by default to make the results more statistically significant.
 
 ```csharp
-await TestBatchSizes(searchClient, numTries: 3);
+await TestBatchSizesAsync(searchClient, numTries: 3);
 ```
 
 When you run the function, you should see an output like below in your console:
@@ -281,9 +281,9 @@ TimeSpan delay = delay = TimeSpan.FromSeconds(2);
 int maxRetryAttempts = 5;
 ```
 
-The results of the indexing operation are stored in the variable `IndexDocumentResult result`. This variable is important because it allows you to check if any documents in the batch failed as shown below. In the event of a partial failure, a new batch is created based on the failed documents' id.
+The results of the indexing operation are stored in the variable `IndexDocumentResult result`. This variable is important because it allows you to check if any documents in the batch failed as shown below. If there is a partial failure, a new batch is created based on the failed documents' ID.
 
-`RequestFailedException` exceptions should also be caught as this indicates the request failed completely and should also be retried.
+`RequestFailedException` exceptions should also be caught as they indicate the request failed completely and should also be retried.
 
 ```csharp
 // Implement exponential backoff
@@ -341,7 +341,7 @@ do
 
 From here, we wrap the exponential backoff code into a function so it can be easily called.
 
-Another function is then created to manage the active threads. For simplicity, that function isn't included here but can be found in [ExponentialBackoff.cs](https://github.com/Azure-Samples/azure-search-dotnet-samples/blob/optimize-indexing/optimize-data-indexing/v11/OptimizeDataIndexing/ExponentialBackoff.cs). The function can be called with the following command where `hotels` is the data we want to upload, `1000` is the batch size, and `8` is the number of concurrent threads:
+Another function is then created to manage the active threads. For simplicity, that function isn't included here but can be found in [ExponentialBackoff.cs](https://github.com/Azure-Samples/azure-search-dotnet-samples/blob/master/optimize-data-indexing/v11/OptimizeDataIndexing/ExponentialBackoff.cs). The function can be called with the following command where `hotels` is the data we want to upload, `1000` is the batch size, and `8` is the number of concurrent threads:
 
 ```csharp
 await ExponentialBackoff.IndexData(indexClient, hotels, 1000, 8);
