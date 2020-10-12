@@ -12,7 +12,7 @@ ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to configure compute on Azure Stack Edge Pro so I can use it to transform the data before sending it to Azure.
 ---
 
-# Tutorial: Transform data with Azure Stack Edge Pro
+# Tutorial: Transform the data with Azure Stack Edge Pro
 
 This tutorial describes how to configure a compute role on your Azure Stack Edge Pro device. After you configure the compute role, Azure Stack Edge Pro can transform data before sending it to Azure.
 
