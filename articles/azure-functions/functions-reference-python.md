@@ -300,16 +300,16 @@ By default, Azure Functions automatically monitors the load on your application 
 
 The default configurations are suitable for most of Azure Functions applications. However, you can improve the performance of your applications' throughput by employing configurations based on your workload profile. The first step is to understand the type of workload that you are running.
 
-##### I/O Bound workload
+##### I/O bound workload
 
 I/O bound workload has the following characteristics :
 
 - The application needs to handle many concurrent invocations.
 - The application processes a large number of I/O events e.g. network calls, disk I/O, etc.
 
-Examples of I/O bound application is Serverless Web API applications.
+Example of I/O bound application is Web APIs.
 
-##### CPU Bound workload
+##### CPU bound workload
 
 CPU bound workload has the following characteristics:
 
@@ -328,7 +328,7 @@ After understanding the workload profile of your Function applications, the foll
 
 ##### Async
 
-Because Python is a single-threaded runtime, a host instance for Python can process only one function invocation at a time. For applications that process a large number of I/O events and/or is I/O bound, you can improve performance significantly by running functions asynchronously.
+Because [Python is a single-threaded runtime](https://wiki.python.org/moin/GlobalInterpreterLock), a host instance for Python can process only one function invocation at a time. For applications that process a large number of I/O events and/or is I/O bound, you can improve performance significantly by running functions asynchronously.
 
 To run a function asynchronously, use the `async def` statement, which runs the function with [asyncio](https://docs.python.org/3/library/asyncio.html) directly:
 
@@ -336,16 +336,19 @@ To run a function asynchronously, use the `async def` statement, which runs the 
 async def main():
     await some_nonblocking_socket_io_op()
 ```
-Here is an example of a function with HTTP trigger that uses [aiohttp-requests](https://pypi.org/project/aiohttp-requests/) http client:
+Here is an example of a function with HTTP trigger that uses [aiohttp](https://pypi.org/project/aiohttp/) http client:
 
 ```python
-from aiohttp_requests import requests as r
+import aiohttp
 
 import azure.functions as func
 
 async def main(req: func.HttpRequest) -> func.HttpResponse:
-    response = await r.get("PUT_YOUR_URL_HERE")
-    return func.HttpResponse(await response.text())
+    async with aiohttp.ClientSession() as client:
+        async with client.get("PUT_YOUR_URL_HERE") as response:
+            return func.HttpResponse(await response.text())
+
+    return func.HttpResponse(body='NotFound', status_code=404)
 ```
 
 
@@ -361,7 +364,7 @@ def main():
 > In order to achieve the full benefit of running functions asynchronously, the I/O operation/library that is used in your code needs to have async implemented as well. Using synchronous I/O operations in functions that are defined as asynchronous **may hurt** the overall performance.
 >
 >Here are a few examples of client libraries that has implemented async pattern:
->- [aiohttp-requests](https://pypi.org/project/aiohttp-requests/) - Http client/server for asyncio 
+>- [aiohttp](https://pypi.org/project/aiohttp/) - Http client/server for asyncio 
 >- [Streams API](https://docs.python.org/3/library/asyncio-stream.html) - High-level async/await-ready primitives to work with network connection
 >- [Janus Queue](https://pypi.org/project/janus/) - Thread-safe asyncio-aware queue for Python
 >- [pyzmq](https://pypi.org/project/pyzmq/) - Python bindings for ZeroMQ
@@ -371,7 +374,7 @@ def main():
 
 By default, every Functions host instance has a single language worker process. You can increase the number of worker processes per host (up to 10) by using the [FUNCTIONS_WORKER_PROCESS_COUNT](functions-app-settings.md#functions_worker_process_count) application setting. Azure Functions then tries to evenly distribute simultaneous function invocations across these workers.
 
-For CPU bound applications, it is recommended to set the number of language worker to be the same as or higher than the number of cores that are available per function app ([Learn more about the different SKU options available for Azure Functions](https://docs.microsoft.com/en-us/azure/azure-functions/functions-premium-plan#available-instance-skus)). 
+For CPU bound applications, it is recommended to set the number of language worker to be the same as or higher than the number of cores that are available per function app ([Learn more about the different SKU options available for Azure Functions](functions-premium-plan.md#available-instance-skus)). 
 
 IO bound applications may also benefit from increasing the number of worker process beyond the number of cores available, however setting it higher than that may hurt the overall performance due to increased number of context switching. 
 
