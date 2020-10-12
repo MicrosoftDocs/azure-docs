@@ -57,7 +57,9 @@
       - name: Kubernetes RBAC
         href: azure-stack-edge-gpu-kubernetes-rbac.md 
       - name: Kubernetes workloads
-        href: azure-stack-edge-gpu-kubernetes-workload-management.md  
+        href: azure-stack-edge-gpu-kubernetes-workload-management.md 
+    - name: View Key Vault integration 
+      href: azure-stack-edge-gpu-activation-key-vault.md
   
   - name: How to
     items:
