@@ -18,7 +18,7 @@ This tutorial is the third in a series that demonstrates how to assess and migra
  In this tutorial, you learn how to:
 
 > [!div class="checklist"]
-> * Add the Azure Migration:Server Migration tool.
+> * Add the Azure Migrate:Server Migration tool.
 > * Discover VMs you want to migrate.
 > * Start replicating VMs.
 > * Run a test migration to make sure everything's working as expected.
