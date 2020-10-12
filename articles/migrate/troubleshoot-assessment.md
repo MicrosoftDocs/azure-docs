@@ -21,11 +21,11 @@ Fix assessment readiness issues as follows:
 **Issue** | **Fix**
 --- | ---
 Unsupported boot type | Azure doesn't support VMs with an EFI boot type. We recommend that you convert the boot type to BIOS before you run a migration. <br/><br/>You can use Azure Migrate Server Migration to handle the migration of such VMs. It will convert the boot type of the VM to BIOS during the migration.
-Conditionally supported Windows operating system | The operating system has passed its end-of-support date, and needs a Custom Support Agreement (CSA) for [support in Azure](https://aka.ms/WSosstatement). Consider upgrading before you migrate to Azure.
-Unsupported Windows operating system | Azure supports only [selected Windows OS versions](https://aka.ms/WSosstatement). Consider upgrading the machine before you migrate to Azure.
-Conditionally endorsed Linux OS | Azure endorses only [selected Linux OS versions](../virtual-machines/linux/endorsed-distros.md). Consider upgrading the machine before you migrate to Azure. Also refer [here](https://docs.microsoft.com/azure/migrate/troubleshoot-assessment#linux-vms-are-conditionally-ready-in-an-azure-vm-assessment) for more details.
+Conditionally supported Windows operating system | The operating system has passed its end-of-support date, and needs a Custom Support Agreement (CSA) for [support in Azure](/en-in/troubleshoot/azure/virtual-machines/server-software-support). Consider upgrading before you migrate to Azure.
+Unsupported Windows operating system | Azure supports only [selected Windows OS versions](/en-in/troubleshoot/azure/virtual-machines/server-software-support). Consider upgrading the machine before you migrate to Azure.
+Conditionally endorsed Linux OS | Azure endorses only [selected Linux OS versions](../virtual-machines/linux/endorsed-distros.md). Consider upgrading the machine before you migrate to Azure. Also refer [here](#linux-vms-are-conditionally-ready-in-an-azure-vm-assessment) for more details.
 Unendorsed Linux OS | The machine might start in Azure, but Azure provides no operating system support. Consider upgrading to an [endorsed Linux version](../virtual-machines/linux/endorsed-distros.md) before you migrate to Azure.
-Unknown operating system | The operating system of the VM was specified as "Other" in vCenter Server. This behavior blocks Azure Migrate from verifying the Azure readiness of the VM. Make sure that the operating system is [supported](https://aka.ms/azureoslist) by Azure before you migrate the machine.
+Unknown operating system | The operating system of the VM was specified as "Other" in vCenter Server. This behavior blocks Azure Migrate from verifying the Azure readiness of the VM. Make sure that the operating system is [supported](./concepts-assessment-calculation.md#azure-suitability-analysis) by Azure before you migrate the machine.
 Unsupported bit version | VMs with a 32-bit operating systems might boot in Azure, but we recommended that you upgrade to 64-bit before you migrate to Azure.
 Requires a Microsoft Visual Studio subscription | The machine is running a Windows client operating system, which is supported only through a Visual Studio subscription.
 VM not found for the required storage performance | The storage performance (input/output operations per second [IOPS] and throughput) required for the machine exceeds Azure VM support. Reduce storage requirements for the machine before migration.
@@ -56,7 +56,7 @@ In the case of VMware and Hyper-V VMs, Server Assessment marks Linux VMs as "Con
 - The gap prevents it from detecting the minor version of the Linux OS installed on the on-premises VMs.
 - For example, for RHEL 6.10, currently Server Assessment detects only RHEL 6 as the OS version. This is because the vCenter Server ar the Hyper-V host do not provide the kernel version for Linux VM operating systems.
 -  Because Azure endorses only specific versions of Linux, the Linux VMs are currently marked as conditionally ready in Server Assessment.
-- You can determine whether the Linux OS running on the on-premises VM is endorsed in Azure by reviewing [Azure Linux support](https://aka.ms/migrate/selfhost/azureendorseddistros).
+- You can determine whether the Linux OS running on the on-premises VM is endorsed in Azure by reviewing [Azure Linux support](../virtual-machines/linux/endorsed-distros.md).
 -  After you've verified the endorsed distribution, you can ignore this warning.
 
 This gap can be addressed by enabling [application discovery](./how-to-discover-applications.md) on the VMware VMs. Server Assessment uses the operating system detected from the VM using the guest credentials provided. This operating system data identifies the right OS information in the case of both Windows and Linux VMs.
@@ -102,7 +102,7 @@ Note- If any of the performance counters are missing, Azure Migrate: Server Asse
 
 ## Why is the confidence rating of my assessment low?
 
-The confidence rating is calculated for "Performance-based" assessments based on the percentage of [available data points](https://docs.microsoft.com/azure/migrate/concepts-assessment-calculation#ratings) needed to compute the assessment. Below are the reasons why an assessment could get a low confidence rating:
+The confidence rating is calculated for "Performance-based" assessments based on the percentage of [available data points](./concepts-assessment-calculation.md#ratings) needed to compute the assessment. Below are the reasons why an assessment could get a low confidence rating:
 
 - You did not profile your environment for the duration for which you are creating the assessment. For example, if you are creating an assessment with performance duration set to one week, you need to wait for at least a week after you start the discovery for all the data points to get collected. If you cannot wait for the duration, please change the performance duration to a smaller period and 'Recalculate' the assessment.
  
@@ -110,7 +110,7 @@ The confidence rating is calculated for "Performance-based" assessments based on
 
 - Few VMs were created after discovery in Server Assessment had started. For example, if you are creating an assessment for the performance history of last one month, but few VMs were created in the environment only a week ago. In this case, the performance data for the new VMs will not be available for the entire duration and the confidence rating would be low.
 
-[Learn more](https://docs.microsoft.com/azure/migrate/concepts-assessment-calculation#confidence-ratings-performance-based) about confidence rating.
+[Learn more](./concepts-assessment-calculation.md#confidence-ratings-performance-based) about confidence rating.
 
 ## Is the operating system license included in an Azure VM assessment?
 
@@ -121,7 +121,7 @@ Azure Migrate Server Assessment currently considers the operating system license
 Server Assessment continuously collects performance data of on-premises machines and uses it to recommend the VM SKU and disk SKU in Azure. [Learn how](concepts-assessment-calculation.md#calculate-sizing-performance-based) performance-based data is collected.
 
 ## Why is my assessment showing a warning that it was created with an invalid combination of Reserved Instances, VM uptime and Discount (%)?
-When you select 'Reserved instances', the 'Discount (%)' and 'VM uptime' properties are not applicable. As your assessment was created with an invalid combination of these properties, the edit and recalculate buttons are disabled. Please create a new assessment. [Learn more](https://go.microsoft.com/fwlink/?linkid=2131554).
+When you select 'Reserved instances', the 'Discount (%)' and 'VM uptime' properties are not applicable. As your assessment was created with an invalid combination of these properties, the edit and recalculate buttons are disabled. Please create a new assessment. [Learn more](./concepts-assessment-calculation.md#whats-in-an-assessment).
 
 ## I do not see performance data for some network adapters on my physical servers
 
@@ -156,7 +156,7 @@ For Windows VMs:
 
     ![MMA status](./media/troubleshoot-assessment/mma-properties.png)
 
-For Linux VMs, make sure that the installation commands for MMA and the dependency agent succeeded. Refer to more troubleshooting guidance [here](https://docs.microsoft.com/azure/azure-monitor/insights/service-map#post-installation-issues).
+For Linux VMs, make sure that the installation commands for MMA and the dependency agent succeeded. Refer to more troubleshooting guidance [here](../azure-monitor/insights/service-map.md#post-installation-issues).
 
 ## Supported operating systems
 

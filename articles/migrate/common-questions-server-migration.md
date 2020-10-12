@@ -29,8 +29,8 @@ Azure Migrate: Server Migration tool migrates UEFI-based machines to Azure as Az
 | SUSE Linux Enterprise Server 15 SP1                     | Y                                                                                                                                         | Y                              | Y                                                          |
 | SUSE Linux Enterprise Server 12 SP4                     | Y                                                                                                                                         | Y                              | Y                                                          |
 | Ubuntu Server 16.04, 18.04, 19.04, 19.10                | Y                                                                                                                                         | Y                              | Y                                                          |
-| RHEL 8.1, 8.0, 7.8, 7.7, 7.6, 7.5, 7.4, 7.0, 6.x        | Y<br>                 _RHEL 8.x requires [manual preparation](https://go.microsoft.com/fwlink/?linkid=2143939)_   | Y                              | Y                                                          |
-| Cent OS 8.1, 8.0, 7.7, 7.6, 7.5, 7.4, 6.x               | Y<br>_Cent OS 8.x requires [manual preparation](https://go.microsoft.com/fwlink/?linkid=2143939)_ | Y                              | Y                                                          |
+| RHEL 8.1, 8.0, 7.8, 7.7, 7.6, 7.5, 7.4, 7.0, 6.x        | Y<br>                 _RHEL 8.x requires [manual preparation](./prepare-for-migration.md#linux-machines)_   | Y                              | Y                                                          |
+| Cent OS 8.1, 8.0, 7.7, 7.6, 7.5, 7.4, 6.x               | Y<br>_Cent OS 8.x requires [manual preparation](./prepare-for-migration.md#linux-machines)_ | Y                              | Y                                                          |
 | Oracle Linux 7.7, 7.7-CI                                |  Y                                                                                                                                        | Y                              | Y                                                          |
 
 ## Can I use the recovery services vault created by Azure Migrate for Disaster Recovery scenarios?
@@ -38,11 +38,11 @@ We do not recommend using the recovery services vault created by Azure Migrate f
 
 ## Where should I install the replication appliance for agent-based migrations?
 
-The replication appliance should be installed on a dedicated machine. The replication appliance shouldn't be installed on a source machine that you want to replicate or on the Azure Migrate discovery and assessment appliance you may have installed before. Follow the [tutorial](https://docs.microsoft.com/azure/migrate/tutorial-migrate-physical-virtual-machines) for more details.
+The replication appliance should be installed on a dedicated machine. The replication appliance shouldn't be installed on a source machine that you want to replicate or on the Azure Migrate discovery and assessment appliance you may have installed before. Follow the [tutorial](./tutorial-migrate-physical-virtual-machines.md) for more details.
 
 ## How can I migrate my AWS EC2 instances to Azure?
 
-Review this [article](https://docs.microsoft.com/azure/migrate/tutorial-migrate-aws-virtual-machines) to discover, assess, and migrate your AWS EC2 instances to Azure.
+Review this [article](./tutorial-migrate-aws-virtual-machines.md) to discover, assess, and migrate your AWS EC2 instances to Azure.
 
 ## Can I migrate AWS VMs running Amazon Linux Operating system?
 
@@ -74,18 +74,18 @@ Regardless of the migration option chosen, the first step to migrate a server us
 Here are some considerations to keep in mind while deciding on the migration option.
 
 **Agentless migrations** do not require any software (agents) to be deployed on the source VMs/servers being migrated. The agentless option orchestrates replication by integrating with the functionality provided by the virtualization provider.
-The Agentless replication options are available for [VMware VMs](https://docs.microsoft.com/azure/migrate/tutorial-migrate-vmware) and [Hyper-V VMs](https://docs.microsoft.com/azure/migrate/tutorial-migrate-hyper-v).
+The Agentless replication options are available for [VMware VMs](./tutorial-migrate-vmware.md) and [Hyper-V VMs](./tutorial-migrate-hyper-v.md).
 
 **Agent-based migrations** require Azure Migrate software (agents) to be installed on the source VMs/machines to be migrated. The agent-based option doesn’t rely on the virtualization platform for the replication functionality and can, therefore, be used with any server running an x86/x64 architecture and a version of an operating system supported by the agent-based replication method.
 
-Agent-based migration option can be used for [VMware VMs](https://docs.microsoft.com/azure/migrate/tutorial-migrate-vmware-agent), [Hyper-V VMs](https://docs.microsoft.com/azure/migrate/tutorial-migrate-physical-virtual-machines), [physical servers](https://docs.microsoft.com/azure/migrate/tutorial-migrate-physical-virtual-machines), [VMs running on AWS](https://docs.microsoft.com/azure/migrate/tutorial-migrate-aws-virtual-machines), VMs running on GCP, or VMs running on a different virtualization provider. The agent-based migration treats your machines as physical servers for the purpose of the migration.
+Agent-based migration option can be used for [VMware VMs](./tutorial-migrate-vmware-agent.md), [Hyper-V VMs](./tutorial-migrate-physical-virtual-machines.md), [physical servers](./tutorial-migrate-physical-virtual-machines.md), [VMs running on AWS](./tutorial-migrate-aws-virtual-machines.md), VMs running on GCP, or VMs running on a different virtualization provider. The agent-based migration treats your machines as physical servers for the purpose of the migration.
 
 While the Agentless Migration offers additional convenience and simplicity over the agent-based replication options for the supported scenarios (VMWare and Hyper-V), you may want to consider using the agent-based scenario for the following use cases:
 
 - IOPS constrained environment: Agentless replication uses snapshots and consumes storage IOPS/bandwidth. We recommend the agent-based migration method if there are constraints on storage/IOPS in your environment.
 - If you don't have a vCenter Server, you can treat your VMware VMs as physical servers and use the agent-based migration workflow.
 
-To learn more, review this [article](https://docs.microsoft.com/azure/migrate/server-migrate-overview) to compare migration options for VMware migrations.
+To learn more, review this [article](./server-migrate-overview.md) to compare migration options for VMware migrations.
 
 ## How does Agentless Migration work?
 
@@ -96,13 +96,13 @@ The agentless replication option works by using mechanisms provided by the virtu
 When replication is configured for a virtual machine, it first goes through an initial replication phase. During initial replication, a VM snapshot is taken, and a full copy of data from the snapshot disks are replicated to managed disks in your subscription. After initial replication for the VM is complete, the replication process transitions to an incremental replication (delta replication) phase. In the incremental replication phase, data changes that have occurred since the last completed replication cycle are periodically replicated and applied to the replica managed disks, thus keeping replication in sync with changes happening on the VM. In the case of VMware virtual machines, VMware changed block tracking technology is used to keep track of changes between replication cycles. At the start of the replication cycle, a VM snapshot is taken and changed block tracking is used to get the changes between the current snapshot and the last successfully replicated snapshot. That way only data that has changed since the last completed replication cycle needs to be replicated to keep replication for the VM in sync. At the end of each replication cycle, the snapshot is released, and snapshot consolidation is performed for the virtual machine. Similarly, in the case of Hyper-V virtual machines, the Hyper-V replica change tracking engine is used to keep track of changes between consecutive replication cycles.
 When you perform the migrate operation on a replicating virtual machine, you have the option to shutdown the on-premise virtual machine and perform one final incremental replication to ensure zero data loss. On performing the migrate option, the replica managed disks corresponding to the virtual machine are used to create the virtual machine in Azure.
 
-To get started, refer the [VMware agentless migration](https://docs.microsoft.com/azure/migrate/tutorial-migrate-vmware) and [Hyper-V agentless migration](https://docs.microsoft.com/azure/migrate/tutorial-migrate-hyper-v) tutorials.
+To get started, refer the [VMware agentless migration](./tutorial-migrate-vmware.md) and [Hyper-V agentless migration](./tutorial-migrate-hyper-v.md) tutorials.
 
 ## How does Agent-based Migration work?
 
 In addition to agentless migration options for VMware virtual machines and Hyper-V virtual machines, the Server Migration tool provides an agent-based migration option to migrate Windows and Linux servers running on physical servers, or running as x86/x64 virtual machines on VMware, Hyper-V, AWS, Google Cloud Platform, etc.
 
-The agent-based migration method uses agent software installed on the server being migrated to replicate server data to Azure. The replication process uses an offload architecture in which the agent relays replication data to a dedicated replication server called the replication appliance or Configuration Server (or to a scale-out Process Server). [Learn more](https://docs.microsoft.com/azure/migrate/agent-based-migration-architecture) about how the agent-based migration option works. 
+The agent-based migration method uses agent software installed on the server being migrated to replicate server data to Azure. The replication process uses an offload architecture in which the agent relays replication data to a dedicated replication server called the replication appliance or Configuration Server (or to a scale-out Process Server). [Learn more](./agent-based-migration-architecture.md) about how the agent-based migration option works. 
 
 Note: The replication appliance is different from the Azure Migrate discovery appliance and must be installed on a separate/dedicated machine.
 
@@ -122,7 +122,7 @@ Time to complete initial replication =  {size of disks (or used size if availabl
 
 ### Agent-based VMware VM migration
 
-For an agent-based method of replication, the Deployment planner can help profile the environment for the data churn and help predict the necessary bandwidth requirement. To learn more, view this [article](https://docs.microsoft.com/azure/migrate/agent-based-migration-architecture#plan-vmware-deployment). 
+For an agent-based method of replication, the Deployment planner can help profile the environment for the data churn and help predict the necessary bandwidth requirement. To learn more, view this [article](./agent-based-migration-architecture.md#plan-vmware-deployment). 
 
 ## How do I throttle replication in using Azure Migrate appliance for agentless VMware replication?  
 
@@ -148,11 +148,11 @@ For example, if a VM takes four hours for a delta cycle, the next cycle is sched
 
 ## How do I migrate Windows Server 2003 running on VMware/Hyper-V to Azure?
 
-[Windows Server 2003 extended support](https://go.microsoft.com/fwlink/?linkid=2140400) ended on July 14, 2015.  The Azure support team continues to help in troubleshooting issues that concern running Windows Server 2003 on Azure. However, this support is limited to issues that don't require OS-level troubleshooting or patches.
+[Windows Server 2003 extended support](/en-in/troubleshoot/azure/virtual-machines/run-win-server-2003#microsoft-windows-server-2003-end-of-support) ended on July 14, 2015.  The Azure support team continues to help in troubleshooting issues that concern running Windows Server 2003 on Azure. However, this support is limited to issues that don't require OS-level troubleshooting or patches.
 Migrating your applications to Azure instances running a newer version of Windows Server is the recommended approach to ensure that you are effectively leveraging the flexibility and reliability of the Azure cloud.
 
 However, if you still choose to migrate your Windows Server 2003 to Azure, you can use the Azure Migrate: Server Migration tool if your Windows Server is a VM running on VMware or Hyper-V
-Review this article to [prepare your Windows Server 2003 machines for migration](https://go.microsoft.com/fwlink/?linkid=2140302).
+Review this article to [prepare your Windows Server 2003 machines for migration](./prepare-windows-server-2003-migration.md).
 
 ## What is the difference between the Test Migration and Migrate operations?
 

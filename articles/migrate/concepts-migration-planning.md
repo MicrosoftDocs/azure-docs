@@ -161,4 +161,4 @@ Once you are ready to migrate, use Azure Migrate’s *Server Migration tool* and
 
 - Investigate the [cloud migration journey](/azure/architecture/cloud-adoption/getting-started/migrate) in the Azure Cloud Adoption Framework.
 - [Get started](https://youtu.be/wFfq3YPxYHE) with Azure Migrate.
-- Create an assessment for [VMware VMs](tutorial-assess-vmware.md) or [Hyper-V VMs](tutorial-assess-hyper-v.md).
+- Create an assessment for [VMware VMs](./tutorial-assess-vmware-azure-vm.md) or [Hyper-V VMs](tutorial-assess-hyper-v.md).
