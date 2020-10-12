@@ -417,17 +417,15 @@ namespace functionapp0915
                 .FirstOrDefault(q => string.Compare(q.Key, "name", true) == 0)
                 .Value;
 
-            // Track an Event
+            // Write an event to the customEvents table.
             var evt = new EventTelemetry("Function called");
             evt.Context.User.Id = name;
             this.telemetryClient.TrackEvent(evt);
 
-            // Track a Metric
-            var metric = new MetricTelemetry("Test Metric", DateTime.Now.Millisecond);
-            metric.Context.User.Id = name;
-            this.telemetryClient.TrackMetric(metric);
+            // Generate a custom metric, in this case let's use ContentLength.
+            this.telemetryClient.GetMetric("contentLength").TrackValue(req.ContentLength);
 
-            // Track a Dependency
+            // Log a custom dependency in the dependencies table.
             var dependency = new DependencyTelemetry
             {
                 Name = "GET api/planets/1/",
@@ -446,7 +444,7 @@ namespace functionapp0915
 }
 ```
 
-[GetMetric](../azure-monitor/app/api-custom-events-metrics.md#getmetric) is the currently recommended API for creating a metric.
+In this example, the custom metric data gets aggregated by the host before being sent to the customMetrics table. To learn more, see the [GetMetric](../azure-monitor/app/api-custom-events-metrics.md#getmetric) documentation in Application Insights. 
 
 ### Version 1.x
 
