@@ -14,12 +14,12 @@ ms.custom: how-to
 
 # Train a model by using a custom Docker image
 
-In this article, learn how to use a custom Docker image when training models with Azure Machine Learning. You'll use the example scripts in this article to classify pet images by creating a convolutional neural network. 
+In this article, learn how to use a custom Docker image when you're training models with Azure Machine Learning. You'll use the example scripts in this article to classify pet images by creating a convolutional neural network. 
 
 Azure Machine Learning provides a default Docker base image. You can also use Azure Machine Learning environments to specify a different base image, such as one of the maintained [Azure Machine Learning base images](https://github.com/Azure/AzureML-Containers) or your own [custom image](how-to-deploy-custom-docker-image.md#create-a-custom-base-image). Custom base images allow you to closely manage your dependencies and maintain tighter control over component versions when running training jobs. 
 
 ## Prerequisites 
-Run this code on either of these environments:
+Run the code on either of these environments:
 * Azure Machine Learning compute instance (no downloads or installation necessary):
   * Complete the [Set up environment and workspace](tutorial-1st-experiment-sdk-setup.md) tutorial to create a dedicated notebook server preloaded with the SDK and the sample repository.
   * In the Azure Machine Learning [examples repository](https://github.com/Azure/azureml-examples), find a completed notebook by going to the **how-to-use-azureml > ml-frameworks > fastai > train-with-custom-docker** directory. 
@@ -47,7 +47,7 @@ ws = Workspace.from_config()
 For this tutorial, we provide the training script *train.py* on [GitHub](https://github.com/Azure/azureml-examples/blob/main/code/models/fastai/pets-resnet34/train.py). In practice, you can take any custom training script and run it, as is, with Azure Machine Learning.
 
 ### Define your environment
-Create an environment object and enable Docker. 
+Create an `Environment` object and enable Docker. 
 
 ```python
 from azureml.core import Environment
@@ -74,7 +74,7 @@ fastai_env.docker.base_image_registry.username = "username"
 fastai_env.docker.base_image_registry.password = "password"
 ```
 
-It's also possible to use a custom Dockerfile. Use this approach if you need to install non-Python packages as dependencies, and remember to set the base image to `None`.
+It's also possible to use a custom Dockerfile. Use this approach if you need to install non-Python packages as dependencies. Remember to set the base image to `None`.
 
 ```python 
 # Specify Docker steps as a string. 
@@ -99,7 +99,7 @@ You need to create a [compute target](concept-azure-machine-learning-architectur
 
 Creation of AmlCompute takes about five minutes. If the AmlCompute resource is already in your workspace, this code will skip the creation process.
 
-As with other Azure services, there are limits on certain resources associated with the Azure Machine Learning service. For more information, see [Default limits and how to request a higher quota](how-to-manage-quotas.md). 
+As with other Azure services, there are limits on certain resources (for example, AmlCompute) associated with the Azure Machine Learning service. For more information, see [Default limits and how to request a higher quota](how-to-manage-quotas.md). 
 
 ```python
 from azureml.core.compute import ComputeTarget, AmlCompute
