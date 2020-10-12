@@ -4,7 +4,7 @@ description: Learn how the IoT Edge runtime manages modules, security, communica
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 11/01/2019
+ms.date: 10/08/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
@@ -119,6 +119,22 @@ The IoT Edge agent plays a critical role in the security of an IoT Edge device. 
 
 For more information about the Azure IoT Edge security framework, read about the [IoT Edge security manager](iot-edge-security-manager.md).
 
+## Runtime quality telemetry
+
+IoT Edge collects anonymized telemetry from the host runtime and system modules to improve product quality. This information is called Runtime quality telemetry (RQT). RQT is periodically sent as device-to-cloud messages to IoT Hub from the IoT Edge Agent. RQT messages do not appear in customer's regular telemetry and do not consume any message quota.
+
+A full list of the metrics collected by edgeAgent and edgeHub is available in the [Available metrics section of the Access IoT Edge runtime metrics article](how-to-access-built-in-metrics.md#available-metrics). A subset of these metrics is collected by the IoT Edge Agent as part of RQT. Metrics collected as a part of RQT include the tag `ms_telemetry`.
+
+As part of the anonymization, any personally or organizationally identifiable information, such as device and module names, are removed before upload.
+
+The default frequency of RQT is one message sent to IoT Hub every 24 hours and local collection by edgeAgent every hour.
+
+If you wish to opt out of RQT, there are two ways to do so:
+
+* Set the `SendRuntimeQualityTelemetry` environment variable to `false` for **edgeAgent**, or
+* Uncheck the option in the Azure portal during deployment.
+
 ## Next steps
 
-[Understand Azure IoT Edge modules](iot-edge-modules.md)
+* [Understand Azure IoT Edge modules](iot-edge-modules.md)
+* [Learn about IoT Edge runtime metrics](how-to-access-built-in-metrics.md)
