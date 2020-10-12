@@ -3,7 +3,7 @@ title: Configure Windows Virtual Desktop load-balancing - Azure
 description: How to configure the load-balancing method for a Windows Virtual Desktop environment.
 author: Heidilohr
 ms.topic: how-to
-ms.date: 08/29/2019
+ms.date: 10/09/2020
 ms.author: helohr
 manager: lizross
 ---
@@ -45,7 +45,10 @@ Update-AzWvdHostPool -ResourceGroupName <resourcegroupname> -Name <hostpoolname>
 
 ## Configure depth-first load balancing
 
-Depth-first load balancing distributes new user sessions to an available session host with the highest number of connections but has not reached its maximum session limit threshold. When configuring depth-first load balancing, you must set a maximum session limit per session host in the host pool.
+Depth-first load balancing distributes new user sessions to an available session host with the highest number of connections but has not reached its maximum session limit threshold.
+
+>[!IMPORTANT]
+>When configuring depth-first load balancing, you must set a maximum session limit per session host in the host pool.
 
 To configure a host pool to perform depth-first load balancing, run the following PowerShell cmdlet:
 
