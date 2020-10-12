@@ -436,17 +436,19 @@ The following SAML relying party (RP) scenarios are unsupported currently:
 
 ## SAML token customization
 
-A SAML token is a security token that is issued by Azure AD B2C after a successful sign-in. It contains information about the user, and the service provider for which the token is intended, signature, validity time. 
+A SAML token is a security token that is issued by Azure AD B2C after a successful sign-in. It contains information about the user, and the service provider for which the token is intended, signature, validity time.
 
-|Elemet  |Property  |Notes  |
+|Element  |Property  |Notes  |
 |---------|---------|---------|
-|`<samlp:Response />`| `ID` | An auto generated qunique identifiery or the response. | 
-|`<samlp:Response />` | `IssueInstant` | The time instant of issue of the response. The time value is encoded in UTC.  To change the settings on your token lifetimes, set the `TokenNotBeforeSkewInSeconds` [metadata](saml-issuer-technical-profile.md#metadata) of the SAML token issue technial profile. | 
-|Issuer     | `<samlp:Response><saml:Issuer />` |   Identifies the token issuer. This is an arbitrary URI defined by the SAML token issue's `IssuerUri` [metadata](saml-issuer-technical-profile.md#metadata)     |
-|Row2     |         |         |
-|Row3     |         |         |
-|Row4     |         |         |
-|Row5     |         |         |
+|`<samlp:Response>`| `ID` | An auto generated unique identifier of the response. | 
+|`<samlp:Response>`| `InResponseTo` | The ID of the SAML request that this message response to. | 
+|`<samlp:Response>` | `IssueInstant` | The time instant of issue of the response. The time value is encoded in UTC.  To change the settings on your token lifetimes, set the `TokenNotBeforeSkewInSeconds` [metadata](saml-issuer-technical-profile.md#metadata) of the SAML token issue technical profile. | 
+|`<samlp:Response>` | `Destination`| A URI reference indicating the address to which this response has been sent. The value is always identical to the SAML request `AssertionConsumerServiceURL`. | 
+|`<samlp:Response>`,`<saml:Issuer>` | | Identifies the token issuer. This is an arbitrary URI defined by the SAML token issue's `IssuerUri` [metadata](saml-issuer-technical-profile.md#metadata)     |
+|`<samlp:Response>`,`<saml:Assertion>`,`<saml:Subject>`,`<saml:NameID>`     |         |  The principal about which the token asserts information, such as the user object ID. This value is immutable and cannot be reassigned or reused. It can be used to perform authorization checks safely, such as when the token is used to access a resource. By default, the subject claim is populated with the object ID of the user in the directory.       |
+|`<samlp:Response>`,`<saml:Assertion>`,`<saml:Subject>`,`<saml:Conditions>` |`NotBefore` |  The time at which the token becomes valid, represented in epoch time. This time is usually the same as the time the token was issued. Your application should use this claim to verify the validity of the token lifetime. To change the settings on your token lifetimes, set the `TokenNotBeforeSkewInSeconds` [metadata](saml-issuer-technical-profile.md#metadata) of the SAML token issue technical profile. |
+|`<samlp:Response>`,`<saml:Assertion>`,`<saml:Subject>`,`<saml:Conditions>` | `NotOnOrAfter` | The time at which the token becomes invalid, represented in epoch time. Your application should use this claim to verify the validity of the token lifetime. The value is 15 minutes after the `NotBefore` and cannot be changed.   |
+|`<samlp:Response>`,`<saml:Assertion>`,`<saml:Subject>`,`<saml:Conditions>`,`<saml:AudienceRestriction>`,`<saml:Audience>` | |  A URI reference that identifies an intended audience. It identifies the intended recipient of the token. The value is always identical to the SAML request `AssertionConsumerServiceURL`.       |
 
 ## Next steps
 
