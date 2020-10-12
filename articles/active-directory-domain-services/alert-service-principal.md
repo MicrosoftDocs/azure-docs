@@ -2,7 +2,7 @@
 title: Resolve service principal alerts in Azure AD Domain Services | Microsoft Docs
 description: Learn how to troubleshoot service principal configuration alerts for Azure Active Directory Domain Services
 services: active-directory-ds
-author: iainfoulds
+author: MicrosoftGuyJFlo
 manager: daveba
 
 ms.assetid: f168870c-b43a-4dd6-a13f-5cfadc5edf2c
@@ -11,7 +11,7 @@ ms.subservice: domain-services
 ms.workload: identity
 ms.topic: troubleshooting
 ms.date: 07/09/2020
-ms.author: iainfou
+ms.author: joflore
 
 ---
 # Known issues: Service principal alerts in Azure Active Directory Domain Services
