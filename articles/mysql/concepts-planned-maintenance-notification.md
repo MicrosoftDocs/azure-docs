@@ -59,20 +59,20 @@ For detailed steps on how to create **service health alerts**, refer to [Create 
 
 ## Can I control or change planned maintenance for my servers after I receive a notification event?
 
-Maintenance is needed to keep your server secure, stable, and up-to-date. The planned maintenance event cannot be cancelled or postponed. Once the notification is sent to a given Azure region, the patching schedule changes cannot be made for any individual server in that region. The patch is rolled out for entire region at once. Azure Database for MySQL - Single server service is designed for cloud native application that doesn't require granular control or customization of the service. If you are looking to have ability to schedule maintenance for your servers, we recommend you consider [Flexible servers](./flexible-server/overview).
+Maintenance is needed to keep your server secure, stable, and up-to-date. The planned maintenance event cannot be cancelled or postponed. Once the notification is sent to a given Azure region, the patching schedule changes cannot be made for any individual server in that region. The patch is rolled out for entire region at once. Azure Database for MySQL - Single server service is designed for cloud native application that doesn't require granular control or customization of the service. If you are looking to have ability to schedule maintenance for your servers, we recommend you consider [Flexible servers](./flexible-server/overview.md).
 
 ## Are all the Azure regions patched at the same time?
 
-No, all the Azure regions are patched during the deployment wise window timings. The deployment wise window generally stretches from 5 PM - 8 AM local time next day, in a given Azure region. Geo-paired Azure regions are patched on different days. For high availability and business continuity of database servers, leveraging [cross region read replicas](./concepts-read-replicas#cross-region-replication) is recommended.
+No, all the Azure regions are patched during the deployment wise window timings. The deployment wise window generally stretches from 5 PM - 8 AM local time next day, in a given Azure region. Geo-paired Azure regions are patched on different days. For high availability and business continuity of database servers, leveraging [cross region read replicas](./concepts-read-replicas.md#cross-region-replication) is recommended.
 
 ## Retry logic
 
-A transient error, also known as a transient fault, is an error that will resolve itself. [Transient errors](./concepts-connectivity#transient-errors.md) can occur during maintenance. Most of these events are automatically mitigated by the system in less than 60 seconds. Transient errors should be handled using [retry logic](concepts-connectivity#handling-transient-errors).
+A transient error, also known as a transient fault, is an error that will resolve itself. [Transient errors](./concepts-connectivity#transient-errors.md) can occur during maintenance. Most of these events are automatically mitigated by the system in less than 60 seconds. Transient errors should be handled using [retry logic](concepts-connectivity.md#handling-transient-errors).
 
 
 ## Next steps
 
-- For any questions or suggestions you might have about working with Azure Database for MySQL, send an email to the Azure Database for MySQL Team at [AskAzureDBforMySQL@service.microsoft.com](AskAzureDBforMySQL@service.microsoft.com)
+- For any questions or suggestions you might have about working with Azure Database for MySQL, send an email to the Azure Database for MySQL Team at *AskAzureDBforMySQL@service.microsoft.com*.
 - See [How to set up alerts](howto-alert-on-metric.md) for guidance on creating an alert on a metric.
 - [Troubleshoot connection issues to Azure Database for MySQL](howto-troubleshoot-common-connection-issues.md)
 - [Handle transient errors and connect efficiently to Azure Database for MySQL](concepts-connectivity.md)
