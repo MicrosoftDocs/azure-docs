@@ -22,7 +22,7 @@ For this quickstart you will need:
   | **Create a server**| [Portal](./quickstart-create-mysql-server-database-using-azure-portal.md) <br/> [CLI](./quickstart-create-mysql-server-database-using-azure-cli.md)
   | **Configure firewall to allow access** | [Portal](./howto-manage-firewall-using-portal.md) <br> [CLI](./howto-manage-firewall-using-cli.md)|
   
-- Install PHP for your operating system
+- Install latest PHP version  for your operating system. For this quickstart we will use [MySQLi](https://www.php.net/manual/en/book.mysqli.php)
     - [PHP on MacOS](https://secure.php.net/manual/install.macosx.php) 
     - [PHP on Linux](https://secure.php.net/manual/install.unix.php) 
     - [PHP on Windows](https://secure.php.net/manual/install.windows.php) 
@@ -223,4 +223,4 @@ mysqli_close($conn);
 
 ## Next steps
 > [!div class="nextstepaction"]
-> [Connect to Azure Database for MySQL via SSL](howto-configure-ssl.md)
+> [Manage Azure Database for MySQL server](./howto-create-manage-server-portal.md)
