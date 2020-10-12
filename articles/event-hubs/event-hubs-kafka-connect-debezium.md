@@ -11,7 +11,7 @@ ms.date: 08/11/2020
 
 **Change Data Capture (CDC)** is a technique used to track row-level changes in database tables in response to create, update, and delete operations. [Debezium](https://debezium.io/) is a distributed platform that builds on top of Change Data Capture features available in different databases (for example, [logical decoding in PostgreSQL](https://www.postgresql.org/docs/current/static/logicaldecoding-explanation.html)). It provides a set of [Kafka Connect connectors](https://debezium.io/documentation/reference/1.2/connectors/index.html) that tap into row-level changes in database table(s) and convert them into event streams that are then sent to [Apache Kafka](https://kafka.apache.org/).
 
-This tutorial walks you through how to set up a change data capture based system on Azure using [Azure Event Hubs](https://docs.microsoft.com/azure/event-hubs/event-hubs-about?WT.mc_id=devto-blog-abhishgu) (for Kafka), [Azure DB for PostgreSQL](../postgresql/overview.md) and Debezium. It will use the [Debezium PostgreSQL connector](https://debezium.io/documentation/reference/1.2/connectors/postgresql.html) to stream database modifications from PostgreSQL to Kafka topics in Azure Event Hubs
+This tutorial walks you through how to set up a change data capture based system on Azure using [Azure Event Hubs](./event-hubs-about.md?WT.mc_id=devto-blog-abhishgu) (for Kafka), [Azure DB for PostgreSQL](../postgresql/overview.md) and Debezium. It will use the [Debezium PostgreSQL connector](https://debezium.io/documentation/reference/1.2/connectors/postgresql.html) to stream database modifications from PostgreSQL to Kafka topics in Azure Event Hubs
 
 In this tutorial, you take the following steps:
 

@@ -18,7 +18,7 @@ To complete this quickstart, make sure you have the following prerequisites:
 
 * Read through the [Event Hubs for Apache Kafka](event-hubs-for-kafka-ecosystem-overview.md) article.
 * An Azure subscription. If you do not have one, create a [free account](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) before you begin.
-* [Java Development Kit (JDK) 1.7+](https://aka.ms/azure-jdks).
+* [Java Development Kit (JDK) 1.7+](/azure/developer/java/fundamentals/java-jdk-long-term-support).
 * [Download](https://maven.apache.org/download.cgi) and [install](https://maven.apache.org/install.html) a Maven binary archive.
 * [Git](https://www.git-scm.com/)
 
@@ -99,4 +99,4 @@ When you create a **standard** tier Event Hubs namespace, the Kafka endpoint for
 If your Event Hubs Kafka cluster has events, you now start receiving them from the consumer.
 
 ## Next steps
-In this article, you learned how to stream into Event Hubs without changing your protocol clients or running your own clusters. To learn more, see [Apache Kafka developer guide for Azure Event Hubs](apache-kafka-developer-guide.md). 
+In this article, you learned how to stream into Event Hubs without changing your protocol clients or running your own clusters. To learn more, see [Apache Kafka developer guide for Azure Event Hubs](apache-kafka-developer-guide.md).
