@@ -110,6 +110,29 @@ For example, assuming an availability group name of `ag1`, listener name of `dnn
    c:\Documents> add_dnn_listener.ps1 ag1 dnnlsnr 6789
    ```
 
+## Verify listener
+
+Use either SQL Server Management Studio or Transact-SQL to confirm your DNN listener is configured as expected. 
+
+### SQL Server Management Studio
+
+Expand **Availability Group Listeners** in [SQL Server Management Studio (SSMS)](/sql/ssms/download-sql-server-management-studio-ssms) to view your DNN listener: 
+
+:::image type="content" source="media/availability-group-distributed-network-name-dnn-listener-configure/dnn-listener-in-ssms.png" alt-text="View the DNN listener under availability group listeners in SQL Server Management Studio (SSMS)":::
+
+### Transact-SQL
+
+Use Transact-SQL to view the status of the DNN listener: 
+
+```sql
+SELECT * FROM SYS.AVAILABILITY_GROUP_LISTENERS
+```
+
+A value of `1` for `is_distributed_network_name` indicates that the listener is a distributed network name (DNN) listener: 
+
+:::image type="content" source="media/availability-group-distributed-network-name-dnn-listener-configure/dnn-listener-tsql.png" alt-text="Use sys.availability_group_listeners to identify DNN listeners that have a value of 1 in is_distributed_network_name":::
+
+
 ## Update connection string
 
 Update connection strings for applications so that they connect to the DNN listener. To ensure rapid connectivity upon failover, add `MultiSubnetFailover=True` to the connection string if the SQL client supports it. 
@@ -120,7 +143,7 @@ Test failover of the availability group to ensure functionality.
 
 To test failover, follow these steps: 
 
-1. Connect to the DNN listener or one of the replicas by using [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms). 
+1. Connect to the DNN listener or one of the replicas by using [SQL Server Management Studio (SSMS)](/sql/ssms/download-sql-server-management-studio-ssms). 
 1. Expand **Always On Availability Group** in **Object Explorer**. 
 1. Right-click the availability group and choose **Failover** to open the **Failover Wizard**. 
 1. Follow the prompts to choose a failover target and fail the availability group over to a secondary replica. 
