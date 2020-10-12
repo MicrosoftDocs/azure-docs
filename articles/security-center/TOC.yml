@@ -243,7 +243,8 @@
       href: security-center-incident.md
     - name: Generate threat intelligence reports
       href: security-center-threat-report.md
-    - name: Validate your alert configuration (EICAR test file)
+    - name: Validate your alert configuration
+      displayname: eicar, Kubernetes, Linux
       href: security-center-alert-validation.md
     - name: Automate responses to alerts
       displayName: workflow
