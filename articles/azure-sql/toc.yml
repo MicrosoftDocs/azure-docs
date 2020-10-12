@@ -1064,37 +1064,41 @@
             href: virtual-machines/windows/automated-backup-sql-2014.md
         - name: Always On availability group
           items:
-          - name: Azure portal
-            href: virtual-machines/windows/availability-group-azure-portal-configure.md
-          - name: PowerShell or Az CLI
-            href: virtual-machines/windows/availability-group-az-commandline-configure.md
-          - name: Azure Quickstart templates
-            href: virtual-machines/windows/availability-group-quickstart-template-configure.md
-          - name: Multiple regions
-            href: virtual-machines/windows/availability-group-manually-configure-multiple-regions.md
-          - name: Domain-independent (workgroup)
-            href: virtual-machines/windows/availability-group-clusterless-workgroup-configure.md
+          - name: Create AG 
+            items: 
+            - name: Azure portal
+              href: virtual-machines/windows/availability-group-azure-portal-configure.md
+            - name: PowerShell or Az CLI
+              href: virtual-machines/windows/availability-group-az-commandline-configure.md
+            - name: Azure Quickstart templates
+              href: virtual-machines/windows/availability-group-quickstart-template-configure.md
+            - name: Multiple regions
+              href: virtual-machines/windows/availability-group-manually-configure-multiple-regions.md
+            - name: Domain-independent (workgroup)
+              href: virtual-machines/windows/availability-group-clusterless-workgroup-configure.md
+            - name: Configure manually
+              items:
+              - name: Prerequisites
+                href: virtual-machines/windows/availability-group-manually-configure-prerequisites-tutorial.md
+              - name: Tutorial
+                href: virtual-machines/windows/availability-group-manually-configure-tutorial.md
+              - name: Load balancer - Azure portal
+                href: virtual-machines/windows/availability-group-load-balancer-portal-configure.md
+              - name: Load balancer - Azure PowerShell
+                href: virtual-machines/windows/availability-group-listener-powershell-configure.md
+
           - name: Configure VNN listener
             href: virtual-machines/windows/availability-group-vnn-azure-load-balancer-configure.md
           - name: Configure DNN listener
             href: virtual-machines/windows/availability-group-distributed-network-name-dnn-listener-configure.md
-          - name: DNN Interoperability
+          - name: DNN interoperability
             href: virtual-machines/windows/availability-group-dnn-interoperability.md
-          - name: Configure manually
-            items:
-            - name: Prerequisites
-              href: virtual-machines/windows/availability-group-manually-configure-prerequisites-tutorial.md
-            - name: Tutorial
-              href: virtual-machines/windows/availability-group-manually-configure-tutorial.md
-            - name: Load balancer - Azure portal
-              href: virtual-machines/windows/availability-group-load-balancer-portal-configure.md
-            - name: Load balancer - Azure PowerShell
-              href: virtual-machines/windows/availability-group-listener-powershell-configure.md
+
         - name: Failover cluster instance (FCI)
           items:
           - name: Prepare VM for FCI 
             href: virtual-machines/windows/failover-cluster-instance-prepare-vm.md
-          - name: Create FCI with
+          - name: Create FCI 
             items: 
             - name: Azure shared disks
               href: virtual-machines/windows/failover-cluster-instance-azure-shared-disks-manually-configure.md
@@ -1106,7 +1110,7 @@
             href: virtual-machines/windows/failover-cluster-instance-vnn-azure-load-balancer-configure.md
           - name: Configure DNN 
             href: virtual-machines/windows/failover-cluster-instance-distributed-network-name-dnn-configure.md
-          - name: DNN Interoperability
+          - name: DNN interoperability
             href: virtual-machines/windows/failover-cluster-instance-dnn-interoperability.md
 
 

@@ -43,8 +43,6 @@ The following table lists the quorum options available in the order recommended 
 |**Supported OS**| All |Windows Server 2016+| All|
 
 
-
-
 ### Disk witness
 
 A disk witness is a small clustered disk in the Cluster Available Storage group. This disk is highly available and can fail over between nodes. It contains a copy of the cluster database, with a default size that's usually less than 1 GB. The disk witness is the preferred quorum option for any cluster that uses Azure Shared Disks (or any shared-disk solution like shared SCSI, iSCSI, or fiber channel SAN).  A Clustered Shared Volume cannot be used as a disk witness.
@@ -120,7 +118,7 @@ A distributed network name is recommended over a load balancer when possible bec
 
 Most SQL Server features work transparently with FCI and availability groups when using the DNN, but there are certain features that may require special consideration. See [FCI and DNN interoperability](failover-cluster-instance-dnn-interoperability.md) and [AG and DNN interoperability](availability-group-dnn-interoperability.md) to learn more. 
 
-To get started, learn to configure a distributed network name resource for [a failover cluster instanceFCI](failover-cluster-instance-distributed-network-name-dnn-configure.md) or an [availability group](availability-group-distributed-network-name-dnn-listener-configure.md)
+To get started, learn to configure a distributed network name resource for [a failover cluster instance](failover-cluster-instance-distributed-network-name-dnn-configure.md) or an [availability group](availability-group-distributed-network-name-dnn-listener-configure.md)
 
 **Supported OS**: Windows Server 2016 and later   
 **Supported SQL version**: SQL Server 2019 CU2 (FCI) and SQL Server 2019 CU8 (AG)   
@@ -143,5 +141,5 @@ On Azure Virtual Machines, MSDTC isn't supported for Windows Server 2016 or earl
 
 ## Next steps
 
-After you've determined the appropriate best practices for your solution, get started by [preparing your SQL Server VM for FCI](failover-cluster-instance-prepare-vm.md). You can also create your availability group by using the [Azure CLI](availability-group-az-cli-configure.md), or [Azure quickstart templates](availability-group-quickstart-template-configure.md). 
+After you've determined the appropriate best practices for your solution, get started by [preparing your SQL Server VM for FCI](failover-cluster-instance-prepare-vm.md) or by creating your availability group by using the [Azure portal](availability-group-azure-portal-configure.md), the [Azure CLI / PowerShell](availability-group-az-cli-configure.md), or [Azure quickstart templates](availability-group-quickstart-template-configure.md). 
 

@@ -19,9 +19,9 @@ ms.reviewer: jroth
 # Configure a DNN listener (Preview) for an availability group
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
 
-On Azure Virtual Machines, the distributed network name (DNN) is used to route traffic to the appropriate clustered resource. It provides an easier way to connect to an Always On availability group (AG) than the virtual network name (VNN), without the need for an Azure Load Balancer. 
+With SQL Server on Azure VMs, the distributed network name (DNN) routes traffic to the appropriate clustered resource. It provides an easier way to connect to an Always On availability group (AG) than the virtual network name (VNN) listener, without the need for an Azure Load Balancer. 
 
-This article teaches you to configure a DNN resource to route traffic to your failover cluster instance, or your availability group with SQL Server on Azure VMs for high availability and disaster recovery (HADR). 
+This article teaches you to configure a DNN listener to replace the VNN listener and route traffic to your availability group with SQL Server on Azure VMs for high availability and disaster recovery (HADR). 
 
 The DNN listener feature is currently in preview and only available for SQL Server 2019 CU8 on Windows Server 2016 and later. 
 
@@ -103,7 +103,7 @@ To create the DNN listener, execute the script passing in parameters for the nam
 For example, assuming an availability group name of `ag1`, listener name of `dnnlsnr`, and listener port as `6789`, follow these steps: 
 
 1. Open a command-line interface tool, such as command prompt or Powershell. 
-1. Navigate to where you saved the `.ps1` script, such as c:\documents. 
+1. Navigate to where you saved the `.ps1` script, such as c:\Documents. 
 1. Execute the script: ```add_dnn_listener.ps1 <ag name> <listener-name> <listener port>```. For example: 
 
    ```console
@@ -112,7 +112,7 @@ For example, assuming an availability group name of `ag1`, listener name of `dnn
 
 ## Update connection string
 
-Update connection strings for applications so that they connect to the DNN listener.To ensure rapid connectivity upon failover, add `MultiSubnetFailover=True` to the connection string if the SQL client supports it. 
+Update connection strings for applications so that they connect to the DNN listener. To ensure rapid connectivity upon failover, add `MultiSubnetFailover=True` to the connection string if the SQL client supports it. 
 
 ## Test failover
 
@@ -120,7 +120,7 @@ Test failover of the availability group to ensure functionality.
 
 To test failover, follow these steps: 
 
-1. Connect to the DNN listener or one of the replicas by using SQL Server Management Studio. 
+1. Connect to the DNN listener or one of the replicas by using [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms). 
 1. Expand **Always On Availability Group** in **Object Explorer**. 
 1. Right-click the availability group and choose **Failover** to open the **Failover Wizard**. 
 1. Follow the prompts to choose a failover target and fail the availability group over to a secondary replica. 
@@ -131,13 +131,12 @@ To test failover, follow these steps:
 
 Test the connectivity to your DNN listener with these steps:
 
-1. Open SQL Server Management Studio. 
+1. Open [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms).
 1. Connect to your DNN listener. 
 1. Open a new query window and check which replica you're connected to by running `SELECT @@SERVERNAME`. 
 1. Fail the availability group over to another replica.
 1. After a reasonable amount of time, run `SELECT @@SERVERNAME` to confirm your availability group is now hosted on another replica. 
 
-If you need to, you can [download SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms).
 
 ## Limitations
 

@@ -18,7 +18,7 @@ ms.author: mathoma
 # Feature interoperability with AG and DNN listener (Preview)
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
 
-There are certain SQL Server features that rely on a hard-coded virtual network name (VNN). As such, when using the distributed network name (DNN) listener with your Always On availability group and SQL Server on Azure VMs, there are some additional considerations. 
+There are certain SQL Server features that rely on a hard-coded virtual network name (VNN). As such, when using the distributed network name (DNN) listener with your Always On availability group and SQL Server on Azure VMs, there may be some additional considerations. 
 
 This article details SQL Server features and interoperability with the availability group DNN listener. 
 
@@ -29,14 +29,14 @@ For ODBC, OLEDB, ADO.NET, JDBC, PHP, and Node.js drivers, users need to explicit
 
 ## Tools
 
-Users of [SQL Server Management Studio](/sql/ssms/sql-server-management-studio-ssms), [sqlcmd](/sql/tools/sqlcmd-utility), [Azure Data Studio](/sql/azure-data-studio/what-is), and [SQL Server Data Tools](/sql/ssdt/sql-server-data-tools) need to explicitly specify the DNN listener name as the server name in the connection string to connect to the listener. 
+Users of [SQL Server Management Studio](/sql/ssms/sql-server-management-studio-ssms), [sqlcmd](/sql/tools/sqlcmd-utility), [Azure Data Studio](/sql/azure-data-studio/what-is), and [SQL Server Data Tools](/sql/ssdt/sql-server-data-tools) need to explicitly specify the DNN listener name and port as the server name in the connection string to connect to the listener. 
 
 Creating the DNN listener via the SQL Server Management Studio (SSMS) GUI is currently not supported. 
 
 
 ## Availability groups and FCI
 
-You can configure an Always On availability group by using a failover cluster instance (FCI) as one of the replicas. For this configuration to work with the DNN listener, the failover cluster instance must also use the DNN as there is no way to put the FCI virtual IP address in the AG DNN IP list. 
+You can configure an Always On availability group by using a failover cluster instance (FCI) as one of the replicas. For this configuration to work with the DNN listener, the [failover cluster instance must also use the DNN](failover-cluster-instance-distributed-network-name-dnn-configure.md) as there is no way to put the FCI virtual IP address in the AG DNN IP list. 
 
 In this configuration, the mirroring endpoint URL for the FCI replica needs to use the FCI DNN. Likewise, if the FCI is used as a read-only replica, the read-only routing to the FCI replica needs to use the FCI DNN. 
 
