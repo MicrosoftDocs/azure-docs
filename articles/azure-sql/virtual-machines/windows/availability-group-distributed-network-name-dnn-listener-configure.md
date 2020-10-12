@@ -112,7 +112,7 @@ For example, assuming an availability group name of `ag1`, listener name of `dnn
 
 ## Verify listener
 
-Use either SQL Server Management Studio or Transact-SQL to confirm your DNN listener is configured as expected. 
+Use either SQL Server Management Studio or Transact-SQL to confirm your DNN listener is created successfully. 
 
 ### SQL Server Management Studio
 
