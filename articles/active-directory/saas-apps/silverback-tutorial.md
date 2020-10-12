@@ -157,7 +157,7 @@ The objective of this section is to create a test user in the Azure portal calle
 
     a. In the **Name** field enter **BrittaSimon**.
   
-    b. In the **User name** field type **brittasimon@yourcompanydomain.extension**  
+    b. In the **User name** field type **brittasimon\@yourcompanydomain.extension**  
     For example, BrittaSimon@contoso.com
 
     c. Select **Show password** check box, and then write down the value that's displayed in the Password box.
@@ -210,7 +210,7 @@ To enable Azure AD users to log in to Silverback, they must be provisioned into 
 
 	c. In **Last Name** text box, enter the last name of user like **Simon**.
 
-	d. In **E-mail Address** text box, enter the email of user like **Brittasimon@contoso.com**.
+	d. In **E-mail Address** text box, enter the email of user like **Brittasimon\@contoso.com**.
 
 	e. In the **Password** text box, enter your password.
 

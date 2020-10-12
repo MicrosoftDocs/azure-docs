@@ -51,6 +51,7 @@ If your script is on a local server, then you may still need additional firewall
 * Ensure the scripts do not require user input when they run.
 * There is 90 mins allowed for the script to run, anything longer will result in a failed provision of the extension.
 * Do not put reboots inside the script, this will cause issues with other extensions that are being installed, and post reboot, the extension will not continue after the restart. 
+* It is not recommended to run a script that will cause a stop or update of the VM Agent. This might leave the extension in a Transitioning state and lead to a timeout.
 * If you have a script that will cause a reboot, then install applications and run scripts etc. You should schedule the reboot using a Cron job, or using tools such as DSC, or Chef, Puppet extensions.
 * The extension will only run a script once, if you want to run a script on every boot, then you can use [cloud-init image](../linux/using-cloud-init.md)  and use a [Scripts Per Boot](https://cloudinit.readthedocs.io/en/latest/topics/modules.html#scripts-per-boot) module. Alternatively, you can use the script to create a SystemD service unit.
 * You can only have one version of an extension applied to the VM. In order to run a second custom script, you need to remove the custom script extension and reapply it again with the updated script. 

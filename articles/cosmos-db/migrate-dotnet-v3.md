@@ -63,7 +63,7 @@ All the resource objects are renamed with additional properties, which, includes
 
 The following are some of the main class name changes:
 
-| .NET v3 SDK | .NET v2 SDK |
+| .NET v2 SDK | .NET v3 SDK |
 |-------------|-------------|
 |`Microsoft.Azure.Documents.Client.DocumentClient`|`Microsoft.Azure.CosmosClient`|
 |`Microsoft.Azure.Documents.Client.ConnectionPolicy`|`Microsoft.Azure.Cosmos.CosmosClientOptions`|

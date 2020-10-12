@@ -140,7 +140,7 @@ To configure Azure AD single sign-on with Kintone, perform the following steps:
 
 1. Click **Enable SAML authentication**.
 
-    ![SAML Authentication](./media/kintone-tutorial/ic785882.png "SAML Authentication")
+    ![Screenshot that shows "Users & System Administration" selected.](./media/kintone-tutorial/ic785882.png "SAML Authentication")
 
 1. In the SAML Authentication section, perform the following steps:
 
@@ -227,7 +227,7 @@ To enable Azure AD users to sign in to Kintone, they must be provisioned into Ki
 
 1. Click **New User**.
 
-    ![New Users](./media/kintone-tutorial/ic785889.png "New Users")
+    ![Screenshot that shows the "Users" section with the "New User" action selected.](./media/kintone-tutorial/ic785889.png "New Users")
 
 1. In the **New User** section, perform the following steps:
 

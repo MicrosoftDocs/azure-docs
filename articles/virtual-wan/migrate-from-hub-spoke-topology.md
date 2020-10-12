@@ -106,10 +106,6 @@ Deploy a Virtual WAN hub in each region. Set up the Virtual WAN hub with VPN and
 
 Connect the Virtual WAN hub to the existing ExpressRoute circuits and set up Site-to-site VPNs over the Internet to any remote branches.
 
-> [!NOTE]
-> Express Routes Circuits must be upgraded to Premium SKU type to connect to Virtual WAN hub.
->
-
 :::image type="content" source="./media/migrate-from-hub-spoke-topology/figure3.png" alt-text="Connect remote sites to Virtual WAN":::
 **Figure 3: Customer-managed hub-and-spoke to Virtual WAN migration**
 
@@ -186,7 +182,7 @@ Path 2 shows traffic flow from the ExpressRoute connected European HQ to an Azur
 
 The traffic is routed as follows:
 
-* European HQ is connected via premium ExpressRoute circuit into West Europe Virtual WAN hub.
+* European HQ is connected via ExpressRoute circuit into West Europe Virtual WAN hub.
 
 * Virtual WAN hub-to-hub global connectivity enables transit of traffic to VNet connected in remote region.
 
