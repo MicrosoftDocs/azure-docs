@@ -188,6 +188,29 @@ You can now call this function in your main method like this:
 
 `await FetchAndPrintTwinAsync(client, targetId);`
 
+## Delete relationships
+
+You can delete relationships using DeleteRelationshipAsync(srcId, relId) method.
+
+`await DeleteRelationship(client, srcId, $"{targetId}-contains->{srcId}");` in your main method.
+
+The first parameter specifies the source twin (the twin where the relationship originates). The other parameter is the relationship ID. You need both the twin ID and the relationship ID, because relationship IDs are only unique within the scope of a twin.
+
+```csharp
+private static async Task DeleteRelationship(DigitalTwinsClient client, string srcId, string relId)
+        {
+            try
+            {
+                Response response = await client.DeleteRelationshipAsync(srcId, relId);
+                await FetchAndPrintTwinAsync(srcId, client);
+                Console.WriteLine("Deleted relationship successfully");
+            }
+            catch (RequestFailedException Ex)
+            {
+                Console.WriteLine($"Error {Ex.ErrorCode}");
+            }
+        }
+```
 ## Create a twin graph 
 
 The following runnable code snippet uses the relationship operations from this article to create a twin graph out of digital twins and relationships.
@@ -377,30 +400,6 @@ Here is the console output of the above program:
 
 > [!NOTE]
 > The twin graph is a concept of creating relationships between twins. If you want to view the visual representation of the twin graph, you can checkout [visualization](https://docs.microsoft.com/azure/digital-twins/how-to-manage-graph#visualization) section of this article. 
-
-## Delete relationships
-
-You can delete relationships using DeleteRelationshipAsync(srcId, relId) method.
-
-`await DeleteRelationship(client, srcId, $"{targetId}-contains->{srcId}");` in your main method.
-
-The first parameter specifies the source twin (the twin where the relationship originates). The other parameter is the relationship ID. You need both the twin ID and the relationship ID, because relationship IDs are only unique within the scope of a twin.
-
-```csharp
-private static async Task DeleteRelationship(DigitalTwinsClient client, string srcId, string relId)
-        {
-            try
-            {
-                Response response = await client.DeleteRelationshipAsync(srcId, relId);
-                await FetchAndPrintTwinAsync(srcId, client);
-                Console.WriteLine("Deleted relationship successfully");
-            }
-            catch (RequestFailedException Ex)
-            {
-                Console.WriteLine($"Error {Ex.ErrorCode}");
-            }
-        }
-```
 
 ### Create a twin graph from a spreadsheet
 
