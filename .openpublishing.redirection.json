@@ -16408,6 +16408,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/cosmos-db/how-to-configure-change-feed-start-time.md",
+      "redirect_url": "/azure/cosmos-db/change-feed-processor#starting-time",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/documentdb/table-powershell.md",
       "redirect_url": "/azure/cosmos-db/table-introduction",
       "redirect_document_id": false
