@@ -30,7 +30,7 @@ The following list presents the set of features which are currently available in
 |                   | Promote a one-to-one call with two users into a group call with more than two users                                 | ✔️   | ✔️            | ✔️ 
 |                   | Join a group call after it has started                                                                              | ✔️   | ✔️            | ✔️ 
 |                   | Invite another VoIP participant to join an ongoing group call                                                       | ✔️   | ✔️            | ✔️
-|                   | Turn on and off your video                                                      | ✔️   | ✔️            | ✔️ 
+|                   | Turn your video on/off                                                         | ✔️   | ✔️            | ✔️ 
 |                   | Mute/Unmute mic                                                                                                     | ✔️   | ✔️            | ✔️         
 |                   | Switch between cameras                                                                                              | ✔️   | ✔️            | ✔️           
 |                   | Local hold/un-hold                                                                                                  | ✔️   | ✔️            | ✔️           
