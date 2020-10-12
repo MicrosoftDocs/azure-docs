@@ -47,7 +47,7 @@ You can use the following properties to manage web application sessions:
 
 ### Secure your logout redirect
 
-After logout, the user is redirected to the URI specified in the `post_logout_redirect_uri` parameter, regardless of the reply URLs that have been specified for the application. However, if a valid `id_token_hint` is passed and the **Require ID Token in logout requests** is turn on, Azure AD B2C verifies that the value of `post_logout_redirect_uri` matches one of the application's configured redirect URIs before performing the redirect. If no matching reply URL was configured for the application, an error message is displayed and the user is not redirected. To require ID Token in logout requests:
+After logout, the user is redirected to the URI specified in the `post_logout_redirect_uri` parameter, regardless of the reply URLs that have been specified for the application. However, if a valid `id_token_hint` is passed and the **Require ID Token in logout requests** is turned on, Azure AD B2C verifies that the value of `post_logout_redirect_uri` matches one of the application's configured redirect URIs before performing the redirect. If no matching reply URL was configured for the application, an error message is displayed and the user is not redirected. To require a ID Token in logout requests:
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 1. Make sure you're using the directory that contains your Azure AD B2C tenant by selecting the **Directory + subscription** filter in the top menu and choosing the directory that contains your Azure AD B2C tenant.
@@ -58,8 +58,8 @@ After logout, the user is redirected to the URI specified in the `post_logout_re
 1. Enable the **Require ID Token in logout requests**.
 1. Go back to  **Azure AD B2C**.
 1. Select **App registrations**, and then select your application.
-1. Select **Authentication**
-1. In the **Logout URL** text box, type your post logout redirect URI. And select **Save**.
+1. Select **Authentication**.
+1. In the **Logout URL** text box, type your post logout redirect URI, and then select **Save**.
 
 ## Next steps
 
