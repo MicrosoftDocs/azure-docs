@@ -49,16 +49,19 @@ A key vault is created for Azure Stack Edge resource during the process of activ
 
 - When your Azure Stack Edge resource is deleted, the Azure Key Vault is also deleted with the resource. If this key vault was used to store other keys, then you can still restore it within 90 days of deletion. During that purge protection period, the key vault name can't be used to create a new key vault.
 
-## Key vault secret management
+
+If you run into any issues related to key vault and device activation, see [Troubleshoot device activation issues](azure-stack-edge-gpu-troubleshoot-activation.md).
+
+<!--## Key vault secret management
 
 When you generate an activation key, the following events occur:
 
 1. You request an activation key in the Azure portal. The request is then sent to Key Vault resource provider. 
 1. A standard tier key vault with access policy is created and is locked by default. This key vault uses the default name or the custom name that you specified.
 1. The key vault authenticates with MSI the request to generate activation key. The MSI is also added to the key vault access policy and a channel integrity key is generated and placed in the key vault.
-1. The activation key is returned to the Azure portal. You can then copy this key and use it in the local UI to activate your device.
+1. The activation key is returned to the Azure portal. You can then copy this key and use it in the local UI to activate your device.-->
 
-If you run into any issues related to key vault and device activation, see [Troubleshoot device activation issues](azure-stack-edge-gpu-troubleshoot-activation.md).
+
 
 ## Next steps
 
