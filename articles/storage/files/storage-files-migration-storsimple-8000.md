@@ -43,6 +43,13 @@ Then you can identify the right migration path:
 * StorSimple physical appliances (8000 series) use this migration guide. 
 * Virtual appliances, [StorSimple 1200 series, use a different migration guide](storage-files-migration-storsimple-1200.md).
 
+### Migration cost summary
+Migrations to Azure file shares from StorSimple volumes via Data Transformation jobs in a StorSimple Data Manager resource are free of charge. We want to provide world-class services to you and at times that means an older technology like StorSimple sunsets and requires a migration to a newer, open and future proof technology like SMB file shares in the cloud. That transformation should come at as few costs to you as possible, so we make this transformation free of charge. Please be aware that there are other costs that can or will still occur:
+* **Network egress:** Your StorSimple files live in a Storage account within a specific Azure region. If you provision the Azure file shares you migrate to in a storage account that is located in the same Azure region, no egress cost will occur. You can move your files to a storage account in a different region as part of this migration. In that case, egress costs will apply to you.
+* **Azure file share transaction:** When files are copied in to an Azure file share (as part of a migration or outside of one) transaction costs to apply as files and metadata are being written into a file share. As a best practice, start your Azure file share on the transaction optimized tier during the migration. Switch to your desired tier after the migration completed. The phases below will call this out at the appropriate point.
+* **Changing an Azure file share tier:** Changing the tier of an Azure file share costs transactions. In most cases it will be more cost efficient to follow the advice from the previous point.
+* **storage cost:** When this migration starts copying files into an Azure file share, Azure Files storage is consumed and billed. During this time and until you have a chance to deprovision the StorSimple devices and storage accounts, StorSimple cost for storage, backups and appliances will still continue to occur.
+
 ### Direct share access vs. Azure File Sync
 Azure file shares open up a whole new world of opportunities for structuring your file services deployment. An Azure file share is just an SMB share in the cloud, that you can setup to have users access directly over the SMB protocol with the familiar Kerberos authentication and existing NTFS permissions (file and folder ACLs) working natively. [Learn more about identity based access to Azure file shares](storage-files-active-directory-overview.md).
 
@@ -111,7 +118,7 @@ If you've made a list of your shares, you should map each share to the storage a
 ### Phase 1 summary
 At the end of Phase 1:
 * You have a good overview of your StorSimple devices and volumes.
-* You are ready to access your data in the cloud directly, by having retrieved your Service Data Encryption key for each StorSimple device.
+* You are ready to access your StorSimple volumes in the cloud, by having retrieved your Service Data Encryption key for each StorSimple device.
 * You have a plan for not only which volumes need to be migrated, but also how to map your volumes to the appropriate number of Azure file shares and storage accounts.
 
 > [!CAUTION]
@@ -137,7 +144,7 @@ You can use the same subscription you use for your StorSimple deployment or a di
 Resource groups are assisting with organization of resources and admin management permissions. You can use a single resource group for all Azure resources that replace StorSimple or split them across multiple resource groups.
 
 ##### Storage account name
-The name of your storage account will become part of a URL and has certain character limitations. In your naming convention, consider that storage account names have to be unique in the world, allow only lower case letters and numbers, require between 3 to 24 characters, and do not allow special characters like hyphens or underscores.
+The name of your storage account will become part of a URL and has certain character limitations. In your naming convention, consider that storage account names have to be unique in the world, allow only lower case letters and numbers, require between 3 to 24 characters, and do not allow special characters like hyphens or underscores. See also: [Azure storage resource naming rules](../../azure-resource-manager/management/resource-name-rules.md#microsoftstorage).
 
 ##### Location
 The "Location" or Azure region of a storage account is very important. If you use Azure file sync, all of your storage accounts must be in the same region as your Storage Sync Service resource (see later in this article). The Azure region you pick, should be close or central to your local servers/users. It cannot be changed.
@@ -155,7 +162,7 @@ You have the option to pick premium storage (SSD) for Azure file shares or stand
 
 Still not sure?
 * Choose premium storage if you need the [performance of a premium Azure file share](storage-files-planning.md#understanding-provisioning-for-premium-file-shares).
-* Choose standard storage for general purpose file server workloads, including hot data and archive data. Also choose standard storage if the only workload on the share in the cloud will be Azure File Sync. 
+* Choose standard storage for general purpose file server workloads, including hot data and archive data. Also choose standard storage if the only workload on the share in the cloud will be Azure File Sync.
 
 ##### Account kind
 * For standard storage, choose: *StorageV2 (general purpose v2)*
@@ -226,9 +233,12 @@ This section describes how to set up a migration job and carefully map the direc
         ![StorSimple 8000 series migration phases overview](media/storage-files-migration-storsimple-8000/storage-files-migration-storsimple-8000-new-job.png "A screenshot of the new job creation form for a Data Transformation Job")
     :::column-end:::
     :::column:::
-        **Job definition name**</br>This name should be indicative of the set of files you are moving. Giving it a similar name as the Azure file share can be a good practice.</br></br>**Location where the job runs**</br>It is important that you pick a location close to the storage account containing your StorSimple data. It is possible that for your StorSimple deployment the exact region is not available in the list. In that case, pick a region close to it.</br></br><h3>Source</h3>**Source subscription**</br>Pick the subscription in which you store your StorSimple Data Manager resource.</br></br>**StorSimple resource**</br>Pick your StorSimple Device Manager your appliance is registered with.</br></br>**Service Data Encryption Key**</br>Check this [prior section in this article](#storsimple-service-data-encryption-key), in case you can't locate the key in your records.</br></br>**Device**</br>Select your StorSimple device that holds the volume where you want to either migrate.</br></br>**Volume**</br>Select the source volume. Later you'll decide if you want to migrate the whole volume or sub-directories into the target Azure file share.</br></br><h3>Target</h3>Pick the subscription, storage account and Azure file share as the target of this migration job.
+        **Job definition name**</br>This name should be indicative of the set of files you are moving. Giving it a similar name as the Azure file share can be a good practice.</br></br>**Location where the job runs**</br>It is important that you pick a location close to the storage account containing your StorSimple data. It is possible that for your StorSimple deployment the exact region is not available in the list. In that case, pick a region close to it.</br></br><h3>Source</h3>**Source subscription**</br>Pick the subscription in which you store your StorSimple Device Manager resource.</br></br>**StorSimple resource**</br>Pick your StorSimple Device Manager your appliance is registered with.</br></br>**Service Data Encryption Key**</br>Check this [prior section in this article](#storsimple-service-data-encryption-key), in case you can't locate the key in your records.</br></br>**Device**</br>Select your StorSimple device that holds the volume where you want to either migrate.</br></br>**Volume**</br>Select the source volume. Later you'll decide if you want to migrate the whole volume or sub-directories into the target Azure file share.</br></br><h3>Target</h3>Pick the subscription, storage account and Azure file share as the target of this migration job.
     :::column-end:::
 :::row-end:::
+
+> [!IMPORTANT]
+> The latest volume backup will be used to perform the migration. Ensure at least one volume backup is present or the job will fail. Also ensure that the latest backup you have is fairly recent, to keep the delta to the live share as small as possible. It could be worth manually triggering and completing another volume backup **before** running the job you just created.
 
 ### Directory Mapping
 This is optional for your migration job. If you leave it empty, **all** the files and folders on the root of your StorSimple volume will be moved into the root of your target Azure file share. In most cases, storing an entire volume's content in an Azure file share is not the best approach. It's often better to split a volume's content across multiple file shares in Azure. If you haven't made a plan already, check out this section first: [Map your StorSimple volume to Azure file shares](#map-your-existing-storsimple-volumes-to-azure-file-shares)
@@ -243,26 +253,31 @@ As part of your migration plan, you may have decided that the folders on a StorS
 #### Semantic elements
 A mapping is expressed from left to right: [\source path] \> [\target path].
 
-|Semantic character  | Meaning  |
-|:-------------------|:---------|
-| **\\**             | root level indicator        |
-| **\>**             | [source] and [target] mapping operator        |
-|**\|**              | separator of two folder mapping instructions.</br>Alternatively, you can omit this character and simply press enter to get the next mapping expression on it’s own line.        |
+|Semantic character          | Meaning  |
+|:---------------------------|:---------|
+| **\\**                     | root level indicator        |
+| **\>**                     | [source] and [target] mapping operator        |
+|**\|** or RETURN (new line) | separator of two folder mapping instructions.</br>Alternatively, you can omit this character and simply press enter to get the next mapping expression on it’s own line.        |
 
 ### Examples
-Moves the content of folder “User data” to the root of the target file share:</br>
-**\User data > \\**
-
-Moves the entire volume content into a new path on the target file share:</br>
-**\ \> \Apps\HR tracker**
-
-Moves the source folder content to into a new path on the target file share:</br>
-**\HR resumes-Backup \> \Backups\HR\resumes**
-
-Sorts multiple source locations into a new directory structure:</br>
-**\HR\Candidate Tracker\v1.0 > \Apps\Candidate tracker</br>
-\HR\Candidates\Resumes > \HR\Candidates\New</br>
-\Archive\HR\Old Resumes > \HR\Candidates\Archived**</br>
+Moves the content of folder “User data” to the root of the target file share:
+``` console
+\User data > \\
+```
+Moves the entire volume content into a new path on the target file share:
+``` console
+\ \> \Apps\HR tracker
+```
+Moves the source folder content to into a new path on the target file share:
+``` console
+\HR resumes-Backup \> \Backups\HR\resumes
+```
+Sorts multiple source locations into a new directory structure:
+``` console
+\HR\Candidate Tracker\v1.0 > \Apps\Candidate tracker
+\HR\Candidates\Resumes > \HR\Candidates\New
+\Archive\HR\Old Resumes > \HR\Candidates\Archived
+```
 
 ### Semantic rules
 * Always specify folder paths relative to the root level. 
@@ -278,6 +293,12 @@ Sorts multiple source locations into a new directory structure:</br>
 * Source folders that do not exist, will be ignored. 
 * Folder structures that do not exist on the target, will be created. 
 * Like Windows: folder names are case insensitive but case preserving.
+
+> [!NOTE]
+> contents of the "*\System Volume Information*" folder and the "*$Recycle.Bin*" on your StorSimple volume will be not be copied by the transformation job.
+
+### Phase 3 summary
+
 
 ## Phase 4: Accessing your Azure file shares
 
@@ -370,7 +391,7 @@ This migration approach requires some downtime for your users and apps. Maybe a 
 
 ### Determine when your namespace has fully synced to your server
 
-When you use Azure File Sync for an Azure file share, it is important that you determine your entire namespace has finished downloading to the server **BEFORE** you start any local RoboCopy. You can use two different ways to determine that your namespace has fully arrived on the server:
+When you use Azure File Sync for an Azure file share, it is important that you determine your entire namespace has finished downloading to the server **BEFORE** you start any local RoboCopy. The time that takes varies by the number of items in the Azure file share. You can use two different ways to determine that your namespace has fully arrived on the server:
 
 #### Azure portal
 You can tell from the Azure portal, when your namespace has arrived fully on the server, such that you can proceed with a local RoboCopy.
