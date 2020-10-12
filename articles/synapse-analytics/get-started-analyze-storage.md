@@ -40,23 +40,25 @@ df.write.mode("overwrite").parquet("/NYCTaxi/PassengerCountStats.parquet")
 1. Go to **Storage accounts** > **myworkspace (Primary - contosolake)**.
 1. Select **users (Primary)**. You should see the **NYCTaxi** folder. Inside you should see two folders called **PassengerCountStats.csv** and **PassengerCountStats.parquet**.
 1. Open the **PassengerCountStats.parquet** folder. Inside, you'll see a parquet file with a name like `part-00000-2638e00c-0790-496b-a523-578da9a15019-c000.snappy.parquet`.
-1. Right-click **.parquet**, and then select **new notebook**. It creates a notebook that has a cell like this:
+1. Right-click **.parquet**, and then select **New notebook** > **load to DataFrame**. It creates a notebook that has a cell like this:
 
     ```py
     %%pyspark
-    data_path = spark.read.load('abfss://users@contosolake.dfs.core.windows.net/NYCTaxi/PassengerCountStats.parquet/part-00000-1f251a58-d8ac-4972-9215-8d528d490690-c000.snappy.parquet', format='parquet')
-    data_path.show(100)
+    df = spark.read.load('abfss://users@contosolake.dfs.core.windows.net/NYCTaxi/PassengerCountStats.parquet/part-00000-1f251a58-d8ac-4972-9215-8d528d490690-c000.snappy.parquet', format='parquet')
+    display(df.limit(10))
     ```
+    
+    In the notebook window, attach to proper spark pool if it isn't already attached.
 
 1. Run the cell.
-1. Right-click the parquet file inside, and then select **New SQL script** > **SELECT TOP 100 rows**. It creates a SQL script like this:
+1. Open again the **PassengerCountStats.parquet** folder and press right-click on **.parquet** file, and then select **New SQL script** > **SELECT TOP 100 rows**. It creates a SQL script like this:
 
     ```sql
     SELECT TOP 100 *
     FROM OPENROWSET(
         BULK 'https://contosolake.dfs.core.windows.net/users/NYCTaxi/PassengerCountStats.parquet/part-00000-1f251a58-d8ac-4972-9215-8d528d490690-c000.snappy.parquet',
         FORMAT='PARQUET'
-    ) AS [r];
+    ) AS [result];
     ```
 
     In the script window, the **Connect to** field is set to **SQL on-demand**.
