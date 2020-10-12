@@ -1108,8 +1108,6 @@
         href: how-to-create-multiple-cosmos-db-triggers.md
       - name: Troubleshoot Azure Cosmos DB Triggers
         href: troubleshoot-changefeed-functions.md
-      - name: Change feed processor start time
-        href: how-to-configure-change-feed-start-time.md
       - name: Using the change feed estimator
         href: how-to-use-change-feed-estimator.md
       - name: Migrate from change feed processor library
