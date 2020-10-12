@@ -348,6 +348,6 @@ If you have questions about Azure Managed Applications, try asking on [Stack Ove
 
 ## Next steps
 
-To publish your managed application to the Azure Marketplace, see [Azure managed applications in the Marketplace](publish-marketplace-app.md).
+To publish your managed application to the Azure Marketplace, see [Azure managed applications in the Marketplace](../../marketplace/partner-center-portal/create-new-azure-apps-offer.md).
 
 Learn more about [Azure Custom Providers](../custom-providers/overview.md).
