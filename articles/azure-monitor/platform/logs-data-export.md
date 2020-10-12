@@ -17,13 +17,13 @@ Once data export is configured for your Log Analytics workspace, any new data se
 
 ![Data export overview](media/logs-data-export/data-export-overview.png)
 
-All data from included tales is exported without a filter. For example, when you configure a data export rule for *SecurityEvent* table, all data sent to the *SecurityEvent* table is exported starting from the configuration time.
+All data from included tables is exported without a filter. For example, when you configure a data export rule for *SecurityEvent* table, all data sent to the *SecurityEvent* table is exported starting from the configuration time.
 
 
 ## Other export options
 Log Analytics workspace data export continuously exports data from a Log Analytics workspace. Other options to export data for particular scenarios include the following:
 
-- Scheduled export from a log query using a Logic App. This is similar to the data export feature but allows you to send filtered or aggregated data to Azure storage. See [Archive data from Log Analytics workspace to Azure storage using Logic App](logs-export-logicapp.md)
+- Scheduled export from a log query using a Logic App. This is similar to the data export feature but allows you to send filtered or aggregated data to Azure storage. This method though is subject to [log query limits](../service-limits.md#log-analytics-workspaces)  See [Archive data from Log Analytics workspace to Azure storage using Logic App](logs-export-logicapp.md).
 - One time export using a Logic App. See [Azure Monitor Logs connector for Logic Apps and Power Automate](logicapp-flow-connector.md).
 - One time export to local machine using PowerShell script. See [Invoke-AzOperationalInsightsQueryExport]](https://www.powershellgallery.com/packages/Invoke-AzOperationalInsightsQueryExport).
 
@@ -31,13 +31,11 @@ Log Analytics workspace data export continuously exports data from a Log Analyti
 ## Current limitations
 
 - Configuration can currently only be performed using CLI or REST requests. You cannot use the Azure portal or PowerShell.
-- Supported tables are currently limited to the following. If the data export rule includes an unsupported table, the operation will succeed, but no data will be exported for that table. If the data export rule includes a table that doesn't exist, it will fail with the error *Table <tableName> does not exist in the workspace.*
-  - *Heartbeat*
-  - *SecurityEvent*
-  - *Perf*
+- Supported tables are currently limited those specific in the (#supported-tabes) section below. If the data export rule includes an unsupported table, the operation will succeed, but no data will be exported for that table. If the data export rule includes a table that doesn't exist, it will fail with the error *Table <tableName> does not exist in the workspace.*
 - Your Log Analytics workspace can be in any region except for the following:
   - Switzerland North
   - Switzerland West
+  - Any Azure government region
 - The destination storage account or event hub must be in the same region as the Log Analytics workspace.
 - Names of tables to be exported can be no longer than 60 characters for a storage account and no more than 47 characters to an event hub. Tables with longer names will not be exported.
 
@@ -47,7 +45,7 @@ Log Analytics workspace data export continuously exports data from a Log Analyti
 > - Subscription: Your subscription
 > - Service: Data Lake Storage Gen2
 > - Resource: Your resource name
-> - Summary: Requesting subscription registration to accept data from Log Analytics Data Export to send data.
+> - Summary: Requesting subscription registration to accept data from Log Analytics Data Export.
 > - Problem type: Connectivity
 > - Problem subtype: Connectivity issue
 
@@ -55,7 +53,7 @@ Log Analytics workspace data export continuously exports data from a Log Analyti
 Data export will continue to retry sending data for up to 30 minutes in the event that the destination is unavailable. If it's still unavailable after 30 minutes then data will be discarded until the destination becomes available.
 
 ## Cost
-There are no additional charges for the data export feature during public preview.  Pricing for features that are in preview will be announced in the future and a notice provided prior to start of billing. If you choose to continue using data export after the notice period, you will be billed at the applicable rate.
+There are no additional charges for the data export feature during public preview. Pricing for features that are in preview will be announced in the future and a notice provided prior to start of billing. If you choose to continue using data export after the notice period, you will be billed at the applicable rate.
 
 ## Export destinations
 
@@ -71,7 +69,7 @@ The storage account data format is [JSON lines](diagnostic-logs-append-blobs.md)
 Log Analytics data export can write append blobs to immutable storage accounts when time-based retention policies have the *allowProtectedAppendWrites* setting enabled. This allows writing new blocks to an append blob, while maintaining immutability protection and compliance. See [Allow protected append blobs writes](../../storage/blobs/storage-blob-immutable-storage.md#allow-protected-append-blobs-writes).
 
 ### Event hub
-Data is sent to your event hub in near real time as it reaches Azure Monitor. An event hub is created for each data type that you export with the name *am-* followed by the name of the table. For example, the table *SecurityEvent* would sent to an event hub named *am-SecurityEvent*. If you want the exported data to reach a specific event hub, or if you have a table with a name that exceeds the 47 character limit, you can provide your own event hub name and export all tables to it.
+Data is sent to your event hub in near-real-time as it reaches Azure Monitor. An event hub is created for each data type that you export with the name *am-* followed by the name of the table. For example, the table *SecurityEvent* would sent to an event hub named *am-SecurityEvent*. If you want the exported data to reach a specific event hub, or if you have a table with a name that exceeds the 47 character limit, you can provide your own event hub name and export all tables to it.
 
 The volume of exported data often increase over time, and the event hub scale needs to be increased to handle larger transfer rates and avoid throttling scenarios and data latency. You should use the auto-inflate feature of Event Hubs to automatically scale up and increase the number of throughput units and meet usage needs. See [Automatically scale up Azure Event Hubs throughput units](../../event-hubs/event-hubs-auto-inflate.md) for details.
 
@@ -96,7 +94,7 @@ The following Azure resource providers need to registered for your subscription 
 
 - Microsoft.Insights
 
-You can use any of the available methods to register a resource provider as described in [Azure resource providers and types](../../azure-resource-manager/management/resource-providers-and-types.md). You can also use the following sample command using PowerShell to make authenticated call to ARM:
+You can use any of the available methods to register a resource provider as described in [Azure resource providers and types](../../azure-resource-manager/management/resource-providers-and-types.md). You can also use the following sample command using PowerShell to make authenticated call to Azure Resource Manager:
 
 ```PowerShell
 Register-AzResourceProvider -ProviderNamespace Microsoft.insights
@@ -231,6 +229,143 @@ Use the following request to view all data export rules in a workspace using the
 ```rest
 GET https://management.azure.com/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/Microsoft.operationalInsights/workspaces/<workspace-name>/dataexports?api-version=2020-08-01
 ```
+
+## Supported tables
+
+Supported tables are currently limited to the following. If the data export rule includes an unsupported table, the operation will succeed, but no data will be exported for that table. If the data export rule includes a table that doesn't exist, it will fail with the error *Table <tableName> does not exist in the workspace.
+
+
+| Table | Supported | Details |
+|:---|:---|:---|
+| AADDomainServicesAccountLogon | | |
+| AADDomainServicesAccountManagement | | |
+| AADDomainServicesDirectoryServiceAccess | | |
+| AADDomainServicesLogonLogoff | | |
+| AADDomainServicesPolicyChange | | |
+| AADDomainServicesPrivilegeUse | | |
+| ADAssessmentRecommendation | | |
+| ADFActivityRun | | |
+| ADFPipelineRun | | |
+| ADFTriggerRun | | |
+| ADReplicationResult | | |
+| ADSecurityAssessmentRecommendation | | |
+| ADTDigitalTwinsOperation | | |
+| ADTEventRoutesOperation | | |
+| ADTModelsOperation | | |
+| ADTQueryOperation | | |
+| ADXCommand | | |
+| ADXQuery | | |
+| AegDeliveryFailureLogs | | |
+| AegPublishFailureLogs | | |
+| Alert | Partial | Some of the data to this table is ingested through storage account. This portion is missing in export currently. |
+| ApiManagementGatewayLogs | | |
+| AppCenterError | | |
+| AppPlatformSystemLogs | | |
+| AppServiceAppLogs | | |
+| AppServiceAuditLogs | | |
+| AppServiceConsoleLogs | | |
+| AppServiceFileAuditLogs | | |
+| AppServiceHTTPLogs | | |
+| AppServicePlatformLogs | | |
+| AuditLogs | | |
+| AutoscaleEvaluationsLog | | |
+| AutoscaleScaleActionsLog | | |
+| AWSCloudTrail | | |
+| AzureAssessmentRecommendation | | |
+| AzureDevOpsAuditing | | |
+| BehaviorAnalytics | | |
+| BlockchainApplicationLog | | |
+| BlockchainProxyLog | | |
+| BlockchainProxyLog | | |
+| CommonSecurityLog | | |
+| CommonSecurityLog | | |
+| ComputerGroup | | |
+| ConfigurationData |Partial | Some of the data is ingested through internal services that isn't supported for export. This portion is missing in export currently. |
+| ContainerImageInventory | | |
+| ContainerInventory | | |
+| ContainerLog | | |
+| ContainerLog | | |
+| ContainerNodeInventory | | |
+| ContainerServiceLog | | |
+| CoreAzureBackup | | |
+| DatabricksAccounts | | |
+| DatabricksClusters | | |
+| DatabricksDBFS | | |
+| DatabricksInstancePools | | |
+| DatabricksJobs | | |
+| DatabricksNotebook | | |
+| DatabricksSecrets | | |
+| DatabricksSQLPermissions | | |
+| DatabricksSSH | | |
+| DatabricksWorkspace | | |
+| DnsEvents | | |
+| DnsInventory | | |
+| Dynamics365Activity | | |
+| Event |Partial | Some of the data to this table is ingested through storage account. This portion is missing in export currently. |
+| ExchangeAssessmentRecommendation | | |
+| ExchangeAssessmentRecommendation | | |
+| FailedIngestion | | |
+| FunctionAppLogs | | |
+| Heartbeat | Supported | |
+| HuntingBookmark | | |
+| InsightsMetrics |Partial | Some of the data is ingested through internal services that isn't supported for export. This portion is missing in export currently. |
+| IntuneAuditLogs | | |
+| IntuneOperationalLogs | | |
+| KubeEvents | | |
+| KubeHealth | | |
+| KubeMonAgentEvents | | |
+| KubeNodeInventory | | |
+| KubePodInventory | | |
+| KubeServices | | |
+| KubeServices | | |
+| McasShadowItReporting | | |
+| MicrosoftAzureBastionAuditLogs | | |
+| MicrosoftDataShareReceivedSnapshotLog | | |
+| MicrosoftDataShareSentSnapshotLog | | |
+| MicrosoftDataShareShareLog | | |
+| MicrosoftHealthcareApisAuditLogs | | |
+| NWConnectionMonitorPathResult | | |
+| NWConnectionMonitorTestResult | | |
+| OfficeActivity |Partial | Some of the data to ingested via webhooks from O365 into LA. This portion is missing in export currently. |
+| Operation |Partial | Some of the data is ingested through internal services that isn't supported for export. This portion is missing in export currently. |
+| Perf | Supported | |
+| SCCMAssessmentRecommendation | | | 
+| SCOMAssessmentRecommendation | | |
+| SecurityAlert | | |
+| SecurityBaseline | | |
+| SecurityBaselineSummary | | |
+| SecurityDetection | | |
+| SecurityEvent | Supported | |
+| SecurityIncident | | |
+| SecurityIoTRawEvent | | |
+| SecurityNestedRecommendation | | |
+| SecurityRecommendation | | |
+| SfBAssessmentRecommendation | | |
+| SfBOnlineAssessmentRecommendation | | |
+| SharePointOnlineAssessmentRecommendation | | |
+| SignalRServiceDiagnosticLogs | | |
+| SigninLogs | | |
+| SPAssessmentRecommendation | | |
+| SQLAssessmentRecommendation | | |
+| SucceededIngestion | | |
+| Syslog |Partial | Some of the data to this table is ingested through storage account. This portion is missing in export currently. |
+| ThreatIntelligenceIndicator | | |
+| Update |Partial | Some of the data is ingested through internal services that isn't supported for export. This portion is missing in export currently. |
+| UpdateRunProgress | | |
+| UpdateSummary | | |
+| Usage | | |
+| UserAccessAnalytics | | |
+| UserPeerAnalytics | | |
+| WindowsEvent | | |
+| WindowsFirewall | | |
+| WireData |Partial | Some of the data is ingested through internal services that isn't supported for export. This portion is missing in export currently. |
+| WorkloadMonitoringPerf | | |
+| WorkloadMonitoringPerf | | |
+| WVDCheckpoints | | |
+| WVDConnections | | |
+| WVDErrors | | |
+| WVDFeeds | | |
+| WVDManagement | | |
 
 ## Next steps
 
