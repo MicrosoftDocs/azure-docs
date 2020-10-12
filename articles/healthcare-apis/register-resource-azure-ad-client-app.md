@@ -103,7 +103,7 @@ The Azure API for FHIR and the OSS FHIR Server for Azure use [Azure Active Direc
 
 ## Next steps
 
-In this article, you've learned how to register a resource application in Azure Active Directory. Next, deploy the Azure API for FHIR.
+In this article, you've learned how to register a resource application in Azure Active Directory. Next, register your confidential client application.
  
 >[!div class="nextstepaction"]
->[Deploy Azure API for FHIR](fhir-paas-powershell-quickstart.md)
+>[Register Confidential Client Application](register-confidential-azure-ad-client-app.md)
