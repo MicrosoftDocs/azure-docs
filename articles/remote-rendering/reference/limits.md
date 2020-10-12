@@ -23,10 +23,12 @@ A number of features have size, count, or other limitations.
 
 ## Geometry
 
-* Total allowable materials in an asset: 65,535. See [material de-duplication](../how-tos/conversion/configure-model-conversion.md#material-de-duplication) for more information.
-* Maximum dimension of a single texture: 16,384 x 16,384. Larger source textures will be scaled down by the conversion process.
+* **Animation:** Animations are limited to animating individual transforms of game objects. Skeletal animations with skinning or vertex animations are not supported. Animation tracks from the source asset file are not preserved. Instead, object transform animations have to be driven by client code.
+* **Custom shaders:** Authoring of custom shaders is not supported. Only built-in [Color materials](../overview/features/color-materials.md) or [PBR materials](../overview/features/pbr-materials.md) can be used.
+* **Maximum number of distinct materials** in an asset: 65,535. For more information about automatic material count reduction, see the [material de-duplication](../how-tos/conversion/configure-model-conversion.md#material-de-duplication) chapter.
+* **Maximum dimension of a single texture**: 16,384 x 16,384. Larger source textures will be reduced in size by the conversion process.
 
-## Overall number of polygons
+### Overall number of polygons
 
 The allowable number of polygons for all loaded models depends on the size of the VM as passed to [the session management REST API](../how-tos/session-rest-api.md#create-a-session):
 
@@ -35,7 +37,7 @@ The allowable number of polygons for all loaded models depends on the size of th
 |standard| 20 million |
 |premium| no limit |
 
-See [server size](../reference/vm-sizes.md) chapter for more detailed information on this limitation.
+For detailed information on this limitation, see the [server size](../reference/vm-sizes.md) chapter.
 
 ## Platform limitations
 
@@ -43,6 +45,6 @@ See [server size](../reference/vm-sizes.md) chapter for more detailed informatio
 
 * Win32/x64 is the only supported Win32 platform. Win32/x86 is not supported.
 
-**Hololens 2**
+**HoloLens 2**
 
 * The [render from PV camera](https://docs.microsoft.com/windows/mixed-reality/mixed-reality-capture-for-developers#render-from-the-pv-camera-opt-in) feature is not supported.

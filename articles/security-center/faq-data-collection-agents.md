@@ -162,7 +162,7 @@ You can turn off automatic provisioning for your subscriptions in the security p
 
 1. If your subscription has Azure Defender enabled, open the security policy for that subscription and select **Azure Defender off**.
 
-   ![Pricing tier][1]
+    :::image type="content" source="./media/security-center-platform-migration-faq/pricing-tier.png" alt-text="Enable or disable Azure Defender":::
 
 1. Next, turn off automatic provisioning by selecting **Off** on the **Security policy – Data collection** page.
    ![Data collection][2]
@@ -196,7 +196,7 @@ Manually install the Log Analytics agent extension so Security Center can collec
 
 You can connect the agent to any existing custom workspace or Security Center created workspace. If a custom workspace does not have the 'Security' or 'SecurityCenterFree' solutions enabled, then you will need to apply a solution. To apply, select the custom workspace or subscription and apply a pricing tier via the **Security policy – Pricing tier** page.
 
-   ![Pricing tier][1]
+:::image type="content" source="./media/security-center-platform-migration-faq/pricing-tier.png" alt-text="Enable or disable Azure Defender":::
 
 Security Center will enable the correct solution on the workspace based on the selected pricing tier.
 
@@ -267,7 +267,6 @@ The agent consumes a nominal amount of system resources and should have little i
 
 
 <!--Image references-->
-[1]: ./media/security-center-platform-migration-faq/pricing-tier.png
 [2]: ./media/security-center-platform-migration-faq/data-collection.png
 [3]: ./media/security-center-platform-migration-faq/remove-the-agent.png
 [4]: ./media/security-center-platform-migration-faq/use-another-workspace.png

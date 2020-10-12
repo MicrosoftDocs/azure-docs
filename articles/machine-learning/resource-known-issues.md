@@ -10,7 +10,7 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
 ms.custom: troubleshooting, contperfq4
-ms.date: 08/13/2020
+ms.date: 10/02/2020
 
 ---
 # Known issues and troubleshooting in Azure Machine Learning
@@ -204,6 +204,9 @@ If you are using file share for other workloads, such as data transfer, the re
     ```
 
     If you don't include the leading forward slash, '/',  you'll need to prefix the working directory e.g. `/mnt/batch/.../tmp/dataset` on the compute target to indicate where you want the dataset to be mounted.
+
+### Mount dataset
+* **Dataset initialization failed:  Waiting for mount point to be ready has timed out**: Re-try logic has been added in `azureml-sdk >=1.12.0` to mitigate the issue. If you are on previous azureml-sdk versions, please upgrade to the latest version. If you are already on `azureml-sdk>=1.12.0`, please recreate your environment so that you have the latest patch with the fix.
 
 ### Data labeling projects
 
@@ -442,6 +445,10 @@ kubectl get secret/azuremlfessl -o yaml
 
 >[!Note]
 >Kubernetes stores the secrets in base-64 encoded format. You will need to base-64 decode the `cert.pem` and `key.pem` components of the secrets prior to providing them to `attach_config.enable_ssl`. 
+
+### Detaching Azure Kubernetes Service
+
+Using the Azure Machine Learning studio, SDK, or the Azure CLI extension for machine learning to detach an AKS cluster does not delete the AKS cluster. To delete the cluster, see [Use the Azure CLI with AKS](/azure/aks/kubernetes-walkthrough#delete-the-cluster).
 
 ### Webservices in Azure Kubernetes Service failures
 

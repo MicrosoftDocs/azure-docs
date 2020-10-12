@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: tutorial
-ms.date: 07/10/2020
+ms.date: 10/01/2020
 ms.author: alkohli
 #Customer intent: As an IT admin, I need to be able to copy data exported from Azure to Data Box, to an on-premises data server.
 ---
@@ -41,15 +41,17 @@ Before you begin, make sure that:
 
 [!INCLUDE [data-box-shares](../../includes/data-box-shares.md)]
 
-If you are using a Linux host computer, perform the following steps to configure Data Box to allow access to NFS clients.
+If you are using a Linux host computer, perform the following steps to configure Data Box to allow access to NFS clients. Data Box can connect as many as five NFS clients at a time.
 
-1. Supply the IP addresses of the allowed clients that can access the share. In the local web UI, go to **Connect and copy** page. Under **NFS settings**, click **NFS client access**. 
+1. Supply the IP addresses of the allowed clients that can access the share:
 
-    ![Configure NFS client access 1](media/data-box-deploy-export-copy-data/nfs-client-access-1.png)
+    1.  In the local web UI, go to the **Connect and copy** page. Under **NFS settings**, click **NFS client access**. 
 
-2. Supply the IP address of the NFS client and click **Add**. You can configure access for multiple NFS clients by repeating this step. Click **OK**.
+        ![Open NFS client access](media/data-box-deploy-export-copy-data/nfs-client-access-1.png)
 
-    ![Configure NFS client access 2](media/data-box-deploy-export-copy-data/nfs-client-access-2.png)
+    1. To add an NFS client, supply the client's IP address and click **Add**. Data Box can connect as many as five NFS clients at a time. When you finish, click **OK**.
+
+         ![Add an NFS client](media/data-box-deploy-export-copy-data/nfs-client-access-2.png)
 
 2. Ensure that the Linux host computer has a [supported version](data-box-system-requirements.md) of NFS client installed. Use the specific version for your Linux distribution. 
 

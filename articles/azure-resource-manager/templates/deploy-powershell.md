@@ -118,7 +118,7 @@ The preceding example requires a publicly accessible URI for the template, which
 
 ## Deploy template spec
 
-Instead of deploying a local or remote template, you can create a [template spec](template-specs.md). The template spec is a resource in your Azure subscription that contains an ARM template. It makes it easy to securely share the template with users in your organization. You use role-based access control (RBAC) to grant access to the template spec. This feature is currently in preview.
+Instead of deploying a local or remote template, you can create a [template spec](template-specs.md). The template spec is a resource in your Azure subscription that contains an ARM template. It makes it easy to securely share the template with users in your organization. You use Azure role-based access control (Azure RBAC) to grant access to the template spec. This feature is currently in preview.
 
 The following examples show how to create and deploy a template spec. These commands are only available if you've [signed up for the preview](https://aka.ms/templateSpecOnboarding).
 

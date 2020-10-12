@@ -6,7 +6,7 @@ ms.service: sql-database
 ms.subservice: single-database
 ms.custom:
 ms.devlang: 
-ms.topic: conceptual
+ms.topic: reference
 author: stevestein
 ms.author: sstein
 ms.reviewer: sashan,moslake,josack

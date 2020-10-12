@@ -6,7 +6,7 @@ manager: vriveras
 services: azure-spatial-anchors
 
 ms.author: crtreasu
-ms.date: 07/31/2020
+ms.date: 09/29/2020
 ms.topic: quickstart
 ms.service: azure-spatial-anchors
 ---
@@ -29,7 +29,7 @@ You'll learn how to:
 To complete this quickstart:
 
 - You need a Windows computer with <a href="https://unity3d.com/get-unity/download" target="_blank">Unity 2019.4 (LTS)</a> and <a href="https://www.visualstudio.com/downloads/" target="_blank">Visual Studio 2019</a> or later are installed. Your Visual Studio installation must include the **Universal Windows Platform development** workload and the **Windows 10 SDK (10.0.18362.0 or newer)** component. You must also install <a href="https://git-scm.com/download/win" target="_blank">Git for Windows</a> and <a href="https://git-lfs.github.com/">Git LFS</a>.
-- You need a HoloLens device on which [developer mode](https://docs.microsoft.com/windows/mixed-reality/using-visual-studio) enabled. [Windows 10 October 2018 Update](https://docs.microsoft.com/windows/mixed-reality/release-notes-october-2018) (also known as RS5) must be installed on the device. To update to the latest release on HoloLens, open the **Settings** app, go to **Update & Security**, and then select **Check for updates**.
+- You need a HoloLens device on which [developer mode](https://docs.microsoft.com/windows/mixed-reality/using-visual-studio) enabled. [Windows 10 May 2020 Update](https://docs.microsoft.com/windows/mixed-reality/whats-new/release-notes-may-2020) must be installed on the device. To update to the latest release on HoloLens, open the **Settings** app, go to **Update & Security**, and then select **Check for updates**.
 - On your app, you need to enable the **SpatialPerception** capability. This setting is in **Build Settings** > **Player Settings** > **Publishing Settings** > **Capabilities**.
 - On your app, you need to enable **Virtual Reality Supported** with **Windows Mixed Reality SDK**. This setting is in **Build Settings** > **Player Settings** > **XR Settings**.
 
@@ -75,7 +75,12 @@ Turn on the HoloLens device, sign in, and connect the device to the PC by using 
 
 Select **Debug** > **Start debugging** to deploy your app and start debugging.
 
-Follow the instructions in the app to place and recall an anchor.
+In the app, select **BasicDemo** using the arrows, then press the **Go!** button to run the demo. Follow the instructions to place and recall an anchor.
+
+![Screenshot 1](./media/get-started-unity-hololens/screenshot-1.jpg)
+![Screenshot 2](./media/get-started-unity-hololens/screenshot-2.jpg)
+![Screenshot 3](./media/get-started-unity-hololens/screenshot-3.jpg)
+![Screenshot 4](./media/get-started-unity-hololens/screenshot-4.jpg)
 
 In Visual Studio, stop the app by selecting either **Stop Debugging** or Shift+F5.
 

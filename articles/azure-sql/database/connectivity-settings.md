@@ -4,7 +4,7 @@ description: This document explains Transport Layer Security (TLS) version choic
 services: sql-database
 ms.service: sql-database
 titleSuffix: Azure SQL Database and Azure Synapse Analytics (formerly SQL Data Warehouse)
-ms.topic: conceptual
+ms.topic: how-to
 author: rohitnayakmsft
 ms.author: rohitna
 ms.reviewer: sstein, vanto
@@ -17,7 +17,7 @@ ms.date: 07/06/2020
 This article introduces settings that control connectivity to the server for Azure SQL Database and Azure Synapse Analytics. These settings apply to **all** SQL Database and Azure Synapse databases associated with the server.
 
 > [!IMPORTANT]
-> This article does *not* apply to **Azure SQL Managed Instance**
+> This article does *not* apply to **Azure SQL Managed Instance**.
 
 The connectivity settings are accessible from the **Firewalls and virtual networks** screen as shown in the following screenshot:
 
@@ -33,6 +33,9 @@ When **Deny public network access** setting is set to **Yes**, only connections 
  ![Screenshot of connectivity with deny public network access][2]
 
 Any attempts to set **Deny public network access** setting to **Yes** without any existing private endpoints at the logical server will fail with an error message similar to:  
+
+> [!NOTE]
+> To define virtual network firewall rules on a logical server that's already configured with private endpoints, set **Deny public network access** to **No**.
 
 ```output
 Error 42102

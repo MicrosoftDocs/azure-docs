@@ -63,7 +63,7 @@ To configure and test Azure AD single sign-on with Palo Alto Networks - Aperture
 
 Follow these steps to enable Azure AD SSO in the Azure portal.
 
-1. In the Azure portal, on the **Salesforce** application integration page, find the **Manage** section and select **single sign-on**.
+1. In the Azure portal, on the **Palo Alto Networks - Aperture** application integration page, find the **Manage** section and select **single sign-on**.
 1. On the **Select a single sign-on method** page, select **SAML**.
 1. On the **Set up single sign-on with SAML** page, click the edit/pen icon for **Basic SAML Configuration** to edit the settings.
 

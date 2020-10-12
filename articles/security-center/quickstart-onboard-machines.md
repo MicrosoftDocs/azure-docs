@@ -3,18 +3,48 @@ title: Connect your non-Azure machines to Azure Security Center
 description: Learn how to connect your non-Azure machines to Security Center
 author: memildin
 ms.author: memildin
-ms.date: 9/22/2020
-ms.topic: how-to
+ms.date: 10/01/2020
+ms.topic: quickstart
 ms.service: security-center
 manager: rkarlin
-
+zone_pivot_groups: non-azure-machines
 ---
-
 #  Connect your non-Azure machines to Security Center
 
-Security Center can monitor the security posture of your non-Azure computers but you need to first onboard these resources. You can add non-Azure computers from the **Getting started** page or from **Inventory** as described below.
+Security Center can monitor the security posture of your non-Azure computers but you need to first onboard these resources. 
 
-## Add non-Azure computers 
+You can add non-Azure computers in any of the following ways:
+
+- Using Azure Arc (**recommended**)
+- From Security Center's pages in the Azure portal (**Getting started** and **Inventory**)
+
+Each of these is described on this page.
+
+::: zone pivot="azure-arc"
+
+## Add non-Azure machines with Azure Arc
+
+Using Azure Arc is the preferred way of adding your non-Azure machines to Azure Security Center.
+
+A machine with Azure Arc enabled, becomes an Azure resource and appears in Security Center with recommendations like your other Azure resources. 
+
+In addition, Azure Arc provides enhanced capabilities such as the option to enable policies on the machine, deploy the Log Analytics agent as an extension, simplify deployment with other Azure services, and more. For an overview of the benefits, see [Supported scenarios](../azure-arc/servers/overview.md#supported-scenarios).
+
+**To deploy Azure Arc:**
+
+- For one machine, follow the instructions in [Quickstart: Connect hybrid machine with Azure Arc enabled servers](../azure-arc/servers/learn/quick-enable-hybrid-vm.md).
+- To deploy Azure Arc at scale, see [Connect hybrid machines to Azure at scale](../azure-arc/servers/onboard-service-principal.md)
+
+Learn more about [Azure Arc](../azure-arc/servers/overview.md).
+
+> [!TIP]
+> If you're onboarding AWS machines, Security Center's connector for AWS transparently handles the Azure Arc deployment for you. Learn more in [Connect your AWS accounts to Azure Security Center](quickstart-onboard-aws.md).
+
+::: zone-end
+
+::: zone pivot="azure-portal"
+
+## Add non-Azure machines from Security Center's portal pages
 
 1. From Security Center's menu, open the **Getting started** page.
 1. Select the **Get started** tab.
@@ -25,6 +55,8 @@ Security Center can monitor the security posture of your non-Azure computers but
 
     > [!TIP]
     > You can also open add machines from the **inventory** page's **Add non-Azure servers** button.
+    > 
+    > :::image type="content" source="./media/security-center-onboarding/onboard-inventory.png" alt-text="Adding non-Azure machines from the asset inventory page":::
 
     A list of your Log Analytics workspaces is shown. The list includes, if applicable, the default workspace created for you by Security Center when automatic provisioning was enabled. Select this workspace or another workspace you want to use.
 
@@ -84,14 +116,16 @@ When complete, the **Log Analytics agent** appears in **Control Panel**. You can
 
 For further information on installing and configuring the agent, see [Connect Windows machines](../azure-monitor/platform/agent-windows.md#install-agent-using-setup-wizard).
 
+::: zone-end
 
 ## Verifying
-Congratulations! Now you can see your Azure and non-Azure machines together in one place. Open the [asset inventory page](asset-inventory.md) and filter to the relevant resource types. These two icons distinguish the types:
+Congratulations! Now you can see your Azure and non-Azure machines together in one place. Open the [asset inventory page](asset-inventory.md) and filter to the relevant resource types. These icons distinguish the types:
 
-  ![icon1](./media/quick-onboard-linux-computer/security-center-monitoring-icon1.png) Non-Azure machine
+  ![ASC icon for non-Azure machine](./media/quick-onboard-linux-computer/security-center-monitoring-icon1.png) Non-Azure machine
 
-  ![icon2](./media/quick-onboard-linux-computer/security-center-monitoring-icon2.png) Azure VM
+  ![ASC icon for Azure machine](./media/quick-onboard-linux-computer/security-center-monitoring-icon2.png) Azure VM
 
+  ![ASC icon for Azure Arc machine](./media/quick-onboard-linux-computer/arc-enabled-machine-icon.png) Azure Arc enabled machine
 
 ## Next steps
 

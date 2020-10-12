@@ -70,7 +70,7 @@ Type the commands below to create a self-signed certificate with default policy 
 az keyvault certificate create --vault-name "Contoso-Vault2" -n ExampleCertificate -p "$(az keyvault certificate get-default-policy)"
 ```
 
-You can now reference this certificate that you added to Azure Key Vault by using its URI. Use **https://Contoso-Vault2.vault.azure.net/certificates/ExampleCertificate** to get the current version. 
+You can now reference this certificate that you added to Azure Key Vault by using its URI. Use **'https://Contoso-Vault2.vault.azure.net/certificates/ExampleCertificate'** to get the current version. 
 
 To view previously stored certificate:
 

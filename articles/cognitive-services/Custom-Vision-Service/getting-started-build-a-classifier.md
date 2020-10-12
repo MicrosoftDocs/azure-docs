@@ -1,7 +1,7 @@
 ---
-title: "Quickstart Build a classifier - Custom Vision Service"
+title: "Quickstart: Build a classifier with the Custom Vision website"
 titleSuffix: Azure Cognitive Services
-description: In this quickstart, you'll learn how to use the Custom Vision website to create an image classification model.
+description: In this quickstart, you'll learn how to use the Custom Vision website to create, train, and test an image classification model.
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
@@ -9,14 +9,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: custom-vision
 ms.topic: quickstart
-ms.date: 09/15/2020
+ms.date: 09/29/2020
 ms.author: pafarley
 ms.custom: cog-serv-seo-aug-2020
+keywords: image recognition, image recognition app, custom vision
 ---
 
-# Quickstart: How to build a classifier with Custom Vision
+# Quickstart: Build a classifier with the Custom Vision website
 
-In this quickstart, you'll learn how to build an image classifier through the Custom Vision website. Once you build a model, you can test in with new images and eventually integrate it into your own image recognition software.
+In this quickstart, you'll learn how to use the Custom Vision website to create an image classification model. Once you build a model, you can test it with new images and eventually integrate it into your own image recognition app.
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/cognitive-services/) before you begin.
 

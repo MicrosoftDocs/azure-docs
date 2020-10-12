@@ -33,7 +33,7 @@ To transfer any other Azure subscriptions to a CSP partner, the subscriber needs
     > [!IMPORTANT]
     > - When you associate a subscription to a different Azure AD directory, users that have roles assigned using [Azure role-based access control (Azure RBAC)](../../role-based-access-control/role-assignments-portal.md) lose their access. Classic subscription administrators, including Service Administrator and Co-Administrators, also lose access.
     > - Policy Assignments are also removed from a subscription when the subscription is associated with a different directory.
-1. The user account that you use to do the transfer must have [RBAC](add-change-subscription-administrator.md) owner access on both subscriptions.
+1. The user account that you use to do the transfer must have [Azure RBAC](add-change-subscription-administrator.md) owner access on both subscriptions.
 1. Before you begin, [validate](/rest/api/resources/resources/validatemoveresources) that all Azure resources can move from the source subscription to the destination subscription.  
     Some Azure resources can't move between subscriptions. To view the complete list of Azure resource that can move, see [Move operation support for resources](../../azure-resource-manager/management/move-support-resources.md).
     > [!IMPORTANT]
@@ -52,10 +52,10 @@ To transfer any other subscriptions from a CSP Partner to any other Azure offer,
     Note that the change directory isn't the CSP subscription. For example, you're transferring from a CSP to a pay-as-you-go subscription. You need change the directory of the pay-as-you-go subscription to match the directory.
 
     > [!IMPORTANT]
-    >  - When you associate a subscription to a different directory, users that have roles assigned using [RBAC](../../role-based-access-control/role-assignments-portal.md) lose their access. Classic subscription administrators, including Service Administrator and Co-Administrators, also lose access.
+    >  - When you associate a subscription to a different directory, users that have roles assigned using [Azure RBAC](../../role-based-access-control/role-assignments-portal.md) lose their access. Classic subscription administrators, including Service Administrator and Co-Administrators, also lose access.
     >  - Policy Assignments are also removed from a subscription when the subscription is associated with a different directory.
 
-1. The user account that you use to do the transfer must have [RBAC](add-change-subscription-administrator.md) owner access on both subscriptions.
+1. The user account that you use to do the transfer must have [Azure RBAC](add-change-subscription-administrator.md) owner access on both subscriptions.
 1. Before you begin, [validate](/rest/api/resources/resources/validatemoveresources) that all Azure resources can move from the source subscription to the destination subscription.
     > [!IMPORTANT]
     >  - Some Azure resources can't move between subscriptions. To view the complete list of Azure resource that can move, see [Move operation support for resources](../../azure-resource-manager/management/move-support-resources.md).

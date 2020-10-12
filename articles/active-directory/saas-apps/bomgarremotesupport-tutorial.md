@@ -153,7 +153,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 1. Click on the **STATUS** menu and copy the **Identifier**, **Reply URL** and **Sign on URL** and use these values in the **Basic SAML Configuration** section in the Azure portal.
 
-    ![Configure BeyondTrust Remote Support](./media/bomgarremotesupport-tutorial/config-url-values.png)
+    ![Screenshot shows the Status menu in BeyondTrust Remote Support where you can gather this information.](./media/bomgarremotesupport-tutorial/config-url-values.png)
 
 1. Navigate to the BeyondTrust Remote Support /login interface at
 `https://support.example.com/login` where **support.example.com** is the primary hostname of your appliance and authenticate using your administrative credentials.
@@ -164,21 +164,21 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 1. Under the Identity Provider Settings section, there is an option to upload the Identity Provider Metadata. Locate the Metadata XML file that you have downloaded from the Azure portal and click the **Upload** button. The **Entity ID**, **Single Sign-On Service URL** and Certificate will automatically be uploaded, and the **Protocol Binding** will need to be changed to **HTTP POST**. See screenshot below:
 
-    ![Configure BeyondTrust Remote Support](./media/bomgarremotesupport-tutorial/config-uploadfile.png)
+    ![Screenshot shows the Identity Provider Settings section where you perform these actions.](./media/bomgarremotesupport-tutorial/config-uploadfile.png)
 
 ### Create BeyondTrust Remote Support test user
 
 We will be configuring the User Provision Settings here. The values used in this section will be referenced from the **User Attributes & Claims** section in the Azure portal. We configured this to be the default values which are already imported at the time of creation, however, the value can be customized if necessary.
 
-![Creating User](./media/bomgarremotesupport-tutorial/config-user1.png)
+![Screenshot shows the User Provision Settings where you can configure user values.](./media/bomgarremotesupport-tutorial/config-user1.png)
 
 > [!NOTE]
 > The groups and e-mail attribute are not necessary for this
 implementation. If utilizing Azure AD groups and assigning them to BeyondTrust Remote Support Group Policies for permissions, the Object ID of the group will need to be referenced via its properties in the Azure portal and placed in the ‘Available Groups’ section. Once this has been completed, the Object ID/AD Group will now be available for assignment to a group policy for permissions.
 
-![Creating User](./media/bomgarremotesupport-tutorial/config-user2.png)
+![Screenshot shows the I T section with Membership type, Source, Type, and Object I D.](./media/bomgarremotesupport-tutorial/config-user2.png)
 
-![Creating User](./media/bomgarremotesupport-tutorial/config-user3.png)
+![Screenshot shows the Basic Settings page for a group policy.](./media/bomgarremotesupport-tutorial/config-user3.png)
 
 > [!NOTE]
 > Alternatively, a default group policy can be set on the SAML2 Security Provider. By defining this option, this will assign all users who authenticate through SAML the permissions specified within the group policy. The General Members policy is included within BeyondTrust Remote Support/Privileged Remote Access with limited permissions, which can be used to test authentication and assign users to the correct policies. Users will not populate into the SAML2 Users list via /login > Users & Security until the first successful authentication attempt. Additional information on Group policies can be found at the following link: `https://www.beyondtrust.com/docs/remote-support/getting-started/admin/group-policies.htm`

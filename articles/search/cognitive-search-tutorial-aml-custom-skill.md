@@ -7,7 +7,7 @@ author: tchristiani
 ms.author: terrychr
 ms.service: cognitive-search
 ms.topic: tutorial
-ms.date: 06/10/2020
+ms.date: 09/25/2020
 ---
 
 # Tutorial: Build and deploy a custom skill with Azure Machine Learning 
@@ -77,8 +77,7 @@ Section 4 in the notebook has four cells that update the skillset and indexer. A
 
 In the portal, go to Skillset and select the Skillset Definition (JSON) link. The portal will display the JSON of your skillset that was created in the first cells of the notebook. To the right of the display there is a dropdown menu where you can select the skill definition template. Select the Azure Machine Learning (AML) template. provide the name of the Azure ML workspace and the endpoint for the model deployed to the inference cluster. The template will be updated with the endpoint uri and key.
 
-> [!div class="mx-imgBorder"]
-> ![Skillset definition template](media/cognitive-search-aml-skill/portal-aml-skillset-definition.png)
+> :::image type="content" source="media/cognitive-search-aml-skill/portal-aml-skillset-definition.png" alt-text="Skillset definition template":::
 
 Copy the skillset template from the window and paste it into the skillset definition on the left. Edit the template to provide the missing values for:
 

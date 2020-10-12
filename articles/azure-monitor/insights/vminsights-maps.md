@@ -91,7 +91,7 @@ The map visualizes the VM's dependencies by discovering running process groups a
 
 By default, the map shows the last 30 minutes. If you want to see how dependencies looked in the past, you can query for historical time ranges of up to one hour. To run the query, use the **TimeRange** selector in the upper-left corner. You might run a query, for example, during an incident or to see the status before a change.  
 
-![Direct VM map overview](./media/vminsights-maps/map-direct-vm-01.png)
+![Screenshot of the Map tab in the Monitoring Insights section of Azure portal showing a diagram of the dependencies between virtual machines.](./media/vminsights-maps/map-direct-vm-01.png)
 
 ## View a map from a virtual machine scale set
 
@@ -107,7 +107,7 @@ To load a map for a specific instance, first select that instance on the map. Th
 
 By default, the map shows the last 30 minutes. If you want to see how dependencies looked in the past, you can query for historical time ranges of up to one hour. To run the query, use the **TimeRange** selector. You might run a query, for example, during an incident or to see the status before a change.
 
-![Direct VM map overview](./media/vminsights-maps/map-direct-vmss-01.png)
+![Screenshot of the Map tab in the Monitoring Insights section of Azure portal showing a diagram of dependencies between virtual machine scale sets.](./media/vminsights-maps/map-direct-vmss-01.png)
 
 >[!NOTE]
 >You can also access a map for a specific instance from the **Instances** view for your virtual machine scale set. In the **Settings** section, go to **Instances** > **Insights**.

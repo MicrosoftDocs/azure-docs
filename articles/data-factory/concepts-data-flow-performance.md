@@ -48,7 +48,7 @@ Once you have identified the bottleneck of your data flow, use the below optimiz
 
 The **Optimize** tab contains settings to configure the partitioning scheme of the Spark cluster. This tab exists in every transformation of data flow and specifies whether you want to repartition the data **after** the transformation has completed. Adjusting the partitioning provides control over the distribution of your data across compute nodes and data locality optimizations that can have both positive and negative effects on your overall data flow performance.
 
-![Optimize](media/data-flow/optimize.png "Optimize")
+![Screenshot shows the Optimize tab, which includes Partition option, Partition type, and Number of partitions.](media/data-flow/optimize.png)
 
 By default, *Use current partitioning* is selected which instructs Azure Data Factory keep the current output partitioning of the transformation. As repartitioning data takes time, *Use current partitioning* is recommended in most scenarios. Scenarios where you may want to repartition your data include after aggregates and joins that significantly skew your data or when using Source partitioning on a SQL DB.
 
@@ -256,6 +256,10 @@ If you use literal values in your join conditions or have multiple matches on bo
 #### Sorting before joins
 
 Unlike merge join in tools like SSIS, the join transformation isn't a mandatory merge join operation. The join keys don't require sorting prior to the transformation. The Azure Data Factory team doesn't recommend using Sort transformations in mapping data flows.
+
+### Window transformation performance
+
+The [Window transformation](data-flow-window.md) partitions your data by value in columns that you select as part of the ```over()``` clause in the transformation settings. There are a number of very popular aggregate and analytical functions that are exposed in the Windows transformation. However, if your use case is to generate a window over your entire dataset for the purpose of ranking ```rank()``` or row number ```rowNumber()```, it is recommended that you instead use the [Rank transformation](data-flow-rank.md) and the [Surrogate Key transformation](data-flow-surrogate-key.md). Those transformation will perform better again full dataset operations using those functions.
 
 ### Repartitioning skewed data
 

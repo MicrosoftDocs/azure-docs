@@ -9,14 +9,18 @@ ms.topic: reference
 
 author: likebupt
 ms.author: keli19
-ms.date: 05/26/2020
+ms.date: 09/26/2020
 ---
 
 # ResNet
 
 This article describes how to use the **ResNet** module in Azure Machine Learning designer, to create an image classification model using the ResNet algorithm..  
 
-This classification algorithm is a supervised learning method, and requires a labeled dataset. Refer to [Convert to Image Directory](convert-to-image-directory.md) module for more information about how to get a labeled image directory. You can train the model by providing a model and a labeled image directory as inputs to [Train Pytorch Model](train-pytorch-model.md). The trained model can then be used to predict values for the new input examples using [Score Image Model](score-image-model.md).
+This classification algorithm is a supervised learning method, and requires a labeled dataset. 
+> [!NOTE]
+> This module does not support labeled dataset generated from *Data Labeling* in the studio, but only support labeled image directory generated from [Convert to Image Directory](convert-to-image-directory.md) module. 
+
+You can train the model by providing a model and a labeled image directory as inputs to [Train Pytorch Model](train-pytorch-model.md). The trained model can then be used to predict values for the new input examples using [Score Image Model](score-image-model.md).
 
 ### More about ResNet
 
@@ -28,7 +32,7 @@ Refer to [this paper](https://pytorch.org/docs/stable/torchvision/models.html?hi
 
 2.  For **Model name**, specify name of a certain ResNet structure and you can select from supported resnet: 'resnet18', 'resnet34', 'resnet50', 'resnet101', 'resnet152', 'resnet152', 'resnext50\_32x4d', 'resnext101\_32x8d', 'wide_resnet50\_2', 'wide_resnet101\_2'.
 
-3.  For **Pretrained**, specify whether to use a model pre-trained on ImageNet. If selected, you can fine tune model based on selected pre-trained model; if deselected, you can train from scratch.
+3.  For **Pretrained**, specify whether to use a model pre-trained on ImageNet. If selected, you can fine-tune model based on selected pre-trained model; if deselected, you can train from scratch.
 
 4.  Connect the output of **DenseNet** module, training and validation image dataset module to the [Train Pytorch Model](train-pytorch-model.md). 
 

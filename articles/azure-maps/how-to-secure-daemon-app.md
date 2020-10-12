@@ -117,7 +117,7 @@ You grant *Azure role-based access control (Azure RBAC)* by assigning either the
 2. On the **Role assignments** tab, **Add** a role assignment. 
 
     > [!div class="mx-imgBorder"]
-    > ![Add role assignment](./media/how-to-manage-authentication/add-role-assignment.png)
+    > ![Screenshot shows the roll assignments with Add selected.](./media/how-to-manage-authentication/add-role-assignment.png)
 
 3. Select a built-in Azure Maps role definition such as **Azure Maps Data Reader** or **Azure Maps Data Contributor**. Under **Assign access to**, select **Azure AD user, group, or service principal** or Managed Identity with **User assigned managed identity** / **System assigned Managed identity**. Select the principal. Then select **Save**.
 

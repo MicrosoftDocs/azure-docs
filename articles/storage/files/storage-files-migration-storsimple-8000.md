@@ -184,7 +184,11 @@ Globally redundant storage (all variations) are currently not supported. You can
 
 :::row:::
     :::column:::
+<<<<<<< HEAD
         :::image type="content" source="media/storage-files-how-to-create-large-file-share/large-file-shares-advanced-enable.png" alt-text="An image showing the Advanced tab in the Azure portal for the creation of a storage account.":::
+=======
+        ![Illustration that shows it's now time to provision a VM and expose the volume clone (or multiple) to that VM over iSCSI.](media/storage-files-migration-storsimple-shared/storsimple-8000-migration-phase-2.png)
+>>>>>>> 1aed82e0b20f5c1823c6093c210ddf3a1826854a
     :::column-end:::
     :::column:::
         Under the *Advanced* section of the new storage account wizard in the Azure portal, you can enable *Large file shares* support in this storage account. If this option is not available to you, you most likely selected the wrong redundancy type. Ensure you only select LRS or ZRS for this option to become available.
@@ -230,7 +234,11 @@ This section describes how to set up a migration job and carefully map the direc
 
 :::row:::
     :::column:::
+<<<<<<< HEAD
         ![StorSimple 8000 series migration phases overview](media/storage-files-migration-storsimple-8000/storage-files-migration-storsimple-8000-new-job.png "A screenshot of the new job creation form for a Data Transformation Job")
+=======
+        ![Illustration that shows the need to  determine and provision a number of Azure file shares and create a Windows Server on-premises as a StorSimple appliance replacement.](media/storage-files-migration-storsimple-shared/storsimple-8000-migration-phase-3.png)
+>>>>>>> 1aed82e0b20f5c1823c6093c210ddf3a1826854a
     :::column-end:::
     :::column:::
         **Job definition name**</br>This name should be indicative of the set of files you are moving. Giving it a similar name as the Azure file share can be a good practice.</br></br>**Location where the job runs**</br>It is important that you pick a location close to the storage account containing your StorSimple data. It is possible that for your StorSimple deployment the exact region is not available in the list. In that case, pick a region close to it.</br></br><h3>Source</h3>**Source subscription**</br>Pick the subscription in which you store your StorSimple Device Manager resource.</br></br>**StorSimple resource**</br>Pick your StorSimple Device Manager your appliance is registered with.</br></br>**Service Data Encryption Key**</br>Check this [prior section in this article](#storsimple-service-data-encryption-key), in case you can't locate the key in your records.</br></br>**Device**</br>Select your StorSimple device that holds the volume where you want to either migrate.</br></br>**Volume**</br>Select the source volume. Later you'll decide if you want to migrate the whole volume or sub-directories into the target Azure file share.</br></br><h3>Target</h3>Pick the subscription, storage account and Azure file share as the target of this migration job.
@@ -307,7 +315,19 @@ There are two main strategies for accessing your Azure file shares:
 * **Azure File Sync:** [How to deploy Azure File Sync](#deploy-azure-file-sync) to an on-premises Windows Server. AFS has all the advantages of a local cache, just like StorSimple, only better.
 * **Direct share access:** [How to deploy direct-share-access](#deploy-direct-share-access). Use this strategy if your access scenario for a given Azure file share will not benefit from local caching or you have no longer an ability to host an on-premises Windows Server. Here, your users and apps will continue to access SMB shares over the SMB protocol, but these shares are no longer on an on-premises server, but directly in the cloud.
 
+<<<<<<< HEAD
 In the previous section: [Direct share access vs. Azure File Sync](#direct-share-access-vs-azure-file-sync). located in Phase 1 of this guide, you've already made the decisions what to use for which Azure file share. 
+=======
+:::row:::
+    :::column:::
+        ![Illustration that shows how you'll get the VM connected via Azure File Sync and start a first round of moving files from your StorSimple volume clone(s).](media/storage-files-migration-storsimple-shared/storsimple-8000-migration-phase-4.png)
+    :::column-end:::
+    :::column:::
+        This phase concerns your Azure VM with the iSCSI mounted, first volume clone(s). During this phase, you will get the VM connected via Azure File Sync and start a first round of moving files from your StorSimple volume clone(s).
+        
+    :::column-end:::
+:::row-end:::
+>>>>>>> 1aed82e0b20f5c1823c6093c210ddf3a1826854a
 
 The remainder of this section focuses on deployment instructions.
 
@@ -355,7 +375,11 @@ Your registered on-premises Windows Server must be ready and connected to the in
 
 :::row:::
     :::column:::
+<<<<<<< HEAD
         [![Step by step guide and demo for how to securely expose Azure file shares directly to information workers and apps - click to play!](./media/storage-sync-files-planning/azure-file-sync-interview-video-snapshot.png)](https://www.youtube.com/watch?v=nfWLO7F52-s)
+=======
+        ![Illustration that shows how to minimize downtime by using multiple volume clones and telling when sync is done.](media/storage-files-migration-storsimple-shared/storsimple-8000-migration-phase-5.png)
+>>>>>>> 1aed82e0b20f5c1823c6093c210ddf3a1826854a
     :::column-end:::
     :::column:::
         This videos is a guide and demo for how to securely expose Azure file shares directly to information workers and apps in five, simple steps.</br>
@@ -416,9 +440,24 @@ At this point, there are differences between your on-premises Windows Server and
 1. There may be files that got left behind by the DTS job, due to invalid characters in file names or other reasons. At this point you want to copy them to the AFS enabled Windows Server and you fix them later. When these files are fixed, they will then start to sync. If you don't use AFS for a particular share, you'd be better off renaming the files with invalid characters on the StorSimple volume and then run the RoboCopy directly against the Azure file share. The DTS job run has a copy log column, where you can retrieve a list of files that have failed and the reason for them failing. That number should generally be small, if it is not: fixing these issues on the StorSimple volumes and restarting a migration job might be the best course of action.
 1. For cases where you use Azure File Sync: The StorSimple appliance has a populated cache vs. the Windows Server just a namespace with no file content stored locally at this time. So the final RoboCopy can help jump-start your local AFS cache by pulling over locally cached file content as much as is available and can fit on the AFS server.
 
+<<<<<<< HEAD
 > [!WARNING]
 > You **must not start the RoboCopy** before the server has the namespace for an Azure file share downloaded fully!
 > Checkout: "[Determine when your namespace has fully downloaded to your server](#determine-when-your-namespace-has-fully-synced-to-your-server)"
+=======
+In phase 6 you will catch up with any delta in the live data since the last volume clone.
+
+## Phase 6: A final RoboCopy
+
+At this point, there are two differences between your on-premises Windows Server and the StorSimple 8100 or 8600 appliance:
+
+1. There may be files that haven't synced (see **PerItemErrors** from the event log above)
+2. The StorSimple appliance has a populated cache vs. the Windows Server just a namespace with no file content stored locally at this time.
+
+![Illustration that shows how the cache of the Windows Server was brought up to the state of the appliance and ensures no file is left behind with a final RoboCopy.](media/storage-files-migration-storsimple-shared/storsimple-8000-migration-phase-6.png)
+
+We can bring the cache of the Windows Server up to the state of the appliance and ensure no file is left behind with a final RoboCopy.
+>>>>>>> 1aed82e0b20f5c1823c6093c210ddf3a1826854a
 
  > [!CAUTION]
 > The RoboCopy command below contains best-practice parameters. You only want to copy files that were changed after the DTS job last ran and files that haven't moved through the Data Transformation Service jobs before. You can solve the problems why they didn't move later on the server, after the migration is complete. (See [Azure File Sync troubleshooting](storage-sync-files-troubleshoot.md#how-do-i-see-if-there-are-specific-files-or-folders-that-are-not-syncing). It's most likely unprintable characters in file names that you won't miss when they are deleted.)

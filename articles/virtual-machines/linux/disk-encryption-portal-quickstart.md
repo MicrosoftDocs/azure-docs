@@ -33,7 +33,7 @@ Sign in to the [Azure portal](https://portal.azure.com).
     :::image type="content" source="../media/disk-encryption/portal-quickstart-linux-vm-creation.png" alt-text="Linux VM creation screen":::
 
     > [!WARNING]
-    > The "Disks" tab features an "Encryption Type" field under **Disk options**. This field is used to specify encryption options for [Managed Disks](managed-disks-overview.md) + CMK, **not** for Azure Disk Encryption.
+    > The "Disks" tab features an "Encryption Type" field under **Disk options**. This field is used to specify encryption options for [Managed Disks](../managed-disks-overview.md) + CMK, **not** for Azure Disk Encryption.
     >
     > To avoid confusion, we suggest you skip the *Disks* tab entirely while completing this tutorial.
 

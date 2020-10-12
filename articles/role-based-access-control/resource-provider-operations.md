@@ -5093,7 +5093,7 @@ Azure service: [Cognitive Services](../cognitive-services/index.yml)
 
 ### Microsoft.MachineLearning
 
-Azure service: [Machine Learning Studio (classic)](../machine-learning/studio/index.yml)
+Azure service: [Machine Learning Studio (classic)](../machine-learning/classic/index.yml)
 
 > [!div class="mx-tableFixed"]
 > | Action | Description |
@@ -5237,36 +5237,6 @@ Azure service: [Machine Learning Service](../machine-learning/index.yml)
 > | Microsoft.MachineLearningServices/workspaces/services/aks/listkeys/action | Lists keys for AKS services in Machine Learning Services Workspace(s) |
 > | Microsoft.MachineLearningServices/workspaces/services/aks/delete | Deletes AKS services in Machine Learning Services Workspace(s) |
 > | Microsoft.MachineLearningServices/workspaces/services/aks/score/action | Scores AKS services in Machine Learning Services Workspace(s) |
-
-
-### Microsoft.MachineLearning
-
-Azure service: [Machine Learning Studio (classic)](../machine-learning/classic/index.yml)
-
-> [!div class="mx-tableFixed"]
-> | Action | Description |
-> | --- | --- |
-> | Microsoft.MachineLearning/register/action | Registers the subscription for the machine learning web service resource provider and enables the creation of web services. |
-> | Microsoft.MachineLearning/webServices/action | Create regional Web Service Properties for supported regions |
-> | Microsoft.MachineLearning/commitmentPlans/read | Read any Machine Learning Commitment Plan |
-> | Microsoft.MachineLearning/commitmentPlans/write | Create or Update any Machine Learning Commitment Plan |
-> | Microsoft.MachineLearning/commitmentPlans/delete | Delete any Machine Learning Commitment Plan |
-> | Microsoft.MachineLearning/commitmentPlans/join/action | Join any Machine Learning Commitment Plan |
-> | Microsoft.MachineLearning/commitmentPlans/commitmentAssociations/read | Read any Machine Learning Commitment Plan Association |
-> | Microsoft.MachineLearning/commitmentPlans/commitmentAssociations/move/action | Move any Machine Learning Commitment Plan Association |
-> | Microsoft.MachineLearning/locations/operationresults/read | Get result of a Machine Learning Operation |
-> | Microsoft.MachineLearning/locations/operationsstatus/read | Get status of an ongoing Machine Learning Operation |
-> | Microsoft.MachineLearning/operations/read | Get Machine Learning Operations |
-> | Microsoft.MachineLearning/skus/read | Get Machine Learning Commitment Plan SKUs |
-> | Microsoft.MachineLearning/webServices/read | Read any Machine Learning Web Service |
-> | Microsoft.MachineLearning/webServices/write | Create or Update any Machine Learning Web Service |
-> | Microsoft.MachineLearning/webServices/delete | Delete any Machine Learning Web Service |
-> | Microsoft.MachineLearning/webServices/listkeys/read | Get keys to a Machine Learning Web Service |
-> | Microsoft.MachineLearning/Workspaces/read | Read any Machine Learning Workspace |
-> | Microsoft.MachineLearning/Workspaces/write | Create or Update any Machine Learning Workspace |
-> | Microsoft.MachineLearning/Workspaces/delete | Delete any Machine Learning Workspace |
-> | Microsoft.MachineLearning/Workspaces/listworkspacekeys/action | List keys for a Machine Learning Workspace |
-> | Microsoft.MachineLearning/Workspaces/resyncstoragekeys/action | Resync keys of storage account configured for a Machine Learning Workspace |
 
 ## Internet of things
 
@@ -8234,7 +8204,7 @@ Azure service: [Azure Policy](../governance/policy/overview.md), [Azure RBAC](ov
 > | Action | Description |
 > | --- | --- |
 > | Microsoft.Authorization/elevateAccess/action | Grants the caller User Access Administrator access at the tenant scope |
-> | Microsoft.Authorization/classicAdministrators/read | Reads the administrators for the subscription. |
+> | Microsoft.Authorization/classicAdministrators/read | Reads the administrators for the subscription. Does not have an effect if used as a NotAction in a custom role. |
 > | Microsoft.Authorization/classicAdministrators/write | Add or modify administrator to a subscription. |
 > | Microsoft.Authorization/classicAdministrators/delete | Removes the administrator from the subscription. |
 > | Microsoft.Authorization/classicAdministrators/operationstatuses/read | Gets the administrator operation statuses of the subscription. |

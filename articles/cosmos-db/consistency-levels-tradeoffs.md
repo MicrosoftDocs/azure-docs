@@ -9,7 +9,7 @@ ms.date: 04/23/2020
 ms.reviewer: sngun
 ---
 
-# Consistency, availability, and performance tradeoffs
+# Latency, availability, and performance tradeoffs with different Azure Cosmos DB consistency levels
 
 Distributed databases that rely on replication for high availability, low latency, or both must make tradeoffs. The tradeoffs are between read consistency vs. availability, latency, and throughput.
 
@@ -60,20 +60,20 @@ The table below defines the relationship between consistency model and data dura
 
 |**Region(s)**|**Replication mode**|**Consistency level**|**RPO**|**RTO**|
 |---------|---------|---------|---------|---------|
-|1|Single or Multi-Master|Any Consistency Level|< 240 Minutes|<1 Week|
-|>1|Single Master|Session, Consistent Prefix, Eventual|< 15 minutes|< 15 minutes|
-|>1|Single Master|Bounded Staleness|*K* & *T*|< 15 minutes|
-|>1|Single Master|Strong|0|< 15 minutes|
-|>1|Multi-Master|Session, Consistent Prefix, Eventual|< 15 minutes|0|
-|>1|Multi-Master|Bounded Staleness|*K* & *T*|0|
+|1|Single or Multiple write regions|Any Consistency Level|< 240 Minutes|<1 Week|
+|>1|Single write region|Session, Consistent Prefix, Eventual|< 15 minutes|< 15 minutes|
+|>1|Single write region|Bounded Staleness|*K* & *T*|< 15 minutes|
+|>1|Single write region|Strong|0|< 15 minutes|
+|>1|Multiple write regions|Session, Consistent Prefix, Eventual|< 15 minutes|0|
+|>1|Multiple write regions|Bounded Staleness|*K* & *T*|0|
 
 *K* = The number of *"K"* versions (i.e., updates) of an item.
 
 *T* = The time interval *"T"* since the last update.
 
-## Strong consistency and multi-master
+## Strong consistency and multiple write regions
 
-Cosmos accounts configured for multi-master cannot be configured for strong consistency as it is not possible for a distributed system to provide an RPO of zero and an RTO of zero. Additionally, there are no write latency benefits for using strong consistency with multi-master as any write into any region must be replicated and committed to all configured regions within the account. This results in the same write latency as a single master account.
+Cosmos accounts configured with multiple write regions cannot be configured for strong consistency as it is not possible for a distributed system to provide an RPO of zero and an RTO of zero. Additionally, there are no write latency benefits on using strong consistency with multiple write regions because, the write request to any region must be replicated and committed to all configured regions within the account. This results in the same write latency as a single write region account.
 
 ## Next steps
 
@@ -81,4 +81,4 @@ Learn more about global distribution and general consistency tradeoffs in distri
 
 - [Consistency tradeoffs in modern distributed database systems design](https://www.computer.org/csdl/magazine/co/2012/02/mco2012020037/13rRUxjyX7k)
 - [High availability](high-availability.md)
-- [Azure Cosmos DB SLA](https://azure.microsoft.com/support/legal/sla/cosmos-db/v1_2/)
+- [Azure Cosmos DB SLA](https://azure.microsoft.com/support/legal/sla/cosmos-db/v1_3/)
