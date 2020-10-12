@@ -42,11 +42,11 @@ Customers can secure these resources via several network isolation mechanisms of
 | Azure Functions | Supported | Supported, only for certain SKUs of Azure functions |
 
 > [!NOTE]
-> In addition to the options listed above, for network secured Azure storage accounts, customers can leverage the fact that Azure Cognitive Search is a [trusted Microsoft service](https://docs.microsoft.com/azure/storage/common/storage-network-security#trusted-microsoft-services). This means that a specific search service can bypass virtual network or IP restrictions on the storage account and can access data in the storage account, if the appropriate role based access control is enabled on the storage account. Details are available in the [how to guide](search-indexer-howto-access-trusted-service-exception.md). This option can be utilized instead of the IP restriction route, in case either the storage account or the search service cannot be moved to a different region.
+> In addition to the options listed above, for network secured Azure storage accounts, customers can leverage the fact that Azure Cognitive Search is a [trusted Microsoft service](../storage/common/storage-network-security.md#trusted-microsoft-services). This means that a specific search service can bypass virtual network or IP restrictions on the storage account and can access data in the storage account, if the appropriate role based access control is enabled on the storage account. Details are available in the [how to guide](search-indexer-howto-access-trusted-service-exception.md). This option can be utilized instead of the IP restriction route, in case either the storage account or the search service cannot be moved to a different region.
 
 When choosing which secure access mechanism that an indexer should use, consider the following constraints:
 
-- [Service endpoints](https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoints-overview) will not be supported for any Azure resource.
+- [Service endpoints](../virtual-network/virtual-network-service-endpoints-overview.md) will not be supported for any Azure resource.
 - A search service cannot be provisioned into a specific virtual network - this functionality will not be offered by Azure Cognitive Search.
 - When indexers utilize (outbound) private endpoints to access resources, additional [private link charges](https://azure.microsoft.com/pricing/details/search/) may apply.
 
@@ -64,31 +64,31 @@ For any given indexer run, Azure Cognitive Search determines the best environmen
 If the resource that your indexer is trying to access is restricted to only a certain set of IP ranges, then you need to expand the set to include the possible IP ranges from which an indexer request can originate. As stated above, there are two possible environments in which indexers run and from which access requests can originate. You will need to add the IP addresses of __both__ environments for indexer access to work.
 
 - To obtain the IP address of the search service specific private environment, `nslookup` (or `ping`) the fully qualified domain name (FQDN) of your search service. The FQDN of a search service in the public cloud, for example, would be `<service-name>.search.windows.net`. This information is available on the Azure portal.
-- The IP addresses of the multi-tenant environments are available via the `AzureCognitiveSearch` service tag. [Azure service tags](https://docs.microsoft.com/azure/virtual-network/service-tags-overview) have a published range of IP addresses for each service - this is available via a [discovery API (preview)](https://docs.microsoft.com/azure/virtual-network/service-tags-overview#use-the-service-tag-discovery-api-public-preview) or a [downloadable JSON file](https://docs.microsoft.com/azure/virtual-network/service-tags-overview#discover-service-tags-by-using-downloadable-json-files). In either case, IP ranges are broken down by region - you can pick only the IP ranges assigned for the region in which your search service is provisioned.
+- The IP addresses of the multi-tenant environments are available via the `AzureCognitiveSearch` service tag. [Azure service tags](../virtual-network/service-tags-overview.md) have a published range of IP addresses for each service - this is available via a [discovery API (preview)](../virtual-network/service-tags-overview.md#use-the-service-tag-discovery-api-public-preview) or a [downloadable JSON file](../virtual-network/service-tags-overview.md#discover-service-tags-by-using-downloadable-json-files). In either case, IP ranges are broken down by region - you can pick only the IP ranges assigned for the region in which your search service is provisioned.
 
-For certain data sources, the service tag itself can be used directly instead of enumerating the list of IP ranges (the IP address of the search service still needs to be used explicitly). These data sources restrict access by means of setting up a [Network Security Group rule](https://docs.microsoft.com/azure/virtual-network/security-overview), which natively support adding a service tag, unlike IP rules such as the ones offered by Azure Storage, CosmosDB, Azure SQL etc., The data sources that support the ability to utilize the `AzureCognitiveSearch` service tag directly in addition to search service IP address are:
+For certain data sources, the service tag itself can be used directly instead of enumerating the list of IP ranges (the IP address of the search service still needs to be used explicitly). These data sources restrict access by means of setting up a [Network Security Group rule](../virtual-network/network-security-groups-overview.md), which natively support adding a service tag, unlike IP rules such as the ones offered by Azure Storage, CosmosDB, Azure SQL etc., The data sources that support the ability to utilize the `AzureCognitiveSearch` service tag directly in addition to search service IP address are:
 
-- [SQL server on IaaS VMs](https://docs.microsoft.com/azure/search/search-howto-connecting-azure-sql-iaas-to-azure-search-using-indexers#restrict-access-to-the-azure-cognitive-search)
+- [SQL server on IaaS VMs](./search-howto-connecting-azure-sql-iaas-to-azure-search-using-indexers.md#restrict-access-to-the-azure-cognitive-search)
 
-- [SQL managed instances](https://docs.microsoft.com/azure/search/search-howto-connecting-azure-sql-mi-to-azure-search-using-indexers#verify-nsg-rules)
+- [SQL managed instances](./search-howto-connecting-azure-sql-mi-to-azure-search-using-indexers.md#verify-nsg-rules)
 
 Details are described in the [how to guide](search-indexer-howto-access-ip-restricted.md).
 
 ## Granting access via private endpoints
 
-Indexers can utilize [private endpoints](https://docs.microsoft.com/azure/private-link/private-endpoint-overview) to access resources, access to which are locked down either to select virtual networks or do not have any public access enabled.
+Indexers can utilize [private endpoints](../private-link/private-endpoint-overview.md) to access resources, access to which are locked down either to select virtual networks or do not have any public access enabled.
 This functionality is only available for paid services, with limits on the number of private endpoints that be created. Details about the limits are documented in the [Azure Search limits page](search-limits-quotas-capacity.md).
 
 ### Step 1: Create a private endpoint to the secure resource
 
-Customers should call the search management operation, [Create or Update *shared private link resource* API](https://docs.microsoft.com/rest/api/searchmanagement/sharedprivatelinkresources/createorupdate) in order to create a private endpoint connection to their secure resource (for example, a storage account). Traffic that goes over this (outbound) private endpoint connection will originate only from the virtual network that's in the search service specific "private" indexer execution environment.
+Customers should call the search management operation, [Create or Update *shared private link resource* API](/rest/api/searchmanagement/sharedprivatelinkresources/createorupdate) in order to create a private endpoint connection to their secure resource (for example, a storage account). Traffic that goes over this (outbound) private endpoint connection will originate only from the virtual network that's in the search service specific "private" indexer execution environment.
 
 Azure Cognitive Search will validate that callers of this API have permissions to approve private endpoint connection requests to the secure resource. For example, if you request a private endpoint connection to a storage account that you do not have access to, this call will be rejected.
 
 ### Step 2: Approve the private endpoint connection
 
 When the (asynchronous) operation that creates a shared private link resource completes, a private endpoint connection will be created in a "Pending" state. No traffic flows over the connection yet.
-The customer is then expected to locate this request on their secure resource and "Approve" it. Typically, this can be done either via the Portal or via the [REST API](https://docs.microsoft.com/rest/api/virtualnetwork/privatelinkservices/updateprivateendpointconnection).
+The customer is then expected to locate this request on their secure resource and "Approve" it. Typically, this can be done either via the Portal or via the [REST API](/rest/api/virtualnetwork/privatelinkservices/updateprivateendpointconnection).
 
 ### Step 3: Force indexers to run in the "private" environment
 

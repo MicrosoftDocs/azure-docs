@@ -88,7 +88,7 @@ You can even create multiple instances of the same type of relationship between 
 
 ## List relationships
 
-To access the list of relationships for a given twin in the graph, you can use GetRelationships() method like this:
+To access the list of **outgoing** relationships for a given twin in the graph, you can use GetRelationships() method like this:
 
 `await client.GetRelationships()`
 
@@ -129,11 +129,11 @@ You can now call this method to see the outgoing relationships of the twins like
 
 You can use the retrieved relationships to navigate to other twins in your graph. To do this, read the `target` field from the relationship that is returned, and use it as the ID for your next call to `GetDigitalTwin`.
 
-### Find relationships to a digital twin
+### Find incoming relationships to a digital twin
 
-Azure Digital Twins also has an API to find all incoming relationships to a given twin. This is often useful for reverse navigation, or when deleting a twin.
+Azure Digital Twins also has an API to find all **incoming** relationships to a given twin. This is often useful for reverse navigation, or when deleting a twin.
 
-The previous code sample is focused on finding outgoing relationships. The following example is similar, but finds incoming relationships instead. It also deletes them once they are found.
+The previous code is sample focused on finding outgoing relationships from a twin. The following example is structured similarly, but finds *incoming* relationships to the twin instead.
 
 Note that the `IncomingRelationship` calls don't return the full body of the relationship.
 
