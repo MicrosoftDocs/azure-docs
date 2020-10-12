@@ -150,11 +150,11 @@ Modify a volume when you need to expand it or change the hosts that access the v
    3. Increase the **Provisioned Capacity**. The **Provisioned Capacity** can only be increased. You cannot shrink a volume after it is created.
    4. Under **Connected hosts**, you can modify the ACR. To modify an ACR, the volume must be offline.
 
-       ![Review impact of taking volume offline](./media/storsimple-8000-manage-volumes-u2/modifyvol11.png)
+       ![Review impact of taking volume offline 2](./media/storsimple-8000-manage-volumes-u2/modifyvol11.png)
 
 5. Click **Save** to save your changes. When prompted for confirmation, click **Yes**. The Azure portal will display an updating volume message. It will display a success message when the volume has been successfully updated.
 
-    ![Review impact of taking volume offline](./media/storsimple-8000-manage-volumes-u2/modifyvol5.png)
+    ![Review impact of taking volume offline 3](./media/storsimple-8000-manage-volumes-u2/modifyvol5.png)
 
 7. If you are expanding a volume, complete the following steps on your Windows host computer:
    
@@ -252,7 +252,7 @@ You may need to take a volume offline when you are planning to modify or delete 
 
 3. In the **Take offline** blade, review the impact of taking the volume offline and select the corresponding checkbox. Click **Take offline**. 
 
-    ![Review impact of taking volume offline](./media/storsimple-8000-manage-volumes-u2/modifyvol5.png)
+    ![Review impact of taking volume offline 4](./media/storsimple-8000-manage-volumes-u2/modifyvol5.png)
       
       You are notified when the volume is offline. The volume status also updates to Offline.
       
