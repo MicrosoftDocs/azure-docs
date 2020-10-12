@@ -32,7 +32,7 @@ Replace the `index.html` in the URL with `api/anchors`. It should look like this
 
 Deploy the app to your device. 
 
-After the app starts, choose the **Tap to start Shared Demo** option, and then follow the instructions in the app. You can select **Tap to locate Anchor by its anchor number** or **Tap to create Anchor and save it to the service**.
+After the app starts, select the **Tap to start Shared Demo** option, and then follow the instructions in the app. You can select **Tap to locate Anchor by its anchor number** or **Tap to create Anchor and save it to the service**.
 
 [!INCLUDE [Run shared sample](spatial-anchors-run-sample.md)]
 
@@ -66,7 +66,7 @@ Replace the `index.html` in the URL with `api/anchors`. It should look like this
 
 On the **Project** pane, go to `Assets\AzureSpatialAnchors.Examples\Resources`. 
 
-Select **SpatialAnchorSamplesConfig**, and then, in the **Inspector** pane, enter the `Sharing Anchors Service` URL (from your ASP.NET web app Azure deployment) as the value for `Base Sharing Url`, replacing `index.html` with `api/anchors`. It should look like this: `https://<app_name>.azurewebsites.net/api/anchors`.
+Select **SpatialAnchorSamplesConfig** and then, in the **Inspector** pane, enter the `Sharing Anchors Service` URL (from your ASP.NET web app Azure deployment) as the value for `Base Sharing Url`, replacing `index.html` with `api/anchors`. It should look like this: `https://<app_name>.azurewebsites.net/api/anchors`.
 
 Save the scene by selecting **File** > **Save**.
 
