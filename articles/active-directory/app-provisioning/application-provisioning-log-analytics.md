@@ -116,4 +116,4 @@ We're taking an open source and community-based approach to Application Provisio
 - [Get started with queries in Azure Monitor logs](../../azure-monitor/log-query/get-started-queries.md)
 - [Create and manage alert groups in the Azure portal](../../azure-monitor/platform/action-groups.md)
 - [Install and use the log analytics views for Azure Active Directory](../reports-monitoring/howto-install-use-log-analytics-views.md)
-- [Provisioning logs API](https://docs.microsoft.com/graph/api/resources/provisioningobjectsummary?view=graph-rest-beta.md)
+- [Provisioning logs API](https://docs.microsoft.com/graph/api/resources/provisioningobjectsummary?view=graph-rest-beta.md&preserve-view=true)
