@@ -14,8 +14,8 @@ ms.service: iot-central
 > [!Note]
 > This article describes the legacy data export features in IoT Central.
 >
-> - For information about the new preview data export features, see [Export IoT data to cloud destinations using data export (preview)](./howto-export-data.md).
-> - To learn about the differences between the preview data export and legacy data export features, see the [comparison table](./howto-export-data.md#comparison-of-legacy-data-export-and-preview-data-export).
+> - For information about the new preview data export features, see [Export IoT data to cloud destinations using data export](./howto-export-data.md).
+> - To learn about the differences between the preview data export and legacy data export features, see the [comparison table](./howto-export-data.md#comparison-of-legacy-data-export-and-data-export).
 
 This article describes how to use the data export feature in Azure IoT Central. This feature lets you export your data continuously to **Azure Event Hubs**, **Azure Service Bus**, or **Azure Blob storage** instances. Data export uses the JSON format and can include telemetry, device information, and device template information. Use the exported data for:
 

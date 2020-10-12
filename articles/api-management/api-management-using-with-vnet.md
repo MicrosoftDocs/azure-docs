@@ -200,7 +200,7 @@ Each additional scale unit of API Management requires two more IP addresses.
 
 ## <a name="control-plane-ips"> </a> Control Plane IP Addresses
 
-The IP Addresses are divided by **Azure Environment**. When allowing inbound requests IP address marked with **Global** must be whitelisted along with the **Region** specific IP Address.
+The IP Addresses are divided by **Azure Environment**. When allowing inbound requests IP address marked with **Global** must be allowed along with the **Region** specific IP Address.
 
 | **Azure Environment**|   **Region**|  **IP address**|
 |-----------------|-------------------------|---------------|
@@ -220,6 +220,7 @@ The IP Addresses are divided by **Azure Environment**. When allowing inbound req
 | Azure Public| Canada East| 52.139.80.117|
 | Azure Public| UAE North| 20.46.144.85|
 | Azure Public| Brazil South| 191.233.24.179|
+| Azure Public| Brazil Southeast| 191.232.18.181|
 | Azure Public| Southeast Asia| 40.90.185.46|
 | Azure Public| South Africa North| 102.133.130.197|
 | Azure Public| Canada Central| 52.139.20.34|

@@ -16,7 +16,7 @@ ms.custom: how-to
 ---
 
 # Detect data drift (preview) on datasets
-[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
+
 
 > [!IMPORTANT]
 > Detecting data drift on datasets is currently in public preview.
@@ -35,9 +35,6 @@ With Azure Machine Learning dataset monitors (preview), you can:
 An [Azure Machine learning dataset](how-to-create-register-datasets.md) is used to create the monitor. The dataset must include a timestamp column.
 
 You can view data drift metrics with the Python SDK or in Azure Machine Learning studio.  Other metrics and insights are available through the [Azure Application Insights](https://docs.microsoft.com/azure/azure-monitor/app/app-insights-overview) resource associated with the Azure Machine Learning workspace.
-
-> [!Important]
-> Monitoring data drift with the SDK is available in all editions. However, monitoring data drift through the studio on the web is Enterprise edition only.
 
 ## Prerequisites
 
@@ -103,7 +100,7 @@ The target dataset needs the `timeseries` trait set on it by specifying the time
 
 ### <a name="sdk-dataset"></a>Python SDK
 
-The [`Dataset`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.tabulardataset?view=azure-ml-py#&preserve-view=truewith-timestamp-columns-timestamp-none--partition-timestamp-none--validate-false----kwargs-) class [`with_timestamp_columns()`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.tabulardataset?view=azure-ml-py#&preserve-view=truewith-timestamp-columns-timestamp-none--partition-timestamp-none--validate-false----kwargs-)  method defines the time stamp column for the dataset.
+The [`Dataset`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.tabulardataset?view=azure-ml-py&preserve-view=true#&preserve-view=truewith-timestamp-columns-timestamp-none--partition-timestamp-none--validate-false----kwargs-) class [`with_timestamp_columns()`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.tabulardataset?view=azure-ml-py&preserve-view=true#&preserve-view=truewith-timestamp-columns-timestamp-none--partition-timestamp-none--validate-false----kwargs-)  method defines the time stamp column for the dataset.
 
 ```python 
 from azureml.core import Workspace, Dataset, Datastore
@@ -130,10 +127,9 @@ dset = dset.with_timestamp_columns('date')
 dset = dset.register(ws, 'target')
 ```
 
-For a full example of using the `timeseries` trait of datasets, see the [example notebook](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/work-with-data/datasets-tutorial/timeseries-datasets/tabular-timeseries-dataset-filtering.ipynb) or the [datasets SDK documentation](https://docs.microsoft.com/python/api/azureml-core/azureml.data.tabulardataset?view=azure-ml-py#&preserve-view=truewith-timestamp-columns-timestamp-none--partition-timestamp-none--validate-false----kwargs-).
+For a full example of using the `timeseries` trait of datasets, see the [example notebook](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/work-with-data/datasets-tutorial/timeseries-datasets/tabular-timeseries-dataset-filtering.ipynb) or the [datasets SDK documentation](https://docs.microsoft.com/python/api/azureml-core/azureml.data.tabulardataset?view=azure-ml-py&preserve-view=true#&preserve-view=truewith-timestamp-columns-timestamp-none--partition-timestamp-none--validate-false----kwargs-).
 
 ### <a name="studio-dataset"></a>Azure Machine Learning studio
-[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku-inline.md)]
 
 If you create your dataset using Azure Machine Learning studio, ensure the path to your data contains timestamp information, include all subfolders with data, and set the partition format.
 
@@ -207,15 +203,13 @@ monitor = monitor.enable_schedule()
 For a full example of setting up a `timeseries` dataset and data drift detector, see our [example notebook](https://aka.ms/datadrift-notebook).
 
 ### <a name="studio-monitor"></a> Azure Machine Learning studio
-[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku-inline.md)]
 
-To set up alerts on your dataset monitor, the workspace that contains the dataset you want to create a monitor for must have Enterprise edition capabilities.
+1. Navigate to the [studio's homepage](https://ml.azure.com).
+1. Select the **Datasets** tab on the left. 
+1. Select **Dataset monitors**.
+   ![Monitor list](./media/how-to-monitor-datasets/monitor-list.png)
 
-After the workspace functionality is confirmed, navigate to the [studio's homepage](https://ml.azure.com) and select the **Datasets** tab on the left. Select **Dataset monitors**.
-
-![Monitor list](./media/how-to-monitor-datasets/monitor-list.png)
-
-Click on the **+Create monitor** button and continue through the wizard by clicking **Next**.  
+1. Click on the **+Create monitor** button and continue through the wizard by clicking **Next**.  
 
 :::image type="content" source="media/how-to-monitor-datasets/wizard.png" alt-text="Create a monitor wizard":::
 

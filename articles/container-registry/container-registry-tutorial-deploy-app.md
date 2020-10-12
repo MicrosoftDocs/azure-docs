@@ -53,7 +53,7 @@ Under **Web App for Containers** that's displayed after you select "Deploy to we
 
 Select **Create** to provision the web app to the *West US* region.
 
-![Web app on Linux configuration in the Azure portal][deploy-app-portal-02]
+![Screenshot shows the Web App for Containers with the Create button highlighted.][deploy-app-portal-02]
 
 ## View the deployed web app
 
@@ -63,11 +63,11 @@ In the portal, select **App Services**, then the web app you provisioned in the 
 
 Select the hyperlinked URL of the web app in the top-right of the **App Service** overview to view the running application in your browser.
 
-![Web app on Linux configuration in the Azure portal][deploy-app-portal-04]
+![Screenshot shows the App Service Overview with web app URL highlighted.][deploy-app-portal-04]
 
 Once the Docker image is deployed from your geo-replicated container registry, the site displays an image representing the Azure region hosting the container registry.
 
-![Deployed web application viewed in a browser][deployed-app-westus]
+![Screenshot shows the deployed web application viewed in a browser.][deployed-app-westus]
 
 ## Deploy second Web App for Containers instance
 
@@ -83,9 +83,9 @@ Use the procedure outlined in the previous section to deploy a second web app to
 
 Select **Create** to provision the web app to the *East US* region.
 
-![Web app on Linux configuration in the Azure portal][deploy-app-portal-06]
+![Screenshot shows the Web App for Containers Create window with the Create button highlighted.][deploy-app-portal-06]
 
-## View the deployed web app
+## View the second deployed web app
 
 As before, you can view the running application by navigating to its URL in your browser.
 

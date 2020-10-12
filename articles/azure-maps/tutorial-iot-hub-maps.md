@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: Implement IoT spatial analytics with Microsoft Azure Maps'
-description: Integrate IoT Hub with Azure Maps service APIs.
+title: 'Tutorial: Implement IoT spatial analytics | Microsoft Azure Maps'
+description: Tutorial on how to Integrate IoT Hub with Microsoft Azure Maps service APIs
 author: anastasia-ms
 ms.author: v-stharr
 ms.date: 09/01/2020
@@ -250,6 +250,7 @@ When your Azure function is running, you can now send telemetry data to the IoT 
     dotnet run
     ```
 
+
   Your local terminal should look like the one below.
 
 :::image type="content" source="./media/tutorial-iot-hub-maps/terminal.png" alt-text="Screenshot of terminal output.":::
@@ -273,8 +274,6 @@ For a complete list of Azure Maps REST APIs, see:
 
 * [Azure Maps REST APIs](https://docs.microsoft.com/rest/api/maps/spatial/getgeofence)
 
-To learn more about IoT Plug and Play, see:
-
 * [IoT Plug and Play](https://docs.microsoft.com/azure/iot-pnp)
 
 To get a list of devices that are Azure certified for IoT, visit:
@@ -284,6 +283,7 @@ To get a list of devices that are Azure certified for IoT, visit:
 ## Next steps
 
 To learn more about how to send device-to-cloud telemetry, and the other way around, see:
+
 
 > [!div class="nextstepaction"]
 > [Send telemetry from a device](https://docs.microsoft.com/azure/iot-hub/quickstart-send-telemetry-dotnet)

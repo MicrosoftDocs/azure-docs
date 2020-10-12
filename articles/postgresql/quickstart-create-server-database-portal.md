@@ -1,8 +1,8 @@
 ---
 title: 'Quickstart: Create server - Azure portal - Azure Database for PostgreSQL - single server'
 description: In this quickstart guide, you'll create and manage an Azure Database for PostgreSQL server by using the Azure portal.
-author: rachel-msft
-ms.author: raagyema
+author: lfittl-msft
+ms.author: lufittl
 ms.service: postgresql
 ms.custom: mvc
 ms.topic: quickstart
@@ -29,17 +29,17 @@ To create an Azure Database for PostgreSQL server:
 2. Select **Databases** > **Azure Database for PostgreSQL**.
 
    > [!div class="mx-imgBorder"]
-   > ![Screenshot that shows "Azure Database for PostgreSQL" on the menu.](./media/quickstart-create-database-portal/1-create-database.png)
+   > :::image type="content" source="./media/quickstart-create-database-portal/1-create-database.png" alt-text="Screenshot that shows Azure Database for PostgreSQL on the menu.":::
 
 3. Select the **Single server** deployment option.
 
    > [!div class="mx-imgBorder"]
-   > ![Screenshot of selecting the single-server deployment option for Azure Database for PostgreSQL.](./media/quickstart-create-database-portal/select-deployment-option.png)
+   > :::image type="content" source="./media/quickstart-create-database-portal/select-deployment-option.png" alt-text="Screenshot of selecting the single-server deployment option for Azure Database for PostgreSQL.":::
 
 4. Fill out the **Basics** form with the following information.
 
    > [!div class="mx-imgBorder"]
-   > ![Screenshot that shows the Basics tab for creating a single server.](./media/quickstart-create-database-portal/create-basics.png)
+   > :::image type="content" source="./media/quickstart-create-database-portal/create-basics.png" alt-text="Screenshot that shows the Basics tab for creating a single server.":::
 
    Setting|Suggested value|Description
    ---|---|---
@@ -66,7 +66,7 @@ An empty database, **postgres**, is created. You'll also find an **azure_mainten
 By default, the server that you create is not publicly accessible. You need to give permissions to your IP address. Go to your server resource in the Azure portal and select **Connection security** from left-side menu for your server resource. If you're not sure how to find your resource, see [Open resources](https://docs.microsoft.com/azure/azure-resource-manager/management/manage-resources-portal#open-resources).
 
 > [!div class="mx-imgBorder"]
-> ![Screenshot that shows firewall rules for connection security.](./media/quickstart-create-database-portal/add-current-ip-firewall.png)
+> :::image type="content" source="./media/quickstart-create-database-portal/add-current-ip-firewall.png" alt-text="Screenshot that shows firewall rules for connection security.":::
   
 Select **Add current client IP address**, and then select **Save**. You can add more IP addresses or provide an IP range to connect to your server from those IP addresses. For more information, see [Firewall rules in Azure Database for PostgreSQL](./concepts-firewall-rules.md).
    
@@ -85,7 +85,7 @@ You can use [psql](http://postgresguide.com/utilities/psql.html) or [pgAdmin](ht
    > If you're opening Cloud Shell for the first time, you'll see a prompt to create a resource group and a storage account. This is a one-time step and will be automatically attached for all sessions. 
 
    > [!div class="mx-imgBorder"]
-   > ![Screenshot that shows server information and the icon for opening Azure Cloud Shell.](media/quickstart-create-database-portal/use-in-cloud-shell.png)
+   > :::image type="content" source="media/quickstart-create-database-portal/use-in-cloud-shell.png" alt-text="Screenshot that shows server information and the icon for opening Azure Cloud Shell.":::
 
 3. Run the following command in the Azure Cloud Shell terminal. Replace values with your actual server name and admin user login name. Use the empty database **postgres** with admin user in this format: `<admin-username>@<servername>`.
 
@@ -138,7 +138,7 @@ To delete the resource group:
 To delete the server, select the **Delete** button on the **Overview** page of your server:
 
 > [!div class="mx-imgBorder"]
-> ![Screenshot that shows the button for deleting a server.](media/quickstart-create-database-portal/12-delete.png)
+> :::image type="content" source="media/quickstart-create-database-portal/12-delete.png" alt-text="Screenshot that shows the button for deleting a server.":::
 
 ## Next steps
 > [!div class="nextstepaction"]

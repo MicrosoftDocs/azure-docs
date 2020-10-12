@@ -89,7 +89,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 5. Your GitHub application expects the SAML assertions in a specific format, which requires you to add custom attribute mappings to your SAML token attributes configuration. The following screenshot shows the list of default attributes, where as **Unique User Identifier (Name ID)** is mapped with **user.userprincipalname**. GitHub application expects **Unique User Identifier (Name ID)** to be mapped with **user.mail**, so you need to edit the attribute mapping by clicking on **Edit** icon and change the attribute mapping.
 
-	![image](common/edit-attribute.png)
+	![Screenshot that shows the "User Attributes" section with the "Edit" icon selected.](common/edit-attribute.png)
 
 6. On the **Set up Single Sign-On with SAML** page, in the **SAML Signing Certificate** section, click **Download** to download the **Certificate (Base64)** from the given options as per your requirement and save it on your computer.
 
@@ -147,11 +147,11 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 2. Navigate to **Settings** and click **Security**
 
-    ![Settings](./media/github-tutorial/security.png)
+    ![Screenshot that shows the GitHub "Organization settings" menu with "Security" selected.](./media/github-tutorial/security.png)
 
 3. Check the **Enable SAML authentication** box, revealing the Single Sign-on configuration fields. perform the following steps:
 
-    ![Settings](./media/github-tutorial/saml-sso.png)
+    ![Screenshot that shows the "S A M L single sign-on" section with "Enable S A M L authentication" with U R L text boxes highlighted.](./media/github-tutorial/saml-sso.png)
 
     a. Copy **single sign-on URL** value and paste this value into the **Sign on URL** text box in the **Basic SAML Configuration** in the Azure portal.
     
@@ -159,7 +159,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 4. Configure the following fields:
 
-    ![Settings](./media/github-tutorial/configure.png)
+    ![Screenshot that shows the "Sign on URL", "Issuer", and "Public certificate" text boxes.](./media/github-tutorial/configure.png)
 
     a. In the **Sign on URL** textbox, paste **Login URL** value which you have copied from the Azure portal.
 
@@ -192,7 +192,7 @@ The objective of this section is to create a user called Britta Simon in GitHub.
 
 2. Click **People**.
 
-    ![People](./media/github-tutorial/people.png "People")
+    ![Screenshot shows the GitHub site with People selected.](./media/github-tutorial/people.png "People")
 
 3. Click **Invite member**.
 
@@ -206,7 +206,7 @@ The objective of this section is to create a user called Britta Simon in GitHub.
 
     b. Click **Send Invitation**.
 
-    ![Invite People](./media/github-tutorial/send-invitation.png "Invite People")
+    ![Screenshot that shows the "Invite member" dialog page with "Member" selected and the "Send invitation" button selected.](./media/github-tutorial/send-invitation.png "Invite People")
 
     > [!NOTE]
     > The Azure Active Directory account holder will receive an email and follow a link to confirm their account before it becomes active.

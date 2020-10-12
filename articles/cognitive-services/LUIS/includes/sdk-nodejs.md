@@ -2,14 +2,14 @@
 title: include file
 description: include file
 services: cognitive-services
-author: diberry
+
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.date: 09/01/2020
 ms.topic: include
-ms.custom: include file, devx-track-javascript, cog-serv-seo-aug-2020
-ms.author: diberry
+ms.custom: include file, devx-track-js, cog-serv-seo-aug-2020
+
 ---
 Use the Language Understanding (LUIS) client libraries for Node.js to:
 

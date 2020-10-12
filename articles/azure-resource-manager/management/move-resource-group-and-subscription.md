@@ -2,7 +2,7 @@
 title: Move resources to a new subscription or resource group
 description: Use Azure Resource Manager to move resources to a new resource group or subscription.
 ms.topic: conceptual
-ms.date: 09/11/2020 
+ms.date: 09/15/2020 
 ms.custom: devx-track-azurecli
 ---
 
@@ -29,6 +29,10 @@ There are some important steps to do before moving a resource. By verifying thes
    * [Networking move guidance](./move-limitations/networking-move-limitations.md)
    * [Recovery Services move guidance](../../backup/backup-azure-move-recovery-services-vault.md?toc=/azure/azure-resource-manager/toc.json)
    * [Virtual Machines move guidance](./move-limitations/virtual-machines-move-limitations.md)
+
+1. If you move a resource that has an Azure role assigned directly to the resource (or a child resource), the role assignment is not moved and becomes orphaned. After the move, you must re-create the role assignment. Eventually, the orphaned role assignment will be automatically removed, but it is a best practice to remove the role assignment before moving the resource.
+
+    For information about how to manage role assignments, see [List Azure role assignments](../../role-based-access-control/role-assignments-list-portal.md#list-role-assignments-at-a-scope) and [Add or remove Azure role assignments](../../role-based-access-control/role-assignments-portal.md).
 
 1. The source and destination subscriptions must be active. If you have trouble enabling an account that has been disabled, [create an Azure support request](../../azure-portal/supportability/how-to-create-azure-support-request.md). Select **Subscription Management** for the issue type.
 
@@ -167,7 +171,7 @@ When you view the resource group, the move option is disabled.
 
 :::image type="content" source="./media/move-resource-group-and-subscription/move-first-view.png" alt-text="move option disabled":::
 
-To enable the move option, select the resources you want to move. To select all of the resources, select the checkbox at the top of list. Or, select resources individually.
+To enable the move option, select the resources you want to move. To select all of the resources, select the checkbox at the top of list. Or, select resources individually. After selecting resources, the move option is enabled.
 
 :::image type="content" source="./media/move-resource-group-and-subscription/select-resources.png" alt-text="select resources":::
 

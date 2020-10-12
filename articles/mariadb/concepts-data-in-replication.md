@@ -21,18 +21,18 @@ The main scenarios to consider using Data-in Replication are:
 ## Limitations and considerations
 
 ### Data not replicated
-The [*mysql system database*](https://mariadb.com/kb/en/library/the-mysql-database-tables/) on the master server is not replicated. Changes to accounts and permissions on the master server are not replicated. If you create an account on the master server and this account needs to access the replica server, then manually create the same account on the replica server side. To understand what tables are contained in the system database, see the [MariaDB documentation](https://mariadb.com/kb/en/library/the-mysql-database-tables/).
+The [*mysql system database*](https://mariadb.com/kb/en/library/the-mysql-database-tables/) on the source server is not replicated. Changes to accounts and permissions on the source server are not replicated. If you create an account on the source server and this account needs to access the replica server, then manually create the same account on the replica server side. To understand what tables are contained in the system database, see the [MariaDB documentation](https://mariadb.com/kb/en/library/the-mysql-database-tables/).
 
 ### Requirements
-- The master server version must be at least MariaDB version 10.2.
-- The master and replica server versions must be the same. For example, both must be MariaDB version 10.2.
+- The source server version must be at least MariaDB version 10.2.
+- The source and replica server versions must be the same. For example, both must be MariaDB version 10.2.
 - Each table must have a primary key.
-- Master server should use the InnoDB engine.
-- User must have permissions to configure binary logging and create new users on the master server.
-- If the master server has SSL enabled, ensure the SSL CA certificate provided for the domain has been included in the `mariadb.az_replication_change_master` stored procedure. Refer to the following [examples](https://docs.microsoft.com/azure/mariadb/howto-data-in-replication#link-the-master-and-replica-servers-to-start-data-in-replication) and the `master_ssl_ca` parameter.
-- Ensure the master server's IP address has been added to the Azure Database for MariaDB replica server's firewall rules. Update firewall rules using the [Azure portal](https://docs.microsoft.com/azure/mariadb/howto-manage-firewall-portal) or [Azure CLI](https://docs.microsoft.com/azure/mariadb/howto-manage-firewall-cli).
-- Ensure the machine hosting the master server allows both inbound and outbound traffic on port 3306.
-- Ensure the the master server has a **public IP address**, the DNS is publicly accessible, or has a fully qualified domain name (FQDN).
+- Source server should use the InnoDB engine.
+- User must have permissions to configure binary logging and create new users on the source server.
+- If the source server has SSL enabled, ensure the SSL CA certificate provided for the domain has been included in the `mariadb.az_replication_change_master` stored procedure. Refer to the following [examples](https://docs.microsoft.com/azure/mariadb/howto-data-in-replication#link-the-master-and-replica-servers-to-start-data-in-replication) and the `master_ssl_ca` parameter.
+- Ensure the source server's IP address has been added to the Azure Database for MariaDB replica server's firewall rules. Update firewall rules using the [Azure portal](https://docs.microsoft.com/azure/mariadb/howto-manage-firewall-portal) or [Azure CLI](https://docs.microsoft.com/azure/mariadb/howto-manage-firewall-cli).
+- Ensure the machine hosting the source server allows both inbound and outbound traffic on port 3306.
+- Ensure the the source server has a **public IP address**, the DNS is publicly accessible, or has a fully qualified domain name (FQDN).
 
 ### Other
 - Data-in replication is only supported in General Purpose and Memory Optimized pricing tiers.

@@ -18,12 +18,10 @@ Try out Azure IoT Edge in this quickstart by deploying containerized code to a v
 
 In this quickstart you learn how to:
 
-> [!div class="checklist"]
->
-> * Create an IoT hub.
-> * Register an IoT Edge device to your IoT hub.
-> * Install and start the IoT Edge runtime on your virtual device.
-> * Remotely deploy a module to an IoT Edge device and send telemetry to IoT Hub.
+* Create an IoT hub.
+* Register an IoT Edge device to your IoT hub.
+* Install and start the IoT Edge runtime on your virtual device.
+* Remotely deploy a module to an IoT Edge device and send telemetry to IoT Hub.
 
 ![Diagram - Quickstart architecture for device and cloud](./media/quickstart/install-edge-full.png)
 
@@ -114,7 +112,7 @@ Since IoT Edge devices behave and can be managed differently than typical IoT de
 2. View the connection string for your device, which links your physical device with its identity in IoT Hub. It contains the name of your IoT hub, the name of your device, and then a shared key that authenticates connections between the two.
 
    ```azurecli-interactive
-   az iot hub device-identity show-connection-string --device-id myEdgeDevice --hub-name {hub_name}
+   az iot hub device-identity connection-string show --device-id myEdgeDevice --hub-name {hub_name}
    ```
 
 3. Copy the value of the `connectionString` key from the JSON output and save it. This value is the device connection string. You'll use this connection string to configure the IoT Edge runtime in the next section.

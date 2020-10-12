@@ -101,7 +101,7 @@ You can also use Service Fabric Explorer to create application instances for a g
 ## Event Store
 EventStore is a feature offered by the platform that provides Service Fabric platform events available in the Service Fabric Explorer and through REST API. You can see a snapshot view of what's going on in your cluster for each entity e.g. node, service, application and query based on the time of the event. You can also Read more about the EventStore at the [EventStore Overview](service-fabric-diagnostics-eventstore.md).   
 
-![EventStore][sfx-eventstore]
+![Screenshot shows the Nodes pane with EVENTS selected.][sfx-eventstore]
 
 >[!NOTE]
 >As of Service Fabric version 6.4. EventStore is not enabled by default and must be enabled in the resource manager template

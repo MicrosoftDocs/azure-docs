@@ -16,7 +16,6 @@ ms.custom: how-to, seodec18
 
 
 # Manage access to an Azure Machine Learning workspace
-[!INCLUDE [aml-applies-to-basic-enterprise-sku](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
 In this article, you learn how to manage access to an Azure Machine Learning workspace. [Azure role-based access control (Azure RBAC)](/azure/role-based-access-control/overview) is used to manage access to Azure resources. Users in your Azure Active Directory are assigned specific roles, which grant access to resources. Azure provides both built-in roles and the ability to create custom roles.
 
@@ -132,7 +131,6 @@ The following table is a summary of Azure Machine Learning activities and the pe
 | Activity | Subscription-level scope | Resource group-level scope | Workspace-level scope |
 | ----- | ----- | ----- | ----- |
 | Create new workspace | Not required | Owner or contributor | N/A (becomes Owner or inherits higher scope role after creation) |
-| Update the Edition of the workspace | Not required | Not required | Owner, contributor, or custom role allowing: `/workspaces/write` |
 | Request subscription level Amlcompute quota or set workspace level quota | Owner, or contributor, or custom role </br>allowing `/locations/updateQuotas/action`</br> at subscription scope | Not Authorized | Not Authorized |
 | Create new compute cluster | Not required | Not required | Owner, contributor, or custom role allowing: `/workspaces/computes/write` |
 | Create new compute instance | Not required | Not required | Owner, contributor, or custom role allowing: `/workspaces/computes/write` |
@@ -140,7 +138,7 @@ The following table is a summary of Azure Machine Learning activities and the pe
 | Publishing a pipeline endpoint | Not required | Not required | Owner, contributor, or custom role allowing: `"/workspaces/pipelines/write", "/workspaces/endpoints/pipelines/*", "/workspaces/pipelinedrafts/*", "/workspaces/modules/*"` |
 | Deploying a registered model on an AKS/ACI resource | Not required | Not required | Owner, contributor, or custom role allowing: `"/workspaces/services/aks/write", "/workspaces/services/aci/write"` |
 | Scoring against a deployed AKS endpoint | Not required | Not required | Owner, contributor, or custom role allowing: `"/workspaces/services/aks/score/action", "/workspaces/services/aks/listkeys/action"` (when you are not using Azure Active Directory auth) OR `"/workspaces/read"` (when you are using token auth) |
-| Accessing storage using interactive notebooks | Not required | Not required | Owner, contributor, or custom role allowing: `"/workspaces/computes/read", "/workspaces/notebooks/samples/read", "/workspaces/notebooks/storage/*"` |
+| Accessing storage using interactive notebooks | Not required | Not required | Owner, contributor, or custom role allowing: `"/workspaces/computes/read", "/workspaces/notebooks/samples/read", "/workspaces/notebooks/storage/*", "/workspaces/listKeys/action"` |
 | Create new custom role | Owner, contributor, or custom role allowing `Microsoft.Authorization/roleDefinitions/write` | Not required | Owner, contributor, or custom role allowing: `/workspaces/computes/write` |
 
 > [!TIP]
@@ -298,7 +296,6 @@ Yes here are some common scenarios with custom proposed role definitions that yo
 
     * Creating a new workspace
     * Assigning subscription or workspace level quotas
-    * Upgrading the edition of the workspace
 
     The workspace admin also cannot create a new role. It can only assign existing built-in or custom roles within the scope of their workspace:
 
@@ -412,11 +409,7 @@ You need to have permissions on the entire scope of your new role definition. Fo
 
 > [!NOTE]
 > Role updates can take 15 minutes to an hour to apply across all role assignments in that scope.
-### Q. Can I define a role that prevents updating the workspace Edition? 
 
-Yes, you can define a role that prevents updating the workspace Edition. Since the workspace update is a PATCH call on the workspace object, you do this by putting the following action in the `"NotActions"` array in your JSON definition: 
-
-`"Microsoft.MachineLearningServices/workspaces/write"`
 
 ### Q. What permissions are needed to perform quota operations in a workspace? 
 

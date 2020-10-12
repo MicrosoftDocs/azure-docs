@@ -35,7 +35,7 @@ Beginning in November 2019, the Azure AD roles portion of Privileged Identity Ma
 
 # [New version](#tab/new)
 
-## Activate a role
+## Activate a role for new version
 
 When you need to assume an Azure AD role, you can request activation by opening **My roles** in Privileged Identity Management.
 
@@ -75,7 +75,7 @@ When you need to assume an Azure AD role, you can request activation by opening 
 
     ![Activation request is pending approval notification](./media/pim-resource-roles-activate-your-roles/resources-my-roles-activate-notification.png)
 
-## View the status of your requests
+## View the status of your requests for new version
 
 You can view the status of your pending requests to activate.
 
@@ -87,7 +87,7 @@ You can view the status of your pending requests to activate.
 
 1. Scroll to the right to view the **Request Status** column.
 
-## Cancel a pending request
+## Cancel a pending request for new version
 
 If you do not require activation of a role that requires approval, you can cancel a pending request at any time.
 
@@ -101,7 +101,7 @@ If you do not require activation of a role that requires approval, you can cance
 
    ![My request list with Cancel action highlighted](./media/pim-resource-roles-activate-your-roles/resources-my-requests-cancel.png)
 
-## Troubleshoot
+## Troubleshoot for new version
 
 ### Permissions are not granted after activating a role
 

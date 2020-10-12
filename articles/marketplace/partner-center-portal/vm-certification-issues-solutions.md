@@ -1,6 +1,6 @@
 ---
-title: Virtual machine certification - issues and solutions 
-description: This article explains common error messages for VM images. It also discusses related solutions
+title: Common issues when certifying virtual machine images for Azure Marketplace
+description: This article explains common error messages and issues when testing and certifying VM images for Azure Marketplace. It also discusses related solutions.
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: troubleshooting
@@ -9,14 +9,14 @@ ms.author: iqshah
 ms.date: 06/16/2020
 ---
 
-# Issues and solutions during virtual machine certification 
+# Common issues when certifying virtual machine images for Azure Marketplace
 
 When you publish your virtual machine (VM) image to Azure Marketplace, the Azure team validates it to ensure its bootability, security, and Azure compatibility. If any of the high-quality tests fail, the publishing will fail, and you'll receive an error message that describes the issue.
 
 This article explains common error messages during VM image publishing, along with related solutions.
 
 > [!NOTE]
-> If you have questions or feedback for improvement, contact [Partner Center Support](https://partner.microsoft.com/support/v2/?stage=1).
+> If you have questions or feedback for improvement, please contact [Partner Center Support](https://partner.microsoft.com/support/v2/?stage=1).
 
 ## Approved base image
 
@@ -28,6 +28,9 @@ To fix this issue, retrieve the image from Azure Marketplace and make changes to
 
 - [Linux images](../../virtual-machines/linux/endorsed-distros.md?toc=/azure/virtual-machines/linux/toc.json)
 - [Windows images](create-azure-vm-technical-asset.md#create-a-vm-image-using-an-approved-base)
+
+> [!Note]
+> If you are using a Linux base image not taken from Marketplace, you can offset the first partition by 2048 KB. This allows the unformatted space to be used for adding new billing info and allows Azure to go ahead with publishing your VM to Marketplace.  
 
 ## VM extension failure
 
@@ -265,9 +268,12 @@ Refer to the following table for any issues that arise when you download the VM 
 |6|HTTP conditional header|The SAS URL is invalid.|Get the correct SAS URL.|
 |7|Invalid VHD name|Check to see whether any special characters, such as a percent sign (%) or quotation marks ("), exist in the VHD name.|Rename the VHD file by removing the special characters.|
 
-## First 1-MB partition
+## First MB (2048 KB) partition (Only for Linux)
 
-When you submit the VHD, ensure that the first 1-MB partition of the VHD is empty. Otherwise, your request will fail.
+When you submit the VHD, ensure that the first 2048 KB of the VHD is empty. Otherwise, your request will fail*.
+
+>[!NOTE]
+>*For certain special images, such as those built on top of Azure Windows base images taken from Azure Marketplace, we check for a Billing tag and ignore the MB partition if the billing tag is present and matches our internal available values.
 
 ## Default credentials
 

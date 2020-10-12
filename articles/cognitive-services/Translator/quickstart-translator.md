@@ -116,6 +116,10 @@ When calling the Translator service via REST, you'll need to make sure the follo
   </tr>
 </table> 
 
+## Keys and endpoints
+
+The samples on this page use hard-coded keys and endpoints for simplicity. Remember to **remove the key from your code when you're done**, and **never post it publicly**. For production, consider using a secure way of storing and accessing your credentials. See the Cognitive Services [security](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-security) article for more information.
+
 ## Translate text 
 
 The core operation of the Translator service is to translate text. In this section, you'll build a request that takes a single source (`from`) and provides two outputs (`to`). Then we'll review some parameters that can be used to adjust both the request and the response. 
@@ -2221,9 +2225,9 @@ import (
 )
 
 func main() {
-    subscriptionKey := "151526a0d75d472fa4aef87aa4cf3bd9"
     endpoint := "https://api.cognitive.microsofttranslator.com/"
-    uri := endpoint + "/dictionary/lookup?api-version=3.0"
+    uri := endpoint + "/dictionary/examples?api-version=3.0"
+    subscriptionKey := "YOUR_SUBSCRIPTION_KEY"
 
     // Build the request URL. See: https://golang.org/pkg/net/url/#example_URL_Parse
     u, _ := url.Parse(uri)
@@ -2234,12 +2238,12 @@ func main() {
 
     // Create an anonymous struct for your request body and encode it to JSON
     body := []struct {
-        Text string
+        Text        string
         Translation string
     }{
         {
-          Text: "How are you? I am fine. What did you do today?",
-          Translation: "¿Cómo estás? Estoy bien. ¿Qué hiciste hoy?",
+            Text:        "Shark",
+            Translation: "tiburón",
         },
     }
     b, _ := json.Marshal(body)

@@ -1,26 +1,26 @@
 ---
-title: Interact with an IoT Plug and Play Preview device connected to your Azure IoT solution (Node.js) | Microsoft Docs
-description: Use Node.js to connect to and interact with an IoT Plug and Play Preview device that's connected to your Azure IoT solution.
+title: Interact with an IoT Plug and Play device connected to your Azure IoT solution (Node.js) | Microsoft Docs
+description: Use Node.js to connect to and interact with an IoT Plug and Play device that's connected to your Azure IoT solution.
 author: elhorton
 ms.author: elhorton
 ms.date: 08/11/2020
 ms.topic: quickstart
 ms.service: iot-pnp
 services: iot-pnp
-ms.custom: mvc, devx-track-javascript
+ms.custom: mvc, devx-track-js
 
 # As a solution builder, I want to connect to and interact with an IoT Plug and Play device that's connected to my solution. For example, to collect telemetry from the device or to control the behavior of the device.
 ---
 
-# Quickstart: Interact with an IoT Plug and Play Preview device that's connected to your solution (Node.js)
+# Quickstart: Interact with an IoT Plug and Play device that's connected to your solution (Node.js)
 
 [!INCLUDE [iot-pnp-quickstarts-service-selector.md](../../includes/iot-pnp-quickstarts-service-selector.md)]
 
-IoT Plug and Play Preview simplifies IoT by enabling you to interact with a device's capabilities without knowledge of the underlying device implementation. This quickstart shows you how to use Node.js to connect to and control an IoT Plug and Play device that's connected to your solution.
-
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+IoT Plug and Play simplifies IoT by enabling you to interact with a device's capabilities without knowledge of the underlying device implementation. This quickstart shows you how to use Node.js to connect to and control an IoT Plug and Play device that's connected to your solution.
 
 ## Prerequisites
+
+[!INCLUDE [iot-pnp-prerequisites](../../includes/iot-pnp-prerequisites.md)]
 
 To complete this quickstart, you need Node.js on your development machine. You can download the latest recommended version for multiple platforms from [nodejs.org](https://nodejs.org).
 
@@ -30,29 +30,19 @@ You can verify the current version of Node.js on your development machine using 
 node --version
 ```
 
-[!INCLUDE [iot-pnp-prepare-iot-hub.md](../../includes/iot-pnp-prepare-iot-hub.md)]
-
-Run the following command to get the _IoT hub connection string_ for your hub. Make a note of this connection string, you use it later in this quickstart:
-
-```azurecli-interactive
-az iot hub show-connection-string --hub-name <YourIoTHubName> --output table
-```
-
-Run the following command to get the _device connection string_ for the device you added to the hub. Make a note of this connection string, you use it later in this quickstart:
-
-```azurecli-interactive
-az iot hub device-identity show-connection-string --hub-name <YourIoTHubName> --device-id <YourDeviceID> --output
-```
-
 ### Clone the SDK repository with the sample code
 
-The service SDK is in preview, so you need to clone the samples from a [preview branch of the Node SDK](https://github.com/Azure/azure-iot-sdk-node/tree/pnp-preview-refresh). Open a terminal window in a folder of your choice. Run the following command to clone the **pnp-preview-refresh** branch of the [Microsoft Azure IoT SDK for Node.js](https://github.com/Azure/azure-iot-sdk-node) GitHub repository:
+Clone the samples from a [the Node SDK repository](https://github.com/Azure/azure-iot-sdk-node). Open a terminal window in a folder of your choice. Run the following command to clone the [Microsoft Azure IoT SDK for Node.js](https://github.com/Azure/azure-iot-sdk-node) GitHub repository:
 
 ```cmd/sh
-git clone https://github.com/Azure/azure-iot-sdk-node -b pnp-preview-refresh
+git clone https://github.com/Azure/azure-iot-sdk-node
 ```
 
 ## Run the sample device
+
+[!INCLUDE [iot-pnp-environment](../../includes/iot-pnp-environment.md)]
+
+To learn more about the sample configuration, see the [sample readme](https://github.com/Azure/azure-iot-sdk-node/blob/master/device/samples/pnp/readme.md).
 
 In this quickstart, you can use a sample thermostat device that's written in Node.js as the IoT Plug and Play device. To run the sample device:
 
@@ -62,12 +52,6 @@ In this quickstart, you can use a sample thermostat device that's written in Nod
 
     ```cmd/sh
     npm install
-    ```
-
-1. Configure the _device connection string_:
-
-    ```cmd/sh
-    set IOTHUB_DEVICE_CONNECTION_STRING=<YourDeviceConnectionString>
     ```
 
 1. Run the sample thermostat device with the following command:
@@ -80,25 +64,19 @@ In this quickstart, you can use a sample thermostat device that's written in Nod
 
 ## Run the sample solution
 
+In [Set up your environment for the IoT Plug and Play quickstarts and tutorials](set-up-environment.md) you created two environment variables to configure the sample to connect to your IoT hub and device:
+
+* **IOTHUB_CONNECTION_STRING**: the IoT hub connection string you made a note of previously.
+* **IOTHUB_DEVICE_ID**: `"my-pnp-device"`.
+
 In this quickstart, you use a sample IoT solution in Node.js to interact with the sample device you just set up.
 
-1. Open another terminal window to use as your **service** terminal. The service SDK is in preview, so you need to clone the samples from a [preview branch of the Node SDK](https://github.com/Azure/azure-iot-sdk-node/tree/pnp-preview-refresh):
+1. Open another terminal window to use as your **service** terminal.
 
-    ```cmd/sh
-    git clone https://github.com/Azure/azure-iot-sdk-node -b pnp-preview-refresh
-    ```
-
-1. Go to the folder of this cloned repository branch, and navigate to the */azure-iot-sdk-node/digitaltwins/samples/service/javascript* folder. Install all the dependencies by running the following command:
+1. In the cloned Node SDK repository, navigate to the */azure-iot-sdk-node/service/samples/javascript* folder. Install all the dependencies by running the following command:
 
     ```cmd/sh
     npm install
-    ```
-
-1. Configure environment variables for your device ID and _IoT Hub connection string_:
-
-    ```cmd/sh
-    set IOTHUB_CONNECTION_STRING=<YourIOTHubConnectionString>
-    set IOTHUB_DEVICE_ID=<Your device ID>
     ```
 
 ### Read a property
@@ -160,7 +138,7 @@ In this scenario, it outputs `Model Id: dtmi:com:example:Thermostat;1`.
 1. In your **device** terminal, you see the device has received the update:
 
     ```cmd/sh
-    The following properties will be updated for root interface:
+    The following properties will be updated for the default component:
     {
       targetTemperature: {
         value: 42,
@@ -218,11 +196,9 @@ In this scenario, it outputs `Model Id: dtmi:com:example:Thermostat;1`.
     Response to method 'getMaxMinReport' sent successfully.
     ```
 
-[!INCLUDE [iot-pnp-clean-resources.md](../../includes/iot-pnp-clean-resources.md)]
-
 ## Next steps
 
 In this quickstart, you learned how to connect an IoT Plug and Play device to a IoT solution. To learn more about IoT Plug and Play device models, see:
 
 > [!div class="nextstepaction"]
-> [IoT Plug and Play Preview modeling developer guide](concepts-developer-guide.md)
+> [IoT Plug and Play modeling developer guide](concepts-developer-guide-device-csharp.md)

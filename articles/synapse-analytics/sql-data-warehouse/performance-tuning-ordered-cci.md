@@ -90,7 +90,7 @@ The performance of data loading into an ordered CCI table is similar to a partit
 
 Here is an example performance comparison of loading data into tables with different schemas.
 
-![Performance_comparison_data_loading](./media/performance-tuning-ordered-cci/cci-data-loading-performance.png)
+![Bar graph that shows the performance comparison of loading data into tables with different schemas.](./media/performance-tuning-ordered-cci/cci-data-loading-performance.png)
 
 
 Here is an example query performance comparison between CCI and ordered CCI.

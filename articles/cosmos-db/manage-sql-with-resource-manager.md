@@ -20,6 +20,7 @@ This article only shows Azure Resource Manager template examples for Core (SQL) 
 > * Account names are limited to 44 characters, all lowercase.
 > * To change the throughput values, redeploy the template with updated RU/s.
 > * When you add or remove locations to an Azure Cosmos account, you can't simultaneously modify other properties. These operations must be done separately.
+> * Azure Cosmos DB resources cannot be renamed as this violates how Azure Resource Manager works with resource URIs.
 
 To create any of the Azure Cosmos DB resources below, copy the following example template into a new json file. You can optionally create a parameters json file to use when deploying multiple instances of the same resource with different names and values. There are many ways to deploy Azure Resource Manager templates including, [Azure portal](../azure-resource-manager/templates/deploy-portal.md), [Azure CLI](../azure-resource-manager/templates/deploy-cli.md), [Azure PowerShell](../azure-resource-manager/templates/deploy-powershell.md) and [GitHub](../azure-resource-manager/templates/deploy-to-azure-button.md).
 

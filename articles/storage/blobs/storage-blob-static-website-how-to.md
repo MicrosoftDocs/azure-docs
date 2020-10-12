@@ -7,7 +7,7 @@ ms.subservice: blobs
 ms.topic: conceptual
 ms.author: normesta
 ms.date: 03/04/2020
-ms.custom: devx-track-javascript
+ms.custom: devx-track-js
 ---
 
 # Host a static website in Azure Storage
@@ -15,6 +15,9 @@ ms.custom: devx-track-javascript
 You can serve static content (HTML, CSS, JavaScript, and image files) directly from a container in an Azure Storage GPv2 account. To learn more, see [Static website hosting in Azure Storage](storage-blob-static-website.md).
 
 This article shows you how to enable static website hosting by using the Azure portal, the Azure CLI, or PowerShell.
+
+> [!NOTE]
+> Make sure to create a general-purpose v2 Standard storage account . Static websites aren't available in any other type of storage account.
 
 ## Enable static website hosting
 

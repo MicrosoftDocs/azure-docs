@@ -9,7 +9,7 @@ ms.devlang:
 ms.topic: conceptual
 author: denzilribeiro
 ms.author: denzilr
-ms.reviewer: carlrab
+ms.reviewer: sstein
 ms.date: 09/02/2020
 ---
 # Accelerate real-time big data analytics using the Spark connector
@@ -45,7 +45,7 @@ The dataflow is as follows:
 
 The following diagram illustrates the data flow.
 
-   ![architecture](./media/spark-connector/architecture.png)
+   ![Diagram shows the described flow, with a master node connecting directly to the database and connecting to three worker nodes, which connect to the database.](./media/spark-connector/architecture.png)
 
 ### Build the Spark connector
 

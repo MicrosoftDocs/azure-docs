@@ -1,21 +1,21 @@
 ---
-title: Configure containers - Computer Vision
+title: Configure Read OCR containers - Computer Vision
 titleSuffix: Azure Cognitive Services
-description: This article shows you how to configure both required and optional settings for Recognize Text containers in Computer Vision.
+description: This article shows you how to configure both required and optional settings for Read OCR containers in Computer Vision.
 services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: conceptual
-ms.date: 04/01/2020
+ms.date: 09/03/2020
 ms.author: aahi
 ms.custom: seodec18
 ---
 
-# Configure Computer Vision Docker containers
+# Configure Read OCR Docker containers
 
-You configure the Computer Vision container's runtime environment by using the `docker run` command arguments. This container has several required settings, along with a few optional settings. Several [examples](#example-docker-run-commands) of the command are available. The container-specific settings are the billing settings. 
+You configure the Computer Vision Read OCR container's runtime environment by using the `docker run` command arguments. This container has several required settings, along with a few optional settings. Several [examples](#example-docker-run-commands) of the command are available. The container-specific settings are the billing settings. 
 
 ## Configuration settings
 
@@ -28,10 +28,12 @@ The container also has the following container-specific configuration settings:
 
 |Required|Setting|Purpose|
 |--|--|--|
-|No|ReadEngineConfig:ResultExpirationPeriod|Result expiration period in hours. The default is 48 hours. The setting specifies when the system should clear recognition results. For example, if `resultExpirationPeriod=1`, the system clears the recognition result 1 hour after the process. If `resultExpirationPeriod=0`, the system clears the recognition result after the result is retrieved.|
-|No|Cache:Redis|Enables Redis storage for storing results. A cache is *required* if multiple read containers are placed behind a load balancer.|
-|No|Queue:RabbitMQ|Enables RabbitMQ for dispatching tasks. The setting is useful when multiple read containers are placed behind a load balancer.|
-|No|Storage::DocumentStore::MongoDB|Enables MongoDB for permanent result storage.|
+|No|ReadEngineConfig:ResultExpirationPeriod| v2.0 containers only. Result expiration period in hours. The default is 48 hours. The setting specifies when the system should clear recognition results. For example, if `resultExpirationPeriod=1`, the system clears the recognition result 1 hour after the process. If `resultExpirationPeriod=0`, the system clears the recognition result after the result is retrieved.|
+|No|Cache:Redis| v2.0 containers only. Enables Redis storage for storing results. A cache is *required* if multiple read containers are placed behind a load balancer.|
+|No|Queue:RabbitMQ|v2.0 containers only. Enables RabbitMQ for dispatching tasks. The setting is useful when multiple read containers are placed behind a load balancer.|
+|No|Queue:Azure:QueueVisibilityTimeoutInMilliseconds | v3.x containers only. The time for a message to be invisible when another worker is processing it. |
+|No|Storage::DocumentStore::MongoDB|v2.0 containers only. Enables MongoDB for permanent result storage. |
+|No|Storage:ObjectStore:AzureBlob:ConnectionString| v3.x containers only. Azure blob storage connection string. |
 
 ## ApiKey configuration setting
 
@@ -112,26 +114,79 @@ Replace {_argument_name_} with your own values:
 
 The following Docker examples are for the Read container.
 
+
+# [Version 3.1-preview](#tab/version-3-1)
+
 ### Basic example
 
-  ```docker
-  docker run --rm -it -p 5000:5000 --memory 16g --cpus 8 \
-  containerpreview.azurecr.io/microsoft/cognitive-services-read \
-  Eula=accept \
-  Billing={ENDPOINT_URI} \
-  ApiKey={API_KEY} 
-  ```
+```bash
+docker run --rm -it -p 5000:5000 --memory 18g --cpus 8 \
+mcr.microsoft.com/azure-cognitive-services/vision/read:3.1-preview \
+Eula=accept \
+Billing={ENDPOINT_URI} \
+ApiKey={API_KEY}
+
+```
 
 ### Logging example 
 
-  ```docker
-  docker run --rm -it -p 5000:5000 --memory 16g --cpus 8 \
-  containerpreview.azurecr.io/microsoft/cognitive-services-read \
-  Eula=accept \
-  Billing={ENDPOINT_URI} \
-  ApiKey={API_KEY} \
-  Logging:Console:LogLevel:Default=Information
-  ```
+```bash
+docker run --rm -it -p 5000:5000 --memory 18g --cpus 8 \
+mcr.microsoft.com/azure-cognitive-services/vision/read:3.1-preview \
+Eula=accept \
+Billing={ENDPOINT_URI} \
+ApiKey={API_KEY}
+Logging:Console:LogLevel:Default=Information
+```
+
+# [Version 3.0-preview](#tab/version-3)
+
+### Basic example
+
+```bash
+docker run --rm -it -p 5000:5000 --memory 18g --cpus 8 \
+mcr.microsoft.com/azure-cognitive-services/vision/read:3.0-preview \
+Eula=accept \
+Billing={ENDPOINT_URI} \
+ApiKey={API_KEY}
+```
+
+### Logging example 
+
+```bash
+docker run --rm -it -p 5000:5000 --memory 18g --cpus 8 \
+mcr.microsoft.com/azure-cognitive-services/vision/read:3.0-preview \
+Eula=accept \
+Billing={ENDPOINT_URI} \
+ApiKey={API_KEY}
+Logging:Console:LogLevel:Default=Information
+```
+
+# [Version 2.0-preview](#tab/version-2)
+
+### Basic example
+
+```bash
+docker run --rm -it -p 5000:5000 --memory 18g --cpus 8 \
+mcr.microsoft.com/azure-cognitive-services/vision/read:2.0-preview \
+Eula=accept \
+Billing={ENDPOINT_URI} \
+ApiKey={API_KEY}
+
+```
+
+### Logging example 
+
+```bash
+docker run --rm -it -p 5000:5000 --memory 18g --cpus 8 \
+mcr.microsoft.com/azure-cognitive-services/vision/read:2.0-preview \
+Eula=accept \
+Billing={ENDPOINT_URI} \
+ApiKey={API_KEY}
+Logging:Console:LogLevel:Default=Information
+```
+
+---
 
 ## Next steps
 

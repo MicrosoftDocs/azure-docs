@@ -1,15 +1,13 @@
 ---
 title: Azure Monitor workbooks creating parameters
-description: Simplify complex reporting with prebuilt and custom parameterized workbooks
+description: Learn how parameters allow workbook authors to collect input from the consumers and reference it in other parts of the workbook.
 services: azure-monitor
-author: mrbullwinkle
 manager: carmonm
 
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 10/23/2019
-ms.author: mbullwin
 ---
 
 # Workbook parameters

@@ -1,14 +1,12 @@
 ---
 title: Azure Monitor Workbooks Overview
-description: Simplify complex reporting with prebuilt and custom parameterized workbooks
-author: mrbullwinkle
+description: Learn how workbooks provide a flexible canvas for data analysis and the creation of rich visual reports within the Azure portal.
 manager: carmonm
 services: azure-monitor
 
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 07/23/2020
-ms.author: mbullwin
 ---
 
 # Azure Monitor Workbooks
@@ -108,7 +106,7 @@ To access pin mode, click **Edit** to enter editing mode, and select the blue pi
 ![Pin experience](./media/workbooks-overview/pin-experience.png)
 
 > [!NOTE]
-> The state of the the workbook is saved at the time of the pin, and pinned workbooks on a dashboard will not update if the underlying workbook is modified. In order to update a pinned workbook part, you will need to delete and re-pin that part.
+> The state of the workbook is saved at the time of the pin, and pinned workbooks on a dashboard will not update if the underlying workbook is modified. In order to update a pinned workbook part, you will need to delete and re-pin that part.
 
 ## Dashboard time ranges
 

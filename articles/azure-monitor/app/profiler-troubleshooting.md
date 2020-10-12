@@ -75,12 +75,12 @@ For Profiler to work properly:
    1. In the **Tools** menu, select **WebJobs Dashboard**.  
       The **WebJobs** pane opens. 
    
-      ![profiler-webjob]   
+      ![Screenshot shows the WebJobs pane, which displays the name, status, and last run time of jobs.][profiler-webjob]   
    
    1. To view the details of the webjob, including the log, select the **ApplicationInsightsProfiler3** link.  
      The **Continuous WebJob Details** pane opens.
 
-      ![profiler-webjob-log]
+      ![Screenshot shows the Continuous WebJob Details pane.][profiler-webjob-log]
 
 If you can't figure out why Profiler isn't working for you, you can download the log and send it to our team for assistance, serviceprofilerhelp@microsoft.com. 
     
