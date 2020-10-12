@@ -5,7 +5,7 @@ author: msjuergent
 ms.service: virtual-machines
 ms.topic: article
 ms.date: 03/06/2020
-ms.author: juergen
+ms.author: juergent
 ms.reviewer: cynthn
 
 ---
