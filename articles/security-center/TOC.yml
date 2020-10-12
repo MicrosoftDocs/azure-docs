@@ -51,7 +51,7 @@
       displayName: KV, akv
       href: defender-for-key-vault-introduction.md
     - name: Azure Defender for Kubernetes
-      displayName: clusters, k8s
+      displayName: clusters, k8s, aks
       href: defender-for-kubernetes-introduction.md
     - name: Azure Defender for container registries
       displayName: ACR, registry, images
@@ -59,7 +59,7 @@
     - name: Additional threat protections
       href: other-threat-protections.md
   - name: Container security features of Security Center
-    displayName: kubernetes, aks, acr, registries
+    displayName: kubernetes, aks, acr, registries, k8s
     href: container-security.md
   - name: Pricing
     href: security-center-pricing.md
@@ -81,6 +81,8 @@
       href: quickstart-onboard-gcp.md
   - name: Automate onboarding using PowerShell
     href: security-center-powershell-onboarding.md
+  - name: Enable Security Center for a management group
+    href: onboard-management-group.md
   - name: Configure data collection
     href: security-center-enable-data-collection.md
   - name: Set up email notifications
@@ -144,8 +146,6 @@
       - name: Automate responses to recommendations
         displayName: workflow
         href: workflow-automation.md
-      - name: Export recommendations
-        href: continuous-export.md
       - name: Exempt a resource from a recommendation
         href: exempt-resource.md
   - name: Azure Defender alerts
@@ -185,6 +185,9 @@
       - name: Review and remediate vulnerabilities on your VMs
         displayName: qualys, rapid7, vulnerability
         href: remediate-vulnerability-findings-vm.md
+      - name: Disable specific vulnerability findings
+        displayName: qualys, rapid7, vulnerability
+        href: remediate-vulnerability-findings-vm.md#disable-specific-findings-preview
     - name: Secure management ports with just-in-time VM access
       items:
       - name: Overview of just-in-time VM access
@@ -218,6 +221,15 @@
   - name: Use Azure Defender for container registries
     displayName: ACR, registry, images
     href: defender-for-container-registries-usage.md
+  - name: Export alerts and recommendations
+    items:
+    - name: Export to a SIEM, SOAR, or ITSM
+      displayName: continuous, SIEM, SOAR, Splunk, QRadar, ServiceNow, ArcSight, Monitor, Graph, Sentinel, 
+      href: export-to-siem.md
+    - name: Export to a Log Analytics workspace or Azure Event Hub
+      href: continuous-export.md
+    - name: Download a CSV report of all alerts
+      href: continuous-export.md#manual-one-time-export-of-alerts-and-recommendations
   - name: Handle Azure Defender alerts
     items:
     - name: Manage security alerts
@@ -236,11 +248,8 @@
     - name: Automate responses to alerts
       displayName: workflow
       href: workflow-automation.md
-    - name: Export alerts
-      displayName: continuous    
-      href: continuous-export.md
   - name: Protect your Kubernetes workloads
-    displayName: k8s, containers
+    displayName: k8s, containers, aks
     href: kubernetes-workload-protections.md
   - name: Manage investigation user data
     href: security-center-investigation-user-data.md

@@ -61,18 +61,33 @@ static string BuildSharedAccessSignature(string resource, DateTime expirationUtc
 }
 ```
 
+```python
+def generate_sas_token(uri, key, expiry=3600):
+    ttl = datetime.datetime.utcnow() + datetime.timedelta(seconds=expiry)
+    encoded_resource = urllib.parse.quote_plus(uri)
+    encoded_expiration_utc = urllib.parse.quote_plus(ttl.isoformat())
+
+    unsigned_sas = f'r={encoded_resource}&e={encoded_expiration_utc}'
+    signature = b64encode(HMAC(b64decode(key), unsigned_sas.encode('utf-8'), sha256).digest())
+    encoded_signature = urllib.parse.quote_plus(signature)
+    
+    token = f'r={encoded_resource}&e={encoded_expiration_utc}&s={encoded_signature}'
+
+    return token
+```
+
 ### Using aeg-sas-token header
 Here's an example of passing the SAS token as a value for the `aeg-sas-toke` header. 
 
 ```http
-aeg-sas-token: r=https%3a%2f%2fmytopic.eventgrid.azure.net%2fapi%2fevent&e=6%2f15%2f2017+6%3a20%3a15+PM&s=XXXXXXXXXXXXX%2fBPjdDLOrc6THPy3tDcGHw1zP4OajQ%3d
+aeg-sas-token: r=https%3a%2f%2fmytopic.eventgrid.azure.net%2fapi%2fevents&e=6%2f15%2f2017+6%3a20%3a15+PM&s=XXXXXXXXXXXXX%2fBPjdDLOrc6THPy3tDcGHw1zP4OajQ%3d
 ```
 
 ### Using Authorization header
 Here's an example of passing the SAS token as a value for the `Authorization` header. 
 
 ```http
-Authorization: SharedAccessSignature r=https%3a%2f%2fmytopic.eventgrid.azure.net%2fapi%2fevent&e=6%2f15%2f2017+6%3a20%3a15+PM&s=XXXXXXXXXXXXX%2fBPjdDLOrc6THPy3tDcGHw1zP4OajQ%3d
+Authorization: SharedAccessSignature r=https%3a%2f%2fmytopic.eventgrid.azure.net%2fapi%2fevents&e=6%2f15%2f2017+6%3a20%3a15+PM&s=XXXXXXXXXXXXX%2fBPjdDLOrc6THPy3tDcGHw1zP4OajQ%3d
 ```
 
 ## Next steps

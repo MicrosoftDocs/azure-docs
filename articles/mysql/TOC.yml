@@ -245,6 +245,10 @@
       - name: Azure PowerShell
         href: howto-restore-server-powershell.md
         displayName: restore server, backup, geo-restore powershell
+      - name: Restore a dropped server
+        href: howto-restore-dropped-server.md
+        displayName: restore server,dropped, recover
+        
     - name: Connect applications
       items:
           - name: Configure SSL
@@ -323,20 +327,26 @@
       - name: Create read replicas Azure PowerShell
         href: howto-read-replicas-powershell.md
         displayName: data-in replication, replica, failover
-      - name: Troubleshoot
-        items:
-        - name: Troubleshoot connection errors
-          href: howto-troubleshoot-common-connection-issues.md
-          displayName: debug, connection issues, connectivity, cannot connect
-        - name: Troubleshoot query performance
-          href: howto-troubleshoot-query-performance.md
-          displayName: debug, performance issues, query performance
-        - name: How to use views in sys schema
-          href: howto-troubleshoot-sys-schema.md
-          displayName: sys schema, views
-        - name: Troubleshoot data encryption
-          href: howto-data-encryption-troubleshoot.md
-          displayName: encryption, security
+    - name: Troubleshoot
+      items:
+      - name: Troubleshoot connection errors
+        href: howto-troubleshoot-common-connection-issues.md
+        displayName: debug, connection issues, connectivity, cannot connect
+      - name: Troubleshoot common errors
+        href: howto-troubleshoot-common-errors.md
+        displayName: SUPER privilege, DBA role, Access is denied
+      - name: Troubleshoot query performance
+        href: howto-troubleshoot-query-performance.md
+        displayName: debug, performance issues, query performance
+      - name: How to use views in sys schema
+        href: howto-troubleshoot-sys-schema.md
+        displayName: sys schema, views
+      - name: Troubleshoot data encryption
+        href: howto-data-encryption-troubleshoot.md
+        displayName: encryption, security
+      - name: Troubleshoot replication latency
+        href: howto-troubleshoot-replication-latency.md
+        displayName: replication, latency, monitor
     - name: Advanced threat protection
       items:
       - name: Azure portal

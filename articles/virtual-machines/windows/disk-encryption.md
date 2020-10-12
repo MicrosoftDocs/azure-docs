@@ -71,7 +71,7 @@ High security sensitive customers who are concerned of the risk associated with 
 
 ### Supported regions
 
-[!INCLUDE [virtual-machines-disks-double-encryption-at-rest-regions](../../../includes/virtual-machines-disks-double-encryption-at-rest-regions.md)]
+Double encryption is available in all regions that managed disks are available.
 
 ## Server-side encryption versus Azure disk encryption
 
