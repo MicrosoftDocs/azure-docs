@@ -96,7 +96,7 @@ This procedure takes around 4 minutes to complete. Perform the following steps t
 
 1. In the local web UI, go to **Maintenance** > **Software Update**. Make a note of the software version that you are running. **Proceed with this update only if you are running Update 1 (10.0.10296.0). If you are running Update 0.6, [Install Update 1](storsimple-virtual-array-install-update-1.md) on your device first and then apply Update 1.1.**
    
-    ![update device](./media/storsimple-virtual-array-install-update-11/update1m.png)
+    ![update device 1](./media/storsimple-virtual-array-install-update-11/update1m.png)
 
 2. In **Update file path**, enter the file name for the update or the hotfix. You can also browse to the update or hotfix installation file if placed on a network share. Click **Apply**.
    
