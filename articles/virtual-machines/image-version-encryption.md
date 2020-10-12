@@ -6,7 +6,7 @@ ms.service: virtual-machines
 ms.subservice: imaging
 ms.workload: infrastructure-services
 ms.topic: how-to
-ms.date: 08/11/2020
+ms.date: 10/12/2020
 ms.author: cynthn
 ---
 
