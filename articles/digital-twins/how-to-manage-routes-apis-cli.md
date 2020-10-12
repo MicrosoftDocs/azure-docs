@@ -91,10 +91,12 @@ az dt endpoint create eventhub --endpoint-name <Event-Hub-endpoint-name> --event
 
 In order to create an endpoint with dead-letter queues enabled, you must use the ARM APIs to create your endpoint. 
 
-Before setting the dead-letter location, you must have a storage account with a container. You provide the endpoint for this container when creating the event subscription. The endpoint is in the format of:
-`/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.Storage/storageAccounts/<storage-name>/blobServices/default/containers/<container-name>`
+Before setting the dead-letter location, you must have a storage account with a container. You provide the endpoint for this container when creating the event subscription. The endpoint is provided as a container URL with a SAS token. That token needs at least `create` permissions and will be in the format of:
+`https://<containerName>.blob.core.windows.net/<storageAccountname>?<SASTokenValue>`
 
-When creating an endpoint, add a `deadLetterSecret` to the `properties` object in the body of the request which contains a SAS token for your storage account.
+To learn more about SAS tokens, see: [Grant limited access to Azure Storage resources using shared access signatures (SAS)](https://docs.microsoft.com/azure/storage/common/storage-sas-overview)
+
+When creating an endpoint, add a `deadLetterSecret` to the `properties` object in the body of the request which contains a container URL and SAS token for your storage account.
 
 ```json
 {
