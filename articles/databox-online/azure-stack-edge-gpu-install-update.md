@@ -29,13 +29,13 @@ Each of these steps is described in the following sections.
 
 1. In the local web UI, go to **Configuration** > **Update server**. 
    
-    ![Configure updates](./media/azure-stack-edge-gpu-install-update/configure-update-server-1.png)
+    ![Configure updates 1](./media/azure-stack-edge-gpu-install-update/configure-update-server-1.png)
 
 2. In **Select update server type**, from the dropdown list, choose from Microsoft Update server (default) or Windows Server Update Services.  
    
     If updating from the Windows Server Update Services, specify the server URI. The server at that URI will deploy the updates on all the devices connected to this server.
 
-    ![Configure updates](./media/azure-stack-edge-gpu-install-update/configure-update-server-2.png)
+    ![Configure updates 2](./media/azure-stack-edge-gpu-install-update/configure-update-server-2.png)
     
     The WSUS server is used to manage and distribute updates through a management console. A WSUS server can also be the update source for other WSUS servers within the organization. The WSUS server that acts as an update source is called an upstream server. In a WSUS implementation, at least one WSUS server on your network must be able to connect to Microsoft Update to get available update information. As an administrator, you can determine - based on network security and configuration - how many other WSUS servers connect directly to Microsoft Update.
     
