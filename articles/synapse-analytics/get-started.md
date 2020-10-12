@@ -28,7 +28,7 @@ Follow the steps *in order* as shown below and you'll take a tour through many o
 * [STEP 3 - Analyze using Spark](get-started-analyze-spark.md)
 * [STEP 4 - Analyze using SQL on-demand](get-started-analyze-sql-on-demand.md)
 * [STEP 5 - Analyze data in a storage account](get-started-analyze-storage.md)
-* [STEP 6 - Orchestrate with pipelines](get-started-pipelines.md)
+* [STEP 6 - Integrate with pipelines](get-started-pipelines.md)
 * [STEP 7 - Visualize data with Power BI](get-started-visualize-power-bi.md)
 * [STEP 8 - Monitor activities](get-started-monitor.md)
 * [STEP 9 - Explore the Knowledge center](get-started-knowledge-center.md)
