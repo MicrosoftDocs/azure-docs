@@ -1151,7 +1151,7 @@ The following database solutions are supported with the backup feature:
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/4516).
 
-**Guidance**: Periodically test the restoration process for your App Service Web Apps and backed up customer managed keys.
+**Guidance**: Periodically test the restoration process for your App Service Web Apps and backed up customer-managed keys.
 
 - [How to restore an Azure App Service web app](web-sites-restore.md)
 
