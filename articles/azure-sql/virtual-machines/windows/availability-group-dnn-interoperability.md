@@ -15,7 +15,7 @@ ms.author: mathoma
 
 ---
 
-# Feature interoperability with AG and DNN listener
+# Feature interoperability with AG and DNN listener (Preview)
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
 
 There are certain SQL Server features that rely on a hard-coded virtual network name (VNN). As such, when using the distributed network name (DNN) listener with your Always On availability group and SQL Server on Azure VMs, there are some additional considerations. 
@@ -30,6 +30,9 @@ For ODBC, OLEDB, ADO.NET, JDBC, PHP, and Node.js drivers, users need to explicit
 ## Tools
 
 Users of [SQL Server Management Studio](/sql/ssms/sql-server-management-studio-ssms), [sqlcmd](/sql/tools/sqlcmd-utility), [Azure Data Studio](/sql/azure-data-studio/what-is), and [SQL Server Data Tools](/sql/ssdt/sql-server-data-tools) need to explicitly specify the DNN listener name as the server name in the connection string to connect to the listener. 
+
+Creating the DNN listener via the SQL Server Management Studio (SSMS) GUI is currently not supported. 
+
 
 ## Availability groups and FCI
 
@@ -59,81 +62,59 @@ You can omit the port in the URL if it is the default 1433 port. For a named ins
 
 Distributed availability groups are not currently supported with the DNN listener. 
 
-
-
 ## Replication
 
 Transactional, Merge and Snapshot Replication all support replacing the VNN listener with the DNN listener and port in replication objects that connect to the listener. 
 
-For more information on how to use replication with availability groups, see [Publisher and AG](/sql/database-engine/availability-groups/windows/configure-replication-for-always-on-availability-groups-sql-server), [Subscriber and AG](/sql/database-engine/availability-groups/windows/replication-subscribers-and-always-on-availability-groups-sql-server), and [Distributor and AG](/sql/relational-databases/replication/configure-distribution-availability-group)
-
+For more information on how to use replication with availability groups, see [Publisher and AG](/sql/database-engine/availability-groups/windows/configure-replication-for-always-on-availability-groups-sql-server), [Subscriber and AG](/sql/database-engine/availability-groups/windows/replication-subscribers-and-always-on-availability-groups-sql-server), and [Distributor and AG](/sql/relational-databases/replication/configure-distribution-availability-group).
 
 ## MSDTC
 
-The FCI can participate in distributed transactions coordinated by Microsoft Distributed Transaction Coordinator (MSDTC). Though both clustered MSDTC and local MSDTC are supported with FCI DNN, in Azure, a load balancer is still necessary for clustered MSDTC. The DNN defined in the FCI does not replace the Azure Load Balancer requirement for the clustered MSDTC in Azure. 
+Both local and clustered MSDTC is supported but MSDTC uses a dynamic port, which requires a standard Azure Load Balancer to configure the HA port. As such, either the VM must use a standard IP reservation, or it cannot be exposed to the internet. 
+
+Define two rules, one for the RPC Endpoint Mapper port 135, and one for the real MSDTC port. After failover, modify the LB rule to the new MSDTC port after it changes on the new node. 
+
+If the MSDTC is local, be sure to allow outbound communication. 
+
+## Distributed query 
+
+Distributed query relies on a linked server, which can be configured using the AG DNN listener and port. If the port is not 1433, choose the **Use other data source** option in SQL Server Management Studio (SSMS) when configuring your linked server. 
 
 ## FileStream
 
-Though FileStream is supported for a database in an FCI, accessing FileStream or FileTable by using File System APIs with DNN is not supported. 
+Filestream is supported but not for scenarios where users access the scoped file share by using the Windows File API. 
+
+## Filetable
+
+Filetable is supported but not for scenarios where users access the scoped file share by using the Windows File API. 
 
 ## Linked servers
 
-Using a linked server with an FCI DNN is supported. Either use the DNN directly to configure a linked server, or use a network alias to map the VNN to the DNN. 
-
-
-For example, to create a linked server with DNN DNS name `dnnlsnr` for named instance `insta1`, use the following Transact-SQL (T-SQL) command:
-
-```sql
-USE [master]   
-GO   
-
-EXEC master.dbo.sp_addlinkedserver    
-    @server = N'dnnlsnr\inst1',    
-    @srvproduct=N'SQL Server' ;   
-GO 
-```
-
-Alternatively, you can create the linked server using the virtual network name (VNN) instead, but you will then need to define a network alias to map the VNN to the DNN. 
-
-For example, for instance name `insta1`, VNN name `vnnname`, and DNN name `dnnlsnr`, use the following Transact-SQL (T-SQL) command to create a linked server using the VNN:
-
-```sql
-USE [master]
-GO   
-
-EXEC master.dbo.sp_addlinkedserver   
-    @server = N'vnnname\inst1',    
-    @srvproduct=N'SQL Server' ;   
-GO 
-
-```
-
-Then, create a network alias to map `vnnname\insta1` to `dnnlsnr\insta1`. 
-
+Configure the linked server using the AG DNN listener name and port. If the port is not 1433, choose the **Use other data source** option in SQL Server Management Studio (SSMS) when configuring your linked server. 
 
 
 ## Frequently asked questions
 
 
-- Which SQL Server version brings DNN support? 
+- Which SQL Server version brings AG DNN listener support? 
 
-   SQL Server 2019 CU2 and later.
+   SQL Server 2019 CU8 and later.
 
-- What is the expected failover time when DNN is used?
+- What is the expected failover time when the DNN listener is used?
 
-   For DNN, the failover time will be just the FCI failover time, without any time added (like probe time when you're using Azure Load Balancer).
+   For DNN listener, the failover time will be just the AG failover time, without any additional time (like probe time when you're using Azure Load Balancer).
 
 - Is there any version requirement for SQL clients to support DNN with OLEDB and ODBC?
 
-   We recommend `MultiSubnetFailover=True` connection string support for DNN. It's available starting with SQL Server 2012 (11.x).
+   We recommend `MultiSubnetFailover=True` connection string support for DNN listener. It's available starting with SQL Server 2012 (11.x).
 
-- Are any SQL Server configuration changes required for me to use DNN? 
+- Are any SQL Server configuration changes required for me to use the DNN listener? 
 
    SQL Server does not require any configuration change to use DNN, but some SQL Server features might require more consideration. 
 
 - Does DNN support multiple-subnet clusters?
 
-   Yes. The cluster binds the DNN in DNS with the physical IP addresses of all nodes in the cluster regardless of the subnet. The SQL client tries all IP addresses of the DNS name regardless of the subnet. 
+   Yes. The cluster binds the DNN in DNS with the physical IP addresses of all replicas in the availability regardless of the subnet. The SQL client tries all IP addresses of the DNS name regardless of the subnet. 
 
 
 
@@ -142,5 +123,5 @@ Then, create a network alias to map `vnnname\insta1` to `dnnlsnr\insta1`.
 For more information, see: 
 
 - [Windows cluster technologies](/windows-server/failover-clustering/failover-clustering-overview)   
-- [SQL Server failover cluster instances](/sql/sql-server/failover-clusters/windows/always-on-failover-cluster-instances-sql-server)
+- [Always on availability group](/sql/database-engine/availability-groups/windows/overview-of-always-on-availability-groups-sql-server)
 

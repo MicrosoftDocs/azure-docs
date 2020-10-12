@@ -16,7 +16,7 @@ ms.author: mathoma
 ms.reviewer: jroth
 
 ---
-# Configure a DNN listener for an availability group
+# Configure a DNN listener (Preview) for an availability group
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
 
 On Azure Virtual Machines, the distributed network name (DNN) is used to route traffic to the appropriate clustered resource. It provides an easier way to connect to an Always On availability group (AG) than the virtual network name (VNN), without the need for an Azure Load Balancer. 
