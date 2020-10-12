@@ -99,7 +99,7 @@ You can edit a storage account that is used by a volume container. If you edit a
 
 1. Go to your StorSimple Device Manager service. In the **Configuration** section, click **Storage account credentials**.
 
-    ![Storage account credentials](./media/storsimple-8000-manage-storage-accounts/editstorageacct1.png)
+    ![Storage account credentials 2](./media/storsimple-8000-manage-storage-accounts/editstorageacct1.png)
 
 2. In the **Storage account credentials** blade, from the list of storage account credentials, select and click the one you wish to edit. 
 
