@@ -31,7 +31,7 @@ Perform the following steps to configure the Windows server with Arc enabled ser
 
 1. From the connection list on the **Overview** page, in the list of connected Windows servers, select a server from the list to connect to it.
 
-1. From the left-hand pane, select **Azure hybrid services**. 
+1. From the left-hand pane, select **Azure hybrid services**.
 
 1. On the **Azure hybrid services** page, select **Discover Azure services**.
 
@@ -56,7 +56,7 @@ To confirm installation of the Connected Machine Agent, in Windows Admin Center 
 
 After you install the agent and configure it to connect to Azure Arc enabled servers, go to the Azure portal to verify that the server has successfully connected. View your machine in the [Azure portal](https://portal.azure.com).
 
-:::image type="content" source="./media/quick-enable-hybrid-vm/enabled-machine.png" alt-text="A successful machine connection" border="false":::
+:::image type="content" source="./learn/media/quick-enable-hybrid-vm/enabled-machine.png" alt-text="A successful machine connection" border="false":::
 
 ## Next steps
 
