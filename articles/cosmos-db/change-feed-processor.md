@@ -6,7 +6,7 @@ ms.author: tisande
 ms.service: cosmos-db
 ms.devlang: dotnet
 ms.topic: conceptual
-ms.date: 05/13/2020
+ms.date: 10/12/2020
 ms.reviewer: sngun
 ms.custom: devx-track-csharp
 ---
@@ -91,7 +91,32 @@ Moreover, the change feed processor can dynamically adjust to containers scale d
 
 ## Change feed and provisioned throughput
 
-You are charged for RUs consumed, since data movement in and out of Cosmos containers always consumes RUs. You are charged for RUs consumed by the lease container.
+Change feed read operations on the monitored container will consume RUs. 
+
+Operations on the lease container consume RUs. The higher the number of instances using the same lease container, the higher the potential RU consumption will be. Remember to monitor your RU consumption on the leases container if you decide to scale and increment the number of instances.
+
+## Starting time
+
+By default, when a change feed processor starts the first time, it will initialize the leases container, and start its [processing life cycle](#processing-life-cycle). Any changes that happened in the monitored container before the change feed processor was initialized for the first time won't be detected.
+
+### Reading from a previous date and time
+
+It's possible to initialize the change feed processor to read changes starting at a **specific date and time**, by passing an instance of a `DateTime` to the `WithStartTime` builder extension:
+
+[!code-csharp[Main](~/samples-cosmosdb-dotnet-v3/Microsoft.Azure.Cosmos.Samples/Usage/ChangeFeed/Program.cs?name=TimeInitialization)]
+
+The change feed processor will be initialized for that specific date and time and start reading the changes that happened after.
+
+### Reading from the beginning
+
+In other scenarios like data migrations or analyzing the entire history of a container, we need to read the change feed from **the beginning of that container's lifetime**. To do that, we can use `WithStartTime` on the builder extension, but passing `DateTime.MinValue.ToUniversalTime()`, which would generate the UTC representation of the minimum `DateTime` value, like so:
+
+[!code-csharp[Main](~/samples-cosmosdb-dotnet-v3/Microsoft.Azure.Cosmos.Samples/Usage/ChangeFeed/Program.cs?name=StartFromBeginningInitialization)]
+
+The change feed processor will be initialized and start reading changes from the beginning of the lifetime of the container.
+
+> [!NOTE]
+> These customization options only work to set up the starting point in time of the change feed processor. Once the leases container is initialized for the first time, changing them has no effect.
 
 ## Where to host the change feed processor
 
