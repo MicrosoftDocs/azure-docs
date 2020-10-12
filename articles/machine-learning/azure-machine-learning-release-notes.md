@@ -56,6 +56,8 @@ See [the list of known issues](resource-known-issues.md) to learn about known bu
     + `azureml-train, azureml-train-core, azureml-sdk, azureml-pipeline-core, azureml-dataprep-native` officially support Python 3.8.
     + Adding TensorFlow 2.3 curated environment
     + Introducing command property in run configuration which will enables users to submit command instead of script & arguments.
+  + **azureml-widgets**
+    + Redesigned interface for script run widget.
 
 
 ## 2020-09-28
