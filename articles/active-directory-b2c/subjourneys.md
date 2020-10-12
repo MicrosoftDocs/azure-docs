@@ -1,5 +1,5 @@
 ---
-title: SubJourneys | Microsoft Docs
+title: SubJourneys in Azure Active Directory B2C | Microsoft Docs
 description: Specify the SubJourneys element of a custom policy in Azure Active Directory B2C.
 services: active-directory-b2c
 author: msmimart
@@ -117,14 +117,14 @@ The **SubJourneys** element contains the following element:
 | ------- | ----------- | ----------- |
 | SubJourney | 1:n | A subjourney that defines all of the constructs necessary for a complete user flow. |
 
-The **SubJourneys** element contains the following attribute:
+The **SubJourneys** element contains the following attributes:
 
 | Attribute | Required | Description |
 | --------- | -------- | ----------- |
 | Id | Yes | The SubJourney identifier that can be used to by the user journey to reference the SubJourney in the policy. The **SubJourneyReferenceId** element of the [Candidate](userjourneys.md#journeylist) element points to this attribute. |
 | Type | Yes | Possible values: `Call`, or `Transfer`. For more information, see [User journey branching](#user-journey-branching)|
 
-The **SubJourney** element contains the following elements:
+The **SubJourney** element contains the following element:
 
 | Element | Occurrences | Description |
 | ------- | ----------- | ----------- |
