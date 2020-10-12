@@ -43,8 +43,8 @@ This scenario assumes that you want to use feature selection to generate a dynam
 
    The pipeline structure should be like following:
 
-   [!div class="mx-imgBorder"]
-   ![Sample pipeline](media/module/filter-based-feature-selection-score.png)
+   > [!div class="mx-imgBorder"]
+   > ![Sample pipeline](media/module/filter-based-feature-selection-score.png)
 
    > [!IMPORTANT]
    > You can't expect to apply [Filter Based Feature Selection](filter-based-feature-selection.md) to the scoring dataset and get the same results. Because feature selection is based on values, it might choose a different set of columns, which would cause the scoring operation to fail.
