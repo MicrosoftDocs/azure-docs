@@ -285,7 +285,10 @@ By configuring ReadOnly caching on Premium Storage data disks, you can achieve l
 1. Premium Storage does not count the Reads served from cache, towards the disk IOPS and Throughput. Therefore, your application is able to achieve higher total IOPS and Throughput.
 
 *ReadWrite*  
-By default, the OS disks have ReadWrite caching enabled. We have recently added support for ReadWrite caching on data disks as well. If you are using ReadWrite caching, you must have a proper way to write the data from cache to persistent disks. For example, SQL Server handles writing cached data to the persistent storage disks on its own. Using ReadWrite cache with an application that does not handle persisting the required data can lead to data loss, if the VM crashes.
+By default, the OS disks have ReadWrite caching enabled for better performance of disk. We have recently added support for ReadWrite caching on data disks as well. If you are using ReadWrite caching, you must have a proper way to write the data from cache to persistent disks. For example, SQL Server handles writing cached data to the persistent storage disks on its own. Using ReadWrite cache with an application that does not handle persisting the required data can lead to data loss, if the VM crashes.
+
+> [!NOTE]
+> For Linux VMs as there are many distros, if you are unclear about having proper way to set the writes from cache to persistent disk, you may consider using "Read-Only" cache settings for your OS Disks.
 
 *None*  
 Currently, **None** is only supported on data disks. It is not supported on OS disks. If you set **None** on an OS disk it will override this internally and set it to **ReadOnly**.
