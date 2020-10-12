@@ -25,7 +25,7 @@ Certificates encrypt web traffic. These TLS/SSL certificates can be stored in Az
 
 ## Import certificate
 ### Prepare your certificate file in PFX (optional)
-Azure Key Vault support importing private certificate in PEM and PFX format. If the PEM file you obtained from your certificate provider doesn't work in section below: [Save certificate in Key Vault](#save-certificate-in-key-vault), follow the steps here to generate a PFX for Azure Key Valut.
+Azure Key Vault support importing private certificate in PEM and PFX format. If the PEM file you obtained from your certificate provider doesn't work in section below: [Save certificate in Key Vault](#save-certificate-in-key-vault), follow the steps here to generate a PFX for Azure Key Vault.
 
 #### Merge intermediate certificates
 
