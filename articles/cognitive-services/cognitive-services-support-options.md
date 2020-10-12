@@ -62,48 +62,40 @@ If you can't find an answer to your problem using search, submit a new question 
 * [Metrics Advisor (preview)]()
 * [Personalizer](https://docs.microsoft.com/answers/topics/azure-personalizer.html)
 
-**Deployment**
-
-* [Containers]()
-
 ## Post a question to Stack Overflow
 
 For answers on your developer questions from the largest community developer ecosystem, ask your question on Stack Overflow.
 
 If you do submit a new question to Stack Overflow, please use one or more of the following tags when you create the question:
 
-* [Cognitive Services](https://go.microsoft.com/fwlink/?linkid=2126464)
+* [Cognitive Services](https://stackoverflow.com/questions/tagged/azure-cognitive-services)
 
 **Vision**
 
-* [Computer Vision]()
-* [Custom Vision]()
-* [Face]()
-* [Form Recognizer]()
-* [Video Indexer]()
+* [Computer Vision](https://stackoverflow.com/search?q=azure+computer+vision)
+* [Custom Vision](https://stackoverflow.com/search?q=azure+custom+vision)
+* [Face](https://stackoverflow.com/search?q=azure+face)
+* [Form Recognizer](https://stackoverflow.com/search?q=azure+form+recognizer)
+* [Video Indexer](https://stackoverflow.com/search?q=azure+video+indexer)
 
 **Language**
 
-* [Immersive Reader]()
-* [Language Understanding (LUIS)]()
-* [QnA Maker]()
-* [Text Analytics]()
-* [Translator]()
+* [Immersive Reader](https://stackoverflow.com/search?q=azure+immersive+reader)
+* [Language Understanding (LUIS)](https://stackoverflow.com/search?q=azure+luis+language+understanding)
+* [QnA Maker](https://stackoverflow.com/search?q=azure+qna+maker)
+* [Text Analytics](https://stackoverflow.com/search?q=azure+text+analytics)
+* [Translator](https://stackoverflow.com/search?q=azure+translator+text)
 
 **Speech**
 
-* [Speech service]()
+* [Speech service](https://stackoverflow.com/search?q=azure+speech)
 
 **Decision**
 
-* [Anomaly Detector]() 
-* [Content Moderator]()
-* [Metrics Advisor (preview)]()
-* [Personalizer]()
-
-**Deployment**
-
-* [Containers]()
+* [Anomaly Detector](https://stackoverflow.com/search?q=azure+anomaly+detector) 
+* [Content Moderator](https://stackoverflow.com/search?q=azure+content+moderator)
+* [Metrics Advisor (preview)](https://stackoverflow.com/search?q=azure+metrics+advisor)
+* [Personalizer](https://stackoverflow.com/search?q=azure+personalizer)
 
 ## Submit feedback on User Voice
 
@@ -136,7 +128,7 @@ To request new features, post them on UserVoice. Share your ideas for making Cog
 Staying informed about features in a new release or news on the Azure blog can help you find the difference between a programming error, a service bug, or a feature not yet available in Cognitive Services.
 
 * Learn more about product updates, roadmap, and announcements in [Azure Updates](https://azure.microsoft.com/updates/?category=ai-machine-learning&query=Azure%20Cognitive%20Services).
-* See what Cognitive Services articles have recently been added or updated in [What's new in docs?]()
+* See what Cognitive Services articles have recently been added or updated in [What's new in docs?](whats-new-docs.md)
 * News about Cognitive Services is shared in the [Azure blog](https://azure.microsoft.com/blog/topics/cognitive-services/).
 * [Join the conversation on Reddit](https://www.reddit.com/r/AZURE/search/?q=Cognitive%20Services&restrict_sr=1) about Cognitive Services.
 
