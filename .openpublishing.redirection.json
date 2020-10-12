@@ -16388,6 +16388,21 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/cosmos-db/how-to-configure-cosmos-db-trigger-logs.md",
+      "redirect_url": "/azure/cosmos-db/how-to-configure-cosmos-db-trigger#enabling-trigger-specific-logs",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cosmos-db/how-to-configure-cosmos-db-trigger-connection-policy.md",
+      "redirect_url": "/azure/cosmos-db/how-to-configure-cosmos-db-trigger#configuring-the-connection-policy",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/documentdb/documentdb-change-feed.md",
+      "redirect_url": "/azure/cosmos-db/change-feed",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/documentdb/table-powershell.md",
       "redirect_url": "/azure/cosmos-db/table-introduction",
       "redirect_document_id": false

@@ -1102,10 +1102,8 @@
           href: troubleshoot-java-async-sdk.md
     - name: Change Feed
       items:
-      - name: Azure Cosmos DB Trigger logs
-        href: how-to-configure-cosmos-db-trigger-logs.md
-      - name: Azure Cosmos DB Trigger connection policy
-        href: how-to-configure-cosmos-db-trigger-connection-policy.md
+      - name: Azure Cosmos DB Trigger advanced configuration
+        href: how-to-configure-cosmos-db-trigger.md
       - name: Multiple Azure Cosmos DB Triggers
         href: how-to-create-multiple-cosmos-db-triggers.md
       - name: Troubleshoot Azure Cosmos DB Triggers
