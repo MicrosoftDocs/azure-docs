@@ -147,7 +147,8 @@ The following Resource Provider modes are currently supported as a **preview**:
   [Azure Key Vault](../../../key-vault/general/overview.md).
 
 > [!NOTE]
-> Resource Provider modes only support built-in policy definitions.
+> Resource Provider modes only support built-in policy definitions and don't support
+> [exemptions](./exemption-structure.md).
 
 ## Metadata
 

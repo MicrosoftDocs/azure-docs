@@ -49,7 +49,7 @@ The reset workflow does not require the user to recall the old password and is u
 
 2. Enter the new password and then confirm it. The supplied password must be between 8 and 16 characters. The password must have 3 of the following characters: uppercase, lowercase, numeric, and special characters. Select **Reset**.
 
-    ![Reset password](media/azure-stack-edge-manage-access-power-connectivity-mode/reset-password-2.png)
+    ![Reset password 2](media/azure-stack-edge-manage-access-power-connectivity-mode/reset-password-2.png)
 
 ## Manage resource access
 
