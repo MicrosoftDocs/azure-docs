@@ -950,6 +950,8 @@
       href: ./domain-joined/apache-domain-joined-architecture.md
     - name: HDInsight virtual network architecture
       href: ./hdinsight-virtual-network-architecture.md
+    - name: Private link
+      href: ./hdinsight-private-link.md
     - name: Transport layer security
       href: ./transport-layer-security.md
     - name: Plan VNETs for HDInsight
