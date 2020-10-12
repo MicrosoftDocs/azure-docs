@@ -34,7 +34,7 @@ composed of:
   - NetOps role has the rights to manage the network environment, including firewall settings, NSG
     settings, routing, and other networking functionality
   - SecOps role has the necessary rights to deploy and manage
-    [Azure Security Center](../../../../security-center/security-center-intro.md), define
+    [Azure Security Center](../../../../security-center/security-center-introduction.md), define
     [Azure Policy](../../../policy/overview.md) definitions, and other security-related rights
   - SysOps role has the necessary rights to define [Azure Policy](../../../policy/overview.md)
     definitions within the subscription, manage

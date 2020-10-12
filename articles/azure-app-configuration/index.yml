@@ -72,6 +72,8 @@ landingContent:
           url: enable-dynamic-configuration-dotnet.md
         - text: Use dynamic config in Azure Functions
           url: enable-dynamic-configuration-azure-functions-csharp.md
+        - text: Use dynamic config in Spring Boot
+          url: enable-dynamic-configuration-java-spring-app.md
       - linkListType: tutorial
         links:  
         - text: Integrate with a CI/CD pipeline

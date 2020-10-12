@@ -124,19 +124,19 @@ To configure Azure AD single sign-on with Namely, perform the following steps:
 
 2. In the toolbar on the top, click **Company**.
    
-    ![Configure Single Sign-On](./media/namely-tutorial/tutorial_namely_06.png) 
+    ![Screenshot shows the Company value selected.](./media/namely-tutorial/tutorial_namely_06.png) 
 
 3. Click the **Settings** tab.
    
-    ![Configure Single Sign-On](./media/namely-tutorial/tutorial_namely_07.png) 
+    ![Screenshot shows the Company Settings tab selected.](./media/namely-tutorial/tutorial_namely_07.png) 
 
 4. Click **SAML**.
    
-    ![Configure Single Sign-On](./media/namely-tutorial/tutorial_namely_08.png) 
+    ![Screenshot shows SAML selected.](./media/namely-tutorial/tutorial_namely_08.png) 
 
 5. On the **SAML Settings** page, perform the following steps:
    
-    ![Configure Single Sign-On](./media/namely-tutorial/tutorial_namely_09.png)
+    ![Screenshot shows SAML Settings where you can enter the values described.](./media/namely-tutorial/tutorial_namely_09.png)
  
     a. Click **Enable SAML**. 
 
@@ -207,15 +207,15 @@ The objective of this section is to create a user called Britta Simon in Namely.
 
 2. In the toolbar on the top, click **People**.
    
-    ![Configure Single Sign-On](./media/namely-tutorial/tutorial_namely_10.png) 
+    ![Screenshot shows the People value selected.](./media/namely-tutorial/tutorial_namely_10.png) 
 
 3. Click the **Directory** tab.
    
-    ![Configure Single Sign-On](./media/namely-tutorial/tutorial_namely_11.png) 
+    ![Screenshot shows the People Directory tab selected.](./media/namely-tutorial/tutorial_namely_11.png) 
 
 4. Click **Add New Person**.
 
-    ![Configure Single Sign-On](./media/namely-tutorial/tutorial_namely_12.png)
+    ![Screenshot shows the Add New Person option.](./media/namely-tutorial/tutorial_namely_12.png)
 
 5. On the **Add New Person** dialog, perform the following steps:
 
