@@ -35,8 +35,8 @@ The following tables list the standard PostgreSQL extensions that are currently 
 > | [lo](https://www.postgresql.org/docs/current/lo.html) | Large Object maintenance. |
 > | [ltree](https://www.postgresql.org/docs/current/static/ltree.html) | Provides a data type for hierarchical tree-like structures. |
 > | [seg](https://www.postgresql.org/docs/current/seg.html) | Data type for representing line segments or floating-point intervals. |
-> | [topn](https://github.com/citusdata/postgresql-topn/) | Type for top-n JSONB. |
 > | [tdigest](https://github.com/tvondra/tdigest) | Data type for on-line accumulation of rank-based statistics such as quantiles and trimmed means. |
+> | [topn](https://github.com/citusdata/postgresql-topn/) | Type for top-n JSONB. |
 
 ### Full-text search extensions
 
