@@ -29,7 +29,7 @@ enterprise-ready foundation. This environment is composed of:
 - Deploy [Log Analytics](../../../../azure-monitor/overview.md) is deployed to ensure all actions
   and services log to a central location from the moment you start your secure deployment in to
   [Storage Accounts](../../../../storage/common/storage-introduction.md) for diagnostic logging
-- Deploy [Azure Security Center](../../../../security-center/security-center-intro.md) (standard
+- Deploy [Azure Security Center](../../../../security-center/security-center-introduction.md) (standard
   version) provides threat protection for your migrated workloads
 - The blueprint also defines and deploys [Azure Policy](../../../policy/overview.md) definitions:
   - Policy definitions:
