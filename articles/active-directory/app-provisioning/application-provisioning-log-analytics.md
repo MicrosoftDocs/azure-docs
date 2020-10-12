@@ -5,7 +5,7 @@ services: active-directory
 author: kenwith
 manager: celestedg
 ms.service: active-directory
-ms.subservice: app-mgmt
+ms.subservice: app-provisioning
 ms.topic: conceptual
 ms.workload: identity
 ms.date: 10/12/2020
