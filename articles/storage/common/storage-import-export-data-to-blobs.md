@@ -156,7 +156,21 @@ az import-export location show --location "West US"
 The following command uses [az import-export create](/cli/azure/ext/import-export/import-export#ext_import_export_az_import_export_create) to create an import job.
 
 ```azurecli
-
+az import-export create \
+    --resource-group myierg \
+    --name MyIEjob1 \
+    --location "West US" \
+    --backup-drive-manifest true \
+    --diagnostics-path waimportexport \
+    --drive-list bit-locker-key=439675-460165-128202-905124-487224-524332-851649-442187 \
+        drive-header-hash= drive-id=AZ31BGB1 manifest-file=\\DriveManifest.xml \
+        manifest-hash=69512026C1E8D4401816A2E5B8D7420D \
+    --type Import \
+    --log-level Verbose \
+    --return-address city=Sunnyvale country-or-region=USA email=gus@contoso.com \
+        phone=4085555555 postal-code=94089 recipient-name="Gus Poland" state-or-province=CA \
+        street-address1="1020 Enterprise way" \
+    --storage-account myssdocsstorage
 ```
 
 Use the [az import-export list](/cli/azure/ext/import-export/import-export#ext_import_export_az_import_export_list) command to see all the jobs for a resource group.
