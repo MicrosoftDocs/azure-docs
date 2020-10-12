@@ -9,7 +9,7 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 10/05/2020
+ms.date: 10/12/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.custom: fasttrack-edit
@@ -433,6 +433,20 @@ The following SAML relying party (RP) scenarios are supported via your own metad
 
 The following SAML relying party (RP) scenarios are unsupported currently:
 * Identity Provider initiated sign on, where the Identity Provider is an external Identity Provider, for example ADFS.
+
+## SAML token customization
+
+A SAML token is a security token that is issued by Azure AD B2C after a successful sign-in. It contains information about the user, and the service provider for which the token is intended, signature, validity time. 
+
+|Elemet  |Property  |Notes  |
+|---------|---------|---------|
+|`<samlp:Response />`| `ID` | An auto generated qunique identifiery or the response. | 
+|`<samlp:Response />` | `IssueInstant` | The time instant of issue of the response. The time value is encoded in UTC.  To change the settings on your token lifetimes, set the `TokenNotBeforeSkewInSeconds` [metadata](saml-issuer-technical-profile.md#metadata) of the SAML token issue technial profile. | 
+|Issuer     | `<samlp:Response><saml:Issuer />` |   Identifies the token issuer. This is an arbitrary URI defined by the SAML token issue's `IssuerUri` [metadata](saml-issuer-technical-profile.md#metadata)     |
+|Row2     |         |         |
+|Row3     |         |         |
+|Row4     |         |         |
+|Row5     |         |         |
 
 ## Next steps
 
