@@ -13,6 +13,7 @@ ms.workload:  infrastructure-services
 ms.date: 06/15/2018
 ms.author: damendo
 ms.reviewer: vinigam
+ms.custom: references_regions
 ---
 
 # Traffic Analytics
