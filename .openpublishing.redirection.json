@@ -4743,32 +4743,17 @@
     },
     {
       "source_path": "articles/iot-edge/how-to-install-iot-edge-windows-with-windows.md",
-      "redirect_url": "/azure/iot-edge/how-to-install-iot-edge-windows",
-      "redirect_document_id": true
+      "redirect_url": "/azure/iot-edge/how-to-install-iot-edge",
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/iot-edge/how-to-install-iot-core.md",
-      "redirect_url": "/azure/iot-edge/how-to-install-iot-edge-windows",
+      "redirect_url": "/azure/iot-edge/how-to-install-iot-edge",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/iot-edge/how-to-install-iot-edge-linux-arm.md",
-      "redirect_url": "/azure/iot-edge/how-to-install-iot-edge-linux",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/iot-edge/how-to-register-device-portal.md",
-      "redirect_url": "/azure/iot-edge/how-to-register-device",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/iot-edge/how-to-register-device-vscode.md",
-      "redirect_url": "/azure/iot-edge/how-to-register-device",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/iot-edge/how-to-register-device-cli.md",
-      "redirect_url": "/azure/iot-edge/how-to-register-device",
+      "redirect_url": "/azure/iot-edge/how-to-install-iot-edge",
       "redirect_document_id": false
     },
     {
@@ -4800,6 +4785,31 @@
       "source_path": "articles/iot-edge/how-to-devops-project.md",
       "redirect_url": "/azure/iot-edge/how-to-devops-starter",
       "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/iot-edge/how-to-install-iot-edge-linux.md",
+      "redirect_url": "/azure/iot-edge/how-to-install-iot-edge",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/iot-edge/how-to-install-iot-edge-windows.md",
+      "redirect_url": "/azure/iot-edge/how-to-install-iot-edge",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/iot-edge/how-to-install-iot-edge-windows-server-vm.md",
+      "redirect_url": "/azure/iot-edge/how-to-install-iot-edge",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/iot-edge/how-to-install-iot-edge-windows-with-linux.md",
+      "redirect_url": "/azure/iot-edge/how-to-install-iot-edge",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/iot-edge/how-to-register-device.md",
+      "redirect_url": "/azure/iot-edge/how-to-manual-provision-symmetric-key",
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/cognitive-services/cognitive-services-recommendations-quick-start.md",

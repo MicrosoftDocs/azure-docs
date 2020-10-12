@@ -24,8 +24,6 @@ You can use [Azure Web App Plugin for Maven](/java/api/overview/azure/maven/azur
 
 Otherwise, your deployment method will depend on your archive type:
 
-::: zone pivot="platform-windows"  
-
 ### Java SE
 
 To deploy .jar files to Java SE, use the `/api/zipdeploy/` endpoint of the Kudu site. For more information on this API, please see [this documentation](./deploy-zip.md#rest).
@@ -34,7 +32,6 @@ To deploy .jar files to Java SE, use the `/api/zipdeploy/` endpoint of the Kudu 
 
 To deploy .war files to Tomcat, use the `/api/wardeploy/` endpoint to POST your archive file. For more information on this API, please see [this documentation](./deploy-zip.md#deploy-war-file).
 
-::: zone-end
 ::: zone pivot="platform-linux"
 
 ### JBoss EAP

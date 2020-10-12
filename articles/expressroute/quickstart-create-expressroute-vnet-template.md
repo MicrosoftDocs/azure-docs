@@ -1,13 +1,13 @@
 ---
-title: Create an ExpressRoute circuit by using an Azure Resource Manager template (ARM template)
-description: Learn how to create an ExpressRoute circuit by using Azure Resource Manager template (ARM template).
+title: 'Quickstart: Create an ExpressRoute circuit by using an Azure Resource Manager template (ARM template)'
+description: This quickstart shows you how to create an ExpressRoute circuit by using Azure Resource Manager template (ARM template).
 services: expressroute
 author: duongau
 mnager: kumud
 ms.service: expressroute
 ms.topic: quickstart
 ms.custom: subject-armsq
-ms.date: 08/31/2020
+ms.date: 10/12/2020
 ms.author: duau
 ---
 
