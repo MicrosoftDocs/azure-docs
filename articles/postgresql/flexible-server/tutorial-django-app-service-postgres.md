@@ -75,7 +75,7 @@ Create a private flexible server and a database inside a virtual network (VNET) 
 ```azurecli
 # Create Flexible server in a VNET
 
-az postgres flexible-server create --resource-group myresourcegroup --location westus2
+az postgres flexible-server create --resource-group myresourcegroup --location westus2 --name <servername> --admin-user bestStork9
 
 ```
 
@@ -115,7 +115,7 @@ az webapp vnet-integration add -g myresourcegroup -n  mywebapp --vnet <vnet-name
 # Configure database information as environment variables
 # Use the postgres server name , database name , username , password for the database created in the previous steps
 
-az webapp config appsettings set --settings DJANGO_ENV="production" DBHOST="<postgres-server-name>.postgres.database.azure.com" DBNAME="postgres" DBUSER="<username>" DBPASS="<password>"
+az webapp flexible-server connect
 ```
 - For the `--location` argument, use the same location as you did for the database in the previous section.
 - Replace *\<app-name>* with a unique name across all Azure (the server endpoint is `https://\<app-name>.azurewebsites.net`). Allowed characters for *\<app-name>* are `A`-`Z`, `0`-`9`, and `-`. A good pattern is to use a combination of your company name and an app identifier.
