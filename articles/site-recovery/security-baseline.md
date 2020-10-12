@@ -35,8 +35,7 @@ Recovery security baseline mapping file](https://github.com/MicrosoftDocs/Securi
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/33680.).
 
-**Guidance**: Microsoft Azure Site Recovery does not support deployment into an Azure Virtual Network. However, It does allow customers to configure the Azure Private Endpoint to allow secure communication from their virtual network to Site Recovery resources.
- 
+**Guidance**: Microsoft Azure Site Recovery does not support deployment into an Azure Virtual Network. Configure Site Recovery service with an Azure Private Endpoint to enforce secure communication over your network.
 
 - [Azure Site Recovery Private Link Support](azure-to-azure-how-to-enable-replication-private-endpoints.md)
 
@@ -62,7 +61,7 @@ Recovery security baseline mapping file](https://github.com/MicrosoftDocs/Securi
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/33689.).
 
-**Guidance**: Use Site Recovery to protect or enable Disaster Recovery on Azure Virtual Machines and associate the virtual machines with a network security group.  Add a description to specify the business need for the rule for traffic documentation.
+**Guidance**: Use Site Recovery to protect or enable Disaster Recovery on Azure Virtual Machines and associate them with a network security group.  Add a description to specify the business need the rule for documenting traffic configurations.
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -73,7 +72,7 @@ Recovery security baseline mapping file](https://github.com/MicrosoftDocs/Securi
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/33690.).
 
-**Guidance**: Use Azure Activity Log to monitor configuration of the network security group or Firewall. Create alerts within Azure Monitor to trigger when changes to resources take place. 
+**Guidance**: Use Azure Activity Log to monitor configuration of the network security group or firewall. Create alerts within Azure Monitor to trigger when changes to resources take place. 
 
 - [View and retrieve Azure Activity Log events](../azure-monitor/platform/activity-log.md#view-the-activity-log)
 
@@ -168,7 +167,7 @@ Enable Azure Activity Log diagnostic settings and send the logs to a Log Analyti
 
 **Guidance**: Site Recovery offers built-in monitoring and alerting capabilities without any additional management infrastructure in a Recovery Services vault. You can also increase the scale of your monitoring and reporting by using Azure Monitor. Site Recovery alerts notify customers to take relevant action on resources. These alerts are defined by Site Recovery service. Custom alert configuration to generate alerts outside of Site Recovery is not supported.
 
-You can also onboard alerts to a Log Analytics workspace to Azure Sentinel as it provides a security orchestration automated response (SOAR) solution. This allows for playbooks (automated solutions) to be created and used to remediate security issues. Additionally, you can create custom log alerts in your Log Analytics workspace using Azure Monitor. 
+Onboard alerts to a Log Analytics workspace to Azure Sentinel as it provides a security orchestration automated response (SOAR) solution. This allows for playbooks (automated solutions) to be created and used to remediate security issues. Additionally, you can create custom log alerts in your Log Analytics workspace using Azure Monitor. 
 
 - [Monitor Site Recovery](site-recovery-monitor-and-troubleshoot.md)
 
@@ -189,7 +188,7 @@ You can also onboard alerts to a Log Analytics workspace to Azure Sentinel as it
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/33701.).
 
-**Guidance**: Azure Active Directory (Azure AD) has built-in roles that must be explicitly assigned and can be queried. Use Azure AD PowerShell module to perform ad hoc queries to discover accounts that are members of administrative groups.
+**Guidance**: Azure Active Directory (Azure AD) has built-in roles that must be queryable and explicitly assigned. Use Azure AD PowerShell modules to perform ad hoc queries to discover accounts that are members of administrative groups.
 
 - [How to get a directory role in Azure AD with PowerShell](https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrole?view=azureadps-2.0)
 
@@ -308,7 +307,7 @@ In addition, use Azure AD risk detections to view alerts and reports on risky us
 
 - [How to create and configure an Azure AD instance](../active-directory/fundamentals/active-directory-access-create-new-tenant.md)
 
-**Azure Security Center monitoring**: Yes
+**Azure Security Center monitoring**: Currently not available
 
 **Responsibility**: Customer
 
@@ -363,19 +362,6 @@ Employ Azure AD's Identity Protection features for account login behavior detect
 - [How to configure and enable Identity Protection risk policies](../active-directory/identity-protection/howto-identity-protection-configure-risk-policies.md)
 
 - [How to onboard Azure Sentinel](../sentinel/quickstart-onboard.md)
-
-**Azure Security Center monitoring**: Not applicable
-
-**Responsibility**: Customer
-
-### 3.13: Provide Microsoft with access to relevant customer data during support scenarios
-
->[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/33713.).
-
-**Guidance**: Not applicable to Site Recovery. It does not store customer data. 
-
-All of Site Recovery's Disaster Recovery data is transferred or stored in customer owned resources. Site Recovery service stores only metadata of customer resources, such as primary location resource and Disaster Recovery location details. Any metadata and customer data is securely transferred from primary to Disaster Recovery location through an end-to-end encrypted channel.
 
 **Azure Security Center monitoring**: Not applicable
 
