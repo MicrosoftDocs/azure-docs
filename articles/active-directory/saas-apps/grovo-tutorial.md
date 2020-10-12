@@ -136,11 +136,11 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 2. Go to **Admin** > **Integrations**.
  
-	![Grovo Configuration](./media/grovo-tutorial/tutorial_grovo_admin.png) 
+	![Screenshot that shows the "Admin" menu with "Integrations" selected.](./media/grovo-tutorial/tutorial_grovo_admin.png) 
 
 3. Click **SET UP** under **SP Initiated SAML 2.0** section.
 
-	![Grovo Configuration](./media/grovo-tutorial/tutorial_grovo_setup.png)
+	![Screenshot that shows the "S P initiated S A M L 2.0" section with the "Set up" button selected.](./media/grovo-tutorial/tutorial_grovo_setup.png)
 
 4. In **SP Initiated SAML 2.0** popup window perform the following steps:
 

@@ -2,14 +2,12 @@
 title: Azure Monitor workbooks text parameters 
 description: Simplify complex reporting with prebuilt and custom parameterized workbooks. Learn more about workbook text parameters.
 services: azure-monitor
-author: mrbullwinkle
 manager: carmonm
 
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 10/23/2019
-ms.author: mbullwin
 ---
 
 # Workbook text parameters
