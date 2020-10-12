@@ -65,7 +65,7 @@ The service definition and config are XML-based files and essentially are the co
 
 For monitoring purposes, It is also recommended to enable network security group flow logs and send the logs to an Azure Storage account for auditing. You can also send the flow logs to a Log Analytics workspace and then use Traffic Analytics to provide insights into traffic patterns in your Azure cloud. Some advantages of Traffic Analytics are the ability to visualize network activity, identify hot spots and security threats, understand traffic flow patterns, and pinpoint network misconfigurations.
 
-../azure-resource-manager/management/deployment-models.md
+- [Azure Resource Manager vs. classic deployment - Understand deployment models and the state of your resources](../azure-resource-manager/management/deployment-models.md)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -82,7 +82,7 @@ Microsoft uses the Transport Layer Security (TLS) protocol v1.2 to protect data 
 
 - [Encryption Fundamentals](../security/fundamentals/encryption-overview.md)
 
-Configure TLS/SSL certificates. cloud-services-configure-ssl-certificate-portal.md
+- [Configure TLS/SSL certificates](cloud-services-configure-ssl-certificate-portal.md)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -102,7 +102,7 @@ You can also prevent incoming traffic to the default URL/name of your Cloud serv
 
 You can also perform a DENY Apply to classic subscription administrator assignments. By default, after an internal endpoint is defined, communication can flow from any role to the internal endpoint of a role without any restrictions. To restrict communication, you must add a NetworkTrafficRules element to the ServiceDefinition element in the service definition file.
 
-https://docs.microsoft.com/azure/cloud-services/cloud-services-connectivity-and-networking-faq?view=vs-2019#how-can-i-blockdisable-incoming-traffic-to-the-default-url-of-my-cloud-service
+- [How can I block/disable incoming traffic to the default URL of my cloud service](https://docs.microsoft.com/azure/cloud-services/cloud-services-connectivity-and-networking-faq?view=vs-2019#how-can-i-blockdisable-incoming-traffic-to-the-default-url-of-my-cloud-service)
 
 - [Azure DDOS protection](https://docs.microsoft.com/azure/cloud-services/cloud-services-connectivity-and-networking-faq?view=vs-2019#how-do-i-prevent-receiving-thousands-of-hits-from-unknown-ip-addresses-that-might-indicate-a-malicious-attack-to-the-cloud-service)
 
@@ -117,11 +117,10 @@ https://docs.microsoft.com/azure/cloud-services/cloud-services-connectivity-and-
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32177.).
 
-**Guidance**: NSG logs are tested and supported. Install the Network Watcher Agent virtual machine extension, and turning on NSG flow logs.
+**Guidance**: Use Azure Network Watcher,  network performance monitoring, diagnostic, and analytics service, that allows monitoring of Azure networks. The Network Watcher Agent virtual machine 
+extension is a requirement for capturing network traffic on demand, and other advanced functionality on Azure virtual machines. Install the Network Watcher Agent virtual machine extension, and turn on NSG flow logs.
 
-Azure Network Watcher is a network performance monitoring, diagnostic, and analytics service that allows monitoring of Azure networks. The Network Watcher Agent virtual machine extension is a requirement for capturing network traffic on demand, and other advanced functionality on Azure virtual machines. The extension is used by features like Connection Monitor, Connection Monitor (Preview), Connection Troubleshoot and Packet Capture.
-
-Configure flow logging on a network security group: "az network watcher flow-log configure" On Linux Virtual Machines, 
+Configure flow logging on a network security group with "az network watcher flow-log configure" on Linux Virtual Machines, 
 
 The following example deploys the Network Watcher Agent VM extension to an existing VM deployed through the classic deployment model:
 
@@ -129,7 +128,7 @@ azure config mode asm
 
 azure vm extension set myVM1 NetworkWatcherAgentLinux Microsoft.Azure.NetworkWatcher 1.4
 
-- [Configure flow logging on a network security group: "az network watcher flow-log configure" On Linux Virtual Machines](../virtual-machines/extensions/network-watcher-linux.md)
+- [Configure flow logging on a network security group - "az network watcher flow-log configure" on Linux Virtual Machines](../virtual-machines/extensions/network-watcher-linux.md)
 
 For more information about configuring flow logs visit
 
@@ -146,11 +145,9 @@ https://docs.microsoft.com/cli/azure/network/watcher/flow-log?view=azure-cli-lat
 
 **Guidance**: Azure has IPS/IDS in datacenter physical servers to defend against threats. Customers can deploy third-party security solutions, such as web application firewalls, network firewalls, antimalware, intrusion detection, prevention systems (IDS/IPS), and more based on requirements. 
 
-Microsoft Antimalware for Azure protects Azure Cloud service (Classic) and virtual machines.
+Microsoft Antimalware for Azure protects Azure Cloud service (Classic) and virtual machines. Azure's multipronged threat-management approach uses intrusion detection, distributed denial-of-service (DDoS) attack prevention, penetration testing, behavioral analytics, anomaly detection, and machine learning to constantly strengthen its defense and reduce risks. 
 
-Azure's multipronged threat-management approach uses intrusion detection, distributed denial-of-service (DDoS) attack prevention, penetration testing, behavioral analytics, anomaly detection, and machine learning to constantly strengthen its defense and reduce risks. 
-
-https://docs.microsoft.com/azure/cloud-services/cloud-services-configuration-and-management-faq?view=vs-2019#what-are-the-features-and-capabilities-that-azure-basic-ipsids-and-ddos-provides
+- [What are the features and capabilities that Azure basic IPS/IDS and DDOS provides](https://docs.microsoft.com/azure/cloud-services/cloud-services-configuration-and-management-faq?view=vs-2019)
 
 - [Protect your data and assets and comply with global security standards](https://www.microsoft.com/trust-center/product-overview)
 
@@ -196,11 +193,13 @@ Generally, to protect web applications and to secure them against attacks such a
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32181.).
 
-**Guidance**: Not applicable to Cloud service (Classic). Azure Policy support is not available for Cloud service (Classic).
+**Guidance**: Harden your Cloud service configuration, and monitor any changes to it. The service
 
-However, it is recommended to harden a Cloud service (Classic) configuration, monitor changes to it. 
+configuration file specifies the number of role instances to deploy for each role in the service, the values of any configuration settings, and the thumbprints for any certificates associated with a role. If the service is part of a Virtual Network, configuration information for the network must be provided in the service configuration file, as well as in the virtual networking configuration file. The default extension for the service configuration file is .cscfg.
 
-The service configuration file specifies the number of role instances to deploy for each role in the service, the values of any configuration settings, and the thumbprints for any certificates associated with a role. If the service is part of a Virtual Network, configuration information for the network must be provided in the service configuration file, as well as in the virtual networking configuration file. The default extension for the service configuration file is .cscfg.
+Note that Azure Policy is not supported Cloud service (Classic) for configuration enforcement.
+
+- [Cloud Services Config file](/azure/cloudservices/schema-cscfg-file)
 
 - [List of services supported by Azure Policy](https://docs.microsoft.com/cli/azure/azure-services-the-azure-cli-can-manage?view=azure-cli-latest)
 
@@ -394,17 +393,6 @@ Get-AzRoleAssignment -IncludeClassicAdministrators
 
 **Responsibility**: Customer
 
-### 3.2: Change default passwords where applicable
-
->[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32195.).
-
-**Guidance**: Not applicable to Cloud service (Classic) as it does not have the concept of common or default passwords.
-
-**Azure Security Center monitoring**: Not applicable
-
-**Responsibility**: Customer
-
 ### 3.3: Use dedicated administrative accounts
 
 >[!NOTE]
@@ -423,9 +411,9 @@ Get-AzRoleAssignment -IncludeClassicAdministrators
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32197.).
 
-**Guidance**: Azure Service Manager supports SSO (managing resources via AAD authentication) – We can update guidance with general guidance for SSO support in ASM
+**Guidance**: Single sign-on makes it possible for people to navigate between the various web apps without having to sign in multiple times. Review the documentation for applications running on cloud services (application code).
 
-We can also link to application specific sso configuration that may run on cloud services
+- [What is single sign-on (SSO)](/azure/activedirectory/manage-apps/what-is-single-sign-on)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -543,11 +531,22 @@ We can also link to application specific sso configuration that may run on cloud
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32207.).
 
-**Guidance**: Tags are not applicable to Cloud service (Classic) as it is based on a Classic deployment model. 
+**Guidance**: Use the Cloud services REST APIs for data protection operations. They could be used to poll the deployed cloud service resources to get the configuration and .pkg resources.
 
-It is generally recommended to protect sensitive information including the certificate private keys along with its location, and the name of the store where it is located. For example, to run a Cloud service (Classic) web role with Transport Layer Security (TLS), you must ensure that your exported management certificate includes the private key.
+ Some examples APIs are listed below. It is recommended that customers create a process to assist in tracking sensitive information with these API operations. 
+- Get Deployment: The Get Deployment operation returns configuration information, status, and system properties for a deployment.
 
-- [Exported certificate does not include private key](cloud-services-troubleshoot-common-issues-which-cause-roles-recycle.md#exported-certificate-does-not-include-private-key)
+- Get Package: The Get Package operation retrieves a cloud service package for a deployment and stores the package files in Microsoft Azure Blob storage
+
+- Get Cloud Service Properties: The Get Cloud Service Properties operation retrieves properties for the specified cloud service
+
+Review the Cloud Services REST APIs documentation and create a process for data protection of sensitive information, based on your business requirements.
+
+- [Get Deployment](/rest/api/compute/cloudservices/rest-get-deployment)
+
+- [Get Cloud Service Properties](/rest/api/compute/cloudservices/rest-get-cloud-service-properties)
+
+- [Get Package](/rest/api/compute/cloudservices/rest-get-package)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -658,9 +657,7 @@ For the underlying platform which is managed by Microsoft, Microsoft treats all 
 
 **Guidance**: Cloud service (classic) does not support encryption at rest. This is because Cloud services are designed for persistent storage to be an external resource (for example, Azure Storage) which can all be encrypted at rest. 
 
-However, the Cloud services metadata's properties are stored. 
-
-In addition, user metadata, (for example, attached disks), are stored and it is the customers responsibility to manage it.  
+Cloud services metadata's and user metadata, for example, attached disks, are stored. The customer is responsible to manage it.  
 
 **Azure Security Center monitoring**: Not applicable
 
