@@ -16,7 +16,7 @@ In this article, you'll learn how to register a public application in Azure Acti
 
 Client application registrations are Azure Active Directory representations of applications that can authenticate and ask for API permissions on behalf of a user. Public clients are applications such as mobile applications and single page JavaScript applications that can't keep secrets confidential. The procedure is similar to [registering a confidential client](register-confidential-azure-ad-client-app.md), but since public clients can't be trusted to hold an application secret, there's no need to add one.
 
-The Quickstart provides general information on  how to [register an application with the Microsoft identity platform](https://docs.microsoft.com/en-us/azure/active-directory/develop/quickstart-register-app).
+The quickstart provides general information about how to [register an application with the Microsoft identity platform](https://docs.microsoft.com/azure/active-directory/develop/quickstart-register-app).
 
 ## App registrations in Azure portal
 
@@ -37,16 +37,16 @@ The Quickstart provides general information on  how to [register an application 
     ![Azure portal. New public App Registration.](media/how-to-aad/portal-aad-register-new-app-registration-PUB-CLIENT-NAME.png)
 
 
-To Configure your [desktop](https://docs.microsoft.com/en-us/azure/active-directory/develop/scenario-desktop-app-registration), [mobile](https://docs.microsoft.com/en-us/azure/active-directory/develop/scenario-mobile-app-registration) or [single-page](https://docs.microsoft.com/en-us/azure/active-directory/develop/scenario-spa-app-registration) application as public application:
+To configure your [desktop](https://docs.microsoft.com/azure/active-directory/develop/scenario-desktop-app-registration), [mobile](https://docs.microsoft.com/azure/active-directory/develop/scenario-mobile-app-registration) or [single-page](https://docs.microsoft.com/azure/active-directory/develop/scenario-spa-app-registration) application as public application:
 
-1. In the [Azure portal](https://portal.azure.com), select your app in App registrations, and then select Authentication.
+1. In the [Azure portal](https://portal.azure.com), in **App registrations**, select your app, and then select **Authentication**.
 
-2. In Advanced settings > Default client type > Treat application as a public client, select Yes.
+2. Select **Advanced settings** > **Default client type**. For **Treat application as a public client**, select **Yes**.
 
-For single-page application, select Access tokens and ID Tokens to enable implicit flow.
+3. For a single-page application, select **Access tokens** and **ID tokens** to enable implicit flow.
 
-- If your application signs in users, select ID tokens.
-- If your application also needs to call a protected web API, select Access tokens.
+   - If your application signs in users, select **ID tokens**.
+   - If your application also needs to call a protected web API, select **Access tokens**.
 
 ## API permissions
 
