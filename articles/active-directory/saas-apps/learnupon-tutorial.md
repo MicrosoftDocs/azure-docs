@@ -125,15 +125,15 @@ To configure Azure AD single sign-on with LearnUpon, perform the following steps
 
 1. Click the **settings** tab.
 
-    ![Configure Single Sign-On](./media/learnupon-tutorial/tutorial_learnupon_06.png)
+    ![Screenshot shows the settings tab.](./media/learnupon-tutorial/tutorial_learnupon_06.png)
 
 1. Click **Single Sign On - SAML**, and then click **General Settings** to configure SAML settings.
    
-    ![Configure Single Sign-On](./media/learnupon-tutorial/tutorial_learnupon_07.png) 
+    ![Screenshot shows Single Sign On - SAML selected with General Settings selected.](./media/learnupon-tutorial/tutorial_learnupon_07.png) 
 
 1. In the **General Settings** section, perform the following steps:
    
-    ![Configure Single Sign-On](./media/learnupon-tutorial/tutorial_learnupon_08.png)  
+    ![Screenshot shows the General Settings section where you can enter the values described.](./media/learnupon-tutorial/tutorial_learnupon_08.png)  
   
 	a. Select **Enabled**.
 
@@ -153,7 +153,7 @@ To configure Azure AD single sign-on with LearnUpon, perform the following steps
 
 1. Click **User Settings**, and then perform the following steps:
 
-     ![Configure Single Sign-On](./media/learnupon-tutorial/tutorial_learnupon_11.png)  
+     ![Screenshot shows the User Settings section where you can enter the values described.](./media/learnupon-tutorial/tutorial_learnupon_11.png)  
 
 	a. In the **First Name Identifier Format** textbox, type the value that tells us where in your SAML Assertion the users firstname resides - for example: `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname`.
   

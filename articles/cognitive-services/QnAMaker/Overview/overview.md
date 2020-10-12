@@ -78,9 +78,9 @@ QnA Maker provides authoring, training, and publishing along with collaboration 
 
 We offer quickstarts in most popular programming languages, each designed to teach you basic design patterns, and have you running code in less than 10 minutes. See the following list for the quickstart for each feature.
 
-* [Get started with the LUIS client library](../quickstarts/quickstart-sdk.md)
-* [Get started with the LUIS portal](../quickstarts/create-publish-knowledge-base.md)
-* [Get started with the LUIS REST APis](../quickstarts/quickstart-rest-curl.md)
+* [Get started with QnA Maker client library](../quickstarts/quickstart-sdk.md)
+* [Get started with QnA Maker portal](../quickstarts/create-publish-knowledge-base.md)
+* [Get started with QnA Maker REST APis](../quickstarts/quickstart-rest-curl.md)
 
 
 ## Next steps

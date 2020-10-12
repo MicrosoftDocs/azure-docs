@@ -109,7 +109,7 @@ IoT Edge components can be installed or updated individually, and are backwards 
 | **1.0.6** | 1.0.6.1<br>1.0.6 | 1.0.6.1<br>1.0.6 | 1.0.6.1<br>1.0.6 |  |
 | **1.0.5** | 1.0.5 | 1.0.5 | 1.0.5 | 3.0.2 |
 
-IoT Edge uses the Microsoft.Azure.Device.Client SDK. For more information, see the [Azure IoT C# SDK GitHub repo](https://github.com/Azure/azure-iot-sdk-csharp) or the [Azure SDK for .NET reference content](https://docs.microsoft.com/dotnet/api/overview/azure/iot/client?view=azure-dotnet). The following list shows the version of the client SDK that each release is tested against:
+IoT Edge uses the Microsoft.Azure.Device.Client SDK. For more information, see the [Azure IoT C# SDK GitHub repo](https://github.com/Azure/azure-iot-sdk-csharp) or the [Azure SDK for .NET reference content](/dotnet/api/overview/azure/iot/client). The following list shows the version of the client SDK that each release is tested against:
 
 * **IoT Edge 1.0.9**: Client SDK 1.21.1
 * **IoT Edge 1.0.8**: Client SDK 1.20.3
