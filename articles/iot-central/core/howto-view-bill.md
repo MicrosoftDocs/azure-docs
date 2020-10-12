@@ -1,8 +1,8 @@
 ---
 title: Manage your bill and convert from the free pricing plan in Azure IoT Central application | Microsoft Docs
 description: As an administrator, learn how to manage your bill and move from the free pricing plan to a standard pricing plan in your Azure IoT Central application
-author: v-krghan
-ms.author: v-krghan
+author: dobett
+ms.author: dobett
 ms.date: 12/09/2019
 ms.topic: how-to
 ms.service: iot-central

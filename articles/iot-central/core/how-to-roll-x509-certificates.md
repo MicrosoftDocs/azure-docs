@@ -1,8 +1,8 @@
 ---
 title: Roll X.509 certificates in Azure IoT Central
 description: How to roll X.509 certificates with your IoT Central Application
-author: v-krghan
-ms.author: v-krghan
+author: dobett
+ms.author: dobett
 ms.date: 07/31/2020
 ms.topic: how-to
 ms.service: iot-central
