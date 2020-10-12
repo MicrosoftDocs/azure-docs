@@ -2,7 +2,7 @@
 title: Azure security baseline for Azure Lighthouse
 description: The Azure Lighthouse security baseline provides procedural guidance and resources for implementing the security recommendations specified in the Azure Security Benchmark.
 author: msmbaldwin
-ms.service: security
+ms.service: azure-lighthouse
 ms.topic: conceptual
 ms.date: 01/01/2000
 ms.author: mbaldwin
