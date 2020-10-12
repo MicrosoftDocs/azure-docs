@@ -9,7 +9,7 @@ ms.author: rgarcia
 
 In **Solution Explorer**, right-click the **SharingService** project, and then select **Publish**.
 
-   The Publish Wizard starts. 
+The Publish Wizard starts. 
 
 Select **App Service** > **Publish** to open the **Create App Service** pane.
 
