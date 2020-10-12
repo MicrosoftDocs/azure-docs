@@ -21,7 +21,7 @@ The **Localization** element enables you to support multiple locales or language
 
 ## Sign-up or sign-in page elements
 
-The following IDs are used for a content definition with an ID of `api.signuporsignin`.
+The following IDs are used for a content definition with an ID of `api.signuporsignin`, and [self-asserted technical profile](self-asserted-technical-profile.md).
 
 | ID | Default value |
 | -- | ------------- |
@@ -89,7 +89,7 @@ The following example localizes the Facebook identity provider to Arabic:
 
 ## Sign-up and self-asserted pages user interface elements
 
-The following are the IDs for a content definition with an ID of `api.localaccountsignup` or any content definition that starts with `api.selfasserted`, such as `api.selfasserted.profileupdate` and `api.localaccountpasswordreset`.
+The following are the IDs for a content definition with an ID of `api.localaccountsignup` or any content definition that starts with `api.selfasserted`, such as `api.selfasserted.profileupdate` and `api.localaccountpasswordreset`, and [self-asserted technical profile](self-asserted-technical-profile.md).
 
 | ID | Default value |
 | -- | ------------- |
@@ -151,7 +151,7 @@ The following example shows the use of some of the user interface elements in th
 
 ## Phone factor authentication page user interface elements
 
-The Following are the IDs for a content definition with an ID of `api.phonefactor`.
+The Following are the IDs for a content definition with an ID of `api.phonefactor`, and [phone factor technical profile](phone-factor-technical-profile.md).
 
 | ID | Default value |
 | -- | ------------- |
