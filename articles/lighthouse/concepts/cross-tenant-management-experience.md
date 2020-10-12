@@ -1,7 +1,7 @@
 ---
 title: Cross-tenant management experiences
 description: Azure delegated resource management enables a cross-tenant management experience.
-ms.date: 10/09/2020
+ms.date: 10/12/2020
 ms.topic: conceptual
 ---
 
@@ -35,7 +35,7 @@ Similarly, Azure CLI commands such as [az account list](/cli/azure/account#az-ac
 In the Azure REST API, the [Subscriptions - Get](/rest/api/resources/subscriptions/get) and [Subscriptions - List](/rest/api/resources/subscriptions/list) commands include `ManagedByTenant`.
 
 > [!NOTE]
-> Tenant info shown by these APIs may also reflect tenant management via Azure Databricks or Azure managed applications.
+> In addition to tenant information related to Azure Lighthouse, tenants shown by these APIs may also reflect partner tenants for Azure Databricks or Azure managed applications.
 
 We also provide APIs that are specific to performing Azure Lighthouse tasks. For more info, see the **Reference** section.
 
