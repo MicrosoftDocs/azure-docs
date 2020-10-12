@@ -32,6 +32,7 @@ Once finished, you can follow the recommended next steps at the end of this arti
 * Optionally review [VMware HCX Deployment Considerations](https://docs.vmware.com/en/VMware-HCX/services/install-checklist/GUID-C0A0E820-D5D0-4A3D-AD8E-EEAA3229F325.html).
 * Optionally review related VMware materials on HCX, such as the VMware vSphere [blog series](https://blogs.vmware.com/vsphere/2019/10/cloud-migration-series-part-2.html) on HCX. 
 * Optionally request an Azure VMware Solution HCX Enterprise activation through Azure VMware Solution support channels.
+* Optionally [review network ports required for HCX](https://ports.vmware.com/home/VMware-HCX).
 * To deploy the WAN Interconnect appliance, specific CIDR ranges are already allocated from the customer provided `\22` for the private cloud creating.
 
 Sizing workloads against compute and storage resources is an essential planning step. Address the sizing step as part of the initial private cloud environment planning. 

@@ -12,7 +12,7 @@ ms.date: 04/29/2020
 
 # Safely manage Python environment on Azure HDInsight using Script Action
 
-HDInsight has two built-in Python installations in the Spark cluster, Anaconda Python 2.7 and Python 3.5. Customers may need to customize the Python environment. Like installing external Python packages or another Python version. Here, we show the best practice of safely managing Python environments for Apache Spark clusters on HDInsight.
+HDInsight has two built-in Python installations in the Spark cluster, Anaconda Python 2.7 and Python 3.5. Customers may need to customize the Python environment like installing external Python packages. Here, we show the best practice of safely managing Python environments for Apache Spark clusters on HDInsight.
 
 ## Prerequisites
 
