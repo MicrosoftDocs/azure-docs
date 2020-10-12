@@ -69,7 +69,7 @@ After creating your DevOps Starter, you can:
 
 ## Getting started with DevOps Starter
 
-* [Get started with DevOps Starter](https://docs.microsoft.com/azure/devops-project/azure-devops-project-github)
+* [Get started with DevOps Starter](./azure-devops-project-github.md)
 
 ##  DevOps Starter videos
 

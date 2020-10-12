@@ -658,6 +658,8 @@
             href: app/javascript-react-plugin.md
           - name: React Native plugin
             href: app/javascript-react-native-plugin.md 
+          - name: Angular plugin
+            href: app/javascript-angular-plugin.md
         - name: Troubleshoot
           items: 
           - name: SDK load failure 
@@ -749,8 +751,6 @@
       - name: Availability alerts
         displayname: alerts, global, alerting
         href: app/availability-alerts.md
-      - name: Performance testing
-        href: app/performance-testing.md
       - name: Troubleshooting
         displayname: availability, troubleshoot, troubleshoot availability
         href: app/troubleshoot-availability.md

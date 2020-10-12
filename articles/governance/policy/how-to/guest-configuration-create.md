@@ -265,10 +265,10 @@ New-GuestConfigurationPackage `
 ```
 
 After creating the Configuration package but before publishing it to Azure, you can test the package
-from your workstation or CI/CD environment. The GuestConfiguration cmdlet
-`Test-GuestConfigurationPackage` includes the same agent in your development environment as is used
-inside Azure machines. Using this solution, you can do integration testing locally before releasing
-to billed cloud environments.
+from your workstation or continuous integration and continuous deployment (CI/CD) environment. The
+GuestConfiguration cmdlet `Test-GuestConfigurationPackage` includes the same agent in your
+development environment as is used inside Azure machines. Using this solution, you can do
+integration testing locally before releasing to billed cloud environments.
 
 Since the agent is actually evaluating the local environment, in most cases you need to run the
 Test- cmdlet on the same OS platform as you plan to audit. The test only uses modules that are
@@ -294,7 +294,7 @@ The cmdlet also supports input from the PowerShell pipeline. Pipe the output of
 New-GuestConfigurationPackage -Name AuditBitlocker -Configuration ./Config/AuditBitlocker.mof | Test-GuestConfigurationPackage
 ```
 
-The next step is to publish the file to blob storage. The script below contains a function you can
+The next step is to publish the file to Azure Blob Storage. The script below contains a function you can
 use to automate this task. The commands used in the `publish` function require the `Az.Storage`
 module.
 

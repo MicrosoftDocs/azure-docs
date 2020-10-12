@@ -117,15 +117,15 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 10. Under the **Mappings** section, select **Synchronize Azure Active Directory Users to 4me**.
 
-	![4me User Mappings](media/4me-provisioning-tutorial/4me-user-mapping.png)
+	:::image type="content" source="media/4me-provisioning-tutorial/4me-user-mapping.png" alt-text="Screenshot of the Mappings page. Under Name, Synchronize Azure Active Directory Users to FourMe is highlighted." border="false":::
 	
 11. Review the user attributes that are synchronized from Azure AD to 4me in the **Attribute Mapping** section. The attributes selected as **Matching** properties are used to match the user accounts in 4me for update operations. Please ensure that [4me supports filtering](https://developer.4me.com/v1/scim/users/) on the matching attribute you have chosen. Select the **Save** button to commit any changes.
 
-	![4me User Mappings](media/4me-provisioning-tutorial/4me-user-attributes.png)
+	:::image type="content" source="media/4me-provisioning-tutorial/4me-user-attributes.png" alt-text="Screenshot of the Attribute Mappings page. A table lists Azure Active Directory attributes, corresponding FourMe attributes, and the matching status." border="false":::
 	
 12. Under the **Mappings** section, select **Synchronize Azure Active Directory Groups to 4me**.
 
-	![4me User Mappings](media/4me-provisioning-tutorial/4me-group-mapping.png)
+	:::image type="content" source="media/4me-provisioning-tutorial/4me-group-mapping.png" alt-text="Screenshot of the Mappings page. Under Name, Synchronize Azure Active Directory Groups to FourMe is highlighted." border="false":::
 	
 13. Review the group attributes that are synchronized from Azure AD to 4me in the **Attribute Mapping** section. The attributes selected as **Matching** properties are used to match the groups in 4me for update operations. Select the **Save** button to commit any changes.
 

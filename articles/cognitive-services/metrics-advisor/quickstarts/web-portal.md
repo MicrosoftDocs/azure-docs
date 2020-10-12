@@ -36,7 +36,7 @@ This document uses a SQL Database as an example for creating your first monitor.
 
 ## Sign in to your workspace
 
-After your resource is deployed created, sign in to [Metrics Advisor portal](https://go.microsoft.com/fwlink/?linkid=2143774). Select your workspace to start monitoring your metrics. 
+After your resource is created, sign in to [Metrics Advisor portal](https://go.microsoft.com/fwlink/?linkid=2143774). Select your workspace to start monitoring your metrics. 
  
 Currently you can create one Metrics Advisor resource at each available region. You can switch workspaces in Metrics Advisor portal at any time.
 

@@ -138,7 +138,7 @@ If your subscription includes numerous web apps, enabling the service at the lev
 
 Pre-requisites:
 
-- PowerShell Az Module. Follow instructions at [Install the Azure PowerShell module](/powershell/azure/install-az-ps?view=azps-2.6.0)
+- PowerShell Az Module. Follow instructions at [Install the Azure PowerShell module](/powershell/azure/install-az-ps)
 
 Run the following script:
 

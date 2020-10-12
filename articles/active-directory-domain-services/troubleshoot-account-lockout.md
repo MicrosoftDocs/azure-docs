@@ -2,7 +2,7 @@
 title: Troubleshoot account lockout in Azure AD Domain Services | Microsoft Docs
 description: Learn how to troubleshoot common problems that cause user accounts to be locked out in Azure Active Directory Domain Services.
 services: active-directory-ds
-author: iainfoulds
+author: MicrosoftGuyJFlo
 manager: daveba
 
 ms.service: active-directory
@@ -10,7 +10,7 @@ ms.subservice: domain-services
 ms.workload: identity
 ms.topic: troubleshooting
 ms.date: 07/06/2020
-ms.author: iainfou
+ms.author: joflore
 
 #Customer intent: As a directory administrator, I want to troubleshoot why user accounts are locked out in an Azure Active Directory Domain Services managed domain.
 ---

@@ -1,6 +1,8 @@
 ---
 title: Design knowledge base - QnA Maker
 description: A QnA Maker knowledge base consists of a set of question-and-answer (QnA) pairs and optional metadata associated with each QnA pair.
+ms.service: cognitive-services
+ms.subservice: qna-maker
 ms.topic: reference
 ms.date: 09/01/2020
 ---

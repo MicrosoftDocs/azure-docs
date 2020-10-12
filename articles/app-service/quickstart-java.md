@@ -253,26 +253,24 @@ az group delete --name <your resource group name; for example: helloworld-155840
 This command may take a minute to run.
 
 ## Next steps
-> [!div class="nextstepaction"]
-> [Connect to Azure SQL Database with Java](../azure-sql/database/connect-query-java.md?toc=%2fazure%2fjava%2ftoc.json)
-
-> [!div class="nextstepaction"]
-> [Connect to Azure DB for MySQL with Java](../mysql/connect-java.md)
 
 > [!div class="nextstepaction"]
 > [Connect to Azure DB for PostgreSQL with Java](../postgresql/connect-java.md)
 
 > [!div class="nextstepaction"]
+> [Set up CI/CD](deploy-continuous-deployment.md)
+
+> [!div class="nextstepaction"]
+> [Pricing Information](https://azure.microsoft.com/pricing/details/app-service/linux/)
+
+> [!div class="nextstepaction"]
+> [Aggregate Logs and Metrics](troubleshoot-diagnostic-logs.md)
+
+> [!div class="nextstepaction"]
+> [Scale up](manage-scale-up.md)
+
+> [!div class="nextstepaction"]
 > [Azure for Java Developers Resources](/java/azure/)
 
 > [!div class="nextstepaction"]
-> [Configure Java app](configure-language-java.md)
-
-> [!div class="nextstepaction"]
-> [CI/CD with Jenkins](/azure/developer/jenkins/deploy-to-azure-app-service-using-plugin)
-
-> [!div class="nextstepaction"]
-> [Map custom domain](app-service-web-tutorial-custom-domain.md)
-
-> [!div class="nextstepaction"]
-> [Learn More about Maven plugins for Azure](https://github.com/microsoft/azure-maven-plugins)
+> [Configure your Java app](configure-language-java.md)

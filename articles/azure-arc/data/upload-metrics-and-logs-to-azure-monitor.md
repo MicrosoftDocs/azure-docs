@@ -16,7 +16,7 @@ ms.topic: how-to
 Periodically you can export out usage information for billing purposes, monitoring metrics, and logs and then upload it to Azure.  The export and upload of any of these three types of data will also create and update the data controller, SQL managed instance, and PostgreSQL Hyperscale server group resources in Azure.
 
 > [!NOTE] 
-During the preview period, there is no cost for using Azure Arc enabled data services.
+> During the preview period, there is no cost for using Azure Arc enabled data services.
 
 ## Prerequisites
 
