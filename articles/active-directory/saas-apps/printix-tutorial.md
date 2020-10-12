@@ -56,19 +56,19 @@ To configure the integration of Printix into Azure AD, you need to add Printix f
 
 1. Navigate to **Enterprise applications**. Then go to **All applications**.
 
-	![Applications][2]
+	![Screenshot shows the Azure portal Enterprise Applications selected under Manage, with All applications selected.][2]
 	
 1. To add new application, click **New application** button on the top of dialog.
 
-	![Applications][3]
+	![Screenshot shows New application selected.][3]
 
 1. In the search box, type **Printix**.
 
-	![Creating an Azure AD test user](./media/printix-tutorial/tutorial_printix_search.png)
+	![Screenshot shows searching for Printix in the Add from the gallery dialog box.](./media/printix-tutorial/tutorial_printix_search.png)
 
 1. In the results panel, select **Printix**, and then click **Add** button to add the application.
 
-	![Creating an Azure AD test user](./media/printix-tutorial/tutorial_printix_addfromgallery.png)
+	![Screenshot shows the Printix option selected.](./media/printix-tutorial/tutorial_printix_addfromgallery.png)
 
 ##  Configuring and testing Azure AD single sign-on
 In this section, you configure and test Azure AD single sign-on with Printix based on a test user called "Britta Simon".
@@ -93,15 +93,15 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 1. In the Azure portal, on the **Printix** application integration page, click **Single sign-on**.
 
-	![Configure Single Sign-On][4]
+	![Screenshot shows Single sign-on selected under Manage in the Azure portal.][4]
 
 1. On the **Single sign-on** dialog, select **Mode** as	**SAML-based Sign-on** to enable single sign-on.
  
-	![Configure Single Sign-On](./media/printix-tutorial/tutorial_printix_samlbase.png)
+	![Screenshot shows SAML-based Sign-on Mode selected.](./media/printix-tutorial/tutorial_printix_samlbase.png)
 
 1. On the **Printix Domain and URLs** section, perform the following steps:
 
-	![Configure Single Sign-On](./media/printix-tutorial/tutorial_printix_url.png)
+	![Screenshot shows the Printix Domain and URLs section where you can specify a U R L for sign-on.](./media/printix-tutorial/tutorial_printix_url.png)
 
     In the **Sign-on URL** textbox, type a URL using the following pattern: `https://<subdomain>.printix.net`
 
@@ -110,33 +110,33 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
  
 1. On the **SAML Signing Certificate** section, click **Metadata XML** and then save the metadata file on your computer.
 
-	![Configure Single Sign-On](./media/printix-tutorial/tutorial_printix_certificate.png) 
+	![Screenshot shows the SAML Signing Certificate pane where you can download a certificate.](./media/printix-tutorial/tutorial_printix_certificate.png) 
 
 1. Click **Save** button.
 
-	![Configure Single Sign-On](./media/printix-tutorial/tutorial_general_400.png)
+	![Screenshot shows the Save button.](./media/printix-tutorial/tutorial_general_400.png)
 
 1. Sign-on to your Printix tenant as an administrator.
 
 1. In the menu on the top, click the icon at the upper right corner and select "**Authentication**".
    
-    ![Configure Single Sign-On](./media/printix-tutorial/tutorial_printix_06.png)
+    ![Screenshot shows Authentication selected from the menu.](./media/printix-tutorial/tutorial_printix_06.png)
 
 1. On the **Setup** tab, select **Enable Azure/Office 365 authentication**
    
-    ![Configure Single Sign-On](./media/printix-tutorial/tutorial_printix_07.png)
+    ![Screenshot shows the Printix.net page where you can select Enable Azure/Office 365 authentication.](./media/printix-tutorial/tutorial_printix_07.png)
 
 1. On the **Azure** tab, input federation metadata URL to the textbox of "**Federation metadata document**". 
 
     Attach the metadata xml file which you downloaded from Azure AD to [Printix support team](mailto:support@printix.net). Then they upload the xml file and provide a federation metadata URL.
    
-    ![Configure Single Sign-On](./media/printix-tutorial/tutorial_printix_08.png)
+    ![Screenshot shows the Printix.net page where you can specify a Federation metadata document.](./media/printix-tutorial/tutorial_printix_08.png)
    
 1. Click the "**Test**" button and click "**OK**" button if the test was successful.
    
      Azure active directory page will show after clicking the **test** button. "The test was successful" here means after entering the credentials of your Azure test account it will pop up a message "Settings tested OK".Then click the **OK** button.
    
-    ![Configure Single Sign-On](./media/printix-tutorial/tutorial_printix_09.png)
+    ![Screenshot shows the results of the test.](./media/printix-tutorial/tutorial_printix_09.png)
 
 1. Click the **Save** button on "**Authentication**" page.
 
@@ -190,25 +190,25 @@ There is no action item for you in this section. A new user is created during an
 
 In this section, you enable Britta Simon to use Azure single sign-on by granting access to Printix.
 
-![Assign User][200] 
+![Screenshot shows a user with default access.][200] 
 
 **To assign Britta Simon to Printix, perform the following steps:**
 
 1. In the Azure portal, open the applications view, and then navigate to the directory view and go to **Enterprise applications** then click **All applications**.
 
-	![Assign User][201] 
+	![Screenshot shows the Azure portal Enterprise Applications selected under Manage, with All applications selected.][201] 
 
 1. In the applications list, select **Printix**.
 
-	![Configure Single Sign-On](./media/printix-tutorial/tutorial_printix_app.png) 
+	![Screenshot shows the application list where you can select Printix.](./media/printix-tutorial/tutorial_printix_app.png) 
 
 1. In the menu on the left, click **Users and groups**.
 
-	![Assign User][202] 
+	![Screenshot shows Users and groups selected from the Manage menu, with All users selected.][202] 
 
 1. Click **Add** button. Then select **Users and groups** on **Add Assignment** dialog.
 
-	![Assign User][203]
+	![Screenshot shows the Add button and the Add Assignment page where you can select Users and Groups.][203]
 
 1. On **Users and groups** dialog, select **Britta Simon** in the Users list.
 
