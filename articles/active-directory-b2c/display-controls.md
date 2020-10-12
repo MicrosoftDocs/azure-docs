@@ -9,7 +9,7 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 12/10/2019
+ms.date: 10/12/2020
 ms.author: mimart
 ms.subservice: B2C
 ---
@@ -51,9 +51,9 @@ The **DisplayControl** element contains the following elements:
 
 | Element | Occurrences | Description |
 | ------- | ----------- | ----------- |
-| InputClaims | 0:1 | **InputClaims** are used to prepopulate the value of the claims to be collected from the user. |
-| DisplayClaims | 0:1 | **DisplayClaims** are used to represent claims to be collected from the user. |
-| OutputClaims | 0:1 | **OutputClaims** are used to represent claims to be saved temporarily for this **DisplayControl**. |
+| InputClaims | 0:1 | **InputClaims** are used to prepopulate the value of the claims to be collected from the user. For more information, see [InputClaims](technicalprofiles.md#inputclaims) element. |
+| DisplayClaims | 0:1 | **DisplayClaims** are used to represent claims to be collected from the user. For more information, see [DisplayClaim](technicalprofiles.md#displayclaim) element.|
+| OutputClaims | 0:1 | **OutputClaims** are used to represent claims to be saved temporarily for this **DisplayControl**. For more information, see [OutputClaims](technicalprofiles.md#outputclaims) element.|
 | Actions | 0:1 | **Actions** are used to list the validation technical profiles to invoke for user actions happening at the front-end. |
 
 ### Input claims
@@ -93,6 +93,65 @@ To bubble up the output claims to the next orchestration step, use the **OutputC
 The **Actions** of a display control are procedures that occur in the Azure AD B2C back end when a user performs a certain action on the client side (the browser). For example, the validations to perform when the user selects a button on the page.
 
 An action defines a list of **validation technical profiles**. They are used for validating some or all of the display claims of the display control. The validation technical profile validates the user input and may return an error to the user. You can use **ContinueOnError**, **ContinueOnSuccess**, and **Preconditions** in the display control Action similar to the way they're used in [validation technical profiles](validation-technical-profile.md) in a self asserted technical profile.
+
+#### Actions
+
+The **Actions** element contains the following element:
+
+| Element | Occurrences | Description |
+| ------- | ----------- | ----------- |
+| Action | 1:n | List of actions to be executed. |
+
+#### Action
+
+The **Action** element contains the following attribute:
+
+| Attribute | Required | Description |
+| --------- | -------- | ----------- |
+| Id | Yes | The type of the operation. Possible values: `SendCode`, or `VerifyCode`. The `SendCode` sends a code to the user. This action usually contains two validation technical profile, to generate a code and to send it. The `VerifyCode` verifies the code. This action usually contains a single validation technical profile.|
+
+The **Action** element contains the following elements:
+
+| Element | Occurrences | Description |
+| ------- | ----------- | ----------- |
+| ValidationClaimsExchange | 1:1 | The identifiers of technical profiles that are used validate some or all of the output claims of the referencing technical profile. All of the input claims of the referenced technical profile must appear in the output claims of the referencing technical profile. |
+
+#### ValidationClaimsExchange
+
+The **ValidationClaimsExchange** element contains the following elements:
+
+| Element | Occurrences | Description |
+| ------- | ----------- | ----------- |
+| ValidationTechnicalProfile | 1:n | A technical profile to be used for validating some or all of the output claims of the referencing technical profile. |
+
+The **ValidationTechnicalProfile** element contains the following attribute:
+
+| Attribute | Required | Description |
+| --------- | -------- | ----------- |
+| ReferenceId | Yes | An identifier of a technical profile already defined in the policy or parent policy. |
+|ContinueOnError|No| Indicating whether validation of any subsequent validation technical profiles should continue if this validation technical profile raises an error. Possible values: `true` or `false` (default, processing of further validation profiles will stop and an error returned). |
+|ContinueOnSuccess | No | Indicating whether validation of any subsequent validation profiles should continue if this validation technical profile succeeds. Possible values: `true` or `false`. The default is `true`, meaning that the processing of further validation profiles will continue. |
+
+The **ValidationTechnicalProfile** element contains the following element:
+
+| Element | Occurrences | Description |
+| ------- | ----------- | ----------- |
+| Preconditions | 0:1 | A list of preconditions that must be satisfied for the validation technical profile to execute. |
+
+The **Precondition** element contains the following attribute:
+
+| Attribute | Required | Description |
+| --------- | -------- | ----------- |
+| `Type` | Yes | The type of check or query to perform for the precondition. Either `ClaimsExist` is specified to ensure that actions should be performed if the specified claims exist in the user's current claim set, or `ClaimEquals` is specified that the actions should be performed if the specified claim exists and its value is equal to the specified value. |
+| `ExecuteActionsIf` | Yes | Indicates whether the actions in the precondition should be performed if the test is true or false. |
+
+The **Precondition** element contains following elements:
+
+| Element | Occurrences | Description |
+| ------- | ----------- | ----------- |
+| Value | 1:n | The data that is used by the check. If the type of this check is `ClaimsExist`, this field specifies a ClaimTypeReferenceId to query for. If the type of check is `ClaimEquals`, this field specifies a ClaimTypeReferenceId to query for. While another value element contains the value to be checked.|
+| Action | 1:1 | The action that should be taken if the precondition check within an orchestration step is true. The value of the **Action** is set to `SkipThisValidationTechnicalProfile`. Specifies that the associated validation technical profile should not be executed. |
+
 
 The following example sends a code either in email or SMS based on the user's selection of the **mfaType** claim.
 
