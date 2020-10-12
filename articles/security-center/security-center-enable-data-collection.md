@@ -138,20 +138,16 @@ When you select a workspace in which to store your data, all the workspaces acro
 Selecting a data collection tier in Azure Security Center will only affect the storage of security events in your Log Analytics workspace. The Log Analytics agent will still collect and analyze the security events required for Azure Security Center’s threat protection, regardless of which tier of security events you choose to store in your Log Analytics workspace (if any). Choosing to store security events in your workspace will enable investigation, search, and auditing of those events in your workspace. 
 > [!NOTE]
 > Storing data in log analytics might incur additional charges for data storage. For more information, see the [pricing page](https://azure.microsoft.com/pricing/details/security-center/).
-> 
-> You can choose the right filtering policy for your subscriptions and workspaces from four sets of events to be stored in your workspace: 
 
+You can choose the right filtering policy for your subscriptions and workspaces from four sets of events to be stored in your workspace: 
 - **None** – Disable security event storage. This is the default setting.
 - **Minimal** – A smaller set of events for customers who want to minimize the event volume.
 - **Common** – This is a set of events that satisfies most customers and allows them a full audit trail.
 - **All events** – For customers who want to make sure all events are stored.
 
+These security events sets are available only with Azure Defender. See [Pricing](security-center-pricing.md) to learn more about Security Center's pricing tiers.
 
-> [!NOTE]
-> These security events sets are available only with Azure Defender. See [Pricing](security-center-pricing.md) to learn more about Security Center's pricing tiers.
 These sets were designed to address typical scenarios. Make sure to evaluate which one fits your needs before implementing it.
->
->
 
 To determine the events that will belong to the **Common** and **Minimal** event sets, we worked with customers and industry standards to learn about the unfiltered frequency of each event and their usage. We used the following guidelines in this process:
 
