@@ -18,7 +18,7 @@ The Text Analytics API is updated on an ongoing basis. To stay up-to-date with r
 
 ## October 2020
 
-* Hindi support for Sentiment Analysis v3, starting with model version `2020-04-01`. 
+* Hindi support for Sentiment Analysis v3.x, starting with model version `2020-04-01`. 
 
 ## September 2020
 
