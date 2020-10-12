@@ -110,7 +110,8 @@ If the value is false, then it means the request is responded from origin shield
 `AzureDiagnostics 
 | where Category == "FrontdoorAccessLog" and isReceivedFromClient_b == true`
 
-**Note:** For various routing configurations and traffic behaviors, some of the fields like backendHostname, cacheStatus, isReceivedFromClient, and POP field may respond with different values. The below table explains the different values these fields will have for various scenarios:
+> [!NOTE]
+> For various routing configurations and traffic behaviors, some of the fields like backendHostname, cacheStatus, isReceivedFromClient, and POP field may respond with different values. The below table explains the different values these fields will have for various scenarios:
 
 | Scenarios | Count of log entries | POP | BackendHostname | isReceivedFromClient | CacheStatus |
 | ------------- | ------------- | ------------- | ------------- | ------------- | ------------- |
@@ -121,7 +122,8 @@ If the value is false, then it means the request is responded from origin shield
 | Routing rule with caching enabled. Cache PARTIAL_HIT at edge POP but cache hit at parent cache POP | 2 | 1. Edge POP code</br>2. Parent cache POP code | 1. Edge POP code</br>2. Parent cache POP code | 1. True</br>2. False | 1. PARTIAL_HIT</br>2. HIT |
 | Routing rule with caching enabled. Cache miss at both edge and parent cache POPP | 2 | 1. Edge POP code</br>2. Parent cache POP code | 1. Edge POP code</br>2. Parent cache POP code | 1. True</br>2. False | 1. MISS</br>2. MISS |
 
-**Note:** For caching scenarios, the value for Cache Status will be partial_hit when some of the bytes for a request get served from Front Door edge or origin shield cache while some of the bytes get served from the origin for large objects.
+> [!NOTE]
+> For caching scenarios, the value for Cache Status will be partial_hit when some of the bytes for a request get served from Front Door edge or origin shield cache while some of the bytes get served from the origin for large objects.
 
 Front Door uses a technique called object chunking. When a large file is requested, the Front Door retrieves smaller pieces of the file from the origin. After the Front Door POP server receives a full or byte-ranges of the file requested, the Front Door edge server requests the file from the origin in chunks of 8 MB.
 
