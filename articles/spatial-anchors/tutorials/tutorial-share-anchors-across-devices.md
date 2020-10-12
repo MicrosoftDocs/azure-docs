@@ -11,11 +11,11 @@ ms.topic: tutorial
 ms.service: azure-spatial-anchors
 ---
 
-# Tutorial: Share Azure spatial anchors across sessions and devices
+# Tutorial: Share spatial anchors across sessions and devices
 
 Azure Spatial Anchors is a cross-platform developer service with which you can create mixed-reality experiences by using objects that persist their location across devices over time. 
 
-In this tutorial, you use [Azure Spatial Anchors](../overview.md) to create anchors during one session and then locate them on the same device or a different one. The same anchors can also be located by multiple devices in the same place and at the same time. Anchors that you create in one instance can be shared to other instances.
+In this tutorial, you use [Azure Spatial Anchors](../overview.md) to create anchors during one session and then locate them on the same device or a different one. The same anchors can also be located by multiple devices in the same place and at the same time.
 
 ![Animation showing spatial anchors that are created with a mobile device and used with a different device over the course of days.](./media/persistence.gif)
 
@@ -96,7 +96,7 @@ To deploy the sharing service through Visual Studio Code, follow the instruction
 
 In this tutorial, you deployed an ASP.NET Core web app in Azure, and you configured and deployed a Unity app. You created spatial anchors with the app, and you shared them with other devices by using your ASP.NET Core web app.
 
-You can improve your ASP.NET Core web app so that it uses Azure Cosmos DB to persist the storage of your shared Spatial Anchors identifiers. By adding Azure Cosmos DB support, you can have your ASP.NET Core web app create an anchor today and then, by using the anchor identifier that's stored in your web app, you can have the app return days later to locate the anchor again.
+You can improve your ASP.NET Core web app so that it uses Azure Cosmos DB to persist the storage of your shared spatial anchors identifiers. By adding Azure Cosmos DB support, you can have your ASP.NET Core web app create an anchor today and then, by using the anchor identifier that's stored in your web app, you can have the app return days later to locate the anchor again.
 
 > [!div class="nextstepaction"]
 > [Use Azure Cosmos DB to store anchors](./tutorial-use-cosmos-db-to-store-anchors.md)
