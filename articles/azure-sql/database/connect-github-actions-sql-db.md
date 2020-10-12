@@ -37,7 +37,7 @@ The file has two sections:
 
 ## Generate deployment credentials
 
-You can create a [service principal](../active-directory/develop/app-objects-and-service-principals.md) with the [az ad sp create-for-rbac](/cli/azure/ad/sp?view=azure-cli-latest#az-ad-sp-create-for-rbac&preserve-view=true) command in the [Azure CLI](/cli/azure/). Run this command with [Azure Cloud Shell](https://shell.azure.com/) in the Azure portal or by selecting the **Try it** button.
+You can create a [service principal](../../active-directory/develop/app-objects-and-service-principals.md) with the [az ad sp create-for-rbac](/cli/azure/ad/sp?view=azure-cli-latest#az-ad-sp-create-for-rbac&preserve-view=true) command in the [Azure CLI](/cli/azure/). Run this command with [Azure Cloud Shell](https://shell.azure.com/) in the Azure portal or by selecting the **Try it** button.
 
 Replace the placeholders `server-name` with the name of your SQL server hosted on Azure. Replace the `subscription-id` and `resource-group` with the subscription ID and resource group connected to your SQL server.  
 
@@ -47,7 +47,7 @@ Replace the placeholders `server-name` with the name of your SQL server hosted o
                             --sdk-auth
 ```
 
-The output is a JSON object with the role assignment credentials that provide access to your database similar to below. Copy this output JSON object for later.
+The output is a JSON object with the role assignment credentials that provide access to your database similar to this example. Copy your output JSON object for later.
 
 ```output 
   {
@@ -64,13 +64,13 @@ The output is a JSON object with the role assignment credentials that provide ac
 
 ## Copy the SQL connection string 
 
-In the Azure Portal, go to your Azure SQL Database and open **Settings** > **Connection strings**. Copy the **ADO.NET** connection string. Replace the placeholder values for `your_database` and `your_password`. The connection string will look similar to this. 
+In the Azure portal, go to your Azure SQL Database and open **Settings** > **Connection strings**. Copy the **ADO.NET** connection string. Replace the placeholder values for `your_database` and `your_password`. The connection string will look similar to this output. 
 
 ```output
     Server=tcp:my-sql-server.database.windows.net,1433;Initial Catalog={your-database};Persist Security Info=False;User ID={admin-name};Password={your-password};MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;
 ```
 
-You will use the connection string as a GitHub secret. 
+You'll use the connection string as a GitHub secret. 
 
 ## Configure the GitHub secrets
 
