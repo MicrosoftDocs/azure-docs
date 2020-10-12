@@ -110,7 +110,7 @@ To receive a stream of tweets, you must create an application in Twitter. Follow
 
 3. In the application page, select the **Keys and Access Tokens** tab and copy the values for **Consumer Key** and **Consumer Secret**. Also, select **Create my access token** to generate the access tokens. Copy the values for **Access Token** and **Access Token Secret**.
 
-    ![Twitter application details](../media/tutorials/twitter-app-key-secret.png "Twitter application details")
+    ![Twitter application details 2](../media/tutorials/twitter-app-key-secret.png "Twitter application details")
 
 Save the values that you retrieved for the Twitter application. You need the values later in the tutorial.
 
