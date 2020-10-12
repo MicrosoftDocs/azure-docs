@@ -45,7 +45,7 @@ keywords: text to speech
 [!INCLUDE [REST include](includes/how-to/text-to-speech-basics/text-to-speech-basics-curl.md)]
 ::: zone-end
 
-::: zone pivot="programming-language-spx"
+::: zone pivot="programmer-tool-spx"
 [!INCLUDE [CLI Basics include](includes/how-to/text-to-speech-basics/text-to-speech-basics-cli.md)]
 ::: zone-end
 
