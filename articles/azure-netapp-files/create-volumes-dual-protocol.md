@@ -23,7 +23,7 @@ Azure NetApp Files supports creating volumes using NFS (NFSv3 and NFSv4.1), SMBv
 
 ## Before you begin 
 
-* You must have already set up a capacity pool.  
+* You must have already created a capacity pool.  
     See [Set up a capacity pool](azure-netapp-files-set-up-capacity-pool.md).   
 * A subnet must be delegated to Azure NetApp Files.  
     See [Delegate a subnet to Azure NetApp Files](azure-netapp-files-delegate-subnet.md).
@@ -33,18 +33,19 @@ Azure NetApp Files supports creating volumes using NFS (NFSv3 and NFSv4.1), SMBv
 * Ensure that you meet the [Requirements for Active Directory connections](azure-netapp-files-create-volumes-smb.md#requirements-for-active-directory-connections). 
 * Create a reverse lookup zone on the DNS server and then add a pointer (PTR) record of the AD host machine in that reverse lookup zone. Otherwise, the dual-protocol volume creation will fail.
 * Ensure that the NFS client is up to date and running the latest updates for the operating system.
-* Ensure that the Active Directory (AD) LDAP server is up and running on the AD. This is done by installing and configuring the [Active Directory Lightweight Directory Services (AD LDS)](/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/hh831593(v=ws.11)) role on the AD machine.
+* Ensure that the Active Directory (AD) LDAP server is up and running on the AD. You can do so by installing and configuring the [Active Directory Lightweight Directory Services (AD LDS)](/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/hh831593(v=ws.11)) role on the AD machine.
 * Ensure that a certificate authority (CA)  is created on the AD using the [Active Directory Certificate Services (AD CS)](/windows-server/networking/core-network-guide/cncg/server-certs/install-the-certification-authority) role to generate and export the self-signed root CA certificate.   
 * Dual-protocol volumes do not currently support Azure Active Directory Domain Services (AADDS).  
 * The NFS version used by a dual-protocol volume is NFSv3. As such, the following considerations apply:
     * Dual protocol does not support the Windows ACLS extended attributes `set/get` from NFS clients.
-    * NFS clients cannot change permissions for the NTFS security style, and Windows clients cannot change permissions for UNIX-style dual-protocol volumes. 
-    The table below describes the security styles and their effects:  
+    * NFS clients cannot change permissions for the NTFS security style, and Windows clients cannot change permissions for UNIX-style dual-protocol volumes.   
+
+    The following table describes the security styles and their effects:  
     
     | Security style 	| Clients that can modify permissions 	| Permissions that clients can use 	| Resulting effective security style 	| Clients that can access files 	|
     |-	|-	|-	|-	|-	|
-    | UNIX 	| NFS 	| NFSv3 mode bits 	| UNIX 	| NFS and CIFS	|
-    | NTFS 	| CIFS 	| NTFS ACLs 	| NTFS 	|NFS and CIFS|
+    | UNIX 	| NFS 	| NFSv3 mode bits 	| UNIX 	| NFS and Windows	|
+    | NTFS 	| Windows 	| NTFS ACLs 	| NTFS 	|NFS and Windows|
 
 ## Create a dual-protocol volume
 
