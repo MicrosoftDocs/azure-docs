@@ -73,7 +73,7 @@ Note that the installer for .NET 4.6.1 may require more temporary storage during
     </Startup>
 ```
 
-## .Net Development experience
+## .NET development experience
 
 ### Multi-database applications
 
@@ -166,9 +166,9 @@ The following sample Transact-SQL code uses [BEGIN DISTRIBUTED TRANSACTION](http
     GO
 ```
 
-## Combining .Net and Transact-SQL development experience
+## Combining .NET and Transact-SQL development experience
 
-.Net applications that use System.Transaction classes can combine TransactionScope class with Transact-SQL statement BEGIN DISTRIBUTED TRANSACTION. Within TransactionScope, inner transaction that executes BEGIN DITRIBUTED TRANSACTION will explicitely be promoted to distributed transaction. Also, when second SqlConnecton is opened within the TransactionScope it will be implicitly promoted to distributed transaction. Once distributed transaction is started, all subsequent transactions requests, whether they are comming from .NET or Transact-SQL, will join the parent distributed transaction. As consequence all nested transaction scopes initiated by BEGIN statement will end up in same transaction and COMMIT/ROLLBACK statements will have following effect on overall outcome:
+.NET applications that use System.Transaction classes can combine TransactionScope class with Transact-SQL statement BEGIN DISTRIBUTED TRANSACTION. Within TransactionScope, inner transaction that executes BEGIN DITRIBUTED TRANSACTION will explicitely be promoted to distributed transaction. Also, when second SqlConnecton is opened within the TransactionScope it will be implicitly promoted to distributed transaction. Once distributed transaction is started, all subsequent transactions requests, whether they are comming from .NET or Transact-SQL, will join the parent distributed transaction. As consequence all nested transaction scopes initiated by BEGIN statement will end up in same transaction and COMMIT/ROLLBACK statements will have following effect on overall outcome:
  * COMMIT statement will not have any effect on transaction scope initiated by BEGIN statement, i.e. no results will be committed before Complete() method is invoked on TransactionScope object. If TransactionScope object is destroyed before being completed, all changes done within the scope are rolled back.
  * ROLLBACK statement will cause entire TransactionScope to roll back. Any attempts to enlist new transactions within TransactionScope will fail afterwards, as well as attempt to invoke Complete() on TransactionScope object.
 
@@ -238,7 +238,7 @@ Use the following PowerShell cmdlets to manage cross-server communication relati
 
 ## Transactions across multiple servers for Azure SQL Managed Instance
 
-Distributed transactions are supported across different servers in Azure SQL Managed Instance. When transactions cross Managed Instance boundaries, the participating instances first need to be entered into a mutual security and communication relationship. This is done by setting up [Server trust group](https://aka.ms/mitrusted-groups) which can be done on Azure Portal.
+Distributed transactions are supported across different servers in Azure SQL Managed Instance. When transactions cross Managed Instance boundaries, the participating instances first need to be entered into a mutual security and communication relationship. This is done by setting up [Server Trust Group](https://aka.ms/mitrusted-groups) which can be done on Azure portal.
 
   ![Server Trust Groups on Azure Portal][3]
 
@@ -273,7 +273,8 @@ The following limitations currently apply to distributed transactions in Managed
   ![Private endpoint connectivity limitation][4]
 ## Next steps
 
-For questions, please reach out to us on the [Microsoft Q&A question page for SQL Database](https://docs.microsoft.com/answers/topics/azure-sql-database.html). For feature requests, please add them to the [SQL Database feedback forum](https://feedback.azure.com/forums/217321-sql-database/) or [Managed Instance forum](https://feedback.azure.com/forums/915676-sql-managed-instance).
+* For questions, please reach out to us on the [Microsoft Q&A question page for SQL Database](https://docs.microsoft.com/answers/topics/azure-sql-database.html).
+* For feature requests, please add them to the [SQL Database feedback forum](https://feedback.azure.com/forums/217321-sql-database/) or [Managed Instance forum](https://feedback.azure.com/forums/915676-sql-managed-instance).
 
 
 
