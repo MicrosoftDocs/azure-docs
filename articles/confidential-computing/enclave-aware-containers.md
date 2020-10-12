@@ -48,7 +48,7 @@ Get started with ML model lift and shift to ONNX runtime [here](https://aka.ms/c
 
 ### Edgeless RT
 
-Edgeless RT is an open-source project that builds upon the Open Enclave SDK. It adds support for Go and additional C++ features. Get started with a simple confidential Go application using your familiar VS Code environment [here](https://github.com/edgelesssys/edgelessrt). For Edgeless applications on AKS follow instruction [here] (https://github.com/edgelesssys/edgelessrt/blob/master/docs/ERTAzureAKSDeployment.md)
+Edgeless RT is an open-source project that builds upon the Open Enclave SDK. It adds support for Go and additional C++ features. Get started with a simple confidential Go application using your familiar VS Code environment [here](https://github.com/edgelesssys/edgelessrt). For Edgeless applications on AKS follow instructions [here](https://github.com/edgelesssys/edgelessrt/blob/master/docs/ERTAzureAKSDeployment.md)
 
 
 ## Container Based Sample Implementations
