@@ -45,7 +45,13 @@ If you need to create a Babylon account, follow the instructions in [Create an A
 
 ## Configuration 
 
-Complete the following steps to set up and configure your Babylon and AWS accounts to begin scanning your Amazon S3 buckets. The configuration process includes allowing scan access to your AWS S3 buckets, set up and configuration of Babylon to scan your Amazon S3 buckets, and commencing your first scans. 
+Complete the following steps to set up and configure your Babylon and AWS accounts, and begin scanning your Amazon S3 buckets. 
+
+The configuration process includes:
+
+- Allowing scan access to your AWS S3 buckets
+- Set-up and configuration of Babylon to scan your Amazon S3 buckets
+- Starting your first scans
 
 ## Configure Amazon S3 bucket scanning for Babylon  
 
@@ -54,28 +60,28 @@ To complete configuring access for this service to your Amazon S3 buckets, follo
 1. Launch the Babylon portal using the dedicated Babylon connector for Amazon S3 URL provided to you by the Babylon connector product management team. 
     ![Launch Connector for Amazon S3 dedicated Babylon portal](./media/setup-configuration-connector-amazon-s3/babylon-portal-amazons3.png)
  
-1. Open the Azure Babylon **Management Center**, **Data Sources** page and select **+ New**, choose **New data source** and from the **All** tab,  select **Amazon S3**, then click **Continue**. 
+1. Open the Azure Babylon **Management Center**, **Data Sources** page and select **+ New**, choose **New data source** and from the **All** tab,  select **Amazon S3**, then select **Continue**. 
     ![Add new Amazon S3 data source in Babylon](./media/setup-configuration-connector-amazon-s3/add-s3-datasource-to-babylon.png)
 
-1. In the page that opens, give the new Amazon S3 bucket a **Friendly name** of your choice, then copy the [Bucket name](#retrieve-your-amazon-s3-bucket-url) and [Role ARN](#create-a-new-role-in-aws-for-babylon) you previously copied from your Amazon account into their respective fields, and click **Finish**. 
+1. In the page that opens, give the new Amazon S3 bucket a **Friendly name** of your choice, then copy the [Bucket name](#retrieve-your-amazon-s3-bucket-url) and [Role ARN](#create-a-new-role-in-aws-for-babylon) you previously copied from your Amazon account into their respective fields. When you're done, select **Finish**. 
     ![Finish adding new Amazon S3 data source in Babylon](./media/setup-configuration-connector-amazon-s3/finish-adding-s3-datasource-to-babylon.png)
 1. Your new Amazon S3 bucket is now ready for scanning in Babylon.
 
 ### Give Babylon scan access to your Amazon S3 buckets
 
-In order for Babylon to be able to scan your Amazon S3 buckets, you’ll need to set up your Microsoft scanner account in AWS, and then grant it the the access permissions required within Amazon. Follow these easy steps to allow Babylon scan access to your standard Amazon S3 buckets:
+In order for Babylon to be able to scan your Amazon S3 buckets, you’ll need to set up your Microsoft scanner account in AWS, and then grant it the access permissions required within Amazon. Follow these easy steps to allow Babylon scan access to your standard Amazon S3 buckets:
 
 For Amazon S3 buckets that are protected with AWS-KMS encryption, complete the following process and then refer to [Configure scanning of encrypted Amazon S3 buckets](#configure-scanning-of-encrypted-amazon-s3-buckets) for specific instructions. 
 
 ### Create a new role in AWS for Babylon
 
-1.	Open your **Amazon Web Services** console, and under **Security, Identity and Compliance**, select **IAM**.
+1.	Open your **Amazon Web Services** console, and under **Security, Identity, and Compliance**, select **IAM**.
 1. Choose **Roles** and then **Create role**.
 1. Choose **Another AWS account**. In the **Account ID** field, paste the following value as your **Microsoft Account ID** 181328463391.
 ![Add Microsoft Account ID to your AWS account](./media/setup-configuration-connector-amazon-s3/aws-create-role-amazons3.png)
 1. In the permissions step, filter permissions to **S3** and select **AmazonS3ReadOnlyAccess**, then select **Next:Tags**.
 ![Select **ReadOnlyAccess policy** for the new Amazon S3 scanning role](./media/setup-configuration-connector-amazon-s3/aws-permission-role-amazons3.png)
-1. In the **Add Tag** option, you can optionally choose to  create a meaningful tag for this new role. Useful tags enable you to organize, track and control access for each role you create. When finished, click **Next:Review** to review the role details and complete creation.
+1. In the **Add Tag** option, you can optionally choose to  create a meaningful tag for this new role. Useful tags enable you to organize, track, and control access for each role you create. When finished, click **Next:Review** to review the role details and complete creation.
 ![Add a meaningful tag to organize, track, or control access for your new role](./media/setup-configuration-connector-amazon-s3/add-tag-new-role.png) 
 1. In the **Review** screen, review the role details to confirm all details, confirm the correct policy was attached, optionally add a description to identify the purpose of the role, then click **Create role** to finish creating the new role.  
 ![Review role before creating](./media/setup-configuration-connector-amazon-s3/review-role.png)   
@@ -84,7 +90,7 @@ For Amazon S3 buckets that are protected with AWS-KMS encryption, complete the f
 
 After creating the role, you'll need to locate and copy the related Role ARN to Babylon.
 
-1. From the Identity and Access Management (IAM) Dashboard, select and open the new role you created the in the previous step.
+1. From the Identity and Access Management (IAM) Dashboard, select, and open the new role you created in the previous step.
 1. On the role **Summary** page, select the copy option for the **Role ARN**. 
 ![Copy Role ARN from Amazon to configure Babylon scanning](./media/setup-configuration-connector-amazon-s3/copy-role-arn.png)
 1. Place the copied **Role ARN** into the Babylon **Role ARN** field for the Amazon S3 bucket you wish to scan.  
@@ -96,35 +102,36 @@ After creating the role, you'll need to locate and copy the related Role ARN to 
 
 AWS buckets support different encryption types. For buckets that use **AWS-KMS** encryption, special configuration is required to enable scanning. For buckets that use no encryption, AES-256 or AWS-KMS S3 encryption, skip this section and continue to [Retrieving your Bucket URL from Amazon](#retrieve-your-amazon-s3-bucket-url). 
 
-To check the type of encryption used in your Amazon S3 buckets, do the following: 
+**To check the type of encryption used in your Amazon S3 buckets:** 
+
 1. Open your Amazon S3 **Buckets** menu.
     ![Amazon Bucket menu](./media/setup-configuration-connector-amazon-s3/check-encryption-type-buckets.png) 
-1. Click on you desired bucket to check the encryption type and then select **Properties**.
+1. Select a bucket to check the encryption type and then select **Properties**.
 1. Select **Default encryption**.
     ![Amazon S3 bucket properties](./media/setup-configuration-connector-amazon-s3/default-encryption-buckets.png)
-- Within default encryption, 3 options are listed:
+- Within default encryption, the following options are listed:
     - None (no encryption applied)
     - Encrypted with **AES-256**
     - Encrypted with **AWS-KMS**
 
-- If the bucket you selected is configured with either **No encruption** or **AES-256**, you'll skip the rest of this section and proceed to scanning according to [Configuring AWS scanning](#give-babylon-scan-access-to-your-amazon-s3-buckets) . 
+- If the bucket you selected is configured with either **No encryption** or **AES-256**, you'll skip the rest of this section and proceed to scanning according to [Configuring AWS scanning](#give-babylon-scan-access-to-your-amazon-s3-buckets) . 
 - If your bucket is encrypted with **AWS-KMS**, you’ll need to configure scanning your encrypted bucket by adding a new policy that allows the scanner to decrypt the bucket before starting the scan. Remember that decryption is *only* performed for the purpose of scanning.   
 
 To add the new policy that will allow scanning of a bucket encrypted with custom **AWS-KMS**:
 1. Go to **Services** >  **IAM** >  **Policies**. 
     ![Create policy](./media/setup-configuration-connector-amazon-s3/create-iam-policies.png) 
-1. Click on Create Policy, and in the Service option, choose KMS. 
+1. Select **Create Policy,** and in the **Service** option, select **KMS.** 
     ![Create policy for KMS](./media/setup-configuration-connector-amazon-s3/kms-create-policy.png)
 1. Under **Access level**, select **Write**, and check only the **Decrypt** option. 
     ![Create policy for decryption of KMS](./media/setup-configuration-connector-amazon-s3/create-decrypt-kms.png)
 1. Under **Resource** choose a specific resource or select **All resources**.  
-1. Click **Review policy** and make sure to give the new policy a meaningful name, then click **Create policy**. 
+1. Select **Review policy** and make sure to give the new policy a meaningful name, then select **Create policy**. 
     ![Finish Create policy for decryption of KMS](./media/setup-configuration-connector-amazon-s3/finish-create-decrypt-kms.png)
 1. The newly created policy is added to your list of policies.
 1. Go to **IAM** > **Roles** – now choose the role you added for scanning. 
     ![Choose the new role your added for scanning](./media/setup-configuration-connector-amazon-s3/choose-scanning-role.png)
 1. Click **Attach policies**.  
-1. In the **Attach Permissions** page that opens, filter and choose your newly created policy and attach the new policy to this role. When the policy is selected, click, **Attach policy**. 
+1. In the **Attach Permissions** page that opens, filter, and choose your newly created policy and attach the new policy to this role. When the policy is selected, select **Attach policy**. 
     ![Attach policy to the new role](./media/setup-configuration-connector-amazon-s3/attach-policy-role.png)
 10.	In the summary page you’ll see the new policy attached to the role, together with the **Amazon S3ReadOnlyAccess** Policy.
 
