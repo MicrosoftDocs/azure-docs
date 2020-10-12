@@ -210,7 +210,7 @@ For dedicated SQL pool, you can create a table as a new empty table. You can als
 
 ## Align source data with the data warehouse
 
-Deducated SQL pool tables are populated by loading data from another data source. To achieve a successful load, the number and data types of the columns in the source data must align with the table definition in the data warehouse.
+Dedicated SQL pool tables are populated by loading data from another data source. To achieve a successful load, the number and data types of the columns in the source data must align with the table definition in the data warehouse.
 
 > [!NOTE]
 > Getting the data to align might be the hardest part of designing your tables.
