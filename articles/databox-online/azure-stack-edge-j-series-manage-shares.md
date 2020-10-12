@@ -10,7 +10,7 @@ ms.topic: how-to
 ms.date: 08/28/2020
 ms.author: alkohli
 ---
-# Use the Azure portal to manage shares on your Azure Stack Edge Pro
+# Use Azure portal to manage shares on your Azure Stack Edge Pro
 
 <!--[!INCLUDE [applies-to-skus](../../includes/azure-stack-edge-applies-to-all-sku.md)]-->
 
