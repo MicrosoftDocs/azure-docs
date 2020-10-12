@@ -388,7 +388,7 @@ The following exhausts possible configuration options within the file:
             "graphApiVersion": "v3.3",
             "login": {
                 "scopes": [
-                    "profile",
+                    "public_profile",
                     "email"
                 ]
             },
