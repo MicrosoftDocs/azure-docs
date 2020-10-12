@@ -186,7 +186,7 @@ Perform the following steps in the [Azure portal](https://portal.azure.com/) to 
    
    5. Click **Add** to create the share. 
     
-       ![Add a share](./media/storsimple-virtual-array-deploy3-fs-setup/deployfs18m.png)
+       ![Add a share 1](./media/storsimple-virtual-array-deploy3-fs-setup/deployfs18m.png)
    
        You are notified that the share creation is in progress.
    
