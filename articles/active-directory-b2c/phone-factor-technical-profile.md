@@ -9,7 +9,7 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 03/31/2020
+ms.date: 10/12/2020
 ms.author: mimart
 ms.subservice: B2C
 ---
@@ -96,7 +96,7 @@ The **CryptographicKeys** element is not used.
 
 ### UI elements
 
-The phone factor authentication page user interface elements can be [localized](localization-string-ids.md#azure-mfa-error-messages).
+The phone factor authentication page user interface elements can be [localized](localization-string-ids.md#phone-factor-authentication-page-user-interface-elements).
 
 ## Next steps
 
