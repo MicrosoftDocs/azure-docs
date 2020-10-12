@@ -32,7 +32,7 @@ See the [quickstart](quickstarts/intent-recognition.md) to get started with spee
 
 ## Sample code
 
-* [Quickstart: Use prebuilt Home automation app](https://docs.microsoft.com/en-us/azure/cognitive-services/luis/luis-get-started-create-app)
+* [Quickstart: Use prebuilt Home automation app](https://docs.microsoft.com/azure/cognitive-services/luis/luis-get-started-create-app)
 * [Recognize intents from speech using the Speech SDK for C#](https://docs.microsoft.com/azure/cognitive-services/speech-service/how-to-recognize-intents-from-speech-csharp)
 * [Intent recognition and other Speech services using Unity in C#](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/samples/unity/speechrecognizer)
 * [Recognize intents using Speech SDK for Python](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/samples/python/console)
