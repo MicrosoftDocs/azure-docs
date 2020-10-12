@@ -267,10 +267,10 @@ The following limitations currently apply to distributed transactions in Managed
 
 * Only transactions across databases in Managed Instance are supported. Other [X/Open XA](https://en.wikipedia.org/wiki/X/Open_XA) resource providers and databases outside of Azure SQL Managed Instance can't participate in distributed transactions. That means that distributed transactions can't stretch across on premises SQL Server and Azure SQL Managed Instance. For distributed transactions on premises, continue to use MSDTC.
 * Transactions across WCF services aren't supported. For example, you have a WCF service method that executes a transaction. Enclosing the call within a transaction scope will fail as a [System.ServiceModel.ProtocolException](https://msdn.microsoft.com/library/system.servicemodel.protocolexception).
-* Managed Instances that participate in distributed transactions need to have visibility over private endpoint (using private IP address from the virtual network where they are deployed) and need to be mutually referenced using private FQDNs. Client applications that rely on Transact-SQL can use either private or public endpoint to run transactions against all instances within the Server Trust Group.
 * Azure SQL Managed Instance must to be part of a [Server trust group](https://aka.ms/mitrusted-groups) in order to participate in distributed transaction.
 * Limitations of [Server trust groups](https://aka.ms/mitrusted-groups) affect distributed transactions.
-
+* Managed Instances that participate in distributed transactions need to have connectivity over private endpoint (using private IP address from the virtual network where they are deployed) and need to be mutually referenced using private FQDNs. Client applications that rely on Transact-SQL can use either private or public endpoint to run transactions against all instances within the Server Trust Group. This limitation is explained on the following diagram.
+  ![Private endpoint connectivity limitation][4]
 ## Next steps
 
 For questions, please reach out to us on the [Microsoft Q&A question page for SQL Database](https://docs.microsoft.com/answers/topics/azure-sql-database.html). For feature requests, please add them to the [SQL Database feedback forum](https://feedback.azure.com/forums/217321-sql-database/) or [Managed Instance forum](https://feedback.azure.com/forums/915676-sql-managed-instance).
@@ -281,4 +281,5 @@ For questions, please reach out to us on the [Microsoft Q&A question page for SQ
 [1]: ./media/elastic-transactions-overview/distributed-transactions.png
 [2]: ./media/elastic-transactions-overview/sql-mi-distributed-transactions.png
 [3]: ./media/elastic-transactions-overview/server-trust-groups-azure-portal.png
+[4]: ./media/elastic-transactions-overview/sql-mi-private-endpoint-limitation.png
  
