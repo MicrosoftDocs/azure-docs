@@ -209,7 +209,7 @@ See [Troubleshoot Azure Stream Analytics by using diagnostics logs](stream-analy
 
 Azure Stream Analytics can identify output data errors with or without an I/O request to the output sink depending on the configuration. For example, missing a required column, such as  `PartitionKey`, when using Azure Table output can be identified without an I/O request. However, constraint violations in SQL output do require an I/O request.
 
-There are several data errors that can only be detected after making a call to output sink, which can slow down processing. To resolve this, change your job's configuration or the query that is causing the data error.
+There are several data errors that can only be detected after making a call to the output sink, which can slow down processing. To resolve this, change your job's configuration or the query that is causing the data error.
 
 ### OutputDataConversionError.RequiredColumnMissing
 
