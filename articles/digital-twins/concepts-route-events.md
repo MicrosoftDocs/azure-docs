@@ -19,7 +19,7 @@ ms.service: digital-twins
 
 Azure Digital twins uses **event routes** to send data to consumers outside the service. 
 
-During preview, there are two major cases for sending Azure Digital Twins data:
+There are two major cases for sending Azure Digital Twins data:
 * Sending data from one twin in the Azure Digital Twins graph to another. For instance, when a property on one digital twin changes, you may want to notify and update another digital twin accordingly.
 * Sending data to downstream data services for additional storage or processing (also known as *data egress*). For instance,
   - A hospital may want to send Azure Digital Twins event data to [Time Series Insights (TSI)](../time-series-insights/time-series-insights-update-overview.md), to record time series data of handwashing-related events for bulk analytics.
@@ -39,7 +39,7 @@ Typical downstream targets for event routes are resources like TSI, Azure Maps, 
 
 ### Event routes for internal digital twin events
 
-During the current preview release, event routes are also used to handle events within the twin graph and send data from digital twin to digital twin. This is done by connecting event routes through Event Grid to compute resources, such as [Azure Functions](../azure-functions/functions-overview.md). These functions then define how twins should receive and respond to events. 
+Event routes are also used to handle events within the twin graph and send data from digital twin to digital twin. This is done by connecting event routes through Event Grid to compute resources, such as [Azure Functions](../azure-functions/functions-overview.md). These functions then define how twins should receive and respond to events. 
 
 When a compute resource wants to modify the twin graph based on an event that it received via event route, it is helpful for it to know which twin it wants to modify ahead of time. 
 
@@ -51,7 +51,7 @@ To walk through the process of setting up an Azure function to process digital t
 
 ## Create an endpoint
 
-To define an event route, developers first must define endpoints. An **endpoint** is a destination outside of Azure Digital Twins that supports a route connection. Supported destinations in the current preview release are:
+To define an event route, developers first must define endpoints. An **endpoint** is a destination outside of Azure Digital Twins that supports a route connection. Supported destinations include:
 * Event Grid custom topics
 * Event Hub
 * Service Bus
