@@ -1,21 +1,13 @@
 ---
 title: What are solutions for running Oracle WebLogic Server on Azure Virtual Machines
 description: Learn how to run Oracle WebLogic Server on Microsoft Azure Virtual Machines.
-services: virtual-machines-linux
-documentationcenter: ''
 author: rezar
-manager: gwallace
-tags: azure-resource-management
-
-ms.assetid: 
-ms.service: virtual-machines-windows
-
+ms.service: virtual-machines-linux
 ms.topic: article
-ms.tgt_pltfrm: vm-linux
-ms.workload: infrastructure-services
 ms.date: 09/23/2020
 ms.author: rezar
-#Customer intent: As an IT professional, I want to get WebLogic running on Azure Virtual Machines so that my enterprise Java applications can run in the cloud.
+ms.reviewer: cynthn
+
 ---
 # What are solutions for running Oracle WebLogic Server on Azure Virtual Machines?
 
