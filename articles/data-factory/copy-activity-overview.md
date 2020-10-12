@@ -6,14 +6,13 @@ documentationcenter: ''
 author: linda33wj
 manager: shwang
 ms.reviewer: douglasl
-
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 08/03/2020
+ms.date: 09/28/2020
 ms.author: jingwang
-
 ---
+
 # Copy activity in Azure Data Factory
 
 > [!div class="op_single_selector" title1="Select the version of Data Factory that you're using:"]
