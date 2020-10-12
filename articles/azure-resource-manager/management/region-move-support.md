@@ -691,7 +691,7 @@ Jump to a resource provider namespace:
 > [!div class="mx-tableFixed"]
 > | Resource type | Region move | 
 > | ------------- | ----------- |
-> | accounts | No | 
+> | accounts | No. [Learn more](../../azure-monitor/faq.md#how-do-i-move-an-application-insights-resource-to-a-new-region).
 > | actiongroups |  No | 
 > | activitylogalerts | No | 
 > | alertrules |  No | 
@@ -1129,11 +1129,11 @@ Jump to a resource provider namespace:
 > | Resource type | Region move | 
 > | ------------- | ----------- |
 > | instancepools | No | 
-> | managedinstances | Yes <br/><br/> [Learn more](/azure/azure-sql/database/move-resources-across-regions) about moving managed instances across regions. | 
+> | managedinstances | Yes <br/><br/> [Learn more](../../azure-sql/database/move-resources-across-regions.md) about moving managed instances across regions. | 
 > | managedinstances / databases | Yes | 
 > | servers | Yes | 
-> | servers / databases | Yes <br/><br/> [Learn more](/azure/azure-sql/database/move-resources-across-regions) about moving databases across regions.<br/><br/> [Learn more](../../resource-mover/tutorial-move-region-sql.md) about using Azure Resource Mover to move Azure SQL databases.  | 
-> | servers / elasticpools | Yes <br/><br/> [Learn more](/azure/azure-sql/database/move-resources-across-regions) about moving elastic pools across regions.<br/><br/> [Learn more](../../resource-mover/tutorial-move-region-sql.md) about using Azure Resource Mover to move Azure SQL elastic pools.  | 
+> | servers / databases | Yes <br/><br/> [Learn more](../../azure-sql/database/move-resources-across-regions.md) about moving databases across regions.<br/><br/> [Learn more](../../resource-mover/tutorial-move-region-sql.md) about using Azure Resource Mover to move Azure SQL databases.  | 
+> | servers / elasticpools | Yes <br/><br/> [Learn more](../../azure-sql/database/move-resources-across-regions.md) about moving elastic pools across regions.<br/><br/> [Learn more](../../resource-mover/tutorial-move-region-sql.md) about using Azure Resource Mover to move Azure SQL elastic pools.  | 
 > | virtualclusters | Yes | 
 
 ## Microsoft.SqlVirtualMachine

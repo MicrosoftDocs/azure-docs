@@ -237,7 +237,7 @@ Select _Azure role assignments_ button, that opens up to Azure role assignments 
 
 :::image type="content" source="media/how-to-create-azure-function/add-role-assignments.png" alt-text="Azure portal: add role assignment":::
 
-On the _Add role assignment (Preview)_ window that opens up, select
+On the _Add role assignment (Preview)_ window that opens up, select:
 
 * _Scope_: Resource group
 * _Subscription_: select your Azure subscription
