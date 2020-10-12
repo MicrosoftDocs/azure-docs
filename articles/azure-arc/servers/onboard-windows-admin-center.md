@@ -50,7 +50,7 @@ Perform the following steps to configure the Windows server with Arc enabled ser
 
 The Windows server will connect to Azure, download the Connected Machine agent, install it and register with Azure Arc enabled servers. To track the progress, select **Notifications** in the menu.
 
-To confirm installation of the Connected Machine Agent, in Windows Admin Center select [**[Events**](/windows-server/manage/windows-admin-center/use/manage-servers#events) from the left-hand pane to review *MsiInstaller* events in the Application Event Log.
+To confirm installation of the Connected Machine Agent, in Windows Admin Center select [**Events**](/windows-server/manage/windows-admin-center/use/manage-servers#events) from the left-hand pane to review *MsiInstaller* events in the Application Event Log.
 
 ## Verify the connection with Azure Arc
 
