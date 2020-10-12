@@ -148,8 +148,8 @@ To delete the server, you can click on **Delete** button on **Overview** page of
 
 ## Next steps
 > [!div class="nextstepaction"]
->[Build a PHP app on Windows with MySQL](../app-service/app-service-web-tutorial-php-mysql.md) <br/>
->[Build PHP app on Linux with MySQL](../app-service/containers/tutorial-php-mysql-app.md)<br/>
->[Build Java based Spring App with MySQL](https://docs.microsoft.com/azure/developer/java/spring-framework/spring-app-service-e2e?tabs=bash)
+>[Build a PHP app on Windows with MySQL](../app-service/app-service-web-tutorial-php-mysql.md) <br/><br/>
+>[Build PHP app on Linux with MySQL](../app-service/containers/tutorial-php-mysql-app.md)<br/><br/>
+>[Build Java based Spring App with MySQL](https://docs.microsoft.com/azure/developer/java/spring-framework/spring-app-service-e2e?tabs=bash)<br/>
 
 [Cannot find what you are looking for? Let us know.](https://aka.ms/mysql-doc-feedback)
