@@ -1086,13 +1086,14 @@
                 href: virtual-machines/windows/availability-group-load-balancer-portal-configure.md
               - name: Load balancer - Azure PowerShell
                 href: virtual-machines/windows/availability-group-listener-powershell-configure.md
-
-          - name: Configure VNN listener
-            href: virtual-machines/windows/availability-group-vnn-azure-load-balancer-configure.md
-          - name: Configure DNN listener
-            href: virtual-machines/windows/availability-group-distributed-network-name-dnn-listener-configure.md
-          - name: DNN interoperability
-            href: virtual-machines/windows/availability-group-dnn-interoperability.md
+          - name: Configure connectivity
+            items:  
+            - name: Configure VNN listener
+              href: virtual-machines/windows/availability-group-vnn-azure-load-balancer-configure.md
+            - name: Configure DNN listener
+              href: virtual-machines/windows/availability-group-distributed-network-name-dnn-listener-configure.md
+            - name: DNN interoperability
+              href: virtual-machines/windows/availability-group-dnn-interoperability.md
 
         - name: Failover cluster instance (FCI)
           items:
@@ -1106,12 +1107,14 @@
               href: virtual-machines/windows/failover-cluster-instance-storage-spaces-direct-manually-configure.md
             - name: Premium file share (Win2012+)
               href: virtual-machines/windows/failover-cluster-instance-premium-file-share-manually-configure.md
-          - name: Configure VNN 
-            href: virtual-machines/windows/failover-cluster-instance-vnn-azure-load-balancer-configure.md
-          - name: Configure DNN 
-            href: virtual-machines/windows/failover-cluster-instance-distributed-network-name-dnn-configure.md
-          - name: DNN interoperability
-            href: virtual-machines/windows/failover-cluster-instance-dnn-interoperability.md
+          - name: Configure connectivity
+            items: 
+            - name: Configure VNN 
+              href: virtual-machines/windows/failover-cluster-instance-vnn-azure-load-balancer-configure.md
+            - name: Configure DNN 
+              href: virtual-machines/windows/failover-cluster-instance-distributed-network-name-dnn-configure.md
+            - name: DNN interoperability
+              href: virtual-machines/windows/failover-cluster-instance-dnn-interoperability.md
 
 
     - name: Reference
