@@ -1,9 +1,8 @@
 ---
 title: Connect hybrid machines to Azure from Windows Admin Center
 description: In this article, you learn how to install the agent and connect machines to Azure by using Azure Arc enabled servers from  Windows Admin Center.
-ms.date: 10/08/2020
+ms.date: 10/12/2020
 ms.topic: conceptual
-ms.custom: references_regions
 ---
 
 # Connect hybrid machines to Azure from Windows Admin Center
@@ -18,13 +17,15 @@ You can enable Azure Arc enabled servers for one or more Windows machines in you
 
 * An Azure subscription. If you don't have one, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
-* The target Windows servers that you want to manage must have Internet access to Azure.
+* The target Windows servers that you want to manage must have Internet connectivity to access Azure.
 
 ### Security
 
 This deployment method requires that you have administrator rights on the target Windows machine or server to install and configure the agent. You also need to be a member of the [**Gateway users**](/windows-server/manage/windows-admin-center/plan/user-access-options#gateway-access-roles) role.
 
 ## Deploy
+
+Perform the following steps to configure the Windows server with Arc enabled servers.
 
 1. Sign in to Windows Admin Center.
 
@@ -47,7 +48,15 @@ This deployment method requires that you have administrator rights on the target
 
 1. Select **Set up** to proceed with configuring the Windows server with Azure Arc enabled servers.
 
-The Windows server will connect to Azure, download the Connected Machine agent, install it and register with Azure Arc enabled servers. 
+The Windows server will connect to Azure, download the Connected Machine agent, install it and register with Azure Arc enabled servers. To track the progress, select **Notifications** in the menu.
+
+To confirm installation of the Connected Machine Agent, in Windows Admin Center select [**[Events**](/windows-server/manage/windows-admin-center/use/manage-servers#events) from the left-hand pane to review *MsiInstaller* events in the Application Event Log.
+
+## Verify the connection with Azure Arc
+
+After you install the agent and configure it to connect to Azure Arc enabled servers, go to the Azure portal to verify that the server has successfully connected. View your machine in the [Azure portal](https://portal.azure.com).
+
+:::image type="content" source="./media/quick-enable-hybrid-vm/enabled-machine.png" alt-text="A successful machine connection" border="false":::
 
 ## Next steps
 
