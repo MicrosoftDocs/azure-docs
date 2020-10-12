@@ -22,7 +22,7 @@ An external table points to data located in Hadoop, Azure Storage blob, or Azure
 In dedicated SQL pool, you can use an external table to:
 
 - Query Azure Blob Storage and Azure Data Lake Gen2 with Transact-SQL statements.
-- Import and store data from Azure Blob Storage and Azure Data Lake Storage into SQL pool.
+- Import and store data from Azure Blob Storage and Azure Data Lake Storage into dedicated SQL pool.
 
 When used in conjunction with the [CREATE TABLE AS SELECT](../sql-data-warehouse/sql-data-warehouse-develop-ctas.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) statement, selecting from an external table imports data into a table within the SQL pool. In addition to the [COPY statement](/sql/t-sql/statements/copy-into-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true), external tables are useful for loading data. 
 
@@ -51,7 +51,7 @@ External table access underlying Azure storage using the database scoped credent
 - Data source can have credential that enables external tables to access only the files on Azure storage using SAS token or workspace Managed Identity - For examples, see [the Develop storage files storage access control](develop-storage-files-storage-access-control.md#examples) article.
 
 > [!IMPORTANT]
-> In SQL pool, datasource without creadential enables Azure AD user to access storage files using their Azure AD identity. In serverless SQL pool, you need to create data source with database-scoped credential that has `IDENTITY='User Identity'` property - see [examples here](develop-storage-files-storage-access-control.md#examples).
+> In dedicated SQL pool, a data source created without a credential enables Azure AD users to access storage files using their Azure AD identity. In serverless SQL pool, you need to create a data source with a database-scoped credential that has `IDENTITY='User Identity'` property - see [examples here](develop-storage-files-storage-access-control.md#examples).
 
 ## CREATE EXTERNAL DATA SOURCE
 
@@ -105,7 +105,7 @@ LOCATION = `'<prefix>://<path>'`   - Provides the connectivity protocol and path
 #### Credential
 CREDENTIAL = `<database scoped credential>` is optional credential that will be used to authenticate on Azure storage. External data source without credential can access public storage account. 
 
-External data sources without credential in SQL pool can also use callers Azure AD identity to access files on storage. External data source with credential use identity specified in credential to access files.
+External data sources without a credential in dedicated SQL pool will use caller's Azure AD identity to access files on storage. An external data source for serverless SQL pool with credential  `IDENTITY='User Identity'` will use caller's Azure AD identity to access files.
 - In dedicated SQL pool, database scoped credential can specify custom application identity, workspace Managed Identity, or SAK key. 
 - In serverless SQL pool, database scoped credential can specify caller's Azure AD identity, workspace Managed Identity, or SAS key. 
 

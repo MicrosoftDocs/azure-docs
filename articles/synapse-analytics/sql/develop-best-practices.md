@@ -16,7 +16,7 @@ ms.reviewer: igorstan
 
 This article describes guidance and best practices as you develop your data warehouse solution. 
 
-## SQL pool development best practices
+## Dedicated SQL pool development best practices
 
 ### Reduce cost with pause and scale
 
@@ -51,12 +51,12 @@ See the following links for additional details on how selecting a distribution c
 See also [Table overview](develop-tables-overview.md), [Table distribution](../sql-data-warehouse/sql-data-warehouse-tables-distribute.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json), [Selecting table distribution](https://blogs.msdn.microsoft.com/sqlcat/20../../choosing-hash-distributed-table-vs-round-robin-distributed-table-in-azure-sql-dw-service/), [CREATE TABLE](/sql/t-sql/statements/create-table-azure-sql-data-warehouse?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true), and [CREATE TABLE AS SELECT](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true).
 
 ### Do not over-partition
-While partitioning data can be effective for maintaining your data through partition switching or optimizing scans by with partition elimination, having too many partitions can slow down your queries.  Often a high granularity partitioning strategy that may work well on SQL Server may not work well on SQL pool.  
+While partitioning data can be effective for maintaining your data through partition switching or optimizing scans by with partition elimination, having too many partitions can slow down your queries.  Often a high granularity partitioning strategy that may work well on SQL Server may not work well on dedicated SQL pool.  
 
 > [!NOTE]
-> Often a high granularity partitioning strategy that may work well on SQL Server may not work well on SQL pool.  
+> Often a high granularity partitioning strategy that may work well on SQL Server may not work well on dedicated SQL pool.  
 
-Having too many partitions can also reduce the effectiveness of clustered columnstore indexes if each partition has fewer than 1 million rows. SQL pool partitions your data for you into 60 databases. 
+Having too many partitions can also reduce the effectiveness of clustered columnstore indexes if each partition has fewer than 1 million rows. Dedicated SQL pool partitions your data for you into 60 databases. 
 
 So, if you create a table with 100 partitions, the result will be 6000 partitions.  Each workload is different so the best advice is to experiment with partitioning to see what works best for your workload.  
 
@@ -91,7 +91,7 @@ See also [Table overview](develop-tables-overview.md), [Table data types](develo
 
 ### Optimize clustered columnstore tables
 
-Clustered columnstore indexes are one of the most efficient ways you can store your data in SQL pool.  By default, tables in SQL pool are created as Clustered ColumnStore.  
+Clustered columnstore indexes are one of the most efficient ways you can store your data in dedicated SQL pool.  By default, tables in dedicated SQL pool are created as Clustered ColumnStore.  
 
 To get the best performance for queries on columnstore tables, having good segment quality is important.  When rows are written to columnstore tables under memory pressure, columnstore segment quality may suffer.  
 
@@ -99,7 +99,7 @@ Segment quality can be measured by number of rows in a compressed Row Group.  Se
 
 Because high-quality columnstore segments are important, it's a good idea to use users IDs that are in the medium or large resource class for loading data. Using lower [data warehouse units](resource-consumption-models.md) means you want to assign a larger resource class to your loading user.
 
-Since columnstore tables generally won't push data into a compressed columnstore segment until there are more than 1 million rows per table, and each SQL pool table is partitioned into 60 tables, columnstore tables won't benefit a query unless the table has more than 60 million rows.  
+Since columnstore tables generally won't push data into a compressed columnstore segment until there are more than 1 million rows per table, and each dedicated SQL pool table is partitioned into 60 tables, columnstore tables won't benefit a query unless the table has more than 60 million rows.  
 
 > [!TIP]
 > For tables with less than 60 million rows, having a columnstore index may not be the optimal solution.  
@@ -162,7 +162,7 @@ As CETAS generates Parquet files, statistics will be automatically created when 
 
 ### Next steps
 
-If you need information not provided in this article, use the **Search for doc** function on the left side of this page to search all of the SQL pool documents.  The [Microsoft Q&A question page for SQL pool](https://docs.microsoft.com/answers/topics/azure-synapse-analytics.html) is a place for you to pose questions to other users and to the SQL pool Product Group.  
+If you need information not provided in this article, use the **Search for doc** function on the left side of this page to search all of the SQL pool documents.  The [Microsoft Q&A question page for Azure Synapse Analytics](https://docs.microsoft.com/answers/topics/azure-synapse-analytics.html) is a place for you to pose questions to other users and to the Azure Synapse Analytics product group. We actively monitor this forum to ensure that your questions are answered either by another user or one of us.  
 
-We actively monitor this forum to ensure that your questions are answered either by another user or one of us.  If you prefer to ask your questions on Stack Overflow, we also have an [Azure SQL pool Stack Overflow Forum](https://stackoverflow.com/questions/tagged/azure-sqldw).
+If you prefer to ask your questions on Stack Overflow, we also have an [Azure Synapse Analytics Stack Overflow Forum](https://stackoverflow.com/questions/tagged/azure-sqldw).
  
