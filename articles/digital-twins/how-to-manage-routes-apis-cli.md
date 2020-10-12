@@ -110,7 +110,7 @@ When creating an endpoint, add a `deadLetterSecret` to the `properties` object i
 
 For more information, see our REST API documentation: [Endpoints - DigitalTwinsEndpoint CreateOrUpdate](https://docs.microsoft.com/rest/api/digital-twins/controlplane/endpoints/digitaltwinsendpoint_createorupdate).
 
-To learn more, see [Concepts: Event Routes](./concepts-route-events.md#-Dead-letter-events)
+To learn more, see [Concepts: Event Routes](./concepts-route-events.md#dead-letter-events)
 
 ## Event routes (with APIs and the C# SDK)
 
