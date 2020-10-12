@@ -108,29 +108,29 @@ The **Action** element contains the following attribute:
 
 | Attribute | Required | Description |
 | --------- | -------- | ----------- |
-| Id | Yes | The type of the operation. Possible values: `SendCode`, or `VerifyCode`. The `SendCode` sends a code to the user. This action may contain two validation technical profile, to generate a code and to send it. The `VerifyCode` verifies the code the user typed in the input textbox. |
+| Id | Yes | The type of operation. Possible values: `SendCode` or `VerifyCode`. The `SendCode` value sends a code to the user. This action may contain two validation technical profiles: one to generate a code and one to send it. The `VerifyCode` value verifies the code the user typed in the input textbox. |
 
-The **Action** element contains the following elements:
+The **Action** element contains the following element:
 
 | Element | Occurrences | Description |
 | ------- | ----------- | ----------- |
-| ValidationClaimsExchange | 1:1 | The identifiers of technical profiles that are used validate some or all of the display claims of the referencing technical profile. All of the input claims of the referenced technical profile must appear in the display claims of the referencing technical profile. |
+| ValidationClaimsExchange | 1:1 | The identifiers of technical profiles that are used to validate some or all of the display claims of the referencing technical profile. All input claims of the referenced technical profile must appear in the display claims of the referencing technical profile. |
 
 #### ValidationClaimsExchange
 
-The **ValidationClaimsExchange** element contains the following elements:
+The **ValidationClaimsExchange** element contains the following element:
 
 | Element | Occurrences | Description |
 | ------- | ----------- | ----------- |
 | ValidationTechnicalProfile | 1:n | A technical profile to be used for validating some or all of the display claims of the referencing technical profile. |
 
-The **ValidationTechnicalProfile** element contains the following attribute:
+The **ValidationTechnicalProfile** element contains the following attributes:
 
 | Attribute | Required | Description |
 | --------- | -------- | ----------- |
 | ReferenceId | Yes | An identifier of a technical profile already defined in the policy or parent policy. |
-|ContinueOnError|No| Indicating whether validation of any subsequent validation technical profiles should continue if this validation technical profile raises an error. Possible values: `true` or `false` (default, processing of further validation profiles will stop and an error returned). |
-|ContinueOnSuccess | No | Indicating whether validation of any subsequent validation profiles should continue if this validation technical profile succeeds. Possible values: `true` or `false`. The default is `true`, meaning that the processing of further validation profiles will continue. |
+|ContinueOnError|No| Indicates whether validation of any subsequent validation technical profiles should continue if this validation technical profile raises an error. Possible values: `true` or `false` (default, processing of further validation profiles will stop and an error will be returned). |
+|ContinueOnSuccess | No | Indicates whether validation of any subsequent validation profiles should continue if this validation technical profile succeeds. Possible values: `true` or `false`. The default is `true`, meaning that the processing of further validation profiles will continue. |
 
 The **ValidationTechnicalProfile** element contains the following element:
 
@@ -138,21 +138,21 @@ The **ValidationTechnicalProfile** element contains the following element:
 | ------- | ----------- | ----------- |
 | Preconditions | 0:1 | A list of preconditions that must be satisfied for the validation technical profile to execute. |
 
-The **Precondition** element contains the following attribute:
+The **Precondition** element contains the following attributes:
 
 | Attribute | Required | Description |
 | --------- | -------- | ----------- |
-| `Type` | Yes | The type of check or query to perform for the precondition. Either `ClaimsExist` is specified to ensure that actions should be performed if the specified claims exist in the user's current claim set, or `ClaimEquals` is specified that the actions should be performed if the specified claim exists and its value is equal to the specified value. |
+| `Type` | Yes | The type of check or query to perform for the precondition. Possible values: `ClaimsExist` or `ClaimEquals`. `ClaimsExist` specifies that the actions should be performed if the specified claims exist in the user's current claim set. `ClaimEquals` specifies that the actions should be performed if the specified claim exists and its value is equal to the specified value. |
 | `ExecuteActionsIf` | Yes | Indicates whether the actions in the precondition should be performed if the test is true or false. |
 
 The **Precondition** element contains following elements:
 
 | Element | Occurrences | Description |
 | ------- | ----------- | ----------- |
-| Value | 1:n | The data that is used by the check. If the type of this check is `ClaimsExist`, this field specifies a ClaimTypeReferenceId to query for. If the type of check is `ClaimEquals`, this field specifies a ClaimTypeReferenceId to query for. While another value element contains the value to be checked.|
-| Action | 1:1 | The action that should be taken if the precondition check within an orchestration step is true. The value of the **Action** is set to `SkipThisValidationTechnicalProfile`. Specifies that the associated validation technical profile should not be executed. |
+| Value | 1:n | The data that is used by the check. If the type of this check is `ClaimsExist`, this field specifies a ClaimTypeReferenceId to query for. If the type of check is `ClaimEquals`, this field specifies a ClaimTypeReferenceId to query for. Specify the value to be checked in another value element.|
+| Action | 1:1 | The action that should be taken if the precondition check within an orchestration step is true. The value of the **Action** is set to `SkipThisValidationTechnicalProfile`, which specifies that the associated validation technical profile should not be executed. |
 
-The following example sends and verifiy eamil address, using [Azure AD SSPR technical profile](aad-sspr-technical-profile.md).
+The following example sends and verifies the email address using [Azure AD SSPR technical profile](aad-sspr-technical-profile.md).
 
 ```xml
 <DisplayControl Id="emailVerificationControl" UserInterfaceControlType="VerificationControl">
