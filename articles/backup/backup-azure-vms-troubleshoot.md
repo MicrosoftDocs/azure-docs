@@ -319,6 +319,17 @@ If after restore, you notice the disks are offline then:
 * Verify if the machine where the script is executed meets the OS requirements. [Learn more](https://docs.microsoft.com/azure/backup/backup-azure-restore-files-from-vm#system-requirements).  
 * Ensure you are not restoring to the same source, [Learn more](https://docs.microsoft.com/azure/backup/backup-azure-restore-files-from-vm#original-backed-up-machine-versus-another-machine).
 
+#### UserErrorInstantRpNotFound - Restore failed because the Snapshot of the VM was not found
+
+Error code: UserErrorInstantRpNotFound <br>
+Error message: Restore failed because the Snapshot of the VM was not found. The snapshot could have been deleted, please check.<br>
+
+This error occurs when you are trying to restore from a recovery point that was not transferred to the vault and was deleted in snapshot phase. 
+<br>
+To resolve this issue, try to restore the VM from a different restore point.<br>
+
+
+
 
 | Error details | Workaround |
 | --- | --- |
