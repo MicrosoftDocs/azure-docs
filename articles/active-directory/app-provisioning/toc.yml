@@ -28,7 +28,7 @@
        href: plan-auto-user-provisioning.md
      - name: Plan a cloud HR provisioning deployment
        href: plan-cloud-hr-provision.md
-     - name: Log with Azure Monitor
+     - name: Understand logging with Azure Monitor
        href: application-provisioning-log-analytics.md
   - name: How-to guides
     expanded: true

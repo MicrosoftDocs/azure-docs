@@ -1,6 +1,6 @@
 ---
 title: Understand how Application Provisioning integrates with Azure Monitor logs in Azure Active Directory.
-description: Understand how Application Provisioning integrates with Azure Monitor logs.
+description: Understand how Application Provisioning integrates with Azure Monitor logs in Azure Active Directory.
 services: active-directory
 author: kenwith
 manager: celestedg
@@ -13,7 +13,7 @@ ms.author: kenwith
 ms.reviewer: arvinh,luleon
 ---
 
-# Understand how Application Provisioning integrates with Azure Monitor logs in Azure Active Directory
+# Understand how Application Provisioning integrates with Azure Monitor logs
 
 Application Provisioning integrates with Azure Monitor logs and Log Analytics. With Azure Monitoring you can do things like create workbooks, also known as dashboards, store provisioning logs for 30+ days, and create custom queries and alerts.
 
