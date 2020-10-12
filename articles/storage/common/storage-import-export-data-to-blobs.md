@@ -179,7 +179,7 @@ Use the [az import-export list](/cli/azure/ext/import-export/import-export#ext_i
 az import-export list --resource-group myierg
 ```
 
-To update your job or cancel your job, use the [az import-export update](https://docs.microsoft.com/en-us/cli/azure/ext/import-export/import-export#ext_import_export_az_import_export_update) command.
+To update your job or cancel your job, use the [az import-export update](/cli/azure/ext/import-export/import-export#ext_import_export_az_import_export_update) command.
 
 ```azurecli
 az import-export update --resource-group myierg --name MyIEjob1 --cancel-requested true
