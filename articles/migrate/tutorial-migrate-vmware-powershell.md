@@ -51,7 +51,7 @@ Sign in to your Azure subscription with the `Connect-AzAccount` cmdlet.
 Connect-AzAccount
 ```
 
-Select your Azure subscription. Use the `Get-AzSubscription` cmdlet to get the list of Azure subscriptions you have access to. Select the Azure subscription which has your Azure Migrate project to work with using the `Set-AzContext` cmdlet.
+Select your Azure subscription. Use the `Get-AzSubscription` cmdlet to get the list of Azure subscriptions you have access to. Select the Azure subscription that has your Azure Migrate project to work with using the `Set-AzContext` cmdlet.
 
 ```azurepowershell
 Set-AzContext -SubscriptionId "xxxx-xxxx-xxxx-xxxx"
@@ -115,14 +115,14 @@ $DiscoveredServers = Get-AzMigrateServer -ProjectName $MigrateProject.Name -Reso
 
 Before replicating the first VM in the Azure Migrate project, run the following script to provision the replication infrastructure. This script provisions and configures the aforementioned resources so that you can start migrating your VMware VMs.
 
-- One Azure Migrate project supports migrations to one Azure region only. Once you run this script, you cannot change the target region to which you want to migrate your VMware VMs.
-- You will need to run the `Initialize-AzMigrateReplicationInfrastructure` script if you configure a new appliance in your Azure Migrate project. 
+- One Azure Migrate project supports migrations to one Azure region only. Once you run this script, you can't change the target region to which you want to migrate your VMware VMs.
+- You'll need to run the `Initialize-AzMigrateReplicationInfrastructure` script if you configure a new appliance in your Azure Migrate project. 
 
-In the article, we will initialize the replication infrastructure so that we can migrate our VMs to `Central US` region. You can download the file from the GitHub repository or run it using the following snippet. 
+In the article, we'll initialize the replication infrastructure so that we can migrate our VMs to `Central US` region. You can [download the file](https://github.com/Azure/azure-docs-powershell-samples/tree/master/azure-migrate/migrate-at-scale-vmware-agentles) from the GitHub repository or run it using the following snippet. 
 
 ```azurepowershell
 # Download the script from Azure Migrate GitHub repository 
-Invoke-WebRequest https://raw.githubusercontent.com/prsadhu-ms-idc/azure-powershell/AzMigrateInitInfra/src/Migrate/deploymentscripts/Initialize-AzMigrateReplicationInfrastructure.ps1 -OutFile .\$AzMigrateReplicationinfrastructure.ps1
+Invoke-WebRequest https://raw.githubusercontent.com/Azure/azure-docs-powershell-samples/master/azure-migrate/migrate-at-scale-vmware-agentles/Initialize-AzMigrateReplicationInfrastructure.ps1 -OutFile .\$AzMigrateReplicationinfrastructure.ps1
 
 # Run the script for initializing replication infrastructure for the current Migrate project
 .\Initialize-AzMigrateReplicationInfrastructure.ps1 -ResourceGroupName $ResourceGroup.ResourceGroupName -ProjectName $MigrateProject.Name -Scenario agentlessVMware -TargetRegion "CentralUS" 
@@ -303,7 +303,7 @@ Replication occurs as follows:
 
 ## Update properties of a replicating VM
 
-[Azure Migrate:Server Migration](migrate-services-overview.md#azure-migrate-server-migration-tool) allows you to change target properties, such as name, size, resource group, NIC configuration etc., for a replicating VM. 
+[Azure Migrate:Server Migration](migrate-services-overview.md#azure-migrate-server-migration-tool) allows you to change target properties, such as name, size, resource group, NIC configuration and so on, for a replicating VM. 
 
 ```azurepowershell
 # Retrieve the replicating VM details by using the discovered VM identifier
@@ -358,7 +358,7 @@ $ReplicatingServer = Get-AzMigrateServerReplication -TargetObjectID $Replicating
 
 When delta replication begins, you can run a test migration for the VMs before running a full migration to Azure. We highly recommend that you do test migration at least once for each machine before you migrate it.
 
-- Running a test migration checks that migration will work as expected. Test migration does not impact the on-premises machine, which remains operational, and continues replicating. 
+- Running a test migration checks that migration will work as expected. Test migration doesn't impact the on-premises machine, which remains operational, and continues replicating. 
 - Test migration simulates the migration by creating an Azure VM using replicated data (usually migrating to a non-production VNet in your Azure subscription).
 - You can use the replicated test Azure VM to validate the migration, perform app testing, and address any issues before full migration.
 
@@ -387,7 +387,7 @@ After you've verified that the test migration works as expected, you can migrate
 # Start migration for a replicating server and turn off source server as part of migration
 $MigrateJob = Start-AzMigrateServerMigration -InputObject $ReplicatingServer -TurnOffSourceServer 
 ```
-If you do not want to turn-off the source server, then do not specify `TurnOffSourceServer` parameter.
+If you don't want to turn-off the source server, then don't use `TurnOffSourceServer` parameter.
 
 ## Complete the migration
 
