@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Get started orchestrate with pipelines' 
+title: 'Tutorial: Get started integrate with pipelines' 
 description: In this tutorial, you'll learn how orchestrate pipelines and activities using Synapse Studio.
 services: synapse-analytics
 author: saveenr
@@ -13,13 +13,13 @@ ms.date: 07/20/2020
 
 # Orchestrate with pipelines
 
-In this tutorial, you'll learn how orchestrate pipelines and activities using Synapse Studio. 
+In this tutorial, you'll learn how to integrate with pipelines and activities using Synapse Studio. 
 
 ## Overview
 
 You can orchestrate a wide variety of tasks in Azure Synapse.
 
-1. In Synapse Studio, go to the **Orchestrate** hub.
+1. In Synapse Studio, go to the **Integrate** hub.
 1. Select **+** > **Pipeline** to create a new pipeline.
 1. Go to the **Develop** hub and select one of the notebooks you previously created.
 1. Drag that notebook into the pipeline.
