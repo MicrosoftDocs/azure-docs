@@ -23,7 +23,8 @@ Certificates encrypt web traffic. These TLS/SSL certificates can be stored in Az
 * A private certificate (that is, your self-signed certificate) from a third-party provider. The certificate must match the domain.
 * A deployed instance of [Azure Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-overview)
 
-## Import certificate 
+## Import certificate
+### Save certificate in Key Vault
 The procedure to import a certificate requires the PEM or PFX encoded file to be on disk and you must have the private key. 
 
 To upload your certificate to key vault:
@@ -37,7 +38,10 @@ To upload your certificate to key vault:
 
     ![Import certificate 1](./media/custom-dns-tutorial/import-certificate-a.png)
 
-To grant Azure Spring Cloud access to your key vault before you import certificate:
+### Grant Azure Spring Cloud access to your key vault
+
+You need to grant Azure Spring Cloud access to your key vault before you import certificate:
+#### [Portal](#tab/Azure-portal)
 1. Go to your key vault instance.
 1. In the left navigation pane, click **Access Police**.
 1. On the upper menu, click **Add Access Policy**.
@@ -49,47 +53,38 @@ To grant Azure Spring Cloud access to your key vault before you import certifica
 
 ![Import certificate 2](./media/custom-dns-tutorial/import-certificate-b.png)
 
-Or, you can use the Azure CLI to grant Azure Spring Cloud access to key vault.
+#### [CLI](#tab/Azure-CLI)
 
-Get the object id via the following command.
+Grant Azure Spring Cloud read access to key vault, replace the `<key vault resource group>` and `<key vault name>` in the following command.
 ```
-az ad sp show --id <service principal id> --query objectId
-```
-
-Grant Azure Spring Cloud read access to key vault, replace the object id in the following command.
-```
-az keyvault set-policy -g <key vault resource group> -n <key vault name>  --object-id <object id> --certificate-permissions get list
+az keyvault set-policy -g <key vault resource group> -n <key vault name>  --object-id 938df8e2-2b9d-40b1-940c-c75c33494239 --certificate-permissions get list --secret-permissions get list
 ``` 
+---
 
-To import certificate to Azure Spring Cloud:
+### Import certificate to Azure Spring Cloud
+#### [Portal](#tab/Azure-portal)
 1. Go to your service instance. 
 1. From the left navigation pane of your app, select **TLS/SSL settings**.
 1. Then click **Import Key Vault Certificate**.
 
     ![Import certificate](./media/custom-dns-tutorial/import-certificate.png)
 
-Or, you can use the Azure CLI to import the certificate:
+1. When you have successfully imported your certificate, you'll see it in the list of **Private Key Certificates**.
+
+    ![Private key certificate](./media/custom-dns-tutorial/key-certificates.png)
+
+#### [CLI](#tab/Azure-CLI)
 
 ```
 az spring-cloud certificate add --name <cert name> --vault-uri <key vault uri> --vault-certificate-name <key vault cert name>
 ```
 
-> [!IMPORTANT] 
-> Ensure you grant Azure Spring Cloud access to your key vault before you execute the previous import certificate command. If you haven't, you can execute the following command to grant the access rights.
-
-```
-az keyvault set-policy -g <key vault resource group> -n <key vault name>  --object-id 938df8e2-2b9d-40b1-940c-c75c33494239 --certificate-permissions get list
-``` 
-
-When you have successfully imported your certificate, you'll see it in the list of **Private Key Certificates**.
-
-![Private key certificate](./media/custom-dns-tutorial/key-certificates.png)
-
-Or, you can use the Azure CLI to show a list of certificates:
+To show a list of certificates imported:
 
 ```
 az spring-cloud certificate list --resource-group <resource group name> --service <service name>
 ```
+---
 
 > [!IMPORTANT] 
 > To secure a custom domain with this certificate, you still need to bind the certificate to a specific domain. Follow the steps in this document under the heading **Add SSL Binding**.
@@ -109,6 +104,7 @@ After you add the CNAME, the DNS records page will resemble the following exampl
 ## Map your custom domain to Azure Spring Cloud app
 If you don't have an application in Azure Spring Cloud, follow the instructions in [Quickstart: Launch an existing Azure Spring Cloud application using the Azure portal](https://review.docs.microsoft.com/azure/spring-cloud/spring-cloud-quickstart-launch-app-portal?branch=master).
 
+#### [Portal](#tab/Azure-portal)
 Go to application page.
 
 1. Select **Custom Domain**.
@@ -122,34 +118,38 @@ Go to application page.
 
     ![Add custom domain](./media/custom-dns-tutorial/add-custom-domain.png)
 
-Or, you can use the Azure CLI to add a custom domain:
-```
-az spring-cloud app custom-domain bind --domain-name <domain name> --app <app name> --resource-group <resource group name> --service <service name>
-```
-
 One app can have multiple domains, but one domain can only map to one app. When you've successfully mapped your custom domain to the app, you'll see it on the custom domain table.
 
 ![Custom domain table](./media/custom-dns-tutorial/custom-domain-table.png)
 
-Or, you can use the Azure CLI to show a list of custom domains:
+#### [CLI](#tab/Azure-CLI)
+```
+az spring-cloud app custom-domain bind --domain-name <domain name> --app <app name> --resource-group <resource group name> --service <service name>
+```
+
+To show the list of custom domains:
 ```
 az spring-cloud app custom-domain list --app <app name> --resource-group <resource group name> --service <service name>
 ```
+---
 
 > [!NOTE]
 > A **Not Secure** label for your custom domain means that it's not yet bound to an SSL certificate. Any HTTPS request from a browser to your custom domain will receive an error or warning.
 
 ## Add SSL binding
+
+#### [Portal](#tab/Azure-portal)
 In the custom domain table, select **Add ssl binding** as shown in the previous figure.  
 1. Select your **Certificate** or import it.
 1. Click **Save**.
 
     ![Add SSL binding 1](./media/custom-dns-tutorial/add-ssl-binding.png)
 
-Or, you can use the Azure CLI to **Add ssl binding**:
+#### [CLI](#tab/Azure-CLI)
 ```
 az spring-cloud app custom-domain update --domain-name <domain name> --certificate <cert name> --app <app name> 
 ```
+---
 
 After you successfully add SSL binding, the domain state will be secure: **Healthy**. 
 
