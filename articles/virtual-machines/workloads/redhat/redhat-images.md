@@ -1,19 +1,13 @@
 ---
 title: Overview of Red Hat Enterprise Linux images in Azure
 description: Learn about Red Hat Enterprise Linux images in Microsoft Azure.
-services: virtual-machines-linux
-documentationcenter: ''
 author: asinn826
-manager: BorisB2015
-editor: ''
-
 ms.service: virtual-machines-linux
-
 ms.topic: article
-ms.tgt_pltfrm: vm-linux
-ms.workload: infrastructure-services
 ms.date: 02/10/2020
 ms.author: alsin
+ms.reviewer: cynthn
+
 
 ---
 
