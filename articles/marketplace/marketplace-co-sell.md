@@ -40,7 +40,7 @@ The table below lists the steps and requirements to get your marketplace offer c
 |Step    |Offer type    |Requirements    |Co-sell status    |
 |----    |-------------    |------------    |---------------   |
 |<ol start=1><li> Create an account in Partner Center and publish your offer in the commercial marketplace.</li>|All|<li>The offer meets the commercial marketplace publishing requirements.</li><li>You have a complete business profile in Partner Center.</li>|Not ready|
-|<ol start=2><li>Submit required Co-sell materials.</li>|IP offers *with* [Co-sell option in Partner Center](https://docs.microsoft.com/azure/marketplace/partner-center-portal/commercial-marketplace-co-sell)|[Upload required materials in Partner Center](#how-to-submit-co-sell-materials-in-partner-center): <ul><li>Sales contact for each eligible country.</li><li>Bill of materials: customer one-pager, customer presentation deck (optional), solution landing page URL, social media channel URL, or other (for example, a case study).|Co-sell ready|
+|<ol start=2><li>Submit required Co-sell materials.</li>|IP offers *with* [Co-sell option in Partner Center](https://docs.microsoft.com/azure/marketplace/partner-center-portal/commercial-marketplace-co-sell)|[Upload required materials in Partner Center](#how-to-submit-co-sell-materials-in-partner-center)|Co-sell ready|
 ||IP offers *without* [Co-sell option in Partner Center](https://docs.microsoft.com/azure/marketplace/partner-center-portal/commercial-marketplace-co-sell)|<li>Request to [work with a Cloud Specialist](https://partner.microsoft.com/campaigns/ced-nomination-form/) to provide required Co-sell documentation.|Co-sell ready|
 ||Consulting Services|<li>Request to [work with a Cloud Specialist](https://partner.microsoft.com/campaigns/ced-nomination-form/) to provide required Co-sell documentation.</li><li>Active Gold competency.</li>|Co-sell ready|
 |<ol start=3><li>Qualify for IP Co-sell incentives</li>|Azure Applications, Azure Containers, IoT Edge Modules, SaaS, VMs|After achieving Co-sell ready, there are two additional requirements: <ul> Requirement 1: achieve either:<ul><li>*At the organization level:* meet or exceed $100,000 USD of Azure Consumed Revenue over the trailing 12 months.</li><li>*At the offer level:* cumulative marketplace billed revenue of $100,000 USD.</li></ul><br>Requirement 2: more than 50% of your offer's infrastructure must run on Azure:<ul><li>IP offers *with* [Co-sell option in Partner Center](https://docs.microsoft.com/azure/marketplace/partner-center-portal/commercial-marketplace-co-sell): upload an architecture diagram with your Co-sell documents in Partner Center for review.</li><li>IP offers *without* [Co-sell option in Partner Center](https://docs.microsoft.com/azure/marketplace/partner-center-portal/commercial-marketplace-co-sell): upload an architecture diagram to OCP GTM.|Azure IP Co-sell incentivized|
@@ -60,11 +60,15 @@ Start your co-sell journey directly in Partner Center following the steps below.
 
     [![This image shows the location of the Co-sell with Microsoft tab.](./media/co-sell/co-sell-with-microsoft-tab.png)](./media/co-sell/co-sell-with-microsoft-tab.png#lightbox)
 
-1. Provide details about your offer and upload collateral in the **Documents** section. Microsoft sellers will use this information to recommend and sell your offer.
+1. (*Required*) Provide basic listing details to help Microsoft sellers quickly sort and discover your offer in the **Listing** section.
+
+    [![This image shows the Listing section of the Co-sell tab.](./media/co-sell/co-sell-listing-section.png)](./media/co-sell/co-sell-listing-section.png#lightbox)
+
+1. Provide details about your offer and upload collateral in the **Documents** section. Microsoft sellers will use this information to recommend and sell your offer. (*Required: Customer one-pager and Customer presentation deck.*)
  
    [![This image shows the Documents section in the Co-sell tab.](./media/co-sell/co-sell-documents-section.png)](./media/co-sell/co-sell-documents-section.png#lightbox)
 
-1. Upload sales contact information in the **Contacts** section. Microsoft sellers may reach out to these contacts to request additional information about your offer.
+1. Upload sales contact information in the **Contacts** section. Microsoft sellers may reach out to these contacts to request additional information about your offer. (*Required: a contact for each geography in which your offer is made available.*)
 
      [![This image shows the Contacts section in the Co-sell tab.](./media/co-sell/co-sell-contacts-section.png)](./media/co-sell/co-sell-contacts-section.png#lightbox)
 

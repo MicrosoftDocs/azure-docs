@@ -6,7 +6,7 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 author: palanis-MSFT
 ms.author: palanis
-ms.date: 05/12/2020
+ms.date: 10/12/2020
 ---
 
 # Co-sell option in Partner Center
@@ -31,7 +31,7 @@ The co-sell option in Partner Center is currently available for some offer types
 
 ## Listing
 
-Co-sell listings will help Microsoft sales teams market your solution to a wider audience.
+Co-sell listings will help Microsoft sales teams market your solution to a wider audience. *(All fields required.)*
 
 - Choose the Microsoft platforms that your offer is built with, extends, or integrates with.
 - Select  market segments that your offer is targeting.
@@ -57,31 +57,31 @@ You can add up to three solution areas for your offer. For each solution area, y
 
 ## Documents
 
-You have the option to provide collateral documents that Microsoft will use to learn more about your offer and evaluate its fit for your customer needs. All the documents listed in the table below are optional.
+You have the option to provide collateral documents that Microsoft will use to learn more about your offer and evaluate its fit for your customer needs.
 
 | **Documents**    | **Description**  |
 | :------------------- | :-------------------|
-| *Customer one-pager* | Customer-ready description of your offering. Microsoft sales teams may share this information with customers to help determine if your offering may be a good fit, and to ensure that it is customer ready. <br> <br> Use one of the relevant templates available in Partner Center: <br> <ul> <li> Microsoft Azure one-pager template </li> <li> Microsoft Dynamics 365 one-pager template </li> <li> Microsoft 365 one-pager template </li> <li> Windows 10 one-pager template </li> </ul> |
-| *Customer presentation* | Slide deck to pitch your solution and its value proposition. After ensuring that your offer is customer ready, Microsoft sales teams may share the presentation with customers to articulate the value that both companies bring when deploying a joint solution. The presentation should cover what your solution does, how it can help customers, what industries the solution is for, and how it compares to competing solutions. <br> <br> Use the template available in Partner Center.|
+| *Customer one-pager (Required)* | Customer-ready description of your offering. Microsoft sales teams may share this information with customers to help determine if your offering may be a good fit, and to ensure that it is customer ready. <br> <br> Use one of the relevant templates available in Partner Center: <br> <ul> <li> Microsoft Azure one-pager template </li> <li> Microsoft Dynamics 365 one-pager template </li> <li> Microsoft 365 one-pager template </li> <li> Windows 10 one-pager template </li> </ul> |
+| *Customer presentation (Required)* | Slide deck to pitch your solution and its value proposition. After ensuring that your offer is customer ready, Microsoft sales teams may share the presentation with customers to articulate the value that both companies bring when deploying a joint solution. The presentation should cover what your solution does, how it can help customers, what industries the solution is for, and how it compares to competing solutions. <br> <br> Use the template available in Partner Center.|
 | *Customer case study* | This information shows a potential customer how you and Microsoft have successfully deployed this solution in prior cases. <br> <br> Use the template available in Partner Center. |
-| *Verifiable customer wins (optional)* | Specific examples of customer successes after your solution has been deployed. |
-| *Channel pitch deck (optional)* | A slide deck with information that will help channel resellers learn more about your solution and ready their sales teams to sell your offer. It typically includes an elevator pitch, information about target customers, questions to ask customers, talking points, and links to videos, documentation, and support information. |
+| *Verifiable customer wins* | Specific examples of customer successes after your solution has been deployed. |
+| *Channel pitch deck* | A slide deck with information that will help channel resellers learn more about your solution and ready their sales teams to sell your offer. It typically includes an elevator pitch, information about target customers, questions to ask customers, talking points, and links to videos, documentation, and support information. |
 | *Reference architecture diagrams* | A document showing the model that represents the IP created by the partner, along with its relationship with Microsoft cloud services, and how it meets the technical requirements of the IP Co-sell program. |
 | *Other documents* | Optionally, you may upload up to five additional documents or videos to help Microsoft sales teams and channel resellers to learn more about your solution, organization, and/or differentiators. |
 | *External reference URL* | The link to your product's site, where Microsoft sales teams and channel resellers can learn more about your solution. |
 
 ## Contacts
 
-Your contact information allows Microsoft sales teams and channel resellers to request additional information from the appropriate resource in your organization. Contact information is available to all Microsoft sales teams. If you elect to make your offer available in the CSP program, this contact information is also available to channel resellers.
+Your contact information allows Microsoft sales teams and channel resellers to request additional information from the appropriate resource in your organization. Contact information is available to all Microsoft sales teams. *(A contact for each geography in which your offer is available is required for the Co-sell program.)* If you elect to make your offer available in the CSP program, this contact information is also available to channel resellers.
 
 You can provide your contacts by downloading the CSV template from Partner Center, filling in each row with information about the contact, and importing this CSV file. Importing a CSV file will overwrite the existing contacts.
 
 You can also export your existing list of contacts of an offer, and then make changes on that file.
 
-* *Name (required)*: The contact's name.
-* *Email address (required)*: The contact's email address.
-* *Job title (required)*: Job title.
-* *Role (required)*: Use any of the following roles.
+* *Name (Required)*: The contact's name.
+* *Email address (Required)*: The contact's email address.
+* *Job title (Required)*: Job title.
+* *Role (Required)*: Use any of the following roles.
 
     | **Role**    | **Description**  |
     | :------------------- | :-------------------|
