@@ -30,7 +30,7 @@ For more information, see [Azure Security Baselines overview](../../security/ben
 
 Alternatively, if you have a specific use case for a centralized firewall, Azure Firewall can also be used to meet those requirements.
 
-* [Virtual networks and virtual machines in Azure](../windows/network-overview.md)
+* [Virtual networks and virtual machines in Azure](../network-overview.md)
 
 * [How to create a Virtual Network](../../virtual-network/quick-create-portal.md)
 
@@ -62,7 +62,7 @@ You can also deploy Azure Web Application Firewall (WAF) in front of critical we
 
 * [Create an application gateway with a Web Application Firewall using the Azure portal](../../web-application-firewall/ag/application-gateway-web-application-firewall-portal.md)
 
-* [Virtual networks and virtual machines in Azure](../windows/network-overview.md)
+* [Virtual networks and virtual machines in Azure](../network-overview.md)
 
 * [Information on Network Security Groups](../../virtual-network/tutorial-filter-network-traffic.md)
 
@@ -80,7 +80,7 @@ You can use Azure Security Center's Just In Time Network access to limit exposur
 
 * [How to deploy Azure Firewall](../../firewall/tutorial-firewall-deploy-portal.md)
 
-* [Understand Azure Security Center Integrated Threat Intelligence](../../security-center/threat-protection.md)
+* [Understand Azure Security Center Integrated Threat Intelligence](../../security-center/azure-defender.md)
 
 * [Understand Azure Security Center Adaptive Network Hardening](../../security-center/security-center-adaptive-network-hardening.md)
 
@@ -146,7 +146,7 @@ You can use Azure Security Center's Just In Time Network access to limit exposur
 
 * [How to configure and manage Azure Policy](../../governance/policy/tutorials/create-and-manage.md)
 
-* [Azure Policy samples for networking](/azure/governance/policy/samples/#network)
+* [Azure Policy samples for networking](../../governance/policy/samples/index.md#network)
 
 * [How to create an Azure Blueprint](../../governance/blueprints/create-blueprint-portal.md)
 
@@ -180,7 +180,7 @@ Use Azure Policy to validate (and/or remediate) configurations for network resou
 
 * [How to configure and manage Azure Policy](../../governance/policy/tutorials/create-and-manage.md)
 
-* [Azure Policy samples for networking](/azure/governance/policy/samples/#network)
+* [Azure Policy samples for networking](../../governance/policy/samples/index.md#network)
 
 **Azure Security Center monitoring**: Not Available
 
@@ -304,7 +304,7 @@ Alternatively, you may enable and on-board data to Azure Sentinel or a third-par
 
 **Guidance**: You will need a third-party tool for anti-malware vulnerability detection for inside the Linux OS.
 
-* [Instructions for onboarding Linux servers to Azure Security center](../../security-center/quick-onboard-linux-computer.md)
+* [Instructions for onboarding Linux servers to Azure Security center](../../security-center/quickstart-onboard-machines.md)
 
 * [Following link provides the Microsoft recommended security guidelines, which can serve as a criteria list for the vulnerability software selected](./security-recommendations.md)
 
@@ -512,7 +512,7 @@ Alternatively, you may enable and on-board data to Azure Sentinel or a third-par
 
 * [How to create additional Azure subscriptions](../../cost-management-billing/manage/create-subscription.md)
 
-* [How to create Management Groups](../../governance/management-groups/create.md)
+* [How to create Management Groups](../../governance/management-groups/create-management-group-portal.md)
 
 * [How to create and use Tags](../../azure-resource-manager/management/tag-resources.md)
 
@@ -614,7 +614,7 @@ Microsoft uses the Transport Layer Security (TLS) protocol to protect data when 
 
 **Guidance**: You will need a third-party tool for anti-malware vulnerability detection for inside the Linux OS.
 
-* [Instructions for onboarding Linux servers to Azure Security center](../../security-center/quick-onboard-linux-computer.md)
+* [Instructions for onboarding Linux servers to Azure Security center](../../security-center/quickstart-onboard-machines.md)
 
 * [Microsoft recommended security guidelines](./security-recommendations.md)
 
@@ -698,7 +698,7 @@ Microsoft uses the Transport Layer Security (TLS) protocol to protect data when 
 
 * [How to create additional Azure subscriptions](../../cost-management-billing/manage/create-subscription.md)
 
-* [How to create Management Groups](../../governance/management-groups/create.md)
+* [How to create Management Groups](../../governance/management-groups/create-management-group-portal.md)
 
 * [How to create and use Tags](../../azure-resource-manager/management/tag-resources.md)
 
@@ -782,7 +782,7 @@ In addition to using Change Tracking for monitoring of software applications, ad
 
 * [How to configure and manage Azure Policy](../../governance/policy/tutorials/create-and-manage.md)
 
-* [How to deny a specific resource type with Azure Policy](/azure/governance/policy/samples/not-allowed-resource-types)
+* [How to deny a specific resource type with Azure Policy](../../governance/policy/samples/index.md)
 
 **Azure Security Center monitoring**: Yes
 
@@ -822,13 +822,13 @@ In addition to using Change Tracking for monitoring of software applications, ad
 
 **Guidance**: High risk applications deployed in your Azure environment may be isolated using virtual networks, subnets, subscriptions, management groups and sufficiently secured with either an Azure Firewall, Web Application Firewall (WAF) or network security group (NSG).
 
-* [Virtual networks and virtual machines in Azure](../windows/network-overview.md)
+* [Virtual networks and virtual machines in Azure](../network-overview.md)
 
 * [Azure Firewall overview](../../firewall/overview.md)
 
 * [Web Application Firewall overview](../../web-application-firewall/overview.md)
 
-* [Network security overview](../../virtual-network/security-overview.md)
+* [Network security overview](../../virtual-network/network-security-groups-overview.md)
 
 * [Azure Virtual Network overview](../../virtual-network/virtual-networks-overview.md)
 
