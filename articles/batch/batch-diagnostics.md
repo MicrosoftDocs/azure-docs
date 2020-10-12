@@ -100,7 +100,7 @@ To create a new diagnostic setting in the Azure portal, follow the steps below.
 6. Select **ServiceLog**, **AllMetrics**, or both.
 7. Select **Save** to create the diagnostic setting.
 
-You can also [enable collection through Azure Monitor in the Azure portal](../azure-monitor/platform/diagnostic-settings.md) to configure diagnostic settings, by using a [Resource Manager template](../azure-monitor/platform/diagnostic-settings-template.md), or with Azure PowerShell or the Azure CLI. For more information, see [Overview of Azure platform logs](../azure-monitor/platform/platform-logs-overview.md).
+You can also [enable collection through Azure Monitor in the Azure portal](../azure-monitor/platform/diagnostic-settings.md) to configure diagnostic settings, by using a [Resource Manager template](../azure-monitor/samples/resource-manager-diagnostic-settings.md), or with Azure PowerShell or the Azure CLI. For more information, see [Overview of Azure platform logs](../azure-monitor/platform/platform-logs-overview.md).
 
 ### Access diagnostics logs in storage
 

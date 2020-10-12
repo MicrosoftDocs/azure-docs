@@ -120,7 +120,7 @@ Once you've submitted your support request, Azure support will contact you. Quot
 
 Batch pools in the Virtual Machine Configuration deployed in an Azure virtual network automatically allocate additional Azure networking resources. The following resources are needed for each 50 pool nodes in a virtual network:
 
-- One [network security group](../virtual-network/security-overview.md#network-security-groups)
+- One [network security group](../virtual-network/network-security-groups-overview.md#network-security-groups)
 - One [public IP address](../virtual-network/public-ip-addresses.md)
 - One [load balancer](../load-balancer/load-balancer-overview.md)
 
