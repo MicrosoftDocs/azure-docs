@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: overview
-ms.date: 09/11/2020
+ms.date: 09/12/2020
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
@@ -18,7 +18,7 @@ ms.collection: M365-identity-device-management
 
 # Custom administrator roles in Azure Active Directory (preview)
 
-This article describes how to understand Azure AD custom roles in Azure Active Directory (Azure AD) with roles-based access control and resource scopes. Custom Azure AD roles surface the underlying permissions of the [built-in roles](directory-assign-admin-roles.md), so that you can create and organize your own custom roles. This approach allows you to grant access in a more granular way than built-in roles, whenever they're needed. This first release of Azure AD custom roles includes the ability to create a role to assign permissions for managing app registrations. Over time, additional permissions for organization resources like enterprise applications, users, and devices will be added.  
+This article describes how to understand Azure AD custom roles in Azure Active Directory (Azure AD) with roles-based access control and resource scopes. Custom Azure AD roles surface the underlying permissions of the [built-in roles](directory-assign-admin-roles.md), so that you can create and organize your own custom roles. This approach allows you to grant access in a more granular way than built-in roles, whenever they're needed. This first release of Azure AD custom roles includes permissions for managing app registrations and enterprise apps. Over time, additional permissions for other organization resources will be added.  
 
 Additionally, Azure AD custom roles support assignments on a per-resource basis, in addition to the more traditional organization-wide assignments. This approach gives you the ability to grant access to manage some resources (for example, one app registration) without giving access to all resources (all app registrations).
 
