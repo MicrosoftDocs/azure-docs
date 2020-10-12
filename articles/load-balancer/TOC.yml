@@ -45,7 +45,7 @@
     href: whats-new.md
   - name: Components
     href: components.md
-  - name: Concepts
+  - name: Load balancing algorithm
     href: concepts.md
   - name: SKUs
     href: skus.md
