@@ -1,25 +1,19 @@
 ---
-title: Create a content library to deploy VMs in Azure VMware Solution (AVS)
-description: In this Azure VMware Solution (AVS) tutorial, you create a content library to deploy a VM in an AVS private cloud.
+title: Create a content library to deploy VMs in Azure VMware Solution
+description: Create a content library to deploy a VM in an Azure VMware Solution private cloud.
 ms.topic: how-to
-ms.date: 06/16/2020
+ms.date: 09/21/2020
 ---
 
-# Create a content library to deploy VMs in Azure VMware Solution (AVS)
+# Create a content library to deploy VMs in Azure VMware Solution
 
 A content library stores and manages content in the form of library items. A single library item consists of one or more files you use to deploy virtual machines (VMs). 
- 
-In this tutorial, you learn how to:
 
-You learn how to:
-> [!div class="checklist"]
-> * Create a content library
-> * Upload an ISO image to the content library
-> * Deploy a VM using an ISO in the content library
+In this article, we'll walk through the procedure for creating a content library.  Then we'll walk through deploying a VM using an ISO image from the content library.
 
 ## Prerequisites
 
-An NSX-T logical switch segment and a managed DHCP service are required to complete this tutorial.  See the [How to manage DHCP in Azure VMWare Solution (AVS) Preview](manage-dhcp.md) for details.
+An NSX-T logical switch segment and a managed DHCP service are required to complete this tutorial.  For more information, see the [How to manage DHCP in Azure VMWare Solution](manage-dhcp.md) article.
 
 ## Create a content library
 
@@ -27,9 +21,9 @@ An NSX-T logical switch segment and a managed DHCP service are required to compl
 
    ![Select Menu -> Content Libraries](./media/content-library/vsphere-menu-content-libraries.png)
 
-1. Click the **Add** button to create a new content library.
+1. Select the **Add** button to create a new content library.
 
-   ![Click the Add button to create a new content library.](./media/content-library/create-new-content-library.png)
+   ![Select the Add button to create a new content library.](./media/content-library/create-new-content-library.png)
 
 1. Specify a name and confirm the IP address of the vCenter server and select **Next**.
 
@@ -93,7 +87,7 @@ Now that the content library has been created, you can add an ISO image to deplo
 
 ## Next steps
 
-If you plan to use Hybrid Cloud Extension (HCX) to migrate VM workloads to your private cloud, use the [Install HCX for Azure VMware Solution](hybrid-cloud-extension-installation.md) procedure.
+If you plan to use Hybrid Cloud Extension (HCX) to migrate VM workloads to your private cloud, use the [Install HCX for Azure VMware Solution](tutorial-deploy-vmware-hcx.md) procedure.
 
 <!-- LINKS - external-->
 

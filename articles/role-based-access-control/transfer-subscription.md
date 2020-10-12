@@ -1,5 +1,5 @@
 ---
-title: Transfer an Azure subscription to a different Azure AD directory (Preview)
+title: Transfer an Azure subscription to a different Azure AD directory
 description: Learn how to transfer an Azure subscription and known related resources to a different Azure Active Directory (Azure AD) directory.
 services: active-directory
 author: rolyon
@@ -8,33 +8,31 @@ ms.service: role-based-access-control
 ms.devlang: na
 ms.topic: how-to
 ms.workload: identity
-ms.date: 07/01/2020
+ms.date: 10/06/2020
 ms.author: rolyon
 ---
 
-# Transfer an Azure subscription to a different Azure AD directory (Preview)
-
-> [!IMPORTANT]
-> Following these steps to transfer a subscription to a different Azure AD directory is currently in public preview.
-> This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
-> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+# Transfer an Azure subscription to a different Azure AD directory
 
 Organizations might have several Azure subscriptions. Each subscription is associated with a particular Azure Active Directory (Azure AD) directory. To make management easier, you might want to transfer a subscription to a different Azure AD directory. When you transfer a subscription to a different Azure AD directory, some resources are not transferred to the target directory. For example, all role assignments and custom roles in Azure role-based access control (Azure RBAC) are **permanently** deleted from the source directory and are not be transferred to the target directory.
 
 This article describes the basic steps you can follow to transfer a subscription to a different Azure AD directory and re-create some of the resources after the transfer.
+
+> [!NOTE]
+> For Azure Cloud Solution Providers (CSP) subscriptions, changing the Azure AD directory for the subscription isn't supported.
 
 ## Overview
 
 Transferring an Azure subscription to a different Azure AD directory is a complex process that must be carefully planned and executed. Many Azure services require security principals (identities) to operate normally or even manage other Azure resources. This article tries to cover most of the Azure services that depend heavily on security principals, but is not comprehensive.
 
 > [!IMPORTANT]
-> Transferring a subscription does require downtime to complete the process.
+> In some scenarios, transferring a subscription might require downtime to complete the process. Careful planning is required to assess whether downtime will be required for your transfer.
 
 The following diagram shows the basic steps you must follow when you transfer a subscription to a different directory.
 
 1. Prepare for the transfer
 
-1. Transfer billing ownership of an Azure subscription to another account
+1. Transfer the Azure subscription to a different directory
 
 1. Re-create resources in the target directory such as role assignments, custom roles, and managed identities
 
@@ -65,24 +63,25 @@ Several Azure resources have a dependency on a subscription or a directory. Depe
 | Custom roles | Yes | Yes | [List custom roles](#save-custom-roles) | All custom roles are permanently deleted. You must re-create the custom roles and any role assignments. |
 | System-assigned managed identities | Yes | Yes | [List managed identities](#list-role-assignments-for-managed-identities) | You must disable and re-enable the managed identities. You must re-create the role assignments. |
 | User-assigned managed identities | Yes | Yes | [List managed identities](#list-role-assignments-for-managed-identities) | You must delete, re-create, and attach the managed identities to the appropriate resource. You must re-create the role assignments. |
-| Azure Key Vault | Yes | Yes | [List Key Vault access policies](#list-other-known-resources) | You must update the tenant ID associated with the key vaults. You must remove and add new access policies. |
-| Azure SQL Databases with Azure AD authentication | Yes | No | [Check Azure SQL Databases with Azure AD authentication](#list-other-known-resources) |  |  |
+| Azure Key Vault | Yes | Yes | [List Key Vault access policies](#list-key-vaults) | You must update the tenant ID associated with the key vaults. You must remove and add new access policies. |
+| Azure SQL databases with Azure AD authentication integration enabled | Yes | No | [Check Azure SQL databases with Azure AD authentication](#list-azure-sql-databases-with-azure-ad-authentication) |  |  |
 | Azure Storage and Azure Data Lake Storage Gen2 | Yes | Yes |  | You must re-create any ACLs. |
-| Azure Data Lake Storage Gen1 | Yes |  |  | You must re-create any ACLs. |
+| Azure Data Lake Storage Gen1 | Yes | Yes |  | You must re-create any ACLs. |
 | Azure Files | Yes | Yes |  | You must re-create any ACLs. |
 | Azure File Sync | Yes | Yes |  |  |
-| Azure Managed Disks | Yes | N/A |  |  |
+| Azure Managed Disks | Yes | Yes |  |  If you are using Disk Encryption Sets to encrypt Managed Disks with customer-managed keys, you must disable and re-enable the system-assigned identities associated with Disk Encryption Sets. And you must re-create the role assignments i.e. again grant required permissions to Disk Encryption Sets in the Key Vaults. |
 | Azure Container Services for Kubernetes | Yes | Yes |  |  |
 | Azure Active Directory Domain Services | Yes | No |  |  |
 | App registrations | Yes | Yes |  |  |
 
-If you are using encryption at rest for a resource, such as a storage account or a SQL database, that has a dependency on a key vault that is NOT in the same subscription that is being transferred, it can lead to an unrecoverable scenario. If you have this situation, you should take steps to use a different key vault or temporarily disable customer-managed keys to avoid this unrecoverable scenario.
+> [!WARNING]
+> If you are using encryption at rest for a resource, such as a storage account or SQL database, that has a dependency on a key vault that is **not** in the same subscription that is being transferred, it can lead to an unrecoverable scenario. If you have this situation, you should take steps to use a different key vault or temporarily disable customer-managed keys to avoid this unrecoverable scenario.
 
 ## Prerequisites
 
 To complete these steps, you will need:
 
-- [Bash in Azure Cloud Shell](/azure/cloud-shell/overview) or [Azure CLI](https://docs.microsoft.com/cli/azure)
+- [Bash in Azure Cloud Shell](/azure/cloud-shell/overview) or [Azure CLI](/cli/azure)
 - Account Administrator of the subscription you want to transfer in the source directory
 - [Owner](built-in-roles.md#owner) role in the target directory
 
@@ -92,13 +91,13 @@ To complete these steps, you will need:
 
 1. Sign in to Azure as an administrator.
 
-1. Get a list of your subscriptions with the [az account list](/cli/azure/account#az-account-list) command.
+1. Get a list of your subscriptions with the [az account list](/cli/azure/account#az_account_list) command.
 
     ```azurecli
     az account list --output table
     ```
 
-1. Use [az account set](https://docs.microsoft.com/cli/azure/account#az-account-set) to set the active subscription you want to transfer.
+1. Use [az account set](/cli/azure/account#az_account_set) to set the active subscription you want to transfer.
 
     ```azurecli
     az account set --subscription "Marketing"
@@ -106,9 +105,9 @@ To complete these steps, you will need:
 
 ### Install the resource-graph extension
 
- The resource-graph extension enables you to use the [az graph](https://docs.microsoft.com/cli/azure/ext/resource-graph/graph) command to query resources managed by Azure Resource Manager. You'll use this command in later steps.
+ The resource-graph extension enables you to use the [az graph](/cli/azure/ext/resource-graph/graph) command to query resources managed by Azure Resource Manager. You'll use this command in later steps.
 
-1. Use [az extension list](https://docs.microsoft.com/cli/azure/extension#az-extension-list) to see if you have the *resource-graph* extension installed.
+1. Use [az extension list](/cli/azure/extension#az_extension_list) to see if you have the *resource-graph* extension installed.
 
     ```azurecli
     az extension list
@@ -122,7 +121,7 @@ To complete these steps, you will need:
 
 ### Save all role assignments
 
-1. Use [az role assignment list](https://docs.microsoft.com/cli/azure/role/assignment#az-role-assignment-list) to list all the role assignments (including inherited role assignments).
+1. Use [az role assignment list](/cli/azure/role/assignment#az_role_assignment_list) to list all the role assignments (including inherited role assignments).
 
     To make it easier to review the list, you can export the output as JSON, TSV, or a table. For more information, see [List role assignments using Azure RBAC and Azure CLI](role-assignments-list-cli.md).
 
@@ -140,7 +139,7 @@ To complete these steps, you will need:
 
 ### Save custom roles
 
-1. Use the [az role definition list](https://docs.microsoft.com/cli/azure/role/definition#az-role-definition-list) to list your custom roles. For more information, see [Create or update custom roles for Azure resources using Azure CLI](custom-roles-cli.md).
+1. Use the [az role definition list](/cli/azure/role/definition#az_role_definition_list) to list your custom roles. For more information, see [Create or update Azure custom roles using Azure CLI](custom-roles-cli.md).
 
     ```azurecli
     az role definition list --custom-role-only true --output json --query '[].{roleName:roleName, roleType:roleType}'
@@ -184,7 +183,7 @@ Managed identities do not get updated when a subscription is transferred to anot
 
 1. Review the [list of Azure services that support managed identities](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md) to note where you might be using managed identities.
 
-1. Use [az ad sp list](/azure/ad/sp#az-ad-sp-list) to list your system-assigned and user-assigned managed identities.
+1. Use [az ad sp list](/cli/azure/ad/sp#az_ad_sp_list) to list your system-assigned and user-assigned managed identities.
 
     ```azurecli
     az ad sp list --all --filter "servicePrincipalType eq 'ManagedIdentity'"
@@ -198,7 +197,7 @@ Managed identities do not get updated when a subscription is transferred to anot
     | `alternativeNames` property does not include `isExplicit` | System-assigned |
     | `alternativeNames` property includes `isExplicit=True` | User-assigned |
 
-    You can also use [az identity list](https://docs.microsoft.com/cli/azure/identity#az-identity-list) to just list user-assigned managed identities. For more information, see [Create, list or delete a user-assigned managed identity using the Azure CLI](../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-cli.md).
+    You can also use [az identity list](/cli/azure/identity#az_identity_list) to just list user-assigned managed identities. For more information, see [Create, list or delete a user-assigned managed identity using the Azure CLI](../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-cli.md).
 
     ```azurecli
     az identity list
@@ -210,20 +209,20 @@ Managed identities do not get updated when a subscription is transferred to anot
 
 ### List key vaults
 
-When you create a key vault, it is automatically tied to the default Azure Active Directory tenant ID for the subscription in which it is created. All access policy entries are also tied to this tenant ID. For more information, see [Moving an Azure Key Vault to another subscription](../key-vault/general/keyvault-move-subscription.md).
+When you create a key vault, it is automatically tied to the default Azure Active Directory tenant ID for the subscription in which it is created. All access policy entries are also tied to this tenant ID. For more information, see [Moving an Azure Key Vault to another subscription](../key-vault/general/move-subscription.md).
 
 > [!WARNING]
-> If you are using encryption at rest for a resource, such as a storage account or a SQL database, that has a dependency on a key vault that is NOT in the same subscription that is being transferred, it can lead to an unrecoverable scenario. If you have this situation, you should take steps to use a different key vault or temporarily disable customer-managed keys to avoid this unrecoverable scenario.
+> If you are using encryption at rest for a resource, such as a storage account or SQL database, that has a dependency on a key vault that is **not** in the same subscription that is being transferred, it can lead to an unrecoverable scenario. If you have this situation, you should take steps to use a different key vault or temporarily disable customer-managed keys to avoid this unrecoverable scenario.
 
-- If you have a key vault, use [az keyvault show](https://docs.microsoft.com/cli/azure/keyvault#az-keyvault-show) to list the access policies. For more information, see [Provide Key Vault authentication with an access control policy](../key-vault/key-vault-group-permissions-for-apps.md).
+- If you have a key vault, use [az keyvault show](/cli/azure/keyvault#az_keyvault_show) to list the access policies. For more information, see [Assign a Key Vault access policy](../key-vault/general/assign-access-policy-cli.md).
 
     ```azurecli
     az keyvault show --name MyKeyVault
     ```
 
-### List Azure SQL Databases with Azure AD authentication
+### List Azure SQL databases with Azure AD authentication
 
-- Use [az sql server ad-admin list](https://docs.microsoft.com/cli/azure/sql/server/ad-admin#az-sql-server-ad-admin-list) and the [az graph](https://docs.microsoft.com/cli/azure/ext/resource-graph/graph) extension to see if you are using Azure SQL Databases with Azure AD authentication. For more information, see [Configure and manage Azure Active Directory authentication with SQL](../sql-database/sql-database-aad-authentication-configure.md).
+- Use [az sql server ad-admin list](/cli/azure/sql/server/ad-admin#az_sql_server_ad_admin_list) and the [az graph](/cli/azure/ext/resource-graph/graph) extension to see if you are using Azure SQL databases with Azure AD authentication integration enabled. For more information, see [Configure and manage Azure Active Directory authentication with SQL](../azure-sql/database/authentication-aad-configure.md).
 
     ```azurecli
     az sql server ad-admin list --ids $(az graph query -q 'resources | where type == "microsoft.sql/servers" | project id' -o tsv | cut -f1)
@@ -239,13 +238,13 @@ When you create a key vault, it is automatically tied to the default Azure Activ
 
 ### List other known resources
 
-1. Use [az account show](https://docs.microsoft.com/cli/azure/account#az-account-show) to get your subscription ID.
+1. Use [az account show](/cli/azure/account#az_account_show) to get your subscription ID.
 
     ```azurecli
     subscriptionId=$(az account show --query id | sed -e 's/^"//' -e 's/"$//')
     ```
 
-1. Use the [az graph](https://docs.microsoft.com/cli/azure/ext/resource-graph/graph) extension to list other Azure resources with known Azure AD directory dependencies.
+1. Use the [az graph](/cli/azure/ext/resource-graph/graph) extension to list other Azure resources with known Azure AD directory dependencies.
 
     ```azurecli
     az graph query -q \
@@ -253,16 +252,21 @@ When you create a key vault, it is automatically tied to the default Azure Activ
     --subscriptions $subscriptionId --output table
     ```
 
-## Step 2: Transfer billing ownership
+## Step 2: Transfer the subscription
 
-In this step, you transfer the billing ownership of the subscription from the source directory to the target directory.
+In this step, you transfer the subscription from the source directory to the target directory. The steps will be different depending on whether you want to also transfer the billing ownership.
 
 > [!WARNING]
-> When you transfer the billing ownership of the subscription, all role assignments in the source directory are **permanently** deleted and cannot be restored. You cannot go back once you transfer billing ownership of the subscription. Be sure you complete the previous steps before performing this step.
+> When you transfer the subscription, all role assignments in the source directory are **permanently** deleted and cannot be restored. You cannot go back once you transfer the subscription. Be sure you complete the previous steps before performing this step.
 
-1. Follow the steps in [Transfer billing ownership of an Azure subscription to another account](../cost-management-billing/manage/billing-subscription-transfer.md). To transfer the subscription to a different Azure AD directory, you must check the **Subscription Azure AD tenant** check box.
+1. Determine whether you want to also transfer the billing ownership to another account.
 
-1. Once you finish transferring ownership, return back to this article to re-create the resources in the target directory.
+1. Transfer the subscription to a different directory.
+
+    - If you want to keep the current billing ownership, follow the steps in [Associate or add an Azure subscription to your Azure Active Directory tenant](../active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md).
+    - If you want to also transfer the billing ownership, follow the steps in [Transfer billing ownership of an Azure subscription to another account](../cost-management-billing/manage/billing-subscription-transfer.md). To transfer the subscription to a different directory, you must check the **Subscription Azure AD tenant** check box.
+
+1. Once you finish transferring the subscription, return back to this article to re-create the resources in the target directory.
 
 ## Step 3: Re-create resources
 
@@ -272,13 +276,13 @@ In this step, you transfer the billing ownership of the subscription from the so
 
     Only the user in the new account who accepted the transfer request will have access to manage the resources.
 
-1. Get a list of your subscriptions with the [az account list](https://docs.microsoft.com/cli/azure/account#az-account-list) command.
+1. Get a list of your subscriptions with the [az account list](/cli/azure/account#az_account_list) command.
 
     ```azurecli
     az account list --output table
     ```
 
-1. Use [az account set](https://docs.microsoft.com/cli/azure/account#az-account-set) to set the active subscription you want to use.
+1. Use [az account set](/cli/azure/account#az_account_set) to set the active subscription you want to use.
 
     ```azurecli
     az account set --subscription "Contoso"
@@ -286,7 +290,7 @@ In this step, you transfer the billing ownership of the subscription from the so
 
 ### Create custom roles
         
-- Use [az role definition create](https://docs.microsoft.com/cli/azure/role/definition#az-role-definition-create) to create each custom role from the files you created earlier. For more information, see [Create or update custom roles for Azure resources using Azure CLI](custom-roles-cli.md).
+- Use [az role definition create](/cli/azure/role/definition#az_role_definition_create) to create each custom role from the files you created earlier. For more information, see [Create or update Azure custom roles using Azure CLI](custom-roles-cli.md).
 
     ```azurecli
     az role definition create --role-definition <role_definition>
@@ -294,7 +298,7 @@ In this step, you transfer the billing ownership of the subscription from the so
 
 ### Create role assignments
 
-- Use [az role assignment create](https://docs.microsoft.com/cli/azure/role/assignment#az-role-assignment-create) to create the role assignments for users, groups, and service principals. For more information, see [Add or remove role assignments using Azure RBAC and Azure CLI](role-assignments-cli.md).
+- Use [az role assignment create](/cli/azure/role/assignment#az_role_assignment_create) to create the role assignments for users, groups, and service principals. For more information, see [Add or remove role assignments using Azure RBAC and Azure CLI](role-assignments-cli.md).
 
     ```azurecli
     az role assignment create --role <role_name_or_id> --assignee <assignee> --resource-group <resource_group>
@@ -310,7 +314,7 @@ In this step, you transfer the billing ownership of the subscription from the so
     | Virtual machine scale sets | [Configure managed identities for Azure resources on a virtual machine scale set using Azure CLI](../active-directory/managed-identities-azure-resources/qs-configure-cli-windows-vmss.md#system-assigned-managed-identity) |
     | Other services | [Services that support managed identities for Azure resources](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md) |
 
-1. Use [az role assignment create](https://docs.microsoft.com/cli/azure/role/assignment#az-role-assignment-create) to create the role assignments for system-assigned managed identities. For more information, see [Assign a managed identity access to a resource using Azure CLI](../active-directory/managed-identities-azure-resources/howto-assign-access-cli.md).
+1. Use [az role assignment create](/cli/azure/role/assignment#az_role_assignment_create) to create the role assignments for system-assigned managed identities. For more information, see [Assign a managed identity access to a resource using Azure CLI](../active-directory/managed-identities-azure-resources/howto-assign-access-cli.md).
 
     ```azurecli
     az role assignment create --assignee <objectid> --role '<role_name_or_id>' --scope <scope>
@@ -326,7 +330,7 @@ In this step, you transfer the billing ownership of the subscription from the so
     | Virtual machine scale sets | [Configure managed identities for Azure resources on a virtual machine scale set using Azure CLI](../active-directory/managed-identities-azure-resources/qs-configure-cli-windows-vmss.md#user-assigned-managed-identity) |
     | Other services | [Services that support managed identities for Azure resources](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md)<br/>[Create, list or delete a user-assigned managed identity using the Azure CLI](../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-cli.md) |
 
-1. Use [az role assignment create](https://docs.microsoft.com/cli/azure/role/assignment#az-role-assignment-create) to create the role assignments for user-assigned managed identities. For more information, see [Assign a managed identity access to a resource using Azure CLI](../active-directory/managed-identities-azure-resources/howto-assign-access-cli.md).
+1. Use [az role assignment create](/cli/azure/role/assignment#az_role_assignment_create) to create the role assignments for user-assigned managed identities. For more information, see [Assign a managed identity access to a resource using Azure CLI](../active-directory/managed-identities-azure-resources/howto-assign-access-cli.md).
 
     ```azurecli
     az role assignment create --assignee <objectid> --role '<role_name_or_id>' --scope <scope>
@@ -334,7 +338,7 @@ In this step, you transfer the billing ownership of the subscription from the so
 
 ### Update key vaults
 
-This section describes the basic steps to update your key vaults. For more information, see [Moving an Azure Key Vault to another subscription](../key-vault/general/keyvault-move-subscription.md).
+This section describes the basic steps to update your key vaults. For more information, see [Moving an Azure Key Vault to another subscription](../key-vault/general/move-subscription.md).
 
 1. Update the tenant ID associated with all existing key vaults in the subscription to the target directory.
 
@@ -362,7 +366,7 @@ If your intent is to remove access from users in the source directory so that th
 
 1. Rotate storage account access keys. For more information, see [Manage storage account access keys](../storage/common/storage-account-keys-manage.md).
 
-1. If you are using access keys for other services such as Azure SQL Databases or Azure Service Bus Messaging, rotate access keys.
+1. If you are using access keys for other services such as Azure SQL Database or Azure Service Bus Messaging, rotate access keys.
 
 1. For resources that use secrets, open the settings for the resource and update the secret.
 

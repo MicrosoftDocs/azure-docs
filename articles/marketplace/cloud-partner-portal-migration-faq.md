@@ -1,12 +1,12 @@
 ---
 title: Frequently asked questions about transitioning from the Cloud Partner Portal to Partner Center - Microsoft commercial marketplace
 description: Answers to commonly asked questions about transitioning offers from Cloud Partner Portal to Partner Center.
-author: anbene
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
-ms.date: 06/29/2020
+author: mingshen-ms
 ms.author: mingshen
+ms.date: 07/14/2020
 ---
 
 # Frequently asked questions about transitioning from the Cloud Partner Portal to Partner Center
@@ -15,17 +15,17 @@ The Cloud Partner Portal has transitioned to Partner Center. Partner Center offe
 
 ## What does the transition to Partner Center mean for me?
 
-You can continue doing business as usual in Partner Center:
+You can continue doing business in Partner Center:
 
 | Area<img src="" width=200px> | Changes |
 | --- | --- |
 | Account | No need to create a new Partner Center account; you can use your existing Cloud Partner Portal credentials to log into Partner Center where you will now manage your account, users, permissions, and billing. The publishing agreement and company profile information are migrated to your new Partner Center account, along with any payout profile information, user accounts and permissions, and active offers. Learn more at [Manage your commercial marketplace account in Partner Center](partner-center-portal/manage-account.md). |
-| Offer publishing and offer management experience | We've moved your offer data from the Cloud Partner Portal to Partner Center. You will now access your offers in Partner Center, which offers an improved user experience and intuitive interface. Learn how to [Update an existing offer in the Commercial Marketplace](partner-center-portal/update-existing-offer.md). |
-| Availability of your offers in the commercial marketplace | No changes. If your offer is live in the commercial marketplace it will continue to be live. |
+| Offer publishing and offer management experience | We've moved your offer data from the Cloud Partner Portal to Partner Center. You will now access your offers in Partner Center, which offers an improved user experience and intuitive interface. Learn how to [Update an existing offer in the commercial marketplace](partner-center-portal/update-existing-offer.md). |
+| Availability of your offers in the commercial marketplace | No changes. If your offer is live in the commercial marketplace, it will continue to be live. |
 | New purchases and deployments | No changes. Your customers can continue purchasing and deploying your offers with no interruptions. |
-| Payouts | Any purchases and deployments will continue to be paid out to you as normal. Learn more about [Getting paid in the commercial marketplace](partner-center-portal/get-paid.md). |
+| Payouts | Any purchases and deployments will continue to be paid out to you as normal. Learn more about [Getting paid in the commercial marketplace](/partner-center/marketplace-get-paid?context=/azure/marketplace/context/context). |
 | API integrations with existing [Cloud Partner Portal APIs](cloud-partner-portal-api-overview.md) | Existing Cloud Partner Portal APIs are still supported and your existing integrations still work. Learn more at [Will the Cloud Partner Portal REST APIs be supported?](#are-the-cloud-partner-portal-rest-apis-still-supported) |
-| Analytics | You can continue to monitor sales, evaluate performance, and optimize your offers in the commercial marketplace by viewing analytics in Partner Center. Learn more at [Access analytic reports for the commercial marketplace in Partner Center](partner-center-portal/analytics.md). |
+| Analytics | You can continue to monitor sales, evaluate performance, and optimize your offers in the commercial marketplace by viewing analytics in Partner Center. There are differences between how analytics reports display in CPP and Partner Center. For example, **Seller Insights** in CPP has an **Orders & Usage** tab that displays data for usage-based offers and non-usage-based offers, while in Partner Center the **Orders** page has a separate tab for SaaS Offers. Learn more at [Access analytic reports for the commercial marketplace in Partner Center](partner-center-portal/analytics.md). |
 |||
 
 ## Do I need to create a new account to manage my offers in Partner Center?
@@ -45,6 +45,19 @@ Following are Partner Center links for pages commonly used in the Cloud Partner 
 | History page | [https://cloudpartner.azure.com/#history](https://cloudpartner.azure.com/#history) | The History feature is not yet supported in Partner Center. |
 | Insights dashboard | [https://cloudpartner.azure.com/#insights](https://cloudpartner.azure.com/#insights) | [https://partner.microsoft.com/dashboard/commercial-marketplace/analytics/summary](https://partner.microsoft.com/dashboard/commercial-marketplace/analytics/summary) |
 | Payout report | [https://cloudpartner.azure.com/#insights/payout](https://cloudpartner.azure.com/#insights/payout) | [https://partner.microsoft.com/dashboard/payouts/reports/incentivepayments](https://partner.microsoft.com/dashboard/payouts/reports/incentivepayments) |
+|||
+
+## Payout report differences
+
+These are the differences in the payout report between the retired Cloud Partner Portal and the current Partner Center:
+
+| Cloud Partner Portal | Partner Center |
+| --- | --- |
+| **Link**: https://cloudpartner.azure.com/ | **Link**: https://partner.microsoft.com/dashboard/payouts/reports/transactionhistory and https://partner.microsoft.com/dashboard/payouts/reports/incentivepayments |
+| **Navigation**: Payout reporting provided in Insights Payout | **Navigation**: Payout reporting provided in Partner Center – Payout Icon |
+| **Scope**:<ul><li>Transaction per line item is visible, for collection in progress, collected, and paid.</li><li>Reporting – shows all line items once purchase order is created, including collection in progress and billing in progress, and collection status and line items that are not yet eligible to be paid.</li></ul> | **Scope**:<ul><li>Shows the line items after they're deemed as eligible earnings.</li><li>The customers pay to Microsoft first, and then ISVs can see the payout report starting.</li><li>Payout report won't show collection in progress and billing in Progress.</li></ul> |
+| **Transaction not ready for payout**: Billing in Progress | **Transaction not ready for payout**: Next estimated payment: The payout status is in the unprocessed state. |
+| **Payout status**: n/a | **Payout status**:<ul><li>Unprocessed: The earning is eligible for payment.</li><li>Upcoming: The earning will be sent to the publisher in the next monthly payout.</li><li>Sent: The payment has been sent to your bank.</li></ul> |
 |||
 
 ## What about offers I published in the Cloud Partner Portal?
@@ -71,7 +84,7 @@ For the offer types supported in Partner Center, all offers were moved regardles
 | Consulting Service | Yes | Sign in to Partner Center to create new offers and manage offers that were created in Cloud Partner Portal. Learn more at [Create a consulting service offer](partner-center-portal/create-consulting-service-offer.md). |
 | Managed Service | Yes | Sign in to Partner Center to create new offers and manage offers that were created in Cloud Partner Portal. Learn more at [Create a Managed Service offer](partner-center-portal/create-new-managed-service-offer.md). |
 | Dynamics Nav Managed Service | No | Microsoft has evolved Dynamics NAV Managed Service into [Dynamics 365 Business Central](https://docs.microsoft.com/dynamics365/business-central/), so we de-listed Dynamics NAV Managed Service live offers from AppSource. These offers are no longer discoverable by customers and haven't been moved to Partner Center. To make your offers available in AppSource, adapt them to Dynamics 365 Business Central offers and submit them in [Partner Center](https://partner.microsoft.com/). Learn more at [Create a Dynamics 365 Business Central offer](partner-center-portal/create-new-business-central-offer.md). |
-| Cortana Intelligence | No | Microsoft has evolved the product road map for Cortana Intelligence, so we de-listed Cortana Intelligence live offers from AppSource. These offers are no longer discoverable by customers and haven't been moved to Partner Center. To make your offers available in the commercial marketplace, adapt your offers to Software as a Service (SaaS) offers and submit them in [Partner Center](hhttps://partner.microsoft.com/). Learn more at [SaaS offer creation checklist in Partner Center](partner-center-portal/offer-creation-checklist.md). |
+| Cortana Intelligence | No | Microsoft has evolved the product road map for Cortana Intelligence, so we de-listed Cortana Intelligence live offers from AppSource. These offers are no longer discoverable by customers and haven't been moved to Partner Center. To make your offers available in the commercial marketplace, adapt your offers to Software as a Service (SaaS) offers and submit them in [Partner Center](https://partner.microsoft.com/). Learn more at [SaaS offer creation checklist in Partner Center](partner-center-portal/offer-creation-checklist.md). |
 
 ## I can't find my Cloud Partner Portal offers in Partner Center
 
@@ -89,19 +102,19 @@ The offers you created in Cloud Partner Portal are available in Partner Center u
 
     If you don't see the Commercial Marketplace program in the navigation pane on the left, you may be in the wrong account. Follow the steps in the next section to access the right account.
 
-    [![](media/cpp-pc-faq/overview-menu.png "Shows the Partner Center Overview menu")](media/cpp-pc-faq/overview-menu.png#lightbox)
+    [![Screenshot that shows the Partner Center Overview menu](media/cpp-pc-faq/overview-menu.png "Shows the Partner Center Overview menu")](media/cpp-pc-faq/overview-menu.png#lightbox)
 
 ### Access the right account in Partner Center
 
 If you are part of multiple accounts, in Partner center you will see an account picker button marked by two arrows in the navigation menu on the left. Select the account picker button to view a list of all the accounts you belong to. Select any account on the list to switch to it and see all the programs and information pertaining to that account. If you don't see an account picker button in the navigation menu, you are a member of a single account.
 
-[![](media/cpp-pc-faq/picker-button.png "Shows the Partner Center account picker button")](media/cpp-pc-faq/picker-button.png#lightbox)
+[![Screenshot shows the Partner Center account picker button.](media/cpp-pc-faq/picker-button.png "Shows the Partner Center account picker button")](media/cpp-pc-faq/picker-button.png#lightbox)
 
 ## How do I create new offers?
 
 Access the Commercial marketplace program in [Partner Center](https://partner.microsoft.com/dashboard/commercial-marketplace/overview) to create new offers. On the Overview page, select **+ New offer**.
 
-[![](media/cpp-pc-faq/new-offer.png "Shows the Partner Center Overview menu")](media/cpp-pc-faq/new-offer.png#lightbox)
+[![Screenshot shows the Partner Center Overview menu.](media/cpp-pc-faq/new-offer.png "Shows the Partner Center Overview menu")](media/cpp-pc-faq/new-offer.png#lightbox)
 
 ## I can't sign in and need to open a support ticket
 
@@ -109,7 +122,7 @@ If you can't sign in to your account, you can open a [support ticket](https://pa
 
 ## Where are instructions for using Partner Center?
 
-Go to the [commercial marketplace documentation](index.yml), then expand **Commercial Marketplace Portal in Partner Center**. To see help articles for creating offers in Partner Center, expand **Create a new offer**.
+Go to the [commercial marketplace documentation.](index.yml), then expand **Commercial Marketplace Portal in Partner Center**. To see help articles for creating offers in Partner Center, expand **Create a new offer**.
 
 ## What are the publishing and offer management differences?
 
@@ -119,25 +132,25 @@ Here are some differences between the Cloud Partner Portal and Partner Center.
 
 Partner Center provides a modular publishing option that lets you select the changes you want to publish instead of always publishing all updates at once. For example, the following screen shows that the only changes selected to be published are the changes to **Properties** and  **Offer Listing**. The changes you make in the Preview page will not be published.
 
-[![](media/cpp-pc-faq/review-page.png "Shows the Partner Center Review and publish page")](media/cpp-pc-faq/review-page.png#lightbox)
+[![Screenshot shows the Partner Center Review and publish page.](media/cpp-pc-faq/review-page.png "Shows the Partner Center Review and publish page")](media/cpp-pc-faq/review-page.png#lightbox)
 
 The updates that you don't publish are saved as drafts. Continue to use your offer preview to verify your offer before making it live to the public.
 
 ### Enhanced preview options
 
-Partner Center includes a [compare feature](partner-center-portal/update-existing-offer.md#compare-changes-to-marketplace-offers) with improved filtering options. This gives you the ability to compare against the preview and live versions of the offer.
+Partner Center includes a [compare feature](partner-center-portal/update-existing-offer.md#compare-changes-to-commercial-marketplace-offers) with improved filtering options. This gives you the ability to compare against the preview and live versions of the offer.
 
-[![](media/cpp-pc-faq/compare.png "Shows the Partner Center compare feature")](media/cpp-pc-faq/compare.png#lightbox)
+[![Screenshot shows the Partner Center compare feature.](media/cpp-pc-faq/compare.png "Shows the Partner Center compare feature")](media/cpp-pc-faq/compare.png#lightbox)
 
 ### Branding and navigation changes
 
 You'll notice some branding changes. For example, *SKUs* are branded as *Plans* in Partner Center:
 
-[![](media/cpp-pc-faq/plans.png "Shows the Partner Center Plans page")](media/cpp-pc-faq/plans.png#lightbox)
+[![Screenshot shows the Partner Center Plans page.](media/cpp-pc-faq/plans.png "Shows the Partner Center Plans page")](media/cpp-pc-faq/plans.png#lightbox)
 
 Also, the information you previously provided in the **Marketplace** or **Storefront Details**  (Consulting Service, Power BI app) pages in the Cloud Partner Portal is now collected on the **Offer listing** page in Partner Center:
 
-[![](media/cpp-pc-faq/offer-listing.png "Shows the Partner Center Offer listing page")](media/cpp-pc-faq/offer-listing.png#lightbox)
+[![Screenshot shows the Partner Center Offer listing page.](media/cpp-pc-faq/offer-listing.png "Shows the Partner Center Offer listing page")](media/cpp-pc-faq/offer-listing.png#lightbox)
 
 The information you previously provided for SKUs in a single page in the Cloud Partner Portal may now be collected throughout several pages in Partner Center:
 
@@ -145,7 +158,8 @@ The information you previously provided for SKUs in a single page in the Cloud P
 - Plan listing page
 - Plan availability page
 - Plan technical configuration page, as shown here:
-![![](media/cpp-pc-faq/technical-configuration.png "Shows the Partner Center technical configuration page")](media/cpp-pc-faq/technical-configuration.png#lightbox)
+
+![![Screenshot shows the Partner Center technical configuration page.](media/cpp-pc-faq/technical-configuration.png "Shows the Partner Center technical configuration page")](media/cpp-pc-faq/technical-configuration.png#lightbox)
 
 Your offer ID is now shown on the left-navigation bar of the offer:
 
@@ -155,7 +169,7 @@ Your offer ID is now shown on the left-navigation bar of the offer:
 
 You can request to [stop selling an offer](partner-center-portal/update-existing-offer.md#stop-selling-an-offer-or-plan) on the marketplace directly from the Partner Center portal. The option is available on the **Offer overview** page for your offer.
 
-[![](media/cpp-pc-faq/stop-sell.png "Shows the Partner Center page to stop selling an offer")](media/cpp-pc-faq/stop-sell.png#lightbox)
+[![Screenshot shows the Partner Center page to stop selling an offer.](media/cpp-pc-faq/stop-sell.png "Shows the Partner Center page to stop selling an offer")](media/cpp-pc-faq/stop-sell.png#lightbox)
 <br><br>
 
 ## Are the Cloud Partner Portal REST APIs still supported?

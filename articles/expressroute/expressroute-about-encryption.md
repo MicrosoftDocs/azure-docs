@@ -2,12 +2,12 @@
 title: 'Azure ExpressRoute: About Encryption'
 description: Learn about ExpressRoute encryption. 
 services: expressroute
-author: cherylmc
+author: duongau
 
 ms.service: expressroute
 ms.topic: conceptual
 ms.date: 05/05/2020
-ms.author: cherylmc
+ms.author: duau
 
 ---
 # ExpressRoute encryption

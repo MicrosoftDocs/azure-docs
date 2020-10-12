@@ -4,12 +4,12 @@ description: Learn about creating and configuring managed instances of Azure SQL
 services: sql-database
 ms.service: sql-managed-instance
 ms.subservice: operations
-ms.custom:
+ms.custom: devx-track-azurecli
 ms.devlang: 
-ms.topic: conceptual
+ms.topic: reference
 author: stevestein
 ms.author: sstein
-ms.reviewer: carlrab
+ms.reviewer:
 ms.date: 03/12/2019
 ---
 # Managed API reference for Azure SQL Managed Instance
@@ -38,6 +38,8 @@ To create and manage managed instances with Azure PowerShell, use the following 
 |[Get-AzSqlInstance](https://docs.microsoft.com/powershell/module/az.sql/get-azsqlinstance)|Returns information about a managed instance.|
 |[Set-AzSqlInstance](https://docs.microsoft.com/powershell/module/az.sql/set-azsqlinstance)|Sets properties for a managed instance.|
 |[Remove-AzSqlInstance](https://docs.microsoft.com/powershell/module/az.sql/remove-azsqlinstance)|Removes a managed instance.|
+|[Get-AzSqlInstanceOperation](https://docs.microsoft.com/powershell/module/az.sql/get-azsqlinstanceoperation)|Gets a list of management operations performed on the managed instance or specific operation.|
+|[Stop-AzSqlInstanceOperation](https://docs.microsoft.com/powershell/module/az.sql/stop-azsqlinstanceoperation)|Cancels the specific management operation performed on the managed instance.|
 |[New-AzSqlInstanceDatabase](https://docs.microsoft.com/powershell/module/az.sql/new-azsqlinstancedatabase)|Creates a SQL Managed Instance database.|
 |[Get-AzSqlInstanceDatabase](https://docs.microsoft.com/powershell/module/az.sql/get-azsqlinstancedatabase)|Returns information about a SQL Managed Instance database.|
 |[Remove-AzSqlInstanceDatabase](https://docs.microsoft.com/powershell/module/az.sql/remove-azsqlinstancedatabase)|Removes a SQL Managed Instance database.|
@@ -57,6 +59,9 @@ To create and configure managed instances with [Azure CLI](/cli/azure), use the 
 |[az sql mi show](https://docs.microsoft.com/cli/azure/sql/mi#az-sql-mi-show)|Gets the details for a managed instance.|
 |[az sql mi update](https://docs.microsoft.com/cli/azure/sql/mi#az-sql-mi-update)|Updates a managed instance.|
 |[az sql mi delete](https://docs.microsoft.com/cli/azure/sql/mi#az-sql-mi-delete)|Removes a managed instance.|
+|[az sql mi op list](https://docs.microsoft.com/cli/azure/sql/mi/op#az_sql_mi_op_list)|Gets a list of management operations performed on the managed instance.|
+|[az sql mi op show](https://docs.microsoft.com/cli/azure/sql/mi/op#az_sql_mi_op_show)|Gets the specific management operation performed on the managed instance.|
+|[az sql mi op cancel](https://docs.microsoft.com/cli/azure/sql/mi/op#az_sql_mi_op_cancel)|Cancels the specific management operation performed on the managed instance.|
 |[az sql midb create](https://docs.microsoft.com/cli/azure/sql/midb#az-sql-midb-create) |Creates a managed database.|
 |[az sql midb list](https://docs.microsoft.com/cli/azure/sql/midb#az-sql-midb-list)|Lists available managed databases.|
 |[az sql midb restore](https://docs.microsoft.com/cli/azure/sql/midb#az-sql-midb-restore)|Restores a managed database.|
@@ -74,8 +79,8 @@ To create and configure instance databases after the managed instance is created
 
 | Command | Description |
 | --- | --- |
-|[CREATE DATABASE](https://docs.microsoft.com/sql/t-sql/statements/create-database-transact-sql?view=azuresqldb-mi-current)|Creates a new instance database in SQL Managed Instance. You must be connected to the master database to create a new database.|
-| [ALTER DATABASE](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql?view=azuresqldb-mi-current) |Modifies an instance database in SQL Managed Instance.|
+|[CREATE DATABASE](https://docs.microsoft.com/sql/t-sql/statements/create-database-transact-sql?view=azuresqldb-mi-current&preserve-view=true)|Creates a new instance database in SQL Managed Instance. You must be connected to the master database to create a new database.|
+| [ALTER DATABASE](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql?view=azuresqldb-mi-current&preserve-view=true) |Modifies an instance database in SQL Managed Instance.|
 
 ## REST API: Create and configure managed instances
 
@@ -89,6 +94,9 @@ To create and configure managed instances, use these REST API requests.
 |[Managed Instances - List](https://docs.microsoft.com/rest/api/sql/managedinstances/list)|Returns a list of managed instances in a subscription.|
 |[Managed Instances - List By Resource Group](https://docs.microsoft.com/rest/api/sql/managedinstances/listbyresourcegroup)|Returns a list of managed instances in a resource group.|
 |[Managed Instances - Update](https://docs.microsoft.com/rest/api/sql/managedinstances/update)|Updates a managed instance.|
+|[Managed Instance Operations - List By Managed Instance](https://docs.microsoft.com/rest/api/sql/managedinstanceoperations/listbymanagedinstance)|Gets a list of management operations performed on the managed instance.|
+|[Managed Instance Operations - Get](https://docs.microsoft.com/rest/api/sql/managedinstanceoperations/get)|Gets the specific management operation performed on the managed instance.|
+|[Managed Instance Operations - Cancel](https://docs.microsoft.com/rest/api/sql/managedinstanceoperations/cancel)|Cancels the specific management operation performed on the managed instance.|
 
 ## Next steps
 

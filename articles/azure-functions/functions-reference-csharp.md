@@ -2,7 +2,8 @@
 title: Azure Functions C# script developer reference
 description: Understand how to develop Azure Functions using C# script.
 author: craigshoemaker
-ms.topic: reference
+ms.topic: conceptual
+ms.custom: devx-track-csharp
 ms.date: 12/12/2017
 ms.author: cshoe
 
@@ -233,7 +234,7 @@ public static void Run(ICollector<string> myQueue, ILogger log)
 
 ## Logging
 
-To log output to your streaming logs in C#, include an argument of type [ILogger](https://docs.microsoft.com/dotnet/api/microsoft.extensions.logging.ilogger). We recommend that you name it `log`. Avoid using `Console.Write` in Azure Functions.
+To log output to your streaming logs in C#, include an argument of type [ILogger](/dotnet/api/microsoft.extensions.logging.ilogger). We recommend that you name it `log`. Avoid using `Console.Write` in Azure Functions.
 
 ```csharp
 public static void Run(string myBlob, ILogger log)
@@ -247,7 +248,7 @@ public static void Run(string myBlob, ILogger log)
 
 ## Async
 
-To make a function [asynchronous](https://docs.microsoft.com/dotnet/csharp/programming-guide/concepts/async/), use the `async` keyword and return a `Task` object.
+To make a function [asynchronous](/dotnet/csharp/programming-guide/concepts/async/), use the `async` keyword and return a `Task` object.
 
 ```csharp
 public async static Task ProcessQueueMessageAsync(

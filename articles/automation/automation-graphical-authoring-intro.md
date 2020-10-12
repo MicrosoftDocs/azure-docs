@@ -55,7 +55,7 @@ Select an activity on the canvas to configure its properties and parameters in t
 
 A parameter set defines the mandatory and optional parameters that accept values for a particular cmdlet. All cmdlets have at least one parameter set, and some have several sets. If a cmdlet has multiple parameter sets, you must select the one to use before you can configure parameters. You can change the parameter set used by an activity by selecting **Parameter Set** and choosing another set. In this case, any parameter values that you have already configured are lost.
 
-In the following example, the [Get-AzVM](https://docs.microsoft.com/powershell/module/az.compute/get-azvm?view=azps-3.5.0) cmdlet has three parameter sets. The example uses one set called **ListVirtualMachineInResourceGroupParamSet**, with a single optional parameter, for returning all virtual machines in a resource group. The example also uses the **GetVirtualMachineInResourceGroupParamSet** parameter set for specifying the virtual machine to return. This set has two mandatory parameters and one optional parameter.
+In the following example, the [Get-AzVM](/powershell/module/az.compute/get-azvm?view=azps-3.5.0&preserve-view=true) cmdlet has three parameter sets. The example uses one set called **ListVirtualMachineInResourceGroupParamSet**, with a single optional parameter, for returning all virtual machines in a resource group. The example also uses the **GetVirtualMachineInResourceGroupParamSet** parameter set for specifying the virtual machine to return. This set has two mandatory parameters and one optional parameter.
 
 ![Parameter set](media/automation-graphical-authoring-intro/get-azvm-parameter-sets.png)
 
@@ -85,11 +85,11 @@ Retry functionality for an activity allows it to be run multiple times until a p
 
 When you enable retry for an activity, you can set a delay and a condition. The delay is the time (measured in seconds or minutes) that the runbook waits before it runs the activity again. If you don't specify a delay, the activity runs again immediately after it completes.
 
-![Activity retry delay](media/automation-graphical-authoring-intro/retry-delay.png)
+:::image type="content" source="media/automation-graphical-authoring-intro/retry-delay.png" alt-text="Screenshot of the Enable retry feature settings.":::
 
 The retry condition is a PowerShell expression that is evaluated after each time that the activity runs. If the expression resolves to True, the activity runs again. If the expression resolves to False, the activity does not run again and the runbook moves on to the next activity.
 
-![Activity retry delay](media/automation-graphical-authoring-intro/retry-condition.png)
+:::image type="content" source="media/automation-graphical-authoring-intro/retry-condition.png" alt-text="Screenshot showing the Retry until this condition is true field and examples of PowerShell expressions that can be used in the retry condition.":::
 
 The retry condition can use a variable named `RetryData` that provides access to information about the activity retries. This variable has the properties in the following table:
 
@@ -258,11 +258,11 @@ Each input parameter is defined by the properties in the following table:
 
 ## Handle runbook output
 
-Graphical authoring saves data created by any activity that does not have an outgoing link to the [output of the runbook](https://docs.microsoft.com/azure/automation/automation-runbook-output-and-messages). The output is saved with the runbook job and is available to a parent runbook when the runbook is used as a child.
+Graphical authoring saves data created by any activity that does not have an outgoing link to the [output of the runbook](./automation-runbook-output-and-messages.md). The output is saved with the runbook job and is available to a parent runbook when the runbook is used as a child.
 
 ## Work with PowerShell expressions
 
-One of the advantages of graphical authoring is that it allows you to build a runbook with minimal knowledge of PowerShell. Currently, though, you do need to know a bit of PowerShell for populating certain [parameter values](#use-activities) and for setting [link conditions](#use-links-for-workflow). This section provides a quick introduction to PowerShell expressions. Full details of PowerShell are available at [Scripting with Windows PowerShell](https://docs.microsoft.com/powershell/scripting/overview).
+One of the advantages of graphical authoring is that it allows you to build a runbook with minimal knowledge of PowerShell. Currently, though, you do need to know a bit of PowerShell for populating certain [parameter values](#use-activities) and for setting [link conditions](#use-links-for-workflow). This section provides a quick introduction to PowerShell expressions. Full details of PowerShell are available at [Scripting with Windows PowerShell](/powershell/scripting/overview).
 
 ### Use a PowerShell expression as a data source
 
@@ -317,7 +317,7 @@ The runbook can use the output of an activity in a more complex expression, such
 
 ### Compare values
 
-Use [comparison operators](https://technet.microsoft.com/library/hh847759.aspx) to compare values or determine if a value matches a specified pattern. A comparison returns a value of either True or False.
+Use [comparison operators](/powershell/module/microsoft.powershell.core/about/about_comparison_operators) to compare values or determine if a value matches a specified pattern. A comparison returns a value of either True or False.
 
 For example, the following condition determines if the virtual machine from an activity named `Get-AzureVM` is currently stopped.
 
@@ -331,7 +331,7 @@ The following condition determines if the same virtual machine is in any state o
 $ActivityOutput["Get-AzureVM"].PowerState –ne "Stopped"
 ```
 
-You can join multiple conditions in your runbook using a [logical operator](https://technet.microsoft.com/library/hh847789.aspx), such as `-and` or `-or`. For example, the following condition checks to see if the virtual machine in the previous example is in a state of Stopped or Stopping.
+You can join multiple conditions in your runbook using a [logical operator](/powershell/module/microsoft.powershell.core/about/about_logical_operators), such as `-and` or `-or`. For example, the following condition checks to see if the virtual machine in the previous example is in a state of Stopped or Stopping.
 
 ```powershell-interactive
 ($ActivityOutput["Get-AzureVM"].PowerState –eq "Stopped") -or ($ActivityOutput["Get-AzureVM"].PowerState –eq "Stopping")
@@ -339,7 +339,7 @@ You can join multiple conditions in your runbook using a [logical operator](http
 
 ### Use hashtables
 
-[Hashtables](https://technet.microsoft.com/library/hh847780.aspx) are name-value pairs that are useful for returning a set of values. You might also see a hashtable referred to as a dictionary. Properties for certain activities expect a hashtable instead of a simple value.
+[Hashtables](/powershell/module/microsoft.powershell.core/about/about_hash_tables) are name-value pairs that are useful for returning a set of values. You might also see a hashtable referred to as a dictionary. Properties for certain activities expect a hashtable instead of a simple value.
 
 Create a hashtable using the following syntax. It can contain any number of entries, but each is defined by a name and value.
 
@@ -367,7 +367,7 @@ The following example uses output from an activity called `Get Twitter Connectio
 
 ## Authenticate to Azure resources
 
-Runbooks in Azure Automation that manage Azure resources require authentication to Azure. The [Run As account](automation-create-runas-account.md), also referred to as a service principal, is the default mechanism that an Automation runbook uses to access Azure Resource Manager resources in your subscription. You can add this functionality to a graphical runbook by adding the `AzureRunAsConnection` connection asset, which uses the PowerShell [Get-AutomationConnection](https://technet.microsoft.com/library/dn919922%28v=sc.16%29.aspx) cmdlet, to the canvas. You can also add the [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount) cmdlet. This scenario is illustrated in the following example.
+Runbooks in Azure Automation that manage Azure resources require authentication to Azure. The [Run As account](./manage-runas-account.md), also referred to as a service principal, is the default mechanism that an Automation runbook uses to access Azure Resource Manager resources in your subscription. You can add this functionality to a graphical runbook by adding the `AzureRunAsConnection` connection asset, which uses the PowerShell [Get-AutomationConnection](/system-center/sma/manage-global-assets) cmdlet, to the canvas. You can also add the [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount) cmdlet. This scenario is illustrated in the following example.
 
 ![Run As Authentication Activities](media/automation-graphical-authoring-intro/authenticate-run-as-account.png)
 
@@ -384,7 +384,7 @@ The next activity, `Connect-AzAccount`, adds the authenticated Run As account fo
 
 For the parameter fields **APPLICATIONID**, **CERTIFICATETHUMBPRINT**, and **TENANTID**, specify the name of the property for the field path, since the activity outputs an object with multiple properties. Otherwise, when the runbook executes, it fails while attempting to authenticate. This is what you need at a minimum to authenticate your runbook with the Run As account.
 
-Some subscribers create an Automation account using an [Azure AD user account](automation-create-aduser-account.md) to manage Azure classic deployment or for Azure Resource Manager resources. To maintain backward compatibility for these subscribers, the authentication mechanism to use in your runbook is the `Add-AzureAccount` cmdlet with a [credential asset](automation-credentials.md). The asset represents an Active Directory user with access to the Azure account.
+Some subscribers create an Automation account using an [Azure AD user account](./shared-resources/credentials.md) to manage Azure classic deployment or for Azure Resource Manager resources. To maintain backward compatibility for these subscribers, the authentication mechanism to use in your runbook is the `Add-AzureAccount` cmdlet with a [credential asset](./shared-resources/credentials.md). The asset represents an Active Directory user with access to the Azure account.
 
 You can enable this functionality for your graphical runbook by adding a credential asset to the canvas, followed by an `Add-AzureAccount` activity that uses the credential asset for its input. See the following example.
 
@@ -429,4 +429,4 @@ You have the option to revert to the Published version of a runbook. This operat
 * To get started with graphical runbooks, see [Tutorial: Create a graphical runbook](learn/automation-tutorial-runbook-graphical.md).
 * To know more about runbook types and their advantages and limitations, see [Azure Automation runbook types](automation-runbook-types.md).
 * To understand how to authenticate using the Automation Run As account, see [Run As account](automation-security-overview.md#run-as-account).
-* For a PowerShell cmdlet reference, see [Az.Automation](https://docs.microsoft.com/powershell/module/az.automation/?view=azps-3.7.0#automation).
+* For a PowerShell cmdlet reference, see [Az.Automation](/powershell/module/az.automation/?view=azps-3.7.0&preserve-view=true#automation).

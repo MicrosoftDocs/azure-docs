@@ -1,8 +1,11 @@
 ---
-title: Improve knowledge base - QnA Maker
+title: Active Learning suggested questions - QnA Maker
 description: Improve the quality of your knowledge base with active learning. Review, accept or reject, add without removing or changing existing questions.
+ms.service: cognitive-services
+ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 04/06/2020
+ms.custom: "devx-track-js, devx-track-csharp"
 ---
 
 
@@ -195,7 +198,7 @@ Your bot framework code needs to call the Train API, if the user's query should 
 * Determine if query should be used for active learning
 * Send query back to QnA Maker's Train API for active learning
 
-In the [Azure Bot sample](https://aka.ms/activelearningsamplebot), both of these activities have been programmed.
+In the [Azure Bot sample](https://github.com/microsoft/BotBuilder-Samples), both of these activities have been programmed.
 
 ### Example C# code for Train API with Bot Framework 4.x
 

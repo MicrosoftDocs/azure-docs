@@ -10,7 +10,7 @@ ms.devlang:
 ms.topic: conceptual
 author: stevestein
 ms.author: sstein
-ms.reviewer: carlrab
+ms.reviewer:
 ms.date: 05/28/2020
 ---
 # Choose between the vCore and DTU purchasing models - Azure SQL Database and SQL Managed Instance
@@ -35,6 +35,10 @@ The following table and chart compare and contrast the vCore-based and the DTU-b
 ||||  
 
 ![Pricing model comparison](./media/purchasing-models/pricing-model.png)
+
+Want to optimize and save on your cloud spending?
+
+[!INCLUDE [cost-management-horizontal](../../../includes/cost-management-horizontal.md)]
 
 ## Compute costs
 

@@ -5,7 +5,7 @@ services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: tutorial
-ms.date: 06/29/2020
+ms.date: 10/08/2020
 ms.author: cherylmc
 Customer intent: As someone with a networking background, I want to connect my local site to my VNets using Virtual WAN and I don't want to go through a Virtual WAN partner.
 ---
@@ -45,21 +45,7 @@ Verify that you have met the following criteria before beginning your configurat
 
 ## <a name="openvwan"></a>Create a virtual WAN
 
-From a browser, navigate to the Azure portal and sign in with your Azure account.
-
-1. Navigate to the Virtual WAN page. In the portal, click **+Create a resource**. Type **Virtual WAN** into the search box and select Enter.
-2. Select **Virtual WAN** from the results. On the Virtual WAN page, click **Create** to open the Create WAN page.
-3. On the **Create WAN** page, on the **Basics** tab, fill in the following fields:
-
-   ![Virtual WAN](./media/virtual-wan-site-to-site-portal/vwan.png)
-
-   * **Subscription** - Select the subscription that you want to use.
-   * **Resource group** - Create new or use existing.
-   * **Resource group location** - Choose a resource location from the dropdown. A WAN is a global resource and does not live in a particular region. However, you must select a region in order to more easily manage and locate the WAN resource that you create.
-   * **Name** - Type the Name that you want to call your WAN.
-   * **Type:** Basic or Standard. If you create a Basic WAN, you can create only a Basic hub. Basic hubs are capable of VPN site-to-site connectivity only.
-4. After you finish filling out the fields, select **Review +Create**.
-5. Once validation passes, select **Create** to create the virtual WAN.
+[!INCLUDE [Create a virtual WAN](../../includes/virtual-wan-create-vwan-include.md)]
 
 ## <a name="hub"></a>Create a hub
 
@@ -81,17 +67,7 @@ In this step, you connect your VPN site to the hub.
 
 ## <a name="vnet"></a>Connect the VNet to the hub
 
-In this step, you create the connection between your hub and a VNet. Repeat these steps for each VNet that you want to connect.
-
-1. On the page for your virtual WAN, click **Virtual network connections**.
-2. On the virtual network connection page, click **+Add connection**.
-3. On the **Add connection** page, fill in the following fields:
-
-    * **Connection name** - Name your connection.
-    * **Hubs** - Select the hub you want to associate with this connection.
-    * **Subscription** - Verify the subscription.
-    * **Virtual network** - Select the virtual network you want to connect to this hub. The virtual network cannot have an already existing virtual network gateway.
-4. Click **OK** to create the virtual network connection.
+[!INCLUDE [Connect](../../includes/virtual-wan-connect-vnet-hub-include.md)]
 
 ## <a name="device"></a>Download VPN configuration
 
@@ -249,14 +225,14 @@ If you need instructions to configure your device, you can use the instructions 
 
 You can view and configure your VPN gateway settings at any time by selecting **View/Configure**.
 
-:::image type="content" source="media/virtual-wan-site-to-site-portal/view-configuration-1.png" alt-text="View configuration" lightbox="media/virtual-wan-site-to-site-portal/view-configuration-1-expand.png":::
+:::image type="content" source="media/virtual-wan-site-to-site-portal/view-configuration-1.png" alt-text="Screenshot that shows the 'VPN (Site-to-site)' page with an arrow pointing to the 'View/Configure' action." lightbox="media/virtual-wan-site-to-site-portal/view-configuration-1-expand.png":::
 
 On the **Edit VPN Gateway** page, you can see the following settings:
 
 * VPN Gateway Public IP address (assigned by Azure)
 * VPN Gateway Private IP address (assigned by Azure)
 * VPN Gateway Default BGP IP address (assigned by Azure)
-* Configuration option for Custom BGP IP Address: This field is reserved for APIPA (Automatic Private IP Addressing). Azure supports BGP IP in the ranges 169.254.21.* and 169.254.22.*
+* Configuration option for Custom BGP IP Address: This field is reserved for APIPA (Automatic Private IP Addressing). Azure supports BGP IP in the ranges 169.254.21.* and 169.254.22.* . Azure accepts BGP connections in these ranges but will dial connection with the default BGP IP.
 
    :::image type="content" source="media/virtual-wan-site-to-site-portal/view-configuration-2.png" alt-text="View configuration" lightbox="media/virtual-wan-site-to-site-portal/view-configuration-2-expand.png":::
 

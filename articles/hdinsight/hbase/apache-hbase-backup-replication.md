@@ -1,11 +1,11 @@
 ---
 title: Backup & replication for Apache HBase, Phoenix - Azure HDInsight
 description: Set up Backup and replication for Apache HBase and Apache Phoenix in Azure HDInsight
-author: ashishthaps
-ms.author: ashishth
+author: hrasheed-msft
+ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.topic: conceptual
+ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 12/19/2019
 ---
@@ -208,7 +208,13 @@ The `<hdfsHBaseLocation>` can be any of the storage locations accessible to your
 hbase org.apache.hadoop.hbase.snapshot.ExportSnapshot -snapshot 'Snapshot1' -copy-to 'wasbs://secondcluster@myaccount.blob.core.windows.net/hbase'
 ```
 
-After the snapshot is exported, SSH into the head node of the destination cluster and restore the snapshot using the restore_snapshot command as previously described.
+If you don't have a secondary Azure Storage account attached to your source cluster or if your source cluster is an on-premises cluster (or non-HDI cluster), you might experience authorization issues when you try to access the storage account of your HDI cluster. To resolve this, specify the key to your storage account as a command-line parameter as shown in the following example. You can get the key to your storage account in the Azure portal.
+
+```console
+hbase org.apache.hadoop.hbase.snapshot.ExportSnapshot -Dfs.azure.account.key.myaccount.blob.core.windows.net=mykey -snapshot 'Snapshot1' -copy-to 'wasbs://secondcluster@myaccount.blob.core.windows.net/hbase'
+```
+
+After the snapshot is exported, SSH into the head node of the destination cluster and restore the snapshot by using the `restore_snapshot` command as described earlier.
 
 Snapshots provide a complete backup of a table at the time of the `snapshot` command. Snapshots don't provide the ability to perform incremental snapshots by windows of time, nor to specify subsets of columns families to include in the snapshot.
 

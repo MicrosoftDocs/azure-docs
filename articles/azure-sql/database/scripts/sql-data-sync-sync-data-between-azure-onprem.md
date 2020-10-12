@@ -9,7 +9,7 @@ ms.devlang: PowerShell
 ms.topic: sample
 author: stevestein
 ms.author: sstein
-ms.reviewer: carlrab
+ms.reviewer:
 ms.date: 03/12/2019
 ---
 
@@ -302,7 +302,7 @@ This script uses the following commands. Each command in the table links to comm
 
 ## Next steps
 
-For more information about Azure PowerShell, see [Azure PowerShell documentation](/powershell/azure/overview).
+For more information about Azure PowerShell, see [Azure PowerShell documentation](/powershell/azure/).
 
 Additional SQL Database PowerShell script samples can be found in [Azure SQL Database PowerShell scripts](../powershell-script-content-guide.md).
 

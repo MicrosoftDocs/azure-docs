@@ -1,9 +1,9 @@
 ---
 title: Runbook execution in Azure Automation
-description: This article tells provides an overview of the processing of runbooks in Azure Automation.
+description: This article provides an overview of the processing of runbooks in Azure Automation.
 services: automation
 ms.subservice: process-automation
-ms.date: 04/14/2020
+ms.date: 10/06/2020
 ms.topic: conceptual
 ---
 
@@ -34,7 +34,7 @@ When runbooks are designed to authenticate and run against resources in Azure, t
 You can also use a [Hybrid Runbook Worker](automation-hybrid-runbook-worker.md) to run runbooks directly on the computer that hosts the role and against local resources in the environment. Azure Automation stores and manages runbooks and then delivers them to one or more assigned computers.
 
 >[!NOTE]
->To run on a Linux Hybrid Runbook Worker, your scripts must be signed and the worker configured accordingly. Alternatively, [signature validation must be turned off](automation-linux-hrw-install.md#turn-off-signature-validation). 
+>To run on a Linux Hybrid Runbook Worker, your scripts must be signed and the worker configured accordingly. Alternatively, [signature validation must be turned off](automation-linux-hrw-install.md#turn-off-signature-validation).
 
 The following table lists some runbook execution tasks with the recommended execution environment listed for each.
 
@@ -51,12 +51,18 @@ The following table lists some runbook execution tasks with the recommended exec
 |Use modules with specific requirements| Hybrid Runbook Worker|Some examples are:</br> WinSCP - dependency on winscp.exe </br> IIS administration - dependency on enabling or managing IIS|
 |Install a module with an installer|Hybrid Runbook Worker|Modules for sandbox must support copying.|
 |Use runbooks or modules that require .NET Framework version different from 4.7.2|Hybrid Runbook Worker|Azure sandboxes support .NET Framework 4.7.2, and upgrading to a different version is not supported.|
-|Run scripts that require elevation|Hybrid Runbook Worker|Sandboxes don't allow elevation. With a Hybrid Runbook Worker, you can turn off UAC and use [Invoke-Command](https://docs.microsoft.com/powershell/module/microsoft.powershell.core/invoke-command?view=powershell-7) when running the command that requires elevation.|
+|Run scripts that require elevation|Hybrid Runbook Worker|Sandboxes don't allow elevation. With a Hybrid Runbook Worker, you can turn off UAC and use [Invoke-Command](/powershell/module/microsoft.powershell.core/invoke-command) when running the command that requires elevation.|
 |Run scripts that require access to Windows Management Instrumentation (WMI)|Hybrid Runbook Worker|Jobs running in sandboxes in the cloud can't access WMI provider. |
+
+## Temporary storage in a sandbox
+
+If you need to create temporary files as part of your runbook logic, you can use the Temp folder (that is, `$env:TEMP`) in the Azure sandbox for runbooks running in Azure. The only limitation is you cannot use more than 1 GB of disk space, which is the quota for each sandbox. When working with PowerShell workflows, this scenario can cause a problem because PowerShell workflows use checkpoints and the script could be retried in a different sandbox.
+
+With the hybrid sandbox, you can use `C:\temp` based on the availability of storage on a Hybrid Runbook Worker. However, per Azure VM recommendations, you should not use the [temporary disk](../virtual-machines/managed-disks-overview.md#temporary-disk) on Windows or Linux for data that needs to be persisted.
 
 ## Resources
 
-Your runbooks must include logic to deal with [resources](https://docs.microsoft.com/rest/api/resources/resources), for example, VMs, the network, and resources on the network. Resources are tied to an Azure subscription, and runbooks require appropriate credentials to access any resource. For an example of handling resources in a runbook, see [Handle resources](manage-runbooks.md#handle-resources). 
+Your runbooks must include logic to deal with [resources](/rest/api/resources/resources), for example, VMs, the network, and resources on the network. Resources are tied to an Azure subscription, and runbooks require appropriate credentials to access any resource. For an example of handling resources in a runbook, see [Handle resources](manage-runbooks.md#handle-resources).
 
 ## Security
 
@@ -67,7 +73,7 @@ ASC places constraints on users who can run any scripts, either signed or unsign
 
 ## Subscriptions
 
-An Azure [subscription](https://docs.microsoft.com/office365/enterprise/subscriptions-licenses-accounts-and-tenants-for-microsoft-cloud-offerings) is an agreement with Microsoft to use one or more cloud-based services, for which you are charged. For Azure Automation, each subscription is linked to an Azure Automation account, and you can [create multiple subscriptions](manage-runbooks.md#work-with-multiple-subscriptions) in the account.
+An Azure [subscription](/office365/enterprise/subscriptions-licenses-accounts-and-tenants-for-microsoft-cloud-offerings) is an agreement with Microsoft to use one or more cloud-based services, for which you are charged. For Azure Automation, each subscription is linked to an Azure Automation account, and you can [create multiple subscriptions](manage-runbooks.md#work-with-multiple-subscriptions) in the account.
 
 ## Credentials
 
@@ -75,24 +81,26 @@ A runbook requires appropriate [credentials](shared-resources/credentials.md) to
 
 ## Azure Monitor
 
-Azure Automation makes use of [Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/overview) for monitoring its machine operations. The operations require a Log Analytics workspace and [Log Analytics agents](https://docs.microsoft.com/azure/azure-monitor/platform/log-analytics-agent).
+Azure Automation makes use of [Azure Monitor](../azure-monitor/overview.md) for monitoring its machine operations. The operations require a Log Analytics workspace and a [Log Analytics agent](../azure-monitor/platform/log-analytics-agent.md).
 
 ### Log Analytics agent for Windows
 
-The [Log Analytics agent for Windows](https://docs.microsoft.com/azure/azure-monitor/platform/agent-windows) works with Azure Monitor to manage Windows VMs and physical computers. The machines can be running either in Azure or in a non-Azure environment, such as a local datacenter. You must configure the agent to report to one or more Log Analytics workspaces. 
+The [Log Analytics agent for Windows](../azure-monitor/platform/agent-windows.md) works with Azure Monitor to manage Windows VMs and physical computers. The machines can be running either in Azure or in a non-Azure environment, such as a local datacenter.
 
 >[!NOTE]
 >The Log Analytics agent for Windows was previously known as the Microsoft Monitoring Agent (MMA).
 
 ### Log Analytics agent for Linux
 
-The [Log Analytics agent for Linux](https://docs.microsoft.com/azure/azure-monitor/platform/agent-linux) works similarly to the agent for Windows, but connects Linux computers to Azure Monitor. The agent is installed with an **nxautomation** user account that allows execution of commands requiring root permissions, for example, on a Hybrid Runbook Worker. The **nxautomation** account is a system account that doesn't require a password. 
+The [Log Analytics agent for Linux](../azure-monitor/platform/agent-linux.md) works similarly to the agent for Windows, but connects Linux computers to Azure Monitor. The agent is installed with a **nxautomation** user account that allows execution of commands requiring root permissions, for example, on a Hybrid Runbook Worker. The **nxautomation** account is a system account that doesn't require a password.
 
 The **nxautomation** account with the corresponding sudo permissions must be present during [installation of a Linux Hybrid Runbook worker](automation-linux-hrw-install.md). If you try to install the worker and the account is not present or doesn’t have the appropriate permissions, the installation fails.
 
+You should not change the permissions of the `sudoers.d` folder or its ownership. Sudo permission is required for the **nxautomation** account and the permissions should not be removed. Restricting this to certain folders or commands may result in a breaking change.
+
 The logs available for the Log Analytics agent and the **nxautomation** account are:
 
-* /var/opt/microsoft/omsagent/log/omsagent.log - Log Analytics agent log 
+* /var/opt/microsoft/omsagent/log/omsagent.log - Log Analytics agent log
 * /var/opt/microsoft/omsagent/run/automationworker/worker.log - Automation worker log
 
 >[!NOTE]
@@ -100,7 +108,7 @@ The logs available for the Log Analytics agent and the **nxautomation** account 
 
 ## Runbook permissions
 
-A runbook needs permissions for authentication to Azure, through credentials. See [Manage Azure Automation Run As accounts](manage-runas-account.md). 
+A runbook needs permissions for authentication to Azure, through credentials. See [Manage Azure Automation Run As accounts](manage-runas-account.md).
 
 ## Modules
 
@@ -108,7 +116,7 @@ Azure Automation supports a number of default modules, including some AzureRM mo
 
 ## Certificates
 
-Azure Automation uses [certificates](shared-resources/certificates.md) for authentication to Azure or adds them to Azure or third-party resources. The certificates are stored securely for access by runbooks and DSC configurations. 
+Azure Automation uses [certificates](shared-resources/certificates.md) for authentication to Azure or adds them to Azure or third-party resources. The certificates are stored securely for access by runbooks and DSC configurations.
 
 Your runbooks can use self-signed certificates, which are not signed by a certificate authority (CA). See [Create a new certificate](shared-resources/certificates.md#create-a-new-certificate).
 
@@ -116,10 +124,10 @@ Your runbooks can use self-signed certificates, which are not signed by a certif
 
 Azure Automation supports an environment to run jobs from the same Automation account. A single runbook can have many jobs running at one time. The more jobs you run at the same time, the more often they can be dispatched to the same sandbox. 
 
-Jobs running in the same sandbox process can affect each other. One example is running the [Disconnect-AzAccount](https://docs.microsoft.com/powershell/module/az.accounts/disconnect-azaccount?view=azps-3.7.0) cmdlet. Execution of this cmdlet disconnects each runbook job in the shared sandbox process. For an example of working with this scenario, see [Prevent concurrent jobs](manage-runbooks.md#prevent-concurrent-jobs).
+Jobs running in the same sandbox process can affect each other. One example is running the [Disconnect-AzAccount](/powershell/module/az.accounts/disconnect-azaccount) cmdlet. Execution of this cmdlet disconnects each runbook job in the shared sandbox process. For an example of working with this scenario, see [Prevent concurrent jobs](manage-runbooks.md#prevent-concurrent-jobs).
 
 >[!NOTE]
->PowerShell jobs started from a runbook that runs in an Azure sandbox might not run in the full [PowerShell language mode](/powershell/module/microsoft.powershell.core/about/about_language_modes). 
+>PowerShell jobs started from a runbook that runs in an Azure sandbox might not run in the full [PowerShell language mode](/powershell/module/microsoft.powershell.core/about/about_language_modes).
 
 ### Job statuses
 
@@ -142,17 +150,17 @@ The following table describes the statuses that are possible for a job. You can 
 
 ## Activity logging
 
-Execution of runbooks in Azure Automation writes details in an activity log for the Automation account. For details of using the log, see [Retrieve details from Activity log](manage-runbooks.md#retrieve-details-from-activity-log). 
+Execution of runbooks in Azure Automation writes details in an activity log for the Automation account. For details of using the log, see [Retrieve details from Activity log](manage-runbooks.md#retrieve-details-from-activity-log).
 
 ## Exceptions
 
-This section describes some ways to handle exceptions or intermittent issues in your runbooks. An example is a WebSocket exception. Correct exception handling prevents transient network failures from causing your runbooks to fail. 
+This section describes some ways to handle exceptions or intermittent issues in your runbooks. An example is a WebSocket exception. Correct exception handling prevents transient network failures from causing your runbooks to fail.
 
 ### ErrorActionPreference
 
 The [ErrorActionPreference](/powershell/module/microsoft.powershell.core/about/about_preference_variables#erroractionpreference) variable determines how PowerShell responds to a non-terminating error. Terminating errors always terminate and are not affected by `ErrorActionPreference`.
 
-When the runbook uses `ErrorActionPreference`, a normally non-terminating error such as `PathNotFound` from the [Get-ChildItem](https://docs.microsoft.com/powershell/module/microsoft.powershell.management/get-childitem?view=powershell-7) cmdlet stops the runbook from completing. The following example shows the use of `ErrorActionPreference`. The final [Write-Output](https://docs.microsoft.com/powershell/module/microsoft.powershell.utility/write-output?view=powershell-7) command never executes, as the script stops.
+When the runbook uses `ErrorActionPreference`, a normally non-terminating error such as `PathNotFound` from the [Get-ChildItem](/powershell/module/microsoft.powershell.management/get-childitem) cmdlet stops the runbook from completing. The following example shows the use of `ErrorActionPreference`. The final [Write-Output](/powershell/module/microsoft.powershell.utility/write-output) command never executes, as the script stops.
 
 ```powershell-interactive
 $ErrorActionPreference = 'Stop'
@@ -210,22 +218,21 @@ Runbook jobs in Azure sandboxes can't access any device or application character
 
 ## Webhooks
 
-External services, for example, Azure DevOps Services and GitHub, can start a runbook in Azure Automation. To do this type of startup, the service uses a [webhook](automation-webhooks.md) via a single HTTP request. Use of a webhook allows runbooks to be started without implementation of a full Azure Automation feature. 
+External services, for example, Azure DevOps Services and GitHub, can start a runbook in Azure Automation. To do this type of startup, the service uses a [webhook](automation-webhooks.md) via a single HTTP request. Use of a webhook allows runbooks to be started without implementation of a full Azure Automation feature.
 
 ## <a name="fair-share"></a>Shared resources
 
 To share resources among all runbooks in the cloud, Azure uses a concept called fair share. Using fair share, Azure temporarily unloads or stops any job that has run for more than three hours. Jobs for [PowerShell runbooks](automation-runbook-types.md#powershell-runbooks) and [Python runbooks](automation-runbook-types.md#python-runbooks) are stopped and not restarted, and the job status becomes Stopped.
 
-For long-running Azure Automation tasks, it's recommended to use a Hybrid Runbook Worker. Hybrid Runbook Workers aren't limited by fair share, and don't have a limitation on how long a runbook can execute. The other job [limits](../azure-resource-manager/management/azure-subscription-service-limits.md#automation-limits) apply to both Azure sandboxes and Hybrid Runbook Workers. While Hybrid Runbook Workers aren't limited by the 3-hour fair share limit, you should develop runbooks to run on the workers that support restarts from unexpected local infrastructure issues.
+For long-running Azure Automation tasks, it's recommended to use a Hybrid Runbook Worker. Hybrid Runbook Workers aren't limited by fair share, and don't have a limitation on how long a runbook can execute. The other job [limits](../azure-resource-manager/management/azure-subscription-service-limits.md#automation-limits) apply to both Azure sandboxes and Hybrid Runbook Workers. While Hybrid Runbook Workers aren't limited by the three hour fair share limit, you should develop runbooks to run on the workers that support restarts from unexpected local infrastructure issues.
 
-Another option is to optimize a runbook by using child runbooks. For example, your runbook might loop through the same function on several resources, for example, with a database operation on several databases. You can move this function to a [child runbook](automation-child-runbooks.md) and have your runbook call it using [Start-AzAutomationRunbook](https://docs.microsoft.com/powershell/module/az.automation/start-azautomationrunbook?view=azps-3.7.0). Child runbooks execute in parallel in separate processes.
+Another option is to optimize a runbook by using child runbooks. For example, your runbook might loop through the same function on several resources, for example, with a database operation on several databases. You can move this function to a [child runbook](automation-child-runbooks.md) and have your runbook call it using [Start-AzAutomationRunbook](/powershell/module/az.automation/start-azautomationrunbook). Child runbooks execute in parallel in separate processes.
 
-Using child runbooks decreases the total amount of time for the parent runbook to complete. Your runbook can use the [Get-AzAutomationJob](https://docs.microsoft.com/powershell/module/az.automation/get-azautomationjob?view=azps-3.7.0) cmdlet to check the job status for a child runbook if it still has more operations after the child completes.
+Using child runbooks decreases the total amount of time for the parent runbook to complete. Your runbook can use the [Get-AzAutomationJob](/powershell/module/az.automation/get-azautomationjob) cmdlet to check the job status for a child runbook if it still has more operations after the child completes.
 
 ## Next steps
 
 * To get started with a PowerShell runbook, see [Tutorial: Create a PowerShell runbook](learn/automation-tutorial-runbook-textual-powershell.md).
 * To work with runbooks, see [Manage runbooks in Azure Automation](manage-runbooks.md).
-* For details of PowerShell, see [PowerShell Docs](https://docs.microsoft.com/powershell/scripting/overview).
-* * For a PowerShell cmdlet reference, see [Az.Automation](https://docs.microsoft.com/powershell/module/az.automation/?view=azps-3.7.0#automation
-).
+* For details of PowerShell, see [PowerShell Docs](/powershell/scripting/overview).
+* For a PowerShell cmdlet reference, see [Az.Automation](/powershell/module/az.automation#automation).

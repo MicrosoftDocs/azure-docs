@@ -40,7 +40,7 @@ az group delete --name $resource
 
 This script uses the following commands. Each command in the table links to command specific documentation.
 
-| | |
+| Command | Description |
 |---|---|
 | [az network vnet](/cli/azure/network/vnet) | Virtual network commands.  |
 | [az network vnet subnet](/cli/azure/network/vnet/subnet) | Virtual network subnet commands. |

@@ -1,12 +1,12 @@
 ---
 title: Phoenix Query Server REST SDK - Azure HDInsight 
 description: Install and use the REST SDK for the Phoenix Query Server in Azure HDInsight.
-author: ashishthaps
-ms.author: ashishth
+author: hrasheed-msft
+ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.topic: conceptual
-ms.custom: hdinsightactive
+ms.topic: how-to
+ms.custom: "hdinsightactive, devx-track-csharp"
 ms.date: 01/01/2020
 ---
 

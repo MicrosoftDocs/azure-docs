@@ -1,23 +1,21 @@
 ---
-title: Delivering content to customers | Microsoft Docs
+title: Delivering content to customers
 description: This topic gives an overview of what is involved in delivering your content with Azure Media Services.
 services: media-services
-documentationcenter: ''
 author: Juliako
 manager: femila
-editor: ''
-
 ms.assetid: 89ede54a-6a9c-4814-9858-dcfbb5f4fed5
 ms.service: media-services
 ms.workload: media
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
-
 ---
+
 # Deliver content to customers
+
+[!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
+
 When you're delivering your streaming or video-on-demand content to customers, your goal is to deliver high-quality video to various devices under different network conditions.
 
 To achieve this goal, you can:
@@ -51,7 +49,7 @@ You can define filters for your assets with Media Services. These filters are se
 
 For more information, see [Filters and dynamic manifests](media-services-dynamic-manifest-overview.md).
 
-## <a id="locators"/>Locators
+## <a name="locators"></a>Locators
 To provide your user with a URL that can be used to stream or download your content, you first need to publish your asset by creating a locator. A locator provides an entry point to access the files contained in an asset. Media Services supports two types of locators:
 
 * OnDemandOrigin locators. These are used to stream media (for example, MPEG-DASH, HLS, or Smooth Streaming) or progressively download files.
@@ -66,9 +64,9 @@ Locators have expiration dates. The Azure portal sets an expiration date 100 yea
 > 
 > 
 
-To update an expiration date on a locator, use [REST](https://docs.microsoft.com/rest/api/media/operations/locator#update_a_locator) or [.NET](https://go.microsoft.com/fwlink/?LinkID=533259) APIs. Note that when you update the expiration date of a SAS locator, the URL changes.
+To update an expiration date on a locator, use [REST](/rest/api/media/operations/locator#update_a_locator) or [.NET](https://go.microsoft.com/fwlink/?LinkID=533259) APIs. Note that when you update the expiration date of a SAS locator, the URL changes.
 
-Locators are not designed to manage per-user access control. You can give different access rights to individual users by using Digital Rights Management (DRM) solutions. For more information, see [Securing Media](https://msdn.microsoft.com/library/azure/dn282272.aspx).
+Locators are not designed to manage per-user access control. You can give different access rights to individual users by using Digital Rights Management (DRM) solutions. For more information, see [Securing Media](/previous-versions/azure/dn282272(v=azure.100)).
 
 When you create a locator, there may be a 30-second delay due to required storage and propagation processes in Azure Storage.
 
@@ -83,7 +81,7 @@ To provide users with streaming URLs, you first must create an OnDemandOrigin lo
 
 You can only stream over TLS if the streaming endpoint from which you deliver your content was created after September 10th, 2014. If your streaming URLs are based on the streaming endpoints created after September 10th, 2014, the URL contains “streaming.mediaservices.windows.net.” Streaming URLs that contain “origin.mediaservices.windows.net” (the old format) do not support TLS. If your URL is in the old format and you want to be able to stream over TLS, create a new streaming endpoint. Use URLs based on the new streaming endpoint to stream your content over TLS.
 
-## <a id="URLs"/>Streaming URL formats
+## <a name="URLs"></a>Streaming URL formats
 
 ### MPEG-DASH format
 {streaming endpoint name-media services account name}.streaming.mediaservices.windows.net/{locator ID}/{filename}.ism/Manifest(format=mpd-time-csf)
@@ -188,4 +186,3 @@ Some of the legacy Smooth Streaming clients may not support the repeat tags and 
 
 ## Related topics
 [Update Media Services locators after rolling storage keys](media-services-roll-storage-access-keys.md)
-

@@ -2,7 +2,7 @@
 title: Run tasks under user accounts
 description: Learn the types of user accounts and how to configure them.
 ms.topic: how-to
-ms.date: 11/18/2019
+ms.date: 08/20/2020
 ms.custom: seodec18
 ---
 # Run tasks under user accounts in Batch
@@ -10,7 +10,7 @@ ms.custom: seodec18
 > [!NOTE]
 > The user accounts discussed in this article are different from user accounts used for Remote Desktop Protocol (RDP) or Secure Shell (SSH), for security reasons.
 >
-> To connect to a node running the Linux virtual machine configuration via SSH, see [Use Remote Desktop to a Linux VM in Azure](../virtual-machines/virtual-machines-linux-use-remote-desktop.md). To connect to nodes running Windows via RDP, see [Connect to a Windows Server VM](../virtual-machines/windows/connect-logon.md).<br /><br />
+> To connect to a node running the Linux virtual machine configuration via SSH, see [Use Remote Desktop to a Linux VM in Azure](../virtual-machines/linux/use-remote-desktop.md). To connect to nodes running Windows via RDP, see [Connect to a Windows Server VM](../virtual-machines/windows/connect-logon.md).<br /><br />
 > To connect to a node running the cloud service configuration via RDP, see [Enable Remote Desktop Connection for a Role in Azure Cloud Services](../cloud-services/cloud-services-role-enable-remote-desktop-new-portal.md).
 
 A task in Azure Batch always runs under a user account. By default, tasks run under standard user accounts, without administrator permissions. For certain scenarios, you may want to configure the user account under which you want a task to run. This article discusses the types of user accounts and how to configure them for your scenario.
@@ -43,18 +43,13 @@ The user account's elevation level indicates whether a task runs with elevated a
 
 ## Auto-user accounts
 
-By default, tasks run in Batch under an auto-user account, as a standard user without elevated access, and with task scope. When the auto-user specification is configured for task scope, the Batch service creates an auto-user account for that task only.
+By default, tasks run in Batch under an auto-user account, as a standard user without elevated access, and with pool scope. Pool scope means that the task runs under an auto-user account that is available to any task in the pool. For more information about pool scope, see [Run a task as an auto-user with pool scope](#run-a-task-as-an-auto-user-with-pool-scope).
 
-The alternative to task scope is pool scope. When the auto-user specification for a task is configured for pool scope, the task runs under an auto-user account that is available to any task in the pool. For more information about pool scope, see [Run a task as an auto-user with pool scope](#run-a-task-as-an-auto-user-with-pool-scope).
-
-The default scope is different on Windows and Linux nodes:
-
-- On Windows nodes, tasks run under task scope by default.
-- Linux nodes always run under pool scope.
+The alternative to pool scope is task scope. When the auto-user specification is configured for task scope, the Batch service creates an auto-user account for that task only.
 
 There are four possible configurations for the auto-user specification, each of which corresponds to a unique auto-user account:
 
-- Non-admin access with task scope (the default auto-user specification)
+- Non-admin access with task scope
 - Admin (elevated) access with task scope
 - Non-admin access with pool scope
 - Admin access with pool scope
@@ -69,7 +64,7 @@ You can configure the auto-user specification for administrator privileges when 
 > [!NOTE]
 > Use elevated access only when necessary. Best practices recommend granting the minimum privilege necessary to achieve the desired outcome. For example, if a start task installs software for the current user, instead of for all users, you may be able to avoid granting elevated access to tasks. You can configure the auto-user specification for pool scope and non-admin access for all tasks that need to run under the same account, including the start task.
 
-The following code snippets show how to configure the auto-user specification. The examples set the elevation level to `Admin` and the scope to `Task`. Task scope is the default setting, but is included here for the sake of example.
+The following code snippets show how to configure the auto-user specification. The examples set the elevation level to `Admin` and the scope to `Task`.
 
 #### Batch .NET
 
@@ -84,7 +79,7 @@ taskToAdd.withId(taskId)
             .withAutoUser(new AutoUserSpecification()
                 .withElevationLevel(ElevationLevel.ADMIN))
                 .withScope(AutoUserScope.TASK));
-        .withCommandLine("cmd /c echo hello");                        
+        .withCommandLine("cmd /c echo hello");
 ```
 
 #### Batch Python
@@ -107,7 +102,7 @@ When a node is provisioned, two pool-wide auto-user accounts are created on each
 
 When you specify pool scope for the auto-user, all tasks that run with administrator access run under the same pool-wide auto-user account. Similarly, tasks that run without administrator permissions also run under a single pool-wide auto-user account.
 
-> [!NOTE] 
+> [!NOTE]
 > The two pool-wide auto-user accounts are separate accounts. Tasks running under the pool-wide administrative account can't share data with tasks running under the standard account, and vice versa.
 
 The advantage to running under the same auto-user account is that tasks are able to share data with other tasks running on the same node.

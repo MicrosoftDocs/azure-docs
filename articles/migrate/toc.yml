@@ -18,12 +18,36 @@
       href: common-questions-server-migration.md
 - name: Tutorials
   items:
-  - name: Assess and migrate VMware VMs
+  - name: Discover
     items:
-    - name: Prepare VMware for assessment and migration
-      href: tutorial-prepare-vmware.md
-    - name: Assess VMware VMs for migration
-      href: tutorial-assess-vmware.md
+    - name: Discover VMware VMs
+      href: tutorial-discover-vmware.md
+    - name: Discover Hyper-V VMs
+      href: tutorial-discover-hyper-v.md
+    - name: Discover physical servers
+      href: tutorial-discover-physical.md
+    - name: Discover AWS instances
+      href: tutorial-discover-aws.md
+    - name: Discover GCP instances
+      href: tutorial-discover-gcp.md
+  - name: Assess 
+    items:
+    - name: Assess VMware VMs for migration to Azure VMs
+      href: tutorial-assess-vmware-azure-vm.md
+    - name: Assess VMware VMs for migration to AVS
+      href: tutorial-assess-vmware-azure-vmware-solution.md
+    - name: Assess Hyper-V VMs for migration to Azure
+      href: tutorial-assess-hyper-v.md
+    - name: Assess physical servers for migration to Azure
+      href: tutorial-assess-physical.md
+    - name: Assess AWS instances for migration to Azure
+      href: tutorial-assess-aws.md
+    - name: Assess GCP instances for migration to Azure
+      href: tutorial-assess-gcp.md
+    - name: Assess imported servers
+      href: tutorial-discover-import.md
+  - name: Migrate
+    items:
     - name: Migrate VMware VMs
       items:
       - name: About migration options for VMware VMs
@@ -32,30 +56,14 @@
         href: tutorial-migrate-vmware.md
       - name: Migrate VMware VMs with agent-based migration
         href: tutorial-migrate-vmware-agent.md
-  - name: Assess and migrate Hyper-V VMs
-    items:
-    - name: Prepare Hyper-V for assessment and migration
-      href: tutorial-prepare-hyper-v.md
-    - name: Assess Hyper-V VMs for migration
-      href: tutorial-assess-hyper-v.md
     - name: Migrate Hyper-V VMs
       href: tutorial-migrate-hyper-v.md
-  - name: Assess and migrate physical servers
-    items:
-    - name: Prepare physical servers for assessment and migration
-      href: tutorial-prepare-physical.md
-    - name: Assess physical servers
-      href: tutorial-assess-physical.md
     - name: Migrate physical servers
       href: tutorial-migrate-physical-virtual-machines.md
-  - name: Assess and migrate AWS VMs
-    items:
-    - name: Discover, assess, and migrate Amazon Web Services (AWS) VMs to Azure
+    - name: Migrate AWS instances
       href: tutorial-migrate-aws-virtual-machines.md
-  - name: Assess imported servers for migration
-    items:
-    - name: Assess imported servers for migration
-      href: tutorial-assess-import.md
+    - name: Migrate GCP instances
+      href: tutorial-migrate-gcp-virtual-machines.md
 - name: Concepts
   items:
   - name: Build migration plan with Azure Migrate
@@ -86,9 +94,9 @@
     href: hyper-v-migration-architecture.md
   - name: VMware agent-based migration architecture
     href: agent-based-migration-architecture.md
-  - name: Azure VM Assessments overview
+  - name: Assessment overview (migrate to Azure VMs)
     href: concepts-assessment-calculation.md
-  - name: AVS Assessments overview
+  - name: Assessments overview (migrate to AVS)
     href: concepts-azure-vmware-solution-assessment-calculation.md
   - name: Best practices for assessments
     href: best-practices-assessment.md
@@ -131,7 +139,7 @@
   - name: Create an AVS assessment
     href: how-to-create-azure-vmware-solution-assessment.md
   - name: Assess a SQL Server database
-    href: https://docs.microsoft.com/sql/dma/dma-assess-sql-data-estate-to-sqldb
+    href: /sql/dma/dma-assess-sql-data-estate-to-sqldb
   - name: Customize an assessment
     href: how-to-modify-assessment.md
   - name: Add migration tools
@@ -168,12 +176,14 @@
     href: troubleshoot-appliance-discovery.md
   - name: Troubleshoot assessment/dependency visualization
     href: troubleshoot-assessment.md
+  - name: Troubleshoot replication issues in agentless VMware migration
+    href: troubleshoot-changed-block-tracking-replication.md
 - name: Resources
   items:
   - name: Migration in the Cloud Adoption Framework
-    href: https://docs.microsoft.com/azure/architecture/cloud-adoption/migrate/index
+    href: /azure/cloud-adoption-framework/migrate/
   - name: REST API
-    href: https://docs.microsoft.com/rest/api/migrate/
+    href: /rest/api/migrate/
   - name: Resource Manager template
     href: /azure/templates/microsoft.migrate/allversions
   - name: Pricing
@@ -181,7 +191,7 @@
   - name: UserVoice
     href: https://aka.ms/AzureMigrateUservoice
   - name: Microsoft Q&A question page
-    href: https://docs.microsoft.com/answers/topics/azure-migrate.html
+    href: /answers/topics/azure-migrate.html
   - name: Blog
     href: https://azure.microsoft.com/blog/tag/azure-migrate/
   - name: Azure Migrate

@@ -2,21 +2,15 @@
 title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with InVision | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and InVision.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-
-ms.assetid: 02487206-30b0-4b1d-ae99-573c3d2ef9b0
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 04/09/2020
 ms.author: jeedes
-
-ms.collection: M365-identity-device-management
 ---
 
 # Tutorial: Azure Active Directory single sign-on (SSO) integration with InVision
@@ -137,15 +131,15 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 1. Click on **Team** and select **Settings**.
 
-    ![InVision Configuration](./media/invision-tutorial/config1.png)
+    ![Screenshot shows the Team tab with Settings selected.](./media/invision-tutorial/config1.png)
 
 1. Scroll down to **Single sign-on** and then click **Change**.
 
-    ![InVision Configuration](./media/invision-tutorial/config3.png)
+    ![Screenshot shows the Change button for Single sign-on.](./media/invision-tutorial/config3.png)
 
 1. On the **Single sign-on** page, perform the following steps:
 
-    ![InVision Configuration](./media/invision-tutorial/config4.png)
+    ![Screenshot shows the Single sign-on page where you enter the values in this step.](./media/invision-tutorial/config4.png)
 
     a. Change **Require SSO for every member of < account name >** to **On**.
 
@@ -173,19 +167,19 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 1. Click on **Team** and select **People**.
 
-    ![InVision Configuration](./media/invision-tutorial/config2.png)
+    ![Screenshot shows the Team tab with People selected.](./media/invision-tutorial/config2.png)
 
 1. Click on the **+ ICON** to add new user.
 
-    ![InVision Configuration](./media/invision-tutorial/user1.png)
+    ![Screenshot shows the + icon to add a user.](./media/invision-tutorial/user1.png)
 
 1. Enter the email address of the user and click **Next**.
 
-    ![InVision Configuration](./media/invision-tutorial/user2.png)
+    ![Screenshot shows the Invite to dialog box where you can enter addresses.](./media/invision-tutorial/user2.png)
 
 1. Once verify the email address and then click **Invite**.
 
-    ![InVision Configuration](./media/invision-tutorial/user3.png)
+    ![Screenshot shows the Invite dialog where you can select Invite to proceed.](./media/invision-tutorial/user3.png)
 
 ## Test SSO
 

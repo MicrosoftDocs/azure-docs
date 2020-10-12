@@ -74,10 +74,10 @@ Use the following steps to configure file tracking on Linux computers:
 
 ## Track file contents
 
-File content tracking allows you to view the contents of a file before and after a tracked change. The feature saves the file contents to a [storage account](https://docs.microsoft.com/azure/storage/common/storage-account-overview) after each change occurs. Here are some rules to follow for tracking file contents:
+File content tracking allows you to view the contents of a file before and after a tracked change. The feature saves the file contents to a [storage account](../storage/common/storage-account-overview.md) after each change occurs. Here are some rules to follow for tracking file contents:
 
 * A standard storage account using the Resource Manager deployment model is required for storing file content. 
-* Don't use premium and classic deployment model storage accounts. See [About Azure Storage accounts](../storage/common/storage-create-storage-account.md).
+* Don't use premium and classic deployment model storage accounts. See [About Azure Storage accounts](../storage/common/storage-account-create.md).
 * You can connect the storage account to only one Automation account.
 * [Change Tracking and Inventory](change-tracking.md) must be enabled in your Automation account.
 
@@ -165,7 +165,7 @@ Let's use this example to discuss the steps for creating alerts on a change.
 ## Next steps
 
 * For information about scope configurations, see [Limit Change Tracking and Inventory deployment scope](automation-scope-configurations-change-tracking.md).
-* If you need to search logs stored in your Log Analytics workspace, see [Log searches in Azure Monitor logs](../log-analytics/log-analytics-log-searches.md).
+* If you need to search logs stored in your Log Analytics workspace, see [Log searches in Azure Monitor logs](../azure-monitor/log-query/log-query-overview.md).
 * If finished with deployments, see [Unlink workspace from Automation account for Change Tracking and Inventory](automation-unlink-workspace-change-tracking.md).
 * To delete your VMs from Change Tracking and Inventory, see [Remove VMs from Change Tracking and Inventory](automation-remove-vms-from-change-tracking.md).
 * To troubleshoot feature errors, see [Troubleshoot Change Tracking and Inventory issues](troubleshoot/change-tracking.md).

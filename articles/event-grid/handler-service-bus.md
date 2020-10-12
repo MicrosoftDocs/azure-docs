@@ -1,13 +1,8 @@
 ---
 title: Service Bus queues and topics as event handlers for Azure Event Grid events
 description: Describes how you can use Service Bus queues and topics as event handlers for Azure Event Grid events.
-services: event-grid
-author: spelluru
-
-ms.service: event-grid
 ms.topic: conceptual
-ms.date: 05/11/2020
-ms.author: spelluru
+ms.date: 09/03/2020
 ---
 
 # Service Bus queues and topics as event handlers for Azure Event Grid events
@@ -51,7 +46,7 @@ az eventgrid event-subscription create \
 ```
 
 ## Message properties
-If you use a **Service Bus topic or queue** as an event handler for events from Event Grid, set the following message headers: 
+If you use a **Service Bus topic or queue** as an event handler for events from Event Grid, these are the properties you receive in the message headers: 
 
 | Property name | Description |
 | ------------- | ----------- | 
@@ -62,9 +57,9 @@ If you use a **Service Bus topic or queue** as an event handler for events from 
 | aeg-data-version | <p>Data version of the event.</p><p>Example: "1".</p><p>For **Event Grid event schema**, this property represents the data version and for **cloud event schema**, it doesn't apply.</p> |
 
 ## Message headers
-When sending an event to a Service Bus queue or topic as a brokered message, the `messageid` of the brokered message is the **event ID**.
+When sending an event to a Service Bus queue or topic as a brokered message, the `messageid` of the brokered message is an internal system ID.
 
-The event ID will be maintained across redelivery of the event so that you can avoid duplicate deliveries by turning on **duplicate detection** on the service bus entity. We recommend that you enable duration of the duplicate detection on the Service Bus entity to be either the time-to-live (TTL) of the event or max retry duration, whichever is longer.
+The internal system ID for the message will be maintained across redelivery of the event so that you can avoid duplicate deliveries by turning on **duplicate detection** on the service bus entity. We recommend that you enable duration of the duplicate detection on the Service Bus entity to be either the time-to-live (TTL) of the event or max retry duration, whichever is longer.
 
 ## REST examples (for PUT)
 

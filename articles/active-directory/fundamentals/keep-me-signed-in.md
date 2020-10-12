@@ -52,12 +52,21 @@ Details about the sign-in error are as follows and highlighted in the example.
 
 You can stop users from seeing the interrupt by setting the **Show option to remain signed in** setting to **No** in the advanced branding settings. This disables the KMSI prompt for all users in your Azure AD directory.
 
-You also can use the persistent browser session controls in conditional access to prevent users from seen the KMSI prompt. This option allows you to disable the KMSI prompt for a select group of users (such as the global administrators) without affecting sign-in behavior for the remaining users in the directory. For more information, see [User sign-in frequency](https://docs.microsoft.com/azure/active-directory/conditional-access/howto-conditional-access-session-lifetime). 
+You also can use the persistent browser session controls in conditional access to prevent users from seen the KMSI prompt. This option allows you to disable the KMSI prompt for a select group of users (such as the global administrators) without affecting sign-in behavior for the remaining users in the directory. For more information, see [User sign-in frequency](../conditional-access/howto-conditional-access-session-lifetime.md). 
+
+To ensure that the KMSI prompt is shown only when it can benefit the user, the KMSI prompt is intentionally not shown in the following scenarios:
+
+* User is signed in via seamless SSO and Integrated Windows Authentication (IWA)
+* User is signed in via Active Directory Federation Services and IWA
+* User is a guest in the tenant
+* User's risk score is high
+* Sign-in occurs during user or admin consent flow
+* Persistent browser session control is configured in a conditional access policy
 
 ## Next steps
 
 Learn about other settings that affect sign-in session timeout:
 
-* Microsoft 365 – [Idle session timeout](https://docs.microsoft.com/sharepoint/sign-out-inactive-users)
-* Azure AD Conditional Access - [User sign-in frequency](https://docs.microsoft.com/azure/active-directory/conditional-access/howto-conditional-access-session-lifetime)
-* Azure portal – [Directory-level inactivity timeout](https://docs.microsoft.com/azure/azure-portal/admin-timeout)
+* Microsoft 365 – [Idle session timeout](/sharepoint/sign-out-inactive-users)
+* Azure AD Conditional Access - [User sign-in frequency](../conditional-access/howto-conditional-access-session-lifetime.md)
+* Azure portal – [Directory-level inactivity timeout](../../azure-portal/set-preferences.md#change-the-directory-timeout-setting-admin)

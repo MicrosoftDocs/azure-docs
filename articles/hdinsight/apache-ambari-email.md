@@ -51,7 +51,7 @@ In this tutorial, you learn how to:
 
 1. From the **Manage Alert Notifications** window, select the **+** icon.
 
-    ![Ambari create alert notification](./media/apache-ambari-email/azure-portal-create-notification.png)
+    ![Screenshot shows the Manage Alert Notifications dialog box.](./media/apache-ambari-email/azure-portal-create-notification.png)
 
 1. From the **Create Alert Notification** dialog, provide the following information:
 
@@ -72,7 +72,7 @@ In this tutorial, you learn how to:
     |Password Confirmation|Reenter password.|
     |Start TLS|Select this check box|
 
-    ![Ambari create alert notification](./media/apache-ambari-email/ambari-create-alert-notification.png)
+    ![Screenshot shows the Create Alert Notification dialog box.](./media/apache-ambari-email/ambari-create-alert-notification.png)
 
     Select **Save**. You'll return to the **Manage Alert Notifications** window.
 

@@ -4,7 +4,9 @@
   expanded: true
   items:
   - name: What are Cognitive Services?
-    href: Welcome.md
+    href: what-are-cognitive-services.md
+  - name: What's new in Cognitive Services docs?
+    href: whats-new-docs.md
   - name: Cognitive Services and Machine learning
     href: cognitive-services-and-machine-learning.md
   - name: Custom subdomains for Cognitive Services
@@ -17,15 +19,13 @@
     href: cognitive-services-apis-create-account.md
   - name: Create a new resource using the Azure CLI
     href: cognitive-services-apis-create-account-cli.md
+  - name: Create a new resource using the client library
+    href: cognitive-services-apis-create-account-client-library.md
   - name: Create a new resource using an ARM template
     displayName: Resource Manager
-    href: resource-manager-template.md
+    href: create-account-resource-manager-template.md
   - name: Diagnostic logging
     href: diagnostic-logging.md
-- name: Samples
-  items:
-  - name: Azure Policy built-ins
-    href: ./policy-samples.md
 - name: Security
   items:
   - name: Cognitive Services security
@@ -64,6 +64,29 @@
       href: ../container-registry/container-registry-get-started-azure-cli.md
     - name: Azure Kubernetes Service (AKS)
       href: ../aks/tutorial-kubernetes-prepare-app.md
+- name: Big data
+  items:
+  - name: Cognitive Services for Big Data
+    href: ./big-data/cognitive-services-for-big-data.md
+  - name: Getting started
+    href: ./big-data/getting-started.md
+  - name: Samples
+    items:
+    - name: Python
+      href: ./big-data/samples-python.md
+    - name: Scala
+      href: ./big-data/samples-scala.md
+  - name: Recipes
+    items:
+    - name: "Recipe: Anomaly Detector"
+      href: ./big-data/recipes/anomaly-detection.md
+    - name: "Recipe: Art Explorer"
+      href: ./big-data/recipes/art-explorer.md
+- name: Reference
+  items:
+  - name: Azure Policy built-ins
+    displayName: samples, policies, definitions
+    href: ./policy-reference.md
 - name: Resources
   items:
   - name: Azure Roadmap

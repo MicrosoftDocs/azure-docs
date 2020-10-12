@@ -7,14 +7,14 @@ ms.date: 12/06/2019
 ms.topic: how-to
 ms.service: iot-central
 services: iot-central
-manager: peterpr
+ms.custom: [contperfq1, device-developer]
 ---
 
 # Define a new IoT device type in your Azure IoT Central application
 
 *This article applies to solution builders and device developers.*
 
-A device template is a blueprint that defines the characteristics and behaviors of a type of device that connects to an Azure IoT Central application.
+A device template is a blueprint that defines the characteristics and behaviors of a type of device that connects to an [Azure IoT Central application](concepts-app-templates.md).
 
 For example, a builder can create a device template for a connected fan that has the following characteristics:
 
@@ -26,19 +26,21 @@ For example, a builder can create a device template for a connected fan that has
 - Provides a command to restart the device
 - Gives you an overall view of the device via a dashboard
 
-From this device template, an operator can create and connect real fan devices. All these fans have measurements, properties, and commands that operators use to monitor and manage them. Operators use the device dashboards and forms to interact with the fan devices.
+From this device template, an operator can create and connect real fan devices. All these fans have measurements, properties, and commands that operators use to monitor and manage them. Operators use the [device dashboards](#add-dashboards) and forms to interact with the fan devices. A device developer uses the template to understand how the device interacts with the application. To learn more, see [Telemetry, property, and command payloads](concepts-telemetry-properties-commands.md).
 
 > [!NOTE]
 > Only builders and administrators can create, edit, and delete device templates. Any user can create devices on the **Devices** page from existing device templates.
 
-[IoT Plug and Play (preview)](../../iot-pnp/overview-iot-plug-and-play.md) enables IoT Central to integrate devices, without you writing any embedded device code. At the core of IoT Plug and Play (preview) is a device capability model schema that describes device capabilities. In an IoT Central application, device templates use these IoT Plug and Play (preview) device capability models.
+In an IoT Central application, a device template uses a device capability model to describe the capabilities of a device. As a builder, you have several options for creating device templates:
 
-As a builder, you have several options for creating device templates:
-
-- Design the device template in IoT Central, and then implement its device capability model in your device code.
+- Design the device template in IoT Central, and then [implement its device capability model in your device code](concepts-telemetry-properties-commands.md).
 - Import a device capability model from the [Azure Certified for IoT device catalog](https://aka.ms/iotdevcat). Then add any cloud properties, customizations, and dashboards your IoT Central application needs.
 - Create a device capability model by using Visual Studio Code. Implement your device code from the model. Manually import the device capability model into your IoT Central application, and then add any cloud properties, customizations, and dashboards your IoT Central application needs.
 - Create a device capability model by using Visual Studio Code. Implement your device code from the model, and connect your real device to your IoT Central application by using a device-first connection. IoT Central finds and imports the device capability model from the public repository for you. You can then add any cloud properties, customizations, and dashboards your IoT Central application needs to the device template.
+
+You can also add device templates to an IoT Central application using the [REST API](https://docs.microsoft.com/learn/modules/manage-iot-central-apps-with-rest-api/) or the [CLI](howto-manage-iot-central-from-cli.md).
+
+Some [application templates](concepts-app-templates.md) already include device templates that are useful in the scenario the application template supports. For example, see [In-store analytics architecture](../retail/store-analytics-architecture.md).
 
 ## Create a device template from the device catalog
 
@@ -162,6 +164,21 @@ The following table shows the configuration settings for a command capability:
 | Description | A description of the command capability. |
 | Request | If enabled, a definition of the request parameter, including: name, display name, schema, unit, and display unit. |
 | Response | If enabled, a definition of the command response, including: name, display name, schema, unit, and display unit. |
+
+#### Offline commands
+
+You can choose queue commands if a device is currently offline by enabling the **Queue if offline** option for a command in the device template.
+
+This option uses IoT Hub cloud-to-device messages to send notifications to devices. To learn more, see the IoT Hub article [Send cloud-to-device messages](../../iot-hub/iot-hub-devguide-messages-c2d.md).
+
+Cloud-to-device messages:
+
+- Are one-way notifications to the device from your solution.
+- Guarantee at-least-once message delivery. IoT Hub persists cloud-to-device messages in per-device queues, guaranteeing resiliency against connectivity and device failures.
+- Require the device to implement a message handler to process the cloud-to-device message.
+
+> [!NOTE]
+> This option is only available in the IoT Central web UI. This setting isn't included if you export a model or interface from the device template.
 
 ## Manage an interface
 

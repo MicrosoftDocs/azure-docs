@@ -1,12 +1,12 @@
 ---
 title: Ad hoc reporting queries across multiple databases
-description: "Run ad hoc reporting queries across multiple Azure SQL Databases in a multi-tenant app example."
+description: "Run ad hoc reporting queries across multiple Azure SQL databases in a multi-tenant app example."
 services: sql-database
 ms.service: sql-database
 ms.subservice: scenario
 ms.custom: sqldbrb=1
 ms.devlang: 
-ms.topic: conceptual
+ms.topic: tutorial
 author: stevestein
 ms.author: sstein
 ms.reviewer: 
@@ -41,7 +41,7 @@ SaaS applications can analyze the vast amount of tenant data that is stored cent
 
 Accessing this data in a single multi-tenant database is easy, but not so easy when distributed at scale across potentially thousands of databases. One approach is to use [Elastic Query](elastic-query-overview.md), which enables querying across a distributed set of databases with common schema. These databases can be distributed across different resource groups and subscriptions. Yet one common login must have access to extract data from all the databases. Elastic Query uses a single *head* database in which external tables are defined that mirror tables or views in the distributed (tenant) databases. Queries submitted to this head database are compiled to produce a distributed query plan, with portions of the query pushed down to the tenant databases as needed. Elastic Query uses the shard map in the catalog database to determine the location of all tenant databases. Setup and query are straightforward using standard [Transact-SQL](https://docs.microsoft.com/sql/t-sql/language-reference), and support ad hoc querying from tools like Power BI and Excel.
 
-By distributing queries across the tenant databases, Elastic Query provides immediate insight into live production data. However, as Elastic Query pulls data from potentially many databases, query latency can sometimes be higher than for equivalent queries submitted to a single multi-tenant database. Be sure to design queries to minimize the data that is returned. Elastic Query is often best suited for querying small amounts of real-time data, as opposed to building frequently used or complex analytics queries or reports. If queries do not perform well, look at the [execution plan](https://docs.microsoft.com/sql/relational-databases/performance/display-an-actual-execution-plan) to see what part of the query has been pushed down to the remote database. And assess how much data is being returned. Queries that require complex analytical processing might be better served by saving the extracted tenant data into a database that is optimized for analytics queries. SQL Database and SQL Data Warehouse could host such the analytics database.
+By distributing queries across the tenant databases, Elastic Query provides immediate insight into live production data. However, as Elastic Query pulls data from potentially many databases, query latency can sometimes be higher than for equivalent queries submitted to a single multi-tenant database. Be sure to design queries to minimize the data that is returned. Elastic Query is often best suited for querying small amounts of real-time data, as opposed to building frequently used or complex analytics queries or reports. If queries do not perform well, look at the [execution plan](https://docs.microsoft.com/sql/relational-databases/performance/display-an-actual-execution-plan) to see what part of the query has been pushed down to the remote database. And assess how much data is being returned. Queries that require complex analytical processing might be better served by saving the extracted tenant data into a database that is optimized for analytics queries. SQL Database and Azure Synapse Analytics (formerly SQL Data Warehouse) could host such the analytics database.
 
 This pattern for analytics is explained in the [tenant analytics tutorial](saas-multitenantdb-tenant-analytics.md).
 

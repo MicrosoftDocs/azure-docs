@@ -1,6 +1,6 @@
 ---
 title: DPDK in an Azure Linux VM | Microsoft Docs
-description: Learn how to setup DPDK in a Linux virtual machine.
+description: Learn the benefits of the Data Plane Development Kit (DPDK) and how to set up the DPDK on a Linux virtual machine.
 services: virtual-network
 documentationcenter: na
 author: laxmanrb
@@ -40,7 +40,7 @@ The following distributions from the Azure Marketplace are supported:
 |--------------|---------------------------   |
 | Ubuntu 16.04 | 4.15.0-1014-azure+           | 
 | Ubuntu 18.04 | 4.15.0-1014-azure+           |
-| SLES 15 SP1  | 4.12.14-8.27-azure+          | 
+| SLES 15 SP1  | 4.12.14-8.19-azure+          | 
 | RHEL 7.5     | 3.10.0-862.11.6.el7.x86_64+  | 
 | CentOS 7.5   | 3.10.0-862.11.6.el7.x86_64+  | 
 

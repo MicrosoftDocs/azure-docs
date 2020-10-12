@@ -5,7 +5,7 @@ ms.topic: conceptual
 ms.date: 05/27/2020
 ---
 
-# Azure VM assessments in Azure Migrate: Server Assessment
+# Server assessment overview (migrate to Azure VMs)
 
 This article provides an overview of assessments in the [Azure Migrate: Server Assessment](migrate-services-overview.md#azure-migrate-server-assessment-tool) tool. The tool can assess on-premises VMware virtual machines, Hyper-V VMs, and physical servers for migration to Azure.
 
@@ -23,7 +23,7 @@ There are two types of assessments you can create using Azure Migrate: Server As
 **Assessment Type** | **Details**
 --- | --- 
 **Azure VM** | Assessments to migrate your on-premises servers to Azure virtual machines. <br/><br/> You can assess your on-premises [VMware VMs](how-to-set-up-appliance-vmware.md), [Hyper-V VMs](how-to-set-up-appliance-hyper-v.md), and [physical servers](how-to-set-up-appliance-physical.md) for migration to Azure using this assessment type.
-**Azure VMware Solution (AVS)** | Assessments to migrate your on-premises servers to [Azure VMware Solution (AVS)](https://docs.microsoft.com/azure/azure-vmware/introduction). <br/><br/> You can assess your on-premises [VMware VMs](how-to-set-up-appliance-vmware.md) for migration to Azure VMware Solution (AVS) using this assessment type.[Learn more](concepts-azure-vmware-solution-assessment-calculation.md)
+**Azure VMware Solution (AVS)** | Assessments to migrate your on-premises servers to [Azure VMware Solution (AVS)](../azure-vmware/introduction.md). <br/><br/> You can assess your on-premises [VMware VMs](how-to-set-up-appliance-vmware.md) for migration to Azure VMware Solution (AVS) using this assessment type.[Learn more](concepts-azure-vmware-solution-assessment-calculation.md)
 
 Assessments you create with Server Assessment are a point-in-time snapshot of data. An Azure VM assessment in Server Assessment provides two sizing criteria options:
 
@@ -75,7 +75,7 @@ If you use the appliance for discovery, it collects performance data for compute
     - **Hyper-V VMs**: A sample point is collected every 30 seconds.
     - **Physical servers**: A sample point is collected every five minutes.
 
-1. The appliance combines the sample points to create a single data point every 10 minutes. To create the data point, the appliance selects the peak values from all samples. It then sends the data point to Azure.
+1. The appliance combines the sample points to create a single data point every 10 minutes for VMware and Hyper-V servers, and every 5 minutes for physical servers. To create the data point, the appliance selects the peak values from all samples. It then sends the data point to Azure.
 1. Server Assessment stores all the 10-minute data points for the last month.
 1. When you create an assessment, Server Assessment identifies the appropriate data point to use for rightsizing. Identification is based on the percentile values for *performance history* and *percentile utilization*.
 
@@ -117,7 +117,7 @@ Here's what's included in an Azure VM assessment in Server Assessment:
 **Performance history** | Used with performance-based sizing. Performance history specifies the duration used when performance data is evaluated.
 **Percentile utilization** | Used with performance-based sizing. Percentile utilization specifies the percentile value of the performance sample used for rightsizing.
 **VM series** | The Azure VM series that you want to consider for rightsizing. For example, if you don't have a production environment that needs A-series VMs in Azure, you can exclude A-series from the list of series.
-**Comfort factor** | The buffer used during assessment. It's applied to the CPU, RAM, disk, and network utilization data for VMs. It accounts for issues like seasonal usage, short performance history, and likely increases in future usage.<br/><br/> For example, a 10-core VM with 20% utilization normally results in a two-core VM. With a comfort factor of 2.0, the result is a four-core VM instead.
+**Comfort factor** | The buffer used during assessment. It's applied to the CPU, RAM, disk, and network data for VMs. It accounts for issues like seasonal usage, short performance history, and likely increases in future usage.<br/><br/> For example, a 10-core VM with 20% utilization normally results in a two-core VM. With a comfort factor of 2.0, the result is a four-core VM instead.
 **Offer** | The [Azure offer](https://azure.microsoft.com/support/legal/offer-details/) in which you're enrolled. Server Assessment estimates the cost for that offer.
 **Currency** | The billing currency for your account.
 **Discount (%)** | Any subscription-specific discounts you receive on top of the Azure offer. The default setting is 0%.
@@ -146,8 +146,8 @@ For an Azure VM Assessment, Server Assessment reviews the following properties o
 Property | Details | Azure readiness status
 --- | --- | ---
 **Boot type** | Azure supports VMs with a boot type of BIOS, not UEFI. | Conditionally ready if the boot type is UEFI
-**Cores** | Each machine must have no more than 128 cores, which is the maximum number an Azure VM supports.<br/><br/> If performance history is available, Azure Migrate considers the utilized cores for comparison. If the assessment settings specify a comfort factor, the number of utilized cores is multiplied by the comfort factor.<br/><br/> If there's no performance history, Azure Migrate uses the allocated cores without applying the comfort factor. | Ready if the number of cores is within the limit
-**RAM** | Each machine must have no more than 3,892 GB of RAM, which is the maximum size an Azure M-series Standard_M128m&nbsp;<sup>2</sup> VM supports. [Learn more](https://docs.microsoft.com/azure/virtual-machines/windows/sizes).<br/><br/> If performance history is available, Azure Migrate considers the utilized RAM for comparison. If a comfort factor is specified, the utilized RAM is multiplied by the comfort factor.<br/><br/> If there's no history, the allocated RAM is used without application of a comfort factor.<br/><br/> | Ready if the amount of RAM is within the limit
+**Cores** | Each machine must have no more than 128 cores, which is the maximum number an Azure VM supports.<br/><br/> If performance history is available, Azure Migrate considers the utilized cores for comparison. If the assessment settings specify a comfort factor, the number of utilized cores is multiplied by the comfort factor.<br/><br/> If there's no performance history, Azure Migrate uses the allocated cores to apply the comfort factor. | Ready if the number of cores is within the limit
+**RAM** | Each machine must have no more than 3,892 GB of RAM, which is the maximum size an Azure M-series Standard_M128m&nbsp;<sup>2</sup> VM supports. [Learn more](../virtual-machines/sizes.md).<br/><br/> If performance history is available, Azure Migrate considers the utilized RAM for comparison. If a comfort factor is specified, the utilized RAM is multiplied by the comfort factor.<br/><br/> If there's no history, the allocated RAM is used to apply a comfort factor.<br/><br/> | Ready if the amount of RAM is within the limit
 **Storage disk** | The allocated size of a disk must be no more than 32 TB. Although Azure supports 64-TB disks with Azure Ultra SSD disks, Azure Migrate: Server Assessment currently checks for 32 TB as the disk-size limit because it doesn't support Ultra SSD yet. <br/><br/> The number of disks attached to the machine, including the OS disk, must be 65 or fewer. | Ready if the disk size and number are within the limits
 **Networking** | A machine must have no more than 32 network interfaces (NICs) attached to it. | Ready if the number of NICs is within the limit
 
@@ -156,7 +156,7 @@ Property | Details | Azure readiness status
 For an Azure VM Assessment, along with reviewing VM properties, Server Assessment looks at the guest operating system of a machine to determine whether it can run on Azure.
 
 > [!NOTE]
-> To handle guest analysis for VMware VMs, Server Assessment uses the operating system specified for the VM in vCenter Server. However, vCenter Server doesn't provide the kernel version for Linux VM operating systems. To discover the version, you need to set up [application discovery](https://docs.microsoft.com/azure/migrate/how-to-discover-applications). Then, the appliance discovers version information using the guest credentials you specify when you set up app-discovery.
+> To handle guest analysis for VMware VMs, Server Assessment uses the operating system specified for the VM in vCenter Server. However, vCenter Server doesn't provide the kernel version for Linux VM operating systems. To discover the version, you need to set up [application discovery](./how-to-discover-applications.md). Then, the appliance discovers version information using the guest credentials you specify when you set up app-discovery.
 
 
 Server Assessment uses the following logic to identify Azure readiness based on the operating system:
@@ -170,8 +170,8 @@ Windows Server 2008 R2 with all SPs | Azure provides full support.| Ready for Az
 Windows Server 2008 (32-bit and 64-bit) | Azure provides full support. | Ready for Azure.
 Windows Server 2003 and Windows Server 2003 R2 | These operating systems have passed their end-of-support dates and need a [Custom Support Agreement (CSA)](https://aka.ms/WSosstatement) for support in Azure. | Conditionally ready for Azure. Consider upgrading the OS before migrating to Azure.
 Windows 2000, Windows 98, Windows 95, Windows NT, Windows 3.1, and MS-DOS | These operating systems have passed their end-of-support dates. The machine might start in Azure, but Azure provides no OS support. | Conditionally ready for Azure. We recommend that you upgrade the OS before migrating to Azure.
-Windows 7, Windows 8, and Windows 10 | Azure provides support with a [Visual Studio subscription only.](https://docs.microsoft.com/azure/virtual-machines/windows/client-images) | Conditionally ready for Azure.
-Windows 10 Pro | Azure provides support with [Multitenant Hosting Rights.](https://docs.microsoft.com/azure/virtual-machines/windows/windows-desktop-multitenant-hosting-deployment) | Conditionally ready for Azure.
+Windows 7, Windows 8, and Windows 10 | Azure provides support with a [Visual Studio subscription only.](../virtual-machines/windows/client-images.md) | Conditionally ready for Azure.
+Windows 10 Pro | Azure provides support with [Multitenant Hosting Rights.](../virtual-machines/windows/windows-desktop-multitenant-hosting-deployment.md) | Conditionally ready for Azure.
 Windows Vista and Windows XP Professional | These operating systems have passed their end-of-support dates. The machine might start in Azure, but Azure provides no OS support. | Conditionally ready for Azure. We recommend that you upgrade the OS before migrating to Azure.
 Linux | See the [Linux operating systems](../virtual-machines/linux/endorsed-distros.md) that Azure endorses. Other Linux operating systems might start in Azure. But we recommend that you upgrade the OS to an endorsed version before you migrate to Azure. | Ready for Azure if the version is endorsed.<br/><br/>Conditionally ready if the version isn't endorsed.
 Other operating systems like Oracle Solaris, Apple macOS, and FreeBSD | Azure doesn't endorse these operating systems. The machine might start in Azure, but Azure provides no OS support. | Conditionally ready for Azure. We recommend that you install a supported OS before migrating to Azure.  

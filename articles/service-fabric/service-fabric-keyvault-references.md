@@ -6,9 +6,15 @@ ms.topic: article
 ms.date: 09/20/2019
 ---
 
-#  KeyVaultReference support for Service Fabric applications (preview)
+# KeyVaultReference support for Service Fabric applications (preview)
 
 A common challenge when building cloud applications is how to securely store secrets required by your application. For example, you might want to store the container repository credentials in keyvault and reference it in application manifest. Service Fabric KeyVaultReference uses Service Fabric Managed Identity and makes it easy to reference keyvault secrets. The remainder of this article details how to use Service Fabric KeyVaultReference and includes some typical usage.
+
+> [!IMPORTANT]
+> Use of this preview feature is not recommended in production environments.
+
+> [!NOTE]
+> KeyVault Reference Preview feature supports only [versioned](https://docs.microsoft.com/azure/key-vault/general/about-keys-secrets-certificates#objects-identifiers-and-versioning) secrets. Versionless secrets are not supported.
 
 ## Prerequisites
 
@@ -155,4 +161,4 @@ reference as container repository password.
 
 ## Next steps
 
-* [Azure KeyVault Documentation](https://docs.microsoft.com/azure/key-vault/)
+* [Azure KeyVault Documentation](../key-vault/index.yml)

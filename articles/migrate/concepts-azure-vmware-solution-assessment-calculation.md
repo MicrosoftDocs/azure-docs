@@ -8,7 +8,7 @@ ms.date: 06/25/2020
 ms.author: mahain
 ---
 
-# AVS assessments in Azure Migrate: Server Assessment
+# Server Assessment overview (migrate to Azure VMware Solution)
 
 [Azure Migrate](migrate-services-overview.md) provides a central hub to track discovery, assessment, and migration of your on-premises apps and workloads. It also tracks your private and public cloud instances to Azure. The hub offers Azure Migrate tools for assessment and migration, as well as third-party independent software vendor (ISV) offerings.
 
@@ -24,7 +24,7 @@ Assessments you create with Server Assessment are a point-in-time snapshot of da
 **Assessment Type** | **Details**
 --- | --- 
 **Azure VM** | Assessments to migrate your on-premises servers to Azure virtual machines. <br/><br/> You can assess your on-premises [VMware VMs](how-to-set-up-appliance-vmware.md), [Hyper-V VMs](how-to-set-up-appliance-hyper-v.md), and [physical servers](how-to-set-up-appliance-physical.md) for migration to Azure using this assessment type.[Learn more](concepts-assessment-calculation.md)
-**Azure VMware Solution (AVS)** | Assessments to migrate your on-premises servers to [Azure VMware Solution (AVS)](https://docs.microsoft.com/azure/azure-vmware/introduction). <br/><br/> You can assess your on-premises [VMware VMs](how-to-set-up-appliance-vmware.md) for migration to Azure VMware Solution (AVS) using this assessment type.[Learn more](concepts-azure-vmware-solution-assessment-calculation.md)
+**Azure VMware Solution (AVS)** | Assessments to migrate your on-premises servers to [Azure VMware Solution (AVS)](../azure-vmware/introduction.md). <br/><br/> You can assess your on-premises [VMware VMs](how-to-set-up-appliance-vmware.md) for migration to Azure VMware Solution (AVS) using this assessment type.[Learn more](concepts-azure-vmware-solution-assessment-calculation.md)
 
 Azure VMware Solution (AVS) assessment in Server Assessment provides two sizing criteria options:
 
@@ -116,7 +116,7 @@ Here's what's included in an AVS assessment in Server Assessment:
 | **Target location** | Specifies the AVS private cloud location to which you want to migrate.<br/><br/> AVS Assessment in Server Assessment currently supports these target regions: East US, West Europe, West US. 
 | **Storage type** | Specifies the storage engine to be used in AVS.<br/><br/> AVS assessments only support vSAN as a default storage type. 
 **Reserved Instances (RIs)** | This property helps you specify Reserved Instances in AVS. RIs are currently not supported for AVS nodes. 
-**Node type** | Specifies the [AVS Node type](https://docs.microsoft.com/azure/azure-vmware/concepts-private-clouds-clusters) used to map the on-premises VMs. The default node type is AV36. <br/><br/> Azure Migrate will recommend a required number of nodes for the VMs to be migrated to AVS. 
+**Node type** | Specifies the [AVS Node type](../azure-vmware/concepts-private-clouds-clusters.md) used to map the on-premises VMs. The default node type is AV36. <br/><br/> Azure Migrate will recommend a required number of nodes for the VMs to be migrated to AVS. 
 **FTT Setting, RAID Level** | Specifies the applicable Failure to Tolerate and Raid combinations. The selected FTT option combined with the on-premises VM disk requirement will determine the total vSAN storage required in AVS. 
 **Sizing criterion** | Sets the criteria to be used to *right-size* VMs for AVS. You can opt for *performance-based* sizing or *as on-premises* without considering the performance history. 
 **Performance history** | Sets the duration to consider in evaluating the performance data of machines. This property is applicable only when the sizing criteria is *performance-based*. 
@@ -244,15 +244,15 @@ After sizing recommendations are complete, Azure Migrate calculates the total co
 - It aggregates the cost across all nodes to calculate the total monthly cost.
 - Costs are displayed in the currency specified in the assessment settings.
 
-As the pricing for Azure VMware Solution (AVS) is per node, the total cost does not have compute cost and storage cost distribution. [Learn More](https://docs.microsoft.com/azure/azure-vmware/introduction)
+As the pricing for Azure VMware Solution (AVS) is per node, the total cost does not have compute cost and storage cost distribution. [Learn More](../azure-vmware/introduction.md)
 
 Note that as Azure VMware Solution (AVS) is in Preview, the node prices in the assessment are Preview prices. Please contact your local MSFT AVS GBB team for guidance.
 
 ## Migration Tool Guidance
 
 In the Azure readiness report for Azure VMware Solution (AVS) assessment, you can see the following suggested tools: 
-- **VMware HCX or Enterprise**: For VMware machines, VMWare Hybrid Cloud Extension (HCX) solution is the suggested migration tool to migrate your on-premises workload to your Azure VMWare Solution (AVS) private cloud. [Learn More](https://docs.microsoft.com/azure/azure-vmware/hybrid-cloud-extension-installation).
-- **Unknown**: For machines imported via a CSV file, the default migration tool is unknown. Though for VMware machines, it is recommended to use the VMWare Hybrid Cloud Extension (HCX) solution.
+- **VMware HCX or Enterprise**: For VMware machines, VMware Hybrid Cloud Extension (HCX) solution is the suggested migration tool to migrate your on-premises workload to your Azure VMware Solution (AVS) private cloud. [Learn More](../azure-vmware/tutorial-deploy-vmware-hcx.md).
+- **Unknown**: For machines imported via a CSV file, the default migration tool is unknown. Though for VMware machines, it is recommended to use the VMware Hybrid Cloud Extension (HCX) solution.
 
 ## Next steps
 

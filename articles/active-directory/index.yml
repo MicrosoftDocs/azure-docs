@@ -42,15 +42,15 @@ conceptualContent:
   items:
     - title: Application management
       links:
-        - url: ./manage-apps/what-is-single-sign-on.md
-          itemType: concept
-          text: What is single sign-on (SSO)?
-        - url: ./manage-apps/configure-single-sign-on-non-gallery-applications.md
-          itemType: concept
-          text: Configure SAML-based SSO
-        - url: ./manage-apps/application-proxy.md
-          itemType: concept
-          text: Application Proxy for on-premises apps
+        - url: ./manage-apps/what-is-application-management.md
+          itemType: overview
+          text: What is application management?
+        - url: ./manage-apps/view-applications-portal.md
+          itemType: quickstart
+          text: View the apps that are using your tenant for identity management
+        - url: ./manage-apps/add-application-portal-setup-sso.md
+          itemType: quickstart
+          text: Set up SAML-based SSO
       footerLink:
         url: ./manage-apps/index.yml
         text: See more

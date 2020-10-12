@@ -1,13 +1,14 @@
 ---
 title: Install and configure Windows Azure diagnostics extension (WAD)
-description: Learn how to collect Azure diagnostics data in an Azure Storage account so you can view it with one of several available tools.
+description: Learn about installing and configuring the Windows diagnostics extension. Also, learn how a description of how the data is stored in and Azure Storage account.
 services: azure-monitor
 author: bwren
 
 ms.subservice: diagnostic-extension
 ms.topic: conceptual
 ms.date: 02/17/2020
-ms.author: bwren
+ms.author: bwren 
+ms.custom: devx-track-azurecli, devx-track-azurepowershell
 ---
 # Install and configure Windows Azure diagnostics extension (WAD)
 [Azure diagnostics extension](diagnostics-extension-overview.md) is an agent in Azure Monitor that collects monitoring data from the guest operating system and workloads of Azure virtual machines and other compute resources. This article provides details on installing and configuring the Windows diagnostics extension and a description of how the data is stored in and Azure Storage account.
@@ -45,7 +46,7 @@ You can install and configure the diagnostics extension on an individual virtual
 
 6. In the **Logs** tab, select the logs to collect from the virtual machine. Logs can be sent to storage or event hubs, but not to Azure Monitor. Use the [Log Analytics agent](log-analytics-agent.md) to collect guest logs to Azure Monitor.
 
-   ![Logs](media/diagnostics-extension-windows-install/logs.png)
+   ![Screenshot shows the Logs tab with different logs selected for a virtual machine.](media/diagnostics-extension-windows-install/logs.png)
 
 7. In the **Crash dumps** tab, specify any processes to collect memory dumps after a crash. The data will be written to the storage account for the diagnostic setting, and you can optionally specify a blob container.
 
@@ -53,7 +54,7 @@ You can install and configure the diagnostics extension on an individual virtual
 
 8. In the **Sinks** tab, specify whether to send the data to locations other than Azure storage. If you select **Azure Monitor**, guest performance data will be sent to Azure Monitor Metrics. You cannot configure the event hubs sink using the Azure portal.
 
-   ![Sinks](media/diagnostics-extension-windows-install/sinks.png)
+   ![Screenshot shows the Sinks tab with the Send diagnostic data to Azure Monitor option Enabled.](media/diagnostics-extension-windows-install/sinks.png)
    
    If you have not enabled a System Assigned Identity configured for your virtual machine, you may see the below warning when you save a configuration with the Azure Monitor sink. Click on the banner to enable the system assigned identity.
    
@@ -61,7 +62,7 @@ You can install and configure the diagnostics extension on an individual virtual
 
 9. In the **Agent**, you can change the storage account, set the disk quota, and specify whether to collect diagnostic infrastructure logs.  
 
-   ![Agent](media/diagnostics-extension-windows-install/agent.png)
+   ![Screenshot shows the Agent tab with the option to set the storage account.](media/diagnostics-extension-windows-install/agent.png)
 
 10. Click **Save** to save the configuration. 
 
@@ -72,7 +73,7 @@ You can install and configure the diagnostics extension on an individual virtual
 See [Use monitoring and diagnostics with a Windows VM and Azure Resource Manager templates](../../virtual-machines/extensions/diagnostics-template.md) on deploying the diagnostics extension with Azure Resource Manager templates. 
 
 ## Azure CLI deployment
-The Azure CLI can be used to deploy the Azure Diagnostics extension to an existing virtual machine using [az vm extension set](https://docs.microsoft.com/cli/azure/vm/extension?view=azure-cli-latest#az-vm-extension-set) as in the following example. 
+The Azure CLI can be used to deploy the Azure Diagnostics extension to an existing virtual machine using [az vm extension set](/cli/azure/vm/extension?view=azure-cli-latest#az-vm-extension-set) as in the following example. 
 
 ```azurecli
 az vm extension set \
@@ -128,7 +129,7 @@ The public settings are defined in the [Public element](diagnostics-extension-sc
 
 
 ## PowerShell deployment
-PowerShell can be used to deploy the Azure Diagnostics extension to an existing virtual machine using [Set-AzVMDiagnosticsExtension](https://docs.microsoft.com/powershell/module/servicemanagement/azure/set-azurevmdiagnosticsextension) as in the following example. 
+PowerShell can be used to deploy the Azure Diagnostics extension to an existing virtual machine using [Set-AzVMDiagnosticsExtension](/powershell/module/servicemanagement/azure.service/set-azurevmdiagnosticsextension) as in the following example. 
 
 ```powershell
 Set-AzVMDiagnosticsExtension -ResourceGroupName "myvmresourcegroup" `

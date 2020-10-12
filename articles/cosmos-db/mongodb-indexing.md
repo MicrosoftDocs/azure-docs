@@ -1,14 +1,14 @@
 ---
 title: Manage indexing in Azure Cosmos DB's API for MongoDB
-description: This article presents an overview of Azure Cosmos DB indexing capabilities using the MongoDB API.
+description: This article presents an overview of Azure Cosmos DB indexing capabilities using Azure Cosmos DB's API for MongoDB
 ms.service: cosmos-db
 ms.subservice: cosmosdb-mongo
 ms.devlang: nodejs
 ms.topic: how-to
-ms.date: 06/16/2020
+ms.date: 08/07/2020
 author: timsander1
 ms.author: tisande
-
+ms.custom: devx-track-js
 ---
 # Manage indexing in Azure Cosmos DB's API for MongoDB
 
@@ -34,7 +34,7 @@ One query uses multiple single field indexes where available. You can create up 
 
 ### Compound indexes (MongoDB server version 3.6)
 
-Azure Cosmos DB's API for MongoDB supports compound indexes for accounts that use the version 3.6 wire protocol. You can include up to eight fields in a compound index. Unlike in MongoDB, you should create a compound index only if your query needs to sort efficiently on multiple fields at once. For queries with multiple filters that don't need to sort, create multiple single field indexes instead of a single compound index.
+Azure Cosmos DB's API for MongoDB supports compound indexes for accounts that use the version 3.6 wire protocol. You can include up to eight fields in a compound index. **Unlike in MongoDB, you should create a compound index only if your query needs to sort efficiently on multiple fields at once.** For queries with multiple filters that don't need to sort, create multiple single field indexes instead of a single compound index.
 
 The following command creates a compound index on the fields `name` and `age`:
 
@@ -51,6 +51,9 @@ You can also use the preceding compound index to efficiently sort on a query wit
 However, the sequence of the paths in the compound index must exactly match the query. Here's an example of a query that would require an additional compound index:
 
 `db.coll.find().sort({age:1,name:1})`
+
+> [!NOTE]
+> You can't create compound indexes on nested properties or arrays.
 
 ### Multikey indexes
 
@@ -309,11 +312,16 @@ The index progress details show the percentage of progress for the current index
    }
    ```
 
-### Background index updates
+## Background index updates
 
 Regardless of the value specified for the **Background** index property, index updates are always done in the background. Because index updates consume Request Units (RUs) at a lower priority than other database operations, index changes won't result in any downtime for writes, updates, or deletes.
 
-When you add a new index, queries will immediately use the index. This means that queries might not return all matching results and will do so without returning any errors. When the index transformation completes, query results will be consistent. You can [track index progress](#track-index-progress).
+There is no impact to read availability when adding a new index. Queries will only utilize new indexes once the index transformation is complete. During the index transformation, the query engine will continue to use existing indexes, so you'll observe similar read performance during the indexing transformation to what you had observed before initiating the indexing change. When adding new indexes, there is also no risk of incomplete or inconsistent query results.
+
+When removing indexes and immediately running queries the have filters on the dropped indexes, results might be inconsistent and incomplete until the index transformation finishes. If you remove indexes, the query engine does not guarantee consistent or complete results when queries filter on these newly removed indexes. Most developers do not drop indexes and then immediately try to query them so, in practice, this situation is unlikely.
+
+> [!NOTE]
+> You can [track index progress](#track-index-progress).
 
 ## Migrate collections with indexes
 

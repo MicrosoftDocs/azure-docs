@@ -3,9 +3,11 @@
 - name: Overview
   expanded: true
   items:
-  - name: What is Azure Cognitive Search?
+  - name: What is Cognitive Search?
     href: search-what-is-azure-search.md
-  - name: What's new
+  - name: Features in Cognitive Search
+    href: search-features-list.md
+  - name: What's new in Cognitive Search
     href: whats-new.md
 - name: Quickstarts
   items:
@@ -79,18 +81,15 @@
 - name: Samples
   items:
   - name: C# samples
-    href: https://docs.microsoft.com/samples/browse/?products=azure-cognitive-search&languages=csharp
+    href: /samples/browse/?languages=csharp&products=azure-cognitive-search
   - name: Java samples
-    href: https://docs.microsoft.com/samples/browse/?products=azure-cognitive-search&languages=java
+    href: /samples/browse/?languages=java&products=azure-cognitive-search
   - name: JavaScript samples
-    href: https://docs.microsoft.com/samples/browse/?products=azure-cognitive-search&languages=javascript
+    href: /samples/browse/?languages=javascript&products=azure-cognitive-search
   - name: Python samples
-    href: https://docs.microsoft.com/samples/browse/?products=azure-cognitive-search&languages=python
+    href: /samples/browse/?languages=python&products=azure-cognitive-search
   - name: REST samples
-    href: https://docs.microsoft.com/samples/browse/?languages=http&expanded=azure&products=azure-cognitive-search
-  - name: Azure Policy built-ins
-    displayName: samples, policies, definitions
-    href: ./policy-samples.md
+    href: /samples/browse/?expanded=azure&languages=http&products=azure-cognitive-search
 - name: Concepts
   items:
   - name: Full-text search
@@ -110,14 +109,23 @@
       href: knowledge-store-projection-overview.md
     - name: Incremental enrichment
       href: cognitive-search-incremental-indexing-conceptual.md
+  - name: Security
+    items:
+    - name: Security overview
+      href: search-security-overview.md
+    - name: Security controls by Azure Policy
+      displayName: regulatory, compliance, standards, domains
+      href: ./security-controls-policy.md
+    - name: Securing indexer resources
+      href: search-indexer-securing-resources.md
+    - name: Security baseline
+      href: security-baseline.md
 - name: How-to guides
   items:
   - name: Create indexes and constructs
     items:
-    - name: Create a basic index
+    - name: Create an index
       href: search-what-is-an-index.md
-    - name: Create an index (portal)
-      href: search-create-index-portal.md
     - name: Create a multi-language index
       href: search-language-support.md
     - name: Analyzers
@@ -138,7 +146,7 @@
       href: search-howto-complex-data-types.md
     - name: Model relational data
       href: index-sql-relational-data.md
-  - name: Ingest any data
+  - name: Import any data
     items:
     - name: Data import overview
       href: search-what-is-data-import.md
@@ -150,45 +158,17 @@
       href: search-howto-large-index.md
     - name: Handle concurrent updates
       href: search-howto-concurrency.md
-  - name: Ingest Azure data
+  - name: Import Azure data (indexers)
     items:
-    - name: Configure indexers
-      href: search-indexer-overview.md
-    - name: Monitor indexers
-      href: search-howto-monitor-indexers.md
-    - name: Schedule indexers
-      href: search-howto-schedule-indexers.md
-    - name: Map fields
-      href: search-indexer-field-mappings.md
-    - name: Data sources
+    - name: Work with indexers
       items:
-      - name: Azure Blobs
-        items:      
-        - name: Search over blobs
-          href: search-blob-storage-integration.md
-        - name: Understand blobs with AI
-          href: search-blob-ai-integration.md
-        - name: Configure a blob indexer
-          href: search-howto-indexing-azure-blob-storage.md
-        - name: Index one-to-many blobs
-          href: search-howto-index-one-to-many-blobs.md
-        - name: Index CSV blobs
-          href: search-howto-index-csv-blobs.md
-        - name: Index JSON blobs
-          href: search-howto-index-json-blobs.md
-      - name: Azure Tables
-        href: search-howto-indexing-azure-tables.md
-      - name: Azure Cosmos DB
-        href: search-howto-index-cosmosdb.md
-      - name: Azure Data Lake Storage Gen2
-        href: search-howto-index-azure-data-lake-storage.md
-      - name: SQL Database
-        href: search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md
-      - name: SQL Managed Instances
-        href: search-howto-connecting-azure-sql-mi-to-azure-search-using-indexers.md
-      - name: SQL Server VMs
-        href: search-howto-connecting-azure-sql-iaas-to-azure-search-using-indexers.md
-    - name: Connect using managed identities
+      - name: Monitor indexers
+        href: search-howto-monitor-indexers.md
+      - name: Schedule indexers
+        href: search-howto-schedule-indexers.md
+      - name: Map fields
+        href: search-indexer-field-mappings.md
+    - name: Connect with managed identities
       items:
       - name: Managed identities overview
         href: search-howto-managed-identities-data-sources.md
@@ -198,7 +178,39 @@
         href: search-howto-managed-identities-cosmos-db.md
       - name: SQL Database
         href: search-howto-managed-identities-sql.md
-  - name: Ingest using AI
+    - name: Azure Blobs
+      items:      
+      - name: Search over blobs
+        href: search-blob-storage-integration.md
+      - name: Understand blobs with AI
+        href: search-blob-ai-integration.md
+      - name: Configure a blob indexer
+        href: search-howto-indexing-azure-blob-storage.md
+      - name: Index changed and deleted blobs
+        href: search-howto-index-changed-deleted-blobs.md
+      - name: Index one-to-many blobs
+        href: search-howto-index-one-to-many-blobs.md
+      - name: Index plain text
+        href: search-howto-index-plaintext-blobs.md
+      - name: Index CSV blobs
+        href: search-howto-index-csv-blobs.md
+      - name: Index JSON blobs
+        href: search-howto-index-json-blobs.md
+      - name: Index encrypted blobs
+        href: search-howto-index-encrypted-blobs.md
+    - name: Azure Tables
+      href: search-howto-indexing-azure-tables.md
+    - name: Azure Cosmos DB
+      href: search-howto-index-cosmosdb.md
+    - name: Azure Data Lake Storage Gen2
+      href: search-howto-index-azure-data-lake-storage.md
+    - name: Azure SQL Databases
+      href: search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md
+    - name: Azure SQL Managed Instances
+      href: search-howto-connecting-azure-sql-mi-to-azure-search-using-indexers.md
+    - name: Azure SQL Server VMs
+      href: search-howto-connecting-azure-sql-iaas-to-azure-search-using-indexers.md
+  - name: Use skills (AI)
     items:
     - name: Attach a Cognitive Services resource
       href: cognitive-search-attach-cognitive-services.md
@@ -210,7 +222,7 @@
         href: cognitive-search-concept-annotations-syntax.md
       - name: Map to index fields
         href: cognitive-search-output-field-mapping.md
-      - name: Extract information from images
+      - name: Process image files
         href: cognitive-search-concept-image-scenarios.md
       - name: Cache (incremental) enrichment
         href: search-howto-incremental-index.md
@@ -307,9 +319,15 @@
     - name: Preview feature list
       href: search-api-preview.md
     - name: Develop in .NET
-      href: search-howto-dotnet-sdk.md
+      items:
+      - name: Use Microsoft.Azure.Search (v10)
+        href: search-howto-dotnet-sdk.md
+      - name: Get started (v10)
+        href: search-get-started-dotnet-v10.md
     - name: Upgrade the SDK
       items:
+      - name: .NET SDK 11.0
+        href: search-dotnet-sdk-migration-version-11.md
       - name: .NET SDK 10.0
         href: search-dotnet-sdk-migration-version-10.md
       - name: .NET SDK 9.0
@@ -326,12 +344,12 @@
       href: search-api-migration.md
   - name: Security
     items:
-    - name: Overview
-      href: search-security-overview.md
     - name: Data encryption
       items:
       - name: Customer-managed keys
         href: search-security-manage-encryption-keys.md
+      - name: Get key information
+        href: search-security-get-encryption-keys.md
     - name: Inbound security
       items:
       - name: API access keys
@@ -344,8 +362,16 @@
       items:
       - name: Security filters
         href: search-security-trimming-for-azure-search.md
-      - name: Filter on AAD identities
+      - name: Filter on user identities
         href: search-security-trimming-for-azure-search-with-aad.md
+    - name: Outbound security (indexers)  
+      items:
+      - name: Access over an IP range
+        href: search-indexer-howto-access-ip-restricted.md
+      - name: Access through trusted service exception
+        href: search-indexer-howto-access-trusted-service-exception.md
+      - name: Access through private endpoints
+        href: search-indexer-howto-access-private.md
   - name: Manage
     items:
     - name: Portal
@@ -377,31 +403,45 @@
 - name: Reference
   items:
   - name: Azure CLI
-    href: /cli/azure/search?view=azure-cli-latest
+    href: /cli/azure/search
   - name: Azure PowerShell
     href: /powershell/module/az.search 
   - name: Resource Manager template
     href: /azure/templates/microsoft.search/searchservices
-  - name: .NET
-    items:
-    - name: microsoft.azure.search
-      href: /dotnet/api/overview/azure/search?view=azure-dotnet
-    - name: microsoft.azure.management.search
-      href: /dotnet/api/overview/azure/search/management?view=azure-dotnet
   - name: REST
     items:
-    - name: Search 2020-06-30
+    - name: Search API (Stable)
       href: /rest/api/searchservice
-    - name: Search 2020-06-30-Preview
+    - name: Search API (Preview)
       href: /rest/api/searchservice/index-preview
-    - name: Management 2020-03-13
+    - name: Management API (Stable)
       href: /rest/api/searchmanagement
-    - name: Management 2019-10-01-Preview
-      href: /rest/api/searchmanagement/index-2019-10-01-preview
+    - name: Management API (Preview)
+      href: /rest/api/searchmanagement/index-preview
+  - name: .NET
+    items:
+    - name: Search API
+      href: /dotnet/api/overview/azure/search.documents-readme
+    - name: Management API
+      href: /dotnet/api/overview/azure/search/management
+  - name: Java
+    items:
+    - name: Search API
+      href: /java/api/overview/azure/search-documents-readme
+    - name: Management API
+      href: /java/api/overview/azure/search/management
+  - name: JavaScript
+    items:
+    - name: Search API
+      href: /javascript/api/overview/azure/search-documents-readme
+    - name: Management API
+      href: /javascript/api/overview/azure/search/management
   - name: Python
     items:
+    - name: Search API
+      href: /python/api/overview/azure/search-documents-readme
     - name: Management API
-      href: /python/api/overview/azure/search?view=azure-python
+      href: /python/api/overview/azure/search/management
   - name: OData language reference
     items:
     - name: Overview
@@ -473,6 +513,9 @@
       items:
       - name: Named Entity Recognition
         href: cognitive-search-skill-named-entity-recognition.md
+  - name: Azure Policy built-ins
+    displayName: samples, policies, definitions
+    href: ./policy-reference.md
 - name: Resources
   items:
   - name: Azure Community Support
@@ -494,7 +537,7 @@
   - name: Training
     items:
     - name: Introduction (Microsoft Learn)
-      href: https://docs.microsoft.com/learn/modules/intro-to-azure-search/
+      href: /learn/modules/intro-to-azure-search/
     - name: Add search to apps (Pluralsight)
       href: https://www.pluralsight.com/courses/azure-adding-search-abilities-apps
     - name: Developer course (Pluralsight)

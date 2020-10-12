@@ -8,6 +8,7 @@ ms.date: 05/08/2020
 ms.service: storage
 ms.subservice: blobs
 ms.topic: quickstart
+ms.custom: devx-track-csharp
 ---
 
 # Quickstart: Azure Blob storage client library v12 with Xamarin
@@ -22,7 +23,12 @@ Use the Azure Blob storage client library v12 with Xamarin to:
 * Download the blob to your device
 * Delete a container
 
-[API reference documentation](/dotnet/api/azure.storage.blobs) | [Library source code](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Azure.Storage.Blobs) | [Package (NuGet)](https://www.nuget.org/packages/Azure.Storage.Blobs) | [Sample](https://github.com/Azure-Samples/storage-blobs-xamarin-quickstart)
+Reference links:
+
+* [API reference documentation](/dotnet/api/azure.storage.blobs)
+* [Library source code](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Azure.Storage.Blobs)
+* [Package (NuGet)](https://www.nuget.org/packages/Azure.Storage.Blobs)
+* [Sample](https://github.com/Azure-Samples/storage-blobs-xamarin-quickstart)
 
 [!INCLUDE [storage-multi-protocol-access-preview](../../../includes/storage-multi-protocol-access-preview.md)]
 

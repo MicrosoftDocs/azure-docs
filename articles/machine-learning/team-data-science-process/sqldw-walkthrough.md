@@ -10,7 +10,7 @@ ms.subservice: team-data-science-process
 ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
-ms.custom: seodec18, tracking-python, previous-author=deguhath, previous-ms.author=deguhath
+ms.custom: seodec18, devx-track-python, previous-author=deguhath, previous-ms.author=deguhath
 ---
 # The Team Data Science Process in action: using Azure Synapse Analytics
 In this tutorial, we walk you through building and deploying a machine learning model using Azure Synapse Analytics for a publicly available dataset -- the [NYC Taxi Trips](https://www.andresmh.com/nyctaxitrips/) dataset. The binary classification model constructed predicts whether or not a tip is paid for a trip.  Models include multiclass classification (whether or not there is a tip) and regression (the distribution for the tip amounts paid).
@@ -85,14 +85,14 @@ To set up your Azure Data Science environment, follow these steps.
   * **Container Name** (which you want the data to be stored in the Azure blob storage)
 
 **Provision your Azure Synapse Analytics instance.**
-Follow the documentation at [Create and query an Azure SQL Data Warehouse in the Azure portal](../../synapse-analytics/sql-data-warehouse/create-data-warehouse-portal.md) to provision a Azure Synapse Analytics instance. Make sure that you make notations on the following Azure Synapse Analytics credentials that will be used in later steps.
+Follow the documentation at [Create and query an Azure Synapse Analytics in the Azure portal](../../synapse-analytics/sql-data-warehouse/create-data-warehouse-portal.md) to provision a Azure Synapse Analytics instance. Make sure that you make notations on the following Azure Synapse Analytics credentials that will be used in later steps.
 
 * **Server Name**: \<server Name>.database.windows.net
 * **SQLDW (Database) Name**
 * **Username**
 * **Password**
 
-**Install Visual Studio and SQL Server Data Tools.** For instructions, see [Getting started with Visual Studio 2019 for SQL Data Warehouse](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-install-visual-studio.md).
+**Install Visual Studio and SQL Server Data Tools.** For instructions, see [Getting started with Visual Studio 2019 for Azure Synapse Analytics](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-install-visual-studio.md).
 
 **Connect to your Azure Synapse Analytics with Visual Studio.** For instructions, see steps 1 & 2 in [Connect to SQL Analytics in Azure Synapse Analytics](../../synapse-analytics/sql/connect-overview.md).
 
@@ -111,7 +111,7 @@ BEGIN CATCH
 END CATCH;
 ```
 
-**Create an Azure Machine Learning workspace under your Azure subscription.** For instructions, see [Create an Azure Machine Learning workspace](../studio/create-workspace.md).
+**Create an Azure Machine Learning workspace under your Azure subscription.** For instructions, see [Create an Azure Machine Learning workspace](../classic/create-workspace.md).
 
 ## <a name="getdata"></a>Load the data into Azure Synapse Analytics
 Open a Windows PowerShell command console. Run the following PowerShell commands to download the example SQL script files that we share with you on GitHub to a local directory that you specify with the parameter *-DestDir*. You can change the value of parameter *-DestDir* to any local directory. If *-DestDir* does not exist, it will be created by the PowerShell script.
@@ -596,7 +596,7 @@ AND pickup_longitude != '0' AND dropoff_longitude != '0'
 
 **Output:** This query generates a table (with 2,803,538 rows) with pickup and dropoff latitudes and longitudes and the corresponding direct distances in miles. Here are the results for first three rows:
 
-|  | pickup_latitude | pickup_longitude | dropoff_latitude | dropoff_longitude | DirectDistance |
+| (Row number) | pickup_latitude | pickup_longitude | dropoff_latitude | dropoff_longitude | DirectDistance |
 | --- | --- | --- | --- | --- | --- |
 | 1 |40.731804 |-74.001083 |40.736622 |-73.988953 |.7169601222 |
 | 2 |40.715794 |-74,010635 |40.725338 |-74.00399 |.7448343721 |
@@ -938,9 +938,9 @@ We are now ready to proceed to model building and model deployment in [Azure Mac
 2. **Multiclass classification**: To predict the range of tip paid, according to the previously defined classes.
 3. **Regression task**: To predict the amount of tip paid for a trip.
 
-To begin the modeling exercise, log in to your **Azure Machine Learning (classic)** workspace. If you have not yet created a machine learning workspace, see [Create an Azure Machine Learning Studio (classic) workspace](../studio/create-workspace.md).
+To begin the modeling exercise, log in to your **Azure Machine Learning (classic)** workspace. If you have not yet created a machine learning workspace, see [Create an Azure Machine Learning Studio (classic) workspace](../classic/create-workspace.md).
 
-1. To get started with Azure Machine Learning, see [What is Azure Machine Learning Studio (classic)?](../studio/what-is-ml-studio.md)
+1. To get started with Azure Machine Learning, see [What is Azure Machine Learning Studio (classic)?](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)
 2. Log in to [Azure Machine Learning Studio (classic)](https://studio.azureml.net).
 3. The Machine Learning Studio (classic) Home page provides a wealth of information, videos, tutorials, links to the Modules Reference, and other resources. For more information about Azure Machine Learning, see the [Azure Machine Learning Documentation Center](https://azure.microsoft.com/documentation/services/machine-learning/).
 
@@ -980,7 +980,7 @@ An example of a binary classification experiment reading data directly from the 
 >
 
 ## <a name="mldeploy"></a>Deploy models in Azure Machine Learning
-When your model is ready, you can easily deploy it as a web service directly from the experiment. For more information about deploying Azure ML web services, see [Deploy an Azure Machine Learning web service](../studio/deploy-a-machine-learning-web-service.md).
+When your model is ready, you can easily deploy it as a web service directly from the experiment. For more information about deploying Azure ML web services, see [Deploy an Azure Machine Learning web service](../classic/deploy-a-machine-learning-web-service.md).
 
 To deploy a new web service, you need to:
 

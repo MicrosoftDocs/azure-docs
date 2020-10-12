@@ -33,7 +33,7 @@ If you don't have an Azure subscription, [create a free account](https://azure.m
 
 ## Prerequisites
 
-* The PowerShell [Az Module](https://docs.microsoft.com/powershell/azure/overview) installed.
+* The PowerShell [Az Module](https://docs.microsoft.com/powershell/azure/) installed.
 
 * An Azure Active Directory service principal. Once you've created the service principal, be sure to retrieve the **application ID** and **authentication key** using the instructions in the linked article. You need these values later in this tutorial. Also, make sure the service principal is a member of the *Contributor* role of the subscription or the resource group in which the cluster is created. For instructions to retrieve the required values and assign the right roles, see [Create an Azure Active Directory service principal](../active-directory/develop/howto-create-service-principal-portal.md).
 

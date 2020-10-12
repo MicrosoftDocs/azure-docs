@@ -1,11 +1,11 @@
 ---
 title: Create an Azure container offer - Azure Marketplace
 description: Learn how to create and publish a container offer to Azure Marketplace. 
-author: mingshen 
-ms.author: mingshen 
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
-ms.topic: conceptual
+ms.topic: how-to
+author: keferna
+ms.author: keferna
 ms.date: 06/17/2020
 ---
 
@@ -24,7 +24,7 @@ This article describes how to create and publish a container offer for Azure Mar
    ![Illustrates the left-navigation menu.](./media/new-offer-azure-container.png)
 
 > [!TIP]
-> After an offer is published, edits made to it in Partner Center only appear in storefronts after republishing the offer. Make sure you always republish after making changes.
+> After an offer is published, edits made to it in Partner Center only appear in online stores after republishing the offer. Make sure you always republish after making changes.
 
 ### Offer ID and alias
 
@@ -76,10 +76,10 @@ connect it to your Customer Relationship Management (CRM) system. This lets you 
 
 Here are some additional lead management resources:
 
-- [Lead management overview](commercial-marketplace-get-customer-leads.md)
-- [Lead management FAQs](../lead-management-for-cloud-marketplace.md#frequently-asked-questions)
-- [Common lead configuration errors](../lead-management-for-cloud-marketplace.md#publishing-config-errors)
-- [Lead Management Overview](https://assetsprod.microsoft.com/mpn/cloud-marketplace-lead-management.pdf) PDF (Make sure your pop-up blocker is turned off)
+- [Customer leads from your commercial marketplace offer](commercial-marketplace-get-customer-leads.md)
+- [Common questions about lead management](../lead-management-faq.md#common-questions-about-lead-management)
+- [Troubleshooting lead configuration errors](../lead-management-faq.md#publishing-config-errors)
+- [Lead Management Overview](https://assetsprod.microsoft.com/mpn/cloud-marketplace-lead-management.pdf) PDF (Make sure your pop-up blocker is turned off).
 
 Select **Save draft** before continuing.
 
@@ -118,7 +118,7 @@ To use the Standard Contract, select the **Use the Standard Contract for Microso
 
 ##### Your own terms and conditions
 
-To provide your own custom terms and conditions, enter them in the **Terms and conditions** box. You can enter an unlimited amount of characters of text in this box. Customers must accept these terms before they can try your offer.
+To provide your own custom terms and conditions, enter them in the **Terms and conditions** box. You can enter an unlimited number of characters of text in this box. Customers must accept these terms before they can try your offer.
 
 Select **Save draft** before continuing to the next section, Offer listing.
 
@@ -176,7 +176,7 @@ You must provide the name, email, and phone number for a **Support contact** and
 
 In the **Support contact** section, provide the **Support website** where partners can find support for your offer based on whether the offer is available in global Azure, Azure Government, or both.
 
-In the **CSP Program contact** section, provide the link ( **CSP Program Marketing Materials** ) where CSP partners can find marketing materials for your offer.
+In the **CSP Program contact** section, provide the link (**CSP Program Marketing Materials**) where CSP partners can find marketing materials for your offer.
 
 #### Additional marketplace listing resources
 
@@ -186,19 +186,24 @@ To learn more about creating offer listings, see [Offer listing best practices](
 
 Provide logos and images to use with your offer. All images must be in PNG format. Blurry images will be rejected.
 
+[!INCLUDE [logo tips](../includes/graphics-suggestions.md)]
+
 >[!Note]
 >If you have an issue uploading files, make sure your local network does not block the https://upload.xboxlive.com service used by Partner Center.
 
 #### Store logos
 
- Provide PNG files of your offer's logo in each of the following four pixel sizes:
+Provide a PNG file for the **Large** size logo. Partner Center will use this to create a **Small** and a **Medium** logo. You can optionally replace these with different images later.
 
-- **Small** (48 x 48)
-- **Medium** (90 X 90)
-- **Large** (216 x 216)
-- **Wide** (255 X 115)
+- **Large** (from 216 x 216 to 350 x 350 px, required)
+- **Medium** (90 x 90 px, optional)
+- **Small** (48 x 48 px, optional)
 
-All four logos are required and are used in different places in the marketplace listing.
+These logos are used in different places in the listing:
+
+[!INCLUDE [logos-azure-marketplace-only](../includes/logos-azure-marketplace-only.md)]
+
+[!INCLUDE [Logo tips](../includes/graphics-suggestions.md)]
 
 #### Screenshots (optional)
 
@@ -244,15 +249,17 @@ Add at least one Azure subscription ID, either individually (up to 10) or by upl
 
 Select **Save draft** before continuing.
 
-### Plan overview
+## Plan overview
 
-This tab lets you provide different plan options within the same offer. These plans were previously referred to as SKUs, or stock keeping units. Plans can differ in terms of what clouds are available, such as global clouds, Government clouds, and the image referenced by the plan. To list your offer in the commercial marketplace, you must set up at least one plan.
+This tab lets you provide different plan options within the same offer. Plans (formerly called SKUs) can differ in terms of what clouds are available, such as global clouds, Government clouds, and the image referenced by the plan. To list your offer in the commercial marketplace, you must set up at least one plan.
+
+You can create up to 100 plans for each offer: up to 45 of these can be private. Learn more about private plans in [Private offers in the Microsoft commercial marketplace](../private-offers.md).
 
 After you create your plans, the **Plan overview** tab shows:
 
 - Plan names
 - Pricing model
-- Cloud availability (Global or Government)
+- Azure regions (Global or Government)
 - Current publishing status
 - Any available actions
 
@@ -261,7 +268,7 @@ The actions available in the Plan overview vary depending on the current status 
 - **Delete draft** – If the plan status is a Draft.
 - **Stop sell plan** – If the plan status is published live.
 
-#### Create new plan
+### Create new plan
 
 Select **Create new plan**. The **New plan** dialog box appears.
 
@@ -280,22 +287,20 @@ This tab lets you choose which clouds the plan is available in. Your answers on 
 
 All plans for Azure Container offers are automatically made available in **Azure Global**.  Your plan can be used by customers in all global Azure regions that use the commercial marketplace. For details, see [Geographic availability and currency support](../marketplace-geo-availability-currencies.md).
 
-Select the [**Azure Government**](../../azure-government/documentation-government-welcome.md) option to make your solution appear here. This is a government community cloud with controlled access for customers from U.S. federal, s](../marketplace-geo-availability-currencies.md)em. As the publisher, you're responsible for any compliance controls, security measures, and best practices for this cloud community. Azure Government uses physically isolated data centers and networks (located in the U.S. only).
-
-Before [publishing](../../azure-government/documentation-government-manage-marketplace-partners.md) to Azure Government, test and confirm your solution within that area as the results may be different. To create and test your solution, request a trial account from [Microsoft Azure Government trial](https://azure.microsoft.com/global-infrastructure/government/request/).
+Select the [Azure Government](../../azure-government/documentation-government-welcome.md) option to make your solution appear here. This is a government community cloud with controlled access for customers from U.S. federal, state, and local or tribal government agencies, as well as partners eligible to serve them. As the publisher, you're responsible for any compliance controls, security measures, and best practices for this cloud community. Azure Government uses physically isolated data centers and networks (located in the U.S. only). Before [publishing](../../azure-government/documentation-government-manage-marketplace-partners.md) to Azure Government, test and confirm your solution within that area as the results may be different. To create and test your solution, request a trial account from [Microsoft Azure Government trial](https://azure.microsoft.com/global-infrastructure/government/request/).
 
 > [!NOTE]
 > After your plan is published and available in a specific region, you can't remove that region.
 
 #### Azure Government certifications
 
-This option can only be seen if **Azure Government** is selected under **Cloud availability**.
+This option can only be seen if **Azure Government** is selected under **Azure regions**.
 
 Azure Government services handle data that's subject to certain government regulations and requirements. For example, FedRAMP, NIST 800.171 (DIB), ITAR, IRS 1075, DoD L4, and CJIS.
 
 To show your certifications for these programs, you can provide up to 100 links that describe them. These can be links to your listings on the program directly or to your own website. These links are visible to Azure Government customers only.
 
-## Plan listing
+### Plan listing
 
 This tab displays specific information for each different plan within the current offer.
 
@@ -325,7 +330,7 @@ These are plan details on the Azure portal:
 
 :::image type="content" source="media/azure-create-container-offer-images/azure-create-11-plan-details-portal.png" alt-text="Illustrates plan details on the Azure portal.":::
 
-## Plan availability
+### Plan availability
 
 If you want to hide your published offer so customers can't search, browse, or purchase it in the marketplace, select the **Hide plan** check box on the **Availability** tab.
 

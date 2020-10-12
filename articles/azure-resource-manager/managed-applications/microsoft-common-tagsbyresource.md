@@ -15,7 +15,7 @@ A control for associating [tags](../management/tag-resources.md) with the resour
 
 ## UI sample
 
-![Microsoft.Common.DropDown](./media/managed-application-elements/microsoft.common.tagsbyresource.png)
+![Microsoft.Common.DropDown](./media/managed-application-elements/microsoft-common-tagsbyresource.png)
 
 ## Schema
 

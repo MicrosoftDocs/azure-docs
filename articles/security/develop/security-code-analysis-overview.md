@@ -1,6 +1,6 @@
 ---
 title: Microsoft Security Code Analysis documentation overview
-description: This article is an overview of the Microsoft Security Code Analysis extension
+description: Learn about the Microsoft Security Code Analysis extension. With this extension, you can add security code analysis to Azure DevOps CI/ID pipelines.
 author: sukhans
 manager: sukhans
 ms.author: terrylan
@@ -68,7 +68,7 @@ Passwords and other secrets stored in source code are a significant problem. Cre
 
 ### Roslyn Analyzers
 
-Roslyn Analyzers is Microsoft's compiler-integrated tool for statically analyzing managed C# and Visual Basic code. For more information, see [Roslyn-based analyzers](https://docs.microsoft.com/dotnet/standard/analyzers/).
+Roslyn Analyzers is Microsoft's compiler-integrated tool for statically analyzing managed C# and Visual Basic code. For more information, see [Roslyn-based analyzers](https://docs.microsoft.com/dotnet/standard/analyzers/api-analyzer).
 
 ### TSLint
 

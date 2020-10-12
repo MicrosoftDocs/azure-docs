@@ -180,7 +180,8 @@ See other lessons for using the [Kusto query language](/azure/kusto/query/) with
 - [String operations](string-operations.md)
 - [Date and time operations](datetime-operations.md)
 - [Aggregation functions](aggregations.md)
-- [Advanced aggregations](advanced-aggregations.md)
+- [Advanced aggregations]()
 - [JSON and data structures](json-data-structures.md)
 - [Joins](joins.md)
 - [Charts](charts.md)
+

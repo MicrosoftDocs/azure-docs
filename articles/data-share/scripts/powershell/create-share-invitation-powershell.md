@@ -11,7 +11,7 @@ ms.date: 07/07/2019
 ms.author: joanpo
 ---
 
-# Use PowerShell to monitor the usage of a sent data share
+# Use a PowerShell script to monitor the usage of a sent data share
 
 This PowerShell script creates a data share invitation.
 

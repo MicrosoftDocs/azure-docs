@@ -1,9 +1,8 @@
 ---
-title: 'Quickstart: Set and retrieve a key from Azure Key Vault'
+title: Create and retrieve attributes of a key in Azure Key Vault – Azure PowerShell
 description: Quickstart showing how to set and retrieve a key from Azure Key Vault using Azure PowerShell
 services: key-vault
 author: msmbaldwin
-manager: rkarlin
 tags: azure-resource-manager
 
 ms.service: key-vault
@@ -11,6 +10,7 @@ ms.subservice: keys
 ms.topic: quickstart
 ms.date: 03/30/2020
 ms.author: mbaldwin
+
 #Customer intent:As a security admin who is new to Azure, I want to use Key Vault to securely store keys and passwords in Azure
 ---
 # Quickstart: Set and retrieve a key from Azure Key Vault using Azure PowerShell
@@ -18,7 +18,6 @@ ms.author: mbaldwin
 In this quickstart, you create a key vault in Azure Key Vault with Azure PowerShell. Azure Key Vault is a cloud service that works as a secure secrets store. You can securely store keys, passwords, certificates, and other secrets. For more information on Key Vault you may review the [Overview](../general/overview.md). Azure PowerShell is used to create and manage Azure resources using commands or scripts. Once that you have completed that, you will store a key.
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
-
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
@@ -57,8 +56,6 @@ The output of this cmdlet shows properties of the newly created key vault. Take 
 
 After vault creation your Azure account is the only account allowed to do anything on this new vault.
 
-![Output after Key Vault creation command completes](../media/quick-create-powershell/output-after-creating-keyvault.png)
-
 ## Add a key to Key Vault
 
 To add a key to the vault, you just need to take a couple of additional steps. This key could be used by an application. 
@@ -69,7 +66,7 @@ Type the commands below to create a called **ExampleKey** :
 Add-AzKeyVaultKey -VaultName 'Contoso-Vault2' -Name 'ExampleKey' -Destination 'Software'
 ```
 
-You can now reference this key that you added to Azure Key Vault by using its URI. Use **https://Contoso-Vault2.vault.azure.net/keys/ExampleKey** to get the current version. 
+You can now reference this key that you added to Azure Key Vault by using its URI. Use **'https://Contoso-Vault2.vault.azure.net/keys/ExampleKey'** to get the current version. 
 
 To view previously stored key:
 

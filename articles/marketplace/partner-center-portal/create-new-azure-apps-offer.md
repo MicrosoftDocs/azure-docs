@@ -1,12 +1,12 @@
 ---
 title: Create an Azure application offer - Microsoft commercial marketplace 
 description: Learn the steps and considerations for creating a new Azure application offer in the commercial marketplace portal in Partner Center. You can list or sell your Azure application offer in Azure Marketplace or through the Cloud Solution Provider (CSP) program. 
-author: qianw211
-ms.author: dsindona 
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
-ms.topic: conceptual
-ms.date: 06/17/2020
+ms.topic: how-to
+author: AarathiN
+ms.author: aarathin
+ms.date: 07/14/2020
 ---
 
 # Create an Azure application offer
@@ -51,18 +51,18 @@ Review the following resources as you prepare your Azure application offer for t
 
 The video [Building Solution Templates, and Managed Applications for the Azure Marketplace](https://channel9.msdn.com/Events/Build/2018/BRK3603) gives a comprehensive introduction to the Azure application offer type:
 
-* What offer types are available;
-* What technical assets are required;
-* How to author an Azure Resource Manager template;
-* Developing and testing the app UI;
-* How to publish the app offer;
-* The application review process.
+* What offer types are available
+* What technical assets are required
+* How to author an Azure Resource Manager template
+* Developing and testing the app UI
+* How to publish the app offer
+* The application review process
 
 ### Suggested tools
 
 Choose one or both of the following scripting environments to help manage your Azure application:
 
-* [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview)
+* [Azure PowerShell](https://docs.microsoft.com/powershell/azure/)
 * [Azure CLI](https://docs.microsoft.com/cli/azure)
 
 We recommend adding the following tools to your development environment:
@@ -98,7 +98,7 @@ To learn about publishing requirements for each application plan, see [Solution 
 ## Create a new offer
 
 >[!NOTE]
->After an offer is published, edits you make to it in Partner Center will not appear in storefronts until you republish the offer. Make sure to always republish you offer after making changes.
+>After an offer is published, edits you make to it in Partner Center will not appear in online stores until you republish the offer. Make sure to always republish you offer after making changes.
 
 1. Sign in to [Partner Center](https://partner.microsoft.com/dashboard/home).
 
@@ -237,19 +237,24 @@ Provide the name, email, and phone number for a **Support contact**, **Engineeri
 
 Provide logos and images to use with your offer. All images must be in PNG format. Blurry images will cause your submission to be rejected.
 
+[!INCLUDE [logo tips](../includes/graphics-suggestions.md)]
+
 >[!Note]
 >If you have an issue uploading files, ensure your local network does not block the https://upload.xboxlive.com service used by Partner Center.
 
 #### Store logos
 
-Provide PNG files of your offer's logo in the following three pixel sizes:
+Provide a PNG file for the **Large** size logo. Partner Center will use this to create a **Small** and a **Medium** logo. You can optionally replace these with different images later.
 
-- **Small** (48 x 48)
-- **Medium** (90 x 90)
-- **Large** (216 x 216)
-- **Wide** (255 x 115)
+- **Large** (from 216 x 216 to 350 x 350 px, required)
+- **Medium** (90 x 90 px, optional)
+- **Small** (48 x 48 px, optional)
 
-All three logos are required and are used in different places in the listing.
+These logos are used in different places in the listing:
+
+[!INCLUDE [logos-azure-marketplace-only](../includes/logos-azure-marketplace-only.md)]
+
+[!INCLUDE [Logo tips](../includes/graphics-suggestions.md)]
 
 #### Screenshots
 
@@ -277,7 +282,7 @@ Your preview audience is identified by Azure subscription ID GUIDs, along with a
 Add at least one Azure subscription ID, either individually (up to 10) or by uploading a CSV file (up to 100). By adding these subscription IDs, you define who can preview your offer before it is published live. If your offer is already live, you may still define a preview audience for testing offer changes or updates to your offer.
 
 > [!NOTE]
-> A preview audience differs from a private audience. A preview audience can access to your offer _before_ it's published live in the marketplaces. They can see and validate all plans, including those which will be available only to a private audience after your offer is fully published to the marketplace. A private audience (defined in the plan **Pricing and Availability** tab) has exclusive access to a particular plan.
+> A preview audience differs from a private audience. A preview audience can access to your offer *before* it's published live in the marketplaces. They can see and validate all plans, including those which will be available only to a private audience after your offer is fully published to the marketplace. A private audience (defined in the plan **Pricing and Availability** tab) has exclusive access to a particular plan.
 
 Select **Save draft** before continuing.
 
@@ -305,7 +310,9 @@ The technical configuration defines the details (tenant ID, and app ID) used to 
 
 ## Plan overview
 
-This tab enables you to provide different plan options within the same offer. These plans (referred to as SKUs in the Cloud Partner Portal) can differ in terms of plan type (solution template vs. managed application), monetization, or audience.  Configure at least one plan in order to list your offer in the marketplace.
+This tab enables you to provide different plan options within the same offer. These plans (formerly called SKUs) can differ in terms of plan type (solution template vs. managed application), monetization, or audience. Configure at least one plan in order to list your offer in the marketplace.
+
+You can create up to 100 plans for each offer: up to 45 of these can be private. Learn more about private plans in [Private offers in the Microsoft commercial marketplace](../private-offers.md).
 
 Once created, you will see your plan names, IDs, plan type, availability (Public or Private), current publishing status, and any available actions on this tab.
 
@@ -318,7 +325,7 @@ Once created, you will see your plan names, IDs, plan type, availability (Public
 
 ***Plan ID*** – Create a unique plan ID for each plan in this offer. This ID will be visible to customers in the product URL.  Use only lowercase, alphanumeric characters, dashes, or underscores. A maximum of 50 characters are allowed for this plan ID. This ID cannot be modified after selecting create.
 
-***Plan name*** - Customers will see this name when deciding which plan to select within your offer. Create a unique offer name for each plan in this offer. The plan name is used to differentiate software plans that may be a part of the same offer (For example, offer name: Windows Server; plans: Windows Server 2016, Windows Server 2019).
+***Plan name*** – Customers will see this name when deciding which plan to select within your offer. Create a unique offer name for each plan in this offer. The plan name is used to differentiate software plans that may be a part of the same offer (For example, offer name: Windows Server; plans: Windows Server 2016, Windows Server 2019).
 
 ### Plan setup
 
@@ -329,7 +336,7 @@ Select the type of plan for your offer. A **Solution template** plan is managed 
 
 #### Re-use technical configuration
 
-If you have more than one plan of the same type and the packages are identical between them, you may select **this plan reuses packages from another plan**.  When you select this option, you will be able to select one of the other plans of the same type for this offer to reuse packages from. 
+If you have more than one plan of the same type and the packages are identical between them, you may select **this plan reuses packages from another plan**.  When you select this option, you will be able to select one of the other plans of the same type for this offer to reuse packages from.
 
 >[!Note]
 >When you re-use packages from another plan, the entire Technical configuration tab will disappear from this plan. The Technical configuration details from the other plan, including any updates that you make in the future, will be used for this plan as well.<br><br>This setting cannot be changed after this plan is published.
@@ -410,9 +417,9 @@ If you have already set prices for your plan in United States Dollars (USD) and 
 
 Provide the per-month price for this plan.  This price is in addition to any Azure infrastructure or pay-as-you-go software costs incurred by the resources deployed by this solution.
 
-In addition to the per-month price, you can also set prices for consumption of non-standard units using [metered billing](./azure-app-metered-billing.md).  You may set the per-month price to zero and charge exclusively using metered billing if you like. 
+In addition to the per-month price, you can also set prices for consumption of non-standard units using [metered billing](./azure-app-metered-billing.md).  You may set the per-month price to zero and charge exclusively using metered billing if you like.
 
-Prices set in USD (USD = United States Dollar) are converted into the local currency of all selected markets using the current exchange rates when saved. Validate these prices before publishing by exporting the pricing spreadsheet and reviewing the price in each market. If you would like to set custom prices in an individual market, modify and import the pricing spreadsheet. 
+Prices set in USD (USD = United States Dollar) are converted into the local currency of all selected markets using the current exchange rates when saved. Validate these prices before publishing by exporting the pricing spreadsheet and reviewing the price in each market. If you would like to set custom prices in an individual market, modify and import the pricing spreadsheet.
 
 >[!Note]
 >You must first save your pricing changes to enable export of pricing data.
@@ -436,8 +443,7 @@ If you make the plan private, enter an **Azure subscription IDs** and its descri
 >[!Note]
 >Private offers are not supported with Azure subscriptions established through a reseller of the Cloud Solution Provider program (CSP).
 
-
-### Technical configuration 
+### Technical configuration
 
 This tab lets you upload the deployment package that will allow customers to deploy your plan.
 
@@ -495,19 +501,19 @@ Specify an HTTPS Webhook endpoint to receive notifications about all CRUD operat
 
 #### Customize allowed customer actions
 
-Select this option to specify which actions customers can perform on the managed resources in addition to the "`*/read`" actions that is available by default. 
+Select this option to specify which actions customers can perform on the managed resources in addition to the "`*/read`" actions that is available by default.
 
-List the additional actions you would like to enable your customer to perform here, separated by semicolons.  For more information, see [Understanding deny assignments for Azure resources](../../role-based-access-control/deny-assignments.md).  For available actions, see [Azure Resource Manager resource provider operations](../../role-based-access-control/resource-provider-operations.md). For example, to permit consumers to restart virtual machines, add `Microsoft.Compute/virtualMachines/restart/action` to the allowed actions.
+List the additional actions you would like to enable your customer to perform here, separated by semicolons.  For more information, see [Understanding deny assignments for Azure resources](../../role-based-access-control/deny-assignments.md). For available actions, see [Azure Resource Manager resource provider operations](../../role-based-access-control/resource-provider-operations.md). For example, to permit consumers to restart virtual machines, add `Microsoft.Compute/virtualMachines/restart/action` to the allowed actions.
 
 #### Global Azure / Azure Government Cloud
 
-Indicate who should have management access to this managed application in each supported cloud. Users, groups, or applications that you want to be granted permission to the managed resource group are identified using Azure Active Directory (AAD) identities.
+Indicate who should have management access to this managed application in each supported cloud. Users, groups, or applications that you want to be granted permission to the managed resource group are identified using Azure Active Directory (AD) identities.
 
-**Azure Active Directory Tenant ID** – The AAD Tenant ID (also known as directory ID) containing the identities of the users, groups, or applications you want to grant permissions to. You can find your AAD Tenant ID on the Azure portal, in [Properties for Azure Active Directory](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Properties).
+**Azure Active Directory Tenant ID** – The Azure AD Tenant ID (also known as directory ID) containing the identities of the users, groups, or applications you want to grant permissions to. You can find your Azure AD Tenant ID on the Azure portal, in [Properties for Azure Active Directory](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Properties).
 
 **Authorizations** – Add the Azure Active Directory object ID of the user, group, or application that you want to be granted permission to the managed resource group. Identify the user by their Principal ID, which can be found at the [Azure Active Directory users blade on the Azure portal](https://portal.azure.com/#blade/Microsoft_AAD_IAM/UsersManagementMenuBlade/AllUsers).
 
-For each principal, select one of the Azure AD built-in roles from the list (Owner or Contributor). The role you select will describe the permissions the principal will have on the resources in the customer subscription. For more information, see [Built-in roles for Azure resources](../../role-based-access-control/built-in-roles.md). For more information about role-based access control (RBAC), see [Get started with RBAC in the Azure portal](../../role-based-access-control/overview.md).
+For each principal, select one of the Azure AD built-in roles from the list (Owner or Contributor). The role you select will describe the permissions the principal will have on the resources in the customer subscription. For more information, see [Azure built-in roles](../../role-based-access-control/built-in-roles.md). For more information about role-based access control (RBAC), see [Get started with RBAC in the Azure portal](../../role-based-access-control/overview.md).
 
 >[!Note]
 >Although you may add up to 100 authorizations per cloud, it's generally easier to create an Active Directory user group and specify its ID in the "Principal ID." This will allow you to add more users to the management group after the plan is deployed and reduce the need to update the plan just to add more authorizations.
@@ -548,7 +554,7 @@ To allow the Test Drive to be deployed on your behalf, create and provide a sepa
 * **Azure AD tenant ID** (required) – Enter your Azure Active Directory (AD) [tenant ID](../../active-directory/develop/howto-create-service-principal-portal.md#get-tenant-and-app-id-values-for-signing-in)). To find this ID, sign in to the [Azure portal](https://portal.azure.com/), select the Active Directory tab in the left-menu, select **Properties**, then look for the **Directory ID** number listed (such as 50c464d3-4930-494c-963c-1e951d15360e). You can also look up your organization's tenant ID using your domain name URL at:  [https://www.whatismytenantid.com](https://www.whatismytenantid.com).
 * **Azure AD tenant name** (required for Dynamic 365) – Enter your Azure Active Directory (AD) name. To find this name, sign in to the [Azure portal](https://portal.azure.com/), in the upper right corner your tenant name will be listed under your account name.
 * **Azure AD app ID** (required) – Enter your Azure Active Directory (AD) [application ID](../../active-directory/develop/howto-create-service-principal-portal.md#get-tenant-and-app-id-values-for-signing-in)). To find this ID, sign in to the [Azure portal](https://portal.azure.com/), select the Active Directory tab in the left-nav menu, select **App registrations**, then look for the **Application ID** number listed (such as 50c464d3-4930-494c-963c-1e951d15360e).
-* **Azure Active Directory application client secret** (required) – Enter your Azure AD application [client secret](../../active-directory/develop/howto-create-service-principal-portal.md#create-a-new-application-secret)). To find this value, sign in to the [Azure portal](https://portal.azure.com/). Select the **Azure Active Directory** tab in the left-nav menu, select **App registrations**, then select your test drive app. Next, select **Certificates and secrets**, select **New client secret**, enter a description, select **Never** under **Expires**, then choose **Add**. Make sure to copy down the value before leaving this page.)
+* **Azure Active Directory application client secret** (required) – Enter your Azure AD application [client secret](../../active-directory/develop/howto-create-service-principal-portal.md#option-2-create-a-new-application-secret)). To find this value, sign in to the [Azure portal](https://portal.azure.com/). Select the **Azure Active Directory** tab in the left-nav menu, select **App registrations**, then select your test drive app. Next, select **Certificates and secrets**, select **New client secret**, enter a description, select **Never** under **Expires**, then choose **Add**. Make sure to copy down the value before leaving this page.)
 
 Select **Save draft** before continuing.
 
@@ -573,9 +579,9 @@ Select **Save draft** before continuing.
 When you have completed all the required sections of the offer, select **Review and publish** in the top-right corner of the portal.
 
 Review the completion status for each section of the offer.
-    - *Not started* - means the section has not been touched and needs to be completed.
-    - *Incomplete* - means the section has errors that need to be fixed or requires more information to be provided. Go back to the section(s) and update it.
-    - *Complete* - means the section is complete, all required data has been provided and there are no errors. All sections of the offer must be in a complete state before you can submit the offer.
+    - *Not started* – means the section has not been touched and needs to be completed.
+    - *Incomplete* – means the section has errors that need to be fixed or requires more information to be provided. Go back to the section(s) and update it.
+    - *Complete* – means the section is complete, all required data has been provided and there are no errors. All sections of the offer must be in a complete state before you can submit the offer.
 
 If this is your first time publishing this offer, you can provide testing instructions to the certification team to ensure that your app is tested correctly, in addition to any supplementary notes helpful for understanding your app.
 

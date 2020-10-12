@@ -1,17 +1,11 @@
 ---
 title: 'Send Blob storage events to web endpoint - template'
 description: Use Azure Event Grid and an Azure Resource Manager template to create Blob storage account, and subscribe its events. Send the events to a Webhook.'
-services: event-grid
-keywords:
-author: spelluru
-ms.author: spelluru
-ms.date: 06/03/2020
+ms.date: 07/07/2020
 ms.topic: quickstart
-ms.service: event-grid
-ms.custom: subject-armqs
 ---
 
-# Route Blob storage events to web endpoint by using an ARM template
+# Quickstart: Route Blob storage events to web endpoint by using an ARM template
 
 Azure Event Grid is an eventing service for the cloud. In this article, you use an Azure Resource Manager template (ARM template) to create a Blob storage account, subscribe to events for that blob storage, and trigger an event to view the result. Typically, you send events to an endpoint that processes the event data and takes actions. However, to simplify this article, you send the events to a web app that collects and displays the messages.
 
@@ -43,7 +37,7 @@ Before subscribing to the events for the Blob storage, let's create the endpoint
 
 The template used in this quickstart is from [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/101-event-grid-subscription-and-storage/).
 
-:::code language="json" source="~/quickstart-templates/101-event-grid-subscription-and-storage/azuredeploy.json" range="1-91" highlight="40-85":::
+:::code language="json" source="~/quickstart-templates/101-event-grid-subscription-and-storage/azuredeploy.json":::
 
 Two Azure resources are defined in the template:
 
@@ -88,7 +82,7 @@ When no longer needed, [delete the resource group](../azure-resource-manager/man
 
 For more information about Azure Resource Manager templates, see the following articles:
 
-* [Azure Resource Manager documentation](/azure/azure-resource-manager)
+* [Azure Resource Manager documentation](../azure-resource-manager/index.yml)
 * [Define resources in Azure Resource Manager templates](/azure/templates/)
 * [Azure Quickstart templates](https://azure.microsoft.com/resources/templates/)
 * [Azure Event Grid templates](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Eventgrid).

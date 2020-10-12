@@ -1,11 +1,11 @@
 ---
 title: SSL/TLS - Azure Database for PostgreSQL - Single Server
 description: Instructions and information on how to configure TLS connectivity for Azure Database for PostgreSQL - Single Server.
-author: rachel-msft
-ms.author: raagyema
+author: niklarin
+ms.author: nlarin
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 06/30/2020
+ms.date: 07/08/2020
 ---
 # Configure TLS connectivity in Azure Database for PostgreSQL - Single Server
 
@@ -27,7 +27,7 @@ You can optionally disable enforcing TLS connectivity. Microsoft Azure recommend
 
 Visit your Azure Database for PostgreSQL server and click **Connection security**. Use the toggle button to enable or disable the **Enforce SSL connection** setting. Then, click **Save**.
 
-![Connection Security - Disable Enforce TLS/SSL](./media/concepts-ssl-connection-security/1-disable-ssl.png)
+:::image type="content" source="./media/concepts-ssl-connection-security/1-disable-ssl.png" alt-text="Connection Security - Disable Enforce TLS/SSL":::
 
 You can confirm the setting by viewing the **Overview** page to see the **SSL enforce status** indicator.
 
@@ -45,7 +45,9 @@ Some application frameworks that use PostgreSQL for their database services do n
 
 ## Applications that require certificate verification for TLS connectivity
 
-In some cases, applications require a local certificate file generated from a trusted Certificate Authority (CA) certificate file to connect securely. The certificate to connect to an Azure Database for PostgreSQL server is located at https://www.digicert.com/CACerts/BaltimoreCyberTrustRoot.crt.pem. Download the certificate file and save it to your preferred location. (See the following links for certificates for servers in sovereign clouds: [Azure Government](https://dl.cacerts.digicert.com/DigiCertGlobalRootCA.crt.pem), [Azure China](https://dl.cacerts.digicert.com/DigiCertGlobalRootCA.crt.pem), and [Azure Germany](https://www.d-trust.net/cgi-bin/D-TRUST_Root_Class_3_CA_2_2009.crt).) 
+In some cases, applications require a local certificate file generated from a trusted Certificate Authority (CA) certificate file to connect securely. The certificate to connect to an Azure Database for PostgreSQL server is located at https://www.digicert.com/CACerts/BaltimoreCyberTrustRoot.crt.pem. Download the certificate file and save it to your preferred location. 
+
+See the following links for certificates for servers in sovereign clouds: [Azure Government](https://www.digicert.com/CACerts/BaltimoreCyberTrustRoot.crt.pem), [Azure China](https://dl.cacerts.digicert.com/DigiCertGlobalRootCA.crt.pem), and [Azure Germany](https://www.d-trust.net/cgi-bin/D-TRUST_Root_Class_3_CA_2_2009.crt).
 
 ### Connect using psql
 
@@ -84,6 +86,17 @@ For example, setting this Minimum TLS setting version to TLS 1.0 means your serv
 > Once you enforce a minimum TLS version, you cannot later disable minimum version enforcement.
 
 To learn how to set the TLS setting for your Azure Database for PostgreSQL Single server, refer to [How to configure TLS setting](howto-tls-configurations.md).
+
+## Cipher support by Azure Database for PostgreSQL Single server
+
+As part of the SSL/TLS communication, the cipher suites are validated and only support cipher suits are allowed to communicate to the database serer. The cipher suite validation is controlled in the [gateway layer](concepts-connectivity-architecture.md#connectivity-architecture) and not explicitly on the node itself. If the cipher suites doesn't match one of suites listed below, incoming client connections will be rejected.
+
+### Cipher suite supported
+
+*   TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+*   TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256
+*   TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384
+*   TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256
 
 ## Next steps
 

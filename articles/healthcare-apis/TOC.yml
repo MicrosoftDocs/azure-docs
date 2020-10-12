@@ -4,6 +4,8 @@
   items:
   - name: About Azure API for FHIR
     href: overview.md
+  - name: About Azure IoT Connector for FHIR (preview)
+    href: overview.md#azure-iot-connector-for-fhir-preview
 - name: Quickstarts
   expanded: true
   items:
@@ -13,12 +15,17 @@
     href: fhir-paas-powershell-quickstart.md
   - name: Deploy Azure API for FHIR - CLI
     href: fhir-paas-cli-quickstart.md
+  - name: Deploy Azure API for FHIR - ARM template
+    href: fhir-paas-arm-template-quickstart.md
+    displayName: deploy azure resource manager template
   - name: Deploy FHIR Server for Azure - Portal
     href: fhir-oss-portal-quickstart.md
   - name: Deploy FHIR Server for Azure - PowerShell
     href: fhir-oss-powershell-quickstart.md
   - name: Deploy FHIR Server for Azure - CLI
     href: fhir-oss-cli-quickstart.md
+  - name: Deploy Azure IoT Connector for FHIR (preview) - Portal
+    href: iot-fhir-portal-quickstart.md
 - name: Tutorials
   expanded: false
   items:
@@ -37,11 +44,11 @@
     href: access-fhir-postman-tutorial.md
   - name: Use SMART on FHIR proxy
     href: use-smart-on-fhir-proxy.md
-- name: Samples
-  items:
-  - name: Azure Policy built-ins
-    displayName: samples, policies, definitions
-    href: ./policy-samples.md
+  - name: Ingest data from IoT devices
+    expanded: false
+    items:
+    - name: Receive device data through Azure IoT Hub
+      href: device-data-through-iot-hub.md
 - name: How-to guides
   expanded: false
   items:
@@ -69,16 +76,25 @@
       href: configure-local-rbac.md
     - name: Configure database settings
       href: configure-database.md
+    - name: Configure customer-managed keys
+      href: bring-your-own-key.md
     - name: Configure CORS
       href: configure-cross-origin-resource-sharing.md
     - name: Configure Export
       href: configure-export-data.md
+  - name: Export data
+    expanded: false
+    items:
+    - name: Export data
+      href: export-data.md
   - name: Find identity object IDs
     href: find-identity-object-ids.md
   - name: Enable Diagnostics Logging in Azure API for FHIR®
     href: enable-diagnostic-logging.md
   - name: Get a token for Azure API for FHIR - CLI
     href: get-healthcare-apis-access-token-cli.md
+  - name: Troubleshoot failures in Azure IoT Connector for FHIR (preview)
+    href: iot-troubleshoot-guide.md
 - name: Concepts
   expanded: false
   items:
@@ -88,6 +104,13 @@
     href: azure-ad-hcapi-token-validation.md
   - name: Use Custom HTTP headers to add data to Audit Logs
     href: use-custom-headers.md
+  - name: Azure IoT Connector for FHIR (preview) workings
+    expanded: false
+    items:
+    - name: Azure IoT Connector for FHIR (preview) data flow
+      href: iot-data-flow.md
+    - name: Azure IoT Connector for FHIR (preview) mapping templates
+      href: iot-mapping-templates.md
 - name: Resources
   items:
   - name: FAQ
@@ -100,3 +123,6 @@
   items:
   - name: Azure CLI
     href: /cli/azure/ext/healthcareapis/healthcareapis
+  - name: Azure Policy built-ins
+    displayName: samples, policies, definitions
+    href: ./policy-reference.md

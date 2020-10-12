@@ -37,7 +37,7 @@ The following architecture diagram shows the implementation.
 
 ![IDology architecture diagram](media/partner-idology/idology-architecture-diagram.png)
 
-|      |      |
+| Step | Description |
 |------|------|
 |1     | A user arrives at the sign-in page. |
 |2     | The user selects the sign-up option to create a new account and enter information into the page. Azure AD B2C collects the user attributes. |
@@ -63,7 +63,7 @@ The following architecture diagram shows the implementation.
 
 ### Part 1 - Deploy the API
 
-Deploy the provided API code to an Azure service. The code can be published from Visual Studio, following these [instructions](https://docs.microsoft.com/visualstudio/deployment/quickstart-deploy-to-azure?view=vs-2019).
+Deploy the provided [API code](https://github.com/azure-ad-b2c/partner-integrations/tree/master/samples/IDology/Api) to an Azure service. The code can be published from Visual Studio, following these [instructions](https://docs.microsoft.com/visualstudio/deployment/quickstart-deploy-to-azure?view=vs-2019).
 
 You'll need the URL of the deployed service to configure Azure AD with the required settings.
 

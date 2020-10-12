@@ -6,7 +6,8 @@ ms.author: mbaldwin
 ms.service: virtual-machines-windows
 ms.subservice: security
 ms.topic: quickstart
-ms.date: 05/17/2019
+ms.date: 05/17/2019 
+ms.custom: devx-track-azurecli
 ---
 
 # Quickstart: Create and encrypt a Windows VM with the Azure CLI
@@ -76,7 +77,7 @@ az vm encryption enable -g MyResourceGroup --name MyVM --disk-encryption-keyvaul
 You can verify that encryption is enabled on your VM with [az vm show](/cli/azure/vm/encryption#az-vm-encryption-show)
 
 ```azurecli-interactive
-az vm show --name MyVM -g MyResourceGroup
+az vm encryption show --name MyVM -g MyResourceGroup
 ```
 
 You will see the following in the returned output:

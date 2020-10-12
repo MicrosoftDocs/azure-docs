@@ -3,14 +3,14 @@ title: "Known issues: Migrate from Oracle to Azure Database for PostgreSQL"
 titleSuffix: Azure Database Migration Service
 description: Learn about known issues and migration limitations with online migrations from Oracle to Azure Database for PostgreSQL-Single server using the Azure Database Migration Service.
 services: database-migration
-author: HJToland3
-ms.author: jtoland
+author: arunkumarthiags
+ms.author: arthiaga
 manager: craigg
 ms.reviewer: craigg
 ms.service: dms
 ms.workload: data-services
 ms.custom: "seo-lt-2019"
-ms.topic: article
+ms.topic: troubleshooting
 ms.date: 05/20/2020
 ---
 

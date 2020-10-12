@@ -55,7 +55,7 @@ To use this feature, you need:
 * An Azure subscription. If you don't have an Azure subscription, you can [sign up for a free trial](https://azure.microsoft.com/free/).
 * An Azure AD tenant.
 * A user who's a *global administrator* or *security administrator* for the Azure AD tenant.
-* A Log Analytics workspace in your Azure subscription. Learn how to [create a Log Analytics workspace](https://docs.microsoft.com/azure/log-analytics/log-analytics-quick-create-workspace).
+* A Log Analytics workspace in your Azure subscription. Learn how to [create a Log Analytics workspace](../../azure-monitor/learn/quick-create-workspace.md).
 
 ## Licensing requirements
 

@@ -1,6 +1,8 @@
 ---
 title: Limits and boundaries - QnA Maker
 description: QnA Maker has meta-limits for parts of the knowledge base and service. It is important to keep your knowledge base within those limits in order to test and publish.
+ms.service: cognitive-services
+ms.subservice: qna-maker
 ms.topic: reference
 ms.date: 02/14/2020
 ---
@@ -74,7 +76,8 @@ The length and acceptable characters for metadata name and value are listed in t
 Overall limits on the content in the knowledge base:
 * Length of answer text: 25,000
 * Length of question text: 1,000
-* Length of metadata key/value text: 100
+* Length of metadata key text: 100
+* Length of metadata value text: 500
 * Supported characters for metadata name: Alphabets, digits and `_`
 * Supported characters for metadata value: All except `:` and `|`
 * Length of file name: 200

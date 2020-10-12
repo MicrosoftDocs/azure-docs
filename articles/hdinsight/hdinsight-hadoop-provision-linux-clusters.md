@@ -7,7 +7,7 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive,hdiseo17may2017,seodec18
-ms.date: 04/30/2020
+ms.date: 08/06/2020
 ---
 
 # Set up clusters in HDInsight with Apache Hadoop, Apache Spark, Apache Kafka, and more
@@ -129,9 +129,12 @@ During configuration, for the default storage endpoint you specify a blob contai
 > [!IMPORTANT]
 > Enabling secure storage transfer after creating a cluster can result in errors using your storage account and is not recommended. It is better to create a new cluster using a storage account with secure transfer already enabled.
 
+> [!Note]  
+> Azure HDInsight does not automatically transfer, move or copy your data stored in Azure Storage from one region to another.
+
 ### Metastore settings
 
-You can create optional Hive or Apache Oozie metastores. However, not all cluster types support metastores, and Azure SQL Data Warehouse isn't compatible with metastores.
+You can create optional Hive or Apache Oozie metastores. However, not all cluster types support metastores, and Azure Synapse Analytics isn't compatible with metastores.
 
 For more information, see [Use external metadata stores in Azure HDInsight](./hdinsight-use-external-metadata-stores.md).
 
@@ -143,6 +146,9 @@ For more information, see [Use external metadata stores in Azure HDInsight](./hd
 If you want to retain your Hive tables after you delete an HDInsight cluster, use a custom metastore. You can then attach the metastore to another HDInsight cluster.
 
 An HDInsight metastore that is created for one HDInsight cluster version can't be shared across different HDInsight cluster versions. For a list of HDInsight versions, see [Supported HDInsight versions](hdinsight-component-versioning.md#supported-hdinsight-versions).
+
+> [!IMPORTANT]
+> The default metastore provides an Azure SQL Database with a **basic tier 5 DTU limit (not upgradeable)**! Suitable for basic testing purposes. For large or production workloads, we recommend migrating to an external metastore.
 
 #### SQL database for Oozie
 

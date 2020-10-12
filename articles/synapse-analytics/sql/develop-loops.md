@@ -17,11 +17,11 @@ This article provides you with essential tips for using T-SQL loops, replacing c
 
 ## Purpose of WHILE loops
 
-Synapse SQL supports the [WHILE](https://docs.microsoft.com/sql/t-sql/language-elements/while-transact-sql?view=sql-server-ver15) loop for repeatedly executing statement blocks. This WHILE loop continues for as long as the specified conditions are true or until the code specifically terminates the loop using the BREAK keyword. 
+Synapse SQL supports the [WHILE](https://docs.microsoft.com/sql/t-sql/language-elements/while-transact-sql?view=sql-server-ver15&preserve-view=true) loop for repeatedly executing statement blocks. This WHILE loop continues for as long as the specified conditions are true or until the code specifically terminates the loop using the BREAK keyword. 
 
-Loops in SQL pool are useful for replacing cursors defined in SQL code. Fortunately, almost all cursors that are written in SQL code are of the fast forward, read-only variety. So, [WHILE] loops are a great alternative for replacing cursors.
+Loops in SQL pool are useful for replacing cursors defined in SQL code. Fortunately, almost all cursors that are written in SQL code are of the fast forward, read-only variety. So, WHILE loops are a great alternative for replacing cursors.
 
-## Replacing cursors in SQL pool
+## Replace cursors in SQL pool
 
 Before diving in, the following question should be considered: "Could this cursor be rewritten to use set-based operations?" In many cases, the answer is yes and is frequently the best approach. A set-based operation often executes faster than an iterative, row by row approach.
 

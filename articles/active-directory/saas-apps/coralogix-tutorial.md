@@ -2,22 +2,15 @@
 title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Coralogix | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and Coralogix.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-
-ms.assetid: ba79bfc1-992e-4924-b76a-8eb0dfb97724
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 10/24/2019
 ms.author: jeedes
-
-ms.collection: M365-identity-device-management
 ---
 
 # Tutorial: Azure Active Directory single sign-on (SSO) integration with Coralogix
@@ -98,13 +91,13 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
  1. The Coralogix application expects the SAML assertions in a specific format. Configure the following claims for this application. You can manage the values of these attributes from the **User Attributes** section on the application integration page. On the **Set up Single Sign-On with SAML** page, select the **Edit** button to open the **User Attributes** dialog box.
 
-	![image](common/edit-attribute.png)
+	![Screenshot that shows the "User Attributes" dialog with the "Edit" button highlighted.](common/edit-attribute.png)
 
 1. In the **User Claims** section in the **User Attributes** dialog box, edit the claims by using the **Edit** icon. You can also add the claims by using **Add new claim** to configure the SAML token attribute as shown in the previous image. Then take the following steps:
     
 	a. Select the **Edit icon** to open the **Manage user claims** dialog box.
 
-	![image](./media/coralogix-tutorial/tutorial_usermail.png)
+	![Screenshot that shows the "User Attributes & Claims" dialog with the "Edit" button highlighted.](./media/coralogix-tutorial/tutorial_usermail.png)
 	![image](./media/coralogix-tutorial/tutorial_usermailedit.png)
 
 	b. From the **Choose name identifier format** list, select **Email address**.

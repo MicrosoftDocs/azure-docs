@@ -8,7 +8,8 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: tutorial
-ms.date: 06/23/2020
+ms.date: 09/25/2020
+ms.custom: devx-track-csharp
 #Customer intent: As a developer, I want an introduction the indexing Azure SQL data for Azure Cognitive Search.
 ---
 
@@ -16,7 +17,7 @@ ms.date: 06/23/2020
 
 Configure an [indexer](search-indexer-overview.md) to extract searchable data from Azure SQL Database, sending it to a search index in Azure Cognitive Search. 
 
-This tutorial uses C# and the [.NET SDK](https://docs.microsoft.com/dotnet/api/overview/azure/search) to perform the following tasks:
+This tutorial uses C# and the [.NET SDK](/dotnet/api/overview/azure/search) to perform the following tasks:
 
 > [!div class="checklist"]
 > * Create a data source that connects to Azure SQL Database
@@ -53,7 +54,7 @@ If you have an existing Azure SQL Database resource, you can add the hotels tabl
 
 1. Find or create a **SQL Database**. You can use defaults and the lowest level pricing tier. One advantage to creating a server is that you can specify an administrator user name and password, necessary for creating and loading tables in a later step.
 
-   ![New database page](./media/search-indexer-tutorial/indexer-new-sqldb.png "New database page")
+   :::image type="content" source="media/search-indexer-tutorial/indexer-new-sqldb.png" alt-text="New database page" border="false":::
 
 1. Click **Review + create** to deploy the new server and database. Wait for the server and database to deploy.
 
@@ -65,7 +66,7 @@ If you have an existing Azure SQL Database resource, you can add the hotels tabl
 
 1. Select the file and click **Open**. The script should look similar to the following screenshot:
 
-   ![SQL script](./media/search-indexer-tutorial/sql-script.png "SQL script")
+   :::image type="content" source="media/search-indexer-tutorial/sql-script.png" alt-text="SQL script" border="false":::
 
 1. Click **Run** to execute the query. In the Results pane, you should see a query succeeded message, for 3 rows.
 
@@ -95,7 +96,7 @@ API calls require the service URL and an access key. A search service is created
 
 1. In **Settings** > **Keys**, get an admin key for full rights on the service. There are two interchangeable admin keys, provided for business continuity in case you need to roll one over. You can use either the primary or secondary key on requests for adding, modifying, and deleting objects.
 
-   ![Get an HTTP endpoint and access key](media/search-get-started-postman/get-url-key.png "Get an HTTP endpoint and access key")
+   :::image type="content" source="media/search-get-started-postman/get-url-key.png" alt-text="Get an HTTP endpoint and access key" border="false":::
 
 ## 2 - Set up your environment
 
@@ -141,7 +142,7 @@ A schema can also include other elements, including scoring profiles for boostin
 
 The main program includes logic for creating a client, an index, a data source, and an indexer. The code checks for and deletes existing resources of the same name, under the assumption that you might run this program multiple times.
 
-The data source object is configured with settings that are specific to Azure SQL Database resources, including [partial or incremental indexing](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md#capture-new-changed-and-deleted-rows) for leveraging the built-in [change detection features](https://docs.microsoft.com/sql/relational-databases/track-changes/about-change-tracking-sql-server) of Azure SQL. The demo hotels database in Azure SQL has a "soft delete" column named **IsDeleted**. When this column is set to true in the database, the indexer removes the corresponding document from the Azure Cognitive Search index.
+The data source object is configured with settings that are specific to Azure SQL Database resources, including [partial or incremental indexing](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md#capture-new-changed-and-deleted-rows) for leveraging the built-in [change detection features](/sql/relational-databases/track-changes/about-change-tracking-sql-server) of Azure SQL. The demo hotels database in Azure SQL has a "soft delete" column named **IsDeleted**. When this column is set to true in the database, the indexer removes the corresponding document from the Azure Cognitive Search index.
 
   ```csharp
   Console.WriteLine("Creating data source...");
@@ -197,7 +198,7 @@ An indexer object is platform-agnostic, where  configuration, scheduling, and in
 
 Press F5 to build and run the solution. The program executes in debug mode. A console window reports the status of each operation.
 
-   ![Console output](./media/search-indexer-tutorial/console-output.png "Console output")
+   :::image type="content" source="media/search-indexer-tutorial/console-output.png" alt-text="Console output" border="false":::
 
 Your code runs locally in Visual Studio, connecting to your search service on Azure, which in turn connects to Azure SQL Database and retrieves the dataset. With this many operations, there are several potential points of failure. If you get an error, check the following conditions first:
 
@@ -213,7 +214,7 @@ Use Azure portal to verify object creation, and then use **Search explorer** to 
 
 1. [Sign in to the Azure portal](https://portal.azure.com/), and in your search service **Overview** page, open each list in turn to verify the object is created. **Indexes**, **Indexers**, and **Data Sources** will have "hotels", "azure-sql-indexer", and "azure-sql", respectively.
 
-   ![Indexer and data source tiles](./media/search-indexer-tutorial/tiles-portal.png)
+   :::image type="content" source="media/search-indexer-tutorial/tiles-portal.png" alt-text="Indexer and data source tiles" border="false":::
 
 1. Select the hotels index. On the hotels page, **Search explorer** is the first tab. 
 
@@ -221,7 +222,7 @@ Use Azure portal to verify object creation, and then use **Search explorer** to 
 
    The three entries in your index are returned as JSON documents. Search explorer returns documents in JSON so that you can view the entire structure.
 
-   ![Query an index](./media/search-indexer-tutorial/portal-search.png "Query an index")
+   :::image type="content" source="media/search-indexer-tutorial/portal-search.png" alt-text="Query an index" border="false":::
    
 1. Next, enter a search string: `search=river&$count=true`. 
 
@@ -250,4 +251,4 @@ You can find and manage resources in the portal, using the All resources or Reso
 Now that you're familiar with the basics of SQL Database indexing, let's take a closer look at indexer configuration.
 
 > [!div class="nextstepaction"]
-> [Configure a SQL database indexer](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md)
+> [Configure a SQL Database indexer](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md)

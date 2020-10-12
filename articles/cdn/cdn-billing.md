@@ -1,6 +1,6 @@
 ---
 title: Understanding Azure CDN billing | Microsoft Docs
-description: This FAQ describes how Azure CDN billing works.
+description: Learn about the billing structure for content hosted by Azure Content Delivery Network, including billing regions, delivery charges, and to manage costs.
 services: cdn
 documentationcenter: ''
 author: asudbring

@@ -48,9 +48,11 @@ To manually change the startup type of drivers for **Windows Guest OS**, follow 
 
     It gives the following result if hydration is required:
 
-        REGISTRY::HKEY_LOCAL_MACHINE\SYSTEM\ControlSet001\services\storvsc           start =  3 expected value =  0
+    ```output
+    REGISTRY::HKEY_LOCAL_MACHINE\SYSTEM\ControlSet001\services\storvsc           start =  3 expected value =  0
 
-        This system doesn't meet no-hydration requirement.
+    This system doesn't meet no-hydration requirement.
+    ```
 
     In case the VM meets no-hydration requirement, the script will give the result "This system meets no-hydration requirement". In this case, all drivers and services are in the state as required by Azure and hydration on the VM is not required.
 
@@ -59,12 +61,14 @@ To manually change the startup type of drivers for **Windows Guest OS**, follow 
     `.\Script-no-hydration.ps1 -set`
     
     This will convert the startup type of drivers and will give the result like below:
-    
-        REGISTRY::HKEY_LOCAL_MACHINE\SYSTEM\ControlSet001\services\storvsc           start =  3 expected value =  0 
 
-        Updating registry:  REGISTRY::HKEY_LOCAL_MACHINE\SYSTEM\ControlSet001\services\storvsc   start =  0 
+    ```output
+    REGISTRY::HKEY_LOCAL_MACHINE\SYSTEM\ControlSet001\services\storvsc           start =  3 expected value =  0
 
-        This system is now no-hydration compatible. 
+    Updating registry:  REGISTRY::HKEY_LOCAL_MACHINE\SYSTEM\ControlSet001\services\storvsc   start =  0
+
+    This system is now no-hydration compatible.
+    ```
 
 ## Unable to connect/RDP/SSH to the failed over virtual machine due to grayed out Connect button on the virtual machine
 
@@ -74,8 +78,8 @@ For detailed troubleshooting instructions on SSH issues, please see our document
 
 If the **Connect** button on the failed over VM in Azure is grayed out and you are not connected to Azure via an Express Route or Site-to-Site VPN connection, then,
 
-1. Go to **Virtual machine** > **Networking**, click on the name of required network interface.  ![network-interface](media/site-recovery-failover-to-azure-troubleshoot/network-interface.PNG)
-2. Navigate to **Ip Configurations**, then click on the name field of required IP configuration. ![IPConfigurations](media/site-recovery-failover-to-azure-troubleshoot/IpConfigurations.png)
+1. Go to **Virtual machine** > **Networking**, click on the name of required network interface.  ![Screenshot shows the Networking page for a virtual machine with the network interface name selected.](media/site-recovery-failover-to-azure-troubleshoot/network-interface.PNG)
+2. Navigate to **Ip Configurations**, then click on the name field of required IP configuration. ![Screenshot shows the I P configurations page for the network interface with the I P configuration name selected.](media/site-recovery-failover-to-azure-troubleshoot/IpConfigurations.png)
 3. To enable Public IP address, click on **Enable**. ![Enable IP](media/site-recovery-failover-to-azure-troubleshoot/Enable-Public-IP.png)
 4. Click on **Configure required settings** > **Create new**. ![Create new](media/site-recovery-failover-to-azure-troubleshoot/Create-New-Public-IP.png)
 5. Enter the name of public address, choose the default options for **SKU** and **assignment**, then click **OK**.
@@ -84,7 +88,7 @@ If the **Connect** button on the failed over VM in Azure is grayed out and you a
 
 ## Unable to connect/RDP/SSH - VM Connect button available
 
-If the **Connect** button on the failed over VM in Azure is available (not grayed out), then check **Boot diagnostics** on your Virtual Machine and check for errors as listed in [this article](../virtual-machines/windows/boot-diagnostics.md).
+If the **Connect** button on the failed over VM in Azure is available (not grayed out), then check **Boot diagnostics** on your Virtual Machine and check for errors as listed in [this article](../virtual-machines/troubleshooting/boot-diagnostics.md).
 
 1. If the virtual machine has not started, try failing over to an older recovery point.
 2. If the application inside the virtual machine is not up, try failing over to an app-consistent recovery point.
@@ -110,11 +114,15 @@ If you are able to connect to the machine using RDP but cannot open serial conso
 
 * If the machine OS is Red Hat or Oracle Linux 7.*/8.0, run the following command on the failover Azure VM with root permissions. Reboot the VM after the command.
 
-        grub2-mkconfig -o /boot/efi/EFI/redhat/grub.cfg
+  ```console
+  grub2-mkconfig -o /boot/efi/EFI/redhat/grub.cfg
+  ```
 
 * If the machine OS is CentOS 7.*, run the following command on the failover Azure VM with root permissions. Reboot the VM after the command.
 
-        grub2-mkconfig -o /boot/efi/EFI/centos/grub.cfg
+  ```console
+  grub2-mkconfig -o /boot/efi/EFI/centos/grub.cfg
+  ```
 
 ## Unexpected shutdown message (Event ID 6008)
 
@@ -170,7 +178,7 @@ To resolve the issue:
 
 
 ## Next steps
-- Troubleshoot [RDP connection to Windows VM](../virtual-machines/windows/troubleshoot-rdp-connection.md)
-- Troubleshoot [SSH connection to Linux VM](../virtual-machines/linux/detailed-troubleshoot-ssh-connection.md)
+- Troubleshoot [RDP connection to Windows VM](../virtual-machines/troubleshooting/troubleshoot-rdp-connection.md)
+- Troubleshoot [SSH connection to Linux VM](../virtual-machines/troubleshooting/detailed-troubleshoot-ssh-connection.md)
 
-If you need more help, then post your query on [Microsoft Q&A question page for Site Recovery](https://docs.microsoft.com/answers/topics/azure-site-recovery.html) or leave a comment at the end of this document. We have an active community that should be able to assist you.
+If you need more help, then post your query on [Microsoft Q&A question page for Site Recovery](/answers/topics/azure-site-recovery.html) or leave a comment at the end of this document. We have an active community that should be able to assist you.

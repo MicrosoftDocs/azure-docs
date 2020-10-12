@@ -1,5 +1,6 @@
 ---
 title: Understanding the Azure Active Directory app manifest
+titleSuffix: Microsoft identity platform
 description: Detailed coverage of the Azure Active Directory app manifest, which represents an application's identity configuration in an Azure AD tenant, and is used to facilitate OAuth authorization, consent experience, and more.
 services: active-directory
 author: rwike77
@@ -16,9 +17,9 @@ ms.reviewer: sureshja
 
 # Azure Active Directory app manifest
 
-The application manifest contains a definition of all the attributes of an application object in the Microsoft identity platform. It also serves as a mechanism for updating the application object. For more info on the Application entity and its schema, see the [Graph API Application entity documentation](https://docs.microsoft.com/previous-versions/azure/ad/graph/api/entity-and-complex-type-reference#application-entity).
+The application manifest contains a definition of all the attributes of an application object in the Microsoft identity platform. It also serves as a mechanism for updating the application object. For more info on the Application entity and its schema, see the [Graph API Application entity documentation](/graph/api/resources/application).
 
-You can configure an app's attributes through the Azure portal or programmatically using [REST API](https://docs.microsoft.com/previous-versions/azure/ad/graph/api/entity-and-complex-type-reference#application-entity) or [PowerShell](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0#applications). However, there are some scenarios where you'll need to edit the app manifest to configure an app's attribute. These scenarios include:
+You can configure an app's attributes through the Azure portal or programmatically using [REST API](/graph/api/resources/application) or [PowerShell](/powershell/module/azuread#applications). However, there are some scenarios where you'll need to edit the app manifest to configure an app's attribute. These scenarios include:
 
 * If you registered the app as Azure AD multi-tenant and personal Microsoft accounts, you can't change the supported Microsoft accounts in the UI. Instead, you must use the application manifest editor to change the supported account type.
 * If you need to define permissions and roles that your app supports, you must modify the application manifest.
@@ -76,7 +77,7 @@ Example:
 | :--- | :--- |
 | addIns | Collection |
 
-Defines custom behavior that a consuming service can use to call an app in specific contexts. For example, applications that can render file streams may set the `addIns` property for its "FileHandler" functionality. This parameter  will let services like Office 365 call the application in the context of a document the user is working on.
+Defines custom behavior that a consuming service can use to call an app in specific contexts. For example, applications that can render file streams may set the `addIns` property for its "FileHandler" functionality. This parameter  will let services like Microsoft 365 call the application in the context of a document the user is working on.
 
 Example:
 
@@ -428,7 +429,7 @@ Example:
 | parentalControlSettings | String |
 
 - `countriesBlockedForMinors` specifies the countries/regions in which the app is blocked for minors.
-- `legalAgeGroupRule` specifies the legal age group rule that applies to users of the app. Can be set to `Allow`, `RequireConsentForPrivacyServices`, `RequireConsentForMinors`, `RequireConsentForKids`, or `BlockMinors`.  
+- `legalAgeGroupRule` specifies the legal age group rule that applies to users of the app. Can be set to `Allow`, `RequireConsentForPrivacyServices`, `RequireConsentForMinors`, `RequireConsentForKids`, or `BlockMinors`.
 
 Example:
 
@@ -488,7 +489,7 @@ Example:
 | :--- | :--- |
 | publicClient | Boolean|
 
-Specifies whether this application is a public client (such as an installed application running on a mobile device). 
+Specifies whether this application is a public client (such as an installed application running on a mobile device).
 
 This property is available only in the **App registrations (Legacy)** experience. Replaced by `allowPublicClient` in the [App registrations](https://go.microsoft.com/fwlink/?linkid=2083908) experience.
 
@@ -526,8 +527,9 @@ This multi-value property holds the list of registered redirect_uri values that 
 
 - `Web`
 - `InstalledClient`
+- `Spa`
 
-To learn more, see [replyUrl restrictions and limitations](https://docs.microsoft.com/azure/active-directory/develop/reply-url).
+To learn more, see [replyUrl restrictions and limitations](./reply-url.md).
 
 Example:
 
@@ -664,7 +666,7 @@ When you try to upload a previously downloaded manifest, you may see one of the 
 
 When you see one of these errors, we recommend the following actions:
 
-1. Edit the attributes individually in the manifest editor instead of uploading a previously downloaded manifest. Use the [manifest reference](#manifest-reference) table to understand the syntax and semantics of old and new attributes so that you can successfully edit the attributes you're interested in. 
+1. Edit the attributes individually in the manifest editor instead of uploading a previously downloaded manifest. Use the [manifest reference](#manifest-reference) table to understand the syntax and semantics of old and new attributes so that you can successfully edit the attributes you're interested in.
 1. If your workflow requires you to save the manifests in your source repository for use later, we suggest rebasing the saved manifests in your repository with the one you see in the **App registrations** experience.
 
 ## Next steps
@@ -679,14 +681,10 @@ Use the following comments section to provide feedback that helps refine and sha
 [AAD-DEVELOPER-GLOSSARY]:developer-glossary.md
 [AAD-GROUPS-FOR-AUTHORIZATION]: http://www.dushyantgill.com/blog/2014/12/10/authorization-cloud-applications-using-ad-groups/
 [ADD-UPD-RMV-APP]:quickstart-v1-integrate-apps-with-azure-ad.md
-[APPLICATION-ENTITY]: https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#application-entity
-[APPLICATION-ENTITY-APP-ROLE]: https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#approle-type
-[APPLICATION-ENTITY-OAUTH2-PERMISSION]: https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#oauth2permission-type
 [AZURE-PORTAL]: https://portal.azure.com
 [DEV-GUIDE-TO-AUTH-WITH-ARM]: http://www.dushyantgill.com/blog/2015/05/23/developers-guide-to-auth-with-azure-resource-manager-api/
 [GRAPH-API]: active-directory-graph-api.md
 [IMPLICIT-GRANT]:v1-oauth2-implicit-grant-flow.md
-[INTEGRATING-APPLICATIONS-AAD]: https://azure.microsoft.com/documentation/articles/active-directory-integrating-applications/
-[O365-PERM-DETAILS]: https://msdn.microsoft.com/office/office365/HowTo/application-manifest
-[O365-SERVICE-DAEMON-APPS]: https://msdn.microsoft.com/office/office365/howto/building-service-apps-in-office-365
+[INTEGRATING-APPLICATIONS-AAD]: ./quickstart-register-app.md
+[O365-PERM-DETAILS]: /graph/permissions-reference
 [RBAC-CLOUD-APPS-AZUREAD]: http://www.dushyantgill.com/blog/2014/12/10/roles-based-access-control-in-cloud-applications-using-azure-ad/

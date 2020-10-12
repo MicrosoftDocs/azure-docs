@@ -1,5 +1,5 @@
 ---
-title: Congigure IP firewall for Azure Relay namespace
+title: Configure IP firewall for Azure Relay namespace
 description: This article describes how to Use firewall rules to allow connections from specific IP addresses to Azure Relay namespaces. 
 ms.topic: article
 ms.date: 06/23/2020
@@ -24,11 +24,10 @@ This section shows you how to use the Azure portal to create IP firewall rules f
 1. Navigate to your **Relay namespace** in the [Azure portal](https://portal.azure.com).
 2. On the left menu, select **Networking** option. If you select the **All networks** option in the  **Allow access from** section, the Relay namespace accepts connections from any IP address. This setting is equivalent to a rule that accepts the 0.0.0.0/0 IP address range. 
 
-    ![Firewall - All networks option selected](./media/ip-firewall/all-networks-selected.png)
+    ![Screenshot shows the Networking page with the All networks option selected.](./media/ip-firewall/all-networks-selected.png)
 1. To restrict access to specific networks and IP addresses, select the **Selected networks** option. In the **Firewall** section, follow these steps:
     1. Select **Add your client IP address** option to give your current client IP the access to the namespace. 
     2. For **address range**, enter a specific IPv4 address or a range of IPv4 address in CIDR notation. 
-    3. Specify whether you want to **allow trusted Microsoft services to bypass this firewall**. 
 
         ![Firewall - All networks option selected](./media/ip-firewall/selected-networks-trusted-access-disabled.png)
 3. Select **Save** on the toolbar to save the settings. Wait for a few minutes for the confirmation to show up on the portal notifications.
@@ -125,4 +124,4 @@ To learn about other network security-related features, see [Network security](n
 
 <!-- Links -->
 
-[express-route]:  /azure/expressroute/expressroute-faqs#supported-services
+[express-route]:  ../expressroute/expressroute-faqs.md#supported-services

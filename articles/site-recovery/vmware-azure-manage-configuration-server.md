@@ -17,7 +17,7 @@ You set up an on-premises configuration server when you use [Azure Site Recovery
 
 ## Update Windows license
 
-The license provided with the OVF template is an evaluation license valid for 180 days. For uninterrupted usage, you must activate Windows with a procured license. License update can be done either through a standalone key or KMS standard key. Guidance is available at [DISM Windows command line for running OS](https://docs.microsoft.com/windows-hardware/manufacture/desktop/dism-windows-edition-servicing-command-line-options). To obtain keys, refer to [KMS client set up](https://docs.microsoft.com/windows-server/get-started/kmsclientkeys).
+The license provided with the OVF template is an evaluation license valid for 180 days. For uninterrupted usage, you must activate Windows with a procured license. License update can be done either through a standalone key or KMS standard key. Guidance is available at [DISM Windows command line for running OS](/windows-hardware/manufacture/desktop/dism-windows-edition-servicing-command-line-options). To obtain keys, refer to [KMS client set up](/windows-server/get-started/kmsclientkeys).
 
 ## Access configuration server
 
@@ -66,7 +66,7 @@ If you missed adding credentials during OVF deployment of configuration server,
 
 1. After [sign-in](#access-configuration-server), select **Manage virtual machine credentials**.
 2. Click on **Add virtual machine credentials**.
-    ![add-mobility-credentials](media/vmware-azure-manage-configuration-server/add-mobility-credentials.png)
+    ![Screenshot shows Manage virtual machine credentials pane with the Add virtual machine credentials link.](media/vmware-azure-manage-configuration-server/add-mobility-credentials.png)
 3. Enter the new credentials and click on **Add**.
 
 You can also add credentials through CSPSConfigtool.exe.
@@ -262,7 +262,7 @@ ProxyPassword="Password"
 
 You can optionally delete the configuration server by using PowerShell.
 
-1. [Install](https://docs.microsoft.com/powershell/azure/install-Az-ps) the Azure PowerShell module.
+1. [Install](/powershell/azure/install-Az-ps) the Azure PowerShell module.
 2. Sign in to your Azure account by using this command:
 
     `Connect-AzAccount`

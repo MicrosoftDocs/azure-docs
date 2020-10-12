@@ -2,22 +2,15 @@
 title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Freshworks | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and Freshworks.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-
-ms.assetid: 697c3509-0e3a-4b05-9d5b-9ded4269eb60
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 10/11/2019
 ms.author: jeedes
-
-ms.collection: M365-identity-device-management
 ---
 
 # Tutorial: Azure Active Directory single sign-on (SSO) integration with Freshworks
@@ -36,6 +29,9 @@ To get started, you need the following items:
 
 * An Azure AD subscription. If you don't have a subscription, you can get a [free account](https://azure.microsoft.com/free/).
 * Freshworks single sign-on (SSO) enabled subscription.
+
+> [!NOTE]
+> This integration is also available to use from Azure AD US Government Cloud environment. You can find this application in the Azure AD US Government Cloud Application Gallery and configure it in the same way as you do from public cloud.
 
 ## Scenario description
 
@@ -96,7 +92,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
      ![image](common/edit-certificate.png)
 
-     ![Freshworks configuration](./media/freshworks-tutorial/response.png)
+     ![Screenshot that shows the "S A M L Signing Certificate" dialog with the "Edit" button selected.](./media/freshworks-tutorial/response.png)
 
     a. Select **Sign SAML response** as **Signing Option**.
 
@@ -142,7 +138,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 2. From the left side of menu, click on **Security** icon then check the **Single sign-on** option and select **SAML SSO** under **Authentication Methods**.
 
-    ![Freshworks configuration](./media/freshworks-tutorial/configure01.png)
+    ![Screenshot that shows the "Security - Authentication Methods" section with "Single sign-on" option turned on and "S A M L S S O" selected.](./media/freshworks-tutorial/configure01.png)
 
 3. On the **Single sign-on** section, perform the following steps:
 

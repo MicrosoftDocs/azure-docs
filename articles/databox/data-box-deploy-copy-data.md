@@ -1,13 +1,13 @@
 ---
 title: Tutorial to copy data via SMB on Azure Data Box | Microsoft Docs
-description: Learn how to copy data to your Azure Data Box via SMB
+description: In this tutorial, learn how to connect to and copy data from your host computer to Azure Data Box by using SMB with the local web UI.
 services: databox
 author: alkohli
 
 ms.service: databox
 ms.subservice: pod
 ms.topic: tutorial
-ms.date: 09/03/2019
+ms.date: 09/29/2019
 ms.author: alkohli
 ms.localizationpriority: high
 
@@ -70,11 +70,11 @@ If using a Windows Server host computer, follow these steps to connect to the Da
 
 1. The first step is to authenticate and start a session. Go to **Connect and copy**. Select **SMB** to get the access credentials for the shares associated with your storage account. 
 
-    ![Get share credentials 1](media/data-box-deploy-copy-data/get-share-credentials1.png)
+    ![Get share credentials for SMB shares](media/data-box-deploy-copy-data/get-share-credentials1.png)
 
 2. In the Access share and copy data dialog box, copy the **Username** and the **Password** corresponding to the share. Select **OK**.
     
-    ![Get share credentials 1](media/data-box-deploy-copy-data/get-share-credentials2.png)
+    ![Get user name and password for a share](media/data-box-deploy-copy-data/get-share-credentials2.png)
 
 3. To access the shares associated with your storage account (*utsac1* in the following example) from your host computer, open a command window. At the command prompt, type:
 
@@ -95,40 +95,44 @@ If using a Windows Server host computer, follow these steps to connect to the Da
 
 4. Press  Windows + R. In the **Run** window, specify the `\\<device IP address>`. Select **OK** to open File Explorer.
     
-    ![Connect to share via File Explorer 2](media/data-box-deploy-copy-data/connect-shares-file-explorer1.png)
+    ![Connect to share via File Explorer](media/data-box-deploy-copy-data/connect-shares-file-explorer1.png)
 
     You should now see the shares as folders.
     
-    ![Connect to share via File Explorer 2](media/data-box-deploy-copy-data/connect-shares-file-explorer2.png)
+    ![Shares shown in File Explorer](media/data-box-deploy-copy-data/connect-shares-file-explorer2.png)
 
     **Always create a folder for the files that you intend to copy under the share and then copy the files to that folder**. The folder created under block blob and page blob shares represents a container to which data is uploaded as blobs. You cannot copy files directly to *root* folder in the storage account.
     
 If using a Linux client, use the following command to mount the SMB share. The "vers" parameter below is the version of SMB that your Linux host supports. Plug in the appropriate version in the command below. For versions of SMB that the Data Box supports see [Supported file systems for Linux clients](https://docs.microsoft.com/azure/databox/data-box-system-requirements#supported-file-systems-for-linux-clients) 
 
-    `sudo mount -t nfs -o vers=2.1 10.126.76.138:/utSAC1_202006051000_BlockBlob /home/databoxubuntuhost/databox`
+```console
+sudo mount -t nfs -o vers=2.1 10.126.76.138:/utSAC1_202006051000_BlockBlob /home/databoxubuntuhost/databox
+```
 
 ## Copy data to Data Box
 
 Once you're connected to the Data Box shares, the next step is to copy data. Before you begin the data copy, review the following considerations:
 
 * Make sure that you copy the data to shares that correspond to the appropriate data format. For instance, copy the block blob data to the share for block blobs. Copy the VHDs to page blob. If the data format doesn't match the appropriate share type, then at a later step, the data upload to Azure will fail.
-* While copying data, make sure that the data size conforms to the size limits described in the [Azure storage and Data Box limits](data-box-limits.md).
-* If data, which is being uploaded by Data Box, is concurrently uploaded by other applications outside of Data Box, then this could result in upload job failures and data corruption.
+* Always create a folder under the share for the files that you intend to copy and then copy the files to that folder. The folder created under block blob and page blob shares represents a container to which the data is uploaded as blobs. You cannot copy files directly to the *root* folder in the storage account.
+* While copying data, make sure that the data size conforms to the size limits described in the [Azure storage account size limits](data-box-limits.md#azure-storage-account-size-limits).
+* If you want to preserve metadata (ACLs, timestamps, and file attributes) when transferring data to Azure Files, follow the guidance in [Preserving file ACLs, attributes, and timestamps with Azure Data Box](data-box-file-acls-preservation.md)  
+* If data that is being uploaded by Data Box is also being uploaded by another application, outside Data Box, at the same time, this could result in upload job failures and data corruption.
 * We recommend that:
   * You don't use both SMB and NFS at the same time.
   * Copy the same data to same end destination on Azure.
-
   In these cases, the final outcome can't be determined.
-* Always create a folder for the files that you intend to copy under the share and then copy the files to that folder. The folder created under block blob and page blob shares represents a container to which the data is uploaded as blobs. You cannot copy files directly to *root* folder in the storage account.
 
 > [!IMPORTANT]
 > Make sure that you maintain a copy of the source data until you can confirm that the Data Box has transferred your data into Azure Storage.
 
-After you connected to the SMB share, begin data copy. You can use any SMB compatible file copy tool such as Robocopy to copy your data. Multiple copy jobs can be initiated using Robocopy. Use the following command:
-    
-    robocopy <Source> <Target> * /e /r:3 /w:60 /is /nfl /ndl /np /MT:32 or 64 /fft /Log+:<LogFile> 
-  
- The attributes are described in the following table.
+After you connect to the SMB share, begin the data copy. You can use any SMB-compatible file copy tool, such as Robocopy, to copy your data. Multiple copy jobs can be initiated using Robocopy. Use the following command:
+
+```console
+robocopy <Source> <Target> * /e /r:3 /w:60 /is /nfl /ndl /np /MT:32 or 64 /fft /Log+:<LogFile>
+```
+
+The attributes are described in the following table.
     
 |Attribute  |Description  |
 |---------|---------|
@@ -148,38 +152,41 @@ After you connected to the SMB share, begin data copy. You can use any SMB compa
 |log+:\<LogFile>| Appends the output to the existing log file.|    
  
 The following sample shows the output of the robocopy command to copy files to the Data Box.
-    
-    C:\Users>robocopy
-        -------------------------------------------------------------------------------
-        ROBOCOPY     ::     Robust File Copy for Windows
+
+```output
+C:\Users>robocopy
+
     -------------------------------------------------------------------------------
-    
+    ROBOCOPY     ::     Robust File Copy for Windows
+    -------------------------------------------------------------------------------
+
         Started : Thursday, March 8, 2018 2:34:53 PM
-            Simple Usage :: ROBOCOPY source destination /MIR
-    
-                    source :: Source Directory (drive:\path or \\server\share\path).
-            destination :: Destination Dir  (drive:\path or \\server\share\path).
-                    /MIR :: Mirror a complete directory tree.
-    
-        For more usage information run ROBOCOPY /?    
-    
+        Simple Usage :: ROBOCOPY source destination /MIR
+
+        source :: Source Directory (drive:\path or \\server\share\path).
+        destination :: Destination Dir  (drive:\path or \\server\share\path).
+                /MIR :: Mirror a complete directory tree.
+
+    For more usage information run ROBOCOPY /?
+
     ****  /MIR can DELETE files as well as copy them !
-    
-    C:\Users>Robocopy C:\Git\azure-docs-pr\contributor-guide \\10.126.76.172\devicemanagertest1_AzFile\templates /MT:32
+
+C:\Users>Robocopy C:\Git\azure-docs-pr\contributor-guide \\10.126.76.172\devicemanagertest1_AzFile\templates /MT:32
+
     -------------------------------------------------------------------------------
-        ROBOCOPY     ::     Robust File Copy for Windows
+    ROBOCOPY     ::     Robust File Copy for Windows
     -------------------------------------------------------------------------------
-    
+
         Started : Thursday, March 8, 2018 2:34:58 PM
         Source : C:\Git\azure-docs-pr\contributor-guide\
             Dest : \\10.126.76.172\devicemanagertest1_AzFile\templates\
-    
+
         Files : *.*
-    
+
         Options : *.* /DCOPY:DA /COPY:DAT /MT:32 /R:5 /W:60
-    
+
     ------------------------------------------------------------------------------
-    
+
     100%        New File                 206        C:\Git\azure-docs-pr\contributor-guide\article-metadata.md
     100%        New File                 209        C:\Git\azure-docs-pr\contributor-guide\content-channel-guidance.md
     100%        New File                 732        C:\Git\azure-docs-pr\contributor-guide\contributor-guide-index.md
@@ -198,12 +205,13 @@ The following sample shows the output of the robocopy command to copy files to t
     100%        New File                 212        C:\Git\azure-docs-pr\contributor-guide\syntax-highlighting-markdown.md
     100%        New File                 207        C:\Git\azure-docs-pr\contributor-guide\tools-and-setup.md
     ------------------------------------------------------------------------------
-    
-                    Total    Copied   Skipped  Mismatch    FAILED    Extras
-        Dirs :         1         1         1         0         0         0
-        Files :        17        17         0         0         0         0
-        Bytes :     3.9 k     3.9 k         0         0         0         0          
-    C:\Users>
+
+                Total    Copied   Skipped  Mismatch    FAILED    Extras
+    Dirs :         1         1         1         0         0         0
+    Files :        17        17         0         0         0         0
+    Bytes :     3.9 k     3.9 k         0         0         0         0
+C:\Users>
+```
 
 To optimize the performance, use the following robocopy parameters when copying the data.
 
@@ -215,15 +223,15 @@ For more information on Robocopy command, go to [Robocopy and a few examples](ht
 
 During the copy process, if there are any errors, you will see a notification.
 
-![Download and view errors on Connect and copy](media/data-box-deploy-copy-data/view-errors-1.png)
+![A copy error notification in Connect and copy](media/data-box-deploy-copy-data/view-errors-1.png)
 
 Select **Download issue list**.
 
-![Download and view errors on Connect and copy](media/data-box-deploy-copy-data/view-errors-2.png)
+![Download and view errors on Connect and copy 2](media/data-box-deploy-copy-data/view-errors-2.png)
 
 Open the list to view the details of the error and select the resolution URL to view the recommended resolution.
 
-![Download and view errors on Connect and copy](media/data-box-deploy-copy-data/view-errors-3.png)
+![Download and view errors on Connect and copy 3](media/data-box-deploy-copy-data/view-errors-3.png)
 
 For more information, see [View error logs during data copy to Data Box](data-box-logs.md#view-error-log-during-data-copy). For a detailed list of errors during data copy, see [Troubleshoot Data Box issues](data-box-troubleshoot.md).
 

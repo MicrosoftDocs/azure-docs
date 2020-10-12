@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: how-to
-ms.date: 05/26/2020
+ms.date: 08/03/2020
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -21,11 +21,12 @@ Accounts that are assigned administrative rights are targeted by attackers. Requ
 
 Microsoft recommends you require MFA on the following roles at a minimum:
 
+* Authentication Administrator
 * Billing administrator
 * Conditional Access administrator
 * Exchange administrator
 * Global administrator
-* Helpdesk (Password) administrator
+* Helpdesk administrator
 * Password administrator
 * Security administrator
 * SharePoint administrator
@@ -62,10 +63,14 @@ The following steps will help create a Conditional Access policy to require thos
       * Security administrator
       * SharePoint administrator
       * User administrator
+   
+      > [!WARNING]
+      > Conditional Access policies do not support users assigned a directory role [scoped to an administrative unit](../users-groups-roles/roles-admin-units-assign-roles.md) or directory roles scoped directly to an object, like through [custom roles](../users-groups-roles/roles-create-custom.md).
+
    1. Under **Exclude**, select **Users and groups** and choose your organization's emergency access or break-glass accounts. 
    1. Select **Done**.
 1. Under **Cloud apps or actions** > **Include**, select **All cloud apps**, and select **Done**.
-1. Under **Conditions** > **Client apps (Preview)**, set **Configure** to **Yes**, and select **Done**.
+1. Under **Conditions** > **Client apps**, switch **Configure** to **Yes** and under **Select the client apps this policy will apply to** leave all defaults selected and select **Done**.
 1. Under **Access controls** > **Grant**, select **Grant access**, **Require multi-factor authentication**, and select **Select**.
 1. Confirm your settings and set **Enable policy** to **On**.
 1. Select **Create** to create to enable your policy.
@@ -74,6 +79,6 @@ The following steps will help create a Conditional Access policy to require thos
 
 [Conditional Access common policies](concept-conditional-access-policy-common.md)
 
-[Determine impact using Conditional Access report-only mode](howto-conditional-access-report-only.md)
+[Determine impact using Conditional Access report-only mode](howto-conditional-access-insights-reporting.md)
 
 [Simulate sign in behavior using the Conditional Access What If tool](troubleshoot-conditional-access-what-if.md)

@@ -37,20 +37,6 @@ landingContent:
             url: how-to/install-dev-spaces.md
 
   # Card
-  - title: Developing and testing microservices
-    linkLists:
-      - linkListType: quickstart
-        links:
-          - text: Run and debug a microservice
-            url: quickstart-netcore.md
-          - text: Collaborate on a set of microservices with a team
-            url: quickstart-team-development.md
-      - linkListType: how-to-guide
-        links:
-          - text: Integrate Dev Spaces in your CI/CD pipeline for better end-to-end testing
-            url: how-to/setup-cicd.md
-
-  # Card
   - title: Advanced scenarios
     linkLists:
       - linkListType: how-to-guide
@@ -68,13 +54,13 @@ landingContent:
 
 
   # Card
-  - title: Preview features
+  - title: Bridge to Kubernetes
     linkLists:
       - linkListType: how-to-guide
         links:
-          - text: Use GitHub Actions with Azure Dev Spaces
-            url: how-to/github-actions.md
-          - text: Use Local Process with Kubernetes with Visual Studio Code
-            url: how-to/local-process-kubernetes-vs-code.md
-          - text: Use Local Process with Kubernetes with Visual Studio
-            url: how-to/local-process-kubernetes-visual-studio.md
+          - text: Use Bridge to Kubernetes with Visual Studio Code
+            url: https://code.visualstudio.com/docs/containers/bridge-to-kubernetes
+          - text: Use Bridge to Kubernetes with Visual Studio
+            url: /visualstudio/containers/bridge-to-kubernetes
+          - text: Migrating to Bridge to Kubernetes
+            url: migrate-to-bridge-to-kubernetes.md

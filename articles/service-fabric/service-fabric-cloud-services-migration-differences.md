@@ -76,7 +76,7 @@ The same communication model can be used in Service Fabric. This can be useful w
 ![Service Fabric direct communication][8]
 
 ## Parity
-[Cloud Services is similar to Service Fabric in degree of control versus ease of use, but it’s now a legacy service and Service Fabric is recommended for new development](https://docs.microsoft.com/azure/app-service/overview-compare); the following is an API comparison:
+[Cloud Services is similar to Service Fabric in degree of control versus ease of use, but it’s now a legacy service and Service Fabric is recommended for new development](/azure/architecture/guide/technology-choices/compute-decision-tree); the following is an API comparison:
 
 
 | **Cloud Service API** | **Service Fabric API** | **Notes** |

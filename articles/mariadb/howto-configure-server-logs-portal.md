@@ -4,11 +4,11 @@ description: This article describes how to configure and access the slow query l
 author: ajlam
 ms.author: andrela
 ms.service: mariadb
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 4/13/2020
 ---
 
-# Configure and access slow query logs from the Azure portal
+# Configure and access Azure Database for Maria DB slow query logs from the Azure portal
 
 You can configure, list, and download the [Azure Database for MariaDB slow query logs](concepts-server-logs.md) from the Azure portal.
 

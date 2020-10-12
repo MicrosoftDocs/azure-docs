@@ -24,6 +24,8 @@
     href: classroom-labs-fundamentals.md
   - name: Capacity limits
     href: capacity-limits.md  
+  - name: Cost management for labs
+    href: cost-management-guide.md        
   - name: Scenarios
     items:  
     - name: Use Lab Services for conducting classes
@@ -46,14 +48,26 @@
         href: class-type-sql-server.md
       - name: Python and Jupyter Notebooks
         href: class-type-jupyter-notebook.md
-      - name: Mobile app development with Android Studio
-        href: class-type-mobile-dev-android-studio.md
       - name: Big data analytics
         href: class-type-big-data-analytics.md
       - name: MATLAB
         href: class-type-matlab.md
       - name: SolidWorks computer-aided design (CAD)
         href: class-type-solidworks.md
+    - name: Use Azure Lab Services within Teams
+      items:
+        - name: Overview 
+          href: lab-services-within-teams-overview.md
+        - name: Create a lab from Teams
+          href: how-to-get-started-create-lab-within-teams.md
+        - name: Manage user lists
+          href: how-to-manage-user-lists-within-teams.md
+        - name: Manage VM pool
+          href: how-to-manage-vm-pool-within-teams.md
+        - name: Create schedules
+          href: how-to-create-schedules-within-teams.md
+        - name: Access a VM (student view)
+          href: how-to-access-vm-for-students-within-teams.md
 - name: How-to guides
   items:
   - name: Administrator guide
@@ -68,7 +82,7 @@
       href: how-to-manage-lab-accounts.md
     - name: Manage labs in a lab account
       href: manage-labs.md
-    - name: Configure automatic shutdown of VMs
+    - name: Configure auto-shutdown of VMs for a lab account
       href: how-to-configure-lab-accounts.md
     - name: Add a lab creator
       href: add-lab-creator.md
@@ -88,8 +102,8 @@
       href: specify-marketplace-images.md
     - name: Specify support information (lab account owner)
       href: lab-account-owner-support-information.md
-    - name: Cost management for labs
-      href: cost-management-guide.md
+    - name: Upload a custom image to Shared Image Gallery
+      href: upload-custom-image-shared-image-gallery.md
   - name: Create and configure classroom labs (educator)
     items:        
     - name: Create and manage classroom labs
@@ -108,7 +122,7 @@
       href: how-to-use-shared-image-gallery.md            
     - name: Enable remote desktop connection for Linux
       href: how-to-enable-remote-desktop-linux.md
-    - name: Enable automatic shutdown on disconnect
+    - name: Configure auto-shutdown of VMs for a lab
       href: how-to-enable-shutdown-disconnect.md       
     - name: Enable nested virtualization on a template VM
       items:

@@ -11,7 +11,7 @@ services: iot-edge
 ---
 # Create and provision an IoT Edge device with a TPM on Linux
 
-This article shows how to test auto-provisioning on a Linux IoT Edge device using a Trusted Platform Module (TPM). You can automatically provision Azure IoT Edge devices the [Device Provisioning Service](../iot-dps/index.yml). If you're unfamiliar with the process of auto-provisioning, review the [auto-provisioning concepts](../iot-dps/concepts-auto-provisioning.md) before continuing.
+This article shows how to test auto-provisioning on a Linux IoT Edge device using a Trusted Platform Module (TPM). You can automatically provision Azure IoT Edge devices with the [Device Provisioning Service](../iot-dps/index.yml). If you're unfamiliar with the process of auto-provisioning, review the [provisioning](../iot-dps/about-iot-dps.md#provisioning-process) overview before continuing.
 
 The tasks are as follows:
 
@@ -55,7 +55,7 @@ If you see errors while creating the new virtual switch, ensure that no other sw
 
 ### Create virtual machine
 
-1. Download a disk image file to use for your virtual machine and save it locally. For example, [Ubuntu server 18.04](http://releases.ubuntu.com/18.04.4/). For information about supported operating systems for IoT Edge devices, see [Azure IoT Edge supported systems](support.md).
+1. Download a disk image file to use for your virtual machine and save it locally. For example, [Ubuntu server 18.04](http://releases.ubuntu.com/18.04/). For information about supported operating systems for IoT Edge devices, see [Azure IoT Edge supported systems](support.md).
 
 2. In Hyper-V Manager again, select **Action** > **New** > **Virtual Machine** in the **Actions** menu.
 
@@ -141,7 +141,7 @@ Retrieve the provisioning information from your virtual machine, and use that to
 When you create an enrollment in DPS, you have the opportunity to declare an **Initial Device Twin State**. In the device twin, you can set tags to group devices by any metric you need in your solution, like region, environment, location, or device type. These tags are used to create [automatic deployments](how-to-deploy-at-scale.md).
 
 > [!TIP]
-> In the Azure CLI, you can create an [enrollment](https://docs.microsoft.com/cli/azure/ext/azure-iot/iot/dps/enrollment) and use the **edge-enabled** flag to specify that a device is an IoT Edge device.
+> In the Azure CLI, you can create an [enrollment](/cli/azure/ext/azure-iot/iot/dps/enrollment) and use the **edge-enabled** flag to specify that a device is an IoT Edge device.
 
 1. In the [Azure portal](https://portal.azure.com), navigate to your instance of IoT Hub Device Provisioning Service.
 

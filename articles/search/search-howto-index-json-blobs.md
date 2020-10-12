@@ -9,7 +9,7 @@ ms.author: heidist
 ms.devlang: rest-api
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 11/04/2019
+ms.date: 09/25/2020
 ---
 
 # How to index JSON blobs using a Blob indexer in Azure Cognitive Search
@@ -33,7 +33,7 @@ We recommend using the same region or location for both Azure Cognitive Search a
 
 ### 1 - Prepare source data
 
-[Sign in to the Azure portal](https://portal.azure.com/) and [create a Blob container](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-portal) to contain your data. The Public Access Level can be set to any of its valid values.
+[Sign in to the Azure portal](https://portal.azure.com/) and [create a Blob container](../storage/blobs/storage-quickstart-blobs-portal.md) to contain your data. The Public Access Level can be set to any of its valid values.
 
 You will need the storage account name, container name, and an access key to retrieve your data in the **Import data** wizard.
 
@@ -41,7 +41,7 @@ You will need the storage account name, container name, and an access key to ret
 
 In the Overview page of your search service, you can [start the wizard](search-import-data-portal.md) from the command bar.
 
-   ![Import data command in portal](./media/search-import-data-portal/import-data-cmd2.png "Start the Import data wizard")
+   :::image type="content" source="media/search-import-data-portal/import-data-cmd2.png" alt-text="Import data command in portal" border="false":::
 
 ### 3 - Set the data source
 
@@ -59,7 +59,7 @@ In the **data source** page, the source must be **Azure Blob Storage**, with the
    
 + **Storage container** must specify your storage account and container, or a connection string that resolves to the container. You can get connection strings on the Blob service portal page.
 
-   ![Blob data source definition](media/search-howto-index-json/import-wizard-json-data-source.png)
+   :::image type="content" source="media/search-howto-index-json/import-wizard-json-data-source.png" alt-text="Blob data source definition" border="false":::
 
 ### 4 - Skip the "Enrich content" page in the wizard
 
@@ -73,11 +73,11 @@ In the **Index** page, you should see a list of fields with a data type and a se
 
 You can bulk-select attributes by clicking the checkbox at the top of an attribute column. Choose **Retrievable** and **Searchable** for every field that should be returned to a client app and subject to full text search processing. You'll notice that integers are not full text or fuzzy searchable (numbers are evaluated verbatim and are often useful in filters).
 
-Review the description of [index attributes](https://docs.microsoft.com/rest/api/searchservice/create-index#bkmk_indexAttrib) and [language analyzers](https://docs.microsoft.com/rest/api/searchservice/language-support) for more information. 
+Review the description of [index attributes](/rest/api/searchservice/create-index#bkmk_indexAttrib) and [language analyzers](/rest/api/searchservice/language-support) for more information. 
 
 Take a moment to review your selections. Once you run the wizard, physical data structures are created and you won't be able to edit these fields without dropping and recreating all objects.
 
-   ![Blob index definition](media/search-howto-index-json/import-wizard-json-index.png)
+   :::image type="content" source="media/search-howto-index-json/import-wizard-json-index.png" alt-text="Blob index definition" border="false":::
 
 ### 6 - Create indexer
 
@@ -85,7 +85,7 @@ Fully specified, the wizard creates three distinct objects in your search servic
 
 If you are not familiar with indexers, an *indexer* is a resource in Azure Cognitive Search that crawls an external data source for searchable content. The output of the **Import data** wizard is an indexer that crawls your JSON data source, extracts searchable content, and imports it into an index on Azure Cognitive Search.
 
-   ![Blob indexer definition](media/search-howto-index-json/import-wizard-json-indexer.png)
+   :::image type="content" source="media/search-howto-index-json/import-wizard-json-indexer.png" alt-text="Blob indexer definition" border="false":::
 
 Click **OK** to run the wizard and create all objects. Indexing commences immediately.
 
@@ -106,9 +106,9 @@ You can review [REST example code](#rest-example) at the end of this section tha
 
 For code-based JSON indexing, use [Postman](search-get-started-postman.md) and the REST API to create these objects:
 
-+ [index](https://docs.microsoft.com/rest/api/searchservice/create-index)
-+ [data source](https://docs.microsoft.com/rest/api/searchservice/create-data-source)
-+ [indexer](https://docs.microsoft.com/rest/api/searchservice/create-indexer)
++ [index](/rest/api/searchservice/create-index)
++ [data source](/rest/api/searchservice/create-data-source)
++ [indexer](/rest/api/searchservice/create-indexer)
 
 Order of operations requires that you create and call objects in this order. In contrast with the portal workflow, a code approach requires an available index to accept the JSON documents sent through the **Create Indexer** request.
 
@@ -116,9 +116,9 @@ JSON blobs in Azure Blob storage are typically either a single JSON document or 
 
 | JSON document | parsingMode | Description | Availability |
 |--------------|-------------|--------------|--------------|
-| One per blob | `json` | Parses JSON blobs as a single chunk of text. Each JSON blob becomes a single Azure Cognitive Search document. | Generally available in both [REST](https://docs.microsoft.com/rest/api/searchservice/indexer-operations) API and [.NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.indexer) SDK. |
-| Multiple per blob | `jsonArray` | Parses a JSON array in the blob, where each element of the array becomes a separate Azure Cognitive Search document.  | Generally available in both [REST](https://docs.microsoft.com/rest/api/searchservice/indexer-operations) API and [.NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.indexer) SDK. |
-| Multiple per blob | `jsonLines` | Parses a blob which contains multiple JSON entities (an "array") separated by a newline, where each entity becomes a separate Azure Cognitive Search document. | Generally available in both [REST](https://docs.microsoft.com/rest/api/searchservice/indexer-operations) API and [.NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.indexer) SDK. |
+| One per blob | `json` | Parses JSON blobs as a single chunk of text. Each JSON blob becomes a single Azure Cognitive Search document. | Generally available in both [REST](/rest/api/searchservice/indexer-operations) API and [.NET](/dotnet/api/microsoft.azure.search.models.indexer) SDK. |
+| Multiple per blob | `jsonArray` | Parses a JSON array in the blob, where each element of the array becomes a separate Azure Cognitive Search document.  | Generally available in both [REST](/rest/api/searchservice/indexer-operations) API and [.NET](/dotnet/api/microsoft.azure.search.models.indexer) SDK. |
+| Multiple per blob | `jsonLines` | Parses a blob which contains multiple JSON entities (an "array") separated by a newline, where each entity becomes a separate Azure Cognitive Search document. | Generally available in both [REST](/rest/api/searchservice/indexer-operations) API and [.NET](/dotnet/api/microsoft.azure.search.models.indexer) SDK. |
 
 ### 1 - Assemble inputs for the request
 
@@ -145,6 +145,7 @@ This step provides data source connection information used by the indexer. The d
 
 Substitute valid values for service name, admin key, storage account, and account key placeholders.
 
+```http
     POST https://[service name].search.windows.net/datasources?api-version=2020-06-30
     Content-Type: application/json
     api-key: [admin key for Azure Cognitive Search]
@@ -155,6 +156,7 @@ Substitute valid values for service name, admin key, storage account, and accoun
         "credentials" : { "connectionString" : "DefaultEndpointsProtocol=https;AccountName=<account name>;AccountKey=<account key>;" },
         "container" : { "name" : "my-container", "query" : "optional, my-folder" }
     }   
+```
 
 ### 3 - Create a target search index 
 
@@ -162,8 +164,9 @@ Indexers are paired with an index schema. If you are using the API (rather than 
 
 The index stores searchable content in Azure Cognitive Search. To create an index, provide a schema that specifies the fields in a document, attributes, and other constructs that shape the search experience. If you create an index that has the same field names and data types as the source, the indexer will match the source and destination fields, saving you the work of having to explicitly map the fields.
 
-The following example shows a [Create Index](https://docs.microsoft.com/rest/api/searchservice/create-index) request. The index will have a searchable `content` field to store the text extracted from blobs:   
+The following example shows a [Create Index](/rest/api/searchservice/create-index) request. The index will have a searchable `content` field to store the text extracted from blobs:   
 
+```http
     POST https://[service name].search.windows.net/indexes?api-version=2020-06-30
     Content-Type: application/json
     api-key: [admin key for Azure Cognitive Search]
@@ -175,12 +178,14 @@ The following example shows a [Create Index](https://docs.microsoft.com/rest/api
             { "name": "content", "type": "Edm.String", "searchable": true, "filterable": false, "sortable": false, "facetable": false }
           ]
     }
+```
 
 
 ### 4 - Configure and run the indexer
 
 As with an index and a data source, and indexer is also a named object that you create and reuse on an Azure Cognitive Search service. A fully specified request to create an indexer might look as follows:
 
+```http
     POST https://[service name].search.windows.net/indexers?api-version=2020-06-30
     Content-Type: application/json
     api-key: [admin key for Azure Cognitive Search]
@@ -192,6 +197,7 @@ As with an index and a data source, and indexer is also a named object that you 
       "schedule" : { "interval" : "PT2H" },
       "parameters" : { "configuration" : { "parsingMode" : "json" } }
     }
+```
 
 Indexer configuration is in the body of the request. It requires a data source and an empty target index that already exists in Azure Cognitive Search. 
 
@@ -208,6 +214,7 @@ This section is a recap of all the requests used for creating objects. For a dis
 
 All indexers require a data source object that provides connection information to existing data. 
 
+```http
     POST https://[service name].search.windows.net/datasources?api-version=2020-06-30
     Content-Type: application/json
     api-key: [admin key for Azure Cognitive Search]
@@ -218,12 +225,13 @@ All indexers require a data source object that provides connection information t
         "credentials" : { "connectionString" : "DefaultEndpointsProtocol=https;AccountName=<account name>;AccountKey=<account key>;" },
         "container" : { "name" : "my-container", "query" : "optional, my-folder" }
     }  
-
+```
 
 ### Index request
 
 All indexers require a target index that receives the data. The body of the request defines the index schema, consisting of fields, attributed to support the desired behaviors in a searchable index. This index should be empty when you run the indexer. 
 
+```http
     POST https://[service name].search.windows.net/indexes?api-version=2020-06-30
     Content-Type: application/json
     api-key: [admin key for Azure Cognitive Search]
@@ -235,7 +243,7 @@ All indexers require a target index that receives the data. The body of the requ
             { "name": "content", "type": "Edm.String", "searchable": true, "filterable": false, "sortable": false, "facetable": false }
           ]
     }
-
+```
 
 ### Indexer request
 
@@ -243,6 +251,7 @@ This request shows a fully-specified indexer. It includes field mappings, which 
 
 Creating the indexer on Azure Cognitive Search triggers data import. It runs immediately, and thereafter on a schedule if you've provided one.
 
+```http
     POST https://[service name].search.windows.net/indexers?api-version=2020-06-30
     Content-Type: application/json
     api-key: [admin key for Azure Cognitive Search]
@@ -259,7 +268,7 @@ Creating the indexer on Azure Cognitive Search triggers data import. It runs imm
         { "sourceFieldName" : "/article/tags", "targetFieldName" : "tags" }
         ]
     }
-
+```
 
 <a name="json-indexer-dotnet"></a>
 
@@ -267,10 +276,10 @@ Creating the indexer on Azure Cognitive Search triggers data import. It runs imm
 
 The .NET SDK has full parity with the REST API. We recommend that you review the previous REST API section to learn concepts, workflow, and requirements. You can then refer to following .NET API reference documentation to implement a JSON indexer in managed code.
 
-+ [microsoft.azure.search.models.datasource](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.datasource?view=azure-dotnet)
-+ [microsoft.azure.search.models.datasourcetype](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.datasourcetype?view=azure-dotnet) 
-+ [microsoft.azure.search.models.index](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.index?view=azure-dotnet) 
-+ [microsoft.azure.search.models.indexer](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.indexer?view=azure-dotnet)
++ [microsoft.azure.search.models.datasource](/dotnet/api/microsoft.azure.search.models.datasource)
++ [microsoft.azure.search.models.datasourcetype](/dotnet/api/microsoft.azure.search.models.datasourcetype) 
++ [microsoft.azure.search.models.index](/dotnet/api/microsoft.azure.search.models.index) 
++ [microsoft.azure.search.models.indexer](/dotnet/api/microsoft.azure.search.models.indexer)
 
 <a name="parsing-modes"></a>
 
@@ -298,6 +307,7 @@ Within the indexer definition, you can optionally use [field mappings](search-in
 
 By default, [Azure Cognitive Search blob indexer](search-howto-indexing-azure-blob-storage.md) parses JSON blobs as a single chunk of text. Often, you want to preserve the structure of your JSON documents. For example, assume you have the following JSON document in Azure Blob storage:
 
+```http
     {
         "article" : {
             "text" : "A hopefully useful article explaining how to parse JSON blobs",
@@ -305,6 +315,7 @@ By default, [Azure Cognitive Search blob indexer](search-howto-indexing-azure-bl
             "tags" : [ "search", "storage", "howto" ]    
         }
     }
+```
 
 The blob indexer parses the JSON document into a single Azure Cognitive Search document. The indexer loads an index by matching "text", "datePublished", and "tags" from the source against identically named and typed target index fields.
 
@@ -316,14 +327,17 @@ As noted, field mappings are not required. Given an index with "text", "datePubl
 
 Alternatively, you can use the JSON array option. This option is useful when blobs contain an *array of well-formed JSON objects*, and you want each element to become a separate Azure Cognitive Search document. For example, given the following JSON blob, you can populate your Azure Cognitive Search index with three separate documents, each with "id" and "text" fields.  
 
+```text
     [
         { "id" : "1", "text" : "example 1" },
         { "id" : "2", "text" : "example 2" },
         { "id" : "3", "text" : "example 3" }
     ]
+```
 
 For a JSON array, the indexer definition should look similar to the following example. Notice that the parsingMode parameter specifies the `jsonArray` parser. Specifying the right parser and having the right data input are the only two array-specific requirements for indexing JSON blobs.
 
+```http
     POST https://[service name].search.windows.net/indexers?api-version=2020-06-30
     Content-Type: application/json
     api-key: [admin key]
@@ -335,6 +349,7 @@ For a JSON array, the indexer definition should look similar to the following ex
       "schedule" : { "interval" : "PT2H" },
       "parameters" : { "configuration" : { "parsingMode" : "jsonArray" } }
     }
+```
 
 Again, notice that field mappings can be omitted. Assuming an index with identically named "id" and "text" fields, the blob indexer can infer the correct mapping without an explicit field mapping list.
 
@@ -343,6 +358,7 @@ Again, notice that field mappings can be omitted. Assuming an index with identic
 ## Parse nested arrays
 For JSON arrays having nested elements, you can specify a `documentRoot` to indicate a multi-level structure. For example, if your blobs look like this:
 
+```http
     {
         "level1" : {
             "level2" : [
@@ -352,25 +368,31 @@ For JSON arrays having nested elements, you can specify a `documentRoot` to indi
             ]
         }
     }
+```
 
 Use this configuration to index the array contained in the `level2` property:
 
+```http
     {
         "name" : "my-json-array-indexer",
         ... other indexer properties
         "parameters" : { "configuration" : { "parsingMode" : "jsonArray", "documentRoot" : "/level1/level2" } }
     }
+```
 
 ## Parse blobs separated by newlines
 
 If your blob contains multiple JSON entities separated by a newline, and you want each element to become a separate Azure Cognitive Search document, you can opt for the JSON lines option. For example, given the following blob (where there are three different JSON entities), you can populate your Azure Cognitive Search index with three separate documents, each with "id" and "text" fields.
 
-    { "id" : "1", "text" : "example 1" }
-    { "id" : "2", "text" : "example 2" }
-    { "id" : "3", "text" : "example 3" }
+```text
+{ "id" : "1", "text" : "example 1" }
+{ "id" : "2", "text" : "example 2" }
+{ "id" : "3", "text" : "example 3" }
+```
 
 For JSON lines, the indexer definition should look similar to the following example. Notice that the parsingMode parameter specifies the `jsonLines` parser. 
 
+```http
     POST https://[service name].search.windows.net/indexers?api-version=2020-06-30
     Content-Type: application/json
     api-key: [admin key]
@@ -382,6 +404,7 @@ For JSON lines, the indexer definition should look similar to the following exam
       "schedule" : { "interval" : "PT2H" },
       "parameters" : { "configuration" : { "parsingMode" : "jsonLines" } }
     }
+```
 
 Again, notice that field mappings can be omitted, similar to the `jsonArray` parsing mode.
 
@@ -393,6 +416,7 @@ Currently, Azure Cognitive Search cannot index arbitrary JSON documents directly
 
 Revisiting our example JSON document:
 
+```http
     {
         "article" : {
             "text" : "A hopefully useful article explaining how to parse JSON blobs",
@@ -400,25 +424,32 @@ Revisiting our example JSON document:
             "tags" : [ "search", "storage", "howto" ]    
         }
     }
+```
 
 Assume a search index with the following fields: `text` of type `Edm.String`, `date` of type `Edm.DateTimeOffset`, and `tags` of type `Collection(Edm.String)`. Notice the discrepancy between "datePublished" in the source and `date` field in the index. To map your JSON into the desired shape, use the following field mappings:
 
+```http
     "fieldMappings" : [
         { "sourceFieldName" : "/article/text", "targetFieldName" : "text" },
         { "sourceFieldName" : "/article/datePublished", "targetFieldName" : "date" },
         { "sourceFieldName" : "/article/tags", "targetFieldName" : "tags" }
       ]
+```
 
 The source field names in the mappings are specified using the [JSON Pointer](https://tools.ietf.org/html/rfc6901) notation. You start with a forward slash to refer to the root of your JSON document, then pick the desired property (at arbitrary level of nesting) by using forward slash-separated path.
 
 You can also refer to individual array elements by using a zero-based index. For example, to pick the first element of the "tags" array from the above example, use a field mapping like this:
 
+```http
     { "sourceFieldName" : "/article/tags/0", "targetFieldName" : "firstTag" }
+```
 
 > [!NOTE]
 > If a source field name in a field mapping path refers to a property that doesn't exist in JSON, that mapping is skipped without an error. This is done so that we can support documents with a different schema (which is a common use case). Because there is no validation, you need to take care to avoid typos in your field mapping specification.
 >
->
+
+## Help us make Azure Cognitive Search better
+If you have feature requests or ideas for improvements, provide your input on [UserVoice](https://feedback.azure.com/forums/263029-azure-search/). If you need help using the existing feature, post your question on [Stack Overflow](https://stackoverflow.microsoft.com/questions/tagged/18870).
 
 ## See also
 

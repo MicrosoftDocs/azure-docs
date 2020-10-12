@@ -8,6 +8,7 @@ ms.date: 6/30/2020
 ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
+ms.custom: devx-track-csharp
 ---
 
 # Tutorial: Send data via transparent gateway
@@ -220,7 +221,7 @@ If you plan to explore the resources used by this end-to-end tutorial, wait unti
 
 1. Delete the resource group(s) created to hold the Dev VM, IoT Edge VM, IoT Hub, storage account, machine learning workspace service (and created resources: container registry, Application Insights, key vault, storage account).
 
-1. Delete the machine learning project in [Azure notebooks](https://notebooks.azure.com).
+1. Delete the machine learning project in [Azure Notebooks](https://notebooks.azure.com).
 
 1. If you cloned the repo locally, close any PowerShell or VS Code windows referring to the local repo, then delete the repo directory.
 
@@ -232,5 +233,8 @@ In this article, we used our development VM to simulate a leaf device sending se
 
 More information can be found at the following pages:
 
-* [Connect a downstream device to an Azure IoT Edge gateway](how-to-connect-downstream-device.md)
-* [Store data at the edge with Azure Blob Storage on IoT Edge (preview)](how-to-store-data-blob.md)
+> [!div class="nextstepaction"]
+> [Connect a downstream device to an Azure IoT Edge gateway](how-to-connect-downstream-device.md)
+
+> [!div class="nextstepaction"]
+> [Store data at the edge with Azure Blob Storage on IoT Edge (preview)](how-to-store-data-blob.md)

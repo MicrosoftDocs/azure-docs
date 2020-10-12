@@ -91,7 +91,7 @@ additionalContent:
           url: https://marketplace.visualstudio.com/items?itemName=azblockchain.azure-blockchain
         - title: Ethereum Blockchain connector
           summary: Use Azure Logic Apps, Microsoft Flow, and Microsoft PowerApps to perform smart contract actions such as submitting transactions, reading contract state, and triggering flows on contract updates.
-          url: https://docs.microsoft.com/connectors/blockchainethereum/
+          url: /connectors/blockchainethereum/
         - title: Code samples
           summary: GitHub repository with code samples to get you started.
           url: https://github.com/Azure-Samples/blockchain

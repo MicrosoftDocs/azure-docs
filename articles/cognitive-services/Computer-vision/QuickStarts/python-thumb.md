@@ -9,9 +9,9 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: quickstart
-ms.date: 05/20/2020
+ms.date: 08/17/2020
 ms.author: pafarley
-ms.custom: seodec18, tracking-python
+ms.custom: seodec18, devx-track-python
 ---
 # Quickstart: Generate a thumbnail using the Computer Vision REST API and Python
 

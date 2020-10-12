@@ -1,11 +1,11 @@
 ---
 title: Power BI app creation overview - Microsoft AppSource
 description: This article describes the high-level steps for publishing a Power BI app to Microsoft AppSource. The technical and business requirements your Power BI app must meet to be published to the commercial marketplace are also provided.
-author: anbene
-ms.author: mingshen
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
+author: navits09
+ms.author: navits
 ms.date: 04/02/2020
 ---
 
@@ -18,7 +18,7 @@ This article explains how to publish a Power BI app to Microsoft [AppSource](htt
 Benefits of publishing to the commercial marketplace:
 
 - Promote your company by using the Microsoft brand.
-- Potentially reach more than 100 million Office 365 and Dynamics 365 users on AppSource and more than 200,000 organizations through Azure Marketplace.
+- Potentially reach more than 100 million Microsoft 365 and Dynamics 365 users on AppSource and more than 200,000 organizations through Azure Marketplace.
 - Receive high-quality leads from these marketplaces.
 - Have your services promoted by the Microsoft field and telesales teams.
 

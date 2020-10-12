@@ -30,15 +30,15 @@ To get started, you'll need:
 
 The following components make up the Twilio solution:
 
-- .NET PSD2 demo web app, which provides the ability to sign in or sign up, and perform a dummy high risk transaction.
-- Azure AD B2C combined sign-in and sign-up policy.
+- .NET [PSD2 demo web app](https://github.com/azure-ad-b2c/partner-integrations/tree/master/samples/Twilio-VerifyAPI/source-code/PSD2%20Demo%20App), which provides the ability to sign in or sign up, and perform a dummy high risk transaction.
+- Azure AD B2C combined [sign-in and sign-up policy](https://github.com/azure-ad-b2c/partner-integrations/tree/master/samples/Twilio-VerifyAPI/policy).
 - Azure AD B2C policy integrated with Twilio Verify API using `id_token_hint`.
 - .NET Web App, which hosts a `.well-known` OpenIdConnect endpoint to allow validation of an `id_token_hint`.
 
 
     ![twilio flow](media/partner-twilio/twilio-flow.png)
 
-|      |      |
+| Step | Description |
 |------|------|
 | 1     | The user initiates sign-in or sign-up to the PSD2 Demo app. The user is authenticated via the Azure AD B2C combined sign-in and sign-up policy. A token is returned to the application. At sign-up, the user's phone number is verified using SMS/Phone, and recorded on their Azure AD B2C account.     |
 | 2     | The user initiates a high risk transaction, such as a transfer of $50.00. The user's current access token is evaluated for the PolicyId to determine if the user has already authenticated via a Step-Up custom policy.     |
@@ -69,7 +69,7 @@ The following components make up the Twilio solution:
    <add key="ida:RedirectUri" value="https://your hosted psd2 demo app url/" />
    ```
 
-2. The web app also hosts the ID token hint generator and metadata endpoint.
+2. The [web app](https://github.com/azure-ad-b2c/partner-integrations/tree/master/samples/Twilio-VerifyAPI/source-code/PSD2%20Demo%20App) also hosts the ID token hint generator and metadata endpoint.
    - Create your signing certificate as described in this [sample description](https://github.com/azure-ad-b2c/samples/tree/master/policies/invite#creating-a-signing-certificate).
    - Update the following lines based on your certificate in the web.config:
    
@@ -82,7 +82,7 @@ The following components make up the Twilio solution:
 
 4. Update your Azure AD B2C application registration by adding a Reply URL equivalent to the URL at which the application is hosted.
 
-5. Open the policy files and replace all instances of `contoso` with your tenant name.
+5. Open the [policy files](https://github.com/azure-ad-b2c/partner-integrations/tree/master/samples/Twilio-VerifyAPI/policy) and replace all instances of `contoso` with your tenant name.
 
 6. Find the Twilio REST API technical profile **Custom-SMS-Enroll**. Update the `ServiceURL` with your Twilio AccountSID and the From number to your purchased phone number.
 

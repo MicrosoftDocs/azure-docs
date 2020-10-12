@@ -23,8 +23,8 @@ In this example, we will create a build and release pipeline to deploy an Azure 
 
 To follow the steps in this article, you need an Azure DevOps organization and a team project.
 
-* [Create an Azure DevOps Organization](/azure/devops/organizations/accounts/create-organization?view=azure-devops)
-* [Create a project in Azure DevOps](/azure/devops/organizations/projects/create-project?view=azure-devops)
+* [Create an Azure DevOps Organization](/azure/devops/organizations/accounts/create-organization)
+* [Create a project in Azure DevOps](/azure/devops/organizations/projects/create-project)
 
 ### Source control for your environment
 
@@ -38,12 +38,12 @@ The codebase structure used in this sample resembles the following;
 
 * An **arm-templates** folder, containing a number of Azure Resource Manager templates. The templates are explained in this article.
 * A **client-application** folder, which is a copy of the [Azure Batch .NET File Processing with ffmpeg](https://github.com/Azure-Samples/batch-dotnet-ffmpeg-tutorial) sample. This is not needed for this article.
-* An **hpc-application** folder, which is the Windows 64-bit version of [ffmpeg 3.4](https://ffmpeg.zeranoe.com/builds/win64/static/ffmpeg-3.4-win64-static.zip).
+* An **hpc-application** folder, which is the Windows 64-bit version of [ffmpeg 4.3.1](https://www.gyan.dev/ffmpeg/builds/packages/ffmpeg-4.3.1-2020-09-21-full_build.zip).
 * A **pipelines** folder. This contains a YAML file outlining our build process. This is discussed in the article.
 
 This section assumes you are familiar with version control and designing Resource Manager templates. If you aren't familiar with these concepts, see the following pages for more information.
 
-* [What is source control?](/azure/devops/user-guide/source-control?view=azure-devops)
+* [What is source control?](/azure/devops/user-guide/source-control)
 * [Understand the structure and syntax of Azure Resource Manager Templates](../azure-resource-manager/templates/template-syntax.md)
 
 #### Azure Resource Manager templates
@@ -184,7 +184,7 @@ The next template shows an example creating an Azure Batch Pool (the backend mac
 
 Finally, we have a template that acts similar to an orchestrator. This template is responsible for deploying the capability templates.
 
-You can also find out more about [creating linked Azure Resource Manager templates](../azure-resource-manager/templates/template-tutorial-create-linked-templates.md) in a separate article.
+You can also find out more about [creating linked Azure Resource Manager templates](../azure-resource-manager/templates/deployment-tutorial-linked-template.md) in a separate article.
 
 ```json
 {
@@ -286,7 +286,7 @@ You can also find out more about [creating linked Azure Resource Manager templat
 
 The infrastructure and software can be defined as code and colocated in the same repository.
 
-For this solution, the ffmpeg is used as the application package. The ffmpeg package can be downloaded [here](https://ffmpeg.zeranoe.com/builds/win64/static/ffmpeg-3.4-win64-static.zip).
+For this solution, the ffmpeg is used as the application package. The ffmpeg package can be downloaded [here](https://www.videohelp.com/software?d=ffmpeg-3.3.4-win64-static.zip).
 
 ![Example Git Repository Structure](media/batch-ci-cd/git-repository.jpg)
 
@@ -304,7 +304,7 @@ Now that the source code is set up, we can begin the first build.
 
 ## Continuous integration
 
-[Azure Pipelines](/azure/devops/pipelines/get-started/?view=azure-devops), within Azure DevOps Services, helps you implement a build, test, and deployment pipeline for your applications.
+[Azure Pipelines](/azure/devops/pipelines/get-started/), within Azure DevOps Services, helps you implement a build, test, and deployment pipeline for your applications.
 
 In this stage of your pipeline, tests are typically run to validate code and build the appropriate pieces of the software. The number and types of tests, and any additional tasks that you run will depend on your wider build and release strategy.
 
@@ -318,9 +318,9 @@ In this example, we will focus on the **hpc-application** folder. The **hpc-appl
 
 1. You have two options to create a Build pipeline:
 
-    a. [Using the Visual Designer](/azure/devops/pipelines/get-started-designer?view=azure-devops&tabs=new-nav). To use this, click "Use the visual designer" on the **New pipeline** page.
+    a. [Using the Visual Designer](/azure/devops/pipelines/get-started-designer). To use this, click "Use the visual designer" on the **New pipeline** page.
 
-    b. [Using YAML Builds](/azure/devops/pipelines/get-started-yaml?view=azure-devops). You can create a new YAML pipeline by clicking the Azure Repos or GitHub option on the New pipeline page. Alternatively, you can store the example below in your source control and reference an existing YAML file by clicking on Visual Designer, and then using the YAML template.
+    b. [Using YAML Builds](/azure/devops/pipelines/get-started-yaml). You can create a new YAML pipeline by clicking the Azure Repos or GitHub option on the New pipeline page. Alternatively, you can store the example below in your source control and reference an existing YAML file by clicking on Visual Designer, and then using the YAML template.
 
     ```yml
     # To publish an application into Azure Batch, we need to
@@ -352,7 +352,7 @@ In this example, we will focus on the **hpc-application** folder. The **hpc-appl
     ![View live outputs from your build](media/batch-ci-cd/Build-1.jpg)
 
 > [!NOTE]
-> If you use a client application to execute your HPC Batch Application, you need to create a separate build definition for that application. You can find a number of how-to guides in the [Azure Pipelines](/azure/devops/pipelines/get-started/index?view=azure-devops) documentation.
+> If you use a client application to execute your HPC Batch Application, you need to create a separate build definition for that application. You can find a number of how-to guides in the [Azure Pipelines](/azure/devops/pipelines/get-started/index) documentation.
 
 ## Continuous deployment
 

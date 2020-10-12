@@ -12,7 +12,7 @@ keywords: VM isolation,isolated VM,isolation,isolated
 ms.assetid: 
 ms.service: virtual-machines
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 02/03/2020
 ms.author: mimckitt
@@ -31,9 +31,9 @@ Memory optimized VM sizes offer a high memory-to-CPU ratio that is great for rel
 
 - The [Ev3 and Esv3-series](ev3-esv3-series.md) Intel&reg; Xeon&reg; 8171M 2.1 GHz (Skylake) or the Intel&reg; Xeon&reg; E5-2673 v4 2.3 GHz (Broadwell)  processor in a hyper-threaded configuration, providing a better value proposition for most general purpose workloads, and bringing the Ev3 into alignment with the general purpose VMs of most other clouds. Memory has been expanded (from 7 GiB/vCPU to 8 GiB/vCPU) while disk and network limits have been adjusted on a per core basis to align with the move to hyper-threading. The Ev3 is the follow up to the high memory VM sizes of the D/Dv2 families.
 
-- The [Ev4 and Esv4-series](ev4-esv4-series.md) runs on 2nd Generation Intel&reg; Xeon&reg; Platinum 8272CL (Cascade Lake) processors in a hyper-threaded configuration, are ideal for various memory-intensive enterprise applications and feature up to 504 GiB of RAM. It features  the [Intel&reg; Turbo Boost Technology 2.0](https://www.intel.com/content/www/us/en/architecture-and-technology/turbo-boost/turbo-boost-technology.html), [Intel&reg; Hyper-Threading Technology](https://www.intel.com/content/www/us/en/architecture-and-technology/hyper-threading/hyper-threading-technology.html) and [Intel&reg; Advanced Vector Extensions 512 (Intel AVX-512)](https://www.intel.com/content/www/us/en/architecture-and-technology/avx-512-overview.html).
+- The [Ev4 and Esv4-series](ev4-esv4-series.md) runs on 2nd Generation Intel&reg; Xeon&reg; Platinum 8272CL (Cascade Lake) processors in a hyper-threaded configuration, are ideal for various memory-intensive enterprise applications and feature up to 504 GiB of RAM. It features  the [Intel&reg; Turbo Boost Technology 2.0](https://www.intel.com/content/www/us/en/architecture-and-technology/turbo-boost/turbo-boost-technology.html), [Intel&reg; Hyper-Threading Technology](https://www.intel.com/content/www/us/en/architecture-and-technology/hyper-threading/hyper-threading-technology.html) and [Intel&reg; Advanced Vector Extensions 512 (Intel AVX-512)](https://www.intel.com/content/www/us/en/architecture-and-technology/avx-512-overview.html). The Ev4 and Esv4-series do not include a local temp disk. For more information, refer to  [Azure VM sizes with no local temp disk](azure-vms-no-temp-disk.md).
 
-- The [Edv4 and Edsv4-series](edv4-edsv4-series.md) runs on 2nd Generation Intel&reg; Xeon&reg; Platinum 8272CL (Cascade Lake) processors, ideal for extremely large databases or other applications that benefit from high vCPU counts and large amounts of memory. It features a sustained all core Turbo clock speed of 3.4 GHz and features the [Intel&reg; Turbo Boost Technology 2.0](https://www.intel.com/content/www/us/en/architecture-and-technology/turbo-boost/turbo-boost-technology.html), [Intel&reg; Hyper-Threading Technology](https://www.intel.com/content/www/us/en/architecture-and-technology/hyper-threading/hyper-threading-technology.html) and [Intel&reg; Advanced Vector Extensions 512 (Intel AVX-512)](https://www.intel.com/content/www/us/en/architecture-and-technology/avx-512-overview.html).
+- The [Edv4 and Edsv4-series](edv4-edsv4-series.md) runs on 2nd Generation Intel&reg; Xeon&reg; Platinum 8272CL (Cascade Lake) processors, ideal for extremely large databases or other applications that benefit from high vCPU counts and large amounts of memory. Additionally, these VM sizes include fast, larger local SSD storage for applications that benefit from low latency, high-speed local storage. It features all core Turbo clock speed of 3.4 GHz, [Intel&reg; Turbo Boost Technology 2.0](https://www.intel.com/content/www/us/en/architecture-and-technology/turbo-boost/turbo-boost-technology.html), [Intel&reg; Hyper-Threading Technology](https://www.intel.com/content/www/us/en/architecture-and-technology/hyper-threading/hyper-threading-technology.html) and [Intel&reg; Advanced Vector Extensions 512 (Intel AVX-512)](https://www.intel.com/content/www/us/en/architecture-and-technology/avx-512-overview.html).
 
 - The [M-series](m-series.md) offers a high vCPU count (up to 128 vCPUs) and a large amount of memory (up to 3.8 TiB). It's also ideal for extremely large databases or other applications that benefit from high vCPU counts and large amounts of memory.
 
@@ -53,3 +53,5 @@ Azure Compute offers virtual machine sizes that are Isolated to a specific hardw
 ## Next steps
 
 Learn more about how [Azure compute units (ACU)](acu.md) can help you compare compute performance across Azure SKUs.
+
+For more information on how Azure names its VMs, see [Azure virtual machine sizes naming conventions](./vm-naming-conventions.md).

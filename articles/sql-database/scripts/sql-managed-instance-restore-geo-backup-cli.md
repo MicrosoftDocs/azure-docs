@@ -50,7 +50,7 @@ az sql midb restore -g $resource --mi $instance -n $managedDatabase --dest-name 
 
 This script uses the following commands. Each command in the table links to command specific documentation.
 
-| | |
+| Script | Description |
 |---|---|
 | [az sql midb](/cli/azure/sql/midb) | Managed Instance Database commands. |
 

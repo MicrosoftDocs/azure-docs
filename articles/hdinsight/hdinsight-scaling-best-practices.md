@@ -1,11 +1,11 @@
 ---
 title: Scale cluster sizes - Azure HDInsight
 description: Scale an Apache Hadoop cluster elastically to match your workload in Azure HDInsight
-author: ashishthaps
+author: hrasheed-msft
 ms.author: ashish
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.topic: conceptual
+ms.topic: how-to
 ms.custom: seoapr2020
 ms.date: 04/29/2020
 ---
@@ -14,7 +14,7 @@ ms.date: 04/29/2020
 
 HDInsight provides elasticity with options to scale up and scale down the number of worker nodes in your clusters. This elasticity allows you to shrink a cluster after hours or on weekends. And expand it during peak business demands.
 
-Scale up your cluster before periodic batch processing so the cluster has adequate resources.  After processing completes, and usage goes down, scale down the HDInsight cluster to fewer worker nodes.
+Scale up your cluster before periodic batch processing so the cluster has adequate resources.  After processing completes, and usage goes down, scale down the HDInsight cluster to fewer worker nodes.
 
 You can scale a cluster manually using one of the methods outlined below. You can also use [autoscale](hdinsight-autoscale-clusters.md) options to automatically scale up and down in response to certain metrics.
 
@@ -101,6 +101,14 @@ The impact of changing the number of data nodes varies for each type of cluster 
 * Kafka
 
     You should rebalance partition replicas after scaling operations. For more information, see the [High availability of data with Apache Kafka on HDInsight](./kafka/apache-kafka-high-availability.md) document.
+
+* Apache Hive LLAP
+
+    After scaling to `N` worker nodes, HDInsight will automatically set the following configurations and restart Hive.
+
+  * Maximum Total Concurrent Queries: `hive.server2.tez.sessions.per.default.queue = min(N, 32)`
+  * Number of nodes used by Hive's LLAP: `num_llap_nodes  = N`
+  * Number of Node(s) for running Hive LLAP daemon: `num_llap_nodes_for_llap_daemons = N`
 
 ## How to safely scale down a cluster
 

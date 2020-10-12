@@ -22,9 +22,9 @@ Learn more about:
 - [Microsoft premier support](https://support.microsoft.com/en-us/premier).
 
 > [!Note]
-> Clusters running on a bronze reliability tier or Single Node Cluster will  allow you to run test workloads only. If you experience issues with a cluster running on bronze reliability or Single Node Cluster, the Microsoft support team will assist you in mitigating the issue, but will not perform a Root Cause Analysis. Please refer to [the reliability characteristics of the cluster](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-capacity#reliability-characteristics-of-the-cluster) for more details.
+> Clusters running on a bronze reliability tier or Single Node Cluster will  allow you to run test workloads only. If you experience issues with a cluster running on bronze reliability or Single Node Cluster, the Microsoft support team will assist you in mitigating the issue, but will not perform a Root Cause Analysis. Please refer to [the reliability characteristics of the cluster](./service-fabric-cluster-capacity.md#reliability-characteristics-of-the-cluster) for more details.
 >
-> For more information about what is required for a production ready cluster, please refer to the [production readiness checklist](https://docs.microsoft.com/azure/service-fabric/service-fabric-production-readiness-checklist).
+> For more information about what is required for a production ready cluster, please refer to the [production readiness checklist](./service-fabric-production-readiness-checklist.md).
 
 <a id="getlivesitesupportonprem"></a>
 
@@ -55,15 +55,15 @@ The [Azure Feedback Forum for Service Fabric][uservoice-forum] is the best place
 
 ## Service Fabric Preview Versions - unsupported for production use
 
-From time to time, we release versions that have significant features we want feedback on, which are released as previews. These preview versions should only be used for test purposes. Your production cluster should always be running a supported, stable, Service Fabric version. A preview version always begins with a major and minor version number of 255. For example, if you see a Service Fabric version 255.255.5703.949, that release version is only to be used in test clusters and is in preview. These preview releases are also announced on the [Service Fabric team blog](https://blogs.msdn.microsoft.com/azureservicefabric) and will have details on the features included.
-There is no paid support option for these preview releases. Use one of the options listed under [Report Azure Service Fabric issues](https://docs.microsoft.com/azure/service-fabric/service-fabric-support#report-azure-service-fabric-issues) to ask questions or provide feedback.
+From time to time, we release versions that have significant features we want feedback on, which are released as previews. These preview versions should only be used for test purposes. Your production cluster should always be running a supported, stable, Service Fabric version. A preview version always begins with a major and minor version number of 255. For example, if you see a Service Fabric version 255.255.5703.949, that release version is only to be used in test clusters and is in preview. These preview releases are also announced on the [Service Fabric team blog](https://techcommunity.microsoft.com/t5/azure-service-fabric/bg-p/Service-Fabric) and will have details on the features included.
+There is no paid support option for these preview releases. Use one of the options listed under [Report Azure Service Fabric issues](#report-azure-service-fabric-issues) to ask questions or provide feedback.
 
 ## Next steps
 
 [Supported Service Fabric versions](service-fabric-versions.md)
 
 <!--references-->
-[Microsoft Q&A question page]: https://docs.microsoft.com/answers/topics/azure-service-fabric.html
+[Microsoft Q&A question page]: /answers/topics/azure-service-fabric.html
 [stackoverflow]: https://stackoverflow.com/questions/tagged/azure-service-fabric
 [uservoice-forum]: https://feedback.azure.com/forums/293901-service-fabric
 [acom-docs]: https://aka.ms/servicefabricdocs

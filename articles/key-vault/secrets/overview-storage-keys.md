@@ -1,14 +1,15 @@
 ---
 title: Manage storage account keys with Azure Key Vault and the Azure CLI
 description: Storage account keys provide seamless integration between Azure Key Vault and key-based access to an Azure storage account.
-ms.topic: conceptual
+ms.topic: tutorial
 services: key-vault
 ms.service: key-vault
 ms.subservice: secrets
 author: msmbaldwin
 ms.author: mbaldwin
 manager: rkarlin
-ms.date: 09/18/2019
+ms.date: 09/18/2019 
+ms.custom: devx-track-azurecli
 # Customer intent: As a developer, I want to use Azure Key Vault and Azure CLI for secure management of my storage credentials and shared access signature tokens.
 ---
 
@@ -23,7 +24,6 @@ When you use the managed storage account key feature, consider the following poi
 - Key values are never returned in response to a caller.
 - Only Key Vault should manage your storage account keys. Don't manage the keys yourself and avoid interfering with Key Vault processes.
 - Only a single Key Vault object should manage storage account keys. Don't allow key management from multiple objects.
-- You can request Key Vault to manage your storage account with a user principal, but not with a service principal.
 - Regenerate keys by using Key Vault only. Don't manually regenerate your storage account keys.
 
 We recommend using Azure Storage integration with Azure Active Directory (Azure AD), Microsoft's cloud-based identity and access management service. Azure AD integration is available for [Azure blobs and queues](../../storage/common/storage-auth-aad.md), and provides OAuth2 token-based access to Azure Storage (just like Azure Key Vault).
@@ -66,7 +66,7 @@ az login
 
 Use the Azure CLI [az role assignment create](/cli/azure/role/assignment?view=azure-cli-latest) command to give Key Vault access your storage account. Provide the command the following parameter values:
 
-- `--role`: Pass the "Storage Account Key Operator Service Role" RBAC role. This role limits the access scope to your storage account. For a classic storage account, pass "Classic Storage Account Key Operator Service Role" instead.
+- `--role`: Pass the "Storage Account Key Operator Service Role" Azure role. This role limits the access scope to your storage account. For a classic storage account, pass "Classic Storage Account Key Operator Service Role" instead.
 - `--assignee`: Pass the value "https://vault.azure.net", which is the url for Key Vault in the Azure public cloud. (For Azure Goverment cloud use '--asingee-object-id' instead, see [Service principal application ID](#service-principal-application-id).)
 - `--scope`: Pass your storage account resource ID, which is in the form `/subscriptions/<subscriptionID>/resourceGroups/<StorageAccountResourceGroupName>/providers/Microsoft.Storage/storageAccounts/<YourStorageAccountName>`. To find your subscription ID, use the Azure CLI [az account list](/cli/azure/account?view=azure-cli-latest#az-account-list) command; to find your storage account name and storage account resource group, use the Azure CLI [az storage account list](/cli/azure/storage/account?view=azure-cli-latest#az-storage-account-list) command.
 
@@ -86,7 +86,7 @@ az keyvault set-policy --name <YourKeyVaultName> --upn user@domain.com --storage
 Note that permissions for storage accounts aren't available on the storage account "Access policies" page in the Azure portal.
 ### Create a Key Vault Managed storage account
 
- Create a Key Vault managed storage account using the Azure CLI [az keyvault storage](/cli/azure/keyvault/storage?view=azure-cli-latest#az-keyvault-storage-add) command. Set a regeneration period of 90 days. After 90 days, Key Vault regenerates `key1` and swaps the active key from `key2` to `key1`. `key1` is then marked as the active key. Provide the command the following parameter values:
+ Create a Key Vault managed storage account using the Azure CLI [az keyvault storage](/cli/azure/keyvault/storage?view=azure-cli-latest#az-keyvault-storage-add) command. Set a regeneration period of 90 days. When it is time to rotate, KeyVault regenerates the key that is not active, and then sets the newly created key as active. Only one of the keys are used to issue SAS tokens at any one time, this is the active key. Provide the command the following parameter values:
 
 - `--vault-name`: Pass the name of your key vault. To find the name of your key vault, use the Azure CLI [az keyvault list](/cli/azure/keyvault?view=azure-cli-latest#az-keyvault-list) command.
 - `-n`: Pass the name of your storage account. To find the name of your storage account, use the Azure CLI [az storage account list](/cli/azure/storage/account?view=azure-cli-latest#az-storage-account-list) command.

@@ -26,25 +26,25 @@
     href: tutorial-custom-role-powershell.md
   - name: Create a custom role - CLI
     href: tutorial-custom-role-cli.md
-- name: Samples
-  items:
-  - name: Azure Policy built-ins
-    displayName: samples, policies, definitions
-    href: ./policy-samples.md
 - name: Concepts
   items:
+  - name: Role definitions
+    href: role-definitions.md
+  - name: Scope
+    href: scope-overview.md
   - name: Best practices
     href: best-practices.md
   - name: Conditional Access for Azure management
     href: conditional-access-azure-management.md
+  - name: Security
+    items:
+    - name: Security controls by Azure Policy
+      displayName: regulatory, compliance, standards, domains
+      href: ./security-controls-policy.md
 - name: How-to guides
   items:
   - name: List role definitions
-    items:
-    - name: Overview
-      href: role-definitions.md
-    - name: List role definitions
-      href: role-definitions-list.md
+    href: role-definitions-list.md
   - name: List role assignments
     items:
     - name: Portal
@@ -57,6 +57,8 @@
       href: role-assignments-list-rest.md
   - name: Add or remove role assignments
     items:
+    - name: Steps to add a role assignment
+      href: role-assignments-steps.md
     - name: Portal
       href: role-assignments-portal.md
     - name: Portal - guest users
@@ -101,7 +103,7 @@
     href: elevate-access-global-admin.md
   - name: Classic administrators
     href: classic-administrators.md
-  - name: Transfer subscription to different directory (Preview)
+  - name: Transfer subscription to different directory
     href: transfer-subscription.md
   - name: Troubleshoot
     href: troubleshooting.md
@@ -112,7 +114,7 @@
   - name: Resource provider operations
     href: resource-provider-operations.md
   - name: Azure RBAC limits
-    href: ../azure-resource-manager/management/azure-subscription-service-limits.md#role-based-access-control-limits
+    href: ../azure-resource-manager/management/azure-subscription-service-limits.md#azure-role-based-access-control-limits
   - name: Azure PowerShell
     href: /powershell/module/az.resources
   - name: Azure CLI
@@ -126,6 +128,9 @@
       href: /azure/templates/microsoft.authorization/roleassignments
     - name: Role Definitions
       href: /azure/templates/microsoft.authorization/roledefinitions
+  - name: Azure Policy built-ins
+    displayName: samples, policies, definitions
+    href: ./policy-reference.md
 - name: Resources
   items:
   - name: Build your skills with Microsoft Learn

@@ -9,6 +9,7 @@ ms.author: delegenz
 ms.service: cognitive-search
 ms.topic: tutorial
 ms.date: 10/12/2020
+ms.custom: devx-track-csharp
 ---
 
 # Tutorial: Optimize indexing with the push API
@@ -17,7 +18,7 @@ Azure Cognitive Search supports [two basic approaches](search-what-is-data-impor
 
 This tutorial describes how to efficiently index data using the [push model](search-what-is-data-import.md#pushing-data-to-an-index) by batching requests and using an exponential backoff retry strategy. You can [download and run the sample application](https://github.com/Azure-Samples/azure-search-dotnet-samples/tree/master/optimize-data-indexing). This article explains the key aspects of the application and factors to consider when indexing data.
 
-This tutorial uses C# and the [.NET SDK](https://docs.microsoft.com/dotnet/api/overview/azure/search) to perform the following tasks:
+This tutorial uses C# and the [.NET SDK](/dotnet/api/overview/azure/search) to perform the following tasks:
 
 > [!div class="checklist"]
 > * Create an index
@@ -74,7 +75,6 @@ API calls require the service URL and an access key. A search service is created
 
 1. Start Visual Studio and open **OptimizeDataIndexing.sln**.
 1. In Solution Explorer, open **appsettings.json** to provide connection information.
-1. For `searchServiceName`, if the full URL is "https://my-demo-service.search.windows.net", the service name to provide is "my-demo-service".
 
 ```json
 {
@@ -82,7 +82,6 @@ API calls require the service URL and an access key. A search service is created
   "SearchServiceAdminApiKey": "",
   "SearchIndexName": "optimize-indexing"
 }
-
 ```
 
 ## 3 - Explore the code
@@ -158,8 +157,8 @@ The schema of your index can have a significant impact on indexing speeds. Becau
 
 Azure Cognitive Search supports the following APIs to load single or multiple documents into an index:
 
-+ [Add, Update, or Delete Documents (REST API)](https://docs.microsoft.com/rest/api/searchservice/AddUpdate-or-Delete-Documents)
-+ [IndexDocumentsAction class](https://docs.microsoft.com/dotnet/api/azure.search.documents.models.indexdocumentsaction?view=azure-dotnet) or [IndexDocumentsBatch class](https://docs.microsoft.com/dotnet/api/azure.search.documents.models.indexdocumentsbatch?view=azure-dotnet)
++ [Add, Update, or Delete Documents (REST API)](/rest/api/searchservice/AddUpdate-or-Delete-Documents)
++ [IndexDocumentsAction class](/dotnet/api/azure.search.documents.models.indexdocumentsaction?view=azure-dotnet) or [IndexDocumentsBatch class](/dotnet/api/azure.search.documents.models.indexdocumentsbatch?view=azure-dotnet)
 
 Indexing documents in batches will significantly improve indexing performance. These batches can be up to 1000 documents, or up to about 16 MB per batch.
 
@@ -247,8 +246,8 @@ Identify which batch size is most efficient and then use that batch size in the 
 
 Now that we've identified the batch size we intend to use, the next step is to begin to index the data. To index data efficiently, this sample:
 
-* Uses multiple threads/workers.
-* Implements an exponential backoff retry strategy.
++ Uses multiple threads/workers.
++ Implements an exponential backoff retry strategy.
 
 ### Use multiple threads/workers
 
@@ -256,14 +255,14 @@ To take full advantage of Azure Cognitive Search's indexing speeds, you'll likel
 
 Several of the key considerations mentioned above impact the optimal number of threads. You can modify this sample and test with different thread counts to determine the optimal thread count for your scenario. However, as long as you have several threads running concurrently, you should be able to take advantage of most of the efficiency gains.
 
-As you ramp up the requests hitting the search service, you may encounter [HTTP status codes](https://docs.microsoft.com/rest/api/searchservice/http-status-codes) indicating the request didn't fully succeed. During indexing, two common HTTP status codes are:
+As you ramp up the requests hitting the search service, you may encounter [HTTP status codes](/rest/api/searchservice/http-status-codes) indicating the request didn't fully succeed. During indexing, two common HTTP status codes are:
 
-* **503 Service Unavailable** - This error means that the system is under heavy load and your request can't be processed at this time.
-* **207 Multi-Status** - This error means that some documents succeeded, but at least one failed.
++ **503 Service Unavailable** - This error means that the system is under heavy load and your request can't be processed at this time.
++ **207 Multi-Status** - This error means that some documents succeeded, but at least one failed.
 
 ### Implement an exponential backoff retry strategy
 
-If a failure happens, requests should be retried using an [exponential backoff retry strategy](https://docs.microsoft.com/dotnet/architecture/microservices/implement-resilient-applications/implement-retries-exponential-backoff).
+If a failure happens, requests should be retried using an [exponential backoff retry strategy](/dotnet/architecture/microservices/implement-resilient-applications/implement-retries-exponential-backoff).
 
 Azure Cognitive Search's .NET SDK automatically retries 503s and other failed requests but you'll need to implement your own logic to retry 207s. Open-source tools such as [Polly](https://github.com/App-vNext/Polly) can also be used to implement a retry strategy.
 
@@ -367,7 +366,7 @@ You can explore the populated search index after the program has run programatic
 
 ### Programatically
 
-There are two main options for checking the number of documents in an index: the [Count Documents API](https://docs.microsoft.com/rest/api/searchservice/count-documents) and the [Get Index Statistics API](https://docs.microsoft.com/rest/api/searchservice/get-index-statistics). Both paths may require some additional time to update so don't be alarmed if the number of documents returned is lower than you expected initially.
+There are two main options for checking the number of documents in an index: the [Count Documents API](/rest/api/searchservice/count-documents) and the [Get Index Statistics API](/rest/api/searchservice/get-index-statistics). Both paths may require some additional time to update so don't be alarmed if the number of documents returned is lower than you expected initially.
 
 #### Count Documents
 
@@ -382,7 +381,7 @@ long indexDocCount = await searchClient.GetDocumentCountAsync();
 The Get Index Statistics operation returns a document count for the current index, plus storage usage. Index statistics will take longer than document count to update.
 
 ```csharp
-Response<SearchIndexStatistics> indexStats = await indexClient.GetIndexStatisticsAsync(indexName);
+var indexStats = await indexClient.GetIndexStatisticsAsync(indexName);
 ```
 
 ### Azure portal
@@ -391,7 +390,7 @@ In Azure portal, open the search service **Overview** page, and find the **optim
 
   ![List of Azure Cognitive Search indexes](media/tutorial-optimize-data-indexing/portal-output.png "List of Azure Cognitive Search indexes")
 
-The *Document Count* and *Storage Size* are based on [Get Index Statistics API](https://docs.microsoft.com/rest/api/searchservice/get-index-statistics) and may take several minutes to update.
+The *Document Count* and *Storage Size* are based on [Get Index Statistics API](/rest/api/searchservice/get-index-statistics) and may take several minutes to update.
 
 ## Reset and rerun
 

@@ -9,17 +9,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: quickstart
-ms.date: 05/28/2020
+ms.date: 10/05/2020
 ms.author: pafarley
-ms.custom: seodec18
+ms.custom: seodec18, devx-track-java
 ---
 # Quickstart: Extract printed and handwritten text using the Computer Vision REST API and Java
 
 In this quickstart, you'll extract printed and handwritten text from an image using the Computer Vision REST API. With the [Read](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-ga/operations/5d986960601faab4bf452005) and [Get Read Result](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-ga/operations/5d9869604be85dee480c8750) methods, you can detect text in an image and extract recognized characters into a machine-readable character stream.
 
-
-> [!IMPORTANT]
-> The [Read](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-ga/operations/5d986960601faab4bf452005) method runs asynchronously. This method does not return any information in the body of a successful response. Instead, the Batch Read method returns a URI in the value of the `Operation-Location` response header field. You can then call this URI, which represents the [Get Read Result](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-ga/operations/5d9869604be85dee480c8750) API, to both check the status and return the results of the Read method call.
+The [Read](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-ga/operations/5d986960601faab4bf452005) method runs asynchronously. This method does not return any information in the body of a successful response. Instead, the Batch Read method returns a URI in the value of the `Operation-Location` response header field. You can then call this URI, which represents the [Get Read Result](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-ga/operations/5d9869604be85dee480c8750) API, to both check the status and return the results of the Read method call.
 
 ---
 
@@ -60,7 +58,6 @@ To create and run the sample, do the following steps:
     ```
 
 1. Replace the `Main` public class with the following code.
-1. Optionally, replace the value of `language` with the language that you want to recognize. Accepted values are "en" for English and "es" for Spanish.
 1. Optionally, replace the value of `imageToAnalyze` with the URL of a different image from which you want to extract text.
 1. Save, then build the Java project.
 1. If you're using an IDE, run `Main`. Otherwise, open a command prompt window and then use the `java` command to run the compiled class. For example, `java Main`.
@@ -74,15 +71,10 @@ public class Main {
     private static String subscriptionKey = System.getenv("COMPUTER_VISION_SUBSCRIPTION_KEY");
     private static String endpoint = System.getenv("COMPUTER_VISION_ENDPOINT");
 
-    // Set the language that you want to recognize
-    // Accepted values are "en" for English, or "es" for Spanish
-    private static String language = "en";  
-
     private static String uriBase = endpoint + "/vision/v3.0/read/analyze";
 
     private static String imageToAnalyze =
-            "https://upload.wikimedia.org/wikipedia/commons/thumb/d/dd/" +
-                    "Cursive_Writing_on_Notebook_paper.jpg/800px-Cursive_Writing_on_Notebook_paper.jpg";
+            "https://raw.githubusercontent.com/MicrosoftDocs/azure-docs/master/articles/cognitive-services/Computer-vision/Images/readsample.jpg";
 
     public static void main(String[] args) {
         CloseableHttpClient httpTextClient = HttpClientBuilder.create().build();
@@ -90,14 +82,12 @@ public class Main {
 
         System.out.println("Endpoint:         " + endpoint);
         System.out.println("Subscription key: " + subscriptionKey);
-        System.out.println("Language:         " + language);
 
         try {
             // This operation requires two REST API calls. One to submit the image
             // for processing, the other to retrieve the text found in the image.
 
             URIBuilder builder = new URIBuilder(uriBase);
-            builder.setParameter("language", language);
 
             // Prepare the URI for the REST API method.
             URI uri = builder.build();

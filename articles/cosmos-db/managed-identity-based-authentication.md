@@ -7,6 +7,7 @@ ms.topic: how-to
 ms.date: 03/20/2020
 ms.author: justipat
 ms.reviewer: sngun
+ms.custom: devx-track-csharp
 
 ---
 
@@ -42,12 +43,14 @@ In this step, you'll assign a role to the function app's system-assigned managed
 |[Cosmos DB Account Reader Role](../role-based-access-control/built-in-roles.md#cosmos-db-account-reader-role)|Can read Azure Cosmos DB account data. Allows retrieval of read keys. |
 
 > [!IMPORTANT]
-> Support for role-based access control in Azure Cosmos DB applies to control plane operations only. Data plane operations are secured through master keys or resource tokens. To learn more, see the [Secure access to data](secure-access-to-data.md) article.
+> Support for role-based access control in Azure Cosmos DB applies to control plane operations only. Data plane operations are secured through primary keys or resource tokens. To learn more, see the [Secure access to data](secure-access-to-data.md) article.
 
 > [!TIP] 
 > When you assign roles, assign only the needed access. If your service requires only reading data, then assign the **Cosmos DB Account Reader** role to the managed identity. For more information about the importance of least privilege access, see the [Lower exposure of privileged accounts](../security/fundamentals/identity-management-best-practices.md#lower-exposure-of-privileged-accounts) article.
 
 In this scenario, the function app will read the temperature of the aquarium, then write back that data to a container in Azure Cosmos DB. Because the function app must write the data, you'll need to assign the **DocumentDB Account Contributor** role. 
+
+### Assign the role using Azure portal
 
 1. Sign in to the Azure portal and go to your Azure Cosmos DB account. Open the **Access control (IAM)** pane and then the **Role assignments** tab:
 
@@ -67,14 +70,27 @@ In this scenario, the function app will read the temperature of the aquarium, th
 
 1. After you have selected your function app, select **Save**.
 
+### Assign the role using Azure CLI
+
+To assign the role by using Azure CLI, open the Azure Cloud Shell and run the following commands:
+
+```azurecli-interactive
+
+scope=$(az cosmosdb show --name '<Your_Azure_Cosmos_account_name>' --resource-group '<CosmosDB_Resource_Group>' --query id)
+
+principalId=$(az webapp identity show -n '<Your_Azure_Function_name>' -g '<Azure_Function_Resource_Group>' --query principalId)
+
+az role assignment create --assignee $principalId --role "DocumentDB Account Contributor" --scope $scope
+```
+
 ## Programmatically access the Azure Cosmos DB keys
 
 Now we have a function app that has a system-assigned managed identity with the **DocumentDB Account Contributor** role in the Azure Cosmos DB permissions. The following function app code will get the Azure Cosmos DB keys, create a CosmosClient object, get the temperature of the aquarium, and then save this to Azure Cosmos DB.
 
-This sample uses the [List Keys API](/rest/api/cosmos-db-resource-provider/DatabaseAccounts/ListKeys) to access your Azure Cosmos DB account keys.
+This sample uses the [List Keys API](/rest/api/cosmos-db-resource-provider/2020-04-01/databaseaccounts/listkeys) to access your Azure Cosmos DB account keys.
 
 > [!IMPORTANT] 
-> If you want to [assign the Cosmos DB Account Reader](#grant-access-to-your-azure-cosmos-account) role, you'll need to use the [List Read Only Keys API](/rest/api/cosmos-db-resource-provider/DatabaseAccounts/ListReadOnlyKeys). This will populate just the read-only keys.
+> If you want to [assign the Cosmos DB Account Reader](#grant-access-to-your-azure-cosmos-account) role, you'll need to use the [List Read Only Keys API](/rest/api/cosmos-db-resource-provider/2020-04-01/databaseaccounts/listreadonlykeys). This will populate just the read-only keys.
 
 The List Keys API returns the `DatabaseAccountListKeysResult` object. This type isn't defined in the C# libraries. The following code shows the implementation of this class:  
 

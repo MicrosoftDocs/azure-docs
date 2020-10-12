@@ -1,35 +1,30 @@
 ---
 title: Integrate Azure Event Hubs with Azure Private Link Service
 description: Learn how to integrate Azure Event Hubs with Azure Private Link Service
-ms.date: 06/23/2020
+ms.date: 08/22/2020
 ms.topic: article
 ---
 
-# Integrate Azure Event Hubs with Azure Private Link
+# Allow access to Azure Event Hubs namespaces via private endpoints 
 Azure Private Link Service enables you to access Azure Services (for example, Azure Event Hubs, Azure Storage, and Azure Cosmos DB) and Azure hosted customer/partner services over a **private endpoint** in your virtual network.
 
-A private endpoint is a network interface that connects you privately and securely to a service powered by Azure Private Link. The private endpoint uses a private IP address from your VNet, effectively bringing the service into your VNet. All traffic to the service can be routed through the private endpoint, so no gateways, NAT devices, ExpressRoute or VPN connections, or public IP addresses are needed. Traffic between your virtual network and the service traverses over the Microsoft backbone network, eliminating exposure from the public Internet. You can connect to an instance of an Azure resource, giving you the highest level of granularity in access control.
+A private endpoint is a network interface that connects you privately and securely to a service powered by Azure Private Link. The private endpoint uses a private IP address from your virtual network, effectively bringing the service into your virtual network. All traffic to the service can be routed through the private endpoint, so no gateways, NAT devices, ExpressRoute or VPN connections, or public IP addresses are needed. Traffic between your virtual network and the service traverses over the Microsoft backbone network, eliminating exposure from the public Internet. You can connect to an instance of an Azure resource, giving you the highest level of granularity in access control.
 
 For more information, see [What is Azure Private Link?](../private-link/private-link-overview.md)
 
 > [!IMPORTANT]
-> This feature is supported for both **standard** and **dedicated** tiers. 
-
->[!WARNING]
-> Enabling private endpoints can prevent other Azure services from interacting with Event Hubs.
+> This feature is supported for both **standard** and **dedicated** tiers. It's not supported in the **basic** tier.
 >
-> Trusted Microsoft services are not supported when using Virtual Networks.
+> Enabling private endpoints can prevent other Azure services from interacting with Event Hubs.  Requests that are blocked include those from other Azure services, from the Azure portal, from logging and metrics services, and so on. 
+> 
+> Here are some of the services that can't access Event Hubs resources when private endpoints are enabled. Note that the list is **NOT** exhaustive.
 >
-> Common Azure scenarios that don't work with Virtual Networks (note that the list is **NOT** exhaustive) -
-> - Azure Monitor (diagnostic setting)
-> - Azure Stream Analytics
-> - Integration with Azure Event Grid
 > - Azure IoT Hub Routes
 > - Azure IoT Device Explorer
+> - Azure Event Grid
+> - Azure Monitor (Diagnostic Settings)
 >
-> The following Microsoft services are required to be on a virtual network
-> - Azure Web Apps
-> - Azure Functions
+> As an exception, you can allow access to Event Hubs resources from certain trusted services even when private endpoints are enabled. For a list of trusted services, see [Trusted services](#trusted-microsoft-services).
 
 ## Add a private endpoint using Azure portal
 
@@ -39,7 +34,7 @@ To integrate an Event Hubs namespace with Azure Private Link, you'll need the fo
 
 - An Event Hubs namespace.
 - An Azure virtual network.
-- A subnet in the virtual network.
+- A subnet in the virtual network. You can use the **default** subnet. 
 - Owner or contributor permissions for both the namespace and the virtual network.
 
 Your private endpoint and virtual network must be in the same region. When you select a region for the private endpoint using the portal, it will automatically filter only virtual networks that are in that region. Your namespace can be in a different region.
@@ -52,11 +47,19 @@ If you already have an Event Hubs namespace, you can create a private link conne
 1. Sign in to the [Azure portal](https://portal.azure.com). 
 2. In the search bar, type in **event hubs**.
 3. Select the **namespace** from the list to which you want to add a private endpoint.
-4. Select the **Networking** tab under **Settings**.
-5. Select the **Private endpoint connections** tab at the top of the page. 
-6. Select the **+ Private Endpoint** button at the top of the page.
+4. Select **Networking** under **Settings** on the left menu.
 
-    ![Image](./media/private-link-service/private-link-service-3.png)
+    > [!NOTE]
+    > You see the **Networking** tab only for **standard** or **dedicated** namespaces. 
+
+    :::image type="content" source="./media/private-link-service/selected-networks-page.png" alt-text="Networks tab - selected networks option" lightbox="./media/private-link-service/selected-networks-page.png":::    
+
+    > [!NOTE]
+    > By default, the **Selected networks** option is selected. If you don't specify an IP firewall rule or add a virtual network, the namespace can be accessed via public internet. 
+1. Select the **Private endpoint connections** tab at the top of the page. 
+1. Select the **+ Private Endpoint** button at the top of the page.
+
+    :::image type="content" source="./media/private-link-service/private-link-service-3.png" alt-text="Networking page - Private endpoint connections tab - Add private endpoint link":::
 7. On the **Basics** page, follow these steps: 
     1. Select the **Azure subscription** in which you want to create the private endpoint. 
     2. Select the **resource group** for the private endpoint resource.
@@ -94,6 +97,10 @@ If you already have an Event Hubs namespace, you can create a private link conne
 12. Confirm that you see the private endpoint connection you created shows up in the list of endpoints. In this example, the private endpoint is auto-approved because you connected to an Azure resource in your directory and you have sufficient permissions. 
 
     ![Private endpoint created](./media/private-link-service/private-endpoint-created.png)
+
+[!INCLUDE [event-hubs-trusted-services](../../includes/event-hubs-trusted-services.md)]
+
+To allow trusted services to access your namespace, switch to the **Firewalls and Virtual networks** tab on the **Networking** page, and select **Yes** for **Allow trusted Microsoft services to bypass this firewall?**. 
 
 ## Add a private endpoint using PowerShell
 The following example shows how to use Azure PowerShell to create a private endpoint connection. It doesn't create a dedicated cluster for you. Follow steps in [this article](event-hubs-dedicated-cluster-create-portal.md) to create a dedicated Event Hubs cluster. 
@@ -209,7 +216,7 @@ There are four provisioning states:
 2. Select the **private endpoint** you wish to approve
 3. Select the **Approve** button.
 
-    ![Image](./media/private-link-service/approve-private-endpoint.png)
+    ![Approve private endpoint](./media/private-link-service/approve-private-endpoint.png)
 4. On the **Approve connection** page, add a comment (optional), and select **Yes**. If you select **No**, nothing happens. 
 5. You should see the status of the private endpoint connection in the list changed to **Approved**. 
 
@@ -217,7 +224,7 @@ There are four provisioning states:
 
 1. If there are any private endpoint connections you want to reject, whether it is a pending request or existing connection, select the connection and click the **Reject** button.
 
-    ![Image](./media/private-link-service/private-endpoint-reject-button.png)
+    ![Reject private endpoint](./media/private-link-service/private-endpoint-reject-button.png)
 2. On the **Reject connection** page, enter a comment (optional), and select **Yes**. If you select **No**, nothing happens. 
 3. You should see the status of the private endpoint connection in the list changed to **Rejected**. 
 
@@ -229,7 +236,7 @@ There are four provisioning states:
 
 ## Validate that the private link connection works
 
-You should validate that the resources within the same subnet of the private endpoint resource are connecting to your Event Hubs namespace over a private IP address, and that they have the correct private DNS zone integration.
+You should validate that resources within the virtual network of the private endpoint are connecting to your Event Hubs namespace over a private IP address, and that they have the correct private DNS zone integration.
 
 First, create a virtual machine by following the steps in [Create a Windows virtual machine in the Azure portal](../virtual-machines/windows/quick-create-portal.md)
 

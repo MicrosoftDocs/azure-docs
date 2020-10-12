@@ -2,22 +2,15 @@
 title: 'Tutorial: Azure Active Directory integration with Datahug | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and Datahug.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-
-ms.assetid: 5c0dc1ea-7ff4-4554-b60b-0f2fa9f5abaa
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 01/25/2019
 ms.author: jeedes
-
-ms.collection: M365-identity-device-management
 ---
 # Tutorial: Azure Active Directory integration with Datahug
 
@@ -100,7 +93,7 @@ To configure Azure AD single sign-on with Datahug, perform the following steps:
 
 4. On the **Basic SAML Configuration** section, If you wish to configure the application in **IDP** initiated mode, perform the following steps:
 
-    ![Datahug Domain and URLs single sign-on information](common/idp-intiated.png)
+    ![Screenshot that shows the "Basic S A M L Configuration" section with the "Identifier", "Reply URL", and "Save" button highlighted.](common/idp-intiated.png)
 
     a. In the **Identifier** text box, type a URL using the following pattern:
     `https://apps.datahug.com/identity/<uniqueID>`
@@ -210,11 +203,11 @@ When Datahug, provisioning is a manual task.
 
 2. Hover over the **cog** in the top right-hand corner and click **Settings**
    
-	![Add Employee](./media/datahug-tutorial/1.png)
+	![Screenshot that shows the "Datahug" homepage with "Cog" icon selected and "Settings" selected in the drop-down menu.](./media/datahug-tutorial/1.png)
 
 3. Choose **People** and click the **Add Users** tab
 
-	![Add Employee](./media/datahug-tutorial/2.png)
+	![Screenshot that shows the "Settings" page with the "People" tab and "Add Users" selected.](./media/datahug-tutorial/2.png)
 
 4. Type the email of the person you would like to create an account for and click **Add**.
 

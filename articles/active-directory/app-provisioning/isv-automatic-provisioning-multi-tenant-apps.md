@@ -49,7 +49,7 @@ Azure AD provides several integration paths to enable automatic user provisionin
 
 * The [Azure AD Provisioning Service](../app-provisioning/user-provisioning.md) manages the provisioning and deprovisioning of users from Azure AD to your application (outbound provisioning) and from your application to Azure AD (inbound provisioning). The service connects to the System for Cross-Domain Identity Management (SCIM) user management API endpoints provided by your application.
 
-* When using the [Microsoft Graph](https://docs.microsoft.com/graph/), your application manages inbound and outbound provisioning of users and groups from Azure AD to your application by querying the Microsoft Graph API.
+* When using the [Microsoft Graph](/graph/), your application manages inbound and outbound provisioning of users and groups from Azure AD to your application by querying the Microsoft Graph API.
 
 * The Security Assertion Markup Language Just in Time (SAML JIT) user provisioning can be enabled if your application is using SAML for federation. It uses claims information sent in the SAML token to provision users.
 
@@ -59,7 +59,7 @@ To help determine which integration option to use for your application, refer to
 |---|---|---|---|
 | User and group management in Azure AD| √| √| User only |
 | Manage users and groups synced from on-premises Active Directory| √*| √*| User only* |
-| Access data beyond users and groups during provisioning Access to O365 data (Teams, SharePoint, Email, Calendar, Documents, etc.)| X+| √| X |
+| Access data beyond users and groups during provisioning Access to Microsoft 365 data (Teams, SharePoint, Email, Calendar, Documents, etc.)| X+| √| X |
 | Create, read, and update users based on business rules| √| √| √ |
 | Delete users based on business rules| √| √| X |
 | Manage automatic user provisioning for all applications from the Azure portal| √| X| √ |
@@ -68,7 +68,7 @@ To help determine which integration option to use for your application, refer to
 | Support non-enterprise accounts (B2C)| X| √| √ |
 
 <sup>*</sup> – Azure AD Connect setup is required to sync users from AD to Azure AD.  
-<sup>+</sup >– Using SCIM for provisioning does not preclude you from integrating your application with MIcrosoft Graph for other purposes.
+<sup>+</sup >– Using SCIM for provisioning does not preclude you from integrating your application with Microsoft Graph for other purposes.
 
 ## Azure AD Provisioning Service (SCIM)
 
@@ -84,17 +84,17 @@ For more information on how the Azure AD Provisioning Service users SCIM, see:
 
 ## Microsoft Graph for Provisioning
 
-When you use Microsoft Graph for provisioning, you have access to all the rich user data available in Graph. In addition to the details of users and groups, you can also fetch additional information like the user’s roles, manager and direct reports, owned and registered devices, and hundreds of other data pieces available in the [Microsoft Graph](https://docs.microsoft.com/graph/api/overview?view=graph-rest-1.0). 
+When you use Microsoft Graph for provisioning, you have access to all the rich user data available in Graph. In addition to the details of users and groups, you can also fetch additional information like the user’s roles, manager and direct reports, owned and registered devices, and hundreds of other data pieces available in the [Microsoft Graph](/graph/api/overview?view=graph-rest-1.0). 
 
-More than 15 million organizations, and 90% of fortune 500 companies use Azure AD while subscribing to Microsoft cloud services like Office 365, Microsoft Azure, Enterprise Mobility Suite, or Microsoft 365. You can use Microsoft Graph to integrate your app with administrative workflows, such as employee onboarding (and termination), profile maintenance, and more. 
+More than 15 million organizations, and 90% of fortune 500 companies use Azure AD while subscribing to Microsoft cloud services like Microsoft 365, Microsoft Azure, or Enterprise Mobility Suite. You can use Microsoft Graph to integrate your app with administrative workflows, such as employee onboarding (and termination), profile maintenance, and more. 
 
 Learn more about using Microsoft Graph for provisioning:
 
 * [Microsoft Graph Home page](https://developer.microsoft.com/graph)
 
-* [Overview of Microsoft Graph](https://docs.microsoft.com/graph/overview)
+* [Overview of Microsoft Graph](/graph/overview)
 
-* [Microsoft Graph Auth Overview](https://docs.microsoft.com/graph/auth/)
+* [Microsoft Graph Auth Overview](/graph/auth/)
 
 * [Getting started with Microsoft Graph](https://developer.microsoft.com/graph/get-started)
 
@@ -110,4 +110,4 @@ SAML JIT uses the claims information in the SAML token to create and update user
 
 * [Submit your application listing](https://microsoft.sharepoint.com/teams/apponboarding/Apps/SitePages/Default.aspx) and partner with Microsoft to create documentation on Microsoft’s site.
 
-* [Join the Microsoft Partner Network (free) and create your go to market plan](https://partner.microsoft.com/en-us/explore/commercial).
+* [Join the Microsoft Partner Network (free) and create your go to market plan](https://partner.microsoft.com/explore/commercial).

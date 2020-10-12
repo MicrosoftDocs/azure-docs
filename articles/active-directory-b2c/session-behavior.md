@@ -1,6 +1,6 @@
 ---
 title: Configure session behavior - Azure Active Directory B2C | Microsoft Docs
-description: Configure session behavior in Azure Active Directory B2C.
+description: Learn how to configure session behavior in Azure Active Directory B2C.
 services: active-directory-b2c
 author: msmimart
 manager: celestedg
@@ -8,7 +8,7 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 05/07/2020
+ms.date: 10/12/2020
 ms.author: mimart
 ms.subservice: B2C
 ---
@@ -26,7 +26,7 @@ You can use the following properties to manage web application sessions:
     - Minimum (inclusive) = 15 minutes.
     - Maximum (inclusive) = 1440 minutes.
 - **Web app session timeout** - The [session expiry type](session-overview.md#session-expiry-type), *Rolling*, or *Absolute*. 
-- **Single sign-on configuration** - The [session scope](session-overview.md#session-scope) of the single sign-on (SSO) behavior across multiple apps and user flows in your Azure AD B2C tenant. 
+- **Single sign-on configuration** - The [session scope](session-overview.md#session-scope) of the single sign-on (SSO) behavior across multiple apps and user flows in your Azure AD B2C tenant.
 
 
 ## Configure the properties
@@ -34,7 +34,7 @@ You can use the following properties to manage web application sessions:
 1. Sign in to the [Azure portal](https://portal.azure.com).
 2. Make sure you're using the directory that contains your Azure AD B2C tenant by selecting the **Directory + subscription** filter in the top menu and choosing the directory that contains your Azure AD B2C tenant.
 3. Choose **All services** in the top-left corner of the Azure portal, and then search for and select **Azure AD B2C**.
-4. Select **User flows (policies)**.
+4. Select **User flows**.
 5. Open the user flow that you previously created.
 6. Select **Properties**.
 7. Configure **Web app session lifetime (minutes)**, **Web app session timeout**, **Single sign-on configuration**, and **Require ID Token in logout requests** as needed.
@@ -42,6 +42,24 @@ You can use the following properties to manage web application sessions:
     ![Session behavior property settings in the Azure portal](./media/session-behavior/session-behavior.png)
 
 8. Click **Save**.
+
+## Configure sign-out behavior
+
+### Secure your logout redirect
+
+After logout, the user is redirected to the URI specified in the `post_logout_redirect_uri` parameter, regardless of the reply URLs that have been specified for the application. However, if a valid `id_token_hint` is passed and the **Require ID Token in logout requests** is turned on, Azure AD B2C verifies that the value of `post_logout_redirect_uri` matches one of the application's configured redirect URIs before performing the redirect. If no matching reply URL was configured for the application, an error message is displayed and the user is not redirected. To require a ID Token in logout requests:
+
+1. Sign in to the [Azure portal](https://portal.azure.com).
+1. Make sure you're using the directory that contains your Azure AD B2C tenant by selecting the **Directory + subscription** filter in the top menu and choosing the directory that contains your Azure AD B2C tenant.
+1. Choose **All services** in the top-left corner of the Azure portal, and then search for and select **Azure AD B2C**.
+1. Select **User flows**.
+1. Open the user flow that you previously created.
+1. Select **Properties**.
+1. Enable the **Require ID Token in logout requests**.
+1. Go back to  **Azure AD B2C**.
+1. Select **App registrations**, and then select your application.
+1. Select **Authentication**.
+1. In the **Logout URL** text box, type your post logout redirect URI, and then select **Save**.
 
 ## Next steps
 

@@ -194,7 +194,7 @@ additionalContent:
             - text: Azure SDK for Go
               url: https://godoc.org/github.com/Azure/azure-sdk-for-go/services/resourcegraph/mgmt/2019-04-01/resourcegraph
             - text: Azure SDK for Java
-              url: /java/api/overview/azure/resourcegraph/management?view=azure-java-stable
+              url: /java/api/overview/azure/resourcegraph/management
             - text: Azure SDK for Java
               url: https://search.maven.org/artifact/com.microsoft.azure.resourcegraph.v2019_04_01/azure-mgmt-resourcegraph/1.0.0-beta/jar
               note: (Maven)

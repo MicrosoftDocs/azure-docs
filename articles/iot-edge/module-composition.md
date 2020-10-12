@@ -33,7 +33,7 @@ At a high level, a deployment manifest is a list of module twins that are config
 
 Two modules are required in every deployment manifest: `$edgeAgent`, and `$edgeHub`. These modules are part of the IoT Edge runtime that manages the IoT Edge device and the modules running on it. For more information about these modules, see [Understand the IoT Edge runtime and its architecture](iot-edge-runtime.md).
 
-In addition to the two runtime modules, you can add up to 20 modules of your own to run on an IoT Edge device.
+In addition to the two runtime modules, you can add up to 50 modules of your own to run on an IoT Edge device.
 
 A deployment manifest that contains only the IoT Edge runtime (edgeAgent and edgeHub) is valid.
 

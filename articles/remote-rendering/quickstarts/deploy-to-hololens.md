@@ -39,7 +39,7 @@ Make sure your credentials are saved properly with the scene and you can connect
 1. Change the configuration to **Release** and **ARM64**
 1. Switch the debugger mode to **Remote Machine**\
     ![Solution configuration](media/unity-deploy-config.png)
-1. Build the solution (F7)
+1. Build the solution
 1. For the project 'Quickstart', go to *Properties > Debugging*
     1. Make sure the configuration *Release* is active
     1. Set *Debugger to Launch* to **Remote Machine**

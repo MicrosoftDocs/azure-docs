@@ -1,14 +1,8 @@
 ---
 title: Post event to custom Azure Event Grid topic
 description: This article describes how to post an event to a custom topic. It shows the format of the post and event data.
-services: event-grid
-author: spelluru
-manager: timlt
-
-ms.service: event-grid
 ms.topic: conceptual
-ms.date: 01/23/2020
-ms.author: spelluru
+ms.date: 07/07/2020
 ---
 
 # Post to custom topic for Azure Event Grid

@@ -1,20 +1,19 @@
 ---
-title: Transform data
+title: Transform data in the designer
 titleSuffix: Azure Machine Learning
 description: Learn how to transform data in Azure Machine Learning designer to create your own datasets.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: how-to
-
 author: peterclu
 ms.author: peterlu
 ms.date: 06/28/2020
-ms.custom: designer
+ms.topic: conceptual
+ms.custom: how-to, designer
 ---
 
-# Transform data in Azure Machine Learning designer (preview)
-[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku.md)]
+# Transform data in Azure Machine Learning designer
+
 
 In this article, you learn how to transform and save datasets in Azure Machine Learning designer so that you can prepare your own data for machine learning.
 
@@ -27,6 +26,8 @@ In this article, you learn how to:
 1. View results.
 
 This how-to is a prerequisite for the [how to retrain designer models](how-to-retrain-designer.md) article. In that article, you will learn how to use the transformed datasets to train multiple models with pipeline parameters.
+
+[!INCLUDE [machine-learning-missing-ui](../../includes/machine-learning-missing-ui.md)]
 
 ## Transform a dataset
 
@@ -106,7 +107,7 @@ Now that your pipeline is set up to split the data, you need to specify where to
     **File format**: csv
 
     > [!NOTE]
-    > This article assumes that you have access to a datastore registered to the current Azure Machine Learning workspace. For instructions on how to setup a datastore, see [Connect to Azure storage services](how-to-access-data.md#azure-machine-learning-studio).
+    > This article assumes that you have access to a datastore registered to the current Azure Machine Learning workspace. For instructions on how to setup a datastore, see [Connect to Azure storage services](how-to-connect-data-ui.md#create-datastores).
 
     If you don't have a datastore, you can create one now. For example purposes, this article will save the datasets to the default blob storage account associated with the workspace. It will save the datasets into the `azureml` container in a new folder called `data`.
 

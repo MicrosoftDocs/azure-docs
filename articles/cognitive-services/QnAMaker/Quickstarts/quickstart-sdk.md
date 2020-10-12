@@ -1,10 +1,12 @@
 ---
 title: "Quickstart: Use SDK to create and manage knowledge base - QnA Maker"
 description: This quickstart shows you how to create and manage your knowledge base using the client SDK.
+ms.service: cognitive-services
+ms.subservice: qna-maker
 ms.topic: quickstart
 ms.date: 06/18/2020
-ms.custom: tracking-python
-zone_pivot_groups: programming-languages-set-six
+ms.custom: "devx-track-python, devx-track-js, devx-track-csharp"
+zone_pivot_groups: programming-languages-set-sixteen
 ---
 
 # Quickstart: QnA Maker client library
@@ -12,15 +14,27 @@ zone_pivot_groups: programming-languages-set-six
 Get started with the QnA Maker client library. Follow these steps to install the package and try out the example code for basic tasks.
 
 ::: zone pivot="programming-language-csharp"
-[!INCLUDE [Get intent with C# and REST](../includes/quickstart-sdk-csharp.md)]
+[!INCLUDE [QnA Maker C# client library quickstart](../includes/quickstart-sdk-csharp.md)]
 ::: zone-end
 
 ::: zone pivot="programming-language-javascript"
-[!INCLUDE [Get intent with Node.js and REST](../includes/quickstart-sdk-nodejs.md)]
+[!INCLUDE [QnA Maker Javascript client library quickstart](../includes/quickstart-sdk-nodejs.md)]
 ::: zone-end
 
 ::: zone pivot="programming-language-python"
-[!INCLUDE [Get intent with Python and REST](../includes/quickstart-sdk-python.md)]
+[!INCLUDE [QnA Maker Python client library quickstart](../includes/quickstart-sdk-python.md)]
+::: zone-end
+
+::: zone pivot="programming-language-java"
+[!INCLUDE [QnA Maker Java client library quickstart](../includes/quickstart-sdk-java.md)]
+::: zone-end
+
+::: zone pivot="programming-language-go"
+[!INCLUDE [QnA Maker Go client library quickstart](../includes/quickstart-sdk-go.md)]
+::: zone-end
+
+::: zone pivot="programming-language-ruby"
+[!INCLUDE [QnA Maker Ruby client library quickstart](../includes/quickstart-sdk-ruby.md)]
 ::: zone-end
 
 ## Clean up resources

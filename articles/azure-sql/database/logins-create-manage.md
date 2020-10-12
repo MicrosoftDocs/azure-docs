@@ -11,7 +11,7 @@ ms.devlang:
 ms.topic: conceptual
 author: VanMSFT
 ms.author: vanto
-ms.reviewer: carlrab
+ms.reviewer: sstein
 ms.date: 03/23/2020
 ---
 # Authorize database access to SQL Database, SQL Managed Instance, and Azure Synapse Analytics
@@ -19,7 +19,7 @@ ms.date: 03/23/2020
 
 In this article, you learn about:
 
-- Options for configuring Azure SQL Database, Azure SQL Managed Instance, and Azure Synapse Analytics (formerly Azure SQL Data Warehouse) to enable users to perform administrative tasks and to access the data stored in these databases.
+- Options for configuring Azure SQL Database, Azure SQL Managed Instance, and Azure Synapse Analytics (formerly SQL Data Warehouse) to enable users to perform administrative tasks and to access the data stored in these databases.
 - The access and authorization configuration after initially creating a new server.
 - How to add logins and user accounts in the master database and user accounts and then grant these accounts administrative permissions.
 - How to add user accounts in user databases, either associated with logins or as contained user accounts.
@@ -104,7 +104,7 @@ You can create accounts for non-administrative users using one of two methods:
   Create a SQL login in the master database. Then create a user account in each database to which that user needs access and associate the user account with that login. This approach is preferred when the user must access multiple databases and you wish to keep the passwords synchronized. However, this approach has complexities when used with geo-replication as the login must be created on both the primary server and the secondary server(s). For more information, see [Configure and manage Azure SQL Database security for geo-restore or failover](active-geo-replication-security-configure.md).
 - **Create a user account**
 
-  Create a user account in the database to which a user needs access (also called a [contained user](/sql/relational-databases/security/contained-database-users-making-your-database-portable).
+  Create a user account in the database to which a user needs access (also called a [contained user](/sql/relational-databases/security/contained-database-users-making-your-database-portable)).
 
   - With SQL Database, you can always create this type of user account.
   - With SQL Managed Instance supporting [Azure AD server principals](authentication-aad-configure.md#create-contained-users-mapped-to-azure-ad-identities), you can create user accounts to authenticate to the SQL Managed Instance without requiring database users to be created as a contained database user.

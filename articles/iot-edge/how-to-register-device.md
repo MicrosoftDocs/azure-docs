@@ -7,7 +7,8 @@ ms.author: kgremban
 ms.date: 01/08/2020
 ms.topic: conceptual
 ms.reviewer: menchi
-ms.service: iot-edge
+ms.service: iot-edge 
+ms.custom: devx-track-azurecli
 services: iot-edge
 ---
 
@@ -107,17 +108,17 @@ You can also select **Get Device Info** from the right-click menu to see all the
 
 ## Register with the Azure CLI
 
-The [Azure CLI](https://docs.microsoft.com/cli/azure?view=azure-cli-latest) is an open-source cross platform command-line tool for managing Azure resources such as IoT Edge. It enables you to manage Azure IoT Hub resources, device provisioning service instances, and linked-hubs out of the box. The IoT extension enriches Azure CLI with features such as device management and full IoT Edge capability.
+The [Azure CLI](/cli/azure) is an open-source cross platform command-line tool for managing Azure resources such as IoT Edge. It enables you to manage Azure IoT Hub resources, device provisioning service instances, and linked-hubs out of the box. The IoT extension enriches Azure CLI with features such as device management and full IoT Edge capability.
 
 ### Prerequisites for the Azure CLI
 
 * An [IoT hub](../iot-hub/iot-hub-create-using-cli.md) in your Azure subscription.
-* [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli) in your environment. At a minimum, your Azure CLI version must be 2.0.70 or above. Use `az --version` to validate. This version supports az extension commands and introduces the Knack command framework.
+* [Azure CLI](/cli/azure/install-azure-cli) in your environment. At a minimum, your Azure CLI version must be 2.0.70 or above. Use `az --version` to validate. This version supports az extension commands and introduces the Knack command framework.
 * The [IoT extension for Azure CLI](https://github.com/Azure/azure-iot-cli-extension).
 
 ### Create an IoT Edge device with the Azure CLI
 
-Use the [az iot hub device-identity create](https://docs.microsoft.com/cli/azure/ext/azure-iot/iot/hub/device-identity?view=azure-cli-latest#ext-azure-iot-az-iot-hub-device-identity-create) command to create a new device identity in your IoT hub. For example:
+Use the [az iot hub device-identity create](/cli/azure/ext/azure-iot/iot/hub/device-identity#ext-azure-iot-az-iot-hub-device-identity-create) command to create a new device identity in your IoT hub. For example:
 
    ```azurecli
    az iot hub device-identity create --device-id [device id] --hub-name [hub name] --edge-enabled
@@ -133,7 +134,7 @@ This command includes three parameters:
 
 ### View IoT Edge devices with the Azure CLI
 
-Use the [az iot hub device-identity list](https://docs.microsoft.com/cli/azure/ext/azure-iot/iot/hub/device-identity?view=azure-cli-latest#ext-azure-iot-az-iot-hub-device-identity-list) command to view all devices in your IoT hub. For example:
+Use the [az iot hub device-identity list](/cli/azure/ext/azure-iot/iot/hub/device-identity#ext-azure-iot-az-iot-hub-device-identity-list) command to view all devices in your IoT hub. For example:
 
    ```azurecli
    az iot hub device-identity list --hub-name [hub name]
@@ -143,10 +144,10 @@ Any device that is registered as an IoT Edge device will have the property **cap
 
 ### Retrieve the connection string with the Azure CLI
 
-When you're ready to set up your device, you need the connection string that links your physical device with its identity in the IoT hub. Use the [az iot hub device-identity show-connection-string](https://docs.microsoft.com/cli/azure/ext/azure-iot/iot/hub/device-identity?view=azure-cli-latest#ext-azure-iot-az-iot-hub-device-identity-show-connection-string) command to return the connection string for a single device:
+When you're ready to set up your device, you need the connection string that links your physical device with its identity in the IoT hub. Use the [az iot hub device-identity connection-string show](/cli/azure/ext/azure-iot/iot/hub/device-identity/connection-string#ext_azure_iot_az_iot_hub_device_identity_connection_string_show) command to return the connection string for a single device:
 
    ```azurecli
-   az iot hub device-identity show-connection-string --device-id [device id] --hub-name [hub name]
+   az iot hub device-identity connection-string show --device-id [device id] --hub-name [hub name]
    ```
 
 The value for the `device-id` parameter is case-sensitive. Don't copy the quotation marks around the connection string.

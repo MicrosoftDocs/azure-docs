@@ -2,8 +2,8 @@
 title: Use the Shared Image Gallery to create a custom image pool
 description: Custom image pools are an efficient way to configure compute nodes to run your Batch workloads.
 ms.topic: conceptual
-ms.date: 07/01/2020
-ms.custom: tracking-python
+ms.date: 09/15/2020
+ms.custom: devx-track-python
 ---
 
 # Use the Shared Image Gallery to create a custom image pool
@@ -25,7 +25,7 @@ Using a Shared Image configured for your scenario can provide several advantages
 - **Pre-install applications.** Pre-installing applications on the OS disk is more efficient and less error-prone than installing applications after provisioning the compute nodes with a start task.
 - **Copy large amounts of data once.** Make static data part of the managed Shared Image by copying it to a managed image's data disks. This only needs to be done once and makes data available to each node of the pool.
 - **Grow pools to larger sizes.** With the Shared Image Gallery, you can create larger pools with your customized images along with more Shared Image replicas.
-- **Better performance than using just a managed image as a custom image.** For a Shared Image custom image pool, the time to reach the steady state is up to 25% fasterm and the VM idle latency is up to 30% shorter.
+- **Better performance than using just a managed image as a custom image.** For a Shared Image custom image pool, the time to reach the steady state is up to 25% faster, and the VM idle latency is up to 30% shorter.
 - **Image versioning and grouping for easier management.** The image grouping definition contains information about why the image was created, what OS it is for, and information about using the image. Grouping images allows for easier image management. For more information, see [Image definitions](../virtual-machines/windows/shared-image-galleries.md#image-definitions).
 
 ## Prerequisites
@@ -38,7 +38,9 @@ Using a Shared Image configured for your scenario can provide several advantages
 - **A Shared Image Gallery image**. To create a Shared Image, you need to have or create a managed image resource. The image should be created from snapshots of the VM's OS disk and optionally its attached data disks.
 
 > [!NOTE]
-> Your Shared Image must be in the same subscription as the Batch account. The image can be in different regions as long as it has replicas in the same region as your Batch account.
+> If the Shared Image is not in the same subscription as the Batch account, you must [register the Microsoft.Batch resource provider](../azure-resource-manager/management/resource-providers-and-types.md#register-resource-provider) for that subscription. The two subscriptions must be in the same Azure AD tenant.
+>
+> The image can be in a different region as long as it has replicas in the same region as your Batch account.
 
 If you use an Azure AD application to create a custom image pool with a Shared Image Gallery image, that application must have been granted an [Azure built-in role](../role-based-access-control/rbac-and-directory-admin-roles.md#azure-roles) that gives it access to the the Shared Image. You can grant this access in the Azure portal by navigating to the Shared Image, selecting **Access control (IAM)** and adding a role assignment for the application.
 
@@ -78,7 +80,7 @@ To create a managed image from a snapshot, use Azure command-line tools such as 
 
 ### Create a Shared Image Gallery
 
-Once you have successfully created your managed image, you need to create a Shared Image Gallery to make your custom image available. To learn how to create a Shared Image Gallery for your images, see [Create a Shared Image Gallery with Azure CLI](../virtual-machines/linux/shared-images.md) or [Create a Shared Image Gallery using the Azure portal](../virtual-machines/linux/shared-images-portal.md).
+Once you have successfully created your managed image, you need to create a Shared Image Gallery to make your custom image available. To learn how to create a Shared Image Gallery for your images, see [Create a Shared Image Gallery with Azure CLI](../virtual-machines/shared-images-cli.md) or [Create a Shared Image Gallery using the Azure portal](../virtual-machines/linux/shared-images-portal.md).
 
 ## Create a pool from a Shared Image using the Azure CLI
 

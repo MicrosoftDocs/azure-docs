@@ -4,7 +4,7 @@ description: Learn how to use the CLI to deploy Azure Spot VMs to save costs.
 author: cynthn
 ms.service: virtual-machines
 ms.workload: infrastructure-services
-ms.topic: article
+ms.topic: how-to
 ms.date: 06/26/2020
 ms.author: cynthn
 ms.reviewer: jagaveer
@@ -16,9 +16,9 @@ Using [Azure Spot VMs](spot-vms.md) allows you to take advantage of our unused c
 
 Pricing for Spot VMs is variable, based on region and SKU. For more information, see VM pricing for [Linux](https://azure.microsoft.com/pricing/details/virtual-machines/linux/) and [Windows](https://azure.microsoft.com/pricing/details/virtual-machines/windows/). 
 
-You have option to set a max price you are willing to pay, per hour, for the VM. The max price for a Spot VM can be set in US dollars (USD), using up to 5 decimal places. For example, the value `0.98765`would be a max price of $0.98765 USD per hour. If you set the max price to be `-1`, the VM won't be evicted based on price. The price for the VM will be the current price for Spot or the price for a standard VM, which ever is less, as long as there is capacity and quota available. For more information about setting the max price, see [Spot VMs - Pricing](spot-vms.md#pricing).
+You have option to set a max price you are willing to pay, per hour, for the VM. The max price for a Spot VM can be set in US dollars (USD), using up to 5 decimal places. For example, the value `0.98765`would be a max price of $0.98765 USD per hour. If you set the max price to be `-1`, the VM won't be evicted based on price. The price for the VM will be the current price for Spot or the price for a standard VM, which ever is less, as long as there is capacity and quota available. For more information about setting the max price, see [Spot VMs - Pricing](../spot-vms.md#pricing).
 
-The process to create a VM with Spot using the Azure CLI is the same as detailed in the [quickstart article](/azure/virtual-machines/linux/quick-create-cli). Just add the '--priority Spot' parameter, set the `--eviction-policy` to either Deallocate (this is the default) or `Delete`, and provide a max price or `-1`. 
+The process to create a VM with Spot using the Azure CLI is the same as detailed in the [quickstart article](./quick-create-cli.md). Just add the '--priority Spot' parameter, set the `--eviction-policy` to either Deallocate (this is the default) or `Delete`, and provide a max price or `-1`. 
 
 
 ## Install Azure CLI
@@ -59,8 +59,25 @@ az vm list \
    --output table
 ```
 
+## Simulate an eviction
+
+You can [simulate an eviction](/rest/api/compute/virtualmachines/simulateeviction) of a Spot VM, to testing how well your application will repond to a sudden eviction. 
+
+Replace the following with your information: 
+
+- `subscriptionId`
+- `resourceGroupName`
+- `vmName`
+
+
+```http
+POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/virtualMachines/{vmName}/simulateEviction?api-version=2020-06-01
+```
+
 **Next steps**
 
-You can also create a Spot VM using [Azure PowerShell](../windows/spot-powershell.md), [portal](../windows/spot-portal.md), or a [template](spot-template.md).
+You can also create a Spot VM using [Azure PowerShell](../windows/spot-powershell.md), [portal](../spot-portal.md), or a [template](spot-template.md).
+
+Query current pricing information using the [Azure retail prices API](/rest/api/cost-management/retail-prices/azure-retail-prices) for information about Spot pricing. The `meterName` and `skuName` will both contain `Spot`.
 
 If you encounter an error, see [Error codes](../error-codes-spot.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).

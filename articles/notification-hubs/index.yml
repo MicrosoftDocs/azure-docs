@@ -55,7 +55,7 @@ landingContent:
           - text: Send push notifications to all registered Android devices
             url: notification-hubs-android-push-notification-google-fcm-get-started.md
           - text: Send push notifications to Swift iOS apps
-            url: notification-hubs-ios-push-notifications-swift-apps-get-started.md
+            url: ./ios-sdk-get-started.md
       - linkListType: how-to-guide
         links:
           - text: Send cross-platform notifications
@@ -95,4 +95,4 @@ landingContent:
           - text: Support options
             url: https://azure.microsoft.com/support/options/
           - text: Microsoft Q&A question page
-            url: https://docs.microsoft.com/answers/topics/azure-notification-hubs.html
+            url: /answers/topics/azure-notification-hubs.html

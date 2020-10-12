@@ -1,4 +1,4 @@
-- name: Azure IoT Edge Documentation
+- name: Azure IoT Edge documentation
   href: index.yml
 - name: Overview
   items:
@@ -101,6 +101,8 @@
       href: iot-edge-security-manager.md
     - name: IoT Edge certificates
       href: iot-edge-certs.md
+    - name: Confidential computing
+      href: deploy-trusted-applications.md
   - name: Platform support
     href: support.md
   - name: Production deployment checklist
@@ -207,12 +209,14 @@
       href: ../azure-sql-edge/deploy-portal.md?toc=/azure/iot-edge/toc.json&bc=/azure/iot-edge/breadcrumb/toc.json
   - name: Manage with DevOps tools
     items:
-    - name: Azure DevOps Projects
-      href: how-to-devops-project.md
+    - name: Azure DevOps Starter
+      href: how-to-devops-starter.md
     - name: Azure DevOps
-      href: how-to-ci-cd.md
-    - name: IoT Edge plugin for Jenkins
-      href: how-to-devops-plugins.md
+      items:
+      - name: YAML
+        href: how-to-continuous-integration-continuous-deployment.md
+      - name: Classic editor
+        href: how-to-continuous-integration-continuous-deployment-classic.md
   - name: Troubleshoot
     items:
     - name: Standard diagnostic steps

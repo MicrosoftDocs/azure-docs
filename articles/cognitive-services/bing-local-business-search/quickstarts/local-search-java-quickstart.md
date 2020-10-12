@@ -1,7 +1,7 @@
 ---
 title: Quickstart - Send a query to the API using Java - Bing Local Business Search
 titleSuffix: Azure Cognitive Services
-description: Use this quickstart to begin sending requests to the Bing Local Business Search API, which is an Azure Cognitive Service.
+description: Use this quickstart to begin sending requests in Java to the Bing Local Business Search API, which is an Azure Cognitive Service.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -9,6 +9,7 @@ ms.service: cognitive-services
 ms.subservice: bing-local-business
 ms.topic: quickstart
 ms.date: 05/12/2020
+ms.custom: devx-track-java
 ms.author: aahi
 ---
 

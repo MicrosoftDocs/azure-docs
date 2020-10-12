@@ -26,15 +26,23 @@ In addition to managing your Azure Digital Twins instance in the Azure portal, A
 * Managing [routes](concepts-route-events.md)
 * Configuring [security](concepts-security.md) via role-based access control (RBAC)
 
-The Azure Digital Twins commands are part of the [Azure IoT extension for Azure CLI](https://github.com/Azure/azure-iot-cli-extension). You can view the reference documentation for these commands as part of the `az iot` command set: [az dt](https://docs.microsoft.com/cli/azure/ext/azure-iot/dt?view=azure-cli-latest).
+[!INCLUDE [digital-twins-known-issue-cloud-shell](../../includes/digital-twins-known-issue-cloud-shell.md)]
 
-## Deploy and validate
+## Uses (deploy and validate)
 
 In addition to generally managing your instance, the CLI is also a useful tool for deployment and validation.
 * The control plane commands can be used to make the deployment of a new instance repeatable or automated.
 * The data plane commands can be used to quickly check values in your instance, and verify that operations completed as expected.
 
+## Get the extension
+
+The Azure Digital Twins commands are part of the [Azure IoT extension for Azure CLI](https://github.com/Azure/azure-iot-cli-extension). You can view the full list of commands and their usage as part of the reference documentation for the `az iot` command set: [*az dt* command reference](https://docs.microsoft.com/cli/azure/ext/azure-iot/dt?view=azure-cli-latest&preserve-view=true).
+
+You can make sure you have the latest version of the extension with these steps. You can run these commands in the [Azure Cloud Shell](../cloud-shell/overview.md) or a [local Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest&preserve-view=true).
+
+[!INCLUDE [digital-twins-cloud-shell-extensions.md](../../includes/digital-twins-cloud-shell-extensions.md)]
+
 ## Next steps
 
-For an alternative to CLI commands, see how to manage an Azure Digital Twins instance using APIs and SDKs:
-* [How-to: Use the Azure Digital Twins APIs and SDKs](how-to-use-apis-sdks.md)
+Explore the CLI and its full set of commands through the reference docs:
+* [*az dt* command reference](https://docs.microsoft.com/cli/azure/ext/azure-iot/dt?view=azure-cli-latest&preserve-view=true)

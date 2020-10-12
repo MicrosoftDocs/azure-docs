@@ -11,6 +11,7 @@ ms.topic: conceptual
 ms.date: 05/19/2020
 ms.author: trbye
 zone_pivot_groups: programming-languages-speech-services-nomore-variant
+ms.custom: "devx-track-js, devx-track-csharp"
 ---
 
 # Automatic language detection for speech to text
@@ -20,7 +21,7 @@ Automatic language detection is used to determine the most likely match for audi
 In this article, you'll learn how to use `AutoDetectSourceLanguageConfig` to construct a `SpeechRecognizer` object and retrieve the detected language.
 
 > [!IMPORTANT]
-> This feature is only available for the Speech SDK with C#, C++, Java, Python, and Objective-C.
+> This feature is only available for the Speech SDK with C#, C++, Java, Python, JavaScript and Objective-C.
 
 ## Automatic language detection with the Speech SDK
 
@@ -61,7 +62,8 @@ auto autoDetectSourceLanguageConfig =
 auto recognizer = SpeechRecognizer::FromConfig(
     speechConfig,
     autoDetectSourceLanguageConfig,
-    audioConfig);
+    audioConfig
+    );
 
 speechRecognitionResult = recognizer->RecognizeOnceAsync().get();
 auto autoDetectSourceLanguageResult =
@@ -134,7 +136,7 @@ NSString *detectedLanguage = [languageDetectionResult language];
 
 ```Javascript
 var autoDetectConfig = SpeechSDK.AutoDetectSourceLanguageConfig.fromLanguages(["en-US", "de-DE"]);
-var speechRecognizer = SpeechSDK.SpeechRecognizer.FromConfig(speechConfig, audioConfig, autoDetectConfig);
+var speechRecognizer = SpeechSDK.SpeechRecognizer.FromConfig(speechConfig, autoDetectConfig, audioConfig);
 speechRecognizer.recognizeOnceAsync((result: SpeechSDK.SpeechRecognitionResult) => {
         var languageDetectionResult = SpeechSDK.AutoDetectSourceLanguageResult.fromResult(result);
         var detectedLanguage = languageDetectionResult.language;
@@ -234,4 +236,24 @@ var autoDetectConfig = SpeechSDK.AutoDetectSourceLanguageConfig.fromSourceLangua
 
 ## Next steps
 
-- [Speech SDK reference documentation](speech-sdk.md)
+::: zone pivot="programming-language-csharp"
+* See the [sample code](https://github.com/Azure-Samples/cognitive-services-speech-sdk/blob/master/samples/csharp/sharedcontent/console/speech_recognition_samples.cs#L741) on GitHub for automatic language detection
+::: zone-end
+
+::: zone pivot="programming-language-cpp"
+* See the [sample code](https://github.com/Azure-Samples/cognitive-services-speech-sdk/blob/master/samples/cpp/windows/console/samples/speech_recognition_samples.cpp#L507) on GitHub for automatic language detection
+::: zone-end
+
+::: zone pivot="programming-language-java"
+* See the [sample code](https://github.com/Azure-Samples/cognitive-services-speech-sdk/blob/master/samples/java/jre/console/src/com/microsoft/cognitiveservices/speech/samples/console/SpeechRecognitionSamples.java#L521) on GitHub for automatic language detection
+::: zone-end
+
+::: zone pivot="programming-language-python"
+* See the [sample code](https://github.com/Azure-Samples/cognitive-services-speech-sdk/blob/master/samples/python/console/speech_synthesis_sample.py#L434) on GitHub for automatic language detection
+::: zone-end
+
+::: zone pivot="programming-language-objectivec"
+* See the [sample code](https://github.com/Azure-Samples/cognitive-services-speech-sdk/blob/master/samples/objective-c/ios/speech-samples/speech-samples/ViewController.m#L494) on GitHub for automatic language detection
+::: zone-end
+
+* [Speech SDK reference documentation](speech-sdk.md)

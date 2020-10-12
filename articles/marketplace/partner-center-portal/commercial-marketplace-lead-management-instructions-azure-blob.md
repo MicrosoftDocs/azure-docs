@@ -1,12 +1,12 @@
 ---
 title: Lead management with Azure Blob storage  - Microsoft commercial marketplace
 description: Learn how to use Azure Blob to configure leads for Microsoft AppSource and Azure Marketplace
-author: qianw211
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
+author: keferna
+ms.author: keferna
 ms.date: 05/01/2020
-ms.author: dsindona
 ---
 
 # Use Azure Blob storage to manage commercial marketplace leads

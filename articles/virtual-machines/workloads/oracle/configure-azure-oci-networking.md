@@ -2,8 +2,8 @@
 title: Connect Azure ExpressRoute with Oracle Cloud Infrastructure | Microsoft Docs
 description: Connect Azure ExpressRoute with Oracle Cloud Infrastructure (OCI) FastConnect to enable cross-cloud Oracle application solutions
 documentationcenter: virtual-machines
-author: BorisB2015
-manager: gwallace
+author: dbakevlar
+manager: 
 editor: 
 tags: azure-resource-manager
 
@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 03/16/2020
-ms.author: borisb
+ms.author: rogardle
 ---
 
 # Set up a direct interconnection between Azure and Oracle Cloud Infrastructure  
@@ -93,7 +93,7 @@ Installing agents on both the clouds, you can leverage Azure [Network Performanc
 
 To delete the interconnect, the following steps must be followed, in the specific order given. Failure to do so will result in a "failed state" ExpressRoute circuit.
 
-1. Delete the ExpressRoute connection. Delete the connection by clicking the **Delete** icon on the page for your connection. For more information, see the [ExpressRoute documentation](../../../expressroute/expressroute-howto-linkvnet-portal-resource-manager.md#delete-a-connection-to-unlink-a-vnet).
+1. Delete the ExpressRoute connection. Delete the connection by clicking the **Delete** icon on the page for your connection. For more information, see the [ExpressRoute documentation](../../../expressroute/expressroute-howto-linkvnet-portal-resource-manager.md#clean-up-resources).
 1. Delete the Oracle FastConnect from the Oracle Cloud Console.
 1. Once the Oracle FastConnect circuit has been deleted, you can delete the Azure ExpressRoute circuit.
 

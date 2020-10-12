@@ -10,6 +10,7 @@ ms.subservice: bing-web-search
 ms.topic: tutorial
 ms.date: 03/05/2020
 ms.author: aahi
+ms.custom: devx-track-js
 ---
 
 # Tutorial: Create a single-page app using the Bing Web Search API
@@ -437,7 +438,7 @@ Browser security policies, such as Cross-Origin Resource Sharing (CORS), may pre
 > [!NOTE]
 > In a production Web application, you should perform the request server-side anyway. Otherwise, your Bing Search API subscription key must be included in the web page, where it's available to anyone who views source. You are billed for all usage under your API subscription key, even requests made by unauthorized parties, so it is important not to expose your key.
 
-For development purposes, you can make a request through a CORS proxy. The response from this type of proxy has an `Access-Control-Expose-Headers` header that whitelists response headers and makes them available to JavaScript.
+For development purposes, you can make a request through a CORS proxy. The response from this type of proxy has an `Access-Control-Expose-Headers` header that filters response headers and makes them available to JavaScript.
 
 It's easy to install a CORS proxy to allow our sample app to access the client ID header. Run this command:
 

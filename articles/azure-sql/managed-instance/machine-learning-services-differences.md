@@ -9,7 +9,7 @@ ms.devlang:
 ms.topic: conceptual
 author: garyericson
 ms.author: garye
-ms.reviewer: carlrab, davidph
+ms.reviewer: sstein, davidph
 manager: cgronlun
 ms.date: 05/27/2020
 ---
@@ -38,7 +38,7 @@ Machine Learning Services in SQL Managed Instance and SQL Server support both Py
 
 - The initial versions of Python and R are different between Machine Learning Services in SQL Managed Instance and SQL Server:
 
-  |                      | Python | R     |
+  | System               | Python | R     |
   |----------------------|--------|-------|
   | SQL Managed Instance | 3.7.1  | 3.5.2 |
   | SQL Server           | 3.5.2  | 3.3.3 |

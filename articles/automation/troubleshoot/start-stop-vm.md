@@ -93,7 +93,7 @@ This error can be caused by one of the following reasons:
 
 Review the following list for potential resolutions:
 
-* Check that you've properly configured a schedule for Start/Stop VMs during off-hours. To learn how to configure a schedule, see [Schedules](../automation-schedules.md).
+* Check that you've properly configured a schedule for Start/Stop VMs during off-hours. To learn how to configure a schedule, see [Schedules](../shared-resources/schedules.md).
 
 * Check the [job streams](../automation-runbook-execution.md#job-statuses) to look for any errors. Look for jobs from one of the following runbooks:
 

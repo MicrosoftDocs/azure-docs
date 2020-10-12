@@ -4,19 +4,20 @@ description: Learn about SQL system function GetCurrentDateTime in Azure Cosmos 
 author: ginamr
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 09/13/2019
+ms.date: 08/18/2020
 ms.author: girobins
 ms.custom: query-reference
 ---
 # GetCurrentDateTime (Azure Cosmos DB)
- Returns the current UTC (Coordinated Universal Time) date and time as an ISO 8601 string.
+
+Returns the current UTC (Coordinated Universal Time) date and time as an ISO 8601 string.
   
 ## Syntax
   
 ```sql
 GetCurrentDateTime ()
 ```
-  
+
 ## Return types
   
   Returns the current UTC date and time ISO 8601 string value in the format `YYYY-MM-DDThh:mm:ss.fffffffZ` where:
@@ -37,15 +38,13 @@ GetCurrentDateTime ()
 
 ## Remarks
 
-  GetCurrentDateTime() is a nondeterministic function. 
-  
-  The result returned is UTC.
+GetCurrentDateTime() is a nondeterministic function. The result returned is UTC. Precision is 7 digits, with an accuracy of 100 nanoseconds.
 
-  Precision is 7 digits, with an accuracy of 100 nanoseconds.
+This system function will not utilize the index.
 
 ## Examples
   
-  The following example shows how to get the current UTC Date Time using the GetCurrentDateTime() built-in function.
+The following example shows how to get the current UTC Date Time using the GetCurrentDateTime() built-in function.
   
 ```sql
 SELECT GetCurrentDateTime() AS currentUtcDateTime

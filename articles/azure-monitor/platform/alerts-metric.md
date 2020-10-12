@@ -4,7 +4,7 @@ description: Learn how to use Azure portal or CLI to create, view, and manage me
 author: harelbr
 ms.author: harelbr
 ms.topic: conceptual
-ms.date: 03/13/2020
+ms.date: 08/11/2020
 ms.subservice: alerts
 ---
 # Create, view, and manage metric alerts using Azure Monitor
@@ -26,7 +26,7 @@ The following procedure describes how to create a metric alert rule in Azure por
 
 3. Click **Select target**, in the context pane that loads, select a target resource that you want to alert on. Use **Subscription** and **Resource type** drop-downs to find the resource you want to monitor. You can also use the search bar to find your resource.
 
-4. If the selected resource has metrics you can create alerts on, **Available signals** on the bottom right will include metrics. You can view the full list of resource types supported for metric alerts in this [article](../../azure-monitor/platform/alerts-metric-near-real-time.md#metrics-and-dimensions-supported).
+4. If the selected resource has metrics you can create alerts on, **Available signals** on the bottom right will include metrics. You can view the full list of resource types supported for metric alerts in this [article](./alerts-metric-near-real-time.md#metrics-and-dimensions-supported).
 
 5. Once you have selected a target resource, click on **Add condition**.
 
@@ -82,9 +82,10 @@ You can view and manage metric alert rules using the Manage Rules blade under Al
 
 6. Click **Done** to save your edits.
 
+
 ## With Azure CLI
 
-The previous sections described how to create, view, and manage metric alert rules using Azure portal. This section will describe how to do the same using cross-platform [Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli?view=azure-cli-latest). Quickest way to start using Azure CLI is through [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview?view=azure-cli-latest). For this article, we will use Cloud Shell.
+The previous sections described how to create, view, and manage metric alert rules using Azure portal. This section will describe how to do the same using cross-platform [Azure CLI](/cli/azure/get-started-with-azure-cli?view=azure-cli-latest). Quickest way to start using Azure CLI is through [Azure Cloud Shell](../../cloud-shell/overview.md?view=azure-cli-latest). For this article, we will use Cloud Shell.
 
 1. Go to Azure portal, click on **Cloud Shell**.
 
@@ -128,10 +129,27 @@ The previous sections described how to create, view, and manage metric alert rul
     az monitor metrics alert delete -g {ResourceGroup} -n {AlertRuleName}
     ```
 
+## With PowerShell
+
+Metric alert rules have dedicated PowerShell cmdlets available:
+
+- [Add-AzMetricAlertRuleV2](/powershell/module/az.monitor/add-azmetricalertrulev2): Create a new metric alert rule or update an existing one.
+- [Get-AzMetricAlertRuleV2](/powershell/module/az.monitor/get-azmetricalertrulev2): Get one or more metric alert rules.
+- [Remove-AzMetricAlertRuleV2](/powershell/module/az.monitor/remove-azmetricalertrulev2): Delete a metric alert rule.
+
+## With REST API
+
+- [Create Or Update](/rest/api/monitor/metricalerts/createorupdate): Create a new metric alert rule or update an existing one.
+- [Get](/rest/api/monitor/metricalerts/get): Get a specific metric alert rule.
+- [List By Resource Group](/rest/api/monitor/metricalerts/listbyresourcegroup): Get a list of metric alert rules in a specific resource group.
+- [List By Subscription](/rest/api/monitor/metricalerts/listbysubscription): Get a list of metric alert rules in a specific subscription.
+- [Update](/rest/api/monitor/metricalerts/update): Update a metric alert rule.
+- [Delete](/rest/api/monitor/metricalerts/delete): Delete a metric alert rule.
+
 ## Next steps
 
-- [Create metric alerts using Azure Resource Manager Templates](../../azure-monitor/platform/alerts-metric-create-templates.md).
+- [Create metric alerts using Azure Resource Manager Templates](./alerts-metric-create-templates.md).
 - [Understand how metric alerts work](alerts-metric-overview.md).
 - [Understand how metric alerts with Dynamic Thresholds condition work](alerts-dynamic-thresholds.md).
-- [Understand the web hook schema for metric alerts](../../azure-monitor/platform/alerts-metric-near-real-time.md#payload-schema)
+- [Understand the web hook schema for metric alerts](./alerts-metric-near-real-time.md#payload-schema)
 

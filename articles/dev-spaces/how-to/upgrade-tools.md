@@ -2,7 +2,8 @@
 title: "How to upgrade Azure Dev Spaces tools"
 services: azure-dev-spaces
 ms.date: "07/03/2018"
-ms.topic: "conceptual"
+ms.topic: "conceptual" 
+ms.custom: devx-track-azurecli
 description: "Learn how to upgrade the Azure Dev Spaces command line tools, Visual Studio Code extension, and Visual Studio extension"
 keywords: "Docker, Kubernetes, Azure, AKS, Azure Container Service, containers"
 ---
@@ -35,4 +36,4 @@ Azure Dev Spaces is part of the Azure Development workload and is included in al
 
 ## Next steps
 
-Test out the new tools by creating a new cluster. Try the quickstarts and tutorials at [Azure Dev Spaces](/azure/dev-spaces).
+Test out the new tools by creating a new cluster. Try the quickstarts and tutorials at [Azure Dev Spaces](../index.yml).

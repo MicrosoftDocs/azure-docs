@@ -1,6 +1,6 @@
 ---
 title: Azure VM extensions and features for Linux 
-description: Learn what extensions are available for Azure virtual machines, grouped by what they provide or improve.
+description: Learn what extensions are available for Azure virtual machines on Linux, grouped by what they provide or improve.
 services: virtual-machines-linux
 documentationcenter: ''
 author: axayjo
@@ -28,7 +28,7 @@ This article provides an overview of VM extensions, prerequisites for using Azur
 Several different Azure VM extensions are available, each with a specific use case. Some examples include:
 
 - Apply PowerShell Desired State configurations to a VM with the DSC extension for Linux. For more information, see [Azure Desired State configuration extension](https://github.com/Azure/azure-linux-extensions/tree/master/DSC).
-- Configure monitoring of a VM with the Microsoft Monitoring Agent VM extension. For more information, see [How to monitor a Linux VM](../linux/tutorial-monitoring.md).
+- Configure monitoring of a VM with the Microsoft Monitoring Agent VM extension. For more information, see [How to monitor a Linux VM](../linux/tutorial-monitor.md).
 - Configure monitoring of your Azure infrastructure with the Chef or Datadog extension. For more information, see the [Chef docs](https://docs.chef.io/azure_portal.html) or [Datadog blog](https://www.datadoghq.com/blog/introducing-azure-monitoring-with-one-click-datadog-deployment/).
 
 In addition to process-specific extensions, a Custom Script extension is available for both Windows and Linux virtual machines. The Custom Script extension for Linux allows any Bash script to be run on a VM. Custom scripts are useful for designing Azure deployments that require configuration beyond what native Azure tooling can provide. For more information, see [Linux VM Custom Script extension](custom-script-linux.md).
@@ -61,7 +61,7 @@ Extension packages are downloaded from the Azure Storage extension repository, a
 > [!IMPORTANT]
 > If you have blocked access to *168.63.129.16* using the guest firewall, then extensions fail irrespective of the above.
 
-Agents can only be used to download extension packages and reporting status. For example, if an extension install needs to download a script from GitHub (Custom Script) or needs access to Azure Storage (Azure Backup), then additional firewall/Network Security Group ports need to be opened. Different extensions have different requirements, since they are applications in their own right. For extensions that require access to Azure Storage, you can allow access using Azure NSG Service Tags for [Storage](https://docs.microsoft.com/azure/virtual-network/security-overview#service-tags).
+Agents can only be used to download extension packages and reporting status. For example, if an extension install needs to download a script from GitHub (Custom Script) or needs access to Azure Storage (Azure Backup), then additional firewall/Network Security Group ports need to be opened. Different extensions have different requirements, since they are applications in their own right. For extensions that require access to Azure Storage, you can allow access using Azure NSG Service Tags for [Storage](../../virtual-network/security-overview.md#service-tags).
 
 To redirect agent traffic requests, the Linux Agent has proxy server support. However, this proxy server support does not apply extensions. You must configure each individual extension to work with a proxy.
 
@@ -111,7 +111,7 @@ The following image shows the installation of the Linux Custom Script extension 
 
 ### Azure Resource Manager templates
 
-VM extensions can be added to an Azure Resource Manager template and executed with the deployment of the template. When you deploy an extension with a template, you can create fully configured Azure deployments. For example, the following JSON is taken from a Resource Manager template that deploys a set of load-balanced VMs and an Azure SQL database, then installs a .NET Core application on each VM. The VM extension takes care of the software installation.
+VM extensions can be added to an Azure Resource Manager template and executed with the deployment of the template. When you deploy an extension with a template, you can create fully configured Azure deployments. For example, the following JSON is taken from a Resource Manager template that deploys a set of load-balanced VMs and Azure SQL Database, then installs a .NET Core application on each VM. The VM extension takes care of the software installation.
 
 For more information, see the full [Resource Manager template](https://github.com/Microsoft/dotnet-core-sample-templates/tree/master/dotnet-core-music-linux).
 
@@ -255,7 +255,7 @@ In the preceding example output, the parent or 'package deployed version' is *WA
 
 The 'Goal state agent' is the auto update version.
 
-It is highly recommended that you always have auto update for the agent, [AutoUpdate.Enabled=y](https://docs.microsoft.com/azure/virtual-machines/linux/update-agent). Not having this enabled means you need to keep manually updating the agent, and not get bug and security fixes.
+It is highly recommended that you always have auto update for the agent, [AutoUpdate.Enabled=y](./update-linux-agent.md). Not having this enabled means you need to keep manually updating the agent, and not get bug and security fixes.
 
 #### Extension updates
 

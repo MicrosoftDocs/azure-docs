@@ -7,10 +7,10 @@ author: MashaMSFT
 tags: azure-resource-manager
 ms.service: virtual-machines-sql
 ms.devlang: na
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-ms.date: 10/21/2019
+ms.date: 09/21/2020
 ms.author: mathoma
 ms.reviewer: jroth
 
@@ -19,6 +19,10 @@ ms.reviewer: jroth
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
 
 This article describes how to register your SQL Server virtual machines (VMs) in bulk in Azure with the SQL VM resource provider by using the `Register-SqlVMs` PowerShell cmdlet.
+
+This article teaches you to register SQL Server VMs in bulk. Alternatively, you can register [all SQL Server VMs automatically](sql-vm-resource-provider-automatic-registration.md) or [individual SQL Server VMs](sql-vm-resource-provider-register.md). 
+
+## Overview
 
 The `Register-SqlVMs` cmdlet can be used to register all virtual machines in a given list of subscriptions, resource groups, or a list of specific virtual machines. The cmdlet will register the virtual machines in _lightweight_ management mode, and then generate both a [report and a log file](#output-description). 
 
@@ -31,7 +35,7 @@ For more information about the resource provider, see [SQL VM resource provider]
 To register your SQL Server VM with the resource provider, you'll need the following: 
 
 - An [Azure subscription](https://azure.microsoft.com/free/) that has been [registered with the resource provider](sql-vm-resource-provider-register.md#register-subscription-with-rp) and contains unregistered SQL Server virtual machines. 
-- The client credentials used to register the virtual machines exist in any of the following RBAC roles: **Virtual Machine contributor**, **Contributor**, or **Owner**. 
+- The client credentials used to register the virtual machines exist in any of the following Azure roles: **Virtual Machine contributor**, **Contributor**, or **Owner**. 
 - The latest version of [Az PowerShell](/powershell/azure/new-azureps-module-az). 
 - The latest version of [Az.SqlVirtualMachine](https://www.powershellgallery.com/packages/Az.SqlVirtualMachine/0.1.0).
 
@@ -129,7 +133,7 @@ Please find the detailed report in file RegisterSqlVMScriptReport1571314821.txt
 Please find the error details in file VMsNotRegisteredDueToError1571314821.log
 ```
 
-## Resister all VMs in a resource group
+## Register all VMs in a resource group
 
 Use the following cmdlet to register all SQL Server virtual machines in a single resource group: 
 

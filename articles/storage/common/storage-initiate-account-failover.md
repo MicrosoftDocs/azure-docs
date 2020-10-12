@@ -10,7 +10,8 @@ ms.topic: how-to
 ms.date: 06/11/2020
 ms.author: tamram
 ms.reviewer: artek
-ms.subservice: common
+ms.subservice: common 
+ms.custom: devx-track-azurepowershell
 ---
 
 # Initiate a storage account failover

@@ -73,11 +73,14 @@ You can configure auditing for different types of actions and action groups usin
 Azure SQL Database and Azure Synapse Audit stores 4000 characters of data for character fields in an audit record. When the **statement** or the **data_sensitivity_information** values returned from an auditable action contain more than 4000 characters, any data beyond the first 4000 characters will be **truncated and not audited**.
 The following section describes the configuration of auditing using the Azure portal.
 
+  > [!NOTE]
+  > Enabling auditing on a paused Synapse SQL pool is not possible. To enable auditing, un-pause the Synapse SQL pool. Learn more about [Synapse SQL pool](https://docs.microsoft.com/azure/synapse-analytics/sql/best-practices-sql-pool).
+
 1. Go to the [Azure portal](https://portal.azure.com).
 2. Navigate to **Auditing** under the Security heading in your **SQL database** or **SQL server** pane.
 3. If you prefer to set up a server auditing policy, you can select the **View server settings** link on the database auditing page. You can then view or modify the server auditing settings. Server auditing policies apply to all existing and newly created databases on this server.
 
-    ![Navigation pane](./media/auditing-overview/2_auditing_get_started_server_inherit.png)
+    ![Screenshot that shows the View server settings link highlighted on the database auditing page.](./media/auditing-overview/2_auditing_get_started_server_inherit.png)
 
 4. If you prefer to enable auditing on the database level, switch **Auditing** to **ON**. If server auditing is enabled, the database-configured audit will exist side-by-side with the server audit.
 
@@ -97,6 +100,7 @@ To configure writing audit logs to a storage account, select **Storage** and ope
 #### Remarks
 
 - Audit logs are written to **Append Blobs** in an Azure Blob storage on your Azure subscription
+- Audit logs are in .xel format and can be opened by using [SQL Server Management Studio (SSMS)](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms).
 - To configure an immutable log store for the server or database-level audit events, follow the [instructions provided by Azure Storage](https://docs.microsoft.com/azure/storage/blobs/storage-blob-immutability-policies-manage#enabling-allow-protected-append-blobs-writes). Make sure you have selected **Allow additional appends** when you configure the immutable blob storage.
 - You can write audit logs to a an Azure Storage account behind a VNet or firewall. For specific instructions see, [Write audit to a storage account behind VNet and firewall](audit-write-storage-account-behind-vnet-firewall.md).
 - After you've configured your auditing settings, you can turn on the new threat detection feature and configure emails to receive security alerts. When you use threat detection, you receive proactive alerts on anomalous database activities that can indicate potential security threats. For more information, see [Getting started with threat detection](threat-detection-overview.md).
@@ -110,11 +114,9 @@ To configure writing audit logs to a Log Analytics workspace, select **Log Analy
 
    ![LogAnalyticsworkspace](./media/auditing-overview/auditing_select_oms.png)
 
+For more details about Azure Monitor Log Analytics workspace, see [Designing your Azure Monitor Logs deployment](https://docs.microsoft.com/azure/azure-monitor/platform/design-logs-deployment)
+   
 ### <a id="audit-event-hub-destination"></a>Audit to Event Hub destination
-
-> [!WARNING]
-> Enabling auditing on a server that has a SQL Database pool on it **results in the SQL Database pool being resumed and re-paused again** which may incur billing charges.
-> Enabling auditing on a paused SQL Database pool is not possible. To enable it, un-pause the SQL Database pool.
 
 To configure writing audit logs to an event hub, select **Event Hub (Preview)** and open **Event Hub details**. Select the event hub where logs will be written and then click **OK**. Be sure that the event hub is in the same region as your database and server.
 
@@ -156,7 +158,7 @@ If you chose to write audit logs to an Azure storage account, there are several 
 
 - Use the [Azure portal](https://portal.azure.com).  Open the relevant database. At the top of the database's **Auditing** page, click **View audit logs**.
 
-    ![Navigation pane](./media/auditing-overview/7_auditing_get_started_blob_view_audit_logs.png)
+    ![Screenshot that shows the View audit logs button highlighted on the database auditing page.](./media/auditing-overview/7_auditing_get_started_blob_view_audit_logs.png)
 
     **Audit records** opens, from which you'll be able to view the logs.
 
@@ -164,14 +166,14 @@ If you chose to write audit logs to an Azure storage account, there are several 
   - You can switch between audit records that were created by the *server audit policy* and the *database audit policy* by toggling **Audit Source**.
   - You can view only SQL injection related audit records by checking  **Show only audit records for SQL injections** checkbox.
 
-       ![Navigation pane]( ./media/auditing-overview/8_auditing_get_started_blob_audit_records.png)
+       ![Screenshot that shows the options for viewing the audit records.]( ./media/auditing-overview/8_auditing_get_started_blob_audit_records.png)
 
 - Use the system function **sys.fn_get_audit_file** (T-SQL) to return the audit log data in tabular format. For more information on using this function, see [sys.fn_get_audit_file](/sql/relational-databases/system-functions/sys-fn-get-audit-file-transact-sql).
 
 - Use **Merge Audit Files** in SQL Server Management Studio (starting with SSMS 17):
     1. From the SSMS menu, select **File** > **Open** > **Merge Audit Files**.
 
-        ![Navigation pane](./media/auditing-overview/9_auditing_get_started_ssms_1.png)
+        ![Screenshot that shows the Merge Audit Files menu option.](./media/auditing-overview/9_auditing_get_started_ssms_1.png)
     2. The **Add Audit Files** dialog box opens. Select one of the **Add** options to choose whether to merge audit files from a local disk or import them from Azure Storage. You are required to provide your Azure Storage details and account key.
 
     3. After all files to merge have been added, click **OK** to complete the merge operation.
@@ -211,7 +213,7 @@ In production, you are likely to refresh your storage keys periodically. When wr
 
 1. Open **Storage Details**. In the **Storage Access Key** box, select **Secondary**, and click **OK**. Then click **Save** at the top of the auditing configuration page.
 
-    ![Navigation pane](./media/auditing-overview/5_auditing_get_started_storage_key_regeneration.png)
+    ![Screenshot that shows the process for selecting a secondary storage access key.](./media/auditing-overview/5_auditing_get_started_storage_key_regeneration.png)
 2. Go to the storage configuration page and regenerate the primary access key.
 
     ![Navigation pane](./media/auditing-overview/6_auditing_get_started_regenerate_key.png)

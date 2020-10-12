@@ -2,17 +2,12 @@
 title: 'Tutorial: Configure 15Five for automatic user provisioning with Azure Active Directory | Microsoft Docs'
 description: Learn how to configure Azure Active Directory to automatically provision and de-provision user accounts to 15Five.
 services: active-directory
-documentationcenter: ''
 author: zchia
 writer: zchia
-manager: beatrizd
-
-ms.assetid: a276c004-9f71-4efc-8cca-1f615760249f
+manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 07/26/2019
 ms.author: zhchia
@@ -54,19 +49,19 @@ Before configuring 15Five for automatic user provisioning with Azure AD, you wil
 
 1. Sign in to your [15Five Admin Console](https://my.15five.com/). Navigate to **Features > Integrations**.
 
-	![15Five Admin Console](media/15five-provisioning-tutorial/integration.png)
+	:::image type="content" source="media/15five-provisioning-tutorial/integration.png" alt-text="Screenshot of the 15Five admin console. Integrations appears under Features in a menu, and both Features and Integrations are highlighted." border="false":::
 
 2.	Click on **SCIM 2.0**.
 
-	![15Five Admin Console](media/15five-provisioning-tutorial/image00.png)
+	:::image type="content" source="media/15five-provisioning-tutorial/image00.png" alt-text="Screenshot of the Integrations page in the 15Five admin console. Under Tool, S C I M 2.0 is highlighted." border="false":::
 
 3.	Navigate to **SCIM integration > Generate OAuth token**.
 
-	![15Five Add SCIM](media/15five-provisioning-tutorial/image02.png)
+	:::image type="content" source="media/15five-provisioning-tutorial/image02.png" alt-text="Screenshot of the S C I M integration page in the 15Five admin console. Generate OAuth token is highlighted." border="false":::
 
 4.	Copy the values for **SCIM 2.0 base URL** and **Access Token**. This value will be entered in the **Tenant URL** and **Secret Token** field in the Provisioning tab of your 15Five application in the Azure portal.
 	
-	![15Five Add SCIM](media/15five-provisioning-tutorial/image03.png)
+	:::image type="content" source="media/15five-provisioning-tutorial/image03.png" alt-text="Screen shot of the S C I M integration page. In the Token table, the values next to S C I M 2.0 base U R L and Access token are highlighted." border="false":::
 
 ## Step 3. Add 15Five from the Azure AD application gallery
 
@@ -96,11 +91,11 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 3. Select the **Provisioning** tab.
 
-	![Provisioning tab](common/provisioning.png)
+	![Screenshot of the Manage options with the Provisioning option called out.](common/provisioning.png)
 
 4. Set the **Provisioning Mode** to **Automatic**.
 
-	![Provisioning tab](common/provisioning-automatic.png)
+	![Screenshot of the Provisioning Mode dropdown list with the Automatic option called out.](common/provisioning-automatic.png)
 
 5.	Under the Admin Credentials section, input the **SCIM 2.0 base URL and Access Token** values retrieved earlier in the **Tenant URL** and **Secret Token** fields respectively. Click **Test Connection** to ensure Azure AD can connect to 15Five. If the connection fails, ensure your 15Five account has Admin permissions and try again.
 
@@ -161,7 +156,7 @@ This section guides you through the steps to configure the Azure AD provisioning
 Once you've configured provisioning, use the following resources to monitor your deployment:
 
 1. Use the [provisioning logs](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-provisioning-logs) to determine which users have been provisioned successfully or unsuccessfully
-2. Check the [progress bar](https://docs.microsoft.com/azure/active-directory/manage-apps/application-provisioning-when-will-provisioning-finish-specific-user) to see the status of the provisioning cycle and how close it is to completion
+2. Check the [progress bar](https://docs.microsoft.com/azure/active-directory/app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user) to see the status of the provisioning cycle and how close it is to completion
 3. If the provisioning configuration seems to be in an unhealthy state, the application will go into quarantine. Learn more about quarantine states [here](https://docs.microsoft.com/azure/active-directory/manage-apps/application-provisioning-quarantine-status).  
 	
 ## Connector limitations

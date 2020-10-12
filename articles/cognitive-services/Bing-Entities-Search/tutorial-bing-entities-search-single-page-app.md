@@ -11,12 +11,13 @@ ms.subservice: bing-entity-search
 ms.topic: tutorial
 ms.date: 03/05/2020
 ms.author: aahi
+ms.custom: devx-track-js
 ---
 # Tutorial: Single-page web app
 
 The Bing Entity Search API lets you search the Web for information about *entities* and *places.* You may request either kind of result, or both, in a given query. The definitions of places and entities are provided below.
 
-|||
+| Result | Description |
 |-|-|
 |Entities|Well-known people, places, and things that you find by name|
 |Places|Restaurants, hotels, and other local businesses that you find by name *or* by type (Italian restaurants)|
@@ -136,7 +137,7 @@ The HTML `<body>` tag includes an `onload` attribute that calls `getSearchSubscr
 
 The HTML form includes the following controls:
 
-| | |
+| Control | Description |
 |-|-|
 |`where`|A drop-down menu for selecting the market (location and language) used for the search.|
 |`query`|The text field in which to enter the search terms.|
@@ -406,7 +407,7 @@ Finally. `sidebar` refers to auxiliary search results. They may be displayed in 
 
 Each item in a `rankingResponse` collection refers to the actual search result items in two different, but equivalent, ways.
 
-| | |
+| Item | Description |
 |-|-|
 |`id`|The `id` looks like a URL, but should not be used for links. The `id` type of a ranking result matches the `id` of either a search result item in an answer collection, *or* an entire answer collection (such as `Entities`).
 |`answerType`<br>`resultIndex`|The `answerType` refers to the top-level answer collection that contains the result (for example, `Entities`). The `resultIndex` refers to the result's index within that collection. If `resultIndex` is omitted, the ranking result refers to the entire collection.
@@ -447,7 +448,7 @@ searchItemRenderers = {
 
 A renderer function may accept the following parameters:
 
-| | |
+| Parameter | Description |
 |-|-|
 |`item`|The JavaScript object containing the item's properties, such as its URL and its description.|
 |`index`|The index of the result item within its collection.|

@@ -8,14 +8,14 @@ author: luiscabrer
 ms.author: luisca
 ms.service: cognitive-search
 ms.topic: tutorial
-ms.date: 02/26/2020
+ms.date: 07/15/2020
 ---
 
 # Tutorial: Use REST and AI to generate searchable content from Azure blobs
 
 If you have unstructured text or images in Azure Blob storage, an [AI enrichment pipeline](cognitive-search-concept-intro.md) can extract information and create new content that is useful for full-text search or knowledge mining scenarios. Although a pipeline can process images, this REST tutorial focuses on text, applying language detection and natural language processing to create new fields that you can leverage in queries, facets, and filters.
 
-This tutorial uses Postman and the [Search REST APIs](https://docs.microsoft.com/rest/api/searchservice/) to perform the following tasks:
+This tutorial uses Postman and the [Search REST APIs](/rest/api/searchservice/) to perform the following tasks:
 
 > [!div class="checklist"]
 > * Start with whole documents (unstructured text) such as PDF, HTML, DOCX, and PPTX in Azure Blob storage.
@@ -131,7 +131,7 @@ In Azure Cognitive Search, AI processing occurs during indexing (or data ingesti
 
 ### Step 1: Create a data source
 
-A [data source object](https://docs.microsoft.com/rest/api/searchservice/create-data-source) provides the connection string to the Blob container containing the files.
+A [data source object](/rest/api/searchservice/create-data-source) provides the connection string to the Blob container containing the files.
 
 1. Use **POST** and the following URL, replacing YOUR-SERVICE-NAME with the actual name of your service.
 
@@ -161,7 +161,7 @@ If you got a 403 or 404 error, check the request construction: `api-version=2020
 
 ### Step 2: Create a skillset
 
-A [skillset object](https://docs.microsoft.com/rest/api/searchservice/create-skillset) is a set of enrichment steps applied to your content. 
+A [skillset object](/rest/api/searchservice/create-skillset) is a set of enrichment steps applied to your content. 
 
 1. Use **PUT** and the following URL, replacing YOUR-SERVICE-NAME with the actual name of your service.
 
@@ -246,7 +246,7 @@ A [skillset object](https://docs.microsoft.com/rest/api/searchservice/create-ski
 
 ### Step 3: Create an index
 
-An [index](https://docs.microsoft.com/rest/api/searchservice/create-index) provides the schema used to create the physical expression of your content in inverted indexes and other constructs in Azure Cognitive Search. The largest component of an index is the fields collection, where data type and attributes determine contents and behaviors in Azure Cognitive Search.
+An [index](/rest/api/searchservice/create-index) provides the schema used to create the physical expression of your content in inverted indexes and other constructs in Azure Cognitive Search. The largest component of an index is the fields collection, where data type and attributes determine contents and behaviors in Azure Cognitive Search.
 
 1. Use **PUT** and the following URL, replacing YOUR-SERVICE-NAME with the actual name of your service, to name your index.
 
@@ -330,7 +330,7 @@ An [index](https://docs.microsoft.com/rest/api/searchservice/create-index) provi
 
 ### Step 4: Create and run an indexer
 
-An [Indexer](https://docs.microsoft.com/rest/api/searchservice/create-indexer) drives the pipeline. The three components you have created thus far (data source, skillset, index) are inputs to an indexer. Creating the indexer on Azure Cognitive Search is the event that puts the entire pipeline into motion. 
+An [Indexer](/rest/api/searchservice/create-indexer) drives the pipeline. The three components you have created thus far (data source, skillset, index) are inputs to an indexer. Creating the indexer on Azure Cognitive Search is the event that puts the entire pipeline into motion. 
 
 1. Use **PUT** and the following URL, replacing YOUR-SERVICE-NAME with the actual name of your service, to name your indexer.
 
@@ -447,7 +447,7 @@ Recall that we started with blob content, where the entire document is packaged 
 1. Use **GET** and the following URL, replacing YOUR-SERVICE-NAME with the actual name of your service, to search for instances of a term or phrase, returning the `content` field and a count of the matching documents.
 
    ```http
-   https://[YOUR-SERVICE-NAME].search.windows.net/indexes/cog-search-demo-idx?search=*&$count=true&$select=content?api-version=2020-06-30
+   https://[YOUR-SERVICE-NAME].search.windows.net/indexes/cog-search-demo-idx/docs?search=*&$count=true&$select=content&api-version=2020-06-30
    ```
    
    The results of this query return document contents, which is the same result you would get if used the blob indexer without the cognitive search pipeline. This field is searchable, but unworkable if you want to use facets, filters, or autocomplete.
@@ -457,7 +457,7 @@ Recall that we started with blob content, where the entire document is packaged 
 1. For the second query, return some of the new fields created by the pipeline (persons, organizations, locations, languageCode). We're omitting keyPhrases for brevity, but you should include it if you want to see those values.
 
    ```http
-   https://mydemo.search.windows.net/indexes/cog-search-demo-idx/docs?search=*&$count=true&$select=metadata_storage_name,persons,organizations,locations,languageCode&api-version=2020-06-30
+   https://[YOUR-SERVICE-NAME].search.windows.net/indexes/cog-search-demo-idx/docs?search=*&$count=true&$select=metadata_storage_name,persons,organizations,locations,languageCode&api-version=2020-06-30
    ```
    The fields in the $select statement contain new information created from the natural language processing capabilities of Cognitive Services. As you might expect, there is some noise in the results and variation across documents, but in many instances, the analytical models produce accurate results.
 
@@ -479,10 +479,10 @@ Recall that we started with blob content, where the entire document is packaged 
 1. In this final example, apply a filter on the organizations collection, returning two matches for filter criteria based on NASDAQ.
 
    ```http
-   cog-search-demo-idx/docs?search=*&$filter=organizations/any(organizations: organizations eq 'NASDAQ')&$select=metadata_storage_name,organizations&$count=true&api-version=2020-06-30
+   https://[YOUR-SERVICE-NAME].search.windows.net/indexes/cog-search-demo-idx/docs?search=*&$filter=organizations/any(organizations: organizations eq 'NASDAQ')&$select=metadata_storage_name,organizations&$count=true&api-version=2020-06-30
    ```
 
-These queries illustrate a few of the ways you can work with query syntax and filters on new fields created by cognitive search. For more query examples, see [Examples in Search Documents REST API](https://docs.microsoft.com/rest/api/searchservice/search-documents#bkmk_examples), [Simple syntax query examples](search-query-simple-examples.md), and [Full Lucene query examples](search-query-lucene-examples.md).
+These queries illustrate a few of the ways you can work with query syntax and filters on new fields created by cognitive search. For more query examples, see [Examples in Search Documents REST API](/rest/api/searchservice/search-documents#bkmk_examples), [Simple syntax query examples](search-query-simple-examples.md), and [Full Lucene query examples](search-query-lucene-examples.md).
 
 <a name="reset"></a>
 

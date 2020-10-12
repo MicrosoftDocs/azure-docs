@@ -23,7 +23,8 @@
     href: quickstart-create-data-factory-python.md
   - name: Create data factory - REST
     href: quickstart-create-data-factory-rest-api.md
-  - name: Create data factory - Resource Manager template
+  - name: Create data factory - ARM template
+    displayName: Resource Manager
     href: quickstart-create-data-factory-resource-manager-template.md
   - name: Security - Enable Customer Managed Key Encryption
     href: enable-customer-managed-key.md
@@ -98,6 +99,8 @@
         href: tutorial-incremental-copy-lastmodified-copy-data-tool.md
       - name: New files by time partitioned file name
         href: tutorial-incremental-copy-partitioned-file-name-copy-data-tool.md
+    - name: Build a copy pipeline using managed VNet and private endpoints
+      href: tutorial-copy-data-portal-private.md
   - name: Transform data
     items:
     - name: Transform data with mapping data flows
@@ -126,6 +129,8 @@
           href: tutorial-transform-data-hive-virtual-network-portal.md
         - name: Azure PowerShell
           href: tutorial-transform-data-hive-virtual-network.md
+    - name: Build mapping dataflow pipeline using managed VNet and private endpoints
+      href: tutorial-data-flow-private.md
   - name: Control Flow
     items:
     - name: User interface (UI)
@@ -182,7 +187,7 @@
         href: concepts-data-flow-monitoring.md
       - name: Data flow performance
         href: concepts-data-flow-performance.md
-      - name: Manage graph
+      - name: Manage data flow canvas
         href: concepts-data-flow-manage-graph.md
       - name: Expression builder
         href: concepts-data-flow-expression-builder.md
@@ -204,14 +209,14 @@
     items:
     - name: Visually author data factories
       href: author-visually.md
+    - name: Iterative development and debugging
+      href: iterative-development-debugging.md
     - name: Management hub
       href: author-management-hub.md
     - name: Source control
       href: source-control.md
     - name: Continuous integration and delivery
       href: continuous-integration-deployment.md
-    - name: Iterative development and debugging
-      href: iterative-development-debugging.md
   - name: Connectors
     items:
     - name: Connector overview
@@ -244,6 +249,8 @@
       href: connector-azure-database-for-mysql.md
     - name: Azure Database for PostgreSQL
       href: connector-azure-database-for-postgresql.md
+    - name: Azure Databricks Delta Lake
+      href: connector-azure-databricks-delta-lake.md
     - name: Azure File Storage
       href: connector-azure-file-storage.md
     - name: Azure SQL Database
@@ -270,6 +277,8 @@
       href: connector-db2.md
     - name: Delimited text format
       href: format-delimited-text.md
+    - name: Delta format
+      href: format-delta.md
     - name: Drill
       href: connector-drill.md
     - name: Dynamics 365
@@ -325,6 +334,8 @@
       items:
       - name: MongoDB (legacy)
         href: connector-mongodb-legacy.md
+    - name: MongoDB Atlas
+      href: connector-mongodb-atlas.md
     - name: MySQL
       href: connector-mysql.md
     - name: Netezza
@@ -406,6 +417,8 @@
       href: connector-web-table.md
     - name: Xero
       href: connector-xero.md
+    - name: XML format
+      href: format-xml.md
     - name: Zoho
       href: connector-zoho.md
   - name: Move data
@@ -467,12 +480,12 @@
       href: transform-data-using-spark.md
     - name: HDInsight Streaming Activity
       href: transform-data-using-hadoop-streaming.md
-    - name: Machine Learning Batch Execution Activity
-      href: transform-data-using-machine-learning.md
-    - name: Machine Learning Update Resource Activity
-      href: update-machine-learning-models.md
     - name: Machine Learning Execute Pipeline Activity
-      href: transform-data-machine-learning-service.md
+      href: transform-data-machine-learning-service.md      
+    - name: Machine Learning Studio (classic) Batch Execution Activity
+      href: transform-data-using-machine-learning.md
+    - name: Machine Learning Studio (classic) Update Resource Activity
+      href: update-machine-learning-models.md
     - name: Stored Procedure Activity
       href: transform-data-using-stored-procedure.md
     - name: Compute linked services
@@ -533,6 +546,8 @@
       href: data-flow-new-branch.md
     - name: Pivot
       href: data-flow-pivot.md
+    - name: Rank
+      href: data-flow-rank.md
     - name: Select
       href: data-flow-select.md
     - name: Sink
@@ -553,6 +568,8 @@
     items:
     - name: Parameterizing linked services
       href: parameterize-linked-services.md
+    - name: Global parameters
+      href: author-global-parameters.md
     - name: Expression Language
       href: control-flow-expression-language-functions.md
     - name: System variables
@@ -577,6 +594,10 @@
       href: data-factory-service-identity.md
     - name: Customer managed key encryption
       href: enable-customer-managed-key.md
+    - name: Managed Virtual Network
+      href: managed-virtual-network-private-endpoint.md
+    - name: Azure Private Link for Data Factory
+      href: data-factory-private-link.md
   - name: Monitor and manage
     items:
     - name: Monitor visually
@@ -607,6 +628,8 @@
       href: create-shared-self-hosted-integration-runtime-powershell.md
     - name: Automation scripts of self-hosted integration runtime
       href: self-hosted-integration-runtime-automation-scripts.md
+    - name: Run Self-Hosted Integration Runtime in Windows container
+      href: how-to-run-self-hosted-integration-runtime-in-windows-container.md
   - name: Run SSIS packages in Azure
     items:
     - name: Run SSIS packages in Azure from SSDT
@@ -679,8 +702,10 @@
         href: how-to-fixed-width.md
       - name: Error row handling
         href: how-to-data-flow-error-rows.md
-      - name: Azure SQL DB to CosmosDB
+      - name: Azure SQL DB to Azure Cosmos DB
         href: how-to-sqldb-to-cosmosdb.md
+      - name: Dedupe and NULL check with snippets
+        href: how-to-data-flow-dedupe-nulls-snippets.md
     - name: SSIS migration from on-premises
       items:
       - name: SSIS migration overview
@@ -715,18 +740,24 @@
       href: pricing-concepts.md  
   - name: Troubleshooting guides
     items:
+    - name: Data Factory UX
+      href: data-factory-ux-troubleshoot-guide.md
     - name: Activities
       href: data-factory-troubleshoot-guide.md
     - name: Connectors
       href: connector-troubleshoot-guide.md
     - name: Data Flows
       href: data-flow-troubleshoot-guide.md
+    - name: Copy Data tool
+      href: copy-data-tool-troubleshoot-guide.md
     - name: Self-hosted Integration Runtimes
       href: self-hosted-integration-runtime-troubleshoot-guide.md
     - name: Azure-SSIS Integration Runtime
       href: ssis-integration-runtime-management-troubleshoot.md
     - name: Package Execution in Azure-SSIS IR
       href: ssis-integration-runtime-ssis-activity-faq.md
+    - name: Diagnose connectivity in Azure-SSIS IR
+      href: ssis-integration-runtime-diagnose-connectivity-faq.md
 - name: Reference
   items:
   - name: Data flow script

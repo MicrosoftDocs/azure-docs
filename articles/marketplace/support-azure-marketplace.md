@@ -1,16 +1,15 @@
 ---
 title: Microsoft commercial marketplace support - Azure Marketplace
 description: Support information and links for Azure Marketplace and AppSource in Partner Center
-author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
+author: keferna
+ms.author: keferna
 ms.date: 04/14/2020
-ms.author: dsindona
-
 ---
 
-# Support for Microsoft commercial marketplace
+# Support for the Microsoft commercial marketplace
 
 Do you have questions about getting started as a Microsoft commercial marketplace publisher? Here's a list of support options for the commercial marketplace. In addition to the following resources, you can also get many of your questions answered in the [Marketplace channel of C+AI Community Forum](https://www.microsoftpartnercommunity.com/t5/Marketplace/bd-p/2222).  
 
@@ -34,8 +33,7 @@ Open a ticket with Microsoft [marketplace publisher support](https://aka.ms/mark
 ## Marketing resources  
 
 | Support channel | Description | Availability |  
-|:--- |:--- |:--- |  
-| Email: [cosell@microsoft.com](mailto:cosell@microsoft.com) | Support for onboarding processes and questions related to the Co-Sell program. | Based in the Pacific time zone. |  
+|:--- |:--- |:--- |
 | Email: [gtm@microsoft.com](mailto:gtm@microsoft.com) | Support for GTM benefits and program questions. | Business hours are in the Pacific time zone. |  
 | Email: [cebrand@microsoft.com](mailto:cebrand@microsoft.com) | Answers to questions about usage for Azure logos and branding. |  |  
 

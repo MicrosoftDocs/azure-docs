@@ -1,6 +1,6 @@
 ---
 title: Upgrading your Log Analytics Dashboard visualizations
-description: Queries you can start from and modify for your needs 
+description: Learn how to upgrade your Log Analytics Dashboard visualizations with queries that can provide powerful insights. 
 ms.subservice: logs
 ms.topic: article
 author: rboucher
@@ -20,7 +20,7 @@ This new visualization technology is paving the way for new and improved experie
 
 Azure dashboards are a way to visualize the status of your entire Azure surface area. They are designed to provide a single pane of glass to your Azure estate status and allow a variety of shortcuts to common actions. 
 
-For more information, see [Azure dashboards](https://docs.microsoft.com/azure/azure-portal/azure-portal-dashboards)
+For more information, see [Azure dashboards](../../azure-portal/azure-portal-dashboards.md)
 
 
 ## Upgrading Log Analytics dashboard parts

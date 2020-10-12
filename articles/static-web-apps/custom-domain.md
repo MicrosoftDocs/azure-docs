@@ -32,7 +32,7 @@ There are a few different types of DNS configurations available for an applicati
 
 ## Map a CNAME record
 
-A CNAME record maps one domain to another. You can use a CNAME record to map `www.example.com` to the auto-generated domain that is provided by Azure Static Web Apps.
+A CNAME record maps one domain to another. You can use a CNAME record to map `www.example.com`, `blog.example.com`, or any other sub-domain to the auto-generated domain that is provided by Azure Static Web Apps.
 
 1. Open the [Azure portal](https://portal.azure.com) and sign in with your Azure account.
 

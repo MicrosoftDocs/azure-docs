@@ -1,10 +1,11 @@
 ---
 title: Viewing a remotely rendered model
 description: The "Hello World" of Azure Remote Rendering, tutorial shows how to view a Model rendered remotely by Azure
-author: michael-house
-ms.author: v-mihous
+author: florianborn71
+ms.author: flborn
 ms.date: 06/15/2020
 ms.topic: tutorial
+ms.custom: devx-track-csharp
 ---
        
 # Tutorial: Viewing a remotely rendered model
@@ -73,7 +74,7 @@ After you modify and save the manifest, Unity will automatically refresh. Confir
 :::image type="content" source="./media/confirm-packages.png" alt-text="confirm package imports":::
 
 If your packages aren't loading, check your Unity console for errors. If you don't have any errors and still don't see any packages under the **Packages** folder, check the package visibility toggle button.\
-![Unity camera properties](./media/unity-package-visibility.png)
+![Screenshot with an arrow pointing at the package visibility toggle button.](./media/unity-package-visibility.png)
 
 ## Ensure you have the latest version of the package
 
@@ -96,7 +97,7 @@ The following steps ensure that your project is using the latest version of the 
 
 1. Set **Clear flags** to *Solid Color*
 
-1. Set **Background** to *Black* (#000000), with full (255) alpha (A)
+1. Set **Background** to *Black* (#000000), with fully transparent (0) alpha (A)
 
     ![Color wheel](./media/color-wheel-black.png)
 
@@ -114,7 +115,7 @@ The following steps ensure that your project is using the latest version of the 
 
 1. Select **Graphics** from the left list menu
 1. Change the **Scriptable Rendering Pipeline** setting to *HybridRenderingPipeline*.\
-    ![changing project graphics settings](./media/settings-graphics-render-pipeline.png)\
+    ![Screenshot that points out where you change the Scriptable Rendering Pipeline setting to HybridRenderingPipeline.](./media/settings-graphics-render-pipeline.png)\
     Sometimes the UI does not populate the list of available pipeline types from the packages. If this occurs, the *HybridRenderingPipeline* asset must be dragged onto the field manually:\
     ![changing project graphics settings](./media/hybrid-rendering-pipeline.png)
 
@@ -215,11 +216,28 @@ public class RemoteRenderingCoordinator : MonoBehaviour
 
     // AccountDomain must be '<region>.mixedreality.azure.com' - if no '<region>' is specified, connections will fail
     // For most people '<region>' is either 'westus2' or 'westeurope'
-    public string AccountDomain = "westus2.mixedreality.azure.com";
+    [SerializeField]
+    private string accountDomain = "westus2.mixedreality.azure.com";
+    public string AccountDomain
+    {
+        get => accountDomain.Trim();
+        set => accountDomain = value;
+    }
 
     [Header("Development Account Credentials")]
-    public string AccountId = "<enter your account id here>";
-    public string AccountKey = "<enter your account key here>";
+    [SerializeField]
+    private string accountId = "<enter your account id here>";
+    public string AccountId {
+        get => accountId.Trim();
+        set => accountId = value;
+    }
+
+    [SerializeField]
+    private string accountKey = "<enter your account key here>";
+    public string AccountKey {
+        get => accountKey.Trim();
+        set => accountKey = value;
+    }
 
     // These settings are important. All three should be set as low as possible, while maintaining a good user experience
     // See the documentation around session management and the technical differences in session VM size
@@ -232,7 +250,12 @@ public class RemoteRenderingCoordinator : MonoBehaviour
     [Header("Other Configuration")]
 
     [Tooltip("If you have a known active SessionID, you can fill it in here before connecting")]
-    public string sessionIDOverride;
+    [SerializeField]
+    private string sessionIDOverride;
+    public string SessionIDOverride {
+        get => sessionIDOverride.Trim();
+        set => sessionIDOverride = value;
+    }
 
     // When Automatic Mode is true, the coordinator will attempt to automatically proceed through the process of connecting and loading a model
     public bool automaticMode = true;
@@ -308,8 +331,8 @@ public class RemoteRenderingCoordinator : MonoBehaviour
     {
         get
         {
-            if (!string.IsNullOrEmpty(sessionIDOverride))
-                return sessionIDOverride;
+            if (!string.IsNullOrEmpty(SessionIDOverride))
+                return SessionIDOverride;
 
             if (PlayerPrefs.HasKey("LastUsedSessionID"))
                 return PlayerPrefs.GetString("LastUsedSessionID");
@@ -569,7 +592,7 @@ In order to progress from **NotAuthorized** to **NoSession**, we'd typically pre
 1. Drag the component on to its own event, to reference itself.\
 ![Bypass Authentication](./media/bypass-authorization-add-event.png)\
 1. In the drop down select **RemoteRenderingCoordinator -> BypassAuthorization**.\
-![Bypass Authentication](./media/bypass-authorization-event.png)
+![Screenshot that shows the selected RemoteRenderingCoordinator.BypassAuthorization option.](./media/bypass-authorization-event.png)
 
 ## Create or join a remote session
 
@@ -577,7 +600,7 @@ The second stage is to Create or Join a Remote Rendering Session (see [Remote Re
 
 ![ARR stack 2](./media/remote-render-stack-2.png)
 
-The remote session is where the models will be rendered. The **JoinRemoteSession( )** method will attempt to join an existing session, tracked with the **LastUsedSessionID** property or if there is an assigned active session ID on **sessionIDOverride**. **sessionIDOverride** is intended for your debugging purposes only, it should only be used when you know the session exists and would like to explicitly connect to it.
+The remote session is where the models will be rendered. The **JoinRemoteSession( )** method will attempt to join an existing session, tracked with the **LastUsedSessionID** property or if there is an assigned active session ID on **SessionIDOverride**. **SessionIDOverride** is intended for your debugging purposes only, it should only be used when you know the session exists and would like to explicitly connect to it.
 
 If no sessions are available, a new session will be created. Creating a new session is, however, a time-consuming operation. Therefore, you should try to create sessions only when required and reuse them whenever possible (see [Commercial Ready: Session pooling, scheduling, and best practices](../commercial-ready/commercial-ready.md#fast-startup-time-strategies) for more information on managing sessions).
 
@@ -615,8 +638,8 @@ public async void JoinRemoteSession()
     {
         //The session should be ready or starting, if it's not, something went wrong
         await ARRSessionService.StopSession();
-        if(LastUsedSessionID == sessionIDOverride)
-            sessionIDOverride = "";
+        if(LastUsedSessionID == SessionIDOverride)
+            SessionIDOverride = "";
         CurrentCoordinatorState = RemoteRenderingState.NoSession;
     }
 }
@@ -696,7 +719,7 @@ private void LateUpdate()
 
 With the required foundation in place, you are ready to load a model into the remote session and start receiving frames.
 
-![ARR stack 4](./media/remote-render-stack-4.png)
+![Diagram that shows the process flow for preparing to load and view a model.](./media/remote-render-stack-4.png)
 
 The **LoadModel** method is designed to accept a model path, progress handler, and parent transform. These arguments will be used to load a model into the remote session, update the user on the loading progress, and orient the remotely rendered model based on the parent transform.
 

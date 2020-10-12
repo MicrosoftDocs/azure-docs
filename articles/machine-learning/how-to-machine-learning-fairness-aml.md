@@ -1,21 +1,21 @@
 ---
-title: Assess ML models' fairness in Python
+title: Assess ML models' fairness in Python (preview)
 titleSuffix: Azure Machine Learning
 description: Learn how to assess the fairness of your models in Azure Machine Learning
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: how-to
 ms.author: mesameki
 author: mesameki
 ms.reviewer: luquinta
-ms.date: 06/30/2020
-ms.custom: tracking-python
+ms.date: 09/01/2020
+ms.topic: conceptual
+ms.custom: how-to, devx-track-python
 ---
 
-# Use Azure Machine Learning with the Fairlearn open-source package to assess the fairness of ML models  
+# Use Azure Machine Learning with the Fairlearn open-source package to assess the fairness of ML models (preview)
 
-[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
+
 
 In this how-to guide, you will learn to use the [Fairlearn](https://fairlearn.github.io/) open-source Python package with Azure Machine Learning to perform the following tasks:
 
@@ -29,7 +29,7 @@ In this how-to guide, you will learn to use the [Fairlearn](https://fairlearn.gi
 ## Azure Machine Learning Fairness SDK 
 
 The Azure Machine Learning Fairness SDK, `azureml-contrib-fairness`, integrates the open-source Python package, [Fairlearn](http://fairlearn.github.io),
-within Azure Machine Learning. To learn more about Fairlearn's integration within Azure Machine Learning, check out these [sample notebooks](https://github.com/Azure/MachineLearningNotebooks/tree/master/contrib/fairness). For more information on Fairlearn, see the [example guide](https://fairlearn.github.io/auto_examples/notebooks/index.html) and [sample notebooks](https://github.com/fairlearn/fairlearn/tree/master/notebooks). 
+within Azure Machine Learning. To learn more about Fairlearn's integration within Azure Machine Learning, check out these [sample notebooks](https://github.com/Azure/MachineLearningNotebooks/tree/master/contrib/fairness). For more information on Fairlearn, see the [example guide](https://fairlearn.github.io/auto_examples/) and [sample notebooks](https://github.com/fairlearn/fairlearn/tree/master/notebooks). 
 
 Use the following commands to install the `azureml-contrib-fairness` and `fairlearn` packages:
 ```bash
@@ -138,7 +138,7 @@ The following example shows how to use the fairness package to upload model fair
         return registered_model.id
 
     # Call the register_model function 
-    lr_reg_id = register_model("fairness_linear_regression", unmitigated_predictor)
+    lr_reg_id = register_model("fairness_logistic_regression", lr_predictor)
     ```
 
 3. Precompute fairness metrics.
@@ -148,7 +148,7 @@ The following example shows how to use the fairness package to upload model fair
     ```python
     #  Create a dictionary of model(s) you want to assess for fairness 
     sf = { 'Race': A_test.Race, 'Sex': A_test.Sex}
-    ys_pred = unmitigated_predictor.predict(X_test)
+    ys_pred = { lr_reg_id:lr_predictor.predict(X_test) }
     from fairlearn.metrics._group_metric_set import _create_group_metric_set
 
     dash_dict = _create_group_metric_set(y_true=Y_test,
@@ -203,7 +203,7 @@ The following example shows how to use the fairness package to upload model fair
 
     To learn more about the visualization dashboard and what it contains, please check out Fairlearn's [user guide](https://fairlearn.github.io/user_guide/assessment.html#fairlearn-dashboard).
 
-s## Upload fairness insights for multiple models
+## Upload fairness insights for multiple models
 
 If you are interested in comparing multiple models and seeing how their fairness assessments differ, you can pass more than one model to the visualization dashboard and navigate their performance-fairness trade-offs.
 
@@ -231,7 +231,7 @@ If you are interested in comparing multiple models and seeing how their fairness
     ```python
     model_dict = {}
 
-    lr_reg_id = register_model("fairness_linear_regression", lr_predictor)
+    lr_reg_id = register_model("fairness_logistic_regression", lr_predictor)
     model_dict[lr_reg_id] = lr_predictor
 
     svm_reg_id = register_model("fairness_svm", svm_predictor)

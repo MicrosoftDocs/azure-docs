@@ -6,12 +6,12 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
-ms.date: 06/24/2020
+ms.date: 10/01/2020
 
 ms.author: iainfou
 author: iainfoulds
 manager: daveba
-ms.reviewer: scottsta
+ms.reviewer: calui
 
 ---
 # Sign-in to Azure Active Directory using email as an alternate login ID (preview)
@@ -26,6 +26,8 @@ Some organizations haven't moved to hybrid authentication for the following reas
 
 To help with the move to hybrid authentication, you can now configure Azure AD to let users sign in with an email in your verified domain as an alternate login ID. For example, if *Contoso* rebranded to *Fabrikam*, rather than continuing to sign in with the legacy `balas@contoso.com` UPN, email as an alternate login ID can now be used. To access an application or services, users would sign in to Azure AD using their assigned email, such as `balas@fabrikam.com`.
 
+This article shows you how to enable and use email as an alternate login ID. This feature is available in the Azure AD Free edition and higher.
+
 > [!NOTE]
 > Sign in to Azure AD with email as an alternate login ID is a public preview feature of Azure Active Directory. For more information about previews, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
@@ -35,13 +37,15 @@ To sign in to Azure AD, users enter a name that uniquely identifies their accoun
 
 For organizations where the on-premises UPN is the user's preferred sign-in email, this approach was great. Those organizations would set the Azure AD UPN to the exact same value as the on-premises UPN, and users would have a consistent sign-in experience.
 
-However, in some organizations the on-premises UPN isn't used as a sign-in name. In the on-premise environments, you would configure the local AD DS to allow sign in with an alternate login ID. Setting the Azure AD UPN to the same value as the on-premises UPN isn't an option as Azure AD would then require users sign in with that value.
+However, in some organizations the on-premises UPN isn't used as a sign-in name. In the on-premises environments, you would configure the local AD DS to allow sign in with an alternate login ID. Setting the Azure AD UPN to the same value as the on-premises UPN isn't an option as Azure AD would then require users sign in with that value.
 
-The typical workaround to this issue was to set the Azure AD UPN to the email address the user expects to sign in with. This approach works, though results in different UPNs between the on-premise AD and in Azure AD, and this configuration isn't compatible with all Microsoft 365 workloads.
+The typical workaround to this issue was to set the Azure AD UPN to the email address the user expects to sign in with. This approach works, though results in different UPNs between the on-premises AD and in Azure AD, and this configuration isn't compatible with all Microsoft 365 workloads.
 
 A different approach is to synchronize the Azure AD and on-premises UPNs to the same value and then configure Azure AD to allow users to sign in to Azure AD with a verified email. To provide this ability, you define one or more email addresses in the user's *ProxyAddresses* attribute in the on-premises directory. *ProxyAddresses* are then synchronized to Azure AD automatically using Azure AD Connect.
 
 ## Preview limitations
+
+Sign in to Azure AD with email as an alternate login ID is available in the Azure AD Free edition and higher.
 
 In the current preview state, the following limitations apply when a user signs in with a non-UPN email as an alternate login ID:
 
@@ -155,6 +159,8 @@ During preview, you can currently only enable the sign-in with email as an alter
     ```powershell
     Get-AzureADPolicy | where-object {$_.Type -eq "HomeRealmDiscoveryPolicy"} | fl *
     ```
+
+With the policy applied, it can take up to an hour to propagate and for users to be able to sign in using their alternate login ID.
 
 ## Test user sign-in with email
 

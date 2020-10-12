@@ -9,12 +9,12 @@ ms.topic: reference
 
 author: likebupt
 ms.author: keli19
-ms.date: 05/26/2020
+ms.date: 09/26/2020
 ---
 
 # Train Pytorch Model
 
-This article describes how to use the **Train Pytorch Model** module in Azure Machine Learning designer (preview) to train pytorch models like DenseNet. Training takes place after you define a model and set its parameters, and requires labeled data. 
+This article describes how to use the **Train Pytorch Model** module in Azure Machine Learning designer to train pytorch models like DenseNet. Training takes place after you define a model and set its parameters, and requires labeled data. 
 
 ## How to use Train Pytorch Model 
 
@@ -23,7 +23,7 @@ This article describes how to use the **Train Pytorch Model** module in Azure Ma
 2. Add the **Train Pytorch Model** module to the pipeline. You can find this module under the **Model Training** category. Expand **Train**, and then drag the **Train Pytorch Model** module into your pipeline.
 
    > [!NOTE]
-   > **Train Pytorch Model** module can only be run on **GPU** type compute, otherwise your pipeline will fail. You can select compute for specific module in the right pane of the module by setting **Use other compute target**.
+   > **Train Pytorch Model** module is better run on **GPU** type compute for large dataset, otherwise your pipeline will fail. You can select compute for specific module in the right pane of the module by setting **Use other compute target**.
 
 3.  On the left input, attach an untrained model. Attach the training dataset and validation dataset to the middle and right-hand input of **Train Pytorch Model**.
 
@@ -45,7 +45,7 @@ This article describes how to use the **Train Pytorch Model** module in Azure Ma
 
 8.  For **Patience**, specify how many epochs to early stop training if validation loss does not decrease consecutively. by default 3.
 
-9.  Submit the pipeline. If your dataset has larger size, it will take a while.
+9.  Submit the pipeline. If your dataset has larger size, it will take a while and GPU compute are recommended.
 
 ## Results
 

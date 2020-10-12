@@ -6,12 +6,12 @@ author: cherylmc
 
 ms.service: virtual-wan
 ms.topic: overview
-ms.date: 06/29/2020
+ms.date: 09/22/2020
 ms.author: cherylmc
 Customer intent: As someone with a networking background, I want to understand what Virtual WAN is and if it is the right choice for my Azure network.
 ---
 
-# About Azure Virtual WAN
+# What is Azure Virtual WAN?
 
 Azure Virtual WAN is a networking service that brings many networking, security, and routing functionalities together to provide a single operational interface. These functionalities include branch connectivity (via connectivity automation from Virtual WAN Partner devices such as SD-WAN or VPN CPE), Site-to-site VPN connectivity, remote user VPN (Point-to-site) connectivity, private (ExpressRoute) connectivity, intra-cloud connectivity (transitive connectivity for virtual networks), VPN ExpressRoute inter-connectivity, routing, Azure Firewall, and encryption for private connectivity. You do not have to have all of these use cases to start using Virtual WAN. You can simply get started with just one use case, and then adjust your network as it evolves.
 
@@ -54,7 +54,7 @@ To configure an end-to-end virtual WAN, you create the following resources:
 
 * **Hub virtual network connection:** The Hub virtual network connection resource is used to connect the hub seamlessly to your virtual network.
 
-* **(Preview) Hub-to-Hub connection** - Hubs are all connected to each other in a virtual WAN. This implies that a branch, user, or VNet connected to a local hub can communicate with another branch or VNet using the full mesh architecture of the connected hubs. You can also connect VNets within a hub transiting through the virtual hub, as well as VNets across hub, using the hub-to-hub connected framework.
+* **Hub-to-Hub connection:** Hubs are all connected to each other in a virtual WAN. This implies that a branch, user, or VNet connected to a local hub can communicate with another branch or VNet using the full mesh architecture of the connected hubs. You can also connect VNets within a hub transiting through the virtual hub, as well as VNets across hub, using the hub-to-hub connected framework.
 
 * **Hub route table:**  You can create a virtual hub route and apply the route to the virtual hub route table. You can apply multiple routes to the virtual hub route table.
 
@@ -94,19 +94,19 @@ The router can have four routing statuses: Provisioned, Provisioning, Failed, or
 * A **None** status indicates that the Virtual hub did not provision the router. This can happen if the Virtual WAN is of type *Basic*, or if the virtual hub was deployed prior to the service being made available.
 * A **Failed** status indicates failure during instantiation. In order to instantiate or reset the router, you can locate the **Reset Router** option by navigating to the virtual hub Overview page in the Azure portal.
 
-Every virtual hub router supports an aggregate throughput up to 50 Gbps. Connectivity between the virtual network connections assumes a total of 2000 VM workload across all VNets in a virtual WAN.
+Every virtual hub router supports an aggregate throughput up to 50 Gbps. Connectivity between the virtual network connections assumes a total of 2000 VM workload across all VNets connected to a single virtual Hub.
 
 #### <a name="transit-er"></a>Transit connectivity between VPN and ExpressRoute
 
-Virtual WAN allows transit connectivity between VPN and ExpressRoute. This implies that VPN-connected sites or remote users can communicate with ExpressRoute-connected sites. There is also an implicit assumption that the **Branch-to-branch flag** is enabled. This flag can be located in the Azure Virtual WAN settings in the Azure portal. All route management is provided by the virtual hub router, which also enables transit connectivity between virtual networks.
+Virtual WAN allows transit connectivity between VPN and ExpressRoute. This implies that VPN-connected sites or remote users can communicate with ExpressRoute-connected sites. There is also an implicit assumption that the **Branch-to-branch flag** is enabled and BGP is supported in VPN and ExpressRoute connections. This flag can be located in the Azure Virtual WAN settings in Azure portal. All route management is provided by the virtual hub router, which also enables transit connectivity between virtual networks.
 
 ### <a name="routing"></a>Custom Routing
 
-Virtual WAN provides advanced routing enhancements. Ability to set up custom route tables, optimize virtual network routing with route association and propagation, logically group route tables with labels and simplify numerous network virtual appliance or shared services routing scenarios.
+Virtual WAN provides advanced routing enhancements. Ability to set up custom route tables, optimize virtual network routing with route association and propagation, logically group route tables with labels and simplify numerous network virtual appliance (NVA) or shared services routing scenarios.
 
 ### <a name="global"></a>Global VNet peering
 
-Global VNet Peering provides a mechanism to connect two VNets in different regions. In Virtual WAN, virtual network connections connect VNets to virtual hubs. The user does not need to set up global VNet peering explicitly. VNets connected to virtual hub is same region incur VNet peering charges. VNets connected to virtual hub in a different region incur Global VNet peering charges.
+Global VNet Peering provides a mechanism to connect two VNets in different regions. In Virtual WAN, virtual network connections connect VNets to virtual hubs. The user does not need to set up global VNet peering explicitly. VNets connected to virtual hub in same region incur VNet peering charges. VNets connected to virtual hub in a different region incur Global VNet peering charges.
 
 ### <a name="encryption"></a>ExpressRoute traffic encryption
 
@@ -116,19 +116,23 @@ Azure Virtual WAN provides ability to encrypt your ExpressRoute traffic. The tec
 
 For location information, see the [Virtual WAN partners and locations](virtual-wan-locations-partners.md) article.
 
-## <a name="route"></a>Route tables in Basic and Standard virtual WANs
+## <a name="route"></a>Route tables for Basic and Standard virtual WANs
 
-Route tables now have features for association and propagation. A pre-existing route table is a route table that does not have these features. If you have pre-existing routes in Hub Routing and would like to use the new capabilities, consider the following:
+Route tables now have features for association and propagation. A pre-existing route table is a route table that does not have these features. If you have pre-existing routes in hub routing and would like to use the new capabilities, consider the following:
 
 * **Standard Virtual WAN Customers with pre-existing routes in virtual hub**:
-To use  new route table capabilities, please wait until week of August 3rd for the roll out in Azure to complete. If you have pre-existing routes in Routing section for the hub in Azure portal, you will need to first delete them and then attempt creating new route tables (available in the Route Tables section for the hub in Azure portal).
+If you have pre-existing routes in Routing section for the hub in the Azure portal, you will need to first delete them and then attempt creating new route tables (available in the Route Tables section for the hub in Azure portal).
 
 * **Basic Virtual WAN Customers with pre-existing routes in virtual hub**:
-To use the new route table capabilities, please wait until week of August 3rd for the roll out in Azure to complete. If you have pre-existing routes in Routing section for the hub in Azure portal, you will need to first delete them, then **upgrade** your Basic Virtual WAN to Standard Virtual WAN. See [Upgrade a virtual WAN from Basic to Standard](upgrade-virtual-wan.md).
+If you have pre-existing routes in Routing section for the hub in the Azure portal, you will need to first delete them, then **upgrade** your Basic Virtual WAN to Standard Virtual WAN. See [Upgrade a virtual WAN from Basic to Standard](upgrade-virtual-wan.md).
 
 ## <a name="faq"></a>FAQ
 
 [!INCLUDE [Virtual WAN FAQ](../../includes/virtual-wan-faq-include.md)]
+
+## <a name="new"></a>What's new?
+
+Subscribe to the RSS feed and view the latest Virtual WAN feature updates on the [Azure Updates](https://azure.microsoft.com/updates/?category=networking&query=VIRTUAL%20WAN) page.
 
 ## Next steps
 

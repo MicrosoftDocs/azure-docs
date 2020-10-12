@@ -1,6 +1,6 @@
 ---
 title: Remote Monitoring access control - Azure | Microsoft Docs
-description: This article provides information about how you can configure role-based access controls (RBAC) in the Remote Monitoring solution accelerator
+description: This article provides information about how you can configure role-based access control (RBAC) in the Remote Monitoring solution accelerator
 author: dominicbetts
 manager: timlt
 ms.author: dobett
@@ -8,14 +8,14 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 03/08/2019
 ms.topic: conceptual
-ms.custom: has-adal-ref
+ms.custom: "has-adal-ref, devx-track-csharp"
 
 # As an administrator, I want to understand how I can configure access rights in the Remote Monitoring solution accelerator.
 ---
 
-# Configure role-based access controls in the Remote Monitoring solution accelerator
+# Configure role-based access control in the Remote Monitoring solution accelerator
 
-This article provides information about how to configure role-based access controls in the Remote Monitoring solution accelerator. Role-based access controls let you restrict access for individual users to specific features in the solution.
+This article provides information about how to configure role-based access control in the Remote Monitoring solution accelerator. Role-based access control lets you restrict access for individual users to specific features in the solution.
 
 ## Default settings
 
@@ -59,7 +59,7 @@ As an Azure Active Directory application owner, you can use the Azure portal to 
 
 1. Check you're an owner of the application by clicking the application and then clicking **Owners**. In the following screenshot, **Contoso admin** is an owner of the **contoso-rm4** application:
 
-    ![Owners](media/iot-accelerators-remote-monitoring-rbac/owners.png)
+    ![Screenshot shows the Manage Owners option selected, which displays the owners of the contoso r m 4 application.](media/iot-accelerators-remote-monitoring-rbac/owners.png)
 
     If you aren't an owner, you need to ask an existing owner to add you to the list. Only owners can assign application roles such as **Admin** or **Read Only** to other users.
 
@@ -241,7 +241,7 @@ public async Task DeleteAsync(string id)
 
 ## Next steps
 
-In this article, you learned how role-based access controls are implemented in the Remote Monitoring solution accelerator.
+In this article, you learned how role-based access control is implemented in the Remote Monitoring solution accelerator.
 
 See [Configure access controls for the Time Series Insights explorer](iot-accelerators-remote-monitoring-rbac-tsi.md) for information about managing access to the Time Series Insights explorer in the Remote Monitoring solution accelerator.
 

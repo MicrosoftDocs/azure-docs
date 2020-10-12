@@ -30,7 +30,7 @@ This article shows you how to enable access to the developer portal for users fr
 ## Authorize developer accounts by using Azure AD
 
 1. Sign in to the [Azure portal](https://portal.azure.com). 
-2. Select ![arrow](./media/api-management-howto-aad/arrow.png).
+2. Select ![Arrow icon.](./media/api-management-howto-aad/arrow.png).
 3. Type **api** in the search box.
 4. Select **API Management services**.
 5. Select your API Management service instance.
@@ -138,14 +138,14 @@ Your user is now signed in to the developer portal for your API Management servi
 [api-management-complete-registration]: ./media/api-management-howto-aad/api-management-complete-registration.png
 [api-management-registration-complete]: ./media/api-management-howto-aad/api-management-registration-complete.png
 
-[How to add operations to an API]: api-management-howto-add-operations.md
+[How to add operations to an API]: ./mock-api-responses.md
 [How to add and publish a product]: api-management-howto-add-products.md
 [Monitoring and analytics]: api-management-monitoring.md
 [Add APIs to a product]: api-management-howto-add-products.md#add-apis
 [Publish a product]: api-management-howto-add-products.md#publish-product
 [Get started with Azure API Management]: get-started-create-service-instance.md
-[API Management policy reference]: api-management-policy-reference.md
-[Caching policies]: api-management-policy-reference.md#caching-policies
+[API Management policy reference]: ./api-management-policies.md
+[Caching policies]: ./api-management-policies.md#caching-policies
 [Create an API Management service instance]: get-started-create-service-instance.md
 
 [https://oauth.net/2/]: https://oauth.net/2/

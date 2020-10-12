@@ -5,7 +5,7 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.topic: conceptual
+ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 12/24/2019
 ---
@@ -23,7 +23,7 @@ This document provides an example of using Azure PowerShell to run Apache Hive q
 
 * An Apache Hadoop cluster on HDInsight. See [Get Started with HDInsight on Linux](./apache-hadoop-linux-tutorial-get-started.md).
 
-* The PowerShell [Az Module](https://docs.microsoft.com/powershell/azure/overview) installed.
+* The PowerShell [Az Module](https://docs.microsoft.com/powershell/azure/) installed.
 
 ## Run a Hive query
 
@@ -47,16 +47,20 @@ The following steps demonstrate how to use these cmdlets to run a job in your HD
 
 2. Open a new **Azure PowerShell** command prompt. Change directories to the location of the `hivejob.ps1` file, then use the following command to run the script:
 
-        .\hivejob.ps1
+    ```azurepowershell
+    .\hivejob.ps1
+    ```
 
     When the script runs, you're prompted to enter the cluster name and the HTTPS/Cluster Admin account credentials. You may also be prompted to sign in to your Azure subscription.
 
 3. When the job completes, it returns information similar to the following text:
 
-        Display the standard output...
-        2012-02-03      18:35:34        SampleClass0    [ERROR] incorrect       id
-        2012-02-03      18:55:54        SampleClass1    [ERROR] incorrect       id
-        2012-02-03      19:25:27        SampleClass4    [ERROR] incorrect       id
+    ```output
+    Display the standard output...
+    2012-02-03      18:35:34        SampleClass0    [ERROR] incorrect       id
+    2012-02-03      18:55:54        SampleClass1    [ERROR] incorrect       id
+    2012-02-03      19:25:27        SampleClass4    [ERROR] incorrect       id
+    ```
 
 4. As mentioned earlier, `Invoke-Hive` can be used to run a query and wait for the response. Use the following script to see how Invoke-Hive works:
 
@@ -64,9 +68,11 @@ The following steps demonstrate how to use these cmdlets to run a job in your HD
 
     The output looks like the following text:
 
-        2012-02-03    18:35:34    SampleClass0    [ERROR]    incorrect    id
-        2012-02-03    18:55:54    SampleClass1    [ERROR]    incorrect    id
-        2012-02-03    19:25:27    SampleClass4    [ERROR]    incorrect    id
+    ```output
+    2012-02-03    18:35:34    SampleClass0    [ERROR]    incorrect    id
+    2012-02-03    18:55:54    SampleClass1    [ERROR]    incorrect    id
+    2012-02-03    19:25:27    SampleClass4    [ERROR]    incorrect    id
+    ```
 
    > [!NOTE]  
    > For longer HiveQL queries, you can use the Azure PowerShell **Here-Strings** cmdlet or HiveQL script files. The following snippet shows how to use the `Invoke-Hive` cmdlet to run a HiveQL script file. The HiveQL script file must be uploaded to wasbs://.

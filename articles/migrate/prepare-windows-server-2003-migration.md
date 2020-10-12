@@ -21,7 +21,7 @@ This article describes how to prepare machines running Windows Server 2003 for m
 
 Before migration, check whether Hyper-V Integration Services is installed, and then install if needed.
 
-1. Follow [these instructions](https://docs.microsoft.com/windows-server/virtualization/hyper-v/manage/manage-hyper-v-integration-services#turn-an-integration-service-on-or-off-using-hyper-v-manager) to check whether it's installed.
+1. Follow [these instructions](/windows-server/virtualization/hyper-v/manage/manage-hyper-v-integration-services#turn-an-integration-service-on-or-off-using-hyper-v-manager) to check whether it's installed.
 2. If it isn't installed, sign into a machine running Windows Server 2012 R2/Windows Server 2012 with the Hyper-V role.
 3. Navigate to the installation file at **C:\Windows\System32\vmguest.iso**, and mount the file.
 2. Copy the installation folder to the Windows Server 2003 machine, and install Integration Services.

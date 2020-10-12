@@ -1,5 +1,5 @@
 ---
-title: Azure Synapse SQL architecture 
+title: Synapse SQL architecture 
 description: Learn how Azure Synapse SQL combines massively parallel processing (MPP) with Azure Storage to achieve high performance and scalability. 
 services: synapse-analytics
 author: mlee3gsd

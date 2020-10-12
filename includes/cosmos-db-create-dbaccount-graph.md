@@ -20,6 +20,9 @@
    
    ![The Azure portal Databases pane](./media/cosmos-db-create-dbaccount-graph/create-nosql-db-databases-json-tutorial-1.png)
    
+   > [!TIP]
+   > If you don't see Azure Cosmos DB in the list, just type it in the search box at the top of the page, and press _Enter_ key. 
+
 3. On the **Create Azure Cosmos DB Account** page, enter the settings for the new Azure Cosmos DB account. 
  
     Setting|Value|Description

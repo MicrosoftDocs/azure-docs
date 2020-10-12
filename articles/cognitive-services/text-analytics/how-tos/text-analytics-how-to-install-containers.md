@@ -1,16 +1,17 @@
 ---
-title: Install and run containers - Text Analytics
+title: Install and run Docker containers for the Text Analytics API
 titleSuffix: Azure Cognitive Services
-description: How to download, install, and run containers for Text Analytics in this walkthrough tutorial.
+description: Use the Docker containers for the Text Analytics API to perform natural language processing such as sentiment analysis, on-premises.
 services: cognitive-services
 author: aahill
 manager: nitinme
-ms.custom: seodec18
+ms.custom: seodec18, cog-serv-seo-aug-2020
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: conceptual
-ms.date: 05/08/2020
+ms.date: 09/28/2020
 ms.author: aahi
+keywords: on-premises, Docker, container, sentiment analysis, natural language processing
 ---
 
 # Install and run Text Analytics containers
@@ -18,10 +19,12 @@ ms.author: aahi
 > [!NOTE]
 > * The container for Sentiment Analysis v3 is now Generally Available. The key phrase extraction and language detection containers are available as an ungated public preview.
 > * Entity linking and NER are not currently available as a container.
+> * Accessing the Text Analytics for health container requires a [request form](https://aka.ms/csgate). Currently, you will not be billed for its usage.
+> * The container image locations may have recently changed. Read this article to see the updated location for this container.
 
 Containers enable you to run the Text Analytic APIs in your own environment and are great for your specific security and data governance requirements. The Text Analytics containers provide advanced natural language processing over raw text, and include three main functions: sentiment analysis, key phrase extraction, and language detection. 
 
-If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/cognitive-services/) before you begin.
 
 > [!IMPORTANT]
 > The free account is limited to 5,000 transactions per month and only the **Free** and **Standard** <a href="https://azure.microsoft.com/pricing/details/cognitive-services/text-analytics" target="_blank">pricing tiers <span class="docon docon-navigate-external x-hidden-focus"></span></a> are valid for containers. For more information on transaction request rates, see [Data Limits](https://docs.microsoft.com/azure/cognitive-services/text-analytics/overview#data-limits).
@@ -54,6 +57,8 @@ The following table describes the minimum and recommended specifications for the
 |---|---------|-------------|--|--|
 | **Language detection, key phrase extraction**   | 1 core, 2GB memory | 1 core, 4GB memory |15 | 30|
 | **Sentiment Analysis v3**   | 1 core, 2GB memory | 4 cores, 8GB memory |15 | 30|
+| **Text Analytics for health - 1 document/request**   |  4 core, 10GB memory | 6 core, 12GB memory |15 | 30|
+| **Text Analytics for health - 10 documents/request**   |  6 core, 16GB memory | 8 core, 20GB memory |15 | 30|
 
 CPU core and memory correspond to the `--cpus` and `--memory` settings, which are used as part of the `docker run` command.
 
@@ -75,6 +80,10 @@ Container images for Text Analytics are available on the Microsoft Container Reg
 
 [!INCLUDE [docker-pull-language-detection-container](../includes/docker-pull-language-detection-container.md)]
 
+# [Text Analytics for health (preview)](#tab/healthcare)
+
+[!INCLUDE [docker-pull-health-container](../includes/docker-pull-health-container.md)]
+
 ***
 
 ## How to use the container
@@ -87,13 +96,6 @@ Once the container is on the [host computer](#the-host-computer), use the follow
 ## Run the container with `docker run`
 
 Use the [docker run](https://docs.docker.com/engine/reference/commandline/run/) command to run the containers. The container will continue to run until you stop it.
-
-Replace the placeholders below with your own values:
-
-| Placeholder | Value | Format or example |
-|-------------|-------|---|
-| **{API_KEY}** | The key for your Text Analytics resource. You can find it on your resource's **Key and endpoint** page, on the Azure portal. |`xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx`|
-| **{ENDPOINT_URI}** | The endpoint for accessing the Text Analytics API. You can find it on your resource's **Key and endpoint** page, on the Azure portal. | `https://<your-custom-subdomain>.cognitiveservices.azure.com` |
 
 > [!IMPORTANT]
 > * The docker commands in the following sections use the back slash, `\`, as a line continuation character. Replace or remove this based on your host operating system's requirements. 
@@ -111,6 +113,10 @@ Replace the placeholders below with your own values:
 # [Language Detection (preview)](#tab/language)
 
 [!INCLUDE [docker-run-language-detection-container](../includes/docker-run-language-detection-container.md)]
+
+# [Text Analytics for health (preview)](#tab/healthcare)
+
+[!INCLUDE [docker-run-health-container](../includes/docker-run-health-container.md)]
 
 ***
 
@@ -156,8 +162,8 @@ In this article, you learned concepts and workflow for downloading, installing, 
    * *Sentiment Analysis*
    * *Key Phrase Extraction (preview)* 
    * *Language Detection (preview)*
-   
-* Container images are downloaded from the Microsoft Container Registry (MCR) in Azure.
+   * *Text Analytics for Health (preview)*
+* Container images are downloaded from the Microsoft Container Registry (MCR) or preview container repository.
 * Container images run in Docker.
 * You can use either the REST API or SDK to call operations in Text Analytics containers by specifying the host URI of the container.
 * You must specify billing information when instantiating a container.

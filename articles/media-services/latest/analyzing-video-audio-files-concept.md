@@ -5,22 +5,26 @@ titleSuffix: Azure Media Services
 description: Learn how to analyze audio and video content using AudioAnalyzerPreset and VideoAnalyzerPreset in Azure Media Services.
 services: media-services
 documentationcenter: ''
-author: Juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 
 ms.service: media-services
 ms.workload: 
-ms.topic: article
-ms.date: 01/30/2020
-ms.author: juliako
+ms.topic: conceptual
+ms.date: 08/31/2020
+ms.author: inhenkel
 ---
 
 # Analyze video and audio files with Azure Media Services
 
+[!INCLUDE [regulation](../video-indexer/includes/regulation.md)]
+
+[!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
+
 Azure Media Services v3 lets you extract insights from your video and audio files with Video Indexer. This article describes the Media Services v3 analyzer presets used to extract those insights. If you want more detailed insights, use Video Indexer directly. To understand when to use Video Indexer vs. Media Services analyzer presets, check out the [comparison document](../video-indexer/compare-video-indexer-with-media-services-presets.md).
 
-To analyze your content using Media Services v3 presets, you create a **Transform** and submit a **Job** that uses one of these presets: [VideoAnalyzerPreset](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#videoanalyzerpreset) or **AudioAnalyzerPreset**. For a tutorial demonstrating how to use **VideoAnalyzerPreset**, see [Analyze videos with Azure Media Services](analyze-videos-tutorial-with-api.md).
+To analyze your content using Media Services v3 presets, you create a **Transform** and submit a **Job** that uses one of these presets: [VideoAnalyzerPreset](/rest/api/media/transforms/createorupdate#videoanalyzerpreset) or **AudioAnalyzerPreset**. For a tutorial demonstrating how to use **VideoAnalyzerPreset**, see [Analyze videos with Azure Media Services](analyze-videos-tutorial-with-api.md).
 
 > [!NOTE]
 > When using a Video or Audio Analyzer presets, use the Azure portal to set your account to have 10 S3 Media Reserved Units. For more information, see [Scale media processing](media-reserved-units-cli-how-to.md).
@@ -35,9 +39,9 @@ Media Services currently supports the following built-in analyzer presets:
 
 |**Preset name**|**Scenario**|**Details**|
 |---|---|---|
-|[AudioAnalyzerPreset](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#audioanalyzerpreset)|Analyzing audio|The preset applies a predefined set of AI-based analysis operations, including speech transcription. Currently, the preset supports processing content with a single audio track that contains speech in a single language. You can specify the language for the audio payload in the input using the BCP-47 format of 'language tag-region'. Supported languages are English ('en-US' and 'en-GB'), Spanish ('es-ES' and 'es-MX'), French ('fr-FR'), Italian ('it-IT'), Japanese ('ja-JP'), Portuguese ('pt-BR'), Chinese ('zh-CN'), German ('de-DE'), Arabic ('ar-EG' and 'ar-SY'), Russian ('ru-RU'), Hindi ('hi-IN'), and Korean ('ko-KR').<br/><br/> If the language isn't specified or set to null, automatic language detection chooses the first language detected and continues with the selected language for the duration of the file. The automatic language detection feature currently supports English, Chinese, French, German, Italian, Japanese, Spanish, Russian, and Portuguese. It doesn't support dynamically switching between languages after the first language is detected. The automatic language detection feature works best with audio recordings with clearly discernible speech. If automatic language detection fails to find the language, the transcription falls back to English.|
-|[VideoAnalyzerPreset](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#videoanalyzerpreset)|Analyzing audio and video|Extracts insights (rich metadata) from both audio and video, and outputs a JSON format file. You can specify whether you only want to extract audio insights when processing a video file. For more information, see [Analyze video](analyze-videos-tutorial-with-api.md).|
-|[FaceDetectorPreset](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#facedetectorpreset)|Detecting faces present in video|Describes the settings to be used when analyzing a video to detect all the faces present.|
+|[AudioAnalyzerPreset](/rest/api/media/transforms/createorupdate#audioanalyzerpreset)|Analyzing audio|The preset applies a predefined set of AI-based analysis operations, including speech transcription. Currently, the preset supports processing content with a single audio track that contains speech in a single language. You can specify the language for the audio payload in the input using the BCP-47 format of 'language tag-region'. Supported languages are English ('en-US' and 'en-GB'), Spanish ('es-ES' and 'es-MX'), French ('fr-FR'), Italian ('it-IT'), Japanese ('ja-JP'), Portuguese ('pt-BR'), Chinese ('zh-CN'), German ('de-DE'), Arabic ('ar-EG' and 'ar-SY'), Russian ('ru-RU'), Hindi ('hi-IN'), and Korean ('ko-KR').<br/><br/> If the language isn't specified or set to null, automatic language detection chooses the first language detected and continues with the selected language for the duration of the file. The automatic language detection feature currently supports English, Chinese, French, German, Italian, Japanese, Spanish, Russian, and Portuguese. It doesn't support dynamically switching between languages after the first language is detected. The automatic language detection feature works best with audio recordings with clearly discernible speech. If automatic language detection fails to find the language, the transcription falls back to English.|
+|[VideoAnalyzerPreset](/rest/api/media/transforms/createorupdate#videoanalyzerpreset)|Analyzing audio and video|Extracts insights (rich metadata) from both audio and video, and outputs a JSON format file. You can specify whether you only want to extract audio insights when processing a video file. For more information, see [Analyze video](analyze-videos-tutorial-with-api.md).|
+|[FaceDetectorPreset](/rest/api/media/transforms/createorupdate#facedetectorpreset)|Detecting faces present in video|Describes the settings to be used when analyzing a video to detect all the faces present.|
 
 ### AudioAnalyzerPreset
 

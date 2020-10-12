@@ -1,22 +1,23 @@
 ---
-title: Review your individual Azure bill
-description: Learn how to understand your bill and resource usage and to verify charges for your individual Azure subscription.
+title: Review your individual Azure subscription bill
+description: Learn how to understand your bill and resource usage and to verify charges for your individual Azure subscription, including pay-as-you-go.
 author: bandersmsft
 ms.reviewer: judupont
 tags: billing
 ms.service: cost-management-billing
+ms.subservice: billing
 ms.topic: tutorial
-ms.date: 06/16/2020
+ms.date: 10/01/2020
 ms.author: banders
 ---
 
-# Tutorial: Review your individual Azure bill
+# Tutorial: Review your individual Azure subscription bill
 
-This article helps you understand and review your Azure bill. For each billing period, you normally receive an invoice in email. The invoice is a representation of your Azure bill. The same cost information on the invoice is available in the Azure portal. In this tutorial you will compare your invoice with the detailed daily usage file and with cost analysis in the Azure portal.
+This article helps you understand and review the bill for your pay-as-you-go or Visual Studio Azure subscription, including pay-as-you-go and Visual Studio. For each billing period, you normally receive an invoice in email. The invoice is a representation of your Azure bill. The same cost information on the invoice is available in the Azure portal. In this tutorial you will compare your invoice with the detailed daily usage file and with cost analysis in the Azure portal.
 
 This tutorial applies only to Azure customers with an individual subscription. Common individual subscriptions are those with pay-as-you-go rates purchased directly from the Azure website.
 
-If you need help understanding unexpected charges, see [Analyze unexpected charges](https://docs.microsoft.com/azure/cost-management-billing/manage/getting-started#analyze-unexpected-charges). Or, if you need to cancel your Azure subscription, see [Cancel your Azure subscription](../manage/cancel-azure-subscription.md).
+If you need help understanding unexpected charges, see [Analyze unexpected charges](analyze-unexpected-charges.md). Or, if you need to cancel your Azure subscription, see [Cancel your Azure subscription](../manage/cancel-azure-subscription.md).
 
 In this tutorial, you learn how to:
 
@@ -36,7 +37,7 @@ It must be more than 30 days from the day that you subscribed to Azure. Azure bi
 
 - Sign in to the Azure portal at [https://portal.azure.com](https://portal.azure.com).
 
-## Compare invoiced charges with usage file
+## Compare billed charges with your usage file
 
 <a name="charges"></a>
 
@@ -103,7 +104,7 @@ The summed *Cost* value should match precisely to the *usage charges* cost for t
 
 For more information, see [Understand your Azure invoice](understand-invoice.md) and [Understand your Azure detailed usage](understand-usage.md).
 
-## Compare charges and usage in cost analysis
+## Compare billed charges and usage in cost analysis
 
 Cost analysis in the Azure portal can also help you verify your charges. To get a quick overview of your invoiced usage and charges, select your subscription from the [Subscriptions page](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade) in the Azure portal. Next, click **Cost analysis** and then in the views list, click **Invoice details**.
 
@@ -117,13 +118,15 @@ Costs shown in cost analysis should match precisely to the *usage charges* cost 
 
 ![Invoice usage charges](./media/review-individual-bill/invoice-usage-charges.png)
 
-## <a name="external"></a>External services billed separately
+## External Marketplace services are billed separately
+
+<a name="external"></a>
 
 External services or marketplace charges are for resources that have been created by third-party software vendors. Those resources are available for use from the Azure Marketplace. For example, a Barracuda Firewall is an Azure Marketplace resource offered by a third-party. All charges for the firewall and its corresponding meters appear as external service charges.
 
 External service charges are billed separately. The charges don't show up on your Azure invoice. To learn more, see [Understand your Azure external service charges](understand-azure-marketplace-charges.md).
 
-### Resources billed by usage meters
+### Resources are billed by usage meters
 
 Azure doesn't directly bill based on the resource cost. Charges for a resource are calculated by using one or more meters. Meters are used to track a resource’s usage throughout its lifetime. These meters are then used to calculate the bill.
 
@@ -146,7 +149,9 @@ When the VM is created, each meter begins emitting usage records. This usage and
 
 You can see the meters that were used to calculate your bill in the usage CSV file, like in the earlier example.
 
-## <a name="payment"></a>Pay your bill
+## Pay your bill
+
+<a name="payment"></a>
 
 If you set up a credit card as your payment method, the payment is charged automatically within 10 days after the billing period ends. On your credit card statement, the line item would say **MSFT Azure**.
 

@@ -7,7 +7,7 @@ ms.topic: conceptual
 ms.date: 05/07/2020
 ms.author: tisande
 ms.reviewer: sngun
-
+ms.custom: devx-track-js
 ---
 
 # JavaScript query API in Azure Cosmos DB

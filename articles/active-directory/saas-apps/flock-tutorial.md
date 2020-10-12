@@ -2,21 +2,15 @@
 title: 'Tutorial: Azure Active Directory integration with Flock | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and Flock.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-
-ms.assetid: 7b2c3ac5-17f1-49a0-8961-c541b258d4b1
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 02/15/2019
 ms.author: jeedes
-
 ---
 # Tutorial: Azure Active Directory integration with Flock
 
@@ -130,7 +124,7 @@ To configure Azure AD single sign-on with Flock, perform the following steps:
 
 2. Select **Authentication** tab from the left navigation panel and then select **SAML Authentication**.
 
-	![Flock Configuration](./media/flock-tutorial/configure1.png)
+	![Screenshot that shows the "Authentication" tab with "S A M L Authentication" selected.](./media/flock-tutorial/configure1.png)
 
 3. In the **SAML Authentication** section, perform the following steps:
 
@@ -205,11 +199,11 @@ To enable Azure AD users to log in to Flock, they must be provisioned into Flock
 
 2. Click **Manage Team** from the left navigation panel.
 
-    ![Add Employee](./media/flock-tutorial/user1.png)
+    ![Screenshot that shows "Manage Team" selected.](./media/flock-tutorial/user1.png)
 
 3. Click **Add Member** tab and then select **Team Members**.
 
-	![Add Employee](./media/flock-tutorial/user2.png)
+	![Screenshot that shows the "Add Member" tab and "Team Members" selected.](./media/flock-tutorial/user2.png)
 
 4. Enter the email address of the user like **Brittasimon\@contoso.com** and then select **Add Users**.
 

@@ -8,7 +8,7 @@ ms.devlang: nodejs
 ms.topic: tutorial
 ms.date: 12/26/2018
 ms.author: jopapa
-ms.custom: seodec18
+ms.custom: seodec18, devx-track-js
 ms.reviewer: sngun
 #Customer intent: As a developer, I want to build a Node.js application, so that I can manage the data stored in Cosmos DB.
 ---
@@ -110,7 +110,7 @@ To connect your application to Azure Cosmos DB, you need to update the configura
 
 1. Retrieve the primary key for the Azure Cosmos DB account by using the following CLI command in the terminal window: 
 
-    ```azure-cli-interactive
+    ```azurecli-interactive
     az cosmosdb list-keys --name <cosmosdb-name> -g myResourceGroup
     ```    
     
@@ -226,7 +226,7 @@ Let's take a minute to review and walk through the previous code. First, we come
 
 Next, run the app by using the following steps:
 
-1. In Visual Studio Code, save all your changes. On the left, select the **Debug** button ![Debug icon in Visual Studio Code](./media/tutorial-develop-mongodb-nodejs-part5/debug-button.png), and then select the **Start Debugging** button ![Debug icon in Visual Studio Code](./media/tutorial-develop-mongodb-nodejs-part5/start-debugging-button.png).
+1. In Visual Studio Code, save all your changes. On the left, select the **Debug** button :::image type="icon" source="./media/tutorial-develop-mongodb-nodejs-part5/debug-button.png":::, and then select the **Start Debugging** button :::image type="icon" source="./media/tutorial-develop-mongodb-nodejs-part5/start-debugging-button.png":::.
 
 1. Now switch to the browser. Open the **Developer tools** and the **Network tab**. Go to `http://localhost:3000`, and there you see our application.
 

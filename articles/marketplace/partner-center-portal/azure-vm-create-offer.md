@@ -1,12 +1,12 @@
 ---
 title: Create an Azure virtual machine offer on Azure Marketplace
-description: Learn how to create a virtual machine offer on Azure Marketplace with the required SKU.
-author: emuench
-ms.author: mingshen
+description: Learn how to publish a virtual machine offer to Azure Marketplace.
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
-ms.topic: conceptual
-ms.date: 06/17/2020
+ms.topic: how-to
+author: emuench
+ms.author: mingshen
+ms.date: 08/07/2020
 ---
 
 # Create an Azure virtual machine offer on Azure Marketplace
@@ -22,7 +22,7 @@ Before you start, [Create a commercial marketplace account in Partner Center](cr
 When you publish your offers on Azure Marketplace, you can:
 
 - Promote your company with the help of the Microsoft brand.
-- Reach over 100 million Office 365 and Dynamics 365 users and more than 200,000 organizations.
+- Reach over 100 million Microsoft 365 and Dynamics 365 users and more than 200,000 organizations.
 - Get high-quality leads from these marketplaces.
 - Get your services promoted by the Microsoft field sales and telesales teams.
 
@@ -157,7 +157,7 @@ You must provide offer terms and conditions to your customers. You have two opti
 
        a. Enter your own amendment terms in the **Custom amendment terms** box. You can enter an unlimited number of characters. Only customers from the tenant IDs that you specify for these custom terms will see them in the offer's purchase flow in the Azure portal.
 
-       b. (Required) Provide **Tenant IDs**. Each custom amendment can be targeted to up to 20 tenant IDs. If you add a custom amendment, you must provide at least one tenant ID, which identifies your customer in Azure. Your customer can find this for you in Azure by selecting **Azure Active Directory** > **Properties**. The directory ID value is the tenant ID (for example, 50c464d3-4930-494c-963c-1e951d15360e). You can also find the organization's tenant ID of your customer by using their domain name web address at [What is my Microsoft Azure and Office 365 tenant ID?](https://www.whatismytenantid.com/).
+       b. (Required) Provide **Tenant IDs**. Each custom amendment can be targeted to up to 20 tenant IDs. If you add a custom amendment, you must provide at least one tenant ID, which identifies your customer in Azure. Your customer can find this for you in Azure by selecting **Azure Active Directory** > **Properties**. The directory ID value is the tenant ID (for example, 50c464d3-4930-494c-963c-1e951d15360e). You can also find the organization's tenant ID of your customer by using their domain name web address at [What is my Microsoft Azure and Microsoft 365 tenant ID?](https://www.whatismytenantid.com/).
 
        c. (Optional) Provide a friendly **Description** for the tenant ID, one that helps you identify the customer that you're targeting with the amendment.
 
@@ -237,19 +237,24 @@ Provide contact information for Microsoft to use when there are issues with your
 
 Provide logos and images to use with your offer. All images must be in PNG format. Blurry images will cause your submission to be rejected.
 
+[!INCLUDE [logo tips](../includes/graphics-suggestions.md)]
+
 >[!NOTE]
 >If you have an issue uploading files, ensure that your local network doesn't block the https://upload.xboxlive.com service that's used by Partner Center.
 
 #### Azure Marketplace logos
 
-Provide PNG files of your offer's logo with the following four image dimensions:
+Provide a PNG file for the **Large** size logo. Partner Center will use this to create a **Small** and a **Medium** logo. You can optionally replace these with different images later.
 
-- **Small** (48 &times; 48 pixels)
-- **Medium** (90 &times; 90 pixels)
-- **Large** (216 &times; 216 pixels)
-- **Wide** (255 &times; 115 pixels)
+- **Large** (from 216 x 216 to 350 x 350 px, required)
+- **Medium** (90 x 90 px, optional)
+- **Small** (48 x 48 px, optional)
 
-All four logos are required, and they're displayed in various Azure Marketplace listings.
+These logos are used in different places in the listing:
+
+[!INCLUDE [logos-azure-marketplace-only](../includes/logos-azure-marketplace-only.md)]
+
+[!INCLUDE [Logo tips](../includes/graphics-suggestions.md)]
 
 #### Screenshots
 
@@ -281,7 +286,9 @@ Select **Save draft** before you proceed to the next section.
 
 ## Plan overview
 
-You can provide a variety of plan options within the same offer in Partner Center. These plans were formerly referred to as SKUs. An offer requires at least one plan, which can vary by monetization audience, Azure region, features, or VM images.
+You can provide a variety of plan options within the same offer in Partner Center. An offer requires at least one plan (formerly called a SKU), which can vary by monetization audience, Azure region, features, or VM images.
+
+You can create up to 100 plans for each offer: up to 45 of these can be private. Learn more about private plans in [Private offers in the Microsoft commercial marketplace](../private-offers.md).
 
 After you create your plans, select the **Plan overview** tab to display:
 
@@ -347,7 +354,7 @@ In this section, you configure the listing details of the plan. This pane displa
 
 #### Plan name
 
-This field is autofilled with the name that you gave your plan when you created it. This name appears on Azure Marketplace as the title of this plan. It is limited to 100 characters.
+This field is automatically filled with the name that you gave your plan when you created it. This name appears on Azure Marketplace as the title of this plan. It is limited to 100 characters.
 
 #### Plan summary
 
@@ -363,7 +370,7 @@ Select **Save draft** before you continue.
 
 On this pane, you configure:
 
-- Markets where this plan is available.
+- Markets where this plan is available. Every plan must be available in at least one [market](../marketplace-geo-availability-currencies.md).
 - The price per hour.
 - Whether to make the plan visible to everyone or only to specific customers (a private audience).
 
@@ -390,7 +397,7 @@ For a usage-based monthly billed plan, use one of the following three pricing en
 
 #### Free Trial
 
-You can offer a one-month or three-month *Free Trial* to your customers.
+You can offer a one-month or three-month or six-month *Free Trial* to your customers.
 
 #### Visibility
 
@@ -407,7 +414,6 @@ You can design each plan to be visible to everyone or only to a preselected audi
 
 >[!Note]
 >Private offers are not supported with Azure subscriptions established through a reseller of the Cloud Solution Provider program (CSP).
-
 
 #### Hide a plan
 
@@ -511,10 +517,10 @@ The **Offer overview** page shows a visual representation of the steps, both com
 
 This page also includes links to help you work with the offer, depending on its status:
 
-- If the offer is a draft: [Delete draft offer](update-existing-offer.md#delete-a-draft-offer))
-- If the offer is live: [Stop selling the offer](update-existing-offer.md#stop-selling-an-offer-or-plan))
-- If the offer is in preview: [Go-live](publishing-status.md#publisher-approval))
-- If you haven't completed publisher sign-out: [Cancel publishing](update-existing-offer.md#cancel-publishing))
+- If the offer is a draft: [Delete draft offer](update-existing-offer.md#delete-a-draft-offer)
+- If the offer is live: [Stop selling the offer](update-existing-offer.md#stop-selling-an-offer-or-plan)
+- If the offer is in preview: [Go-live](publishing-status.md#publisher-approval)
+- If you haven't completed publisher sign-out: [Cancel publishing](update-existing-offer.md#cancel-publishing)
 
 ## Marketplace examples
 

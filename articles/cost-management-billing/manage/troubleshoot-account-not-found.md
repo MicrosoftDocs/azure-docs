@@ -5,8 +5,9 @@ author: amberbhargava
 ms.reviewer: banders
 tags: billing
 ms.service: cost-management-billing
+ms.subservice: billing
 ms.topic: conceptual
-ms.date: 06/24/2020
+ms.date: 08/20/2020
 ms.author: banders
 ---
 

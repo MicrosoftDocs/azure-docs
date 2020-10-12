@@ -1,7 +1,7 @@
 ---
-title: Australian Government ISM PROTECTED blueprint sample overview
-description: Overview of the Australian Government ISM PROTECTED blueprint sample. This blueprint sample helps customers assess specific ISM PROTECTED controls.
-ms.date: 03/10/2020
+title: Australian Government ISM PROTECTED blueprint sample controls
+description: Control mapping of the Australian Government ISM PROTECTED blueprint sample. Each control is mapped to one or more Azure Policy definitions that assist with assessment.
+ms.date: 09/11/2020
 ms.topic: sample
 ---
 # Control mapping of the Australian Government ISM PROTECTED blueprint sample
@@ -21,13 +21,13 @@ requirements** built-in policy initiative.
 > Each control below is associated with one or more [Azure Policy](../../../policy/overview.md)
 > definitions. These policies may help you
 > [assess compliance](../../../policy/how-to/get-compliance-data.md) with the control; however,
-> there often is not a 1:1 or complete match between a control and one or more policies. As such,
-> **Compliant** in Azure Policy refers only to the policies themselves; this doesn't ensure you're
-> fully compliant with all requirements of a control. In addition, the compliance standard includes
-> controls that aren't addressed by any Azure Policy definitions at this time. Therefore, compliance
-> in Azure Policy is only a partial view of your overall compliance status. The associations between
-> controls and Azure Policy definitions for this compliance blueprint sample may change over time.
-> To view the change history, see the
+> there often is not a one-to-one or complete match between a control and one or more policies. As
+> such, **Compliant** in Azure Policy refers only to the policies themselves; this doesn't ensure
+> you're fully compliant with all requirements of a control. In addition, the compliance standard
+> includes controls that aren't addressed by any Azure Policy definitions at this time. Therefore,
+> compliance in Azure Policy is only a partial view of your overall compliance status. The
+> associations between controls and Azure Policy definitions for this compliance blueprint sample
+> may change over time. To view the change history, see the
 > [GitHub Commit History](https://github.com/MicrosoftDocs/azure-docs/commits/master/articles/governance/blueprints/samples/ism-protected/control-mapping.md).
 
 
@@ -116,10 +116,10 @@ This blueprint helps you restrict the location for the deployment of all resourc
 
 - Audit unrestricted network access to storage accounts
 - Service Fabric clusters should only use Azure Active Directory for client authentication
-- \[Preview\]: Show audit results from Linux VMs that allow remote connections from accounts without passwords
-- \[Preview\]:  Deploy prerequisites to audit Linux VMs that allow remote connections from accounts without passwords
-- \[Preview\]: Show audit results from Linux VMs that have accounts without passwords
-- \[Preview\]: Deploy prerequisites to audit Linux VMs that have accounts without passwords
+- Show audit results from Linux VMs that allow remote connections from accounts without passwords
+- Deploy prerequisites to audit Linux VMs that allow remote connections from accounts without passwords
+- Show audit results from Linux VMs that have accounts without passwords
+- Deploy prerequisites to audit Linux VMs that have accounts without passwords
 
 ### 0974 Multi-factor authentication is used to authenticate standard users
 
@@ -132,8 +132,8 @@ This blueprint helps you restrict the location for the deployment of all resourc
 
 ### 0421 Passphrases used for single-factor authentication are a minimum of 14 characters with complexity, ideally as 4 random words
 
-- \[Preview\]: Show audit results from Windows VMs configurations in 'Security Settings - Account Policies'
-- \[Preview\]: Deploy prerequisites to audit Windows VMs configurations in 'Security Settings - Account Policies'
+- Show audit results from Windows VMs configurations in 'Security Settings - Account Policies'
+- Deploy prerequisites to audit Windows VMs configurations in 'Security Settings - Account Policies'
 
 ## Guidelines for System Management - System administration
 
@@ -157,7 +157,7 @@ This blueprint helps you restrict the location for the deployment of all resourc
 - Vulnerabilities on your SQL databases should be remediated
 - Vulnerability assessment should be enabled on your SQL servers
 - Vulnerability assessment should be enabled on your SQL managed instances
-- \[Preview\]: Vulnerability Assessment should be enabled on Virtual Machines
+- Vulnerability Assessment should be enabled on Machines
 - Vulnerabilities in security configuration on your virtual machine scale sets should be remediated
 - Vulnerabilities should be remediated by a Vulnerability Assessment solution
 - Vulnerabilities in security configuration on your machines should be remediated
@@ -169,7 +169,7 @@ This blueprint helps you restrict the location for the deployment of all resourc
 - Vulnerabilities on your SQL databases should be remediated
 - Vulnerability assessment should be enabled on your SQL servers
 - Vulnerability assessment should be enabled on your SQL managed instances
-- \[Preview\]: Vulnerability Assessment should be enabled on Virtual Machines
+- Vulnerability Assessment should be enabled on Virtual Machines
 - Vulnerabilities in security configuration on your virtual machine scale sets should be remediated
 - Vulnerabilities should be remediated by a Vulnerability Assessment solution
 - Vulnerabilities in security configuration on your machines should be remediated
@@ -181,7 +181,7 @@ This blueprint helps you restrict the location for the deployment of all resourc
 - Vulnerabilities on your SQL databases should be remediated
 - Vulnerability assessment should be enabled on your SQL servers
 - Vulnerability assessment should be enabled on your SQL managed instances
-- \[Preview\]: Vulnerability Assessment should be enabled on Virtual Machines
+- Vulnerability Assessment should be enabled on Virtual Machines
 - Vulnerabilities in security configuration on your virtual machine scale sets should be remediated
 - Vulnerabilities should be remediated by a Vulnerability Assessment solution
 - Vulnerabilities in security configuration on your machines should be remediated
@@ -193,7 +193,7 @@ This blueprint helps you restrict the location for the deployment of all resourc
 - Vulnerabilities on your SQL databases should be remediated
 - Vulnerability assessment should be enabled on your SQL servers
 - Vulnerability assessment should be enabled on your SQL managed instances
-- \[Preview\]: Vulnerability Assessment should be enabled on Virtual Machines
+- Vulnerability Assessment should be enabled on Virtual Machines
 - Vulnerabilities in security configuration on your virtual machine scale sets should be remediated
 - Vulnerabilities should be remediated by a Vulnerability Assessment solution
 - Vulnerabilities in security configuration on your machines should be remediated
@@ -205,7 +205,7 @@ This blueprint helps you restrict the location for the deployment of all resourc
 - Vulnerabilities on your SQL databases should be remediated
 - Vulnerability assessment should be enabled on your SQL servers
 - Vulnerability assessment should be enabled on your SQL managed instances
-- \[Preview\]: Vulnerability Assessment should be enabled on Virtual Machines
+- Vulnerability Assessment should be enabled on Virtual Machines
 - Vulnerabilities in security configuration on your virtual machine scale sets should be remediated
 - Vulnerabilities should be remediated by a Vulnerability Assessment solution
 - Vulnerabilities in security configuration on your machines should be remediated
@@ -217,7 +217,7 @@ This blueprint helps you restrict the location for the deployment of all resourc
 - Vulnerabilities on your SQL databases should be remediated
 - Vulnerability assessment should be enabled on your SQL servers
 - Vulnerability assessment should be enabled on your SQL managed instances
-- \[Preview\]: Vulnerability Assessment should be enabled on Virtual Machines
+- Vulnerability Assessment should be enabled on Virtual Machines
 - Vulnerabilities in security configuration on your virtual machine scale sets should be remediated
 - Vulnerabilities should be remediated by a Vulnerability Assessment solution
 - Vulnerabilities in security configuration on your machines should be remediated
@@ -239,8 +239,8 @@ This blueprint helps you restrict the location for the deployment of all resourc
 ### 0582 The following events are logged for operating systems: access to important data and processes, application crashes and any error messages, attempts to use special privileges, changes to accounts, changes to security policy, changes to system configurations, Domain Name System (DNS) and Hypertext Transfer Protocol (HTTP) requests, failed attempts to access data and system resources, service failures and restarts, system startup and shutdown, transfer of data to external media, user or group management, use of special privileges
 
 - \[Preview\]: Audit Log Analytics Agent Deployment - VM Image (OS) unlisted
-- \[Preview\]: Audit Log Analytics Agent Deployment in VMSS - VM Image (OS) unlisted
-- \[Preview\]: Audit Log Analytics Workspace for VM - Report Mismatch
+- Audit Log Analytics Agent Deployment in VMSS - VM Image (OS) unlisted
+- Audit Log Analytics Workspace for VM - Report Mismatch
 - Audit diagnostic setting
 
 ### 1537 The following events are logged for databases: access to particularly important information, addition of new users, especially privileged users, any query containing comments, any query containing multiple embedded queries, any query or database alerts or failures, attempts to elevate privileges, attempted access that is successful or unsuccessful, changes to the database structure, changes to user roles or database permissions, database administrator actions, database logons and logoffs, modifications to data, use of executable commands
@@ -256,7 +256,7 @@ This blueprint helps you restrict the location for the deployment of all resourc
 - Vulnerabilities on your SQL databases should be remediated
 - Vulnerability assessment should be enabled on your SQL servers
 - Vulnerability assessment should be enabled on your SQL managed instances
-- \[Preview\]: Vulnerability Assessment should be enabled on Virtual Machines
+- Vulnerability Assessment should be enabled on Virtual Machines
 - Vulnerabilities in security configuration on your virtual machine scale sets should be remediated
 - Vulnerabilities should be remediated by a Vulnerability Assessment solution
 - Vulnerabilities in security configuration on your machines should be remediated
@@ -361,6 +361,10 @@ This blueprint helps you restrict the location for the deployment of all resourc
 ## Next steps
 
 Additional articles about blueprints and how to use them:
+
+> [!div class="nextstepaction"]
+> [ISM PROTECTED blueprint - Overview](./index.md)
+> [ISM PROTECTED blueprint - Deploy steps](./deploy.md)
 
 - Learn about the [blueprint lifecycle](../../concepts/lifecycle.md).
 - Understand how to use [static and dynamic parameters](../../concepts/parameters.md).

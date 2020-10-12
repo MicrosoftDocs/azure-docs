@@ -3,14 +3,12 @@ title: Azure Monitor workbooks data sources | Microsoft docs
 description: Simplify complex reporting with prebuilt and custom parameterized Azure Monitor Workbooks built from multiple data sources 
 services: azure-monitor
 documentationcenter: ''
-author: mrbullwinkle
 manager: carmonm
 
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 06/29/2020
-ms.author: mbullwin
 ---
 
 # Azure Monitor workbooks data sources
@@ -57,7 +55,7 @@ To make a query control use this data source, use the Data source drop-down to c
 
 ## Azure Data Explorer
 
-Workbooks now have support for querying from [Azure Data Explorer](https://docs.microsoft.com/azure/data-explorer/) clusters with the powerful [Kusto](https://docs.microsoft.com/azure/kusto/query/index) query language.   
+Workbooks now have support for querying from [Azure Data Explorer](/azure/data-explorer/) clusters with the powerful [Kusto](/azure/kusto/query/index) query language.   
 
 ![Screenshot of Kusto query window](./media/workbooks-overview/data-explorer.png)
 
@@ -86,7 +84,7 @@ The JSON provider allows you to create a query result from static JSON content. 
 > [!NOTE]
 > The suggested way to query for Azure Alert information is by using the [Azure Resource Graph](#azure-resource-graph) data source, by querying the `AlertsManagementResources` table.
 >
-> See the [Azure Resource Graph table reference](https://docs.microsoft.com/azure/governance/resource-graph/reference/supported-tables-resources), or the [Alerts template](https://github.com/microsoft/Application-Insights-Workbooks/blob/master/Workbooks/Azure%20Resources/Alerts/Alerts.workbook) for examples.
+> See the [Azure Resource Graph table reference](../../governance/resource-graph/reference/supported-tables-resources.md), or the [Alerts template](https://github.com/microsoft/Application-Insights-Workbooks/blob/master/Workbooks/Azure%20Resources/Alerts/Alerts.workbook) for examples.
 >
 > The Alerts data source will remain available for a period of time while authors transition to using ARG. Use of this data source in templates is discouraged. 
 
@@ -110,5 +108,4 @@ To avoid automatically making calls to untrusted hosts when using templates, the
 
 * [Get started](workbooks-visualizations.md) learning more about workbooks many rich visualizations options.
 * [Control](workbooks-access-control.md) and share access to your workbook resources.
-* [Log Analytics query optimization tips](https://docs.microsoft.com/azure/azure-monitor/log-query/query-optimization)
-* 
+* [Log Analytics query optimization tips](../log-query/query-optimization.md)

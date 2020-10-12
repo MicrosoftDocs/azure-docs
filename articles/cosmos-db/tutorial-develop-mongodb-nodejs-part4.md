@@ -8,7 +8,7 @@ ms.devlang: nodejs
 ms.topic: tutorial
 ms.date: 12/06/2018
 ms.author: jopapa
-ms.custom: seodec18
+ms.custom: seodec18, devx-track-js
 ms.reviewer: sngun
 
 ---
@@ -56,7 +56,7 @@ It may take a minute or two for the command to complete. When it's done, the ter
 
 Once the Azure Cosmos DB account has been created:
 1. Open a new browser window and go to [https://portal.azure.com](https://portal.azure.com)
-1. Click the Azure Cosmos DB logo ![Azure Cosmos DB icon in the Azure portal](./media/tutorial-develop-mongodb-nodejs-part4/azure-cosmos-db-icon.png) on the left bar, and it shows you all the Azure Cosmos DBs you have.
+1. Click the Azure Cosmos DB logo :::image type="icon" source="./media/tutorial-develop-mongodb-nodejs-part4/azure-cosmos-db-icon.png"::: on the left bar, and it shows you all the Azure Cosmos DBs you have.
 1. Click on the Azure Cosmos DB account you just created, select the **Overview** tab and scroll down to view the map where the database is located. 
 
     :::image type="content" source="./media/tutorial-develop-mongodb-nodejs-part4/azure-cosmos-db-angular-portal.png" alt-text="New Azure Cosmos DB account in the Azure portal":::

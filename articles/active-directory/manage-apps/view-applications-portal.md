@@ -12,19 +12,17 @@ ms.date: 04/09/2019
 ms.author: kenwith
 ms.reviewer: arvinh
 ms.custom: it-pro
-ms.collection: M365-identity-device-management
-
 ---
 
 # Quickstart: View the list of applications that are using your Azure Active Directory (Azure AD) tenant for identity management
 
-Get started using Azure AD as your Identity and Authorization Management (IAM) system for the applications your organization uses. In this quickstart you will view the applications, also known as apps, that are already set up to use Azure AD tenant as their identity provider.
+Get started using Azure AD as your Identity and Access Management (IAM) system for the applications your organization uses. In this quickstart you will view the applications, also known as apps, that are already set up to use your Azure AD tenant as their Identity Provider (IdP).
 
 ## Prerequisites
 
 To view applications that have been registered in your Azure AD tenant, you need:
 
-- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- An Azure account. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
 >[!IMPORTANT]
 >We recommend using a non-production environment to test the steps in this quickstart.
@@ -64,11 +62,17 @@ To search for a particular application:
 3. Try entering the first few letters of an application name. This example shows all the applications that start with **Sales**.
     ![Example shows all apps that start with Sales](media/view-applications-portal/search-by-prefix.png)
 
+
+> [!TIP]
+> You can automate app management using the Graph API, see [Automate app management with Microsoft Graph API](https://docs.microsoft.com/graph/application-saml-sso-configure-api).
+
+
+## Clean up resources
+
+You did not create any new resources in this quickstart, so there is nothing to clean up.
+
 ## Next steps
 
-In this quickstart, you learned how to view the applications in your Azure AD tenant. You learned how to filter the list of applications by application type, status, and visibility. You also learned how to search for a particular application.
-
-- [Add an app](add-application-portal.md)
-- [Configure an app](add-application-portal-configure.md)
-- [Set up single sign-on](add-application-portal-setup-sso.md)
-- [Delete an app](delete-application-portal.md)
+Advance to the next article to learn how to use Azure AD as the identity provider for an app.
+> [!div class="nextstepaction"]
+> [Add an app](add-application-portal.md)

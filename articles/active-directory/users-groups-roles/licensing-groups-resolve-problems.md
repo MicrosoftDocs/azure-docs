@@ -84,7 +84,7 @@ To solve this problem, you need to make sure that the required plan is still ass
 
 ## Usage location isn't allowed
 
-**Problem:** Some Microsoft services aren't available in all locations because of local laws and regulations. Before you can assign a license to a user, you must specify the **Usage location** property for the user. You can specify the location under the **User** > **Profile** > **Settings** section in the Azure portal.
+**Problem:** Some Microsoft services aren't available in all locations because of local laws and regulations. Before you can assign a license to a user, you must specify the **Usage location** property for the user. You can specify the location under the **User** > **Profile** > **Edit** section in the Azure portal.
 
 When Azure AD attempts to assign a group license to a user whose usage location isn't supported, it fails and records an error on the user.
 
@@ -105,7 +105,7 @@ If you use Exchange Online, some users in your organization might be incorrectly
 > Get-Recipient -ResultSize unlimited | where {$_.EmailAddresses -match "user@contoso.onmicrosoft.com"} | fL Name, RecipientType,emailaddresses
 > ```
 > For more information about this problem, see ["Proxy address 
-> is already being used" error message in Exchange Online](https://support.microsoft.com/help/3042584/-proxy-address-address-is-already-being-used-error-message-in-exchange-online). The article also includes information on [how to connect to Exchange Online by using remote PowerShell](https://technet.microsoft.com/library/jj984289.aspx).
+> is already being used" error message in Exchange Online](https://support.microsoft.com/help/3042584/-proxy-address-address-is-already-being-used-error-message-in-exchange-online). The article also includes information on [how to connect to Exchange Online by using remote PowerShell](/powershell/exchange/connect-to-exchange-online-powershell?view=exchange-ps).
 
 After you resolve any proxy address problems for the affected users, make sure to force license processing on the group to make sure that the licenses can now be applied.
 

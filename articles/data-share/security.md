@@ -4,7 +4,7 @@ description: Security overview for Azure Data Share
 author: jifems
 ms.author: jife
 ms.service: data-share
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 06/05/2020
 ---
 # Security overview for Azure Data Share

@@ -80,7 +80,7 @@ If you don't have an Azure subscription, [create an account](https://azure.micro
    * **Authentication type**: Select **SSH public key** if you're creating a Linux VM. 
 
         > [!NOTE]
-        > You have the choice of using an SSH public key or a Password for authentication. SSH is more secure. For instructions on how to generate an SSH key, see [Create SSH keys on Linux and Mac for Linux VMs in Azure](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-mac-create-ssh-keys).
+        > You have the choice of using an SSH public key or a Password for authentication. SSH is more secure. For instructions on how to generate an SSH key, see [Create SSH keys on Linux and Mac for Linux VMs in Azure](../virtual-machines/linux/mac-create-ssh-keys.md).
 
     * **Username**: Enter the Administrator name for the VM.
 
@@ -195,9 +195,7 @@ Select the resource group for the virtual machine, then select **Delete**. Confi
 
 In this quickstart, you deployed a confidential computing virtual machine, and installed the Open Enclave SDK. For more information about confidential computing virtual machines on Azure, see [Solutions on Virtual Machines](virtual-machine-solutions.md). 
 
-If you deployed a Windows VM, learn how to build applications with the [OE SDK Samples for Windows](https://github.com/openenclave/openenclave/blob/master/samples/README_Windows.md) on GitHub. 
-
-Discover how you can build confidential computing applications on Linux, by continuing to the Open Enclave SDK Linux samples on GitHub. 
+Discover how you can build confidential computing applications, by continuing to the Open Enclave SDK samples on GitHub. 
 
 > [!div class="nextstepaction"]
-> [Building Open Enclave SDK Samples on Linux](https://github.com/openenclave/openenclave/blob/master/samples/README_Linux.md)
+> [Building Open Enclave SDK Samples](https://github.com/openenclave/openenclave/blob/master/samples/README.md)

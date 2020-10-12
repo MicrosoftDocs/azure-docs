@@ -3,19 +3,19 @@ title: Create an Oracle database in an Azure VM | Microsoft Docs
 description: Quickly get an Oracle Database 12c database up and running in your Azure environment.
 services: virtual-machines-linux
 documentationcenter: virtual-machines
-author: BorisB2015
-manager: gwallace
+author: dbakevlar
+manager: 
 editor: 
 tags: azure-resource-manager
 
 ms.assetid: 
 ms.service: virtual-machines-linux
 
-ms.topic: article
+ms.topic: quickstart
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 08/02/2018
-ms.author: borisb
+ms.date: 10/05/2020
+ms.author: kegorman
 ---
 
 # Create an Oracle Database in an Azure VM
@@ -79,7 +79,7 @@ ssh azureuser@<publicIpAddress>
 
 The Oracle software is already installed on the Marketplace image. Create a sample database as follows. 
 
-1.  Switch to the *oracle* superuser, then initialize the listener for logging:
+1.  Switch to the *oracle* user, then start the Oracle listener:
 
     ```bash
     $ sudo -su oracle
@@ -113,8 +113,13 @@ The Oracle software is already installed on the Marketplace image. Create a samp
     The listener supports no services
     The command completed successfully
     ```
+2. Create a data directory for the Oracle data files
 
-2.  Create the database:
+    ```bash
+        mkdir /u01/app/oracle/oradata
+    ```
+
+3.  Create the database:
 
     ```bash
     dbca -silent \
@@ -133,28 +138,58 @@ The Oracle software is already installed on the Marketplace image. Create a samp
            -databaseType MULTIPURPOSE \
            -automaticMemoryManagement false \
            -storageType FS \
+           -datafileDestination "/u01/app/oracle/oradata/" \
            -ignorePreReqs
     ```
 
     It takes a few minutes to create the database.
 
-3. Set Oracle variables
+    You will see output that looks similar to the following:
 
-Before you connect, you need to set two environment variables: *ORACLE_HOME* and *ORACLE_SID*.
+    ```output
+        Copying database files
+        1% complete
+        2% complete
+        8% complete
+        13% complete
+        19% complete
+        27% complete
+        Creating and starting Oracle instance
+        29% complete
+        32% complete
+        33% complete
+        34% complete
+        38% complete
+        42% complete
+        43% complete
+        45% complete
+        Completing Database Creation
+        48% complete
+        51% complete
+        53% complete
+        62% complete
+        70% complete
+        72% complete
+        Creating Pluggable Databases
+        78% complete
+        100% complete
+        Look at the log file "/u01/app/oracle/cfgtoollogs/dbca/cdb1/cdb1.log" for further details.
+    ```
 
-```bash
-ORACLE_HOME=/u01/app/oracle/product/12.1.0/dbhome_1; export ORACLE_HOME
-ORACLE_SID=cdb1; export ORACLE_SID
-```
+4. Set Oracle variables
 
-You also can add ORACLE_HOME and ORACLE_SID variables to the .bashrc file. This would save the environment variables for future sign-ins. Confirm the following statements have been added to the `~/.bashrc` file using editor of your choice.
+    Before you connect, you need to set two environment variables: *ORACLE_HOME* and *ORACLE_SID*.
 
-```bash
-# Add ORACLE_HOME. 
-export ORACLE_HOME=/u01/app/oracle/product/12.1.0/dbhome_1 
-# Add ORACLE_SID. 
-export ORACLE_SID=cdb1 
-```
+    ```bash
+        ORACLE_SID=cdb1; export ORACLE_SID
+    ```
+
+    You also can add ORACLE_HOME and ORACLE_SID variables to the .bashrc file. This would save the environment variables for future sign-ins. Confirm the following statements have been added to the `~/.bashrc` file using editor of your choice.
+
+    ```bash
+    # Add ORACLE_SID. 
+    export ORACLE_SID=cdb1 
+    ```
 
 ## Oracle EM Express connectivity
 
@@ -322,6 +357,6 @@ az group delete --name myResourceGroup
 
 ## Next steps
 
-Learn about other [Oracle solutions on Azure](oracle-considerations.md). 
+Learn about other [Oracle solutions on Azure](./oracle-overview.md). 
 
 Try the [Installing and Configuring Oracle Automated Storage Management](configure-oracle-asm.md) tutorial.

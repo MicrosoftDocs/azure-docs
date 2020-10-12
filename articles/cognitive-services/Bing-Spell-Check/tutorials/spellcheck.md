@@ -10,6 +10,7 @@ ms.subservice: bing-spell-check
 ms.topic: tutorial
 ms.date: 03/05/2020
 ms.author: aahi
+ms.custom: devx-track-js
 ---
 
 # Tutorial: Build a Web page Spell Check client

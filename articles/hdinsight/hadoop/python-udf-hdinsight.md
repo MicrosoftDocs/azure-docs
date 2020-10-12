@@ -5,9 +5,9 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 11/15/2019
-ms.custom: H1Hack27Feb2017,hdinsightactive, tracking-python
+ms.custom: H1Hack27Feb2017,hdinsightactive, devx-track-python
 ---
 
 # Use Python User Defined Functions (UDF) with Apache Hive and Apache Pig in HDInsight
@@ -589,7 +589,7 @@ The error information (STDERR) and the result of the job (STDOUT) are also logge
 
 ## <a name="next"></a>Next steps
 
-If you need to load Python modules that aren't provided by default, see [How to deploy a module to Azure HDInsight](https://blogs.msdn.com/b/benjguin/archive/2014/03/03/how-to-deploy-a-python-module-to-windows-azure-hdinsight.aspx).
+If you need to load Python modules that aren't provided by default, see [How to deploy a module to Azure HDInsight](https://docs.microsoft.com/archive/blogs/benjguin/how-to-deploy-a-python-module-to-windows-azure-hdinsight).
 
 For other ways to use Pig, Hive, and to learn about using MapReduce, see the following documents:
 

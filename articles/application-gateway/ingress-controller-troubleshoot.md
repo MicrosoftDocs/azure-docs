@@ -22,7 +22,7 @@ and AGIC installation. Launch your shell from [shell.azure.com](https://shell.az
 The steps below assume:
   - You have an AKS cluster, with Advanced Networking enabled
   - AGIC has been installed on the AKS cluster
-  - You already hav an Application Gateway on a VNET shared with your AKS cluster
+  - You already have an Application Gateway on a VNET shared with your AKS cluster
 
 To verify that the Application Gateway + AKS + AGIC installation is setup correctly, deploy
 the simplest possible app:

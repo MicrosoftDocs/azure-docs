@@ -2,21 +2,15 @@
 title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Datadog | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and Datadog.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-
-ms.assetid: b7845bdd-7bcd-4888-84fd-2551345054ee
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
 ms.topic: tutorial
-ms.date: 03/12/2020
+ms.date: 08/13/2020
 ms.author: jeedes
-
-ms.collection: M365-identity-device-management
 ---
 
 # Tutorial: Azure Active Directory single sign-on (SSO) integration with Datadog
@@ -41,7 +35,7 @@ To get started, you need the following items:
 In this tutorial, you configure and test Azure AD SSO in a test environment.
 
 * Datadog supports **SP and IDP** initiated SSO
-* Once you configure Datadog you can enforce Session Control, which protect exfiltration and infiltration of your organization’s sensitive data in real-time. Session Control extend from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-aad)
+* Once you configure Datadog you can enforce Session Control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session Control extends from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-aad)
 
 
 ## Adding Datadog from the gallery
@@ -56,7 +50,7 @@ To configure the integration of Datadog into Azure AD, you need to add Datadog f
 1. Select **Datadog** from results panel and then add the app. Wait a few seconds while the app is added to your tenant.
 
 
-## Configure and test Azure AD single sign-on for Datadog
+## Configure and test Azure AD SSO for Datadog
 
 Configure and test Azure AD SSO with Datadog using a test user called **B.Simon**. For SSO to work, you need to establish a link relationship between an Azure AD user and the related user in Datadog.
 
@@ -87,7 +81,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
     `https://app.datadoghq.com/account/login/id/<CUSTOM_IDENTIFIER>`
 
     > [!NOTE]
-	> The value is not real. Update the value with the actual Sign-on URL. Contact [Datadog Client support team](mailto:xuefwu@microsoft.com) to get the value. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
+	> The value is not real. Update the value with the actual Sign-on URL. Contact [Datadog Client support team](mailto:support@datadoghq.com) to get the value. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
 
 1. Click **Save**.
 
@@ -132,17 +126,33 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 ## Configure Datadog SSO
 
-To configure single sign-on on **Datadog** side, you need to send the downloaded **Federation Metadata XML** and appropriate copied URLs from Azure portal to [Datadog support team](mailto:xuefwu@microsoft.com). They set this setting to have the SAML SSO connection set properly on both sides.
+To configure single sign-on on **Datadog** side, you need to send the downloaded **Federation Metadata XML** and appropriate copied URLs from Azure portal to [Datadog support team](mailto:support@datadoghq.com). They set this setting to have the SAML SSO connection set properly on both sides.
 
 ### Create Datadog test user
 
-In this section, you create a user called B.Simon in Datadog. Work with [Datadog support team](mailto:xuefwu@microsoft.com) to add the users in the Datadog platform.
+In this section, you create a user called B.Simon in Datadog. Work with [Datadog support team](mailto:support@datadoghq.com) to add the users in the Datadog platform.
 
 ## Test SSO 
 
 In this section, you test your Azure AD single sign-on configuration using the Access Panel.
 
 When you click the Datadog tile in the Access Panel, you should be automatically signed in to the Datadog for which you set up SSO. For more information about the Access Panel, see [Introduction to the Access Panel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+
+### Enable all users from your tenant to authenticate with the app
+
+In this section, you enable everyone within your tenant to access Datadog if one user has an account on the Datadog side.
+
+1. In the Azure portal, select **Enterprise Applications**, and then select **All applications**.
+1. In the applications list, select **Datadog**.
+1. On the app's overview page, under **Manage**, select **Properties**.
+
+    ![The "Properties" link](common/properties.png)
+
+1. For **User assignment required?**, select **No**.
+
+    ![User assignment not required](common/user-assignment-not-required.png)
+
+1. Select **Save**.
 
 ## Additional resources
 

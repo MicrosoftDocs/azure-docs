@@ -1,5 +1,5 @@
 ---
-title: 'Upcoming changes to the ingestion and flattening rules in Azure Time Series Insights | Microsoft Docs'
+title: 'Upcoming changes to the ingestion and flattening rules in Azure Time Series Insights Gen2 | Microsoft Docs'
 description: Ingestion rule changes
 ms.service: time-series-insights
 services: time-series-insights
@@ -8,47 +8,48 @@ ms.author: lyhughes
 manager: dpalled
 ms.workload: big-data
 ms.topic: conceptual
-ms.date: 06/16/2020
+ms.date: 10/02/2020
 ms.custom: lyhughes
 ---
 
-# Upcoming changes to the JSON flattening and escaping rules for new environments
+# Upcoming changes to JSON flattening and escaping rules for new environments
 
-These changes will be applied to *new* Azure Time Series Insights pay-as-you-go (PAYG) environments only. These changes do not apply to Standard (S) SKU environments.
+> [!IMPORTANT]
+> These changes will be applied to *newly created* Microsoft Azure Time Series Insights Gen2 environments only. The changes don't apply to Gen1 environments.
 
-Your Azure Time Series Insights environment dynamically creates your storage columns, following a particular set of naming conventions. When an event is ingested, a set of rules is applied to the JSON payload and property names. Changes to how JSON data is flattened and stored will go into effect for new Azure Time Series Insights pay-as-you-go environments in July 2020. This change impacts you in the following cases:
+Your Azure Time Series Insights Gen2 environment dynamically creates your storage columns, following a particular set of naming conventions. When an event is ingested, Time Series Insights applies a set of rules to the JSON payload and property names. Changes to how JSON data is flattened and stored went into effect for new Azure Time Series Insights Gen2 environments in July 2020. This change impacts you in the following cases:
 
-* If your JSON payload contains nested objects
-*  If your JSON payload contains arrays
-*  If you use any of the following four special characters in a JSON property name: [ \ . '
-*  If one or more of your TS ID properties are within a nested object.
+* Your JSON payload contains nested objects.
+* Your JSON payload contains arrays.
+* You use any of the following four special characters in a JSON property name: `[` `\` `.` `'`
+* One or more of your Time Series (TS) ID properties are within a nested object.
 
-If you create a new environment and one or more of the cases above applies to your event payload, you'll see your data flattened and stored differently. Below is a summary of the changes:
+If you create a new environment and one or more of these cases applies to your event payload, your data will be flattened and stored differently. The following table summarizes the changes:
 
-| Current Rule | New Rule | Example JSON | Previous Column Name | New Column Name
+| Current rule | New rule | Example JSON | Previous column name | New column name
 |---|---| ---| ---|  ---|
-| Nested JSON is flattened using an underscore as the delineator |Nested JSON is flattened using a period as the delineator  | ``{"series" : { "value" : 19.338 }}`` | `series_value_double` |`series.value_double` |
-| Special characters are not escaped | JSON property names that include the special characters . [  \ and ' are escaped using [' and ']. Within [' and '] there's additional escaping of single quotes and backslashes. A single quote will be written as \' and a backslash will be written as \\\  | ```"Foo's Law Value": "17.139999389648"``` | `Foo's Law Value_double` | `['Foo\'s Law Value']_double` | 
-| Arrays of primitives are stored as a string | Arrays of primitive types are stored as a dynamic type  | `"values": [154, 149, 147]` | `values_string`  | `values_dynamic` |
-Arrays of objects are always flattened, producing multiple events | If the objects within an array don't have either the TS ID or timestamp propert(ies), the array of objects is stored whole as a dynamic type | `"values": [{"foo" : 140}, {"bar" : 149}]` | `values_foo_long | values_bar_long` | `values_dynamic` |
+| Nested JSON is flattened by using an underscore as the delineator. |Nested JSON is flattened by using a period as the delineator.  | ``{"series" : { "value" : 19.338 }}`` | `series_value_double` |`series.value_double` |
+| Special characters are not escaped. | JSON property names that include the special characters `.` `[`  `\` and `'` are escaped using `['` and `']`. Within `['` and `']`, there's additional escaping of single quotes and backslashes. A single quote will be written as `\'` and a backslash as `\\`.  | ```"Foo's Law Value": "17.139999389648"``` | `Foo's Law Value_double` | `['Foo\'s Law Value']_double` |
+| Arrays of primitives are stored as a string. | Arrays of primitive types are stored as a dynamic type.  | `"values": [154, 149, 147]` | `values_string`  | `values_dynamic` |
+Arrays of objects are always flattened, producing multiple events. | If the objects within an array don't have either the TS ID or timestamp properties, the array of objects is stored whole as a dynamic type. | `"values": [{"foo" : 140}, {"bar" : 149}]` | `values_foo_long | values_bar_long` | `values_dynamic` |
 
 ## Recommended changes for new environments
 
-#### If your TS ID and/or timestamp property is nested within an object:
+### If your TS ID and/or timestamp property is nested within an object
 
-*  Any new deployments will need to match the new ingestion rules. For example, if your TS ID is `telemetry_tagId` you'll need to update any ARM templates or automated deploy scripts to configure `telemetry.tagId` as the environment TS ID. This change is needed for event source timestamps in nested JSON as well.
+Any new deployments need to match the new ingestion rules. For example, if your TS ID is `telemetry_tagId`, you need to update any Azure Resource Manager templates or automated deploy scripts to configure `telemetry.tagId` as the environment TS ID. You also need this change for event source timestamps in nested JSON.
 
- #### If your payload contains nested JSON or special characters and you automate authoring [Time Series Model](.\time-series-insights-update-tsm.md) variable expressions
+### If your payload contains nested JSON or special characters and you automate authoring [Time Series Model](.\time-series-insights-update-tsm.md) variable expressions
 
-*  Update your client code executing [TypesBatchPut](https://docs.microsoft.com/rest/api/time-series-insights/dataaccess(preview)/timeseriestypes/executebatch#typesbatchput) to match the new ingestion rules. For example, a previous [Time Series Expression](https://docs.microsoft.com/rest/api/time-series-insights/preview#time-series-expression-and-syntax) of `"value": {"tsx": "$event.series_value.Double"}` should be updated to one of the below options:
-    * `"value": {"tsx": "$event.series.value.Double"}`
-    * `"value": {"tsx": "$event['series']['value'].Double"}`
+Update your client code that executes [TypesBatchPut](https://docs.microsoft.com/rest/api/time-series-insights/dataaccessgen2/timeseriestypes/executebatch#typesbatchput) to match the new ingestion rules. For example, you should update a previous [Time Series Expression](https://docs.microsoft.com/rest/api/time-series-insights/reference-time-series-expression-syntax) of `"value": {"tsx": "$event.series_value.Double"}` to one of the following options:
 
-
+* `"value": {"tsx": "$event.series.value.Double"}`
+* `"value": {"tsx": "$event['series']['value'].Double"}`
 
 ## Next steps
 
-- Read [Adding Support for Long Data Type](./time-series-insights-long-data-type.md).
+* Learn about [Azure Time Series Insights Gen2 storage and ingress](./time-series-insights-update-storage-ingress.md).
 
-- Read [Azure Time Series Insights Preview storage and ingress](./time-series-insights-update-storage-ingress.md).
+* Learn how to query your data by using [Time Series Query APIs](./concepts-query-overview.md).
 
+* Read more about the [new Time Series Expression syntax](https://docs.microsoft.com/rest/api/time-series-insights/reference-time-series-expression-syntax).

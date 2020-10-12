@@ -1,4 +1,4 @@
-  - name: Azure Cosmos DB Documentation
+  - name: Azure Cosmos DB documentation
     href: index.yml
   - name: Overview
     items:
@@ -21,6 +21,8 @@
         href: create-sql-api-dotnet.md
       - name: Java app
         href: create-sql-api-java.md
+      - name: Spring Data app
+        href: create-sql-api-spring-data.md        
       - name: Node.js app
         href: create-sql-api-nodejs.md
       - name: Python app
@@ -73,19 +75,18 @@
       href: sql-api-dotnet-v3sdk-samples.md
     - name: Java SDK v4 samples
       href: sql-api-java-sdk-samples.md
+    - name: Spring Data v3 samples
+      href: sql-api-spring-data-sdk-samples.md      
     - name: Node.js samples
       href: sql-api-nodejs-samples.md
     - name: Python samples
       href: sql-api-python-samples.md
     - name: PowerShell
-      href: powershell-samples-sql.md
+      href: powershell-samples.md
     - name: Azure CLI
       href: cli-samples.md
     - name: Azure Resource Manager
       href: resource-manager-samples.md
-    - name: Azure Policy built-ins
-      displayName: samples, policies, definitions
-      href: ./policy-samples.md
   - name: Concepts
     items:
     - name: NoSQL vs. relational databases
@@ -111,7 +112,7 @@
         displayName: request units, RUs, RU
         href: scaling-throughput.md
       - name: Conflict types and resolution policies
-        displayName: last write wins, custom, multi master, multi-master
+        displayName: last write wins, custom, multi-region writes, multi-master
         href: conflict-resolution-policies.md
       - name: Global distribution - under the hood
         href: global-dist-under-the-hood.md
@@ -123,22 +124,28 @@
         href: partitioning-overview.md
       - name: Partitioning and horizontal scaling
         href: partition-data.md
-      - name: Create a synthetic partition key
+      - name: Synthetic partition key
         href: synthetic-partition-keys.md
-    - name: Provisioned throughput
+    - name: Capacity
       items:
       - name: Request units
         displayName: RUs, RU
         href: request-units.md
-      - name: Provisioned throughput introduction
-        displayName: request units, RUs, RU, limits, database throughput, shared throughput, container throughput
-        href: set-throughput.md
-      - name: Provision autoscale throughput
-        href: provision-throughput-autoscale.md
-      - name: Choose between autoscale and standard (manual) throughput
-        href: how-to-choose-offer.md    
-      - name: Autoscale FAQ
-        href: autoscale-faq.md
+      - name: Provisioned throughput
+        items:
+        - name: Provisioned throughput introduction
+          displayName: request units, RUs, RU, limits, database throughput, shared throughput, container throughput
+          href: set-throughput.md
+        - name: Provision autoscale throughput
+          href: provision-throughput-autoscale.md
+        - name: Choose between autoscale and standard (manual) throughput
+          href: how-to-choose-offer.md    
+        - name: Autoscale FAQ
+          href: autoscale-faq.md
+      - name: Serverless
+        href: serverless.md
+      - name: Choose between provisioned throughput and serverless
+        href: throughput-serverless.md
     - name: SQL query
       items:
       - name: Getting started
@@ -223,12 +230,39 @@
             - name: Date and time functions
               displayName: date and time functions, date and time, datetime, system functions, built-in functions
               href: sql-query-date-time-functions.md
+            - name: DateTimeAdd
+              displayName: DateTimeAdd, date time add, timestamp, date and time functions, datetime
+              href: sql-query-datetimeadd.md
+            - name: DateTimeDiff
+              displayName: DateTimeDiff, date time diff, date and time functions, datetime
+              href: sql-query-datetimediff.md
+            - name: DateTimeFromParts
+              displayName: DateTimeFromParts, date time from parts, date and time functions, datetime
+              href: sql-query-datetimefromparts.md
+            - name: DateTimePart
+              displayName: DateTimePart, date time part, date and time functions, datetime
+              href: sql-query-datetimepart.md
+            - name: DateTimeToTicks
+              displayName: DateTimeToTicks, date time to ticks, date and time functions, datetime, ticks
+              href: sql-query-datetimetoticks.md
+            - name: DateTimeToTimestamp
+              displayName: DateTimeToTimestamp, date time to timestamp, date and time functions, datetime, timestamp
+              href: sql-query-datetimetotimestamp.md
             - name: GetCurrentDateTime
               displayName: GetCurrentDateTime, get current date time, date and time functions, datetime
               href: sql-query-getcurrentdatetime.md
+            - name: GetCurrentTicks
+              displayName: GetCurrentTicks, get current ticks, date and time functions, datetime, ticks
+              href: sql-query-getcurrentticks.md
             - name: GetCurrentTimestamp
               displayName: GetCurrentTimestamp, get current timestamp, timestamp, date and time functions, datetime
               href: sql-query-getcurrenttimestamp.md
+            - name: TicksToDateTime
+              displayName: TicksToDateTime, ticks to date time, date and time functions, datetime, ticks
+              href: sql-query-tickstodatetime.md
+            - name: TimestampToDateTime
+              displayName: TimestampToDateTime, timestamp to date time, date and time functions, datetime, timestamp
+              href: sql-query-timestamptodatetime.md
           - name: Mathematical functions
             items:
             - name: Mathematical functions
@@ -452,9 +486,6 @@
       - name: LINQ to SQL
         displayName: linq, .NET
         href: sql-query-linq-to-sql.md
-      - name: SQL query execution
-        displayName: query performance, query execution
-        href: sql-query-execution.md
     - name: Work with Azure Cosmos account
       href: account-overview.md
     - name: Containers and items
@@ -480,6 +511,8 @@
         href: unique-keys.md
       - name: Transactions and optimistic concurrency control
         href: database-transactions-optimistic-concurrency.md
+      - name: Attachments
+        href: attachments.md
     - name: Change feed
       items:
       - name: Change feed overview
@@ -551,7 +584,7 @@
         - name: Data encryption
           href: database-encryption-at-rest.md
         - name: Secure access to data
-          displayName: master key, resource token, users, roles
+          displayName: primary key, resource token, users, roles
           href: secure-access-to-data.md
         - name: IP firewall
           href: firewall-support.md
@@ -565,6 +598,9 @@
           href: role-based-access-control.md
         - href: cosmos-db-advanced-threat-protection.md
           name: Advanced threat protection
+        - name: Security controls by Azure Policy
+          displayName: regulatory, compliance, standards, domains
+          href: ./security-controls-policy.md
         - name: Security baseline
           href: security-baseline.md
     - name: Enterprise readiness
@@ -577,6 +613,8 @@
         href: policy.md
     - name: Service quotas
       href: concepts-limits.md
+    - name: Automatic recommendations
+      href: automated-recommendations.md
   - name: Cassandra, MongoDB, and other APIs
     expanded: true
     items:
@@ -602,6 +640,8 @@
           href: create-cassandra-nodejs.md
         - name: Python
           href: create-cassandra-python.md
+        - name: Golang
+          href: create-cassandra-go.md
       - name: Tutorials
         items:
         - name: 1 - Create and manage data
@@ -625,6 +665,14 @@
           href: cassandra-secondary-index.md          
       - name: How-to guides
         items:
+        - name: Migrate to Cassandra API
+          items:
+          - name: Migrate - Oracle DB to Cassandra API using Striim
+            href: cosmosdb-cassandra-api-migrate-data-striim.md
+          - name: Migrate - Oracle DB to Cassandra API using Blitzz
+            href: oracle-migrate-cosmos-db-blitzz.md
+          - name: Migrate - Apache Cassandra to Cassandra API using Blitzz
+            href: cassandra-migrate-cosmos-db-blitzz.md
         - name: Change feed
           href: cassandra-change-feed.md
         - name: Store and manage Spring Data 
@@ -655,9 +703,9 @@
           href: manage-cassandra-with-resource-manager.md
           displayName: ARM
         - name: Manage using PowerShell
-          href: powershell-samples-cassandra.md
+          href: powershell-samples.md
         - name: Manage using Azure CLI
-          href: cli-samples-cassandra.md
+          href: cli-samples.md
     - name: MongoDB API
       items:
       - name: Overview
@@ -700,12 +748,9 @@
               href: tutorial-develop-mongodb-nodejs-part6.md
           - name: Node.js and React app
             href: tutorial-develop-mongodb-react.md
-        - name: 2 - Migrate data
-          displayName: import
-          href: ../dms/tutorial-mongodb-cosmos-db.md?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json
-        - name: 3 - Query data
+        - name: 2 - Query data
           href: tutorial-query-mongodb.md
-        - name: 4 - Distribute data globally
+        - name: 3 - Distribute data globally
           href: tutorial-global-distribution-mongodb.md
       - name: Concepts
         items:
@@ -717,10 +762,18 @@
           href: mongodb-api-faq.md
       - name: How-to guides
         items:
-        - name: Pre-migration guide
-          href: mongodb-pre-migration.md
-        - name: Post-migration guide
-          href: mongodb-post-migration.md
+        - name: Migrate to MongoDB API
+          items:
+          - name: Pre-migration guide
+            href: mongodb-pre-migration.md
+          - name: Database Migration Service (online)
+            href: ../dms/tutorial-mongodb-cosmos-db-online.md?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json
+          - name: Database Migration Service (offline)
+            href: ../dms/tutorial-mongodb-cosmos-db.md?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json
+          - name: Post-migration guide
+            href: mongodb-post-migration.md
+        - name: Upgrade from MongoDB 3.2 to 3.6
+          href: mongodb-version-upgrade.md
         - name: Get the connection string
           href: connect-mongodb-account.md
         - name: Connect using Studio 3T
@@ -749,9 +802,9 @@
           href: manage-mongodb-with-resource-manager.md
           displayName: ARM
         - name: Manage using PowerShell
-          href: powershell-samples-mongodb.md
+          href: powershell-samples.md
         - name: Manage using Azure CLI
-          href: cli-samples-mongodb.md
+          href: cli-samples.md
         - name: Troubleshoot common issues
           href: mongodb-troubleshoot.md
     - name: Gremlin API
@@ -809,9 +862,9 @@
           href: manage-gremlin-with-resource-manager.md
           displayName: ARM
         - name: Manage using PowerShell
-          href: powershell-samples-gremlin.md
+          href: powershell-samples.md
         - name: Manage using Azure CLI
-          href: cli-samples-gremlin.md
+          href: cli-samples.md
       - name: Reference
         items:
         - name: Response Headers
@@ -880,9 +933,9 @@
           href: manage-table-with-resource-manager.md
           displayName: ARM
         - name: Manage using PowerShell
-          href: powershell-samples-table.md
+          href: powershell-samples.md
         - name: Manage using Azure CLI
-          href: cli-samples-table.md
+          href: cli-samples.md
       - name: Reference
         items:
           - name: .NET
@@ -897,7 +950,7 @@
             href: table-sdk-python.md
           - name: Table storage REST APIs
             href: /rest/api/storageservices/table-service-rest-api
-    - name: Etcd API
+    - name: etcd API
       items:
       - name: Overview
         items:
@@ -920,9 +973,13 @@
       - name: Using Resource Manager templates
         href: manage-sql-with-resource-manager.md
         displayName: ARM
+      - name: Move between regions
+        href: how-to-move-regions.md
+      - name: Prevent changes or deletion
+        href: resource-locks.md
     - name: Global distribution
       items:
-      - name: Configure multi-master
+      - name: Configure multi-region writes
         href: how-to-multi-master.md
       - name: Manage consistency levels
         displayName: session, consistency prefix, strong, eventual, bounded staleness
@@ -931,26 +988,28 @@
         href: how-to-manage-conflicts.md
       - name: Convert session token format
         href: how-to-convert-session-token.md
-    - name: Provisioned throughput
+    - name: Capacity
       items:
-      - name: Provision standard (manual) throughput on a container
-        displayName: request units, RUs, RU, collection level
-        href: how-to-provision-container-throughput.md
-      - name: Provision standard (manual) throughput on a database
-        displayName: request units, RUs, RU, shared throughput, database level
-        href: how-to-provision-database-throughput.md
-      - name: Provision autoscale throughput on a database or container
-        displayName: request units, RUs, RU, shared throughput, database level, collection level, autoscale
-        href: how-to-provision-autoscale-throughput.md
-      - name: Estimate RU/s with Cosmos capacity planner
-        displayName: request units, RUs, RU, capacity
-        href: estimate-ru-with-capacity-planner.md
       - name: Find request unit charge
         displayName: request units, RUs, RU, charge, consumption
         href: find-request-unit-charge.md
-      - name: Scale using Azure Functions timer
-        displayName: request units, RUs, RU, timer
-        href: scale-on-schedule.md
+      - name: Provisioned throughput
+        items:
+        - name: Provision standard (manual) throughput on a container
+          displayName: request units, RUs, RU, collection level
+          href: how-to-provision-container-throughput.md
+        - name: Provision standard (manual) throughput on a database
+          displayName: request units, RUs, RU, shared throughput, database level
+          href: how-to-provision-database-throughput.md
+        - name: Provision autoscale throughput on a database or container
+          displayName: request units, RUs, RU, shared throughput, database level, collection level, autoscale
+          href: how-to-provision-autoscale-throughput.md
+        - name: Estimate RU/s with Cosmos capacity planner
+          displayName: request units, RUs, RU, capacity
+          href: estimate-ru-with-capacity-planner.md
+        - name: Scale using Azure Functions timer
+          displayName: request units, RUs, RU, timer
+          href: scale-on-schedule.md
     - name: Work with containers and items
       items:
       - name: Work with Cosmos DB data
@@ -977,7 +1036,7 @@
         href: how-to-manage-indexing-policy.md
       - name: Define unique keys
         href: how-to-define-unique-keys.md
-    - name: Performance & Troubleshooting
+    - name: Performance
       items:
       - name: Query
         items: 
@@ -985,28 +1044,20 @@
           href: profile-sql-api-query.md
         - name: Tune query performance
           href: sql-api-query-metrics.md
-        - name: Troubleshoot query performance
-          href: troubleshoot-query-performance.md
       - name: .NET
         items: 
         - name: Performance tips for .NET SDK v3
           href: performance-tips-dotnet-sdk-v3-sql.md
         - name: Performance tips for .NET SDK v2
           href: performance-tips.md
-        - name: Troubleshoot .NET SDK
-          href: troubleshoot-dot-net-sdk.md
       - name: Java
         items: 
         - name: Performance tips for Java SDK v4
           href: performance-tips-java-sdk-v4-sql.md  
-        - name: Troubleshoot Java SDK v4
-          href: troubleshoot-java-sdk-v4-sql.md  
         - name: Async Java SDK v2
           href: performance-tips-async-java.md          
         - name: Sync Java SDK v2
           href: performance-tips-java.md
-        - name: Troubleshoot- Async Java SDK v2
-          href: troubleshoot-java-async-sdk.md
       - name: Performance test - sample app
         href: performance-testing.md
       - name: Cost-effective reads and writes
@@ -1015,6 +1066,40 @@
       items:
       - name: Migrate to Java V4 SDK
         href: migrate-java-v4-sdk.md
+      - name: Migrate to .NET V3 SDK
+        href: migrate-dotnet-v3.md
+    - name: Troubleshooting
+      items:
+      - name: Common errors
+        items:
+        - name: Troubleshoot query performance
+          href: troubleshoot-query-performance.md
+        - name : Troubleshoot service request timeout
+          href: troubleshoot-request-timeout.md
+        - name : Troubleshoot request rate too large
+          href: troubleshoot-request-rate-too-large.md
+        - name : Troubleshoot not found
+          href: troubleshoot-not-found.md
+        - name : Troubleshoot unauthorized
+          href: troubleshoot-unauthorized.md
+        - name : Availability issues in multiregional environments
+          href: troubleshoot-sdk-availability.md
+      - name: .NET
+        items: 
+        - name: General Troubleshooting .NET SDK
+          href: troubleshoot-dot-net-sdk.md
+        - name : Troubleshoot request header too large
+          href: troubleshoot-dot-net-sdk-request-header-too-large.md
+        - name : Troubleshoot request timeout
+          href: troubleshoot-dot-net-sdk-request-timeout.md
+        - name : Troubleshoot service unavailable
+          href: troubleshoot-service-unavailable.md 
+      - name: .Java
+        items: 
+        - name: Troubleshoot Java SDK v4
+          href: troubleshoot-java-sdk-v4-sql.md  
+        - name: Troubleshoot- Async Java SDK v2
+          href: troubleshoot-java-async-sdk.md
     - name: Change Feed
       items:
       - name: Azure Cosmos DB Trigger logs
@@ -1033,7 +1118,7 @@
         href: how-to-migrate-from-change-feed-library.md
       - name: Change feed - Async Java sample
         href: create-sql-api-java-changefeed.md
-    - name: Analytics with Azure Synapse Link
+    - name: Analytics and BI with Azure Synapse Link
       items:
       - name: Configure Azure Synapse Link
         href: configure-synapse-link.md
@@ -1041,6 +1126,10 @@
         href: ../synapse-analytics/synapse-link/how-to-connect-synapse-link-cosmos-db.md?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json
       - name: Query with Azure Synapse Spark
         href: ../synapse-analytics/synapse-link/how-to-query-analytical-store-spark.md?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json
+      - name: Query with Synapse SQL serverless
+        href: ../synapse-analytics/sql/query-cosmos-db-analytical-store.md?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json
+      - name: Use Power BI with Synapse Link
+        href: synapse-link-power-bi.md       
     - name: Built-in analytics with Apache Spark
       items:
       - name: Azure Databricks Spark connector
@@ -1093,6 +1182,8 @@
       items:
       - name: Restore data from a backup
         href: how-to-backup-and-restore.md
+      - name: Request quota increase
+        href: create-support-request-quota-increase.md
     - name : Monitor
       items:
       - name: Monitor Cosmos DB
@@ -1101,6 +1192,8 @@
         items:
         - name: Azure Monitor for Cosmos (preview)
           href: ../azure-monitor/insights/cosmosdb-insights-overview.md?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json
+        - name: Scenarios to monitor 
+          href: use-metrics.md
         - name: Monitor server-side latency
           href: monitor-server-side-latency.md
         - name: Monitor request unit usage
@@ -1113,18 +1206,22 @@
           href: cosmosdb-monitor-resource-logs.md
         - name: Audit control plane logs
           href: audit-control-plane-logs.md
-      - name: View metrics from Cosmos DB account
-        href: use-metrics.md
+      - name: Configure alerts
+        href: create-alerts.md
       - name: Monitoring data reference
         href: monitor-cosmos-db-reference.md
       - name: Application logging with Logic Apps
         href: ../logic-apps/logic-apps-scenario-error-and-exception-handling.md?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json
-    - name: Develop locally
+    - name: Develop locally with emulator
       items:
-      - name: Use the emulator
+      - name: Install and use the emulator
         href: local-emulator.md
-      - name: Export certificates
+      - name: Export emulator certificates
         href: local-emulator-export-ssl-certificates.md
+      - name: Emulator command-line parameters
+        href: emulator-command-line-parameters.md
+      - name: Emulator troubleshooting
+        href: troubleshoot-local-emulator.md
       - name: Visual Studio Code extension
         href: https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-cosmosdb
     - name: Set up Azure DevOps CI/CD pipeline
@@ -1171,12 +1268,6 @@
         href: cosmosdb-migrationchoices.md
       - name: Migrate to SQL API using Striim
         href: cosmosdb-sql-api-migrate-data-striim.md
-      - name: Migrate to Cassandra API using Striim
-        href: cosmosdb-cassandra-api-migrate-data-striim.md
-      - name: Migrate - Oracle DB to Cassandra API using Blitzz
-        href: oracle-migrate-cosmos-db-blitzz.md
-      - name: Migrate - Apache Cassandra to Cassandra API using Blitzz
-        href: cassandra-migrate-cosmos-db-blitzz.md
       - name: Migrate hundreds of terabytes of data into Azure Cosmos DB
         href: migrate-cosmosdb-data.md
       - name: Migrate one-to-few relational data
@@ -1209,7 +1300,7 @@
         href: sql-api-sdk-dotnet-changefeed.md
       - name: .NET bulk executor library v2
         href: sql-api-sdk-bulk-executor-dot-net.md
-    - name: Java SDKs
+    - name: Java SDKs and Connectors
       items:
       - name: Java SDK v4
         href: sql-api-sdk-java-v4.md
@@ -1217,6 +1308,12 @@
         href: sql-api-sdk-async-java.md
       - name: Sync Java SDK v2
         href: sql-api-sdk-java.md  
+      - name: Spring Data Connector v2
+        href: sql-api-sdk-java-spring-v2.md                
+      - name: Spring Data Connector v3
+        href: sql-api-sdk-java-spring-v3.md        
+      - name: Spark Connector
+        href: sql-api-sdk-java-spark.md                
       - name: Java bulk executor library v2
         href: sql-api-sdk-bulk-executor-java.md      
     - name: Node.js
@@ -1232,6 +1329,11 @@
       displayName: ARM
     - name: Emulator release notes
       href: local-emulator-release-notes.md
+  - name: Reference
+    items:
+    - name: Azure Policy built-ins
+      displayName: samples, policies, definitions
+      href: ./policy-reference.md
   - name: Resources
     items:
     - name: Build your skills with Microsoft Learn

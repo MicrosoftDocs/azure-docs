@@ -1,10 +1,10 @@
 ---
 title: Show traffic data on android map | Microsoft Azure Maps
 description: In this article you'll learn, how to display traffic data on a map using the Microsoft Azure Maps Android SDK.
-author: philmea
-ms.author: philmea
+author: anastasia-ms
+ms.author: v-stharr
 ms.date: 02/27/2020
-ms.topic: conceptual
+ms.topic: how-to
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
@@ -16,9 +16,9 @@ Flow data and incidents data are the two types of traffic data that can be displ
 
 ## Prerequisites
 
-Before you can show traffic on the map, you need to [make an Azure Account](quick-demo-map-app.md#create-an-account-with-azure-maps)and [obtain a subscription key](quick-demo-map-app.md#get-the-primary-key-for-your-account). Then, you need to install the [Azure Maps Android SDK](https://docs.microsoft.com/azure/azure-maps/how-to-use-android-map-control-library) and load a map.
+Before you can show traffic on the map, you need to [make an Azure Account](quick-demo-map-app.md#create-an-azure-maps-account)and [obtain a subscription key](quick-demo-map-app.md#get-the-primary-key-for-your-account). Then, you need to install the [Azure Maps Android SDK](https://docs.microsoft.com/azure/azure-maps/how-to-use-android-map-control-library) and load a map.
 
-## Incidents traffic data 
+## Incidents traffic data
 
 You'll need to import the following libraries to call `setTraffic` and `incidents`:
 
@@ -48,7 +48,7 @@ import static com.microsoft.azure.maps.mapcontrol.options.TrafficOptions.flow;
 
 Use the following code snippet to set traffic flow data. Similar to the code in the previous section, we pass the return value of the `flow` method to the `setTraffic` method. There are four values that can be passed to `flow`, and each value would trigger `flow` to return the respective value. The return value of `flow` will then be passed as the argument to `setTraffic`. See the table below for these four values:
 
-| | |
+|Flow Value | Description|
 | :-- | :-- |
 | TrafficFlow.NONE | Doesn't display traffic data on the map |
 | TrafficFlow.RELATIVE | Shows traffic data that's relative to the free-flow speed of the road |

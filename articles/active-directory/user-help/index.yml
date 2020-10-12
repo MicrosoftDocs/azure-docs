@@ -85,7 +85,7 @@ landingContent:
       - linkListType: overview
         links:
           - text: What is Additional verification page?
-            url: user-help-two-step-verification-overview.md
+            url: ./multi-factor-authentication-end-user-first-time.md
       - linkListType: how-to-guide
         links:
           - text: Set up your verification methods

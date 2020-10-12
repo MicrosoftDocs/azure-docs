@@ -2,13 +2,14 @@
 title: How to update Azure Monitor for containers for metrics | Microsoft Docs
 description: This article describes how you update Azure Monitor for containers to enable the custom metrics feature that supports exploring and alerting on aggregated metrics.
 ms.topic: conceptual
-ms.date: 06/01/2020
+ms.date: 09/24/2020 
+ms.custom: devx-track-azurecli
 
 ---
 
 # How to update Azure Monitor for containers to enable metrics
 
-Azure Monitor for containers is introducing support for collecting metrics from Azure Kubernetes Services (AKS) clusters nodes and pods and writing them to the Azure Monitor metrics store. This change is intended to deliver improved timeliness when presenting aggregate calculations (Avg, Count, Max, Min, Sum) in performance charts, support pinning performance charts in Azure portal dashboards, and support metric alerts.
+Azure Monitor for containers is introducing support for collecting metrics from Azure Kubernetes Services (AKS) and Azure Arc enabled Kubernetes clusters nodes and pods and writing them to the Azure Monitor metrics store. This change is intended to deliver improved timeliness when presenting aggregate calculations (Avg, Count, Max, Min, Sum) in performance charts, support pinning performance charts in Azure portal dashboards, and support metric alerts.
 
 >[!NOTE]
 >This feature does not currently support Azure Red Hat OpenShift clusters.
@@ -18,21 +19,26 @@ The following metrics are enabled as part of this feature:
 
 | Metric namespace | Metric | Description |
 |------------------|--------|-------------|
-| insights.container/nodes | cpuUsageMillicores, cpuUsagePercentage, memoryRssBytes, memoryRssPercentage, memoryWorkingSetBytes, memoryWorkingSetPercentage, nodesCount | These are *node* metrics and include *host* as a dimension, and they also include the<br> node's name as value for the *host* dimension. |
-| insights.container/pods | podCount | These are *pod* metrics and include the following as dimensions - ControllerName, Kubernetes namespace, name, phase. |
+| Insights.container/nodes | cpuUsageMillicores, cpuUsagePercentage, memoryRssBytes, memoryRssPercentage, memoryWorkingSetBytes, memoryWorkingSetPercentage, nodesCount, diskUsedPercentage, | As *node* metrics, they include *host* as a dimension. They also include the<br> node's name as value for the *host* dimension. |
+| Insights.container/pods | podCount, completedJobsCount, restartingContainerCount, oomKilledContainerCount, podReadyPercentage | As *pod* metrics, they include the following as dimensions - ControllerName, Kubernetes namespace, name, phase. |
+| Insights.container/containers | cpuExceededPercentage, memoryRssExceededPercentage, memoryWorkingSetExceededPercentage | |
 
-Updating the cluster to support these new capabilities can be performed from the Azure portal, Azure PowerShell, or with Azure CLI. With Azure PowerShell and CLI, you can enable this per-cluster or for all clusters in your subscription. New deployments of AKS will automatically include this configuration change and capabilities.
+To support these new capabilities, a new containerized agent is included in the release, version **microsoft/oms:ciprod05262020** for AKS and version **microsoft/oms:ciprod09252020** for Azure Arc enabled Kubernetes clusters. New deployments of AKS automatically include this configuration change and capabilities. Updating your cluster to support this feature can be performed from the Azure portal, Azure PowerShell, or with Azure CLI. With Azure PowerShell and CLI. You can enable this per-cluster or for all clusters in your subscription.
 
-Either process assigns the **Monitoring Metrics Publisher** role to the cluster's service principal or User assigned MSI for the monitoring add-on so that the data collected by the agent can be published to your clusters resource. Monitoring Metrics Publisher has permission only to push metrics to the resource, it cannot alter any state, update the resource, or read any data. For further information about the role, see [Monitoring Metrics Publisher role](../../role-based-access-control/built-in-roles.md#monitoring-metrics-publisher).
+Either process assigns the **Monitoring Metrics Publisher** role to the cluster's service principal or User assigned MSI for the monitoring add-on so that the data collected by the agent can be published to your clusters resource. Monitoring Metrics Publisher has permission only to push metrics to the resource, it cannot alter any state, update the resource, or read any data. For more information about the role, see [Monitoring Metrics Publisher role](../../role-based-access-control/built-in-roles.md#monitoring-metrics-publisher). The Monitoring Metrics Publisher role requirement is not applicable to Azure Arc enabled Kubernetes clusters.
+
+> [!IMPORTANT]
+> The upgrade is not required for Azure Arc enabled Kubernetes clusters since they will already have the minimum required agent version.
 
 ## Prerequisites
 
-Before you start, confirm the following:
+Before you update your cluster, confirm the following:
 
 * Custom metrics are only available in a subset of Azure regions. A list of supported regions is documented [here](../platform/metrics-custom-overview.md#supported-regions).
-* You are a member of the **[Owner](../../role-based-access-control/built-in-roles.md#owner)** role on the AKS cluster resource to enable collection of node and pod custom performance metrics. 
 
-If you choose to use the Azure CLI, you first need to install and use the CLI locally. You must be running the Azure CLI version 2.0.59 or later. To identify your version, run `az --version`. If you need to install or upgrade the Azure CLI, see [Install the Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli). 
+* You are a member of the **[Owner](../../role-based-access-control/built-in-roles.md#owner)** role on the AKS cluster resource to enable collection of node and pod custom performance metrics. This requirement does not apply to Azure Arc enabled Kubernetes clusters.
+
+If you choose to use the Azure CLI, you first need to install and use the CLI locally. You must be running the Azure CLI version 2.0.59 or later. To identify your version, run `az --version`. If you need to install or upgrade the Azure CLI, see [Install the Azure CLI](/cli/azure/install-azure-cli).
 
 ## Upgrade a cluster from the Azure portal
 
@@ -73,7 +79,7 @@ Perform the following steps to update a specific cluster in your subscription us
     az role assignment create --assignee <clientIdOfSPN> --scope <clusterResourceId> --role "Monitoring Metrics Publisher" 
     ```
 
-    To get the value for **clientIdOfSPNOrMsi**, you can run the command `az aks show` as shown in the example below. If the **servicePrincipalProfile** object has a valid *clientid* value you can use that. Otherwise, if it is set to *msi*, you need to pass in the clientid from `addonProfiles.omsagent.identity.clientId`.
+    To get the value for **clientIdOfSPNOrMsi**, you can run the command `az aks show` as shown in the example below. If the **servicePrincipalProfile** object has a valid *clientid* value, you can use that. Otherwise, if it is set to *msi*, you need to pass in the clientid from `addonProfiles.omsagent.identity.clientId`.
 
     ```azurecli
     az login
@@ -118,4 +124,4 @@ Perform the following steps to update a specific cluster using Azure PowerShell.
 
 ## Verify update
 
-After initiating the update using one of the methods described earlier, you can use Azure Monitor metrics explorer and verify from the **Metric namespace** that **insights** is listed. If it is, this indicates you can go ahead and start setting up [metric alerts](../platform/alerts-metric.md) or pinning your charts to [dashboards](../../azure-portal/azure-portal-dashboards.md).  
+After initiating the update using one of the methods described earlier, you can use Azure Monitor metrics explorer and verify from the **Metric namespace** that **insights** is listed. If it is, you can go ahead and start setting up [metric alerts](../platform/alerts-metric.md) or pinning your charts to [dashboards](../../azure-portal/azure-portal-dashboards.md).  

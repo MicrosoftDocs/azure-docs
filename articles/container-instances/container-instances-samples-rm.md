@@ -13,7 +13,7 @@ For deployment options, see the [Deployment](#deployment) section. If you'd like
 
 ## Sample templates
 
-| | |
+| Template | Description |
 |-|-|
 | **Applications** ||
 | [WordPress][app-wp] | Creates a WordPress website and its MySQL database in a container group. The WordPress site content and MySQL database are persisted to an Azure Files share. Also creates an application gateway to expose public network access to WordPress. |

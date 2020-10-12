@@ -3,7 +3,7 @@ title: Use the Batch Management .NET library to manage account resources
 description: Create, delete, and modify Azure Batch account resources with the Batch Management .NET library.
 ms.topic: how-to
 ms.date: 04/24/2017
-ms.custom: seodec18, has-adal-ref
+ms.custom: "seodec18, has-adal-ref, devx-track-csharp"
 ---
 # Manage Batch accounts and quotas with the Batch Management client library for .NET
 
@@ -159,7 +159,7 @@ To run the sample application successfully, you must first register it with your
 
 
 [aad_about]:../active-directory/fundamentals/active-directory-whatis.md "What is Azure Active Directory?"
-[aad_adal]: ../active-directory/active-directory-authentication-libraries.md
+[aad_adal]: ../active-directory/azuread-dev/active-directory-authentication-libraries.md
 [aad_auth_scenarios]:../active-directory/develop/authentication-scenarios.md "Authentication Scenarios for Azure AD"
 [aad_integrate]:../active-directory/develop/quickstart-v1-integrate-apps-with-azure-ad.md "Integrating Applications with Azure Active Directory"
 [acct_mgmt_sample]: https://github.com/Azure/azure-batch-samples/tree/master/CSharp/AccountManagement

@@ -1,6 +1,6 @@
 ---
 title: Open a support ticket for Microsoft Azure FXT Edge Filer  
-description: Procedure to open a ticket for help with your Azure FXT Edge Filer system
+description: Open a support ticket with Microsoft Customer Service and Support for help with your Azure FXT Edge Filer system.
 author: ekpgh
 ms.service: fxt-edge-filer
 ms.topic: conceptual
@@ -18,7 +18,7 @@ Use the Azure portal to open a support ticket with Microsoft Customer Service an
 1. In the left panel, scroll to the bottom and click **Help + support**.
 1. Click **New support request**. 
 
-   ![Screenshot of blank support request form](media/fxt-support-blank.png)
+   ![Screenshot that shows the "Help + support" page with "New support request" selected.](media/fxt-support-blank.png)
 
 1. Fill out the request form.  
     1. In the **Basics** tab, choose the **Issue type** ``Technical``. 

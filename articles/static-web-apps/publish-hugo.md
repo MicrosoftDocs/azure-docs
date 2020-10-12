@@ -48,7 +48,7 @@ Create a Hugo app using the Hugo Command Line Interface (CLI):
    cd static-app
    ```
 
-1. Initialize a git repo.
+1. Initialize a Git repo.
 
    ```bash
     git init

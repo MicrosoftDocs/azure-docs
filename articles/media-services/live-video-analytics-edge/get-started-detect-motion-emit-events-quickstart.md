@@ -11,7 +11,8 @@ This quickstart walks you through the steps to get started with Live Video Analy
 
 After completing the setup steps, you'll be able to run a simulated live video stream through a media graph that detects and reports any motion in that stream. The following diagram graphically represents that media graph.
 
-![Live Video Analytics based on motion detection](./media/analyze-live-video/motion-detection.png)
+> [!div class="mx-imgBorder"]
+> :::image type="content" source="./media/analyze-live-video/motion-detection.svg" alt-text="Live Video Analytics based on motion detection":::
 
 ## Prerequisites
 
@@ -29,7 +30,7 @@ This tutorial requires the following Azure resources:
 * IoT Hub
 * Storage account
 * Azure Media Services account
-* A Linux VM in Azure, with [IoT Edge runtime](https://docs.microsoft.com/azure/iot-edge/how-to-install-iot-edge-linux) installed
+* A Linux VM in Azure, with [IoT Edge runtime](../../iot-edge/how-to-install-iot-edge-linux.md) installed
 
 For this quickstart, we recommend that you use the [Live Video Analytics resources setup script](https://github.com/Azure/live-video-analytics/tree/master/edge/setup) to deploy the required resources in your Azure subscription. To do so, follow these steps:
 
@@ -37,8 +38,8 @@ For this quickstart, we recommend that you use the [Live Video Analytics resourc
 1. If you're using Cloud Shell for the first time, you'll be prompted to select a subscription to create a storage account and a Microsoft Azure Files share. Select **Create storage** to create a storage account for your Cloud Shell session information. This storage account is separate from the account that the script will create to use with your Azure Media Services account.
 1. In the drop-down menu on the left side of the Cloud Shell window, select **Bash** as your environment.
 
-    ![Environment selector](./media/quickstarts/env-selector.png)
-
+    > [!div class="mx-imgBorder"]
+    > :::image type="content" source="./media/quickstarts/env-selector.png" alt-text="Environment selector":::
 1. Run the following command.
 
     ```
@@ -70,7 +71,16 @@ Now the modules are deployed, but no media graphs are active.
 
 Follow these instructions to connect to your IoT hub by using the Azure IoT Tools extension.
 
-1. In Visual Studio Code, select **View** > **Explorer**. Or select Ctrl+Shift+E.
+1. In Visual Studio Code, open the **Extensions** tab (or press Ctrl+Shift+X) and search for Azure IoT Hub.
+1. Right click and select **Extension Settings**.
+
+    > [!div class="mx-imgBorder"]
+    > :::image type="content" source="./media/run-program/extensions-tab.png" alt-text="Extension Settings":::
+1. Search and enable “Show Verbose Message”.
+
+    > [!div class="mx-imgBorder"]
+    > :::image type="content" source="./media/run-program/show-verbose-message.png" alt-text="Show Verbose Message":::
+1. Select **View** > **Explorer**. Or, select Ctrl+Shift+E.
 1. In the lower-left corner of the **Explorer** tab, select **Azure IoT Hub**.
 1. Select the **More Options** icon to see the context menu. Then select **Set IoT Hub Connection String**.
 1. When an input box appears, enter your IoT Hub connection string. In Cloud Shell, you can get the connection string from *~/clouddrive/lva-sample/appsettings.json*.
@@ -79,7 +89,10 @@ If the connection succeeds, the list of edge devices appears. You should see at 
 
 ![lva-sample-device node](./media/quickstarts/lva-sample-device-node.png)
 
-## Use direct methods
+> [!TIP]
+> If you have [manually deployed Live Video Analytics on IoT Edge](deploy-iot-edge-device.md) yourselves on an edge device (such as an ARM64 device), then you will see the module show up under that device, under the Azure IoT Hub. You can select that module, and follow the rest of the steps below.
+
+## Use direct method calls
 
 You can use the module to analyze live video streams by invoking direct methods. For more information, see [Direct methods for Live Video Analytics on IoT Edge](direct-methods.md). 
 
@@ -556,7 +569,7 @@ The **OUTPUT** window displays the following message:
 
 Notice these details:
 
-* The message contains a `body` section and an `applicationProperties` section. For more information, see [Create and read IoT Hub messages](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messages-construct).
+* The message contains a `body` section and an `applicationProperties` section. For more information, see [Create and read IoT Hub messages](../../iot-hub/iot-hub-devguide-messages-construct.md).
 * In `applicationProperties`, `subject` references the node in the `MediaGraph` from which the message was generated. In this case, the message originates from the motion detection processor.
 * In `applicationProperties`, `eventType` indicates that this event is an analytics event.
 * The `eventTime` value is the time when the event occurred.

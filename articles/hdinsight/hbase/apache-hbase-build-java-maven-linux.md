@@ -5,8 +5,8 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.topic: conceptual
-ms.custom: hdinsightactive,seodec18
+ms.topic: how-to
+ms.custom: hdinsightactive,seodec18, devx-track-java
 ms.date: 12/24/2019
 ---
 
@@ -26,7 +26,7 @@ The steps in this document use [Apache Maven](https://maven.apache.org/) to crea
 
 * An SSH client. For more information, see [Connect to HDInsight (Apache Hadoop) using SSH](../hdinsight-hadoop-linux-use-ssh-unix.md).
 
-* If using PowerShell, you'll need the [AZ Module](https://docs.microsoft.com/powershell/azure/overview).
+* If using PowerShell, you'll need the [AZ Module](https://docs.microsoft.com/powershell/azure/).
 
 * A text editor. This article uses Microsoft Notepad.
 

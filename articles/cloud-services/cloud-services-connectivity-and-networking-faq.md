@@ -93,7 +93,7 @@ Because this host header binding is enforced through the csdef file, the service
 
 ## How can I make sure the public-facing IP address of a cloud service never changes?
 
-To make sure the public-facing IP address of your cloud service (also known as a VIP) never changes so that it can be customarily whitelisted by a few specific clients, we recommend that you have a reserved IP associated with it. Otherwise, the virtual IP provided by Azure is deallocated from your subscription if you delete the deployment. For successful VIP swap operation, you need individual reserved IPs for both production and staging slots. Without them, the swap operation fails. To reserve an IP address and associate it with your cloud service, see these articles:
+To make sure the public-facing IP address of your cloud service (also known as a VIP) never changes so that it can be customarily approved by a few specific clients, we recommend that you have a reserved IP associated with it. Otherwise, the virtual IP provided by Azure is deallocated from your subscription if you delete the deployment. For successful VIP swap operation, you need individual reserved IPs for both production and staging slots. Without them, the swap operation fails. To reserve an IP address and associate it with your cloud service, see these articles:
 
 - [Reserve the IP address of an existing cloud service](/previous-versions/azure/virtual-network/virtual-networks-reserved-public-ip#reserve-the-ip-address-of-an-existing-cloud-service)
 - [Associate a reserved IP to a cloud service by using a service configuration file](/previous-versions/azure/virtual-network/virtual-networks-reserved-public-ip#associate-a-reserved-ip-to-a-cloud-service-by-using-a-service-configuration-file)

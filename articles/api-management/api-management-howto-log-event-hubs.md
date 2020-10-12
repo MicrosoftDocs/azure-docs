@@ -1,6 +1,6 @@
 ---
 title: How to log events to Azure Event Hubs in Azure API Management | Microsoft Docs
-description: Learn how to log events to Azure Event Hubs in Azure API Management.
+description: Learn how to log events to Azure Event Hubs in Azure API Management. Event Hubs is a highly scalable data ingress service.
 services: api-management
 documentationcenter: ''
 author: vladvino
@@ -23,12 +23,12 @@ This article is a companion to the [Integrate Azure API Management with Event Hu
 
 ## Create an Azure Event Hub
 
-For detailed steps on how to create an event hub and get connection strings that you need to send and receive events to and from the Event Hub, see [Create an Event Hubs namespace and an event hub using the Azure portal](https://docs.microsoft.com/azure/event-hubs/event-hubs-create).
+For detailed steps on how to create an event hub and get connection strings that you need to send and receive events to and from the Event Hub, see [Create an Event Hubs namespace and an event hub using the Azure portal](../event-hubs/event-hubs-create.md).
 
 ## Create an API Management logger
-Now that you have an Event Hub, the next step is to configure a [Logger](https://docs.microsoft.com/rest/api/apimanagement/2019-12-01/logger) in your API Management service so that it can log events to the Event Hub.
+Now that you have an Event Hub, the next step is to configure a [Logger](/rest/api/apimanagement/2019-12-01/logger) in your API Management service so that it can log events to the Event Hub.
 
-API Management loggers are configured using the [API Management REST API](https://aka.ms/apimapi). For detailed request examples, see [how to create Loggers](https://docs.microsoft.com/rest/api/apimanagement/2019-12-01/logger/createorupdate).
+API Management loggers are configured using the [API Management REST API](https://aka.ms/apimapi). For detailed request examples, see [how to create Loggers](/rest/api/apimanagement/2019-12-01/logger/createorupdate).
 
 ## Configure log-to-eventhub policies
 
@@ -59,13 +59,16 @@ Once your logger is configured in API Management, you can configure your log-to-
 ```
 Replace `logger-id` with the value you used for `{loggerId}` in the request URL to create the logger in the previous step.
 
-You can use any expression that returns a string as the value for the `log-to-eventhub` element. In this example, a string in JSON format containing the date and time, service name, request id, request ip address, and operation name is logged.
+You can use any expression that returns a string as the value for the `log-to-eventhub` element. In this example, a string in JSON format containing the date and time, service name, request ID, request IP address, and operation name is logged.
 
 Click **Save** to save the updated policy configuration. As soon as it is saved the policy is active and events are logged to the designated Event Hub.
 
+> [!NOTE]
+> The maximum supported message size that can be sent to an event hub from this API Management policy is 200 kilobytes (KB). If a message that is sent to an event hub is larger than 200 KB, it will be automatically truncated, and the truncated message will be transferred to event hubs.
+
 ## Preview the log in Event Hubs by using Azure Stream Analytics
 
-You can preview the log in Event Hubs by using [Azure Stream Analytics queries](https://docs.microsoft.com/azure/event-hubs/process-data-azure-stream-analytics). 
+You can preview the log in Event Hubs by using [Azure Stream Analytics queries](../event-hubs/process-data-azure-stream-analytics.md). 
 
 1. In the Azure portal, browse to the event hub that the logger sends events to. 
 2. Under **Features**, select the **Process data** tab.
@@ -75,11 +78,11 @@ You can preview the log in Event Hubs by using [Azure Stream Analytics queries](
 ## Next steps
 * Learn more about Azure Event Hubs
   * [Get started with Azure Event Hubs](../event-hubs/event-hubs-c-getstarted-send.md)
-  * [Receive messages with EventProcessorHost](../event-hubs/event-hubs-dotnet-standard-getstarted-receive-eph.md)
+  * [Receive messages with EventProcessorHost](../event-hubs/event-hubs-dotnet-standard-getstarted-send.md)
   * [Event Hubs programming guide](../event-hubs/event-hubs-programming-guide.md)
 * Learn more about API Management and Event Hubs integration
-  * [Logger entity reference](https://docs.microsoft.com/rest/api/apimanagement/2019-12-01/logger)
-  * [log-to-eventhub policy reference](https://docs.microsoft.com/azure/api-management/api-management-advanced-policies#log-to-eventhub)
+  * [Logger entity reference](/rest/api/apimanagement/2019-12-01/logger)
+  * [log-to-eventhub policy reference](./api-management-advanced-policies.md#log-to-eventhub)
   * [Monitor your APIs with Azure API Management, Event Hubs, and Moesif](api-management-log-to-eventhub-sample.md)  
 * Learn more about [integration with Azure Application Insights](api-management-howto-app-insights.md)
 

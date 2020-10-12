@@ -70,6 +70,8 @@
      href: How-tos/text-analytics-how-to-keyword-extraction.md
    - name: Named entity recognition
      href: How-tos/text-analytics-how-to-entity-linking.md
+   - name: Text Analytics for health
+     href: How-tos/text-analytics-for-health.md
    - name: Use containers
      items:
       - name: Install and run containers
@@ -90,20 +92,20 @@
     href: https://aka.ms/azure-powershell-cognitiveservices
   - name: Text Analytics API
     items:
-      - name: v3.0-preview
-        href: https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-0-Preview-1
+      - name: v3.0
+        href: https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-0
       - name: v2
         href: https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1
   - name: SDKs
     items:
-    - name: v3.0-preview
+    - name: v3.0
       items:
         - name: .NET
           href: https://aka.ms/azsdk-net-textanalytics-ref-docs
         - name: Python
           href: https://aka.ms/azsdk-python-textanalytics-ref-docs
         - name: Java
-          href: https://aka.ms/azsdk-java-textanalytics-ref-docs
+          href: https://docs.microsoft.com/java/api/overview/azure/ai-textanalytics-readme?view=azure-java-stable
         - name: Node.js
           href: https://aka.ms/azsdk-js-textanalytics-ref-docs
     - name: v2

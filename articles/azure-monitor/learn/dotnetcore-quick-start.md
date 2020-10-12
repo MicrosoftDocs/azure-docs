@@ -14,7 +14,7 @@ ms.custom: mvc
 
 With Azure Application Insights, you can easily monitor your web application for availability, performance, and usage. You can also quickly identify and diagnose errors in your application without waiting for a user to report them. 
 
-This quickstart guides you through adding the Application Insights SDK to an existing ASP.NET Core web application. To learn about configuring Application Insights without Visual Studio checkout this [article](https://docs.microsoft.com/azure/azure-monitor/app/asp-net-core).
+This quickstart guides you through adding the Application Insights SDK to an existing ASP.NET Core web application. To learn about configuring Application Insights without Visual Studio checkout this [article](../app/asp-net-core.md).
 
 ## Prerequisites
 
@@ -26,7 +26,7 @@ To complete this quickstart:
 - [Install .NET Core 2.0 SDK](https://dotnet.microsoft.com/download)
 - You will need an Azure subscription and an existing .NET Core web application.
 
-If you don't have an ASP.NET Core web application, you can use our step-by-step guide to [create an ASP.NET Core app and add Application Insights.](../../azure-monitor/app/asp-net-core.md)
+If you don't have an ASP.NET Core web application, you can use our step-by-step guide to [create an ASP.NET Core app and add Application Insights.](../app/asp-net-core.md)
 
 If you don't have an Azure subscription, create a [free](https://azure.microsoft.com/free/) account before you begin.
 
@@ -41,7 +41,7 @@ Application Insights can gather telemetry data from any internet-connected appli
 1. Select **Create a resource** > **Developer tools** > **Application Insights**.
 
    > [!NOTE]
-   >If this is your first time creating an Application Insights resource you can learn more by visiting the [Create an Application Insights Resource](https://docs.microsoft.com/azure/azure-monitor/app/create-new-resource) doc.
+   >If this is your first time creating an Application Insights resource you can learn more by visiting the [Create an Application Insights Resource](../app/create-new-resource.md) doc.
 
     A configuration box appears; use the following table to fill out the input fields.
 
@@ -92,7 +92,7 @@ Application Insights can gather telemetry data from any internet-connected appli
 
    ![Health Overview timeline graphs](./media/dotnetcore-quick-start/7kpidashboards.png)
 
-5. On the left click on **Metrics**. Use the metrics explorer to investigate the health and utilization of your resource. You can click **Add new chart** to create additional custom views or select **Edit** to modify the existing chart types, height, color palette, groupings, and metrics. For example, you can make a chart that displays the average browser page load time by picking "Browser page load time" from the metrics drop down and "Avg" from aggregation. To learn more about Azure Metrics Explorer visit [Getting started with Azure Metrics Explorer](../../azure-monitor/platform/metrics-getting-started.md).
+5. On the left click on **Metrics**. Use the metrics explorer to investigate the health and utilization of your resource. You can click **Add new chart** to create additional custom views or select **Edit** to modify the existing chart types, height, color palette, groupings, and metrics. For example, you can make a chart that displays the average browser page load time by picking "Browser page load time" from the metrics drop down and "Avg" from aggregation. To learn more about Azure Metrics Explorer visit [Getting started with Azure Metrics Explorer](../platform/metrics-getting-started.md).
 
      ![Metrics tab: Average browser page load time chart](./media/dotnetcore-quick-start/8metrics.png)
 
@@ -100,7 +100,7 @@ Application Insights can gather telemetry data from any internet-connected appli
 When you are done testing, you can delete the resource group and all related resources. To do so follow the steps below.
 
 > [!NOTE]
-> If you used an existing resource group the instructions below will not work and you will need to just delete the individual Application Insights resource. Keep in mind anytime you delete a resource group all underyling resources that are members of that group will be deleted.
+> If you used an existing resource group the instructions below will not work and you will need to just delete the individual Application Insights resource. Keep in mind anytime you delete a resource group all underlying resources that are members of that group will be deleted.
 
 1. From the left-hand menu in the Azure portal, click **Resource groups** and then click **myResourceGroup**.
 2. On your resource group page, click **Delete**, type **myResourceGroup** in the text box, and then click **Delete**.
@@ -108,4 +108,5 @@ When you are done testing, you can delete the resource group and all related res
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Find and diagnose run-time exceptions](https://docs.microsoft.com/azure/application-insights/app-insights-tutorial-runtime-exceptions)
+> [Find and diagnose run-time exceptions](./tutorial-runtime-exceptions.md)
+

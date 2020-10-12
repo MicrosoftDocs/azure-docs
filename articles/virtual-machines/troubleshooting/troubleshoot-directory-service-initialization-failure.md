@@ -23,7 +23,7 @@ This article provides steps to resolve issues where an Active Directory domain c
 
 ## Symptom
 
-When you use [Boot diagnostics](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/boot-diagnostics) to view the screenshot of the VM, the screenshot shows that the VM needs to restart because of an error, displaying the stop code **0xC00002E1** in Windows Server 2008 R2, or **0xC00002E2** in Windows Server 2012 or later.
+When you use [Boot diagnostics](./boot-diagnostics.md) to view the screenshot of the VM, the screenshot shows that the VM needs to restart because of an error, displaying the stop code **0xC00002E1** in Windows Server 2008 R2, or **0xC00002E2** in Windows Server 2012 or later.
 
 ![Windows Server 2012 startup screen states "Your PC ran into a problem and needs to restart. We're just collecting some error info, and then we'll restart for you.".](./media/troubleshoot-directory-service-initialization-failure/1.png)
 
@@ -58,7 +58,7 @@ This error can be caused by any of the following conditions:
 
 ### Create and access a repair VM
 
-1. Use [steps 1-3 of the VM Repair Commands](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/repair-windows-vm-using-azure-virtual-machine-repair-commands#repair-process-example) to prepare a Repair VM.
+1. Use [steps 1-3 of the VM Repair Commands](./repair-windows-vm-using-azure-virtual-machine-repair-commands.md#repair-process-example) to prepare a Repair VM.
 1. Using Remote Desktop Connection connect to the Repair VM.
 
 ### Free up space on disk
@@ -66,11 +66,11 @@ This error can be caused by any of the following conditions:
 As the disk is now attached to a repair VM, verify that the disk holding the Active Directory internal database has enough space to perform correctly.
 
 1. Check whether the disk is full by right-clicking on the drive and selecting **Properties**.
-1. If the disk has less than 300 Mb of free space, [expand it to a maximum of 1 Tb using PowerShell](https://docs.microsoft.com/azure/virtual-machines/windows/expand-os-disk).
+1. If the disk has less than 300 Mb of free space, [expand it to a maximum of 1 Tb using PowerShell](../windows/expand-os-disk.md).
 1. If the disk has reached 1 Tb of used space, perform a disk cleanup.
 
-   1. Use PowerShell to [detach the data disk](https://docs.microsoft.com/azure/virtual-machines/windows/detach-disk#detach-a-data-disk-using-powershell) from the broken VM.
-   1. Once detached from the broken VM, [attach the data disk](https://docs.microsoft.com/azure/virtual-machines/windows/attach-disk-ps#attach-an-existing-data-disk-to-a-vm) to a functioning VM.
+   1. Use PowerShell to [detach the data disk](../windows/detach-disk.md#detach-a-data-disk-using-powershell) from the broken VM.
+   1. Once detached from the broken VM, [attach the data disk](../windows/attach-disk-ps.md#attach-an-existing-data-disk-to-a-vm) to a functioning VM.
    1. Use the [Disk Cleanup tool](https://support.microsoft.com/help/4026616/windows-10-disk-cleanup) to free up additional space.
 
 1. **Optional** - If more space is needed, open a CMD instance and enter the `defrag <LETTER ASSIGNED TO THE OS DISK>: /u /x /g` command to perform a de-fragmentation on the drive:
@@ -179,7 +179,7 @@ To enable memory dump collection and Serial Console, run the following script by
 
 ### Rebuild the VM
 
-1. Use [step 5 of the VM Repair Commands](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/repair-windows-vm-using-azure-virtual-machine-repair-commands#repair-process-example) to reassemble the VM.
+1. Use [step 5 of the VM Repair Commands](./repair-windows-vm-using-azure-virtual-machine-repair-commands.md#repair-process-example) to reassemble the VM.
 
 ### Reconfigure the Storage Area Network policy
 

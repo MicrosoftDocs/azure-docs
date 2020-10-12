@@ -1,15 +1,15 @@
 ---
 title: Create an Azure IoT Edge module offer with Partner Center in Azure Marketplace
-description: Learn how to create, configure, and publish an IoT Edge module offer in Azure Marketplace using Partner Center
-author: anbene
-ms.author: mingshen
+description: Learn how to create, configure, and publish an IoT Edge module offer in Azure Marketplace using Partner Center.
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
-ms.topic: conceptual
-ms.date: 06/17/2020
+ms.topic: how-to
+author: keferna
+ms.author: keferna
+ms.date: 08/07/2020
 ---
 
-# Create, configure, and publish an IoT Edge module offer in Azure Marketplace
+# Create an IoT Edge module offer
 
 This article describes how to create and publish an Internet of Things (IoT) Edge module offer for Azure Marketplace. Before starting, [Create a Commercial Marketplace account in Partner Center](create-account.md) if you haven't done so yet. Ensure your account is enrolled in the commercial marketplace program.
 
@@ -22,7 +22,7 @@ This article describes how to create and publish an Internet of Things (IoT) Edg
     ![Illustrates the left-navigation menu.](./media/new-offer-iot-edge.png)
 
 > [!IMPORTANT]
-> After an offer is published, edits made to it in Partner Center only appear in storefronts after republishing the offer. Make sure you always republish after making changes.
+> After an offer is published, edits made to it in Partner Center only appear in online stores after republishing the offer. Make sure you always republish after making changes.
 
 ### Offer ID and alias
 
@@ -45,10 +45,10 @@ The **Offer overview** page shows a visual representation of the steps required 
 
 This page includes links to perform operations on this offer based on the selection you make. For example:
 
-- If the offer is a draft - [Delete draft offer](update-existing-offer.md#delete-a-draft-offer))
-- If the offer is live - [Stop selling the offer](update-existing-offer.md#stop-selling-an-offer-or-plan))
-- If the offer is in preview - [Go-live](publishing-status.md#publisher-approval))
-- If you haven't completed publisher sign-out - [Cancel publishing.](update-existing-offer.md#cancel-publishing))
+- If the offer is a draft - [Delete draft offer](update-existing-offer.md#delete-a-draft-offer)
+- If the offer is live - [Stop selling the offer](update-existing-offer.md#stop-selling-an-offer-or-plan)
+- If the offer is in preview - [Go-live](publishing-status.md#publisher-approval)
+- If you haven't completed publisher sign-out - [Cancel publishing.](update-existing-offer.md#cancel-publishing)
 
 ## Offer setup
 
@@ -73,9 +73,9 @@ When publishing your offer to the marketplace with Partner Center, you can optio
 
 Here are some additional lead management resources:
 
-- [Lead management overview](commercial-marketplace-get-customer-leads.md)
-- [Lead management FAQs](../lead-management-for-cloud-marketplace.md#frequently-asked-questions))
-- [Common lead configuration errors](../lead-management-for-cloud-marketplace.md#publishing-config-errors))
+- [Customer leads from your commercial marketplace offer](commercial-marketplace-get-customer-leads.md)
+- [Common questions about lead management](../lead-management-faq.md#common-questions-about-lead-management)
+- [Troubleshooting lead configuration errors](../lead-management-faq.md#publishing-config-errors)
 - [Lead Management Overview](https://assetsprod.microsoft.com/mpn/cloud-marketplace-lead-management.pdf) PDF (Make sure your pop-up blocker is turned off).
 
 Select **Save draft** before continuing.
@@ -189,19 +189,24 @@ To learn more about creating offer listings, see [Offer listing best practices](
 
 Provide logos and images to use with your offer. All images must be in PNG format. Blurry images will be rejected.
 
+[!INCLUDE [logo tips](../includes/graphics-suggestions.md)]
+
 >[!Note]
 >If you have an issue uploading files, make sure your local network does not block the https://upload.xboxlive.com service used by Partner Center.
 
 #### Store logos
 
-Provide PNG files of your offer's logo in each of the following four pixel sizes:
+Provide a PNG file for the **Large** size logo. Partner Center will use this to create a **Small** and a **Medium** logo. You can optionally replace these with different images later.
 
-- **Small (48 x 48)**
-- **Medium (90 x 90)**
-- **Large (216 x 216)**
-- **Wide (255 x 115)**
+- **Large** (from 216 x 216 to 350 x 350 px, required)
+- **Medium** (90 x 90 px, optional)
+- **Small** (48 x 48 px, optional)
 
-All four logos are required and are used in different places in the marketplace listing.
+These logos are used in different places in the listing:
+
+[!INCLUDE [logos-azure-marketplace-only](../includes/logos-azure-marketplace-only.md)]
+
+[!INCLUDE [Logo tips](../includes/graphics-suggestions.md)]
 
 #### Screenshots (optional)
 
@@ -279,15 +284,17 @@ Add at least one Azure subscription ID, either individually (up to 10) or by upl
 
 Select **Save draft** before proceeding to the next section, Plan overview.
 
-### Plan overview
+## Plan overview
 
-This tab lets you provide different plan options within the same offer in Partner Center. These plans, were previously referred to as SKUs, or stock keeping units. Plans can differ in terms of what clouds are available, such as global clouds, Government clouds, and the image referenced by the plan. To list your offer in the marketplace, you must set up at least one plan.
+This tab lets you provide different plan options within the same offer in Partner Center. Plans (formerly called SKUs) can differ in terms of what clouds are available, such as global clouds, Government clouds, and the image referenced by the plan. To list your offer in the marketplace, you must set up at least one plan.
+
+You can create up to 100 plans for each offer: up to 45 of these can be private. Learn more about private plans in [Private offers in the Microsoft commercial marketplace](../private-offers.md).
 
 After you create your plans, the **Plan overview** tab shows:
 
 - Plan names
 - Pricing model
-- Cloud availability (Global or Government)
+- Azure regions (Global or Government)
 - Current publishing status
 - Any available actions
 
@@ -296,7 +303,7 @@ The actions available in the Plan overview vary depending on the current status 
 - **Delete draft**: If the plan status is a Draft.
 - **Stop sell plan**: If the plan status is published live.
 
-#### Create new plan
+### Create new plan
 
 Select **Create new plan**. The **New plan** dialog box appears.
 
@@ -324,11 +331,11 @@ Select the [Azure Government](../../azure-government/documentation-government-we
 
 #### Azure Government certifications
 
-This option is only visible if **Azure Government** is selected under **Cloud availability**.
+This option is only visible if **Azure Government** is selected under **Azure regions**.
 
 Azure Government services handle data that's subject to certain government regulations and requirements. For example, FedRAMP, NIST 800.171 (DIB), ITAR, IRS 1075, DoD L4, and CJIS. To bring awareness to your certifications for these programs, you can provide up to 100 links that describe your certifications. These can be links to your listings on the program directly or to your own website. These links are visible to Azure Government customers only.
 
-## Plan listing
+### Plan listing
 
 This tab displays specific information for each different plan within the same offer.
 
@@ -368,7 +375,7 @@ Here's an example of Azure Marketplace plan details (any listed prices are for e
 2. Plan name
 3. Plan description
 
-## Availability
+### Availability
 
 If you want to hide your published offer so customers can't search, browse, or purchase it in the marketplace, select the **Hide plan** check box on the Availability tab.
 
@@ -381,7 +388,7 @@ This field is commonly used when:
 
 ## Technical configuration
 
-The **IoT Edge module** offer type is a specific type of container that runs on an IoT Edge device. On the **Technical Configuration** tab you'll provide reference information for your container image repository inside the [Azure Container Registry](https://azure.microsoft.com/services/container-registry/), along with configuration settings that let customers use the module easily.
+The **IoT Edge module** offer type is a specific type of container that runs on an IoT Edge device. On the **Technical Configuration** tab, you'll provide reference information for your container image repository inside the [Azure Container Registry](https://azure.microsoft.com/services/container-registry/), along with configuration settings that let customers use the module easily.
 
 After the offer is published, your IoT Edge container image is copied to Azure Marketplace in a specific public container registry. All requests from Azure users to use your module are served from the Azure Marketplace public container registry, not your private container registry.
 
@@ -417,7 +424,7 @@ You'll provide the following information on the **Image repository details** tab
 2. Username
 3. Password
 
-**Repository name within the Azure Container Registry**. Provide the name of the Azure Container Registry repository that has your image. You specify the name of the repository when you push the image to the registry. You can find the name of the repository by going to the [Container Registry](https://azure.microsoft.com/services/container-registry/) > **Repositories page**. For more information, see [View container registry repositories in the Azure portal](../../container-registry/container-registry-repositories.md). Note that after the name is set, it can't be changed. Use a unique name for each offer in your account.
+**Repository name within the Azure Container Registry**. Provide the name of the Azure Container Registry repository that has your image. You specify the name of the repository when you push the image to the registry. You can find the name of the repository by going to the [Container Registry](https://azure.microsoft.com/services/container-registry/) > **Repositories page**. For more information, see [View container registry repositories in the Azure portal](../../container-registry/container-registry-repositories.md). After the name is set, it can't be changed. Use a unique name for each offer in your account.
 
 ### Image tags for new versions of your offer
 
@@ -440,21 +447,21 @@ For example, if module ContosoModule listens for inputs on ContosoInput and outp
 - Name #2: FromContosoModuleToCloud
 - Value #2: FROM /messages/modules/ContonsoModule/outputs/ContosoOutput INTO $upstream
 
-**Default module twin desired properties**. A module twin is a JSON document in the IoT Hub that stores the state information for a module instance, including desired properties. Desired properties are used along with reported properties to synchronize module configuration or conditions. The solution backend can set desired properties and the module can read them. The module can also receive change notifications in the desired properties. Desired properties are created using up to five name/value pairs and each default value must be less than 512 characters. You can define up to five name/value twin desired properties. Values of twin desired properties must be valid JSON, non-escaped, without arrays with a maximum nested hierarchy of four levels. In a scenario where a parameter required for a default value doesn't make sense (for example, the IP address of a customer's server), you can add a parameter as the default value. To learn more about twin desired properties, see [Define or update desired properties](../../iot-edge/module-composition.md#define-or-update-desired-properties)).
+**Default module twin desired properties**. A module twin is a JSON document in the IoT Hub that stores the state information for a module instance, including desired properties. Desired properties are used along with reported properties to synchronize module configuration or conditions. The solution backend can set desired properties and the module can read them. The module can also receive change notifications in the desired properties. Desired properties are created using up to five name/value pairs and each default value must be fewer than 512 characters. You can define up to five name/value twin desired properties. Values of twin desired properties must be valid JSON, non-escaped, without arrays with a maximum nested hierarchy of four levels. In a scenario where a parameter required for a default value doesn't make sense (for example, the IP address of a customer's server), you can add a parameter as the default value. To learn more about twin desired properties, see [Define or update desired properties](../../iot-edge/module-composition.md#define-or-update-desired-properties)).
 
 For example, if a module supports a dynamically configurable refresh rate using twin desired properties, it makes sense to define the following default twin desired property:
 
 - Name #1: RefreshRate
 - Value #1: 60
 
-**Default environment variables**. Environment variables provide supplemental information to a module that's helping the configuration process. Environment variables are created using name/value pairs. Each default environment variable name and value must be less than 512 characters, and you can define up to five. When a parameter required for a default value doesn't make sense (for example, the IP address of a customer's server), you can add a parameter as the default value.
+**Default environment variables**. Environment variables provide supplemental information to a module that's helping the configuration process. Environment variables are created using name/value pairs. Each default environment variable name and value must be fewer than 512 characters, and you can define up to five. When a parameter required for a default value doesn't make sense (for example, the IP address of a customer's server), you can add a parameter as the default value.
 
 For example, if a module requires to accept terms of use before being started, you can define the following environment variable:
 
 - Name #1: ACCEPT_EULA
 - Value #1: Y
 
-**Default container create options**. Container creation options direct the creation of the IoT Edge module Docker container. IoT Edge supports Docker engine API Create Container options. See all the options at [List containers.](https://docs.docker.com/engine/api/v1.30/#operation/ContainerList) The create options field must be valid JSON, non-escaped, and less than 512 characters.
+**Default container create options**. Container creation options direct the creation of the IoT Edge module Docker container. IoT Edge supports Docker engine API Create Container options. See all the options at [List containers.](https://docs.docker.com/engine/api/v1.30/#operation/ContainerList) The create options field must be valid JSON, non-escaped, and fewer than 512 characters.
 
 For example, if a module requires port binding, define the following create options:
 

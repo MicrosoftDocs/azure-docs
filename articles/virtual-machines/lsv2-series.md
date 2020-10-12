@@ -4,7 +4,7 @@ description: Specifications for the Lsv2-series VMs.
 author: sasha-melamed
 ms.service: virtual-machines
 ms.subservice: sizes
-ms.topic: article
+ms.topic: conceptual
 ms.date: 02/03/2020
 ms.author: jushiman
 ---
@@ -20,26 +20,23 @@ The Lsv2-series features high throughput, low latency, directly mapped local NVM
 >
 > To learn more, see Optimize performance on the Lsv2-series virtual machines for [Windows](../virtual-machines/windows/storage-performance.md) or [Linux](../virtual-machines/linux/storage-performance.md).  
 
-ACU: 150-175
+[ACU](acu.md): 150-175<br>
+[Premium Storage](premium-storage-performance.md): Supported<br>
+[Premium Storage caching](premium-storage-performance.md): Not Supported<br>
+[Live Migration](maintenance-and-updates.md): Not Supported<br>
+[Memory Preserving Updates](maintenance-and-updates.md): Not Supported<br>
+[VM Generation Support](generation-2.md): Generation 1 and 2<br>
+Bursting: Supported<br>
+<br>
 
-Bursting: Supported
-
-Premium Storage: Supported
-
-Premium Storage caching: Not Supported
-
-Live Migration: Not Supported
-
-Memory Preserving Updates: Not Supported
-
-| Size | vCPU | Memory (GiB) | Temp disk<sup>1</sup> (GiB) | NVMe Disks<sup>2</sup> | NVMe Disk throughput<sup>3</sup> (Read IOPS/MBps) | Uncached data disk throughput (IOPs/MBps)<sup>4</sup> | Max burst uncached data disk throughput (IOPs/MBps)<sup>5</sup>| Max Data Disks | Max NICs / Expected network bandwidth (Mbps) |
-|---|---|---|---|---|---|---|---|---|---|
-| Standard_L8s_v2   |  8 |  64 |  80 |  1x1.92 TB  | 400000/2000  | 8000/160   | 8000/1280 | 16 | 2 / 3200   |
-| Standard_L16s_v2  | 16 | 128 | 160 |  2x1.92 TB  | 800000/4000  | 16000/320  | 16000/1280 | 32 | 4 / 6400   |
-| Standard_L32s_v2  | 32 | 256 | 320 |  4x1.92 TB  | 1.5M/8000    | 32000/640  | 32000/1280 | 32 | 8 / 12800  |
-| Standard_L48s_v2  | 48 | 384 | 480 |  6x1.92 TB  | 2.2M/14000   | 48000/960  | 48000/2000 | 32 | 8 / 16000+ |
-| Standard_L64s_v2  | 64 | 512 | 640 |  8x1.92 TB  | 2.9M/16000   | 64000/1280 | 64000/2000 | 32 | 8 / 16000+ |
-| Standard_L80s_v2<sup>6</sup> | 80 | 640 | 800 | 10x1.92TB | 3.8M/20000 | 80000/1400 | 80000/2000 | 32 | 8 / 16000+ |
+| Size | vCPU | Memory (GiB) | Temp disk<sup>1</sup> (GiB) | NVMe Disks<sup>2</sup> | NVMe Disk throughput<sup>3</sup> (Read IOPS/MBps) | Uncached data disk throughput (IOPs/MBps)<sup>4</sup> | Max burst uncached data disk throughput (IOPs/MBps)<sup>5</sup>| Max Data Disks | Max NICs | Expected network bandwidth (Mbps) |
+|---|---|---|---|---|---|---|---|---|---|---|
+| Standard_L8s_v2   |  8 |  64 |  80 |  1x1.92 TB  | 400000/2000  | 8000/160   | 8000/1280 | 16 | 2 | 3200   |
+| Standard_L16s_v2  | 16 | 128 | 160 |  2x1.92 TB  | 800000/4000  | 16000/320  | 16000/1280 | 32 | 4 | 6400   |
+| Standard_L32s_v2  | 32 | 256 | 320 |  4x1.92 TB  | 1.5M/8000    | 32000/640  | 32000/1280 | 32 | 8 | 12800  |
+| Standard_L48s_v2  | 48 | 384 | 480 |  6x1.92 TB  | 2.2M/14000   | 48000/960  | 48000/2000 | 32 | 8 | 16000+ |
+| Standard_L64s_v2  | 64 | 512 | 640 |  8x1.92 TB  | 2.9M/16000   | 64000/1280 | 64000/2000 | 32 | 8 | 16000+ |
+| Standard_L80s_v2<sup>6</sup> | 80 | 640 | 800 | 10x1.92TB | 3.8M/20000 | 80000/1400 | 80000/2000 | 32 | 8 | 16000+ |
 
 <sup>1</sup> Lsv2-series VMs have a standard SCSI based temp resource disk for OS paging/swap file use (D: on Windows, /dev/sdb on Linux). This disk provides 80 GiB of storage, 4,000 IOPS, and 80 MBps transfer rate for every 8 vCPUs (e.g. Standard_L80s_v2 provides 800 GiB at 40,000 IOPS and 800 MBPS). This ensures the NVMe drives can be fully dedicated to application use. This disk is Ephemeral, and all data will be lost on stop/deallocate.
 
@@ -47,7 +44,7 @@ Memory Preserving Updates: Not Supported
 
 <sup>3</sup> Hyper-V NVMe Direct technology provides unthrottled access to local NVMe drives mapped securely into the guest VM space.  Achieving maximum performance requires using either the latest WS2019 build or Ubuntu 18.04 or 16.04 from the Azure Marketplace.  Write performance varies based on IO size, drive load, and capacity utilization.
 
-<sup>4</sup> Lsv2-series VMs do not provide host cache for data disk as it does not benefit the Lsv2 workloads.  However, Lsv2 VMs can accommodate Azure’s Ephemeral VM OS disk option (up to 30 GiB).
+<sup>4</sup> Lsv2-series VMs do not provide host cache for data disk as it does not benefit the Lsv2 workloads.
 
 <sup>5</sup> Lsv2-series VMs can [burst](linux/disk-bursting.md) their disk performance for up to 30 minutes at a time. 
 
@@ -69,6 +66,21 @@ Memory Preserving Updates: Not Supported
 - Disk throughput is measured in input/output operations per second (IOPS) and MBps where MBps = 10^6 bytes/sec.
 - If you want to get the best performance for your VMs, you should limit the number of data disks to 2 disks per vCPU.
 - **Expected network bandwidth** is the maximum aggregated [bandwidth allocated per VM type](../virtual-network/virtual-machine-network-throughput.md) across all NICs, for all destinations. Upper limits are not guaranteed, but are intended to provide guidance for selecting the right VM type for the intended application. Actual network performance will depend on a variety of factors including network congestion, application loads, and network settings. For information on optimizing network throughput, see [Optimizing network throughput for Windows and Linux](../virtual-network/virtual-network-optimize-network-bandwidth.md). To achieve the expected network performance on Linux or Windows, it may be necessary to select a specific version or optimize your VM. For more information, see [How to reliably test for virtual machine throughput](../virtual-network/virtual-network-bandwidth-testing.md).
+
+
+## Other sizes and information
+
+- [General purpose](sizes-general.md)
+- [Memory optimized](sizes-memory.md)
+- [Storage optimized](sizes-storage.md)
+- [GPU optimized](sizes-gpu.md)
+- [High performance compute](sizes-hpc.md)
+- [Previous generations](sizes-previous-gen.md)
+
+Pricing Calculator: [Pricing Calculator](https://azure.microsoft.com/pricing/calculator/)
+
+More information on Disks Types : [Disk Types](./disks-types.md#ultra-disk)
+
 
 ## Next steps
 

@@ -3,7 +3,7 @@ title: Complete an access review of groups & applications - Azure AD
 description: Learn how to complete an access review of group members or application access in Azure Active Directory access reviews.
 services: active-directory
 documentationcenter: ''
-author: msaburnley
+author: ajburnle
 manager: daveba
 editor: markwahl-msft
 ms.service: active-directory

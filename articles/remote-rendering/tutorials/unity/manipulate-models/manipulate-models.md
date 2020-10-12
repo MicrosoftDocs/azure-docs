@@ -1,10 +1,11 @@
 ---
 title: Manipulating models
 description: Manipulate remotely rendered models by moving, rotating scaling and more
-author: michael-house
-ms.author: v-mihous
+author: florianborn71
+ms.author: flborn
 ms.date: 06/15/2020
 ms.topic: tutorial
+ms.custom: devx-track-csharp
 ---
 
 # Tutorial: Manipulating models
@@ -155,7 +156,7 @@ Now, when the **RemoteBounds** script is added to the same game object as the **
 
 1. Run the application again. Shortly after the model loads, you'll see the bounds for the remote object. You'll see something like the below values:
 
-     ![Bounds updated](./media/updated-bounds.png)
+     ![Screenshot that shows the remote object bounds example.](./media/updated-bounds.png)
 
 Now we have a local **BoxCollider** configured with accurate bounds on the Unity object. The bounds allow for visualization and interaction using the same strategies we'd use for a locally rendered object. For example, scripts that alter the Transform, physics, and more.
 
@@ -180,7 +181,7 @@ The **AppMenu** has a sub menu **Model Tools** that implements a view controller
 
 1. Hold left click and drag the model to move it.
 
-You should see the remotely rendered content move along with the bounding box. You might notice some delay or lag between the bounding box the remote content. This delay will depend on your internet latency and bandwidth.
+You should see the remotely rendered content move along with the bounding box. You might notice some delay or lag between the bounding box and the remote content. This delay will depend on your internet latency and bandwidth.
 
 ## Ray cast and spatial queries of remote models
 
@@ -327,17 +328,17 @@ When a ray cast is completed successfully in the **RemoteRayCastPointerHandler**
 
 2. On the **TestModel** GameObject created previously, add both the **RemoteRayCastPointerHandler** component and the **RemoteEntityHelper** component.
 1. Assign the `EntityToDebugLog` method to the `OnRemoteEntityClicked` event. When the event's output type and method's input type match, we can use Unity's dynamic event hookup, that will automatically pass the event value into the method.
-    1. Create a new callback field\
+    1. Create a new callback field
     ![Add callback](./media/add-callback-remote-entity-clicked.png)
-    1. Drag **Remote Entity Helper** component into the Object field, to reference the parent GameObject\
+    1. Drag **Remote Entity Helper** component into the Object field, to reference the parent GameObject
     ![Assign object](./media/assign-object.png)
-    1. Assign the `EntityToDebugLog` as the callback\
+    1. Assign the `EntityToDebugLog` as the callback
     ![Assign callback](./media/remote-entity-event.png)
 1. Press play in the Unity Editor to start the scene, connect to a remote session and load the test model.
 1. Using MRTK's hand simulation press and hold the left Shift key.
 1. Steer the simulated hand so the hand ray is pointing to the test model.
 1. Long click to simulate an air-tap, executing the `OnPointerClicked` event.
-1. Observe the Unity Console for a log message with the name of the child entity selected. For example:\
+1. Observe the Unity Console for a log message with the name of the child entity selected. For example:
 ![Child entity example](./media/child-entity-example.png)
 
 ## Synchronizing the remote object graph into the Unity hierarchy
@@ -346,9 +347,9 @@ Up to this point, we've only seen a single local GameObject representing the ent
 
 1. Start the scene and load the test model.
 1. Expand the children of the **TestModel** GameObject in Unity's hierarchy and select the **TestModel_Entity** GameObject.
-1. In the Inspector, click the *Show Children* button.\
+1. In the Inspector, click the *Show Children* button.
 ![Show children](./media/show-remote-children.png)
-1. Continue to expand children in the hierarchy and clicking *Show Children* until a large list of children is shown.\
+1. Continue to expand children in the hierarchy and clicking *Show Children* until a large list of children is shown.
 ![All children](./media/test-model-children.png)
 
 A list of dozens of entities will now populate the hierarchy. Selecting one of them will show the `Transform` and `RemoteEntitySyncObject` components in the Inspector. By default, each entity isn't automatically synced every frame, so local changes to the `Transform` aren't synced to the server. You can check *Sync Every Frame* and then move, scale, or rotate the transform in the Scene view, you will not see the rendered model in the scene view, watch the Game view to see the model's position and rotation visually update.
@@ -366,13 +367,13 @@ The same process can be done programmatically and is the first step in modifying
     }
     ```
 
-1. Add an additional callback to the **RemoteRayCastPointerHandler** event `OnRemoteEntityClicked`, setting it to `MakeSyncedGameObject`.\
+1. Add an additional callback to the **RemoteRayCastPointerHandler** event `OnRemoteEntityClicked`, setting it to `MakeSyncedGameObject`.
 ![Additional callback](./media/additional-callback.png)
 1. Using MRTK's hand simulation press and hold the left Shift key.
 1. Steer the simulated hand so the hand ray is pointing to the test model.
 1. Long click to simulate an air-tap, executing the `OnPointerClicked` event.
-1. Check and expand the Hierarchy to see a new child object, representing the clicked entity.\
-![GameObject representation](./media/gameobject-representing-entity.png)\
+1. Check and expand the Hierarchy to see a new child object, representing the clicked entity.
+![GameObject representation](./media/gameobject-representing-entity.png)
 1. After testing, remove the callback for `MakeSyncedGameObject`, since we'll incorporate this as part of other effects later.
 
 > [!NOTE]

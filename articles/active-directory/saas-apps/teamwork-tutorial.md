@@ -2,22 +2,15 @@
 title: 'Tutorial: Azure Active Directory integration with Teamwork.com | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and Teamwork.com.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-
-ms.assetid: bd4413c2-0d7c-41a7-aba4-b7a7a28c9448
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 04/08/2019
 ms.author: jeedes
-
-ms.collection: M365-identity-device-management
 ---
 # Tutorial: Azure Active Directory integration with Teamwork.com
 
@@ -107,10 +100,8 @@ To configure Azure AD single sign-on with Teamwork.com, perform the following st
 
     b. In the **Identifier (Entity ID)** text box, type the URL:
 
-	| | |
-	|-|-|
-	| `https://teamwork.com/saml`|
-	| `https://eu.teamwork.com/saml`|
+	- `https://teamwork.com/saml`
+	- `https://eu.teamwork.com/saml`
 
 	> [!NOTE]
 	> This  Sign-on URL value is not real. Update this value with the actual Sign-On URL. Contact [Teamwork.com support team](mailto:support@teamwork.com) to get this value. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
