@@ -11,7 +11,7 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019; seo-dt-2019
-ms.date: 08/12/2019
+ms.date: 09/28/2020
 ---
 
 # Copy data from MongoDB using Azure Data Factory
@@ -46,7 +46,7 @@ The following properties are supported for MongoDB linked service:
 | Property | Description | Required |
 |:--- |:--- |:--- |
 | type |The type property must be set to: **MongoDbV2** |Yes |
-| connectionString |Specify the MongoDB connection string e.g. `mongodb://[username:password@]host[:port][/[database][?options]]`. Refer to [MongoDB manual on connection string](https://docs.mongodb.com/manual/reference/connection-string/) for more details. <br/><br /> You can also put a password in Azure Key Vault and pull the `password` configuration out of the connection string. Refer to [Store credentials in Azure Key Vault](store-credentials-in-key-vault.md) with more details. |Yes |
+| connectionString |Specify the MongoDB connection string e.g. `mongodb://[username:password@]host[:port][/[database][?options]]`. Refer to [MongoDB manual on connection string](https://docs.mongodb.com/manual/reference/connection-string/) for more details. <br/><br /> You can also put a connection string in Azure Key Vault. Refer to [Store credentials in Azure Key Vault](store-credentials-in-key-vault.md) with more details. |Yes |
 | database | Name of the database that you want to access. | Yes |
 | connectVia | The [Integration Runtime](concepts-integration-runtime.md) to be used to connect to the data store. Learn more from [Prerequisites](#prerequisites) section. If not specified, it uses the default Azure Integration Runtime. |No |
 

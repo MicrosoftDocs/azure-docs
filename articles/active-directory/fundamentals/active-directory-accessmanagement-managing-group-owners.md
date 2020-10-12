@@ -48,7 +48,7 @@ Remove an owner from a group using Azure AD.
 
 3. On the **MDM policy - West Overview** page, select **Owners**.
 
-    ![MDM policy - West Overview page with Owners option highlighted](media/active-directory-accessmanagement-managing-group-owners/remove-owners-option-overview-blade.png)
+    ![MDM policy - West Overview page with Remove Owners option highlighted](media/active-directory-accessmanagement-managing-group-owners/remove-owners-option-overview-blade.png)
 
 4. On the **MDM policy - West - Owners** page, select the user you want to remove as a group owner, choose **Remove** from the user's information page, and select **Yes** to confirm your decision.
 

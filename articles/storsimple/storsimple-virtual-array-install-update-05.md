@@ -87,26 +87,26 @@ Use this method to install updates on a device running GA or Update 0.1 software
 
 1. In the local web UI, go to **Maintenance** > **Software Update**.
    
-    ![update device](./media/storsimple-virtual-array-install-update-05/update1m.png)
+    ![update device 1](./media/storsimple-virtual-array-install-update-05/update1m.png)
 
 2. In **Update file path**, enter the file name for the update or the hotfix. You can also browse to the update or hotfix installation file if placed on a network share. Click **Apply**.
    
-    ![update device](./media/storsimple-virtual-array-install-update-05/update2m.png)
+    ![update device 2](./media/storsimple-virtual-array-install-update-05/update2m.png)
 
 3. A warning is displayed. Given this is a single node device, after the update is applied, the device restarts and there is downtime. Click the check icon.
    
-   ![update device](./media/storsimple-virtual-array-install-update-05/update3m.png)
+   ![update device 3](./media/storsimple-virtual-array-install-update-05/update3m.png)
 
 4. The update starts. After the device is successfully updated, it restarts. The local UI is not accessible in this duration.
    
-    ![update device](./media/storsimple-virtual-array-install-update-05/update5m.png)
+    ![update device 4](./media/storsimple-virtual-array-install-update-05/update5m.png)
 
 5. After the restart is complete, you are taken to the **Sign in** page. To verify that the device software has updated, in the local web UI, go to **Maintenance** > **Software Update**. The displayed software version should be **10.0.0.0.0.10290.0** for Update 0.5.
    
    > [!NOTE]
    > We report the software versions in a slightly different way in the local web UI and the Azure portal. For example, the local web UI reports **10.0.0.0.0.10290** and the Azure portal reports **10.0.10290.0** for the same version.
    
-    ![update device](./media/storsimple-virtual-array-install-update-05/update6m.png)
+    ![update device 5](./media/storsimple-virtual-array-install-update-05/update6m.png)
 
 6. The next step is to update the MDS agent. In the **Software Update** page, go to the **Update file path** and browse to the `GenevaMonitoringAgentPackageInstaller.msi` file. Repeat steps 2-4. After the virtual array restarts, sign into the local web UI.
 
