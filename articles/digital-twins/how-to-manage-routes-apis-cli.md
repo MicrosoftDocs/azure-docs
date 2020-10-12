@@ -89,10 +89,10 @@ az dt endpoint create eventhub --endpoint-name <Event-Hub-endpoint-name> --event
 
 ### Create an endpoint with dead-lettering
 
-In order to create an endpoint with dead-letter queues enabled, you must use the ARM APIs to create your endpoint. 
+In order to create an endpoint with dead-lettering enabled, you must use the ARM APIs to create your endpoint. 
 
-Before setting the dead-letter location, you must have a storage account with a container. You provide the endpoint for this container when creating the event subscription. The endpoint is provided as a container URL with a SAS token. That token needs at least `create` permissions and will be in the format of:
-`https://<containerName>.blob.core.windows.net/<storageAccountname>?<SASTokenValue>`
+Before setting the dead-letter location, you must have a storage account with a container. You provide the URL for this container when creating the endpoint. The dead-letter is provided as a container URL with a SAS token. That token needs at least `write` permission and will be in the format of:
+`https://<storageAccountname>.blob.core.windows.net/<containerName>?<SASToken>`
 
 To learn more about SAS tokens, see: [Grant limited access to Azure Storage resources using shared access signatures (SAS)](https://docs.microsoft.com/azure/storage/common/storage-sas-overview)
 
@@ -105,7 +105,7 @@ When creating an endpoint, add a `deadLetterSecret` to the `properties` object i
     "TopicEndpoint": "https://contosoGrid.westus2-1.eventgrid.azure.net/api/events",
     "accessKey1": "0000000000000000000000000000000000000000000=",
     "accessKey2": "0000000000000000000000000000000000000000000=",
-    "deadLetterSecret":"https://contosoStorage.blob.core.windows.net/contosoStorage?SASTokenInformation"
+    "deadLetterSecret":"https://<storageAccountname>.blob.core.windows.net/<containerName>?<SASToken>"
   }
 }
 ```
