@@ -17,7 +17,7 @@ The DMR defines a pattern to store DTDL interfaces in a folder structure based o
 
 ## Public device model repository
 
-Microsoft hosts a public DRM with the next characteristics:
+Microsoft hosts a public DMR with these characteristics:
 
 - Curated models. Microsoft reviews and approves all available interfaces using an open GitHub PR validation workflow.
 - Immutability.  After it's published, an interface can't be updated.
@@ -39,7 +39,9 @@ Users can browse, search, and view public interfaces from the official GitHub re
 
 All interfaces in the `dtmi` folders are also available from the public endpoint [https://devicemodels.azure.com](https://devicemodels.azure.com)
 
-To programmatically access these interfaces, you need to convert a dtmi to a relative path that you can use to query the public endpoint. The following code sample shows you how:
+### Resolve models
+
+To programmatically access these interfaces, you need to convert a dtmi to a relative path that you can use to query the public endpoint. The following code sample shows you how to do this:
 
 To convert a DTMI to an absolute path we use the `DtmiToPath` function, with `IsValidDtmi`:
 
@@ -72,7 +74,7 @@ string fullyQualifiedPath = $"{_repositoryEndpoint}{dtmiPath}";
 string modelContent = await _httpClient.GetStringAsync(fullyQualifiedPath);
 ```
 
-## Submit a model
+## Publish a model
 
 > [!Important]
 > You must have a GitHub account to be able to submit models to the public DMR.
@@ -81,8 +83,8 @@ string modelContent = await _httpClient.GetStringAsync(fullyQualifiedPath);
 1. Clone the forked repo. Optionally create a new branch to keep your changes isolated from the `main` branch.
 1. Add the new interfaces to the `dtmi` folder using the folder/filename convention. See the [add-model](#add-model) tool.
 1. Validate the models locally using the [scripts to validate changes](#validate-files) section.
-1. Commit the changes locally and push to your fork.
-1. From your fork, create a PR that targets the `main` branch.
+1. Commit the changes locally and push to your fork. 
+1. From your fork, create a PR that targets the `main` branch. See [Creating an issue or pull request](https://docs.github.com/en/free-pro-team@latest/desktop/contributing-and-collaborating-using-github-desktop/creating-an-issue-or-pull-request) docs.
 1. Review the [PR requirements](https://github.com/Azure/iot-plugandplay-models/pr-reqs.md)
 
 The PR triggers a series of GitHub actions that will validate the new submitted interfaces, and make sure your PR satisfies all the checks.
