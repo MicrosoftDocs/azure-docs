@@ -252,7 +252,7 @@ In the example above, note how *reportedCondition* is a property of the *service
 
 ### Query with multiple JOINs
 
-Currently in preview, up to five `JOIN`s are supported in a single query. This allows you to traverse multiple levels of relationships at once.
+Up to five `JOIN`s are supported in a single query. This allows you to traverse multiple levels of relationships at once.
 
 Here is an example of a multi-join query, which gets all the light bulbs contained in the light panels in rooms 1 and 2.
 
@@ -350,10 +350,10 @@ catch (RequestFailedException e)
 
 There may be a delay of up to 10 seconds before changes in your instance are reflected in queries. For example, if you complete an operation like creating or deleting twins with the DigitalTwins API, the result may not be immediately reflected in Query API requests. Waiting for a short period should be sufficient to resolve.
 
-There are additional limitations on using `JOIN` during preview.
+There are additional limitations on using `JOIN`.
 * No subqueries are supported within the `FROM` statement.
 * `OUTER JOIN` semantics are not supported, meaning if the relationship has a rank of zero, then the entire "row" is eliminated from the output result set.
-* During preview, graph traversal depth is restricted to five `JOIN` levels per query.
+* Graph traversal depth is restricted to five `JOIN` levels per query.
 * The source for `JOIN` operations is restricted: query must declare the twins where the query begins.
 
 ## Query best practices

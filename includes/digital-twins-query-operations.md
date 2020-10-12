@@ -25,7 +25,7 @@ Get digital twins by their...
 
 You can further enhance your queries with the following operations:
 * Get twins over multiple relationship types (`JOIN` queries). 
-  - During preview, up to five levels of `JOIN` are allowed.
+  - Up to five levels of `JOIN` are allowed.
 * Select only the top query results (`Select TOP` operator)
 * Count the number of items in a result set using `Select COUNT`
 * Use projections to choose which columns (or expressions) a query will return
