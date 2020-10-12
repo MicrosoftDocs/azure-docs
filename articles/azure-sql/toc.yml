@@ -94,7 +94,9 @@
           href: database/transparent-data-encryption-tde-overview.md
         - name: Bring Your Own Key (BYOK)
           href: database/transparent-data-encryption-byok-overview.md
-        
+      - name: Distributed transactions
+        href: database/elastic-transactions-overview.md
+      
     - name: Business continuity
       displayName: Backup, back up, restore, recovery
       items:
@@ -902,6 +904,8 @@
         href: managed-instance/public-endpoint-overview.md
       - name: Auditing
         href: managed-instance/auditing-configure.md
+      - name: Server trust groups
+        href: managed-instance/server-trust-group-overview.md
 
   - name: How to
     items:
