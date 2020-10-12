@@ -26,18 +26,18 @@ landingContent:
         links:
           - text: What is Azure Cosmos DB?
             url: introduction.md
-      - linkListType: concept
+      - linkListType: get-started
         links:
           - text: NoSQL Vs relational databases
             url: relational-nosql.md
           - text: Azure Cosmos DB resource model
-            url: .md
+            url: account-databases-containers-items.md
           - text: Distribute data globally
             url: distribute-data-globally.md
           - text: Partitioning
             url: partitioning-overview.md 
           - text: Throughput & request units
-            url: .md 
+            url: request-units.md 
           - text: Data modeling and partitioning
             url: how-to-model-partition-example.md 
           - text: Service quotas
@@ -169,7 +169,7 @@ landingContent:
           - text: Connect to Cassandra API from Spark
             url: cassandra-spark-generic.md 
           - text: Change feed support with query predicates
-            url: cassandra-change-feed?tabs=java.md 
+            url: cassandra-change-feed.md?tabs=java 
 
   # Card
   - title: Migrate your data to Cosmos DB
