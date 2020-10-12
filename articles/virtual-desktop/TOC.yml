@@ -104,6 +104,8 @@
     href: azure-advisor.md
   - name: Resolve recommendations
     href: azure-advisor-recommendations.md
+  - name: Set up a disaster recovery plan
+    href: disaster-recovery.md
 - name: Concepts
   items:
   - name: Authentication
