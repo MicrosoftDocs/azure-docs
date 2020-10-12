@@ -13,20 +13,20 @@ ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/19/2020
+ms.date: 10/12/2020
 ms.author: yelevin
 
 ---
 # Set up Azure Sentinel customer-managed key
 
-
-This article provides background information and steps to configure a customer-managed key (CMK) for Azure Sentinel. CMK enables all data saved or sent to
-Azure Sentinel to be encrypted in all relevant storage resources with an Azure Key Vault key created or owned by you.
+This article provides background information and steps to configure a customer-managed key (CMK) for Azure Sentinel. CMK enables all data saved or sent to Azure Sentinel to be encrypted in all relevant storage resources with an Azure Key Vault key created or owned by you.
 
 > [!NOTE]
-> -   The Azure Sentinel CMK capability is provided only to customers who are **new** and access to this capability is controlled by Azure feature registration. You can request access by contacting azuresentinelCMK@microsoft.com, and as capacity is available, pending requests will be approved.
-> -   The Azure Sentinel CMK capability is only available in East US, West US 2, and South-Central US regions.
-> -   The CMK capability is only available to customers sending 1TB per day or more. You will receive information about additional pricing when you apply to Microsoft to provision CMK on your Azure subscription. Learn more about [Log Analytics pricing](../azure-monitor/platform/manage-cost-storage.md#log-analytics-dedicated-clusters).
+> - The Azure Sentinel CMK capability is provided only to **new customers**.
+>
+> - Access to this capability is controlled by Azure feature registration. You can request access by contacting azuresentinelCMK@microsoft.com. Pending requests will be approved according to the available capacity.
+>
+> - The CMK capability is only available to customers sending 1TB per day or more. You will receive information about additional pricing when you apply to Microsoft to provision CMK on your Azure subscription. Learn more about [Log Analytics pricing](../azure-monitor/platform/manage-cost-storage.md#log-analytics-dedicated-clusters).
 
 ## How CMK works 
 
