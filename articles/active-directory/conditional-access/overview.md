@@ -14,7 +14,7 @@ manager: daveba
 ms.reviewer: calebb
 
 ms.collection: M365-identity-device-management
-ms.custom: contperfq4
+ms.custom: contperfq4, azuread-video-2020
 ---
 # What is Conditional Access?
 
