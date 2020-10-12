@@ -143,5 +143,5 @@ To turn the setting back off, use the same endpoint and set
 
 To learn more about management groups, see:
 
-- [Create management groups to organize Azure resources](../create.md)
+- [Create management groups to organize Azure resources](../create-management-group-portal.md)
 - [How to change, delete, or manage your management groups](../manage.md)

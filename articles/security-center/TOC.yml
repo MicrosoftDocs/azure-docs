@@ -81,6 +81,8 @@
       href: quickstart-onboard-gcp.md
   - name: Automate onboarding using PowerShell
     href: security-center-powershell-onboarding.md
+  - name: Enable Security Center for a management group
+    href: onboard-management-group.md
   - name: Configure data collection
     href: security-center-enable-data-collection.md
   - name: Set up email notifications
@@ -183,6 +185,9 @@
       - name: Review and remediate vulnerabilities on your VMs
         displayName: qualys, rapid7, vulnerability
         href: remediate-vulnerability-findings-vm.md
+      - name: Disable specific vulnerability findings
+        displayName: qualys, rapid7, vulnerability
+        href: remediate-vulnerability-findings-vm.md#disable-specific-findings-preview
     - name: Secure management ports with just-in-time VM access
       items:
       - name: Overview of just-in-time VM access

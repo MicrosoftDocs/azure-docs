@@ -1,8 +1,6 @@
 ---
 title: Create a new Azure Monitor Application Insights workspace-based resource | Microsoft Docs
 description: Learn about the steps required to enable the new Azure Monitor Application Insights workspace-based resources. 
-author: mrbullwinkle
-ms.author: mbullwin
 ms.topic: conceptual
 ms.date: 10/06/2020
 

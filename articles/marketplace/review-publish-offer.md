@@ -166,6 +166,84 @@ Now that you’ve chosen to go live with your offer, which makes it available in
 
 After these validation checks are complete, your offer will be live in the marketplace.
 
+## Publishing history
+
+The **History** page in Partner Center shows the publishing events for your commercial marketplace offers. For each event, the page displays the user who initiated the action, the event type, and the event date and time. The [validation and publishing steps](#validation-and-publishing-steps) are listed with the date and time of completion.
+
+To view the history of your offer:
+
+1.    Sign in to [Partner Center](https://partner.microsoft.com/dashboard/home).
+2.    In the navigation menu on the left, select **Commercial Marketplace** > **Overview**.
+3.    Select your offer.
+4.    Select the **History** tab in the navigation menu on the left. The page provides details for the following events, as applicable to your offer:
+
+|Event    |Description    |
+|---------|---------------|
+|Created offer    |The offer was created in Partner Center. A user selected the offer type, offer ID, and offer alias in **Commercial Marketplace** > **Overview**.    |
+|Created plan: *plan name*    |A user created a new plan by entering the plan ID and plan name in the **Plan overview** tab.</br>*This event applies only to offer types that support plans*.    |
+|Deleted plan    |A user deleted a draft plan that had not been published by selecting **Delete draft** from the **Plan overview** page.</br>*This event applies only to offer types that support plans*.    |
+|Initiated plan stop sell: *plan name*    |A user initiated a plan stop-sell by selecting **Stop selling** from the **Plan overview** page.</br>*This event applies only to offer types that support plans*.    |
+|Undo plan stop sell: *plan name*    |A user canceled a plan stop-sell by selecting **Undo stop selling** from the **Plan overview** page.</br>*This event applies only to offer types that support plans*.    |
+|Submitted offer to preview    |A user submitted the offer to preview by selecting **Publish** from the **Review and publish** page.    |
+|Initiated submit to preview cancellation    |A user requested to cancel the offer publication to preview by selecting **Cancel publish** from the **Offer overview** page after the submission to preview.</br>*This event is displayed as the cancellation request is being processed*.    |
+|Canceled submission to preview    |A user canceled the offer publication to preview by selecting **Cancel publish** from the **Offer overview** page after the submission to preview.</br>*This event is displayed after the cancellation request is successfully processed*.    |
+|Sign-off to go live    |A user published the offer to the commercial marketplace by selecting **Go live** from the **Offer overview** page.    |
+|Initiated publish to marketplace cancellation    |A user requested to cancel the offer publication by selecting **Cancel publish** from the **Offer overview** page after the sign-off to go live.</br>*This event is displayed as the cancellation request is being processed*.    |
+|Canceled publishing to the commercial marketplace    |A user canceled the offer publication by selecting **Cancel publish** from the **Offer overview** page after the sign-off to go live.</br>*This event is displayed after the cancellation request is successfully processed*.    |
+|Sync private audience    |A user updated and synced the private audience by selecting **Sync private audience** from the **Plan overview** page or the **Plan pricing & availability** page.</br>*This event applies only to offer types that support private plans*.    |
+|Stop sell offer    |A user stopped selling the offer by selecting **Stop selling** from the **Offer overview** page.    |
+
+> [!NOTE]
+> The History page doesn’t say when an offer draft was saved.
+
+### Filter options
+
+You can use filters to narrow down the full history of your offer to specific publishing events:
+
+1.    Select the filter button on the upper-right corner of the page.
+2.    Choose a filter, then select **Apply** to see which history events correspond to the criteria you selected.
+3.    Select **Clear filters** to return to the full history of your offer.
+
+There are four filters:
+* Events
+* Users
+* Date
+* Pages
+
+When you choose the **Pages** filter, you can select any of the Partner Center pages that are applicable to your offer type. When applied, the **Pages** filter shows all the **Submitted offer to preview** events with changes to the page you selected.
+
+* For all offers, the **Offer setup** page is included by default for each submission event.
+* For offers that support plans, the **Plan overview** page is included for each submission event.
+* For offers that support test drive, the **Test drive** page is included for each submission event.
+
+### Users
+
+If an event was initiated by a user, the History page will show the user according to the following scenarios:
+
+#### The event was initiated by the publisher
+
+Users with publishing permissions for an offer will have their name displayed for the publishing events they initiate.
+
+[![The History page displays the name of users with publishing permissions.](./media/review-publish-offer/event-initiated-by-publisher.png)](./media/review-publish-offer/event-initiated-by-publisher.png#lightbox)
+
+#### The event was initiated by Microsoft
+
+You may give permissions to Microsoft administrators to initiate actions on your behalf or take corrective actions after an unexpected system error. The Microsoft name and logo are displayed for publishing events initiated by Microsoft on behalf of your account.
+
+[![Example of how the History page displays events initiated by Microsoft.](./media/review-publish-offer/event-initiated-by-microsoft.png)](./media/review-publish-offer/event-initiated-by-microsoft.png#lightbox)
+
+#### The event was initiated by an unidentified user
+
+Users who are no longer associated with an account will have their name removed from the **Initiated by** column after their publishing permissions are withdrawn.
+
+[![Example of how the History page displays events initiated by unidentified users.](./media/review-publish-offer/event-initiated-by-unidentified-user.png)](./media/review-publish-offer/event-initiated-by-unidentified-user.png#lightbox)
+
+#### Validation and publishing steps
+
+No user is shown for system processes that correspond to [validation and publishing steps](#validation-and-publishing-steps). These events are color-coded according to the completion status of the event.
+
+[![Example of how the History page displays validation and publishing steps.](./media/review-publish-offer/validation-and-publishing-event.png)](./media/review-publish-offer/validation-and-publishing-event.png#lightbox)
+
 ## Next steps
 
 [Access analytic reports for the commercial marketplace in Partner Center](partner-center-portal/analytics.md)
