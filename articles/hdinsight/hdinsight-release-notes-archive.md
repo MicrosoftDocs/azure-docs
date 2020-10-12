@@ -342,7 +342,7 @@ HDInsight Identity Broker (HIB) enables users to sign in to Apache Ambari using 
 
 #### Kafka Rest API Proxy (Preview)
 
-Kafka Rest API Proxy provides one-click deployment of highly available REST proxy with Kafka cluster via secured AAD authorization and OAuth protocol. 
+Kafka Rest API Proxy provides one-click deployment of highly available REST proxy with Kafka cluster via secured Azure AD authorization and OAuth protocol. 
 
 #### Auto scale
 
