@@ -31,7 +31,7 @@ module and connect to your Azure account using the
 [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount) cmdlet. For more information
 about installing the Az PowerShell module, see
 [Install Azure PowerShell](/powershell/azure/install-az-ps). If you choose to use Cloud Shell, see
-[Overview of Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview) for
+[Overview of Azure Cloud Shell](../../../cloud-shell/overview.md) for
 more information.
 
 > [!IMPORTANT]
