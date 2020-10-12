@@ -164,7 +164,7 @@ When you create a logic app, you can select the **Correlated in-order delivery u
 
 ## Update a logic app with Service Bus connector trigger
 
-If the trigger polling interval is small (e.g 10 seconds), it can take up to 10 minutes before an update to the logic app take effect. You can temporarily increase the polling interval to a larger value like 1 minute, then make update to the logic app.  Once the update is done, you can reset the polling interval back to its original value. 
+If the trigger polling interval is small (e.g 10 seconds), it can take up to 10 minutes before an update to the logic app can take effect. You can temporarily increase the polling interval to a larger value (e.g. 30 seconds or 1 minute), then make update to the logic app.  Once the update is done, you can reset the polling interval back to its original value. 
 
 <a name="connector-reference"></a>
 
