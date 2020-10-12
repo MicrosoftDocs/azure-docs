@@ -157,7 +157,7 @@ You may also use Application Security Groups to help simplify complex security c
 
 * [How to configure and manage Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
-* [Azure Policy samples for networking](../governance/policy/samples/index.md#network)
+* [Azure Policy samples for networking](../governance/policy/samples/built-in-policies.md#network)
 
 * [How to create an Azure Blueprint](../governance/blueprints/create-blueprint-portal.md)
 
