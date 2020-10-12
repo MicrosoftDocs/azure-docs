@@ -44,7 +44,7 @@ An availability set is a grouping of resources which are configured such that no
 
 In a traditional on-premises deployment, clients connect to the availability group listener using the virtual network name (VNN), and the listener routes traffic to the appropriate SQL Server replica in the availability group. However, there is an extra requirement to route traffic on the Azure network. 
 
-With SQL Server on Azure VMs, configure a [load balancer](availability-group-vnn-azure-load-balancer-configure.md) to route traffic to your availability group listener, or, if you're on SQL Server 2019 CU8 and later, configure a [distributed network name (DNN) listener (Preview)](availability-group-distributed-network-name-dnn-listener-configure.md) to replace the traditional VNN availability group listener. 
+With SQL Server on Azure VMs, configure a [load balancer](availability-group-vnn-azure-load-balancer-configure.md) to route traffic to your availability group listener, or, if you're on SQL Server 2019 CU8 and later, you can configure a [distributed network name (DNN) listener (Preview)](availability-group-distributed-network-name-dnn-listener-configure.md) to replace the traditional VNN availability group listener. 
 
 
 ### Load balancer 
@@ -70,52 +70,20 @@ To get started, see [configure a DNN listener (Preview)](availability-group-dist
 
 ## Deployment 
 
-There are multiple options for deploying an availability group to SQL Server on Azure VMs, some with more automation than others. The following table provides a comparison of the options available: 
+There are multiple options for deploying an availability group to SQL Server on Azure VMs, some with more automation than others. 
 
-
-|  | Windows Server Version | SQL Server Version | SQL Server Edition | WSFC Quorum Config | DR with Multi-region | Multi-subnet support | Support for an existing AD | DR with multi-zone same region | Dist-AG support with no AD domain | Dist-AG support with no cluster |  
-| :------ | :-----| :-----| :-----| :-----| :-----| :-----| :-----| :-----| :-----| :-----|
-| **[Azure portal](availability-group-azure-portal-configure.md)** | 2019 </br> 2016 | 2019 </br>2017 </br>2016   | Ent | Cloud witness | No | Yes | Yes | Yes | No | No |
-| **[Azure CLI / PowerShell](availability-group-az-cli-configure.md)** | 2019 </br> 2016 | 2019 </br>2017 </br>2016   | Ent | Cloud witness | No | Yes | Yes | Yes | No | No |
-| **[Quickstart Templates](availability-group-quickstart-template-configure.md)** | 2019 </br> 2016 | 2019 </br>2017 </br>2016  | Ent | Cloud witness | No | Yes | Yes | Yes | No | No |
-| **[Manual](availability-group-manually-configure-prerequisites-tutorial.md)** | All | All | All | All | Yes | Yes | Yes | Yes | Yes | Yes |
-
-
-When you are ready to build a SQL Server availability group on Azure Virtual Machines, refer to these tutorials.
-
-- [Azure Portal](availability-group-azure-portal-configure.md) 
-   - Creates the cluster or lets you onboard an existing cluster for portal management 
-   - Creates the availability group
-   - Creates the listener with the load balancer simultaneously
-   - No native DNN listener support, DNN must be created separately
-- [Azure CLI / PowerShell](availability-group-az-cli-configure.md)
-   - Creates the cluster
-   - Does not create the availability group, you still need to do this manually
-   - Creates the listener with the load balancer simultaneously
-   - No native DNN listener support, DNN must be created separately
-- [Quickstart Templates](availability-group-quickstart-template-configure.md)
-   - Creates the cluster or lets you onboard an existing cluster for portal management 
-   - Does not create the availability group, you still need to do this manually 
-   - Creates the listener with the load balancer simultaneously
-   - No native DNN listener support, DNN must be created separately
-- [Manual](availability-group-manually-configure-prerequisites-tutorial.md)
-   - Creates the cluster but does not onboard it to the SQL VM resource provider metadata
-   - Creates the listener separately from the load balancer
-   - No native DNN listener support, DNN must be created separately
-
-
-here is another way to present this information
+The following table provides a comparison of the options available: 
 
 | |**[Azure portal](availability-group-azure-portal-configure.md)**|**[Azure CLI / PowerShell](availability-group-az-cli-configure.md)**|**[Quickstart Templates](availability-group-quickstart-template-configure.md)**|**[Manual](availability-group-manually-configure-prerequisites-tutorial.md)** | 
 |---------|---------|---------|--------- |---------|
 |SQL Server version |2016 + |2016 +|2016 +|2012 +|
-|Windows Server version| 2016 + | 2016 + | 2016 + | All| 
 |SQL Server edition |Enterprise |Enterprise |Enterprise |Enterprise, Standard|
+|Windows Server version| 2016 + | 2016 + | 2016 + | All| 
 |Creates the cluster for you|Yes|Yes | Yes |No|
 |Creates the availability group for you |Yes |No|No|No|
 |Creates listener and load balancer independently |No|No|No|Yes|
-|Built-in DNN listener creation|No|No|No|No|
-|WSFC Quorum configuration|Cloud witness|Cloud witness|Cloud witness|All|
+|Can I create a DNN listener using this method? |No|No|No|Yes|
+|WSFC quorum configuration|Cloud witness|Cloud witness|Cloud witness|All|
 |DR with multiple regions |No|No|No|Yes|
 |Multisubnet support |Yes|Yes|Yes|Yes|
 |Support for an existing AD|Yes|Yes|Yes|Yes|

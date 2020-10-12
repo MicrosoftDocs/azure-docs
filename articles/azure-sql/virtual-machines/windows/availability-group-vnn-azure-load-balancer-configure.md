@@ -1,6 +1,6 @@
 ---
-title: Configure VNN and load balancer for availability group listener
-description: Learn to configure a virtual network name (VNN) and Azure Load Balancer to route traffic to the virtual network name (VNN) for your availability group  with SQL Server on Azure VMs for high availability and disaster recovery (HADR). 
+title: Configure load balancer for AG VNN listener
+description: Learn to configure an Azure Load Balancer to route traffic to the virtual network name (VNN) listener for your availability group with SQL Server on Azure VMs for high availability and disaster recovery (HADR). 
 services: virtual-machines-windows
 documentationcenter: na
 author: MashaMSFT
@@ -16,10 +16,10 @@ ms.author: mathoma
 ms.reviewer: jroth
 
 ---
-# Configure VNN and load balancer for availability group listener
+# Configure load balancer for AG VNN listener
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
 
-On Azure Virtual Machines, clusters use a load balancer to hold an IP address that needs to be on one cluster node at a time. In this solution, the load balancer holds the IP address for the virtual network name (VNN) used by the clustered resource in Azure. 
+On Azure Virtual Machines, clusters use a load balancer to hold an IP address that needs to be on one cluster node at a time. In this solution, the load balancer holds the IP address for the virtual network name (VNN) listener for the Always On availability group (AG). 
 
 This article teaches you to configure a load balancer by using the Azure Load Balancer service. The load balancer will route traffic to your [availability group (AG) listener](availability-group-overview.md) with SQL Server on Azure VMs for high availability and disaster recovery (HADR). 
 
