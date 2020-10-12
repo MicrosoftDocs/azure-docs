@@ -209,7 +209,7 @@ In this section, you add a custom module to the IoT Edge device that you created
  
     4. If necessary, configure the advanced Edge runtime settings, and then click **Next**.
 
-        ![Add custom module](./media/azure-stack-edge-deploy-configure-compute-advanced/add-module-6.png)
+        ![Add custom module 2](./media/azure-stack-edge-deploy-configure-compute-advanced/add-module-6.png)
  
 5. Under **Specify Routes**, set routes between modules.  
    
@@ -225,11 +225,11 @@ In this section, you add a custom module to the IoT Edge device that you created
 
 6. Under **Review deployment**, review all the settings, and then select **Submit** to submit the module for deployment.
 
-   ![The Set Modules page](./media/azure-stack-edge-deploy-configure-compute-advanced/add-module-9.png)
+   ![The Set Modules page 2](./media/azure-stack-edge-deploy-configure-compute-advanced/add-module-9.png)
  
     This action starts the module deployment. After the deployment is complete, the **Runtime status** of module is **running**.
 
-    ![Add custom module](./media/azure-stack-edge-deploy-configure-compute-advanced/add-module-10.png)
+    ![Add custom module 3](./media/azure-stack-edge-deploy-configure-compute-advanced/add-module-10.png)
 
 ## Verify data transform, transfer
 
