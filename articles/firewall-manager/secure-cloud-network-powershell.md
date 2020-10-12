@@ -5,7 +5,7 @@ services: firewall-manager
 author: jomore
 ms.topic: tutorial
 ms.service: firewall-manager
-ms.date: 10/09/2020
+ms.date: 10/12/2020
 ms.author: victorh
 ---
 
@@ -25,7 +25,7 @@ In this tutorial, you learn how to:
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
 > [!NOTE]
-> This tutorial requires that you run Azure PowerShell locally, and it has been verified with the 3.2.0 version of the `Az.Network` Azure PowerShell module. If you have version 3.4.0, you will need to downgrade to use some of the commands. You can check the version of your Az.Network module with the command `Get-InstalledModule -Name Az.Network`. To uninstall the Az.Network module, run `Uninstall-Module -name az.network`. To install the Az.Network 3.2.0 module, run `Install-Module az.network -RequiredVersion 3.2.0`. 
+> This tutorial requires that you run Azure PowerShell locally, and it has been verified with the 3.2.0 version of the `Az.Network` Azure PowerShell module. If you have version 3.4.0, you'll need to downgrade to use some of the commands. You can check the version of your Az.Network module with the command `Get-InstalledModule -Name Az.Network`. To uninstall the Az.Network module, run `Uninstall-Module -name az.network`. To install the Az.Network 3.2.0 module, run `Install-Module az.network -RequiredVersion 3.2.0`. 
 
 ## Sign in to Azure
 
@@ -86,7 +86,7 @@ Set-AzDiagnosticSetting -ResourceId $AzFW.Id -Enabled $True -EnableLog $True -Ca
 
 ## Deploy Azure Firewall and configure custom routing
 
-Now you have an Azure Firewall in the hub, but you still need to modify routing so the Virtual WAN sends the traffic from the Virtual Networks and from the branches through the firewall. You will do it in two steps:
+Now you have an Azure Firewall in the hub, but you still need to modify routing so the Virtual WAN sends the traffic from the virtual networks and from the branches through the firewall. You do this in two steps:
 
 1. Configure all virtual network connections (and branch connections if there were any) to propagate to the `None` Route Table. The effect of this configuration is that other virtual networks and branches will not learn their prefixes, and so has no routing to reach them.
 1. Now you can insert static routes in the `Default` Route Table (where all virtual networks and branches are associated by default), so that all traffic is sent to the Azure Firewall.
