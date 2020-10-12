@@ -1,18 +1,23 @@
 ---
 title: Sensitivity label reporting on your data in Azure Blob Storage 
 description: This how-to guide describes how to view and use Babylon sensitivity label reporting on your data in Azure Blob Storage. 
-author: mlottner
-ms.author: mlottner
+author: batamig
+ms.author: bagol
 ms.service: data-catalog
 ms.subservice: data-catalog-gen2
 ms.topic: how-to
-ms.date: 05/06/2020
+ms.date: 10/05/2020
 # Customer intent: As a security officer, I need to understand how to use Babylon Insights to learn about sensitive data identified and classified and labeled during scanning.
 ---
 
 # Sensitivity label insights about your data from Project Babylon 
 
-The how-to guide provides an explanation of how to access, view and filter security insights in the form of sensitivity labels on your data in Azure Blob Storage. To make it easy for you to get started, make sure you've followed the explanations about [setting up Azure Blob Storage and populating the account with test data](./starter-kit-tutorial-1.md) before getting starting with Babylon insights. You'll also need to [set up and complete a scan on the test data in your Azure Blob Storage](./scan-azure-data-sources-portal.md).
+The how-to guide provides an explanation of how to access, view and filter security insights in the form of sensitivity labels on your data in Azure Blob Storage, Azure files, ADLS GEN 1, ADLS GEN 2, and Amazon S3 buckets. 
+
+Make sure you've followed the explanations about [setting up Azure resources](scan-azure-data-sources-portal.md), [setting up Amazon S3 buckets](./setup-configuration-connector-amazon-s3.md), and populating the relevant accounts with your test data before getting starting with Babylon insights.
+
+You'll also need to set up and complete a scan on the test data in each data source before you begin. Follow the instructions for scanning test data in [Azure resources](scan-azure-data-sources-portal.md), and [Amazon S3 buckets](./setup-configuration-connector-amazon-s3.md). 
+
 
 In this how-to guide, you'll learn how to:
 > [!div class="checklist"]
@@ -21,7 +26,7 @@ In this how-to guide, you'll learn how to:
 > View and filter sensitivity labels.
 > Learn how to review and search sensitivity labeling of your data estate. 
  
-After making sure your Azure Blob storage is created, contains test data, and scanning test data succeeded, let's get started.  
+After making sure your Azure Blob Storage is created, contains test data, and scanning test data succeeded, let's get started.  
 
 > [!NOTE]
 > If you're blocked at any point in this process, send an email to BabylonDiscussion@microsoft.com for support.
@@ -40,7 +45,7 @@ In Babylon, classifications are similar to subject tags and are used to mark and
 
 1. With Babylon open, click the **View insights** tile to access your insights area.
 
-    ![Launch Babylon from the Azure portal](./media/insights/view-insights.png)
+    ![View sensitivity labeling insights](./media/insights/view-insights.png)
     
 1. Within insights, select the **Classification and labeling** blade.
     ![Classification and labeling blade](./media/insights/select-classification-labeling.png)
@@ -73,15 +78,15 @@ After filtering labels to find the data of interest, you can filter the data fur
 
     ![Use a Quick filter](./media/insights/use-quick-filter.png)
 
-2. In the search results page, you see the filters you chose applied in the **Quick filter** option, and the data file results of your search in the main window. 
+1. In the search results page, you see the filters you chose applied in the **Quick filter** option, and the data file results of your search in the main window. 
 
     ![Search results](./media/insights/quick-filter-results.png)
 
-3. Selecting one of the search results shows the labels and all classifications related to that data source. A hierarchy of the file in your data storage structure is also provided to assist with data estate management and ownership determination. 
+1. Selecting one of the search results shows the labels and all classifications related to that data source. A hierarchy of the file in your data storage structure is also provided to assist with data estate management and ownership determination. 
 
     ![Search result details](./media/insights/quick-filter-search-results-details.png)
 
-## Sensitivity label integration with Microsoft 365 compliance:
+## Sensitivity label integration with Microsoft 365 compliance
 
 Close integration with information protection offered in Microsoft 365 means Babylon offers easy and direct ways to scan your entire data estate, receive classification and labeling of your content as well as integrated content protection based on those labels and classifications. 
 
@@ -111,6 +116,9 @@ To review your sensitivity labels and their policies:
 
 ## Next steps
 
-Learn more about classification reporting in your Azure Blob Storage.
+Learn more from Babylon reports
 > [!div class="nextstepaction"]
-> [Classification reporting](./classification-reporting-data-azure-blob-storage.md)
+> [Classification insights](./classification-insights.md)
+
+> [!div class="nextstepaction"]
+> [File extension insights](file-extension-insights.md)

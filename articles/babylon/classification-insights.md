@@ -1,18 +1,22 @@
 ---
 title: Classification reporting on your data using Babylon Insights
 description: This how-to guide describes how to view and use Babylon Insights classification reporting on your data. 
-author: mlottner
-ms.author: mlottner
+author: batamig
+ms.author: bagol
 ms.service: data-catalog
 ms.subservice: data-catalog-gen2
 ms.topic: how-to
-ms.date: 09/02/2020
+ms.date: 10/05/2020
 # Customer intent: As a security officer, I need to understand how to use Babylon Insights to learn about sensitive data identified and classified and labeled during scanning.
 ---
 
 # Classification insights about your data from Project Babylon 
 
-This how-to guide provides an explanation of how to access, view and filter Babylon security insights in the form of classification reporting on your data in Azure Blob storage, Azure file, ADLS GEN 1, ADLS GEN 2, and Amazon S3 buckets. Make sure you've followed the explanations about [setting up Azure resources](./scan-azure-data-sources-portal.md), [setting up Amazon S3 buckets](./setup-configuration-connector-amazon-s3.md), and populating the relevant accounts with your test data before getting starting with Babylon insights. You'll also need to set up and complete a scan on the test data in each data source before you begin. Follow the instructions for scanning test data in [Azure resources](./scan-azure-data-sources-portal.md), and [Amazon S3 buckets](./setup-configuration-connector-amazon-s3.md). 
+This how-to guide provides an explanation of how to access, view and filter Babylon security insights in the form of classification reporting on your data in Azure Blob Storage, Azure files, ADLS GEN 1, ADLS GEN 2, and Amazon S3 buckets. 
+
+Make sure you've followed the explanations about [setting up Azure resources](scan-azure-data-sources-portal.md), [setting up Amazon S3 buckets](setup-configuration-connector-amazon-s3.md), and populating the relevant accounts with your test data before getting starting with Babylon insights. 
+
+You'll also need to set up and complete a scan on the test data in each data source before you begin. Follow the instructions for scanning test data in [Azure resources](scan-azure-data-sources-portal.md), and [Amazon S3 buckets](setup-configuration-connector-amazon-s3.md). 
 
 In this how-to guide, you'll learn how to:
 > [!div class="checklist"]
@@ -46,8 +50,12 @@ In Babylon, classifications are similar to subject tags and are used to mark and
 1. Within insights, select the **Classification and labeling** blade.
     ![Classification and labeling blade](./media/insights/select-classification-labeling.png)
 
-1. The main page of classification and labeling offers display tiles that show key details discovered about your scanned data over the time span. The **Classified files** tile provides the number of unique files containing classifications, while the center tile is dynamic and shows the percentage of files which were auto-classified with the most common label. **Data scanned** is size of the scanned data set in the time span, and **Top classifications** shows the number of unique files found containing the most common classifications over the time span.
+1. The main page of classification and labeling offers display tiles that show key details discovered about your scanned data over the time span. 
 
+    - The **Classified files** tile provides the number of unique files containing classifications
+    - -The center tile is dynamic and shows the percentage of files which were auto-classified with the most common label. 
+    - **Data scanned** is size of the scanned data set in the time span.
+    - **Top classifications** shows the number of unique files found containing the most common classifications over the time span.
 
 1. Select the **View all classifications** link at the bottom of the **Top classifications** tile. The resulting report displays all classifications found within your data over the time period selected in the **Time** filter.  
     
@@ -82,6 +90,9 @@ After selecting a classification in the previous instructions (such as **credit 
 
 ## Next steps
 
-Learn more about sensitivity label reporting on data in your Azure Blob storage and Microsoft 365 compliance integration.
+Learn more from Babylon reports
 > [!div class="nextstepaction"]
-> [Sensitivity label reporting](./sensitivity-label-reporting-data-azure-blob-storage.md)
+> [Sensitivity labeling insights](./sensitivity-insights.md)
+
+> [!div class="nextstepaction"]
+> [File extension insights](file-extension-insights.md)

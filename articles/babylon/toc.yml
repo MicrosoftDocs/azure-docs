@@ -70,10 +70,14 @@
       href: create-custom-classification-rule.md      
   - name: Security
     items:
+    - name: Create senstivity labels
+      href: create-sensitivity-label.md
     - name: View classification insights
-      href: classification-reporting-data-azure-blob-storage.md
+      href: classification-insights.md.md
     - name: View sensitivity label insights
-      href: sensitivity-label-reporting-data-azure-blob-storage.md
+      href: sensitivity-insights.md
+    - name: View file extension insights
+      href: file-extension-isights.md
   - name: Map and discover insights
     href: map-discover.md
   - name: Frequently asked questions
