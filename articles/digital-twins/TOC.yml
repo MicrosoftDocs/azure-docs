@@ -132,13 +132,13 @@
         - name: .NET (C#) SDK - NuGet
           href: https://www.nuget.org/packages/Microsoft.Azure.Management.DigitalTwins/1.0.0-preview.1
         - name: .NET (C#) SDK - reference
-          href: https://docs.microsoft.com/dotnet/api/overview/azure/digitaltwins/management?view=azure-dotnet&preserve-view=true  
+          href: https://docs.microsoft.com/dotnet/api/overview/azure/digitaltwins/management?view=azure-dotnet-preview&preserve-view=true  
         - name: .NET (C#) SDK - source
           href: https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/digitaltwins/Microsoft.Azure.Management.DigitalTwins
         - name: Java SDK
           href: https://search.maven.org/artifact/com.microsoft.azure.digitaltwins.v2020_03_01_preview/azure-mgmt-digitaltwins
         - name: Java SDK - reference
-          href: https://docs.microsoft.com/java/api/overview/azure/digitaltwins/management?view=azure-java&preserve-view=true
+          href: https://docs.microsoft.com/java/api/overview/azure/digitaltwins/management?view=azure-java-preview&preserve-view=true
         - name: Java SDK - source
           href: https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/digitaltwins
         - name: JavaScript SDK
@@ -158,7 +158,7 @@
         - name: .NET (C#) SDK - NuGet
           href: https://www.nuget.org/packages/Azure.DigitalTwins.Core
         - name: .NET (C#) SDK - reference
-          href: https://docs.microsoft.com/dotnet/api/overview/azure/digitaltwins?view=azure-dotnet&preserve-view=true
+          href: https://docs.microsoft.com/dotnet/api/overview/azure/digitaltwins?view=azure-dotnet-preview&preserve-view=true
         - name: .NET (C#) SDK - source
           href: https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/digitaltwins/Azure.DigitalTwins.Core
         - name: JavaScript SDK - npm
@@ -168,7 +168,7 @@
         - name: Java SDK - Maven
           href: https://search.maven.org/artifact/com.azure/azure-digitaltwins-core/1.0.0-beta.1/jar  
         - name: Java SDK - reference
-          href: https://docs.microsoft.com/java/api/overview/azure/digitaltwins/client?view=azure-java-stable&preserve-view=true             
+          href: https://docs.microsoft.com/java/api/overview/azure/digitaltwins/client?view=azure-java-preview&preserve-view=true             
   - name: Digital Twins CLI 
     items: 
     - name: Digital Twins CLI reference
