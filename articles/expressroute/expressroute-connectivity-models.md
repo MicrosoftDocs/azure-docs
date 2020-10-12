@@ -25,7 +25,7 @@ You can connect your on-premises datacenters/offices to the Microsoft cloud thro
 You can integrate your WAN with the Microsoft cloud. IPVPN providers (typically MPLS VPN) offer any-to-any connectivity between your branch offices and datacenters. The Microsoft cloud can be interconnected to your WAN to make it look just like any other branch office. WAN providers typically offer managed Layer 3 connectivity. ExpressRoute capabilities and features are all identical across all of the above connectivity models.
 
 ## <a name="Direct"></a>Direct from ExpressRoute sites
-You can connect directly into the Microsoft's global network at a peering location strategically distributed across the world. ExpressRoute Direct provides dual 100 Gbps or 10-Gbps connectivity, which supports Active/Active connectivity at scale.
+You can connect directly into the Microsoft's global network at a peering location strategically distributed across the world. [ExpressRoute Direct](expressroute-erdirect-about.md) provides dual 100 Gbps or 10-Gbps connectivity, which supports Active/Active connectivity at scale.
 
 ## Next steps
 * Learn about ExpressRoute connections and routing domains. See [ExpressRoute circuits and routing domains](expressroute-circuit-peerings.md).
