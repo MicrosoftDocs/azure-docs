@@ -92,6 +92,9 @@ Service Fabric supports using tokens as credentials to download images for your 
 
     ![Azure portal: Create virtual machine scale set identity option](./media/configure-container-repository-credentials/configure-container-repository-credentials-acr-iam.png)
 
+> [!NOTE]
+> For user-assigned managed identity, skip this step. The remaining steps below will work the same, as long as the scale set is only associated with a single user-assigned managed identity.
+
 2. Grant permissions to the virtual machine scale set to pull/read images from the registry. From the Access Control (IAM) blade of your Azure Container Registry in the Azure portal, add a *role assignment* for your virtual machine:
 
     ![Add VM principal to ACR](./media/configure-container-repository-credentials/configure-container-repository-credentials-vmss-identity.png)
