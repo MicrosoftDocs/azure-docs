@@ -13,19 +13,6 @@ ms.date: 10/12/2020
 ms.author: sebansal
 ---
 
-# About Azure Key Vault certificates
-
-Azure Key Vault allows you to easily provision, manage, and deploy digital certificates for your network and to enable secure communications for applications. Key Vault certificates support provides for management of your x509 certificates and the following behaviors:
-
--   Allows a certificate owner to create a certificate through a Key Vault creation process or through the import of an existing certificate. Includes both self-signed and Certificate Authority generated certificates.
--   Allows a certificate owner to create a policy that directs Key Vault to manage the life-cycle of a certificate.  
--   Allows certificate owners to provide contact information for notification about life-cycle events of expiration and renewal of certificate.  
--   Supports automatic renewal with selected issuers - Key Vault partner X509 certificate providers / certificate authorities.
-
->[!Note]
->Non-partnered providers/authorities are also allowed but, will not support the auto renewal feature.
-
-
 ## Certificate Access Control
 
  Access control for certificates is managed by Key Vault, and is provided by the Key Vault that contains those certificates. The access control policy for certificates is distinct from the access control policies for keys and secrets in the same Key Vault. Users may create one or more vaults to hold certificates, to maintain scenario appropriate segmentation and management of certificates.  
