@@ -39,15 +39,15 @@ Get the connection information needed to connect to the Azure Database for MySQL
 
 > [!IMPORTANT]
 > If you forgot your password, you can [reset the password](./howto-create-manage-server-portal.md#update-admin-password).
- 
-## Step 1 : Connect with MySQLi and Create a Table
-Use the following code to connect and create a table by using **CREATE TABLE** SQL statement. This code calls: 
+
+> [!NOTE]
+> **Replace the host, username, password, and db_name parameters with your own values**
+## Connect with MySQLi and Create a Table
+Use the following code to connect. This code calls: 
 - [mysqli_init](https://secure.php.net/manual/mysqli.init.php) to initialize MySQLi.
 - [mysqli_real_connect](https://secure.php.net/manual/mysqli.real-connect.php) to connect to MySQL.
-- [mysqli_query](https://secure.php.net/manual/mysqli.query.php) to run the query. 
+- [mysqli_query](https://secure.php.net/manual/mysqli.query.php) to run the query.
 - [mysqli_close](https://secure.php.net/manual/mysqli.close.php) to close the connection.
-
-**Replace the host, username, password, and db_name parameters with your own values**
 
 ```php
 <?php
@@ -62,7 +62,6 @@ mysqli_real_connect($conn, $host, $username, $password, $db_name, 3306);
 if (mysqli_connect_errno($conn)) {
 die('Failed to connect to MySQL: '.mysqli_connect_error());
 }
-
 
 // Run the create table query
 if (mysqli_query($conn, '
