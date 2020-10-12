@@ -12,7 +12,7 @@ ms.custom: github-actions-azure
 
 # Use GitHub Actions to connect to Azure MySQL
 
-Get started with [GitHub Actions](https://docs.github.com/en/actions) by using a workflow to deploy database updates to [Azure Database for MySQL](https://azure.microsoft.com/en-us/services/mysql/). 
+Get started with [GitHub Actions](https://docs.github.com/en/actions) by using a workflow to deploy database updates to [Azure Database for MySQL](https://azure.microsoft.com/services/mysql/). 
 
 ## Prerequisites
 
@@ -142,7 +142,7 @@ You will use the connection string as a GitHub secret.
 1. Complete your workflow by adding an action to logout of Azure. Here is the completed workflow. The file will appear in the `.github/workflows` folder of your repository.
 
     ```yaml
-   name: Blob storage website CI
+   name: MySQL for GitHub Actions
 
     on:
     push:
