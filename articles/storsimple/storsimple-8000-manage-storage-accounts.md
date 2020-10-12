@@ -30,7 +30,7 @@ The **Configuration** section in the StorSimple Device Manager service blade pre
 
 This tutorial explains how to add, edit, or delete storage account credentials, or rotate the security keys for a storage account.
 
- ![List of storage account credentials](./media/storsimple-8000-manage-storage-accounts/createnewstorageacct6.png)  
+ ![List of storage account credentials 1](./media/storsimple-8000-manage-storage-accounts/createnewstorageacct6.png)  
 
 Storage accounts contain the credentials that the StorSimple device uses to access your storage account with your cloud service provider. For Microsoft Azure storage accounts, these are credentials such as the account name and the primary access key. 
 
