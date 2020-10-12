@@ -184,7 +184,7 @@ Multiple products are available that cover these three areas, and you are free t
 * Learn to [monitor and diagnose services](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md). 
 * Learn to [test your apps and services](service-fabric-testability-overview.md).
 * Learn to [manage and orchestrate cluster resources](service-fabric-cluster-resource-manager-introduction.md).
-* Look through the [Service Fabric samples](https://aka.ms/servicefabricsamples).
+* Look through the [Service Fabric samples](/samples/browse/?products=azure).
 * Learn about [Service Fabric support options](service-fabric-support.md).
 * Read the [team blog](https://techcommunity.microsoft.com/t5/azure-service-fabric/bg-p/Service-Fabric) for articles and announcements.
 
