@@ -41,7 +41,7 @@ Azure also offers Red Hat Gold Images (`rhel-byos`). These images might be usefu
 
 ### Generation 2 images
 
-Generation 2 virtual machines (VMs) provide some newer features compared to Generation 1 VMs. For more information, see the [Generation 2 documentation](../../linux/generation-2.md). The key difference from a RHEL image perspective is that Generation 2 VMs use a UEFI instead of BIOS firmware interface. They also use a GUID Partition Table (GPT) instead of a master boot record (MBR) on boot time. Use of a GPT allows for, among other things, OS disk sizes larger than 2 TB. In addition, the [Mv2 series VMs](../../mv2-series.md) run only on Generation 2 images.
+Generation 2 virtual machines (VMs) provide some newer features compared to Generation 1 VMs. For more information, see the [Generation 2 documentation](../../generation-2.md). The key difference from a RHEL image perspective is that Generation 2 VMs use a UEFI instead of BIOS firmware interface. They also use a GUID Partition Table (GPT) instead of a master boot record (MBR) on boot time. Use of a GPT allows for, among other things, OS disk sizes larger than 2 TB. In addition, the [Mv2 series VMs](../../mv2-series.md) run only on Generation 2 images.
 
 RHEL Generation 2 images are available in the Azure Marketplace. Look for "gen2" in the image SKU in the list of all images that appears when you use the Azure CLI. Go to the **Advanced** tab in the VM deploy process to deploy a Generation 2 VM.
 
