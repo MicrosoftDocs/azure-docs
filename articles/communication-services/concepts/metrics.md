@@ -37,7 +37,7 @@ Below are the possible operations or route values that can be returned by the Ch
 
 Operation – (All routes) - GetChatMessage, ListChatMessages, SendChatMessage, UpdateChatMessage, DeleteChatMessage, GetChatThread, ListChatThreads, UpdateChatThread,  CreateChatThread, DeleteChatThread, GetReadReceipts, SendTypingIndicator, ListChatThreadParticipants, AddChatThreadParticipants and RemoveChatThreadParticipant.
 
-
+:::image type="content" source="./media/chatmetric.png" alt-text="Chat API Request Metric.":::
 
 ### SMSGatewayAPIRequests
 
@@ -50,6 +50,8 @@ StatusSubClass - The status code series sent after the response.
 Below are the possible operations or route values that can be returned by the SMS API request metric. If a request is made to a route that is not recognized you receive a "Bad Route" value for Operation.
 
 Operation – (All routes) - SMSMessageSent, SMSDeliveryReportsReceived, and SMSMessagesReceived
+
+:::image type="content" source="./media/smsmetric.png" alt-text="SMS API Request Metric.":::
 
 ## References
 
