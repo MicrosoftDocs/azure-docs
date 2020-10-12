@@ -71,7 +71,7 @@ Unregister-AzProviderFeature -FeatureName BulkRegistration -ProviderNamespace Mi
 
 ---
 
-## Multiple subscriptions
+## Enable for multiple subscriptions
 
 You can enable the automatic registration feature for multiple Azure subscriptions by using PowerShell. 
 
