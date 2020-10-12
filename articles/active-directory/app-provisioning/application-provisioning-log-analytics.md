@@ -1,6 +1,6 @@
 ---
-title: Understand how Application Provisioning integrates with Azure Monitor logs in Azure Active Directory.
-description: Understand how Application Provisioning integrates with Azure Monitor logs in Azure Active Directory.
+title: Understand how Provisioning integrates with Azure Monitor logs in Azure Active Directory.
+description: Understand how Provisioning integrates with Azure Monitor logs in Azure Active Directory.
 services: active-directory
 author: kenwith
 manager: celestedg
@@ -13,11 +13,11 @@ ms.author: kenwith
 ms.reviewer: arvinh,luleon
 ---
 
-# Understand how Application Provisioning integrates with Azure Monitor logs
+# Understand how Provisioning integrates with Azure Monitor logs
 
-Application Provisioning integrates with Azure Monitor logs and Log Analytics. With Azure Monitoring you can do things like create workbooks, also known as dashboards, store provisioning logs for 30+ days, and create custom queries and alerts.
+Provisioning integrates with Azure Monitor logs and Log Analytics. With Azure Monitoring you can do things like create workbooks, also known as dashboards, store provisioning logs for 30+ days, and create custom queries and alerts. This article discusses how provisioning logs integrate with Azure Monitor logs. To learn more about how provisioning logs work in general, see [Provisioning logs](../reports-monitoring/concept-provisioning-logs.md).
 
-## Enabling Application Provisioning logs
+## Enabling Provisioning logs
 
 You should already be familiar with Azure Monitoring and Log Analytics. If not, jump over to learn about them and then come back to learn about Application Provisioning logs. To learn more about Azure Monitoring, see [Azure Monitor overview](../../azure-monitor/overview.md). To learn more about Azure Monitor logs and Log Analytics, see [Overview of log queries in Azure Monitor](../../azure-monitor/log-query/log-query-overview.md).
 
@@ -31,7 +31,7 @@ Once you've configured on Azure Monitoring, you can enable logs for Application 
 > If you have just recently provisioned a workspace, it can take some time before you can send logs to it. If you receive an error that the subscription is not registered to use *microsoft.insights* then check back after a few minutes.
  
 ## Understanding the data
-The underlying data stream that Application Provisioning sends to Azure Monitor logs is almost the same as what you see in the provisioning logs in the Azure portal UI and Azure API. There are only a few **differences** in the log fields as outlined in the following table.
+The underlying data stream that Application Provisioning sends to Azure Monitor logs is almost the same as what you see in the provisioning logs in the Azure portal UI and Azure API. There are only a few **differences** in the log fields as outlined in the following table. To learn more about these fields, see [List provisioningObjectSummary](https://docs.microsoft.com/graph/api/provisioningobjectsummary-list?view=graph-rest-beta&tabs=http).
 
 |Azure Monitor logs   |Azure portal UI   |Azure API |
 |----------|-----------|------------|
