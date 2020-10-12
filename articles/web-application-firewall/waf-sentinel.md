@@ -59,19 +59,19 @@ To enable log analytics for each resource, go to your individual Azure Front Doo
       1. CDN: ‘AzureCdnAccessLog’
    1. Select **Save**.
 
-:::image type="content" source="media//waf-sentinel/diagnostics-setting.png" alt-text="Diagnostic setting":::
+   :::image type="content" source="media//waf-sentinel/diagnostics-setting.png" alt-text="Diagnostic setting":::
 
 4. On the Azure home page, type **Azure Sentinel** in the search bar and select the **Azure Sentinel** resource. 
 2. Select an already active workspace or create a new workspace in Sentinel. 
 3. On the left side panel under **Configuration** select **Data Connectors**.
 4. Search for **Microsoft web application firewall** and select **Microsoft web application firewall (WAF)**. Select **Open connector** page on the bottom right.
 
-:::image type="content" source="media//waf-sentinel/data-connectors.png" alt-text="Data connectors":::
+   :::image type="content" source="media//waf-sentinel/data-connectors.png" alt-text="Data connectors":::
 
 8. Follow the instructions under **Configuration** for each WAF resource that you want to have log analytic data for if you haven't done so previously.
 6. Once finished configuring individual WAF resources, select the **Next steps** tab. Select one of the recommended workbooks. This workbook will use all log analytic data that was enabled previously. A working WAF workbook should now exist for your WAF resources.
 
-:::image type="content" source="media//waf-sentinel/waf-workbooks.png" alt-text="WAF workbooks":::
+   :::image type="content" source="media//waf-sentinel/waf-workbooks.png" alt-text="WAF workbooks":::
 
 
 ## Next steps
