@@ -73,12 +73,55 @@ Communication protocols that a device can use to connect to IoT Central include 
 
 ## Implement the device
 
+An IoT Central device template includes a _model_ that specifies the behaviors a device of that type should implement. Behaviors include telemetry, properties, and commands.
+
+> [!TIP]
+> You can export the model from IoT Central as a [Digital Twins Definition Language (DTDL) v2](https://github.com/Azure/opendigitaltwins-dtdl) JSON file.
+
+Each model has a unique _device twin model identifier_ (DTMI), such as `dtmi:com:example:Thermostat;1`. When a device connects to IoT Central, it sends the DTMI of the model it implements. IoT Central can then associate the correct device template with the device.
+
+[IoT Plug and Play](../../iot-pnp/overview-iot-plug-and-play.md) defines a set of conventions that a device should follow when it implements a DTDL model.
+
+The [Azure IoT device SDKs](#languages-and-sdks) include support for the IoT Plug and Play conventions.
+
+### Device model
+
+A device model is defined using the [DTDL](https://github.com/Azure/opendigitaltwins-dtdl). This language lets you define:
+
+- The telemetry the device sends. The definition includes the name and data type of the telemetry. For example, a device sends temperature telemetry as a double.
+- The properties the device reports to IoT Central. A property definition includes its name and data type. For example, a device reports the state of a valve as a Boolean.
+- The properties the device can receive from IoT Central. Optionally, you can mark a property as writable. For example, IoT Central sends a target temperature as a double to a device.
+- The commands a device responds to. The definition includes the name of the command, and the names and data types of any parameters. For example, a device responds to a reboot command that specifies how many seconds to wait before rebooting.
+
+A DTDL model can be a _no-component_ or a _multi-component_ model:
+
+- No-component model: A simple model doesn't use embedded or cascaded components. All the telemetry, properties, and commands are defined a single _default component_. For an example, see the [Thermostat](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/samples/Thermostat.json) model.
+- Multi-component model. A more complex model that includes two or more components. These components include a single default component, and one or more additional nested components. For an example, see the [Temperature Controller](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/samples/TemperatureController.json) model.
+
+To learn more, see [IoT Plug and Play components in models](../../iot-pnp/concepts-components.md)
+
+### Conventions
+
+A device should follow the IoT Plug and Play conventions when it exchanges data with IoT Central. The conventions include:
+
+- Send the DTMI when it connects to IoT Central.
+- Send correctly formatted JSON payloads and metadata to IoT Central.
+- Correctly respond to writable properties and commands from IoT Central.
+- Follow the naming conventions for component commands.
+
+To learn more about the format of the JSON messages that a device exchanges with IoT Central, see [Telemetry, property, and command payloads](concepts-telemetry-properties-commands.md).
+
+To learn more about the IoT Plug and Play conventions, see [IoT Plug and Play conventions](../../iot-pnp/concepts-convention.md).
+
+### Device SDKs
+
 Use one of the [Azure IoT device SDKs](#languages-and-sdks) to implement the behavior of your device. The code should:
 
 - Register the device with DPS and use the information from DPS to connect to the internal IoT hub in your IoT Central application.
-- Send telemetry in the format that the device template in IoT Central specifies. IoT Central uses the device template to determine how to use the telemetry for visualizations and analysis.
-- Synchronize property values between the device and IoT Central. The device template specifies the property names and data types so that IoT Central can display the information.
-- Implement command handlers for the commands specifies in the device template. The device template specifies the command names and parameters that the device should use.
+- Announce the DTMI of the model the device implements.
+- Send telemetry in the format that the device model specifies. IoT Central uses the model in the device template to determine how to use the telemetry for visualizations and analysis.
+- Synchronize property values between the device and IoT Central. The model specifies the property names and data types so that IoT Central can display the information.
+- Implement command handlers for the commands specified in the model. The model specifies the command names and parameters that the device should use.
 
 For more information about the role of device templates, see [What are device templates?](./concepts-device-templates.md).
 
