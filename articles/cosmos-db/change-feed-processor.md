@@ -65,15 +65,15 @@ The normal life cycle of a host instance is:
 
 The change feed processor is resilient to user code errors. That means that if your delegate implementation has an unhandled exception (step #4), the thread processing that particular batch of changes will be stopped, and a new thread will be created. The new thread will check which was the latest point in time the lease store has for that range of partition key values, and restart from there, effectively sending the same batch of changes to the delegate. This behavior will continue until your delegate processes the changes correctly and it's the reason the change feed processor has an "at least once" guarantee, because if the delegate code throws an exception, it will retry that batch.
 
-To prevent your change feed processor from getting "stuck" continuously retrying the same batch of changes, you should add logic in your delegate code to write documents, upon exception, to a dead-letter queue. This design ensures that you can keep track of unprocessed changes while still being able to continue to process future changes. The dead-letter queue might simply be another Cosmos container. The exact data store does not matter, simply that the unprocessed changes are persisted.
+To prevent your change feed processor from getting "stuck" continuously retrying the same batch of changes, you should add logic in your delegate code to write documents, upon exception, to a dead-letter queue. This design ensures that you can keep track of unprocessed changes while still being able to continue to process future changes. The dead-letter queue might be another Cosmos container. The exact data store does not matter, simply that the unprocessed changes are persisted.
 
-In addition, you can use the [change feed estimator](how-to-use-change-feed-estimator.md) to monitor the progress of your change feed processor instances as they read the change feed. In addition to monitoring if the change feed processor gets "stuck" continuously retrying the same batch of changes, you can also understand if your change feed processor is lagging behind due to available resources like CPU, memory, and network bandwidth.
+In addition, you can use the [change feed estimator](how-to-use-change-feed-estimator.md) to monitor the progress of your change feed processor instances as they read the change feed. You can use this estimation to understand if your change feed processor is "stuck" or lagging behind due to available resources like CPU, memory, and network bandwidth.
 
 ## Deployment unit
 
 A single change feed processor deployment unit consists of one or more instances with the same `processorName` and lease container configuration. You can have many deployment units where each one has a different business flow for the changes and each deployment unit consisting of one or more instances. 
 
-For example, you might have one deployment unit that triggers an external API anytime there is a change in your container. Another deployment unit might move data, in real-time, each time there is a change. When a change happens in your monitored container, all your deployment units will get notified.
+For example, you might have one deployment unit that triggers an external API anytime there is a change in your container. Another deployment unit might move data, in real time, each time there is a change. When a change happens in your monitored container, all your deployment units will get notified.
 
 ## Dynamic scaling
 
@@ -116,7 +116,7 @@ In other scenarios like data migrations or analyzing the entire history of a con
 The change feed processor will be initialized and start reading changes from the beginning of the lifetime of the container.
 
 > [!NOTE]
-> These customization options only work to set up the starting point in time of the change feed processor. Once the leases container is initialized for the first time, changing them has no effect.
+> These customization options only work to setup the starting point in time of the change feed processor. Once the leases container is initialized for the first time, changing them has no effect.
 
 ## Where to host the change feed processor
 
@@ -127,7 +127,7 @@ The change feed processor can be hosted in any platform that supports long runni
 * A background job in [Azure Kubernetes Service](https://docs.microsoft.com/azure/architecture/best-practices/background-jobs#azure-kubernetes-service).
 * An [ASP.NET hosted service](https://docs.microsoft.com/aspnet/core/fundamentals/host/hosted-services).
 
-While change feed processor can run in short lived environments, because the lease container maintains the state, the start and stop cycle of these environments will add delay to receiving the notifications (due to the overhead of starting the processor every time the environment is started).
+While change feed processor can run in short lived environments, because the lease container maintains the state, the startup cycle of these environments will add delay to receiving the notifications (due to the overhead of starting the processor every time the environment is started).
 
 ## Additional resources
 
