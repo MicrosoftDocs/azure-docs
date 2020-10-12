@@ -271,7 +271,7 @@ We need a way to access the application via a web browser. Our gateway applicati
 1. Generate configurations by running the following command in the root folder of PiggyMetrics containing the parent POM. If you have already signed-in with Azure CLI, the command will automatically pick up the credentials. Otherwise, it will sign you in with prompt instructions. For more information, see our [wiki page](https://github.com/microsoft/azure-maven-plugins/wiki/Authentication).
 
     ```
-    mvn com.microsoft.azure:azure-spring-cloud-maven-plugin:1.1.0:config
+    mvn com.microsoft.azure:azure-spring-cloud-maven-plugin:1.3.0:config
     ```
     
     You will be asked to select:
