@@ -95,8 +95,8 @@ Use the following steps to use this mode:
     
     **Direction** is only valid if you're using the **out of the range** mode:
     
-    * **Up** configures detection to only detect anomalies when (current data point) - (comparison data point) > **+** threshold%.
-    * **Down** configures detection to only detect anomalies when (current data point) - (comparing data point) < **-** threshold%.
+    * **Up** configures detection to only detect anomalies when (current data point) - (comparison data point) > **+** threshold percentage.
+    * **Down** configures detection to only detect anomalies when (current data point) - (comparing data point) < **-** threshold percentage.
  
 **Hard threshold**
 

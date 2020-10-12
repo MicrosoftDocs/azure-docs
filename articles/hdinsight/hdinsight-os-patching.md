@@ -13,7 +13,7 @@ ms.date: 01/21/2020
 # Configure the OS patching schedule for Linux-based HDInsight clusters
 
 > [!IMPORTANT]
-> Ubuntu images become available for new Azure HDInsight cluster creation within three months of being published. As of January 2019, running clusters aren't auto-patched. Customers must use script actions or other mechanisms to patch a running cluster. Newly created clusters will always have the latest available updates, including the most recent security patches.
+> Ubuntu images become available for new Azure HDInsight cluster creation within three months of being published. Running clusters aren't auto-patched. Customers must use script actions or other mechanisms to patch a running cluster. As a best practice, you can run these script actions and apply security updates right after the cluster creation.
 
 HDInsight provides support for you to perform common tasks on your cluster such as installing OS patches, security updates, and rebooting nodes. These tasks are accomplished using the following two scripts that can be run as [script actions](hdinsight-hadoop-customize-cluster-linux.md), and configured with parameters:
 

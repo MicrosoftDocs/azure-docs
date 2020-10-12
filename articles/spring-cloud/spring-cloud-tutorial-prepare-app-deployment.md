@@ -205,6 +205,8 @@ Include the following dependenciy in your pom.xml file if you are using Spring B
         <version>2.1.2</version>
 </dependency>
 ```
+> [!WARNING]
+> Don't specify `server.port` in your configuration. Azure Spring Cloud will overide this setting to a fixed port number. Please also respect this setting and not specify server port in your code.
 
 ## Other recommended dependencies to enable Azure Spring Cloud features
 
@@ -222,6 +224,7 @@ To use the managed Azure Service Registry service, include the `spring-cloud-sta
 ```
 
 The endpoint of the Service Registry server is automatically injected as environment variables with your app. Applications can register themselves with the Service Registry server and discover other dependent microservices.
+
 
 #### EnableDiscoveryClient annotation
 

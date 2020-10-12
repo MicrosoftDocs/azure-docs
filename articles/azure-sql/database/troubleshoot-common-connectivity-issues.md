@@ -7,7 +7,7 @@ ms.service: sql-database
 ms.subservice: development
 ms.custom: sqldbrb=1
 ms.devlang: 
-ms.topic: conceptual
+ms.topic: troubleshooting
 author: dalechen
 ms.author: ninarn
 ms.reviewer: sstein, vanto
@@ -121,7 +121,7 @@ To make this test practical, your program recognizes a runtime parameter that ca
 
 ## .NET SqlConnection parameters for connection retry
 
-If your client program connects to your database in SQL Database by using the .NET Framework class **System.Data.SqlClient.SqlConnection**, use .NET 4.6.1 or later (or .NET Core) so that you can use its connection retry feature. For more information on the feature, see [this webpage](https://docs.microsoft.com/dotnet/api/system.data.sqlclient.sqlconnection).
+If your client program connects to your database in SQL Database by using the .NET Framework class **System.Data.SqlClient.SqlConnection**, use .NET 4.6.1 or later (or .NET Core) so that you can use its connection retry feature. For more information on the feature, see [SqlConnection.ConnectionString Property](/dotnet/api/system.data.sqlclient.sqlconnection.connectionstring?view=netframework-4.8&preserve-view=true).
 
 <!--
 2015-11-30, FwLink 393996 points to dn632678.aspx, which links to a downloadable .docx related to SqlClient and SQL Server 2014.

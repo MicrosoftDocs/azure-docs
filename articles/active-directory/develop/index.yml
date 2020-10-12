@@ -5,7 +5,7 @@ summary: The Microsoft identity platform is an authentication service, open-sour
 
 metadata:
    ms.topic: landing-page
-   ms.date: 08/11/2020
+   ms.date: 10/07/2020
    author: mmacy
    ms.author: marsma
    ms.service: active-directory
@@ -64,8 +64,8 @@ landingContent:
             url: quickstart-v2-aspnet-webapp.md
           - text: ASP.NET Core
             url: quickstart-v2-aspnet-core-webapp.md
-          - text: Python
-            url: quickstart-v2-python-webapp.md
+          - text: Blazor Server
+            url: tutorial-blazor-server.md
   - title: Mobile / native app
     linkLists:
       - linkListType: get-started
@@ -122,21 +122,9 @@ landingContent:
     linkLists:
       - linkListType: whats-new
         links:
-          - text: "Quickstart: Protect an ASP.NET Core web API"
-            url: quickstart-v2-aspnet-core-web-api.md
-          - text: MSAL Python API reference
-            url: /python/api/msal/
-          - text: "Quickstart: Register an app (rewrite)"
-            url: quickstart-register-app.md
-          - text: "Quickstart: Expose a web API (rewrite)"
-            url: quickstart-configure-app-expose-web-apis.md
-          - text: "Quickstart: Access a web API (rewrite)"
-            url: quickstart-configure-app-access-web-apis.md
-          - text: Migrate Xamarin Android brokered app to MSAL.NET
-            url: msal-net-migration-android-broker.md
-          - text: Handle errors & exceptions - Android
-            url: msal-android-handling-exceptions.md
-          - text: Directory schema extension attributes in claims
-            url: active-directory-schema-extensions.md
-          - text: MSAL.js 2.0 auth code + PKCE & CORS
-            url: quickstart-v2-javascript-auth-code.md
+          - text: "What's new in docs?" # 9/26/2020
+            url: whats-new-docs.md
+          - text: "Microsoft Identity Web library overview" # 10/07/2020
+            url: microsoft-identity-web.md
+          - text: "Tutorial: Blazor Server" # 9/26/2020
+            url: tutorial-blazor-server.md

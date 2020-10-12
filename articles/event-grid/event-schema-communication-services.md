@@ -333,6 +333,11 @@ This section contains an example of what that data would look like for each even
 }]
 ```
 
+## Tutorials
+
+| Title | Description |
+|---------|---------|
+| [Quickstart: Handle SMS events](../communication-services/quickstarts/telephony-sms/handle-sms-events.md) | Shows how to subscribe to SMS events using Event Grid.   |
 
 ## Next steps
 

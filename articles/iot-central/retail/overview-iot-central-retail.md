@@ -36,9 +36,9 @@ The benefits of a connected logistics solution include:
 
 The following screenshots show the out-of-the-box dashboard in the application template. The dashboard is fully customizable to meet your specific solution requirements:
 
-:::image type="content" source="media/overview-iot-central-retail/connected-logistics-dashboard1.png" alt-text="Screenshot that shows the top half of the connected logistics operations dashboard":::
+:::image type="content" source="media/overview-iot-central-retail/connected-logistics-dashboard1.png" alt-text="Screenshot that shows the top half of the connected logistics operations dashboard.":::
 
-:::image type="content" source="media/overview-iot-central-retail/connected-logistics-dashboard2.png" alt-text="Screenshot that shows the bottom half of the connected logistics operations dashboard":::
+:::image type="content" source="media/overview-iot-central-retail/connected-logistics-dashboard2.png" alt-text="Screenshot that shows the bottom half of the connected logistics operations dashboard.":::
 
 To learn more, see the [Deploy and walk through a connected logistics application template](./tutorial-iot-central-connected-logistics.md) tutorial.
 

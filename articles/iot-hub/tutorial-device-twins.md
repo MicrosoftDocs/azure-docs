@@ -182,11 +182,11 @@ node ServiceClient.js "{your service connection string}"
 
 The following screenshot shows the output from the simulated device application and highlights how it handles an update to the **maxTemperature** desired property. You can see how both the top-level handler and the climate component handlers run:
 
-![Simulated device](./media/tutorial-device-twins/SimulatedDevice1.png)
+![Screenshot that shows how both the top-level handler and the climate component handlers run.](./media/tutorial-device-twins/SimulatedDevice1.png)
 
 The following screenshot shows the output from the back-end application and highlights how it sends an update to the **maxTemperature** desired property:
 
-![Back-end application](./media/tutorial-device-twins/BackEnd1.png)
+![Screenshot that shows the output from the back-end application and highlights how it sends an update.](./media/tutorial-device-twins/BackEnd1.png)
 
 ## Receive state information
 

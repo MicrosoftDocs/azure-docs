@@ -131,7 +131,7 @@ This is an optional step if you want to revert your changes to the classic deplo
 After you finish the validation, you can commit the migration. Resources do not appear anymore in the classic deployment model, and are available only in the Resource Manager deployment model. The migrated resources can be managed only in the new portal.
 
 > [!NOTE]
-> This is an idempotent operation. If it fails, retry the operation. If it continues to fail, create a support ticket or create a forum on [Microsoft Q&A](https://docs.microsoft.com/answers/index.html)
+> This is an idempotent operation. If it fails, retry the operation. If it continues to fail, create a support ticket or create a forum on [Microsoft Q&A](/answers/index.html)
 >
 >
 

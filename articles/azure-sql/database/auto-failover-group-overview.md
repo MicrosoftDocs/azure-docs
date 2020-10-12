@@ -5,7 +5,7 @@ description: Auto-failover groups allow you to manage replication and automatic 
 services: sql-database
 ms.service: sql-db-mi
 ms.subservice: high-availability
-ms.custom: sqldbrb=2, devx-track-azurecli
+ms.custom: sqldbrb=2
 ms.devlang: 
 ms.topic: conceptual
 author: anosov1960
@@ -71,9 +71,9 @@ To achieve real business continuity, adding database redundancy between datacent
   
 - **Initial Seeding**
 
-  When adding databases, elastic pools, or managed instances to a failover group, there is an initial seeding phase before data replication starts. The initial seeding phase is the longest and most expensive operation. Once initial seeding completes, data is synchronized, and then only subsequent data changes are replicated. The time it takes for the initial seed to complete depends on the size of your data, number of replicated databases, and the speed of the link between the entities in the failover group. Under normal circumstances, typical seeding speed is 50-500 GB an hour for SQL Database, and 18-35 GB an hour for a SQL Managed Instance. Seeding is performed for all databases in parallel. You can use the stated seeding speed, along with the number of databases and the total size of data to estimate how long the initial seeding phase will take before data replication starts.
+  When adding databases, elastic pools, or managed instances to a failover group, there is an initial seeding phase before data replication starts. The initial seeding phase is the longest and most expensive operation. Once initial seeding completes, data is synchronized, and then only subsequent data changes are replicated. The time it takes for the initial seed to complete depends on the size of your data, number of replicated databases, and the speed of the link between the entities in the failover group. Under normal circumstances, possible seeding speed is up to 500 GB an hour for SQL Database, and up to 360 GB an hour for SQL Managed Instance. Seeding is performed for all databases in parallel.
 
-  For SQL Managed Instance, the speed of the Express Route link between the two instances also needs to be considered when estimating the time of the initial seeding phase. If the speed of the link between the two instances is slower than what is necessary, the time to seed is likely be notably impacted. You can use the stated seeding speed, number of databases, total size of data, and the link speed to estimate how long the initial seeding phase will take before data replication starts. For example, for a single 100 GB database, the initial seed phase would take anywhere from 2.8 - 5.5 hours if the link is capable of pushing 35 GB per hour. If the link can only transfer 10 GB per hour, then seeding a 100 GB database will take about 10 hours. If there are multiple databases to replicate, seeding will be executed in parallel, and, when combined with a slow link speed, the initial seeding phase may take considerably longer, especially if the parallel seeding of data from all databases exceeds the available link bandwidth. If the network bandwidth between two instances is limited and you are adding multiple managed instances to a failover group, consider adding multiple managed instances to the failover group sequentially, one by one.
+  For SQL Managed Instance, consider the speed of the Express Route link between the two instances when estimating the time of the initial seeding phase. If the speed of the link between the two instances is slower than what is necessary, the time to seed is likely be notably impacted. You can use the stated seeding speed, number of databases, total size of data, and the link speed to estimate how long the initial seeding phase will take before data replication starts. For example, for a single 100 GB database, the initial seed phase would take about 1.2 hours if the link is capable of pushing 84 GB per hour, and if there are no other databases being seeded. If the link can only transfer 10 GB per hour, then seeding a 100 GB database will take about 10 hours. If there are multiple databases to replicate, seeding will be executed in parallel, and, when combined with a slow link speed, the initial seeding phase may take considerably longer, especially if the parallel seeding of data from all databases exceeds the available link bandwidth. If the network bandwidth between two instances is limited and you are adding multiple managed instances to a failover group, consider adding multiple managed instances to the failover group sequentially, one by one. Given an appropriately sized gateway SKU between the two managed instances, and if corporate network bandwidth allows it, it's possible to achieve speeds as high as 360 GB an hour.  
 
 - **DNS zone**
 
@@ -148,7 +148,7 @@ To fail over a failover group, you need RBAC write access to the failover group 
 
 The auto-failover group must be configured on the primary server and will connect it to the secondary server in a different Azure region. The groups can include all or some databases in these servers. The following diagram illustrates a typical configuration of a geo-redundant cloud application using multiple databases and auto-failover group.
 
-![auto failover](./media/auto-failover-group-overview/auto-failover-group.png)
+![Diagram shows a typical configuration of a geo-redundant cloud application using multiple databases and auto-failover group.](./media/auto-failover-group-overview/auto-failover-group.png)
 
 > [!NOTE]
 > See [Add SQL Database to a failover group](failover-group-add-single-database-tutorial.md) for a detailed step-by-step tutorial adding a database in SQL Database to a failover group.
@@ -227,6 +227,10 @@ To ensure non-interrupted connectivity to the primary SQL Managed Instance after
 > The first managed instance created in the subnet determines DNS zone for all subsequent instances in the same subnet. This means that two instances from the same subnet cannot belong to different DNS zones.
 
 For more information about creating the secondary SQL Managed Instance in the same DNS zone as the primary instance, see [Create a secondary managed instance](../managed-instance/failover-group-add-instance-tutorial.md#create-a-secondary-managed-instance).
+
+### Using geo-paired regions
+
+Deploy both managed instances to [paired regions](../../best-practices-availability-paired-regions.md) for performance reasons. Managed instances residing in geo-paired regions have much better performance compared to unpaired regions. 
 
 ### Enabling replication traffic between two instances
 
@@ -351,7 +355,11 @@ When you set up a failover group between primary and secondary SQL Managed Insta
 - The two instances of SQL Managed Instance need to be in different Azure regions.
 - The two instances of SQL Managed Instance need to be the same service tier, and have the same storage size.
 - Your secondary instance of SQL Managed Instance must be empty (no user databases).
-- The virtual networks used by the instances of SQL Managed Instance need to be connected through a [VPN Gateway](../../vpn-gateway/vpn-gateway-about-vpngateways.md) or [Express Route](../../expressroute/expressroute-howto-circuit-portal-resource-manager.md). When two virtual networks connect through an on-premises network, ensure there is no firewall rule blocking ports 5022, and 11000-11999. Global VNet Peering is not supported.
+- The virtual networks used by the instances of SQL Managed Instance need to be connected through a [VPN Gateway](../../vpn-gateway/vpn-gateway-about-vpngateways.md) or [Express Route](../../expressroute/expressroute-howto-circuit-portal-resource-manager.md). When two virtual networks connect through an on-premises network, ensure there is no firewall rule blocking ports 5022, and 11000-11999. Global VNet Peering is supported with the limitation described in the note below.
+
+   > [!IMPORTANT]
+   > [On 9/22/2020 we announced global virtual network peering for newly created virtual clusters](https://azure.microsoft.com/en-us/updates/global-virtual-network-peering-support-for-azure-sql-managed-instance-now-available/). That means that global virtual network peering is supported for SQL Managed Instances created in empty subnets after the announcement date, as well for all the subsequent managed instances created in those subnets. For all the other SQL Managed Instances peering support is limited to the networks in the same region due to the [constraints of global virtual network peering](../../virtual-network/virtual-network-manage-peering.md#requirements-and-constraints). See also the relevant section of the [Azure Virtual Networks frequently asked questions](https://docs.microsoft.com/azure/virtual-network/virtual-networks-faq#what-are-the-constraints-related-to-global-vnet-peering-and-load-balancers) article for more details. 
+
 - The two SQL Managed Instance VNets cannot have overlapping IP addresses.
 - You need to set up your Network Security Groups (NSG) such that ports 5022 and the range 11000~12000 are open inbound and outbound for connections from the subnet of the other managed instance. This is to allow replication traffic between the instances.
 

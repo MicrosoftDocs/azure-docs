@@ -106,11 +106,11 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 4. On the top-right corner of the page, click on **profile** and then navigate to **My Account**.
 
-	![Freedcamp configuration](./media/freedcamp-tutorial/config01.png)
+	![Screenshot that shows "Profile" and "My Account" selected.](./media/freedcamp-tutorial/config01.png)
 
 5. From the left side of the menu bar, click on **SSO** and on the **Your SSO connections** page perform the following steps:
 
-	![Freedcamp configuration](./media/freedcamp-tutorial/config02.png)
+	![Screenshot that shows "S S O" selected in the left-side menu bar and the "Your S S O connections" page with values entered and the "Submit" button selected.](./media/freedcamp-tutorial/config02.png)
 
 	a. In the **Title** text box, type the title.
 
@@ -160,13 +160,13 @@ To enable Azure AD users, sign in to Freedcamp, they must be provisioned into Fr
 
 1. In a different web browser window, sign in to Freedcamp as a Security Administrator.
 
-2. On the top-toright corner of the page, click on **profile** and then navigate to **Manage System**.
+2. On the top-right corner of the page, click on **profile** and then navigate to **Manage System**.
 
 	![Freedcamp configuration](./media/freedcamp-tutorial/config03.png)
 
 3. On the right side of the Manage System page, perform the following steps:
 
-	![Freedcamp configuration](./media/freedcamp-tutorial/config04.png)
+	![Screenshot that shows the "Add Or Invite Users" button selected, the "Email" field highlighted, and the "Add User" button selected.](./media/freedcamp-tutorial/config04.png)
 
 	a. Click on **Add or invite Users**.
 

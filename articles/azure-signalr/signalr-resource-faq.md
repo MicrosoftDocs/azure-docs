@@ -12,27 +12,7 @@ ms.author: zhshang
 
 ## Is Azure SignalR Service ready for production use?
 
-Yes.
-For the announcement of general availability, see [Azure SignalR Service now generally available](https://azure.microsoft.com/blog/azure-signalr-service-now-generally-available/). 
-
-[ASP.NET Core SignalR](https://docs.microsoft.com/aspnet/core/signalr/introduction) is fully supported.
-
-Support for ASP.NET SignalR is still in *public preview*. [Here's a code example](https://github.com/aspnet/AzureSignalR-samples/tree/master/aspnet-samples/ChatRoom).
-
-## The client connection closes with the error message "No server available." What does it mean?
-
-This error occurs only when clients are sending messages to Azure SignalR Service.
-
-If you don't have any application server and use only the Azure SignalR Service REST API, this behavior is *by design*.
-In serverless architecture, client connections are in *listen* mode and won't send any messages to Azure SignalR Service.
-Read [more about the REST API](./signalr-quickstart-rest-api.md).
-
-If you have application servers, this error message means that no application server is connected to your Azure SignalR Service instance.
-
-The possible causes are:
-- No application server is connected with Azure SignalR Service. Check application server logs for possible connection errors. This case is rare in a high-availability setting that has more than one application server.
-- There are connectivity issues with Azure SignalR Service instances. This issue is transient, and the instances will automatically recover.
-If it persists for more than an hour, [open an issue on GitHub](https://github.com/Azure/azure-signalr/issues/new) or [create a support request in Azure](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request).
+Yes, both the support for [ASP.NET Core SignalR](https://dotnet.microsoft.com/apps/aspnet/signalr) and [ASP.NET SignalR](https://docs.microsoft.com/aspnet/signalr/overview/getting-started/introduction-to-signalr) is all generally available.
 
 ## When there are multiple application servers, are client messages sent to all servers or just one of them?
 
@@ -62,7 +42,7 @@ No.
 
 Azure SignalR Service provides all three transports that ASP.NET Core SignalR supports by default. It's not configurable. Azure SignalR Service will handle connections and transports for all client connections.
 
-You can configure client-side transports as documented in [ASP.NET Core SignalR configuration](https://docs.microsoft.com/aspnet/core/signalr/configuration?view=aspnetcore-2.1&tabs=dotnet#configure-allowed-transports-2).
+You can configure client-side transports as documented in [ASP.NET Core SignalR configuration](https://docs.microsoft.com/aspnet/core/signalr/configuration#configure-allowed-transports-1).
 
 ## What is the meaning of metrics like message count or connection count shown in the Azure portal? Which kind of aggregation type should I choose?
 
@@ -73,19 +53,22 @@ take the aggregation type to [Messages and connections in Azure SignalR Service]
 
 ## What is the meaning of the `Default`, `Serverless`, and `Classic` service modes? How can I choose?
 
-Here's information about the modes:
-* `Default` mode *requires* a hub server. In this mode, Azure SignalR Service routes the client traffic to its connected hub server connections. Azure SignalR Service checks for a connected hub server. If the service can't find a connected hub server, it rejects the incoming client connections. You also can use the *Management API* in this mode to manage the connected clients directly through Azure SignalR Service.
-* `Serverless` mode does *not* allow any server connection. That is, it will reject all server connections. All clients must be in serverless mode.	Clients connect to Azure SignalR Service, and users usually use serverless technologies such as *Azure Functions* to handle hub logics. [See a simple example](https://docs.microsoft.com/azure/azure-signalr/signalr-quickstart-azure-functions-javascript?WT.mc_id=signalrquickstart-github-antchu) that uses serverless mode in Azure SignalR Service.
-* `Classic` mode is a mixed status. When a hub has a server connection, the new client will be routed to a hub server. If not, the client will enter serverless mode. 
+For new applications, only default and serverless mode should be used. The main difference is whether you have application servers that establish server connections to the service (i.e. use `AddAzureSignalR()` to connect to service). If yes use default mode, otherwise use serverless mode.
 
-  This might cause a problem. For example, if all server connections are lost for a moment, some clients will enter serverless mode instead of routing to a hub server.
+Classic mode is designed for backward compatibility for existing applications so should not be used for new applications.
 
-Here are some guidelines for choosing a mode:
-- If there's no hub server, choose `Serverless`.
-- If all hubs have hub servers, choose `Default`.
-- If some hubs have hub servers but others don't, you can choose `Classic`, but this might cause a problem. The better way is to create two instances: one is `Serverless`, and the other is `Default`.
+For more information about service mode in [this doc](concept-service-mode.md).
+
+## Can I send message from client in serverless mode?
+
+You can send message from client if you configure upstream in your SignalR instance. Upstream is a set of endpoints that can receive messages and connection events from SignalR service. If no upstream is configured, messages from client will be ignored.
+
+For more information about upstream see [this doc](concept-upstream.md).
+
+Upstream is currently in public preview.
 
 ## Are there any feature differences in using Azure SignalR Service with ASP.NET SignalR?
+
 When you're using Azure SignalR Service, some APIs and features of ASP.NET SignalR aren't supported:
 - The ability to pass arbitrary state between clients and the hub (often called `HubState`) is not supported.
 - The `PersistentConnection` class is not supported.

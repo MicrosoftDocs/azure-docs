@@ -56,4 +56,4 @@ Additional binaries are provided to support upcoming devices, [Roobo v2 DDK](htt
 > [!div class="nextstepaction"]
 > [Choose your speech device](get-speech-devices-sdk.md)
 > [!div class="nextstepaction"]
-> [Get a Speech service subscription key for free](get-started.md)
+> [Get a Speech service subscription key for free](overview.md#try-the-speech-service-for-free)

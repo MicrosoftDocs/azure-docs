@@ -8,7 +8,7 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: quickstart
-ms.date: 06/07/2020
+ms.date: 09/25/2020
 ---
 
 # Quickstart: Use Search explorer to run queries in the portal
@@ -33,11 +33,11 @@ Before you begin, you must have the following:
 
 1. Open Search explorer from the command bar:
 
-   ![Search explorer command in portal](./media/search-explorer/search-explorer-cmd2.png "Search explorer command in portal")
+   :::image type="content" source="media/search-explorer/search-explorer-cmd2.png" alt-text="Search explorer command in portal" border="false":::
 
     Or use the embedded **Search explorer** tab on an open index:
 
-   ![Search explorer tab](./media/search-explorer/search-explorer-tab.png "Search explorer tab")
+   :::image type="content" source="media/search-explorer/search-explorer-tab.png" alt-text="Search explorer tab" border="false":::
 
 ## Unspecified query
 
@@ -51,7 +51,7 @@ Equivalent syntax for an empty search is `*` or `search=*`.
 
    **Results**
    
-   ![Empty query example](./media/search-explorer/search-explorer-example-empty.png "Unqualified or empty query example")
+   :::image type="content" source="media/search-explorer/search-explorer-example-empty.png" alt-text="Unqualified or empty query example" border="false":::
 
 ## Free text search
 
@@ -67,7 +67,7 @@ Notice that when you provide search criteria, such as query terms or expressions
 
    You can use Ctrl-F to search within results for specific terms of interest.
 
-   ![Free text query example](./media/search-explorer/search-explorer-example-freetext.png "Free text query example")
+   :::image type="content" source="media/search-explorer/search-explorer-example-freetext.png" alt-text="Free text query example" border="false":::
 
 ## Count of matching documents 
 
@@ -79,7 +79,7 @@ Add **$count=true** to get the number of matches found in an index. On an empty 
 
    **Results**
 
-   ![Count of documents example](./media/search-explorer/search-explorer-example-count.png "Count of matching documents in index")
+   :::image type="content" source="media/search-explorer/search-explorer-example-count.png" alt-text="Count of matching documents in index" border="false":::
 
 ## Limit fields in search results
 
@@ -91,7 +91,7 @@ Add [**$select**](search-query-odata-select.md) to limit results to the explicit
 
    **Results**
 
-   ![Limit fields example](./media/search-explorer/search-explorer-example-selectfield.png "Restrict fields in search results")
+   :::image type="content" source="media/search-explorer/search-explorer-example-selectfield.png" alt-text="Restrict fields in search results" border="false":::
 
 ## Return next batch of results
 
@@ -103,7 +103,7 @@ Azure Cognitive Search returns the top 50 matches based on the search rank. To g
 
    **Results**
 
-   ![Batch search results](./media/search-explorer/search-explorer-example-topskip.png "Return next batch of search results")
+   :::image type="content" source="media/search-explorer/search-explorer-example-topskip.png" alt-text="Return next batch of search results" border="false":::
 
 ## Filter expressions (greater than, less than, equal to)
 
@@ -115,7 +115,7 @@ Use the [**$filter**](search-query-odata-filter.md) parameter when you want to s
    
    **Results**
 
-   ![Filter expression](./media/search-explorer/search-explorer-example-filter.png "Filter by criteria")
+   :::image type="content" source="media/search-explorer/search-explorer-example-filter.png" alt-text="Filter by criteria" border="false":::
 
 ## Order-by expressions
 
@@ -127,7 +127,7 @@ Add [**$orderby**](search-query-odata-orderby.md) to sort results by another fie
    
    **Results**
 
-   ![Orderby expression](./media/search-explorer/search-explorer-example-ordery.png "Change the sort order")
+   :::image type="content" source="media/search-explorer/search-explorer-example-ordery.png" alt-text="Change the sort order" border="false":::
 
 Both **$filter** and **$orderby** expressions are OData constructions. For more information, see [Filter OData syntax](/rest/api/searchservice/odata-expression-syntax-for-azure-search).
 

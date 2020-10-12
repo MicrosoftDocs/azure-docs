@@ -308,7 +308,6 @@ There are two main strategies for accessing your Azure file shares:
 * **Direct share access:** [How to deploy direct-share-access](#deploy-direct-share-access). Use this strategy if your access scenario for a given Azure file share will not benefit from local caching or you have no longer an ability to host an on-premises Windows Server. Here, your users and apps will continue to access SMB shares over the SMB protocol, but these shares are no longer on an on-premises server, but directly in the cloud.
 
 In the previous section: [Direct share access vs. Azure File Sync](#direct-share-access-vs-azure-file-sync). located in Phase 1 of this guide, you've already made the decisions what to use for which Azure file share. 
-
 The remainder of this section focuses on deployment instructions.
 
 ### Deploy Azure File Sync

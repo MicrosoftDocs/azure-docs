@@ -30,7 +30,7 @@ This approach is more flexible than the pull model because you can upload docume
 You can use the following APIs to load single or multiple documents into an index:
 
 + [Add, Update, or Delete Documents (REST API)](/rest/api/searchservice/AddUpdate-or-Delete-Documents)
-+ [indexAction class](/dotnet/api/microsoft.azure.search.models.indexaction?view=azure-dotnet) or [indexBatch class](/dotnet/api/microsoft.azure.search.models.indexbatch?view=azure-dotnet) 
++ [indexAction class](/dotnet/api/microsoft.azure.search.models.indexaction) or [indexBatch class](/dotnet/api/microsoft.azure.search.models.indexbatch) 
 
 There is currently no tool support for pushing data via the portal.
 

@@ -13,7 +13,7 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 09/22/2020
+ms.date: 10/07/2020
 ms.author: b-juche
 ---
 # Metrics for Azure NetApp Files
@@ -61,11 +61,12 @@ Azure NetApp Files provides metrics on allocated storage, actual storage usage, 
     The number of reads to the volume per second.
 - *Write IOPS*   
     The number of writes to the volume per second.
+<!-- These two metrics are not yet available, until ~ 2020.09
 - *Read MiB/s*   
     Read throughput in bytes per second.
 - *Write MiB/s*   
     Write throughput in bytes per second.
-
+--> 
 <!-- ANF-4128; 2020.07
 - *Pool Provisioned Throughput*	  
     The total throughput a capacity pool can provide to its volumes based on "Pool Provisioned Size" and "Service Level".
@@ -73,7 +74,7 @@ Azure NetApp Files provides metrics on allocated storage, actual storage usage, 
     The total throughput allocated to volumes in a given capacity pool (that is, the total of the volumes' allocated throughput in the capacity pool).
 -->
 
-<!-- ANF-6443; future
+<!-- ANF-6443; 2020.11
 - *Pool Consumed Throughput*	
     The total throughput being consumed by volumes in a given capacity pool.
 -->
