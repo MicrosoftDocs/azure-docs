@@ -157,7 +157,7 @@ Specify alternate source: *WIM:D:\Sources\Install.wim:4*
     > ![USB drive](./media/offline-backup-azure-data-box-dpm-mabs/usb-drive.png)
     >
     > For example, if the path of the disk is `\\mydomain\myserver\disk1\` and *disk1* contains a directory called *PageBlob*, the path to be provided on the DPM/MABS Server wizard is `\\mydomain\myserver\disk1\`.
-    > If you [setup an Azure Data Box 100 TB device](./offline-backup-azure-data-box.md#setup-azure-data-box), provide the following as the network path to the device `\\<DeviceIPAddress>\<StorageAccountName>_PageBlob`.
+    > If you [setup an Azure Data Box 100 TB device](./offline-backup-azure-data-box.md#set-up-azure-data-box), provide the following as the network path to the device `\\<DeviceIPAddress>\<StorageAccountName>_PageBlob`.
 
 15. Select **Next**. On the **Summary** page, review your settings and select **Create Group**.
 
