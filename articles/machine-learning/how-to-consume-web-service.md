@@ -95,7 +95,7 @@ The following table shows what these URIs look like:
 | Swagger URI | `http://104.214.29.152/api/v1/service/<service-name>/swagger.json` |
 
 > [!TIP]
-> The IP address will be different for your deployments.
+> The IP address will be different for your deployment. Each AKS cluster will hve it's own IP address that is shared by deployments to that cluster.
 
 ### Secured web service
 
