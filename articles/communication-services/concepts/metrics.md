@@ -13,7 +13,7 @@ ms.service: azure-communication-services
 ---
 # Metrics overview
 
-Azure Communication services currently provides metrics for chat and SMS. Please follow Azure's Getting started with Azure Metrics Explorer to learn how to start plotting your own charts, investigate abnolamities in your metric values and understand your API traffic for Chat and SMS.
+Azure Communication services currently provides metrics for chat and SMS. Please follow Azure's Getting started with Azure Metrics Explorer to learn how to start plotting your own charts, investigate abnormalities in your metric values and understand your API traffic for Chat and SMS.
 <li>https://docs.microsoft.com/azure/azure-monitor/platform/metrics-getting-started</li>
 
 ## Where to find Metrics
