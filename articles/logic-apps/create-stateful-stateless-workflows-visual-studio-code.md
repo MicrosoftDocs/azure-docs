@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: deli, rohitha, vikanand, hongzili, sopai, absaafan, logicappspm
 ms.topic: conceptual
-ms.date: 09/26/2020
+ms.date: 10/14/2020
 ---
 
 # Create stateful or stateless workflows in Visual Studio Code with the Azure Logic Apps (Preview) extension
@@ -243,7 +243,7 @@ For this public preview, these capabilities are not available or not supported:
 
    ![Screenshot that shows Azure pane and selected link for Azure sign in.](./media/create-stateful-stateless-workflows-visual-studio-code/sign-in-azure-subscription.png)
 
-   After you sign in, the Azure pane shows the subscriptions in your Azure account. If you have the publicly released Logic Apps extension, you can find any original Logic Apps resources that you created using the original extension in the released extension's **Logic Apps** section, not the preview extension's **Logic Apps (Preview** section.
+   After you sign in, the Azure pane shows the subscriptions in your Azure account. If you have the publicly released Logic Apps extension, you can find any original Logic Apps resources that you created using the original extension in the released extension's **Logic Apps** section, not the preview extension's **Logic Apps (Preview)** section.
    
    If the expected subscriptions don't appear, or you want the pane to show only specific subscriptions, follow these steps:
 
