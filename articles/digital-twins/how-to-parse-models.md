@@ -21,11 +21,11 @@ ms.service: digital-twins
 
 To help you do this, a .NET client-side DTDL parsing library is provided on NuGet: [**Microsoft.Azure.DigitalTwins.Parser**](https://nuget.org/packages/Microsoft.Azure.DigitalTwins.Parser/). 
 
-You can use the parser library directly in your C# code, or use the language-agnostic code sample project that is built on the parser library: [**DTDL Validator sample**](https://docs.microsoft.com/samples/azure-samples/dtdl-validator/dtdl-validator).
+You can use the parser library directly in your C# code, or use the language-agnostic code sample project that is built on the parser library: [**DTDL Validator sample**](/samples/azure-samples/dtdl-validator/dtdl-validator).
 
 ## Use the DTDL validator sample
 
-The [**DTDL Validator**](https://docs.microsoft.com/samples/azure-samples/dtdl-validator/dtdl-validator) is a sample project that can validate model documents to make sure the DTDL is valid. It is built on the .NET parser library and is language-agnostic. You can get it with the *Download ZIP* button at the sample link.
+The [**DTDL Validator**](/samples/azure-samples/dtdl-validator/dtdl-validator) is a sample project that can validate model documents to make sure the DTDL is valid. It is built on the .NET parser library and is language-agnostic. You can get it with the *Download ZIP* button at the sample link.
 
 The source code shows examples for how to use the parser library. You can use the validator sample as a command line utility to validate a directory tree of DTDL files. It also provides an interactive mode.
 

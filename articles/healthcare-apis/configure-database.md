@@ -8,7 +8,7 @@ ms.topic: reference
 ms.date: 11/15/2019
 ms.author: matjazl
 ---
-# Configure Database settings 
+# Configure database settings 
 
 Azure API for FHIR uses database to store its data. Performance of the underlying database depends on the number of Request Units (RU) selected during service provisioning or in database settings after the service has been provisioned.
 
@@ -35,7 +35,7 @@ If the database throughput is greater than 10,000 RU/s or if the data stored in 
 In this article, you learned how to update your RUs for Azure API for FHIR. To learn about configuring customer-managed keys as a database setting:
 
 >[!div class="nextstepaction"]
->[Configure customer-managed keys](bring-your-own-key.md)
+>[Configure customer-managed keys](customer-managed-key.md)
 
 Or you can deploy a fully managed Azure API for FHIR:
  
