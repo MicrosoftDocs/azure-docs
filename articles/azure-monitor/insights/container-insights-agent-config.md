@@ -129,7 +129,7 @@ The output will show similar to the following with the annotation schema-version
 
 ## Next steps
 
-- Azure Monitor for containers does not include a predefined set of alerts. Review the [Create performance alerts with Azure Monitor for containers](container-insights-alerts.md) to learn how to create recommended alerts for high CPU and memory utilization to support your DevOps or operational processes and procedures.
+- Azure Monitor for containers does not include a predefined set of alerts. Review the [Create performance alerts with Azure Monitor for containers](./container-insights-log-alerts.md) to learn how to create recommended alerts for high CPU and memory utilization to support your DevOps or operational processes and procedures.
 
 - With monitoring enabled to collect health and resource utilization of your AKS or hybrid cluster and workloads running on them, learn [how to use](container-insights-analyze.md) Azure Monitor for containers.
 
