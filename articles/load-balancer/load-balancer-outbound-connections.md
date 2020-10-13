@@ -6,7 +6,7 @@ author: asudbring
 ms.service: load-balancer
 ms.topic: conceptual
 ms.custom: contperfq1
-ms.date: 10/06/2020
+ms.date: 10/13/2020
 ms.author: allensu
 ---
 
