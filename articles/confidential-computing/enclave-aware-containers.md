@@ -56,7 +56,7 @@ Edgeless RT is an open-source project that builds upon the Open Enclave SDK. It 
 [Azure samples for enclave aware containers on AKS](https://github.com/Azure-Samples/confidential-computing/tree/main/containersamples)
 
 <!-- LINKS - external -->
-[Azure Attestation](../attestation/overview)
+[Azure Attestation](../attestation/overview.md)
 
 
 <!-- LINKS - internal -->
