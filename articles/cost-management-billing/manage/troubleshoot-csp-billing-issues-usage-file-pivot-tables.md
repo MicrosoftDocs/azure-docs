@@ -39,7 +39,7 @@ Because Azure usage files are in CSV format, you need to prepare the data for us
 1. In top menu, select **Insert** > **Pivot Table** and then select **OK**. The action creates a new sheet in the file and takes you to the pivot table area on the right side of the sheet.  
     :::image type="content" source="./media/troubleshoot-csp-billing-issues-usage-file-pivot-tables/pivot-table-fields.png" alt-text="Example showing the PivotTable fields area" lightbox="./media/troubleshoot-csp-billing-issues-usage-file-pivot-tables/pivot-table-fields.png" :::
 
-The PrivotTable Fields area is a drag-and-drop area. Continue to the next section to create the pivot table.
+The PivotTable Fields area is a drag-and-drop area. Continue to the next section to create the pivot table.
 
 ## Create pivot table to view Azure costs by resources
 
