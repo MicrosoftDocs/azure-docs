@@ -6,7 +6,7 @@ ms.author: mjbrown
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: conceptual
-ms.date: 06/09/2020
+ms.date: 10/12/2020
 ms.reviewer: sngun
 
 ---
@@ -23,13 +23,13 @@ Azure Cosmos container is the fundamental unit of scalability. You can virtually
 
 Currently, you can create a maximum of 50 Azure Cosmos accounts under an Azure subscription (this is a soft limit that can be increased via support request). A single Azure Cosmos account can virtually manage unlimited amount of data and provisioned throughput. To manage your data and provisioned throughput, you can create one or more Azure Cosmos databases under your account and within that database, you can create one or more containers. The following image shows the hierarchy of elements in an Azure Cosmos account:
 
-:::image type="content" source="./media/account-overview/hierarchy.png" alt-text="Hierarchy of an Azure Cosmos account" border="false":::
+:::image type="content" source="./media/account-databases-containers-items/hierarchy.png" alt-text="Hierarchy of an Azure Cosmos account" border="false":::
 
 After you create an account under your Azure subscription, you can manage the data in your account by creating databases, containers, and items. 
 
 The following image shows the hierarchy of different entities in an Azure Cosmos DB account:
 
-:::image type="content" source="./media/databases-containers-items/cosmos-entities.png" alt-text="Azure Cosmos account entities" border="false":::
+:::image type="content" source="./media/account-databases-containers-items/cosmos-entities.png" alt-text="Azure Cosmos account entities" border="false":::
 
 ## Azure Cosmos databases
 
@@ -55,7 +55,7 @@ You can interact with an Azure Cosmos database with Azure Cosmos APIs as describ
 
 ## Azure Cosmos containers
 
-An Azure Cosmos container is the unit of scalability both for provisioned throughput and storage. A container is horizontally partitioned and then replicated across multiple regions. The items that you add to the container are automatically grouped into logical partitions, which are distributed across physical partitions, based on the partition key. The throughput on a container is evenly distributed across the physical partitions. To learn more about partitioning and partition keys, see [Partition data](partition-data.md). 
+An Azure Cosmos container is the unit of scalability both for provisioned throughput and storage. A container is horizontally partitioned and then replicated across multiple regions. The items that you add to the container are automatically grouped into logical partitions, which are distributed across physical partitions, based on the partition key. The throughput on a container is evenly distributed across the physical partitions. To learn more about partitioning and partition keys, see [Partition data](partitioning-overview.md). 
 
 When you create a container, you configure throughput in one of the following modes:
 
