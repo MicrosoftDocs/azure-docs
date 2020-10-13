@@ -16,9 +16,9 @@ ms.custom: mvc, seodec18, devx-track-azurecli
 
 This sample script creates an app in App Service with its related resources. It then deploys your app code from a public GitHub repository (without continuous deployment). For GitHub deployment with continuous deployment, see [Create an app with continuous deployment from GitHub](cli-continuous-deployment-github.md).
 
-[!INCLUDE [quickstarts-free-trial-note](../../../../includes/quickstarts-free-trial-note.md)]
+[!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../../includes/azure-cli-prepare-your-environment.md)]
 
  - This tutorial requires version 2.0 or later of the Azure CLI. Run [az version](/cli/azure/reference-index?#az_version) to find the version and dependent libraries that are installed. To upgrade to the latest version, run [az upgrade](/cli/azure/reference-index?#az_upgrade).
 
