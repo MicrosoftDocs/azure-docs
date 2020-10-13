@@ -186,6 +186,20 @@ Use Microsoft Azure Sentinel to access the built-in Azure WAF firewall events wo
 
 **Responsibility**: Customer
 
+### 1.6: Deploy network-based intrusion detection/intrusion prevention systems (IDS/IPS)
+
+>[!NOTE]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/4442).
+
+**Guidance**: Not applicable to App Service. This capability is not built into the platform directly. 
+Prevent access to a multi-tenant App Service from selected subnets with service endpoints. Service endpoints must be enabled on both the networking side as well as the service that it is being enabled. Note that this does not work to restrict traffic to apps that are hosted in an Application Service Environment (ASE). If you are in an ASE, you can control access to your app with IP address rules.
+
+Use a third-party application in the Azure Marketplace offering a complete IDS or IPS capabilities.
+
+**Azure Security Center monitoring**: Currently not available
+
+**Responsibility**: Not applicable
+
 ### 1.7: Manage traffic to web applications
 
 >[!NOTE]
@@ -318,6 +332,17 @@ Review Security Center's detailed security alerts and recommendations in the por
 
 *For more information, see the [Azure Security Benchmark: Logging and monitoring](../security/benchmarks/security-control-logging-monitoring.md).*
 
+### 2.1: Use approved time synchronization sources
+
+>[!NOTE]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/4448).
+
+**Guidance**: Microsoft maintains the time source used for Azure resources such as App Service.
+
+**Azure Security Center monitoring**: Not applicable
+
+**Responsibility**: Microsoft
+
 ### 2.2: Configure central security log management
 
 >[!NOTE]
@@ -360,6 +385,17 @@ Additionally, Azure Key Vault provides centralized secret management with access
 **Azure Security Center monitoring**: Yes
 
 **Responsibility**: Customer
+
+### 2.4: Collect security logs from operating systems
+
+>[!NOTE]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/4451).
+
+**Guidance**: Not applicable to App Service. This recommendation is intended for IaaS compute resources.
+
+**Azure Security Center monitoring**: Not applicable
+
+**Responsibility**: Not applicable
 
 ### 2.5: Configure security log storage retention
 
@@ -416,6 +452,39 @@ Optionally, you may enable and on-board data to Azure Sentinel or a third-party 
 **Azure Security Center monitoring**: Yes
 
 **Responsibility**: Customer
+
+### 2.8: Centralize anti-malware logging
+
+>[!NOTE]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/4455).
+
+**Guidance**: Not applicable to App Service. It does not process or produce anti-malware related logs.
+
+**Azure Security Center monitoring**: Not applicable
+
+**Responsibility**: Not applicable
+
+### 2.9: Enable DNS query logging
+
+>[!NOTE]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/4456).
+
+**Guidance**: Not applicable to App Service. It does not process or produce user accessible DNS-related logs.
+
+**Azure Security Center monitoring**: Not applicable
+
+**Responsibility**: Not applicable
+
+### 2.10: Enable command-line audit logging
+
+>[!NOTE]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/4457).
+
+**Guidance**: Not applicable to App Service. This recommendation is intended for IaaS compute resources.
+
+**Azure Security Center monitoring**: Not applicable
+
+**Responsibility**: Not applicable
 
 ## Identity and access control
 
@@ -759,6 +828,17 @@ Microsoft manages the underlying platform and treats all customer content as sen
 
 **Responsibility**: Customer
 
+### 4.7: Use host-based data loss prevention to enforce access control
+
+>[!NOTE]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/4477).
+
+**Guidance**: Not applicable to App Service. This recommendation is intended for IaaS compute resources.
+
+**Azure Security Center monitoring**: Not applicable
+
+**Responsibility**: Not applicable
+
 ### 4.8: Encrypt sensitive information at rest
 
 >[!NOTE]
@@ -811,6 +891,39 @@ Follow recommendations from Security Center to secure your App Service apps.
 **Azure Security Center monitoring**: Not applicable
 
 **Responsibility**: Customer
+
+### 5.2: Deploy automated operating system patch management solution
+
+>[!NOTE]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/4481).
+
+**Guidance**: Not applicable to App Service. This recommendation is intended for IaaS compute resources.
+
+**Azure Security Center monitoring**: Not applicable
+
+**Responsibility**: Not applicable
+
+### 5.3: Deploy automated patch management solution for third-party software titles
+
+>[!NOTE]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/4482).
+
+**Guidance**: Not applicable to App Service. This recommendation is intended for IaaS compute resources.
+
+**Azure Security Center monitoring**: Not applicable
+
+**Responsibility**: Not applicable
+
+### 5.4: Compare back-to-back vulnerability scans
+
+>[!NOTE]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/4483).
+
+**Guidance**: Not applicable to App Service. This recommendation is intended for IaaS compute resources.
+
+**Azure Security Center monitoring**: Not applicable
+
+**Responsibility**: Not applicable
 
 ### 5.5: Use a risk-rating process to prioritize the remediation of discovered vulnerabilities
 
@@ -912,6 +1025,39 @@ Use Azure Resource Graph to query or discover resources within their subscriptio
 
 **Responsibility**: Customer
 
+### 6.6: Monitor for unapproved software applications within compute resources
+
+>[!NOTE]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/4490).
+
+**Guidance**: Not applicable to App Service. This recommendation is intended for IaaS compute resources.
+
+**Azure Security Center monitoring**: Not applicable
+
+**Responsibility**: Not applicable
+
+### 6.7: Remove unapproved Azure resources and software applications
+
+>[!NOTE]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/4491).
+
+**Guidance**: Not applicable to App Service. This recommendation is intended for IaaS compute resources.
+
+**Azure Security Center monitoring**: Not applicable
+
+**Responsibility**: Not applicable
+
+### 6.8: Use only approved applications
+
+>[!NOTE]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/4492).
+
+**Guidance**: Not applicable to App Service. This recommendation is intended for IaaS compute resources.
+
+**Azure Security Center monitoring**: Not applicable
+
+**Responsibility**: Not applicable
+
 ### 6.9: Use only approved Azure services
 
 >[!NOTE]
@@ -931,6 +1077,17 @@ Use Azure Resource Graph to query or discover resources within their subscriptio
 
 **Responsibility**: Customer
 
+### 6.10: Maintain an inventory of approved software titles
+
+>[!NOTE]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/4494).
+
+**Guidance**: Not applicable to App Service. This recommendation is intended for IaaS compute resources.
+
+**Azure Security Center monitoring**: Not applicable
+
+**Responsibility**: Not applicable
+
 ### 6.11: Limit users' ability to interact with Azure Resource Manager
 
 >[!NOTE]
@@ -943,6 +1100,17 @@ Use Azure Resource Graph to query or discover resources within their subscriptio
 **Azure Security Center monitoring**: Not applicable
 
 **Responsibility**: Customer
+
+### 6.12: Limit users' ability to execute scripts within compute resources
+
+>[!NOTE]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/4496).
+
+**Guidance**: Not applicable to App Service. This recommendation is intended for IaaS compute resources.
+
+**Azure Security Center monitoring**: Not applicable
+
+**Responsibility**: Not applicable
 
 ### 6.13: Physically or logically segregate high risk applications
 
@@ -991,6 +1159,17 @@ Apply built-in policy definitions such as:
 
 **Responsibility**: Customer
 
+### 7.2: Establish secure operating system configurations
+
+>[!NOTE]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/4499).
+
+**Guidance**: Not applicable to App Service. This recommendation is intended for IaaS compute resources.
+
+**Azure Security Center monitoring**: Not applicable
+
+**Responsibility**: Not applicable
+
 ### 7.3: Maintain secure Azure resource configurations
 
 >[!NOTE]
@@ -1005,6 +1184,17 @@ Apply built-in policy definitions such as:
 **Azure Security Center monitoring**: Not applicable
 
 **Responsibility**: Customer
+
+### 7.4: Maintain secure operating system configurations
+
+>[!NOTE]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/4501).
+
+**Guidance**: Not applicable to App Service. This recommendation is intended for IaaS compute resources.
+
+**Azure Security Center monitoring**: Not applicable
+
+**Responsibility**: Not applicable
 
 ### 7.5: Securely store configuration of Azure resources
 
@@ -1023,6 +1213,17 @@ Use your existing Continuous Integration (CI) and Continuous Delivery (CD) pipel
 
 **Responsibility**: Customer
 
+### 7.6: Securely store custom operating system images
+
+>[!NOTE]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/4503).
+
+**Guidance**: Not applicable to App Service. This recommendation is intended for IaaS compute resources.
+
+**Azure Security Center monitoring**: Not applicable
+
+**Responsibility**: Not applicable
+
 ### 7.7: Deploy configuration management tools for Azure resources
 
 >[!NOTE]
@@ -1035,6 +1236,17 @@ Use your existing Continuous Integration (CI) and Continuous Delivery (CD) pipel
 **Azure Security Center monitoring**: Not applicable
 
 **Responsibility**: Customer
+
+### 7.8: Deploy configuration management tools for operating systems
+
+>[!NOTE]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/4505).
+
+**Guidance**: Not applicable to App Service. This recommendation is intended for IaaS compute resources.
+
+**Azure Security Center monitoring**: Not applicable
+
+**Responsibility**: Not applicable
 
 ### 7.9: Implement automated configuration monitoring for Azure resources
 
@@ -1050,6 +1262,17 @@ Apply Azure Policy [audit], [deny], and [deploy if not exist], effects to automa
 **Azure Security Center monitoring**: Not applicable
 
 **Responsibility**: Customer
+
+### 7.10: Implement automated configuration monitoring for operating systems
+
+>[!NOTE]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/4507).
+
+**Guidance**: Not applicable to App Service. This recommendation is intended for IaaS compute resources.
+
+**Azure Security Center monitoring**: Not applicable
+
+**Responsibility**: Not applicable
 
 ### 7.11: Manage Azure secrets securely
 
@@ -1095,6 +1318,55 @@ Apply Azure Policy [audit], [deny], and [deploy if not exist], effects to automa
 **Azure Security Center monitoring**: Not applicable
 
 **Responsibility**: Customer
+
+## Malware defense
+
+*For more information, see the [Azure Security Benchmark: Malware defense](../security/benchmarks/security-control-malware-defense.md).*
+
+### 8.1: Use centrally-managed anti-malware software
+
+>[!NOTE]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/4511).
+
+**Guidance**: Not applicable to App Service. This recommendation is intended for IaaS compute resources.
+
+The platform components of App Service, including Azure VMs, storage, network connections, web frameworks, management and integration features, are actively secured and hardened. App Service goes through vigorous compliance checks on a continuous basis to make sure that 24-hour threat management protects the infrastructure and platform against malware, distributed denial-of-service (DDoS), man-in-the-middle (MITM), and other threats.
+
+Microsoft anti-malware is enabled on the underlying host that supports Azure services (for example, Azure Functions), however it does not run on customer content.
+
+**Azure Security Center monitoring**: Not applicable
+
+**Responsibility**: Not applicable
+
+### 8.2: Pre-scan files to be uploaded to non-compute Azure resources
+
+>[!NOTE]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/4512).
+
+**Guidance**: Not applicable to App Service. This recommendation is intended for IaaS compute resources.
+
+The platform components of App Service, including Azure VMs, storage, network connections, web frameworks, management and integration features, are actively secured and hardened. App Service goes through vigorous compliance checks on a continuous basis to make sure that 24-hour threat management protects the infrastructure and platform against malware, distributed denial-of-service (DDoS), man-in-the-middle (MITM), and other threats.
+
+Microsoft anti-malware is enabled on the underlying host that supports Azure services (for example, Azure App Service), however it does not run on customer content.
+
+**Azure Security Center monitoring**: Not applicable
+
+**Responsibility**: Not applicable
+
+### 8.3: Ensure anti-malware software and signatures are updated
+
+>[!NOTE]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/4513).
+
+**Guidance**: Not applicable to App Service. This recommendation is intended for IaaS compute resources.
+
+The platform components of App Service, including Azure VMs, storage, network connections, web frameworks, management and integration features, are actively secured and hardened. App Service goes through vigorous compliance checks on a continuous basis to make sure that 24-hour threat management protects the infrastructure and platform against malware, distributed denial-of-service (DDoS), man-in-the-middle (MITM), and other threats.
+
+Microsoft anti-malware is enabled on the underlying host that supports Azure services (for example, App Service), however it does not run on customer content.
+
+**Azure Security Center monitoring**: Not applicable
+
+**Responsibility**: Not applicable
 
 ## Data recovery
 
