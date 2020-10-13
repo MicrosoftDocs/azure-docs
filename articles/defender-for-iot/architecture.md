@@ -22,7 +22,7 @@ This article describes the functional system architecture of the Defender for Io
 
 ## Defender for IoT components
 
-Defender for IoT connects both to the Azure cloud as well as to on-premises components. The solution is designed for scalability in large and geographically distributed environments with multiple remote locations. This enables a multi-layered distributed architecture by country, region, business unit, or zone. 
+Defender for IoT connects both to the Azure cloud as well as to on-premises components. The solution is designed for scalability in large and geographically distributed environments with multiple remote locations. This solution enables a multi-layered distributed architecture by country, region, business unit, or zone. 
 
 The components include: 
 - Azure Defender for IoT sensors
@@ -46,13 +46,13 @@ Defender for IoT sensors connect to a SPAN port or network TAP and immediately b
  
 Data collection, processing, analysis, and alerting takes place directly on the sensor. This makes it ideally suited for locations with low bandwidth or high latency connectivity, because only metadata is transferred to the management console.
 
-The sensor includes 5 analytics detection engines. The engines trigger alerts based on analysis of both real-time and pre-recorded traffic. The following engines are available: 
+The sensor includes five analytics detection engines. The engines trigger alerts based on analysis of both real-time and pre-recorded traffic. The following engines are available: 
 
 #### Protocol violation detection engine
 The protocol violation detection engine identifies the use of packet structures and field values that violate ICS protocol specifications, for example: Modbus exception, and Initiation of an obsolete function code alerts.
 
 #### Policy violation detection engine
-Using machine learning, the policy violation detection engine alerts users of any deviation from baseline behavior, such as unauthorized use of specific function codes, access to specific objects, or changes to device configuration. For example: DeltaV software version changed, and Unauthorized PLC programming alerts. Specifically, the policy violation engine models the ICS networks as deterministic sequences of states and transitions — using a patented technique called Industrial Finite State Modeling (IFSM). This establishes a baseline of the ICS networks. This means that the platform requires a shorter learning period to build a baseline of the network than generic mathematical approaches or analytics, which were originally developed for IT rather than OT networks.
+Using machine learning, the policy violation detection engine alerts users of any deviation from baseline behavior, such as unauthorized use of specific function codes, access to specific objects, or changes to device configuration. For example: DeltaV software version changed, and Unauthorized PLC programming alerts. Specifically, the policy violation engine models the ICS networks as deterministic sequences of states and transitions—using a patented technique called Industrial Finite State Modeling (IFSM). The policy violation detection engine establishes a baseline of the ICS networks, so that the platform requires a shorter learning period to build a baseline of the network than generic mathematical approaches or analytics, which were originally developed for IT rather than OT networks.
 
 #### Industrial malware detection engine
 The industrial malware detection engine identifies behaviors that indicate the presence of known malware, such as Conficker, Black Energy, Havex, WannaCry,NotPetya, and Triton. 
@@ -65,24 +65,24 @@ The operational incident detection detects operational issues such as intermitte
 
 
 ### Management consoles
-Managing Azure Defender for IoT across hybrid environments is accomplished via two mangement portals: 
+Managing Azure Defender for IoT across hybrid environments is accomplished via two management portals: 
 - Sensor console
 - The on-premises management console
 - The Azure portal
 
 #### Sensor console
-Sensor detections are displayed in the sensor console, where they can be viewed, investigated, and analyzed in a network map, asset inventory, and in an extensive range of reports, for example risk assessment reports, data mining queries and attack vectors. You can also use the console to view and handle threats detected by sensor engines, forward information to 3rd party systems, manage users, and more.
+Sensor detections are displayed in the sensor console, where they can be viewed, investigated, and analyzed in a network map, asset inventory, and in an extensive range of reports, for example risk assessment reports, data mining queries and attack vectors. You can also use the console to view and handle threats detected by sensor engines, forward information to third party systems, manage users, and more.
 
 ![Defender for IoT sensor console](./media/architecture/sensor-console.png)
 
 #### On-premises management console
 The on-premises management console enables security operations center (SOC) operators to manage and analyze alerts aggregated from multiple sensors into one single dashboard and provides an overall view of the health of the OT networks.
 
-This architecture provides a comprehensive unified view of the network at a SOC level, optimized alert handling and the control of operational network security, ensuring that decision-making and risk management remain flawless.
+This architecture provides a comprehensive unified view of the network at a SOC level, optimized alert handling, and the control of operational network security, ensuring that decision-making and risk management remain flawless.
 
 In addition to multi-tenancy, monitoring, data analysis, and centralized sensor remote control, the management console provides additional system maintenance tools (such as alert exclusion) and fully customized reporting features for each of the remote appliances. This scalable architecture supports both local management at a site level, zone level, and global management within the SOC.
 
-The management console can be deployed for high-availability configuration which provides a backup console that periodically receives backups of all configuration files required for recovery. If the master console fails, the local site management appliances will automatically failover to synchronize with the backup console to maintain availability without interruption.
+The management console can be deployed for high-availability configuration, which provides a backup console that periodically receives backups of all configuration files required for recovery. If the master console fails, the local site management appliances will automatically fail over to synchronize with the backup console to maintain availability without interruption.
 
 #### Azure portal
 
@@ -98,7 +98,7 @@ In **Built-in** mode, Defender  for IoT is enabled when you elect to turn on the
 
 ## Embedded security agent: Enhanced mode
 
-In **Enhanced** mode, after turning on the **Security** option in your IoT Hub and installing Defender  for IoT device agents on your devices, the agents collect, aggregate and analyze raw security events from your devices. Raw security events can include IP connections, process creation, user logins, and other security-relevant information. Defender  for IoT device agents also handle event aggregation to help avoid high network throughput. The agents are highly customizable, allowing you to use them for specific tasks, such as sending only important information at the fastest SLA, or for aggregating extensive security information and context into larger segments, avoiding higher service costs.
+In **Enhanced** mode, after turning on the **Security** option in your IoT Hub and installing Defender  for IoT device agents on your devices, the agents collect, aggregate, and analyze raw security events from your devices. Raw security events can include IP connections, process creation, user logins, and other security-relevant information. Defender  for IoT device agents also handle event aggregation to help avoid high network throughput. The agents are highly customizable, allowing you to use them for specific tasks, such as sending only important information at the fastest SLA, or for aggregating extensive security information and context into larger segments, avoiding higher service costs.
 
 Device agents, and other applications use the **Azure send security message SDK** to send security information into Azure IoT Hub. IoT Hub gets this information and forwards it to the Defender for IoT service.
 
