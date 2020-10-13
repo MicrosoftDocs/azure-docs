@@ -20,7 +20,7 @@ This article shows you how to create a Device Provisioning Service individual en
 * Create an individual enrollment for the device.
 * Install the IoT Edge runtime and connect to the IoT Hub.
 
-Symmetric key attestation is a simple approach to authenticating a device with a Device Provisioning Service instance. This attestation method represents a "Hello world" experience for developers who are new to device provisioning, or do not have strict security requirements. Device attestation using a [TPM](../iot-dps/concepts-tpm-attestation.md) or [X.509 certificates](../iot-dps/concepts-security.md#x509-certificates) is more secure, and should be used for more stringent security requirements.
+Symmetric key attestation is a simple approach to authenticating a device with a Device Provisioning Service instance. This attestation method represents a "Hello world" experience for developers who are new to device provisioning, or do not have strict security requirements. Device attestation using a [TPM](../iot-dps/concepts-tpm-attestation.md) or [X.509 certificates](../iot-dps/concepts-service.md#x509-certificates) is more secure, and should be used for more stringent security requirements.
 
 ## Prerequisites
 
