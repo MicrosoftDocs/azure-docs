@@ -11,9 +11,9 @@ ms.reviewer: sngun
 
 # Troubleshoot query issues when using Azure Cosmos DB's API for MongoDB
 
-This article walks through a general recommended approach for troubleshooting queries in Azure Cosmos DB. Although you shouldn't consider the steps outlined in this article a complete defense against potential query issues, we've included the most common performance tips here. You should use this article as a starting place for troubleshooting slow or expensive queries in Azure Cosmos DB's API for MongoDB. If you are using the Azure Cosmos DB core (SQL) API, you should use the [SQL API query troubleshooting guide](troubleshoot-query-performance.md)
+This article walks through a general recommended approach for troubleshooting queries in Azure Cosmos DB. Although you shouldn't consider the steps outlined in this article a complete defense against potential query issues, we've included the most common performance tips here. You should use this article as a starting place for troubleshooting slow or expensive queries in Azure Cosmos DB's API for MongoDB. If you are using the Azure Cosmos DB core (SQL) API, see the [SQL API query troubleshooting guide](troubleshoot-query-performance.md) article.
 
-You can broadly categorize query optimizations in Azure Cosmos DB:
+Query optimizations in Azure Cosmos DB are broadly categorized as follows:
 
 - Optimizations that reduce the Request Unit (RU) charge of the query
 - Optimizations that just reduce latency
@@ -23,13 +23,13 @@ If you reduce the RU charge of a query, you'll typically decrease latency as wel
 This article provides examples that you can re-create by using the [nutrition dataset](https://github.com/CosmosDB/labs/blob/master/dotnet/setup/NutritionData.json).
 
 > [!NOTE] 
-> This article assumes you are using version 3.6 of Azure Cosmos DB"s API for MongoDB. Some queries that perform poorly in version 3.2 will see significant improvements in version 3.6. Upgrade to version 3.6 by filing a [support request](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
+> This article assumes you are using version 3.6 of Azure Cosmos DB"s API for MongoDB. Some queries that perform poorly in version 3.2 have significant improvements in version 3.6. Upgrade to version 3.6 by filing a [support request](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
 
-## Use $explain to obtain metrics
+## Use $explain command to get metrics
 
-When you optimize a query in Azure Cosmos DB, the first step is always to [obtain the RU charge](find-request-unit-charge.md#azure-cosmos-db-api-for-mongodb) for your query. If your RU charge is greater than 50 RUs, you should explore ways to lower the RU charge. 
+When you optimize a query in Azure Cosmos DB, the first step is always to [obtain the RU charge](find-request-unit-charge.md#azure-cosmos-db-api-for-mongodb) for your query. As a rough guideline, you should explore ways to lower the RU charge for queries with charges greater than 50 RUs. 
 
-In addition to obtaining the RU charge, you should use `$explain` to obtain the query and index usage metrics. Here is an example that runs a query and uses `$explain` to show the query and index usage metrics:
+In addition to obtaining the RU charge, you should use the `$explain` command to obtain the query and index usage metrics. Here is an example that runs a query and uses the `$explain` command to show query and index usage metrics:
 
 **$explain command:**
 
@@ -116,7 +116,7 @@ The `$explain` command output is lengthy and has detailed information about quer
 | `outputDocumentCount` | Number of documents returned in the query results | 
 | `estimatedDelayFromRateLimitingInMilliseconds` | Estimated additional query latency due to rate limiting | 
 
-After you get the query metrics, compare the `retrievedDocumentCount` with the `outputDocumentCount` for your query. Use this comparison to identify the relevant sections to review in this article. The `retrievedDocumentCount`  is the number of documents that the query engine needed to load. The `outputDocumentCount` is the number of documents that were needed for the results of the query. If the `retrievedDocumentCount`  is significantly higher than the `outputDocumentCount`, there was at least one part of your query that was unable to use an index and needed to do a scan.
+After you get the query metrics, compare the `retrievedDocumentCount` with the `outputDocumentCount` for your query. Use this comparison to identify the relevant sections to review in this article. The `retrievedDocumentCount`  is the number of documents that the query engine needs to load. The `outputDocumentCount` is the number of documents that were needed for the results of the query. If the `retrievedDocumentCount`  is significantly higher than the `outputDocumentCount`, there was at least one part of your query that was unable to use an index and needed to do a scan.
 
 Refer to the following sections to understand the relevant query optimizations for your scenario.
 
@@ -138,7 +138,7 @@ Refer to the following sections to understand the relevant query optimizations f
 
 - [Increase provisioned throughput.](#increase-provisioned-throughput)
 
-## Queries where Retrieved Document Count exceeds Output Document Count
+## Queries where retrieved document count exceeds output document count
 
  The `retrievedDocumentCount` is the number of documents that the query engine needed to load. The `outputDocumentCount` is the number of documents returned by the query. If the `retrievedDocumentCount` is significantly higher than the `outputDocumentCount`, there was at least one part of your query that was unable to use an index and needed to do a scan.
 
@@ -275,9 +275,9 @@ In this case, indexes can optimize the `$match` stage. Adding an index for `food
 
 In Azure Cosmos DB's API for MongoDB, indexes are not used for the actual aggregation, which in this case is `$max`. Adding an index on `version` will not improve query performance.
 
-## Queries where Retrieved Document Count is equal to Output Document Count
+## Queries where retrieved document count is equal to Output Document Count
 
-If the **Retrieved Document Count** is approximately equal to the **Output Document Count**, the query engine didn't have to scan many unnecessary documents.
+If the `retrievedDocumentCount` is approximately equal to the `outputDocumentCount`, the query engine didn't have to scan many unnecessary documents.
 
 ### Minimize cross partition queries
 
