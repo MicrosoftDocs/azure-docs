@@ -85,6 +85,6 @@ The firewall rules take 5-10 minutes to get updated after which indexers will be
 
 Now that you know how to get the two sets of IP addresses to allow access for indexes, use the following links to update the IP firewall rules for some common data sources.
 
-- [Configure Azure Storage firewalls](https://docs.microsoft.com/azure/storage/common/storage-network-security)
-- [Configure IP firewall for CosmosDB](https://docs.microsoft.com/azure/cosmos-db/firewall-support)
-- [Configure IP firewall for Azure SQL server](https://docs.microsoft.com/azure/sql-database/sql-database-firewall-configure)
+- [Configure Azure Storage firewalls](../storage/common/storage-network-security.md)
+- [Configure IP firewall for CosmosDB](../cosmos-db/firewall-support.md)
+- [Configure IP firewall for Azure SQL server](../azure-sql/database/firewall-configure.md)

@@ -185,6 +185,9 @@
       - name: Review and remediate vulnerabilities on your VMs
         displayName: qualys, rapid7, vulnerability
         href: remediate-vulnerability-findings-vm.md
+      - name: Disable specific vulnerability findings
+        displayName: qualys, rapid7, vulnerability
+        href: remediate-vulnerability-findings-vm.md#disable-specific-findings-preview
     - name: Secure management ports with just-in-time VM access
       items:
       - name: Overview of just-in-time VM access
@@ -240,7 +243,8 @@
       href: security-center-incident.md
     - name: Generate threat intelligence reports
       href: security-center-threat-report.md
-    - name: Validate your alert configuration (EICAR test file)
+    - name: Validate your alert configuration
+      displayname: eicar, Kubernetes, Linux
       href: security-center-alert-validation.md
     - name: Automate responses to alerts
       displayName: workflow
