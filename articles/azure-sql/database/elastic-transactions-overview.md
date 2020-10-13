@@ -26,7 +26,7 @@ In this document terms "distributed transactions" and "elastic database transact
 
 ## Common scenarios
 
-Elastic database transactions enable applications to make atomic changes to data stored in several different databases. The preview focuses on client-side development experiences in C# and .NET. A server-side experience (code written in stored procedures or server-side scripts) using [Transact-SQL](https://docs.microsoft.com/sql/t-sql/language-elements/begin-distributed-transaction-transact-sql) is available for Managed Instance only. For SQL Database it is planned for a later time.
+Elastic database transactions enable applications to make atomic changes to data stored in several different databases. The preview focuses on client-side development experiences in C# and .NET. A server-side experience (code written in stored procedures or server-side scripts) using [Transact-SQL](https://docs.microsoft.com/sql/t-sql/language-elements/begin-distributed-transaction-transact-sql) is available for Managed Instance only.
 > [!IMPORTANT]
 > In preview, running elastic database transactions between Azure SQL Database and Azure SQL Managed Instance is not supported at the moment. Elastic database transaction can only span across set of SQL Databases or set of Managed Instances.
 
