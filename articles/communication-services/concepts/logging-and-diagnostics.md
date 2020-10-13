@@ -26,7 +26,7 @@ https://docs.microsoft.com/azure/azure-monitor/platform/resource-logs-schema
 
 ## Enable diagnostic logs in your resource
 
-Logging is turned off by default when a a resource is created, and you'll need to go into the resource to enable it. 
+Logging is turned off by default when a resource is created, and you'll need to go into the resource to enable it. 
 
 Navigate to the **Diagnostic settings** blade in the resource menu under the **Monitoring** section. Then click on **Add diagnostic setting**. 
 
@@ -56,8 +56,8 @@ Communication Services has three types of logs you can enable:
 | Correlation ID | The ID for correlated events. Can be used to identify correlated events between multiple tables. |
 | Properties | Other data applicable to various modes of Communication Services. |
 | Record ID | The unique id for a given usage record. |
-| Usage Type | The mode of usage. (e.g. Chat, PSTN, NAT, etc.) |
-| Unit Type | The type of unit that usage is based off for a given mode of usage. (e.g. minutes, MegaBytes, messages, etc.). |
+| Usage Type | The mode of usage. (for example, Chat, PSTN, NAT, etc.) |
+| Unit Type | The type of unit that usage is based off for a given mode of usage. (for example, minutes, MegaBytes, messages, etc.). |
 | Quantity | The number of units used or consumed for this record. |
 
 ### Chat operational logs
