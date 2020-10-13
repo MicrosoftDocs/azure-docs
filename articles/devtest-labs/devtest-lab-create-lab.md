@@ -48,9 +48,9 @@ On the page, you can enable **Auto-shutdown** and define the parameters for the 
 
 ### Networking
 
-When creating a lab, a default network will be created for you (that can be changed/configured later), or an existing virtual network can be selected.
+When creating a lab, a default network will be created for you.
 
-Switch to the **Networking** tab to specify custom networking settings. 
+Switch to the **Networking** tab to changed/configure the setting as you like. For example, select an existing virtual network.
 
 ### Tags
 
