@@ -94,7 +94,7 @@ The following <a name="snatporttable"></a>table shows the SNAT port preallocatio
 Azure Load Balancer outbound rules and Virtual Network NAT are options available for egress from a virtual network.
 
 <!---Will add link here when the outbound rules doc is published and link is available in the branch--->
-For more information about outbound rules, see **Outbound rules**.
+For more information about outbound rules, see [Outbound rules](outbound-rules.md).
 
 For more information about Azure Virtual Network NAT, see [What is Azure Virtual Network NAT](../virtual-network/nat-overview.md).
 
