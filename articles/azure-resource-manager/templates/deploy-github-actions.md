@@ -12,7 +12,7 @@ ms.custom: github-actions-azure,subject-armqs
 
 Use the [Deploy Azure Resource Manager Template Action](https://github.com/marketplace/actions/deploy-azure-resource-manager-arm-template) to automate deploying a Resource Manager template to Azure. 
 
-[!INCLUDE [About Azure Resource Manager](~/../azure-docs/includes/resource-manager-quickstart-introduction.md)]
+[!INCLUDE [About Azure Resource Manager](../../../includes/resource-manager-quickstart-introduction.md)
 
 ## Prerequisites
 
