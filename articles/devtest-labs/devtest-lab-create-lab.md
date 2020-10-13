@@ -23,7 +23,10 @@ By clicking the following link, you will be transferred to the Azure portal page
 
 ## Fill out settings for your new account
 
-On the **Create a DevTest Labs** page, fill out the following settings. At the bottom of each page, you will find a link that allows you to **download a template for automation**.
+On the **Create a DevTest Labs** page, fill out the following settings.
+
+> [!TIP]
+> At the bottom of each page, you will find a link that allows you to **download a template for automation**.
 
 ### Basic settings
 
