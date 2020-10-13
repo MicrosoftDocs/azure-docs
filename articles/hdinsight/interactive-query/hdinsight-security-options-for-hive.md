@@ -22,7 +22,7 @@ For standard clusters, the recommended setting for HiveServer2 authentication is
 
 For ESP clusters, [Kerberos](https://web.mit.edu/Kerberos/) authentication is enabled by default. Pluggable Authentication Modules (PAM) and custom authentication schemes are not supported.
 
-## HiveServer2 Authorization
+## HiveServer2 authorization
 
 For standard clusters, the default setting is None. [SqlStdAuth (SQL Standards Based Authorization)](https://cwiki.apache.org/confluence/display/Hive/SQL+Standard+based+hive+authorization) can be enabled. Authorization through [Apache Ranger](https://ranger.apache.org/) is not supported for standard clusters. We recommend upgrading to an ESP cluster for Ranger Authorization. 
 
