@@ -4,7 +4,7 @@ description: Get answers to frequently asked questions about the Cassandra API f
 author: TheovanKraay
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 04/09/2020
+ms.date: 08/12/2020
 ms.author: thvankra
 ---
 # Frequently asked questions about the Cassandra API in Azure Cosmos DB
@@ -73,13 +73,13 @@ Diagnostic logs are explained in the [Azure Cosmos DB diagnostic logging](loggin
 
 ### Does the primary key map to the partition key concept of Azure Cosmos DB?
 
-Yes, the partition key is used to place the entity in the right location. In Azure Cosmos DB, it's used to find the right logical partition that's stored on a physical partition. The partitioning concept is well explained in the [Partition and scale in Azure Cosmos DB](partition-data.md) article. The essential takeaway here is that a logical partition shouldn't go over the 10-GB limit.
+Yes, the partition key is used to place the entity in the right location. In Azure Cosmos DB, it's used to find the right logical partition that's stored on a physical partition. The partitioning concept is well explained in the [Partition and scale in Azure Cosmos DB](partition-data.md) article. The essential takeaway here is that a logical partition shouldn't go over the 20-GB limit.
 
 ### What happens when I get a notification that a partition is full?
 
 Azure Cosmos DB is a system based on service-level agreement (SLA). It provides unlimited scale, with guarantees for latency, throughput, availability, and consistency. This unlimited storage is based on horizontal scale-out of data, using partitioning as the key concept. The partitioning concept is well explained in the [Partition and scale in Azure Cosmos DB](partition-data.md) article.
 
-You should adhere to the 10-GB limit on the number of entities or items per logical partition. To ensure that your application scales well, we recommend that you *not* create a hot partition by storing all information in one partition and querying it. This error can come only if your data is skewed: that is, you have lot of data for one partition key (more than 10&nbsp;GB). You can find the distribution of data by using the storage portal. The way to fix this error is to re-create the table and choose a granular primary (partition key), which allows better distribution of data.
+You should adhere to the 20-GB limit on the number of entities or items per logical partition. To ensure that your application scales well, we recommend that you *not* create a hot partition by storing all information in one partition and querying it. This error can come only if your data is skewed: that is, you have lot of data for one partition key (more than 20 GB). You can find the distribution of data by using the storage portal. The way to fix this error is to re-create the table and choose a granular primary (partition key), which allows better distribution of data.
 
 ### Can I use the Cassandra API as a key value store with millions or billions of partition keys?
 

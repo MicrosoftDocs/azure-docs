@@ -2,12 +2,12 @@
 title: 'Azure ExpressRoute: Optimize routing'
 description: This page provides details on how to optimize routing when you have more than one ExpressRoute circuits that connect between Microsoft and your corp network.
 services: expressroute
-author: charwen
+author: duongau
 
 ms.service: expressroute
 ms.topic: how-to
 ms.date: 07/11/2019
-ms.author: charwen
+ms.author: duau
 
 
 ---
@@ -24,7 +24,7 @@ It's important to ensure that when utilizing Microsoft or Public peering that tr
 
 Consider the following example scenario:
 
-![ExpressRoute Case 1 problem - suboptimal routing from customer to Microsoft](./media/expressroute-optimize-routing/expressroute-localPreference.png)
+![Diagram that shows the ExpressRoute Case 1 problem - suboptimal routing from customer to Microsoft](./media/expressroute-optimize-routing/expressroute-localPreference.png)
 
 In the above example, to prefer ExpressRoute paths configure Local Preference as follows. 
 

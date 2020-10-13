@@ -6,10 +6,10 @@ ms.service: sql-db-mi
 ms.subservice: features
 ms.custom: sqldbrb=1
 ms.devlang: 
-ms.topic: overview
-author: jovanpop-msft
-ms.author: jovanpop
-ms.reviewer: carlr
+ms.topic: conceptual
+author: stevestein
+ms.author: sstein
+ms.reviewer:
 ms.date: 03/10/2020
 ---
 # Automate management tasks using database jobs
@@ -45,7 +45,7 @@ The following job scheduling technologies are available:
 - **SQL Agent Jobs** are classic and battle-tested SQL Server job scheduling component that is available in Azure SQL Managed Instance. SQL Agent Jobs are not available in Azure SQL Database.
 - **Elastic Database Jobs (preview)** are Job Scheduling services that execute custom jobs on one or many databases in Azure SQL Database.
 
-It is worth noting a couple of differences between SQL Agent (available on-premises and as part of SQL Managed Instance), and the Database Elastic Job agent (available for single databases in Azure SQL Database and databases in SQL Data Warehouse).
+It is worth noting a couple of differences between SQL Agent (available on-premises and as part of SQL Managed Instance), and the Database Elastic Job agent (available for single databases in Azure SQL Database and databases in Azure Synapse Analytics).
 
 | |Elastic Jobs |SQL Agent |
 |---------|---------|---------|
@@ -243,7 +243,7 @@ The following examples show how different target group definitions are dynamical
 **Example 4** shows a target group that contains an elastic pool as a target. Similar to *Example 2*, the pool will be dynamically enumerated at job run time to determine the list of databases in the pool.
 <br><br>
 
-![Target group examples](./media/job-automation-overview/targetgroup-examples2.png)
+![Additional target group examples](./media/job-automation-overview/targetgroup-examples2.png)
 
 **Example 5** and **Example 6** show advanced scenarios where servers, elastic pools, and databases can be combined using include and exclude rules.<br>
 **Example 7** shows that the shards in a shard map can also be evaluated at job run time.

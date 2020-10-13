@@ -12,21 +12,21 @@ ms.workload: web
 
 # Create two web apps connected securely with Private Endpoint and VNet integration
 
-This article illustrates an example use of [Private Endpoint](https://docs.microsoft.com/azure/app-service/networking/private-endpoint) and regional [VNet integration](https://docs.microsoft.com/azure/app-service/web-sites-integrate-with-vnet) to connect two web apps (frontend and backend) securely following these steps:
+This article illustrates an example use of [Private Endpoint](../networking/private-endpoint.md) and regional [VNet integration](../web-sites-integrate-with-vnet.md) to connect two web apps (frontend and backend) securely following these steps:
 - Deploy a VNet
 - Create the first subnet for the integration
 - Create the second subnet for the private endpoint, you have to set a specific parameter to disable network policies
-- Deploy one App Service Plan of type PremiumV2, minimum SKU required for Private Endpoint feature
-- Create the frontend web app with specific app settings to consume the private DNS zone, [more details](https://docs.microsoft.com/azure/app-service/web-sites-integrate-with-vnet#azure-dns-private-zones)
+- Deploy one App Service plan of type PremiumV2 or PremiumV3, required for Private Endpoint feature
+- Create the frontend web app with specific app settings to consume the private DNS zone, [more details](../web-sites-integrate-with-vnet.md#azure-dns-private-zones)
 - Connect the frontend web app to the integration subnet
 - Create the backend web app
 - Create the DNS private zone with the name of the private link zone for web app privatelink.azurewebsites.net
 - Link this zone to the VNet
-- Create the private endpoint for the backend web app in the endpoint subnet, and register the DNS names in the previously created DNS private zone
+- Create the private endpoint for the backend web app in the endpoint subnet, and register DNS names (website and SCM) in the previously created DNS private zone
 
 ## How to use terraform in Azure
 
-Browse to the [Azure portal](https://docs.microsoft.com/azure/developer/terraform/) to learn how to use terraform with Azure.
+Browse to the [Azure documentation](/azure/developer/terraform/) to learn how to use terraform with Azure.
 
 ## The complete terraform file
 
@@ -144,4 +144,4 @@ resource "azurerm_private_endpoint" "privateendpoint" {
 ## Next steps
 
 
-> [Learn more about using Terraform in Azure](https://docs.microsoft.com/azure/developer/terraform/)
+> [Learn more about using Terraform in Azure](/azure/developer/terraform/)

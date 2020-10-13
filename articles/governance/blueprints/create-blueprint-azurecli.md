@@ -25,10 +25,11 @@ To enable Azure CLI to manage blueprint definitions and assignments, the extensi
 This extension works wherever Azure CLI can be used, including
 [bash on Windows 10](/windows/wsl/install-win10), [Cloud Shell](https://shell.azure.com) (both
 standalone and inside the portal), the [Azure CLI Docker
-image](https://hub.docker.com/r/microsoft/azure-cli/), or locally installed.
+image](https://hub.docker.com/_/microsoft-azure-cli), or locally installed.
 
 1. Check that the latest Azure CLI is installed (at least **2.0.76**). If it isn't yet installed,
-   follow [these instructions](/cli/azure/install-azure-cli-windows?view=azure-cli-latest).
+   follow
+   [these instructions](/cli/azure/install-azure-cli-windows).
 
 1. In your Azure CLI environment of choice, import it with the following command:
 

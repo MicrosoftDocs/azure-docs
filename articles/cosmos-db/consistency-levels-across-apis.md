@@ -44,7 +44,7 @@ While using Azure Cosmos DB’s API for MongoDB:
 
 * Azure Cosmos DB will dynamically map the read concern specified by the MongoDB client driver to one of the Azure Cosmos DB consistency levels that is configured dynamically on a read request.  
 
-* You can annotate a specific region associated with your Azure Cosmos account as "Master" by making the region as the first writable region. 
+* You can annotate a specific region associated with your Azure Cosmos account as "Primary" by making the region as the first writable region. 
 
 The following table illustrates how the native MongoDB write/read concerns are mapped to the Azure Cosmos consistency levels when using Azure Cosmos DB’s API for MongoDB:
 

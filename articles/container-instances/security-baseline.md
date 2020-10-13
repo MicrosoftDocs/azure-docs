@@ -6,7 +6,7 @@ ms.service: security
 ms.topic: conceptual
 ms.date: 05/27/2020
 ms.author: mbaldwin
-ms.custom: security-benchmark
+ms.custom: subject-security-benchmark
 
 # Important: This content is machine generated; do not modify this topic directly. Contact mbaldwin for more information.
 
@@ -153,7 +153,7 @@ You may also use Application Security Groups to help simplify complex security c
 
 ### 1.9: Maintain standard security configurations for network devices
 
-**Guidance**: You may also use Azure Blueprints to simplify large scale Azure deployments by packaging key environment artifacts, such as Azure Resources Manager templates, RBAC controls, and policies, in a single blueprint definition. You can apply the blueprint to new subscriptions, and fine-tune control and management through versioning. 
+**Guidance**: You may also use Azure Blueprints to simplify large scale Azure deployments by packaging key environment artifacts, such as Azure Resources Manager templates, Azure RBAC controls, and policies, in a single blueprint definition. You can apply the blueprint to new subscriptions, and fine-tune control and management through versioning. 
 
 * [How to configure and manage Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
@@ -555,9 +555,9 @@ For the underlying platform which is managed by Microsoft, Microsoft treats all 
 
 ### 4.6: Use Azure RBAC to control access to resources
 
-**Guidance**: Use Azure AD RBAC to control access to Azure Container Instances data and resources. 
+**Guidance**: Use Azure role-based access control (Azure RBAC) to control access to Azure Container Instances data and resources. 
 
-* [How to configure RBAC in Azure](../role-based-access-control/role-assignments-portal.md)
+* [How to configure Azure RBAC](../role-based-access-control/role-assignments-portal.md)
 
 
 **Azure Security Center monitoring**: Not applicable
@@ -921,13 +921,13 @@ Use a custom or third party solution to patch container images. If you store con
 
 ### 7.6: Securely store custom operating system images
 
-**Guidance**: Store container images in Azure Container Registry and leverage RBAC to ensure only authorized users may access the images.
+**Guidance**: Store container images in Azure Container Registry and leverage Azure RBAC to ensure only authorized users may access the images.
 
-* [Understand RBAC in Azure](../role-based-access-control/rbac-and-directory-admin-roles.md)
+* [Understand Azure RBAC](../role-based-access-control/rbac-and-directory-admin-roles.md)
 
-* [Understand RBAC for Container Registry](../container-registry/container-registry-roles.md)
+* [Understand Azure RBAC for Container Registry](../container-registry/container-registry-roles.md)
 
-* [How to configure RBAC in Azure](../role-based-access-control/quickstart-assign-role-user-portal.md)
+* [How to configure Azure RBAC](../role-based-access-control/quickstart-assign-role-user-portal.md)
 
 
 **Azure Security Center monitoring**: Not applicable
@@ -986,7 +986,9 @@ Use Azure Policy to put restrictions on the type of resources that can be create
 
 * [How to create a Key Vault](../key-vault/secrets/quick-create-portal.md)
 
-* [How to provide Key Vault authentication with a managed identity](../key-vault/general/managed-identity.md)
+* [How to authenticate to Key Vault](../key-vault/general/authentication.md)
+
+* [How to assign a Key Vault access policy](../key-vault/general/assign-access-policy-portal.md)
 
 * [How to use managed identities with Azure Container Instances](./container-instances-managed-identity.md)
 

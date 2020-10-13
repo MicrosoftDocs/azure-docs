@@ -2,21 +2,15 @@
 title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Druva | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and Druva.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-
-ms.assetid: ab92b600-1fea-4905-b1c7-ef8e4d8c495c
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 03/06/2020
 ms.author: jeedes
-
-ms.collection: M365-identity-device-management
 ---
 
 # Tutorial: Azure Active Directory single sign-on (SSO) integration with Druva
@@ -147,7 +141,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 1. On the **Single Sign-On** tab, click **Edit**.
 
-	![Single Sign-On Settings](./media/druva-tutorial/ic795092.png "Single Sign-On Settings")
+	![Screenshot that shows the "Access Settings - Single Sign-On" tab with the "Edit" button selected.](./media/druva-tutorial/ic795092.png "Single Sign-On Settings")
 
 1. On the **Edit Single Sign-On Settings** page, perform the following steps:
 

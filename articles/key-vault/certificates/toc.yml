@@ -21,9 +21,6 @@
 
 - name: Samples
   items:
-  - name: Azure Policy built-ins
-    displayName: samples, policies, definitions
-    href: ../policy-samples.md?toc=/azure/key-vault/certificates/toc.json&bc=/azure/key-vault/breadcrumb/toc.json
   - name: Key Vault Code Samples
     href: https://docs.microsoft.com/samples/browse/?expanded=azure&products=azure-key-vault
 
@@ -50,6 +47,8 @@
     href: how-to-integrate-certificate-authority.md
   - name: Troubleshooting - Import certificates
     href: import-cert-faqs.md
+  - name: Export certificate from key vault
+    href: how-to-export-certificate.md
 
 - name: Reference
   items:
@@ -70,6 +69,9 @@
   - name: Resource Manager template
     href: /azure/templates/microsoft.keyvault/allversions
     displayName: ARM
+  - name: Azure Policy built-ins
+    displayName: samples, policies, definitions
+    href: ../policy-reference.md?toc=/azure/key-vault/certificates/toc.json&bc=/azure/key-vault/breadcrumb/toc.json
 
 - name: Resources
   items:

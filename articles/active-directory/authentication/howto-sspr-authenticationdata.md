@@ -8,12 +8,13 @@ ms.subservice: authentication
 ms.topic: how-to
 ms.date: 07/17/2020
 
-ms.author: iainfou
-author: iainfoulds
+ms.author: joflore
+author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: rhicock
 
-ms.collection: M365-identity-device-management
+ms.collection: M365-identity-device-management 
+ms.custom: devx-track-azurepowershell
 ---
 # Pre-populate user authentication contact information for Azure Active Directory self-service password reset (SSPR)
 
@@ -85,7 +86,7 @@ The following fields can be set through PowerShell:
 
 ### Use PowerShell version 1
 
-To get started, [download and install the Azure AD PowerShell module](https://msdn.microsoft.com/library/azure/jj151815.aspx#bkmk_installmodule). After it's installed, use the following steps to configure each field.
+To get started, [download and install the Azure AD PowerShell module](/previous-versions/azure/jj151815(v=azure.100)#bkmk_installmodule). After it's installed, use the following steps to configure each field.
 
 #### Set the authentication data with PowerShell version 1
 
@@ -123,7 +124,7 @@ Get-MsolUser -UserPrincipalName user@domain.com | select -Expand StrongAuthentic
 
 ### Use PowerShell version 2
 
-To get started, [download and install the Azure AD version 2 PowerShell module](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0).
+To get started, [download and install the Azure AD version 2 PowerShell module](/powershell/module/azuread/?view=azureadps-2.0).
 
 To quickly install from recent versions of PowerShell that support `Install-Module`, run the following commands. The first line checks to see if the module is already installed:
 

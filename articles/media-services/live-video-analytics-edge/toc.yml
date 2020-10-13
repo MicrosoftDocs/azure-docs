@@ -17,11 +17,27 @@
   - name: Detect motion, record video to Media Services
     href: detect-motion-record-video-clips-media-services-quickstart.md  
   - name: Detect motion and emit events
-    href: detect-motion-emit-events-quickstart.md
+    items:
+    - name: Using direct method calls
+      displayName: detect motion, emit events
+      href: detect-motion-emit-events-quickstart.md
   - name: Detect motion, record video on edge devices
-    href: detect-motion-record-video-clips-edge-devices-quickstart.md
-  - name: Run Live Video Analytics with your own model
-    href: use-your-model-quickstart.md
+    items:
+    - name: Using direct method calls
+      displayName: detect motion, record video on edge devices
+      href: detect-motion-record-video-clips-edge-devices-quickstart.md
+  - name: Analyze live video with your own model
+    items:
+    - name: with HTTP extension
+      items:
+      - name: Using direct method calls
+        displayName: analyze, your own model, http
+        href: use-your-model-quickstart.md
+    - name: with gRPC extension
+      items:
+      - name: Using direct method calls
+        displayName: analyze, your own model, grpc
+        href: analyze-live-video-use-your-grpc-model-quickstart.md
 - name: Tutorials
   items:
   - name: Continuous video recording  
@@ -30,14 +46,27 @@
     href: event-based-video-recording-tutorial.md   
   - name: Playback multi-day recordings
     href: playback-multi-day-recordings-tutorial.md
+  - name: Analyze live video
+    items:
+    - name: With OVMS via HTTP extension
+      displayName: intel, OpenVINO 
+      href: use-intel-openvino-tutorial.md  
+    - name: Use Custom Vision
+      href: custom-vision-tutorial.md  
+    - name: Use Spatial Analysis
+      href: spatial-analysis-tutorial.md
 - name: Samples
   items:
-  - name: Live Video Analytics on IoT Edge C# samples
+  - name: C# Direct Method samples
     href: https://github.com/Azure-Samples/live-video-analytics-iot-edge-csharp
+  - name: Python Direct Method samples
+    href: https://github.com/Azure-Samples/live-video-analytics-iot-edge-python
 - name: Concepts
   items:
   - name: Media graph
     href: media-graph-concept.md
+  - name: Media graph extension
+    href: media-graph-extension-concept.md
   - name: Video recording 
     href: video-recording-concept.md
   - name: Video playback
@@ -62,14 +91,20 @@
     href: playback-recordings-how-to.md 
   - name: Manage recording policy
     href: manage-recording-policy-how-to.md
-  - name: Analyze live video with AI of your choice
-    href: analyze-with-ai-your-choice-how-to.md
   - name: Invoke direct methods with the portal
     href: use-azure-portal-to-invoke-direct-methods.md
+  - name: Deploy on Azure Stack Edge
+    href: deploy-azure-stack-edge-how-to.md    
   - name: Troubleshoot
     href: troubleshoot-how-to.md
 - name: Reference
   items:
+  - name: HTTP extension protocol
+    href: http-extension-protocol.md
+  - name: gRPC extension protocol
+    href: grpc-extension-protocol.md  
+  - name: Inference metadata schema
+    href: inference-metadata-schema.md  
   - name: Direct methods
     href: direct-methods.md
   - name: Module Twin configuration schema  

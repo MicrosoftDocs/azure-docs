@@ -25,9 +25,62 @@ The rest of this article provides examples of how to use these operations.
 
 ## Query syntax
 
-This section contains sample queries that illustrate the query language structure and perform possible query operations.
+This section contains sample queries that illustrate the query language structure and perform possible query operations on [digital twins](concepts-twins-graph.md).
 
-Get [digital twins](concepts-twins-graph.md) by properties (including ID and metadata):
+### Show all existing digital twins
+
+Here is the basic query that will return a list of all digital twins in the instance:
+
+```sql
+SELECT *
+FROM DIGITALTWINS
+```
+
+### Select top items
+
+You can select the several "top" items in a query using the `Select TOP` clause.
+
+```sql
+SELECT TOP (5)
+FROM DIGITALTWINS
+WHERE ...
+```
+
+### Count items
+
+You can count the number of items in a result set using the `Select COUNT` clause:
+
+```sql
+SELECT COUNT() 
+FROM DIGITALTWINS
+``` 
+
+Add a `WHERE` clause to count the number of items that meet a certain criteria. Here are some examples of counting with an applied filter based on the type of twin model (for more on this syntax, see [*Query by model*](#query-by-model) below):
+
+```sql
+SELECT COUNT() 
+FROM DIGITALTWINS 
+WHERE IS_OF_MODEL('dtmi:sample:Room;1') 
+SELECT COUNT() 
+FROM DIGITALTWINS c 
+WHERE IS_OF_MODEL('dtmi:sample:Room;1') AND c.Capacity > 20
+```
+
+You can also use `COUNT` along with the `JOIN` clause. Here is a query that counts all the light bulbs contained in the light panels of rooms 1 and 2:
+
+```sql
+SELECT COUNT()  
+FROM DIGITALTWINS Room  
+JOIN LightPanel RELATED Room.contains  
+JOIN LightBulb RELATED LightPanel.contains  
+WHERE IS_OF_MODEL(LightPanel, 'dtmi:contoso:com:lightpanel;1')  
+AND IS_OF_MODEL(LightBulb, 'dtmi:contoso:com:lightbulb ;1')  
+AND Room.$dtId IN ['room1', 'room2'] 
+```
+
+### Query by property
+
+Get digital twins by **properties** (including ID and metadata):
 ```sql
 SELECT  * 
 FROM DigitalTwins T  
@@ -39,24 +92,29 @@ AND T.Temperature = 70
 > [!TIP]
 > The ID of a digital twin is queried using the metadata field `$dtId`.
 
-You can also get twins by their *tag* properties, as described in [Add tags to digital twins](how-to-use-tags.md):
+You can also get twins based on **whether a certain property is defined**. Here is a query that gets twins that have a defined *Location* property:
+
+```sql
+SELECT *​
+FROM DIGITALTWINS WHERE IS_DEFINED(Location)
+```
+
+This can help you to get twins by their *tag* properties, as described in [Add tags to digital twins](how-to-use-tags.md). Here is a query that gets all twins tagged with *red*:
+
 ```sql
 select * from digitaltwins where is_defined(tags.red) 
 ```
 
-### Select top items
-
-You can select the several "top" items in a query using the `Select TOP` clause.
+You can also get twins based on the **type of a property**. Here is a query that gets twins whose *Temperature* property is a number:
 
 ```sql
-SELECT TOP (5)
-FROM DIGITALTWINS
-WHERE property = 42
+SELECT * FROM DIGITALTWINS​ T
+WHERE IS_NUMBER(T.Temperature)
 ```
 
 ### Query by model
 
-The `IS_OF_MODEL` operator can be used to filter based on the twin's [model](concepts-models.md). It supports inheritance and has several overload options.
+The `IS_OF_MODEL` operator can be used to filter based on the twin's [**model**](concepts-models.md). It supports inheritance and has several overload options.
 
 The simplest use of `IS_OF_MODEL` takes only a `twinTypeName` parameter: `IS_OF_MODEL(twinTypeName)`.
 Here is a query example that passes a value in this parameter:
@@ -88,7 +146,7 @@ SELECT ROOM FROM DIGITALTWINS DT WHERE IS_OF_MODEL(DT, 'dtmi:sample:thing;1', ex
 
 ### Query based on relationships
 
-When querying based on digital twins' relationships, Azure Digital Twins query language has a special syntax.
+When querying based on digital twins' **relationships**, the Azure Digital Twins query language has a special syntax.
 
 Relationships are pulled into the query scope in the `FROM` clause. An important distinction from "classical" SQL-type languages is that each expression in this `FROM` clause is not a table; rather, the `FROM` clause expresses a cross-entity relationship traversal, and is written with an Azure Digital Twins version of `JOIN`. 
 
@@ -118,7 +176,7 @@ WHERE T.$dtId = 'ABC'
 
 #### Query the properties of a relationship
 
-Similarly to the way digital twins have properties described via DTDL, relationships can also have properties. 
+Similarly to the way digital twins have properties described via DTDL, relationships can also have properties. You can query twins **based on the properties of their relationships**.
 The Azure Digital Twins query language allows filtering and projection of relationships, by assigning an alias to the relationship within the `JOIN` clause. 
 
 As an example, consider a *servicedBy* relationship that has a *reportedCondition* property. In the below query, this relationship is given an alias of 'R' in order to reference its property.
@@ -144,10 +202,56 @@ SELECT LightBulb
 FROM DIGITALTWINS Room 
 JOIN LightPanel RELATED Room.contains 
 JOIN LightBulb RELATED LightPanel.contains 
-WHERE IS_OF_MODEL(LightPanel, ‘dtmi:contoso:com:lightpanel;1’) 
-AND IS_OF_MODEL(LightBulb, ‘dtmi:contoso:com:lightbulb ;1’) 
-AND Room.$dtId IN [‘room1’, ‘room2’] 
+WHERE IS_OF_MODEL(LightPanel, 'dtmi:contoso:com:lightpanel;1') 
+AND IS_OF_MODEL(LightBulb, 'dtmi:contoso:com:lightbulb ;1') 
+AND Room.$dtId IN ['room1', 'room2'] 
 ```
+
+### Other compound query examples
+
+You can **combine** any of the above types of query using combination operators to include more detail in a single query. Here are some additional examples of compound queries that query for more than one type of twin descriptor at once.
+
+| Description | Query |
+| --- | --- |
+| Out of the devices that *Room 123* has, return the MxChip devices that serve the role of Operator | `SELECT device​`<br>​`FROM DigitalTwins space​`​<br>​`JOIN device RELATED space.has​`<br>​`WHERE space.$dtid = 'Room 123'`​<br>​`AND device.$metadata.model = 'dtmi:contosocom:DigitalTwins:MxChip:3'`<br>​`AND has.role = 'Operator'` ​|
+| Get twins that have a relationship named *Contains* with another twin that has an ID of *id1* | ​`​SELECT Room​`​<br>​`FROM DIGITALTWINS Room​​`​<br>​`JOIN Thermostat RELATED Room.Contains​​`​<br>​`WHERE Thermostat.$dtId = 'id1'`​ |
+| Get all the rooms of this room model that are contained by *floor11* | `SELECT Room`​<br>​`FROM DIGITALTWINS Floor​`​<br>​`JOIN Room RELATED Floor.Contains​`​<br>​`WHERE Floor.$dtId = 'floor11'​`​<br>​`AND IS_OF_MODEL(Room, 'dtmi:contosocom:DigitalTwins:Room;1')​` |
+
+## Reference: Expressions and conditions
+
+This section contains reference for the operators and functions available when writing Azure Digital Twins queries.
+
+### Operators
+
+The following operators are supported:
+
+| Family | Operators |
+| --- | --- |
+| Logical |AND, OR, NOT |
+| Comparison |=, !=, <, >, <=, >= |
+| Contains | IN, NIN |
+
+### Functions
+
+The following type checking and casting functions are supported:
+
+| Function | Description |
+| -------- | ----------- |
+| IS_DEFINED | Returns a Boolean indicating if the property has been assigned a value. This is supported only when the value is a primitive type. Primitive types include string, Boolean, numeric, or `null`. DateTime, object types and arrays are not supported. |
+| IS_OF_MODEL | Returns a Boolean value indicating if the specified twin matches the specified model type |
+| IS_BOOL | Returns a Boolean value indicating if the type of the specified expression is a Boolean. |
+| IS_NUMBER | Returns a Boolean value indicating if the type of the specified expression is a number. |
+| IS_STRING | Returns a Boolean value indicating if the type of the specified expression is a string. |
+| IS_NULL | Returns a Boolean value indicating if the type of the specified expression is null. |
+| IS_PRIMITIVE | Returns a Boolean value indicating if the type of the specified expression is a primitive (string, Boolean, numeric, or `null`). |
+| IS_OBJECT | Returns a Boolean value indicating if the type of the specified expression is a JSON object. |
+
+The following string functions are supported:
+
+| Function | Description |
+| -------- | ----------- |
+| STARTSWITH(x, y) | Returns a Boolean indicating whether the first string expression starts with the second. |
+| ENDSWITH(x, y) | Returns a Boolean indicating whether the first string expression ends with the second. |
 
 ## Run queries with an API call
 
@@ -224,7 +328,6 @@ Below are some tips for querying with Azure Digital Twins.
         AND IS_OF_MODEL(Room, 'dtmi:com:contoso:Room;1')
         ```
 * Property names and values are case-sensitive, so take care to use the exact names defined in the models. If property names are misspelled or incorrectly cased, the result set is empty with no errors returned.
-
 
 ## Next steps
 

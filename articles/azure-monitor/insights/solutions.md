@@ -5,24 +5,24 @@ ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 05/12/2020
+ms.date: 08/07/2020
 
 ---
 
 # Monitoring solutions in Azure Monitor
 
-Monitoring solutions leverage services in Azure to provide additional analysis of the operation of a particular application or service. This article provides a brief overview of monitoring solutions in Azure and details on using and installing them. You can add monitoring solutions to Azure Monitor for any applications and services that you use. They're typically available at no cost but collect data that could invoke usage charges.
+Monitoring solutions in Azure Monitor provide analysis of the operation of a particular Azure application or service. This article provides a brief overview of monitoring solutions in Azure and details on using and installing them. You can add monitoring solutions to Azure Monitor for any applications and services that you use. They're typically available at no cost but collect data that could invoke usage charges.
 
 ## Use monitoring solutions
 
-Open the **Overview** page in Azure Monitor to display a tile for each solution installed in the workspace.
+The solutions **Overview** page in Azure Monitor displays a tile for each solution installed in a Log Analytics workspace. To open this page, go to **Azure Monitor** in the [Azure portal](https://ms.portal.azure.com). Under the **Insights** menu, select **More** to open the **Insights Hub**, and then click on **Log Analytics workspaces**.
 
-1. Go to the [Azure portal](https://ms.portal.azure.com). Search for and select **Monitor**.
-1. Under the **Insights** menu, select **More**.
-1. Use the dropdown boxes at the top of the screen to change the workspace or the time range used for the tiles.
-1. Click on the tile for a solution to open its view that includes more detailed analysis its collected data.
+[![Insights Hub](media/solutions/insights-hub.png)](media/solutions/insights-hub.png#lightbox)
 
-![Overview](media/solutions/overview.png)
+
+Use the dropdown boxes at the top of the screen to change the workspace or the time range used for the tiles. Click on the tile for a solution to open its view that includes more detailed analysis its collected data.
+
+[![Screenshot shows the Azure portal menu with Solutions selected and solutions displayed in the Solutions pane.](media/solutions/overview.png)](media/solutions/overview.png#lightbox)
 
 Monitoring solutions can contain multiple types of Azure resources, and you can view any resources included with a solution just like any other resource. For example, any log queries included in the solution are listed under **Solution Queries** in [Query explorer](../log-query/get-started-portal.md#load-queries) You can use those queries when performing ad hoc analysis with [log queries](../log-query/log-query-overview.md).
 
@@ -105,18 +105,18 @@ Members of the community can submit management solutions to Azure Quickstart Tem
     az login
     ```
 
-1. Install the `log-analytics` extension
+1. Install the `log-analytics-solution` extension
 
-   The `log-analytics` command is an experimental extension of the core Azure CLI. Learn more about extension references in [Use extension with Azure CLI](/cli/azure/azure-cli-extensions-overview?).
+   The `log-analytics-solution` command is an experimental extension of the core Azure CLI. Learn more about extension references in [Use extension with Azure CLI](/cli/azure/azure-cli-extensions-overview?).
 
    ```azurecli
-   az extension add --name log-analytics
+   az extension add --name log-analytics-solution
    ```
 
    The following warning is expected.
 
    ```output
-   The installed extension `log-analytics` is experimental and not covered by customer support.  Please use with discretion.
+   The installed extension `log-analytics-solution` is experimental and not covered by customer support.  Please use with discretion.
    ```
 
 ### Install a solution with the Azure CLI
@@ -155,9 +155,8 @@ All monitoring solutions require a [Log Analytics workspace](../platform/manage-
 
 * Each installation of a solution can only use one Log Analytics workspace and one Automation account. You can install the solution separately into multiple workspaces.
 * If a solution requires an Automation account, then the Log Analytics workspace and Automation account must be linked to one another. A Log Analytics workspace may only be linked to one Automation account, and an Automation account may only be linked to one Log Analytics workspace.
-* To be linked, the Log Analytics workspace and Automation account must be in the same subscription, but can be in different resource groups deployed to the same region. The exception is a workspace in East US region and Automation account in East US 2.
 
-When you install a solution through the Azure Marketplace, you're prompted for a workspace and Automation account. The link between them is created if they aren't already linked.
+When you install a solution through Azure Marketplace, you're prompted for a workspace and Automation account. The link between them is created if they aren't already linked.
 
 ### Verify the link between a Log Analytics workspace and Automation account
 

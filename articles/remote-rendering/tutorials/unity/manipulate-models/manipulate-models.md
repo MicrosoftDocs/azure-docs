@@ -5,6 +5,7 @@ author: florianborn71
 ms.author: flborn
 ms.date: 06/15/2020
 ms.topic: tutorial
+ms.custom: devx-track-csharp
 ---
 
 # Tutorial: Manipulating models
@@ -155,7 +156,7 @@ Now, when the **RemoteBounds** script is added to the same game object as the **
 
 1. Run the application again. Shortly after the model loads, you'll see the bounds for the remote object. You'll see something like the below values:
 
-     ![Bounds updated](./media/updated-bounds.png)
+     ![Screenshot that shows the remote object bounds example.](./media/updated-bounds.png)
 
 Now we have a local **BoxCollider** configured with accurate bounds on the Unity object. The bounds allow for visualization and interaction using the same strategies we'd use for a locally rendered object. For example, scripts that alter the Transform, physics, and more.
 

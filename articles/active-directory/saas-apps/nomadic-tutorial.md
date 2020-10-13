@@ -2,21 +2,15 @@
 title: 'Tutorial: Azure Active Directory integration with Nomadic | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and Nomadic.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-
-ms.assetid: 13d02b1c-d98a-40b1-824f-afa45a2deb6a
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/05/2019
 ms.author: jeedes
-
 ---
 # Tutorial: Azure Active Directory integration with Nomadic
 

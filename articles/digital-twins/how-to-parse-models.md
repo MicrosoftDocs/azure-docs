@@ -3,8 +3,8 @@
 title: Parse and validate models
 titleSuffix: Azure Digital Twins
 description: Learn how to use the parser library to parse DTDL models.
-author: cschormann
-ms.author: cschorm # Microsoft employees only
+author: baanders
+ms.author: baanders # Microsoft employees only
 ms.date: 4/10/2020
 ms.topic: how-to
 ms.service: digital-twins
@@ -113,9 +113,9 @@ async void ParseDemo(DigitalTwinsClient client)
 {
     try
     {
-        AsyncPageable<ModelData> mdata = client.GetModelsAsync(null, true);
+        AsyncPageable<DigitalTwinsModelData> mdata = client.GetModelsAsync(null, true);
         List<string> models = new List<string>();
-        await foreach (ModelData md in mdata)
+        await foreach (DigitalTwinsModelData md in mdata)
             models.Add(md.Model);
         ModelParser parser = new ModelParser();
         IReadOnlyDictionary<Dtmi, DTEntityInfo> dtdlOM = await parser.ParseAsync(models);

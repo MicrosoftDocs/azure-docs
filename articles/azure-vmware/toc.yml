@@ -1,27 +1,39 @@
-- name: Azure VMware Solution (AVS)
+- name: Azure VMware Solution
   href: index.yml
 - name: Overview
   items:
-  - name: About Azure VMware Solution (AVS)
+  - name: About Azure VMware Solution
     href: introduction.md
+- name: Quick start
+  items:
+    - name: Pre-deployment process
+      href: production-ready-deployment-steps.md
+    - name: Pre-deployment checklist
+      href: pre-deployment-checklist.md
+    - name: 1 - Deploy Azure VMware Solution
+      href: deploy-azure-vmware-solution.md
+    - name: 2 - Connect to on-premises
+      href: azure-vmware-solution-on-premises.md
+    - name: 3 - Deploy and configure VMware HCX
+      href: tutorial-deploy-vmware-hcx.md
 - name: Tutorials
   items:
-  - name: 1 - Network planning
+  - name: 1 - Network planning checklist
     href: tutorial-network-checklist.md
-  - name: 2 - Create an AVS private cloud
+  - name: 2 - Create a private cloud
     href: tutorial-create-private-cloud.md
-  - name: 3 - Configure networking
-    href: tutorial-configure-networking.md
-  - name: 4 - Access a private cloud 
+  - name: 3 - Access a private cloud 
     href: tutorial-access-private-cloud.md
-  - name: 5 - Scale a private cloud
-    href: tutorial-scale-private-cloud.md
-  - name: 6 - Create an NSX-T network segment
+  - name: 4 - Configure networking
+    href: tutorial-configure-networking.md
+  - name: 5 - Create an NSX-T network segment
     href: tutorial-nsx-t-network-segment.md
-  - name: 7 - Peer on-premises to private cloud
+  - name: 6 - Peer on-premises to private cloud
     href: tutorial-expressroute-global-reach-private-cloud.md
-  - name: 8 - Deploy VM via content library
-    href: tutorial-deploy-vm-content-library.md
+  - name: 7 - Deploy and configure VMware HCX
+    href: tutorial-deploy-vmware-hcx.md
+  - name: 8 - Scale a private cloud
+    href: tutorial-scale-private-cloud.md
 - name: Concepts
   items:
   - name: Private clouds and clusters
@@ -33,44 +45,58 @@
   - name: Access and identity for private clouds
     href: concepts-identity.md
   - name: Role-based access control
-    href: concepts-rbac.md
+    href: concepts-role-based-access-control.md
   - name: Private cloud upgrades
     href: concepts-upgrades.md
 - name: How-to guides
   items:
-  - name: AVS migration assessment
+  - name: Enable Azure VMware Solution
+    href: enable-azure-vmware-solution.md
+  - name: Save costs a reserved instance
+    href: reserved-instance.md
+  - name: Migration assessment
     href: ../migrate/how-to-create-azure-vmware-solution-assessment.md?context=/azure/migrate/context/migrate-context.json
-  - name: Set up HCX
-    href: hybrid-cloud-extension-installation.md
   - name: Manage DHCP
     href: manage-dhcp.md
-  - name: Disaster recovery
-    href: disaster-recovery.md
+  - name: Deploy disaster recovery for VMs
+    href: disaster-recovery-for-virtual-machines.md
+  - name: Deploy VM via content library
+    href: ./deploy-vm-content-library.md
+  - name: Set up GitHub Enterprise Server 
+    href: github-enterprise-server.md
+  - name: Create an IPSec tunnel
+    href: create-ipsec-tunnel.md
   - name: Azure native integration
     items:
     - name: API Management
       href: concepts-api-management.md
     - name: Hub and spoke
-      href: concepts-avs-hub-and-spoke-integration.md
-    - name: Azure Backup Server for AVS
+      href: concepts-hub-and-spoke.md
+    - name: Azure Backup Server
       items:
-      - name: Set up Backup Server for AVS
-        href: set-up-mabs-for-avs.md
-      - name: Back up AVS VMs with Backup Server
-        href: backup-avs-vms-with-mabs.md
-    - name: Application Gateway on AVS
-      href: protect-avs-web-apps-with-app-gateway.md
+      - name: Set up Backup Server
+        href: set-up-backup-server-for-azure-vmware-solution.md
+      - name: Back up private cloud VMs with Backup Server
+        href: backup-azure-vmware-solution-virtual-machines.md
+    - name: Lifecycle management of VMs
+      href: lifecycle-management-of-azure-vmware-solution-vms.md
+    - name: Application Gateway
+      href: protect-azure-vmware-solution-with-application-gateway.md
+    - name: Traffic Manager
+      href: deploy-traffic-manager-balance-workloads.md
+    - name: Public IP usage
+      href: public-ip-usage.md
   - name: VMware solutions
     items:
-    - name: Set up vRealize Operations for AVS
-      href: vrealize-operations-for-avs.md  
-- name: Reference
-  items:
+    - name: Set up vRealize Operations
+      href: vrealize-operations-for-azure-vmware-solution.md
+    - name: Deploy VMware Horizon 
+      href: azure-vmware-solution-horizon.md
 - name: Resources
   items:
   - name: Troubleshooting
     items:
-    - name: Get help with AVS deployment or provisioning failures
+    - name: Get help with deployment or provisioning failures
       href: fix-deployment-provisioning-failures.md  
   - name: FAQ
     href: faq.md

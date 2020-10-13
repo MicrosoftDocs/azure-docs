@@ -104,8 +104,8 @@ app = PublicClientApplicationBuilder.Create(clientId)
 
 To learn more about how to configure an MSAL.NET desktop application:
 
-- For a list of all modifiers available on `PublicClientApplicationBuilder`, see the reference documentation [PublicClientApplicationBuilder](https://docs.microsoft.com/dotnet/api/microsoft.identity.client.publicclientapplicationbuilder#methods).
-- For a description of all the options exposed in `PublicClientApplicationOptions`, see [PublicClientApplicationOptions](https://docs.microsoft.com/dotnet/api/microsoft.identity.client.publicclientapplicationoptions) in the reference documentation.
+- For a list of all modifiers available on `PublicClientApplicationBuilder`, see the reference documentation [PublicClientApplicationBuilder](/dotnet/api/microsoft.identity.client.publicclientapplicationbuilder#methods).
+- For a description of all the options exposed in `PublicClientApplicationOptions`, see [PublicClientApplicationOptions](/dotnet/api/microsoft.identity.client.publicclientapplicationoptions) in the reference documentation.
 
 ### Complete example with configuration options
 

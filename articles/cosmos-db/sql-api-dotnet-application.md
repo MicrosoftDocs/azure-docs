@@ -8,6 +8,7 @@ ms.devlang: dotnet
 ms.topic: tutorial
 ms.date: 05/08/2020
 ms.author: sngun
+ms.custom: devx-track-dotnet
 ---
 
 # Tutorial: Develop an ASP.NET Core MVC web application with Azure Cosmos DB by using .NET SDK
@@ -111,36 +112,19 @@ Azure Cosmos DB uses JSON to move and store data. You can use the `JsonProperty`
 
 ### <a name="add-views"></a>Add views
 
-Next, let's create the following three views.
+Next, let's add the following views.
 
-* Add a list item view
-* Add a new item view
-* Add an edit item view
+* A create item view
+* A delete item view
+* A view to get an item details
+* An edit item view
+* A view to list all the items
 
-#### <a name="AddItemIndexView"></a>Add a list item view
+#### <a name="AddNewIndexView"></a>Create item view
 
 1. In **Solution Explorer**, right-click the **Views** folder and select **Add** > **New Folder**. Name the folder *Item*.
 
 1. Right-click the empty **Item** folder, then select **Add** > **View**.
-
-1. In **Add MVC View**, provide the following values:
-
-   * In **View name**, enter *Index*.
-   * In **Template**, select **List**.
-   * In **Model class**, select **Item (todo.Models)**.
-   * Select **Use a layout page** and enter *~/Views/Shared/_Layout.cshtml*.
-
-   :::image type="content" source="./media/sql-api-dotnet-application/asp-net-mvc-tutorial-add-mvc-view.png" alt-text="Screenshot showing the Add MVC View dialog box":::
-
-1. After you add these values, select **Add** and let Visual Studio create a new template view.
-
-Once done, Visual Studio opens the *cshtml* file that it creates. You can close that file in Visual Studio. We'll come back to it later.
-
-#### <a name="AddNewIndexView"></a>Add a new item view
-
-Similar to how you created a view to list items, create a new view to create items by using the following steps:
-
-1. In **Solution Explorer**, right-click the **Item** folder again, select **Add** > **View**.
 
 1. In **Add MVC View**, make the following changes:
 
@@ -150,9 +134,44 @@ Similar to how you created a view to list items, create a new view to create ite
    * Select **Use a layout page** and enter *~/Views/Shared/_Layout.cshtml*.
    * Select **Add**.
 
-#### <a name="AddEditIndexView"></a>Add an edit item view
+   :::image type="content" source="./media/sql-api-dotnet-application/asp-net-mvc-tutorial-add-mvc-view.png" alt-text="Screenshot showing the Add MVC View dialog box":::
 
-And finally, add a view to edit an item with the following steps:
+1. Next select **Add** and let Visual Studio create a new template view. Replace the code in the generated file with the following contents:
+
+   :::code language="csharp" source="~/samples-cosmosdb-dotnet-core-web-app/src/Views/Item/Create.cshtml":::
+
+#### <a name="AddEditIndexView"></a>Delete item view
+
+1. From the **Solution Explorer**, right-click the **Item** folder again, select **Add** > **View**.
+
+1. In **Add MVC View**, make the following changes:
+
+   * In the **View name** box, type *Delete*.
+   * In the **Template** box, select **Delete**.
+   * In the **Model class** box, select **Item (todo.Models)**.
+   * Select **Use a layout page** and enter *~/Views/Shared/_Layout.cshtml*.
+   * Select **Add**.
+
+1. Next select **Add** and let Visual Studio create a new template view. Replace the code in the generated file with the following contents:
+
+   :::code language="csharp" source="~/samples-cosmosdb-dotnet-core-web-app/src/Views/Item/Delete.cshtml":::
+
+#### <a name="AddItemIndexView"></a>Add a view to get an item details
+
+1. In **Solution Explorer**, right-click the **Item** folder again, select **Add** > **View**.
+
+1. In **Add MVC View**, provide the following values:
+
+   * In **View name**, enter *Details*.
+   * In **Template**, select **Details**.
+   * In **Model class**, select **Item (todo.Models)**.
+   * Select **Use a layout page** and enter *~/Views/Shared/_Layout.cshtml*.
+
+1. Next select **Add** and let Visual Studio create a new template view. Replace the code in the generated file with the following contents:
+
+   :::code language="csharp" source="~/samples-cosmosdb-dotnet-core-web-app/src/Views/Item/Details.cshtml":::
+
+#### <a name="AddEditIndexView"></a>Add an edit item view
 
 1. From the **Solution Explorer**, right-click the **Item** folder again, select **Add** > **View**.
 
@@ -164,7 +183,29 @@ And finally, add a view to edit an item with the following steps:
    * Select **Use a layout page** and enter *~/Views/Shared/_Layout.cshtml*.
    * Select **Add**.
 
-Once you complete these steps, close all the *cshtml* documents in Visual Studio as you return to these views later.
+1. Next select **Add** and let Visual Studio create a new template view. Replace the code in the generated file with the following contents:
+
+   :::code language="csharp" source="~/samples-cosmosdb-dotnet-core-web-app/src/Views/Item/Edit.cshtml":::
+
+#### <a name="AddEditIndexView"></a>Add a view to list all the items
+
+And finally, add a view to get all the items with the following steps:
+
+1. From the **Solution Explorer**, right-click the **Item** folder again, select **Add** > **View**.
+
+1. In **Add MVC View**, make the following changes:
+
+   * In the **View name** box, type *Index*.
+   * In the **Template** box, select **List**.
+   * In the **Model class** box, select **Item (todo.Models)**.
+   * Select **Use a layout page** and enter *~/Views/Shared/_Layout.cshtml*.
+   * Select **Add**.
+
+1. Next select **Add** and let Visual Studio create a new template view. Replace the code in the generated file with the following contents:
+
+   :::code language="csharp" source="~/samples-cosmosdb-dotnet-core-web-app/src/Views/Item/Index.cshtml":::
+
+Once you complete these steps, close all the *cshtml* documents in Visual Studio.
 
 ### <a name="initialize-services"></a>Declare and initialize services
 

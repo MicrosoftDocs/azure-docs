@@ -9,7 +9,7 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 04/27/2020
+ms.date: 10/12/2020
 ms.author: mimart
 ms.subservice: B2C
 ---
@@ -33,6 +33,7 @@ The following example shows a technical profile for `Saml2AssertionIssuer`:
   <OutputTokenFormat>SAML2</OutputTokenFormat>
   <Metadata>
     <Item Key="IssuerUri">https://tenant-name.b2clogin.com/tenant-name.onmicrosoft.com/B2C_1A_signup_signin_SAML</Item>
+    <Item Key="TokenNotBeforeSkewInSeconds">600</Item>
   </Metadata>
   <CryptographicKeys>
     <Key Id="MetadataSigning" StorageReferenceId="B2C_1A_SamlIdpCert"/>
@@ -53,6 +54,8 @@ The **InputClaims**, **OutputClaims**, and **PersistClaims** elements are empty 
 | Attribute | Required | Description |
 | --------- | -------- | ----------- |
 | IssuerUri | No | The issuer name that appears in the SAML response. The value should be the same name as configured in the relying party application. |
+| XmlSignatureAlgorithm | No | The method that Azure AD B2C uses to sign the SAML Assertion. Possible values: `Sha256`, `Sha384`, `Sha512`, or `Sha1`. Make sure you configure the signature algorithm on both sides with same value. Use only the algorithm that your certificate supports. To configure the SAML Response, see [Relying party SAML metadata](relyingparty.md#metadata)|
+|TokenNotBeforeSkewInSeconds| No| Specifies the skew, as an integer, for the time stamp that marks the beginning of the validity period. The higher this number is, the further back in time the validity period begins with respect to the time that the claims are issued for the relying party. For example, when the TokenNotBeforeSkewInSeconds is set to 60 seconds, if the token is issued at 13:05:10 UTC, the token is valid from 13:04:10 UTC. The default value is 0. The maximum value is 3600 (one hour). |
 
 ## Cryptographic keys
 
@@ -72,15 +75,4 @@ To configure the Azure AD B2C SAML sessions between a relying party application,
 See the following article for example of using a SAML issuer technical profile:
 
 - [Register a SAML application in Azure AD B2C](connect-with-saml-service-providers.md)
-
-
-
-
-
-
-
-
-
-
-
 

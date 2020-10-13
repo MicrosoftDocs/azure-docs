@@ -19,7 +19,10 @@ In this article, you'll find recommendations and examples for using the IDENTITY
 
 ## What is a surrogate key
 
-A surrogate key on a table is a column with a unique identifier for each row. The key is not generated from the table data. Data modelers like to create surrogate keys on their tables when they design data warehouse models. You can use the IDENTITY property to achieve this goal simply and effectively without affecting load performance. The IDENTITY property does have some limitations as detailed in [CREATE TABLE (Transact-SQL) IDENTITY (Property)](/sql/t-sql/statements/create-table-transact-sql-identity-property?view=azure-sqldw-latest). One of the limitations of IDENTITY is that it is not guaranteed to be unique. Setting IDENTITY INSERT off and not reseeding the identity value will lead to more unique values but may not guarantee uniqueness in all situations. If you cannot use identity values because of the restrictions on IDENTITY, create a separate table holding a current value and manage access to the table and number assignment with your application. 
+A surrogate key on a table is a column with a unique identifier for each row. The key is not generated from the table data. Data modelers like to create surrogate keys on their tables when they design data warehouse models. You can use the IDENTITY property to achieve this goal simply and effectively without affecting load performance.
+> [!NOTE]
+> In Azure Synapse Analytics, the IDENTITY value increases on its own in each distribution and does not overlap with IDENTITY values in other distributions.  The IDENTITY value in Synapse is not guaranteed to be unique if the user explicitly inserts a duplicate value with “SET IDENTITY_INSERT ON” or reseeds IDENTITY. For details, see [CREATE TABLE (Transact-SQL) IDENTITY (Property)](/sql/t-sql/statements/create-table-transact-sql-identity-property?view=azure-sqldw-latest). 
+
 
 ## Creating a table with an IDENTITY column
 

@@ -1,25 +1,25 @@
 ---
 title: Deploy and make predictions with ONNX
-description: Learn how to train a model, convert it to ONNX, deploy it to Azure SQL Edge (preview) or Azure SQL Managed Instance (preview), and then run native PREDICT on data using the uploaded ONNX model.
+titleSuffix: SQL machine learning
+description: Learn how to train a model, convert it to ONNX, deploy it to Azure SQL Edge or Azure SQL Managed Instance (preview), and then run native PREDICT on data using the uploaded ONNX model.
 keywords: deploy SQL Edge
-services: sql-edge
-ms.service: sql-edge
-ms.subservice: machine-learning
+ms.prod: sql
+ms.technology: machine-learning
 ms.topic: conceptual
 author: dphansen
 ms.author: davidph
-ms.date: 07/14/2020
+ms.date: 10/13/2020
 ---
 
-# Deploy and make predictions with an ONNX model
+# Deploy and make predictions with an ONNX model and SQL machine learning
 
-In this quickstart, you'll learn how to train a model, convert it to ONNX, deploy it to [Azure SQL Edge (preview)](onnx-overview.md) or [Azure SQL Managed Instance (preview)](../azure-sql/managed-instance/machine-learning-services-overview.md), and then run native PREDICT on data using the uploaded ONNX model.
+In this quickstart, you'll learn how to train a model, convert it to ONNX, deploy it to [Azure SQL Edge](onnx-overview.md) or [Azure SQL Managed Instance (preview)](../azure-sql/managed-instance/machine-learning-services-overview.md), and then run native PREDICT on data using the uploaded ONNX model.
 
 This quickstart is based on **scikit-learn** and uses the [Boston Housing dataset](https://scikit-learn.org/stable/modules/generated/sklearn.datasets.load_boston.html).
 
 ## Before you begin
 
-* If you're using Azure SQL Edge, and you haven't deployed an Azure SQL Edge module, follow the steps of [deploy SQL Edge (Preview) using the Azure portal](deploy-portal.md).
+* If you're using Azure SQL Edge, and you haven't deployed an Azure SQL Edge module, follow the steps of [deploy SQL Edge using the Azure portal](deploy-portal.md).
 
 * Install [Azure Data Studio](https://docs.microsoft.com/sql/azure-data-studio/download).
 

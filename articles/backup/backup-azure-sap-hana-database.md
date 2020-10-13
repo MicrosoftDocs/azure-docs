@@ -52,7 +52,7 @@ Private endpoints allow you to connect securely from servers inside a virtual ne
 
 #### NSG tags
 
-If you use Network Security Groups (NSG), use the *AzureBackup* service tag to allow outbound access to Azure Backup. In addition to the Azure Backup tag, you also need to allow connectivity for authentication and data transfer by creating similar [NSG rules](../virtual-network/security-overview.md#service-tags) for *Azure AD* and *Azure Storage*.  The following steps describe the process to create a rule for the Azure Backup tag:
+If you use Network Security Groups (NSG), use the *AzureBackup* service tag to allow outbound access to Azure Backup. In addition to the Azure Backup tag, you also need to allow connectivity for authentication and data transfer by creating similar [NSG rules](../virtual-network/security-overview.md#service-tags) for Azure AD (*AzureActiveDirectory*) and Azure Storage(*Storage*).  The following steps describe the process to create a rule for the Azure Backup tag:
 
 1. In **All Services**, go to **Network security groups** and select the network security group.
 
@@ -60,7 +60,7 @@ If you use Network Security Groups (NSG), use the *AzureBackup* service tag to a
 
 1. Select **Add**. Enter all the required details for creating a new rule as described in [security rule settings](../virtual-network/manage-network-security-group.md#security-rule-settings). Ensure the option **Destination** is set to *Service Tag* and **Destination service tag** is set to *AzureBackup*.
 
-1. Click **Add**  to save the newly created outbound security rule.
+1. Select **Add**  to save the newly created outbound security rule.
 
 You can similarly create NSG outbound security rules for Azure Storage and Azure AD. For more information on service tags, see [this article](../virtual-network/service-tags-overview.md).
 
@@ -90,16 +90,16 @@ When you back up an SAP HANA database running on an Azure VM, the backup extensi
 
 ## Discover the databases
 
-1. In the vault, in **Getting Started**, click **Backup**. In **Where is your workload running?**, select **SAP HANA in Azure VM**.
-2. Click **Start Discovery**. This initiates discovery of unprotected Linux VMs in the vault region.
+1. In the vault, in **Getting Started**, select **Backup**. In **Where is your workload running?**, select **SAP HANA in Azure VM**.
+2. Select **Start Discovery**. This initiates discovery of unprotected Linux VMs in the vault region.
 
    * After discovery, unprotected VMs appear in the portal, listed by name and resource group.
    * If a VM isn't listed as expected, check whether it's already backed up in a vault.
    * Multiple VMs can have the same name but they belong to different resource groups.
 
-3. In **Select Virtual Machines**, click the link to download the script that provides permissions for the Azure Backup service to access the SAP HANA VMs for database discovery.
+3. In **Select Virtual Machines**, select the link to download the script that provides permissions for the Azure Backup service to access the SAP HANA VMs for database discovery.
 4. Run the script on each VM hosting SAP HANA databases that you want to back up.
-5. After running the script on the VMs, in **Select Virtual Machines**, select the VMs. Then click **Discover DBs**.
+5. After running the script on the VMs, in **Select Virtual Machines**, select the VMs. Then select **Discover DBs**.
 6. Azure Backup discovers all SAP HANA databases on the VM. During discovery, Azure Backup registers the VM with the vault, and installs an extension on the VM. No agent is installed on the database.
 
     ![Discover SAP HANA databases](./media/backup-azure-sap-hana-database/hana-discover.png)
@@ -108,7 +108,7 @@ When you back up an SAP HANA database running on an Azure VM, the backup extensi
 
 Now enable backup.
 
-1. In Step 2, click **Configure Backup**.
+1. In Step 2, select **Configure Backup**.
 
     ![Configure Backup](./media/backup-azure-sap-hana-database/configure-backup.png)
 2. In **Select items to back up**, select all the databases you want to protect > **OK**.
@@ -117,7 +117,7 @@ Now enable backup.
 3. In **Backup Policy** > **Choose backup policy**, create a new backup policy for the databases, in accordance with the instructions below.
 
     ![Choose backup policy](./media/backup-azure-sap-hana-database/backup-policy.png)
-4. After creating the policy, on the **Backup** menu, click **Enable backup**.
+4. After creating the policy, on the **Backup** menu, select **Enable backup**.
 
     ![Enable backup](./media/backup-azure-sap-hana-database/enable-backup.png)
 5. Track the backup configuration progress in the **Notifications** area of the portal.
@@ -142,7 +142,7 @@ Specify the policy settings as follows:
 2. In **Full Backup policy**, select a **Backup Frequency**, choose **Daily** or **Weekly**.
    * **Daily**: Select the hour and time zone in which the backup job begins.
        * You must run a full backup. You can't turn off this option.
-       * Click **Full Backup** to view the policy.
+       * Select **Full Backup** to view the policy.
        * You can't create differential backups for daily full backups.
    * **Weekly**: Select the day of the week, hour, and time zone in which the backup job runs.
 
@@ -155,7 +155,7 @@ Specify the policy settings as follows:
     * The backup for a specific day is tagged and retained based on the weekly retention range and setting.
     * The monthly and yearly retention ranges behave in a similar way.
 
-4. In the **Full Backup policy** menu, click **OK** to accept the settings.
+4. In the **Full Backup policy** menu, select **OK** to accept the settings.
 5. Select **Differential Backup** to add a differential policy.
 6. In **Differential Backup policy**, select **Enable** to open the frequency and retention controls.
     * At most, you can trigger one differential backup per day.
@@ -166,7 +166,7 @@ Specify the policy settings as follows:
     > [!NOTE]
     > Incremental backups aren't currently supported.
 
-7. Click **OK** to save the policy and return to the main **Backup policy** menu.
+7. Select **OK** to save the policy and return to the main **Backup policy** menu.
 8. Select **Log Backup** to add a transactional log backup policy,
     * In **Log Backup**, select **Enable**.  This can't be disabled, since SAP HANA manages all log backups.
     * Set the frequency and retention controls.
@@ -174,20 +174,22 @@ Specify the policy settings as follows:
     > [!NOTE]
     > Log backups only begin to flow after a successful full backup is completed.
 
-9. Click **OK** to save the policy and return to the main **Backup policy** menu.
-10. After you finish defining the backup policy, click **OK**.
+9. Select **OK** to save the policy and return to the main **Backup policy** menu.
+10. After you finish defining the backup policy, select **OK**.
 
 > [!NOTE]
-> Each log backup is chained to the previous full backup to form a recovery chain. This full backup will be retained until the retention of the last log backup has expired. This might mean that the full backup is retained for an extra period to make sure all the logs can be recovered. Let's assume user has a weekly full backup, daily differential and 2 hour logs. All of them are retained for 30 days. But, the weekly full can be really cleaned up/deleted only after the next full backup is available i.e., after 30 + 7 days. Say, a weekly full backup happens on Nov 16th. According to the retention policy, it should be retained until Dec 16th. The last log backup for this full happens before the next scheduled full, on Nov 22nd. Until this log is available until Dec 22nd, the Nov 16th full can't be deleted. So, the Nov 16th full is retained until Dec 22nd.
+> Each log backup is chained to the previous full backup to form a recovery chain. This full backup will be retained until the retention of the last log backup has expired. This might mean that the full backup is retained for an extra period to make sure all the logs can be recovered. Let's assume a user has a weekly full backup, daily differential and 2 hour logs. All of them are retained for 30 days. But, the weekly full can be really cleaned up/deleted only after the next full backup is available, that is, after 30 + 7 days. For example, a weekly full backup happens on Nov 16th. According to the retention policy, it should be retained until Dec 16th. The last log backup for this full happens before the next scheduled full, on Nov 22nd. Until this log is available until Dec 22nd, the Nov 16th full can't be deleted. So, the Nov 16th full is retained until Dec 22nd.
 
 ## Run an on-demand backup
 
 Backups run in accordance with the policy schedule. You can run a backup on-demand as follows:
 
-1. In the vault menu, click **Backup items**.
-2. In **Backup Items**,  select the VM running the SAP HANA database, and then click **Backup now**.
-3. In **Backup Now**, choose the type of backup you want to perform. Then click **OK**. This backup will be retained according to the policy associated with this backup item.
+1. In the vault menu, select **Backup items**.
+2. In **Backup Items**,  select the VM running the SAP HANA database, and then select **Backup now**.
+3. In **Backup Now**, choose the type of backup you want to perform. Then select **OK**. This backup will be retained according to the policy associated with this backup item.
 4. Monitor the portal notifications. You can monitor the job progress in the vault dashboard > **Backup Jobs** > **In progress**. Depending on the size of your database, creating the initial backup may take a while.
+
+By default, the retention of on-demand backups is 45 days.
 
 ## Run SAP HANA Studio backup on a database with Azure Backup enabled
 

@@ -35,11 +35,6 @@
         href: container-registry-tutorial-deploy-app.md
       - name: 3 - Update web application
         href: container-registry-tutorial-deploy-update.md
-  - name: Samples
-    items:
-    - name: Azure Policy built-ins
-      displayName: samples, policies, definitions
-      href: ./policy-samples.md
   - name: Concepts
     expanded: false
     items:
@@ -148,6 +143,12 @@
     - name: Troubleshoot
       expanded: false
       items:
+        - name: Troubleshoot login
+          href: container-registry-troubleshoot-login.md
+        - name: Troubleshoot network issues
+          href: container-registry-troubleshoot-access.md
+        - name: Troubleshoot registry performance
+          href: container-registry-troubleshoot-performance.md
         - name: Detect common issues
           href: container-registry-check-health.md
         - name: FAQ
@@ -206,6 +207,8 @@
           href: container-registry-tasks-authentication-key-vault.md
       - name: Quick task run with Resource Manager template 
         href: container-registry-task-run-template.md
+      - name: Run task on dedicated agent pool (preview)
+        href: tasks-agent-pools.md
       - name: Build image with Buildpacks (preview)
         href: container-registry-tasks-pack-build.md
       - name: View task logs
@@ -237,6 +240,9 @@
     href: ../event-grid/event-schema-container-registry.md?toc=/azure/container-registry/toc.json&bc=/azure/container-registry/breadcrumb/toc.json
   - name: Health check errors
     href: container-registry-health-error-reference.md
+  - name: Azure Policy built-ins
+    displayName: samples, policies, definitions
+    href: ./policy-reference.md
 - name: Resources
   expanded: false
   items:

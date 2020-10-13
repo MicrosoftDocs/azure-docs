@@ -39,7 +39,7 @@ To enable customer-managed keys in the Azure portal, follow these steps:
 
 After you enable customer-managed keys, you need to associate the customer managed key with your Azure Service Bus namespace. Service Bus supports only Azure Key Vault. If you enable the **Encryption with customer-managed key** option in the previous section, you need to have the key imported into Azure Key Vault. Also, the keys must have **Soft Delete** and **Do Not Purge** configured for the key. These settings can be configured using [PowerShell](../key-vault/general/soft-delete-powershell.md) or [CLI](../key-vault/general/soft-delete-cli.md#enabling-purge-protection).
 
-1. To create a new key vault, follow the Azure Key Vault [Quickstart](../key-vault/general/overview.md). For more information about importing existing keys, see [About keys, secrets, and certificates](../key-vault/about-keys-secrets-and-certificates.md).
+1. To create a new key vault, follow the Azure Key Vault [Quickstart](../key-vault/general/overview.md). For more information about importing existing keys, see [About keys, secrets, and certificates](../key-vault/general/about-keys-secrets-certificates.md).
 1. To turn on both soft delete and purge protection when creating a vault, use the [az keyvault create](/cli/azure/keyvault?view=azure-cli-latest#az-keyvault-create) command.
 
     ```azurecli-interactive
@@ -77,12 +77,12 @@ After you enable customer-managed keys, you need to associate the customer manag
     > 
     >   * If [Geo disaster recovery](service-bus-geo-dr.md) is already enabled for the Service Bus namespace and you are looking to enable customer managed key, then 
     >     * Break the pairing
-    >     * [Set up the access policy](../key-vault/general/managed-identity.md) for the managed identity for both the primary and secondary namespaces to the key vault.
+    >     * [Set up the access policy](../key-vault/general/assign-access-policy-portal.md) for the managed identity for both the primary and secondary namespaces to the key vault.
     >     * Set up encryption on the primary namespace.
     >     * Re-pair the primary and secondary namespaces.
     > 
     >   * If you are looking to enable Geo-DR on a Service Bus namespace where customer managed key is already set up, then -
-    >     * [Set up the access policy](../key-vault/general/managed-identity.md) for the managed identity for the secondary namespace to the key vault.
+    >     * [Set up the access policy](../key-vault/general/assign-access-policy-portal.md) for the managed identity for the secondary namespace to the key vault.
     >     * Pair the primary and secondary namespaces.
 
 
@@ -318,5 +318,3 @@ In this step, you will update the Service Bus namespace with key vault informati
 See the following articles:
 - [Service Bus overview](service-bus-messaging-overview.md)
 - [Key Vault overview](../key-vault/general/overview.md)
-
-

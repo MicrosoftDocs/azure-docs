@@ -102,6 +102,20 @@ As of November 18, 2019, guest users in your directory (defined as user accounts
 
 Within the Azure US Government cloud, B2B collaboration is currently only supported between tenants that are both within Azure US Government cloud and that both support B2B collaboration. If you invite a user in a tenant that isn't part of the Azure US Government cloud or that doesn't yet support B2B collaboration, you'll get an error. For details and limitations, see [Azure Active Directory Premium P1 and P2 Variations](https://docs.microsoft.com/azure/azure-government/documentation-government-services-securityandidentity#azure-active-directory-premium-p1-and-p2).
 
+## I receive the error that Azure AD cannot find the aad-extensions-app in my tenant
+
+When using self-service sign-up features, like custom user attributes or user flows, an app called `aad-extensions-app. Do not modify. Used by AAD for storing user data.` is automatically created. It's used by Azure AD External Identities to store information about users who sign up and custom attributes collected.
+
+If you accidentally deleted the `aad-extensions-app`, you have 30 days to recover it. You can restore the app using the Azure AD PowerShell module.
+
+1. Launch the Azure AD PowerShell module and run `Connect-AzureAD`.
+1. Sign in as a global administrator for the Azure AD tenant that you want to recover the deleted app for.
+1. Run the PowerShell command `Get-AzureADDeletedApplication`.
+1. Find the application in the list where the display name begins with `aad-extensions-app` and copy its `ObjectId` property value.
+1. Run the PowerShell command `Restore-AzureADDeletedApplication -ObjectId {id}`. Replace the `{id}` portion of the command with the `ObjectId` from the previous step.
+
+You should now see the restored app in the Azure portal.
+
 ## Next steps
 
-[Get support for B2B collaboration](/azure/active-directory/fundamentals/active-directory-troubleshooting-support-howto.md)
+[Get support for B2B collaboration](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-troubleshooting-support-howto)

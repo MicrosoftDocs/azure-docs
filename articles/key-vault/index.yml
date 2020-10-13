@@ -21,9 +21,9 @@ highlightedContent:
     - title: Introduction to Azure Key Vault
       itemType: overview
       url: ./general/overview.md
-    - title: Important changes to soft delete
-      itemType: overview
-      url: ./general/soft-delete-change.md
+    - title: Important updates to service
+      itemType: whats-new
+      url: ./general/whats-new.md
     - title: Authentication
       itemType: overview
       url: ./general/authentication.md
@@ -89,6 +89,39 @@ conceptualContent:
       footerLink:
         url: ./secrets/index.yml
         text: See more
+  
+    - title: Managed HSM (preview)
+      links:
+        - url: ./managed-hsm/overview.md
+          itemType: overview
+          text: What is managed HSM?
+        - url: ./managed-hsm/best-practices.md
+          itemType: overview
+          text: Best practices
+        - url: ./managed-hsm/quick-create-cli.md
+          itemType: quickstart
+          text: Provision and activate a managed HSM
+      footerLink:
+          text: See more
+          url: ./managed-hsm/index.yml
+
+    - title: Client libraries
+      links:
+        - url: ./general/client-libraries.md
+          itemType: reference
+          text:  Client libraries for Azure Key Vault
+        - url: /dotnet/api/overview/azure/key-vault?view=azure-dotnet
+          itemType: reference
+          text:  .NET Client library
+        - url: /python/api/overview/azure/key-vault-index?view=azure-python
+          itemType: reference
+          text:  Python Client library
+        - url: https://azure.github.io/azure-sdk-for-java/keyvault.html
+          itemType: reference
+          text:  Java Client library
+        - url: /javascript/api/overview/azure/key-vault-index?view=azure-node-latest
+          itemType: reference
+          text:  Node.js Client library
 
     - title: Key Vault with Storage
       links:

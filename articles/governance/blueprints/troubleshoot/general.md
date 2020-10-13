@@ -21,11 +21,11 @@ it can be fixed and the next deployment succeeds.
    blueprint assignments to find the failed assignment. You can also sort the table of assignments
    by the **Provisioning State** column to see all failed assignments grouped together.
 
-1. Left-click on the blueprint with the _Failed_ status or right-click and select **View assignment
+1. Select the blueprint with the _Failed_ status or right-click and select **View assignment
    details**.
 
 1. A red banner warning that the assignment has failed is at the top of the blueprint assignment
-   page. Click anywhere on the banner to get more details.
+   page. Select anywhere on the banner to get more details.
 
 It's common for the error to be caused by an artifact and not the blueprint as a whole. If an
 artifact creates a Key Vault and Azure Policy prevents Key Vault creation, the entire assignment

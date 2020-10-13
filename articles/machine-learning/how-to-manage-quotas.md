@@ -8,13 +8,13 @@ ms.subservice: core
 ms.reviewer: jmartens
 author: nishankgu
 ms.author: nigup
-ms.date: 05/08/2020
+ms.date: 09/30/2020
 ms.topic: conceptual
 ms.custom: troubleshooting,contperfq4 
 ---
 
 # Manage & increase quotas for resources with Azure Machine Learning
-[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
+
 
 In this article, you will learn about preconfigured limits on Azure resources for your [Azure Machine Learning](overview-what-is-azure-ml.md) subscription and what quotas you can manage. These limits are put in place to prevent budget over-runs due to fraud, and to honor Azure capacity constraints. 
 
@@ -94,32 +94,32 @@ To set quotas at the workspace level, go to any workspace in your subscription, 
 
 
 > [!NOTE]
-> This is an Enterprise edition feature only. If you have both a [Basic and an Enterprise edition](overview-what-is-azure-ml.md#sku) workspace in your subscription, you can use this to only set quotas on your Enterprise workspaces. Your Basic workspaces will continue to have the subscription level quota which is the default behavior.
->
 > You need subscription level permissions to set quota at the workspace level. This is enforced so that individual workspace owners do not edit or increase their quotas and start encroaching onto resources set aside for another workspace. Thus a subscription admin is best suited to allocate and distribute these quotas across workspaces.
 
 
 
 ## View your usage and quotas
 
-Azure Machine Learning Compute is managed separately from other Azure resource quotas in your subscription. To view this quota, you need to drill down into Machine Learning services.  
+Azure Machine Learning Compute quota on your subscription is managed separately from other Azure resources quota. To view this quota, you need to drill down into Machine Learning services.  
 
 1. On the left pane, select **Machine Learning service** and then select any workspace from the list shown.
 
-1. On the next blade, under the **Support + troubleshooting section** select **Usage + quotas** to view your current quota limits and usage.
+2. On the next blade, under the **Support + troubleshooting section** select **Usage + quotas** to view your current quota limits and usage.
 
-1. Select a subscription to view the quota limits. Remember to filter to the region you are interested in.
+3. Select a subscription to view the quota limits. Remember to filter to the region you are interested in.
 
-1. You can now toggle between a subscription level view and a workspace level view:
-    + **Subscription view:** Displays your usage of core quota by VM family, expanding it by workspace, and further expanding it by the actual cluster names. Quickly get into the details of core usage for a particular VM family to see the break-up by workspaces and further by the underlying clusters for each of those workspaces. The general convention in this view is (usage/quota), where the usage is the current number of scaled up cores, and quota is the logical maximum number of cores that the resource can scale to. For each **workspace**, the quota would be the workspace level quota (as explained above) which denotes the maximum number of cores that you can scale to for a particular VM family. For a **cluster** similarly, the quota is actually the cores corresponding to the maximum number of nodes that the cluster can scale to defined by the max_nodes property.
-
+4. You can now toggle between a subscription level view and a workspace level view:
+    + **Subscription view:** This allows you to view your usage of core quota by VM family, expanding it by workspace, and further expanding it by the actual cluster names. This view is optimal for quickly getting into the details of core usage for a particular VM family to see the break-up by workspaces and further by the underlying clusters for each of those workspaces. The general convention in this view is (usage/quota), where the usage is the current number of scaled up cores, and quota is the logical maximum number of cores that the resource can scale to. For each **workspace**, the quota would be the workspace level quota (as explained above) which denotes the maximum number of cores that you can scale to for a particular VM family. For a **cluster** similarly, the quota is actually the cores corresponding to the maximum number of nodes that the cluster can scale to defined by the max_nodes property.
+    
     + **Workspace view:** This allows you to view your usage of core quota by Workspace, expanding it by VM family, and further expanding it by the actual cluster names. This view is optimal for quickly getting into the details of core usage for a particular workspace to see the break-up by VM families and further by the underlying clusters for each of those families.
 
 Viewing your quota for various other Azure resources, such as Virtual Machines, Storage, Network, is easy through the Azure portal.
 
 1. On the left pane, select **All services** and then select **Subscriptions** under the General category.
 
-1. From the list of subscriptions, select the subscription whose quota you are looking for.
+2. From the list of subscriptions, select the subscription whose quota you are looking for.
+
+3. Select **Usage + quotas** to view your current quota limits and usage. Use the filters to select the provider and locations. 
 
 ## Request quota increases
 
@@ -131,6 +131,29 @@ When requesting a quota increase, you need to select the service you are request
 
 > [!NOTE]
 > [Free Trial subscriptions](https://azure.microsoft.com/offers/ms-azr-0044p) are not eligible for limit or quota increases. If you have a [Free Trial subscription](https://azure.microsoft.com/offers/ms-azr-0044p), you can upgrade to a [Pay-As-You-Go](https://azure.microsoft.com/offers/ms-azr-0003p/) subscription. For more information, see [Upgrade Azure Free Trial to Pay-As-You-Go](../billing/billing-upgrade-azure-subscription.md) and  [Free Trial subscription FAQ](https://azure.microsoft.com/free/free-account-faq).
+
+## Private endpoint and private DNS quota increases
+
+There are limitations on the number of private endpoints and private DNS zones that can be created in a subscription. While Azure Machine Learning creates resources in your (customer) subscription, there are some scenarios that create resources in a Microsoft-owned subscription. In the following scenarios, you may need to request a quota allowance in the Microsoft-owned subscription:
+
+* __Private Link enabled workspace with a customer-managed key (CMK)__
+* __Azure Container Registry for the workspace behind your virtual network__
+* __Attaching a Private Link enabled Azure Kubernetes Service cluster to your workspace__.
+
+To request an allowance for these scenarios, use the following steps:
+
+1. [Create an Azure support request](/azure/azure-portal/supportability/how-to-create-azure-support-request#create-a-support-request) and select the following options from the __Basics__ section:
+
+    | Field | Selection |
+    | ----- | ----- |
+    | Issue type | Technical |
+    | Service | My services. Select __Machine Learning__ in the dropdown list. |
+    | Problem type | Workspace setup, SDK and CLI |
+    | Problem subtype | Problem provisioning or managing workspace |
+
+2. From the __Details__ section, use the __Description__ field to provide the Azure region you want to use and the scenario that you plan to use. If you need to request quota increases for multiple subscriptions, list the subscription IDs in this field also.
+
+3. Use __Create__ to create the request.
 
 ## Next steps
 

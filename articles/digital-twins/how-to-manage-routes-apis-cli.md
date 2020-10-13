@@ -28,7 +28,7 @@ They can also be managed through the [Azure portal](https://portal.azure.com). F
 ## Prerequisites
 
 * You'll need an **Azure account** (you can set one up for free [here](https://azure.microsoft.com/free/?WT.mc_id=A261C142F))
-* You'll need an **Azure Digital Twins instance** in your Azure subscription. If you don't have an instance already, you can create one using the steps in [*How-to: Set up an instance and authentication*](how-to-set-up-instance-scripted.md). Have the following values from setup handy to use later in this article:
+* You'll need an **Azure Digital Twins instance** in your Azure subscription. If you don't have an instance already, you can create one using the steps in [*How-to: Set up an instance and authentication*](how-to-set-up-instance-portal.md). Have the following values from setup handy to use later in this article:
     - Instance name
     - Resource group
     
@@ -45,7 +45,7 @@ To link an endpoint to Azure Digital Twins, the event grid topic, event hub, or 
 
 ### Create an Event Grid endpoint
 
-The following example shows how to create an event grid-type endpoint using the Azure CLI. You can use [Azure Cloud Shell](https://shell.azure.com), or [install the CLI locally](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
+The following example shows how to create an event grid-type endpoint using the Azure CLI. You can use [Azure Cloud Shell](https://shell.azure.com), or [install the CLI locally](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest&preserve-view=true).
 
 First, create an event grid topic. You can use the following command, or view the steps in more detail by visiting [the *Create a custom topic* section](../event-grid/custom-event-quickstart-portal.md#create-a-custom-topic) of the Event Grid *Custom events* quickstart.
 
@@ -59,7 +59,7 @@ az eventgrid topic create -g <your-resource-group-name> --name <your-topic-name>
 > az account list-locations -o table
 > ```
 
-Once you have created the topic, you can link it to Azure Digital Twins with the following command:
+Once you have created the topic, you can link it to Azure Digital Twins with the following [Azure Digital Twins CLI command](how-to-use-cli.md):
 
 ```azurecli
 az dt endpoint create eventgrid --endpoint-name <Event-Grid-endpoint-name> --eventgrid-resource-group <Event-Grid-resource-group-name> --eventgrid-topic <your-Event-Grid-topic-name> -n <your-Azure-Digital-Twins-instance-name>
@@ -91,7 +91,7 @@ az dt endpoint create eventhub --endpoint-name <Event-Hub-endpoint-name> --event
 
 To actually send data from Azure Digital Twins to an endpoint, you'll need to define an **event route**. Azure Digital Twins **EventRoutes APIs** let developers wire up event flow, throughout the system and to downstream services. Read more about event routes in [*Concepts: Routing Azure Digital Twins events*](concepts-route-events.md).
 
-The samples in this section use the C# SDK.
+The samples in this section use the [.NET (C#) SDK](https://www.nuget.org/packages/Azure.DigitalTwins.Core).
 
 **Prerequisite**: You need to create endpoints as described earlier in this article before you can move on to creating a route. You can proceed to creating an event route once your endpoints are finished setting up.
 
@@ -102,7 +102,7 @@ The samples in this section use the C# SDK.
 
 ### Create an event route
 
-Event routes are defined using data plane APIs. 
+Event routes are defined using [data plane APIs](how-to-use-apis-sdks.md#overview-data-plane-apis). 
 
 A route definition can contain these elements:
 * The route name you want to use
@@ -182,6 +182,8 @@ Here are the supported route filters. Use the detail in the *Filter text schema*
 ## Manage endpoints and routes with CLI
 
 Endpoints and routes can also be managed using the Azure Digital Twins CLI. For more information about using the CLI and what commands are available, see [*How-to: Use the Azure Digital Twins CLI*](how-to-use-cli.md).
+
+[!INCLUDE [digital-twins-known-issue-cloud-shell](../../includes/digital-twins-known-issue-cloud-shell.md)]
 
 [!INCLUDE [digital-twins-route-metrics](../../includes/digital-twins-route-metrics.md)]
 

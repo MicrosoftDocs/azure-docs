@@ -1,24 +1,27 @@
 ---
 title: 'Tutorial: Create an environment - Azure Time Series Insights | Microsoft Docs'
-description: Learn how to create a Azure Time Series Insights environment that's populated with data from simulated devices.
+description: Learn how to create an Azure Time Series Insights environment that's populated with data from simulated devices.
 services: time-series-insights
 author: deepakpalled
 ms.author: dpalled
 manager: diviso
 ms.service: time-series-insights
 ms.topic: tutorial
-ms.date: 06/30/2020
+ms.date: 10/01/2020
 ms.custom: seodec18
-# Customer intent: As a data analyst or developer, I want to learn how to create a Azure Time Series Insights environment so that I can use Azure Time Series Insights queries to understand device behavior.
+# Customer intent: As a data analyst or developer, I want to learn how to create an Azure Time Series Insights environment so that I can use Azure Time Series Insights queries to understand device behavior.
 ---
 
 # Tutorial: Create an Azure Time Series Insights Gen1 environment
+
+> [!CAUTION]
+> This is a Gen1 article.
 
 This tutorial guides you through the process of creating an Azure Time Series Insights environment that's populated with data from simulated devices. In this tutorial, you learn how to:
 
 > [!div class="checklist"]
 >
-> * Create a Azure Time Series Insights environment.
+> * Create an Azure Time Series Insights environment.
 > * Create a device simulation solution that contains an IoT hub.
 > * Connect the Azure Time Series Insights environment to the IoT hub.
 > * Run a device simulation to stream data into the Azure Time Series Insights environment.
@@ -33,13 +36,13 @@ This tutorial guides you through the process of creating an Azure Time Series In
 
 ## Review video
 
-### Learn how to use an Azure IoT solution accelerator to generate data and get started with Azure Time Series Insights. </br>
+Learn how to use an Azure IoT solution accelerator to generate data and get started with Azure Time Series Insights.
 
 > [!VIDEO https://www.youtube.com/embed/6ehNf6AJkFo]
 
 ## Overview
 
-The Azure Time Series Insights environment is where device data is collected and stored. Once stored, the [Azure Time Series Insights Explorer](time-series-quickstart.md) and [Azure Time Series Insights Query API](/rest/api/time-series-insights/ga-query-api) can be used to query and analyze the data.
+The Azure Time Series Insights environment is where device data is collected and stored. Once stored, the [Azure Time Series Insights Explorer](time-series-quickstart.md) and [Azure Time Series Insights Query API](/rest/api/time-series-insights/gen1-query-api) can be used to query and analyze the data.
 
 Azure IoT Hub is the event source that's used by all devices (simulated or physical) in the tutorial to securely connect and transmit data to your Azure cloud.
 
@@ -82,7 +85,7 @@ First, create the device simulation solution, which generates test data to popul
 
 ## Create an environment
 
-Second, create a Azure Time Series Insights environment in your Azure subscription.
+Second, create an Azure Time Series Insights environment in your Azure subscription.
 
 1. Sign in to the [Azure portal](https://portal.azure.com) by using your Azure subscription account.
 1. Select **+ Create a resource** in the upper left.
@@ -94,7 +97,7 @@ Second, create a Azure Time Series Insights environment in your Azure subscripti
 
    Parameter|Description
    ---|---
-   **Environment name** | Choose a unique name for the Azure Time Series Insights environment. The names are used by the Azure Time Series Insights Explorer and the [Query APIs](https://docs.microsoft.com/rest/api/time-series-insights/ga-query).
+   **Environment name** | Choose a unique name for the Azure Time Series Insights environment. The names are used by the Azure Time Series Insights Explorer and the [Query APIs](https://docs.microsoft.com/rest/api/time-series-insights/gen1-query).
    **Subscription** | Subscriptions are containers for Azure resources. Choose a subscription to create the Azure Time Series Insights environment.
    **Resource group** | A resource group is a container for Azure resources. Choose an existing resource group or create a new one for the Azure Time Series Insights environment resource.
    **Location** | Choose a data center region for your Azure Time Series Insights environment. To avoid additional latency, create the Azure Time Series Insights environment in the same region as other IoT resources.
@@ -103,7 +106,7 @@ Second, create a Azure Time Series Insights environment in your Azure subscripti
 
    When finished, select **Next: Event Source** to proceed to the next step.
 
-   [![Create a Azure Time Series Insights environment resource](media/tutorial-create-populate-tsi-environment/tsi-create-resource-tsi-params.png)](media/tutorial-create-populate-tsi-environment/tsi-create-resource-tsi-params.png#lightbox)
+   [![Create an Azure Time Series Insights environment resource](media/tutorial-create-populate-tsi-environment/tsi-create-resource-tsi-params.png)](media/tutorial-create-populate-tsi-environment/tsi-create-resource-tsi-params.png#lightbox)
 
 1. Now, connect the Azure Time Series Insights environment to the IoT hub created by the Solution Accelerator. Set **Select a hub** to `Select existing`. Then, choose the IoT hub created by the Solution Accelerator when setting **IoT Hub name**.
 
@@ -187,13 +190,13 @@ In this tutorial, you learned how to:
 
 > [!div class="checklist"]
 >
-> * Create a Azure Time Series Insights environment.
+> * Create an Azure Time Series Insights environment.
 > * Create a device simulation solution that contains an IoT hub.
 > * Connect the Azure Time Series Insights environment to the IoT hub.
 > * Run a device simulation to stream data into the Azure Time Series Insights environment.
 > * Verify the simulated telemetry data.
 
-Now that you know how to create your own Azure Time Series Insights environment, learn how to build a web application that consumes data from a Azure Time Series Insights environment:
+Now that you know how to create your own Azure Time Series Insights environment, learn how to build a web application that consumes data from an Azure Time Series Insights environment:
 
 > [!div class="nextstepaction"]
 > [Read hosted client SDK visualization samples](https://tsiclientsample.azurewebsites.net/)

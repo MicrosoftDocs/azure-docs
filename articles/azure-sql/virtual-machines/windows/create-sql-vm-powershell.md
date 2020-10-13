@@ -9,12 +9,13 @@ tags: azure-resource-manager
 ms.assetid: 98d50dd8-48ad-444f-9031-5378d8270d7b
 ms.service: virtual-machines-sql
 
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 12/21/2018
 ms.author: mathoma
-ms.reviewer: jroth
+ms.reviewer: jroth 
+ms.custom: devx-track-azurepowershell
 ---
 # How to use Azure PowerShell to provision SQL Server on Azure Virtual Machines
 
@@ -55,7 +56,7 @@ $ResourceGroupName = "sqlvm2"
 
 Define the storage account and the type of storage to be used by the virtual machine.
 
-Modify as you want, and then run the following cmdlet to initialize these variables. We recommend using [premium SSDs](../../../virtual-machines/windows/disks-types.md#premium-ssd) for production workloads.
+Modify as you want, and then run the following cmdlet to initialize these variables. We recommend using [premium SSDs](../../../virtual-machines/disks-types.md#premium-ssd) for production workloads.
 
 ```powershell
 $StorageName = $ResourceGroupName + "storage"

@@ -1,6 +1,8 @@
 ---
 title: Active learning suggestions - QnA Maker
 description: Active learning suggestions allows you to improve the quality of your knowledge base by suggesting alternative questions, based on user-submissions, to your question and answer pair.
+ms.service: cognitive-services
+ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 03/19/2020
 ---

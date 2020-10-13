@@ -14,9 +14,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 10/01/2019
 ms.author: juliako
+ms.custom: devx-track-csharp
 
 ---
 # Azure Media Services release notes
+
+[!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
 
 These release notes for Azure Media Services summarize changes from previous releases and known issues.
 
@@ -41,6 +44,18 @@ We want to hear from our customers so that we can focus on fixing problems that 
 
 ## <a name="rest_version_history"></a>REST API version history
 For information about the Media Services REST API version history, see the [Azure Media Services REST API reference].
+
+## September 2020
+
+The following v2 properties will no longer be populated with historical job progress data:
+
+* [HistoricalEvents](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.mediaservices.client.itask.historicalevents)
+* [PerfMessage](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.mediaservices.client.itask.perfmessage)
+
+To get task history, you should use the v2 job notifications via webhooks or queue messages using Notification Endpoints. For more information, see:
+
+* [Use Azure Queue storage to monitor Media Services job notifications](media-services-dotnet-check-job-progress-with-queues.md)
+* [Use Azure Webhooks to monitor Media Services job notifications](media-services-dotnet-check-job-progress-with-webhooks.md)
 
 ## February 2020
 

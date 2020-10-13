@@ -16,13 +16,17 @@
       href: add-application-portal.md
     - name: Configure an app
       href: add-application-portal-configure.md
-    - name: Set up single sign-on
+    - name: Assign users to an app
+      href: add-application-portal-assign-users.md
+    - name: Setup SAML-based single sign-on
       href: add-application-portal-setup-sso.md
+    - name: Setup OIDC-based single sign-on
+      href: add-application-portal-setup-oidc-sso.md
     - name: Delete an app
       href: delete-application-portal.md
   - name: Tutorials
     items:
-    - name: Integrated gallery apps (e.g. ServiceNow, Salesforce, Dropbox)
+    - name: List of pre-configured apps
       href: /azure/active-directory/saas-apps/
     - name: Add an on-premises app with Application Proxy
       href: application-proxy-add-on-premises-application.md
@@ -37,28 +41,32 @@
       href: application-management-fundamentals.md
     - name: App management common scenarios
       href: common-scenarios.md
+    - name: Viewing apps in your tenant
+      href: application-types.md
+    - name: Assigning users to apps
+      href: ways-users-get-assigned-to-applications.md
     - name: Planning a cloud app integration
       items:
       - name: Get started with app integration
         href: plan-an-application-integration.md
       - name: Plan for apps not listed in the gallery
         href: non-gallery-apps.md
-      - name: Plan an access panel deployment
+      - name: Plan a My Apps deployment
         href: access-panel-deployment-plan.md
       - name: Guidance for developers
         href: developer-guidance-for-integrating-applications.md
     - name: Single sign-on
-      items:  
-      - name: Enable SSO for your multi-tenant application 
-        href: isv-sso-content.md
-      - name: Create an Azure tenant for multi-tenant application
-        href: isv-tenant-multi-tenant-app.md
-      - name: Choose multi-tenant federation
-        href: isv-choose-multi-tenant-federation.md
-      - name: Create documentation for multi-tenant application
-        href: isv-create-sso-documentation.md
+      items:
       - name: Plan a single sign-on deployment
         href: plan-sso-deployment.md
+      - name: Single sign-on options 
+        href: sso-options.md
+      - name: SAML-based SSO
+        href: configure-saml-single-sign-on.md
+      - name: Password-based SSO
+        href: configure-password-single-sign-on-non-gallery-applications.md
+      - name: Linked-based SSO
+        href: configure-linked-sign-on.md
       - name: One-click SSO
         href: one-click-sso-tutorial.md
     - name: Application security
@@ -79,57 +87,55 @@
         href: cloud-app-security.md
     - name: Application Proxy for on-premises apps
       items:
-       - name: Application Proxy
-         href: application-proxy.md
-       - name: What is application proxy for on-premises apps?
-         href: what-is-application-proxy.md
-       - name: Planning an Application Proxy deployment
-         href: application-proxy-deployment-plan.md
-       - name: Connectors
-         href: application-proxy-connectors.md
-       - name: Connector groups
-         href: application-proxy-connector-groups.md
-       - name: Security
-         href: application-proxy-security.md
-       - name: Network topology
-         href: application-proxy-network-topology.md
-       - name: High availability and load balancing
-         href: application-proxy-high-availability-load-balancing.md
-       - name: Comparison of remote access solutions
-         href: application-proxy-migration.md
+      - name: Application Proxy
+        href: application-proxy.md
+      - name: What is application proxy for on-premises apps?
+        href: what-is-application-proxy.md
+      - name: Planning an Application Proxy deployment
+        href: application-proxy-deployment-plan.md
+      - name: Connectors
+        href: application-proxy-connectors.md
+      - name: Connector groups
+        href: application-proxy-connector-groups.md
+      - name: Security
+        href: application-proxy-security.md
+      - name: Network topology
+        href: application-proxy-network-topology.md
+      - name: High availability and load balancing
+        href: application-proxy-high-availability-load-balancing.md
+      - name: Comparison of remote access solutions
+        href: application-proxy-migration.md
   - name: How-to guides
     expanded: false
     items:
-    - name: Configure single sign-on
-      items:
-      - name: Configure SAML-based single sign-on
-        href: configure-saml-single-sign-on.md
-      - name: Configure password-based sign-on
-        href: configure-password-single-sign-on-non-gallery-applications.md
-      - name: Configure linked sign-on
-        href: configure-linked-sign-on.md
     - name: Assign users and manage access to apps
       items:
-      - name: Configure user consent
-        href: configure-user-consent.md
-      - name: Manage and evaluate consent requests
-        href: manage-consent-requests.md
-      - name: Grant tenant-wide admin consent
-        href: grant-admin-consent.md
-      - name: Configure admin consent workflow (preview)
-        href: configure-admin-consent-workflow.md
-      - name: Assign a user or group to an app
+      - name: Consent and permissions
+        items:
+        - name: Configure user consent
+          href: configure-user-consent.md
+        - name: Configure group owner consent
+          href: configure-user-consent-groups.md
+        - name: Configure permission classifications
+          href: configure-permission-classifications.md
+        - name: Manage app consent policies
+          href: manage-app-consent-policies.md
+        - name: Configure admin consent workflow (preview)
+          href: configure-admin-consent-workflow.md
+        - name: Manage and evaluate consent requests
+          href: manage-consent-requests.md
+        - name: Grant tenant-wide admin consent
+          href: grant-admin-consent.md
+        - name: Review permissions granted to apps
+          href: manage-application-permissions.md
+      - name: Manage user assignment for an app
         href: assign-user-or-group-access-portal.md
-      - name: Review permissions granted to apps
-        href: manage-application-permissions.md
       - name: Create collections on My Apps
         href: access-panel-collections.md
       - name: Use self-service app access
         href: access-panel-manage-self-service-access.md
       - name: Methods for removing a user's access to an app
         href: methods-for-removing-user-access.md
-      - name: Remove user or group access
-        href: remove-user-or-group-access-portal.md
       - name: Hide app from a user
         href: hide-application-from-user-portal.md
       - name: Disable user sign-on
@@ -142,7 +148,7 @@
       items:
       - name: Migration resources
         href: migration-resources.md
-      - name: Migrate an ADFS app to Azure
+      - name: Migrate an AD FS app to Azure
         href: migrate-adfs-apps-to-azure.md
       - name: Use the AD FS application activity report (preview)
         href: migrate-adfs-application-activity.md
@@ -207,27 +213,21 @@
     - name: Troubleshoot
       items:
       - name: Troubleshoot adding apps
-        items:
-        - name: Common problems - gallery apps
-          href: adding-gallery-app-common-problems.md
-        - name: Common problems - non-gallery apps
-          href: adding-non-gallery-app-common-problems.md
+        href: troubleshoot-adding-apps.md
+      - name: Troubleshoot password-based single sign-on
+        href: troubleshoot-password-based-sso.md
+      - name: Troubleshoot SAML-based single sign-on
+        href: troubleshoot-saml-based-sso.md
       - name: Troubleshoot user sign-in
         items:
         - name: Unexpected consent prompt
           href: application-sign-in-unexpected-user-consent-prompt.md
         - name: User consent error
           href: application-sign-in-unexpected-user-consent-error.md
-        - name: Problems signing in from custom portal
-          href: application-sign-in-other-problem-deeplink.md
-        - name: Problems signing in from access panel
+        - name: Problems signing in from My Apps
           href: application-sign-in-other-problem-access-panel.md
         - name: Error on application sign-in page
           href: application-sign-in-problem-application-error.md
-        - name: Problem with password single sign-on - non-gallery app
-          href: application-sign-in-problem-password-sso-non-gallery.md
-        - name: Problem with password single sign-on - gallery app
-          href: application-sign-in-problem-password-sso-gallery.md
         - name: Problem signing into a Microsoft app
           href: application-sign-in-problem-first-party-microsoft.md
         - name: Problem with federated single sign-on - non-gallery app
@@ -236,36 +236,6 @@
           href: application-sign-in-problem-federated-sso-gallery.md
         - name: Problem with custom-developed app
           href: application-sign-in-problem-custom-dev.md
-      - name: Troubleshoot single sign-on
-        items:
-        - name: Configuring federated common problems - gallery apps
-          href: configure-federated-single-sign-on-gallery-applications-problems.md
-        - name: Configure federated common problems - non-gallery apps
-          href: configure-federated-single-sign-on-non-gallery-applications-problems.md
-        - name: Configure password common problems - gallery apps
-          href: configure-password-single-sign-on-gallery-applications-problems.md
-        - name: Configure password common problems - non-gallery apps
-          href: configure-password-single-sign-on-non-gallery-applications-problems.md
-      - name: Troubleshoot app list and assignment
-        items:
-        - name: Manage the applications list for your tenant
-          href: application-types.md
-        - name: Unexpected user assigned
-          href: ways-users-get-assigned-to-applications.md
-      - name: Troubleshoot the access panel
-        items:
-        - name: Manage browser extension
-          href: manage-access-panel-browser-extension.md
-        - name: App not appearing
-          href: access-panel-troubleshoot-application-not-appearing.md
-        - name: Unexpected app appearing
-          href: access-panel-troubleshoot-unexpected-application.md
-        - name: Can't sign in
-          href: access-panel-troubleshoot-web-sign-in-problem.md
-        - name: Error installing browser extension
-          href: access-panel-extension-problem-installing.md
-        - name: Error using self-service app access
-          href: access-panel-troubleshoot-self-service-access.md
       - name: Troubleshoot on-premises apps
         items:
         - name: Application Proxy troubleshooting
@@ -296,7 +266,7 @@
           href: application-proxy-sign-in-bad-gateway-timeout-error.md
         - name: Problem installing the Application Proxy Agent Connector
           href: application-proxy-connector-installation-problem.md
-        - name: Sign-in problem
+        - name: Sign in problem
           href: application-sign-in-problem-on-premises-application-proxy.md
         - name: CORS issues in Application Proxy
           href: application-proxy-understand-cors-issues.md

@@ -2,22 +2,15 @@
 title: 'Tutorial: Azure Active Directory integration with Lifesize Cloud | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and Lifesize Cloud.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: daveba
-ms.reviewer: barbkess
-
-ms.assetid: 75fab335-fdcd-4066-b42c-cc738fcb6513
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 1/4/2019
 ms.author: jeedes
-
-ms.collection: M365-identity-device-management
 ---
 # Tutorial: Azure Active Directory integration with Lifesize Cloud
 
@@ -141,15 +134,15 @@ To configure Azure AD single sign-on with Lifesize Cloud, perform the following 
 
 2. In the top right corner click on your name and then click on the **Advance Settings**.
 
-    ![Configure Single Sign-On](./media/lifesize-cloud-tutorial/tutorial_lifesizecloud_06.png)
+    ![Screenshot shows the Advanced Settings menu item.](./media/lifesize-cloud-tutorial/tutorial_lifesizecloud_06.png)
 
 3. In the Advance Settings now click on the **SSO Configuration** link. It will open the SSO Configuration page for your instance.
 
-    ![Configure Single Sign-On](./media/lifesize-cloud-tutorial/tutorial_lifesizecloud_07.png)
+    ![Screenshot shows Advanced Settings where you can select S S O Configuration.](./media/lifesize-cloud-tutorial/tutorial_lifesizecloud_07.png)
 
 4. Now configure the following values in the SSO configuration UI.
 
-    ![Configure Single Sign-On](./media/lifesize-cloud-tutorial/tutorial_lifesizecloud_08.png)
+    ![Screenshot shows the S S O Configuration page where you can enter the values described.](./media/lifesize-cloud-tutorial/tutorial_lifesizecloud_08.png)
 
 	a. In **Identity Provider Issuer** textbox, paste the value of **Azure Ad Identifier** which you have copied from Azure portal.
 

@@ -44,7 +44,9 @@ See [supported backend resources](https://docs.microsoft.com/azure/application-g
 
 ### In what regions is Application Gateway available?
 
-Application Gateway is available in all regions of global Azure. It's also available in [Azure China 21Vianet](https://www.azure.cn/) and [Azure Government](https://azure.microsoft.com/overview/clouds/government/).
+Application Gateway v1 (Standard and WAF) is available in all regions of global Azure. It's also available in [Azure China 21Vianet](https://www.azure.cn/) and [Azure Government](https://azure.microsoft.com/overview/clouds/government/).
+
+For Application Gateway v2 (Standard_v2 and WAF_v2) availability, see [supported regions for Application Gateway v2](https://docs.microsoft.com/azure/application-gateway/application-gateway-autoscaling-zone-redundant#supported-regions)
 
 ### Is this deployment dedicated for my subscription, or is it shared across customers?
 
@@ -100,7 +102,7 @@ A single subnet can't support both v2 and v1 Application Gateway SKUs.
 
 ### Does Application Gateway v2 support user-defined routes (UDR)?
 
-Yes, but only specific scenarios. For more information, see [Application Gateway configuration overview](configuration-overview.md#user-defined-routes-supported-on-the-application-gateway-subnet).
+Yes, but only specific scenarios. For more information, see [Application Gateway infrastructure configuration](configuration-infrastructure.md#supported-user-defined-routes).
 
 ### Does Application Gateway support x-forwarded-for headers?
 
@@ -131,7 +133,7 @@ No. Application Gateway V2 doesn't support proxying requests with NTLM authentic
 ### Does Application Gateway affinity cookie support SameSite attribute?
 Yes, the [Chromium browser](https://www.chromium.org/Home) [v80 update](https://chromiumdash.appspot.com/schedule) introduced a mandate on HTTP cookies without SameSite attribute to be treated as SameSite=Lax. This means that the Application Gateway affinity cookie won't be sent by the browser in a third-party context. 
 
-To support this scenario, Application Gateway injects another cookie called *ApplicationGatewayAffinityCORS* in addition to the existing *ApplicationGatewayAffinity* cookie.  These cookies are similar, but the *ApplicationGatewayAffinityCORS* cookie has two more attributes added to it: *SameSite=None; Secure*. These attributes maintain sticky sessions even for cross-origin requests. See the [cookie based affinity section](configuration-overview.md#cookie-based-affinity) for more information.
+To support this scenario, Application Gateway injects another cookie called *ApplicationGatewayAffinityCORS* in addition to the existing *ApplicationGatewayAffinity* cookie.  These cookies are similar, but the *ApplicationGatewayAffinityCORS* cookie has two more attributes added to it: *SameSite=None; Secure*. These attributes maintain sticky sessions even for cross-origin requests. See the [cookie based affinity section](configuration-http-settings.md#cookie-based-affinity) for more information.
 
 ## Performance
 
@@ -177,11 +179,15 @@ No. But you can deploy other application gateways in the subnet.
 
 ### Are network security groups supported on the application gateway subnet?
 
-See [Network security groups in the Application Gateway subnet](https://docs.microsoft.com/azure/application-gateway/configuration-overview#network-security-groups-on-the-application-gateway-subnet).
+See [Network security groups in the Application Gateway subnet](https://docs.microsoft.com/azure/application-gateway/configuration-infrastructure#network-security-groups).
 
 ### Does the application gateway subnet support user-defined routes?
 
-See [User-defined routes supported in the Application Gateway subnet](https://docs.microsoft.com/azure/application-gateway/configuration-overview#user-defined-routes-supported-on-the-application-gateway-subnet).
+See [User-defined routes supported in the Application Gateway subnet](https://docs.microsoft.com/azure/application-gateway/configuration-infrastructure#supported-user-defined-routes).
+
+### Are service endpoint policies supported in the Application Gateway subnet?
+
+No. [Service endpoint policies](https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoint-policies-overview) for storage accounts are not supported in Application Gateway subnet and configuring it will block Azure infrastructure traffic.
 
 ### What are the limits on Application Gateway? Can I increase these limits?
 
@@ -217,7 +223,7 @@ The Host field specifies the name to send the probe to when you've configured mu
 
 ### Can I allow Application Gateway access to only a few source IP addresses?
 
-Yes. See [restrict access to specific source IPs](https://docs.microsoft.com/azure/application-gateway/configuration-overview#allow-application-gateway-access-to-a-few-source-ips).
+Yes. See [restrict access to specific source IPs](https://docs.microsoft.com/azure/application-gateway/configuration-infrastructure#allow-access-to-a-few-source-ips).
 
 ### Can I use the same port for both public-facing and private-facing listeners?
 
@@ -255,7 +261,7 @@ Sample NSG configuration for private IP only access:
 
 ### What certificates does Application Gateway support?
 
-Application Gateway supports self-signed certificates, certificate authority (CA) certificates, Extended Validation (EV) certificates, and wildcard certificates.
+Application Gateway supports self-signed certificates, certificate authority (CA) certificates, Extended Validation (EV) certificates, multi-domain (SAN) certificates, and wildcard certificates.
 
 ### What cipher suites does Application Gateway support?
 
@@ -402,7 +408,7 @@ Currently, one instance of Ingress Controller can only be associated to one Appl
 
 ### Why is my AKS cluster with kubenet not working with AGIC?
 
-AGIC tries to automatically associate the route table resource to the Application Gateway subnet but may fail to do so due to lack of permissions from the AGIC. If AGIC is unable to associate the route table to the Application Gateway subnet, there will be an error in the AGIC logs saying so, in which case you'll have to manually associate the route table created by the AKS cluster to the Application Gateway's subnet. For more information, see instructions [here](configuration-overview.md#user-defined-routes-supported-on-the-application-gateway-subnet).
+AGIC tries to automatically associate the route table resource to the Application Gateway subnet but may fail to do so due to lack of permissions from the AGIC. If AGIC is unable to associate the route table to the Application Gateway subnet, there will be an error in the AGIC logs saying so, in which case you'll have to manually associate the route table created by the AKS cluster to the Application Gateway's subnet. For more information, see [Supported user-defined routes](configuration-infrastructure.md#supported-user-defined-routes).
 
 ### Can I connect my AKS cluster and Application Gateway in separate virtual networks? 
 

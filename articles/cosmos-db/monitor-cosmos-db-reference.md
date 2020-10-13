@@ -2,13 +2,12 @@
 title: Azure Cosmos DB monitoring data reference | Microsoft Docs
 description: Log and metrics reference for monitoring data from Azure Cosmos DB.
 author: bwren
-services: azure-monitor
-ms.service: azure-monitor
+services: cosmos-db
+ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 07/17/2020
 ms.author: bwren
 ms.custom: subject-monitoring 
-ms.subservice: logs
 ---
 
 # Azure Cosmos DB monitoring data reference

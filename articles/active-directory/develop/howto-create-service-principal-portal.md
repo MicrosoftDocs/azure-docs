@@ -17,7 +17,7 @@ ms.custom: aaddev, seoapril2019, identityplatformtop40
 
 # How to: Use the portal to create an Azure AD application and service principal that can access resources
 
-This article shows you how to create a new Azure Active Directory (Azure AD) application and service principal that can be used with the role-based access control. When you have applications, hosted services, or automated tools that needs to access or modify resources, you can create an identity for the app. This identity is known as a service principal. Access to resources is restricted by the roles assigned to the service principal, giving you control over which resources can be accessed and at which level. For security reasons, it's always recommended to use service principals with automated tools rather than allowing them to log in with a user identity. 
+This article shows you how to create a new Azure Active Directory (Azure AD) application and service principal that can be used with the role-based access control. When you have applications, hosted services, or automated tools that needs to access or modify resources, you can create an identity for the app. This identity is known as a service principal. Access to resources is restricted by the roles assigned to the service principal, giving you control over which resources can be accessed and at which level. For security reasons, it's always recommended to use service principals with automated tools rather than allowing them to log in with a user identity.
 
 This article shows you how to use the portal to create the service principal in the Azure portal. It focuses on a single-tenant application where the application is intended to run within only one organization. You typically use single-tenant applications for line-of-business applications that run within your organization.  You can also [use Azure PowerShell to create a service principal](howto-authenticate-service-principal-powershell.md).
 
@@ -83,7 +83,7 @@ You've created your Azure AD application and service principal.
 
 ## Assign a role to the application
 
-To access resources in your subscription, you must assign a role to the application. Decide which role offers the right permissions for the application. To learn about the available roles, see [RBAC: Built in Roles](../../role-based-access-control/built-in-roles.md).
+To access resources in your subscription, you must assign a role to the application. Decide which role offers the right permissions for the application. To learn about the available roles, see [Azure built-in roles](../../role-based-access-control/built-in-roles.md).
 
 You can set the scope at the level of the subscription, resource group, or resource. Permissions are inherited to lower levels of scope. For example, adding an application to the *Reader* role for a resource group means it can read the resource group and any resources it contains.
 
@@ -125,12 +125,13 @@ When programmatically signing in, you need to pass the tenant ID with your authe
 
    ![Copy the application (client) ID](./media/howto-create-service-principal-portal/copy-app-id.png)
 
-## Upload a certificate or create a secret for signing in
-There are two types of authentication available for service principals: password-based authentication (application secret) and certificate-based authentication.  We recommend using a certificate, but you can also create a new application secret.
+## Authentication: Two options
 
-### Upload a certificate
+There are two types of authentication available for service principals: password-based authentication (application secret) and certificate-based authentication. *We recommend using a certificate*, but you can also create an application secret.
 
-You can use an existing certificate if you have one.  Optionally, you can create a self-signed certificate for *testing purposes only*. To create a self-signed certificate, open PowerShell and run [New-SelfSignedCertificate](/powershell/module/pkiclient/new-selfsignedcertificate) with the following parameters to create the cert in the user certificate store on your computer: 
+### Option 1: Upload a certificate
+
+You can use an existing certificate if you have one.  Optionally, you can create a self-signed certificate for *testing purposes only*. To create a self-signed certificate, open PowerShell and run [New-SelfSignedCertificate](/powershell/module/pkiclient/new-selfsignedcertificate) with the following parameters to create the cert in the user certificate store on your computer:
 
 ```powershell
 $cert=New-SelfSignedCertificate -Subject "CN=DaemonConsoleCert" -CertStoreLocation "Cert:\CurrentUser\My"  -KeyExportPolicy Exportable -KeySpec Signature
@@ -159,7 +160,7 @@ To upload the certificate:
 
 After registering the certificate with your application in the application registration portal, you need to enable the client application code to use the certificate.
 
-### Create a new application secret
+### Option 2: Create a new application secret
 
 If you choose not to use a certificate, you can create a new application secret.
 
@@ -174,14 +175,15 @@ If you choose not to use a certificate, you can create a new application secret.
    ![Copy the secret value because you can't retrieve this later](./media/howto-create-service-principal-portal/copy-secret.png)
 
 ## Configure access policies on resources
-Keep in mind, you might need to configure additional permissions on resources that your application needs to access. For example, you must also [update a key vault's access policies](/azure/key-vault/key-vault-secure-your-key-vault#data-plane-and-access-policies) to give your application access to keys, secrets, or certificates.  
+Keep in mind, you might need to configure additional permissions on resources that your application needs to access. For example, you must also [update a key vault's access policies](../../key-vault/general/secure-your-key-vault.md#data-plane-and-access-policies) to give your application access to keys, secrets, or certificates.
 
-1. In the [Azure portal](https://portal.azure.com), navigate to your key vault and select **Access policies**.  
+1. In the [Azure portal](https://portal.azure.com), navigate to your key vault and select **Access policies**.
 1. Select **Add access policy**, then select the key, secret, and certificate permissions you want to grant your application.  Select the service principal you created previously.
 1. Select **Add** to add the access policy, then **Save** to commit your changes.
     ![Add access policy](./media/howto-create-service-principal-portal/add-access-policy.png)
 
 ## Next steps
 * Learn how to [use Azure PowerShell to create a service principal](howto-authenticate-service-principal-powershell.md).
-* To learn about specifying security policies, see [Azure role-based access control (Azure RBAC)](../../role-based-access-control/role-assignments-portal.md).  
+* To learn about specifying security policies, see [Azure role-based access control (Azure RBAC)](../../role-based-access-control/role-assignments-portal.md).
 * For a list of available actions that can be granted or denied to users, see [Azure Resource Manager Resource Provider operations](../../role-based-access-control/resource-provider-operations.md).
+* For information about working with app registrations by using **Microsoft Graph**, see the [Applications](/graph/api/resources/application) API reference.

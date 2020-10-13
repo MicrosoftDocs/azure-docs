@@ -154,7 +154,7 @@ Additionally, to help you keep track of dedicated administrative accounts, you m
 ### 3.4: Use single sign-on (SSO) with Azure Active Directory
 **Guidance:** DevTest Labs uses the Azure AD service for identity management. Consider these two key aspects when you give users access to an environment based on DevTest Labs:
 
-- **Resource management:** It provides access to the Azure portal to manage resources (create VMs, create environments, start, stop, restart, delete, and apply artifacts, and so on). Resource management is done in Azure by using role-based access control (RBAC). You assign roles to users and set resource and access-level permissions.
+- **Resource management:** It provides access to the Azure portal to manage resources (create VMs, create environments, start, stop, restart, delete, and apply artifacts, and so on). Resource management is done in Azure by using Azure role-based access control (Azure RBAC). You assign roles to users and set resource and access-level permissions.
 - **Virtual machines (network-level)**: In the default configuration, VMs use a local admin account. If there's a domain available (Azure AD Domain Services, an on-premises domain, or a cloud-based domain), machines can be joined to the domain. Users can then use their domain-based identities using the domain join artifact to connect to the machines. 
 
 - [Reference architecture for DevTest Labs](devtest-lab-reference-architecture.md#architecture)
@@ -310,9 +310,9 @@ For the underlying platform, which is managed by Microsoft, Microsoft treats all
 **Responsibility:** Customer
 
 ### 4.6: Use Azure RBAC to control access to resources
-**Guidance:** Use Azure Active Directory (Azure AD) role-based access control (RBAC) to control access to labs in Azure DevTest Labs.
+**Guidance:** Use Azure role-based access control (Azure RBAC) to control access to labs in Azure DevTest Labs.
 
-- [How to configure RBAC in Azure](../role-based-access-control/role-assignments-portal.md)
+- [How to configure Azure RBAC](../role-based-access-control/role-assignments-portal.md)
 - [Understand roles in DevTest Labs](devtest-lab-add-devtest-user.md)
 
 **Azure Security Center monitoring:** Not applicable
@@ -625,8 +625,8 @@ Also, Azure Marketplace Virtual Machine Images published by Microsoft are manage
 ### 7.5: Securely store configuration of Azure resources
 **Guidance:** Use Azure DevOps to securely store and manage your code like custom Azure policies, Azure Resource Manager templates and Desired State Configuration scripts. To access the resources you manage in Azure DevOps, you can grant or deny permissions to specific users, built-in security groups, or groups defined in Azure Active Directory (Azure AD) if integrated with Azure DevOps.
 
-- [Azure Repos Git tutorial](/devops/repos/git/gitworkflow?view=azure-devops)
-- [About permissions and groups](/devops/organizations/security/about-permissions?view=azure-devops&tabs=preview-page)
+- [Azure Repos Git tutorial](https://docs.microsoft.com/azure/devops/repos/git/gitworkflow)
+- [About permissions and groups](https://docs.microsoft.com/azure/devops/organizations/security/about-permissions?view=azure-devops&tabs=preview-page)
 - [Integration between Azure DevTest Labs and Azure DevOps workflow](devtest-lab-dev-ops.md)
 
 **Azure Security Center monitoring:** Not applicable
@@ -634,12 +634,12 @@ Also, Azure Marketplace Virtual Machine Images published by Microsoft are manage
 **Responsibility:** Customer
 
 ### 7.6: Securely store custom operating system images
-**Guidance:** If using custom images, use role-based access control (RBAC) to ensure only authorized users may access the images. Using a Shared Image Gallery, you can share your images to specific labs that need it. For container images, store them in Azure Container Registry and use RBAC to ensure only authorized users may access the images.
+**Guidance:** If using custom images, use Azure role-based access control (Azure RBAC) to ensure only authorized users may access the images. Using a Shared Image Gallery, you can share your images to specific labs that need it. For container images, store them in Azure Container Registry and use Azure RBAC to ensure only authorized users may access the images.
 
-- [Understand RBAC in Azure](../role-based-access-control/rbac-and-directory-admin-roles.md)
-- [How to configure RBAC in Azure](../role-based-access-control/quickstart-assign-role-user-portal.md)
+- [Understand Azure RBAC](../role-based-access-control/rbac-and-directory-admin-roles.md)
+- [How to configure Azure RBAC](../role-based-access-control/quickstart-assign-role-user-portal.md)
 - [Configure a Shared Image Gallery for a DevTest Labs](configure-shared-image-gallery.md)
-- [Understand RBAC for Container Registry](../container-registry/container-registry-roles.md)
+- [Understand Azure RBAC for Container Registry](../container-registry/container-registry-roles.md)
 
 **Azure Security Center monitoring:** Not applicable
 
@@ -689,7 +689,8 @@ Also, Azure Marketplace Virtual Machine Images published by Microsoft are manage
 - [Configure managed identity to deploy Azure Resource Manager environments in DevTest Labs](use-managed-identities-environments.md)
 - [Configure managed identity to deploy virtual machines in DevTest Labs](enable-managed-identities-lab-vms.md)
 - [How to create a key vault](../key-vault/quick-create-portal.md)
-- [How to provide Key Vault authentication with a managed identity](../key-vault/managed-identity.md)
+- [How to authenticate to Key Vault](../key-vault/general/authentication.md)
+- [How to assign a Key Vault access policy](../key-vault/general/assign-access-policy-portal.md)
 
 **Azure Security Center monitoring:** Yes
 

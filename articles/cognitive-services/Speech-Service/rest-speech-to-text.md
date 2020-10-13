@@ -10,18 +10,22 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 05/13/2020
 ms.author: trbye
+ms.custom: devx-track-csharp
 ---
 
 # Speech-to-text REST API
 
 As an alternative to the [Speech SDK](speech-sdk.md), the Speech service allows you to convert speech-to-text using a REST API. Each accessible endpoint is associated with a region. Your application requires a subscription key for the endpoint you plan to use. The REST API is very limited, and it should only be used in cases were the [Speech SDK](speech-sdk.md) cannot.
 
-Before using the speech-to-text REST API, understand:
+Before using the speech-to-text REST API, consider the following:
 
 * Requests that use the REST API and transmit audio directly can only contain up to 60 seconds of audio.
 * The speech-to-text REST API only returns final results. Partial results are not provided.
 
 If sending longer audio is a requirement for your application, consider using the [Speech SDK](speech-sdk.md) or a file-based REST API, like [batch transcription](batch-transcription.md).
+
+> [!TIP]
+> See the  Azure government [documentation](https://docs.microsoft.com/azure/azure-government/compare-azure-government-global-azure) for government cloud (FairFax) endpoints.
 
 [!INCLUDE [](../../../includes/cognitive-services-speech-service-rest-auth.md)]
 
@@ -297,6 +301,6 @@ A typical response for recognition with pronunciation assessment:
 
 ## Next steps
 
-- [Get your Speech trial subscription](https://azure.microsoft.com/try/cognitive-services/)
+- [Create a free Azure account](https://azure.microsoft.com/free/cognitive-services/)
 - [Customize acoustic models](how-to-customize-acoustic-models.md)
 - [Customize language models](how-to-customize-language-model.md)

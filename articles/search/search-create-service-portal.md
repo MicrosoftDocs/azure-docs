@@ -8,7 +8,7 @@ author: tchristiani
 ms.author: terrychr
 ms.service: cognitive-search
 ms.topic: quickstart
-ms.date: 07/14/2020
+ms.date: 10/05/2020
 ---
 
 # Quickstart: Create an Azure Cognitive Search service in the portal
@@ -43,7 +43,7 @@ Alternatively, [activate MSDN subscriber benefits](https://azure.microsoft.com/p
 
 1. Use the search bar to find "Azure Cognitive Search" or navigate to the resource through **Web** > **Azure Cognitive Search**.
 
-![Create a resource in the portal](./media/search-create-service-portal/find-search3.png "Create a resource in the portal")
+:::image type="content" source="media/search-create-service-portal/find-search3.png" alt-text="Create a resource in the portal" border="false":::
 
 ## Choose a subscription
 
@@ -55,11 +55,11 @@ A resource group is a container that holds related resources for your Azure solu
 
 If you aren't combining resources into a single group, or if existing resource groups are filled with resources used in unrelated solutions, create a new resource group just for your Azure Cognitive Search resource. 
 
-![Create a new resource group](./media/search-create-service-portal/new-resource-group.png "Create a new resource group")
+:::image type="content" source="media/search-create-service-portal/new-resource-group.png" alt-text="Create a new resource group" border="false":::
 
 Over time, you can track current and projected costs all-up or you can view charges for individual resources. The following screenshot shows the kind of cost information you can expect to see when you combine multiple resources into one group.
 
-![Manage costs at the resource group level](./media/search-create-service-portal/resource-group-cost-management.png "Manage costs at the resource group level")
+:::image type="content" source="media/search-create-service-portal/resource-group-cost-management.png" alt-text="Manage costs at the resource group level" border="false":::
 
 > [!TIP]
 > Resource groups simplify cleanup because deleting a group deletes all of the services within it. For prototype projects utilizing multiple services, putting all of them in the same resource group makes cleanup easier after the project is over.
@@ -92,7 +92,7 @@ Azure Cognitive Search is available in most regions. The list of supported regio
 
  If you are using AI enrichment, create your search service in the same region as Cognitive Services. *Co-location of Azure Cognitive Search and Cognitive Services in the same region is a requirement for AI enrichment*.
 
- Customers with business continuity and disaster recovery (BCDR) requirements should create their services in [regional pairs](https://docs.microsoft.com/azure/best-practices-availability-paired-regions#azure-regional-pairs). For example, if you are operating in North America, you might choose East US and West US, or North Central US and South Centra US, for each service.
+ Customers with business continuity and disaster recovery (BCDR) requirements should create their services in [regional pairs](../best-practices-availability-paired-regions.md#azure-regional-pairs). For example, if you are operating in North America, you might choose East US and West US, or North Central US and South Centra US, for each service.
 
 ### Recommendations
 
@@ -110,11 +110,11 @@ Remember, a pricing tier cannot be changed once the service is created. If you n
 
 After you've provided the necessary inputs, go ahead and create the service. 
 
-![Review and create the service](./media/search-create-service-portal/new-service3.png "Review and create the service")
+:::image type="content" source="media/search-create-service-portal/new-service3.png" alt-text="Review and create the service" border="false":::
 
 Your service is deployed within minutes. You can monitor progress through Azure notifications. Consider pinning the service to your dashboard for easy access in the future.
 
-![Monitor and pin the service](./media/search-create-service-portal/monitor-notifications.png "Monitor and pin the service")
+:::image type="content" source="media/search-create-service-portal/monitor-notifications.png" alt-text="Monitor and pin the service" border="false":::
 
 ## Get a key and URL endpoint
 
@@ -124,7 +124,7 @@ Unless you are using the portal, programmatic access to your new service require
 
 2. On the **Keys** page, copy either one of the admin keys (they are equivalent). Admin api-keys are required for creating, updating, and deleting objects on your service. In contrast, query keys provide read-access to index content.
 
-   ![Service overview page with URL endpoint](./media/search-create-service-portal/get-url-key.png "URL endpoint and other service details")
+   :::image type="content" source="media/search-create-service-portal/get-url-key.png" alt-text="Service overview page with URL endpoint" border="false":::
 
 An endpoint and key are not needed for portal-based tasks. The portal is already linked to your Azure Cognitive Search resource with admin rights. For a portal walkthrough, start with [Quickstart: Create an Azure Cognitive Search index in the portal](search-get-started-portal.md).
 
@@ -145,7 +145,7 @@ Adding resources increases your monthly bill. The [pricing calculator](https://a
 2. In the left-navigation pane, select **Settings** > **Scale**.
 3. Use the slidebar to add resources of either type.
 
-![Add capacity](./media/search-create-service-portal/settings-scale.png "Add capacity through replicas and partitions")
+:::image type="content" source="media/search-create-service-portal/settings-scale.png" alt-text="Add capacity through replicas and partitions" border="false":::
 
 > [!Note]
 > Per-partition storage and speed increases at higher tiers. For more information, see [capacity and limits](search-limits-quotas-capacity.md).
@@ -156,7 +156,7 @@ Most customers use just one service provisioned at a tier providing the [right b
 
 Although most customers use just one service, service redundancy might be necessary if operational requirements include the following:
 
-+ [Business continuity and disaster recovery (BCDR)](https://docs.microsoft.com/azure/best-practices-availability-paired-regions). Azure Cognitive Search does not provide instant failover in the event of an outage.
++ [Business continuity and disaster recovery (BCDR)](../best-practices-availability-paired-regions.md). Azure Cognitive Search does not provide instant failover in the event of an outage.
 
 + [Multi-tenant architectures](search-modeling-multitenant-saas-applications.md) sometimes call for two or more services.
 
@@ -173,3 +173,8 @@ After provisioning a service, you can continue in the portal to create your firs
 
 > [!div class="nextstepaction"]
 > [Quickstart: Create an Azure Cognitive Search index in the portal](search-get-started-portal.md)
+
+Want to optimize and save on your cloud spending?
+
+> [!div class="nextstepaction"]
+> [Start analyzing costs with Cost Management](../cost-management-billing/costs/quick-acm-cost-analysis.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn)

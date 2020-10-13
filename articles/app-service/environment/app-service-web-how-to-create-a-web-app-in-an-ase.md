@@ -20,7 +20,7 @@ ms.custom: seodec18
 This tutorial shows how to create web apps and App Service plans in an [App Service Environment v1](app-service-app-service-environment-intro.md) (ASE). 
 
 > [!NOTE]
-> If you want to learn how to create a web app but don't need to do it in an App Service Environment, see [Create a .NET web app](../app-service-web-get-started-dotnet.md) or one of the related tutorials for other languages and frameworks.
+> If you want to learn how to create a web app but don't need to do it in an App Service Environment, see [Create a .NET web app](../quickstart-dotnetcore.md) or one of the related tutorials for other languages and frameworks.
 > 
 > 
 
@@ -105,4 +105,4 @@ After creating your web app and App Service plan it is a good idea to scale it u
 [HowtoScale]: app-service-web-scale-a-web-app-in-an-app-service-environment.md
 [HowtoConfigureASE]: app-service-web-configure-an-app-service-environment.md
 [ResourceGroups]: ../../azure-resource-manager/management/overview.md
-[AzurePowershell]: https://azure.microsoft.com/documentation/articles/powershell-install-configure/
+[AzurePowershell]: /powershell/azure/?view=azps-3.8.0

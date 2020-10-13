@@ -1,6 +1,6 @@
 ---
-title: Provide security contact details in Azure Security Center | Microsoft Docs
-description: This document shows you how to provide security contact details in Azure Security Center.
+title: Configure email notifications for Azure Security Center alerts
+description: Learn how to fine-tune the types of emails sent out by Azure Security Center for security alerts. 
 services: security-center
 documentationcenter: na
 author: memildin
@@ -8,18 +8,21 @@ manager: rkarlin
 ms.assetid: 26b5dcb4-ce3f-4f22-8d56-d2bf743cfc90
 ms.service: security-center
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/11/2020
+ms.date: 10/07/2020
 ms.author: memildin
 
 ---
-# Set up email notifications for security alerts 
+# Configure email notifications for security alerts 
 
-To ensure the right people in your organization are notified about security alerts in your environment, enter their email addresses in the **Email notifications** settings page.
+Security alerts need to reach the right people in your organization. By default, Security Center emails subscription owners whenever a high-severity alert is triggered for their subscription. This page explains how to customize these notifications.
 
-When setting up your notifications, you can configure the emails to be sent to specific individuals or to anyone with a specific Azure role for a subscription. 
+To define your own preferences for notification emails, Azure Security Center's **Email notifications** settings page lets you choose:
+
+- ***who* should be notified** - Emails can be sent to select individuals or to anyone with a specified Azure role for a subscription. 
+- ***what* they should be notified about** - Modify the severity levels for which Security Center should send out notifications.
 
 To avoid alert fatigue, Security Center limits the volume of outgoing mails. For each subscription, Security Center sends:
 
@@ -27,35 +30,36 @@ To avoid alert fatigue, Security Center limits the volume of outgoing mails. For
 - a maximum of **two** emails per day for **medium-severity** alerts
 - a maximum of **one** email per day for **low-severity** alerts
 
+:::image type="content" source="./media/security-center-provide-security-contacts/email-notification-settings.png" alt-text="Configuring the details of the contact who will receive emails about security alerts." :::
+ 
 ## Availability
 
 |Aspect|Details|
 |----|:----|
-|Release state:|Generally Available|
-|Pricing:|Free tier|
+|Release state:|Generally available (GA)|
+|Pricing:|Free|
 |Required roles and permissions:|**Security Admin**<br>**Subscription Owner** |
-|Clouds:|![Yes](./media/icons/yes-icon.png) Commercial clouds<br>![Yes](./media/icons/yes-icon.png) US Gov (partial)<br>![No](./media/icons/no-icon.png) China Gov, Other Gov|
+|Clouds:|![Yes](./media/icons/yes-icon.png) Commercial clouds<br>![Yes](./media/icons/yes-icon.png) National/Sovereign (US Gov, China Gov, Other Gov)|
 |||
 
 
-
-
-## Set up email notifications for alerts <a name="email"></a>
+## Customize the security alerts email notifications<a name="email"></a>
 
 You can send email notifications to individuals or to all users with specific Azure roles.
 
-1. From Security Center's **Pricing & settings** area, the relevant subscription, and select **Email notifications**.
+1. From Security Center's **Pricing & settings** area, select the relevant subscription, and select **Email notifications**.
 
-1. Define the recipients for your notifications:
+1. Define the recipients for your notifications with one or both of these options:
 
     - From the dropdown list, select from the available roles.
-    - And/or enter specific email addresses separated by commas. There is no limit to the number of email addresses that you can enter.
+    - Enter specific email addresses separated by commas. There's no limit to the number of email addresses that you can enter.
 
 1. To apply the security contact information to your subscription, select **Save**.
 
 
 ## See also
-To learn more about security alerts, see the following:
+To learn more about security alerts, see the following pages:
 
-* [Security alerts - a reference guide](alerts-reference.md) -- Learn about the security alerts you might see in Azure Security Center's Threat Protection module
-* [Manage and respond to security alerts in Azure Security Center](security-center-managing-and-responding-alerts.md) -- Learn how to manage and respond to security alerts
+- [Security alerts - a reference guide](alerts-reference.md)--Learn about the security alerts you might see in Azure Security Center's Threat Protection module
+- [Manage and respond to security alerts in Azure Security Center](security-center-managing-and-responding-alerts.md)--Learn how to manage and respond to security alerts
+- [Workflow automation](workflow-automation.md)--Automate responses to alerts with custom notification logic

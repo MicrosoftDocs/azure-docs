@@ -1,6 +1,7 @@
 ---
-title: Add sign-in with Microsoft to a Microsoft identity platform Python web app | Azure
-description: Learn how to implement Microsoft Sign-In on a Python web app using OAuth2
+title: "Quickstart: Add sign-in with Microsoft to a Python web app | Azure"
+titleSuffix: Microsoft identity platform
+description: In this quickstart, learn how a Python web app can sign in users, get an access token from the Microsoft identity platform, and call the Microsoft Graph API.
 services: active-directory
 author: abhidnya13
 manager: CelesteDG
@@ -22,8 +23,7 @@ When you've completed the guide, your application will accept sign-ins of person
 
 ## Prerequisites
 
-To run this sample, you will need:
-
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - [Python 2.7+](https://www.python.org/downloads/release/python-2713) or [Python 3+](https://www.python.org/downloads/release/python-364/)
 - [Flask](http://flask.pocoo.org/), [Flask-Session](https://pypi.org/project/Flask-Session/), [requests](https://requests.kennethreitz.org/en/master/)
 - [MSAL Python](https://github.com/AzureAD/microsoft-authentication-library-for-python)
@@ -93,7 +93,7 @@ To run this sample, you will need:
 
 > [!div class="sxs-lookup" renderon="portal"]
 > Download the project and extract the zip file to a local folder closer to the root folder - for example, **C:\Azure-Samples**
-> [!div renderon="portal" id="autoupdate" class="nextstepaction"]
+> [!div class="sxs-lookup" renderon="portal" id="autoupdate" class="nextstepaction"]
 > [Download the code sample](https://github.com/Azure-Samples/ms-identity-python-webapp/archive/master.zip)
 
 > [!div class="sxs-lookup" renderon="portal"]
@@ -136,7 +136,7 @@ To run this sample, you will need:
     python app.py
     ```
    > [!IMPORTANT]
-   > This quickstart application uses a client secret to identify itself as confidential client. Because the client secret is added as a plain-text to your project files, for security reasons, it is recommended that you use a certificate instead of a client secret before considering the application as production application. For more information on how to use a certificate, see [these instructions](https://docs.microsoft.com/azure/active-directory/develop/active-directory-certificate-credentials).
+   > This quickstart application uses a client secret to identify itself as confidential client. Because the client secret is added as a plain-text to your project files, for security reasons, it is recommended that you use a certificate instead of a client secret before considering the application as production application. For more information on how to use a certificate, see [these instructions](./active-directory-certificate-credentials.md).
 
 ## More information
 
@@ -158,11 +158,11 @@ You can add the reference to MSAL Python by adding the following code to the top
 import msal
 ```
 
+[!INCLUDE [Help and support](../../../includes/active-directory-develop-help-support-include.md)]
+
 ## Next steps
 
-Learn more about web apps that sign in users, and then that calls web APIs:
+Learn more about web apps that sign in users in our multi-part scenario series.
 
 > [!div class="nextstepaction"]
-> [Scenario: Web apps that sign in users](scenario-web-app-sign-user-overview.md)
-
-[!INCLUDE [Help and support](../../../includes/active-directory-develop-help-support-include.md)]
+> [Scenario: Web app that signs in users](scenario-web-app-sign-user-overview.md)

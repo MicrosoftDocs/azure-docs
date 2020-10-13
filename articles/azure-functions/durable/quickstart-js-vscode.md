@@ -1,12 +1,12 @@
 ---
 title: Create your first durable function in Azure using JavaScript
-description: Create and publish an Azure Durable Function using Visual Studio Code.
+description: Create and publish an Azure Durable Function in JavaScript using Visual Studio Code.
 author: anthonychu
 
 ms.topic: quickstart
 ms.date: 05/07/2020
 ms.reviewer: azfuncdf, antchu
-ms.custom: devx-track-javascript
+ms.custom: devx-track-js
 ---
 
 # Create your first durable function in JavaScript

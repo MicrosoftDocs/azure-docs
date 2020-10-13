@@ -4,7 +4,7 @@ description: Learn how to develop Azure WebJobs in Visual Studio and deploy them
 author: ggailey777
 ms.assetid: a3a9d320-1201-4ac8-9398-b4c9535ba755
 ms.topic: conceptual
-ms.custom: vs-azure
+ms.custom: "devx-track-csharp, vs-azure"
 ms.date: 07/30/2020
 ms.author: glenga
 ms.reviewer: david.ebbo;suwatch;pbatum;naren.soni
@@ -50,7 +50,7 @@ Deploy a project as a WebJob by itself, or link it to a web project so that it a
 
 ### Prerequisites
 
-Install Visual Studio 2017 or Visual Studio 2019 with the [Azure development workload](https://docs.microsoft.com/visualstudio/install/install-visual-studio#step-4---choose-workloads).
+Install Visual Studio 2017 or Visual Studio 2019 with the [Azure development workload](/visualstudio/install/install-visual-studio#step-4---choose-workloads).
 
 ### <a id="convert"></a> Enable WebJobs deployment for an existing console app project
 
@@ -180,9 +180,9 @@ WebJob deployment information:
 
 The type of a WebJob can be either *triggered* or *continuous*:
 
-- Triggered (default): A triggered WebJob starts based on a binding event, on a [schedule](#scheduling-a-triggered-webjob), or when you trigger it manually (on demand). It runs on all instances that the web app runs on, but you can optionally restrict the WebJob to a single instance.
+- Triggered (default): A triggered WebJob starts based on a binding event, on a [schedule](#scheduling-a-triggered-webjob), or when you trigger it manually (on demand). It runs on a single instance that the web app runs on.
 
-- Continuous: A [continuous](#continuous-execution) WebJob starts immediately when the WebJob is created. This type of WebJob is best for unbounded or long-running jobs. If the job does end, you can restart it.  
+- Continuous: A [continuous](#continuous-execution) WebJob starts immediately when the WebJob is created. It runs on all web app scaled instances by default but can be configured to run as a single instance via *settings.job*.
 
 [!INCLUDE [webjobs-alwayson-note](../../includes/webjobs-always-on-note.md)]
 

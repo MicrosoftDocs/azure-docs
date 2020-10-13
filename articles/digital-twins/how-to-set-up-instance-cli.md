@@ -64,10 +64,10 @@ You now have an Azure Digital Twins instance ready to go. Next, you'll give the 
 
 [!INCLUDE [digital-twins-setup-role-assignment.md](../../includes/digital-twins-setup-role-assignment.md)]
 
-Use the following command to assign the role (must be run by a user with [sufficient permissions](#prerequisites-permission-requirements) in the Azure subscription):
+Use the following command to assign the role (must be run by a user with [sufficient permissions](#prerequisites-permission-requirements) in the Azure subscription). The command requires you to pass in the *user principal name* on the Azure AD account for the user that should be assigned the role. In most cases, this will match the user's email on the Azure AD account.
 
 ```azurecli
-az dt role-assignment create --dt-name <your-Azure-Digital-Twins-instance> --assignee "<Azure-AD-email-of-user-to-assign>" --role "Azure Digital Twins Owner (Preview)"
+az dt role-assignment create --dt-name <your-Azure-Digital-Twins-instance> --assignee "<Azure-AD-user-principal-name-of-user-to-assign>" --role "Azure Digital Twins Owner (Preview)"
 ```
 
 The result of this command is outputted information about the role assignment that's been created.
@@ -75,13 +75,13 @@ The result of this command is outputted information about the role assignment th
 > [!NOTE]
 > If this command returns an error saying that the CLI **cannot find user or service principal in graph database**:
 >
-> Use the user's *Object ID* instead of their email. This may happen for users on personal [Microsoft accounts (MSAs)](https://account.microsoft.com/account). 
+> Assign the role using the user's *Object ID* instead. This may happen for users on personal [Microsoft accounts (MSAs)](https://account.microsoft.com/account). 
 >
 > Use the [Azure portal page of Azure Active Directory users](https://portal.azure.com/#blade/Microsoft_AAD_IAM/UsersManagementMenuBlade/AllUsers) to select the user account and open its details. Copy the user's *ObjectID*:
 >
 > :::image type="content" source="media/includes/user-id.png" alt-text="View of user page in Azure portal highlighting the GUID in the 'Object ID' field" lightbox="media/includes/user-id.png":::
 >
-> Then, repeat the role assignment list command using the user's *Object ID* in place of the email.
+> Then, repeat the role assignment list command using the user's *Object ID* for the `assignee` parameter above.
 
 ### Verify success
 
@@ -119,7 +119,7 @@ Next, you'll upload this file to Cloud Shell. In your Cloud Shell window, click 
 :::image type="content" source="media/how-to-set-up-instance/cloud-shell/cloud-shell-upload.png" alt-text="Cloud Shell window showing selection of the Upload option":::
 Navigate to the *manifest.json* you just created and hit "Open."
 
-Next, run the following command to create an app registration (replacing placeholders as needed):
+Next, run the following command to create an app registration, with a *Public client/native (mobile & desktop)* reply URL of `http://localhost`. Replace placeholders as needed:
 
 ```azurecli
 az ad app create --display-name <name-for-your-app-registration> --native-app --required-resource-accesses manifest.json --reply-url http://localhost
@@ -133,7 +133,7 @@ Here is an excerpt of the output from this command, showing information about th
 
 [!INCLUDE [digital-twins-setup-verify-app-registration-1.md](../../includes/digital-twins-setup-verify-app-registration-1.md)]
 
-First, verify that the settings from your uploaded *manifest.json* were properly set on the registration. To do this, select *Manifest* from the menu bar to view the app registration's manifest code. Scroll to the bottom of the code window and look for the fields from your *manifest.json* under `requiredResourceAccess`:
+Next, verify that the settings from your uploaded *manifest.json* were properly set on the registration. To do this, select *Manifest* from the menu bar to view the app registration's manifest code. Scroll to the bottom of the code window and look for the fields from your *manifest.json* under `requiredResourceAccess`:
 
 [!INCLUDE [digital-twins-setup-verify-app-registration-2.md](../../includes/digital-twins-setup-verify-app-registration-2.md)]
 
@@ -151,5 +151,9 @@ Take note of the *Application (client) ID* and *Directory (tenant) ID* shown on 
 
 ## Next steps
 
-See how to connect your client application to your instance by writing the client app's authentication code:
+Test out individual REST API calls on your instance using the Azure Digital Twins CLI commands: 
+* [az dt reference](https://docs.microsoft.com/cli/azure/ext/azure-iot/dt?view=azure-cli-latest&preserve-view=true)
+* [*How-to: Use the Azure Digital Twins CLI*](how-to-use-cli.md)
+
+Or, see how to connect your client application to your instance by writing the client app's authentication code:
 * [*How-to: Write app authentication code*](how-to-authenticate-client.md)

@@ -4,7 +4,7 @@ description: Use an Azure IoT Edge device as a transparent gateway that can proc
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 06/02/2020
+ms.date: 08/12/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
@@ -86,15 +86,19 @@ For production scenarios, you should generate these files with your own certific
    * Windows: `Restart-Service iotedge`
    * Linux: `sudo systemctl restart iotedge`
 
-## Deploy edgeHub to the gateway
+## Deploy edgeHub and route messages
 
-When you first install IoT Edge on a device, only one system module starts automatically: the IoT Edge agent. Once you create the first deployment for a device, the second system module, the IoT Edge hub, is started as well.
+Downstream devices send telemetry and messages to the gateway device, where the IoT Edge hub module is responsible for routing the information to other modules or to IoT Hub. To prepare your gateway device for this function, make sure that:
 
-The IoT Edge hub is responsible for receiving incoming messages from downstream devices and routing them to the next destination. If the **edgeHub** module isn't running on your device, create an initial deployment for your device. The deployment will look empty because you don't add any modules, but it will make sure that both system modules are running.
+* The IoT Edge hub module is deployed to the device.
 
-You can check which modules are running on a device by checking its device details in the Azure portal, viewing the device status in Visual Studio or Visual Studio Code, or by running the command `iotedge list` on the device itself.
+  When you first install IoT Edge on a device, only one system module starts automatically: the IoT Edge agent. Once you create the first deployment for a device, the second system module, the IoT Edge hub, starts as well. If the **edgeHub** module isn't running on your device, create a deployment for your device.
 
-If the **edgeAgent** module is running without the **edgeHub** module, use the following steps:
+* The IoT Edge hub module has routes set up to handle incoming messages from downstream devices.
+
+  The gateway device must have a route in place to handle messages from downstream devices or else those messages will not be processed. You can send the messages to modules on the gateway device or directly to IoT Hub.
+
+To deploy the IoT Edge hub module and configure it with routes to handle incoming messages from downstream devices, follow these steps:
 
 1. In the Azure portal, navigate to your IoT hub.
 
@@ -102,13 +106,27 @@ If the **edgeAgent** module is running without the **edgeHub** module, use the f
 
 3. Select **Set Modules**.
 
-4. Select **Next: Routes**.
+4. On the **Modules** page, you can add any modules you want to deploy to the gateway device. For the purposes of this article we're focused on configuring and deploying the edgeHub module, which doesn't need to be explicitly set on this page.
 
-5. On the **Routes** page, you should have a default route that sends all messages, whether from a module or from a downstream device, to IoT Hub. If not, add a new route with the following values then select **Review + create**:
-   * **Name**: `route`
-   * **Value**: `FROM /messages/* INTO $upstream`
+5. Select **Next: Routes**.
 
-6. On the **Review + create** page, select **Create**.
+6. On the **Routes** page, make sure that there is a route to handle messages coming from downstream devices. For example:
+
+   * A route that sends all messages, whether from a module or from a downstream device, to IoT Hub:
+       * **Name**: `allMessagesToHub`
+       * **Value**: `FROM /messages/* INTO $upstream`
+
+   * A route that sends all messages from all downstream devices to IoT Hub:
+      * **Name**: `allDownstreamToHub`
+      * **Value**: `FROM /messages/* WHERE NOT IS_DEFINED ($connectionModuleId) INTO $upstream`
+
+      This route works because, unlike messages from IoT Edge modules, messages from downstream devices don't have a module ID associated with them. Using the **WHERE** clause of the route allows us to filter out any messages with that system property.
+
+      For more information about message routing, see [Deploy modules and establish routes](./module-composition.md#declare-routes).
+
+7. Once your route or routes are created, select **Review + create**.
+
+8. On the **Review + create** page, select **Create**.
 
 ## Open ports on gateway device
 
@@ -121,25 +139,6 @@ For a gateway scenario to work, at least one of the IoT Edge hub's supported pro
 | 8883 | MQTT |
 | 5671 | AMQP |
 | 443 | HTTPS <br> MQTT+WS <br> AMQP+WS |
-
-## Route messages from downstream devices
-
-The IoT Edge runtime can route messages sent from downstream devices just like messages sent by modules. This feature allows you to perform analytics in a module running on the gateway before sending any data to the cloud.
-
-Currently, the way that you route messages sent by downstream devices is by differentiating them from messages sent by modules. Messages sent by modules all contain a system property called **connectionModuleId** but messages sent by downstream devices do not. You can use the WHERE clause of the route to exclude any messages that contain that system property.
-
-The below route is an example that would send messages from any downstream device to a module named `ai_insights`, and then from `ai_insights` to IoT Hub.
-
-```json
-{
-    "routes":{
-        "sensorToAIInsightsInput1":"FROM /messages/* WHERE NOT IS_DEFINED($connectionModuleId) INTO BrokeredEndpoint(\"/modules/ai_insights/inputs/input1\")",
-        "AIInsightsToIoTHub":"FROM /messages/modules/ai_insights/outputs/output1 INTO $upstream"
-    }
-}
-```
-
-For more information about message routing, see [Deploy modules and establish routes](./module-composition.md#declare-routes).
 
 ## Enable extended offline operation
 

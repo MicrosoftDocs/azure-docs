@@ -1,7 +1,7 @@
 ---
 title: Manage Azure Sentinel workspaces at scale
 description: Learn how to effectively manage Azure Sentinel on delegated customer resources.
-ms.date: 06/17/2020
+ms.date: 09/30/2020
 ms.topic: how-to
 ---
 
@@ -13,6 +13,9 @@ Azure Sentinel delivers security analytics and threat intelligence, providing a 
 
 This topic provides an overview of how to use [Azure Sentinel](../../sentinel/overview.md) in a scalable way for cross-tenant visibility and managed security services.
 
+> [!TIP]
+> Though we refer to service providers and customers in this topic, this guidance also applies to [enterprises using Azure Lighthouse to manage multiple tenants](../concepts/enterprise.md).
+
 ## Architectural considerations
 
 For a managed security service provider (MSSP) who wants to build a Security-as-a-service offering using Azure Sentinel, a single security operations center (SOC) may be needed to centrally monitor, manage, and configure multiple Azure Sentinel workspaces deployed within individual customer tenants. Similarly, enterprises with multiple Azure AD tenants may want to centrally manage multiple Azure Sentinel workspaces deployed across their tenants.
@@ -21,12 +24,15 @@ This centralized model of deployment has the following advantages:
 
 - Ownership of data remains with each managed tenant.
 - Supports requirements to store data within geographical boundaries.
-- Ensures data isolation, since data for multiple customers isn't stored in the same workspace. 
+- Ensures data isolation, since data for multiple customers isn't stored in the same workspace.
 - Prevents data exfiltration from the managed tenants, helping to ensure data compliance.
 - Related costs are charged to each managed tenant, rather than to the managing tenant.
 - Data from all data sources and data connectors that are integrated with Azure Sentinel (such as Azure AD Activity Logs, Office 365 logs, or Microsoft Threat Protection alerts) will remain within each customer tenant.
 - Reduces network latency.
 - Easy to add or remove new subsidiaries or customers.
+
+> [!NOTE]
+> You can manage delegated resources that are located in different [regions](../../availability-zones/az-overview.md#regions). However, delegation of subscriptions across a [national cloud](../../active-directory/develop/authentication-national-cloud.md) and the Azure public cloud, or across two separate national clouds, isn't supported.
 
 ## Granular role-based access control (RBAC)
 
@@ -57,19 +63,25 @@ If you are managing Azure Sentinel resources for multiple customers, you can vie
 
 [Azure Monitor Workbooks in Azure Sentinel](../../sentinel/overview.md#workbooks) help you visualize and monitor data from your connected data sources to gain insights. You can use the built-in workbook templates in Azure Sentinel, or create custom workbooks for your scenarios.
 
-You can deploy workbooks in your managing tenant and create at-scale dashboards to monitor and query data across customer tenants. For more information, see [Cross-workspace monitoring](../../sentinel/extend-sentinel-across-workspaces-tenants.md#using-cross-workspace-workbooks). Note that some capabilities are [not supported across multiple workspaces](../../sentinel/extend-sentinel-across-workspaces-tenants.md#whats-not-supported-across-workspaces).
+You can deploy workbooks in your managing tenant and create at-scale dashboards to monitor and query data across customer tenants. For more information, see [Cross-workspace monitoring](../../sentinel/extend-sentinel-across-workspaces-tenants.md#using-cross-workspace-workbooks). 
 
 You can also deploy workbooks directly in an individual tenant that you manage for scenarios specific to that customer.
 
-## Run queries across Azure Sentinel workspaces
+## Run Log Analytics and hunting queries across Azure Sentinel workspaces
 
-You can create and save Log Analytics queries for threat detection centrally in the managing tenant. These queries can then be run across all of your customers' Azure Sentinel workspaces by using the Union operator and the workspace () expression. For more information, see [Cross-workspace querying](../../sentinel/extend-sentinel-across-workspaces-tenants.md#cross-workspace-querying).
+Create and save Log Analytics queries for threat detection centrally in the managing tenant, including [hunting queries](../../sentinel/extend-sentinel-across-workspaces-tenants.md#cross-workspace-hunting). These queries can then be run across all of your customers' Azure Sentinel workspaces by using the Union operator and the workspace () expression. For more information, see [Cross-workspace querying](../../sentinel/extend-sentinel-across-workspaces-tenants.md#cross-workspace-querying).
 
 ## Use automation for cross-workspace management
 
 You can use automation to manage multiple Azure Sentinel workspaces and configure [hunting queries](../../sentinel/hunting.md), playbooks, and workbooks. For more information, see [Cross-workspace management using automation](../../sentinel/extend-sentinel-across-workspaces-tenants.md#cross-workspace-management-using-automation).
 
-Note that some capabilities are [not currently supported across multiple workspaces](../../sentinel/extend-sentinel-across-workspaces-tenants.md#whats-not-supported-across-workspaces).
+## Manage security of Office 365 environments
+
+Use Azure Lighthouse in conjunction with Azure Sentinel to manage the security of Office 365 environments across tenants. First, out-of-the box [Office 365 data connectors must be enabled in the managed tenant](../../sentinel/connect-office-365.md) so that information about user and admin activities in Exchange and SharePoint (including OneDrive) can be ingested to an Azure Sentinel workspace within the managed tenant. This includes details about actions such as file downloads, access requests sent, changes to group events, and mailbox operations, along with information about the users who performed the actions. [Office 365 DLP alerts](https://techcommunity.microsoft.com/t5/azure-sentinel/ingest-office-365-dlp-events-into-azure-sentinel/ba-p/1031820) are also supported as part of the built-in Office 365 connector.
+
+You can enable the [Microsoft Cloud App Security (MCAS) connector](../../sentinel/connect-cloud-app-security.md) to stream alerts and Cloud Discovery logs into Azure Sentinel. This lets you gain visibility into cloud apps, get sophisticated analytics to identify and combat cyberthreats, and control how data travels. Activity logs for MCAS can be [consumed using the Common Event Format (CEF)](https://techcommunity.microsoft.com/t5/azure-sentinel/ingest-box-com-activity-events-via-microsoft-cloud-app-security/ba-p/1072849).
+
+After setting up Office 365 data connectors, you can use cross-tenant Azure Sentinel capabilities such as viewing and analyzing the data in workbooks, using queries to create custom alerts, and configuring playbooks to respond to threats.
 
 ## Next steps
 

@@ -175,6 +175,7 @@
               href: functions-develop-vs.md
             - name: Core Tools development
               href: functions-run-local.md
+              displayName: local, runtime
         - name: Create functions
           items:
             - name: HTTP trigger
@@ -213,6 +214,8 @@
               href: functions-create-scheduled-function.md
         - name: Add bindings
           items:
+            - name: How to add a binding
+              href: add-bindings-existing-function.md
             - name: Azure Cosmos DB - portal
               href: functions-integrate-store-unstructured-data-cosmosdb.md
             - name: Storage - Python
@@ -398,6 +401,8 @@
                 - name: Output
                   href: functions-bindings-cosmosdb-v2-output.md
                   displayName: Azure Cosmos DB
+        - name: Dapr
+          href: https://github.com/dapr/azure-functions-extension
         - name: Event Grid
           items:
             - name: Overview
@@ -431,6 +436,8 @@
             - name: Output
               href: functions-bindings-event-iot-output.md
               displayName: Azure IoT Hubs
+        - name: Kafka
+          href: https://github.com/azure/azure-functions-kafka-extension
         - name: HTTP and webhooks
           items:
             - name: Overview
@@ -442,8 +449,6 @@
             - name: Output
               href: functions-bindings-http-webhook-output.md
               displayName: HTTP
-        - name: Microsoft Graph
-          href: functions-bindings-microsoft-graph.md
         - name: Mobile Apps
           href: functions-bindings-mobile-apps.md
         - name: Notification Hubs
@@ -459,6 +464,8 @@
             - name: Output
               href: functions-bindings-storage-queue-output.md
               displayName: Queue storage
+        - name: RabbitMQ
+          href: https://github.com/azure/azure-functions-rabbitmq-extension
         - name: SendGrid
           href: functions-bindings-sendgrid.md
         - name: Service Bus

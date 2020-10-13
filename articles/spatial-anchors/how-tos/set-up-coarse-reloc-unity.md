@@ -9,6 +9,7 @@ ms.author: bobuc
 ms.date: 09/19/2019
 ms.topic: tutorial
 ms.service: azure-spatial-anchors
+ms.custom: devx-track-csharp
 ---
 # How to create and locate anchors using coarse relocalization in C#
 

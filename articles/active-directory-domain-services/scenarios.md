@@ -2,7 +2,7 @@
 title: Common deployment scenarios for Azure AD Domain Services | Microsoft Docs
 description: Learn about some of the common scenarios and use-cases for Azure Active Directory Domain Services to provide value and meet business needs.
 services: active-directory-ds
-author: iainfoulds
+author: MicrosoftGuyJFlo
 manager: daveba
 
 ms.assetid: c5216ec9-4c4f-4b7e-830b-9d70cf176b20
@@ -10,8 +10,8 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 07/06/2020
-ms.author: iainfou
+ms.date: 08/14/2020
+ms.author: joflore
 
 ---
 # Common use-cases and scenarios for Azure Active Directory Domain Services
@@ -19,6 +19,56 @@ ms.author: iainfou
 Azure Active Directory Domain Services (Azure AD DS) provides managed domain services such as domain join, group policy, lightweight directory access protocol (LDAP), and Kerberos / NTLM authentication. Azure AD DS integrates with your existing Azure AD tenant, which makes it possible for users to sign in using their existing credentials. You use these domain services without the need to deploy, manage, and patch domain controllers in the cloud, which provides a smoother lift-and-shift of on-premises resources to Azure.
 
 This article outlines some common business scenarios where Azure AD DS provides value and meets those needs.
+
+## Common ways to provide identity solutions in the cloud
+
+When you migrate existing workloads to the cloud, directory-aware applications may use LDAP for read or write access to an on-premises AD DS directory. Applications that run on Windows Server are typically deployed on domain-joined virtual machines (VMs) so they can be managed securely using Group Policy. To authenticate end users, the applications may also rely on Windows-integrated authentication, such as Kerberos or NTLM authentication.
+
+IT administrators often use one of the following solutions to provide an identity service to applications that run in Azure:
+
+* Configure a site-to-site VPN connection between workloads that run in Azure and an on-premises AD DS environment.
+    * The on-premises domain controllers then provide authentication via the VPN connection.
+* Create replica domain controllers using Azure virtual machines (VMs) to extend the AD DS domain / forest from on-premises.
+    * The domain controllers that run on Azure VMs provide authentication, and replicate directory information between the on-premises AD DS environment.
+* Deploy a standalone AD DS environment in Azure using domain controllers that run on Azure VMs.
+    * The domain controllers that run on Azure VMs provide authentication, but there's no directory information replicated from an on-premises AD DS environment.
+
+With these approaches, VPN connections to the on-premises directory make applications vulnerable to transient network glitches or outages. If you deploy domain controllers using VMs in Azure, the IT team must manage the VMs, then secure, patch, monitor, backup, and troubleshoot them.
+
+Azure AD DS offers alternatives to the need to create VPN connections back to an on-premises AD DS environment or run and manage VMs in Azure to provide identity services. As a managed service, Azure AD DS reduces the complexity to create an integrated identity solution for both hybrid and cloud-only environments.
+
+> [!div class="nextstepaction"]
+> [Compare Azure AD DS with Azure AD and self-managed AD DS on Azure VMs or on-premises][compare]
+
+## Azure AD DS for hybrid organizations
+
+Many organizations run a hybrid infrastructure that includes both cloud and on-premises application workloads. Legacy applications migrated to Azure as part of a lift and shift strategy may use traditional LDAP connections to provide identity information. To support this hybrid infrastructure, identity information from an on-premises AD DS environment can be synchronized to an Azure AD tenant. Azure AD DS then provides these legacy applications in Azure with an identity source, without the need to configure and manage application connectivity back to on-premises directory services.
+
+Let's look at an example for Litware Corporation, a hybrid organization that runs both on-premises and Azure resources:
+
+![Azure Active Directory Domain Services for a hybrid organization that includes on-premises synchronization](./media/overview/synced-tenant.png)
+
+* Applications and server workloads that require domain services are deployed in a virtual network in Azure.
+    * This may include legacy applications migrated to Azure as part of a lift and shift strategy.
+* To synchronize identity information from their on-premises directory to their Azure AD tenant, Litware Corporation deploys [Azure AD Connect][azure-ad-connect].
+    * Identity information that is synchronized includes user accounts and group memberships.
+* Litware's IT team enables Azure AD DS for their Azure AD tenant in this, or a peered, virtual network.
+* Applications and VMs deployed in the Azure virtual network can then use Azure AD DS features like domain join, LDAP read, LDAP bind, NTLM and Kerberos authentication, and Group Policy.
+
+> [!IMPORTANT]
+> Azure AD Connect should only be installed and configured for synchronization with on-premises AD DS environments. It's not supported to install Azure AD Connect in a managed domain to synchronize objects back to Azure AD.
+
+## Azure AD DS for cloud-only organizations
+
+A cloud-only Azure AD tenant doesn't have an on-premises identity source. User accounts and group memberships, for example, are created and managed directly in Azure AD.
+
+Now let's look at an example for Contoso, a cloud-only organization that uses Azure AD for identity. All user identities, their credentials, and group memberships are created and managed in Azure AD. There is no additional configuration of Azure AD Connect to synchronize any identity information from an on-premises directory.
+
+![Azure Active Directory Domain Services for a cloud-only organization with no on-premises synchronization](./media/overview/cloud-only-tenant.png)
+
+* Applications and server workloads that require domain services are deployed in a virtual network in Azure.
+* Contoso's IT team enables Azure AD DS for their Azure AD tenant in this, or a peered, virtual network.
+* Applications and VMs deployed in the Azure virtual network can then use Azure AD DS features like domain join, LDAP read, LDAP bind, NTLM and Kerberos authentication, and Group Policy.
 
 ## Secure administration of Azure virtual machines
 
@@ -108,11 +158,13 @@ For more information about this deployment scenario, see [how to configure domai
 To get started, [Create and configure an Azure Active Directory Domain Services managed domain][tutorial-create-instance].
 
 <!-- INTERNAL LINKS -->
-[hdinsight]: ../hdinsight/domain-joined/apache-domain-joined-configure.md
+[hdinsight]: ../hdinsight/domain-joined/apache-domain-joined-configure-using-azure-adds.md
 [tutorial-create-instance]: tutorial-create-instance.md
 [custom-ou]: create-ou.md
 [create-gpo]: manage-group-policy.md
 [sspr]: ../active-directory/authentication/overview-authentication.md#self-service-password-reset
+[compare]: compare-identity-solutions.md
+[azure-ad-connect]: ../active-directory/hybrid/whatis-azure-ad-connect.md
 
 <!-- EXTERNAL LINKS -->
 [windows-rds]: /windows-server/remote/remote-desktop-services/rds-azure-adds

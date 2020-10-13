@@ -8,7 +8,7 @@ ms.devlang: nodejs
 ms.topic: quickstart
 ms.date: 05/28/2020
 ms.author: sngun
-ms.custom: devx-track-javascript
+ms.custom: devx-track-js
 ---
 # Quickstart: Build a Table API app with Node.js and Azure Cosmos DB
 

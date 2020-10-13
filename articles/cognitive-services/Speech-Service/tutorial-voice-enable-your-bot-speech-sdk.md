@@ -10,6 +10,7 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 02/25/2020
 ms.author: trbye
+ms.custom: devx-track-csharp
 ---
 
 # Tutorial: Voice-enable your bot using the Speech SDK
@@ -56,7 +57,7 @@ Here's what you'll need to complete this tutorial:
 - A Windows 10 PC with a working microphone and speakers (or headphones)
 - [Visual Studio 2017](https://visualstudio.microsoft.com/downloads/) or higher, with the **ASP.NET and web development** workload installed
 - [.NET Framework Runtime 4.6.1](https://dotnet.microsoft.com/download) or higher
-- An Azure account. [Sign up for free](https://azure.microsoft.com/free/ai/).
+- An Azure account. [Sign up for free](https://azure.microsoft.com/free/cognitive-services/)
 - A [GitHub](https://github.com/) account
 - [Git for Windows](https://git-scm.com/download/win)
 
@@ -79,7 +80,6 @@ If you'd like to use a different region for this tutorial these factors may limi
 
 * Ensure that you use a [supported Azure region](regions.md#voice-assistants).
 * The Direct Line Speech channel uses the text-to-speech service, which has standard and neural voices. Neural voices are [limited to specific Azure regions](regions.md#standard-and-neural-voices).
-* Free trial keys may be restricted to a specific region.
 
 For more information about regions, see [Azure locations](https://azure.microsoft.com/global-infrastructure/locations/).
 
@@ -154,7 +154,7 @@ Now that you've created some resources, let's build a bot. We're going to start 
 4. After the project is loaded, press <kbd>F5</kbd> to build and run the project.
 5. A browser will launch and you'll see a screen similar to this.
     > [!div class="mx-imgBorder"]
-    > [![echobot-running-on-localhost](media/tutorial-voice-enable-your-bot-speech-sdk/echobot-running-on-localhost.png "EchoBot running on localhost")](media/tutorial-voice-enable-your-bot-speech-sdk/echobot-running-on-localhost.png#lightbox)
+    > [![Screenshot shows the EchoBot page with the message Your bot is ready!](media/tutorial-voice-enable-your-bot-speech-sdk/echobot-running-on-localhost.png "EchoBot running on localhost")](media/tutorial-voice-enable-your-bot-speech-sdk/echobot-running-on-localhost.png#lightbox)
 
 ### Test the bot sample with the Bot Framework Emulator
 
@@ -171,7 +171,7 @@ The [Bot Framework Emulator](https://github.com/microsoft/botframework-emulator)
    and press "Connect".
 4. The bot should greet you with "Hello and welcome!" message. Type in any text message and confirm you get a response from the bot.
 5. This is what an exchange of communication with an Echo Bot instance might look like:
-    [![bot-framework-emulator](media/tutorial-voice-enable-your-bot-speech-sdk/bot-framework-emulator.png "Bot Framework emulator")](media/tutorial-voice-enable-your-bot-speech-sdk/bot-framework-emulator.png#lightbox)
+    [![Screenshot shows the Bot Framework Emulator.](media/tutorial-voice-enable-your-bot-speech-sdk/bot-framework-emulator.png "Bot Framework emulator")](media/tutorial-voice-enable-your-bot-speech-sdk/bot-framework-emulator.png#lightbox)
 
 ## Deploy your bot to an Azure App Service
 

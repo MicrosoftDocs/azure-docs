@@ -2,22 +2,15 @@
 title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with People | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and People.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-
-ms.assetid: 7c9b6202-11dd-4bb6-a679-8fb0a7a0ef4e
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 08/27/2019
 ms.author: jeedes
-
-ms.collection: M365-identity-device-management
 ---
 
 # Tutorial: Azure Active Directory single sign-on (SSO) integration with People
@@ -147,11 +140,11 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
    
 4. In the menu on the left side, click **Settings**.
 
-	![Configure Single Sign-On](./media/people-tutorial/tutorial_people_001.png)
+	![Screenshot that shows the left-side menu with "Settings" selected.](./media/people-tutorial/tutorial_people_001.png)
 
 5. Click **Company**.
 
-	![Configure Single Sign-On](./media/people-tutorial/tutorial_people_002.png)
+	![Screenshot that shows "Company" selected from the "Settings" menu.](./media/people-tutorial/tutorial_people_002.png)
 
 6. On the **Upload 'Single Sign On' SAML meta-data file**, click **Browse** to upload the downloaded metadata file.
 

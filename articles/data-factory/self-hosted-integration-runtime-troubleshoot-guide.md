@@ -5,7 +5,7 @@ services: data-factory
 author: nabhishek
 ms.service: data-factory
 ms.topic: troubleshooting
-ms.date: 08/05/2020
+ms.date: 09/14/2020
 ms.author: abnarain
 ---
 
@@ -518,7 +518,7 @@ This behavior occurs when nodes can't communicate with each other.
 ### Connectivity issue between Self-hosted IR and Data Factory or Self-hosted IR and data source/sink
 
 To troubleshoot the network connectivity issue, you should know 
-how to [collect the network trace](#how-to-collect-netmon-trace), understand how to use it, and [analyze the netmon trace](#how-to-analyze-netmon-trace) before applying the Netmon Tools in real cases from Self-hosted IR.
+how to collect the network trace, understand how to use it, and [analyze the netmon trace](#how-to-analyze-netmon-trace) before applying the Netmon Tools in real cases from Self-hosted IR.
 
 #### Symptoms
 
@@ -574,53 +574,12 @@ Take the netmon trace and analyze further.
 
     Therefore, you need to engage the network team to check what the fourth hop is from Self-hosted IR. If it is the firewall as Linux System, then check any logs on why that device resets the package after TCP 3 handshake. However, if you are not sure where to do investigation, try to get the netmon trace from Self-hosted IR and Firewall together during the problematic time to figure out which device may reset this package and cause the disconnection. In this case, you also need to engage your network team to move forward.
 
-### How to collect netmon trace
-
-1.	Download the Netmon Tools from [this website](https://www.microsoft.com/en-sg/download/details.aspx?id=4865), and install it on your Server Machine (whatever server having the issue) and Client (such as Self-hosted IR).
-
-2.	Create a folder, for example, in the following path: *D:\netmon*. Make sure that it has enough space to save the log.
-
-3.	Capture the IP and Port Information. 
-    1. Start a CMD Prompt.
-    2. Select Run as admin and run the following command:
-       
-        ```
-        Ipconfig /all >D:\netmon\IP.txt
-        netstat -abno > D:\netmon\ServerNetstat.txt
-        ```
-
-4.	Capture the Netmon Trace (network package).
-    1. Start a CMD Prompt.
-    2. Select Run as admin and run the following command:
-        
-        ```
-        cd C:\Program Files\Microsoft Network Monitor 3
-        ```
-    3. You can use three different commands to capture the network page:
-        - Option A: RoundRobin File command (This will capture only one file and will overwrite old logs).
-
-            ```
-            nmcap /network * /capture /file D:\netmon\ServerConnection.cap:200M
-            ```         
-        - Option B: Chained File command (This will create new file if 200 MB is reached).
-        
-            ```
-            nmcap /network * /capture /file D:\netmon\ServerConnection.chn:200M
-            ```          
-        - Option C: Scheduled File command.
-
-            ```
-            nmcap /network * /capture /StartWhen /Time 10:30:00 AM 10/28/2011 /StopWhen /Time 11:30:00 AM 10/28/2011 /file D:\netmon\ServerConnection.chn:200M
-            ```  
-
-5.	Press **Ctrl+C** to stop capture the Netmon trace.
- 
-> [!NOTE]
-> If you can only collect the netmon trace on the client machine, please get the server ip address to help you analyze the trace.
-
 ### How to analyze netmon trace
 
-When you try to telnet **8.8.8.8 888** with above netmon trace collected, you are supposed to see below trace:
+> [!NOTE] 
+> Below instruction is applicable to netmon trace. Since netmon trace is currently out of support, you can leverage wireshark as the same.
+
+When you try to telnet **8.8.8.8 888** with netmon trace collected, you are supposed to see below trace:
 
 ![netmon trace 1](media/self-hosted-integration-runtime-troubleshoot-guide/netmon-trace-1.png)
 

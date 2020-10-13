@@ -3,14 +3,14 @@ title: Migrate to an Azure resource authoring key
 titleSuffix: Azure Cognitive Services
 description: This article describes how to migrate Language Understanding (LUIS) authoring authentication from an email account to an Azure resource.
 services: cognitive-services
-author: diberry
+
 manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: how-to
-ms.date: 06/17/2020
-ms.author: diberry
+ms.date: 08/13/2020
+
 ---
 
 # Migrate to an Azure resource authoring key
@@ -29,6 +29,7 @@ Migration has to be done from the LUIS portal. If you create the authoring keys 
 
 ## Note before you migrate
 
+* You must migrate your authoring experience by **Nov, 2, 2020**. 
 * Migration is a one-way process. You can't go back after you migrate.
 * Applications will automatically migrate with you if you're the owner of the application.
 * The owner can't choose a subset of apps to migrate, and the process isn't reversible.
@@ -46,7 +47,7 @@ Migration has to be done from the LUIS portal. If you create the authoring keys 
 
 ## Migration prerequisites
 
-* You need to be associated with a valid Azure subscription. Ask your tenant admin to add you on the subscription, or [sign up for a free one](https://azure.microsoft.com/free/).
+* You need to be associated with a valid Azure subscription. Ask your tenant admin to add you on the subscription, or [sign up for a free one](https://azure.microsoft.com/free/cognitive-services).
 * You need to create a LUIS Azure authoring resource from the LUIS portal or from the Azure portal. Creating an authoring resource from the LUIS portal is part of the migration flow that's discussed in the next section.
 * If you're a collaborator on applications, the applications won't automatically migrate. We recommend that you back up these applications by exporting them or by using the [export API](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c40). You can import the app back into LUIS after migration. The import process creates a new app with a new app ID, for which you're the owner.
 * If you're the owner of the application, you won't need to export your apps because they'll migrate automatically. We recommend that you save each app's collaborator list. An email template that has this list is provided optionally as part of the migration process.
@@ -54,7 +55,7 @@ Migration has to be done from the LUIS portal. If you create the authoring keys 
 
 |Portal|Purpose|
 |--|--|
-|[Azure](https://azure.microsoft.com/free/)| Create prediction and authoring resources.<br> Assign contributors on resources.|
+|[Azure](https://azure.microsoft.com/free/cognitive-services)| Create prediction and authoring resources.<br> Assign contributors on resources.|
 |[LUIS](https://www.luis.ai)| Migrate to new authoring resources.<br> Create new authoring resources in the migration flow.<br> Assign or unassign prediction and authoring resources to apps from the **Manage** > **Azure resources** page. <br> Move applications from one authoring resource to another.  |
 
 > [!Note]

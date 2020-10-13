@@ -2,20 +2,15 @@
 title: 'Tutorial: Azure Active Directory integration with Fluxx Labs | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and Fluxx Labs.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-
-ms.assetid: d8fac770-bb57-4e1f-b50b-9ffeae239d07
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 05/21/2020
 ms.author: jeedes
-
 ---
 
 # Tutorial: Azure Active Directory single sign-on (SSO) integration with Fluxx Labs
@@ -139,15 +134,15 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 2. Select **Admin** below the **Settings** section.
 
-	![Fluxx Labs Configuration](./media/fluxxlabs-tutorial/config1.png)
+	![Screenshot that shows the "Settings" section with "Admin" selected.](./media/fluxxlabs-tutorial/config1.png)
 
 3. In the Admin Panel, Select **Plug-ins** > **Integrations** and then select **SAML SSO-(Disabled)**
 
-	![Fluxx Labs Configuration](./media/fluxxlabs-tutorial/config2.png)
+	![Screenshot that shows the "Integrations" tab with "S A M L S S O- (Disabled) selected.](./media/fluxxlabs-tutorial/config2.png)
 
 4. In the attribute section, perform the following steps:
 
-	![Fluxx Labs Configuration](./media/fluxxlabs-tutorial/config3.png)
+	![Screenshot that shows the "Attributes" section with "S A M L S S O" checked, values entered in fields, and the "Save" button selected.](./media/fluxxlabs-tutorial/config3.png)
 
 	a. Select the **SAML SSO** checkbox.
 
@@ -180,11 +175,11 @@ To enable Azure AD users to sign in to Fluxx Labs, they must be provisioned into
 
 2. Click on the  below displayed **icon**.
 
-	![Fluxx Labs Configuration](./media/fluxxlabs-tutorial/config6.png)
+	![Screenshot that shows administrator options with the "Plus" icon selected under "Your Dashboard is Empty".](./media/fluxxlabs-tutorial/config6.png)
 
 3. On the dashboard, click on the below displayed icon to open the **New PEOPLE** card.
 
-    ![Fluxx Labs Configuration](./media/fluxxlabs-tutorial/config4.png)
+    ![Screenshot that shows the "Contact Management" menu with the "Plus" icon next to "People" selected.](./media/fluxxlabs-tutorial/config4.png)
 
 4. On the **NEW PEOPLE** section, perform the following steps:
 

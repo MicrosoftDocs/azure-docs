@@ -6,14 +6,18 @@
     href: overview-iot-central.md
   - name: Tour of the UI
     href: overview-iot-central-tour.md
-  - name: Develop devices
+  - name: Connect and develop devices
     href: overview-iot-central-developer.md
   - name: Recent updates
     items:
+    - name: August 2020 new and updated features
+      href: https://azure.microsoft.com/updates/azure-iot-central-feature-updates-august-2020/
+    - name: July 2020 new and updated features
+      href: https://azure.microsoft.com/updates/azure-iot-central-feature-updates-july-2020/
     - name: June 2020 new and updated features
-      href: https://azure.microsoft.com/en-us/updates/azure-iot-central-feature-updates-june-2020/
+      href: https://azure.microsoft.com/updates/azure-iot-central-feature-updates-june-2020/
     - name: June 2020 UI and documentation updates
-      href: https://azure.microsoft.com/en-us/updates/azure-iot-central-ui-documenation-updates-june-2020/
+      href: https://azure.microsoft.com/updates/azure-iot-central-ui-documenation-updates-june-2020/
     - name: May 2020 jobs and metrics updates
       href: https://azure.microsoft.com/updates/azure-iot-central-jobs-and-metrics-feature-updates-may-2020/
     - name: May 2020 dashboard updates
@@ -37,7 +41,7 @@
       href: quick-monitor-devices.md
 - name: Tutorials
   items:
-    - name: Get connected
+    - name: Connect and develop devices
       items:
       - name: Connect a  device (Node.js)
         href: tutorial-connect-device-nodejs.md
@@ -73,16 +77,20 @@
       href: concepts-iot-edge.md
 - name: How-to guides
   items:
-    - name: Get connected
+    - name: Connect and develop devices
       items:
         - name: Set up a device template
           href: howto-set-up-template.md
+        - name: How to use properties
+          href: howto-use-properties.md
         - name: Prepare and connect an Azure Sphere DevKit
           href: howto-connect-sphere.md
         - name: Prepare and connect a RuuviTag device
           href: howto-connect-ruuvi.md
         - name: Prepare and connect a Rigado Cascade 500
           href: howto-connect-rigado-cascade-500.md
+        - name: Connect devices using X.509
+          href: how-to-connect-devices-x509.md
         - name: Connect other IoT clouds
           href: howto-build-iotc-device-bridge.md
     - name: Stay connected
@@ -105,10 +113,10 @@
           href: howto-run-a-job.md
     - name: Transform
       items:
-        - name: Export data to destinations in Azure (legacy)
+        - name: Export data to cloud destinations
           href: howto-export-data.md
-        - name: Export data to cloud destinations (preview)
-          href: howto-use-data-export.md
+        - name: Export data to cloud destinations (legacy)
+          href: howto-export-data-legacy.md
         - name: Create webhooks on rules
           href: howto-create-webhooks.md
         - name: Use workflows to integrate with other services
@@ -121,6 +129,8 @@
           href: howto-create-custom-analytics.md
         - name: Visualize your data in Power BI
           href: howto-connect-powerbi.md
+        - name: Configure and use file uploads
+          href: howto-configure-file-uploads.md
     - name: Administration
       items:
         - name: Manage your application
@@ -139,6 +149,8 @@
               href: howto-monitor-application-health.md
             - name: About your application
               href: howto-get-app-info.md
+            - name: Roll X.509 certificates
+              href: how-to-roll-x509-certificates.md
         - name: Manage from other places
           items:
             - name: Manage from the Azure portal
@@ -157,7 +169,12 @@
               href: howto-manage-preferences.md
             - name: Toggle live chat
               href: howto-show-hide-chat.md
-
+    - name: Troubleshoot
+      items:
+      - name: Device connections
+        href: troubleshoot-connection.md
+    - name: FAQ
+      href: howto-faq.md
 - name: Reference
   items:
   - name: Azure CLI

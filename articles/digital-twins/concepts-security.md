@@ -15,17 +15,19 @@ ms.service: digital-twins
 # manager: MSFT-alias-of-manager-or-PM-counterpart
 ---
 
-# Secure Azure Digital Twins with role-based access control
+# Secure Azure Digital Twins
 
 For security, Azure Digital Twins enables precise access control over specific data, resources, and actions in your deployment. It does this through a granular role and permission management strategy called **role-based access control (RBAC)**. You can read about the general principles of RBAC for Azure [here](../role-based-access-control/overview.md).
 
-## RBAC through Azure AD
+Azure Digital Twins also supports encryption of data at rest.
+
+## Granting permissions with RBAC
 
 RBAC is provided to Azure Digital Twins via integration with [Azure Active Directory](../active-directory/fundamentals/active-directory-whatis.md) (Azure AD).
 
 You can use RBAC to grant permissions to a *security principal*, which may be a user, a group, or an application service principal. The security principal is authenticated by Azure AD, and receives an OAuth 2.0 token in return. This token can be used to authorize an access request to an Azure Digital Twins instance.
 
-## Authentication and authorization
+### Authentication and authorization
 
 With Azure AD, access is a two-step process. When a security principal (a user, group, or application) attempts to access Azure Digital Twins, the request must be *authenticated* and *authorized*. 
 
@@ -38,13 +40,13 @@ The authorization step requires that an Azure role be assigned to the security p
 
 To learn more about roles and role assignments supported in Azure, see [*Understand the different roles*](../role-based-access-control/rbac-and-directory-admin-roles.md) in the Azure RBAC documentation.
 
-### Authentication with managed identities
+#### Authentication with managed identities
 
 [Managed identities for Azure resources](../active-directory/managed-identities-azure-resources/overview.md) is a cross-Azure feature that enables you to create a secure identity associated with the deployment where your application code runs. You can then associate that identity with access-control roles, to grant custom permissions for accessing specific Azure resources that your application needs.
 
 With managed identities, the Azure platform manages this runtime identity. You do not need to store and protect access keys in your application code or configuration, either for the identity itself, or for the resources you need to access. An Azure Digital Twins client app running inside an Azure App Service application does not need to handle SAS rules and keys, or any other access tokens. The client app only needs the endpoint address of the Azure Digital Twins namespace. When the app connects, Azure Digital Twins binds the managed entity's context to the client. Once it is associated with a managed identity, your Azure Digital Twins client can do all authorized operations. Authorization will then be granted by associating a managed entity with an Azure Digital Twins Azure role (described below).
 
-### Authorization: Azure roles for Azure Digital Twins
+#### Authorization: Azure roles for Azure Digital Twins
 
 Azure provides the below Azure built-in roles for authorizing access to an Azure Digital Twins resource:
 * *Azure Digital Twins Owner (Preview)* – Use this role to give full access over Azure Digital Twins resources.
@@ -61,7 +63,7 @@ You can assign roles in two ways:
 
 For more detailed steps on how to do this, try it out in the Azure Digital Twins [*Tutorial: Connect an end-to-end solution*](tutorial-end-to-end.md).
 
-## Permission scopes
+### Permission scopes
 
 Before you assign an Azure role to a security principal, determine the scope of access that the security principal should have. Best practices dictate that it's best to grant only the narrowest possible scope.
 
@@ -72,13 +74,25 @@ The following list describes the levels at which you can scope access to Azure D
 * Digital Twin relationship: The actions for this resource define control over CRUD operations on [relationships](concepts-twins-graph.md) between digital twins in the twin graph.
 * Event route: The actions for this resource determine permissions to [route events](concepts-route-events.md) from Azure Digital Twins to an endpoint service like [Event Hub](../event-hubs/event-hubs-about.md), [Event Grid](../event-grid/overview.md), or [Service Bus](../service-bus-messaging/service-bus-messaging-overview.md).
 
-## Troubleshooting
+### Troubleshooting permissions
 
 If a user attempts to perform an action not allowed by their role, they may receive an error from the service request reading `403 (Forbidden)`. For more information and troubleshooting steps, see [*Troubleshooting: Azure Digital Twins request failed with Status: 403 (Forbidden)*](troubleshoot-error-403.md).
 
+## Encryption of data at rest
+
+Azure Digital Twins provides encryption of data at rest and in-transit as it's written in our data centers, and decrypts it for you as you access it. This encryption occurs using a Microsoft managed encryption key.
+
+## Cross-Origin Resource Sharing (CORS)
+
+Azure Digital Twins doesn't currently support **Cross-Origin Resource Sharing (CORS)**. As a result, if you are calling a REST API from a browser app, an [API Management (APIM)](../api-management/api-management-key-concepts.md) interface, or a [Power Apps](https://docs.microsoft.com/powerapps/powerapps-overview) connector, you may see a policy error.
+
+To resolve this error, you can do one of the following:
+* Strip the CORS header `Access-Control-Allow-Origin` from the message. This header indicates whether the response can be shared. 
+* Alternatively, create a CORS proxy and make the Azure Digital Twins REST API request through it. 
+
 ## Next steps
 
-* See these concepts in action in [*How-to: Set up an instance and authentication*](how-to-set-up-instance-scripted.md).
+* See these concepts in action in [*How-to: Set up an instance and authentication*](how-to-set-up-instance-portal.md).
 
 * See how to interact with these concepts from client application code in [*How-to: Write app authentication code*](how-to-authenticate-client.md).
 

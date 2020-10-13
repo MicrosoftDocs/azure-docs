@@ -1,7 +1,7 @@
 ---
 title: Verify scopes and app roles protected web API | Azure
 titleSuffix: Microsoft identity platform
-description: Learn how to build a protected web API and configure your application's code.
+description: Verify that the API is only called by applications on behalf of users who have the right scopes and by daemon apps that have the right application roles.
 services: active-directory
 author: jmprieur
 manager: CelesteDG
@@ -85,7 +85,7 @@ The `VerifyUserHasAnyAcceptedScope` method does something like the following ste
 
 #### Verify the scopes more globally
 
-Defining granular scopes for your web API and verifying the scopes in each controller action is the recommended approach. However, it's also possible to verify the scopes at the level of the application or a controller by using ASP.NET Core. For details, see [Claim-based authorization](https://docs.microsoft.com/aspnet/core/security/authorization/claims) in the ASP.NET core documentation.
+Defining granular scopes for your web API and verifying the scopes in each controller action is the recommended approach. However, it's also possible to verify the scopes at the level of the application or a controller by using ASP.NET Core. For details, see [Claim-based authorization](/aspnet/core/security/authorization/claims) in the ASP.NET core documentation.
 
 ### .NET MVC
 
@@ -93,7 +93,7 @@ For ASP.NET, just replace `HttpContext.User` with `ClaimsPrincipal.Current`, and
 
 ## Verify app roles in APIs called by daemon apps
 
-If your web API is called by a [daemon app](scenario-daemon-overview.md), that app should require an application permission to your web API. As shown in [Exposing application permissions (app roles)](https://docs.microsoft.com/azure/active-directory/develop/scenario-protected-web-api-app-registration#exposing-application-permissions-app-roles), your API exposes such permissions. One example is the `access_as_application` app role.
+If your web API is called by a [daemon app](scenario-daemon-overview.md), that app should require an application permission to your web API. As shown in [Exposing application permissions (app roles)](./scenario-protected-web-api-app-registration.md#exposing-application-permissions-app-roles), your API exposes such permissions. One example is the `access_as_application` app role.
 
 You now need to have your API verify that the token it receives contains the `roles` claim and that this claim has the expected value. The verification code is similar to the code that verifies delegated permissions, except that your controller action tests for roles instead of scopes:
 
@@ -105,7 +105,7 @@ public class TodoListController : ApiController
 {
     public IEnumerable<TodoItem> Get()
     {
-        ValidateAppRole("access_as_application");
+        HttpContext.ValidateAppRole("access_as_application");
         ...
     }
 ```

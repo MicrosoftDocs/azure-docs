@@ -17,7 +17,8 @@ ms.reviewer: azmetadatadev
 
 The Azure Instance Metadata Service (IMDS) provides information about currently running virtual machine instances and can be used to manage and configure your virtual machines.
 This information includes the SKU, storage, network configurations, and upcoming maintenance events. For a complete list of the data that is available, see [metadata APIs](#metadata-apis).
-Instance Metadata Service is available for both the VM and virtual machine scale set Instances. It is only available for running VMs created/managed using [Azure Resource Manager](/rest/api/resources/).
+Instance Metadata Service is available for running virtual machine and virtual machine scale set instances. All APIs support VMs created/managed using [Azure Resource Manager](/rest/api/resources/). Only
+the Attested and Network endpoints support Classic (non-ARM) VMs, and Attested does so only to a limited extent.
 
 Azure's IMDS is a REST Endpoint that is available at a well-known non-routable IP address (`169.254.169.254`), it can be accessed only from within the VM. Communication between the VM and IMDS never leaves the Host.
 It is best practice to have your HTTP clients bypass web proxies within the VM when querying IMDS and treat `169.254.169.254` the same as [`168.63.129.16`](../../virtual-network/what-is-ip-address-168-63-129-16.md).
@@ -42,122 +43,110 @@ Below is the sample code to retrieve all metadata for an instance, to access spe
 **Request**
 
 ```powershell
-Invoke-RestMethod -Headers @{"Metadata"="true"} -Method GET -NoProxy -Uri http://169.254.169.254/metadata/instance?api-version=2019-06-01
+Invoke-RestMethod -Headers @{"Metadata"="true"} -Method GET -NoProxy -Uri http://169.254.169.254/metadata/instance?api-version=2020-06-01 | ConvertTo-Json
 ```
+> [!NOTE]
+> The `-NoProxy` flag is only available in PowerShell 6 or greater. You may omit the flag if you don't
+> have a proxy setup.
 
 **Response**
 
 > [!NOTE]
-> The response is a JSON string. The following example response is pretty-printed for readability.
+> The response is a JSON string. We pipe our REST query through the `ConvertTo-Json` cmdlet for pretty-printing.
 
 ```json
 {
-  "compute": {
-    "azEnvironment": "AzurePublicCloud",
-    "customData": "",
-    "location": "centralus",
-    "name": "negasonic",
-    "offer": "lampstack",
-    "osType": "Linux",
-    "placementGroupId": "",
-    "plan": {
-        "name": "5-6",
-        "product": "lampstack",
-        "publisher": "bitnami"
-    },
-    "platformFaultDomain": "0",
-    "platformUpdateDomain": "0",
-    "provider": "Microsoft.Compute",
-    "publicKeys": [],
-    "publisher": "bitnami",
-    "resourceGroupName": "myrg",
-    "resourceId": "/subscriptions/xxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx/resourceGroups/myrg/providers/Microsoft.Compute/virtualMachines/negasonic",
-    "sku": "5-6",
-    "storageProfile": {
-        "dataDisks": [
-          {
-            "caching": "None",
-            "createOption": "Empty",
-            "diskSizeGB": "1024",
-            "image": {
-              "uri": ""
-            },
-            "lun": "0",
-            "managedDisk": {
-              "id": "/subscriptions/xxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx/resourceGroups/macikgo-test-may-23/providers/Microsoft.Compute/disks/exampledatadiskname",
-              "storageAccountType": "Standard_LRS"
-            },
-            "name": "exampledatadiskname",
-            "vhd": {
-              "uri": ""
-            },
-            "writeAcceleratorEnabled": "false"
-          }
-        ],
-        "imageReference": {
-          "id": "",
-          "offer": "UbuntuServer",
-          "publisher": "Canonical",
-          "sku": "16.04.0-LTS",
-          "version": "latest"
-        },
-        "osDisk": {
-          "caching": "ReadWrite",
-          "createOption": "FromImage",
-          "diskSizeGB": "30",
-          "diffDiskSettings": {
-            "option": "Local"
-          },
-          "encryptionSettings": {
-            "enabled": "false"
-          },
-          "image": {
-            "uri": ""
-          },
-          "managedDisk": {
-            "id": "/subscriptions/xxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx/resourceGroups/macikgo-test-may-23/providers/Microsoft.Compute/disks/exampleosdiskname",
-            "storageAccountType": "Standard_LRS"
-          },
-          "name": "exampleosdiskname",
-          "osType": "Linux",
-          "vhd": {
-            "uri": ""
-          },
-          "writeAcceleratorEnabled": "false"
-        }
-    },
-    "subscriptionId": "xxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx",
-    "tags": "Department:IT;Environment:Prod;Role:WorkerRole",
-    "version": "7.1.1902271506",
-    "vmId": "13f56399-bd52-4150-9748-7190aae1ff21",
-    "vmScaleSetName": "",
-    "vmSize": "Standard_A1_v2",
-    "zone": "1"
-  },
-  "network": {
-    "interface": [
-      {
-        "ipv4": {
-          "ipAddress": [
-            {
-              "privateIpAddress": "10.1.2.5",
-              "publicIpAddress": "X.X.X.X"
-            }
-          ],
-          "subnet": [
-            {
-              "address": "10.1.2.0",
-              "prefix": "24"
-            }
-          ]
-        },
-        "ipv6": {
-          "ipAddress": []
-        },
-        "macAddress": "000D3A36DDED"
-      }
-    ]
-  }
+	"compute": {
+		"azEnvironment": "AZUREPUBLICCLOUD",
+		"isHostCompatibilityLayerVm": "true",
+		"location": "westus",
+		"name": "examplevmname",
+		"offer": "Windows",
+		"osType": "linux",
+		"placementGroupId": "f67c14ab-e92c-408c-ae2d-da15866ec79a",
+		"plan": {
+			"name": "planName",
+			"product": "planProduct",
+			"publisher": "planPublisher"
+		},
+		"platformFaultDomain": "36",
+		"platformUpdateDomain": "42",
+		"publicKeys": [{
+				"keyData": "ssh-rsa 0",
+				"path": "/home/user/.ssh/authorized_keys0"
+			},
+			{
+				"keyData": "ssh-rsa 1",
+				"path": "/home/user/.ssh/authorized_keys1"
+			}
+		],
+		"publisher": "RDFE-Test-Microsoft-Windows-Server-Group",
+		"resourceGroupName": "macikgo-test-may-23",
+		"resourceId": "/subscriptions/8d10da13-8125-4ba9-a717-bf7490507b3d/resourceGroups/macikgo-test-may-23/providers/Microsoft.Compute/virtualMachines/examplevmname",
+		"securityProfile": {
+			"secureBootEnabled": "true",
+			"virtualTpmEnabled": "false"
+		},
+		"sku": "Windows-Server-2012-R2-Datacenter",
+		"storageProfile": {
+			"dataDisks": [{
+				"caching": "None",
+				"createOption": "Empty",
+				"diskSizeGB": "1024",
+				"image": {
+					"uri": ""
+				},
+				"lun": "0",
+				"managedDisk": {
+					"id": "/subscriptions/8d10da13-8125-4ba9-a717-bf7490507b3d/resourceGroups/macikgo-test-may-23/providers/Microsoft.Compute/disks/exampledatadiskname",
+					"storageAccountType": "Standard_LRS"
+				},
+				"name": "exampledatadiskname",
+				"vhd": {
+					"uri": ""
+				},
+				"writeAcceleratorEnabled": "false"
+			}],
+			"imageReference": {
+				"id": "",
+				"offer": "UbuntuServer",
+				"publisher": "Canonical",
+				"sku": "16.04.0-LTS",
+				"version": "latest"
+			},
+			"osDisk": {
+				"caching": "ReadWrite",
+				"createOption": "FromImage",
+				"diskSizeGB": "30",
+				"diffDiskSettings": {
+					"option": "Local"
+				},
+				"encryptionSettings": {
+					"enabled": "false"
+				},
+				"image": {
+					"uri": ""
+				},
+				"managedDisk": {
+					"id": "/subscriptions/8d10da13-8125-4ba9-a717-bf7490507b3d/resourceGroups/macikgo-test-may-23/providers/Microsoft.Compute/disks/exampleosdiskname",
+					"storageAccountType": "Standard_LRS"
+				},
+				"name": "exampleosdiskname",
+				"osType": "Linux",
+				"vhd": {
+					"uri": ""
+				},
+				"writeAcceleratorEnabled": "false"
+			}
+		},
+		"subscriptionId": "8d10da13-8125-4ba9-a717-bf7490507b3d",
+		"tags": "baz:bash;foo:bar",
+		"version": "15.05.22",
+		"vmId": "02aab8a4-74ef-476e-8182-f6d2ba4166a6",
+		"vmScaleSetName": "crpteste9vflji9",
+		"vmSize": "Standard_A3",
+		"zone": ""
+	}
 }
 ```
 
@@ -187,9 +176,26 @@ Invoke-RestMethod -Headers @{"Metadata"="true"} -Method GET -NoProxy -Uri "http:
 
 The Instance Metadata Service is versioned and specifying the API version in the HTTP request is mandatory.
 
-Follow are the supported service versions: 2017-04-02, 2017-08-01, 2017-12-01, 2018-02-01, 2018-04-02, 2018-10-01, 2019-02-01, 2019-03-11, 2019-04-30, 2019-06-01, 2019-06-04, 2019-08-01, 2019-08-15.
+The supported API versions are: 
+- 2017-03-01
+- 2017-04-02
+- 2017-08-01 
+- 2017-10-01
+- 2017-12-01 
+- 2018-02-01
+- 2018-04-02
+- 2018-10-01
+- 2019-02-01
+- 2019-03-11
+- 2019-04-30
+- 2019-06-01
+- 2019-06-04
+- 2019-08-01
+- 2019-08-15
+- 2019-11-01
+- 2020-06-01
 
-Note when new version is released, it will take a while to roll out to all regions. Currently version 2019-11-01 is still getting deployed and may not be available in all regions.
+Note when new version is released, it will take a while to roll out to all regions.
 
 As newer versions are added, older versions can still be accessed for compatibility if your scripts have dependencies on specific data formats.
 
@@ -237,20 +243,23 @@ Data | Description | Version Introduced
 -----|-------------|-----------------------
 azEnvironment | Azure Environment where the VM is running in | 2018-10-01
 customData | This feature is currently disabled. We will update this documentation when it becomes available | 2019-02-01
+isHostCompatibilityLayerVm | Identifies if the VM runs on the Host Compatibility Layer | 2020-06-01
 location | Azure Region the VM is running in | 2017-04-02
 name | Name of the VM | 2017-04-02
 offer | Offer information for the VM image and is only present for images deployed from Azure image gallery | 2017-04-02
 osType | Linux or Windows | 2017-04-02
 placementGroupId | [Placement Group](../../virtual-machine-scale-sets/virtual-machine-scale-sets-placement-groups.md) of your virtual machine scale set | 2017-08-01
 plan | [Plan](/rest/api/compute/virtualmachines/createorupdate#plan) containing name, product, and publisher for a VM if it is an Azure Marketplace Image | 2018-04-02
-platformUpdateDomain |  [Update domain](manage-availability.md) the VM is running in | 2017-04-02
-platformFaultDomain | [Fault domain](manage-availability.md) the VM is running in | 2017-04-02
+platformUpdateDomain |  [Update domain](../manage-availability.md) the VM is running in | 2017-04-02
+platformFaultDomain | [Fault domain](../manage-availability.md) the VM is running in | 2017-04-02
 provider | Provider of the VM | 2018-10-01
 publicKeys | [Collection of Public Keys](/rest/api/compute/virtualmachines/createorupdate#sshpublickey) assigned to the VM and paths | 2018-04-02
 publisher | Publisher of the VM image | 2017-04-02
 resourceGroupName | [Resource group](../../azure-resource-manager/management/overview.md) for your Virtual Machine | 2017-08-01
 resourceId | The [fully qualified](/rest/api/resources/resources/getbyid) ID of the resource | 2019-03-11
 sku | Specific SKU for the VM image | 2017-04-02
+securityProfile.secureBootEnabled | Identifies if UEFI secure boot is enabled on the VM | 2020-06-01
+securityProfile.virtualTpmEnabled | Identifies if the virtual Trusted Platform Module (TPM) is enabled on the VM | 2020-06-01
 storageProfile | See [Storage Profile](#storage-metadata) | 2019-06-01
 subscriptionId | Azure subscription for the Virtual Machine | 2017-08-01
 tags | [Tags](../../azure-resource-manager/management/tag-resources.md) for your Virtual Machine  | 2017-08-01
@@ -509,10 +518,11 @@ caching | Caching requirements
 createOption | Information about how the VM was created
 diffDiskSettings | Ephemeral disk settings
 diskSizeGB | Size of the disk in GB
+encryptionSettings | Encryption settings for the disk
 image   | Source user image virtual hard disk
-lun     | Logical unit number of the disk
 managedDisk | Managed disk parameters
 name    | Disk name
+osType  | Type of OS included in the disk
 vhd     | Virtual hard disk
 writeAcceleratorEnabled | Whether or not writeAccelerator is enabled on the disk
 
@@ -524,11 +534,10 @@ caching | Caching requirements
 createOption | Information about how the VM was created
 diffDiskSettings | Ephemeral disk settings
 diskSizeGB | Size of the disk in GB
-encryptionSettings | Encryption settings for the disk
 image   | Source user image virtual hard disk
+lun     | Logical unit number of the disk
 managedDisk | Managed disk parameters
 name    | Disk name
-osType  | Type of OS included in the disk
 vhd     | Virtual hard disk
 writeAcceleratorEnabled | Whether or not writeAccelerator is enabled on the disk
 
@@ -677,7 +686,7 @@ Nonce is an optional 10-digit string. If not provided, IMDS returns the current 
 }
 ```
 
-The signature blob is a [pkcs7](https://aka.ms/pkcs7) signed version of document. It contains the certificate used for signing along with the VM details like vmId, sku, nonce, subscriptionId, timeStamp for creation and expiry of the document and the plan information about the image. The plan information is only populated for Azure Marketplace images. The certificate can be extracted from the response and used to validate that the response is valid and is coming from Azure.
+The signature blob is a [pkcs7](https://aka.ms/pkcs7) signed version of document. It contains the certificate used for signing along with certain VM-specific details. For ARM VMs, this includes vmId, sku, nonce, subscriptionId, timeStamp for creation and expiry of the document and the plan information about the image. The plan information is only populated for Azure Marketplace images. For Classic (non-ARM) VMs, only the vmId is guaranteed to be populated. The certificate can be extracted from the response and used to validate that the response is valid and is coming from Azure.
 The document contains the following fields:
 
 Data | Description
@@ -689,6 +698,9 @@ timestamp/expiresOn | The UTC timestamp for when the signed document expires
 vmId |  [Unique identifier](https://azure.microsoft.com/blog/accessing-and-using-azure-vm-unique-id/) for the VM
 subscriptionId | Azure subscription for the Virtual Machine, introduced in `2019-04-30`
 sku | Specific SKU for the VM image, introduced in `2019-11-01`
+
+> [!NOTE]
+> For Classic (non-ARM) VMs, only the vmId is guaranteed to be populated.
 
 ### Sample 2: Validating that the VM is running in Azure
 

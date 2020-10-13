@@ -27,7 +27,7 @@ Roughly once a month, Microsoft releases a new Guest OS version for Windows Azur
 
 For complete details about recent Guest OS updates, see [Azure Guest OS releases and SDK compatibility matrix](cloud-services-guestos-update-matrix.md).
 
-For helpful information on restarts and pointers to technical details of Guest and Host OS updates, see the MSDN blog post [Role Instance Restarts Due to OS Upgrades](https://blogs.msdn.com/b/kwill/archive/2012/09/19/role-instance-restarts-due-to-os-upgrades.aspx).
+For helpful information on restarts and pointers to technical details of Guest and Host OS updates, see the MSDN blog post [Role Instance Restarts Due to OS Upgrades](https://docs.microsoft.com/archive/blogs/kwill/role-instance-restarts-due-to-os-upgrades).
 
 ## Why does the first request to my cloud service after the service has been idle for some time take longer than usual?
 When the Web Server receives the first request, it first recompiles the code and then processes the request. That's why the first request takes longer than the others. By default, the app pool gets shut down in cases of user inactivity. The app pool will also recycle by default every 1,740 minutes (29 hours).

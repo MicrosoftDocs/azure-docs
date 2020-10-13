@@ -56,9 +56,11 @@ Per [RFC 8252 sections 8.3](https://tools.ietf.org/html/rfc8252#section-8.3) and
 
 From a development standpoint, this means a few things:
 
-1. Do not register multiple redirect URIs where only the port differs. The login server will pick one arbitrarily and use the behavior associated with that redirect URI (for example, whether it's `web`-, `native`-, or `spa`-type redirect).
-1. If you need to register multiple redirect URIs on localhost to test different flows during development, differentiate them using the *path* component of the URI. For example, `http://127.0.0.1/MyWebApp` doesn't match `http://127.0.0.1/MyNativeApp`.
-1. Per RFC guidance, you should not use `localhost` in the redirect URI. Instead, use the actual loopback IP address, `127.0.0.1`. This prevents your app from being broken by misconfigured firewalls or renamed network interfaces.
+* Do not register multiple redirect URIs where only the port differs. The login server will pick one arbitrarily and use the behavior associated with that redirect URI (for example, whether it's `web`-, `native`-, or `spa`-type redirect).
+* If you need to register multiple redirect URIs on localhost to test different flows during development, differentiate them using the *path* component of the URI. For example, `http://127.0.0.1/MyWebApp` doesn't match `http://127.0.0.1/MyNativeApp`.
+* Per RFC guidance, you should not use `localhost` in the redirect URI. Instead, use the actual loopback IP address, `127.0.0.1`. This prevents your app from being broken by misconfigured firewalls or renamed network interfaces.
+
+    To use the `http` scheme with the loopback address (127.0.0.1) instead of localhost, you must edit the [application manifest](https://docs.microsoft.com/azure/active-directory/develop/reference-app-manifest#replyurls-attribute). 
 
     The IPv6 loopback address (`[::1]`) is not currently supported.
 

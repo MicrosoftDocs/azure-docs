@@ -10,6 +10,7 @@ ms.date: 10/20/2017
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
+ms.custom: devx-track-csharp
 ---
 
 # Client-Side Encryption and Azure Key Vault for Microsoft Azure Storage

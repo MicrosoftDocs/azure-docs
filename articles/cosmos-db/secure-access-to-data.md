@@ -1,11 +1,12 @@
 ---
 title: Learn how to secure access to data in Azure Cosmos DB
-description: Learn about access control concepts in Azure Cosmos DB, including master keys, read-only keys, users, and permissions.
+description: Learn about access control concepts in Azure Cosmos DB, including primary keys, read-only keys, users, and permissions.
 author: thomasweiss
 ms.author: thweiss
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 01/21/2020
+ms.custom: devx-track-csharp
 
 ---
 # Secure access to data in Azure Cosmos DB
@@ -16,31 +17,31 @@ Azure Cosmos DB uses two types of keys to authenticate users and provide access 
 
 |Key type|Resources|
 |---|---|
-|[Master keys](#master-keys) |Used for administrative resources: database accounts, databases, users, and permissions|
+|[Primary keys](#primary-keys) |Used for administrative resources: database accounts, databases, users, and permissions|
 |[Resource tokens](#resource-tokens)|Used for application resources: containers, documents, attachments, stored procedures, triggers, and UDFs|
 
-<a id="master-keys"></a>
+<a id="primary-keys"></a>
 
-## Master keys
+## Primary keys
 
-Master keys provide access to all the administrative resources for the database account. Master keys:
+Primary keys provide access to all the administrative resources for the database account. Primary keys:
 
 - Provide access to accounts, databases, users, and permissions. 
 - Cannot be used to provide granular access to containers and documents.
 - Are created during the creation of an account.
 - Can be regenerated at any time.
 
-Each account consists of two Master keys: a primary key and secondary key. The purpose of dual keys is so that you can regenerate, or roll keys, providing continuous access to your account and data.
+Each account consists of two primary keys: a primary key and secondary key. The purpose of dual keys is so that you can regenerate, or roll keys, providing continuous access to your account and data.
 
-In addition to the two master keys for the Cosmos DB account, there are two read-only keys. These read-only keys only allow read operations on the account. Read-only keys do not provide access to read permissions resources.
+In addition to the two primary keys for the Cosmos DB account, there are two read-only keys. These read-only keys only allow read operations on the account. Read-only keys do not provide access to read permissions resources.
 
-Primary, secondary, read only, and read-write master keys can be retrieved and regenerated using the Azure portal. For instructions, see [View, copy, and regenerate access keys](manage-with-cli.md#regenerate-account-key).
+Primary, secondary, read only, and read-write primary keys can be retrieved and regenerated using the Azure portal. For instructions, see [View, copy, and regenerate access keys](manage-with-cli.md#regenerate-account-key).
 
 :::image type="content" source="./media/secure-access-to-data/nosql-database-security-master-key-portal.png" alt-text="Access control (IAM) in the Azure portal - demonstrating NoSQL database security":::
 
 ### Key rotation<a id="key-rotation"></a>
 
-The process of rotating your master key is simple. 
+The process of rotating your primary key is simple. 
 
 1. Navigate to the Azure portal to retrieve your secondary key.
 2. Replace your primary key with your secondary key in your application. Make sure that all the Cosmos DB clients across all the deployments are promptly restarted and will start using the updated key.
@@ -48,11 +49,11 @@ The process of rotating your master key is simple.
 4. Validate the new primary key works against all resource. Key rotation process can take any where from less than a minute to hours depending on the size of the Cosmos DB account.
 5. Replace the secondary key with the new primary key.
 
-:::image type="content" source="./media/secure-access-to-data/nosql-database-security-master-key-rotate-workflow.png" alt-text="Master key rotation in the Azure portal - demonstrating NoSQL database security" border="false":::
+:::image type="content" source="./media/secure-access-to-data/nosql-database-security-master-key-rotate-workflow.png" alt-text="Primary key rotation in the Azure portal - demonstrating NoSQL database security" border="false":::
 
-### Code sample to use a master key
+### Code sample to use a primary key
 
-The following code sample illustrates how to use a Cosmos DB account endpoint and master key to instantiate a DocumentClient and create a database:
+The following code sample illustrates how to use a Cosmos DB account endpoint and primary key to instantiate a DocumentClient and create a database:
 
 ```csharp
 //Read the Azure Cosmos DB endpointUrl and authorization keys from config.
@@ -65,7 +66,7 @@ private static readonly string authorizationKey = ConfigurationManager.AppSettin
 CosmosClient client = new CosmosClient(endpointUrl, authorizationKey);
 ```
 
-The following code sample illustrates how to use the Azure Cosmos DB account endpoint and master key to instantiate a `CosmosClient` object:
+The following code sample illustrates how to use the Azure Cosmos DB account endpoint and primary key to instantiate a `CosmosClient` object:
 
 :::code language="python" source="~/cosmosdb-python-sdk/sdk/cosmos/azure-cosmos/samples/access_cosmos_with_resource_token.py" id="configureConnectivity":::
 
@@ -78,17 +79,17 @@ Resource tokens provide access to the application resources within a database. R
 - Are recreated when a permission resource is acted upon on by POST, GET, or PUT call.
 - Use a hash resource token specifically constructed for the user, resource, and permission.
 - Are time bound with a customizable validity period. The default valid time span is one hour. Token lifetime, however, may be explicitly specified, up to a maximum of five hours.
-- Provide a safe alternative to giving out the master key.
+- Provide a safe alternative to giving out the primary key.
 - Enable clients to read, write, and delete resources in the Cosmos DB account according to the permissions they've been granted.
 
-You can use a resource token (by creating Cosmos DB users and permissions) when you want to provide access to resources in your Cosmos DB account to a client that cannot be trusted with the master key.  
+You can use a resource token (by creating Cosmos DB users and permissions) when you want to provide access to resources in your Cosmos DB account to a client that cannot be trusted with the primary key.  
 
-Cosmos DB resource tokens provide a safe alternative that enables clients to read, write, and delete resources in your Cosmos DB account according to the permissions you've granted, and without need for either a master or read only key.
+Cosmos DB resource tokens provide a safe alternative that enables clients to read, write, and delete resources in your Cosmos DB account according to the permissions you've granted, and without need for either a primary or read only key.
 
 Here is a typical design pattern whereby resource tokens may be requested, generated, and delivered to clients:
 
 1. A mid-tier service is set up to serve a mobile application to share user photos.
-2. The mid-tier service possesses the master key of the Cosmos DB account.
+2. The mid-tier service possesses the primary key of the Cosmos DB account.
 3. The photo app is installed on end-user mobile devices.
 4. On login, the photo app establishes the identity of the user with the mid-tier service. This mechanism of identity establishment is purely up to the application.
 5. Once the identity is established, the mid-tier service requests permissions based on the identity.
@@ -98,7 +99,7 @@ Here is a typical design pattern whereby resource tokens may be requested, gener
 
     :::image type="content" source="./media/secure-access-to-data/resourcekeyworkflow.png" alt-text="Azure Cosmos DB resource tokens workflow" border="false":::
 
-Resource token generation and management is handled by the native Cosmos DB client libraries; however, if you use REST you must construct the request/authentication headers. For more information on creating authentication headers for REST, see [Access Control on Cosmos DB Resources](/rest/api/cosmos-db/access-control-on-cosmosdb-resources) or the source code for our [.NET SDK](https://github.com/Azure/azure-cosmos-dotnet-v3/blob/master/Microsoft.Azure.Cosmos/src/AuthorizationHelper.cs) or [Node.js SDK](https://github.com/Azure/azure-cosmos-js/blob/master/src/auth.ts).
+Resource token generation and management is handled by the native Cosmos DB client libraries; however, if you use REST you must construct the request/authentication headers. For more information on creating authentication headers for REST, see [Access Control on Cosmos DB Resources](/rest/api/cosmos-db/access-control-on-cosmosdb-resources) or the source code for our [.NET SDK](https://github.com/Azure/azure-cosmos-dotnet-v3/blob/master/Microsoft.Azure.Cosmos/src/Authorization/AuthorizationHelper.cs) or [Node.js SDK](https://github.com/Azure/azure-cosmos-js/blob/master/src/auth.ts).
 
 For an example of a middle tier service used to generate or broker resource tokens, see the [ResourceTokenBroker app](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/xamarin/UserItems/ResourceTokenBroker/ResourceTokenBroker/Controllers).
 

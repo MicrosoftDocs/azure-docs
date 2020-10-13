@@ -9,6 +9,7 @@ ms.author: rgarcia
 ms.date: 08/10/2020
 ms.topic: tutorial
 ms.service: azure-spatial-anchors
+ms.custom: devx-track-csharp
 ---
 # How to create and locate anchors using Azure Spatial Anchors in Unity
 
@@ -294,7 +295,7 @@ Learn more about the [AnchorLocatedDelegate](https://docs.microsoft.com/dotnet/a
 Learn more about the [DeleteAnchorAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.spatialanchors.cloudspatialanchorsession.deleteanchorasync) method.
 
 ```csharp
-    await this.cloudSession..DeleteAnchorAsync(cloudAnchor);
+    await this.cloudSession.DeleteAnchorAsync(cloudAnchor);
     // Perform any processing you may want when delete finishes
 ```
 

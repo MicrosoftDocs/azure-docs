@@ -35,6 +35,9 @@ The process for copying a custom model consists of the following steps:
 1. Next you send the copy request to the source resource&mdash;the resource that contains the model to be copied. You'll get back a URL that you can query to track the progress of the operation.
 1. You'll use your source resource credentials to query the progress URL until the operation is a success. You can also query the new model ID in the target resource to get the status of the new model.
 
+> [!CAUTION]
+> The Copy API currently does not support model IDs for [composed custom models](https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-1/operations/Compose). Model compose is a preview feature in v2.1-preview.1 preview. 
+
 ## Generate Copy authorization request
 
 The following HTTP request gets copy authorization from your target resource. You'll need to enter the endpoint and key of your target resource as headers.

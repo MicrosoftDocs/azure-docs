@@ -3,8 +3,8 @@ title: Troubleshooting Azure metric alerts
 description: Common issues with Azure Monitor metric alerts and possible solutions. 
 author: harelbr
 ms.author: harelbr
-ms.topic: reference
-ms.date: 08/09/2020
+ms.topic: troubleshooting
+ms.date: 10/05/2020
 ms.subservice: alerts
 ---
 # Troubleshooting problems in Azure Monitor metric alerts 
@@ -70,10 +70,15 @@ For more information about collecting data from the guest operating system of a 
 > [!NOTE] 
 > If you configured guest metrics to be sent to a Log Analytics workspace, the metrics appear under the Log Analytics workspace resource and will start showing data **only** after creating an alert rule that monitors them. To do so, follow the steps to [configure a metric alert for logs](./alerts-metric-logs.md#configuring-metric-alert-for-logs).
 
+> [!NOTE] 
+> Monitoring a guest metric for multiple virtual machines with a single alert rule isn't supported by metric alerts currently. You can achieve this with a [log alert rule](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-unified-log). To do so, make sure the guest metrics are collected to a Log Analytics workspace, and create a log alert rule on the workspace.
+
 ## Can’t find the metric to alert on
 
-If you’re looking to alert on a specific metric but can’t see any metrics for the resource, [check if the resource type is supported for metric alerts](./alerts-metric-near-real-time.md).
-If you can see some metrics for the resource but can’t find a specific metric, [check if that metric is available](./metrics-supported.md), and if so, see the metric description to see if it’s only available in specific versions or editions of the resource.
+If you’re looking to alert on a specific metric but can’t see it when creating an alert rule, check the following:
+- If you can't see any metrics for the resource, [check if the resource type is supported for metric alerts](./alerts-metric-near-real-time.md).
+- If you can see some metrics for the resource, but can’t find a specific metric, [check if that metric is available](./metrics-supported.md), and if so, see the metric description to check if it’s only available in specific versions or editions of the resource.
+- If the metric isn't available for the resource, it might be available in the resource logs, and can be monitored using log alerts. See here for more information on how to [collect and analyze resource logs from an Azure resource](https://docs.microsoft.com/azure/azure-monitor/learn/tutorial-resource-logs).
 
 ## Can’t find the metric dimension to alert on
 
@@ -102,9 +107,9 @@ Metric alerts are stateful by default, and therefore additional alerts are not f
 
 ## Define an alert rule on a custom metric that isn't emitted yet
 
-When creating a metric alert rule, the metric name is validated against the [Metric Definitions API](/rest/api/monitor/metricdefinitions/list) to make sure it exists. In some cases, you'd like to create an alert rule on a custom metric even before it’s emitted. For example, when creating (using an ARM template) an Application Insights resource that will emit a custom metric, along with an alert rule that monitors that metric.
+When creating a metric alert rule, the metric name is validated against the [Metric Definitions API](/rest/api/monitor/metricdefinitions/list) to make sure it exists. In some cases, you'd like to create an alert rule on a custom metric even before it’s emitted. For example, when creating (using a Resource Manager template) an Application Insights resource that will emit a custom metric, along with an alert rule that monitors that metric.
 
-To avoid having the deployment fail when trying to validate the custom metric’s definitions, you can use the *skipMetricValidation* parameter in the criteria section of the alert rule, which will cause the metric validation to be skipped. See the example below for how to use this parameter in an ARM template (for complete ARM template samples for creating metric alert rules, see [here]( ./alerts-metric-create-templates.md)).
+To avoid having the deployment fail when trying to validate the custom metric’s definitions, you can use the *skipMetricValidation* parameter in the criteria section of the alert rule, which will cause the metric validation to be skipped. See the example below for how to use this parameter in a Resource Manager template. For more information, see the [complete Resource Manager template samples for creating metric alert rules](./alerts-metric-create-templates.md).
 
 ```json
 "criteria": {
@@ -124,9 +129,9 @@ To avoid having the deployment fail when trying to validate the custom metric’
 	    }
 ```
 
-## Export the ARM template of a metric alert rule via the Azure portal
+## Export the Azure Resource Manager template of a metric alert rule via the Azure portal
 
-Exporting the ARM template of a metric alert rule helps you understand its JSON syntax and properties, and can be used to automate future deployments.
+Exporting the Resource Manager template of a metric alert rule helps you understand its JSON syntax and properties, and can be used to automate future deployments.
 1. Navigate to the **Resource Groups** section in the portal, and select the resource group containing the rule.
 2. In the Overview section, check the **Show hidden types** checkbox.
 3. In the **Type** filter, select *microsoft.insights/metricalerts*.
@@ -201,7 +206,7 @@ Make sure that you're using the right CLI commands for metric alerts:
 
    - For a platform metric: Make sure that you're using the **Metric** name from [the Azure Monitor supported metrics page](./metrics-supported.md), and not the **Metric Display Name**
 
-   - For a custom metric: Make sure that the metric is already being emitted (you cannot create an alert rule on a custom metric that doesn't yet exist), and that you're providing the custom metric's namespace (see an ARM template example [here](./alerts-metric-create-templates.md#template-for-a-static-threshold-metric-alert-that-monitors-a-custom-metric))
+   - For a custom metric: Make sure that the metric is already being emitted (you cannot create an alert rule on a custom metric that doesn't yet exist), and that you're providing the custom metric's namespace (see a Resource Manager template example [here](./alerts-metric-create-templates.md#template-for-a-static-threshold-metric-alert-that-monitors-a-custom-metric))
 
 - If you're creating [metric alerts on logs](./alerts-metric-logs.md), ensure appropriate dependencies are included. See [sample template](./alerts-metric-logs.md#resource-template-for-metric-alerts-for-logs).
 
@@ -228,7 +233,7 @@ Consider the following restrictions for metric alert rule names:
 - Metric alert rule names can’t be changed (renamed) once created
 - Metric alert rule names must be unique within a resource group
 - Metric alert rule names can’t contain the following characters: * # & + : < > ? @ % { } \ / 
-- Metric alert rule names can’t end with the following character: .
+- Metric alert rule names can’t end with a space or a period
 
 
 ## Restrictions when using dimensions in a metric alert rule with multiple conditions
@@ -246,6 +251,12 @@ For example:
 	- I'd like to update the first condition, and only monitor transactions where the **ApiName** dimension equals *"GetBlob"*
 	- Because both the **Transactions** and **SuccessE2ELatency** metrics support an **ApiName** dimension, I'll need to update both conditions, and have both of them specify the **ApiName** dimension with a *"GetBlob"* value.
 
+## Setting the alert rule's Period and Frequency
+
+We recommend choosing an *Aggregation granularity (Period)* that is larger than the *Frequency of evaluation*, to reduce the likelihood of missing the first evaluation of added time series in the following cases:
+-	Metric alert rule that monitors multiple dimensions – When a new dimension value combination is added
+-	Metric alert rule that monitors multiple resources – When a new resource is added to the scope
+-	Metric alert rule that monitors a metric that isn’t emitted continuously (sparse metric) –  When the metric is emitted after a period longer than 24 hours in which it wasn’t emitted
 
 ## Next steps
 

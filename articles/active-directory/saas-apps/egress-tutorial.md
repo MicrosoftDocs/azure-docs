@@ -2,21 +2,15 @@
 title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Egress | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and Egress.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-
-ms.assetid: d1a3c6b6-af9a-440a-8451-c77f83ceacd4
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 07/29/2020
 ms.author: jeedes
-
-ms.collection: M365-identity-device-management
 ---
 
 # Tutorial: Azure Active Directory single sign-on (SSO) integration with Egress
@@ -148,7 +142,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 1. Click on **Invite Users** in the left side menu and click on **Invite Single User** to add the user.
 
-    ![Egress create test user](./media/egress-tutorial/create-user-1.PNG)
+    ![Screenshot that shows the "Invite Users" page with the "Invite Single User" button selected.](./media/egress-tutorial/create-user-1.PNG)
 
 1. Fill the required fields and click on **Invite**.
 

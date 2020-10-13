@@ -3,7 +3,7 @@ title: Windows Virtual Desktop diagnose issues - Azure
 description: How to use the Windows Virtual Desktop diagnostics feature to diagnose issues.
 author: Heidilohr
 ms.topic: troubleshooting
-ms.date: 04/30/2020
+ms.date: 09/21/2020
 ms.author: helohr
 manager: lizross
 ---
@@ -18,10 +18,10 @@ Connections that don't reach Windows Virtual Desktop won't show up in diagnostic
 
 ## Common error scenarios
 
-Error scenarios are categorized in internal to the service and external to Windows Virtual Desktop.
+The WVDErrors table tracks errors across all activity types. The column called "ServiceError" provides an additional flag marked either "True" or "False." This flag will tell you whether the error is related to the service.
 
-* Internal Issue: specifies scenarios that can't be mitigated by the customer and need to be resolved as a support issue. When providing feedback through the [Windows Virtual Desktop Tech Community](https://techcommunity.microsoft.com/t5/Windows-Virtual-Desktop/bd-p/WindowsVirtualDesktop), include the correlation ID and approximate time frame of when the issue occurred.
-* External Issue: relate to scenarios that can be mitigated by the customer. These are external to Windows Virtual Desktop.
+* If the value is "True," the service team may have already investigated this issue. If this impacts user experience and appears a high number of times, we recommend you submit a support ticket for Windows Virtual Desktop.
+* If the value is "False," this is may be a misconfiguration that you can fix yourself. The error message can give you a clue about where to start.
 
 The following table lists common errors your admins might run into.
 
@@ -40,7 +40,7 @@ The following table lists common errors your admins might run into.
 |Failed to unassign user from application group|Could not unpublish an app group for a user. Check to see if user is available on Azure AD. Check to see if the user is part of a user group that the app group is published to. |
 |There was an error retrieving the available locations |Check location of VM used in the create host pool wizard. If image is not available in that location, add image in that location or choose a different VM location. |
 
-### External connection error codes
+### Connection error codes
 
 |Numeric code|Error code|Suggested solution|
 |---|---|---|
@@ -54,6 +54,14 @@ The following table lists common errors your admins might run into.
 |8|ConnectionBroken|The connection between Client and Gateway or Server dropped. No action needed unless it happens unexpectedly.|
 |14|UnexpectedNetworkDisconnect|The connection to the network dropped. Ask the user to connect again.|
 |24|ReverseConnectFailed|The host virtual machine has no direct line of sight to RD Gateway. Ensure the Gateway IP address can be resolved.|
+
+## Error: Can't add user assignments to an app group
+
+After assigning a user to an app group, the Azure portal displays a warning that says "Session Ending" or "Experiencing Authentication Issues - Extension Microsoft_Azure_WVD." The assignment page then doesn't load, and after that, pages stop loading throughout the Azure portal (for example, Azure Monitor, Log Analytics, Service Health, and so on).
+
+**Cause:** There's a problem with the conditional access policy. The Azure portal is trying to obtain a token for Microsoft Graph, which is dependent on SharePoint Online. The customer has a conditional access policy called "Microsoft Office 365 Data Storage Terms of Use" that requires users to accept the terms of use to access data storage. However, they haven't signed in yet, so the Azure portal can't get the token.
+
+**Fix:** Before signing in to the Azure portal, the admin first needs to sign in to SharePoint and accept the Terms of Use. After that, they should be able to sign in to the Azure portal like normal.
 
 ## Next steps
 

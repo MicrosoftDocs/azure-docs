@@ -7,9 +7,9 @@ author: erhopf
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: conceptual
-ms.date: 07/10/2020
+ms.date: 08/28/2020
 ms.author: erhopf
-ms.custom: devx-track-python, devx-track-javascript
+ms.custom: "devx-track-python, devx-track-js, devx-track-csharp"
 ---
 
 # Azure Cognitive Services security

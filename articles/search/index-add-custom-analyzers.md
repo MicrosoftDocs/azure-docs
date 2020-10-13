@@ -48,7 +48,7 @@ A *custom analyzer* is a specific type of [text analyzer](search-analyzers.md) t
 
  The `tokenizer_name` is the name of a tokenizer, `token_filter_name_1`  and `token_filter_name_2` are the names of token filters, and `char_filter_name_1` and `char_filter_name_2` are the names of char filters (see the [Tokenizers](#Tokenizers), [Token filters](#TokenFilters) and Char filters tables for valid values).
 
-The analyzer definition is a part of the larger index. See [Create Index API](https://docs.microsoft.com/rest/api/searchservice/create-index) for information about the rest of the index.
+The analyzer definition is a part of the larger index. See [Create Index API](/rest/api/searchservice/create-index) for information about the rest of the index.
 
 ```
 "analyzers":(optional)[
@@ -128,7 +128,7 @@ Definitions for char filters, tokenizers, and token filters are added to the ind
 
 ## Test custom analyzers
 
-You can use the **Test Analyzer operation** in the [REST API](https://docs.microsoft.com/rest/api/searchservice/test-analyzer) to see how an analyzer breaks given text into tokens.
+You can use the **Test Analyzer operation** in the [REST API](/rest/api/searchservice/test-analyzer) to see how an analyzer breaks given text into tokens.
 
 **Request**
 ```
@@ -367,6 +367,6 @@ In the table below, the token filters that are implemented using Apache Lucene a
 
 
 ## See also  
- [Azure Cognitive Search REST APIs](https://docs.microsoft.com/rest/api/searchservice/)   
+ [Azure Cognitive Search REST APIs](/rest/api/searchservice/)   
  [Analyzers in Azure Cognitive Search > Examples](search-analyzers.md#examples)    
- [Create Index &#40;Azure Cognitive Search REST API&#41;](https://docs.microsoft.com/rest/api/searchservice/create-index)  
+ [Create Index &#40;Azure Cognitive Search REST API&#41;](/rest/api/searchservice/create-index)

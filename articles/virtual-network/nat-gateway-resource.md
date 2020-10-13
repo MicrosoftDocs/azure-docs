@@ -14,14 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/27/2020
+ms.date: 09/28/2020
 ms.author: allensu
 ---
 
 # Designing virtual networks with NAT gateway resources
 
-NAT gateway resources are part of [Virtual Network NAT](nat-overview.md) and provide outbound Internet connectivity for one or more subnets of a virtual network. The subnet of the virtual network states which NAT gateway will be used. NAT provides source network address translation (SNAT) for a subnet.  NAT gateway resources specify which static IP addresses virtual machines use when creating outbound flows. Static IP addresses come from public IP address resources, public IP prefix resources, or both. If a public IP prefix resource is used, all IP addresses of the entire public IP prefix resource are consumed by a NAT gateway resource. A NAT gateway resource can use a total of up to 16 static IP addresses from either.
-
+NAT gateway resources are part of [Virtual Network NAT](nat-overview.md) and provide outbound Internet connectivity for one or more subnets of a virtual network. The subnet of the virtual network states which NAT gateway will be used. NAT provides source network address translation (SNAT) for a subnet.  NAT gateway resources specify which static IP addresses virtual machines use when creating outbound flows. Static IP addresses come from public IP address resources (PIP), public IP prefix resources, or both. If a public IP prefix resource is used, all IP addresses of the entire public IP prefix resource are consumed by a NAT gateway resource. A NAT gateway resource can use a total of up to 16 static IP addresses from either.
 
 <p align="center">
   <img src="media/nat-overview/flow-direction1.svg" alt="Figure depicts a NAT gateway resource that consumes all IP addresses for a public IP prefix and directs that traffic to and from two subnets of virtual machines and a virtual machine scale set." width="256" title="Virtual Network NAT for outbound to Internet">
@@ -214,7 +213,7 @@ If your scenario requires inbound endpoints, you have two options:
 You can't achieve a zonal promise with NAT gateway resources when virtual machine instances are deployed in multiple zones within the same subnet.   And even if there were multiple zonal NAT gateways attached to a subnet, the virtual machine instance wouldn't know which NAT gateway resource to select.
 
 A zonal promise does't exist when 
-a) the zone of a virtual machine instance and the zones of a zonal NAT gateway are not aligned, or
+a) the zone of a virtual machine instance and the zone of a zonal NAT gateway are not aligned, or
 b) a regional NAT gateway resource is used with zonal virtual machine instances.
 
 While the scenario will appear to work, its health model and failure mode is undefined from an availability zone point of view. Consider going with zonal stacks or all regional instead.
@@ -229,7 +228,7 @@ While the scenario will appear to work, its health model and failure mode is und
 
 Each NAT gateway resource can provide up to 50 Gbps of throughput. You can split your deployments into multiple subnets and assign each subnet or groups of subnets a NAT gateway to scale out.
 
-Each NAT gateway can support 64,000 connections per assigned outbound IP address.  Review the following section on Source Network Address Translation (SNAT) for details as well as the [troubleshooting article](https://docs.microsoft.com/azure/virtual-network/troubleshoot-nat) for specific problem resolution guidance.
+Each NAT gateway can support 64,000 flows for TCP and UDP respectively per assigned outbound IP address.  Review the following section on Source Network Address Translation (SNAT) for details as well as the [troubleshooting article](https://docs.microsoft.com/azure/virtual-network/troubleshoot-nat) for specific problem resolution guidance.
 
 ## Source Network Address Translation
 
@@ -237,27 +236,39 @@ Source network address translation (SNAT) rewrites the source of a flow to origi
 
 ### Fundamentals
 
-Let's look at an example of four flows to explain the basic concept.  The NAT gateway is using public IP address resource 65.52.0.2.
+Let's look at an example of four flows to explain the basic concept.  The NAT gateway is using public IP address resource 65.52.1.1 and the VM is making connections to 65.52.0.1.
 
 | Flow | Source tuple | Destination tuple |
 |:---:|:---:|:---:|
 | 1 | 192.168.0.16:4283 | 65.52.0.1:80 |
 | 2 | 192.168.0.16:4284 | 65.52.0.1:80 |
 | 3 | 192.168.0.17.5768 | 65.52.0.1:80 |
-| 4 | 192.168.0.16:4285 | 65.52.0.2:80 |
 
 These flows might look like this after PAT has taken place:
 
 | Flow | Source tuple | SNAT'ed source tuple | Destination tuple | 
 |:---:|:---:|:---:|:---:|
-| 1 | 192.168.0.16:4283 | 65.52.0.2:234 | 65.52.0.1:80 |
-| 2 | 192.168.0.16:4284 | 65.52.0.2:235 | 65.52.0.1:80 |
-| 3 | 192.168.0.17.5768 | 65.52.0.2:236 | 65.52.0.1:80 |
-| 4 | 192.168.0.16:4285 | 65.52.0.2:237 | 65.52.0.2:80 |
+| 1 | 192.168.0.16:4283 | **65.52.1.1:1234** | 65.52.0.1:80 |
+| 2 | 192.168.0.16:4284 | **65.52.1.1:1235** | 65.52.0.1:80 |
+| 3 | 192.168.0.17.5768 | **65.52.1.1:1236** | 65.52.0.1:80 |
 
-The destination will see the source of the flow as 65.52.0.2 (SNAT source tuple) with the assigned port shown.  PAT as shown in the preceding table is also called port masquerading SNAT.  Multiple private sources are masqueraded behind an IP and port.
+The destination will see the source of the flow as 65.52.0.1 (SNAT source tuple) with the assigned port shown.  PAT as shown in the preceding table is also called port masquerading SNAT.  Multiple private sources are masqueraded behind an IP and port.  
 
-Don't take a dependency on the specific way source ports are assigned.  The preceding is an illustration of the fundamental concept only.
+#### source (SNAT) port reuse
+
+NAT gateways opportunistically reuse source (SNAT) ports.  The following illustrates this concept as an additional flow for the preceeding set of flows.  The VM in the example is a flow to 65.52.0.2.
+
+| Flow | Source tuple | Destination tuple |
+|:---:|:---:|:---:|
+| 4 | 192.168.0.16:4285 | 65.52.0.2:80 |
+
+A NAT gateway will likely translate flow 4 to a port that may be used for other destinations as well.  See [Scaling](https://docs.microsoft.com/azure/virtual-network/nat-gateway-resource#scaling) for additional discussion on correctly sizing your IP address provisioning.
+
+| Flow | Source tuple | SNAT'ed source tuple | Destination tuple | 
+|:---:|:---:|:---:|:---:|
+| 4 | 192.168.0.16:4285 | 65.52.1.1:**1234** | 65.52.0.2:80 |
+
+Don't take a dependency on the specific way source ports are assigned in the above example.  The preceding is an illustration of the fundamental concept only.
 
 SNAT provided by NAT is different from [Load Balancer](../load-balancer/load-balancer-outbound-connections.md) in several aspects.
 
@@ -290,7 +301,12 @@ Scaling NAT is primarily a function of managing the shared, available SNAT port 
 
 SNAT maps private addresses to one or more public IP addresses, rewriting source address and source port in the processes. A NAT gateway resource will use 64,000 ports (SNAT ports) per configured public IP address for this translation. NAT gateway resources can scale up to 16 IP addresses and 1M SNAT ports. If a public IP prefix resource is provided, each IP address within the prefix is providing SNAT port inventory. And adding more public IP addresses increases the available inventory SNAT ports. TCP and UDP are separate SNAT port inventories and unrelated.
 
-NAT gateway resources opportunistically reuse source ports. For scaling purposes, you should assume each flow requires a new SNAT port and scale the total number of available IP addresses for outbound traffic.
+NAT gateway resources opportunistically reuse source (SNAT) ports. As design guidance for scaling purposes, you should assume each flow requires a new SNAT port and scale the total number of available IP addresses for outbound traffic.  You should carefully consider the scale you are designing for and provision IP addresses quantities accordingly.
+
+SNAT ports to different destinations are most likely to be reused when possible. And as SNAT port exhaustion approaches, flows may not succeed.  
+
+See [SNAT fundamentals](https://docs.microsoft.com/azure/virtual-network/nat-gateway-resource#source-network-address-translation) for example.
+
 
 ### Protocols
 
@@ -320,7 +336,6 @@ A SNAT port is available for reuse to the same destination IP address and destin
 
 - NAT is compatible with standard SKU public IP, public IP prefix, and load balancer resources.   Basic resources (for example basic load balancer) and any products derived from them aren't compatible with NAT.  Basic resources must be placed on a subnet not configured with NAT.
 - IPv4 address family is supported.  NAT doesn't interact with IPv6 address family.  NAT can't be deployed on a subnet with an IPv6 prefix.
-- NSG flow logging isn't supported when using NAT.
 - NAT can't span multiple virtual networks.
 
 ## Suggestions
@@ -343,11 +358,9 @@ We want to know how we can improve the service. Are missing a capability? Make y
   - [Template](./quickstart-create-nat-gateway-template.md)
 * Learn about NAT gateway resource API
   - [REST API](https://docs.microsoft.com/rest/api/virtualnetwork/natgateways)
-  - [Azure CLI](https://docs.microsoft.com/cli/azure/network/nat/gateway?view=azure-cli-latest)
+  - [Azure CLI](https://docs.microsoft.com/cli/azure/network/nat/gateway)
   - [PowerShell](https://docs.microsoft.com/powershell/module/az.network/new-aznatgateway)
 * Learn about [availability zones](../availability-zones/az-overview.md).
 * Learn about [standard load balancer](../load-balancer/load-balancer-standard-overview.md).
 * Learn about [availability zones and standard load balancer](../load-balancer/load-balancer-standard-availability-zones.md).
 * [Tell us what to build next for Virtual Network NAT in UserVoice](https://aka.ms/natuservoice).
-
-

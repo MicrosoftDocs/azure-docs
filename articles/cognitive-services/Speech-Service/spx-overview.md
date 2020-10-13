@@ -17,7 +17,7 @@ ms.custom: devx-track-azurecli
 
 The Speech CLI is a command line tool for using the Speech service without writing any code. The Speech CLI requires minimal setup, and it's easy to immediately start experimenting with key features of the Speech service to see if your use-cases can be met. Within minutes, you can run simple test workflows like batch speech-recognition from a directory of files, or text-to-speech on a collection of strings from a file. Beyond simple workflows, the Speech CLI is production-ready and can be scaled up to run larger processes using automated `.bat` or shell scripts.
 
-The majority of the primary features in the Speech SDK are available in the Speech CLI, but some advanced features and customizations are simplified in the Speech CLI. Consider the following guidance to decide when to use the Speech CLI or the Speech SDK.
+The majority of the primary features in the Speech SDK are available in the Speech CLI, and some advanced features and customizations are simplified in the Speech CLI. Consider the following guidance to decide when to use the Speech CLI or the Speech SDK.
 
 Use the Speech CLI when:
 * You want to experiment with Speech service features with minimal setup and no code
@@ -33,13 +33,13 @@ Use the Speech SDK when:
 
 * Speech synthesis - Convert text-to-speech using either input from text files, or input directly from the command line. Customize speech output characteristics using [SSML configurations](speech-synthesis-markup.md), and either [standard or neural voices](speech-synthesis-markup.md#standard-neural-and-custom-voices).
 
-* Speech translation - Translate audio in a source language to text in a target language.
+* Speech translation - Translate audio in a source language to text or audio in a target language.
 
-* Run on Azure compute resources - Send SPX commands to run on an Azure remote compute resource using `spx webjob`.
+* Run on Azure compute resources - Send Speech CLI commands to run on an Azure remote compute resource using `spx webjob`.
 
 ## Get started
 
-To get started with the Speech CLI, see the [basics article](spx-basics.md). This article shows you how to run some basic commands with SPX, and also shows slightly more advanced commands for running batch operations for speech-to-text and text-to-speech. After reading the basics article, you should have enough of an understanding of the SPX syntax to start writing some custom commands, or automating simple Speech operations.
+To get started with the Speech CLI, see the [basics article](spx-basics.md). This article shows you how to run some basic commands, and also shows slightly more advanced commands for running batch operations for speech-to-text and text-to-speech. After reading the basics article, you should have enough of an understanding of the syntax to start writing some custom commands, or automating simple Speech service operations.
 
 ## Next steps
 
