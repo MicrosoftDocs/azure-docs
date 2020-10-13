@@ -1,8 +1,8 @@
 ---
 title: Manage your bill and convert from the free pricing plan in Azure IoT Central application | Microsoft Docs
 description: As an administrator, learn how to manage your bill and move from the free pricing plan to a standard pricing plan in your Azure IoT Central application
-author: v-krghan
-ms.author: v-krghan
+author: dominicbetts
+ms.author: dobett
 ms.date: 12/09/2019
 ms.topic: how-to
 ms.service: iot-central
@@ -12,13 +12,13 @@ manager: philmea
 
 # Manage your bill in an IoT Central application
 
-This article describes how, as an administrator, you can manage your bill in Azure IoT Central application in the administration section. You will learn how you can move your application from the free pricing plan to a standard pricing plan, and also how to upgrade or downgrade your pricing plan.
+This article describes how, as an administrator, you can manage your Azure IoT Central billing. You can move your application from the free pricing plan to a standard pricing plan, and also upgrade or downgrade your pricing plan.
 
-To access and use the **Administration** section, you must be in the *Administrator* role or have a *custom user role* that allows you to view billing for an Azure IoT Central application. If you create an Azure IoT Central application, you're automatically assigned to the **Administrator** role for that application.
+To access the **Administration** section, you must be in the *Administrator* role or have a *custom user role* that allows you to view billing. If you create an Azure IoT Central application, you're automatically assigned to the **Administrator** role.
 
 ## Move from free to standard pricing plan
 
-- Applications that use the free pricing plan are free for seven days before they expire. In order to avoid losing data you can move them to a standard pricing plan at any time before they expire.
+- Applications that use the free pricing plan are free for seven days before they expire. To avoid losing data, you can move them to a standard pricing plan at any time before they expire.
 - Applications that use a standard pricing plan are charged per device, with the first two devices free, per application.
 
 Learn more about pricing on the [Azure IoT Central pricing page](https://azure.microsoft.com/pricing/details/iot-central/).
@@ -50,9 +50,9 @@ In the pricing section, you can upgrade or downgrade your Azure IoT pricing plan
 
 1. Go to the **Pricing** page in the **Administration** section.
 
-    ![Trial state](media/howto-view-bill/pricing.png)
+    ![Upgrade prcing plan](media/howto-view-bill/pricing.png)
 
-1. Select the **Plan** and click **Save** to upgrade or downgrade.
+1. Select the **Plan** and then select **Save** to upgrade or downgrade.
 
 ## View your bill
 
