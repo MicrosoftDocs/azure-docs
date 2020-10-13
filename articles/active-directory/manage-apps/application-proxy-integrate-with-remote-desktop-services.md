@@ -10,9 +10,7 @@ ms.workload: identity
 ms.topic: how-to
 ms.date: 07/22/2020
 ms.author: kenwith
-ms.custom: it-pro
 ms.reviewer: japere
-ms.collection: M365-identity-device-management
 ---
 
 # Publish Remote Desktop with Azure AD Application Proxy
@@ -140,4 +138,4 @@ To use passthrough authentication, there are just two modifications to the steps
 ## Next steps
 - [Enable remote access to SharePoint with Azure AD Application Proxy](application-proxy-integrate-with-sharepoint-server.md)
 - [Security considerations for accessing apps remotely by using Azure AD Application Proxy](application-proxy-security.md)
-- [Best practices for load balancing multiple app servers](application-proxy-high-availability-load-balancing#best-practices-for-load-balancing-among-multiple-app-servers.md)
+- [Best practices for load balancing multiple app servers](application-proxy-high-availability-load-balancing.md#best-practices-for-load-balancing-among-multiple-app-servers)
