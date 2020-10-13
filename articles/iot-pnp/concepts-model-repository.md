@@ -33,7 +33,7 @@ You can use the same DMR pattern in any storage medium, such as local file syste
 
 The public digital twin models stored in the model repository are available to everyone to consume and integrate in their applications. Public models enable an open eco-system for device builders and solution developers to share and reuse their IoT Plug and Play device models.
 
-Refer to the [Submit a model](#submit-a-model) section for instructions on how to publish a model in the model repository to make it public.
+Refer to the [Publish a model](#publish-a-model) section for instructions on how to publish a model in the model repository to make it public.
 
 Users can browse, search, and view public interfaces from the official GitHub repository: [https://github.com/Azure/iot-plugandplay-models](https://github.com/Azure/iot-plugandplay-models). 
 
