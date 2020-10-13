@@ -73,7 +73,7 @@ During encryption, the client library generates a random IV of 16 bytes along wi
 <MessageText>{"EncryptedMessageContents":"6kOu8Rq1C3+M1QO4alKLmWthWXSmHV3mEfxBAgP9QGTU++MKn2uPq3t2UjF1DO6w","EncryptionData":{…}}</MessageText>
 ```
 
-During decryption, the wrapped key is extracted from the queue message and unwrapped. The IV is also extracted from the queue message and used along with the unwrapped key to decrypt the queue message data. Note that the encryption metadata is small (under 500 bytes), so while it does count toward the 64KB limit for a queue message, the impact should be manageable. Note that v12 and later versions of the queue library do not encode queue messages as a base64 string by default, while client-side encryption will always base64 encode the encrypted message. This may also contribute to message size limit concerns if you do not usually base64 encode your messages already.
+During decryption, the wrapped key is extracted from the queue message and unwrapped. The IV is also extracted from the queue message and used along with the unwrapped key to decrypt the queue message data. Note that the encryption metadata is small (under 500 bytes), so while it does count toward the 64KB limit for a queue message, the impact should be manageable. Note that the encrypted message will be base64 encoded, as shown in the above snippet, which will also expand the size of the message being sent.
 
 ### Tables
 > [!NOTE]
@@ -161,8 +161,6 @@ Users can provide only a key, only a resolver, or both. Keys are identified usin
 * For decryption:
   * If the key is specified and its identifier matches the required key identifier, that key is used for decryption. Otherwise, the resolver is attempted. If there is no resolver for this attempt, an error is thrown.
   * The key resolver is invoked if specified to get the key. If the resolver is specified but does not have a mapping for the key identifier, an error is thrown.
-
-The code examples in this article demonstrate setting an encryption policy and working with encrypted data, but do not demonstrate working with Azure Key Vault. For v11 users, the [v11 encryption samples](https://github.com/Azure/azure-storage-net/tree/master/Samples/GettingStarted/EncryptionSamples) on GitHub demonstrate a more detailed end-to-end scenario for blobs, queues and tables, along with Key Vault integration.
 
 ### RequireEncryption mode (v11 only)
 Users can optionally enable a mode of operation where all uploads and downloads must be encrypted. In this mode, attempts to upload data without an encryption policy or download data that is not encrypted on the service will fail on the client. The **RequireEncryption** property of the request options object controls this behavior. If your application will encrypt all objects stored in Azure Storage, then you can set the **RequireEncryption** property on the default request options for the service client object. For example, set **CloudBlobClient.DefaultRequestOptions.RequireEncryption** to **true** to require encryption for all blob operations performed through that client object.
