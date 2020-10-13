@@ -8,7 +8,7 @@ manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: fundamentals
-ms.topic: concept
+ms.topic: conceptual
 ms.date: 10/10/2020
 ms.author: baselden
 ms.reviewer: ajburnle
