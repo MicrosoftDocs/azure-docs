@@ -224,7 +224,7 @@ Follow the directions to
 [remove the Azure Policy for Kubernetes add-on](../concepts/policy-for-kubernetes.md#remove-the-add-on),
 then rerun the `helm install azure-policy-addon` command.
 
-### Scenario: Virtual machine user assigned identities are replaced by system assigned managed identities
+### Scenario: Azure virtual machine user-assigned identities are replaced by system-assigned managed identities
 
 #### Issue
 
