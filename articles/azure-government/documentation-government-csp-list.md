@@ -318,7 +318,7 @@ Below you can find a list of all the authorized Cloud Solution Providers, which 
 |[Summit 7 Systems, Inc.](https://summit7systems.com/)|
 |[Sumo Logic](https://www.sumologic.com/)|
 |[SWC Technology Partners](https://www.swc.com)|
-|[Sybatech, Inc](http://www.sybatech.com)|
+|[Sybatech, Inc](https://www.sybatech.com)|
 |[Synergy Technical, LLC](https://www.syntechva.com/)|
 |[Synoptek LLC](https://synoptek.com/)|
 |[Systems Engineering Inc](https://www.seisystems.com)|

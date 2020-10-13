@@ -29,7 +29,7 @@ If you are new to this feature, see [Integrate Key Vault with Azure Private Link
 ### Problems NOT covered by this article
 
 - There is an intermittent connectivity issue. In a given client, you see some requests working and some not working. *Intermittent problems are typically not caused by an issue in private links configuration; they are a sign of network or client overload.*
-- You are using an Azure product that supports BYOK (Bring Your Own Key) or CMK (Customer Managed Keys), and that product cannot access your key vault. *Look at the other product documentation. Make sure it explicitly states support for key vaults with the firewall enabled. Contact product support for that specific product, if needed.*
+- You are using an Azure product that supports BYOK (Bring Your Own Key), CMK (Customer Managed Keys), or access to secrets stored in key vault. When you enable the firewall in key vault settings, that product cannot access your key vault. *Look at product specific documentation. Make sure it explicitly states support for key vaults with the firewall enabled. Contact support for that specific product, if needed.*
 
 ### How to read this article
 
@@ -41,9 +41,11 @@ Let's get started!
 
 ### Confirm that your client runs at the virtual network
 
-This guide is intended to help you fixing connections to key vault that originate from application code. Examples are applications and scripts that execute in Azure Virtual Machines, Azure Service Fabric clusters, Azure App Service, Azure Kubernetes Service (AKS), and similar others.
+This guide is intended to help you fixing connections to key vault that originate from application code. Examples are applications and scripts that execute in Azure Virtual Machines, Azure Service Fabric clusters, Azure App Service, Azure Kubernetes Service (AKS), and similar others. This guide is also applicable to accesses performed in the Azure portal web-base user interface, where the browser accesses your key vault directly.
 
-By definition of private links, the application or script must be running on machine, cluster, or environment connected to the Virtual Network where the [Private Endpoint resource](../../private-link/private-endpoint-overview.md) was deployed. If the application is running on an arbitrary Internet-connected network, this guide is NOT applicable, and likely private links cannot be used.
+By definition of private links, the application, script or portal must be running on machine, cluster, or environment connected to the Virtual Network where the [Private Endpoint resource](../../private-link/private-endpoint-overview.md) was deployed.
+
+If the application, script or portal is running on an arbitrary Internet-connected network, this guide is NOT applicable, and likely private links cannot be used. This limitation is also applicable to commands executed in the Azure Cloud Shell, because they run in a remote Azure machine provided on-demand instead of the user browser.
 
 ### If you use a managed solution, refer to specific documentation
 
@@ -69,7 +71,7 @@ It's a good idea to delete ineffective connections in order to keep things clean
 >[!IMPORTANT]
 > Changing firewall settings may remove access from legitimate clients that are still not using private links. Make sure you are aware of the implications of each change in the firewall configuration.
 
-An important notion is that private links only *gives* access to your key vault. It does not *remove* any existing access. In order to effectively block accesses from the public Internet, you must enable the key vault firewall explicitly:
+An important notion is that the private links feature only *gives* access to your key vault in a Virtual Network that is closed to prevent data exfiltration. It does not *remove* any existing access. In order to effectively block accesses from the public Internet, you must enable the key vault firewall explicitly:
 
 1. Open the Azure portal and open your key vault resource.
 2. In the left menu, select **Networking**.
@@ -224,11 +226,11 @@ Your Azure subscription must have a [Private DNS Zone](../../dns/private-dns-pri
 
 You can check for the presence of this resource by going to the subscription page in the Portal, and selecting "Resources" on the left menu. The resource name must be `privatelink.vaultcore.azure.net`, and the resource type must be **Private DNS zone**.
 
-Normally this resource is created automatically when you create a Private Endpoint using a typical method. But there are cases where this resource is not created automatically and you have to do it manually. This resource might have been accidentally deleted as well.
+Normally this resource is created automatically when you create a Private Endpoint using a common procedure. But there are cases where this resource is not created automatically and you have to do it manually. This resource might have been accidentally deleted as well.
 
 If you don't have this resource, create a new Private DNS Zone resource in your subscription. Remember that the name must be exactly `privatelink.vaultcore.azure.net`, without spaces or additional dots. If you specify the wrong name, the name resolution explained in this article will not work. For more information on how to create this resource, see [Create an Azure private DNS zone using the Azure portal](../../dns/private-dns-getstarted-portal.md). If you follow that page, you can skip Virtual Network creation because at this point you should have one already. You can also skip validation procedures with Virtual Machines.
 
-### Confirm that the Private DNS Zone must be linked to the Virtual Network
+### Confirm that the Private DNS Zone is linked to the Virtual Network
 
 It is not enough to have a Private DNS Zone. It must also be linked to the Virtual Network that contains the Private Endpoint. If the Private DNS Zone is not linked to the correct Virtual Network, any DNS resolution from that Virtual Network will ignore the Private DNS Zone.
 
@@ -245,7 +247,7 @@ Using the Portal, open the Private DNS Zone with name `privatelink.vaultcore.azu
 
 For the key vault name resolution to work, there must be an `A` record with the simple vault name without suffix or dots. For example, if the hostname is `fabrikam.vault.azure.net`, there must be an `A` record with the name `fabrikam`, without any suffix or dots.
 
-Also, the value of the `A` record (the IP address) must be [the key vault private IP address](#find-the-key-vault-private-ip-address-in-the-virtual-network). If you find the `A` record but it contains to the wrong IP address, you must remove the wrong IP address and add a new one. It's recommended that you remove the entire `A` record and add a new one.
+Also, the value of the `A` record (the IP address) must be [the key vault private IP address](#find-the-key-vault-private-ip-address-in-the-virtual-network). If you find the `A` record but it contains the wrong IP address, you must remove the wrong IP address and add a new one. It's recommended that you remove the entire `A` record and add a new one.
 
 >[!NOTE]
 > Whenever you remove or modify an `A` record, the machine may still resolve to the old IP address because the TTL (Time To Live) value might not be expired yet. It is recommended that you always specify a TTL value no smaller than 60 seconds (one minute) and no bigger than 600 seconds (10 minutes). If you specify a value that is too large, your clients may take too long to recover from outages.
@@ -254,9 +256,9 @@ Also, the value of the `A` record (the IP address) must be [the key vault privat
 
 If there are multiple Virtual Networks and each has its own Private Endpoint resource referencing the same key vault, then the key vault hostname needs to resolve to a different private IP address depending on the network. This means multiple Private DNS Zones are also needed, each linked to a different Virtual Network and using a different IP address in the `A` record.
 
-In more advanced scenarios, there are multiple Virtual Networks with peering enabled. In this case, only one Virtual Network needs the Private Endpoint resource, although both may need to be linked to the Private DNS Zone resource. This is scenario is not directly covered by this document.
+In more advanced scenarios, the Virtual Networks may have peering enabled. In this case, only one Virtual Network needs the Private Endpoint resource, although both may need to be linked to the Private DNS Zone resource. This is scenario is not directly covered by this document.
 
-### Fact: You have control over DNS resolution
+### Understand that you have control over DNS resolution
 
 As explained in the [previous section](#key-vault-with-private-link-resolving-from-arbitrary-internet-machine), a key vault with private links has the alias `{vaultname}.privatelink.vaultcore.azure.net` in its *public* registration. The DNS server used by the Virtual Network uses the public registration, but it checks every alias for a *private* registration, and if one is found, it will stop following aliases defined at public registration.
 
@@ -319,9 +321,9 @@ The `addr` field in the `x-ms-keyvault-network-info` header shows the IP address
 ### Query the key vault IP address directly
 
 >[!IMPORTANT]
-> Accessing the key vault without HTTPS certificate validation is dangerous and can only be used for learning purposes. Production code must NEVER access the key vault without this client-side validation. Even if you are just diagnosing issues, you might be subject of an ongoing tampering attempt that will not be revealed if you always disable HTTPS certificate validation in your requests to key vault.
+> Accessing the key vault without HTTPS certificate validation is dangerous and can only be used for learning purposes. Production code must NEVER access the key vault without this client-side validation. Even if you are just diagnosing issues, you might be subject to tampering attempts that will not be revealed if you frequently disable HTTPS certificate validation in your requests to key vault.
 
-If you installed a recent versions of PowerShell, you can use `-SkipCertificateCheck` to skip HTTPS certificate checks, then you can target the [key vault IP address](#find-the-key-vault-private-ip-address-in-the-virtual-network) directly:
+If you installed a recent version of PowerShell, you can use `-SkipCertificateCheck` to skip HTTPS certificate checks, then you can target the [key vault IP address](#find-the-key-vault-private-ip-address-in-the-virtual-network) directly:
 
     PS C:\> $(Invoke-WebRequest -SkipCertificateCheck -Uri https://10.1.2.3/healthstatus).Headers
 
@@ -329,7 +331,7 @@ If you are using `curl`, you can do the same with the `-k` argument:
 
     joe@MyUbuntu:~$ curl -i -k https://10.1.2.3/healthstatus
 
-The responses should be the same of previous section, which means it must include the `x-ms-keyvault-network-info` header with the same value. The `/healthstatus` endpoint doesn't care if you are using the key vault hostname or IP address.
+The responses must be the same of previous section, which means it must include the `x-ms-keyvault-network-info` header with the same value. The `/healthstatus` endpoint doesn't care if you are using the key vault hostname or IP address.
 
 If you see `x-ms-keyvault-network-info` returning one value for the request using the key vault hostname, and another value for the request using the IP address, then each request is targeting a different endpoint. Refer to the explanation of the `addr` field from `x-ms-keyvault-network-info` in the previous section, to decide which case is wrong and needs to be fixed.
 
@@ -349,7 +351,7 @@ Many operating systems allow setting an explicit fixed IP address per hostname, 
 
 ### Promiscuous proxies (Fiddler, etc.)
 
-Except explicitly noted, the diagnostics options in this article only work if there is no promiscuous proxy present in the environment. While these proxies are often installed exclusively in the machine that is being diagnosed (Fiddler is the most common example), advanced administrators may overwrite root Certificate Authorities (CAs) and install a promiscuous proxy in gateway devices that serve multiple machines in the network. These proxies can affect both security and reliability substantially. Microsoft does not support configurations that use such products.
+Except when explicitly noted, the diagnostics options in this article only work if there is no promiscuous proxy present in the environment. While these proxies are often installed exclusively in the machine that is being diagnosed (Fiddler is the most common example), advanced administrators may overwrite root Certificate Authorities (CAs) and install a promiscuous proxy in gateway devices that serve multiple machines in the network. These proxies can affect both security and reliability substantially. Microsoft does not support configurations that use such products.
 
 ### Other things that may affect connectivity
 
