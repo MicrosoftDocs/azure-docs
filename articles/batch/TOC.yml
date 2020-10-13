@@ -43,7 +43,6 @@
     - name: Batch samples repo
       href: https://github.com/Azure/azure-batch-samples
   - name: Azure CLI
-    href: cli-samples.md
     items:
     - name: Create a Batch account in Batch service mode
       href: ./scripts/batch-cli-sample-create-account.md
