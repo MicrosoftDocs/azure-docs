@@ -9,7 +9,7 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 09/28/2020
+ms.date: 10/12/2020
 ms.author: jingwang
 ---
 
@@ -181,10 +181,11 @@ See [Schema and data type mapping](copy-activity-schema-and-type-mapping.md) for
 In addition to copying data from source data store to sink, you can also configure to add additional data columns to copy along to sink. For example:
 
 - When copy from file-based source, store the relative file path as an additional column to trace from which file the data comes from.
+- Duplicate the specified source column as another column. 
 - Add a column with ADF expression, to attach ADF system variables like pipeline name/pipeline ID, or store other dynamic value from upstream activity's output.
 - Add a column with static value to meet your downstream consumption need.
 
-You can find the following configuration on copy activity source tab: 
+You can find the following configuration on copy activity source tab. You can also map those additional columns in copy activity [schema mapping](copy-activity-schema-and-type-mapping.md#schema-mapping) as usual by using your defined column names. 
 
 ![Add additional columns in copy activity](./media/copy-activity-overview/copy-activity-add-additional-columns.png)
 
@@ -195,7 +196,7 @@ To configure it programmatically, add the `additionalColumns` property in your c
 
 | Property | Description | Required |
 | --- | --- | --- |
-| additionalColumns | Add additional data columns to copy to sink.<br><br>Each object under the `additionalColumns` array represents an extra column. The `name` defines the column name, and the `value` indicates the data value of that column.<br><br>Allowed data values are:<br>- **`$$FILEPATH`** - a reserved variable indicates to store the source files' relative path to the folder path specified in dataset. Apply to file-based source.<br>- **Expression**<br>- **Static value** | No |
+| additionalColumns | Add additional data columns to copy to sink.<br><br>Each object under the `additionalColumns` array represents an extra column. The `name` defines the column name, and the `value` indicates the data value of that column.<br><br>Allowed data values are:<br>- **`$$FILEPATH`** - a reserved variable indicates to store the source files' relative path to the folder path specified in dataset. Apply to file-based source.<br>- **`$$COLUMN:<source_column_name>`** - a reserved variable pattern indicates to duplicate the specified source column as another column<br>- **Expression**<br>- **Static value** | No |
 
 **Example:**
 
@@ -213,6 +214,10 @@ To configure it programmatically, add the `additionalColumns` property in your c
                     {
                         "name": "filePath",
                         "value": "$$FILEPATH"
+                    },
+                    {
+                        "name": "newColName",
+                        "value": "$$COLUMN:SourceColumnA"
                     },
                     {
                         "name": "pipelineName",
