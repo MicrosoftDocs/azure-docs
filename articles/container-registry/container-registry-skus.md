@@ -2,7 +2,7 @@
 title: Registry service tiers and features
 description: Learn about the features and limits in the Basic, Standard, and Premium service tiers (SKUs) of Azure Container Registry.
 ms.topic: article
-ms.date: 10/08/2020
+ms.date: 10/13/2020
 ---
 
 # Azure Container Registry service tiers
@@ -25,22 +25,22 @@ The following table details the features and registry limits (quotas) of the Bas
 
 ## Registry throughput and throttling
 
-The different service tiers for Azure Container Registry have different limits for the rates of read and write operations, and download and upload bandwidth. These limits are for the Azure infrastructure supporting Azure Container Registry. 
+When generating a high rate of registry operations such as Docker image pulls or pushes on your registry, use the service tier's limits for read and write operations and bandwidth as a guide for expected image throughput. However, additional factors will affect your registry performance in practice.
 
-When generating a high rate of registry operations such as Docker image pulls or pushes, be aware that each image pull or push potentially generates a large number of atomic read and/or write operations on the registry. The number depends on:
+Each image pull or push potentially generates a large number of atomic read and/or write operations on the registry. A large number of operations will translate into fewer images pushed or pulled. The number depends on:
 
 * image size, number of layers, and reuse of layers or base images across images
 * additional API calls that might be required for each pull or push 
 
 For details, see documentation for the [Docker HTTP API V2](https://docs.docker.com/registry/spec/api/).
 
-For example, a push of a single 133 MB `nginx:latest` image to a container registry requires multiple read and write operations, including: 
+For example, a push of a single 133 MB `nginx:latest` image to an Azure container registry requires multiple read and write operations, including: 
 
 * Read operations to read the image manifest, if it exists in the registry
 * Write operations to write each of 5 image layers
 * Write operations to write the image manifest
 
-In some cases, you could experience throttling of image pull or push operations, when the registry determines the rate of requests is too high. Throttling could occur when you generate a burst of registry requests in a very short period, even when the average rate of read and write operations is within registry limits.
+Also, you could experience throttling of image pull or push operations when the registry determines the rate of requests is too high. For example, throttling could occur when you generate a burst of image pulls or pushes in a very short period, even when the average rate of read and write operations is within registry limits.
 
 When evaluating or troubleshooting throughput of image pulls or pushes to a registry, also consider the configuration of your client environment. For example:
 
