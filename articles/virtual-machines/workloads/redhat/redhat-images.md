@@ -1,19 +1,13 @@
 ---
 title: Overview of Red Hat Enterprise Linux images in Azure
 description: Learn about Red Hat Enterprise Linux images in Microsoft Azure.
-services: virtual-machines-linux
-documentationcenter: ''
 author: asinn826
-manager: BorisB2015
-editor: ''
-
 ms.service: virtual-machines-linux
-
 ms.topic: article
-ms.tgt_pltfrm: vm-linux
-ms.workload: infrastructure-services
 ms.date: 02/10/2020
 ms.author: alsin
+ms.reviewer: cynthn
+
 
 ---
 
@@ -106,7 +100,7 @@ Details for RHEL 8 image types are below.
 |Publisher | Offer | SKU value | Version | Details
 |----------|-------|------------|---------|--------
 |RedHat | RHEL | 8 | Concatenated values of the RHEL minor version and the date published (for example, 8.0.20191023) | These images are RHEL 8 LVM-partitioned images connected to standard Red Hat repositories.
-|RedHat | RHEL | 8-gen2 | Concatenated values of the RHEL minor version and the date published (for example, 8.0.20191024) | These images are Hyper-V Generation 2 RHEL 8 LVM-partitioned images connected to standard Red Hat repositories. For more information about Generation 2 VMs in Azure, see [Support for Generation 2 VMs on Azure](../../linux/generation-2.md).
+|RedHat | RHEL | 8-gen2 | Concatenated values of the RHEL minor version and the date published (for example, 8.0.20191024) | These images are Hyper-V Generation 2 RHEL 8 LVM-partitioned images connected to standard Red Hat repositories. For more information about Generation 2 VMs in Azure, see [Support for Generation 2 VMs on Azure](../../generation-2.md).
 
 ## RHEL longer support add-ons
 
@@ -114,7 +108,7 @@ Details for RHEL 8 image types are below.
 
 As of April 2019, RHEL images are available that are attached to the EUS repositories by default. More information on RHEL EUS is available in [Red Hat's documentation](https://access.redhat.com/articles/rhel-eus).
 
-Switching to EUS repositories is possible and is supported. For instructions on how to switch your VM to EUS and more information about EUS support end-of-life dates, see [RHEL EUS and version-locking RHEL VMs](https://aka.ms/rhui-update#rhel-eus-and-version-locking-rhel-vms).
+Switching to EUS repositories is possible and is supported. For instructions on how to switch your VM to EUS and more information about EUS support end-of-life dates, see [RHEL EUS and version-locking RHEL VMs](./redhat-rhui.md#rhel-eus-and-version-locking-rhel-vms).
 
 >[!NOTE]
 > EUS isn't supported on RHEL Extras. This means that if you install a package that's usually available from the RHEL Extras channel, you won't be able to do so while on EUS. For more information on the Red Hat Extras product life cycle, see [Red Hat Enterprise Linux Extras life cycle](https://access.redhat.com/support/policy/updates/extras/).
@@ -181,6 +175,6 @@ Current policy is to keep all previously published images. We reserve the right 
 ## Next steps
 
 * To view the full list of RHEL images in Azure, see [Red Hat Enterprise Linux (RHEL) images available in Azure](./redhat-imagelist.md).
-* To learn more about the Azure Red Hat Update Infrastructure, see [Red Hat Update Infrastructure for on-demand RHEL VMs in Azure](https://aka.ms/rhui-update).
+* To learn more about the Azure Red Hat Update Infrastructure, see [Red Hat Update Infrastructure for on-demand RHEL VMs in Azure](./redhat-rhui.md).
 * To learn more about the RHEL BYOS offer, see [Red Hat Enterprise Linux bring-your-own-subscription Gold Images in Azure](./byos.md).
 * For information on Red Hat support policies for all versions of RHEL, see [Red Hat Enterprise Linux life cycle](https://access.redhat.com/support/policy/updates/errata).
