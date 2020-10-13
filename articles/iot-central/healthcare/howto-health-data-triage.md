@@ -39,14 +39,14 @@ In this tutorial, you learn how to:
 
 * An Azure IoT Central continuous patient monitoring application template. If you don't have one already, you can follow steps to [Deploy an application template](overview-iot-central-healthcare.md).
 
-* An Azure [Event Hubs namespace and Event Hub](https://docs.microsoft.com/azure/event-hubs/event-hubs-create).
+* An Azure [Event Hubs namespace and Event Hub](../../event-hubs/event-hubs-create.md).
 
-* The Logic App that you want to access your Event Hub. To start your Logic App with an Azure Event Hubs trigger, you need a [blank Logic App](https://docs.microsoft.com/azure/logic-apps/quickstart-create-first-logic-app-workflow).
+* The Logic App that you want to access your Event Hub. To start your Logic App with an Azure Event Hubs trigger, you need a [blank Logic App](../../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
-* A Power BI service account. If you don't have one already, you can [create a free trial account for Power BI service](https://app.powerbi.com/). If you haven't used Power BI before, it might be helpful to go through [Get started with Power BI](https://docs.microsoft.com/power-bi/service-get-started).
+* A Power BI service account. If you don't have one already, you can [create a free trial account for Power BI service](https://app.powerbi.com/). If you haven't used Power BI before, it might be helpful to go through [Get started with Power BI](/power-bi/service-get-started).
 
 ## Set up a continuous data export to Azure Event Hubs
-You will first need to set up a continuous data export from your Azure IoT Central app template to the Azure Event Hub in your subscription. You can do so by following the steps in this Azure IoT Central tutorial for [Exporting to Event Hubs](https://docs.microsoft.com/azure/iot-central/core/howto-export-data). You will only need to export for the telemetry for the purposes of this tutorial.
+You will first need to set up a continuous data export from your Azure IoT Central app template to the Azure Event Hub in your subscription. You can do so by following the steps in this Azure IoT Central tutorial for [Exporting to Event Hubs](../core/howto-export-data.md). You will only need to export for the telemetry for the purposes of this tutorial.
 
 ## Create a Power BI streaming dataset
 
@@ -67,10 +67,10 @@ You will first need to set up a continuous data export from your Azure IoT Centr
     >[!div class="mx-imgBorder"] 
     >![Enter dataset values](media/enter-dataset-values.png)
 
-To learn more about streaming datasets in Power BI, you can read this document on [real-time streaming in Power BI](https://docs.microsoft.com/power-bi/service-real-time-streaming).
+To learn more about streaming datasets in Power BI, you can read this document on [real-time streaming in Power BI](/power-bi/service-real-time-streaming).
 
 ## Connect your Logic App to Azure Event Hubs
-To connect your Logic App to Azure Event Hubs, you can follow the instructions outlined in this document on [Sending events with Azure Event Hubs and Azure Logic Apps](https://docs.microsoft.com/azure/connectors/connectors-create-api-azure-event-hubs#add-event-hubs-action). Here are some suggested parameters:
+To connect your Logic App to Azure Event Hubs, you can follow the instructions outlined in this document on [Sending events with Azure Event Hubs and Azure Logic Apps](../../connectors/connectors-create-api-azure-event-hubs.md#add-event-hubs-action). Here are some suggested parameters:
 
 |Parameter|Value|
 |---|---|
@@ -86,7 +86,7 @@ At the end of this step, your Logic App Designer should look like this:
 ## Stream data to Power BI from your Logic App
 The next step will be to parse the data coming from your Event Hub to stream it into the Power BI datasets that you have previously created.
 
-1. Before you can do this, you will need to understand the JSON payload that is being sent from your device to your Event Hub. You can do so by looking at this [sample schema](https://docs.microsoft.com/azure/iot-central/core/howto-export-data#telemetry) and modifying it to match your schema or using [Service Bus explorer](https://github.com/paolosalvatori/ServiceBusExplorer) to inspect the messages. If you are using the continuous patient monitoring applications, your messages will look like this:
+1. Before you can do this, you will need to understand the JSON payload that is being sent from your device to your Event Hub. You can do so by looking at this [sample schema](../core/howto-export-data.md#telemetry) and modifying it to match your schema or using [Service Bus explorer](https://github.com/paolosalvatori/ServiceBusExplorer) to inspect the messages. If you are using the continuous patient monitoring applications, your messages will look like this:
 
 **Smart Vitals Patch telemetry**
 

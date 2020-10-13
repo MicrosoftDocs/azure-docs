@@ -92,29 +92,29 @@
     - name: Azure IoT services
       items:
       - name: IoT Hub
-        href: /azure/iot-hub
+        href: ../../iot-hub/index.yml
       - name: IoT Hub Device Provisioning Service
-        href: /azure/iot-dps
+        href: ../../iot-dps/index.yml
       - name: IoT Central
-        href: https://docs.microsoft.com/microsoft-iot-central/
+        href: /microsoft-iot-central/
       - name: IoT Edge
-        href: /azure/iot-edge
+        href: ../../iot-edge/index.yml
       - name: IoT solution accelerators
-        href: /azure/iot-accelerators
+        href: ../../iot-accelerators/index.yml
       - name: IoT Plug and Play
-        href: /azure/iot-pnp
+        href: ../../iot-pnp/index.yml
       - name: Azure Maps
-        href: /azure/azure-maps
+        href: ../../azure-maps/index.yml
       - name: Time Series Insights
-        href: /azure/time-series-insights
+        href: ../../time-series-insights/index.yml
     - name: Azure IoT SDKs
       items:
       - name: IoT Service SDKs
-        href: /azure/iot-hub/iot-hub-devguide-sdks#azure-iot-service-sdks
+        href: ../../iot-hub/iot-hub-devguide-sdks.md#azure-iot-service-sdks
       - name: IoT Device SDKs
-        href: /azure/iot-hub/iot-hub-devguide-sdks#azure-iot-device-sdks
+        href: ../../iot-hub/iot-hub-devguide-sdks.md#azure-iot-device-sdks
     - name: Support and help options
-      href: /azure/iot-fundamentals/iot-support-help
+      href: ../../iot-fundamentals/iot-support-help.md
     - name: Customer data requests
       href: ../core/iot-central-customer-data-requests.md?toc=/azure/iot-central/government/toc.json&bc=/azure/iot-central/government/breadcrumb/toc.json
     - name: Supported browsers
