@@ -11,14 +11,14 @@ ms.date: 09/23/2020
 
 # Azure HDInsight ID Broker (preview)
 
-This article describes how to set up and use the Azure HDInsight ID Broker feature. You can use this feature to get modern OAuth authentication to Apache Ambari while having multifactor authentication (MFA) enforcement without needing legacy password hashes in Azure Active Directory Domain Services (Azure AD DS).
+This article describes how to set up and use the Azure HDInsight ID Broker feature. You can use this feature to get modern OAuth authentication to Apache Ambari while having multifactor authentication enforcement without needing legacy password hashes in Azure Active Directory Domain Services (Azure AD DS).
 
 ## Overview
 
 HDInsight ID Broker simplifies complex authentication setups in the following scenarios:
 
 * Your organization relies on federation to authenticate users for accessing cloud resources. Previously, to use HDInsight Enterprise Security Package clusters, you had to enable password hash sync from your on-premises environment to Azure Active Directory (Azure AD). This requirement might be difficult or undesirable for some organizations.
-* Your organization wants to enforce MFA for web- or HTTP-based access to Apache Ambari and other cluster resources.
+* Your organization wants to enforce multifactor authentication for web-based or HTTP-based access to Apache Ambari and other cluster resources.
 
 HDInsight ID Broker provides the authentication infrastructure that enables protocol transition from OAuth (modern) to Kerberos (legacy) without needing to sync password hashes to Azure AD DS. This infrastructure consists of components running on a Windows Server virtual machine (VM) with the HDInsight ID Broker node enabled, along with cluster gateway nodes.
 
@@ -26,9 +26,9 @@ Use the following table to determine the best authentication option based on you
 
 |Authentication options |HDInsight configuration | Factors to consider |
 |---|---|---|
-| Fully OAuth | Enterprise Security Package + HDInsight ID Broker | Most secure option. (MFA is supported.) Pass hash sync is *not* required. No ssh/kinit/keytab access for on-premises accounts, which don't have password hash in Azure AD DS. Cloud-only accounts can still ssh/kinit/keytab. Web-based access to Ambari through OAuth. Requires updating legacy apps (for example, JDBC/ODBC) to support OAuth.|
-| OAuth + Basic Auth | Enterprise Security Package + HDInsight ID Broker | Web-based access to Ambari through OAuth. Legacy apps continue to use basic auth. MFA must be disabled for basic auth access. Pass hash sync is *not* required. No ssh/kinit/keytab access for on-premises accounts, which don't have password hash in Azure AD DS. Cloud-only accounts can still ssh/kinit. |
-| Fully Basic Auth | Enterprise Security Package | Most similar to on-premises setups. Password hash sync to Azure AD DS is required. On-premises accounts can ssh/kinit or use keytab. MFA must be disabled if the backing storage is Azure Data Lake Storage Gen2. |
+| Fully OAuth | Enterprise Security Package + HDInsight ID Broker | Most secure option. (Multifactor authentication is supported.) Pass hash sync is *not* required. No ssh/kinit/keytab access for on-premises accounts, which don't have password hash in Azure AD DS. Cloud-only accounts can still ssh/kinit/keytab. Web-based access to Ambari through OAuth. Requires updating legacy apps (for example, JDBC/ODBC) to support OAuth.|
+| OAuth + Basic Auth | Enterprise Security Package + HDInsight ID Broker | Web-based access to Ambari through OAuth. Legacy apps continue to use basic auth. Multifactor authentication must be disabled for basic auth access. Pass hash sync is *not* required. No ssh/kinit/keytab access for on-premises accounts, which don't have password hash in Azure AD DS. Cloud-only accounts can still ssh/kinit. |
+| Fully Basic Auth | Enterprise Security Package | Most similar to on-premises setups. Password hash sync to Azure AD DS is required. On-premises accounts can ssh/kinit or use keytab. Multifactor authentication must be disabled if the backing storage is Azure Data Lake Storage Gen2. |
 
 The following diagram shows the modern OAuth-based authentication flow for all users, including federated users, after HDInsight ID Broker is enabled:
 
@@ -112,11 +112,11 @@ To SSH to a domain-joined VM or to run the `kinit` command, you must provide a p
 
 If your organization isn't syncing password hashes to Azure AD DS, as a best practice, create one cloud-only user in Azure AD. Then assign it as a cluster admin when you create the cluster, and use that for administration purposes. You can use it to get root access to the VMs via SSH.
 
-To troubleshoot authentication issues, see this [guide](https://docs.microsoft.com/azure/hdinsight/domain-joined/domain-joined-authentication-issues).
+To troubleshoot authentication issues, see [this guide](https://docs.microsoft.com/azure/hdinsight/domain-joined/domain-joined-authentication-issues).
 
 ## Clients using OAuth to connect to an HDInsight gateway with HDInsight ID Broker
 
-In the HDInsight ID Broker setup, custom apps and clients that connect to the gateway can be updated to acquire the required OAuth token first. Follow the steps in this [document](https://docs.microsoft.com/azure/storage/common/storage-auth-aad-app) to acquire the token with the following information:
+In the HDInsight ID Broker setup, custom apps and clients that connect to the gateway can be updated to acquire the required OAuth token first. Follow the steps in [this document](https://docs.microsoft.com/azure/storage/common/storage-auth-aad-app) to acquire the token with the following information:
 
 *	OAuth resource uri: `https://hib.azurehdinsight.net` 
 *   AppId: 7865c1d2-f040-46cc-875f-831a1ef6a28a
