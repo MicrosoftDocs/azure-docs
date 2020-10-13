@@ -270,10 +270,7 @@ client.UpdateDigitalTwin("myTwin", uou.Serialize());
 ## General API/SDK usage notes
 
 > [!NOTE]
-> Please note that during preview, Azure Digital Twins does not support **Cross-Origin Resource Sharing (CORS)**. As a result, if you are calling a REST API from a browser app, an [API Management (APIM)](../api-management/api-management-key-concepts.md) interface, or a [Power Apps](https://docs.microsoft.com/powerapps/powerapps-overview) connector, you may see a policy error.
-> To resolve this error, you can do one of the following:
-> * Strip the CORS header `Access-Control-Allow-Origin` from the message. This header indicates whether the response can be shared. 
-> * Alternatively, create a CORS proxy and make the Azure Digital Twins REST API request through it. 
+> Please note that Azure Digital Twins doesn't currently support **Cross-Origin Resource Sharing (CORS)**. For more info about the impact and resolution strategies, see the [*Cross-Origin Resource Sharing (CORS)*](concepts-security.md#cross-origin-resource-sharing-cors) section of *Concepts: Security for Azure Digital Twins solutions*.
 
 The following list provides additional detail and general guidelines for using the APIs and SDKs.
 
