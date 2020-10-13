@@ -90,4 +90,4 @@ You've now completed configuring Private Links that you can use when importing/e
 ## Next steps
 
 - [FAQ for Private Links](./faq-for-disks.md#private-links-for-securely-exporting-and-importing-managed-disks)
-- [Export/Copy managed snapshots as VHD to a storage account in different region with PowerShell](scripts/virtual-machines-windows-powershell-sample-copy-snapshot-to-storage-account.md)
+- [Export/Copy managed snapshots as VHD to a storage account in different region with PowerShell](./scripts/virtual-machines-powershell-sample-copy-snapshot-to-storage-account.md)
