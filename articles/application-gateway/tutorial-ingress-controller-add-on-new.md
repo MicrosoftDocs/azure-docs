@@ -25,39 +25,36 @@ In this tutorial, you learn how to:
 > * Deploy a sample application by using AGIC for ingress on the AKS cluster.
 > * Check that the application is reachable through Application Gateway.
 
-## Prerequisites
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+ - This tutorial requires version 2.0.4 or later of the Azure CLI. Run [az version](/cli/azure/reference-index?#az_version) to find the version and dependent libraries that are installed. To upgrade to the latest version, run [az upgrade](/cli/azure/reference-index?#az_upgrade).
 
+ - Register the *AKS-IngressApplicationGatewayAddon* feature flag by using the [az feature register](https://docs.microsoft.com/cli/azure/feature#az-feature-register) command as shown in the following example. You'll need to do this only once per subscription while the add-on is still in preview.
+    ```azurecli-interactive
+    az feature register --name AKS-IngressApplicationGatewayAddon --namespace Microsoft.ContainerService
+    ```
 
-If you choose to install and use the CLI locally, this tutorial requires you to run Azure CLI version 2.0.4 or later. To find the version, run `az --version`. If you need to install or upgrade, see [Install the Azure CLI](/cli/azure/install-azure-cli).
+ - It might take a few minutes for the status to show `Registered`. You can check the registration status by using the [az feature list](https://docs.microsoft.com/cli/azure/feature#az-feature-register) command:
+    ```azurecli-interactive
+    az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/AKS-IngressApplicationGatewayAddon')].{Name:name,State:properties.state}"
+    ```
 
-Register the *AKS-IngressApplicationGatewayAddon* feature flag by using the [az feature register](https://docs.microsoft.com/cli/azure/feature#az-feature-register) command as shown in the following example. You'll need to do this only once per subscription while the add-on is still in preview.
-```azurecli-interactive
-az feature register --name AKS-IngressApplicationGatewayAddon --namespace Microsoft.ContainerService
-```
+ - When you're ready, refresh the registration of the Microsoft.ContainerService resource provider by using the [az provider register](https://docs.microsoft.com/cli/azure/provider#az-provider-register) command:
+    ```azurecli-interactive
+    az provider register --namespace Microsoft.ContainerService
+    ```
 
-It might take a few minutes for the status to show `Registered`. You can check the registration status by using the [az feature list](https://docs.microsoft.com/cli/azure/feature#az-feature-register) command:
-```azurecli-interactive
-az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/AKS-IngressApplicationGatewayAddon')].{Name:name,State:properties.state}"
-```
-
-When you're ready, refresh the registration of the Microsoft.ContainerService resource provider by using the [az provider register](https://docs.microsoft.com/cli/azure/provider#az-provider-register) command:
-```azurecli-interactive
-az provider register --namespace Microsoft.ContainerService
-```
-
-Install or update the aks-preview extension for this tutorial. Use the following Azure CLI commands:
-```azurecli-interactive
-az extension add --name aks-preview
-az extension list
-```
-```azurecli-interactive
-az extension update --name aks-preview
-az extension list
-```
+ - Install or update the aks-preview extension for this tutorial. Use the following Azure CLI commands:
+    ```azurecli-interactive
+    az extension add --name aks-preview
+    az extension list
+    ```
+    ```azurecli-interactive
+    az extension update --name aks-preview
+    az extension list
+    ```
 
 ## Create a resource group
 
