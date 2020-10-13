@@ -10,7 +10,7 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 10/13/2020
 ms.author: v-demjoh
-keywords: intent recognotion
+keywords: intent recognition
 ---
 
 # What is intent recognition?
