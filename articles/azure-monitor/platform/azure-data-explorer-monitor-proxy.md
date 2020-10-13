@@ -30,19 +30,19 @@ The following diagram shows the Azure Data Explorer proxy flow:
 
 :::image type="content" source="media/azure-data-explorer-monitor-proxy/azure-data-explorer-web-ui-help-cluster.png" alt-text="Azure Data Explorer native cluster.":::
 
-1. Click **Add Cluster** and then add the URL of the Log Analytics or Application Insights cluster. 
+3. Click **Add Cluster** and then add the URL of the Log Analytics or Application Insights cluster. 
     
     * For Log Analytics: `https://ade.loganalytics.io/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/microsoft.operationalinsights/workspaces/<workspace-name>`
     * For Application Insights: `https://ade.applicationinsights.io/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/microsoft.insights/components/<ai-app-name>`
 
-    * Click **Add**.
+ 4. Click **Add**.
 
 :::image type="content" source="media/azure-data-explorer-monitor-proxy/azure-monitor-proxy-add-cluster.png" alt-text="Add cluster.":::
  
 > [!NOTE]
 > If you add a connection to more than one proxy cluster, give each a different name. Otherwise they'll all have the same name in the left pane.
 
-1. After the connection is established, your Log Analytics or Application Insights cluster will appear in the left pane with your native Azure Data Explorer cluster. 
+After the connection is established, your Log Analytics or Application Insights cluster will appear in the left pane with your native Azure Data Explorer cluster. 
 
 :::image type="content" source="media/azure-data-explorer-monitor-proxy/azure-monitor-azure-data-explorer-clusters.png" alt-text="Log Analytics and Azure Data Explorer clusters.":::
  
@@ -117,7 +117,7 @@ The following image depicts an example of querying a tabular function from the A
 :::image type="content" source="media/azure-data-explorer-monitor-proxy/azure-monitor-proxy-function-query.png" alt-text="Query a tabular function from Azure Data Explorer Web UI.":::
  
 > [!NOTE]
-> Azure Monitor only supports tabular functions. Tabular functions don't support parameters.
+> Azure Monitor only supports tabular functions, which don't support parameters.
 
 ## Additional syntax examples
 
@@ -132,4 +132,4 @@ The following syntax options are available when calling the Log Analytics or App
 
 ## Next steps
 
-- Learn to [write queries in Azure Data Explorer](https://docs.microsoft.com/azure/data-explorer/write-queries)
+- Learn to [write queries in Azure Data Explorer](https://docs.microsoft.com/azure/data-explorer/write-queries).

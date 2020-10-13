@@ -39,7 +39,7 @@ Azure Monitor logs can continuously be exported to an Azure Storage Account usin
 ## Create an external table located in Azure blob storage
 Use [external tables](/azure/data-explorer/kusto/query/schema-entities/externaltables) to link Azure Data Explorer to an Azure storage account. An external table is a Kusto schema entity that references data stored outside a Kusto database. Like tables, an external table has a well-defined schema. Unlike tables, data is stored and managed outside of a Kusto cluster. The exported data from the previous section is saved in JSON lines.
 
-To create a reference, you require the schema of the exported table. Use the [getschema](/azure/data-explorer/kusto/query/getschemaoperator) from Log Analytics to retrieve this information which includes the table's columns and their data types.
+To create a reference, you require the schema of the exported table. Use the [getschema](/azure/data-explorer/kusto/query/getschemaoperator) operator from Log Analytics to retrieve this information which includes the table's columns and their data types.
 
 :::image type="content" source="media\azure-data-explorer-query-storage\exported-data-map-schema.jpg" alt-text="Log Analytics table schema.":::
 
@@ -113,9 +113,12 @@ Write-Host -ForegroundColor Red 'Copy and run the following commands (one by one
 write-host -ForegroundColor Green $CreateExternal
 Write-Host -ForegroundColor Green $createMapping
 ```
-An output example
+
+The following image shows and example of the output.
 
 :::image type="content" source="media/azure-data-explorer-query-storage/external-table-create-command-output.png" alt-text="ExternalTable create command output.":::
+
+[![Query Log Analytics exported data](media/azure-data-explorer-query-storage/external-table-create-command-output.png)](media/azure-data-explorer-query-storage/external-table-create-command-output.png#lightbox)
 
 >[!TIP]
 >Copy, paste, and then run the output of the script in your Azure Data Explorer client tool to create the table and mapping.
@@ -128,7 +131,7 @@ After configuring the mapping, you can query the exported data from Azure Data E
 external_table("HBTest","map") | take 10000
 ```
 
-:::image type="content" source="media/azure-data-explorer-query-storage/external-table-query.png" alt-text="Query Log Analytics exported data.":::
+[![Query Log Analytics exported data](media/azure-data-explorer-query-storage/external-table-query.png)](media/azure-data-explorer-query-storage/external-table-query.png#lightbox)
 
 ## Next steps
 
