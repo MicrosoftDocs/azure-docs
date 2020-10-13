@@ -305,4 +305,4 @@ Before proceeding, enable the Azure Cosmos DB service endpoint on the virtual ne
 
 ## Next steps
 
-* To configure a firewall for Azure Cosmos DB, see the [Firewall support](firewall-support.md) article.
+* To configure a firewall for Azure Cosmos DB, see the [Firewall support](how-to-configure-firewall.md) article.
