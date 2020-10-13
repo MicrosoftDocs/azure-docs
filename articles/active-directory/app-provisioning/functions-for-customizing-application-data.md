@@ -1,18 +1,18 @@
 ---
-title: Write expressions for attribute mappings in Azure Active Directory
-description: Learn how to use expression mappings to transform attribute values into an acceptable format during automated provisioning of SaaS app objects in Azure Active Directory.
+title: Reference for writing expressions for attribute mappings in Azure Active Directory
+description: Learn how to use expression mappings to transform attribute values into an acceptable format during automated provisioning of SaaS app objects in Azure Active Directory. Includes a reference list of functions.
 services: active-directory
 author: kenwith
 manager: celestedg
 ms.service: active-directory
 ms.subservice: app-provisioning
 ms.workload: identity
-ms.topic: how-to
+ms.topic: reference
 ms.date: 02/05/2020
 ms.author: kenwith
 ---
 
-# How-to: Write expressions for attribute mappings in Azure AD
+# Reference for writing expressions for attribute mappings in Azure AD
 
 When you configure provisioning to a SaaS application, one of the types of attribute mappings that you can specify is an expression mapping. For these, you must write a script-like expression that allows you to transform your users’ data into formats that are more acceptable for the SaaS application.
 
