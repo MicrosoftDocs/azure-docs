@@ -171,7 +171,6 @@ For details about IoT Hubs, see [About IoT Hub](../iot-hub/about-iot-hub.md).
  
 ## Next steps
 
-Advance to the next article to configure your solution...
+In this article, you learned how to deploy and onboard sensors. To learn more about getting started, see the following article:
 
-> [!div class="nextstepaction"]
-> [Configure your solution](quickstart-configure-your-solution.md)
+- [Getting started](getting-started.md)

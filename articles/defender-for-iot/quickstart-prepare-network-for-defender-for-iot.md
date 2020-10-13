@@ -56,7 +56,6 @@ For more information, see the [Network setup guide](https://aka.ms/AzureDefender
 
 ## Next steps
 
-Advance to the next article to configure your solution...
+In this article, you learned how to prepare to use Defender for IoT. To learn more about getting started, see the following article:
 
-> [!div class="nextstepaction"]
-> [Getting started](getting-started.md)
+- [Getting started](getting-started.md)
