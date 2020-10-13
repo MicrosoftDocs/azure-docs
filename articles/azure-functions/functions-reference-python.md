@@ -324,7 +324,7 @@ Examples of CPU bound applications are Data Processing and Machine Learning infe
 
 #### Performance specific configurations
 
-After understanding the workload profile of your Function applications, the following are configurations that can be employed to improve the throughput performance of your function applications.
+After understanding the workload profile of your function app, the following are configurations that you can use to improve the throughput performance of your functions.
 
 ##### Async
 
