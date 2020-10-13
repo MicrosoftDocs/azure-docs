@@ -162,7 +162,7 @@ When you need to send related messages in a specific order, you can use the [*se
 
 When you create a logic app, you can select the **Correlated in-order delivery using service bus sessions** template, which implements the sequential convoy pattern. For more information, see [Send related messages in order](../logic-apps/send-related-messages-sequential-convoy.md).
 
-## Update a logic app with Service Bus connector trigger
+## Delays in updates to your logic app taking effect
 
 If a Service Bus trigger's polling interval is small, such as 10 seconds, updates to your logic app might not take effect for up to 10 minutes. To work around this problem, you can temporarily increase the polling interval to a larger value, such as 30 seconds or 1 minute, before you update your logic app. After you make the update, you can reset the polling interval to the original value. 
 
