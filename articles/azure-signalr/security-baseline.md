@@ -61,6 +61,17 @@ You can also use network access control to allow or deny certain types of reques
 
 **Responsibility**: Customer
 
+### 1.3: Protect critical web applications
+
+>[!NOTE]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/33418.).
+
+**Guidance**: Not applicable; this recommendation is intended for web applications running on Azure App Service or compute resources.
+
+**Azure Security Center monitoring**: Not applicable
+
+**Responsibility**: Not applicable
+
 ### 1.4: Deny communications with known malicious IP addresses
 
 >[!NOTE]
@@ -93,6 +104,17 @@ You can also use network access control to allow or deny certain types of reques
 **Azure Security Center monitoring**: Unset. Please provide a value in the work item.
 
 **Responsibility**: Unset. Please provide a value in the work item.
+
+### 1.7: Manage traffic to web applications
+
+>[!NOTE]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/33422.).
+
+**Guidance**: Not applicable; this recommendation is intended for offerings that can host web applications such as App Service and Azure Virtual Machines. Azure SignalR Service is not intended to host web applications, so there is no need to describe managing traffic to those applications.
+
+**Azure Security Center monitoring**: Not applicable
+
+**Responsibility**: Not applicable
 
 ### 1.8: Minimize complexity and administrative overhead of network security rules
 
@@ -153,6 +175,17 @@ You can also use Azure Blueprints to simplify large scale Azure deployments by p
 ## Logging and monitoring
 
 *For more information, see the [Azure Security Benchmark: Logging and monitoring](../security/benchmarks/security-control-logging-monitoring.md).*
+
+### 2.1: Use approved time synchronization sources
+
+>[!NOTE]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/33427.).
+
+**Guidance**: Azure SignalR Service does not support configuring your own time synchronization sources. Azure SignalR Service relies on Microsoft time synchronization sources, and is not exposed to customers for configuration.
+
+**Azure Security Center monitoring**: Not applicable
+
+**Responsibility**: Microsoft
 
 ### 2.2: Configure central security log management
 
