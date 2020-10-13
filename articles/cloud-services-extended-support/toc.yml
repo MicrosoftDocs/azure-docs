@@ -1,0 +1,68 @@
+- name: Cloud Services (extended support) documentation
+  href: index.yml
+- name: Overview
+  items:
+  - name: What is Cloud Services (extended support)?
+    href: overview.md
+- name: Quickstart
+  items: 
+  - name: Deploy a Cloud Service - Portal
+    href: deploy-portal.md
+  - name: Deploy a Cloud Service - PowerShell
+    href: deploy-powershell.md
+  - name: Deploy a Cloud Service - Visual Studio
+    href: deploy-visual-studio.md
+- name: Concepts
+  items: 
+  - name: Extensions
+    href: extensions.md
+  - name: FAQ
+    href: faq.md
+- name: How To
+  items:
+  - name: Enable Remote Desktop
+    href: enable-rdp.md
+  - name: Enable Diagnostics 
+    href: enable-diagnostics.md
+  - name: Enable Antimalware
+    href: enable-antimalware.md
+- name: Reference
+  items:
+  - name: Code samples
+    href: https://azure.microsoft.com/resources/samples/?service=cloud-services
+  - name: .csdef XML Schema
+    href: schema-csdef-file.md
+    items:
+    - name: LoadBalancerProbe Schema
+      href: schema-csdef-loadbalancerprobe.md
+    - name: WebRole Schema
+      href: schema-csdef-webrole.md
+    - name: WorkerRole Schema
+      href: schema-csdef-workerrole.md
+    - name: NetworkTrafficRules Schema
+      href: schema-csdef-networktrafficrules.md
+  - name: .cscfg XML Schema
+    href: schema-cscfg-file.md
+    items:
+    - name: Role Schema
+      href: schema-cscfg-role.md
+    - name: NetworkConfiguration Schema
+      href: schema-cscfg-networkconfiguration.md
+  - name: REST
+    href: /rest/api/compute/cloudservices/
+- name: Resources
+  items:
+  - name: Azure Roadmap
+    href: https://azure.microsoft.com/roadmap/?category=compute
+  - name: Learning path
+    href: /learn/paths/azure-fundamentals/
+  - name: Microsoft Q&A question page
+    href: https://docs.microsoft.com/answers/topics/azure-cloud-services.html
+  - name: Pricing
+    href: https://azure.microsoft.com/pricing/details/cloud-services/
+  - name: Pricing calculator
+    href: https://azure.microsoft.com/pricing/calculator/
+  - name: Service updates
+    href: https://azure.microsoft.com/updates/?product=cloud-services&updatetype=&platform=
+  - name: Videos
+    href: https://azure.microsoft.com/documentation/videos/index/?services=cloud-services
