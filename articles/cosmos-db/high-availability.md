@@ -121,7 +121,7 @@ You can enable zone redundancy when adding a region to new or existing Azure Cos
 
 Availability Zones can be enabled via:
 
-* [Azure Portal](how-to-manage-database-account.md#addremove-regions-from-your-database-account)
+* [Azure portal](how-to-manage-database-account.md#addremove-regions-from-your-database-account)
 
 * [Azure PowerShell](manage-with-powershell.md#create-account)
 
