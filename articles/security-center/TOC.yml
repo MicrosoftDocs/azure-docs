@@ -174,15 +174,15 @@
       href: update-regulatory-compliance-packages.md
   - name: Use Azure Defender for servers
     items:
-    - name: Vulnerability scanning for VMs
+    - name: Vulnerability scanning
       items:
-      - name: Scan your VMs with the integrated VA solution
-        displayName: qualys, vulnerability
+      - name: Integrated VA scanner for machines 
+        displayName: qualys, vulnerability, arc
         href: deploy-vulnerability-assessment-vm.md
       - name: Scan your VMs with a BYOL VA solution
         displayName: qualys, rapid7, vulnerability
         href: deploy-vulnerability-assessment-byol-vm.md
-      - name: Review and remediate vulnerabilities on your VMs
+      - name: Review and remediate vulnerabilities
         displayName: qualys, rapid7, vulnerability
         href: remediate-vulnerability-findings-vm.md
       - name: Disable specific vulnerability findings
