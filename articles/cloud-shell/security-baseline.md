@@ -145,7 +145,7 @@ When you deploy Azure Cloud Shell into a customer owned Virtual Network, you mus
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/33513.).
 
-**Guidance**: Not applicable; Azure Cloud Shell is a browser-based command-line experience that is ephemeral and interactive that should only be used for interactive management of cloud resources.
+**Guidance**: Not applicable; Azure Cloud Shell is a browser-based command-line experience that is ephemeral and interactive that is used for interactive management of cloud resources.
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -208,7 +208,7 @@ Azure Cloud Shell is a browser-based command-line experience that is used for in
 
 **Guidance**: Not applicable; Azure Cloud Shell does not expose any operating system configurations or security logs to customers. Microsoft is responsible for monitoring the underlying service's compute infrastructure.
 
-Azure Cloud Shell is a browser-based command-line experience that should only be used for interactive management of cloud resources, the container that the customer's session is running on is ephemeral and is not able to be customized by the user.
+Azure Cloud Shell is a browser-based command-line experience that is used for interactive management of cloud resources, the container that the customer's session is running on is ephemeral and not able to be customized by the user.
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -258,9 +258,9 @@ Azure Cloud Shell is a browser-based command-line experience that is used for in
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/33522.).
 
-**Guidance**: Not applicable; Azure Cloud Shell does not produce or expose any anti-malware logging to customers. For all Microsoft managed resources, Microsoft handles the anti-malware logging.
+**Guidance**: Not applicable; Azure Cloud Shell does not produce or expose any anti-malware logging to customers. For all Microsoft-managed resources, Microsoft handles the anti-malware logging.
 
-Azure Cloud Shell is a browser-based command-line experience that should only be used for interactive management of cloud resources, the container that the customer's session is running on is ephemeral and is not able to be customized by the user.
+Azure Cloud Shell is a browser-based command-line experience that is used for interactive management of cloud resources, the container that the customer's session is running on is ephemeral and not able to be customized by the user.
 
 **Azure Security Center monitoring**: Not applicable
 
