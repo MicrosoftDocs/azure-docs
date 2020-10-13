@@ -13,7 +13,7 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 09/22/2020
+ms.date: 10/13/2020
 ms.author: b-juche
 ---
 # FAQs About Azure NetApp Files
@@ -163,11 +163,49 @@ Azure NetApp Files supports Windows Server 2008r2SP1-2019 versions of Active Dir
 
 The volume size reported by the SMB client is the maximum size the Azure NetApp Files volume can grow to. The size of the Azure NetApp Files volume as shown on the SMB client is not reflective of the quota or size of the volume. You can get the Azure NetApp Files volume size or quota through the Azure portal or the API.
 
-<!--
-### Does Azure NetApp Files support LDAP signing? 
+### SMB encryption 
 
-Yes, Azure NetApp Files supports LDAP signing by default. This functionality enables secure LDAP lookups between the Azure NetApp Files service and the user-specified [Active Directory Domain Services domain controllers](/windows/win32/ad/active-directory-domain-services). For more information, see [ADV190023 | Microsoft Guidance for Enabling LDAP Channel Binding and LDAP Signing](https://portal.msrc.microsoft.com/en-us/security-guidance/advisory/ADV190023).
---> 
+This section answers commonly asked questions about SMB encryption (SMB 3.0 and SMB 3.1.1).
+
+#### What is SMB encryption?  
+
+[SMB encryption](/windows-server/storage/file-server/smb-security) provides end-to-end encryption of SMB data and protects data from eavesdropping occurrences on untrusted networks.  SMB Encryption is supported on SMB 3.0 and greater. 
+
+SMB encryption provides end-to-end encryption of SMB data and protects data from eavesdropping occurrences on untrusted networks.  SMB Encryption is supported on SMB 3.0 and greater. 
+
+#### How does SMB encryption work?
+
+During a write, the client sends an encrypted packet, which the storage decrypts before writing to disk. In a read, the storage encrypts the packet, sending it back to the client that reads the same.
+
+#### Which clients support SMB encryption?
+
+Windows 10, Windows 2012. and later versions support SMB encryption.
+
+#### With Azure NetApp Files, at what layer is SMB encryption enabled?  
+
+SMB encryption is enabled at the share level.
+
+#### What forms of SMB encryption are used by Azure NetApp Files?
+
+SMB 3.0 employs AES-CCM algorithm, while SMB 3.1.1 employs the AES-GCM algorithm
+
+#### Is SMB encryption required?
+
+SMB encryption is not required. As such, it is only enabled for a given share if the user requests that Azure NetApp Files enable it.  Azure NetApp Files shares are never exposed to the internet. They are only accessible from within a given VNet, over VPN or express route, so Azure NetApp Files shares are inherently secure.  The choice to enable SMB encryption is entirely up to the user.  Be aware of the anticipated performance penalty prior to enabling this feature.
+
+#### <a name="smb_encryption_impact"></a>What is the anticipated impact of SMB encryption on client workloads?
+
+Reads are impacted more heavily that writes as shown in the following table:
+
+|     I/O profile    	|     Performance decrease observed    	|
+|-	|-	|
+|     8K random read    	|     32%     	|
+|     8K random write    	|     2%    	|
+|     8K 50/50 random read/write    	|     16%    	|
+|     64K sequential read    	|     40%    	|
+|     64K sequential write    	|     8%    	|
+|     Software build metadate intensive    	|     4%    	|
+
 
 ## Dual-protocol FAQs
 

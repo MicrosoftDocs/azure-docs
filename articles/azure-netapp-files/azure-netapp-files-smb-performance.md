@@ -13,7 +13,7 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 09/30/2020
+ms.date: 10/13/2020
 ms.author: b-juche
 ---
 # FAQs about SMB performance for Azure NetApp Files
@@ -149,6 +149,9 @@ SMB Signing has a deleterious effect upon SMB performance. Among other potential
 
 ![Chart that shows SMB Signing performance impact.](../media/azure-netapp-files/azure-netapp-files-smb-signing-performance.png)
 
+## What is the anticipated impact of SMB encryption on client workloads?
+
+See [SMB encryption FAQs](azure-netapp-files-faqs.md#smb_encryption_impact).
 
 ## Next steps  
 
