@@ -270,7 +270,7 @@ The following limitations currently apply to distributed transactions in Managed
 * Transactions across WCF services aren't supported. For example, you have a WCF service method that executes a transaction. Enclosing the call within a transaction scope will fail as a [System.ServiceModel.ProtocolException](https://msdn.microsoft.com/library/system.servicemodel.protocolexception).
 * Azure SQL Managed Instance must to be part of a [Server trust group](https://aka.ms/mitrusted-groups) in order to participate in distributed transaction.
 * Limitations of [Server trust groups](https://aka.ms/mitrusted-groups) affect distributed transactions.
-* Managed Instances that participate in distributed transactions need to have connectivity over private endpoint (using private IP address from the virtual network where they are deployed) and need to be mutually referenced using private FQDNs. Client applications that rely on Transact-SQL can use either private or public endpoint to run transactions against all instances within the Server Trust Group. This limitation is explained on the following diagram.
+* Managed Instances that participate in distributed transactions need to have connectivity over private endpoints (using private IP address from the virtual network where they are deployed) and need to be mutually referenced using private FQDNs. Client applications can use distributed transactions on private endpoints. In addition to this, in cases when Transact-SQL leverages linked servers referencing private endpoints, client applications can use distributed transactions on public endpoints as well. This limitation is explained on the following diagram.
   ![Private endpoint connectivity limitation][4]
 ## Next steps
 
@@ -283,5 +283,5 @@ The following limitations currently apply to distributed transactions in Managed
 [1]: ./media/elastic-transactions-overview/distributed-transactions.png
 [2]: ./media/elastic-transactions-overview/sql-mi-distributed-transactions.png
 [3]: ./media/elastic-transactions-overview/server-trust-groups-azure-portal.png
-[4]: ./media/elastic-transactions-overview/sql-mi-private-endpoint-limitation.png
+[4]: ./media/elastic-transactions-overview/managed-instance-distributed-transactions-private-endpoint-limitations.png
  
