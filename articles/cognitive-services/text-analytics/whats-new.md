@@ -8,13 +8,18 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: conceptual
-ms.date: 09/29/2020
+ms.date: 10/07/2020
 ms.author: aahi
 ---
 
 # What's new in the Text Analytics API?
 
 The Text Analytics API is updated on an ongoing basis. To stay up-to-date with recent developments, this article provides you with information about new releases and features.
+
+## October 2020
+
+* Hindi support for Sentiment Analysis v3.x, starting with model version `2020-04-01`. 
+* Model verion `2020-09-01` for the v3 /languages endpoint, which adds increased language detection and accuracy improvements.
 
 ## September 2020
 

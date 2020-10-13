@@ -16,6 +16,12 @@ ms.author: pafarley
 
 Learn what's new in the service. These items may be release notes, videos, blog posts, and other types of information. Bookmark this page to stay up to date with the service.
 
+## October 2020
+
+### Computer Vision API v3.1 GA
+
+The Computer Vision API in General Availability has been upgraded to v3.1.
+
 ## September 2020
 
 ### Spatial analysis container preview
