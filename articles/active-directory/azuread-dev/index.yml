@@ -28,7 +28,7 @@ landingContent:
       - linkListType: overview
         links:
           - text: Evolution of Microsoft identity platform
-            url: about-microsoft-identity-platform
+            url: about-microsoft-identity-platform.md
           - text: Why update to v2.0?
             url: ../develop/msal-migration.md
   - title: Microsoft identity platform
@@ -36,4 +36,4 @@ landingContent:
       - linkListType: overview
         links:
           - text: What is the Microsoft identity platform?
-            url: v2-overview.md
+            url: ../developer/v2-overview.md
