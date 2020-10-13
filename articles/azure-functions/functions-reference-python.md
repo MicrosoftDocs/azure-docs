@@ -322,7 +322,7 @@ Examples of CPU bound applications are Data Processing and Machine Learning infe
 >  As real world functions workload are most of often a mix of I/O and CPU bound, we recommend to profile the workload under realistic production loads.
 
 
-#### Performance specific configurations
+#### Performance-specific configurations
 
 After understanding the workload profile of your function app, the following are configurations that you can use to improve the throughput performance of your functions.
 
