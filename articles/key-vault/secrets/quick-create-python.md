@@ -20,7 +20,7 @@ Get started with the Azure Key Vault secret client library for Python. Follow th
 ## Prerequisites
 
 - An Azure subscription - [create one for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-- [Python 2.7+ or 3.5.3+](https://docs.microsoft.com/en-us/azure/developer/python/configure-local-development-environment)
+- [Python 2.7+ or 3.5.3+](https://docs.microsoft.com/azure/developer/python/configure-local-development-environment)
 - [Azure CLI](/cli/azure/install-azure-cli)
 
 This quickstart assumes you are running [Azure CLI](/cli/azure/install-azure-cli) in a Linux terminal window.
@@ -139,7 +139,7 @@ Make sure the code in the previous section is in a file named *kv_secrets.py*. T
 python kv_secrets.py
 ```
 
-- If you encounter permissions errors, make sure you ran the [`az keyvault set-policy` command](#give-the-service-principal-access-to-your-key-vault).
+- If you encounter permissions errors, make sure you ran the [`az keyvault set-policy` command](#grant-access-to-your-key-vault).
 - Re-running the code with the same secrete name may produce the error, "(Conflict) Secret <name> is currently in a deleted but recoverable state." Use a different secret name.
 
 ## Code details
@@ -157,7 +157,7 @@ client = SecretClient(vault_url=KVUri, credential=credential)
 
 ### Save a secret
 
-Once you've obtained the client object for the key vault, you can store a secret using the [set_secret](/python/api/azure-keyvault-secrets/azure.keyvault.secrets.secretclient?view=azure-python#set-secret-name--value----kwargs-) method: 
+Once you've obtained the client object for the key vault, you can store a secret using the [set_secret](/python/api/azure-keyvault-secrets/azure.keyvault.secrets.secretclient?#set-secret-name--value----kwargs-) method: 
 
 ```python
 client.set_secret(secretName, secretValue)
@@ -169,7 +169,7 @@ When handling the request, Azure authenticates the caller's identity (the servic
 
 ### Retrieve a secret
 
-To read a secret from Key Vault, use the [get_secret](/python/api/azure-keyvault-secrets/azure.keyvault.secrets.secretclient?view=azure-python#get-secret-name--version-none----kwargs-) method:
+To read a secret from Key Vault, use the [get_secret](/python/api/azure-keyvault-secrets/azure.keyvault.secrets.secretclient?#get-secret-name--version-none----kwargs-) method:
 
 ```python
 retrieved_secret = client.get_secret(secretName)
@@ -181,7 +181,7 @@ You can also retrieve a secret with the the Azure CLI command [az keyvault secre
 
 ### Delete a secret
 
-To delete a secret, use the [begin_delete_secret](/python/api/azure-keyvault-secrets/azure.keyvault.secrets.secretclient?view=azure-python#begin-delete-secret-name----kwargs-) method:
+To delete a secret, use the [begin_delete_secret](/python/api/azure-keyvault-secrets/azure.keyvault.secrets.secretclient?#begin-delete-secret-name----kwargs-) method:
 
 ```python
 poller = client.begin_delete_secret(secretName)

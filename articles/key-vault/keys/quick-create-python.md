@@ -15,12 +15,12 @@ ms.custom: devx-track-python
 
 Get started with the Azure Key Vault client library for Python. Follow the steps below to install the package and try out example code for basic tasks. By using Key Vault to store cryptographic keys, you avoid storing such keys in your code, which increases the security of your app.
 
-[API reference documentation](/python/api/overview/azure/keyvault-keys-readme?view=azure-python) | [Library source code](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/keyvault/azure-keyvault-keys) | [Package (Python Package Index)](https://pypi.org/project/azure-keyvault-keys/)
+[API reference documentation](/python/api/overview/azure/keyvault-keys-readme) | [Library source code](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/keyvault/azure-keyvault-keys) | [Package (Python Package Index)](https://pypi.org/project/azure-keyvault-keys/)
 
 ## Prerequisites
 
 - An Azure subscription - [create one for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-- [Python 2.7+ or 3.5.3+](https://docs.microsoft.com/en-us/azure/developer/python/configure-local-development-environment)
+- [Python 2.7+ or 3.5.3+](https://docs.microsoft.com/azure/developer/python/configure-local-development-environment)
 - [Azure CLI](/cli/azure/install-azure-cli)
 
 This quickstart assumes you are running [Azure CLI](/cli/azure/install-azure-cli) in a Linux terminal window.
@@ -137,7 +137,7 @@ Make sure the code in the previous section is in a file named *kv_keys.py*. Then
 python kv_keys.py
 ```
 
-- If you encounter permissions errors, make sure you ran the [`az keyvault set-policy` command](#give-the-service-principal-access-to-your-key-vault).
+- If you encounter permissions errors, make sure you ran the [`az keyvault set-policy` command](#grant-access-to-your-key-vault).
 - Re-running the code with the same key name may produce the error, "(Conflict) Key <name> is currently in a deleted but recoverable state." Use a different key name.
 
 ## Code details
@@ -156,13 +156,13 @@ client = KeyClient(vault_url=KVUri, credential=credential)
 
 ## Save a key
 
-Once you've obtained the client object for the key vault, you can store a key using the [create_rsa_key](/python/api/azure-keyvault-keys/azure.keyvault.keys.keyclient?view=azure-python#create-rsa-key-name----kwargs-) method: 
+Once you've obtained the client object for the key vault, you can store a key using the [create_rsa_key](/python/api/azure-keyvault-keys/azure.keyvault.keys.keyclient?#create-rsa-key-name----kwargs-) method: 
 
 ```python
 rsa_key = client.create_rsa_key(keyName, size=2048)
 ```
 
-You can also use [create_key](/python/api/azure-keyvault-keys/azure.keyvault.keys.keyclient?view=azure-python#create-key-name--key-type----kwargs-) or [create_ec_key](/python/api/azure-keyvault-keys/azure.keyvault.keys.keyclient?view=azure-python#create-ec-key-name----kwargs-).
+You can also use [create_key](/python/api/azure-keyvault-keys/azure.keyvault.keys.keyclient?#create-key-name--key-type----kwargs-) or [create_ec_key](/python/api/azure-keyvault-keys/azure.keyvault.keys.keyclient?#create-ec-key-name----kwargs-).
 
 Calling a `create` method generates a call to the Azure REST API for the key vault.
 
@@ -170,7 +170,7 @@ When handling the request, Azure authenticates the caller's identity (the servic
 
 ## Retrieve a key
 
-To read a key from Key Vault, use the [get_key](/python/api/azure-keyvault-keys/azure.keyvault.keys.keyclient?view=azure-python#get-key-name--version-none----kwargs-) method:
+To read a key from Key Vault, use the [get_key](/python/api/azure-keyvault-keys/azure.keyvault.keys.keyclient?#get-key-name--version-none----kwargs-) method:
 
 ```python
 retrieved_key = client.get_key(keyName)
@@ -180,7 +180,7 @@ You can also verify that the key has been set with the Azure CLI command [az key
 
 ### Delete a key
 
-To delete a key, use the [begin_delete_key](/python/api/azure-keyvault-keys/azure.keyvault.keys.keyclient?view=azure-python#begin-delete-key-name----kwargs-) method:
+To delete a key, use the [begin_delete_key](/python/api/azure-keyvault-keys/azure.keyvault.keys.keyclient?#begin-delete-key-name----kwargs-) method:
 
 ```python
 poller = client.begin_delete_key(keyName)
