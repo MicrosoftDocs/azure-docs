@@ -124,7 +124,6 @@
     href: ../../traffic-manager/security-baseline.md
   - name: Azure Web Application Firewall security baseline
     href: ../../web-application-firewall/security-baseline.md
-    Azure Web Application Firewall
   - name: Batch security baseline
     href: ../../batch/security-baseline.md
   - name: Cognitive Services security baseline
