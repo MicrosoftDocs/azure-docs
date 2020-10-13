@@ -1,8 +1,8 @@
 ---
 title: Use properties in an Azure IoT Central solution
 description: Learn how to use read-only and writable properties in an Azure IoT Central solution.
-author: v-krghan
-ms.author: v-krghan
+author: dominicbetts
+ms.author: dobett
 ms.date: 08/12/2020
 ms.topic: how-to
 ms.service: iot-central

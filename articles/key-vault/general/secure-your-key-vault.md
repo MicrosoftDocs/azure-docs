@@ -75,7 +75,7 @@ You create a key vault in a resource group and manage access by using Azure AD. 
 
 There are several predefined roles. If a predefined role doesn't fit your needs, you can define your own role. For more information, see [Azure built-in roles](../../role-based-access-control/built-in-roles.md). 
 
-You need to have `Microsoft.Authorization/roleAssignments/write` and `Microsoft.Authorization/roleAssignments/delete` permissions, such as [User Access Administrator](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles.md#user-access-administrator) or [Owner](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles.md#owner)
+You need to have `Microsoft.Authorization/roleAssignments/write` and `Microsoft.Authorization/roleAssignments/delete` permissions, such as [User Access Administrator](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#user-access-administrator) or [Owner](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#owner)
 
 > [!IMPORTANT]
 > If a user has `Contributor` permissions to a key vault management plane, the user can grant themselves access to the data plane by setting a Key Vault access policy. You should tightly control who has `Contributor` role access to your key vaults. Ensure that only authorized persons can access and manage your key vaults, keys, secrets, and certificates.
