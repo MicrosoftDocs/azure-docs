@@ -20,7 +20,7 @@ You can also determine the types of recommendations by using these properties:
 - Impact level
 - Recommendation type
 
-You can also configure the action that will take place when an alert is triggered by:  
+You can also configure the action that will take place when an alert is triggered by:
 
 - Selecting an existing action group
 - Creating a new action group
@@ -64,11 +64,12 @@ The following template creates an action group with an email target and enables 
     {
       "comments": "Action Group",
       "type": "microsoft.insights/actionGroups",
-      "name": "[parameters('actionGroups_name')]",
       "apiVersion": "2019-06-01",
+      "name": "[parameters('actionGroups_name')]",
       "location": "Global",
-      "tags": {},
       "scale": null,
+      "dependsOn": [],
+      "tags": {},
       "properties": {
         "groupShortName": "[parameters('actionGroups_name')]",
         "enabled": true,
@@ -80,17 +81,16 @@ The following template creates an action group with an email target and enables 
         ],
         "smsReceivers": [],
         "webhookReceivers": []
-      },
-      "dependsOn": []
+      }
     },
     {
       "comments": "Azure Advisor Activity Log Alert",
       "type": "microsoft.insights/activityLogAlerts",
-      "name": "[parameters('activityLogAlerts_name')]",
       "apiVersion": "2017-04-01",
+      "name": "[parameters('activityLogAlerts_name')]",
       "location": "Global",
-      "tags": {},
       "scale": null,
+      "tags": {},
       "properties": {
         "scopes": [
           "[variables('alertScope')]"

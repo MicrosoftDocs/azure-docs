@@ -22,18 +22,18 @@ you can use scopes when you want to implement
 
 To check a scope's status, you can use the same criteria 
 that you use to determine a logic apps' run status, 
-such as "Succeeded", "Failed", "Canceled", and so on. 
+such as **Succeeded**, **Failed**, **Cancelled**, and so on. 
 By default, when all the scope's actions succeed, 
-the scope's status is marked "Succeeded." 
+the scope's status is marked as **Succeeded**. 
 But when any action in the scope fails or is canceled, 
-the scope's status is marked "Failed." 
+the scope's status is marked **Failed**. 
 For limits on scopes, see 
 [Limits and config](../logic-apps/logic-apps-limits-and-config.md). 
 
 For example, here is a high-level logic app that uses a scope to 
 run specific actions and a condition to check the scope's status. 
 If any actions in the scope fail or end unexpectedly, 
-the scope is marked "Failed" or "Aborted" respectively, 
+the scope is marked **Failed** or **Aborted** respectively, 
 and the logic app sends a "Scope failed" message. 
 If all the scoped actions succeed, the logic app sends a "Scope succeeded" message.
 
@@ -243,7 +243,7 @@ the scope's status is equal to "Failed" or "Aborted".
    
       `result('Scope')[0]['status']`
 
-      ![Screenshot that shows the "Add expression" window with the result expression highlighted.](./media/logic-apps-control-flow-run-steps-group-scopes/check-scope-status.png)
+      ![Screenshot that shows the "Expression" box with the result expression highlighted.](./media/logic-apps-control-flow-run-steps-group-scopes/check-scope-status.png)
 
    1. For both rows, select **is equal to** as the operator. 
    

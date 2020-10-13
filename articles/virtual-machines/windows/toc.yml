@@ -278,7 +278,7 @@
       - name: VM instance size flexibility
         href: ../reserved-vm-instance-size-flexibility.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
     - name: Spot VMs
-      displayName: pre-empt, preempt
+      displayName: pre-empt, preempt, spot
       href: ../spot-vms.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
     - name: Azure VMs with no temp disk
       href: ../azure-vms-no-temp-disk.md
@@ -304,7 +304,7 @@
       - name: VM instance size flexibility
         href: ../reserved-vm-instance-size-flexibility.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
   - name: Dedicated hosts
-    href: dedicated-hosts.md
+    href: ../dedicated-hosts.md
   - name: Maintenance and updates
     href: ../maintenance-and-updates.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
   - name: Disk storage
@@ -380,7 +380,7 @@
     - name: Deploy spot VMs
       items:
       - name: Portal
-        href: spot-portal.md
+        href: ../spot-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
       - name: PowerShell
         href: spot-powershell.md
       - name: ARM template
@@ -407,7 +407,7 @@
       href: ps-template.md
     - name: Connect to a VM
       href: connect-logon.md
-    - name: Connect to Linux VMs
+    - name: SSH to Linux VMs
       displayName: ssh keygen ssk-key putty
       items:
       - name: In the portal
@@ -595,7 +595,7 @@
         href: disk-encryption-troubleshooting.md
       - name: Disk encryption FAQ
         href: disk-encryption-faq.md
-      - name: Disk encryption - previous version (Azure AD)
+      - name: Disk encryption - previous version
         items:
         - name: Overview
           href: disk-encryption-overview-aad.md

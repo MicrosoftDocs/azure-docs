@@ -14,7 +14,7 @@ Azure Monitor Logs Dedicated Clusters are a deployment option that is available 
 
 Other than the support for high volume, there are other benefits of using dedicated clusters:
 
-- **Rate limit** - A customer can have higher ingestion rate limits only on dedicated cluster.
+- **Rate limit** - A customer can have higher [ingestion rate limits](../service-limits.md#data-ingestion-volume-rate) only on dedicated cluster.
 - **Features** - Certain enterprise features are only available on dedicated clusters - specifically customer-managed keys (CMK) and LockBox support. 
 - **Consistency** - Customers have their own dedicated resources and so there is no influence from other customers running on the same shared infrastructure.
 - **Cost efficiency** - It might be more cost effective to use dedicated cluster as the assigned capacity reservation tiers take into account all cluster ingestion and applies to all its workspaces, even if some of them are small and not eligible for capacity reservation discount.
@@ -33,15 +33,23 @@ Once the cluster is created, it can be configured and workspaces linked to it. W
 
 All operations on the cluster level require the `Microsoft.OperationalInsights/clusters/write` action permission on the cluster. This permission could be granted via the Owner or Contributor that contains the `*/write` action or via the Log Analytics Contributor role that contains the `Microsoft.OperationalInsights/*` action. For more information on Log Analytics permissions, see [Manage access to log data and workspaces in Azure Monitor](../platform/manage-access.md). 
 
-## Billing
 
-Dedicated clusters are supported only for workspaces that use per-GB plans with or without capacity reservation tiers. Dedicated clusters have no additional charge for customers that commit to ingest more than 1 TB for such cluster. "Commit to ingest" means they have assigned a capacity reservation tier of at least 1 TB/day on the cluster level. 
-While the capacity reservation is attached at the cluster level, there are two options for the actual charging for the data:
+## Cluster pricing model
 
-- *Cluster* (default) - The capacity reservation costs for your cluster are attributed to the *cluster* resource.
-- *Workspaces* - The capacity reservation costs for your cluster are attributed proportionately to the workspaces in the cluster. The *cluster* resource is billed some of the usage if the total ingested data for the day is under the capacity reservation. See [Log Analytics Dedicated Clusters](../platform/manage-cost-storage.md#log-analytics-dedicated-clusters) to learn more about the Cluster pricing model.
+Log Analytics Dedicated Clusters use a Capacity Reservation pricing model which of at least 1000 GB/day. Any usage above the reservation level will be billed at the Pay-As-You-Go rate.  Capacity Reservation pricing information is available at the [Azure Monitor pricing page]( https://azure.microsoft.com/pricing/details/monitor/).  
 
-For more information on dedicated clusters billing, see [Log Analytics Dedicated Cluster Billing](../platform/manage-cost-storage.md#log-analytics-dedicated-clusters).
+The cluster capacity reservation level is configured via programmatically with Azure Resource Manager using the `Capacity` parameter under `Sku`. The `Capacity` is specified in units of GB and can have values of 1000 GB/day or more in increments of 100 GB/day.
+
+There are two modes of billing for usage on a cluster. These can be specified by the `billingType` parameter when configuring your cluster. 
+
+1. **Cluster**: in this case (which is the default), billing for ingested data is done at the cluster level. The ingested data quantities from each workspace associated to a cluster is aggregated to calculate the daily bill for the cluster. 
+
+2. **Workspaces**: the Capacity Reservation costs for your Cluster are attributed proportionately to the workspaces in the Cluster (after accounting for per-node allocations from [Azure Security Center](../../security-center/index.yml) for each workspace.)
+
+Note that if your workspace is using legacy Per Node pricing tier, when it is linked to a cluster it will be billed based on data ingested against the cluster’s Capacity Reservation, and no longer per node. Per node data allocations from Azure Security Center will continue to be applied.
+
+More details are billing for Log Analytics dedicated clusters are available [here]( https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage#log-analytics-dedicated-clusters).
+
 
 ## Creating a cluster
 
@@ -66,11 +74,10 @@ The user account that creates the clusters must have the standard Azure resource
 **PowerShell**
 
 ```powershell
-invoke-command -scriptblock { New-AzOperationalInsightsCluster -ResourceGroupName {resource-group-name} -ClusterName {cluster-name} -Location {region-name} -SkuCapacity {daily-ingestion-gigabyte} } -asjob
+New-AzOperationalInsightsCluster -ResourceGroupName {resource-group-name} -ClusterName {cluster-name} -Location {region-name} -SkuCapacity {daily-ingestion-gigabyte} -AsJob
 
 # Check when the job is done
-Get-Job
-
+Get-Job -Command "New-AzOperationalInsightsCluster*" | Format-List -Property *
 ```
 
 **REST**
@@ -102,13 +109,16 @@ Should be 200 OK and a header.
 
 ### Check provisioning status
 
-The provisioning of the Log Analytics cluster takes a while to complete. You can check the provisioning state in two ways:
+The provisioning of the Log Analytics cluster takes a while to complete. You can check the provisioning state in several ways:
 
-1. Copy the Azure-AsyncOperation URL value from the response and follow the asynchronous operations status check.
+- Run Get-AzOperationalInsightsCluster PowerShell command with the resource group name and check the ProvisioningState property. The value is *ProvisioningAccount* while provisioning and *Succeeded* when completed.
+  ```powershell
+  New-AzOperationalInsightsCluster -ResourceGroupName {resource-group-name} 
+  ```
 
-   OR
+- Copy the Azure-AsyncOperation URL value from the response and follow the asynchronous operations status check.
 
-1. Send a GET request on the *Cluster* resource and look at the *provisioningState* value. The value is *ProvisioningAccount* while provisioning and *Succeeded* when completed.
+- Send a GET request on the *Cluster* resource and look at the *provisioningState* value. The value is *ProvisioningAccount* while provisioning and *Succeeded* when completed.
 
    ```rst
    GET https://management.azure.com/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.OperationalInsights/clusters/<cluster-name>?api-version=2020-03-01-preview
@@ -149,8 +159,8 @@ After you create your *Cluster* resource and it is fully provisioned, you can ed
 
 - **keyVaultProperties**: Used to configure the Azure Key Vault used to provision an [Azure Monitor customer-managed key](../platform/customer-managed-keys.md#cmk-provisioning-procedure). It contains the following parameters:  *KeyVaultUri*, *KeyName*, *KeyVersion*. 
 - **billingType** - The *billingType* property determines the billing attribution for the *cluster* resource and its data:
-- **Cluster** (default) - The Capacity Reservation costs for your Cluster are attributed to the *Cluster* resource.
-- **Workspaces** - The Capacity Reservation costs for your Cluster are attributed proportionately to the workspaces in the Cluster, with the *Cluster* resource being billed some of the usage if the total ingested data for the day is under the Capacity Reservation. See [Log Analytics Dedicated Clusters](../platform/manage-cost-storage.md#log-analytics-dedicated-clusters) to learn more about the Cluster pricing model. 
+  - **Cluster** (default) - The Capacity Reservation costs for your Cluster are attributed to the *Cluster* resource.
+  - **Workspaces** - The Capacity Reservation costs for your Cluster are attributed proportionately to the workspaces in the Cluster, with the *Cluster* resource being billed some of the usage if the total ingested data for the day is under the Capacity Reservation. See [Log Analytics Dedicated Clusters](../platform/manage-cost-storage.md#log-analytics-dedicated-clusters) to learn more about the Cluster pricing model. 
 
 > [!NOTE]
 > The *billingType* property is not supported in PowerShell.
@@ -179,7 +189,7 @@ Content-type: application/json
 {
    "sku": {
      "name": "capacityReservation",
-     "capacity": 1000
+     "capacity": <capacity-reservation-amount-in-GB>
      },
    "properties": {
     "billingType": "cluster",
@@ -260,8 +270,6 @@ As any cluster operation, linking a workspace can be performed only after the co
 > Linking a workspace to a cluster requires syncing multiple backend components and assuring cache hydration. This operation may take up to two hours to complete. We recommended you run it asynchronously.
 
 
-### Link operations
-
 **PowerShell**
 
 Use the following PowerShell command to link to a cluster:
@@ -271,10 +279,10 @@ Use the following PowerShell command to link to a cluster:
 $clusterResourceId = (Get-AzOperationalInsightsCluster -ResourceGroupName {resource-group-name} -ClusterName {cluster-name}).id
 
 # Link the workspace to the cluster
-invoke-command -scriptblock { Set-AzOperationalInsightsLinkedService -ResourceGroupName {resource-group-name} -WorkspaceName {workspace-name} -LinkedServiceName cluster -WriteAccessResourceId $clusterResourceId } -asjob
+Set-AzOperationalInsightsLinkedService -ResourceGroupName {resource-group-name} -WorkspaceName {workspace-name} -LinkedServiceName cluster -WriteAccessResourceId $clusterResourceId -AsJob
 
 # Check when the job is done
-Get-Job
+Get-Job -Command "Set-AzOperationalInsightsLinkedService" | Format-List -Property *
 ```
 
 
@@ -308,7 +316,7 @@ You can check the workspace association state in two ways:
 
 - Copy the Azure-AsyncOperation URL value from the response and follow the asynchronous operations status check.
 
-- Send a [Workspaces – Get](https://docs.microsoft.com/rest/api/loganalytics/workspaces/get) request and observe the response. The associated workspace has a clusterResourceId under "features".
+- Send a [Workspaces – Get](/rest/api/loganalytics/workspaces/get) request and observe the response. The associated workspace has a clusterResourceId under "features".
 
 A send request looks like the following:
 
@@ -361,7 +369,36 @@ Old data of the unlinked workspace might be left on the cluster. If this data is
 
 ## Delete a dedicated cluster
 
-A dedicated cluster resource can be deleted. You must unlink all workspaces from the cluster before deleting it. Once the cluster resource is deleted, the physical cluster enters a purge and deletion process. Deletion of a cluster deletes all the data that was stored on the cluster. The data could be from workspaces that were linked to the cluster in the past.
+A dedicated cluster resource can be deleted. You must unlink all workspaces from the cluster before deleting it. You need 'write' permissions on the *Cluster* resource to perform this operation. 
+
+Once the cluster resource is deleted, the physical cluster enters a purge and deletion process. Deletion of a cluster deletes all the data that was stored on the cluster. The data could be from workspaces that were linked to the cluster in the past.
+
+A *Cluster* resource that was deleted in the last 14 days is in soft-delete state and can be recovered with its data. Since all workspaces got disassociated from the *Cluster* resource with *Cluster* resource deletion, you need to re-associate your workspaces after the recovery. The recovery operation cannot be performed by the user contact your Microsoft channel or support for recovery requests.
+
+Within the 14 days after deletion, the cluster resource name is reserved and cannot be used by other resources.
+
+**PowerShell**
+
+Use the following PowerShell command to delete a cluster:
+
+  ```powershell
+  Remove-AzOperationalInsightsCluster -ResourceGroupName "resource-group-name" -ClusterName "cluster-name"
+  ```
+
+**REST**
+
+Use the following REST call to delete a cluster:
+
+  ```rst
+  DELETE https://management.azure.com/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.OperationalInsights/clusters/<cluster-name>?api-version=2020-08-01
+  Authorization: Bearer <token>
+  ```
+
+  **Response**
+
+  200 OK
+
+
 
 ## Next steps
 

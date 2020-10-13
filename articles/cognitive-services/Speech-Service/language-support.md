@@ -25,7 +25,7 @@ To improve accuracy, customization is offered for a subset of the languages thro
 
 <!--
 To get the AM and ML bits:
-https://westus.cris.ai/swagger/ui/index#/Custom%20Speech%20models%3A/GetSupportedLocalesForModels
+https://westus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/GetSupportedLocalesForModels
 
 To get pronunciation bits:
 https://cris.ai -> Click on Adaptation Data -> scroll down to section "Pronunciation Datasets" -> Click on Import -> Locale: the list of locales there correspond to the supported locales
@@ -36,13 +36,11 @@ https://cris.ai -> Click on Adaptation Data -> scroll down to section "Pronuncia
 | `ar-AE` | Arabic (United Arab Emirates)     | Language model                                    |
 | `ar-BH` | Arabic (Bahrain), modern standard | Language model                                    |
 | `ar-EG` | Arabic (Egypt)                    | Language model                                    |
-| `ar-IL` | Arabic (Israel)                   | No                                                |
 | `ar-IQ` | Arabic (Iraq)                     | Language model                                    |
 | `ar-JO` | Arabic (Jordan)                   | Language model                                    |
 | `ar-KW` | Arabic (Kuwait)                   | Language model                                    |
 | `ar-LB` | Arabic (Lebanon)                  | Language model                                    |
 | `ar-OM` | Arabic (Oman)                     | Language model                                    |
-| `ar-PS` | Arabic (State of Palestine)       | No                                                |
 | `ar-QA` | Arabic (Qatar)                    | Language model                                    |
 | `ar-SA` | Arabic (Saudi Arabia)             | Language model                                    |
 | `ar-SY` | Arabic (Syria)                    | Language model                                    |
@@ -177,7 +175,7 @@ For more information about regional availability, see [regions](regions.md#stand
 | `it-IT` <sup>New</sup> | Italian (Italy) | Male | `it-IT-DiegoNeural` | General |
 | `ja-JP` | Japanese  (Japan) | Female | `ja-JP-NanamiNeural` | General |
 | `ja-JP` <sup>New</sup> | Japanese (Japan) | Male | `ja-JP-KeitaNeural` | General |
-| `ko-KR` | Korean  (South Korea) | Female | `ko-KR-SunHiNeural` | General |
+| `ko-KR` | Korean  (Korea) | Female | `ko-KR-SunHiNeural` | General |
 | `ko-KR` <sup>New</sup> | Korean (Korea) | Male | `ko-KR-InJoonNeural` | General |
 | `ms-MY` <sup>New</sup> | Malay (Malaysia) | Female | `ms-MY-YasminNeural` | General |
 | `nb-NO` | Norwegian, Bokmål  (Norway) | Female | `nb-NO-IselinNeural` | General |
@@ -268,7 +266,7 @@ More than 75 standard voices are available in over 45 languages and locales, whi
 | `ja-JP` | Japanese (Japan) | Female | `ja-JP-Ayumi` |
 | `ja-JP` | Japanese (Japan) | Female | `ja-JP-HarukaRUS` |
 | `ja-JP` | Japanese (Japan) | Male | `ja-JP-Ichiro` |
-| `ko-KR` | Korean (South Korea) | Female | `ko-KR-HeamiRUS` |
+| `ko-KR` | Korean (Korea) | Female | `ko-KR-HeamiRUS` |
 | `ms-MY` | Malay (Malaysia) | Male | `ms-MY-Rizwan` |
 | `nb-NO` | Norwegian, Bokmål (Norway) | Female | `nb-NO-HuldaRUS` |
 | `nl-NL` | Dutch (Netherlands) | Female | `nl-NL-HannaRUS` |

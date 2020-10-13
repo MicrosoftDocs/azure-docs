@@ -12,7 +12,7 @@ ms.reviewer: jagaveer
 
 # Deploy Spot VMs using the Azure CLI
 
-Using [Azure Spot VMs](spot-vms.md) allows you to take advantage of our unused capacity at a significant cost savings. At any point in time when Azure needs the capacity back, the Azure infrastructure will evict Spot VMs. Therefore, Spot VMs are great for workloads that can handle interruptions like batch processing jobs, dev/test environments, large compute workloads, and more.
+Using [Azure Spot VMs](../spot-vms.md) allows you to take advantage of our unused capacity at a significant cost savings. At any point in time when Azure needs the capacity back, the Azure infrastructure will evict Spot VMs. Therefore, Spot VMs are great for workloads that can handle interruptions like batch processing jobs, dev/test environments, large compute workloads, and more.
 
 Pricing for Spot VMs is variable, based on region and SKU. For more information, see VM pricing for [Linux](https://azure.microsoft.com/pricing/details/virtual-machines/linux/) and [Windows](https://azure.microsoft.com/pricing/details/virtual-machines/windows/). 
 
@@ -59,8 +59,25 @@ az vm list \
    --output table
 ```
 
+## Simulate an eviction
+
+You can [simulate an eviction](/rest/api/compute/virtualmachines/simulateeviction) of a Spot VM, to testing how well your application will repond to a sudden eviction. 
+
+Replace the following with your information: 
+
+- `subscriptionId`
+- `resourceGroupName`
+- `vmName`
+
+
+```http
+POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/virtualMachines/{vmName}/simulateEviction?api-version=2020-06-01
+```
+
 **Next steps**
 
-You can also create a Spot VM using [Azure PowerShell](../windows/spot-powershell.md), [portal](../windows/spot-portal.md), or a [template](spot-template.md).
+You can also create a Spot VM using [Azure PowerShell](../windows/spot-powershell.md), [portal](../spot-portal.md), or a [template](spot-template.md).
+
+Query current pricing information using the [Azure retail prices API](/rest/api/cost-management/retail-prices/azure-retail-prices) for information about Spot pricing. The `meterName` and `skuName` will both contain `Spot`.
 
 If you encounter an error, see [Error codes](../error-codes-spot.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).

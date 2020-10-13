@@ -9,7 +9,7 @@ manager: rkarlin
 ms.assetid: 9268b8dd-a327-4e36-918e-0c0b711e99d2
 ms.service: security-center
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/06/2020
@@ -145,6 +145,23 @@ To edit the rules for a group of machines:
 
 1. To apply the changes, select **Save**.
 
+
+## Review and edit a group's settings
+
+1. To view the details and settings of your group, select **Group settings**
+
+    This pane shows the name of the group (which can be modified), the OS type, the location, and other relevant details.
+
+    :::image type="content" source="./media/security-center-adaptive-application/adaptive-application-group-settings.png" alt-text="The group settings page for adaptive application controls" lightbox="./media/security-center-adaptive-application/adaptive-application-group-settings.png":::
+
+    > [!IMPORTANT]
+    > The **Enforce** option in the file type protection mode settings is greyed out in all scenarios. No enforcement options are available at this time. 
+    >
+    > :::image type="content" source="./media/security-center-adaptive-application/adaptive-application-modes.png" alt-text="The enforce mode for file protection is permanently grayed out. No enforcement options are available.":::
+
+1. Optionally, modify the group's name or file type protection modes.
+
+1. Select **Apply** and **Save**.
 
 
 

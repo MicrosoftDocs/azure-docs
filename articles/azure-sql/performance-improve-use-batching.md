@@ -6,7 +6,7 @@ ms.service: sql-database
 ms.subservice: development
 ms.custom: sqldbrb=2
 ms.devlang: 
-ms.topic: conceptual
+ms.topic: how-to
 author: stevestein
 ms.author: sstein
 ms.reviewer: genemi
@@ -285,9 +285,9 @@ This approach can be slightly faster for batches that are less than 100 rows. Al
 
 The **DataAdapter** class allows you to modify a **DataSet** object and then submit the changes as INSERT, UPDATE, and DELETE operations. If you are using the **DataAdapter** in this manner, it is important to note that separate calls are made for each distinct operation. To improve performance, use the **UpdateBatchSize** property to the number of operations that should be batched at a time. For more information, see [Performing Batch Operations Using DataAdapters](/dotnet/framework/data/adonet/performing-batch-operations-using-dataadapters).
 
-### Entity framework
+### Entity Framework
 
-[Entity Framework 6](https://github.com/dotnet/ef6) now supports batching.
+[Entity Framework Core](https://docs.microsoft.com/ef/efcore-and-ef6/#saving-data) supports batching.
 
 ### XML
 

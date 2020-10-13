@@ -8,7 +8,7 @@ ms.author: sgilley
 ms.reviewer: sgilley
 ms.service: machine-learning
 ms.subservice: core
-ms.date: 09/25/2020
+ms.date: 09/28/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, contperfq1
 ---
@@ -26,9 +26,7 @@ All you need to do is define the environment for each compute target within a **
 * If you don't have an Azure subscription, create a free account before you begin. Try the [free or paid version of Azure Machine Learning](https://aka.ms/AMLFree) today
 * The [Azure Machine Learning SDK for Python](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py&preserve-view=true) (>= 1.13.0)
 * An [Azure Machine Learning workspace](how-to-manage-workspace.md), `ws`
-* A compute target, `my_compute_target`.  Create a compute target with:
-  * [Python SDK](how-to-create-attach-compute-sdk.md) 
-  * [Azure Machine Learning studio](how-to-create-attach-compute-studio.md)
+* A compute target, `my_compute_target`.  [Create a compute target](how-to-create-attach-compute-studio.md) 
 
 ## <a name="whats-a-run-configuration"></a>What's a script run configuration?
 A [ScriptRunConfig](https://docs.microsoft.com/python/api/azureml-core/azureml.core.scriptrunconfig?view=azure-ml-py&preserve-view=true) is used to configure the information necessary for submitting a training run as part of an experiment.
@@ -89,7 +87,7 @@ myenv = Environment.get(workspace=ws, name="AzureML-Minimal")
 
 For more information and details about environments, see [Create & use software environments in Azure Machine Learning](how-to-use-environments.md).
   
-### Local compute target
+### <a name="local"></a>Local compute target
 
 If your compute target is your **local machine**, you are responsible for ensuring that all the necessary packages are available in the Python environment where the script runs.  Use `python.user_managed_dependencies` to use your current Python environment (or the Python on the path you specify).
 
@@ -114,6 +112,10 @@ src = ScriptRunConfig(source_directory=project_folder,
                       script='train.py',
                       compute_target=my_compute_target,
                       environment=myenv)
+
+# Set compute target
+# Skip this if you are running on your local computer
+script_run_config.run_config.target = my_compute_target
 ```
 
 If you do not specify an environment, a default environment will be created for you.
@@ -123,7 +125,7 @@ If you have command-line arguments you want to pass to your training script, you
 If you want to override the default maximum time allowed for the run, you can do so via the **`max_run_duration_seconds`** parameter. The system will attempt to automatically cancel the run if it takes longer than this value.
 
 ### Specify a distributed job configuration
-If you want to run a distributed training job, provide the distributed job-specific config to the **`distributed_job_config`** parameter. Supported config types include [MpiConfiguration](https://docs.microsoft.com/python/api/azureml-core/azureml.core.runconfig.mpiconfiguration?view=azure-ml-py&preserve-view=true), [TensorflowConfiguration](https://docs.microsoft.com/python/api/azureml-core/azureml.core.runconfig.tensorflowconfiguration?view=azure-ml-py&preserve-view=true). 
+If you want to run a distributed training job, provide the distributed job-specific config to the **`distributed_job_config`** parameter. Supported config types include [MpiConfiguration](https://docs.microsoft.com/python/api/azureml-core/azureml.core.runconfig.mpiconfiguration?view=azure-ml-py&preserve-view=true), [TensorflowConfiguration](https://docs.microsoft.com/python/api/azureml-core/azureml.core.runconfig.tensorflowconfiguration?view=azure-ml-py&preserve-view=true), and [PyTorchConfiguration](https://docs.microsoft.com/python/api/azureml-core/azureml.core.runconfig.pytorchconfiguration?view=azure-ml-py&preserve-view=true). 
 
 For more information and examples on running distributed Horovod, TensorFlow and PyTorch jobs, see:
 
@@ -150,7 +152,7 @@ run.wait_for_completion(show_output=True)
 >
 > To create artifacts during training (such as model files, checkpoints, data files, or plotted images) write these to the `./outputs` folder.
 >
-> Similarly, you can write any logs from your training run to the `./logs` folder. To utilize Azure Machine Learning's [TensorBoard integration](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training-with-deep-learning/export-run-history-to-tensorboard/export-run-history-to-tensorboard.ipynb) make sure you write your TensorBoard logs to this folder. While your run is in progress, you will be able to launch TensorBoard and stream these logs.  Later, you will also be able to restore the logs from any of your previous runs.
+> Similarly, you can write any logs from your training run to the `./logs` folder. To utilize Azure Machine Learning's [TensorBoard integration](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/track-and-monitor-experiments/tensorboard/export-run-history-to-tensorboard/export-run-history-to-tensorboard.ipynb) make sure you write your TensorBoard logs to this folder. While your run is in progress, you will be able to launch TensorBoard and stream these logs.  Later, you will also be able to restore the logs from any of your previous runs.
 >
 > For example, to download a file written to the *outputs* folder to your local machine after your remote training run: 
 > `run.download_file(name='outputs/my_output_file', output_file_path='my_destination_path')`
@@ -162,8 +164,8 @@ When you start a training run where the source directory is a local Git reposito
 ## Notebook examples
 
 See these notebooks for examples of configuring runs for various training scenarios:
-* [how-to-use-azureml/training](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training)
-* [how-to-use-azureml/ml-frameworks](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/ml-frameworks)
+* [Training on various compute targets](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training)
+* [Training with ML frameworks](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/ml-frameworks)
 * [tutorials/img-classification-part1-training.ipynb](https://github.com/Azure/MachineLearningNotebooks/blob/master/tutorials/image-classification-mnist-data/img-classification-part1-training.ipynb)
 
 [!INCLUDE [aml-clone-in-azure-notebook](../../includes/aml-clone-for-examples.md)]

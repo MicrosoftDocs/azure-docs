@@ -112,7 +112,7 @@
         displayName: request units, RUs, RU
         href: scaling-throughput.md
       - name: Conflict types and resolution policies
-        displayName: last write wins, custom, multi master, multi-master
+        displayName: last write wins, custom, multi-region writes, multi-master
         href: conflict-resolution-policies.md
       - name: Global distribution - under the hood
         href: global-dist-under-the-hood.md
@@ -584,7 +584,7 @@
         - name: Data encryption
           href: database-encryption-at-rest.md
         - name: Secure access to data
-          displayName: master key, resource token, users, roles
+          displayName: primary key, resource token, users, roles
           href: secure-access-to-data.md
         - name: IP firewall
           href: firewall-support.md
@@ -975,9 +975,11 @@
         displayName: ARM
       - name: Move between regions
         href: how-to-move-regions.md
+      - name: Prevent changes or deletion
+        href: resource-locks.md
     - name: Global distribution
       items:
-      - name: Configure multi-master
+      - name: Configure multi-region writes
         href: how-to-multi-master.md
       - name: Manage consistency levels
         displayName: session, consistency prefix, strong, eventual, bounded staleness
@@ -1064,6 +1066,8 @@
       items:
       - name: Migrate to Java V4 SDK
         href: migrate-java-v4-sdk.md
+      - name: Migrate to .NET V3 SDK
+        href: migrate-dotnet-v3.md
     - name: Troubleshooting
       items:
       - name: Common errors

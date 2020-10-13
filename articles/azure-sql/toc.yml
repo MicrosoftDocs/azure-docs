@@ -94,7 +94,9 @@
           href: database/transparent-data-encryption-tde-overview.md
         - name: Bring Your Own Key (BYOK)
           href: database/transparent-data-encryption-byok-overview.md
-        
+      - name: Distributed transactions
+        href: database/elastic-transactions-overview.md
+      
     - name: Business continuity
       displayName: Backup, back up, restore, recovery
       items:
@@ -527,12 +529,9 @@
         href: database/database-copy.md
       - name: Replicate to SQL Database
         href: database/replication-to-sql-database.md
-      - name: SQL Data Sync
-        items: 
-        - name: Replicate schema changes
-          href: database/sql-data-sync-update-sync-schema.md
-        - name: Monitor with OMS
-          href: database/sql-data-sync-monitor-sync.md
+      - name: Replicate schema changes (Data sync)
+        href: database/sql-data-sync-update-sync-schema.md
+
 
     - name: Database sharding
       items:
@@ -905,6 +904,8 @@
         href: managed-instance/public-endpoint-overview.md
       - name: Auditing
         href: managed-instance/auditing-configure.md
+      - name: Server trust groups
+        href: managed-instance/server-trust-group-overview.md
 
   - name: How to
     items:
@@ -1039,6 +1040,8 @@
         - name: Register with SQL VM RP
           displayName: resource provider, registration
           items:
+          - name: Automatic registration
+            href: virtual-machines/windows/sql-vm-resource-provider-automatic-registration.md
           - name: Single VM
             href: virtual-machines/windows/sql-vm-resource-provider-register.md
           - name: Bulk register multiple VMs

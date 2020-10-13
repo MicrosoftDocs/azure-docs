@@ -41,7 +41,7 @@ It's helpful to understand some key terms relating to Azure AD Domain Service au
 
 -   **Azure role-based access control (Azure RBAC)**
 
-    Azure role-based access control (Azure RBAC) enables fine-grained access management for Azure. Using RBAC, you can manage access to resources by granting users the fewest permissions needed to perform their jobs. For more information on RBAC, see [What is Azure role-based access control (Azure RBAC) in Azure?](../../role-based-access-control/overview.md).
+    Azure role-based access control (Azure RBAC) enables fine-grained access management for Azure. Using Azure RBAC, you can manage access to resources by granting users the fewest permissions needed to perform their jobs. For more information on Azure RBAC, see [What is Azure role-based access control (Azure RBAC)?](../../role-based-access-control/overview.md).
 
 ## Common use cases
 

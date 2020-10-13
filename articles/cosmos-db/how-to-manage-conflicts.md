@@ -508,9 +508,9 @@ while conflict:
 Learn about the following Azure Cosmos DB concepts:
 
 - [Global distribution - under the hood](global-dist-under-the-hood.md)
-- [How to configure multi-master in your applications](how-to-multi-master.md)
+- [How to configure multi-region writes in your applications](how-to-multi-master.md)
 - [Configure clients for multihoming](how-to-manage-database-account.md#configure-multiple-write-regions)
 - [Add or remove regions from your Azure Cosmos DB account](how-to-manage-database-account.md#addremove-regions-from-your-database-account)
-- [How to configure multi-master in your applications](how-to-multi-master.md).
+- [How to configuremulti-region writes in your applications](how-to-multi-master.md).
 - [Partitioning and data distribution](partition-data.md)
 - [Indexing in Azure Cosmos DB](indexing-policies.md)
