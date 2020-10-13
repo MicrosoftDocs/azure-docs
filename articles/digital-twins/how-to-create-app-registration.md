@@ -17,7 +17,7 @@ ms.service: digital-twins
 
 # Create an app registration to use with Azure Digital Twins
 
-When working with an Azure Digital Twins instance, it is common to interact with that instance through client applications, such as a custom client app or a sample like [ADT Explorer](quickstart-adt-explorer.md). Those applications need to authenticate with Azure Digital Twins in order to interact with it, and some of the [authentication mechanisms](how-to-authenticate-client) that apps can use involve an [Azure Active Directory (Azure AD)](../active-directory/fundamentals/active-directory-whatis.md) **app registration**.
+When working with an Azure Digital Twins instance, it is common to interact with that instance through client applications, such as a custom client app or a sample like [ADT Explorer](quickstart-adt-explorer.md). Those applications need to authenticate with Azure Digital Twins in order to interact with it, and some of the [authentication mechanisms](how-to-authenticate-client.md) that apps can use involve an [Azure Active Directory (Azure AD)](../active-directory/fundamentals/active-directory-whatis.md) **app registration**.
 
 This is not required for all authentication scenarios. However, if you are using an authentication strategy or code sample that does require an app registration, including a **client ID** and **tenant ID**, this article shows you how to set one up.
 
@@ -27,7 +27,7 @@ This is not required for all authentication scenarios. However, if you are using
 
 Setting up an **app registration** in Azure AD is one way to grant a client app access to Azure Digital Twins.
 
-This app registration is where you configure access permissions to the [Azure Digital Twins APIs](../articles/digital-twins/how-to-use-apis-sdks.md). Later, client apps will authenticate against the app registration using the registration's **client and tenant ID values**, and as a result it is granted the configured access permissions to the APIs.
+This app registration is where you configure access permissions to the [Azure Digital Twins APIs](how-to-use-apis-sdks.md). Later, client apps will authenticate against the app registration using the registration's **client and tenant ID values**, and as a result it is granted the configured access permissions to the APIs.
 
 >[!TIP]
 > As a subscription Owner/administrator, you may prefer to set up a new app registration every time you need one, *or* to do this only once, establishing a single app registration that will be shared among all scenarios that require it.
