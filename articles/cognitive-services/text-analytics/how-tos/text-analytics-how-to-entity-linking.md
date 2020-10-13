@@ -9,7 +9,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: article
-ms.date: 09/24/2020
+ms.date: 10/09/2020
 ms.author: aahi
 ---
 
@@ -64,20 +64,6 @@ Create a POST request. You can [use Postman](text-analytics-how-to-call-api.md) 
 
 ### Request endpoints
 
-#### [Version 3.0](#tab/version-3)
-
-Named Entity Recognition v3 uses separate endpoints for NER and entity linking requests. Use a URL format below based on your request:
-
-Entity linking
-* `https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.0/entities/linking`
-
-[Named Entity Recognition version 3.0 reference for `Linking`](https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-0/operations/EntitiesRecognitionGeneral)
-
-NER
-* `https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.0/entities/recognition/general`
-
-[Named Entity Recognition version 3.0 reference for `General`](https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-0/operations/EntitiesRecognitionGeneral)
-
 #### [Version 3.1-preview.2](#tab/version-3-preview)
 
 Named Entity Recognition `v3.1-preview.2` uses separate endpoints for NER and entity linking requests. Use a URL format below based on your request:
@@ -101,6 +87,20 @@ You can also use the optional `domain=phi` parameter to detect health (`PHI`) in
 Please note the addition of the `redactedText` property in the response JSON which contains the modified input text where the detected PII entities are replaced by an * for each character of the entities.
 
 [Named Entity Recognition version 3.1-preview reference for `PII`](https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1-Preview-2/operations/EntitiesRecognitionPii)
+
+#### [Version 3.0](#tab/version-3)
+
+Named Entity Recognition v3 uses separate endpoints for NER and entity linking requests. Use a URL format below based on your request:
+
+Entity linking
+* `https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.0/entities/linking`
+
+[Named Entity Recognition version 3.0 reference for `Linking`](https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-0/operations/EntitiesRecognitionGeneral)
+
+NER
+* `https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.0/entities/recognition/general`
+
+[Named Entity Recognition version 3.0 reference for `General`](https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-0/operations/EntitiesRecognitionGeneral)
 
 ---
 
@@ -138,6 +138,96 @@ Output is returned immediately. You can stream the results to an application tha
 ### Example responses
 
 Version 3 provides separate endpoints for general NER, PII and entity linking. The responses for both operations are below. 
+
+#### [Version 3.1-preview](#tab/version-3-preview)
+
+Example of a PII response:
+```json
+{
+  "documents": [
+    {
+    "redactedText": "You can even pre-order from their online menu at *************************, call ************ or send email to ***************************!",
+    "id": "0",
+    "entities": [
+        {
+        "text": "www.contososteakhouse.com",
+        "category": "URL",
+        "offset": 49,
+        "length": 25,
+        "confidenceScore": 0.8
+        }, 
+        {
+        "text": "312-555-0176",
+        "category": "Phone Number",
+        "offset": 81,
+        "length": 12,
+        "confidenceScore": 0.8
+        }, 
+        {
+        "text": "order@contososteakhouse.com",
+        "category": "Email",
+        "offset": 111,
+        "length": 27,
+        "confidenceScore": 0.8
+        }
+      ],
+    "warnings": []
+    }
+  ],
+  "errors": [],
+  "modelVersion": "2020-07-01"
+}
+```
+
+Example of an Entity linking response:
+
+```json
+{
+  "documents": [
+    {
+      "id": "1",
+      "entities": [
+        {
+          "bingId": "f8dd5b08-206d-2554-6e4a-893f51f4de7e", 
+          "name": "Space Needle",
+          "matches": [
+            {
+              "text": "Space Needle",
+              "offset": 30,
+              "length": 12,
+              "confidenceScore": 0.4
+            }
+          ],
+          "language": "en",
+          "id": "Space Needle",
+          "url": "https://en.wikipedia.org/wiki/Space_Needle",
+          "dataSource": "Wikipedia"
+        },
+        {
+          "bingId": "5fbba6b8-85e1-4d41-9444-d9055436e473",
+          "name": "Seattle",
+          "matches": [
+            {
+              "text": "Seattle",
+              "offset": 62,
+              "length": 7,
+              "confidenceScore": 0.25
+            }
+          ],
+          "language": "en",
+          "id": "Seattle",
+          "url": "https://en.wikipedia.org/wiki/Seattle",
+          "dataSource": "Wikipedia"
+        }
+      ],
+      "warnings": []
+    }
+  ],
+  "errors": [],
+  "modelVersion": "2020-02-01"
+}
+```
+
 
 #### [Version 3.0](#tab/version-3)
 
@@ -193,92 +283,7 @@ Example of a general NER response:
   "modelVersion": "2020-04-01"
 }
 ```
-#### [Version 3.1-preview](#tab/version-3-preview)
 
-Example of a PII response:
-```json
-{
-  "documents": [
-    {
-    "redactedText": "You can even pre-order from their online menu at *************************, call ************ or send email to ***************************!",
-    "id": "0",
-    "entities": [
-        {
-        "text": "www.contososteakhouse.com",
-        "category": "URL",
-        "offset": 49,
-        "length": 25,
-        "confidenceScore": 0.8
-        }, 
-        {
-        "text": "312-555-0176",
-        "category": "Phone Number",
-        "offset": 81,
-        "length": 12,
-        "confidenceScore": 0.8
-        }, 
-        {
-        "text": "order@contososteakhouse.com",
-        "category": "Email",
-        "offset": 111,
-        "length": 27,
-        "confidenceScore": 0.8
-        }
-      ],
-    "warnings": []
-    }
-  ],
-  "errors": [],
-  "modelVersion": "2020-07-01"
-}
-```
-Example of an Entity linking response:
-```json
-{
-  "documents": [
-    {
-      "id": "1",
-      "entities": [
-        {
-          "bingId": "f8dd5b08-206d-2554-6e4a-893f51f4de7e", 
-          "name": "Space Needle",
-          "matches": [
-            {
-              "text": "Space Needle",
-              "offset": 30,
-              "length": 12,
-              "confidenceScore": 0.4
-            }
-          ],
-          "language": "en",
-          "id": "Space Needle",
-          "url": "https://en.wikipedia.org/wiki/Space_Needle",
-          "dataSource": "Wikipedia"
-        },
-        {
-          "bingId": "5fbba6b8-85e1-4d41-9444-d9055436e473",
-          "name": "Seattle",
-          "matches": [
-            {
-              "text": "Seattle",
-              "offset": 62,
-              "length": 7,
-              "confidenceScore": 0.25
-            }
-          ],
-          "language": "en",
-          "id": "Seattle",
-          "url": "https://en.wikipedia.org/wiki/Seattle",
-          "dataSource": "Wikipedia"
-        }
-      ],
-      "warnings": []
-    }
-  ],
-  "errors": [],
-  "modelVersion": "2020-02-01"
-}
-```
 ---
 
 
