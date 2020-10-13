@@ -9,7 +9,7 @@ ms.service: cognitive-services
 ms.subservice: anomaly-detector
 ms.topic: quickstart
 ms.date: 09/03/2020
-ms.author: mbulliwn
+ms.author: mbullwin
 ms.custom: devx-track-python
 ---
 
