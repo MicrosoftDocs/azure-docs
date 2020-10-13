@@ -177,7 +177,7 @@
     - name: Vulnerability scanning
       items:
       - name: Integrated VA scanner for machines 
-        displayName: qualys, vulnerability,
+        displayName: qualys, vulnerability, arc
         href: deploy-vulnerability-assessment-vm.md
       - name: Scan your VMs with a BYOL VA solution
         displayName: qualys, rapid7, vulnerability
