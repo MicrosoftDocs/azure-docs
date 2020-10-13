@@ -116,7 +116,7 @@ The following image shows and example of the output.
 
 :::image type="content" source="media/azure-data-explorer-query-storage/external-table-create-command-output.png" alt-text="ExternalTable create command output.":::
 
-[![Query Log Analytics exported data](media/azure-data-explorer-query-storage/external-table-create-command-output.png)](media/azure-data-explorer-query-storage/external-table-create-command-output.png#lightbox)
+[![Example output](media/azure-data-explorer-query-storage/external-table-create-command-output.png)](media/azure-data-explorer-query-storage/external-table-create-command-output.png#lightbox)
 
 >[!TIP]
 >Copy, paste, and then run the output of the script in your Azure Data Explorer client tool to create the table and mapping.
