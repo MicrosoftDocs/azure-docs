@@ -20,11 +20,11 @@ This error may occur on many types of service requests that require authenticati
 
 ### Cause #1
 
-Most often, this error indicates that your role-based access control (RBAC) permissions for the service are not set up correctly. Many actions for an Azure Digital Twins instance require you to have the *Azure Digital Twins Data Owner* role **on the instance you are trying to manage**. 
+Most often, this error indicates that your role-based access control (RBAC) permissions for the service aren't set up correctly. Many actions for an Azure Digital Twins instance require you to have the *Azure Digital Twins Data Owner* role **on the instance you are trying to manage**. 
 
 ### Cause #2
 
-If you are using a client app to communicate with Azure Digital Twins, this error may happen because your [Azure Active Directory (Azure AD)](../active-directory/fundamentals/active-directory-whatis.md) app registration does not have permissions set up for the Azure Digital Twins service.
+If you're using a client app to communicate with Azure Digital Twins, this error may happen because your [Azure Active Directory (Azure AD)](../active-directory/fundamentals/active-directory-whatis.md) app registration does not have permissions set up for the Azure Digital Twins service.
 
 The app registration is required to have access permissions configured for the Azure Digital Twins APIs. Then, when your client app authenticates against the app registration, it will be granted the permissions that the app registration has configured.
 
@@ -32,11 +32,11 @@ The app registration is required to have access permissions configured for the A
 
 ### Solution #1
 
-The first solution is to verify that your Azure user has the _**Azure Digital Twins Data Owner**_ role on the instance you are trying to manage. If you do not have this role, set it up.
+The first solution is to verify that your Azure user has the _**Azure Digital Twins Data Owner**_ role on the instance you are trying to manage. If you don't have this role, set it up.
 
 Note that this role is different from...
 * the *Owner* role on the entire Azure subscription. *Azure Digital Twins Data Owner* is a role within Azure Digital Twins and is scoped to this individual Azure Digital Twins instance.
-* the *Owner* role in Azure Digital Twins. These are two distinct Azure Digital Twins management roles, and *Azure Digital Twins Data Owner* is the role that should be used for management during preview.
+* the *Owner* role in Azure Digital Twins. These are two distinct Azure Digital Twins management roles, and *Azure Digital Twins Data Owner* is the role that should be used for management.
 
 #### Check current setup
 
@@ -44,9 +44,9 @@ Note that this role is different from...
 
 #### Fix issues 
 
-If you do not have this role assignment, someone with an Owner role in your **Azure subscription** should run the following command to give your Azure user the *Azure Digital Twins Data Owner* role on the **Azure Digital Twins instance**. 
+If you don't have this role assignment, someone with an Owner role in your **Azure subscription** should run the following command to give your Azure user the *Azure Digital Twins Data Owner* role on the **Azure Digital Twins instance**. 
 
-If you are an Owner on the subscription, you can run this command yourself. If you are not, contact an Owner to run this command on your behalf.
+If you're an Owner on the subscription, you can run this command yourself. If you're not, contact an Owner to run this command on your behalf.
 
 ```azurecli
 az dt role-assignment create --dt-name <your-Azure-Digital-Twins-instance> --assignee "<your-Azure-AD-email>" --role "Azure Digital Twins Data Owner"
@@ -58,7 +58,7 @@ If you have this role assignment already and still encounter the 403 issue, cont
 
 ### Solution #2
 
-The second solution is to verify that the Azure AD app registration has permissions configured for the Azure Digital Twins service. If this is not configured, set them up.
+The second solution is to verify that the Azure AD app registration has permissions configured for the Azure Digital Twins service. If this isn't configured, set them up.
 
 #### Check current setup
 

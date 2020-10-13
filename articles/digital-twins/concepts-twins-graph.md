@@ -46,7 +46,7 @@ This section shows what it looks like to create digital twins and relationships 
 
 Below is a snippet of client code that uses the [DigitalTwins APIs](how-to-use-apis-sdks.md) to instantiate a twin of type *Room*.
 
-In the current preview of Azure Digital Twins, all properties of a twin must be initialized before the twin can be created. This is done by creating a JSON document that provides the necessary initialization values.
+All properties of a twin must be initialized before the twin can be created. This is done by creating a JSON document that provides the necessary initialization values.
 
 ```csharp
 public Task<boolean> CreateRoom(string id, double temperature, double humidity) 
