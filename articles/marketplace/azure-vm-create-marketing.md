@@ -6,7 +6,7 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 author: emuench
 ms.author: mingshen
-ms.date: 10/16/2020
+ms.date: 10/15/2020
 ---
 
 # Market your virtual machine offer (ALL FROM SaaS)
@@ -25,4 +25,4 @@ If you elect to make your offer available in the Cloud Solution Provider (CSP) p
 
 ## Next steps
 
-- [Test a VM image](azure-vm-image-certification.md)
+- [Test a VM image](azure-vm-image-test.md)

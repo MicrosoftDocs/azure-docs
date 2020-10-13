@@ -1,15 +1,15 @@
 ---
-title: Common issues when certifying virtual machine images for Azure Marketplace
-description: This article explains common error messages and issues when testing and certifying VM images for Azure Marketplace. It also discusses related solutions.
+title: VM certification FAQ for Azure Marketplace
+description: This article covers frequently asked questions when testing and certifying VM images for Azure Marketplace.
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: troubleshooting
 author: iqshahmicrosoft
 ms.author: iqshah
-ms.date: 06/16/2020
+ms.date: 06/15/2020
 ---
 
-# Common issues when certifying virtual machine images for Azure Marketplace
+# VM certification FAQ
 
 When you publish your virtual machine (VM) image to Azure Marketplace, the Azure team validates it to ensure its bootability, security, and Azure compatibility. If any of the high-quality tests fail, the publishing will fail, and you'll receive an error message that describes the issue.
 
@@ -88,7 +88,7 @@ For more information about selecting an approved base, see [Create a virtual mac
 
 The Microsoft Certification toolkit can help you run test cases and verify that your VHD or image is compatible with the Azure environment.
 
-Download the [Microsoft Certification toolkit](azure-vm-image-certification.md).
+Download the [Microsoft Certification toolkit](azure-vm-image-test.md).
 
 ## Linux test cases
 
@@ -380,6 +380,6 @@ Publishers must reach out to the support at [Marketplace Publisher Support](http
 
 ## Next steps
 
-- [Review and publish an offer to the commercial marketplace](review-publish-offer.md)
+- [Configure VM offer properties](azure-vm-create-properties.md)
 - [Active marketplace rewards](partner-center-portal/marketplace-rewards.md)
 - If you have questions or feedback for improvement, contact [Partner Center Support](https://partner.microsoft.com/support/v2/?stage=1).

@@ -5,18 +5,16 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 author: emuench
-ms.author: mingshen
-ms.date: 10/16/2020
+ms.author: krsh
+ms.date: 10/15/2020
 ---
 
-# Create virtual machine technical assets for Azure Marketplace
+# Create virtual machine technical assets
 
 This article describes how to create and configure a virtual machine (VM) for Azure Marketplace. A VM contains two components:
 
 1. **Operating system virtual hard disk (VHD)** – Contains the operating system and solution that deploys with your offer. The process of preparing the VHD differs depending on whether it is a Linux-, Windows-, or custom-based VM.
 2. **Data disk VHDs** (optional) – Dedicated, persistent storage for a VM. Don't use the operating system VHD (for example, the C: drive) to store persistent information.
-
-When publishing your VM images to Azure Marketplace, the Azure team validates the VM image to ensure its bootability, security, and Azure compatibility. If any of the tests fail, the publishing will fail with a message containing the error and [rectification steps](azure-vm-certification-issues-solutions.md).
 
 A VM image contains one operating system disk and up to 16 data disks. Use one VHD per data disk, even if the disk is blank.
 
@@ -48,4 +46,4 @@ Optional suggested tools:
 Create a VM image using either an approved base or an image you built on your own premises:
 
 - [Create a VM image using an approved base](azure-vm-create-using-approved-base.md)
-- [Create a VM using your own image](azure-vm-create-using-own-image.md) you built on your own premises
+- [Create a VM using your own image](azure-vm-create-using-own-image.md)

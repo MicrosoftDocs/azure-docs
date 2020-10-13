@@ -6,7 +6,7 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 author: emuench
 ms.author: mingshen
-ms.date: 10/16/2020
+ms.date: 10/15/2020
 ---
 
 # Create a virtual machine using your own image
@@ -41,5 +41,5 @@ Configure and prepare the VM to be uploaded as described in [Prepare a Windows V
 
 ## Next steps
 
-- If you encountered difficulty creating your new Azure-based VHD, see [Common issues during VHD creation](azure-vm-common-issues-during-vhd-creation.md).
-- [Configure VM offer properties](azure-vm-create-properties.md)
+- [Test and publish a virtual machine offer](azure-vm-image-test-publish.md) to ensure it meets Azure Marketplace publishing requirements.
+- If you encountered difficulty creating your new Azure-based VHD, see [VM FAQ for Azure Marketplace](azure-vm-create-faq.md).

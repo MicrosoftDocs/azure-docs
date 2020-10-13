@@ -6,7 +6,7 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 author: emuench
 ms.author: mingshen
-ms.date: 10/16/2020
+ms.date: 10/15/2020
 ---
 
 # Configure virtual machine offer listing details
@@ -113,4 +113,4 @@ Select **Save draft** before you continue.
 
 ## Next steps
 
-- [Add a preview audience for your VM offer](azure-vm-create-preview.md)
+- [Create plans](azure-vm-create-plans.md)

@@ -6,10 +6,10 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 author: emuench
 ms.author: mingshen
-ms.date: 10/16/2020
+ms.date: 10/15/2020
 ---
 
-# Test and publish a virtual machine offer on Azure Marketplace
+# Test and publish a virtual machine offer
 
 After you've completed all the required sections of the offer, you can submit it for review and publication.
 
@@ -114,4 +114,4 @@ Here's an example of how offer information appears in Azure Marketplace:
 
 ## Next steps
 
-- [Market your VM offer](azure-vm-create-marketing.md)
+- [Get SAS URI](azure-vm-get-sas-uri.md)

@@ -1,15 +1,15 @@
 ---
 title: Test an Azure virtual machine image for Azure Marketplace
-description: Learn how to test and submit an Azure virtual machine offer in the Microsoft commercial marketplace.
+description: Learn how to test and submit an Azure virtual machine offer in Azure Marketplace.
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 author: github-2407
 ms.author: krsh
-ms.date: 08/14/2020
+ms.date: 10/15/2020
 ---
 
-# Test a virtual machine image for Azure Marketplace
+# Test a virtual machine image
 
 This article describes how to test and submit a virtual machine (VM) image in the commercial marketplace to ensure it meets the latest Azure Marketplace publishing requirements.
 

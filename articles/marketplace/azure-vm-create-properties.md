@@ -68,4 +68,4 @@ You must provide offer terms and conditions to your customers. You have two opti
 
 ## Next steps
 
-- [Configure your virtual machine offer listing details](azure-vm-create-listing.md)
+- [Configure VM offer listing](azure-vm-create-listing.md)
