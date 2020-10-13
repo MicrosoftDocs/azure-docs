@@ -563,7 +563,7 @@ Here are 3 ways to locate and verify the device state:
 ### Using the Azure portal
 
 1. Go to the devices page using a [direct link](https://portal.azure.com/#blade/Microsoft_AAD_IAM/DevicesMenuBlade/Devices).
-2. Information on how to locate a device can be found in [How to manage device identities using the Azure portal](https://docs.microsoft.com/azure/active-directory/devices/device-management-azure-portal#locate-devices).
+2. Information on how to locate a device can be found in [How to manage device identities using the Azure portal](./device-management-azure-portal.md#locate-devices).
 3. If the **Registered** column says **Pending**, then Hybrid Azure AD Join has not completed. In federated environments, this can happen only if it failed to register and AAD connect is configured to sync the devices.
 4. If the **Registered** column contains a **date/time**, then Hybrid Azure AD Join has completed.
 
