@@ -17,7 +17,7 @@ To create a lab, you need:
 
 ## Get started with Azure DevTest Labs in minutes
 
-By clicking the following link, you will be transferred to the Azure portal page that allows you to start creating a new Azure DevTest Lab.
+By clicking the following link, you will be transferred to the Azure portal page that allows you to start creating a new lab in Azure DevTest Labs.
 
 [Get started with Azure DevTest Labs in minutes](https://go.microsoft.com/fwlink/?LinkID=627034&clcid=0x409)
 
