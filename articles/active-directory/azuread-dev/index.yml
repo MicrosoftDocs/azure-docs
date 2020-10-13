@@ -17,19 +17,23 @@ metadata:
    ROBOTS: NOINDEX
 
 landingContent:
-  - title: Migrate to Microsoft identity platform
-    linkLists:
-      - linkListType: overview
-        links:
-          - text: Microsoft identity platform (v2.0)
-            url: ../develop/index.yml
-      - linkListType: get-started
-        links:
-          - text: Migrate ADAL apps to MSAL
-            url: ../develop/msal-migration.md
   - title: Azure Active Directory for developers
     linkLists:
       - linkListType: overview
         links:
           - text: Azure Active Directory for developers (v1.0)
             url: v1-overview.md
+  - title: Compare platforms
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: Evolution of Microsoft identity platform
+            url: about-microsoft-identity-platform
+          - text: Why update to v2.0?
+            url: ../develop/msal-migration.md
+  - title: Microsoft identity platform
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: What is the Microsoft identity platform?
+            url: v2-overview.md
