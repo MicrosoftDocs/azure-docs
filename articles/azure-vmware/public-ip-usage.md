@@ -23,9 +23,9 @@ This article details how you can use the public IP functionality in Virtual WAN 
 
 ## Prerequisites
 
--   Azure VMware Solution environment
-
--   A webserver running in Azure VMware Solution environment.
+- Azure VMware Solution environment
+- A webserver running in Azure VMware Solution environment.
+- A new non-overlapping IP range for the Virtual WAN hub deployment, typically a `/26`.
 
 ## Reference architecture
 
@@ -56,15 +56,15 @@ In this scenario, you must publish the IIS webserver to the internet. Use the pu
 
    :::image type="content" source="media/public-ip-usage/connectivity-public-ip-tab.png" alt-text="Select the Public IP tab and then select Configure." border="true" lightbox="media/public-ip-usage/connectivity-public-ip-tab.png":::
 
-2.  Accept the default values or change them, and then select **Create**.
+1. Accept the default values or change them, and then select **Create**.
 
-   -  Virtual wide area network resource group
+   - Virtual wide area network resource group
 
-   -  Virtual wide area network name
+   - Virtual wide area network name
 
-   -  Virtual hub address block
+   - Virtual hub address block (using new non-overlapping IP range)
 
-   -  Number of public IPs (1-100)
+   - Number of public IPs (1-100)
 
 It takes about one hour to complete the deployment of all components. This deployment only has to occur once to support all future public IPs for this Azure VMware Solution environment.  
 
