@@ -162,11 +162,11 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 1. Click on **Settings** and then select **Security**.
 
-	![KnowledgeOwl Configuration](./media/knowledgeowl-tutorial/configure1.png)
+	![Screenshot shows Security selected from the Settings menu.](./media/knowledgeowl-tutorial/configure1.png)
 
 1. Scroll to **SAML SSO Integration** and perform the following steps:
 
-	![KnowledgeOwl Configuration](./media/knowledgeowl-tutorial/configure2.png)
+	![Screenshot shows SAML S S O Integration where you can make the changes described here.](./media/knowledgeowl-tutorial/configure2.png)
 
 	a. Select **Enable SAML SSO**.
 
@@ -184,7 +184,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 	h. Click on **Map SAML Attributes** to map attributes and perform the following steps:
 
-	![KnowledgeOwl Configuration](./media/knowledgeowl-tutorial/configure3.png)
+	![Screenshot shows Map SAML Attributes where you can make the changes described here.](./media/knowledgeowl-tutorial/configure3.png)
 
 	* Enter `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/ssoid` into the **SSO ID** textbox
 	* Enter `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress` into the **Username/Email** textbox.
@@ -194,7 +194,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 	i. Click **Save** at the bottom of the page.
 
-	![KnowledgeOwl Configuration](./media/knowledgeowl-tutorial/configure4.png)
+	![Screenshot shows the Save button.](./media/knowledgeowl-tutorial/configure4.png)
 
 ### Create KnowledgeOwl test user
 

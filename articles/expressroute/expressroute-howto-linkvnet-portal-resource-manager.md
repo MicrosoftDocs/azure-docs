@@ -5,7 +5,7 @@ services: expressroute
 author: duongau
 
 ms.service: expressroute
-ms.topic: how-to
+ms.topic: tutorial
 ms.date: 10/06/2020
 ms.author: duau
 ms.custom: seodec18

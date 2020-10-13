@@ -30,7 +30,7 @@ By the end of 2020, the **soft-delete will be on by default for all key vaults**
 
 ### Azure TLS certificate changes  
 
-Microsoft is updating Azure services to use TLS certificates from a different set of Root Certificate Authorities (CAs). This change is being made because the current CA certificates do not comply with one of the CA/Browser Forum Baseline requirements.
+Microsoft is updating Azure services to use TLS certificates from a different set of Root Certificate Authorities (CAs). This change is being made because the current CA certificates [do not comply with one of the CA/Browser Forum Baseline requirements](https://bugzilla.mozilla.org/show_bug.cgi?id=1649951).
 
 ### When will this change happen?
 

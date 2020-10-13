@@ -118,7 +118,7 @@ az postgres flexible-server update --resource-group myresourcegroup --name mydem
 
 ## Delete a server
 
-If you would just like to delete the PostgreSQL Flexible server, you can run [az postgres flexible-server delete](/cli/azure/PostgreSQL/server#az-PostgreSQL-flexible-server-delete) command.
+If you would just like to delete the PostgreSQL Flexible server, you can run [az postgres flexible-server delete](/cli/azure/postgres/flexible-server#az-PostgreSQL-flexible-server-delete) command.
 
 ```azurecli-interactive
 az postgres flexible-server delete --resource-group myresourcegroup --name mydemoserver

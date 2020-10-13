@@ -50,11 +50,11 @@ Before configuring Looop for automatic user provisioning with Azure AD, you will
 
 1. Sign in to your [Looop Admin Console](https://app.looop.co/#/login) and select **Account**. Under **Account Settings** select **Authentication**.
 
-	![Looop Add SCIM](media/looop-provisioning-tutorial/admin.png)
+	:::image type="content" source="media/looop-provisioning-tutorial/admin.png" alt-text="Screenshot of the Looop admin console. The Account tab is highlighted and open. Under Account settings, Authentication is highlighted." border="false":::
 
 2. Generate a new token by clicking **Reset Token** under **SCIM Integration**.
 
-	![Looop Add SCIM](media/looop-provisioning-tutorial/resettoken.png)
+	:::image type="content" source="media/looop-provisioning-tutorial/resettoken.png" alt-text="Screenshot of the S C I M integration section of a page in the Looop admin console. The Reset token button is highlighted." border="false":::
 
 3. Copy the **SCIM Endpoint** and the **Token**. These values will be entered in the **Tenant URL** and **Secret Token** fields in the Provisioning tab of your Looop application in the Azure portal. 
 

@@ -6,7 +6,7 @@ author: tamram
 
 ms.service: storage
 ms.topic: how-to
-ms.date: 10/05/2020
+ms.date: 10/08/2020
 ms.author: tamram
 ms.reviewer: santoshc
 ms.subservice: common
@@ -214,7 +214,7 @@ You can manage virtual network rules for storage accounts through the Azure port
 1. Add a network rule for a virtual network and subnet.
 
     ```azurecli
-    $subnetid=(az network vnet subnet show --resource-group "myresourcegroup" --vnet-name "myvnet" --name "mysubnet" --query id --output tsv)
+    subnetid=$(az network vnet subnet show --resource-group "myresourcegroup" --vnet-name "myvnet" --name "mysubnet" --query id --output tsv)
     az storage account network-rule add --resource-group "myresourcegroup" --account-name "mystorageaccount" --subnet $subnetid
     ```
 
@@ -226,7 +226,7 @@ You can manage virtual network rules for storage accounts through the Azure port
 1. Remove a network rule for a virtual network and subnet.
 
     ```azurecli
-    $subnetid=(az network vnet subnet show --resource-group "myresourcegroup" --vnet-name "myvnet" --name "mysubnet" --query id --output tsv)
+    subnetid=$(az network vnet subnet show --resource-group "myresourcegroup" --vnet-name "myvnet" --name "mysubnet" --query id --output tsv)
     az storage account network-rule remove --resource-group "myresourcegroup" --account-name "mystorageaccount" --subnet $subnetid
     ```
 
@@ -394,7 +394,7 @@ The **Allow trusted Microsoft services...** setting also allows a particular ins
 | Azure Machine Learning Service | Microsoft.MachineLearningServices      | Authorized Azure Machine Learning workspaces write experiment output, models, and logs to Blob storage and read the data. [Learn more](/azure/machine-learning/how-to-enable-virtual-network#use-a-storage-account-for-your-workspace). | 
 | Azure Synapse Analytics (formerly SQL Data Warehouse)       | Microsoft.Sql                          | Allows import and export of data from specific SQL databases using the COPY statement or PolyBase. [Learn more](/azure/sql-database/sql-database-vnet-service-endpoint-rule-overview). |
 | Azure SQL Database       | Microsoft.Sql                          | Allows [import](https://docs.microsoft.com/sql/t-sql/statements/bulk-insert-transact-sql?view=sql-server-ver15#f-importing-data-from-a-file-in-azure-blob-storage) of data from storage accounts and [writing](https://docs.microsoft.com/azure/azure-sql/database/audit-write-storage-account-behind-vnet-firewall) audit data to storage accounts behind firewall. |
-| Azure Stream Analytics         | Microsoft.StreamAnalytics             | Allows data from a streaming job to be written to Blob storage. This feature is currently in preview. [Learn more](/azure/stream-analytics/blob-output-managed-identity). |
+| Azure Stream Analytics         | Microsoft.StreamAnalytics             | Allows data from a streaming job to be written to Blob storage. [Learn more](/azure/stream-analytics/blob-output-managed-identity). |
 | Azure Synapse Analytics        | Microsoft.Synapse/workspaces          | Enables access to data in Azure Storage from Synapse Analytics. |
 
 
