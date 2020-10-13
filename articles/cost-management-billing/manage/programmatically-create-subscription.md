@@ -240,7 +240,7 @@ Use the information in the following sections to create MCA subscriptions.
 
 You must have an owner, contributor, or Azure subscription creator role on an invoice section or owner or contributor role on a billing profile or a billing account to create subscriptions. For more information, see [Subscription billing roles and tasks](understand-mca-roles.md#subscription-billing-roles-and-tasks).
 
-The following examples use REST APIs. Currently, PowerShell and Azure CLI aren't current supported but are coming soon.
+The following examples use REST APIs. Currently, PowerShell and Azure CLI aren't supported.
 
 ### Find billing accounts that you have access to
 
@@ -797,7 +797,7 @@ You must have an owner, contributor, or Azure subscription creator role on an in
 
 Additionally, since you are doing an ARM template deployment, you need to have write permissions on the root object. So if you're creating the ARM deployment under a management group, you need to have write permissions on the management group. Note that the action is purely to create an ARM deployment, if a subscription is created, it is created only in the management group specified in the ARM template.
 
-The following examples use REST APIs. Currently, PowerShell and Azure CLI aren't current supported but are coming soon.
+The following examples use REST APIs. Currently, PowerShell and Azure CLI aren't supported.
 
 ### Find billing accounts that you have access to
 
@@ -951,9 +951,9 @@ we're still working on enabling CLI SDK for billing APIs. Check back soon.
 
 ---
 
-### Create a subscription and resource group via ARM template
+### Create a subscription and resource group with a template
 
-The following template creates a subscription named *Dev Team subscription* for the *Development* invoice section. The subscription is billed to the *Contoso Billing Profile* billing profile and appear on the *Development* section of its invoice. You use the copied billing scope from previous step: `/providers/Microsoft.Billing/billingAccounts/5e98e158-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx_xxxx-xx-xx/billingProfiles/AW4F-xxxx-xxx-xxx/invoiceSections/SH3V-xxxx-xxx-xxx`. 
+The following Azure Resource Manager template creates a subscription named *Dev Team subscription* for the *Development* invoice section. The subscription is billed to the *Contoso Billing Profile* billing profile and appear on the *Development* section of its invoice. You use the copied billing scope from previous step: `/providers/Microsoft.Billing/billingAccounts/5e98e158-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx_xxxx-xx-xx/billingProfiles/AW4F-xxxx-xxx-xxx/invoiceSections/SH3V-xxxx-xxx-xxx`. 
 
 #### Request
 
