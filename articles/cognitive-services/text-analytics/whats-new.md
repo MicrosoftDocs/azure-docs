@@ -186,9 +186,9 @@ Additional entity types are now available in the Named Entity Recognition (NER) 
 
 #### Named Entity Recognition (NER)
 
-* A [new endpoint](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-0-Preview-1/operations/EntitiesRecognitionPii) for recognizing personal information entity types (English only)
+* A [new endpoint](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1-Preview-2/operations/EntitiesRecognitionPii) for recognizing personal information entity types (English only)
 
-* Separate endpoints for [entity recognition](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-0-Preview-1/operations/EntitiesRecognitionGeneral) and [entity linking](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-0-Preview-1/operations/EntitiesLinking).
+* Separate endpoints for [entity recognition](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1-Preview-2/operations/EntitiesRecognitionGeneral) and [entity linking](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1-Preview-2/operations/EntitiesLinking).
 
 * [Model version](concepts/model-versioning.md) `2019-10-01`, which includes:
     * Expanded detection and categorization of entities found in text. 
@@ -200,7 +200,7 @@ Entity linking supports English and Spanish. NER language support varies by the 
 
 #### Sentiment Analysis v3 public preview
 
-* A [new endpoint](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-0-Preview-1/operations/Sentiment) for analyzing sentiment.
+* A [new endpoint](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1-Preview-2/operations/Sentiment) for analyzing sentiment.
 * [Model version](concepts/model-versioning.md) `2019-10-01`, which includes:
 
     * Significant improvements in the accuracy and detail of the API's text categorization and scoring.
