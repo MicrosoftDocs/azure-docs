@@ -6,7 +6,7 @@ author: mmacy
 manager: CelesteDG
 
 ms.service: active-directory
-ms.subservice: develop
+ms.subservice: azuread-dev
 ms.topic: include
 ms.date: 10/13/2020
 ms.author: marsma
