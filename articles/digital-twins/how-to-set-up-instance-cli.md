@@ -87,63 +87,7 @@ The result of this command is outputted information about the role assignment th
 
 [!INCLUDE [digital-twins-setup-verify-role-assignment.md](../../includes/digital-twins-setup-verify-role-assignment.md)]
 
-You now have an Azure Digital Twins instance ready to go, and have assigned permissions to manage it. Next, you'll set up permissions for a client app to access it.
-
-## Set up access permissions for client applications
-
-[!INCLUDE [digital-twins-setup-app-registration.md](../../includes/digital-twins-setup-app-registration.md)]
-
-To create an app registration, you need to provide the resource IDs for the Azure Digital Twins APIs, and the baseline permissions to the API.
-
-In your working directory, create a new file and enter the following JSON snippet to configure these details: 
-
-```json
-[{
-    "resourceAppId": "0b07f429-9f4b-4714-9392-cc5e8e80c8b0",
-    "resourceAccess": [
-     {
-       "id": "4589bd03-58cb-4e6c-b17f-b580e39652f8",
-       "type": "Scope"
-     }
-    ]
-}]
-``` 
-
-Save this file as _**manifest.json**_.
-
-> [!NOTE] 
-> There are some places where a "friendly," human-readable string `https://digitaltwins.azure.net` can be used for the Azure Digital Twins resource app ID instead of the GUID `0b07f429-9f4b-4714-9392-cc5e8e80c8b0`. For instance, many examples throughout this documentation set use authentication with the MSAL library, and the friendly string can be used for that. However, during this step of creating the app registration, the GUID form of the ID is required as it is shown above. 
-
-Next, you'll upload this file to Cloud Shell. In your Cloud Shell window, click the "Upload/Download files" icon and choose "Upload".
-
-:::image type="content" source="media/how-to-set-up-instance/cloud-shell/cloud-shell-upload.png" alt-text="Cloud Shell window showing selection of the Upload option":::
-Navigate to the *manifest.json* you just created and hit "Open."
-
-Next, run the following command to create an app registration, with a *Public client/native (mobile & desktop)* reply URL of `http://localhost`. Replace placeholders as needed:
-
-```azurecli
-az ad app create --display-name <name-for-your-app-registration> --native-app --required-resource-accesses manifest.json --reply-url http://localhost
-```
-
-Here is an excerpt of the output from this command, showing information about the registration you've created:
-
-:::image type="content" source="media/how-to-set-up-instance/cloud-shell/new-app-registration.png" alt-text="Cloud Shell output of new Azure AD app registration":::
-
-### Verify success
-
-[!INCLUDE [digital-twins-setup-verify-app-registration-1.md](../../includes/digital-twins-setup-verify-app-registration-1.md)]
-
-Next, verify that the settings from your uploaded *manifest.json* were properly set on the registration. To do this, select *Manifest* from the menu bar to view the app registration's manifest code. Scroll to the bottom of the code window and look for the fields from your *manifest.json* under `requiredResourceAccess`:
-
-[!INCLUDE [digital-twins-setup-verify-app-registration-2.md](../../includes/digital-twins-setup-verify-app-registration-2.md)]
-
-### Collect important values
-
-Next, select *Overview* from the menu bar to see the details of the app registration:
-
-:::image type="content" source="media/how-to-set-up-instance/portal/app-important-values.png" alt-text="Portal view of the important values for the app registration":::
-
-Take note of the *Application (client) ID* and *Directory (tenant) ID* shown on **your** page. These values will be needed later to [authenticate a client app against the Azure Digital Twins APIs](how-to-authenticate-client.md). If you are not the person who will be writing code for such applications, you'll need to share these values with the person who will be.
+You now have an Azure Digital Twins instance ready to go, and have assigned permissions to manage it.
 
 ### Other possible steps for your organization
 
@@ -155,5 +99,5 @@ Test out individual REST API calls on your instance using the Azure Digital Twin
 * [az dt reference](https://docs.microsoft.com/cli/azure/ext/azure-iot/dt?view=azure-cli-latest&preserve-view=true)
 * [*How-to: Use the Azure Digital Twins CLI*](how-to-use-cli.md)
 
-Or, see how to connect your client application to your instance by writing the client app's authentication code:
+Or, see how to connect a client application to your instance with authentication code:
 * [*How-to: Write app authentication code*](how-to-authenticate-client.md)
