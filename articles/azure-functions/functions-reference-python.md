@@ -376,7 +376,7 @@ By default, every Functions host instance has a single language worker process. 
 
 For CPU bound applications, it is recommended to set the number of language worker to be the same as or higher than the number of cores that are available per function app ([Learn more about the different SKU options available for Azure Functions](functions-premium-plan.md#available-instance-skus)). 
 
-IO bound applications may also benefit from increasing the number of worker process beyond the number of cores available, however setting it higher than that may hurt the overall performance due to increased number of context switching. 
+I/O-bound apps may also benefit from increasing the number of worker processes beyond the number of cores available. Keep in mind that setting the number of workers too high can impact overall performance due to the increased number of required context switches. 
 
 The FUNCTIONS_WORKER_PROCESS_COUNT applies to each host that Functions creates when scaling out your application to meet demand.
 
