@@ -269,14 +269,42 @@ Do the following steps in the Azure portal to order a device.
 
     Select **Next: Security** to continue.
 
-1. In **Security**, if you want to enable software-based double encryption, select **Enable double encryption for the order**. 
+    The **Security** screen lets you use your own device and share passwords and choose to use double encryption.
+
+    ![Security screen for a Data Box import order](media/data-box-deploy-ordered/select-data-box-import-security-01.png)
+
+1. If you don't want to use the system-generated passwords that Azure Data Box uses by default, expand **Bring your own password**.
+
+   ![Expanded Bring your own password options for a Data Box import order](media/data-box-deploy-ordered/select-data-box-import-security-02.png) 
+
+   - To use your own password for your new device, by **Set preference for the device password**, select **Use your own password** and type a password that meets the security requirements.
+   
+     ![Security screen for Data Box import, options for using your own device password](media/data-box-deploy-ordered/select-data-box-import-security-03.png)
+
+   - To use your own passwords for shares:
+
+     1. By **Set preference for share passwords**, select **Use your own passwords** and then **Select passwords for the shares**.
+     
+        ![Security screen for Data Box import, options for using your own share passwords](media/data-box-deploy-ordered/select-data-box-import-security-04.png)
+
+     1. Type a password for each storage account in the order. The password will be used on all shares for the storage account.
+     
+        ![Screen for entering share passwords for a Data Box import order](media/data-box-deploy-ordered/select-data-box-import-security-05.png)
+     
+        To use the same password for all of the storage accounts, select **Copy to all**. When you finish, select **Save**.
+
+        ![Security screen for copying a share password to all storage accounts for a Data Box import](media/data-box-deploy-ordered/select-data-box-import-security-06.png)
+
+        You can use **View of change passwords** to change the passwords.
+
+1. In **Security**, if you want to enable software-based double encryption, expand **Double-encryption (for highly secure environments)**, and select **Enable double encryption for the order**.
+
+   ![Security screen for Data Box import, enabling software-based encryption for a Data Box order](media/data-box-deploy-ordered/select-data-box-import-security-07.png)
 
    The software-based encryption is performed in addition to the AES-256 bit encryption of the data on the Data Box.
 
    > [!NOTE]
    > Enabling this option could make order processing and data copy take longer. You can't change this option after you create your order.
-
-   ![Security screen for data box import, double encryption](media/data-box-deploy-ordered/select-data-box-import-07c.png)
 
    Select **Next: Contact details** to continue.
 
