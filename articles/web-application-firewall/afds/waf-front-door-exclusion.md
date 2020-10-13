@@ -42,6 +42,17 @@ Header and cookie names are case insensitive.
 
 You can apply exclusion list to all rules within the managed rule set, to rules for a specific rule group, or to a single rule as shown in the previous example. 
 
+## Define exclusion based on Web Application Firewall Logs
+ [Azure Web Application Firewall monitoring and logging](waf-front-door-monitor.md) shows matched details of a blocked request. If a header value, cookie value, post argument value, or query argument value produces false positives for some rules, you can exclude that part of the request from being considered by the rule. The following table shows example values from WAF logs and the corresponding exclusion conditions.
+
+|matchVariableName from WAF logs	|Rule exclusion in Portal|
+|--------|------|
+|CookieValue:SOME_NAME	|Request cookie name Equals SOME_NAME|
+|HeaderValue:SOME_NAME	|Request header name Equals SOME_NAME|
+|PostParamValue:SOME_NAME|	Request body post args name Equals SOME_NAME|
+|QueryParamValue:SOME_NAME|	Query string args name Equals SOME_NAME|
+
+
 ## Next steps
 
 After you configure your WAF settings, learn how to view your WAF logs. For more information, see [Front Door diagnostics](../afds/waf-front-door-monitor.md).
