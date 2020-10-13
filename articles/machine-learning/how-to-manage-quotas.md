@@ -16,11 +16,13 @@ ms.custom: troubleshooting,contperfq4, contperfq2
 # Manage & increase quotas for resources with Azure Machine Learning
 
 Azure uses limits and quotas to prevent budget over-runs due to fraud, and to honor Azure capacity constraints. Consider these limits as you scale for production workloads. In this article you learn about:
-+ Quotas on Azure resources related to [Azure Machine Learning](overview-what-is-azure-ml.md)
-+ How to view your quotas and limits.
-+ User-defined workspace level quotas.
-+ How to request quota increases
-+ Private endpoint and DNS quotas.
+
+> [!div class="checklist"]
+> + Quotas and limits on Azure resources related to [Azure Machine Learning](overview-what-is-azure-ml.md)
+> + View your quotas and limits.
+> + Create workspace level quotas.
+> + Request quota increases.
+> + Private endpoint and DNS quotas.
 
 Along with managing quotas, you can also learn how to [plan & manage costs for Azure Machine Learning](concept-plan-manage-cost.md).
 
