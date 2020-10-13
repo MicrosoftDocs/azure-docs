@@ -271,7 +271,7 @@ db.coll.aggregate( [
 ] )
 ```
 
-In this case, indexes can optimize the `$match` stage. Adding an index for `foodGroup` will significantly improve query performance. Like in MongoDB, you should play `$match` as early in the aggregation pipeline as possible to maximize usage of indexes.
+In this case, indexes can optimize the `$match` stage. Adding an index for `foodGroup` will significantly improve query performance. Like in MongoDB, you should place `$match` as early in the aggregation pipeline as possible to maximize usage of indexes.
 
 In Azure Cosmos DB's API for MongoDB, indexes are not used for the actual aggregation, which in this case is `$max`. Adding an index on `version` will not improve query performance.
 
