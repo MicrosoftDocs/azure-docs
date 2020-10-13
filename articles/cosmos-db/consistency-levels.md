@@ -19,7 +19,7 @@ Most commercially available distributed NoSQL databases available in the market 
 - *Consistent prefix*
 - *Eventual*
 
-Each level provides availability and performance tradeoffs and are backed by SLAs. The following image shows the different consistency levels as a spectrum.
+Each level provides availability and performance tradeoffs. The following image shows the different consistency levels as a spectrum.
 
 :::image type="content" source="./media/consistency-levels/five-consistency-levels.png" alt-text="Consistency as a spectrum" border="false" :::
 
@@ -27,11 +27,7 @@ The consistency levels are region-agnostic and are guaranteed for all operations
 
 ## Consistency levels and Azure Cosmos DB APIs
 
-Azure Cosmos DB provides native support for wire protocol-compatible APIs for popular databases. These include MongoDB, Apache Cassandra, Gremlin, and Azure Table storage. These databases do not offer precisely defined consistency models or SLA-backed guarantees for the consistency levels. They typically provide only a subset of the five consistency models offered by Azure Cosmos DB.
-
-When using Gremlin API and Table API, the default consistency level configured on the Azure Cosmos account is used.
-
-For details on consistency level mapping between Cassandra API or the API for MongoDB and Azure Cosmos DB's consistency levels see, [Cassandra API consistency mapping](cassandra-consistency.md) and [API for MongoDB consistency mapping](mongodb-consistency.md).
+Azure Cosmos DB provides native support for wire protocol-compatible APIs for popular databases. These include MongoDB, Apache Cassandra, Gremlin, and Azure Table storage. When using Gremlin API and Table API, the default consistency level configured on the Azure Cosmos account is used. For details on consistency level mapping between Cassandra API or the API for MongoDB and Azure Cosmos DB's consistency levels see, [Cassandra API consistency mapping](cassandra-consistency.md) and [API for MongoDB consistency mapping](mongodb-consistency.md).
 
 ## Scope of the read consistency
 
@@ -43,7 +39,7 @@ You can configure the default consistency level on your Azure Cosmos account at 
 
 ## Guarantees associated with consistency levels
 
-The comprehensive SLAs provided by Azure Cosmos DB guarantee that 100 percent of read requests meet the consistency guarantee for any consistency level you choose. The precise definitions of the five consistency levels in Azure Cosmos DB using the TLA+ specification language are provided in the [azure-cosmos-tla](https://github.com/Azure/azure-cosmos-tla) GitHub repo.
+Azure Cosmos DB guarantees that 100 percent of read requests meet the consistency guarantee for the consistency level chosen. The precise definitions of the five consistency levels in Azure Cosmos DB using the TLA+ specification language are provided in the [azure-cosmos-tla](https://github.com/Azure/azure-cosmos-tla) GitHub repo.
 
 The semantics of the five consistency levels are described here:
 
@@ -118,9 +114,9 @@ Probabilistic bounded staleness shows how eventual is your eventual consistency.
 
 ## Consistency levels and latency
 
-The read latency for all consistency levels is always guaranteed to be less than 10 milliseconds at the 99th percentile. This read latency is backed by the SLA. The average read latency, at the 50th percentile, is typically 4 milliseconds or less.
+The read latency for all consistency levels is always guaranteed to be less than 10 milliseconds at the 99th percentile. The average read latency, at the 50th percentile, is typically 4 milliseconds or less.
 
-The write latency for all consistency levels is always guaranteed to be less than 10 milliseconds at the 99th percentile. This write latency is backed by the SLA. The average write latency, at the 50th percentile, is usually 5 milliseconds or less. Azure Cosmos accounts that span several regions and are configured with strong consistency are an exception to this guarantee.
+The write latency for all consistency levels is always guaranteed to be less than 10 milliseconds at the 99th percentile. The average write latency, at the 50th percentile, is usually 5 milliseconds or less. Azure Cosmos accounts that span several regions and are configured with strong consistency are an exception to this guarantee.
 
 ### Write latency and Strong consistency
 

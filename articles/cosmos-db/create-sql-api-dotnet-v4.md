@@ -134,7 +134,7 @@ Before you start building the application, let's look into the hierarchy of reso
 * Containers 
 * Items
 
-To learn in more about the hierarchy of different entities, see the [working with databases, containers, and items in Azure Cosmos DB](databases-containers-items.md) article. You will use the following .NET classes to interact with these resources:
+To learn in more about the hierarchy of different entities, see the [working with databases, containers, and items in Azure Cosmos DB](account-databases-containers-items.md) article. You will use the following .NET classes to interact with these resources:
 
 * CosmosClient - This class provides a client-side logical representation for the Azure Cosmos DB service. The client object is used to configure and execute requests against the service.
 * CreateDatabaseIfNotExistsAsync - This method creates (if doesn't exist) or gets (if already exists) a database resource as an asynchronous operation. 

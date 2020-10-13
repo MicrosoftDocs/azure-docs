@@ -8,10 +8,10 @@ ms.technology: machine-learning
 ms.topic: conceptual
 author: dphansen
 ms.author: davidph
-ms.date: 07/14/2020
+ms.date: 10/13/2020
 ---
 
-# Deploy and make predictions with an ONNX model
+# Deploy and make predictions with an ONNX model and SQL machine learning
 
 In this quickstart, you'll learn how to train a model, convert it to ONNX, deploy it to [Azure SQL Edge](onnx-overview.md) or [Azure SQL Managed Instance (preview)](../azure-sql/managed-instance/machine-learning-services-overview.md), and then run native PREDICT on data using the uploaded ONNX model.
 

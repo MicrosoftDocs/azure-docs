@@ -63,7 +63,7 @@ While you estimate the number of RUs consumed by your workload, consider the fol
 
 * Learn more about how to [provision throughput on Azure Cosmos containers and databases](set-throughput.md).
 * Learn more about [serverless on Azure Cosmos DB](serverless.md).
-* Learn more about [logical partitions](partition-data.md).
+* Learn more about [logical partitions](partitioning-overview.md).
 * Learn more about how to [globally scale provisioned throughput](scaling-throughput.md).
 * Learn how to [provision throughput on an Azure Cosmos container](how-to-provision-container-throughput.md).
 * Learn how to [provision throughput on an Azure Cosmos database](how-to-provision-database-throughput.md).

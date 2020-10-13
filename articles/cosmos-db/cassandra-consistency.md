@@ -10,13 +10,15 @@ ms.reviewer: sngun
 
 ---
 
-# Mapping between Apache Cassandra and Azure Cosmos DB consistency levels
+# Apache Cassandra and Azure Cosmos DB consistency levels
 
 Unlike Azure Cosmos DB, Apache Cassandra does not natively provide precisely defined consistency guarantees. Instead, Apache Cassandra provides a write consistency level and a read consistency level, to enable the high availability, consistency, and latency tradeoffs. When using Azure Cosmos DB’s Cassandra API:
 
 * The write consistency level of Apache Cassandra is mapped to the default consistency level configured on your Azure Cosmos account. Consistency for a write operation (CL) can't be changed on a per-request basis.
 
 * Azure Cosmos DB will dynamically map the read consistency level specified by the Cassandra client driver to one of the Azure Cosmos DB consistency levels configured dynamically on a read request.
+
+## Mapping consistency levels
 
 The following table illustrates how the native Cassandra consistency levels are mapped to the Azure Cosmos DB’s consistency levels when using Cassandra API:  
 

@@ -13,7 +13,7 @@ ms.reviewer: sngun
 
 Database transactions provide a safe and predictable programming model to deal with concurrent changes to the data. Traditional relational databases, like SQL Server, allow you to write the business logic using stored-procedures and/or triggers, send it to the server for execution directly within the database engine. With traditional relational databases, you are required to deal with two different programming languages the (non-transactional) application programming language such as JavaScript, Python, C#, Java, etc. and the transactional programming language (such as T-SQL) that is natively executed by the database.
 
-The database engine in Azure Cosmos DB supports full ACID (Atomicity, Consistency, Isolation, Durability) compliant transactions with snapshot isolation. All the database operations within the scope of a container's [logical partition](partition-data.md) are transactionally executed within the database engine that is hosted by the replica of the partition. These operations include both write (updating one or more items within the logical partition) and read operations. The following table illustrates different operations and transaction types:
+The database engine in Azure Cosmos DB supports full ACID (Atomicity, Consistency, Isolation, Durability) compliant transactions with snapshot isolation. All the database operations within the scope of a container's [logical partition](partitioning-overview.md) are transactionally executed within the database engine that is hosted by the replica of the partition. These operations include both write (updating one or more items within the logical partition) and read operations. The following table illustrates different operations and transaction types:
 
 | **Operation**  | **Operation Type** | **Single or Multi Item Transaction** |
 |---------|---------|---------|
@@ -56,7 +56,7 @@ The item’s `_etag` value changes every time the item is updated. For replace i
 
 Learn more about database transactions and optimistic concurrency control in the following articles:
 
-- [Working with Azure Cosmos databases, containers and items](databases-containers-items.md)
+- [Working with Azure Cosmos databases, containers and items](account-databases-containers-items.md)
 - [Consistency levels](consistency-levels.md)
 - [Conflict types and resolution policies](conflict-resolution-policies.md)
 - [Stored procedures, triggers, and user-defined functions](stored-procedures-triggers-udfs.md)
