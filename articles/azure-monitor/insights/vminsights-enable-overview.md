@@ -66,7 +66,7 @@ If you don't have a Log Analytics workspace, you can create one by using one of 
 * [Azure CLI](../learn/quick-create-workspace-cli.md)
 * [PowerShell](../platform/powershell-workspace-configuration.md)
 * [Azure portal](../learn/quick-create-workspace.md)
-* [Azure Resource Manager](../platform/template-workspace-configuration.md)
+* [Azure Resource Manager](../samples/resource-manager-workspace.md)
 
 - Azure virtual machine
 - Azure virtual machine scale set
