@@ -486,13 +486,11 @@
       - name: LINQ to SQL
         displayName: linq, .NET
         href: sql-query-linq-to-sql.md
-    - name: Work with Azure Cosmos account
-      href: account-overview.md
+    - name: Azure Cosmos DB resource model
+      displayName: collection, document
+      href: account-databases-containers-items.md
     - name: Containers and items
       items:
-      - name: Work with databases, containers, and items
-        displayName: collection, document
-        href: databases-containers-items.md
       - name: Model document data
         displayName: document
         href: modeling-data.md
@@ -1102,16 +1100,12 @@
           href: troubleshoot-java-async-sdk.md
     - name: Change Feed
       items:
-      - name: Azure Cosmos DB Trigger logs
-        href: how-to-configure-cosmos-db-trigger-logs.md
-      - name: Azure Cosmos DB Trigger connection policy
-        href: how-to-configure-cosmos-db-trigger-connection-policy.md
+      - name: Azure Cosmos DB Trigger advanced configuration
+        href: how-to-configure-cosmos-db-trigger.md
       - name: Multiple Azure Cosmos DB Triggers
         href: how-to-create-multiple-cosmos-db-triggers.md
       - name: Troubleshoot Azure Cosmos DB Triggers
         href: troubleshoot-changefeed-functions.md
-      - name: Change feed processor start time
-        href: how-to-configure-change-feed-start-time.md
       - name: Using the change feed estimator
         href: how-to-use-change-feed-estimator.md
       - name: Migrate from change feed processor library

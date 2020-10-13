@@ -3682,6 +3682,16 @@
       "redirect_document_id": true
     },
     {
+      "source_path": "articles/cosmos-db/account-overview.md",
+      "redirect_url": "/azure/cosmos-db/account-databases-containers-items",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/cosmos-db/databases-containers-items.md",
+      "redirect_url": "/azure/cosmos-db/account-databases-containers-items",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/cosmos-db/provision-throughput-autopilot.md",
       "redirect_url": "/azure/cosmos-db/provision-throughput-autoscale",
       "redirect_document_id": true
@@ -4743,32 +4753,17 @@
     },
     {
       "source_path": "articles/iot-edge/how-to-install-iot-edge-windows-with-windows.md",
-      "redirect_url": "/azure/iot-edge/how-to-install-iot-edge-windows",
-      "redirect_document_id": true
+      "redirect_url": "/azure/iot-edge/how-to-install-iot-edge",
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/iot-edge/how-to-install-iot-core.md",
-      "redirect_url": "/azure/iot-edge/how-to-install-iot-edge-windows",
+      "redirect_url": "/azure/iot-edge/how-to-install-iot-edge",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/iot-edge/how-to-install-iot-edge-linux-arm.md",
-      "redirect_url": "/azure/iot-edge/how-to-install-iot-edge-linux",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/iot-edge/how-to-register-device-portal.md",
-      "redirect_url": "/azure/iot-edge/how-to-register-device",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/iot-edge/how-to-register-device-vscode.md",
-      "redirect_url": "/azure/iot-edge/how-to-register-device",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/iot-edge/how-to-register-device-cli.md",
-      "redirect_url": "/azure/iot-edge/how-to-register-device",
+      "redirect_url": "/azure/iot-edge/how-to-install-iot-edge",
       "redirect_document_id": false
     },
     {
@@ -4800,6 +4795,31 @@
       "source_path": "articles/iot-edge/how-to-devops-project.md",
       "redirect_url": "/azure/iot-edge/how-to-devops-starter",
       "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/iot-edge/how-to-install-iot-edge-linux.md",
+      "redirect_url": "/azure/iot-edge/how-to-install-iot-edge",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/iot-edge/how-to-install-iot-edge-windows.md",
+      "redirect_url": "/azure/iot-edge/how-to-install-iot-edge",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/iot-edge/how-to-install-iot-edge-windows-server-vm.md",
+      "redirect_url": "/azure/iot-edge/how-to-install-iot-edge",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/iot-edge/how-to-install-iot-edge-windows-with-linux.md",
+      "redirect_url": "/azure/iot-edge/how-to-install-iot-edge",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/iot-edge/how-to-register-device.md",
+      "redirect_url": "/azure/iot-edge/how-to-manual-provision-symmetric-key",
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/cognitive-services/cognitive-services-recommendations-quick-start.md",
@@ -16385,6 +16405,21 @@
     {
       "source_path": "articles/documentdb/documentdb-change-feed.md",
       "redirect_url": "/azure/cosmos-db/change-feed",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cosmos-db/how-to-configure-cosmos-db-trigger-logs.md",
+      "redirect_url": "/azure/cosmos-db/how-to-configure-cosmos-db-trigger#enabling-trigger-specific-logs",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cosmos-db/how-to-configure-cosmos-db-trigger-connection-policy.md",
+      "redirect_url": "/azure/cosmos-db/how-to-configure-cosmos-db-trigger#configuring-the-connection-policy",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cosmos-db/how-to-configure-change-feed-start-time.md",
+      "redirect_url": "/azure/cosmos-db/change-feed-processor#starting-time",
       "redirect_document_id": false
     },
     {
