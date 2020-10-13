@@ -214,9 +214,9 @@
   - name: Azure IoT SDKs
     items:
     - name: IoT Service SDKs
-      href: ../../iot-hub/iot-hub-devguide-sdks.md#azure-iot-service-sdks
+      href: ../../iot-hub/iot-hub-devguide-sdks.md#azure-iot-hub-service-sdks
     - name: IoT Device SDKs
-      href: ../../iot-hub/iot-hub-devguide-sdks.md#azure-iot-device-sdks
+      href: ../../iot-hub/iot-hub-devguide-sdks.md#azure-iot-hub-device-sdks
   - name: IoT Central API reference
     href: /rest/api/iotcentral/
   - name: Customer data requests
