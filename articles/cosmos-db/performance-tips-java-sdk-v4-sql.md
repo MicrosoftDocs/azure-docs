@@ -370,4 +370,4 @@ Please see the [Windows](https://docs.microsoft.com/azure/virtual-network/create
 
 ## Next steps
 
-To learn more about designing your application for scale and high performance, see [Partitioning and scaling in Azure Cosmos DB](partition-data.md).
+To learn more about designing your application for scale and high performance, see [Partitioning and scaling in Azure Cosmos DB](partitioning-overview.md).

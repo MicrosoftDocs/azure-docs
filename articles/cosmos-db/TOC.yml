@@ -120,10 +120,8 @@
         href: regional-presence.md
     - name: Partitioning
       items:
-      - name: Partitioning overview
-        href: partitioning-overview.md
       - name: Partitioning and horizontal scaling
-        href: partition-data.md
+        href: partitioning-overview.md
       - name: Synthetic partition key
         href: synthetic-partition-keys.md
     - name: Capacity
