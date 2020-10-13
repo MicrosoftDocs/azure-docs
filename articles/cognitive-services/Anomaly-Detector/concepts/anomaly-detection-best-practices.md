@@ -3,13 +3,13 @@ title: Best practices when using the Anomaly Detector API
 titleSuffix: Azure Cognitive Services
 description: Learn about best practices when detecting anomalies with the Anomaly Detector API.
 services: cognitive-services
-author: aahill
+author: mrbullwinkle
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: anomaly-detector
 ms.topic: conceptual
 ms.date: 03/26/2019
-ms.author: aahi
+ms.author: mbullwin
 ---
 
 # Best practices for using the Anomaly Detector API
