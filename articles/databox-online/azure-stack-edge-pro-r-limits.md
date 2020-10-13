@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: conceptual
-ms.date: 09/15/2020
+ms.date: 10/13/2020
 ms.author: alkohli
 ---
 
@@ -51,4 +51,4 @@ The following table describes the limits for the Azure Stack Edge Pro R device.
 
 ## Next steps
 
-<!--- [Prepare to deploy Azure Stack Edge Pro R](azure-stack-edge-gpu-deploy-prep.md)-->
+- [Prepare to deploy Azure Stack Edge Pro R](azure-stack-edge-placeholder.md)

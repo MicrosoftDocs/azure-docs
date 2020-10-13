@@ -31,17 +31,26 @@ The system requirements for the Azure Stack Edge Mini R include:
 
 [!INCLUDE [Supported storage accounts](../../includes/azure-stack-edge-gateway-supported-storage-accounts.md)]
 
-## Supported tiered storage accounts
+## Supported Edge storage accounts
 
-When managed from Azure Stack, the following tiered storage accounts are supported with SMB/NFS/REST interfaces.
+The following Edge storage accounts are supported with REST interface of the device. The Edge storage accounts are created on the device. For more information, see [Edge storage accounts](azure-stack-edge-j-series-manage-storage-accounts.md#about-edge-storage-accounts)
 
 |Type  |Storage account  |Comments  |
 |---------|---------|---------|
 |Standard     |GPv1: Block Blob         |         |
-|    |  Blob storage: Block Blob       | Supported only for NAS     |
 
-*Page blobs and Azure Files are currently not supported in Azure Stack.
-**Hot and cold tier do not exist in Azure Stack. Use the Azure PowerShell to move the data to the archive tier once the data is uploaded. For step-by-step instructions, go to [Use Azure PowerShell to set the blob tier]()
+
+*Page blobs and Azure Files are currently not supported.
+
+## Supported local Azure Resource Manager storage accounts
+
+These storage accounts are via the device local APIs when you are connected to the local Azure Resource Manager. The following storage accounts are supported:
+
+|Type  |Storage account  |Comments  |
+|---------|---------|---------|
+|Standard     |GPv1: Block Blob, Page Blob         | SKU type is Standard_LRS        |
+|Premium   |GPv1: Block Blob, Page Blob         |SKU type is Premium_LRS         |
+
 
 ## Supported storage types
 
@@ -118,9 +127,10 @@ Factors you should consider include:
 
 - **Container specifics** - Think about the following.
 
+    - What is your container footprint? How much memory, storage, and CPU is your container consuming?
     - How many containers are in your workload? You could have a lot of lightweight containers versus a few resource-intensive ones.
-    - What are the resources allocated to these containers versus what are the resources they are consuming?
-    - How many layers do your containers share?
+    - What are the resources allocated to these containers versus what are the resources they are consuming (the footprint)?
+    - How many layers do your containers share? Container images are a bundle of files organized into a stack of layers. For your container image, determine how many layers and their respective sizes to calculate resource consumption.
     - Are there unused containers? A stopped container still takes up disk space.
     - In which language are your containers written?
 - **Size of the data processed** - How much data will your containers be processing? Will this data consume disk space or the data will be processed in the memory?
@@ -136,7 +146,7 @@ To understand and refine the performance of your solution, you could use:
     - `dkr image [prune]` to clean up unused images and free up space.
     - `dkr ps --size` to view the approximate size of a running container. 
 
-    For more information on the available commands, go to [Monitor and troubleshoot compute modules](azure-stack-edge-placeholder.md).
+    For more information on the available commands, go to [ Debug Kubernetes issues](azure-stack-edge-gpu-connect-powershell-interface.md#debug-kubernetes-issues-related-to-iot-edge).
 
 Finally, make sure that you validate your solution on your dataset and quantify the performance on Azure Stack Edge Mini R before deploying in production.
 
