@@ -9,10 +9,10 @@ ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 1/3/2020
+ms.date: 09/23/2020
 ms.author: ryanwi
-ms.reviewer: hirsin, jesakowi, jmprieur
-ms.custom: aaddev, fasttrack-edit
+ms.reviewer: hirsin, jesakowi, jmprieur, marsma
+ms.custom: aaddev, fasttrack-edit, contperfq1, identityplatformtop40
 ---
 
 # Permissions and consent in the Microsoft identity platform endpoint
@@ -44,15 +44,15 @@ In OAuth 2.0, these types of permissions are called *scopes*. They are also ofte
 * Write to a user's calendar by using `Calendars.ReadWrite`
 * Send mail as a user using by `Mail.Send`
 
-An app most commonly requests these permissions by specifying the scopes in requests to the Microsoft identity platform authorize endpoint. However, certain high privilege permissions can only be granted through administrator consent and requested/granted using the [administrator consent endpoint](v2-permissions-and-consent.md#admin-restricted-permissions). Read on to learn more.
+An app most commonly requests these permissions by specifying the scopes in requests to the Microsoft identity platform authorize endpoint. However, certain high privilege permissions can only be granted through administrator consent and requested/granted using the [administrator consent endpoint](#admin-restricted-permissions). Read on to learn more.
 
 ## Permission types
 
 Microsoft identity platform supports two types of permissions: **delegated permissions** and **application permissions**.
 
-* **Delegated permissions** are used by apps that have a signed-in user present. For these apps, either the user or an administrator consents to the permissions that the app requests, and the app is delegated permission to act as the signed-in user when making calls to the target resource. Some delegated permissions can be consented to by non-administrative users, but some higher-privileged permissions require [administrator consent](v2-permissions-and-consent.md#admin-restricted-permissions). To learn which administrator roles can consent to delegated permissions, see [Administrator role permissions in Azure AD](../users-groups-roles/directory-assign-admin-roles.md).
+* **Delegated permissions** are used by apps that have a signed-in user present. For these apps, either the user or an administrator consents to the permissions that the app requests, and the app is delegated permission to act as the signed-in user when making calls to the target resource. Some delegated permissions can be consented to by non-administrative users, but some higher-privileged permissions require [administrator consent](#admin-restricted-permissions). To learn which administrator roles can consent to delegated permissions, see [Administrator role permissions in Azure AD](../users-groups-roles/directory-assign-admin-roles.md).
 
-* **Application permissions** are used by apps that run without a signed-in user present; for example, apps that run as background services or daemons.  Application permissions can only be [consented by an administrator](v2-permissions-and-consent.md#requesting-consent-for-an-entire-tenant).
+* **Application permissions** are used by apps that run without a signed-in user present; for example, apps that run as background services or daemons.  Application permissions can only be [consented by an administrator](#requesting-consent-for-an-entire-tenant).
 
 _Effective permissions_ are the permissions that your app will have when making requests to the target resource. It's important to understand the difference between the delegated and application permissions that your app is granted and its effective permissions when making calls to the target resource.
 
@@ -298,6 +298,16 @@ response_type=token            //code or a hybrid flow is also possible here
 
 This produces a consent screen for all registered permissions (if applicable based on the above descriptions of consent and `/.default`), then returns an id_token, rather than an access token.  This behavior exists for certain legacy clients moving from ADAL to MSAL, and **should not** be used by new clients targeting the Microsoft identity platform endpoint.
 
+### Client credentials grant flow and /.default
+
+Another use of `./default` is when requesting application permissions (or *roles*) in a non-interactive application like a daemon app that uses the [client credentials](v2-oauth2-client-creds-grant-flow.md) grant flow to call a web API.
+
+To create application permissions (roles) for a web API, see [How to: Add app roles in your application](howto-add-app-roles-in-azure-ad-apps.md).
+
+Client credentials requests in your client app **must** include `scope={resource}/.default`, where `{resource}` is the web API that your app intends to call. Issuing a client credentials request with individual application permissions (roles) is **not** supported. All the application permissions (roles) that have been granted for that web API will be included in the returned access token.
+
+To grant access to the application permissions you define, including granting admin consent for the application, see [Quickstart: Configure a client application to access a web API](quickstart-configure-app-access-web-apis.md).
+
 ### Trailing slash and /.default
 
 Some resource URIs have a trailing slash (`https://contoso.com/` as opposed to `https://contoso.com`), which can cause problems with token validation.  This can occur primarily when requesting a token for Azure Resource Management (`https://management.azure.com/`), which has a trailing slash on their resource URI and requires it to be present when the token is requested.  Thus, when requesting a token for `https://management.azure.com/` and using `/.default`, you must request `https://management.azure.com//.default` - note the double slash!
@@ -307,3 +317,8 @@ In general - if you've validated that the token is being issued, and the token i
 ## Troubleshooting permissions and consent
 
 If you or your application's users are seeing unexpected errors during the consent process, see this article for troubleshooting steps: [Unexpected error when performing consent to an application](../manage-apps/application-sign-in-unexpected-user-consent-error.md).
+
+## Next steps
+
+* [ID tokens | Microsoft identity platform](id-tokens.md)
+* [Access tokens | Microsoft identity platform](access-tokens.md)

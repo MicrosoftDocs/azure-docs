@@ -108,7 +108,7 @@ As mentioned previously, Azure classifies services into three categories: founda
 > | Service Fabric | Azure HPC Cache | Data Catalog |
 > | Virtual Machine Scale Sets | Azure IoT Hub | Data Factory : Data Factory V1 |
 > | Virtual Machines | Azure Kubernetes Service (AKS) | Data Lake Analytics |
-> | Virtual Machines: Av2-Series | Azure Machine Learning | Machine Learning Studio |
+> | Virtual Machines: Av2-Series | Azure Machine Learning | Azure Machine Learning Studio (classic)|
 > | Virtual Machines: Bs-Series | Azure Private Link | Microsoft Genomics |
 > | Virtual Machines: DSv2-Series | Azure Red Hat OpenShift | Remote Rendering |
 > | Virtual Machines: DSv3-Series | Azure SignalR Service | Spatial Anchors |

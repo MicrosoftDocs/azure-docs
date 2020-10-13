@@ -1,11 +1,11 @@
 ---
-title: Enable the Ingress Controller add-on for a new AKS cluster with a new Azure Application Gateway instance 
-description: Learn how to use the Azure CLI to enable the Ingress Controller add-on for your new AKS cluster with a new Application Gateway instance.
+title: 'Tutorial: Enable the Ingress Controller add-on for a new AKS cluster with a new Azure Application Gateway instance'
+description: Use this tutorial to learn how to use the Azure CLI to enable the Ingress Controller add-on for your new AKS cluster with a new Application Gateway instance.
 services: application-gateway
 author: caya
 ms.service: application-gateway
 ms.topic: tutorial
-ms.date: 06/10/2020
+ms.date: 09/24/2020
 ms.author: caya
 ---
 
@@ -25,11 +25,12 @@ In this tutorial, you learn how to:
 > * Deploy a sample application by using AGIC for ingress on the AKS cluster.
 > * Check that the application is reachable through Application Gateway.
 
+## Prerequisites
+
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-## Prerequisites
 
 If you choose to install and use the CLI locally, this tutorial requires you to run Azure CLI version 2.0.4 or later. To find the version, run `az --version`. If you need to install or upgrade, see [Install the Azure CLI](/cli/azure/install-azure-cli).
 
@@ -129,7 +130,7 @@ az group delete --name myResourceGroup
 ```
 
 ## Next steps
-* [Learn about disabling the AGIC add-on](./ingress-controller-disable-addon.md)
-* [Learn about which annotations are supported with AGIC](./ingress-controller-annotations.md)
-* [Troubleshoot issues with AGIC](./ingress-controller-troubleshoot.md)
+
+> [!div class="nextstepaction"]
+> [Learn about disabling the AGIC add-on](./ingress-controller-disable-addon.md)
 

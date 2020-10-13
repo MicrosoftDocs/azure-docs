@@ -51,7 +51,7 @@ Power BI will convert the timestamps in the first column to a `Date/Time` data t
 
 Click the **Transform** ribbon in the Power Query Editor. In the **Any Column** group, open the **Data Type:** drop-down menu, and select **Text**.
 
-![An image of the data source "Navigator" screen in Power BI](../media/tutorials/data-type-drop-down.png)
+![An image of the data type drop down](../media/tutorials/data-type-drop-down.png)
 
 When you get a notice about changing the column type, click **Replace Current**. Afterwards, click **Close & Apply** or **Apply** in the **Home** ribbon.
 
@@ -61,7 +61,7 @@ To format and send the data file to the Anomaly Detector API, you can invoke a q
 
 Make sure your new query is selected, then click **Advanced Editor**.
 
-![An image of the "Advanced Editor" button in Power BI](../media/tutorials/advanced-editor-screen.png)
+![An image of the "Advanced Editor" screen](../media/tutorials/advanced-editor-screen.png)
 
 Within the Advanced Editor, use the following Power Query M snippet to extract the columns from the table and send it to the API. Afterwards, the query will create a table from the JSON response, and return it. Replace the `apiKey` variable with your valid Anomaly Detector API key, and `endpoint` with your endpoint. After you've entered the query into the Advanced Editor, click **Done**.
 
@@ -75,7 +75,7 @@ Within the Advanced Editor, use the following Power Query M snippet to extract t
     jsonbody    = "{ ""Granularity"": ""daily"", ""Sensitivity"": 95, ""Series"": "& jsontext &" }",
     bytesbody   = Text.ToBinary(jsonbody),
     headers     = [#"Content-Type" = "application/json", #"Ocp-Apim-Subscription-Key" = apikey],
-    bytesresp   = bytesresp  = Web.Contents(endpoint, [Headers=headers, Content=bytesbody, ManualStatusHandling={400}]),
+    bytesresp   = Web.Contents(endpoint, [Headers=headers, Content=bytesbody, ManualStatusHandling={400}]),
     jsonresp    = Json.Document(bytesresp),
 
     respTable = Table.FromColumns({
@@ -109,7 +109,7 @@ Within the Advanced Editor, use the following Power Query M snippet to extract t
 
 Invoke the query on your data sheet by selecting `Sheet1` below **Enter Parameter**, and click **Invoke**.
 
-![An image of the "Advanced Editor" button](../media/tutorials/invoke-function-screenshot.png)
+![An image of the invoke function](../media/tutorials/invoke-function-screenshot.png)
 
 ## Data source privacy and authentication
 
@@ -143,11 +143,11 @@ Add the following fields from the **Invoked Function** to the chart's **Values**
 * LowerMargins
 * ExpectedValues
 
-![An image of the new quick measure screen](../media/tutorials/chart-settings.png)
+![An image of the chart settings](../media/tutorials/chart-settings.png)
 
 After adding the fields, click on the chart and resize it to show all of the data points. Your chart will look similar to the below screenshot:
 
-![An image of the new quick measure screen](../media/tutorials/chart-visualization.png)
+![An image of the chart visualization](../media/tutorials/chart-visualization.png)
 
 ### Display anomaly data points
 
@@ -157,15 +157,15 @@ On the right side of the Power BI window, below the **FIELDS** pane, right-click
 
 On the screen that appears, select **Filtered value** as the calculation. Set **Base value** to `Sum of Value`. Then drag `IsAnomaly` from the **Invoked Function** fields to **Filter**. Select `True` from the **Filter** drop-down menu.
 
-![An image of the new quick measure screen](../media/tutorials/new-quick-measure-2.png)
+![A second image of the new quick measure screen](../media/tutorials/new-quick-measure-2.png)
 
 After clicking **Ok**, you will have a `Value for True` field, at the bottom of the list of your fields. Right-click it and rename it to **Anomaly**. Add it to the chart's **Values**. Then select the **Format** tool, and set the X-axis type to **Categorical**.
 
-![An image of the new quick measure screen](../media/tutorials/format-x-axis.png)
+![An image of the format x axis](../media/tutorials/format-x-axis.png)
 
 Apply colors to your chart by clicking on the **Format** tool and **Data colors**. Your chart should look something like the following:
 
-![An image of the new quick measure screen](../media/tutorials/final-chart.png)
+![An image of the final chart](../media/tutorials/final-chart.png)
 
 ## Next steps
 

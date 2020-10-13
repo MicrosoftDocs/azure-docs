@@ -140,10 +140,10 @@ In Visual Studio, create an ASP.NET Core Web application named as "hello-world" 
    ```xml
    <ItemGroup>
      <PackageReference Include="Steeltoe.Discovery.ClientCore" Version="2.4.4" />
-	 <PackageReference Include="Microsoft.Azure.SpringCloud.Client" Version="1.0.0-alpha.1" />
+     <PackageReference Include="Microsoft.Azure.SpringCloud.Client" Version="1.0.0-preview.1" />
    </ItemGroup>
    <Target Name="Publish-Zip" AfterTargets="Publish">
-	 <ZipDirectory SourceDirectory="$(PublishDir)" DestinationFile="$(MSBuildProjectDirectory)/deploy.zip" Overwrite="true" />
+	   <ZipDirectory SourceDirectory="$(PublishDir)" DestinationFile="$(MSBuildProjectDirectory)/deploy.zip" Overwrite="true" />
    </Target>
    ```
 

@@ -37,7 +37,7 @@ The flow to getting setup with Azure Deployment Manager health checks:
     1. Authentication information. Currently only API-key style authentication is supported. For Azure Monitor, the authentication type should be set as – “RolloutIdentity” as the user assigned managed identity used for Azure Deployment Manager Rollout extends for Azure Monitor.
     1. [HTTP status codes](https://www.wikipedia.org/wiki/List_of_HTTP_status_codes) or regular expressions that define a healthy response.	Note that you may provide regular expressions, which ALL must match for the response to be considered healthy, or you may provide expressions of which ANY must match for the response to be considered healthy. Both methods are supported.
 
-    The following Json is an example for integrating Azure Monitor with Azure Deployment Manager that leverages RolloutIdentity and establishes health check wherein a Rollout proceeds if there are no alerts. The only supported Azure Monitor API: [Alerts – Get All](/rest/api/monitor/alertsmanagement/alerts/getall.md).
+    The following Json is an example for integrating Azure Monitor with Azure Deployment Manager that leverages RolloutIdentity and establishes health check wherein a Rollout proceeds if there are no alerts. The only supported Azure Monitor API: [Alerts – Get All](/rest/api/monitor/alertsmanagement/alerts/getall).
 
     ```json
     {

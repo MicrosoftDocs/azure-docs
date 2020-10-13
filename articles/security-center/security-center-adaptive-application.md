@@ -9,7 +9,7 @@ manager: rkarlin
 ms.assetid: 9268b8dd-a327-4e36-918e-0c0b711e99d2
 ms.service: security-center
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/06/2020
@@ -225,4 +225,4 @@ Some of the functions that are available from the REST API:
 In this document, you learned how to use adaptive application control in Azure Security Center to define allow lists of applications running on your Azure and non-Azure machines. To learn more about some of Security Center's other cloud workload protection features, see:
 
 * [Understanding just-in-time (JIT) VM access](just-in-time-explained.md)
-* [Securing your Azure Kubernetes clusters](azure-kubernetes-service-integration.md)
+* [Securing your Azure Kubernetes clusters](defender-for-kubernetes-introduction.md)

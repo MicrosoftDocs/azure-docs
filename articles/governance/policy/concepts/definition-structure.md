@@ -1,7 +1,7 @@
 ---
 title: Details of the policy definition structure
 description: Describes how policy definitions are used to establish conventions for Azure resources in your organization.
-ms.date: 09/22/2020
+ms.date: 10/05/2020
 ms.topic: conceptual
 ---
 # Azure Policy definition structure
@@ -131,7 +131,7 @@ see [Tag support for Azure resources](../../../azure-resource-manager/management
 
 ### Resource Provider modes
 
-The following Resource Provider node is fully supported:
+The following Resource Provider mode is fully supported:
 
 - `Microsoft.Kubernetes.Data` for managing your Kubernetes clusters on or off Azure. Definitions
   using this Resource Provider mode use effects _audit_, _deny_, and _disabled_. Use of the
@@ -147,7 +147,8 @@ The following Resource Provider modes are currently supported as a **preview**:
   [Azure Key Vault](../../../key-vault/general/overview.md).
 
 > [!NOTE]
-> Resource Provider modes only support built-in policy definitions.
+> Resource Provider modes only support built-in policy definitions and don't support
+> [exemptions](./exemption-structure.md).
 
 ## Metadata
 
@@ -299,7 +300,7 @@ In the **Then** block, you define the effect that happens when the **If** condit
         <condition> | <logical operator>
     },
     "then": {
-        "effect": "deny | audit | append | auditIfNotExists | deployIfNotExists | disabled"
+        "effect": "deny | audit | modify | append | auditIfNotExists | deployIfNotExists | disabled"
     }
 }
 ```
@@ -748,7 +749,7 @@ The following functions are only available in policy rules:
     "assignmentId": "/subscriptions/ad404ddd-36a5-4ea8-b3e3-681e77487a63/providers/Microsoft.Authorization/policyAssignments/myAssignment",
     "definitionId": "/providers/Microsoft.Authorization/policyDefinitions/34c877ad-507e-4c82-993e-3452a6e0ad3c",
     "setDefinitionId": "/providers/Microsoft.Authorization/policySetDefinitions/42a694ed-f65e-42b2-aa9e-8052e9740a92",
-    "definitionReferenceId: "StorageAccountNetworkACLs"
+    "definitionReferenceId": "StorageAccountNetworkACLs"
   }
   ```
   

@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: Implement IoT spatial analytics with Microsoft Azure Maps'
-description: Integrate IoT Hub with Azure Maps service APIs.
+title: 'Tutorial: Implement IoT spatial analytics | Microsoft Azure Maps'
+description: Tutorial on how to Integrate IoT Hub with Microsoft Azure Maps service APIs
 author: anastasia-ms
 ms.author: v-stharr
 ms.date: 09/01/2020
@@ -273,8 +273,6 @@ To explore the Azure Maps APIs used in this tutorial, see:
 For a complete list of Azure Maps REST APIs, see:
 
 * [Azure Maps REST APIs](https://docs.microsoft.com/rest/api/maps/spatial/getgeofence)
-
-To learn more about IoT Plug and Play, see:
 
 * [IoT Plug and Play](https://docs.microsoft.com/azure/iot-pnp)
 

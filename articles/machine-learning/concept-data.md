@@ -45,7 +45,7 @@ When you're ready to use the data in your cloud-based storage solution, we recom
 
 The following diagram provides a visual demonstration of this recommended workflow.
 
-![Data-concept-diagram](./media/concept-data/data-concept-diagram.svg)
+![Diagram shows the Azure Storage Service which flows into a datastore, which flows into a dataset. The dataset flows into model training, which flows into data drift, which flows back to dataset.](./media/concept-data/data-concept-diagram.svg)
 
 ## Datastores
 
@@ -64,7 +64,7 @@ Supported cloud-based storage services in Azure that can be registered as datast
 
 ## Datasets
 
-Azure Machine Learning datasets are references that point to the data in your storage service. They aren't copies of your dataBy creating an Azure Machine Learning dataset, you create a reference to the data source location, along with a copy of its metadata. 
+Azure Machine Learning datasets aren't copies of your data. By creating a dataset, you create a reference to the data in its storage service, along with a copy of its metadata. 
 
 Because datasets are lazily evaluated, and the data remains in its existing location, you
 

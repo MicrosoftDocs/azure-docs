@@ -54,7 +54,7 @@ Below are some common issues that may occur during the process.
     Your app registrations may have been created using a different user account in this tenant, a personal/consumer account, or in a different tenant. Ensure you are signed in with the correct account in the tenant where your app registrations were created.
 
 - **I'm getting an error related to multi-factor authentication. What should I do?** 
-    Please ensure [multi-factor authentication](../fundamentals/concept-fundamentals-mfa-get-started.md) is enabled and required for the user you are signing in with and for this scenario. For example, MFA could be:
+    Please ensure [multi-factor authentication](../fundamentals/concept-fundamentals-mfa-get-started.md) is enabled and **required** for the user you are signing in with and for this scenario. For example, MFA could be:
     - Always required for the user you are signing in with
     - [Required for Azure management](../conditional-access/howto-conditional-access-policy-azure-management.md).
     - [Required for the type of administrator](../conditional-access/howto-conditional-access-policy-admin-mfa.md) you are signing in with.
@@ -222,7 +222,9 @@ This feature is not supported for Microsoft consumer accounts. Only applications
 
 ### InteractionRequired
 
-Occurs when multi-factor authentication has not been performed before attempting to add a verified publisher to the app. See [common issues](#common-issues) for more information.
+Occurs when multi-factor authentication has not been performed before attempting to add a verified publisher to the app. See [common issues](#common-issues) for more information. Note: MFA must be performed in the same session when attempting to add a verified publisher. If MFA is enabled but not required to be performed in the session, the request will fail.   
+
+The error message displayed will be: "Due to a configuration change made by your administrator, or because you moved to a new location, you must use multi-factor authentication to proceed."
 
 ## Next steps
 

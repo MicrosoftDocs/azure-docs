@@ -1,6 +1,8 @@
 ---
 title: Migrate knowledge bases - QnA Maker
 description: Migrating a knowledge base requires exporting from one knowledge base, then importing into another.
+ms.service: cognitive-services
+ms.subservice: qna-maker
 ms.topic: how-to
 ms.date: 03/25/2020
 ---

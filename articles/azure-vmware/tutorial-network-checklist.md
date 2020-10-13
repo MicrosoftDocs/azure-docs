@@ -17,8 +17,6 @@ In this tutorial, you'll learn about:
 > * Required network ports for to communicate with the services
 > * DHCP and DNS considerations in Azure VMware Solution
 
-
-
 ## Virtual network and ExpressRoute circuit considerations
 When you create a virtual network connection in your subscription, the ExpressRoute circuit gets established through peering, uses an authorization key, and a peering ID that you request in the Azure portal. The peering is a private, one-to-one connection between your private cloud and the virtual network.
 
@@ -33,6 +31,9 @@ The private cloud logical networking comes with pre-provisioned NSX-T. A Tier-0 
 The AVS private cloud is connected to your Azure virtual network using an Azure ExpressRoute connection. This high bandwidth, low latency connection allows you to access services running in your Azure subscription from your private cloud environment. The routing is Border Gateway Protocol (BGP) based, automatically provisioned, and enabled by default for each private cloud deployment. 
 
 AVS private clouds require a minimum of a `/22` CIDR network address block for subnets, shown below. This network complements your on-premises networks. The address block shouldn't overlap with address blocks used in other virtual networks in your subscription and on-premises networks. Within this address block, management, provisioning, and vMotion networks get provisioned automatically.
+
+>[!NOTE]
+>Permitted ranges for your address block are the RFC 1918 private address spaces (10.0.0.0/8, 172.16.0.0/12, 192.168.0.0/16), except for 172.17.0.0/16.
 
 Example `/22` CIDR network address block:  `10.10.0.0/22`
 

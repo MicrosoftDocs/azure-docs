@@ -130,16 +130,16 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 1. Navigate to the Control Panel and open the **Authentication** module.
 1. From the right-hand menu, select **Identity Providers**
 
-    ![Configuration](./media/isams-tutorial/click-identity-provider.png)
+    ![Screenshot shows Active Directory Configuration with Identity Providers selected.](./media/isams-tutorial/click-identity-provider.png)
 
 1. Select **Add Provider**
 
-    ![Configuration](./media/isams-tutorial/add-identity-provider.png)
+    ![Screenshot shows Identity Providers with Add Providers selected.](./media/isams-tutorial/add-identity-provider.png)
 
 
 1. Perform the following steps in the following page:
 
-    ![Configuration](./media/isams-tutorial/configure-isams.png)
+    ![Screenshot shows the Identity Providers Wizard where you can do the steps described.](./media/isams-tutorial/configure-isams.png)
 
     a. In the **Name** textbox, give a valid name like `Saml2 Azure`. This is the name that will appear on the login page.
 
@@ -157,12 +157,12 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 2.  Go to the **Control Panel Home** -> **Security & Permissions** -> **User Accounts** -> **User Options & Tasks** -> **Modify User Properties**
 
-    ![Test User](./media/isams-tutorial/modify-user-properties.png)
+    ![Screenshot shows the User Accounts page with Modify User Properties selected.](./media/isams-tutorial/modify-user-properties.png)
 
 
 3. In the resulting popup window, select the **Account Details** tab, and change the **Authorization** to that of your newly created Identity Provider.
 
-    ![Test User](./media/isams-tutorial/account-details.png)
+    ![Screenshot shows Account Details with a value for Authorization.](./media/isams-tutorial/account-details.png)
 
 4. Click on **Save & Close**.
 

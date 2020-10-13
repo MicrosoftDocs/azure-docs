@@ -111,9 +111,11 @@ You can always return to Autoscale by clicking **Enable autoscale** and then **S
 
 When you are scaled out to multiple instances, App Service can perform health checks on your instances to route traffic only to the healthy instances. To do so, open the Portal to your App Service, then select **Health check** under **Monitoring**. Select **Enable** and provide a valid URL path on your application, such as `/health` or `/api/health`. Click **Save**.
 
+To enable the feature with ARM templates, set the `healthcheckpath` property of the `Microsoft.Web/sites` resource to the health check path on your site, for example: `"/api/health/"`. To disable the feature, set the property back to the empty string, `""`.
+
 ### Health check path
 
-The path must respond within two minutes with a status code between 200 and 299 (inclusive). If the path does not respond within two minutes, or returns a status code outside the range, then the instance is considered "unhealthy". Health Check integrates with App Service's authentication and authorization features, the system will reach the endpoint even if these secuity features are enabled. If you are using your own authentication system, the health check path must allow anonymous access. If the site has HTTP**S** enabled, the healthcheck will hit the HTTP endpoint first and then honor the 307 HTTP redirect to the HTTPS endpoint.
+The path must respond within two minutes with a status code between 200 and 299 (inclusive). If the path does not respond within two minutes, or returns a status code outside the range, then the instance is considered "unhealthy". Health Check integrates with App Service's authentication and authorization features, the system will reach the endpoint even if these secuity features are enabled. If you are using your own authentication system, the health check path must allow anonymous access. If the site has HTTP**S**-Only  enabled, the healthcheck request will be sent via HTTP**S**.
 
 The health check path should check the critical components of your application. For example, if your application depends on a database and a messaging system, the health check endpoint should connect to those components. If the application cannot connect to a critical component, then the path should return a 500-level response code to indicate that the app is unhealthy.
 

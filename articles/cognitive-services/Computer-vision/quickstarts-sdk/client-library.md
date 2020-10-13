@@ -10,7 +10,7 @@ ms.subservice: computer-vision
 ms.topic: quickstart
 ms.date: 08/31/2020
 ms.author: pafarley
-ms.custom: [devx-track-python, devx-track-javascript, devx-track-csharp, cog-serv-seo-aug-2020]
+ms.custom: [devx-track-python, devx-track-js, devx-track-csharp, cog-serv-seo-aug-2020]
 zone_pivot_groups: programming-languages-set-one
 keywords: computer vision, computer vision service
 ---

@@ -9,7 +9,7 @@ ms.topic: how-to
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.custom: devx-track-javascript
+ms.custom: devx-track-js
 ---
 
 # How to secure a single page application with non-interactive sign-in

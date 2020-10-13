@@ -75,7 +75,7 @@ Possible causes:
 
 *The user trying to create a VM or virtual machine scale set doesn’t have the read access to the image version.*
 
-Contact the subscription owner and ask them to give read access to the image version or the parent resources (like the shared image gallery or image definition) through [Azure role-based access control (Azure RBAC)](https://docs.microsoft.com/azure/role-based-access-control/rbac-and-directory-admin-roles). 
+Contact the subscription owner and ask them to give read access to the image version or the parent resources (like the shared image gallery or image definition) through [Azure role-based access control (Azure RBAC)](../role-based-access-control/rbac-and-directory-admin-roles.md). 
 
 *The image version is not found.*
 
@@ -87,7 +87,7 @@ Verify that the **OSType** of the image version that you are trying to create th
 
 ## Unable to share resources
 
-The sharing of shared image gallery, image definition, and image version resources across subscriptions is enabled using [Azure role-based access control (Azure RBAC)](https://docs.microsoft.com/azure/role-based-access-control/rbac-and-directory-admin-roles). 
+The sharing of shared image gallery, image definition, and image version resources across subscriptions is enabled using [Azure role-based access control (Azure RBAC)](../role-based-access-control/rbac-and-directory-admin-roles.md). 
 
 ## Replication is slow
 
@@ -95,7 +95,7 @@ Use the **--expand ReplicationStatus** flag to check if the replication to all t
 
 ## Azure limits and quotas 
 
-[Azure limits and quotas](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits) apply to all shared image gallery, image definition, and image version resources. Make sure you are within the limits for your subscriptions. 
+[Azure limits and quotas](../azure-resource-manager/management/azure-subscription-service-limits.md) apply to all shared image gallery, image definition, and image version resources. Make sure you are within the limits for your subscriptions. 
 
 
 ## Next steps

@@ -9,11 +9,14 @@ manager: diviso
 ms.devlang: csharp
 ms.workload: big-data
 ms.topic: conceptual
-ms.date: 08/12/2020
+ms.date: 09/30/2020
 ms.custom: seodec18
 ---
 
 # Query data from the Azure Time Series Insights Gen1 environment using C Sharp
+
+> [!CAUTION]
+> This is a Gen1 article.
 
 This C# example demonstrates how to use the [Gen1 Query APIs](https://docs.microsoft.com/rest/api/time-series-insights/gen1-query) to query data from Azure Time Series Insights Gen1 environments.
 
@@ -70,7 +73,7 @@ Alternatively, add the packages using [NuGet 2.12+](https://www.nuget.org/):
 
 ## C# sample code
 
-Please refer to the [Azure Time Series Insights](https://github.com/Azure-Samples/Azure-Time-Series-Insights/blob/master/gen1-sample/csharp-tsi-gen1-sample/Program.cs)] repo to access the C# sample code. 
+Please refer to the [Azure Time Series Insights](https://github.com/Azure-Samples/Azure-Time-Series-Insights/blob/master/gen1-sample/csharp-tsi-gen1-sample/Program.cs)] repo to access the C# sample code.
 
 ## Next steps
 

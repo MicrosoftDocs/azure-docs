@@ -10,7 +10,7 @@ ms.custom: devx-track-python
 
 author: likebupt
 ms.author: keli19
-ms.date: 07/27/2020
+ms.date: 09/29/2020
 ---
 # Execute Python Script module
 
@@ -52,8 +52,11 @@ if spec is None:
 > [!NOTE]
 > If your pipeline contains multiple Execute Python Script modules that need packages that aren't in the preinstalled list, install the packages in each module.
 
+> [!WARNING]
+> Excute Python Script module does not support installing packages that depend on extra native libraries with command like "apt-get", such as Java, PyODBC and etc. This is because this module is executed in a simple environment with Python pre-installed only and with non-admin permission.  
+
 ## Upload files
-The Execute Python Script module supports uploading files by using the [Azure Machine Learning Python SDK](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run%28class%29?view=azure-ml-py#&preserve-view=trueupload-file-name--path-or-stream-).
+The Execute Python Script module supports uploading files by using the [Azure Machine Learning Python SDK](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run%28class%29?view=azure-ml-py&preserve-view=true#upload-file-name--path-or-stream-).
 
 The following example shows how to upload an image file in the Execute Python Script module:
 
@@ -135,7 +138,10 @@ The Execute Python Script module contains sample Python code that you can use as
 
     Two datasets can be returned to the designer, which must be a sequence of type `pandas.DataFrame`. You can create other outputs in your Python code and write them directly to Azure storage.
 
-6. Submit the pipeline, or select the module and select **Run selected** to run just the Python script.
+    > [!WARNING]
+    > It's **Not** recommended to connect to a Database or other external storages in **Execute Python Script Module**. You can use [Import Data module](./import-data.md) and [Export Data module](./export-data.md)     
+
+6. Submit the pipeline.
 
     All of the data and code is loaded into a virtual machine, and run using the specified Python environment.
 

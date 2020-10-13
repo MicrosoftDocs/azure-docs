@@ -167,6 +167,11 @@ With the built-in Azure WAF firewall events workbook, you can get an overview of
 
 ![Azure WAF firewall events workbook](../media/ag-overview/sentinel.png)
 
+
+#### Azure Monitor Workbook for WAF
+
+This workbook enables custom visualization of security-relevant WAF events across several filterable panels. It works with all WAF types, including Application Gateway, Front Door, and CDN, and can be filtered based on WAF type or a specific WAF instance. Import via ARM Template or Gallery Template. To deploy this workbook, see [WAF Workbook](https://github.com/Azure/Azure-Network-Security/tree/master/Azure%20WAF/Azure%20Monitor%20Workbook).
+
 #### Logging
 
 Application Gateway WAF provides detailed reporting on each threat that it detects. Logging is integrated with Azure Diagnostics logs. Alerts are recorded in the .json format. These logs can be integrated with [Azure Monitor logs](../../azure-monitor/insights/azure-networking-analytics.md).

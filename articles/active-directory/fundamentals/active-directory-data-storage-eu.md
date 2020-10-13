@@ -32,6 +32,10 @@ For cloud-based Azure Multi-Factor Authentication, authentication is complete in
 
 For more information about what user information is collected by Azure Multi-Factor Authentication Server (MFA Server) and cloud-based Azure MFA, see [Azure Multi-Factor Authentication user data collection](../authentication/howto-mfa-reporting-datacollection.md).
 
+## Password-based Single Sign-On for Enterprise Applications
+ 
+If a customer creates a new enterprise application (whether through Azure AD Gallery or non-Gallery) and enables password-based SSO, the Application sign in URL, and custom capture sign in fields are stored in the United States. For more information on this feature, please refer to [Configure password-based single sign-on](../manage-apps/configure-password-single-sign-on-non-gallery-applications.md)
+
 ## Microsoft Azure Active Directory B2C (Azure AD B2C)
 
 Azure AD B2C policy configuration data and Key Containers are stored in U.S. datacenters. These do not contain any user personal data. For more info about policy configurations, see the [Azure Active Directory B2C: Built-in policies](../../active-directory-b2c/user-flow-overview.md) article.

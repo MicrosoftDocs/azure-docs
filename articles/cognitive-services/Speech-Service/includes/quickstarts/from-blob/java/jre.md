@@ -12,7 +12,7 @@ Before you get started, make sure to:
 
 > [!div class="checklist"]
 > * [Setup your development environment and create an empty project](../../../../quickstarts/setup-platform.md?tabs=jre&pivots=programmming-language-java)
-> * [Create an Azure Speech resource](../../../../get-started.md)
+> * [Create an Azure Speech resource](../../../../overview.md#try-the-speech-service-for-free)
 > * [Upload a source file to an Azure blob](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-portal)
 
 

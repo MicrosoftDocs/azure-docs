@@ -2,7 +2,7 @@
 title: Improve performance of Azure apps with Advisor
 description: Use performance recommendations in Azure Advisor to improve the speed and responsiveness of your business-critical applications.
 ms.topic: article
-ms.date: 01/29/2019
+ms.date: 07/29/2020
 ---
 
 # Improve the performance of Azure applications by using Azure Advisor
@@ -58,8 +58,6 @@ Advisor identifies tables that don't have up-to-date [table statistics](../synap
 
 Advisor analysis can indicate that your application connecting to a MySQL server might not be managing connections efficiently. This condition could lead to unnecessary resource consumption and overall higher application latency. To improve connection management, we recommend that you reduce the number of short-lived connections and eliminate unnecessary idle connections. You can make these improvements by configuring a server-side connection pooler, like ProxySQL.
 
-## Update your current Compute Management SDK version to the most recent version
-Advisor identifies subscriptions which have operations using outdated Compute Management SDK versions. This might impact the security and performance of your workloads and thus, Advisor recommends you to switch to the latest version of Compute Management SDK. 
 
 ## Scale up to optimize cache utilization on your Azure Synapse Analytics tables to increase query performance
 
@@ -166,6 +164,14 @@ Advisor analysis indicates that your MySQL server may be incurring unnecessary I
 ## Distribute data in server group to distribute workload among nodes
 Advisor identifies the server groups where the data has not been distributed but stays on the coordinator. Based on this, Advisor recommends that for full Hyperscale (Citus) benefits distribute data on worker nodes for your server groups. This will improve query performance by utilizing resource of each node in the server group. [Learn more](https://go.microsoft.com/fwlink/?linkid=2135201) 
 
+## Improve user experience and connectivity by deploying VMs closer to Windows Virtual Desktop deployment location
+We have determined that your VMs are located in a region different or far from where your users are connecting from, using Windows Virtual Desktop (WVD). This may lead to prolonged connection response times and will impact overall user experience on WVD. When creating VMs for your host pools, you should attempt to use a region closer to the user. Having close proximity ensures continuing satisfaction with the WVD service and a better overall quality of experience. [Learn more about connection latency here](https://docs.microsoft.com/azure/virtual-desktop/connection-latency).
+
+## Upgrade to the latest version of the Immersive Reader SDK
+We have identified resources under this subscription using outdated versions of the Immersive Reader SDK. Using the latest version of the Immersive Reader SDK provides you with updated security, performance and an expanded set of features for customizing and enhancing your integration experience.
+Learn more about [Immersive reader SDK](https://aka.ms/ImmersiveReaderAzureAdvisorSDKLearnMore).
+
+
 ## How to access performance recommendations in Advisor
 
 1. Sign in to the [Azure portal](https://portal.azure.com), and then open [Advisor](https://aka.ms/azureadvisordashboard).
@@ -178,6 +184,7 @@ To learn more about Advisor recommendations, see:
 
 * [Introduction to Advisor](advisor-overview.md)
 * [Get started with Advisor](advisor-get-started.md)
+* [Advisor score](azure-advisor-score.md)
 * [Advisor cost recommendations](advisor-cost-recommendations.md)
 * [Advisor reliability recommendations](advisor-high-availability-recommendations.md)
 * [Advisor security recommendations](advisor-security-recommendations.md)

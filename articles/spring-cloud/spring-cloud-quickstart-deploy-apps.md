@@ -271,7 +271,7 @@ We need a way to access the application via a web browser. Our gateway applicati
 1. Generate configurations by running the following command in the root folder of PiggyMetrics containing the parent POM. If you have already signed-in with Azure CLI, the command will automatically pick up the credentials. Otherwise, it will sign you in with prompt instructions. For more information, see our [wiki page](https://github.com/microsoft/azure-maven-plugins/wiki/Authentication).
 
     ```
-    mvn com.microsoft.azure:azure-spring-cloud-maven-plugin:1.1.0:config
+    mvn com.microsoft.azure:azure-spring-cloud-maven-plugin:1.3.0:config
     ```
     
     You will be asked to select:
@@ -348,23 +348,9 @@ You can also navigate the Azure portal to find the URL.
 
 ::: zone-end
 
-## Clean up resources
-
-If you intend to continue on to the next quickstart in this series, skip this step.
-
-In these quickstarts, you created Azure resources that will continue to accrue charges if they remain in your subscription. If you don't intend to continue on to the next quickstart, and you don't expect to need these resources in the future, delete the resource group by using the portal or by running the following command in the Cloud Shell:
-
-```azurecli
-az group delete --name <your resource group name; for example: helloworld-1558400876966-rg> --yes
-```
-
-In an earlier quickstart, you also set the default resource group name. If you don't intend to continue to the next quickstart, clear out that default by running the following CLI command:
-
-```azurecli
-az configure --defaults group=
-```
-
 ## Next steps
+
+In this quickstart, you created Azure resources that will continue to accrue charges if they remain in your subscription. If you don't intend to continue on to the next quickstart, see [Clean up resources](spring-cloud-quickstart-logs-metrics-tracing.md#clean-up-resources). Otherwise, advance to the next quickstart:
+
 > [!div class="nextstepaction"]
 > [Logs, Metrics and Tracing](spring-cloud-quickstart-logs-metrics-tracing.md)
-

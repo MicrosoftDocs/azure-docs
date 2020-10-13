@@ -12,10 +12,9 @@ ms.subservice: hybrid
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
+ms.date: 09/24/2020
 ms.topic: how-to
-ms.date: 07/18/2017
 ms.author: billmath
-
 ms.collection: M365-identity-device-management 
 ms.custom: devx-track-azurepowershell
 ---
@@ -40,10 +39,13 @@ The following table is a list of requirements for using Azure AD Connect Health.
 | Ensure PowerShell v4.0 or newer is installed | <li>Windows Server 2008 R2 ships with PowerShell v2.0, which is insufficient for the agent. Update PowerShell as explained below under [Agent installation on Windows Server 2008 R2 Servers](#agent-installation-on-windows-server-2008-r2-servers).</li><li>Windows Server 2012 ships with PowerShell v3.0, which is insufficient for the agent.</li><li>Windows Server 2012 R2 and later ship with a sufficiently recent version of PowerShell.</li>|
 |Disable FIPS|FIPS is not supported by Azure AD Connect Health agents.|
 
+> [!IMPORTANT]
+> Installing the Azure AD Connect Health agent on Windows Server Core is not supported.
+
 
 > [!NOTE]
 > If you have a highly locked-down and extremely restricted environment, you would require to add the URLs mentioned in the Service endpoint lists below in addition to the ones listed in the Allowed IE enhanced Security configuration above. 
->
+
 
 ### Outbound connectivity to the Azure service endpoints
 

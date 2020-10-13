@@ -172,7 +172,7 @@ You can also verify that the twins were created by running the `Query` command. 
 
 #### Modify a digital twin
 
-You can can also modify the properties of a twin you've created. Try running this command to change *room0*'s RoomName from *Room0* to *PresidentialSuite*:
+You can also modify the properties of a twin you've created. Try running this command to change *room0*'s RoomName from *Room0* to *PresidentialSuite*:
 
 ```cmd/sh
 UpdateDigitalTwin room0 add /RoomName string PresidentialSuite
@@ -220,8 +220,8 @@ You can also verify the relationships with any of the following commands, which 
     ```
 * To query for these relationships individually, 
     ```cmd/sh
-    GetRelationship floor0 contains relationship0
-    GetRelationship floor1 contains relationship1
+    GetRelationship floor0 relationship0
+    GetRelationship floor1 relationship1
     ```
 
 The twins and relationships you have set up in this tutorial form the following conceptual graph:
@@ -243,7 +243,7 @@ A main feature of Azure Digital Twins is the ability to [query](concepts-query-l
     :::image type="content" source="media/tutorial-command-line-app/output-query-all.png" alt-text="Partial results of twin query, showing room0 and floor1":::
 
     >[!NOTE]
-    >The command `Query` without any additional arguments is the equivalent of `Query SELECT * FROM DIGITALTWINS`.
+    >In the sample project, the command `Query` without any additional arguments is the equivalent of `Query SELECT * FROM DIGITALTWINS`. To query all the twins in your instance using the [Query APIs](how-to-use-apis-sdks.md) or the [CLI commands](how-to-use-cli.md), use the longer (complete) query.
 
 * **What are all the rooms in my environment?** (query by model)
 

@@ -8,7 +8,7 @@ author: tchristiani
 ms.author: terrychr
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 05/19/2020
+ms.date: 10/05/2020
 ---
 
 # Debug sessions in Azure Cognitive Search
@@ -31,8 +31,7 @@ If the enrichment pipeline does not have any errors, a debug session can be used
 
 To start a debug session you must have an existing AI enrichment pipeline including; a data source, a skillset, an indexer, and an index. To configure a debug session, you need to name the session, and provide a general-purpose storage account that will be used to cache the skill executions during the indexer run. You will also need to select the indexer that will be running. The indexer has references stored to the data source, skillset, and index. The debug session will default to the first document in the data source or you can specify a document in the data source to step through.
 
-> [!div class="mx-imgBorder"]
-> ![Creating a debug session](media/cognitive-search-debug/debug-session-new.png)
+> :::image type="content" source="media/cognitive-search-debug/debug-session-new.png" alt-text="Creating a debug session":::
 
 ## Debug session features
 
@@ -48,8 +47,7 @@ The **Skill Graph** view provides a hierarchical, visual representation of the s
 
 Selecting a skill in the graph will highlight the skills connected to it, the nodes that create its inputs and the nodes that accept its outputs. Each skill node displays its type, errors or warnings, and execution counts. The **Skill Graph** is where you will select which skill to debug or enhance. When you select a skill its details will be displayed in the skill details pane to the right of the graph.
 
-> [!div class="mx-imgBorder"]
-> ![Skill Graph](media/cognitive-search-debug/skills-graph.png)
+> :::image type="content" source="media/cognitive-search-debug/skills-graph.png" alt-text="Skill Graph":::
 
 ## Skill details
 
@@ -71,8 +69,7 @@ When building a custom skill or debugging an error with a custom skill, there is
 
 The **Enriched Data Structure** pane shows the document's enrichments through the skillset, detailing the context for each enrichment and the originating skill. The **Expression evaluator** can also be used to view the contents for each enrichment.
 
-> [!div class="mx-imgBorder"]
-> ![Enriched Data Structure](media/cognitive-search-debug/enriched-data-structure-display.png)
+> :::image type="content" source="media/cognitive-search-debug/enriched-data-structure-display.png" alt-text="Enriched Data Structure":::
 
 ## Expression evaluator
 

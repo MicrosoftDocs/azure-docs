@@ -44,7 +44,7 @@ NAME                      TYPE           CLUSTER-IP     EXTERNAL-IP      PORT(S)
 controller-svc-external   LoadBalancer   10.0.175.137   52.154.152.24    30080:32192/TCP                               22h
 ```
 
-If you are using a LoadBalancer type, you'll want to copy the external IP address and port number 300080.  If you are using NodePort, you'll want to use the IP address of your Kubernetes API server and the port number listed under the PORT(S) column.
+If you are using a LoadBalancer type, you'll want to copy the external IP address and port number. If you are using NodePort, you'll want to use the IP address of your Kubernetes API server and the port number listed under the PORT(S) column.
 
 Now, you'll want to construct a URL to your endpoint by combining this information like so:
 
@@ -52,7 +52,7 @@ Now, you'll want to construct a URL to your endpoint by combining this informati
 https://<ip address>:<port>
 
 Example:
-https://52.;154.152.24:30080
+https://52.154.152.24:30080
 ```
 
 Take note of your IP address as you will use it in the next step.

@@ -10,7 +10,7 @@ ms.custom: troubleshooting
 ms.reviewer: jmartens, larryfr, vaidyas, laobri, tracych
 ms.author: trmccorm
 author: tmccrmck
-ms.date: 09/16/2020
+ms.date: 09/23/2020
 ---
 
 # Debug and troubleshoot ParallelRunStep
@@ -30,13 +30,17 @@ For example, the log file `70_driver_log.txt` contains information from the cont
 
 Because of the distributed nature of ParallelRunStep jobs, there are logs from several different sources. However, two consolidated files are created that provide high-level information:
 
-- `~/logs/overview.txt`: This file provides a high-level info about the number of mini-batches (also known as tasks) created so far and number of mini-batches processed so far. At this end, it shows the result of the job. If the job failed, it will show the error message and where to start the troubleshooting.
+- `~/logs/job_progress_overview.txt`: This file provides a high-level info about the number of mini-batches (also known as tasks) created so far and number of mini-batches processed so far. At this end, it shows the result of the job. If the job failed, it will show the error message and where to start the troubleshooting.
 
-- `~/logs/sys/master.txt`: This file provides the principal node (also known as the orchestrator) view of the running job. Includes task creation, progress monitoring, the run result.
+- `~/logs/sys/master_role.txt`: This file provides the principal node (also known as the orchestrator) view of the running job. Includes task creation, progress monitoring, the run result.
 
 Logs generated from entry script using EntryScript helper and print statements will be found in following files:
 
-- `~/logs/user/<ip_address>/<node_name>.log.txt`: These files are the logs written from entry_script using EntryScript helper. Also contains print statement (stdout) from entry_script.
+- `~/logs/user/entry_script_log/<ip_address>/<process_name>.log.txt`: These files are the logs written from entry_script using EntryScript helper.
+
+- `~/logs/user/stdout/<ip_address>/<process_name>.stdout.txt`: These files are the logs from stdout (e.g. print statement) of entry_script.
+
+- `~/logs/user/stderr/<ip_address>/<process_name>.stderr.txt`: These files are the logs from stderr of entry_script.
 
 For a concise understanding of errors in your script there is:
 
@@ -44,17 +48,17 @@ For a concise understanding of errors in your script there is:
 
 For more information on errors in your script, there is:
 
-- `~/logs/user/error/`: Contains all errors thrown and full stack traces organized by node.
+- `~/logs/user/error/`: Contains full stack traces of exceptions thrown while loading and running entry script.
 
 When you need a full understanding of how each node executed the score script, look at the individual process logs for each node. The process logs can be found in the `sys/node` folder, grouped by worker nodes:
 
-- `~/logs/sys/node/<node_name>.txt`: This file provides detailed info about each mini-batch as it's picked up or completed by a worker. For each mini-batch, this file includes:
+- `~/logs/sys/node/<ip_address>/<process_name>.txt`: This file provides detailed info about each mini-batch as it's picked up or completed by a worker. For each mini-batch, this file includes:
 
     - The IP address and the PID of the worker process. 
     - The total number of items, successfully processed items count, and failed item count.
     - The start time, duration, process time and run method time.
 
-You can also find information on the resource usage of the processes for each worker. This information is in CSV format and is located at `~/logs/sys/perf/overview.csv`. Information about each process is available under `~logs/sys/processes.csv`.
+You can also find information on the resource usage of the processes for each worker. This information is in CSV format and is located at `~/logs/sys/perf/<ip_address>/node_resource_usage.csv`. Information about each process is available under `~logs/sys/perf/<ip_address>/processes_resource_usage.csv`.
 
 ### How do I log from my user script from a remote context?
 ParallelRunStep may run multiple processes on one node based on process_count_per_node. In order to organize logs from each process on node and combine print and log statement, we recommend using ParallelRunStep logger as shown below. You get a logger from EntryScript and make the logs show up in **logs/user** folder in the portal.

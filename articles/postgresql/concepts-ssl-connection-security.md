@@ -1,8 +1,8 @@
 ---
 title: SSL/TLS - Azure Database for PostgreSQL - Single Server
 description: Instructions and information on how to configure TLS connectivity for Azure Database for PostgreSQL - Single Server.
-author: rachel-msft
-ms.author: raagyema
+author: niklarin
+ms.author: nlarin
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 07/08/2020
@@ -86,6 +86,17 @@ For example, setting this Minimum TLS setting version to TLS 1.0 means your serv
 > Once you enforce a minimum TLS version, you cannot later disable minimum version enforcement.
 
 To learn how to set the TLS setting for your Azure Database for PostgreSQL Single server, refer to [How to configure TLS setting](howto-tls-configurations.md).
+
+## Cipher support by Azure Database for PostgreSQL Single server
+
+As part of the SSL/TLS communication, the cipher suites are validated and only support cipher suits are allowed to communicate to the database serer. The cipher suite validation is controlled in the [gateway layer](concepts-connectivity-architecture.md#connectivity-architecture) and not explicitly on the node itself. If the cipher suites doesn't match one of suites listed below, incoming client connections will be rejected.
+
+### Cipher suite supported
+
+*   TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+*   TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256
+*   TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384
+*   TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256
 
 ## Next steps
 

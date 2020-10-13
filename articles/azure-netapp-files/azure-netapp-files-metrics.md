@@ -13,7 +13,7 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 09/10/2020
+ms.date: 10/07/2020
 ms.author: b-juche
 ---
 # Metrics for Azure NetApp Files
@@ -32,21 +32,24 @@ Azure NetApp Files provides metrics on allocated storage, actual storage usage, 
 - *Pool Consumed Size*  
     The total of logical space (GiB) used across volumes in a capacity pool.  
 
-- *Total Snapshot Size of the Pool*    
-    The sum of the snapshot size of all volumes in the pool.
+- *Total Snapshot Size for the Pool*    
+    The sum of snapshot size from all volumes in the pool.
 
 ## <a name="volumes"></a>Usage metrics for volumes
 
-<!--
+<!-- ANF-5023: fixed version: 2020.08, 2020.09
+- *Percentage Volume Consumed Size*    
+    The percentage of the volume consumed, including snapshots.  
+-->
+- *Volume Allocated Size*   
+    The provisioned size of a volume
 - *Volume Quota Size*    
     The quota size (GiB) the volume is provisioned with.   
-    This size is the size you selected during capacity pool creation. 
--->
 - *Volume Consumed Size*   
-    The total logical space used in a volume (GiB).  
+    Logical size of the volume (used bytes).  
     This size includes logical space used by active file systems and snapshots.  
 - *Volume Snapshot Size*   
-   The incremental logical space used by snapshots in a volume.  
+   The size of all snapshots in a volume.  
 
 ## Performance metrics for volumes
 
@@ -58,11 +61,29 @@ Azure NetApp Files provides metrics on allocated storage, actual storage usage, 
     The number of reads to the volume per second.
 - *Write IOPS*   
     The number of writes to the volume per second.
+<!-- These two metrics are not yet available, until ~ 2020.09
+- *Read MiB/s*   
+    Read throughput in bytes per second.
+- *Write MiB/s*   
+    Write throughput in bytes per second.
+--> 
+<!-- ANF-4128; 2020.07
+- *Pool Provisioned Throughput*	  
+    The total throughput a capacity pool can provide to its volumes based on "Pool Provisioned Size" and "Service Level".
+- *Pool Allocated to Volume Throughput*   
+    The total throughput allocated to volumes in a given capacity pool (that is, the total of the volumes' allocated throughput in the capacity pool).
+-->
+
+<!-- ANF-6443; 2020.11
+- *Pool Consumed Throughput*	
+    The total throughput being consumed by volumes in a given capacity pool.
+-->
+
 
 ## <a name="replication"></a>Volume replication metrics
 
 - *Is volume replication status healthy*   
-    The condition of the replication relationship. 
+    The condition of the replication relationship. A healthy state is denoted by `1`. An unhealthy state is denoted by `0`.
 
 - *Is volume replication transferring*    
     Whether the status of the volume replication is ‘transferring’. 

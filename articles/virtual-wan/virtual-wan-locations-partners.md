@@ -31,7 +31,7 @@ The following high-level automation is set up in the device console/management c
 
 Some connectivity partners may extend the automation to include creating the Azure Virtual Hub VNet and VPN Gateway. If you want to know more about automation, see [Automation guidelines for Virtual WAN partners](virtual-wan-configure-automation-providers.md).
 
-## <a name="partners"></a>Branch IPSec Connectivity through partners
+## <a name="partners"></a>Branch IPSec Connectivity partners
 
 [!INCLUDE [partners](../../includes/virtual-wan-partners-include.md)]
 
@@ -47,13 +47,13 @@ Partners that offer NVA in the Virtual WAN Hub must:
 
 If you are a partner and have questions about the Managed NVA in the Virtual Hub offering, please contact us by sending email to vwannvaonboarding@microsoft.com
 
-## NVA in the Virtual Hub partners
+## Integrated Virtual Hub NVA partners
 These partners have **Managed Application** offers that are available now to deploy into the Virtual WAN hub.
 
 |Partners|Configuration/How-to/Deployment Guide|
 |---|---|
 |[Barracuda Networks](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/barracudanetworks.barracuda_cloudgenwan_gateway?tab=Overviewus/marketplace/apps/barracudanetworks.barracuda_cloudgenwan_gateway?tab=Overview)| [Barracuda CloudGen WAN Deployment Guide](https://campus.barracuda.com/product/cloudgenwan/doc/91980640/deployment/)|
-|[Cisco Cloud Service Router(CSR) VWAN](https://aka.ms/ciscoMarketPlaceOffer)| [Cisco Cloud Service Router(CSR) VWAN Deployment Guide]()
+|[Cisco Cloud Service Router(CSR) VWAN](https://aka.ms/ciscoMarketPlaceOffer)| During the Public Preview of Cisco Cloud Services (CSR) WAN into VWAN hub, Cisco requires the end customer to register as a Cisco EFT (Early Field Trial) customer by sending an email to vwan_public_preview@external.cisco.com and requesting the vManage Deployment Guide. |
 
 The following partners are slated to bring NVA in the Virtual Hub offers in the near future: Citrix, Versa Networks and VeloCloud.
 

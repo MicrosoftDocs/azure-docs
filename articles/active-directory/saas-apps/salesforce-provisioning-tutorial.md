@@ -1,6 +1,6 @@
 ---
 title: 'Tutorial: Configure Salesforce for automatic user provisioning with Azure Active Directory| Microsoft Docs'
-description: Learn how to configure single sign-on between Azure Active Directory and Salesforce.
+description: Learn the steps required to perform in Salesforce and Azure AD to automatically provision and de-provision user accounts from Azure AD to Salesforce.
 services: active-directory
 author: jeevansd
 manager: CelesteDG

@@ -73,4 +73,4 @@ In this article, you created a network security group, created an inbound rule t
 
 You can find information on creating more detailed environments in the following articles:
 - [Azure Resource Manager overview](../../azure-resource-manager/management/overview.md)
-- [Security groups](../../virtual-network/security-overview.md)
+- [Security groups](../../virtual-network/network-security-groups-overview.md)

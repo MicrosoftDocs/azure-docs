@@ -1,13 +1,16 @@
 ---
 title:  Overview of the Connected Machine Windows agent
 description: This article provides a detailed overview of the Azure Arc enabled servers agent available, which supports monitoring virtual machines hosted in hybrid environments.
-ms.date: 09/02/2020
+ms.date: 09/30/2020
 ms.topic: conceptual
 ---
 
 # Overview of Azure Arc enabled servers agent
 
 The Azure Arc enabled servers Connected Machine agent enables you to manage your Windows and Linux machines hosted outside of Azure on your corporate network or other cloud provider. This article provides a detailed overview of the agent, system and network requirements, and the different deployment methods.
+
+>[!NOTE]
+>Starting with the general release of Azure Arc enabled servers in September 2020, all pre-release versions of the Azure Connected Machine agent (agents with versions less than 1.0) are being **deprecated** by **February 2, 2021**.  This time frame allows you to upgrade to version 1.0 or higher before the pre-released agents are no longer able to communicate with the Azure Arc enabled servers service.
 
 ## Agent component details
 
@@ -39,7 +42,7 @@ The Azure Connected Machine agent for Windows and Linux can be upgraded to the l
 
 ### Supported operating systems
 
-The following versions of the Windows and Linux operating system are officially supported for the Azure Connected Machine agent: 
+The following versions of the Windows and Linux operating system are officially supported for the Azure Connected Machine agent:
 
 - Windows Server 2012 R2 and higher (including Windows Server Core)
 - Ubuntu 16.04 and 18.04 LTS (x64)
@@ -77,6 +80,8 @@ Service Tags:
 
 * AzureActiveDirectory
 * AzureTrafficManager
+* AzureResourceManager
+* AzureArcInfrastructure
 
 URLs:
 
@@ -85,10 +90,15 @@ URLs:
 |`management.azure.com`|Azure Resource Manager|
 |`login.windows.net`|Azure Active Directory|
 |`dc.services.visualstudio.com`|Application Insights|
-|`agentserviceapi.azure-automation.net`|Guest Configuration|
-|`*-agentservice-prod-1.azure-automation.net`|Guest Configuration|
 |`*.guestconfiguration.azure.com` |Guest Configuration|
 |`*.his.arc.azure.com`|Hybrid Identity Service|
+
+Preview agents (version 0.11 and lower) also require access to the following URLs:
+
+| Agent resource | Description |
+|---------|---------|
+|`agentserviceapi.azure-automation.net`|Guest Configuration|
+|`*-agentservice-prod-1.azure-automation.net`|Guest Configuration|
 
 For a list of IP addresses for each service tag/region, see the JSON file - [Azure IP Ranges and Service Tags – Public Cloud](https://www.microsoft.com/download/details.aspx?id=56519). Microsoft publishes weekly updates containing each Azure Service and the IP ranges it uses. For more information, review [Service tags](../../virtual-network/security-overview.md#service-tags).
 
@@ -125,6 +135,9 @@ You can also register the resource providers in the Azure portal by following th
 ## Installation and configuration
 
 Connecting machines in your hybrid environment directly with Azure can be accomplished using different methods depending on your requirements. The following table highlights each method to determine which works best for your organization.
+
+> [!IMPORTANT]
+> The Connected Machine agent cannot be installed on an Azure Windows virtual machine. If you attempt to, the installation detects this and rolls back.
 
 | Method | Description |
 |--------|-------------|
@@ -223,7 +236,7 @@ After installing the Connected Machine agent for Linux, the following additional
     |/opt/logs/dsc.log |Records details of the DSC service activity,<br> in particular the connectivity between the himds service and Azure Policy.|
     |/opt/logs/dsc.telemetry.txt |Records details about DSC service telemetry and verbose logging.|
     |/var/lib/GuestConfig/ext_mgr_logs |Records details about the Extension agent component.|
-    |/var/log/GuestConfig/extension_logs|Records details from the installed extension.|
+    |/var/lib/GuestConfig/extension_logs|Records details from the installed extension.|
 
 * The following environmental variables are created during agent installation. These variables are set in `/lib/systemd/system.conf.d/azcmagent.conf`.
 
@@ -239,4 +252,6 @@ After installing the Connected Machine agent for Linux, the following additional
 
 ## Next steps
 
-To begin evaluating Azure Arc enabled servers, follow the article [Connect hybrid machines to Azure from the Azure portal](onboard-portal.md).
+* To begin evaluating Azure Arc enabled servers, follow the article [Connect hybrid machines to Azure from the Azure portal](onboard-portal.md).
+
+* Troubleshooting information can be found in the [Troubleshoot Connected Machine agent guide](troubleshoot-agent-onboard.md).

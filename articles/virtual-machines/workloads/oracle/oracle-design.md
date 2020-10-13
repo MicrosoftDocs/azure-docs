@@ -3,7 +3,7 @@ title: Design and implement an Oracle database on Azure | Microsoft Docs
 description: Design and implement an Oracle database in your Azure environment.
 services: virtual-machines-linux
 documentationcenter: virtual-machines
-author: rgardler
+author: dbakevlar
 manager: 
 editor: 
 tags: azure-resource-manager
@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 08/02/2018
-ms.author: rogardle
+ms.author: kegorman
 ---
 
 # Design and implement an Oracle database in Azure
@@ -45,7 +45,7 @@ The following table lists some of the differences between an on-premises impleme
 | **Networking** |LAN/WAN  |SDN (software-defined networking)|
 | **Security group** |IP/port restriction tools |[Network Security Group (NSG)](https://azure.microsoft.com/blog/network-security-groups) |
 | **Resilience** |MTBF (mean time between failures) |MTTR (mean time to recovery)|
-| **Planned maintenance** |Patching/upgrades|[Availability sets](../../windows/infrastructure-example.md) (patching/upgrades managed by Azure) |
+| **Planned maintenance** |Patching/upgrades|[Availability sets](/previous-versions/azure/virtual-machines/windows/infrastructure-example) (patching/upgrades managed by Azure) |
 | **Resource** |Dedicated  |Shared with other clients|
 | **Regions** |Datacenters |[Region pairs](../../regions.md#region-pairs)|
 | **Storage** |SAN/physical disks |[Azure-managed storage](https://azure.microsoft.com/pricing/details/managed-disks/?v=17.23h)|
@@ -227,7 +227,7 @@ After you have set up and configured your Azure environment, the next step is to
 - [Configure Oracle ASM](configure-oracle-asm.md)
 - [Configure Oracle Data Guard](configure-oracle-dataguard.md)
 - [Configure Oracle Golden Gate](configure-oracle-golden-gate.md)
-- [Oracle backup and recovery](oracle-backup-recovery.md)
+- [Oracle backup and recovery](./oracle-overview.md)
 
 ## Next steps
 

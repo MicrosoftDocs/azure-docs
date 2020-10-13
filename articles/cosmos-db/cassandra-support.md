@@ -67,6 +67,8 @@ Azure Cosmos DB Cassandra API supports the following CQL data types:
 | udts  | Yes |
 | map | Yes |
 
+Static is supported for data type declaration.
+
 ## CQL functions
 
 Azure Cosmos DB Cassandra API supports the following CQL functions:
@@ -268,7 +270,8 @@ CREATE TABLE sampleks.t1(user_id int PRIMARY KEY, lastname text) WITH cosmosdb_p
 ALTER TABLE gks1.t1 WITH cosmosdb_provisioned_throughput=10000 ;
 
 ```
-
+## Secondary Index
+Cassandra API supports secondary indexes on all data types except frozen collection types, decimal and variant types. 
 
 ## Usage of Cassandra retry connection policy
 

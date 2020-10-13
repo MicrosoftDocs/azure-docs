@@ -3,7 +3,7 @@ title: Monitor Azure app services performance | Microsoft Docs
 description: Application performance monitoring for Azure app services. Chart load and response time, dependency information, and set alerts on performance.
 ms.topic: conceptual
 ms.date: 08/06/2020
-ms.custom: "devx-track-javascript, devx-track-dotnet"
+ms.custom: "devx-track-js, devx-track-dotnet"
 ---
 
 # Monitor Azure App Service performance
@@ -70,7 +70,7 @@ There are two ways to enable application monitoring for Azure App Services hoste
 
 # [.NET Core](#tab/netcore)
 
-The following versions of .NET Core are supported: ASP.NET Core 2.0, ASP.NET Core 2.1, ASP.NET Core 2.2, ASP.NET Core 3.0
+The following versions of .NET Core are supported: ASP.NET Core 2.1, ASP.NET Core 2.2, ASP.NET Core 3.0, ASP.NET Core 3.1
 
 Targeting the full framework from .NET Core, self-contained deployment, and Linux based applications are currently **not supported** with agent/extension based monitoring. ([Manual instrumentation](./asp-net-core.md) via code will work in all of the previous scenarios.)
 
@@ -85,7 +85,7 @@ Targeting the full framework from .NET Core, self-contained deployment, and Linu
 
      ![Instrument your web app](./media/azure-web-apps/create-resource-01.png)
 
-2. After specifying which resource to use, you can choose how you want Application Insights to collect data per platform for your application. .NET Core offers **Recommended collection** or **Disabled** for .NET Core 2.0,  2.1, 2.2, and 3.0.
+2. After specifying which resource to use, you can choose how you want Application Insights to collect data per platform for your application. .NET Core offers **Recommended collection** or **Disabled** for ASP.NET Core 2.1, 2.2, 3.0 and 3.1.
 
     ![Choose options per platform](./media/azure-web-apps/choose-options-new-net-core.png)
 
@@ -354,8 +354,8 @@ Below is our step-by-step troubleshooting guide for extension/agent based monito
 
     ![Screenshot of https://yoursitename.scm.azurewebsites/applicationinsights results page](./media/azure-web-apps/app-insights-sdk-status.png)
 
-    * Confirm that the `Application Insights Extension Status` is `Pre-Installed Site Extension, version 2.8.12.1527, is running.`
-        * If it is not running, follow the [enable Application Insights monitoring instructions](#enable-application-insights)
+    * Confirm that the `Application Insights Extension Status` is `Pre-Installed Site Extension, version 2.8.12.1527, is running.` 
+    * If it is not running, follow the [enable Application Insights monitoring instructions](#enable-application-insights)
 
     * Confirm that the status source exists and looks like: `Status source D:\home\LogFiles\ApplicationInsights\status\status_RD0003FF0317B6_4248_1.json`
         * If a similar value is not present, it means the application is not currently running or is not supported. To ensure that the application is running, try manually visiting the application url/application endpoints, which will allow the runtime information to become available.
@@ -386,7 +386,7 @@ If you use APPINSIGHTS_JAVASCRIPT_ENABLED=true in cases where content is encoded
 
 This is due to the APPINSIGHTS_JAVASCRIPT_ENABLED application setting being set to true and content-encoding being present at the same time. This scenario is not supported yet. The workaround is to remove APPINSIGHTS_JAVASCRIPT_ENABLED from your application settings. Unfortunately this means that if client/browser-side JavaScript instrumentation is still required, manual SDK references are needed for your webpages. Please follow the [instructions](https://github.com/Microsoft/ApplicationInsights-JS#snippet-setup-ignore-if-using-npm-setup) for manual instrumentation with the JavaScript SDK.
 
-For the latest information on the Application Insights agent/extension, check out the [release notes](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/app-insights-web-app-extensions-releasenotes.md).
+For the latest information on the Application Insights agent/extension, check out the [release notes](https://github.com/MohanGsk/ApplicationInsights-Home/blob/master/app-insights-web-app-extensions-releasenotes.md).
 
 ### Default website deployed with web apps does not support automatic client-side monitoring
 
@@ -401,6 +401,10 @@ PHP and WordPress sites are not supported. There is currently no officially supp
 ### Connection string and instrumentation key
 
 When codeless monitoring is being used, only the connection string is required. However, we still recommend setting the instrumentation key to preserve backwards compatibility with older versions of the SDK when manual instrumentation is being performed.
+
+## Release notes
+
+For the latest updates and bug fixes [consult the release notes](./web-app-extension-release-notes.md).
 
 ## Next steps
 * [Run the profiler on your live app](./profiler.md).

@@ -214,7 +214,7 @@ docker --version
 
 Finally, ensure that your Azure Container Registry is connected. To do this, select the Docker logo in the Activity Bar, then navigate to **REGISTRIES**.
 
-![Registries](./media/quickstart-docker/registries.png)
+![Screenshot shows the Registries value with Azure expanded and a file with the dot i o filename extension.](./media/quickstart-docker/registries.png)
 
 ## Deploy the image to Azure App Service
 

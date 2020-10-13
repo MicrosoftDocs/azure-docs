@@ -3,7 +3,7 @@ title: Tutorial - Trigger image build by private base image update
 description: In this tutorial, you configure an Azure Container Registry Task to automatically trigger container image builds in the cloud when a base image in another private Azure container registry is updated.
 ms.topic: tutorial
 ms.date: 01/22/2020
-ms.custom: devx-track-javascript
+ms.custom: devx-track-js
 ---
 
 # Tutorial: Automate container image builds when a base image is updated in another private container registry 

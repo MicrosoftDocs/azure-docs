@@ -9,7 +9,7 @@ ms.devlang:
 ms.topic: conceptual
 author: oslake
 ms.author: moslake
-ms.reviewer: carlrab
+ms.reviewer: sstein
 ms.date: 09/16/2020
 ---
 # Scale elastic pool resources in Azure SQL Database

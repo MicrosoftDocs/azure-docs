@@ -105,7 +105,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 1. Bynder application expects the SAML assertions in a specific format. Configure the following claims for this application. You can manage the values of these attributes from the **User Attributes** section on application integration page. On the **Set up Single Sign-On with SAML** page, click **Edit** button to open **User Attributes** dialog.
 
-	![image](common/edit-attribute.png)
+	![Screenshot shows User Attributes & Claims with the Edit icon selected.](common/edit-attribute.png)
 
 1. In the **User Claims** section on the **User Attributes** dialog, edit the claims by using **Edit icon** or add the claims by using **Add new claim** to configure SAML token attribute as shown in the image above and perform the following steps:
 
@@ -117,7 +117,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 	1. Click **Save**.
 
-    	![image](./media/bynder-tutorial/config08.png)
+    	![Screenshot shows the Group Claims section with Security groups and Group I D selected.](./media/bynder-tutorial/config08.png)
 
 1. On the **Set up Single Sign-On with SAML** page, in the **SAML Signing Certificate** section,  find **Metadata XML** and select **Download** to download the certificate and save it on your computer.
 

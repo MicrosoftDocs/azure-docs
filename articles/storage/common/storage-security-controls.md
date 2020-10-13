@@ -50,7 +50,7 @@ This article documents the security controls built into Azure Storage.
 | Security control | Yes/No | Notes|
 |---|---|--|
 | Authentication| Yes | Azure Active Directory, Shared key, Shared access token. |
-| Authorization| Yes | Support Authorization via RBAC, POSIX ACLs, and SAS Tokens |
+| Authorization| Yes | Support Authorization via Azure RBAC, POSIX ACLs, and SAS Tokens |
 
 ## Configuration management
 

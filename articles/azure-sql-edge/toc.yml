@@ -46,8 +46,8 @@
       href: disconnected-deployment.md    
     - name: Deploy in Kubernetes
       href: deploy-kubernetes.md     
-    - name: SQL tools
-      href: https://docs.microsoft.com/en-us/sql/tools/overview-sql-tools?toc=/azure/azure-sql-edge/toc.json        
+    - name: Deploy with Azure Data Studio
+      href: https://docs.microsoft.com/sql/azure-data-studio/deploy-azure-sql-edge?toc=/azure/azure-sql-edge/toc.json        
   - name: Machine learning 
     items:
     - name: Machine learning and AI with ONNX
@@ -142,3 +142,9 @@
   items:
   - name: Transact-SQL (T-SQL) Reference
     href: https://docs.microsoft.com/sql/t-sql/language-reference
+- name: Resources
+  items:
+  - name: Partners
+    items:
+    - name: Security
+      href: resources-partners-security.md

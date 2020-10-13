@@ -7,7 +7,7 @@ ms.devlang: javascript
 ms.topic: quickstart
 ms.date: 12/14/2019
 ms.author: zhshang
-ms.custom: devx-track-javascript
+ms.custom: devx-track-js
 ---
 # Quickstart: Use JavaScript to create a chat room with Azure Functions and SignalR Service
 

@@ -8,8 +8,8 @@ ms.subservice: authentication
 ms.topic: conceptual
 ms.date: 07/14/2020
 
-ms.author: iainfou
-author: iainfoulds
+ms.author: joflore
+author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: librown
 
@@ -58,6 +58,8 @@ You can also allow your employee's phone to become a passwordless authentication
 ![Sign in to Microsoft Edge with the Microsoft Authenticator app](./media/concept-authentication-passwordless/concept-web-sign-in-microsoft-authenticator-app.png)
 
 The Authenticator App turns any iOS or Android phone into a strong, passwordless credential. Users can sign in to any platform or browser by getting a notification to their phone, matching a number displayed on the screen to the one on their phone, and then using their biometric (touch or face) or PIN to confirm. Refer to [Download and install the Microsoft Authenticator app](../user-help/user-help-auth-app-download-install.md) for installation details.
+
+Passwordless sign-in with the Microsoft Authenticator app to Azure AD is currently in preview. Use of the Microsoft Authenticator app for secondary authentication for Azure Multi-Factor Authentication, self-service password reset (SSPR), or OATH software tokens is GA. For more information about previews, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 Passwordless authentication using the Authenticator app follows the same basic pattern as Windows Hello for Business. It's a little more complicated as the user needs to be identified so that Azure AD can find the Microsoft Authenticator App version being used:
 

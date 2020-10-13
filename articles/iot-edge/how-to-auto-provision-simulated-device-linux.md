@@ -141,7 +141,7 @@ Retrieve the provisioning information from your virtual machine, and use that to
 When you create an enrollment in DPS, you have the opportunity to declare an **Initial Device Twin State**. In the device twin, you can set tags to group devices by any metric you need in your solution, like region, environment, location, or device type. These tags are used to create [automatic deployments](how-to-deploy-at-scale.md).
 
 > [!TIP]
-> In the Azure CLI, you can create an [enrollment](https://docs.microsoft.com/cli/azure/ext/azure-iot/iot/dps/enrollment) and use the **edge-enabled** flag to specify that a device is an IoT Edge device.
+> In the Azure CLI, you can create an [enrollment](/cli/azure/ext/azure-iot/iot/dps/enrollment) and use the **edge-enabled** flag to specify that a device is an IoT Edge device.
 
 1. In the [Azure portal](https://portal.azure.com), navigate to your instance of IoT Hub Device Provisioning Service.
 
@@ -172,11 +172,36 @@ Now that an enrollment exists for this device, the IoT Edge runtime can automati
 
 The IoT Edge runtime is deployed on all IoT Edge devices. Its components run in containers, and allow you to deploy additional containers to the device so that you can run code at the edge. Install the IoT Edge runtime on your virtual machine.
 
-Know your DPS **ID Scope** and device **Registration ID** before beginning the article that matches your device type. If you installed the example Ubuntu server, use the **x64** instructions. Make sure to configure the IoT Edge runtime for automatic, not manual, provisioning.
+Follow the steps in [Install the Azure IoT Edge runtime](how-to-install-iot-edge.md), then return to this article to provision the device.
 
-When you get to the step to configure the security daemon, be sure and choose [Option 2 Automatic Provisioning](how-to-install-iot-edge-linux.md#option-2-automatic-provisioning) and configure for TPM attestation.
+## Configure the device with provisioning information
 
-[Install the Azure IoT Edge runtime on Linux](how-to-install-iot-edge-linux.md)
+Once the runtime is installed on your device, configure the device with the information it uses to connect to the Device Provisioning Service and IoT Hub.
+
+1. Know your DPS **ID Scope** and device **Registration ID** that were gathered in the previous sections.
+
+1. Open the configuration file on the IoT Edge device.
+
+   ```bash
+   sudo nano /etc/iotedge/config.yaml
+   ```
+
+1. Find the provisioning configurations section of the file. Uncomment the lines for TPM provisioning, and make sure any other provisioning lines are commented out.
+
+   The `provisioning:` line should have no preceding whitespace, and nested items should be indented by two spaces.
+
+   ```yml
+   # DPS TPM provisioning configuration
+   provisioning:
+     source: "dps"
+     global_endpoint: "https://global.azure-devices-provisioning.net"
+     scope_id: "<SCOPE_ID>"
+     attestation:
+       method: "tpm"
+       registration_id: "<REGISTRATION_ID>"
+   ```
+
+1. Update the values of `scope_id` and `registration_id` with your DPS and device information.
 
 ## Give IoT Edge access to the TPM
 

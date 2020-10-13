@@ -14,7 +14,7 @@ Azure Database for MySQL powered by the MySQL community edition is available in 
 - Single Server 
 - Flexible Server (Preview)
 
-In this article, we will provide an overview and introduction to core concepts of flexible server deployment model. 
+In this article, we will provide an overview and introduction to core concepts of flexible server deployment model. For information on how to decide what deployment option is appropriate for your workload, see [choosing the right MySQL server option in Azure](./../select-right-deployment-type.md).
 
 ## Overview
 
@@ -48,7 +48,9 @@ See [high availability concepts](concepts-high-availability.md) for more details
 
 ## Automated patching with managed maintenance window
 
-The service performs automated patching of the underlying hardware, OS, and database engine. The patching includes security and software updates. For MySQL engine, minor version upgrades are also included as part of the planned maintenance release. Users can configure the patching schedule to be system managed or define their custom schedule. During the maintenance schedule, the patch is applied and server may require a restart as part of the patching process to complete the update. With the custom schedule, users can make their patching cycle predictable and choose a maintenance window with minimum impact to the business. In general, the service follows monthly release schedule as part of the continuous integration and release. 
+The service performs automated patching of the underlying hardware, OS, and database engine. The patching includes security and software updates. For MySQL engine, minor version upgrades are also included as part of the planned maintenance release. Users can configure the patching schedule to be system managed or define their custom schedule. During the maintenance schedule, the patch is applied and server may require a restart as part of the patching process to complete the update. With the custom schedule, users can make their patching cycle predictable and choose a maintenance window with minimum impact to the business. In general, the service follows monthly release schedule as part of the continuous integration and release.
+
+See [Scheduled Maintenance](concepts-maintenance.md) for more details. 
 
 ## Automatic backups
 
@@ -81,13 +83,15 @@ See [Compute and Storage concepts](concepts-compute-storage.md) to learn more.
 
 The flexible server service allows you to stop and start server on-demand to optimize cost. The compute tier billing is stopped immediately when the server is stopped. This can allow you to have significant cost savings during development, testing and for time-bound predictable production workloads. The server remains in stopped state for seven days unless re-started sooner. 
 
+See [Server concepts](concept-servers.md) to learn more. 
+
 ## Enterprise grade security and privacy
 
 The flexible server service uses the FIPS 140-2 validated cryptographic module for storage encryption of data at-rest. Data, including backups, and temporary files created while running queries are encrypted. The service uses the AES 256-bit cipher included in Azure storage encryption, and the keys can be system managed (default). 
 
 The service encrypts data in-motion with transport layer security enforced by default. Flexible Servers only supports encrypted connections using Transport Layer Security (TLS 1.2) and all incoming connections with TLS 1.0 and TLS 1.1 will be denied. 
 
-See [how to use encrypted connections to flexible servers](/articles/mysql/flexible-server/how-to-connect-tls-ssl.md) to learn more.
+See [how to use encrypted connections to flexible servers](https://docs.mongodb.com/manual/tutorial/configure-ssl) to learn more.
 
 Flexible servers allows full private access to the servers using [Azure virtual network](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview) (VNet) integration. Servers in Azure virtual network can only be reached and connected through private IP addresses. With VNet integration, public access is denied and servers cannot be reached using public endpoints. 
 
@@ -106,6 +110,15 @@ The service runs the community version of MySQL. This allows full application co
 
 - **Dump and Restore** – For offline migrations, where users can afford some downtime, dump and restore using community tools like mysqldump/mydumper can provide fastest way to migrate. See Migrate using dump and restore for details. 
 - **Azure Database Migration Service** – For seamless and simplified migrations to single server with minimal downtime, [Azure Database Migration Service](https://docs.microsoft.com/azure/dms/tutorial-mysql-azure-mysql-online) can be leveraged. 
+
+## Contacts
+For any questions or suggestions you might have about working with Azure Database for MySQL, send an email to the Azure Database for MySQL Team ([@Ask Azure DB for MySQL](mailto:AskAzureDBforMySQL@service.microsoft.com)). This email address is not a technical support alias.
+
+In addition, consider the following points of contact as appropriate:
+
+- To contact Azure Support, [file a ticket from the Azure portal](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
+- To fix an issue with your account, file a [support request](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest) in the Azure portal.
+- To provide feedback or to request new features, create an entry via [UserVoice](https://feedback.azure.com/forums/597982-azure-database-for-mysql).
 
 ## Next steps
 Now that you've read an introduction to Azure Database for MySQL single server deployment mode, you're ready to:

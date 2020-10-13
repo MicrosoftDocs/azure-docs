@@ -4,7 +4,7 @@ description: Track engagements with Azure customers by linking a partner ID to t
 author: dhirajgandhi
 ms.reviewer: dhgandhi
 ms.author: banders
-ms.date: 07/24/2020
+ms.date: 10/05/2020
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
@@ -38,7 +38,7 @@ When you have access to the customer's resources, use the Azure portal, PowerShe
 
 2. Sign in to the Azure portal.
 
-3. Enter the Microsoft partner ID. The partner ID is the [Microsoft Partner Network](https://partner.microsoft.com/) ID for your organization.
+3. Enter the Microsoft partner ID. The partner ID is the [Microsoft Partner Network](https://partner.microsoft.com/) ID for your organization. Be sure to use the **Associated MPN ID** shown on your partner profile.
 
    ![Screenshot that shows Link to a partner ID](./media/link-partner-id/link-partner-id01.png)
 
@@ -56,7 +56,8 @@ When you have access to the customer's resources, use the Azure portal, PowerShe
     C:\> Connect-AzAccount -TenantId XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX
    ```
 
-3. Link to the new partner ID. The partner ID is the [Microsoft Partner Network](https://partner.microsoft.com/) ID for your organization.
+3. Link to the new partner ID. The partner ID is the [Microsoft Partner Network](https://partner.microsoft.com/) ID for your organization. Be sure to use the **Associated MPN ID** shown on your partner profile.
+
 
     ```azurepowershell-interactive
     C:\> new-AzManagementPartner -PartnerId 12345
@@ -136,7 +137,7 @@ The link is associated at the user account level. Only you can edit or remove th
 
 **Which MPN ID should I use if my company has multiple?**
 
-Partner Location Accounts and associated MPN IDs should be used for linking partner ID.  Learn more about [Partner Accounts](https://docs.microsoft.com/partner-center/account-structure)
+Be sure to use the **Associated MPN ID** shown in your partner profile.
 
 **Where can I find influenced revenue reporting for linked partner ID?**
 
@@ -146,9 +147,9 @@ Cloud Product Performance reporting is available to partners in Partner Center a
 
 You can't see the customer in the reports due to following reasons
 
-1. The linked user account doesn't have [Role Based Access](https://docs.microsoft.com/azure/role-based-access-control/overview) on any customer Azure subscription or resource.
+1. The linked user account doesn't have [Azure role-based access control (Azure RBAC)](https://docs.microsoft.com/azure/role-based-access-control/overview) on any customer Azure subscription or resource.
 
-2. The Azure subscription where the user has [Role Based Access](https://docs.microsoft.com/azure/role-based-access-control/overview) access doesn't have any usage.
+2. The Azure subscription where the user has [Azure role-based access control (Azure RBAC)](https://docs.microsoft.com/azure/role-based-access-control/overview) access doesn't have any usage.
 
 **Does link partner ID works with Azure Stack?**
 

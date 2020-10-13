@@ -19,7 +19,7 @@ ms.service: digital-twins
 
 The heart of Azure Digital Twins is the [twin graph](concepts-twins-graph.md) representing your whole environment. The twin graph is made up of individual digital twins connected via **relationships**.
 
-Once you have a working [Azure Digital Twins instance](how-to-set-up-instance-scripted.md) and have set up [authentication](how-to-authenticate-client.md) code in your client app, you can use the [**DigitalTwins APIs**](how-to-use-apis-sdks.md) to create, modify, and delete digital twins and their relationships in an Azure Digital Twins instance. You can also use the [.NET (C#) SDK](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/digitaltwins/Azure.DigitalTwins.Core), or the [Azure Digital Twins CLI](how-to-use-cli.md).
+Once you have a working [Azure Digital Twins instance](how-to-set-up-instance-portal.md) and have set up [authentication](how-to-authenticate-client.md) code in your client app, you can use the [**DigitalTwins APIs**](how-to-use-apis-sdks.md) to create, modify, and delete digital twins and their relationships in an Azure Digital Twins instance. You can also use the [.NET (C#) SDK](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/digitaltwins/Azure.DigitalTwins.Core), or the [Azure Digital Twins CLI](how-to-use-cli.md).
 
 This article focuses on managing relationships and the graph as a whole; to work with individual digital twins, see [*How-to: Manage digital twins*](how-to-manage-twin.md).
 
@@ -65,9 +65,17 @@ public async static Task CreateRelationship(DigitalTwinsClient client, string sr
 
 For more information on the helper class `BasicRelationship`, see [*How-to: Use the Azure Digital Twins APIs and SDKs*](how-to-use-apis-sdks.md).
 
+### Create multiple relationships between twins
+
+There is no restriction on the number of relationships that you can have between two twins—you can have as many relationships between twins as you like. 
+
+This means that you can express several different types of relationships between two twins at once. For example, *Twin A* can have both a *stored* relationship and *manufactured* relationship with *Twin B*.
+
+You can even create multiple instances of the same type of relationship between the same two twins, if desired. In this example, that means *Twin A* could have two distinct *stored* relationships with *Twin B*.
+
 ## List relationships
 
-To access the list of relationships for a given twin in the graph, you can use:
+To access the list of **outgoing** relationships coming from a given twin in the graph, you can use:
 
 ```csharp
 await client.GetRelationshipsAsync(id);
@@ -103,11 +111,11 @@ public async Task<List<BasicRelationship>> FindOutgoingRelationshipsAsync(string
 
 You can use the retrieved relationships to navigate to other twins in your graph. To do this, read the `target` field from the relationship that is returned, and use it as the ID for your next call to `GetDigitalTwin`. 
 
-### Find relationships to a digital twin
+### Find incoming relationships to a digital twin
 
-Azure Digital Twins also has an API to find all incoming relationships to a given twin. This is often useful for reverse navigation, or when deleting a twin.
+Azure Digital Twins also has an API to find all **incoming** relationships to a given twin. This is often useful for reverse navigation, or when deleting a twin.
 
-The previous code sample focused on finding outgoing relationships. The following example is similar, but finds incoming relationships instead. It also deletes them once they are found.
+The previous code sample focused on finding outgoing relationships from a twin. The following example is structured similarly, but finds *incoming* relationships to the twin instead.
 
 Note that the `IncomingRelationship` calls do not return the full body of the relationship.
 

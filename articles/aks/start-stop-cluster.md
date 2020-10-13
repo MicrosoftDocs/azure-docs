@@ -3,7 +3,7 @@ title: Start and Stop an Azure Kubernetes Service (AKS)
 description: Learn how to stop or start an Azure Kubernetes Service (AKS) cluster.
 services: container-service
 ms.topic: article
-ms.date: 09/18/2020
+ms.date: 09/24/2020
 author: palma21
 
 ---
@@ -11,13 +11,24 @@ author: palma21
 # Stop and Start an Azure Kubernetes Service (AKS) cluster (preview)
 
 Your AKS workloads may not need to run continuously, for example a development cluster that is used only during business hours. This leads to times where your Azure Kubernetes Service (AKS) cluster might be idle, running no more than the system components. You can reduce the cluster footprint by [scaling all the `User` node pools to 0](scale-cluster.md#scale-user-node-pools-to-0), but your [`System` pool](use-system-pools.md) is still required to run the system components while the cluster is running. 
-To optimize your costs further during these periods, you can completely turn off (stop) your cluster. This action will stop your control plane and agent nodes altogether, allowing you to save on all the compute costs, while maintaining all your objects and cluster state stored for when you start it again. This allows you to pick up right where you left of after a weekend or to have your cluster running only while you run your batch jobs.
+To optimize your costs further during these periods, you can completely turn off (stop) your cluster. This action will stop your control plane and agent nodes altogether, allowing you to save on all the compute costs, while maintaining all your objects and cluster state stored for when you start it again. You can then pick up right where you left of after a weekend or to have your cluster running only while you run your batch jobs.
 
 [!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
 
 ## Before you begin
 
 This article assumes that you have an existing AKS cluster. If you need an AKS cluster, see the AKS quickstart [using the Azure CLI][aks-quickstart-cli] or [using the Azure portal][aks-quickstart-portal].
+
+
+### Limitations
+
+When using the cluster start/stop feature, the following restrictions apply:
+
+- This feature is only supported for Virtual Machine Scale Sets backed clusters.
+- During preview, this feature is not supported for Private clusters.
+- The cluster state of a stopped AKS cluster is preserved for up to 12 months. If your cluster is stopped for more than 12 months, the cluster state cannot be recovered. For more information, see the [AKS Support Policies](support-policies.md).
+- During preview, you need to stop the cluster autoscaler (CA) before attempting to stop the cluster.
+- You can only start or delete a stopped AKS cluster. To perform any operation like scale or upgrade, start your cluster first.
 
 ### Install the `aks-preview` Azure CLI 
 
@@ -30,11 +41,6 @@ az extension add --name aks-preview
 # Update the extension to make sure you have the latest version installed
 az extension update --name aks-preview
 ``` 
-
-> [!WARNING]
-> The cluster state of a stopped AKS cluster is preserved for up to 12 months. If your cluster is stopped for more than 12 months the cluster state cannot be recovered. For more information, see the [AKS Support Policies](support-policies.md).
-> You can only start or delete a stopped AKS cluster. To perform any operation like scale or upgrade, start your cluster first.
-
 
 ### Register the `StartStopPreview` preview feature
 
@@ -133,3 +139,4 @@ If the `provisioningState` shows `Starting` that means your cluster hasn't fully
 [az-feature-register]: /cli/azure/feature?view=azure-cli-latest#az-feature-register&preserve-view=true
 [az-feature-list]: /cli/azure/feature?view=azure-cli-latest#az-feature-list&preserve-view=true
 [az-provider-register]: /cli/azure/provider?view=azure-cli-latest#az-provider-register&preserve-view=true
+[az-aks-show]: /cli/azure/aks?view=azure-cli-latest#az_aks_show

@@ -9,9 +9,18 @@ ms.date: 09/18/2020
 
 An event handler is the place where the event is sent. The handler takes an action to process the event. Several Azure services are automatically configured to handle events and **Azure Functions** is one of them. 
 
-Use **Azure Functions** in a serverless architecture to respond to events from Event Grid. When using an Azure function as the handler, use the Event Grid trigger instead of the generic HTTP trigger. Event Grid automatically validates Event Grid triggers. With generic HTTP triggers, you must implement the [validation response](webhook-event-delivery.md) yourself.
 
-For more information, see [Event Grid trigger for Azure Functions](../azure-functions/functions-bindings-event-grid.md) for an overview of using the Event Grid trigger in functions.
+To use an Azure function as a handler for events, follow one of these approaches: 
+
+-	Use [Event Grid trigger](../azure-functions/functions-bindings-event-grid-trigger.md).  Specify **Azure Function** as the **endpoint type**. Then, specify the Azure function app and the function that will handle events. 
+-	Use [HTTP trigger](../azure-functions/functions-bindings-http-webhook.md).  Specify **Web Hook** as the **endpoint type**. Then, specify the URL for the Azure function that will handle events. 
+
+We recommend that you use the first approach (Event Grid trigger) as it has the following advantages over the second approach:
+-	Event Grid automatically validates Event Grid triggers. With generic HTTP triggers, you must implement the [validation response](webhook-event-delivery.md) yourself.
+-	Event Grid automatically adjusts the rate at which events are delivered to a function triggered by an Event Grid event based on the perceived rate at which the function can process events. This rate match feature averts delivery errors that stem from the inability of a function to process events as the function’s event processing rate can vary over time. To improve efficiency at high throughput, enable batching on the event subscription. For more information, see [Enable batching](#enable-batching).
+
+    > [!NOTE]
+    > Currently, you can't use an Event Grid trigger for an Azure Functions app when the event is delivered in the **CloudEvents** schema. Instead, use an HTTP trigger.
 
 ## Tutorials
 
@@ -66,6 +75,5 @@ You can use the [az eventgrid event-subscription create](https://docs.microsoft.
 ### Azure PowerShell
 You can use the [New-AzEventGridSubscription](https://docs.microsoft.com/powershell/module/az.eventgrid/new-azeventgridsubscription) or [Update-AzEventGridSubscription](https://docs.microsoft.com/powershell/module/az.eventgrid/update-azeventgridsubscription) cmdlet to configure batch-related settings using the following parameters: `-MaxEventsPerBatch` or `-PreferredBatchSizeInKiloBytes`.
 
-###
 ## Next steps
 See the [Event handlers](event-handlers.md) article for a list of supported event handlers. 
