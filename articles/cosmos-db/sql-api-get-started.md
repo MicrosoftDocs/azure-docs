@@ -255,7 +255,7 @@ A database is the logical container of items partitioned across containers. Eith
 1. Select F5 to run your application.
 
    > [!NOTE]
-   > If you get a "503 service unavailable exception" error, it's possible that the required [ports](sql-sdk.connectionmodes.md#service-port-ranges) for direct connectivity mode are blocked by a firewall. To fix this issue, either open the required ports or use the gateway mode connectivity as shown in the following code:
+   > If you get a "503 service unavailable exception" error, it's possible that the required [ports](sql-sdk-connectionmodes.md#service-port-ranges) for direct connectivity mode are blocked by a firewall. To fix this issue, either open the required ports or use the gateway mode connectivity as shown in the following code:
    ```csharp
      // Create a new instance of the Cosmos Client in Gateway mode
      this.cosmosClient = new CosmosClient(EndpointUri, PrimaryKey, new CosmosClientOptions()

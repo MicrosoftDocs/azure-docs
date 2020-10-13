@@ -65,7 +65,7 @@ If you're testing at high throughput levels (more than 50,000 RU/s), the client 
 
 **Connection policy: Use direct connection mode**
 
-.NET V2 SDK default connection mode is [Gateway](sql-sdk.connectionmodes.md). You configure the connection mode during the construction of the `DocumentClient` instance by using the `ConnectionPolicy` parameter. If you use direct mode, you can also set the `Protocol` by using the `ConnectionPolicy` parameter.
+.NET V2 SDK default connection mode is [Gateway](sql-sdk-connectionmodes.md). You configure the connection mode during the construction of the `DocumentClient` instance by using the `ConnectionPolicy` parameter. If you use direct mode, you can also set the `Protocol` by using the `ConnectionPolicy` parameter.
 
 ```csharp
 Uri serviceEndpoint = new Uri("https://contoso.documents.net");

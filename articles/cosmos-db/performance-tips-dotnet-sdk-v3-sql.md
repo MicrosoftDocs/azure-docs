@@ -63,7 +63,7 @@ If you're testing at high throughput levels, or at rates that are greater than 5
 
 **Connection policy: Use direct connection mode**
 
-.NET V3 SDK default connection mode is [Direct](sql-sdk.connectionmodes.md). You configure the connection mode when you create the `CosmosClient` instance in `CosmosClientOptions`.
+.NET V3 SDK default connection mode is [Direct](sql-sdk-connectionmodes.md). You configure the connection mode when you create the `CosmosClient` instance in `CosmosClientOptions`.
 
 ```csharp
 string connectionString = "<your-account-connection-string>";
