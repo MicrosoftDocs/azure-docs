@@ -292,6 +292,8 @@ Likewise, you can set the `status_code` and `headers` for the response message i
 
 ## Scaling and Performance
 
+It's important to understand how your functions perform and how that performance affects the way your function app gets scaled. This is particularly important when designing highly performant apps. The following are several factors to consider when designing, writing and configuring your functions apps.
+
 ### Horizontal Scaling
 By default, Azure Functions automatically monitors the load on your application and creates additional host instances for Python as needed. Functions uses built-in thresholds for different trigger types to decide when to add instances, such as the age of messages and queue size for QueueTrigger. These thresholds aren't user configurable. For more information, see [How the Consumption and Premium plans work](functions-scale.md#how-the-consumption-and-premium-plans-work).
 
@@ -360,14 +362,14 @@ A function without the `async` keyword is run automatically in an asyncio thread
 def main():
     some_blocking_socket_io()
 ```
->[!NOTE]
-> In order to achieve the full benefit of running functions asynchronously, the I/O operation/library that is used in your code needs to have async implemented as well. Using synchronous I/O operations in functions that are defined as asynchronous **may hurt** the overall performance.
->
->Here are a few examples of client libraries that has implemented async pattern:
->- [aiohttp](https://pypi.org/project/aiohttp/) - Http client/server for asyncio 
->- [Streams API](https://docs.python.org/3/library/asyncio-stream.html) - High-level async/await-ready primitives to work with network connection
->- [Janus Queue](https://pypi.org/project/janus/) - Thread-safe asyncio-aware queue for Python
->- [pyzmq](https://pypi.org/project/pyzmq/) - Python bindings for ZeroMQ
+
+In order to achieve the full benefit of running functions asynchronously, the I/O operation/library that is used in your code needs to have async implemented as well. Using synchronous I/O operations in functions that are defined as asynchronous **may hurt** the overall performance.
+
+Here are a few examples of client libraries that has implemented async pattern:
+- [aiohttp](https://pypi.org/project/aiohttp/) - Http client/server for asyncio 
+- [Streams API](https://docs.python.org/3/library/asyncio-stream.html) - High-level async/await-ready primitives to work with network connection
+- [Janus Queue](https://pypi.org/project/janus/) - Thread-safe asyncio-aware queue for Python
+- [pyzmq](https://pypi.org/project/pyzmq/) - Python bindings for ZeroMQ
  
 
 ##### Use multiple language worker processes
