@@ -25,15 +25,17 @@ For simplicity, we recommend creating a service principal account in your tenant
 
 By following these steps, every customer tenant you manage will be associated with your partner ID. The PEC Automation Account does not need to authenticate or perform any actions in the customer tenant.
 
+:::image type="content" source="../media/lighthouse-pal.jpg" alt-text="Diagram showing the PAL process with Azure Lighthouse.":::
+
 ## Add your partner ID to previously onboarded customers
 
 If you have already onboarded a customer, you may not want to perform another deployment to add your PEC Automation Account service principal. Instead, you can link your **Associated MPN ID** with a user account which already has access to work in that customer's tenant. Be sure that the account has been granted an [Azure built-in role that is eligible for PEC](/partner-center/azure-roles-perms-pec).
 
-Once the account has been [linked to your Associated MPN ID](../../cost-management-billing/manage/link-partner-id.md#link-to-a-partner-id) in your managing tenant, you will be able to earn recognition for your impact on that customer.
+Once the account has been [linked to your Associated MPN ID](../../cost-management-billing/manage/link-partner-id.md#link-to-a-partner-id) in your managing tenant, you will be able to track recognition for your impact on that customer.
 
 ## Confirm partner earned credit
 
-You can [view PEC details in the Azure portal](/partner-center/partner-earned-credit-explanation#azure-cost-management) and confirm which costs have received the benefit of PEC.
+You can [view PEC details in the Azure portal](/partner-center/partner-earned-credit-explanation#azure-cost-management) and confirm which costs have received the benefit of PEC. Remember that PEC only applies to CSP customers who have signed the MCA and are under the Azure plan.
 
 If you have followed the steps above, and do not see the association, open a support request in the Azure portal.
 
