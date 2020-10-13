@@ -113,6 +113,44 @@ First, instrument your Python application with latest [OpenCensus Python SDK](./
     config = Configurator(settings=settings)
     ```
 
+## Tracking FastAPI applications
+
+1. As there is no Opencensus FastAPI extension, we need to add FastAPI middleware, then we can set the span attributes. You need the the following dependencies (fastapi, uvicorn).
+
+2. After that we need to set span kind server `span.span_kind = SpanKind.SERVER`.
+
+```python 
+app = FastAPI()
+logger = logging.getLogger(__name__)
+
+HTTP_URL = COMMON_ATTRIBUTES['HTTP_URL']
+HTTP_STATUS_CODE = COMMON_ATTRIBUTES['HTTP_STATUS_CODE']
+
+@app.middleware("http")
+async def add_process_time_header(request: Request, call_next):
+    tracer = Tracer(exporter=AzureExporter(connection_string=f'InstrumentationKey={APPINSIGHTS_INSTRUMENTATIONKEY}'),sampler=ProbabilitySampler(1.0))
+    with tracer.span("main") as span:
+        span.span_kind = SpanKind.SERVER
+            
+        response = await call_next(request)
+
+        tracer.add_attribute_to_current_span(
+            attribute_key=HTTP_STATUS_CODE,
+            attribute_value=response.status_code)
+        tracer.add_attribute_to_current_span(
+            attribute_key=HTTP_URL,
+            attribute_value=str(request.url))
+        
+    return response
+
+@app.get("/")
+async def root():
+    return "Hello World!"
+
+if __name__ == '__main__':
+    uvicorn.run("example:app", host="127.0.0.1", port=5000, log_level="info")
+```
+
 ## Next steps
 
 * [Application Map](./app-map.md)
