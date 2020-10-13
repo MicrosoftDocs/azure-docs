@@ -82,7 +82,7 @@
     href: backend-pool-management.md
   - name: Standard Load Balancer and Virtual Machine Scale Sets
     href: load-balancer-standard-virtual-machine-scale-sets.md
-- name: How to
+- name: How-to
   items:
   - name: Portal settings
     href: manage.md
