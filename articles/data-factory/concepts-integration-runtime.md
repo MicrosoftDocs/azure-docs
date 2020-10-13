@@ -64,7 +64,7 @@ Azure integration runtime provides the native compute to move data between cloud
 
 Activity dispatch is a lightweight operation to route the activity to the target compute service, so there isn't need to scale up the compute size for this scenario.
 
-For information about creating and configuring an Azure IR, reference how to create and configure Azure IR under how to guides. 
+For information about creating and configuring an Azure IR, see [How to create and configure Azure Integration Runtime](create-azure-integration-runtime.md). 
 
 > [!NOTE] 
 > Azure Integration runtime has properties related to Data Flow runtime, which defines the underlying compute infrastructure that would be used to run the data flows on. 

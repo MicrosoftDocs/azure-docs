@@ -1,7 +1,7 @@
 ---
 title: Remediate non-compliant resources
 description: This guide walks you through the remediation of resources that are non-compliant to policies in Azure Policy.
-ms.date: 09/22/2020
+ms.date: 10/05/2020
 ms.topic: how-to
 ---
 # Remediate non-compliant resources with Azure Policy
@@ -18,7 +18,7 @@ remediation with Azure Policy.
 When Azure Policy runs the template in the **deployIfNotExists** policy definition, it does so using
 a [managed identity](../../../active-directory/managed-identities-azure-resources/overview.md).
 Azure Policy creates a managed identity for each assignment, but must have details about what roles
-to grant the managed identity. If the managed identity is missing roles, this error is displayed
+to grant the managed identity. If the managed identity is missing roles, an error is displayed
 during the assignment of the policy or an initiative. When using the portal, Azure Policy
 automatically grants the managed identity the listed roles once assignment starts. When using SDK,
 the roles must manually be granted to the managed identity. The _location_ of the managed identity

@@ -97,6 +97,10 @@ As far as we know, any backup solution that uses VMware VADP with the HotAdd tra
 
 As these backup solutions are installed and managed by customers, they can reach out to the respective ISV for support. 
 
+#### What is the correct storage policy for the dedup set up?
+
+Use the *thin_provision* storage policy for your VM template.  The default is *thick_provision*.
+
 ## Hosts, clusters, and private clouds
 
 #### Is the underlying infrastructure shared?
@@ -170,6 +174,8 @@ No. Network traffic inbound from the internet directly to private clouds isn't a
 
 Yes. You'll need to use NSX-T manager to create a firewall that restricts VM access to the internet.
 
+
+
 ## Accounts and privileges
 
 #### What accounts and privileges will I get with my new Azure VMware Solution private cloud?
@@ -207,7 +213,7 @@ You'll need an Azure account in an Azure subscription.
 
 #### How do I request a host quota increase for Azure VMware Solution?
 
-* You'll need an [Azure Enterprise Agreement (EA)](https://docs.microsoft.com/azure/cost-management-billing/manage/ea-portal-agreements) with Microsoft.
+* You'll need an [Azure Enterprise Agreement (EA)](../cost-management-billing/manage/ea-portal-agreements.md) with Microsoft.
 * You'll need an Azure account in an Azure subscription.
 
 Before you create your Azure VMware Solution resource, you'll need to submit a support ticket to have your nodes allocated. Once the support team receives your request, it takes up to five business days to confirm your request and allocate your nodes. If you have an existing Azure VMware Solution private cloud and want more nodes allocated, you'll go through the same process.
