@@ -159,6 +159,24 @@
           href: concept-enterprise-security.md
         - name: Security baseline
           href: security-baseline.md
+    - name: Responsible ML
+      items: 
+        - name: Responsible ML overview
+          displayName: responsible,ml
+          href: concept-responsible-ml.md
+        - name: Model interpretability
+          displayName: explainability
+          href: how-to-machine-learning-interpretability.md
+        - name: Fairness in Machine Learning
+          displayName: fairness
+          href: concept-fairness-ml.md
+        - name: Differential Privacy
+          displayName: differential,privacy
+          href: concept-differential-privacy.md
+- name: How-to guides
+  items:
+    - name: Security
+      items:
         - name: Identity & access management
           items:
             - name: Set up authentication
@@ -210,23 +228,6 @@
         - name: Audit and manage compliance
           href: how-to-integrate-azure-policy.md
           displayName: policy
-        
-    - name: Responsible ML
-      items: 
-        - name: Responsible ML overview
-          displayName: responsible,ml
-          href: concept-responsible-ml.md
-        - name: Model interpretability
-          displayName: explainability
-          href: how-to-machine-learning-interpretability.md
-        - name: Fairness in Machine Learning
-          displayName: fairness
-          href: concept-fairness-ml.md
-        - name: Differential Privacy
-          displayName: differential,privacy
-          href: concept-differential-privacy.md
-- name: How-to guides
-  items:
     - name: Create & manage workspaces
       items: 
         - name: Use Azure portal
