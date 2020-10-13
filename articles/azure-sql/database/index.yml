@@ -52,6 +52,8 @@ landingContent:
             url: migrate-to-database-from-sql-server.md
           - text: T-SQL differences with SQL Server
             url: transact-sql-tsql-differences-sql-server.md
+          - text: Reserved capacity
+            url: reserved-capacity-overview.md
 
   # Card 
   - title: Business continuity  
