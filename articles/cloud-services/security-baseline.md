@@ -245,6 +245,19 @@ Create a diagnostic setting to send the Activity log to Azure Monitor Logs, to A
 
 *For more information, see the [Azure Security Benchmark: Logging and monitoring](../security/benchmarks/security-control-logging-monitoring.md).*
 
+### 2.1: Use approved time synchronization sources
+
+>[!NOTE]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32184.).
+
+**Guidance**: Microsoft maintains time sources for Azure resources for Cloud service (Classic). Customers may need to create a network rule to allow this access, or for a time server that you use in their environment.
+
+- [NTP server access](../firewall/protect-windows-virtual-desktop.md#additional-considerations)
+
+**Azure Security Center monitoring**: Yes
+
+**Responsibility**: Microsoft
+
 ### 2.2: Configure central security log management
 
 >[!NOTE]
@@ -292,6 +305,17 @@ The Cloud service (Classic) can be monitored by Application Insights for availab
 **Azure Security Center monitoring**: Yes
 
 **Responsibility**: Customer
+
+### 2.4: Collect security logs from operating systems
+
+>[!NOTE]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32187.).
+
+**Guidance**: Not applicable to Cloud service (Classic). This recommendation is applicable to IaaS compute resources.
+
+**Azure Security Center monitoring**: Not applicable
+
+**Responsibility**: Not applicable
 
 ### 2.5: Configure security log storage retention
 
@@ -357,6 +381,28 @@ The Azure Diagnostic extension collects and stores data in an Azure Storage acco
 
 **Responsibility**: Customer
 
+### 2.9: Enable DNS query logging
+
+>[!NOTE]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32192.).
+
+**Guidance**: Not applicable to Cloud service (Classic). It does not produce DNS related logs.
+
+**Azure Security Center monitoring**: Not applicable
+
+**Responsibility**: Not applicable
+
+### 2.10: Enable command-line audit logging
+
+>[!NOTE]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32193.).
+
+**Guidance**: Not applicable to Cloud service (Classic). This recommendation is applicable to IaaS compute resources.
+
+**Azure Security Center monitoring**: Not applicable
+
+**Responsibility**: Not applicable
+
 ## Identity and access control
 
 *For more information, see the [Azure Security Benchmark: Identity and access control](../security/benchmarks/security-control-identity-access-control.md).*
@@ -393,6 +439,17 @@ Get-AzRoleAssignment -IncludeClassicAdministrators
 
 **Responsibility**: Customer
 
+### 3.2: Change default passwords where applicable
+
+>[!NOTE]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32195.).
+
+**Guidance**: Not applicable to Cloud service (Classic) as it does not have the concept of common or default passwords.
+
+**Azure Security Center monitoring**: Not applicable
+
+**Responsibility**: Not applicable
+
 ### 3.3: Use dedicated administrative accounts
 
 >[!NOTE]
@@ -411,9 +468,9 @@ Get-AzRoleAssignment -IncludeClassicAdministrators
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32197.).
 
-**Guidance**: Single sign-on makes it possible for people to navigate between the various web apps without having to sign in multiple times. Review the documentation for applications running on cloud services (application code).
+**Guidance**: Avoid managing separate identities for applications that are running on Cloud Services, implement single sign-on to avoid users needing to manage multiple identities and credentials.
 
-- [What is single sign-on (SSO)](/azure/activedirectory/manage-apps/what-is-single-sign-on)
+- [What is single sign-on (SSO)](../active-directory/manage-apps/what-is-single-sign-on.md)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -531,7 +588,7 @@ Get-AzRoleAssignment -IncludeClassicAdministrators
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32207.).
 
-**Guidance**: Use the Cloud services REST APIs for data protection operations. They could be used to poll the deployed cloud service resources to get the configuration and .pkg resources.
+**Guidance**: Use the Cloud services REST APIs to inventory your Cloud service (Classic) resources for sensitive information. They could be used to poll the deployed cloud service resources to get the configuration and .pkg resources.
 
  Some examples APIs are listed below. It is recommended that customers create a process to assist in tracking sensitive information with these API operations. 
 - Get Deployment: The Get Deployment operation returns configuration information, status, and system properties for a deployment.
@@ -686,6 +743,17 @@ Additionally, Application Insights can monitor Cloud service (Classic) apps for 
 
 *For more information, see the [Azure Security Benchmark: Vulnerability management](../security/benchmarks/security-control-vulnerability-management.md).*
 
+### 5.1: Run automated vulnerability scanning tools
+
+>[!NOTE]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32216.).
+
+**Guidance**: Not applicable to Cloud service (Classic). It is a PaaS (Platform as a Service) offering. The underlying infrastructure is managed by Microsoft which includes vulnerability scanning. 
+
+**Azure Security Center monitoring**: Not applicable
+
+**Responsibility**: Microsoft
+
 ### 5.2: Deploy automated operating system patch management solution
 
 >[!NOTE]
@@ -723,6 +791,17 @@ This allows Update Management to patch machines that use Configuration Manager a
 **Azure Security Center monitoring**: Not applicable
 
 **Responsibility**: Customer
+
+### 5.4: Compare back-to-back vulnerability scans
+
+>[!NOTE]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32219.).
+
+**Guidance**: Not applicable to Cloud service (Classic). It is a PaaS (Platform as a Service) offering. The underlying infrastructure is managed by Microsoft which includes vulnerability scanning. 
+
+**Azure Security Center monitoring**: Not applicable
+
+**Responsibility**: Microsoft
 
 ### 5.5: Use a risk-rating process to prioritize the remediation of discovered vulnerabilities
 
@@ -948,6 +1027,19 @@ Security Center uses machine learning to analyze the applications running on you
 
 **Responsibility**: Customer
 
+### 6.11: Limit users' ability to interact with Azure Resource Manager
+
+>[!NOTE]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32231.).
+
+**Guidance**: Not applicable to Cloud service (Classic). It does not support the Azure Resource Manager deployment model. The Resource Manager and classic deployment models represent two different ways of deploying and managing your Azure solutions. Customer work with them through two different API sets, and the deployed resources can contain important differences.
+
+- [Azure Resource Manager vs. classic deployment: Understand deployment models and the state of your resources](../azure-resource-manager/management/deployment-models.md)
+
+**Azure Security Center monitoring**: Not applicable
+
+**Responsibility**: Not applicable
+
 ### 6.12: Limit users' ability to execute scripts in compute resources
 
 >[!NOTE]
@@ -1008,6 +1100,17 @@ You can use a network security group, create an Inbound security rule, choose a 
 
 **Responsibility**: Customer
 
+### 7.2: Establish secure operating system configurations
+
+>[!NOTE]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32235.).
+
+**Guidance**: Not applicable to Cloud service (Classic). This recommendation is applicable to IaaS compute resources.
+
+**Azure Security Center monitoring**: Not applicable
+
+**Responsibility**: Not applicable
+
 ### 7.3: Maintain secure Azure resource configurations
 
 >[!NOTE]
@@ -1021,6 +1124,17 @@ It is recommended to use a third party solution to maintain secure Azure resourc
 
 **Responsibility**: Customer
 
+### 7.4: Maintain secure operating system configurations
+
+>[!NOTE]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32237.).
+
+**Guidance**: Not applicable to Cloud service (Classic). This recommendation is applicable to IaaS compute resources.
+
+**Azure Security Center monitoring**: Not applicable
+
+**Responsibility**: Not applicable
+
 ### 7.5: Securely store configuration of Azure resources
 
 >[!NOTE]
@@ -1031,6 +1145,17 @@ It is recommended to use a third party solution to maintain secure Azure resourc
 **Azure Security Center monitoring**: Not applicable
 
 **Responsibility**: Customer
+
+### 7.6: Securely store custom operating system images
+
+>[!NOTE]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32239.).
+
+**Guidance**: Not applicable to Cloud service (Classic). This recommendation is applicable to IaaS compute resources.
+
+**Azure Security Center monitoring**: Not applicable
+
+**Responsibility**: Not applicable
 
 ### 7.7: Deploy configuration management tools for Azure resources
 
@@ -1101,6 +1226,17 @@ Additionally, it is recommended to store the private keys for certificates used 
 
 **Responsibility**: Customer
 
+### 7.12: Manage identities securely and automatically
+
+>[!NOTE]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32245.).
+
+**Guidance**: Not applicable to Cloud service (Classic). It does not integrate with Managed Identities for Azure resources.
+
+**Azure Security Center monitoring**: Not applicable
+
+**Responsibility**: Not applicable
+
 ### 7.13: Eliminate unintended credential exposure
 
 >[!NOTE]
@@ -1142,6 +1278,78 @@ You can also use the Adaptive application control feature in Security Center. Ad
 **Azure Security Center monitoring**: Not applicable
 
 **Responsibility**: Customer
+
+### 8.2: Pre-scan files to be uploaded to non-compute Azure resources
+
+>[!NOTE]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32248.).
+
+**Guidance**: Not applicable to Cloud service (Classic). Microsoft anti-malware is enabled on the underlying host that supports Azure services (for example, Cloud service (Classic)), however it does not run on customer content.
+
+**Azure Security Center monitoring**: Not applicable
+
+**Responsibility**: Not applicable
+
+### 8.3: Ensure antimalware software and signatures are updated
+
+>[!NOTE]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32249.).
+
+**Guidance**: Microsoft Antimalware for Azure is available for Azure Cloud service (Classic) and Virtual Machines. It is a free real-time protection that helps identify and remove viruses, spyware, and other malicious software. It generates alerts when known malicious or unwanted software tries to install itself or run on your Azure systems. 
+
+- [Antimalware Deployment Scenarios](../security/fundamentals/antimalware.md#antimalware-deployment-scenarios)
+
+**Azure Security Center monitoring**: Yes
+
+**Responsibility**: Not applicable
+
+## Data recovery
+
+*For more information, see the [Azure Security Benchmark: Data recovery](../security/benchmarks/security-control-data-recovery.md).*
+
+### 9.1: Ensure regular automated back ups
+
+>[!NOTE]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32250.).
+
+**Guidance**: Not applicable to Cloud service (Classic). It is a PaaS (Platform as a Service) offering. 
+
+**Azure Security Center monitoring**: Not applicable
+
+**Responsibility**: Not applicable
+
+### 9.2: Perform complete system backups and backup any customer-managed keys
+
+>[!NOTE]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32251.).
+
+**Guidance**: Not applicable to Cloud service (Classic). It is a PaaS (Platform as a Service) offering. 
+
+**Azure Security Center monitoring**: Not applicable
+
+**Responsibility**: Not applicable
+
+### 9.3: Validate all backups including customer-managed keys
+
+>[!NOTE]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32252.).
+
+**Guidance**: Not applicable to Cloud service (Classic). It is a PaaS (Platform as a Service) offering. 
+
+**Azure Security Center monitoring**: Not applicable
+
+**Responsibility**: Not applicable
+
+### 9.4: Ensure protection of backups and customer-managed keys
+
+>[!NOTE]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32253.).
+
+**Guidance**: Not applicable to Cloud service (Classic). It is a PaaS (Platform as a Service) offering. 
+
+**Azure Security Center monitoring**: Not applicable
+
+**Responsibility**: Not applicable
 
 ## Incident response
 
