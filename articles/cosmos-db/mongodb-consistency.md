@@ -39,6 +39,6 @@ Probabilistic bounded staleness shows how eventual is your eventual consistency.
 
 Learn more about global distribution and consistency levels for Azure Cosmos DB:
 
-* [Global distribution overview](distribute=data-globally.md)
+* [Global distribution overview](distribute-data-globally.md)
 * [Consistency Level overview](consistency-levels.md)
 * [High availability](high-availability.md)

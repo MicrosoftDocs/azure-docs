@@ -1,6 +1,6 @@
 ---
-title: Mapping between Apache Cassandra and Azure Cosmos DB consistency levels
-description: Mapping between Apache Cassandra and Azure Cosmos DB consistency levels.
+title: Apache Cassandra and Azure Cosmos DB consistency levels
+description: Apache Cassandra and Azure Cosmos DB consistency levels.
 author: TheovanKraay
 ms.author: thvankra
 ms.service: cosmos-db
@@ -30,6 +30,6 @@ Probabilistic bounded staleness shows how eventual is your eventual consistency.
 
 Learn more about global distribution and consistency levels for Azure Cosmos DB:
 
-* [Global distribution overview](distribute=data-globally.md)
+* [Global distribution overview](distribute-data-globally.md)
 * [Consistency Level overview](consistency-levels.md)
 * [High availability](high-availability.md)
