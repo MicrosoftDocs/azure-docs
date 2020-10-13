@@ -65,10 +65,6 @@ As a device builder, you can develop an IoT hardware product that supports IoT P
 
 The [IoT Plug and Play device certification program](howto-certify-device.md) verifies that a device meets the IoT Plug and Play certification requirements. You can add a certified device to the public [Certified for Azure IoT device catalog](https://aka.ms/devicecatalog).
 
-## Regional availability
-
-This IoT Plug and Play refresh is available on IoT hubs created in the Central US, North Europe, and East Japan regions.
-
 ## Next steps
 
 Now that you have an overview of IoT Plug and Play, the suggested next step is to try out one of the quickstarts:
