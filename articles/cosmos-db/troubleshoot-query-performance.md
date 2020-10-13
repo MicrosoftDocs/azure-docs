@@ -4,21 +4,21 @@ description: Learn how to identify, diagnose, and troubleshoot Azure Cosmos DB S
 author: timsander1
 ms.service: cosmos-db
 ms.topic: troubleshooting
-ms.date: 09/12/2020
+ms.date: 10/12/2020
 ms.author: tisande
 ms.subservice: cosmosdb-sql
 ms.reviewer: sngun
 ---
 # Troubleshoot query issues when using Azure Cosmos DB
 
-This article walks through a general recommended approach for troubleshooting queries in Azure Cosmos DB. Although you shouldn't consider the steps outlined in this article a complete defense against potential query issues, we've included the most common performance tips here. You should use this article as a starting place for troubleshooting slow or expensive queries in the Azure Cosmos DB core (SQL) API. You can also use [diagnostics logs](cosmosdb-monitor-resource-logs.md) to identify queries that are slow or that consume significant amounts of throughput.
+This article walks through a general recommended approach for troubleshooting queries in Azure Cosmos DB. Although you shouldn't consider the steps outlined in this article a complete defense against potential query issues, we've included the most common performance tips here. You should use this article as a starting place for troubleshooting slow or expensive queries in the Azure Cosmos DB core (SQL) API. You can also use [diagnostics logs](cosmosdb-monitor-resource-logs.md) to identify queries that are slow or that consume significant amounts of throughput. If you are using Azure Cosmos DB's API for MongoDB, you should use [Azure Cosmos DB's API for MongoDB query troubleshooting guide](mongodb-troubleshoot-query.md)
 
 You can broadly categorize query optimizations in Azure Cosmos DB:
 
 - Optimizations that reduce the Request Unit (RU) charge of the query
 - Optimizations that just reduce latency
 
-If you reduce the RU charge of a query, you'll almost certainly decrease latency as well.
+If you reduce the RU charge of a query, you'll typically decrease latency as well.
 
 This article provides examples that you can re-create by using the [nutrition dataset](https://github.com/CosmosDB/labs/blob/master/dotnet/setup/NutritionData.json).
 
@@ -185,7 +185,7 @@ Updated indexing policy:
 
 **RU charge:** 2.98 RUs
 
-You can add properties to the indexing policy at any time, with no effect on write availability or performance. If you add a new property to the index, queries that use the property will immediately use the new available index. The query will use the new index while it's being built. So query results might be inconsistent while the index rebuild is in progress. If a new property is indexed, queries that use only existing indexes won't be affected during the index rebuild. You can [track index transformation progress](https://docs.microsoft.com/azure/cosmos-db/how-to-manage-indexing-policy#use-the-net-sdk-v3).
+You can add properties to the indexing policy at any time, with no effect on write or read availability. You can [track index transformation progress](https://docs.microsoft.com/azure/cosmos-db/how-to-manage-indexing-policy#use-the-net-sdk-v3).
 
 ### Understand which system functions use the index
 
@@ -464,7 +464,7 @@ Here's the relevant composite index:
 
 ## Optimizations that reduce query latency
 
-In many cases, the RU charge might be acceptable when query latency is still too high. The following sections give an overview of tips for reducing query latency. If you run the same query multiple times on the same dataset, it will have the same RU charge each time. But query latency might vary between query executions.
+In many cases, the RU charge might be acceptable when query latency is still too high. The following sections give an overview of tips for reducing query latency. If you run the same query multiple times on the same dataset, it will typically have the same RU charge each time. But query latency might vary between query executions.
 
 ### Improve proximity
 

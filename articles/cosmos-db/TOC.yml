@@ -789,6 +789,8 @@
           href: mongodb-change-streams.md
         - name: Manage data indexing
           href: mongodb-indexing.md
+        - name: Troubleshoot query performance
+          href: mongodb-troubleshoot-query.md
         - name: Store and manage Spring Data
           href: https://docs.microsoft.com/azure/developer/java/spring-framework/configure-spring-data-mongodb-with-cosmos-db?context=/azure/cosmos-db/context/context
         - name: MongoDB extension commands
