@@ -40,7 +40,7 @@ Before you begin this tutorial, you should:
 Azure Migrate PowerShell module is available in public preview. You'll need to install the PowerShell module using the following command. 
 
 ```azurepowershell
-Install-Module -Name Az.Migrate -allowprerelease
+Install-Module -Name Az.Migrate 
 ```
 
 ## Sign in to your Microsoft Azure subscription
@@ -122,10 +122,10 @@ In the article, we'll initialize the replication infrastructure so that we can m
 
 ```azurepowershell
 # Download the script from Azure Migrate GitHub repository 
-Invoke-WebRequest https://raw.githubusercontent.com/Azure/azure-docs-powershell-samples/master/azure-migrate/migrate-at-scale-vmware-agentles/Initialize-AzMigrateReplicationInfrastructure.ps1 -OutFile .\$AzMigrateReplicationinfrastructure.ps1
+Invoke-WebRequest https://raw.githubusercontent.com/Azure/azure-docs-powershell-samples/master/azure-migrate/migrate-at-scale-vmware-agentles/Initialize-AzMigrateReplicationInfrastructure.ps1 -OutFile .\AzMigrateReplicationinfrastructure.ps1
 
 # Run the script for initializing replication infrastructure for the current Migrate project
-.\Initialize-AzMigrateReplicationInfrastructure.ps1 -ResourceGroupName $ResourceGroup.ResourceGroupName -ProjectName $MigrateProject.Name -Scenario agentlessVMware -TargetRegion "CentralUS" 
+.\AzMigrateReplicationInfrastructure.ps1 -ResourceGroupName $ResourceGroup.ResourceGroupName -ProjectName $MigrateProject.Name -Scenario agentlessVMware -TargetRegion "CentralUS" 
 ```
 
 
