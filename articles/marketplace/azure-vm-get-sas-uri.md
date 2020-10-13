@@ -107,4 +107,4 @@ Check the SAS URI before publishing it on Partner Center to avoid any issues rel
 
 ## Next step
 
-- Read [Common SAS URI issues and fixes](azure-vm-common-sas-uri-issues.md).
+- Read [Virtual machine SAS failure messages](azure-vm-sas-failure-messages.md).

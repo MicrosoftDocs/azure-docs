@@ -114,4 +114,4 @@ Here's an example of how offer information appears in Azure Marketplace:
 
 ## Next steps
 
-- [Get SAS URI](azure-vm-get-sas-uri.md)
+- [Review and publish offers](review-publish-offer.md)

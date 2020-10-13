@@ -41,5 +41,5 @@ Configure and prepare the VM to be uploaded as described in [Prepare a Windows V
 
 ## Next steps
 
-- [Test and publish a virtual machine offer](azure-vm-image-test-publish.md) to ensure it meets Azure Marketplace publishing requirements.
+- [Test a VM image](azure-vm-image-test.md) to ensure it meets Azure Marketplace publishing requirements.
 - If you encountered difficulty creating your new Azure-based VHD, see [VM FAQ for Azure Marketplace](azure-vm-create-faq.md).

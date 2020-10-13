@@ -58,7 +58,7 @@ To verify that the VM extensions are properly activated, do the following:
 
 ## VM provisioning issue
 
-Check to ensure that you've followed the VM provisioning process rigorously before you submit your offer. To view the JSON format for provisioning the VM, see [Azure virtual machine image certification](azure-vm-image-certification.md).
+Check to ensure that you've followed the VM provisioning process rigorously before you submit your offer. To view the JSON format for provisioning the VM, see [Test a virtual machine image](azure-vm-image-test.md).
 
 Provisioning issues can include the following failure scenarios:
 

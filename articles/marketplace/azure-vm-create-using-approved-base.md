@@ -154,5 +154,5 @@ This script uses following commands to generate the SAS URI for a snapshot and c
 
 ## Next steps
 
-- [Test and publish a virtual machine offer](azure-vm-image-test-publish.md) to ensure it meets Azure Marketplace publishing requirements.
+- [Test and publish a virtual machine offer](azure-vm-create-test-publish.md) to ensure it meets Azure Marketplace publishing requirements.
 - If you encountered difficulty creating your new Azure-based VHD, see [VM FAQ for Azure Marketplace](azure-vm-create-faq.md).
