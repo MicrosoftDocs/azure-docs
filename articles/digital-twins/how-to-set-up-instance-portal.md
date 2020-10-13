@@ -35,7 +35,7 @@ Once in the portal, start by selecting _Create a resource_ in the Azure services
 
 :::image type="content" source= "media/how-to-set-up-instance/portal/create-resource.png" alt-text="Selecting 'Create a resource' from the home page of the Azure portal":::
 
-Search for *Azure Digital Twins* in the search box, and choose the **Azure Digital Twins (Preview)** service from the results. Select the _Create_ button to create a new instance of the service.
+Search for *Azure Digital Twins* in the search box, and choose the **Azure Digital Twins** service from the results. Select the _Create_ button to create a new instance of the service.
 
 :::image type="content" source= "media/how-to-set-up-instance/portal/create-azure-digital-twins.png" alt-text="Selecting 'Create' from the Azure Digital Twins service page":::
 
@@ -129,7 +129,7 @@ In the *Request API permissions* page that follows, switch to the *APIs my organ
 :::image type="content" source="media/how-to-set-up-instance/portal/request-api-permissions-1.png" alt-text="View of the 'Request API Permissions' page search result showing Azure Digital Twins, with an Application (client) ID of 0b07f429-9f4b-4714-9392-cc5e8e80c8b0.":::
 
 >[!NOTE]
-> If your subscription still has an existing Azure Digital Twins instance from the previous public preview of the service (before July 2020), you'll need to search for and select _**Azure Smart Spaces Service**_ instead. This is an older name for the same set of APIs (notice that the *Application (client) ID* is the same as in the screenshot above), and your experience won't be changed beyond this step.
+> If your subscription still has an existing Azure Digital Twins instance from the first public preview of the service (before July 2020), you'll need to search for and select _**Azure Smart Spaces Service**_ instead. This is an older name for the same set of APIs (notice that the *Application (client) ID* is the same as in the screenshot above), and your experience won't be changed beyond this step.
 > :::image type="content" source="media/how-to-set-up-instance/portal/request-api-permissions-1-smart-spaces.png" alt-text="View of the 'Request API Permissions' page search result showing Azure Smart Spaces Service":::
 
 Next, you'll select which permissions to grant for these APIs. Expand the **Read (1)** permission and check the box that says *Read.Write* to grant this app registration reader and writer permissions.
