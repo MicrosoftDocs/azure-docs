@@ -3,13 +3,13 @@ title: Run Anomaly Detector Container in Azure Container Instances
 titleSuffix: Azure Cognitive Services
 description: Deploy the Anomaly Detector container to an Azure Container Instance, and test it in a web browser.
 services: cognitive-services
-author: aahill
+author: mrbullwinkle
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: anomaly-detector
 ms.topic: conceptual
 ms.date: 04/01/2020
-ms.author: aahi
+ms.author: mbullwin
 ---
 
 # Deploy an Anomaly Detector container to Azure Container Instances

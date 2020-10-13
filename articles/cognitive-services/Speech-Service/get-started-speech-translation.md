@@ -41,10 +41,6 @@ keywords: speech translation
 [!INCLUDE [Speech CLI Basics include](includes/how-to/speech-translation-basics/speech-translation-basics-cli.md)]
 ::: zone-end
 
-::: zone pivot="programming-language-more"
-[!INCLUDE [More languages include](includes/how-to/speech-translation-basics/more.md)]
-::: zone-end
-
 ## Next steps
 
 * [Use codec compressed audio formats](how-to-use-codec-compressed-audio-input-streams.md)

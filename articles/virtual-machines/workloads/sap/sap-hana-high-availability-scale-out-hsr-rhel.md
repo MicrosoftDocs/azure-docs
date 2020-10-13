@@ -98,7 +98,7 @@ The presented configuration shows three HANA nodes on each site, plus majority m
 The HANA shared file system `/hana/shared` in the presented architecture is provided by [Azure NetApp Files](../../../azure-netapp-files/azure-netapp-files-introduction.md). It is mounted via NFSv4.1 on each HANA node in the same HANA system replication site. File systems `/hana/data` and `/hana/log` are local file systems and are not shared between the HANA DB nodes. SAP HANA will be installed in non-shared mode. 
 
 > [!TIP]
-> For recommended SAP HANA storage configurations, see [SAP HANA Azure VMs storage configurations](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-vm-operations-storage).   
+> For recommended SAP HANA storage configurations, see [SAP HANA Azure VMs storage configurations](./hana-vm-operations-storage.md).   
 
 [![SAP HANA scale-out with HSR and Pacemaker cluster](./media/sap-hana-high-availability-rhel/sap-hana-high-availability-scale-out-hsr-rhel.png)](./media/sap-hana-high-availability-rhel/sap-hana-high-availability-scale-out-hsr-rhel-detail.png#lightbox)
 
@@ -126,7 +126,7 @@ For the configuration presented in this document, deploy seven virtual machines:
   
    For the majority maker node, you can deploy a small VM, as this VM doesn't run any of the SAP HANA resources. The majority maker VM is used in the cluster configuration to achieve odd number of cluster nodes in a split-brain scenario. The majority maker VM only needs one virtual network interface in the `client` subnet in this example.        
 
-   Deploy local managed disks for `/hana/data` and `/hana/log`. The minimum recommended storage configuration for `/hana/data` and `/hana/log` is described in [SAP HANA Azure VMs storage configurations](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-vm-operations-storage).
+   Deploy local managed disks for `/hana/data` and `/hana/log`. The minimum recommended storage configuration for `/hana/data` and `/hana/log` is described in [SAP HANA Azure VMs storage configurations](./hana-vm-operations-storage.md).
 
    Deploy the primary network interface for each VM in the `client` virtual network subnet.  
    When the VM is deployed via Azure portal, the network interface name is automatically generated. In these instructions for simplicity we'll refer to the automatically generated, primary network interfaces, which are attached to the `client` Azure virtual network subnet as **hana-s1-db1-client**, **hana-s1-db2-client**, **hana-s1-db3-client**, and so on.  
@@ -227,7 +227,7 @@ For the configuration presented in this document, deploy seven virtual machines:
 
 ### Deploy the Azure NetApp Files infrastructure 
 
-Deploy the ANF volumes for the `/hana/shared` file system. You will need a separate `/hana/shared` volume for each HANA system replication site. For more information, see [Set up the Azure NetApp Files infrastructure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-scale-out-standby-netapp-files-rhel#set-up-the-azure-netapp-files-infrastructure).
+Deploy the ANF volumes for the `/hana/shared` file system. You will need a separate `/hana/shared` volume for each HANA system replication site. For more information, see [Set up the Azure NetApp Files infrastructure](./sap-hana-scale-out-standby-netapp-files-rhel.md#set-up-the-azure-netapp-files-infrastructure).
 
 In this example, the following Azure NetApp Files volumes were used: 
 
@@ -1159,7 +1159,7 @@ Include all virtual machines, including the majority maker in the cluster.
       ```
 
 
-We recommend to thoroughly test the SAP HANA cluster configuration, by also performing the tests, documented in [HA for SAP HANA on Azure VMs on RHEL](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-high-availability-rhel#test-the-cluster-setup).
+We recommend to thoroughly test the SAP HANA cluster configuration, by also performing the tests, documented in [HA for SAP HANA on Azure VMs on RHEL](./sap-hana-high-availability-rhel.md#test-the-cluster-setup).
 
 
 ## Next steps

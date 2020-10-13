@@ -91,4 +91,4 @@ Learn more about
 > [!div class="nextstepaction"]
 > [micro-fulfillment center solution architecture](./architecture-micro-fulfillment-center.md)
 * Learn more about the [Azure IoT Central retail templates](./overview-iot-central-retail.md)
-* Learn more about other [Azure IoT Central overview](../preview/overview-iot-central.md)
+* Learn more about [Azure IoT Central](../preview/overview-iot-central.md)

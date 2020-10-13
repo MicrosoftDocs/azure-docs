@@ -21,7 +21,7 @@ The following are examples of different patterns using the language and operator
 - [Fields](./pattern-fields.md)
 - [Parameters](./pattern-parameters.md)
 - [Effect details](./pattern-effect-details.md)
-- [Using tags](./pattern-effect-details.md)
+- [Using tags](./pattern-tags.md)
 - [Value operator](./pattern-value-operator.md)
 - [Count operator](./pattern-count-operator.md)
 - [Grouping policy definitions in an initiative](./pattern-group-with-initiative.md)
