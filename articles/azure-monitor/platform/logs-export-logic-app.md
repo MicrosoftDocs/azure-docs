@@ -4,7 +4,6 @@ description: Describes a method to use Azure Logic Apps to query data from a Log
 ms.service:  azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
-ms.custom: references_regions
 author: bwren
 ms.author: bwren
 ms.date: 10/02/2020
