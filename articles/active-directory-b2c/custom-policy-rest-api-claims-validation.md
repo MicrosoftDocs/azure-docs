@@ -127,7 +127,7 @@ A [Restful technical profile](restful-technical-profile.md) provides support for
 
 In this example, the `userLanguage` will be sent to the REST service as `lang` within the JSON payload. The value of the `userLanguage` claim contains the current user language ID. For more information, see [claim resolver](claim-resolver-overview.md).
 
-### Configure the RESTful API metedata
+### Configure the RESTful API technical profile 
 
 After you deploy your REST API, set the metadata of the `REST-ValidateProfile` technical profile to accommodate with your own REST API, including:
 
