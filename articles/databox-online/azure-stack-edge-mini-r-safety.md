@@ -13,7 +13,7 @@ ms.author: alkohli
 
 # Azure Stack Edge Mini R safety instructions
 
-![Warning Icon](./media/azure-stack-edge-mini-r-safety/icon-safety-warning.png)
+![Warning Icon 1](./media/azure-stack-edge-mini-r-safety/icon-safety-warning.png)
 ![Read Safety Notice Icon](./media/azure-stack-edge-mini-r-safety/icon-safety-read-all-instructions.png)
 **READ SAFETY AND HEALTH INFORMATION**
 
@@ -43,7 +43,7 @@ The following hazard icons are to be observed when setting up and running your A
 
 The Azure Stack Edge Mini R device has the following handling precautions and site selection criteria:
 
-![Warning Icon](./media/azure-stack-edge-mini-r-safety/icon-safety-warning.png)
+![Warning Icon 2](./media/azure-stack-edge-mini-r-safety/icon-safety-warning.png)
 ![Electrical Shock Icon](./media/azure-stack-edge-mini-r-safety/icon-safety-electric-shock.png)
 ![No User Serviceable Parts Icon](./media/azure-stack-edge-mini-r-safety/icon-safety-do-not-access.png) **CAUTION:**
 
@@ -51,7 +51,7 @@ The Azure Stack Edge Mini R device has the following handling precautions and si
 * If you suspect the device is malfunctioning, [contact Microsoft Support](azure-stack-edge-placeholder.md) to obtain a replacement. Do not attempt to service the device.
 * The device contains no user-serviceable parts. Hazardous voltage, current, and energy levels are present inside. Do not open. Return the device to Microsoft for servicing.
 
-![Warning Icon](./media/azure-stack-edge-mini-r-safety/icon-safety-warning.png) **CAUTION:**
+![Warning Icon 3](./media/azure-stack-edge-mini-r-safety/icon-safety-warning.png) **CAUTION:**
 
 It is recommended to operate the system:
 
@@ -61,29 +61,29 @@ It is recommended to operate the system:
 * Isolated from strong electromagnetic fields produced by electrical devices.
 * Do not allow any liquid or any foreign object to enter the System. Do not place beverages or any other liquid containers on or near the system.
 
-![Warning Icon](./media/azure-stack-edge-mini-r-safety/icon-safety-warning.png)
+![Warning Icon 4](./media/azure-stack-edge-mini-r-safety/icon-safety-warning.png)
 ![No User Serviceable Parts Icon](./media/azure-stack-edge-mini-r-safety/icon-safety-do-not-access.png) **CAUTION:**
 
 * This equipment contains a lithium battery. Do not attempt servicing the battery pack. Batteries in this equipment are not user serviceable. Risk of Explosion if battery is replaced by an incorrect type.
 
-![Warning Icon](./media/azure-stack-edge-mini-r-safety/icon-safety-warning.png) **CAUTION:**
+![Warning Icon 5](./media/azure-stack-edge-mini-r-safety/icon-safety-warning.png) **CAUTION:**
 
 Only charge the battery pack when it is a part of the Azure Stack Edge Mini R device, do not charge as a separate device.
 
-![Warning Icon](./media/azure-stack-edge-mini-r-safety/icon-safety-warning.png) **CAUTION:**
+![Warning Icon 6](./media/azure-stack-edge-mini-r-safety/icon-safety-warning.png) **CAUTION:**
 
 * The ON/OFF switch on the battery pack is for discharging the battery to the server module only. If the power adapter is plugged into the battery pack, power is passed to the server module even if the switch is in the OFF position.
 
-![Warning Icon](./media/azure-stack-edge-mini-r-safety/icon-safety-warning.png) **CAUTION:**
+![Warning Icon 7](./media/azure-stack-edge-mini-r-safety/icon-safety-warning.png) **CAUTION:**
 
 * Do not burn or short circuit the battery pack. It must be recycled or disposed of properly.
 
-![Warning Icon](./media/azure-stack-edge-mini-r-safety/icon-safety-warning.png) **CAUTION:**
+![Warning Icon 8](./media/azure-stack-edge-mini-r-safety/icon-safety-warning.png) **CAUTION:**
 
 * In lieu of using the provided AC/DC power supply, this system also has the option to use a field provided Type 2590 Battery. In this case, the end user shall verify that it meets all applicable safety, transportation, environmental, and any other national/local regulations.
 * When operating the system with Type 2590 Battery, operate the battery within the conditions of use specified by the battery manufacturer.
 
-![Warning Icon](./media/azure-stack-edge-mini-r-safety/icon-safety-warning.png) **CAUTION:**
+![Warning Icon 9](./media/azure-stack-edge-mini-r-safety/icon-safety-warning.png) **CAUTION:**
 
 This device has two SFP+ ports which may be used with optical transceivers. To avoid hazardous laser radiation, only use with Class 1 transceivers.
 
@@ -91,7 +91,7 @@ This device has two SFP+ ports which may be used with optical transceivers. To a
 
 The Azure Stack Edge Mini R device has the following electrical precautions:
 
-![Warning Icon](./media/azure-stack-edge-mini-r-safety/icon-safety-warning.png) ![Electrical Shock Icon](./media/azure-stack-edge-mini-r-safety/icon-safety-electric-shock.png) **WARNING:**
+![Warning Icon 10](./media/azure-stack-edge-mini-r-safety/icon-safety-warning.png) ![Electrical Shock Icon](./media/azure-stack-edge-mini-r-safety/icon-safety-electric-shock.png) **WARNING:**
 
 When used with the power supply adaptor:
 
@@ -111,12 +111,12 @@ When used with the power supply adaptor:
 * Current: 1.7 Amperes
 * Frequency: 50 to 60 Hz
 
-![Warning Icon](./media/azure-stack-edge-mini-r-safety/icon-safety-warning.png)
+![Warning Icon 11](./media/azure-stack-edge-mini-r-safety/icon-safety-warning.png)
 ![Electrical Shock Icon](./media/azure-stack-edge-mini-r-safety/icon-safety-electric-shock.png) **WARNING:**
 
 * Do not attempt to modify or use AC power cord(s) other than the ones provided with the equipment.
 
-![Warning Icon](./media/azure-stack-edge-mini-r-safety/icon-safety-warning.png)
+![Warning Icon 12](./media/azure-stack-edge-mini-r-safety/icon-safety-warning.png)
 ![Electrical Shock Icon](./media/azure-stack-edge-mini-r-safety/icon-safety-electric-shock.png)
 ![Indoor Use Only](./media/azure-stack-edge-mini-r-safety/icon-safety-indoor-use-only.png) **WARNING:**
 
@@ -156,12 +156,12 @@ Canada: (800) 933-4750
 EUROPEAN UNION:
 Request a copy of the EU Declaration of Conformity.
 
-> ![Warning Icon](./media/azure-stack-edge-mini-r-safety/icon-safety-warning.png)
+> ![Warning Icon 13](./media/azure-stack-edge-mini-r-safety/icon-safety-warning.png)
 > This is a class A product. In a domestic environment, this product may cause radio interference in which case the user may be required to take adequate measures.
 
 Disposal of waste batteries and electrical and electronic equipment:
 
-![Warning Icon](./media/azure-stack-edge-mini-r-safety/icon-ewaste-disposal.png)
+![Warning Icon 14](./media/azure-stack-edge-mini-r-safety/icon-ewaste-disposal.png)
 
 This symbol on the product or its batteries or its packaging means that this product and any batteries it contains must not be disposed of with your household waste. Instead, it is your responsibility to hand this over to an applicable collection point for the recycling of batteries and electrical and electronic equipment. This separate collection and recycling will help to conserve natural resources and prevent potential negative consequences for human health and the environment due to the possible presence of hazardous substances in batteries and electrical and electronic equipment, which could be caused by inappropriate disposal. For more information about where to drop off your batteries and electrical and electronic waste, please contact your local city/municipality office, your household waste disposal service, or the shop where you purchased this product. Contact erecycle@microsoft.com for additional information on WEEE.
 
