@@ -4,9 +4,8 @@ description: Use the Azure CLI with the Azure IoT Extension to push an IoT Edge 
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 08/16/2019
+ms.date: 10/13/2020
 ms.topic: conceptual
-ms.reviewer: menchi
 ms.service: iot-edge 
 ms.custom: devx-track-azurecli
 services: iot-edge
@@ -38,13 +37,16 @@ To deploy modules using the Azure CLI, save the deployment manifest locally as a
 
 Here's a basic deployment manifest with one module as an example:
 
+>[!NOTE]
+>This sample deployment manifest uses schema version 1.1 for the IoT Edge agent and hub. Schema version 1.1 was released along with IoT Edge version 1.0.10, and enables features like module startup order and route prioritization.
+
 ```json
 {
   "content": {
     "modulesContent": {
       "$edgeAgent": {
         "properties.desired": {
-          "schemaVersion": "1.0",
+          "schemaVersion": "1.1",
           "runtime": {
             "type": "docker",
             "settings": {
@@ -87,7 +89,7 @@ Here's a basic deployment manifest with one module as an example:
       },
       "$edgeHub": {
         "properties.desired": {
-          "schemaVersion": "1.0",
+          "schemaVersion": "1.1",
           "routes": {
             "upstream": "FROM /messages/* INTO $upstream"
           },
