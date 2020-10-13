@@ -9,8 +9,8 @@
   - name: Add users to Azure AD
     href: ../fundamentals/add-users-azure-active-directory.md?context=azure%2factive-directory%2fusers-groups-roles%2fcontext%2fugr-context
   - name: Assign licenses to users    
-    href: ../fundamentals/license-users-groups.md?context=azure%2factive-directory%2fusers-groups-roles%2fcontext%2fugr-context
-  - name: Grant permission for unlimited app registrations
+    href: /azure/active-directory/fundamentals/license-users-groups?context=azure/active-directory/users-groups-roles/context/ugr-context
+  - name: Create unlimited app registrations
     href: roles-quickstart-app-registration-limits.md
   - name: Set groups expiration    
     href: groups-quickstart-expiration.md
@@ -52,6 +52,8 @@
       href: users-sharing-accounts.md
     - name: Assign users to admin roles    
       href: ../fundamentals/active-directory-users-assign-role-azure-portal.md?context=azure%2factive-directory%2fusers-groups-roles%2fcontext%2fugr-context
+    - name: User management enhancements
+      href: users-search-enhanced.md
     - name: Bulk delete users
       href: users-bulk-delete.md
     - name: Restore a deleted user    
@@ -163,18 +165,26 @@
       href: directory-manage-roles-portal.md
     - name: Custom roles
       items:
-      - name: Custom roles        
+      - name: Custom roles overview        
         href: roles-custom-overview.md
       - name: Create a custom role
         href: roles-create-custom.md
       - name: View custom role assignments
         href: roles-view-assignments.md
-      - name: Assign roles in Azure AD admin center
+      - name: Assign custom roles in Azure portal
         href: ../fundamentals/active-directory-users-assign-role-azure-portal.md?context=azure%2factive-directory%2fusers-groups-roles%2fcontext%2fugr-context
       - name: Assign custom roles in PowerShell
         href: roles-assign-powershell.md
+      - name: Assign custom roles for enterprise apps
+        href: custom-enterprise-apps.md
       - name: Custom role permissions
-        href: roles-custom-available-permissions.md
+        items:
+        - name: App registration permissions
+          href: roles-custom-available-permissions.md
+        - name: Enterprise app permissions
+          href: custom-enterprise-app-permissions.md
+        - name: App consent permissions
+          href: custom-consent-permissions.md
       - name: Delegate app admin permissions
         href: roles-delegate-app-roles.md
     - name: Use groups to manage role assignments

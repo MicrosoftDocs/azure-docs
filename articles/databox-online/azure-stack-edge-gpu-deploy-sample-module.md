@@ -1,25 +1,25 @@
 ---
-title: Deploy GPU module on your Microsoft Azure Stack Edge device| Microsoft Docs
-description: Describes how to enable compute and make your Azure Stack Edge device compute-ready via the local UI.
+title: Deploy GPU module on your Azure Stack Edge Pro GPU device| Microsoft Docs
+description: Describes how to enable compute and make your Azure Stack Edge Pro device compute-ready via the local UI.
 services: databox
 author: alkohli
 
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 07/23/2020
+ms.date: 08/31/2020
 ms.author: alkohli
 ---
 
-# Deploy a GPU enabled IoT module on Azure Stack Edge device
+# Deploy a GPU enabled IoT module on Azure Stack Edge Pro GPU device
 
-This article describes how to deploy a GPU enabled IoT Edge module on your Azure Stack Edge device. 
+This article describes how to deploy a GPU enabled IoT Edge module on your Azure Stack Edge Pro GPU device. 
 
 In this article, you learn how to:
-  - Prepare Azure Stack Edge to run a GPU module.
+  - Prepare Azure Stack Edge Pro to run a GPU module.
   - Download and install sample code from a Git repository.
   - Build the solution and generate a deployment manifest.
-  - Deploy the solution to Azure Stack Edge device.
+  - Deploy the solution to Azure Stack Edge Pro device.
   - Monitor the module output.
 
 
@@ -31,8 +31,8 @@ The GPU sample module in this article includes PyTorch and TensorFlow benchmarki
 
 Before you begin, make sure you have:
 
-- You've access to a GPU enabled 1-node Azure Stack Edge device. This device is activated with a resource in Azure. See [Activate the device](azure-stack-edge-gpu-deploy-activate.md).
-- You've configured compute on this device. Follow the steps in [Tutorial: Configure compute on your Azure Stack Edge device](azure-stack-edge-gpu-deploy-configure-compute.md).
+- You've access to a GPU enabled 1-node Azure Stack Edge Pro device. This device is activated with a resource in Azure. See [Activate the device](azure-stack-edge-gpu-deploy-activate.md).
+- You've configured compute on this device. Follow the steps in [Tutorial: Configure compute on your Azure Stack Edge Pro device](azure-stack-edge-gpu-deploy-configure-compute.md).
 - An Azure Container Registry (ACR). Go to the **Access keys** blade and make a note of the ACR login server, username, and password. For more information, go to [Quickstart: Create a private container registry using the Azure portal](../container-registry/container-registry-get-started-portal.md#create-a-container-registry).
 - The following development resources on a Windows client:
     - [Azure CLI 2.0 or later](https://aka.ms/installazurecliwindows)
@@ -140,9 +140,9 @@ Before you begin, make sure you have:
 
 1. In the VS Code command palette, run **Azure IoT Hub: Select IoT Hub**.
 
-2. Choose the subscription and IoT hub that contain the IoT Edge device that you want to configure. In this case, select the subscription used to deploy the Azure Stack Edge device, and select the IoT Edge device created for your Azure Stack Edge device. This occurs when you configure compute via the Azure portal in the earlier steps.
+2. Choose the subscription and IoT hub that contain the IoT Edge device that you want to configure. In this case, select the subscription used to deploy the Azure Stack Edge Pro device, and select the IoT Edge device created for your Azure Stack Edge Pro device. This occurs when you configure compute via the Azure portal in the earlier steps.
 
-3. In the VS Code explorer, expand the Azure IoT Hub section. Under **Devices**, you should see the IoT Edge device corresponding to your Azure Stack Edge device. 
+3. In the VS Code explorer, expand the Azure IoT Hub section. Under **Devices**, you should see the IoT Edge device corresponding to your Azure Stack Edge Pro device. 
 
     1. Select that device, right-click and select **Start Monitoring Built-in Event Endpoint**.
   
@@ -152,7 +152,7 @@ Before you begin, make sure you have:
 
         ![Module in IoT Hub](media/azure-stack-edge-gpu-deploy-sample-module/module-iot-hub-1.png)  
 
-    3. The VS Code terminal should also show the IoT Hub events as the monitoring output for your Azure Stack Edge device.
+    3. The VS Code terminal should also show the IoT Hub events as the monitoring output for your Azure Stack Edge Pro device.
 
         ![Monitoring output](media/azure-stack-edge-gpu-deploy-sample-module/monitor-events-output-1.png) 
 

@@ -16,7 +16,8 @@ Today, Azure Backup provides a reporting solution that uses [Azure Monitor logs]
 
 ## Supported scenarios
 
-- Backup reports are supported for Azure VMs, SQL in Azure VMs, SAP HANA in Azure VMs, Microsoft Azure Recovery Services (MARS) agent, Microsoft Azure Backup Server (MABS), and System Center Data Protection Manager (DPM). For Azure File Share backup, data is displayed for all records created on or after June 1, 2020.
+- Backup reports are supported for Azure VMs, SQL in Azure VMs, SAP HANA in Azure VMs, Microsoft Azure Recovery Services (MARS) agent, Microsoft Azure Backup Server (MABS), and System Center Data Protection Manager (DPM). For Azure File share backup, data is displayed for all records created on or after June 1, 2020.
+- For Azure File share backup, data on protected instances is currently not displayed in the reports (defaults to zero for all backup items).
 - For DPM workloads, Backup reports are supported for DPM Version 5.1.363.0 and above and Agent Version 2.0.9127.0 and above.
 - For MABS workloads, Backup reports are supported for MABS Version 13.0.415.0 and above and Agent Version 2.0.9170.0 and above.
 - Backup reports can be viewed across all backup items, vaults, subscriptions, and regions as long as their data is being sent to a Log Analytics workspace that the user has access to. To view reports for a set of vaults, you only need to have reader access to the Log Analytics workspace to which the vaults are sending their data. You don't need to have access to the individual vaults.
@@ -107,7 +108,7 @@ Using this view, you can identify those backup items that haven't had a successf
 
 To view inactive resources, navigate to the **Optimize** tab, and select the **Inactive Resources** tile. Select this tile displays a grid that contains details of all the inactive resources that exist in the selected scope. By default, the grid shows items that don't have a recovery point in the last seven days. To find inactive resources for a different time range, you can adjust the **Time Range** filter at the top of the tab.
 
-Once you have identified an inactive resource, you can investigate the issue further by navigating to the backup item dashboard or the Azure resource pane for that resource (wherever applicable). Depending on your scenario, you can choose to either stop backup for the machine (if it doesn't exist anymore) and delete unnecessary backups, which saves costs, or you can fix issues in the machine to ensure that backups are taken reliably.
+Once you've identified an inactive resource, you can investigate the issue further by navigating to the backup item dashboard or the Azure resource pane for that resource (wherever applicable). Depending on your scenario, you can choose to either stop backup for the machine (if it doesn't exist anymore) and delete unnecessary backups, which saves costs, or you can fix issues in the machine to ensure that backups are taken reliably.
 
 ![Optimize tab - Inactive Resources](./media/backup-azure-configure-backup-reports/optimize-inactive-resources.png)
 
@@ -169,7 +170,7 @@ The widgets in the Backup report are powered by Kusto queries, which run on the 
 
 - The earlier Power BI template app for reporting, which sourced data from an Azure storage account, is on a deprecation path. We recommend that you start sending vault diagnostic data to Log Analytics to view reports.
 
-- In addition, the [V1 schema](./backup-azure-diagnostics-mode-data-model.md#v1-schema-vs-v2-schema) of sending diagnostics data to a storage account or an LA Workspace is also on a deprecation path. This means that if you have written any custom queries or automations based on the V1 schema, you're advised to update these queries to use the currently supported V2 schema.
+- In addition, the [V1 schema](./backup-azure-diagnostics-mode-data-model.md#v1-schema-vs-v2-schema) of sending diagnostics data to a storage account or an LA Workspace is also on a deprecation path. This means that if you've written any custom queries or automations based on the V1 schema, you're advised to update these queries to use the currently supported V2 schema.
 
 ## Next steps
 

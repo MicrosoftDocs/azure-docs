@@ -7,6 +7,8 @@
   - name: What's new in Media Services
     displayName: release notes
     href: release-notes.md
+  - name: Media Services compliance
+    href: concept-compliance.md
 - name: Quickstarts
   items:
   - name: Set up your environment
@@ -45,33 +47,38 @@
       href: encrypt-content-quickstart.md       
 - name: Tutorials
   items:
-  - name: Encode remote file and stream video
+  - name: .NET
     items:
-    - name: With REST
-      displayName: encoding, job, transform
-      href: stream-files-tutorial-with-rest.md
-    - name: With CLI
-      href: stream-files-cli-quickstart.md 
-    - name: With .NET
+    - name: Encode and stream a remote file .NET
       href: stream-files-dotnet-quickstart.md
-    - name: With Node.js
+    - name: Encode and stream an uploaded file .NET
+      href: stream-files-tutorial-with-api.md
+    - name: Stream live with .NET
+      href: stream-live-tutorial-with-api.md
+    - name: Analyze your video with .NET
+      href: analyze-videos-tutorial-with-api.md
+    - name: Encrypt dynamically with AES-128
+      href: protect-with-aes128.md
+    - name: Encrypt dynamically with DRM
+      href: protect-with-drm.md
+    - name: Content protection with Azure AD
+      href: azure-ad-content-protection.md
+  - name: REST
+    items:
+    - name: Encode and stream a remote file REST
+      href: stream-files-tutorial-with-rest.md
+  - name: CLI
+    items:
+    - name: Encode and stream a remote file CLI
+      href: stream-files-cli-quickstart.md
+  - name: Node.js
+    items:
+    - name: Encode and stream a remote file Node.js
       href: stream-files-nodejs-quickstart.md
-  - name: Store AMS events in Azure Log Analytics
-    href: tutorial-events-log-analytics.md
-  - name: Encode uploaded file and stream video   
-    displayName: encode, encoding, job, transform
-    href: stream-files-tutorial-with-api.md
-  - name: Stream live
-    href: stream-live-tutorial-with-api.md
-    displayName: Live Events, Live Outputs, ingest 
-  - name: Analyze your video 
-    displayName: job, transform, VideoAnalyzerPreset, AudioAnalyzerPreset
-    href: analyze-videos-tutorial-with-api.md
-  - name: Encrypt dynamically with AES-128 
-    href: protect-with-aes128.md       
-  - name: Encrypt dynamically with DRM 
-    displayName: PlayReady, Widevine, FairPlay
-    href: protect-with-drm.md   
+  - name: Azure portal
+    items:
+    - name: Store AMS events in Azure Log Analytics
+      href: tutorial-events-log-analytics.md
 - name: Samples
   items:    
   - name: Media Services v3 samples
@@ -112,7 +119,9 @@
     - name: Autogen adaptive bitrate ladder
       href: autogen-bitrate-ladder.md       
     - name: Content-aware encoding
-      href: content-aware-encoding.md          
+      href: content-aware-encoding.md
+    - name: Media reserved units
+      href: concept-media-reserved-units.md          
   - name: Analyzing content (Video Indexer)
     items:
     - name: Overview
@@ -180,9 +189,7 @@
     - name: Streaming policies 
       href: streaming-policy-concept.md          
     - name: Content key policies 
-      href: content-key-policy-concept.md
-    - name: Content protection with Azure AD
-      href: azure-ad-content-protection.md                    
+      href: content-key-policy-concept.md                    
   - name: Monitoring
     items:
     - name: Events with Event Grid

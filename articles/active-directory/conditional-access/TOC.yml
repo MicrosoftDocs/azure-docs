@@ -41,6 +41,8 @@
     href: location-condition.md
   - name: What if tool
     href: what-if-tool.md
+  - name: Continuous access evaluation
+    href: concept-continuous-access-evaluation.md
   - name: Custom controls
     href: controls.md
   - name: Classic policy migrations
@@ -50,8 +52,8 @@
   items:
   - name: Plan your Conditional Access deployment
     href: plan-conditional-access.md
-  - name: Best practices
-    href: best-practices.md
+  - name: Conditional Access APIs
+    href: howto-conditional-access-apis.md
   - name: Common Conditional Access policies
     items: 
     - name: Block legacy authentication
@@ -90,6 +92,8 @@
     href: terms-of-use.md
   - name: Sign-in frequency and browser persistence controls
     href: howto-conditional-access-session-lifetime.md
+  - name: Best practices
+    href: best-practices.md
   - name: Troubleshooting
     items:
     - name: Troubleshoot sign-in problems

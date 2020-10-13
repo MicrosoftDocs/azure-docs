@@ -12,6 +12,9 @@ manager: philmea
 
 # Build and deploy the OPC Vault certificate management service
 
+> [!IMPORTANT]
+> While we update this article, see [Azure Industrial IoT](https://azure.github.io/Industrial-IoT/) for the most up to date content.
+
 This article explains how to deploy the OPC Vault certificate management service in Azure.
 
 > [!NOTE]

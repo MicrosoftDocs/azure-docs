@@ -55,8 +55,6 @@ Make sure that you go to the Azure Policy page on the Azure portal and look at t
 
 ## Procedure
 
-If you 
-
 ### Moving Key Vault to a new subscription within the same tenant
 
 1. Log in to the Azure portal
@@ -95,11 +93,9 @@ az keyvault update -n myvault --set Properties.tenantId=$tenantId          # Upd
 
 Now that your vault is associated with the correct tenant ID and old access policy entries are removed, set new access policy entries with the Azure PowerShell [Set-AzKeyVaultAccessPolicy](/powershell/module/az.keyvault/Set-azKeyVaultAccessPolicy) cmdlet or the Azure CLI [az keyvault set-policy](/cli/azure/keyvault?view=azure-cli-latest#az-keyvault-set-policy) command.
 
-If you are using a managed identity for Azure resources, you will need to update it to the new Azure AD tenant as well. For more information on managed identities, see [Provide Key Vault authentication with a managed identity](managed-identity.md).
+If you are using a managed identity for Azure resources, you will need to update it to the new Azure Active Directory tenant as well. For more information on managed identities, [Managed identity overview](/azure/active-directory/managed-identities-azure-resources/overview).
 
-If you are using MSI, you'll also have to update the MSI identity since the old identity will no longer be in the correct AAD tenant. See the following documents to help resolve this issue. 
+If you are using managed identity, you'll also have to update the identity because the old identity will no longer be in the correct Azure Active Directory tenant. See the following documents to help resolve this issue. 
 
 * [Updating MSI](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/known-issues#transferring-a-subscription-between-azure-ad-directories)
 * [Transfer Subscription to New Directory](https://docs.microsoft.com/azure/role-based-access-control/transfer-subscription)
-
-

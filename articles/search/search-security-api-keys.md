@@ -8,7 +8,7 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 11/04/2019
+ms.date: 10/05/2020
 ---
 
 # Create and manage api-keys for an Azure Cognitive Search service
@@ -17,7 +17,7 @@ All requests to a search service need a read-only api-key that was generated spe
 
 Keys are created with your search service during service provisioning. You can view and obtain key values in the [Azure portal](https://portal.azure.com).
 
-![Portal page, Settings, Keys section](media/search-manage/azure-search-view-keys.png)
+:::image type="content" source="media/search-manage/azure-search-view-keys.png" alt-text="Portal page, retrieve settings, keys section" border="false":::
 
 ## What is an api-key
 
@@ -43,7 +43,7 @@ You can obtain access keys in the portal or through the [Management REST API](/r
 2. List the [search services](https://portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices)  for your subscription.
 3. Select the service and on the Overview page, click **Settings** >**Keys** to view admin and query keys.
 
-   ![Portal page, Settings, Keys section](media/search-security-overview/settings-keys.png)
+   :::image type="content" source="media/search-security-overview/settings-keys.png" alt-text="Portal page, view settings, keys section" border="false":::
 
 ## Create query keys
 
@@ -57,7 +57,7 @@ Restricting access and operations in client apps is essential to safeguarding th
 4. Click **Manage query keys**.
 5. Use the query key already generated for your service, or create up to 50 new query keys. The default query key is not named, but additional query keys can be named for manageability.
 
-   ![Create or use a query key](media/search-security-overview/create-query-key.png) 
+   :::image type="content" source="media/search-security-overview/create-query-key.png" alt-text="Create or use a query key" border="false":::
 
 > [!Note]
 > A code example showing query key usage can be found in [Query an Azure Cognitive Search index in C#](./search-get-started-dotnet.md).

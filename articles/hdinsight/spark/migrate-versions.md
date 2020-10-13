@@ -1,8 +1,8 @@
 ---
 title: Migrate Apache Spark 2.1 or 2.2 workloads to 2.3 or 2.4 - Azure HDInsight
 description: Learn how to migrate Apache Spark 2.1 and 2.2 to 2.3 or 2.4.
-author: ashishthaps1
-ms.author: ashishth
+author: hrasheed-msft
+ms.author: hrasheed
 ms.reviewer: hrasheed
 ms.service: hdinsight
 ms.topic: conceptual

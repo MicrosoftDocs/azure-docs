@@ -51,6 +51,18 @@
   href: code-samples.md
 - name: Concepts
   items:
+  - name: Compare solutions for External Identities
+    href: https://docs.microsoft.com/azure/active-directory/b2b/compare-with-b2c?toc=/azure/active-directory-b2c/TOC.json&bc=/azure/active-directory-b2c/bread/toc.json
+  - name: Learn the basics
+    items:
+    - name: Authentication and authorization
+      href: https://docs.microsoft.com/azure/active-directory/develop/authentication-vs-authorization?toc=/azure/active-directory-b2c/TOC.json&bc=/azure/active-directory-b2c/bread/toc.json
+    - name: Tokens
+      href: https://docs.microsoft.com/azure/active-directory/develop/security-tokens?toc=/azure/active-directory-b2c/TOC.json&bc=/azure/active-directory-b2c/bread/toc.json
+    - name: Protocols
+      href: https://docs.microsoft.com/azure/active-directory/develop/v2-app-types?toc=/azure/active-directory-b2c/TOC.json&bc=/azure/active-directory-b2c/bread/toc.json
+    - name: Authentication library
+      href: https://docs.microsoft.com/azure/active-directory/develop/msal-overview?toc=/azure/active-directory-b2c/TOC.json&bc=/azure/active-directory-b2c/bread/toc.json
   - name: Azure AD B2C best practices
     href: best-practices.md
   - name: Application types
@@ -69,6 +81,8 @@
         href: tokens-overview.md
       - name: Request access token
         href: access-tokens.md
+  - name: Policy keys
+    href: policy-keys-overview.md
   - name: User flow and policy
     items:
     - name: User flows
@@ -81,6 +95,8 @@
     href: user-profile-attributes.md
   - name: SSO sessions
     href: session-overview.md
+  - name: Identity Protection and Conditional Access
+    href: conditional-access-identity-protection-overview.md
 - name: How-to guides
   items:
   - name: App integration
@@ -111,6 +127,8 @@
         href: configure-ropc.md
       - name: Set up self-serve password reset
         href: user-flow-self-service-password-reset.md
+    - name: Add Conditional Access
+      href: conditional-access-user-flow.md
     - name: UX customization
       items:
       - name: Customize the UI
@@ -162,8 +180,16 @@
       href: basic-age-gating.md
     - name: Define custom attributes
       href: user-flow-custom-attributes.md
+    - name: API connectors
+      items:
+      - name: Overview
+        href: api-connectors-overview.md
+      - name: Add an API connector
+        href: add-api-connector.md
     - name: Pass through external IdP token
       href: idp-pass-through-user-flow.md
+  - name: Identity Protection and Conditional Access
+    href: conditional-access-identity-protection-setup.md
   - name: Custom policy
     items:
     - name: Create a policy
@@ -333,6 +359,11 @@
             href: aad-sspr-technical-profile.md
           - name: Claims transformation
             href: claims-transformation-technical-profile.md
+          - name: Conditional Access 
+            href: conditional-access-technical-profile.md
+            displayName: ca
+          - name: ID token hint
+            href: id-token-hint.md
           - name: JWT token issuer
             href: jwt-issuer-technical-profile.md
           - name: OAuth1
@@ -359,6 +390,8 @@
             displayName: single sign-on
       - name: UserJourneys
         href: userjourneys.md
+      - name: SubJourneys
+        href: subjourneys.md
       - name: RelyingParty
         href: relyingparty.md
       - name: Claim resolvers
@@ -377,12 +410,14 @@
       href: partner-idology.md
     - name: itsme
       href: partner-itsme.md
-    - name: LexisNexis
-      href: partner-lexisnexis.md
     - name: Jumio
       href: partner-jumio.md
+    - name: LexisNexis
+      href: partner-lexisnexis.md
     - name: Onfido
       href: partner-onfido.md
+    - name: Saviynt
+      href: partner-saviynt.md
     - name: Trusona
       href: partner-trusona.md
     - name: Twilio
@@ -447,7 +482,7 @@
     href: error-codes.md
   - name: Extensions app
     href: extensions-app.md
-  - name: IEF release notes
+  - name: Custom policy (IEF) release notes
     href: custom-policy-developer-notes.md
   - name: Microsoft Graph API operations
     href: microsoft-graph-operations.md

@@ -108,7 +108,7 @@ Below you can find a list of all the authorized Cloud Solution Providers, which 
 |[Cybercore Solutions LLC](https://cybercoresolutions.com/)|
 |[Dalecheck Technology Group](https://www.dalechek.com/)|
 |[Dasher Technologies, Inc.](https://www.dasher.com)|
-|[Data:Architect](https://data.arcah.tech/)|
+|Data:Architect|
 |[Data Center Services Inc](https://www.d8acenter.com)|
 |[Datapipe (RackSpace Company)](https://www.rackspace.com)|
 |[Dataprise, Inc.](https://www.dataprise.com/)|
@@ -237,7 +237,7 @@ Below you can find a list of all the authorized Cloud Solution Providers, which 
 |[Nihilent Inc](https://nihilent.com)|
 |[Norseman, Inc](https://www.norseman.com)|
 |[Northern Sky Technologies, Inc]|
-|[Nortrop Grumman](https://www.northropgrumman.com)|
+|[Northrop Grumman](https://www.northropgrumman.com)|
 |[NTS Cloud](http://ntscloud.com/ )|
 |[NTT America, Inc.](https://www.us.ntt.net)|
 |[Nubelity LLC](http://www.nubelity.com)|
@@ -247,7 +247,7 @@ Below you can find a list of all the authorized Cloud Solution Providers, which 
 |[Om Group, Inc.](http://www.omgroupinc.us/)|
 |[OneNeck IT Solutions](https://www.oneneck.com)|
 |[Onyx Point, Inc.](https://www.onyxpoint.com)|
-|[Open Analyze Technologies, Inc.](https://www.openanalyze.com/)|
+|Open Analyze Technologies, Inc.|
 |[Opsgility](https://www.opsgility.com)|
 |[OpsPro](https://opspro.com/)|
 |[Orion Communications, Inc.](https://www.orioncom.com)|

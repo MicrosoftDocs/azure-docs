@@ -19,7 +19,7 @@ MABS is based on System Center DPM and provides similar functionality with a few
 
 - No System Center license is required to run MABS.
 - For both MABS and DPM, Azure provides long-term backup storage. In addition, DPM allows you to back up data for long-term storage on tape. MABS doesn't provide this functionality.
-- [You can back up a primary DPM server with a secondary DPM server](/system-center/dpm/back-up-the-dpm-server?view=sc-dpm-2019). The secondary server will protect the primary server database and the data source replicas stored on the primary server. If the primary server fails, the secondary server can continue to protect workloads that are protected by the primary server, until the primary server is available again.  MABS doesn't provide this functionality.
+- [You can back up a primary DPM server with a secondary DPM server](/system-center/dpm/back-up-the-dpm-server). The secondary server will protect the primary server database and the data source replicas stored on the primary server. If the primary server fails, the secondary server can continue to protect workloads that are protected by the primary server, until the primary server is available again.  MABS doesn't provide this functionality.
 
 You download MABS from the [Microsoft Download Center](https://www.microsoft.com/download/details.aspx?id=57520). It can be run on-premises or on an Azure VM.
 
@@ -81,7 +81,7 @@ Azure Backup can back up DPM/MABS instances that are running any of the followin
 **Domain** | DPM/MABS should be joined to a domain. Install first, and then join DPM/MABS to a domain. Moving DPM/MABS to a new domain after deployment isn't supported.
 **Storage** | Modern backup storage (MBS) is supported from DPM 2016/MABS v2 and later. It isn't available for MABS v1.
 **MABS upgrade** | You can directly install MABS v3, or upgrade to MABS v3 from MABS v2. [Learn more](backup-azure-microsoft-azure-backup.md#upgrade-mabs).
-**Moving MABS** | Moving MABS to a new server while retaining the storage is supported if you're using MBS.<br/><br/> The server must have the same name as the original. You can't change the name if you want to keep the same storage pool, and use the same MABS database to store data recovery points.<br/><br/> You will need a backup of the MABS database because you'll need to restore it.
+**Moving MABS** | Moving MABS to a new server while retaining the storage is supported if you're using MBS.<br/><br/> The server must have the same name as the original. You can't change the name if you want to keep the same storage pool, and use the same MABS database to store data recovery points.<br/><br/> You'll need a backup of the MABS database because you'll need to restore it.
 
 ## MABS support on Azure Stack
 
@@ -109,10 +109,10 @@ You can deploy MABS on an Azure Stack VM so that you can manage backup of Azure 
 The DPM server/MABS needs access to these URLs:
 
 - `http://www.msftncsi.com/ncsi.txt`
-- *.Microsoft.com
-- *.WindowsAzure.com
-- *.microsoftonline.com
-- *.windows.net
+- `*.Microsoft.com`
+- `*.WindowsAzure.com`
+- `*.microsoftonline.com`
+- `*.windows.net`
 
 ### Azure ExpressRoute support
 
@@ -153,7 +153,7 @@ No connectivity for more than 15 days | Expired/deprovisioned | No backup to dis
 |Requirement |Details |
 |---------|---------|
 |Domain    | The DPM/MABS server should be in a Windows Server 2019, Windows Server 2016, Windows Server 2012 R2, Windows Server 2012 domain.        |
-|Domain trust   |  DPM/MABS supports data protection across forests, as long as you establish a forest-level, two-way trust between the separate forests.   <BR><BR>   DPM/MABS can protect servers and workstations across domains, within a forest that has a two-way trust relationship with the DPM/MABS server domain. To protect computers in workgroups or untrusted domains, see [Back up and restore workloads in workgroups and untrusted domains.](/system-center/dpm/back-up-machines-in-workgroups-and-untrusted-domains?view=sc-dpm-2019)  |
+|Domain trust   |  DPM/MABS supports data protection across forests, as long as you establish a forest-level, two-way trust between the separate forests.   <BR><BR>   DPM/MABS can protect servers and workstations across domains, within a forest that has a two-way trust relationship with the DPM/MABS server domain. To protect computers in workgroups or untrusted domains, see [Back up and restore workloads in workgroups and untrusted domains.](/system-center/dpm/back-up-machines-in-workgroups-and-untrusted-domains)  |
 
 ## DPM/MABS storage support
 
@@ -180,7 +180,7 @@ For information on the various servers and workloads that you can protect with A
 
 ## Supported backups to DPM
 
-For information on the various servers and workloads that you can protect with Data Protection Manager, refer to the article [What can DPM back up?](/system-center/dpm/dpm-protection-matrix?view=sc-dpm-2019).
+For information on the various servers and workloads that you can protect with Data Protection Manager, refer to the article [What can DPM back up?](/system-center/dpm/dpm-protection-matrix).
 
 - Clustered workloads backed up by DPM/MABS should be in the same domain as DPM/MABS or in a child/trusted domain.
 - You can use NTLM/certificate authentication to back up data in untrusted domains or workgroups.

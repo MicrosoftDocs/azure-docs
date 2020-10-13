@@ -26,12 +26,12 @@ landingContent:
         links:
           - text: What is Load Balancer?
             url: load-balancer-overview.md
-          - text: Load Balancer concepts
+          - text: Load Balancer algorithm
             url: concepts.md
           - text: Load Balancer components
             url: components.md
           - text: What's new?
-            url: whats-new.md
+            url: https://azure.microsoft.com/updates/?category=networking&query=load%20balancer
           - text: Load Balancer SKUs
             url: skus.md     
   # Card (optional)
@@ -104,6 +104,10 @@ landingContent:
             url: load-balancer-common-deployment-errors.md
           - text: Resolve common outbound connection issues
             url: troubleshoot-outbound-connection.md
+      - linkListType: video
+        links:
+          - text: Build & monitor highly available apps with Azure Load Balancer
+            url: https://techcommunity.microsoft.com/t5/video-hub/build-amp-monitor-highly-available-apps-w-azure-load-balancer/m-p/1703353
       
      # Card
   - title: Reference

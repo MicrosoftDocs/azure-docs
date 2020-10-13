@@ -2,7 +2,7 @@
 author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: include
-ms.date: 02/24/2020    
+ms.date: 09/01/2020    
 ms.author: tomfitz
 ---
 | Resource | Limit |
@@ -16,7 +16,7 @@ ms.author: tomfitz
 | Tag key length |512 |
 | Tag value length |256 |
 
-<sup>1</sup>Starting in June 2020, deployments will be automatically deleted from the history as you near the limit. Deleting an entry from the deployment history doesn't affect the deployed resources. For more information, see [Automatic deletions from deployment history](../articles/azure-resource-manager/templates/deployment-history-deletions.md).
+<sup>1</sup>Deployments are automatically deleted from the history as you near the limit. Deleting an entry from the deployment history doesn't affect the deployed resources. For more information, see [Automatic deletions from deployment history](../articles/azure-resource-manager/templates/deployment-history-deletions.md).
 
 #### Template limits
 

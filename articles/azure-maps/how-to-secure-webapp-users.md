@@ -5,11 +5,11 @@ description: How to configure a web application which supports Azure AD single-s
 author: anastasia-ms
 ms.author: v-stharr
 ms.date: 06/12/2020
-ms.topic: conceptual
+ms.topic: how-to
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.custom: devx-track-javascript
+ms.custom: devx-track-js
 ---
 
 # Secure a web application with user sign-in

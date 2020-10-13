@@ -4,6 +4,8 @@
   items:
   - name: About Azure Arc enabled servers
     href: overview.md
+  - name: What's new with Connected Machine agent
+    href: agent-release-notes.md
 - name: Quickstarts
   items:
   - name: Enable Arc enabled servers agent
@@ -14,12 +16,6 @@
       href: ./learn/tutorial-assign-policy-portal.md
     - name: Monitor machine
       href: ./learn/tutorial-enable-vm-insights.md
-- name: Samples
-  items:
-  - name: Azure Policy built-ins 
-    items:
-    - name: Arc enabled servers
-      href: policy-samples.md
 - name: Concepts
   items:
   - name: Security
@@ -27,6 +23,8 @@
     - name: Security controls by Azure Policy
       displayName: regulatory, compliance, standards, domains
       href: security-controls-policy.md
+    - name: Security overview
+      href: security-overview.md
 - name: How-to guides
   items:
   - name: Connect to Azure Arc
@@ -49,9 +47,14 @@
     items:
     - name: Agent connection issues
       href: troubleshoot-agent-onboard.md
-  - name: Reference
-    items:
-    - name: Region availability and data residency
+    - name: VM Extension issues
+      href: troubleshoot-vm-extensions.md
+- name: Reference
+  items:
+    - name: Data residency
       href: data-residency.md
     - name: REST
       href: /rest/api/hybridcompute
+    - name: Azure Policy built-ins 
+      displayName: samples, policies, definitions
+      href: policy-reference.md

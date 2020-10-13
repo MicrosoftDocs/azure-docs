@@ -20,6 +20,10 @@ This article shows how to profile a machine learning to model to determine how m
 
 This article assumes you have trained and registered a model with Azure Machine Learning. See the [sample tutorial here](how-to-train-scikit-learn.md) for an example of training and registering a scikit-learn model with Azure Machine Learning.
 
+## Limitations
+
+* Profiling will not work when the Azure Container Registry (ACR) for your workspace is behind a virtual network.
+
 ## Run the profiler
 
 Once you have registered your model and prepared the other components necessary for its deployment, you can determine the CPU and memory the deployed service will need. Profiling tests the service that runs your model and returns information such as the CPU usage, memory usage, and response latency. It also provides a recommendation for the CPU and memory based on resource usage.

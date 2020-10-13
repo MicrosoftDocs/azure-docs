@@ -10,7 +10,7 @@ ms.devlang:
 ms.topic: conceptual
 author: stevestein
 ms.author: sstein
-ms.reviewer: sashan, moslake, carlrab
+ms.reviewer: sashan, moslake
 ms.date: 01/30/2020
 ---
 # Azure SQL Database and Azure SQL Managed Instance service tiers

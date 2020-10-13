@@ -47,11 +47,19 @@ Starting with versions released after August 2018, we are making the following c
  - Ubuntu, Debian: `apt-get install -y python2`
  - SUSE: `zypper install -y python2`
 
-The python2 executable must be aliased to "python" using the following command:
+The python2 executable must be aliased to *python*. Following is one method that you can use to set this alias:
 
-```
-alternatives --set python `which python2`
-```
+1. Run the following command to remove any existing aliases.
+ 
+    ```
+    sudo update-alternatives --remove-all python
+    ```
+
+2. Run the following command to create the alias.
+
+    ```
+    sudo update-alternatives --install /usr/bin/python python /usr/bin/python2 1
+    ```
 
 ## Supported Linux hardening
 The OMS Agent has limited customization support for Linux. 
@@ -61,7 +69,7 @@ The following are currently supported:
 
 The following are planned but not yet supported:
 - CIS
--SELINUX
+- SELINUX
 
 Other hardening and customization methods are not supported nor planned for OMS Agent.  
 
@@ -90,10 +98,10 @@ The Log Analytics agent for Linux is composed of multiple packages. The release 
 
 **Package** | **Version** | **Description**
 ----------- | ----------- | --------------
-omsagent | 1.12.15 | The Log Analytics Agent for Linux
+omsagent | 1.13.9 | The Log Analytics Agent for Linux
 omsconfig | 1.1.1 | Configuration agent for the Log Analytics agent
-omi | 1.6.3 | Open Management Infrastructure (OMI) -- a lightweight CIM Server. *Note that OMI requires root access to run a cron job necessary for the functioning of the service*
-scx | 1.6.3 | OMI CIM Providers for operating system performance metrics
+omi | 1.6.4 | Open Management Infrastructure (OMI) -- a lightweight CIM Server. *Note that OMI requires root access to run a cron job necessary for the functioning of the service*
+scx | 1.6.4 | OMI CIM Providers for operating system performance metrics
 apache-cimprov | 1.0.1 | Apache HTTP Server performance monitoring provider for OMI. Only installed if Apache HTTP Server is detected.
 mysql-cimprov | 1.0.1 | MySQL Server performance monitoring provider for OMI. Only installed if MySQL/MariaDB server is detected.
 docker-cimprov | 1.0.0 | Docker provider for OMI. Only installed if Docker is detected.

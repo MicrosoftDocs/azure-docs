@@ -9,12 +9,10 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 08/08/2020
+ms.date: 09/19/2020
 ms.author: jmprieur
 ms.custom: aaddev, devx-track-python
-
-#Customer intent: As an application developer, I want to know how to write a daemon app that can call web APIs by using the Microsoft identity platform for developers.
-
+# Customer intent: As an application developer, I want to know how to write a daemon app that can call web APIs by using the Microsoft identity platform for developers.
 ---
 
 # Daemon app that calls web APIs - code configuration
@@ -50,16 +48,13 @@ In MSAL libraries, the client credentials (secret or certificate) are passed as 
 
 The configuration file defines:
 
-- The authority or the cloud instance and tenant ID.
+- The cloud instance and tenant ID, which together make up the *authority*.
 - The client ID that you got from the application registration.
 - Either a client secret or a certificate.
 
-> [!NOTE]
-> The .Net code snippets in the rest of the article reference [config](https://github.com/Azure-Samples/active-directory-dotnetcore-daemon-v2/blob/master/1-Call-MSGraph/daemon-console/AuthenticationConfig.cs) from the [active-directory-dotnetcore-daemon-v2](https://github.com/Azure-Samples/active-directory-dotnetcore-daemon-v2) sample.
-
 # [.NET](#tab/dotnet)
 
-[appsettings.json](https://github.com/Azure-Samples/active-directory-dotnetcore-daemon-v2/blob/master/1-Call-MSGraph/daemon-console/appsettings.json) from the [.NET Core console daemon](https://github.com/Azure-Samples/active-directory-dotnetcore-daemon-v2) sample.
+Here's an example of defining the configuration in an [*appsettings.json*](https://github.com/Azure-Samples/active-directory-dotnetcore-daemon-v2/blob/master/1-Call-MSGraph/daemon-console/appsettings.json) file. This example is taken from from the [.NET Core console daemon](https://github.com/Azure-Samples/active-directory-dotnetcore-daemon-v2) code sample on GitHub.
 
 ```json
 {
@@ -123,9 +118,9 @@ Reference the MSAL package in your application code.
 
 # [.NET](#tab/dotnet)
 
-Add the [Microsoft.IdentityClient](https://www.nuget.org/packages/Microsoft.Identity.Client) NuGet package to your application.
+Add the [Microsoft.Identity.Client](https://www.nuget.org/packages/Microsoft.Identity.Client) NuGet package to your application, and then add a `using` directive in your code to reference it.
+
 In MSAL.NET, the confidential client application is represented by the `IConfidentialClientApplication` interface.
-Use the MSAL.NET namespace in the source code.
 
 ```csharp
 using Microsoft.Identity.Client;
@@ -166,6 +161,23 @@ app = ConfidentialClientApplicationBuilder.Create(config.ClientId)
            .WithClientSecret(config.ClientSecret)
            .WithAuthority(new Uri(config.Authority))
            .Build();
+```
+
+The `Authority` is a concatenation of the cloud instance and the tenant ID, for example `https://login.microsoftonline.com/contoso.onmicrosoft.com` or `https://login.microsoftonline.com/eb1ed152-0000-0000-0000-32401f3f9abd`. In the *appsettings.json* file shown in the [Configuration file](#configuration-file) section, these are represented by the `Instance` and `Tenant` values, respectively.
+
+In the code sample the previous snippet was taken from, `Authority` is a property on the  [AuthenticationConfig](https://github.com/Azure-Samples/active-directory-dotnetcore-daemon-v2/blob/ffc4a9f5d9bdba5303e98a1af34232b434075ac7/1-Call-MSGraph/daemon-console/AuthenticationConfig.cs#L61-L70) class, and is defined as such:
+
+```csharp
+/// <summary>
+/// URL of the authority
+/// </summary>
+public string Authority
+{
+    get
+    {
+        return String.Format(CultureInfo.InvariantCulture, Instance, Tenant);
+    }
+}
 ```
 
 # [Python](#tab/python)

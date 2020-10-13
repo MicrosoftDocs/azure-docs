@@ -65,7 +65,7 @@
                   href: ../azure-monitor/insights/container-insights-azure-redhat-setup.md
                   maintainContext: true
                 - name: Disable Azure Monitor for containers in Azure Red Hat OpenShift 3.11
-                  href: ../azure-monitor/insights/container-insights-optout-openshift.md
+                  href: ../azure-monitor/insights/container-insights-optout-openshift-v3.md
                   maintainContext: true
         - name: Run privileged containers in Azure Red Hat OpenShift 3.11
           href: howto-run-privileged-containers.md

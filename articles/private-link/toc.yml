@@ -24,7 +24,12 @@
   - name: Create a Private Link service - ARM template
     displayName: Resource Manager
     href: create-private-link-service-template.md
-
+- name: Tutorials
+  items: 
+  - name: Connect to a storage account
+    href: tutorial-private-endpoint-storage-portal.md
+  - name: Connect to a Cosmos DB account
+    href: tutorial-private-endpoint-cosmosdb-portal.md
 - name: Concepts
   items:
   - name: Private Endpoint
@@ -33,21 +38,23 @@
     href: private-link-service-overview.md    
   - name: Private Endpoint DNS integration
     href: private-endpoint-dns.md    
+  - name: Security
+    items:
+    - name: Security baseline
+      href: security-baseline.md
 
 - name: How to
   items:
-  - name: Connect privately to a storage account
-    href: create-private-endpoint-storage-portal.md
-  - name: Connect privately to a Cosmos DB account
-    href: create-private-endpoint-cosmosdb-portal.md
-  - name: Connect privately to a Web App
+  - name: Connect privately to a web app
     href: create-private-endpoint-webapp-portal.md
   - name: Disable network policies for a private endpoint
     href: disable-private-endpoint-network-policy.md
   - name: Disable network policies for a Private Link Service
     href: disable-private-link-service-network-policy.md
   - name: Manage private endpoints
-    href: manage-private-endpoint.md  
+    href: manage-private-endpoint.md
+  - name: Inspect traffic with Azure Firewall
+    href: inspect-traffic-with-azure-firewall.md
   - name: Troubleshoot
     items:
     - name: Troubleshoot Private Endpoint connectivity problems

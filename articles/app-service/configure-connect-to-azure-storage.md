@@ -52,7 +52,7 @@ This guide shows how to attach Azure Storage to a Linux container App Service. B
 - Azure Storage in App Service is currently **not supported** for bring your own code scenarios (non-containerized Windows apps).
 - Azure Storage in App Service **doesn't support** using the **Storage Firewall** configuration because of infrastructure limitations.
 - Azure Storage with App Service lets you specify **up to five** mount points per app.
-- Azure Storage mounted to an app is not accessible through App Service FTP/FTPs endpoints. Use [Azure Storage explorer](https://azure.microsoft.com/features/storage-explorer/).
+- Azure Storage mounted to an app is not accessible through App Service FTP/FTPs endpoints. Use [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/).
 
 ::: zone-end
 
@@ -60,9 +60,8 @@ This guide shows how to attach Azure Storage to a Linux container App Service. B
 
 - Azure Storage in App Service is **in preview** for App Service on Linux and Web App for Containers. It's **not supported** for **production scenarios**.
 - Azure Storage in App Service supports mounting **Azure Files containers** (Read / Write) and **Azure Blob containers** (Read Only)
-- Azure Storage in App Service **doesn't support** using the **Storage Firewall** configuration because of infrastructure limitations.
 - Azure Storage in App Service lets you specify **up to five** mount points per app.
-- Azure Storage mounted to an app is not accessible through App Service FTP/FTPs endpoints. Use [Azure Storage explorer](https://azure.microsoft.com/features/storage-explorer/).
+- Azure Storage mounted to an app is not accessible through App Service FTP/FTPs endpoints. Use [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/).
 
 ::: zone-end
 

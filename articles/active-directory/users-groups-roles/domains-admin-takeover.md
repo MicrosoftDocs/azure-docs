@@ -29,7 +29,7 @@ During the process of admin takeover, you can prove ownership as described in [A
 
 ## Internal admin takeover
 
-Some products that include SharePoint and OneDrive, such as Office 365, do not support external takeover. If that is your scenario, or if you are an admin and want to take over an unmanaged or "shadow" Azure AD organization create by users who used self-service sign-up, you can do this with an internal admin takeover.
+Some products that include SharePoint and OneDrive, such as Microsoft 365, do not support external takeover. If that is your scenario, or if you are an admin and want to take over an unmanaged or "shadow" Azure AD organization create by users who used self-service sign-up, you can do this with an internal admin takeover.
 
 1. Create a user context in the unmanaged organization through signing up for Power BI. For convenience of example, these steps assume that path.
 
@@ -47,7 +47,7 @@ Some products that include SharePoint and OneDrive, such as Office 365, do not s
 
 When the DNS TXT records are verified at your domain name registrar, you can manage the Azure AD organization.
 
-When you complete the preceding steps, you are now the global administrator of the Fourth Coffee organization in Office 365. To integrate the domain name with your other Azure services, you can remove it from Office 365 and add it to a different managed organization in Azure.
+When you complete the preceding steps, you are now the global administrator of the Fourth Coffee organization in Microsoft 365. To integrate the domain name with your other Azure services, you can remove it from Microsoft 365 and add it to a different managed organization in Azure.
 
 ### Adding the domain name to a managed organization in Azure AD
 
@@ -56,9 +56,9 @@ When you complete the preceding steps, you are now the global administrator of t
 3. Ensure that the new user account has global admin privileges for the Azure AD organization.
 4. Open **Domains** tab in the Microsoft 365 admin center, select the domain name and select **Remove**. 
   
-   ![remove the domain name from Office 365](./media/domains-admin-takeover/remove-domain-from-o365.png)
+   ![Remove the domain name from Microsoft 365](./media/domains-admin-takeover/remove-domain-from-o365.png)
   
-5. If you have any users or groups in Office 365 that reference the removed domain name, they must be renamed to the .onmicrosoft.com domain. If you force delete the domain name, all users are automatically renamed, in this example to *user\@fourthcoffeexyz.onmicrosoft.com*.
+5. If you have any users or groups in Microsoft 365 that reference the removed domain name, they must be renamed to the .onmicrosoft.com domain. If you force delete the domain name, all users are automatically renamed, in this example to *user\@fourthcoffeexyz.onmicrosoft.com*.
   
 6. Sign in to the [Azure AD admin center](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Overview) with an account that is the global admin for the Azure AD organization.
   
@@ -67,11 +67,11 @@ When you complete the preceding steps, you are now the global administrator of t
    ![domain verified as added to Azure AD](./media/domains-admin-takeover/add-domain-to-azure-ad.png)
   
 > [!NOTE]
-> Any users of Power BI or Azure Rights Management service who have licenses assigned in the Office 365 organization must save their dashboards if the domain name is removed. They must sign in with a user name like *user\@fourthcoffeexyz.onmicrosoft.com* rather than *user\@fourthcoffee.xyz*.
+> Any users of Power BI or Azure Rights Management service who have licenses assigned in the Microsoft 365 organization must save their dashboards if the domain name is removed. They must sign in with a user name like *user\@fourthcoffeexyz.onmicrosoft.com* rather than *user\@fourthcoffee.xyz*.
 
 ## External admin takeover
 
-If you already manage an organization with Azure services or Office 365, you cannot add a custom domain name if it is already verified in another Azure AD organization. However, from your managed organization in Azure AD you can take over an unmanaged organization as an external admin takeover. The general procedure follows the article [Add a custom domain to Azure AD](../fundamentals/add-custom-domain.md).
+If you already manage an organization with Azure services or Microsoft 365, you cannot add a custom domain name if it is already verified in another Azure AD organization. However, from your managed organization in Azure AD you can take over an unmanaged organization as an external admin takeover. The general procedure follows the article [Add a custom domain to Azure AD](../fundamentals/add-custom-domain.md).
 
 When you verify ownership of the domain name, Azure AD removes the domain name from the unmanaged organization and moves it to your existing organization. External admin takeover of an unmanaged directory requires the same DNS TXT validation process as internal admin takeover. The difference is that the following are also moved over with the domain name:
 
@@ -115,7 +115,7 @@ cmdlet | Usage
 `new-msoldomain –name <domainname>` | Adds the domain name to organization as Unverified (no DNS verification has been performed yet).
 `get-msoldomain` | The domain name is now included in the list of domain names associated with your managed organization, but is listed as **Unverified**.
 `get-msoldomainverificationdns –Domainname <domainname> –Mode DnsTxtRecord` | Provides the information to put into new DNS TXT record for the domain (MS=xxxxx). Verification might not happen immediately because it takes some time for the TXT record to propagate, so wait a few minutes before considering the **-ForceTakeover** option. 
-`confirm-msoldomain –Domainname <domainname> –ForceTakeover Force` | <li>If your domain name is still not verified, you can proceed with the **-ForceTakeover** option. It verifies that the TXT record was created and kicks off the takeover process.<li>The **-ForceTakeover** option should be added to the cmdlet only when forcing an external admin takeover, such as when the unmanaged organization has Office 365 services blocking the takeover.
+`confirm-msoldomain –Domainname <domainname> –ForceTakeover Force` | <li>If your domain name is still not verified, you can proceed with the **-ForceTakeover** option. It verifies that the TXT record was created and kicks off the takeover process.<li>The **-ForceTakeover** option should be added to the cmdlet only when forcing an external admin takeover, such as when the unmanaged organization has Microsoft 365 services blocking the takeover.
 `get-msoldomain` | The domain list now shows the domain name as **Verified**.
 
 > [!NOTE]

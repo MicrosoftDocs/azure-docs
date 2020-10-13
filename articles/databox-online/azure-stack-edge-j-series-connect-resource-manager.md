@@ -1,33 +1,33 @@
 ---
-title: Connect to Azure Resource Manager on your Azure Stack Edge device
-description: Describes how to connect to the Azure Resource Manager running on your Azure Stack Edge using Azure PowerShell.
+title: Connect to Azure Resource Manager on your Azure Stack Edge Pro GPU device
+description: Describes how to connect to the Azure Resource Manager running on your Azure Stack Edge Pro GPU using Azure PowerShell.
 services: databox
 author: alkohli
 
 ms.service: databox
 ms.subservice: edge
-ms.topic: article
-ms.date: 08/21/2020
+ms.topic: how-to
+ms.date: 08/28/2020
 ms.author: alkohli
-#Customer intent: As an IT admin, I need to understand how to connect to Azure Resource Manager on my Azure Stack Edge device so that I can manage resources.
+#Customer intent: As an IT admin, I need to understand how to connect to Azure Resource Manager on my Azure Stack Edge Pro device so that I can manage resources.
 ---
 
-# Connect to Azure Resource Manager on your Azure Stack Edge device
+# Connect to Azure Resource Manager on your Azure Stack Edge Pro device
 
 <!--[!INCLUDE [applies-to-skus](../../includes/azure-stack-edge-applies-to-all-sku.md)]-->
 
-Azure Resource Manager provides a management layer that enables you to create, update, and delete resources in your Azure subscription. The Azure Stack Edge device supports the same Azure Resource Manager APIs to create, update, and delete VMs in a local subscription. This support lets you manage the device in a manner consistent with the cloud. 
+Azure Resource Manager provides a management layer that enables you to create, update, and delete resources in your Azure subscription. The Azure Stack Edge Pro device supports the same Azure Resource Manager APIs to create, update, and delete VMs in a local subscription. This support lets you manage the device in a manner consistent with the cloud. 
 
-This tutorial describes how to connect to the local APIs on your Azure Stack Edge device via Azure Resource Manager using Azure PowerShell.
+This tutorial describes how to connect to the local APIs on your Azure Stack Edge Pro device via Azure Resource Manager using Azure PowerShell.
 
 ## About Azure Resource Manager
 
-Azure Resource Manager provides a consistent management layer to call the Azure Stack Edge device API and perform operations such as create, update, and delete VMs. The architecture of the Azure Resource Manager is detailed in the following diagram.
+Azure Resource Manager provides a consistent management layer to call the Azure Stack Edge Pro device API and perform operations such as create, update, and delete VMs. The architecture of the Azure Resource Manager is detailed in the following diagram.
 
 ![Diagram for Azure Resource Manager](media/azure-stack-edge-j-series-connect-resource-manager/edge-device-flow.svg)
 
 
-## Endpoints on Azure Stack Edge device
+## Endpoints on Azure Stack Edge Pro device
 
 The following table summarizes the various endpoints exposed on your device, the supported protocols, and the ports to access those endpoints. Throughout the article, you will find references to these endpoints.
 
@@ -44,7 +44,7 @@ The process of connecting to local APIs of the device using Azure Resource Manag
 
 | Step # | You'll do this step ... | .. on this location. |
 | --- | --- | --- |
-| 1. | [Configure your Azure Stack Edge device](#step-1-configure-azure-stack-edge-device) | Local web UI |
+| 1. | [Configure your Azure Stack Edge Pro device](#step-1-configure-azure-stack-edge-pro-device) | Local web UI |
 | 2. | [Create and install certificates](#step-2-create-and-install-certificates) | Windows client/local web UI |
 | 3. | [Review and configure the prerequisites](#step-3-install-powershell-on-the-client) | Windows client |
 | 4. | [Set up Azure PowerShell on the client](#step-4-set-up-azure-powershell-on-the-client) | Windows client |
@@ -56,13 +56,13 @@ The following sections detail each of the above steps in connecting to Azure Res
 
 ## Prerequisites
 
-Before you begin, make sure that the client used for connecting to device via Azure Resource Manager is using TLS 1.2. For more information, go to [Configure TLS 1.2 on Windows client accessing Azure Stack Edge device](azure-stack-edge-j-series-configure-tls-settings.md).
+Before you begin, make sure that the client used for connecting to device via Azure Resource Manager is using TLS 1.2. For more information, go to [Configure TLS 1.2 on Windows client accessing Azure Stack Edge Pro device](azure-stack-edge-j-series-configure-tls-settings.md).
 
-## Step 1: Configure Azure Stack Edge device 
+## Step 1: Configure Azure Stack Edge Pro device 
 
-Take the following steps in the local web UI of your Azure Stack Edge device.
+Take the following steps in the local web UI of your Azure Stack Edge Pro device.
 
-1. Complete the network settings for your Azure Stack Edge device. 
+1. Complete the network settings for your Azure Stack Edge Pro device. 
 
     ![Local web UI "Network settings" page](./media/azure-stack-edge-gpu-deploy-configure-network-compute-web-proxy/compute-network-2.png)
 
@@ -80,7 +80,7 @@ Take the following steps in the local web UI of your Azure Stack Edge device.
 
 ## Step 2: Create and install certificates
 
-Certificates ensure that your communication is trusted. On your Azure Stack Edge device, self-signed appliance, blob, and Azure Resource Manager certificates are automatically generated. Optionally, you can bring in your own signed blob and Azure Resource Manager certificates as well.
+Certificates ensure that your communication is trusted. On your Azure Stack Edge Pro device, self-signed appliance, blob, and Azure Resource Manager certificates are automatically generated. Optionally, you can bring in your own signed blob and Azure Resource Manager certificates as well.
 
 When you bring in a signed certificate of your own, you also need the corresponding signing chain of the certificate. For the signing chain, Azure Resource Manager, and the blob certificates on the device, you will need the corresponding certificates on the client machine also to authenticate and communicate with the device.
 
@@ -316,7 +316,7 @@ Set the Azure Resource Manager environment and verify that your device to client
     AzDBE https://management.dbe-n6hugc2ra.microsoftdatabox.com https://login.dbe-n6hugc2ra.microsoftdatabox.com/adfs/
     ```
 
-2. Set the environment as Azure Stack Edge and the port to be used for Azure Resource Manager calls as 443. You define the environment in two ways:
+2. Set the environment as Azure Stack Edge Pro and the port to be used for Azure Resource Manager calls as 443. You define the environment in two ways:
 
     - Set the environment. Type the following command:
 
@@ -326,7 +326,7 @@ Set the Azure Resource Manager environment and verify that your device to client
     
     For more information, go to [Set-AzureRMEnvironment](https://docs.microsoft.com/powershell/module/azurerm.profile/set-azurermenvironment?view=azurermps-6.13.0).
 
-    - Define the environment inline for every cmdlet that you execute. This ensures that all the API calls are going through the correct environment. By default, the calls would go through the Azure public but you want these to go through the environment that you set for Azure Stack Edge device.
+    - Define the environment inline for every cmdlet that you execute. This ensures that all the API calls are going through the correct environment. By default, the calls would go through the Azure public but you want these to go through the environment that you set for Azure Stack Edge Pro device.
 
     - See more information on [how to switch AzureRM environments](#switch-environments).
 
@@ -373,7 +373,7 @@ Set the Azure Resource Manager environment and verify that your device to client
 
 
 > [!IMPORTANT]
-> The connection to Azure Resource Manager expires every 1.5 hours or if your Azure Stack Edge device restarts. If this happens, any cmdlets that you execute, will return error messages to the effect that you are not connected to Azure anymore. You will need to sign in again.
+> The connection to Azure Resource Manager expires every 1.5 hours or if your Azure Stack Edge Pro device restarts. If this happens, any cmdlets that you execute, will return error messages to the effect that you are not connected to Azure anymore. You will need to sign in again.
 
 ## Switch environments
 
@@ -457,4 +457,4 @@ ExtendedProperties : {}
 
 ## Next steps
 
-[Deploy VMs on your Azure Stack Edge device](azure-stack-edge-j-series-deploy-virtual-machine-powershell.md).
+[Deploy VMs on your Azure Stack Edge Pro device](azure-stack-edge-j-series-deploy-virtual-machine-powershell.md).

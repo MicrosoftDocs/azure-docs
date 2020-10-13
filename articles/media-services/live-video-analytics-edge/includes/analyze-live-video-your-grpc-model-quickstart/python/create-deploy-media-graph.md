@@ -22,6 +22,49 @@ As part of the prerequisites, you downloaded the sample code to a folder. Follow
     * `"topologyName"` : `"InferencingWithGrpcExtension"`
     * Under GraphTopologyDelete, edit the name:
     * `"name"` : `"InferencingWithGrpcExtension"`
+
+> [!NOTE]
+> <p>
+> <details>
+> <summary>Expand this and check out how the MediaGraphGrpcExtension node is implemented in the topology</summary>
+> <pre><code>
+> {
+> 	"@type": "#Microsoft.Media.MediaGraphGrpcExtension",
+> 	"name": "grpcExtension",
+> 	"endpoint": {
+> 		"@type": "#Microsoft.Media.MediaGraphUnsecuredEndpoint",
+> 		"url": "${grpcExtensionAddress}",
+> 		"credentials": {
+> 			"@type": "#Microsoft.Media.MediaGraphUsernamePasswordCredentials",
+> 			"username": "${grpcExtensionUserName}",
+> 			"password": "${grpcExtensionPassword}"
+> 		}
+> 	},
+> 	"dataTransfer": {
+> 		"mode": "sharedMemory",
+> 		"SharedMemorySizeMiB": "5"
+> 	},
+> 	"image": {
+> 		"scale": {
+> 			"mode": "${imageScaleMode}",
+> 			"width": "${frameWidth}",
+> 			"height": "${frameHeight}"
+> 		},
+> 		"format": {
+> 			"@type": "#Microsoft.Media.MediaGraphImageFormatEncoded",
+> 			"encoding": "${imageEncoding}",
+> 			"quality": "${imageQuality}"
+> 		}
+> 	},
+> 	"inputs": [
+> 		{
+> 			"nodeName": "motionDetection"
+> 		}
+> 	]
+> }          
+> </code></pre>
+> </details>    
+> </p>
     
 ### Generate and deploy the IoT Edge deployment manifest
 
@@ -59,9 +102,18 @@ As part of the prerequisites, you downloaded the sample code to a folder. Follow
 
 ### Prepare to monitor events
 
-Right-click the Live Video Analytics device and select **Start Monitoring Built-in Event Endpoint**. You need this step to monitor the IoT Hub events in the **OUTPUT** window of Visual Studio Code.
+1. In Visual Studio Code, open the **Extensions** tab (or press Ctrl+Shift+X) and search for Azure IoT Hub.
+1. Right click and select **Extension Settings**.
 
-![Start monitoring](../../../media/quickstarts/start-monitoring-built-event-endpoint-grpc.png)
+    > [!div class="mx-imgBorder"]
+    > :::image type="content" source="../../../media/run-program/extensions-tab.png" alt-text="Extension Settings":::
+1. Search and enable “Show Verbose Message”.
+
+    > [!div class="mx-imgBorder"]
+    > :::image type="content" source="../../../media/run-program/show-verbose-message.png" alt-text="Show Verbose Message":::
+1. Right-click the Live Video Analytics device and select **Start Monitoring Built-in Event Endpoint**. You need this step to monitor the IoT Hub events in the **OUTPUT** window of Visual Studio Code.
+
+   ![Start monitoring](../../../media/quickstarts/start-monitoring-built-event-endpoint-grpc.png)
 
 ### Run the sample program
 

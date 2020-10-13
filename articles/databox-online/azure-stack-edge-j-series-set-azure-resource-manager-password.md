@@ -1,20 +1,20 @@
 ---
-title: Set Azure Resource Manager password on your Azure Stack Edge device
-description: Describes how to connect to the Azure Resource Manager running on your Azure Stack Edge using Azure PowerShell.
+title: Set Azure Resource Manager password on your Azure Stack Edge Pro GPU device
+description: Describes how to connect to the Azure Resource Manager running on your Azure Stack Edge Pro GPU using Azure PowerShell.
 services: databox
 author: alkohli
 
 ms.service: databox
 ms.subservice: edge
-ms.topic: article
-ms.date: 02/24/2020
+ms.topic: how-to
+ms.date: 08/28/2020
 ms.author: alkohli
-#Customer intent: As an IT admin, I need to understand how to connect to Azure Resource Manager on my Azure Stack Edge device so that I can manage resources.
+#Customer intent: As an IT admin, I need to understand how to connect to Azure Resource Manager on my Azure Stack Edge Pro device so that I can manage resources.
 ---
 
-# Set Azure Resource Manager password
+# Set Azure Resource Manager password on Azure Stack Edge Pro GPU device
 
-[!INCLUDE [applies-to-skus](../../includes/azure-stack-edge-applies-to-all-sku.md)]
+<!--[!INCLUDE [applies-to-skus](../../includes/azure-stack-edge-applies-to-all-sku.md)]-->
 
 This article describes how to set your Azure Resource Manager password. You need to set this password when you are connecting to the device local APIs via the Azure Resource Manager.
 
@@ -119,7 +119,7 @@ The procedure to set the password can be different depending upon whether you us
     $pass = ConvertTo-SecureString $password -AsPlainText -Force
     $key = ConvertTo-SecureString $cik -AsPlainText -Force
     ```
-    Use the above generated secure strings as parameters in the Set-AzDataBoxEdgeUser cmdlet to reset the password. Use the same resource group that you used when creating the Azure Stack Edge/Data Box Gateway resource.
+    Use the above generated secure strings as parameters in the Set-AzDataBoxEdgeUser cmdlet to reset the password. Use the same resource group that you used when creating the Azure Stack Edge Pro/Data Box Gateway resource.
 
     ```azurepowershell
     Set-AzDataBoxEdgeUser -ResourceGroupName $resourceGroup -DeviceName $devicename -Name EdgeARMUser  -Password $pass -EncryptionKey $key

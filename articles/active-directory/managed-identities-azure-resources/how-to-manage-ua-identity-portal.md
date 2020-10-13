@@ -31,7 +31,7 @@ In this article, you learn how to create, list, delete or assign a role to a use
 
 ## Create a user-assigned managed identity
 
-To create a user-assigned managed identity, your account needs the [Managed Identity Contributor](/azure/role-based-access-control/built-in-roles#managed-identity-contributor) role assignment.
+To create a user-assigned managed identity, your account needs the [Managed Identity Contributor](../../role-based-access-control/built-in-roles.md#managed-identity-contributor) role assignment.
 
 1. Sign in to the [Azure portal](https://portal.azure.com) using an account associated with the Azure subscription to create the user-assigned managed identity.
 2. In the search box, type *Managed Identities*, and under **Services**, click **Managed Identities**.
@@ -41,12 +41,12 @@ To create a user-assigned managed identity, your account needs the [Managed Iden
     - **Region**: Choose a region to deploy the user-assigned managed identity, for example **West US**.
     - **Name**: This is the name for your user-assigned managed identity, for example UAI1.
     ![Create a user-assigned managed identity](./media/how-to-manage-ua-identity-portal/create-user-assigned-managed-identity-portal.png)
-4. Click **Review + crate** to review the changes.
+4. Click **Review + create** to review the changes.
 5. Click **Create**.
 
 ## List user-assigned managed identities
 
-To list/read a user-assigned managed identity, your account needs the [Managed Identity Operator](/azure/role-based-access-control/built-in-roles#managed-identity-operator) or [Managed Identity Contributor](/azure/role-based-access-control/built-in-roles#managed-identity-contributor) role assignment.
+To list/read a user-assigned managed identity, your account needs the [Managed Identity Operator](../../role-based-access-control/built-in-roles.md#managed-identity-operator) or [Managed Identity Contributor](../../role-based-access-control/built-in-roles.md#managed-identity-contributor) role assignment.
 
 1. Sign in to the [Azure portal](https://portal.azure.com) using an account associated with the Azure subscription to list the user-assigned managed identities.
 2. In the search box, type *Managed Identities*, and under Services, click **Managed Identities**.
@@ -56,9 +56,9 @@ To list/read a user-assigned managed identity, your account needs the [Managed I
 
 ## Delete a user-assigned managed identity
 
-To delete a user-assigned managed identity, your account needs the [Managed Identity Contributor](/azure/role-based-access-control/built-in-roles#managed-identity-contributor) role assignment.
+To delete a user-assigned managed identity, your account needs the [Managed Identity Contributor](../../role-based-access-control/built-in-roles.md#managed-identity-contributor) role assignment.
 
-Deleting a user assigned identity does not remove it from the VM or resource it was assigned to.  To remove the user assigned identity from a VM see, [Remove a user-assigned managed identity from a VM](/azure/active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm#remove-a-user-assigned-managed-identity-from-a-vm).
+Deleting a user assigned identity does not remove it from the VM or resource it was assigned to.  To remove the user assigned identity from a VM see, [Remove a user-assigned managed identity from a VM](./qs-configure-portal-windows-vm.md#remove-a-user-assigned-managed-identity-from-a-vm).
 
 1. Sign in to the [Azure portal](https://portal.azure.com) using an account associated with the Azure subscription to delete a user-assigned managed identity.
 2. Select the user-assigned managed identity and click **Delete**.
@@ -68,7 +68,7 @@ Deleting a user assigned identity does not remove it from the VM or resource it 
 
 ## Assign a role to a user-assigned managed identity 
 
-To assign a role to a user-assigned managed identity, your account needs the [User Access Administrator](/azure/role-based-access-control/built-in-roles#user-access-administrator) role assignment.
+To assign a role to a user-assigned managed identity, your account needs the [User Access Administrator](../../role-based-access-control/built-in-roles.md#user-access-administrator) role assignment.
 
 1. Sign in to the [Azure portal](https://portal.azure.com) using an account associated with the Azure subscription to list the user-assigned managed identities.
 2. In the search box, type *Managed Identities*, and under Services, click **Managed Identities**.
@@ -82,4 +82,4 @@ To assign a role to a user-assigned managed identity, your account needs the [Us
    - **Assign access to**  - the resource to assign the user-assigned managed identity
    - **Select** - the member to assign access
    
-   ![User-assigned managed identity IAM](./media/how-to-manage-ua-identity-portal/assign-role-screenshot2.png)  
+   ![User-assigned managed identity IAM](./media/how-to-manage-ua-identity-portal/assign-role-screenshot2.png)

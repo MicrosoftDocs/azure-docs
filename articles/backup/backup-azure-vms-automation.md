@@ -92,7 +92,7 @@ The following steps lead you through creating a Recovery Services vault. A Recov
     New-AzRecoveryServicesVault -Name "testvault" -ResourceGroupName "test-rg" -Location "West US"
     ```
 
-3. Specify the type of storage redundancy to use. You can use [Locally Redundant Storage (LRS)](../storage/common/storage-redundancy.md) or [Geo-redundant Storage (GRS)](../storage/common/storage-redundancy.md). The following example shows the -BackupStorageRedundancy option for testvault is set to GeoRedundant.
+3. Specify the type of storage redundancy to use. You can use [Locally Redundant Storage (LRS)](../storage/common/storage-redundancy.md#locally-redundant-storage), [Geo-redundant Storage (GRS)](../storage/common/storage-redundancy.md#geo-redundant-storage), or [Zone-redundant storage (ZRS)](../storage/common/storage-redundancy.md#zone-redundant-storage). The following example shows the **-BackupStorageRedundancy** option for *testvault* set to **GeoRedundant**.
 
     ```powershell
     $vault1 = Get-AzRecoveryServicesVault -Name "testvault"
@@ -470,7 +470,7 @@ $restorejob
 #### Restore managed disks
 
 > [!NOTE]
-> If the backed VM has managed disks and you want to restore them as managed disks, we have introduced the capability from Azure PowerShell RM module v 6.7.0. onwards
+> If the backed VM has managed disks and you want to restore them as managed disks, we've introduced the capability from Azure PowerShell RM module v 6.7.0. onwards.
 >
 >
 

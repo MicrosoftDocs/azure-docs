@@ -21,7 +21,7 @@ You can orchestrate a wide variety of tasks in Azure Synapse.
 
 1. In Synapse Studio, go to the **Orchestrate** hub.
 1. Select **+** > **Pipeline** to create a new pipeline.
-1. Go to the **Develop** hub and find the notebook you previously created.
+1. Go to the **Develop** hub and select one of the notebooks you previously created.
 1. Drag that notebook into the pipeline.
 1. In the pipeline, select **Add trigger** > **New/edit**.
 1. In **Choose trigger**, select **New**, and then in **recurrence** set the trigger to run every 1 hour.

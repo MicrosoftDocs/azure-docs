@@ -19,7 +19,9 @@ ms.custom: devx-track-csharp
 
 ---
 
-# Configuring Azure Media Services telemetry with .NET 
+# Configuring Azure Media Services telemetry with .NET
+
+[!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
 
 This article describes general steps that you might take when configuring the Azure Media Services (AMS) telemetry using .NET SDK. 
 

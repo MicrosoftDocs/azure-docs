@@ -8,13 +8,13 @@ ms.subservice: core
 ms.reviewer: jmartens
 author: nishankgu
 ms.author: nigup
-ms.date: 05/08/2020
+ms.date: 09/30/2020
 ms.topic: conceptual
 ms.custom: troubleshooting,contperfq4 
 ---
 
 # Manage & increase quotas for resources with Azure Machine Learning
-[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
+
 
 In this article, you will learn about preconfigured limits on Azure resources for your [Azure Machine Learning](overview-what-is-azure-ml.md) subscription and what quotas you can manage. These limits are put in place to prevent budget over-runs due to fraud, and to honor Azure capacity constraints. 
 
@@ -94,8 +94,6 @@ To set quotas at the workspace level, go to any workspace in your subscription, 
 
 
 > [!NOTE]
-> This is an Enterprise edition feature only. If you have both a [Basic and an Enterprise edition](overview-what-is-azure-ml.md#sku) workspace in your subscription, you can use this to only set quotas on your Enterprise workspaces. Your Basic workspaces will continue to have the subscription level quota which is the default behavior.
->
 > You need subscription level permissions to set quota at the workspace level. This is enforced so that individual workspace owners do not edit or increase their quotas and start encroaching onto resources set aside for another workspace. Thus a subscription admin is best suited to allocate and distribute these quotas across workspaces.
 
 
@@ -133,6 +131,29 @@ When requesting a quota increase, you need to select the service you are request
 
 > [!NOTE]
 > [Free Trial subscriptions](https://azure.microsoft.com/offers/ms-azr-0044p) are not eligible for limit or quota increases. If you have a [Free Trial subscription](https://azure.microsoft.com/offers/ms-azr-0044p), you can upgrade to a [Pay-As-You-Go](https://azure.microsoft.com/offers/ms-azr-0003p/) subscription. For more information, see [Upgrade Azure Free Trial to Pay-As-You-Go](../billing/billing-upgrade-azure-subscription.md) and  [Free Trial subscription FAQ](https://azure.microsoft.com/free/free-account-faq).
+
+## Private endpoint and private DNS quota increases
+
+There are limitations on the number of private endpoints and private DNS zones that can be created in a subscription. While Azure Machine Learning creates resources in your (customer) subscription, there are some scenarios that create resources in a Microsoft-owned subscription. In the following scenarios, you may need to request a quota allowance in the Microsoft-owned subscription:
+
+* __Private Link enabled workspace with a customer-managed key (CMK)__
+* __Azure Container Registry for the workspace behind your virtual network__
+* __Attaching a Private Link enabled Azure Kubernetes Service cluster to your workspace__.
+
+To request an allowance for these scenarios, use the following steps:
+
+1. [Create an Azure support request](/azure/azure-portal/supportability/how-to-create-azure-support-request#create-a-support-request) and select the following options from the __Basics__ section:
+
+    | Field | Selection |
+    | ----- | ----- |
+    | Issue type | Technical |
+    | Service | My services. Select __Machine Learning__ in the dropdown list. |
+    | Problem type | Workspace setup, SDK and CLI |
+    | Problem subtype | Problem provisioning or managing workspace |
+
+2. From the __Details__ section, use the __Description__ field to provide the Azure region you want to use and the scenario that you plan to use. If you need to request quota increases for multiple subscriptions, list the subscription IDs in this field also.
+
+3. Use __Create__ to create the request.
 
 ## Next steps
 

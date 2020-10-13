@@ -4,8 +4,8 @@ description: Learn how Azure web application firewall on Azure CDN service prote
 services: web-application-firewall
 author: vhorne
 ms.service: web-application-firewall
-ms.topic: overview
-ms.date: 03/18/2020
+ms.topic: conceptual
+ms.date: 08/31/2020
 ms.author: victorh
 ---
 

@@ -1,30 +1,30 @@
 ---
-title: Deploy VMs on your Azure Stack Edge device via Azure PowerShell
-description: Describes how to create and manage virtual machines (VMs) on a Azure Stack Edge device using Azure PowerShell.
+title: Deploy VMs on your Azure Stack Edge Pro GPU device via Azure PowerShell
+description: Describes how to create and manage virtual machines (VMs) on a Azure Stack Edge Pro device using Azure PowerShell.
 services: databox
 author: alkohli
 
 ms.service: databox
 ms.subservice: edge
-ms.topic: article
-ms.date: 02/11/2020
+ms.topic: how-to
+ms.date: 08/28/2020
 ms.author: alkohli
-#Customer intent: As an IT admin, I need to understand how to create and manage virtual machines (VMs) on my Azure Stack Edge device using an Azure PowerShell script so that I can efficiently manage my VMs.
+#Customer intent: As an IT admin, I need to understand how to create and manage virtual machines (VMs) on my Azure Stack Edge Pro device using an Azure PowerShell script so that I can efficiently manage my VMs.
 ---
 
-# Deploy VMs on your Azure Stack Edge device via Azure PowerShell script
+# Deploy VMs on your Azure Stack Edge Pro GPU device via Azure PowerShell script
 
 <!--[!INCLUDE [applies-to-skus](../../includes/azure-stack-edge-applies-to-all-sku.md)]-->
 
-This tutorial describes how to create and manage a VM on your Azure Stack Edge device using an Azure PowerShell script.
+This tutorial describes how to create and manage a VM on your Azure Stack Edge Pro device using an Azure PowerShell script.
 
 ## Prerequisites
 
-Before you begin creating and managing a VM on your Azure Stack Edge device using this script, you need to make sure you have completed the prerequisites listed in the following steps:
+Before you begin creating and managing a VM on your Azure Stack Edge Pro device using this script, you need to make sure you have completed the prerequisites listed in the following steps:
 
-### For Azure Stack Edge device via the local web UI
+### For Azure Stack Edge Pro device via the local web UI
 
-1. You completed the network settings on your Azure Stack Edge device as described in [Step 1: Configure Azure Stack Edge device](azure-stack-edge-j-series-connect-resource-manager.md#step-1-configure-azure-stack-edge-device).
+1. You completed the network settings on your Azure Stack Edge Pro device as described in [Step 1: Configure Azure Stack Edge Pro device](azure-stack-edge-j-series-connect-resource-manager.md#step-1-configure-azure-stack-edge-pro-device).
 
 2. Enabled a network interface for compute. This network interface IP is used to create a virtual switch for the VM deployment. The following steps walk you through the process:
 
@@ -33,9 +33,9 @@ Before you begin creating and managing a VM on your Azure Stack Edge device usin
         > [!IMPORTANT] 
         > You can only configure one port for compute.
 
-    2. Enable compute on the network interface. Azure Stack Edge creates and manages a virtual switch corresponding to that network interface.
+    2. Enable compute on the network interface. Azure Stack Edge Pro creates and manages a virtual switch corresponding to that network interface.
 
-3. You created and installed all the certificates on your Azure Stack Edge device and in the trusted root store of your client. Follow the procedure described in [Step 2: Create and install certificates](azure-stack-edge-j-series-connect-resource-manager.md#step-2-create-and-install-certificates).
+3. You created and installed all the certificates on your Azure Stack Edge Pro device and in the trusted root store of your client. Follow the procedure described in [Step 2: Create and install certificates](azure-stack-edge-j-series-connect-resource-manager.md#step-2-create-and-install-certificates).
 
 ### For your Windows client
 

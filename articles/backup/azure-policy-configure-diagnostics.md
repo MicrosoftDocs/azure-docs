@@ -16,7 +16,7 @@ To simplify the creation of diagnostics settings at scale (with LA as the destin
 
 * The policy can be applied at one time to all Recovery Services vaults in a particular subscription (or to a resource group within the subscription). The user assigning the policy needs to have **Owner** access to the subscription to which the policy is assigned.
 
-* The LA Workspace as specified by the user (to which diagnostics data will be sent) can be in a different subscription from the vaults to which the policy is assigned. The user needs to have **Reader**, **Contributor** or **Owner** access to the subscription in which the specified LA Workspace exists.
+* The LA Workspace as specified by the user (to which diagnostics data will be sent) can be in a different subscription from the vaults to which the policy is assigned. The user needs to have **Reader**, **Contributor**, or **Owner** access to the subscription in which the specified LA Workspace exists.
 
 * Management Group scope is currently unsupported.
 
@@ -28,7 +28,7 @@ To assign the policy for vaults in the required scope, follow the steps below:
 
 1. Sign in to the Azure portal and navigate to the **Policy** Dashboard.
 2. Select **Definitions** in the left menu to get a list of all built-in policies across Azure Resources.
-3. Filter the list for **Category=Monitoring**. Locate the policy named **[Preview]: Deploy Diagnostic Settings for Recovery Services Vault to Log Analytics workspace for resource-specific categories**.
+3. Filter the list for **Category=Backup**. Locate the policy named **[Preview]: Deploy Diagnostic Settings for Recovery Services Vault to Log Analytics workspace for resource-specific categories**.
 
     ![Policy Definition pane](./media/backup-azure-policy-configure-diagnostics/policy-definition-blade.png)
 
@@ -72,7 +72,7 @@ Further, if a user has a vault with only a subset of the six Resource-specific e
 >
 > If a vault has an existing diagnostics setting with a **subset of Resource specific** categories enabled, configured to send data to a particular LA Workspace, say 'Workspace X', then the remediation task will fail (for that vault alone) if the destination LA Workspace provided in the Policy assignment is the **same** 'Workspace X'.
 >
->This is because, if the events enabled by two different diagnostics settings on the same resource **overlap** in some form, then the settings can't have the same LA Workspace as the destination. You will have to manually resolve this failure, by navigating to the relevant vault and configuring a diagnostics setting with a different LA Workspace as the destination.
+>This is because, if the events enabled by two different diagnostics settings on the same resource **overlap** in some form, then the settings can't have the same LA Workspace as the destination. You'll have to manually resolve this failure, by navigating to the relevant vault and configuring a diagnostics setting with a different LA Workspace as the destination.
 >
 > Note that the remediation task will **not** fail if the existing diagnostics setting as only AzureBackupReport enabled with Workspace X as the destination, since in this case, there will be no overlap between the events enabled by the existing setting and the events enabled by the setting created by the remediation task.
 

@@ -4,6 +4,8 @@
   items:
   - name: What is Microsoft identity platform?
     href: v2-overview.md
+  - name: What's new in docs?
+    href: whats-new-docs.md
 - name: Quickstarts
   expanded: true
   items:
@@ -48,7 +50,7 @@
     - name: ASP.NET
       href: quickstart-v2-dotnet-native-aspnet.md
     - name: ASP.NET Core
-      href: https://docs.microsoft.com/samples/azure-samples/active-directory-dotnet-native-aspnetcore-v2/active-directory-dotnet-native-aspnetcore-v2/
+      href: quickstart-v2-aspnet-core-web-api.md
   - name: Mobile and desktop apps
     items:
     - name: Android
@@ -81,6 +83,8 @@
     items:
     - name: ASP.NET
       href: tutorial-v2-asp-webapp.md
+    - name: Blazor Server
+      href: tutorial-blazor-server.md
   - name: Mobile and desktop apps
     items:
     - name: Android
@@ -273,7 +277,9 @@
           href: msal-net-adfs-support.md
         - name: Migrate to MSAL.NET
           href: msal-net-migration.md
-        - name: Migrate Xamarin apps using brokers to MSAL.NET
+        - name: Migrate Xamarin Android app using broker to MSAL.NET
+          href: msal-net-migration-android-broker.md
+        - name: Migrate Xamarin iOS app using broker to MSAL.NET
           href: msal-net-migration-ios-broker.md
         - name: Web browser considerations
           href: msal-net-web-browsers.md
@@ -380,6 +386,9 @@
       - name: Migrate apps from ADAL to MSAL
         href: msal-migration.md
         displayName: migration
+  - name: Microsoft Identity Web library
+    href: microsoft-identity-web.md
+    displayName: auth, library, .NET Core
   - name: Authentication protocols
     displayName: Auth protocol
     items:
@@ -414,6 +423,8 @@
         href: id-tokens.md
       - name: Access tokens
         href: access-tokens.md
+      - name: Configure token lifetimes
+        href: active-directory-configurable-token-lifetimes.md
       - name: UserInfo endpoint
         href: userinfo.md
       - name: Certificate credentials
@@ -443,7 +454,7 @@
       href: supported-accounts-validation.md
     - name: Single tenant and multi-tenant apps
       href: single-and-multi-tenant-apps.md
-    - name: Publisher verification (preview)
+    - name: Publisher verification
       href: publisher-verification-overview.md
   - name: Permissions and consent
     displayName: Scopes
@@ -468,13 +479,13 @@
   - name: Automatic user provisioning (SCIM)
     items:
     - name: What is automatic user provisioning?
-      href: ../app-provisioning/user-provisioning.md
+      href: ../app-provisioning/user-provisioning.md?toc=/azure/active-directory/develop/toc.json&bc=/azure/active-directory/develop/breadcrumb/toc.json
     - name: Develop and integrating a SCIM endpoint
-      href: ../app-provisioning/use-scim-to-provision-users-and-groups.md
+      href: ../app-provisioning/use-scim-to-provision-users-and-groups.md?toc=/azure/active-directory/develop/toc.json&bc=/azure/active-directory/develop/breadcrumb/toc.json
     - name: Common provisioning scenarios
-      href: ../app-provisioning/scim-graph-scenarios.md
+      href: ../app-provisioning/scim-graph-scenarios.md?toc=/azure/active-directory/develop/toc.json&bc=/azure/active-directory/develop/breadcrumb/toc.json
     - name: Automate configuration using MS Graph
-      href: ../app-provisioning/application-provisioning-configure-api.md
+      href: ../app-provisioning/application-provisioning-configure-api.md?toc=/azure/active-directory/develop/toc.json&bc=/azure/active-directory/develop/breadcrumb/toc.json
   - name: Azure portal help articles
     items:
     - name: Token lifetime defaults for a custom-developed application
@@ -518,7 +529,7 @@
     - name: Use directory schema extension attributes in claims
       href: active-directory-schema-extensions.md
     - name: Configure token lifetimes
-      href: active-directory-configurable-token-lifetimes.md
+      href: configure-token-lifetimes.md
     - name: Handle SameSite cookie changes in Chrome browser
       href: howto-handle-samesite-cookie-changes-chrome-browser.md
     - name: Handle ITP in Safari
@@ -526,10 +537,6 @@
   - name: Application configuration
     displayName: App configuration
     items:
-    - name: Azure portal app registration training guide
-      href: app-registrations-training-guide-for-app-registrations-legacy-users.md
-    - name: Azure portal app registration experience
-      href: app-registration-portal-training-guide.md
     - name: Convert a single-tenant app to a multi-tenant app
       href: howto-convert-app-to-be-multi-tenant.md
     - name: Create a service principal
@@ -551,9 +558,9 @@
       href: howto-add-terms-of-service-privacy-statement.md
     - name: Configure publisher verification for your app
       items:
-      - name: Mark your app as publisher verified (preview)
+      - name: Mark your app as publisher verified
         href: mark-app-as-publisher-verified.md
-      - name: Troubleshoot publisher verification (preview)
+      - name: Troubleshoot publisher verification
         href: troubleshoot-publisher-verification.md
   - name: Work with Microsoft Authentication Library
     displayName: MSAL

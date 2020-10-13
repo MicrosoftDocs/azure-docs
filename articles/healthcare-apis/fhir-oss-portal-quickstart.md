@@ -20,17 +20,17 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 Navigate to the [GitHub deployment page](https://github.com/Microsoft/fhir-server/blob/master/docs/DefaultDeployment.md) and locate the "Deploy to Azure" buttons:
 
-![Open Source Deployment Page](media/quickstart-oss-portal/deployment-page-oss.png)
+>[!div class="mx-imgBorder"]
+>![Open Source Deployment Page](media/quickstart-oss-portal/deployment-page-oss.png)
 
 Click the deployment button and the Azure portal opens.
 
 ## Fill in deployment parameters
 
-Choose to create a new resource group and give it a name. Only other required parameter is a name for the service.
+Choose to create a new resource group and give it a name. Only other required parameters are a name for the service and the Sql Admin Password.
 
-![Custom Deployment Parameters](media/quickstart-oss-portal/deployment-custom-parameters.png)
-
-Notice that the deployment will pull the source code directly from the open-source repository on GitHub. If you have forked the repository, you can point to your own for and a specific branch.
+>[!div class="mx-imgBorder"]
+>![Custom Deployment Parameters](media/quickstart-oss-portal/deployment-custom-parameters.png)
 
 After filling in the details, you can start the deployment.
 

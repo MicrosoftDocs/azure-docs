@@ -149,19 +149,19 @@ Here are some example calls:
 // 'client' is a valid DigitalTwinsClient object
 
 // Get a single model, metadata and data
-ModelData md1 = client.GetModel(id);
+DigitalTwinsModelData md1 = client.GetModel(id);
 
 // Get a list of the metadata of all available models
-Pageable<ModelData> pmd2 = client.GetModels();
+Pageable<DigitalTwinsModelData> pmd2 = client.GetModels();
 
 // Get a list of metadata and full model definitions
-Pageable<ModelData> pmd3 = client.GetModels(null, true);
+Pageable<DigitalTwinsModelData> pmd3 = client.GetModels(null, true);
 
 // Get models and metadata for a model ID, including all dependencies (models that it inherits from, components it references)
-Pageable<ModelData> pmd4 = client.GetModels(new string[] { modelId }, true);
+Pageable<DigitalTwinsModelData> pmd4 = client.GetModels(new string[] { modelId }, true);
 ```
 
-The API calls to retrieve models all return `ModelData` objects. `ModelData` contains metadata about the model stored in the Azure Digital Twins instance, such as name, DTMI, and creation date of the model. The `ModelData` object also optionally includes the model itself. Depending on parameters, you can thus use the retrieve calls to either retrieve just metadata (which is useful in scenarios where you want to display a UI list of available tools, for example), or the entire model.
+The API calls to retrieve models all return `DigitalTwinsModelData` objects. `DigitalTwinsModelData` contains metadata about the model stored in the Azure Digital Twins instance, such as name, DTMI, and creation date of the model. The `DigitalTwinsModelData` object also optionally includes the model itself. Depending on parameters, you can thus use the retrieve calls to either retrieve just metadata (which is useful in scenarios where you want to display a UI list of available tools, for example), or the entire model.
 
 The `RetrieveModelWithDependencies` call returns not only the requested model, but also all models that the requested model depends on.
 
@@ -169,13 +169,18 @@ Models are not necessarily returned in exactly the document form they were uploa
 
 ### Update models
 
-Once a model is uploaded to your instance, the entire model interface is immutable. This means there is no traditional "editing" of models.
+Once a model is uploaded to your Azure Digital Twins instance, the entire model interface is immutable. This means there is no traditional "editing" of models. Azure Digital Twins also does not allow re-upload of the same model.
 
-Instead, if you want to make changes to a model in Azure Digital Twins, the way to do this is to upload a **newer version** of the same model. During preview, advancing a model version will only allow you to remove fields, not add new ones (to add new fields, you should just [create a brand new model](#create-models)).
+Instead, if you want to make changes to a model—such as updating `displayName` or `description`—the way to do this is to upload a **newer version** of the model. 
+
+#### Model versioning
 
 To create a new version of an existing model, start with the DTDL of the original model. Update the fields you would like to change.
 
-Then, mark this as a newer version of the model by updating the `id` field of the model. The last section of the model ID, after the `;`, represents the model number. To indicate that this is now a more-updated version of this model, increment the number at the end of the `id` value to any number greater than the current version number.
+>[!NOTE]
+>During preview, advancing a model version will only allow you to add new fields, not remove existing ones. To remove fields, you should just [create a brand new model](#create-models).
+
+Next, mark this as a newer version of the model by updating the `id` field of the model. The last section of the model ID, after the `;`, represents the model number. To indicate that this is now a more-updated version of this model, increment the number at the end of the `id` value to any number greater than the current version number.
 
 For example, if your previous model ID looked like this:
 
@@ -189,7 +194,17 @@ version 2 of this model might look like this:
 "@id": "dtmi:com:contoso:PatientRoom;2",
 ```
 
-Then, upload the new version of the model to your instance. It will take the place of the old version, and new twins that you create using this model will use the updated version.
+Then, upload the new version of the model to your instance. 
+
+This version of the model will then be available in your instance to use for digital twins. It **does not** overwrite earlier versions of the model, so multiple versions of the model will coexist in your instance until you [remove them](#remove-models).
+
+#### Impact on twins
+
+When you create a new twin, since the new model version and the old model version coexist, the new twin can use either the new version of the model or the older version.
+
+This also means that uploading a new version of a model does not automatically affect existing twins. The existing twins will simply remain instances of the old model version.
+
+You can update these existing twins to the new model version by patching them, as described in the [*Update a digital twin's model*](how-to-manage-twin.md#update-a-digital-twins-model) section of *How-to: Manage digital twins*. Within the same patch, you must update both the **model ID** (to the new version) and **any fields that must be altered on the twin to make it conform to the new model**.
 
 ### Remove models
 
@@ -210,7 +225,7 @@ client.DecommissionModel(dtmiOfPlanetInterface);
 //...
 ```
 
-A model's decommissioning status is included in the `ModelData` records returned by the model retrieval APIs.
+A model's decommissioning status is included in the `DigitalTwinsModelData` records returned by the model retrieval APIs.
 
 #### Deletion
 
@@ -274,6 +289,8 @@ Azure Digital Twins does not prevent this state, so be careful to patch twins ap
 ## Manage models with CLI
 
 Models can also be managed using the Azure Digital Twins CLI. The commands can be found in [*How-to: Use the Azure Digital Twins CLI*](how-to-use-cli.md).
+
+[!INCLUDE [digital-twins-known-issue-cloud-shell](../../includes/digital-twins-known-issue-cloud-shell.md)]
 
 ## Next steps
 

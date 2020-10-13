@@ -1,7 +1,7 @@
 ---
 
 title: Manage streaming endpoints with .NET SDK. | Microsoft Docs
-description: This article demonstrates how to manage streaming endpoints with the Azure portal.
+description: This article demonstrates how to manage streaming endpoints with .NET SDK.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -21,7 +21,9 @@ ms.custom: devx-track-csharp
 
 ---
 
-# Manage streaming endpoints with .NET SDK  
+# Manage streaming endpoints with .NET SDK
+
+[!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]  
 
 >[!NOTE]
 >Make sure to review the [overview](media-services-streaming-endpoints-overview.md) article. Also, review [StreamingEndpoint](/rest/api/media/operations/streamingendpoint).

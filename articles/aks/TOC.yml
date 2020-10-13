@@ -4,6 +4,8 @@
   items:
   - name: About AKS
     href: intro-kubernetes.md
+  - name: Solution architectures
+    href: /azure/architecture/reference-architectures/containers/aks-start-here?bc=%2fazure%2faks%2fbreadcrumb%2ftoc.json&toc=%2fazure%2faks%2ftoc.json
 - name: Quickstarts
   expanded: true
   items:
@@ -40,11 +42,6 @@
     href: tutorial-kubernetes-app-update.md
   - name: 7 - Upgrade cluster
     href: tutorial-kubernetes-upgrade-cluster.md
-- name: Samples
-  items:
-  - name: Azure Policy built-ins
-    displayName: samples, policies, definitions
-    href: ./policy-samples.md
 - name: Concepts
   items:
   - name: Clusters and workloads
@@ -53,6 +50,8 @@
     href: concepts-identity.md
   - name: Security
     items:
+    - name: Security Baseline
+      href: security-baseline.md
     - name: Security for applications and clusters
       href: concepts-security.md
     - name: Security controls by Azure Policy
@@ -137,6 +136,8 @@
     items:
     - name: Scale an AKS cluster
       href: scale-cluster.md
+    - name: Stop an AKS cluster (preview)
+      href: start-stop-cluster.md
     - name: Upgrade an AKS cluster
       href: upgrade-cluster.md
     - name: Use Uptime SLA
@@ -192,6 +193,14 @@
       href: azure-netapp-files.md
     - name: Use Azure Ultra Disks (preview)
       href: use-ultra-disks.md
+    - name: CSI Storage Drivers
+      items:
+      - name: Enable CSI Storage Drivers (preview)
+        href: csi-storage-drivers.md
+      - name: Azure Disk CSI drivers (preview)
+        href: azure-disk-csi.md
+      - name: Azure Files CSI drivers (preview)
+        href: azure-files-csi.md
   - name: Configure networking
     items:
     - name: Create or use existing virtual network
@@ -245,7 +254,7 @@
       href: control-kubeconfig-access.md
     - name: Secure pod traffic with network policies
       href: use-network-policies.md
-    - name: Secure pods with Azure Policy (preview)
+    - name: Secure pods with Azure Policy
       href: use-pod-security-on-azure-policy.md
     - name: Use pod security policies (preview)
       href: use-pod-security-policies.md
@@ -257,9 +266,9 @@
       href: update-credentials.md
     - name: Enable Azure Active Directory integration
       items:
-        - name: AKS-managed AAD
+        - name: AKS-managed Azure AD
           href: managed-aad.md
-        - name: AAD integration (legacy)
+        - name: Azure AD integration (legacy)
           href: azure-ad-integration-cli.md
     - name: Use Azure RBAC for Kubernetes Authorization (preview)
       href: manage-azure-rbac.md
@@ -304,8 +313,10 @@
       href: /virtualization/windowscontainers/manage-docker/optimize-windows-dockerfile?context=/azure/aks/context/aks-context
   - name: Develop and run applications
     items:
-    - name: Use Local Process with Kubernetes with Visual Studio Code (preview)
-      href: https://code.visualstudio.com/docs/containers/local-process-kubernetes
+    - name: Use Bridge to Kubernetes with Visual Studio Code
+      href: https://code.visualstudio.com/docs/containers/bridge-to-kubernetes
+    - name: Use Bridge to Kubernetes with Visual Studio
+      href: /visualstudio/containers/bridge-to-kubernetes
     - name: Install existing applications with Helm
       href: kubernetes-helm.md
     - name: Use OpenFaaS
@@ -388,6 +399,9 @@
     href: /javascript/api/overview/azure/container-service
   - name: Resource Manager template
     href: /azure/templates/microsoft.containerservice/managedclusters
+  - name: Azure Policy built-ins
+    displayName: samples, policies, definitions
+    href: ./policy-reference.md
 - name: Resources
   items:
   - name: Build your skill with Microsoft Learn

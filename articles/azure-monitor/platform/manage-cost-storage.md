@@ -11,7 +11,7 @@ ms.service: azure-monitor
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 08/06/2020
+ms.date: 09/29/2020
 ms.author: bwren
 ms.subservice: 
 ---
@@ -41,9 +41,9 @@ Also, note that some solutions, such as [Azure Security Center](https://azure.mi
 
 ### Log Analytics Dedicated Clusters
 
-Log Analytics Dedicated Clusters are collections of workspaces into a single managed Azure Data Explorer cluster to support advanced scenarios such as [Customer-Managed Keys](customer-managed-keys.md).  Log Analytics Dedicated Clusters support only a Capacity Reservation pricing model starting at 1000 GB/day with a 25% discount compared to Pay-As-You-Go pricing. Any usage above the reservation level will be billed at the Pay-As-You-Go rate. The cluster Capacity Reservation has a 31-day commitment period after the reservation level is increased. During the commitment period the capacity reservation level cannot be reduced, but it can be increased at any time. Learn more about [creating a Log Analytics Clusters](customer-managed-keys.md#create-cluster-resource) and [associating workspaces to it](customer-managed-keys.md#workspace-association-to-cluster-resource).  
+Log Analytics Dedicated Clusters are collections of workspaces into a single managed Azure Data Explorer cluster to support advanced scenarios such as [Customer-Managed Keys](customer-managed-keys.md).  Log Analytics Dedicated Clusters use a Capacity Reservation pricing model which must be configured to at least 1000 GB/day. This capacity level has a 25% discount compared to Pay-As-You-Go pricing. Any usage above the reservation level will be billed at the Pay-As-You-Go rate. The cluster Capacity Reservation has a 31-day commitment period after the reservation level is increased. During the commitment period the capacity reservation level cannot be reduced, but it can be increased at any time. When workspaces are associated to a cluster, the data ingestion billing for those workspaces are done at the cluster level using the configured capacity reservation level. Learn more about [creating a Log Analytics Clusters](customer-managed-keys.md#create-cluster-resource) and [associating workspaces to it](customer-managed-keys.md#workspace-association-to-cluster-resource). Capacity Reservation pricing information is available at the [Azure Monitor pricing page]( https://azure.microsoft.com/pricing/details/monitor/).  
 
-The cluster capacity reservation level is configured via programatically with Azure Resource Manager using the `Capacity` parameter under `Sku`. The `Capacity` is specified in units of GB and can have values of 1000 GB/day or more in increments of 100 GB/day. This is detailed at [Azure Monitor customer-managed key](customer-managed-keys.md#create-cluster-resource). If your cluster needs a reservation above 2000 GB/day contact us at [LAIngestionRate@microsoft.com](mailto:LAIngestionRate@microsoft.com).
+The cluster capacity reservation level is configured via programmatically with Azure Resource Manager using the `Capacity` parameter under `Sku`. The `Capacity` is specified in units of GB and can have values of 1000 GB/day or more in increments of 100 GB/day. This is detailed at [Azure Monitor customer-managed key](customer-managed-keys.md#create-cluster-resource). If your cluster needs a reservation above 2000 GB/day contact us at [LAIngestionRate@microsoft.com](mailto:LAIngestionRate@microsoft.com).
 
 There are two modes of billing for usage on a cluster. These can be specified by the `billingType` parameter when [configuring your cluster](customer-managed-keys.md#cmk-management). The two modes are: 
 
@@ -51,7 +51,7 @@ There are two modes of billing for usage on a cluster. These can be specified by
 
 2. **Workspaces**: the Capacity Reservation costs for your Cluster are attributed proportionately to the workspaces in the Cluster (after accounting for per-node allocations from [Azure Security Center](https://docs.microsoft.com/azure/security-center/) for each workspace.) If the total data volume ingested into a workspace for a day is less than the Capacity Reservation, then each workspace is billed for its ingested data at the effective per-GB Capacity Reservation rate by billing them a fraction of the Capacity Reservation, and the unused part of the Capacity Reservation is billed to the cluster resource. If the total data volume ingested into a workspace for a day is more than the Capacity Reservation, then each workspace is billed for a fraction of the Capacity Reservation based on it’s fraction of the ingested data that day, and each workspace for a fraction of the ingested data above the Capacity Reservation. There is nothing billed to the cluster resource if the total data volume ingested into a workspace for a day is over the Capacity Reservation.
 
-In cluster billing options, data retention is billed at the workspace level. Note that cluster billing starts when the cluster is created, regardless of whether workspaces have been associated to the cluster. Also, note that workspaces associated to a cluster no longer have a pricing tier.
+In cluster billing options, data retention is billed at per-workspace. Note that cluster billing starts when the cluster is created, regardless of whether workspaces have been associated to the cluster. Also, note that workspaces associated to a cluster no longer have a pricing tier.
 
 ## Estimating the costs to manage your environment 
 
@@ -156,13 +156,16 @@ It is also possible to specify different retention settings for individual data 
 /subscriptions/00000000-0000-0000-0000-00000000000/resourceGroups/MyResourceGroupName/providers/Microsoft.OperationalInsights/workspaces/MyWorkspaceName/Tables/SecurityEvent
 ```
 
-Note that the data type (table) is case sensitive.  To get the current per data type retention settings of a particular data type (in this example SecurityEvent), use:
+Note that the data type (table) is case sensitive.  To get the current per-data-type retention settings of a particular data type (in this example SecurityEvent), use:
 
 ```JSON
     GET /subscriptions/00000000-0000-0000-0000-00000000000/resourceGroups/MyResourceGroupName/providers/Microsoft.OperationalInsights/workspaces/MyWorkspaceName/Tables/SecurityEvent?api-version=2017-04-26-preview
 ```
 
-To get the current per data type retention settings for all data types in your workspace, just omit the specific data type, for example:
+> [!NOTE]
+> Retention is only returned for a data type if the retention has been explicitly set for it.  Data types which have not had retention explicitly set (and thus inherit the workspace retention) will not return anything from this call. 
+
+To get the current per-data-type retention settings for all data types in your workspace that have had thier per-data-type retention set, just omit the specific data type, for example:
 
 ```JSON
     GET /subscriptions/00000000-0000-0000-0000-00000000000/resourceGroups/MyResourceGroupName/providers/Microsoft.OperationalInsights/workspaces/MyWorkspaceName/Tables?api-version=2017-04-26-preview
@@ -227,12 +230,12 @@ The daily cap can be configured via ARM by setting the `dailyQuotaGb` parameter 
 
 While we present a visual cue in the Azure portal when your data limit threshold is met, this behavior doesn't necessarily align to how you manage operational issues requiring immediate attention.  To receive an alert notification, you can create a new alert rule in Azure Monitor.  To learn more, see [how to create, view, and manage alerts](alerts-metric.md).
 
-To get you started, here are the recommended settings for the alert:
+To get you started, here are the recommended settings for the alert querying the `Operation` table using the `_LogOperation` function. 
 
 - Target: Select your Log Analytics resource
 - Criteria: 
    - Signal name: Custom log search
-   - Search query: Operation | where Detail has 'OverQuota'
+   - Search query: `_LogOperation | where Detail has 'OverQuota'`
    - Based on: Number of results
    - Condition: Greater than
    - Threshold: 0
@@ -331,7 +334,7 @@ Usage
 | where TimeGenerated > ago(32d)
 | where StartTime >= startofday(ago(31d)) and EndTime < startofday(now())
 | where IsBillable == true
-| summarize BillableDataGB = sum(Quantity) by Solution, DataType
+| summarize BillableDataGB = sum(Quantity) / 1000 by Solution, DataType
 | sort by Solution asc, DataType asc
 ```
 
@@ -574,9 +577,9 @@ To alert if the billable data volume ingested in the last 24 hours was greater t
 - **Define alert condition** specify your Log Analytics workspace as the resource target.
 - **Alert criteria** specify the following:
    - **Signal Name** select **Custom log search**
-   - **Search query** to `Usage | where IsBillable | summarize DataGB = sum(Quantity / 1000.) | where DataGB > 50`. 
+   - **Search query** to `Usage | where IsBillable | summarize DataGB = sum(Quantity / 1000.) | where DataGB > 50`. If you want a differetn 
    - **Alert logic** is **Based on** *number of results* and **Condition** is *Greater than* a **Threshold** of *0*
-   - **Time period** of *1440* minutes and **Alert frequency** to every *1440* minutes to run once a day.
+   - **Time period** of *1440* minutes and **Alert frequency** to every *1440* minutesto run once a day.
 - **Define alert details** specify the following:
    - **Name** to *Billable data volume greater than 50 GB in 24 hours*
    - **Severity** to *Warning*
@@ -603,7 +606,7 @@ When data collection stops, the OperationStatus is **Warning**. When data collec
 |Reason collection stops| Solution| 
 |-----------------------|---------|
 |Daily cap of your workspace was reached|Wait for collection to automatically restart, or increase the daily data volume limit described in manage the maximum daily data volume. The daily cap reset time is shows on the **Daily Cap** page. |
-| Your workspace has hit the [Data Ingestion Volume Rate](https://docs.microsoft.com/azure/azure-monitor/service-limits#log-analytics-workspaces) | A default ingestion volume rate threshold of 500 MB (compressed) applies to workspaces, which is approximately **6 GB/min** uncompressed -- the actual size can vary between data types depending on the log length and its compression ratio. This threshold applies to all ingested data whether sent from Azure resources using [Diagnostic settings](diagnostic-settings.md), [Data Collector API](data-collector-api.md) or agents. When you send data to a workspace at a volume rate higher than 80% of the threshold configured in your workspace, an event is sent to the *Operation* table in your workspace every 6 hours while the threshold continues to be exceeded. When ingested volume rate is higher than threshold, some data is dropped and an event is sent to the *Operation* table in your workspace every 6 hours while the threshold continues to be exceeded. If your ingestion volume rate continues to exceed the threshold or you are expecting to reach it sometime soon, you can request to increase it in your workspace by opening a support request. To be notified on such an event in your workspace, create a [log alert rule](alerts-log.md) using the following query with alert logic based on number of results greater than zero, evaluation period of 5 minutes and frequency of 5 minutes. Ingestion volume rate reached 80% of threshold: `Operation | where OperationCategory == "Ingestion" | where Detail startswith "The data ingestion volume rate crossed 80% of the threshold"`. Ingestion volume rate reached threshold: `Operation | where OperationCategory == "Ingestion" | where Detail startswith "The data ingestion volume rate crossed the threshold"`. |
+| Your workspace has hit the [Data Ingestion Volume Rate](https://docs.microsoft.com/azure/azure-monitor/service-limits#log-analytics-workspaces) | The default ingestion volume rate limit for data sent from Azure resources using diagnostic settings is approximately 6 GB/min per workspace. This is an approximate value since the actual size can vary between data types depending on the log length and its compression ratio. This limit does not apply to data that is sent from agents or Data Collector API. If you send data at a higher rate to a single workspace, some data is dropped, and an event is sent to the Operation table in your workspace every 6 hours while the threshold continues to be exceeded. If your ingestion volume continues to exceed the rate limit or you are expecting to reach it sometime soon, you can request an increase to your workspace by sending an email to LAIngestionRate@microsoft.com or opening a support request. The event to look for that indicates a data ingestion rate limit can be found by the query `Operation | where OperationCategory == "Ingestion" | where Detail startswith "The rate of data crossed the threshold"`. |
 |Daily limit of legacy Free pricing tier  reached |Wait until the following day for collection to automatically restart, or change to a paid pricing tier.|
 |Azure subscription is in a suspended state due to:<br> Free trial ended<br> Azure pass expired<br> Monthly spending limit reached (for example on an MSDN or Visual Studio subscription)|Convert to a paid subscription<br> Remove limit, or wait until limit resets|
 

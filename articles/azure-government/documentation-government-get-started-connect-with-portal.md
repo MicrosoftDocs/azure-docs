@@ -44,7 +44,7 @@ You can take a look at Azure Government regions and their health status by click
 
 Currently, you can choose from 6 available government-only datacenter regions.
 
-![Azure Government Portal](./media/connect-with-portal/connect-with-portal.png)
+![Screenshot shows the Service Health page for Azure Government with the Region drop-down menu open.](./media/connect-with-portal/connect-with-portal.png)
 
 ## Next steps
 

@@ -1,24 +1,24 @@
 ---
-title: Deploy VMs on your Azure Stack Edge device via Azure CLI and Python
-description: Describes how to create and manage virtual machines (VMs) on a Azure Stack Edge device using Azure CLI and Python.
+title: Deploy VMs on your Azure Stack Edge Pro device GPU via Azure CLI and Python
+description: Describes how to create and manage virtual machines (VMs) on a Azure Stack Edge Pro GPU device using Azure CLI and Python.
 services: databox
 author: alkohli
 
 ms.service: databox
 ms.subservice: edge
-ms.topic: overview
-ms.date: 08/21/2020
+ms.topic: how-to
+ms.date: 09/07/2020
 ms.author: alkohli
-#Customer intent: As an IT admin, I need to understand how to create and manage virtual machines (VMs) on my Azure Stack Edge device using APIs so that I can efficiently manage my VMs.
+#Customer intent: As an IT admin, I need to understand how to create and manage virtual machines (VMs) on my Azure Stack Edge Pro device using APIs so that I can efficiently manage my VMs.
 ---
 
-# Deploy VMs on your Azure Stack Edge device using Azure CLI and Python
+# Deploy VMs on your Azure Stack Edge Pro GPU device using Azure CLI and Python
 
 <!--[!INCLUDE [applies-to-skus](../../includes/azure-stack-edge-applies-to-all-sku.md)]-->
 
 [!INCLUDE [azure-stack-edge-gateway-deploy-virtual-machine-overview](../../includes/azure-stack-edge-gateway-deploy-virtual-machine-overview.md)]
 
-This tutorial describes how to create and manage a VM on your Azure Stack Edge device using Azure Command Line Interface (CLI) and Python.
+This tutorial describes how to create and manage a VM on your Azure Stack Edge Pro device using Azure Command Line Interface (CLI) and Python.
 
 ## VM deployment workflow
 
@@ -40,13 +40,13 @@ The high level summary of the deployment workflow are as follows:
 10. Create a VNet
 11. Create a VNIC using the VNet subnet ID
 
-For a detailed explanation of the workflow diagram, see [Deploy VMs on your Azure Stack Edge device using Azure PowerShell](azure-stack-edge-j-series-deploy-virtual-machine-powershell.md). For information on how to connect to Azure Resource Manager, see [Connect to Azure Resource Manager using Azure PowerShell](azure-stack-edge-j-series-connect-resource-manager.md).
+For a detailed explanation of the workflow diagram, see [Deploy VMs on your Azure Stack Edge Pro device using Azure PowerShell](azure-stack-edge-j-series-deploy-virtual-machine-powershell.md). For information on how to connect to Azure Resource Manager, see [Connect to Azure Resource Manager using Azure PowerShell](azure-stack-edge-j-series-connect-resource-manager.md).
 
 ## Prerequisites
 
-Before you begin creating and managing a VM on your Azure Stack Edge device using Azure CLI and Python, you need to make sure you have completed the prerequisites listed in the following steps:
+Before you begin creating and managing a VM on your Azure Stack Edge Pro device using Azure CLI and Python, you need to make sure you have completed the prerequisites listed in the following steps:
 
-1. You completed the network settings on your Azure Stack Edge device as described in [Step 1: Configure Azure Stack Edge device](azure-stack-edge-j-series-connect-resource-manager.md#step-1-configure-azure-stack-edge-device).
+1. You completed the network settings on your Azure Stack Edge Pro device as described in [Step 1: Configure Azure Stack Edge Pro device](azure-stack-edge-j-series-connect-resource-manager.md#step-1-configure-azure-stack-edge-pro-device).
 
 2. Enabled a network interface for compute. This network interface IP is used to create a virtual switch for the VM deployment. The following steps walk you through the process:
 
@@ -55,19 +55,19 @@ Before you begin creating and managing a VM on your Azure Stack Edge device usin
         > [!IMPORTANT] 
         > You can only configure one port for compute.
 
-    2. Enable compute on the network interface. Azure Stack Edge creates and manages a virtual switch corresponding to that network interface.
+    2. Enable compute on the network interface. Azure Stack Edge Pro creates and manages a virtual switch corresponding to that network interface.
 
-    If you decide to use another network interface for compute, make sure that you:
+    <!--If you decide to use another network interface for compute, make sure that you:
 
     - Delete all the VMs that you have deployed using Azure Resource Manager.
 
     - Delete all virtual network interfaces and the virtual network associated with this network interface.
 
-    - You can now enable another network interface for compute.
+    - You can now enable another network interface for compute.-->
 
-3. You created and installed all the certificates on your Azure Stack Edge device and in the trusted store of your client. Follow the procedure described in [Step 2: Create and install certificates](azure-stack-edge-j-series-connect-resource-manager.md#step-2-create-and-install-certificates).
+3. You created and installed all the certificates on your Azure Stack Edge Pro device and in the trusted store of your client. Follow the procedure described in [Step 2: Create and install certificates](azure-stack-edge-j-series-connect-resource-manager.md#step-2-create-and-install-certificates).
 
-4. You created a Base-64 encoded *.cer* certificate (PEM format) for your Azure Stack Edge device. This is already uploaded as signing chain on the device and installed in the trusted root store on your client. This certificate is also required in *pem* format for Python to work on this client.
+4. You created a Base-64 encoded *.cer* certificate (PEM format) for your Azure Stack Edge Pro device. This is already uploaded as signing chain on the device and installed in the trusted root store on your client. This certificate is also required in *pem* format for Python to work on this client.
 
     Convert this certificate to pem format by using the `certutil` command. You must run this command in the directory that contains your certificate.
 
@@ -196,7 +196,7 @@ Before you begin creating and managing a VM on your Azure Stack Edge device usin
     PS C:\Program Files (x86)\Microsoft SDKs\Azure\CLI2>
     ```
 
-### Trust the Azure Stack Edge CA root certificate
+### Trust the Azure Stack Edge Pro CA root certificate
 
 1. Find the certificate location on your machine. The location may vary depending on where you installed `az cli`. Run Windows PowerShell as administrator. Switch to the path where `az cli` installed Python: `C:\Program Files (x86)\Microsoft SDKs\Azure\CLI2\python.exe`.
 
@@ -216,7 +216,7 @@ Before you begin creating and managing a VM on your Azure Stack Edge device usin
       
     Make a note of this location as you will use it later - `C:\Program Files (x86)\Microsoft SDKs\Azure\CLI2\lib\site-packages\certifi\cacert.pem`
 
-2. Trust the Azure Stack Edge CA root certificate by appending it to the existing Python certificate. You will provide the path to where you saved the PEM certificate earlier.
+2. Trust the Azure Stack Edge Pro CA root certificate by appending it to the existing Python certificate. You will provide the path to where you saved the PEM certificate earlier.
 
     ```powershell
     $pemFile = "<Path to the pem format certificate>"
@@ -249,12 +249,12 @@ Before you begin creating and managing a VM on your Azure Stack Edge device usin
     Write-Host "Adding the certificate content to Python Cert store"
     Add-Content "${env:ProgramFiles(x86)}\Microsoft SDKs\Azure\CLI2\Lib\site-packages\certifi\cacert.pem" $rootCertEntry
     
-    Write-Host "Python Cert store was updated to allow the Azure Stack Edge CA root certificate"
+    Write-Host "Python Cert store was updated to allow the Azure Stack Edge Pro CA root certificate"
     ```
     
-### Connect to Azure Stack Edge
+### Connect to Azure Stack Edge Pro
 
-1. Register your Azure Stack Edge environment by running the `az cloud register` command.
+1. Register your Azure Stack Edge Pro environment by running the `az cloud register` command.
 
     In some scenarios, direct outbound internet connectivity is routed through a proxy or firewall, which enforces SSL interception. In these cases, the az cloud register command can fail with an error such as \"Unable to get endpoints from the cloud.\" To work around this error, set the following environment variables in Windows PowerShell:
 
@@ -263,7 +263,7 @@ Before you begin creating and managing a VM on your Azure Stack Edge device usin
     $ENV:ADAL_PYTHON_SSL_NO_VERIFY = 1
     ```
 
-2. Set environment variables for the script for Azure Resource Manager endpoint, location where the resources are created and the path to where the source VHD is located. The location for the resources is fixed across all the Azure Stack Edge devices and is set to `dbelocal`. You also need to specify the address prefixes and private IP address. All the following environment variables are values based on your values with the exception of `AZURE_RESOURCE_LOCATION`, which should be hardcoded to `"dbelocal"`.
+2. Set environment variables for the script for Azure Resource Manager endpoint, location where the resources are created and the path to where the source VHD is located. The location for the resources is fixed across all the Azure Stack Edge Pro devices and is set to `dbelocal`. You also need to specify the address prefixes and private IP address. All the following environment variables are values based on your values with the exception of `AZURE_RESOURCE_LOCATION`, which should be hardcoded to `"dbelocal"`.
 
     ```powershell
     $ENV:ARM_ENDPOINT = "https://management.team3device.teatraining1.com"
@@ -305,7 +305,7 @@ Before you begin creating and managing a VM on your Azure Stack Edge device usin
     PS C:\Program Files (x86)\Microsoft SDKs\Azure\CLI2>
     ```
 
-4. Sign in to your Azure Stack Edge environment by using the `az login` command. You can sign in to the Azure Stack Edge environment either as a user or as a [service principal](https://docs.microsoft.com/azure/active-directory/develop/app-objects-and-service-principals).
+4. Sign in to your Azure Stack Edge Pro environment by using the `az login` command. You can sign in to the Azure Stack Edge Pro environment either as a user or as a [service principal](https://docs.microsoft.com/azure/active-directory/develop/app-objects-and-service-principals).
 
    Follow these steps to sign in as a *user*:
 
@@ -339,7 +339,8 @@ Before you begin creating and managing a VM on your Azure Stack Edge device usin
    ]
    PS C:\Program Files (x86)\Microsoft SDKs\Azure\CLI2>
    ```
-
+   Make a note of the `id` and `tenantId` values as these correspond to your Azure Resource Manager Subscription ID and Azure Resource Manager Tenant ID respectively and will be used in the later step.
+       
    The following environment variables need to be set to work as *service principal*:
 
    ```
@@ -349,7 +350,7 @@ Before you begin creating and managing a VM on your Azure Stack Edge device usin
    $ENV:ARM_SUBSCRIPTION_ID = "A4257FDE-B946-4E01-ADE7-674760B8D1A3"
    ```
 
-   Your Azure Resource Manager Tenant ID, Azure Resource Manager Client ID, and Azure Resource Manager Subscription ID are all hard-coded and have the same values across all Azure Stack Edge devices. The Azure Resource Manager Client secret is the Azure Resource Manager password that you set.
+   Your Azure Resource Manager Client ID is hard-coded. Your Azure Resource Manager Tenant ID and Azure Resource Manager Subscription ID are both present in the output of `az login` command you ran earlier. The Azure Resource Manager Client secret is the Azure Resource Manager password that you set.
 
    For more information, see [Azure Resource Manager password](azure-stack-edge-j-series-set-azure-resource-manager-password.md).
 
@@ -376,7 +377,7 @@ A Python script is provided to you to create a VM. Depending on whether you are 
 
 2. When the script runs, uploading the VHD takes 20-30 minutes. To view the progress of the upload operation, you can use Azure Storage Explorer or AzCopy.
 
-    Here is a sample output of a successful run of the script. The script creates all the resources within a resource group, uses those resources to create a VM, and finally deletes the resource group including all the resources it created up.
+    Here is a sample output of a successful run of the script. The script creates all the resources within a resource group, uses those resources to create a VM, and finally deletes the resource group including all the resources it created.
 
     
     ```powershell

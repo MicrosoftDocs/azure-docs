@@ -67,7 +67,7 @@ Ensure that the required Data Box devices are in *Delivered* state before trigge
 
 ## Setup Azure Data Box devices
 
-Once you receive the Azure Data Box device, depending on the Azure Data Box SKU you have ordered, perform the steps in the appropriate sections below to set up and prepare the Data Box devices for the DPM/MABS Server to identify and transfer the initial backup data.
+Once you receive the Azure Data Box device, depending on the Azure Data Box SKU you've ordered, perform the steps in the appropriate sections below to set up and prepare the Data Box devices for the DPM/MABS Server to identify and transfer the initial backup data.
 
 ### Setup Azure Data Box disk
 
@@ -104,7 +104,7 @@ Specify alternate source: *WIM:D:\Sources\Install.wim:4*
 
 ## Transfer initial backup data to Azure Data Box devices
 
-1. On your DPM/MABS Server, follow the steps to [create a new protection group](https://docs.microsoft.com/system-center/dpm/create-dpm-protection-groups?view=sc-dpm-2019). If you're adding an online protection to the existing protection group, right-click the existing protection group, and select **Add Online Protection** and start from **Step 8**.
+1. On your DPM/MABS Server, follow the steps to [create a new protection group](https://docs.microsoft.com/system-center/dpm/create-dpm-protection-groups). If you're adding an online protection to the existing protection group, right-click the existing protection group, and select **Add Online Protection** and start from **Step 8**.
 2. On the **Select Group Members** page, specify the computers and sources you want to back up.
 3. On the **Select data protection method** page, specify how you want to handle short and long-term backup. Make sure you select **I want online protection.**
 
@@ -143,7 +143,7 @@ Specify alternate source: *WIM:D:\Sources\Install.wim:4*
           - Azure.Storage       *4.6.1*<br>
      >  - The Azure AD application is registered as *AzureOfflineBackup_\<object GUID of the user>*.
 
-13. Select the correct Data box order for which you have unpacked, connected, and unlocked your Data Box disk. Select **Next**.
+13. Select the correct Data box order for which you've unpacked, connected, and unlocked your Data Box disk. Select **Next**.
 
     ![Select the databox](./media/offline-backup-azure-data-box-dpm-mabs/select-databox.png)
 

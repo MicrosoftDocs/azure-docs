@@ -58,8 +58,7 @@ To learn more about action groups, see [Create and manage action groups](../azur
 
 8. In the Alert details section, give your alert a name and short description. If you want your alert to be enabled, leave **Enable rule upon creation** selection set to **Yes**. Then select the resource group to save your alert to. This will not impact the targeting scope of the recommendation. 
 
-    ![Azure Advisor Banner](./media/advisor-alerts/create8.png)
-
+    :::image type="content" source="./media/advisor-alerts/create8.png" alt-text="Screenshot of the Alert details section.":::
 
 
 ## Configure recommendation alerts to use a webhook
@@ -183,11 +182,11 @@ From Azure Advisor, you can edit, delete, or disable and enable your recommendat
 
 1. In the **portal**, select **Azure Advisor**.
 
-    ![Azure Advisor Banner](./media/advisor-alerts/create1.png)
+    :::image type="content" source="./media/advisor-alerts/create1.png" alt-text="Screenshot of the Azure portal menu showing Azure Advisor selected.":::
 
 2. In the **Monitoring** section of the left menu, select **Alerts**.
 
-    ![Azure Advisor Banner](./media/advisor-alerts/create2.png)
+    :::image type="content" source="./media/advisor-alerts/create2.png" alt-text="Screenshot of the Azure portal menu showing Alerts selected.":::
 
 3. To edit an alert, click on the Alert name to open the alert and edit the fields you want to edit.
 

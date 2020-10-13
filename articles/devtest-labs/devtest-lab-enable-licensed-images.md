@@ -42,7 +42,7 @@ You can enable programmatic deployment for a licensed image by following these s
 
 1. Identify a licensed image for which you want users to have access but whose terms have not been accepted. For example, you might see a Data Science Virtual Machine that shows a status of either **Terms accepted** or **Terms review needed**.
 
-   	![Configure Programmatic Deployment window](./media/devtest-lab-create-custom-image-from-licensed-image/devtest-lab-licensed-images.png)
+   	![Screenshot that shows Data Science Virtual Machine images with offer status' of "Terms accepted" and "Terms review needed"](./media/devtest-lab-create-custom-image-from-licensed-image/devtest-lab-licensed-images.png)
 
    > [!NOTE]
    > Data Science VMs are Azure Virtual Machine images, pre-installed, configured, and tested with several popular tools that are commonly used for data analytics, machine learning and AI training. [Introduction to Azure Data Science Virtual Machine for Linux and Windows](../machine-learning/data-science-virtual-machine/overview.md) provides a great deal of information about DSVMs.

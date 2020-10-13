@@ -3,14 +3,14 @@ title: Migrate to an Azure resource authoring key
 titleSuffix: Azure Cognitive Services
 description: This article describes how to migrate Language Understanding (LUIS) authoring authentication from an email account to an Azure resource.
 services: cognitive-services
-author: diberry
+
 manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: how-to
 ms.date: 08/13/2020
-ms.author: diberry
+
 ---
 
 # Migrate to an Azure resource authoring key

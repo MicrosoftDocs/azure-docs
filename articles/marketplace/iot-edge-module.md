@@ -25,7 +25,7 @@ With [IoT Edge modules in the Azure Marketplace](https://azuremarketplace.micros
 
 ## What is an IoT Edge module?
 
-Azure IoT Edge lets you deploy and manage business logic on the edge in the form of modules. Azure IoT Edge modules are the smallest computation units managed by IoT Edge, and can contain Microsoft services (such as Azure Stream Analytics), 3rd-party services or your own solution-specific code. To learn more about IoT Edge modules, see [Understand Azure IoT Edge modules](../iot-edge/iot-edge-modules.md).
+Azure IoT Edge lets you deploy and manage business logic on the edge in the form of modules. Azure IoT Edge modules are the smallest computation units managed by IoT Edge, and can contain Microsoft services (such as Azure Stream Analytics), third-party services or your own solution-specific code. To learn more about IoT Edge modules, see [Understand Azure IoT Edge modules](../iot-edge/iot-edge-modules.md).
 
 **What is the difference between a Container offer type and an IoT Edge module offer type?**
 
@@ -35,7 +35,7 @@ The IoT Edge module offer type is a specific type of container running on an IoT
 
 **Selecting the right online store**
 
-IoT Edge Modules are only published to the Azure Marketplace; AppSource does not apply. For more information on the differences and target audience across online stores, see [Determine your publishing option](determine-your-listing-type.md).
+IoT Edge Modules are only published to the Azure Marketplace; AppSource does not apply. For more information on the differences across online stores, see [Determine your publishing option](determine-your-listing-type.md).
 
 **Billing options**
 
@@ -53,7 +53,7 @@ All the terms of the Microsoft Azure Marketplace agreements and policies apply t
 
 To publish an IoT Edge module to the Azure Marketplace, you need to meet the following prerequisites:
 
-- Access to the Partner Center. For more information, see [Azure Marketplace and AppSource publishing guide](marketplace-publishers-guide.md).
+- Access to the Partner Center. For more information, see [Create a commercial marketplace account in Partner Center](partner-center-portal/create-account.md).
 - Host your IoT Edge module in an Azure Container Registry.
 - Have your IoT Edge module metadata ready such as (non-exhaustive list):
     - A title
@@ -70,6 +70,5 @@ The primary technical requirements for an IoT Edge Module, in order for it to ge
 
 ## Next steps
 
-- [Learn](https://azuremarketplace.microsoft.com/sell) about the commercial marketplace.
 - Sign in to [Partner Center](https://partner.microsoft.com/dashboard/account/v3/enrollment/introduction/partnership) to create or complete your offer.
 - [Create an IoT Edge module offer](./partner-center-portal/azure-iot-edge-module-creation.md) in Partner Center.

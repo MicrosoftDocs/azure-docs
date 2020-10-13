@@ -1,21 +1,21 @@
 ---
-title: Tutorial to transfer data to storage account with Azure Stack Edge | Microsoft Docs
-description: Learn how to add and connect to storage accounts on Azure Stack Edge device.
+title: Tutorial to transfer data to storage account with Azure Stack Edge Pro GPU| Microsoft Docs
+description: Learn how to add and connect to local and Edge storage accounts on Azure Stack Edge Pro GPU device.
 services: databox
 author: alkohli
 
 ms.service: databox
 ms.subservice: edge
 ms.topic: tutorial
-ms.date: 02/11/2020
+ms.date: 08/31/2020
 ms.author: alkohli
-Customer intent: As an IT admin, I need to understand how to add and connect to storage accounts on Azure Stack Edge so I can use it to transfer data to Azure.
+Customer intent: As an IT admin, I need to understand how to add and connect to storage accounts on Azure Stack Edge Pro so I can use it to transfer data to Azure.
 ---
-# Tutorial: Transfer data via storage accounts with Azure Stack Edge
+# Tutorial: Transfer data via storage accounts with Azure Stack Edge Pro GPU 
 
 <!--[!INCLUDE [applies-to-skus](../../includes/azure-stack-edge-applies-to-all-sku.md)]-->
 
-This tutorial describes how to add and connect to storage accounts on your Azure Stack Edge device. After you've added the storage accounts, Azure Stack Edge can transfer data to Azure.
+This tutorial describes how to add and connect to storage accounts on your Azure Stack Edge Pro device. After you've added the storage accounts, Azure Stack Edge Pro can transfer data to Azure.
 
 This procedure can take around 30 minutes to complete.
 
@@ -28,11 +28,11 @@ In this tutorial, you learn how to:
  
 ## Prerequisites
 
-Before you add storage accounts to Azure Stack Edge, make sure that:
+Before you add storage accounts to Azure Stack Edge Pro, make sure that:
 
-- You've installed your physical device as described in [Install Azure Stack Edge](azure-stack-edge-gpu-deploy-install.md).
+- You've installed your physical device as described in [Install Azure Stack Edge Pro](azure-stack-edge-gpu-deploy-install.md).
 
-- You've activated the physical device as described in [Activate your Azure Stack Edge](azure-stack-edge-gpu-deploy-activate.md).
+- You've activated the physical device as described in [Activate your Azure Stack Edge Pro](azure-stack-edge-gpu-deploy-activate.md).
 
 
 ## Add an Edge storage account
@@ -130,7 +130,7 @@ Each of these steps is described in the following sections.
 
 ### Get certificate
 
-Accessing Blob storage over HTTPS requires an SSL certificate for the device. You will also upload this certificate to your Azure Stack Edge device as *.pfx* file with a private key attached to it. For more information on how to create (for test and dev purposes only) and upload these certificates to your Azure Stack Edge device, go to:
+Accessing Blob storage over HTTPS requires an SSL certificate for the device. You will also upload this certificate to your Azure Stack Edge Pro device as *.pfx* file with a private key attached to it. For more information on how to create (for test and dev purposes only) and upload these certificates to your Azure Stack Edge Pro device, go to:
 
 - [Create the blob endpoint certificate](azure-stack-edge-j-series-manage-certificates.md#create-certificates-optional).
 - [Upload the blob endpoint certificate](azure-stack-edge-j-series-manage-certificates.md#upload-certificates).
@@ -162,15 +162,15 @@ Follow the steps to [Configure and verify connection that you used while connect
 
 ## Next steps
 
-In this tutorial, you learned about the following Azure Stack Edge topics:
+In this tutorial, you learned about the following Azure Stack Edge Pro topics:
 
 > [!div class="checklist"]
 > * Add a storage account
 > * Connect to a storage account
 
-To learn how to transform your data by using Azure Stack Edge, advance to the next tutorial:
+To learn how to transform your data by using Azure Stack Edge Pro, advance to the next tutorial:
 
 > [!div class="nextstepaction"]
-> [Transform data with Azure Stack Edge](./azure-stack-edge-j-series-deploy-configure-compute.md)
+> [Transform data with Azure Stack Edge Pro](./azure-stack-edge-j-series-deploy-configure-compute.md)
 
 

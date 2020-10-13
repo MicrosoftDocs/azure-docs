@@ -27,6 +27,8 @@
     href: quickstart-ruby.md
   - name: Static HTML site
     href: quickstart-html.md
+  - name: ARM template
+    href: quickstart-arm-template.md
   - name: Custom container
     href: quickstart-custom-container.md
   - name: Multi-container app
@@ -79,9 +81,6 @@
     href: samples-powershell.md
   - name: Resource Manager templates
     href: samples-resource-manager-templates.md
-  - name: Azure Policy built-ins
-    displayName: samples, policies, definitions
-    href: ./policy-samples.md
   - name: Terraform
     href: samples-terraform.md
 - name: Concepts
@@ -147,7 +146,7 @@
       href: configure-language-java.md
     - name: Configure Ruby
       href: configure-language-ruby.md
-    - name: Configure custom Linux container
+    - name: Configure custom container
       href: configure-custom-container.md
     - name: Connect to on-prem resources
       href: web-sites-integrate-with-vnet.md
@@ -227,7 +226,7 @@
     items:
     - name: Scale up server capacity
       href: manage-scale-up.md
-    - name: Configure PremiumV2 tier
+    - name: Configure PremiumV3 tier
       href: app-service-configure-premium-tier.md
     - name: Scale out to multiple instances
       href: ../azure-monitor/platform/autoscale-get-started.md?toc=%2fazure%2fapp-service%2ftoc.json
@@ -285,6 +284,9 @@
     href: /rest/api/appservice/
   - name: Resource Manager template
     href: /azure/templates/microsoft.web/allversions
+  - name: Azure Policy built-ins
+    displayName: samples, policies, definitions
+    href: ./policy-reference.md
 - name: Resources
   items:
   - name: App Service Blog

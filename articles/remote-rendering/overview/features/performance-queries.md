@@ -168,6 +168,11 @@ The `GetStatsString` API formats a string of all the values, but each single val
 
 There are also variants of the members, which aggregate the values over time. See members with suffix `*Avg`, `*Max`, or `*Total`. The member `FramesUsedForAverage` indicates how many frames have been used for this aggregation.
 
+## API documentation
+
+* [C# RemoteManager.QueryServerPerformanceAssessmentAsync()](https://docs.microsoft.com/dotnet/api/microsoft.azure.remoterendering.remotemanager.queryserverperformanceassessmentasync)
+* [C++ RemoteManager::QueryServerPerformanceAssessmentAsync()](https://docs.microsoft.com/cpp/api/remote-rendering/remotemanager#queryserverperformanceassessmentasync)
+
 ## Next steps
 
 * [Create performance traces](../../how-tos/performance-tracing.md)

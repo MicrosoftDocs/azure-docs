@@ -10,12 +10,14 @@ editor: ''
 
 ms.service: media-services
 ms.workload: 
-ms.topic: tutorial
-ms.date: 08/11/2020
+ms.topic: how-to
+ms.date: 08/31/2020
 ms.author: inhenkel
 ---
 
 # Upload media for streaming or encoding
+
+[!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
 In Media Services, you upload your digital files (media) into a blob container associated with an asset. The [Asset](/rest/api/media/operations/asset) entity can contain video, audio, images, thumbnail collections, text tracks and closed caption files (and the metadata about these files). Once the files are uploaded into the asset's container, your content is stored securely in the cloud for further processing  and streaming.
 

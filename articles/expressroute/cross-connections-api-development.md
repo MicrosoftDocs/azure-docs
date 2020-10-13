@@ -2,12 +2,12 @@
 title: 'Azure ExpressRoute CrossConnnections API development and integration'
 description: This article provides a detailed overview for ExpressRoute partners about the expressRouteCrossConnections resource type.
 services: expressroute
-author: mialdrid
+author: duongau
 
 ms.service: expressroute
 ms.topic: conceptual
 ms.date: 02/06/2020
-ms.author: mialdrid
+ms.author: duau
 
 ---
 

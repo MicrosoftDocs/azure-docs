@@ -18,7 +18,9 @@ ms.reviewer: kilroyh;yanmf;juliako
 ms.custom: devx-track-csharp
 
 ---
-# Design of a content protection system with access control using Azure Media Services 
+# Design of a content protection system with access control using Azure Media Services
+
+[!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
 
 ## Overview
 
@@ -415,11 +417,11 @@ The following screenshots show different sign-in pages used by different domain 
 
 **Custom Azure AD tenant domain account**: The customized sign-in page of the custom Azure AD tenant domain.
 
-![Custom Azure AD tenant domain account](./media/media-services-cenc-with-multidrm-access-control/media-services-ad-tenant-domain1.png)
+![Screenshot that shows the customized sign-in page of the custom Azure A D tenant domain.](./media/media-services-cenc-with-multidrm-access-control/media-services-ad-tenant-domain1.png)
 
 **Microsoft domain account with smart card**: The sign-in page customized by Microsoft corporate IT with two-factor authentication.
 
-![Custom Azure AD tenant domain account](./media/media-services-cenc-with-multidrm-access-control/media-services-ad-tenant-domain2.png)
+![Screenshot that shows the sign-in page customized by Microsoft corporate I T with two-factor authentication.](./media/media-services-cenc-with-multidrm-access-control/media-services-ad-tenant-domain2.png)
 
 **Microsoft account**: The sign-in page of the Microsoft account for consumers.
 

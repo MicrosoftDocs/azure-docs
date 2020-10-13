@@ -5,10 +5,10 @@ services: sql-database
 ms.service: sql-managed-instance
 ms.subservice: operations
 ms.devlang: 
-ms.topic: conceptual
+ms.topic: reference
 author: jovanpop-msft
 ms.author: jovanpop
-ms.reviewer: sstein, carlrab, bonova, danil
+ms.reviewer: sstein, bonova, danil
 ms.date: 06/02/2020
 ms.custom: seoapril2019, sqldbrb=1
 ---
@@ -348,7 +348,11 @@ Undocumented DBCC statements that are enabled in SQL Server aren't supported in 
 
 ### Distributed transactions
 
-MSDTC and [elastic transactions](../database/elastic-transactions-overview.md) currently aren't supported in SQL Managed Instance.
+Partial support for [distributed transactions](../database/elastic-transactions-overview.md) is currently in public preview. Supported scenarios are:
+* Transactions where participants are only Azure SQL Managed Instances that are part of [Server trust group](https://aka.ms/mitrusted-groups).
+* Transactions initiated from .NET (TransactionScope class) and Transact-SQL.
+
+Azure SQL Managed Instance currently does not support other scenarios which are regularly supported by MSDTC on-premises or in Azure Virtual Machines.
 
 ### Extended Events
 

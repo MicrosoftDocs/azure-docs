@@ -1,15 +1,13 @@
 ---
 title: Azure Monitor workbooks resource parameters
-description: Simplify complex reporting with prebuilt and custom parameterized workbooks
+description: Learn how to use resource parameters to allow picking of resources in workbooks. Use the resource parameters to set the scope from which to get the data from.
 services: azure-monitor
-author: mrbullwinkle
 manager: carmonm
 
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 10/23/2019
-ms.author: mbullwin
 ---
 
 # Workbook resource parameters

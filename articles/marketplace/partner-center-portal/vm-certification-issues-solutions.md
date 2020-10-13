@@ -1,6 +1,6 @@
 ---
-title: Virtual machine certification - issues and solutions 
-description: This article explains common error messages for VM images. It also discusses related solutions
+title: Common issues when certifying virtual machine images for Azure Marketplace
+description: This article explains common error messages and issues when testing and certifying VM images for Azure Marketplace. It also discusses related solutions.
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: troubleshooting
@@ -9,14 +9,14 @@ ms.author: iqshah
 ms.date: 06/16/2020
 ---
 
-# Issues and solutions during virtual machine certification 
+# Common issues when certifying virtual machine images for Azure Marketplace
 
 When you publish your virtual machine (VM) image to Azure Marketplace, the Azure team validates it to ensure its bootability, security, and Azure compatibility. If any of the high-quality tests fail, the publishing will fail, and you'll receive an error message that describes the issue.
 
 This article explains common error messages during VM image publishing, along with related solutions.
 
 > [!NOTE]
-> If you have questions or feedback for improvement, contact [Partner Center Support](https://partner.microsoft.com/support/v2/?stage=1).
+> If you have questions or feedback for improvement, please contact [Partner Center Support](https://partner.microsoft.com/support/v2/?stage=1).
 
 ## Approved base image
 
@@ -28,6 +28,9 @@ To fix this issue, retrieve the image from Azure Marketplace and make changes to
 
 - [Linux images](../../virtual-machines/linux/endorsed-distros.md?toc=/azure/virtual-machines/linux/toc.json)
 - [Windows images](create-azure-vm-technical-asset.md#create-a-vm-image-using-an-approved-base)
+
+> [!Note]
+> If you are using a Linux base image not taken from Marketplace, you can offset the first partition by 2048 KB. This allows the unformatted space to be used for adding new billing info and allows Azure to go ahead with publishing your VM to Marketplace.  
 
 ## VM extension failure
 
@@ -79,7 +82,7 @@ If you're trying to install Visual Studio or any Office-licensed product, contac
 
 For more information about selecting an approved base, see [Create your Azure virtual machine technical assets](create-azure-vm-technical-asset.md#create-a-vm-image-using-an-approved-base).
 
-## Tool kit test case execution failed
+## Tool kit test case execution failed 
 
 The Microsoft Certification toolkit can help you run test cases and verify that your VHD or image is compatible with the Azure environment.
 
@@ -108,7 +111,7 @@ The following table lists common errors that are found while executing previous 
  
 |Scenario|Test case|Error|Solution|
 |---|---|---|---|
-|1|Linux Agent version test case|The minimum Linux agent version is 2.241 or later. This requirement has been mandatory since May 1, 2020.|The image must be updated with the required version to [submit the request](https://support.microsoft.com/help/4049215/extensions-and-virtual-machine-agent-minimum-version-support).|
+|1|Linux Agent version test case|The minimum Linux agent version is 2.2.41 or later. This requirement has been mandatory since May 1, 2020.|Please update Linux agent version and it should be 2.241 or later. For more information you can visit [Linux Agent Version update page](https://support.microsoft.com/help/4049215/extensions-and-virtual-machine-agent-minimum-version-support).|
 |2|Bash history test case|You'll see an error if the size of the bash history in your submitted image is more than 1 kilobyte (KB). The size is restricted to 1 KB to ensure that any potentially sensitive information isn't captured in your bash history file.|To resolve this problem, mount the VHD to any other working VM and make any changes you want (for example, delete the *.bash* history files) to reduce the size to less than or equal to 1 KB.|
 |3|Required kernel parameter test case|You'll receive this error when the value for **console** isn't set to **ttyS0**. Check by running the following command:<br>`cat /proc/cmdline`|Set the value for **console** to **ttyS0**, and resubmit the request.|
 |4|ClientAlive interval test case|If the toolkit result gives you a failed result for this test case, there is an inappropriate value for **ClientAliveInterval**.|Set the value for **ClientAliveInterval** to less than or equal to 235, and then resubmit the request.|
@@ -265,9 +268,12 @@ Refer to the following table for any issues that arise when you download the VM 
 |6|HTTP conditional header|The SAS URL is invalid.|Get the correct SAS URL.|
 |7|Invalid VHD name|Check to see whether any special characters, such as a percent sign (%) or quotation marks ("), exist in the VHD name.|Rename the VHD file by removing the special characters.|
 
-## First 1-MB partition
+## First MB (2048 KB) partition (Only for Linux)
 
-When you submit the VHD, ensure that the first 1-MB partition of the VHD is empty. Otherwise, your request will fail.
+When you submit the VHD, ensure that the first 2048 KB of the VHD is empty. Otherwise, your request will fail*.
+
+>[!NOTE]
+>*For certain special images, such as those built on top of Azure Windows base images taken from Azure Marketplace, we check for a Billing tag and ignore the MB partition if the billing tag is present and matches our internal available values.
 
 ## Default credentials
 
@@ -361,7 +367,8 @@ Publishers must reach out to the support at [Marketplace Publisher Support](http
    4.	 Version – The version of the VM offer for which exception is requested
    5.	Exception Type –Tests, Locked Down VM, Custom Templates
    6.	Reason of request – Reason for this exception and information on tests to be exempted 
-   7.	Attachment - Attach any importance evidence documents. For Locked Down VMs, attach the test report and for custom templates, provide the custom ARM template as attachment. Failure to attach report for Locked Down VMs and custom ARM template for custom templates will result in denial of request
+   7. Timeline - Date till which this exception has been requested 
+   8.	Attachment - Attach any importance evidence documents. For Locked Down VMs, attach the test report and for custom templates, provide the custom ARM template as attachment. Failure to attach report for Locked Down VMs and custom ARM template for custom templates will result in denial of request
 
 
 ## Next steps

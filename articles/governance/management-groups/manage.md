@@ -40,11 +40,11 @@ You can change the name of the management group by using the portal, PowerShell,
 
 1. Select the **Rename group** option at the top of the page.
 
-   :::image type="content" source="./media/detail_action_small.png" alt-text="Rename Group option on management group page" border="false":::
+   :::image type="content" source="./media/detail_action_small.png" alt-text="Screenshot of the action bar and the 'Rename Group' button on the management group page." border="false":::
 
 1. When the menu opens, enter the new name you would like to have displayed.
 
-   :::image type="content" source="./media/rename_context.png" alt-text="Rename Group pane to rename management group" border="false":::
+   :::image type="content" source="./media/rename_context.png" alt-text="Screenshot of the Rename Group window and options to rename a management group." border="false":::
 
 1. Select **Save**.
 
@@ -76,7 +76,7 @@ To delete a management group, the following requirements must be met:
 1. You need write permissions on the management group ("Owner", "Contributor", or "Management Group
    Contributor"). To see what permissions you have, select the management group and then select
    **IAM**. To learn more on Azure roles, see  
-   [Manage access and permissions with RBAC](../../role-based-access-control/overview.md).
+   [Azure role-based access control (Azure RBAC)](../../role-based-access-control/overview.md).
 
 ### Delete in the portal
 
@@ -90,14 +90,14 @@ To delete a management group, the following requirements must be met:
 
 1. Select **Delete**
 
-   :::image type="content" source="./media/delete.png" alt-text="Delete group option" border="false":::
+   :::image type="content" source="./media/delete.png" alt-text="Screenshot of the Management group page with the 'Delete' button highlighted." border="false":::
 
    > [!TIP]
    > If the icon is disabled, hovering your mouse selector over the icon shows you the reason.
 
 1. There's a window that opens confirming you want to delete the management group.
 
-   :::image type="content" source="./media/delete_confirm.png" alt-text="Delete group confirmation window" border="false":::
+   :::image type="content" source="./media/delete_confirm.png" alt-text="Screenshot of the 'Delete group' confirmation dialog for deleting a management group." border="false":::
 
 1. Select **Yes**.
 
@@ -135,7 +135,7 @@ You can view any management group you have a direct or inherited Azure role on.
    the management group. If this link isn't available, you don't have permissions to view that
    management group.
 
-   :::image type="content" source="./media/main.png" alt-text="Main" border="false":::
+   :::image type="content" source="./media/main.png" alt-text="Screenshot of the Management groups page showing child management groups and subscriptions." border="false":::
 
 ### View in PowerShell
 
@@ -243,7 +243,7 @@ group where you're a contributor.
 
 To see what permissions you have in the Azure portal, select the management group and then select
 **IAM**. To learn more on Azure roles, see
-[Manage access and permissions with RBAC](../../role-based-access-control/overview.md).
+[Azure role-based access control (Azure RBAC)](../../role-based-access-control/overview.md).
 
 ## Move subscriptions 
 
@@ -259,7 +259,7 @@ To see what permissions you have in the Azure portal, select the management grou
 
 1. Select the subscription in the list with the correct ID.
 
-   :::image type="content" source="./media/add_context_sub.png" alt-text="Available subscriptions to add to a management group" border="false":::
+   :::image type="content" source="./media/add_context_sub.png" alt-text="Screenshot of the 'Add subscription' options for selecting an existing subscription to add to a management group." border="false":::
 
 1. Select "Save".
 
@@ -273,13 +273,13 @@ To see what permissions you have in the Azure portal, select the management grou
 
 1. Select the ellipse at the end of the row for the subscription in the list you want to move.
 
-   :::image type="content" source="./media/move_small.png" alt-text="Move option on a management group" border="false":::
+   :::image type="content" source="./media/move_small.png" alt-text="Screenshot of the alternative menu for a subscription to select the 'Move' option." border="false":::
 
 1. Select **Move**.
 
 1. On the menu that opens, select the **Parent management group**.
 
-   :::image type="content" source="./media/move_small_context.png" alt-text="Move pane to change parent group" border="false":::
+   :::image type="content" source="./media/move_small_context.png" alt-text="Screenshot of the 'Move' window and options for moving a subscription to a different management group." border="false":::
 
 1. Select **Save**.
 
@@ -330,7 +330,7 @@ az account management-group subscription remove --name 'Contoso' --subscription 
    - Selecting an existing will present you with a drop-down of all the management groups you can
      move to this management group.  
 
-   :::image type="content" source="./media/add_context_MG.png" alt-text="Move a management group to new or existing group" border="false":::
+   :::image type="content" source="./media/add_context_MG.png" alt-text="Screenshot of the 'Add management group' options for creating a new management group." border="false":::
 
 1. Select **Save**.
 
@@ -360,7 +360,7 @@ events that happen to a management group in the same central location as other A
 example, you can see all Role Assignments or Policy Assignment changes made to a particular
 management group.
 
-:::image type="content" source="./media/al-mg.png" alt-text="Activity Logs with management groups" border="false":::
+:::image type="content" source="./media/al-mg.png" alt-text="Screenshot of Activity Logs and operations related to the selected management group." border="false":::
 
 When looking to query on Management Groups outside of the Azure portal, the target scope for
 management groups looks like **"/providers/Microsoft.Management/managementGroups/{yourMgID}"**.
@@ -389,7 +389,7 @@ GET https://management.azure.com/providers/Microsoft.Management/managementgroups
 
 To learn more about management groups, see:
 
-- [Create management groups to organize Azure resources](./create.md)
+- [Create management groups to organize Azure resources](./create-management-group-portal.md)
 - [How to change, delete, or manage your management groups](./manage.md)
 - [Review management groups in Azure PowerShell Resources Module](/powershell/module/az.resources#resources)
 - [Review management groups in REST API](/rest/api/resources/managementgroups)

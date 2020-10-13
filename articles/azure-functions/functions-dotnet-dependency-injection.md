@@ -87,7 +87,7 @@ namespace MyNamespace
         private readonly HttpClient _client;
         private readonly IMyService _service;
 
-        public MyHttpTrigger(HttpClient httpClient, MyService service)
+        public MyHttpTrigger(HttpClient httpClient, IMyService service)
         {
             this._client = httpClient;
             this._service = service;
@@ -165,9 +165,9 @@ The following example `host.json` file adds the log filter.
     "version": "2.0",
     "logging": {
         "applicationInsights": {
-            "samplingExcludedTypes": "Request",
             "samplingSettings": {
-                "isEnabled": true
+                "isEnabled": true,
+                "excludedTypes": "Request"
             }
         },
         "logLevel": {
@@ -248,7 +248,7 @@ public class HttpTrigger
 
 Refer to [Options pattern in ASP.NET Core](/aspnet/core/fundamentals/configuration/options) for more details regarding working with options.
 
-### Customizing configuration sources
+## Customizing configuration sources
 
 > [!NOTE]
 > Configuration source customization is available beginning in Azure Functions host versions 2.0.14192.0 and 3.0.14191.0.
@@ -275,7 +275,8 @@ namespace MyNamespace
 
             builder.ConfigurationBuilder
                 .AddJsonFile(Path.Combine(context.ApplicationRootPath, "appsettings.json"), optional: true, reloadOnChange: false)
-                .AddJsonFile(Path.Combine(context.ApplicationRootPath, $"appsettings.{context.EnvironmentName}.json"), optional: true, reloadOnChange: false);
+                .AddJsonFile(Path.Combine(context.ApplicationRootPath, $"appsettings.{context.EnvironmentName}.json"), optional: true, reloadOnChange: false)
+                .AddEnvironmentVariables();
         }
     }
 }

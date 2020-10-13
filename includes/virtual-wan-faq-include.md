@@ -5,10 +5,14 @@
  author: cherylmc
  ms.service: virtual-wan
  ms.topic: include
- ms.date: 08/18/2020
+ ms.date: 09/02/2020
  ms.author: cherylmc
  ms.custom: include file
 ---
+### Is Azure Virtual WAN in GA?
+
+Yes, Azure Virtual WAN is Generally Available (GA). However, Virtual WAN consists of several features and scenarios. There are feature or scenarios within Virtual WAN where Microsoft applies the Preview tag. In those cases, the specific feature, or the scenario itself, is in Preview. If you do not use a specific preview feature, regular GA support applies. For more information about Preview support, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
 ### Does the user need to have hub and spoke with SD-WAN/VPN devices to use Azure Virtual WAN?
 
 Virtual WAN provides many functionalities built into a single pane of glass such as Site/Site-to-site VPN connectivity, User/P2S connectivity, ExpressRoute connectivity, Virtual Network connectivity, VPN ExpressRoute Interconnectivity, VNet-to-VNet transitive connectivity, Centralized Routing, Azure Firewall and Firewall Manager security, Monitoring, ExpressRoute Encryption, and many other capabilities. You do not have to have all of these use-cases to start using Virtual WAN. You can get started with just one use case. The Virtual WAN architecture is a hub and spoke architecture with scale and performance built in where branches (VPN/SD-WAN devices), users (Azure VPN Clients, openVPN, or IKEv2 Clients), ExpressRoute circuits, Virtual Networks serve as spokes to Virtual Hub(s). All hubs are connected in full mesh in a Standard Virtual WAN making it easy for the user to use the Microsoft backbone for any-to-any (any spoke) connectivity. For hub and spoke with SD-WAN/VPN devices, users can either manually set it up in the Azure Virtual WAN portal or use the Virtual WAN Partner CPE (SD-WAN/VPN) to set up connectivity to Azure. Virtual WAN partners provide automation for connectivity, which is the ability to export the device info into Azure, download the Azure configuration and establish connectivity to the Azure Virtual WAN hub. For Point-to-site/User VPN connectivity, we support [Azure VPN client](https://go.microsoft.com/fwlink/?linkid=2117554), OpenVPN, or IKEv2 client. 
@@ -78,7 +82,7 @@ There are two options to add DNS servers for the P2S clients. The first method i
 
 ### For User VPN (Point-to-site)- how many clients are supported?
 
-Each User VPN P2S gateway has two instances and each instance supports upto certain users as the scale unit changes. Scale unit 1-3 supports 500 connections, Scale unit 4-6 supports 1000 connections, Scale unit 7-12 supports 5000 connections and Scale unit 13-20 supports up to 10,000 connections. 
+Each User VPN P2S gateway has two instances and each instance supports upto certain users as the scale unit changes. Scale unit 1-3 supports 500 connections, Scale unit 4-6 supports 1000 connections, Scale unit 7-12 supports 5000 connections and Scale unit 13-18 supports up to 10,000 connections. 
 
 As an example, lets say the user chooses 1 scale unit. Each scale unit would imply an active-active gateway deployed and each of the instances (in this case 2) would support up to 500 connections. Since you can get 500 connections * 2 per gateway, it does not mean that you plan for 1000 instead of the 500 for this scale unit. Instances may need to be serviced during which connectivity for the extra 500 may be interrupted if you surpass the recommended connection count. Also, be sure to plan for downtime in case you decide to scale up or down on the scale unit, or change the point-to-site configuration on the VPN gateway.
 
@@ -245,9 +249,12 @@ When an ExpressRoute circuit is connected to virtual hub, the Microsoft edge rou
 
 The current behavior is to prefer the ExpressRoute circuit path over hub-to-hub for VNet-to-VNet connectivity. However, this is not encouraged in a virtual WAN setup. The Virtual WAN team is working on a fix to enable the preference for hub-to-hub over the ExpressRoute path. The recommendation is for multiple ExpressRoute circuits (different providers) to connect to one hub and use the hub-to-hub connectivity provided by Virtual WAN for inter-region traffic flows.
 
+### Can hubs be created in different resource group in Virtual WAN?
+Yes. This option is currently available via powershell only. Virtual WAN portal mandates the hubs in the same resource group as the Virtual WAN resource itself.
+
 ### Is there support for IPv6 in Virtual WAN?
 
-IPv6 is not supported in Virtual WAN hub and its gateways. If you have a VNet that has IPv6 support and you would like to connect the VNet to Virtual WAN, this scenario not currently supported.
+IPv6 is not supported in Virtual WAN hub and its gateways. If you have a VNet that has IPv4 and IPv6 support and you would like to connect the VNet to Virtual WAN, this scenario not currently supported. 
 
 ### What is the recommended API version to be used by scripts automating various Virtual WAN functionalities?
 

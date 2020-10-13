@@ -54,7 +54,7 @@ If you don't want to run the base server in Azure, you can run the server on a H
 | Windows Server 2019 |64 bit |Standard, Datacenter, Essentials |
 | Windows Server 2016 and latest SPs |64 bit |Standard, Datacenter, Essentials  |
 
-You can deduplicate the DPM storage using Windows Server Deduplication. Learn more about how [DPM and deduplication](/system-center/dpm/deduplicate-dpm-storage?view=sc-dpm-2019) work together when deployed in Hyper-V VMs.
+You can deduplicate the DPM storage using Windows Server Deduplication. Learn more about how [DPM and deduplication](/system-center/dpm/deduplicate-dpm-storage) work together when deployed in Hyper-V VMs.
 
 > [!NOTE]
 > Azure Backup Server is designed to run on a dedicated, single-purpose server. You can't install Azure Backup Server on:
@@ -75,7 +75,7 @@ Whether you send backup data to Azure, or keep it locally, Azure Backup Server m
 
 ### Set Storage Replication
 
-The storage replication option allows you to choose between geo-redundant storage and locally redundant storage. By default, Recovery Services vaults use geo-redundant storage. If this vault is your primary vault, leave the storage option set to geo-redundant storage. Choose locally redundant storage if you want a cheaper option that isn't quite as durable. Read more about [geo-redundant](../storage/common/storage-redundancy.md) and [locally redundant](../storage/common/storage-redundancy.md) storage options in the [Azure Storage replication overview](../storage/common/storage-redundancy.md).
+The storage replication option allows you to choose between geo-redundant storage and locally redundant storage. By default, Recovery Services vaults use geo-redundant storage. If this vault is your primary vault, leave the storage option set to geo-redundant storage. Choose locally redundant storage if you want a cheaper option that isn't quite as durable. Read more about [geo-redundant](../storage/common/storage-redundancy.md#geo-redundant-storage), [locally redundant](../storage/common/storage-redundancy.md#locally-redundant-storage) and [zone-redundant](../storage/common/storage-redundancy.md#zone-redundant-storage) storage options in the [Azure Storage replication overview](../storage/common/storage-redundancy.md).
 
 To edit the storage replication setting:
 
@@ -84,7 +84,7 @@ To edit the storage replication setting:
 
 3. Select the storage replication type, and select **Save**.
 
-     ![Set the storage configuration for new vault](./media/backup-try-azure-backup-in-10-mins/recovery-services-vault-backup-configuration.png)
+     ![Set the storage configuration for new vault](./media/backup-create-rs-vault/recovery-services-vault-backup-configuration.png)
 
 ## Software package
 
@@ -194,7 +194,7 @@ Once the extraction process complete, check the box to launch the freshly extrac
 
     ![Provide location for installation of files](./media/backup-azure-microsoft-azure-backup/space-screen.png)
 
-    The scratch location is a requirement for back up to Azure. Ensure the scratch location is at least 5% of the data planned to be backed up to the cloud. For disk protection, separate disks need to be configured once the installation completes. For more information about storage pools, see [Prepare data storage](/system-center/dpm/plan-long-and-short-term-data-storage?view=sc-dpm-2019).
+    The scratch location is a requirement for back up to Azure. Ensure the scratch location is at least 5% of the data planned to be backed up to the cloud. For disk protection, separate disks need to be configured once the installation completes. For more information about storage pools, see [Prepare data storage](/system-center/dpm/plan-long-and-short-term-data-storage).
 5. Provide a strong password for restricted local user accounts and select **Next**.
 
     ![Provide strong password](./media/backup-azure-microsoft-azure-backup/security-screen.png)
@@ -271,11 +271,11 @@ Here are the steps if you need to move MABS to a new server, while retaining the
 10. Run CMD (as an administrator) on the new server. Go to the Microsoft Azure Backup install location and bin folder
 
     Path example:
-    C:\windows\system32>cd "c:\Program Files\Microsoft Azure Backup\DPM\DPM\bin\"
+    `C:\windows\system32>cd "c:\Program Files\Microsoft Azure Backup\DPM\DPM\bin\"`
 
 11. To connect to Azure Backup, run `DPMSYNC -SYNC`
 
-    If you have added **new** disks to the DPM Storage pool instead of moving the old ones, then run `DPMSYNC -Reallocatereplica`
+    If you've added **new** disks to the DPM Storage pool instead of moving the old ones, then run `DPMSYNC -Reallocatereplica`.
 
 ## Network connectivity
 
@@ -358,7 +358,7 @@ You can also refer to [Azure Backup related FAQs](backup-azure-backup-faq.md)
 
 ## Next steps
 
-You can get detailed information here about [preparing your environment for DPM](/system-center/dpm/prepare-environment-for-dpm?view=sc-dpm-2019). It also contains information about supported configurations on which Azure Backup Server can be deployed and used. You can use a series of [PowerShell cmdlets](/powershell/module/dataprotectionmanager/) for performing various operations.
+You can get detailed information here about [preparing your environment for DPM](/system-center/dpm/prepare-environment-for-dpm). It also contains information about supported configurations on which Azure Backup Server can be deployed and used. You can use a series of [PowerShell cmdlets](/powershell/module/dataprotectionmanager/) for performing various operations.
 
 You can use these articles to gain a deeper understanding of workload protection using Microsoft Azure Backup server.
 

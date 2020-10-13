@@ -4,7 +4,7 @@ description: Learn how to request real-time public transit data, such as arrival
 author: anastasia-ms
 ms.author: v-stharr
 ms.date: 09/06/2019
-ms.topic: conceptual
+ms.topic: how-to
 ms.service: azure-maps
 services: azure-maps
 manager: philmea

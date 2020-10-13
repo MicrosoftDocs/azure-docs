@@ -132,7 +132,7 @@ az network vnet create \
 ```
 
 ```azurecli
-az network vnet create \
+az network vnet subnet create \
   --vnet-name myHSM-vnet \
   --resource-group myRG \
   --name hsmsubnet \

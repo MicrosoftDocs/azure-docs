@@ -318,6 +318,46 @@ The following exhausts possible configuration options within the file:
             "/path2"
         ]
     },
+    "httpSettings": {
+        "requireHttps": <true|false>,
+        "routes": {
+            "apiPrefix": "<api prefix>"
+        },
+        "forwardProxy": {
+            "convention": "NoProxy|Standard|Custom",
+            "customHostHeaderName": "<host header value>",
+            "customProtoHeaderName": "<proto header value>"
+        }
+    },
+    "login": {
+        "routes": {
+            "logoutEndpoint": "<logout endpoint>"
+        },
+        "tokenStore": {
+            "enabled": <true|false>,
+            "tokenRefreshExtensionHours": "<double>",
+            "fileSystem": {
+                "directory": "<directory to store the tokens in if using a file system token store (default)>"
+            },
+            "azureBlobStorage": {
+                "sasUrlSettingName": "<app setting name containing the sas url for the Azure Blob Storage if opting to use that for a token store>"
+            }
+        },
+        "preserveUrlFragmentsForLogins": <true|false>,
+        "allowedExternalRedirectUri": [
+            "https://uri1.azurewebsites.net/",
+            "https://uri2.azurewebsites.net/",
+            "url_scheme_of_your_app://easyauth.callback"
+        ],
+        "cookieExpiration": {
+            "convention": "FixedTime|IdentityProviderDerived",
+            "timeToExpiration": "<timespan>"
+        },
+        "nonce": {
+            "validateNonce": <true|false>,
+            "nonceExpirationInterval": "<timespan>"
+        }
+    },
     "identityProviders": {
         "azureActiveDirectory": {
             "enabled": <true|false>,
@@ -393,7 +433,7 @@ The following exhausts possible configuration options within the file:
             }
         },
         "openIdConnectProviders": {
-            "provider name": {
+            "<providerName>": {
                 "enabled": <true|false>,
                 "registration": {
                     "clientId": "<client id>",
@@ -422,45 +462,6 @@ The following exhausts possible configuration options within the file:
                 }
             },
             //...
-        },
-        "login": {
-            "routes": {
-                "logoutEndpoint": "<logout endpoint>"
-            },
-            "tokenStore": {
-                "enabled": <true|false>,
-                "tokenRefreshExtensionHours": "<double>",
-                "fileSystem": {
-                    "directory": "<directory to store the tokens in if using a file system token store (default)>"
-                },
-                "azureBlobStorage": {
-                    "sasUrlSettingName": "<app setting name containing the sas url for the Azure Blob Storage if opting to use that for a token store>"
-                }
-            },
-            "preserveUrlFragmentsForLogins": <true|false>,
-            "allowedExternalRedirectUrls": [
-                "https://uri1.azurewebsites.net/",
-                "https://uri2.azurewebsites.net/"
-            ],
-            "cookieExpiration": {
-                "convention": "FixedTime|IdentityProviderDerived",
-                "timeToExpiration": "<timespan>"
-            },
-            "nonce": {
-                "validateNonce": <true|false>,
-                "nonceExpirationInterval": "<timespan>"
-            }
-        },
-        "httpSettings": {
-            "requireHttps": <true|false>,
-            "routes": {
-                "apiPrefix": "<api prefix>"
-            },
-            "forwardProxy": {
-                "convention": "NoProxy|Standard|Custom",
-                "customHostHeaderName": "<host header value>",
-                "customProtoHeaderName": "<proto header value>"
-            }
         }
     }
 }
@@ -484,7 +485,7 @@ You can view the current version of the platform authentication middleware eithe
 
 ##### From the Azure CLI
 
-Using the Azure CLI, view the current middleware version with the [az webapp auth show](/cli/azure/webapp/auth?view=azure-cli-latest#az-webapp-auth-show) command.
+Using the Azure CLI, view the current middleware version with the [az webapp auth show](/cli/azure/webapp/auth?view=azure-cli-latest&preserve-view=true#az-webapp-auth-show) command.
 
 ```azurecli-interactive
 az webapp auth show --name <my_app_name> \
@@ -515,7 +516,7 @@ You can also hit /.auth/version endpoint on an app also to view the current midd
 
 #### Update the current runtime version
 
-Using the Azure CLI, you can update the `runtimeVersion` setting in the app with the [az webapp auth update](/cli/azure/webapp/auth?view=azure-cli-latest#az-webapp-auth-update) command.
+Using the Azure CLI, you can update the `runtimeVersion` setting in the app with the [az webapp auth update](/cli/azure/webapp/auth?view=azure-cli-latest&preserve-view=true#az-webapp-auth-update) command.
 
 ```azurecli-interactive
 az webapp auth update --name <my_app_name> \

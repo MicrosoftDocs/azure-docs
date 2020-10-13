@@ -81,13 +81,13 @@
   - name: SDKs
     items:
     - name: .NET
-      href: https://docs.microsoft.com/dotnet/api/overview/azure/ai.formrecognizer-readme-pre
+      href: https://docs.microsoft.com/dotnet/api/overview/azure/ai.formrecognizer-readme
     - name: Python
-      href: https://docs.microsoft.com/python/api/azure-ai-formrecognizer/azure.ai.formrecognizer
+      href: https://docs.microsoft.com/en-us/python/api/azure-ai-formrecognizer/?view=azure-python
     - name: Java
-      href: https://docs.microsoft.com/java/api/overview/azure/ai-formrecognizer-readme-pre
+      href: https://docs.microsoft.com/java/api/overview/azure/ai-formrecognizer-readme
     - name: JavaScript
-      href: https://docs.microsoft.com/javascript/api/overview/azure/ai-form-recognizer-readme-pre
+      href: https://docs.microsoft.com/javascript/api/overview/azure/ai-form-recognizer-readme
 - name: Resources
   items:
   - name: Pricing and limits
@@ -95,7 +95,7 @@
   - name: UserVoice
     href: https://go.microsoft.com/fwlink/?linkid=2090535
   - name: Stack Overflow
-    href: https://go.microsoft.com/fwlink/?linkid=2087186
+    href: https://stackoverflow.com/questions/tagged/form-recognizer
   - name: Azure roadmap
     href: https://azure.microsoft.com/updates/?product=cognitive-services
   - name: Regional availability

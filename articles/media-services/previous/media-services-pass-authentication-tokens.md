@@ -21,6 +21,9 @@ ms.custom: devx-track-csharp
 ---
 
 # Learn how clients pass tokens to the Azure Media Services key delivery service
+
+[!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
+
 Customers often ask how a player can pass tokens to the Azure Media Services key delivery service for verification so the player can obtain the key. Media Services supports the simple web token (SWT) and JSON Web Token (JWT) formats. Token authentication is applied to any type of key, regardless of whether you use common encryption or Advanced Encryption Standard (AES) envelope encryption in the system.
 
  Depending on the player and platform you target, you can pass the token with your player in the following ways:

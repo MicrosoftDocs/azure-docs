@@ -45,7 +45,7 @@ The following Windows distributions are currently supported during the preview o
 - Windows 10 1809 and later
 
 > [!IMPORTANT]
-> Remote connection to VMs joined to Azure AD is only allowed from Windows 10 PCs that are Azure AD joined or hybrid Azure AD joined to the **same** directory as the VM. 
+> Remote connection to VMs joined to Azure AD is only allowed from Windows 10 PCs that are either Azure AD registered (starting Windows 10 20H1), Azure AD joined or hybrid Azure AD joined to the **same** directory as the VM. 
 
 The following Azure regions are currently supported during the preview of this feature:
 
@@ -187,9 +187,9 @@ az role assignment create \
 
 For more information on how to use Azure RBAC to manage access to your Azure subscription resources, see the following articles:
 
-- [Add or remove Azure role assignments using Azure CLI](/azure/role-based-access-control/role-assignments-cli)
-- [Add or remove Azure role assignments using the Azure portal](/azure/role-based-access-control/role-assignments-portal)
-- [Add or remove Azure role assignments using Azure PowerShell](/azure/role-based-access-control/role-assignments-powershell).
+- [Add or remove Azure role assignments using Azure CLI](../../role-based-access-control/role-assignments-cli.md)
+- [Add or remove Azure role assignments using the Azure portal](../../role-based-access-control/role-assignments-portal.md)
+- [Add or remove Azure role assignments using Azure PowerShell](../../role-based-access-control/role-assignments-powershell.md).
 
 ## Using Conditional Access
 
@@ -234,7 +234,7 @@ The AADLoginForWindows extension must install successfully in order for the VM t
    > [!NOTE]
    > If the extension restarts after the initial failure, the log with the deployment error will be saved as CommandExecution_YYYYMMDDHHMMSSSSS.log. 
 "
-1. Open a command prompt on the VM and verify these queries against the Instance Metadata Service (IMDS) Endpoint running on the Azure host returns:
+1. Open a PowerShell command prompt on the VM and verify these queries against the Instance Metadata Service (IMDS) Endpoint running on the Azure host returns:
 
    | Command to run | Expected output |
    | --- | --- |
@@ -327,7 +327,7 @@ If you see the following error message when you initiate a remote desktop connec
 
 ![Your account is configured to prevent you from using this device.](./media/howto-vm-sign-in-azure-ad-windows/rbac-role-not-assigned.png)
 
-Verify that you have [configured RBAC policies](../../virtual-machines/linux/login-using-aad.md) for the VM that grants the user either the Virtual Machine Administrator Login or Virtual Machine User Login role:
+Verify that you have [configured Azure RBAC policies](../../virtual-machines/linux/login-using-aad.md) for the VM that grants the user either the Virtual Machine Administrator Login or Virtual Machine User Login role:
  
 #### Unauthorized client
 
@@ -337,7 +337,7 @@ If you see the following error message when you initiate a remote desktop connec
 
 ![Your credentials did not work](./media/howto-vm-sign-in-azure-ad-windows/your-credentials-did-not-work.png)
 
-Verify that the Windows 10 PC you are using to initiate the remote desktop connection is one that is either Azure AD joined, or hybrid Azure AD joined to the same Azure AD directory where your VM is joined to. For more information about device identity, see the article [What is a device identity](/azure/active-directory/devices/overview).
+Verify that the Windows 10 PC you are using to initiate the remote desktop connection is one that is either Azure AD joined, or hybrid Azure AD joined to the same Azure AD directory where your VM is joined to. For more information about device identity, see the article [What is a device identity](./overview.md).
 
 > [!NOTE]
 > Windows 10 Build 20H1 added support for an Azure AD registered PC to initiate RDP connection to your VM. When using an Azure AD registered (not Azure AD joined or hybrid Azure AD joined) PC as the RDP client to initiate connections to your VM, you must enter credentials in the format AzureAD\UPn (e.g. AzureAD\john@contoso.com).
@@ -365,4 +365,4 @@ Share your feedback about this preview feature or report issues using it on the 
 
 ## Next steps
 
-For more information on Azure Active Directory, see [What is Azure Active Directory](/azure/active-directory/fundamentals/active-directory-whatis)
+For more information on Azure Active Directory, see [What is Azure Active Directory](../fundamentals/active-directory-whatis.md)

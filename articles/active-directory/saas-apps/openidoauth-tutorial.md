@@ -70,13 +70,13 @@ By default, Azure AD promotes multitenant applications. They're easily accessed 
 ## Consent framework
 
 You can use the Azure AD consent framework to develop multitenant web and native client applications. These applications allow sign-in by user accounts from an Azure AD tenant, different from the one where the application is registered. They might also need to access web APIs such as:
-- The Microsoft Graph API, to access Azure AD, Intune, and services in Office 365.
+- The Microsoft Graph API, to access Azure AD, Intune, and services in Microsoft 365.
 - Other Microsoft services' APIs.
 - Your own web APIs.
 
 The framework is based on a user or an administrator giving consent to an application that asks to be registered in their directory. The registration might involve accessing directory data. After consent is given, the client application can call the Microsoft Graph API on behalf of the user, and use the information as needed.
 
-The [Microsoft Graph API](https://developer.microsoft.com/graph/) provides access to data in Office 365, like:
+The [Microsoft Graph API](https://developer.microsoft.com/graph/) provides access to data in Microsoft 365, like:
 
 - Calendars and messages from Exchange.
 - Sites and lists from SharePoint.
@@ -93,19 +93,19 @@ The following steps show you how the consent experience works for the applicatio
 
     a. Click on the **App registrations** from the left side of menu and open your application by typing the application name in search box.
 
-    ![Graph API](./media/openidoauth-tutorial/application.png)
+    ![Screenshot that shows "App registrations" selected from the left-side menu and the "Application I D" search box highlighted.](./media/openidoauth-tutorial/application.png)
 
     b. Click **View API Permissions**.
 
-    ![Graph API](./media/openidoauth-tutorial/api-permission.png)
+    ![Screenshot that shows the "Call A P I" page with the "View A P I Permissions" button selected.](./media/openidoauth-tutorial/api-permission.png)
 
     c. Click on **Add a permission**.
 
-    ![Graph API](./media/openidoauth-tutorial/add-permission.png)
+    ![Screenshot that shows the "A P I permissions" section with the "Add a permission" button selected.](./media/openidoauth-tutorial/add-permission.png)
 
     d. Click On **Microsoft Graph**.
 
-    ![Graph API](./media/openidoauth-tutorial/microsoft-graph.png)
+    ![Screenshot that shows the "Request A P I permissions" page with the "Microsoft A P I" tab and "Microsoft Graph" tile selected.](./media/openidoauth-tutorial/microsoft-graph.png)
 
     e. Select required options from **Delegated permissions** and **Application Permissions**.
 
@@ -115,7 +115,7 @@ The following steps show you how the consent experience works for the applicatio
 
 3. If the user is not already authenticated, the Azure AD /authorize endpoint prompts for sign-in.
 
-    ![Authentication](./media/openidoauth-tutorial/authentication.png)
+    ![A Screenshot of the sign-in prompt for the account](./media/openidoauth-tutorial/authentication.png)
 
 4. After the user has signed in, Azure AD determines if the user needs to be shown a consent page. This determination is based on whether the user (or their organization's administrator) has already granted the application consent.
 

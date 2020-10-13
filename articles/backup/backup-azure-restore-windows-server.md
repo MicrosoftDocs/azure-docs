@@ -17,7 +17,7 @@ Use the Instant Restore feature to mount a writeable recovery point snapshot as 
 > The [January 2017 Azure Backup update](https://support.microsoft.com/help/3216528/azure-backup-update-for-microsoft-azure-recovery-services-agent-januar) is required if you want to use Instant Restore to restore data. Also, the backup data must be protected in vaults in locales listed in the support article. Consult the [January 2017 Azure Backup update](https://support.microsoft.com/help/3216528/azure-backup-update-for-microsoft-azure-recovery-services-agent-januar) for the latest list of locales that support Instant Restore.
 >
 
-Use Instant Restore with Recovery Services vaults in the Azure portal. If you stored data in Backup vaults, they have been converted to Recovery Services vaults. If you want to use Instant Restore, download the MARS update, and follow the procedures that mention Instant Restore.
+Use Instant Restore with Recovery Services vaults in the Azure portal. If you stored data in Backup vaults, they've been converted to Recovery Services vaults. If you want to use Instant Restore, download the MARS update, and follow the procedures that mention Instant Restore.
 
 [!INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]
 
@@ -102,7 +102,7 @@ These steps include the following terminology:
 
 5. Provide the vault credential file that corresponds to the sample vault, and select **Next**.
 
-    If the vault credential file is invalid (or expired), download a new vault credential file from the sample vault in the Azure portal. After you provide a valid vault credential, the name of the corresponding backup vault appears.
+    If the vault credential file is invalid (or expired), [download a new vault credential file from the sample vault](backup-azure-file-folder-backup-faq.md#where-can-i-download-the-vault-credentials-file) in the Azure portal. After you provide a valid vault credential, the name of the corresponding backup vault appears.
 
 6. On the **Select Backup Server** page, select the source machine from the list of displayed machines, and provide the passphrase. Then select **Next**.
 

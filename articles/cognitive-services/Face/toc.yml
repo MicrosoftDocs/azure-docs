@@ -47,9 +47,7 @@
   items:
   - name: Detect faces
     href: Face-API-How-to-Topics/HowtoDetectFacesinImage.md
-  - name: Identify faces
-    href: Face-API-How-to-Topics/HowtoIdentifyFacesinImage.md
-  - name: Add faces
+  - name: Add faces to a group
     href: Face-API-How-to-Topics/how-to-add-faces.md
   - name: Use the HeadPose attribute
     href: Face-API-How-to-Topics/how-to-use-headpose.md

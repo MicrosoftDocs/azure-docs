@@ -2,7 +2,7 @@
 title: Create and deploy template spec
 description: Learn how to create a template spec from ARM template. Then, deploy the template spec to a resource group in your subscription.
 author: tfitzmac
-ms.date: 08/27/2020
+ms.date: 10/02/2020
 ms.topic: quickstart
 ms.author: tomfitz
 ---
@@ -22,7 +22,7 @@ An Azure account with an active subscription. [Create an account for free](https
 
 ## Create template spec
 
-The template spec is a new resource type named **Microsoft.Resources/templateSpecs**. To create your template spec, you can use Azure PowerShell, Azure CLI, or an ARM template. In all options, you need an ARM template that is packaged within the template spec.
+The template spec is a resource type named **Microsoft.Resources/templateSpecs**. To create your template spec, you can use Azure PowerShell, Azure CLI, or an ARM template. In all options, you need an ARM template that is packaged within the template spec.
 
 With PowerShell and CLI , the ARM template is passed in as a parameter to the command. With ARM template, the ARM template to package within the template spec is embedded within the template spec definition.
 
@@ -50,7 +50,7 @@ These options are shown below.
       -Version "1.0" `
       -ResourceGroupName templateSpecRG `
       -Location westus2 `
-      -TemplateJsonFile "c:\Templates\azuredeploy.json"
+      -TemplateFile "c:\Templates\azuredeploy.json"
     ```
 
 # [CLI](#tab/azure-cli)
@@ -70,7 +70,7 @@ These options are shown below.
 1. Then, create the template spec in that resource group. You give the new template spec the name **storageSpec**.
 
     ```azurecli
-    az template-specs create \
+    az ts create \
       --name storageSpec \
       --version "1.0" \
       --resource-group templateSpecRG \
@@ -215,7 +215,7 @@ You can now deploy the template spec. Deploying the template spec is just like d
 1. Get the resource ID of the template spec.
 
     ```azurepowershell
-    $id = (Get-AzTemplateSpec -ResourceGroupName templateSpecRG -Name storageSpec -Version "1.0").Version.Id
+    $id = (Get-AzTemplateSpec -ResourceGroupName templateSpecRG -Name storageSpec -Version "1.0").Versions.Id
     ```
 
 1. Deploy the template spec.
@@ -248,7 +248,7 @@ You can now deploy the template spec. Deploying the template spec is just like d
 1. Get the resource ID of the template spec.
 
     ```azurecli
-    id = $(az template-specs show --name storageSpec --resource-group templateSpecRG --version "1.0" --query "id")
+    id = $(az ts show --name storageSpec --resource-group templateSpecRG --version "1.0" --query "id")
     ```
 
     > [!NOTE]

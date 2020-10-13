@@ -19,7 +19,6 @@ other pages, visit
 |Comment/Uncomment |<kbd>CTRL</kbd>+<kbd>/</kbd> | <kbd>Cmd</kbd>+<kbd>/</kbd> |
 |Decrease indent |<kbd>CTRL</kbd>+<kbd>[</kbd> |<kbd>Cmd</kbd>+<kbd>[</kbd> |
 |Increase indent |<kbd>CTRL</kbd>+<kbd>]</kbd> |<kbd>Cmd</kbd>+<kbd>]</kbd> |
-|Select all |<kbd>CTRL</kbd>+<kbd>A</kbd> |<kbd>Cmd</kbd>+<kbd>A</kbd> |
 |Move the line down |<kbd>ALT</kbd>+<kbd>↓</kbd> |<kbd>Option</kbd>+<kbd>↓</kbd> |
 |Move the line up |<kbd>ALT</kbd>+<kbd>↑</kbd> |<kbd>Option</kbd>+<kbd>↑</kbd> |
 |Replace |<kbd>CTRL</kbd>+<kbd>F</kbd> |<kbd>Cmd</kbd>+<kbd>ALT</kbd>+<kbd>F</kbd> |

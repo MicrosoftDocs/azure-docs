@@ -2,13 +2,13 @@
 title: Create a template spec with linked templates
 description: Learn how to create a template spec with linked templates.
 ms.topic: conceptual
-ms.date: 08/27/2020
+ms.date: 08/31/2020
 
 ---
 
 # Tutorial: Create a template spec with linked templates (Preview)
 
-Learn how to create a [template spec](template-specs.md) with a [linked template](linked-templates.md#linked-template). You use template specs to share ARM templates with other users in your organization. This article shows you how to create a template spec to package a main template and its linked templates using the new `relativePath` property of the [deployment resource](/azure/templates/microsoft.resources/deployments).
+Learn how to create a [template spec](template-specs.md) with a [linked template](linked-templates.md#linked-template). You use template specs to share ARM templates with other users in your organization. This article shows you how to create a template spec to package a main template and its linked templates using the `relativePath` property of the [deployment resource](/azure/templates/microsoft.resources/deployments).
 
 ## Prerequisites
 
@@ -172,7 +172,7 @@ New-AzTemplateSpec `
   -Version "1.0.0.0" `
   -ResourceGroupName templateSpecRG `
   -Location westus2 `
-  -TemplateJsonFile "c:\Templates\linkedTS\azuredeploy.json"
+  -TemplateFile "c:\Templates\linkedTS\azuredeploy.json"
 ```
 
 # [CLI](#tab/azure-cli)
@@ -182,7 +182,7 @@ az group create \
   --name templateSpecRG \
   --location westus2
 
-az template-specs create \
+az ts create \
   --name webSpec \
   --version "1.0.0.0" \
   --resource-group templateSpecRG \
@@ -203,7 +203,7 @@ Get-AzTemplateSpec -ResourceGroupName templatespecRG -Name webSpec
 # [CLI](#tab/azure-cli)
 
 ```azurecli
-az template-specs show --name webSpec --resource-group templateSpecRG --version "1.0.0.0"
+az ts show --name webSpec --resource-group templateSpecRG --version "1.0.0.0"
 ```
 
 ---
@@ -219,7 +219,7 @@ New-AzResourceGroup `
   -Name webRG `
   -Location westus2
 
-$id = (Get-AzTemplateSpec -ResourceGroupName templateSpecRG -Name webSpec -Version "1.0.0.0").Version.Id
+$id = (Get-AzTemplateSpec -ResourceGroupName templateSpecRG -Name webSpec -Version "1.0.0.0").Versions.Id
 
 New-AzResourceGroupDeployment `
   -TemplateSpecId $id `

@@ -106,7 +106,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 	![Copy configuration URLs](common/copy-configuration-urls.png)
 
 > [!NOTE]
-> Before configuring the Single Sign On at Hightail app, please white list your email domain with Hightail team so that all the users who are using this domain can use Single Sign On functionality.
+> Before configuring the Single Sign On at Hightail app, please add your email domain to the allowed list with Hightail team so that all the users who are using this domain can use Single Sign On functionality.
 
 ### Create an Azure AD test user
 
@@ -152,15 +152,15 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 1. Click on **User icon** from the top right corner of the page. 
 
-	![Configure Single Sign-On](./media/hightail-tutorial/configure1.png)
+	![Screenshot shows the User icon.](./media/hightail-tutorial/configure1.png)
 
 1. Click **View Admin Console** tab.
 
-	![Configure Single Sign-On](./media/hightail-tutorial/configure2.png)
+	![Screenshot shows the View Admin Console button for the User.](./media/hightail-tutorial/configure2.png)
 
 1. In the menu on the top, click the **SAML** tab and perform the following steps:
 
-	![Configure Single Sign-On](./media/hightail-tutorial/configure3.png)
+	![Screenshot shows the SAML tab where you can enter the Login U R L and SAML Certificate.](./media/hightail-tutorial/configure3.png)
 
 	a. In the **Login URL** textbox, paste the value of **Login URL** copied from Azure portal.
 

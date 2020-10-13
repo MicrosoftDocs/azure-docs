@@ -39,7 +39,7 @@ To complete this article, you must have sufficient permissions in both your Azur
 The easiest way to check whether your account has adequate permissions is through the portal. See [Check required permission](howto-create-service-principal-portal.md#permissions-required-for-registering-an-app).
 
 ## Assign the application to a role
-To access resources in your subscription, you must assign the application to a role. Decide which role offers the right permissions for the application. To learn about the available roles, see [RBAC: Built in Roles](../../role-based-access-control/built-in-roles.md).
+To access resources in your subscription, you must assign the application to a role. Decide which role offers the right permissions for the application. To learn about the available roles, see [Azure built-in roles](../../role-based-access-control/built-in-roles.md).
 
 You can set the scope at the level of the subscription, resource group, or resource. Permissions are inherited to lower levels of scope. For example, adding an application to the *Reader* role for a resource group means it can read the resource group and any resources it contains. To allow the application to execute actions like reboot, start and stop instances, select the *Contributor* role.
 
@@ -221,3 +221,4 @@ You may get the following errors when creating a service principal:
 * To set up a service principal with password, see [Create an Azure service principal with Azure PowerShell](/powershell/azure/create-azure-service-principal-azureps).
 * For a more detailed explanation of applications and service principals, see [Application Objects and Service Principal Objects](app-objects-and-service-principals.md).
 * For more information about Azure AD authentication, see [Authentication Scenarios for Azure AD](./authentication-vs-authorization.md).
+* For information about working with app registrations by using **Microsoft Graph**, see the [Applications](/graph/api/resources/application) API reference.

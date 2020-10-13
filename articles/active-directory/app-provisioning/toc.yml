@@ -28,6 +28,8 @@
        href: plan-auto-user-provisioning.md
      - name: Plan a cloud HR provisioning deployment
        href: plan-cloud-hr-provision.md
+     - name: Understand logging with Azure Monitor
+       href: application-provisioning-log-analytics.md
   - name: How-to guides
     expanded: true
     items:
@@ -55,6 +57,8 @@
         href: check-status-user-account-provisioning.md
       - name: Export and import your configuration
         href: export-import-provisioning-configuration.md  
+      - name: Provisioning reports
+        href: ../reports-monitoring/concept-provisioning-logs.md?context=azure%2factive-directory%2fapp-provisioning%2fcontext%2fapp-provisioning-context
     - name: Troubleshoot application provisioning
       items:
       - name: Known issues
@@ -76,7 +80,7 @@
     - name: Build a SCIM endpoint and configure provisioning
       href: use-scim-to-provision-users-and-groups.md
     - name: Automate configuration using MS Graph
-      href: application-provisioning-configure-api.md
+      href: https://docs.microsoft.com/graph/application-provisioning-configure-api
   - name: Reference
     items:
     - name: SCIM 2.0 protocol compliance

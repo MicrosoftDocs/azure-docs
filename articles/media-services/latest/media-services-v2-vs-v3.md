@@ -3,7 +3,7 @@ title: Migrate from Azure Media Services v2 to v3
 description: This article describes changes that were introduced in Azure Media Services v3 and shows differences between two versions. 
 services: media-services
 documentationcenter: na
-author: Juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 tags: ''
@@ -11,31 +11,32 @@ keywords: azure media services, stream, broadcast, live, offline
 
 ms.service: media-services
 ms.devlang: multiple
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: multiple
 ms.workload: media
-ms.date: 03/09/2020
-ms.author: juliako
+ms.date: 10/01/2020
+ms.author: inhenkel
 ---
 
 # Media Services v2 vs. v3
+
+[!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
 This article describes changes that were introduced in Azure Media Services v3 and shows differences between two versions.
 
 ## General changes from v2
 
-* For assets created with v3, Media Services supports only the [Azure Storage server-side storage encryption](../../storage/common/storage-service-encryption.md).
-    * You can use v3 APIs with Assets created with v2 APIs that had [storage encryption](../previous/media-services-rest-storage-encryption.md) (AES 256) provided by Media Services.
-    * You cannot create new Assets with the legacy AES 256 [storage encryption](../previous/media-services-rest-storage-encryption.md) using v3 APIs.
-* The [Asset](assets-concept.md)'s properties in v3 differ to from v2, see [how the properties map](#map-v3-asset-properties-to-v2).
+* For asset related changes, see the [Asset specific changes](#asset-specific-changes) section that follows.
 * The v3 SDKs are now decoupled from the Storage SDK, which gives you more control over the version of Storage SDK you want to use and avoids versioning issues. 
 * In the v3 APIs, all of the encoding bit rates are in bits per second. This is different than the v2 Media Encoder Standard presets. For example, the bitrate in v2 would be specified as 128 (kbps), but in v3 it would be 128000 (bits/second). 
 * Entities AssetFiles, AccessPolicies, and IngestManifests do not exist in v3.
-* The IAsset.ParentAssets property does not exist in v3.
 * ContentKeys is no longer an entity, it is now a property of the Streaming Locator.
 * Event Grid support replaces NotificationEndpoints.
-* The following entities were renamed
-    * Job Output replaces Task, and is now part of a Job.
+* The following entities were renamed:
+
+   * v3 JobOutput replaces v2 Task and is now part of a Job. Inputs and outputs are now at the Job level. For more information, see [Create a job input from a local file](job-input-from-local-file-how-to.md). 
+
+       To get the history of job progress, listen to the EventGrid events. For more information, see [Handling Event Grid events](reacting-to-media-services-events.md).
     * Streaming Locator replaces Locator.
     * Live Event replaces Channel.<br/>Live Events billing is based on Live Channel meters. For more information, see [billing](live-event-states-billing.md) and [pricing](https://azure.microsoft.com/pricing/details/media-services/).
     * Live Output replaces Program.
@@ -83,6 +84,12 @@ The v3 API has the following feature gaps with respect to the v2 API. Closing th
 
 ## Asset specific changes
 
+* For assets created with v3, Media Services supports only the [Azure Storage server-side storage encryption](../../storage/common/storage-service-encryption.md).
+    * You can use v3 APIs with Assets created with v2 APIs that had [storage encryption](../previous/media-services-rest-storage-encryption.md) (AES 256) provided by Media Services.
+    * You cannot create new Assets with the legacy AES 256 [storage encryption](../previous/media-services-rest-storage-encryption.md) using v3 APIs.
+* The [Asset](assets-concept.md)'s properties in v3 differ to from v2, see [how the properties map](#map-v3-asset-properties-to-v2).
+* The IAsset.ParentAssets property does not exist in v3.
+
 ### Map v3 asset properties to v2
 
 The following table shows how the [Asset](/rest/api/media/assets/createorupdate#asset)'s properties in v3 map to Asset's properties in v2.
@@ -118,7 +125,7 @@ To protect your Assets at rest, the assets should be encrypted by the storage si
 
 The following table shows the code differences between v2 and v3 for common scenarios.
 
-|Scenario|V2 API|V3 API|
+|Scenario|v2 API|v3 API|
 |---|---|---|
 |Create an asset and upload a file |[v2 .NET example](https://github.com/Azure-Samples/media-services-dotnet-dynamic-encryption-with-aes/blob/master/DynamicEncryptionWithAES/DynamicEncryptionWithAES/Program.cs#L113)|[v3 .NET example](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/AMSV3Tutorials/UploadEncodeAndStreamFiles/Program.cs#L169)|
 |Submit a job|[v2 .NET example](https://github.com/Azure-Samples/media-services-dotnet-dynamic-encryption-with-aes/blob/master/DynamicEncryptionWithAES/DynamicEncryptionWithAES/Program.cs#L146)|[v3 .NET example](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/AMSV3Tutorials/UploadEncodeAndStreamFiles/Program.cs#L298)<br/><br/>Shows how to first create a Transform and then submit a Job.|

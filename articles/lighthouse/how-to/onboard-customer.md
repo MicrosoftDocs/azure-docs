@@ -1,7 +1,7 @@
 ---
 title: Onboard a customer to Azure Lighthouse
 description: Learn how to onboard a customer to Azure Lighthouse, allowing their resources to be accessed and managed through your own tenant using Azure delegated resource management.
-ms.date: 08/20/2020
+ms.date: 09/24/2020
 ms.topic: how-to
 ---
 
@@ -14,7 +14,7 @@ This article explains how you, as a service provider, can onboard a customer to 
 
 You can repeat the onboarding process for multiple customers. When a user with the appropriate permissions signs in to your managing tenant, that user can be authorized across customer tenancy scopes to perform management operations, without having to sign in to every individual customer tenant.
 
-To track your impact across customer engagements and receive recognition, associate your Microsoft Partner Network (MPN) ID with at least one user account that has access to each of your onboarded subscriptions. You'll need to perform this association in your service provider tenant. For simplicity, we recommend creating a service principal account in your tenant that is associated your MPN ID, and granting it Reader access to every customer you onboard. For more info, see  [Link a partner ID to your Azure accounts](../../cost-management-billing/manage/link-partner-id.md).
+To track your impact across customer engagements and receive recognition, associate your Microsoft Partner Network (MPN) ID with at least one user account that has access to each of your onboarded subscriptions. You'll need to perform this association in your service provider tenant. We recommend creating a service principal account in your tenant that is associated with your MPN ID, then including that service principal every time you onboard a customer. For more info, see [Link your partner ID to enable partner earned credit on delegated resources](partner-earned-credit.md).
 
 > [!NOTE]
 > Customers can also be onboarded to Azure Lighthouse when they purchase a Managed Service offer (public or private) that you [publish to Azure Marketplace](publish-managed-services-offers.md). You can also use the onboarding process described here alongside offers published to Azure Marketplace.
@@ -28,9 +28,6 @@ To onboard a customer's tenant, it must have an active Azure subscription. You'l
 - The tenant ID of the service provider's tenant (where you will be managing the customer's resources)
 - The tenant ID of the customer's tenant (which will have resources managed by the service provider)
 - The subscription IDs for each specific subscription in the customer's tenant that will be managed by the service provider (or that contains the resource group(s) that will be managed by the service provider).
-
-> [!NOTE]
-> Even if you only wish to onboard one or more resource groups within a subscription, the deployment must be done at the subscription level, so you'll need the subscription ID.
 
 If you don't have these ID values already, you can retrieve them in one of the following ways. Be sure and use these exact values in your deployment.
 
@@ -67,7 +64,7 @@ To make management easier, we recommend using Azure AD user groups for each role
 When defining your authorizations, be sure to follow the principle of least privilege so that users only have the permissions needed to complete their job. For guidelines and information about supported roles, see [Tenants, users, and roles in Azure Lighthouse scenarios](../concepts/tenants-users-roles.md).
 
 > [!IMPORTANT]
-> In order to add permissions for an Azure AD group, the **Group type** must be **Security** and not **Office 365**. This option is selected when the group is created. For more information, see [Create a basic group and add members using Azure Active Directory](../../active-directory/fundamentals/active-directory-groups-create-azure-portal.md).
+> In order to add permissions for an Azure AD group, the **Group type** must be set to **Security**. This option is selected when the group is created. For more information, see [Create a basic group and add members using Azure Active Directory](../../active-directory/fundamentals/active-directory-groups-create-azure-portal.md).
 
 To define authorizations, you'll need to know the ID values for each user, user group, or service principal in the service provider tenant to which you want to grant access. You'll also need the role definition ID for each built-in role you want to assign. If you don't have them already, you can retrieve them by running the commands below from within the service provider tenant.
 
@@ -123,6 +120,11 @@ To onboard your customer, you'll need to create an [Azure Resource Manager](../.
 
 The onboarding process requires an Azure Resource Manager template (provided in our [samples repo](https://github.com/Azure/Azure-Lighthouse-samples/)) and a corresponding parameters file that you modify to match your configuration and define your authorizations.
 
+> [!IMPORTANT]
+> The process described here requires a separate deployment for each subscription being onboarded, even if you are onboarding subscriptions in the same customer tenant. Separate deployments are also required if you are onboarding multiple resource groups within different subscriptions in the same customer tenant. However, onboarding multiple resource groups within a single subscription can be done in one deployment.
+>
+> Separate deployments are also required for multiple offers being applied to the same subscription (or resource groups within a subscription). Each offer applied must use a different **mspOfferName**.
+
 The template you choose will depend on whether you are onboarding an entire subscription, a resource group, or multiple resource groups within a subscription. We also provide a template that can be used for customers who purchased a managed service offer that you published to Azure Marketplace, if you prefer to onboard their subscription(s) this way.
 
 |To onboard this  |Use this Azure Resource Manager template  |And modify this parameter file |
@@ -132,10 +134,8 @@ The template you choose will depend on whether you are onboarding an entire subs
 |Multiple resource groups within a subscription   |[multipleRgDelegatedResourceManagement.json](https://github.com/Azure/Azure-Lighthouse-samples/blob/master/templates/rg-delegated-resource-management/multipleRgDelegatedResourceManagement.json)  |[multipleRgDelegatedResourceManagement.parameters.json](https://github.com/Azure/Azure-Lighthouse-samples/blob/master/templates/rg-delegated-resource-management/multipleRgDelegatedResourceManagement.parameters.json)    |
 |Subscription (when using an offer published to Azure Marketplace)   |[marketplaceDelegatedResourceManagement.json](https://github.com/Azure/Azure-Lighthouse-samples/blob/master/templates/marketplace-delegated-resource-management/marketplaceDelegatedResourceManagement.json)  |[marketplaceDelegatedResourceManagement.parameters.json](https://github.com/Azure/Azure-Lighthouse-samples/blob/master/templates/marketplace-delegated-resource-management/marketplaceDelegatedResourceManagement.parameters.json)    |
 
-> [!IMPORTANT]
-> The process described here requires a separate deployment for each subscription being onboarded, even if you are onboarding subscriptions in the same customer tenant. Separate deployments are also required if you are onboarding multiple resource groups within different subscriptions in the same customer tenant. However, onboarding multiple resource groups within a single subscription can be done in one deployment.
->
-> Separate deployments are also required for multiple offers being applied to the same subscription (or resource groups within a subscription). Each offer applied must use a different **mspOfferName**.
+> [!TIP]
+> While you can't onboard an entire management group in one deployment, you can [deploy a policy at the management group level](https://github.com/Azure/Azure-Lighthouse-samples/tree/master/templates/policy-delegate-management-groups). The policy will check if each subscription within the management group has been delegated to the specified managing tenant, and if not, will create the assignment based on the values you provide.
 
 The following example shows a modified **delegatedResourceManagement.parameters.json** file that can be used to onboard a subscription. The resource group parameter files (located in the [rg-delegated-resource-management](https://github.com/Azure/Azure-Lighthouse-samples/tree/master/templates/rg-delegated-resource-management) folder) are similar, but also include an **rgName** parameter to identify the specific resource group(s) to be onboarded.
 

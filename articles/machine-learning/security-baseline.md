@@ -6,7 +6,7 @@ ms.service: machine-learning
 ms.topic: conceptual
 ms.date: 08/19/2020
 ms.author: mbaldwin
-ms.custom: security-benchmark
+ms.custom: subject-security-benchmark
 
 # Important: This content is machine generated; do not modify this topic directly. Contact mbaldwin for more information.
 
@@ -26,7 +26,7 @@ The Azure Security Baseline for Microsoft Azure Machine Learning contains recomm
 
 Azure Firewall can be used to control access to your Azure Machine Learning workspace and the public internet.
 
-- [How to securely run experiments and inference in an isolated virtual network](how-to-enable-virtual-network.md)
+- [Virtual network isolation and privacy overview](how-to-network-security-overview.md)
 
 - [Use workspace behind Azure Firewall for Azure Machine Learning](how-to-access-azureml-behind-firewall.md)
 
@@ -56,7 +56,7 @@ Enable network security group flow logs and send the logs to an Azure Storage ac
 
 - [Use TLS to secure a web service through Azure Machine Learning](how-to-secure-web-service.md)
 
-- [Network isolation during training &amp; inference with private virtual networks](how-to-enable-virtual-network.md)
+- [Virtual network isolation and privacy overview](how-to-network-security-overview.md)
 
 **Azure Security Center monitoring**: Not Applicable
 
@@ -92,7 +92,7 @@ Deploy Azure Firewall at each of the organization's network boundaries with thre
 
 **Guidance**: Deploy the firewall solution of your choice at each of your organization's network boundaries to detect and/or block malicious traffic.
 
-Select an offer from the Azure Marketplace that supports IDS/IPS functionality with payload inspection capabilities.  When payload inspection is not a requirement, Azure Firewall threat intelligence can be used. Azure Firewall threat intelligence-based filtering is used to alert on and/or block traffic to and from known malicious IP addresses and domains. The IP addresses and domains are sourced from the Microsoft Threat Intelligence feed.
+Select an offer from Azure Marketplace that supports IDS/IPS functionality with payload inspection capabilities.  When payload inspection is not a requirement, Azure Firewall threat intelligence can be used. Azure Firewall threat intelligence-based filtering is used to alert on and/or block traffic to and from known malicious IP addresses and domains. The IP addresses and domains are sourced from the Microsoft Threat Intelligence feed.
 
 - [How to deploy Azure Firewall](../firewall/tutorial-firewall-deploy-portal.md)
 
@@ -120,7 +120,7 @@ Azure Machine Learning service documents a list of service tags for its compute 
 
 - [For more information about using service tags](../virtual-network/service-tags-overview.md)
 
-- [For Azure Machine Learning virtual network](how-to-enable-virtual-network.md)
+- [Virtual network isolation and privacy overview](how-to-network-security-overview.md)
 
 **Azure Security Center monitoring**: Not Applicable
 
@@ -327,7 +327,7 @@ You can also use the Azure AD PowerShell module to perform adhoc queries to disc
 
 ### 3.3: Use dedicated administrative accounts
 
-**Guidance**: Azure Machine Learning comes with three default roles when a new workspace is created, create standard operating procedures around the use of owner accounts.
+**Guidance**: Azure Machine Learning comes with three default roles when a new workspace is created, creating standard operating procedures around the use of owner accounts.
 
 You can also enable a just-in-time access to administrative accounts by using Azure AD Privileged Identity Management and Azure Resource Manager. 
 
@@ -721,7 +721,7 @@ You can implement your own process for removing unauthorized software. You can a
 
 Remove Azure resources when they are no longer needed.
 
-- [How to use File Integrity Monitoring](../security-center/security-center-file-integrity-monitoring.md#using-file-integrity-monitoring)
+- [How to use File Integrity Monitoring](../security-center/security-center-file-integrity-monitoring.md)
 
 - [Understand Azure Automation Change Tracking and Inventory](../automation/change-tracking.md)
 
@@ -982,7 +982,9 @@ Use Azure Key Vault to pass secrets to remote runs securely instead of cleartext
 
 - [How to create a Key Vault](/azure/key-vault/quick-create-portal)
 
-- [How to provide Key Vault authentication with a managed identity](/azure/key-vault/managed-identity)
+- [How to authenticate to Key Vault](https://docs.microsoft.com/azure/key-vault/general/authentication)
+
+- [How to assign a Key Vault access policy](https://docs.microsoft.com/azure/key-vault/general/assign-access-policy-portal)
 
 **Azure Security Center monitoring**: Yes
 

@@ -1,6 +1,8 @@
 ---
 title: Markdown format - QnA Maker
 description: Following is the list of markdown formats that you can use in QnA Maker's answer text.
+ms.service: cognitive-services
+ms.subservice: qna-maker
 ms.topic: reference
 ms.date: 03/19/2020
 ---
@@ -33,7 +35,7 @@ A new line between 2 sentences.|`\n\n`|`How can I create a bot with \n\n QnA Mak
 |Bold and italics|`***text***`|`How can I create a ***QnA Maker*** bot?`|![format for bold and italics](./media/qnamaker-concepts-datasources/format-bold-italics.png)|
 |Bold URL for link|`[**text**](https://www.my.com)`|`How do I create a bot with [**QnA Maker**](https://www.qnamaker.ai)?`|![format for bold URL](./media/qnamaker-concepts-datasources/format-bold-url.png)|
 |Italics URL for link|`[*text*](https://www.my.com)`|`How do I create a bot with [*QnA Maker*](https://www.qnamaker.ai)?`|![format for italics URL](./media/qnamaker-concepts-datasources/format-url-italics.png)|
-|Escape markdown symbols|`\*text\*`|`How do I create a bot with \*QnA Maker\*?`|![format for italics URL](./media/qnamaker-concepts-datasources/format-escape-markdown-symbols.png)|
+|Escape markdown symbols|`\*text\*`|`How do I create a bot with \*QnA Maker\*?`|![Format for escape markdown symbols.](./media/qnamaker-concepts-datasources/format-escape-markdown-symbols.png)|
 |Ordered list|`\n 1. item1 \n 1. item2`|`This is an ordered list: \n 1. List item 1 \n 1. List item 2`<br>The preceding example uses automatic numbering built into markdown.<br>`This is an ordered list: \n 1. List item 1 \n 2. List item 2`<br>The preceding example uses explicit numbering.|![format for ordered list](./media/qnamaker-concepts-datasources/format-ordered-list.png)|
 |Unordered list|`\n * item1 \n * item2`<br>or<br>`\n - item1 \n - item2`|`This is an unordered list: \n * List item 1 \n * List item 2`|![format for unordered list](./media/qnamaker-concepts-datasources/format-unordered-list.png)|
 |Nested lists|`\n * Parent1 \n\t * Child1 \n\t * Child2 \n * Parent2`<br><br>`\n * Parent1 \n\t 1. Child1 \n\t * Child2 \n 1. Parent2`<br><br>You can nest ordered and unordered lists together. The tab, `\t`, indicates the indentation level of the child element.|`This is an unordered list: \n * List item 1 \n\t * Child1 \n\t * Child2 \n * List item 2`<br><br>`This is an ordered nested list: \n 1. Parent1 \n\t 1. Child1 \n\t 1. Child2 \n 1. Parent2`|![format for nested unordered list](./media/qnamaker-concepts-datasources/format-nested-unordered-list.png)<br>![format for nested ordered list](./media/qnamaker-concepts-datasources/format-nested-ordered-list.png)|

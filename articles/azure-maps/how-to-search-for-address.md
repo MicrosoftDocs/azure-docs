@@ -4,7 +4,7 @@ description: Learn about the Azure Maps Search service. See how to use this set 
 author: anastasia-ms
 ms.author: v-stharr
 ms.date: 07/21/2020
-ms.topic: conceptual
+ms.topic: how-to
 ms.service: azure-maps
 services: azure-maps
 manager: philmea

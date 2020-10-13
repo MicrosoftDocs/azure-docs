@@ -19,6 +19,8 @@ This article describes how to use X.509 Certificate Authority (CA) certificates 
 * How to sign devices using X.509 CA certificates
 * How devices signed with X.509 CA are authenticated
 
+[!INCLUDE [iot-hub-include-x509-ca-signed-support-note](../../includes/iot-hub-include-x509-ca-signed-support-note.md)]
+
 ## Overview
 
 The X.509 CA feature enables device authentication to IoT Hub using a Certificate Authority (CA). It greatly simplifies initial device enrollment process, and supply chain logistics during device manufacturing. [Learn more in this scenario article about the value of using X.509 CA certificates](iot-hub-x509ca-concept.md) for device authentication.  We encourage you to read this scenario article before proceeding as it explains why the steps that follow exist.

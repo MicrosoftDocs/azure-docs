@@ -902,7 +902,7 @@ On all SQL Server instances, save the credentials used for the SQL Server login.
 
 1. Once the secondary replicas are joined, you can see them in SSMS Object Explorer by expanding the **Always On High Availability** node:
 
-    ![availability-group-joined.png](./media/rhel-high-availability-stonith-tutorial/availability-group-joined.png)
+    ![Screenshot shows the primary and secondary availability replicas.](./media/rhel-high-availability-stonith-tutorial/availability-group-joined.png)
 
 ### Add a database to the availability group
 

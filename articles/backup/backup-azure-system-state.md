@@ -32,9 +32,9 @@ When you create a Recovery Services vault, make sure storage redundancy is confi
     ![Set the storage configuration for new vault](./media/backup-try-azure-backup-in-10-mins/set-storage-configuration.png)
 4. Choose the appropriate storage replication option for your vault.
 
-    ![Storage configuration choices](./media/backup-try-azure-backup-in-10-mins/choose-storage-configuration.png)
+    ![Storage configuration choices](./media/backup-try-azure-backup-in-10-mins/choose-storage-configuration-for-vault.png)
 
-    By default, your vault has geo-redundant storage. If you use Azure as a primary backup storage endpoint, continue to use **Geo-redundant**. If you don't use Azure as a primary backup storage endpoint, then choose **Locally-redundant**, which reduces the Azure storage costs. Read more about [geo-redundant](../storage/common/storage-redundancy.md) and [locally redundant](../storage/common/storage-redundancy.md) storage options in this [Storage redundancy overview](../storage/common/storage-redundancy.md).
+    By default, your vault has geo-redundant storage. If you use Azure as a primary backup storage endpoint, continue to use **Geo-redundant**. If you don't use Azure as a primary backup storage endpoint, then choose **Locally-redundant**, which reduces the Azure storage costs. Read more about [geo-redundant](../storage/common/storage-redundancy.md#geo-redundant-storage), [locally redundant](../storage/common/storage-redundancy.md#locally-redundant-storage) and [zone-redundant](../storage/common/storage-redundancy.md#zone-redundant-storage) storage options in this [Storage redundancy overview](../storage/common/storage-redundancy.md).
 
 Now that you've created a vault, configure it for backing up Windows System State.
 
@@ -56,7 +56,7 @@ Now that you've created a vault, configure it for backing up Windows System Stat
 
     ![Configuring files and folders](./media/backup-azure-system-state/backup-goal-system-state.png)
 
-    After clicking OK, a checkmark appears next to **Backup goal**, and the **Prepare infrastructure** pane opens.
+    After selecting **OK**, a checkmark appears next to **Backup goal**, and the **Prepare infrastructure** pane opens.
 
     ![Backup goal configured, next prepare infrastructure](./media/backup-try-azure-backup-in-10-mins/backup-goal-configed.png)
 
@@ -74,7 +74,7 @@ Now that you've created a vault, configure it for backing up Windows System Stat
 
     ![MARS installer is complete](./media/backup-try-azure-backup-in-10-mins/mars-installer-complete.png)
 
-    You don't need to install the agent yet. You can install the agent after you have downloaded the vault credentials.
+    You don't need to install the agent yet. You can install the agent after you've downloaded the vault credentials.
 
 6. On the **Prepare infrastructure** pane, select **Download**.
 
