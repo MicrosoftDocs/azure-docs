@@ -52,5 +52,5 @@ The following operators support specific Azure Monitor features and are not avai
 
 ## Next steps
 
-- Get references to different [resources for writing Azure Monitor log queries](query-language.md).
+- Get references to different [resources for writing Azure Monitor log queries](/azure/data-explorer/kusto/query/).
 - Access the complete [reference documentation for Kusto query language](/azure/kusto/query/).
