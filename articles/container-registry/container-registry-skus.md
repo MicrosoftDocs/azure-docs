@@ -25,7 +25,7 @@ The following table details the features and registry limits (quotas) of the Bas
 
 ## Registry throughput and throttling
 
-When generating a high rate of registry operations such as Docker image pulls or pushes on your registry, use the service tier's limits for read and write operations and bandwidth as a guide for expected image throughput. However, additional factors will affect your registry performance in practice.
+When generating a high rate of registry operations such as Docker image pulls or pushes, the service tier's limits for read and write operations and bandwidth provide a guide for expected image throughput. However, additional factors will affect your registry performance in practice.
 
 Each image pull or push potentially generates a large number of atomic read and/or write operations on the registry. A large number of operations will translate into fewer images pushed or pulled. The number depends on:
 
@@ -40,7 +40,7 @@ For example, a push of a single 133 MB `nginx:latest` image to an Azure containe
 * Write operations to write each of 5 image layers
 * Write operations to write the image manifest
 
-Also, you could experience throttling of image pull or push operations when the registry determines the rate of requests is too high. For example, throttling could occur when you generate a burst of image pulls or pushes in a very short period, even when the average rate of read and write operations is within registry limits.
+There are times when you could experience throttling of image pull or push operations because the registry determines the rate of requests is too high. For example, throttling could occur when you generate a burst of image pulls or pushes in a very short period, even when the average rate of read and write operations is within registry limits. 
 
 When evaluating or troubleshooting throughput of image pulls or pushes to a registry, also consider the configuration of your client environment. For example:
 
