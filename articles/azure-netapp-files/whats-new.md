@@ -13,13 +13,19 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
-ms.date: 09/30/2020
+ms.date: 10/13/2020
 ms.author: b-juche
 ---
 
 # What's new in Azure NetApp Files
 
 Azure NetApp Files is updated on a regular basis. This article provides a summary about the latest new features and enhancements. 
+
+## October 2020
+
+* [Snapshot revert](azure-netapp-files-manage-snapshots.md#revert-a-volume-by-using-snapshot-revert)
+
+    The snapshot revert functionality enables you to quickly revert a volume to the state it was in when a particular snapshot was taken. In most cases, reverting a volume is much faster than restoring individual files from a snapshot copy to the active file system. It is also more space efficient compared to restoring a snapshot to a new volume.
 
 ## September 2020
 
