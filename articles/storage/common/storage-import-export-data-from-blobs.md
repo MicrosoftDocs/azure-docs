@@ -98,11 +98,13 @@ Perform the following steps to create an export job in the Azure portal.
 
 ### [Azure CLI](#tab/azure-cli)
 
+Use the following steps to create an export job in the Azure portal.
+
 [!INCLUDE [azure-cli-prepare-your-environment.md](../../../includes/azure-cli-prepare-your-environment-h3.md)]
 
 ### Create a job
 
-1. Use the [az extension add](/cli/azure/extension#az_extension_add) command to get the [az import-export](/cli/azure/ext/import-export/import-export) extension.
+1. Use the [az extension add](/cli/azure/extension#az_extension_add) command to add the [az import-export](/cli/azure/ext/import-export/import-export) extension.
 
     ```azurecli
     az extension add --name import-export
@@ -133,7 +135,7 @@ Perform the following steps to create an export job in the Azure portal.
         --storage-account myssdocsstorage
     ```
 
-1. Use the [az import-export list](/cli/azure/ext/import-export/import-export#ext_import_export_az_import_export_list) command to see all the jobs for a resource group.
+1. Use the [az import-export list](/cli/azure/ext/import-export/import-export#ext_import_export_az_import_export_list) command to see all the jobs for the resource group myierg.
 
     ```azurecli
     az import-export list --resource-group myierg

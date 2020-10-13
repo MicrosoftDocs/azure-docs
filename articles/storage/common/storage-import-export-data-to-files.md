@@ -29,7 +29,7 @@ Before you create an import job to transfer data into Azure Files, carefully rev
     - Generate a tracking number for the export job.
     - Every job should have a separate tracking number. Multiple jobs with the same tracking number are not supported.
     - If you do not have a carrier account, go to:
-        - [Create a FedEX account](https://www.fedex.com/en-us/create-account.html), or
+        - [Create a FedEx account](https://www.fedex.com/en-us/create-account.html), or
         - [Create a DHL account](http://www.dhl-usa.com/en/express/shipping/open_account.html).
 
 
@@ -160,11 +160,13 @@ Perform the following steps to create an import job in the Azure portal.
 
 ### [Azure CLI](#tab/azure-cli)
 
+Use the following steps to create an import job in the Azure CLI.
+
 [!INCLUDE [azure-cli-prepare-your-environment.md](../../../includes/azure-cli-prepare-your-environment-h3.md)]
 
 ### Create a job
 
-1. Use the [az extension add](/cli/azure/extension#az_extension_add) command to get the [az import-export](/cli/azure/ext/import-export/import-export) extension.
+1. Use the [az extension add](/cli/azure/extension#az_extension_add) command to add the [az import-export](/cli/azure/ext/import-export/import-export) extension.
 
     ```azurecli
     az extension add --name import-export
@@ -173,7 +175,7 @@ Perform the following steps to create an import job in the Azure portal.
 1. You can use an existing resource group or create one. To create a resource group, use the [az group create](/cli/azure/group#az_group_create) command.
 
     ```azurecli
-    az group create --name myierg --location westus
+    az group create --name myierg --location "West US"
     ```
 
 1. You can use an existing storage account or create one. To create a storage account, use the [az storage account create](/cli/azure/storage/account#az_storage_account_create) command.
@@ -214,7 +216,7 @@ Perform the following steps to create an import job in the Azure portal.
         --storage-account myssdocsstorage
     ```
 
-1. Use the [az import-export list](/cli/azure/ext/import-export/import-export#ext_import_export_az_import_export_list) command to see all the jobs for a resource group.
+1. Use the [az import-export list](/cli/azure/ext/import-export/import-export#ext_import_export_az_import_export_list) command to see all the jobs for the myierg resource group.
 
     ```azurecli
     az import-export list --resource-group myierg
