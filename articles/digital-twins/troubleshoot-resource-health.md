@@ -1,6 +1,6 @@
 ---
 # Mandatory fields.
-title: Understand your resource Health
+title: Understand your resource health
 titleSuffix: Azure Digital Twins
 description: See how to use Azure Resource Health to check the health of your Azure Digital Twins instance.
 author: baanders
