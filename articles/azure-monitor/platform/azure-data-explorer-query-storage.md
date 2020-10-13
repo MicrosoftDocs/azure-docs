@@ -1,6 +1,6 @@
 ---
-title: 'Query exported data in Azure Storage Account with Azure Data Explorer (Preview)'
-description: 'Query data in Azure Storage Account using Azure Data Explorer external tables'
+title: Query exported data in Azure Storage Account with Azure Data Explorer (Preview)
+description: Query data in Azure Storage Account using Azure Data Explorer external tables
 ms.subservice: logs
 author: orens
 ms.author: bwren
@@ -13,50 +13,43 @@ ms.date: 07/19/2020
 
 # Query exported data from Azure Monitor using Azure Data Explorer
 
-Exporting Data from Azure Monitor enables low-cost retention and the ability to reallocate logs to different regions.
-Use Azure Data Explorer to query data that was exported from your Log Analytics workspaces. Once configured, supported data types (tables) that are sent from your workspaces to a Storage Account will be available as a data source for Azure Data Explorer.
+Exporting Data from Azure Monitor enables low-cost retention and the ability to reallocate logs to different regions. Use Azure Data Explorer to query data that was exported from your Log Analytics workspaces. Once configured, supported tables that are sent from your workspaces to an Azure storage account will be available as a data source for Azure Data Explorer.
 
-The process flow: 
+The process flow is as follows: 
+
+1.	Export data from Log Analytics workspace to Azure storage account.
+2.	Create external table in your Azure Data Explorer Cluster and mapping for the data types.
+3.	Query data from Azure Data Explorer.
 
 :::image type="content" source="media/azure-data-explorer-query-storage/exported-data-query.png" alt-text="Azure Data Explorer exported data querying flow.":::
 
-1.	Set data export from Log Analytics Workspace to Azure Storage Account
-2.	Create External Table in your Azure Data Explorer Cluster and mapping for the data types
-3.	Query Data from Azure Data Explorer
 
-## Prerequisites
 
-- Azure Monitor logs can continuously be exported to an Azure Storage Account.
-- Not all data types are supported for export initially. See [Data export article](https://docs.microsoft.com/azure/data-explorer/kusto/query/schema-entities/replace!) for supported types.
+## Send data to Azure storage
+Azure Monitor logs can continuously be exported to an Azure Storage Account using any of the following options.
+
+- To export all data from your Log Analytics workspace to an Azure storage account or event hub, use the Log Analytics workspace data export feature of Azure Monitor Logs. See [Log Analytics workspace data export in Azure Monitor (preview)](logs-data-export.md)
+- Scheduled export from a log query using a Logic App. This is similar to the data export feature but allows you to send filtered or aggregated data to Azure storage. This method though is subject to [log query limits](../service-limits.md#log-analytics-workspaces)  See [Archive data from Log Analytics workspace to Azure storage using Logic App](logs-export-logicapp.md).
+- One time export using a Logic App. See [Azure Monitor Logs connector for Logic Apps and Power Automate](logicapp-flow-connector.md).
+- One time export to local machine using PowerShell script. See [Invoke-AzOperationalInsightsQueryExport](https://www.powershellgallery.com/packages/Invoke-AzOperationalInsightsQueryExport).
 
 > [!TIP]
-> There is the ability to use an existing Azure Data Explorer cluster or creating a new dedicated cluster with the needed configurations.
+> You can use an existing Azure Data Explorer cluster or creating a new dedicated cluster with the needed configurations.
 
-## Set up Azure Data Explorer External Tables
+## Create an external table located in Azure blob storage
+Use [external tables](/azure/data-explorer/kusto/query/schema-entities/externaltables) to link Azure Data Explorer to an Azure storage account. An external table is a Kusto schema entity that references data stored outside a Kusto database. Like tables, an external table has a well-defined schema. Unlike tables, data is stored and managed outside of a Kusto cluster. The exported data from the previous section is saved in JSON lines.
 
-To link Azure Data Explorer to an Azure Storage Account, use [External-Tables](https://docs.microsoft.com/azure/data-explorer/kusto/query/schema-entities/externaltables).
-
-An external table is a Kusto schema entity that references data stored outside Kusto database.
-Like tables, an external table has a well-defined schema (an ordered list of column name and data type pairs). Unlike tables, data is stored and managed outside of Kusto Cluster.
-The exported data from the previous section is saved in JSON lines.
-
-## Create an external table located in Azure Blob Storage
-
-During this process, we need to create a reference between Azure Data Explorer and the Azure Storage Account.
-To create an External Table, we need the Json Schema.
-
-To create a reference, we will create an external table and map the parameters.
-In the Log Analytics workspace, we will query the relevant table for “getschema” to get all the columns and their data types.
+To create a reference, you require the schema of the exported table. Use the [getschema](/azure/data-explorer/kusto/query/getschemaoperator) from Log Analytics to retrieve this information which includes the table's columns and their data types.
 
 :::image type="content" source="media\azure-data-explorer-query-storage\exported-data-map-schema.jpg" alt-text="Log Analytics table schema.":::
 
-From the output, we can now create the Kusto query for building the external table.
-Following the [article](https://docs.microsoft.com/azure/data-explorer/kusto/management/external-tables-azurestorage-azuredatalake), create an external table in a JSON format – run the query from your Azure Data Explorer database.
+You can now use the output to create the Kusto query for building the external table.
+Following the guidance in [Create and alter external tables in Azure Storage or Azure Data Lake](/azure/data-explorer/kusto/management/external-tables-azurestorage-azuredatalake), create an external table in a JSON format and then run the query from your Azure Data Explorer database.
 
 >[!NOTE]
->The external table creation is built from two processes, first one is creating the external table, and the second one is creating the mapping.
+>The external table creation is built from two processes. The first is creating the external table, while the second is creating the mapping.
 
-The following PowerShell script will create the “create” commands for the table and the mapping.
+The following PowerShell script will create the [create](/azure/data-explorer/kusto/management/external-tables-azurestorage-azuredatalake#create-external-table-mapping) commands for the table and the mapping.
 
 ```powershell
 PARAM(
@@ -125,14 +118,18 @@ An output example
 :::image type="content" source="media/azure-data-explorer-query-storage/external-table-create-command-output.png" alt-text="ExternalTable create command output.":::
 
 >[!TIP]
->* Copy, paste and run the output of the script in your Azure Data Explorer client tool to create the table and mapping.
+>Copy, paste, and then run the output of the script in your Azure Data Explorer client tool to create the table and mapping.
 
-### Write a query in Azure Data Explorer to analyze the exported data
+## Query the exported data from Azure Data Explorer 
 
-After configuring the mapping, we can go ahead and query the Log Analytics exported data from Azure Data Explorer.
+After configuring the mapping, you can query the exported data from Azure Data Explorer. Your query requires the [external_table](/azure/data-explorer/kusto/query/externaltablefunction) function such as in the following example.
+
+```kusto
+external_table("HBTest","map") | take 10000
+```
 
 :::image type="content" source="media/azure-data-explorer-query-storage/external-table-query.png" alt-text="Query Log Analytics exported data.":::
 
 ## Next steps
 
-[Write queries](https://docs.microsoft.com/azure/data-explorer/write-queries)
+- Learn to [write queries in Azure Data Explorer](https://docs.microsoft.com/azure/data-explorer/write-queries)
