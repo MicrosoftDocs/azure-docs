@@ -20,9 +20,6 @@ ROBOTS: NOINDEX
 
 When developing a new application, it's important to know the differences between the Microsoft identity platform (v2.0) and Azure Active Directory (v1.0) endpoints. This article covers the main differences between the endpoints and some existing limitations for Microsoft identity platform.
 
-> [!NOTE]
-> The Microsoft identity platform endpoint doesn't support all Azure AD scenarios and features. To determine if you should use the Microsoft identity platform endpoint, read about [Microsoft identity platform limitations](#limitations).
-
 ## Who can sign in
 
 ![Who can sign in with v1.0 and v2.0 endpoints](media/azure-ad-endpoint-comparison/who-can-signin.svg)
@@ -110,7 +107,7 @@ These scopes allow you to code your app in a minimal-disclosure fashion so you c
 The Microsoft identity platform endpoint issues a smaller set of claims in its tokens by default to keep payloads small. If you have apps and services that have a dependency on a particular claim in a v1.0 token that is no longer provided by default in a Microsoft identity platform token, consider using the [optional claims](../develop/active-directory-optional-claims.md?toc=/azure/active-directory/azuread-dev/toc.json&bc=/azure/active-directory/azuread-dev/breadcrumb/toc.json) feature to include that claim.
 
 > [!IMPORTANT]
-> v1.0 and v2.0 tokens can be issued by both the v1.0 and v2.0 endpoints! id_tokens *always* match the endpoint they're requested from, and access tokens *always* match the format expected by the Web API your client will call using that token.  So if your app uses the v2.0 endpoint to get a token to call Microsoft Graph, which expects v1.0 format access tokens, your app will receive a token in the v1.0 format.  
+> v1.0 and v2.0 tokens can be issued by both the v1.0 and v2.0 endpoints! id_tokens *always* match the endpoint they're requested from, and access tokens *always* match the format expected by the Web API your client will call using that token.  So if your app uses the v2.0 endpoint to get a token to call Microsoft Graph, which expects v1.0 format access tokens, your app will receive a token in the v1.0 format.
 
 ## Limitations
 
@@ -149,18 +146,22 @@ Currently, library support for the Microsoft identity platform endpoint is limit
 * If you're building a desktop or mobile application, you can use one of the Microsoft Authentication Libraries (MSAL). These libraries are generally available or in a production-supported preview, so it is safe to use them in production applications. You can read more about the terms of the preview and the available libraries in [authentication libraries reference](../develop/reference-v2-libraries.md?toc=/azure/active-directory/azuread-dev/toc.json&bc=/azure/active-directory/azuread-dev/breadcrumb/toc.json).
 * For platforms not covered by Microsoft libraries, you can integrate with the Microsoft identity platform endpoint by directly sending and receiving protocol messages in your application code. The OpenID Connect and OAuth protocols [are explicitly documented](../develop/active-directory-v2-protocols.md?toc=/azure/active-directory/azuread-dev/toc.json&bc=/azure/active-directory/azuread-dev/breadcrumb/toc.json) to help you do such an integration.
 * Finally, you can use open-source OpenID Connect and OAuth libraries to integrate with the Microsoft identity platform endpoint. The Microsoft identity platform endpoint should be compatible with many open-source protocol libraries without changes. The availability of these kinds of libraries varies by language and platform. The [OpenID Connect](https://openid.net/connect/) and [OAuth 2.0](https://oauth.net/2/) websites maintain a list of popular implementations. For more information, see [Microsoft identity platform and authentication libraries](../develop/reference-v2-libraries.md?toc=/azure/active-directory/azuread-dev/toc.json&bc=/azure/active-directory/azuread-dev/breadcrumb/toc.json), and the list of open-source client libraries and samples that have been tested with the Microsoft identity platform endpoint.
-* For reference, the `.well-known` endpoint for the Microsoft identity platform common endpoint is `https://login.microsoftonline.com/common/v2.0/.well-known/openid-configuration`. Replace `common` with your tenant ID to get data specific to your tenant.  
+* For reference, the `.well-known` endpoint for the Microsoft identity platform common endpoint is `https://login.microsoftonline.com/common/v2.0/.well-known/openid-configuration`. Replace `common` with your tenant ID to get data specific to your tenant.
 
 ### Protocol changes
 
-The Microsoft identity platform endpoint does not support SAML or WS-Federation; it only supports OpenID Connect and OAuth 2.0.  The notable changes to the OAuth 2.0 protocols from the v1.0 endpoint are: 
+The Microsoft identity platform endpoint does not support SAML or WS-Federation; it only supports OpenID Connect and OAuth 2.0.  The notable changes to the OAuth 2.0 protocols from the v1.0 endpoint are:
 
-* The `email` claim is returned  if an optional claim is configured **or** scope=email was specified in the request. 
-* The `scope` parameter is now supported in place of the `resource` parameter.  
-* Many responses have been modified to make them more compliant with the OAuth 2.0 specification, for example, correctly returning `expires_in` as an int instead of a string.  
+* The `email` claim is returned  if an optional claim is configured **or** scope=email was specified in the request.
+* The `scope` parameter is now supported in place of the `resource` parameter.
+* Many responses have been modified to make them more compliant with the OAuth 2.0 specification, for example, correctly returning `expires_in` as an int instead of a string.
 
 To better understand the scope of protocol functionality supported in the Microsoft identity platform endpoint, see [OpenID Connect and OAuth 2.0 protocol reference](../develop/active-directory-v2-protocols.md?toc=/azure/active-directory/azuread-dev/toc.json&bc=/azure/active-directory/azuread-dev/breadcrumb/toc.json).
 
-#### SAML restrictions
+#### SAML usage
 
-If you've used Active Directory Authentication Library (ADAL) in Windows applications, you might have taken advantage of Windows Integrated authentication, which uses the Security Assertion Markup Language (SAML) assertion grant. With this grant, users of federated Azure AD tenants can silently authenticate with their on-premises Active Directory instance without entering credentials. The SAML assertion grant isn't supported on the Microsoft identity platform endpoint.
+If you've used Active Directory Authentication Library (ADAL) in Windows applications, you might have taken advantage of Windows Integrated authentication, which uses the Security Assertion Markup Language (SAML) assertion grant. With this grant, users of federated Azure AD tenants can silently authenticate with their on-premises Active Directory instance without entering credentials. While [SAML is still a supported protocol](active-directory-saml-protocol-reference.md) for use with enterprise users, the v2.0 endpoint is only for use with OAuth 2.0 applications.
+
+## Next steps
+
+Learn more in [What is the Microsoft identity platform?](../develop/v2-overview.md).

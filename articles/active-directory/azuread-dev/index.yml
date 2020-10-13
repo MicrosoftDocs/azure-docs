@@ -23,33 +23,13 @@ landingContent:
         links:
           - text: Azure Active Directory for developers (v1.0)
             url: v1-overview.md
-          - text: Evolution of Microsoft identity platform
-            url: ./about-microsoft-identity-platform.md
-          - text: Microsoft identity platform (v2.0)
-            url: ../develop/v2-overview.md
-      - linkListType: concept
-        links:
-          - text: Why update to Microsoft identity platform (v2.0)?
-            url: azure-ad-endpoint-comparison.md
-          - text: Application types and scenarios
-            url: app-types.md
-  - title: Authentication protocols
+  - title: Migrate to Microsoft identity platform
     linkLists:
       - linkListType: overview
         links:
-          - text: Authentication basics
-            url: v1-authentication-scenarios.md
-      - linkListType: concept
+          - text: Microsoft identity platform (v2.0)
+            url: ../develop/v2-overview.md
+      - linkListType: get-started
         links:
-          - text: OAuth 2.0 authorization code flow
-            url: v1-protocols-oauth-code.md
-          - text: OpenID Connect code flow
-            url: v1-protocols-openid-connect-code.md
-          - text: OAuth 2.0 client credentials grant flow
-            url: v1-oauth2-client-creds-grant-flow.md
-  - title: Samples
-    linkLists:
-      - linkListType: download
-        links:
-          - text: Sample apps
-            url: sample-v1-code.md
+          - text: Migrate ADAL apps to MSAL
+            url: ../develop/msal-migration.md

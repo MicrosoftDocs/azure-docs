@@ -18,7 +18,7 @@ ms.custom: aaddev
 
 # Evolution of Microsoft identity platform
 
-Microsoft identity platform is an evolution of the Azure Active Directory (Azure AD) developer platform. It allows developers to build applications that sign in users, get tokens to call APIs, such as Microsoft Graph, or APIs that developers have built. It consists of an authentication service, open-source libraries, application registration, and configuration (through a developer portal and application API), full developer documentation, quickstart samples, code samples, tutorials, how-to guides, and other developer content. The Microsoft identity platform supports industry standard protocols such as OAuth 2.0 and OpenID Connect.
+The [Microsoft identity platform](../develop/index.yml) is an evolution of the Azure Active Directory (Azure AD) developer platform. It allows developers to build applications that sign in users, get tokens to call APIs, such as Microsoft Graph, or APIs that developers have built. It consists of an authentication service, open-source libraries, application registration, and configuration (through a developer portal and application API), full developer documentation, quickstart samples, code samples, tutorials, how-to guides, and other developer content. The Microsoft identity platform supports industry standard protocols such as OAuth 2.0 and OpenID Connect.
 
 Many developers have previously worked with the Azure AD v1.0 platform to authenticate work and school accounts (provisioned by Azure AD) by requesting tokens from the Azure AD v1.0 endpoint, using Azure AD Authentication Library (ADAL), Azure portal for application registration and configuration, and the Microsoft Graph API for programmatic application configuration.
 
@@ -54,15 +54,10 @@ You can use the MSAL library to build applications that authenticate all Microso
 
 You can also use the MSAL libraries to integrate your application with Azure AD B2C.
 
-Server-side libraries for building web apps and web APIs are generally available: [ASP.NET](/aspnet/overview) and [ASP.NET Core](/aspnet/core/?view=aspnetcore-2.2)
-
 ### Microsoft identity platform endpoint
 
-Microsoft identity platform (v2.0) endpoint is now OIDC certified. It works with the Microsoft Authentication Libraries (MSAL) or any other standards-compliant library. It implements human readable scopes, in accordance with industry standards.
+Microsoft identity platform (v2.0) endpoint is OIDC certified. It works with the Microsoft Authentication Libraries (MSAL) or any other standards-compliant library. It implements human readable scopes, in accordance with industry standards.
 
 ## Next steps
 
-Learn more about v1.0 and v2.0.
-
-* [Microsoft identity platform (v2.0)](../develop/v2-overview.md) overview
-* [Azure Active Directory for developers (v1.0)](v1-overview.md) overview
+Learn more in [What is the Microsoft identity platform?](../develop/v2-overview.md).
