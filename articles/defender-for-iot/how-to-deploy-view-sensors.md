@@ -20,7 +20,7 @@ You may want to update the mode that your sensor is managed. When you do this, y
 
 - **Work in the Locally Managed mode instead of Cloud Managed mode**: Update the activation file for a Cloud Managed sensor with an activation file for a Locally Managed sensor. After reactivation, sensor detection information is only displayed in the sensor.
 
-- **Associate the sensor to a new IoT Hub.**: You may want to associate your sensor with a new IoT Hub. To do this, re-register then sensor and upload a new activation file.
+- **Associate the sensor to a new IoT Hub**: You may want to associate your sensor with a new IoT Hub. To do this, re-register then sensor and upload a new activation file.
 
 **To reactivate the sensor:**
 

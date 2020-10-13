@@ -26,14 +26,14 @@ This article provides an explanation of the different components of the Defender
 
 - Agentless monitoring for IoT and OT devices (based on CyberX technology)
     - Network switches supporting traffic monitoring via SPAN port
-    - Hardware appliances for NTA sensor (for certified hardware please see: link to hardware guide)
+    - Hardware appliances for NTA sensor, for more information see [certified hardware](https://aka.ms/AzureDefenderforIoTBareMetalAppliance)
     - Azure Subscription **Contributor** role (required only during onboarding for defining committed devices)
     - IoT Hub (Free or Standard tier) **Contributor** role (for cloud connected management)
 - Security for managed IoT devices managed via Azure IoT Hub
     - IoT Hub (Standard tier) **Contributor** role
-    - IoT Hub:: **Azure Defender for IoT** feature toggle should be enabled
+    - IoT Hub: **Azure Defender for IoT** feature toggle should be enabled
     - For device level security module support  
-        - Defender for IoT agents supports a growing list of devices and platforms, see the supported platform list
+        - Defender for IoT agents supports a growing list of devices and platforms, see the [supported platform list](how-to-deploy-agent.md)
 
 
 ## Supported service regions

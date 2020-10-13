@@ -33,7 +33,7 @@ After acquiring your hardware components and downloading your software package f
 For more information, see the [Installation Guide](https://aka.ms/AzureDefenderforIoTInstallSensorISO).
 
 ## Onboard Sensors to the Azure Defender for IoT portal 
- TThis article provides an overview of deployment, onboarding, and update processes for Azure Defender for IoT sensors and the on-premises management console. This process is carried out by following instructions in the Welcome to Azure Defender for IoT page and subsequent pages.
+ This article provides an overview of deployment, onboarding, and update processes for Azure Defender for IoT sensors and the on-premises management console. This process is carried out by following instructions in the Welcome to Azure Defender for IoT page and subsequent pages.
 
 ![Screenshot of Azure welcome page view](media/updates/image4.png)
 
@@ -42,9 +42,8 @@ To open the Welcome page:
 1. Log in to your Azure account and search for Azure Defender for IoT.
 
 1. **Sensor deployment** requires that you either:
-Purchase preconfigured hardware from Arrow or buy your own device and install sensor software on it. See **Deploy a Sensor** for more information.
-
-1. **On-premises management console deployment** requires that you buy your own device and install the on-premises management console software on it. For more information, see **Deploy the On-premises Management Console Appliance**.
+Purchase preconfigured hardware from Arrow or buy your own device and install sensor software on it.
+1. **On-premises management console deployment** requires that you buy your own device and install the on-premises management console software on it. For more information.
 
 
 
@@ -60,4 +59,4 @@ For more information, see the [Network setup guide](https://aka.ms/AzureDefender
 Advance to the next article to configure your solution...
 
 > [!div class="nextstepaction"]
-> [Configure your solution](quickstart-configure-your-solution.md)
+> [Getting started](getting-started.md)

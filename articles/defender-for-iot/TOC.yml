@@ -67,8 +67,10 @@
     href: concept-pricing.md
 - name: How-to guides
   items:
-  - name: How to view and monitor sensors
+  - name: View and manage sensors
     href: how-to-deploy-view-sensors.md
+  - name: Deploy the on-premises management console
+    href: how-to-deploy-management-console-appliance.md
   - name: Work with Security Module for Azure RTOS
     href: how-to-azure-rtos-security-module.md
   - name: Which agent should I deploy?

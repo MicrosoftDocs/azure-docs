@@ -17,7 +17,7 @@ ms.date: 10/10/2020
 ms.author: rkarlin
 ---
 
-# Quickstart: Deploy a sensor
+# Quickstart: Deploy and onboard a sensor
 
 This article provides an overview of the sensor deployment process. Sensors must be onboarded to the Azure Defender for IoT portal.
 
@@ -27,7 +27,7 @@ If you are working with a certified sensor appliance, it is recommended to revie
 
 
 > [!NOTE]
-> The Azure Defender for IoT om-premises management console does not need to be onboarded.
+> The Azure Defender for IoT on-premises management console does not need to be onboarded.
 
 
 Onboarding sensors lets you:
