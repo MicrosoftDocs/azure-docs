@@ -104,7 +104,6 @@ If you have accidentally deleted or corrupted your data, you should contact [Azu
 
 > [!NOTE]
 > After you restore the data, not all the source capabilities or settings are carried over to the restored account. The following settings are not carried over to the new account:
-
 > * VNET access control lists
 > * Stored procedures, triggers and user-defined functions
 > * Multi-region settings  
