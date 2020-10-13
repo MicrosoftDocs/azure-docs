@@ -27,7 +27,8 @@ Microsoft hosts a public DMR with these characteristics:
 
 You can use the same DMR pattern in any storage medium, such as local file system or custom HTTP web servers, to create a custom DMR. You can retrieve models from the custom DMR in the same way as from the public DRM simply by changing the base URL used to access the DMR.
 
-> Note: The tools used to validate the models in the public DMR can be reused in custom repositories
+> [!NOTE]
+> The tools used to validate the models in the public DMR can be reused in custom repositories.
 
 ## Public models
 
@@ -35,7 +36,7 @@ The public digital twin models stored in the model repository are available to e
 
 Refer to the [Publish a model](#publish-a-model) section for instructions on how to publish a model in the model repository to make it public.
 
-Users can browse, search, and view public interfaces from the official GitHub repository: [https://github.com/Azure/iot-plugandplay-models](https://github.com/Azure/iot-plugandplay-models). 
+Users can browse, search, and view public interfaces from the official [GitHub repository](https://github.com/Azure/iot-plugandplay-models).
 
 All interfaces in the `dtmi` folders are also available from the public endpoint [https://devicemodels.azure.com](https://devicemodels.azure.com)
 
@@ -83,9 +84,9 @@ string modelContent = await _httpClient.GetStringAsync(fullyQualifiedPath);
 1. Clone the forked repo. Optionally create a new branch to keep your changes isolated from the `main` branch.
 1. Add the new interfaces to the `dtmi` folder using the folder/filename convention. See the [add-model](#add-model) tool.
 1. Validate the models locally using the [scripts to validate changes](#validate-files) section.
-1. Commit the changes locally and push to your fork. 
-1. From your fork, create a PR that targets the `main` branch. See [Creating an issue or pull request](https://docs.github.com/en/free-pro-team@latest/desktop/contributing-and-collaborating-using-github-desktop/creating-an-issue-or-pull-request) docs.
-1. Review the [PR requirements](https://github.com/Azure/iot-plugandplay-models/pr-reqs.md)
+1. Commit the changes locally and push to your fork.
+1. From your fork, create a PR that targets the `main` branch. See [Creating an issue or pull request](https://docs.github.com/free-pro-team@latest/desktop/contributing-and-collaborating-using-github-desktop/creating-an-issue-or-pull-request) docs.
+1. Review the [PR requirements](https://github.com/Azure/iot-plugandplay-models/blob/main/pr-reqs.md).
 
 The PR triggers a series of GitHub actions that will validate the new submitted interfaces, and make sure your PR satisfies all the checks.
 
