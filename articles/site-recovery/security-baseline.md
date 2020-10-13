@@ -43,6 +43,74 @@ Recovery security baseline mapping file](https://github.com/MicrosoftDocs/Securi
 
 **Responsibility**: Customer
 
+### 1.2: Monitor and log the configuration and traffic of virtual networks, subnets, and NICs
+
+>[!NOTE]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/33681.).
+
+**Guidance**: Not applicable to Site Recovery's Recovery Services Vault, which is a Site Recovery resource. The Vault cannot be deployed or associated to an Azure Virtual Network or a network security group. 
+
+Recovery Service Vault is a Platform as a Service (PaaS) resource and replication of data is performed over a secured encrypted channel.
+
+**Azure Security Center monitoring**: Not applicable
+
+**Responsibility**: Not applicable
+
+### 1.3: Protect critical web applications
+
+>[!NOTE]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/33682.).
+
+**Guidance**: Not applicable to Site Recovery. It is a PaaS resource and does not support customer facing web applications.
+
+**Azure Security Center monitoring**: Not applicable
+
+**Responsibility**: Not applicable
+
+### 1.4: Deny communications with known malicious IP addresses
+
+>[!NOTE]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/33683.).
+
+**Guidance**: Microsoft manages the endpoints for Site Recovery endpoints which are used by Infrastructure as a Service (IaaS) Virtual Machine extensions and on-premise components. Customers are responsible for any securing additional endpoints which are deployed by them.
+
+**Azure Security Center monitoring**: Not applicable
+
+**Responsibility**: Microsoft
+
+### 1.5: Record network packets
+
+>[!NOTE]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/33684.).
+
+**Guidance**: Not applicable to Site Recovery. This guideline is intended for resources deployed within Azure Virtual Networks. Site Recovery service resources can not be deployed or associated with Azure Virtual Networks. All data from customer workloads is transferred to desired locations over encrypted channels.
+
+**Azure Security Center monitoring**: Not applicable
+
+**Responsibility**: Not applicable
+
+### 1.6: Deploy network-based intrusion detection/intrusion prevention systems (IDS/IPS)
+
+>[!NOTE]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/33685.).
+
+**Guidance**: Microsoft manages the endpoints for Site Recovery endpoints which are used by IaaS Virtual Machine extension and on-premise components. Customers are responsible for any securing additional endpoints which are deployed by them.
+
+**Azure Security Center monitoring**: Not applicable
+
+**Responsibility**: Microsoft
+
+### 1.7: Manage traffic to web applications
+
+>[!NOTE]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/33686.).
+
+**Guidance**: Not applicable to Site Recovery. It does not host any Web Apps, such as Azure App Service Web Apps, to serve Disaster Recovery functionality for customer workloads.
+
+**Azure Security Center monitoring**: Not applicable
+
+**Responsibility**: Not applicable
+
 ### 1.8: Minimize complexity and administrative overhead of network security rules
 
 >[!NOTE]
@@ -56,12 +124,33 @@ Recovery security baseline mapping file](https://github.com/MicrosoftDocs/Securi
 
 **Responsibility**: Customer
 
+### 1.9: Maintain standard security configurations for network devices
+
+>[!NOTE]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/33688.).
+
+**Guidance**: Not applicable to Site Recovery. All the endpoints used by Site Recovery are managed by Microsoft.
+
+**Azure Security Center monitoring**: Not applicable
+
+**Responsibility**: Not applicable
+
 ### 1.10: Document traffic configuration rules
 
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/33689.).
 
-**Guidance**: Use Site Recovery to protect or enable Disaster Recovery on Azure Virtual Machines and associate them with a network security group.  Add a description to specify the business need the rule for documenting traffic configurations.
+**Guidance**: Add a description to specify the business need the rule for documenting traffic configurations. Use resource tags for network security groups and other resources related to network security and traffic flow. For individual network security group rules, use the "Description" field to document the rules that allow traffic to/from a network. 
+
+Use any of the built-in Azure Policy definitions related to tagging, such as "Require tag and its value" to ensure that all resources are created with tags and to notify you of existing untagged resources. 
+
+You can use Azure PowerShell or Azure CLI to look-up or perform actions on resources based on their tags. 
+
+- [How to create and use tags](/azure/azure-resource-manager/resource-group-using-tags) 
+
+- [How to create an Azure Virtual Network](../virtual-network/quick-create-portal.md) 
+
+- [How to filter network traffic with network security group rules](../virtual-network/tutorial-filter-network-traffic.md)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -72,7 +161,7 @@ Recovery security baseline mapping file](https://github.com/MicrosoftDocs/Securi
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/33690.).
 
-**Guidance**: Use Azure Activity Log to monitor configuration of the network security group or firewall. Create alerts within Azure Monitor to trigger when changes to resources take place. 
+**Guidance**: Monitor any changes to network resource configurations related to the Site Recovery service using Azure Activity Logs. Create alerts in Azure Monitor to notify you when critical Site Recovery network resources are changed.
 
 - [View and retrieve Azure Activity Log events](../azure-monitor/platform/activity-log.md#view-the-activity-log)
 
@@ -85,6 +174,17 @@ Recovery security baseline mapping file](https://github.com/MicrosoftDocs/Securi
 ## Logging and monitoring
 
 *For more information, see the [Azure Security Benchmark: Logging and monitoring](../security/benchmarks/security-control-logging-monitoring.md).*
+
+### 2.1: Use approved time synchronization sources
+
+>[!NOTE]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/33691.).
+
+**Guidance**: Not applicable to Site Recovery. This guideline is intended for compute resources.
+
+**Azure Security Center monitoring**: Not applicable
+
+**Responsibility**: Microsoft
 
 ### 2.2: Configure central security log management
 
@@ -128,6 +228,17 @@ Ingest Site Recovery logs with Azure Monitor to aggregate generated security dat
 
 **Responsibility**: Customer
 
+### 2.4: Collect security logs from operating systems
+
+>[!NOTE]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/33694.).
+
+**Guidance**: Not applicable to Site Recovery. This guideline is intended for compute resources. Site Recovery does not expose any operating system configurations or security logs to customers. Microsoft is responsible for monitoring the underlying service's compute infrastructure.
+
+**Azure Security Center monitoring**: Not applicable
+
+**Responsibility**: Microsoft
+
 ### 2.5: Configure security log storage retention
 
 >[!NOTE]
@@ -165,7 +276,9 @@ Enable Azure Activity Log diagnostic settings and send the logs to a Log Analyti
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/33697.).
 
-**Guidance**: Site Recovery offers built-in monitoring and alerting capabilities without any additional management infrastructure in a Recovery Services vault. You can also increase the scale of your monitoring and reporting by using Azure Monitor. Site Recovery alerts notify customers to take relevant action on resources. These alerts are defined by Site Recovery service. Custom alert configuration to generate alerts outside of Site Recovery is not supported.
+**Guidance**: Monitor machines replicated by Azure Site Recovery, using Azure Monitor Logs, and Log Analytics. Use Log Analytics within Azure Monitor logs to write and test log queries, and to interactively analyze log data. Azure Monitor collects activity and resource logs, along with other monitoring data. 
+
+Visualize and query log results, and configure alerts to take actions based on monitored data.
 
 Onboard alerts to a Log Analytics workspace to Azure Sentinel as it provides a security orchestration automated response (SOAR) solution. This allows for playbooks (automated solutions) to be created and used to remediate security issues. Additionally, you can create custom log alerts in your Log Analytics workspace using Azure Monitor. 
 
@@ -179,6 +292,41 @@ Onboard alerts to a Log Analytics workspace to Azure Sentinel as it provides a s
 
 **Responsibility**: Customer
 
+### 2.8: Centralize anti-malware logging
+
+>[!NOTE]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/33698.).
+
+**Guidance**: Not applicable to Site Recovery. This guideline is intended for compute resources. Site Recovery is a PaaS resource and does not produce or expose any anti-malware logging to customers. 
+
+Microsoft handles the anti-malware logging for all Microsoft managed resources.
+
+**Azure Security Center monitoring**: Not applicable
+
+**Responsibility**: Microsoft
+
+### 2.9: Enable DNS query logging
+
+>[!NOTE]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/33699.).
+
+**Guidance**: Not applicable to Site Recovery. Site Recovery does not produce or process DNS query logs.
+
+**Azure Security Center monitoring**: Not applicable
+
+**Responsibility**: Not applicable
+
+### 2.10: Enable command-line audit logging
+
+>[!NOTE]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/33700.).
+
+**Guidance**: Not applicable to Site Recovery. Site Recovery does not expose a command line to users.
+
+**Azure Security Center monitoring**: Not applicable
+
+**Responsibility**: Not applicable
+
 ## Identity and access control
 
 *For more information, see the [Azure Security Benchmark: Identity and access control](../security/benchmarks/security-control-identity-access-control.md).*
@@ -188,7 +336,7 @@ Onboard alerts to a Log Analytics workspace to Azure Sentinel as it provides a s
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/33701.).
 
-**Guidance**: Azure Active Directory (Azure AD) has built-in roles that must be queryable and explicitly assigned. Use Azure AD PowerShell modules to perform ad hoc queries to discover accounts that are members of administrative groups.
+**Guidance**: No roles are assigned by default. Based on business need, they need to be explicitly assigned. Any role assignments can be checked with PowerShell and Azure Active Directory (Azure AD) to discover accounts that are members of administrative groups.
 
 - [How to get a directory role in Azure AD with PowerShell](https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrole?view=azureadps-2.0)
 
@@ -197,6 +345,17 @@ Onboard alerts to a Log Analytics workspace to Azure Sentinel as it provides a s
 **Azure Security Center monitoring**: Yes
 
 **Responsibility**: Customer
+
+### 3.2: Change default passwords where applicable
+
+>[!NOTE]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/33702.).
+
+**Guidance**: Not applicable to Site Recovery. Site Recovery does not have a concept of default passwords.
+
+**Azure Security Center monitoring**: Not applicable
+
+**Responsibility**: Not applicable
 
 ### 3.3: Use dedicated administrative accounts
 
@@ -367,6 +526,19 @@ Employ Azure AD's Identity Protection features for account login behavior detect
 
 **Responsibility**: Customer
 
+### 3.13: Provide Microsoft with access to relevant customer data during support scenarios
+
+>[!NOTE]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/33713.).
+
+**Guidance**: Not applicable to Site Recovery. It does not store customer data. 
+
+All of Site Recovery's Disaster Recovery data is transferred or stored in customer owned resources. Site Recovery service stores only metadata of customer resources, such as primary location resource and Disaster Recovery location details. Any metadata and customer data is securely transferred from primary to Disaster Recovery location through an end-to-end encrypted channel.
+
+**Azure Security Center monitoring**: Not applicable
+
+**Responsibility**: Not applicable
+
 ## Data protection
 
 *For more information, see the [Azure Security Benchmark: Data protection](../security/benchmarks/security-control-data-protection.md).*
@@ -471,6 +643,21 @@ Separate work duties with Azure RBAC and grant appropriate access required for t
 
 **Responsibility**: Customer
 
+### 4.7: Use host-based data loss prevention to enforce access control
+
+>[!NOTE]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/33720.).
+
+**Guidance**: Not applicable to Site Recovery. This recommendation is intended for compute resources. 
+
+Microsoft manages the underlying infrastructure for Azure Site Recovery and has implemented strict controls to prevent the loss or exposure of customer data.
+
+- [Understand customer data protection in Azure](../security/fundamentals/protection-customer-data.md)
+
+**Azure Security Center monitoring**: Not applicable
+
+**Responsibility**: Microsoft
+
 ### 4.8: Encrypt sensitive information at rest
 
 >[!NOTE]
@@ -499,6 +686,69 @@ Only the customer has access to the encryption key while using a Recovery Servic
 **Azure Security Center monitoring**: Not applicable
 
 **Responsibility**: Customer
+
+## Vulnerability management
+
+*For more information, see the [Azure Security Benchmark: Vulnerability management](../security/benchmarks/security-control-vulnerability-management.md).*
+
+### 5.1: Run automated vulnerability scanning tools
+
+>[!NOTE]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/33723.).
+
+**Guidance**: Not applicable to Site Recovery. It does not allow installation of vulnerability scanning tools for its resources. 
+
+All compute and other resources used by Site Recovery are scanned and patched by Microsoft.
+
+**Azure Security Center monitoring**: Not applicable
+
+**Responsibility**: Microsoft
+
+### 5.2: Deploy automated operating system patch management solution
+
+>[!NOTE]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/33724.).
+
+**Guidance**: Not applicable to Site Recovery. This guideline is intended for compute resources. 
+
+Microsoft performs patch management on the underlying operating systems that support Recovery Services Vaults.
+
+**Azure Security Center monitoring**: Not applicable
+
+**Responsibility**: Not applicable
+
+### 5.3: Deploy an automated patch management solution for third-party software titles
+
+>[!NOTE]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/33725.).
+
+**Guidance**: Not applicable to Site Recovery. This guideline is intended for compute resources.
+
+**Azure Security Center monitoring**: Not applicable
+
+**Responsibility**: Not applicable
+
+### 5.4: Compare back-to-back vulnerability scans
+
+>[!NOTE]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/33726.).
+
+**Guidance**: Not applicable to Site Recovery. This guideline is intended for compute resources.
+
+**Azure Security Center monitoring**: Not applicable
+
+**Responsibility**: Not applicable
+
+### 5.5: Use a risk-rating process to prioritize the remediation of discovered vulnerabilities
+
+>[!NOTE]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/33727.).
+
+**Guidance**: Microsoft performs vulnerability management for the underlying systems and Site Recovery service resources, which support Recovery Services Vaults.
+
+**Azure Security Center monitoring**: Not applicable
+
+**Responsibility**: Microsoft
 
 ## Inventory and asset management
 
@@ -591,6 +841,39 @@ In addition, use Azure Resource Graph to query for and discover resources within
 
 **Responsibility**: Customer
 
+### 6.6: Monitor for unapproved software applications within compute resources
+
+>[!NOTE]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/33733.).
+
+**Guidance**: Not applicable to Site Recovery. This guideline is intended for compute resources.
+
+**Azure Security Center monitoring**: Not applicable
+
+**Responsibility**: Not applicable
+
+### 6.7: Remove unapproved Azure resources and software applications
+
+>[!NOTE]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/33734.).
+
+**Guidance**: Not applicable to Site Recovery. This guideline is intended for compute resources.
+
+**Azure Security Center monitoring**: Not applicable
+
+**Responsibility**: Not applicable
+
+### 6.8: Use only approved applications
+
+>[!NOTE]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/33735.).
+
+**Guidance**: Not applicable to Site Recovery. This guideline is intended for compute resources.
+
+**Azure Security Center monitoring**: Not applicable
+
+**Responsibility**: Not applicable
+
 ### 6.9: Use only approved Azure services
 
 >[!NOTE]
@@ -610,6 +893,17 @@ Understanding how to create and manage policies in Azure is important for stayin
 
 **Responsibility**: Customer
 
+### 6.10: Maintain an inventory of approved software titles
+
+>[!NOTE]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/33737.).
+
+**Guidance**: Not applicable to Site Recovery. This guideline is intended for compute resources.
+
+**Azure Security Center monitoring**: Not applicable
+
+**Responsibility**: Not applicable
+
 ### 6.11: Limit users' ability to interact with Azure Resource Manager
 
 >[!NOTE]
@@ -622,6 +916,28 @@ Understanding how to create and manage policies in Azure is important for stayin
 **Azure Security Center monitoring**: Not applicable
 
 **Responsibility**: Customer
+
+### 6.12: Limit users' ability to execute scripts in compute resources
+
+>[!NOTE]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/33739.).
+
+**Guidance**: Not applicable to Site Recovery. This guideline is intended for compute resources.
+
+**Azure Security Center monitoring**: Not applicable
+
+**Responsibility**: Not applicable
+
+### 6.13: Physically or logically segregate high risk applications
+
+>[!NOTE]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/33740.).
+
+**Guidance**: Not applicable to Site Recovery. This guideline is intended for compute resources.
+
+**Azure Security Center monitoring**: Not applicable
+
+**Responsibility**: Not applicable
 
 ## Secure configuration
 
@@ -643,6 +959,17 @@ Use Azure Policy aliases in the "Microsoft.RecoveryServices" namespace to create
 
 **Responsibility**: Customer
 
+### 7.2: Establish secure operating system configurations
+
+>[!NOTE]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/33742.).
+
+**Guidance**: Not applicable to Site Recovery. This recommendation is intended for compute resources.
+
+**Azure Security Center monitoring**: Not applicable
+
+**Responsibility**: Not applicable
+
 ### 7.3: Maintain secure Azure resource configurations
 
 >[!NOTE]
@@ -657,6 +984,17 @@ Use Azure Policy aliases in the "Microsoft.RecoveryServices" namespace to create
 
 **Responsibility**: Customer
 
+### 7.4: Maintain secure operating system configurations
+
+>[!NOTE]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/33744.).
+
+**Guidance**: Not applicable to Site Recovery. This recommendation is intended for compute resources.
+
+**Azure Security Center monitoring**: Not applicable
+
+**Responsibility**: Not applicable
+
 ### 7.5: Securely store configuration of Azure resources
 
 >[!NOTE]
@@ -670,6 +1008,17 @@ Use Azure Policy aliases in the "Microsoft.RecoveryServices" namespace to create
 **Azure Security Center monitoring**: Not applicable
 
 **Responsibility**: Customer
+
+### 7.6: Securely store custom operating system images
+
+>[!NOTE]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/33746.).
+
+**Guidance**: Not applicable to Site Recovery. This recommendation is intended for compute resources.
+
+**Azure Security Center monitoring**: Not applicable
+
+**Responsibility**: Not applicable
 
 ### 7.7: Deploy configuration management tools for Azure resources
 
@@ -686,6 +1035,17 @@ Additionally, develop a process and pipeline for managing policy exceptions.
 
 **Responsibility**: Customer
 
+### 7.8: Deploy configuration management tools for operating systems
+
+>[!NOTE]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/33748.).
+
+**Guidance**: Not applicable to Site Recovery. This recommendation is intended for compute resources.
+
+**Azure Security Center monitoring**: Not applicable
+
+**Responsibility**: Not applicable
+
 ### 7.9: Implement automated configuration monitoring for Azure resources
 
 >[!NOTE]
@@ -699,6 +1059,17 @@ Use Azure Policy [audit], [deny], and [deploy if not exist] effects to automatic
 **Azure Security Center monitoring**: Not applicable
 
 **Responsibility**: Customer
+
+### 7.10: Implement automated configuration monitoring for operating systems
+
+>[!NOTE]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/33750.).
+
+**Guidance**: Not applicable to Site Recovery. This recommendation is intended for compute resources.
+
+**Azure Security Center monitoring**: Not applicable
+
+**Responsibility**: Not applicable
 
 ### 7.11: Manage Azure secrets securely
 
@@ -758,6 +1129,19 @@ Credential Scanner will also encourage moving discovered credentials to more sec
 
 *For more information, see the [Azure Security Benchmark: Malware defense](../security/benchmarks/security-control-malware-defense.md).*
 
+### 8.1: Use centrally managed antimalware software
+
+>[!NOTE]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/33754.).
+
+**Guidance**: Not applicable to Site Recovery. This recommendation is intended for compute resources. 
+
+Microsoft anti-malware is enabled on the underlying host that supports Azure services (for example, Site Recovery for Recovery Services Vault resources), however it does not run on customer content.
+
+**Azure Security Center monitoring**: Not applicable
+
+**Responsibility**: Not applicable
+
 ### 8.2: Pre-scan files to be uploaded to non-compute Azure resources
 
 >[!NOTE]
@@ -775,9 +1159,35 @@ Use Security Center's Threat detection for data services to detect malware uploa
 
 **Responsibility**: Customer
 
+### 8.3: Ensure antimalware software and signatures are updated
+
+>[!NOTE]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/33756.).
+
+**Guidance**: Not applicable to Site Recovery. This recommendation is intended for compute resources. Site Recovery does not allow for anti-malware solutions to be installed on it's resources. 
+
+Microsoft handles updating any anti-malware software and signatures for the underlying platform supporting Site Recovery service. 
+
+**Azure Security Center monitoring**: Not applicable
+
+**Responsibility**: Not applicable
+
 ## Data recovery
 
 *For more information, see the [Azure Security Benchmark: Data recovery](../security/benchmarks/security-control-data-recovery.md).*
+
+### 9.1: Ensure regular automated back ups
+
+>[!NOTE]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/33757.).
+
+**Guidance**: Not applicable to Site Recovery. This recommendation is intended for offerings which require backups. 
+
+Site Recovery offers Disaster Recovery solutions to perform failover during outages. It is alternative solution to backup to enable Disaster Recovery for IaaS workload to meet an organization's Recovery Point Objectives (RPO) &amp; Recovery Time Objective (RTO) requirements.
+
+**Azure Security Center monitoring**: Not applicable
+
+**Responsibility**: Not applicable
 
 ### 9.2: Perform complete system backups and backup any customer-managed keys
 
