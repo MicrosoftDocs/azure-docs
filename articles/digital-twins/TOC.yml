@@ -111,7 +111,7 @@
       href: troubleshoot-diagnostics.md
     - name: Enable alerts
       href: troubleshoot-alerts.md
-    - name: Use Azure Resource Health
+    - name: Understand your resource health
       href: troubleshoot-resource-health.md
     - name: Known issues
       href: troubleshoot-known-issues.md
