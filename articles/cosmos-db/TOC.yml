@@ -486,13 +486,11 @@
       - name: LINQ to SQL
         displayName: linq, .NET
         href: sql-query-linq-to-sql.md
-    - name: Work with Azure Cosmos account
-      href: account-overview.md
+    - name: Azure Cosmos DB resource model
+      displayName: collection, document
+      href: account-databases-containers-items.md
     - name: Containers and items
       items:
-      - name: Work with databases, containers, and items
-        displayName: collection, document
-        href: databases-containers-items.md
       - name: Model document data
         displayName: document
         href: modeling-data.md
