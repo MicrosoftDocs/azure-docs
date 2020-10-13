@@ -77,6 +77,10 @@
       href: ./afds/waf-front-door-geo-filtering.md
     - name: FAQ
       href: ./afds/waf-faq.md
+  - name: Security
+    items:
+    - name: Security baseline
+      href: security-baseline.md
   - name: WAF and Azure Policy
     href: ./shared/waf-azure-policy.md
 - name: How-to guides

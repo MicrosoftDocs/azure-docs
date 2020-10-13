@@ -9,7 +9,7 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 07/29/2019
+ms.date: 10/13/2020
 
 ---
 
@@ -47,9 +47,14 @@ If you don't want active learning utterances, you can [disable active learning](
 <a name="accounts"></a>
 
 ## Delete an account
-If you delete an account, all apps are deleted, along with their example utterances and logs. The data is retained for 60 days before the account and data are deleted permanently.
+If you are not migrated, you can delete your account and all your apps will be deleted along with their example utterances and logs. The data is retained for 90 days before the account and data are deleted permanently.
 
 Deleting account is available from the **Settings** page. Select your account name in the top right navigation bar to get to the **Settings** page.
+
+## Delete an authoring resource
+If you have [migrated to an authoring resource](https://docs.microsoft.com/azure/cognitive-services/luis/luis-migration-authoring), deleting the resource itself from the Azure portal will delete all your applications associated with that resource, along with their example utterances and logs. The data is retained for 90 days before it is deleted permanently.    
+
+To delete your resource, go to the [Azure portal](https://ms.portal.azure.com/#home) and select your LUIS authoring resource. Go to the **Overview** tab and click on the **Delete** button on the top of the page. Then confirm your resource was deleted. 
 
 ## Data inactivity as an expired subscription
 For the purposes of data retention and deletion, an inactive LUIS app may at _Microsoft’s discretion_ be treated as an expired subscription. An app is considered inactive if it meets the following criteria for the last 90 days: 
