@@ -46,7 +46,7 @@ The Azure portal **[App registrations](https://go.microsoft.com/fwlink/?linkid=2
 
 For integration with Azure AD B2C (when authenticating social or local identities), you’ll need to register your application in an Azure AD B2C tenant. This experience is also part of the Azure portal.
 
-Use the [Application API](/graph/api/resources/application?view=graph-rest-1.0) to programmatically configure your applications integrated with Microsoft identity platform for authenticating any Microsoft identity.
+Use the [Application API](/graph/api/resources/application) to programmatically configure your applications integrated with Microsoft identity platform for authenticating any Microsoft identity.
 
 ### MSAL libraries
 
@@ -60,4 +60,4 @@ Microsoft identity platform (v2.0) endpoint is OIDC certified. It works with the
 
 ## Next steps
 
-Learn more in [What is the Microsoft identity platform?](../develop/v2-overview.md).
+Learn more in the [Microsoft identity platform documentation](../develop/index.yml).

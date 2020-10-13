@@ -28,7 +28,7 @@ When developing a new application, it's important to know the differences betwee
 * The Microsoft identity platform endpoint allows work and school accounts from Azure AD and personal Microsoft accounts (MSA), such as hotmail.com, outlook.com, and msn.com, to sign in.
 * Both endpoints also accept sign-ins of *[guest users](../external-identities/what-is-b2b.md)* of an Azure AD directory for applications configured as *[single-tenant](../develop/single-and-multi-tenant-apps.md?toc=/azure/active-directory/azuread-dev/toc.json&bc=/azure/active-directory/azuread-dev/breadcrumb/toc.json)* or for *multi-tenant* applications configured to point to the tenant-specific endpoint (`https://login.microsoftonline.com/{TenantId_or_Name}`).
 
-The Microsoft identity platform endpoint allows you to write apps that accept sign-ins from personal Microsoft accounts, and work and school accounts. This gives you the ability to write your app completely account-agnostic. For example, if your app calls the [Microsoft Graph](https://graph.microsoft.io), some additional functionality and data will be available to work accounts, such as their SharePoint sites or directory data. But for many actions, such as [Reading a user's mail](/graph/api/user-list-messages?view=graph-rest-1.0), the same code can access the email for both personal and work and school accounts.
+The Microsoft identity platform endpoint allows you to write apps that accept sign-ins from personal Microsoft accounts, and work and school accounts. This gives you the ability to write your app completely account-agnostic. For example, if your app calls the [Microsoft Graph](https://graph.microsoft.io), some additional functionality and data will be available to work accounts, such as their SharePoint sites or directory data. But for many actions, such as [Reading a user's mail](/graph/api/user-list-messages), the same code can access the email for both personal and work and school accounts.
 
 For Microsoft identity platform endpoint, you can use the Microsoft Authentication Library (MSAL) to gain access to the consumer, educational, and enterprise worlds. The Azure AD v1.0 endpoint accepts sign-ins from work and school accounts only.
 
@@ -160,8 +160,8 @@ To better understand the scope of protocol functionality supported in the Micros
 
 #### SAML usage
 
-If you've used Active Directory Authentication Library (ADAL) in Windows applications, you might have taken advantage of Windows Integrated authentication, which uses the Security Assertion Markup Language (SAML) assertion grant. With this grant, users of federated Azure AD tenants can silently authenticate with their on-premises Active Directory instance without entering credentials. While [SAML is still a supported protocol](active-directory-saml-protocol-reference.md) for use with enterprise users, the v2.0 endpoint is only for use with OAuth 2.0 applications.
+If you've used Active Directory Authentication Library (ADAL) in Windows applications, you might have taken advantage of Windows Integrated authentication, which uses the Security Assertion Markup Language (SAML) assertion grant. With this grant, users of federated Azure AD tenants can silently authenticate with their on-premises Active Directory instance without entering credentials. While [SAML is still a supported protocol](../develop/active-directory-saml-protocol-reference.md) for use with enterprise users, the v2.0 endpoint is only for use with OAuth 2.0 applications.
 
 ## Next steps
 
-Learn more in [What is the Microsoft identity platform?](../develop/v2-overview.md).
+Learn more in the [Microsoft identity platform documentation](../develop/index.yml).
