@@ -44,6 +44,19 @@
       href: https://github.com/Azure/azure-batch-samples
   - name: Azure CLI
     href: cli-samples.md
+    items:
+    - name: Create a Batch account in Batch service mode
+      href: ./scripts/batch-cli-sample-create-account.md
+    - name: Create a Batch account in user subscription mode
+      href: ./scripts/batch-cli-sample-create-user-subscription-account.md
+    - name: Add an application to an Azure Batch account
+      href: ./scripts/batch-cli-sample-add-application.md
+    - name: Create and manage a Linux pool
+      href: ./scripts/batch-cli-sample-manage-linux-pool.md
+    - name: Create and manage a Windows pool
+      href: ./scripts/batch-cli-sample-manage-windows-pool.md
+    - name: Run a job and tasks
+      href: ./scripts/batch-cli-sample-run-job.md
 - name: Concepts
   items:
   - name: Security
