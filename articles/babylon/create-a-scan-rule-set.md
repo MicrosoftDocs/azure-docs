@@ -1,134 +1,124 @@
 ---
-title: Create a Scan Rule Set (Preview)
-description: This article describes how you can create scan rule sets in Azure Data Catalog to quickly scan data sources in your organization.
+title: Create a scan rule set
+description: Create a scan rule set in Azure Babylon to quickly scan data sources in your organization.
 author: chandrakavya
 ms.author: kchandra
 ms.service: data-catalog
 ms.subservice: data-catalog-gen2
 ms.topic: overview
-ms.date: 05/21/2020
+ms.date: 10/09/2020
 ---
 
-# Create a Scan Rule Set
+# Create a scan rule set
 
-This article describes how you can create scan rule sets in Babylon to quickly scan data sources in your organization.
+In an Azure Babylon catalog, you can create scan rule sets to enable you to quickly scan data sources in your organization.
 
-## Scan rule sets overview
-
-A scan rule set is a container you can use to group a set of scan rules
-together so that you can easily associate them with a scan. You might
-create a default scan rule set for each of your data source types, and
-then use these scan rule sets by default for all scans within your
-company. You might also want people with the right permissions to create
-other scan rule sets with different configurations based on business
-need.
+A scan rule set is a container for grouping a set of scan rules together so that you can easily associate them with a scan. For example, you might create a default scan rule set for each of your data source types, and then use these scan rule sets by default for all scans within your company. You might also want users with the right permissions to create other scan rule sets with different configurations based on business need.
 
 ## Steps to create a scan rule set
 
-To create a custom classification:
+To create a scan rule set:
 
-1.From your catalog, select the **Management Center** icon.
+1. From your Azure Babylon catalog, select **Management Center**.
 
-![alt-text](./media/create-a-scan-rule-set/image1.png)
+   :::image type="content" source="./media/create-a-scan-rule-set/select-management-center.png" alt-text="Screenshot showing how to select Management Center.":::
 
-2.Select Scan rule sets from the left navigation
+1. Select **Scan rule sets** from the left pane, and then select **New**.
 
-![alt-text](./media/create-a-scan-rule-set/image2.png)
+   :::image type="content" source="./media/create-a-scan-rule-set/select-scan-rule-sets.png" alt-text="Screenshot showing how to select Scan rule sets.":::
 
-3.Select **New** and the **New scan rule set** pane appears where you
-can choose the configuration that you want
+1. From the **New scan rule set** page, select the data sources that the catalog scanner supports from the **Source Type** drop-down list.
 
-![alt-text](./media/create-a-scan-rule-set/image3.png)
+   You can create a scan rule set for each type of data source you intend to scan.
 
-Use the **Source Type** drop-down list to select the data sources that
-the catalog scanner supports. You can create one for each type of data
-source you intend to scan. Notice that the options change based on the
-store type that you choose. In the previous example, we selected Azure
-Blob Storage. The file type options appear, and you can select them or
-cancel the selection. If we had chosen Azure SQL Database, for example,
-these file types wouldn\'t appear because they aren\'t relevant to a SQL
-server.
+1. Give your scan rule set a **Name**. The maximum length is 63 characters, with no spaces allowed. Optionally, enter a **Description**. The maximum length is 256 characters.
 
-\[!NOTE\] The **Document file types** option allows you to include or
-exclude office file types: .odt, .odp, .ods, .pps, .doc, .dot, .pot,
-.ppt, .xlc, .xls, .xlt, .docx, .docm, .pptx, .pptm, .ppsx, .xlsx, .xlsm,
-.xlsb, and .pdf
+   :::image type="content" source="./media/create-a-scan-rule-set/new-scan-rule-set.png" alt-text="Screenshot showing the Scan rule set page.":::
 
-4.Give your scan rule set a name. The maximum length is 63 characters,
-with no spaces allowed. Optionally, enter a description for the scan
-rule set. The maximum length is 256 characters.
+1. Select **Continue**.
 
-5.If it's a data lake type data source (e.g. ADLS gen2, Azure blob etc.), choose file types for which you want to have schema extracted and classified.
+   The **Select file types** page appears. Notice that the file type options on this page vary based on the data source type that you chose on the previous page. All the file types are enabled by default.
 
-You can also create custom file types, go to the **Create custom file types** section.
+      :::image type="content" source="./media/create-a-scan-rule-set/select-file-types-page.png" alt-text="Screenshot showing the Select file types page.":::
 
-Note: The above step is not applicable to all scan rule set types
+   The **Document file types** selection on this page allows you to include or exclude the following office file types: .doc, .docm, .docx, .dot, .odp, .ods, .odt, .pdf, .pot, .pps, .ppsx, .ppt, .pptm, .pptx, .xlc, .xls, .xlsb, .xlsm, .xlsx, and .xlt.
 
-6.Select the **Continue** button. On the next screen, select
-the **System rules** or **Custom classification rules** check boxes
-for the rules you want to include.
+1. Enable or disable a file type tile by selecting or clearing its check box. If you choose a Data Lake type data source (for example, Azure Data Lake Storage Gen2 or Azure Blob), enable the file types for which you want to have schema extracted and classified.
 
-![alt-text](./media/create-a-scan-rule-set/image4.png)
+1. For certain data source types, you can also [Create a custom file type](#create-a-custom-file-type).
 
-By default, all the **System rules** check boxes are selected. You can
-also clear them globally by category. You can also expand the category
-node and clear individual classification rule check boxes. For example,
-if the rule for **Argentina.DNI Number** has high false positives, you
-can clear only that check box.
+1. Select **Continue**.
 
-![alt-text](./media/create-a-scan-rule-set/image5.png)
+   The **Select classification rules** page appears. This page displays the selected **System rules** and **Custom rules**, and the total number of classification rules selected. By default, all the **System rules** check boxes are selected
 
-7.Select the **Create** button to finalize the creation of the scan
-rule set. Notice that it shows you how many total classification
-rules were selected.
+1. For the rules you want to include or exclude, you can select or clear the **System rules** classification rule check boxes globally by category.
 
-### Create custom file types
+   :::image type="content" source="./media/create-a-scan-rule-set/select-classification-rules.png" alt-text="Screenshot showing the Select classification rules page.":::
 
-Scan rule set now supports adding custom extension and define custom column delimiter.
-Go to management center and choose scan rule sets section on the left navigation bar.
+1. You can expand the category node and select or clear individual check boxes. For example, if the rule for **Argentina.DNI Number** has high false positives, you can clear that specific check box.
 
-1. Click on the "+ New" button to create a new scan rule set, or choose one of the existing scan rule sets and click "Edit" button.
-2. Upon clicking the button, scan rule set sidebar will open. Upon filling out the name and optional description information, click "Continue" to the next step.
-3. Click "+ New file type" banner to create a new file type.
+   :::image type="content" source="./media/create-a-scan-rule-set/select-system-rules.png" alt-text="Screenshot showing how to select system rules.":::
 
-![alt-text](./media/create-a-scan-rule-set/image6.png)
+1. Select **Create** to finish creating the scan rule set.
 
-4. Fill out the information needed for a custom file type which includes the file extension and description.
+### Create a custom file type
 
-![alt-text](./media/create-a-scan-rule-set/image7.png)
+Azure Babylon supports adding a custom extension and defining a custom column delimiter in a scan rule set.
 
-a. You can define your own custom delimiter (currently we only support single character in this field)
+To create a custom file type:
 
-![alt-text](./media/create-a-scan-rule-set/image8.png)
+1. Follow steps 1–5 in [Steps to create a scan rule set](#steps-to-create-a-scan-rule-set) or edit an existing scan rule set.
 
-b. Or you can specify that file contents within this file extension is one of the system file types
+1. On the **Select file types** page, select **New file type** to create a new custom file type.
 
-![alt-text](./media/create-a-scan-rule-set/image9.png)
+   :::image type="content" source="./media/create-a-scan-rule-set/select-new-file-type.png" alt-text="Screenshot showing how to select New file type from the Select file types page.":::
 
-5. Then by clicking "Create" button to save the custom file. It will redirect to the previous page. The new custom file types will be displayed like below. You can enable/disable them by toggling the tile. By clicking "edit" link besides the file type name, you can edit or delete it.
+1. Enter a **File Extension** and an optional **Description**.
 
-![alt-text](./media/create-a-scan-rule-set/image10.png)
+   :::image type="content" source="./media/create-a-scan-rule-set/new-custom-file-type-page.png" alt-text="Screenshot showing the New custom file type page." lightbox="./media/create-a-scan-rule-set/new-custom-file-type-page.png":::
 
-6. Click "Continue" to finish up the process. After that, you can associate this scan rule set with scans like you normally would do. Then you're all set!
+1. Make one of the following selections for **File contents within** to specify the type of file contents within your file:
 
-## System Scan Rule sets
+   - Select **Custom Delimiter** and enter your own **Custom delimiter** (single character only).
 
-System Scan Rule sets are Microsoft defined scan rule sets that come built-in to Babylon. Each System Scan Rule set has a data source type it is associated with. You can associate these to scans while setting them up. When Microsoft makes an update to these system default rule sets, you can choose to update them as well, and the update will apply to all the scans you have already associated them to. 
+      :::image type="content" source="./media/create-a-scan-rule-set/select-custom-delimiter.png" alt-text="Screenshot showing how to select the Custom Delimiter option on the New custom file type page." lightbox="./media/create-a-scan-rule-set/select-custom-delimiter.png":::
 
-You can see the list of System scan rule sets by navigating to the management center and clicking on 'Scan rule sets' and choosing the system tab.
+   - Select **System File Type** and choose a system file type (for example XML) from the **System file type** drop-down list.
 
-![alt-text](./media/create-a-scan-rule-set/DefaultSRS2.jpg)
+      :::image type="content" source="./media/create-a-scan-rule-set/select-system-file-type.png" alt-text="Screenshot showing how to select the System File Type option for the New custom file type page." lightbox="./media/create-a-scan-rule-set/select-system-file-type.png":::
 
-Each System scan rule set has a Name, sourcetype and version. On clicking the version number, you can see the rules associated with the current version and the previous version (if it exists).
+1. Select **Create** to save the custom file.
 
-![alt-text](./media/create-a-scan-rule-set/DefaultSRS3.jpg)
+   The system returns to the **Select file types** page and inserts the new custom file type as a new tile.
 
-If an update is available, you can click on 'Update' and can choose from the list of versions available for this system scan rule set, to update to. The blade will also provide details about the version the user chooses and that of the current version they are on.
+   :::image type="content" source="./media/create-a-scan-rule-set/new-custom-file-type-tile.png" alt-text="Screenshot showing the new custom file type tile on the Select file types page.":::
 
-![alt-text](./media/create-a-scan-rule-set/DefaultSRS4.jpg)
+1. Select **edit** in the new file type tile if you want to change or delete it.
 
-### Associating a scan with a system scan rule set
+1. Select **Continue** to finish configuring the scan rule set.
 
-While setting up your scan, you can choose to associate it with a system scan rule set as shown below.
+## System scan rule sets
 
-![alt-text](./media/create-a-scan-rule-set/DefaultSRS1.jpg)
+System scan rule sets are Microsoft-defined scan rule sets that are automatically created for each Azure Babylon catalog. Each system scan rule set is associated with a specific data source type. When you create a scan, you can associate it with a system scan rule set. Every time Microsoft makes an update to these system rule sets, you can update them in your catalog, and apply the update to all the associated scans.
+
+1. To view the list of system scan rule sets, select **Scan rule sets** in the **Management Center** and choose the **System** tab.
+
+   :::image type="content" source="./media/create-a-scan-rule-set/system-scan-rule-sets.jpg" alt-text="Screenshot showing the list of system scan rule sets." lightbox="./media/create-a-scan-rule-set/system-scan-rule-sets.jpg":::
+
+1. Each system scan rule set has a **Name**, **Source type**, and a **Version**. If you select the version number of a scan rule set in the **Version** column, you see the rules associated with the current version and the previous versions (if any).
+
+   :::image type="content" source="./media/create-a-scan-rule-set/system-scan-rule-set-page.jpg" alt-text="Screenshot showing a system scan rule set page." lightbox="./media/create-a-scan-rule-set/system-scan-rule-set-page.jpg":::
+
+1. If an update is available for a system scan rule set, you can select **Update** in the **Version** column. In the system scan rule page, choose from a version from the **Select a new version to update** drop-down list. The page provides a list of system classification rules associated with the new version and current version.
+
+   :::image type="content" source="./media/create-a-scan-rule-set/system-scan-rule-set-version.jpg" alt-text="Screenshot showing how to change the version of a system scan rule set." lightbox="./media/create-a-scan-rule-set/system-scan-rule-set-version.jpg":::
+
+### Associate a scan with a system scan rule set
+
+When you [create a scan](starter-kit-tutorial-1.md#scan-data-into-the-catalog), you can choose to associate it with a system scan rule set as follows:
+
+1. On the **Select a scan rule set** page, select the system scan rule set.
+
+   :::image type="content" source="./media/create-a-scan-rule-set/set-system-scan-rule-set.jpg" alt-text="Screenshot showing how to select a system scan rule set for a scan." lightbox="./media/create-a-scan-rule-set/set-system-scan-rule-set.jpg":::
+
+1. Select **Continue**, and then select **Save and Run**.

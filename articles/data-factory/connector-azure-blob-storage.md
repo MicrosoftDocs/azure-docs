@@ -9,7 +9,7 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 09/10/2020
+ms.date: 10/12/2020
 ---
 
 # Copy and transform data in Azure Blob storage by using Azure Data Factory
@@ -237,6 +237,9 @@ These properties are supported for an Azure Blob storage linked service:
 | connectVia | The [integration runtime](concepts-integration-runtime.md) to be used to connect to the data store. You can use the Azure integration runtime or the self-hosted integration runtime (if your data store is in a private network). If this property isn't specified, the service uses the default Azure integration runtime. |No |
 
 >[!NOTE]
+>If your blob account enables [soft delete](../storage/blobs/soft-delete-blob-overview.md), service principal authentication is not supported in Data Flow.
+
+>[!NOTE]
 >Service principal authentication is supported only by the "AzureBlobStorage" type linked service, not the previous "AzureStorage" type linked service.
 
 **Example:**
@@ -288,6 +291,9 @@ These properties are supported for an Azure Blob storage linked service:
 | serviceEndpoint | Specify the Azure Blob storage service endpoint with the pattern of `https://<accountName>.blob.core.windows.net/`. |Yes |
 | accountKind | Specify the kind of your storage account. Allowed values are: **Storage** (general purpose v1), **StorageV2** (general purpose v2), **BlobStorage**, or **BlockBlobStorage**. <br/> When using Azure Blob linked service in data flow, managed identity or service principal authentication is not supported when account kind as empty or "Storage”. Specify the proper account kind, choose a different authentication, or upgrade your storage account to general purpose v2. |No |
 | connectVia | The [integration runtime](concepts-integration-runtime.md) to be used to connect to the data store. You can use the Azure integration runtime or the self-hosted integration runtime (if your data store is in a private network). If this property isn't specified, the service uses the default Azure integration runtime. |No |
+
+> [!NOTE]
+> If your blob account enables [soft delete](../storage/blobs/soft-delete-blob-overview.md), managed identity authentication is not supported in Data Flow.
 
 > [!NOTE]
 > Managed identities for Azure resource authentication are supported only by the "AzureBlobStorage" type linked service, not the previous "AzureStorage" type linked service.
