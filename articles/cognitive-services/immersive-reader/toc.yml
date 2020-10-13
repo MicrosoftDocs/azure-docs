@@ -38,6 +38,8 @@
   items:
   - name: JavaScript SDK
     href: reference.md
+  - name: Release notes
+    href: release-notes.md
 - name: Resources
   items:
   - name: Azure roadmap
