@@ -171,6 +171,120 @@ To join the managed domain using **winbind** and the *Windows Domain Membership*
 
 After you have joined the managed domain, you can sign in to it from your workstation using the display manager of your desktop or the console.
 
+## Join VM to the managed domain using Winbind from the YaST Command Line Interface
+
+To join the managed domain using **winbind** and the *YaST Command Line Interface*, complete the following steps:
+
+1. Join the domain:
+
+    ```console
+    sudo yast samba-client joindomain domain=aaddscontoso.com user=<admin> password=<admin password> machine=<(optional) machine account>
+    ```
+
+## Join VM to the managed domain using Winbind from the terminal
+
+To join the managed domain using **winbind** and the *samba net command*, complete the following steps:
+
+1. Install kerberos client and samba-winbind:
+
+    ```console
+    sudo zypper in krb5-client samba-winbind
+    ```
+
+2. Edit the configuration files:
+
+  * /etc/samba/smb.conf
+    ```ini
+    [global]
+        workgroup = AADDSCONTOSO
+        usershare allow guests = NO #disallow guests from sharing
+        idmap config * : backend = tdb
+        idmap config * : range = 1000000-1999999
+        idmap config AADDSCONTOSO : backend = rid
+        idmap config AADDSCONTOSO : range = 5000000-5999999
+        kerberos method = secrets and keytab
+        realm = AADDSCONTOSO.COM
+        security = ADS
+        template homedir = /home/%D/%U
+        template shell = /bin/bash
+        winbind offline logon = yes
+        winbind refresh tickets = yes
+    ```
+
+  * /etc/krb5.conf
+    ```ini
+    [libdefaults]
+        default_realm = AADDSCONTOSO.COM
+        clockskew = 300
+    [realms]
+        AADDSCONTOSO.COM = {
+            kdc = PDC.AADDSCONTOSO.COM
+            default_domain = AADDSCONTOSO.COM
+            admin_server = PDC.AADDSCONTOSO.COM
+        }
+    [domain_realm]
+        .aaddscontoso.com = AADDSCONTOSO.COM
+    [appdefaults]
+        pam = {
+            ticket_lifetime = 1d
+            renew_lifetime = 1d
+            forwardable = true
+            proxiable = false
+            minimum_uid = 1
+        }
+    ```
+
+  * /etc/security/pam_winbind.conf
+    ```ini
+    [global]
+        cached_login = yes
+        krb5_auth = yes
+        krb5_ccache_type = FILE
+        warn_pwd_expire = 14
+    ```
+
+  * /etc/nsswitch.conf
+    ```ini
+    passwd: compat winbind
+    group: compat winbind
+    ```
+
+3. Check that the date and time in AD and linux are in sync. You can do this by adding the AD server to the ntp service:
+  * Add the following line to /etc/ntp.conf:
+    ```console
+    server aaddscontoso.com
+    ```
+
+  * Then restart the ntp service:
+    ```console
+    sudo systemctl restart ntpd
+    ```
+
+4. Join the domain:
+
+    ```console
+    sudo net ads join -U Administrator%Mypassword
+    ```
+
+5. Enable winbind as a login source in pam:
+
+    ```console
+    pam-config --add --winbind
+    ```
+
+6. Enable automatic creation of home directories so that users can log in:
+
+    ```console
+    pam-config -a --mkhomedir
+    ```
+
+7. Start and enable the winbind service:
+
+    ```console
+    sudo systemctl enable winbind
+    sudo systemctl start winbind
+    ```
+
 ## Allow password authentication for SSH
 
 By default, users can only sign in to a VM using SSH public key-based authentication. Password-based authentication fails. When you join the VM to a managed domain, those domain accounts need to use password-based authentication. Update the SSH configuration to allow password-based authentication as follows.
