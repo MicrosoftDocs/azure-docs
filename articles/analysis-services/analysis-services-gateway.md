@@ -85,11 +85,11 @@ You can force the gateway to communicate with Azure Service Bus by using HTTPS i
 
 The following articles are included in the On-premises data gateway general content that applies to all services the gateway supports:
 
-* [On-premises data gateway FAQ](https://docs.microsoft.com/data-integration/gateway/service-gateway-onprem-faq)   
-* [Use the on-premises data gateway app](https://docs.microsoft.com/data-integration/gateway/service-gateway-app)   
-* [Tenant level administration](https://docs.microsoft.com/data-integration/gateway/service-gateway-tenant-level-admin)
-* [Configure proxy settings](https://docs.microsoft.com/data-integration/gateway/service-gateway-proxy)   
-* [Adjust communication settings](https://docs.microsoft.com/data-integration/gateway/service-gateway-communication)   
-* [Configure log files](https://docs.microsoft.com/data-integration/gateway/service-gateway-log-files)   
-* [Troubleshoot](https://docs.microsoft.com/data-integration/gateway/service-gateway-tshoot)
-* [Monitor and optimize gateway performance](https://docs.microsoft.com/data-integration/gateway/service-gateway-performance)
+* [On-premises data gateway FAQ](/data-integration/gateway/service-gateway-onprem-faq)   
+* [Use the on-premises data gateway app](/data-integration/gateway/service-gateway-app)   
+* [Tenant level administration](/data-integration/gateway/service-gateway-tenant-level-admin)
+* [Configure proxy settings](/data-integration/gateway/service-gateway-proxy)   
+* [Adjust communication settings](/data-integration/gateway/service-gateway-communication)   
+* [Configure log files](/data-integration/gateway/service-gateway-log-files)   
+* [Troubleshoot](/data-integration/gateway/service-gateway-tshoot)
+* [Monitor and optimize gateway performance](/data-integration/gateway/service-gateway-performance)

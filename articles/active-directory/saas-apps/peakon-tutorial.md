@@ -106,7 +106,7 @@ To configure Azure AD single sign-on with Peakon, perform the following steps:
 
 5. Click **Set additional URLs** and perform the following step if you wish to configure the application in **SP** initiated mode:
 
-    ![Peakon Domain and URLs single sign-on information](common/metadata-upload-additional-signon.png)
+    ![Screenshot that shows the "Set additional U R Ls" selected with the "Sing on U R L" text box highlighted.](common/metadata-upload-additional-signon.png)
 
     In the **Sign-on URL** text box, type a URL:
     `https://app.peakon.com/login`

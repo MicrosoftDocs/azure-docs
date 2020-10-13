@@ -50,12 +50,12 @@ Key Vault is using Azure AD authentication that requires Azure AD security princ
 It is recommended to use managed identity for applications deployed to Azure. If you use Azure services, which do not support managed identity or if applications are deployed on premise, [service principal with a certificate](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal) is a possible alternative. In that scenario, certificate should be stored in Key Vault and rotated often. Service principal with secret can be used for development and testing environments, and locally or in Cloud Shell using user principal is recommended.
 
 Recommended security principals per environment:
-**Production environment**
-- Managed identity or [service principal with a certificate](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal)
-**Test and dev environments**
-- Managed identity, service principal with certificate or secret
-**Local development**
-- User principal or service principal with secret
+- **Production environment**:
+  - Managed identity or service principal with a certificate
+- **Test and development environments**:
+  - Managed identity, service principal with certificate or service principal with secret
+- **Local development**:
+  - User principal or service principal with secret
 
 Above authentications scenarios are supported by **Azure Identity client library** and integrated with Key Vault SDKs. Azure Identity library can be used across different environments and platforms without changing your code. Azure Identity would also automatically retrieve authentication token from logged in to Azure user with Azure CLI, Visual Studio, Visual Studio Code, and others. 
 

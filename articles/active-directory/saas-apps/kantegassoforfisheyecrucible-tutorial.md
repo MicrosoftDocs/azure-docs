@@ -93,7 +93,7 @@ To configure Azure AD single sign-on with Kantega SSO for FishEye/Crucible, perf
 
 4. On the **Basic SAML Configuration** section, if you wish to configure the application in **IDP** initiated mode, perform the following steps:
 
-    ![Kantega SSO for FishEye/Crucible Domain and URLs single sign-on information](common/idp-intiated.png)
+    ![Screenshot that shows the "Basic S A M L Configuration" section with the "Identifier" and "Reply U R L" textbox highlighted and the "Save" button selected.](common/idp-intiated.png)
 
     a. In the **Identifier** text box, type a URL using the following pattern:
     `https://<server-base-url>/plugins/servlet/no.kantega.saml/sp/<uniqueid>/login`
@@ -131,43 +131,43 @@ To configure Azure AD single sign-on with Kantega SSO for FishEye/Crucible, perf
 
 1. Hover on cog and click the **Add-ons**.
 
-	![Configure Single Sign-On](./media/kantegassoforfisheyecrucible-tutorial/addon1.png)
+	![Screenshot that shows the "Cog" icon and "Add-ons" selected.](./media/kantegassoforfisheyecrucible-tutorial/addon1.png)
 
 1. Under System Settings section, click **Find new add-ons**. 
 
-	![Configure Single Sign-On](./media/kantegassoforfisheyecrucible-tutorial/add-on2.png)
+	![Screenshot that shows the "System Settings" section with "Find New Add-ons" selected.](./media/kantegassoforfisheyecrucible-tutorial/add-on2.png)
 
 1. Search **Kantega SSO for Crucible** and click **Install** button to install the new SAML plugin.
 
-	![Configure Single Sign-On](./media/kantegassoforfisheyecrucible-tutorial/addon2.png)
+	![Screenshot that shows the "Attlasian Marketplace for FishEye" page with "Kantega S S O for Crucible" in the search box and the "Install" button selected.](./media/kantegassoforfisheyecrucible-tutorial/addon2.png)
 
 1. The plugin installation starts. 
 
-	![Configure Single Sign-On](./media/kantegassoforfisheyecrucible-tutorial/addon33.png)
+	![Screenshot that shows the "Installing" dialog for the plugin.](./media/kantegassoforfisheyecrucible-tutorial/addon33.png)
 
 1. Once the installation is complete. Click **Close**.
 
-	![Configure Single Sign-On](./media/kantegassoforfisheyecrucible-tutorial/addon34.png)
+	![Screenshot that shows the "Installed and ready to go" dialog and the "Close" button selected.](./media/kantegassoforfisheyecrucible-tutorial/addon34.png)
 
 1.	Click **Manage**.
 
-	![Configure Single Sign-On](./media/kantegassoforfisheyecrucible-tutorial/addon35.png)
+	![Screenshot that shows the "Kantega S S O for Crucible S A M L & Kerberos" app page and the "Manage" button selected.](./media/kantegassoforfisheyecrucible-tutorial/addon35.png)
 
 1. Click **Configure** to configure the new plugin.	
 
-	![Configure Single Sign-On](./media/kantegassoforfisheyecrucible-tutorial/addon3.png)
+	![Screenshot that shows the "User-installed add-ons" page and the "Configure" button selected.](./media/kantegassoforfisheyecrucible-tutorial/addon3.png)
 
 1. In the **SAML** section. Select **Azure Active Directory (Azure AD)** from the **Add identity provider** dropdown.
 
-	![Configure Single Sign-On](./media/kantegassoforfisheyecrucible-tutorial/addon4.png)
+	![Screenshot that shows the "Add-ons - Kantega Single Sign-on" page with the "Add identity provider" drop-down and "Azure Active Directory (Azure AD)" selected. ](./media/kantegassoforfisheyecrucible-tutorial/addon4.png)
 
 1. Select subscription level as **Basic**.
 
-	![Configure Single Sign-On](./media/kantegassoforfisheyecrucible-tutorial/addon5.png)
+	![Screenshot that shows the "Preparing Azure A D" section with "Basic" selected.](./media/kantegassoforfisheyecrucible-tutorial/addon5.png)
 
 1. On the **App properties** section, perform following steps:
 
-	![Configure Single Sign-On](./media/kantegassoforfisheyecrucible-tutorial/addon6.png)
+	![Screenshot that shows the "App properties" section with the "App I D U R I" textbox and copy button selected.](./media/kantegassoforfisheyecrucible-tutorial/addon6.png)
 
 	a. Copy the **App ID URI** value and use it as **Identifier, Reply URL, and Sign-On URL** on the **Basic SAML Configuration** section in Azure portal.
 
@@ -175,7 +175,7 @@ To configure Azure AD single sign-on with Kantega SSO for FishEye/Crucible, perf
 
 1. On the **Metadata import** section, perform following steps:
 
-	![Configure Single Sign-On](./media/kantegassoforfisheyecrucible-tutorial/addon7.png)
+	![Screenshot that shows the "Metadata import" section with "Metadata file on my computer" selected.](./media/kantegassoforfisheyecrucible-tutorial/addon7.png)
 
 	a. Select **Metadata file on my computer**, and upload metadata file, which you have downloaded from Azure portal.
 
@@ -183,7 +183,7 @@ To configure Azure AD single sign-on with Kantega SSO for FishEye/Crucible, perf
 
 1. On the **Name and SSO location** section, perform following steps:
 
-	![Configure Single Sign-On](./media/kantegassoforfisheyecrucible-tutorial/addon8.png)
+	![Screenshot that shows the "Name and S S O location" with the "Identity provider name" textbox highlighted, and the "Next" button selected.](./media/kantegassoforfisheyecrucible-tutorial/addon8.png)
 
 	a. Add Name of the Identity Provider in **Identity provider name** textbox (e.g Azure AD).
 
@@ -191,11 +191,11 @@ To configure Azure AD single sign-on with Kantega SSO for FishEye/Crucible, perf
 
 1. Verify the Signing certificate and click **Next**.	
 
-	![Configure Single Sign-On](./media/kantegassoforfisheyecrucible-tutorial/addon9.png)
+	![Screenshot that shows the "Signature verification" section information and the "Next" button selected.](./media/kantegassoforfisheyecrucible-tutorial/addon9.png)
 
 1. On the **FishEye user accounts** section, perform following steps:
 
-	![Configure Single Sign-On](./media/kantegassoforfisheyecrucible-tutorial/addon10.png)
+	![Screenshot that shows the "FishEye user accounts" section with the "Create users in FishEye's Internal Directory if needed" option and the "Next" button selected.](./media/kantegassoforfisheyecrucible-tutorial/addon10.png)
 
 	a. Select **Create users in FishEye's internal Directory if needed** and enter the appropriate name of the group for users (can be multiple no. of groups separated by comma).
 
@@ -203,11 +203,11 @@ To configure Azure AD single sign-on with Kantega SSO for FishEye/Crucible, perf
 
 1. Click **Finish**.
 
-	![Configure Single Sign-On](./media/kantegassoforfisheyecrucible-tutorial/addon11.png)
+	![Screenshot that shows the "Summary" section with the "Finish" button selected.](./media/kantegassoforfisheyecrucible-tutorial/addon11.png)
 
 1. On the **Known domains for Azure AD** section, perform following steps:	
 
-	![Configure Single Sign-On](./media/kantegassoforfisheyecrucible-tutorial/addon12.png)
+	![Screenshot that shows the "Known domains for Azure A D" section with the "Save" button selected.](./media/kantegassoforfisheyecrucible-tutorial/addon12.png)
 
 	a. Select **Known domains** from the left panel of the page.
 
@@ -275,11 +275,11 @@ To enable Azure AD users to sign in to FishEye/Crucible, they must be provisione
 
 1. Hover on cog and click the **Users**.
 
-    ![Add Employee](./media/kantegassoforfisheyecrucible-tutorial/user1.png)
+    ![Screenshot that shows the "Cog" icon selected, and "Users" selected from the drop-down.](./media/kantegassoforfisheyecrucible-tutorial/user1.png)
 
 1. Under **Users** tab section, click **Add user**.
 
-	![Add Employee](./media/kantegassoforfisheyecrucible-tutorial/user2.png)
+	![Screenshot that shows the "Users" section with the "Add user" button selected.](./media/kantegassoforfisheyecrucible-tutorial/user2.png)
 
 1. On the **Add New User** dialog page, perform the following steps:
 

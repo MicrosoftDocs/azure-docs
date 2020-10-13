@@ -66,7 +66,7 @@ This table provides a quick comparison for the change in terminology:
 
 ---
 
-## New features and known issues
+## New features
 
 ### SQL Managed Instance H2 2019 updates
 
@@ -87,7 +87,7 @@ The following features are enabled in the SQL Managed Instance deployment model 
   - New built-in [Instance Contributor role](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#sql-managed-instance-contributor) enables separation of duty (SoD) compliance with security principles and compliance with enterprise standards.
   - SQL Managed Instance is available in the following Azure Government regions to GA (US Gov Texas, US Gov Arizona) as well as in China North 2 and China East 2. It is also available in the following public regions: Australia Central, Australia Central 2, Brazil South, France South, UAE Central, UAE North, South Africa North, South Africa West.
 
-### Known issues
+## Known issues
 
 |Issue  |Date discovered  |Status  |Date resolved  |
 |---------|---------|---------|---------|

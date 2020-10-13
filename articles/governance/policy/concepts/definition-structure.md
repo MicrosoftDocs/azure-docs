@@ -147,7 +147,8 @@ The following Resource Provider modes are currently supported as a **preview**:
   [Azure Key Vault](../../../key-vault/general/overview.md).
 
 > [!NOTE]
-> Resource Provider modes only support built-in policy definitions.
+> Resource Provider modes only support built-in policy definitions and don't support
+> [exemptions](./exemption-structure.md).
 
 ## Metadata
 
@@ -393,6 +394,9 @@ The following fields are supported:
 - `type`
 - `location`
   - Use **global** for resources that are location agnostic.
+- `id`
+  - Returns the resource ID of the resource that is being evaluated.
+  - Example: `/subscriptions/06be863d-0996-4d56-be22-384767287aa2/resourceGroups/myRG/providers/Microsoft.KeyVault/vaults/myVault`
 - `identity.type`
   - Returns the type of
     [managed identity](../../../active-directory/managed-identities-azure-resources/overview.md)
