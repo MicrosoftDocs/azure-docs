@@ -173,12 +173,9 @@ met on the machine. The requirments are described in section
 > [!IMPORTANT]
 > In a prior release of Guest Configuration, an initiative was required to combine **DeployIfNoteExists**
 > and **AuditIfNotExists** definitions. **DeployIfNotExists** definitions are no longer required. The definitions
-> and intiaitives are labeled `[Deprecated]` but existing assignments will continue to function.
->
-> A manual step is required. If you have previously assigned the policy initiatives in category
-> `Guest Configuration`, delete the policy assignment and assign the new definition. Guest Configuration
-> policies have a name pattern as follows:
-> `Audit <Windows/Linux> machines that <non-compliant condition>`
+> and intiaitives are labeled `[Deprecated]` but existing assignments will continue to function. For information
+> see the blog post:
+> [Important change released for Guest Configuration audit policies](https://techcommunity.microsoft.com/t5/azure-governance-and-management/important-change-released-for-guest-configuration-audit-policies/ba-p/1655316)
 
 Azure Policy uses the Guest Configuration resource provider **complianceStatus** property to report
 compliance in the **Compliance** node. For more information, see [getting compliance

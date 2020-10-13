@@ -1,7 +1,7 @@
 ---
 title: Details of the policy definition structure
 description: Describes how policy definitions are used to establish conventions for Azure resources in your organization.
-ms.date: 08/27/2020
+ms.date: 10/05/2020
 ms.topic: conceptual
 ---
 # Azure Policy definition structure
@@ -129,23 +129,26 @@ specifically target the `Microsoft.Resources/subscriptions/resourceGroups` or
 [Pattern: Tags - Sample #1](../samples/pattern-tags.md). For a list of resources that support tags,
 see [Tag support for Azure resources](../../../azure-resource-manager/management/tag-support.md).
 
-### <a name="resource-provider-modes"></a>Resource Provider modes (preview)
+### Resource Provider modes
 
-The following Resource Provider modes are currently supported during preview:
+The following Resource Provider mode is fully supported:
+
+- `Microsoft.Kubernetes.Data` for managing your Kubernetes clusters on or off Azure. Definitions
+  using this Resource Provider mode use effects _audit_, _deny_, and _disabled_. Use of the
+  [EnforceOPAConstraint](./effects.md#enforceopaconstraint) effect is _deprecated_.
+
+The following Resource Provider modes are currently supported as a **preview**:
 
 - `Microsoft.ContainerService.Data` for managing admission controller rules on
   [Azure Kubernetes Service](../../../aks/intro-kubernetes.md). Definitions using this Resource
   Provider mode **must** use the [EnforceRegoPolicy](./effects.md#enforceregopolicy) effect. This
-  mode is being _deprecated_.
-- `Microsoft.Kubernetes.Data` for managing your Kubernetes clusters on or off Azure. Definitions
-  using this Resource Provider mode use effects _audit_, _deny_, and _disabled_. Use of the
-  [EnforceOPAConstraint](./effects.md#enforceopaconstraint) effect is being _deprecated_.
+  mode is _deprecated_.
 - `Microsoft.KeyVault.Data` for managing vaults and certificates in
   [Azure Key Vault](../../../key-vault/general/overview.md).
 
 > [!NOTE]
-> Resource Provider modes only support built-in policy definitions and don't support initiatives
-> while in preview.
+> Resource Provider modes only support built-in policy definitions and don't support
+> [exemptions](./exemption-structure.md).
 
 ## Metadata
 
@@ -276,10 +279,12 @@ children within the hierarchy of the definition location to target for assignmen
 
 If the definition location is a:
 
-- **Subscription** - Only resources within that subscription can be assigned the policy.
+- **Subscription** - Only resources within that subscription can be assigned the policy definition.
 - **Management group** - Only resources within child management groups and child subscriptions can
-  be assigned the policy. If you plan to apply the policy definition to several subscriptions, the
-  location must be a management group that contains subscription.
+  be assigned the policy definition. If you plan to apply the policy definition to several
+  subscriptions, the location must be a management group that contains each subscription.
+
+For more information, see [Understand scope in Azure Policy](./scope.md#definition-location).
 
 ## Policy rule
 
@@ -295,7 +300,7 @@ In the **Then** block, you define the effect that happens when the **If** condit
         <condition> | <logical operator>
     },
     "then": {
-        "effect": "deny | audit | append | auditIfNotExists | deployIfNotExists | disabled"
+        "effect": "deny | audit | modify | append | auditIfNotExists | deployIfNotExists | disabled"
     }
 }
 ```
@@ -389,6 +394,9 @@ The following fields are supported:
 - `type`
 - `location`
   - Use **global** for resources that are location agnostic.
+- `id`
+  - Returns the resource ID of the resource that is being evaluated.
+  - Example: `/subscriptions/06be863d-0996-4d56-be22-384767287aa2/resourceGroups/myRG/providers/Microsoft.KeyVault/vaults/myVault`
 - `identity.type`
   - Returns the type of
     [managed identity](../../../active-directory/managed-identities-azure-resources/overview.md)
@@ -683,11 +691,11 @@ Azure Policy supports the following types of effect:
 - **Deny**: generates an event in the activity log and fails the request
 - **DeployIfNotExists**: deploys a related resource if it doesn't already exist
 - **Disabled**: doesn't evaluate resources for compliance to the policy rule
-- **EnforceOPAConstraint** (preview): configures the Open Policy Agent admissions controller with
-  Gatekeeper v3 for self-managed Kubernetes clusters on Azure (preview)
-- **EnforceRegoPolicy** (preview): configures the Open Policy Agent admissions controller with
-  Gatekeeper v2 in Azure Kubernetes Service
 - **Modify**: adds, updates, or removes the defined tags from a resource
+- **EnforceOPAConstraint** (deprecated): configures the Open Policy Agent admissions controller with
+  Gatekeeper v3 for self-managed Kubernetes clusters on Azure
+- **EnforceRegoPolicy** (deprecated): configures the Open Policy Agent admissions controller with
+  Gatekeeper v2 in Azure Kubernetes Service
 
 For complete details on each effect, order of evaluation, properties, and examples, see
 [Understanding Azure Policy Effects](effects.md).
@@ -717,17 +725,17 @@ Resource Manager template (ARM template):
 
 - `utcNow()` - Unlike an ARM template, this property can be used outside _defaultValue_.
   - Returns a string that is set to the current date and time in Universal ISO 8601 DateTime format
-    'yyyy-MM-ddTHH:mm:ss.fffffffZ'
+    `yyyy-MM-ddTHH:mm:ss.fffffffZ`.
 
 The following functions are only available in policy rules:
 
 - `addDays(dateTime, numberOfDaysToAdd)`
   - **dateTime**: [Required] string - String in the Universal ISO 8601 DateTime format
-    'yyyy-MM-ddTHH:mm:ss.fffffffZ'
-  - **numberOfDaysToAdd**: [Required] integer - Number of days to add
+    `yyyy-MM-ddTHH:mm:ss.fffffffZ`.
+  - **numberOfDaysToAdd**: [Required] integer - Number of days to add.
 - `field(fieldName)`
   - **fieldName**: [Required] string - Name of the [field](#fields) to retrieve
-  - Returns the value of that field from the resource that is being evaluated by the If condition
+  - Returns the value of that field from the resource that is being evaluated by the If condition.
   - `field` is primarily used with **AuditIfNotExists** and **DeployIfNotExists** to reference
     fields on the resource that are being evaluated. An example of this use can be seen in the
     [DeployIfNotExists example](effects.md#deployifnotexists-example).
@@ -736,6 +744,18 @@ The following functions are only available in policy rules:
     This value is the API version that was used in the PUT/PATCH request for evaluations on resource
     creation/update. The latest API version is always used during compliance evaluation on existing
     resources.
+- `policy()`
+  - Returns the following information about the policy that is being evaluated. Properties can be accessed from the returned object (example: `[policy().assignmentId]`).
+  
+  ```json
+  {
+    "assignmentId": "/subscriptions/ad404ddd-36a5-4ea8-b3e3-681e77487a63/providers/Microsoft.Authorization/policyAssignments/myAssignment",
+    "definitionId": "/providers/Microsoft.Authorization/policyDefinitions/34c877ad-507e-4c82-993e-3452a6e0ad3c",
+    "setDefinitionId": "/providers/Microsoft.Authorization/policySetDefinitions/42a694ed-f65e-42b2-aa9e-8052e9740a92",
+    "definitionReferenceId": "StorageAccountNetworkACLs"
+  }
+  ```
+  
   
 #### Policy function example
 

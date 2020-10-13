@@ -8,8 +8,8 @@ ms.subservice: authentication
 ms.topic: conceptual
 ms.date: 09/15/2020
 
-ms.author: iainfou
-author: iainfoulds
+ms.author: joflore
+author: MicrosoftGuyJFlo
 manager: daveba
 
 ms.collection: M365-identity-device-management
@@ -99,6 +99,8 @@ To learn more about SSPR concepts, see [How Azure AD self-service password reset
 To learn more about MFA concepts, see [How Azure Multi-Factor Authentication works][concept-mfa].
 
 Learn more about configuring authentication methods using the [Microsoft Graph REST API beta](/graph/api/resources/authenticationmethods-overview?view=graph-rest-beta).
+
+To review what authentication methods are in use, see [Azure Multi-Factor Authentication authentication method analysis with PowerShell](/samples/azure-samples/azure-mfa-authentication-method-analysis/azure-mfa-authentication-method-analysis/).
 
 <!-- INTERNAL LINKS -->
 [tutorial-sspr]: tutorial-enable-sspr.md

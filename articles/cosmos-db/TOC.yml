@@ -21,6 +21,8 @@
         href: create-sql-api-dotnet.md
       - name: Java app
         href: create-sql-api-java.md
+      - name: Spring Data app
+        href: create-sql-api-spring-data.md        
       - name: Node.js app
         href: create-sql-api-nodejs.md
       - name: Python app
@@ -73,6 +75,8 @@
       href: sql-api-dotnet-v3sdk-samples.md
     - name: Java SDK v4 samples
       href: sql-api-java-sdk-samples.md
+    - name: Spring Data v3 samples
+      href: sql-api-spring-data-sdk-samples.md      
     - name: Node.js samples
       href: sql-api-nodejs-samples.md
     - name: Python samples
@@ -108,7 +112,7 @@
         displayName: request units, RUs, RU
         href: scaling-throughput.md
       - name: Conflict types and resolution policies
-        displayName: last write wins, custom, multi master, multi-master
+        displayName: last write wins, custom, multi-region writes, multi-master
         href: conflict-resolution-policies.md
       - name: Global distribution - under the hood
         href: global-dist-under-the-hood.md
@@ -580,7 +584,7 @@
         - name: Data encryption
           href: database-encryption-at-rest.md
         - name: Secure access to data
-          displayName: master key, resource token, users, roles
+          displayName: primary key, resource token, users, roles
           href: secure-access-to-data.md
         - name: IP firewall
           href: firewall-support.md
@@ -768,6 +772,8 @@
             href: ../dms/tutorial-mongodb-cosmos-db.md?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json
           - name: Post-migration guide
             href: mongodb-post-migration.md
+        - name: Upgrade from MongoDB 3.2 to 3.6
+          href: mongodb-version-upgrade.md
         - name: Get the connection string
           href: connect-mongodb-account.md
         - name: Connect using Studio 3T
@@ -944,7 +950,7 @@
             href: table-sdk-python.md
           - name: Table storage REST APIs
             href: /rest/api/storageservices/table-service-rest-api
-    - name: Etcd API
+    - name: etcd API
       items:
       - name: Overview
         items:
@@ -969,9 +975,11 @@
         displayName: ARM
       - name: Move between regions
         href: how-to-move-regions.md
+      - name: Prevent changes or deletion
+        href: resource-locks.md
     - name: Global distribution
       items:
-      - name: Configure multi-master
+      - name: Configure multi-region writes
         href: how-to-multi-master.md
       - name: Manage consistency levels
         displayName: session, consistency prefix, strong, eventual, bounded staleness
@@ -1058,6 +1066,8 @@
       items:
       - name: Migrate to Java V4 SDK
         href: migrate-java-v4-sdk.md
+      - name: Migrate to .NET V3 SDK
+        href: migrate-dotnet-v3.md
     - name: Troubleshooting
       items:
       - name: Common errors
@@ -1072,7 +1082,7 @@
           href: troubleshoot-not-found.md
         - name : Troubleshoot unauthorized
           href: troubleshoot-unauthorized.md
-        - name : SDK Availability in multiregional environments
+        - name : Availability issues in multiregional environments
           href: troubleshoot-sdk-availability.md
       - name: .NET
         items: 
@@ -1108,7 +1118,7 @@
         href: how-to-migrate-from-change-feed-library.md
       - name: Change feed - Async Java sample
         href: create-sql-api-java-changefeed.md
-    - name: Analytics with Azure Synapse Link
+    - name: Analytics and BI with Azure Synapse Link
       items:
       - name: Configure Azure Synapse Link
         href: configure-synapse-link.md
@@ -1116,6 +1126,10 @@
         href: ../synapse-analytics/synapse-link/how-to-connect-synapse-link-cosmos-db.md?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json
       - name: Query with Azure Synapse Spark
         href: ../synapse-analytics/synapse-link/how-to-query-analytical-store-spark.md?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json
+      - name: Query with Synapse SQL serverless
+        href: ../synapse-analytics/sql/query-cosmos-db-analytical-store.md?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json
+      - name: Use Power BI with Synapse Link
+        href: synapse-link-power-bi.md       
     - name: Built-in analytics with Apache Spark
       items:
       - name: Azure Databricks Spark connector
@@ -1198,12 +1212,16 @@
         href: monitor-cosmos-db-reference.md
       - name: Application logging with Logic Apps
         href: ../logic-apps/logic-apps-scenario-error-and-exception-handling.md?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json
-    - name: Develop locally
+    - name: Develop locally with emulator
       items:
-      - name: Use the emulator
+      - name: Install and use the emulator
         href: local-emulator.md
-      - name: Export certificates
+      - name: Export emulator certificates
         href: local-emulator-export-ssl-certificates.md
+      - name: Emulator command-line parameters
+        href: emulator-command-line-parameters.md
+      - name: Emulator troubleshooting
+        href: troubleshoot-local-emulator.md
       - name: Visual Studio Code extension
         href: https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-cosmosdb
     - name: Set up Azure DevOps CI/CD pipeline

@@ -27,7 +27,7 @@ Identity Protection provides organizations access to powerful resources to see a
 
 There are two types of risk **User** and **Sign-in** and two types of detection or calculation **Real-time** and **Offline**.
 
-Real-time detections may not show up in reporting for five to ten minutes. Offline detections may not show up in reporting for two to four hours.
+Real-time detections may not show up in reporting for five to ten minutes. Offline detections may not show up in reporting for two to twenty-four hours.
 
 ### User risk
 

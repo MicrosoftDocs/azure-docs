@@ -17,7 +17,7 @@ ms.date: 07/20/2020
 
 In this tutorial, you'll learn the basic steps to load and analyze data with Apache Spark for Azure Synapse.
 
-1. In the **Data** hub under **Linked**, right-click on **Azure Blob Storage > Sample Datasets > nyc_tlc_yellow** and select **SELECT New notebook**
+1. In the **Data** hub, click on **Add a new resource**(plus button above **Linked**) >> **Browse Samples**. Find **NYC Taxi & Limousine Commission - yellow taxi trip records** and click on it. On the bottom of the page press **Continue** and after that **Add dataset**. Now in **Data** hub under **Linked** select right-click on **Azure Blob Storage >> Sample Datasets >> nyc_tlc_yellow** and select **New notebook**
 1. This will create a new Notebook with the following code:
     ```
     from azureml.opendatasets import NycTlcYellow
@@ -116,6 +116,6 @@ df.write.sqlanalytics("SQLDB1.dbo.PassengerCountStats", Constants.INTERNAL )
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Analyze data in Storage](get-started-analyze-storage.md)
+> [Analyze data with SQL on-demand](get-started-analyze-sql-on-demand.md)
 
 

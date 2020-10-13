@@ -64,7 +64,7 @@ landingContent:
             url: regional-presence.md   
       - linkListType: how-to-guide
         links:
-          - text: Configure multi-master
+          - text: Configure multi-region writes
             url: how-to-multi-master.md
           - text: Configure consistency levels
             url: how-to-manage-consistency.md

@@ -39,9 +39,13 @@
     href: powershell-samples.md
 - name: Concepts
   items:
+  - name: Cross-region load balancer
+    href: cross-region-overview.md
+  - name: What's new?
+    href: whats-new.md
   - name: Components
     href: components.md
-  - name: Concepts
+  - name: Load balancing algorithm
     href: concepts.md
   - name: SKUs
     href: skus.md
@@ -59,19 +63,26 @@
     href: load-balancer-ha-ports-overview.md
   - name: Multiple frontends
     href: load-balancer-multivip-overview.md
-  - name: Outbound connections
+  - name: Outbound proxy
     href: load-balancer-outbound-connections.md
+  - name: TCP reset and TCP idle timeout
+  - name: Outbound rules
+    href: outbound-rules.md
   - name: TCP reset on idle timeout
     href: load-balancer-tcp-reset.md
   - name: Standard Load Balancer and Availability Zones
     href: load-balancer-standard-availability-zones.md
-  - name: Built-in security controls
-    href: load-balancer-security-controls.md
+  - name: Floating IP configuration
+    href: load-balancer-floating-ip.md
+  - name: Security
+    items: 
+    - name: Security baseline
+      href: security-baseline.md
   - name: Backend Pool management
     href: backend-pool-management.md
   - name: Standard Load Balancer and Virtual Machine Scale Sets
     href: load-balancer-standard-virtual-machine-scale-sets.md
-- name: How to
+- name: How-to
   items:
   - name: Portal settings
     href: manage.md

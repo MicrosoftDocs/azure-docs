@@ -13,7 +13,7 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 09/16/2020
+ms.date: 09/23/2020
 ms.author: b-juche
 ---
 # Cross-region replication of Azure NetApp Files volumes
@@ -40,6 +40,7 @@ Azure NetApp Files volume replication is currently available in the following fi
 * Japan East and Japan West
 * UK South and Germany West Central
 * Southeast Asia and Australia East
+* Central India and South India
 
 ## Service-level objectives
 

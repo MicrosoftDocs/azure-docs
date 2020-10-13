@@ -8,25 +8,25 @@
   expanded: true
   items:
   - name: .NET 
-    href: /azure/devops-project/azure-devops-project-aspnet-core
+    href: ./azure-devops-project-aspnet-core.md
     maintainContext: true
   - name: Node.js
-    href: /azure/devops-project/azure-devops-project-nodejs
+    href: ./azure-devops-project-nodejs.md
     maintainContext: true
   - name: Java
-    href: /azure/devops-project/azure-devops-project-java
+    href: ./azure-devops-project-java.md
     maintainContext: true
   - name: Python
-    href: /azure/devops-project/azure-devops-project-python
+    href: ./azure-devops-project-python.md
     maintainContext: true
   - name: PHP
-    href: /azure/devops-project/azure-devops-project-php
+    href: ./azure-devops-project-php.md
     maintainContext: true
   - name: Ruby
-    href: /azure/devops-project/azure-devops-project-ruby
+    href: ./azure-devops-project-ruby.md
     maintainContext: true
   - name: Go
-    href: /azure/devops-project/azure-devops-project-go
+    href: ./azure-devops-project-go.md
     maintainContext: true
 - name: Tutorials
   items:
@@ -51,4 +51,3 @@
   - name: 7- Deploy to Azure Functions
     href: azure-devops-project-functions.md
     maintainContext: true  
-    

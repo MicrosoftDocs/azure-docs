@@ -107,7 +107,7 @@ Organizations must complete the following steps in order to require the use of a
 1. Under **Assignments**, select **Users and groups**
    1. Under **Include**, select **All users** or the specific **Users and groups** you wish to apply this policy to. 
    1. Select **Done**.
-1. Under **Cloud apps or actions** > **Include**, select **Office 365 (preview)**.
+1. Under **Cloud apps or actions** > **Include**, select **Office 365**.
 1. Under **Conditions**, select **Device platforms**.
    1. Set **Configure** to **Yes**.
    1. Include **Android** and **iOS**.

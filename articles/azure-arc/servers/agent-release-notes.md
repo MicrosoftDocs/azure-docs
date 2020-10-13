@@ -1,13 +1,13 @@
 ---
-title: What's new with Azure Arc enabled servers (preview) agent
-description: This article has release notes for Azure Arc enabled servers (preview) agent. For many of the summarized issues, there are links to additional details.
+title: What's new with Azure Arc enabled servers agent
+description: This article has release notes for Azure Arc enabled servers agent. For many of the summarized issues, there are links to additional details.
 ms.topic: conceptual
-ms.date: 09/14/2020
+ms.date: 09/16/2020
 ---
 
-# What's new with Azure Arc enabled servers (preview) agent
+# What's new with Azure Arc enabled servers agent
 
-The Azure Arc enabled servers (preview) Connected Machine agent receives improvements on an ongoing basis. To stay up to date with the most recent developments, this article provides you with information about:
+The Azure Arc enabled servers Connected Machine agent receives improvements on an ongoing basis. To stay up to date with the most recent developments, this article provides you with information about:
 
 - The latest releases
 - Known issues
@@ -55,4 +55,4 @@ If you are using an older version of the Linux agent and configured it to use a 
 
 ## Next steps
 
-Before evaluating or enabling Arc enabled servers (preview) across multiple hybrid machines, review [Connected Machine agent overview](agent-overview.md) to understand requirements, technical details about the agent, and deployment methods.
+Before evaluating or enabling Arc enabled servers across multiple hybrid machines, review [Connected Machine agent overview](agent-overview.md) to understand requirements, technical details about the agent, and deployment methods.

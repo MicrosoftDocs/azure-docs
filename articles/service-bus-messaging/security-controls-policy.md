@@ -1,7 +1,7 @@
 ---
 title: Azure Policy Regulatory Compliance controls for Azure Service Bus Messaging
 description: Lists Azure Policy Regulatory Compliance controls available for Azure Service Bus Messaging. These built-in policy definitions provide common approaches to managing the compliance of your Azure resources.
-ms.date: 09/10/2020
+ms.date: 10/07/2020
 ms.topic: sample
 author: spelluru
 ms.author: spelluru

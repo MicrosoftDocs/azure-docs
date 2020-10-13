@@ -35,4 +35,4 @@ ms.author: victorh
 | Maximum WAF custom rules|100||
 | Maximum WAF exclusions|100||
 
-<sup>1</sup> In case of WAF-enabled SKUs, we recommend that you limit the number of resources to 40 for optimal performance.
+<sup>1</sup> In case of WAF-enabled SKUs, you must limit the number of resources to 40.

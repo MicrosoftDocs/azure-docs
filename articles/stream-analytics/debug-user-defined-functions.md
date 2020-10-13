@@ -7,7 +7,7 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 06/24/2020
-ms.custom: devx-track-javascript
+ms.custom: devx-track-js
 ---
 
 # Debug user-defined functions in Azure Stream Analytics 
@@ -42,7 +42,7 @@ Compilation happens when the Stream Analytics project is compiled or executed. T
 
 Because there's no debugging support for JavaScript functions in Stream Analytics directly, you can debug by encapsulating the function in an HTML site and getting the output from there.
 
-The following example shows you how to debug JavaScript UDFs with some limitations in an integrated runtime environment in [Visual Studio Code](quick-create-vs-code.md).
+The following example shows you how to debug JavaScript UDFs with some limitations in an integrated runtime environment in [Visual Studio Code](quick-create-visual-studio-code.md).
 
 ### Prerequisites
 

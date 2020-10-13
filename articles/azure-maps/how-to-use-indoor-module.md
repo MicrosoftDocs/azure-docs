@@ -4,11 +4,11 @@ description: Learn how to use the Microsoft Azure Maps Indoor Maps module to ren
 author: anastasia-ms
 ms.author: v-stharr
 ms.date: 07/20/2020
-ms.topic: conceptual
+ms.topic: how-to
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.custom: devx-track-javascript
+ms.custom: devx-track-js
 ---
 
 # Use the Azure Maps Indoor Maps module

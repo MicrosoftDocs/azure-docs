@@ -36,7 +36,7 @@ Azure Security Center provides Azure customers with the following features:
 
 The scope of resources monitored by Azure Security Center can be expanded to include supported on-premises resources in a hybrid-cloud environment. This includes on-premises resources currently being monitored by a supported version of System Center Operations Manager.
 
-The Security Center "Standard" tier also provides cloud-based security controls required by the [ASD Essential 8](https://acsc.gov.au/publications/protect/essential-eight-explained.htm). These include application whitelisting and restriction of administrative privilege via just-in-time access.
+The Security Center "Standard" tier also provides cloud-based security controls required by the [ASD Essential 8](https://acsc.gov.au/publications/protect/essential-eight-explained.htm). These include application filtering and restriction of administrative privilege via just-in-time access.
 
 ### Azure Monitor
 

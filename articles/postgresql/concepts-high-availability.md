@@ -1,8 +1,8 @@
 ---
 title: High availability - Azure Database for PostgreSQL - Single Server
 description: This article provides information on high availability in Azure Database for PostgreSQL - Single Server
-author: rachel-msft
-ms.author: raagyema
+author: sr-msft
+ms.author: srranga
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 6/15/2020
@@ -23,7 +23,7 @@ Azure Database for PostgreSQL is suitable for running mission critical databases
 ## Planned downtime mitigation
 Azure Database for PostgreSQL is architected to provide high availability during planned downtime operations. 
 
-![view of Elastic Scaling in Azure PostgreSQL](./media/concepts-high-availability/azure-postgresql-elastic-scaling.png)
+:::image type="content" source="./media/concepts-high-availability/azure-postgresql-elastic-scaling.png" alt-text="view of Elastic Scaling in Azure PostgreSQL":::
 
 1. Scale up and down PostgreSQL database servers in seconds
 2. Gateway that acts as a proxy to route client connects to the proper database server
@@ -43,7 +43,7 @@ Here are some planned maintenance scenarios:
 Unplanned downtime can occur as a result of unforeseen failures, including underlying hardware fault, networking issues, and software bugs. If the database server goes down unexpectedly, a new database server is automatically provisioned in seconds. The remote storage is automatically attached to the new database server. PostgreSQL engine performs the recovery operation using WAL and database files, and opens up the database server to allow clients to connect. Uncommitted transactions are lost, and they have to be retried by the application. While an unplanned downtime cannot be avoided, Azure Database for PostgreSQL mitigates the downtime by automatically performing recovery operations at both database server and storage layers without requiring human intervention. 
 
 
-![view of High Availability in Azure PostgreSQL](./media/concepts-high-availability/azure-postgresql-built-in-high-availability.png)
+:::image type="content" source="./media/concepts-high-availability/azure-postgresql-built-in-high-availability.png" alt-text="view of High Availability in Azure PostgreSQL":::
 
 1. Azure PostgreSQL servers with fast-scaling capabilities.
 2. Gateway that acts as a proxy to route client connections to the proper database server

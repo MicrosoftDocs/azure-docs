@@ -1,7 +1,7 @@
 ---
 title: Cross-tenant management experiences
 description: Azure delegated resource management enables a cross-tenant management experience.
-ms.date: 09/10/2020
+ms.date: 10/12/2020
 ms.topic: conceptual
 ---
 
@@ -30,10 +30,12 @@ You can perform management tasks on delegated resources either directly in the p
 
 The Azure PowerShell [Get-AzSubscription cmdlet](/powershell/module/Az.Accounts/Get-AzSubscription) shows the `HomeTenantId` and `ManagedByTenantIds` attributes for each subscription, allowing you to identify whether a returned subscription belongs to a managed tenant or to your managing tenant.
 
-Similarly, Azure CLI commands such as [az account list](/cli/azure/account#az-account-list) show the `homeTenantId` and `managedByTenants` attributes.
+Similarly, Azure CLI commands such as [az account list](/cli/azure/account#az-account-list) show the `homeTenantId` and `managedByTenants` attributes. If you don't see these values when using Azure CLI, try clearing your cache by running `az account clear` followed by `az login --identity`.
 
-> [!TIP]
-> If you don't see these values when using Azure CLI, try clearing your cache by running `az account clear` followed by `az login --identity`.
+In the Azure REST API, the [Subscriptions - Get](/rest/api/resources/subscriptions/get) and [Subscriptions - List](/rest/api/resources/subscriptions/list) commands include `ManagedByTenant`.
+
+> [!NOTE]
+> In addition to tenant information related to Azure Lighthouse, tenants shown by these APIs may also reflect partner tenants for Azure Databricks or Azure managed applications.
 
 We also provide APIs that are specific to performing Azure Lighthouse tasks. For more info, see the **Reference** section.
 
@@ -43,7 +45,7 @@ Most tasks and services can be performed on delegated resources across managed t
 
 [Azure Arc](../../azure-arc/index.yml):
 
-- Manage hybrid servers at scale - [Azure Arc enabled servers (preview)](../../azure-arc/servers/overview.md):
+- Manage hybrid servers at scale - [Azure Arc enabled servers](../../azure-arc/servers/overview.md):
   - [Manage Windows Server or Linux machines outside Azure that are connected](../../azure-arc/servers/onboard-portal.md) to delegated subscriptions and/or resource groups in Azure
   - Manage connected machines using Azure constructs, such as Azure Policy and tagging
   - Ensure the same set of policies are applied across customers' hybrid environments
@@ -115,6 +117,7 @@ Most tasks and services can be performed on delegated resources across managed t
   - Harden network security group configuration with Adaptive Network Hardening
   - Ensure servers are running only the applications and processes they should be with adaptive application controls
   - Monitor changes to important files and registry entries with File Integrity Monitoring (FIM)
+- Note that the entire subscription must be delegated to the managing tenant; Azure Security Center scenarios are not supported with delegated resource groups
 
 [Azure Sentinel](../../sentinel/multiple-tenants-service-providers.md):
 

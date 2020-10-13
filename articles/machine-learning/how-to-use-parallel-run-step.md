@@ -14,7 +14,7 @@ ms.custom: Build2020, devx-track-python
 ---
 
 # Run batch inference on large amounts of data by using Azure Machine Learning
-[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
+
 
 This article shows you how to run your Azure Machine Learning model in parallel, quickly evaluating large amounts of data. 
 

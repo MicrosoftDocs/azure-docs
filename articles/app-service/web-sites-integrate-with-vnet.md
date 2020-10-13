@@ -49,6 +49,10 @@ Apps in App Service are hosted on worker roles. The Basic and higher pricing pla
 
 When regional VNet Integration is enabled, your app makes outbound calls to the internet through the same channels as normal. The outbound addresses that are listed in the app properties portal are the addresses still used by your app. What changes for your app are the calls to service endpoint secured services, or RFC 1918 addresses go into your VNet. If WEBSITE_VNET_ROUTE_ALL is set to 1, all outbound traffic can be sent into your VNet.
 
+> [!NOTE]
+> `WEBSITE_VNET_ROUTE_ALL` is currently not supported in Windows containers.
+> 
+
 The feature supports only one virtual interface per worker. One virtual interface per worker means one regional VNet Integration per App Service plan. All of the apps in the same App Service plan can use the same VNet Integration. If you need an app to connect to an additional VNet, you need to create another App Service plan. The virtual interface used isn't a resource that customers have direct access to.
 
 Because of the nature of how this technology operates, the traffic that's used with VNet Integration doesn't show up in Azure Network Watcher or NSG flow logs.
@@ -67,7 +71,8 @@ Gateway-required VNet Integration supports connecting to a VNet in another regio
 You can't use gateway-required VNet Integration:
 
 * With a VNet connected with Azure ExpressRoute.
-* From a Linux app
+* From a Linux app.
+* From a [Windows container](quickstart-custom-container.md).
 * To access service endpoint secured resources.
 * With a coexistence gateway that supports both ExpressRoute and point-to-site or site-to-site VPNs.
 
@@ -134,11 +139,15 @@ The regional VNet Integration feature has no additional charge for use beyond th
 
 Three charges are related to the use of the gateway-required VNet Integration feature:
 
-* **App Service plan pricing tier charges**: Your apps need to be in a Standard, Premium, or PremiumV2 App Service plan. For more information on those costs, see [App Service pricing][ASPricing].
+* **App Service plan pricing tier charges**: Your apps need to be in a Standard, Premium, PremiumV2, or PremiumV3 App Service plan. For more information on those costs, see [App Service pricing][ASPricing].
 * **Data transfer costs**: There's a charge for data egress, even if the VNet is in the same datacenter. Those charges are described in [Data Transfer pricing details][DataPricing].
 * **VPN gateway costs**: There's a cost to the virtual network gateway that's required for the point-to-site VPN. For more information, see [VPN gateway pricing][VNETPricing].
 
 ## Troubleshooting
+
+> [!NOTE]
+> VNET integration is not supported for Docker Compose scenarios in App Service.
+>
 
 [!INCLUDE [app-service-web-vnet-troubleshooting](../../includes/app-service-web-vnet-troubleshooting.md)]
 
@@ -168,7 +177,7 @@ Commands:
     list : List the virtual network integrations used in an appservice plan.
 ```
 
-Powershell support for regional VNet integration is available too, but you must create generic resource with a property array of the subnet resourceID
+PowerShell support for regional VNet integration is available too, but you must create generic resource with a property array of the subnet resourceID
 
 ```azurepowershell
 # Parameters

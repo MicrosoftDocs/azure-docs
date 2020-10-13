@@ -10,6 +10,9 @@ ms.custom: devx-track-java
 ---
 
 # Stream Azure Spring Cloud app logs in real-time
+
+**This article applies to:** ✔️ Java ✔️ C#
+
 Azure Spring Cloud enables log streaming in Azure CLI to get real-time application console logs for troubleshooting. You can also [Analyze logs and metrics with diagnostics settings](./diagnostic-services.md).
 
 ## Prerequisites

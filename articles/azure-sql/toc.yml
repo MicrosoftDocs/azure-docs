@@ -41,6 +41,8 @@
       href: database/scale-resources.md
     - name: Read Scale-Out
       href: database/read-scale-out.md
+    - name: Distributed transactions
+      href: database/elastic-transactions-overview.md
     - name: Security
       items:
       - name: Overview
@@ -55,8 +57,8 @@
         href: database/security-baseline.md
       - name: Security attributes
         href: database/security-controls.md
-      - name: Advanced Data Security
-        href: database/advanced-data-security.md
+      - name: Azure Defender for SQL
+        href: database/azure-defender-for-sql.md
       - name: Advanced Threat Protection
         href: database/threat-detection-overview.md
       - name: Data discovery and classification
@@ -94,7 +96,7 @@
           href: database/transparent-data-encryption-tde-overview.md
         - name: Bring Your Own Key (BYOK)
           href: database/transparent-data-encryption-byok-overview.md
-        
+
     - name: Business continuity
       displayName: Backup, back up, restore, recovery
       items:
@@ -527,12 +529,9 @@
         href: database/database-copy.md
       - name: Replicate to SQL Database
         href: database/replication-to-sql-database.md
-      - name: SQL Data Sync
-        items: 
-        - name: Replicate schema changes
-          href: database/sql-data-sync-update-sync-schema.md
-        - name: Monitor with OMS
-          href: database/sql-data-sync-monitor-sync.md
+      - name: Replicate schema changes (Data sync)
+        href: database/sql-data-sync-update-sync-schema.md
+
 
     - name: Database sharding
       items:
@@ -750,6 +749,10 @@
       items:
       - name: Overview
         href: managed-instance/management-operations-overview.md
+      - name: Monitor operations
+        href: managed-instance/management-operations-monitor.md
+      - name: Cancel operations
+        href: managed-instance/management-operations-cancel.md
       - name: API reference
         href: managed-instance/api-references-create-manage-instance.md
     - name: Machine Learning Services
@@ -901,6 +904,8 @@
         href: managed-instance/public-endpoint-overview.md
       - name: Auditing
         href: managed-instance/auditing-configure.md
+      - name: Server trust groups
+        href: managed-instance/server-trust-group-overview.md
 
   - name: How to
     items:
@@ -1035,6 +1040,8 @@
         - name: Register with SQL VM RP
           displayName: resource provider, registration
           items:
+          - name: Automatic registration
+            href: virtual-machines/windows/sql-vm-resource-provider-automatic-registration.md
           - name: Single VM
             href: virtual-machines/windows/sql-vm-resource-provider-register.md
           - name: Bulk register multiple VMs
@@ -1253,6 +1260,8 @@
       href: database/database-import-export-hang.md
   - name: Service updates
     items:
+    - name: SSL root certificate expiring
+      href: updates/ssl-root-certificate-expiring.md
     - name: Gateway IP address updates
       href: database/gateway-migration.md
     - name: Periodic maintenance events
