@@ -18,7 +18,7 @@ ms.custom: troubleshooting,contperfq4
 
 In this article, you learn about limits on Azure resources related to your [Azure Machine Learning](overview-what-is-azure-ml.md) subscription. Limits are put in place to prevent budget over-runs due to fraud, and to honor Azure capacity constraints. 
 
-Consider these limits as you design and scale for production workloads. Some limits can be raised up to a Maximum Limit. If no maximum limit is specified, the limit cannot be raised.
+Consider these limits as you scale for production workloads. Some limits can be raised up to a Maximum Limit. If no maximum limit is specified, the limit cannot be raised.
 
 Along with managing quotas, you can also learn how to [plan & manage costs for Azure Machine Learning](concept-plan-manage-cost.md).
 
@@ -27,7 +27,7 @@ Along with managing quotas, you can also learn how to [plan & manage costs for A
 + A quota is a credit limit, not a capacity guarantee. If you have large-scale capacity needs, [contact Azure support to increase your quota](#request-quota-increases).
 
 + Quota is shared across all the services in your subscriptions, including Azure Machine Learning. Calculate usage across all services when evaluating capacity needs.
-    + Azure Machine Learning Compute is an exception, which has a separate quota from the core compute quota. 
+    + Azure Machine Learning Compute is an exception, and has a separate quota from the core compute quota. 
 
 + Default limits vary by offer Category Type, such as Free Trial, Pay-As-You-Go, and virtual machine (VM) series, such as Dv2, F, G, and so on.
 
@@ -95,14 +95,14 @@ For more information, see [Container Instances limits](https://docs.microsoft.co
 ### Storage
 There's a limit of 250 storage accounts per region, per subscription. This includes both Standard and Premium Storage accounts.
 
-To increase the limit, make a request through [Azure Support](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest/).The Azure Storage team will review your case and may approve up to 250 storage accounts for a region.
+To increase the limit, make a request through [Azure Support](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest/). The Azure Storage team will review your case and may approve up to 250 storage accounts for a region.
 
 
 ## Workspace level quota
 
 Use workspace level quotas to manage Azure Machine Learning Compute target allocation between multiple [workspaces](concept-workspace.md) in the same subscription.
 
-By default, all workspaces share the same quota as the subscription level quota for VM families. However, you can set a maximum quota for individual VM families on individual workspaces in a shared subscription. This lets you share capacity and avoid resource contention issues:
+By default, all workspaces share the same quota as the subscription level quota for VM families. However, you can set a maximum quota for individual VM families on workspaces in a subscription. This lets you share capacity and avoid resource contention issues:
 
 1. Navigate to any workspace in your subscription.
 1. In the left pane, select **Usages + quotas**.
@@ -119,18 +119,15 @@ You cannot set a negative value or a value higher than the subscription level qu
 
 ## View your usage and quotas
 
-Azure Machine Learning Compute quota on your subscription is managed separately from other Azure resources quota. To view this quota, you need to drill down into Machine Learning services.  
+The Azure Machine Learning Compute quota on your subscription is managed separately from other Azure quotas. 
 
-1. On the left pane, select **Machine Learning service** and then select any workspace from the list shown.
+1. Navigate to your **Azure Machine Learning** workspace in the Azure portal.
 
-2. On the next blade, under the **Support + troubleshooting section** select **Usage + quotas** to view your current quota limits and usage.
+2. In the left pane, under the **Support + troubleshooting section** select **Usage + quotas** to view your current quota limits and usage.
 
 3. Select a subscription to view the quota limits. Remember to filter to the region you are interested in.
 
-4. You can now toggle between a subscription level view and a workspace level view:
-    + **Subscription view:** This allows you to view your usage of core quota by VM family, expanding it by workspace, and further expanding it by the actual cluster names. This view is optimal for quickly getting into the details of core usage for a particular VM family to see the break-up by workspaces and further by the underlying clusters for each of those workspaces. The general convention in this view is (usage/quota), where the usage is the current number of scaled up cores, and quota is the logical maximum number of cores that the resource can scale to. For each **workspace**, the quota would be the workspace level quota (as explained above) which denotes the maximum number of cores that you can scale to for a particular VM family. For a **cluster** similarly, the quota is actually the cores corresponding to the maximum number of nodes that the cluster can scale to defined by the max_nodes property.
-    
-    + **Workspace view:** This allows you to view your usage of core quota by Workspace, expanding it by VM family, and further expanding it by the actual cluster names. This view is optimal for quickly getting into the details of core usage for a particular workspace to see the break-up by VM families and further by the underlying clusters for each of those families.
+4. You can toggle between a subscription level view and a workspace level views.
 
 Viewing your quota for various other Azure resources, such as Virtual Machines, Storage, Network, is easy through the Azure portal.
 
@@ -142,11 +139,11 @@ Viewing your quota for various other Azure resources, such as Virtual Machines, 
 
 ## Request quota increases
 
-If you want to raise the limit or quota above the default limit, [open an online customer support request](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest/) at no charge.
+To raise the limit or quota above the default limit, [open an online customer support request](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest/) at no charge.
 
-The limits can't be raised above the maximum limit value shown in the tables. If there is no maximum limit, then the resource doesn't have adjustable limits. [See step by step instructions on how to increase your quota](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-quota-errors).
+The limits can't be raised above the maximum limit value shown in the tables. If there is no maximum limit, then you cannot adjust the limit for the resource.
 
-When requesting a quota increase, you need to select the service you are requesting to raise the quota against, which could be services such as Machine Learning service quota, Container instances or Storage quota. In addition for Azure Machine Learning Compute, you can click on the **Request Quota** button while viewing the quota following the steps above.
+When requesting a quota increase, select the service you are requesting to raise the quota against, which could be services such as Azure Machine Learning quota, Container instances, or Storage quota. In addition for Azure Machine Learning Compute, you can click on the **Request Quota** button while viewing the quota following the steps above.
 
 > [!NOTE]
 > [Free Trial subscriptions](https://azure.microsoft.com/offers/ms-azr-0044p) are not eligible for limit or quota increases. If you have a [Free Trial subscription](https://azure.microsoft.com/offers/ms-azr-0044p), you can upgrade to a [Pay-As-You-Go](https://azure.microsoft.com/offers/ms-azr-0003p/) subscription. For more information, see [Upgrade Azure Free Trial to Pay-As-You-Go](../billing/billing-upgrade-azure-subscription.md) and  [Free Trial subscription FAQ](https://azure.microsoft.com/free/free-account-faq).
