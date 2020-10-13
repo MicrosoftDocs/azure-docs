@@ -49,6 +49,6 @@ For specific SDK platform performance optimizations:
 
 * [.NET V2 SDK performance tips](performance-tips.md)
 
-* [.NET V3 SDK performance tips](performance-tips-dotnet-sdk-v3.md)
+* [.NET V3 SDK performance tips](performance-tips-dotnet-sdk-v3-sql.md)
  
 * [Java V4 SDK performance tips](performance-tips-java-sdk-v4-sql.md)
