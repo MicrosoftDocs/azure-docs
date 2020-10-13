@@ -43,9 +43,130 @@ file](https://github.com/MicrosoftDocs/SecurityBenchmarks/tree/master/Azure%20Of
 
 **Responsibility**: Shared
 
+### 1.2: Monitor and log the configuration and traffic of virtual networks, subnets, and NICs
+
+>[!NOTE]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/31987.).
+
+**Guidance**: Not applicable; Azure Resource Manager is the deployment and management service for Azure. It is a core Azure offering and its underlying infrastructure, including networking, is fully managed by Microsoft.
+
+**Azure Security Center monitoring**: Not applicable
+
+**Responsibility**: Not applicable
+
+### 1.3: Protect critical web applications
+
+>[!NOTE]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/31988.).
+
+**Guidance**: Not applicable; this recommendation is intended for web applications running on Azure App Service or compute resources.
+
+**Azure Security Center monitoring**: Not applicable
+
+**Responsibility**: Not applicable
+
+### 1.4: Deny communications with known malicious IP addresses
+
+>[!NOTE]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/31989.).
+
+**Guidance**: Not applicable; Azure Resource Manager is the deployment and management service for Azure. It is a core Azure offering and its underlying infrastructure, including networking, is fully managed by Microsoft.
+
+**Azure Security Center monitoring**: Not applicable
+
+**Responsibility**: Not applicable
+
+### 1.5: Record network packets
+
+>[!NOTE]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/31990.).
+
+**Guidance**: Not applicable; Azure Resource Manager is the deployment and management service for Azure. It is a core Azure offering and its underlying infrastructure, including networking, is fully managed by Microsoft.
+
+**Azure Security Center monitoring**: Not applicable
+
+**Responsibility**: Not applicable
+
+### 1.6: Deploy network-based intrusion detection/intrusion prevention systems (IDS/IPS)
+
+>[!NOTE]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/31991.).
+
+**Guidance**: Not applicable; Azure Resource Manager is the deployment and management service for Azure. It is a core Azure offering and its underlying infrastructure, including networking, is fully managed by Microsoft.
+
+**Azure Security Center monitoring**: Not applicable
+
+**Responsibility**: Not applicable
+
+### 1.7: Manage traffic to web applications
+
+>[!NOTE]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/31992.).
+
+**Guidance**: Not applicable; this recommendation is intended for web applications running on Azure App Service or compute resources.
+
+**Azure Security Center monitoring**: Not applicable
+
+**Responsibility**: Not applicable
+
+### 1.8: Minimize complexity and administrative overhead of network security rules
+
+>[!NOTE]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/31993.).
+
+**Guidance**: Not applicable; Azure Resource Manager is the deployment and management service for Azure. It is a core Azure offering and its underlying infrastructure, including networking, is fully managed by Microsoft.
+
+**Azure Security Center monitoring**: Not applicable
+
+**Responsibility**: Not applicable
+
+### 1.9: Maintain standard security configurations for network devices
+
+>[!NOTE]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/31994.).
+
+**Guidance**: Not applicable; Azure Resource Manager is the deployment and management service for Azure. It is a core Azure offering and its underlying infrastructure, including networking, is fully managed by Microsoft.
+
+**Azure Security Center monitoring**: Not applicable
+
+**Responsibility**: Not applicable
+
+### 1.10: Document traffic configuration rules
+
+>[!NOTE]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/31995.).
+
+**Guidance**: Not applicable; Azure Resource Manager is the deployment and management service for Azure. It is a core Azure offering and its underlying infrastructure, including networking, is fully managed by Microsoft.
+
+**Azure Security Center monitoring**: Not applicable
+
+**Responsibility**: Not applicable
+
+### 1.11: Use automated tools to monitor network resource configurations and detect changes
+
+>[!NOTE]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/31996.).
+
+**Guidance**: Not applicable; Azure Resource Manager is the deployment and management service for Azure. It is a core Azure offering and its underlying infrastructure, including networking, is fully managed by Microsoft.
+
+**Azure Security Center monitoring**: Not applicable
+
+**Responsibility**: Not applicable
+
 ## Logging and monitoring
 
 *For more information, see the [Azure Security Benchmark: Logging and monitoring](../security/benchmarks/security-control-logging-monitoring.md).*
+
+### 2.1: Use approved time synchronization sources
+
+>[!NOTE]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/31997.).
+
+**Guidance**: Not applicable; Microsoft maintains the time source used for Azure resources, such as Azure Resource Manager, for timestamps in the logs.
+
+**Azure Security Center monitoring**: Not applicable
+
+**Responsibility**: Microsoft
 
 ### 2.2: Configure central security log management
 
@@ -80,6 +201,17 @@ file](https://github.com/MicrosoftDocs/SecurityBenchmarks/tree/master/Azure%20Of
 **Azure Security Center monitoring**: Not applicable
 
 **Responsibility**: Customer
+
+### 2.4: Collect security logs from operating systems
+
+>[!NOTE]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32000.).
+
+**Guidance**: Not applicable; this recommendation is intended for compute resources.
+
+**Azure Security Center monitoring**: Not applicable
+
+**Responsibility**: Not applicable
 
 ### 2.5: Configure security log storage retention
 
@@ -125,6 +257,39 @@ file](https://github.com/MicrosoftDocs/SecurityBenchmarks/tree/master/Azure%20Of
 **Azure Security Center monitoring**: Not applicable
 
 **Responsibility**: Customer
+
+### 2.8: Centralize anti-malware logging
+
+>[!NOTE]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32004.).
+
+**Guidance**: Not applicable; Azure Resource Manager does not produce anti-malware related logs.
+
+**Azure Security Center monitoring**: Not applicable
+
+**Responsibility**: Not applicable
+
+### 2.9: Enable DNS query logging
+
+>[!NOTE]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32005.).
+
+**Guidance**: Not applicable; Azure Resource Manager does not produce DNS query logs.
+
+**Azure Security Center monitoring**: Not applicable
+
+**Responsibility**: Not applicable
+
+### 2.10: Enable command-line audit logging
+
+>[!NOTE]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32006.).
+
+**Guidance**: Not applicable; this recommendation is intended for compute resources.
+
+**Azure Security Center monitoring**: Not applicable
+
+**Responsibility**: Not applicable
 
 ## Identity and access control
 
@@ -314,6 +479,17 @@ You can streamline this process by creating diagnostic settings for Azure AD use
 
 **Responsibility**: Customer
 
+### 3.13: Provide Microsoft with access to relevant customer data during support scenarios
+
+>[!NOTE]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32019.).
+
+**Guidance**: Not applicable; Azure Resource Manager does not store customer data.
+
+**Azure Security Center monitoring**: Not applicable
+
+**Responsibility**: Not applicable
+
 ## Data protection
 
 *For more information, see the [Azure Security Benchmark: Data protection](../security/benchmarks/security-control-data-protection.md).*
@@ -331,6 +507,54 @@ You can streamline this process by creating diagnostic settings for Azure AD use
 
 **Responsibility**: Customer
 
+### 4.2: Isolate systems storing or processing sensitive information
+
+>[!NOTE]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32021.).
+
+**Guidance**: Not applicable; Azure Resource Manager provides a management layer that enables you to create, update, and delete resources in your Azure account. There is no public endpoint to protect or isolate.
+
+**Azure Security Center monitoring**: Not applicable
+
+**Responsibility**: Not applicable
+
+### 4.3: Monitor and block unauthorized transfer of sensitive information
+
+>[!NOTE]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32022.).
+
+**Guidance**: Microsoft manages the underlying infrastructure for Azure Resource Manager and has implemented strict controls to prevent the loss or exposure of customer data.
+
+- [Understand customer data protection in Azure](../security/fundamentals/protection-customer-data.md)
+
+**Azure Security Center monitoring**: Not applicable
+
+**Responsibility**: Microsoft
+
+### 4.4: Encrypt all sensitive information in transit
+
+>[!NOTE]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32023.).
+
+**Guidance**: Microsoft uses HTTPS/TLS to protect data in transit for Azure Resource Manager (such as ExpressRoute encryption, in VNet encryption, and VNet-VNet encryption).
+
+- [Understand data protection in Azure Resource Manager](management/azure-resource-manager-security-controls.md#data-protection)
+
+**Azure Security Center monitoring**: Not applicable
+
+**Responsibility**: Microsoft
+
+### 4.5: Use an active discovery tool to identify sensitive data
+
+>[!NOTE]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32024.).
+
+**Guidance**: Not applicable; Azure Resource Manager does not store customer data.
+
+**Azure Security Center monitoring**: Not applicable
+
+**Responsibility**: Not applicable
+
 ### 4.6: Use Azure RBAC to manage access to resources
 
 >[!NOTE]
@@ -343,6 +567,19 @@ You can streamline this process by creating diagnostic settings for Azure AD use
 **Azure Security Center monitoring**: Not applicable
 
 **Responsibility**: Customer
+
+### 4.7: Use host-based data loss prevention to enforce access control
+
+>[!NOTE]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32026.).
+
+**Guidance**: Not applicable; this recommendation is intended for compute resources. Microsoft manages the underlying infrastructure for Azure Resource Manager and has implemented strict controls to prevent the loss or exposure of customer data.
+
+- [Azure customer data protection](../security/fundamentals/protection-customer-data.md)
+
+**Azure Security Center monitoring**: Not applicable
+
+**Responsibility**: Not applicable
 
 ### 4.8: Encrypt sensitive information at rest
 
@@ -369,6 +606,65 @@ You can streamline this process by creating diagnostic settings for Azure AD use
 **Azure Security Center monitoring**: Yes
 
 **Responsibility**: Customer
+
+## Vulnerability management
+
+*For more information, see the [Azure Security Benchmark: Vulnerability management](../security/benchmarks/security-control-vulnerability-management.md).*
+
+### 5.1: Run automated vulnerability scanning tools
+
+>[!NOTE]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32029.).
+
+**Guidance**: Not applicable; Microsoft performs vulnerability management on the underlying systems that support Azure Resource Manager.
+
+**Azure Security Center monitoring**: Not applicable
+
+**Responsibility**: Not applicable
+
+### 5.2: Deploy automated operating system patch management solution
+
+>[!NOTE]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32030.).
+
+**Guidance**: Not applicable; this recommendation is intended for compute resources.
+
+**Azure Security Center monitoring**: Not applicable
+
+**Responsibility**: Not applicable
+
+### 5.3: Deploy an automated patch management solution for third-party software titles
+
+>[!NOTE]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32031.).
+
+**Guidance**: Not applicable; this recommendation is intended for compute resources.
+
+**Azure Security Center monitoring**: Not applicable
+
+**Responsibility**: Not applicable
+
+### 5.4: Compare back-to-back vulnerability scans
+
+>[!NOTE]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32032.).
+
+**Guidance**: Not applicable; Microsoft performs vulnerability management on the underlying systems that support Azure Resource Manager.
+
+**Azure Security Center monitoring**: Not applicable
+
+**Responsibility**: Not applicable
+
+### 5.5: Use a risk-rating process to prioritize the remediation of discovered vulnerabilities
+
+>[!NOTE]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32033.).
+
+**Guidance**: Not applicable; Microsoft performs discovered management on the underlying systems that support Azure Resource Manager.
+
+**Azure Security Center monitoring**: Not applicable
+
+**Responsibility**: Not applicable
 
 ## Inventory and asset management
 
@@ -456,6 +752,39 @@ Use Azure Resource Graph to query for and discover resources within their subscr
 
 **Responsibility**: Customer
 
+### 6.6: Monitor for unapproved software applications within compute resources
+
+>[!NOTE]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32039.).
+
+**Guidance**: Not applicable; this recommendation is intended for compute resources.
+
+**Azure Security Center monitoring**: Not applicable
+
+**Responsibility**: Not applicable
+
+### 6.7: Remove unapproved Azure resources and software applications
+
+>[!NOTE]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32040.).
+
+**Guidance**: Not applicable; this recommendation is intended for compute resources.
+
+**Azure Security Center monitoring**: Not applicable
+
+**Responsibility**: Not applicable
+
+### 6.8: Use only approved applications
+
+>[!NOTE]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32041.).
+
+**Guidance**: Not applicable; this recommendation is intended for compute resources.
+
+**Azure Security Center monitoring**: Not applicable
+
+**Responsibility**: Not applicable
+
 ### 6.9: Use only approved Azure services
 
 >[!NOTE]
@@ -473,6 +802,17 @@ Use Azure Resource Graph to query for and discover resources within their subscr
 **Azure Security Center monitoring**: Not applicable
 
 **Responsibility**: Customer
+
+### 6.10: Maintain an inventory of approved software titles
+
+>[!NOTE]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32043.).
+
+**Guidance**: Not applicable; this recommendation is intended for compute resources.
+
+**Azure Security Center monitoring**: Not applicable
+
+**Responsibility**: Not applicable
 
 ### 6.11: Limit users' ability to interact with Azure Resource Manager
 
@@ -497,6 +837,17 @@ Use Azure Resource Graph to query for and discover resources within their subscr
 **Azure Security Center monitoring**: Not applicable
 
 **Responsibility**: Customer
+
+### 6.13: Physically or logically segregate high risk applications
+
+>[!NOTE]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32046.).
+
+**Guidance**: Not applicable; this recommendation is intended for web applications running on Azure App Service or compute resources.
+
+**Azure Security Center monitoring**: Not applicable
+
+**Responsibility**: Not applicable
 
 ## Secure configuration
 
@@ -525,6 +876,17 @@ You can also use the recommendations from Azure Security Center as a secure conf
 
 **Responsibility**: Customer
 
+### 7.2: Establish secure operating system configurations
+
+>[!NOTE]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32048.).
+
+**Guidance**: Not applicable; this guideline is intended for compute resources.
+
+**Azure Security Center monitoring**: Not applicable
+
+**Responsibility**: Not applicable
+
 ### 7.3: Maintain secure Azure resource configurations
 
 >[!NOTE]
@@ -546,6 +908,17 @@ Additionally, as an administrator, you may need to lock a subscription, resource
 
 **Responsibility**: Customer
 
+### 7.4: Maintain secure operating system configurations
+
+>[!NOTE]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32050.).
+
+**Guidance**: Not applicable; this guideline is intended for compute resources.
+
+**Azure Security Center monitoring**: Not applicable
+
+**Responsibility**: Not applicable
+
 ### 7.5: Securely store configuration of Azure resources
 
 >[!NOTE]
@@ -560,6 +933,17 @@ Additionally, as an administrator, you may need to lock a subscription, resource
 **Azure Security Center monitoring**: Not applicable
 
 **Responsibility**: Customer
+
+### 7.6: Securely store custom operating system images
+
+>[!NOTE]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32052.).
+
+**Guidance**: Not applicable; this guideline is intended for compute resources.
+
+**Azure Security Center monitoring**: Not applicable
+
+**Responsibility**: Not applicable
 
 ### 7.7: Deploy configuration management tools for Azure resources
 
@@ -576,6 +960,17 @@ Additionally, as an administrator, you may need to lock a subscription, resource
 
 **Responsibility**: Customer
 
+### 7.8: Deploy configuration management tools for operating systems
+
+>[!NOTE]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32054.).
+
+**Guidance**: Not applicable; this guideline is intended for compute resources.
+
+**Azure Security Center monitoring**: Not applicable
+
+**Responsibility**: Not applicable
+
 ### 7.9: Implement automated configuration monitoring for Azure resources
 
 >[!NOTE]
@@ -588,6 +983,39 @@ Additionally, as an administrator, you may need to lock a subscription, resource
 **Azure Security Center monitoring**: Not applicable
 
 **Responsibility**: Customer
+
+### 7.10: Implement automated configuration monitoring for operating systems
+
+>[!NOTE]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32056.).
+
+**Guidance**: Not applicable; this guideline is intended for compute resources.
+
+**Azure Security Center monitoring**: Not applicable
+
+**Responsibility**: Not applicable
+
+### 7.11: Manage Azure secrets securely
+
+>[!NOTE]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32057.).
+
+**Guidance**: Not applicable, ARM doesn't support customer managed keys or persist customer data.
+
+**Azure Security Center monitoring**: Not applicable
+
+**Responsibility**: Not applicable
+
+### 7.12: Manage identities securely and automatically
+
+>[!NOTE]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32058.).
+
+**Guidance**: Not applicable, ARM doesn't support customer managed keys or persist customer data.
+
+**Azure Security Center monitoring**: Not applicable
+
+**Responsibility**: Not applicable
 
 ### 7.13: Eliminate unintended credential exposure
 
@@ -606,6 +1034,17 @@ Additionally, as an administrator, you may need to lock a subscription, resource
 
 *For more information, see the [Azure Security Benchmark: Malware defense](../security/benchmarks/security-control-malware-defense.md).*
 
+### 8.1: Use centrally managed antimalware software
+
+>[!NOTE]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32060.).
+
+**Guidance**: Not applicable; this recommendation is intended for compute resources. Microsoft Anti-malware is enabled on the underlying host that supports Azure services (for example, Azure Resource Manager), however it does not run on customer content.
+
+**Azure Security Center monitoring**: Not applicable
+
+**Responsibility**: Not applicable
+
 ### 8.2: Pre-scan files to be uploaded to non-compute Azure resources
 
 >[!NOTE]
@@ -618,6 +1057,87 @@ It is your responsibility to pre-scan any content being uploaded to non-compute 
 **Azure Security Center monitoring**: Not applicable
 
 **Responsibility**: Customer
+
+### 8.3: Ensure antimalware software and signatures are updated
+
+>[!NOTE]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32062.).
+
+**Guidance**: Not applicable; this recommendation is intended for compute resources. Microsoft Anti-malware is enabled on the underlying host that supports Azure services, however it does not run on customer content.
+
+**Azure Security Center monitoring**: Not applicable
+
+**Responsibility**: Not applicable
+
+## Data recovery
+
+*For more information, see the [Azure Security Benchmark: Data recovery](../security/benchmarks/security-control-data-recovery.md).*
+
+### 9.1: Ensure regular automated back ups
+
+>[!NOTE]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32063.).
+
+**Guidance**: Azure Resource Manager provides the ability to export templates, which allows you to redeploy your solution throughout the development lifecycle and have confidence your resources are deployed in a consistent state.  Use Azure Automation to call the Azure Resource Manager template export API on a regular basis.
+
+- [Overview of Azure Resource Manager](management/overview.md)
+
+- [Single and multi-resource export to a template in Azure portal](templates/export-template-portal.md) 
+
+- [Resource Groups - Export Template](/rest/api/resources/resourcegroups/exporttemplate) 
+
+- [Introduction to Azure Automation](../automation/automation-intro.md)
+
+**Azure Security Center monitoring**: Not applicable
+
+**Responsibility**: Not applicable
+
+### 9.2: Perform complete system backups and backup any customer-managed keys
+
+>[!NOTE]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32064.).
+
+**Guidance**: Azure Resource Manager provides the ability to export templates, which allows you to redeploy your solution throughout the development lifecycle and have confidence your resources are deployed in a consistent state.  Use Azure Automation to call the Azure Resource Manager template export API on a regular basis.
+
+- [Overview of Azure Resource Manager](management/overview.md)
+
+- [Single and multi-resource export to a template in Azure portal](templates/export-template-portal.md) 
+
+- [Resource Groups - Export Template](/rest/api/resources/resourcegroups/exporttemplate) 
+
+- [Introduction to Azure Automation](../automation/automation-intro.md)
+
+**Azure Security Center monitoring**: Not applicable
+
+**Responsibility**: Not applicable
+
+### 9.3: Validate all backups including customer-managed keys
+
+>[!NOTE]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32065.).
+
+**Guidance**: Ensure ability to periodically perform deployment of Azure Resource Manager templates on a regular basis to an isolated subscription if required.
+
+- [Deploy resources with ARM templates and Azure portal](templates/deploy-portal.md)
+
+**Azure Security Center monitoring**: Not applicable
+
+**Responsibility**: Not applicable
+
+### 9.4: Ensure protection of backups and customer-managed keys
+
+>[!NOTE]
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32066.).
+
+**Guidance**: Use Azure DevOps to securely store and manage your Azure Resource Manager templates. To protect resources you manage in Azure DevOps, you can grant or deny permissions to specific users, built-in security groups, or groups defined in Azure Active Directory (Azure AD) if integrated with Azure DevOps, or Active Directory if integrated with TFS.  
+
+- [How to store code in Azure DevOps](https://docs.microsoft.com/azure/devops/repos/git/gitworkflow?view=azure-devops)
+
+- [About permissions and groups in Azure DevOps](/azure/devops/organizations/security/about-permissions)
+
+**Azure Security Center monitoring**: Not applicable
+
+**Responsibility**: Not applicable
 
 ## Incident response
 
