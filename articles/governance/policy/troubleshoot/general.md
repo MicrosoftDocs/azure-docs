@@ -224,6 +224,30 @@ Follow the directions to
 [remove the Azure Policy for Kubernetes add-on](../concepts/policy-for-kubernetes.md#remove-the-add-on),
 then rerun the `helm install azure-policy-addon` command.
 
+### Scenario: Azure virtual machine user-assigned identities are replaced by system-assigned managed identities
+
+#### Issue
+
+After assigning Guest Configuration policy initiatives to audit settings inside machines, user-assigned managed identities
+that were assigned to the machine are no longer assigned. Only a system-assigned managed identity is
+assigned.
+
+#### Cause
+
+The policy definitions previously used in Guest Configuration DeployIfNotExists definitions ensured that a system-assigned
+identity is assigned to the machine but also removed user-assigned identity assignments.
+
+#### Resolution
+
+The definitions that previously caused this issue appear as \[Deprecated\] and are replaced by policy definitions that manage
+prerequisites without removing user-assigned managed identity. A manual step is required. Delete any existing
+policy assignments that are marked \[Deprecated\] and replace them with the updated prerequisite policy initiative
+and policy definitions that have the same name as the original.
+
+For a detailed narrative, see the following blog post:
+
+[Important change released for Guest Configuration audit policies](https://techcommunity.microsoft.com/t5/azure-governance-and-management/important-change-released-for-guest-configuration-audit-policies/ba-p/1655316)
+
 ## Next steps
 
 If you didn't see your problem or are unable to solve your issue, visit one of the following
