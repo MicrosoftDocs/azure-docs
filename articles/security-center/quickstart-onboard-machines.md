@@ -11,9 +11,9 @@ zone_pivot_groups: non-azure-machines
 ---
 #  Connect your non-Azure machines to Security Center
 
-Security Center can monitor the security posture of your non-Azure computers but you need to first onboard these resources. 
+Security Center can monitor the security posture of your non-Azure computers, but first you need to connect them to Azure. 
 
-You can add non-Azure computers in any of the following ways:
+You can connect your non-Azure computers in any of the following ways:
 
 - Using Azure Arc (**recommended**)
 - From Security Center's pages in the Azure portal (**Getting started** and **Inventory**)
@@ -24,7 +24,7 @@ Each of these is described on this page.
 
 ## Add non-Azure machines with Azure Arc
 
-Using Azure Arc is the preferred way of adding your non-Azure machines to Azure Security Center.
+Azure Arc is the preferred way of adding your non-Azure machines to Azure Security Center.
 
 A machine with Azure Arc enabled, becomes an Azure resource and appears in Security Center with recommendations like your other Azure resources. 
 
@@ -44,7 +44,7 @@ Learn more about [Azure Arc](../azure-arc/servers/overview.md).
 
 ::: zone pivot="azure-portal"
 
-## Add non-Azure machines from Security Center's portal pages
+## Add non-Azure machines from the Azure portal
 
 1. From Security Center's menu, open the **Getting started** page.
 1. Select the **Get started** tab.
