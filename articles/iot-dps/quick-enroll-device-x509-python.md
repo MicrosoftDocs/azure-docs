@@ -117,7 +117,7 @@ The Azure IoT Device Provisioning Service supports two types of enrollments:
 - [Enrollment groups](concepts-service.md#enrollment-group): Used to enroll multiple related devices.
 - [Individual enrollments](concepts-service.md#individual-enrollment): Used to enroll a single device.
 
-Creating Individual enrollments using the [Python Provisioning Service SDK](https://github.com/Azure/azure-iot-sdk-python/tree/v1-deprecated/provisioning_service_client) is still a work in progress. To learn more, see [Controlling device access to the provisioning service with X.509 certificates](./concepts-service.md#controlling-device-access-to-the-provisioning-service-with-x509-certificates).
+Creating Individual enrollments using the [Python Provisioning Service SDK](https://github.com/Azure/azure-iot-sdk-python/tree/v1-deprecated/provisioning_service_client) is still a work in progress. To learn more, see [Controlling device access to the provisioning service with X.509 certificates](./concepts-x509-attestation.md#controlling-device-access-to-the-provisioning-service-with-x509-certificates).
 
 1. Open a command prompt, and run the following command to install the [azure-iot-provisioning-device-client](https://pypi.org/project/azure-iot-provisioning-device-client).
 

@@ -60,7 +60,7 @@ The Azure IoT Device Provisioning Service supports two types of enrollments:
 - [Enrollment groups](concepts-service.md#enrollment-group): Used to enroll multiple related devices.
 - [Individual enrollments](concepts-service.md#individual-enrollment): Used to enroll a single device.
 
-An enrollment group controls access to the provisioning service for devices that share a common signing certificate in their certificate chain. To learn more, see [Controlling device access to the provisioning service with X.509 certificates](./concepts-service.md#controlling-device-access-to-the-provisioning-service-with-x509-certificates).
+An enrollment group controls access to the provisioning service for devices that share a common signing certificate in their certificate chain. To learn more, see [Controlling device access to the provisioning service with X.509 certificates](./concepts-x509-attestation.md#controlling-device-access-to-the-provisioning-service-with-x509-certificates).
  
 1. From a command window in your working folder, run:
   

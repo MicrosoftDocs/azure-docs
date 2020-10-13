@@ -25,7 +25,7 @@ Steps for using the TPM simulator are:
 4. Let the simulator run in the background throughout the provisioning process to obtain registration ID and Endorsement Key.  Both values are only valid for one instance of the run.
 
 ## X.509 certificate generator
-[X.509 certificates](./concepts-service.md#x509-certificates) can be used as an attestation mechanism to scale production and simplify device provisioning.  There are [several ways](../iot-hub/iot-hub-x509ca-overview.md#how-to-get-an-x509-ca-certificate) to obtain an X.509 certificate:
+[X.509 certificates](./concepts-x509-attestation.md#x509-certificates) can be used as an attestation mechanism to scale production and simplify device provisioning.  There are [several ways](../iot-hub/iot-hub-x509ca-overview.md#how-to-get-an-x509-ca-certificate) to obtain an X.509 certificate:
 * For production environment, we recommend purchasing an X.509 CA certificate from a public root certificate authority.
 * For testing environment, you can generate an X.509 root certificate or X.509 certificate chain using:
     * OpenSSL: You can use scripts for certificate generation:
