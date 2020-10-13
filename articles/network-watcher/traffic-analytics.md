@@ -13,6 +13,7 @@ ms.workload:  infrastructure-services
 ms.date: 06/15/2018
 ms.author: damendo
 ms.reviewer: vinigam
+ms.custom: references_regions
 ---
 
 # Traffic Analytics
@@ -54,62 +55,106 @@ Traffic analytics examines the raw NSG flow logs and captures reduced logs by ag
 ## Supported regions: NSG 
 
 You can use traffic analytics for NSGs in any of the following supported regions:
-
-* Canada Central
-* West Central US
-* East US
-* East US 2
-* North Central US
-* South Central US
-* Central US
-* West US
-* West US 2
-* France Central
-* West Europe
-* North Europe
-* Brazil South
-* UK West
-* UK South
-* Australia East
-* Australia Southeast
-* East Asia
-* Southeast Asia
-* Korea Central
-* Central India
-* South India
-* Japan East 
-* Japan West
-* US Gov Virginia
-* China East 2
+:::row:::
+   :::column span="":::
+      Australia Central  
+      Australia East  
+      Australia Southeast  
+      Brazil South  
+      Canada Central  
+      Canada East  
+      Central India  
+      Central US  
+      China East 2  
+      China North 2  
+   :::column-end:::
+   :::column span="":::
+      East Asia  
+      East US  
+      East US 2  
+      East US 2 EUAP  
+      France Central  
+      Japan East  
+      Japan West  
+      Korea Central  
+      Korea South  
+      North Central US  
+   :::column-end:::
+   :::column span="":::
+      North Europe  
+      South Africa North  
+      South Central US  
+      South India  
+      Southeast Asia  
+      Switzerland North  
+      Switzerland West  
+      UK South  
+      UK West  
+      USGov Arizona  
+   :::column-end:::
+   :::column span="":::
+      USGov Texas  
+      USGov Virginia  
+      USNat East  
+      USNat West  
+      USSec East  
+      USSec West  
+      West Central US  
+      West Europe  
+      West US  
+      West US 2  
+   :::column-end:::
+:::row-end:::
 
 ## Supported regions: Log Analytics Workspaces
 
 The Log Analytics workspace must exist in the following regions:
-* Canada Central
-* West Central US
-* East US
-* East US 2
-* North Central US
-* South Central US
-* Central US
-* West US
-* West US 2
-* Central US
-* France Central
-* West Europe
-* North Europe
-* Brazil South
-* UK West
-* UK South
-* Australia East
-* Australia Southeast
-* East Asia
-* Southeast Asia
-* Korea Central
-* Central India
-* Japan East
-* US Gov Virginia
-* China East 2
+:::row:::
+   :::column span="":::
+      Australia Central  
+      Australia East  
+      Australia Southeast  
+      Brazil South  
+      Canada Central  
+      Central India  
+      Central US  
+      China East 2  
+      East Asia  
+      East US  
+   :::column-end:::
+   :::column span="":::
+      East US 2  
+      East US 2 EUAP  
+      France Central  
+      Germany West Central  
+      Japan East  
+      Korea Central  
+      North Central US  
+      North Europe  
+      South Africa North  
+      South Central US  
+   :::column-end:::
+   :::column span="":::
+      Southeast Asia  
+      Switzerland North  
+      Switzerland West  
+      UAE Central  
+      UK South  
+      UK West  
+      USGov Arizona  
+      USGov Virginia  
+      USNat East  
+      USNat West  
+   :::column-end:::
+   :::column span="":::
+      USSec East  
+      USSec West  
+      West Central US  
+      West Europe  
+      West US  
+      West US 2  
+   :::column-end:::
+:::row-end:::
 
 ## Prerequisites
 

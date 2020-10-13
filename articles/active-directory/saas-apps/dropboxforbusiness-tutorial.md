@@ -141,27 +141,27 @@ In this section, you'll enable Britta Simon to use Azure single sign-on by grant
 
 3. If you want to setup Dropbox Business manually, open a new web browser window and go on your Dropbox Business tenant and sign on to your Dropbox Business tenant. and perform the following steps:
 
-	![Configure single sign-on](./media/dropboxforbusiness-tutorial/ic769509.png "Configure single sign-on")
+	![Screenshot that shows the "Dropbox Business Sign in" page.](./media/dropboxforbusiness-tutorial/ic769509.png "Configure single sign-on")
 
 4. Click on the **User Icon** and select **Settings** tab.
 
-	![Configure single sign-on](./media/dropboxforbusiness-tutorial/configure1.png "Configure single sign-on")
+	![Screenshot that shows the "USER ICON" action and "Settings" selected.](./media/dropboxforbusiness-tutorial/configure1.png "Configure single sign-on")
 
 5. In the navigation pane on the left side, click **Admin console**.
 
-	![Configure single sign-on](./media/dropboxforbusiness-tutorial/configure2.png "Configure single sign-on")
+	![Screenshot that shows "Admin console" selected.](./media/dropboxforbusiness-tutorial/configure2.png "Configure single sign-on")
 
 6. On the **Admin console**, click **Settings** in the left navigation pane.
 
-	![Configure single sign-on](./media/dropboxforbusiness-tutorial/configure3.png "Configure single sign-on")
+	![Screenshot that shows "Settings" selected.](./media/dropboxforbusiness-tutorial/configure3.png "Configure single sign-on")
 
 7. Select **Single sign-on** option under the **Authentication** section.
 
-	![Configure single sign-on](./media/dropboxforbusiness-tutorial/configure4.png "Configure single sign-on")
+	![Screenshot that shows the "Authentication" section with "Single sign-on" selected.](./media/dropboxforbusiness-tutorial/configure4.png "Configure single sign-on")
 
 8. In the **Single sign-on** section, perform the following steps:  
 
-	![Configure single sign-on](./media/dropboxforbusiness-tutorial/configure5.png "Configure single sign-on")
+	![Screenshot that shows the "Single sign-on" configuration settings.](./media/dropboxforbusiness-tutorial/configure5.png "Configure single sign-on")
 
 	a. Select **Required** as an option from the dropdown for the **Single sign-on**.
 

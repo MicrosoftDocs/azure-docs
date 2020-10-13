@@ -21,15 +21,6 @@ ms.author: nikuklic
 
 ## Setting up
 
-## Object model
-
-The following classes and interfaces handle some of the major features of the Azure Communication Services Calling client library for iOS.
-
-| Name                                           | Description                                                                                          |
-| ---------------------------------------------- | ---------------------------------------------------------------------------------------------------- |
-| PhoneNumber | This class is needed to initialize a phone number you would like to use for telephony functionality. |
-
-
 ## Start a call to phone
 
 Specify phone number you acquired in Communication Services resource, that will be used to start the call:

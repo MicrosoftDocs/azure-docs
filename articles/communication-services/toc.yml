@@ -26,6 +26,8 @@
         href: quickstarts/telephony-sms/send.md
       - name: Handle SMS events
         href: quickstarts/telephony-sms/handle-sms-events.md
+      - name: Send an SMS in Azure Logic Apps
+        href: quickstarts/telephony-sms/logic-app.md
   - name: Voice and video calling
     items:
     - name: Add voice calling to your app

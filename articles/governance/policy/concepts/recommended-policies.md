@@ -3,6 +3,7 @@ title: Recommended policies for Azure services
 description: Describes how to find and apply recommended policies for Azure services such as Azure Virtual Machines.
 ms.date: 09/02/2020
 ms.topic: conceptual
+ms.customer: generated
 ---
 # Recommended policies for Azure services
 

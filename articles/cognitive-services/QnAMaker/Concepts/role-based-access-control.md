@@ -1,6 +1,8 @@
 ---
 title: Collaborate with others - QnA Maker
 description:
+ms.service: cognitive-services
+ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 05/15/2020
 ---

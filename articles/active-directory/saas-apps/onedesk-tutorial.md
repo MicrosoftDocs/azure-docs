@@ -139,7 +139,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 1. Click on the **Integrations** tab.
 
-    ![Settings tab](./media/onedesk-tutorial/img-integration.png)
+    ![Screenshot that shows the "Integrations" tab selected.](./media/onedesk-tutorial/img-integration.png)
 
 1. Click on the **Single Sign On**, select **Upload Metadata File** and click on the **Choose File** to upload the metadata file, which you have downloaded from the Azure portal.
 

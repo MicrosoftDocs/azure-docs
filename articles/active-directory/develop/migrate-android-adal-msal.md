@@ -235,19 +235,16 @@ public interface SilentAuthenticationCallback {
 In ADAL, there's one type of exception, `AuthenticationException`, which includes a method for retrieving the `ADALError` enum value.
 In MSAL, there's a hierarchy of exceptions, and each has its own set of associated specific error codes.
 
-List of MSAL Exceptions
-
-|Exception  | Description  |
-|---------|---------|
-| `MsalException`     | Default checked exception thrown by MSAL.  |
-| `MsalClientException`     | Thrown if the error is client side. |
-| `MsalArgumentException`     | Thrown if one or more inputs arguments are invalid. |
-| `MsalClientException`     | Thrown if the error is client side. |
-| `MsalServiceException`     | Thrown if the error is server side. |
-| `MsalUserCancelException`     | Thrown if the user canceled the authentication flow.  |
-| `MsalUiRequiredException`     | Thrown if the token can't be refreshed silently.  |
-| `MsalDeclinedScopeException`     | Thrown if one or more requested scopes were declined by the server.  |
-| `MsalIntuneAppProtectionPolicyRequiredException` | Thrown if the resource has MAMCA protection policy enabled. |
+| Exception                                        | Description                                                         |
+|--------------------------------------------------|---------------------------------------------------------------------|
+| `MsalException`                                  | Default checked exception thrown by MSAL.                           |
+| `MsalClientException`                            | Thrown if the error is client side.                                 |
+| `MsalArgumentException`                          | Thrown if one or more inputs arguments are invalid.                 |
+| `MsalServiceException`                           | Thrown if the error is server side.                                 |
+| `MsalUserCancelException`                        | Thrown if the user canceled the authentication flow.                |
+| `MsalUiRequiredException`                        | Thrown if the token can't be refreshed silently.                    |
+| `MsalDeclinedScopeException`                     | Thrown if one or more requested scopes were declined by the server. |
+| `MsalIntuneAppProtectionPolicyRequiredException` | Thrown if the resource has MAMCA protection policy enabled.         |
 
 ### ADALError to MsalException ErrorCode
 
