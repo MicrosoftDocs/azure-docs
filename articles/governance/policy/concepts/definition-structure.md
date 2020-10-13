@@ -758,7 +758,7 @@ The following functions are only available in policy rules:
     - **range**: [Required] string - String specifying a range of IP addresses.
     - **targetRange**: [Required] string - String specifying a range of IP addresses.
 
-    Returns whether the given IP address range contains the target IP address range. Empty ranges, or mixing between IP families is not allowed and will result in  evaluation failure.
+    Returns whether the given IP address range contains the target IP address range. Empty ranges, or mixing between IP families isn't allowed and results in evaluation failure.
 
     Supported formats:
     - Single IP address (examples: `10.0.0.0`, `2001:0DB8::3:FFFE`)
