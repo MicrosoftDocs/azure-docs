@@ -20,7 +20,7 @@ keywords: intent recognotion
 In this overview, you learn about the benefits and capabilities of intent recognition. The Cognitive Services Speech SDK integrates with the Language Understanding service (LUIS) to provide intent recognition. An intent is something the user wants to do: book a flight, check the weather, or make a call.
 Using intent recognition, your applications, tools, and devices can determine what the user wishes to initiate or do based on options you define in LUIS.
 
-## Core features
+## LUIS key required
 
 * LUIS integrates with the Speech service to recognize intents from speech. You don't need a Speech service subscription, just LUIS.
 * Speech intent recognition is integrated with the SDK. You can use a LUIS key with the Speech service.
@@ -43,14 +43,6 @@ See the [quickstart](quickstarts/intent-recognition.md) to get started with spee
 Sample code for intent recognition:
 
 * [Speech-to-text and translation samples (SDK)](https://github.com/Azure-Samples/cognitive-services-speech-sdk)
-
-## Customization
-
-Yes?
-
-## Pricing note
-
-Yes?
 
 ## Reference docs
 
