@@ -5093,32 +5093,32 @@ Azure service: [Cognitive Services](../cognitive-services/index.yml)
 
 ### Microsoft.MachineLearning
 
-Azure service: [Azure Machine Learning Studio (classic)](../machine-learning/classic/index.yml)
+Azure service: [Machine Learning Studio (classic)](../machine-learning/classic/index.yml)
 
 > [!div class="mx-tableFixed"]
 > | Action | Description |
 > | --- | --- |
-> | Microsoft.MachineLearning/register/action | Registers the subscription for the Azure Machine Learning Studio (classic) web service resource provider and enables the creation of web services. |
+> | Microsoft.MachineLearning/register/action | Registers the subscription for the machine learning web service resource provider and enables the creation of web services. |
 > | Microsoft.MachineLearning/webServices/action | Create regional Web Service Properties for supported regions |
-> | Microsoft.MachineLearning/commitmentPlans/read | Read any Studio (classic) Commitment Plan |
-> | Microsoft.MachineLearning/commitmentPlans/write | Create or Update any Studio (classic) Commitment Plan |
-> | Microsoft.MachineLearning/commitmentPlans/delete | Delete any Studio (classic) Commitment Plan |
-> | Microsoft.MachineLearning/commitmentPlans/join/action | Join any Studio (classic) Commitment Plan |
-> | Microsoft.MachineLearning/commitmentPlans/commitmentAssociations/read | Read any Studio (classic) Commitment Plan Association |
-> | Microsoft.MachineLearning/commitmentPlans/commitmentAssociations/move/action | Move any Studio (classic) Commitment Plan Association |
-> | Microsoft.MachineLearning/locations/operationresults/read | Get result of a Studio (classic) Operation |
-> | Microsoft.MachineLearning/locations/operationsstatus/read | Get status of an ongoing Studio (classic) Operation |
-> | Microsoft.MachineLearning/operations/read | Get Studio (classic) Operations |
-> | Microsoft.MachineLearning/skus/read | Get Studio (classic) Commitment Plan SKUs |
-> | Microsoft.MachineLearning/webServices/read | Read any Studio (classic) Web Service |
-> | Microsoft.MachineLearning/webServices/write | Create or Update any Studio (classic) Web Service |
-> | Microsoft.MachineLearning/webServices/delete | Delete any Studio (classic) Web Service |
-> | Microsoft.MachineLearning/webServices/listkeys/read | Get keys to a Studio (classic) Web Service |
-> | Microsoft.MachineLearning/Workspaces/read | Read any Studio (classic) Workspace |
-> | Microsoft.MachineLearning/Workspaces/write | Create or Update any Studio (classic) Workspace |
-> | Microsoft.MachineLearning/Workspaces/delete | Delete any Studio (classic) Workspace |
-> | Microsoft.MachineLearning/Workspaces/listworkspacekeys/action | List keys for a Studio (classic) Workspace |
-> | Microsoft.MachineLearning/Workspaces/resyncstoragekeys/action | Resync keys of storage account configured for a Studio (classic) Workspace |
+> | Microsoft.MachineLearning/commitmentPlans/read | Read any Machine Learning Commitment Plan |
+> | Microsoft.MachineLearning/commitmentPlans/write | Create or Update any Machine Learning Commitment Plan |
+> | Microsoft.MachineLearning/commitmentPlans/delete | Delete any Machine Learning Commitment Plan |
+> | Microsoft.MachineLearning/commitmentPlans/join/action | Join any Machine Learning Commitment Plan |
+> | Microsoft.MachineLearning/commitmentPlans/commitmentAssociations/read | Read any Machine Learning Commitment Plan Association |
+> | Microsoft.MachineLearning/commitmentPlans/commitmentAssociations/move/action | Move any Machine Learning Commitment Plan Association |
+> | Microsoft.MachineLearning/locations/operationresults/read | Get result of a Machine Learning Operation |
+> | Microsoft.MachineLearning/locations/operationsstatus/read | Get status of an ongoing Machine Learning Operation |
+> | Microsoft.MachineLearning/operations/read | Get Machine Learning Operations |
+> | Microsoft.MachineLearning/skus/read | Get Machine Learning Commitment Plan SKUs |
+> | Microsoft.MachineLearning/webServices/read | Read any Machine Learning Web Service |
+> | Microsoft.MachineLearning/webServices/write | Create or Update any Machine Learning Web Service |
+> | Microsoft.MachineLearning/webServices/delete | Delete any Machine Learning Web Service |
+> | Microsoft.MachineLearning/webServices/listkeys/read | Get keys to a Machine Learning Web Service |
+> | Microsoft.MachineLearning/Workspaces/read | Read any Machine Learning Workspace |
+> | Microsoft.MachineLearning/Workspaces/write | Create or Update any Machine Learning Workspace |
+> | Microsoft.MachineLearning/Workspaces/delete | Delete any Machine Learning Workspace |
+> | Microsoft.MachineLearning/Workspaces/listworkspacekeys/action | List keys for a Machine Learning Workspace |
+> | Microsoft.MachineLearning/Workspaces/resyncstoragekeys/action | Resync keys of storage account configured for a Machine Learning Workspace |
 
 ### Microsoft.MachineLearningServices
 
