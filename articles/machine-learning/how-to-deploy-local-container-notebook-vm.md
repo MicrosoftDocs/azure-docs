@@ -11,6 +11,7 @@ ms.author: mnark
 author: MrudulaN
 ms.reviewer: larryfr
 ms.date: 03/05/2020
+ms.custom: deploy
 ---
 
 # Deploy a model to Azure Machine Learning compute instances
