@@ -56,7 +56,7 @@ A role assignment is the object that attaches a role definition to a user at a p
 - Role definition
 - Resource scope
 
-You can [create role assignments](roles-create-custom.md) using the Azure portal, Azure AD PowerShell, or Graph API. You can also [view the assignments for a custom role](roles-view-assignments.md#view-the-assignments-of-a-role).
+You can [create role assignments](roles-create-custom.md) using the Azure portal, Azure AD PowerShell, or Graph API. You can also [view the assignments for a custom role](../roles/view-assignments.md#view-the-assignments-of-a-role).
 
 The following diagram shows an example of a role assignment. In this example, Chris Green has been assigned the App registration administrator custom role at the scope of the Contoso Widget Builder app registration. The assignment grants Chris the permissions of the App registration administrator role for only this specific app registration.
 
@@ -88,4 +88,4 @@ A scope is the restriction of permitted actions to a particular Azure AD resourc
 ## Next steps
 
 - Create custom role assignments using [the Azure portal, Azure AD PowerShell, and Graph API](roles-create-custom.md)
-- [View the assignments for a custom role](roles-view-assignments.md#view-assignments-of-single-application-scope)
+- [View the assignments for a custom role](../roles/view-assignments.md#view-assignments-of-single-application-scope)

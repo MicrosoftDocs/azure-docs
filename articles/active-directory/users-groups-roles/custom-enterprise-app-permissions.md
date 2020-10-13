@@ -164,4 +164,4 @@ microsoft.directory/provisioningLogs/allProperties/read | Read all properties of
 ## Next steps
 
 - [Create custom roles using the Azure portal, Azure AD PowerShell, and Graph API](roles-create-custom.md)
-- [View the assignments for a custom role](roles-view-assignments.md)
+- [View the assignments for a custom role](../roles/view-assignments.md)
