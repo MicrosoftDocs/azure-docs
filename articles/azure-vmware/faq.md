@@ -108,6 +108,10 @@ As these backup solutions are installed and managed by customers, they can reach
 
 Use the *thin_provision* storage policy for your VM template.  The default is *thick_provision*.
 
+#### Are the SNMP infrastructure logs shared?
+
+No.
+
 ## Hosts, clusters, and private clouds
 
 #### Is the underlying infrastructure shared?
