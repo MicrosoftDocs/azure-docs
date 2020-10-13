@@ -66,8 +66,6 @@
         href: application-provisioning-config-problem-storage-limit.md
       - name: Users aren't provisioned 
         href: application-provisioning-config-problem-no-users-provisioned.md
-      - name: Wrong users provisioned
-        href: application-provisioning-config-problem-wrong-users-provisioned.md
       - name: Missing source attribute
         href: user-provisioning-sync-attributes-for-mapping.md
       - name: Provisioning logs
