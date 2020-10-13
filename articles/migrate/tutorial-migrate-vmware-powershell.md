@@ -83,7 +83,7 @@ To retrieve a specific VMware VM in an Azure Migrate project, specify name of th
 
 ```azurepowershell
 # Get a specific VMware VM in an Azure Migrate project
-$DiscoveredServer = Get-AzMigrateServer -ProjectName $MigrateProject.Name -ResourceGroupName $ResourceGroup.ResourceGroupName -DisplayName "MyTestVM"
+$DiscoveredServer = Get-AzMigrateDiscoveredServer -ProjectName $MigrateProject.Name -ResourceGroupName $ResourceGroup.ResourceGroupName -DisplayName "MyTestVM"
 
 # View discovered server details
 $DiscoveredServer | ConvertTo-JSON
@@ -94,13 +94,13 @@ You can also retrieve all VMware VMs in an Azure Migrate project by using the `P
 
 ```azurepowershell
 # Get all VMware VMs in an Azure Migrate project
-$DiscoveredServers = Get-AzMigrateServer -ProjectName $MigrateProject.Name -ResourceGroupName $ResourceGroup.ResourceGroupName | Format-Table DisplayName, Name, Type
+$DiscoveredServers = Get-AzMigrateDiscoveredServer -ProjectName $MigrateProject.Name -ResourceGroupName $ResourceGroup.ResourceGroupName 
 ```
 If you have multiple appliances in an Azure Migrate project, you can use `ProjectName`, `ResourceGroupName`, and `ApplianceName` parameters to retrieve all VMs discovered using a specific Azure Migrate appliance. 
 
 ```azurepowershell
 # Get all VMware VMs discovered by an Azure Migrate Appliance in an Azure Migrate project
-$DiscoveredServers = Get-AzMigrateServer -ProjectName $MigrateProject.Name -ResourceGroupName $ResourceGroup.ResourceGroupName -ApplianceName "MyMigrateAppliance" |Format-Table DisplayName, Name, Type
+$DiscoveredServers = Get-AzMigrateDiscoveredServer -ProjectName $MigrateProject.Name -ResourceGroupName $ResourceGroup.ResourceGroupName -ApplianceName "MyMigrateAppliance" |Format-Table DisplayName, Name, Type
 
 ```
 
@@ -115,8 +115,9 @@ $DiscoveredServers = Get-AzMigrateServer -ProjectName $MigrateProject.Name -Reso
 
 Before replicating the first VM in the Azure Migrate project, run the following script to provision the replication infrastructure. This script provisions and configures the aforementioned resources so that you can start migrating your VMware VMs.
 
-- One Azure Migrate project supports migrations to one Azure region only. Once you run this script, you can't change the target region to which you want to migrate your VMware VMs.
-- You'll need to run the `Initialize-AzMigrateReplicationInfrastructure` script if you configure a new appliance in your Azure Migrate project. 
+> [!NOTE]
+> One Azure Migrate project supports migrations to one Azure region only. Once you run this script, you can't change the target region to which you want to migrate your VMware VMs.
+> You'll need to run the `Initialize-AzMigrateReplicationInfrastructure` script if you configure a new appliance in your Azure Migrate project. 
 
 In the article, we'll initialize the replication infrastructure so that we can migrate our VMs to `Central US` region. You can [download the file](https://github.com/Azure/azure-docs-powershell-samples/tree/master/azure-migrate/migrate-at-scale-vmware-agentles) from the GitHub repository or run it using the following snippet. 
 
@@ -417,9 +418,7 @@ $StopReplicationJob = Remove-AzMigrateServerReplication -InputObject $Replicatin
     - Deploy [Azure Disk Encryption](../security/fundamentals/azure-disk-encryption-vms-vmss.md) to help secure disks, and keep data safe from theft and unauthorized access.
     - Read more about [securing IaaS resources](https://azure.microsoft.com/services/virtual-machines/secure-well-managed-iaas/), and visit the [Azure Security Center](https://azure.microsoft.com/services/security-center/).
 - For monitoring and management:
--  Consider deploying [Azure Cost Management](../cost-management-billing/cloudyn/overview.md) to monitor resource usage and spending.
+-  Consider deploying Azure Cost Management to monitor resource usage and spending.
 
 
-## Next steps
 
-Investigate the cloud migration journey in the Azure Cloud Adoption Framework.
