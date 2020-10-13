@@ -63,6 +63,13 @@ Microsoft and Red Hat share an integrated, co-located support team that provides
 
 VMware HCX Enterprise Edition (EE) is available with Azure VMware Solution as a *Preview* function/service. While VMware HCX EE for Azure VMware Solution is in Preview, it is a free function/service and subject to Preview service terms and conditions. Once the VMware HCX EE service goes GA, you'll get a 30-day notice that billing will switch over. You'll also have the option to switch off/opt-out of the service.
 
+#### Can Azure VMware Solution VMs be managed by VMRC?
+Yes, provided the system it is installed on can access the private cloud vCenter and that it is using public DNS to resolve ESXi hostnames.
+
+#### Are there special instructions for installing and using VMRC with Azure VMware Solution VMs?
+No, use the [instructions provided by VMware](https://docs.vmware.com/en/VMware-vSphere/6.7/com.vmware.vsphere.vm_admin.doc/GUID-89E7E8F0-DB2B-437F-8F70-BA34C505053F.html) and fulfill the VM prerequisites specified in those instructions. 
+
+
 ## Compute, network, storage, and backup
 
 #### Is there more than one type of host available?
