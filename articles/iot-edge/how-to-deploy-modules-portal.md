@@ -32,7 +32,7 @@ The Azure portal has a wizard that walks you through creating the deployment man
 >[!NOTE]
 >The steps in this article reflect the latest schema version of the IoT Edge agent and hub. Schema version 1.1 was released along with IoT Edge version 1.0.10, and enables the module startup order and route prioritization features.
 >
->If you are deploying to a device running version 1.0.9 or earlier, edit the runtime settings in the to use schema version 1.0.
+>If you are deploying to a device running version 1.0.9 or earlier, edit the **Runtime Settings** in the **Modules** step of the wizard to use schema version 1.0.
 
 ### Select device and add modules
 
@@ -54,14 +54,14 @@ The Azure portal has a wizard that walks you through creating the deployment man
 
    For more information about the module twin see [Define or update desired properties](module-composition.md#define-or-update-desired-properties).
 
-1. If needed, repeat steps 5 through 8 to add additional modules to your deployment.
+1. Repeat steps 6 through 8 to add additional modules to your deployment.
 1. Select **Next: Routes** to continue to the routes section.
 
 ### Specify routes
 
 On the **Routes** tab, you define how messages are passed between modules and the IoT Hub. Messages are constructed using name/value pairs. By default, the first deployment for a new device includes a route called **route** and defined as **FROM /messages/\* INTO $upstream**, which means that any messages output by any modules are sent to your IoT hub.  
 
-The **Priority** and **Time to live** parameters are optional parameters that you can include in a route definition. The priority parameter allows you to choose which routes should have their messages processed first, or which routes should be processed last. Priority is determined by setting a number 0-9, where 0 is top priority. The time to live parameter allows you to declare how long messages in that route should be held until they're either processed or deleted. 
+The **Priority** and **Time to live** parameters are optional parameters that you can include in a route definition. The priority parameter allows you to choose which routes should have their messages processed first, or which routes should be processed last. Priority is determined by setting a number 0-9, where 0 is top priority. The time to live parameter allows you to declare how long messages in that route should be held until they're either processed or removed from the queue.
 
 For more information about how to create routes, see [Declare routes](module-composition.md#declare-routes).
 
