@@ -1,5 +1,6 @@
 ---
 title: ADAL to MSAL migration guide for Android | Azure
+titleSuffix: Microsoft identity platform
 description: Learn how to migrate your Azure Active Directory Authentication Library (ADAL) Android app to the Microsoft Authentication Library (MSAL).
 services: active-directory
 author: mmacy
@@ -10,11 +11,11 @@ ms.subservice: develop
 ms.topic: conceptual
 ms.tgt_pltfrm: Android
 ms.workload: identity
-ms.date: 09/6/2019
+ms.date: 10/13/2020
 ms.author: marsma
 ms.reviewer: shoatman
 ms.custom: aaddev
-#Customer intent: As an Android application developer, I want to learn how to migrate my v1 ADAL app to v2 MSAL.
+# Customer intent: As an Android application developer, I want to learn how to migrate my v1 ADAL app to v2 MSAL.
 ---
 
 # ADAL to MSAL migration guide for Android
@@ -64,7 +65,7 @@ In your app registration in the portal, you will see an **API permissions** tab.
 
 ### User consent
 
-With ADAL and the AAD v1 endpoint, user consent to resources they own was granted on first use. With MSAL and the Microsoft identity platform, consent can be requested incrementally. Incremental consent is useful for permissions that a user may consider high privilege, or may otherwise question if not provided with a clear explanation of why the permission is required. In ADAL, those permissions may have resulted in the user abandoning signing in to your app.
+With ADAL and the Azure AD v1 endpoint, user consent to resources they own was granted on first use. With MSAL and the Microsoft identity platform, consent can be requested incrementally. Incremental consent is useful for permissions that a user may consider high privilege, or may otherwise question if not provided with a clear explanation of why the permission is required. In ADAL, those permissions may have resulted in the user abandoning signing in to your app.
 
 > [!TIP]
 > We recommend the use of incremental consent in scenarios where you need to provide additional context to your user about why your app needs a permission.
@@ -226,8 +227,6 @@ public interface SilentAuthenticationCallback {
      */
     void onError(final MsalException exception);
 }
-
-
 ```
 
 ## Migrate to the new exceptions
@@ -237,16 +236,101 @@ In MSAL, there's a hierarchy of exceptions, and each has its own set of associat
 
 | Exception                                        | Description                                                         |
 |--------------------------------------------------|---------------------------------------------------------------------|
-| `MsalException`                                  | Default checked exception thrown by MSAL.                           |
-| `MsalClientException`                            | Thrown if the error is client side.                                 |
 | `MsalArgumentException`                          | Thrown if one or more inputs arguments are invalid.                 |
-| `MsalServiceException`                           | Thrown if the error is server side.                                 |
-| `MsalUserCancelException`                        | Thrown if the user canceled the authentication flow.                |
-| `MsalUiRequiredException`                        | Thrown if the token can't be refreshed silently.                    |
+| `MsalClientException`                            | Thrown if the error is client side.                                 |
 | `MsalDeclinedScopeException`                     | Thrown if one or more requested scopes were declined by the server. |
+| `MsalException`                                  | Default checked exception thrown by MSAL.                           |
 | `MsalIntuneAppProtectionPolicyRequiredException` | Thrown if the resource has MAMCA protection policy enabled.         |
+| `MsalServiceException`                           | Thrown if the error is server side.                                 |
+| `MsalUiRequiredException`                        | Thrown if the token can't be refreshed silently.                    |
+| `MsalUserCancelException`                        | Thrown if the user canceled the authentication flow.                |
 
-### ADALError to MsalException ErrorCode
+### ADALError to MsalException translation
+
+:::row:::
+    :::column:::
+    **If you're catching these errors in ADAL...**
+    :::column-end:::
+    :::column:::
+    **...catch these MSAL exceptions:**
+    :::column-end:::
+:::row-end:::
+:::row:::
+    :::column:::
+    :::column-end:::
+    :::column:::
+    `MsalArgumentException`
+    :::column-end:::
+:::row-end:::
+:::row:::
+    :::column:::
+    - `ADALError.ANDROIDKEYSTORE_FAILED`
+    - `ADALError.AUTH_FAILED_USER_MISMATCH`
+    - `ADALError.DECRYPTION_FAILED`
+    - `ADALError.DEVELOPER_AUTHORITY_CAN_NOT_BE_VALIDED`
+    - `ADALError.DEVELOPER_AUTHORITY_IS_NOT_VALID_INSTANCE`
+    - `ADALError.DEVELOPER_AUTHORITY_IS_NOT_VALID_URL`
+    - `ADALError.DEVICE_CONNECTION_IS_NOT_AVAILABLE`
+    - `ADALError.DEVICE_NO_SUCH_ALGORITHM`
+    - `ADALError.ENCODING_IS_NOT_SUPPORTED`
+    - `ADALError.ENCRYPTION_ERROR`
+    - `ADALError.IO_EXCEPTION`
+    - `ADALError.JSON_PARSE_ERROR`
+    - `ADALError.NO_NETWORK_CONNECTION_POWER_OPTIMIZATION`
+    - `ADALError.SOCKET_TIMEOUT_EXCEPTION`
+    :::column-end:::
+    :::column:::
+    `MsalClientException`
+    :::column-end:::
+:::row-end:::
+:::row:::
+    :::column:::
+    :::column-end:::
+    :::column:::
+    `MsalDeclinedScopeException`
+    :::column-end:::
+:::row-end:::
+:::row:::
+    :::column:::
+    - `ADALError.APP_PACKAGE_NAME_NOT_FOUND`
+    - `ADALError.BROKER_APP_VERIFICATION_FAILED`
+    - `ADALError.PACKAGE_NAME_NOT_FOUND`
+    :::column-end:::
+    :::column:::
+    `MsalException`
+    :::column-end:::
+:::row-end:::
+:::row:::
+    :::column:::
+    :::column-end:::
+    :::column:::
+    `MsalIntuneAppProtectionPolicyRequiredException`
+    :::column-end:::
+:::row-end:::
+:::row:::
+    :::column:::
+    - `ADALError.AUTH_REFRESH_FAILED_PROMPT_NOT_ALLOWED`
+    - `ADALError.SERVER_ERROR`
+    - `ADALError.SERVER_INVALID_REQUEST`
+    :::column-end:::
+    :::column:::
+    `MsalServiceException`
+    :::column-end:::
+:::row-end:::
+:::row:::
+    :::column:::
+    :::column-end:::
+    :::column:::
+    `MsalUiRequiredException`
+    :::column-end:::
+:::row-end:::
+:::row:::
+    :::column:::
+    :::column-end:::
+    :::column:::
+    `MsalUserCancelException`
+    :::column-end:::
+:::row-end:::
 
 ### ADAL Logging to MSAL Logging
 
