@@ -20,7 +20,7 @@
     - name: Access the API
       href: access-api-howto.md
     - name: Set up Azure Cloud Shell
-      href: https://docs.microsoft.com/azure/cloud-shell/overview
+      href: ../../cloud-shell/overview.md
     - name: Develop with REST
       items:
       - name: Connect with Postman
@@ -374,15 +374,15 @@
   - name: REST
     href: /rest/api/media/
   - name: Azure CLI
-    href: https://aka.ms/ams-v3-cli-ref    
+    href: /cli/azure/ams
   - name: SDKs
     items:
     - name: .NET
-      href: https://aka.ms/ams-v3-dotnet-ref
+      href: /dotnet/api/overview/azure/mediaservices/management
     - name: Java
-      href: https://aka.ms/ams-v3-java-ref
+      href: /java/api/overview/azure/mediaservices/management
     - name: Python
-      href: https://aka.ms/ams-v3-python-ref
+      href: /python/api/overview/azure/mediaservices/management
     - name: Node.js
       href: /javascript/api/overview/azure/mediaservices/management
     - name: Go
@@ -411,7 +411,7 @@
   - name: SDKs/Tools
     items:
     - name: Azure CLI
-      href: https://aka.ms/ams-v3-cli
+      href: /cli/azure/install-azure-cli
     - name: .NET
       href: https://aka.ms/ams-v3-dotnet-sdk
     - name: Java
