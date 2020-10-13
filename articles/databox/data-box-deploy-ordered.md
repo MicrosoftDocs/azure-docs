@@ -289,13 +289,11 @@ Do the following steps in the Azure portal to order a device.
 
      1. Type a password for each storage account in the order. The password will be used on all shares for the storage account.
      
-        ![Screen for entering share passwords for a Data Box import order](media/data-box-deploy-ordered/select-data-box-import-security-05.png)
-     
         To use the same password for all of the storage accounts, select **Copy to all**. When you finish, select **Save**.
+     
+        ![Screen for entering share passwords for a Data Box import order](media/data-box-deploy-ordered/select-data-box-import-security-05.png)
 
-        ![Security screen for copying a share password to all storage accounts for a Data Box import](media/data-box-deploy-ordered/select-data-box-import-security-06.png)
-
-        You can use **View of change passwords** to change the passwords.
+       On the **Security** screen, you can use **View of change passwords** to change the passwords.
 
 1. In **Security**, if you want to enable software-based double encryption, expand **Double-encryption (for highly secure environments)**, and select **Enable double encryption for the order**.
 
