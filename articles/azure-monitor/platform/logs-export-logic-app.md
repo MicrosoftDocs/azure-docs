@@ -4,6 +4,7 @@ description: Describes a method to use Azure Logic Apps to query data from a Log
 ms.service:  azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
+ms.custom: references_regions
 author: bwren
 ms.author: bwren
 ms.date: 10/02/2020
@@ -21,7 +22,7 @@ The method described in this article describes a scheduled export from a log que
 - One time export to local machine using PowerShell script. See [Invoke-AzOperationalInsightsQueryExport]](https://www.powershellgallery.com/packages/Invoke-AzOperationalInsightsQueryExport).
 
 ## Overview
-This procedure uses the [Azure Monitor Logs connector](https://docs.microsoft.com/connectors/azuremonitorlogs/) which allows you to run a log query from a logic app and use its output in other actions in the worklow. The [Azure Blob Storage connector](https://docs.microsoft.com/connectors/azureblob/) is used in this procedure to send the query output to Azure storage. The other actions are described in the sections below.
+This procedure uses the [Azure Monitor Logs connector](https://docs.microsoft.com/connectors/azuremonitorlogs/) which allows you to run a log query from a logic app and use its output in other actions in the workflow. The [Azure Blob Storage connector](https://docs.microsoft.com/connectors/azureblob/) is used in this procedure to send the query output to Azure storage. The other actions are described in the sections below.
 
 ![Logic app overview](media/logs-export-logicapp/logic-app-overview.png)
 
