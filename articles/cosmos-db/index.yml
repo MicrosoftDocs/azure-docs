@@ -81,7 +81,7 @@ landingContent:
           - text: Overview
             url: partitioning-overview.md 
           - text: Partitioning and horizontal scaling 
-            url: partition-data.md
+            url: partitioning-overview.md
           - text: Synthetic partition key 
             url: synthetic-partition-keys.md
           - text: Data modeling

@@ -147,5 +147,5 @@ client.CreateContainer('dbs/' + config['DATABASE'], {
 
 ## Next steps
 
-- Learn more about [partitioning](partition-data.md)
+- Learn more about [partitioning](partitioning-overview.md)
 - Explore [how indexing works](index-overview.md)
