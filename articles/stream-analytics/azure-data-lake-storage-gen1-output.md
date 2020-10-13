@@ -39,7 +39,7 @@ For the partition key, use {date} and {time} tokens in the path prefix pattern. 
 
 ## Output batch size
 
-For the maximum message size, see [Data Lake Storage limits](../azure-resource-manager/management/azure-subscription-service-limits.md#data-lake-store-limits). To optimize batch size, use up to 4 MB per write operation.
+For the maximum message size, see [Data Lake Storage limits](../azure-resource-manager/management/azure-subscription-service-limits.md#data-lake-storage-limits). To optimize batch size, use up to 4 MB per write operation.
 
 ## Next steps
 

@@ -1,8 +1,8 @@
 ---
 title: 'Quickstart: Create server - Azure portal - Azure Database for PostgreSQL - single server'
 description: In this quickstart guide, you'll create and manage an Azure Database for PostgreSQL server by using the Azure portal.
-author: rachel-msft
-ms.author: raagyema
+author: lfittl-msft
+ms.author: lufittl
 ms.service: postgresql
 ms.custom: mvc
 ms.topic: quickstart

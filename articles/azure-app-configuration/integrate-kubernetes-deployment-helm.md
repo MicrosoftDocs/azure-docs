@@ -39,7 +39,7 @@ Learn more about installing applications with Helm in [Azure Kubernetes Service]
 
 [!INCLUDE [azure-app-configuration-create](../../includes/azure-app-configuration-create.md)]
 
-6. Select **Configuration Explorer** > **Create** to add the following key-value pairs:
+7. Select **Configuration Explorer** > **Create** to add the following key-value pairs:
 
     | Key | Value |
     |---|---|

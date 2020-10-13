@@ -97,11 +97,11 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 1. In the toolbar on the top, click **Settings**.
 
-    ![Configure Single Sign-On](./media/kiteworks-tutorial/tutorial_kiteworks_06.png)
+    ![Screenshot that shows the "Settings" icon on the toolbar selected.](./media/kiteworks-tutorial/tutorial_kiteworks_06.png)
 
 1. In the **Authentication and Authorization** section, click **SSO Setup**.
 
-    ![Configure Single Sign-On](./media/kiteworks-tutorial/tutorial_kiteworks_07.png)
+    ![Screenshot that shows "S S O Setup" selected from the "Authentication and Authorization" section.](./media/kiteworks-tutorial/tutorial_kiteworks_07.png)
 
 1. On the SSO Setup page, perform the following steps:
 

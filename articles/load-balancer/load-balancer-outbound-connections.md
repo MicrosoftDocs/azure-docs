@@ -131,7 +131,7 @@ Outbound rules allow you to control:
 - Which virtual machines should be translated to which public IP addresses.
 - How outbound [SNAT](#snat) ports should be given.
 - Which protocols to provide outbound translation for.
-- What duration to use for outbound connection idle timeout (4-120 minutes).
+- What duration to use for outbound connection idle timeout (4-100 minutes).
 - Whether to send a TCP Reset on idle timeout
 - Both TCP and UDP transport protocols with a single rule
 
@@ -156,7 +156,7 @@ Each of the IP addresses within public IP prefix provides an additional 64,000 e
 
 ### <a name="idletimeout"></a> Outbound flow idle timeout and TCP reset
 
-Outbound rules provide a configuration parameter to control the outbound flow idle timeout and match it to the needs of your application. Outbound idle timeouts default to 4 minutes. For more information, see [configure idle timeouts](load-balancer-tcp-idle-timeout.md#tcp-idle-timeout). 
+Outbound rules provide a configuration parameter to control the outbound flow idle timeout and match it to the needs of your application. Outbound idle timeouts default to 4 minutes. For more information, see [configure idle timeouts](load-balancer-tcp-idle-timeout.md). 
 
 The default behavior of load balancer is to drop the flow silently when the outbound idle timeout has been reached. The `enableTCPReset` parameter enables a predictable application behavior and control. The parameter dictates whether to send bidirectional TCP Reset (TCP RST) at the timeout of the outbound idle timeout. 
 

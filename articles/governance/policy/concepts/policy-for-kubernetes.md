@@ -67,6 +67,8 @@ The following general limitations apply to the Azure Policy Add-on for Kubernete
   available for the `Microsoft.Kubernetes.Data`
   [Resource Provider mode](./definition-structure.md#resource-provider-modes). Use
   [Component details](../how-to/determine-non-compliance.md#component-details-for-resource-provider-modes).
+- [Exemptions](./exemption-structure.md) aren't supported for
+  [Resource Provider modes](./definition-structure.md#resource-provider-modes).
 
 The following limitations apply only to the Azure Policy Add-on for AKS:
 

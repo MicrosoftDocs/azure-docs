@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: metrics-advisor
 ms.topic: conceptual
-ms.date: 09/10/2020
+ms.date: 09/30/2020
 ms.author: aahi
 ---
 
@@ -70,9 +70,26 @@ Based on the granularity of your data, the lengths of the historical data that w
 
 ### More concepts and technical terms
 
-Please go to [Glossary](glossary.md) to read more.
+Also see the [Glossary](glossary.md) for more information.
 
-## How do I detect such kinds of anomalies? 
+###  How do I write a valid query for ingesting my data?  
+
+For Metrics Advisor to ingest your data, you will need to create a query that returns the dimensions of your data at a single timestamp. Metrics advisor will run this query multiple times to get the data from each timestamp. 
+
+Note that the query should return at most one record for each dimension combination, at a given timestamp. All records returned must have the same timestamp. There should be no duplicate records returned by the query.
+
+For example, suppose you create the query below, for a daily metric: 
+ 
+`select timestamp, city, category, revenue from sampledata where Timestamp >= @StartTime and Timestamp < dateadd(DAY, 1, @StartTime)`
+
+Be sure to use the correct granularity for your time series. For an hourly metric, you would use: 
+
+`select timestamp, city, category, revenue from sampledata where Timestamp >= @StartTime and Timestamp < dateadd(hour, 1, @StartTime)`
+
+Note that these queries only return data at a single timestamp, and contain all of the dimension combinations to be ingested by Metrics Advisor. 
+
+:::image type="content" source="media/query-result.png" alt-text="A query result with one timestamp" lightbox="media/query-result.png":::
+
 
 ### How do I detect spikes & dips as anomalies?
 

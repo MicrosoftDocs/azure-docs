@@ -14,6 +14,40 @@ The processes of this quick start results in a production-ready environment for 
 >[!IMPORTANT]
 >Before you create your Azure VMware Solution resource, you'll need to submit a support ticket to have your nodes allocated. Once the support team receives your request, it takes up to five business days to confirm your request and allocate your nodes. If you have an existing Azure VMware Solution private cloud and want more nodes allocated, you'll go through the same process. For more information, see [How to enable Azure VMware Solution resource](enable-azure-vmware-solution.md). 
 
+## Subscription
+
+Identify the subscription you plan to use to deploy Azure VMware Solution.  You can either create a new subscription or reuse an existing one.
+
+>[!NOTE]
+>The subscription must be associated with a Microsoft Enterprise Agreement.
+
+## Resource group
+
+Identify the resource group you want to use for your Azure VMware Solution.  Generally, a resource group is created specifically for Azure VMware Solution, but you can use an existing resource group.
+
+## Region
+
+Identify the region you want Azure VMware Solution deployed.  For more information, see the [Azure Products Available By Region Guide](https://azure.microsoft.com/en-us/global-infrastructure/services/?products=azure-vmware).
+
+## Resource name
+
+Define the resource name you'll use during deployment.  The resource name is a friendly and descriptive name in which you title your Azure VMware Solution private cloud.
+
+## Size nodes
+
+Identify the size nodes that you want to use when deploying Azure VMware Solution.  For a complete list, see the [Azure VMware Solution private clouds and clusters](concepts-private-clouds-clusters.md#hosts) documentation.
+
+## Number of hosts
+
+Define the number of hosts that you want to deploy into the Azure VMware Solution private cloud.  The minimum node count is three, and the maximum is 16 per cluster.  For more information, see the [Azure VMware Solution private cloud and clusters](concepts-private-clouds-clusters.md#clusters) documentation.
+
+You can always extend the cluster later if you need to go beyond the initial deployment number.
+
+## vCenter admin password
+Define the vCenter admin password.  During the deployment, you'll create a vCenter admin password. The password is to the cloudadmin@vsphere.local admin account during the vCenter build. You'll use it to sign in to vCenter.
+
+## NSX-T admin password
+Define the NSX-T admin password.  During the deployment, you'll create an NSX-T admin password. The password is assigned to the admin user in the NSX account during the NSX build. You'll use it to log into NSX-T Manager.
 
 ## IP address segment
 
@@ -58,41 +92,6 @@ Identify a `/29` CIDR network address block, which is required for the ExpressRo
 
 :::image type="content" source="media/pre-deployment/expressroute-global-reach-ip-diagram.png" alt-text="Identify - ExpressRoute Global Reach peering network" border="false":::
 
-## Subscription
-
-Identify the subscription you plan to use to deploy Azure VMware Solution.  You can either create a new subscription or reuse an existing one.
-
->[!NOTE]
->The subscription must be associated with a Microsoft Enterprise Agreement.
-
-## Resource group
-
-Identify the resource group you want to use for your Azure VMware Solution.  Generally, a resource group is created specifically for Azure VMware Solution, but you can use an existing resource group.
-
-## Region
-
-Identify the region you want Azure VMware Solution deployed.  For more information, see the [Azure Products Available By Region Guide](https://azure.microsoft.com/en-us/global-infrastructure/services/?products=azure-vmware).
-
-## Resource name
-
-Define the resource name you'll use during deployment.  The resource name is a friendly and descriptive name in which you title your Azure VMware Solution private cloud.
-
-## Size nodes
-
-Identify the size nodes that you want to use when deploying Azure VMware Solution.  For a complete list, see the [Azure VMware Solution private clouds and clusters](concepts-private-clouds-clusters.md#hosts) documentation.
-
-## Number of hosts
-
-Define the number of hosts that you want to deploy into the Azure VMware Solution private cloud.  The minimum node count is three, and the maximum is 16 per cluster.  For more information, see the [Azure VMware Solution private cloud and clusters](concepts-private-clouds-clusters.md#clusters) documentation.
-
-You can always extend the cluster later if you need to go beyond the initial deployment number.
-
-## vCenter admin password
-Define the vCenter admin password.  During the deployment, you'll create a vCenter admin password. The password is to the cloudadmin@vsphere.local admin account during the vCenter build. You'll use it to sign in to vCenter.
-
-## NSX-T admin password
-Define the NSX-T admin password.  During the deployment, you'll create an NSX-T admin password. The password is assigned to the admin user in the NSX account during the NSX build. You'll use it to log into NSX-T Manager.
-
 ## Azure Virtual Network to attach Azure VMware Solution
 
 To access your Azure VMware Solution private cloud, the ExpressRoute circuit, which comes with Azure VMware Solution, must attach to an Azure Virtual Network.  During deployment, you can define a new virtual network or choose an existing one.
@@ -115,8 +114,6 @@ Either way, document what you want to do in this step.
 >This virtual network is seen by your on-premises environment and Azure VMware Solution, so make sure whatever IP segment you use in this virtual network and subnets do not overlap.
 
 :::image type="content" source="media/pre-deployment/azure-vmware-solution-expressroute-diagram.png" alt-text="Identity - Azure Virtual Network to attach Azure VMware Solution" border="false":::
-
-
 
 ## VMware HCX Network Segments
 

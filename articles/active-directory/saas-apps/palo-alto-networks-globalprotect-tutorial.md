@@ -114,7 +114,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 ## Configure Palo Alto Networks - GlobalProtect SSO
 
-1. Open the Palo Alto Networks Firewall GlobalProtect as an administrator in another browser window.
+1. Open the Palo Alto Networks - GlobalProtect as an administrator in another browser window.
 
 2. Click on **Device**.
 

@@ -191,6 +191,8 @@ By default, the text-to-speech service synthesizes text using a neutral speaking
 
 Currently, speaking style adjustments are supported for these neural voices:
 * `en-US-AriaNeural`
+* `en-US-JennyNeural`
+* `en-US-GuyNeural`
 * `zh-CN-XiaoxiaoNeural`
 * `zh-CN-YunyangNeural`
 
@@ -223,6 +225,10 @@ Use this table to determine which speaking styles are supported for each neural 
 |                         | `style="chat"`            | Expresses a casual and relaxed tone                         |
 |                         | `style="cheerful"`        | Expresses a positive and happy tone                         |
 |                         | `style="empathetic"`      | Expresses a sense of caring and understanding               |
+| `en-US-JennyNeural`     | `style="customerservice"` | Expresses a friendly and helpful tone for customer support  |
+|                         | `style="chat"`            | Expresses a casual and relaxed tone                         |
+|                         | `style="assistant"`       | Expresses a warm and relaxed tone for digital assistants    |
+| `en-US-GuyNeural`       | `style="newscast"`        | Expresses a formal and professional tone for narrating news |
 | `zh-CN-XiaoxiaoNeural`  | `style="newscast"`        | Expresses a formal and professional tone for narrating news |
 |                         | `style="customerservice"` | Expresses a friendly and helpful tone for customer support  |
 |                         | `style="assistant"`       | Expresses a warm and relaxed tone for digital assistants    |
@@ -427,7 +433,7 @@ To define how multiple entities are read, you can create a custom lexicon, which
 
 The `lexicon` element contains at least one `lexeme` element. Each `lexeme` element contains at least one `grapheme` element and one or more `grapheme`, `alias`, and `phoneme` elements. The `grapheme` element contains text describing the <a href="https://www.w3.org/TR/pronunciation-lexicon/#term-Orthography" target="_blank">orthography <span class="docon docon-navigate-external x-hidden-focus"></span></a>. The `alias` elements are used to indicate the pronunciation of an acronym or an abbreviated term. The `phoneme` element provides text describing how the `lexeme` is pronounced.
 
-It's important to note, that you cannot directly set the pronunciation of a word using the custom lexicon. If you need to set the pronunciation for an acronym or an abbreviated term, first provide an `alias`, then associate the `phoneme` with that `alias`. For example:
+It's important to note, that you cannot directly set the pronunciation of a phrase using the custom lexicon. If you need to set the pronunciation for an acronym or an abbreviated term, first provide an `alias`, then associate the `phoneme` with that `alias`. For example:
 
 ```xml
   <lexeme>
@@ -437,6 +443,14 @@ It's important to note, that you cannot directly set the pronunciation of a word
   <lexeme>
     <grapheme>ScotlandMV</grapheme> 
     <phoneme>ˈskɒtlənd.ˈmiːdiəm.weɪv</phoneme>
+  </lexeme>
+```
+
+You could also directly provide your expected `alias` for the acronym or abbreviated term. For example:
+```xml
+  <lexeme>
+    <grapheme>Scotland MV</grapheme> 
+    <alias>Scotland Media Wave</alias> 
   </lexeme>
 ```
 

@@ -81,7 +81,7 @@ Each Azure private cloud / SDDC is capable of handling 4,000 desktop or app sess
 
 Given the Azure private cloud / SDDC max limit, we recommend a deployment architecture where the Horizon Connection Servers and VMware Unified Access Gateways (UAGs) are running inside the Azure Virtual Network. This effectively turns each Azure private cloud / SDDC into a block. This, in turn, maximizes the scalability of Horizon running on Azure VMware Solution.
 
-The connection from Azure Virtual Network to the Azure private clouds / SDDCs should be configured with ExpressPath Fast Path. The following diagram shows a basic Horizon pod deployment.
+The connection from Azure Virtual Network to the Azure private clouds / SDDCs should be configured with ExpressRoute FastPath. The following diagram shows a basic Horizon pod deployment.
 
 :::image type="content" source="media/horizon/horizon-pod-deployment-expresspath-fast-path.png" alt-text="Typical Horizon pod deployment using ExpressPath Fast Path" border="false":::
 
@@ -89,7 +89,7 @@ The connection from Azure Virtual Network to the Azure private clouds / SDDCs sh
 
 This section lays out network architecture at a high level for scaling Horizon on Azure VMware Solution with some common deployment examples. The focus here is specifically on critical networking elements.
 
-### Single Horizon pd on Azure VMware Solution
+### Single Horizon pod on Azure VMware Solution
 
 :::image type="content" source="media/horizon/single-horizon-pod-azure-vmware-solution.png" alt-text="Single Horizon pod on Azure VMware Solution" border="false":::
 

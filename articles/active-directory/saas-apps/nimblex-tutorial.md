@@ -129,19 +129,19 @@ To configure Azure AD single sign-on with Nimblex, perform the following steps:
 
 2. On the top right-side of the page, click **Settings** logo.
 
-	![Nimblex settings](./media/nimblex-tutorial/tutorial_nimblex_settings.png)
+	![Screenshot shows the Settings icon.](./media/nimblex-tutorial/tutorial_nimblex_settings.png)
 
 3. On the **Control Panel** page, under **Security** section click **Single Sign-on**.
 
-	![Nimblex settings](./media/nimblex-tutorial/tutorial_nimblex_single.png)
+	![Screenshot shows Single Sign-on selected from the Security menu.](./media/nimblex-tutorial/tutorial_nimblex_single.png)
 
 4. On the **Manage Single Sign-On** page, select your instance name and click **Edit**.
 
-	![Nimblex saml](./media/nimblex-tutorial/tutorial_nimblex_saml.png)
+	![Screenshot shows Manage Single Sign-On where you can select Edit.](./media/nimblex-tutorial/tutorial_nimblex_saml.png)
 
 5. On the **Edit SSO Provider** page, perform the following steps:
 
-	![Nimblex saml](./media/nimblex-tutorial/tutorial_nimblex_sso.png)
+	![Screenshot shows Edit S S O Provider where you can enter the values described.](./media/nimblex-tutorial/tutorial_nimblex_sso.png)
 
 	a. In the **Description** textbox, type your instance name.
 

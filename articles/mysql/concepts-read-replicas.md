@@ -5,7 +5,7 @@ author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 7/7/2020
+ms.date: 10/1/2020
 ---
 
 # Read replicas in Azure Database for MySQL
@@ -31,6 +31,9 @@ A common scenario is to have BI and analytical workloads use the read replica as
 Because replicas are read-only, they don't directly reduce write-capacity burdens on the master. This feature isn't targeted at write-intensive workloads.
 
 The read replica feature uses MySQL asynchronous replication. The feature isn't meant for synchronous replication scenarios. There will be a measurable delay between the source and the replica. The data on the replica eventually becomes consistent with the data on the master. Use this feature for workloads that can accommodate this delay.
+
+> [!IMPORTANT]
+> Azure Database for MySQL uses **ROW** based binary logging. If your table is missing a primary key, all rows in the table are scanned for DML operations. This causes increased replication lag. To ensure that the replica is able to keep up with changes on the source, we generally recommend adding a primary key on tables in the source server before creating the replica server or re-creating the replica server if you already have one.
 
 ## Cross-region replication
 You can create a read replica in a different region from your source server. Cross-region replication can be helpful for scenarios like disaster recovery planning or bringing data closer to your users.
@@ -85,11 +88,9 @@ At the prompt, enter the password for the user account.
 
 ## Monitor replication
 
-Azure Database for MySQL provides the **Replication lag in seconds** metric in Azure Monitor. This metric is available for replicas only.
+Azure Database for MySQL provides the **Replication lag in seconds** metric in Azure Monitor. This metric is available for replicas only. This metric is calculated using the `seconds_behind_master` metric available in MySQL's `SHOW SLAVE STATUS` command. Set an alert to inform you when the replication lag reaches a value that isn’t acceptable for your workload.
 
-This metric is calculated using the `seconds_behind_master` metric available in MySQL's `SHOW SLAVE STATUS` command.
-
-Set an alert to inform you when the replication lag reaches a value that isn’t acceptable for your workload.
+If you see increased replication lag, refer [troubleshoot replication latency](howto-troubleshoot-replication-latency.md) to troubleshoot and understand possible causes.
 
 ## Stop replication
 

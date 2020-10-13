@@ -86,7 +86,7 @@ By default Functions use key-based authentication to secure Http endpoints. Sinc
 }
 ```
 
-The app can now be published to the Function app instance created in the previous step.
+The app can now be published to the [Function app](#create-a-function-app) instance created in the previous step.
 
 ```console
 func azure functionapp publish <your-functionapp-name>
