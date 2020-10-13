@@ -15,7 +15,7 @@ ms.author: cherylmc
 
 # Quickstart: Connect to a virtual machine using a private IP address and Azure Bastion
 
-This quickstart article shows you how to connect to a virtual machine through your browser using Azure Bastion and the Azure portal. In the Azure portal, from your Azure VM, you can deploy Bastion to your virtual network. After deploying Bastion, you can connect to the VM via the private IP address using the Azure portal. Your VM does not need a public IP address or special software. One advantage of creating a Bastion host for your VNet directly from your VM is that many of the settings are prepopulated for you.
+This quickstart article shows you how to connect to a virtual machine through your browser using Azure Bastion and the Azure portal. In the Azure portal, from your Azure VM, you can deploy Bastion to your virtual network. After deploying Bastion, you can connect to the VM via its private IP address using the Azure portal. Your VM does not need a public IP address or special software. One advantage of creating a Bastion host for your VNet directly from your VM is that many of the settings are prepopulated for you.
 
 Once the service is provisioned, the RDP/SSH experience is available to all of the virtual machines in the same virtual network. For more information about Azure Bastion, see [What is Azure Bastion?](bastion-overview.md).
 
