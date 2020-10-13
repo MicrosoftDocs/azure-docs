@@ -16,7 +16,7 @@ ms.custom: devx-track-csharp
 
 Azure Cognitive Search can import, analyze, and index data from multiple data sources into a single consolidated search index. 
 
-This tutorial uses C# and the [.NET SDK](/dotnet/api/overview/azure/search) to index sample hotel data from an Azure Cosmos DB, and merge that with hotel room details drawn from Azure Blob Storage documents. The result will be a combined hotel search index containing hotel documents, with rooms as a complex data types.
+This tutorial uses C# and the [Azure.Search.Documents](/dotnet/api/overview/azure/search) client library in the Azure SDK for .NET to index sample hotel data from an Azure Cosmos DB, and merge that with hotel room details drawn from Azure Blob Storage documents. The result will be a combined hotel search index containing hotel documents, with rooms as a complex data types.
 
 In this tutorial, you'll perform the following tasks:
 
@@ -31,28 +31,24 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 ## Overview
 
-This tutorial requires that you set up two Azure data sources so that you can configure an indexer that pulls from both to populate a single search index. The two data sets must have a value in common to support the merge. In this sample, that field is an ID. As long as there is a field in common to support the mapping, an indexer can merge data from disparate resources: structured data from Azure SQL, unstructured data from Blob storage, or any combination of [supported data sources](search-indexer-overview.md#supported-data-sources) on Azure.
+This tutorial uses the new client library, [Azure.Search.Documents](/dotnet/api/overview/azure/search), version 11.x, to create and run multiple indexers. In this tutorial, you'll set up two Azure data sources so that you can configure an indexer that pulls from both to populate a single search index. The two data sets must have a value in common to support the merge. In this sample, that field is an ID. As long as there is a field in common to support the mapping, an indexer can merge data from disparate resources: structured data from Azure SQL, unstructured data from Blob storage, or any combination of [supported data sources](search-indexer-overview.md#supported-data-sources) on Azure.
 
 A finished version of the code in this tutorial can be found in the following project:
 
-* [multiple-data-sources (GitHub)](https://github.com/Azure-Samples/azure-search-dotnet-samples/tree/master/multiple-data-sources/v11)
+* [multiple-data-sources/v11 (GitHub)](https://github.com/Azure-Samples/azure-search-dotnet-samples/tree/master/multiple-data-sources/v11)
 
-This tutorial has been updated to use the Azure.Search.Documents (version 11) package. For an earlier version of the .NET SDK, see [Microsoft.Azure.Search (version 10) code sample](https://github.com/Azure-Samples/azure-search-dotnet-samples/tree/master/multiple-data-sources/v10).
+This tutorial has been updated to use the Azure.Search.Documents (version 11) package. For an earlier version of the .NET SDK, see [Microsoft.Azure.Search (version 10) code sample](https://github.com/Azure-Samples/azure-search-dotnet-samples/tree/master/multiple-data-sources/v10) on GitHub.
 
 ## Prerequisites
 
 + [Azure Cosmos DB](../cosmos-db/create-cosmosdb-resources-portal.md)
 + [Azure Storage](../storage/common/storage-account-create.md)
 + [Visual Studio](https://visualstudio.microsoft.com/)
-* [Azure Cognitive Search (version 11.x) NuGet package](https://www.nuget.org/packages/Azure.Search.Documents/)
++ [Azure Cognitive Search (version 11.x) NuGet package](https://www.nuget.org/packages/Azure.Search.Documents/)
 + [Create](search-create-service-portal.md) or [find an existing search service](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) 
 
 > [!Note]
 > You can use the free service for this tutorial. A free search service limits you to three indexes, three indexers, and three data sources. This tutorial creates one of each. Before starting, make sure you have room on your service to accept the new resources.
-
-## Download files
-
-Source code for this tutorial is in the [azure-search-dotnet-samples](https://github.com/Azure-Samples/azure-search-dotnet-samples) GitHub repository, in the [multiple-data-sources](https://github.com/Azure-Samples/azure-search-dotnet-samples/tree/master/multiple-data-sources/v11) folder.
 
 ## 1 - Create services
 
@@ -179,13 +175,13 @@ This simple C#/.NET console app performs the following tasks:
 
 ### Create an index
 
-This sample program uses the .NET SDK to define and create an Azure Cognitive Search index. It takes advantage of the [FieldBuilder](/dotnet/api/azure.search.documents.indexes.fieldbuilder) class to generate an index structure from a C# data model class.
+This sample program uses [CreateIndexAsync](/dotnet/api/azure.search.documents.indexes.searchindexclient.createindexasync) to define and create an Azure Cognitive Search index. It takes advantage of the [FieldBuilder](/dotnet/api/azure.search.documents.indexes.fieldbuilder) class to generate an index structure from a C# data model class.
 
 The data model is defined by the Hotel class, which also contains references to the Address and Room classes. The FieldBuilder drills down through multiple class definitions to generate a complex data structure for the index. Metadata tags are used to define the attributes of each field, such as whether it is searchable or sortable.
 
 The program will delete any existing index of the same name before creating the new one, in case you want to run this example more than once.
 
-The following snippets from the **Hotel.cs** file shows single fields, followed by a reference to another data model class (Room.cs), can be specified.
+The following snippets from the **Hotel.cs** file shows single fields, followed by a reference to another data model class, Room[], which in turn is defined in **Room.cs** file (not shown).
 
 ```csharp
 . . .
@@ -199,7 +195,7 @@ public Room[] Rooms { get; set; }
 . . .
 ```
 
-In the **Program.cs** file, a [SearchIndex](../dotnet/api/azure.search.documents.indexes.models.searchindex) is defined with a name and a field collection generated by the `FieldBuilder.Build` method, and then created as follows:
+In the **Program.cs** file, a [SearchIndex](/dotnet/api/azure.search.documents.indexes.models.searchindex) is defined with a name and a field collection generated by the `FieldBuilder.Build` method, and then created as follows:
 
 ```csharp
 private static async Task CreateIndexAsync(string indexName, SearchIndexClient indexClient)
