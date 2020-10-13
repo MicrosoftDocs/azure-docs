@@ -90,7 +90,7 @@ Ports are consumed dynamically up to the preallocated limit.  The ports are rele
 
 For more information on idle timeouts, see [Troubleshoot outbound connections in Azure Load Balancer](../load-balancer/troubleshoot-outbound-connection.md#idletimeout) 
 
-Ports are consumed only if it's necessary to make flows unique.
+Ports are consumed only if it's necessary to make flows unique. For how a unique flow is defined, see [terminology](../load-balancer/load-balancer-outbound-connections#terms). 
 
 ### <a name="snatporttable"></a> Dynamic SNAT ports preallocation
 
