@@ -8,7 +8,11 @@ ms.custom: github-actions-azure
 
 # Deploy Azure Resource Manager templates by using GitHub Actions
 
-[GitHub Actions](https://help.github.com/en/actions) enables you to create custom software development life-cycle workflows directly in your GitHub repository where your Azure Resource Manager (ARM) templates are stored. A [workflow](https://help.github.com/actions/reference/workflow-syntax-for-github-actions) is defined by a YAML file. Workflows have one or more jobs with each job containing a set of steps that perform individual tasks. Steps can run commands or use an action. You can create your own actions or use actions shared by the [GitHub community](https://github.com/marketplace?type=actions) and customize them as needed. This article shows how to use [Azure CLI Action](https://github.com/marketplace/actions/azure-cli-action) to deploy Resource Manager templates.
+[GitHub Actions](https://help.github.com/en/actions) enables you to create custom software development life-cycle workflows directly in your GitHub repository where your Azure Resource Manager (ARM) templates are stored. 
+
+A [workflow](https://help.github.com/actions/reference/workflow-syntax-for-github-actions) is defined by a YAML file. Workflows have one or more jobs with each job containing a set of steps that perform individual tasks. Steps can run commands or use an action. 
+
+You can create your own actions or use actions shared by the [GitHub community](https://github.com/marketplace?type=actions) and customize them as needed. This article shows how to use [Azure CLI Action](https://github.com/marketplace/actions/azure-cli-action) to deploy Resource Manager templates.
 
 Azure CLI Action has two dependent actions:
 
