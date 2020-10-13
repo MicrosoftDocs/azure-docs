@@ -39,6 +39,7 @@ The following section describes setup of Server Trust Group.
    :::image type="content" source="./media/server-trust-group-overview/server-trust-group-create-new-group.png" alt-text="New Group":::
 
 5. On the **SQL trust group** create blade set the **Group name**. It needs to be unique in all regions where the group members reside. **Trust scope** defines type of cross-instance scenario that is enabled with the Server trust group. In preview the only applicable trust scope is **Distributed transactions**, so it's preselected and cannot be changed. All **Group members** must belong to the same **subscription** but can be under different resource groups. Select the **Resource group** and **SQL Server / instance** to choose the Azure SQL Managed Instance that will be member of the group.
+
    :::image type="content" source="./media/server-trust-group-overview/server-trust-group-create-blade.png" alt-text="Server trust group create blade":::
 
 6. After all required fields are populated, click **Save**.
