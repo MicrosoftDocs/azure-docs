@@ -241,7 +241,7 @@ identity is assigned to the machine but also removed user-assigned identity assi
 
 The definitions that previously caused this issue appear as \[Deprecated\] and are replaced by policy definitions that manage
 prerequisites without removing user-assigned managed identity. A manual step is required. Delete any existing
-policy assignments that are marked \[Deprecated\] and replace them with the updated prequisite policy initiative
+policy assignments that are marked \[Deprecated\] and replace them with the updated prerequisite policy initiative
 and policy definitions that have the same name as the original.
 
 For a detailed narrative, see the following blog post:
