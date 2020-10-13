@@ -6,11 +6,10 @@ ms.service: cosmos-db
 ms.topic: troubleshooting
 ms.date: 10/12/2020
 ms.author: tisande
-ms.subservice: cosmosdb-sql
 ms.reviewer: sngun
 ---
 
-# Troubleshoot query issues when using Azure Cosmos DB
+# Troubleshoot query issues when using Azure Cosmos DB's API for MongoDB
 
 This article walks through a general recommended approach for troubleshooting queries in Azure Cosmos DB. Although you shouldn't consider the steps outlined in this article a complete defense against potential query issues, we've included the most common performance tips here. You should use this article as a starting place for troubleshooting slow or expensive queries in Azure Cosmos DB's API for MongoDB. If you are using the Azure Cosmos DB core (SQL) API, you should use the [SQL API query troubleshooting guide](troubleshoot-query-performance.md)
 
@@ -23,19 +22,22 @@ If you reduce the RU charge of a query, you'll typically decrease latency as wel
 
 This article provides examples that you can re-create by using the [nutrition dataset](https://github.com/CosmosDB/labs/blob/master/dotnet/setup/NutritionData.json).
 
-> [!NOTE] This article assumes you are using version 3.6 of Azure Cosmos DB"s API for MongoDB. Some queries that perform poorly in version 3.2 will see significant improvements in version 3.6. > Upgrade to version 3.6 by filing a [support request](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
+> [!NOTE] 
+> This article assumes you are using version 3.6 of Azure Cosmos DB"s API for MongoDB. Some queries that perform poorly in version 3.2 will see significant improvements in version 3.6. Upgrade to version 3.6 by filing a [support request](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
 
-## Use explain to obtain metrics
+## Use $explain to obtain metrics
 
 When you optimize a query in Azure Cosmos DB, the first step is always to [obtain the RU charge](find-request-unit-charge.md#azure-cosmos-db-api-for-mongodb) for your query. If your RU charge is greater than 50 RUs, you should explore ways to lower the RU charge. 
 
-In addition to obtaining the RU charge, you should use `explain` to obtain the query and index usage metrics. Here is an example that runs a query and uses `explain` to show the query and index usage metrics:
+In addition to obtaining the RU charge, you should use `$explain` to obtain the query and index usage metrics. Here is an example that runs a query and uses `$explain` to show the query and index usage metrics:
+
+**$explain command:**
 
 ```
 db.coll.find({foodGroup: "Baby Foods"}).explain({"executionStatistics": true })
 ```
 
-Here is the output from `explain`:
+**Output:**
 
 ```json
 {
@@ -102,7 +104,7 @@ Here is the output from `explain`:
 }
 ```
 
-The `explain` command output is lengthy and has detailed information about query execution. In general, though, there are a few sections where you should focus when optimizing query performance:
+The `$explain` command output is lengthy and has detailed information about query execution. In general, though, there are a few sections where you should focus when optimizing query performance:
 
 | Metric | Description | 
 | ------ | ----------- |
@@ -114,7 +116,7 @@ The `explain` command output is lengthy and has detailed information about query
 | `outputDocumentCount` | Number of documents returned in the query results | 
 | `estimatedDelayFromRateLimitingInMilliseconds` | Estimated additional query latency due to rate limiting | 
 
-After you get the query metrics, compare the **Retrieved Document Count** with the **Output Document Count** for your query. Use this comparison to identify the relevant sections to review in this article. The **Retrieved Document Count** is the number of documents that the query engine needed to load. The **Output Document Count** is the number of documents that were needed for the results of the query. If the **Retrieved Document Count** is significantly higher than the **Output Document Count**, there was at least one part of your query that was unable to use an index and needed to do a scan.
+After you get the query metrics, compare the `retrievedDocumentCount` with the `outputDocumentCount` for your query. Use this comparison to identify the relevant sections to review in this article. The `retrievedDocumentCount`  is the number of documents that the query engine needed to load. The `outputDocumentCount` is the number of documents that were needed for the results of the query. If the `retrievedDocumentCount`  is significantly higher than the `outputDocumentCount`, there was at least one part of your query that was unable to use an index and needed to do a scan.
 
 Refer to the following sections to understand the relevant query optimizations for your scenario.
 
@@ -126,13 +128,9 @@ Refer to the following sections to understand the relevant query optimizations f
 
 - [Understand which aggregation operations use the index.](#understand-which-aggregation-operations-use-the-index)
 
-<br>
-
 #### Retrieved Document Count is approximately equal to Output Document Count
 
 - [Minimize cross partition queries.](#minimize-cross-partition-queries)
-
-<br>
 
 ### Query's RU charge is acceptable but latency is still too high
 
@@ -142,12 +140,13 @@ Refer to the following sections to understand the relevant query optimizations f
 
 ## Queries where Retrieved Document Count exceeds Output Document Count
 
- The **Retrieved Document Count** is the number of documents that the query engine needed to load. The **Output Document Count** is the number of documents returned by the query. If the **Retrieved Document Count** is significantly higher than the **Output Document Count**, there was at least one part of your query that was unable to use an index and needed to do a scan.
+ The `retrievedDocumentCount` is the number of documents that the query engine needed to load. The `outputDocumentCount` is the number of documents returned by the query. If the `retrievedDocumentCount` is significantly higher than the `outputDocumentCount`, there was at least one part of your query that was unable to use an index and needed to do a scan.
 
 Here's an example of scan query that wasn't entirely served by the index:
 
-Query:
+**$explain command:**
 
+```
 db.coll.find(
   {
     $and : [
@@ -156,8 +155,9 @@ db.coll.find(
         ]
   }
 ).explain({"executionStatistics": true })
+```
 
-Explain output:
+**Output:**
 
 ```json
 {
@@ -234,7 +234,7 @@ Explain output:
 }
 ```
 
-The **Retrieved Document Count** (8618) is significantly higher than the **Output Document Count** (1), implying that this query required a document scan. 
+The `retrievedDocumentCount` (8618) is significantly higher than the `outputDocumentCount` (1), implying that this query required a document scan. 
 
 ### Include necessary indexes
 
@@ -269,7 +269,6 @@ db.coll.aggregate( [
      }
    }
 ] )
-db.runCommand( { getLastRequestStatistics: 1 } )
 ```
 
 In this case, indexes can optimize the `$match` stage. Adding an index for `foodGroup` will significantly improve query performance. Like in MongoDB, you should play `$match` as early in the aggregation pipeline as possible to maximize usage of indexes.
