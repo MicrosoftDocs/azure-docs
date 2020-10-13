@@ -25,7 +25,7 @@ This article details how you can use the public IP functionality in Virtual WAN 
 
 - Azure VMware Solution environment
 - A webserver running in Azure VMware Solution environment.
-- A new non-overlapping IP range for the Virtual WAN hub deployment, typically a `/26`.
+- A new non-overlapping IP range for the Virtual WAN hub deployment, typically a `/24`.
 
 ## Reference architecture
 
