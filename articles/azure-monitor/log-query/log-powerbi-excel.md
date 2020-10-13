@@ -1,14 +1,14 @@
 ---
-title: Log Analytics integration with PowerBI and Excel
+title: Log Analytics integration with Power BI and Excel
 description: Answers common questions related to log queries and gets you started in using them.
 ms.subservice: logs
 ms.topic: conceptual
-author: rboucher
-ms.author: robb
-ms.date: 09/29/2020
+author: roygalMS
+ms.author: roygal
+ms.date: 10/13/2020
 
 ---
-# Log Analytics integration with PowerBI
+# Log Analytics integration with Power BI
 
 This article focuses on ways to feed data from Log Analytics into Microsoft Power BI to create more visually appealing reports and dashboards. 
 
@@ -27,8 +27,7 @@ More advanced features may require purchasing a Power BI Pro or premium account.
  - Power BI apps 
  - dataflows and incremental refresh 
 
-For more information, see [learn more about Power BI pricing and features] 
-(https://powerbi.microsoft.com/en-us/pricing/) 
+For more information, see [learn more about Power BI pricing and features](https://powerbi.microsoft.com/pricing/) 
 
 ## Integrating queries  
 
@@ -42,13 +41,13 @@ Log Analytics creates a .txt file containing the M code that can be used directl
 
 ## Connecting your logs to a dataset 
 
-A Power BI dataset is a source of data ready for reporting and visualization. To connect a Log Analytics query to a dataset, simply copy the M code exported from Log Analytics into a blank query in Power BI. 
+A Power BI dataset is a source of data ready for reporting and visualization. To connect a Log Analytics query to a dataset, copy the M code exported from Log Analytics into a blank query in Power BI. 
 
 For more information, see [Understanding Power BI datasets](/power-bi/service-datasets-understand/). 
 
-## Collect data with PowerBI dataflows 
+## Collect data with Power BI dataflows 
 
-Power BI dataflows also allow you to collect and store data. For more informaiton, see [PowerBI Dataflows](/power-bi/service-dataflows-overview).
+Power BI dataflows also allow you to collect and store data. For more information, see [Power BI Dataflows](/power-bi/service-dataflows-overview).
 
 A dataflow is a type of "cloud ETL" designed to help you collect and prep your data. A dataset is the "model" designed to help you connect different entities and model them for your needs.
 
@@ -57,11 +56,11 @@ A dataflow is a type of "cloud ETL" designed to help you collect and prep your d
 Both Power BI datasets and Power BI dataflows have an incremental refresh option. Power BI dataflows and Power BI datasets support this feature, but you need Power BI Premium to use it.  
 
 
-Incremental refresh runs small queries and updates smaller amounts of data per run instead of ingesting all of the data again and again when you run the query. You have the option to save large amounts of data, but add an new increment of data every time the query is run. This behavior is ideal for longer running reports.
+Incremental refresh runs small queries and updates smaller amounts of data per run instead of ingesting all of the data again and again when you run the query. You have the option to save large amounts of data, but add a new increment of data every time the query is run. This behavior is ideal for longer running reports.
 
 Power BI incremental refresh relies on the existence of a *datetime* filed in the result set. Before configuring incremental refresh, make sure your Log Analytics query result set includes at least one *datetime* filed. 
 
-To learn more and how to configure incremental refresh, see [PowerBI Datasets and Incremental refresh](/power-bi/service-premium-incremental-refresh) and [Power BI dataflows and incremental refresh](/power-bi/service-dataflows-incremental-refresh).
+To learn more and how to configure incremental refresh, see [Power BI Datasets and Incremental refresh](/power-bi/service-premium-incremental-refresh) and [Power BI dataflows and incremental refresh](/power-bi/service-dataflows-incremental-refresh).
 
 ## Reports and dashboards
 
