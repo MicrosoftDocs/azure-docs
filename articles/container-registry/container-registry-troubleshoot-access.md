@@ -106,7 +106,7 @@ Currently, Azure Security Center can't perform [image vulnerability scanning](..
 
 If access or integration of these Azure services with your container registry is required, remove the network restriction. For example, remove the registry's private endpoints, or remove or modify the registry's public access rules.
 
-A network-restricted registry can [allow access]((allow-access-trusted-services.md)) by select trusted services.
+A network-restricted registry can [allow access](allow-access-trusted-services.md)) by select trusted services.
 
 Related links:
 
