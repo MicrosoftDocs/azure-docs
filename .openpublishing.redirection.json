@@ -3697,6 +3697,11 @@
       "redirect_document_id": true
     },
     {
+      "source_path": "articles/cosmos-db/gremlin-compatibility.md",
+      "redirect_url": "/azure/cosmos-db/gremlin-support",
+      "redirect_document_id": true
+    },
+    {
       "source_path": "articles/cosmos-db/provision-throughput-autopilot.md",
       "redirect_url": "/azure/cosmos-db/provision-throughput-autoscale",
       "redirect_document_id": true
