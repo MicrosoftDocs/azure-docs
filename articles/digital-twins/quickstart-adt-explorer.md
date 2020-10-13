@@ -311,7 +311,7 @@ In this quickstart, you created an Azure Digital Twins instance, connected it to
 You then explored the graph, by...
 1. Using a query to answer a question about the scenario.
 2. Editing a property on a digital twin.
-    * Running the query again to see how the answer changed as a result of your update.
+3. Running the query again to see how the answer changed as a result of your update.
 
 The intent of this exercise is to demonstrate how you can use the Azure Digital Twins graph to answer questions about your environment, even as the environment continues to change. 
 
