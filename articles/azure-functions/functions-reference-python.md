@@ -302,23 +302,11 @@ By default, Azure Functions automatically monitors the load on your application 
 
 The default configurations are suitable for most of Azure Functions applications. However, you can improve the performance of your applications' throughput by employing configurations based on your workload profile. The first step is to understand the type of workload that you are running.
 
-##### I/O bound workload
+|| I/O-bound workload | CPU-bound workload |
+|--| -- | -- |
+|Function app characteristics| <ul><li>App needs to handle many concurrent invocations.</li> <li> App processes a large number of I/O events, such as network calls and disk read/writes.</li> </ul>| <ul><li>App does long-running computations, such as image resizing.</li> <li>App does data transformation.</li> </ul> |
+|Examples| <ul><li>Web APIs</li><ul> | <ul><li>Data processing</li><li> Machine learning inference</li><ul>|
 
-I/O bound workload has the following characteristics :
-
-- The application needs to handle many concurrent invocations.
-- The application processes a large number of I/O events e.g. network calls, disk I/O, etc.
-
-Example of I/O bound application is Web APIs.
-
-##### CPU bound workload
-
-CPU bound workload has the following characteristics:
-
-- The application does long running computation e.g. image resizing, more example
-- The application does transformation on input data
-
-Examples of CPU bound applications are Data Processing and Machine Learning inference applications.
  
 > [!NOTE]
 >  As real world functions workload are most of often a mix of I/O and CPU bound, we recommend to profile the workload under realistic production loads.
