@@ -196,7 +196,7 @@ To configure it programmatically, add the `additionalColumns` property in your c
 
 | Property | Description | Required |
 | --- | --- | --- |
-| additionalColumns | Add additional data columns to copy to sink.<br><br>Each object under the `additionalColumns` array represents an extra column. The `name` defines the column name, and the `value` indicates the data value of that column.<br><br>Allowed data values are:<br>- **`$$FILEPATH`** - a reserved variable indicates to store the source files' relative path to the folder path specified in dataset. Apply to file-based source.<br>- **$$COLUMN:<source_column_name>** - a reserved variable pattern indicates to duplicate the specified source column as another column<br>- **Expression**<br>- **Static value** | No |
+| additionalColumns | Add additional data columns to copy to sink.<br><br>Each object under the `additionalColumns` array represents an extra column. The `name` defines the column name, and the `value` indicates the data value of that column.<br><br>Allowed data values are:<br>- **`$$FILEPATH`** - a reserved variable indicates to store the source files' relative path to the folder path specified in dataset. Apply to file-based source.<br>- **`$$COLUMN:<source_column_name>`** - a reserved variable pattern indicates to duplicate the specified source column as another column<br>- **Expression**<br>- **Static value** | No |
 
 **Example:**
 

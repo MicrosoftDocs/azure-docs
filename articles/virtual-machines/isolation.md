@@ -7,6 +7,7 @@ ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 09/18/2019
 ms.author: sttsinar
+ms.reviewer: ayshak
 ---
 
 # Virtual machine isolation in Azure

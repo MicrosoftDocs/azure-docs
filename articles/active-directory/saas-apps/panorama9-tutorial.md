@@ -206,7 +206,7 @@ In the case of Panorama9, provisioning is a manual task.
 
 2. In the menu on the top, click **Manage**, and then click **Users**.
    
-	![Users](./media/panorama9-tutorial/ic790027.png "Users")
+	![Screenshot that shows the "Manage" and "Users" tabs selected.](./media/panorama9-tutorial/ic790027.png "Users")
 
 3. In the Users section, Click **+** to add new user.
 
