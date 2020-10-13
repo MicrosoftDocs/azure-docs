@@ -17,7 +17,12 @@ ms.date: 10/07/2020
 ms.author: rkarlin
 ---
 
-# Introducing Azure Defender for IoT
+# Introducing Azure Defender for IoT Preview
+
+> [!IMPORTANT]
+> <Azure Defender for IoT is currently in public preview.
+> This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
+> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 As enterprises implement digital transformation for greater efficiency and productivity, boards and management teams are increasingly concerned about the liability and financial risk resulting from the deployment of massive numbers of unmanaged Internet of Things (IoT) and Operational Technology (OT) devices.
 Threat actors targeting this expanded attack surface can cause substantial corporate impact including safety and environmental incidents, costly production downtime, and theft of sensitive intellectual property.
