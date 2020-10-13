@@ -67,6 +67,6 @@ This is required only when you want your Azure Cosmos DB account to be accessed 
 
 ## Next steps
 
-* [How to limit Azure Cosmos account access to subnet(s) within virtual networks](how-to-configure-vnet-service-endpoint.md)
+* [How to limit Azure Cosmos account access to subnet(s) within virtual networks](how-to-configure-how-to-configure-vnet-service-endpoint.md)
 * [How to configure IP firewall for your Azure Cosmos account](how-to-configure-firewall.md)
 

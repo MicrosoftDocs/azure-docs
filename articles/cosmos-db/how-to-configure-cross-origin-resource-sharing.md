@@ -85,4 +85,4 @@ To learn about other ways to secure your Azure Cosmos account, see the following
 
 * [Configure a firewall for Azure Cosmos DB](how-to-configure-firewall.md) article.
 
-* [Configure virtual network and subnet-based access for your Azure Cosmos DB account](how-to-configure-vnet-service-endpoint.md)
+* [Configure virtual network and subnet-based access for your Azure Cosmos DB account](how-to-configure-how-to-configure-vnet-service-endpoint.md)
