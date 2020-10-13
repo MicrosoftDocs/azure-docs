@@ -50,7 +50,7 @@ The Log Analytics agent scans for various security-related configurations and ev
 
 If you aren't using Azure Defender, you can also disable data collection from virtual machines in the Security Policy. Data Collection is required for subscriptions that are protected by Azure Defender. VM disk snapshots and artifact collection will still be enabled even if data collection has been disabled.
 
-You can specify the workspace and region where data collected from your machines is stored. The defauly is to store data collected from your machines in the nearest workspace as shown in the following table:
+You can specify the workspace and region where data collected from your machines is stored. The default is to store data collected from your machines in the nearest workspace as shown in the following table:
 
 | VM Geo                              | Workspace Geo |
 |-------------------------------------|---------------|
