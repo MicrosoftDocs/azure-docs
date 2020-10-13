@@ -18,7 +18,7 @@ This article walks through the following four steps to configure and then manage
 
 1. [**Install the IoT Edge runtime on your device**](#install-the-runtime-through-a-proxy)
 
-   The IoT Edge installation scripts pull packages and files from the internet, so your device needs to communicate through the proxy server to make those requests. For Windows devices, the installation script also provides an [Offline installation](how-to-install-iot-edge-windows.md#offline-or-specific-version-installation) option.
+   The IoT Edge installation scripts pull packages and files from the internet, so your device needs to communicate through the proxy server to make those requests. For Windows devices, the installation script also provides an offline installation option.
 
    This step is a one-time process to configure the IoT Edge device when you first set it up. The same connections are also required when you update the IoT Edge runtime.
 
@@ -58,7 +58,7 @@ Whether your IoT Edge device runs on Windows or Linux, you need to access the in
 
 ### Linux devices
 
-If you're installing the IoT Edge runtime on a Linux device, configure the package manager to go through your proxy server to access the installation package. For example, [Set up apt-get to use a http-proxy](https://help.ubuntu.com/community/AptGet/Howto/#Setting_up_apt-get_to_use_a_http-proxy). Once your package manager is configured, follow the instructions in [Install Azure IoT Edge runtime on Linux](how-to-install-iot-edge-linux.md) as usual.
+If you're installing the IoT Edge runtime on a Linux device, configure the package manager to go through your proxy server to access the installation package. For example, [Set up apt-get to use a http-proxy](https://help.ubuntu.com/community/AptGet/Howto/#Setting_up_apt-get_to_use_a_http-proxy). Once your package manager is configured, follow the instructions in [Install Azure IoT Edge runtime](how-to-install-iot-edge.md) as usual.
 
 ### Windows devices
 
@@ -86,7 +86,7 @@ $proxyCredential = (Get-Credential).GetNetworkCredential()
 Deploy-IoTEdge -InvokeWebRequestParameters @{ '-Proxy' = '<proxy URL>'; '-ProxyCredential' = $proxyCredential }
 ```
 
-For more information about proxy parameters, see [Invoke-WebRequest](https://docs.microsoft.com/powershell/module/microsoft.powershell.utility/invoke-webrequest). For more information about Windows installation options, including offline installation, see [Install Azure IoT Edge runtime on Windows](how-to-install-iot-edge-windows.md).
+For more information about proxy parameters, see [Invoke-WebRequest](https://docs.microsoft.com/powershell/module/microsoft.powershell.utility/invoke-webrequest). For more information about Windows installation parameters, see [PowerShell scripts for IoT Edge on Windows](reference-windows-scripts.md).
 
 ## Configure the daemons
 
