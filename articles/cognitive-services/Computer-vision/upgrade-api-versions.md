@@ -52,7 +52,7 @@ When the call to `Get Read Operation Result` is successful, it returns a status 
  
 |Read 2.x |Read 3.x  |
 |----------|-----------|
-|`"NotStarted"` |	`"notStarted"`|
+|`"NotStarted"` |    `"notStarted"`|
 |`"Running"` | `"running"`|
 |`"Failed"` | `"failed"`|
 |`"Succeeded"` | `"succeeded"`|
@@ -191,7 +191,7 @@ When the call to `Get Recognize Text Operation Result` is successful, it returns
  
 |Recognize Text 2.x |Read 3.x  |
 |----------|-----------|
-|`"NotStarted"` |	`"notStarted"`|
+|`"NotStarted"` |    `"notStarted"`|
 |`"Running"` | `"running"`|
 |`"Failed"` | `"failed"`|
 |`"Succeeded"` | `"succeeded"`|

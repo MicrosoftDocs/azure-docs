@@ -140,11 +140,11 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
    
 4. In the menu on the left side, click **Settings**.
 
-	![Configure Single Sign-On](./media/people-tutorial/tutorial_people_001.png)
+	![Screenshot that shows the left-side menu with "Settings" selected.](./media/people-tutorial/tutorial_people_001.png)
 
 5. Click **Company**.
 
-	![Configure Single Sign-On](./media/people-tutorial/tutorial_people_002.png)
+	![Screenshot that shows "Company" selected from the "Settings" menu.](./media/people-tutorial/tutorial_people_002.png)
 
 6. On the **Upload 'Single Sign On' SAML meta-data file**, click **Browse** to upload the downloaded metadata file.
 

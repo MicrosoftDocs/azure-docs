@@ -32,6 +32,9 @@ The AVS private cloud is connected to your Azure virtual network using an Azure 
 
 AVS private clouds require a minimum of a `/22` CIDR network address block for subnets, shown below. This network complements your on-premises networks. The address block shouldn't overlap with address blocks used in other virtual networks in your subscription and on-premises networks. Within this address block, management, provisioning, and vMotion networks get provisioned automatically.
 
+>[!NOTE]
+>Permitted ranges for your address block are the RFC 1918 private address spaces (10.0.0.0/8, 172.16.0.0/12, 192.168.0.0/16), except for 172.17.0.0/16.
+
 Example `/22` CIDR network address block:  `10.10.0.0/22`
 
 The subnets:
