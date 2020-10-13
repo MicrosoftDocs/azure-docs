@@ -102,7 +102,7 @@ By installing the Azure Batch CLI extension, you can use the Azure CLI to run Ba
 
 ## Script examples
 
-See the [CLI script examples](cli-samples.md) for Batch to accomplish common tasks. These examples cover many of the commands available in the Azure CLI for Batch to create and manage accounts, pools, jobs, and tasks. 
+See the [CLI script examples](\scripts\batch-cli-sample-create-account.md) for Batch to accomplish common tasks. These examples cover many of the commands available in the Azure CLI for Batch to create and manage accounts, pools, jobs, and tasks.
 
 ## JSON files for resource creation
 
