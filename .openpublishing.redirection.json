@@ -49017,6 +49017,11 @@
       "redirect_document_id": true
     },
     {
+      "source_path": "articles/iot-pnp/howto-use-iot-pnp-cli.md",
+      "redirect_url": "/azure/iot-pnp/concepts-model-repository",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/iot-central/retail/howto-deploy-video-analytics-template.md",
       "redirect_url": "/azure/iot-central/retail/tutorial-video-analytics-deploy",
       "redirect_document_id": true
