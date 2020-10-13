@@ -44,7 +44,7 @@ By default you see the **Basic settings** tab. Fill out these values:
 
 Switch to the **Auto-shutdown** page to see its settings. Auto-shutdown allows you to automatically shut down all machines in a lab at a scheduled time each day.
 
-You can enable **Auto-shutdown** and define the parameters for the automatic shutting down of all the lab's VMs. The auto-shutdown feature is mainly a cost-saving feature whereby you can specify when you want the VM to automatically be shut down. You can change auto-shutdown settings after creating the lab by following the steps outlined in the article [Manage all policies for a lab in Azure DevTest Labs](./devtest-lab-set-lab-policy.md#set-auto-shutdown).
+On the page, you can enable **Auto-shutdown** and define the parameters for the automatic shutting down of all the lab's VMs. The auto-shutdown feature is mainly a cost-saving feature whereby you can specify when you want the VM to automatically be shut down. You can change auto-shutdown settings after creating the lab by following the steps outlined in the article [Manage all policies for a lab in Azure DevTest Labs](./devtest-lab-set-lab-policy.md#set-auto-shutdown).
 
 ### Networking
 
