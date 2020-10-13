@@ -54,8 +54,8 @@ For more information about how to encode and decode messages sent using differen
 | iothub-connection-module-id |An ID set by IoT Hub on device-to-cloud messages. It contains the **moduleId** of the device that sent the message. | No | connectionModuleId |
 | iothub-connection-auth-generation-id |An ID set by IoT Hub on device-to-cloud messages. It contains the **connectionDeviceGenerationId** (as per [Device identity properties](iot-hub-devguide-identity-registry.md#device-identity-properties)) of the device that sent the message. | No |connectionDeviceGenerationId |
 | iothub-connection-auth-method |An authentication method set by IoT Hub on device-to-cloud messages. This property contains information about the authentication method used to authenticate the device sending the message.| No | connectionAuthMethod |
-| dt-dataschema | This value is set by IoT hub on device-to-cloud messages. It contains the device model ID set in the device connection. This feature is available as part of the [IoT Plug and Play public preview](../iot-pnp/overview-iot-plug-and-play.md). | No | N/A |
-| dt-subject | The name of the component that is sending the device-to-cloud messages. This feature is available as part of the [IoT Plug and Play public preview](../iot-pnp/overview-iot-plug-and-play.md). | Yes | N/A |
+| dt-dataschema | This value is set by IoT hub on device-to-cloud messages. It contains the device model ID set in the device connection. | No | N/A |
+| dt-subject | The name of the component that is sending the device-to-cloud messages. | Yes | N/A |
 
 ## System Properties of **C2D** IoT Hub messages
 

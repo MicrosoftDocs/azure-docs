@@ -1,0 +1,14 @@
+---
+ author: normesta
+ ms.service: storage
+ ms.topic: include
+ ms.date: 09/28/2020
+ ms.author: normesta
+---
+
+| Dimension Name | Description |
+| ------------------- | ----------------- |
+| **GeoType** | Transaction from Primary or Secondary cluster. The available values include **Primary** and **Secondary**. It applies to Read Access Geo Redundant Storage(RA-GRS) when reading objects from secondary tenant. |
+| **ResponseType** | Transaction response type. The available values include: <br/><br/> <li>**ServerOtherError**: All other server-side errors except described ones </li> <li>**ServerBusyError**: Authenticated request that returned an HTTP 503 status code. </li> <li>**ServerTimeoutError**: Timed-out authenticated request that returned an HTTP 500 status code. The timeout occurred due to a server error. </li> <li>**AuthorizationError**: Authenticated request that failed due to unauthorized access of data or an authorization failure. </li> <li>**NetworkError**: Authenticated request that failed due to network errors. Most commonly occurs when a client prematurely closes a connection before timeout expiration. </li><li>**ClientAccountBandwidthThrottlingError**: The request is throttled on bandwidth for exceeding [storage account scalability limits](https://docs.microsoft.com/azure/storage/common/scalability-targets-standard-account?toc=/azure/storage/blobs/toc.json).</li><li>**ClientAccountRequestThrottlingError**: The request is throttled on request rate for exceeding [storage account scalability limits](https://docs.microsoft.com/azure/storage/common/scalability-targets-standard-account?toc=/azure/storage/blobs/toc.json).<li>**ClientThrottlingError**: Other client-side throttling error. ClientAccountBandwidthThrottlingError and ClientAccountRequestThrottlingError are excluded.</li> <li>**ClientTimeoutError**: Timed-out authenticated request that returned an HTTP 500 status code. If the client's network timeout or the request timeout is set to a lower value than expected by the storage service, it is an expected timeout. Otherwise, it is reported as a ServerTimeoutError. </li> <li>**ClientOtherError**: All other client-side errors except described ones. </li> <li>**Success**: Successful request</li> <li> **SuccessWithThrottling**: Successful request when a SMB client gets throttled in the first attempt(s) but succeeds after retries.</li> |
+| **ApiName** | The name of operation. 
+| **Authentication** | Authentication type used in transactions. The available values include: <br/> <li>**AccountKey**: The transaction is authenticated with storage account key.</li> <li>**SAS**: The transaction is authenticated with shared access signatures.</li> <li>**OAuth**: The transaction is authenticated with OAuth access tokens.</li> <li>**Anonymous**: The transaction is requested anonymously. It doesn’t include preflight requests.</li> <li>**AnonymousPreflight**: The transaction is preflight request.</li> |

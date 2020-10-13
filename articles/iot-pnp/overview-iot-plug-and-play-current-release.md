@@ -36,10 +36,7 @@ To learn more about how IoT Plug and Play devices work with DTDL, see [IoT Plug 
 
 - Azure CLI IoT extension 0.10.0.
 
-    To learn more, see [Install and use the Azure IoT extension for the Azure CLI](howto-use-iot-pnp-cli.md).
-
-    > [!TIP]
-    > The Azure IoT extension includes commands to help certify devices. See `az iot product -h`.
+    The Azure IoT extension includes commands to help certify devices. See `az iot product -h`.
 
 ## Libraries and SDKs
 
@@ -48,10 +45,10 @@ To learn more about the libraries and SDKs, see [Microsoft SDKs for IoT Plug and
 - C device SDK [vcpkg 1.3.9](https://github.com/Azure/azure-iot-sdk-c/blob/master/doc/setting_up_vcpkg.md)
 - Embedded C device SDK [GitHub](https://github.com/Azure/azure-sdk-for-c/)
 - .NET device SDK [NuGet 1.31.0](https://www.nuget.org/packages/Microsoft.Azure.Devices.Client)
-- Java device SDK [Maven 1.25.0](https://mvnrepository.com/artifact/com.microsoft.azure.sdk.iot/iot-device-client)
+- Java device SDK [Maven 1.26.0](https://mvnrepository.com/artifact/com.microsoft.azure.sdk.iot/iot-device-client)
 - Python device SDK [pip 2.3.0](https://pypi.org/project/azure-iot-device/)
 - Node.js device SDK [npm 1.17.2](https://www.npmjs.com/package/azure-iot-device)
-- .NET - IoT Hub service [NuGet 1.31.0](https://www.nuget.org/packages/Microsoft.Azure.Devices )
+- .NET - IoT Hub service [NuGet 1.27.1](https://www.nuget.org/packages/Microsoft.Azure.Devices )
 - Java - IoT Hub service [Maven 1.26.0](https://mvnrepository.com/artifact/com.microsoft.azure.sdk.iot/iot-service-client/1.26.0)
 - Node.js - IoT Hub service [npm 1.13.0](https://www.npmjs.com/package/azure-iothub)
 - Python - IoT Hub/Digital Twins service [pip 2.2.3](https://pypi.org/project/azure-iot-hub)

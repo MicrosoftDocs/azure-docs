@@ -39,7 +39,7 @@ Because the Azure Cosmos emulator provides an emulated environment that runs on 
 
 * With the emulator, you can create an Azure Cosmos account in [provisioned throughput](set-throughput.md) mode only; currently it doesn't support [serverless](serverless.md) mode.
 
-* The emulator is not a scalable service and it doesn't support a large number of containers. When using the Azure Cosmos emulator, by default, you can create up to 25 fixed size containers at 400 RU/s (only supported using Azure Cosmos DB SDKs), or 5 unlimited containers. For more information on how to change this value, see [Set the PartitionCount value]emulator-command-line-parameters.md#set-partitioncount) article.
+* The emulator is not a scalable service and it doesn't support a large number of containers. When using the Azure Cosmos emulator, by default, you can create up to 25 fixed size containers at 400 RU/s (only supported using Azure Cosmos DB SDKs), or 5 unlimited containers. For more information on how to change this value, see [Set the PartitionCount value](emulator-command-line-parameters.md#set-partitioncount) article.
 
 * The emulator does not offer different [Azure Cosmos DB consistency levels](consistency-levels.md) like the cloud service does.
 
@@ -65,7 +65,7 @@ Before you install the emulator, make sure you have the following hardware and s
 
 To get started, download and install the latest version of [Azure Cosmos emulator](https://aka.ms/cosmosdb-emulator) on your local computer. If you run into any issues when installing the emulator, see the [emulator troubleshooting](troubleshoot-local-emulator.md) article to debug.
 
-Depending upon your system requirements, you can run the emulator on [Windows](#run-on-windows), [Docker for Windows](#run-on-windows-docker), [Linux, or [macOS](#run-on-linux-macos) as described in next sections of this article.
+Depending upon your system requirements, you can run the emulator on [Windows](#run-on-windows), [Docker for Windows](#run-on-windows-docker), [Linux, or macOS](#run-on-linux-macos) as described in next sections of this article.
 
 ## Check for emulator updates
 

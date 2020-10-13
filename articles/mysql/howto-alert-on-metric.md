@@ -47,7 +47,7 @@ You can configure and get information about alert rules using:
    
    Select **Done** when complete.
 
-   :::image type="content" source="./media/howto-alert-on-metric/7-set-threshold-time.png" alt-text="Select metric":::
+   :::image type="content" source="./media/howto-alert-on-metric/7-set-threshold-time.png" alt-text="Select metric 2":::
 
 8. Within the **Action Groups** section, select **Create New** to create a new group to receive notifications on the alert.
 
@@ -65,7 +65,7 @@ You can configure and get information about alert rules using:
 
 11. Specify an Alert rule name, Description, and Severity.
 
-    :::image type="content" source="./media/howto-alert-on-metric/11-name-description-severity.png" alt-text="Action group"::: 
+    :::image type="content" source="./media/howto-alert-on-metric/11-name-description-severity.png" alt-text="Action group 2"::: 
 
 12. Select **Create alert rule** to create the alert.
 

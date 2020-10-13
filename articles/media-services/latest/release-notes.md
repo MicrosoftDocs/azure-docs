@@ -31,10 +31,9 @@ To stay up-to-date with the most recent developments, this article provides you 
 ## Known issues
 
 > [!NOTE]
-> You can use the [Azure portal](https://portal.azure.com/) to manage v3 [live events](live-events-outputs-concept.md), view v3 [assets](assets-concept.md) and jobs, get info about accessing APIs, encrypt content. For all other management tasks (for example, manage transforms and jobs), use the [REST API](https://aka.ms/ams-v3-rest-ref), [CLI](https://aka.ms/ams-v3-cli-ref), or one of the supported [SDKs](media-services-apis-overview.md#sdks).
+> You can use the [Azure portal](https://portal.azure.com/) to manage v3 [live events](live-events-outputs-concept.md), view v3 [assets](assets-concept.md) and jobs, get info about accessing APIs, encrypt content. For all other management tasks (for example, manage transforms and jobs), use the [REST API](/rest/api/media/accountfilters), [CLI](/cli/azure/ams), or one of the supported [SDKs](media-services-apis-overview.md#sdks).
 >
 > For details, see: [the Azure portal limitations for Media Services v3](frequently-asked-questions.md#what-are-the-azure-portal-limitations-for-media-services-v3).
-
 
 ## August 2020
 
@@ -172,7 +171,7 @@ For more information, see [Clouds and regions in which Media Services v3 exists]
 
 We are announcing deprecation of the *Windows Azure Media Encoder* (WAME) and *Azure Media Encoder* (AME) media processors, which are being retired. For the retirement dates, see this [legacy components](../previous/legacy-components.md) article.
 
-For details, see [Migrate WAME to Media Encoder Standard](https://go.microsoft.com/fwlink/?LinkId=2101334) and [Migrate AME to Media Encoder Standard](https://go.microsoft.com/fwlink/?LinkId=2101335).
+For details, see [Migrate WAME to Media Encoder Standard](../previous/migrate-windows-azure-media-encoder.md) and [Migrate AME to Media Encoder Standard](../previous/migrate-azure-media-encoder.md).
  
 ## July 2019
 
@@ -261,21 +260,21 @@ Updates from the GA release of the V3 API include:
 
 ## November 2018
 
-The CLI 2.0 module is now available for [Azure Media Services v3 GA](/cli/azure/ams?view=azure-cli-latest) – v 2.0.50.
+The CLI 2.0 module is now available for [Azure Media Services v3 GA](/cli/azure/ams?view=azure-cli-latest&preserve-view=true) – v 2.0.50.
 
 ### New commands
 
-- [az ams account](/cli/azure/ams/account?view=azure-cli-latest)
-- [az ams account-filter](/cli/azure/ams/account-filter?view=azure-cli-latest)
-- [az ams asset](/cli/azure/ams/asset?view=azure-cli-latest)
-- [az ams asset-filter](/cli/azure/ams/asset-filter?view=azure-cli-latest)
-- [az ams content-key-policy](/cli/azure/ams/content-key-policy?view=azure-cli-latest)
-- [az ams job](/cli/azure/ams/job?view=azure-cli-latest)
-- [az ams live-event](/cli/azure/ams/live-event?view=azure-cli-latest)
-- [az ams live-output](/cli/azure/ams/live-output?view=azure-cli-latest)
-- [az ams streaming-endpoint](/cli/azure/ams/streaming-endpoint?view=azure-cli-latest)
-- [az ams streaming-locator](/cli/azure/ams/streaming-locator?view=azure-cli-latest)
-- [az ams account mru](/cli/azure/ams/account/mru?view=azure-cli-latest) - enables you to manage Media Reserved Units. For more information, see [Scale Media Reserved Units](media-reserved-units-cli-how-to.md).
+- [az ams account](/cli/azure/ams/account?view=azure-cli-latest&preserve-view=true)
+- [az ams account-filter](/cli/azure/ams/account-filter?view=azure-cli-latest&preserve-view=true)
+- [az ams asset](/cli/azure/ams/asset?view=azure-cli-latest&preserve-view=true)
+- [az ams asset-filter](/cli/azure/ams/asset-filter?view=azure-cli-latest&preserve-view=true)
+- [az ams content-key-policy](/cli/azure/ams/content-key-policy?view=azure-cli-latest&preserve-view=true)
+- [az ams job](/cli/azure/ams/job?view=azure-cli-latest&preserve-view=true)
+- [az ams live-event](/cli/azure/ams/live-event?view=azure-cli-latest&preserve-view=true)
+- [az ams live-output](/cli/azure/ams/live-output?view=azure-cli-latest&preserve-view=true)
+- [az ams streaming-endpoint](/cli/azure/ams/streaming-endpoint?view=azure-cli-latest&preserve-view=true)
+- [az ams streaming-locator](/cli/azure/ams/streaming-locator?view=azure-cli-latest&preserve-view=true)
+- [az ams account mru](/cli/azure/ams/account/mru?view=azure-cli-latest&preserve-view=true) - enables you to manage Media Reserved Units. For more information, see [Scale Media Reserved Units](media-reserved-units-cli-how-to.md).
 
 ### New features and breaking changes
 
