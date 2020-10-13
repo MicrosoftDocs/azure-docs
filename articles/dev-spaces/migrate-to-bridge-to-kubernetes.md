@@ -72,8 +72,9 @@ Bridge to Kubernetes has the flexibility to work with applications running in Ku
 
 1. Update your Visual Studio IDE to version 16.7 or greater and install the Bridge to Kubernetes extension from the [Visual Studio Marketplace][vs-marketplace].
 1. Disable the Azure Dev Spaces controller using the Azure portal or the [Azure Dev Spaces CLI][azds-delete].
-1. Open an command prompt, or use [Azure Cloud Shell](https://shell.azure.com). Make sure that the following tools are available from your command-line environment: Azure CLI, docker, kubectl, curl, tar, and gunzip.
-1. Run the migration script to convert Azure Dev Spaces assets to Bridge to Kubernetes assets. The script builds a new image compatible with Bridge to Kubernetes, uploads it to the designated registry, and then uses helm to update the cluster with the image. You must provide the resource group, the name of the AKS cluster, and a container registry; there are other command-line options as shown here:
+1. Use [Azure Cloud Shell](https://shell.azure.com). Or on Mac, Linux or Windows with bash installed, open a bash shell prompt. Make sure that the following tools are available in your command-line environment: Azure CLI, docker, kubectl, curl, tar, and gunzip.
+1. Create a container registry, or use an existing one. You can create a container registry in Azure using [Azure Container Registry](../container-registry/index.md) or by using [Docker Hub](https://hub.docker.com/).
+1. Run the migration script to convert Azure Dev Spaces assets to Bridge to Kubernetes assets. The script builds a new image compatible with Bridge to Kubernetes, uploads it to the designated registry, and then uses [Helm](https://helm.sh) to update the cluster with the image. You must provide the resource group, the name of the AKS cluster, and a container registry. There are other command-line options as shown here:
 
    ```azure-cli
    curl -sL https://aka.ms/migrate-tool | bash -s -- -g ResourceGroupName -n AKSName -h ContainerRegistryName -r PathOfTheProject -y
