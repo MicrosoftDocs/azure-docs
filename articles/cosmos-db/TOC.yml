@@ -601,8 +601,6 @@
           href: security-baseline.md
     - name: Enterprise readiness
       items:
-      - name: Online backup and on-demand restore
-        href: online-backup-and-restore.md
       - name: Compliance
         href: compliance.md
       - name: Azure Policy support
@@ -1172,8 +1170,8 @@
         href: how-to-setup-cmk.md
     - name: Enterprise readiness
       items:
-      - name: Restore data from a backup
-        href: how-to-backup-and-restore.md
+      - name: Online backup and on-demand restore
+        href: online-backup-and-restore.md
       - name: Request quota increase
         href: create-support-request-quota-increase.md
     - name : Monitor
