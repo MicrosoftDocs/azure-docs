@@ -108,14 +108,14 @@ Example:
 
 ## Recording Scenarios:
 
-1 Event from 1 Source (*Normal Activation*)
+**1 Event from 1 Source (*Normal Activation*)**
 * Duration of Recording = -offset + minimumActivationTime = [E1+offset, E1+minimumActivationTime]
 * Duration of Event = [E1, E1+minimumActivationTime]
 
 Example Diagram:
  
 
-2 Events from 1 Source (Retriggered Activation)
+**2 Events from 1 Source (*Retriggered Activation*)**
 * Duration of Recording = -offset + (arrival of 2nd event - arrival of 1st event) + minimumActivationTime
 * Duration of Events = [E1, E2] , [E2, E2+minimumActivationEvent]
 
@@ -125,7 +125,7 @@ Example Diagram:
 
 
 
-N Events from 1 Source (Maximum Activation)
+**N Events from 1 Source (*Maximum Activation*)**
 * Duration of Recording = -offset + maximumActivationTime
 * Duration of Events = [E1…n-1 , E1…n-1 +minimumActivationTime], [En, E1+maximumActivationTime]
 
