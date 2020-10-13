@@ -28,12 +28,8 @@
     items:
     - name: Configure provisioning for a gallery app
       href: configure-automatic-user-provisioning-portal.md
-    - name: Edit the attribute mappings
-      items:
-      - name: Customize attribute mappings
-        href: customize-application-attributes.md
-      - name: Write expressions for attribute mappings
-        href: functions-for-customizing-application-data.md
+    - name: Customize attribute mappings
+      href: customize-application-attributes.md
     - name: Include or exclude users and groups from scope
       items:
       - name: Scoping users or groups to be provisioned 
@@ -76,31 +72,31 @@
       href: application-provisioning-config-problem-scim-compatibility.md
     - name: SCIM and Graph scenarios
       href: scim-graph-scenarios.md
+    - name: Function reference for writing expressions for attribute mappings
+      href: functions-for-customizing-application-data.md
     - name: Cloud HR provisioning
       items:
-        - name: SuccessFactors integration 
-          href: sap-successfactors-integration-reference.md
-        - name: SuccessFactors attribute reference
-          href: sap-successfactors-attribute-reference.md
-        - name: Workday attribute reference
-          href: workday-attribute-reference.md
-    - name: Azure AD Connect Provisioning Agent
-      items:
-       - name: Provisioning Agent version history
-         href: provisioning-agent-release-version-history.md
+      - name: SuccessFactors integration 
+        href: sap-successfactors-integration-reference.md
+      - name: SuccessFactors attribute reference
+        href: sap-successfactors-attribute-reference.md
+      - name: Workday attribute reference
+        href: workday-attribute-reference.md
+      - name: Provisioning Agent version history
+        href: provisioning-agent-release-version-history.md
   - name: Resources
     items:
-        - name: Support and help options for developers
-          href: ../develop/developer-support-help-options.md
-        - name: Azure feedback forum
-          href: https://feedback.azure.com/forums/169401-azure-active-directory
-        - name: Microsoft Q&A question page
-          href: /answers/topics/azure-active-directory.html
-        - name: Pricing
-          href: https://azure.microsoft.com/pricing/details/active-directory
-        - name: Service updates
-          href: https://azure.microsoft.com/updates/?product=active-directory
-        - name: Stack Overflow
-          href: https://stackoverflow.com/questions/tagged/azure-active-directory
-        - name: Videos
-          href: https://azure.microsoft.com/documentation/videos/index/?services=active-directory
+    - name: Support and help options for developers
+      href: ../develop/developer-support-help-options.md
+    - name: Azure feedback forum
+      href: https://feedback.azure.com/forums/169401-azure-active-directory
+    - name: Microsoft Q&A question page
+      href: /answers/topics/azure-active-directory.html
+    - name: Pricing
+      href: https://azure.microsoft.com/pricing/details/active-directory
+    - name: Service updates
+      href: https://azure.microsoft.com/updates/?product=active-directory
+    - name: Stack Overflow
+      href: https://stackoverflow.com/questions/tagged/azure-active-directory
+    - name: Videos
+      href: https://azure.microsoft.com/documentation/videos/index/?services=active-directory
