@@ -1,10 +1,8 @@
 ---
 title: Create a new Azure Monitor Application Insights workspace-based resource | Microsoft Docs
 description: Learn about the steps required to enable the new Azure Monitor Application Insights workspace-based resources. 
-author: mrbullwinkle
-ms.author: mbullwin
 ms.topic: conceptual
-ms.date: 09/10/2020
+ms.date: 10/06/2020
 
 ---
 
@@ -202,6 +200,10 @@ From within the Application Insights resource pane, select **Properties** > **Ch
 ## Export telemetry
 
 The legacy continuous export functionality is not supported for workspace-based resources. Instead, select **Diagnostic settings** > **add diagnostic setting** from within your Application Insights resource. You can select all tables, or a subset of tables to archive to a storage account, or to stream to an Azure Event Hub.
+
+> [!NOTE]
+> There are currently no additional charges for the telemetry export. Pricing information for this feature will be available on the [Azure Monitor pricing page](https://azure.microsoft.com/pricing/details/monitor/).  Prior to the start of billing, notifications will be sent. Should you choose to continue using <feature name> after the notice period, you will be billed at the applicable rate. 
+ 
 
 ## Next steps
 

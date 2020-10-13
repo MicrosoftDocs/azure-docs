@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: metrics-advisor
 ms.topic: conceptual
-ms.date: 09/04/2020
+ms.date: 10/12/2020
 ms.author: aahi
 ---
 
@@ -128,7 +128,7 @@ Only one timestamp is allowed per JSON file.
 
 ## <span id="kusto">Azure Data Explorer (Kusto)</span>
 
-* **Connection String**: See [View and copy a connection string](https://docs.microsoft.com/azure/data-explorer/kusto/api/connection-strings/kusto) for information on how to retrieve the connection string from Azure Data Explorer (Kusto).
+* **Connection String**: Metrics Advisor supports accessing Azure Data Explorer(Kusto) by using Azure AD application authentication. You will need to create and register an Azure AD application and then authorize it to access an Azure Data Explorer database. To get your connection string, see the [Azure Data Explorer](https://docs.microsoft.com/azure/data-explorer/provision-azure-ad-app) documentation.
 
 * **Query**: See [Kusto Query Language](https://docs.microsoft.com/azure/data-explorer/kusto/query) to get and formulate data into multi-dimensional time series data. You can use the `@StartTime` and `@EndTime` variables in your query. They should be formatted: `yyyy-MM-dd HH:mm:ss`.
 

@@ -6,13 +6,13 @@ ms.subservice:
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 05/15/2020
+ms.date: 10/08/2020
 
 ---
 
 # Azure Monitor Frequently Asked Questions
 
-This Microsoft FAQ is a list of commonly asked questions about Azure Monitor. If you have any additional questions, go to the [discussion forum](https://docs.microsoft.com/answers/questions/topics/single/24223.html) and post your questions. When a question is frequently asked, we add it to this article so that it can be found quickly and easily.
+This Microsoft FAQ is a list of commonly asked questions about Azure Monitor. If you have any additional questions, go to the [discussion forum](/answers/questions/topics/single/24223.html) and post your questions. When a question is frequently asked, we add it to this article so that it can be found quickly and easily.
 
 
 ## General
@@ -318,7 +318,6 @@ We look up the IP address (IPv4 or IPv6) of the web client using [GeoLite2](http
 * Server telemetry: The Application Insights module collects the client IP address. It is not collected if `X-Forwarded-For` is set.
 * To learn more about how IP address and geolocation data are collected in Application Insights refer to this [article](./app/ip-collection.md).
 
-
 You can configure the `ClientIpHeaderTelemetryInitializer` to take the IP address from a different header. In some systems, for example, it is moved by a proxy, load balancer, or CDN to `X-Originating-IP`. [Learn more](https://apmtips.com/posts/2016-07-05-client-ip-address/).
 
 You can [use Power BI](app/export-power-bi.md ) to display your request telemetry on a map.
@@ -394,6 +393,29 @@ Each item that is transmitted carries an `itemCount` property that shows how man
     requests | summarize original_events = sum(itemCount), transmitted_events = count()
 ```
 
+### How do I move an Application Insights resource to a new region?
+
+Moving existing Application Insights resources from one region to another is **currently not supported**. Historical data that you have collected **cannot be migrated** to a new region. The only partial workaround is to:
+
+1. Create a brand new Application Insights resource ([classic](app/create-new-resource.md) or [workspace-based](/app/create-workspace-resource.md)) in the new region.
+2. Recreate all unique customizations specific to the original resource in the new resource.
+3. Modify your application to use the new region resource's [instrumentation key](app/create-new-resource.md#copy-the-instrumentation-key) or [connection string](app/sdk-connection-string.md).  
+4. Test to confirm that everything is continuing to work as expected with your new Application Insights resource. 
+5. At this point you can either delete the original resource which will result in **all historical data being lost**. Or retain the original resource for historical reporting purposes for the duration of its data retention settings.
+
+Unique customizations that commonly need to be manually recreated or updated for the resource in the new region include but are not limited to:
+
+- Recreate custom dashboards and workbooks. 
+- Recreate or update the scope of any custom log/metric alerts. 
+- Recreate availability alerts.
+- Recreate any custom Role-Based Access Control (RBAC) settings that are required for your users to access the new resource. 
+- Replicate settings involving ingestion sampling, data retention, daily cap, and custom metrics enablement. These settings are controlled via the **Usage and estimated costs** pane.
+- Any integration that relies on API keys such as [release annotations](/app/annotations.md), [live metrics secure control channel](app/live-stream.md#secure-the-control-channel) etc. You will need to generate new API keys and update the associated integration. 
+- Continuous export in classic resources would need to be configured again.
+- Diagnostic settings in workspace-based resources would need to be configured again.
+
+> [!NOTE]
+> If the resource you are creating in a new region is replacing a classic resource we recommend exploring the benefits of [creating a new workspace-based resource](app/create-workspace-resource.md) or alternatively [migrating your existing resource to workspace-based](app/convert-classic-resource.md). 
 
 ### Automation
 
@@ -426,7 +448,7 @@ This doesn't depend on where your Application Insights resource is hosted. It ju
 
 ### Can I send telemetry to the Application Insights portal?
 
-We recommend you use our SDKs and use the [SDK API](app/api-custom-events-metrics.md). There are variants of the SDK for various [platforms](app/platforms.md). These SDKs handle buffering, compression, throttling, retries, and so on. However, the [ingestion schema](https://github.com/microsoft/ApplicationInsights-dotnet/tree/master/BASE/Schema/PublicSchema) and [endpoint protocol](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/EndpointSpecs/ENDPOINT-PROTOCOL.md) are public.
+We recommend you use our SDKs and use the [SDK API](app/api-custom-events-metrics.md). There are variants of the SDK for various [platforms](app/platforms.md). These SDKs handle buffering, compression, throttling, retries, and so on. However, the [ingestion schema](https://github.com/microsoft/ApplicationInsights-dotnet/tree/master/BASE/Schema/PublicSchema) and [endpoint protocol](https://github.com/MohanGsk/ApplicationInsights-Home/blob/master/EndpointSpecs/ENDPOINT-PROTOCOL.md) are public.
 
 ### Can I monitor an intranet web server?
 

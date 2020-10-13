@@ -165,7 +165,7 @@ Azure Advanced Threat Protection (ATP) is a security solution that can use on-pr
 
 - [How to monitor users' identity and access activity in Azure Security Center](../../security-center/security-center-identity-access.md)
 
-- [Alerts in Azure Security Center's threat intelligence protection module](//azure/security-center/alerts-reference)
+- [Alerts in Azure Security Center's threat intelligence protection module](/azure/security-center/alerts-reference)
 
 - [How to integrate Azure activity logs into Azure Monitor](../../active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md)
 

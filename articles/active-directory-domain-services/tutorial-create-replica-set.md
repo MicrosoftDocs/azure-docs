@@ -2,7 +2,7 @@
 title: Tutorial - Create a replica set in Azure AD Domain Services | Microsoft Docs
 description: Learn how to create and use replica sets in the Azure portal for service resiliency with Azure AD Domain Services
 services: active-directory-ds
-author: iainfoulds
+author: MicrosoftGuyJFlo
 manager: daveba
 
 ms.service: active-directory
@@ -10,7 +10,7 @@ ms.subservice: domain-services
 ms.workload: identity
 ms.topic: tutorial
 ms.date: 07/16/2020
-ms.author: iainfou
+ms.author: joflore
 
 #Customer intent: As an identity administrator, I want to create and use replica sets in Azure Active Directory Domain Services to provide resiliency or geographical distributed managed domain data.
 ---
