@@ -7,7 +7,7 @@ author:   alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: conceptual
-ms.date: 09/24/2020
+ms.date: 10/13/2020
 ms.author: alkohli
 ---
 
@@ -146,20 +146,22 @@ NOTICE: This equipment has been tested and found to comply with the limits for a
 
 This device complies with part 15 of the FCC Rules and Industry Canada license-exempt RSS standard(s). Operation is subject to the following two conditions: (1) this device may not cause harmful interference, and (2) this device must accept any interference received, including interference that may cause undesired operation of the device.
 
+![Regulatory information warning 1](./media/azure-stack-edge-mini-r-safety/regulatory-information-1.png)
+
 CAN ICES-3(A)/NMB-3(A)
 Microsoft Corporation, One Microsoft Way, Redmond, WA 98052, USA.
 United States: (800) 426-9400
 Canada: (800) 933-4750
+
 EUROPEAN UNION:
 Request a copy of the EU Declaration of Conformity.
 
-  WARNING:
-
-
-This is a class A product. In a domestic environment, this product may cause radio interference in which case the user may be required to take adequate measures.
+> ![Warning Icon](./media/azure-stack-edge-mini-r-safety/icon-safety-warning.png)
+> This is a class A product. In a domestic environment, this product may cause radio interference in which case the user may be required to take adequate measures.
 
 Disposal of waste batteries and electrical and electronic equipment:
 
+![Warning Icon](./media/azure-stack-edge-mini-r-safety/icon-ewaste-disposal.png)
 
 This symbol on the product or its batteries or its packaging means that this product and any batteries it contains must not be disposed of with your household waste. Instead, it is your responsibility to hand this over to an applicable collection point for the recycling of batteries and electrical and electronic equipment. This separate collection and recycling will help to conserve natural resources and prevent potential negative consequences for human health and the environment due to the possible presence of hazardous substances in batteries and electrical and electronic equipment, which could be caused by inappropriate disposal. For more information about where to drop off your batteries and electrical and electronic waste, please contact your local city/municipality office, your household waste disposal service, or the shop where you purchased this product. Contact erecycle@microsoft.com for additional information on WEEE.
 
