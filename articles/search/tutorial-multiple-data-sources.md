@@ -80,7 +80,7 @@ This sample uses two small sets of data that describe seven fictional hotels. On
 
 1. Use the Refresh button to refresh your view of the items in the hotels collection. You should see seven new database documents listed.
 
-1. Copy a connection string from the **Keys** page into Notepad. You will need this for **appsettings.json** in a later step. If you did not use the suggested database name "hotel-rooms-db**, copy the database name as well.
+1. Copy a connection string from the **Keys** page into Notepad. You will need this for **appsettings.json** in a later step. If you did not use the suggested database name "hotel-rooms-db", copy the database name as well.
 
 ### Azure Blob storage
 
