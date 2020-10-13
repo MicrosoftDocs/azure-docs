@@ -1036,6 +1036,8 @@
         href: how-to-define-unique-keys.md
     - name: Performance
       items:
+      - name: Connection modes
+        href: sql-sdk-connectionmodes.md
       - name: Query
         items: 
         - name: Get query execution metrics

@@ -1,6 +1,6 @@
 ---
-title: Azure Cosmos DB SDK connection modes
-description: Learn client configuration options to improve Azure Cosmos DB .NET v2 SDK performance.
+title: Azure Cosmos DB SQL SDK connection modes
+description: Learn about the different connection modes available on the Azure Cosmos DB SQL SDKs.
 author: ealsur
 ms.service: cosmos-db
 ms.topic: how-to
@@ -10,7 +10,7 @@ ms.custom: devx-track-dotnet
 
 ---
 
-# Azure Cosmos DB SDK connection modes
+# Azure Cosmos DB SQL SDK connection modes
 
 How a client connects to Azure Cosmos DB has important performance implications, especially for observed client-side latency. Azure Cosmos DB offers a simple, open RESTful programming model over HTTPS called gateway mode. Additionally, it offers an efficient TCP protocol, which is also RESTful in its communication model and uses TLS for initial authentication and encrypting traffic, called direct mode. 
 
