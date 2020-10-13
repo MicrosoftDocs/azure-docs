@@ -1,7 +1,7 @@
 ---
 title: "Migrating to Bridge to Kubernetes"
 services: azure-dev-spaces
-ms.date: 09/21/2020
+ms.date: 10/12/2020
 ms.topic: "conceptual"
 description: "Describes the migration process from Azure Dev Spaces to Bridge to Kubernetes"
 keywords: "Azure Dev Spaces, Dev Spaces, Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, containers, Bridge to Kubernetes"
