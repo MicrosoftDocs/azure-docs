@@ -15,7 +15,7 @@ ms.date: 06/11/2020
 ms.author: memildin
 
 ---
-# Customize the SQL information protection policy in Azure Security Center (Preview)
+# SQL information protection policy in Azure Security Center (Preview)
  
 You can define and customize an SQL information protection policy for your entire Azure tenant, in Azure Security Center.
 
@@ -33,8 +33,17 @@ The classification mechanism is based on two primary constructs that make up the
 Information Protection comes with a built-in set of labels and information types, which are used by default. To customize these labels and types, you can customize the information protection policy in Security Center.
  
 ## Customize the information protection policy
+
 To customize the information protection policy for your Azure tenant, you need to have [administrative privileges on the tenant's root management group](security-center-management-groups.md). 
  
+1. From Security Center's **Recommendatons** page, search for the recommendation **Sensitive data in your SQL databases should be classified**.
+
+    :::image type="content" source="./media/security-center-info-protection-policy/sql-sensitive-data-recommendation.png" alt-text="Finding the recommendation that provides access to the SQL information protection policies":::
+
+1. Open the recommendation. The recommendation details page shows the database resources grouped into **healthy**, **unhealthy**, and **not applicable**. 
+1. Select a database to access the Data Discovery & Classification page.
+
+1. The recommendation details page 
 1. In the Security Center main menu, under **RESOURCE SECURITY HYGIENE** go to **Data & storage** and click on the **SQL Information Protection** button.
 
    ![Configure Information protection policy](./media/security-center-info-protection-policy/security-policy.png) 
