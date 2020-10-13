@@ -85,7 +85,7 @@ The Metrics category logs the same [Server metrics](analysis-services-monitor.md
 
 3. Click **Save**.
 
-    If you receive an error that says "Failed to update diagnostics for \<workspace name>. The subscription \<subscription id> is not registered to use microsoft.insights." follow the [Troubleshoot Azure Diagnostics](../azure-monitor/platform/resource-logs.md#collect-to-log-analytics-workspace) instructions to register the account, then retry this procedure.
+    If you receive an error that says "Failed to update diagnostics for \<workspace name>. The subscription \<subscription id> is not registered to use microsoft.insights." follow the [Troubleshoot Azure Diagnostics](../azure-monitor/platform/resource-logs.md) instructions to register the account, then retry this procedure.
 
     If you want to change how your resource logs are saved at any point in the future, you can return to this page to modify settings.
 
