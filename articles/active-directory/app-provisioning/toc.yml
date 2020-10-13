@@ -58,8 +58,6 @@
         href: application-provisioning-config-problem.md
       - name: Quarantine status
         href: application-provisioning-quarantine-status.md
-      - name: Authorization issue (unable to save admin credentials)
-        href: application-provisioning-config-problem-storage-limit.md
       - name: Users aren't provisioned 
         href: application-provisioning-config-problem-no-users-provisioned.md
       - name: Missing source attribute
