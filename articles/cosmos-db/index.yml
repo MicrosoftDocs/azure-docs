@@ -130,8 +130,8 @@ landingContent:
         links:  
           - text: Wire protocol compatibility with Tinkerpop’s Gremlin
             url: gremlin-support.md      
-          - text: Limitations of Gremlin API
-            url: gremlin-compatibility.md                                     
+          - text: Gremlin API service limits
+            url: gremlin-limits.md                                     
       - linkListType: how-to-guide
         links:
           - text: Graph data modeling
