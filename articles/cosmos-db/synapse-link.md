@@ -5,7 +5,7 @@ author: Rodrigossz
 ms.author: rosouz
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 09/22/2020
+ms.date: 10/12/2020
 ms.reviewer: sngun
 ---
 
@@ -111,7 +111,7 @@ Synapse Link is not recommended if you are looking for traditional data warehous
 
 ## Limitations
 
-* Azure Synapse Link is supported for the Azure Cosmos DB SQL (Core) API and the Azure Cosmos DB’s API for MongoDB.
+* Today Azure Synapse Link for Azure Cosmos DB is supported for SQL API and Azure Cosmos DB API for MongoDB. It is not supported for Gremlin API and Table API. Support for Cassandra API is in private preview, for more information please contact the Azure Synapse Link team at cosmosdbsynapselink@microsoft.com.  
 
 * Currently, the analytical store can only be enabled for new containers. To use analytical store for existing containers, migrate data from your existing containers to new containers using [Azure Cosmos DB migration tools](cosmosdb-migrationchoices.md). You can enable Synapse Link on new and existing Azure Cosmos DB accounts.
 

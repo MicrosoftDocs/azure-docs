@@ -13,7 +13,7 @@ ms.date: 05/24/2019
 
 
 > [!IMPORTANT]
-> The recommended approach to monitor Java applications is to use the auto-instrumentation without changing the code. Please follow the guidelines for [Application Insights Java 3.0 agent](https://docs.microsoft.com/azure/azure-monitor/app/java-in-process-agent).
+> The recommended approach to monitor Java applications is to use the auto-instrumentation without changing the code. Please follow the guidelines for [Application Insights Java 3.0 agent](./java-in-process-agent.md).
 
 In this quickstart, you use Application Insights SDK to instrument request, track dependencies, and collect performance counters, diagnose performance issues and exceptions, and write code to  track what users do with your app.
 
@@ -198,7 +198,7 @@ Now publish your app to the server, let people use it, and watch the telemetry s
 
 ## Azure App Service, AKS, VMs config
 
-The best and easiest approach to monitor your applications running on any of Azure resource providers is to use Application Insights auto-instrumentation via [Java 3.0 agent](https://docs.microsoft.com/azure/azure-monitor/app/java-in-process-agent).
+The best and easiest approach to monitor your applications running on any of Azure resource providers is to use Application Insights auto-instrumentation via [Java 3.0 agent](./java-in-process-agent.md).
 
 
 ## Exceptions and request failures
@@ -312,4 +312,3 @@ Application Insights can test your website at regular intervals to check that it
 [javalogs]: java-trace-logs.md
 [metrics]: ../platform/metrics-charts.md
 [usage]: javascript.md
-

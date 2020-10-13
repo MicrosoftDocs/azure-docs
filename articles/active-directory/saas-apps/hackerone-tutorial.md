@@ -122,11 +122,11 @@ To configure Azure AD single sign-on with HackerOne, perform the following steps
 
 2. In the menu on the top, click the **Settings**.
 
-    ![Configure Single Sign-On](./media/hackerone-tutorial/tutorial_hackerone_001.png)
+    ![Screenshot that shows "Settings" selected in the menu.](./media/hackerone-tutorial/tutorial_hackerone_001.png)
 
 3. Navigate to **Authentication** and click **Add SAML settings**.
 
-    ![Configure Single Sign-On](./media/hackerone-tutorial/tutorial_hackerone_003.png)
+    ![Screenshot that shows the "Authentication Settings" page with the "Add S A M L settings" button selected.](./media/hackerone-tutorial/tutorial_hackerone_003.png)
 
 4. On the **SAML Settings** dialog, perform the following steps:
 
@@ -142,7 +142,7 @@ To configure Azure AD single sign-on with HackerOne, perform the following steps
 
 5. On the Authentication Settings dialog, perform the following steps:
 
-    ![Configure Single Sign-On](./media/hackerone-tutorial/tutorial_hackerone_005.png)
+    ![Screenshot that shows the "Authentication Settings" dialog with the "Run test" button selected.](./media/hackerone-tutorial/tutorial_hackerone_005.png)
 
     a. Click **Run test**.
 

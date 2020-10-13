@@ -205,8 +205,8 @@ If your cluster is behind an outbound proxy server, Azure CLI and the Arc enable
 
 > [!NOTE]
 > 1. Specifying excludedCIDR under --proxy-skip-range is important to ensure in-cluster communication is not broken for the agents.
-> 2. While --proxy-http, --proxy-https and --proxy-skip-range are expected for most outbound proxy environments, --proxy-cert is only required if there are trusted certificates from proxy that need to be injected intro trusted certificate store of agent pods.
-> 3. The above proxy specification currently is applied only for Arc agents and not for the flux pods used in sourceControlConfiguration. The Arc enabled Kubernetes team is actively working on this feature and it will be available soon.
+> 2. While --proxy-http, --proxy-https and --proxy-skip-range are expected for most outbound proxy environments, --proxy-cert is only required if there are trusted certificates from proxy that need to be injected into trusted certificate store of agent pods.
+> 3. The above proxy specification is currently applied only for Arc agents and not for the flux pods used in sourceControlConfiguration. The Arc enabled Kubernetes team is actively working on this feature and it will be available soon.
 
 ## Azure Arc agents for Kubernetes
 
