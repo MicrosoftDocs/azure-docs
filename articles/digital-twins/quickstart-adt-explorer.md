@@ -19,7 +19,7 @@ ms.service: digital-twins
 
 With Azure Digital Twins, you can create and interact with live models of your real-world environments. This is done by modeling individual elements as **digital twins**, then connecting them into a knowledge **graph** that can respond to live events and be queried for information.
 
-In this quickstart, you will explore a pre-built Azure Digital Twins graph, with the help of a sample application called [**Azure Digital Twins (ADT) Explorer**](https://docs.microsoft.com/samples/azure-samples/digital-twins-explorer/digital-twins-explorer/). ADT Explorer lets you upload a scenario, view visual representations of your twins and graph, and perform other management activities through a browser-based, visual experience.
+In this quickstart, you will explore a pre-built Azure Digital Twins graph, with the help of a sample application called [**Azure Digital Twins (ADT) Explorer**](https://docs.microsoft.com/samples/azure-samples/digital-twins-explorer/digital-twins-explorer/). ADT Explorer lets you upload a digital representation of an environment, view visual images of the twins and graph that are created to represent the environment in Azure Digital Twins, and perform other management activities through a browser-based, visual experience.
 
 The quickstart contains the following major steps:
 
