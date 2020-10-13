@@ -58059,6 +58059,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/batch/cli-samples.md",
+      "redirect_url": "/azure/batch/scripts/batch-cli-sample-create-account",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/azure-monitor/asp-net-more.md",
       "redirect_url": "/azure/azure-monitor/azure-monitor-app-hub",
       "redirect_document_id": false
