@@ -1,19 +1,17 @@
 ---
-title: 'Query Azure Monitor data in Azure Data Explorer'
+title: Query data in Azure Monitor using Azure Data Explorer (preview)
 description: 'In this article, Application Insights and Log Analytics data in Azure Data Explorer by using proxy for cross product queries'
 author: orens
 ms.author: bwren
 ms.reviewer: bwren
 ms.subservice: logs
 ms.topic: conceptual
-ms.date: 08/28/2020
+ms.date: 10/13/2020
 
-#Customer intent: I want to query data in Azure Monitor using Azure Data Explorer by creating an Azure Data Explorer proxy for cross product queries with Log Analytics and Application Insights 
 ---
 
-# Query data in Azure Monitor using Azure Data Explorer (Preview)
-
-The Azure Data Explorer proxy cluster (ADX Proxy) enables you to perform cross product queries between Azure Data Explorer, [Application Insights](/azure/azure-monitor/app/app-insights-overview), and [Log Analytics](/azure/azure-monitor/platform/data-platform-logs) in  [Azure Monitor](/azure/azure-monitor/). You can map Log Analytics workspaces in Azure Monitor or classic Application Insights apps as proxy clusters. You can then query the proxy cluster using Azure Data Explorer tools and refer to it in a cross cluster query. The article shows how to connect to a proxy cluster, add a proxy cluster to Azure Data Explorer Web UI, and run queries against your Log Analytics workspaces or classic Application Insights apps from Azure Data Explorer.
+# Query data in Azure Monitor using Azure Data Explorer (preview)
+The Azure Data Explorer proxy cluster enables you to perform cross product queries between Azure Data Explorer, [Application Insights](/azure/azure-monitor/app/app-insights-overview), and [Log Analytics](/azure/azure-monitor/platform/data-platform-logs) in  [Azure Monitor](/azure/azure-monitor/). You can map Log Analytics workspaces in Azure Monitor or classic Application Insights apps as proxy clusters. You can then query the proxy cluster using Azure Data Explorer tools and refer to it in a cross cluster query. The article shows how to connect to a proxy cluster, add a proxy cluster to Azure Data Explorer Web UI, and run queries against your Log Analytics workspaces or classic Application Insights apps from Azure Data Explorer.
 
 The following diagram shows the Azure Data Explorer proxy flow:
 
@@ -21,21 +19,19 @@ The following diagram shows the Azure Data Explorer proxy flow:
 
 
 > [!NOTE]
-> The ADX Proxy is in public preview. [Connect to the proxy](#connect-to-the-proxy) to enable the ADX proxy feature for your clusters. Contact the [ADXProxy](mailto:adxproxy@microsoft.com) team with any questions.
+> The Azure Data Explorer proxy is in public preview. [Connect to the proxy](#connect-to-the-proxy) to enable the proxy feature for your clusters. 
 
 ## Connect to the proxy
-
-1. Open the[Azure Data Explorer Web UI](https://dataexplorer.azure.com/clusters).
-2. Verify your Azure Data Explorer native cluster (such as *help* cluster) appears on the left menu before you connect to your Log Analytics or Application Insights cluster.
+To connect your Log Analytics workspace or classic Application Insights app, open the[Azure Data Explorer Web UI](https://dataexplorer.azure.com/clusters). Verify your Azure Data Explorer native cluster (such as *help* cluster) appears on the left menu before you connect to your Log Analytics or Application Insights cluster.
 
 :::image type="content" source="media/azure-data-explorer-monitor-proxy/azure-data-explorer-web-ui-help-cluster.png" alt-text="Azure Data Explorer native cluster.":::
 
-3. Click **Add Cluster** and then add the URL of the Log Analytics or Application Insights cluster. 
+Click **Add Cluster** and then add the URL of the Log Analytics or Application Insights cluster in one of the following formats. 
     
-    * For Log Analytics: `https://ade.loganalytics.io/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/microsoft.operationalinsights/workspaces/<workspace-name>`
-    * For Application Insights: `https://ade.applicationinsights.io/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/microsoft.insights/components/<ai-app-name>`
+* For Log Analytics: `https://ade.loganalytics.io/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/microsoft.operationalinsights/workspaces/<workspace-name>`
+* For Application Insights: `https://ade.applicationinsights.io/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/microsoft.insights/components/<ai-app-name>`
 
- 4. Click **Add**.
+Click **Add** to make the connection.
 
 :::image type="content" source="media/azure-data-explorer-monitor-proxy/azure-monitor-proxy-add-cluster.png" alt-text="Add cluster.":::
  
@@ -49,12 +45,12 @@ After the connection is established, your Log Analytics or Application Insights 
 > [!NOTE]
 > The number of Azure Monitor workspaces that can be mapped is limited to 100.
 
-## Run queries
+## Create queries using Azure Monitor data
 
 You can run the queries using client tools that support Kusto queries, such as: Kusto Explorer, Azure Data Explorer Web UI, Jupyter Kqlmagic, Flow, PowerQuery, PowerShell, Jarvis, Lens, and REST API.
 
 > [!NOTE]
-> The ADX Proxy feature is used for data retrieval only. For more information, see [Function supportability](#function-supportability).
+> The Azure Data Explorer proxy feature is used for data retrieval only. For more information, see [Function supportability](#function-supportability).
 
 > [!TIP]
 > * Database name should have the same name as the resource specified in the proxy cluster. Names are case sensitive.
@@ -62,7 +58,7 @@ You can run the queries using client tools that support Kusto queries, such as: 
 >     * If names contain special characters, they're replaced by URL encoding in the proxy cluster name. 
 >     * If names include characters that don't meet [KQL identifier name rules](https://docs.microsoft.com/azure/data-explorer/kusto/query/schema-entities/entity-names), they are replaced by the dash **-** character.
 
-### Direct query from your Log Analytics or Application Insights ADX Proxy cluster
+### Direct query from your Log Analytics or Application Insights proxy cluster
 
 Run queries on your Log Analytics or Application Insights cluster. Verify that your cluster is selected in the left pane. 
  
@@ -72,9 +68,9 @@ Perf | take 10 // Demonstrate query through the proxy on the Log Analaytics work
 
 :::image type="content" source="media/azure-data-explorer-monitor-proxy/azure-monitor-proxy-query-la.png" alt-text="Query Log Analytics workspace.":::
 
-### Cross query of your Log Analytics or Application Insights ADX Proxy cluster and the ADX native cluster
+### Cross query of your Log Analytics or Application Insights proxy cluster and the Azure Data Explorer native cluster
 
-When you run cross cluster queries from the proxy, verify your ADX native cluster is selected in the left pane. The following examples demonstrate combining ADX cluster tables using the [union](/azure/data-explorer/kusto/query/unionoperator) operator with a Log Analytics workspace.
+When you run cross cluster queries from the proxy, verify your Azure Data Explorer native cluster is selected in the left pane. The following examples demonstrate combining Azure Data Explorer cluster tables using the [union](/azure/data-explorer/kusto/query/unionoperator) operator with a Log Analytics workspace.
 
 ```kusto
 union StormEvents, cluster('https://ade.loganalytics.io/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/microsoft.operationalinsights/workspaces/<workspace-name>').database('<workspace-name>').Perf
@@ -83,13 +79,13 @@ union StormEvents, cluster('https://ade.loganalytics.io/subscriptions/<subscript
 
 ```kusto
 let CL1 = 'https://ade.loganalytics.io/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/microsoft.operationalinsights/workspaces/<workspace-name>';
-union <ADX table>, cluster(CL1).database(<workspace-name>).<table name>
+union <Azure Data Explorer table>, cluster(CL1).database(<workspace-name>).<table name>
 ```
 Using the [`join` operator](/azure/data-explorer/kusto/query/joinoperator?pivots=azuredataexplorer), instead of union, may require a [hint](/azure/data-explorer/kusto/query/joinoperator?pivots=azuredataexplorer#join-hints) to run it on an Azure Data Explorer native cluster (and not on the proxy). 
 
-### Join data from an ADX cluster in one tenant with an Azure Monitor resource in another
+### Join data from an Azure Data Explorer cluster in one tenant with an Azure Monitor resource in another
 
-Cross-tenant queries aren't supported by ADX Proxy. You are signed in to a single tenant for running the query spanning both resources.
+Cross-tenant queries aren't supported by Azure Data Explorer proxy. You are signed in to a single tenant for running the query spanning both resources.
 
 If the Azure Data Explorer resource is in Tenant 'A' and Log Analytics workspace is in Tenant 'B' use one of the following two methods:
 

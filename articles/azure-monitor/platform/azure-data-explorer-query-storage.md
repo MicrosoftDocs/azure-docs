@@ -1,19 +1,17 @@
 ---
-title: Query exported data in Azure Storage Account with Azure Data Explorer (Preview)
-description: Query data in Azure Storage Account using Azure Data Explorer external tables
+title: Query exported data from Azure Monitor using Azure Data Explorer (preview)
+description: Use Azure Data Explorer to query data that was exported from your Log Analytics workspace to an Azure storage account.
 ms.subservice: logs
 author: orens
 ms.author: bwren
 ms.reviewer: bwren
 ms.topic: conceptual
-ms.date: 07/19/2020
+ms.date: 10/13/2020
 
-#Customer intent: I want to query data in Azure Data Explorer that was exported from Azure Monitor by creating an ExternalTable
 ---
 
-# Query exported data from Azure Monitor using Azure Data Explorer
-
-Exporting Data from Azure Monitor enables low-cost retention and the ability to reallocate logs to different regions. Use Azure Data Explorer to query data that was exported from your Log Analytics workspaces. Once configured, supported tables that are sent from your workspaces to an Azure storage account will be available as a data source for Azure Data Explorer.
+# Query exported data from Azure Monitor using Azure Data Explorer (preview)
+Exporting data from Azure Monitor to an Azure storage account enables low-cost retention and the ability to reallocate logs to different regions. Use Azure Data Explorer to query data that was exported from your Log Analytics workspaces. Once configured, supported tables that are sent from your workspaces to an Azure storage account will be available as a data source for Azure Data Explorer.
 
 The process flow is as follows: 
 
@@ -26,7 +24,7 @@ The process flow is as follows:
 
 
 ## Send data to Azure storage
-Azure Monitor logs can continuously be exported to an Azure Storage Account using any of the following options.
+Azure Monitor logs can be exported to an Azure Storage Account using any of the following options.
 
 - To export all data from your Log Analytics workspace to an Azure storage account or event hub, use the Log Analytics workspace data export feature of Azure Monitor Logs. See [Log Analytics workspace data export in Azure Monitor (preview)](logs-data-export.md)
 - Scheduled export from a log query using a Logic App. This is similar to the data export feature but allows you to send filtered or aggregated data to Azure storage. This method though is subject to [log query limits](../service-limits.md#log-analytics-workspaces)  See [Archive data from Log Analytics workspace to Azure storage using Logic App](logs-export-logicapp.md).

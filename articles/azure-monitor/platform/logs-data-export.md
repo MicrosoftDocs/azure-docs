@@ -5,7 +5,7 @@ ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 10/02/2020
+ms.date: 10/13/2020
 
 ---
 
@@ -35,7 +35,7 @@ Log Analytics workspace data export continuously exports data from a Log Analyti
 - Your Log Analytics workspace can be in any region except for the following:
   - Switzerland North
   - Switzerland West
-  - Any Azure government region
+  - Azure government regions
 - The destination storage account or event hub must be in the same region as the Log Analytics workspace.
 - Names of tables to be exported can be no longer than 60 characters for a storage account and no more than 47 characters to an event hub. Tables with longer names will not be exported.
 
@@ -53,7 +53,7 @@ Log Analytics workspace data export continuously exports data from a Log Analyti
 Data export will continue to retry sending data for up to 30 minutes in the event that the destination is unavailable. If it's still unavailable after 30 minutes then data will be discarded until the destination becomes available.
 
 ## Cost
-There are no additional charges for the data export feature during public preview. Pricing for features that are in preview will be announced in the future and a notice provided prior to start of billing. If you choose to continue using data export after the notice period, you will be billed at the applicable rate.
+There are currently no additional charges for the data export feature. Pricing for data export will be announced in the future and a notice provided prior to start of billing. If you choose to continue using data export after the notice period, you will be billed at the applicable rate.
 
 ## Export destinations
 
@@ -64,7 +64,7 @@ The storage account blob path is *WorkspaceResourceId=/subscriptions/subscriptio
 
 The storage account data format is [JSON lines](diagnostic-logs-append-blobs.md). This means each record is delimited by a newline, with no outer records array and no commas between JSON records. 
 
-![Storage sample data](media/logs-data-export/storage-data.png)
+[![Storage sample data](media/logs-data-export/storage-data.png)](media/logs-data-export/storage-data.png#lightbox)
 
 Log Analytics data export can write append blobs to immutable storage accounts when time-based retention policies have the *allowProtectedAppendWrites* setting enabled. This allows writing new blocks to an append blob, while maintaining immutability protection and compliance. See [Allow protected append blobs writes](../../storage/blobs/storage-blob-immutable-storage.md#allow-protected-append-blobs-writes).
 
@@ -84,17 +84,18 @@ Following are prerequisites that must be completed before configuring Log Analyt
 ## Enable data export
 The follow steps must be performed to enable Log Analytics data export. See the following sections for more details on each.
 
-- Register resource provider
-- Allow trusted Microsoft services
+- Register resource provider.
+- Allow trusted Microsoft services.
 - Create one or more data export rules that define the tables to export and their destination.
 
 ### Register resource provider
-
-The following Azure resource providers need to registered for your subscription to enable Log Analytics data export.
+The following Azure resource provider needs to registered for your subscription to enable Log Analytics data export. 
 
 - Microsoft.Insights
 
-You can use any of the available methods to register a resource provider as described in [Azure resource providers and types](../../azure-resource-manager/management/resource-providers-and-types.md). You can also use the following sample command using PowerShell to make authenticated call to Azure Resource Manager:
+This resource provider will probably already be registered for most Azure Monitor users. To verify, go to **Subscriptions** in the Azure portal. Select your subscription and then click **Resource providers** in the **Settings** section of the menu. Locate **Microsoft.Insights**. If its status is **Registered**, then it's already registered. If not, click **Register** to register it.
+
+You can also use any of the available methods to register a resource provider as described in [Azure resource providers and types](../../azure-resource-manager/management/resource-providers-and-types.md). Following is a sample command using PowerShell:
 
 ```PowerShell
 Register-AzResourceProvider -ProviderNamespace Microsoft.insights
@@ -230,143 +231,148 @@ Use the following request to view all data export rules in a workspace using the
 GET https://management.azure.com/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/Microsoft.operationalInsights/workspaces/<workspace-name>/dataexports?api-version=2020-08-01
 ```
 
+## Unsupported tables
+If the data export rule includes an unsupported table, the configuration will succeed, but no data will be exported for that table. If the table is later supported, then its data will be exported at that time.
+
+If the data export rule includes a table that doesn't exist, it will fail with the error *Table <tableName> does not exist in the workspace*.
+
+
 ## Supported tables
+Supported tables are currently limited to those specified below. All data from the table will be exported unless limitations are specified. This list will be updated as support for additional tables is added.
 
-Supported tables are currently limited to the following. If the data export rule includes an unsupported table, the operation will succeed, but no data will be exported for that table. If the data export rule includes a table that doesn't exist, it will fail with the error *Table <tableName> does not exist in the workspace.
 
-
-| Table | Supported | Details |
+| Table | Limitations |
 |:---|:---|:---|
-| AADDomainServicesAccountLogon | | |
-| AADDomainServicesAccountManagement | | |
-| AADDomainServicesDirectoryServiceAccess | | |
-| AADDomainServicesLogonLogoff | | |
-| AADDomainServicesPolicyChange | | |
-| AADDomainServicesPrivilegeUse | | |
-| ADAssessmentRecommendation | | |
-| ADFActivityRun | | |
-| ADFPipelineRun | | |
-| ADFTriggerRun | | |
-| ADReplicationResult | | |
-| ADSecurityAssessmentRecommendation | | |
-| ADTDigitalTwinsOperation | | |
-| ADTEventRoutesOperation | | |
-| ADTModelsOperation | | |
-| ADTQueryOperation | | |
-| ADXCommand | | |
-| ADXQuery | | |
-| AegDeliveryFailureLogs | | |
-| AegPublishFailureLogs | | |
-| Alert | Partial | Some of the data to this table is ingested through storage account. This portion is missing in export currently. |
-| ApiManagementGatewayLogs | | |
-| AppCenterError | | |
-| AppPlatformSystemLogs | | |
-| AppServiceAppLogs | | |
-| AppServiceAuditLogs | | |
-| AppServiceConsoleLogs | | |
-| AppServiceFileAuditLogs | | |
-| AppServiceHTTPLogs | | |
-| AppServicePlatformLogs | | |
-| AuditLogs | | |
-| AutoscaleEvaluationsLog | | |
-| AutoscaleScaleActionsLog | | |
-| AWSCloudTrail | | |
-| AzureAssessmentRecommendation | | |
-| AzureDevOpsAuditing | | |
-| BehaviorAnalytics | | |
-| BlockchainApplicationLog | | |
-| BlockchainProxyLog | | |
-| BlockchainProxyLog | | |
-| CommonSecurityLog | | |
-| CommonSecurityLog | | |
-| ComputerGroup | | |
-| ConfigurationData |Partial | Some of the data is ingested through internal services that isn't supported for export. This portion is missing in export currently. |
-| ContainerImageInventory | | |
-| ContainerInventory | | |
-| ContainerLog | | |
-| ContainerLog | | |
-| ContainerNodeInventory | | |
-| ContainerServiceLog | | |
-| CoreAzureBackup | | |
-| DatabricksAccounts | | |
-| DatabricksClusters | | |
-| DatabricksDBFS | | |
-| DatabricksInstancePools | | |
-| DatabricksJobs | | |
-| DatabricksNotebook | | |
-| DatabricksSecrets | | |
-| DatabricksSQLPermissions | | |
-| DatabricksSSH | | |
-| DatabricksWorkspace | | |
-| DnsEvents | | |
-| DnsInventory | | |
-| Dynamics365Activity | | |
-| Event |Partial | Some of the data to this table is ingested through storage account. This portion is missing in export currently. |
-| ExchangeAssessmentRecommendation | | |
-| ExchangeAssessmentRecommendation | | |
-| FailedIngestion | | |
-| FunctionAppLogs | | |
+| AADDomainServicesAccountLogon | |
+| AADDomainServicesAccountManagement | |
+| AADDomainServicesDirectoryServiceAccess | |
+| AADDomainServicesLogonLogoff | |
+| AADDomainServicesPolicyChange | |
+| AADDomainServicesPrivilegeUse | |
+| ADAssessmentRecommendation | |
+| ADFActivityRun | |
+| ADFPipelineRun | |
+| ADFTriggerRun | |
+| ADReplicationResult | |
+| ADSecurityAssessmentRecommendation | |
+| ADTDigitalTwinsOperation | |
+| ADTEventRoutesOperation | |
+| ADTModelsOperation | |
+| ADTQueryOperation | |
+| ADXCommand | |
+| ADXQuery | |
+| AegDeliveryFailureLogs | |
+| AegPublishFailureLogs | |
+| Alert | Some of the data to this table is ingested through storage account. This portion is missing in export currently. |
+| ApiManagementGatewayLogs | |
+| AppCenterError | |
+| AppPlatformSystemLogs | |
+| AppServiceAppLogs | |
+| AppServiceAuditLogs | |
+| AppServiceConsoleLogs | |
+| AppServiceFileAuditLogs | |
+| AppServiceHTTPLogs | |
+| AppServicePlatformLogs | |
+| AuditLogs | |
+| AutoscaleEvaluationsLog | |
+| AutoscaleScaleActionsLog | |
+| AWSCloudTrail | |
+| AzureAssessmentRecommendation | |
+| AzureDevOpsAuditing | |
+| BehaviorAnalytics | |
+| BlockchainApplicationLog | |
+| BlockchainProxyLog | |
+| BlockchainProxyLog | |
+| CommonSecurityLog | |
+| CommonSecurityLog | |
+| ComputerGroup | |
+| ConfigurationData | Some of the data is ingested through internal services that isn't supported for export. This portion is missing in export currently. |
+| ContainerImageInventory | |
+| ContainerInventory | |
+| ContainerLog | |
+| ContainerLog | |
+| ContainerNodeInventory | |
+| ContainerServiceLog | |
+| CoreAzureBackup | |
+| DatabricksAccounts | |
+| DatabricksClusters | |
+| DatabricksDBFS | |
+| DatabricksInstancePools | |
+| DatabricksJobs | |
+| DatabricksNotebook | |
+| DatabricksSecrets | |
+| DatabricksSQLPermissions | |
+| DatabricksSSH | |
+| DatabricksWorkspace | |
+| DnsEvents | |
+| DnsInventory | |
+| Dynamics365Activity | |
+| Event | Some of the data to this table is ingested through storage account. This portion is missing in export currently. |
+| ExchangeAssessmentRecommendation | |
+| ExchangeAssessmentRecommendation | |
+| FailedIngestion | |
+| FunctionAppLogs | |
 | Heartbeat | Supported | |
-| HuntingBookmark | | |
-| InsightsMetrics |Partial | Some of the data is ingested through internal services that isn't supported for export. This portion is missing in export currently. |
-| IntuneAuditLogs | | |
-| IntuneOperationalLogs | | |
-| KubeEvents | | |
-| KubeHealth | | |
-| KubeMonAgentEvents | | |
-| KubeNodeInventory | | |
-| KubePodInventory | | |
-| KubeServices | | |
-| KubeServices | | |
-| McasShadowItReporting | | |
-| MicrosoftAzureBastionAuditLogs | | |
-| MicrosoftDataShareReceivedSnapshotLog | | |
-| MicrosoftDataShareSentSnapshotLog | | |
-| MicrosoftDataShareShareLog | | |
-| MicrosoftHealthcareApisAuditLogs | | |
-| NWConnectionMonitorPathResult | | |
-| NWConnectionMonitorTestResult | | |
-| OfficeActivity |Partial | Some of the data to ingested via webhooks from O365 into LA. This portion is missing in export currently. |
-| Operation |Partial | Some of the data is ingested through internal services that isn't supported for export. This portion is missing in export currently. |
+| HuntingBookmark | |
+| InsightsMetrics | Some of the data is ingested through internal services that isn't supported for export. This portion is missing in export currently. |
+| IntuneAuditLogs | |
+| IntuneOperationalLogs | |
+| KubeEvents | |
+| KubeHealth | |
+| KubeMonAgentEvents | |
+| KubeNodeInventory | |
+| KubePodInventory | |
+| KubeServices | |
+| KubeServices | |
+| McasShadowItReporting | |
+| MicrosoftAzureBastionAuditLogs | |
+| MicrosoftDataShareReceivedSnapshotLog | |
+| MicrosoftDataShareSentSnapshotLog | |
+| MicrosoftDataShareShareLog | |
+| MicrosoftHealthcareApisAuditLogs | |
+| NWConnectionMonitorPathResult | |
+| NWConnectionMonitorTestResult | |
+| OfficeActivity | Some of the data to ingested via webhooks from O365 into LA. This portion is missing in export currently. |
+| Operation | Some of the data is ingested through internal services that isn't supported for export. This portion is missing in export currently. |
 | Perf | Supported | |
-| SCCMAssessmentRecommendation | | | 
-| SCOMAssessmentRecommendation | | |
-| SecurityAlert | | |
-| SecurityBaseline | | |
-| SecurityBaselineSummary | | |
-| SecurityDetection | | |
+| SCCMAssessmentRecommendation | | 
+| SCOMAssessmentRecommendation | |
+| SecurityAlert | |
+| SecurityBaseline | |
+| SecurityBaselineSummary | |
+| SecurityDetection | |
 | SecurityEvent | Supported | |
-| SecurityIncident | | |
-| SecurityIoTRawEvent | | |
-| SecurityNestedRecommendation | | |
-| SecurityRecommendation | | |
-| SfBAssessmentRecommendation | | |
-| SfBOnlineAssessmentRecommendation | | |
-| SharePointOnlineAssessmentRecommendation | | |
-| SignalRServiceDiagnosticLogs | | |
-| SigninLogs | | |
-| SPAssessmentRecommendation | | |
-| SQLAssessmentRecommendation | | |
-| SucceededIngestion | | |
+| SecurityIncident | |
+| SecurityIoTRawEvent | |
+| SecurityNestedRecommendation | |
+| SecurityRecommendation | |
+| SfBAssessmentRecommendation | |
+| SfBOnlineAssessmentRecommendation | |
+| SharePointOnlineAssessmentRecommendation | |
+| SignalRServiceDiagnosticLogs | |
+| SigninLogs | |
+| SPAssessmentRecommendation | |
+| SQLAssessmentRecommendation | |
+| SucceededIngestion | |
 | Syslog |Partial | Some of the data to this table is ingested through storage account. This portion is missing in export currently. |
-| ThreatIntelligenceIndicator | | |
+| ThreatIntelligenceIndicator | |
 | Update |Partial | Some of the data is ingested through internal services that isn't supported for export. This portion is missing in export currently. |
-| UpdateRunProgress | | |
-| UpdateSummary | | |
-| Usage | | |
-| UserAccessAnalytics | | |
-| UserPeerAnalytics | | |
-| WindowsEvent | | |
-| WindowsFirewall | | |
+| UpdateRunProgress | |
+| UpdateSummary | |
+| Usage | |
+| UserAccessAnalytics | |
+| UserPeerAnalytics | |
+| WindowsEvent | |
+| WindowsFirewall | |
 | WireData |Partial | Some of the data is ingested through internal services that isn't supported for export. This portion is missing in export currently. |
-| WorkloadMonitoringPerf | | |
-| WorkloadMonitoringPerf | | |
-| WVDCheckpoints | | |
-| WVDConnections | | |
-| WVDErrors | | |
-| WVDFeeds | | |
-| WVDManagement | | |
+| WorkloadMonitoringPerf | |
+| WorkloadMonitoringPerf | |
+| WVDCheckpoints | |
+| WVDConnections | |
+| WVDErrors | |
+| WVDFeeds | |
+| WVDManagement | |
 
 ## Next steps
 
-- 
+- [Query the exported data from Azure Data Explorer](azure-data-explorer-query-storage.md).
