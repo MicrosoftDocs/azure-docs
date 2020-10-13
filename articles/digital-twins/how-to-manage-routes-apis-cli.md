@@ -91,7 +91,7 @@ az dt endpoint create eventhub --endpoint-name <Event-Hub-endpoint-name> --event
 
 In order to create an endpoint with dead-lettering enabled, you must use the ARM APIs to create your endpoint. 
 
-Before setting the dead-letter location, you must have a storage account with a container. You provide the URL for this container when creating the endpoint. The dead-letter is provided as a container URL with a SAS token. That token needs at least `write` permission and will be in the format of:
+Before setting the dead-letter location, you must have a storage account with a container. You provide the URL for this container when creating the endpoint. The dead-letter is provided as a container URL with a SAS token. That token needs only `write` permission for the destination container within the storage account. The fully formed URL will be in the format of:
 `https://<storageAccountname>.blob.core.windows.net/<containerName>?<SASToken>`
 
 To learn more about SAS tokens, see: [Grant limited access to Azure Storage resources using shared access signatures (SAS)](https://docs.microsoft.com/azure/storage/common/storage-sas-overview)
