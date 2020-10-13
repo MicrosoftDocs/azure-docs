@@ -104,4 +104,4 @@ In this quickstart, you learned how to add a security principal to an Azure Baby
 Advance to the next article to learn how to run the starter kit and scan data into the catalog.
 
 > [!div class="nextstepaction"]
-> [Scan data into the catalog](starter-kit-tutorial-1.md)
+> [Run the starter kit and scan data](starter-kit-tutorial-1.md)
