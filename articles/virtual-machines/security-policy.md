@@ -20,7 +20,7 @@ The modern threat landscape for cloud environments is dynamic, increasing the pr
 
 ## Azure Security Center
 
-[Azure Security Center](../security-center/security-center-intro.md) helps you prevent, detect, and respond to threats to your VMs. Security Center provides integrated security monitoring and policy management across your Azure subscriptions, helps detect threats that might otherwise go unnoticed, and works with a broad ecosystem of security solutions.
+[Azure Security Center](../security-center/security-center-introduction.md) helps you prevent, detect, and respond to threats to your VMs. Security Center provides integrated security monitoring and policy management across your Azure subscriptions, helps detect threats that might otherwise go unnoticed, and works with a broad ecosystem of security solutions.
 
 Security Center's just-in-time access can be applied across your VM deployment to lock down inbound traffic to your Azure VMs, reducing exposure to attacks while providing easy access to connect to VMs when needed. When just-in-time is enabled and a user requests access to a VM, Security Center checks what permissions the user has for the VM. If they have the correct permissions, the request is approved and Security Center automatically configures the Network Security Groups (NSGs) to allow inbound traffic to the selected ports for a limited amount of time. After the time has expired, Security Center restores the NSGs to their previous states. 
 
@@ -64,9 +64,8 @@ The managed identities for Azure resources feature in Azure Active Directory (Az
 
 ## Role-based access control
 
-Using [Azure role-based access control (Azure RBAC)](../role-based-access-control/overview.md), you can segregate duties within your team and grant only the amount of access to users on your VM that they need to perform their jobs. Instead of giving everybody unrestricted permissions on the VM, you can allow only certain actions. You can configure access control for the VM in the [Azure portal](../role-based-access-control/role-assignments-portal.md), using the [Azure CLI](https://docs.microsoft.com/cli/azure/role), or[Azure PowerShell](../role-based-access-control/role-assignments-powershell.md).
+Using [Azure role-based access control (Azure RBAC)](../role-based-access-control/overview.md), you can segregate duties within your team and grant only the amount of access to users on your VM that they need to perform their jobs. Instead of giving everybody unrestricted permissions on the VM, you can allow only certain actions. You can configure access control for the VM in the [Azure portal](../role-based-access-control/role-assignments-portal.md), using the [Azure CLI](/cli/azure/role), or[Azure PowerShell](../role-based-access-control/role-assignments-powershell.md).
 
 
 ## Next steps
 - Walk through the steps to monitor virtual machine security by using Azure Security Center for [Linux](../security/fundamentals/overview.md) or [Windows](windows/tutorial-azure-security.md).
-

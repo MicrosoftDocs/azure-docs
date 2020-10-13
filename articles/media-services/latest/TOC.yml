@@ -60,7 +60,9 @@
     - name: Encrypt dynamically with AES-128
       href: protect-with-aes128.md
     - name: Encrypt dynamically with DRM
-      href: protect-with-drm.md 
+      href: protect-with-drm.md
+    - name: Content protection with Azure AD
+      href: azure-ad-content-protection.md
   - name: REST
     items:
     - name: Encode and stream a remote file REST
@@ -187,9 +189,7 @@
     - name: Streaming policies 
       href: streaming-policy-concept.md          
     - name: Content key policies 
-      href: content-key-policy-concept.md
-    - name: Content protection with Azure AD
-      href: azure-ad-content-protection.md                    
+      href: content-key-policy-concept.md                    
   - name: Monitoring
     items:
     - name: Events with Event Grid
