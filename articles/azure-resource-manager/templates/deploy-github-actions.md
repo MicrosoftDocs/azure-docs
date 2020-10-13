@@ -2,19 +2,44 @@
 title: Deploy Resource Manager templates by using GitHub Actions
 description: Describes how to deploy Azure Resource Manager templates by using GitHub Actions.
 ms.topic: conceptual
-ms.date: 07/02/2020
+ms.date: 10/13/2020
 ms.custom: github-actions-azure
 ---
 
 # Deploy Azure Resource Manager templates by using GitHub Actions
 
-[GitHub Actions](https://help.github.com/en/actions) enables you to create custom software development life-cycle workflows directly in your GitHub repository where your Azure Resource Manager (ARM) templates are stored. 
+[GitHub Actions](https://help.github.com/actions/getting-started-with-github-actions/about-github-actions) is a suite of features in GitHub to automate your software development workflows in the same place you store code and collaborate on pull requests and issues.
 
-A [workflow](https://help.github.com/actions/reference/workflow-syntax-for-github-actions) is defined by a YAML file. Workflows have one or more jobs with each job containing a set of steps that perform individual tasks. Steps can run commands or use an action. 
+Use the [Deploy Azure Resource Manager Template Action](https://github.com/marketplace/actions/deploy-azure-resource-manager-arm-template) to automate deploying a Resource Manager template to Azure. 
 
-You can create your own actions or use actions shared by the [GitHub community](https://github.com/marketplace?type=actions) and customize them as needed. This article shows how to use [Azure CLI Action](https://github.com/marketplace/actions/azure-cli-action) to deploy Resource Manager templates.
+A [workflow](https://help.github.com/actions/reference/workflow-syntax-for-github-actions) is defined by a YAML file. Workflows have one or more jobs with each job containing a set of steps that perform individual tasks. Steps can run commands or use an action. You can create your own actions or use actions shared by the [GitHub community](https://github.com/marketplace?type=actions) and customize them as needed. 
+
+
+## Workflow file overview
+
+A workflow is defined by a YAML (.yml) file in the `/.github/workflows/` path in your repository. This definition contains the various steps and parameters that make up the workflow.
+
+The file has three sections:
+
+|Section  |Tasks  |
+|---------|---------|
+|**Authentication** | 1. Define a service principal or publish profile. <br /> 2. Create a GitHub secret. |
+|**Build** | 1. Set up the environment. <br /> 2. Build the web app. |
+|**Deploy** | 1. Deploy the web app. |
+
+
+This article shows how to set up a workflow in a GitHub repo that will:
+
+* Check out source code
+* Deploy a Resource Manager template
+* Deploy the container image to an Azure container instance
+
+
 
 Azure CLI Action has two dependent actions:
+
+
+
 
 - **[Checkout](https://github.com/marketplace/actions/checkout)**: Check out your repository so the workflow can access any specified Resource Manager template.
 - **[Azure Login](https://github.com/marketplace/actions/azure-login)**: Log in with your Azure credentials
