@@ -422,4 +422,4 @@ $StopReplicationJob = Remove-AzMigrateServerReplication -InputObject $Replicatin
 
 ## Next steps
 
-Investigate the [cloud migration journey](/azure/architecture/cloud-adoption/getting-started/migrate) in the Azure Cloud Adoption Framework.
+Investigate the cloud migration journey in the Azure Cloud Adoption Framework.
