@@ -47,7 +47,7 @@ If you don't want active learning utterances, you can [disable active learning](
 <a name="accounts"></a>
 
 ## Delete an account
-If you are not migrated, you can delete your account and all your apps will be deleted along with their example utterances and logs. The data is retained for 60 days before the account and data are deleted permanently.
+If you are not migrated, you can delete your account and all your apps will be deleted along with their example utterances and logs. The data is retained for 90 days before the account and data are deleted permanently.
 
 Deleting account is available from the **Settings** page. Select your account name in the top right navigation bar to get to the **Settings** page.
 
