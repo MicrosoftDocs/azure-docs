@@ -87,8 +87,6 @@
     items:
     - name: Export data
       href: export-data.md
-    - name: De-identified export
-      href: de-identified-export.md
   - name: Find identity object IDs
     href: find-identity-object-ids.md
   - name: Enable Diagnostics Logging in Azure API for FHIR®

@@ -334,7 +334,7 @@ Usage
 | where TimeGenerated > ago(32d)
 | where StartTime >= startofday(ago(31d)) and EndTime < startofday(now())
 | where IsBillable == true
-| summarize BillableDataGB = sum(Quantity) by Solution, DataType
+| summarize BillableDataGB = sum(Quantity) / 1000 by Solution, DataType
 | sort by Solution asc, DataType asc
 ```
 

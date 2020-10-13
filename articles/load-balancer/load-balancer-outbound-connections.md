@@ -131,7 +131,7 @@ Outbound rules allow you to control:
 - Which virtual machines should be translated to which public IP addresses.
 - How outbound [SNAT](#snat) ports should be given.
 - Which protocols to provide outbound translation for.
-- What duration to use for outbound connection idle timeout (4-120 minutes).
+- What duration to use for outbound connection idle timeout (4-100 minutes).
 - Whether to send a TCP Reset on idle timeout
 - Both TCP and UDP transport protocols with a single rule
 
