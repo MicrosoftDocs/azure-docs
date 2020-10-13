@@ -30,7 +30,7 @@ Mv2-series VM’s feature Intel® Hyper-Threading Technology
 | Standard_M416ms_v2<sup>1</sup> | 416 | 11400 | 8192 | 64 | 250000 / 1600 (14080) | 80000 / 2000 | 8 | 32000 |
 | Standard_M416s_v2<sup>1</sup> | 416 | 5700 | 8192 | 64 | 250000 / 1600 (14080) | 80000 / 2000 | 8 | 32000 |
 
-<sup>1</sup> Mv2-series VMs are generation 2 only and support  a subset of generation 2 supported Images. Please see below for the complete list of supported images for Mv2-series. If you're using Linux, see [Support for generation 2 VMs on Azure](./linux/generation-2.md) for instructions on how to find and select an image. If you're using Windows, see [Support for generation 2 VMs on Azure](./windows/generation-2.md) for instructions on how to find and select an image. 
+<sup>1</sup> Mv2-series VMs are generation 2 only and support  a subset of generation 2 supported Images. Please see below for the complete list of supported images for Mv2-series. If you're using Linux, see [Support for generation 2 VMs on Azure](./generation-2.md) for instructions on how to find and select an image. If you're using Windows, see [Support for generation 2 VMs on Azure](./generation-2.md) for instructions on how to find and select an image. 
 
 - Windows Server 2019 or later
 - SUSE Linux Enterprise Server 12 SP4 and later or SUSE Linux Enterprise Server 15 SP1 and later

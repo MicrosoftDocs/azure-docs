@@ -1,6 +1,6 @@
 ---
-title: Alert validation (EICAR test file) in Azure Security Center | Microsoft Docs
-description: This document helps you to validate the security alerts in Azure Security Center.
+title: Alert validation in Azure Security Center | Microsoft Docs
+description: Learn how to validate that your security alerts are correctly configured in Azure Security Center
 services: security-center
 documentationcenter: na
 author: memildin
@@ -21,12 +21,6 @@ This document helps you learn how to verify if your system is properly configure
 ## What are security alerts?
 Alerts are the notifications that Security Center generates when it detects threats on your resources. It prioritizes and lists the alerts along with the information needed to quickly investigate the problem. Security Center also provides recommendations for how you can remediate an attack.
 For more information, see [Security alerts in Security Center](security-center-alerts-overview.md) and [Managing and responding to security alerts](security-center-managing-and-responding-alerts.md)
-
-## Alert validation
-
-* [Windows](#validate-windows)
-* [Linux](#validate-linux)
-* [Kubernetes](#validate-kubernetes)
 
 ## Validate alerts on Windows VMs <a name="validate-windows"></a>
 
