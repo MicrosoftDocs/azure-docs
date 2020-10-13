@@ -242,9 +242,9 @@
 - name: Troubleshoot Shared Image Galleries
   items:
   - name: Troubleshoot Shared Image Gallery - Windows
-    href: ../windows/troubleshooting-shared-images.md
+    href: ../troubleshooting-shared-images.md
   - name: Troubleshoot Shared Image Gallery - Linux
-    href: ../linux/troubleshooting-shared-images.md
+    href: ../troubleshooting-shared-images.md
 - name: VM extension issues
   items:
   - name: Azure extension overview
@@ -349,4 +349,3 @@
   items:
   - name: Support for 32-bit operating systems
     href: support-32-bit-operating-systems-virtual-machines.md
-    
