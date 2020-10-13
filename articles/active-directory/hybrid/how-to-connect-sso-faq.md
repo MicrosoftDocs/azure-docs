@@ -102,6 +102,9 @@ Follow these steps on the on-premises server where you are running Azure AD Conn
    >If you are not a domain admin and you were assigned permissions by the domain admin, you should call `Update-AzureADSSOForest -OnPremCredentials $creds -PreserveCustomPermissionsOnDesktopSsoAccount`
    
    3. Repeat the preceding steps for each AD forest that you’ve set up the feature on.
+   
+   >[!NOTE]
+   >If you are updating other forest than the ADConnect part of, Please make sure connectivity over GC (TCP 3268 and TCP 3269) available to communicate
 
    >[!IMPORTANT]
    >Ensure that you _don't_ run the `Update-AzureADSSOForest` command more than once. Otherwise, the feature stops working until the time your users' Kerberos tickets expire and are reissued by your on-premises Active Directory.
