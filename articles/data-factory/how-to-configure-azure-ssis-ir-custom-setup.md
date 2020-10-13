@@ -138,7 +138,7 @@ If you select the **Install licensed component** type for your express custom se
 
    * If you select the **SentryOne's Task Factory** component, you can install the [Task Factory](https://www.sentryone.com/products/task-factory/high-performance-ssis-components) suite of components from SentryOne on your Azure-SSIS IR. To do so, enter the product license key that you purchased from them beforehand in the **License key** text box. The current integrated version is **2020.1.3**.
 
-   * If you select the **oh22's HEDDA.IO** component, you can install the [HEDDA.IO](https://hedda.io/ssis-component/) data quality/cleansing component from oh22 on your Azure-SSIS IR. To do so, you need to purchase their service beforehand. The current integrated version is **1.0.14**.
+   * If you select the **oh22's HEDDA.IO** component, you can install the [HEDDA.IO](https://github.com/oh22is/HEDDA.IO/tree/master/SSIS-IR) data quality/cleansing component from oh22 on your Azure-SSIS IR. To do so, you need to purchase their service beforehand. The current integrated version is **1.0.14**.
 
    * If you select the **oh22's SQLPhonetics.NET** component, you can install the [SQLPhonetics.NET](https://appsource.microsoft.com/product/web-apps/oh22.sqlphonetics-ssis) data quality/matching component from oh22 on your Azure-SSIS IR. To do so, enter the product license key that you purchased from them beforehand in the **License key** text box. The current integrated version is **1.0.45**.
 
