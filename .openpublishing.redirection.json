@@ -26796,7 +26796,12 @@
       "source_path": "articles/bastion/working-remotely-support.md",
       "redirect_url": "/azure/bastion/work-remotely-support",
       "redirect_document_id": false
-    },
+	 },
+	 {
+      "source_path": "articles/bastion/bastion-create-host-portal.md",
+      "redirect_url": "/azure/bastion/tutorial-create-host-portal",
+      "redirect_document_id": false
+	 },
     {
       "source_path": "articles/vpn-gateway/vpn-gateway-site-to-site-create.md",
       "redirect_url": "/azure/vpn-gateway/vpn-gateway-howto-site-to-site-classic-portal",

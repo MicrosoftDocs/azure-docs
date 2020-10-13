@@ -23,6 +23,8 @@
   items:
   - name: Custom models
     href: concepts-models.md
+  - name: Converting industry-standard models
+    href: concepts-convert-models.md    
   - name: Digital twins and the twin graph
     href: concepts-twins-graph.md
   - name: Query language
