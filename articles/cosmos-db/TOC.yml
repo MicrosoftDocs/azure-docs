@@ -108,16 +108,11 @@
         href: consistency-levels-tradeoffs.md
       - name: High availability
         href: high-availability.md
-      - name: Globally scale provisioned throughput
-        displayName: request units, RUs, RU
-        href: scaling-throughput.md
       - name: Conflict types and resolution policies
         displayName: last write wins, custom, multi-region writes, multi-master
         href: conflict-resolution-policies.md
       - name: Global distribution - under the hood
         href: global-dist-under-the-hood.md
-      - name: Regional presence
-        href: regional-presence.md
     - name: Partitioning
       items:
       - name: Partitioning overview

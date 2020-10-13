@@ -4104,7 +4104,12 @@
     {
       "source_path": "articles/cosmos-db/regional-failover.md",
       "redirect_url": "/azure/cosmos-db/high-availability",
-      "redirect_document_id": true
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cosmos-db/scaling-throughput.md",
+      "redirect_url": "/azure/cosmos-db/request-units",
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/cosmos-db/create-mongodb-golang.md",
@@ -16750,6 +16755,11 @@
     {
       "source_path": "articles/documentdb/documentdb-regional-failovers.md",
       "redirect_url": "/azure/cosmos-db/regional-failover",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/documentdb/regional-presence.md",
+      "redirect_url": "/azure/cosmos-db/high-availability",
       "redirect_document_id": false
     },
     {

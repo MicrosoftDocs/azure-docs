@@ -33,42 +33,50 @@ The type of Azure Cosmos account you're using determines the way consumed RUs ge
 
 While you estimate the number of RUs consumed by your workload, consider the following factors:
 
-* **Item size**: As the size of an item increases, the number of RUs consumed to read or write the item also increases.
+- **Item size**: As the size of an item increases, the number of RUs consumed to read or write the item also increases.
 
-* **Item indexing**: By default, each item is automatically indexed. Fewer RUs are consumed if you choose not to index some of your items in a container.
+- **Item indexing**: By default, each item is automatically indexed. Fewer RUs are consumed if you choose not to index some of your items in a container.
 
-* **Item property count**: Assuming the default indexing is on all properties, the number of RUs consumed to write an item increases as the item property count increases.
+- **Item property count**: Assuming the default indexing is on all properties, the number of RUs consumed to write an item increases as the item property count increases.
 
-* **Indexed properties**: An index policy on each container determines which properties are indexed by default. To reduce the RU consumption for write operations, limit the number of indexed properties.
+- **Indexed properties**: An index policy on each container determines which properties are indexed by default. To reduce the RU consumption for write operations, limit the number of indexed properties.
 
-* **Data consistency**: The strong and bounded staleness consistency levels consume approximately two times more RUs while performing read operations when compared to that of other relaxed consistency levels.
+- **Data consistency**: The strong and bounded staleness consistency levels consume approximately two times more RUs while performing read operations when compared to that of other relaxed consistency levels.
 
-* **Type of reads**: Point reads cost significantly fewer RUs than queries.
+- **Type of reads**: Point reads cost significantly fewer RUs than queries.
 
-* **Query patterns**: The complexity of a query affects how many RUs are consumed for an operation. Factors that affect the cost of query operations include: 
-    
-    - The number of query results
-    - The number of predicates
-    - The nature of the predicates
-    - The number of user-defined functions
-    - The size of the source data
-    - The size of the result set
-    - Projections
+- **Query patterns**: The complexity of a query affects how many RUs are consumed for an operation. Factors that affect the cost of query operations include: 
+
+  - The number of query results
+  - The number of predicates
+  - The nature of the predicates
+  - The number of user-defined functions
+  - The size of the source data
+  - The size of the result set
+  - Projections
 
   Azure Cosmos DB guarantees that the same query on the same data always costs the same number of RUs on repeated executions.
 
-* **Script usage**: As with queries, stored procedures and triggers consume RUs based on the complexity of the operations that are performed. As you develop your application, inspect the [request charge header](optimize-cost-queries.md#evaluate-request-unit-charge-for-a-query) to better understand how much RU capacity each operation consumes.
+- **Script usage**: As with queries, stored procedures and triggers consume RUs based on the complexity of the operations that are performed. As you develop your application, inspect the [request charge header](optimize-cost-queries.md#evaluate-request-unit-charge-for-a-query) to better understand how much RU capacity each operation consumes.
+
+## Request units and multiple regions
+
+If you provision *'R'* RUs on a Cosmos container (or database), Cosmos DB ensures that *'R'* RUs are available in *each* region associated with your Cosmos account. You can't selectively assign RUs to a specific region. The RUs provisioned on a Cosmos container (or database) are provisioned in all the regions associated with your Cosmos account.
+
+Assuming that a Cosmos container is configured with *'R'* RUs and there are *'N'* regions associated with the Cosmos account, the total RUs available globally on the container = *R* x *N*.
+
+Your choice of [consistency model](consistency-levels.md) also affects the throughput. You can get approximately 2x read throughput for the more relaxed consistency levels (e.g., *session*, *consistent prefix* and *eventual* consistency) compared to stronger consistency levels (e.g., *bounded staleness* or *strong* consistency).
 
 ## Next steps
 
-* Learn more about how to [provision throughput on Azure Cosmos containers and databases](set-throughput.md).
-* Learn more about [serverless on Azure Cosmos DB](serverless.md).
-* Learn more about [logical partitions](partition-data.md).
-* Learn more about how to [globally scale provisioned throughput](scaling-throughput.md).
-* Learn how to [provision throughput on an Azure Cosmos container](how-to-provision-container-throughput.md).
-* Learn how to [provision throughput on an Azure Cosmos database](how-to-provision-database-throughput.md).
-* Learn how to [find the request unit charge for an operation](find-request-unit-charge.md).
-* Learn how to [optimize provisioned throughput cost in Azure Cosmos DB](optimize-cost-throughput.md).
-* Learn how to [optimize reads and writes cost in Azure Cosmos DB](optimize-cost-reads-writes.md).
-* Learn how to [optimize query cost in Azure Cosmos DB](optimize-cost-queries.md).
-* Learn how to [use metrics to monitor throughput](use-metrics.md).
+- Learn more about how to [provision throughput on Azure Cosmos containers and databases](set-throughput.md).
+- Learn more about [serverless on Azure Cosmos DB](serverless.md).
+- Learn more about [logical partitions](partition-data.md).
+- Learn more about how to [globally scale provisioned throughput](scaling-throughput.md).
+- Learn how to [provision throughput on an Azure Cosmos container](how-to-provision-container-throughput.md).
+- Learn how to [provision throughput on an Azure Cosmos database](how-to-provision-database-throughput.md).
+- Learn how to [find the request unit charge for an operation](find-request-unit-charge.md).
+- Learn how to [optimize provisioned throughput cost in Azure Cosmos DB](optimize-cost-throughput.md).
+- Learn how to [optimize reads and writes cost in Azure Cosmos DB](optimize-cost-reads-writes.md).
+- Learn how to [optimize query cost in Azure Cosmos DB](optimize-cost-queries.md).
+- Learn how to [use metrics to monitor throughput](use-metrics.md).
