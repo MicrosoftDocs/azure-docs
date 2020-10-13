@@ -681,6 +681,6 @@ To learn more about Azure Cosmos DB security features, see the following article
 
 * To configure a firewall for Azure Cosmos DB, see [Firewall support](firewall-support.md).
 
-* To learn how to configure a virtual network service endpoint for your Azure Cosmos account, see [Configure access from virtual networks](how-to-configure-how-to-configure-vnet-service-endpoint.md).
+* To learn how to configure a virtual network service endpoint for your Azure Cosmos account, see [Configure access from virtual networks](how-to-configure-vnet-service-endpoint.md).
 
 * To learn more about Private Link, see the [Azure Private Link](../private-link/private-link-overview.md) documentation.

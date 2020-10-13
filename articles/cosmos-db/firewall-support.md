@@ -27,7 +27,7 @@ Next you can configure IP firewall or VNET service endpoint for your account by 
 
 * [How to configure IP firewall for your Azure Cosmos account](how-to-configure-firewall.md)
 * [Access Azure Cosmos DB resources from virtual networks](how-to-configure-vnet-service-endpoint.md)
-* [How to configure virtual network service endpoint for your Azure Cosmos account](how-to-configure-how-to-configure-vnet-service-endpoint.md)
+* [How to configure virtual network service endpoint for your Azure Cosmos account](how-to-configure-vnet-service-endpoint.md)
 
 
 

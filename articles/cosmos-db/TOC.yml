@@ -577,9 +577,6 @@
           href: secure-access-to-data.md
         - name: IP firewall
           href: firewall-support.md
-        - name: Access from virtual networks
-          displayName: service endpoint
-          href: how-to-configure-vnet-service-endpoint.md
         - name: Service tags
           href: ../virtual-network/service-tags-overview.md?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json
         - name: Role-based access control
@@ -1147,7 +1144,7 @@
         href: how-to-configure-firewall.md
       - name: Configure access from virtual networks
         displayName: service endpoints
-        href: how-to-configure-how-to-configure-vnet-service-endpoint.md
+        href: how-to-configure-vnet-service-endpoint.md
       - name: Configure access from private endpoints
         href: how-to-configure-private-endpoints.md
       - name: Connect privately to a Cosmos DB account
